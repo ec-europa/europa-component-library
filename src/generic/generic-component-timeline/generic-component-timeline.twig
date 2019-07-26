@@ -49,13 +49,13 @@
         </li>
       {% endfor %}
     </ul>
-  {% endif %}
-  {% if _limit > 0 %}
-    {% include '@ecl/' ~ _system ~ '-component-button' with {
-      'modifier': 'call',
-      'label': _button_label,
-      'extra_classes': 'ecl-timeline__button',
-      'icon': 'caret-down'
-    } only %}
+    {% if _limit > 0 and _items.length > _limit %}
+      {% include '@ecl/' ~ _system ~ '-component-button' with {
+        'modifier': 'call',
+        'label': _button_label,
+        'extra_classes': 'ecl-timeline__button',
+        'icon': 'caret-down'
+      } only %}
+    {% endif %}
   {% endif %}
 </section>
