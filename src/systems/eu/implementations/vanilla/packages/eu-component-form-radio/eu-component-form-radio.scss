@@ -15,6 +15,7 @@
   $box-border-color: $ecl-color-grey-50,
   $box-border-color-disabled: $ecl-color-grey-50,
   $box-border-color-checked: $ecl-color-blue-100,
+  $box-border-color-hover: $ecl-color-blue-100,
   $box-background: $ecl-color-white-100,
   $box-background-disabled: $ecl-color-grey-5,
   $outline-width: 3px,
@@ -51,11 +52,20 @@
     background-color: $box-background;
     border: $box-border-width solid $box-border-color;
     border-radius: 50%;
+    box-sizing: content-box;
     display: block;
     height: calc(#{$box-size} - (#{$box-border-width} * 2));
     margin-right: $ecl-spacing-s;
     position: relative;
     width: calc(#{$box-size} - (#{$box-border-width} * 2));
+  }
+
+  .ecl-radio__label:hover .ecl-radio__box {
+    border-color: $box-border-color-hover;
+  }
+
+  .ecl-radio__help {
+    margin-top: $ecl-spacing-xs;
   }
 
   // Checked
@@ -80,11 +90,14 @@
     cursor: not-allowed;
   }
 
+  // stylelint-disable no-descending-specificity
   .ecl-radio__box--disabled,
-  .ecl-radio__input:checked + .ecl-radio__label .ecl-radio__box--disabled {
+  .ecl-radio__input:checked + .ecl-radio__label .ecl-radio__box--disabled,
+  .ecl-radio__label--disabled:hover .ecl-radio__box {
     background-color: $box-background-disabled;
     border-color: $box-border-color-disabled;
   }
+  // stylelint-enable no-descending-specificity
 
   // Focus
   .ecl-radio__input:focus + .ecl-radio__label {
@@ -129,10 +142,6 @@
     border-width: 0;
     margin: 0;
     padding: 0 $ecl-spacing-l;
-  }
-
-  .ecl-radio__help {
-    margin-top: $ecl-spacing-xs;
   }
 
   .ecl-radio__group--invalid {
