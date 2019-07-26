@@ -23,4 +23,5 @@ module.exports = {
       label: 'Bulgaria',
     },
   ],
+  width: 'm',
 };
