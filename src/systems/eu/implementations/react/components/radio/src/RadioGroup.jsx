@@ -1,92 +1,108 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import RadioButton from './RadioButton';
 
 const RadioGroup = ({
-  labelId,
-  items,
-  name,
-  helperText,
-  label,
+  binary,
   helperId,
-  hideLabel,
+  helperText,
   invalid,
   invalidText,
-  binary,
+  items,
+  legend,
+  legendClassName,
+  name,
+  optionalText,
+  required,
+  requiredText,
   className,
   ...props
 }) => {
-  const classNames = classnames(className, 'ecl-radio__group', {
-    'ecl-radio__group--invalid': invalid,
-    'ecl-radio__group--binary': binary,
-  });
+  const classNames = classnames(
+    className,
+    'ecl-form-group ecl-form-group--radio',
+    {
+      'ecl-radio__group--binary': binary,
+    }
+  );
 
   return (
-    <div
+    <fieldset
       {...props}
-      role="radiogroup"
-      aria-labelledby={labelId}
       {...(helperId ? { 'aria-describedby': helperId } : {})}
       className={classNames}
     >
-      {label && (
-        <div
-          className={classnames('ecl-form-label', {
-            'ecl-form-label--hidden': hideLabel,
+      {legend && (
+        <legend
+          className={classnames(legendClassName, 'ecl-form-label', {
+            'ecl-form-label--invalid': invalid,
           })}
-          id={labelId}
         >
-          {label}
-        </div>
+          {legend}
+          {required ? (
+            <Fragment>
+              {requiredText && (
+                <span className="ecl-form-label__required">{requiredText}</span>
+              )}
+            </Fragment>
+          ) : (
+            <Fragment>
+              {optionalText && (
+                <span className="ecl-form-label__optional">{optionalText}</span>
+              )}
+            </Fragment>
+          )}
+        </legend>
       )}
 
       {helperText && (
-        <p
-          {...(helperId ? { id: helperId } : {})}
-          className="ecl-radio__help ecl-help-block"
-        >
+        <div {...(helperId ? { id: helperId } : {})} className="ecl-help-block">
           {helperText}
-        </p>
+        </div>
       )}
 
       {invalid && invalidText && (
-        <p className="ecl-radio__invalid ecl-feedback-message">{invalidText}</p>
+        <div className="ecl-feedback-message">{invalidText}</div>
       )}
 
       {items.map(item => (
-        <RadioButton {...item} name={name} key={item.id} />
+        <RadioButton {...item} name={name} key={item.id} invalid={invalid} />
       ))}
-    </div>
+    </fieldset>
   );
 };
 
 RadioGroup.propTypes = {
-  labelId: PropTypes.string,
-  items: PropTypes.arrayOf(PropTypes.shape(RadioButton.propTypes)),
-  name: PropTypes.string,
+  binary: PropTypes.bool,
   helperId: PropTypes.string,
   helperText: PropTypes.node,
-  label: PropTypes.string,
-  hideLabel: PropTypes.bool,
   invalid: PropTypes.bool,
   invalidText: PropTypes.node,
-  binary: PropTypes.bool,
+  items: PropTypes.arrayOf(PropTypes.shape(RadioButton.propTypes)),
+  legend: PropTypes.string,
+  legendClassName: PropTypes.string,
+  name: PropTypes.string,
+  optionalText: PropTypes.string,
+  required: PropTypes.bool,
+  requiredText: PropTypes.string,
   className: PropTypes.string,
 };
 
 RadioGroup.defaultProps = {
-  labelId: '',
-  items: [],
-  name: '',
+  binary: false,
   helperId: '',
   helperText: '',
-  label: '',
-  hideLabel: false,
   invalid: false,
   invalidText: '',
-  binary: false,
+  items: [],
+  legend: '',
+  legendClassName: '',
+  name: '',
+  optionalText: '',
+  required: false,
+  requiredText: '',
   className: '',
 };
 
