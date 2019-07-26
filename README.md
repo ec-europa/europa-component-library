@@ -30,15 +30,15 @@ The ECL is bundled in various [presets](docs/06-presets.md) in order to accomoda
   ```html
   <link
     rel="stylesheet"
-    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.8.0/ec-preset-website/styles/ecl-ec-preset-website.css"
-    integrity="sha256-z6dOAjOJqqSZ+PIO37K+3Ayllx3xXxCqyR/8E9uRDPw= sha384-jo7jGBnWqwlT+VWjtSizGP6fGUspsK9tw7J4EipSCa2B+E3TUn7JG/DmWOnau+5/ sha512-hCpCgFHGoE4IOf4Kp40t1EwIdTQL5gMnCKP8+6fmD7Fd7woiJdbnyY9AMiSG7x/cDidTsbf4CzY/IQw8WbL0QQ=="
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.9.0/ec-preset-website/styles/ecl-ec-preset-website.css"
+    integrity="sha256-PZ5+c4UP0uOBkXqLAQScFux6OT39C6+HcZLVTp8aFzg= sha384-9CL/eYE6ak5OVytCErP+3mafQsspQ6Er4UsWqR9DUeP8/wvH5DlwpsqcdyVHv2yu sha512-YEAIPoM2cLEMVbNhvAzoKQvEjfUOT0nS754YoQxAwMUFlnBIp7avhW/hSGpCkWnhHlnfSe2VpASjw6ve5DLsTA=="
     crossorigin="anonymous"
     media="screen"
   />
   <link
     rel="stylesheet"
-    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.8.0/ec-preset-website/styles/ecl-ec-preset-website-print.css"
-    integrity="sha256-Zh83Gt9NTD0ubu/zxUlc7Bcfnt768p3wMKlLdsEZCEI= sha384-la5bewKH2QjykLDreUZ0lds6kItLcnybpiKJV3YYglDIyW2J9ZFE8tlZgeoOmYdz sha512-JpJ5jkM1mfpxnpt8ZBi1EoXI1J8yjuYwhs/K7vvcbRQb5AdAOMUG40CKWCANjkz4fwPF7ZbYB1vGW95sbwI7ZQ=="
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.9.0/ec-preset-website/styles/ecl-ec-preset-website-print.css"
+    integrity="sha256-llPEkY4oKLeDhxivfxufesB8jr8vdQyh07h9LT87VIU= sha384-1Z9xMO8YqgB+n2crzqEdRmXl5aQGeIAcNyr23yEj5darNuKnxwXPejmdpF1d6imv sha512-w1oWuPaGmxFLqv3wLYAkPXAMTdmvYDKdvCmdTVgv4rAwZx4q62wJzsazT84feQdzEqFW8FXBOgJg0l6lKW9sWg=="
     crossorigin="anonymous"
     media="print"
   />
@@ -47,8 +47,8 @@ The ECL is bundled in various [presets](docs/06-presets.md) in order to accomoda
   ```html
   <script
     type="text/javascript"
-    src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.8.0/ec-preset-website/scripts/ecl-ec-preset-website.js"
-    integrity="sha256-Y6lSKSg78QaMCJ0YzUZhq+/iq6siGuElj9nwjTvPASw= sha384-haktrNf1owx3JqtntwYppg4ji9P3fdNZYySnPhmBvjiHShUjWPC85APAPVnaMZlL sha512-SXyovSU/88gayWj0adbCZYrxfKO5Nua+5vRW4VMJA2RNGHKb+RDodYF5HV6dl2its4BsF2rADQLR7bcPZrv3Vg=="
+    src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.9.0/ec-preset-website/scripts/ecl-ec-preset-website.js"
+    integrity="sha256-BBXmGxAdealzbrTp5MJFR5fciRheFYvU9EL8bM2XHts= sha384-EBdFW8aEUzE3lvFgt46Me+uQwOQpuJG/YsPIQU4f/9YxPhEPycn12COKOzQBzu26 sha512-PIJHSh4/sNI+ZiZEjxaVdHh/GHC/sEOCcaGVUFoxS8YDoD4hjrvB78QY5EIyG1/eA1xqRRSDMMvVttuuj2IlwQ=="
     crossorigin="anonymous"
     defer
   ></script>
@@ -60,5 +60,5 @@ Please contact [COMM Europa Management](mailto:Europamanagement@ec.europa.eu) fo
 
 ## Previous major versions
 
-- v1.9.0: [sources](https://github.com/ec-europa/europa-component-library/tree/v1) - [release](https://github.com/ec-europa/europa-component-library/releases/tag/v1.9.0) - [website](https://v1--europa-component-library.netlify.com/)
+- v1.10.0: [sources](https://github.com/ec-europa/europa-component-library/tree/v1) - [release](https://github.com/ec-europa/europa-component-library/releases/tag/v1.10.0) - [website](https://v1--europa-component-library.netlify.com/)
 - v0.24.0: [sources](https://github.com/ec-europa/europa-component-library/tree/v0) - [release](https://github.com/ec-europa/europa-component-library/releases/tag/v0.24.0) - [website](https://v0--europa-component-library.netlify.com/)

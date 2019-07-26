@@ -13,20 +13,24 @@
     margin: 0;
 
     > *:not(.ecl-form-label--hidden) + * {
+      margin-top: $ecl-spacing-xs;
+    }
+
+    > *:not(.ecl-form-label--hidden) + .ecl-text-input {
+      margin-top: $ecl-spacing-s;
+    }
+
+    > *:not(.ecl-form-label--hidden) + .ecl-text-area {
+      margin-top: $ecl-spacing-s;
+    }
+
+    > *:not(.ecl-form-label--hidden) + .ecl-select__container {
       margin-top: $ecl-spacing-s;
     }
 
     > .ecl-feedback-message + .ecl-help-block {
       margin-top: 0;
     }
-  }
-
-  .ecl-form-group--text-input {
-    max-width: 31.25rem;
-  }
-
-  .ecl-form-group--text-area {
-    max-width: 36.25rem;
   }
 }
 
