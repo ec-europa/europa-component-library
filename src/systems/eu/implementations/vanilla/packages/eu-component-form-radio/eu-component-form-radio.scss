@@ -18,7 +18,7 @@
   $box-border-color-hover: $ecl-color-blue-100,
   $box-background: $ecl-color-white-100,
   $box-background-disabled: $ecl-color-grey-5,
-  $outline-width: 3px,
+  $outline-width: 2px,
   $outline-color: $ecl-color-yellow-100,
   $invalid-border-color: $ecl-color-error,
   $invalid-border-width: 2px // DEPRECATED
@@ -100,7 +100,8 @@
   // stylelint-enable no-descending-specificity
 
   // Focus
-  .ecl-radio__input:focus + .ecl-radio__label {
+  .ecl-radio__input:focus + .ecl-radio__label,
+  .ecl-radio__input:active + .ecl-radio__label {
     .ecl-radio__box::before {
       // We can't use outline as this is a rounded box
       border: $outline-width solid $outline-color;
@@ -115,7 +116,8 @@
     }
   }
 
-  .ecl-radio__input:checked:focus + .ecl-radio__label {
+  .ecl-radio__input:checked:focus + .ecl-radio__label,
+  .ecl-radio__input:checked:active + .ecl-radio__label {
     .ecl-radio__box::before {
       left: -#{$box-border-width-checked};
       top: -#{$box-border-width-checked};

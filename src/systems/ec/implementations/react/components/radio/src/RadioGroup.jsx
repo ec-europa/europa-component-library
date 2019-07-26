@@ -11,11 +11,8 @@ const RadioGroup = ({
   invalid,
   invalidText,
   items,
-  label, // DEPRECATED
-  labelId, // DEPRECATED
   legend,
   legendClassName,
-  legendId,
   name,
   optionalText,
   required,
@@ -34,7 +31,6 @@ const RadioGroup = ({
   return (
     <fieldset
       {...props}
-      aria-labelledby={labelId || legendId}
       {...(helperId ? { 'aria-describedby': helperId } : {})}
       className={classNames}
     >
@@ -43,9 +39,8 @@ const RadioGroup = ({
           className={classnames(legendClassName, 'ecl-form-label', {
             'ecl-form-label--invalid': invalid,
           })}
-          id={legendId}
         >
-          {label || legend}
+          {legend}
           {required ? (
             <Fragment>
               {requiredText && (
@@ -86,11 +81,8 @@ RadioGroup.propTypes = {
   invalid: PropTypes.bool,
   invalidText: PropTypes.node,
   items: PropTypes.arrayOf(PropTypes.shape(RadioButton.propTypes)),
-  label: PropTypes.string, // DEPRECATED
-  labelId: PropTypes.string, // DEPRECATED
   legend: PropTypes.string,
   legendClassName: PropTypes.string,
-  legendId: PropTypes.string,
   name: PropTypes.string,
   optionalText: PropTypes.string,
   required: PropTypes.bool,
@@ -105,10 +97,7 @@ RadioGroup.defaultProps = {
   invalid: false,
   invalidText: '',
   items: [],
-  label: '', // DEPRECATED
-  labelId: '', // DEPRECATED
   legend: '',
-  legendId: '',
   legendClassName: '',
   name: '',
   optionalText: '',

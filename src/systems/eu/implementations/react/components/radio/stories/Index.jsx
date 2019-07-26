@@ -16,7 +16,6 @@ storiesOf('Components|Forms/Radio', module)
       <RadioGroup
         {...demoContentDefault}
         name="radio-group-1"
-        legendId="legend-id-1"
         helperId="helper-id-1"
         legend={text('Label', demoContentDefault.legend)}
         helperText={text('Helper text', demoContentDefault.helperText)}
@@ -39,7 +38,6 @@ storiesOf('Components|Forms/Radio', module)
       <RadioGroup
         {...demoContentBinary}
         name="radio-group-1"
-        legendId="legend-id-1"
         helperId="helper-id-1"
         legend={text('Label', demoContentBinary.legend)}
         helperText={text('Helper text', demoContentBinary.helperText)}
