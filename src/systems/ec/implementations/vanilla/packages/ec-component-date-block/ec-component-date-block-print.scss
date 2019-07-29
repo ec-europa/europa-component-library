@@ -1,0 +1,34 @@
+/*
+ * Date block
+ * @define date-block
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-date-block-print() {
+  .ecl-date-block {
+    margin: 0;
+  }
+
+  .ecl-date-block__day {
+    color: $ecl-color-black;
+    font: $ecl-font-print-2-xl;
+    font-weight: $ecl-font-weight-bold;
+  }
+
+  .ecl-date-block__month {
+    color: $ecl-color-black;
+    font: $ecl-font-print-m;
+  }
+
+  .ecl-date-block__year {
+    color: $ecl-color-black;
+    font: $ecl-font-print-s;
+  }
+}
+
+// Use mixin
+@include exports('ec-component-date-block-print') {
+  @include ecl-date-block-print();
+}

@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 const DateBlock = ({
-  variant, // ongoing, cancelled, past
-  weekDay,
+  variant, // ongoing, canceled, past
   day,
   month,
+  year,
   className,
   ...props
 }) => {
@@ -16,26 +16,26 @@ const DateBlock = ({
 
   return (
     <div {...props} className={classNames}>
-      <div className="ecl-date-block__week-day">{weekDay}</div>
       <div className="ecl-date-block__day">{day}</div>
       <div className="ecl-date-block__month">{month}</div>
+      <div className="ecl-date-block__year">{year}</div>
     </div>
   );
 };
 
 DateBlock.propTypes = {
   variant: PropTypes.string,
-  weekDay: PropTypes.string,
   day: PropTypes.string,
   month: PropTypes.string,
+  year: PropTypes.string,
   className: PropTypes.string,
 };
 
 DateBlock.defaultProps = {
-  variant: 'primary',
-  weekDay: '',
+  variant: '',
   day: '',
   month: '',
+  year: '',
   className: '',
 };
 
