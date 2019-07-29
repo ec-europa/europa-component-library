@@ -39,4 +39,12 @@ storiesOf('Components|Date Block', module)
       month={text('Month', demoContent.month)}
       year={text('Year', demoContent.year)}
     />
+  ))
+  .add('rescheduled', () => (
+    <DateBlock
+      variant="rescheduled"
+      day={text('Day', demoContent.day)}
+      month={text('Month', demoContent.month)}
+      year={text('Year', demoContent.year)}
+    />
   ));

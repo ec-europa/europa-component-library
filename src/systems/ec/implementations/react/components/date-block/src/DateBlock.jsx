@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 const DateBlock = ({
-  variant, // ongoing, canceled, past
+  variant, // ongoing, canceled, past, rescheduled
   day,
   month,
   year,
