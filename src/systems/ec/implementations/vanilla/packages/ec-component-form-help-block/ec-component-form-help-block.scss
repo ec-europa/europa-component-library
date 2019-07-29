@@ -9,11 +9,15 @@
 @mixin ecl-help-block() {
   .ecl-help-block {
     box-sizing: border-box;
-    color: $ecl-color-grey-75;
+    color: $ecl-color-grey-100;
     display: block;
-    font: $ecl-font-prolonged-m;
+    font: $ecl-font-prolonged-s;
     margin: 0;
     padding: 0;
+  }
+
+  .ecl-help-block--disabled {
+    color: $ecl-color-grey-50;
   }
 }
 

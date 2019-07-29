@@ -4,14 +4,16 @@ import classnames from 'classnames';
 
 const RadioButton = ({
   id,
-  name,
-  value,
-  disabled,
-  className,
+  label,
+  labelClassName,
   helperId,
   helperText,
-  label,
+  invalid,
+  disabled,
   checked,
+  name,
+  value,
+  className,
   ...props
 }) => {
   const classNames = classnames(className, 'ecl-radio', {
@@ -30,17 +32,29 @@ const RadioButton = ({
         {...(helperId ? { 'aria-describedby': helperId } : {})}
         {...(checked ? { defaultChecked: true } : {})}
       />
-      <label htmlFor={id} className="ecl-radio__label">
-        <span className="ecl-radio__box" />
+      <label
+        htmlFor={id}
+        className={classnames(labelClassName, 'ecl-radio__label', {
+          'ecl-radio__label--disabled': disabled,
+        })}
+      >
+        <span
+          className={classnames('ecl-radio__box', {
+            'ecl-radio__box--invalid': invalid,
+            'ecl-radio__box--disabled': disabled,
+          })}
+        />
         {label}
       </label>
       {helperText && (
-        <p
+        <div
           {...(helperId ? { id: helperId } : {})}
-          className="ecl-radio__help ecl-help-block"
+          className={classnames('ecl-help-block ecl-radio__help', {
+            'ecl-help-block--disabled': disabled,
+          })}
         >
           {helperText}
-        </p>
+        </div>
       )}
     </div>
   );
@@ -48,23 +62,27 @@ const RadioButton = ({
 
 RadioButton.propTypes = {
   id: PropTypes.string.isRequired,
-  disabled: PropTypes.bool,
+  label: PropTypes.node.isRequired,
+  labelClassName: PropTypes.string,
   helperId: PropTypes.string,
   helperText: PropTypes.node,
-  name: PropTypes.string,
-  label: PropTypes.node.isRequired,
-  value: PropTypes.string,
+  invalid: PropTypes.bool,
+  disabled: PropTypes.bool,
   checked: PropTypes.bool,
+  name: PropTypes.string,
+  value: PropTypes.string,
   className: PropTypes.string,
 };
 
 RadioButton.defaultProps = {
-  disabled: false,
+  labelClassName: '',
   helperId: '',
   helperText: '',
+  invalid: false,
+  disabled: false,
+  checked: false,
   name: '',
   value: '',
-  checked: false,
   className: '',
 };
 
