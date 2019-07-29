@@ -8,6 +8,7 @@ const Checkbox = ({
   className,
   defaultChecked,
   disabled,
+  helperId,
   helperText,
   hideLabel,
   id,
@@ -15,58 +16,56 @@ const Checkbox = ({
   invalidText,
   label,
   labelClassName,
-  mandatory,
   name,
   ...props
 }) => {
   const classNames = classnames(className, 'ecl-checkbox', {
     'ecl-checkbox--invalid': invalid,
-    'ecl-checkbox--required': mandatory,
   });
 
   return (
-    <div className="ecl-form-group ecl-form-group--checkbox">
-      <div className={classNames}>
-        <input
-          {...props}
-          type="checkbox"
-          id={id}
-          defaultChecked={defaultChecked}
-          name={name || undefined}
-          className="ecl-checkbox__input"
-          disabled={disabled}
-        />
+    <div {...props} className={classNames}>
+      <input
+        {...props}
+        type="checkbox"
+        id={id}
+        defaultChecked={defaultChecked}
+        name={name || undefined}
+        className="ecl-checkbox__input"
+        disabled={disabled}
+      />
 
-        <label
-          className={classnames(
-            labelClassName,
-            'ecl-form-label ecl-form-label--inline ecl-checkbox__label',
-            {
-              'ecl-form-label--invalid': invalid,
-              'ecl-checkbox__label--hidden': hideLabel,
-              'ecl-form-label--hidden': hideLabel,
-            }
-          )}
-          htmlFor={id}
-        >
-          <span className="ecl-checkbox__box">
-            <Icon className="ecl-checkbox__icon" shape="ui--check" size="s" />
-          </span>
-          {label}
-        </label>
-        {mandatory && (
-          <span className="ecl-form-label--required ecl-checkbox__required">
-            *
-          </span>
+      <label
+        className={classnames(
+          labelClassName,
+          'ecl-form-label ecl-checkbox__label',
+          {
+            'ecl-form-label--invalid': invalid,
+            'ecl-checkbox__label--hidden': hideLabel,
+            'ecl-form-label--hidden': hideLabel,
+          }
         )}
-      </div>
+        htmlFor={id}
+      >
+        <span
+          className={classnames('ecl-checkbox__box', {
+            'ecl-checkbox__box--invalid': invalid,
+            'ecl-checkbox__box--disabled': disabled,
+          })}
+        >
+          <Icon className="ecl-checkbox__icon" shape="ui--check" size="s" />
+        </span>
+        {label}
+      </label>
 
       {helperText && (
-        <div className="ecl-help-block ecl-checkbox__help">{helperText}</div>
-      )}
-      {invalid && invalidText && (
-        <div className="ecl-feedback-message ecl-checkbox__invalid">
-          {invalidText}
+        <div
+          {...(helperId ? { id: helperId } : {})}
+          className={classnames('ecl-help-block ecl-checkbox__help', {
+            'ecl-help-block--disabled': disabled,
+          })}
+        >
+          {helperText}
         </div>
       )}
     </div>
@@ -77,14 +76,14 @@ Checkbox.propTypes = {
   className: PropTypes.string,
   defaultChecked: PropTypes.bool,
   disabled: PropTypes.bool,
+  helperId: PropTypes.string,
   helperText: PropTypes.node,
   hideLabel: PropTypes.bool,
   id: PropTypes.string.isRequired,
   invalid: PropTypes.bool,
-  invalidText: PropTypes.node,
+  invalidText: PropTypes.string,
   label: PropTypes.string,
   labelClassName: PropTypes.string,
-  mandatory: PropTypes.bool,
   name: PropTypes.string,
 };
 
@@ -92,13 +91,13 @@ Checkbox.defaultProps = {
   className: '',
   defaultChecked: false,
   disabled: false,
+  helperId: '',
   helperText: '',
   hideLabel: false,
   invalid: false,
   invalidText: '',
   label: '',
   labelClassName: '',
-  mandatory: false,
   name: '',
 };
 

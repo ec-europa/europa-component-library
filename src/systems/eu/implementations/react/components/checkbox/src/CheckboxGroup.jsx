@@ -21,10 +21,13 @@ const CheckboxGroup = ({
   requiredText,
   ...props
 }) => {
-  const classNames = classnames(className, 'ecl-checkbox__group', {
-    'ecl-checkbox__group--invalid': invalid,
-    'ecl-checkbox__group--opt-in-out': optInOut,
-  });
+  const classNames = classnames(
+    className,
+    'ecl-form-group ecl-form-group--checkbox',
+    {
+      'ecl-radio__group--opt-in-out': optInOut,
+    }
+  );
 
   return (
     <fieldset
