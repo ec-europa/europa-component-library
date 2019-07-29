@@ -1,6 +1,6 @@
 import { queryAll } from '@ecl/ec-base/helpers/dom';
 
-export const autoInit = (root = document) => {
+export const autoInit = ({ root: root = document, ...options } = {}) => {
   if (!ECL) {
     throw new TypeError('Called autoInit but ECL is not present');
   }
@@ -32,7 +32,7 @@ export const autoInit = (root = document) => {
         );
       }
 
-      const component = ctor.autoInit(node);
+      const component = ctor.autoInit(node, options);
       components.push(component);
 
       node.setAttribute('data-ecl-auto-initialized', 'true');

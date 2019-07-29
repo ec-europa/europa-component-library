@@ -1,6 +1,14 @@
 import { queryOne } from '@ecl/ec-base/helpers/dom';
 
 export class Message {
+  static autoInit(root, { MESSAGE: defaultOptions = {} } = {}) {
+    const message = new Message(root, defaultOptions);
+    message.init();
+    // eslint-disable-next-line no-param-reassign
+    root.ECLMessage = message;
+    return message;
+  }
+
   constructor(
     element,
     {
@@ -52,13 +60,5 @@ export class Message {
     return this;
   }
 }
-
-Message.autoInit = root => {
-  const message = new Message(root);
-  message.init();
-  // eslint-disable-next-line no-param-reassign
-  root.ECLMessage = message;
-  return message;
-};
 
 export default Message;
