@@ -44,3 +44,34 @@ The first item and the last 2 items should always be visible.
     </Breadcrumb>
   </div>
 </Playground>
+
+## JS behaviour
+
+### Auto initialisation
+
+In order to automatically initalise the JS behaviour, add `data-ecl-auto-init="Breadcrumb"` to your component's markup:
+
+```html
+<nav
+  class="ecl-breadcrumb"
+  aria-label="You are here:"
+  data-ecl-breadcrumb
+  data-ecl-auto-init="Breadcrumb"
+>
+  ...
+</nav>
+```
+
+Don't forget to call `ECL.autoInit()` when your page is ready!
+
+### Manual initialisation
+
+When the document is ready, query the element. For example, you can use `document.querySelector('[data-ecl-breadcrumb]')` if you only have 1 breadcrumb in the page.
+
+Then, instantiate the `Breadcrumb` component and call `init()`:
+
+```js
+var elt = document.querySelector('[data-ecl-breadcrumb]');
+var breadcrumb = new ECL.Breadcrumb(elt);
+breadcrumb.init();
+```
