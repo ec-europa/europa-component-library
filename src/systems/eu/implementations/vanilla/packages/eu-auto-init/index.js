@@ -28,7 +28,7 @@ export const autoInit = ({ root: root = document, ...options } = {}) => {
 
       if (typeof ctor.autoInit !== 'function') {
         throw new TypeError(
-          `(ecl-auto-init) Could not find autoInit for  '${componentType}'`
+          `(ecl-auto-init) Could not find autoInit for '${componentType}'`
         );
       }
 
