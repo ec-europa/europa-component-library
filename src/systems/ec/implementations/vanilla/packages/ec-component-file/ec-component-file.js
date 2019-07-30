@@ -1,6 +1,14 @@
 import { queryOne } from '@ecl/ec-base/helpers/dom';
 
 export class FileDownload {
+  static autoInit(root, { FILE_DOWNLOAD: defaultOptions = {} } = {}) {
+    const fileDownload = new FileDownload(root, defaultOptions);
+    fileDownload.init();
+    // eslint-disable-next-line no-param-reassign
+    root.ECLFileDownload = fileDownload;
+    return fileDownload;
+  }
+
   constructor(
     element,
     {

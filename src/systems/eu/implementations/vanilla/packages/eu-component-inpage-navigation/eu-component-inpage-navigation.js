@@ -11,6 +11,14 @@ import { queryOne, queryAll } from '@ecl/eu-base/helpers/dom';
  * @param {object} options Object containing configuration overrides
  */
 export class InpageNavigation {
+  static autoInit(root, { INPAGE_NAVIGATION: defaultOptions = {} } = {}) {
+    const inpageNavigation = new InpageNavigation(root, defaultOptions);
+    inpageNavigation.init();
+    // eslint-disable-next-line no-param-reassign
+    root.ECLInpageNavigation = inpageNavigation;
+    return inpageNavigation;
+  }
+
   constructor(
     element,
     {
