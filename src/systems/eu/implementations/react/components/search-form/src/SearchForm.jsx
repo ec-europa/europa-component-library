@@ -21,7 +21,7 @@ const SearchForm = ({
         className="ecl-search-form__text-input"
         type="search"
         label={inputLabel}
-        hideLabel
+        labelClassName="ecl-search-form__label"
       />
       <Button
         variant="search"

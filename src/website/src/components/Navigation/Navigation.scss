@@ -32,6 +32,7 @@ $nav-toggle-bar-spacing-between: 0.375rem;
 }
 
 .nav--closed {
+  overflow: visible;
   transform: translate(-$nav-width, 0);
 
   :global(.no-js) & {
@@ -118,8 +119,8 @@ $nav-toggle-bar-spacing-between: 0.375rem;
   background-color: $ecl-color-grey-25;
   border-width: 0;
   height: $nav-toggle-size;
-  left: $nav-width - $nav-toggle-size;
-  position: fixed;
+  position: absolute;
+  right: 0;
   top: 0;
   transition: transform 300ms;
   width: $nav-toggle-size;
@@ -131,7 +132,7 @@ $nav-toggle-bar-spacing-between: 0.375rem;
 }
 
 .button-toggle--closed {
-  transform: translate(-($nav-width - $nav-toggle-size));
+  transform: translate($nav-toggle-size);
 }
 
 .hamburger-box {

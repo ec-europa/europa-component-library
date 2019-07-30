@@ -11,4 +11,6 @@ cp -r ../../dist/playground/eu ./public/playground
 
 # Make css available for storybook
 cp -r ../../dist/packages/ec-preset-website/styles ./public/playground/ec
+cp -r ../../dist/packages/ec-preset-legacy-website/styles ./public/playground/ec
 cp -r ../../dist/packages/eu-preset-website/styles ./public/playground/eu
+cp -r ../../dist/packages/eu-preset-legacy-website/styles ./public/playground/eu

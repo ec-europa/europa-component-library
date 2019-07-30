@@ -19,12 +19,15 @@ const Footer = ({
     })}
   >
     {/* Back to top */}
+    {/*
     {!!(backToTop && backToTop.label) && (
       <Link
         {...backToTop}
         className={classnames(backToTop.className, 'ecl-footer__back-to-top')}
       />
     )}
+    */}
+
     {/* Site identity */}
     {!!(identity && identity.title) && (
       <section className="ecl-footer__identity">
@@ -187,6 +190,11 @@ Footer.propTypes = {
   backToTop: PropTypes.shape(Link.propTypes),
   identity: PropTypes.shape({
     title: PropTypes.string,
+    follow: PropTypes.shape({
+      label: PropTypes.string,
+      links: PropTypes.arrayOf(PropTypes.shape(Link.propTypes)),
+    }),
+    info: PropTypes.arrayOf(PropTypes.shape(Link.propTypes)),
     links: PropTypes.arrayOf(PropTypes.shape(Link.propTypes)),
   }),
   sections: PropTypes.arrayOf(

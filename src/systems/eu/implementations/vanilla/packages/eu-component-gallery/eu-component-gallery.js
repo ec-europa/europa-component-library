@@ -13,7 +13,8 @@ export class Gallery {
       overlaySelector: overlaySelector = '[data-ecl-gallery-overlay]',
       overlayHeaderelector: overlayHeaderSelector = '[data-ecl-gallery-overlay-header]',
       overlayFooterSelector: overlayFooterSelector = '[data-ecl-gallery-overlay-footer]',
-      overlayImageSelector: overlayImageSelector = '[data-ecl-gallery-overlay-image]',
+      overlayImageSelector: overlayImageSelector = '[data-ecl-gallery-overlay-image]', // DEPRECATED
+      overlayMediaSelector: overlayMediaSelector = '[data-ecl-gallery-overlay-media]',
       overlayCounterCurrentSelector: overlayCounterCurrentSelector = '[data-ecl-gallery-overlay-counter-current]',
       overlayCounterMaxSelector: overlayCounterMaxSelector = '[data-ecl-gallery-overlay-counter-max]',
       overlayDownloadSelector: overlayDownloadSelector = '[data-ecl-gallery-overlay-download]',
@@ -43,7 +44,8 @@ export class Gallery {
     this.overlaySelector = overlaySelector;
     this.overlayHeaderSelector = overlayHeaderSelector;
     this.overlayFooterSelector = overlayFooterSelector;
-    this.overlayImageSelector = overlayImageSelector;
+    this.overlayImageSelector = overlayImageSelector; // DEPRECATED
+    this.overlayMediaSelector = overlayMediaSelector;
     this.overlayCounterCurrentSelector = overlayCounterCurrentSelector;
     this.overlayCounterMaxSelector = overlayCounterMaxSelector;
     this.overlayDownloadSelector = overlayDownloadSelector;
@@ -62,7 +64,8 @@ export class Gallery {
     this.overlay = null;
     this.overlayHeader = null;
     this.overlayFooter = null;
-    this.overlayImage = null;
+    this.overlayImage = null; // DEPRECATED
+    this.overlayMedia = null;
     this.overlayCounterCurrent = null;
     this.overlayCounterMax = null;
     this.overlayDownload = null;
@@ -92,7 +95,8 @@ export class Gallery {
     this.overlay = queryOne(this.overlaySelector, this.element);
     this.overlayHeader = queryOne(this.overlayHeaderSelector, this.overlay);
     this.overlayFooter = queryOne(this.overlayFooterSelector, this.overlay);
-    this.overlayImage = queryOne(this.overlayImageSelector, this.overlay);
+    this.overlayImage = queryOne(this.overlayImageSelector, this.overlay); // DEPRECATED
+    this.overlayMedia = queryOne(this.overlayMediaSelector, this.overlay);
     this.overlayCounterCurrent = queryOne(
       this.overlayCounterCurrentSelector,
       this.overlay
@@ -205,18 +209,87 @@ export class Gallery {
 
   updateOverlay(selectedItem) {
     this.selectedItem = selectedItem;
+    const video = queryOne('video', selectedItem);
+    let mediaElement = null;
 
-    // Update image
-    this.overlayImage.setAttribute('src', selectedItem.getAttribute('href'));
+    // Update media
+    if (video != null) {
+      // Media is a video
+      mediaElement = document.createElement('video');
+      mediaElement.setAttribute('poster', video.poster);
+      mediaElement.setAttribute('controls', 'controls');
+      mediaElement.classList.add('ecl-gallery__slider-video');
+
+      if (this.overlayMedia) {
+        this.overlayMedia.innerHTML = '';
+        /* eslint-disable-next-line unicorn/prefer-node-append */
+        this.overlayMedia.appendChild(mediaElement);
+      }
+
+      // Get sources
+      const sources = queryAll('source', video);
+      sources.forEach(source => {
+        const sourceTag = document.createElement('source');
+        sourceTag.setAttribute('src', source.getAttribute('src'));
+        sourceTag.setAttribute('type', source.getAttribute('type'));
+        /* eslint-disable-next-line unicorn/prefer-node-append */
+        mediaElement.appendChild(sourceTag);
+      });
+
+      // Get tracks
+      const tracks = queryAll('track', video);
+      tracks.forEach(track => {
+        const trackTag = document.createElement('track');
+        trackTag.setAttribute('src', track.getAttribute('src'));
+        trackTag.setAttribute('kind', track.getAttribute('kind'));
+        trackTag.setAttribute('srclang', track.getAttribute('srcLang'));
+        trackTag.setAttribute('label', track.getAttribute('label'));
+        /* eslint-disable-next-line unicorn/prefer-node-append */
+        mediaElement.appendChild(trackTag);
+      });
+
+      mediaElement.load();
+    } else {
+      // Media is an image
+      const image = queryOne('img', selectedItem);
+
+      mediaElement = document.createElement('img');
+      mediaElement.setAttribute('src', image.getAttribute('src'));
+      mediaElement.setAttribute('alt', image.getAttribute('alt'));
+      mediaElement.classList.add('ecl-gallery__slider-image');
+
+      if (this.overlayMedia) {
+        this.overlayMedia.innerHTML = '';
+        /* eslint-disable-next-line unicorn/prefer-node-append */
+        this.overlayMedia.appendChild(mediaElement);
+      }
+
+      // DEPRECATED
+      else if (this.overlayImage) {
+        this.overlayImage.setAttribute(
+          'src',
+          selectedItem.getAttribute('href')
+        );
+      }
+    }
 
     // Limit image height (fix for FF and IE)
     const maxHeight =
       this.overlay.clientHeight -
       this.overlayHeader.clientHeight -
       this.overlayFooter.clientHeight;
-    Object.assign(this.overlayImage.style, {
-      maxHeight: `${maxHeight}px`,
-    });
+    if (this.overlayMedia) {
+      Object.assign(mediaElement.style, {
+        maxHeight: `${maxHeight}px`,
+      });
+    }
+
+    // DEPRECATED
+    else if (this.overlayImage) {
+      Object.assign(this.overlayImage.style, {
+        maxHeight: `${maxHeight}px`,
+      });
+    }
 
     // Update counter
     this.overlayCounterCurrent.innerHTML =
@@ -252,6 +325,10 @@ export class Gallery {
     } else {
       this.overlay.removeAttribute('open');
     }
+
+    // Stop video
+    const video = queryOne('video', this.selectedItem);
+    if (video) video.pause();
 
     // Untrap focus
     this.focusTrap.deactivate();
@@ -300,6 +377,10 @@ export class Gallery {
     let previousId = +currentId - 1;
     if (previousId < 0) previousId = this.galleryItems.length - 1;
 
+    // Stop video
+    const video = queryOne('video', this.selectedItem);
+    if (video) video.pause();
+
     // Update overlay
     this.updateOverlay(this.galleryItems[previousId]);
     this.selectedItem = this.galleryItems[previousId];
@@ -316,6 +397,10 @@ export class Gallery {
     // Get next id
     let nextId = +currentId + 1;
     if (nextId >= this.galleryItems.length) nextId = 0;
+
+    // Stop video
+    const video = queryOne('video', this.selectedItem);
+    if (video) video.pause();
 
     // Update overlay
     this.updateOverlay(this.galleryItems[nextId]);
