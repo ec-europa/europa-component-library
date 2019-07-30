@@ -164,7 +164,7 @@ buildTokens({
 // Width SCSS map
 const widthPrefix = 'WIDTH_';
 theo.registerFormat(
-  'width.scss.map',
+  'widths.scss.map',
   scssMap({
     mapName: '$ecl-width',
     keyName: prop =>
@@ -178,10 +178,10 @@ theo.registerFormat(
 );
 
 buildTokens({
-  input: path.join(__dirname, '../aliases/width.yml'),
-  output: path.join(__dirname, '../exports/width.scss'),
+  input: path.join(__dirname, '../aliases/widths.yml'),
+  output: path.join(__dirname, '../exports/widths.scss'),
   type: 'web',
-  format: 'width.scss.map',
+  format: 'widths.scss.map',
 });
 
 // JSON Tokens
