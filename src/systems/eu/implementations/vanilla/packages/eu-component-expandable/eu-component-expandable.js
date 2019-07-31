@@ -1,6 +1,14 @@
 import { queryOne } from '@ecl/eu-base/helpers/dom';
 
 export class Expandable {
+  static autoInit(root, { EXPANDABLE: defaultOptions = {} } = {}) {
+    const expandable = new Expandable(root, defaultOptions);
+    expandable.init();
+    // eslint-disable-next-line no-param-reassign
+    root.ECLExpandable = expandable;
+    return expandable;
+  }
+
   constructor(
     element,
     {
