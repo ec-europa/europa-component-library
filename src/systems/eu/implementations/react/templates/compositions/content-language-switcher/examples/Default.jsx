@@ -9,10 +9,12 @@ import {
 
 export default () => (
   <div className="ecl-u-bg-blue ecl-u-border-bottom ecl-u-border-color-white">
-    <div className="ecl-u-d-flex ecl-u-type-color-white ecl-u-align-items-center ecl-u-font-s">
-      <Icon shape="general--generic-lang" size="l" />
+    <div className="ecl-u-d-flex ecl-u-type-color-white ecl-u-align-items-start ecl-u-font-s">
+      <span className="ecl-u-d-flex ecl-u-align-items-center ecl-u-pt-xs">
+        <Icon shape="general--generic-lang" size="l" />
 
-      <span className="ecl-u-type-strike ecl-u-ml-m">italiano</span>
+        <span className="ecl-u-type-strike ecl-u-ml-m">italiano</span>
+      </span>
 
       <Expandable
         button={{
