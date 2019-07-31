@@ -5,6 +5,7 @@ import classnames from 'classnames';
 const TextInput = ({
   id,
   disabled,
+  groupClassName,
   helperText,
   invalid,
   invalidText,
@@ -25,7 +26,12 @@ const TextInput = ({
   });
 
   return (
-    <div className="ecl-form-group ecl-form-group--text-input">
+    <div
+      className={classnames(
+        groupClassName,
+        'ecl-form-group ecl-form-group--text-input'
+      )}
+    >
       {label && (
         <label
           className={classnames(labelClassName, 'ecl-form-label', {
@@ -79,6 +85,7 @@ const TextInput = ({
 TextInput.propTypes = {
   id: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
+  groupClassName: PropTypes.string,
   helperText: PropTypes.node,
   invalid: PropTypes.bool,
   invalidText: PropTypes.node,
@@ -95,6 +102,7 @@ TextInput.propTypes = {
 
 TextInput.defaultProps = {
   disabled: false,
+  groupClassName: '',
   helperText: '',
   invalid: false,
   invalidText: '',
