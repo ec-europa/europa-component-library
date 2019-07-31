@@ -16,3 +16,29 @@ import demoContent from '@ecl/eu-specs-gallery/demo/data';
 >
   <Gallery {...demoContent} />
 </Playground>
+
+## JS behaviour
+
+### Auto initialisation
+
+In order to automatically initalise the JS behaviour, add `data-ecl-auto-init="Gallery"` to your component's markup:
+
+```html
+<section class="ecl-gallery" data-ecl-gallery data-ecl-auto-init="Gallery">
+  ...
+</section>
+```
+
+Don't forget to call `ECL.autoInit()` when your page is ready!
+
+### Manual initialisation
+
+When the document is ready, query the element. For example, you can use `document.querySelector('[data-ecl-gallery]')` if you only have 1 gallery in the page.
+
+Then, instantiate the `Gallery` component and call `init()`:
+
+```js
+var elt = document.querySelector('[data-ecl-gallery]');
+var gallery = new ECL.Gallery(elt);
+gallery.init();
+```
