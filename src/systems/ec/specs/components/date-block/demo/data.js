@@ -1,7 +1,7 @@
 module.exports = {
-  dateTime: '2019-05-26',
+  dateTime: '2019-09-26',
   day: '26',
-  month: 'September',
-  monthAbbr: 'Sep',
+  month: 'Sep',
+  monthFull: 'September',
   year: '2019',
 };

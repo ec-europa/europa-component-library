@@ -14,7 +14,7 @@ storiesOf('Components|Date Block', module)
       dateTime={demoContent.dateTime}
       day={text('Day', demoContent.day)}
       month={text('Month', demoContent.month)}
-      monthAbbr={text('Month (abbr.)', demoContent.monthAbbr)}
+      monthFull={text('Month (full)', demoContent.monthFull)}
       year={text('Year', demoContent.year)}
     />
   ))
@@ -24,7 +24,7 @@ storiesOf('Components|Date Block', module)
       dateTime={demoContent.dateTime}
       day={text('Day', demoContent.day)}
       month={text('Month', demoContent.month)}
-      monthAbbr={text('Month (abbr.)', demoContent.monthAbbr)}
+      monthFull={text('Month (full)', demoContent.monthFull)}
       year={text('Year', demoContent.year)}
     />
   ))
@@ -34,7 +34,7 @@ storiesOf('Components|Date Block', module)
       dateTime={demoContent.dateTime}
       day={text('Day', demoContent.day)}
       month={text('Month', demoContent.month)}
-      monthAbbr={text('Month (abbr.)', demoContent.monthAbbr)}
+      monthFull={text('Month (full)', demoContent.monthFull)}
       year={text('Year', demoContent.year)}
     />
   ))
@@ -44,7 +44,7 @@ storiesOf('Components|Date Block', module)
       dateTime={demoContent.dateTime}
       day={text('Day', demoContent.day)}
       month={text('Month', demoContent.month)}
-      monthAbbr={text('Month (abbr.)', demoContent.monthAbbr)}
+      monthFull={text('Month (full)', demoContent.monthFull)}
       year={text('Year', demoContent.year)}
     />
   ))
@@ -54,7 +54,7 @@ storiesOf('Components|Date Block', module)
       dateTime={demoContent.dateTime}
       day={text('Day', demoContent.day)}
       month={text('Month', demoContent.month)}
-      monthAbbr={text('Month (abbr.)', demoContent.monthAbbr)}
+      monthFull={text('Month (full)', demoContent.monthFull)}
       year={text('Year', demoContent.year)}
     />
   ));

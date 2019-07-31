@@ -7,7 +7,7 @@ const DateBlock = ({
   dateTime,
   day,
   month,
-  monthAbbr,
+  monthFull,
   year,
   className,
   ...props
@@ -16,12 +16,21 @@ const DateBlock = ({
     [`ecl-date-block--${variant}`]: variant,
   });
 
+  let monthMarkup = '';
+  if (monthFull !== '' && monthFull !== month) {
+    monthMarkup = (
+      <abbr title={monthFull} className="ecl-date-block__month">
+        {month}
+      </abbr>
+    );
+  } else {
+    monthMarkup = <span className="ecl-date-block__month">{month}</span>;
+  }
+
   return (
     <time {...props} className={classNames} dateTime={dateTime}>
       <span className="ecl-date-block__day">{day}</span>
-      <abbr title={month} className="ecl-date-block__month">
-        {monthAbbr}
-      </abbr>
+      {monthMarkup}
       <span className="ecl-date-block__year">{year}</span>
     </time>
   );
@@ -32,7 +41,7 @@ DateBlock.propTypes = {
   dateTime: PropTypes.string,
   day: PropTypes.string,
   month: PropTypes.string,
-  monthAbbr: PropTypes.string,
+  monthFull: PropTypes.string,
   year: PropTypes.string,
   className: PropTypes.string,
 };
@@ -42,7 +51,7 @@ DateBlock.defaultProps = {
   dateTime: '',
   day: '',
   month: '',
-  monthAbbr: '',
+  monthFull: '',
   year: '',
   className: '',
 };
