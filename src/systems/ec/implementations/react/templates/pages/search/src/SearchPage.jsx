@@ -21,7 +21,7 @@ const SearchPage = ({ siteHeader, pageHeader, footer }) => (
             <h2 className="ecl-u-type-heading-2 ecl-u-d-lg-none ecl-u-mv-none">
               Search results (65)
             </h2>
-            <h3 className="ecl-u-type-heading-3 ecl-u-mb-none ecl-u-mt-l ecl-u-mt-lg-none">
+            <h3 className="ecl-u-type-heading-3 ecl-u-mt-l ecl-u-mt-lg-none">
               Search options
             </h3>
 
@@ -47,6 +47,7 @@ const SearchPage = ({ siteHeader, pageHeader, footer }) => (
 
               <Select
                 id="facet-date"
+                groupClassName="ecl-u-mt-m"
                 label="Date"
                 options={[
                   {
@@ -66,6 +67,7 @@ const SearchPage = ({ siteHeader, pageHeader, footer }) => (
 
               <Select
                 id="facet-language"
+                groupClassName="ecl-u-mt-m"
                 label="Language"
                 options={[
                   {
@@ -89,6 +91,7 @@ const SearchPage = ({ siteHeader, pageHeader, footer }) => (
 
               <Select
                 id="facet-format"
+                groupClassName="ecl-u-mt-m"
                 label="File format"
                 options={[
                   {
