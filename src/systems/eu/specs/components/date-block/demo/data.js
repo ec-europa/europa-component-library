@@ -1,5 +1,5 @@
 module.exports = {
   day: '26',
-  month: 'MAY',
+  month: 'May',
   year: '2019',
 };
