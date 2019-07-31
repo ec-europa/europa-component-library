@@ -29,6 +29,7 @@ const SearchPage = ({ siteHeader, pageHeader, footer }) => (
               <Select
                 id="facet-source"
                 label="Source"
+                width="m"
                 options={[
                   {
                     value: '1',
@@ -49,6 +50,7 @@ const SearchPage = ({ siteHeader, pageHeader, footer }) => (
                 id="facet-date"
                 groupClassName="ecl-u-mt-m"
                 label="Date"
+                width="m"
                 options={[
                   {
                     value: '1',
@@ -69,6 +71,7 @@ const SearchPage = ({ siteHeader, pageHeader, footer }) => (
                 id="facet-language"
                 groupClassName="ecl-u-mt-m"
                 label="Language"
+                width="m"
                 options={[
                   {
                     value: '1',
@@ -93,6 +96,7 @@ const SearchPage = ({ siteHeader, pageHeader, footer }) => (
                 id="facet-format"
                 groupClassName="ecl-u-mt-m"
                 label="File format"
+                width="m"
                 options={[
                   {
                     value: '1',
