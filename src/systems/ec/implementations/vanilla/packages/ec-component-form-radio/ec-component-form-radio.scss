@@ -25,6 +25,8 @@
 ) {
   .ecl-radio {
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
     margin: 0;
   }
 
@@ -44,7 +46,7 @@
   .ecl-radio__label {
     align-items: center;
     color: $label-color;
-    display: flex;
+    display: inline-flex;
     font: $ecl-font-m;
   }
 
