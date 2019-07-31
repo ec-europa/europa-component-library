@@ -6,6 +6,7 @@ import Icon from '@ecl/ec-react-component-icon';
 
 const Select = ({
   disabled,
+  groupClassName,
   helperText,
   id,
   invalid,
@@ -26,7 +27,12 @@ const Select = ({
   });
 
   return (
-    <div className="ecl-form-group ecl-form-group--select">
+    <div
+      className={classnames(
+        groupClassName,
+        'ecl-form-group ecl-form-group--select'
+      )}
+    >
       {label && (
         <label
           className={classnames(labelClassName, 'ecl-form-label', {
@@ -97,6 +103,7 @@ const Select = ({
 
 Select.propTypes = {
   disabled: PropTypes.bool,
+  groupClassName: PropTypes.string,
   helperText: PropTypes.node,
   id: PropTypes.string.isRequired,
   invalid: PropTypes.bool,
@@ -119,6 +126,7 @@ Select.propTypes = {
 
 Select.defaultProps = {
   disabled: false,
+  groupClassName: '',
   helperText: '',
   invalid: false,
   invalidText: '',
