@@ -4,8 +4,10 @@ import classnames from 'classnames';
 
 const DateBlock = ({
   variant, // ongoing, canceled, past, rescheduled
+  dateTime,
   day,
   month,
+  monthAbbr,
   year,
   className,
   ...props
@@ -15,26 +17,32 @@ const DateBlock = ({
   });
 
   return (
-    <div {...props} className={classNames}>
-      <div className="ecl-date-block__day">{day}</div>
-      <div className="ecl-date-block__month">{month}</div>
-      <div className="ecl-date-block__year">{year}</div>
-    </div>
+    <time {...props} className={classNames} dateTime={dateTime}>
+      <span className="ecl-date-block__day">{day}</span>
+      <abbr title={month} className="ecl-date-block__month">
+        {monthAbbr}
+      </abbr>
+      <span className="ecl-date-block__year">{year}</span>
+    </time>
   );
 };
 
 DateBlock.propTypes = {
   variant: PropTypes.string,
+  dateTime: PropTypes.string,
   day: PropTypes.string,
   month: PropTypes.string,
+  monthAbbr: PropTypes.string,
   year: PropTypes.string,
   className: PropTypes.string,
 };
 
 DateBlock.defaultProps = {
   variant: '',
+  dateTime: '',
   day: '',
   month: '',
+  monthAbbr: '',
   year: '',
   className: '',
 };

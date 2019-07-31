@@ -8,23 +8,28 @@
 
 @mixin ecl-date-block-print() {
   .ecl-date-block {
+    display: block;
     margin: 0;
   }
 
   .ecl-date-block__day {
     color: $ecl-color-black;
+    display: block;
     font: $ecl-font-print-2-xl;
     font-weight: $ecl-font-weight-bold;
   }
 
   .ecl-date-block__month {
     color: $ecl-color-black;
+    display: block;
     font: $ecl-font-print-m;
+    text-decoration: none !important;
     text-transform: uppercase;
   }
 
   .ecl-date-block__year {
     color: $ecl-color-black;
+    display: block;
     font: $ecl-font-print-s;
   }
 }

@@ -11,40 +11,50 @@ storiesOf('Components|Date Block', module)
   .addDecorator(withKnobs)
   .add('default', () => (
     <DateBlock
+      dateTime={demoContent.dateTime}
       day={text('Day', demoContent.day)}
       month={text('Month', demoContent.month)}
+      monthAbbr={text('Month (abbr.)', demoContent.monthAbbr)}
       year={text('Year', demoContent.year)}
     />
   ))
   .add('ongoing', () => (
     <DateBlock
       variant="ongoing"
+      dateTime={demoContent.dateTime}
       day={text('Day', demoContent.day)}
       month={text('Month', demoContent.month)}
+      monthAbbr={text('Month (abbr.)', demoContent.monthAbbr)}
       year={text('Year', demoContent.year)}
     />
   ))
   .add('canceled', () => (
     <DateBlock
       variant="canceled"
+      dateTime={demoContent.dateTime}
       day={text('Day', demoContent.day)}
       month={text('Month', demoContent.month)}
+      monthAbbr={text('Month (abbr.)', demoContent.monthAbbr)}
       year={text('Year', demoContent.year)}
     />
   ))
   .add('past', () => (
     <DateBlock
       variant="past"
+      dateTime={demoContent.dateTime}
       day={text('Day', demoContent.day)}
       month={text('Month', demoContent.month)}
+      monthAbbr={text('Month (abbr.)', demoContent.monthAbbr)}
       year={text('Year', demoContent.year)}
     />
   ))
   .add('rescheduled', () => (
     <DateBlock
       variant="rescheduled"
+      dateTime={demoContent.dateTime}
       day={text('Day', demoContent.day)}
       month={text('Month', demoContent.month)}
+      monthAbbr={text('Month (abbr.)', demoContent.monthAbbr)}
       year={text('Year', demoContent.year)}
     />
   ));

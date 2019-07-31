@@ -33,6 +33,7 @@
 ) {
   .ecl-date-block {
     background-color: $background-default;
+    display: block;
     margin: 0;
     overflow: hidden;
     position: relative;
@@ -66,6 +67,7 @@
 
   .ecl-date-block__day {
     color: $text-color-default;
+    display: block;
     font: $ecl-font-2-xl;
     font-weight: $ecl-font-weight-bold;
     padding-left: $ecl-spacing-2-xs;
@@ -75,10 +77,12 @@
 
   .ecl-date-block__month {
     color: $text-color-default;
+    display: block;
     font: $ecl-font-m;
     padding-bottom: $ecl-spacing-2-xs;
     padding-left: $ecl-spacing-2-xs;
     padding-right: $ecl-spacing-2-xs;
+    text-decoration: none !important;
     text-transform: uppercase;
   }
 
@@ -86,6 +90,7 @@
     background-color: $year-background-default;
     border-top: 1px solid $separator-color-default;
     color: $year-text-color-default;
+    display: block;
     font: $ecl-font-s;
     padding: $ecl-spacing-2-xs;
   }
