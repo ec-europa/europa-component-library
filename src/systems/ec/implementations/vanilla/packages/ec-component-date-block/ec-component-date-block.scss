@@ -33,7 +33,9 @@
 ) {
   .ecl-date-block {
     background-color: $background-default;
-    display: block;
+    box-sizing: border-box;
+    display: inline-flex;
+    flex-direction: column;
     margin: 0;
     overflow: hidden;
     position: relative;
@@ -43,6 +45,7 @@
     &::before {
       background-color: $ecl-color-white;
       border-radius: 50%;
+      box-sizing: content-box;
       content: '';
       display: block;
       height: $circle-width;
@@ -55,6 +58,7 @@
     &::after {
       background-color: $ecl-color-white;
       border-radius: 50%;
+      box-sizing: content-box;
       content: '';
       display: block;
       height: $circle-width;
@@ -67,7 +71,6 @@
 
   .ecl-date-block__day {
     color: $text-color-default;
-    display: block;
     font: $ecl-font-2-xl;
     font-weight: $ecl-font-weight-bold;
     padding-left: $ecl-spacing-2-xs;
@@ -77,7 +80,6 @@
 
   .ecl-date-block__month {
     color: $text-color-default;
-    display: block;
     font: $ecl-font-m;
     padding-bottom: $ecl-spacing-2-xs;
     padding-left: $ecl-spacing-2-xs;
@@ -90,7 +92,6 @@
     background-color: $year-background-default;
     border-top: 1px solid $separator-color-default;
     color: $year-text-color-default;
-    display: block;
     font: $ecl-font-s;
     padding: $ecl-spacing-2-xs;
   }

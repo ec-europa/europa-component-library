@@ -28,7 +28,7 @@ storiesOf('Components|Date Block', module)
       year={text('Year', demoContent.year)}
     />
   ))
-  .add('canceled', () => (
+  .add('cancelled', () => (
     <DateBlock
       variant="canceled"
       dateTime={demoContent.dateTime}
