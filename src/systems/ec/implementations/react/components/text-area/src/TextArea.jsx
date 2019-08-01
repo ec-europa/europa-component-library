@@ -5,6 +5,7 @@ import classnames from 'classnames';
 const TextArea = ({
   id,
   disabled,
+  groupClassName,
   helperText,
   invalid,
   invalidText,
@@ -25,7 +26,12 @@ const TextArea = ({
   });
 
   return (
-    <div className="ecl-form-group ecl-form-group--text-area">
+    <div
+      className={classnames(
+        groupClassName,
+        'ecl-form-group ecl-form-group--text-area'
+      )}
+    >
       {label && (
         <label
           className={classnames(labelClassName, 'ecl-form-label', {
@@ -78,6 +84,7 @@ const TextArea = ({
 TextArea.propTypes = {
   id: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
+  groupClassName: PropTypes.string,
   helperText: PropTypes.node,
   invalid: PropTypes.bool,
   invalidText: PropTypes.node,
@@ -94,6 +101,7 @@ TextArea.propTypes = {
 
 TextArea.defaultProps = {
   disabled: false,
+  groupClassName: '',
   helperText: '',
   invalid: false,
   invalidText: '',
