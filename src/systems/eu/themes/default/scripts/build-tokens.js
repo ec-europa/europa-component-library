@@ -161,6 +161,29 @@ buildTokens({
   format: 'background-colors.scss.map',
 });
 
+// Width SCSS map
+const widthPrefix = 'WIDTH_';
+theo.registerFormat(
+  'widths.scss.map',
+  scssMap({
+    mapName: '$ecl-width',
+    keyName: prop =>
+      prop
+        .get('name')
+        .substr(widthPrefix.length)
+        .toLowerCase()
+        .replace(/_/g, '-'),
+    filter: prop => prop.get('name').indexOf(widthPrefix) === 0,
+  })
+);
+
+buildTokens({
+  input: path.join(__dirname, '../aliases/widths.yml'),
+  output: path.join(__dirname, '../exports/widths.scss'),
+  type: 'web',
+  format: 'widths.scss.map',
+});
+
 // JSON Tokens
 buildTokens({
   input: path.join(__dirname, '../index.yml'),

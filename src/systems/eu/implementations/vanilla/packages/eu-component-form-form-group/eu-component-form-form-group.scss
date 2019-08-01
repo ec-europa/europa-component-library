@@ -8,9 +8,11 @@
 
 @mixin ecl-form-group() {
   .ecl-form-group {
+    border-width: 0;
     box-sizing: border-box;
     display: block;
     margin: 0;
+    padding: 0;
 
     > *:not(.ecl-form-label--hidden) + * {
       margin-top: $ecl-spacing-xs;
@@ -21,6 +23,14 @@
     }
 
     > *:not(.ecl-form-label--hidden) + .ecl-text-area {
+      margin-top: $ecl-spacing-s;
+    }
+
+    > *:not(.ecl-form-label--hidden) + .ecl-select__container {
+      margin-top: $ecl-spacing-s;
+    }
+
+    > *:not(.ecl-form-label--hidden) + .ecl-radio {
       margin-top: $ecl-spacing-s;
     }
 
