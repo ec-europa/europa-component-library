@@ -7,12 +7,10 @@
 @import '@ecl/ec-base/ec-base';
 
 @mixin ecl-text-input(
-  $border-color: $ecl-color-grey-100,
+  $border-color: $ecl-color-grey-75,
   $border-width: 1px,
-  $border-color-focus: $ecl-color-secondary,
+  $border-color-focus: $ecl-color-yellow-100,
   $border-width-focus: 3px,
-  $max-width: 31.25rem,
-  $min-width: 15rem,
   $padding-vertical: $ecl-spacing-s,
   $padding-horizontal: $ecl-spacing-s
 ) {
@@ -25,15 +23,51 @@
     display: block;
     font: $ecl-font-m;
     margin: 0;
-    max-width: $max-width;
-    min-width: $min-width;
+    max-width: 100%;
     padding: calc(#{$padding-vertical} - #{$border-width})
       calc(#{$padding-horizontal} - #{$border-width});
-    width: 100%;
 
+    &:hover {
+      outline: 1px solid $ecl-color-blue-100;
+      outline-offset: -1px;
+    }
+
+    &:active,
     &:focus {
       outline: $border-width-focus solid $border-color-focus;
       outline-offset: -3px;
+    }
+  }
+
+  .ecl-text-input--s {
+    width: 50%;
+
+    @include ecl-media-breakpoint-up('md') {
+      width: 30%;
+    }
+
+    @include ecl-media-breakpoint-up('lg') {
+      width: $ecl-width-form-s;
+    }
+  }
+
+  .ecl-text-input--m {
+    width: 100%;
+
+    @include ecl-media-breakpoint-up('md') {
+      width: 50%;
+    }
+
+    @include ecl-media-breakpoint-up('lg') {
+      width: $ecl-width-form-m;
+    }
+  }
+
+  .ecl-text-input--l {
+    width: 100%;
+
+    @include ecl-media-breakpoint-up('lg') {
+      width: $ecl-width-form-l;
     }
   }
 
@@ -41,11 +75,15 @@
   .ecl-text-input--disabled,
   .ecl-text-input[readonly],
   .ecl-text-input--readonly {
-    background-color: $ecl-color-grey-10;
+    background-color: $ecl-color-grey-5;
+    border-color: $ecl-color-grey-50;
     cursor: not-allowed;
+
+    &:hover {
+      outline-width: 0;
+    }
   }
 
-  .ecl-text-input:invalid,
   .ecl-text-input--invalid {
     border-color: $ecl-color-error;
     box-shadow: none;

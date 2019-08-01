@@ -1,20 +1,24 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import Icon from '@ecl/ec-react-component-icon';
 
 const Select = ({
-  id,
-  options,
   disabled,
+  groupClassName,
   helperText,
+  id,
   invalid,
-  invalidIconLabel,
   invalidText,
   label,
-  hideLabel,
+  labelClassName,
   name,
+  optionalText,
+  options,
+  required,
+  requiredText,
+  width,
   className,
   ...props
 }) => {
@@ -23,22 +27,52 @@ const Select = ({
   });
 
   return (
-    <div className="ecl-form-group ecl-form-group--select">
+    <div
+      className={classnames(
+        groupClassName,
+        'ecl-form-group ecl-form-group--select'
+      )}
+    >
       {label && (
         <label
-          className={classnames('ecl-form-label', {
+          className={classnames(labelClassName, 'ecl-form-label', {
             'ecl-form-label--invalid': invalid,
-            'ecl-form-label--hidden': hideLabel,
+            'ecl-form-label--disabled': disabled,
           })}
           htmlFor={id}
         >
           {label}
+          {required ? (
+            <Fragment>
+              {requiredText && (
+                <span className="ecl-form-label__required">{requiredText}</span>
+              )}
+            </Fragment>
+          ) : (
+            <Fragment>
+              {optionalText && (
+                <span className="ecl-form-label__optional">{optionalText}</span>
+              )}
+            </Fragment>
+          )}
         </label>
       )}
-
+      {helperText && (
+        <div
+          className={classnames('ecl-help-block', {
+            'ecl-help-block--disabled': disabled,
+          })}
+        >
+          {helperText}
+        </div>
+      )}
+      {invalid && invalidText && (
+        <div className="ecl-feedback-message">{invalidText}</div>
+      )}
       <div
         className={classnames('ecl-select__container', {
           'ecl-select__container--disabled': disabled,
+          [`ecl-select__container--${width}`]: width,
         })}
       >
         <select
@@ -54,7 +88,6 @@ const Select = ({
             </option>
           ))}
         </select>
-
         <div className="ecl-select__icon">
           <Icon
             shape="ui--corner-arrow"
@@ -64,44 +97,47 @@ const Select = ({
           />
         </div>
       </div>
-
-      {invalid && invalidText && (
-        <div className="ecl-feedback-message">{invalidText}</div>
-      )}
-      {helperText && <div className="ecl-help-block">{helperText}</div>}
     </div>
   );
 };
 
 Select.propTypes = {
+  disabled: PropTypes.bool,
+  groupClassName: PropTypes.string,
+  helperText: PropTypes.node,
   id: PropTypes.string.isRequired,
+  invalid: PropTypes.bool,
+  invalidText: PropTypes.node,
+  label: PropTypes.node,
+  labelClassName: PropTypes.string,
+  name: PropTypes.string,
+  optionalText: PropTypes.string,
+  required: PropTypes.bool,
+  requiredText: PropTypes.string,
   options: PropTypes.arrayOf(
     PropTypes.shape({
       value: PropTypes.string,
       label: PropTypes.string,
     })
   ),
-  disabled: PropTypes.bool,
-  helperText: PropTypes.node,
-  invalid: PropTypes.bool,
-  invalidIconLabel: PropTypes.string,
-  invalidText: PropTypes.node,
-  name: PropTypes.string,
-  label: PropTypes.node,
-  hideLabel: PropTypes.bool,
+  width: PropTypes.string,
   className: PropTypes.string,
 };
 
 Select.defaultProps = {
-  options: [],
   disabled: false,
+  groupClassName: '',
   helperText: '',
   invalid: false,
-  invalidIconLabel: 'Error',
   invalidText: '',
-  name: '',
   label: '',
-  hideLabel: false,
+  labelClassName: '',
+  name: '',
+  optionalText: '',
+  required: false,
+  requiredText: '',
+  options: [],
+  width: '',
   className: '',
 };
 

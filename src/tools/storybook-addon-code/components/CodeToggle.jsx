@@ -42,7 +42,9 @@ export class CodeToggle extends Component {
 }
 
 CodeToggle.propTypes = {
-  channel: PropTypes.shape({}).isRequired,
+  channel: PropTypes.shape({
+    emit: PropTypes.func,
+  }).isRequired,
 };
 
 export default CodeToggle;

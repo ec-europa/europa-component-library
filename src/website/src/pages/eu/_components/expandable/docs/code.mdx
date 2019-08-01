@@ -1,0 +1,51 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+import Expandable from '@ecl/eu-react-component-expandable';
+
+import demoContent from '@ecl/eu-specs-expandable/demo/data';
+
+<Playground
+  system="eu"
+  selectedKind="components-expandables"
+  selectedStory="default"
+  showFrame
+>
+  <Expandable
+    button={demoContent.button}
+    labelExpanded={demoContent.labelExpanded}
+    labelCollapsed={demoContent.labelCollapsed}
+    id={demoContent.id}
+  >
+    <p className="ecl-u-type-paragraph-m">{demoContent.content}</p>
+  </Expandable>
+</Playground>
+
+## JS behaviour
+
+### Auto initialisation
+
+In order to automatically initalise the JS behaviour, add `data-ecl-auto-init="Expandable"` to your component's markup:
+
+```html
+<div class="ecl-expandable" data-ecl-expandable data-ecl-auto-init="Expandable">
+  ...
+</div>
+```
+
+Don't forget to call `ECL.autoInit()` when your page is ready!
+
+### Manual initialisation
+
+When the document is ready, query the element. For example, you can use `document.querySelector('[data-ecl-expandable]')` if you only have 1 expandable in the page.
+
+Then, instantiate the `Expandable` component and call `init()`:
+
+```js
+var elt = document.querySelector('[data-ecl-expandable]');
+var expandable = new ECL.Expandable(elt);
+expandable.init();
+```

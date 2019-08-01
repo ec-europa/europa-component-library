@@ -13,12 +13,15 @@ pipeline:
     image: node:dubnium
     commands:
       - yarn install --frozen-lockfile
+    when:
+      event: [ push, pull_request, tag]
 
   audit:
     image: node:dubnium
     commands:
       - yarn audit
     when:
+      event: [ push, pull_request, tag]
       matrix:
         TEST: audit
 
@@ -27,6 +30,7 @@ pipeline:
     commands:
       - yarn test:coding-conventions
     when:
+      event: [ push, pull_request, tag]
       matrix:
         TEST: conventions
 
@@ -36,6 +40,7 @@ pipeline:
       - cd examples/webpack4 && yarn build --display=errors-only
       - cd ../webpack4-eu && yarn build --display=errors-only
     when:
+      event: [ push, pull_request, tag]
       matrix:
         TEST: examples
 
@@ -61,5 +66,99 @@ pipeline:
         fi
     when:
       event: [tag]
+      matrix:
+        TEST: deploy-tag
+
+# =======================================
+# Build and Upload package ==============
+# =======================================
+
+  build-release:
+    image: buildkite/puppeteer:latest
+    commands:
+      - export PUBLIC_URL="/component-library"
+      - yarn dist
+      - echo ${DRONE_TAG=${DRONE_COMMIT_BRANCH=rc}} > dist/website/.version
+      - echo ${DRONE_COMMIT_SHA} > dist/website/.commit
+    when:
+      event: [tag]
+      matrix:
+        TEST: deploy-tag
+    volumes:
+      - /tmp/_logs:/root/.npm/_logs/
+
+  # Package release build
+  package-release:
+    image: ubuntu:18.04
+    commands:
+      - tar -czC dist/website -f ${DRONE_REPO_NAME}-${DRONE_TAG}.tar.gz .
+    when:
+      event: [tag]
+      matrix:
+        TEST: deploy-tag
+
+  # Push release to Github
+  push-github-release:
+    image: plugins/github-release
+    files:
+      - ${DRONE_REPO_NAME}-${DRONE_TAG}.tar.gz
+    checksum:
+      - md5
+      - sha1
+      - sha256
+      - sha512
+    secrets: [ GITHUB_RELEASE_API_KEY ]
+    when:
+      event: [tag]
+      matrix:
+        TEST: deploy-tag
+
+  # Trigger deploy event on Github
+  create-deploy-production:
+    image: fpfis/drone-plugin-github-deploy
+    state: create
+    deploy_environment: production
+    secrets: [ github_api_token ]
+    automerge: false
+    when:
+      event: [tag]
+      matrix:
+        TEST: deploy-tag
+
+# =======================================
+# Deployment ============================
+# =======================================
+
+  # Download release from github and extract into build folder
+  download-github-release:
+    image: instrumentisto/rsync-ssh
+    commands:
+      - wget https://github.com/${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}/releases/download/${DRONE_TAG}/${DRONE_REPO_NAME}-${DRONE_TAG}.tar.gz
+      - wget https://github.com/${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}/releases/download/${DRONE_TAG}/sha1sum.txt
+      - sha1sum -c sha1sum.txt
+      - mkdir build
+      - tar zxvf ${DRONE_REPO_NAME}-${DRONE_TAG}.tar.gz -C build
+      - echo $(date +%s) > build/.timestamp
+    when:
+      event: deployment
+      matrix:
+        TEST: deploy-tag
+
+  # Deploy build folder into production
+  deploy-to-production:
+    image: drillster/drone-rsync
+    secrets: [ rsync_key , MGMT_IP ]
+    hosts: [ $MGMT_IP ]
+    user : fpfis
+    source: ./build/
+    target: /ec/local/home/fpfis/reference/php-clusters/multisite/production/cluster00/sources/static/europa-component-library/
+    script:
+        - export GIT_FPFIS_AUTHOR="Drone ec.deploy.fpfis.eu"
+        - cd /ec/local/home/fpfis/reference/php-clusters/multisite/production/cluster00/sources/static/europa-component-library
+        - git add -A .
+        - git commit -m"Deployed ${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}@${DRONE_TAG} from drone build ${DRONE_BUILD_NUMBER}." .
+        - git push 'nas-reference' 'master'
+    when:
+      event: deployment
       matrix:
         TEST: deploy-tag

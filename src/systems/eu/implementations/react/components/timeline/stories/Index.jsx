@@ -2,11 +2,12 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, button } from '@storybook/addon-knobs';
+import { withCssResources } from '@storybook/addon-cssresources';
 import StoryWrapper from '@ecl/story-wrapper';
 import { LoremIpsum } from 'lorem-ipsum';
 import VanillaTimeline from '@ecl/eu-component-timeline';
 
-import TimelineExample from '../examples/Timeline2';
+import TimelineExample from '../examples/Timeline';
 
 const lorem = new LoremIpsum({
   sentencesPerParagraph: {
@@ -40,7 +41,41 @@ storiesOf('Components|Timeline', module)
       {story()}
     </StoryWrapper>
   ))
-  .add('default', () => {
+  .addDecorator(withCssResources)
+  .addParameters({
+    cssresources: [
+      {
+        id: 'ecl-legacy-screen',
+        code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-eu-preset-legacy-website.css" />`,
+        picked: true,
+      },
+      {
+        id: 'ecl-legacy-print',
+        code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-eu-preset-legacy-website-print.css" />`,
+        picked: false,
+      },
+      {
+        id: 'test-fake-global-rules',
+        code: `
+  <style>
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  html {
+    color: red;
+    font-family: serif;
+    font-weight: 700;
+    line-height: 2;
+  }
+  </style>`,
+        picked: false,
+      },
+    ],
+  })
+  .add('[deprecated] ECL <2.5.0', () => {
     const btnAddContent = () => {
       const root = document.querySelector('#root > div');
       for (let i = 0; i < 7; i += 1) {

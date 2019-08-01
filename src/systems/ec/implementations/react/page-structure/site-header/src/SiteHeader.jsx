@@ -75,6 +75,7 @@ SiteHeader.propTypes = {
     alt: PropTypes.string,
     language: PropTypes.string,
     href: PropTypes.string,
+    className: PropTypes.string,
   }),
   languageSelector: PropTypes.shape({
     href: PropTypes.string,
