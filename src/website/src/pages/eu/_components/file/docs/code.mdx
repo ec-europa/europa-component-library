@@ -30,3 +30,29 @@ import demoContentTranslation from '@ecl/eu-specs-file/demo/data--with-translati
 >
   <FileDownload {...demoContentTranslation} />
 </Playground>
+
+## JS behaviour
+
+### Auto initialisation
+
+In order to automatically initalise the JS behaviour, add `data-ecl-auto-init="FileDownload"` to your component's markup:
+
+```html
+<div class="ecl-file" data-ecl-file data-ecl-auto-init="FileDownload">
+  ...
+</div>
+```
+
+Don't forget to call `ECL.autoInit()` when your page is ready!
+
+### Manual initialisation
+
+When the document is ready, query the element. For example, you can use `document.querySelector('[data-ecl-file]')` if you only have 1 file download in the page.
+
+Then, instantiate the `FileDownload` component and call `init()`:
+
+```js
+var elt = document.querySelector('[data-ecl-file]');
+var file = new ECL.FileDownload(elt);
+file.init();
+```

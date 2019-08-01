@@ -1,52 +1,82 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 const TextArea = ({
   id,
   disabled,
+  groupClassName,
   helperText,
   invalid,
-  invalidIconLabel,
   invalidText,
   label,
-  hideLabel,
+  labelClassName,
   name,
-  placeholder,
+  optionalText,
+  required,
+  requiredText,
   rows,
+  width,
   className,
   ...props
 }) => {
   const classNames = classnames(className, 'ecl-text-area', {
     'ecl-text-area--invalid': invalid,
+    [`ecl-text-area--${width}`]: width,
   });
 
   return (
-    <div className="ecl-form-group ecl-form-group--text-area">
+    <div
+      className={classnames(
+        groupClassName,
+        'ecl-form-group ecl-form-group--text-area'
+      )}
+    >
       {label && (
         <label
-          className={classnames('ecl-form-label', {
+          className={classnames(labelClassName, 'ecl-form-label', {
             'ecl-form-label--invalid': invalid,
-            'ecl-form-label--hidden': hideLabel,
+            'ecl-form-label--disabled': disabled,
           })}
           htmlFor={id}
         >
           {label}
+          {required ? (
+            <Fragment>
+              {requiredText && (
+                <span className="ecl-form-label__required">{requiredText}</span>
+              )}
+            </Fragment>
+          ) : (
+            <Fragment>
+              {optionalText && (
+                <span className="ecl-form-label__optional">{optionalText}</span>
+              )}
+            </Fragment>
+          )}
         </label>
+      )}
+      {helperText && (
+        <div
+          className={classnames('ecl-help-block', {
+            'ecl-help-block--disabled': disabled,
+          })}
+        >
+          {helperText}
+        </div>
+      )}
+      {invalid && invalidText && (
+        <div className="ecl-feedback-message">{invalidText}</div>
       )}
       <textarea
         {...props}
         id={id}
         name={name || undefined}
         rows={rows}
-        placeholder={placeholder || undefined}
         disabled={disabled}
         className={classNames}
+        required={required}
       />
-      {invalid && invalidText && (
-        <div className="ecl-feedback-message">{invalidText}</div>
-      )}
-      {helperText && <div className="ecl-help-block">{helperText}</div>}
     </div>
   );
 };
@@ -54,29 +84,35 @@ const TextArea = ({
 TextArea.propTypes = {
   id: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
+  groupClassName: PropTypes.string,
   helperText: PropTypes.node,
   invalid: PropTypes.bool,
-  invalidIconLabel: PropTypes.string,
   invalidText: PropTypes.node,
   label: PropTypes.node,
-  hideLabel: PropTypes.bool,
+  labelClassName: PropTypes.string,
   name: PropTypes.string,
-  placeholder: PropTypes.string,
+  optionalText: PropTypes.string,
+  required: PropTypes.bool,
+  requiredText: PropTypes.string,
   rows: PropTypes.number,
+  width: PropTypes.string,
   className: PropTypes.string,
 };
 
 TextArea.defaultProps = {
   disabled: false,
+  groupClassName: '',
   helperText: '',
   invalid: false,
-  invalidIconLabel: 'Error',
   invalidText: '',
   label: '',
-  hideLabel: false,
+  labelClassName: '',
   name: '',
-  placeholder: '',
+  optionalText: '',
+  required: false,
+  requiredText: '',
   rows: 4,
+  width: '',
   className: '',
 };
 

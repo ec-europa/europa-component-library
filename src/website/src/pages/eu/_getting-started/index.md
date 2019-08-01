@@ -58,3 +58,36 @@ New components are continuously being added to the library. The team is also con
 - Ensure that you are correctly loading the icons and the logo by using the right paths. You will usually find these assets under the `/images` folder of the preset you're using. We advise you to host the SVG sprites on the same domain as your website in order to avoid the `Unsafe attempt to load URL` kind of errors. If you still want to use the SVG sprite from the CDN, you can use [svg4everybody](https://github.com/jonathantneal/svg4everybody) and itinitialize it with: `svg4everybody({ polyfill: true });`.
 
 Note: if you want to use another ECL preset or another version, you will find all the useful information on https://github.com/ec-europa/europa-component-library/releases.
+
+## JavaScript
+
+You can either initalise JS components manually or automatically. Here, we will focus on the automatic initialisation. If you want to know more about the manual initialisation, please check the component's documentation.
+
+In order to automatically initialize a component, add `data-ecl-auto-init="[component class]"` to the root element of the component, `[component class]` being the name of the JS class related to the component.
+
+For example, if you want to auto initialize a `Message`:
+
+```html
+<div
+  role="alert"
+  class="ecl-message ecl-message--info"
+  data-ecl-message="true"
+  data-ecl-auto-init="Message"
+>
+  ... Message component ...
+</div>
+```
+
+Then, in the footer of the document (or whenever the document is ready), call `ECL.autoInit()`. For example:
+
+```html
+    ...
+    <!-- paste the markup from the template here -->
+    <script>
+      ECL.autoInit();
+    </script>
+  </body>
+</html>
+```
+
+And that's it!
