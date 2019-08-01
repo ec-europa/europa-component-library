@@ -1,15 +1,24 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { SyntaxHighlighter } from '@storybook/components';
+import {
+  SyntaxHighlighter,
+  Button,
+  DocumentFormatting,
+} from '@storybook/components';
 import { styled } from '@storybook/theming';
 import { html as beautify } from 'js-beautify';
 import { EVENTS } from '../constants';
 import prefillPen from '../utils/codepen';
 
+const StyledButton = styled(Button)(() => ({
+  marginTop: '20px',
+  float: 'right',
+}));
+
 const StyledSyntaxHighlighter = styled(SyntaxHighlighter)(({ theme }) => ({
   fontSize: theme.typography.size.s2 - 1,
-  border: 0,
-  height: '100%',
+  flexGrow: '1',
+  flexShrink: '1',
   '> *:first-child': {
     height: '100%',
   },
@@ -19,10 +28,12 @@ const Overlay = styled.div(() => ({
   position: 'absolute',
   top: 0,
   left: 0,
-  display: 'block',
+  display: 'flex',
+  flexDirection: 'column',
   width: '100%',
   height: '100%',
   backgroundColor: '#fff',
+  padding: '20px',
 }));
 
 export class PreviewWrapper extends Component {
@@ -67,33 +78,35 @@ export class PreviewWrapper extends Component {
     return (
       <Fragment>
         {children}
-        <Overlay
-          id="storybook-code"
-          style={{
-            display: expanded ? 'block' : 'none',
-          }}
-        >
-          <StyledSyntaxHighlighter
-            bordered
-            copyable
-            format={false}
-            language="html"
-          >
-            {beautifiedCode}
-          </StyledSyntaxHighlighter>
-          <form
-            action="https://codepen.io/pen/define"
-            method="POST"
-            target="_blank"
-          >
-            <input
-              type="hidden"
-              name="data"
-              value={prefillPen(beautifiedCode)}
-            />
-            <input type="submit" value="Create New Pen with Prefilled Data" />
-          </form>
-        </Overlay>
+        {expanded && (
+          <Overlay id="storybook-code">
+            <DocumentFormatting>
+              <h1>Live HTML</h1>
+              <StyledSyntaxHighlighter
+                bordered
+                copyable
+                format={false}
+                language="html"
+              >
+                {beautifiedCode}
+              </StyledSyntaxHighlighter>
+              <form
+                action="https://codepen.io/pen/define"
+                method="POST"
+                target="_blank"
+              >
+                <input
+                  type="hidden"
+                  name="data"
+                  value={prefillPen(beautifiedCode)}
+                />
+                <StyledButton tertiary type="submit">
+                  Open in CodePen
+                </StyledButton>
+              </form>
+            </DocumentFormatting>
+          </Overlay>
+        )}
       </Fragment>
     );
   }
