@@ -25,7 +25,7 @@ const CheckboxGroup = ({
     className,
     'ecl-form-group ecl-form-group--checkbox',
     {
-      'ecl-radio__group--opt-in-out': optInOut,
+      'ecl-checkbox__group--opt-in-out': optInOut,
     }
   );
 
