@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/prefer-node-append */
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -46,6 +47,7 @@ export class PreviewWrapper extends Component {
 
     this.onAddHTMLMarkup = this.onAddHTMLMarkup.bind(this);
     this.onTogglePreview = this.onTogglePreview.bind(this);
+    this.openInCodePen = this.openInCodePen.bind(this);
   }
 
   componentDidMount() {
@@ -62,6 +64,27 @@ export class PreviewWrapper extends Component {
     this.setState({
       expanded,
     });
+  }
+
+  openInCodePen() {
+    const { code } = this.state;
+
+    const form = document.createElement('form');
+    const element1 = document.createElement('input');
+
+    form.method = 'POST';
+    form.action = 'https://codepen.io/pen/define';
+    form.target = '_blank';
+
+    element1.type = 'hidden';
+    element1.name = 'data';
+    element1.value = prefillPen(code);
+
+    form.appendChild(element1);
+
+    document.body.appendChild(form);
+    form.submit();
+    document.body.removeChild(form);
   }
 
   render() {
@@ -90,20 +113,9 @@ export class PreviewWrapper extends Component {
               >
                 {beautifiedCode}
               </StyledSyntaxHighlighter>
-              <form
-                action="https://codepen.io/pen/define"
-                method="POST"
-                target="_blank"
-              >
-                <input
-                  type="hidden"
-                  name="data"
-                  value={prefillPen(beautifiedCode)}
-                />
-                <StyledButton tertiary type="submit">
-                  Open in CodePen
-                </StyledButton>
-              </form>
+              <StyledButton tertiary type="button" onClick={this.openInCodePen}>
+                Open in CodePen
+              </StyledButton>
             </DocumentFormatting>
           </Overlay>
         )}
