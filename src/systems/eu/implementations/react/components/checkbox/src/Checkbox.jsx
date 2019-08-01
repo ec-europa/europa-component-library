@@ -21,6 +21,7 @@ const Checkbox = ({
 }) => {
   const classNames = classnames(className, 'ecl-checkbox', {
     'ecl-checkbox--invalid': invalid,
+    'ecl-checkbox--disabled': disabled,
   });
 
   return (
