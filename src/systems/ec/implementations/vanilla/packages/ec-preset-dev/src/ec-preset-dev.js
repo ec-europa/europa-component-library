@@ -1,5 +1,6 @@
 // Export components
 
+export * from '@ecl/ec-auto-init';
 export * from '@ecl/ec-component-accordion2';
 export * from '@ecl/ec-component-breadcrumb';
 // export * from '@ecl/ec-component-carousel';

@@ -66,3 +66,34 @@ import demoContentError from '@ecl/eu-specs-message/demo/data--error';
 >
   <Message {...demoContentError} />
 </Playground>
+
+## JS behaviour
+
+### Auto initialisation
+
+In order to automatically initalise the JS behaviour, add `data-ecl-auto-init="Message"` to your component's markup:
+
+```html
+<div
+  role="alert"
+  class="ecl-message ecl-message--info"
+  data-ecl-message
+  data-ecl-auto-init="Message"
+>
+  ...
+</div>
+```
+
+Don't forget to call `ECL.autoInit()` when your page is ready!
+
+### Manual initialisation
+
+When the document is ready, query the element. For example, you can use `document.querySelector('[data-ecl-galmessagelery]')` if you only have 1 message in the page.
+
+Then, instantiate the `Message` component and call `init()`:
+
+```js
+var elt = document.querySelector('[data-ecl-message]');
+var message = new ECL.Message(elt);
+message.init();
+```
