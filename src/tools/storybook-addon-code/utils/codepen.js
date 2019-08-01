@@ -15,7 +15,7 @@ const replaceLogo = code =>
 const replaceIcons = code =>
   code.replace(
     /static\/media\/icons\.([a-z0-9]*)\.svg/gi,
-    `${baseUrl}/images/icons/sprites/icons.svg`
+    `${baseUrl}images/icons/sprites/icons.svg`
   );
 
 const prefillPen = code => {

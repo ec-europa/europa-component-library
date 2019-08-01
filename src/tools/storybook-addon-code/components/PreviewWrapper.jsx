@@ -11,18 +11,16 @@ import { html as beautify } from 'js-beautify';
 import { EVENTS } from '../constants';
 import prefillPen from '../utils/codepen';
 
-const StyledButton = styled(Button)(() => ({
-  marginTop: '20px',
-  float: 'right',
-}));
+const TitleBar = styled.div`
+  align-items: center; /* stylelint-disable-line */
+  display: flex;
+  justify-content: space-between;
+`;
 
 const StyledSyntaxHighlighter = styled(SyntaxHighlighter)(({ theme }) => ({
   fontSize: theme.typography.size.s2 - 1,
   flexGrow: '1',
   flexShrink: '1',
-  '> *:first-child': {
-    height: '100%',
-  },
 }));
 
 const Overlay = styled.div(() => ({
@@ -32,7 +30,7 @@ const Overlay = styled.div(() => ({
   display: 'flex',
   flexDirection: 'column',
   width: '100%',
-  height: '100%',
+  minHeight: '100%',
   backgroundColor: '#fff',
   padding: '20px',
 }));
@@ -104,7 +102,12 @@ export class PreviewWrapper extends Component {
         {expanded && (
           <Overlay id="storybook-code">
             <DocumentFormatting>
-              <h1>Live HTML</h1>
+              <TitleBar>
+                <h1>Live HTML</h1>
+                <Button tertiary type="button" onClick={this.openInCodePen}>
+                  Open in CodePen
+                </Button>
+              </TitleBar>
               <StyledSyntaxHighlighter
                 bordered
                 copyable
@@ -113,9 +116,6 @@ export class PreviewWrapper extends Component {
               >
                 {beautifiedCode}
               </StyledSyntaxHighlighter>
-              <StyledButton tertiary type="button" onClick={this.openInCodePen}>
-                Open in CodePen
-              </StyledButton>
             </DocumentFormatting>
           </Overlay>
         )}
