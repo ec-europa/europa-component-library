@@ -24,7 +24,7 @@ const CampaignPage = ({
   <Fragment>
     <SkipLink href="#main" label="Skip to main content" />
     <SiteHeader {...siteHeader} id="top" />
-    <LanguageListOverlay {...languageList} hidden="true" />
+    <LanguageListOverlay {...languageList} hidden />
     <HeroBanner {...heroBanner} />
     <main className="ecl-u-pv-xl" id="main">
       <div className="ecl-container">
@@ -32,7 +32,6 @@ const CampaignPage = ({
           <div className="ecl-col-sm-12 ecl-col-md-6">
             <MediaContainer {...mediaContainer} />
           </div>
-
           <div className="ecl-col-sm-12 ecl-col-md-6">
             <p className="ecl-u-type-paragraph">
               The European Commission has put forward ambitious yet realistic
@@ -45,7 +44,6 @@ const CampaignPage = ({
             </p>
           </div>
         </div>
-
         <div className="ecl-row ecl-u-mt-l">
           <div className="ecl-col-sm-12 ecl-col-md-4">
             <Card {...card} />
@@ -57,21 +55,20 @@ const CampaignPage = ({
             <Card {...card} />
           </div>
         </div>
-
         <div className="ecl-row ecl-u-mt-l ecl-u-mb-xl">
           <div className="ecl-col-sm-12 ecl-col-md-6">
             <Blockquote {...blockquote} />
           </div>
         </div>
-
         <div id="social-media-sharing">
           <p className="ecl-u-type-paragraph">
             <Icon size="m" shape="notifications--information" />
-            &nbsp; To insert social media sharing here, please use&nbsp;
+            &nbsp; To insert social media sharing here, please use the{' '}
             <Link
               href="https://webgate.ec.europa.eu/fpfis/wikis/pages/viewpage.action?pageId=105090808"
-              label="the widget provided by Webtools"
+              label="widget provided by Webtools"
             />
+            .
           </p>
         </div>
       </div>
