@@ -2,7 +2,13 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-const TimelineItem = ({ label, title, children, className, ...props }) => (
+export const Timeline2Item = ({
+  label,
+  title,
+  children,
+  className,
+  ...props
+}) => (
   <li {...props} className={classnames(className, 'ecl-timeline2__item')}>
     <Fragment>
       <div className="ecl-timeline2__label">{label}</div>
@@ -12,18 +18,18 @@ const TimelineItem = ({ label, title, children, className, ...props }) => (
   </li>
 );
 
-TimelineItem.propTypes = {
+Timeline2Item.propTypes = {
   label: PropTypes.string,
   title: PropTypes.string,
   children: PropTypes.node,
   className: PropTypes.string,
 };
 
-TimelineItem.defaultProps = {
+Timeline2Item.defaultProps = {
   label: '',
   title: '',
   children: null,
   className: '',
 };
 
-export default TimelineItem;
+export default Timeline2Item;

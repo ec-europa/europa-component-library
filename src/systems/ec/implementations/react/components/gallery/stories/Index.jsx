@@ -6,8 +6,6 @@ import StoryWrapper from '@ecl/story-wrapper';
 
 import demoContent from '@ecl/ec-specs-gallery/demo/data';
 
-import VanillaGallery from '@ecl/ec-component-gallery';
-
 import Gallery from '../src/Gallery';
 
 storiesOf('Components|Gallery', module)
@@ -15,20 +13,20 @@ storiesOf('Components|Gallery', module)
   .addDecorator(story => (
     <StoryWrapper
       afterMount={() => {
-        const element = document.querySelector('[data-ecl-gallery]');
-        const vanillaGallery = new VanillaGallery(element);
-        vanillaGallery.init();
+        if (!window.ECL) return {};
 
-        // Return new context
-        return { vanillaGallery };
+        const components = window.ECL.autoInit();
+        return { components };
       }}
       beforeUnmount={context => {
-        if (context.vanillaGallery) {
-          context.vanillaGallery.destroy();
+        if (context.components) {
+          context.components.forEach(c => c.destroy());
         }
       }}
     >
       {story()}
     </StoryWrapper>
   ))
-  .add('default', () => <Gallery {...demoContent} />);
+  .add('default', () => (
+    <Gallery {...demoContent} data-ecl-auto-init="Gallery" />
+  ));
