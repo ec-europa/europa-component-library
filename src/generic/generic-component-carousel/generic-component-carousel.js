@@ -159,6 +159,7 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
   // REVEAL API
   return {
     init,
+    goToSlide,
     destroy,
   };
 };
