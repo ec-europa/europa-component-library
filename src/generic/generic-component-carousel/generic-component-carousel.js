@@ -56,18 +56,19 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
       'block';
   }
 
-  function previousSlide() {
-    goToSlide(currentSlide - 1);
+  function openSlide(n) {
+    goToSlide(n);
     setOffset();
     announceCurrentSlide();
     showImageInformation();
   }
 
+  function previousSlide() {
+    openSlide(currentSlide - 1);
+  }
+
   function nextSlide() {
-    goToSlide(currentSlide + 1);
-    setOffset();
-    announceCurrentSlide();
-    showImageInformation();
+    openSlide(currentSlide + 1);
   }
 
   // Attach controls to a carousel.
@@ -159,7 +160,7 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
   // REVEAL API
   return {
     init,
-    goToSlide,
+    openSlide,
     destroy,
   };
 };
