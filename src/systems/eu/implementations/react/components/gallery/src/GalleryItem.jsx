@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-
 import Icon from '@ecl/eu-react-component-icon';
 
-const GalleryItem = ({ item, className, ...props }) => {
+export const GalleryItem = ({ item, className, ...props }) => {
   let mediaHref = '';
   if (item.video) {
     mediaHref = item.video.sources[0].src;

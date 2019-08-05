@@ -3,11 +3,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
-
 import demoContent from '@ecl/ec-specs-file/demo/data--without-translation';
 import demoContentTranslation from '@ecl/ec-specs-file/demo/data--with-translation';
 
-import FileDownload from '../src/FileDownload';
+import { FileDownload } from '../src/FileDownload';
 
 storiesOf('Components|File', module)
   .addDecorator(withKnobs)

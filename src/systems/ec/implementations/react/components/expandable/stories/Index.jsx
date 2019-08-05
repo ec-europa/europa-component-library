@@ -3,10 +3,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
-
 import demoContent from '@ecl/ec-specs-expandable/demo/data';
 
-import Expandable from '../src/Expandable';
+import { Expandable } from '../src/Expandable';
 
 storiesOf('Components|Expandables', module)
   .addDecorator(withKnobs)

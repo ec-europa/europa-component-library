@@ -4,11 +4,10 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { withCssResources } from '@storybook/addon-cssresources';
 import StoryWrapper from '@ecl/story-wrapper';
-
 import demoContent from '@ecl/ec-specs-accordion/demo/data';
 
-import Accordion from '../src/Accordion';
-import AccordionItem from '../src/AccordionItem';
+import { Accordion } from '../src/Accordion';
+import { AccordionItem } from '../src/AccordionItem';
 
 storiesOf('Components|Accordion', module)
   .addDecorator(withKnobs)

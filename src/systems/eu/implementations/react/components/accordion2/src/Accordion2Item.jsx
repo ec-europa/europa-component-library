@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-
 import Icon from '@ecl/eu-react-component-icon';
 
-const Accordion2Item = ({ id, toggle, level, children }) => {
+export const Accordion2Item = ({ id, toggle, level, children }) => {
   const HeadingTag = `h${level || 3}`;
 
   return (
