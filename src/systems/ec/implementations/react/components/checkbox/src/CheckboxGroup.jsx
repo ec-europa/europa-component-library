@@ -15,7 +15,6 @@ const CheckboxGroup = ({
   legendClassName,
   legendId,
   name,
-  optInOut,
   optionalText,
   required,
   requiredText,
@@ -23,10 +22,7 @@ const CheckboxGroup = ({
 }) => {
   const classNames = classnames(
     className,
-    'ecl-form-group ecl-form-group--checkbox',
-    {
-      'ecl-checkbox__group--opt-in-out': optInOut,
-    }
+    'ecl-form-group ecl-form-group--checkbox'
   );
 
   return (
@@ -91,7 +87,6 @@ CheckboxGroup.propTypes = {
   legendClassName: PropTypes.string,
   legendId: PropTypes.string,
   name: PropTypes.string,
-  optInOut: PropTypes.bool,
   optionalText: PropTypes.string,
   required: PropTypes.bool,
   requiredText: PropTypes.string,
@@ -108,7 +103,6 @@ CheckboxGroup.defaultProps = {
   legendClassName: '',
   legendId: '',
   name: '',
-  optInOut: false,
   optionalText: '',
   required: false,
   requiredText: '',

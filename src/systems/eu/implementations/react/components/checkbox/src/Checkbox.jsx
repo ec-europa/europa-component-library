@@ -17,6 +17,7 @@ const Checkbox = ({
   label,
   labelClassName,
   name,
+  value,
   ...props
 }) => {
   const classNames = classnames(className, 'ecl-checkbox', {
@@ -28,12 +29,13 @@ const Checkbox = ({
     <div {...props} className={classNames}>
       <input
         {...props}
-        type="checkbox"
-        id={id}
-        defaultChecked={defaultChecked}
-        name={name || undefined}
         className="ecl-checkbox__input"
+        defaultChecked={defaultChecked}
         disabled={disabled}
+        id={id}
+        name={name || undefined}
+        type="checkbox"
+        value={value}
       />
 
       <label
@@ -86,6 +88,7 @@ Checkbox.propTypes = {
   label: PropTypes.string,
   labelClassName: PropTypes.string,
   name: PropTypes.string,
+  value: PropTypes.string,
 };
 
 Checkbox.defaultProps = {
@@ -100,6 +103,7 @@ Checkbox.defaultProps = {
   label: '',
   labelClassName: '',
   name: '',
+  value: '',
 };
 
 export default Checkbox;
