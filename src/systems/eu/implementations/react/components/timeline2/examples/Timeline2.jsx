@@ -2,7 +2,7 @@
 import React from 'react';
 import parse from 'html-react-parser';
 import demoContent from '@ecl/eu-specs-timeline2/demo/data';
-import Timeline from '../src/Timeline2';
+import { Timeline2 } from '../src/Timeline2';
 
 // Format data
 function formatData(data) {
@@ -15,4 +15,6 @@ function formatData(data) {
   return formattedData;
 }
 
-export default () => <Timeline {...formatData(demoContent)} />;
+export default () => (
+  <Timeline2 {...formatData(demoContent)} data-ecl-auto-init="Timeline2" />
+);

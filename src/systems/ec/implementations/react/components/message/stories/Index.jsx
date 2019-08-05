@@ -3,13 +3,12 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
-
 import demoContentInfo from '@ecl/ec-specs-message/demo/data--info';
 import demoContentSuccess from '@ecl/ec-specs-message/demo/data--success';
 import demoContentWarning from '@ecl/ec-specs-message/demo/data--warning';
 import demoContentError from '@ecl/ec-specs-message/demo/data--error';
 
-import Message from '../src/Message';
+import { Message } from '../src/Message';
 
 storiesOf('Components|Messages', module)
   .addDecorator(withKnobs)

@@ -4,10 +4,9 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs/react';
 import { withCssResources } from '@storybook/addon-cssresources';
 import StoryWrapper from '@ecl/story-wrapper';
-
 import demoContent from '@ecl/ec-specs-menu-legacy/demo/data';
 
-import MenuLegacy from '../src/MenuLegacy';
+import { MenuLegacy } from '../src/MenuLegacy';
 
 storiesOf('Components|Navigation/Menu (legacy)', module)
   .addDecorator(withKnobs)

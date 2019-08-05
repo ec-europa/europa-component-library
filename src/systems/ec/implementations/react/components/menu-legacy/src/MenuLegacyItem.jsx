@@ -2,10 +2,9 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-
 import Link from '@ecl/ec-react-component-link';
 
-const MenuLegacyItem = ({ label, href, isCurrent, children }) => {
+export const MenuLegacyItem = ({ label, href, isCurrent, children }) => {
   const classNames = classnames('ecl-menu-legacy__item', {
     'ecl-menu-legacy__item--current': isCurrent,
   });

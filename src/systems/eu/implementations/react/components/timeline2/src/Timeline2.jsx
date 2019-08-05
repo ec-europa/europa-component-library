@@ -2,12 +2,10 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-
 import Button from '@ecl/eu-react-component-button';
+import { Timeline2Item } from './Timeline2Item';
 
-import TimelineItem from './Timeline2Item';
-
-const Timeline = ({
+export const Timeline2 = ({
   items,
   toggleCollapsed,
   toggleExpanded,
@@ -48,7 +46,7 @@ const Timeline = ({
       {items.map(
         ({ id: itemId, content: itemContent, ...itemProps }, index) => (
           <Fragment key={itemId}>
-            <TimelineItem
+            <Timeline2Item
               {...itemProps}
               className={classnames({
                 [`ecl-timeline2__item--collapsed`]:
@@ -56,7 +54,7 @@ const Timeline = ({
               })}
             >
               {itemContent}
-            </TimelineItem>
+            </Timeline2Item>
 
             {threshold < items.length &&
               index === items.length - 3 &&
@@ -68,7 +66,7 @@ const Timeline = ({
   );
 };
 
-Timeline.propTypes = {
+Timeline2.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
@@ -81,7 +79,7 @@ Timeline.propTypes = {
   className: PropTypes.string,
 };
 
-Timeline.defaultProps = {
+Timeline2.defaultProps = {
   items: [],
   toggleCollapsed: '',
   toggleExpanded: '',
@@ -89,4 +87,4 @@ Timeline.defaultProps = {
   className: '',
 };
 
-export default Timeline;
+export default Timeline2;

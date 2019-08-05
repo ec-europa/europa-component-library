@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, button } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
 import { loremIpsum } from 'lorem-ipsum';
-import InpageNavigation from '../src/InpageNavigation';
+import { InpageNavigation } from '../src/InpageNavigation';
 
 storiesOf('Components|Navigation/In page navigation', module)
   .addDecorator(withKnobs)
