@@ -3,29 +3,24 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
-
 import demoContent from '@ecl/ec-specs-file/demo/data--without-translation';
 import demoContentTranslation from '@ecl/ec-specs-file/demo/data--with-translation';
 
-import VanillaFileDownload from '@ecl/ec-component-file';
-
-import FileDownload from '../src/FileDownload';
+import { FileDownload } from '../src/FileDownload';
 
 storiesOf('Components|File', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryWrapper
       afterMount={() => {
-        const element = document.querySelector('[data-ecl-file]');
-        const vanillaFileDownload = new VanillaFileDownload(element);
-        vanillaFileDownload.init();
+        if (!window.ECL) return {};
 
-        // Return new context
-        return { vanillaFileDownload };
+        const components = window.ECL.autoInit();
+        return { components };
       }}
       beforeUnmount={context => {
-        if (context.vanillaFileDownload) {
-          context.vanillaFileDownload.destroy();
+        if (context.components) {
+          context.components.forEach(c => c.destroy());
         }
       }}
     >
@@ -67,6 +62,7 @@ storiesOf('Components|File', module)
         title={title}
         download={download}
         translation={translation}
+        data-ecl-auto-init="FileDownload"
       />
     );
   });

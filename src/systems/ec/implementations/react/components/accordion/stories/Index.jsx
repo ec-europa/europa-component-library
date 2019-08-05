@@ -4,36 +4,24 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { withCssResources } from '@storybook/addon-cssresources';
 import StoryWrapper from '@ecl/story-wrapper';
-
 import demoContent from '@ecl/ec-specs-accordion/demo/data';
 
-import VanillaAccordion from '@ecl/ec-component-accordion';
-
-import Accordion from '../src/Accordion';
-import AccordionItem from '../src/AccordionItem';
+import { Accordion } from '../src/Accordion';
+import { AccordionItem } from '../src/AccordionItem';
 
 storiesOf('Components|Accordion', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryWrapper
       afterMount={() => {
-        const elements = document.querySelectorAll('[data-ecl-accordion]');
-        const vanillaAccordions = [];
+        if (!window.ECL) return {};
 
-        for (let i = 0; i < elements.length; i += 1) {
-          const vanillaAccordion = new VanillaAccordion(elements[i]);
-          vanillaAccordion.init();
-          vanillaAccordions.push(vanillaAccordion);
-        }
-
-        // Return new context
-        return { vanillaAccordions };
+        const components = window.ECL.autoInit();
+        return { components };
       }}
       beforeUnmount={context => {
-        if (context.vanillaAccordions) {
-          for (let i = 0; i < context.vanillaAccordions.length; i += 1) {
-            context.vanillaAccordions[i].destroy();
-          }
+        if (context.components) {
+          context.components.forEach(c => c.destroy());
         }
       }}
     >
@@ -62,7 +50,7 @@ storiesOf('Components|Accordion', module)
   *::after {
     box-sizing: border-box;
   }
-  
+
   html {
     color: red;
     font-family: serif;
@@ -91,7 +79,7 @@ storiesOf('Components|Accordion', module)
     };
 
     return (
-      <Accordion>
+      <Accordion data-ecl-auto-init="Accordion">
         <AccordionItem
           toggle={toggle1}
           id={demoContent.items[0].id}

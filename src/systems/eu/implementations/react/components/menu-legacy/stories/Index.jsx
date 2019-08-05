@@ -4,28 +4,23 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs/react';
 import { withCssResources } from '@storybook/addon-cssresources';
 import StoryWrapper from '@ecl/story-wrapper';
-
 import demoContent from '@ecl/eu-specs-menu-legacy/demo/data';
 
-import VanillaMenuLegacy from '@ecl/eu-component-menu-legacy';
-
-import MenuLegacy from '../src/MenuLegacy';
+import { MenuLegacy } from '../src/MenuLegacy';
 
 storiesOf('Components|Navigation/Menu (legacy)', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryWrapper
       afterMount={() => {
-        const element = document.querySelector('[data-ecl-menu-legacy]');
-        const vanillaMenuLegacy = new VanillaMenuLegacy(element);
-        vanillaMenuLegacy.init();
+        if (!window.ECL) return {};
 
-        // Return new context
-        return { vanillaMenuLegacy };
+        const components = window.ECL.autoInit();
+        return { components };
       }}
       beforeUnmount={context => {
-        if (context.vanillaMenuLegacy) {
-          context.vanillaMenuLegacy.destroy();
+        if (context.components) {
+          context.components.forEach(c => c.destroy());
         }
       }}
     >
@@ -54,7 +49,7 @@ storiesOf('Components|Navigation/Menu (legacy)', module)
   *::after {
     box-sizing: border-box;
   }
-  
+
   html {
     color: red;
     font-family: serif;
@@ -66,4 +61,6 @@ storiesOf('Components|Navigation/Menu (legacy)', module)
       },
     ],
   })
-  .add('default', () => <MenuLegacy {...demoContent} />);
+  .add('default', () => (
+    <MenuLegacy {...demoContent} data-ecl-auto-init="MenuLegacy" />
+  ));
