@@ -1,6 +1,14 @@
 import { queryOne } from '@ecl/ec-base/helpers/dom';
 
 export class Timeline {
+  static autoInit(root, { TIMELINE: defaultOptions = {} } = {}) {
+    const timeline = new Timeline(root, defaultOptions);
+    timeline.init();
+    // eslint-disable-next-line no-param-reassign
+    root.ECLTimeline = timeline;
+    return timeline;
+  }
+
   constructor(
     element,
     {

@@ -1,0 +1,20 @@
+/**
+ * Textarea component
+ * @define text-area
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-text-area-print() {
+  .ecl-text-area {
+    color: $ecl-color-black;
+    font: $ecl-font-print-m;
+    margin: 0;
+  }
+}
+
+// Use mixin
+@include exports('ec-component-form-text-area-print') {
+  @include ecl-text-area-print();
+}

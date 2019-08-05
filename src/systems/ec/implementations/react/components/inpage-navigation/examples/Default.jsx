@@ -10,7 +10,7 @@ import PageHeader from '@ecl/ec-react-component-page-header';
 import breadcrumbContent from '@ecl/ec-specs-breadcrumb/demo/data-simple';
 import demoContentEn from '@ecl/ec-specs-site-header/demo/data--en';
 import demoContentCorporate from '@ecl/ec-specs-footer/demo/data--corporate';
-import InpageNavigation from '../src/InpageNavigation';
+import { InpageNavigation } from '../src/InpageNavigation';
 
 export default class DefaultExample extends React.Component {
   constructor(props) {

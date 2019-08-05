@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import Icon from '@ecl/ec-react-component-icon';
 
-const BreadcrumbEllipsis = ({ label, isVisible }) => (
+export const BreadcrumbEllipsis = ({ label, isVisible }) => (
   <li
     className="ecl-breadcrumb__segment ecl-breadcrumb__segment--ellipsis"
     aria-hidden={!isVisible}

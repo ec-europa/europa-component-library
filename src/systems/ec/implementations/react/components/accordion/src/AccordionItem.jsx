@@ -1,10 +1,9 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-
 import Button from '@ecl/ec-react-component-button';
 
-const AccordionItem = ({ id, toggle, level, children }) => {
+export const AccordionItem = ({ id, toggle, level, children }) => {
   const HeadingTag = `h${level || 3}`;
 
   return (
