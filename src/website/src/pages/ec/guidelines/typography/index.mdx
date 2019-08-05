@@ -3,6 +3,7 @@ title: Typography
 order: 1
 ---
 
+import Playground from '@ecl/website-components/Playground';
 import { RemToPixels } from '@ecl/website-components';
 
 Disclaimer: all values expressed in pixels are in fact dynamically converted from rem values. The conversion depends on the settings of your browser.
@@ -39,12 +40,34 @@ Headings and subheadings should be organised in a hierarchy, with heading first,
 
 ### Heading 1
 
+<Playground hideCode>
+  <div className="ecl-u-ph-m ecl-u-pv-xl">
+    <div className="ecl-u-type-3xl ecl-u-type-bold">
+      The quick brown fox jumps over the lazy dog
+    </div>
+    <div className="ecl-u-type-4xl ecl-u-type-bold ecl-u-mt-m">
+      The quick brown fox jumps over the lazy dog
+    </div>
+  </div>
+</Playground>
+
 |         | Font size                                    | Line height                                   |
 | ------- | -------------------------------------------- | --------------------------------------------- |
 | Mobile  | 3XL - 1.75rem - <RemToPixels rem="1.75" />px | 3XL UI - 2rem - <RemToPixels rem="2" />px     |
 | Desktop | 4XL - 2rem - <RemToPixels rem="2" />px       | 4XL UI - 2.5rem - <RemToPixels rem="2.5" />px |
 
 ### Heading 2
+
+<Playground hideCode>
+  <div className="ecl-u-ph-m ecl-u-pv-xl">
+    <div className="ecl-u-type-2xl ecl-u-type-bold">
+      The quick brown fox jumps over the lazy dog
+    </div>
+    <div className="ecl-u-type-3xl ecl-u-type-bold ecl-u-mt-m">
+      The quick brown fox jumps over the lazy dog
+    </div>
+  </div>
+</Playground>
 
 |         | Font size                                    | Line height                                     |
 | ------- | -------------------------------------------- | ----------------------------------------------- |
@@ -53,6 +76,17 @@ Headings and subheadings should be organised in a hierarchy, with heading first,
 
 ### Heading 3
 
+<Playground hideCode>
+  <div className="ecl-u-ph-m ecl-u-pv-xl">
+    <div className="ecl-u-type-xl ecl-u-type-bold">
+      The quick brown fox jumps over the lazy dog
+    </div>
+    <div className="ecl-u-type-2xl ecl-u-type-bold ecl-u-mt-m">
+      The quick brown fox jumps over the lazy dog
+    </div>
+  </div>
+</Playground>
+
 |         | Font size                                   | Line height                                     |
 | ------- | ------------------------------------------- | ----------------------------------------------- |
 | Mobile  | XL - 1.25rem - <RemToPixels rem="1.25" />px | XL UI - 1.5rem - <RemToPixels rem="1.5" />px    |
@@ -60,12 +94,31 @@ Headings and subheadings should be organised in a hierarchy, with heading first,
 
 ### Heading 4
 
+<Playground hideCode>
+  <div className="ecl-u-ph-m ecl-u-pv-xl">
+    <div className="ecl-u-type-prolonged-l ecl-u-type-bold">
+      The quick brown fox jumps over the lazy dog
+    </div>
+    <div className="ecl-u-type-prolonged-xl ecl-u-type-bold ecl-u-mt-m">
+      The quick brown fox jumps over the lazy dog
+    </div>
+  </div>
+</Playground>
+
 |         | Font size                                    | Line height                                           |
 | ------- | -------------------------------------------- | ----------------------------------------------------- |
 | Mobile  | L - 1.125rem - <RemToPixels rem="1.125" />px | L Prolonged - 1.75rem - <RemToPixels rem="1.75" />px  |
 | Desktop | XL - 1.25rem - <RemToPixels rem="1.25" />px  | XL Prolonged - 1.75rem - <RemToPixels rem="1.75" />px |
 
 ### Heading 5
+
+<Playground hideCode>
+  <div className="ecl-u-ph-m ecl-u-pv-xl">
+    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
+      The quick brown fox jumps over the lazy dog
+    </div>
+  </div>
+</Playground>
 
 |                  | Font size                            | Line height                                        |
 | ---------------- | ------------------------------------ | -------------------------------------------------- |
@@ -77,6 +130,17 @@ Headings and subheadings should be organised in a hierarchy, with heading first,
 
 ### Lead paragraph
 
+<Playground hideCode>
+  <div className="ecl-u-ph-m ecl-u-pv-xl">
+    <div className="ecl-u-type-prolonged-l">
+      The quick brown fox jumps over the lazy dog
+    </div>
+    <div className="ecl-u-type-prolonged-xl">
+      The quick brown fox jumps over the lazy dog
+    </div>
+  </div>
+</Playground>
+
 |         | Font size                                    | Line height                                           |
 | ------- | -------------------------------------------- | ----------------------------------------------------- |
 | Mobile  | L - 1.125rem - <RemToPixels rem="1.125" />px | L Prolonged - 1.75rem - <RemToPixels rem="1.75" />px  |
@@ -84,17 +148,41 @@ Headings and subheadings should be organised in a hierarchy, with heading first,
 
 ### Medium paragraph
 
+<Playground hideCode>
+  <div className="ecl-u-ph-m ecl-u-pv-xl">
+    <div className="ecl-u-type-prolonged-m">
+      The quick brown fox jumps over the lazy dog
+    </div>
+  </div>
+</Playground>
+
 |                  | Font size                            | Line height                                        |
 | ---------------- | ------------------------------------ | -------------------------------------------------- |
 | Mobile & Desktop | M - 1rem - <RemToPixels rem="1" />px | M Prolonged - 1.5rem - <RemToPixels rem="1.5" />px |
 
 ### Small paragraph
 
+<Playground hideCode>
+  <div className="ecl-u-ph-m ecl-u-pv-xl">
+    <div className="ecl-u-type-prolonged-s">
+      The quick brown fox jumps over the lazy dog
+    </div>
+  </div>
+</Playground>
+
 |                  | Font size                                    | Line height                                          |
 | ---------------- | -------------------------------------------- | ---------------------------------------------------- |
 | Mobile & Desktop | S - 0.875rem - <RemToPixels rem="0.875" />px | S Prolonged - 1.25rem - <RemToPixels rem="1.25" />px |
 
 ### Extra Small paragraph
+
+<Playground hideCode>
+  <div className="ecl-u-ph-m ecl-u-pv-xl">
+    <div className="ecl-u-type-prolonged-xs">
+      The quick brown fox jumps over the lazy dog
+    </div>
+  </div>
+</Playground>
 
 |                  | Font size                                   | Line height                                           |
 | ---------------- | ------------------------------------------- | ----------------------------------------------------- |
