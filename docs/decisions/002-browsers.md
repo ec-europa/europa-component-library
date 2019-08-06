@@ -3,7 +3,7 @@
 | Status        | proposed                      |
 | ------------- | ----------------------------- |
 | **Proposed**  | 2019-04-09                    |
-| **Accepted**  |                               |
+| **Accepted**  | 2019-08-06                    |
 | **Driver**    | @yhuard                       |
 | **Approver**  | @degliwe                      |
 | **Consulted** | @degliwe, @emeryro, @planctus |
