@@ -11,6 +11,8 @@
 
 ## Decision
 
+The final decision is a mix of alternatives 1.1 and 2.1 (see below).
+
 We support the minimum browser versions [requested by the IPG](https://wikis.ec.europa.eu/pages/viewpage.action?spaceKey=WEBGUIDE&title=04.+Browser+support). We also support all the browsers which have more than 0.5% usage in Europe (according to StatCounter).
 
 Here is the `browserslist` configuration we use:
@@ -37,6 +39,72 @@ not dead
 
 You can test the query by running: `npx browserslist '> 0.5% in alt-eu, Chrome >= 62, ChromeAndroid >= 55, Firefox >= 50, IE >= 11, Edge >= 16, Safari >= 10, Opera >= 52, Firefox ESR, not dead'`
 
+<details>
+ <summary>Query results (6 August 2019)</summary>
+
+```
+and_chr 75
+chrome 75
+chrome 74
+chrome 73
+chrome 72
+chrome 71
+chrome 70
+chrome 69
+chrome 68
+chrome 67
+chrome 66
+chrome 65
+chrome 64
+chrome 63
+chrome 62
+chrome 49
+edge 18
+edge 17
+edge 16
+firefox 68
+firefox 67
+firefox 66
+firefox 65
+firefox 64
+firefox 63
+firefox 62
+firefox 61
+firefox 60
+firefox 59
+firefox 58
+firefox 57
+firefox 56
+firefox 55
+firefox 54
+firefox 53
+firefox 52
+firefox 51
+firefox 50
+ie 11
+ios_saf 12.2-12.3
+ios_saf 12.0-12.1
+ios_saf 11.3-11.4
+opera 62
+opera 60
+opera 58
+opera 57
+opera 56
+opera 55
+opera 54
+opera 53
+opera 52
+safari 12.1
+safari 12
+safari 11.1
+safari 11
+safari 10.1
+safari 10
+samsung 9.2
+```
+
+</details>
+
 Please note the fact that a browser is not explicitly covered by the configuration doesn't mean the ECL won't work in this browser. It only means it might not work (lack of vendor prefixes for example).
 
 ## Context
@@ -54,6 +122,9 @@ not safari < 10
 ```
 
 Which roughly translated to this list of browsers (as of 9 April 2019, `caniuse-lite@1.0.30000957`):
+
+<details>
+ <summary>Query results (9 April 2019)</summary>
 
 ```
 and_chr 71
@@ -86,6 +157,8 @@ safari 11.1
 samsung 8.2
 samsung 7.2-7.4
 ```
+
+<details>
 
 The [latest version of the IPG](https://wikis.ec.europa.eu/display/WEBGUIDE/04.+Browser+support) (as of 6 August 2019) defines a set of minimum browser versions that must be supported:
 
