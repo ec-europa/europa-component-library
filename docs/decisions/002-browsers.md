@@ -158,7 +158,7 @@ samsung 8.2
 samsung 7.2-7.4
 ```
 
-<details>
+</details>
 
 The [latest version of the IPG](https://wikis.ec.europa.eu/display/WEBGUIDE/04.+Browser+support) (as of 6 August 2019) defines a set of minimum browser versions that must be supported:
 
