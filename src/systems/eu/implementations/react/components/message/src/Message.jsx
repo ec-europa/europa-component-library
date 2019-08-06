@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-
 import Button from '@ecl/eu-react-component-button';
 import Icon from '@ecl/eu-react-component-icon';
 
-const Message = ({
+export const Message = ({
   variant,
   icon,
   title,
