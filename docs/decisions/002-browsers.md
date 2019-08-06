@@ -1,25 +1,37 @@
 # Define which browsers we support
 
-| Status        | proposed   |
-| ------------- | ---------- |
-| **Proposed**  | 2019-04-09 |
-| **Accepted**  |            |
-| **Driver**    | @yhuard    |
-| **Approver**  |            |
-| **Consulted** |            |
-| **Informed**  |            |
+| Status        | proposed                      |
+| ------------- | ----------------------------- |
+| **Proposed**  | 2019-04-09                    |
+| **Accepted**  |                               |
+| **Driver**    | @yhuard                       |
+| **Approver**  |                               |
+| **Consulted** | @degliwe, @emeryro, @planctus |
+| **Informed**  |                               |
 
 ## Decision
 
-We support the following browsers:
-
-[...]
+We support the minimum browser versions [requested by the IPG](https://wikis.ec.europa.eu/pages/viewpage.action?spaceKey=WEBGUIDE&title=04.+Browser+support). We also support all the browsers which have more than 0.5% usage in Europe (according to StatCounter).
 
 Here is the browserslist configuration we use:
 
-[...]
+```
+# >= 0.5% usage in Europe
+> 0.5% in alt-eu
+# Minimum browser versions requested by the IPG (9 August 2019) - https://wikis.ec.europa.eu/pages/viewpage.action?spaceKey=WEBGUIDE&title=04.+Browser+support
+Chrome >= 52
+ChromeAndroid >= 55
+Firefox >= 50
+Firefox ESR
+IE >= 11
+Edge >= 16
+Safari >= 10
+Opera >= 52
+# Not dead browsers
+not dead
+```
 
-Please note the fact that a browser is not explicitly covered by the configuration doesn't mean the ECL won't work in this browser. It only means it might now work (lack of vendor prefixes for example).
+Please note the fact that a browser is not explicitly covered by the configuration doesn't mean the ECL won't work in this browser. It only means it might not work (lack of vendor prefixes for example).
 
 ## Context
 
@@ -69,9 +81,33 @@ samsung 8.2
 samsung 7.2-7.4
 ```
 
+The [latest version of the IPG](https://wikis.ec.europa.eu/display/WEBGUIDE/04.+Browser+support) (as of 6 August 2019) defines a set of minimum browser versions that must be supported:
+
+```
+Chrome 62.0
+Chrome Mobile 55.0
+Firefox 50.0
+Internet Explorer 11.0
+Microsoft Edge 16
+Safari 10.0
+Opera 52.0
+```
+
+It also specifies that:
+
+> All European Commission websites must offer an optimal browsing experience (i. e. all functional and visual bugs must be fixed) on every browser which has been used by at least 2% of its total users in the last 12 months.
+
+This requirement is specifc to each website. We can't build a specific version of ECL for every website, thus we have to expand the scope of the request: instead of targeting "2% of its total users in the last 12 months", we can target `0.5% in alt-eu` which roughly translates to "browsers with >= 0.5% usage in European countries in the last month" (browser usage based on data from StatCounter GlobalStats).
+
+If a website needs a different configuration, it will have to create a custom build of ECL.
+
 ## Consequences
 
-(Describe the pros and cons of the proposed decision. Think about the people in the **Informed** line of the DACI table above. How will this decision affect them?)
+Since the browser usage stats are constantly evolving and since the IPG frequently updates its requirements, we need to:
+
+- keep `caniuse-lite` up-to-date
+- update our configuration (minimum versions) whenever the IPG updates its requirements
+- properly communicate which browser versions were covered at the time of the build
 
 ### Next steps
 
