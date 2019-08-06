@@ -28,7 +28,6 @@ const CheckboxGroup = ({
   return (
     <fieldset
       {...props}
-      aria-labelledby={legendId}
       {...(helperId ? { 'aria-describedby': helperId } : {})}
       className={classNames}
     >

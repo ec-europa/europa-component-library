@@ -28,7 +28,6 @@ const Checkbox = ({
   return (
     <div {...props} className={classNames}>
       <input
-        {...props}
         className="ecl-checkbox__input"
         defaultChecked={defaultChecked}
         disabled={disabled}

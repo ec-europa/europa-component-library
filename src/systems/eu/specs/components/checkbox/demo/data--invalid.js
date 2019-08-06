@@ -3,8 +3,8 @@ module.exports = {
   helperText: 'Helper text for the group',
   invalid: true,
   invalidText: 'Error message for the group',
-  label: 'Select your preferred destinations',
-  labelId: 'checkbox-default-label',
+  legend: 'Select your preferred destinations',
+  legendId: 'checkbox-default-label',
   name: 'checkbox-invalid',
   items: [
     {
