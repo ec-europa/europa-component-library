@@ -1,30 +1,50 @@
 /* eslint-disable import/no-extraneous-dependencies */
-/* Hidden for now
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, select, text } from '@storybook/addon-knobs';
+import { withKnobs, text } from '@storybook/addon-knobs';
 
-import demoContentDefault from '@ecl/eu-specs-date-block/demo/data--default';
+import demoContent from '@ecl/eu-specs-date-block/demo/data';
 
 import DateBlock from '../src/DateBlock';
 
-storiesOf('Components|DateBlock', module)
+storiesOf('Components|Date Block', module)
   .addDecorator(withKnobs)
   .add('default', () => (
     <DateBlock
-      variant={select(
-        'Variant',
-        {
-          Default: '',
-          Ongoing: 'ongoing',
-          Canceled: 'canceled',
-          Past: 'past',
-        },
-        ''
-      )}
-      weekDay={text('Week day', demoContentDefault.week_day)}
-      day={text('Day', demoContentDefault.day)}
-      month={text('Month', demoContentDefault.month)}
+      dateTime={demoContent.dateTime}
+      day={text('Day', demoContent.day)}
+      month={text('Month', demoContent.month)}
+      monthFull={text('Month (full)', demoContent.monthFull)}
+      year={text('Year', demoContent.year)}
+    />
+  ))
+  .add('ongoing', () => (
+    <DateBlock
+      variant="ongoing"
+      dateTime={demoContent.dateTime}
+      day={text('Day', demoContent.day)}
+      month={text('Month', demoContent.month)}
+      monthFull={text('Month (full)', demoContent.monthFull)}
+      year={text('Year', demoContent.year)}
+    />
+  ))
+  .add('cancelled', () => (
+    <DateBlock
+      variant="canceled"
+      dateTime={demoContent.dateTime}
+      day={text('Day', demoContent.day)}
+      month={text('Month', demoContent.month)}
+      monthFull={text('Month (full)', demoContent.monthFull)}
+      year={text('Year', demoContent.year)}
+    />
+  ))
+  .add('past', () => (
+    <DateBlock
+      variant="past"
+      dateTime={demoContent.dateTime}
+      day={text('Day', demoContent.day)}
+      month={text('Month', demoContent.month)}
+      monthFull={text('Month (full)', demoContent.monthFull)}
+      year={text('Year', demoContent.year)}
     />
   ));
-*/

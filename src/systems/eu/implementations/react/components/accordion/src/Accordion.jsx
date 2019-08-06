@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-const Accordion = ({ children, className, ...props }) => {
+export const Accordion = ({ children, className, ...props }) => {
   return (
     <div
       {...props}

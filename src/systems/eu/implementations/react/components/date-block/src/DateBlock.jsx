@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 const DateBlock = ({
-  variant, // ongoing, cancelled, past
-  weekDay,
+  variant, // ongoing, canceled, past
+  dateTime,
   day,
   month,
+  monthFull,
+  year,
   className,
   ...props
 }) => {
@@ -14,28 +16,43 @@ const DateBlock = ({
     [`ecl-date-block--${variant}`]: variant,
   });
 
+  let monthMarkup = '';
+  if (monthFull !== '' && monthFull !== month) {
+    monthMarkup = (
+      <abbr title={monthFull} className="ecl-date-block__month">
+        {month}
+      </abbr>
+    );
+  } else {
+    monthMarkup = <span className="ecl-date-block__month">{month}</span>;
+  }
+
   return (
-    <div {...props} className={classNames}>
-      <div className="ecl-date-block__week-day">{weekDay}</div>
-      <div className="ecl-date-block__day">{day}</div>
-      <div className="ecl-date-block__month">{month}</div>
-    </div>
+    <time {...props} className={classNames} dateTime={dateTime}>
+      <span className="ecl-date-block__day">{day}</span>
+      {monthMarkup}
+      <span className="ecl-date-block__year">{year}</span>
+    </time>
   );
 };
 
 DateBlock.propTypes = {
   variant: PropTypes.string,
-  weekDay: PropTypes.string,
+  dateTime: PropTypes.string,
   day: PropTypes.string,
   month: PropTypes.string,
+  monthFull: PropTypes.string,
+  year: PropTypes.string,
   className: PropTypes.string,
 };
 
 DateBlock.defaultProps = {
-  variant: 'primary',
-  weekDay: '',
+  variant: '',
+  dateTime: '',
   day: '',
   month: '',
+  monthFull: '',
+  year: '',
   className: '',
 };
 

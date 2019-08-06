@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-
 import Button from '@ecl/ec-react-component-button';
 import Link from '@ecl/ec-react-component-link';
 
-const GalleryOverlay = ({ overlay, item, className, ...props }) => {
+export const GalleryOverlay = ({ overlay, item, className, ...props }) => {
   if (item == null) return null;
 
   return (

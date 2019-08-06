@@ -1,6 +1,5 @@
 ---
 title: Date blocks
 defaultTab: usage
-status: wip
-hidden: true
+status: ready
 ---

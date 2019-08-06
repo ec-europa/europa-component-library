@@ -1,6 +1,14 @@
 import { queryOne, queryAll } from '@ecl/ec-base/helpers/dom';
 
 export class Accordion {
+  static autoInit(root, { ACCORDION: defaultOptions = {} } = {}) {
+    const accordion = new Accordion(root, defaultOptions);
+    accordion.init();
+    // eslint-disable-next-line no-param-reassign
+    root.ECLAccordion = accordion;
+    return accordion;
+  }
+
   constructor(
     element,
     {
@@ -49,7 +57,7 @@ export class Accordion {
   }
 
   destroy() {
-    if (this.attachClickListener && this.toggle) {
+    if (this.attachClickListener && this.toggles) {
       this.toggles.forEach(toggle => {
         toggle.removeEventListener('click', this.handleClickOnToggle);
       });

@@ -59,7 +59,7 @@ export class Accordion2 {
   }
 
   destroy() {
-    if (this.attachClickListener && this.toggle) {
+    if (this.attachClickListener && this.toggles) {
       this.toggles.forEach(toggle => {
         toggle.removeEventListener('click', this.handleClickOnToggle);
       });
