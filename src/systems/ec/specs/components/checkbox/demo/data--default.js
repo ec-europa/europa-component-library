@@ -24,9 +24,17 @@ module.exports = {
     {
       id: 'checkbox-default-3',
       value: 'fr',
-      label: 'France (disabled)',
+      label: 'France',
       helperId: 'helper-default-3',
       helperText: 'Help text for option 3',
+    },
+    {
+      id: 'checkbox-default-4',
+      value: 'none',
+      label: 'Without a label (disabled)',
+      helperId: 'helper-default-4',
+      helperText: 'Help text for option 4',
+      hideLabel: true,
       disabled: true,
     },
   ],
