@@ -1,7 +1,9 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 
 const path = require('path');
 const program = require('commander');
+const browserslist = require('browserslist');
 const buildScript = require('../scripts/scripts');
 const buildStyles = require('../scripts/styles');
 const copyFiles = require('../scripts/copy');
@@ -19,6 +21,18 @@ program
     '-c, --config [config_file]',
     'config file (default: ecl-builder.config.js)'
   );
+
+program
+  .command('browsers')
+  .description('get browserslist')
+  .action(() => {
+    const browsers = browserslist();
+    console.log('Browsers:', browsers.join(' '));
+    const coverage = browserslist.coverage(browsers, 'alt-eu');
+    console.log(
+      `These browsers account for ${coverage}% of all users in Europe`
+    );
+  });
 
 program
   .command('scripts')
