@@ -10,7 +10,6 @@ const Checkbox = ({
   disabled,
   helperId,
   helperText,
-  hideLabel,
   id,
   invalid,
   label,
@@ -42,8 +41,6 @@ const Checkbox = ({
           'ecl-form-label ecl-checkbox__label',
           {
             'ecl-form-label--invalid': invalid,
-            'ecl-checkbox__label--hidden': hideLabel,
-            'ecl-form-label--hidden': hideLabel,
           }
         )}
         htmlFor={id}
@@ -79,7 +76,6 @@ Checkbox.propTypes = {
   disabled: PropTypes.bool,
   helperId: PropTypes.string,
   helperText: PropTypes.node,
-  hideLabel: PropTypes.bool,
   id: PropTypes.string.isRequired,
   invalid: PropTypes.bool,
   label: PropTypes.string,
@@ -94,7 +90,6 @@ Checkbox.defaultProps = {
   disabled: false,
   helperId: '',
   helperText: '',
-  hideLabel: false,
   invalid: false,
   label: '',
   labelClassName: '',

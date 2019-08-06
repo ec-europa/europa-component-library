@@ -66,19 +66,6 @@
     fill: $ecl-color-white-100;
     visibility: hidden;
   }
-  // Label hidden
-  .ecl-checkbox__label--hidden {
-    clip: auto;
-    height: auto;
-    margin: 0;
-    position: static;
-    text-indent: -9999px;
-    width: auto;
-
-    .ecl-checkbox__box {
-      margin: 0;
-    }
-  }
   // Disabled.
   .ecl-checkbox--disabled {
     .ecl-checkbox__label {
@@ -114,7 +101,7 @@
       border-color: $box-border-color-checked;
     }
 
-    + .ecl-form-label--invalid .ecl-checkbox__box--invalid {
+    + .ecl-checkbox__label .ecl-checkbox__box--invalid {
       background: $invalid-border-color;
       border-color: $invalid-border-color;
     }

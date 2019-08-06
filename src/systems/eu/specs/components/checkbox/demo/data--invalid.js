@@ -23,20 +23,12 @@ module.exports = {
       value: 'be',
     },
     {
+      disabled: true,
       helperId: 'helper-invalid-3',
       helperText: 'Help text for option 3',
       id: 'checkbox-invalid-3',
-      label: 'France',
+      label: 'France (disabled)',
       value: 'fr',
-    },
-    {
-      disabled: true,
-      helperId: 'helper-dinvalid-4',
-      helperText: 'Help text for option 4',
-      hideLabel: true,
-      id: 'checkbox-invalid-4',
-      label: 'Without a label (disabled)',
-      value: 'none',
     },
   ],
 };
