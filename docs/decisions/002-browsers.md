@@ -5,7 +5,7 @@
 | **Proposed**  | 2019-04-09                    |
 | **Accepted**  |                               |
 | **Driver**    | @yhuard                       |
-| **Approver**  |                               |
+| **Approver**  | @degliwe                      |
 | **Consulted** | @degliwe, @emeryro, @planctus |
 | **Informed**  |                               |
 
