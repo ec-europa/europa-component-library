@@ -13,23 +13,29 @@
 
 We support the minimum browser versions [requested by the IPG](https://wikis.ec.europa.eu/pages/viewpage.action?spaceKey=WEBGUIDE&title=04.+Browser+support). We also support all the browsers which have more than 0.5% usage in Europe (according to StatCounter).
 
-Here is the browserslist configuration we use:
+Here is the `browserslist` configuration we use:
 
 ```
-# >= 0.5% usage in Europe
+# > 0.5% usage in Europe (StatCounter GlobalStats)
 > 0.5% in alt-eu
+
 # Minimum browser versions requested by the IPG (9 August 2019) - https://wikis.ec.europa.eu/pages/viewpage.action?spaceKey=WEBGUIDE&title=04.+Browser+support
-Chrome >= 52
+Chrome >= 62
 ChromeAndroid >= 55
 Firefox >= 50
-Firefox ESR
 IE >= 11
 Edge >= 16
 Safari >= 10
 Opera >= 52
-# Not dead browsers
+
+# Support the latest Firefox ESR
+Firefox ESR
+
+# Not dead browsers ("dead" meaning "browsers without official support or updates for 24 months")
 not dead
 ```
+
+You can test the query by running: `npx browserslist '> 0.5% in alt-eu, Chrome >= 62, ChromeAndroid >= 55, Firefox >= 50, IE >= 11, Edge >= 16, Safari >= 10, Opera >= 52, Firefox ESR, not dead'`
 
 Please note the fact that a browser is not explicitly covered by the configuration doesn't mean the ECL won't work in this browser. It only means it might not work (lack of vendor prefixes for example).
 
@@ -97,9 +103,11 @@ It also specifies that:
 
 > All European Commission websites must offer an optimal browsing experience (i. e. all functional and visual bugs must be fixed) on every browser which has been used by at least 2% of its total users in the last 12 months.
 
-This requirement is specifc to each website. We can't build a specific version of ECL for every website, thus we have to expand the scope of the request: instead of targeting "2% of its total users in the last 12 months", we can target `0.5% in alt-eu` which roughly translates to "browsers with >= 0.5% usage in European countries in the last month" (browser usage based on data from StatCounter GlobalStats).
+This requirement is specifc to each website. We can't build a specific version of ECL for every website, thus we have to expand the scope of the request: instead of targeting "2% of its total users in the last 12 months", we can target `> 0.5% in alt-eu` which roughly translates to "browsers with > 0.5% usage in European countries in the last month" (browser usage based on data from StatCounter GlobalStats).
 
-If a website needs a different configuration, it will have to create a custom build of ECL.
+We also know that EC computers (can) use Firefox ESR. `browserslis` provides a query for it, let's use it!
+
+If a project needs a different configuration, it will have to create a custom build of ECL.
 
 ## Consequences
 
@@ -107,7 +115,7 @@ Since the browser usage stats are constantly evolving and since the IPG frequent
 
 - keep `caniuse-lite` up-to-date
 - update our configuration (minimum versions) whenever the IPG updates its requirements
-- properly communicate which browser versions were covered at the time of the build
+- properly communicate which browser versions are covered at the time of the build
 
 ### Next steps
 
