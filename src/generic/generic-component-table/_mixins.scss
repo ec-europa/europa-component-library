@@ -1,6 +1,7 @@
 @mixin table() {
   border-collapse: collapse;
   border-width: 0;
+  color: $ecl-color-shade;
   font-size: map-get($ecl-font-size, 's');
   margin: 0;
   table-layout: auto;
@@ -8,7 +9,6 @@
 
   th {
     background-color: transparent;
-    color: $ecl-color-shade;
     font-weight: bold;
     text-align: left;
   }
