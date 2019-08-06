@@ -7,7 +7,6 @@ module.exports = {
   panels: [
     {
       id: 'pan1',
-      isExpanded: true,
       heading: {
         title:
           'Jobs, Growth, Investment and Competitiveness with an additional quite long string',
