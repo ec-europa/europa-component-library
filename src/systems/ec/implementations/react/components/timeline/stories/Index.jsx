@@ -5,8 +5,6 @@ import { withKnobs, button } from '@storybook/addon-knobs';
 import { withCssResources } from '@storybook/addon-cssresources';
 import StoryWrapper from '@ecl/story-wrapper';
 import { LoremIpsum } from 'lorem-ipsum';
-import VanillaTimeline from '@ecl/ec-component-timeline';
-
 import TimelineExample from '../examples/Timeline';
 
 const lorem = new LoremIpsum({
@@ -25,16 +23,14 @@ storiesOf('Components|Timeline', module)
   .addDecorator(story => (
     <StoryWrapper
       afterMount={() => {
-        const element = document.querySelector('[data-ecl-timeline]');
-        const vanillaTimeline = new VanillaTimeline(element);
-        vanillaTimeline.init();
+        if (!window.ECL) return {};
 
-        // Return new context
-        return { vanillaTimeline };
+        const components = window.ECL.autoInit();
+        return { components };
       }}
       beforeUnmount={context => {
-        if (context.vanillaTimeline) {
-          context.vanillaTimeline.destroy();
+        if (context.components) {
+          context.components.forEach(c => c.destroy());
         }
       }}
     >
@@ -63,7 +59,7 @@ storiesOf('Components|Timeline', module)
   *::after {
     box-sizing: border-box;
   }
-  
+
   html {
     color: red;
     font-family: serif;

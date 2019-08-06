@@ -3,12 +3,28 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, button } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
-import VanillaInpageNavigation from '@ecl/eu-component-inpage-navigation';
 import { loremIpsum } from 'lorem-ipsum';
-import InpageNavigation from '../src/InpageNavigation';
+import { InpageNavigation } from '../src/InpageNavigation';
 
 storiesOf('Components|Navigation/In page navigation', module)
   .addDecorator(withKnobs)
+  .addDecorator(story => (
+    <StoryWrapper
+      afterMount={() => {
+        if (!window.ECL) return {};
+
+        const components = window.ECL.autoInit();
+        return { components };
+      }}
+      beforeUnmount={context => {
+        if (context.components) {
+          context.components.forEach(c => c.destroy());
+        }
+      }}
+    >
+      {story()}
+    </StoryWrapper>
+  ))
   .add('default', () => {
     const demoText = loremIpsum({ count: 25 });
     const cssText =
@@ -93,54 +109,36 @@ storiesOf('Components|Navigation/In page navigation', module)
     };
 
     return (
-      <React.Fragment>
-        <StoryWrapper
-          afterMount={() => {
-            const element = document.querySelector(
-              '[data-ecl-inpage-navigation]'
-            );
-            const vanillaInpageNavigation = new VanillaInpageNavigation(
-              element
-            );
-            vanillaInpageNavigation.init();
-            // Return new context
-            return { vanillaInpageNavigation };
-          }}
-          beforeUnmount={context => {
-            if (context.vanillaInpageNavigation) {
-              context.vanillaInpageNavigation.destroy();
-            }
-          }}
-        />
+      <div className="ecl-container">
+        <div className="ecl-row ecl-u-mt-l">
+          <div className="ecl-col-lg-3">
+            <div className="inPageDemoSidebar" />
+            <InpageNavigation
+              {...inpageProps}
+              data-ecl-auto-init="InpageNavigation"
+            />
+          </div>
 
-        <div className="ecl-container">
-          <div className="ecl-row ecl-u-mt-l">
-            <div className="ecl-col-lg-3">
-              <div className="inPageDemoSidebar" />
-              <InpageNavigation {...inpageProps} />
-            </div>
-
-            <div className="ecl-col-lg-9">
-              <div className="inPageDemoContent" />
-              <h2 className="ecl-u-type-heading-2" id="inline-nav-1">
-                Heading 1
-              </h2>
-              <p className="ecl-u-type-paragraph-m">{demoText}</p>
-              <h2 className="ecl-u-type-heading-2" id="inline-nav-2">
-                Heading 2
-              </h2>
-              <p className="ecl-u-type-paragraph-m">{demoText}</p>
-              <h2 className="ecl-u-type-heading-2" id="inline-nav-3">
-                Heading 3
-              </h2>
-              <p className="ecl-u-type-paragraph-m">{demoText}</p>
-              <h2 className="ecl-u-type-heading-2" id="inline-nav-4">
-                Heading 4
-              </h2>
-              <p className="ecl-u-type-paragraph-m">{demoText}</p>
-            </div>
+          <div className="ecl-col-lg-9">
+            <div className="inPageDemoContent" />
+            <h2 className="ecl-u-type-heading-2" id="inline-nav-1">
+              Heading 1
+            </h2>
+            <p className="ecl-u-type-paragraph-m">{demoText}</p>
+            <h2 className="ecl-u-type-heading-2" id="inline-nav-2">
+              Heading 2
+            </h2>
+            <p className="ecl-u-type-paragraph-m">{demoText}</p>
+            <h2 className="ecl-u-type-heading-2" id="inline-nav-3">
+              Heading 3
+            </h2>
+            <p className="ecl-u-type-paragraph-m">{demoText}</p>
+            <h2 className="ecl-u-type-heading-2" id="inline-nav-4">
+              Heading 4
+            </h2>
+            <p className="ecl-u-type-paragraph-m">{demoText}</p>
           </div>
         </div>
-      </React.Fragment>
+      </div>
     );
   });
