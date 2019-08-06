@@ -34,6 +34,11 @@
   }
 
   .ecl-radio__group--binary {
+    // stylelint-disable-next-line plugin/selector-bem-pattern
+    &.ecl-form-group {
+      display: block;
+    }
+
     .ecl-radio {
       display: inline-flex;
       margin-right: $ecl-spacing-s;
