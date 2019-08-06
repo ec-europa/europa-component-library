@@ -2,70 +2,40 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-
-import VanillaTimeline from '@ecl/ec-component-timeline/ec-component-timeline';
 import Button from '@ecl/ec-react-component-button';
+import { TimelineItem } from './TimelineItem';
 
-import TimelineItem from './TimelineItem';
+export const Timeline = ({ items, button, className, ...props }) => {
+  const classNames = classnames(className, 'ecl-timeline');
 
-export default class Timeline extends React.Component {
-  constructor(props) {
-    super(props);
+  const showAllButton = (
+    <li className="ecl-timeline__item ecl-timeline__item--toggle">
+      <Button
+        {...button}
+        className={classnames(button.className, 'ecl-timeline__button')}
+        data-ecl-timeline-button
+      />
+    </li>
+  );
 
-    this.state = {};
-    this.timeline = null;
-    this.timelineRef = React.createRef();
-  }
-
-  componentDidMount() {
-    this.timeline = new VanillaTimeline(this.timelineRef.current);
-    this.timeline.init();
-  }
-
-  componentWillUnmount() {
-    if (this.timeline) this.timeline.destroy();
-  }
-
-  render() {
-    const { items, button, className, ...props } = this.props;
-
-    const classNames = classnames(className, 'ecl-timeline');
-
-    const showAllButton = (
-      <li className="ecl-timeline__item ecl-timeline__item--toggle">
-        <Button
-          {...button}
-          className={classnames(button.className, 'ecl-timeline__button')}
-          data-ecl-timeline-button
-        />
-      </li>
-    );
-
-    return (
-      <ol
-        {...props}
-        className={classNames}
-        ref={this.timelineRef}
-        data-ecl-timeline
-      >
-        {items.map((item, index) => (
-          <Fragment key={item.id}>
-            <TimelineItem
-              label={item.label}
-              className={classnames({
-                [`ecl-timeline__item--collapsed`]: index > 2,
-              })}
-            >
-              {item.content}
-            </TimelineItem>
-
-            {index === 2 && showAllButton}
-          </Fragment>
-        ))}
-      </ol>
-    );
-  }
-}
+  return (
+    <ol {...props} className={classNames} data-ecl-timeline>
+      {items.map((item, index) => (
+        <Fragment key={item.id}>
+          <TimelineItem
+            label={item.label}
+            className={classnames({
+              [`ecl-timeline__item--collapsed`]: index > 2,
+            })}
+          >
+            {item.content}
+          </TimelineItem>
+          {index === 2 && showAllButton}
+        </Fragment>
+      ))}
+    </ol>
+  );
+};
 
 Timeline.propTypes = {
   items: PropTypes.arrayOf(
@@ -83,3 +53,5 @@ Timeline.defaultProps = {
   button: {},
   className: '',
 };
+
+export default Timeline;

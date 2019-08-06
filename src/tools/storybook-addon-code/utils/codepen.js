@@ -25,7 +25,7 @@ const prefillPen = code => {
     html: replaceLogo(replaceIcons(code)),
     css_external: `${baseUrl}styles/ecl-ec-preset-legacy-website.css`,
     js_external: `https://unpkg.com/svg4everybody@2.1.9/dist/svg4everybody.js;${baseUrl}scripts/ecl-ec-preset-legacy-website.js`,
-    js: 'svg4everybody({ polyfill: true });',
+    js: 'svg4everybody({ polyfill: true });\nECL.autoInit();',
   });
 };
 

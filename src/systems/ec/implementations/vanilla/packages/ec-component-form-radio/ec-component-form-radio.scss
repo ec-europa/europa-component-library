@@ -25,6 +25,8 @@
 ) {
   .ecl-radio {
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
     margin: 0;
   }
 
@@ -44,7 +46,7 @@
   .ecl-radio__label {
     align-items: center;
     color: $label-color;
-    display: flex;
+    display: inline-flex;
     font: $ecl-font-m;
   }
 
@@ -126,8 +128,13 @@
 
   // Binary group
   .ecl-radio__group--binary {
+    // stylelint-disable-next-line plugin/selector-bem-pattern
+    &.ecl-form-group {
+      display: block;
+    }
+
     .ecl-radio {
-      display: inline-block;
+      display: inline-flex;
       margin-right: $ecl-spacing-m;
       vertical-align: top;
     }
