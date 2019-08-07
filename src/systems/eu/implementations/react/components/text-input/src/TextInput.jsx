@@ -75,7 +75,6 @@ const TextInput = ({
         type={type}
         className={classNames}
         disabled={disabled}
-        {...props}
         required={required}
       />
     </div>
