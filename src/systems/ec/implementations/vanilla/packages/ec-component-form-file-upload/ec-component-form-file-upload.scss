@@ -37,14 +37,14 @@
       outline-offset: -(3px);
       text-decoration: none;
     }
+  }
 
-    &[disabled],
-    &[disabled]:hover {
-      background-color: $ecl-color-blue-25;
-      color: $ecl-color-white-100;
-      cursor: not-allowed;
-      text-decoration: none;
-    }
+  .ecl-file-upload[disabled]::-webkit-file-upload-button,
+  .ecl-file-upload[disabled]::-webkit-file-upload-button:hover {
+    background-color: $ecl-color-blue-25;
+    color: $ecl-color-white-100;
+    cursor: not-allowed;
+    text-decoration: none;
   }
 }
 
