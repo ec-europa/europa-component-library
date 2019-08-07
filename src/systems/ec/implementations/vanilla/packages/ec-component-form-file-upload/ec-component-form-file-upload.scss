@@ -40,12 +40,16 @@
     }
   }
 
-  .ecl-file-upload[disabled]::-webkit-file-upload-button,
-  .ecl-file-upload[disabled]::-webkit-file-upload-button:hover {
-    background-color: $ecl-color-blue-25;
-    color: $ecl-color-white-100;
-    cursor: not-allowed;
-    text-decoration: none;
+  .ecl-file-upload[disabled] {
+    color: $ecl-color-grey-50;
+
+    &::-webkit-file-upload-button,
+    &::-webkit-file-upload-button:hover {
+      background-color: $ecl-color-blue-25;
+      color: $ecl-color-white-100;
+      cursor: not-allowed;
+      text-decoration: none;
+    }
   }
 }
 
