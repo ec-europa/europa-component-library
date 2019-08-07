@@ -73,7 +73,6 @@ const FileUpload = ({
         type="file"
         className={classNames}
         disabled={disabled}
-        {...props}
         required={required}
       />
     </div>
