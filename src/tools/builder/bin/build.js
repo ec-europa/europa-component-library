@@ -24,14 +24,16 @@ program
 
 program
   .command('browsers')
-  .description('get browserslist')
+  .description('get browserslist stats')
   .action(() => {
     const browsers = browserslist();
-    console.log('Browsers:', browsers.join(' '));
     const coverage = browserslist.coverage(browsers, 'alt-eu');
-    console.log(
-      `These browsers account for ${coverage}% of all users in Europe`
-    );
+    console.log(`
+---- Browsers stats ----
+Supported browsers: ${browsers.join(' ')}
+These browsers account for ${coverage}% of all users in Europe
+------------------------
+`);
   });
 
 program

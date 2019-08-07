@@ -10,13 +10,12 @@
     "access": "public"
   },
   "scripts": {
-    "browsers": "ecl-builder browsers",
     "build:copy": "ecl-builder copy",
     "build:scripts": "ecl-builder scripts",
     "build:styles": "ecl-builder styles",
     "build": "rimraf build && run-p build:* -ln",
     "clean": "rimraf build dist",
-    "dist": "npm run clean && npm run browsers && cross-env NODE_ENV=production run-p build:* -ln",
+    "dist": "npm run clean && cross-env NODE_ENV=production run-p build:* -ln",
     "prepublish": "npm run dist"
   },
   "devDependencies": {
