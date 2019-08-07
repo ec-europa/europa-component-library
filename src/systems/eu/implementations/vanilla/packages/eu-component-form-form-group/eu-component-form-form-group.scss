@@ -8,9 +8,11 @@
 
 @mixin ecl-form-group() {
   .ecl-form-group {
+    align-items: flex-start;
     border-width: 0;
     box-sizing: border-box;
-    display: block;
+    display: flex;
+    flex-direction: column;
     margin: 0;
     padding: 0;
 
@@ -31,6 +33,10 @@
     }
 
     > *:not(.ecl-form-label--hidden) + .ecl-radio {
+      margin-top: $ecl-spacing-s;
+    }
+
+    > *:not(.ecl-form-label--hidden) + .ecl-file-upload {
       margin-top: $ecl-spacing-s;
     }
 

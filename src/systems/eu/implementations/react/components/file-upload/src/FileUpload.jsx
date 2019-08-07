@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-const TextInput = ({
+const FileUpload = ({
   id,
   disabled,
   groupClassName,
@@ -15,21 +15,18 @@ const TextInput = ({
   optionalText,
   required,
   requiredText,
-  type,
-  width,
   className,
   ...props
 }) => {
-  const classNames = classnames(className, 'ecl-text-input', {
-    'ecl-text-input--invalid': invalid,
-    [`ecl-text-input--${width}`]: width,
+  const classNames = classnames(className, 'ecl-file-upload', {
+    'ecl-file-upload--invalid': invalid,
   });
 
   return (
     <div
       className={classnames(
         groupClassName,
-        'ecl-form-group ecl-form-group--text-input'
+        'ecl-form-group ecl-form-group--file-upload'
       )}
     >
       {label && (
@@ -68,11 +65,12 @@ const TextInput = ({
       {invalid && invalidText && (
         <div className="ecl-feedback-message">{invalidText}</div>
       )}
+
       <input
         {...props}
         id={id}
         name={name || undefined}
-        type={type}
+        type="file"
         className={classNames}
         disabled={disabled}
         required={required}
@@ -81,7 +79,7 @@ const TextInput = ({
   );
 };
 
-TextInput.propTypes = {
+FileUpload.propTypes = {
   id: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   groupClassName: PropTypes.string,
@@ -94,12 +92,10 @@ TextInput.propTypes = {
   labelClassName: PropTypes.string,
   required: PropTypes.bool,
   requiredText: PropTypes.string,
-  type: PropTypes.string,
-  width: PropTypes.string,
   className: PropTypes.string,
 };
 
-TextInput.defaultProps = {
+FileUpload.defaultProps = {
   disabled: false,
   groupClassName: '',
   helperText: '',
@@ -111,9 +107,7 @@ TextInput.defaultProps = {
   labelClassName: '',
   required: false,
   requiredText: '',
-  type: 'text',
-  width: '',
   className: '',
 };
 
-export default TextInput;
+export default FileUpload;
