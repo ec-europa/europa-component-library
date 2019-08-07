@@ -11,8 +11,15 @@
     color: $ecl-color-grey;
     font: $ecl-font-m;
     margin: 0;
+
+    &:active,
+    &:focus {
+      outline: 3px solid $ecl-color-yellow;
+      outline-offset: -3px;
+    }
   }
 
+  // stylelint-disable-next-line no-descending-specificity
   .ecl-file-upload::-webkit-file-upload-button {
     appearance: none;
     background: none;
