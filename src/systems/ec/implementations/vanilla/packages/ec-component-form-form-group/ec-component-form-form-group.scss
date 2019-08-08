@@ -8,6 +8,7 @@
 
 @mixin ecl-form-group() {
   .ecl-form-group {
+    align-items: flex-start;
     border-width: 0;
     box-sizing: border-box;
     display: flex;
@@ -35,7 +36,7 @@
       margin-top: $ecl-spacing-s;
     }
 
-    > *:not(.ecl-form-label--hidden) + .ecl-checkbox {
+    > *:not(.ecl-form-label--hidden) + .ecl-file-upload {
       margin-top: $ecl-spacing-s;
     }
 
