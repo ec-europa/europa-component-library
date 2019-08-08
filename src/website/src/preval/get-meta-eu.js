@@ -11,7 +11,7 @@ const files = glob.sync('**/*.@(md|mdx)', {
 });
 
 const getUrl = file =>
-  `/ec/${file
+  `/eu/${file
     .replace('docs', '')
     .replace('index', '')
     .replace('.mdx', '')
