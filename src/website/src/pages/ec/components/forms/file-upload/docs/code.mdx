@@ -1,0 +1,88 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+import FileUpload from '@ecl/ec-react-component-file-upload';
+
+import demoContentDefault from '@ecl/ec-specs-file-upload/demo/data--default';
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-file-upload"
+  selectedStory="default"
+>
+  <FileUpload
+    id="file-upload-id"
+    name={demoContentDefault.name}
+    label={demoContentDefault.label}
+    helperText={demoContentDefault.helperText}
+  />
+</Playground>
+
+## Disabled
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-file-upload"
+  selectedStory="default"
+>
+  <FileUpload
+    id="file-upload-id-2"
+    name={demoContentDefault.name}
+    label={demoContentDefault.label}
+    helperText={demoContentDefault.helperText}
+    disabled
+  />
+</Playground>
+
+## With error
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-file-upload"
+  selectedStory="default"
+>
+  <FileUpload
+    id="file-upload-id-3"
+    name={demoContentDefault.name}
+    label={demoContentDefault.label}
+    helperText={demoContentDefault.helperText}
+    invalid
+    invalidText="This is the error message"
+  />
+</Playground>
+
+## Required
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-file-upload"
+  selectedStory="default"
+>
+  <FileUpload
+    id="file-upload-id-4"
+    name={demoContentDefault.name}
+    label={demoContentDefault.label}
+    helperText={demoContentDefault.helperText}
+    required
+    requiredText="*"
+  />
+</Playground>
+
+## Optional
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-file-upload"
+  selectedStory="default"
+>
+  <FileUpload
+    id="file-upload-id-5"
+    name={demoContentDefault.name}
+    label={demoContentDefault.label}
+    helperText={demoContentDefault.helperText}
+    optionalText=" (optional)"
+  />
+</Playground>
