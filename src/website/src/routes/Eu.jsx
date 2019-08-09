@@ -1,21 +1,14 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-
+import { parse } from 'flatted/esm';
 import meta from '../preval/get-meta-eu';
-
-// Helpers
-import sortPages from '../utils/nav-sort';
-
-// Static routes
 import HomePage from '../pages/eu/index.md';
-
 import DocPage from '../components/DocPage/DocPage';
-
 import Skeleton from './Skeleton';
 
 const euPages = require.context('../pages/eu', true, /\.mdx?$/, 'lazy');
 
-const sortedPages = sortPages(meta);
+const sortedPages = parse(meta);
 
 function flatDeep(pages) {
   return pages.reduce((acc, page) => {

@@ -3,6 +3,8 @@
 const matter = require('gray-matter');
 const { resolve } = require('path');
 const glob = require('glob');
+const { stringify } = require('flatted/cjs');
+const sortPages = require('./nav-sort');
 
 const dir = '../pages/ec';
 
@@ -30,4 +32,4 @@ const meta = files.map(file => {
   };
 });
 
-module.exports = meta;
+module.exports = stringify(sortPages(meta));

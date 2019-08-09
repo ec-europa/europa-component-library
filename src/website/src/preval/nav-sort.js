@@ -1,4 +1,4 @@
-import merge from 'deepmerge';
+const merge = require('deepmerge');
 
 const sortPages = pages => {
   pages.sort((a, b) => {
@@ -114,4 +114,4 @@ const processPages = pages => {
   return newPages;
 };
 
-export default processPages;
+module.exports = processPages;
