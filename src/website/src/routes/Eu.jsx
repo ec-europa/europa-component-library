@@ -13,7 +13,7 @@ import DocPage from '../components/DocPage/DocPage';
 
 import Skeleton from './Skeleton';
 
-const euPages = require.context('../pages/eu', true, /\.mdx?$/, 'lazy');
+const euPages = require.context('../pages/eu', true, /\.mdx?$/, 'lazy-once');
 
 const sortedPages = sortPages(meta);
 
@@ -44,6 +44,8 @@ const pagesToRoutes = pages =>
     );
   });
 
+const routes = pagesToRoutes(sortedPages);
+
 const EURoutes = () => (
   <Skeleton
     HomePage={HomePage}
@@ -51,7 +53,7 @@ const EURoutes = () => (
     title="EU Homepage"
     system="eu"
     pages={sortedPages[0].children}
-    routes={pagesToRoutes(sortedPages)}
+    routes={routes}
   />
 );
 
