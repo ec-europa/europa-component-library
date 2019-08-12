@@ -7,7 +7,7 @@ import createFocusTrap from 'focus-trap';
 import EventDetailPageExample from '../examples/Default';
 import EventDetailPageEcl from '../examples/PureEcl';
 
-storiesOf('Templates|Pages', module)
+storiesOf('Templates|Pages/Event detail', module)
   .addDecorator(story => {
     function toggleOverlay(e) {
       e.preventDefault();
@@ -76,5 +76,5 @@ storiesOf('Templates|Pages', module)
       </StoryWrapper>
     );
   })
-  .add('Event detail', EventDetailPageExample)
-  .add('Event detail (Pure ECL)', EventDetailPageEcl);
+  .add('Default', EventDetailPageExample)
+  .add('Pure ECL', EventDetailPageEcl);
