@@ -5,6 +5,7 @@ import StoryWrapper from '@ecl/story-wrapper';
 import createFocusTrap from 'focus-trap';
 
 import EventDetailPageExample from '../examples/Default';
+import EventDetailPageEcl from '../examples/PureEcl';
 
 storiesOf('Templates|Pages', module)
   .addDecorator(story => {
@@ -75,4 +76,5 @@ storiesOf('Templates|Pages', module)
       </StoryWrapper>
     );
   })
-  .add('Event detail', EventDetailPageExample);
+  .add('Event detail', EventDetailPageExample)
+  .add('Event detail (Pure ECL)', EventDetailPageEcl);
