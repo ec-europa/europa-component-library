@@ -13,8 +13,6 @@ import DocPage from '../components/DocPage/DocPage';
 
 import Skeleton from './Skeleton';
 
-const euPages = require.context('../pages/eu', true, /\.mdx?$/, 'lazy');
-
 const sortedPages = sortPages(meta);
 
 function flatDeep(pages) {
@@ -31,7 +29,15 @@ function flatDeep(pages) {
 const pagesToRoutes = pages =>
   flatDeep(pages).map(page => {
     // eslint-disable-next-line no-param-reassign
-    page.document = React.lazy(() => euPages(page.key));
+    page.document = React.lazy(() =>
+      import(
+        /* webpackInclude: /\.mdx?$/ */
+        /* webpackChunkName: "eu-pages" */
+        /* webpackMode: "lazy-once" */
+        /* webpackPreload: true */
+        `../pages/eu${page.key.substr(1)}`
+      )
+    );
 
     return (
       <Route
@@ -44,6 +50,8 @@ const pagesToRoutes = pages =>
     );
   });
 
+const routes = pagesToRoutes(sortedPages);
+
 const EURoutes = () => (
   <Skeleton
     HomePage={HomePage}
@@ -51,7 +59,7 @@ const EURoutes = () => (
     title="EU Homepage"
     system="eu"
     pages={sortedPages[0].children}
-    routes={pagesToRoutes(sortedPages)}
+    routes={routes}
   />
 );
 

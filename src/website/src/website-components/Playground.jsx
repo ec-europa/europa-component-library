@@ -28,7 +28,10 @@ class Playground extends PureComponent {
       parseFloat(getComputedStyle(document.documentElement).fontSize);
 
     // Check if code area is too long
-    if (this.showcaseCodeRef.current.clientHeight > this.maxHeight) {
+    if (
+      this.showcaseCodeRef.current &&
+      this.showcaseCodeRef.current.clientHeight > this.maxHeight
+    ) {
       this.showcaseCodeRef.current.parentElement.setAttribute(
         'aria-expanded',
         false
@@ -56,6 +59,7 @@ class Playground extends PureComponent {
       selectedKind,
       selectedStory,
       showFrame,
+      hideCode,
       disableAutoResize,
       iframeOptions,
       hideDemo,
@@ -122,45 +126,49 @@ class Playground extends PureComponent {
           )}
         </div>
 
-        <div className={styles.code}>
-          <pre
-            className={`${styles['code-pre']} language-html`}
-            ref={this.showcaseCodeRef}
-          >
-            <code
-              className="language-html"
-              dangerouslySetInnerHTML={{
-                __html: Prism.highlight(
-                  beautifyHtml(ReactDOMServer.renderToStaticMarkup(children), {
-                    indent_size: 2,
-                    wrap_line_length: 120,
-                  }),
-                  Prism.languages.html,
-                  'html'
-                ),
-              }}
-            />
-          </pre>
-
-          <button
-            type="button"
-            className={`${styles.link} ${styles['link--icon']} ${
-              styles.toggle
-            }`}
-            onClick={this.handleClickOnToggle}
-          >
-            <div className={styles.toggle__container}>
-              <span className={styles.link__label}>Show more</span>
-              <svg
-                focusable="false"
-                aria-hidden="true"
-                className={styles.link__icon}
-              >
-                <use xlinkHref={`${iconSprite}#ui--corner-arrow`} />
-              </svg>
-            </div>
-          </button>
-        </div>
+        {!hideCode && (
+          <div className={styles.code}>
+            <pre
+              className={`${styles['code-pre']} language-html`}
+              ref={this.showcaseCodeRef}
+            >
+              <code
+                className="language-html"
+                dangerouslySetInnerHTML={{
+                  __html: Prism.highlight(
+                    beautifyHtml(
+                      ReactDOMServer.renderToStaticMarkup(children),
+                      {
+                        indent_size: 2,
+                        wrap_line_length: 120,
+                      }
+                    ),
+                    Prism.languages.html,
+                    'html'
+                  ),
+                }}
+              />
+            </pre>
+            <button
+              type="button"
+              className={`${styles.link} ${styles['link--icon']} ${
+                styles.toggle
+              }`}
+              onClick={this.handleClickOnToggle}
+            >
+              <div className={styles.toggle__container}>
+                <span className={styles.link__label}>Show more</span>
+                <svg
+                  focusable="false"
+                  aria-hidden="true"
+                  className={styles.link__icon}
+                >
+                  <use xlinkHref={`${iconSprite}#ui--corner-arrow`} />
+                </svg>
+              </div>
+            </button>
+          </div>
+        )}
 
         {playgroundUrl && (
           <Fragment>
@@ -196,6 +204,7 @@ Playground.propTypes = {
   frameHeight: PropTypes.string,
   playgroundLink: PropTypes.string,
   showFrame: PropTypes.bool,
+  hideCode: PropTypes.bool,
   // iframeOptions: https://github.com/davidjbradshaw/iframe-resizer#options
   iframeOptions: PropTypes.shape(),
   hideDemo: PropTypes.bool,
@@ -209,6 +218,7 @@ Playground.defaultProps = {
   frameHeight: '200px',
   playgroundLink: '',
   showFrame: false,
+  hideCode: false,
   iframeOptions: {},
   hideDemo: false,
   disableAutoResize: false,
