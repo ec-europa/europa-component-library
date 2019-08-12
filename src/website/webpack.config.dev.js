@@ -87,13 +87,13 @@ module.exports = {
             exclude: /node_modules/,
             use: {
               loader: 'babel-loader',
-              options: Object.assign({}, babelConfig, {
-                // This is a feature of `babel-loader` for webpack (not Babel itself).
+              options: {
+                ...babelConfig, // This is a feature of `babel-loader` for webpack (not Babel itself).
                 // It enables caching results in ./node_modules/.cache/babel-loader/
                 // directory for faster rebuilds.
                 cacheDirectory: true,
                 babelrc: false,
-              }),
+              },
             },
           },
           {

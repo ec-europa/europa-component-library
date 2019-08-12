@@ -11,6 +11,7 @@ class LinkSection extends Component {
   constructor(props) {
     super(props);
 
+    // eslint-disable-next-line react/state-in-constructor
     this.state = {
       pathname: props.location.pathname,
       isOpen: props.location.pathname.indexOf(props.attributes.url) === 0,

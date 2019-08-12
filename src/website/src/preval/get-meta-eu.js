@@ -22,10 +22,11 @@ const meta = files.map(file => {
   const front = matter.read(resolve(__dirname, dir, file));
   return {
     key: `./${file}`,
-    attributes: Object.assign({}, front.data, {
+    attributes: {
+      ...front.data,
       url: getUrl(file),
       isTab: file.includes('docs'),
-    }),
+    },
     document: () => null,
   };
 });
