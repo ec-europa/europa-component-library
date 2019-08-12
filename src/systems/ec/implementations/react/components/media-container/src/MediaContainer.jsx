@@ -21,7 +21,6 @@ const MediaContainer = ({
           className="ecl-media-container__media"
           controls="controls"
           poster={image}
-          alt={alt}
         >
           {sources.map(source => (
             <source {...source} key={source.src} />
