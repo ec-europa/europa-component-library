@@ -2,7 +2,6 @@
 import React, { Fragment } from 'react';
 
 import Breadcrumb, { BreadcrumbItem } from '@ecl/ec-react-component-breadcrumb';
-import Button from '@ecl/ec-react-component-button';
 import Card from '@ecl/ec-react-component-card';
 import DateBlock from '@ecl/ec-react-component-date-block';
 import Footer from '@ecl/ec-react-component-footer';
@@ -41,7 +40,7 @@ export default () => {
               Fair of European Innovators in Cultural heritage
             </h1>
             <div className="ecl-u-align-self-end ecl-u-mt-l ecl-u-mt-md-none">
-              <Button variant="call" label="Register" />
+              <Link variant="cta" label="Register" href="/example" />
             </div>
           </div>
         </div>
@@ -106,12 +105,12 @@ export default () => {
             </div>
           </div>
 
-          {/* :'( Override of heading spacing */}
+          {/* :'( Custom heading spacing */}
           <h2 className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
             Programme
           </h2>
 
-          {/* :'( Override of heading spacing */}
+          {/* :'( Custom heading spacing */}
           <h3 className="ecl-u-type-heading-3 ecl-u-mb-s ecl-u-mb-md-xs">
             Highlights
           </h3>
@@ -156,7 +155,7 @@ export default () => {
             }}
           />
 
-          {/* :'( Override of heading spacing */}
+          {/* :'( Custom heading spacing */}
           <h2 className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
             Speakers
           </h2>
@@ -320,7 +319,7 @@ export default () => {
             }}
           />
 
-          {/* :'( Override of heading spacing */}
+          {/* :'( Custom heading spacing */}
           <h2 className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
             Practical information
           </h2>
@@ -406,7 +405,11 @@ export default () => {
                   Website
                 </div>
                 <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
-                  <Link label="see website" href="/example" />
+                  {/* :'( Broken display caused by long text */}
+                  <Link
+                    label="https://www.eac-events.eu/ehome/fairofeuropeaninnovatorsinculturalheritage/home/"
+                    href="/example"
+                  />
                 </div>
               </div>
 
@@ -482,18 +485,31 @@ export default () => {
               </div>
             </div>
             <div className="ecl-col-12 ecl-col-md-6">
-              <img
-                className="ecl-u-mt-l ecl-u-mt-md-none"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-map.png"
-                alt="EGG map"
-                style={{ maxWidth: '100%', height: 'auto', objectFit: 'cover' }}
-              />
+              <script type="application/json">
+                {`
+                  {
+                    "service" : "map",
+                    "version": "2.0",
+                    "address": "The EGG, Rue Bara 175, 1070 Bruxelles, Belgique",
+                    "options" : { 
+                        "color" : "blue",
+                        "display" : "link",
+                        "target" : "before"
+                    }
+                  }
+                `}
+              </script>
             </div>
           </div>
 
-          <Button className="ecl-u-mt-l" variant="call" label="Register" />
+          <Link
+            className="ecl-u-mt-l"
+            variant="cta"
+            label="Register"
+            href="/example"
+          />
 
-          {/* :'( Override of heading spacing */}
+          {/* :'( Custom heading spacing */}
           <h2 className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
             Description
           </h2>
@@ -557,48 +573,50 @@ export default () => {
             </div>
           </div>
 
-          {/* :'( Override of heading spacing */}
+          {/* :'( Custom heading spacing */}
           <h2 className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
             Contact
           </h2>
 
           <div className="ecl-row">
             <div className="ecl-col-12 ecl-col-md-6">
-              {/* :'( Override of heading spacing */}
+              {/* :'( Custom heading spacing */}
               <h3 className="ecl-u-type-heading-3 ecl-u-mt-none ecl-u-mb-m ecl-u-mb-md-l">
                 General contact
               </h3>
 
-              <div className="ecl-row ecl-u-type-m">
-                <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
-                  Phone number
+              <address>
+                <div className="ecl-row ecl-u-type-m">
+                  <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
+                    Phone number
+                  </div>
+                  <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
+                    (0)2 29 56186 (Commission switchboard)
+                  </div>
                 </div>
-                <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
-                  (0)2 29 56186 (Commission switchboard)
-                </div>
-              </div>
 
-              <div className="ecl-row ecl-u-type-m ecl-u-mt-m">
-                <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
-                  Postal address
+                <div className="ecl-row ecl-u-type-m ecl-u-mt-m">
+                  <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
+                    Postal address
+                  </div>
+                  <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
+                    Directorate-General for Education and Culture European
+                    Commission B-1049 Brussels Belgium
+                  </div>
                 </div>
-                <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
-                  Directorate-General for Education and Culture European
-                  Commission B-1049 Brussels Belgium
-                </div>
-              </div>
 
-              <div className="ecl-row ecl-u-type-m ecl-u-mt-m">
-                <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
-                  Email address
+                <div className="ecl-row ecl-u-type-m ecl-u-mt-m">
+                  <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
+                    Email address
+                  </div>
+                  <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
+                    <Link
+                      label="directorate-general@ec.europa.eu"
+                      href="/example"
+                    />
+                  </div>
                 </div>
-                <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
-                  <Link
-                    label="directorate-general@ec.europa.eu"
-                    href="/example"
-                  />
-                </div>
-              </div>
+              </address>
             </div>
 
             <div className="ecl-col-12 ecl-col-md-6 ecl-u-mt-l ecl-u-mt-md-none">
@@ -606,91 +624,96 @@ export default () => {
                 Press contact
               </h3>
 
-              <div className="ecl-row ecl-u-type-m">
-                <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
-                  Name
+              <address>
+                <div className="ecl-row ecl-u-type-m">
+                  <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
+                    Name
+                  </div>
+                  <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
+                    Sara Soumillion
+                  </div>
                 </div>
-                <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
-                  Sara Soumillion
-                </div>
-              </div>
 
-              <div className="ecl-row ecl-u-type-m ecl-u-mt-m">
-                <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
-                  Role
+                <div className="ecl-row ecl-u-type-m ecl-u-mt-m">
+                  <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
+                    Role
+                  </div>
+                  <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
+                    Press Officer
+                  </div>
                 </div>
-                <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
-                  Press Officer
-                </div>
-              </div>
 
-              <div className="ecl-row ecl-u-type-m ecl-u-mt-m">
-                <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
-                  Phone number
+                <div className="ecl-row ecl-u-type-m ecl-u-mt-m">
+                  <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
+                    Phone number
+                  </div>
+                  <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
+                    +32 2 296 70 94
+                  </div>
                 </div>
-                <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
-                  +32 2 296 70 94
-                </div>
-              </div>
 
-              <div className="ecl-row ecl-u-type-m ecl-u-mt-m">
-                <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
-                  Email address
+                <div className="ecl-row ecl-u-type-m ecl-u-mt-m">
+                  <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
+                    Email address
+                  </div>
+                  <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
+                    <Link
+                      label="Sara.SOUMILLION@ec.europa.eu"
+                      href="/example"
+                    />
+                  </div>
                 </div>
-                <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
-                  <Link label="Sara.SOUMILLION@ec.europa.eu" href="/example" />
-                </div>
-              </div>
 
-              <div className="ecl-row ecl-u-type-m ecl-u-mt-m">
-                <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
-                  Social media
+                <div className="ecl-row ecl-u-type-m ecl-u-mt-m">
+                  <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
+                    Social media
+                  </div>
+                  <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
+                    {/* :'( Custom social media follow */}
+                    <SocialMediaFollow
+                      className="ecl-u-pa-none ecl-u-bg-white"
+                      links={[
+                        {
+                          href: '/example',
+                          label: 'Twitter',
+                          variant: 'standalone',
+                          iconPosition: 'before',
+                          icon: [
+                            {
+                              shape: 'twitter',
+                              size: 'xl',
+                            },
+                            {
+                              shape: 'twitter_hover',
+                              size: 'xl',
+                            },
+                          ],
+                        },
+                        {
+                          href: '/example',
+                          label: 'Facebook',
+                          variant: 'standalone',
+                          iconPosition: 'before',
+                          icon: [
+                            {
+                              shape: 'facebook',
+                              size: 'xl',
+                            },
+                            {
+                              shape: 'facebook_hover',
+                              size: 'xl',
+                            },
+                          ],
+                        },
+                      ]}
+                    />
+                  </div>
                 </div>
-                <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
-                  {/* :'( Custom social media follow */}
-                  <SocialMediaFollow
-                    className="ecl-u-pa-none ecl-u-bg-white"
-                    links={[
-                      {
-                        href: '/example',
-                        label: 'Twitter',
-                        variant: 'standalone',
-                        iconPosition: 'before',
-                        icon: [
-                          {
-                            shape: 'twitter',
-                            size: 'xl',
-                          },
-                          {
-                            shape: 'twitter_hover',
-                            size: 'xl',
-                          },
-                        ],
-                      },
-                      {
-                        href: '/example',
-                        label: 'Facebook',
-                        variant: 'standalone',
-                        iconPosition: 'before',
-                        icon: [
-                          {
-                            shape: 'facebook',
-                            size: 'xl',
-                          },
-                          {
-                            shape: 'facebook_hover',
-                            size: 'xl',
-                          },
-                        ],
-                      },
-                    ]}
-                  />
-                </div>
-              </div>
+              </address>
             </div>
           </div>
 
-          {/* :'( Override of heading spacing */}
+          {/* :'( Custom heading spacing */}
           <h2 className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
             Related events
           </h2>

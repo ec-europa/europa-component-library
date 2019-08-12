@@ -25,6 +25,16 @@ storiesOf('Templates|Pages', module)
     return (
       <StoryWrapper
         afterMount={() => {
+          // Add webtools loader
+          const head = document.querySelector('head');
+          const script = document.createElement('script');
+
+          script.async = true;
+          script.src = '//europa.eu/webtools/load.js';
+
+          head.append(script);
+
+          // Get language list
           const languageListOverlay = document.querySelector(
             '[data-ecl-language-list-overlay]'
           );
