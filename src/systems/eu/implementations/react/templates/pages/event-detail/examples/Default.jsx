@@ -1,26 +1,26 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { Fragment } from 'react';
 
-import Breadcrumb, { BreadcrumbItem } from '@ecl/ec-react-component-breadcrumb';
-import Button from '@ecl/ec-react-component-button';
-import Card from '@ecl/ec-react-component-card';
-import DateBlock from '@ecl/ec-react-component-date-block';
-import Footer from '@ecl/ec-react-component-footer';
-import Icon from '@ecl/ec-react-component-icon';
-import LanguageListOverlay from '@ecl/ec-react-component-language-list/src/LanguageListOverlay';
-import Link from '@ecl/ec-react-component-link';
-import MediaContainer from '@ecl/ec-react-component-media-container';
-import PageBanner from '@ecl/ec-react-component-page-banner';
-import SiteHeader from '@ecl/ec-react-component-site-header';
-import SocialMediaFollow from '@ecl/ec-react-component-social-media-follow';
+import Breadcrumb, { BreadcrumbItem } from '@ecl/eu-react-component-breadcrumb';
+import Button from '@ecl/eu-react-component-button';
+import Card from '@ecl/eu-react-component-card';
+import DateBlock from '@ecl/eu-react-component-date-block';
+import Footer from '@ecl/eu-react-component-footer';
+import Icon from '@ecl/eu-react-component-icon';
+import LanguageListOverlay from '@ecl/eu-react-component-language-list/src/LanguageListOverlay';
+import Link from '@ecl/eu-react-component-link';
+import MediaContainer from '@ecl/eu-react-component-media-container';
+import PageBanner from '@ecl/eu-react-component-page-banner';
+import SiteHeader from '@ecl/eu-react-component-site-header';
+import SocialMediaFollow from '@ecl/eu-react-component-social-media-follow';
 import {
   UnorderedList,
   UnorderedListItem,
-} from '@ecl/ec-react-component-unordered-list';
+} from '@ecl/eu-react-component-unordered-list';
 
-import footerContent from '@ecl/ec-specs-footer/demo/data--corporate';
-import languageListContent from '@ecl/ec-specs-language-list/demo/data--overlay';
-import siteHeaderContent from '@ecl/ec-specs-site-header/demo/data--en';
+import footerContent from '@ecl/eu-specs-footer/demo/data--corporate';
+import languageListContent from '@ecl/eu-specs-language-list/demo/data--overlay';
+import siteHeaderContent from '@ecl/eu-specs-site-header/demo/data--en';
 
 export default () => {
   return (
