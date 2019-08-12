@@ -1,0 +1,30 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+import CheckboxGroup from '@ecl/eu-react-component-checkbox/src/CheckboxGroup';
+
+import demoContentDefault from '@ecl/eu-specs-checkbox/demo/data--default';
+import demoContentInvalid from '@ecl/eu-specs-checkbox/demo/data--invalid';
+
+## Default checkbox group
+
+<Playground
+  selectedKind="components-forms-checkbox"
+  selectedStory="default"
+  system="eu"
+>
+  <CheckboxGroup {...demoContentDefault} />
+</Playground>
+
+## Invalid checkbox group
+
+<Playground
+  selectedKind="components-forms-checkbox"
+  selectedStory="default"
+  system="eu"
+>
+  <CheckboxGroup {...demoContentInvalid} />
+</Playground>
