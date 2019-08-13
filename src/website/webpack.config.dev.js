@@ -65,6 +65,10 @@ module.exports = {
     extensions: ['.mjs', '.js', '.json', '.jsx'],
     alias: {
       'react-dom': '@hot-loader/react-dom',
+      '@ecl/website-components': path.resolve(
+        __dirname,
+        'src/website-components/'
+      ),
     },
   },
   module: {
@@ -83,24 +87,14 @@ module.exports = {
             exclude: /node_modules/,
             use: {
               loader: 'babel-loader',
-              options: Object.assign({}, babelConfig, {
-                // This is a feature of `babel-loader` for webpack (not Babel itself).
+              options: {
+                ...babelConfig, // This is a feature of `babel-loader` for webpack (not Babel itself).
                 // It enables caching results in ./node_modules/.cache/babel-loader/
                 // directory for faster rebuilds.
                 cacheDirectory: true,
                 babelrc: false,
-              }),
+              },
             },
-          },
-          {
-            // EC CSS imported to showcase components
-            test: /ec-preset-full\.css$/,
-            use: cssLoader({ fixCode: false, prefix: '.ec' }),
-          },
-          {
-            // EU CSS imported to showcase components
-            test: /eu-preset-full\.css$/,
-            use: cssLoader({ fixCode: false, prefix: '.eu' }),
           },
           {
             test: /\.css$/,
@@ -157,10 +151,6 @@ module.exports = {
               {
                 loader: 'babel-loader',
                 options: babelConfig,
-              },
-              {
-                // Adds front-matter to export
-                loader: 'mdx-frontmatter-loader',
               },
               {
                 loader: '@mdx-js/loader',

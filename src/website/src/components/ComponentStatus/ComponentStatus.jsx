@@ -5,7 +5,7 @@ const ComponentStatus = React.memo(() => (
   <table className={styles.table}>
     <thead className={styles.thead}>
       <tr>
-        <th className={styles.th} />
+        <th className={styles.th} aria-label="Visual" />
         <th className={styles.th}>Label</th>
         <th className={styles.th}>Description</th>
       </tr>

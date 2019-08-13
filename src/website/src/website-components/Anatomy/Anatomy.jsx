@@ -3,8 +3,8 @@ import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
-import Col from '../../../website/src/components/Grid/Col';
-import Row from '../../../website/src/components/Grid/Row';
+import Col from '../../components/Grid/Col';
+import Row from '../../components/Grid/Row';
 import styles from './Anatomy.scss';
 
 const Anatomy = ({ vertical, image, srcset, alt, legend }) => (

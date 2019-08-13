@@ -21,35 +21,37 @@ New components are continuously being added to the library. The team is also con
 - Create an `index.html` file as follows:
 
 ```html
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width,initial-scale=1" name="viewport" />
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <title>Page title</title>
     <link
       rel="stylesheet"
-      href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.9.0/eu-preset-website/styles/ecl-eu-preset-website.css"
-      integrity="sha256-KOUBuqhZx3VR2HdfSsoKrabjocV96MIMxwsnC7EmKsM= sha384-7CTyLAVWbN3adl9swStpvFgItMlD2NOtbueJFahb4eur0c+wlkwQOb1RXBzrbujg sha512-4V033MXLuUeQQ8AftpYKD2hbkwQx8stLZjQKYAqvEb8zF9c3fZod+rTwjwy+9FrLnzNrM2n64VyAyIztVypWew=="
+      href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.10.0/eu-preset-website/styles/ecl-eu-preset-website.css"
+      integrity="sha256-13elwqCQRB0s4DrLqOMy28R4p7TEcU1kWzHGawR28yk= sha384-AVbyaUuApejq1h+UaE4dSMT1/TMDzSZGhq9IJwZrgTlknLOwVE9lsPi7JrGkfBg/ sha512-sceAKzPXQkf3kTVlNZSldlpgaFysawA15v499xGA8hjEfDvlytFYj2xEx8PwNPV1sTzj4fFSkNpKOMHqGqy7kw=="
       crossorigin="anonymous"
       media="screen"
     />
     <link
       rel="stylesheet"
-      href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.9.0/eu-preset-website/styles/ecl-eu-preset-website-print.css"
-      integrity="sha256-395P14HYpW//jaIgZWz8nU8ap7Z7/HsW6KYDBOZf9j0= sha384-G50p+WMx8tFroBMs6Q1J0SblhQ72Asg+DhmeD3ZqHxaNBRBvL16aNi/eeMDfgj2w sha512-tXVVnre4rBoMQIo9tumADgsAm4WLocypHoEg19EYumhirmwEjLmcW8n817SzhMv8fYZLLLiV/DPtA4Z0XA5wfQ=="
+      href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.10.0/eu-preset-website/styles/ecl-eu-preset-website-print.css"
+      integrity="sha256-UKSjv+TySHRpiyecjd6GcYATrFp44K5P8e/LQtZ2gkg= sha384-bUKrFDLIvI6cPbX3v3iQ79WdUBqnVwYK5h/N0OEEOqNXR8V6pcfHzN9AKlSxDKIh sha512-VsP5rNFDx251Rw/EDgcWEQgFmFaN5Tuw5AcRkRGG+ZjLDi4GVysPNoAvl9vewXjqrePdibSfwpBI5sBORQRoXg=="
       crossorigin="anonymous"
       media="print"
     />
-    <script
-      type="text/javascript"
-      src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.9.0/eu-preset-website/scripts/ecl-eu-preset-website.js"
-      integrity="sha256-Uw2EYX8wgEV/Ip0C8UvmIGYWyBY7oDJCYn9lR6wI5ro= sha384-krMMP0Kf2rSf47NOSAUzPEfa/G9YI7zF3ZEwULkvuxzSZ+NYOpzA3mh3KPFzc26B sha512-dpmNZFCYQrQZBEwyO/A5Uwy2mW6wVHkd+onZrQ9qq85/P2sCTu0l3l0ngYqIWVvT6vTiOnHwZkQ3sHiTPKMWbw=="
-      crossorigin="anonymous"
-      defer
-    ></script>
   </head>
   <body>
     <!-- paste the markup from the template here -->
+    <script
+      src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.10.0/eu-preset-website/scripts/ecl-eu-preset-website.js"
+      integrity="sha256-9syjclxSnLOwp9XRRRw5Y17j41uzadoZETIHYinfY1U= sha384-rWLu8e218Ca2sGXdm4587/faS0QmBG7rPbbqvoJOfBm1cgwbrFdMEs8/WFzteFhW sha512-rlvdB+pwz3/Fca11VDMiT8ueQ6jNaeqqf7IRszcYEnl5mnCSjfjYbULHO3Q/0S6kDpjnQyLjcmaySTnEYZonVA=="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      ECL.autoInit();
+    </script>
   </body>
 </html>
 ```
@@ -81,8 +83,8 @@ For example, if you want to auto initialize a `Message`:
 Then, in the footer of the document (or whenever the document is ready), call `ECL.autoInit()`. For example:
 
 ```html
+  <body>
     ...
-    <!-- paste the markup from the template here -->
     <script>
       ECL.autoInit();
     </script>
