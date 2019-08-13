@@ -92,6 +92,13 @@ export default () => {
                 Join us for two days of meetings, learning and discoveries!
               </p>
               <Link
+                className="ecl-u-mt-m"
+                variant="cta"
+                label="Register"
+                href="/example"
+              />
+              <br />
+              <Link
                 className="ecl-u-mt-l"
                 variant="standalone"
                 label="Read more"
