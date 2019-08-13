@@ -10,8 +10,12 @@ import HomePageEU from '../pages/eu/index.md';
 
 import Skeleton from './Skeleton';
 
-const ECRoutes = lazy(() => import('./Ec'));
-const EURoutes = lazy(() => import('./Eu'));
+const ECRoutes = lazy(() =>
+  import(/* webpackChunkName: "ec", webpackPrefetch: true */ './Ec')
+);
+const EURoutes = lazy(() =>
+  import(/* webpackChunkName: "eu", webpackPrefetch: true */ './Eu')
+);
 
 const WaitingEC = props => (
   <Suspense
@@ -19,6 +23,7 @@ const WaitingEC = props => (
       <Skeleton
         HomePage={HomePageEC}
         prefix="/ec"
+        system="ec"
         title="EC Homepage"
         isLoading
       />
@@ -34,6 +39,7 @@ const WaitingEU = props => (
       <Skeleton
         HomePage={HomePageEU}
         prefix="/eu"
+        system="eu"
         title="EU Homepage"
         isLoading
       />

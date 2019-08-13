@@ -26,10 +26,12 @@ class PaletteItem extends PureComponent {
   render() {
     const { color } = this.props;
     const { name, value } = color;
-    const docs = Object.assign(
-      { title: '', ui: 'light', border: false },
-      color.docs
-    );
+    const docs = {
+      title: '',
+      ui: 'light',
+      border: false,
+      ...color.docs,
+    };
 
     return (
       <li
