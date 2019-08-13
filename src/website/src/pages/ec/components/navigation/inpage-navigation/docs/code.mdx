@@ -1,0 +1,45 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+import InpageNavigationExample from '@ecl/ec-react-component-inpage-navigation/examples/Default';
+
+<Playground
+  system="ec"
+  selectedKind="components-navigation-in-page-navigation"
+  selectedStory="default"
+>
+  <InpageNavigationExample />
+</Playground>
+
+## JS behaviour
+
+### Auto initialisation
+
+In order to automatically initalise the JS behaviour, add `data-ecl-auto-init="InpageNavigation"` to your component's markup:
+
+```html
+<nav
+  class="ecl-inpage-navigation"
+  data-ecl-inpage-navigation
+  data-ecl-auto-init="InpageNavigation"
+>
+  ...
+</nav>
+```
+
+Don't forget to call `ECL.autoInit()` when your page is ready!
+
+### Manual initialisation
+
+When the document is ready, query the element. For example, you can use `document.querySelector('[data-ecl-inpage-navigation]')` if you only have 1 inpage navigation in the page.
+
+Then, instantiate the `InpageNavigation` component and call `init()`:
+
+```js
+var elt = document.querySelector('[data-ecl-inpage-navigation]');
+var inpageNavigation = new ECL.InpageNavigation(elt);
+inpageNavigation.init();
+```

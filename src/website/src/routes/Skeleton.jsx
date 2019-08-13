@@ -1,8 +1,8 @@
+/* eslint-disable unicorn/prefer-node-append, unicorn/prefer-query-selector */
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router-dom';
 import Helmet from 'react-helmet';
-import '@ecl/ec-preset-full/dist/styles/ecl-ec-preset-full.css';
 
 // Layout
 import Navigation from '../components/Navigation/Navigation';
@@ -17,6 +17,7 @@ class Skeleton extends Component {
   constructor(props) {
     super(props);
 
+    // eslint-disable-next-line react/state-in-constructor
     this.state = {
       sidebarOpen:
         Math.max(document.documentElement.clientWidth, window.innerWidth || 0) >
@@ -28,15 +29,43 @@ class Skeleton extends Component {
   }
 
   componentDidMount() {
-    document.body.classList.add('ec');
+    const { system, isLoading } = this.props;
+
     // Force refresh if is mounted on a real client (two-pass rendering)
     this.setState({
       forceRefresh: navigator.userAgent !== 'ReactSnap',
     });
+
+    // Inject/enable ECL stylesheet
+    if (!isLoading) {
+      const element = document.getElementById(`${system}-css`);
+
+      if (!element) {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.id = `${system}-css`;
+        link.href = `${process.env.PUBLIC_URL}/playground/${system}/styles/ecl-${system}-preset-legacy-website.css`;
+        link.media = 'screen';
+
+        const head = document.head || document.getElementsByTagName('head')[0];
+        head.appendChild(link);
+      } else {
+        element.disabled = false;
+      }
+    }
   }
 
   componentWillUnmount() {
-    document.body.classList.remove('ec');
+    const { system, isLoading } = this.props;
+
+    // Disable ECL stylesheet
+    if (!isLoading) {
+      const element = document.getElementById(`${system}-css`);
+      if (element) {
+        element.disabled = true;
+      }
+    }
   }
 
   toggleSidebar() {
@@ -85,6 +114,7 @@ Skeleton.propTypes = {
   HomePage: PropTypes.func.isRequired,
   prefix: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  system: PropTypes.string.isRequired,
   pages: PropTypes.array, // eslint-disable-line react/forbid-prop-types
   routes: PropTypes.node,
   isLoading: PropTypes.bool,

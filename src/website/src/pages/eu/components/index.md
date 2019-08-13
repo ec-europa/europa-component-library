@@ -1,6 +1,6 @@
 ---
 title: Components
-order: 6
+order: 8
 ---
 
 (work in progress)

@@ -1,15 +1,16 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment, Suspense } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { /* Route, Redirect, Switch, */ withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import Prism from 'prismjs';
 
 import Header from './Header';
 import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
 import Container from '../Grid/Container';
-import Col from '../Grid/Col';
-import Row from '../Grid/Row';
-import styles from './DocPage.scss';
+
+import mdStyles from '../../styles/markdown.scss';
+
+import { getPageTitle, getSectionTitle } from './utils/title';
 
 class DocPage extends Component {
   componentDidMount() {
@@ -19,25 +20,27 @@ class DocPage extends Component {
   render() {
     const { component } = this.props;
 
+    let title = getPageTitle(component);
+
+    const sectionTitle = getSectionTitle(component);
+    if (sectionTitle) {
+      title += ` - ${sectionTitle}`;
+    }
+
     return (
       <Fragment>
         <ScrollToTopOnMount />
-        <Helmet title={component.title} />
+        <Helmet title={title} />
         <Header component={component} />
         <main id="main-content" tabIndex="-1">
           <Container spacing="pv-l pv-md-3xl">
-            {component.inpageNav ? (
-              <Row>
-                <Col col="12 xl-9">
-                  {component.document && <component.document />}
-                </Col>
-                <Col col="12 xl-3" className={styles['inpage-nav']}>
-                  <component.inpageNav />
-                </Col>
-              </Row>
-            ) : (
-              component.document && <component.document />
-            )}
+            <Suspense
+              fallback={
+                <h2 className={mdStyles.h4}>Loading, please wait...</h2>
+              }
+            >
+              {component.document && <component.document />}
+            </Suspense>
           </Container>
         </main>
       </Fragment>
@@ -56,9 +59,7 @@ DocPage.propTypes = {
         component: PropTypes.func,
       })
     ),
-    defaultTab: PropTypes.string,
-    document: PropTypes.func,
-    inpageNav: PropTypes.func,
+    document: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   }),
 };
 

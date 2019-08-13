@@ -4,16 +4,43 @@ order: 2
 ---
 
 import Playground from '@ecl/website-components/Playground';
-
-import Timeline, { TimelineItem } from '@ecl/ec-react-component-timeline';
-
-import demoContent from '@ecl/ec-specs-timeline/demo/data';
+import TimelineExample from '@ecl/ec-react-component-timeline2/examples/Timeline2';
 
 <Playground
   system="ec"
-  selectedKind="timeline"
+  selectedKind="components-timeline"
   selectedStory="default"
   showFrame
 >
-  <Timeline {...demoContent} />
+  <TimelineExample />
 </Playground>
+
+## JS behaviour
+
+### Auto initialisation
+
+In order to automatically initalise the JS behaviour, add `data-ecl-auto-init="Timeline2"` to your component's markup:
+
+```html
+<ol
+  class="ecl-timeline2"
+  data-ecl-timeline="true"
+  data-ecl-auto-init="Timeline2"
+>
+  ...
+</ol>
+```
+
+Don't forget to call `ECL.autoInit()` when your page is ready!
+
+### Manual initialisation
+
+When the document is ready, query the element. For example, you can use `document.querySelector('[data-ecl-timeline2]')` if you only have 1 timeline in the page.
+
+Then, instantiate the `Timeline2` component and call `init()`:
+
+```js
+var elt = document.querySelector('[data-ecl-timeline2]');
+var timeline2 = new ECL.Timeline2(elt);
+timeline2.init();
+```

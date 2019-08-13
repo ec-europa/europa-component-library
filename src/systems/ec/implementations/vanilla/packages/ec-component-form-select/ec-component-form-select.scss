@@ -12,8 +12,6 @@
   $border-color-hover: $ecl-color-blue-100,
   $border-color-focus: $ecl-color-yellow-100,
   $border-width-focus: 3px,
-  $max-width: 31.25rem,
-  $min-width: 15rem,
   $arrow-width: 2.75rem
 ) {
   .ecl-select {
@@ -50,10 +48,40 @@
   .ecl-select__container {
     background-color: $ecl-color-white-100;
     display: inline-flex;
-    max-width: $max-width;
-    min-width: $min-width;
+    max-width: 100%;
     position: relative;
+  }
+
+  .ecl-select__container--s {
+    width: 50%;
+
+    @include ecl-media-breakpoint-up('md') {
+      width: 30%;
+    }
+
+    @include ecl-media-breakpoint-up('lg') {
+      width: $ecl-width-form-s;
+    }
+  }
+
+  .ecl-select__container--m {
     width: 100%;
+
+    @include ecl-media-breakpoint-up('md') {
+      width: 50%;
+    }
+
+    @include ecl-media-breakpoint-up('lg') {
+      width: $ecl-width-form-m;
+    }
+  }
+
+  .ecl-select__container--l {
+    width: 100%;
+
+    @include ecl-media-breakpoint-up('lg') {
+      width: $ecl-width-form-l;
+    }
   }
 
   .ecl-select__icon {
@@ -108,7 +136,6 @@
   /*
    * Error
    */
-  .ecl-select:invalid,
   .ecl-select--invalid {
     border-color: $ecl-color-error;
     box-shadow: none;

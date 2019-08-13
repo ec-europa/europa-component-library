@@ -1,10 +1,21 @@
 import { queryOne } from '@ecl/ec-base/helpers/dom';
 
 export class Timeline {
+  static autoInit(root, { TIMELINE: defaultOptions = {} } = {}) {
+    const timeline = new Timeline(root, defaultOptions);
+    timeline.init();
+    // eslint-disable-next-line no-param-reassign
+    root.ECLTimeline = timeline;
+    return timeline;
+  }
+
   constructor(
     element,
     {
       buttonSelector: buttonSelector = '[data-ecl-timeline-button]',
+      labelSelector: labelSelector = '[data-ecl-label]',
+      labelExpanded: labelExpanded = 'data-ecl-label-expanded',
+      labelCollapsed: labelCollapsed = 'data-ecl-label-collapsed',
       attachClickListener: attachClickListener = true,
     } = {}
   ) {
@@ -19,10 +30,14 @@ export class Timeline {
 
     // Options
     this.buttonSelector = buttonSelector;
+    this.labelSelector = labelSelector;
+    this.labelExpanded = labelExpanded;
+    this.labelCollapsed = labelCollapsed;
     this.attachClickListener = attachClickListener;
 
     // Private variables
     this.button = null;
+    this.label = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOnButton = this.handleClickOnButton.bind(this);
@@ -31,6 +46,9 @@ export class Timeline {
   init() {
     // Query elements
     this.button = queryOne(this.buttonSelector, this.element);
+
+    // Get label, if any
+    this.label = queryOne(this.labelSelector, this.element);
 
     // Bind click event on button
     if (this.attachClickListener && this.button) {
@@ -45,6 +63,36 @@ export class Timeline {
   }
 
   handleClickOnButton() {
+    // Get current status
+    const isExpanded = this.button.getAttribute('aria-expanded') === 'true';
+
+    // Toggle the expandable/collapsible
+    this.button.setAttribute('aria-expanded', !isExpanded);
+    if (isExpanded) {
+      this.element.removeAttribute('data-ecl-timeline-expanded');
+      // Scroll up to the button
+      this.button.blur();
+      this.button.focus();
+    } else {
+      this.element.setAttribute('data-ecl-timeline-expanded', true);
+    }
+
+    // Toggle label if possible
+    if (
+      this.label &&
+      !isExpanded &&
+      this.button.hasAttribute(this.labelExpanded)
+    ) {
+      this.label.innerHTML = this.button.getAttribute(this.labelExpanded);
+    } else if (
+      this.label &&
+      isExpanded &&
+      this.button.hasAttribute(this.labelCollapsed)
+    ) {
+      this.label.innerHTML = this.button.getAttribute(this.labelCollapsed);
+    }
+
+    // Retro compatibility
     this.element.setAttribute('aria-expanded', 'true');
 
     return this;

@@ -10,6 +10,8 @@ module.exports = {
     node: true,
   },
   rules: {
+    'react/jsx-fragments': 'off',
+    'react/jsx-props-no-spreading': 'off',
     'unicorn/prevent-abbreviations': 'off',
   },
   overrides: [

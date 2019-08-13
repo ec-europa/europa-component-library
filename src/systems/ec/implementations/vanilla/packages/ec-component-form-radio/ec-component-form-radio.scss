@@ -15,23 +15,20 @@
   $box-border-color: $ecl-color-grey-50,
   $box-border-color-disabled: $ecl-color-grey-50,
   $box-border-color-checked: $ecl-color-blue-100,
+  $box-border-color-hover: $ecl-color-blue-100,
   $box-background: $ecl-color-white-100,
   $box-background-disabled: $ecl-color-grey-5,
-  $outline-width: 3px,
+  $outline-width: 2px,
   $outline-color: $ecl-color-yellow-100,
   $invalid-border-color: $ecl-color-error,
-  $invalid-border-width: 2px
+  $invalid-border-width: 2px // DEPRECATED
 ) {
   .ecl-radio {
+    align-items: flex-start;
     box-sizing: border-box;
-    margin-top: $ecl-spacing-m;
-  }
-
-  .ecl-radio__group {
-    border-style: solid;
-    border-width: 0;
+    display: flex;
+    flex-direction: column;
     margin: 0;
-    padding: 0 $ecl-spacing-l;
   }
 
   .ecl-radio__input {
@@ -50,7 +47,7 @@
   .ecl-radio__label {
     align-items: center;
     color: $label-color;
-    display: flex;
+    display: inline-flex;
     font: $ecl-font-m;
   }
 
@@ -58,6 +55,7 @@
     background-color: $box-background;
     border: $box-border-width solid $box-border-color;
     border-radius: 50%;
+    box-sizing: content-box;
     display: block;
     height: calc(#{$box-size} - (#{$box-border-width} * 2));
     margin-right: $ecl-spacing-s;
@@ -65,22 +63,12 @@
     width: calc(#{$box-size} - (#{$box-border-width} * 2));
   }
 
-  .ecl-radio__help {
-    margin-top: $ecl-spacing-xs;
+  .ecl-radio__label:hover .ecl-radio__box {
+    border-color: $box-border-color-hover;
   }
 
-  // Disabled
-  .ecl-radio--disabled,
-  .ecl-radio--readonly {
-    .ecl-radio__label {
-      color: $label-color-disabled;
-      cursor: not-allowed;
-    }
-
-    .ecl-radio__box {
-      background-color: $box-background-disabled;
-      border-color: $box-border-color-disabled;
-    }
+  .ecl-radio__help {
+    margin-top: $ecl-spacing-xs;
   }
 
   // Checked
@@ -94,19 +82,29 @@
   }
 
   // Invalid
-  .ecl-radio__group--invalid {
+  .ecl-radio__box--invalid,
+  .ecl-radio__input:checked + .ecl-radio__label .ecl-radio__box--invalid {
     border-color: $invalid-border-color;
-    border-width: $invalid-border-width;
-    padding-bottom: $ecl-spacing-m;
-    padding-top: $ecl-spacing-m;
-
-    .ecl-radio__invalid {
-      margin-top: $ecl-spacing-xs;
-    }
   }
 
+  // Disabled
+  .ecl-radio__label--disabled {
+    color: $label-color-disabled;
+    cursor: not-allowed;
+  }
+
+  // stylelint-disable no-descending-specificity
+  .ecl-radio__box--disabled,
+  .ecl-radio__input:checked + .ecl-radio__label .ecl-radio__box--disabled,
+  .ecl-radio__label--disabled:hover .ecl-radio__box {
+    background-color: $box-background-disabled;
+    border-color: $box-border-color-disabled;
+  }
+  // stylelint-enable no-descending-specificity
+
   // Focus
-  .ecl-radio__input:focus + .ecl-radio__label {
+  .ecl-radio__input:focus + .ecl-radio__label,
+  .ecl-radio__input:active + .ecl-radio__label {
     .ecl-radio__box::before {
       // We can't use outline as this is a rounded box
       border: $outline-width solid $outline-color;
@@ -121,7 +119,8 @@
     }
   }
 
-  .ecl-radio__input:checked:focus + .ecl-radio__label {
+  .ecl-radio__input:checked:focus + .ecl-radio__label,
+  .ecl-radio__input:checked:active + .ecl-radio__label {
     .ecl-radio__box::before {
       left: -#{$box-border-width-checked};
       top: -#{$box-border-width-checked};
@@ -130,8 +129,13 @@
 
   // Binary group
   .ecl-radio__group--binary {
+    // stylelint-disable-next-line plugin/selector-bem-pattern
+    &.ecl-form-group {
+      display: block;
+    }
+
     .ecl-radio {
-      display: inline-block;
+      display: inline-flex;
       margin-right: $ecl-spacing-m;
       vertical-align: top;
     }
@@ -140,6 +144,40 @@
       margin-right: 0;
     }
   }
+
+  // DEPRECATED
+  // stylelint-disable no-descending-specificity
+  .ecl-radio__group {
+    border-style: solid;
+    border-width: 0;
+    margin: 0;
+    padding: 0 $ecl-spacing-l;
+  }
+
+  .ecl-radio__group--invalid {
+    border-color: $invalid-border-color;
+    border-width: $invalid-border-width;
+    padding-bottom: $ecl-spacing-m;
+    padding-top: $ecl-spacing-m;
+
+    .ecl-radio__invalid {
+      margin-top: $ecl-spacing-xs;
+    }
+  }
+
+  .ecl-radio--disabled,
+  .ecl-radio--readonly {
+    .ecl-radio__label {
+      color: $label-color-disabled;
+      cursor: not-allowed;
+    }
+
+    .ecl-radio__box {
+      background-color: $box-background-disabled;
+      border-color: $box-border-color-disabled;
+    }
+  }
+  // stylelint-enable no-descending-specificity
 }
 
 // Use mixin

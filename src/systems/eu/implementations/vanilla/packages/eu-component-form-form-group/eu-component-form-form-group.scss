@@ -8,25 +8,45 @@
 
 @mixin ecl-form-group() {
   .ecl-form-group {
+    align-items: flex-start;
+    border-width: 0;
     box-sizing: border-box;
-    display: block;
+    display: flex;
+    flex-direction: column;
     margin: 0;
+    padding: 0;
 
     > *:not(.ecl-form-label--hidden) + * {
+      margin-top: $ecl-spacing-xs;
+    }
+
+    > *:not(.ecl-form-label--hidden) + .ecl-checkbox {
+      margin-top: $ecl-spacing-s;
+    }
+
+    > *:not(.ecl-form-label--hidden) + .ecl-text-input {
+      margin-top: $ecl-spacing-s;
+    }
+
+    > *:not(.ecl-form-label--hidden) + .ecl-text-area {
+      margin-top: $ecl-spacing-s;
+    }
+
+    > *:not(.ecl-form-label--hidden) + .ecl-select__container {
+      margin-top: $ecl-spacing-s;
+    }
+
+    > *:not(.ecl-form-label--hidden) + .ecl-radio {
+      margin-top: $ecl-spacing-s;
+    }
+
+    > *:not(.ecl-form-label--hidden) + .ecl-file-upload {
       margin-top: $ecl-spacing-s;
     }
 
     > .ecl-feedback-message + .ecl-help-block {
       margin-top: 0;
     }
-  }
-
-  .ecl-form-group--text-input {
-    max-width: 31.25rem;
-  }
-
-  .ecl-form-group--text-area {
-    max-width: 36.25rem;
   }
 }
 

@@ -5,42 +5,146 @@ order: 2
 
 import Playground from '@ecl/website-components/Playground';
 import Select from '@ecl/ec-react-component-select';
-
 import demoContent from '@ecl/ec-specs-select/demo/data';
 
-<Playground system="ec" selectedKind="forms-select" selectedStory="default">
+<Playground
+  system="ec"
+  selectedKind="components-forms-select"
+  selectedStory="default"
+>
   <Select
     id="select-id"
     name="select-name"
     label={demoContent.label}
     options={demoContent.options}
-    helperText="Help message"
+    helperText="This is the input's helper text."
+    width={demoContent.width}
   />
 </Playground>
 
 ## Disabled
 
-<Playground system="ec" selectedKind="forms-select" selectedStory="default">
+<Playground
+  system="ec"
+  selectedKind="components-forms-select"
+  selectedStory="default"
+>
   <Select
     id="select-id-2"
     name="select-name"
     label={demoContent.label}
     options={demoContent.options}
-    helperText="Help message"
+    helperText="This is the input's helper text."
     disabled
+    width={demoContent.width}
   />
 </Playground>
 
 ## With error
 
-<Playground system="ec" selectedKind="forms-select" selectedStory="default">
+<Playground
+  system="ec"
+  selectedKind="components-forms-select"
+  selectedStory="default"
+>
   <Select
     id="select-id-3"
     name="select-name"
     label={demoContent.label}
     options={demoContent.options}
-    helperText="Help message"
+    helperText="This is the input's helper text."
     invalid
-    invalidText="Error message"
+    invalidText="This is the error message"
+    width={demoContent.width}
+  />
+</Playground>
+
+## Required
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-select"
+  selectedStory="default"
+>
+  <Select
+    id="select-id-4"
+    name="select-name"
+    label={demoContent.label}
+    options={demoContent.options}
+    helperText="This is the input's helper text."
+    required
+    requiredText="*"
+    width={demoContent.width}
+  />
+</Playground>
+
+## Optional
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-select"
+  selectedStory="default"
+>
+  <Select
+    id="select-id-5"
+    name="select-name"
+    label={demoContent.label}
+    options={demoContent.options}
+    helperText="This is the input's helper text."
+    optionalText=" (optional)"
+    width={demoContent.width}
+  />
+</Playground>
+
+## Widths
+
+### Small
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-select"
+  selectedStory="default"
+>
+  <Select
+    id="select-id-6"
+    name="select-name"
+    label={demoContent.label}
+    options={demoContent.options}
+    helperText="This is the input's helper text."
+    width="s"
+  />
+</Playground>
+
+### Medium
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-select"
+  selectedStory="default"
+>
+  <Select
+    id="select-id-7"
+    name="select-name"
+    label={demoContent.label}
+    options={demoContent.options}
+    helperText="This is the input's helper text."
+    width="m"
+  />
+</Playground>
+
+### Large
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-select"
+  selectedStory="default"
+>
+  <Select
+    id="select-id-8"
+    name="select-name"
+    label={demoContent.label}
+    options={demoContent.options}
+    helperText="This is the input's helper text."
+    width="l"
   />
 </Playground>

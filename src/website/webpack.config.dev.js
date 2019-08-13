@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
@@ -13,8 +14,8 @@ const babelConfig = require('./config/babel.config');
 const lernaJson = require('../../lerna.json');
 
 const includePaths = [path.resolve(__dirname, '../../node_modules')];
-const publicPath = '/';
-const publicUrl = publicPath.slice(0, -1);
+const publicUrl = process.env.PUBLIC_URL || '';
+const publicPath = `${publicUrl}/`;
 
 const cssLoader = ({ fixCode = true, prefix } = {}) => [
   { loader: 'style-loader' },
@@ -64,6 +65,10 @@ module.exports = {
     extensions: ['.mjs', '.js', '.json', '.jsx'],
     alias: {
       'react-dom': '@hot-loader/react-dom',
+      '@ecl/website-components': path.resolve(
+        __dirname,
+        'src/website-components/'
+      ),
     },
   },
   module: {
@@ -82,24 +87,14 @@ module.exports = {
             exclude: /node_modules/,
             use: {
               loader: 'babel-loader',
-              options: Object.assign({}, babelConfig, {
-                // This is a feature of `babel-loader` for webpack (not Babel itself).
+              options: {
+                ...babelConfig, // This is a feature of `babel-loader` for webpack (not Babel itself).
                 // It enables caching results in ./node_modules/.cache/babel-loader/
                 // directory for faster rebuilds.
                 cacheDirectory: true,
                 babelrc: false,
-              }),
+              },
             },
-          },
-          {
-            // EC CSS imported to showcase components
-            test: /ec-preset-full\.css$/,
-            use: cssLoader({ fixCode: false, prefix: '.ec' }),
-          },
-          {
-            // EU CSS imported to showcase components
-            test: /eu-preset-full\.css$/,
-            use: cssLoader({ fixCode: false, prefix: '.eu' }),
           },
           {
             test: /\.css$/,
@@ -158,10 +153,6 @@ module.exports = {
                 options: babelConfig,
               },
               {
-                // Adds front-matter to export
-                loader: 'mdx-frontmatter-loader',
-              },
-              {
                 loader: '@mdx-js/loader',
                 options: {
                   remarkPlugins: [
@@ -199,6 +190,9 @@ module.exports = {
       inject: true,
       template: './public/index.html',
       // filename: './index.html',
+    }),
+    new InterpolateHtmlPlugin(HtmlWebPackPlugin, {
+      PUBLIC_URL: publicUrl,
     }),
     // Add module names to factory functions so they appear in browser profiler.
     new webpack.NamedModulesPlugin(),

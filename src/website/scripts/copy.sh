@@ -4,11 +4,13 @@
 set -e
 
 # Copy storybook
-rm -rf ./public/storybook
-mkdir -p ./public/storybook
-cp -r ../../dist/storybook/ec ./public/storybook
-cp -r ../../dist/storybook/eu ./public/storybook
+rm -rf ./public/playground
+mkdir -p ./public/playground
+cp -r ../../dist/playground/ec ./public/playground
+cp -r ../../dist/playground/eu ./public/playground
 
-# Make css available for storybook
-cp -r ../../dist/packages/ec-preset-website/styles ./public/storybook/ec
-cp -r ../../dist/packages/eu-preset-website/styles ./public/storybook/eu
+# Make assets available for storybook
+cp -r ../../dist/packages/ec-preset-website/. ./public/playground/ec
+cp -r ../../dist/packages/ec-preset-legacy-website/. ./public/playground/ec
+cp -r ../../dist/packages/eu-preset-website/. ./public/playground/eu
+cp -r ../../dist/packages/eu-preset-legacy-website/. ./public/playground/eu

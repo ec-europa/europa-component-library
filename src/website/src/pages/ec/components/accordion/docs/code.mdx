@@ -4,37 +4,63 @@ order: 2
 ---
 
 import Playground from '@ecl/website-components/Playground';
-import Accordion, { AccordionItem } from '@ecl/ec-react-component-accordion';
+import { Accordion2, Accordion2Item } from '@ecl/ec-react-component-accordion2';
 
-import demoContent from '@ecl/ec-specs-accordion/demo/data';
+import demoContent from '@ecl/ec-specs-accordion2/demo/data';
 
 <Playground
   system="ec"
-  selectedKind="accordion"
+  selectedKind="components-accordion"
   selectedStory="default"
   showFrame
 >
-  <Accordion>
-    <AccordionItem
+  <Accordion2>
+    <Accordion2Item
       toggle={demoContent.items[0].toggle}
       id={demoContent.items[0].id}
       level={demoContent.items[0].level}
     >
       {demoContent.items[0].content}
-    </AccordionItem>
-    <AccordionItem
+    </Accordion2Item>
+    <Accordion2Item
       toggle={demoContent.items[1].toggle}
       id={demoContent.items[1].id}
       level={demoContent.items[1].level}
     >
       {demoContent.items[1].content}
-    </AccordionItem>
-    <AccordionItem
+    </Accordion2Item>
+    <Accordion2Item
       toggle={demoContent.items[2].toggle}
       id={demoContent.items[2].id}
       level={demoContent.items[2].level}
     >
       {demoContent.items[2].content}
-    </AccordionItem>
-  </Accordion>
+    </Accordion2Item>
+  </Accordion2>
 </Playground>
+
+## JS behaviour
+
+### Auto initialisation
+
+In order to automatically initalise the JS behaviour, add `data-ecl-auto-init="Accordion2"` to your component's markup:
+
+```html
+<div class="ecl-accordion2" data-ecl-accordion2 data-ecl-auto-init="Accordion2">
+  ...
+</div>
+```
+
+Don't forget to call `ECL.autoInit()` when your page is ready!
+
+### Manual initialisation
+
+When the document is ready, query the element. For example, you can use `document.querySelector('[data-ecl-accordion2]')` if you only have 1 accordion in the page.
+
+Then, instantiate the `Accordion2` component and call `init()`:
+
+```js
+var elt = document.querySelector('[data-ecl-accordion2]');
+var accordion = new ECL.Accordion2(elt);
+accordion.init();
+```

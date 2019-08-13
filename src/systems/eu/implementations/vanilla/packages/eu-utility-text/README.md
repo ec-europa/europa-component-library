@@ -1,4 +1,4 @@
-# Text utilities
+# [DEPRECATED] Text utilities
 
 You can use these utilities to quickly change display of a block of text.
 

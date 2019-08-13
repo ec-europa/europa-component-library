@@ -24,7 +24,7 @@ Please fill in the description following the template.
     - Paste the same contents to `src/website/src/pages/{system}/whats-new/index.md`. Remove the mentions and the committers.
     - For older releases before v2, ensure to edit also main `README.md` file.
 
-5.  Run `npm run update-version`. It will bump/increment the version number of the updated packages. Note: you might want to change the `bump` parameter in `lerna.json`. See: https://github.com/lerna/lerna/tree/master/commands/version#semver-bump
+5.  Make sure the version number in `lerna.json` is set to the last version published. Then, run `npm run update-version`. It will increment the version number of the updated packages.
 
 6.  Open a pull request with changes you've made from the previous steps. Don't apply any `tag: *` label on it.
 
@@ -43,3 +43,5 @@ Please fill in the description following the template.
 13. Push the locally-synched `v2` to the remote. This marks the release as complete.
 
 14. Finally, create a GitHub Release with the same text as the changelog generated at step 3. Add "useful links" section. Congratulations!
+
+15. Once the tag is created, drone will publish the assets on the CDN. Don't forget to update the release note, the root `README.md`, `src/website/src/pages/ec/getting-started/index.md` and `src/website/src/pages/eu/getting-started/index.md` with the new SRI hashes

@@ -16,11 +16,12 @@ module.exports = {
       id: 'accordion-example2',
       level: 3,
       toggle: {
-        label: 'Energy union and climate',
-        iconShape: 'general--energy',
+        label:
+          'Spring 2019 Economic Forecast: Growth continues at a more moderate pace',
+        iconShape: 'general--growth',
       },
       content:
-        'A balanced and progressive trade policy to harness globalisation',
+        'The European economy is forecast to continue expanding for the seventh year in a row in 2019, with real GDP expected to grow in all EU Member States. As global uncertainties continue to weigh, domestic dynamics are set to support the European economy. Growth is expected to gather pace again next year.',
     },
     {
       id: 'accordion-example3',

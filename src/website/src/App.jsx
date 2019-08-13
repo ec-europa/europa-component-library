@@ -16,28 +16,87 @@ import MainRoutes from './routes/MainRoutes';
 
 /* eslint-disable react/prop-types */
 const customComponents = {
-  h1: ({ children }) => <h1 className={styles.h1}>{children}</h1>,
-  h2: ({ children }) => <h2 className={styles.h2}>{children}</h2>,
-  h3: ({ children }) => <h3 className={styles.h3}>{children}</h3>,
-  h4: ({ children }) => <h4 className={styles.h4}>{children}</h4>,
-  p: ({ children }) => <p className={styles.p}>{children}</p>,
-  ul: ({ children }) => <ul className={styles.ul}>{children}</ul>,
-  ol: ({ children }) => <ol className={styles.ol}>{children}</ol>,
-  table: ({ children }) => <table className={styles.table}>{children}</table>,
-  thead: ({ children }) => <thead className={styles.thead}>{children}</thead>,
-  tbody: ({ children }) => <tbody className={styles.tbody}>{children}</tbody>,
-  tr: ({ children }) => <tr className={styles.tr}>{children}</tr>,
-  th: ({ children }) => <th className={styles.th}>{children}</th>,
-  td: ({ children }) => <td className={styles.td}>{children}</td>,
-  hr: () => <hr className={styles.hr} />,
-  a: ({ href, children }) => (
-    <a href={href} className={styles.a}>
+  h1: ({ children, className, ...props }) => (
+    <h1 className={className || styles.h1} {...props}>
+      {children}
+    </h1>
+  ),
+  h2: ({ children, className, ...props }) => (
+    <h2 className={className || styles.h2} {...props}>
+      {children}
+    </h2>
+  ),
+  h3: ({ children, className, ...props }) => (
+    <h3 className={className || styles.h3} {...props}>
+      {children}
+    </h3>
+  ),
+  h4: ({ children, className, ...props }) => (
+    <h4 className={className || styles.h4} {...props}>
+      {children}
+    </h4>
+  ),
+  p: ({ children, className, ...props }) => (
+    <p className={className || styles.p} {...props}>
+      {children}
+    </p>
+  ),
+  ul: ({ children, className, ...props }) => (
+    <ul className={className || styles.ul} {...props}>
+      {children}
+    </ul>
+  ),
+  ol: ({ children, className, ...props }) => (
+    <ol className={className || styles.ol} {...props}>
+      {children}
+    </ol>
+  ),
+  table: ({ children, className, ...props }) => (
+    <table className={className || styles.table} {...props}>
+      {children}
+    </table>
+  ),
+  thead: ({ children, className, ...props }) => (
+    <thead className={className || styles.thead} {...props}>
+      {children}
+    </thead>
+  ),
+  tbody: ({ children, className, ...props }) => (
+    <tbody className={className || styles.tbody} {...props}>
+      {children}
+    </tbody>
+  ),
+  tr: ({ children, className, ...props }) => (
+    <tr className={className || styles.tr} {...props}>
+      {children}
+    </tr>
+  ),
+  th: ({ children, className, ...props }) => (
+    <th className={className || styles.th} {...props}>
+      {children}
+    </th>
+  ),
+  td: ({ children, className, ...props }) => (
+    <td className={className || styles.td} {...props}>
+      {children}
+    </td>
+  ),
+  hr: ({ className, ...props }) => (
+    <hr className={className || styles.hr} {...props} />
+  ),
+  a: ({ href, children, className, ...props }) => (
+    <a href={href} className={className || styles.a} {...props}>
       {children}
     </a>
   ),
-  img: ({ alt, src }) => (
-    <a href={src} target="_blank" rel="noopener noreferrer">
-      <img alt={alt} src={src} className={styles.img} />
+  img: ({ alt, src, className, ...props }) => (
+    <a
+      className={styles.imgA}
+      href={src}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img alt={alt} src={src} className={className || styles.img} {...props} />
     </a>
   ),
 };
@@ -51,12 +110,17 @@ class App extends React.Component {
   render() {
     return (
       <MDXProvider components={customComponents}>
-        <Router basename={`${process.env.PUBLIC_URL}/`}>
+        <Router basename={process.env.PUBLIC_URL}>
           <Fragment>
             <Helmet
-              titleTemplate="%s - ECL 2.0"
+              titleTemplate="%s - ECL v2"
               defaultTitle="Europa Component Library"
-            />
+            >
+              <meta
+                name="Description"
+                content="Europa Component Library (ECL) documentation website"
+              />
+            </Helmet>
             <MainRoutes />
           </Fragment>
         </Router>
