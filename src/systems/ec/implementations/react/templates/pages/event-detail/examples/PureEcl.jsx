@@ -416,12 +416,6 @@ export default () => {
             </div>
 
             <div className="ecl-col-12 ecl-col-md-6">
-              <img
-                className="ecl-u-mt-l ecl-u-mt-md-none"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-map.png"
-                alt="EGG map"
-                style={{ maxWidth: '100%', height: 'auto', objectFit: 'cover' }}
-              />
               <script type="application/json">
                 {`
                   {
