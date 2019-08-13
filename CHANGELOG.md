@@ -1,5 +1,26 @@
 # Changelog
 
+## 1.11.0 (2019-08-13)
+
+#### :bug: Bug Fix
+
+- [#1243](https://github.com/ec-europa/europa-component-library/pull/1243) fix: fix typography of lists and tables - INNO-1450. ([@yhuard](https://github.com/yhuard))
+- [#1244](https://github.com/ec-europa/europa-component-library/pull/1244) fix(carousel): prevent image cropping - INNO-1423. ([@yhuard](https://github.com/yhuard))
+
+#### :nail_care: Enhancement
+
+- [#1230](https://github.com/ec-europa/europa-component-library/pull/1230) feat(timeline): improve logic for the button - INNO-1688. ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#1254](https://github.com/ec-europa/europa-component-library/pull/1254) chore: update dependencies of ECL v1 - INNO-1729. ([@yhuard](https://github.com/yhuard))
+- [#1242](https://github.com/ec-europa/europa-component-library/pull/1242) chore(accordion): close all panels by default - INNO-1705. ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 2
+
+- Yannick Huard ([yhuard](https://github.com/yhuard))
+- [planctus](https://github.com/planctus)
+
 ## 1.10.0 (2019-07-23)
 
 #### :rocket: New Feature
