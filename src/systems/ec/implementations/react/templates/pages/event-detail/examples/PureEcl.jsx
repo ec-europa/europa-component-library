@@ -93,13 +93,6 @@ export default () => {
               </p>
               <Link
                 className="ecl-u-mt-m"
-                variant="cta"
-                label="Register"
-                href="/example"
-              />
-              <br />
-              <Link
-                className="ecl-u-mt-l"
                 variant="standalone"
                 label="Read more"
                 href="#description"
@@ -108,6 +101,13 @@ export default () => {
                   size: 'm',
                   transform: 'rotate-90',
                 }}
+              />
+              <br />
+              <Link
+                className="ecl-u-mt-l"
+                variant="cta"
+                label="Register"
+                href="/example"
               />
             </div>
           </div>
@@ -440,7 +440,10 @@ export default () => {
             href="/example"
           />
 
-          <h2 className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
+          <h2
+            className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l"
+            id="description"
+          >
             Description
           </h2>
 
@@ -635,7 +638,7 @@ export default () => {
                 <UnorderedListItem className="ecl-u-d-flex ecl-u-align-items-center">
                   <Icon shape="general--location" size="m" />
                   <span className="ecl-u-type-s ecl-u-ml-s">
-                    Muich, Germany
+                    Munich, Germany
                   </span>
                 </UnorderedListItem>
                 <UnorderedListItem className="ecl-u-d-flex ecl-u-align-items-center">
@@ -705,7 +708,7 @@ export default () => {
                 <UnorderedListItem className="ecl-u-d-flex ecl-u-align-items-center">
                   <Icon shape="general--location" size="m" />
                   <span className="ecl-u-type-s ecl-u-ml-s">
-                    Muich, Germany
+                    Munich, Germany
                   </span>
                 </UnorderedListItem>
               </UnorderedList>

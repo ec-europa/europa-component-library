@@ -510,7 +510,10 @@ export default () => {
           />
 
           {/* :'( Custom heading spacing */}
-          <h2 className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
+          <h2
+            className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l"
+            id="description"
+          >
             Description
           </h2>
 
@@ -744,7 +747,7 @@ export default () => {
                 <UnorderedListItem className="ecl-u-d-flex ecl-u-align-items-center">
                   <Icon shape="general--location" size="m" />
                   <span className="ecl-u-type-s ecl-u-ml-s">
-                    Muich, Germany
+                    Munich, Germany
                   </span>
                 </UnorderedListItem>
                 <UnorderedListItem className="ecl-u-d-flex ecl-u-align-items-center">
@@ -814,7 +817,7 @@ export default () => {
                 <UnorderedListItem className="ecl-u-d-flex ecl-u-align-items-center">
                   <Icon shape="general--location" size="m" />
                   <span className="ecl-u-type-s ecl-u-ml-s">
-                    Muich, Germany
+                    Munich, Germany
                   </span>
                 </UnorderedListItem>
               </UnorderedList>
