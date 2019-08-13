@@ -132,7 +132,7 @@ const Footer = ({
     </div>
 
     {/* Common */}
-    <section className="ecl-footer__common">
+    <div className="ecl-footer__common">
       <div className="ecl-container ecl-footer__common-container">
         {common.map(link => (
           <Link
@@ -142,7 +142,7 @@ const Footer = ({
           />
         ))}
       </div>
-    </section>
+    </div>
   </footer>
 );
 

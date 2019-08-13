@@ -27,7 +27,8 @@ const Card = ({
     imageMarkup = (
       <div
         className="ecl-card__image"
-        alt={image.alt}
+        aria-label={image.alt}
+        role="img"
         style={{ backgroundImage: `url(${image.src})` }}
       />
     );
@@ -41,12 +42,15 @@ const Card = ({
 
   // Title
   let titleMarkup = '';
-  const TitleTag = `h${title.level || 1}`;
+
   if (title) {
+    const { level: titleLevel, ...otherTitleProps } = title;
+    const TitleTag = `h${titleLevel || 1}`;
+
     if (title.href) {
       titleMarkup = (
         <TitleTag className="ecl-card__title">
-          <Link {...title} />
+          <Link {...otherTitleProps} />
         </TitleTag>
       );
     } else {
@@ -106,10 +110,10 @@ const Card = ({
         {titleMarkup}
       </header>
 
-      <section className="ecl-card__body">
+      <div className="ecl-card__body">
         {descriptionMarkup}
         {linksMarkup}
-      </section>
+      </div>
 
       <footer className="ecl-card__footer">
         {infosMarkup}
