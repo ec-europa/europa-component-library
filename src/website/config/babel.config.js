@@ -11,6 +11,7 @@ module.exports = {
     '@babel/preset-react',
   ],
   plugins: [
+    'preval',
     'react-hot-loader/babel',
     '@babel/plugin-syntax-dynamic-import',
     '@babel/plugin-proposal-export-namespace-from',

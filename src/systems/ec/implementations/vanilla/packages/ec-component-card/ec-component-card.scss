@@ -28,17 +28,18 @@
   }
 
   .ecl-card__image {
+    background-position: center;
     background-size: cover;
     display: block;
     height: auto;
     margin-top: calc(#{$ecl-spacing-s} - 1px);
     width: 100%;
 
-    // manage ratio 16:9
+    // manage ratio 3:2
     &::before {
       content: '';
       display: block;
-      padding-top: (9 / 16) * 100%;
+      padding-top: (2 / 3) * 100%;
       width: 100%;
     }
   }

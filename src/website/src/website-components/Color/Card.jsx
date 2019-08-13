@@ -28,10 +28,12 @@ class Card extends PureComponent {
 
   render() {
     const { name, value } = this.color;
-    const docs = Object.assign(
-      { title: '', ui: 'light', border: false },
-      this.color.docs
-    );
+    const docs = {
+      title: '',
+      ui: 'light',
+      border: false,
+      ...this.color.docs,
+    };
 
     return (
       <div

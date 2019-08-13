@@ -18,6 +18,8 @@ module.exports = {
     },
   },
   rules: {
+    'react/jsx-fragments': 'off',
+    'react/jsx-props-no-spreading': 'off',
     'unicorn/prevent-abbreviations': 'off',
     'unicorn/no-for-loop': 'off',
   },
