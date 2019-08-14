@@ -10,7 +10,7 @@ clone:
       - git fetch --no-tags origin ${DRONE_COMMIT_REF}
       - if [ "${DRONE_BUILD_EVENT}" == "pull_request" ] || [ "${DRONE_BUILD_EVENT}" == "tag" ] ; then
           git checkout -qf FETCH_HEAD;
-        else if  [ "${DRONE_BUILD_EVENT}" == "deployment" ] ; then
+        elif  [ "${DRONE_BUILD_EVENT}" == "deployment" ] ; then
           echo "Nothing to clone ;)";
         else
           git reset --hard -q ${DRONE_COMMIT_REF};
