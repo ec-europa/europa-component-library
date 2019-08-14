@@ -8,7 +8,6 @@ clone:
       - git init
       - git remote add origin ${DRONE_REMOTE_URL}
       - git fetch --no-tags origin ${DRONE_COMMIT_REF}
-      - git checkout -qf v1;
       - if [ "${DRONE_BUILD_EVENT}" == "pull_request" ] || [ "${DRONE_BUILD_EVENT}" == "tag" ] ; then
           git checkout -qf FETCH_HEAD;
         else if  [ "${DRONE_BUILD_EVENT}" == "deployment" ] ; then
