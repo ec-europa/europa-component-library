@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const ssri = require('ssri');
 const glob = require('glob');
+const prettier = require('prettier');
 
 const isDrone = 'DRONE' in process.env && 'CI' in process.env;
 
@@ -12,6 +13,7 @@ if (!isDrone || process.env.DRONE_BUILD_EVENT !== 'tag') {
   // eslint-disable-next-line unicorn/no-process-exit
   process.exit(0);
 }
+
 // Get all CSS and JS files
 const files = glob.sync(
   `${path.resolve(__dirname, '../dist/packages')}/**/*.@(css|js)`
@@ -37,5 +39,5 @@ fs.writeFileSync(
   `${path.resolve(__dirname, '../dist/packages')}/${
     process.env.DRONE_REPO_NAME
   }-${process.env.DRONE_TAG}-sri.json`,
-  JSON.stringify(hashes)
+  prettier.format(JSON.stringify(hashes), { parser: 'json' })
 );
