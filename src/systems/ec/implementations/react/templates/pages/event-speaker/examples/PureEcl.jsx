@@ -44,7 +44,7 @@ export default () => {
           </h2>
 
           <div className="ecl-row">
-            <div className="ecl-col-12 ecl-col-md-4 ecl-u-d-flex">
+            <div className="ecl-col-12 ecl-col-md-4">
               <Card
                 image={{
                   alt: 'card image',
@@ -84,7 +84,7 @@ export default () => {
               />
             </div>
 
-            <div className="ecl-col-12 ecl-col-md-4 ecl-u-mt-l ecl-u-mt-md-none ecl-u-d-flex">
+            <div className="ecl-col-12 ecl-col-md-4 ecl-u-mt-l ecl-u-mt-md-none">
               <Card
                 image={{
                   alt: 'card image',
@@ -125,7 +125,7 @@ export default () => {
               />
             </div>
 
-            <div className="ecl-col-12 ecl-col-md-4 ecl-u-mt-l ecl-u-mt-md-none ecl-u-d-flex">
+            <div className="ecl-col-12 ecl-col-md-4 ecl-u-mt-l ecl-u-mt-md-none">
               <Card
                 image={{
                   alt: 'card image',
@@ -170,858 +170,814 @@ export default () => {
             Speakers
           </h2>
 
-          <div className="ecl-row">
-            <div className="ecl-col-12 ecl-col-md-6 ecl-u-d-flex">
-              <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-flex-grow-1">
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                    Moderator
-                  </div>
-                  <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                    <Link
-                      href="/example"
-                      variant="standalone"
-                      label="Alberto Anfossi"
-                    />
-                  </div>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
-                    Secretary General of San Paolo Bank Foundation
-                  </p>
-                  <Link
-                    className="ecl-u-mt-s ecl-u-d-inline-block ecl-u-type-bold ecl-u-type-prolonged-m"
-                    href="/example"
-                    variant="standalone"
-                    label="How innovation is created and supported? Who are the innovators in cultural heritage? Panel discussion with pitches from EU R&I projects"
-                  />
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-l">
-                    15 Nov 2019 | 09:15 - 12:00 | Auditorium
-                  </div>
-                </div>
-
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
-                  style={{
-                    backgroundImage:
-                      'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                    backgroundSize: 'contain',
-                    height: '5rem',
-                    width: '5rem',
-                  }}
+          <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
+            <div className="ecl-u-flex-grow-1">
+              <div className="ecl-u-type-s ecl-u-type-color-grey-75">
+                Moderator
+              </div>
+              <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                <Link
+                  href="/example"
+                  variant="standalone"
+                  label="Alberto Anfossi"
                 />
-
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
-                  style={{
-                    backgroundImage:
-                      'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                    backgroundSize: 'contain',
-                    height: '8.75rem',
-                    width: '8.75rem',
-                  }}
-                />
-              </article>
+              </div>
+              <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                Secretary General of San Paolo Bank Foundation
+              </p>
+              <Link
+                className="ecl-u-mt-s ecl-u-d-inline-block ecl-u-type-bold ecl-u-type-prolonged-m"
+                href="/example"
+                variant="standalone"
+                label="How innovation is created and supported? Who are the innovators in cultural heritage? Panel discussion with pitches from EU R&I projects"
+              />
+              <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-l">
+                15 Nov 2019 | 09:15 - 12:00 | Auditorium
+              </div>
             </div>
-            <div className="ecl-col-12 ecl-col-md-6 ecl-u-d-flex">
-              <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-flex-grow-1">
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                    Moderator / Panelist
-                  </div>
-                  <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                    <Link
-                      href="/example"
-                      variant="standalone"
-                      label="Jean David Malo"
-                    />
-                  </div>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
-                    Director of Open Innovation and Open Science, Directorate
-                    General for Research and Innovation
-                  </p>
-                  <Link
-                    className="ecl-u-mt-s ecl-u-d-inline-block ecl-u-type-bold ecl-u-type-prolonged-m"
-                    href="/example"
-                    variant="standalone"
-                    label="'Working on what?' Building a Community of Innovators in Cultural Heritage. Assistance: 'Heritage at risk's"
-                  />
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-l">
-                    15 Nov 2019 | 14:30 - 18:00 | Riverside
-                  </div>
-                  <Link
-                    className="ecl-u-mt-s ecl-u-d-inline-block ecl-u-type-bold ecl-u-type-prolonged-m"
-                    href="/example"
-                    variant="standalone"
-                    label="When in the future? Debate on opportunities for innovation in Cutliral Heritage"
-                  />
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-l">
-                    16 Nov 2019 | 14:30 - 15:00 | Auditorium
-                  </div>
-                </div>
 
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
-                  style={{
-                    backgroundImage:
-                      'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                    backgroundSize: 'contain',
-                    height: '5rem',
-                    width: '5rem',
-                  }}
-                />
+            <div
+              role="img"
+              aria-label="Example image"
+              className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
+              style={{
+                backgroundImage:
+                  'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
+                backgroundSize: 'contain',
+                height: '5rem',
+                width: '5rem',
+              }}
+            />
 
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
-                  style={{
-                    backgroundImage:
-                      'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                    backgroundSize: 'contain',
-                    height: '8.75rem',
-                    width: '8.75rem',
-                  }}
+            <div
+              role="img"
+              aria-label="Example image"
+              className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
+              style={{
+                backgroundImage:
+                  'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
+                backgroundSize: 'contain',
+                height: '8.75rem',
+                width: '8.75rem',
+              }}
+            />
+          </article>
+
+          <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
+            <div className="ecl-u-flex-grow-1">
+              <div className="ecl-u-type-s ecl-u-type-color-grey-75">
+                Moderator / Panelist
+              </div>
+              <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                <Link
+                  href="/example"
+                  variant="standalone"
+                  label="Jean David Malo"
                 />
-              </article>
+              </div>
+              <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                Director of Open Innovation and Open Science, Directorate
+                General for Research and Innovation
+              </p>
+              <Link
+                className="ecl-u-mt-s ecl-u-d-inline-block ecl-u-type-bold ecl-u-type-prolonged-m"
+                href="/example"
+                variant="standalone"
+                label="'Working on what?' Building a Community of Innovators in Cultural Heritage. Assistance: 'Heritage at risk's"
+              />
+              <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-l">
+                15 Nov 2019 | 14:30 - 18:00 | Riverside
+              </div>
+              <Link
+                className="ecl-u-mt-s ecl-u-d-inline-block ecl-u-type-bold ecl-u-type-prolonged-m"
+                href="/example"
+                variant="standalone"
+                label="When in the future? Debate on opportunities for innovation in Cutliral Heritage"
+              />
+              <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-l">
+                16 Nov 2019 | 14:30 - 15:00 | Auditorium
+              </div>
             </div>
-          </div>
 
-          <div className="ecl-row">
-            <div className="ecl-col-12 ecl-col-md-6 ecl-u-d-flex">
-              <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-flex-grow-1">
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                    Speaker
-                  </div>
-                  <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                    <Link
-                      href="/example"
-                      variant="standalone"
-                      label="Amalia Zepou"
-                    />
-                  </div>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
-                    Vice-Mayor for Civil Society and Innovatio, City of Athens
-                  </p>
-                  <Link
-                    className="ecl-u-mt-s ecl-u-d-inline-block ecl-u-type-bold ecl-u-type-prolonged-m"
-                    href="/example"
-                    variant="standalone"
-                    label="How innovation is created and supported? Who are the innovators in cultural heritage? Panel discussion with pitches from EU R&I projects"
-                  />
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-l">
-                    16 Nov 2019 | 12:00 - 12:15 | Auditorium
-                  </div>
-                </div>
+            <div
+              role="img"
+              aria-label="Example image"
+              className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
+              style={{
+                backgroundImage:
+                  'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
+                backgroundSize: 'contain',
+                height: '5rem',
+                width: '5rem',
+              }}
+            />
 
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
-                  style={{
-                    backgroundImage:
-                      'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                    backgroundSize: 'contain',
-                    height: '5rem',
-                    width: '5rem',
-                  }}
+            <div
+              role="img"
+              aria-label="Example image"
+              className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
+              style={{
+                backgroundImage:
+                  'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
+                backgroundSize: 'contain',
+                height: '8.75rem',
+                width: '8.75rem',
+              }}
+            />
+          </article>
+
+          <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
+            <div className="ecl-u-flex-grow-1">
+              <div className="ecl-u-type-s ecl-u-type-color-grey-75">
+                Speaker
+              </div>
+              <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                <Link
+                  href="/example"
+                  variant="standalone"
+                  label="Amalia Zepou"
                 />
-
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
-                  style={{
-                    backgroundImage:
-                      'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                    backgroundSize: 'contain',
-                    height: '8.75rem',
-                    width: '8.75rem',
-                  }}
-                />
-              </article>
+              </div>
+              <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                Vice-Mayor for Civil Society and Innovatio, City of Athens
+              </p>
+              <Link
+                className="ecl-u-mt-s ecl-u-d-inline-block ecl-u-type-bold ecl-u-type-prolonged-m"
+                href="/example"
+                variant="standalone"
+                label="How innovation is created and supported? Who are the innovators in cultural heritage? Panel discussion with pitches from EU R&I projects"
+              />
+              <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-l">
+                16 Nov 2019 | 12:00 - 12:15 | Auditorium
+              </div>
             </div>
-            <div className="ecl-col-12 ecl-col-md-6 ecl-u-d-flex">
-              <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-flex-grow-1">
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                    Speaker
-                  </div>
-                  <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                    <Link
-                      href="/example"
-                      variant="standalone"
-                      label="Jean-Eric Paquet"
-                    />
-                  </div>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
-                    Director General, DG RTD European Commission
-                  </p>
-                  <Link
-                    className="ecl-u-mt-s ecl-u-d-inline-block ecl-u-type-bold ecl-u-type-prolonged-m"
-                    href="/example"
-                    variant="standalone"
-                    label="Opening of the exhibition"
-                  />
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-l">
-                    15 Nov 2019 | 12:30 - 13:00 | Auditorium
-                  </div>
-                </div>
 
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
-                  style={{
-                    backgroundImage:
-                      'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                    backgroundSize: 'contain',
-                    height: '5rem',
-                    width: '5rem',
-                  }}
-                />
+            <div
+              role="img"
+              aria-label="Example image"
+              className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
+              style={{
+                backgroundImage:
+                  'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
+                backgroundSize: 'contain',
+                height: '5rem',
+                width: '5rem',
+              }}
+            />
 
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
-                  style={{
-                    backgroundImage:
-                      'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                    backgroundSize: 'contain',
-                    height: '8.75rem',
-                    width: '8.75rem',
-                  }}
+            <div
+              role="img"
+              aria-label="Example image"
+              className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
+              style={{
+                backgroundImage:
+                  'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
+                backgroundSize: 'contain',
+                height: '8.75rem',
+                width: '8.75rem',
+              }}
+            />
+          </article>
+
+          <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
+            <div className="ecl-u-flex-grow-1">
+              <div className="ecl-u-type-s ecl-u-type-color-grey-75">
+                Speaker
+              </div>
+              <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                <Link
+                  href="/example"
+                  variant="standalone"
+                  label="Jean-Eric Paquet"
                 />
-              </article>
+              </div>
+              <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                Director General, DG RTD European Commission
+              </p>
+              <Link
+                className="ecl-u-mt-s ecl-u-d-inline-block ecl-u-type-bold ecl-u-type-prolonged-m"
+                href="/example"
+                variant="standalone"
+                label="Opening of the exhibition"
+              />
+              <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-l">
+                15 Nov 2019 | 12:30 - 13:00 | Auditorium
+              </div>
             </div>
-          </div>
 
-          <div className="ecl-row">
-            <div className="ecl-col-12 ecl-col-md-6 ecl-u-d-flex">
-              <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-flex-grow-1">
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                    Moderator
-                  </div>
-                  <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                    <Link
-                      href="/example"
-                      variant="standalone"
-                      label="Azra Becevic-Sarenkapa"
-                    />
-                  </div>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
-                    National Museum of Bosnia and Herzegovina: &quot;Cultural
-                    heritage for social consolidation and identity building. The
-                    experience of Balkan Museum Network&quot;
-                  </p>
-                  <Link
-                    className="ecl-u-mt-s ecl-u-d-inline-block ecl-u-type-bold ecl-u-type-prolonged-m"
-                    href="/example"
-                    variant="standalone"
-                    label="Cultural heritage supporting intercultrural dialog and cultural diplomacy"
-                  />
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-l">
-                    16 Nov 2019 | 10:15 - 12:00 | Riverside
-                  </div>
-                </div>
+            <div
+              role="img"
+              aria-label="Example image"
+              className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
+              style={{
+                backgroundImage:
+                  'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
+                backgroundSize: 'contain',
+                height: '5rem',
+                width: '5rem',
+              }}
+            />
 
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
-                  style={{
-                    backgroundImage:
-                      'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                    backgroundSize: 'contain',
-                    height: '5rem',
-                    width: '5rem',
-                  }}
+            <div
+              role="img"
+              aria-label="Example image"
+              className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
+              style={{
+                backgroundImage:
+                  'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
+                backgroundSize: 'contain',
+                height: '8.75rem',
+                width: '8.75rem',
+              }}
+            />
+          </article>
+
+          <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
+            <div className="ecl-u-flex-grow-1">
+              <div className="ecl-u-type-s ecl-u-type-color-grey-75">
+                Moderator
+              </div>
+              <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                <Link
+                  href="/example"
+                  variant="standalone"
+                  label="Azra Becevic-Sarenkapa"
                 />
-
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
-                  style={{
-                    backgroundImage:
-                      'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                    backgroundSize: 'contain',
-                    height: '8.75rem',
-                    width: '8.75rem',
-                  }}
-                />
-              </article>
+              </div>
+              <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                National Museum of Bosnia and Herzegovina: &quot;Cultural
+                heritage for social consolidation and identity building. The
+                experience of Balkan Museum Network&quot;
+              </p>
+              <Link
+                className="ecl-u-mt-s ecl-u-d-inline-block ecl-u-type-bold ecl-u-type-prolonged-m"
+                href="/example"
+                variant="standalone"
+                label="Cultural heritage supporting intercultrural dialog and cultural diplomacy"
+              />
+              <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-l">
+                16 Nov 2019 | 10:15 - 12:00 | Riverside
+              </div>
             </div>
-            <div className="ecl-col-12 ecl-col-md-6 ecl-u-d-flex">
-              <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-flex-grow-1">
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                    Speaker
-                  </div>
-                  <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                    <Link
-                      href="/example"
-                      variant="standalone"
-                      label="John Bell"
-                    />
-                  </div>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
-                    Director, Climate Action and Resource Efficiency,
-                    Directorate General for Research and Innovatio, European
-                    Commission
-                  </p>
-                  <Link
-                    className="ecl-u-mt-s ecl-u-d-inline-block ecl-u-type-bold ecl-u-type-prolonged-m"
-                    href="/example"
-                    variant="standalone"
-                    label="Opening of the conference"
-                  />
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-l">
-                    16 Nov 2019 | 09:00 - 09:15 | Auditorium
-                  </div>
-                </div>
 
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
-                  style={{
-                    backgroundImage:
-                      'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                    backgroundSize: 'contain',
-                    height: '5rem',
-                    width: '5rem',
-                  }}
-                />
+            <div
+              role="img"
+              aria-label="Example image"
+              className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
+              style={{
+                backgroundImage:
+                  'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
+                backgroundSize: 'contain',
+                height: '5rem',
+                width: '5rem',
+              }}
+            />
 
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
-                  style={{
-                    backgroundImage:
-                      'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                    backgroundSize: 'contain',
-                    height: '8.75rem',
-                    width: '8.75rem',
-                  }}
-                />
-              </article>
+            <div
+              role="img"
+              aria-label="Example image"
+              className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
+              style={{
+                backgroundImage:
+                  'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
+                backgroundSize: 'contain',
+                height: '8.75rem',
+                width: '8.75rem',
+              }}
+            />
+          </article>
+
+          <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
+            <div className="ecl-u-flex-grow-1">
+              <div className="ecl-u-type-s ecl-u-type-color-grey-75">
+                Speaker
+              </div>
+              <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                <Link href="/example" variant="standalone" label="John Bell" />
+              </div>
+              <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                Director, Climate Action and Resource Efficiency, Directorate
+                General for Research and Innovatio, European Commission
+              </p>
+              <Link
+                className="ecl-u-mt-s ecl-u-d-inline-block ecl-u-type-bold ecl-u-type-prolonged-m"
+                href="/example"
+                variant="standalone"
+                label="Opening of the conference"
+              />
+              <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-l">
+                16 Nov 2019 | 09:00 - 09:15 | Auditorium
+              </div>
             </div>
-          </div>
 
-          <div className="ecl-row">
-            <div className="ecl-col-12 ecl-col-md-6 ecl-u-d-flex">
-              <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-flex-grow-1">
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                    Speaker
-                  </div>
-                  <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                    <Link
-                      href="/example"
-                      variant="standalone"
-                      label="Claudio Cimino"
-                    />
-                  </div>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
-                    Secretary General of WATCH NGO: &quot;Mobilising civil
-                    society for the protection&quot;
-                  </p>
-                  <Link
-                    className="ecl-u-mt-s ecl-u-d-inline-block ecl-u-type-bold ecl-u-type-prolonged-m"
-                    href="/example"
-                    variant="standalone"
-                    label="Cultural heritage supporting intercultrural dialog and cultural diplomacy"
-                  />
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-l">
-                    16 Nov 2019 | 10:30 - 11:00 | Riverside
-                  </div>
-                </div>
+            <div
+              role="img"
+              aria-label="Example image"
+              className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
+              style={{
+                backgroundImage:
+                  'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
+                backgroundSize: 'contain',
+                height: '5rem',
+                width: '5rem',
+              }}
+            />
 
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
-                  style={{
-                    backgroundImage:
-                      'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                    backgroundSize: 'contain',
-                    height: '5rem',
-                    width: '5rem',
-                  }}
+            <div
+              role="img"
+              aria-label="Example image"
+              className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
+              style={{
+                backgroundImage:
+                  'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
+                backgroundSize: 'contain',
+                height: '8.75rem',
+                width: '8.75rem',
+              }}
+            />
+          </article>
+
+          <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
+            <div className="ecl-u-flex-grow-1">
+              <div className="ecl-u-type-s ecl-u-type-color-grey-75">
+                Speaker
+              </div>
+              <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                <Link
+                  href="/example"
+                  variant="standalone"
+                  label="Claudio Cimino"
                 />
-
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
-                  style={{
-                    backgroundImage:
-                      'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                    backgroundSize: 'contain',
-                    height: '8.75rem',
-                    width: '8.75rem',
-                  }}
-                />
-              </article>
+              </div>
+              <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                Secretary General of WATCH NGO: &quot;Mobilising civil society
+                for the protection&quot;
+              </p>
+              <Link
+                className="ecl-u-mt-s ecl-u-d-inline-block ecl-u-type-bold ecl-u-type-prolonged-m"
+                href="/example"
+                variant="standalone"
+                label="Cultural heritage supporting intercultrural dialog and cultural diplomacy"
+              />
+              <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-l">
+                16 Nov 2019 | 10:30 - 11:00 | Riverside
+              </div>
             </div>
-            <div className="ecl-col-12 ecl-col-md-6 ecl-u-d-flex">
-              <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-flex-grow-1">
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                    Moderator
-                  </div>
-                  <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                    <Link
-                      href="/example"
-                      variant="standalone"
-                      label="Julianne Schultz"
-                    />
-                  </div>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
-                    Media Deals
-                  </p>
-                  <Link
-                    className="ecl-u-mt-s ecl-u-d-inline-block ecl-u-type-bold ecl-u-type-prolonged-m"
-                    href="/example"
-                    variant="standalone"
-                    label="Why are we innovating in cultural heritage? An inspirational dialog among unusual supsects"
-                  />
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-l">
-                    15 Nov 2019 | 09:15 - 10:00 | Auditorium
-                  </div>
-                </div>
 
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
-                  style={{
-                    backgroundImage:
-                      'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                    backgroundSize: 'contain',
-                    height: '5rem',
-                    width: '5rem',
-                  }}
-                />
+            <div
+              role="img"
+              aria-label="Example image"
+              className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
+              style={{
+                backgroundImage:
+                  'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
+                backgroundSize: 'contain',
+                height: '5rem',
+                width: '5rem',
+              }}
+            />
 
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
-                  style={{
-                    backgroundImage:
-                      'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                    backgroundSize: 'contain',
-                    height: '8.75rem',
-                    width: '8.75rem',
-                  }}
+            <div
+              role="img"
+              aria-label="Example image"
+              className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
+              style={{
+                backgroundImage:
+                  'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
+                backgroundSize: 'contain',
+                height: '8.75rem',
+                width: '8.75rem',
+              }}
+            />
+          </article>
+
+          <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
+            <div className="ecl-u-flex-grow-1">
+              <div className="ecl-u-type-s ecl-u-type-color-grey-75">
+                Moderator
+              </div>
+              <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                <Link
+                  href="/example"
+                  variant="standalone"
+                  label="Julianne Schultz"
                 />
-              </article>
+              </div>
+              <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                Media Deals
+              </p>
+              <Link
+                className="ecl-u-mt-s ecl-u-d-inline-block ecl-u-type-bold ecl-u-type-prolonged-m"
+                href="/example"
+                variant="standalone"
+                label="Why are we innovating in cultural heritage? An inspirational dialog among unusual supsects"
+              />
+              <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-l">
+                15 Nov 2019 | 09:15 - 10:00 | Auditorium
+              </div>
             </div>
-          </div>
 
-          <div className="ecl-row">
-            <div className="ecl-col-12 ecl-col-md-6 ecl-u-d-flex">
-              <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-flex-grow-1">
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                    Moderator
-                  </div>
-                  <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                    <Link
-                      href="/example"
-                      variant="standalone"
-                      label="Cristina Sabbioni"
-                    />
-                  </div>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
-                    Joint Programming Initiative in Cultural Heritage,
-                    &apos;European National Research Network&apos;
-                  </p>
-                  <Link
-                    className="ecl-u-mt-s ecl-u-d-inline-block ecl-u-type-bold ecl-u-type-prolonged-m"
-                    href="/example"
-                    variant="standalone"
-                    label="'Working on what?' Building a Community of Innovators in Cultural Heritage. Promotion: 'Circular, sustainable and creative cities'"
-                  />
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-l">
-                    15 Nov 2019 | 14:30 - 18:00 | Riverside
-                  </div>
-                </div>
+            <div
+              role="img"
+              aria-label="Example image"
+              className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
+              style={{
+                backgroundImage:
+                  'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
+                backgroundSize: 'contain',
+                height: '5rem',
+                width: '5rem',
+              }}
+            />
 
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
-                  style={{
-                    backgroundImage:
-                      'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                    backgroundSize: 'contain',
-                    height: '5rem',
-                    width: '5rem',
-                  }}
+            <div
+              role="img"
+              aria-label="Example image"
+              className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
+              style={{
+                backgroundImage:
+                  'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
+                backgroundSize: 'contain',
+                height: '8.75rem',
+                width: '8.75rem',
+              }}
+            />
+          </article>
+
+          <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
+            <div className="ecl-u-flex-grow-1">
+              <div className="ecl-u-type-s ecl-u-type-color-grey-75">
+                Moderator
+              </div>
+              <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                <Link
+                  href="/example"
+                  variant="standalone"
+                  label="Cristina Sabbioni"
                 />
-
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
-                  style={{
-                    backgroundImage:
-                      'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                    backgroundSize: 'contain',
-                    height: '8.75rem',
-                    width: '8.75rem',
-                  }}
-                />
-              </article>
+              </div>
+              <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                Joint Programming Initiative in Cultural Heritage,
+                &apos;European National Research Network&apos;
+              </p>
+              <Link
+                className="ecl-u-mt-s ecl-u-d-inline-block ecl-u-type-bold ecl-u-type-prolonged-m"
+                href="/example"
+                variant="standalone"
+                label="'Working on what?' Building a Community of Innovators in Cultural Heritage. Promotion: 'Circular, sustainable and creative cities'"
+              />
+              <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-l">
+                15 Nov 2019 | 14:30 - 18:00 | Riverside
+              </div>
             </div>
-            <div className="ecl-col-12 ecl-col-md-6 ecl-u-d-flex">
-              <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-flex-grow-1">
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                    Speaker
-                  </div>
-                  <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                    <Link
-                      href="/example"
-                      variant="standalone"
-                      label="Khalil Rouhana"
-                    />
-                  </div>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
-                    Deputy Director General for Cummunication Networks, Content
-                    and Technology, European Commission
-                  </p>
-                  <Link
-                    className="ecl-u-mt-s ecl-u-d-inline-block ecl-u-type-bold ecl-u-type-prolonged-m"
-                    href="/example"
-                    variant="standalone"
-                    label="Opening of the exhibition"
-                  />
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-l">
-                    16 Nov 2019 | 12:30 - 13:00 | Auditorium
-                  </div>
-                </div>
 
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
-                  style={{
-                    backgroundImage:
-                      'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                    backgroundSize: 'contain',
-                    height: '5rem',
-                    width: '5rem',
-                  }}
-                />
+            <div
+              role="img"
+              aria-label="Example image"
+              className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
+              style={{
+                backgroundImage:
+                  'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
+                backgroundSize: 'contain',
+                height: '5rem',
+                width: '5rem',
+              }}
+            />
 
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
-                  style={{
-                    backgroundImage:
-                      'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                    backgroundSize: 'contain',
-                    height: '8.75rem',
-                    width: '8.75rem',
-                  }}
+            <div
+              role="img"
+              aria-label="Example image"
+              className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
+              style={{
+                backgroundImage:
+                  'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
+                backgroundSize: 'contain',
+                height: '8.75rem',
+                width: '8.75rem',
+              }}
+            />
+          </article>
+
+          <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
+            <div className="ecl-u-flex-grow-1">
+              <div className="ecl-u-type-s ecl-u-type-color-grey-75">
+                Speaker
+              </div>
+              <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                <Link
+                  href="/example"
+                  variant="standalone"
+                  label="Khalil Rouhana"
                 />
-              </article>
+              </div>
+              <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                Deputy Director General for Cummunication Networks, Content and
+                Technology, European Commission
+              </p>
+              <Link
+                className="ecl-u-mt-s ecl-u-d-inline-block ecl-u-type-bold ecl-u-type-prolonged-m"
+                href="/example"
+                variant="standalone"
+                label="Opening of the exhibition"
+              />
+              <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-l">
+                16 Nov 2019 | 12:30 - 13:00 | Auditorium
+              </div>
             </div>
-          </div>
 
-          <div className="ecl-row">
-            <div className="ecl-col-12 ecl-col-md-6 ecl-u-d-flex">
-              <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-flex-grow-1">
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                    Moderator
-                  </div>
-                  <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                    <Link
-                      href="/example"
-                      variant="standalone"
-                      label="Erminia Sciacchitano"
-                    />
-                  </div>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
-                    Chief Scientific Advisor of the European Year of Cultural
-                    Heritage, Directorate General for Education and Culture
-                  </p>
-                  <Link
-                    className="ecl-u-mt-s ecl-u-d-inline-block ecl-u-type-bold ecl-u-type-prolonged-m"
-                    href="/example"
-                    variant="standalone"
-                    label="'Working on what?' Building a Community of Innovators in Cultural Heritage. Assistance: 'Heritage at risk'"
-                  />
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-l">
-                    16 Nov 2019 | 14:30 - 18:00 | Riverside
-                  </div>
-                </div>
+            <div
+              role="img"
+              aria-label="Example image"
+              className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
+              style={{
+                backgroundImage:
+                  'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
+                backgroundSize: 'contain',
+                height: '5rem',
+                width: '5rem',
+              }}
+            />
 
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
-                  style={{
-                    backgroundImage:
-                      'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                    backgroundSize: 'contain',
-                    height: '5rem',
-                    width: '5rem',
-                  }}
+            <div
+              role="img"
+              aria-label="Example image"
+              className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
+              style={{
+                backgroundImage:
+                  'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
+                backgroundSize: 'contain',
+                height: '8.75rem',
+                width: '8.75rem',
+              }}
+            />
+          </article>
+
+          <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
+            <div className="ecl-u-flex-grow-1">
+              <div className="ecl-u-type-s ecl-u-type-color-grey-75">
+                Moderator
+              </div>
+              <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                <Link
+                  href="/example"
+                  variant="standalone"
+                  label="Erminia Sciacchitano"
                 />
-
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
-                  style={{
-                    backgroundImage:
-                      'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                    backgroundSize: 'contain',
-                    height: '8.75rem',
-                    width: '8.75rem',
-                  }}
-                />
-              </article>
+              </div>
+              <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                Chief Scientific Advisor of the European Year of Cultural
+                Heritage, Directorate General for Education and Culture
+              </p>
+              <Link
+                className="ecl-u-mt-s ecl-u-d-inline-block ecl-u-type-bold ecl-u-type-prolonged-m"
+                href="/example"
+                variant="standalone"
+                label="'Working on what?' Building a Community of Innovators in Cultural Heritage. Assistance: 'Heritage at risk'"
+              />
+              <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-l">
+                16 Nov 2019 | 14:30 - 18:00 | Riverside
+              </div>
             </div>
-            <div className="ecl-col-12 ecl-col-md-6 ecl-u-d-flex">
-              <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-flex-grow-1">
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                    Moderator
-                  </div>
-                  <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                    <Link
-                      href="/example"
-                      variant="standalone"
-                      label="Mauro Facchini"
-                    />
-                  </div>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
-                    Head of Unit &apos;Coppernicus&apos;, Directorate General
-                    for Internal Market, Industry, Entrepreneurship, and SMEs
-                  </p>
-                  <Link
-                    className="ecl-u-mt-s ecl-u-d-inline-block ecl-u-type-bold ecl-u-type-prolonged-m"
-                    href="/example"
-                    variant="standalone"
-                    label="'Working on what?' Building a Community of Innovators in Cultural Heritage. Assistance: 'Heritage at risk'"
-                  />
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-l">
-                    15 Nov 2019 | 12:15 - 13:00 | Riverside
-                  </div>
-                </div>
 
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
-                  style={{
-                    backgroundImage:
-                      'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                    backgroundSize: 'contain',
-                    height: '5rem',
-                    width: '5rem',
-                  }}
-                />
+            <div
+              role="img"
+              aria-label="Example image"
+              className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
+              style={{
+                backgroundImage:
+                  'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
+                backgroundSize: 'contain',
+                height: '5rem',
+                width: '5rem',
+              }}
+            />
 
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
-                  style={{
-                    backgroundImage:
-                      'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                    backgroundSize: 'contain',
-                    height: '8.75rem',
-                    width: '8.75rem',
-                  }}
+            <div
+              role="img"
+              aria-label="Example image"
+              className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
+              style={{
+                backgroundImage:
+                  'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
+                backgroundSize: 'contain',
+                height: '8.75rem',
+                width: '8.75rem',
+              }}
+            />
+          </article>
+
+          <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
+            <div className="ecl-u-flex-grow-1">
+              <div className="ecl-u-type-s ecl-u-type-color-grey-75">
+                Moderator
+              </div>
+              <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                <Link
+                  href="/example"
+                  variant="standalone"
+                  label="Mauro Facchini"
                 />
-              </article>
+              </div>
+              <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                Head of Unit &apos;Coppernicus&apos;, Directorate General for
+                Internal Market, Industry, Entrepreneurship, and SMEs
+              </p>
+              <Link
+                className="ecl-u-mt-s ecl-u-d-inline-block ecl-u-type-bold ecl-u-type-prolonged-m"
+                href="/example"
+                variant="standalone"
+                label="'Working on what?' Building a Community of Innovators in Cultural Heritage. Assistance: 'Heritage at risk'"
+              />
+              <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-l">
+                15 Nov 2019 | 12:15 - 13:00 | Riverside
+              </div>
             </div>
-          </div>
 
-          <div className="ecl-row">
-            <div className="ecl-col-12 ecl-col-md-6 ecl-u-d-flex">
-              <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-flex-grow-1">
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                    Panel Discussant
-                  </div>
-                  <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                    <Link
-                      href="/example"
-                      variant="standalone"
-                      label="Gabriela Gandel"
-                    />
-                  </div>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
-                    Director of Impact Hub Vienna
-                  </p>
-                  <Link
-                    className="ecl-u-mt-s ecl-u-d-inline-block ecl-u-type-bold ecl-u-type-prolonged-m"
-                    href="/example"
-                    variant="standalone"
-                    label="How innovation is created and supported? Who are the innovators in cultural heritage? Panel discussion with pitches from EU R&I projects"
-                  />
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-l">
-                    15 Nov 2019 | 09:15 - 12:00 | Auditorium
-                  </div>
-                </div>
+            <div
+              role="img"
+              aria-label="Example image"
+              className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
+              style={{
+                backgroundImage:
+                  'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
+                backgroundSize: 'contain',
+                height: '5rem',
+                width: '5rem',
+              }}
+            />
 
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
-                  style={{
-                    backgroundImage:
-                      'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                    backgroundSize: 'contain',
-                    height: '5rem',
-                    width: '5rem',
-                  }}
+            <div
+              role="img"
+              aria-label="Example image"
+              className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
+              style={{
+                backgroundImage:
+                  'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
+                backgroundSize: 'contain',
+                height: '8.75rem',
+                width: '8.75rem',
+              }}
+            />
+          </article>
+
+          <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
+            <div className="ecl-u-flex-grow-1">
+              <div className="ecl-u-type-s ecl-u-type-color-grey-75">
+                Panel Discussant
+              </div>
+              <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                <Link
+                  href="/example"
+                  variant="standalone"
+                  label="Gabriela Gandel"
                 />
-
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
-                  style={{
-                    backgroundImage:
-                      'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                    backgroundSize: 'contain',
-                    height: '8.75rem',
-                    width: '8.75rem',
-                  }}
-                />
-              </article>
+              </div>
+              <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                Director of Impact Hub Vienna
+              </p>
+              <Link
+                className="ecl-u-mt-s ecl-u-d-inline-block ecl-u-type-bold ecl-u-type-prolonged-m"
+                href="/example"
+                variant="standalone"
+                label="How innovation is created and supported? Who are the innovators in cultural heritage? Panel discussion with pitches from EU R&I projects"
+              />
+              <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-l">
+                15 Nov 2019 | 09:15 - 12:00 | Auditorium
+              </div>
             </div>
-            <div className="ecl-col-12 ecl-col-md-6 ecl-u-d-flex">
-              <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-flex-grow-1">
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                    Speaker
-                  </div>
-                  <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                    <Link
-                      href="/example"
-                      variant="standalone"
-                      label="Pier Luigi Sacco"
-                    />
-                  </div>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
-                    Professor of Cultural Economics, IULM, University Milan
-                  </p>
-                  <Link
-                    className="ecl-u-mt-s ecl-u-d-inline-block ecl-u-type-bold ecl-u-type-prolonged-m"
-                    href="/example"
-                    variant="standalone"
-                    label="Why are we innovating in cultural heritage? An inspirational dialog among unusual supsects"
-                  />
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-l">
-                    16 Nov 2019 | 09:15 - 10:00 | Auditorium
-                  </div>
-                </div>
 
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
-                  style={{
-                    backgroundImage:
-                      'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                    backgroundSize: 'contain',
-                    height: '5rem',
-                    width: '5rem',
-                  }}
-                />
+            <div
+              role="img"
+              aria-label="Example image"
+              className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
+              style={{
+                backgroundImage:
+                  'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
+                backgroundSize: 'contain',
+                height: '5rem',
+                width: '5rem',
+              }}
+            />
 
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
-                  style={{
-                    backgroundImage:
-                      'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                    backgroundSize: 'contain',
-                    height: '8.75rem',
-                    width: '8.75rem',
-                  }}
+            <div
+              role="img"
+              aria-label="Example image"
+              className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
+              style={{
+                backgroundImage:
+                  'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
+                backgroundSize: 'contain',
+                height: '8.75rem',
+                width: '8.75rem',
+              }}
+            />
+          </article>
+
+          <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
+            <div className="ecl-u-flex-grow-1">
+              <div className="ecl-u-type-s ecl-u-type-color-grey-75">
+                Speaker
+              </div>
+              <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                <Link
+                  href="/example"
+                  variant="standalone"
+                  label="Pier Luigi Sacco"
                 />
-              </article>
+              </div>
+              <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                Professor of Cultural Economics, IULM, University Milan
+              </p>
+              <Link
+                className="ecl-u-mt-s ecl-u-d-inline-block ecl-u-type-bold ecl-u-type-prolonged-m"
+                href="/example"
+                variant="standalone"
+                label="Why are we innovating in cultural heritage? An inspirational dialog among unusual supsects"
+              />
+              <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-l">
+                16 Nov 2019 | 09:15 - 10:00 | Auditorium
+              </div>
             </div>
-          </div>
 
-          <div className="ecl-row">
-            <div className="ecl-col-12 ecl-col-md-6 ecl-u-d-flex">
-              <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-flex-grow-1">
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                    Moderator
-                  </div>
-                  <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                    <Link
-                      href="/example"
-                      variant="standalone"
-                      label="Jan De Maere"
-                    />
-                  </div>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
-                    Neuroscientist and art historian, University of Cluj-Naposca
-                  </p>
-                  <Link
-                    className="ecl-u-mt-s ecl-u-d-inline-block ecl-u-type-bold ecl-u-type-prolonged-m"
-                    href="/example"
-                    variant="standalone"
-                    label="Why are we innovating in cultural heritage? An inspirational dialog among unusual supsects"
-                  />
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-l">
-                    16 Nov 2019 | 09:15 - 10:00 | Auditorium
-                  </div>
-                </div>
+            <div
+              role="img"
+              aria-label="Example image"
+              className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
+              style={{
+                backgroundImage:
+                  'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
+                backgroundSize: 'contain',
+                height: '5rem',
+                width: '5rem',
+              }}
+            />
 
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
-                  style={{
-                    backgroundImage:
-                      'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                    backgroundSize: 'contain',
-                    height: '5rem',
-                    width: '5rem',
-                  }}
+            <div
+              role="img"
+              aria-label="Example image"
+              className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
+              style={{
+                backgroundImage:
+                  'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
+                backgroundSize: 'contain',
+                height: '8.75rem',
+                width: '8.75rem',
+              }}
+            />
+          </article>
+
+          <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
+            <div className="ecl-u-flex-grow-1">
+              <div className="ecl-u-type-s ecl-u-type-color-grey-75">
+                Moderator
+              </div>
+              <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                <Link
+                  href="/example"
+                  variant="standalone"
+                  label="Jan De Maere"
                 />
-
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
-                  style={{
-                    backgroundImage:
-                      'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                    backgroundSize: 'contain',
-                    height: '8.75rem',
-                    width: '8.75rem',
-                  }}
-                />
-              </article>
+              </div>
+              <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                Neuroscientist and art historian, University of Cluj-Naposca
+              </p>
+              <Link
+                className="ecl-u-mt-s ecl-u-d-inline-block ecl-u-type-bold ecl-u-type-prolonged-m"
+                href="/example"
+                variant="standalone"
+                label="Why are we innovating in cultural heritage? An inspirational dialog among unusual supsects"
+              />
+              <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-l">
+                16 Nov 2019 | 09:15 - 10:00 | Auditorium
+              </div>
             </div>
-          </div>
+
+            <div
+              role="img"
+              aria-label="Example image"
+              className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
+              style={{
+                backgroundImage:
+                  'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
+                backgroundSize: 'contain',
+                height: '5rem',
+                width: '5rem',
+              }}
+            />
+
+            <div
+              role="img"
+              aria-label="Example image"
+              className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
+              style={{
+                backgroundImage:
+                  'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
+                backgroundSize: 'contain',
+                height: '8.75rem',
+                width: '8.75rem',
+              }}
+            />
+          </article>
         </div>
       </main>
 
