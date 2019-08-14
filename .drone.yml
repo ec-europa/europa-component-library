@@ -13,7 +13,7 @@ clone:
         elif  [ "${DRONE_BUILD_EVENT}" == "deployment" ] ; then
           echo "Nothing to clone ;)";
         else
-          git reset --hard -q ${DRONE_COMMIT_REF};
+          git reset --hard -q ${DRONE_COMMIT_SHA};
         fi
 
 matrix:
