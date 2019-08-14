@@ -1,6 +1,14 @@
 branches:
   exclude: [ gh-pages ]
 
+clone:
+  git:
+    image: plugins/git
+    commands:
+      - git init
+      - git remote add origin ${DRONE_REMOTE_URL}
+      - echo "fake clone"
+
 matrix:
   TEST:
     - audit
@@ -103,10 +111,7 @@ pipeline:
     files:
       - ${DRONE_REPO_NAME}-${DRONE_TAG}.tar.gz
     checksum:
-      - md5
       - sha1
-      - sha256
-      - sha512
     secrets: [ GITHUB_RELEASE_API_KEY ]
     when:
       event: [tag]
