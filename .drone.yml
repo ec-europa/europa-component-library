@@ -59,28 +59,29 @@ pipeline:
       matrix:
         TEST: examples
 
-  build:
+  build-presets:
     image: node:dubnium
     commands:
+      - yarn browserstats
       - yarn clean
       - yarn dist:presets
     when:
-      event: [tag]
+#      event: [tag]
       matrix:
         TEST: deploy-tag
 
-  deploy-cdn:
+  deploy-presets-to-cdn:
     image: garland/aws-cli-docker
     secrets: [AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION]
     commands:
       - if [ -d "./dist" ] ; then
         cd ./dist/packages ;
-        aws configure set default.s3.max_concurrent_requests 20 ;
-        aws s3 cp --recursive --quiet . s3://inno-ecl/ecl/${DRONE_TAG}/ ;
+        # aws configure set default.s3.max_concurrent_requests 20 ;
+        # aws s3 cp --recursive --quiet . s3://inno-ecl/ecl/${DRONE_TAG}/ ;
         echo "Transfer complete" ;
         fi
     when:
-      event: [tag]
+#      event: [tag]
       matrix:
         TEST: deploy-tag
 
@@ -88,19 +89,20 @@ pipeline:
 # Build and Upload package ==============
 # =======================================
 
-  build-release:
+  build-website:
     image: buildkite/puppeteer:latest
     commands:
       - export PUBLIC_URL="/component-library"
-      - yarn dist
+      - npm run dist:storybook
+      - npm run dist:website
       - echo ${DRONE_TAG=${DRONE_COMMIT_BRANCH=rc}} > dist/website/.version
       - echo ${DRONE_COMMIT_SHA} > dist/website/.commit
     when:
-      event: [tag]
+#      event: [tag]
       matrix:
         TEST: deploy-tag
-    volumes:
-      - /tmp/_logs:/root/.npm/_logs/
+#    volumes:
+#      - /tmp/_logs:/root/.npm/_logs/
 
   # Package release build
   package-release:
