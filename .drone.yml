@@ -66,7 +66,7 @@ pipeline:
       - yarn clean
       - yarn dist:presets
     when:
-#      event: [tag]
+      event: [tag]
       matrix:
         TEST: deploy-tag
 
@@ -75,17 +75,13 @@ pipeline:
     secrets: [AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION]
     commands:
       - if [ -d "./dist" ] ; then
-          cd ./dist/packages ;
-          echo "Transfer complete" ;
+        cd ./dist/packages ;
+        aws configure set default.s3.max_concurrent_requests 20 ;
+        aws s3 cp --recursive --quiet . s3://inno-ecl/ecl/${DRONE_TAG}/ ;
+        echo "Transfer complete" ;
         fi
-      # - if [ -d "./dist" ] ; then
-      #   cd ./dist/packages ;
-      #   aws configure set default.s3.max_concurrent_requests 20 ;
-      #   aws s3 cp --recursive --quiet . s3://inno-ecl/ecl/${DRONE_TAG}/ ;
-      #   echo "Transfer complete" ;
-      #   fi
     when:
-#      event: [tag]
+      event: [tag]
       matrix:
         TEST: deploy-tag
 
@@ -103,11 +99,9 @@ pipeline:
       - echo ${DRONE_TAG=${DRONE_COMMIT_BRANCH=rc}} > dist/website/.version
       - echo ${DRONE_COMMIT_SHA} > dist/website/.commit
     when:
-#      event: [tag]
+      event: [tag]
       matrix:
         TEST: deploy-tag
-#    volumes:
-#      - /tmp/_logs:/root/.npm/_logs/
 
   # Package release build
   package-release:
@@ -115,7 +109,7 @@ pipeline:
     commands:
       - tar -czC dist/website -f ${DRONE_REPO_NAME}-${DRONE_TAG}.tar.gz .
     when:
-#      event: [tag]
+      event: [tag]
       matrix:
         TEST: deploy-tag
 
