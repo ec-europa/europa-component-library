@@ -48,63 +48,6 @@ export default () => {
 
       <main className="ecl-u-pv-2xl ecl-u-pv-md-3xl">
         <div className="ecl-container">
-          <div className="ecl-row">
-            <div className="ecl-col-12 ecl-col-md-6 ecl-u-order-md-last">
-              <UnorderedList variant="no-bullet">
-                <UnorderedListItem className="ecl-u-d-flex ecl-u-align-items-center">
-                  <Icon shape="general--file" size="m" className="ecl-u-mr-s" />
-                  Culture | Innovation
-                </UnorderedListItem>
-                <UnorderedListItem className="ecl-u-mt-l ecl-u-d-flex ecl-u-align-items-center">
-                  <Icon
-                    shape="general--calendar"
-                    size="m"
-                    className="ecl-u-mr-s"
-                  />
-                  15-16 November 2019, 08:00 AM
-                </UnorderedListItem>
-                <UnorderedListItem className="ecl-u-mt-l ecl-u-d-flex ecl-u-align-items-center">
-                  <Icon
-                    shape="general--location"
-                    size="m"
-                    className="ecl-u-mr-s"
-                  />
-                  Brussels, Belgium
-                </UnorderedListItem>
-                <UnorderedListItem className="ecl-u-mt-l ecl-u-d-flex ecl-u-align-items-center">
-                  <Icon
-                    shape="general--livestreaming"
-                    size="m"
-                    className="ecl-u-mr-s"
-                  />
-                  Live streaming available
-                </UnorderedListItem>
-              </UnorderedList>
-            </div>
-
-            <div className="ecl-col-12 ecl-col-md-6 ecl-u-mt-2xl ecl-u-mt-md-none">
-              <p className="ecl-u-type-paragraph ecl-u-mt-none">
-                How is innovation in cultural heritage developped and how it the
-                EU supporting it? What are the results of EU-funded projects in
-                cultural heritage?
-              </p>
-              <p className="ecl-u-type-paragraph ecl-u-mb-none">
-                Join us for two days of meetings, learning and discoveries!
-              </p>
-              <Link
-                className="ecl-u-mt-l"
-                variant="standalone"
-                label="Read more"
-                href="#description"
-                icon={{
-                  shape: 'ui--corner-arrow',
-                  size: 'm',
-                  transform: 'rotate-90',
-                }}
-              />
-            </div>
-          </div>
-
           {/* :'( Custom heading spacing */}
           <h2 className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
             Programme
@@ -143,17 +86,41 @@ export default () => {
               />
             </div>
           </div>
-          <Link
-            className="ecl-u-mt-l"
-            variant="standalone"
-            label="See the full programme"
-            href="/example"
-            icon={{
-              shape: 'ui--corner-arrow',
-              size: 'm',
-              transform: 'rotate-90',
-            }}
-          />
+
+          {/* :'( Custom heading spacing */}
+          <h3 className="ecl-u-type-heading-3 ecl-u-mb-s ecl-u-mt-2xl ecl-u-mt-md-3xl">
+            Full programme
+          </h3>
+
+          <div className="ecl-u-d-flex ecl-u-align-items-center">
+            <Link
+              className="ecl-u-flex-basis-100 ecl-u-flex-basis-md-auto ecl-u-order-md-last ecl-u-ml-md-auto"
+              variant="standalone"
+              label="Download PDF version"
+              href="/example"
+              icon={{
+                shape: 'ui--download',
+                size: 'm',
+              }}
+            />
+            <Link
+              className="ecl-u-mh-m ecl-u-mt-s ecl-u-mt-md-none"
+              variant="standalone"
+              label="Day 1"
+              href="#day1"
+            />
+            <Link
+              className="ecl-u-mh-m ecl-u-mt-s ecl-u-mt-md-none"
+              variant="standalone"
+              label="Day 2"
+              href="#day2"
+            />
+          </div>
+
+          {/* :'( Custom heading spacing */}
+          <h4 className="ecl-u-type-heading-4 ecl-u-mb-s ecl-u-mb-md-xs">
+            Day 1
+          </h4>
 
           {/* :'( Custom heading spacing */}
           <h2 className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
