@@ -97,6 +97,7 @@ pipeline:
     image: buildkite/puppeteer:latest
     commands:
       - export PUBLIC_URL="/component-library"
+      - node scripts/sri.js
       - npm run dist:storybook
       - npm run dist:website
       - echo ${DRONE_TAG=${DRONE_COMMIT_BRANCH=rc}} > dist/website/.version
@@ -110,7 +111,7 @@ pipeline:
 
   # Package release build
   package-release:
-    image: ubuntu:18.04
+    image: alpine:3.10
     commands:
       - tar -czC dist/website -f ${DRONE_REPO_NAME}-${DRONE_TAG}.tar.gz .
     when:
@@ -123,6 +124,7 @@ pipeline:
     image: plugins/github-release
     files:
       - ${DRONE_REPO_NAME}-${DRONE_TAG}.tar.gz
+      - dist/packages/${DRONE_REPO_NAME}-${DRONE_TAG}-sri.json
     checksum:
       - sha1
     secrets: [ GITHUB_RELEASE_API_KEY ]
