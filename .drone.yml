@@ -1,6 +1,21 @@
 branches:
   exclude: [ gh-pages ]
 
+clone:
+  git:
+    image: plugins/git
+    commands:
+      - git init
+      - git remote add origin ${DRONE_REMOTE_URL}
+      - git fetch --no-tags origin ${DRONE_COMMIT_REF}
+      - if [ "${DRONE_BUILD_EVENT}" == "pull_request" ] || [ "${DRONE_BUILD_EVENT}" == "tag" ] ; then
+          git checkout -qf FETCH_HEAD;
+        elif  [ "${DRONE_BUILD_EVENT}" == "deployment" ] ; then
+          echo "Nothing to clone ;)";
+        else
+          git reset --hard -q ${DRONE_COMMIT_SHA};
+        fi
+
 matrix:
   TEST:
     - audit
@@ -44,9 +59,10 @@ pipeline:
       matrix:
         TEST: examples
 
-  build:
+  build-presets:
     image: node:dubnium
     commands:
+      - yarn browserstats
       - yarn clean
       - yarn dist:presets
     when:
@@ -54,7 +70,7 @@ pipeline:
       matrix:
         TEST: deploy-tag
 
-  deploy-cdn:
+  deploy-presets-to-cdn:
     image: garland/aws-cli-docker
     secrets: [AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION]
     commands:
@@ -73,23 +89,23 @@ pipeline:
 # Build and Upload package ==============
 # =======================================
 
-  build-release:
+  build-website:
     image: buildkite/puppeteer:latest
     commands:
       - export PUBLIC_URL="/component-library"
-      - yarn dist
+      - node scripts/sri.js
+      - npm run dist:storybook
+      - npm run dist:website
       - echo ${DRONE_TAG=${DRONE_COMMIT_BRANCH=rc}} > dist/website/.version
       - echo ${DRONE_COMMIT_SHA} > dist/website/.commit
     when:
       event: [tag]
       matrix:
         TEST: deploy-tag
-    volumes:
-      - /tmp/_logs:/root/.npm/_logs/
 
   # Package release build
   package-release:
-    image: ubuntu:18.04
+    image: alpine:3.10
     commands:
       - tar -czC dist/website -f ${DRONE_REPO_NAME}-${DRONE_TAG}.tar.gz .
     when:
@@ -102,11 +118,9 @@ pipeline:
     image: plugins/github-release
     files:
       - ${DRONE_REPO_NAME}-${DRONE_TAG}.tar.gz
+      - dist/packages/${DRONE_REPO_NAME}-${DRONE_TAG}-sri.json
     checksum:
-      - md5
       - sha1
-      - sha256
-      - sha512
     secrets: [ GITHUB_RELEASE_API_KEY ]
     when:
       event: [tag]
@@ -134,6 +148,7 @@ pipeline:
     image: instrumentisto/rsync-ssh
     commands:
       - wget https://github.com/${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}/releases/download/${DRONE_TAG}/${DRONE_REPO_NAME}-${DRONE_TAG}.tar.gz
+      - wget https://github.com/${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}/releases/download/${DRONE_REPO_NAME}-${DRONE_TAG}-sri.json
       - wget https://github.com/${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}/releases/download/${DRONE_TAG}/sha1sum.txt
       - sha1sum -c sha1sum.txt
       - mkdir build
