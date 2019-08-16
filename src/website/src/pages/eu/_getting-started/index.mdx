@@ -29,15 +29,15 @@ New components are continuously being added to the library. The team is also con
     <title>Page title</title>
     <link
       rel="stylesheet"
-      href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.10.0/eu-preset-website/styles/ecl-eu-preset-website.css"
-      integrity="sha256-13elwqCQRB0s4DrLqOMy28R4p7TEcU1kWzHGawR28yk= sha384-AVbyaUuApejq1h+UaE4dSMT1/TMDzSZGhq9IJwZrgTlknLOwVE9lsPi7JrGkfBg/ sha512-sceAKzPXQkf3kTVlNZSldlpgaFysawA15v499xGA8hjEfDvlytFYj2xEx8PwNPV1sTzj4fFSkNpKOMHqGqy7kw=="
+      href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/[ECL_VERSION]/eu-preset-website/styles/ecl-eu-preset-website.css"
+      integrity="[sri hash of ecl-eu-preset-website.css]"
       crossorigin="anonymous"
       media="screen"
     />
     <link
       rel="stylesheet"
-      href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.10.0/eu-preset-website/styles/ecl-eu-preset-website-print.css"
-      integrity="sha256-UKSjv+TySHRpiyecjd6GcYATrFp44K5P8e/LQtZ2gkg= sha384-bUKrFDLIvI6cPbX3v3iQ79WdUBqnVwYK5h/N0OEEOqNXR8V6pcfHzN9AKlSxDKIh sha512-VsP5rNFDx251Rw/EDgcWEQgFmFaN5Tuw5AcRkRGG+ZjLDi4GVysPNoAvl9vewXjqrePdibSfwpBI5sBORQRoXg=="
+      href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/[ECL_VERSION]/eu-preset-website/styles/ecl-eu-preset-website-print.css"
+      integrity="[sri hash of ecl-eu-preset-website-print.css]"
       crossorigin="anonymous"
       media="print"
     />
@@ -45,8 +45,8 @@ New components are continuously being added to the library. The team is also con
   <body>
     <!-- paste the markup from the template here -->
     <script
-      src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.10.0/eu-preset-website/scripts/ecl-eu-preset-website.js"
-      integrity="sha256-9syjclxSnLOwp9XRRRw5Y17j41uzadoZETIHYinfY1U= sha384-rWLu8e218Ca2sGXdm4587/faS0QmBG7rPbbqvoJOfBm1cgwbrFdMEs8/WFzteFhW sha512-rlvdB+pwz3/Fca11VDMiT8ueQ6jNaeqqf7IRszcYEnl5mnCSjfjYbULHO3Q/0S6kDpjnQyLjcmaySTnEYZonVA=="
+      src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/[ECL_VERSION]/eu-preset-website/scripts/ecl-eu-preset-website.js"
+      integrity="[sri hash of ecl-eu-preset-website.js]"
       crossorigin="anonymous"
     ></script>
     <script>
@@ -55,6 +55,34 @@ New components are continuously being added to the library. The team is also con
   </body>
 </html>
 ```
+
+First:
+
+<ul>
+  <li>
+    Replace <code>[ECL_VERSION]</code> by{' '}
+    <code>v{process.env.ECL_VERSION}</code> to use the latest version
+  </li>
+  <li>
+    For more security, use these SRI hashes:
+    <ul>
+      <li>
+        for ecl-eu-preset-website.css:{' '}
+        <code>{process.env.ECL_EU_PRESET_WEBSITE_CSS}</code>
+      </li>
+      <li>
+        for ecl-eu-preset-website-print.css:{' '}
+        <code>{process.env.ECL_EU_PRESET_WEBSITE_PRINT_CSS}</code>
+      </li>
+      <li>
+        for ecl-eu-preset-website.js:{' '}
+        <code>{process.env.ECL_EU_PRESET_WEBSITE_JS}</code>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+Then:
 
 - Copy the markup from the template you want and paste it in the `<body>`.
 - Ensure that you are correctly loading the icons and the logo by using the right paths. You will usually find these assets under the `/images` folder of the preset you're using. We advise you to host the SVG sprites on the same domain as your website in order to avoid the `Unsafe attempt to load URL` kind of errors. If you still want to use the SVG sprite from the CDN, you can use [svg4everybody](https://github.com/jonathantneal/svg4everybody) and itinitialize it with: `svg4everybody({ polyfill: true });`.

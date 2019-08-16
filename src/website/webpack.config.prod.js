@@ -1,3 +1,4 @@
+const fs = require('fs');
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
@@ -33,6 +34,24 @@ if (
   process.env.REVIEW_ID
 ) {
   eclVersion += ` - PR ${process.env.REVIEW_ID}`;
+}
+
+const isDrone = 'DRONE' in process.env && 'CI' in process.env;
+
+let sri = {};
+if (isDrone && process.env.DRONE_BUILD_EVENT === 'tag') {
+  try {
+    sri = JSON.parse(
+      fs.readFileSync(
+        `${path.resolve(__dirname, '../../dist/packages')}/${
+          process.env.DRONE_REPO_NAME
+        }-${process.env.DRONE_TAG}-sri.json`
+      )
+    );
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.warn(error);
+  }
 }
 
 const cssLoader = ({ fixCode = true, prefix } = {}) => [
@@ -291,6 +310,24 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify('production'),
       'process.env.PUBLIC_URL': JSON.stringify(publicUrl),
       'process.env.ECL_VERSION': JSON.stringify(eclVersion),
+      'process.env.ECL_EC_PRESET_WEBSITE_CSS': JSON.stringify(
+        (sri['ecl-ec-preset-website.css'] || []).join(' ') || 'n/a'
+      ),
+      'process.env.ECL_EC_PRESET_WEBSITE_PRINT_CSS': JSON.stringify(
+        (sri['ecl-ec-preset-website-print.css'] || []).join(' ') || 'n/a'
+      ),
+      'process.env.ECL_EC_PRESET_WEBSITE_JS': JSON.stringify(
+        (sri['ecl-ec-preset-website.js'] || []).join(' ') || 'n/a'
+      ),
+      'process.env.ECL_EU_PRESET_WEBSITE_CSS': JSON.stringify(
+        (sri['ecl-eu-preset-website.css'] || []).join(' ') || 'n/a'
+      ),
+      'process.env.ECL_EU_PRESET_WEBSITE_PRINT_CSS': JSON.stringify(
+        (sri['ecl-eu-preset-website-print.css'] || []).join(' ') || 'n/a'
+      ),
+      'process.env.ECL_EU_PRESET_WEBSITE_JS': JSON.stringify(
+        (sri['ecl-eu-preset-website.js'] || []).join(' ') || 'n/a'
+      ),
     }),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
