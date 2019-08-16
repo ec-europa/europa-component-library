@@ -5,15 +5,17 @@ clone:
   git:
     image: plugins/git
     commands:
-      - git init
-      - git remote add origin ${DRONE_REMOTE_URL}
-      - git fetch --no-tags origin ${DRONE_COMMIT_REF}
-      - if [ "${DRONE_BUILD_EVENT}" == "pull_request" ] || [ "${DRONE_BUILD_EVENT}" == "tag" ] ; then
-          git checkout -qf FETCH_HEAD;
-        elif  [ "${DRONE_BUILD_EVENT}" == "deployment" ] ; then
-          echo "Nothing to clone ;)";
+      - if  [ "${DRONE_BUILD_EVENT}" == "deployment" ] ; then
+          echo "Skipping git init/clone :)";
         else
-          git reset --hard -q ${DRONE_COMMIT_SHA};
+          git init;
+          git remote add origin "${DRONE_REMOTE_URL}";
+          git fetch --no-tags origin "${DRONE_COMMIT_REF}";
+          if [ "${DRONE_BUILD_EVENT}" == "pull_request" ] || [ "${DRONE_BUILD_EVENT}" == "tag" ] ; then
+            git checkout -qf FETCH_HEAD;
+          else
+            git reset --hard -q "${DRONE_COMMIT_SHA}";
+          fi
         fi
 
 matrix:
