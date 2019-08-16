@@ -4,12 +4,13 @@ import { IconButton } from '@storybook/components';
 import { EVENTS } from '../constants';
 
 export class CodeToggle extends Component {
-  state = {
-    expanded: false,
-  };
-
   constructor(props) {
     super(props);
+
+    this.state = {
+      expanded: false,
+    };
+
     this.handleClick = this.handleClick.bind(this);
   }
 

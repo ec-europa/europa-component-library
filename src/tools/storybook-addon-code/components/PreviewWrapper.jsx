@@ -36,13 +36,14 @@ const Overlay = styled.div(() => ({
 }));
 
 export class PreviewWrapper extends Component {
-  state = {
-    code: '',
-    expanded: false,
-  };
-
   constructor(props) {
     super(props);
+
+    this.state = {
+      code: '',
+      expanded: false,
+    };
+
     this.onAddHTMLMarkup = this.onAddHTMLMarkup.bind(this);
     this.onTogglePreview = this.onTogglePreview.bind(this);
     this.openInCodePen = this.openInCodePen.bind(this);
