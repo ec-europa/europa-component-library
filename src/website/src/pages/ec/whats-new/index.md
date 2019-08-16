@@ -9,6 +9,16 @@ Users can still go to ECL v1 to create or upgrade their websites. In 2019, we wi
 
 We will also add new components to the ECL v2 as we continue improving the look and feel of the existing components. New releases under v2 should be published periodically under [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 2.10.1 (2019-08-16)
+
+#### :bug: Bug Fix
+
+- [#1258](https://github.com/ec-europa/europa-component-library/pull/1258) fix: fix wrong SCSS imports - INNO-1732
+
+#### :house: Internal
+
+- [#1257](https://github.com/ec-europa/europa-component-library/pull/1257) fix(drone): fix website deployment - INNO-1731
+
 ## 2.10.0 (2019-08-13)
 
 #### :rocket: New Feature
