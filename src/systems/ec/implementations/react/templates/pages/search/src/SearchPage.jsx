@@ -14,7 +14,7 @@ const SearchPage = ({ siteHeader, pageHeader, footer }) => (
   <Fragment>
     <SiteHeader {...siteHeader} />
     <PageHeader {...pageHeader} />
-    <main className="ecl-u-pv-3xl">
+    <div className="ecl-u-pv-3xl">
       <div className="ecl-container">
         <div className="ecl-row">
           <aside className="ecl-col-12 ecl-col-lg-3">
@@ -127,7 +127,7 @@ const SearchPage = ({ siteHeader, pageHeader, footer }) => (
             </form>
           </aside>
 
-          <section className="ecl-col-12 ecl-col-lg-9">
+          <main className="ecl-col-12 ecl-col-lg-9">
             <h2 className="ecl-u-type-heading-2 ecl-u-d-none ecl-u-d-lg-block ecl-u-mv-none">
               Search results (65)
             </h2>
@@ -359,10 +359,10 @@ const SearchPage = ({ siteHeader, pageHeader, footer }) => (
                 },
               ]}
             />
-          </section>
+          </main>
         </div>
       </div>
-    </main>
+    </div>
     <Footer {...footer} />
   </Fragment>
 );

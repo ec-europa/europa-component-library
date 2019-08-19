@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies, react/no-array-index-key  */
 import demoContentDefault from '@ecl/ec-specs-table/demo/data--multi';
 
 import React from 'react';
@@ -9,24 +9,39 @@ import TableHead from '../src/TableHead';
 import TableHeader from '../src/TableHeader';
 import TableBody from '../src/TableBody';
 import TableCell from '../src/TableCell';
+// Map to known JSX properties
+const adaptCellProps = ({ colspan, ...otherProps }) => ({
+  colSpan: colspan,
+  ...otherProps,
+});
 
 export default () => {
   return (
     <Table>
       <TableHead>
-        {demoContentDefault.headers.map(row => (
-          <TableRow {...row}>
-            {row.map(cell => (
-              <TableHeader {...cell}>{parse(cell.label)}</TableHeader>
+        {demoContentDefault.headers.map((row, rowIndex) => (
+          <TableRow key={`header-row${rowIndex}`}>
+            {row.map(({ label, ...cellProps }, cellIndex) => (
+              <TableHeader
+                {...adaptCellProps(cellProps)}
+                key={`header-row${rowIndex}-cell${cellIndex}`}
+              >
+                {parse(label)}
+              </TableHeader>
             ))}
           </TableRow>
         ))}
       </TableHead>
       <TableBody>
-        {demoContentDefault.rows.map(row => (
-          <TableRow {...row}>
-            {row.map(cell => (
-              <TableCell {...cell}>{parse(cell.label)}</TableCell>
+        {demoContentDefault.rows.map((row, rowIndex) => (
+          <TableRow key={`body-row${rowIndex}`}>
+            {row.map(({ label, ...cellProps }, cellIndex) => (
+              <TableCell
+                {...adaptCellProps(cellProps)}
+                key={`body-row${rowIndex}-cell${cellIndex}`}
+              >
+                {parse(label)}
+              </TableCell>
             ))}
           </TableRow>
         ))}
