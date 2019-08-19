@@ -1,7 +1,7 @@
 import { queryOne } from '@ecl/ec-base/helpers/dom';
 
 export class DropdownLegacy {
-  static autoInit(root, { EXPANDABLE: defaultOptions = {} } = {}) {
+  static autoInit(root, { DROPDOWN_LEGACY: defaultOptions = {} } = {}) {
     const dropdownLegacy = new DropdownLegacy(root, defaultOptions);
     dropdownLegacy.init();
     // eslint-disable-next-line no-param-reassign
