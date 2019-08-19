@@ -1,9 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
+import demoContent from '@ecl/ec-specs-dropdown-legacy/demo/data';
 import parse from 'html-react-parser';
-import demoLink from '@ecl/ec-specs-unordered-list/demo/data--link';
-import UnorderedList from '../src/UnorderedList';
-import UnorderedListItem from '../src/UnorderedListItem';
+import {
+  UnorderedList,
+  UnorderedListItem,
+} from '@ecl/ec-react-component-unordered-list';
+import { DropdownLegacy } from '../src/DropdownLegacy';
 
 const listContent = items =>
   items.map(item => {
@@ -24,5 +27,14 @@ const listContent = items =>
   });
 
 export default () => (
-  <UnorderedList variant="divider">{listContent(demoLink.items)}</UnorderedList>
+  <DropdownLegacy
+    button={demoContent.button}
+    id={demoContent.id}
+    data-ecl-auto-init="DropdownLegacy"
+    variant="padded"
+  >
+    <UnorderedList variant="no-bullet">
+      {listContent(demoContent.list.items)}
+    </UnorderedList>
+  </DropdownLegacy>
 );
