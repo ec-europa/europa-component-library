@@ -49,7 +49,7 @@
         </li>
       {% endfor %}
     </ul>
-    {% if _limit > 0 and _items.length > _limit %}
+    {% if _limit > 0 and _items|length > _limit %}
       {% include '@ecl/' ~ _system ~ '-component-button' with {
         'modifier': 'call',
         'label': _button_label,
