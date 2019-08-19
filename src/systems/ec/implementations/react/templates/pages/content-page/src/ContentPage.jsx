@@ -17,7 +17,7 @@ const ContentPage = ({
 }) => (
   <Fragment>
     <SiteHeader {...siteHeader} />
-    <LanguageListOverlay {...languageList} hidden="true" />
+    <LanguageListOverlay {...languageList} hidden />
     <PageHeader {...pageHeader} />
     <div className="ecl-container">
       <div className="ecl-row ecl-u-mt-l">
