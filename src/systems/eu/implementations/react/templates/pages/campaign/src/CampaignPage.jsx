@@ -22,7 +22,7 @@ const CampaignPage = ({
 }) => (
   <Fragment>
     <SiteHeader {...siteHeader} id="top" />
-    <LanguageListOverlay {...languageList} hidden="true" />
+    <LanguageListOverlay {...languageList} hidden />
     <HeroBanner {...heroBanner} />
     <main className="ecl-u-pv-xl">
       <div className="ecl-container">

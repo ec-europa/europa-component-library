@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.10.1 (2019-08-16)
+
+#### :bug: Bug Fix
+
+- [#1258](https://github.com/ec-europa/europa-component-library/pull/1258) fix: fix wrong SCSS imports - INNO-1732 ([@yhuard](https://github.com/yhuard))
+
+#### :house: Internal
+
+- [#1257](https://github.com/ec-europa/europa-component-library/pull/1257) fix(drone): fix website deployment - INNO-1731 ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 1
+
+- Yannick Huard ([@yhuard](https://github.com/yhuard))
+
 ## 2.10.0 (2019-08-13)
 
 #### :rocket: New Feature
