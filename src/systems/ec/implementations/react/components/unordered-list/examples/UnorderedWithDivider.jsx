@@ -5,29 +5,24 @@ import demoLink from '@ecl/ec-specs-unordered-list/demo/data--link';
 import UnorderedList from '../src/UnorderedList';
 import UnorderedListItem from '../src/UnorderedListItem';
 
-export default () => {
-  function listContent(items) {
-    return items.map(item => {
-      if (item.nested) {
-        return (
-          <UnorderedListItem key={item.label}>
-            {parse(item.label)}
-            <UnorderedList>{listContent(item.nested)}</UnorderedList>
-          </UnorderedListItem>
-        );
-      }
-
+const listContent = items =>
+  items.map(item => {
+    if (item.nested) {
       return (
         <UnorderedListItem key={item.label}>
           {parse(item.label)}
+          <UnorderedList>{listContent(item.nested)}</UnorderedList>
         </UnorderedListItem>
       );
-    });
-  }
+    }
 
-  return (
-    <UnorderedList variant="divider">
-      {listContent(demoLink.items)}
-    </UnorderedList>
-  );
-};
+    return (
+      <UnorderedListItem key={item.label}>
+        {parse(item.label)}
+      </UnorderedListItem>
+    );
+  });
+
+export default () => (
+  <UnorderedList variant="divider">{listContent(demoLink.items)}</UnorderedList>
+);
