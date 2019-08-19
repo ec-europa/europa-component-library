@@ -4,7 +4,7 @@
  */
 
 // Import base
-@import '@ecl/ec-base/ec-base';
+@import '@ecl/eu-base/eu-base';
 
 @mixin ecl-dropdown-legacy-print() {
   .ecl-dropdown-legacy {
@@ -17,6 +17,6 @@
 }
 
 // Use mixin
-@include exports('ec-component-dropdown-legacy-print') {
+@include exports('eu-component-dropdown-legacy-print') {
   @include ecl-dropdown-legacy-print();
 }
