@@ -5,7 +5,6 @@ import Blockquote from '@ecl/eu-react-component-blockquote';
 import Card from '@ecl/eu-react-component-card';
 import Footer from '@ecl/eu-react-component-footer';
 import Icon from '@ecl/eu-react-component-icon';
-import LanguageListOverlay from '@ecl/eu-react-component-language-list/src/LanguageListOverlay';
 import Link from '@ecl/eu-react-component-link';
 import MediaContainer from '@ecl/eu-react-component-media-container';
 import HeroBanner from '@ecl/eu-react-component-hero-banner';
@@ -14,15 +13,13 @@ import SiteHeader from '@ecl/eu-react-component-site-header';
 const CampaignPage = ({
   siteHeader,
   heroBanner,
-  languageList,
   mediaContainer,
   footer,
   card,
   blockquote,
 }) => (
   <Fragment>
-    <SiteHeader {...siteHeader} id="top" />
-    <LanguageListOverlay {...languageList} hidden />
+    <SiteHeader {...siteHeader} id="top" data-ecl-auto-init="SiteHeader" />
     <HeroBanner {...heroBanner} />
     <main className="ecl-u-pv-xl">
       <div className="ecl-container">
@@ -82,7 +79,6 @@ const CampaignPage = ({
 CampaignPage.propTypes = {
   siteHeader: PropTypes.shape(SiteHeader.propTypes),
   heroBanner: PropTypes.shape(HeroBanner.propTypes),
-  languageList: PropTypes.shape(LanguageListOverlay.propTypes),
   mediaContainer: PropTypes.shape(MediaContainer.propTypes),
   footer: PropTypes.shape(Footer.propTypes),
   card: PropTypes.shape(Card.propTypes),
@@ -92,7 +88,6 @@ CampaignPage.propTypes = {
 CampaignPage.defaultProps = {
   siteHeader: {},
   heroBanner: {},
-  languageList: {},
   mediaContainer: {},
   footer: {},
   card: {},
