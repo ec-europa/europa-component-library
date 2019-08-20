@@ -3,6 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import StoryWrapper from '@ecl/story-wrapper';
 import createFocusTrap from 'focus-trap';
+import Gumshoe from 'gumshoejs/dist/gumshoe.polyfills';
 
 import EventAgendaPageExample from '../examples/Default';
 import EventAgendaPageEcl from '../examples/PureEcl';
@@ -51,8 +52,11 @@ storiesOf('Templates|Pages/Event agenda', module)
             toggleOverlay.bind({ focusTrap, languageListOverlay })
           );
 
+          // Manage sticky headers
+          const spy = new Gumshoe('[data-ecl-agenda-header]');
+
           // Return new context
-          return { languageSelector, close };
+          return { languageSelector, close, spy };
         }}
         beforeUnmount={context => {
           if (context.languageSelector) {

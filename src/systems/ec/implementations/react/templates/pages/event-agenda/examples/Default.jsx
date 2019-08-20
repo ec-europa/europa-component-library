@@ -116,6 +116,7 @@ export default () => {
             className="ecl-u-type-heading-4 ecl-u-mb-m ecl-u-mt-l ecl-u-mt-md-s 
             ecl-u-bg-grey ecl-u-pa-m ecl-u-type-color-white ecl-u-type-bold
             ecl-u-border-left ecl-u-border-width-8 ecl-u-border-color-yellow"
+            data-ecl-agenda-header
           >
             Day 1 - Thursday, 15 November 2019
           </h4>
@@ -411,6 +412,7 @@ export default () => {
             className="ecl-u-type-heading-4 ecl-u-mb-m ecl-u-mt-l ecl-u-mt-md-3xl 
             ecl-u-bg-grey ecl-u-pa-m ecl-u-type-color-white ecl-u-type-bold
             ecl-u-border-left ecl-u-border-width-8 ecl-u-border-color-yellow"
+            data-ecl-agenda-header
           >
             Day 2 - Friday, 16 November 2019
           </h4>
