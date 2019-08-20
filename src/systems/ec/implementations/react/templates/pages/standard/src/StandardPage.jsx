@@ -18,7 +18,7 @@ const StandardPage = ({
 }) => (
   <Fragment>
     <SiteHeader {...siteHeader} />
-    <LanguageListOverlay {...languageList} hidden="true" />
+    <LanguageListOverlay {...languageList} hidden />
     <PageHeader {...pageHeader} />
     <main className="ecl-u-pv-xl">
       <div className="ecl-container">
