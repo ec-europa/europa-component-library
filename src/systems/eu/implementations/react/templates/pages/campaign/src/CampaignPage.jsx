@@ -29,7 +29,7 @@ const CampaignPage = ({
           </div>
 
           <div className="ecl-col-sm-12 ecl-col-md-6">
-            <p className="ecl-u-type-paragraph">
+            <p className="ecl-u-type-paragraph ecl-u-type-color-grey">
               The European Commission has put forward ambitious yet realistic
               proposals for a modern EU budget. It is time for an EU budget that
               reflects rapid developments in innovation, the economy, the
@@ -60,7 +60,7 @@ const CampaignPage = ({
         </div>
 
         <div id="social-media-sharing">
-          <p className="ecl-u-type-paragraph">
+          <p className="ecl-u-type-paragraph ecl-u-type-color-grey">
             <Icon size="m" shape="notifications--information" />
             &nbsp; To insert social media sharing here, please use&nbsp;
             <Link
