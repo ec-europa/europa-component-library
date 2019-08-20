@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-
 import Icon from '@ecl/eu-react-component-icon';
 import SearchForm from '@ecl/eu-react-component-search-form';
+import { LanguageListOverlay } from '@ecl/eu-react-component-language-list';
 
 const SiteHeader = ({
   logo,
@@ -28,7 +28,7 @@ const SiteHeader = ({
   const logoSrc = require(`@ecl/eu-resources-logo/logo--${logoLanguage}.svg`);
 
   return (
-    <header {...props} className={classNames}>
+    <header {...props} className={classNames} data-ecl-site-header>
       <div className="ecl-site-header__container ecl-container">
         <div className="ecl-site-header__banner">
           <a
@@ -47,23 +47,30 @@ const SiteHeader = ({
               alt={logoAlt}
             />
           </a>
-          <div className="ecl-site-header__selector">
-            <a
-              className="ecl-link ecl-link--standalone"
-              href={languageSelector.href}
-              data-ecl-language-selector
-            >
-              {languageSelector.name}
-              <span className="ecl-site-header__language-icon">
-                <Icon shape="general--language" size="m" />
-                <span className="ecl-site-header__language-code">
-                  {languageSelector.code}
+          {languageSelector && (
+            <div className="ecl-site-header__selector">
+              <a
+                className="ecl-link ecl-link--standalone"
+                href={languageSelector.href}
+                data-ecl-language-selector
+              >
+                {languageSelector.name}
+                <span className="ecl-site-header__language-icon">
+                  <Icon shape="general--language" size="m" />
+                  <span className="ecl-site-header__language-code">
+                    {languageSelector.code}
+                  </span>
                 </span>
-              </span>
-            </a>
-          </div>
+              </a>
+              {languageSelector.overlay && (
+                <LanguageListOverlay {...languageSelector.overlay} hidden />
+              )}
+            </div>
+          )}
         </div>
-        <SearchForm {...searchForm} className="ecl-site-header__search" />
+        {searchForm && (
+          <SearchForm {...searchForm} className="ecl-site-header__search" />
+        )}
       </div>
     </header>
   );
@@ -81,6 +88,7 @@ SiteHeader.propTypes = {
     href: PropTypes.string,
     name: PropTypes.string,
     code: PropTypes.string,
+    overlay: PropTypes.object,
   }),
   searchForm: PropTypes.shape({
     textInputId: PropTypes.string,
