@@ -1,9 +1,11 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import StoryWrapper from '@ecl/story-wrapper';
 import createFocusTrap from 'focus-trap';
-import Gumshoe from 'gumshoejs/dist/gumshoe.polyfills';
+import Stickyfill from 'stickyfilljs';
+import { queryOne, queryAll } from '@ecl/ec-base/helpers/dom';
 
 import EventAgendaPageExample from '../examples/Default';
 import EventAgendaPageEcl from '../examples/PureEcl';
@@ -21,6 +23,42 @@ storiesOf('Templates|Pages/Event agenda', module)
         this.languageListOverlay.setAttribute('hidden', true);
         e.currentTarget.setAttribute('aria-expanded', false);
         this.focusTrap.deactivate();
+      }
+    }
+
+    // Add the sticky css when you reach its scroll position. Remove sticky css when you leave the scroll position
+    function manageSticky(stickyNav, stickyHeaders, timelines) {
+      let stickyDisplay = false;
+      timelines.forEach((timeline, index) => {
+        if (
+          timeline.getBoundingClientRect().top < 1 &&
+          timeline.getBoundingClientRect().top > -timeline.offsetHeight
+        ) {
+          stickyDisplay = true;
+          /* timeline.style.paddingTop = `${stickyNav.offsetHeight +
+            stickyHeaders[index].offsetHeight}px`; */
+
+          // stickyHeaders[index].classList.add('ecl-container');
+          // stickyHeaders[index].classList.remove('ecl-u-mb-m');
+          // stickyHeaders[index].classList.add('ecl-u-mv-none');
+          stickyHeaders[index].style.position = 'sticky';
+          stickyHeaders[index].style.top = `${stickyNav.offsetHeight}px`;
+        } else {
+          timeline.style.paddingTop = 0;
+
+          // stickyHeaders[index].classList.remove('ecl-container');
+          // stickyHeaders[index].classList.remove('ecl-u-mv-none');
+          // stickyHeaders[index].classList.add('ecl-u-mb-m');
+          stickyHeaders[index].style.position = 'relative';
+          stickyHeaders[index].style.top = 0;
+        }
+      });
+
+      if (stickyDisplay) {
+        stickyNav.style.position = 'sticky';
+        stickyNav.style.top = 0;
+      } else {
+        stickyNav.style.position = 'relative';
       }
     }
 
@@ -52,11 +90,26 @@ storiesOf('Templates|Pages/Event agenda', module)
             toggleOverlay.bind({ focusTrap, languageListOverlay })
           );
 
-          // Manage sticky headers
-          const spy = new Gumshoe('[data-ecl-agenda-header]');
+          // Get sticky elements
+          const stickyNav = queryOne(
+            '[data-ecl-template-sticky-nav]',
+            document
+          );
+          Stickyfill.add(stickyNav);
+          const stickyHeaders = queryAll(
+            '[data-ecl-template-sticky-header]',
+            document
+          );
+          Stickyfill.add(stickyHeaders);
+          const timelines = queryAll('[data-ecl-template-timeline]', document);
+
+          // When the user scrolls the page, execute myFunction
+          window.addEventListener('scroll', function() {
+            manageSticky(stickyNav, stickyHeaders, timelines);
+          });
 
           // Return new context
-          return { languageSelector, close, spy };
+          return { languageSelector, close };
         }}
         beforeUnmount={context => {
           if (context.languageSelector) {

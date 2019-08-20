@@ -81,11 +81,14 @@ export default () => {
           </div>
 
           {/* :'( Custom heading spacing */}
-          <h3 className="ecl-u-type-heading-3 ecl-u-mb-s ecl-u-mt-2xl ecl-u-mt-md-3xl">
+          <h3 className="ecl-u-type-heading-3 ecl-u-mb-none ecl-u-mt-2xl ecl-u-mt-md-3xl">
             Full programme
           </h3>
 
-          <div className="ecl-u-d-flex ecl-u-align-items-center ecl-u-flex-wrap">
+          <div
+            className="ecl-u-d-flex ecl-u-align-items-center ecl-u-flex-wrap ecl-u-z-navigation ecl-u-bg-white ecl-u-pv-s"
+            data-ecl-template-sticky-nav
+          >
             <Link
               className="ecl-u-type-bold ecl-u-flex-basis-100 ecl-u-flex-basis-md-auto ecl-u-order-md-last ecl-u-ml-m ecl-u-ml-md-auto"
               variant="standalone"
@@ -97,14 +100,12 @@ export default () => {
               }}
             />
             <Link
-              className="ecl-u-type-bold ecl-u-mh-m ecl-u-mt-s ecl-u-mt-md-none"
-              variant="standalone"
+              className="ecl-u-type-bold ecl-u-mh-m ecl-u-mt-s ecl-u-mt-md-none ecl-u-type-m"
               label="Day 1"
               href="#day1"
             />
             <Link
-              className="ecl-u-type-bold ecl-u-mh-m ecl-u-mt-s ecl-u-mt-md-none"
-              variant="standalone"
+              className="ecl-u-type-bold ecl-u-mh-m ecl-u-mt-s ecl-u-mt-md-none ecl-u-type-m"
               label="Day 2"
               href="#day2"
             />
@@ -113,15 +114,18 @@ export default () => {
           {/* :'( Custom heading */}
           <h4
             id="day1"
-            className="ecl-u-type-heading-4 ecl-u-mb-m ecl-u-mt-l ecl-u-mt-md-s 
+            className="ecl-u-type-heading-4 ecl-u-mb-m ecl-u-mt-none 
             ecl-u-bg-grey ecl-u-pa-m ecl-u-type-color-white ecl-u-type-bold
-            ecl-u-border-left ecl-u-border-width-8 ecl-u-border-color-yellow"
-            data-ecl-agenda-header
+            ecl-u-border-left ecl-u-border-width-8 ecl-u-border-color-yellow ecl-u-z-navigation"
+            data-ecl-template-sticky-header
           >
             Day 1 - Thursday, 15 November 2019
           </h4>
 
-          <Timeline2>
+          <Timeline2
+            data-ecl-template-timeline
+            className="ecl-u-mb-l ecl-u-mb-md-3xl"
+          >
             <Timeline2Item
               label="08:00 - 09:00"
               title="Registration and arrival of participants"
@@ -409,15 +413,15 @@ export default () => {
           {/* :'( Custom heading */}
           <h4
             id="day2"
-            className="ecl-u-type-heading-4 ecl-u-mb-m ecl-u-mt-l ecl-u-mt-md-3xl 
+            className="ecl-u-type-heading-4 ecl-u-mb-m ecl-u-mt-none 
             ecl-u-bg-grey ecl-u-pa-m ecl-u-type-color-white ecl-u-type-bold
-            ecl-u-border-left ecl-u-border-width-8 ecl-u-border-color-yellow"
-            data-ecl-agenda-header
+            ecl-u-border-left ecl-u-border-width-8 ecl-u-border-color-yellow ecl-u-z-navigation"
+            data-ecl-template-sticky-header
           >
             Day 2 - Friday, 16 November 2019
           </h4>
 
-          <Timeline2>
+          <Timeline2 data-ecl-template-timeline>
             <Timeline2Item label="08:00 - 10:30" title="Innovators at work">
               <div className="ecl-u-type-s">Workshop | Breakout rooms</div>
               <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
