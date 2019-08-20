@@ -51,7 +51,7 @@ const SiteHeader = ({
           {languageSelector && (
             <div className="ecl-site-header__selector">
               <a
-                className="ecl-link ecl-link--standalone"
+                className="ecl-link ecl-link--standalone ecl-site-header__selector-link"
                 href={languageSelector.href}
                 data-ecl-language-selector
               >
