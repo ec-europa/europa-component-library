@@ -5,7 +5,6 @@ import Blockquote from '@ecl/ec-react-component-blockquote';
 import Card from '@ecl/ec-react-component-card';
 import Footer from '@ecl/ec-react-component-footer';
 import Icon from '@ecl/ec-react-component-icon';
-import LanguageListOverlay from '@ecl/ec-react-component-language-list/src/LanguageListOverlay';
 import Link from '@ecl/ec-react-component-link';
 import MediaContainer from '@ecl/ec-react-component-media-container';
 import HeroBanner from '@ecl/ec-react-component-hero-banner';
@@ -15,7 +14,6 @@ import SkipLink from '@ecl/ec-react-component-skip-link';
 const CampaignPage = ({
   siteHeader,
   heroBanner,
-  languageList,
   mediaContainer,
   footer,
   card,
@@ -23,8 +21,7 @@ const CampaignPage = ({
 }) => (
   <Fragment>
     <SkipLink href="#main" label="Skip to main content" />
-    <SiteHeader {...siteHeader} id="top" />
-    <LanguageListOverlay {...languageList} hidden />
+    <SiteHeader {...siteHeader} id="top" data-ecl-auto-init="SiteHeader" />
     <HeroBanner {...heroBanner} />
     <main className="ecl-u-pv-xl" id="main">
       <div className="ecl-container">
@@ -80,7 +77,6 @@ const CampaignPage = ({
 CampaignPage.propTypes = {
   siteHeader: PropTypes.shape(SiteHeader.propTypes),
   heroBanner: PropTypes.shape(HeroBanner.propTypes),
-  languageList: PropTypes.shape(LanguageListOverlay.propTypes),
   mediaContainer: PropTypes.shape(MediaContainer.propTypes),
   footer: PropTypes.shape(Footer.propTypes),
   card: PropTypes.shape(Card.propTypes),
@@ -90,7 +86,6 @@ CampaignPage.propTypes = {
 CampaignPage.defaultProps = {
   siteHeader: {},
   heroBanner: {},
-  languageList: {},
   mediaContainer: {},
   footer: {},
   card: {},

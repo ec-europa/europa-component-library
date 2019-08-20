@@ -12,7 +12,7 @@ import Tag from '@ecl/ec-react-component-tag';
 
 const SearchPage = ({ siteHeader, pageHeader, footer }) => (
   <Fragment>
-    <SiteHeader {...siteHeader} />
+    <SiteHeader {...siteHeader} data-ecl-auto-init="SiteHeader" />
     <PageHeader {...pageHeader} />
     <div className="ecl-u-pv-3xl">
       <div className="ecl-container">
