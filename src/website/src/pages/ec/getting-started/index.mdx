@@ -20,12 +20,17 @@ New components are continuously being added to the library. The team is also con
 - Create an `index.html` file as follows:
 
 ```html
-<html lang="en">
+<html lang="en" class="no-js">
   <head>
     <meta charset="utf-8" />
+    <title>Page title</title>
     <meta content="width=device-width,initial-scale=1" name="viewport" />
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
-    <title>Page title</title>
+    <script>
+      var cl = document.querySelector('html').classList;
+      cl.remove('no-js');
+      cl.add('has-js');
+    </script>
     <link
       rel="stylesheet"
       href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/[ECL_VERSION]/ec-preset-website/styles/ecl-ec-preset-website.css"
