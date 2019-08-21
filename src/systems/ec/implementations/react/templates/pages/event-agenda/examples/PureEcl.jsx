@@ -3,25 +3,13 @@ import React, { Fragment } from 'react';
 
 import Breadcrumb, { BreadcrumbItem } from '@ecl/ec-react-component-breadcrumb';
 import Card from '@ecl/ec-react-component-card';
-import DateBlock from '@ecl/ec-react-component-date-block';
-import {
-  DescriptionList,
-  DescriptionTerm,
-  DescriptionDefinition,
-} from '@ecl/ec-react-component-description-list';
 import Footer from '@ecl/ec-react-component-footer';
-import Icon from '@ecl/ec-react-component-icon';
 import LanguageListOverlay from '@ecl/ec-react-component-language-list/src/LanguageListOverlay';
 import Link from '@ecl/ec-react-component-link';
-import MediaContainer from '@ecl/ec-react-component-media-container';
 import PageBanner from '@ecl/ec-react-component-page-banner';
 import PageHeader from '@ecl/ec-react-component-page-header';
 import SiteHeader from '@ecl/ec-react-component-site-header';
-import SocialMediaFollow from '@ecl/ec-react-component-social-media-follow';
-import {
-  UnorderedList,
-  UnorderedListItem,
-} from '@ecl/ec-react-component-unordered-list';
+import { Timeline2, Timeline2Item } from '@ecl/ec-react-component-timeline2';
 
 import footerContent from '@ecl/ec-specs-footer/demo/data--corporate';
 import languageListContent from '@ecl/ec-specs-language-list/demo/data--overlay';
@@ -32,7 +20,11 @@ export default () => {
     <Breadcrumb className="ecl-page-header__breadcrumb">
       <BreadcrumbItem label="Home" href="/example" />
       <BreadcrumbItem label="Events" href="/example" />
-      <BreadcrumbItem label="Fair of European Innovators in Cultural heritage" />
+      <BreadcrumbItem
+        label="Fair of European Innovators in Cultural heritage"
+        href="/example"
+      />
+      <BreadcrumbItem label="Programme" />
     </Breadcrumb>
   );
 
@@ -48,70 +40,6 @@ export default () => {
 
       <main className="ecl-u-pv-2xl ecl-u-pv-md-3xl">
         <div className="ecl-container">
-          <div className="ecl-row">
-            <div className="ecl-col-12 ecl-col-md-6 ecl-u-order-md-last">
-              <UnorderedList variant="no-bullet">
-                <UnorderedListItem className="ecl-u-d-flex ecl-u-align-items-center">
-                  <Icon shape="general--file" size="m" className="ecl-u-mr-s" />
-                  Culture | Innovation
-                </UnorderedListItem>
-                <UnorderedListItem className="ecl-u-mt-l ecl-u-d-flex ecl-u-align-items-center">
-                  <Icon
-                    shape="general--calendar"
-                    size="m"
-                    className="ecl-u-mr-s"
-                  />
-                  15-16 November 2019, 08:00 AM
-                </UnorderedListItem>
-                <UnorderedListItem className="ecl-u-mt-l ecl-u-d-flex ecl-u-align-items-center">
-                  <Icon
-                    shape="general--location"
-                    size="m"
-                    className="ecl-u-mr-s"
-                  />
-                  Brussels, Belgium
-                </UnorderedListItem>
-                <UnorderedListItem className="ecl-u-mt-l ecl-u-d-flex ecl-u-align-items-center">
-                  <Icon
-                    shape="general--livestreaming"
-                    size="m"
-                    className="ecl-u-mr-s"
-                  />
-                  Live streaming available
-                </UnorderedListItem>
-              </UnorderedList>
-            </div>
-
-            <div className="ecl-col-12 ecl-col-md-6 ecl-u-mt-2xl ecl-u-mt-md-none">
-              <p className="ecl-u-type-paragraph ecl-u-mt-none">
-                How is innovation in cultural heritage developped and how it the
-                EU supporting it? What are the results of EU-funded projects in
-                cultural heritage?
-              </p>
-              <p className="ecl-u-type-paragraph ecl-u-mb-none">
-                Join us for two days of meetings, learning and discoveries!
-              </p>
-              <Link
-                className="ecl-u-mt-m"
-                variant="standalone"
-                label="Read more"
-                href="#description"
-                icon={{
-                  shape: 'ui--corner-arrow',
-                  size: 'm',
-                  transform: 'rotate-90',
-                }}
-              />
-              <br />
-              <Link
-                className="ecl-u-mt-l"
-                variant="cta"
-                label="Register"
-                href="/example"
-              />
-            </div>
-          </div>
-
           <h2 className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
             Programme
           </h2>
@@ -146,574 +74,451 @@ export default () => {
               />
             </div>
           </div>
-          <Link
-            className="ecl-u-mt-l"
-            variant="standalone"
-            label="See the full programme"
-            href="/example"
-            icon={{
-              shape: 'ui--corner-arrow',
-              size: 'm',
-              transform: 'rotate-90',
-            }}
-          />
 
-          <h2 className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
-            Speakers
-          </h2>
+          <h3 className="ecl-u-type-heading-3 ecl-u-mb-none ecl-u-mt-2xl ecl-u-mt-md-3xl">
+            Full programme
+          </h3>
 
-          <div className="ecl-row">
-            <div className="ecl-col-12 ecl-col-md-4">
-              <Card
-                image={{
-                  alt: 'card image',
-                  src:
-                    'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Ioannes_Claudius_Juncker_die_7_Martis_2014.jpg/1200px-Ioannes_Claudius_Juncker_die_7_Martis_2014.jpg',
-                }}
-                meta="Special guest"
-                title={{
-                  variant: 'standalone',
-                  label: 'Jean-Claude Juncker',
-                  href: '/example',
-                }}
-                description="European Commission President"
-                infos={[
-                  {
-                    icon: {
-                      shape: 'general--language',
-                      size: 'xs',
-                    },
-                    label: 'Opening of the conference',
-                  },
-                  {
-                    icon: {
-                      shape: 'general--calendar',
-                      size: 'xs',
-                    },
-                    label: '15 Nov 2019 | 09:00 - 09:15',
-                  },
-                  {
-                    icon: {
-                      shape: 'general--location',
-                      size: 'xs',
-                    },
-                    label: 'Auditorium',
-                  },
-                ]}
-              />
-            </div>
-
-            <div className="ecl-col-12 ecl-col-md-4 ecl-u-mt-l ecl-u-mt-md-none">
-              <Card
-                image={{
-                  alt: 'card image',
-                  src:
-                    'https://ec.europa.eu/commission/commissioners/sites/cwt/files/commissioner_portraits/hahn.jpg',
-                }}
-                meta="Special guest"
-                title={{
-                  variant: 'standalone',
-                  label: 'Johannes Hahn',
-                  href: '/example',
-                }}
-                description="European Commissionner for European Neighbourhood Policy and Enlargment Negociation"
-                infos={[
-                  {
-                    icon: {
-                      shape: 'general--language',
-                      size: 'xs',
-                    },
-                    label:
-                      'Why are we innovating in and through cultural heritage?',
-                  },
-                  {
-                    icon: {
-                      shape: 'general--calendar',
-                      size: 'xs',
-                    },
-                    label: '15 Nov 2019 | 09:15 - 10:00',
-                  },
-                  {
-                    icon: {
-                      shape: 'general--location',
-                      size: 'xs',
-                    },
-                    label: 'Riverside',
-                  },
-                ]}
-              />
-            </div>
-
-            <div className="ecl-col-12 ecl-col-md-4 ecl-u-mt-l ecl-u-mt-md-none">
-              <Card
-                image={{
-                  alt: 'card image',
-                  src:
-                    'https://www.euroamerica.org/wp-content/uploads/2017/10/FerreroWaldnerCV-294x300.jpg',
-                }}
-                meta="Special guest"
-                title={{
-                  variant: 'standalone',
-                  label: 'Benita Ferrero-Waldner',
-                  href: '/example',
-                }}
-                description="European Commissionner for Trade and European Neighbourhood Policy"
-                infos={[
-                  {
-                    icon: {
-                      shape: 'general--language',
-                      size: 'xs',
-                    },
-                    label: 'Opening of the exhibition',
-                  },
-                  {
-                    icon: {
-                      shape: 'general--calendar',
-                      size: 'xs',
-                    },
-                    label: '15 Nov 2019 | 12:00 - 12:30',
-                  },
-                  {
-                    icon: {
-                      shape: 'general--location',
-                      size: 'xs',
-                    },
-                    label: 'Auditorium',
-                  },
-                ]}
-              />
-            </div>
-          </div>
-          <Link
-            className="ecl-u-mt-l"
-            variant="standalone"
-            label="See all speakers"
-            href="/example"
-            icon={{
-              shape: 'ui--corner-arrow',
-              size: 'm',
-              transform: 'rotate-90',
-            }}
-          />
-
-          <h2 className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
-            Practical information
-          </h2>
-
-          <div className="ecl-row">
-            <div className="ecl-col-12 ecl-col-md-6">
-              <DescriptionList>
-                <DescriptionTerm>When</DescriptionTerm>
-                <DescriptionDefinition>
-                  Thursday 15 November, 08:00 AM
-                  <br />
-                  to Friday 16 November
-                  <br />
-                  <Link
-                    label="Add to calendar"
-                    href="/example"
-                    icon={{
-                      shape: 'general--calendar',
-                      size: 'fluid',
-                    }}
-                  />
-                </DescriptionDefinition>
-
-                <DescriptionTerm>Where</DescriptionTerm>
-                <DescriptionDefinition>
-                  The EGG, Rue Barra 175, 1070 Brussels, Belgium
-                  <br />
-                  <Link
-                    label="See map"
-                    href="/example"
-                    icon={{
-                      shape: 'general--location',
-                      size: 'fluid',
-                    }}
-                  />
-                </DescriptionDefinition>
-
-                <DescriptionTerm>Live streaming</DescriptionTerm>
-                <DescriptionDefinition>
-                  08:00 CET | 00d:23h:35m
-                </DescriptionDefinition>
-
-                <DescriptionTerm>Languages</DescriptionTerm>
-                <DescriptionDefinition>
-                  English. Transcripts in Dutch and French
-                </DescriptionDefinition>
-
-                <DescriptionTerm>Organizer</DescriptionTerm>
-                <DescriptionDefinition>
-                  Directorate-General Education, Youth, Sport and Culture
-                </DescriptionDefinition>
-
-                <DescriptionTerm>Event part of</DescriptionTerm>
-                <DescriptionDefinition>
-                  European Year of Culture Heritage
-                </DescriptionDefinition>
-
-                <DescriptionTerm>Website</DescriptionTerm>
-                <DescriptionDefinition>
-                  <Link
-                    label="https://www.eac-events.eu/ehome/fairofeuropeaninnovatorsinculturalheritage/home/"
-                    href="/example"
-                  />
-                </DescriptionDefinition>
-
-                <DescriptionTerm>Target audience</DescriptionTerm>
-                <DescriptionDefinition>
-                  European Year of Culture Heritage
-                </DescriptionDefinition>
-
-                <DescriptionTerm>Number of seats</DescriptionTerm>
-                <DescriptionDefinition>
-                  170 seats, 11 available
-                </DescriptionDefinition>
-
-                <DescriptionTerm>Entrance fee</DescriptionTerm>
-                <DescriptionDefinition>Free</DescriptionDefinition>
-              </DescriptionList>
-
-              <SocialMediaFollow
-                className="ecl-u-mt-l"
-                description="Social Media"
-                links={[
-                  {
-                    href: '/example',
-                    label: 'Twitter',
-                    variant: 'standalone',
-                    iconPosition: 'before',
-                    icon: [
-                      {
-                        shape: 'twitter',
-                        size: 'xl',
-                      },
-                      {
-                        shape: 'twitter_hover',
-                        size: 'xl',
-                      },
-                    ],
-                  },
-                  {
-                    href: '/example',
-                    label: 'Facebook',
-                    variant: 'standalone',
-                    iconPosition: 'before',
-                    icon: [
-                      {
-                        shape: 'facebook',
-                        size: 'xl',
-                      },
-                      {
-                        shape: 'facebook_hover',
-                        size: 'xl',
-                      },
-                    ],
-                  },
-                ]}
-              />
-            </div>
-
-            <div className="ecl-col-12 ecl-col-md-6">
-              <script type="application/json">
-                {`
-                  {
-                    "service" : "map",
-                    "version": "2.0",
-                    "address": "The EGG, Rue Bara 175, 1070 Bruxelles, Belgique",
-                    "options" : { 
-                        "color" : "blue",
-                        "display" : "map",
-                        "target" : "before"
-                    }
-                  }
-                `}
-              </script>
-            </div>
-          </div>
-
-          <Link
-            className="ecl-u-mt-l"
-            variant="cta"
-            label="Register"
-            href="/example"
-          />
-
-          <h2
-            className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l"
-            id="description"
+          <div
+            className="ecl-u-d-flex ecl-u-align-items-center ecl-u-flex-wrap ecl-u-z-navigation ecl-u-bg-white ecl-u-pv-s"
+            data-ecl-template-sticky-nav
+            style={{ position: 'sticky', top: '0' }}
           >
-            Description
-          </h2>
-
-          <div className="ecl-row">
-            <div className="ecl-col-12 ecl-col-md-6 ecl-u-order-md-last ecl-u-mb-l ecl-u-mb-md-none">
-              <MediaContainer
-                alt="example image"
-                image="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-                description="Best booth: iMARECULTURE"
-              />
-            </div>
-
-            <div className="ecl-col-12 ecl-col-md-6">
-              <p className="ecl-u-type-paragraph ecl-u-mt-none">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Maecenas nunc risus, venenatis non nibh ac, condimentum
-                vestibulum risus. Ut risus elit, interdum in leo nec, pharetra
-                scelerisque nulla.
-              </p>
-              <p className="ecl-u-type-paragraph">
-                Integer bibendum nisl orci, nec sagittis nisi cursus sed.
-                Interdum et malesuada fames ac ante ipsum primis in faucibus.
-                Maecenas eget urna enim. Mauris vitae augue mi. Nunc elementum
-                rhoncus dignissim. Aenean lectus ipsum, tincidunt non mauris eu,
-                aliquet rutrum magna. Cras dignissim enim at orci laoreet, et
-                pulvinar metus aliquam. Aenean eu odio non dui pharetra
-                sagittis.
-              </p>
-              <p className="ecl-u-type-paragraph">
-                Etiam dignissim odio mauris, at pellentesque justo ultrices nec.
-                Ut non metus sagittis augue molestie luctus ac ac odio. Sed
-                vestibulum lacus in pharetra pellentesque. Vivamus laoreet
-                dignissim leo, at pellentesque enim finibus sed. Suspendisse
-                tincidunt orci nec elit sagittis vestibulum. Quisque tempor et
-                eros id vehicula. Sed tempus gravida justo id pharetra. In
-                volutpat maximus iaculis. Etiam pretium massa eget nisl
-                vulputate, id luctus erat ullamcorper.
-              </p>
-              <p className="ecl-u-type-paragraph">
-                In efficitur mi id consectetur interdum. Donec eu fringilla
-                magna, non sodales purus. Vivamus sit amet condimentum ipsum.
-                Donec lacinia neque at viverra tempor. Praesent metus leo,
-                malesuada sed placerat nec, pellentesque in erat. Nunc
-                consectetur porttitor velit et blandit. Nunc scelerisque quam
-                vitae dolor rhoncus tristique. Donec ultrices massa auctor velit
-                dapibus eleifend. Morbi quis eros diam. Phasellus vitae pulvinar
-                mauris, ut consequat nibh. Quisque nec condimentum nibh, eu
-                pretium libero. Quisque interdum blandit dolor, eu imperdiet
-                sapien. Morbi tristique malesuada luctus. Nulla vel eleifend
-                libero. Quisque non lacinia tortor. Nunc congue nunc id purus
-                ullamcorper vehicula. Vestibulum fermentum imperdiet urna, eget
-                suscipit ipsum bibendum sed. Quisque in ultrices velit, ut
-                aliquam nisl.
-              </p>
-              <p className="ecl-u-type-paragraph ecl-u-mb-none">
-                Ut convallis est et nisi gravida, quis rhoncus mi tincidunt.
-                Suspendisse maximus efficitur erat, at fermentum nibh vulputate
-                non.
-              </p>
-            </div>
+            <Link
+              className="ecl-u-type-bold ecl-u-flex-basis-100 ecl-u-flex-basis-md-auto ecl-u-order-md-last ecl-u-ml-m ecl-u-ml-md-auto"
+              variant="standalone"
+              label="Download PDF version"
+              href="/example"
+              icon={{
+                shape: 'ui--download',
+                size: 'm',
+              }}
+            />
+            <Link
+              className="ecl-u-type-bold ecl-u-mh-m ecl-u-mt-s ecl-u-mt-md-none ecl-u-type-m"
+              label="Day 1"
+              href="#day1"
+            />
+            <Link
+              className="ecl-u-type-bold ecl-u-mh-m ecl-u-mt-s ecl-u-mt-md-none ecl-u-type-m"
+              label="Day 2"
+              href="#day2"
+            />
           </div>
 
-          <h2 className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
-            Contact
-          </h2>
+          <h4
+            id="day1"
+            className="ecl-u-type-heading-4 ecl-u-mb-m ecl-u-mt-none 
+            ecl-u-bg-grey ecl-u-pa-m ecl-u-type-color-white ecl-u-type-bold
+            ecl-u-border-left ecl-u-border-width-8 ecl-u-border-color-yellow ecl-u-z-navigation"
+            data-ecl-template-sticky-header
+            style={{ position: 'sticky', top: '0' }}
+          >
+            Day 1 - Thursday, 15 November 2019
+          </h4>
 
-          <div className="ecl-row">
-            <div className="ecl-col-12 ecl-col-md-6">
-              <h3 className="ecl-u-type-heading-3 ecl-u-mt-none ecl-u-mb-m ecl-u-mb-md-l">
-                General contact
-              </h3>
+          <Timeline2
+            data-ecl-template-timeline
+            className="ecl-u-mb-l ecl-u-mb-md-3xl"
+          >
+            <Timeline2Item
+              label="08:00 - 09:00"
+              title="Registration and arrival of participants"
+            >
+              <div className="ecl-u-type-s">Riverside</div>
+              <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
+                Welcome coffee in the Riverside
+              </p>
+            </Timeline2Item>
 
-              <address>
-                <DescriptionList>
-                  <DescriptionTerm>Phone number</DescriptionTerm>
-                  <DescriptionDefinition>
-                    (0)2 29 56186 (Commission switchboard)
-                  </DescriptionDefinition>
-
-                  <DescriptionTerm>Postal address</DescriptionTerm>
-                  <DescriptionDefinition>
-                    Directorate-General for Education and Culture
-                    <br />
-                    European Commission B-1049 Brussels Belgium
-                  </DescriptionDefinition>
-
-                  <DescriptionTerm>Email address</DescriptionTerm>
-                  <DescriptionDefinition>
-                    <Link
-                      label="directorate-general@ec.europa.eu"
-                      href="/example"
-                    />
-                  </DescriptionDefinition>
-                </DescriptionList>
-              </address>
-            </div>
-
-            <div className="ecl-col-12 ecl-col-md-6 ecl-u-mt-l ecl-u-mt-md-none">
-              <h3 className="ecl-u-type-heading-3 ecl-u-mt-none ecl-u-mb-m ecl-u-mb-md-l">
-                Press contact
-              </h3>
-
-              <address>
-                <DescriptionList>
-                  <DescriptionTerm>Name</DescriptionTerm>
-                  <DescriptionDefinition>Sara Soumillion</DescriptionDefinition>
-
-                  <DescriptionTerm>Role</DescriptionTerm>
-                  <DescriptionDefinition>Press Officer</DescriptionDefinition>
-
-                  <DescriptionTerm>Phone number</DescriptionTerm>
-                  <DescriptionDefinition>+32 2 296 70 94</DescriptionDefinition>
-
-                  <DescriptionTerm>Email address</DescriptionTerm>
-                  <DescriptionDefinition>
-                    <Link
-                      label="Sara.SOUMILLION@ec.europa.eu"
-                      href="/example"
-                    />
-                  </DescriptionDefinition>
-                </DescriptionList>
-
-                <SocialMediaFollow
-                  className="ecl-u-mt-l"
-                  description="Social media"
-                  links={[
-                    {
-                      href: '/example',
-                      label: 'Twitter',
-                      variant: 'standalone',
-                      iconPosition: 'before',
-                      icon: [
-                        {
-                          shape: 'twitter',
-                          size: 'xl',
-                        },
-                        {
-                          shape: 'twitter_hover',
-                          size: 'xl',
-                        },
-                      ],
-                    },
-                    {
-                      href: '/example',
-                      label: 'Facebook',
-                      variant: 'standalone',
-                      iconPosition: 'before',
-                      icon: [
-                        {
-                          shape: 'facebook',
-                          size: 'xl',
-                        },
-                        {
-                          shape: 'facebook_hover',
-                          size: 'xl',
-                        },
-                      ],
-                    },
-                  ]}
-                />
-              </address>
-            </div>
-          </div>
-
-          <h2 className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
-            Related events
-          </h2>
-
-          <article className="ecl-u-d-flex">
-            <div className="ecl-u-flex-grow-0 ecl-u-mr-m">
-              <DateBlock
-                dateTime="2019-08-26"
-                day="26"
-                month="Aug"
-                monthFull="August"
-                year="2019"
-              />
-            </div>
-            <div className="ecl-u-flex-grow-1">
-              <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                PUBLIC DEBATE |{' '}
-                <time dateTime="2019-08-26">August 26, 2019</time>
-              </div>
-              <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+            <Timeline2Item
+              label="09:00 - 09:15"
+              title="Opening of the conference"
+            >
+              <div className="ecl-u-type-s">Keynote speeches | Auditorium</div>
+              <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
                 <Link
+                  className="ecl-u-type-bold"
+                  label="Jean-Claude Juncker"
                   href="/example"
                   variant="standalone"
-                  label="Dialog with Commissioner Georgieva"
                 />
-              </div>
-              <UnorderedList variant="no-bullet" className="ecl-u-mt-s">
-                <UnorderedListItem className="ecl-u-d-flex ecl-u-align-items-center">
-                  <Icon shape="general--location" size="m" />
-                  <span className="ecl-u-type-s ecl-u-ml-s">
-                    Munich, Germany
-                  </span>
-                </UnorderedListItem>
-                <UnorderedListItem className="ecl-u-d-flex ecl-u-align-items-center">
-                  <Icon shape="general--livestreaming" size="m" />
-                  <span className="ecl-u-type-s ecl-u-ml-s">
-                    Live streaming
-                  </span>
-                </UnorderedListItem>
-              </UnorderedList>
-            </div>
-          </article>
+                <br />
+                European Commission President
+              </p>
+            </Timeline2Item>
 
-          <article className="ecl-u-d-flex ecl-u-mt-l ecl-u-mt-md-xl">
-            <div className="ecl-u-flex-grow-0 ecl-u-mr-m">
-              <DateBlock
-                dateTime="2019-05-26"
-                day="26"
-                month="May"
-                monthFull="May"
-                year="2019"
-              />
-            </div>
-            <div className="ecl-u-flex-grow-1">
-              <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                INFO DAYS |{' '}
-                <time dateTime="2019-05-26">May 26 - June 06, 2019</time>
-              </div>
-              <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+            <Timeline2Item
+              label="09:15 - 10:00"
+              title="Why are we innovating in cultural heritage? An inspirational dialog among unusual supsects"
+            >
+              <div className="ecl-u-type-s">Keynote speech | Auditorium</div>
+              <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
+                A neuroscientist, an artist and an economist meet and discuss
+                how heritage, beauty and art modify our brain, influence our
+                well-being and encourage us to take action in the society.
+              </p>
+              <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
                 <Link
+                  className="ecl-u-type-bold"
+                  label="Johannes Hahn"
                   href="/example"
                   variant="standalone"
-                  label="Info days on founds for cultural projects"
                 />
-              </div>
-              <UnorderedList variant="no-bullet" className="ecl-u-mt-s">
-                <UnorderedListItem className="ecl-u-d-flex ecl-u-align-items-center">
-                  <Icon shape="general--location" size="m" />
-                  <span className="ecl-u-type-s ecl-u-ml-s">Online</span>
-                </UnorderedListItem>
-              </UnorderedList>
-            </div>
-          </article>
-
-          <article className="ecl-u-d-flex ecl-u-mt-l ecl-u-mt-md-xl">
-            <div className="ecl-u-flex-grow-0 ecl-u-mr-m">
-              <DateBlock
-                dateTime="2019-09-06"
-                day="06"
-                month="Sep"
-                monthFull="September"
-                year="2019"
-              />
-            </div>
-            <div className="ecl-u-flex-grow-1">
-              <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                COLLEGE MEETING |{' '}
-                <time dateTime="2019-09-06">September 06, 2019</time>
-              </div>
-              <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                <br />
+                European Commissionner for European Neighbourhood Policy and
+                Enlargment Negociation
+              </p>
+              <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
                 <Link
+                  className="ecl-u-type-bold"
+                  label="Jan De Maere"
                   href="/example"
                   variant="standalone"
-                  label="Meeting of the College of Commissioners"
                 />
+                <br />
+                Neuroscientist and art historian, University of Cluj-Naposca
+              </p>
+              <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
+                <Link
+                  className="ecl-u-type-bold"
+                  label="Pier Luigi Sacco"
+                  href="/example"
+                  variant="standalone"
+                />
+                <br />
+                Professor of Cultural Economics, IULM, University Milan
+              </p>
+              <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
+                <Link
+                  className="ecl-u-type-bold"
+                  label="Julianne Schultz"
+                  href="/example"
+                  variant="standalone"
+                />
+                <br />
+                Media Deals
+              </p>
+            </Timeline2Item>
+
+            <Timeline2Item
+              label="09:15 - 12:00"
+              title="How innovation is created and supported? Who are the innovators in cultural heritage? Panel discussion with pitches from EU R&I projects"
+            >
+              <div className="ecl-u-type-s">Keynote speech | Riverside</div>
+              <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
+                A stimulating discussion on how to support innovation focusing
+                on three main questions: What are investors seeking? What do
+                users need? What are innovators developing? Speakers in the
+                panel representing bank foundations, incubators, cultural
+                institutions and the public sector will interract with
+                innovators from R&I projects. innovations presented range from
+                social to technological innovations, from products to models.
+              </p>
+              <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
+                09:15 - 10:30: Discussion first part
+                <br />
+                10:30 - 11:00: Coffee Break
+                <br />
+                11:00 - 12:00: Discussion second part
+              </p>
+              <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
+                <Link
+                  className="ecl-u-type-bold"
+                  label="Alberto Anfossi"
+                  href="/example"
+                  variant="standalone"
+                />
+                <br />
+                Secretary General of San Paolo Bank Foundation
+              </p>
+              <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
+                <Link
+                  className="ecl-u-type-bold"
+                  label="Gabriela Gandel"
+                  href="/example"
+                  variant="standalone"
+                />
+                <br />
+                Director of Impact Hub Vienna
+              </p>
+            </Timeline2Item>
+
+            <Timeline2Item
+              label="12:00 - 12:15"
+              title="How to innovate in cities through cutlural heritage. Athens, Capital of Innovation 2018"
+            >
+              <div className="ecl-u-type-s">Keynote speech | Auditorium</div>
+              <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
+                <Link
+                  className="ecl-u-type-bold"
+                  label="Amalia Zepou"
+                  href="/example"
+                  variant="standalone"
+                />
+                <br />
+                Vice-Mayor for Civil Society and Innovatio, City of Athens
+              </p>
+            </Timeline2Item>
+
+            <Timeline2Item
+              label="12:30 - 13:00"
+              title="Opening of the exhibition"
+            >
+              <div className="ecl-u-type-s">Speech | Auditorium</div>
+              <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
+                Ribbon-cutting toast and launch of the vote of &apos;Best
+                innovation&apos; and &apos;Best booth&apos; exhibited in the
+                demo area
+              </p>
+              <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
+                <Link
+                  className="ecl-u-type-bold"
+                  label="Benita Ferrero-Waldner"
+                  href="/example"
+                  variant="standalone"
+                />
+                <br />
+                European Commissionner for Trade and European Neighbourhood
+                Policy
+              </p>
+              <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
+                <Link
+                  className="ecl-u-type-bold"
+                  label="Jean-Eric Paquet"
+                  href="/example"
+                  variant="standalone"
+                />
+                <br />
+                Director General, DG RTD European Commission
+              </p>
+              <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
+                <Link
+                  className="ecl-u-type-bold"
+                  label="Khalil Rouhana"
+                  href="/example"
+                  variant="standalone"
+                />
+                <br />
+                Deputy Director General for Cummunication Networks, Content and
+                Technology, European Commission
+              </p>
+              <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
+                <Link
+                  className="ecl-u-type-bold"
+                  label="Michel Magnier"
+                  href="/example"
+                  variant="standalone"
+                />
+                <br />
+                Director for Culture & Creativity GD EAC European Commission
+              </p>
+            </Timeline2Item>
+
+            <Timeline2Item
+              label="13:00 - 14:30"
+              title="Walking lunch with guided visit to the exhibition"
+            >
+              <div className="ecl-u-type-s">Riverside</div>
+            </Timeline2Item>
+
+            <Timeline2Item
+              label="14:30 - 18:00"
+              title="'Working on what?' Building a Community of Innovators in Cultural Heritage. Promotion: 'Circular, sustainable and creative cities'"
+            >
+              <div className="ecl-u-type-s">
+                Presentation and discussion | Auditorium
               </div>
-              <UnorderedList variant="no-bullet" className="ecl-u-mt-s">
-                <UnorderedListItem className="ecl-u-d-flex ecl-u-align-items-center">
-                  <Icon shape="general--location" size="m" />
-                  <span className="ecl-u-type-s ecl-u-ml-s">
-                    Munich, Germany
-                  </span>
-                </UnorderedListItem>
-              </UnorderedList>
-            </div>
-          </article>
+              <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
+                Interactive session including pitches from R&I projects and
+                presentation of recent policy reports, studies and manifestoes.
+                Includes presentations by projects on cultural heritage in
+                cities.
+              </p>
+              <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
+                <Link
+                  className="ecl-u-type-bold"
+                  label="Cristina Sabbioni"
+                  href="/example"
+                  variant="standalone"
+                />
+                <br />
+                Joint Programming Initiative in Cultural Heritage,
+                &apos;European National Research Network&apos;
+              </p>
+            </Timeline2Item>
+
+            <Timeline2Item
+              label="14:30 - 18:00"
+              title="'Working on what?' Building a Community of Innovators in Cultural Heritage. Assistance: 'Heritage at risk'"
+            >
+              <div className="ecl-u-type-s">
+                Presentation and discussion | Riverside
+              </div>
+              <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
+                Multi-risk assesments for cultural heritage, including
+                adaptation to climate changes and disasters. Session will
+                discuss advanced solutions for cultural heritage and will
+                identify priorities for actions, gaps and synergies to work on
+                in the future.
+              </p>
+              <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
+                <Link
+                  className="ecl-u-type-bold"
+                  label="Erminia Sciacchitano"
+                  href="/example"
+                  variant="standalone"
+                />
+                <br />
+                Chief Scientific Advisor of the European Year of Cultural
+                Heritage, Directorate General for Education and Culture
+              </p>
+              <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
+                <Link
+                  className="ecl-u-type-bold"
+                  label="Mauro Facchini"
+                  href="/example"
+                  variant="standalone"
+                />
+                <br />
+                Head of Unit &apos;Coppernicus&apos;, Directorate General for
+                Internal Market, Industry, Entrepreneurship, and SMEs
+              </p>
+              <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
+                <Link
+                  className="ecl-u-type-bold"
+                  label="Jean David Malo"
+                  href="/example"
+                  variant="standalone"
+                />
+                <br />
+                Director of Open Innovation and Open Science, Directorate
+                General for Research and Innovation
+              </p>
+            </Timeline2Item>
+
+            <Timeline2Item
+              label="18:00 - 20:00"
+              title="Cocktail - Visit to the exhibition"
+            >
+              <div className="ecl-u-type-s">Riverside</div>
+            </Timeline2Item>
+          </Timeline2>
+
+          <h4
+            id="day2"
+            className="ecl-u-type-heading-4 ecl-u-mb-m ecl-u-mt-none 
+            ecl-u-bg-grey ecl-u-pa-m ecl-u-type-color-white ecl-u-type-bold
+            ecl-u-border-left ecl-u-border-width-8 ecl-u-border-color-yellow ecl-u-z-navigation"
+            data-ecl-template-sticky-header
+            style={{ position: 'sticky', top: '0' }}
+          >
+            Day 2 - Friday, 16 November 2019
+          </h4>
+
+          <Timeline2 data-ecl-template-timeline>
+            <Timeline2Item label="08:00 - 10:30" title="Innovators at work">
+              <div className="ecl-u-type-s">Workshop | Breakout rooms</div>
+              <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
+                Breakfast workshop by H2020 ROCK project (seesion on invitation
+                only - organized with ICLEI and EUROCITIES)
+              </p>
+              <div className="ecl-u-type-color-black ecl-u-type-bold ecl-u-mt-s">
+                B2B networking
+              </div>
+              <div className="ecl-u-type-s ecl-u-mt-xs">Riverside</div>
+            </Timeline2Item>
+
+            <Timeline2Item
+              label="08:00 - 12:30"
+              title="Cultural heritage supporting intercultrural dialog and cultural diplomacy"
+            >
+              <div className="ecl-u-type-s">Debate | Riverside</div>
+              <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
+                A motivating debate on how cultural heritage can substain
+                cultural diplomacy and what can be the contribution of research
+                and innovation. The session will discuss how to open-up EU
+                innovative initiatives to the world - especially where heritage
+                is at risk - and to better cooperate with UN agencies, involve
+                stakeholders and experts.
+              </p>
+              <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
+                <Link
+                  className="ecl-u-type-bold"
+                  label="Azra Becevic-Sarenkapa"
+                  href="/example"
+                  variant="standalone"
+                />
+                <br />
+                National Museum of Bosnia and Herzegovina: &quot;Cultural
+                heritage for social consolidation and identity building. The
+                experience of Balkan Museum Network&quot;
+              </p>
+              <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
+                <Link
+                  className="ecl-u-type-bold"
+                  label="Claudio Cimino"
+                  href="/example"
+                  variant="standalone"
+                />
+                <br />
+                Secretary General of WATCH NGO: &quot;Mobilising civil society
+                for the protection&quot;
+              </p>
+            </Timeline2Item>
+
+            <Timeline2Item label="12:30 - 14:00" title="Networking lunch">
+              <div className="ecl-u-type-s">Riverside</div>
+            </Timeline2Item>
+
+            <Timeline2Item
+              label="14:00 - 15:30"
+              title="When in the future? Debate on opportunities for innovation in Cutliral Heritage"
+            >
+              <div className="ecl-u-type-s">Debate | Auditorium</div>
+              <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
+                When will actions take place? Opportunities under different
+                frameworks scemes to foster innovation in cultural heritage.
+              </p>
+              <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
+                <Link
+                  className="ecl-u-type-bold"
+                  label="Jean David Malo"
+                  href="/example"
+                  variant="standalone"
+                />
+                <br />
+                Director of Open Innovation and Open Science, Directorate
+                General for Research and Innovation
+              </p>
+              <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
+                <Link
+                  className="ecl-u-type-bold"
+                  label="Erminia Sciacchitano"
+                  href="/example"
+                  variant="standalone"
+                />
+                <br />
+                Chief Scientific Advisor of the European Year of Cultural
+                Heritage, Directorate General for Education and Culture
+              </p>
+              <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
+                <Link
+                  className="ecl-u-type-bold"
+                  label="Mauro Facchini"
+                  href="/example"
+                  variant="standalone"
+                />
+                <br />
+                Head of Unit &apos;Coppernicus&apos;, Directorate General for
+                Internal Market, Industry, Entrepreneurship, and SMEs
+              </p>
+            </Timeline2Item>
+
+            <Timeline2Item label="15:30 - 17:00" title="B2B networking">
+              <div className="ecl-u-type-s">Riverside</div>
+            </Timeline2Item>
+          </Timeline2>
         </div>
       </main>
 
