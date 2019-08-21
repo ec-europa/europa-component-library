@@ -4,7 +4,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import StoryWrapper from '@ecl/story-wrapper';
 import createFocusTrap from 'focus-trap';
-import Stickyfill from 'stickyfilljs';
 import { queryOne, queryAll } from '@ecl/ec-base/helpers/dom';
 
 import EventAgendaPageExample from '../examples/Default';
@@ -27,38 +26,38 @@ storiesOf('Templates|Pages/Event agenda', module)
     }
 
     // Add the sticky css when you reach its scroll position. Remove sticky css when you leave the scroll position
-    function manageSticky(stickyNav, stickyHeaders, timelines) {
+    function manageSticky() {
       let stickyDisplay = false;
-      timelines.forEach((timeline, index) => {
+      this.timelines.forEach((timeline, index) => {
         if (
           timeline.getBoundingClientRect().top < 1 &&
           timeline.getBoundingClientRect().top > -timeline.offsetHeight
         ) {
           stickyDisplay = true;
-          /* timeline.style.paddingTop = `${stickyNav.offsetHeight +
-            stickyHeaders[index].offsetHeight}px`; */
+          timeline.style.paddingTop = `${this.stickyNav.offsetHeight +
+            this.stickyHeaders[index].offsetHeight}px`;
 
-          // stickyHeaders[index].classList.add('ecl-container');
-          // stickyHeaders[index].classList.remove('ecl-u-mb-m');
-          // stickyHeaders[index].classList.add('ecl-u-mv-none');
-          stickyHeaders[index].style.position = 'sticky';
-          stickyHeaders[index].style.top = `${stickyNav.offsetHeight}px`;
+          this.stickyHeaders[index].style.position = 'fixed';
+          this.stickyHeaders[index].style.width = `${this.containerWidth}px`;
+          this.stickyHeaders[
+            index
+          ].style.top = `${this.stickyNav.offsetHeight}px`;
         } else {
           timeline.style.paddingTop = 0;
 
-          // stickyHeaders[index].classList.remove('ecl-container');
-          // stickyHeaders[index].classList.remove('ecl-u-mv-none');
-          // stickyHeaders[index].classList.add('ecl-u-mb-m');
-          stickyHeaders[index].style.position = 'relative';
-          stickyHeaders[index].style.top = 0;
+          this.stickyHeaders[index].style.position = 'relative';
+          this.stickyHeaders[index].style.top = 0;
+          this.stickyHeaders[index].style.width = '100%';
         }
       });
 
       if (stickyDisplay) {
-        stickyNav.style.position = 'sticky';
-        stickyNav.style.top = 0;
+        this.stickyNav.style.position = 'fixed';
+        this.stickyNav.style.top = 0;
+        this.stickyNav.style.width = `${this.containerWidth}px`;
       } else {
-        stickyNav.style.position = 'relative';
+        this.stickyNav.style.position = 'relative';
+        this.stickyNav.style.width = '100%';
       }
     }
 
@@ -95,18 +94,29 @@ storiesOf('Templates|Pages/Event agenda', module)
             '[data-ecl-template-sticky-nav]',
             document
           );
-          Stickyfill.add(stickyNav);
           const stickyHeaders = queryAll(
             '[data-ecl-template-sticky-header]',
             document
           );
-          Stickyfill.add(stickyHeaders);
           const timelines = queryAll('[data-ecl-template-timeline]', document);
 
-          // When the user scrolls the page, execute myFunction
-          window.addEventListener('scroll', function() {
-            manageSticky(stickyNav, stickyHeaders, timelines);
-          });
+          // Get container width
+          const container = queryOne('.ecl-container', document);
+          const cs = getComputedStyle(container);
+          const containerWidth =
+            container.offsetWidth -
+            parseFloat(cs.paddingLeft) -
+            parseFloat(cs.paddingRight);
+
+          window.addEventListener(
+            'scroll',
+            manageSticky.bind({
+              stickyNav,
+              stickyHeaders,
+              timelines,
+              containerWidth,
+            })
+          );
 
           // Return new context
           return { languageSelector, close };
@@ -118,6 +128,8 @@ storiesOf('Templates|Pages/Event agenda', module)
               toggleOverlay
             );
           }
+
+          window.removeEventListener('scroll', manageSticky);
         }}
       >
         {story()}

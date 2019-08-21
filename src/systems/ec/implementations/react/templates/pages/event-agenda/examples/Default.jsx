@@ -88,6 +88,7 @@ export default () => {
           <div
             className="ecl-u-d-flex ecl-u-align-items-center ecl-u-flex-wrap ecl-u-z-navigation ecl-u-bg-white ecl-u-pv-s"
             data-ecl-template-sticky-nav
+            style={{ position: 'sticky', top: '0' }}
           >
             <Link
               className="ecl-u-type-bold ecl-u-flex-basis-100 ecl-u-flex-basis-md-auto ecl-u-order-md-last ecl-u-ml-m ecl-u-ml-md-auto"
@@ -118,6 +119,7 @@ export default () => {
             ecl-u-bg-grey ecl-u-pa-m ecl-u-type-color-white ecl-u-type-bold
             ecl-u-border-left ecl-u-border-width-8 ecl-u-border-color-yellow ecl-u-z-navigation"
             data-ecl-template-sticky-header
+            style={{ position: 'sticky', top: '0' }}
           >
             Day 1 - Thursday, 15 November 2019
           </h4>
@@ -417,6 +419,7 @@ export default () => {
             ecl-u-bg-grey ecl-u-pa-m ecl-u-type-color-white ecl-u-type-bold
             ecl-u-border-left ecl-u-border-width-8 ecl-u-border-color-yellow ecl-u-z-navigation"
             data-ecl-template-sticky-header
+            style={{ position: 'sticky', top: '0' }}
           >
             Day 2 - Friday, 16 November 2019
           </h4>
