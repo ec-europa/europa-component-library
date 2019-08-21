@@ -20,22 +20,42 @@ const ContentPage = ({ siteHeader, pageHeader, footer, inpageNavigation }) => (
           />
         </div>
         <div className="ecl-col-md-9">
-          <h2 className="ecl-u-type-heading-2" id="inline-nav-1">
+          <h2
+            className="ecl-u-type-heading-2 ecl-u-type-color-black"
+            id="inline-nav-1"
+          >
             Heading 1
           </h2>
-          <p className="ecl-u-type-paragraph-m">{data.demoText}</p>
-          <h2 className="ecl-u-type-heading-2" id="inline-nav-2">
+          <p className="ecl-u-type-paragraph-m ecl-u-type-color-grey">
+            {data.demoText}
+          </p>
+          <h2
+            className="ecl-u-type-heading-2 ecl-u-type-color-black"
+            id="inline-nav-2"
+          >
             Heading 2
           </h2>
-          <p className="ecl-u-type-paragraph-m">{data.demoText}</p>
-          <h2 className="ecl-u-type-heading-2" id="inline-nav-3">
+          <p className="ecl-u-type-paragraph-m ecl-u-type-color-grey">
+            {data.demoText}
+          </p>
+          <h2
+            className="ecl-u-type-heading-2 ecl-u-type-color-black"
+            id="inline-nav-3"
+          >
             Heading 3
           </h2>
-          <p className="ecl-u-type-paragraph-m">{data.demoText}</p>
-          <h2 className="ecl-u-type-heading-2" id="inline-nav-4">
+          <p className="ecl-u-type-paragraph-m ecl-u-type-color-grey">
+            {data.demoText}
+          </p>
+          <h2
+            className="ecl-u-type-heading-2 ecl-u-type-color-black"
+            id="inline-nav-4"
+          >
             Heading 4
           </h2>
-          <p className="ecl-u-type-paragraph-m">{data.demoText}</p>
+          <p className="ecl-u-type-paragraph-m ecl-u-type-color-grey">
+            {data.demoText}
+          </p>
         </div>
       </div>
     </div>

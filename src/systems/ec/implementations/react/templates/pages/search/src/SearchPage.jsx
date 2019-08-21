@@ -18,13 +18,12 @@ const SearchPage = ({ siteHeader, pageHeader, footer }) => (
       <div className="ecl-container">
         <div className="ecl-row">
           <aside className="ecl-col-12 ecl-col-lg-3">
-            <h2 className="ecl-u-type-heading-2 ecl-u-d-lg-none ecl-u-mv-none">
+            <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-d-lg-none ecl-u-mv-none">
               Search results (65)
             </h2>
-            <h3 className="ecl-u-type-heading-3 ecl-u-mt-l ecl-u-mt-lg-none">
+            <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mt-l ecl-u-mt-lg-none">
               Search options
             </h3>
-
             <form>
               <Select
                 id="facet-source"
@@ -45,7 +44,6 @@ const SearchPage = ({ siteHeader, pageHeader, footer }) => (
                   },
                 ]}
               />
-
               <Select
                 id="facet-date"
                 groupClassName="ecl-u-mt-m"
@@ -66,7 +64,6 @@ const SearchPage = ({ siteHeader, pageHeader, footer }) => (
                   },
                 ]}
               />
-
               <Select
                 id="facet-language"
                 groupClassName="ecl-u-mt-m"
@@ -91,7 +88,6 @@ const SearchPage = ({ siteHeader, pageHeader, footer }) => (
                   },
                 ]}
               />
-
               <Select
                 id="facet-format"
                 groupClassName="ecl-u-mt-m"
@@ -112,7 +108,6 @@ const SearchPage = ({ siteHeader, pageHeader, footer }) => (
                   },
                 ]}
               />
-
               <Button
                 className="ecl-u-mt-l"
                 label="Refine results"
@@ -126,19 +121,16 @@ const SearchPage = ({ siteHeader, pageHeader, footer }) => (
               />
             </form>
           </aside>
-
           <main className="ecl-col-12 ecl-col-lg-9">
-            <h2 className="ecl-u-type-heading-2 ecl-u-d-none ecl-u-d-lg-block ecl-u-mv-none">
+            <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-d-none ecl-u-d-lg-block ecl-u-mv-none">
               Search results (65)
             </h2>
-
-            <h3 className="ecl-u-type-heading-3 ecl-u-mb-none ecl-u-mt-3xl ecl-u-mt-lg-l">
+            <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mb-none ecl-u-mt-3xl ecl-u-mt-lg-l">
               Showing results 11 to 20
             </h3>
-
-            <div className="ecl-u-mt-l ecl-u-d-flex ecl-u-flex-column ecl-u-flex-lg-row ecl-u-align-items-lg-center">
+            <div className="ecl-u-type-m ecl-u-type-color-grey ecl-u-mt-l ecl-u-d-flex ecl-u-flex-column ecl-u-flex-lg-row ecl-u-align-items-lg-center">
               <span>
-                <span className="ecl-u-type-m">SOURCE</span>
+                <span>SOURCE</span>
                 <Tag
                   className="ecl-u-ml-s"
                   label="DG Trad"
@@ -146,7 +138,7 @@ const SearchPage = ({ siteHeader, pageHeader, footer }) => (
                 />
               </span>
               <span className="ecl-u-ml-lg-m ecl-u-mt-m ecl-u-mt-lg-none">
-                <span className="ecl-u-type-m">TOPICS</span>
+                <span>TOPICS</span>
                 <Tag
                   className="ecl-u-ml-s"
                   label="Health, well-being & Consumer protection"
@@ -154,14 +146,13 @@ const SearchPage = ({ siteHeader, pageHeader, footer }) => (
                 />
               </span>
             </div>
-
-            <article className="ecl-u-mt-l ecl-u-pb-l ecl-u-pb-lg-m">
+            <article className="ecl-u-type-m ecl-u-mt-l ecl-u-pb-l ecl-u-pb-lg-m">
               <Link
                 href="/example"
                 label="Jobs, growth and investment"
                 className="ecl-u-type-prolonged-m ecl-u-type-bold"
               />
-              <p className="ecl-u-type-paragraph-m ecl-u-mv-none">
+              <p className="ecl-u-type-paragraph-m ecl-u-type-color-grey ecl-u-mv-none">
                 Since the global economic and financial crisis, the EU has been
                 suffering from low levels of investment. Coordinated efforts at
                 European level are needed to put Europe on the path of economic
@@ -169,13 +160,13 @@ const SearchPage = ({ siteHeader, pageHeader, footer }) => (
               </p>
             </article>
             <hr className="ecl-u-mv-none" />
-            <article className="ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
+            <article className="ecl-u-type-m ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
               <Link
                 href="/example"
                 label="Digital single market"
                 className="ecl-u-type-prolonged-m ecl-u-type-bold"
               />
-              <p className="ecl-u-type-paragraph-m ecl-u-mv-none">
+              <p className="ecl-u-type-paragraph-m ecl-u-type-color-grey ecl-u-mv-none">
                 The internet and digital technologies are transforming our
                 world. But existing barriers online mean citizens miss out on
                 goods and services, internet companies and start-ups have their
@@ -184,13 +175,13 @@ const SearchPage = ({ siteHeader, pageHeader, footer }) => (
               </p>
             </article>
             <hr className="ecl-u-mv-none" />
-            <article className="ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
+            <article className="ecl-u-type-m ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
               <Link
                 href="/example"
                 label="Energy union and climate"
                 className="ecl-u-type-prolonged-m ecl-u-type-bold"
               />
-              <p className="ecl-u-type-paragraph-m ecl-u-mv-none">
+              <p className="ecl-u-type-paragraph-m ecl-u-type-color-grey ecl-u-mv-none">
                 The EU is building an energy union that ensures Europe’s energy
                 supply is safe, viable and accessible to all. In doing so, it
                 can boost the economy and attract investments that can create
@@ -198,26 +189,26 @@ const SearchPage = ({ siteHeader, pageHeader, footer }) => (
               </p>
             </article>
             <hr className="ecl-u-mv-none" />
-            <article className="ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
+            <article className="ecl-u-type-m ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
               <Link
                 href="/example"
                 label="Internal market"
                 className="ecl-u-type-prolonged-m ecl-u-type-bold"
               />
-              <p className="ecl-u-type-paragraph-m ecl-u-mv-none">
+              <p className="ecl-u-type-paragraph-m ecl-u-type-color-grey ecl-u-mv-none">
                 The single market is one of Europe’s major achievements and its
                 best asset in times of increasing globalisation. It is an engine
                 for building a stronger and fairer EU economy.
               </p>
             </article>
             <hr className="ecl-u-mv-none" />
-            <article className="ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
+            <article className="ecl-u-type-m ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
               <Link
                 href="/example"
                 label="A deeper and fairer economic and monetary union"
                 className="ecl-u-type-prolonged-m ecl-u-type-bold"
               />
-              <p className="ecl-u-type-paragraph-m ecl-u-mv-none">
+              <p className="ecl-u-type-paragraph-m ecl-u-type-color-grey ecl-u-mv-none">
                 Within the Economic and Monetary Union (EMU), EU countries’
                 economic policies are coordinated to: ensure EU countries can
                 withstand future crises through economic and social reforms and
@@ -227,39 +218,39 @@ const SearchPage = ({ siteHeader, pageHeader, footer }) => (
               </p>
             </article>
             <hr className="ecl-u-mv-none" />
-            <article className="ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
+            <article className="ecl-u-type-m ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
               <Link
                 href="/example"
                 label="A balanced and progressive trade policy to harness globalisation"
                 className="ecl-u-type-prolonged-m ecl-u-type-bold"
               />
-              <p className="ecl-u-type-paragraph-m ecl-u-mv-none">
+              <p className="ecl-u-type-paragraph-m ecl-u-type-color-grey ecl-u-mv-none">
                 In the modern global economy trade is essential for growth, jobs
                 and competiveness, and the EU is committed to maintaining an
                 open and rules-based trading system.
               </p>
             </article>
             <hr className="ecl-u-mv-none" />
-            <article className="ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
+            <article className="ecl-u-type-m ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
               <Link
                 href="/example"
                 label="Justice and fundamental rights"
                 className="ecl-u-type-prolonged-m ecl-u-type-bold"
               />
-              <p className="ecl-u-type-paragraph-m ecl-u-mv-none">
+              <p className="ecl-u-type-paragraph-m ecl-u-type-color-grey ecl-u-mv-none">
                 Every EU citizen enjoys the same fundamental rights based on the
                 values of equality, non-discrimination, inclusion, human
                 dignity, freedom and democracy.
               </p>
             </article>
             <hr className="ecl-u-mv-none" />
-            <article className="ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
+            <article className="ecl-u-type-m ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
               <Link
                 href="/example"
                 label="Migration"
                 className="ecl-u-type-prolonged-m ecl-u-type-bold"
               />
-              <p className="ecl-u-type-paragraph-m ecl-u-mv-none">
+              <p className="ecl-u-type-paragraph-m ecl-u-type-color-grey ecl-u-mv-none">
                 The plight of thousands of migrants putting their lives in peril
                 to cross the Mediterranean has shocked. It is clear that no EU
                 country can or should be left alone to address huge migratory
@@ -267,13 +258,13 @@ const SearchPage = ({ siteHeader, pageHeader, footer }) => (
               </p>
             </article>
             <hr className="ecl-u-mv-none" />
-            <article className="ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
+            <article className="ecl-u-type-m ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
               <Link
                 href="/example"
                 label="A stronger global actor"
                 className="ecl-u-type-prolonged-m ecl-u-type-bold"
               />
-              <p className="ecl-u-type-paragraph-m ecl-u-mv-none">
+              <p className="ecl-u-type-paragraph-m ecl-u-type-color-grey ecl-u-mv-none">
                 The EU needs a strong common foreign policy to respond
                 efficiently to global challenges, including the crises in its
                 neighbourhood, project its values, reject protectionism and keep
@@ -282,19 +273,18 @@ const SearchPage = ({ siteHeader, pageHeader, footer }) => (
               </p>
             </article>
             <hr className="ecl-u-mv-none" />
-            <article className="ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
+            <article className="ecl-u-type-m ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
               <Link
                 href="/example"
                 label="Democratic change"
                 className="ecl-u-type-prolonged-m ecl-u-type-bold"
               />
-              <p className="ecl-u-type-paragraph-m ecl-u-mv-none">
+              <p className="ecl-u-type-paragraph-m ecl-u-type-color-grey ecl-u-mv-none">
                 For the first time, in 2014, EU countries had to take the
                 results of the elections into account when proposing a candidate
                 for European Commission President.
               </p>
             </article>
-
             <Pagination
               className="ecl-u-mt-l"
               items={[
