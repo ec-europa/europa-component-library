@@ -10,6 +10,10 @@ module.exports = ({ config: defaultConfig, mode }) => {
   // Exclude node_modules
   defaultConfig.module.rules[0].exclude = /node_modules/;
 
+  // Change media dist folder
+  defaultConfig.module.rules[3].query.name =
+    'dist/images/[name].[hash:8].[ext]';
+
   // Make it less verbose
   if (mode === 'PRODUCTION') {
     // Remove ProgressPlugin (4th plugin)
