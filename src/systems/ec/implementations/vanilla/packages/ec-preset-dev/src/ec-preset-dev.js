@@ -9,4 +9,5 @@ export * from '@ecl/ec-component-file';
 export * from '@ecl/ec-component-gallery';
 export * from '@ecl/ec-component-inpage-navigation';
 export * from '@ecl/ec-component-message';
+export * from '@ecl/ec-component-site-header';
 export * from '@ecl/ec-component-timeline2';
