@@ -14,7 +14,7 @@ export default () => (
         label="Page title section (child A)"
       />
     </h2>
-    <p className="ecl-u-mb-none ecl-u-mt-m ecl-u-color-shade ecl-u-type-paragraph">
+    <p className="ecl-u-mb-none ecl-u-mt-m ecl-u-type-color-grey ecl-u-type-paragraph">
       Child summary section.
       <br />
       Short description of the child A page.

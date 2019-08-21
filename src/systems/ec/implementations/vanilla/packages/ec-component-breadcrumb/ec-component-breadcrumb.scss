@@ -24,7 +24,8 @@
   .ecl-breadcrumb__container {
     border-bottom: 1px solid $border-color;
     box-sizing: border-box;
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
     list-style: none;
     margin: 0;
     padding: 0 0 calc(#{$ecl-spacing-m} - 1px);
@@ -38,6 +39,7 @@
 
   .ecl-breadcrumb__segment {
     display: inline-block;
+    font: $ecl-font-s;
     margin-top: $ecl-spacing-m;
 
     &[aria-hidden='true'] {
@@ -68,7 +70,6 @@
     border-width: 0;
     box-sizing: border-box;
     color: $link-color;
-    font: $ecl-font-s;
     font-weight: $ecl-font-weight-bold;
     margin: 0;
     padding: 0;
@@ -85,7 +86,6 @@
 
   .ecl-breadcrumb__link {
     color: $link-color;
-    font: $ecl-font-s;
     font-weight: $ecl-font-weight-bold;
 
     &:hover,
@@ -105,7 +105,6 @@
 
   .ecl-breadcrumb__current-page {
     color: $last-link-color;
-    font: $ecl-font-s;
     font-weight: $ecl-font-weight-bold;
   }
 }
