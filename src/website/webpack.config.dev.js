@@ -49,9 +49,9 @@ module.exports = {
     // This does not produce a real file. It's just the virtual path that is
     // served by WebpackDevServer in development. This is the JS bundle
     // containing code from all our entry points, and the Webpack runtime.
-    filename: 'static/js/bundle.js',
+    filename: 'dist/scripts/bundle.js',
     // There are also additional JS chunk files if you use code splitting.
-    chunkFilename: 'static/js/[name].chunk.js',
+    chunkFilename: 'dist/scripts/[name].chunk.js',
     // This is the URL that app is served from. We use "/" in development.
     publicPath,
   },
@@ -65,6 +65,10 @@ module.exports = {
     extensions: ['.mjs', '.js', '.json', '.jsx'],
     alias: {
       'react-dom': '@hot-loader/react-dom',
+      '@ecl/website-components': path.resolve(
+        __dirname,
+        'src/website-components/'
+      ),
     },
   },
   module: {
@@ -83,24 +87,14 @@ module.exports = {
             exclude: /node_modules/,
             use: {
               loader: 'babel-loader',
-              options: Object.assign({}, babelConfig, {
-                // This is a feature of `babel-loader` for webpack (not Babel itself).
+              options: {
+                ...babelConfig, // This is a feature of `babel-loader` for webpack (not Babel itself).
                 // It enables caching results in ./node_modules/.cache/babel-loader/
                 // directory for faster rebuilds.
                 cacheDirectory: true,
                 babelrc: false,
-              }),
+              },
             },
-          },
-          {
-            // EC CSS imported to showcase components
-            test: /ec-preset-full\.css$/,
-            use: cssLoader({ fixCode: false, prefix: '.ec' }),
-          },
-          {
-            // EU CSS imported to showcase components
-            test: /eu-preset-full\.css$/,
-            use: cssLoader({ fixCode: false, prefix: '.eu' }),
           },
           {
             test: /\.css$/,
@@ -143,7 +137,7 @@ module.exports = {
               loader: 'url-loader',
               options: {
                 limit: 10000,
-                name: 'static/media/[name].[hash:8].[ext]',
+                name: 'dist/images/[name].[hash:8].[ext]',
               },
             },
           },
@@ -157,10 +151,6 @@ module.exports = {
               {
                 loader: 'babel-loader',
                 options: babelConfig,
-              },
-              {
-                // Adds front-matter to export
-                loader: 'mdx-frontmatter-loader',
               },
               {
                 loader: '@mdx-js/loader',
@@ -186,7 +176,7 @@ module.exports = {
             use: {
               loader: 'file-loader',
               options: {
-                name: 'static/media/[name].[hash:8].[ext]',
+                name: 'dist/media/[name].[hash:8].[ext]',
               },
             },
           },
@@ -210,6 +200,12 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify('development'),
       'process.env.PUBLIC_URL': JSON.stringify(publicUrl),
       'process.env.ECL_VERSION': JSON.stringify(lernaJson.version),
+      'process.env.ECL_EC_PRESET_WEBSITE_CSS': JSON.stringify('n/a'),
+      'process.env.ECL_EC_PRESET_WEBSITE_PRINT_CSS': JSON.stringify('n/a'),
+      'process.env.ECL_EC_PRESET_WEBSITE_JS': JSON.stringify('n/a'),
+      'process.env.ECL_EU_PRESET_WEBSITE_CSS': JSON.stringify('n/a'),
+      'process.env.ECL_EU_PRESET_WEBSITE_PRINT_CSS': JSON.stringify('n/a'),
+      'process.env.ECL_EU_PRESET_WEBSITE_JS': JSON.stringify('n/a'),
     }),
     new webpack.HotModuleReplacementPlugin(),
   ],

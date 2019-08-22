@@ -8,8 +8,7 @@ export default class StoryWrapper extends React.Component {
 
     if (props.beforeMount) {
       const newContext = props.beforeMount(this.context);
-      if (newContext)
-        this.context = Object.assign({}, this.context, newContext);
+      if (newContext) this.context = { ...this.context, ...newContext };
     }
   }
 
@@ -17,8 +16,7 @@ export default class StoryWrapper extends React.Component {
     const { afterMount } = this.props;
     if (afterMount) {
       const newContext = afterMount(this.context);
-      if (newContext)
-        this.context = Object.assign({}, this.context, newContext);
+      if (newContext) this.context = { ...this.context, ...newContext };
     }
   }
 
@@ -26,8 +24,7 @@ export default class StoryWrapper extends React.Component {
     const { beforeUnmount } = this.props;
     if (beforeUnmount) {
       const newContext = beforeUnmount(this.context);
-      if (newContext)
-        this.context = Object.assign({}, this.context, newContext);
+      if (newContext) this.context = { ...this.context, ...newContext };
     }
   }
 

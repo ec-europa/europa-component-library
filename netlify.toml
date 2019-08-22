@@ -20,3 +20,8 @@
   from = "https://v2--europa-component-library.netlify.com"
   to = "https://ec.europa.eu/component-library"
   force = true
+
+[[headers]]
+  for = "/*"
+    [headers.values]
+    Access-Control-Allow-Origin = "*"

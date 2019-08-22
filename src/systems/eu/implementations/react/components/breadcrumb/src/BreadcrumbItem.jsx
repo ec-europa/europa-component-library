@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import Icon from '@ecl/eu-react-component-icon';
 import Link from '@ecl/eu-react-component-link';
 
-const Item = ({
+export const BreadcrumbItem = ({
   href,
   label,
   isLastItem,
@@ -47,7 +47,7 @@ const Item = ({
   </li>
 );
 
-Item.propTypes = {
+BreadcrumbItem.propTypes = {
   label: PropTypes.string.isRequired,
   href: PropTypes.string,
   isLastItem: PropTypes.bool,
@@ -57,7 +57,7 @@ Item.propTypes = {
   children: PropTypes.node,
 };
 
-Item.defaultProps = {
+BreadcrumbItem.defaultProps = {
   href: '',
   isLastItem: false,
   isVisible: false,
@@ -66,4 +66,4 @@ Item.defaultProps = {
   children: null,
 };
 
-export default Item;
+export default BreadcrumbItem;

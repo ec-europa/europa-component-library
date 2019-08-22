@@ -2,13 +2,17 @@
   "name": "@ecl/ec-component-site-header",
   "author": "European Commission",
   "license": "EUPL-1.1",
-  "version": "2.9.0",
+  "version": "2.10.1",
   "description": "ECL EC Site header",
+  "main": "ec-component-site-header.js",
+  "module": "ec-component-site-header.js",
+  "sass": "ec-component-site-header.scss",
   "style": "ec-component-site-header.scss",
   "dependencies": {
-    "@ecl/ec-base": "^2.9.0",
-    "@ecl/ec-component-icon": "^2.9.0",
-    "@ecl/ec-component-search-form": "^2.9.0"
+    "@ecl/ec-base": "^2.10.1",
+    "@ecl/ec-component-icon": "^2.10.1",
+    "@ecl/ec-component-search-form": "^2.10.1",
+    "focus-trap": "5.0.2"
   },
   "publishConfig": {
     "access": "public"
@@ -25,6 +29,5 @@
     "ecl",
     "europa-component-library",
     "design-system"
-  ],
-  "sass": "ec-component-site-header.scss"
+  ]
 }

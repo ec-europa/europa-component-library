@@ -2,10 +2,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { MenuLegacyItem } from './MenuLegacyItem';
 
-import MenuLegacyItem from './MenuLegacyItem';
-
-const MenuLegacy = ({ label, items, className, ...props }) => {
+export const MenuLegacy = ({ label, items, className, ...props }) => {
   const classNames = classnames(className, 'ecl-menu-legacy');
 
   return (

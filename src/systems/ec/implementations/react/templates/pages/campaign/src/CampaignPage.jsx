@@ -5,7 +5,6 @@ import Blockquote from '@ecl/ec-react-component-blockquote';
 import Card from '@ecl/ec-react-component-card';
 import Footer from '@ecl/ec-react-component-footer';
 import Icon from '@ecl/ec-react-component-icon';
-import LanguageListOverlay from '@ecl/ec-react-component-language-list/src/LanguageListOverlay';
 import Link from '@ecl/ec-react-component-link';
 import MediaContainer from '@ecl/ec-react-component-media-container';
 import HeroBanner from '@ecl/ec-react-component-hero-banner';
@@ -15,7 +14,6 @@ import SkipLink from '@ecl/ec-react-component-skip-link';
 const CampaignPage = ({
   siteHeader,
   heroBanner,
-  languageList,
   mediaContainer,
   footer,
   card,
@@ -23,8 +21,7 @@ const CampaignPage = ({
 }) => (
   <Fragment>
     <SkipLink href="#main" label="Skip to main content" />
-    <SiteHeader {...siteHeader} id="top" />
-    <LanguageListOverlay {...languageList} hidden="true" />
+    <SiteHeader {...siteHeader} id="top" data-ecl-auto-init="SiteHeader" />
     <HeroBanner {...heroBanner} />
     <main className="ecl-u-pv-xl" id="main">
       <div className="ecl-container">
@@ -32,9 +29,8 @@ const CampaignPage = ({
           <div className="ecl-col-sm-12 ecl-col-md-6">
             <MediaContainer {...mediaContainer} />
           </div>
-
           <div className="ecl-col-sm-12 ecl-col-md-6">
-            <p className="ecl-u-type-paragraph">
+            <p className="ecl-u-type-paragraph ecl-u-type-color-grey">
               The European Commission has put forward ambitious yet realistic
               proposals for a modern EU budget. It is time for an EU budget that
               reflects rapid developments in innovation, the economy, the
@@ -45,7 +41,6 @@ const CampaignPage = ({
             </p>
           </div>
         </div>
-
         <div className="ecl-row ecl-u-mt-l">
           <div className="ecl-col-sm-12 ecl-col-md-4">
             <Card {...card} />
@@ -57,21 +52,20 @@ const CampaignPage = ({
             <Card {...card} />
           </div>
         </div>
-
         <div className="ecl-row ecl-u-mt-l ecl-u-mb-xl">
           <div className="ecl-col-sm-12 ecl-col-md-6">
             <Blockquote {...blockquote} />
           </div>
         </div>
-
         <div id="social-media-sharing">
-          <p className="ecl-u-type-paragraph">
+          <p className="ecl-u-type-paragraph ecl-u-type-color-grey">
             <Icon size="m" shape="notifications--information" />
-            &nbsp; To insert social media sharing here, please use&nbsp;
+            &nbsp; To insert social media sharing here, please use the{' '}
             <Link
               href="https://webgate.ec.europa.eu/fpfis/wikis/pages/viewpage.action?pageId=105090808"
-              label="the widget provided by Webtools"
+              label="widget provided by Webtools"
             />
+            .
           </p>
         </div>
       </div>
@@ -83,7 +77,6 @@ const CampaignPage = ({
 CampaignPage.propTypes = {
   siteHeader: PropTypes.shape(SiteHeader.propTypes),
   heroBanner: PropTypes.shape(HeroBanner.propTypes),
-  languageList: PropTypes.shape(LanguageListOverlay.propTypes),
   mediaContainer: PropTypes.shape(MediaContainer.propTypes),
   footer: PropTypes.shape(Footer.propTypes),
   card: PropTypes.shape(Card.propTypes),
@@ -93,7 +86,6 @@ CampaignPage.propTypes = {
 CampaignPage.defaultProps = {
   siteHeader: {},
   heroBanner: {},
-  languageList: {},
   mediaContainer: {},
   footer: {},
   card: {},

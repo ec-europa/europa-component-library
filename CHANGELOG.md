@@ -1,5 +1,71 @@
 # Changelog
 
+## 2.10.1 (2019-08-16)
+
+#### :bug: Bug Fix
+
+- [#1258](https://github.com/ec-europa/europa-component-library/pull/1258) fix: fix wrong SCSS imports - INNO-1732 ([@yhuard](https://github.com/yhuard))
+
+#### :house: Internal
+
+- [#1257](https://github.com/ec-europa/europa-component-library/pull/1257) fix(drone): fix website deployment - INNO-1731 ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 1
+
+- Yannick Huard ([@yhuard](https://github.com/yhuard))
+
+## 2.10.0 (2019-08-13)
+
+#### :rocket: New Feature
+
+- [#984](https://github.com/ec-europa/europa-component-library/pull/984) feat(checkbox): apply new specifications - INNO-1307 ([@planctus](https://github.com/planctus))
+- [#1247](https://github.com/ec-europa/europa-component-library/pull/1247) feat(file-upload): add basic file upload - INNO-1717 ([@emeryro](https://github.com/emeryro))
+- [#1217](https://github.com/ec-europa/europa-component-library/pull/1217) feat: export to codepen - INNO-1646 ([@yhuard](https://github.com/yhuard))
+- [#1231](https://github.com/ec-europa/europa-component-library/pull/1231) feat(dateblock): add component - INNO-1510 ([@emeryro](https://github.com/emeryro))
+- [#1227](https://github.com/ec-europa/europa-component-library/pull/1227) feat: initialize JS components automatically (opt-in) - INNO-1680 ([@yhuard](https://github.com/yhuard))
+
+#### :bug: Bug Fix
+
+- [#1252](https://github.com/ec-europa/europa-component-library/pull/1252) fix(cards): use aria-label instead of alt - INNO-1727 ([@yhuard](https://github.com/yhuard))
+- [#1234](https://github.com/ec-europa/europa-component-library/pull/1234) fix(search-template): fix spacing - INNO-1703 ([@emeryro](https://github.com/emeryro))
+- [#1229](https://github.com/ec-europa/europa-component-library/pull/1229) fix(search-form): make input fluid - INNO-1687 ([@yhuard](https://github.com/yhuard))
+- [#1226](https://github.com/ec-europa/europa-component-library/pull/1226) fix(table): use bold for headers - INNO-1666 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#1253](https://github.com/ec-europa/europa-component-library/pull/1253) refactor(cards): change image ratio to 3:2 - INNO-1502 ([@yhuard](https://github.com/yhuard))
+- [#1235](https://github.com/ec-europa/europa-component-library/pull/1235) fix(label): use inline display - INNO-1704 ([@emeryro](https://github.com/emeryro))
+- [#1237](https://github.com/ec-europa/europa-component-library/pull/1237) feat(text-input): add print - INNO-1706 ([@emeryro](https://github.com/emeryro))
+- [#1236](https://github.com/ec-europa/europa-component-library/pull/1236) feat(select): add print css - INNO-1477 ([@emeryro](https://github.com/emeryro))
+- [#1233](https://github.com/ec-europa/europa-component-library/pull/1233) feat(form-group): allow group classname - INNO-1702 ([@emeryro](https://github.com/emeryro))
+- [#1222](https://github.com/ec-europa/europa-component-library/pull/1222) refactor(radio): update radio group - INNO-1452 ([@emeryro](https://github.com/emeryro))
+- [#1228](https://github.com/ec-europa/europa-component-library/pull/1228) refactor(select): update styling of select - INNO-1595 ([@yhuard](https://github.com/yhuard))
+- [#1183](https://github.com/ec-europa/europa-component-library/pull/1183) refactor(text-inputs): update styling of text inputs - INNO-1593 ([@yhuard](https://github.com/yhuard))
+
+#### :memo: Documentation
+
+- [#1241](https://github.com/ec-europa/europa-component-library/pull/1241) docs(typography): add coded examples - INNO-1712 ([@yhuard](https://github.com/yhuard))
+- [#1075](https://github.com/ec-europa/europa-component-library/pull/1075) docs: define which browsers we support - INNO-1438 ([@yhuard](https://github.com/yhuard))
+- [#1245](https://github.com/ec-europa/europa-component-library/pull/1245) docs(spacing): fix incorrect token - INNO-1716 ([@yhuard](https://github.com/yhuard))
+- [#1239](https://github.com/ec-europa/europa-component-library/pull/1239) docs(breadcrumb): remove image - INNO-1711 ([@yhuard](https://github.com/yhuard))
+
+#### :house: Internal
+
+- [#1191](https://github.com/ec-europa/europa-component-library/pull/1191) chore(website): enhance performance - INNO-1617 ([@yhuard](https://github.com/yhuard))
+- [#1246](https://github.com/ec-europa/europa-component-library/pull/1246) feat(browserslist): update config and display browsers list - INNO-1718 ([@yhuard](https://github.com/yhuard))
+- [#1240](https://github.com/ec-europa/europa-component-library/pull/1240) refactor(storybook): use JS auto init - INNO-1709 ([@yhuard](https://github.com/yhuard))
+- [#1225](https://github.com/ec-europa/europa-component-library/pull/1225) chore: create knobs for campaign template - INNO-1645 ([@yhuard](https://github.com/yhuard))
+- [#1238](https://github.com/ec-europa/europa-component-library/pull/1238) chore: update dependencies - INNO-1710 ([@yhuard](https://github.com/yhuard))
+- [#1232](https://github.com/ec-europa/europa-component-library/pull/1232) chore(token): add tokens for form width - INNO-1692 ([@emeryro](https://github.com/emeryro))
+- [#1219](https://github.com/ec-europa/europa-component-library/pull/1219) chore: create EU navigation structure - INNO-1651 ([@yhuard](https://github.com/yhuard))
+- [#1223](https://github.com/ec-europa/europa-component-library/pull/1223) chore(website): enhance sidebar behaviour - INNO-1659 ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 3
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- Yannick Huard ([@yhuard](https://github.com/yhuard))
+- [@planctus](https://github.com/planctus)
+
 ## 2.9.0 (2019-07-18)
 
 #### :rocket: New Feature

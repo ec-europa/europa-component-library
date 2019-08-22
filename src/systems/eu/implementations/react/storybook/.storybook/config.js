@@ -76,6 +76,7 @@ html {
           margin: 0,
           boxShadow: 'none',
           borderRadius: 0,
+          position: 'absolute',
         },
       },
       ...INITIAL_VIEWPORTS,

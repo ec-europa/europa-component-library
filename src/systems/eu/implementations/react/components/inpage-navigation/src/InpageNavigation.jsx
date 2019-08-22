@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import Link from '@ecl/eu-react-component-link';
 import Icon from '@ecl/eu-react-component-icon';
 
-const InpageNavigation = ({ title, links, className, ...props }) => {
+export const InpageNavigation = ({ title, links, className, ...props }) => {
   const classNames = classnames(className, 'ecl-inpage-navigation');
   return (
     <nav {...props} className={classNames} data-ecl-inpage-navigation>

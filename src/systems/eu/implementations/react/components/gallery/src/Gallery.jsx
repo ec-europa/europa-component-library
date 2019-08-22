@@ -1,11 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { GalleryItem } from './GalleryItem';
+import { GalleryOverlay } from './GalleryOverlay';
 
-import GalleryItem from './GalleryItem';
-import GalleryOverlay from './GalleryOverlay';
-
-const Gallery = ({ overlay, items, selectedItemId, className, ...props }) => {
+export const Gallery = ({
+  overlay,
+  items,
+  selectedItemId,
+  className,
+  ...props
+}) => {
   const classNames = classnames(className, 'ecl-gallery');
 
   return (

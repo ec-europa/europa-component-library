@@ -5,7 +5,6 @@ import Blockquote from '@ecl/eu-react-component-blockquote';
 import Card from '@ecl/eu-react-component-card';
 import Footer from '@ecl/eu-react-component-footer';
 import Icon from '@ecl/eu-react-component-icon';
-import LanguageListOverlay from '@ecl/eu-react-component-language-list/src/LanguageListOverlay';
 import Link from '@ecl/eu-react-component-link';
 import MediaContainer from '@ecl/eu-react-component-media-container';
 import HeroBanner from '@ecl/eu-react-component-hero-banner';
@@ -14,15 +13,13 @@ import SiteHeader from '@ecl/eu-react-component-site-header';
 const CampaignPage = ({
   siteHeader,
   heroBanner,
-  languageList,
   mediaContainer,
   footer,
   card,
   blockquote,
 }) => (
   <Fragment>
-    <SiteHeader {...siteHeader} id="top" />
-    <LanguageListOverlay {...languageList} hidden="true" />
+    <SiteHeader {...siteHeader} id="top" data-ecl-auto-init="SiteHeader" />
     <HeroBanner {...heroBanner} />
     <main className="ecl-u-pv-xl">
       <div className="ecl-container">
@@ -32,7 +29,7 @@ const CampaignPage = ({
           </div>
 
           <div className="ecl-col-sm-12 ecl-col-md-6">
-            <p className="ecl-u-type-paragraph">
+            <p className="ecl-u-type-paragraph ecl-u-type-color-grey">
               The European Commission has put forward ambitious yet realistic
               proposals for a modern EU budget. It is time for an EU budget that
               reflects rapid developments in innovation, the economy, the
@@ -63,7 +60,7 @@ const CampaignPage = ({
         </div>
 
         <div id="social-media-sharing">
-          <p className="ecl-u-type-paragraph">
+          <p className="ecl-u-type-paragraph ecl-u-type-color-grey">
             <Icon size="m" shape="notifications--information" />
             &nbsp; To insert social media sharing here, please use&nbsp;
             <Link
@@ -82,7 +79,6 @@ const CampaignPage = ({
 CampaignPage.propTypes = {
   siteHeader: PropTypes.shape(SiteHeader.propTypes),
   heroBanner: PropTypes.shape(HeroBanner.propTypes),
-  languageList: PropTypes.shape(LanguageListOverlay.propTypes),
   mediaContainer: PropTypes.shape(MediaContainer.propTypes),
   footer: PropTypes.shape(Footer.propTypes),
   card: PropTypes.shape(Card.propTypes),
@@ -92,7 +88,6 @@ CampaignPage.propTypes = {
 CampaignPage.defaultProps = {
   siteHeader: {},
   heroBanner: {},
-  languageList: {},
   mediaContainer: {},
   footer: {},
   card: {},

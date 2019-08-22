@@ -1,6 +1,6 @@
 /**
  * Site header
- * @define site-header ; weak
+ * @define site-header
  */
 
 // Import base
@@ -64,9 +64,10 @@
     }
   }
 
-  .ecl-site-header__selector .ecl-link {
+  .ecl-site-header__selector-link {
     align-items: center;
     display: flex;
+    font: $ecl-font-m;
 
     &:visited {
       color: $ecl-color-primary;

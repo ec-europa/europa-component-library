@@ -6,6 +6,7 @@ import { EVENTS } from '../constants';
 export class CodeToggle extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       expanded: false,
     };

@@ -20,7 +20,13 @@ const LanguageListOverlay = ({
   );
 
   return (
-    <div {...props} className={classNames} data-ecl-language-list-overlay>
+    <div
+      {...props}
+      className={classNames}
+      aria-labelledby="ecl-language-list__title"
+      role="dialog"
+      data-ecl-language-list-overlay
+    >
       <div className="ecl-language-list__container ecl-container">
         <div className="ecl-row">
           <div className="ecl-language-list__close ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2">
@@ -32,7 +38,10 @@ const LanguageListOverlay = ({
               data-ecl-language-list-close
             />
           </div>
-          <div className="ecl-language-list__title ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2">
+          <div
+            className="ecl-language-list__title ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+            id="ecl-language-list__title"
+          >
             <Icon
               shape="general--generic-lang"
               size="m"

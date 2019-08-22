@@ -1,3 +1,4 @@
+const fs = require('fs');
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
@@ -35,6 +36,24 @@ if (
   eclVersion += ` - PR ${process.env.REVIEW_ID}`;
 }
 
+const isDrone = 'DRONE' in process.env && 'CI' in process.env;
+
+let sri = {};
+if (isDrone && process.env.DRONE_BUILD_EVENT === 'tag') {
+  try {
+    sri = JSON.parse(
+      fs.readFileSync(
+        `${path.resolve(__dirname, '../../dist/packages')}/${
+          process.env.DRONE_REPO_NAME
+        }-${process.env.DRONE_TAG}-sri.json`
+      )
+    );
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.warn(error);
+  }
+}
+
 const cssLoader = ({ fixCode = true, prefix } = {}) => [
   {
     loader: MiniCssExtractPlugin.loader,
@@ -67,18 +86,20 @@ module.exports = {
   // We generate sourcemaps in production. This is slow but gives good results.
   // You can exclude the *.map files from the build during deployment.
   devtool: shouldUseSourceMap ? 'source-map' : false,
-  entry: [
-    path.resolve(__dirname, 'config/polyfills.js'),
-    path.resolve(__dirname, 'src/Index.jsx'),
-  ],
+  entry: {
+    main: [
+      path.resolve(__dirname, 'config/polyfills.js'),
+      path.resolve(__dirname, 'src/Index.jsx'),
+    ],
+  },
   output: {
     // The build folder.
     path: path.resolve(__dirname, 'build'),
     // Generated JS file names (with nested folders).
     // There will be one main bundle, and one file per asynchronous chunk.
     // We don't currently advertise code splitting but Webpack supports it.
-    filename: 'static/js/[name].[chunkhash:8].js',
-    chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js',
+    filename: 'dist/scripts/[name].[chunkhash:8].js',
+    chunkFilename: 'dist/scripts/[name].[chunkhash:8].chunk.js',
     // We inferred the "public path" (such as / or /my-project) from homepage.
     publicPath,
   },
@@ -90,6 +111,12 @@ module.exports = {
     // `web` extension prefixes have been added for better support
     // for React Native Web.
     extensions: ['.mjs', '.js', '.json', '.jsx'],
+    alias: {
+      '@ecl/website-components': path.resolve(
+        __dirname,
+        'src/website-components/'
+      ),
+    },
   },
   module: {
     // strictExportPresence makes missing exports an error instead of warning
@@ -110,16 +137,6 @@ module.exports = {
               loader: 'babel-loader',
               options: babelConfig,
             },
-          },
-          {
-            // EC CSS imported to showcase components
-            test: /ec-preset-full\.css$/,
-            use: cssLoader({ fixCode: false, prefix: '.ec' }),
-          },
-          {
-            // EU CSS imported to showcase components
-            test: /eu-preset-full\.css$/,
-            use: cssLoader({ fixCode: false, prefix: '.eu' }),
           },
           {
             test: /\.css$/,
@@ -167,7 +184,7 @@ module.exports = {
               loader: 'url-loader',
               options: {
                 limit: 10000,
-                name: 'static/media/[name].[hash:8].[ext]',
+                name: 'dist/images/[name].[hash:8].[ext]',
               },
             },
           },
@@ -181,10 +198,6 @@ module.exports = {
               {
                 loader: 'babel-loader',
                 options: babelConfig,
-              },
-              {
-                // Adds front-matter to export
-                loader: 'mdx-frontmatter-loader',
               },
               {
                 loader: '@mdx-js/loader',
@@ -210,7 +223,7 @@ module.exports = {
             use: {
               loader: 'file-loader',
               options: {
-                name: 'static/media/[name].[hash:8].[ext]',
+                name: 'dist/media/[name].[hash:8].[ext]',
               },
             },
           },
@@ -297,12 +310,30 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify('production'),
       'process.env.PUBLIC_URL': JSON.stringify(publicUrl),
       'process.env.ECL_VERSION': JSON.stringify(eclVersion),
+      'process.env.ECL_EC_PRESET_WEBSITE_CSS': JSON.stringify(
+        (sri['ecl-ec-preset-website.css'] || []).join(' ') || 'n/a'
+      ),
+      'process.env.ECL_EC_PRESET_WEBSITE_PRINT_CSS': JSON.stringify(
+        (sri['ecl-ec-preset-website-print.css'] || []).join(' ') || 'n/a'
+      ),
+      'process.env.ECL_EC_PRESET_WEBSITE_JS': JSON.stringify(
+        (sri['ecl-ec-preset-website.js'] || []).join(' ') || 'n/a'
+      ),
+      'process.env.ECL_EU_PRESET_WEBSITE_CSS': JSON.stringify(
+        (sri['ecl-eu-preset-website.css'] || []).join(' ') || 'n/a'
+      ),
+      'process.env.ECL_EU_PRESET_WEBSITE_PRINT_CSS': JSON.stringify(
+        (sri['ecl-eu-preset-website-print.css'] || []).join(' ') || 'n/a'
+      ),
+      'process.env.ECL_EU_PRESET_WEBSITE_JS': JSON.stringify(
+        (sri['ecl-eu-preset-website.js'] || []).join(' ') || 'n/a'
+      ),
     }),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: 'static/css/[name].[contenthash:8].css',
-      chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
+      filename: 'dist/styles/[name].[contenthash:8].css',
+      chunkFilename: 'dist/styles/[name].[contenthash:8].chunk.css',
     }),
     // Generate a manifest file which contains a mapping of all asset filenames
     // to their corresponding output file so that tools can pick it up without
@@ -312,7 +343,8 @@ module.exports = {
       publicPath,
     }),
     // If you want to invetigate the bundle size, uncomment the following line
-    // new (require('webpack-bundle-analyzer')).BundleAnalyzerPlugin(), // eslint-disable-line
+    // eslint-disable-next-line global-require
+    // new (require('webpack-bundle-analyzer')).BundleAnalyzerPlugin(),
   ],
   performance: {
     hints: 'warning',

@@ -9,51 +9,107 @@ Users can still go to ECL v1 to create or upgrade their websites. In 2019, we wi
 
 We will also add new components to the ECL v2 as we continue improving the look and feel of the existing components. New releases under v2 should be published periodically under [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 2.10.1 (2019-08-16)
+
+#### :bug: Bug Fix
+
+- [#1258](https://github.com/ec-europa/europa-component-library/pull/1258) fix: fix wrong SCSS imports - INNO-1732
+
+#### :house: Internal
+
+- [#1257](https://github.com/ec-europa/europa-component-library/pull/1257) fix(drone): fix website deployment - INNO-1731
+
+## 2.10.0 (2019-08-13)
+
+#### :rocket: New Feature
+
+- [#984](https://github.com/ec-europa/europa-component-library/pull/984) feat(checkbox): apply new specifications - INNO-1307
+- [#1247](https://github.com/ec-europa/europa-component-library/pull/1247) feat(file-upload): add basic file upload - INNO-1717
+- [#1217](https://github.com/ec-europa/europa-component-library/pull/1217) feat: export to codepen - INNO-1646
+- [#1231](https://github.com/ec-europa/europa-component-library/pull/1231) feat(dateblock): add component - INNO-1510
+- [#1227](https://github.com/ec-europa/europa-component-library/pull/1227) feat: initialize JS components automatically (opt-in) - INNO-1680
+
+#### :bug: Bug Fix
+
+- [#1252](https://github.com/ec-europa/europa-component-library/pull/1252) fix(cards): use aria-label instead of alt - INNO-1727
+- [#1234](https://github.com/ec-europa/europa-component-library/pull/1234) fix(search-template): fix spacing - INNO-1703
+- [#1229](https://github.com/ec-europa/europa-component-library/pull/1229) fix(search-form): make input fluid - INNO-1687
+- [#1226](https://github.com/ec-europa/europa-component-library/pull/1226) fix(table): use bold for headers - INNO-1666
+
+#### :nail_care: Enhancement
+
+- [#1253](https://github.com/ec-europa/europa-component-library/pull/1253) refactor(cards): change image ratio to 3:2 - INNO-1502
+- [#1235](https://github.com/ec-europa/europa-component-library/pull/1235) fix(label): use inline display - INNO-1704
+- [#1237](https://github.com/ec-europa/europa-component-library/pull/1237) feat(text-input): add print - INNO-1706
+- [#1236](https://github.com/ec-europa/europa-component-library/pull/1236) feat(select): add print css - INNO-1477
+- [#1233](https://github.com/ec-europa/europa-component-library/pull/1233) feat(form-group): allow group classname - INNO-1702
+- [#1222](https://github.com/ec-europa/europa-component-library/pull/1222) refactor(radio): update radio group - INNO-1452
+- [#1228](https://github.com/ec-europa/europa-component-library/pull/1228) refactor(select): update styling of select - INNO-1595
+- [#1183](https://github.com/ec-europa/europa-component-library/pull/1183) refactor(text-inputs): update styling of text inputs - INNO-1593
+
+#### :memo: Documentation
+
+- [#1241](https://github.com/ec-europa/europa-component-library/pull/1241) docs(typography): add coded examples - INNO-1712
+- [#1075](https://github.com/ec-europa/europa-component-library/pull/1075) docs: define which browsers we support - INNO-1438
+- [#1245](https://github.com/ec-europa/europa-component-library/pull/1245) docs(spacing): fix incorrect token - INNO-1716
+- [#1239](https://github.com/ec-europa/europa-component-library/pull/1239) docs(breadcrumb): remove image - INNO-1711
+
+#### :house: Internal
+
+- [#1191](https://github.com/ec-europa/europa-component-library/pull/1191) chore(website): enhance performance - INNO-1617
+- [#1246](https://github.com/ec-europa/europa-component-library/pull/1246) feat(browserslist): update config and display browsers list - INNO-1718
+- [#1240](https://github.com/ec-europa/europa-component-library/pull/1240) refactor(storybook): use JS auto init - INNO-1709
+- [#1225](https://github.com/ec-europa/europa-component-library/pull/1225) chore: create knobs for campaign template - INNO-1645
+- [#1238](https://github.com/ec-europa/europa-component-library/pull/1238) chore: update dependencies - INNO-1710
+- [#1232](https://github.com/ec-europa/europa-component-library/pull/1232) chore(token): add tokens for form width - INNO-1692
+- [#1219](https://github.com/ec-europa/europa-component-library/pull/1219) chore: create EU navigation structure - INNO-1651
+- [#1223](https://github.com/ec-europa/europa-component-library/pull/1223) chore(website): enhance sidebar behaviour - INNO-1659
+
 ## 2.9.0 (2019-07-18)
 
 #### :rocket: New Feature
 
-- [#1218](https://github.com/ec-europa/europa-component-library/pull/1218) feat: add skip link component - INNO-1653 ([@yhuard](https://github.com/yhuard))
-- [#1200](https://github.com/ec-europa/europa-component-library/pull/1200) feat(table): add table - INNO-1628 ([@emeryro](https://github.com/emeryro))
+- [#1218](https://github.com/ec-europa/europa-component-library/pull/1218) feat: add skip link component - INNO-1653
+- [#1200](https://github.com/ec-europa/europa-component-library/pull/1200) feat(table): add table - INNO-1628
 
 #### :bug: Bug Fix
 
-- [#1196](https://github.com/ec-europa/europa-component-library/pull/1196) fix(inpage-nav): add missing polyfills for IE - INNO-1622 ([@yhuard](https://github.com/yhuard))
+- [#1196](https://github.com/ec-europa/europa-component-library/pull/1196) fix(inpage-nav): add missing polyfills for IE - INNO-1622
 
 #### :nail_care: Enhancement
 
-- [#1190](https://github.com/ec-europa/europa-component-library/pull/1190) chore: hide back to top - INNO-1611 ([@yhuard](https://github.com/yhuard))
+- [#1190](https://github.com/ec-europa/europa-component-library/pull/1190) chore: hide back to top - INNO-1611
 
 #### :memo: Documentation
 
-- [#1220](https://github.com/ec-europa/europa-component-library/pull/1220) docs(skip-link): add and hide skip link's documentation - INNO-1653 ([@yhuard](https://github.com/yhuard))
-- [#1213](https://github.com/ec-europa/europa-component-library/pull/1213) docs(text-field): update documentation of text field - INNO-1641 ([@yhuard](https://github.com/yhuard))
-- [#1216](https://github.com/ec-europa/europa-component-library/pull/1216) docs: add playground tab to many pages - INNO-1644 ([@yhuard](https://github.com/yhuard))
-- [#1215](https://github.com/ec-europa/europa-component-library/pull/1215) docs(timelines): update documentation of timeline - INNO-1643 ([@yhuard](https://github.com/yhuard))
-- [#1207](https://github.com/ec-europa/europa-component-library/pull/1207) docs(message): update documentation of messages - INNO-1635 ([@yhuard](https://github.com/yhuard))
-- [#1208](https://github.com/ec-europa/europa-component-library/pull/1208) docs(pagination): update documentation of pagination - INNO-1636 ([@yhuard](https://github.com/yhuard))
-- [#1212](https://github.com/ec-europa/europa-component-library/pull/1212) docs: add documentation about social media share - INNO-1640 ([@yhuard](https://github.com/yhuard))
-- [#1214](https://github.com/ec-europa/europa-component-library/pull/1214) docs(text-area): update documentation of text area - INNO-1642 ([@yhuard](https://github.com/yhuard))
-- [#1210](https://github.com/ec-europa/europa-component-library/pull/1210) docs: add documentation about search form - INNO-1638 ([@yhuard](https://github.com/yhuard))
-- [#1211](https://github.com/ec-europa/europa-component-library/pull/1211) docs: add documentation about social media follow - INNO-1639 ([@yhuard](https://github.com/yhuard))
-- [#1209](https://github.com/ec-europa/europa-component-library/pull/1209) docs(radio): update documentation of radio - INNO-1637 ([@yhuard](https://github.com/yhuard))
-- [#1204](https://github.com/ec-europa/europa-component-library/pull/1204) docs(file): update file download's documentation - INNO-1632 ([@yhuard](https://github.com/yhuard))
-- [#1206](https://github.com/ec-europa/europa-component-library/pull/1206) docs(language-list): update documentation of language list - INNO-1634 ([@yhuard](https://github.com/yhuard))
-- [#1189](https://github.com/ec-europa/europa-component-library/pull/1189) docs(grid): document grid and provide examples - INNO-1616 ([@yhuard](https://github.com/yhuard))
-- [#1205](https://github.com/ec-europa/europa-component-library/pull/1205) docs(inpage-nav): update inpage-nav's documentation - INNO-1633 ([@yhuard](https://github.com/yhuard))
-- [#1203](https://github.com/ec-europa/europa-component-library/pull/1203) docs(expandable): update expandable's documentation - INNO-1631 ([@yhuard](https://github.com/yhuard))
-- [#1201](https://github.com/ec-europa/europa-component-library/pull/1201) docs(select): update select's documentation - INNO-1630 ([@yhuard](https://github.com/yhuard))
-- [#1199](https://github.com/ec-europa/europa-component-library/pull/1199) docs(accordion): update accordion's doc - INNO-1629 ([@yhuard](https://github.com/yhuard))
-- [#1198](https://github.com/ec-europa/europa-component-library/pull/1198) docs: add a note about using external SVG sprite - INNO-1625 ([@yhuard](https://github.com/yhuard))
-- [#1193](https://github.com/ec-europa/europa-component-library/pull/1193) docs(accordion): update thumbnail - INNO-1610 ([@emeryro](https://github.com/emeryro))
+- [#1220](https://github.com/ec-europa/europa-component-library/pull/1220) docs(skip-link): add and hide skip link's documentation - INNO-1653
+- [#1213](https://github.com/ec-europa/europa-component-library/pull/1213) docs(text-field): update documentation of text field - INNO-1641
+- [#1216](https://github.com/ec-europa/europa-component-library/pull/1216) docs: add playground tab to many pages - INNO-1644
+- [#1215](https://github.com/ec-europa/europa-component-library/pull/1215) docs(timelines): update documentation of timeline - INNO-1643
+- [#1207](https://github.com/ec-europa/europa-component-library/pull/1207) docs(message): update documentation of messages - INNO-1635
+- [#1208](https://github.com/ec-europa/europa-component-library/pull/1208) docs(pagination): update documentation of pagination - INNO-1636
+- [#1212](https://github.com/ec-europa/europa-component-library/pull/1212) docs: add documentation about social media share - INNO-1640
+- [#1214](https://github.com/ec-europa/europa-component-library/pull/1214) docs(text-area): update documentation of text area - INNO-1642
+- [#1210](https://github.com/ec-europa/europa-component-library/pull/1210) docs: add documentation about search form - INNO-1638
+- [#1211](https://github.com/ec-europa/europa-component-library/pull/1211) docs: add documentation about social media follow - INNO-1639
+- [#1209](https://github.com/ec-europa/europa-component-library/pull/1209) docs(radio): update documentation of radio - INNO-1637
+- [#1204](https://github.com/ec-europa/europa-component-library/pull/1204) docs(file): update file download's documentation - INNO-1632
+- [#1206](https://github.com/ec-europa/europa-component-library/pull/1206) docs(language-list): update documentation of language list - INNO-1634
+- [#1189](https://github.com/ec-europa/europa-component-library/pull/1189) docs(grid): document grid and provide examples - INNO-1616
+- [#1205](https://github.com/ec-europa/europa-component-library/pull/1205) docs(inpage-nav): update inpage-nav's documentation - INNO-1633
+- [#1203](https://github.com/ec-europa/europa-component-library/pull/1203) docs(expandable): update expandable's documentation - INNO-1631
+- [#1201](https://github.com/ec-europa/europa-component-library/pull/1201) docs(select): update select's documentation - INNO-1630
+- [#1199](https://github.com/ec-europa/europa-component-library/pull/1199) docs(accordion): update accordion's doc - INNO-1629
+- [#1198](https://github.com/ec-europa/europa-component-library/pull/1198) docs: add a note about using external SVG sprite - INNO-1625
+- [#1193](https://github.com/ec-europa/europa-component-library/pull/1193) docs(accordion): update thumbnail - INNO-1610
 
 #### :house: Internal
 
-- [#1202](https://github.com/ec-europa/europa-component-library/pull/1202) chore: update dependencies - INNO-1650 ([@yhuard](https://github.com/yhuard))
-- [#1197](https://github.com/ec-europa/europa-component-library/pull/1197) refactor(list): split component - INNO-1564 ([@emeryro](https://github.com/emeryro))
-- [#1195](https://github.com/ec-europa/europa-component-library/pull/1195) refactor(timeline): split component - INNO-1563 ([@emeryro](https://github.com/emeryro))
-- [#1194](https://github.com/ec-europa/europa-component-library/pull/1194) refactor(accordion): split component - INNO-1562 ([@emeryro](https://github.com/emeryro))
-- [#1192](https://github.com/ec-europa/europa-component-library/pull/1192) refactor(preset): move deprecated into legacy - INNO-1605 ([@emeryro](https://github.com/emeryro))
+- [#1202](https://github.com/ec-europa/europa-component-library/pull/1202) chore: update dependencies - INNO-1650
+- [#1197](https://github.com/ec-europa/europa-component-library/pull/1197) refactor(list): split component - INNO-1564
+- [#1195](https://github.com/ec-europa/europa-component-library/pull/1195) refactor(timeline): split component - INNO-1563
+- [#1194](https://github.com/ec-europa/europa-component-library/pull/1194) refactor(accordion): split component - INNO-1562
+- [#1192](https://github.com/ec-europa/europa-component-library/pull/1192) refactor(preset): move deprecated into legacy - INNO-1605
 
 ## 2.8.0 (2019-07-05)
 
