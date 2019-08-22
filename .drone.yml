@@ -63,7 +63,7 @@ pipeline:
         TEST: examples
 
   size:
-    image: node:dubnium
+    image: buildkite/puppeteer:latest
     commands:
       - yarn clean
       - yarn dist:presets
