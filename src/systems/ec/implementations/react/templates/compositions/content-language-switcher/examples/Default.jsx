@@ -13,7 +13,7 @@ export default () => (
       <span className="ecl-u-d-flex ecl-u-align-items-center ecl-u-pt-xs">
         <Icon shape="general--generic-lang" size="l" />
 
-        <span className="ecl-u-type-strike ecl-u-ml-m">italiano</span>
+        <span className="ecl-u-ml-m ecl-u-type-m ecl-u-type-strike">italiano</span>
       </span>
 
       <Expandable
