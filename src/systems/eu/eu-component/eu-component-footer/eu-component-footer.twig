@@ -6,7 +6,7 @@
   {% set _custom_footer %}
   {% set _identity = custom_footer.identity.label is defined ? custom_footer.identity.label : custom_footer.identity %}
 
-  <div class="ecl-container">
+  <div class="ecl-container ecl-footer__custom-v1908">
     <div class="ecl-footer__custom-title">
       {{ _identity|default('') }}
     </div>
@@ -69,7 +69,7 @@
 {% endif %}
 
 {% set _corporate_footer %}
-<div class="ecl-footer__corporate-top">
+<div class="ecl-footer__corporate-top ecl-footer__custom-v1908">
   <div class="ecl-container">
     <div class="ecl-row ecl-footer__row">
       <div class="ecl-footer__column ecl-col-md-4 ecl-footer__spaced-column">
@@ -94,7 +94,7 @@
         </ul>
         {% endif %}
         {% if corporate_footer.social_media.items is defined and corporate_footer.social_media.items is not empty %}
-        <div class="ecl-footer__column-title ecl-u-mt-m" id="footer-corporate-social-media">{{ corporate_footer.social_media.title }}</div>
+        <div class="ecl-footer__column-title ecl-u-mt-l" id="footer-corporate-social-media">{{ corporate_footer.social_media.title }}</div>
         <ul class="ecl-list ecl-list--unstyled ecl-footer__list" aria-labelledby="footer-corporate-social-media">
           {% for menu_item in corporate_footer.social_media.items %}
             {% if menu_item is not empty %}
@@ -139,14 +139,14 @@
     </div>
   </div>
 </div>
-<div class="ecl-footer__corporate-bottom">
+<div class="ecl-footer__corporate-bottom ecl-footer__custom-v1908">
   <div class="ecl-container">
     <div class="ecl-row ecl-footer__row">
       <div class="ecl-col">
         {% if corporate_footer.bottom_links is defined and corporate_footer.bottom_links is not empty %}
         <ul class="ecl-list ecl-list--inline ecl-footer__list ecl-footer__list--inline">
           {% if corporate_footer.published_date is defined and corporate_footer.published_date is not empty %}
-            <li class="ecl-footer__list-item">{{ corporate_footer.published_date }}</li>
+            <li class="ecl-footer__list-item ecl-footer__publication-date">{{ corporate_footer.published_date }}</li>
           {% endif %}
           {% for menu_item in corporate_footer.bottom_links %}
             {% if menu_item is not empty %}
