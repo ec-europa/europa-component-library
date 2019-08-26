@@ -5,7 +5,7 @@ module.exports = {
   tags: ['organism'],
   context: {
     custom_footer: {
-      identity: 'Site identification',
+      identity: 'Site Identification',
       social_links: {
         label: 'Follow us:',
         links: [
@@ -25,22 +25,18 @@ module.exports = {
               label: 'Twitter',
             },
           },
+          {
+            type: 'social-network',
+            icon: 'instagram',
+            link: {
+              href: '../../example.html#instagram',
+              label: 'Instagram',
+            },
+          },
         ],
       },
       other_links: {
         links: [
-          {
-            link: {
-              href: '../../example.html#contact',
-              label: 'Contact',
-            },
-          },
-          {
-            link: {
-              href: '../../example.html#sitemap',
-              label: 'Site map',
-            },
-          },
           {
             link: {
               href: '../../example.html#loremipsum1',
@@ -56,7 +52,13 @@ module.exports = {
           {
             link: {
               href: '../../example.html#loremipsum3',
-              label: 'Lorem ipsum',
+              label: 'Lorem ipsum dolor sit',
+            },
+          },
+          {
+            link: {
+              href: '../../example.html#loremipsum4',
+              label: 'Lorem ipsum dolor sit',
             },
           },
         ],
@@ -68,29 +70,33 @@ module.exports = {
         items: [
           {
             html:
-              'Call us <a href="../../example.html#call" class="ecl-link ecl-link--standalone">00 800 6 7 8 9 10 11</a> or use other <a href="../../example.html#call" class="ecl-link ecl-link--standalone">telephone options</a>',
+              'Call us <a href="../../example.html#call" class="ecl-link ecl-link--standalone">00 800 6 7 8 9 10 11</a>',
           },
           {
             html:
-              'E-mail us via our <a href="../../example.html#call" class="ecl-link ecl-link--standalone">contact form</a>',
+              'Use other <a href="../../example.html#call-other-options" class="ecl-link ecl-link--standalone">telephone options</a>',
           },
           {
             html:
-              'Visit our <a href="../../example.html#call" class="ecl-link ecl-link--standalone">contact points</a> in your country',
+              'Write to us via our <a href="../../example.html#contact-form" class="ecl-link ecl-link--standalone">contact form</a>',
+          },
+          {
+            html:
+              'Meet us at a <a href="../../example.html#local-office" class="ecl-link ecl-link--standalone">local EU office</a>',
           },
         ],
       },
       social_media: {
-        title: 'Find an EU social media account',
+        title: 'Find a social media account',
         items: [
           {
             html:
-              'Search for <a href="../../example.html#call" class="ecl-link ecl-link--standalone">EU social media channels</a>',
+              '<a href="../../example.html#call" class="ecl-link ecl-link--standalone">Search for EU social media channels</a>',
           },
         ],
       },
       find_institution: {
-        title: 'Find a European institution',
+        title: 'EU institutions',
         items: [
           {
             href: '../../example.html#',
@@ -162,11 +168,19 @@ module.exports = {
       bottom_links: [
         {
           href: '../../example.html#',
-          label: 'Language policy',
+          label: 'Work for the EU',
         },
         {
           href: '../../example.html#',
-          label: 'Privacy policy',
+          label: 'Sitemap',
+        },
+        {
+          href: '../../example.html#',
+          label: 'About this site',
+        },
+        {
+          href: '../../example.html#',
+          label: 'Language policy',
         },
         {
           href: '../../example.html#',
@@ -175,10 +189,6 @@ module.exports = {
         {
           href: '../../example.html#',
           label: 'Cookies',
-        },
-        {
-          href: '../../example.html#',
-          label: 'Web accessibility',
         },
       ],
       published_date: 'Last published 26/06/2018',
