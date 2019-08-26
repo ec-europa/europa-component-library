@@ -154,6 +154,25 @@
     display: inline-block;
   }
 
+  .ecl-footer__list--short {
+    display: block;
+  }
+
+  .ecl-footer__list--long {
+    display: none;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up(sm) {
+    .ecl-footer__list--short {
+      display: none;
+    }
+
+    .ecl-footer__list--long {
+      display: block;
+    }
+  }
+
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-down(sm) {
     .ecl-footer__list--2-col,

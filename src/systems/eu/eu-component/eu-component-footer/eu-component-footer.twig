@@ -6,7 +6,7 @@
   {% set _custom_footer %}
   {% set _identity = custom_footer.identity.label is defined ? custom_footer.identity.label : custom_footer.identity %}
 
-  <div class="ecl-container ecl-footer__custom-v1908">
+  <div class="ecl-container">
     <div class="ecl-footer__custom-title">
       {{ _identity|default('') }}
     </div>
@@ -69,7 +69,7 @@
 {% endif %}
 
 {% set _corporate_footer %}
-<div class="ecl-footer__corporate-top ecl-footer__custom-v1908">
+<div class="ecl-footer__corporate-top">
   <div class="ecl-container">
     <div class="ecl-row ecl-footer__row">
       <div class="ecl-footer__column ecl-col-md-4 ecl-footer__spaced-column">
@@ -117,8 +117,25 @@
       {% if corporate_footer.find_institution.items is defined and corporate_footer.find_institution.items is not empty %}
       <div class="ecl-footer__column ecl-col-md-8 ecl-footer__spaced-column">
         <div class="ecl-footer__column-title" id="footer-corporate-find-institution">{{ corporate_footer.find_institution.title }}</div>
-        <ul class="ecl-list ecl-list--unstyled ecl-footer__list ecl-footer__list--2-col" aria-labelledby="footer-corporate-find-institution">
+        <ul class="ecl-list ecl-list--unstyled ecl-footer__list ecl-footer__list--2-col ecl-footer__list--long" aria-labelledby="footer-corporate-find-institution">
           {% for menu_item in corporate_footer.find_institution.items %}
+            {% if menu_item is not empty %}
+              <li class="ecl-footer__list-item">
+                {% if menu_item.href is defined and menu_item.href is not empty %}
+                  {% include '@ecl/eu-component-link' with {
+                    href: menu_item.href,
+                    label: menu_item.label,
+                    extra_classes: 'ecl-footer__link'
+                  } only %}
+                {% elseif menu_item.html is defined and menu_item.html is not empty %}
+                  {{ menu_item.html|raw }}
+                {% endif %}
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+        <ul class="ecl-list ecl-list--unstyled ecl-footer__list ecl-footer__list--2-col ecl-footer__list--short">
+          {% for menu_item in corporate_footer.find_institution.short_list %}
             {% if menu_item is not empty %}
               <li class="ecl-footer__list-item">
                 {% if menu_item.href is defined and menu_item.href is not empty %}
@@ -139,7 +156,7 @@
     </div>
   </div>
 </div>
-<div class="ecl-footer__corporate-bottom ecl-footer__custom-v1908">
+<div class="ecl-footer__corporate-bottom">
   <div class="ecl-container">
     <div class="ecl-row ecl-footer__row">
       <div class="ecl-col">
