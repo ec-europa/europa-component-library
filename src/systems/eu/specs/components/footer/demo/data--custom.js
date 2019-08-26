@@ -10,7 +10,7 @@ module.exports = {
     },
   },
   identity: {
-    title: 'Site identification',
+    title: 'Site Identification',
     follow: {
       label: 'Follow us:',
       links: [
@@ -82,13 +82,15 @@ module.exports = {
             },
             before: 'Call us ',
           },
+        ],
+        [
           {
             link: {
               variant: 'standalone',
               label: 'telephone options',
               href: '/example',
             },
-            before: ' or use other ',
+            before: 'Use other ',
           },
         ],
         [
@@ -98,18 +100,17 @@ module.exports = {
               label: 'contact form',
               href: '/example',
             },
-            before: 'E-mail us via our ',
+            before: 'Write to us via our ',
           },
         ],
         [
           {
             link: {
               variant: 'standalone',
-              label: 'contact points',
+              label: 'local EU office',
               href: '/example',
             },
-            before: 'Visit our ',
-            after: ' in your country',
+            before: 'Meet us at a ',
           },
         ],
       ],
@@ -121,16 +122,15 @@ module.exports = {
           {
             link: {
               variant: 'standalone',
-              label: 'EU social media channels',
+              label: 'Search for EU social media channels',
               href: '/example',
             },
-            before: 'Search for ',
           },
         ],
       ],
     },
     {
-      title: 'Find a European institution',
+      title: 'EU institution',
       items: [
         [
           {
@@ -298,12 +298,22 @@ module.exports = {
     links: [
       {
         variant: 'standalone',
-        label: 'Language policy',
+        label: 'Work for the EU',
         href: '/example',
       },
       {
         variant: 'standalone',
-        label: 'Privacy policy',
+        label: 'Sitemap',
+        href: '/example',
+      },
+      {
+        variant: 'standalone',
+        label: 'About this site',
+        href: '/example',
+      },
+      {
+        variant: 'standalone',
+        label: 'Language policy',
         href: '/example',
       },
       {
@@ -314,11 +324,6 @@ module.exports = {
       {
         variant: 'standalone',
         label: 'Cookies',
-        href: '/example',
-      },
-      {
-        variant: 'standalone',
-        label: 'Web accessibility',
         href: '/example',
       },
     ],
