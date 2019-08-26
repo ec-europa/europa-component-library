@@ -29,15 +29,17 @@
 
   .ecl-footer__custom-label {
     color: map-get($ecl-colors, 'grey-100');
+    display: inline-block;
     font-size: map-get($ecl-font-size, 's');
     font-weight: normal;
+    margin-bottom: map-get($ecl-spacing, 's');
   }
 
   .ecl-footer__custom-title {
     color: map-get($ecl-colors, 'grey-100');
     display: inline-block;
     font-size: map-get($ecl-font-size, 'm');
-    margin-bottom: map-get($ecl-spacing, 'xxxs');
+    margin-bottom: map-get($ecl-spacing, 's');
   }
 
   .ecl-footer__corporate {
@@ -47,23 +49,8 @@
   .ecl-footer__corporate-top {
     background-color: map-get($ecl-colors, 'grey-15');
     color: map-get($ecl-colors, 'grey-100');
-    padding-bottom: map-get($ecl-spacing, 'xl');
-    padding-top: map-get($ecl-spacing, 'xl');
-  }
-
-  .ecl-footer__corporate-bottom {
-    background-color: map-get($ecl-colors, 'grey-20');
-    color: map-get($ecl-colors, 'grey-100');
-    padding-bottom: map-get($ecl-spacing, 'm');
-    padding-top: map-get($ecl-spacing, 'm');
-  }
-
-  .ecl-footer__other-links {
-    margin-top: map-get($ecl-spacing, 's');
-
-    @include ecl-media-breakpoint-up(md) {
-      margin-top: 0;
-    }
+    padding-bottom: map-get($ecl-spacing, 'l');
+    padding-top: map-get($ecl-spacing, 'l');
   }
 
   .ecl-footer__list {
@@ -71,17 +58,52 @@
   }
 
   .ecl-footer__list-item {
-    line-height: 1.625;
-    padding-top: map-get($ecl-spacing, 'xxs');
+    line-height: 1.125;
+    padding-top: map-get($ecl-spacing, 's');
   }
 
   .ecl-footer__list--inline {
-    margin-top: 0;
+    margin-top: -(map-get($ecl-spacing, 's'));
 
     .ecl-footer__list-item {
       margin-left: 0;
       margin-right: map-get($ecl-spacing, 'm');
+      padding-top: map-get($ecl-spacing, 's');
+    }
+  }
+
+  .ecl-footer__corporate-bottom {
+    background-color: map-get($ecl-colors, 'grey-20');
+    color: map-get($ecl-colors, 'grey-100');
+    padding-bottom: map-get($ecl-spacing, 'm');
+    padding-top: map-get($ecl-spacing, 'm');
+
+    /* stylelint-disable-next-line */
+    .ecl-footer__list--inline {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    /* stylelint-disable-next-line */
+    .ecl-footer__list-item {
+      margin-right: map-get($ecl-spacing, 'l');
+      margin-top: map-get($ecl-spacing, 's');
       padding-top: 0;
+    }
+
+    /* stylelint-disable-next-line */
+    .ecl-footer__publication-date {
+      border-right: 1px solid map-get($ecl-colors, 'grey-50');
+      margin-right: map-get($ecl-spacing, 'm');
+      padding-right: map-get($ecl-spacing, 'm');
+    }
+  }
+
+  .ecl-footer__other-links {
+    margin-top: map-get($ecl-spacing, 's');
+
+    @include ecl-media-breakpoint-up(md) {
+      margin-top: 0;
     }
   }
 
@@ -112,12 +134,12 @@
   }
 
   .ecl-footer__column-title {
-    border-bottom: 2px solid rgba(87, 87, 87, 0.25);
+    border-bottom: 2px solid map-get($ecl-colors, 'grey-25');
     color: map-get($ecl-colors, 'grey-100');
     font-size: map-get($ecl-font-size, 'm');
-    font-weight: normal;
+    font-weight: bold;
     margin-bottom: map-get($ecl-spacing, 'm');
-    padding-bottom: map-get($ecl-spacing, 'xxxs');
+    padding-bottom: map-get($ecl-spacing, 'xs');
   }
 
   .ecl-footer__list--2-col {
@@ -145,56 +167,6 @@
     }
 
     .ecl-footer__custom-title {
-      margin-bottom: map-get($ecl-spacing, 'xs');
-    }
-
-    .ecl-footer__custom-label {
-      display: block;
-      margin-bottom: map-get($ecl-spacing, 'xxxs');
-    }
-
-    .ecl-footer__corporate-top {
-      padding-bottom: map-get($ecl-spacing, 'm');
-      padding-top: map-get($ecl-spacing, 'm');
-    }
-
-    .ecl-footer__column-title {
-      margin-bottom: map-get($ecl-spacing, 'xs');
-    }
-
-    .ecl-footer__spaced-column + .ecl-footer__spaced-column {
-      padding-top: map-get($ecl-spacing, 'm');
-    }
-
-    .ecl-footer__corporate-bottom {
-      padding-bottom: map-get($ecl-spacing, 's');
-      padding-top: map-get($ecl-spacing, 's');
-    }
-
-    .ecl-footer__list {
-      margin-top: 0;
-    }
-
-    .ecl-footer__list--inline .ecl-footer__list-item {
-      margin-right: map-get($ecl-spacing, 's');
-    }
-  }
-
-  .ecl-footer__custom-v1908 {
-    /* stylelint-disable-next-line */
-    &.ecl-footer__corporate-top {
-      padding-bottom: map-get($ecl-spacing, 'l');
-      padding-top: map-get($ecl-spacing, 'l');
-    }
-
-    /* stylelint-disable-next-line */
-    @include ecl-media-breakpoint-down(sm) {
-      .ecl-footer__spaced-column + .ecl-footer__spaced-column {
-        padding-top: map-get($ecl-spacing, 'l');
-      }
-    }
-
-    .ecl-footer__custom-title {
       margin-bottom: map-get($ecl-spacing, 's');
     }
 
@@ -203,46 +175,18 @@
       margin-bottom: map-get($ecl-spacing, 's');
     }
 
-    .ecl-footer__list-item {
-      line-height: 1.125;
-      padding-top: map-get($ecl-spacing, 's');
+    .ecl-footer__corporate-top {
+      padding-bottom: map-get($ecl-spacing, 'l');
+      padding-top: map-get($ecl-spacing, 'l');
     }
 
     .ecl-footer__column-title {
-      border-bottom: 2px solid map-get($ecl-colors, 'grey-25');
-      font-weight: bold;
       margin-bottom: map-get($ecl-spacing, 'm');
       padding-bottom: map-get($ecl-spacing, 'xs');
     }
 
-    .ecl-footer__list {
-      margin-top: -(map-get($ecl-spacing, 's'));
-    }
-
-    /* stylelint-disable-next-line */
-    &.ecl-footer__corporate-bottom {
-      padding-bottom: map-get($ecl-spacing, 'm');
-      padding-top: map-get($ecl-spacing, 'm');
-
-      /* stylelint-disable-next-line */
-      .ecl-footer__list--inline {
-        display: flex;
-        flex-wrap: wrap;
-      }
-
-      /* stylelint-disable-next-line */
-      .ecl-footer__list-item {
-        margin-right: map-get($ecl-spacing, 'l');
-        margin-top: map-get($ecl-spacing, 's');
-        padding-top: 0;
-      }
-
-      /* stylelint-disable-next-line */
-      .ecl-footer__publication-date {
-        border-right: 1px solid map-get($ecl-colors, 'grey-50');
-        margin-right: map-get($ecl-spacing, 'm');
-        padding-right: map-get($ecl-spacing, 'm');
-      }
+    .ecl-footer__spaced-column + .ecl-footer__spaced-column {
+      padding-top: map-get($ecl-spacing, 'l');
     }
   }
 }
