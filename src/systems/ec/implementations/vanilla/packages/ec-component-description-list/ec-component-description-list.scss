@@ -37,6 +37,12 @@
   .ecl-description-list__definition + .ecl-description-list__definition {
     margin-top: $ecl-spacing-xs;
   }
+
+  // Horizontal description list
+  .ecl-description-list--horizontal {
+    display: grid;
+    grid-template-columns: 174px 325px;
+  }
 }
 
 // Use mixin
