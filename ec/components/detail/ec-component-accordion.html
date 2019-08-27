@@ -31,7 +31,7 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=1.8.0" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=1.10.0" type="text/css">
 
 
 <title>Accordions | EC System</title>
@@ -3170,7 +3170,6 @@ reveal additional content. It is also possible to add an icon to the headers.</p
   <span class="hljs-attr">"panels"</span>: [
     {
       <span class="hljs-attr">"id"</span>: <span class="hljs-string">"pan1"</span>,
-      <span class="hljs-attr">"isExpanded"</span>: <span class="hljs-literal">true</span>,
       <span class="hljs-attr">"heading"</span>: {
         <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Jobs, Growth, Investment and Competitiveness with an additional quite long string"</span>,
         <span class="hljs-attr">"icon"</span>: <span class="hljs-string">"growth"</span>,
@@ -3201,12 +3200,12 @@ reveal additional content. It is also possible to add an icon to the headers.</p
         
         <pre><span class="hljs-tag">&lt;<span class="hljs-name">dl</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-accordion"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"presentation"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">dt</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"heading"</span> <span class="hljs-attr">aria-level</span>=<span class="hljs-string">"2"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ecl-accordion-header-pan1"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-accordion__header"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"ecl-accordion-panel-pan1"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"true"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ecl-accordion-header-pan1"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-accordion__header"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"ecl-accordion-panel-pan1"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-accordion__header-icon ecl-icon ecl-icon--rounded ecl-u-bg-secondary ecl-icon--growth"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
       Jobs, Growth, Investment and Competitiveness with an additional quite long string
     <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">dd</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ecl-accordion-panel-pan1"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-accordion__panel"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"region"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"ecl-accordion-header-pan1"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"false"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">dd</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ecl-accordion-panel-pan1"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-accordion__panel"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"region"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"ecl-accordion-header-pan1"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph"</span>&gt;</span>Bullfights. Bull hockey. Do you like this? The bull is stabbed, prodded, beaten. The bull is wounded. The bull is tired before the matador ever steps into the ring. Now, is that victory? Of course it is. Wanna know the secret to winning? Creative sportsmanship. In other words, one has to rig the game.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">dt</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"heading"</span> <span class="hljs-attr">aria-level</span>=<span class="hljs-string">"2"</span>&gt;</span>
@@ -3693,13 +3692,13 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
   </div>
 </footer>
 
-<script src="../../themes/ecl-fractal-theme/js/jquery.min.js?cachebust=1.8.0"></script>
+<script src="../../themes/ecl-fractal-theme/js/jquery.min.js?cachebust=1.10.0"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/jquery-resizable.min.js?cachebust=1.8.0"></script>
+<script src="../../themes/ecl-fractal-theme/js/jquery-resizable.min.js?cachebust=1.10.0"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/select2.min.js?cachebust=1.8.0"></script>
+<script src="../../themes/ecl-fractal-theme/js/select2.min.js?cachebust=1.10.0"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=1.8.0"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=1.10.0"></script>
 
 
 
