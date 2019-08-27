@@ -57,11 +57,7 @@ module.exports = {
         items: [
           {
             href: 'https://ec.europa.eu/commission/index_en',
-            label: 'Commission and its priorities',
-          },
-          {
-            href: 'https://ec.europa.eu/info/index_en',
-            label: 'Policies, information and services',
+            label: 'European Commission website',
           },
         ],
       },
