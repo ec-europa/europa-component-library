@@ -40,7 +40,7 @@ module.exports = {
               title: 'European Commission',
               items: [
                 {
-                  href: 'https://ec.europa.eu/commission/index_en',
+                  href: 'https://ec.europa.eu/info/index',
                   label: 'European Commission website',
                 },
               ],
@@ -562,7 +562,7 @@ module.exports = {
               title: 'European Commission',
               items: [
                 {
-                  href: 'https://ec.europa.eu/commission/index_en',
+                  href: 'https://ec.europa.eu/info/index',
                   label: 'European Commission website',
                 },
               ],
