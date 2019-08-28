@@ -21,7 +21,7 @@ module.exports = {
         page_header: {
           breadcrumb: [
             {
-              href: 'https://ec.europa.eu/commission/index_en',
+              href: 'https://ec.europa.eu/info/index',
               label: 'Home',
             },
             {
@@ -137,7 +137,7 @@ module.exports = {
         page_header: {
           breadcrumb: [
             {
-              href: 'https://ec.europa.eu/commission/index_en',
+              href: 'https://ec.europa.eu/info/index',
               label: 'Home',
             },
             {

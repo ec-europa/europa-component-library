@@ -3,7 +3,7 @@
     - "site_switcher" (object) (default: {}): shape of @ecl/generic-component-site-switcher
     - "user_menu" (object) (default: {}): shape of @ecl/generic-component-navigation-list
     - "logo" (object) (default: {
-        'href': 'https://ec.europa.eu',
+        'href': 'https://ec.europa.eu/info/index',
         'title': 'Home - European Commission'
       }): shape of @ecl/generic-component-logo
     - "messages" (object): shape of
@@ -29,7 +29,7 @@
 {% set _user_menu = user_menu|default({}) %}
 {% set _site_switcher = site_switcher|default({}) %}
 {% set _logo = {
-  'href': 'https://ec.europa.eu',
+  'href': 'https://ec.europa.eu/info/index',
   'title': 'Home - European Commission'
 }|merge(logo|default({})) %}
 {% set _messages = {
