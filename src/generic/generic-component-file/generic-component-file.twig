@@ -194,6 +194,11 @@
           </div>
         </div>
         <div class="ecl-col-12 ecl-col-md-4">
+          {% if _href is empty %}
+            {% set _button_extra_attributes = [{ 'name': 'type', 'value': 'button' }] %}
+          {% else %}
+            {% set _button_extra_attributes = [{ 'name': 'download', 'value': 'file' }] %}
+          {% endif %}
           {% include '@ecl/' ~ system ~ '-component-button' with {
             'label': _button_label ~ '<span class="ecl-u-sr-only">(' ~ meta ~ ')',
             'href': _href,
