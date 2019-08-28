@@ -1,0 +1,54 @@
+{#
+  Parameters:
+    - "link" (object):  {
+      - "href" (default: '')
+      - "label" (default: '')
+    }
+    - "logged_in" (boolean) (default: false)
+    - "message" (string) (default: '')
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{# Internal properties #}
+
+{% set _link = {
+  'href': '',
+  'label': '',
+}|merge(link|default({})) %}
+{% set _logged_in = logged_in|default(false) %}
+{% set _message = message|default('') %}
+{% set _css_class = 'ecl-login-bar' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <div class="ecl-container ecl-login-bar__container">
+    {% if _logged_in %}
+      <span class="ecl-login-bar__message">{{ _message }}</span>
+    {% endif %}
+    {% include '@ecl/ec-component-link' with {
+      'variant': 'standalone',
+      'extra_classes': 'ecl-login-bar__link'
+    }|merge(_link) only %}
+  </div>
+</div>
