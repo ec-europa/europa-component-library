@@ -22,7 +22,7 @@ We use space to create hierarchy and relationships. By using space we can create
 
 ## Inner component scale
 
-Whenever we need a fixed horizontal or vertical spacing inside components then these spacing tokens are to be used. All the values are multiple of 4px so they can complement with the typography and placed in a 4px vertical grid. The values are based in a geometric progression. There are some exception like the 48px/3rem that doesn't fit in the geometric progression that we might need it in some cases. In annotations these spacings will be blue overlays.
+Whenever we need a fixed horizontal or vertical spacing inside components then these spacing tokens are to be used. All the values are multiple of 4px so they can complement with the typography and placed in a 4px vertical grid.
 
 <!-- prettier-ignore-start -->
 | Name | Token (example) | Size                                   |

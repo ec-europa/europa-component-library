@@ -135,7 +135,7 @@
     color: $color-section;
     font: $ecl-font-m;
     font-weight: $ecl-font-weight-bold;
-    margin-bottom: 0;
+    margin-bottom: $ecl-spacing-m;
     margin-top: $ecl-spacing-l;
     padding-bottom: $ecl-spacing-s;
   }
@@ -180,6 +180,7 @@
     }
 
     .ecl-footer__section-title {
+      margin-bottom: $ecl-spacing-l;
       margin-top: $ecl-spacing-xl;
     }
 
@@ -188,6 +189,7 @@
     }
     .ecl-footer__section-list--long {
       display: block;
+      margin-top: -($ecl-spacing-m);
     }
   }
 
@@ -221,8 +223,10 @@
   }
 
   .ecl-footer__common-label {
+    border-right: 1px solid $ecl-color-grey-50;
     margin-bottom: $ecl-spacing-m;
-    margin-right: $ecl-spacing-xl;
+    margin-right: $ecl-spacing-l;
+    padding-right: $ecl-spacing-l;
   }
 
   .ecl-footer__common-link {
