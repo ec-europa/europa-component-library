@@ -1,0 +1,46 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+import Media from '@ecl/website-components/Media/Media';
+
+Use following classes to alter media display.
+
+Examples display media using `img` tag on the left and
+`background-image` on the right.
+
+**Important:** Depending on the clases used, image may be distorded or not correctly displayed (see examples below). So these utilities have to be used wisely.
+
+## Media sizes
+
+<Playground system="ec" selectedKind="utilities-media" selectedStory="default">
+  <Media type="a" token="s" />
+  <Media type="a" token="m" />
+</Playground>
+
+## Horizontal size only
+
+<Playground system="ec" selectedKind="utilities-media" selectedStory="default">
+  <Media type="h" token="s" />
+  <Media type="h" token="m" />
+</Playground>
+
+## Vertical size only
+
+<Playground system="ec" selectedKind="utilities-media" selectedStory="default">
+  <Media type="v" token="s" />
+  <Media type="v" token="m" />
+</Playground>
+
+## Responsive size
+
+Add the breakpoint before media size to display it only with corresponding screen size (works for all kind of size ahead).
+
+Examples:
+
+- media `m` on screen size >= breakpoint `md`, and `s` otherwise:  
+  `ecl-u-media-a-s ecl-u-media-a-md-m`
+- horizontal size `m` on screen size >= breakpoint `lg`, and `s` otherwise:  
+  `ecl-u-media-h-s ecl-u-media-h-lg-m`
