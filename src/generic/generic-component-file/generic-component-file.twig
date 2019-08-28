@@ -17,6 +17,7 @@
     - "meta" (string): additional information concerning the file: size, type, number of page (default: empty)
     - "button_label" (string): label of the download button (default: "Download")
     - "icon" (string): icon corresponding to the file type. Should be one of ecl-icons (default: empty)
+    - "href" (string): target of the link (default: empty)
 
   Translations variant parameters:
     - "title" (string): title of the file (default: empty)
@@ -55,6 +56,7 @@
 {# Internal properties #}
 
 {% set _button_label = button_label|default('Download') %}
+{% set _href = href|default('') %}
 {% set _translations_label = translations_label|default('Available languages: 0') %}
 {% set _translations_tooltip = translations_tooltip|default('Click to see translations') %}
 {% set _css_class = 'ecl-file' %}
@@ -194,6 +196,7 @@
         <div class="ecl-col-12 ecl-col-md-4">
           {% include '@ecl/' ~ system ~ '-component-button' with {
             'label': _button_label ~ '<span class="ecl-u-sr-only">(' ~ meta ~ ')',
+            'href': _href,
             'is_block': true,
             'extra_classes': 'ecl-file__download',
             'extra_attributes': [{ 'name': 'type', 'value': 'button' }]
