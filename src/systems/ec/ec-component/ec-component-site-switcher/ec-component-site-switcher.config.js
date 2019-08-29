@@ -8,6 +8,7 @@ module.exports = {
   status: 'ready',
   preview: '@preview-center-transparent',
   tags: ['atom'],
+  hidden: true,
   variants: [
     {
       name: 'default',

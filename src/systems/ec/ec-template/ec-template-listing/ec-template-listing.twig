@@ -7,14 +7,16 @@
     'label': 'Skip to main content'
 } %}
 
-{% include '@ecl/ec-component-site-header' with {
-  user_menu: {
-    title: 'User menu',
-    links: [
-      { href: "#", label: "Log in" },
-    ],
+{% include '@ecl/ec-component-login-bar' with {
+  'logged_in': true,
+  'message': 'Logged in as Jane Doe',
+  'link': {
+    'href': '../../example.html#',
+    'label': 'Log out',
   }
 } %}
+
+{% include '@ecl/ec-component-site-header' %}
 
 {% include '@ecl/ec-component-page-header' with { variant: 'default' }|merge(page_header|default({})) %}
 {% if menu is defined and menu is not empty %}
