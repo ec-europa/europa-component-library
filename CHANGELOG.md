@@ -1,5 +1,29 @@
 # Changelog
 
+## 1.12.0 (2019-08-29)
+
+#### :rocket: New Feature
+
+- [#1280](https://github.com/ec-europa/europa-component-library/pull/1280) feat(login-bar): implement login bar component - INNO-1751. ([@yhuard](https://github.com/yhuard))
+
+#### :bug: Bug Fix
+
+- [#1263](https://github.com/ec-europa/europa-component-library/pull/1263) fix(timeline): fix twig template - INNO-1735. ([@yhuard](https://github.com/yhuard))
+
+#### :nail_care: Enhancement
+
+- [#1285](https://github.com/ec-europa/europa-component-library/pull/1285) refactor(ec-links): update links to new homepage - INNO-1757. ([@yhuard](https://github.com/yhuard))
+- [#1276](https://github.com/ec-europa/europa-component-library/pull/1276) refactor(ec-footer): combine EC links - INNO-1749. ([@yhuard](https://github.com/yhuard))
+- [#1273](https://github.com/ec-europa/europa-component-library/pull/1273) refactor(eu-footer): update EU footer - INNO-1740. ([@yhuard](https://github.com/yhuard))
+
+#### :house: Internal
+
+- [#1288](https://github.com/ec-europa/europa-component-library/pull/1288) chore: hide site switcher - INNO-1750. ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 1
+
+- Yannick Huard ([yhuard](https://github.com/yhuard))
+
 ## 1.11.0 (2019-08-13)
 
 #### :bug: Bug Fix
