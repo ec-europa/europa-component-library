@@ -43,14 +43,6 @@
 </div>
 
 <header class="ecl-site-header" role="banner">
-  <div class="ecl-site-switcher ecl-site-switcher--header">
-    <div class="ecl-container">
-      <ul class="ecl-site-switcher__list">
-        <li class="ecl-site-switcher__option"><a class="ecl-link ecl-site-switcher__link" href="#">Commission and its priorities</a></li>
-        <li class="ecl-site-switcher__option ecl-site-switcher__option--is-selected"><a class="ecl-link ecl-site-switcher__link" href="#">Policies, information and services</a></li>
-      </ul>
-    </div>
-  </div>
   <div class="ecl-container ecl-site-header__banner">
     <a href="https://ec.europa.eu/info/index" class="ecl-logo ecl-logo--logotype ecl-site-header__logo" title="Home - European Commission">
       <span class="ecl-u-sr-only">Home - European Commission</span>
@@ -2161,92 +2153,6 @@
         
     
         
-        <li class="ecl-side-navigation__item">
-          <a href="#item2" class="ecl-side-navigation__link ecl-expandable__button" aria-controls="nav-menu-expandable-group-4" aria-expanded="false" aria-haspopup="true">Site switchers</a>
-          <ul class="ecl-side-navigation__group ecl-side-navigation--depth-3" id="nav-menu-expandable-group-4" aria-hidden="true">
-            
-            
-            
-            
-    
-        
-        
-        <li class="ecl-side-navigation__item"  data-role="item">
-          <a href="ec-component-site-switcher--default" class="ecl-side-navigation__link ">
-            
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-            <span>Default</span>
-          </a>
-        </li>
-        
-    
-        
-        
-        <li class="ecl-side-navigation__item"  data-role="item">
-          <a href="ec-component-site-switcher--header" class="ecl-side-navigation__link ">
-            
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-            <span>Header</span>
-          </a>
-        </li>
-        
-    
-        
-        
-        <li class="ecl-side-navigation__item"  data-role="item">
-          <a href="ec-component-site-switcher--footer" class="ecl-side-navigation__link ">
-            
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-            <span>Footer</span>
-          </a>
-        </li>
-        
-    
-
-          </ul>
-        </li>
-        
-    
-        
         
         <li class="ecl-side-navigation__item"  data-role="item">
           <a href="ec-component-skip-link" class="ecl-side-navigation__link ">
@@ -3160,22 +3066,16 @@
     'label': 'Skip to main content'
 } %}</span><span class="xml">
 
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/ec-component-site-header' with {
-  site_switcher: {
-    political: { href: '../../example.html#', label: 'Commission and its priorities' },
-    info: {
-      href: '../../example.html#',
-      label: 'Policies, information and services',
-      is_active: true,
-    },
-  },
-  user_menu: {
-    title: 'User menu',
-    links: [
-      { href: "#", label: "Log in" },
-    ],
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/ec-component-login-bar' with {
+  'logged_in': true,
+  'message': 'Logged in as Jane Doe',
+  'link': {
+    'href': '../../example.html#',
+    'label': 'Log out',
   }
 } %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/ec-component-site-header' %}</span><span class="xml">
 
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/ec-component-page-header' with { variant: 'default' }|<span class="hljs-keyword">merge</span>(page_header|<span class="hljs-keyword">default</span>({})) %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> menu is defined and menu is not empty %}</span><span class="xml">
@@ -3781,34 +3681,15 @@
   <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#main-content"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-skip-link"</span>&gt;</span>Skip to main content<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-login-bar"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container ecl-login-bar__container"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-login-bar__message"</span>&gt;</span>Logged in as Jane Doe<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--standalone ecl-login-bar__link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#"</span>&gt;</span>Log out<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
 <span class="hljs-tag">&lt;<span class="hljs-name">header</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-site-header"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"banner"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-list-wrapper ecl-u-f-r ecl-site-header__user-menu"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>User menu<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-list ecl-navigation-list--small"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-list__item"</span>&gt;</span>
-
-          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-navigation-list__link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Log in<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-site-switcher ecl-site-switcher--header"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-site-switcher__list"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-site-switcher__option"</span>&gt;</span>
-
-          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-site-switcher__link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#"</span>&gt;</span>Commission and its priorities<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-site-switcher__option ecl-site-switcher__option--is-selected"</span>&gt;</span>
-
-          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-site-switcher__link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#"</span>&gt;</span>Policies, information and services<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container ecl-site-header__banner"</span>&gt;</span>
 
     <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://ec.europa.eu/info/index"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype ecl-site-header__logo"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home - European Commission"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home - European Commission<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
