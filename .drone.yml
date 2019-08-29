@@ -23,6 +23,7 @@ matrix:
     - audit
     - conventions
     - examples
+    - size
     - deploy-tag
 
 pipeline:
@@ -60,6 +61,17 @@ pipeline:
       event: [ push, pull_request, tag]
       matrix:
         TEST: examples
+
+  size:
+    image: buildkite/puppeteer:latest
+    commands:
+      - yarn clean
+      - yarn dist:presets
+      - yarn size-limit
+    when:
+      event: [ push, pull_request, tag]
+      matrix:
+        TEST: size
 
   build-presets:
     image: node:dubnium
