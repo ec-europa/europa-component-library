@@ -5,6 +5,7 @@ order: 2
 
 import Playground from '@ecl/website-components/Playground';
 import Media from '@ecl/website-components/Media/Media';
+import MediaRatio from '@ecl/website-components/Media/MediaRatio';
 
 Use following classes to alter media display.
 
@@ -44,3 +45,20 @@ Examples:
   `ecl-u-media-a-s ecl-u-media-a-md-m`
 - horizontal size `m` on screen size >= breakpoint `lg`, and `s` otherwise:  
   `ecl-u-media-h-s ecl-u-media-h-lg-m`
+
+## Ratio
+
+To set ratio of an image, wrap it with a ratio class and add class `ecl-u-media-content` to the image.  
+Note it does make sense only if one of the image dimension only are fixed (width or height).  
+Behavior is the same for `img` and `background-image`.
+
+**Important:** when using ratio, media size and margin/padding have to be put on the ratio wrapper, not on the media itself.
+
+<Playground system="ec" selectedKind="utilities-media" selectedStory="default">
+  <h4 className="ecl-u-type-heading-4">Fixed width</h4>
+  <MediaRatio type="h" token="m" ratio="1-1" />
+  <MediaRatio type="h" token="m" ratio="16-9" />
+  <h4 className="ecl-u-type-heading-4">Fixed height</h4>
+  <MediaRatio type="v" token="m" ratio="1-1" />
+  <MediaRatio type="v" token="m" ratio="16-9" />
+</Playground>
