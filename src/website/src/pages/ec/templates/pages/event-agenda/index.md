@@ -4,5 +4,5 @@ defaultTab: usage
 status: ready
 playground:
   system: ec
-  path: /story/templates-pages-event-agenda--default
+  path: /story/templates-pages--event-agenda
 ---
