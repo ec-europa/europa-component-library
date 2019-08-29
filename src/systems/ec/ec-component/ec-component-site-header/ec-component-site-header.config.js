@@ -6,17 +6,6 @@ module.exports = {
   status: 'ready',
   tags: ['organism'],
   context: {
-    site_switcher: {
-      political: {
-        href: '../../example.html#',
-        label: 'Commission and its priorities',
-      },
-      info: {
-        href: '../../example.html#',
-        label: 'Policies, information and services',
-        is_active: true,
-      },
-    },
     // User menu is hidden until further notice
     /*
     user_menu: {
