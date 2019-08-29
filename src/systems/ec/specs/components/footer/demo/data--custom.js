@@ -75,12 +75,7 @@ module.exports = {
       links: [
         {
           variant: 'standalone',
-          label: 'Commission and its priorities',
-          href: '/example',
-        },
-        {
-          variant: 'standalone',
-          label: 'Policies, information and services',
+          label: 'European Commission website',
           href: '/example',
         },
       ],
