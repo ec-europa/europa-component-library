@@ -6,43 +6,26 @@ import styles from './Media.scss';
 
 const MediaRatio = ({ type, token, ratio }) => (
   <div className="demo-media-line">
-    <div className="demo-media-container">
+    <div className="demo-media-container-left">
       <div
         className={`ecl-u-media-ratio-${ratio} ecl-u-media-${type}-${token}`}
       >
         <img
-          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
           alt="example"
-          className={`ecl-u-media-content ecl-u-media-${type}-${token}`}
+          className="ecl-u-media-content"
         />
       </div>
-      <span className={styles.text}>
-        img (wrapper), ecl-u-media-ratio-{ratio}
-      </span>
+      <span className={styles.text}>ecl-u-media-ratio-{ratio}</span>
     </div>
 
-    <div className="demo-media-container">
+    <div className="demo-media-container-right">
       <div
         className={`ecl-u-media-ratio-${ratio} ecl-u-media-${type}-${token}`}
       >
-        <div
-          className={`demo-media-content ecl-u-media-content ecl-u-media-${type}-${token}`}
-        />
+        <div className="demo-media-content ecl-u-media-content" />
       </div>
-      <span className={styles.text}>
-        background (wrapper), ecl-u-media-ratio-
-        {ratio}
-      </span>
-    </div>
-
-    <div className="demo-media-container">
-      <div
-        className={`demo-media-content ecl-u-media-ratio-${ratio} ecl-u-media-${type}-${token}`}
-      />
-      <span className={styles.text}>
-        background (no wrapper), ecl-u-media-ratio-
-        {ratio}
-      </span>
+      <span className={styles.text}>ecl-u-media-ratio-{ratio}</span>
     </div>
   </div>
 );

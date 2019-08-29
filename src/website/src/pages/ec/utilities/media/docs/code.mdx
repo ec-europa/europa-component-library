@@ -49,16 +49,13 @@ Examples:
 ## Ratio
 
 To set ratio of an image, wrap it with a ratio class and add class `ecl-u-media-content` to the image.  
-Note it does make sense only if one of the image dimension only are fixed (width or height).  
-Behavior is the same for `img` and `background-image`.
+The width has to be set using media utilities ahead.
 
 **Important:** when using ratio, media size and margin/padding have to be put on the ratio wrapper, not on the media itself.
 
 <Playground system="ec" selectedKind="utilities-media" selectedStory="default">
-  <h4 className="ecl-u-type-heading-4">Fixed width</h4>
-  <MediaRatio type="h" token="m" ratio="1-1" />
   <MediaRatio type="h" token="m" ratio="16-9" />
-  <h4 className="ecl-u-type-heading-4">Fixed height</h4>
-  <MediaRatio type="v" token="m" ratio="1-1" />
-  <MediaRatio type="v" token="m" ratio="16-9" />
+  <MediaRatio type="h" token="m" ratio="4-3" />
+  <MediaRatio type="h" token="m" ratio="3-2" />
+  <MediaRatio type="h" token="m" ratio="1-1" />
 </Playground>

@@ -9,14 +9,21 @@ const styleLine = {
   marginBottom: '0.5rem',
   marginTop: '0.5rem',
 };
-const styleContainer = {
+const styleContainerLeft = {
+  alignItems: 'flex-start',
+  display: 'flex',
+  flexDirection: 'column',
+  font: 'normal normal 400 .875rem/1rem Arial,sans-serif',
+};
+const styleContainerRight = {
+  alignItems: 'flex-end',
   display: 'flex',
   flexDirection: 'column',
   font: 'normal normal 400 .875rem/1rem Arial,sans-serif',
 };
 const styleContent = {
   backgroundImage:
-    'url(https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg)',
+    'url(https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg)',
   backgroundPosition: '50%',
   backgroundSize: 'cover',
   minHeight: '1rem',
@@ -25,18 +32,44 @@ const styleContent = {
 
 const Media = (type, token) => (
   <div style={styleLine}>
-    <div style={styleContainer}>
+    <div style={styleContainerLeft}>
       <img
-        src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+        src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
         alt="example"
         className={`ecl-u-media-${type}-${token}`}
       />
       ecl-u-media-{type}-{token}
     </div>
 
-    <div style={styleContainer}>
+    <div style={styleContainerRight}>
       <div style={styleContent} className={`ecl-u-media-${type}-${token}`} />
       ecl-u-media-{type}-{token}
+    </div>
+  </div>
+);
+
+const MediaRatio = (type, token, ratio) => (
+  <div style={styleLine}>
+    <div style={styleContainerLeft}>
+      <div
+        className={`ecl-u-media-ratio-${ratio} ecl-u-media-${type}-${token}`}
+      >
+        <img
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
+          alt="example"
+          className="ecl-u-media-content"
+        />
+      </div>
+      ecl-u-media-ratio-{ratio}
+    </div>
+
+    <div style={styleContainerRight}>
+      <div
+        className={`ecl-u-media-ratio-${ratio} ecl-u-media-${type}-${token}`}
+      >
+        <div style={styleContent} className="ecl-u-media-content" />
+      </div>
+      ecl-u-media-ratio-{ratio}
     </div>
   </div>
 );
@@ -57,6 +90,12 @@ storiesOf('Utilities|Media', module)
         <h2 className="ecl-u-type-heading-2">Media sizes (vertical only)</h2>
         {Media('v', 's')}
         {Media('v', 'm')}
+
+        <h2 className="ecl-u-type-heading-2">Media ratio</h2>
+        {MediaRatio('h', 'm', '16-9')}
+        {MediaRatio('h', 'm', '4-3')}
+        {MediaRatio('h', 'm', '3-2')}
+        {MediaRatio('h', 'm', '1-1')}
       </Fragment>
     );
   });

@@ -9,14 +9,22 @@
     margin-top: $ecl-spacing-xs;
   }
 
-  .demo-media-container {
+  .demo-media-container-left {
+    align-items: flex-start;
+    display: flex;
+    font: $ecl-font-s;
+    flex-direction: column;
+  }
+
+  .demo-media-container-right {
+    align-items: flex-end;
     display: flex;
     font: $ecl-font-s;
     flex-direction: column;
   }
 
   .demo-media-content {
-    background-image: url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg');
+    background-image: url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg');
     background-position: 50%;
     background-size: cover;
     min-height: 1rem;
