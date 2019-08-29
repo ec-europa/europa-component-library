@@ -7,9 +7,8 @@ import createFocusTrap from 'focus-trap';
 import { queryOne, queryAll } from '@ecl/ec-base/helpers/dom';
 
 import EventAgendaPageExample from '../examples/Default';
-import EventAgendaPageEcl from '../examples/PureEcl';
 
-storiesOf('Templates|Pages/Event agenda', module)
+storiesOf('Templates|Pages', module)
   .addDecorator(story => {
     function toggleOverlay(e) {
       e.preventDefault();
@@ -136,5 +135,4 @@ storiesOf('Templates|Pages/Event agenda', module)
       </StoryWrapper>
     );
   })
-  .add('Default', EventAgendaPageExample)
-  .add('Pure ECL', EventAgendaPageEcl);
+  .add('Event agenda', EventAgendaPageExample);

@@ -7,6 +7,7 @@ import Footer from '@ecl/ec-react-component-footer';
 import LanguageListOverlay from '@ecl/ec-react-component-language-list/src/LanguageListOverlay';
 import Link from '@ecl/ec-react-component-link';
 import PageBanner from '@ecl/ec-react-component-page-banner';
+import PageHeader from '@ecl/ec-react-component-page-header';
 import SiteHeader from '@ecl/ec-react-component-site-header';
 import { Timeline2, Timeline2Item } from '@ecl/ec-react-component-timeline2';
 
@@ -15,49 +16,40 @@ import languageListContent from '@ecl/ec-specs-language-list/demo/data--overlay'
 import siteHeaderContent from '@ecl/ec-specs-site-header/demo/data--en';
 
 export default () => {
+  const breadcrumb = (
+    <Breadcrumb className="ecl-page-header__breadcrumb">
+      <BreadcrumbItem label="Home" href="/example" />
+      <BreadcrumbItem label="Events" href="/example" />
+      <BreadcrumbItem
+        label="Fair of European Innovators in Cultural heritage"
+        href="/example"
+      />
+      <BreadcrumbItem label="Programme" />
+    </Breadcrumb>
+  );
+
   return (
     <Fragment>
       <SiteHeader {...siteHeaderContent} />
       <LanguageListOverlay {...languageListContent} hidden="true" />
-      {/* :'( Custom page header to add button */}
-      <div className="ecl-page-header">
-        <div className="ecl-container">
-          <Breadcrumb className="ecl-page-header__breadcrumb">
-            <BreadcrumbItem label="Home" href="/example" />
-            <BreadcrumbItem label="Events" href="/example" />
-            <BreadcrumbItem
-              label="Fair of European Innovators in Cultural heritage"
-              href="/example"
-            />
-            <BreadcrumbItem label="Programme" />
-          </Breadcrumb>
-          <div className="ecl-page-header__meta-list">Conference</div>
-          <div className="ecl-u-d-flex ecl-u-flex-column ecl-u-flex-md-row">
-            <h1 className="ecl-page-header__title ecl-u-flex-grow-1">
-              Fair of European Innovators in Cultural heritage
-            </h1>
-            <div className="ecl-u-align-self-end ecl-u-mt-l ecl-u-mt-md-none">
-              <Link variant="cta" label="Register" href="/example" />
-            </div>
-          </div>
-        </div>
-      </div>
+      <PageHeader
+        breadcrumb={breadcrumb}
+        meta="Conference"
+        title="Fair of European Innovators in Cultural heritage"
+      />
 
       <main className="ecl-u-pv-2xl ecl-u-pv-md-3xl">
         <div className="ecl-container">
-          {/* :'( Custom heading spacing */}
           <h2 className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
             Programme
           </h2>
 
-          {/* :'( Custom heading spacing */}
           <h3 className="ecl-u-type-heading-3 ecl-u-mb-s ecl-u-mb-md-xs">
             Highlights
           </h3>
 
           <div className="ecl-row">
             <div className="ecl-col-12 ecl-col-md-6">
-              {/* :'( Card tags styling not conform */}
               <Card
                 meta="Discussion | 15 november 2019 | 14:30 - 18:00 | Riverside"
                 title={{
@@ -70,7 +62,6 @@ export default () => {
               />
             </div>
             <div className="ecl-col-12 ecl-col-md-6 ecl-u-mt-m ecl-u-mt-md-none">
-              {/* :'( Card tags styling not conform */}
               <Card
                 meta="Debate | 16 november 2019 | 14:00 - 15:30 | Auditorium"
                 title={{
@@ -84,7 +75,6 @@ export default () => {
             </div>
           </div>
 
-          {/* :'( Custom heading spacing */}
           <h3 className="ecl-u-type-heading-3 ecl-u-mb-none ecl-u-mt-2xl ecl-u-mt-md-3xl">
             Full programme
           </h3>
@@ -116,7 +106,6 @@ export default () => {
             />
           </div>
 
-          {/* :'( Custom heading */}
           <h4
             id="day1"
             className="ecl-u-type-heading-4 ecl-u-mb-m ecl-u-mt-none 
@@ -416,7 +405,6 @@ export default () => {
             </Timeline2Item>
           </Timeline2>
 
-          {/* :'( Custom heading */}
           <h4
             id="day2"
             className="ecl-u-type-heading-4 ecl-u-mb-m ecl-u-mt-none 
