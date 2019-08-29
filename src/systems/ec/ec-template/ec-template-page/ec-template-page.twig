@@ -7,21 +7,16 @@
     'label': 'Skip to main content'
 } %}
 
+{% include '@ecl/ec-component-login-bar' with {
+  'logged_in': true,
+  'message': 'Logged in as Jane Doe',
+  'link': {
+    'href': '../../example.html#',
+    'label': 'Log out',
+  }
+} %}
+
 {% include '@ecl/ec-component-site-header' with {
-  site_switcher: {
-    political: { href: '../../example.html#', label: 'Commission and its priorities' },
-    info: {
-      href: '../../example.html#',
-      label: 'Policies, information and services',
-      is_active: true,
-    },
-  },
-  user_menu: {
-    title: 'User menu',
-    links: [
-      { href: "#", label: "Log in" },
-    ],
-  },
   languages: languages
 } %}
 

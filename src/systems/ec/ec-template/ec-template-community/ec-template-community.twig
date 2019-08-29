@@ -7,16 +7,7 @@
   'label': 'Skip to main content'
 } %}
 
-{% include '@ecl/ec-component-site-header' with {
-  site_switcher: {
-    political: { href: '../../example.html#', label: 'Commission and its priorities' },
-    info: {
-      href: '../../example.html#',
-      label: 'Policies, information and services',
-      is_active: true,
-    },
-  }
-} %}
+{% include '@ecl/ec-component-site-header' %}
 
 {% include '@ecl/ec-component-page-header' with {
   variant: 'basic',
