@@ -75,6 +75,13 @@ export default () => {
             </div>
           </div>
 
+          <Link
+            variant="cta"
+            label="Register"
+            href="/example"
+            className="ecl-u-mt-2xl"
+          />
+
           <h3 className="ecl-u-type-heading-3 ecl-u-mb-none ecl-u-mt-2xl ecl-u-mt-md-3xl">
             Full programme
           </h3>
