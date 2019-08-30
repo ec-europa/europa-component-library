@@ -40,7 +40,7 @@ export default () => {
 
       <main className="ecl-u-pv-2xl ecl-u-pv-md-3xl">
         <div className="ecl-container">
-          <h2 className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
+          <h2 className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l">
             Programme
           </h2>
 
@@ -92,7 +92,7 @@ export default () => {
                 href="/example"
                 icon={{
                   shape: 'ui--download',
-                  size: 'm',
+                  size: 's',
                 }}
               />
               <Link
