@@ -1,0 +1,77 @@
+/**
+* Media styles
+*/
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-aspect-ratio($width, $height) {
+  position: relative !important;
+
+  /* stylelint-disable-next-line */
+  &::before {
+    content: '' !important;
+    display: block !important;
+    padding-top: ($height / $width) * 100% !important;
+    width: 100% !important;
+  }
+
+  /* stylelint-disable-next-line */
+  .ecl-u-media-content {
+    height: 100% !important;
+    position: absolute !important;
+    right: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+  }
+}
+
+@mixin ecl-utility-media() {
+  /*
+   * Media size
+   */
+  @each $breakpoint in map-keys($ecl-grid-breakpoints) {
+    @include ecl-media-breakpoint-up($breakpoint) {
+      $infix: ecl-breakpoint-infix($breakpoint, $ecl-grid-breakpoints);
+
+      @each $key, $value in $ecl-media {
+        .ecl-u-media-a#{$infix}-#{$key} {
+          height: $value !important;
+          width: $value !important;
+        }
+
+        .ecl-u-media-h#{$infix}-#{$key} {
+          width: $value !important;
+        }
+
+        .ecl-u-media-v#{$infix}-#{$key} {
+          height: $value !important;
+        }
+      }
+    }
+  }
+
+  /*
+   * Media ratio
+   */
+  .ecl-u-media-ratio-16-9 {
+    @include ecl-aspect-ratio(16, 9);
+  }
+
+  .ecl-u-media-ratio-4-3 {
+    @include ecl-aspect-ratio(4, 3);
+  }
+
+  .ecl-u-media-ratio-3-2 {
+    @include ecl-aspect-ratio(3, 2);
+  }
+
+  .ecl-u-media-ratio-1-1 {
+    @include ecl-aspect-ratio(1, 1);
+  }
+}
+
+// Use mixin
+@include exports('ec-utility-media') {
+  @include ecl-utility-media();
+}
