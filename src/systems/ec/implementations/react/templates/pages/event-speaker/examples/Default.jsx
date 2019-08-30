@@ -28,7 +28,7 @@ export default () => {
 
   return (
     <Fragment>
-      <SiteHeader {...siteHeaderContent} />
+      <SiteHeader {...siteHeaderContent} data-ecl-auto-init="SiteHeader" />
       <LanguageListOverlay {...languageListContent} hidden="true" />
       <PageHeader
         breadcrumb={breadcrumb}
@@ -44,12 +44,11 @@ export default () => {
 
           <div className="ecl-row">
             <div className="ecl-col-12 ecl-col-md-4">
-              {/* :'( Custom card, tags styling not conform */}
               <article className="ecl-card">
                 <header className="ecl-card__header">
                   <div className="ecl-u-d-flex">
                     <div
-                      className="ecl-card__image ecl-u-media-a-m"
+                      className="ecl-card__image ecl-u-media-a-m ecl-u-mr-s ecl-u-flex-shrink-0"
                       alt="card image"
                       style={{
                         backgroundImage:
@@ -75,7 +74,9 @@ export default () => {
                   </div>
                 </header>
                 <section className="ecl-card__body">
-                  <div className="ecl-card__meta ecl-u-type-s">Session</div>
+                  <div className="ecl-card__meta ecl-u-type-s ecl-u-mt-l">
+                    Session
+                  </div>
                   <h2 className="ecl-card__title">
                     <a
                       href="/example"
@@ -92,12 +93,11 @@ export default () => {
             </div>
 
             <div className="ecl-col-12 ecl-col-md-4 ecl-u-mt-l ecl-u-mt-md-none">
-              {/* :'( Custom card, tags styling not conform */}
               <article className="ecl-card">
                 <header className="ecl-card__header">
                   <div className="ecl-u-d-flex">
                     <div
-                      className="ecl-card__image ecl-u-media-a-m"
+                      className="ecl-card__image ecl-u-media-a-m ecl-u-mr-s ecl-u-flex-shrink-0"
                       alt="card image"
                       style={{
                         backgroundImage:
@@ -124,7 +124,9 @@ export default () => {
                   </div>
                 </header>
                 <section className="ecl-card__body">
-                  <div className="ecl-card__meta ecl-u-type-s">Session</div>
+                  <div className="ecl-card__meta ecl-u-type-s ecl-u-mt-l">
+                    Session
+                  </div>
                   <h2 className="ecl-card__title">
                     <a
                       href="/example"
@@ -141,12 +143,11 @@ export default () => {
             </div>
 
             <div className="ecl-col-12 ecl-col-md-4 ecl-u-mt-l ecl-u-mt-md-none">
-              {/* :'( Custom card, tags styling not conform */}
               <article className="ecl-card">
                 <header className="ecl-card__header">
                   <div className="ecl-u-d-flex">
                     <div
-                      className="ecl-card__image ecl-u-media-a-m"
+                      className="ecl-card__image ecl-u-media-a-m ecl-u-mr-s ecl-u-flex-shrink-0"
                       alt="card image"
                       style={{
                         backgroundImage:
@@ -173,7 +174,9 @@ export default () => {
                   </div>
                 </header>
                 <section className="ecl-card__body">
-                  <div className="ecl-card__meta ecl-u-type-s">Session</div>
+                  <div className="ecl-card__meta ecl-u-type-s ecl-u-mt-l">
+                    Session
+                  </div>
                   <h2 className="ecl-card__title">
                     <a
                       href="/example"
@@ -203,7 +206,6 @@ export default () => {
 
           <div className="ecl-row">
             <div className="ecl-col-12 ecl-col-md-6">
-              {/* :'( Custom content item */}
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
@@ -242,7 +244,6 @@ export default () => {
                 </div>
               </article>
 
-              {/* :'( Custom content item */}
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
@@ -281,7 +282,6 @@ export default () => {
                 </div>
               </article>
 
-              {/* :'( Custom content item */}
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
@@ -322,7 +322,6 @@ export default () => {
                 </div>
               </article>
 
-              {/* :'( Custom content item */}
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
@@ -362,7 +361,6 @@ export default () => {
                 </div>
               </article>
 
-              {/* :'( Custom content item */}
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
@@ -402,7 +400,6 @@ export default () => {
                 </div>
               </article>
 
-              {/* :'( Custom content item */}
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
@@ -442,7 +439,6 @@ export default () => {
                 </div>
               </article>
 
-              {/* :'( Custom content item */}
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
@@ -481,7 +477,6 @@ export default () => {
                 </div>
               </article>
 
-              {/* :'( Custom content item */}
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
@@ -522,7 +517,6 @@ export default () => {
             </div>
 
             <div className="ecl-col-12 ecl-col-md-6">
-              {/* :'( Custom content item */}
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
@@ -574,7 +568,6 @@ export default () => {
                 </div>
               </article>
 
-              {/* :'( Custom content item */}
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
@@ -613,7 +606,6 @@ export default () => {
                 </div>
               </article>
 
-              {/* :'( Custom content item */}
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
@@ -654,7 +646,6 @@ export default () => {
                 </div>
               </article>
 
-              {/* :'( Custom content item */}
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
@@ -693,7 +684,6 @@ export default () => {
                 </div>
               </article>
 
-              {/* :'( Custom content item */}
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
@@ -733,7 +723,6 @@ export default () => {
                 </div>
               </article>
 
-              {/* :'( Custom content item */}
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
@@ -773,7 +762,6 @@ export default () => {
                 </div>
               </article>
 
-              {/* :'( Custom content item */}
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"

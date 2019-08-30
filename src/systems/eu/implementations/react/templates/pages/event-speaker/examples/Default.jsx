@@ -6,6 +6,7 @@ import Footer from '@ecl/eu-react-component-footer';
 import LanguageListOverlay from '@ecl/eu-react-component-language-list/src/LanguageListOverlay';
 import Link from '@ecl/eu-react-component-link';
 import PageBanner from '@ecl/eu-react-component-page-banner';
+import PageHeader from '@ecl/eu-react-component-page-header';
 import SiteHeader from '@ecl/eu-react-component-site-header';
 
 import footerContent from '@ecl/eu-specs-footer/demo/data--corporate';
@@ -13,59 +14,51 @@ import languageListContent from '@ecl/eu-specs-language-list/demo/data--overlay'
 import siteHeaderContent from '@ecl/eu-specs-site-header/demo/data--en';
 
 export default () => {
+  const breadcrumb = (
+    <Breadcrumb className="ecl-page-header__breadcrumb">
+      <BreadcrumbItem label="Home" href="/example" />
+      <BreadcrumbItem label="Events" href="/example" />
+      <BreadcrumbItem
+        label="Fair of European Innovators in Cultural heritage"
+        href="/example"
+      />
+      <BreadcrumbItem label="Speakers" />
+    </Breadcrumb>
+  );
+
   return (
     <Fragment>
-      <SiteHeader {...siteHeaderContent} />
+      <SiteHeader {...siteHeaderContent} data-ecl-auto-init="SiteHeader" />
       <LanguageListOverlay {...languageListContent} hidden="true" />
-      {/* :'( Custom page header to add button */}
-      <div className="ecl-page-header">
-        <div className="ecl-container">
-          <Breadcrumb className="ecl-page-header__breadcrumb">
-            <BreadcrumbItem label="Home" href="/example" />
-            <BreadcrumbItem label="Events" href="/example" />
-            <BreadcrumbItem
-              label="Fair of European Innovators in Cultural heritage"
-              href="/example"
-            />
-            <BreadcrumbItem label="Speakers" />
-          </Breadcrumb>
-          <div className="ecl-page-header__meta-list">Conference</div>
-          <div className="ecl-u-d-flex ecl-u-flex-column ecl-u-flex-md-row">
-            <h1 className="ecl-page-header__title ecl-u-flex-grow-1">
-              Fair of European Innovators in Cultural heritage
-            </h1>
-            <div className="ecl-u-align-self-end ecl-u-mt-l ecl-u-mt-md-none">
-              <Link variant="cta" label="Register" href="/example" />
-            </div>
-          </div>
-        </div>
-      </div>
+      <PageHeader
+        breadcrumb={breadcrumb}
+        meta="Conference"
+        title="Fair of European Innovators in Cultural heritage"
+      />
 
       <main className="ecl-u-pv-2xl ecl-u-pv-md-3xl">
         <div className="ecl-container">
-          {/* :'( Custom heading spacing */}
           <h2 className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l">
             Keynote Speakers
           </h2>
 
           <div className="ecl-row">
             <div className="ecl-col-12 ecl-col-md-4">
-              {/* :'( Custom card, tags styling not conform */}
               <article className="ecl-card">
                 <header className="ecl-card__header">
-                  <div className="ecl-row">
-                    <div className="ecl-col-4 ecl-u-pr-none">
-                      <div
-                        className="ecl-card__image ecl-u-ratio-1-1"
-                        alt="card image"
-                        style={{
-                          backgroundImage:
-                            'url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Ioannes_Claudius_Juncker_die_7_Martis_2014.jpg/1200px-Ioannes_Claudius_Juncker_die_7_Martis_2014.jpg)',
-                        }}
-                      />
-                    </div>
-                    <div className="ecl-col-8">
-                      <div className="ecl-card__meta">Special guest</div>
+                  <div className="ecl-u-d-flex">
+                    <div
+                      className="ecl-card__image ecl-u-media-a-m ecl-u-mr-s ecl-u-flex-shrink-0"
+                      alt="card image"
+                      style={{
+                        backgroundImage:
+                          'url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Ioannes_Claudius_Juncker_die_7_Martis_2014.jpg/1200px-Ioannes_Claudius_Juncker_die_7_Martis_2014.jpg)',
+                      }}
+                    />
+                    <div>
+                      <div className="ecl-card__meta ecl-u-type-s">
+                        Special guest
+                      </div>
                       <h1 className="ecl-card__title">
                         <a
                           href="/example"
@@ -74,14 +67,16 @@ export default () => {
                           Jean-Claude Juncker
                         </a>
                       </h1>
-                      <div className="ecl-card__description">
+                      <div className="ecl-card__description ecl-u-type-s">
                         European Commission President
                       </div>
                     </div>
                   </div>
                 </header>
                 <section className="ecl-card__body">
-                  <div className="ecl-card__meta">Session</div>
+                  <div className="ecl-card__meta ecl-u-type-s ecl-u-mt-l">
+                    Session
+                  </div>
                   <h2 className="ecl-card__title">
                     <a
                       href="/example"
@@ -90,7 +85,7 @@ export default () => {
                       Opening of the conference
                     </a>
                   </h2>
-                  <div className="ecl-card__meta">
+                  <div className="ecl-card__meta ecl-u-type-s">
                     15 Nov 2019 | 09:00 - 09:15 | Auditorium
                   </div>
                 </section>
@@ -98,22 +93,21 @@ export default () => {
             </div>
 
             <div className="ecl-col-12 ecl-col-md-4 ecl-u-mt-l ecl-u-mt-md-none">
-              {/* :'( Custom card, tags styling not conform */}
               <article className="ecl-card">
                 <header className="ecl-card__header">
-                  <div className="ecl-row">
-                    <div className="ecl-col-4 ecl-u-pr-none">
-                      <div
-                        className="ecl-card__image ecl-u-ratio-1-1"
-                        alt="card image"
-                        style={{
-                          backgroundImage:
-                            'url(https://ec.europa.eu/commission/commissioners/sites/cwt/files/commissioner_portraits/hahn.jpg)',
-                        }}
-                      />
-                    </div>
-                    <div className="ecl-col-8">
-                      <div className="ecl-card__meta">Special guest</div>
+                  <div className="ecl-u-d-flex">
+                    <div
+                      className="ecl-card__image ecl-u-media-a-m ecl-u-mr-s ecl-u-flex-shrink-0"
+                      alt="card image"
+                      style={{
+                        backgroundImage:
+                          'url(https://ec.europa.eu/commission/commissioners/sites/cwt/files/commissioner_portraits/hahn.jpg)',
+                      }}
+                    />
+                    <div>
+                      <div className="ecl-card__meta ecl-u-type-s">
+                        Special guest
+                      </div>
                       <h1 className="ecl-card__title">
                         <a
                           href="/example"
@@ -122,7 +116,7 @@ export default () => {
                           Johannes Hahn
                         </a>
                       </h1>
-                      <div className="ecl-card__description">
+                      <div className="ecl-card__description ecl-u-type-s">
                         European Commissionner for European Neighbourhood Policy
                         and Enlargment Negociation
                       </div>
@@ -130,7 +124,9 @@ export default () => {
                   </div>
                 </header>
                 <section className="ecl-card__body">
-                  <div className="ecl-card__meta">Session</div>
+                  <div className="ecl-card__meta ecl-u-type-s ecl-u-mt-l">
+                    Session
+                  </div>
                   <h2 className="ecl-card__title">
                     <a
                       href="/example"
@@ -139,7 +135,7 @@ export default () => {
                       Why are we innovating in and through cultural heritage?
                     </a>
                   </h2>
-                  <div className="ecl-card__meta">
+                  <div className="ecl-card__meta ecl-u-type-s">
                     15 Nov 2019 | 09:15 - 10:00 | Riverside
                   </div>
                 </section>
@@ -147,22 +143,21 @@ export default () => {
             </div>
 
             <div className="ecl-col-12 ecl-col-md-4 ecl-u-mt-l ecl-u-mt-md-none">
-              {/* :'( Custom card, tags styling not conform */}
               <article className="ecl-card">
                 <header className="ecl-card__header">
-                  <div className="ecl-row">
-                    <div className="ecl-col-4 ecl-u-pr-none">
-                      <div
-                        className="ecl-card__image ecl-u-ratio-1-1"
-                        alt="card image"
-                        style={{
-                          backgroundImage:
-                            'url(https://www.euroamerica.org/wp-content/uploads/2017/10/FerreroWaldnerCV-294x300.jpg)',
-                        }}
-                      />
-                    </div>
-                    <div className="ecl-col-8">
-                      <div className="ecl-card__meta">Special guest</div>
+                  <div className="ecl-u-d-flex">
+                    <div
+                      className="ecl-card__image ecl-u-media-a-m ecl-u-mr-s ecl-u-flex-shrink-0"
+                      alt="card image"
+                      style={{
+                        backgroundImage:
+                          'url(https://www.euroamerica.org/wp-content/uploads/2017/10/FerreroWaldnerCV-294x300.jpg)',
+                      }}
+                    />
+                    <div>
+                      <div className="ecl-card__meta ecl-u-type-s">
+                        Special guest
+                      </div>
                       <h1 className="ecl-card__title">
                         <a
                           href="/example"
@@ -171,7 +166,7 @@ export default () => {
                           Benita Ferrero-Waldner
                         </a>
                       </h1>
-                      <div className="ecl-card__description">
+                      <div className="ecl-card__description ecl-u-type-s">
                         European Commissionner for Trade and European
                         Neighbourhood Policy
                       </div>
@@ -179,7 +174,9 @@ export default () => {
                   </div>
                 </header>
                 <section className="ecl-card__body">
-                  <div className="ecl-card__meta">Session</div>
+                  <div className="ecl-card__meta ecl-u-type-s ecl-u-mt-l">
+                    Session
+                  </div>
                   <h2 className="ecl-card__title">
                     <a
                       href="/example"
@@ -188,7 +185,7 @@ export default () => {
                       Opening of the exhibition
                     </a>
                   </h2>
-                  <div className="ecl-card__meta">
+                  <div className="ecl-card__meta ecl-u-type-s">
                     15 Nov 2019 | 12:00 - 12:30 | Auditorium
                   </div>
                 </section>
@@ -196,25 +193,28 @@ export default () => {
             </div>
           </div>
 
-          {/* :'( Custom heading spacing */}
+          <Link
+            variant="cta"
+            label="Register"
+            href="/example"
+            className="ecl-u-mt-2xl"
+          />
+
           <h2 className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
             Speakers
           </h2>
 
           <div className="ecl-row">
             <div className="ecl-col-12 ecl-col-md-6">
-              {/* :'( Custom content item */}
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
                   aria-label="Example image"
-                  className="ecl-u-ratio-1-1 ecl-u-flex-shrink-0 ecl-u-mr-s"
+                  className="ecl-u-flex-shrink-0 ecl-u-mr-s ecl-u-media-a-s"
                   style={{
                     backgroundImage:
                       'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
                     backgroundSize: 'contain',
-                    height: '5rem',
-                    width: '5rem',
                   }}
                 />
 
@@ -226,7 +226,7 @@ export default () => {
                       label="Alberto Anfossi"
                     />
                   </h2>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-type-s">
                     Secretary General of San Paolo Bank Foundation
                   </p>
                   <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-m">
@@ -244,18 +244,15 @@ export default () => {
                 </div>
               </article>
 
-              {/* :'( Custom content item */}
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
                   aria-label="Example image"
-                  className="ecl-u-ratio-1-1 ecl-u-flex-shrink-0 ecl-u-mr-s"
+                  className="ecl-u-flex-shrink-0 ecl-u-mr-s ecl-u-media-a-s"
                   style={{
                     backgroundImage:
                       'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
                     backgroundSize: 'contain',
-                    height: '5rem',
-                    width: '5rem',
                   }}
                 />
 
@@ -267,7 +264,7 @@ export default () => {
                       label="Amalia Zepou"
                     />
                   </h2>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-type-s">
                     Vice-Mayor for Civil Society and Innovatio, City of Athens
                   </p>
                   <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-m">
@@ -285,18 +282,15 @@ export default () => {
                 </div>
               </article>
 
-              {/* :'( Custom content item */}
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
                   aria-label="Example image"
-                  className="ecl-u-ratio-1-1 ecl-u-flex-shrink-0 ecl-u-mr-s"
+                  className="ecl-u-flex-shrink-0 ecl-u-mr-s ecl-u-media-a-s"
                   style={{
                     backgroundImage:
                       'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
                     backgroundSize: 'contain',
-                    height: '5rem',
-                    width: '5rem',
                   }}
                 />
 
@@ -308,7 +302,7 @@ export default () => {
                       label="Azra Becevic-Sarenkapa"
                     />
                   </h2>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-type-s">
                     National Museum of Bosnia and Herzegovina: &quot;Cultural
                     heritage for social consolidation and identity building. The
                     experience of Balkan Museum Network&quot;
@@ -328,18 +322,15 @@ export default () => {
                 </div>
               </article>
 
-              {/* :'( Custom content item */}
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
                   aria-label="Example image"
-                  className="ecl-u-ratio-1-1 ecl-u-flex-shrink-0 ecl-u-mr-s"
+                  className="ecl-u-flex-shrink-0 ecl-u-mr-s ecl-u-media-a-s"
                   style={{
                     backgroundImage:
                       'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
                     backgroundSize: 'contain',
-                    height: '5rem',
-                    width: '5rem',
                   }}
                 />
 
@@ -351,7 +342,7 @@ export default () => {
                       label="Claudio Cimino"
                     />
                   </h2>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-type-s">
                     Secretary General of WATCH NGO: &quot;Mobilising civil
                     society for the protection&quot;
                   </p>
@@ -370,18 +361,15 @@ export default () => {
                 </div>
               </article>
 
-              {/* :'( Custom content item */}
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
                   aria-label="Example image"
-                  className="ecl-u-ratio-1-1 ecl-u-flex-shrink-0 ecl-u-mr-s"
+                  className="ecl-u-flex-shrink-0 ecl-u-mr-s ecl-u-media-a-s"
                   style={{
                     backgroundImage:
                       'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
                     backgroundSize: 'contain',
-                    height: '5rem',
-                    width: '5rem',
                   }}
                 />
 
@@ -393,7 +381,7 @@ export default () => {
                       label="Cristina Sabbioni"
                     />
                   </h2>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-type-s">
                     Joint Programming Initiative in Cultural Heritage,
                     &apos;European National Research Network&apos;
                   </p>
@@ -412,18 +400,15 @@ export default () => {
                 </div>
               </article>
 
-              {/* :'( Custom content item */}
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
                   aria-label="Example image"
-                  className="ecl-u-ratio-1-1 ecl-u-flex-shrink-0 ecl-u-mr-s"
+                  className="ecl-u-flex-shrink-0 ecl-u-mr-s ecl-u-media-a-s"
                   style={{
                     backgroundImage:
                       'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
                     backgroundSize: 'contain',
-                    height: '5rem',
-                    width: '5rem',
                   }}
                 />
 
@@ -435,7 +420,7 @@ export default () => {
                       label="Erminia Sciacchitano"
                     />
                   </h2>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-type-s">
                     Chief Scientific Advisor of the European Year of Cultural
                     Heritage, Directorate General for Education and Culture
                   </p>
@@ -454,18 +439,15 @@ export default () => {
                 </div>
               </article>
 
-              {/* :'( Custom content item */}
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
                   aria-label="Example image"
-                  className="ecl-u-ratio-1-1 ecl-u-flex-shrink-0 ecl-u-mr-s"
+                  className="ecl-u-flex-shrink-0 ecl-u-mr-s ecl-u-media-a-s"
                   style={{
                     backgroundImage:
                       'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
                     backgroundSize: 'contain',
-                    height: '5rem',
-                    width: '5rem',
                   }}
                 />
 
@@ -477,7 +459,7 @@ export default () => {
                       label="Gabriela Gandel"
                     />
                   </h2>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-type-s">
                     Director of Impact Hub Vienna
                   </p>
                   <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-m">
@@ -495,18 +477,15 @@ export default () => {
                 </div>
               </article>
 
-              {/* :'( Custom content item */}
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
                   aria-label="Example image"
-                  className="ecl-u-ratio-1-1 ecl-u-flex-shrink-0 ecl-u-mr-s"
+                  className="ecl-u-flex-shrink-0 ecl-u-mr-s ecl-u-media-a-s"
                   style={{
                     backgroundImage:
                       'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
                     backgroundSize: 'contain',
-                    height: '5rem',
-                    width: '5rem',
                   }}
                 />
 
@@ -518,7 +497,7 @@ export default () => {
                       label="Jan De Maere"
                     />
                   </h2>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-type-s">
                     Neuroscientist and art historian, University of Cluj-Naposca
                   </p>
                   <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-m">
@@ -538,18 +517,15 @@ export default () => {
             </div>
 
             <div className="ecl-col-12 ecl-col-md-6">
-              {/* :'( Custom content item */}
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
                   aria-label="Example image"
-                  className="ecl-u-ratio-1-1 ecl-u-flex-shrink-0 ecl-u-mr-s"
+                  className="ecl-u-flex-shrink-0 ecl-u-mr-s ecl-u-media-a-s"
                   style={{
                     backgroundImage:
                       'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
                     backgroundSize: 'contain',
-                    height: '5rem',
-                    width: '5rem',
                   }}
                 />
 
@@ -561,7 +537,7 @@ export default () => {
                       label="Jean David Malo"
                     />
                   </h2>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-type-s">
                     Director of Open Innovation and Open Science, Directorate
                     General for Research and Innovation
                   </p>
@@ -592,18 +568,15 @@ export default () => {
                 </div>
               </article>
 
-              {/* :'( Custom content item */}
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
                   aria-label="Example image"
-                  className="ecl-u-ratio-1-1 ecl-u-flex-shrink-0 ecl-u-mr-s"
+                  className="ecl-u-flex-shrink-0 ecl-u-mr-s ecl-u-media-a-s"
                   style={{
                     backgroundImage:
                       'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
                     backgroundSize: 'contain',
-                    height: '5rem',
-                    width: '5rem',
                   }}
                 />
 
@@ -615,7 +588,7 @@ export default () => {
                       label="Jean-Eric Paquet"
                     />
                   </h2>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-type-s">
                     Director General, DG RTD European Commission
                   </p>
                   <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-m">
@@ -633,18 +606,15 @@ export default () => {
                 </div>
               </article>
 
-              {/* :'( Custom content item */}
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
                   aria-label="Example image"
-                  className="ecl-u-ratio-1-1 ecl-u-flex-shrink-0 ecl-u-mr-s"
+                  className="ecl-u-flex-shrink-0 ecl-u-mr-s ecl-u-media-a-s"
                   style={{
                     backgroundImage:
                       'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
                     backgroundSize: 'contain',
-                    height: '5rem',
-                    width: '5rem',
                   }}
                 />
 
@@ -656,7 +626,7 @@ export default () => {
                       label="John Bell"
                     />
                   </h2>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-type-s">
                     Director, Climate Action and Resource Efficiency,
                     Directorate General for Research and Innovatio, European
                     Commission
@@ -676,18 +646,15 @@ export default () => {
                 </div>
               </article>
 
-              {/* :'( Custom content item */}
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
                   aria-label="Example image"
-                  className="ecl-u-ratio-1-1 ecl-u-flex-shrink-0 ecl-u-mr-s"
+                  className="ecl-u-flex-shrink-0 ecl-u-mr-s ecl-u-media-a-s"
                   style={{
                     backgroundImage:
                       'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
                     backgroundSize: 'contain',
-                    height: '5rem',
-                    width: '5rem',
                   }}
                 />
 
@@ -699,7 +666,7 @@ export default () => {
                       label="Julianne Schultz"
                     />
                   </h2>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-type-s">
                     Media Deals
                   </p>
                   <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-m">
@@ -717,18 +684,15 @@ export default () => {
                 </div>
               </article>
 
-              {/* :'( Custom content item */}
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
                   aria-label="Example image"
-                  className="ecl-u-ratio-1-1 ecl-u-flex-shrink-0 ecl-u-mr-s"
+                  className="ecl-u-flex-shrink-0 ecl-u-mr-s ecl-u-media-a-s"
                   style={{
                     backgroundImage:
                       'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
                     backgroundSize: 'contain',
-                    height: '5rem',
-                    width: '5rem',
                   }}
                 />
 
@@ -740,7 +704,7 @@ export default () => {
                       label="Khalil Rouhana"
                     />
                   </h2>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-type-s">
                     Deputy Director General for Cummunication Networks, Content
                     and Technology, European Commission
                   </p>
@@ -759,18 +723,15 @@ export default () => {
                 </div>
               </article>
 
-              {/* :'( Custom content item */}
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
                   aria-label="Example image"
-                  className="ecl-u-ratio-1-1 ecl-u-flex-shrink-0 ecl-u-mr-s"
+                  className="ecl-u-flex-shrink-0 ecl-u-mr-s ecl-u-media-a-s"
                   style={{
                     backgroundImage:
                       'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
                     backgroundSize: 'contain',
-                    height: '5rem',
-                    width: '5rem',
                   }}
                 />
 
@@ -782,7 +743,7 @@ export default () => {
                       label="Mauro Facchini"
                     />
                   </h2>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-type-s">
                     Head of Unit &apos;Coppernicus&apos;, Directorate General
                     for Internal Market, Industry, Entrepreneurship, and SMEs
                   </p>
@@ -801,18 +762,15 @@ export default () => {
                 </div>
               </article>
 
-              {/* :'( Custom content item */}
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
                   aria-label="Example image"
-                  className="ecl-u-ratio-1-1 ecl-u-flex-shrink-0 ecl-u-mr-s"
+                  className="ecl-u-flex-shrink-0 ecl-u-mr-s ecl-u-media-a-s"
                   style={{
                     backgroundImage:
                       'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
                     backgroundSize: 'contain',
-                    height: '5rem',
-                    width: '5rem',
                   }}
                 />
 
@@ -824,7 +782,7 @@ export default () => {
                       label="Pier Luigi Sacco"
                     />
                   </h2>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-type-s">
                     Professor of Cultural Economics, IULM, University Milan
                   </p>
                   <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-m">
