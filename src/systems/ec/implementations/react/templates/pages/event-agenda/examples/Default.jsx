@@ -121,7 +121,7 @@ export default () => {
             ecl-u-bg-grey ecl-u-pa-m ecl-u-type-color-white ecl-u-type-bold
             ecl-u-border-left ecl-u-border-width-8 ecl-u-border-color-yellow ecl-u-z-navigation"
                 data-ecl-template-sticky-header
-                style={{ position: 'sticky', top: '3rem' }}
+                style={{ position: 'sticky', top: '44px' }}
               >
                 Day 1 - Thursday, 15 November 2019
               </h4>
@@ -430,7 +430,7 @@ export default () => {
             ecl-u-bg-grey ecl-u-pa-m ecl-u-type-color-white ecl-u-type-bold
             ecl-u-border-left ecl-u-border-width-8 ecl-u-border-color-yellow ecl-u-z-navigation"
                 data-ecl-template-sticky-header
-                style={{ position: 'sticky', top: '3rem' }}
+                style={{ position: 'sticky', top: '44px' }}
               >
                 Day 2 - Friday, 16 November 2019
               </h4>
