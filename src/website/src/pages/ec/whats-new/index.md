@@ -9,6 +9,44 @@ Users can still go to ECL v1 to create or upgrade their websites. In 2019, we wi
 
 We will also add new components to the ECL v2 as we continue improving the look and feel of the existing components. New releases under v2 should be published periodically under [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 2.11.0 (2019-08-30)
+
+#### :rocket: New Feature
+
+- [#1256](https://github.com/ec-europa/europa-component-library/pull/1256) feat(event-speaker): add template - INNO-1721
+- [#1248](https://github.com/ec-europa/europa-component-library/pull/1248) feat(events): add event details template - INNO-1719
+- [#1266](https://github.com/ec-europa/europa-component-library/pull/1266) feat(events): add event agenda template - INNO-1722
+- [#1284](https://github.com/ec-europa/europa-component-library/pull/1284) feat(utilities): add media utilities - INNO-1755
+- [#1275](https://github.com/ec-europa/europa-component-library/pull/1275) feat(description-list): add horizontal variant - INNO-1745
+- [#1267](https://github.com/ec-europa/europa-component-library/pull/1267) feat(site-header): bridge language selector and overlay - INNO-1655
+- [#1265](https://github.com/ec-europa/europa-component-library/pull/1265) feat(login): provide composition for login bar - INNO-1699
+- [#1262](https://github.com/ec-europa/europa-component-library/pull/1262) feat(dropdown-legacy): port dropdown from ECL v1 (legacy) - INNO-1725
+
+#### :bug: Bug Fix
+
+- [#1289](https://github.com/ec-europa/europa-component-library/pull/1289) fix(timeline): set max-width and update font-size - INNO-1762
+- [#1268](https://github.com/ec-europa/europa-component-library/pull/1268) fix(styles): make styles more resilient - INNO-1737
+- [#1261](https://github.com/ec-europa/europa-component-library/pull/1261) fix(search-template): fix a11y issue - INNO-1728
+
+#### :nail_care: Enhancement
+
+- [#1277](https://github.com/ec-europa/europa-component-library/pull/1277) refactor(ec-footer): combine EC links - INNO-1748
+- [#1274](https://github.com/ec-europa/europa-component-library/pull/1274) refactor(eu-footer): update EU footer V2 - INNO-1741
+
+#### :memo: Documentation
+
+- [#1286](https://github.com/ec-europa/europa-component-library/pull/1286) docs(site-header): make language select optional if site not multilingual - INNO-1759
+- [#1270](https://github.com/ec-europa/europa-component-library/pull/1270) docs(spacing): update usage - INNO-1724
+- [#1264](https://github.com/ec-europa/europa-component-library/pull/1264) docs: update getting started and contribution guide - no issue
+
+#### :house: Internal
+
+- [#1287](https://github.com/ec-europa/europa-component-library/pull/1287) refactor(links): update links to new homepage - INNO-1758
+- [#1272](https://github.com/ec-europa/europa-component-library/pull/1272) chore: update dependencies - no issue
+- [#1271](https://github.com/ec-europa/europa-component-library/pull/1271) chore(ci): keep build size in check - INNO-958
+- [#1269](https://github.com/ec-europa/europa-component-library/pull/1269) chore(media): change media output folder - INNO-1267
+- [#1260](https://github.com/ec-europa/europa-component-library/pull/1260) chore: update dependencies - INNO-1650
+
 ## 2.10.1 (2019-08-16)
 
 #### :bug: Bug Fix
