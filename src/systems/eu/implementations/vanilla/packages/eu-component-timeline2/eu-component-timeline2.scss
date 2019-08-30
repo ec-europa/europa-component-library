@@ -25,6 +25,7 @@
     list-style: none;
     margin: 0 $ecl-spacing-l 0
       ($ecl-spacing-l + ($bullet-size / 2) + $bullet-border-width);
+    max-width: 633px;
     padding-left: 0;
   }
 
@@ -136,6 +137,7 @@
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up(sm) {
     .ecl-timeline2__label {
+      font: $ecl-font-xs;
       font-weight: $ecl-font-weight-bold;
       left: -($left-spacing + $ecl-spacing-m + ($bullet-size / 2) +
             $bullet-border-width);
