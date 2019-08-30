@@ -4,12 +4,18 @@ import React, { Fragment } from 'react';
 import Breadcrumb, { BreadcrumbItem } from '@ecl/eu-react-component-breadcrumb';
 import Card from '@ecl/eu-react-component-card';
 import DateBlock from '@ecl/eu-react-component-date-block';
+import {
+  DescriptionList,
+  DescriptionTerm,
+  DescriptionDefinition,
+} from '@ecl/eu-react-component-description-list';
 import Footer from '@ecl/eu-react-component-footer';
 import Icon from '@ecl/eu-react-component-icon';
 import LanguageListOverlay from '@ecl/eu-react-component-language-list/src/LanguageListOverlay';
 import Link from '@ecl/eu-react-component-link';
 import MediaContainer from '@ecl/eu-react-component-media-container';
 import PageBanner from '@ecl/eu-react-component-page-banner';
+import PageHeader from '@ecl/eu-react-component-page-header';
 import SiteHeader from '@ecl/eu-react-component-site-header';
 import SocialMediaFollow from '@ecl/eu-react-component-social-media-follow';
 import {
@@ -22,29 +28,23 @@ import languageListContent from '@ecl/eu-specs-language-list/demo/data--overlay'
 import siteHeaderContent from '@ecl/eu-specs-site-header/demo/data--en';
 
 export default () => {
+  const breadcrumb = (
+    <Breadcrumb className="ecl-page-header__breadcrumb">
+      <BreadcrumbItem label="Home" href="/example" />
+      <BreadcrumbItem label="Events" href="/example" />
+      <BreadcrumbItem label="Fair of European Innovators in Cultural heritage" />
+    </Breadcrumb>
+  );
+
   return (
     <Fragment>
-      <SiteHeader {...siteHeaderContent} />
+      <SiteHeader {...siteHeaderContent} data-ecl-auto-init="SiteHeader" />
       <LanguageListOverlay {...languageListContent} hidden="true" />
-      {/* :'( Custom page header to add button */}
-      <div className="ecl-page-header">
-        <div className="ecl-container">
-          <Breadcrumb className="ecl-page-header__breadcrumb">
-            <BreadcrumbItem label="Home" href="/example" />
-            <BreadcrumbItem label="Events" href="/example" />
-            <BreadcrumbItem label="Fair of European Innovators in Cultural heritage" />
-          </Breadcrumb>
-          <div className="ecl-page-header__meta-list">Conference</div>
-          <div className="ecl-u-d-flex ecl-u-flex-column ecl-u-flex-md-row">
-            <h1 className="ecl-page-header__title ecl-u-flex-grow-1">
-              Fair of European Innovators in Cultural heritage
-            </h1>
-            <div className="ecl-u-align-self-end ecl-u-mt-l ecl-u-mt-md-none">
-              <Link variant="cta" label="Register" href="/example" />
-            </div>
-          </div>
-        </div>
-      </div>
+      <PageHeader
+        breadcrumb={breadcrumb}
+        meta="Conference"
+        title="Fair of European Innovators in Cultural heritage"
+      />
 
       <main className="ecl-u-pv-2xl ecl-u-pv-md-3xl">
         <div className="ecl-container">
@@ -105,6 +105,13 @@ export default () => {
             </div>
           </div>
 
+          <Link
+            variant="cta"
+            label="Register"
+            href="/example"
+            className="ecl-u-mt-2xl"
+          />
+
           {/* :'( Custom heading spacing */}
           <h2 className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
             Programme
@@ -162,22 +169,21 @@ export default () => {
 
           <div className="ecl-row">
             <div className="ecl-col-12 ecl-col-md-4">
-              {/* :'( Custom card, tags styling not conform */}
               <article className="ecl-card">
                 <header className="ecl-card__header">
-                  <div className="ecl-row">
-                    <div className="ecl-col-4 ecl-u-pr-none">
-                      <div
-                        className="ecl-card__image ecl-u-ratio-1-1"
-                        alt="card image"
-                        style={{
-                          backgroundImage:
-                            'url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Ioannes_Claudius_Juncker_die_7_Martis_2014.jpg/1200px-Ioannes_Claudius_Juncker_die_7_Martis_2014.jpg)',
-                        }}
-                      />
-                    </div>
-                    <div className="ecl-col-8">
-                      <div className="ecl-card__meta">Special guest</div>
+                  <div className="ecl-u-d-flex">
+                    <div
+                      className="ecl-card__image ecl-u-media-a-m ecl-u-mr-s ecl-u-flex-shrink-0"
+                      alt="card image"
+                      style={{
+                        backgroundImage:
+                          'url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Ioannes_Claudius_Juncker_die_7_Martis_2014.jpg/1200px-Ioannes_Claudius_Juncker_die_7_Martis_2014.jpg)',
+                      }}
+                    />
+                    <div>
+                      <div className="ecl-card__meta ecl-u-type-s">
+                        Special guest
+                      </div>
                       <h1 className="ecl-card__title">
                         <a
                           href="/example"
@@ -186,14 +192,16 @@ export default () => {
                           Jean-Claude Juncker
                         </a>
                       </h1>
-                      <div className="ecl-card__description">
+                      <div className="ecl-card__description ecl-u-type-s">
                         European Commission President
                       </div>
                     </div>
                   </div>
                 </header>
                 <section className="ecl-card__body">
-                  <div className="ecl-card__meta">Session</div>
+                  <div className="ecl-card__meta ecl-u-type-s ecl-u-mt-l">
+                    Session
+                  </div>
                   <h2 className="ecl-card__title">
                     <a
                       href="/example"
@@ -202,7 +210,7 @@ export default () => {
                       Opening of the conference
                     </a>
                   </h2>
-                  <div className="ecl-card__meta">
+                  <div className="ecl-card__meta ecl-u-type-s">
                     15 Nov 2019 | 09:00 - 09:15 | Auditorium
                   </div>
                 </section>
@@ -210,22 +218,21 @@ export default () => {
             </div>
 
             <div className="ecl-col-12 ecl-col-md-4 ecl-u-mt-l ecl-u-mt-md-none">
-              {/* :'( Custom card, tags styling not conform */}
               <article className="ecl-card">
                 <header className="ecl-card__header">
-                  <div className="ecl-row">
-                    <div className="ecl-col-4 ecl-u-pr-none">
-                      <div
-                        className="ecl-card__image ecl-u-ratio-1-1"
-                        alt="card image"
-                        style={{
-                          backgroundImage:
-                            'url(https://ec.europa.eu/commission/commissioners/sites/cwt/files/commissioner_portraits/hahn.jpg)',
-                        }}
-                      />
-                    </div>
-                    <div className="ecl-col-8">
-                      <div className="ecl-card__meta">Special guest</div>
+                  <div className="ecl-u-d-flex">
+                    <div
+                      className="ecl-card__image ecl-u-media-a-m ecl-u-mr-s ecl-u-flex-shrink-0"
+                      alt="card image"
+                      style={{
+                        backgroundImage:
+                          'url(https://ec.europa.eu/commission/commissioners/sites/cwt/files/commissioner_portraits/hahn.jpg)',
+                      }}
+                    />
+                    <div>
+                      <div className="ecl-card__meta ecl-u-type-s">
+                        Special guest
+                      </div>
                       <h1 className="ecl-card__title">
                         <a
                           href="/example"
@@ -234,7 +241,7 @@ export default () => {
                           Johannes Hahn
                         </a>
                       </h1>
-                      <div className="ecl-card__description">
+                      <div className="ecl-card__description ecl-u-type-s">
                         European Commissionner for European Neighbourhood Policy
                         and Enlargment Negociation
                       </div>
@@ -242,7 +249,9 @@ export default () => {
                   </div>
                 </header>
                 <section className="ecl-card__body">
-                  <div className="ecl-card__meta">Session</div>
+                  <div className="ecl-card__meta ecl-u-type-s ecl-u-mt-l">
+                    Session
+                  </div>
                   <h2 className="ecl-card__title">
                     <a
                       href="/example"
@@ -251,7 +260,7 @@ export default () => {
                       Why are we innovating in and through cultural heritage?
                     </a>
                   </h2>
-                  <div className="ecl-card__meta">
+                  <div className="ecl-card__meta ecl-u-type-s">
                     15 Nov 2019 | 09:15 - 10:00 | Riverside
                   </div>
                 </section>
@@ -259,22 +268,21 @@ export default () => {
             </div>
 
             <div className="ecl-col-12 ecl-col-md-4 ecl-u-mt-l ecl-u-mt-md-none">
-              {/* :'( Custom card, tags styling not conform */}
               <article className="ecl-card">
                 <header className="ecl-card__header">
-                  <div className="ecl-row">
-                    <div className="ecl-col-4 ecl-u-pr-none">
-                      <div
-                        className="ecl-card__image ecl-u-ratio-1-1"
-                        alt="card image"
-                        style={{
-                          backgroundImage:
-                            'url(https://www.euroamerica.org/wp-content/uploads/2017/10/FerreroWaldnerCV-294x300.jpg)',
-                        }}
-                      />
-                    </div>
-                    <div className="ecl-col-8">
-                      <div className="ecl-card__meta">Special guest</div>
+                  <div className="ecl-u-d-flex">
+                    <div
+                      className="ecl-card__image ecl-u-media-a-m ecl-u-mr-s ecl-u-flex-shrink-0"
+                      alt="card image"
+                      style={{
+                        backgroundImage:
+                          'url(https://www.euroamerica.org/wp-content/uploads/2017/10/FerreroWaldnerCV-294x300.jpg)',
+                      }}
+                    />
+                    <div>
+                      <div className="ecl-card__meta ecl-u-type-s">
+                        Special guest
+                      </div>
                       <h1 className="ecl-card__title">
                         <a
                           href="/example"
@@ -283,7 +291,7 @@ export default () => {
                           Benita Ferrero-Waldner
                         </a>
                       </h1>
-                      <div className="ecl-card__description">
+                      <div className="ecl-card__description ecl-u-type-s">
                         European Commissionner for Trade and European
                         Neighbourhood Policy
                       </div>
@@ -291,7 +299,9 @@ export default () => {
                   </div>
                 </header>
                 <section className="ecl-card__body">
-                  <div className="ecl-card__meta">Session</div>
+                  <div className="ecl-card__meta ecl-u-type-s ecl-u-mt-l">
+                    Session
+                  </div>
                   <h2 className="ecl-card__title">
                     <a
                       href="/example"
@@ -300,7 +310,7 @@ export default () => {
                       Opening of the exhibition
                     </a>
                   </h2>
-                  <div className="ecl-card__meta">
+                  <div className="ecl-card__meta ecl-u-type-s">
                     15 Nov 2019 | 12:00 - 12:30 | Auditorium
                   </div>
                 </section>
@@ -326,11 +336,9 @@ export default () => {
 
           <div className="ecl-row">
             <div className="ecl-col-12 ecl-col-md-6">
-              <div className="ecl-row ecl-u-type-m">
-                <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
-                  When
-                </div>
-                <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
+              <DescriptionList variant="horizontal">
+                <DescriptionTerm>When</DescriptionTerm>
+                <DescriptionDefinition>
                   Thursday 15 November, 08:00 AM
                   <br />
                   to Friday 16 November
@@ -343,14 +351,10 @@ export default () => {
                       size: 'fluid',
                     }}
                   />
-                </div>
-              </div>
+                </DescriptionDefinition>
 
-              <div className="ecl-row ecl-u-type-m ecl-u-mt-m">
-                <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
-                  Where
-                </div>
-                <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
+                <DescriptionTerm>Where</DescriptionTerm>
+                <DescriptionDefinition>
                   The EGG, Rue Barra 175, 1070 Brussels, Belgium
                   <br />
                   <Link
@@ -361,129 +365,90 @@ export default () => {
                       size: 'fluid',
                     }}
                   />
-                </div>
-              </div>
+                </DescriptionDefinition>
 
-              <div className="ecl-row ecl-u-type-m ecl-u-mt-m">
-                <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
-                  Live streaming
-                </div>
-                <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
+                <DescriptionTerm>Live streaming</DescriptionTerm>
+                <DescriptionDefinition>
                   08:00 CET | 00d:23h:35m
-                </div>
-              </div>
+                </DescriptionDefinition>
 
-              <div className="ecl-row ecl-u-type-m ecl-u-mt-m">
-                <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
-                  Languages
-                </div>
-                <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
+                <DescriptionTerm>Languages</DescriptionTerm>
+                <DescriptionDefinition>
                   English. Transcripts in Dutch and French
-                </div>
-              </div>
+                </DescriptionDefinition>
 
-              <div className="ecl-row ecl-u-type-m ecl-u-mt-m">
-                <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
-                  Organizer
-                </div>
-                <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
-                  Diractorate-General Education, Youth, Sport and Culture
-                </div>
-              </div>
+                <DescriptionTerm>Organizer</DescriptionTerm>
+                <DescriptionDefinition>
+                  Directorate-General Education, Youth, Sport and Culture
+                </DescriptionDefinition>
 
-              <div className="ecl-row ecl-u-type-m ecl-u-mt-m">
-                <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
-                  Event part of
-                </div>
-                <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
+                <DescriptionTerm>Event part of</DescriptionTerm>
+                <DescriptionDefinition>
                   European Year of Culture Heritage
-                </div>
-              </div>
+                </DescriptionDefinition>
 
-              <div className="ecl-row ecl-u-type-m ecl-u-mt-m">
-                <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
-                  Website
-                </div>
-                <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
-                  {/* :'( Broken display caused by long text */}
+                <DescriptionTerm>Website</DescriptionTerm>
+                <DescriptionDefinition>
                   <Link
                     label="https://www.eac-events.eu/ehome/fairofeuropeaninnovatorsinculturalheritage/home/"
                     href="/example"
                   />
-                </div>
-              </div>
+                </DescriptionDefinition>
 
-              <div className="ecl-row ecl-u-type-m ecl-u-mt-m">
-                <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
-                  Social media
-                </div>
-                <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
-                  {/* :'( Custom social media follow */}
-                  <SocialMediaFollow
-                    className="ecl-u-pa-none ecl-u-bg-white"
-                    links={[
-                      {
-                        href: '/example',
-                        label: 'Twitter',
-                        variant: 'standalone',
-                        iconPosition: 'before',
-                        icon: [
-                          {
-                            shape: 'twitter',
-                            size: 'xl',
-                          },
-                          {
-                            shape: 'twitter_hover',
-                            size: 'xl',
-                          },
-                        ],
-                      },
-                      {
-                        href: '/example',
-                        label: 'Facebook',
-                        variant: 'standalone',
-                        iconPosition: 'before',
-                        icon: [
-                          {
-                            shape: 'facebook',
-                            size: 'xl',
-                          },
-                          {
-                            shape: 'facebook_hover',
-                            size: 'xl',
-                          },
-                        ],
-                      },
-                    ]}
-                  />
-                </div>
-              </div>
-
-              <div className="ecl-row ecl-u-type-m ecl-u-mt-m">
-                <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
-                  Target audience
-                </div>
-                <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
+                <DescriptionTerm>Target audience</DescriptionTerm>
+                <DescriptionDefinition>
                   European Year of Culture Heritage
-                </div>
-              </div>
+                </DescriptionDefinition>
 
-              <div className="ecl-row ecl-u-type-m ecl-u-mt-m">
-                <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
-                  Number of seats
-                </div>
-                <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
+                <DescriptionTerm>Number of seats</DescriptionTerm>
+                <DescriptionDefinition>
                   170 seats, 11 available
-                </div>
-              </div>
+                </DescriptionDefinition>
 
-              <div className="ecl-row ecl-u-type-m ecl-u-mt-m">
-                <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
-                  Entrance fee
-                </div>
-                <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">Free</div>
-              </div>
+                <DescriptionTerm>Entrance fee</DescriptionTerm>
+                <DescriptionDefinition>Free</DescriptionDefinition>
+              </DescriptionList>
+
+              <SocialMediaFollow
+                className="ecl-u-mt-l"
+                description="Social Media"
+                links={[
+                  {
+                    href: '/example',
+                    label: 'Twitter',
+                    variant: 'standalone',
+                    iconPosition: 'before',
+                    icon: [
+                      {
+                        shape: 'twitter',
+                        size: 'xl',
+                      },
+                      {
+                        shape: 'twitter_hover',
+                        size: 'xl',
+                      },
+                    ],
+                  },
+                  {
+                    href: '/example',
+                    label: 'Facebook',
+                    variant: 'standalone',
+                    iconPosition: 'before',
+                    icon: [
+                      {
+                        shape: 'facebook',
+                        size: 'xl',
+                      },
+                      {
+                        shape: 'facebook_hover',
+                        size: 'xl',
+                      },
+                    ],
+                  },
+                ]}
+              />
             </div>
+
             <div className="ecl-col-12 ecl-col-md-6">
               <script type="application/json">
                 {`
@@ -589,36 +554,27 @@ export default () => {
               </h3>
 
               <address>
-                <div className="ecl-row ecl-u-type-m">
-                  <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
-                    Phone number
-                  </div>
-                  <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
+                <DescriptionList variant="horizontal">
+                  <DescriptionTerm>Phone number</DescriptionTerm>
+                  <DescriptionDefinition>
                     (0)2 29 56186 (Commission switchboard)
-                  </div>
-                </div>
+                  </DescriptionDefinition>
 
-                <div className="ecl-row ecl-u-type-m ecl-u-mt-m">
-                  <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
-                    Postal address
-                  </div>
-                  <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
-                    Directorate-General for Education and Culture European
-                    Commission B-1049 Brussels Belgium
-                  </div>
-                </div>
+                  <DescriptionTerm>Postal address</DescriptionTerm>
+                  <DescriptionDefinition>
+                    Directorate-General for Education and Culture
+                    <br />
+                    European Commission B-1049 Brussels Belgium
+                  </DescriptionDefinition>
 
-                <div className="ecl-row ecl-u-type-m ecl-u-mt-m">
-                  <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
-                    Email address
-                  </div>
-                  <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
+                  <DescriptionTerm>Email address</DescriptionTerm>
+                  <DescriptionDefinition>
                     <Link
                       label="directorate-general@ec.europa.eu"
                       href="/example"
                     />
-                  </div>
-                </div>
+                  </DescriptionDefinition>
+                </DescriptionList>
               </address>
             </div>
 
@@ -628,90 +584,63 @@ export default () => {
               </h3>
 
               <address>
-                <div className="ecl-row ecl-u-type-m">
-                  <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
-                    Name
-                  </div>
-                  <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
-                    Sara Soumillion
-                  </div>
-                </div>
+                <DescriptionList variant="horizontal">
+                  <DescriptionTerm>Name</DescriptionTerm>
+                  <DescriptionDefinition>Sara Soumillion</DescriptionDefinition>
 
-                <div className="ecl-row ecl-u-type-m ecl-u-mt-m">
-                  <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
-                    Role
-                  </div>
-                  <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
-                    Press Officer
-                  </div>
-                </div>
+                  <DescriptionTerm>Role</DescriptionTerm>
+                  <DescriptionDefinition>Press Officer</DescriptionDefinition>
 
-                <div className="ecl-row ecl-u-type-m ecl-u-mt-m">
-                  <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
-                    Phone number
-                  </div>
-                  <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
-                    +32 2 296 70 94
-                  </div>
-                </div>
+                  <DescriptionTerm>Phone number</DescriptionTerm>
+                  <DescriptionDefinition>+32 2 296 70 94</DescriptionDefinition>
 
-                <div className="ecl-row ecl-u-type-m ecl-u-mt-m">
-                  <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
-                    Email address
-                  </div>
-                  <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
+                  <DescriptionTerm>Email address</DescriptionTerm>
+                  <DescriptionDefinition>
                     <Link
                       label="Sara.SOUMILLION@ec.europa.eu"
                       href="/example"
                     />
-                  </div>
-                </div>
+                  </DescriptionDefinition>
+                </DescriptionList>
 
-                <div className="ecl-row ecl-u-type-m ecl-u-mt-m">
-                  <div className="ecl-col-12 ecl-col-md-4 ecl-u-type-bold">
-                    Social media
-                  </div>
-                  <div className="ecl-col-12 ecl-col-md-8 ecl-u-mt-2xs">
-                    {/* :'( Custom social media follow */}
-                    <SocialMediaFollow
-                      className="ecl-u-pa-none ecl-u-bg-white"
-                      links={[
+                <SocialMediaFollow
+                  className="ecl-u-mt-l"
+                  description="Social media"
+                  links={[
+                    {
+                      href: '/example',
+                      label: 'Twitter',
+                      variant: 'standalone',
+                      iconPosition: 'before',
+                      icon: [
                         {
-                          href: '/example',
-                          label: 'Twitter',
-                          variant: 'standalone',
-                          iconPosition: 'before',
-                          icon: [
-                            {
-                              shape: 'twitter',
-                              size: 'xl',
-                            },
-                            {
-                              shape: 'twitter_hover',
-                              size: 'xl',
-                            },
-                          ],
+                          shape: 'twitter',
+                          size: 'xl',
                         },
                         {
-                          href: '/example',
-                          label: 'Facebook',
-                          variant: 'standalone',
-                          iconPosition: 'before',
-                          icon: [
-                            {
-                              shape: 'facebook',
-                              size: 'xl',
-                            },
-                            {
-                              shape: 'facebook_hover',
-                              size: 'xl',
-                            },
-                          ],
+                          shape: 'twitter_hover',
+                          size: 'xl',
                         },
-                      ]}
-                    />
-                  </div>
-                </div>
+                      ],
+                    },
+                    {
+                      href: '/example',
+                      label: 'Facebook',
+                      variant: 'standalone',
+                      iconPosition: 'before',
+                      icon: [
+                        {
+                          shape: 'facebook',
+                          size: 'xl',
+                        },
+                        {
+                          shape: 'facebook_hover',
+                          size: 'xl',
+                        },
+                      ],
+                    },
+                  ]}
+                />
               </address>
             </div>
           </div>
