@@ -116,7 +116,6 @@ export default () => {
 
             <div>
               <h4
-                id="day1"
                 className="ecl-u-type-heading-4 ecl-u-mb-m ecl-u-mt-none 
             ecl-u-bg-grey ecl-u-pa-m ecl-u-type-color-white ecl-u-type-bold
             ecl-u-border-left ecl-u-border-width-8 ecl-u-border-color-yellow ecl-u-z-navigation"
@@ -127,6 +126,7 @@ export default () => {
               </h4>
 
               <Timeline2
+                id="day1"
                 data-ecl-template-timeline
                 className="ecl-u-mb-l ecl-u-mb-md-3xl"
               >
@@ -425,7 +425,6 @@ export default () => {
 
             <div>
               <h4
-                id="day2"
                 className="ecl-u-type-heading-4 ecl-u-mb-m ecl-u-mt-none 
             ecl-u-bg-grey ecl-u-pa-m ecl-u-type-color-white ecl-u-type-bold
             ecl-u-border-left ecl-u-border-width-8 ecl-u-border-color-yellow ecl-u-z-navigation"
@@ -435,7 +434,7 @@ export default () => {
                 Day 2 - Friday, 16 November 2019
               </h4>
 
-              <Timeline2 data-ecl-template-timeline>
+              <Timeline2 id="day2" data-ecl-template-timeline>
                 <Timeline2Item label="08:00 - 10:30" title="Innovators at work">
                   <div className="ecl-u-type-s">Workshop | Breakout rooms</div>
                   <p className="ecl-u-type-paragraph ecl-u-mt-s ecl-u-mb-none">
