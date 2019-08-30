@@ -1,4 +1,4 @@
-# Ratio utilities
+# [DEPRECATED] Ratio utilities
 
 You can use these utilities to quickly set a ratio for a block or a video. Just
 add the corresponding class to a wrapper element.

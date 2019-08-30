@@ -115,6 +115,29 @@ buildTokens({
   format: 'font-size.scss.map',
 });
 
+// Media SCSS map
+const mediaPrefix = 'MEDIA_';
+theo.registerFormat(
+  'media.scss.map',
+  scssMap({
+    mapName: '$ecl-media',
+    keyName: prop =>
+      prop
+        .get('name')
+        .substr(mediaPrefix.length)
+        .toLowerCase()
+        .replace(/_/g, '-'),
+    filter: prop => prop.get('name').indexOf(mediaPrefix) === 0,
+  })
+);
+
+buildTokens({
+  input: path.join(__dirname, '../aliases/media.yml'),
+  output: path.join(__dirname, '../exports/media.scss'),
+  type: 'web',
+  format: 'media.scss.map',
+});
+
 // Colors SCSS map
 const colorPrefix = 'COLOR_';
 theo.registerFormat(
