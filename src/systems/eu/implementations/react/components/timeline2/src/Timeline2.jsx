@@ -10,6 +10,7 @@ export const Timeline2 = ({
   toggleCollapsed,
   toggleExpanded,
   button,
+  children,
   className,
   ...props
 }) => {
@@ -43,25 +44,26 @@ export const Timeline2 = ({
 
   return (
     <ol {...props} className={classNames} data-ecl-timeline>
-      {items.map(
-        ({ id: itemId, content: itemContent, ...itemProps }, index) => (
-          <Fragment key={itemId}>
-            <Timeline2Item
-              {...itemProps}
-              className={classnames({
-                [`ecl-timeline2__item--collapsed`]:
-                  index >= threshold && index < items.length - 2,
-              })}
-            >
-              {itemContent}
-            </Timeline2Item>
-
-            {threshold < items.length &&
-              index === items.length - 3 &&
-              showAllButton}
-          </Fragment>
-        )
-      )}
+      {items &&
+        items.map(
+          ({ id: itemId, content: itemContent, ...itemProps }, index) => (
+            <Fragment key={itemId}>
+              <Timeline2Item
+                {...itemProps}
+                className={classnames({
+                  [`ecl-timeline2__item--collapsed`]:
+                    index >= threshold && index < items.length - 2,
+                })}
+              >
+                {itemContent}
+              </Timeline2Item>
+              {threshold < items.length &&
+                index === items.length - 3 &&
+                showAllButton}
+            </Fragment>
+          )
+        )}
+      {children && children}
     </ol>
   );
 };
@@ -75,6 +77,7 @@ Timeline2.propTypes = {
   ),
   toggleCollapsed: PropTypes.string,
   toggleExpanded: PropTypes.string,
+  children: PropTypes.node,
   button: PropTypes.shape(Button.propTypes),
   className: PropTypes.string,
 };
@@ -83,6 +86,7 @@ Timeline2.defaultProps = {
   items: [],
   toggleCollapsed: '',
   toggleExpanded: '',
+  children: null,
   button: {},
   className: '',
 };
