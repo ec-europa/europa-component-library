@@ -40,8 +40,8 @@ export default () => (
       style={{
         backgroundImage:
           'url("https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg")',
+        backgroundRepeat: 'no-repeat',
         backgroundSize: 'contain',
-        height: '5rem',
         width: '7.5rem',
       }}
     />
@@ -53,8 +53,8 @@ export default () => (
       style={{
         backgroundImage:
           'url("https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg")',
+        backgroundRepeat: 'no-repeat',
         backgroundSize: 'contain',
-        height: '8.75rem',
         width: '13.125rem',
       }}
     />
