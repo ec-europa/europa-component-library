@@ -69,6 +69,82 @@
   .ecl-u-media-ratio-1-1 {
     @include ecl-aspect-ratio(1, 1);
   }
+
+  /*
+   * Background origin
+   */
+  .ecl-u-media-bg-origin-border {
+    background-origin: border-box;
+  }
+
+  .ecl-u-media-bg-origin-padding {
+    background-origin: padding-box;
+  }
+
+  .ecl-u-media-bg-origin-content {
+    background-origin: content-box;
+  }
+
+  /*
+   * Background position
+   */
+  .ecl-u-media-bg-position-0 {
+    background-position: 0 0;
+  }
+
+  .ecl-u-media-bg-position-top {
+    background-position: top;
+  }
+
+  .ecl-u-media-bg-position-bottom {
+    background-position: bottom;
+  }
+
+  .ecl-u-media-bg-position-left {
+    background-position: left;
+  }
+
+  .ecl-u-media-bg-position-right {
+    background-position: right;
+  }
+
+  .ecl-u-media-bg-position-center {
+    background-position: center;
+  }
+
+  /*
+   * Background repeat
+   */
+  .ecl-u-media-bg-repeat-all {
+    background-repeat: repeat;
+  }
+
+  .ecl-u-media-bg-repeat-x {
+    background-repeat: repeat-x;
+  }
+
+  .ecl-u-media-bg-repeat-y {
+    background-repeat: repeat-y;
+  }
+
+  .ecl-u-media-bg-repeat-none {
+    background-repeat: no-repeat;
+  }
+
+  /*
+   * Background size
+   */
+  .ecl-u-media-bg-size-auto {
+    background-size: auto;
+  }
+
+  .ecl-u-media-bg-size-contain {
+    background-size: contain;
+  }
+
+  .ecl-u-media-bg-size-content {
+    background-size: content;
+  }
 }
 
 // Use mixin
