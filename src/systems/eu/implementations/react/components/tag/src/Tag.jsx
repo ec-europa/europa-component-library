@@ -10,7 +10,12 @@ const Tag = ({ label, variant, href, className, ...props }) => {
     [`ecl-tag--${variant}`]: variant,
   });
 
-  const TagName = href ? 'a' : 'button';
+  let TagName = href ? 'a' : 'button';
+  const TagNameIcon = TagName;
+
+  if (variant === 'removable') {
+    TagName = 'span';
+  }
 
   const tagProps = {
     ...props,
@@ -21,14 +26,14 @@ const Tag = ({ label, variant, href, className, ...props }) => {
     <TagName {...tagProps} className={classNames}>
       {label}
       {!!(variant && variant === 'removable') && (
-        <span className="ecl-tag__icon">
+        <TagNameIcon className="ecl-tag__icon">
           <Icon shape="ui--close" className="ecl-tag__icon-close" size="xs" />
           <Icon
             shape="ui--close-filled"
             className="ecl-tag__icon-close-filled"
             size="xs"
           />
-        </span>
+        </TagNameIcon>
       )}
     </TagName>
   );
