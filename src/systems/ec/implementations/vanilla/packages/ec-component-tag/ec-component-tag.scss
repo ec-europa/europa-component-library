@@ -36,6 +36,7 @@
   }
 
   .ecl-tag--removable {
+    pointer-events: none;
     text-decoration: none;
 
     &:hover,
@@ -52,6 +53,7 @@
     height: $ecl-icon-xs;
     margin-left: $ecl-spacing-xs;
     padding: 0;
+    pointer-events: auto;
     position: relative;
     width: $ecl-icon-xs;
 
