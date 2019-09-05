@@ -14,9 +14,5 @@ storiesOf('Components|Tag', module)
     <Tag label={text('Label', 'Button tag')} type="button" />
   ))
   .add('removable', () => (
-    <Tag
-      label={text('Label', 'Removable tag')}
-      variant="removable"
-      type="button"
-    />
+    <Tag label={text('Label', 'Removable tag')} variant="removable" />
   ));
