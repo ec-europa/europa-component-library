@@ -6484,23 +6484,26 @@ eslint-plugin-react@7.14.3:
     prop-types "^15.7.2"
     resolve "^1.10.1"
 
-eslint-plugin-unicorn@10.0.0:
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-unicorn/-/eslint-plugin-unicorn-10.0.0.tgz#f3815a759f76dd490dbb5a560e3805e0556aff17"
-  integrity sha512-hJaDsoquO+2UMtxmURXA/6VNH+sNS4kyO5aaal8fEis7pdCuErwRsGzhhI9fOYmA7985M3XADPEWmK+29T525w==
+eslint-plugin-unicorn@11.0.2:
+  version "11.0.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-unicorn/-/eslint-plugin-unicorn-11.0.2.tgz#d330148d4f15a5eae5d10cb501bacd5328736264"
+  integrity sha512-tNpaQPYV4QOrTYY99/rghfjJY8pb4flBa2W9Dfyz/kOwE4Pe0JqatRI9gIIEdnZXwdZ+9Qh0csSxBjFwutow5g==
   dependencies:
+    ci-info "^2.0.0"
     clean-regexp "^1.0.0"
     eslint-ast-utils "^1.1.0"
     import-modules "^1.1.0"
     lodash.camelcase "^4.3.0"
-    lodash.defaultsdeep "^4.6.0"
+    lodash.defaultsdeep "^4.6.1"
     lodash.kebabcase "^4.1.1"
     lodash.snakecase "^4.1.1"
     lodash.topairs "^4.3.0"
     lodash.upperfirst "^4.3.1"
-    regexpp "^2.0.1"
+    read-pkg "^5.2.0"
+    regexpp "^3.0.0"
     reserved-words "^0.1.2"
     safe-regex "^2.0.2"
+    semver "^6.3.0"
 
 eslint-scope@^4.0.0, eslint-scope@^4.0.3:
   version "4.0.3"
@@ -9887,7 +9890,7 @@ lodash.debounce@^4.0.8:
   resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
   integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
 
-lodash.defaultsdeep@^4.6.0:
+lodash.defaultsdeep@^4.6.1:
   version "4.6.1"
   resolved "https://registry.yarnpkg.com/lodash.defaultsdeep/-/lodash.defaultsdeep-4.6.1.tgz#512e9bd721d272d94e3d3a63653fa17516741ca6"
   integrity sha512-3j8wdDzYuWO3lM3Reg03MuQR957t287Rpcxp1njpEa8oDrikb+FwGdW3n+FELh/A6qib6yPit0j/pv9G/yeAqA==
@@ -13338,7 +13341,7 @@ read-pkg@^3.0.0:
     normalize-package-data "^2.3.2"
     path-type "^3.0.0"
 
-read-pkg@^5.1.1:
+read-pkg@^5.1.1, read-pkg@^5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/read-pkg/-/read-pkg-5.2.0.tgz#7bf295438ca5a33e56cd30e053b34ee7250c93cc"
   integrity sha512-Ug69mNOpfvKDAc2Q8DRpMjjzdtrnv9HcSMX+4VsZxD1aZ6ZzrIE7rlzXBtWTyhULSMKg076AW6WR5iZpD0JiOg==
@@ -13545,6 +13548,11 @@ regexpp@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/regexpp/-/regexpp-2.0.1.tgz#8d19d31cf632482b589049f8281f93dbcba4d07f"
   integrity sha512-lv0M6+TkDVniA3aD1Eg0DVpfU/booSu7Eev3TDO/mZKHBfVjgCGTV4t4buppESEYDtkArYFOxTJWv6S5C+iaNw==
+
+regexpp@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/regexpp/-/regexpp-3.0.0.tgz#dd63982ee3300e67b41c1956f850aa680d9d330e"
+  integrity sha512-Z+hNr7RAVWxznLPuA7DIh8UNX1j9CDrUQxskw9IrBE1Dxue2lyXT+shqEIeLUjrokxIP8CMy1WkjgG3rTsd5/g==
 
 regexpu-core@^4.5.4:
   version "4.6.0"
