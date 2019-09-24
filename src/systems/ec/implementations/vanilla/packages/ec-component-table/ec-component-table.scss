@@ -8,10 +8,11 @@
 
 @mixin ecl-table() {
   .ecl-table {
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0 $ecl-spacing-l;
     color: $ecl-color-grey;
     font: $ecl-font-m;
-    margin: 0;
+    margin: -$ecl-spacing-l 0 0;
     width: 100%;
   }
 
@@ -19,23 +20,32 @@
     display: none;
   }
 
-  .ecl-table__row {
-    border-top: 1px solid $ecl-color-grey-50;
-  }
-
   .ecl-table__cell {
-    display: block;
+    border-top: 1px solid $ecl-color-grey-25;
+    display: flex;
+    padding: $ecl-spacing-s;
 
     &::before {
+      background-color: $ecl-color-blue-5;
+      border-right: 2px solid $ecl-color-grey-50;
       content: attr(data-ecl-table-header);
       display: block;
+      flex-basis: 10rem;
+      flex-grow: 0;
+      flex-shrink: 0;
       font-weight: $ecl-font-weight-bold;
-      margin-bottom: $ecl-spacing-xs;
-      margin-top: $ecl-spacing-s;
+      margin-bottom: -$ecl-spacing-s;
+      margin-left: -$ecl-spacing-s;
+      margin-right: $ecl-spacing-s;
+      margin-top: -$ecl-spacing-s;
+      padding-bottom: $ecl-spacing-s;
+      padding-left: $ecl-spacing-s;
+      padding-right: $ecl-spacing-m;
+      padding-top: $ecl-spacing-s;
     }
 
-    &:last-child {
-      margin-bottom: $ecl-spacing-s;
+    &:last-of-type {
+      border-bottom: 1px solid $ecl-color-grey-25;
     }
   }
 
