@@ -63,6 +63,22 @@ html {
     }),
     sidebarAnimations: false,
     panelPosition: 'right',
+    storySort: (a, b) => {
+      const aParentKind = a[1].kind.split('|').shift();
+      const aKind = a[1].kind
+        .split('|')
+        .slice(1)
+        .join('|');
+      const bParentKind = b[1].kind.split('|').shift();
+      const bKind = b[1].kind
+        .split('|')
+        .slice(1)
+        .join('|');
+
+      return aParentKind !== bParentKind
+        ? 0
+        : aKind.localeCompare(bKind, { numeric: true });
+    },
   },
   viewport: {
     defaultViewport: 'iphone6',
