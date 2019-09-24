@@ -73,6 +73,8 @@
   // Highlited item
   .ecl-list-item--highlight .ecl-list-item__link {
     flex-direction: column;
+    margin-bottom: map-get($ecl-spacing, 's');
+    padding-bottom: 0;
     padding-top: 0;
   }
 
@@ -114,11 +116,13 @@
       text-decoration: none;
     }
 
-    .ecl-list-item__link:hover {
+    .ecl-list-item__link:hover,
+    .ecl-list-item__link:focus {
       color: #fff;
     }
 
-    .ecl-list-item__link:hover .ecl-list-item__title {
+    .ecl-list-item__link:hover .ecl-list-item__title,
+    .ecl-list-item__link:focus .ecl-list-item__title {
       color: #fff;
     }
 
