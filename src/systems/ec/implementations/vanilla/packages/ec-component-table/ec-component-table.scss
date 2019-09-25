@@ -8,11 +8,10 @@
 
 @mixin ecl-table() {
   .ecl-table {
-    border-collapse: separate;
-    border-spacing: 0 $ecl-spacing-l;
+    border-collapse: collapse;
     color: $ecl-color-grey;
     font: $ecl-font-m;
-    margin: -$ecl-spacing-l 0 0;
+    margin: 0;
     width: 100%;
   }
 
@@ -46,12 +45,14 @@
 
     &:last-of-type {
       border-bottom: 1px solid $ecl-color-grey-25;
+      margin-bottom: $ecl-spacing-l;
     }
   }
 
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up(lg) {
     .ecl-table__head {
+      background-color: $ecl-color-blue-5;
       display: table-header-group;
     }
 
@@ -59,16 +60,16 @@
       font-weight: $ecl-font-weight-bold;
       padding: $ecl-spacing-s $ecl-spacing-m;
       text-align: left;
-      vertical-align: baseline;
+      vertical-align: bottom;
     }
 
     .ecl-table__row {
-      border-bottom: 1px solid $ecl-color-grey-50;
+      border-bottom: 1px solid $ecl-color-grey-25;
       border-top-width: 0;
     }
 
     .ecl-table__head .ecl-table__row:first-child {
-      border-bottom: 2px solid $ecl-color-grey;
+      border-bottom: 2px solid $ecl-color-grey-50;
     }
 
     .ecl-table__head
@@ -78,6 +79,7 @@
     }
 
     .ecl-table__cell {
+      border-width: 0;
       display: table-cell;
       padding: $ecl-spacing-s $ecl-spacing-m;
 
@@ -106,7 +108,7 @@
       font-weight: $ecl-font-weight-bold;
       left: 0;
       position: absolute;
-      top: $ecl-spacing-s;
+      top: 0;
     }
   }
 
