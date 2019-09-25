@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.12.1 (2019-09-25)
+
+#### :bug: Bug Fix
+
+- [#1303](https://github.com/ec-europa/europa-component-library/pull/1303) fix(listing): fix focus on highlighted links - INNO-1814. ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 1
+
+- Yannick Huard ([yhuard](https://github.com/yhuard))
+
 ## 1.12.0 (2019-08-29)
 
 #### :rocket: New Feature
