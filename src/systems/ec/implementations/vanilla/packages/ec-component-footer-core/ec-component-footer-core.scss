@@ -1,0 +1,88 @@
+/**
+ * Footer Core component
+ * @define footer-core
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(
+  ('ec-layout-grid', 'ec-component-link', 'ec-component-icon')
+);
+
+/* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix */
+@mixin ecl-footer-core(
+  $bg-color: $ecl-color-blue,
+  $separator-color: $ecl-color-blue-50,
+  $text-color: $ecl-color-white,
+  $column-gap: $ecl-spacing-xl
+) {
+  .ecl-footer-core {
+    background-color: $bg-color;
+    color: $text-color;
+    font: $ecl-font-m;
+    margin: 0;
+    padding-bottom: $ecl-spacing-xl;
+    padding-top: $ecl-spacing-xl;
+  }
+
+  .ecl-footer-core__parent {
+    column-gap: $column-gap;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 2rem 1fr 2rem 1fr;
+    -ms-grid-rows: minmax(min-content, max-content)
+      minmax(min-content, max-content);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, minmax(min-content, max-content));
+    row-gap: 0;
+  }
+  .ecl-footer-core__div1 {
+    grid-area: 1 / 1 / 3 / 2;
+    -ms-grid-column: 1;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2;
+  }
+  .ecl-footer-core__div2 {
+    border-bottom: 2px solid $separator-color;
+    grid-area: 1 / 2 / 2 / 4;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 3;
+    -ms-grid-row: 1;
+    margin-bottom: $ecl-spacing-xl;
+    padding-bottom: $ecl-spacing-xl;
+  }
+  .ecl-footer-core__div3 {
+    grid-area: 2 / 2 / 3 / 3;
+    -ms-grid-column: 3;
+    -ms-grid-row: 2;
+  }
+  .ecl-footer-core__div4 {
+    -ms-grid-column: 5;
+    -ms-grid-row: 2;
+  }
+
+  .ecl-footer-core__list {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+  }
+
+  .ecl-footer-core__list--2 {
+    column-count: 2;
+    column-gap: $column-gap;
+  }
+
+  .ecl-footer-core__link,
+  .ecl-footer-core__link:hover,
+  .ecl-footer-core__link:active,
+  .ecl-footer-core__link:focus {
+    color: $text-color;
+  }
+}
+
+// Use mixin
+@include exports('ec-component-footer-core') {
+  @include ecl-footer-core();
+}
