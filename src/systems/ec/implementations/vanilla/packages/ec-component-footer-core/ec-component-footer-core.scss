@@ -7,9 +7,7 @@
 @import '@ecl/ec-base/ec-base';
 
 // Check if overridden dependencies are already loaded, if needed
-@include check-imports(
-  ('ec-layout-grid', 'ec-component-link', 'ec-component-icon')
-);
+@include check-imports(('ec-layout-grid', 'ec-component-link'));
 
 /* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix */
 @mixin ecl-footer-core(
@@ -43,7 +41,7 @@
     padding-left: 0;
   }
 
-  .ecl-footer-core__item {
+  .ecl-footer-core__list-item {
     margin-top: $ecl-spacing-m;
 
     &:first-of-type {

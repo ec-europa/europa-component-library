@@ -19,7 +19,7 @@ const FooterCore = ({ identity, sections, className, ...props }) => (
       <div className="ecl-footer-core__section2">
         <ul className="ecl-footer-core__list ecl-footer-core__list--2">
           {sections[0].links.map(link => (
-            <li className="ecl-footer-core__item" key={link.label}>
+            <li className="ecl-footer-core__list-item" key={link.label}>
               <Link
                 {...link}
                 variant="standalone"
@@ -33,7 +33,7 @@ const FooterCore = ({ identity, sections, className, ...props }) => (
       <div className="ecl-footer-core__section3">
         <ul className="ecl-footer-core__list">
           {sections[1].links.map(link => (
-            <li className="ecl-footer-core__item" key={link.label}>
+            <li className="ecl-footer-core__list-item" key={link.label}>
               <Link
                 {...link}
                 variant="standalone"
@@ -47,7 +47,7 @@ const FooterCore = ({ identity, sections, className, ...props }) => (
       <div className="ecl-footer-core__section4">
         <ul className="ecl-footer-core__list">
           {sections[2].links.map(link => (
-            <li className="ecl-footer-core__item" key={link.label}>
+            <li className="ecl-footer-core__list-item" key={link.label}>
               <Link
                 {...link}
                 variant="standalone"
