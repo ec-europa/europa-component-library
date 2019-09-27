@@ -13,7 +13,7 @@ We recommend you to use [Node Version Manager](https://github.com/creationix/nvm
 yarn
 ```
 
-This will installs all the external dependencies and then links the local dependencies together after running the prepublish script if available.
+This will install all the external dependencies and then links the local dependencies together after running the prepublish script if available.
 
 ## Develop
 
