@@ -10,7 +10,7 @@ module.exports = {
       { label: '' },
       { label: '' },
       { label: 'Organization' },
-      { label: 'Type of contrat' },
+      { label: 'Type of contract' },
       { label: '' },
     ],
   ],
@@ -29,7 +29,7 @@ module.exports = {
       },
       {
         label: 'Permanent official',
-        'data-ecl-table-header': 'Type of contrat',
+        'data-ecl-table-header': 'Type of contract',
         group: true,
       },
       {
@@ -52,7 +52,7 @@ module.exports = {
       },
       {
         label: 'Permanent official',
-        'data-ecl-table-header': 'Type of contrat',
+        'data-ecl-table-header': 'Type of contract',
         group: true,
       },
       {
@@ -75,7 +75,7 @@ module.exports = {
       },
       {
         label: 'Permanent official',
-        'data-ecl-table-header': 'Type of contrat',
+        'data-ecl-table-header': 'Type of contract',
         group: true,
       },
       {
@@ -101,7 +101,7 @@ module.exports = {
       },
       {
         label: 'Permanent official',
-        'data-ecl-table-header': 'Type of contrat',
+        'data-ecl-table-header': 'Type of contract',
         group: true,
       },
       {
@@ -126,7 +126,7 @@ module.exports = {
       },
       {
         label: 'Seconded National Expert (SNE)',
-        'data-ecl-table-header': 'Type of contrat',
+        'data-ecl-table-header': 'Type of contract',
         group: true,
       },
       {

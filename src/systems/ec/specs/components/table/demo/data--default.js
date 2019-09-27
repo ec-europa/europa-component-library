@@ -5,7 +5,7 @@ module.exports = {
       { label: 'EFSI finance approved by EIB' },
       { label: 'Location' },
       { label: 'Organization' },
-      { label: 'Type of contrat' },
+      { label: 'Type of contract' },
     ],
   ],
   rows: [
@@ -26,7 +26,7 @@ module.exports = {
       },
       {
         label: 'Permanent official',
-        'data-ecl-table-header': 'Type of contrat',
+        'data-ecl-table-header': 'Type of contract',
       },
     ],
     [
@@ -46,7 +46,7 @@ module.exports = {
       },
       {
         label: 'Permanent official',
-        'data-ecl-table-header': 'Type of contrat',
+        'data-ecl-table-header': 'Type of contract',
       },
     ],
     [
@@ -66,7 +66,7 @@ module.exports = {
       },
       {
         label: 'Permanent official',
-        'data-ecl-table-header': 'Type of contrat',
+        'data-ecl-table-header': 'Type of contract',
       },
     ],
     [
@@ -88,7 +88,7 @@ module.exports = {
       },
       {
         label: 'Permanent official',
-        'data-ecl-table-header': 'Type of contrat',
+        'data-ecl-table-header': 'Type of contract',
       },
     ],
     [
@@ -110,7 +110,7 @@ module.exports = {
       },
       {
         label: 'Seconded National Expert (SNE)',
-        'data-ecl-table-header': 'Type of contrat',
+        'data-ecl-table-header': 'Type of contract',
       },
     ],
   ],
