@@ -3,8 +3,8 @@ module.exports = {
     [
       { label: 'Job title' },
       { label: 'EFSI finance approved by EIB' },
-      { label: 'Set to trigger investment' },
-      { label: 'EFSI investment per € of GDP' },
+      { label: 'Location' },
+      { label: 'Organization' },
       { label: 'Type of contrat' },
     ],
   ],
@@ -18,11 +18,11 @@ module.exports = {
       {
         label:
           'Brussels (Belgium), Luxembourg (Luxembourg), Strasbourg (France)',
-        'data-ecl-table-header': 'Set to trigger investment',
+        'data-ecl-table-header': 'Location',
       },
       {
         label: 'European Commission',
-        'data-ecl-table-header': 'EFSI investment per € of GDP',
+        'data-ecl-table-header': 'Organization',
       },
       {
         label: 'Permanent official',
@@ -38,11 +38,11 @@ module.exports = {
       {
         label:
           'Brussels (Belgium), Luxembourg (Luxembourg), Strasbourg (France)',
-        'data-ecl-table-header': 'Set to trigger investment',
+        'data-ecl-table-header': 'Location',
       },
       {
         label: 'European Commission',
-        'data-ecl-table-header': 'EFSI investment per € of GDP',
+        'data-ecl-table-header': 'Organization',
       },
       {
         label: 'Permanent official',
@@ -58,11 +58,11 @@ module.exports = {
       {
         label:
           'Brussels (Belgium), Luxembourg (Luxembourg), Strasbourg (France)',
-        'data-ecl-table-header': 'Set to trigger investment',
+        'data-ecl-table-header': 'Location',
       },
       {
         label: 'European Commission',
-        'data-ecl-table-header': 'EFSI investment per € of GDP',
+        'data-ecl-table-header': 'Organization',
       },
       {
         label: 'Permanent official',
@@ -80,11 +80,11 @@ module.exports = {
       },
       {
         label: 'Prague (Czech Republic)',
-        'data-ecl-table-header': 'Set to trigger investment',
+        'data-ecl-table-header': 'Location',
       },
       {
         label: 'European Commission',
-        'data-ecl-table-header': 'EFSI investment per € of GDP',
+        'data-ecl-table-header': 'Organization',
       },
       {
         label: 'Permanent official',
@@ -102,11 +102,11 @@ module.exports = {
       },
       {
         label: 'Vigo (Spain)',
-        'data-ecl-table-header': 'Set to trigger investment',
+        'data-ecl-table-header': 'Location',
       },
       {
         label: 'EU-LISA',
-        'data-ecl-table-header': 'EFSI investment per € of GDP',
+        'data-ecl-table-header': 'Organization',
       },
       {
         label: 'Seconded National Expert (SNE)',

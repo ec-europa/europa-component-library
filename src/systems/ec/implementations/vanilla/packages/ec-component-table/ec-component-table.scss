@@ -72,12 +72,6 @@
       border-bottom: 2px solid $ecl-color-grey-50;
     }
 
-    .ecl-table__head
-      .ecl-table__row:not(:first-child)
-      .ecl-table__header:not(:empty) {
-      background-color: $ecl-color-grey-5;
-    }
-
     .ecl-table__cell {
       border-width: 0;
       display: table-cell;
@@ -91,43 +85,80 @@
 
   // Zebra
   .ecl-table--zebra {
-    .ecl-table__body .ecl-table__row:nth-of-type(even) {
+    .ecl-table__cell:nth-of-type(even) {
       background-color: $ecl-color-grey-5;
+    }
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up(lg) {
+    .ecl-table--zebra {
+      .ecl-table__body .ecl-table__row:nth-of-type(even) {
+        background-color: $ecl-color-grey-5;
+      }
+
+      .ecl-table__cell:nth-of-type(even) {
+        background-color: transparent;
+      }
     }
   }
 
   // Multi
   .ecl-table__cell[data-ecl-table-header-group] {
-    // line-height + spacing down
-    padding-top: calc(1.25rem + #{$ecl-spacing-xs});
+    // padding-top + line-height + padding-bottom + border + cell padding-top
+    padding-top: calc(
+      #{$ecl-spacing-s} + #{$ecl-line-height-m} + #{$ecl-spacing-s} + 1px + #{$ecl-spacing-s}
+    );
     position: relative;
 
     &::after {
+      background-color: $ecl-color-blue-5;
+      border-bottom: 1px solid $ecl-color-grey-25;
       content: attr(data-ecl-table-header-group);
       display: block;
       font-weight: $ecl-font-weight-bold;
       left: 0;
+      padding-bottom: $ecl-spacing-s;
+      padding-left: $ecl-spacing-s;
+      padding-top: $ecl-spacing-s;
       position: absolute;
       top: 0;
+      width: calc(100% - #{$ecl-spacing-s});
     }
   }
 
   .ecl-table__cell--group {
-    padding-left: $ecl-spacing-s;
+    &::before {
+      background-color: $ecl-color-white;
+      border-right-color: $ecl-color-white;
+      margin-left: -$ecl-spacing-l;
+      padding-left: $ecl-spacing-l;
+    }
   }
 
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up(lg) {
-    .ecl-table__cell[data-ecl-table-header-group] {
-      position: relative;
+    .ecl-table__head .ecl-table__row:not(:first-child) {
+      background-color: $ecl-color-white;
+      border-bottom-width: 0;
+    }
 
-      &::after {
-        display: none;
-      }
+    .ecl-table__head
+      .ecl-table__row:not(:first-child)
+      .ecl-table__header:not(:empty) {
+      background-color: $ecl-color-blue-5;
+    }
+
+    .ecl-table__cell[data-ecl-table-header-group]::after {
+      display: none;
     }
 
     .ecl-table__cell--group {
-      padding-left: $ecl-spacing-m;
+      padding-left: $ecl-spacing-s;
+    }
+
+    .ecl-table__cell[data-ecl-table-header-group] {
+      padding-top: $ecl-spacing-s;
     }
   }
 }
