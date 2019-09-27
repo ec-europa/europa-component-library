@@ -6,41 +6,85 @@ module.exports = {
   },
   sections: [
     {
-      title: 'European Commission',
       links: [
         {
-          variant: 'standalone',
-          label: 'European Commission website',
+          label: 'Strategy',
+          href: '/example',
+        },
+        {
+          label: 'About the European Commission',
+          href: '/example',
+        },
+        {
+          label: 'Business, Economy, Euro',
+          href: '/example',
+        },
+        {
+          label: 'Live, work, travel in the EU',
+          href: '/example',
+        },
+        {
+          label: 'Law',
+          href: '/example',
+        },
+        {
+          label: 'Funding, Tenders',
+          href: '/example',
+        },
+        {
+          label: 'Research and innovation',
+          href: '/example',
+        },
+        {
+          label: 'Energy, Climate change, Environment',
+          href: '/example',
+        },
+        {
+          label: 'Education',
+          href: '/example',
+        },
+        {
+          label: 'Aid, Development cooperation, Fundamental rights',
+          href: '/example',
+        },
+        {
+          label: 'Food, Farming, Fisheries',
+          href: '/example',
+        },
+        {
+          label: 'EU regional and urban development',
+          href: '/example',
+        },
+        {
+          label: 'Jobs at the European Commission',
+          href: '/example',
+        },
+        {
+          label: 'Statistics',
+          href: '/example',
+        },
+        {
+          label: 'News',
+          href: '/example',
+        },
+        {
+          label: 'Events',
+          href: '/example',
+        },
+        {
+          label: 'Publications',
           href: '/example',
         },
       ],
     },
     {
-      title: 'Follow the European Commission',
       links: [
         {
-          variant: 'standalone',
-          label: 'Facebook',
+          label: 'Contact the European Commission',
           href: '/example',
-          iconPosition: 'before',
-          icon: {
-            shape: 'branded--facebook',
-            size: 'xs',
-          },
         },
         {
-          variant: 'standalone',
-          label: 'Twitter',
-          href: '/example',
-          iconPosition: 'before',
-          icon: {
-            shape: 'branded--twitter',
-            size: 'xs',
-          },
-        },
-        {
-          variant: 'standalone',
-          label: 'Other social networks',
+          label: 'Follow the European Commission on social media',
           href: '/example',
           iconPosition: 'after',
           icon: {
@@ -48,69 +92,35 @@ module.exports = {
             size: 'xs',
           },
         },
+        {
+          label: 'Resources for partners',
+          href: '/example',
+        },
       ],
     },
     {
-      title: 'European Union',
       links: [
         {
-          variant: 'standalone',
-          label: 'European Union',
+          label: 'Language policy',
           href: '/example',
-          iconPosition: 'after',
-          icon: {
-            shape: 'ui--external',
-            size: 'xs',
-          },
         },
         {
-          variant: 'standalone',
-          label: 'EU institutions',
+          label: 'Cookies',
           href: '/example',
-          iconPosition: 'after',
-          icon: {
-            shape: 'ui--external',
-            size: 'xs',
-          },
+        },
+        {
+          label: 'Privacy policy',
+          href: '/example',
+        },
+        {
+          label: 'Legal notice',
+          href: '/example',
+        },
+        {
+          label: 'Brexit content disclaimer',
+          href: '/example',
         },
       ],
-    },
-  ],
-  common: [
-    {
-      variant: 'standalone',
-      label: "About the Commission's new web presence",
-      href: '/example',
-    },
-    {
-      variant: 'standalone',
-      href: '/example',
-      label: 'Language policy',
-    },
-    {
-      variant: 'standalone',
-      label: 'Resources for partners',
-      href: '/example',
-    },
-    {
-      variant: 'standalone',
-      label: 'Cookies',
-      href: '/example',
-    },
-    {
-      variant: 'standalone',
-      href: '/example',
-      label: 'Privacy policy',
-    },
-    {
-      variant: 'standalone',
-      label: 'Legal notice',
-      href: '/example',
-    },
-    {
-      variant: 'standalone',
-      label: 'Contact',
-      href: '/example',
     },
   ],
 };
