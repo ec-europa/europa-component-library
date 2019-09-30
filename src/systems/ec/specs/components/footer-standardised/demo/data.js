@@ -1,83 +1,106 @@
 module.exports = {
-  identity: {
-    title: 'European Commission website',
-    description:
-      'This site is managed by the Directorate-General for Communication',
-  },
   sections: [
     {
+      key: 'section 0',
+      title: 'European Commission website',
+      description:
+        'This site is managed by the Directorate-General for Communication',
+    },
+    {
+      key: 'section 1',
+      title: 'Contact us',
+      titleClassName: 'ecl-footer-standardised__title--separator',
+      contentBefore: 'Contact information of the DG',
+    },
+    {
+      key: 'section 2',
+      title: 'About us',
+      titleClassName: 'ecl-footer-standardised__title--separator',
+      contentBefore: 'Information about the DG',
+    },
+    {
+      key: 'section 3',
+      title: 'Follow us on',
+      titleClassName: 'ecl-footer-standardised__title--separator',
       links: [
         {
-          label: 'Strategy',
+          label: 'Facebook',
+          href: '/example',
+          iconPosition: 'before',
+          icon: {
+            shape: 'branded--facebook',
+            size: 'xs',
+          },
+        },
+        {
+          label: 'Twitter',
+          href: '/example',
+          iconPosition: 'before',
+          icon: {
+            shape: 'branded--twitter',
+            size: 'xs',
+          },
+        },
+        {
+          label: 'Linkedin',
+          href: '/example',
+          iconPosition: 'before',
+          icon: {
+            shape: 'branded--linkedin',
+            size: 'xs',
+          },
+        },
+      ],
+      listClassName: 'ecl-footer-standardised__list--inline',
+    },
+    {
+      key: 'section 4',
+      title: 'Related sites',
+      titleClassName: 'ecl-footer-standardised__title--separator',
+      links: [
+        {
+          label: 'Related link 1',
           href: '/example',
         },
         {
-          label: 'About the European Commission',
+          label: 'Related link 2',
           href: '/example',
         },
         {
-          label: 'Business, Economy, Euro',
+          label: 'Related link 3',
           href: '/example',
         },
         {
-          label: 'Live, work, travel in the EU',
+          label: 'Related link 4',
           href: '/example',
         },
         {
-          label: 'Law',
-          href: '/example',
-        },
-        {
-          label: 'Funding, Tenders',
-          href: '/example',
-        },
-        {
-          label: 'Research and innovation',
-          href: '/example',
-        },
-        {
-          label: 'Energy, Climate change, Environment',
-          href: '/example',
-        },
-        {
-          label: 'Education',
-          href: '/example',
-        },
-        {
-          label: 'Aid, Development cooperation, Fundamental rights',
-          href: '/example',
-        },
-        {
-          label: 'Food, Farming, Fisheries',
-          href: '/example',
-        },
-        {
-          label: 'EU regional and urban development',
-          href: '/example',
-        },
-        {
-          label: 'Jobs at the European Commission',
-          href: '/example',
-        },
-        {
-          label: 'Statistics',
-          href: '/example',
-        },
-        {
-          label: 'News',
-          href: '/example',
-        },
-        {
-          label: 'Events',
-          href: '/example',
-        },
-        {
-          label: 'Publications',
+          label: 'Related link 5',
           href: '/example',
         },
       ],
     },
     {
+      key: 'section 5',
+      contentBefore: 'More information on:',
+      links: [
+        {
+          label: 'Class name 1',
+          href: '/example',
+        },
+        {
+          label: 'Class name 2',
+          href: '/example',
+        },
+      ],
+      listClassName: 'ecl-footer-standardised__list--condensed',
+    },
+    {
+      key: 'section 6',
+      title: 'European Commission',
+    },
+    {
+      key: 'section 7',
       links: [
         {
           label: 'Contact the European Commission',
@@ -99,6 +122,7 @@ module.exports = {
       ],
     },
     {
+      key: 'section 8',
       links: [
         {
           label: 'Language policy',

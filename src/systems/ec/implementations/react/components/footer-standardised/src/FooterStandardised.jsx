@@ -4,91 +4,103 @@ import classnames from 'classnames';
 
 import Link from '@ecl/ec-react-component-link';
 
-const FooterStandardised = ({ identity, sections, className, ...props }) => (
+const FooterStandardised = ({ sections, className, ...props }) => (
   <footer
     {...props}
     className={classnames(className, 'ecl-footer-standardised')}
   >
     <div className="ecl-container ecl-footer-standardised__container">
-      <div className="ecl-footer-standardised__section1">
-        <span className="ecl-footer-standardised__title">
-          European Commission website
-        </span>
-        <p className="ecl-footer-standardised__description">
-          This site is managed by the Directorate-General for Communication
-        </p>
-      </div>
-
-      <div className="ecl-footer-standardised__section2">
-        <ul className="ecl-footer-standardised__list ecl-footer-standardised__list--2">
-          {sections[0].links.map(link => (
-            <li className="ecl-footer-standardised__list-item" key={link.label}>
-              <Link
-                {...link}
-                variant="standalone"
-                className={classnames(
-                  link.className,
-                  'ecl-footer-standardised__link'
-                )}
-              />
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="ecl-footer-standardised__section3">
-        <ul className="ecl-footer-standardised__list">
-          {sections[1].links.map(link => (
-            <li className="ecl-footer-standardised__list-item" key={link.label}>
-              <Link
-                {...link}
-                variant="standalone"
-                className={classnames(
-                  link.className,
-                  'ecl-footer-standardised__link'
-                )}
-              />
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="ecl-footer-standardised__section4">
-        <ul className="ecl-footer-standardised__list">
-          {sections[2].links.map(link => (
-            <li className="ecl-footer-standardised__list-item" key={link.label}>
-              <Link
-                {...link}
-                variant="standalone"
-                className={classnames(
-                  link.className,
-                  'ecl-footer-standardised__link'
-                )}
-              />
-            </li>
-          ))}
-        </ul>
-      </div>
+      {sections.map((section, index) => (
+        <div
+          className={`ecl-footer-standardised__section ecl-footer-standardised__section${index +
+            1}`}
+          key={section.key}
+        >
+          {section.title && (
+            <div
+              className={classnames(
+                'ecl-footer-standardised__title',
+                section.titleClassName
+              )}
+            >
+              {section.title}
+            </div>
+          )}
+          {section.description && (
+            <div
+              className={classnames(
+                'ecl-footer-standardised__description',
+                section.descriptionClassName
+              )}
+            >
+              {section.description}
+            </div>
+          )}
+          {section.contentBefore && (
+            <div
+              className={classnames(
+                'ecl-footer-standardised__content',
+                section.contentBeforeClassName
+              )}
+            >
+              {section.contentBefore}
+            </div>
+          )}
+          {section.links && (
+            <ul
+              className={classnames(
+                'ecl-footer-standardised__list',
+                section.listClassName
+              )}
+            >
+              {section.links.map(link => (
+                <li
+                  className="ecl-footer-standardised__list-item"
+                  key={link.label}
+                >
+                  <Link
+                    {...link}
+                    variant="standalone"
+                    className={classnames(
+                      link.className,
+                      'ecl-footer-standardised__link'
+                    )}
+                  />
+                </li>
+              ))}
+            </ul>
+          )}
+          {section.contentAfter && (
+            <div
+              className={classnames(
+                'ecl-footer-standardised__content',
+                section.contentAfterClassName
+              )}
+            >
+              {section.contentAfter}
+            </div>
+          )}
+        </div>
+      ))}
     </div>
   </footer>
 );
 
 FooterStandardised.propTypes = {
-  identity: PropTypes.shape({
-    title: PropTypes.string,
-    description: PropTypes.string,
-  }),
   sections: PropTypes.arrayOf(
     PropTypes.shape({
+      key: PropTypes.string,
       title: PropTypes.string,
+      description: PropTypes.string,
+      contentBefore: PropTypes.string,
       links: PropTypes.arrayOf(PropTypes.shape(Link.propTypes)),
+      contentAfter: PropTypes.string,
     })
   ),
   className: PropTypes.string,
 };
 
 FooterStandardised.defaultProps = {
-  identity: {},
   sections: [],
   className: '',
 };

@@ -12,7 +12,7 @@ const handleError = err => {
 };
 
 module.exports = (entry, dest, options) => {
-  const plugins = [autoprefixer()];
+  const plugins = [autoprefixer({ grid: 'no-autoplace' })];
 
   let postcssSourceMap = false;
   if (options.sourceMap === true) {
