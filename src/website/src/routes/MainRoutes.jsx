@@ -5,7 +5,7 @@ import HomePage from './HomePage';
 import Example from './Example';
 import PageNotFound from './404';
 
-import HomePageEC from '../pages/ec/index.md';
+import HomePageEC from '../pages/ec/index.mdx';
 import HomePageEU from '../pages/eu/index.md';
 
 import Skeleton from './Skeleton';
