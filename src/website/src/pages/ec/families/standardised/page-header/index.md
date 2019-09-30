@@ -1,6 +1,6 @@
 ---
-title: Layout
-order: 7
+title: Page header
+order: 2
 ---
 
 (work in progress)

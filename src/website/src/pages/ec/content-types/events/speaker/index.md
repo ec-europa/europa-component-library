@@ -1,5 +1,5 @@
 ---
-title: Event speaker
+title: Speaker
 defaultTab: usage
 status: ready
 playground:

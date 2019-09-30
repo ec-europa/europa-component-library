@@ -1,8 +1,8 @@
 ---
-title: Event detail
+title: Agenda
 defaultTab: usage
 status: ready
 playground:
   system: ec
-  path: /story/templates-pages--event-detail
+  path: /story/templates-pages--event-agenda
 ---

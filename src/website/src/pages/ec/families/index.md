@@ -1,6 +1,6 @@
 ---
-title: Page structure
-order: 5
+title: Families
+order: 6
 ---
 
 Sometimes referred to as site-structure, considering that the components or elements we address are content-independent.

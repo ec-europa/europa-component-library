@@ -1,6 +1,6 @@
 ---
-title: Layout
-order: 7
+title: Footer
+order: 3
 ---
 
 (work in progress)
