@@ -1,25 +1,38 @@
 module.exports = {
   sections: [
     {
-      key: 'section 0',
-      title: 'European Commission website',
-      description:
-        'This site is managed by the Directorate-General for Communication',
-    },
-    {
       key: 'section 1',
-      title: 'Contact us',
-      titleClassName: 'ecl-footer-standardised__title--separator',
-      contentBefore: 'Contact information of the DG',
+      title: {
+        label: 'Site name',
+        href: '/example',
+      },
+      description:
+        'This site is managed by the Directorate-General for "DG identification"',
     },
     {
       key: 'section 2',
-      title: 'About us',
+      title: 'Contact us',
       titleClassName: 'ecl-footer-standardised__title--separator',
-      contentBefore: 'Information about the DG',
+      links: [
+        {
+          label: 'Contact information of the DG',
+          href: '/example',
+        },
+      ],
     },
     {
       key: 'section 3',
+      title: 'About us',
+      titleClassName: 'ecl-footer-standardised__title--separator',
+      links: [
+        {
+          label: 'Information about the DG',
+          href: '/example',
+        },
+      ],
+    },
+    {
+      key: 'section 4',
       title: 'Follow us on',
       titleClassName: 'ecl-footer-standardised__title--separator',
       links: [
@@ -54,7 +67,7 @@ module.exports = {
       listClassName: 'ecl-footer-standardised__list--inline',
     },
     {
-      key: 'section 4',
+      key: 'section 5',
       title: 'Related sites',
       titleClassName: 'ecl-footer-standardised__title--separator',
       links: [
@@ -81,7 +94,7 @@ module.exports = {
       ],
     },
     {
-      key: 'section 5',
+      key: 'section 6',
       contentBefore: 'More information on:',
       links: [
         {
@@ -96,11 +109,11 @@ module.exports = {
       listClassName: 'ecl-footer-standardised__list--condensed',
     },
     {
-      key: 'section 6',
+      key: 'section 7',
       title: 'European Commission',
     },
     {
-      key: 'section 7',
+      key: 'section 8',
       links: [
         {
           label: 'Contact the European Commission',
@@ -122,7 +135,7 @@ module.exports = {
       ],
     },
     {
-      key: 'section 8',
+      key: 'section 9',
       links: [
         {
           label: 'Language policy',
