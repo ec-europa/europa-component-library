@@ -51,8 +51,8 @@
     padding: 0;
   }
 
-  .ecl-footer-standardised__description--white {
-    color: #fff;
+  .ecl-footer-standardised__icon::before {
+    margin-right: map-get($ecl-spacing, 'xxs');
   }
 
   .ecl-footer-standardised__list-item {
@@ -63,6 +63,16 @@
     margin: 0;
     max-width: 32em;
     padding: 0;
+  }
+
+  .ecl-footer-standardised__list-inline {
+    .ecl-footer-standardised__list-item {
+      margin-left: map-get($ecl-spacing, 'm');
+    }
+
+    .ecl-footer-standardised__list-item:first-child {
+      margin-left: 0;
+    }
   }
 
   .ecl-footer-standardised__list-vertical
