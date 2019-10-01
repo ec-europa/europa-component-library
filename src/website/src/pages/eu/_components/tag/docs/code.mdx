@@ -6,18 +6,6 @@ order: 2
 import Playground from '@ecl/website-components/Playground';
 import Tag from '@ecl/eu-react-component-tag';
 
-## As a button
-
-When the click on the tag triggers an action.
-
-<Playground
-  system="eu"
-  selectedKind="components-tag"
-  selectedStory="as-a-button"
->
-  <Tag label="Button tag" type="button" />
-</Playground>
-
 ## Link
 
 When the click on the tag leads to another page.
@@ -31,5 +19,5 @@ When the click on the tag leads to another page.
 When using the `removable` variant, the tag gets a "Remove" icon. It can be either a button or a link, dependening on your need.
 
 <Playground system="eu" selectedKind="components-tag" selectedStory="removable">
-  <Tag label="Removable tag" variant="removable" />
+  <Tag label="Removable tag" variant="removable" dismissButtonLabel="Dismiss" />
 </Playground>
