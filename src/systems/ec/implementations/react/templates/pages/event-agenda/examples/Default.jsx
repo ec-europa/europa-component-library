@@ -4,7 +4,6 @@ import React, { Fragment } from 'react';
 import Breadcrumb, { BreadcrumbItem } from '@ecl/ec-react-component-breadcrumb';
 import Card from '@ecl/ec-react-component-card';
 import Footer from '@ecl/ec-react-component-footer';
-import LanguageListOverlay from '@ecl/ec-react-component-language-list/src/LanguageListOverlay';
 import Link from '@ecl/ec-react-component-link';
 import PageBanner from '@ecl/ec-react-component-page-banner';
 import PageHeader from '@ecl/ec-react-component-page-header';
@@ -12,7 +11,6 @@ import SiteHeader from '@ecl/ec-react-component-site-header';
 import { Timeline2, Timeline2Item } from '@ecl/ec-react-component-timeline2';
 
 import footerContent from '@ecl/ec-specs-footer/demo/data--corporate';
-import languageListContent from '@ecl/ec-specs-language-list/demo/data--overlay';
 import siteHeaderContent from '@ecl/ec-specs-site-header/demo/data--en';
 
 export default () => {
@@ -31,7 +29,6 @@ export default () => {
   return (
     <Fragment>
       <SiteHeader {...siteHeaderContent} data-ecl-auto-init="SiteHeader" />
-      <LanguageListOverlay {...languageListContent} hidden="true" />
       <PageHeader
         breadcrumb={breadcrumb}
         meta="Conference"
@@ -53,6 +50,7 @@ export default () => {
               <Card
                 meta="Discussion | 15 november 2019 | 14:30 - 18:00 | Riverside"
                 title={{
+                  level: 4,
                   variant: 'standalone',
                   label:
                     "'Working on what?' Building a Community of Innovators in Cultural Heritage",
@@ -65,6 +63,7 @@ export default () => {
               <Card
                 meta="Debate | 16 november 2019 | 14:00 - 15:30 | Auditorium"
                 title={{
+                  level: 4,
                   variant: 'standalone',
                   label:
                     'When is the future? Opportunities for innovation in Cultural Heritage',
@@ -116,7 +115,7 @@ export default () => {
 
             <div>
               <h4
-                className="ecl-u-type-heading-4 ecl-u-mb-m ecl-u-mt-none 
+                className="ecl-u-type-heading-4 ecl-u-mb-m ecl-u-mt-none
             ecl-u-bg-grey ecl-u-pa-m ecl-u-type-color-white ecl-u-type-bold
             ecl-u-border-left ecl-u-border-width-8 ecl-u-border-color-yellow ecl-u-z-navigation"
                 data-ecl-template-sticky-header
@@ -425,7 +424,7 @@ export default () => {
 
             <div>
               <h4
-                className="ecl-u-type-heading-4 ecl-u-mb-m ecl-u-mt-none 
+                className="ecl-u-type-heading-4 ecl-u-mb-m ecl-u-mt-none
             ecl-u-bg-grey ecl-u-pa-m ecl-u-type-color-white ecl-u-type-bold
             ecl-u-border-left ecl-u-border-width-8 ecl-u-border-color-yellow ecl-u-z-navigation"
                 data-ecl-template-sticky-header
