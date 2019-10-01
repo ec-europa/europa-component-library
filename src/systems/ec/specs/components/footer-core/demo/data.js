@@ -1,11 +1,17 @@
 module.exports = {
-  identity: {
-    title: 'European Commission website',
-    description:
-      'This site is managed by the Directorate-General for Communication',
-  },
   sections: [
     {
+      key: 'section 1',
+      title: {
+        label: 'European Commission website',
+        href: '/example',
+      },
+      description:
+        'This site is managed by the Directorate-General for Communication',
+    },
+    {
+      key: 'section 2',
+      sectionClassName: 'ecl-footer-core__section--separator',
       links: [
         {
           label: 'Strategy',
@@ -76,8 +82,10 @@ module.exports = {
           href: '/example',
         },
       ],
+      listClassName: 'ecl-footer-core__list--columns',
     },
     {
+      key: 'section 3',
       links: [
         {
           label: 'Contact the European Commission',
@@ -99,6 +107,7 @@ module.exports = {
       ],
     },
     {
+      key: 'section 4',
       links: [
         {
           label: 'Language policy',
