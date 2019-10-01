@@ -16,7 +16,17 @@ const FooterStandardised = ({ sections, className, ...props }) => (
             1}`}
           key={section.key}
         >
-          {section.title && (
+          {!!(section.title && typeof section.title === 'object') && (
+            <Link
+              {...section.title}
+              variant="standalone"
+              className={classnames(
+                section.titleClassName,
+                'ecl-footer-standardised__title'
+              )}
+            />
+          )}
+          {!!(section.title && typeof section.title === 'string') && (
             <div
               className={classnames(
                 'ecl-footer-standardised__title',
@@ -90,7 +100,10 @@ FooterStandardised.propTypes = {
   sections: PropTypes.arrayOf(
     PropTypes.shape({
       key: PropTypes.string,
-      title: PropTypes.string,
+      title: PropTypes.oneOfType(
+        PropTypes.string,
+        PropTypes.shape(Link.propTypes)
+      ),
       description: PropTypes.string,
       contentBefore: PropTypes.string,
       links: PropTypes.arrayOf(PropTypes.shape(Link.propTypes)),
