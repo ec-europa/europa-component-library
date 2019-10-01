@@ -3,11 +3,11 @@ module.exports = {
     {
       key: 'section 1',
       title: {
-        label: 'European Commission website',
+        label: 'Site name',
         href: '/example',
       },
       description:
-        'This site is managed by the Directorate-General for Communication',
+        'This site is managed by the Directorate-General for "DG identification"',
     },
     {
       key: 'section 2',
