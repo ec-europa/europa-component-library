@@ -12,9 +12,9 @@ export class FileDownload {
   constructor(
     element,
     {
-      translationToggleSelector: translationToggleSelector = '[data-ecl-file-translation-toggle]',
-      translationContainerSelector: translationContainerSelector = '[data-ecl-file-translation-container]',
-      attachClickListener: attachClickListener = true,
+      translationToggleSelector = '[data-ecl-file-translation-toggle]',
+      translationContainerSelector = '[data-ecl-file-translation-container]',
+      attachClickListener = true,
     } = {}
   ) {
     // Check element

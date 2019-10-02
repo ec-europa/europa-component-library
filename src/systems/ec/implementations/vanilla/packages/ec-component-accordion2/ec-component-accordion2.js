@@ -12,9 +12,9 @@ export class Accordion2 {
   constructor(
     element,
     {
-      toggleSelector: toggleSelector = '[data-ecl-accordion2-toggle]',
-      iconSelector: iconSelector = '[data-ecl-accordion2-icon]',
-      attachClickListener: attachClickListener = true,
+      toggleSelector = '[data-ecl-accordion2-toggle]',
+      iconSelector = '[data-ecl-accordion2-icon]',
+      attachClickListener = true,
     } = {}
   ) {
     // Check element

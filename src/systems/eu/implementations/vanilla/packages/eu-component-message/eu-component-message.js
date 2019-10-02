@@ -12,8 +12,8 @@ export class Message {
   constructor(
     element,
     {
-      closeSelector: closeSelector = '[data-ecl-message-close]',
-      attachClickListener: attachClickListener = true,
+      closeSelector = '[data-ecl-message-close]',
+      attachClickListener = true,
     } = {}
   ) {
     // Check element
