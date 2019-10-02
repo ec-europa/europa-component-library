@@ -12,8 +12,8 @@ export class DropdownLegacy {
   constructor(
     element,
     {
-      toggleSelector: toggleSelector = '[data-ecl-dropdown-legacy-toggle]',
-      attachClickListener: attachClickListener = true,
+      toggleSelector = '[data-ecl-dropdown-legacy-toggle]',
+      attachClickListener = true,
     } = {}
   ) {
     // Check element

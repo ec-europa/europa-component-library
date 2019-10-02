@@ -12,8 +12,8 @@ export class Accordion {
   constructor(
     element,
     {
-      toggleSelector: toggleSelector = '[data-ecl-accordion-toggle]',
-      attachClickListener: attachClickListener = true,
+      toggleSelector = '[data-ecl-accordion-toggle]',
+      attachClickListener = true,
     } = {}
   ) {
     // Check element

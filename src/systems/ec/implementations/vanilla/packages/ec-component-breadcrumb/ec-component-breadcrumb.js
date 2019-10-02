@@ -12,14 +12,14 @@ export class Breadcrumb {
   constructor(
     element,
     {
-      ellipsisButtonSelector: ellipsisButtonSelector = '[data-ecl-breadcrumb-ellipsis-button]',
-      ellipsisSelector: ellipsisSelector = '[data-ecl-breadcrumb-ellipsis]',
-      segmentSelector: segmentSelector = '[data-ecl-breadcrumb-item]',
-      expandableItemsSelector: expandableItemsSelector = '[data-ecl-breadcrumb-item="expandable"]',
-      staticItemsSelector: staticItemsSelector = '[data-ecl-breadcrumb-item="static"]',
-      onPartialExpand: onPartialExpand = null,
-      onFullExpand: onFullExpand = null,
-      attachClickListener: attachClickListener = true,
+      ellipsisButtonSelector = '[data-ecl-breadcrumb-ellipsis-button]',
+      ellipsisSelector = '[data-ecl-breadcrumb-ellipsis]',
+      segmentSelector = '[data-ecl-breadcrumb-item]',
+      expandableItemsSelector = '[data-ecl-breadcrumb-item="expandable"]',
+      staticItemsSelector = '[data-ecl-breadcrumb-item="static"]',
+      onPartialExpand = null,
+      onFullExpand = null,
+      attachClickListener = true,
     } = {}
   ) {
     // Check element

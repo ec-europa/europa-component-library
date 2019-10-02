@@ -35,7 +35,7 @@ const pagesToRoutes = pages =>
         /* webpackChunkName: "eu-pages" */
         /* webpackMode: "lazy-once" */
         /* webpackPreload: true */
-        `../pages/eu${page.key.substr(1)}`
+        `../pages/eu${page.key.slice(1)}`
       )
     );
 

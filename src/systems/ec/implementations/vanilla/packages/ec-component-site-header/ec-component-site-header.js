@@ -13,9 +13,9 @@ export class SiteHeader {
   constructor(
     element,
     {
-      languageLinkSelector: languageLinkSelector = '[data-ecl-language-selector]',
-      languageListOverlaySelector: languageListOverlaySelector = '[data-ecl-language-list-overlay]',
-      closeOverlaySelector: closeOverlaySelector = '[data-ecl-language-list-close]',
+      languageLinkSelector = '[data-ecl-language-selector]',
+      languageListOverlaySelector = '[data-ecl-language-list-overlay]',
+      closeOverlaySelector = '[data-ecl-language-list-close]',
     } = {}
   ) {
     // Check element
