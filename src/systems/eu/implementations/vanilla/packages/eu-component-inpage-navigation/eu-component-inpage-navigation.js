@@ -22,16 +22,16 @@ export class InpageNavigation {
   constructor(
     element,
     {
-      attachClickListener: attachClickListener = true,
-      stickySelector: stickySelector = '[data-ecl-inpage-navigation]',
-      inPageList: inPageList = '[data-ecl-inpage-navigation-list]',
-      spySelector: spySelector = '[data-ecl-inpage-navigation-link]',
-      toggleSelector: toggleSelector = '[data-ecl-inpage-navigation-trigger]',
-      linksSelector: linksSelector = '[data-ecl-inpage-navigation-link]',
-      spyActiveContainer: spyActiveContainer = 'ecl-inpage-navigation--visible',
-      spyOffset: spyOffset = 20,
-      spyClass: spyClass = 'ecl-inpage-navigation__item--active',
-      spyTrigger: spyTrigger = '[data-ecl-inpage-navigation-trigger-current]',
+      attachClickListener = true,
+      stickySelector = '[data-ecl-inpage-navigation]',
+      inPageList = '[data-ecl-inpage-navigation-list]',
+      spySelector = '[data-ecl-inpage-navigation-link]',
+      toggleSelector = '[data-ecl-inpage-navigation-trigger]',
+      linksSelector = '[data-ecl-inpage-navigation-link]',
+      spyActiveContainer = 'ecl-inpage-navigation--visible',
+      spyOffset = 20,
+      spyClass = 'ecl-inpage-navigation__item--active',
+      spyTrigger = '[data-ecl-inpage-navigation-trigger-current]',
     } = {}
   ) {
     // Check element
