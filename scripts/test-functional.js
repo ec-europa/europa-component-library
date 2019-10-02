@@ -42,8 +42,7 @@ const testFunctional = async ({
   const wdio = new Launcher(
     path.resolve(__dirname, '../test/functional/wdio.conf.js'),
     {
-      specs,
-      spec,
+      ...(spec ? { spec } : { specs }),
     }
   );
 
