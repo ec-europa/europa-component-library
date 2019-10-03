@@ -72,7 +72,7 @@ storiesOf('Components|Navigation/In page navigation', module)
       ];
       const demoId = Math.random()
         .toString(36)
-        .substring(7);
+        .slice(7);
       const btnIdTag = document.createElement('h2');
       btnIdTag.classList.add('ecl-u-type-heading-2');
       btnIdTag.id = `new-${demoId}`;

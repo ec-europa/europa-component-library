@@ -12,9 +12,9 @@ export class ContextualNavigation {
   constructor(
     element,
     {
-      moreItemSelector: moreItemSelector = '[data-ecl-contextual-navigation-more]',
-      listSelector: listSelector = '[data-ecl-contextual-navigation-list]',
-      attachClickListener: attachClickListener = true,
+      moreItemSelector = '[data-ecl-contextual-navigation-more]',
+      listSelector = '[data-ecl-contextual-navigation-list]',
+      attachClickListener = true,
     } = {}
   ) {
     // Check element
