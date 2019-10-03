@@ -1,6 +1,6 @@
 const variants = ['light', 'dark'];
 
-describe('site-switchers', () => {
+describe('global-navigation', () => {
   before(() => {
     browser.setViewportSize({
       width: 1200,
