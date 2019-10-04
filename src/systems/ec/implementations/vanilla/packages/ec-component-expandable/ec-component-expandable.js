@@ -12,11 +12,11 @@ export class Expandable {
   constructor(
     element,
     {
-      toggleSelector: toggleSelector = '[data-ecl-expandable-toggle]',
-      labelSelector: labelSelector = '[data-ecl-label]',
-      labelExpanded: labelExpanded = 'data-ecl-label-expanded',
-      labelCollapsed: labelCollapsed = 'data-ecl-label-collapsed',
-      attachClickListener: attachClickListener = true,
+      toggleSelector = '[data-ecl-expandable-toggle]',
+      labelSelector = '[data-ecl-label]',
+      labelExpanded = 'data-ecl-label-expanded',
+      labelCollapsed = 'data-ecl-label-collapsed',
+      attachClickListener = true,
     } = {}
   ) {
     // Check element

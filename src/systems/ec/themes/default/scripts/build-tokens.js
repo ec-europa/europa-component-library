@@ -26,7 +26,7 @@ theo.registerFormat(
     keyName: prop =>
       prop
         .get('name')
-        .substr(spacingPrefix.length)
+        .slice(spacingPrefix.length)
         .toLowerCase()
         .replace(/_/g, '-'),
     filter: prop =>
@@ -49,8 +49,8 @@ theo.registerFormat(
     keyName: prop =>
       prop
         .get('name')
-        .substr(spacingPrefix.length)
-        .substr(printPrefix.length)
+        .slice(spacingPrefix.length)
+        .slice(printPrefix.length)
         .toLowerCase()
         .replace(/_/g, '-'),
     filter: prop =>
@@ -75,7 +75,7 @@ theo.registerFormat(
     keyName: prop =>
       prop
         .get('name')
-        .substr(fontSizePrefix.length)
+        .slice(fontSizePrefix.length)
         .toLowerCase()
         .replace(/_/g, '-'),
     filter: prop =>
@@ -98,8 +98,8 @@ theo.registerFormat(
     keyName: prop =>
       prop
         .get('name')
-        .substr(fontSizePrefix.length)
-        .substr(printPrefix.length)
+        .slice(fontSizePrefix.length)
+        .slice(printPrefix.length)
         .toLowerCase()
         .replace(/_/g, '-'),
     filter: prop =>
@@ -124,7 +124,7 @@ theo.registerFormat(
     keyName: prop =>
       prop
         .get('name')
-        .substr(mediaPrefix.length)
+        .slice(mediaPrefix.length)
         .toLowerCase()
         .replace(/_/g, '-'),
     filter: prop => prop.get('name').indexOf(mediaPrefix) === 0,
@@ -147,7 +147,7 @@ theo.registerFormat(
     keyName: prop =>
       prop
         .get('name')
-        .substr(colorPrefix.length)
+        .slice(colorPrefix.length)
         .toLowerCase()
         .replace(/_/g, '-'),
     filter: prop => prop.get('name').indexOf(colorPrefix) === 0,
@@ -170,7 +170,7 @@ theo.registerFormat(
     keyName: prop =>
       prop
         .get('name')
-        .substr(bgColorPrefix.length)
+        .slice(bgColorPrefix.length)
         .toLowerCase()
         .replace(/_/g, '-'),
     filter: prop => prop.get('name').indexOf(bgColorPrefix) === 0,
@@ -193,7 +193,7 @@ theo.registerFormat(
     keyName: prop =>
       prop
         .get('name')
-        .substr(widthPrefix.length)
+        .slice(widthPrefix.length)
         .toLowerCase()
         .replace(/_/g, '-'),
     filter: prop => prop.get('name').indexOf(widthPrefix) === 0,
