@@ -16,6 +16,8 @@ export class SiteHeaderCore {
       languageLinkSelector: languageLinkSelector = '[data-ecl-language-selector]',
       languageListOverlaySelector: languageListOverlaySelector = '[data-ecl-language-list-overlay]',
       closeOverlaySelector: closeOverlaySelector = '[data-ecl-language-list-close]',
+      searchToggleSelector: searchToggleSelector = '[data-ecl-search-toggle]',
+      searchFormSelector: searchFormSelector = '[data-ecl-search-form]',
     } = {}
   ) {
     // Check element
@@ -31,20 +33,26 @@ export class SiteHeaderCore {
     this.languageLinkSelector = languageLinkSelector;
     this.languageListOverlaySelector = languageListOverlaySelector;
     this.closeOverlaySelector = closeOverlaySelector;
+    this.searchToggleSelector = searchToggleSelector;
+    this.searchFormSelector = searchFormSelector;
 
     // Private variables
     this.languageSelector = null;
     this.languageListOverlay = null;
     this.close = null;
     this.focusTrap = null;
+    this.searchToggle = null;
+    this.searchForm = null;
 
     // Bind `this` for use in callbacks
     this.openOverlay = this.openOverlay.bind(this);
     this.closeOverlay = this.closeOverlay.bind(this);
     this.toggleOverlay = this.toggleOverlay.bind(this);
+    this.toggleSearch = this.toggleSearch.bind(this);
   }
 
   init() {
+    // Language list management
     this.languageSelector = queryOne(this.languageLinkSelector);
     this.languageListOverlay = queryOne(this.languageListOverlaySelector);
     this.close = queryOne(this.closeOverlaySelector);
@@ -56,6 +64,12 @@ export class SiteHeaderCore {
 
     this.languageSelector.addEventListener('click', this.toggleOverlay);
     this.close.addEventListener('click', this.toggleOverlay);
+
+    // Search form management
+    this.searchToggle = queryOne(this.searchToggleSelector);
+    this.searchForm = queryOne(this.searchFormSelector);
+
+    this.searchToggle.addEventListener('click', this.toggleSearch);
   }
 
   destroy() {
@@ -68,6 +82,10 @@ export class SiteHeaderCore {
 
     if (this.close) {
       this.close.removeEventListener('click', this.toggleOverlay);
+    }
+
+    if (this.searchToggle) {
+      this.searchToggle.removeEventListener('click', this.toggleSearch);
     }
   }
 
@@ -89,6 +107,24 @@ export class SiteHeaderCore {
       this.focusTrap.activate();
     } else {
       this.focusTrap.deactivate();
+    }
+  }
+
+  toggleSearch(e) {
+    if (!this.searchForm) return;
+
+    e.preventDefault();
+
+    // Get current status
+    const isExpanded =
+      this.searchToggle.getAttribute('aria-expanded') === 'true';
+
+    // Toggle the search form
+    this.searchToggle.setAttribute('aria-expanded', !isExpanded);
+    if (!isExpanded) {
+      this.searchForm.classList.add('ecl-site-header-core__search--active');
+    } else {
+      this.searchForm.classList.remove('ecl-site-header-core__search--active');
     }
   }
 }

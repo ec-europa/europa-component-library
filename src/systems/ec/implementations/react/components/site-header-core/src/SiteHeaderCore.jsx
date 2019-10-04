@@ -9,6 +9,7 @@ import { LanguageListOverlay } from '@ecl/ec-react-component-language-list';
 const SiteHeaderCore = ({
   logo,
   languageSelector,
+  searchToggle,
   searchForm,
   className,
   ...props
@@ -29,9 +30,9 @@ const SiteHeaderCore = ({
   const logoSrc = require(`@ecl/ec-resources-logo/logo--${logoLanguage}.svg`);
 
   return (
-    <header {...props} className={classNames} data-ecl-site-header>
-      <div className="ecl-site-header__container ecl-container">
-        <div className="ecl-site-header__banner">
+    <header {...props} className={classNames}>
+      <div className="ecl-site-header-core__container ecl-container">
+        <div className="ecl-site-header-core__banner">
           <a
             className="ecl-link ecl-link--standalone"
             href={logoHref}
@@ -43,34 +44,51 @@ const SiteHeaderCore = ({
               title={logoTitle}
               className={classnames(
                 logoClassName,
-                'ecl-site-header__logo-image'
+                'ecl-site-header-core__logo-image'
               )}
               src={logoSrc}
             />
           </a>
-          {languageSelector && (
-            <div className="ecl-site-header__selector">
+          <div className="ecl-site-header-core__action">
+            {languageSelector && (
               <a
-                className="ecl-link ecl-link--standalone ecl-site-header__selector-link"
+                className="ecl-link ecl-link--standalone ecl-site-header-core__language-selector"
                 href={languageSelector.href}
                 data-ecl-language-selector
               >
-                {languageSelector.name}
-                <span className="ecl-site-header__language-icon">
-                  <Icon shape="general--language" size="m" />
-                  <span className="ecl-site-header__language-code">
+                <span className="ecl-site-header-core__language-icon">
+                  <Icon shape="general--language" size="s" />
+                  <span className="ecl-site-header-core__language-code">
                     {languageSelector.code}
                   </span>
                 </span>
+                {languageSelector.label}
               </a>
-              {languageSelector.overlay && (
-                <LanguageListOverlay {...languageSelector.overlay} hidden />
-              )}
-            </div>
-          )}
+            )}
+            {!!(searchToggle && searchForm) && (
+              <a
+                className="ecl-link ecl-link--standalone ecl-site-header-core__search-toggle"
+                href={searchToggle.href}
+                data-ecl-search-toggle
+                aria-controls={searchForm.id}
+                aria-expanded="false"
+              >
+                <Icon shape="general--search" size="s" />
+                {searchToggle.label}
+              </a>
+            )}
+          </div>
         </div>
         {searchForm && (
-          <SearchForm {...searchForm} className="ecl-site-header__search" />
+          <SearchForm
+            {...searchForm}
+            className="ecl-site-header-core__search"
+            id={searchForm.id}
+            data-ecl-search-form
+          />
+        )}
+        {!!(languageSelector && languageSelector.overlay) && (
+          <LanguageListOverlay {...languageSelector.overlay} hidden />
         )}
       </div>
     </header>
@@ -87,12 +105,18 @@ SiteHeaderCore.propTypes = {
   }),
   languageSelector: PropTypes.shape({
     href: PropTypes.string,
-    name: PropTypes.string,
+    label: PropTypes.string,
     code: PropTypes.string,
     overlay: PropTypes.object,
   }),
+  searchToggle: PropTypes.shape({
+    label: PropTypes.string,
+    href: PropTypes.string,
+  }),
   searchForm: PropTypes.shape({
+    id: PropTypes.string,
     textInputId: PropTypes.string,
+    inputLabel: PropTypes.string,
     buttonLabel: PropTypes.string,
   }),
   className: PropTypes.string,
@@ -107,11 +131,17 @@ SiteHeaderCore.defaultProps = {
   },
   languageSelector: {
     href: '#',
-    name: '',
+    label: '',
     code: '',
   },
+  searchToggle: {
+    label: '',
+    href: '',
+  },
   searchForm: {
+    id: '',
     textInputId: '',
+    inputLabel: '',
     buttonLabel: '',
   },
   className: '',

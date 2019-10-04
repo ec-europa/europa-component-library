@@ -7,7 +7,7 @@ module.exports = {
   },
   languageSelector: {
     href: '/example',
-    name: 'Français',
+    label: 'Français',
     code: 'fr',
     overlay: {
       closeLabel: 'Fermer',
@@ -45,8 +45,13 @@ module.exports = {
       ],
     },
   },
+  searchToggle: {
+    label: 'Recherche',
+    href: '/example',
+  },
   searchForm: {
-    textInputId: 'search-form',
+    id: 'search-form-id',
+    textInputId: 'search-input-id',
     inputLabel: 'Recherche',
     buttonLabel: 'Recherche',
   },

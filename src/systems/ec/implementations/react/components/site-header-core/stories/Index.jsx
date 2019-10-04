@@ -26,8 +26,8 @@ storiesOf('Components|Site Headers/Core', module)
     </StoryWrapper>
   ))
   .add('default', () => (
-    <SiteHeaderCore {...demoContentEn} data-ecl-auto-init="SiteHeader" />
+    <SiteHeaderCore {...demoContentEn} data-ecl-auto-init="SiteHeaderCore" />
   ))
   .add('translated', () => (
-    <SiteHeaderCore {...demoContentFr} data-ecl-auto-init="SiteHeader" />
+    <SiteHeaderCore {...demoContentFr} data-ecl-auto-init="SiteHeaderCore" />
   ));
