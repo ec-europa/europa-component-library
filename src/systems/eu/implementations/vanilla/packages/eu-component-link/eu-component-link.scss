@@ -33,8 +33,7 @@
 
   .ecl-link--icon-before,
   .ecl-link--icon-after {
-    align-items: center;
-    display: inline-flex;
+    display: inline-block;
   }
 
   .ecl-link--icon {
@@ -42,6 +41,9 @@
 
     .ecl-link__icon {
       fill: currentColor;
+      position: relative;
+      top: -1px;
+      vertical-align: middle;
     }
 
     &:not(.ecl-link--standalone) .ecl-link__label {
@@ -74,7 +76,7 @@
     background-color: $ecl-color-yellow-100;
     box-sizing: border-box;
     color: $ecl-color-black-100;
-    display: inline-flex;
+    display: inline-block;
     font: $ecl-font-m;
     font-weight: $ecl-font-weight-bold;
     padding: $ecl-spacing-s $ecl-spacing-m;
