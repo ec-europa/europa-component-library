@@ -13,11 +13,11 @@ export class SiteHeaderCore {
   constructor(
     element,
     {
-      languageLinkSelector: languageLinkSelector = '[data-ecl-language-selector]',
-      languageListOverlaySelector: languageListOverlaySelector = '[data-ecl-language-list-overlay]',
-      closeOverlaySelector: closeOverlaySelector = '[data-ecl-language-list-close]',
-      searchToggleSelector: searchToggleSelector = '[data-ecl-search-toggle]',
-      searchFormSelector: searchFormSelector = '[data-ecl-search-form]',
+      languageLinkSelector = '[data-ecl-language-selector]',
+      languageListOverlaySelector = '[data-ecl-language-list-overlay]',
+      closeOverlaySelector = '[data-ecl-language-list-close]',
+      searchToggleSelector = '[data-ecl-search-toggle]',
+      searchFormSelector = '[data-ecl-search-form]',
     } = {}
   ) {
     // Check element
