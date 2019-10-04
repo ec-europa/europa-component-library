@@ -19,8 +19,7 @@
 
   .ecl-link--icon-before,
   .ecl-link--icon-after {
-    align-items: center;
-    display: inline-flex;
+    display: inline-block;
   }
 
   .ecl-link--icon {
@@ -28,6 +27,9 @@
 
     .ecl-link__icon {
       fill: currentColor;
+      position: relative;
+      top: -1px;
+      vertical-align: middle;
     }
 
     &:not(.ecl-link--standalone) .ecl-link__label {
