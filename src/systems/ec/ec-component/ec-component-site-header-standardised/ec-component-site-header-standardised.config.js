@@ -1,5 +1,3 @@
-const languages = require('../ec-component-language-list/languages.json');
-
 module.exports = {
   title: 'Site headers - standardised',
   label: 'Site headers - standardised',
@@ -16,6 +14,7 @@ module.exports = {
             dialogOverlayId: 'ecl-overlay-language-list',
             triggerElementsSelector: '#ecl-lang-select-sites__overlay'
           });
+          ECL.megamenu();
         });
       `,
     },

@@ -1,6 +1,6 @@
 /**
  * Site header
- * @define site-header-standardised
+ * @define site-header-standardised ; weak
  */
 
 // Import base and generic
@@ -17,7 +17,91 @@
 
 @mixin ecl-site-header-standardised() {
   .ecl-site-header-standardised {
-    display: block;
+    background-color: #fff;
+    margin: 0;
+    width: 100%;
+  }
+
+  .ecl-site-header-standardised__banner {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: map-get($ecl-spacing, 's');
+    padding-top: map-get($ecl-spacing, 's');
+  }
+
+  .ecl-site-header-standardised__banner > * {
+    margin-top: map-get($ecl-spacing, 's');
+  }
+
+  .ecl-site-header-standardised__classname {
+    background-color: map-get($ecl-colors, 'blue-5');
+    padding: map-get($ecl-spacing, 'xxs') 0;
+  }
+
+  .ecl-site-header-standardised__classname-title {
+    color: map-get($ecl-colors, 'blue-100');
+    font-size: map-get($ecl-font-size, 'xs');
+    font-weight: 400;
+    line-height: 1.43; // 20 / 14
+    margin: 0;
+
+    @include ecl-media-breakpoint-up(lg) {
+      font-size: map-get($ecl-font-size, 's');
+      line-height: 1.5; // 24 / 16
+    }
+  }
+
+  .ecl-site-header-standardised__sitenav {
+    background-color: map-get($ecl-colors, 'blue-100');
+    padding: 0;
+  }
+
+  .ecl-site-header-standardised__sitenav-title {
+    color: #fff;
+    font-size: map-get($ecl-font-size, 'l');
+    font-weight: 400;
+    line-height: 1.27; // 1.75 / 1.375
+    margin: 0;
+    padding: map-get($ecl-spacing, 's') 0;
+
+    @include ecl-media-breakpoint-up(lg) {
+      font-size: map-get($ecl-font-size, 'xl');
+      line-height: 1.07; // 2 / 1.875
+      padding: map-get($ecl-spacing, 'm') 0;
+    }
+  }
+
+  // If the logo is linking to an external page do not show the external icon.
+  .ecl-site-header-standardised__logo {
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+
+  .ecl-site-header-standardised__language-list {
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 0;
+    justify-content: flex-end;
+  }
+
+  .ecl-site-header-standardised__search {
+    flex-grow: 1;
+  }
+
+  .ecl-site-header-standardised__user-menu {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up(lg) {
+    .ecl-site-header-standardised__user-menu {
+      display: block;
+      width: auto;
+    }
   }
 }
 
