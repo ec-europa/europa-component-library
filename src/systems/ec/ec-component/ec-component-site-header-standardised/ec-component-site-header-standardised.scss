@@ -1,0 +1,27 @@
+/**
+ * Site header
+ * @define site-header-standardised
+ */
+
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(
+  (
+    'ec-component-logo',
+    'ec-component-language-list',
+    'ec-component-search-form'
+  )
+);
+
+@mixin ecl-site-header-standardised() {
+  .ecl-site-header-standardised {
+    display: block;
+  }
+}
+
+// Use generic mixin
+@include exports('ec-component-site-header-standardised') {
+  @include ecl-site-header-standardised();
+}
