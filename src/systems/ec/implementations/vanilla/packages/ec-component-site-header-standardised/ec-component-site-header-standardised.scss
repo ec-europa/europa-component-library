@@ -1,0 +1,193 @@
+/**
+ * Site Header Standardised
+ * @define site-header-standardised; weak
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(('ec-component-icon', 'ec-component-search-form'));
+
+@mixin ecl-site-header-standardised(
+  $logo-height-xs: 2.5rem,
+  $logo-height-s: 3rem,
+  $logo-height-m: 4.5rem
+) {
+  .ecl-site-header-standardised {
+    background-color: $ecl-color-white-100;
+    margin: 0;
+  }
+
+  .ecl-site-header-standardised__container {
+    display: flex;
+    flex-direction: column;
+    padding-top: $ecl-spacing-m;
+  }
+
+  .ecl-site-header-standardised__banner {
+    align-items: flex-end;
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    z-index: 1;
+  }
+
+  .ecl-site-header-standardised__logo-image {
+    display: block;
+    height: $logo-height-xs;
+    margin-bottom: calc(#{$ecl-spacing-m} + 1px);
+  }
+
+  .ecl-site-header-standardised__action {
+    display: flex;
+  }
+
+  .ecl-site-header-standardised__language-selector {
+    font: $ecl-font-xs;
+    margin-bottom: calc(#{$ecl-spacing-m} + 1px);
+    padding-bottom: 0;
+    padding-left: $ecl-spacing-xs;
+    padding-right: $ecl-spacing-xs;
+    padding-top: $ecl-spacing-xs;
+  }
+
+  .ecl-site-header-standardised__language-icon {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  .ecl-site-header-standardised__language-code {
+    color: $ecl-color-white;
+    font: $ecl-font-2-xs;
+    font-weight: $ecl-font-weight-bold;
+    left: 50%;
+    position: absolute;
+    text-transform: uppercase;
+    // position top and left has to be set like this because IE...
+    // also ugly magic numbers to center the text on the icon
+    top: 50%;
+    transform: translateX(-50%) translateX(-0.01rem) translateY(-50%)
+      translateY(-0.05rem);
+  }
+
+  .ecl-site-header-standardised__search-toggle {
+    align-items: center;
+    border-left: 1px solid $ecl-color-white;
+    border-right: 1px solid $ecl-color-white;
+    border-top: 1px solid $ecl-color-white;
+    display: flex;
+    flex-direction: column;
+    font: $ecl-font-xs;
+    margin-bottom: calc(#{$ecl-spacing-m} + 1px);
+    margin-top: -1px;
+    padding-bottom: 0;
+    padding-left: $ecl-spacing-xs;
+    padding-right: $ecl-spacing-xs;
+    padding-top: $ecl-spacing-xs;
+
+    &[aria-expanded='true'] {
+      background-color: $ecl-color-blue-5;
+      border-color: $ecl-color-blue-25;
+      margin-bottom: 0;
+      padding-bottom: calc(#{$ecl-spacing-m} + 1px);
+    }
+  }
+
+  .ecl-site-header-standardised__search {
+    background-color: $ecl-color-blue-5;
+    border: 1px solid $ecl-color-blue-25;
+    display: none;
+    left: 0;
+    margin-top: -1px;
+    padding: calc(#{$ecl-spacing-m} - 1px);
+    position: absolute;
+    // spacing-top + padding-top + icon + text + spacing-bottom + border
+    top: calc(
+      #{$ecl-spacing-m} + #{$ecl-spacing-xs} + #{$ecl-icon-s} + #{$ecl-line-height-xs} +
+        #{$ecl-spacing-m} + 1px
+    );
+    width: calc(100% - #{$ecl-spacing-m} - #{$ecl-spacing-m});
+  }
+
+  .ecl-site-header-standardised__search--active {
+    display: flex;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up(sm) {
+    .ecl-site-header-standardised__logo-image {
+      height: $logo-height-s;
+    }
+
+    .ecl-site-header-standardised__search {
+      // spacing-top + logo + spacing-bottom + border
+      top: calc(
+        #{$ecl-spacing-m} + #{$logo-height-s} + #{$ecl-spacing-m} + 1px
+      );
+    }
+  }
+
+  @include ecl-media-breakpoint-up(lg) {
+    .ecl-site-header-standardised__container {
+      align-items: flex-end;
+      flex-direction: row;
+      justify-content: space-between;
+      padding-bottom: $ecl-spacing-xl;
+      padding-top: $ecl-spacing-xl;
+    }
+
+    .ecl-site-header-standardised__banner {
+      padding-right: $ecl-spacing-xl;
+    }
+
+    .ecl-site-header-standardised__logo-image {
+      height: $logo-height-m;
+      margin-bottom: 0;
+    }
+
+    .ecl-site-header-standardised__language-selector {
+      align-items: center;
+      display: inline-flex;
+      font: $ecl-font-m;
+      margin-bottom: $ecl-spacing-xs;
+      padding: 0;
+    }
+
+    .ecl-site-header-standardised__language-icon {
+      margin-right: $ecl-spacing-xs;
+
+      .ecl-icon {
+        height: $ecl-icon-m;
+        width: $ecl-icon-m;
+      }
+    }
+
+    .ecl-site-header-standardised__language-code {
+      font: $ecl-font-xs;
+      transform: translateX(-50%) translateX(0.02rem) translateY(-50%)
+        translateY(-0.05rem);
+    }
+
+    .ecl-site-header-standardised__search-toggle {
+      display: none;
+    }
+
+    .ecl-site-header-standardised__search {
+      background-color: $ecl-color-white;
+      border-width: 0;
+      display: flex;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      top: 0;
+    }
+  }
+}
+
+// Use mixin
+@include exports('ec-component-site-header-standardised') {
+  @include ecl-site-header-standardised();
+}
