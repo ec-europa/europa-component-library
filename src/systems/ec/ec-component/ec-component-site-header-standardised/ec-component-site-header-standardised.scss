@@ -77,6 +77,18 @@
   .ecl-site-header-standardised__logo {
     flex-grow: 0;
     flex-shrink: 0;
+    height: 1.75rem;
+    width: 8rem;
+
+    @include ecl-media-breakpoint-up(sm) {
+      height: 3rem;
+      width: 13rem;
+    }
+
+    @include ecl-media-breakpoint-up(md) {
+      height: 3.75rem;
+      width: 16rem;
+    }
   }
 
   .ecl-site-header-standardised__language-list {
@@ -94,11 +106,6 @@
     display: flex;
     justify-content: flex-end;
     width: 100%;
-  }
-
-  .ecl-site-header-standardised .ecl-lang-select-sites__label {
-    margin-left: map-get($ecl-spacing, 'xxxs');
-    margin-right: 0;
   }
 
   .ecl-site-header-standardised__menu {
@@ -152,6 +159,63 @@
     @include ecl-media-breakpoint-up(md) {
       display: block;
     }
+  }
+
+  .ecl-site-header-standardised .ecl-lang-select-sites__link {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: map-get($ecl-spacing, 'xxxs');
+
+    @include ecl-media-breakpoint-up(md) {
+      display: inline-block;
+      padding: map-get($ecl-spacing, 'xxs') map-get($ecl-spacing, 'xs');
+    }
+  }
+
+  .ecl-site-header-standardised .ecl-lang-select-sites__code {
+    height: 1.4rem;
+    margin: map-get($ecl-spacing, 'xxxs') 0;
+  }
+
+  .ecl-site-header-standardised .ecl-lang-select-sites__label {
+    font-size: map-get($ecl-font-size, 'xxs');
+    font-weight: normal;
+    margin-left: map-get($ecl-spacing, 'xxxs');
+    margin-right: 0;
+
+    @include ecl-media-breakpoint-up(md) {
+      font-size: map-get($ecl-font-size, 's');
+    }
+  }
+
+  .ecl-site-header-standardised .ecl-lang-select-sites__code-text {
+    font-size: 0.625rem;
+    font-weight: 400;
+    left: 2px;
+    top: 1px;
+
+    @include ecl-media-breakpoint-up(md) {
+      font-size: map-get($ecl-font-size, 'xxs');
+      left: -1px;
+      top: 0;
+    }
+  }
+
+  .ecl-site-header-standardised .ecl-lang-select-sites__icon {
+    font-size: 1.1rem;
+    left: 4px;
+    top: 3px;
+
+    @include ecl-media-breakpoint-up(md) {
+      font-size: 1.2rem;
+      left: 0;
+      top: 1px;
+    }
+  }
+
+  .ecl-site-header-standardised .ecl-lang-select-sites {
+    text-decoration: none;
   }
 
   /* stylelint-disable-next-line order/order */
