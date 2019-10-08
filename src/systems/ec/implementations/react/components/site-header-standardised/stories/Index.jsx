@@ -31,6 +31,13 @@ storiesOf('Components|Site Headers/Standardised', module)
       data-ecl-auto-init="SiteHeaderStandardised"
     />
   ))
+  .add('logged in', () => (
+    <SiteHeaderStandardised
+      {...demoContentEn}
+      data-ecl-auto-init="SiteHeaderStandardised"
+      logged
+    />
+  ))
   .add('translated', () => (
     <SiteHeaderStandardised
       {...demoContentFr}

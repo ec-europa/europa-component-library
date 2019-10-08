@@ -26,11 +26,9 @@
   }
 
   .ecl-site-header-standardised__banner {
-    align-items: flex-end;
     display: flex;
     flex-grow: 1;
     justify-content: space-between;
-    z-index: 1;
   }
 
   .ecl-site-header-standardised__logo-image {
@@ -43,6 +41,57 @@
     display: flex;
   }
 
+  .ecl-site-header-standardised__login-toggle {
+    align-items: center;
+    border-left: 1px solid $ecl-color-white;
+    border-right: 1px solid $ecl-color-white;
+    border-top: 1px solid $ecl-color-white;
+    display: flex;
+    flex-direction: column;
+    font: $ecl-font-xs;
+    margin-bottom: calc(#{$ecl-spacing-m} + 1px);
+    margin-top: -1px;
+    padding-bottom: 0;
+    padding-left: $ecl-spacing-xs;
+    padding-right: $ecl-spacing-xs;
+    padding-top: $ecl-spacing-xs;
+    position: relative;
+    text-align: center;
+    z-index: $ecl-z-index-dropdown + 1;
+
+    &[aria-expanded='true'] {
+      background-color: $ecl-color-blue-5;
+      border-color: $ecl-color-blue-25;
+      margin-bottom: 0;
+      padding-bottom: calc(#{$ecl-spacing-m} + 1px);
+    }
+  }
+
+  .ecl-site-header-standardised__login-box {
+    background-color: $ecl-color-blue-5;
+    border: 1px solid $ecl-color-blue-25;
+    display: none;
+    font: $ecl-font-prolonged-s;
+    left: 0;
+    margin-top: -1px;
+    padding: calc(#{$ecl-spacing-m} - 1px);
+    position: absolute;
+    width: calc(100% - #{$ecl-spacing-m} - #{$ecl-spacing-m});
+    z-index: $ecl-z-index-dropdown;
+  }
+
+  .ecl-site-header-standardised__login-box--active {
+    display: block;
+  }
+
+  .ecl-site-header-standardised__login-description {
+    border-bottom: 1px solid $ecl-color-grey;
+    margin-bottom: $ecl-spacing-m;
+    margin-top: 0;
+    max-width: 80ch;
+    padding-bottom: $ecl-spacing-m;
+  }
+
   .ecl-site-header-standardised__language-selector {
     font: $ecl-font-xs;
     margin-bottom: calc(#{$ecl-spacing-m} + 1px);
@@ -50,6 +99,7 @@
     padding-left: $ecl-spacing-xs;
     padding-right: $ecl-spacing-xs;
     padding-top: $ecl-spacing-xs;
+    text-align: center;
   }
 
   .ecl-site-header-standardised__language-icon {
@@ -62,7 +112,6 @@
   .ecl-site-header-standardised__language-code {
     color: $ecl-color-white;
     font: $ecl-font-2-xs;
-    font-weight: $ecl-font-weight-bold;
     left: 50%;
     position: absolute;
     text-transform: uppercase;
@@ -87,6 +136,9 @@
     padding-left: $ecl-spacing-xs;
     padding-right: $ecl-spacing-xs;
     padding-top: $ecl-spacing-xs;
+    position: relative;
+    text-align: center;
+    z-index: $ecl-z-index-dropdown + 1;
 
     &[aria-expanded='true'] {
       background-color: $ecl-color-blue-5;
@@ -104,12 +156,8 @@
     margin-top: -1px;
     padding: calc(#{$ecl-spacing-m} - 1px);
     position: absolute;
-    // spacing-top + padding-top + icon + text + spacing-bottom + border
-    top: calc(
-      #{$ecl-spacing-m} + #{$ecl-spacing-xs} + #{$ecl-icon-s} + #{$ecl-line-height-xs} +
-        #{$ecl-spacing-m} + 1px
-    );
     width: calc(100% - #{$ecl-spacing-m} - #{$ecl-spacing-m});
+    z-index: $ecl-z-index-dropdown;
   }
 
   .ecl-site-header-standardised__search--active {
@@ -120,13 +168,6 @@
   @include ecl-media-breakpoint-up(sm) {
     .ecl-site-header-standardised__logo-image {
       height: $logo-height-s;
-    }
-
-    .ecl-site-header-standardised__search {
-      // spacing-top + logo + spacing-bottom + border
-      top: calc(
-        #{$ecl-spacing-m} + #{$logo-height-s} + #{$ecl-spacing-m} + 1px
-      );
     }
   }
 
@@ -140,6 +181,7 @@
     }
 
     .ecl-site-header-standardised__banner {
+      align-items: flex-end;
       padding-right: $ecl-spacing-xl;
     }
 
@@ -148,9 +190,16 @@
       margin-bottom: 0;
     }
 
+    .ecl-site-header-standardised__login-box {
+      left: auto;
+      width: auto;
+    }
+
+    .ecl-site-header-standardised__login-toggle,
     .ecl-site-header-standardised__language-selector {
       align-items: center;
-      display: inline-flex;
+      display: flex;
+      flex-direction: row;
       font: $ecl-font-m;
       margin-bottom: $ecl-spacing-xs;
       padding: 0;
