@@ -67,4 +67,6 @@ module.exports = {
     inputLabel: 'Search',
     buttonLabel: 'Search',
   },
+  bannerTop: 'Class name',
+  banner: 'Site name',
 };

@@ -15,6 +15,8 @@ const SiteHeaderStandardised = ({
   languageSelector,
   searchToggle,
   searchForm,
+  bannerTop,
+  banner,
   className,
   ...props
 }) => {
@@ -37,11 +39,12 @@ const SiteHeaderStandardised = ({
     ? loginToggle.labelLogged
     : loginToggle.labelNotLogged;
   const loginHref = logged ? loginToggle.hrefLogged : loginToggle.hrefNotLogged;
+  const loginIcon = logged ? 'general--logged-in' : 'general--log-in';
 
   return (
     <header {...props} className={classNames}>
       <div className="ecl-site-header-standardised__container ecl-container">
-        <div className="ecl-site-header-standardised__banner">
+        <div className="ecl-site-header-standardised__top">
           <a
             className="ecl-link ecl-link--standalone ecl-site-header-standardised__logo-link"
             href={logoHref}
@@ -68,7 +71,7 @@ const SiteHeaderStandardised = ({
                   aria-controls={loginBox.id}
                   aria-expanded="false"
                 >
-                  <Icon shape="general--search" size="s" />
+                  <Icon shape={loginIcon} size="s" />
                   {loginLabel}
                 </a>
                 <div
@@ -124,10 +127,16 @@ const SiteHeaderStandardised = ({
             )}
           </div>
         </div>
-        {!!(languageSelector && languageSelector.overlay) && (
-          <LanguageListOverlay {...languageSelector.overlay} hidden />
-        )}
       </div>
+      <div className="ecl-container">
+        <div className="ecl-site-header-standardised__banner-top">
+          {bannerTop}
+        </div>
+        <div className="ecl-site-header-standardised__banner">{banner}</div>
+      </div>
+      {!!(languageSelector && languageSelector.overlay) && (
+        <LanguageListOverlay {...languageSelector.overlay} hidden />
+      )}
     </header>
   );
 };
@@ -169,6 +178,8 @@ SiteHeaderStandardised.propTypes = {
     inputLabel: PropTypes.string,
     buttonLabel: PropTypes.string,
   }),
+  bannerTop: PropTypes.string,
+  banner: PropTypes.string,
   className: PropTypes.string,
 };
 
@@ -207,6 +218,8 @@ SiteHeaderStandardised.defaultProps = {
     inputLabel: '',
     buttonLabel: '',
   },
+  bannerTop: '',
+  banner: '',
   className: '',
 };
 

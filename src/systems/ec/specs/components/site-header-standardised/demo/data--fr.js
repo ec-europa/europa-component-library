@@ -5,6 +5,18 @@ module.exports = {
     href: '/example',
     language: 'fr',
   },
+  loginToggle: {
+    labelNotLogged: 'Connexion',
+    hrefNotLogged: '/example',
+    labelLogged: 'Connecté',
+    hrefLogged: '/example',
+  },
+  loginBox: {
+    id: 'login-box-id',
+    description: 'Connecté en temps que <last name>, <first name>',
+    label: 'Déconnexion',
+    href: '/example',
+  },
   languageSelector: {
     href: '/example',
     label: 'Français',
@@ -55,4 +67,6 @@ module.exports = {
     inputLabel: 'Recherche',
     buttonLabel: 'Recherche',
   },
+  bannerTop: 'Nom de la classe',
+  banner: 'Nom du site',
 };

@@ -25,7 +25,7 @@
     padding-top: $ecl-spacing-m;
   }
 
-  .ecl-site-header-standardised__banner {
+  .ecl-site-header-standardised__top {
     display: flex;
     flex-grow: 1;
     justify-content: space-between;
@@ -33,20 +33,21 @@
 
   .ecl-site-header-standardised__logo-link {
     flex-grow: 1;
+    margin-bottom: calc(#{$ecl-spacing-m} + 1px);
   }
 
   .ecl-site-header-standardised__logo-image {
     display: block;
-    margin-bottom: calc(#{$ecl-spacing-m} + 1px);
     max-height: $logo-height-xs;
-    max-width: 10.1rem;
+    max-width: 10.1rem; // hack to allow logo to be resized dynamically
   }
 
   .ecl-site-header-standardised__action {
     display: flex;
   }
 
-  .ecl-site-header-standardised__login-toggle {
+  .ecl-site-header-standardised__login-toggle,
+  .ecl-site-header-standardised__search-toggle {
     align-items: center;
     border-left: 1px solid $ecl-color-white;
     border-right: 1px solid $ecl-color-white;
@@ -56,10 +57,7 @@
     font: $ecl-font-xs;
     margin-bottom: calc(#{$ecl-spacing-m} + 1px);
     margin-top: -1px;
-    padding-bottom: 0;
-    padding-left: $ecl-spacing-xs;
-    padding-right: $ecl-spacing-xs;
-    padding-top: $ecl-spacing-xs;
+    padding: $ecl-spacing-xs $ecl-spacing-xs 0;
     position: relative;
     text-align: center;
     z-index: $ecl-z-index-dropdown + 1;
@@ -73,7 +71,8 @@
     }
   }
 
-  .ecl-site-header-standardised__login-box {
+  .ecl-site-header-standardised__login-box,
+  .ecl-site-header-standardised__search {
     background-color: $ecl-color-blue-5;
     border: 1px solid $ecl-color-blue-25;
     box-shadow: 0 2px 5px 0 rgba(0, 47, 103, 0.2);
@@ -102,10 +101,7 @@
   .ecl-site-header-standardised__language-selector {
     font: $ecl-font-xs;
     margin-bottom: calc(#{$ecl-spacing-m} + 1px);
-    padding-bottom: 0;
-    padding-left: $ecl-spacing-xs;
-    padding-right: $ecl-spacing-xs;
-    padding-top: $ecl-spacing-xs;
+    padding: $ecl-spacing-xs $ecl-spacing-xs 0;
     text-align: center;
   }
 
@@ -129,48 +125,26 @@
       translateY(-0.05rem);
   }
 
-  .ecl-site-header-standardised__search-toggle {
-    align-items: center;
-    border-left: 1px solid $ecl-color-white;
-    border-right: 1px solid $ecl-color-white;
-    border-top: 1px solid $ecl-color-white;
-    display: flex;
-    flex-direction: column;
-    font: $ecl-font-xs;
-    margin-bottom: calc(#{$ecl-spacing-m} + 1px);
-    margin-top: -1px;
-    padding-bottom: 0;
-    padding-left: $ecl-spacing-xs;
-    padding-right: $ecl-spacing-xs;
-    padding-top: $ecl-spacing-xs;
-    position: relative;
-    text-align: center;
-    z-index: $ecl-z-index-dropdown + 1;
-
-    &[aria-expanded='true'] {
-      background-color: $ecl-color-blue-5;
-      border-color: $ecl-color-blue-25;
-      box-shadow: 0 2px 5px 0 rgba(0, 47, 103, 0.2);
-      margin-bottom: 0;
-      padding-bottom: calc(#{$ecl-spacing-m} + 1px);
-    }
-  }
-
-  .ecl-site-header-standardised__search {
-    background-color: $ecl-color-blue-5;
-    border: 1px solid $ecl-color-blue-25;
-    box-shadow: 0 2px 5px 0 rgba(0, 47, 103, 0.2);
-    display: none;
-    left: 0;
-    margin-top: -1px;
-    padding: calc(#{$ecl-spacing-m} - 1px);
-    position: absolute;
-    width: calc(100% - #{$ecl-spacing-m} - #{$ecl-spacing-m});
-    z-index: $ecl-z-index-dropdown;
-  }
-
   .ecl-site-header-standardised__search--active {
     display: flex;
+  }
+
+  .ecl-site-header-standardised__banner-top {
+    background-color: $ecl-color-blue-5;
+    color: $ecl-color-blue;
+    font: $ecl-font-prolonged-s;
+    margin-left: -$ecl-spacing-m;
+    margin-right: -$ecl-spacing-m;
+    padding: $ecl-spacing-xs $ecl-spacing-m;
+  }
+
+  .ecl-site-header-standardised__banner {
+    background-color: $ecl-color-blue;
+    color: $ecl-color-white;
+    font: $ecl-font-2-xl;
+    margin-left: -$ecl-spacing-m;
+    margin-right: -$ecl-spacing-m;
+    padding: $ecl-spacing-m;
   }
 
   /* stylelint-disable-next-line order/order */
@@ -190,23 +164,29 @@
     .ecl-site-header-standardised__container {
       align-items: flex-end;
       flex-direction: row;
-      justify-content: space-between;
       padding-bottom: $ecl-spacing-xl;
       padding-top: $ecl-spacing-xl;
     }
 
-    .ecl-site-header-standardised__banner {
+    .ecl-site-header-standardised__top {
       align-items: flex-end;
-      padding-right: $ecl-spacing-xl;
+    }
+
+    .ecl-site-header-standardised__action {
+      align-items: center;
+    }
+
+    .ecl-site-header-standardised__logo-link {
+      margin-bottom: 0;
     }
 
     .ecl-site-header-standardised__logo-image {
       height: $logo-height-m;
-      margin-bottom: 0;
     }
 
     .ecl-site-header-standardised__login-box {
       left: auto;
+      margin-top: calc(#{$ecl-spacing-xl} - 1px);
       width: auto;
     }
 
@@ -216,23 +196,33 @@
       display: flex;
       flex-direction: row;
       font: $ecl-font-m;
-      margin-bottom: $ecl-spacing-xs;
-      padding: 0;
+      margin: 0;
+      padding: $ecl-spacing-s;
     }
 
-    .ecl-site-header-standardised__language-icon {
-      margin-right: $ecl-spacing-xs;
+    .ecl-site-header-standardised__login-toggle[aria-expanded='true'] {
+      margin-bottom: -$ecl-spacing-xl;
+      padding-bottom: calc(#{$ecl-spacing-s} + #{$ecl-spacing-xl});
+    }
 
+    .ecl-site-header-standardised__login-toggle,
+    .ecl-site-header-standardised__language-icon {
       .ecl-icon {
         height: $ecl-icon-m;
+        margin-right: $ecl-spacing-xs;
         width: $ecl-icon-m;
       }
     }
 
     .ecl-site-header-standardised__language-code {
       font: $ecl-font-xs;
-      transform: translateX(-50%) translateX(0.02rem) translateY(-50%)
+      margin-right: $ecl-spacing-xs;
+      transform: translateX(-50%) translateX(-0.2rem) translateY(-50%)
         translateY(-0.05rem);
+    }
+
+    .ecl-site-header-standardised__search-container {
+      flex-grow: 1;
     }
 
     .ecl-site-header-standardised__search-toggle {
@@ -248,6 +238,29 @@
       padding: 0;
       position: relative;
       top: 0;
+      width: 25rem;
+    }
+
+    .ecl-site-header-standardised__banner-top,
+    .ecl-site-header-standardised__banner {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .ecl-site-header-standardised__banner-top {
+      font: $ecl-font-prolonged-m;
+    }
+
+    .ecl-site-header-standardised__banner {
+      font: $ecl-font-3-xl;
+      padding-bottom: $ecl-spacing-l;
+      padding-top: $ecl-spacing-l;
+    }
+  }
+
+  @include ecl-media-breakpoint-up(xl) {
+    .ecl-site-header-standardised__search {
+      width: 31.5rem;
     }
   }
 }
