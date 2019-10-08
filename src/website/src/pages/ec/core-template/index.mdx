@@ -1,0 +1,71 @@
+---
+order: 0
+title: Core template
+---
+
+import { Paragraph, Anatomy, Link } from '@ecl/website-components';
+
+<Paragraph size="lead">
+  Core websites aim to minimise the duplication of content across the EC
+  Services’ web presence and provide access to information in a user-friendly
+  way. They host general information shared by many different websites or
+  departments and serve as hubs for onward navigation to further thematic
+  content and/or specific services such as web information systems.
+</Paragraph>
+
+## Anatomy
+
+<Anatomy
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Core/core-template.jpg"
+  alt="Anatomy of core template"
+  legend={{
+    items: [
+      {
+        color: '#404040',
+        label: 'Mandatory',
+      },
+      {
+        color: '#004494',
+        label: 'Optional',
+      },
+    ],
+  }}
+/>
+
+| Elements                             | Mandatory | Description                                                                                                                                                                                                                                                                                                                                  |
+| ------------------------------------ | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <Link to="#">Global banner</Link>    | Yes       | The Global banner is the official EU stamp that gives a visual indicator and easy access to EU institutions and bodies sites, guaranteeing the user visits an official EU website                                                                                                                                                            |
+| <Link to="#">Core site header</Link> | Yes       | <p>The Core site header is present on every page. It communicates the European Commission brand and provides basic structure and guidance. The header is composed off several mandatory and optional elements such as:</p><ul><li>European Commission logo</li><li>Language select</li><li>Europa search</li><li>Class name</li></ul>        |
+| <Link to="#">Core page header</Link> | Yes       | <p>The Core page header gives context and information to the user on what the page is about. It is present on every page, just below the site header, except for the homepage. The page header is composed off mandatory and optional elements such as:</p><ul><li>Breadcrumb</li><li>Meta</li><li>Page Title</li><li>Introduction</li></ul> |
+| Page body                            | No        | When components are available, use components from ECL                                                                                                                                                                                                                                                                                       |
+| <Link to="#">Feedback form</Link>    | Yes       | A banner to enable users to give feedback on content, its absence, or report a persisting issue, either technical or of any other nature                                                                                                                                                                                                     |
+| <Link to="#">Core footer</Link>      | Yes       | The Core footer is present on every page. It provides supplementary information such as copyright, legal, privacy, social media, contact information and links to other important sites within the EC ecosystem.                                                                                                                             |
+
+## Structural anatomy
+
+When designing the page, make sure to follow appropriate category guidelines available below in terms of structure and layout
+
+| Elements                       | Mandatory  | Description                                               |
+| ------------------------------ | ---------- | --------------------------------------------------------- |
+| <Link to="#">Grid</Link>       | Yes        | Enhance visual consistency                                |
+| <Link to="#">Colours</Link>    | Yes        | Use only EC colour specifications available in the ECL    |
+| <Link to="#">Typography</Link> | Yes        | Apply the typographic guidelines available in the ECL     |
+| <Link to="#">Spacing</Link>    | No         | Apply spacing rules explained in the ECL                  |
+| <Link to="#">Icons</Link>      | Contextual | Where icons feature, use commonly-used icons from the ECL |
+| <Link to="#">Images</Link>     | Contextual | See image guidelines in ECL                               |
+
+## Do's
+
+- ensure the pages contain all the elements in the Anatomy table above
+
+## Don'ts
+
+- do not replace pages only on existing websites as this will create visual inconsistencies, this must be done at a site level
+
+## When to use
+
+- when updating pages on the Core site (first three levels of ec.europa.eu)
+
+## When not to use
+
+- do not follow these guidelines when you are updating sites that fall under the <Link to="#">standardised</Link> or <Link to="#">harmonised</Link> category
