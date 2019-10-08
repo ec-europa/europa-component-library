@@ -31,10 +31,15 @@
     justify-content: space-between;
   }
 
+  .ecl-site-header-standardised__logo-link {
+    flex-grow: 1;
+  }
+
   .ecl-site-header-standardised__logo-image {
     display: block;
-    height: $logo-height-xs;
     margin-bottom: calc(#{$ecl-spacing-m} + 1px);
+    max-height: $logo-height-xs;
+    max-width: 10.1rem;
   }
 
   .ecl-site-header-standardised__action {
@@ -62,6 +67,7 @@
     &[aria-expanded='true'] {
       background-color: $ecl-color-blue-5;
       border-color: $ecl-color-blue-25;
+      box-shadow: 0 2px 5px 0 rgba(0, 47, 103, 0.2);
       margin-bottom: 0;
       padding-bottom: calc(#{$ecl-spacing-m} + 1px);
     }
@@ -70,6 +76,7 @@
   .ecl-site-header-standardised__login-box {
     background-color: $ecl-color-blue-5;
     border: 1px solid $ecl-color-blue-25;
+    box-shadow: 0 2px 5px 0 rgba(0, 47, 103, 0.2);
     display: none;
     font: $ecl-font-prolonged-s;
     left: 0;
@@ -143,6 +150,7 @@
     &[aria-expanded='true'] {
       background-color: $ecl-color-blue-5;
       border-color: $ecl-color-blue-25;
+      box-shadow: 0 2px 5px 0 rgba(0, 47, 103, 0.2);
       margin-bottom: 0;
       padding-bottom: calc(#{$ecl-spacing-m} + 1px);
     }
@@ -151,6 +159,7 @@
   .ecl-site-header-standardised__search {
     background-color: $ecl-color-blue-5;
     border: 1px solid $ecl-color-blue-25;
+    box-shadow: 0 2px 5px 0 rgba(0, 47, 103, 0.2);
     display: none;
     left: 0;
     margin-top: -1px;
@@ -166,8 +175,14 @@
 
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up(sm) {
+    .ecl-site-header-standardised__logo-link {
+      flex-grow: 0;
+    }
+
     .ecl-site-header-standardised__logo-image {
       height: $logo-height-s;
+      max-height: 100%;
+      max-width: 100%;
     }
   }
 
@@ -227,6 +242,7 @@
     .ecl-site-header-standardised__search {
       background-color: $ecl-color-white;
       border-width: 0;
+      box-shadow: none;
       display: flex;
       margin: 0;
       padding: 0;

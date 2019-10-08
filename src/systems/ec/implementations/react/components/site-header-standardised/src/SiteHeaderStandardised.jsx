@@ -43,7 +43,7 @@ const SiteHeaderStandardised = ({
       <div className="ecl-site-header-standardised__container ecl-container">
         <div className="ecl-site-header-standardised__banner">
           <a
-            className="ecl-link ecl-link--standalone"
+            className="ecl-link ecl-link--standalone ecl-site-header-standardised__logo-link"
             href={logoHref}
             aria-label={logoTitle}
           >
