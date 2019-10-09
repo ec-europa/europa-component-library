@@ -2,7 +2,10 @@ module.exports = {
   sections: [
     {
       key: 'section 1',
-      title: 'European Commission website',
+      title: {
+        label: 'European Commission website',
+        href: '#',
+      },
       description:
         'This site is managed by the Directorate-General for Communication',
     },
