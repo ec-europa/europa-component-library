@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -35,12 +35,6 @@ const SiteHeaderStandardised = ({
   // eslint-disable-next-line global-require, import/no-dynamic-require
   const logoSrc = require(`@ecl/ec-resources-logo/logo--${logoLanguage}.svg`);
 
-  const loginLabel = logged
-    ? loginToggle.labelLogged
-    : loginToggle.labelNotLogged;
-  const loginHref = logged ? loginToggle.hrefLogged : loginToggle.hrefNotLogged;
-  const loginIcon = logged ? 'general--logged-in' : 'general--log-in';
-
   return (
     <header {...props} className={classNames}>
       <div className="ecl-site-header-standardised__container ecl-container">
@@ -64,30 +58,44 @@ const SiteHeaderStandardised = ({
           <div className="ecl-site-header-standardised__action">
             {!!(loginToggle && loginBox) && (
               <div className="ecl-site-header-standardised__login-container">
-                <a
-                  className="ecl-link ecl-link--standalone ecl-site-header-standardised__login-toggle"
-                  href={loginHref}
-                  data-ecl-login-toggle
-                  aria-controls={loginBox.id}
-                  aria-expanded="false"
-                >
-                  <Icon shape={loginIcon} size="s" />
-                  {loginLabel}
-                </a>
-                <div
-                  id={loginBox.id}
-                  className="ecl-site-header-standardised__login-box"
-                  data-ecl-login-box
-                >
-                  <p className="ecl-site-header-standardised__login-description">
-                    {loginBox.description}
-                  </p>
-                  <Link
-                    label={loginBox.label}
-                    href={loginBox.href}
-                    variant="standalone"
-                  />
-                </div>
+                {logged && (
+                  <Fragment>
+                    <a
+                      className="ecl-link ecl-link--standalone ecl-site-header-standardised__login-toggle"
+                      href={loginToggle.hrefLogged}
+                      data-ecl-login-toggle
+                      aria-controls={loginBox.id}
+                      aria-expanded="false"
+                    >
+                      <Icon shape="general--logged-in" size="s" />
+                      {loginToggle.labelLogged}
+                    </a>
+
+                    <div
+                      id={loginBox.id}
+                      className="ecl-site-header-standardised__login-box"
+                      data-ecl-login-box
+                    >
+                      <p className="ecl-site-header-standardised__login-description">
+                        {loginBox.description}
+                      </p>
+                      <Link
+                        label={loginBox.label}
+                        href={loginBox.href}
+                        variant="standalone"
+                      />
+                    </div>
+                  </Fragment>
+                )}
+                {!logged && (
+                  <a
+                    className="ecl-link ecl-link--standalone ecl-site-header-standardised__login-toggle"
+                    href={loginToggle.hrefNotLogged}
+                  >
+                    <Icon shape="general--log-in" size="s" />
+                    {loginToggle.labelNotLogged}
+                  </a>
+                )}
               </div>
             )}
             {languageSelector && (
@@ -129,12 +137,16 @@ const SiteHeaderStandardised = ({
         </div>
       </div>
 
-      <div className="ecl-site-header-standardised__banner-top">
-        <div className="ecl-container">{bannerTop}</div>
-      </div>
-      <div className="ecl-site-header-standardised__banner">
-        <div className="ecl-container">{banner}</div>
-      </div>
+      {bannerTop && (
+        <div className="ecl-site-header-standardised__banner-top">
+          <div className="ecl-container">{bannerTop}</div>
+        </div>
+      )}
+      {banner && (
+        <div className="ecl-site-header-standardised__banner">
+          <div className="ecl-container">{banner}</div>
+        </div>
+      )}
 
       {!!(languageSelector && languageSelector.overlay) && (
         <LanguageListOverlay {...languageSelector.overlay} hidden />
