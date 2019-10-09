@@ -1,4 +1,0 @@
----
-title: Compositions
-type: group
----
