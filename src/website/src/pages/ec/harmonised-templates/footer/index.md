@@ -1,6 +1,5 @@
 ---
 title: Footer
 order: 2
+defaultTab: group1
 ---
-
-(work in progress)

@@ -34,18 +34,20 @@ const Header = React.memo(({ component, history, location }) => {
         {component.attributes.isTab && (
           <Fragment>
             <ul className={styles.header__tabs}>
-              {component.parent.children.map(tab => (
-                <li key={tab.attributes.url}>
-                  <NavLink
-                    to={tab.attributes.url}
-                    strict
-                    className={styles['header__tabs-item']}
-                    activeClassName={styles['header__tabs-item--active']}
-                  >
-                    {tab.attributes.title}
-                  </NavLink>
-                </li>
-              ))}
+              {component.parent.children
+                .filter(t => t.attributes.isTab)
+                .map(tab => (
+                  <li key={tab.attributes.url}>
+                    <NavLink
+                      to={tab.attributes.url}
+                      strict
+                      className={styles['header__tabs-item']}
+                      activeClassName={styles['header__tabs-item--active']}
+                    >
+                      {tab.attributes.title}
+                    </NavLink>
+                  </li>
+                ))}
               {component.parent.attributes.playground && (
                 <li>
                   <a
