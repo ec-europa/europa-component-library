@@ -1,6 +1,6 @@
 ---
+order: 10
 title: Content types
-order: 5
 ---
 
-Content types
+(work in progress)
