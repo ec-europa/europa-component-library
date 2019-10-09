@@ -148,7 +148,10 @@ export class SiteHeaderStandardised {
       this.searchToggle.getAttribute('aria-expanded') === 'true';
 
     // Close other boxes
-    if (this.loginToggle.getAttribute('aria-expanded') === 'true') {
+    if (
+      this.loginToggle &&
+      this.loginToggle.getAttribute('aria-expanded') === 'true'
+    ) {
       this.toggleLogin(e);
     }
 
@@ -175,7 +178,10 @@ export class SiteHeaderStandardised {
       this.loginToggle.getAttribute('aria-expanded') === 'true';
 
     // Close other boxes
-    if (this.searchToggle.getAttribute('aria-expanded') === 'true') {
+    if (
+      this.searchToggle &&
+      this.searchToggle.getAttribute('aria-expanded') === 'true'
+    ) {
       this.toggleSearch(e);
     }
 

@@ -56,7 +56,11 @@ const SiteHeaderStandardised = ({
             />
           </a>
           <div className="ecl-site-header-standardised__action">
-            {!!(loginToggle && loginBox) && (
+            {!!(
+              loginToggle &&
+              Object.values(loginToggle).length >= 1 &&
+              loginBox
+            ) && (
               <div className="ecl-site-header-standardised__login-container">
                 {logged && (
                   <Fragment>
@@ -98,7 +102,9 @@ const SiteHeaderStandardised = ({
                 )}
               </div>
             )}
-            {languageSelector && (
+            {!!(
+              languageSelector && Object.values(languageSelector).length >= 1
+            ) && (
               <a
                 className="ecl-link ecl-link--standalone ecl-site-header-standardised__language-selector"
                 href={languageSelector.href}
@@ -113,7 +119,11 @@ const SiteHeaderStandardised = ({
                 {languageSelector.label}
               </a>
             )}
-            {!!(searchToggle && searchForm) && (
+            {!!(
+              searchToggle &&
+              Object.values(searchToggle).length >= 1 &&
+              searchForm
+            ) && (
               <div className="ecl-site-header-standardised__search-container">
                 <a
                   className="ecl-link ecl-link--standalone ecl-site-header-standardised__search-toggle"
@@ -205,33 +215,11 @@ SiteHeaderStandardised.defaultProps = {
     href: '#',
   },
   logged: false,
-  loginToggle: {
-    labelNotLogged: '',
-    hrefNotLogged: '#',
-    labelLogged: '',
-    hrefLogged: '#',
-  },
-  loginBox: {
-    id: '',
-    description: '',
-    label: '',
-    href: '#',
-  },
-  languageSelector: {
-    href: '#',
-    label: '',
-    code: '',
-  },
-  searchToggle: {
-    label: '',
-    href: '',
-  },
-  searchForm: {
-    id: '',
-    textInputId: '',
-    inputLabel: '',
-    buttonLabel: '',
-  },
+  loginToggle: {},
+  loginBox: {},
+  languageSelector: {},
+  searchToggle: {},
+  searchForm: {},
   bannerTop: '',
   banner: '',
   className: '',
