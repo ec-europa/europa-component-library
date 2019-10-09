@@ -32,9 +32,9 @@ const SiteHeaderCore = ({
   return (
     <header {...props} className={classNames}>
       <div className="ecl-site-header-core__container ecl-container">
-        <div className="ecl-site-header-core__banner">
+        <div className="ecl-site-header-core__top">
           <a
-            className="ecl-link ecl-link--standalone"
+            className="ecl-link ecl-link--standalone ecl-site-header-core__logo-link"
             href={logoHref}
             aria-label={logoTitle}
           >
@@ -66,31 +66,32 @@ const SiteHeaderCore = ({
               </a>
             )}
             {!!(searchToggle && searchForm) && (
-              <a
-                className="ecl-link ecl-link--standalone ecl-site-header-core__search-toggle"
-                href={searchToggle.href}
-                data-ecl-search-toggle
-                aria-controls={searchForm.id}
-                aria-expanded="false"
-              >
-                <Icon shape="general--search" size="s" />
-                {searchToggle.label}
-              </a>
+              <div className="ecl-site-header-core__search-container">
+                <a
+                  className="ecl-link ecl-link--standalone ecl-site-header-core__search-toggle"
+                  href={searchToggle.href}
+                  data-ecl-search-toggle
+                  aria-controls={searchForm.id}
+                  aria-expanded="false"
+                >
+                  <Icon shape="general--search" size="s" />
+                  {searchToggle.label}
+                </a>
+                <SearchForm
+                  {...searchForm}
+                  className="ecl-site-header-core__search"
+                  id={searchForm.id}
+                  data-ecl-search-form
+                />
+              </div>
             )}
           </div>
         </div>
-        {searchForm && (
-          <SearchForm
-            {...searchForm}
-            className="ecl-site-header-core__search"
-            id={searchForm.id}
-            data-ecl-search-form
-          />
-        )}
-        {!!(languageSelector && languageSelector.overlay) && (
-          <LanguageListOverlay {...languageSelector.overlay} hidden />
-        )}
       </div>
+
+      {!!(languageSelector && languageSelector.overlay) && (
+        <LanguageListOverlay {...languageSelector.overlay} hidden />
+      )}
     </header>
   );
 };

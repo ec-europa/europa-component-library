@@ -25,52 +25,25 @@
     padding-top: $ecl-spacing-m;
   }
 
-  .ecl-site-header-core__banner {
-    align-items: flex-end;
+  .ecl-site-header-core__top {
     display: flex;
     flex-grow: 1;
     justify-content: space-between;
-    z-index: 1;
+  }
+
+  .ecl-site-header-core__logo-link {
+    flex-grow: 1;
+    margin-bottom: calc(#{$ecl-spacing-m} + 1px);
   }
 
   .ecl-site-header-core__logo-image {
     display: block;
-    height: $logo-height-xs;
-    margin-bottom: calc(#{$ecl-spacing-m} + 1px);
+    max-height: $logo-height-xs;
+    max-width: 10.1rem; // hack to allow logo to be resized dynamically
   }
 
   .ecl-site-header-core__action {
     display: flex;
-  }
-
-  .ecl-site-header-core__language-selector {
-    font: $ecl-font-xs;
-    margin-bottom: calc(#{$ecl-spacing-m} + 1px);
-    padding-bottom: 0;
-    padding-left: $ecl-spacing-xs;
-    padding-right: $ecl-spacing-xs;
-    padding-top: $ecl-spacing-xs;
-  }
-
-  .ecl-site-header-core__language-icon {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    position: relative;
-  }
-
-  .ecl-site-header-core__language-code {
-    color: $ecl-color-white;
-    font: $ecl-font-2-xs;
-    font-weight: $ecl-font-weight-bold;
-    left: 50%;
-    position: absolute;
-    text-transform: uppercase;
-    // position top and left has to be set like this because IE...
-    // also ugly magic numbers to center the text on the icon
-    top: 50%;
-    transform: translateX(-50%) translateX(-0.01rem) translateY(-50%)
-      translateY(-0.05rem);
   }
 
   .ecl-site-header-core__search-toggle {
@@ -83,14 +56,15 @@
     font: $ecl-font-xs;
     margin-bottom: calc(#{$ecl-spacing-m} + 1px);
     margin-top: -1px;
-    padding-bottom: 0;
-    padding-left: $ecl-spacing-xs;
-    padding-right: $ecl-spacing-xs;
-    padding-top: $ecl-spacing-xs;
+    padding: $ecl-spacing-xs $ecl-spacing-xs 0;
+    position: relative;
+    text-align: center;
+    z-index: $ecl-z-index-dropdown + 1;
 
     &[aria-expanded='true'] {
       background-color: $ecl-color-blue-5;
       border-color: $ecl-color-blue-25;
+      box-shadow: 0 2px 5px 0 rgba(0, 47, 103, 0.2);
       margin-bottom: 0;
       padding-bottom: calc(#{$ecl-spacing-m} + 1px);
     }
@@ -99,17 +73,44 @@
   .ecl-site-header-core__search {
     background-color: $ecl-color-blue-5;
     border: 1px solid $ecl-color-blue-25;
+    box-shadow: 0 2px 5px 0 rgba(0, 47, 103, 0.2);
+    box-sizing: content-box;
+    color: $ecl-color-grey;
     display: none;
+    font: $ecl-font-prolonged-s;
     left: 0;
     margin-top: -1px;
     padding: calc(#{$ecl-spacing-m} - 1px);
     position: absolute;
-    // spacing-top + padding-top + icon + text + spacing-bottom + border
-    top: calc(
-      #{$ecl-spacing-m} + #{$ecl-spacing-xs} + #{$ecl-icon-s} + #{$ecl-line-height-xs} +
-        #{$ecl-spacing-m} + 1px
-    );
     width: calc(100% - #{$ecl-spacing-m} - #{$ecl-spacing-m});
+    z-index: $ecl-z-index-dropdown;
+  }
+
+  .ecl-site-header-core__language-selector {
+    font: $ecl-font-xs;
+    margin-bottom: calc(#{$ecl-spacing-m} + 1px);
+    padding: $ecl-spacing-xs $ecl-spacing-xs 0;
+    text-align: center;
+  }
+
+  .ecl-site-header-core__language-icon {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  .ecl-site-header-core__language-code {
+    color: $ecl-color-white;
+    font: $ecl-font-2-xs;
+    left: 50%;
+    position: absolute;
+    text-transform: uppercase;
+    // position top and left has to be set like this because IE...
+    // also ugly magic numbers to center the text on the icon
+    top: 50%;
+    transform: translateX(-50%) translateX(-0.01rem) translateY(-50%)
+      translateY(-0.05rem);
   }
 
   .ecl-site-header-core__search--active {
@@ -118,15 +119,14 @@
 
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up(sm) {
-    .ecl-site-header-core__logo-image {
-      height: $logo-height-s;
+    .ecl-site-header-core__logo-link {
+      flex-grow: 0;
     }
 
-    .ecl-site-header-core__search {
-      // spacing-top + logo + spacing-bottom + border
-      top: calc(
-        #{$ecl-spacing-m} + #{$logo-height-s} + #{$ecl-spacing-m} + 1px
-      );
+    .ecl-site-header-core__logo-image {
+      height: $logo-height-s;
+      max-height: 100%;
+      max-width: 100%;
     }
   }
 
@@ -134,41 +134,53 @@
     .ecl-site-header-core__container {
       align-items: flex-end;
       flex-direction: row;
-      justify-content: space-between;
       padding-bottom: $ecl-spacing-xl;
       padding-top: $ecl-spacing-xl;
     }
 
-    .ecl-site-header-core__banner {
-      padding-right: $ecl-spacing-xl;
+    .ecl-site-header-core__top {
+      align-items: flex-end;
+    }
+
+    .ecl-site-header-core__action {
+      align-items: center;
+    }
+
+    .ecl-site-header-core__logo-link {
+      margin-bottom: 0;
     }
 
     .ecl-site-header-core__logo-image {
       height: $logo-height-m;
-      margin-bottom: 0;
     }
 
     .ecl-site-header-core__language-selector {
       align-items: center;
-      display: inline-flex;
+      display: flex;
+      flex-direction: row;
       font: $ecl-font-m;
-      margin-bottom: $ecl-spacing-xs;
-      padding: 0;
+      margin: 0;
+      padding: $ecl-spacing-s;
     }
 
     .ecl-site-header-core__language-icon {
-      margin-right: $ecl-spacing-xs;
-
       .ecl-icon {
         height: $ecl-icon-m;
+        margin-right: $ecl-spacing-xs;
         width: $ecl-icon-m;
       }
     }
 
     .ecl-site-header-core__language-code {
       font: $ecl-font-xs;
-      transform: translateX(-50%) translateX(0.02rem) translateY(-50%)
+      margin-right: $ecl-spacing-xs;
+      transform: translateX(-50%) translateX(-0.2rem) translateY(-50%)
         translateY(-0.05rem);
+    }
+
+    .ecl-site-header-core__search-container {
+      flex-grow: 1;
+      margin-left: $ecl-spacing-s;
     }
 
     .ecl-site-header-core__search-toggle {
@@ -178,11 +190,13 @@
     .ecl-site-header-core__search {
       background-color: $ecl-color-white;
       border-width: 0;
+      box-shadow: none;
       display: flex;
       margin: 0;
       padding: 0;
       position: relative;
       top: 0;
+      width: 31.5rem;
     }
   }
 }
