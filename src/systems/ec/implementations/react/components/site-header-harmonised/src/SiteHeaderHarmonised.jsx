@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -35,12 +35,6 @@ const SiteHeaderHarmonised = ({
   // eslint-disable-next-line global-require, import/no-dynamic-require
   const logoSrc = require(`@ecl/ec-resources-logo/logo--${logoLanguage}.svg`);
 
-  const loginLabel = logged
-    ? loginToggle.labelLogged
-    : loginToggle.labelNotLogged;
-  const loginHref = logged ? loginToggle.hrefLogged : loginToggle.hrefNotLogged;
-  const loginIcon = logged ? 'general--logged-in' : 'general--log-in';
-
   return (
     <header {...props} className={classNames}>
       <div className="ecl-site-header-harmonised__container ecl-container">
@@ -62,35 +56,55 @@ const SiteHeaderHarmonised = ({
             />
           </a>
           <div className="ecl-site-header-harmonised__action">
-            {!!(loginToggle && loginBox) && (
+            {!!(
+              loginToggle &&
+              Object.values(loginToggle).length >= 1 &&
+              loginBox
+            ) && (
               <div className="ecl-site-header-harmonised__login-container">
-                <a
-                  className="ecl-link ecl-link--standalone ecl-site-header-harmonised__login-toggle"
-                  href={loginHref}
-                  data-ecl-login-toggle
-                  aria-controls={loginBox.id}
-                  aria-expanded="false"
-                >
-                  <Icon shape={loginIcon} size="s" />
-                  {loginLabel}
-                </a>
-                <div
-                  id={loginBox.id}
-                  className="ecl-site-header-harmonised__login-box"
-                  data-ecl-login-box
-                >
-                  <p className="ecl-site-header-harmonised__login-description">
-                    {loginBox.description}
-                  </p>
-                  <Link
-                    label={loginBox.label}
-                    href={loginBox.href}
-                    variant="standalone"
-                  />
-                </div>
+                {logged && (
+                  <Fragment>
+                    <a
+                      className="ecl-link ecl-link--standalone ecl-site-header-harmonised__login-toggle"
+                      href={loginToggle.hrefLogged}
+                      data-ecl-login-toggle
+                      aria-controls={loginBox.id}
+                      aria-expanded="false"
+                    >
+                      <Icon shape="general--logged-in" size="s" />
+                      {loginToggle.labelLogged}
+                    </a>
+
+                    <div
+                      id={loginBox.id}
+                      className="ecl-site-header-harmonised__login-box"
+                      data-ecl-login-box
+                    >
+                      <p className="ecl-site-header-harmonised__login-description">
+                        {loginBox.description}
+                      </p>
+                      <Link
+                        label={loginBox.label}
+                        href={loginBox.href}
+                        variant="standalone"
+                      />
+                    </div>
+                  </Fragment>
+                )}
+                {!logged && (
+                  <a
+                    className="ecl-link ecl-link--standalone ecl-site-header-harmonised__login-toggle"
+                    href={loginToggle.hrefNotLogged}
+                  >
+                    <Icon shape="general--log-in" size="s" />
+                    {loginToggle.labelNotLogged}
+                  </a>
+                )}
               </div>
             )}
-            {languageSelector && (
+            {!!(
+              languageSelector && Object.values(languageSelector).length >= 1
+            ) && (
               <a
                 className="ecl-link ecl-link--standalone ecl-site-header-harmonised__language-selector"
                 href={languageSelector.href}
@@ -105,7 +119,11 @@ const SiteHeaderHarmonised = ({
                 {languageSelector.label}
               </a>
             )}
-            {!!(searchToggle && searchForm) && (
+            {!!(
+              searchToggle &&
+              Object.values(searchToggle).length >= 1 &&
+              searchForm
+            ) && (
               <div className="ecl-site-header-harmonised__search-container">
                 <a
                   className="ecl-link ecl-link--standalone ecl-site-header-harmonised__search-toggle"
@@ -197,33 +215,11 @@ SiteHeaderHarmonised.defaultProps = {
     href: '#',
   },
   logged: false,
-  loginToggle: {
-    labelNotLogged: '',
-    hrefNotLogged: '#',
-    labelLogged: '',
-    hrefLogged: '#',
-  },
-  loginBox: {
-    id: '',
-    description: '',
-    label: '',
-    href: '#',
-  },
-  languageSelector: {
-    href: '#',
-    label: '',
-    code: '',
-  },
-  searchToggle: {
-    label: '',
-    href: '',
-  },
-  searchForm: {
-    id: '',
-    textInputId: '',
-    inputLabel: '',
-    buttonLabel: '',
-  },
+  loginToggle: {},
+  loginBox: {},
+  languageSelector: {},
+  searchToggle: {},
+  searchForm: {},
   bannerTop: '',
   banner: '',
   className: '',

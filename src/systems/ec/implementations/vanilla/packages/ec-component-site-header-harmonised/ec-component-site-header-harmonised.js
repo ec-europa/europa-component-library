@@ -69,20 +69,28 @@ export class SiteHeaderHarmonised {
       onDeactivate: this.closeOverlay,
     });
 
-    this.languageSelector.addEventListener('click', this.toggleOverlay);
-    this.close.addEventListener('click', this.toggleOverlay);
+    if (this.languageSelector) {
+      this.languageSelector.addEventListener('click', this.toggleOverlay);
+    }
+    if (this.close) {
+      this.close.addEventListener('click', this.toggleOverlay);
+    }
 
     // Search form management
     this.searchToggle = queryOne(this.searchToggleSelector);
     this.searchForm = queryOne(this.searchFormSelector);
 
-    this.searchToggle.addEventListener('click', this.toggleSearch);
+    if (this.searchToggle) {
+      this.searchToggle.addEventListener('click', this.toggleSearch);
+    }
 
     // Login management
     this.loginToggle = queryOne(this.loginToggleSelector);
     this.loginBox = queryOne(this.loginBoxSelector);
 
-    this.loginToggle.addEventListener('click', this.toggleLogin);
+    if (this.loginToggle) {
+      this.loginToggle.addEventListener('click', this.toggleLogin);
+    }
   }
 
   destroy() {
@@ -137,7 +145,10 @@ export class SiteHeaderHarmonised {
       this.searchToggle.getAttribute('aria-expanded') === 'true';
 
     // Close other boxes
-    if (this.loginToggle.getAttribute('aria-expanded') === 'true') {
+    if (
+      this.loginToggle &&
+      this.loginToggle.getAttribute('aria-expanded') === 'true'
+    ) {
       this.toggleLogin(e);
     }
 
@@ -164,7 +175,10 @@ export class SiteHeaderHarmonised {
       this.loginToggle.getAttribute('aria-expanded') === 'true';
 
     // Close other boxes
-    if (this.searchToggle.getAttribute('aria-expanded') === 'true') {
+    if (
+      this.searchToggle &&
+      this.searchToggle.getAttribute('aria-expanded') === 'true'
+    ) {
       this.toggleSearch(e);
     }
 
