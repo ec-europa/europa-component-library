@@ -50,7 +50,9 @@ const SiteHeaderCore = ({
             />
           </a>
           <div className="ecl-site-header-core__action">
-            {languageSelector && (
+            {!!(
+              languageSelector && Object.values(languageSelector).length >= 1
+            ) && (
               <a
                 className="ecl-link ecl-link--standalone ecl-site-header-core__language-selector"
                 href={languageSelector.href}
@@ -65,7 +67,11 @@ const SiteHeaderCore = ({
                 {languageSelector.label}
               </a>
             )}
-            {!!(searchToggle && searchForm) && (
+            {!!(
+              searchToggle &&
+              Object.values(searchToggle).length >= 1 &&
+              searchForm
+            ) && (
               <div className="ecl-site-header-core__search-container">
                 <a
                   className="ecl-link ecl-link--standalone ecl-site-header-core__search-toggle"
@@ -130,21 +136,9 @@ SiteHeaderCore.defaultProps = {
     language: 'en',
     href: '#',
   },
-  languageSelector: {
-    href: '#',
-    label: '',
-    code: '',
-  },
-  searchToggle: {
-    label: '',
-    href: '',
-  },
-  searchForm: {
-    id: '',
-    textInputId: '',
-    inputLabel: '',
-    buttonLabel: '',
-  },
+  languageSelector: {},
+  searchToggle: {},
+  searchForm: {},
   className: '',
 };
 
