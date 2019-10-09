@@ -1,0 +1,269 @@
+/**
+ * Site Header Harmonised
+ * @define site-header-harmonised; weak
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(('ec-component-icon', 'ec-component-search-form'));
+
+@mixin ecl-site-header-harmonised(
+  $logo-height-xs: 2.5rem,
+  $logo-height-s: 3rem,
+  $logo-height-m: 4.5rem
+) {
+  .ecl-site-header-harmonised {
+    background-color: $ecl-color-white-100;
+    margin: 0;
+  }
+
+  .ecl-site-header-harmonised__container {
+    display: flex;
+    flex-direction: column;
+    padding-top: $ecl-spacing-m;
+  }
+
+  .ecl-site-header-harmonised__top {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+  }
+
+  .ecl-site-header-harmonised__logo-link {
+    flex-grow: 1;
+    margin-bottom: calc(#{$ecl-spacing-m} + 1px);
+  }
+
+  .ecl-site-header-harmonised__logo-image {
+    display: block;
+    max-height: $logo-height-xs;
+    max-width: 10.1rem; // hack to allow logo to be resized dynamically
+  }
+
+  .ecl-site-header-harmonised__action {
+    display: flex;
+  }
+
+  .ecl-site-header-harmonised__login-toggle,
+  .ecl-site-header-harmonised__search-toggle {
+    align-items: center;
+    border-left: 1px solid $ecl-color-white;
+    border-right: 1px solid $ecl-color-white;
+    border-top: 1px solid $ecl-color-white;
+    display: flex;
+    flex-direction: column;
+    font: $ecl-font-xs;
+    margin-bottom: calc(#{$ecl-spacing-m} + 1px);
+    margin-top: -1px;
+    padding: $ecl-spacing-xs $ecl-spacing-xs 0;
+    position: relative;
+    text-align: center;
+    z-index: $ecl-z-index-dropdown + 1;
+
+    &[aria-expanded='true'] {
+      background-color: $ecl-color-blue-5;
+      border-color: $ecl-color-blue-25;
+      box-shadow: 0 2px 5px 0 rgba(0, 47, 103, 0.2);
+      margin-bottom: 0;
+      padding-bottom: calc(#{$ecl-spacing-m} + 1px);
+    }
+  }
+
+  .ecl-site-header-harmonised__login-box,
+  .ecl-site-header-harmonised__search {
+    background-color: $ecl-color-blue-5;
+    border: 1px solid $ecl-color-blue-25;
+    box-shadow: 0 2px 5px 0 rgba(0, 47, 103, 0.2);
+    box-sizing: content-box;
+    color: $ecl-color-grey;
+    display: none;
+    font: $ecl-font-prolonged-s;
+    left: 0;
+    margin-top: -1px;
+    padding: calc(#{$ecl-spacing-m} - 1px);
+    position: absolute;
+    width: calc(100% - #{$ecl-spacing-m} - #{$ecl-spacing-m});
+    z-index: $ecl-z-index-dropdown;
+  }
+
+  .ecl-site-header-harmonised__login-box--active {
+    display: block;
+  }
+
+  .ecl-site-header-harmonised__login-description {
+    border-bottom: 1px solid $ecl-color-grey;
+    margin-bottom: $ecl-spacing-m;
+    margin-top: 0;
+    max-width: 80ch;
+    padding-bottom: $ecl-spacing-m;
+  }
+
+  .ecl-site-header-harmonised__language-selector {
+    font: $ecl-font-xs;
+    margin-bottom: calc(#{$ecl-spacing-m} + 1px);
+    padding: $ecl-spacing-xs $ecl-spacing-xs 0;
+    text-align: center;
+  }
+
+  .ecl-site-header-harmonised__language-icon {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  .ecl-site-header-harmonised__language-code {
+    color: $ecl-color-white;
+    font: $ecl-font-2-xs;
+    left: 50%;
+    position: absolute;
+    text-transform: uppercase;
+    // position top and left has to be set like this because IE...
+    // also ugly magic numbers to center the text on the icon
+    top: 50%;
+    transform: translateX(-50%) translateX(-0.01rem) translateY(-50%)
+      translateY(-0.05rem);
+  }
+
+  .ecl-site-header-harmonised__search--active {
+    display: flex;
+  }
+
+  .ecl-site-header-harmonised__banner-top {
+    background-color: $ecl-color-blue-5;
+    color: $ecl-color-blue;
+    font: $ecl-font-prolonged-s;
+    padding: $ecl-spacing-xs 0;
+  }
+
+  .ecl-site-header-harmonised__banner {
+    background-color: $ecl-color-blue;
+    color: $ecl-color-white;
+    font: $ecl-font-2-xl;
+    padding: $ecl-spacing-xs 0;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up(sm) {
+    .ecl-site-header-harmonised__logo-link {
+      flex-grow: 0;
+    }
+
+    .ecl-site-header-harmonised__logo-image {
+      height: $logo-height-s;
+      max-height: 100%;
+      max-width: 100%;
+    }
+  }
+
+  @include ecl-media-breakpoint-up(lg) {
+    .ecl-site-header-harmonised__container {
+      align-items: flex-end;
+      flex-direction: row;
+      padding-bottom: $ecl-spacing-xl;
+      padding-top: $ecl-spacing-xl;
+    }
+
+    .ecl-site-header-harmonised__top {
+      align-items: flex-end;
+    }
+
+    .ecl-site-header-harmonised__action {
+      align-items: center;
+    }
+
+    .ecl-site-header-harmonised__logo-link {
+      margin-bottom: 0;
+    }
+
+    .ecl-site-header-harmonised__logo-image {
+      height: $logo-height-m;
+    }
+
+    .ecl-site-header-harmonised__login-box {
+      left: auto;
+      margin-top: calc(#{$ecl-spacing-xl} - 1px);
+      width: auto;
+    }
+
+    .ecl-site-header-harmonised__login-toggle,
+    .ecl-site-header-harmonised__language-selector {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      font: $ecl-font-m;
+      margin: 0;
+      padding: $ecl-spacing-s;
+    }
+
+    .ecl-site-header-harmonised__login-toggle[aria-expanded='true'] {
+      margin-bottom: -$ecl-spacing-xl;
+      padding-bottom: calc(#{$ecl-spacing-s} + #{$ecl-spacing-xl});
+    }
+
+    .ecl-site-header-harmonised__login-toggle,
+    .ecl-site-header-harmonised__language-icon {
+      .ecl-icon {
+        height: $ecl-icon-m;
+        margin-right: $ecl-spacing-xs;
+        width: $ecl-icon-m;
+      }
+    }
+
+    .ecl-site-header-harmonised__language-code {
+      font: $ecl-font-xs;
+      margin-right: $ecl-spacing-xs;
+      transform: translateX(-50%) translateX(-0.2rem) translateY(-50%)
+        translateY(-0.05rem);
+    }
+
+    .ecl-site-header-harmonised__search-container {
+      flex-grow: 1;
+    }
+
+    .ecl-site-header-harmonised__search-toggle {
+      display: none;
+    }
+
+    .ecl-site-header-harmonised__search {
+      background-color: $ecl-color-white;
+      border-width: 0;
+      box-shadow: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      top: 0;
+      width: 25rem;
+    }
+
+    .ecl-site-header-harmonised__banner-top,
+    .ecl-site-header-harmonised__banner {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .ecl-site-header-harmonised__banner-top {
+      font: $ecl-font-prolonged-m;
+    }
+
+    .ecl-site-header-harmonised__banner {
+      font: $ecl-font-3-xl;
+      padding-bottom: $ecl-spacing-l;
+      padding-top: $ecl-spacing-l;
+    }
+  }
+
+  @include ecl-media-breakpoint-up(xl) {
+    .ecl-site-header-harmonised__search {
+      width: 31.5rem;
+    }
+  }
+}
+
+// Use mixin
+@include exports('ec-component-site-header-harmonised') {
+  @include ecl-site-header-harmonised();
+}
