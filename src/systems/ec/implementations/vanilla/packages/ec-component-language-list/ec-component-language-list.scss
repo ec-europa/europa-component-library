@@ -1,6 +1,6 @@
 /**
  * Language list component
- * @define language-list
+ * @define language-list; weak
  */
 
 // Import base
@@ -67,6 +67,7 @@
   }
 
   .ecl-language-list__link {
+    align-items: center;
     background-color: $background-link;
     display: flex;
     font: $ecl-font-m;
@@ -80,6 +81,10 @@
 
     &:focus {
       outline-offset: -3px;
+    }
+
+    .ecl-link__icon {
+      top: 0;
     }
   }
 
