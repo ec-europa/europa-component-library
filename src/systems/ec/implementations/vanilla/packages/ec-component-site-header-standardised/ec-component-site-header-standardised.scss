@@ -76,6 +76,8 @@
     background-color: $ecl-color-blue-5;
     border: 1px solid $ecl-color-blue-25;
     box-shadow: 0 2px 5px 0 rgba(0, 47, 103, 0.2);
+    box-sizing: content-box;
+    color: $ecl-color-grey;
     display: none;
     font: $ecl-font-prolonged-s;
     left: 0;
@@ -133,18 +135,14 @@
     background-color: $ecl-color-blue-5;
     color: $ecl-color-blue;
     font: $ecl-font-prolonged-s;
-    margin-left: -$ecl-spacing-m;
-    margin-right: -$ecl-spacing-m;
-    padding: $ecl-spacing-xs $ecl-spacing-m;
+    padding: $ecl-spacing-xs 0;
   }
 
   .ecl-site-header-standardised__banner {
     background-color: $ecl-color-blue;
     color: $ecl-color-white;
     font: $ecl-font-2-xl;
-    margin-left: -$ecl-spacing-m;
-    margin-right: -$ecl-spacing-m;
-    padding: $ecl-spacing-m;
+    padding: $ecl-spacing-xs 0;
   }
 
   /* stylelint-disable-next-line order/order */

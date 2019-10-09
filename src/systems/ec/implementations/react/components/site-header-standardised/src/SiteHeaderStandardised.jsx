@@ -128,12 +128,14 @@ const SiteHeaderStandardised = ({
           </div>
         </div>
       </div>
-      <div className="ecl-container">
-        <div className="ecl-site-header-standardised__banner-top">
-          {bannerTop}
-        </div>
-        <div className="ecl-site-header-standardised__banner">{banner}</div>
+
+      <div className="ecl-site-header-standardised__banner-top">
+        <div className="ecl-container">{bannerTop}</div>
       </div>
+      <div className="ecl-site-header-standardised__banner">
+        <div className="ecl-container">{banner}</div>
+      </div>
+
       {!!(languageSelector && languageSelector.overlay) && (
         <LanguageListOverlay {...languageSelector.overlay} hidden />
       )}
