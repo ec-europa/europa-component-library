@@ -3,24 +3,38 @@ import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import icons from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
 import styles from './Link.scss';
 
-const StyledLink = ({ className, to, children, ...props }) => {
+const StyledLink = ({ className, standalone, to, children, ...props }) => {
+  const cls = classnames(className, styles.link, {
+    [styles.standalone]: standalone,
+  });
+
   if (!to) {
     return null;
   }
 
   if (to.indexOf('http') === 0) {
     return (
-      <a {...props} href={to} className={classnames(className, styles.link)}>
-        {children}
+      <a
+        {...props}
+        href={to}
+        className={cls}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {children}&nbsp;
+        <svg focusable="false" aria-hidden="true" className={styles.icon}>
+          <use xlinkHref={`${icons}#ui--external`} />
+        </svg>
       </a>
     );
   }
 
   return (
-    <Link {...props} to={to} className={classnames(className, styles.link)}>
+    <Link {...props} to={to} className={cls}>
       {children}
     </Link>
   );
@@ -29,11 +43,13 @@ const StyledLink = ({ className, to, children, ...props }) => {
 StyledLink.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node.isRequired,
+  standalone: PropTypes.bool,
   to: PropTypes.string,
 };
 
 StyledLink.defaultProps = {
   className: '',
+  standalone: false,
   to: '',
 };
 
