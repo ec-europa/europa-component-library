@@ -3,4 +3,71 @@ order: 5
 title: Standardised template
 ---
 
-(work in progress)
+import { Paragraph, Anatomy, Link } from '@ecl/website-components';
+
+<Paragraph size="lead">
+  As defined, EC branded Standardised websites host thematic content detailing,
+  for example, policies for which the owner DG/Agency is responsible. This is
+  the default solution to host DG-specific content (policy) and is closely
+  aligned with the core site, providing seamless navigation and visual
+  consistency between the first levels of the core site and the DG-managed
+  sites.
+</Paragraph>
+
+## Anatomy
+
+<Anatomy
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/StandardisedTemplate/standardised-template.jpg"
+  alt="Anatomy of the standardised template"
+  legend={{
+    items: [
+      {
+        color: '#404040',
+        label: 'Mandatory',
+      },
+      {
+        color: '#004494',
+        label: 'Optional',
+      },
+    ],
+  }}
+/>
+
+| Elements                                                                                                | Mandatory | Description                                                                                                                                                                                                                                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <Link to="https://webgate.ec.europa.eu/fpfis/wikis/display/webtools/Global+banner">Global banner</Link> | Yes       | The Global banner is the official EU stamp that gives a visual indicator and easy access to EU institutions and bodies sites, guaranteeing the user visits an official EU website                                                                                                                                                                                                              |
+| <Link to="/ec/standardised-template/site-header/">Standardised site header</Link>                       | Yes       | <p>The Standardised site header is present on every page. It communicates the European Commission brand and provides basic structure and guidance. The site header is composed of several mandatory and optional elements such as:</p><ul><li>European Commission logo</li><li>Login</li><li>Language select</li><li>Europa search</li><li>Class name</li><li>Site name</li><li>Menu</li></ul> |
+| Standardised page header                                                                                | Yes       | <p>The Standardised page header gives context and information to the user on what the page is about. It is present on every page, just below the site header, except for the homepage. The page header is composed off mandatory and optional elements such as:</p><ul><li>Breadcrumb</li><li>Meta</li><li>Page Title</li><li>Introduction</li></ul>                                           |
+| <Link to="/ec/standardised-template/footer/">Standardised footer</Link>                                 | Yes       | <p>The Standardised footer is present on every page. It provides supplementary information such as copyright, legal, privacy, social media, contact information and links to other important sections within the EC ecosystem. The footer is composed off mandatory and optional elements such as:</p><ul><li>Local content</li><li>Corporate content</li></ul>                                |
+
+**NOTE**: On the Page body section, when components are available, use components from ECL.
+
+## Structural anatomy
+
+When designing the page, make sure to follow appropriate category guidelines available below in terms of structure and layout
+
+| Elements                                                | Mandatory  | Description                                               |
+| ------------------------------------------------------- | ---------- | --------------------------------------------------------- |
+| <Link to="/ec/utilities/grid/">Grid</Link>              | Yes        | Enhance visual consistency                                |
+| <Link to="/ec/guidelines/colours/">Colours</Link>       | Yes        | Use only EC colour specifications available in the ECL    |
+| <Link to="/ec/guidelines/typography/">Typography</Link> | Yes        | Apply the typographic guidelines available in the ECL     |
+| <Link to="/ec/guidelines/spacing/">Spacing</Link>       | Yes        | Apply spacing rules explained in the ECL                  |
+| <Link to="/ec/guidelines/iconography/">Icons</Link>     | Contextual | Where icons feature, use commonly-used icons from the ECL |
+| <Link to="/ec/guidelines/images/">Images</Link>         | Contextual | See image guidelines in ECL                               |
+
+## Do's
+
+- use for all new developments or newly developed sites
+- ensure the pages contain all the elements in the Anatomy table above, however check [Europa Web Guide - Standardised sites](https://wikis.ec.europa.eu/display/WEBGUIDE/02.+EC+branded+standardised+websites) for a detailed instructions on the optional elements and exceptions
+
+## Don'ts
+
+- do not replace pages only on existing websites as this will create visual inconsistencies, this must be done at a site level
+
+## When to use
+
+- when creating or updating sites that are managed by a separate DG
+
+## When not to use
+
+- do not follow these guidelines when you are updating sites that fall under the <Link to="/ec/core-template/">Core</Link> or <Link to="/ec/harmonised-templates/group1/">harmonised</Link> category
