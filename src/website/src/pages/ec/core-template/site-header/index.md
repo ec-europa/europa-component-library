@@ -1,6 +1,6 @@
 ---
 title: Site header
+defaultTab: usage
+status: ready
 order: 1
 ---
-
-(work in progress)
