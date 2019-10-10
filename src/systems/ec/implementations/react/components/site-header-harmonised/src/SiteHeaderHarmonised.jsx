@@ -83,6 +83,7 @@ const SiteHeaderHarmonised = ({
                       <p className="ecl-site-header-harmonised__login-description">
                         {loginBox.description}
                       </p>
+                      <hr className="ecl-site-header-harmonised__login-separator" />
                       <Link
                         label={loginBox.label}
                         href={loginBox.href}
