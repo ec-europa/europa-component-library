@@ -3,4 +3,19 @@ title: Group 2
 order: 2
 ---
 
-(work in progress)
+import Playground from '@ecl/website-components/Playground';
+import FooterHarmonised from '@ecl/ec-react-component-footer-harmonised';
+
+import demoContentGroup2 from '@ecl/ec-specs-footer-harmonised/demo/data--group2';
+
+<Playground
+  system="ec"
+  selectedKind="components-footers-harmonised"
+  selectedStory="group-2"
+  showFrame
+>
+  <FooterHarmonised
+    {...demoContentGroup2}
+    className="ecl-footer-harmonised--group2"
+  />
+</Playground>
