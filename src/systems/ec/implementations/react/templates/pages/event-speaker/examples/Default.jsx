@@ -3,14 +3,12 @@ import React, { Fragment } from 'react';
 
 import Breadcrumb, { BreadcrumbItem } from '@ecl/ec-react-component-breadcrumb';
 import Footer from '@ecl/ec-react-component-footer';
-import LanguageListOverlay from '@ecl/ec-react-component-language-list/src/LanguageListOverlay';
 import Link from '@ecl/ec-react-component-link';
 import PageBanner from '@ecl/ec-react-component-page-banner';
 import PageHeader from '@ecl/ec-react-component-page-header';
 import SiteHeader from '@ecl/ec-react-component-site-header';
 
 import footerContent from '@ecl/ec-specs-footer/demo/data--corporate';
-import languageListContent from '@ecl/ec-specs-language-list/demo/data--overlay';
 import siteHeaderContent from '@ecl/ec-specs-site-header/demo/data--en';
 
 export default () => {
@@ -29,7 +27,6 @@ export default () => {
   return (
     <Fragment>
       <SiteHeader {...siteHeaderContent} data-ecl-auto-init="SiteHeader" />
-      <LanguageListOverlay {...languageListContent} hidden="true" />
       <PageHeader
         breadcrumb={breadcrumb}
         meta="Conference"

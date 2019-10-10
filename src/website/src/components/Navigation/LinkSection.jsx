@@ -43,11 +43,15 @@ class LinkSection extends Component {
 
     const { isOpen } = this.state;
 
+    const to = attributes.defaultTab
+      ? `${attributes.url}${attributes.defaultTab}/`
+      : attributes.url;
+
     return (
       <Fragment>
         <span className={styles['group-list-parent']}>
           <Link
-            to={attributes.url}
+            to={to}
             className={`${styles['group-list-item']} ${
               styles[`level-${level}`]
             }`}
@@ -89,6 +93,7 @@ LinkSection.propTypes = {
   }).isRequired,
   attributes: PropTypes.shape({
     url: PropTypes.string,
+    defaultTab: PropTypes.string,
   }).isRequired,
   pages: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
   showStatus: PropTypes.bool,

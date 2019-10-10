@@ -173,7 +173,9 @@ module.exports = {
                 loader: 'sass-loader',
                 options: {
                   sourceMap: shouldUseSourceMap,
-                  includePaths,
+                  sassOptions: {
+                    includePaths,
+                  },
                 },
               },
             ],

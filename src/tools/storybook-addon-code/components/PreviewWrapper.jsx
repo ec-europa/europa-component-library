@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {
   SyntaxHighlighter,
   Button,
-  DocumentFormatting,
+  DocumentWrapper,
 } from '@storybook/components';
 import { styled } from '@storybook/theming';
 import { html as beautify } from 'js-beautify';
@@ -102,7 +102,7 @@ export class PreviewWrapper extends Component {
         {children}
         {expanded && (
           <Overlay id="storybook-code">
-            <DocumentFormatting>
+            <DocumentWrapper>
               <TitleBar>
                 <h1>Live HTML</h1>
                 <Button tertiary type="button" onClick={this.openInCodePen}>
@@ -117,7 +117,7 @@ export class PreviewWrapper extends Component {
               >
                 {beautifiedCode}
               </StyledSyntaxHighlighter>
-            </DocumentFormatting>
+            </DocumentWrapper>
           </Overlay>
         )}
       </Fragment>

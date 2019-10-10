@@ -1,0 +1,18 @@
+@import '@ecl/ec-theme-default/index';
+
+.list {
+  box-sizing: border-box;
+  color: $ecl-color-grey-100;
+  font: $ecl-font-prolonged-m;
+  margin: 0;
+  max-width: 64ch;
+}
+
+* + .list {
+  margin-top: $ecl-spacing-m;
+}
+
+.list--lead {
+  font: $ecl-font-prolonged-xl;
+  max-width: 49ch;
+}

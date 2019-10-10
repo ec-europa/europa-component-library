@@ -12,11 +12,11 @@ export class Timeline {
   constructor(
     element,
     {
-      buttonSelector: buttonSelector = '[data-ecl-timeline-button]',
-      labelSelector: labelSelector = '[data-ecl-label]',
-      labelExpanded: labelExpanded = 'data-ecl-label-expanded',
-      labelCollapsed: labelCollapsed = 'data-ecl-label-collapsed',
-      attachClickListener: attachClickListener = true,
+      buttonSelector = '[data-ecl-timeline-button]',
+      labelSelector = '[data-ecl-label]',
+      labelExpanded = 'data-ecl-label-expanded',
+      labelCollapsed = 'data-ecl-label-collapsed',
+      attachClickListener = true,
     } = {}
   ) {
     // Check element

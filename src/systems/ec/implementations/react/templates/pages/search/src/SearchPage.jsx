@@ -135,6 +135,7 @@ const SearchPage = ({ siteHeader, pageHeader, footer }) => (
                   className="ecl-u-ml-s"
                   label="DG Trad"
                   variant="removable"
+                  dismissButtonLabel="Dismiss"
                 />
               </span>
               <span className="ecl-u-ml-lg-m ecl-u-mt-m ecl-u-mt-lg-none">
@@ -143,6 +144,7 @@ const SearchPage = ({ siteHeader, pageHeader, footer }) => (
                   className="ecl-u-ml-s"
                   label="Health, well-being & Consumer protection"
                   variant="removable"
+                  dismissButtonLabel="Dismiss"
                 />
               </span>
             </div>

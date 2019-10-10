@@ -27,12 +27,12 @@ export class MenuLegacy {
   constructor(
     element,
     {
-      hamburgerButtonSelector: hamburgerButtonSelector = '[data-ecl-menu-legacy-hamburger-button]',
-      menuListSelector: menuListSelector = '[data-ecl-menu-legacy-list]',
-      menuItemSelector: menuItemSelector = '[data-ecl-menu-legacy-item]',
-      menuLinkSelector: menuLinkSelector = '[data-ecl-menu-legacy-link]',
-      menuMegaSelector: menuMegaSelector = '[data-ecl-menu-legacy-mega]',
-      attachClickListener: attachClickListener = true,
+      hamburgerButtonSelector = '[data-ecl-menu-legacy-hamburger-button]',
+      menuListSelector = '[data-ecl-menu-legacy-list]',
+      menuItemSelector = '[data-ecl-menu-legacy-item]',
+      menuLinkSelector = '[data-ecl-menu-legacy-link]',
+      menuMegaSelector = '[data-ecl-menu-legacy-mega]',
+      attachClickListener = true,
     } = {}
   ) {
     // Check element

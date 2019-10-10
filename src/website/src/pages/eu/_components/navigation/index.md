@@ -1,4 +1,0 @@
----
-title: Navigation
-type: group
----

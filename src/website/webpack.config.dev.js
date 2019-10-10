@@ -83,6 +83,19 @@ module.exports = {
       {
         oneOf: [
           {
+            test: /preval.*\.(js|jsx)$/,
+            exclude: /node_modules/,
+            use: {
+              loader: 'babel-loader',
+              options: {
+                ...babelConfig, // This is a feature of `babel-loader` for webpack (not Babel itself).
+                // Disable cache for preval files
+                cacheDirectory: false,
+                babelrc: false,
+              },
+            },
+          },
+          {
             test: /\.(js|jsx)$/,
             exclude: /node_modules/,
             use: {
@@ -126,7 +139,9 @@ module.exports = {
               {
                 loader: 'sass-loader',
                 options: {
-                  includePaths,
+                  sassOptions: {
+                    includePaths,
+                  },
                 },
               },
             ],
@@ -150,7 +165,13 @@ module.exports = {
             use: [
               {
                 loader: 'babel-loader',
-                options: babelConfig,
+                options: {
+                  ...babelConfig, // This is a feature of `babel-loader` for webpack (not Babel itself).
+                  // It enables caching results in ./node_modules/.cache/babel-loader/
+                  // directory for faster rebuilds.
+                  cacheDirectory: true,
+                  babelrc: false,
+                },
               },
               {
                 loader: '@mdx-js/loader',

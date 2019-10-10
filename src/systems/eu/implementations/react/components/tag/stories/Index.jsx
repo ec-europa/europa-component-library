@@ -17,6 +17,6 @@ storiesOf('Components|Tag', module)
     <Tag
       label={text('Label', 'Removable tag')}
       variant="removable"
-      type="button"
+      dismissButtonLabel="Dismiss"
     />
   ));

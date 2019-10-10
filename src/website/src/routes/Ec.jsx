@@ -7,7 +7,7 @@ import meta from '../preval/get-meta-ec';
 import sortPages from '../utils/nav-sort';
 
 // Static routes
-import HomePage from '../pages/ec/index.md';
+import HomePage from '../pages/ec/index.mdx';
 
 import DocPage from '../components/DocPage/DocPage';
 
@@ -35,7 +35,7 @@ const pagesToRoutes = pages =>
         /* webpackChunkName: "ec-pages" */
         /* webpackMode: "lazy-once" */
         /* webpackPreload: true */
-        `../pages/ec${page.key.substr(1)}`
+        `../pages/ec${page.key.slice(1)}`
       )
     );
 

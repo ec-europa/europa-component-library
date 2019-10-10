@@ -11,7 +11,6 @@ import {
 } from '@ecl/ec-react-component-description-list';
 import Footer from '@ecl/ec-react-component-footer';
 import Icon from '@ecl/ec-react-component-icon';
-import LanguageListOverlay from '@ecl/ec-react-component-language-list/src/LanguageListOverlay';
 import Link from '@ecl/ec-react-component-link';
 import MediaContainer from '@ecl/ec-react-component-media-container';
 import PageBanner from '@ecl/ec-react-component-page-banner';
@@ -24,7 +23,6 @@ import {
 } from '@ecl/ec-react-component-unordered-list';
 
 import footerContent from '@ecl/ec-specs-footer/demo/data--corporate';
-import languageListContent from '@ecl/ec-specs-language-list/demo/data--overlay';
 import siteHeaderContent from '@ecl/ec-specs-site-header/demo/data--en';
 
 export default () => {
@@ -39,7 +37,6 @@ export default () => {
   return (
     <Fragment>
       <SiteHeader {...siteHeaderContent} data-ecl-auto-init="SiteHeader" />
-      <LanguageListOverlay {...languageListContent} hidden="true" />
       <PageHeader
         breadcrumb={breadcrumb}
         meta="Conference"
@@ -456,7 +453,7 @@ export default () => {
                     "service" : "map",
                     "version": "2.0",
                     "address": "The EGG, Rue Bara 175, 1070 Bruxelles, Belgique",
-                    "options" : { 
+                    "options" : {
                         "color" : "blue",
                         "display" : "map",
                         "target" : "before"
