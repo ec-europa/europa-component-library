@@ -8,9 +8,13 @@ import { Paragraph, Anatomy, Link } from '@ecl/website-components';
 <Paragraph size="lead">
   Core websites aim to minimise the duplication of content across the EC
   Services’ web presence and provide access to information in a user-friendly
-  way. They host general information shared by many different websites or
-  departments and serve as hubs for onward navigation to further thematic
-  content and/or specific services such as web information systems.
+  way.{' '}
+  <strong>
+    They host general information shared by many different websites or
+    departments and serve as hubs for onward navigation
+  </strong>{' '}
+  to further thematic content and/or specific services such as web information
+  systems.
 </Paragraph>
 
 ## Anatomy
@@ -32,12 +36,12 @@ import { Paragraph, Anatomy, Link } from '@ecl/website-components';
   }}
 />
 
-| Elements                                                                                                           | Mandatory | Description                                                                                                                                                                                                                                                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------------ | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <Link to="https://webgate.ec.europa.eu/fpfis/wikis/display/webtools/Global+banner" standalone>Global banner</Link> | Yes       | The Global banner is the official EU stamp that gives a visual indicator and easy access to EU institutions and bodies sites, guaranteeing the user visits an official EU website                                                                                                                                                            |
-| <Link to="/ec/core-template/site-header/usage/" standalone>Core site header</Link>                                 | Yes       | <p>The Core site header is present on every page. It communicates the European Commission brand and provides basic structure and guidance. The header is composed off several mandatory and optional elements such as:</p><ul><li>European Commission logo</li><li>Language select</li><li>Europa search</li></ul>                           |
-| Core page header                                                                                                   | Yes       | <p>The Core page header gives context and information to the user on what the page is about. It is present on every page, just below the site header, except for the homepage. The page header is composed off mandatory and optional elements such as:</p><ul><li>Breadcrumb</li><li>Meta</li><li>Page Title</li><li>Introduction</li></ul> |
-| <Link to="/ec/core-template/footer/usage/" standalone>Core footer</Link>                                           | Yes       | The Core footer is present on every page. It provides supplementary information such as copyright, legal, privacy, social media, contact information and links to other important sites within the EC ecosystem.                                                                                                                             |
+| Elements                                                                                                           | Mandatory | Description                                                                                                                                                                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <Link to="https://webgate.ec.europa.eu/fpfis/wikis/display/webtools/Global+banner" standalone>Global banner</Link> | Yes       | The Global banner is the official EU stamp that gives a visual indicator and easy access to EU institutions and bodies sites, guaranteeing the user visits an official EU website                                                                                                                                              |
+| <Link to="/ec/core-template/site-header/usage/" standalone>Core site header</Link>                                 | Yes       | <p>The Core site header is present on every page. It communicates the European Commission brand and provides basic structure and guidance. The header is composed of several mandatory and optional elements such as:</p><ul><li>European Commission logo</li><li>Language select</li><li>Europa search form</li></ul>         |
+| Core page header                                                                                                   | Yes       | <p>The Core page header gives context and information to the user on what the page is about. It is present on every page, just below the site header, except for the homepage. The page header is composed of mandatory and optional elements such as:</p><ul><li>Breadcrumb</li><li>Page title</li><li>Introduction</li></ul> |
+| <Link to="/ec/core-template/footer/usage/" standalone>Core footer</Link>                                           | Yes       | The Core footer is present on every page. It provides supplementary information such as copyright, legal, privacy, social media, contact information and links to other important sites within the EC ecosystem.                                                                                                               |
 
 **NOTE**: On the Page body section, when components are available, use components from ECL.
 
@@ -45,14 +49,20 @@ import { Paragraph, Anatomy, Link } from '@ecl/website-components';
 
 When designing the page, make sure to follow appropriate category guidelines available below in terms of structure and layout
 
-| Elements                                                           | Mandatory  | Description                                               |
-| ------------------------------------------------------------------ | ---------- | --------------------------------------------------------- |
-| <Link to="/ec/utilities/grid/" standalone>Grid</Link>              | Yes        | Enhance visual consistency                                |
-| <Link to="/ec/guidelines/colours/" standalone>Colours</Link>       | Yes        | Use only EC colour specifications available in the ECL    |
-| <Link to="/ec/guidelines/typography/" standalone>Typography</Link> | Yes        | Apply the typographic guidelines available in the ECL     |
-| <Link to="/ec/guidelines/spacing/" standalone>Spacing</Link>       | Yes        | Apply spacing rules explained in the ECL                  |
-| <Link to="/ec/guidelines/iconography/" standalone>Icons</Link>     | Contextual | Where icons feature, use commonly-used icons from the ECL |
-| <Link to="/ec/guidelines/images/" standalone>Images</Link>         | Contextual | See image guidelines in ECL                               |
+| Elements                                                           | Mandatory     | Description                                               |
+| ------------------------------------------------------------------ | ------------- | --------------------------------------------------------- |
+| <Link to="/ec/utilities/grid/" standalone>Grid</Link>              | Yes           | Enhance visual consistency                                |
+| <Link to="/ec/guidelines/colours/" standalone>Colours</Link>       | Yes           | Use only EC colour specifications available in the ECL    |
+| <Link to="/ec/guidelines/typography/" standalone>Typography</Link> | Yes           | Apply the typographic guidelines available in the ECL     |
+| <Link to="/ec/guidelines/spacing/" standalone>Spacing</Link>       | Yes           | Apply spacing rules explained in the ECL                  |
+| <Link to="/ec/guidelines/iconography/" standalone>Icons</Link>     | Contextual \* | Where icons feature, use commonly-used icons from the ECL |
+| <Link to="/ec/guidelines/images/" standalone>Images</Link>         | Contextual \* | See image guidelines in ECL                               |
+
+<Paragraph size="s">
+  * <strong>Contextual</strong> – elements that may or may not feature on a
+  page, depending on the communication and/or functional needs – for example
+  Login. Where the element features, use the ECL component.
+</Paragraph>
 
 ## Do's
 
@@ -60,7 +70,7 @@ When designing the page, make sure to follow appropriate category guidelines ava
 
 ## Don'ts
 
-- do not replace pages only on existing websites as this will create visual inconsistencies, this must be done at a site level
+- **do not replace pages only** on existing websites as this will create visual inconsistencies, **this must be done at a site level**
 
 ## When to use
 
@@ -68,4 +78,4 @@ When designing the page, make sure to follow appropriate category guidelines ava
 
 ## When not to use
 
-- do not follow these guidelines when you are updating sites that fall under the <Link to="/ec/standardised-template/">standardised</Link> or <Link to="/ec/harmonised-templates/group1/">harmonised</Link> category
+- do not follow these guidelines when you are updating sites that fall under the <Link to="/ec/standardised-template/">Standardised</Link> or <Link to="/ec/harmonised-templates/group1/">Harmonised</Link> category
