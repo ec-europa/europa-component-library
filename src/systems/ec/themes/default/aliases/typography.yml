@@ -4,6 +4,7 @@ imports:
 
 # Custom aliases used in the "default" theme
 aliases:
+  _FONT_2XS: 'normal normal {!FONT_WEIGHT_REGULAR} {!FONT_SIZE_2XS}/{!LINE_HEIGHT_2XS} {!FONT_FAMILY}'
   _FONT_XS: 'normal normal {!FONT_WEIGHT_REGULAR} {!FONT_SIZE_XS}/{!LINE_HEIGHT_XS} {!FONT_FAMILY}'
   _FONT_S: 'normal normal {!FONT_WEIGHT_REGULAR} {!FONT_SIZE_S}/{!LINE_HEIGHT_S} {!FONT_FAMILY}'
   _FONT_M: 'normal normal {!FONT_WEIGHT_REGULAR} {!FONT_SIZE_M}/{!LINE_HEIGHT_M} {!FONT_FAMILY}'
@@ -23,6 +24,7 @@ aliases:
   _FONT_WEIGHT_BOLD: '{!FONT_WEIGHT_BOLD}'
   _FONT_FAMILY: '{!FONT_FAMILY}'
 
+  _FONT_PRINT_2XS: 'normal normal {!FONT_WEIGHT_PRINT_REGULAR} {!FONT_SIZE_PRINT_2XS}/{!LINE_HEIGHT_PRINT_2XS} {!FONT_FAMILY_PRINT}'
   _FONT_PRINT_XS: 'normal normal {!FONT_WEIGHT_PRINT_REGULAR} {!FONT_SIZE_PRINT_XS}/{!LINE_HEIGHT_PRINT_XS} {!FONT_FAMILY_PRINT}'
   _FONT_PRINT_S: 'normal normal {!FONT_WEIGHT_PRINT_REGULAR} {!FONT_SIZE_PRINT_S}/{!LINE_HEIGHT_PRINT_S} {!FONT_FAMILY_PRINT}'
   _FONT_PRINT_M: 'normal normal {!FONT_WEIGHT_PRINT_REGULAR} {!FONT_SIZE_PRINT_M}/{!LINE_HEIGHT_PRINT_M} {!FONT_FAMILY_PRINT}'
@@ -44,6 +46,11 @@ aliases:
 
 # Export properties
 props:
+  - name: FONT_2XS
+    value: '{!_FONT_2XS}'
+    comment: Font 2XS
+    type: font
+    category: font
   - name: FONT_XS
     value: '{!_FONT_XS}'
     comment: Font XS
@@ -134,6 +141,11 @@ props:
     comment: Font family
     type: font
     category: font
+  - name: FONT_SIZE_2XS
+    value: '{!FONT_SIZE_2XS}'
+    comment: Font size 2XS
+    type: font
+    category: font
   - name: FONT_SIZE_XS
     value: '{!FONT_SIZE_XS}'
     comment: Font size XS
@@ -182,6 +194,11 @@ props:
   - name: FONT_SIZE_6XL
     value: '{!FONT_SIZE_6XL}'
     comment: Font size 6XL
+    type: font
+    category: font
+  - name: LINE_HEIGHT_2XS
+    value: '{!LINE_HEIGHT_2XS}'
+    comment: Line height 2XS
     type: font
     category: font
   - name: LINE_HEIGHT_XS
@@ -260,6 +277,11 @@ props:
     type: font
     category: font
 
+  - name: FONT_PRINT_2XS
+    value: '{!_FONT_PRINT_2XS}'
+    comment: Font print 2XS
+    type: font
+    category: font
   - name: FONT_PRINT_XS
     value: '{!_FONT_PRINT_XS}'
     comment: Font print XS
@@ -350,6 +372,11 @@ props:
     comment: Font family print
     type: font
     category: font
+  - name: FONT_SIZE_PRINT_2XS
+    value: '{!FONT_SIZE_PRINT_2XS}'
+    comment: Font size print 2XS
+    type: font
+    category: font
   - name: FONT_SIZE_PRINT_XS
     value: '{!FONT_SIZE_PRINT_XS}'
     comment: Font size print XS
@@ -398,6 +425,11 @@ props:
   - name: FONT_SIZE_PRINT_6XL
     value: '{!FONT_SIZE_PRINT_6XL}'
     comment: Font size print 6XL
+    type: font
+    category: font
+  - name: LINE_HEIGHT_PRINT_2XS
+    value: '{!LINE_HEIGHT_PRINT_2XS}'
+    comment: Line height print 2XS
     type: font
     category: font
   - name: LINE_HEIGHT_PRINT_XS
