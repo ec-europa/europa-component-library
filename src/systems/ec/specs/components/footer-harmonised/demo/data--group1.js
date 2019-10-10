@@ -110,7 +110,10 @@ module.exports = {
     },
     {
       key: 'section 7',
-      title: 'European Commission',
+      title: {
+        label: 'European Commission',
+        href: 'http://ec.europa.eu/',
+      },
     },
     {
       key: 'section 8',

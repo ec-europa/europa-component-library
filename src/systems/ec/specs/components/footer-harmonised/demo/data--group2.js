@@ -2,7 +2,10 @@ module.exports = {
   sections: [
     {
       key: 'section 1',
-      title: 'European Commission',
+      title: {
+        label: 'European Commission',
+        href: 'http://ec.europa.eu/',
+      },
     },
     {
       key: 'section 2',
