@@ -3,4 +3,20 @@ title: Group 2
 order: 2
 ---
 
-(work in progress)
+import Playground from '@ecl/website-components/Playground';
+import SiteHeaderHarmonised from '@ecl/ec-react-component-site-header-harmonised';
+
+import demoContentGroup2 from '@ecl/ec-specs-site-header-harmonised/demo/data--group2';
+
+<Playground
+  system="ec"
+  selectedKind="components-site-headers-harmonised"
+  selectedStory="group-2"
+>
+  <SiteHeaderHarmonised
+    {...demoContentGroup2}
+    data-ecl-auto-init="SiteHeaderHarmonised"
+    className="ecl-site-header-harmonised--group2"
+    showFrame
+  />
+</Playground>
