@@ -83,6 +83,7 @@ const SiteHeaderStandardised = ({
                       <p className="ecl-site-header-standardised__login-description">
                         {loginBox.description}
                       </p>
+                      <hr className="ecl-site-header-standardised__login-separator" />
                       <Link
                         label={loginBox.label}
                         href={loginBox.href}
