@@ -178,7 +178,7 @@ const SiteHeaderStandardised = ({
                 <Link
                   href="/example"
                   label="Home"
-                  className="ecl-site-header-standardised__menu-link ecl-site-header-standardised__menu-link--active"
+                  className="ecl-site-header-standardised__menu-link"
                   variant="standalone"
                 />
               </li>
@@ -186,7 +186,7 @@ const SiteHeaderStandardised = ({
                 <Link
                   href="/example"
                   label="Item 1"
-                  className="ecl-site-header-standardised__menu-link"
+                  className="ecl-site-header-standardised__menu-link ecl-site-header-standardised__menu-link--active"
                   variant="standalone"
                   icon={{
                     shape: 'ui--corner-arrow',
