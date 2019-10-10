@@ -17,6 +17,7 @@ const SiteHeaderStandardised = ({
   searchForm,
   bannerTop,
   banner,
+  menu,
   className,
   ...props
 }) => {
@@ -155,7 +156,112 @@ const SiteHeaderStandardised = ({
       )}
       {banner && (
         <div className="ecl-site-header-standardised__banner">
-          <div className="ecl-container">{banner}</div>
+          <div className="ecl-container">
+            {menu && (
+              <a
+                className="ecl-link ecl-link--standalone ecl-site-header-standardised__menu-toggle"
+                href="/example"
+              >
+                <Icon shape="general--hamburger" size="s" />
+                Menu
+              </a>
+            )}
+            {banner}
+          </div>
+        </div>
+      )}
+      {menu && (
+        <div className="ecl-site-header-standardised__menu">
+          <div className="ecl-container">
+            <ul className="ecl-site-header-standardised__menu-list">
+              <li className="ecl-site-header-standardised__menu-item">
+                <Link
+                  href="/example"
+                  label="Home"
+                  className="ecl-site-header-standardised__menu-link ecl-site-header-standardised__menu-link--active"
+                  variant="standalone"
+                />
+              </li>
+              <li className="ecl-site-header-standardised__menu-item">
+                <Link
+                  href="/example"
+                  label="Item 1"
+                  className="ecl-site-header-standardised__menu-link"
+                  variant="standalone"
+                  icon={{
+                    shape: 'ui--corner-arrow',
+                    size: '2xs',
+                    transform: 'rotate-180',
+                  }}
+                />
+              </li>
+              <li className="ecl-site-header-standardised__menu-item">
+                <Link
+                  href="/example"
+                  label="Item 2"
+                  className="ecl-site-header-standardised__menu-link"
+                  variant="standalone"
+                  icon={{
+                    shape: 'ui--corner-arrow',
+                    size: '2xs',
+                    transform: 'rotate-180',
+                  }}
+                />
+              </li>
+              <li className="ecl-site-header-standardised__menu-item">
+                <Link
+                  href="/example"
+                  label="Item 3"
+                  className="ecl-site-header-standardised__menu-link"
+                  variant="standalone"
+                  icon={{
+                    shape: 'ui--corner-arrow',
+                    size: '2xs',
+                    transform: 'rotate-180',
+                  }}
+                />
+              </li>
+              <li className="ecl-site-header-standardised__menu-item">
+                <Link
+                  href="/example"
+                  label="Item 4"
+                  className="ecl-site-header-standardised__menu-link"
+                  variant="standalone"
+                  icon={{
+                    shape: 'ui--corner-arrow',
+                    size: '2xs',
+                    transform: 'rotate-180',
+                  }}
+                />
+              </li>
+              <li className="ecl-site-header-standardised__menu-item">
+                <Link
+                  href="/example"
+                  label="Item 5"
+                  className="ecl-site-header-standardised__menu-link"
+                  variant="standalone"
+                  icon={{
+                    shape: 'ui--corner-arrow',
+                    size: '2xs',
+                    transform: 'rotate-180',
+                  }}
+                />
+              </li>
+              <li className="ecl-site-header-standardised__menu-item">
+                <Link
+                  href="/example"
+                  label="Item 6"
+                  className="ecl-site-header-standardised__menu-link"
+                  variant="standalone"
+                  icon={{
+                    shape: 'ui--corner-arrow',
+                    size: '2xs',
+                    transform: 'rotate-180',
+                  }}
+                />
+              </li>
+            </ul>
+          </div>
         </div>
       )}
 
@@ -205,6 +311,7 @@ SiteHeaderStandardised.propTypes = {
   }),
   bannerTop: PropTypes.string,
   banner: PropTypes.string,
+  menu: PropTypes.bool,
   className: PropTypes.string,
 };
 
@@ -223,6 +330,7 @@ SiteHeaderStandardised.defaultProps = {
   searchForm: {},
   bannerTop: '',
   banner: '',
+  menu: false,
   className: '',
 };
 

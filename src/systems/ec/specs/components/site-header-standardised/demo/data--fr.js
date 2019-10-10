@@ -69,4 +69,5 @@ module.exports = {
   },
   bannerTop: 'Nom de la classe',
   banner: 'Nom du site',
+  menu: true,
 };
