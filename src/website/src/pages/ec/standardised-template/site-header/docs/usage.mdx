@@ -3,4 +3,29 @@ title: Usage
 order: 1
 ---
 
-(work in progress)
+import { Anatomy, Link } from '@ecl/website-components';
+
+## Anatomy
+
+<Anatomy
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/StandardisedTemplate/standardised-site-header.jpg"
+  alt="Anatomy of standardised site header"
+  legend={{
+    items: [
+      {
+        color: '#404040',
+        label: 'Mandatory',
+      },
+      {
+        color: '#004494',
+        label: 'Optional',
+      },
+    ],
+  }}
+/>
+
+| Component          | Mandatory | Description                                                                                      |
+| ------------------ | --------- | ------------------------------------------------------------------------------------------------ |
+| EC Logo            | Yes       | Logo                                                                                             |
+| Europa search form | Yes       | **Enables the user to search and retrieve related information** from the database using keywords |
+| Language select    | Yes       | **Language selector** component through which users can select their desired language            |
