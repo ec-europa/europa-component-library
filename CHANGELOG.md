@@ -1,5 +1,63 @@
 # Changelog
 
+## 2.12.0 (2019-10-10)
+
+#### :rocket: New Feature
+
+- [#1333](https://github.com/ec-europa/europa-component-library/pull/1333) feat(site-headers): add menu - INNO-1851 ([@emeryro](https://github.com/emeryro))
+- [#1328](https://github.com/ec-europa/europa-component-library/pull/1328) feat(site-header-harmonised): add component - INNO-1813 ([@emeryro](https://github.com/emeryro))
+- [#1323](https://github.com/ec-europa/europa-component-library/pull/1323) feat(site-header-standardised): add component - INNO-1815 ([@emeryro](https://github.com/emeryro))
+- [#1322](https://github.com/ec-europa/europa-component-library/pull/1322) feat(site-header-core): add component - INNO-1792 ([@emeryro](https://github.com/emeryro))
+- [#1325](https://github.com/ec-europa/europa-component-library/pull/1325) feat(icons): add 3 new icons - INNO-1842 ([@yhuard](https://github.com/yhuard))
+- [#1318](https://github.com/ec-europa/europa-component-library/pull/1318) feat(harmonised footer): add component - INNO-1820 ([@emeryro](https://github.com/emeryro))
+- [#1307](https://github.com/ec-europa/europa-component-library/pull/1307) feat(footer-core): add component - INNO-1774 ([@emeryro](https://github.com/emeryro))
+- [#1313](https://github.com/ec-europa/europa-component-library/pull/1313) feat(footer-standardized): add component - INNO-1770 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#1320](https://github.com/ec-europa/europa-component-library/pull/1320) fix(links): change link with icon display - INNO-1829 ([@yhuard](https://github.com/yhuard))
+- [#1315](https://github.com/ec-europa/europa-component-library/pull/1315) fix(a11y): fix some accessibility issues - INNO-1831 ([@yhuard](https://github.com/yhuard))
+- [#1311](https://github.com/ec-europa/europa-component-library/pull/1311) fix(menu-legacy): add z-index on overlay - INNO-1827 ([@yhuard](https://github.com/yhuard))
+- [#1301](https://github.com/ec-europa/europa-component-library/pull/1301) fix(print): add missing utilities - INNO-1773 ([@emeryro](https://github.com/emeryro))
+- [#1298](https://github.com/ec-europa/europa-component-library/pull/1298) fix(tag): fix markup for removable tags - INNO-1753 ([@emeryro](https://github.com/emeryro))
+- [#1293](https://github.com/ec-europa/europa-component-library/pull/1293) fix(timeline2): fix alignment - INNO-1763 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#1334](https://github.com/ec-europa/europa-component-library/pull/1334) fix(footers): add link - INNO-1855 ([@emeryro](https://github.com/emeryro))
+- [#1329](https://github.com/ec-europa/europa-component-library/pull/1329) fix(footer-core): add link - INNO-1848 ([@emeryro](https://github.com/emeryro))
+- [#1316](https://github.com/ec-europa/europa-component-library/pull/1316) fix(footer-standardised): small fixes - INNO-1833 ([@emeryro](https://github.com/emeryro))
+- [#1304](https://github.com/ec-europa/europa-component-library/pull/1304) refactor(table): apply latest specs - INNO-1793 ([@emeryro](https://github.com/emeryro))
+- [#1310](https://github.com/ec-europa/europa-component-library/pull/1310) fix(breadcrumb): use ellipsis on long segments - INNO-1826 ([@yhuard](https://github.com/yhuard))
+- [#1309](https://github.com/ec-europa/europa-component-library/pull/1309) feat(icons): update facebook icon - INNO-1825 ([@yhuard](https://github.com/yhuard))
+- [#1295](https://github.com/ec-europa/europa-component-library/pull/1295) feat(media): improve media utilities - INNO-1765 ([@emeryro](https://github.com/emeryro))
+- [#1294](https://github.com/ec-europa/europa-component-library/pull/1294) fix(content-item): fix image css - INNO-1761 ([@emeryro](https://github.com/emeryro))
+
+#### :memo: Documentation
+
+- [#1335](https://github.com/ec-europa/europa-component-library/pull/1335) docs: update website content - INNO-1854 ([@yhuard](https://github.com/yhuard))
+- [#1332](https://github.com/ec-europa/europa-component-library/pull/1332) docs: update website, add footers - INNO-1852 ([@yhuard](https://github.com/yhuard))
+- [#1331](https://github.com/ec-europa/europa-component-library/pull/1331) docs: document harmonised group 1 - INNO-1850 ([@yhuard](https://github.com/yhuard))
+- [#1330](https://github.com/ec-europa/europa-component-library/pull/1330) docs(breadcrumbs): update do's - INNO-1849 ([@yhuard](https://github.com/yhuard))
+- [#1326](https://github.com/ec-europa/europa-component-library/pull/1326) docs: document core template - INNO-1841 ([@yhuard](https://github.com/yhuard))
+- [#1306](https://github.com/ec-europa/europa-component-library/pull/1306) docs: add EU vision page - INNO-1775 ([@yhuard](https://github.com/yhuard))
+- [#1305](https://github.com/ec-europa/europa-component-library/pull/1305) docs: fix typo - no issue ([@jirihofman](https://github.com/jirihofman))
+- [#1299](https://github.com/ec-europa/europa-component-library/pull/1299) docs(link): fix typo - no issue ([@emeryro](https://github.com/emeryro))
+- [#1296](https://github.com/ec-europa/europa-component-library/pull/1296) docs(eu-about): eu-values and design principle - INNO-1766 - INNO-1767 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#1327](https://github.com/ec-europa/europa-component-library/pull/1327) chore(website): implement new site structure - INNO-1828 ([@yhuard](https://github.com/yhuard))
+- [#1317](https://github.com/ec-europa/europa-component-library/pull/1317) chore: update dependencies - no issue ([@yhuard](https://github.com/yhuard))
+- [#1302](https://github.com/ec-europa/europa-component-library/pull/1302) chore: update dependencies - INNO-1811 ([@yhuard](https://github.com/yhuard))
+- [#1292](https://github.com/ec-europa/europa-component-library/pull/1292) chore(release 2.11): finalize release dev - INNO-1764 ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 3
+
+- Jiří Hofman ([@jirihofman](https://github.com/jirihofman))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- Yannick Huard ([@yhuard](https://github.com/yhuard))
+
 ## 2.11.0 (2019-08-30)
 
 #### :rocket: New Feature
