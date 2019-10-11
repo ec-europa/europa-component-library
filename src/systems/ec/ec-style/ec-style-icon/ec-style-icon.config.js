@@ -229,6 +229,13 @@ module.exports = {
       },
     },
     {
+      name: 'hamburger',
+      label: 'Hamburger icon',
+      context: {
+        modifier: 'ecl-icon--hamburger',
+      },
+    },
+    {
       name: 'image',
       label: 'Image icon',
       context: {
@@ -296,6 +303,20 @@ module.exports = {
       label: 'Location icon',
       context: {
         modifier: 'ecl-icon--location',
+      },
+    },
+    {
+      name: 'log-in',
+      label: 'Log in icon',
+      context: {
+        modifier: 'ecl-icon--log-in',
+      },
+    },
+    {
+      name: 'logged-in',
+      label: 'Logged in icon',
+      context: {
+        modifier: 'ecl-icon--logged-in',
       },
     },
     {
