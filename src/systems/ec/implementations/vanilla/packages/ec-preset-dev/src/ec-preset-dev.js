@@ -5,6 +5,7 @@ export * from '@ecl/ec-component-accordion2';
 export * from '@ecl/ec-component-breadcrumb';
 export * from '@ecl/ec-component-breadcrumb-core';
 export * from '@ecl/ec-component-breadcrumb-harmonised';
+export * from '@ecl/ec-component-breadcrumb-standardised';
 export * from '@ecl/ec-component-contextual-navigation';
 export * from '@ecl/ec-component-expandable';
 export * from '@ecl/ec-component-file';
