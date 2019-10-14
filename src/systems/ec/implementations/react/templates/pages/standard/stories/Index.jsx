@@ -22,4 +22,4 @@ storiesOf('Templates|Pages', module)
       {story()}
     </StoryWrapper>
   ))
-  .add('Standard', StandardPageExample);
+  .add('Standard (deprecated since ECL 2.12.0)', StandardPageExample);
