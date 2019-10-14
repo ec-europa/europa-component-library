@@ -2,29 +2,49 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
-import Breadcrumb, { BreadcrumbItem } from '@ecl/ec-react-component-breadcrumb';
+import StoryWrapper from '@ecl/story-wrapper';
+import BreadcrumbStandardised, {
+  BreadcrumbStandardisedItem,
+} from '@ecl/ec-react-component-breadcrumb-standardised';
 
-import breadcrumbContent from '@ecl/ec-specs-breadcrumb/demo/data-simple';
+import breadcrumbContent from '@ecl/ec-specs-breadcrumb-standardised/demo/data';
 import demoTitleContent from '@ecl/ec-specs-page-header-standardised/demo/data-title';
 import demoMetaTitleContent from '@ecl/ec-specs-page-header-standardised/demo/data-meta-title';
 import demoMetaTitleDescriptionContent from '@ecl/ec-specs-page-header-standardised/demo/data-meta-title-description';
-import demoTitleDescriptionContent from '@ecl/ec-specs-page-header-standardised/demo/data-title-description';
-import demoEventsContent from '@ecl/ec-specs-page-header-standardised/demo/data-events';
-import demoEventsDescriptionContent from '@ecl/ec-specs-page-header-standardised/demo/data-events-description';
 
 import PageHeaderStandardised from '../src/PageHeaderStandardised';
 
 const { items, ...breadcrumbProps } = breadcrumbContent;
 const breadcrumb = (
-  <Breadcrumb {...breadcrumbProps}>
+  <BreadcrumbStandardised
+    {...breadcrumbProps}
+    data-ecl-auto-init="BreadcrumbStandardised"
+  >
     {items.map(item => (
-      <BreadcrumbItem {...item} key={item.label} />
+      <BreadcrumbStandardisedItem {...item} key={item.label} />
     ))}
-  </Breadcrumb>
+  </BreadcrumbStandardised>
 );
 
 storiesOf('Components|Page Headers/Standardised', module)
   .addDecorator(withKnobs)
+  .addDecorator(story => (
+    <StoryWrapper
+      afterMount={() => {
+        if (!window.ECL) return {};
+
+        const components = window.ECL.autoInit();
+        return { components };
+      }}
+      beforeUnmount={context => {
+        if (context.components) {
+          context.components.forEach(c => c.destroy());
+        }
+      }}
+    >
+      {story()}
+    </StoryWrapper>
+  ))
   .add('title', () => (
     <PageHeaderStandardised
       breadcrumb={breadcrumb}
@@ -47,38 +67,5 @@ storiesOf('Components|Page Headers/Standardised', module)
         demoMetaTitleDescriptionContent.description
       )}
       meta={text('Meta', demoMetaTitleDescriptionContent.meta)}
-    />
-  ))
-  .add('title-description', () => (
-    <PageHeaderStandardised
-      breadcrumb={breadcrumb}
-      title={text('Title', demoTitleDescriptionContent.title)}
-      description={text('Description', demoTitleDescriptionContent.description)}
-    />
-  ))
-  .add('events', () => (
-    <PageHeaderStandardised
-      breadcrumb={breadcrumb}
-      title={text('Title', demoEventsContent.title)}
-      meta={text('Meta', demoEventsContent.meta)}
-      infos={demoEventsContent.infos.map((info, index) => ({
-        icon: info.icon,
-        text: text(`Info ${index} text`, info.text),
-      }))}
-    />
-  ))
-  .add('events-description', () => (
-    <PageHeaderStandardised
-      breadcrumb={breadcrumb}
-      title={text('Title', demoEventsDescriptionContent.title)}
-      description={text(
-        'Description',
-        demoEventsDescriptionContent.description
-      )}
-      meta={text('Meta', demoEventsDescriptionContent.meta)}
-      infos={demoEventsDescriptionContent.infos.map((info, index) => ({
-        icon: info.icon,
-        text: text(`Info ${index} text`, info.text),
-      }))}
     />
   ));
