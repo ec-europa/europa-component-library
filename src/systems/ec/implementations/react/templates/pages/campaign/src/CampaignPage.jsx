@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 import Blockquote from '@ecl/ec-react-component-blockquote';
 import Card from '@ecl/ec-react-component-card';
-import Footer from '@ecl/ec-react-component-footer';
+import Footer from '@ecl/ec-react-component-footer-harmonised';
 import Icon from '@ecl/ec-react-component-icon';
 import Link from '@ecl/ec-react-component-link';
 import MediaContainer from '@ecl/ec-react-component-media-container';
 import HeroBanner from '@ecl/ec-react-component-hero-banner';
-import SiteHeader from '@ecl/ec-react-component-site-header';
+import SiteHeader from '@ecl/ec-react-component-site-header-harmonised';
 import SkipLink from '@ecl/ec-react-component-skip-link';
 
 const CampaignPage = ({
@@ -21,7 +21,12 @@ const CampaignPage = ({
 }) => (
   <Fragment>
     <SkipLink href="#main" label="Skip to main content" />
-    <SiteHeader {...siteHeader} id="top" data-ecl-auto-init="SiteHeader" />
+    <SiteHeader
+      {...siteHeader}
+      id="top"
+      data-ecl-auto-init="SiteHeaderHarmonised"
+      className="ecl-site-header-harmonised--group2"
+    />
     <HeroBanner {...heroBanner} />
     <main className="ecl-u-pv-xl" id="main">
       <div className="ecl-container">
@@ -70,7 +75,7 @@ const CampaignPage = ({
         </div>
       </div>
     </main>
-    <Footer {...footer} />
+    <Footer {...footer} className="ecl-footer-harmonised--group2" />
   </Fragment>
 );
 
