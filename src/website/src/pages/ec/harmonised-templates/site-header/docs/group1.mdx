@@ -3,22 +3,36 @@ title: Group 1
 order: 1
 ---
 
-import Playground from '@ecl/website-components/Playground';
-import SiteHeaderHarmonised from '@ecl/ec-react-component-site-header-harmonised';
+import { Anatomy, Link } from '@ecl/website-components';
 
-import demoContentGroup1 from '@ecl/ec-specs-site-header-harmonised/demo/data--group1';
+## Anatomy
 
-<Playground
+<Anatomy
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/HarmonisedTemplate/harmonised-1-site-header.png"
+  alt="Anatomy of harmonised group 1 site header"
+  legend={{
+    items: [
+      {
+        color: '#404040',
+        label: 'Mandatory',
+      },
+      {
+        color: '#004494',
+        label: 'Optional',
+      },
+    ],
+  }}
   system="ec"
   selectedKind="components-site-headers-harmonised"
   selectedStory="group-1"
-  showFrame
-  frameHeight="220"
-  disableAutoResize
->
-  <SiteHeaderHarmonised
-    {...demoContentGroup1}
-    data-ecl-auto-init="SiteHeaderHarmonised"
-    className="ecl-site-header-harmonised--group1"
-  />
-</Playground>
+/>
+
+| Component                | Mandatory  | Description                                                                                      |
+| ------------------------ | ---------- | ------------------------------------------------------------------------------------------------ |
+| European Commission logo | Yes        | Logo of the European Commission                                                                  |
+| Login                    | Contextual | Login component for ECAS account                                                                 |
+| Language select          | Contextual | **Language select** component through which users can select their desired language              |
+| Europa search form       | Contextual | **Enables the user to search and retrieve related information** from the database using keywords |
+| Class name               | Yes        | Banner indicating the **parent class under which the site falls**                                |
+| Site name                | Yes        | **Name** of the site                                                                             |
+| Horizontal menu          | Contextual | **Main navigation** of the website                                                               |

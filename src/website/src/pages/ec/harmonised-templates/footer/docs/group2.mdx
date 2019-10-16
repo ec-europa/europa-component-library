@@ -3,19 +3,32 @@ title: Group 2
 order: 2
 ---
 
-import Playground from '@ecl/website-components/Playground';
-import FooterHarmonised from '@ecl/ec-react-component-footer-harmonised';
+import { Anatomy } from '@ecl/website-components';
 
-import demoContentGroup2 from '@ecl/ec-specs-footer-harmonised/demo/data--group2';
+## Anatomy
 
-<Playground
+<Anatomy
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/HarmonisedTemplate/harmonised-2-footer.png"
+  alt="Anatomy of harmonised group 2 footer"
+  legend={{
+    items: [
+      {
+        color: '#404040',
+        label: 'Mandatory',
+      },
+      {
+        color: '#004494',
+        label: 'Optional',
+      },
+    ],
+  }}
   system="ec"
   selectedKind="components-footers-harmonised"
   selectedStory="group-2"
-  showFrame
->
-  <FooterHarmonised
-    {...demoContentGroup2}
-    className="ecl-footer-harmonised--group2"
-  />
-</Playground>
+/>
+
+| Component          | Mandatory | Description                                                                   |
+| ------------------ | --------- | ----------------------------------------------------------------------------- |
+| Corporate name     | Yes       | European Commission - parent owner of the website                             |
+| Service navigation | Yes       | Contains services links - **consistent throughout the family sites**          |
+| Legal navigation   | Yes       | Contains legal information links - **consistent throughout the family sites** |
