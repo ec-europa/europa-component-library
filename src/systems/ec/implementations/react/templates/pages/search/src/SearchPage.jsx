@@ -10,8 +10,10 @@ import Tag from '@ecl/ec-react-component-tag';
 
 // Templates
 import SiteHeaderCore from '@ecl/ec-react-component-site-header-core';
+import SiteHeaderHarmonised from '@ecl/ec-react-component-site-header-harmonised';
 import SiteHeaderStandardised from '@ecl/ec-react-component-site-header-standardised';
 import FooterCore from '@ecl/ec-react-component-footer-core';
+import FooterHarmonised from '@ecl/ec-react-component-footer-harmonised';
 import FooterStandardised from '@ecl/ec-react-component-footer-standardised';
 
 const SearchPage = ({ siteHeader, /* pageHeader, */ footer, template }) => (
@@ -23,6 +25,20 @@ const SearchPage = ({ siteHeader, /* pageHeader, */ footer, template }) => (
       <SiteHeaderStandardised
         {...siteHeader}
         data-ecl-auto-init="SiteHeaderStandardised"
+      />
+    )}
+    {template === 'harmonised-g1' && (
+      <SiteHeaderHarmonised
+        {...siteHeader}
+        data-ecl-auto-init="SiteHeaderHarmonised"
+        className="ecl-site-header-harmonised--group1"
+      />
+    )}
+    {template === 'harmonised-g2' && (
+      <SiteHeaderHarmonised
+        {...siteHeader}
+        data-ecl-auto-init="SiteHeaderHarmonised"
+        className="ecl-site-header-harmonised--group2"
       />
     )}
     {/* <PageHeader {...pageHeader} /> */}
@@ -369,17 +385,25 @@ const SearchPage = ({ siteHeader, /* pageHeader, */ footer, template }) => (
     </div>
     {template === 'core' && <FooterCore {...footer} />}
     {template === 'standardised' && <FooterStandardised {...footer} />}
+    {template === 'harmonised-g1' && (
+      <FooterHarmonised {...footer} className="ecl-footer-harmonised--group1" />
+    )}
+    {template === 'harmonised-g2' && (
+      <FooterHarmonised {...footer} className="ecl-footer-harmonised--group2" />
+    )}
   </Fragment>
 );
 
 SearchPage.propTypes = {
   siteHeader: PropTypes.oneOfType([
     PropTypes.shape(SiteHeaderCore.propTypes),
+    PropTypes.shape(SiteHeaderHarmonised.propTypes),
     PropTypes.shape(SiteHeaderStandardised.propTypes),
   ]),
   // pageHeader: PropTypes.shape(PageHeader.propTypes),
   footer: PropTypes.oneOfType([
     PropTypes.shape(FooterCore.propTypes),
+    PropTypes.shape(FooterHarmonised.propTypes),
     PropTypes.shape(FooterStandardised.propTypes),
   ]),
   template: PropTypes.string,

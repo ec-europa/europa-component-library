@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, select } from '@storybook/addon-knobs';
+import { withKnobs, radios } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
 import SearchPageExample from '../examples/Default';
 
@@ -25,11 +25,13 @@ storiesOf('Templates|Pages', module)
     </StoryWrapper>
   ))
   .add('Search', () => {
-    const template = select(
+    const template = radios(
       'Template',
       {
         Core: 'core',
         Standardised: 'standardised',
+        'Harmonised group 1': 'harmonised-g1',
+        'Harmonised group 2': 'harmonised-g2',
       },
       'core'
     );

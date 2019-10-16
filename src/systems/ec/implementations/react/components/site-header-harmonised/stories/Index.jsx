@@ -37,6 +37,6 @@ storiesOf('Components|Site Headers/Harmonised', module)
     <SiteHeaderHarmonised
       {...demoContentGroup2}
       data-ecl-auto-init="SiteHeaderHarmonised"
-      className="ecl-site-header-harmonised--group1"
+      className="ecl-site-header-harmonised--group2"
     />
   ));
