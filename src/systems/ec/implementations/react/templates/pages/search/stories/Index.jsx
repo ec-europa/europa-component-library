@@ -2,28 +2,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, radios } from '@storybook/addon-knobs';
-import StoryWrapper from '@ecl/story-wrapper';
 import SearchPageExample from '../examples/Default';
 
 storiesOf('Templates|Pages', module)
   .addDecorator(withKnobs)
-  .addDecorator(story => (
-    <StoryWrapper
-      afterMount={() => {
-        if (!window.ECL) return {};
-
-        const components = window.ECL.autoInit();
-        return { components };
-      }}
-      beforeUnmount={context => {
-        if (context.components) {
-          context.components.forEach(c => c.destroy());
-        }
-      }}
-    >
-      {story()}
-    </StoryWrapper>
-  ))
   .add('Search', () => {
     const template = radios(
       'Template',
