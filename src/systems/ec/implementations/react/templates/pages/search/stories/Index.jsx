@@ -1,10 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { withKnobs, select } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
 import SearchPageExample from '../examples/Default';
 
 storiesOf('Templates|Pages', module)
+  .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryWrapper
       afterMount={() => {
@@ -22,4 +24,15 @@ storiesOf('Templates|Pages', module)
       {story()}
     </StoryWrapper>
   ))
-  .add('Search', SearchPageExample);
+  .add('Search', () => {
+    const template = select(
+      'Template',
+      {
+        Core: 'core',
+        Standardised: 'standardised',
+      },
+      'core'
+    );
+
+    return <SearchPageExample template={template} />;
+  });
