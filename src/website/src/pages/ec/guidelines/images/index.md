@@ -3,21 +3,81 @@ title: Use of images
 order: 4
 ---
 
-We should only use visual material when it makes it easier for users to find/understand the information on a page. By following a common set of visual guidelines, we can make our sites consistent and help users feel at ease.
+We should only use visual material when it is complementary to the content in the webpages. 
 
 ## When to use what
 
-Use different kinds of visuals in different contexts:
+Use different types of visuals in different contexts:
 
-_Photos_: For dynamic content like news and people. Photos can also be used in banners to show that the information on the page isn't static.
+_Photographs_: For dynamic content like news and people. Photographs can also be used in banners to communicate substance and emotions.
 
-_Illustrations_: For static content that is transformable into something visual, such as topics and themes. Illustrations ideally replace written content entirely.
+_Illustrations_: For static content that is transformable into something visual, such as topics and themes. Provided they are informative, and descriptive.
 
 _Infographics_: Use these for visual storytelling to make complex information easier to understand. For example, an infographic could describe a workflow, how an investment plan works or the law-making process.
 
-## Copyright
+## Best practices
 
-You must check the copyright and terms of use for every single image you want to use. Rights may be different for different photos on one and the even on a single same platform. Generally the source, copyright holder, and the author need to be mentioned.
+- your visual content is relevant to the topic of the webpage
+
+- only add an image whenever it adds value to the webpage
+
+- place images near the relevant text
+
+- the most important image should be near the top of the webpage
+
+- avoid embedding text in images, not all users can access them (page translation tools can't read images)
+
+- text in HTML, provide alt text for images; follow rules of [accessibility](https://webstyleguide.com/wsg3/11-graphics/8-web-graphics-markup.html#alt-text)
+
+- create good content is equally important as visual content for images
+
+## Widely supported image formats 
+
+| File type (short) | File type (long) | File extension |
+| ------- | -------------------------- | -------------- |
+| GIF | Graphics Interchange Format | .gif |
+| JPEG | Joint Photographic Expert Group image | .jpeg .jpg |
+| PNG | Portable Network Graphics | .png |
+| SVG | Scalable Vector Graphics | .svg |
+
+**Raster graphic**
+
+Raster images are pixel-based. When you scale up a raster image you'll see jagged and blurry edges. 
+
+**GIF(Graphics Interchange Format)**
+
+- fewer colours, file size is smaller than JPEG
+- interlaced progressive loading, low-quality version first, more detailed image is loaded next
+fewer colours, file size is smaller than JPEG
+- does not lose any data with compression
+- best use for web graphics with few colours only, and line drawings
+
+**JPG/JPEG (Joint Photographic-Experts-Group)**
+
+- can display millions of colours, use JPEG format for photographs, still images, shading with light and dark
+- use JPEG when file size is more important than the quality of the image
+- optimising JPEG images; 60% - 75% is usually optimal for web publishing
+16-bit data format
+- compatible across many platforms and image editors
+
+**PNG (Portable Network Graphics)**
+
+- support transparency (alpha channel), allow a translucent look
+- lossless compression, no loss of data
+- manage high-contrast or detailed images better than JPEG
+- they can go down to very small file sizes when there are limited colours, use an 8-bit colour palette instead of a 24 colour palette
+- PNG images can be used in any colour background still maintain the original appearance
+
+**Vector graphic** 
+Vector image format can produce results with high fidelity at every resolution setting. It is an ideal format for high-resolution screens. If you zoom into a vector graphic it will always remain the same quality.
+
+**SVG (Scalable Vector Graphics)**
+
+- SVG is in vector format – it does not lose any data when compressed
+- SVG formats are supported by most contemporary browsers
+- the image file size is lightweight and compressible
+supports transparency
+- icons used in ECL are uploaded in SVG format
 
 ## Editing visuals
 
