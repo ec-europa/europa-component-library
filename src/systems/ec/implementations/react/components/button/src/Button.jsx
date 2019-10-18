@@ -17,29 +17,34 @@ const Button = ({
     [`ecl-button--${variant}`]: variant,
   });
 
-  const iconMarkup =
-    icon && icon.shape ? (
-      <Icon
-        {...icon}
-        data-ecl-icon
-        className={classnames(icon.className, 'ecl-button__icon', {
-          [`ecl-button__icon--${iconPosition}`]: iconPosition,
-        })}
-      />
-    ) : (
-      ''
-    );
+  const hasIcon = icon && icon.shape;
+
+  const iconMarkup = hasIcon ? (
+    <Icon
+      {...icon}
+      data-ecl-icon
+      className={classnames(icon.className, 'ecl-button__icon', {
+        [`ecl-button__icon--${iconPosition}`]: iconPosition,
+      })}
+    />
+  ) : (
+    ''
+  );
 
   return (
     /* eslint-disable-next-line react/button-has-type */
     <button {...props} type={type} className={classNames} disabled={disabled}>
-      <span className="ecl-button__container">
-        {iconPosition === 'before' && iconMarkup}
-        <span className="ecl-button__label" data-ecl-label>
-          {label}
+      {hasIcon ? (
+        <span className="ecl-button__container">
+          {iconPosition === 'before' && iconMarkup}
+          <span className="ecl-button__label" data-ecl-label>
+            {label}
+          </span>
+          {iconPosition === 'after' && iconMarkup}
         </span>
-        {iconPosition === 'after' && iconMarkup}
-      </span>
+      ) : (
+        label
+      )}
     </button>
   );
 };
