@@ -12,11 +12,13 @@ class Iframe extends PureComponent {
   }
 
   componentDidMount() {
-    const { iframeOptions, disableAutoResize } = this.props;
+    const { iframeOptions, disableAutoResize, defaultHeight } = this.props;
 
     if (!disableAutoResize) {
       const options = {
         autoResize: true,
+        minHeight: defaultHeight,
+        heightCalculationMethod: 'lowestElement',
         ...iframeOptions,
       };
       this.iframeResizer = iframeResizer(options, this.frameRef.current);
