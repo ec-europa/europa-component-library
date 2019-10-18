@@ -3,7 +3,14 @@ title: Group 2
 order: 2
 ---
 
-import { Anatomy, Link } from '@ecl/website-components';
+import { Paragraph, Anatomy, Link } from '@ecl/website-components';
+
+<Paragraph size="lead">
+  <strong>The Harmonised group 2 site header</strong> is present on every page.
+  It communicates the European Commission brand and{' '}
+  <strong>provides basic structure and guidance</strong>, to be placed at the
+  top of the page.
+</Paragraph>
 
 ## Anatomy
 
@@ -27,8 +34,30 @@ import { Anatomy, Link } from '@ecl/website-components';
   selectedStory="group-2"
 />
 
-| Component                | Mandatory  | Description                                                                                                         |
-| ------------------------ | ---------- | ------------------------------------------------------------------------------------------------------------------- |
-| European Commission logo | Yes        | Logo of the European Commission                                                                                     |
-| Language select          | Contextual | **Language select** component through which users can select their desired language, on the left of the search form |
-| Europa search form       | Contextual | **Enables the user to search and retrieve related information** from the database using keywords                    |
+| Component                | Mandatory          | Description                                                                                                                                                                                                                                                  |
+| ------------------------ | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| European Commission logo | Yes                | Logo of the European Commission                                                                                                                                                                                                                              |
+| Europa search form       | Contextual&nbsp;\* | **Enables the user to search and retrieve related information** from the database using keywords<br /><strong>\* use a Search form component if</strong> the content of the campaign page would lead users to search for other information at a Europa level |
+| Language select          | Contextual&nbsp;\* | **Language select** component through which users can select their desired language, on the left of the search form<br /><strong>\* use a Language select component if your website supports multilingual content</strong>                                   |
+
+<Paragraph size="s">
+  * <strong>Contextual</strong> – elements that may or may not feature on a
+  page, depending on the communication and/or functional needs – for example,
+  Login. Where the element features, use the ECL component.
+</Paragraph>
+
+## Do's
+
+- ensure the pages **contain all the elements in the anatomy table** above
+
+## Don'ts
+
+- **don't use more than one** Site header per page
+
+## When to use
+
+- always use a Site header when building your page
+
+## When not to use
+
+- do not follow these guidelines when you are updating sites that fall under the <Link to="/ec/standardised-template/">Standardised</Link> or <Link to="/ec/core-template/">Core</Link> category
