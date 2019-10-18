@@ -1,5 +1,37 @@
 # Changelog
 
+## 2.13.0 (2019-10-18)
+
+#### :rocket: New Feature
+
+- [#1341](https://github.com/ec-europa/europa-component-library/pull/1341) feat(page-header-standardised): add component - INNO-1812 ([@emeryro](https://github.com/emeryro))
+- [#1340](https://github.com/ec-europa/europa-component-library/pull/1340) feat(breadcrumb-harmonised): add component - INNO-1817 ([@emeryro](https://github.com/emeryro))
+- [#1339](https://github.com/ec-europa/europa-component-library/pull/1339) feat(breadcrumb-standardised): add component - INNO-1809 ([@emeryro](https://github.com/emeryro))
+- [#1338](https://github.com/ec-europa/europa-component-library/pull/1338) feat(breadcrumb-core): add component - INNO-1808 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#1343](https://github.com/ec-europa/europa-component-library/pull/1343) fix(site-header): use correct height - INNO-1870 ([@yhuard](https://github.com/yhuard))
+
+#### :nail_care: Enhancement
+
+- [#1355](https://github.com/ec-europa/europa-component-library/pull/1355) fix(button): simplify markup - INNO-1890 ([@yhuard](https://github.com/yhuard))
+- [#1349](https://github.com/ec-europa/europa-component-library/pull/1349) feat(campaign): use harmonised group 2 - INNO-1863 ([@yhuard](https://github.com/yhuard))
+- [#1348](https://github.com/ec-europa/europa-component-library/pull/1348) feat(search-page): change template in storybook - INNO-1861 ([@yhuard](https://github.com/yhuard))
+
+#### :memo: Documentation
+
+- [#1354](https://github.com/ec-europa/europa-component-library/pull/1354) docs(website): update content - INNO-1888 ([@yhuard](https://github.com/yhuard))
+- [#1353](https://github.com/ec-europa/europa-component-library/pull/1353) docs(website): update content - INNO-1883 ([@yhuard](https://github.com/yhuard))
+- [#1345](https://github.com/ec-europa/europa-component-library/pull/1345) docs(website): add harmonsied site headers and footers - INNO-1871 ([@yhuard](https://github.com/yhuard))
+- [#1342](https://github.com/ec-europa/europa-component-library/pull/1342) docs(website): fix typos - INNO-1859 ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 3
+
+- Jean YAO ([@Yaomimi](https://github.com/Yaomimi))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- Yannick Huard ([@yhuard](https://github.com/yhuard))
+
 ## 2.12.0 (2019-10-10)
 
 #### :rocket: New Feature
