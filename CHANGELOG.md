@@ -1,5 +1,26 @@
 # Changelog
 
+## 1.13.0 (2019-10-18)
+
+#### :rocket: New Feature
+
+- [#1337](https://github.com/ec-europa/europa-component-library/pull/1337) feat(icons): add icons - INNO-1840. ([@emeryro](https://github.com/emeryro))
+- [#1308](https://github.com/ec-europa/europa-component-library/pull/1308) feat(footer-standardised): implement footer for standardised fa…. ([@yhuard](https://github.com/yhuard))
+
+#### :bug: Bug Fix
+
+- [#1351](https://github.com/ec-europa/europa-component-library/pull/1351) fix(navigation-menu): increment z-index - INNO-1882. ([@yhuard](https://github.com/yhuard))
+
+#### :nail_care: Enhancement
+
+- [#1319](https://github.com/ec-europa/europa-component-library/pull/1319) refactor(icons): update facebook icon - INNO-1830. ([@emeryro](https://github.com/emeryro))
+- [#1314](https://github.com/ec-europa/europa-component-library/pull/1314) fix(standardised-footer): update markup - INNO-1832. ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 2
+
+- Romain Emery ([emeryro](https://github.com/emeryro))
+- Yannick Huard ([yhuard](https://github.com/yhuard))
+
 ## 1.12.1 (2019-09-25)
 
 #### :bug: Bug Fix
