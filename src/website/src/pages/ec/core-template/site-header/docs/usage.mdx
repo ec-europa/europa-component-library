@@ -3,7 +3,13 @@ title: Usage
 order: 1
 ---
 
-import { Anatomy, Link } from '@ecl/website-components';
+import { Paragraph, Anatomy, Link } from '@ecl/website-components';
+
+<Paragraph size="lead">
+  The Core site header is present on every page. It communicates the European
+  Commission brand and <strong>provides basic structure and guidance</strong>,
+  to be placed at the top of the page.
+</Paragraph>
 
 ## Anatomy
 
@@ -27,5 +33,21 @@ import { Anatomy, Link } from '@ecl/website-components';
 | Component                | Mandatory | Description                                                                                      |
 | ------------------------ | --------- | ------------------------------------------------------------------------------------------------ |
 | European Commission logo | Yes       | Logo of the European Commission                                                                  |
-| Europa search form       | Yes       | **Enables the user to search and retrieve related information** from the database using keywords |
 | Language select          | Yes       | **Language select** component through which users can select their desired language              |
+| Europa search form       | Yes       | **Enables the user to search and retrieve related information** from the database using keywords |
+
+## Do's
+
+- ensure the pages **contain all the elements in the anatomy table** above
+
+## Don'ts
+
+- **don't use more than one** Site header per page
+
+## When to use
+
+- always use a Site header when building your page
+
+## When not to use
+
+- do not follow these guidelines when you are updating sites that fall under the <Link to="/ec/standardised-template/">Standardised</Link> or <Link to="/ec/harmonised-templates/group1/">Harmonised</Link> category
