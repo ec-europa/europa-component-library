@@ -8,9 +8,9 @@ import BreadcrumbStandardised, {
 } from '@ecl/ec-react-component-breadcrumb-standardised';
 
 import breadcrumbContent from '@ecl/ec-specs-breadcrumb-standardised/demo/data';
-import demoTitleContent from '@ecl/ec-specs-page-header-standardised/demo/data-title';
-import demoMetaTitleContent from '@ecl/ec-specs-page-header-standardised/demo/data-meta-title';
-import demoMetaTitleDescriptionContent from '@ecl/ec-specs-page-header-standardised/demo/data-meta-title-description';
+import demoTitleContent from '@ecl/ec-specs-page-header-standardised/demo/data--title';
+import demoMetaTitleContent from '@ecl/ec-specs-page-header-standardised/demo/data--meta-title';
+import demoMetaTitleDescriptionContent from '@ecl/ec-specs-page-header-standardised/demo/data--meta-title-description';
 
 import PageHeaderStandardised from '../src/PageHeaderStandardised';
 
