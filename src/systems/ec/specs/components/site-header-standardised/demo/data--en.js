@@ -67,7 +67,10 @@ module.exports = {
     inputLabel: 'Search',
     buttonLabel: 'Search',
   },
-  bannerTop: 'Class name',
+  bannerTop: {
+    label: 'Class name',
+    href: '/example',
+  },
   banner: 'Site name',
   menu: true,
 };

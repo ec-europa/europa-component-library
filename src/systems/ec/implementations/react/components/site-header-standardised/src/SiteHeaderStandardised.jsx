@@ -148,10 +148,16 @@ const SiteHeaderStandardised = ({
           </div>
         </div>
       </div>
-
       {bannerTop && (
-        <div className="ecl-site-header-standardised__banner-top">
-          <div className="ecl-container">{bannerTop}</div>
+        <div className="ecl-site-header-harmonised__banner-top">
+          {!!(typeof bannerTop === 'object') && (
+            <div className="ecl-container">
+              <Link {...bannerTop} variant="standalone" />
+            </div>
+          )}
+          {!!(typeof bannerTop === 'string') && (
+            <div className="ecl-container">Hello</div>
+          )}
         </div>
       )}
       {banner && (
@@ -264,7 +270,6 @@ const SiteHeaderStandardised = ({
           </div>
         </div>
       )}
-
       {!!(languageSelector && languageSelector.overlay) && (
         <LanguageListOverlay {...languageSelector.overlay} hidden />
       )}
