@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.13.1 (2019-10-21)
+
+#### :bug: Bug Fix
+
+- [#1359](https://github.com/ec-europa/europa-component-library/pull/1359) fix(icon): fix gear icon - INNO-1892. ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 1
+
+- Romain Emery ([emeryro](https://github.com/emeryro))
+
 ## 1.13.0 (2019-10-18)
 
 #### :rocket: New Feature
