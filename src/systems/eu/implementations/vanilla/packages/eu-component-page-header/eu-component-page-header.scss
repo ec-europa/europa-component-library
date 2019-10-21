@@ -100,6 +100,53 @@
       }
     }
   }
+
+  .ecl-page-header__meta-list {
+    font: $ecl-font-m;
+    margin-top: $ecl-spacing-xl;
+  }
+
+  .ecl-page-header__description {
+    font: $ecl-font-prolonged-l;
+    margin: $ecl-spacing-m 0 0;
+    max-width: 80ch;
+
+    @include ecl-media-breakpoint-up('lg') {
+      font: $ecl-font-prolonged-xl;
+    }
+  }
+
+  .ecl-page-header__info-list {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    margin: $ecl-spacing-xl 0;
+    padding: 0;
+
+    @include ecl-media-breakpoint-up('lg') {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+
+  .ecl-page-header__info-item {
+    align-items: center;
+    display: flex;
+    font: $ecl-font-m;
+  }
+
+  .ecl-page-header__info-item + .ecl-page-header__info-item {
+    margin-top: $ecl-spacing-m;
+
+    @include ecl-media-breakpoint-up('lg') {
+      margin-left: $ecl-spacing-xl;
+      margin-top: 0;
+    }
+  }
+
+  .ecl-page-header__info-icon {
+    margin-right: $ecl-spacing-xs;
+  }
 }
 
 // Use mixin
