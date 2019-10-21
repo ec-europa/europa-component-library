@@ -1,0 +1,19 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+import PageHeaderHarmonised from '@ecl/ec-react-component-page-header-harmonised';
+
+import breadcrumb from './ShowcaseBreadcrumb';
+import demoGroup1Content from '@ecl/ec-specs-page-header-harmonised/demo/data--group1';
+
+<Playground
+  system="ec"
+  selectedKind="components-page-headers-harmonised"
+  selectedStory="group-1"
+  showFrame
+>
+  <PageHeaderHarmonised breadcrumb={breadcrumb} {...demoGroup1Content} />
+</Playground>
