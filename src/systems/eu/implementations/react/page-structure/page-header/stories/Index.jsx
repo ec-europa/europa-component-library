@@ -10,6 +10,8 @@ import demoHomepage from '@ecl/eu-specs-page-header/demo/data-homepage';
 import demoHomepageImage from '@ecl/eu-specs-page-header/demo/data-homepage-image';
 import demoBrandedHomepage from '@ecl/eu-specs-page-header/demo/data-branded-homepage';
 import demoBrandedHomepageImage from '@ecl/eu-specs-page-header/demo/data-branded-homepage-image';
+import demoEventsContent from '@ecl/eu-specs-page-header/demo/data-events';
+import demoEventsDescriptionContent from '@ecl/eu-specs-page-header/demo/data-events-description';
 
 import PageHeader from '../src/PageHeader';
 
@@ -60,5 +62,31 @@ storiesOf('Page structure|PageHeader', module)
       title={text('Title', demoBrandedHomepageImage.title)}
       slogan={text('Slogan', demoBrandedHomepageImage.slogan)}
       image={text('Image', demoBrandedHomepageImage.image)}
+    />
+  ))
+  .add('events', () => (
+    <PageHeader
+      breadcrumb={breadcrumb}
+      title={text('Title', demoEventsContent.title)}
+      meta={text('Meta', demoEventsContent.meta)}
+      infos={demoEventsContent.infos.map((info, index) => ({
+        icon: info.icon,
+        text: text(`Info ${index} text`, info.text),
+      }))}
+    />
+  ))
+  .add('events-description', () => (
+    <PageHeader
+      breadcrumb={breadcrumb}
+      title={text('Title', demoEventsDescriptionContent.title)}
+      description={text(
+        'Description',
+        demoEventsDescriptionContent.description
+      )}
+      meta={text('Meta', demoEventsDescriptionContent.meta)}
+      infos={demoEventsDescriptionContent.infos.map((info, index) => ({
+        icon: info.icon,
+        text: text(`Info ${index} text`, info.text),
+      }))}
     />
   ));
