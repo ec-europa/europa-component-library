@@ -2,11 +2,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, radios } from '@storybook/addon-knobs';
-import PolicyAwarenessPageExample from '../examples/Default';
+import MainPolicyAwarenessPageExample from '../examples/Default';
 
 storiesOf('Templates|Pages', module)
   .addDecorator(withKnobs)
-  .add('Policy awareness', () => {
+  .add('Main policy awareness', () => {
     const template = radios(
       'Template',
       {
@@ -18,5 +18,5 @@ storiesOf('Templates|Pages', module)
       'core'
     );
 
-    return <PolicyAwarenessPageExample template={template} />;
+    return <MainPolicyAwarenessPageExample template={template} />;
   });

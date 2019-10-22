@@ -15,7 +15,7 @@ import FooterCore from '@ecl/ec-react-component-footer-core';
 import FooterHarmonised from '@ecl/ec-react-component-footer-harmonised';
 import FooterStandardised from '@ecl/ec-react-component-footer-standardised';
 
-const PolicyAwarenessPage = ({
+const MainPolicyAwarenessPage = ({
   siteHeader,
   /* pageHeader, */ footer,
   template,
@@ -388,7 +388,7 @@ const PolicyAwarenessPage = ({
   </Fragment>
 );
 
-PolicyAwarenessPage.propTypes = {
+MainPolicyAwarenessPage.propTypes = {
   siteHeader: PropTypes.oneOfType([
     PropTypes.shape(SiteHeaderCore.propTypes),
     PropTypes.shape(SiteHeaderHarmonised.propTypes),
@@ -403,11 +403,11 @@ PolicyAwarenessPage.propTypes = {
   template: PropTypes.string,
 };
 
-PolicyAwarenessPage.defaultProps = {
+MainPolicyAwarenessPage.defaultProps = {
   siteHeader: {},
   // pageHeader: {},
   footer: {},
   template: '',
 };
 
-export default PolicyAwarenessPage;
+export default MainPolicyAwarenessPage;

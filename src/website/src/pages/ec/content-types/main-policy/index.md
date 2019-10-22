@@ -1,4 +1,4 @@
 ---
-title: Policy
+title: Main policy
 type: group
 ---

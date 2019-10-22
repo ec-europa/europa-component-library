@@ -4,5 +4,5 @@ defaultTab: usage
 status: ready
 playground:
   system: ec
-  path: /story/templates-pages--policy-awareness
+  path: /story/templates-pages--main-policy-awareness
 ---

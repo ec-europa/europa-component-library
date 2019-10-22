@@ -2,12 +2,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import getData from '@ecl/ec-specs-policy-awareness-page/demo/data';
+import getData from '@ecl/ec-specs-main-policy-awareness-page/demo/data';
 
 // import Breadcrumb, { BreadcrumbItem } from '@ecl/ec-react-component-breadcrumb';
-import PolicyAwarenessPage from '../src/PolicyAwarenessPage';
+import MainPolicyAwarenessPage from '../src/MainPolicyAwarenessPage';
 
-class PolicyAwarenessExample extends React.Component {
+class MainPolicyAwarenessExample extends React.Component {
   constructor(props) {
     super(props);
     this.components = null;
@@ -53,7 +53,7 @@ class PolicyAwarenessExample extends React.Component {
     */
 
     return (
-      <PolicyAwarenessPage
+      <MainPolicyAwarenessPage
         siteHeader={data.siteHeader}
         // pageHeader={data.pageHeader}
         footer={data.footer}
@@ -63,8 +63,8 @@ class PolicyAwarenessExample extends React.Component {
   }
 }
 
-PolicyAwarenessExample.propTypes = {
+MainPolicyAwarenessExample.propTypes = {
   template: PropTypes.string.isRequired,
 };
 
-export default PolicyAwarenessExample;
+export default MainPolicyAwarenessExample;
