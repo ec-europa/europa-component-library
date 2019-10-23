@@ -105,7 +105,7 @@ export class InpageNavigation {
 
     this.element.classList.remove(toggleClass);
     navigationTitle.innerHTML = '';
-    currentList.setAttribute('hidden', true);
+    currentList.hidden = true;
     togglerElement.setAttribute('aria-expanded', 'false');
   }
 
@@ -217,10 +217,10 @@ export class InpageNavigation {
     const togglerElement = queryOne(this.toggleSelector, this.element);
 
     if (currentState) {
-      currentList.removeAttribute('hidden');
+      currentList.hidden = false;
       togglerElement.setAttribute('aria-expanded', 'true');
     } else {
-      currentList.setAttribute('hidden', true);
+      currentList.hidden = true;
       togglerElement.setAttribute('aria-expanded', 'false');
     }
 
@@ -231,7 +231,7 @@ export class InpageNavigation {
     const currentList = queryOne(this.inPageList, this.element);
     const togglerElement = queryOne(this.toggleSelector, this.element);
 
-    currentList.setAttribute('hidden', true);
+    currentList.hidden = true;
     togglerElement.setAttribute('aria-expanded', 'false');
   }
 

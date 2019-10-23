@@ -94,9 +94,9 @@ export class DropdownLegacy {
     // Toggle the dropdown-legacy
     this.toggle.setAttribute('aria-expanded', !isExpanded);
     if (isExpanded) {
-      this.target.setAttribute('hidden', true);
+      this.target.hidden = true;
     } else {
-      this.target.removeAttribute('hidden');
+      this.target.hidden = false;
     }
 
     return this;
