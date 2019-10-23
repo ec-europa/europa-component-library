@@ -1,0 +1,35 @@
+/**
+ * Page header core
+ * @define page-header-core
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-page-header-core-print() {
+  .ecl-page-header-core {
+    color: $ecl-color-black-100;
+  }
+
+  .ecl-page-header-core__meta {
+    font: $ecl-font-print-m;
+  }
+
+  .ecl-page-header-core__title {
+    font: $ecl-font-print-4-xl;
+    font-weight: $ecl-font-weight-print-bold;
+    margin-bottom: 0;
+    margin-top: $ecl-spacing-print-m;
+  }
+
+  .ecl-page-header-core__description {
+    font: $ecl-font-prolonged-print-xl;
+    margin-bottom: 0;
+    margin-top: $ecl-spacing-print-m;
+  }
+}
+
+// Use mixin
+@include exports('ec-component-page-header-core-print') {
+  @include ecl-page-header-core-print();
+}
