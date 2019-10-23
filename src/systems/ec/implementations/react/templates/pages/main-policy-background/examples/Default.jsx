@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 import getData from '@ecl/ec-specs-main-policy-background-page/demo/data';
 
-// import Breadcrumb, { BreadcrumbItem } from '@ecl/ec-react-component-breadcrumb';
 import MainPolicyBackgroundPage from '../src/MainPolicyBackgroundPage';
 
 class MainPolicyBackgroundExample extends React.Component {
@@ -40,22 +39,9 @@ class MainPolicyBackgroundExample extends React.Component {
     const { template } = this.props;
     const data = getData(template);
 
-    /*
-    const { items, ...breadcrumbProps } = data.breadcrumb;
-    const breadcrumb = (
-      <Breadcrumb {...breadcrumbProps}>
-        {items.map(item => (
-          <BreadcrumbItem {...item} key={item.label} />
-        ))}
-      </Breadcrumb>
-    );
-    data.pageHeader.breadcrumb = breadcrumb;
-    */
-
     return (
       <MainPolicyBackgroundPage
         siteHeader={data.siteHeader}
-        // pageHeader={data.pageHeader}
         footer={data.footer}
         template={template}
       />
