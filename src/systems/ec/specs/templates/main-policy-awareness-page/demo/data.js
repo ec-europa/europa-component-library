@@ -8,25 +8,8 @@ const footerHarmonisedGroup1Content = require('@ecl/ec-specs-footer-harmonised/d
 const footerHarmonisedGroup2Content = require('@ecl/ec-specs-footer-harmonised/demo/data--group2');
 const footerStandardisedContent = require('@ecl/ec-specs-footer-standardised/demo/data');
 
-/*
-const breadcrumbContent = {
-  items: [
-    { label: 'Home', href: '/example' },
-    { label: 'Search', href: '/example' },
-  ],
-  label: 'You are here:',
-};
-
-const pageHeaderContent = {
-  title: 'Search',
-};
-*/
-
 module.exports = template => {
-  const data = {
-    // breadcrumb: breadcrumbContent,
-    // pageHeader: pageHeaderContent,
-  };
+  const data = {};
 
   if (template === 'core') {
     data.siteHeader = siteHeaderCoreContent;
