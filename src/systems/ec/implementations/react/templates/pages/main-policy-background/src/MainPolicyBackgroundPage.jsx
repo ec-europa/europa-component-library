@@ -7,6 +7,18 @@ import Link from '@ecl/ec-react-component-link';
 import SocialMediaShare from '@ecl/ec-react-component-social-media-share';
 
 // Templates
+import BreadcrumbCore, {
+  BreadcrumbCoreItem,
+} from '@ecl/ec-react-component-breadcrumb-core';
+import BreadcrumbHarmonised, {
+  BreadcrumbHarmonisedItem,
+} from '@ecl/ec-react-component-breadcrumb-harmonised';
+import BreadcrumbStandardised, {
+  BreadcrumbStandardisedItem,
+} from '@ecl/ec-react-component-breadcrumb-standardised';
+import PageHeaderCore from '@ecl/ec-react-component-page-header-core';
+import PageHeaderHarmonised from '@ecl/ec-react-component-page-header-harmonised';
+import PageHeaderStandardised from '@ecl/ec-react-component-page-header-standardised';
 import SiteHeaderCore from '@ecl/ec-react-component-site-header-core';
 import SiteHeaderHarmonised from '@ecl/ec-react-component-site-header-harmonised';
 import SiteHeaderStandardised from '@ecl/ec-react-component-site-header-standardised';
@@ -14,11 +26,61 @@ import FooterCore from '@ecl/ec-react-component-footer-core';
 import FooterHarmonised from '@ecl/ec-react-component-footer-harmonised';
 import FooterStandardised from '@ecl/ec-react-component-footer-standardised';
 
-const MainPolicyBackgroundPage = ({
-  siteHeader,
-  /* pageHeader, */ footer,
-  template,
-}) => (
+const breadcrumbContent = {
+  label: 'You are here:',
+};
+const breadcrumbItems = [
+  { label: 'Home', href: '/example' },
+  { label: 'Policies', href: '/example' },
+  { label: 'Environment', href: '/example' },
+  { label: 'Clean air', href: '/example' },
+  { label: 'Why this policy is necessary' },
+];
+const breadcrumbCore = (
+  <BreadcrumbCore {...breadcrumbContent} data-ecl-auto-init="BreadcrumbCore">
+    {breadcrumbItems.map(item => (
+      <BreadcrumbCoreItem {...item} key={item.label} />
+    ))}
+  </BreadcrumbCore>
+);
+const breadcrumbStandardised = (
+  <BreadcrumbStandardised
+    {...breadcrumbContent}
+    data-ecl-auto-init="BreadcrumbStandardised"
+  >
+    {breadcrumbItems.map(item => (
+      <BreadcrumbStandardisedItem {...item} key={item.label} />
+    ))}
+  </BreadcrumbStandardised>
+);
+const breadcrumbHarmonised1 = (
+  <BreadcrumbHarmonised
+    {...breadcrumbContent}
+    className="ecl-breadcrumb-harmonised--group1"
+    data-ecl-auto-init="BreadcrumbHarmonised"
+  >
+    {breadcrumbItems.map(item => (
+      <BreadcrumbHarmonisedItem {...item} key={item.label} />
+    ))}
+  </BreadcrumbHarmonised>
+);
+const breadcrumbHarmonised2 = (
+  <BreadcrumbHarmonised
+    {...breadcrumbContent}
+    className="ecl-breadcrumb-harmonised--group2"
+    data-ecl-auto-init="BreadcrumbHarmonised"
+  >
+    {breadcrumbItems.map(item => (
+      <BreadcrumbHarmonisedItem {...item} key={item.label} />
+    ))}
+  </BreadcrumbHarmonised>
+);
+
+const pageHeaderContent = {
+  title: 'Why this policy is necessary',
+};
+
+const MainPolicyBackgroundPage = ({ siteHeader, footer, template }) => (
   <Fragment>
     {template === 'core' && (
       <SiteHeaderCore {...siteHeader} data-ecl-auto-init="SiteHeaderCore" />
@@ -43,7 +105,31 @@ const MainPolicyBackgroundPage = ({
         className="ecl-site-header-harmonised--group2"
       />
     )}
-    {/* <PageHeader {...pageHeader} /> */}
+
+    {template === 'core' && (
+      <PageHeaderCore {...pageHeaderContent} breadcrumb={breadcrumbCore} />
+    )}
+    {template === 'standardised' && (
+      <PageHeaderStandardised
+        {...pageHeaderContent}
+        breadcrumb={breadcrumbStandardised}
+      />
+    )}
+    {template === 'harmonised-g1' && (
+      <PageHeaderHarmonised
+        {...pageHeaderContent}
+        breadcrumb={breadcrumbHarmonised1}
+        className="ecl-page-header-harmonised--group1"
+      />
+    )}
+    {template === 'harmonised-g2' && (
+      <PageHeaderHarmonised
+        {...pageHeaderContent}
+        breadcrumb={breadcrumbHarmonised2}
+        className="ecl-page-header-harmonised--group2"
+      />
+    )}
+
     <div className="ecl-u-pv-3xl">
       <div className="ecl-container">
         <main>
@@ -693,7 +779,6 @@ MainPolicyBackgroundPage.propTypes = {
     PropTypes.shape(SiteHeaderHarmonised.propTypes),
     PropTypes.shape(SiteHeaderStandardised.propTypes),
   ]),
-  // pageHeader: PropTypes.shape(PageHeader.propTypes),
   footer: PropTypes.oneOfType([
     PropTypes.shape(FooterCore.propTypes),
     PropTypes.shape(FooterHarmonised.propTypes),
@@ -704,7 +789,6 @@ MainPolicyBackgroundPage.propTypes = {
 
 MainPolicyBackgroundPage.defaultProps = {
   siteHeader: {},
-  // pageHeader: {},
   footer: {},
   template: '',
 };
