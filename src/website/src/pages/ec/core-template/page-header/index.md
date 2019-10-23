@@ -1,6 +1,6 @@
 ---
-title: Footer
+title: Page header
 defaultTab: usage
 status: ready
-order: 3
+order: 2
 ---
