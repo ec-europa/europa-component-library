@@ -3,6 +3,7 @@ module.exports = {
   label: 'Site headers - standardised',
   status: 'ready',
   tags: ['organism'],
+  hidden: true,
   context: {
     global: {
       language: 'en',
