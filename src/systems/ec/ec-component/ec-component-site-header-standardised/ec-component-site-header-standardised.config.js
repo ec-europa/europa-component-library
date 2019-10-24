@@ -14,6 +14,8 @@ module.exports = {
             dialogOverlayId: 'ecl-overlay-language-list',
             triggerElementsSelector: '#ecl-lang-select-sites__overlay'
           });
+          ECL.initExpandables('#expand-search');
+          ECL.initExpandables('#expand-logged-in');
           ECL.megamenu();
         });
       `,
