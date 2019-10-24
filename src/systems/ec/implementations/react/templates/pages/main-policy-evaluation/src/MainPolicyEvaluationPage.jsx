@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Blockquote from '@ecl/ec-react-component-blockquote';
 // import FileDownload from '@ecl/ec-react-component-file';
-// import Link from '@ecl/ec-react-component-link';
+import Link from '@ecl/ec-react-component-link';
 // import SocialMediaShare from '@ecl/ec-react-component-social-media-share';
 // import Timeline, {TimelineItem} from '@ecl/ec-react-component-timeline';
 
@@ -166,6 +166,82 @@ const MainPolicyEvaluationPage = ({ siteHeader, footer, template }) => (
             author="President Juncker"
             citation="to achieve levels of air quality that do not result in unacceptable impacts on, and risks to, human health and the environment."
           />
+
+          <p className="ecl-u-type-paragraph ecl-u-mt-m">
+            This objective, first set in the 6th Environment Action Programme in
+            2002, is confirmed in the 7th Environment Action Programme.
+          </p>
+          <p className="ecl-u-type-paragraph">
+            In January 2011, the College of Commissioners gave a mandate for a
+            comprehensive review of EU air policy, recognising the pressing need
+            for action to improv air quality, which is a shared responsibility
+            requiring our joint efforts. The mandate also focused on a number of
+            immediate policy measures that should be taken.
+          </p>
+          <p className="ecl-u-type-paragraph ecl-u-mb-none">
+            As part of the review, the Commission conducted a broad consultation
+            process by organising a series of Stakeholder Expert Groups in the
+            period 2011 to 2013, involving a wide range of participants from
+            Member States, industry, NGOs and international stakeholders.
+          </p>
+
+          <h2 className="ecl-u-type-heading-2 ecl-u-mt-3xl ecl-u-mb-none">
+            Factors taken into consideration
+          </h2>
+
+          <h3 className="ecl-u-type-heading-3 ecl-u-mt-l ecl-u-mb-none">
+            The Stakeholder Expert Group
+          </h3>
+
+          <p className="ecl-u-type-paragraph ecl-u-mt-xs">
+            The first Stakeholder Expert Group was held on 6 and 7 June 2011,
+            the second on 19 and 20 January 2012, the third on 21 June 2012, the
+            fourth on 5 December 2012, and the fifth on 2 April 2013.
+            Presentations and documents from all meetings are publically
+            available through a{' '}
+            <Link href="/example" label="dedicated CIRCA library" />
+          </p>
+
+          <h3 className="ecl-u-type-heading-3 ecl-u-mt-l ecl-u-nb-none">
+            Commitee of the Regions
+          </h3>
+
+          <p className="ecl-u-type-paragraph ecl-u-mt-xs ecl-u-mb-none">
+            Commitee of the Regions{' '}
+            <Link href="/example" label="Outlook Opinion" /> on the review of EU
+            Air Policy
+          </p>
+
+          <h3 className="ecl-u-type-heading-3 ecl-u-mt-l ecl-u-mb-none">
+            Public consultation
+          </h3>
+
+          <p className="ecl-u-type-paragraph ecl-u-mt-xs">
+            A first online consultation, on the scope of the review, was
+            launched on 30 June 2011. Both the main results and the detailed
+            results are available <Link href="/example" label="here" />.
+          </p>
+          <p className="ecl-u-type-paragraph">
+            A second online consultation focused on the policy options for the
+            review of the EU Thematic Strategy on Air Pollution and related
+            policies. A{' '}
+            <Link
+              href="/example"
+              label="report of the second online consultation"
+            />{' '}
+            summarises this.
+          </p>
+          <p className="ecl-u-type-paragraph">
+            <Link href="/example" label="Analysis of the impacts" /> of various
+            options to control emissions from the cobustion of fuels in
+            installations with a total rated thermal input below 50MW.
+          </p>
+          <p className="ecl-u-type-paragraph ecl-u-mb-none">
+            The <Link href="/example" label="particule matter workshop" />{' '}
+            supports the review of the EU Air Quality strategy by providing
+            inputs from the Member States and other stakeholders with the
+            implementation of the air quality directive.
+          </p>
         </main>
       </div>
     </div>
