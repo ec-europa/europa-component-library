@@ -144,6 +144,12 @@
     }
   }
 
+  .ecl-site-header-standardised__dropdown-divider {
+    border-bottom: 1px solid #bfd0e4;
+    margin-bottom: map-get($ecl-spacing, 's');
+    margin-top: map-get($ecl-spacing, 's');
+  }
+
   .ecl-site-header-standardised__search {
     @include ecl-media-breakpoint-up(lg) {
       margin-bottom: map-get($ecl-spacing, 's');
@@ -217,14 +223,11 @@
     padding: map-get($ecl-spacing, 'xxxs') map-get($ecl-spacing, 'xxxs')
       map-get($ecl-spacing, 's');
 
-    @include ecl-media-breakpoint-up(md) {
+    @include ecl-media-breakpoint-up(lg) {
       flex-direction: row;
+      margin-bottom: map-get($ecl-spacing, 'xs');
       padding: map-get($ecl-spacing, 'xxs') map-get($ecl-spacing, 'xs')
         map-get($ecl-spacing, 's');
-    }
-
-    @include ecl-media-breakpoint-up(lg) {
-      margin-bottom: map-get($ecl-spacing, 'xs');
     }
 
     &:active,
@@ -243,10 +246,6 @@
         map-get($ecl-spacing, 'xs')};
 
       @include ecl-media-breakpoint-down(md) {
-        padding-bottom: map-get($ecl-spacing, 's');
-      }
-
-      @include ecl-media-breakpoint-down(sm) {
         padding: calc(#{map-get($ecl-spacing, 'xxxs')} - 1px)
           calc(#{map-get($ecl-spacing, 'xxxs')} - 1px)
           map-get($ecl-spacing, 's');
