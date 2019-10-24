@@ -1,0 +1,65 @@
+---
+title: Group 2
+order: 1
+---
+
+import { Paragraph, Anatomy, Link } from '@ecl/website-components';
+
+<Paragraph size="lead">
+  The Harmonised group 2 page header gives context and confidence to the user so
+  they understand what the page is about, to be placed just below the Site
+  header.
+</Paragraph>
+
+## Anatomy
+
+<Anatomy
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/HarmonisedTemplate/harmonised-2-page-header.png"
+  alt="Anatomy of harmonised group 2 page header"
+  legend={{
+    items: [
+      {
+        color: '#404040',
+        label: 'Mandatory',
+      },
+      {
+        color: '#004494',
+        label: 'Optional',
+      },
+    ],
+  }}
+  system="ec"
+  selectedKind="components-page-headers-harmonised"
+  selectedStory="group-2"
+/>
+
+| Component    | Mandatory          | Description                                                                                                      |
+| ------------ | ------------------ | ---------------------------------------------------------------------------------------------------------------- |
+| Breadcrumb   | Contextual&nbsp;\* | Breadcrumb component provides information on the page and its relationship to the site's hierarchy and structure |
+| Meta         | Contextual&nbsp;\* | Metadata related with the content of the page                                                                    |
+| Page title   | Yes                | Title of the page                                                                                                |
+| Introduction | Yes                | Short description of the page                                                                                    |
+
+<Paragraph size="s">
+  * <strong>Contextual</strong> – elements that may or may not feature on a
+  page, depending on the communication and/or functional needs – for example,
+  Login. Where the element features, use the ECL component.
+</Paragraph>
+
+## Do's
+
+- ensure the pages contain all the elements in the anatomy table above
+
+## Don'ts
+
+- don't use more than one Page header per page
+- don't use it on the Homepage use <Link to="/ec/components/banners/hero-banner/">Hero banner</Link> instead
+
+## When to use
+
+- only if the site has more than 1 page
+- only if ECL components are also being used on the body page. ECL components on this site category are optional between the site header and the footer
+
+## When not to use
+
+- do not follow these guidelines when you are updating sites that fall under the <Link to="/ec/standardised-template/">Standardised</Link>, <Link to="/ec/harmonised-templates/group1/">Harmonised group 1</Link> or <Link to="/ec/core-template/">Core</Link> category
