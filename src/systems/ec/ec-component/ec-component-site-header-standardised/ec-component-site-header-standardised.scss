@@ -118,6 +118,12 @@
     transform: translateY(calc(100% - 1.1px)); // ugly trick, isn't it?
     z-index: 1;
 
+    @include ecl-media-breakpoint-up(lg) {
+      left: auto;
+      margin-left: calc(1rem + 5px);
+      right: auto;
+    }
+
     &[aria-hidden='true'] {
       display: none;
     }
