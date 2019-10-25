@@ -13,6 +13,7 @@ export * from '@ecl/ec-component-message';
 export * from '@ecl/ec-component-inpage-navigation';
 export * from '@ecl/ec-component-navigation-menu';
 export * from '@ecl/ec-component-side-navigation';
+export * from '@ecl/ec-component-site-header-standardised';
 export * from '@ecl/ec-component-table';
 export * from '@ecl/ec-component-tab';
 export * from '@ecl/ec-component-timeline';
