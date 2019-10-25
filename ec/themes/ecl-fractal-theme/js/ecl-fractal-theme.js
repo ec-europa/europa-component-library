@@ -1317,6 +1317,17 @@ var fractal = (function (exports,$) {
   };
 
   /**
+   * `Node#contains()` polyfill.
+   *
+   * See: http://compatibility.shwups-cms.ch/en/polyfills/?&id=1
+   *
+   * @param {Node} node
+   * @param {Node} other
+   * @return {Boolean}
+   * @public
+   */
+
+  /**
    * Tables related behaviors.
    */
 
