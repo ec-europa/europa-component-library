@@ -31,14 +31,14 @@ The ECL is bundled in various [presets](docs/06-presets.md) in order to accomoda
   <link
     rel="stylesheet"
     href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.13.0/ec-preset-website/styles/ecl-ec-preset-website.css"
-    integrity="sha256-1SG3vmgt5q66zaX6pmq8a2rxyj56vjkk+O2f6pN4D3o= sha384-Nwsmb6y9kPqMqqfgZdevuhu2TjdicAhaALwi4G+yQDJ8vAxfNi/26K6rQPuRcJiO sha512-iqzgJM6ZZ6atmcERnZpPcNQ47uzsr4av/Yh8QAymF9HbC/VW43GoWBuxdQEESrhrLctMP8I/bQ2uAl4mWxm19Q=="
+    integrity="sha256-v1CTxn+z7+oVPpYRmw8Gh8qapgo218h3/140B1nzyDc= sha384-c0RBCTUiD8yt8YwK3/NS8SQOc/zEoG5oTbCaS2uMFM4HHM6x5GKJxWrHTS4123vj sha512-KHvO0JEeM4P3ngZP610J+9uUbP+M4+JVm4g0Bc4IGC06NKR5GG8FD7ep2HlWzMoa/E7QxgLvzckBmkeFNlOPZg=="
     crossorigin="anonymous"
     media="screen"
   />
   <link
     rel="stylesheet"
     href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.13.0/ec-preset-website/styles/ecl-ec-preset-website-print.css"
-    integrity="sha256-Jv4KnaDLzLxPkRKVtXx6YxSblKnTGwYU44PY//rchi0= sha384-GkX/QdOJVvBB4ZxOLYO58NDO+X1baNIETRkZfWVqWHB0yH/mnWGUBHsXhckNUnXc sha512-9SFvAAhQMBVBg45Jlcs5s8fGtPttcxonrxdD9VE6qwaU//hO9lxSher3FknfJKMDAmDh3Op5cK46j4k+DqdHfA=="
+    integrity="sha256-Oicmd78HPlXNgaBKrj/GKr21oVIuZuMAj7ZiBwa2LrE= sha384-RRjQWYP4a5Ap8F9ekTg2rjkY3RCJ0Cq/knH2sUbQNuILe6A9nPUHG//d2qpzcaai sha512-d0vldNfLozGMEqIkk5EAAxY4APXdMrxWaQtWhiju0KOOrCCQluLE8NAnc7gR647ejQfekerPjJQKRfCedWpZNw=="
     crossorigin="anonymous"
     media="print"
   />
@@ -47,7 +47,7 @@ The ECL is bundled in various [presets](docs/06-presets.md) in order to accomoda
   ```html
   <script
     src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.13.0/ec-preset-website/scripts/ecl-ec-preset-website.js"
-    integrity="sha256-veKOh2unsEfL5o43c8APZMQ4oHLLZK2hryxOZkTFB9Q= sha384-oHVe74VolaCkvgn3Bq9TJ0o3z/iEmNB9qYG2xuZtxpzUBabCHAaDFu4vgxn31DAe sha512-63xB9vCB7NgBasW1xLENFRBJAB15UcygN3znsz6Hemwo+yYoqqefCUQ1GUpEtgFfAC2KendacKj5+2y4XKUL9Q=="
+    integrity="sha256-ddS7yILqdOs46feuieCI4JNcIjXf3fwqgYtdaNJlTTE= sha384-zBsN3ulpDj5Xzs40cYPxJ7TLzRq/ClFYbsXx0HtvvmzGKzP89lziyUgBZEZfybvS sha512-7bihYFYdXefaZmj+6WlBfPWGRA9Piu40Do0cBGOjzfEknLhrWTJhncChjEyrS6OSiR9bLcU03vZqbOZVzNDKxg=="
     crossorigin="anonymous"
   ></script>
   ```
