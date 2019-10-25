@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.14.0 (2019-10-25)
+
+#### :rocket: New Feature
+
+- [#1324](https://github.com/ec-europa/europa-component-library/pull/1324) feat(site-header-standardised): implement component - INNO-1824. ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 1
+
+- Yannick Huard ([yhuard](https://github.com/yhuard))
+
 ## 1.13.1 (2019-10-21)
 
 #### :bug: Bug Fix
