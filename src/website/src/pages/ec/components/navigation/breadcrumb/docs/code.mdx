@@ -86,6 +86,7 @@ The first item and the last 2 items should always be visible.
   system="ec"
   selectedKind="components-navigation-breadcrumb-core"
   selectedStory="long"
+  showFrame
 >
   <BreadcrumbCore
     label={longContentCore.label}
@@ -104,6 +105,7 @@ The first item and the last 2 items should always be visible.
   system="ec"
   selectedKind="components-navigation-breadcrumb-standardised"
   selectedStory="long"
+  showFrame
 >
   <BreadcrumbStandardised
     label={longContentStandardised.label}
@@ -122,6 +124,7 @@ The first item and the last 2 items should always be visible.
   system="ec"
   selectedKind="components-navigation-breadcrumb-harmonised"
   selectedStory="long"
+  showFrame
 >
   <BreadcrumbHarmonised
     label={longContentHarmonised.label}
@@ -138,14 +141,14 @@ The first item and the last 2 items should always be visible.
 
 ### Auto initialisation
 
-In order to automatically initalise the JS behaviour, add `data-ecl-auto-init="Breadcrumb"` to your component's markup:
+In order to automatically initalise the JS behaviour, add `data-ecl-auto-init="BreadcrumbCore"` (or `BreadcrumbStandardised`, or `BreadcrumbHarmonised`) to your component's markup:
 
 ```html
 <nav
   class="ecl-breadcrumb"
   aria-label="You are here:"
-  data-ecl-breadcrumb
-  data-ecl-auto-init="Breadcrumb"
+  data-ecl-breadcrumb-core
+  data-ecl-auto-init="BreadcrumbCore"
 >
   ...
 </nav>
@@ -155,12 +158,12 @@ Don't forget to call `ECL.autoInit()` when your page is ready!
 
 ### Manual initialisation
 
-When the document is ready, query the element. For example, you can use `document.querySelector('[data-ecl-breadcrumb]')` if you only have 1 breadcrumb in the page.
+When the document is ready, query the element. For example, you can use `document.querySelector('[data-ecl-breadcrumb-core]')` if you only have 1 breadcrumb in the page.
 
-Then, instantiate the `Breadcrumb` component and call `init()`:
+Then, instantiate the `BreadcrumbCore` (or `BreadcrumbStandardised`, or `BreadcrumbHarmonised`) component and call `init()`:
 
 ```js
-var elt = document.querySelector('[data-ecl-breadcrumb]');
-var breadcrumb = new ECL.Breadcrumb(elt);
+var elt = document.querySelector('[data-ecl-breadcrumb-core]');
+var breadcrumb = new ECL.BreadcrumbCore(elt);
 breadcrumb.init();
 ```
