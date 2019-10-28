@@ -25,6 +25,7 @@ export const Expandable = ({
           data-ecl-label-expanded={labelExpanded}
           data-ecl-label-collapsed={labelCollapsed}
           aria-controls={`${id}-content`}
+          aria-expanded="false"
         />
       )}
 
