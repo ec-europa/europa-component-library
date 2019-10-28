@@ -19,7 +19,6 @@ const breadcrumb = (
   <BreadcrumbHarmonised
     {...breadcrumbProps}
     data-ecl-auto-init="BreadcrumbHarmonised"
-    className="ecl-page-header-harmonised__breadcrumb"
   >
     {items.map(item => (
       <BreadcrumbHarmonisedItem {...item} key={item.label} />
