@@ -83,9 +83,9 @@ export class Accordion {
     // Toggle the expandable/collapsible
     toggle.setAttribute('aria-expanded', !isExpanded);
     if (isExpanded) {
-      target.setAttribute('hidden', true);
+      target.hidden = true;
     } else {
-      target.removeAttribute('hidden');
+      target.hidden = false;
     }
 
     return this;
