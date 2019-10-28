@@ -9,12 +9,20 @@
 // Check if overridden dependencies are already loaded, if needed
 @include check-imports(('ec-component-link', 'ec-component-icon'));
 
-@mixin ecl-breadcrumb-harmonised() {
+@mixin ecl-breadcrumb-harmonised(
+  $background-color: transparent,
+  $background-color-hover: $ecl-color-blue-5,
+  $link-color: $ecl-color-blue,
+  $last-link-color: $ecl-color-grey-75,
+  $border-color: $ecl-color-blue-25
+) {
   .ecl-breadcrumb-harmonised {
+    background-color: $background-color;
     margin: 0;
   }
 
   .ecl-breadcrumb-harmonised__container {
+    border-bottom: 1px solid $border-color;
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
@@ -63,9 +71,14 @@
     background-color: transparent;
     border-width: 0;
     box-sizing: border-box;
+    color: $link-color;
     font-weight: $ecl-font-weight-bold;
     margin: 0;
     padding: 0;
+
+    &:hover {
+      background-color: $background-color-hover;
+    }
 
     &:focus {
       outline: 3px solid $ecl-color-yellow-100;
@@ -74,13 +87,22 @@
   }
 
   .ecl-breadcrumb-harmonised__link {
+    color: $link-color;
     font-weight: $ecl-font-weight-bold;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &:visited {
+      color: $link-color;
+    }
   }
 
   .ecl-breadcrumb-harmonised__icon {
+    fill: $link-color;
     flex-shrink: 0;
     margin-left: $ecl-spacing-xs;
     margin-right: $ecl-spacing-xs;
@@ -88,53 +110,12 @@
   }
 
   .ecl-breadcrumb-harmonised__current-page {
+    color: $last-link-color;
     font-weight: $ecl-font-weight-bold;
-  }
-}
-
-/* Group 1 */
-@mixin ecl-breadcrumb-harmonised-group1(
-  $background-color: transparent,
-  $background-color-hover: $ecl-color-blue-5,
-  $link-color: $ecl-color-blue,
-  $last-link-color: $ecl-color-grey-75,
-  $border-color: $ecl-color-blue-25
-) {
-  .ecl-breadcrumb-harmonised--group1 {
-    background-color: $background-color;
-
-    .ecl-breadcrumb-harmonised__container {
-      border-bottom: 1px solid $border-color;
-    }
-
-    .ecl-breadcrumb-harmonised__ellipsis {
-      color: $link-color;
-    }
-
-    .ecl-breadcrumb-harmonised__ellipsis:hover {
-      background-color: $background-color-hover;
-    }
-
-    .ecl-breadcrumb-harmonised__link,
-    .ecl-breadcrumb-harmonised__link:hover,
-    .ecl-breadcrumb-harmonised__link:focus,
-    .ecl-breadcrumb-harmonised__link:active,
-    .ecl-breadcrumb-harmonised__link:visited {
-      color: $link-color;
-    }
-
-    .ecl-breadcrumb-harmonised__icon {
-      fill: $link-color;
-    }
-
-    .ecl-breadcrumb-harmonised__current-page {
-      color: $last-link-color;
-    }
   }
 }
 
 // Use mixin
 @include exports('ec-component-breadcrumb-harmonised') {
   @include ecl-breadcrumb-harmonised();
-  @include ecl-breadcrumb-harmonised-group1();
 }
