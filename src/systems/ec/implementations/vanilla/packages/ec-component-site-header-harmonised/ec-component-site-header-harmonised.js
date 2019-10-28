@@ -115,11 +115,11 @@ export class SiteHeaderHarmonised {
   }
 
   openOverlay() {
-    this.languageListOverlay.removeAttribute('hidden');
+    this.languageListOverlay.hidden = false;
   }
 
   closeOverlay() {
-    this.languageListOverlay.setAttribute('hidden', true);
+    this.languageListOverlay.hidden = true;
   }
 
   toggleOverlay(e) {

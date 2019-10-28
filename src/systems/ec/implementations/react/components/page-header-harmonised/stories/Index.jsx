@@ -8,16 +8,18 @@ import BreadcrumbHarmonised, {
 } from '@ecl/ec-react-component-breadcrumb-harmonised';
 
 import breadcrumbContent from '@ecl/ec-specs-breadcrumb-harmonised/demo/data';
-import demoMetaTitleDescriptionContent from '@ecl/ec-specs-page-header-harmonised/demo/data--group1';
+import demoTitleContent from '@ecl/ec-specs-page-header-harmonised/demo/data--title';
+import demoMetaTitleContent from '@ecl/ec-specs-page-header-harmonised/demo/data--meta-title';
+import demoMetaTitleDescriptionContent from '@ecl/ec-specs-page-header-harmonised/demo/data--meta-title-description';
 
 import PageHeaderHarmonised from '../src/PageHeaderHarmonised';
 
 const { items, ...breadcrumbProps } = breadcrumbContent;
-const breadcrumb1 = (
+const breadcrumb = (
   <BreadcrumbHarmonised
     {...breadcrumbProps}
     data-ecl-auto-init="BreadcrumbHarmonised"
-    className="ecl-page-header-harmonised__breadcrumb ecl-breadcrumb-harmonised--group1"
+    className="ecl-page-header-harmonised__breadcrumb"
   >
     {items.map(item => (
       <BreadcrumbHarmonisedItem {...item} key={item.label} />
@@ -44,9 +46,22 @@ storiesOf('Components|Page Headers/Harmonised', module)
       {story()}
     </StoryWrapper>
   ))
-  .add('group 1', () => (
+  .add('title', () => (
     <PageHeaderHarmonised
-      breadcrumb={breadcrumb1}
+      breadcrumb={breadcrumb}
+      title={text('Title', demoTitleContent.title)}
+    />
+  ))
+  .add('meta-title', () => (
+    <PageHeaderHarmonised
+      breadcrumb={breadcrumb}
+      title={text('Title', demoMetaTitleContent.title)}
+      meta={text('Meta', demoMetaTitleContent.meta)}
+    />
+  ))
+  .add('meta-title-description', () => (
+    <PageHeaderHarmonised
+      breadcrumb={breadcrumb}
       title={text('Title', demoMetaTitleDescriptionContent.title)}
       description={text(
         'Description',
