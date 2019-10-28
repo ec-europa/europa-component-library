@@ -1,6 +1,6 @@
 ---
 title: Page header
 order: 2
-defaultTab: usage
+defaultTab: group1
 status: ready
 ---

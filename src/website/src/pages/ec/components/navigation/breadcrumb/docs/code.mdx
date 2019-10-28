@@ -4,23 +4,74 @@ order: 2
 ---
 
 import Playground from '@ecl/website-components/Playground';
-import Breadcrumb, { BreadcrumbItem } from '@ecl/ec-react-component-breadcrumb';
+import BreadcrumbCore, {
+  BreadcrumbCoreItem,
+} from '@ecl/ec-react-component-breadcrumb-core';
+import BreadcrumbStandardised, {
+  BreadcrumbStandardisedItem,
+} from '@ecl/ec-react-component-breadcrumb-standardised';
+import BreadcrumbHarmonised, {
+  BreadcrumbHarmonisedItem,
+} from '@ecl/ec-react-component-breadcrumb-harmonised';
 
-import simpleContent from '@ecl/ec-specs-breadcrumb/demo/data-simple';
-import demoContent from '@ecl/ec-specs-breadcrumb/demo/data';
+import simpleContentCore from '@ecl/ec-specs-breadcrumb-core/demo/data-simple';
+import longContentCore from '@ecl/ec-specs-breadcrumb-core/demo/data';
+import simpleContentStandardised from '@ecl/ec-specs-breadcrumb-standardised/demo/data-simple';
+import longContentStandardised from '@ecl/ec-specs-breadcrumb-standardised/demo/data';
+import simpleContentHarmonised from '@ecl/ec-specs-breadcrumb-harmonised/demo/data-simple';
+import longContentHarmonised from '@ecl/ec-specs-breadcrumb-harmonised/demo/data';
 
 ## Simple breadcrumb
 
+### Core
+
 <Playground
   system="ec"
-  selectedKind="components-navigation-breadcrumb"
+  selectedKind="components-navigation-breadcrumb-core"
   selectedStory="simple"
 >
-  <Breadcrumb label={simpleContent.label} ellipsisLabel="Click to expand">
-    {simpleContent.items.map(item => (
-      <BreadcrumbItem {...item} key={item.label} />
+  <BreadcrumbCore
+    label={simpleContentCore.label}
+    ellipsisLabel="Click to expand"
+  >
+    {simpleContentCore.items.map(item => (
+      <BreadcrumbCoreItem {...item} key={item.label} />
     ))}
-  </Breadcrumb>
+  </BreadcrumbCore>
+</Playground>
+
+### Standardised
+
+<Playground
+  system="ec"
+  selectedKind="components-navigation-breadcrumb-standardised"
+  selectedStory="simple"
+>
+  <BreadcrumbStandardised
+    label={simpleContentStandardised.label}
+    ellipsisLabel="Click to expand"
+  >
+    {simpleContentStandardised.items.map(item => (
+      <BreadcrumbStandardisedItem {...item} key={item.label} />
+    ))}
+  </BreadcrumbStandardised>
+</Playground>
+
+### Harmonised
+
+<Playground
+  system="ec"
+  selectedKind="components-navigation-breadcrumb-harmonised"
+  selectedStory="simple"
+>
+  <BreadcrumbHarmonised
+    label={simpleContentHarmonised.label}
+    ellipsisLabel="Click to expand"
+  >
+    {simpleContentHarmonised.items.map(item => (
+      <BreadcrumbHarmonisedItem {...item} key={item.label} />
+    ))}
+  </BreadcrumbHarmonised>
 </Playground>
 
 ## Long breadcrumb
@@ -29,30 +80,75 @@ When there are more than 3 items, the breadcrumb should be collapsed by default 
 
 The first item and the last 2 items should always be visible.
 
+### Core
+
 <Playground
   system="ec"
-  selectedKind="components-navigation-breadcrumb"
+  selectedKind="components-navigation-breadcrumb-core"
   selectedStory="long"
+  showFrame
 >
-  <Breadcrumb label={demoContent.label} ellipsisLabel="Click to expand">
-    {demoContent.items.map(item => (
-      <BreadcrumbItem {...item} key={item.label} />
+  <BreadcrumbCore
+    label={longContentCore.label}
+    ellipsisLabel="Click to expand"
+    data-ecl-auto-init="BreadcrumbCore"
+  >
+    {longContentCore.items.map(item => (
+      <BreadcrumbCoreItem {...item} key={item.label} />
     ))}
-  </Breadcrumb>
+  </BreadcrumbCore>
+</Playground>
+
+### Standardised
+
+<Playground
+  system="ec"
+  selectedKind="components-navigation-breadcrumb-standardised"
+  selectedStory="long"
+  showFrame
+>
+  <BreadcrumbStandardised
+    label={longContentStandardised.label}
+    ellipsisLabel="Click to expand"
+    data-ecl-auto-init="BreadcrumbStandardised"
+  >
+    {longContentStandardised.items.map(item => (
+      <BreadcrumbStandardisedItem {...item} key={item.label} />
+    ))}
+  </BreadcrumbStandardised>
+</Playground>
+
+### Harmonised
+
+<Playground
+  system="ec"
+  selectedKind="components-navigation-breadcrumb-harmonised"
+  selectedStory="long"
+  showFrame
+>
+  <BreadcrumbHarmonised
+    label={longContentHarmonised.label}
+    ellipsisLabel="Click to expand"
+    data-ecl-auto-init="BreadcrumbHarmonised"
+  >
+    {longContentHarmonised.items.map(item => (
+      <BreadcrumbHarmonisedItem {...item} key={item.label} />
+    ))}
+  </BreadcrumbHarmonised>
 </Playground>
 
 ## JS behaviour
 
 ### Auto initialisation
 
-In order to automatically initalise the JS behaviour, add `data-ecl-auto-init="Breadcrumb"` to your component's markup:
+In order to automatically initalise the JS behaviour, add `data-ecl-auto-init="BreadcrumbCore"` (or `BreadcrumbStandardised`, or `BreadcrumbHarmonised`) to your component's markup:
 
 ```html
 <nav
   class="ecl-breadcrumb"
   aria-label="You are here:"
-  data-ecl-breadcrumb
-  data-ecl-auto-init="Breadcrumb"
+  data-ecl-breadcrumb-core
+  data-ecl-auto-init="BreadcrumbCore"
 >
   ...
 </nav>
@@ -62,12 +158,12 @@ Don't forget to call `ECL.autoInit()` when your page is ready!
 
 ### Manual initialisation
 
-When the document is ready, query the element. For example, you can use `document.querySelector('[data-ecl-breadcrumb]')` if you only have 1 breadcrumb in the page.
+When the document is ready, query the element. For example, you can use `document.querySelector('[data-ecl-breadcrumb-core]')` if you only have 1 breadcrumb in the page.
 
-Then, instantiate the `Breadcrumb` component and call `init()`:
+Then, instantiate the `BreadcrumbCore` (or `BreadcrumbStandardised`, or `BreadcrumbHarmonised`) component and call `init()`:
 
 ```js
-var elt = document.querySelector('[data-ecl-breadcrumb]');
-var breadcrumb = new ECL.Breadcrumb(elt);
+var elt = document.querySelector('[data-ecl-breadcrumb-core]');
+var breadcrumb = new ECL.BreadcrumbCore(elt);
 breadcrumb.init();
 ```
