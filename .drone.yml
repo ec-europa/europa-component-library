@@ -192,3 +192,64 @@ pipeline:
       event: deployment
       matrix:
         TEST: deploy-tag
+
+
+# =======================================
+# Netlify  ==============================
+# =======================================
+
+netlify-preview: &netlify-preview
+  image: buildkite/puppeteer:latest
+  secrets:
+    [
+      gh_token,
+      netlify_auth_token,
+      netlify_site,
+    ]
+  commands:
+    - yarn clean
+    - yarn
+    - yarn dist      
+    - 'npx netlify deploy --site $${NETLIFY_SITE} --message "Drone build: ${CI_BUILD_NUMBER}" --json > netlify_deployment_result.json'
+    - node scripts/set-netlify-deployment-status.js
+
+netlify-prod: &netlify-prod
+  image: buildkite/puppeteer:latest
+  secrets:
+    [
+      gh_token,
+      netlify_auth_token,
+      netlify_site,
+    ]
+  commands:
+    - yarn clean
+    - yarn
+    - yarn dist      
+    - 'npx netlify deploy --prod --site $${NETLIFY_SITE} --message "Drone build: ${CI_BUILD_NUMBER}" --json > netlify_deployment_result.json'
+    - node scripts/set-netlify-deployment-status.js
+
+  netlify-deploy-preview:
+    <<: *netlify-preview
+    when:
+      branch:
+        exclude: master
+      event: [push]
+
+  netlify-deploy-production:
+    <<: *netlify-prod
+    when:
+      branch: v2
+      event: [push]
+
+  netlify-deploy-production:
+    <<: *netlify-prod
+    when:
+      branch: next-v2
+      event: [push]
+
+  netlify-deploy-production:
+    <<: *netlify-prod
+    when:
+      branch: v2-dev
+      event: [push]
+
