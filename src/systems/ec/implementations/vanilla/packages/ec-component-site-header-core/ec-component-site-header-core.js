@@ -91,10 +91,12 @@ export class SiteHeaderCore {
 
   openOverlay() {
     this.languageListOverlay.hidden = false;
+    this.languageSelector.setAttribute('aria-expanded', true);
   }
 
   closeOverlay() {
     this.languageListOverlay.hidden = true;
+    this.languageSelector.setAttribute('aria-expanded', false);
   }
 
   toggleOverlay(e) {

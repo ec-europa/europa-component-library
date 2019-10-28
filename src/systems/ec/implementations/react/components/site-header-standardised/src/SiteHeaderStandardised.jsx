@@ -111,6 +111,7 @@ const SiteHeaderStandardised = ({
                 className="ecl-link ecl-link--standalone ecl-site-header-standardised__language-selector"
                 href={languageSelector.href}
                 data-ecl-language-selector
+                aria-controls="language-list-overlay"
               >
                 <span className="ecl-site-header-standardised__language-icon">
                   <Icon shape="general--language" size="s" />
@@ -271,7 +272,11 @@ const SiteHeaderStandardised = ({
         </div>
       )}
       {!!(languageSelector && languageSelector.overlay) && (
-        <LanguageListOverlay {...languageSelector.overlay} hidden />
+        <LanguageListOverlay
+          {...languageSelector.overlay}
+          id="language-list-overlay"
+          hidden
+        />
       )}
     </header>
   );
