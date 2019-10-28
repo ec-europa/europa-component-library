@@ -2,10 +2,10 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import Blockquote from '@ecl/ec-react-component-blockquote';
-// import FileDownload from '@ecl/ec-react-component-file';
+import FileDownload from '@ecl/ec-react-component-file';
 import Link from '@ecl/ec-react-component-link';
-// import SocialMediaShare from '@ecl/ec-react-component-social-media-share';
-// import Timeline, {TimelineItem} from '@ecl/ec-react-component-timeline';
+import SocialMediaShare from '@ecl/ec-react-component-social-media-share';
+import { Timeline2, Timeline2Item } from '@ecl/ec-react-component-timeline2';
 
 // Templates
 import BreadcrumbCore, {
@@ -242,6 +242,465 @@ const MainPolicyEvaluationPage = ({ siteHeader, footer, template }) => (
             inputs from the Member States and other stakeholders with the
             implementation of the air quality directive.
           </p>
+
+          <h2 className="ecl-u-type-heading-2 ecl-u-mt-3xl ecl-u-mb-none">
+            Evaluation history
+          </h2>
+
+          <p className="ecl-u-type-paragraph ecl-u-mt-l ecl-u-mb-none">
+            Need for action to improve air quality,which is a shared
+            responsibility requiring our joint efforts.
+          </p>
+
+          <Timeline2
+            id="timeline"
+            data-ecl-template-timeline
+            data-ecl-auto-init="Timeline2"
+            className="ecl-u-mt-l"
+          >
+            <Timeline2Item
+              label="26 Jan 2011"
+              title="Comprehensive review of the EU air policy"
+            >
+              The College of Commissioners gave a mandate for a comprehensive
+              review of the EU air policy, recognising the pressing need for
+              action to improve air qualiy, which is a shared responsibility
+              requiring our joint efforts. The mandate also focused on a number
+              of immediate policy measures that should be taken.
+            </Timeline2Item>
+
+            <Timeline2Item label="7 May 2011" title="Commitee of the Regions">
+              Commitee of the Regions Outlook Opinion on the review of EU Air
+              policy.
+            </Timeline2Item>
+
+            <Timeline2Item label="30 June 2011" title="1st Public consultation">
+              A first online consultation, on the scope of the review, was
+              launched on 30 June 2011. Both the main results and the detailed
+              results are available here.
+            </Timeline2Item>
+
+            <Timeline2Item
+              label="01 October 2011"
+              title="Lorem ipsum dolor sit amet"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+              nec fermentum velit. Mauris elementum blandit erat, et
+              sollicitudin sapien feugiat nec. Sed nunc orci, tempus auctor
+              fermentum feugiat, condimentum ut lorem.
+            </Timeline2Item>
+
+            <Timeline2Item
+              label="31 December 2011"
+              title="Lorem ipsum dolor sit amet"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+              nec fermentum velit. Mauris elementum blandit erat, et
+              sollicitudin sapien feugiat nec. Sed nunc orci, tempus auctor
+              fermentum feugiat, condimentum ut lorem.
+            </Timeline2Item>
+
+            <Timeline2Item
+              label="05 April 2012"
+              title="Lorem ipsum dolor sit amet"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+              nec fermentum velit. Mauris elementum blandit erat, et
+              sollicitudin sapien feugiat nec. Sed nunc orci, tempus auctor
+              fermentum feugiat, condimentum ut lorem.
+            </Timeline2Item>
+
+            <Timeline2Item
+              label="17 July 2012"
+              title="Lorem ipsum dolor sit amet"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+              nec fermentum velit. Mauris elementum blandit erat, et
+              sollicitudin sapien feugiat nec. Sed nunc orci, tempus auctor
+              fermentum feugiat, condimentum ut lorem.
+            </Timeline2Item>
+
+            <Timeline2Item
+              label="22 October 2012"
+              title="Lorem ipsum dolor sit amet"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+              nec fermentum velit. Mauris elementum blandit erat, et
+              sollicitudin sapien feugiat nec. Sed nunc orci, tempus auctor
+              fermentum feugiat, condimentum ut lorem.
+            </Timeline2Item>
+
+            <Timeline2Item label="30 Jul 2013" title="2nd Public consultation">
+              A second online consultation focused on the air policy options for
+              the review of the EU Thematic Strategy on Air Pollution and
+              related policies. A report of the second online consultation
+              summarises this.
+            </Timeline2Item>
+
+            <Timeline2Item
+              label="26 Jul - 23 Aug 2017 "
+              title="Fitness check of the EU Ambient Air Quality Directives (Roadmap)"
+            >
+              This fitness check will look at the performance of the two
+              complement8/50/EC and 2004/107/EC).
+            </Timeline2Item>
+          </Timeline2>
+
+          <article className="ecl-u-pv-m ecl-u-mt-l">
+            <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
+              <Link
+                href="/example"
+                variant="standalone"
+                label="EC policy process"
+              />
+            </div>
+            <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-xs">
+              Get more information about how decisions are made in the policy
+              process.
+            </p>
+          </article>
+
+          <h2 className="ecl-u-type-heading-2 ecl-u-mt-3xl ecl-u-mb-none">
+            Reports
+          </h2>
+
+          <FileDownload
+            data-ecl-auto-init="FileDownload"
+            className="ecl-u-mt-l"
+            title="Mandate for a comprehensive review of the EU air policy"
+            language="English"
+            meta="(392 KB - PDF - 2 pages)"
+            icon={{
+              shape: 'general--copy',
+              size: '2xl',
+            }}
+            download={{
+              label: 'Download',
+              href: '/example',
+            }}
+            translation={{
+              toggle: {
+                label: 'Other languages (22)',
+              },
+              items: [
+                {
+                  title: 'български',
+                  meta: '(392 KB - PDF - 2 pages)',
+                  lang: 'bg',
+                  download: {
+                    label: 'Download',
+                    href: '/example#bg',
+                  },
+                },
+                {
+                  title: 'español',
+                  meta: '(392 KB - PDF - 2 pages)',
+                  lang: 'es',
+                  download: {
+                    label: 'Download',
+                    href: '/example#es',
+                  },
+                },
+                {
+                  title: 'français',
+                  meta: '(392 KB - PDF - 2 pages)',
+                  lang: 'fr',
+                  download: {
+                    label: 'Download',
+                    href: '/example#fr',
+                  },
+                },
+              ],
+            }}
+          />
+
+          <FileDownload
+            data-ecl-auto-init="FileDownload"
+            className="ecl-u-mt-3xl"
+            title="Assessment of the reasons for non-compliance of the emission ceilings set in the NEC Directive"
+            language="English"
+            meta="(392 KB - PDF - 2 pages)"
+            icon={{
+              shape: 'general--copy',
+              size: '2xl',
+            }}
+            download={{
+              label: 'Download',
+              href: '/example',
+            }}
+            translation={{
+              toggle: {
+                label: 'Other languages (22)',
+              },
+              items: [
+                {
+                  title: 'български',
+                  meta: '(392 KB - PDF - 2 pages)',
+                  lang: 'bg',
+                  download: {
+                    label: 'Download',
+                    href: '/example#bg',
+                  },
+                },
+                {
+                  title: 'español',
+                  meta: '(392 KB - PDF - 2 pages)',
+                  lang: 'es',
+                  download: {
+                    label: 'Download',
+                    href: '/example#es',
+                  },
+                },
+                {
+                  title: 'français',
+                  meta: '(392 KB - PDF - 2 pages)',
+                  lang: 'fr',
+                  download: {
+                    label: 'Download',
+                    href: '/example#fr',
+                  },
+                },
+              ],
+            }}
+          />
+
+          <FileDownload
+            data-ecl-auto-init="FileDownload"
+            className="ecl-u-mt-3xl"
+            title="Evaluation of progress under the EU NEC Directive, EEA report"
+            language="English"
+            meta="(392 KB - PDF - 2 pages)"
+            icon={{
+              shape: 'general--copy',
+              size: '2xl',
+            }}
+            download={{
+              label: 'Download',
+              href: '/example',
+            }}
+            translation={{
+              toggle: {
+                label: 'Other languages (22)',
+              },
+              items: [
+                {
+                  title: 'български',
+                  meta: '(392 KB - PDF - 2 pages)',
+                  lang: 'bg',
+                  download: {
+                    label: 'Download',
+                    href: '/example#bg',
+                  },
+                },
+                {
+                  title: 'español',
+                  meta: '(392 KB - PDF - 2 pages)',
+                  lang: 'es',
+                  download: {
+                    label: 'Download',
+                    href: '/example#es',
+                  },
+                },
+                {
+                  title: 'français',
+                  meta: '(392 KB - PDF - 2 pages)',
+                  lang: 'fr',
+                  download: {
+                    label: 'Download',
+                    href: '/example#fr',
+                  },
+                },
+              ],
+            }}
+          />
+
+          <FileDownload
+            data-ecl-auto-init="FileDownload"
+            className="ecl-u-mt-3xl"
+            title="Fitness check of the EU Ambient Air QUality Directives (Roadmap)"
+            language="English"
+            meta="(392 KB - PDF - 2 pages)"
+            icon={{
+              shape: 'general--copy',
+              size: '2xl',
+            }}
+            download={{
+              label: 'Download',
+              href: '/example',
+            }}
+            translation={{
+              toggle: {
+                label: 'Other languages (22)',
+              },
+              items: [
+                {
+                  title: 'български',
+                  meta: '(392 KB - PDF - 2 pages)',
+                  lang: 'bg',
+                  download: {
+                    label: 'Download',
+                    href: '/example#bg',
+                  },
+                },
+                {
+                  title: 'español',
+                  meta: '(392 KB - PDF - 2 pages)',
+                  lang: 'es',
+                  download: {
+                    label: 'Download',
+                    href: '/example#es',
+                  },
+                },
+                {
+                  title: 'français',
+                  meta: '(392 KB - PDF - 2 pages)',
+                  lang: 'fr',
+                  download: {
+                    label: 'Download',
+                    href: '/example#fr',
+                  },
+                },
+              ],
+            }}
+          />
+
+          <FileDownload
+            data-ecl-auto-init="FileDownload"
+            className="ecl-u-mt-3xl"
+            title="Commission Staff Working Paper On The Implementation Of Eu Air QUality Policy And Preparing For Its Comprehensive Review"
+            language="English"
+            meta="(392 KB - PDF - 2 pages)"
+            icon={{
+              shape: 'general--copy',
+              size: '2xl',
+            }}
+            download={{
+              label: 'Download',
+              href: '/example',
+            }}
+            translation={{
+              toggle: {
+                label: 'Other languages (22)',
+              },
+              items: [
+                {
+                  title: 'български',
+                  meta: '(392 KB - PDF - 2 pages)',
+                  lang: 'bg',
+                  download: {
+                    label: 'Download',
+                    href: '/example#bg',
+                  },
+                },
+                {
+                  title: 'español',
+                  meta: '(392 KB - PDF - 2 pages)',
+                  lang: 'es',
+                  download: {
+                    label: 'Download',
+                    href: '/example#es',
+                  },
+                },
+                {
+                  title: 'français',
+                  meta: '(392 KB - PDF - 2 pages)',
+                  lang: 'fr',
+                  download: {
+                    label: 'Download',
+                    href: '/example#fr',
+                  },
+                },
+              ],
+            }}
+          />
+
+          <SocialMediaShare
+            className="ecl-u-mt-3xl"
+            description="Share this page"
+            links={[
+              {
+                href: '/example',
+                label: 'Twitter',
+                className: 'ecl-social-media-share__link--twitter',
+                variant: 'standalone',
+                iconPosition: 'before',
+                icon: [
+                  {
+                    shape: 'twitter',
+                    size: 'xl',
+                    className: '',
+                  },
+                  {
+                    shape: 'twitter_hover',
+                    size: 'xl',
+                    className: 'ecl-social-media-share__icon-hover',
+                  },
+                ],
+              },
+              {
+                href: '/example',
+                label: 'Facebook',
+                className: 'ecl-social-media-share__link--facebook',
+                variant: 'standalone',
+                iconPosition: 'before',
+                icon: [
+                  {
+                    shape: 'facebook',
+                    size: 'xl',
+                    className: '',
+                  },
+                  {
+                    shape: 'facebook_hover',
+                    size: 'xl',
+                    className: 'ecl-social-media-share__icon-hover',
+                  },
+                ],
+              },
+              {
+                href: '/example',
+                label: 'Linkedin',
+                className: 'ecl-social-media-share__link--linkedin',
+                variant: 'standalone',
+                iconPosition: 'before',
+                icon: [
+                  {
+                    shape: 'linkedin',
+                    size: 'xl',
+                    className: '',
+                  },
+                  {
+                    shape: 'linkedin_hover',
+                    size: 'xl',
+                    className: 'ecl-social-media-share__icon-hover',
+                  },
+                ],
+              },
+              {
+                href: '/example',
+                label: 'E-mail',
+                className: 'ecl-social-media-share__link--email',
+                variant: 'standalone',
+                iconPosition: 'before',
+                icon: [
+                  {
+                    shape: 'email',
+                    size: 'xl',
+                    className: '',
+                  },
+                  {
+                    shape: 'email_hover',
+                    size: 'xl',
+                    className: 'ecl-social-media-share__icon-hover',
+                  },
+                ],
+              },
+              {
+                href: '/example',
+                label: 'Other social networks',
+                variant: 'standalone',
+              },
+            ]}
+          />
         </main>
       </div>
     </div>
