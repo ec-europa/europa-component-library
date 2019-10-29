@@ -136,7 +136,7 @@ export class MenuLegacy {
         item.setAttribute('aria-expanded', 'false');
         const subMenu = queryOne(this.menuMegaSelector, item);
         if (subMenu) {
-          subMenu.setAttribute('aria-hidden', true);
+          subMenu.setAttribute('aria-hidden', 'true');
         }
       }
     });
