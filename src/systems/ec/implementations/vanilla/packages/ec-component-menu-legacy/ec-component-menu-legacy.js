@@ -133,7 +133,7 @@ export class MenuLegacy {
     // Close other items
     this.menuItems.forEach(item => {
       if (item !== menuItem) {
-        item.setAttribute('aria-expanded', false);
+        item.setAttribute('aria-expanded', 'false');
         const subMenu = queryOne(this.menuMegaSelector, item);
         if (subMenu) {
           subMenu.setAttribute('aria-hidden', true);

@@ -25,6 +25,7 @@ matrix:
     - examples
     - size
     - deploy-tag
+    - deploy-preview
 
 pipeline:
   install:
@@ -209,7 +210,7 @@ netlify-preview: &netlify-preview
   commands:
     - yarn clean
     - yarn
-    - yarn dist      
+    - yarn dist
     - 'npx netlify deploy --site $${NETLIFY_SITE} --message "Drone build: ${CI_BUILD_NUMBER}" --json > netlify_deployment_result.json'
     - node scripts/set-netlify-deployment-status.js
 
@@ -223,4 +224,6 @@ netlify-preview: &netlify-preview
           - v2
           - v2-dev
           - next-v2
-      event: [push]
+      event: [push, pull_request]
+      matrix:
+        TEST: deploy-preview
