@@ -82,7 +82,7 @@ export class Expandable {
       this.toggle.getAttribute('aria-expanded') === 'true';
 
     // Toggle the expandable/collapsible
-    this.toggle.setAttribute('aria-expanded', !isExpanded);
+    this.toggle.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
     if (isExpanded) {
       this.target.hidden = true;
     } else {

@@ -124,7 +124,10 @@ export class SiteHeaderCore {
       this.searchToggle.getAttribute('aria-expanded') === 'true';
 
     // Toggle the search form
-    this.searchToggle.setAttribute('aria-expanded', !isExpanded);
+    this.searchToggle.setAttribute(
+      'aria-expanded',
+      isExpanded ? 'false' : 'true'
+    );
     if (!isExpanded) {
       this.searchForm.classList.add('ecl-site-header-core__search--active');
     } else {

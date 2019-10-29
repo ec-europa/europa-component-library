@@ -160,7 +160,10 @@ export class SiteHeaderStandardised {
     }
 
     // Toggle the search form
-    this.searchToggle.setAttribute('aria-expanded', !isExpanded);
+    this.searchToggle.setAttribute(
+      'aria-expanded',
+      isExpanded ? 'false' : 'true'
+    );
     if (!isExpanded) {
       this.searchForm.classList.add(
         'ecl-site-header-standardised__search--active'
@@ -190,7 +193,10 @@ export class SiteHeaderStandardised {
     }
 
     // Toggle the login box
-    this.loginToggle.setAttribute('aria-expanded', !isExpanded);
+    this.loginToggle.setAttribute(
+      'aria-expanded',
+      isExpanded ? 'false' : 'true'
+    );
     if (!isExpanded) {
       this.loginBox.classList.add(
         'ecl-site-header-standardised__login-box--active'
