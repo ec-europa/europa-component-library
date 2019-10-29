@@ -1,5 +1,5 @@
 branches:
-  exclude: [ gh-pages ]
+  exclude: [gh-pages]
 
 clone:
   git:
@@ -24,42 +24,48 @@ matrix:
     - conventions
     - examples
     - size
-    - deploy-tag
-    - deploy-preview
+    - deploy
 
 pipeline:
   install:
     image: node:dubnium
     commands:
+      - export NOYARNPOSTINSTALL="1"
       - yarn install --frozen-lockfile
     when:
-      event: [ push, pull_request, tag]
+      event: [push, pull_request, tag]
 
   audit:
     image: node:dubnium
     commands:
       - yarn audit
     when:
-      event: [ push, pull_request, tag]
+      event: [push, pull_request, tag]
       matrix:
         TEST: audit
 
   conventions:
     image: node:dubnium
     commands:
+      - yarn build:icons
+      - yarn build:themes
+      - yarn build:presets
       - yarn test:coding-conventions
     when:
-      event: [ push, pull_request, tag]
+      event: [push, pull_request, tag]
       matrix:
         TEST: conventions
 
   examples:
     image: node:dubnium
     commands:
+      - yarn build:icons
+      - yarn build:themes
+      - yarn build:presets
       - cd examples/webpack4 && yarn build --display=errors-only
       - cd ../webpack4-eu && yarn build --display=errors-only
     when:
-      event: [ push, pull_request, tag]
+      event: [push, pull_request, tag]
       matrix:
         TEST: examples
 
@@ -67,23 +73,30 @@ pipeline:
     image: buildkite/puppeteer:latest
     commands:
       - yarn clean
+      - yarn build:themes
       - yarn dist:presets
       - yarn size-limit
     when:
-      event: [ push, pull_request, tag]
+      event: [push, pull_request, tag]
       matrix:
         TEST: size
+
+  # =======================================
+  # Deployment (tag) ======================
+  # =======================================
 
   build-presets:
     image: node:dubnium
     commands:
       - yarn browserstats
       - yarn clean
+      - yarn build:icons
+      - yarn build:themes
       - yarn dist:presets
     when:
       event: [tag]
       matrix:
-        TEST: deploy-tag
+        TEST: deploy
 
   deploy-presets-to-cdn:
     image: garland/aws-cli-docker
@@ -98,11 +111,7 @@ pipeline:
     when:
       event: [tag]
       matrix:
-        TEST: deploy-tag
-
-# =======================================
-# Build and Upload package ==============
-# =======================================
+        TEST: deploy
 
   build-website:
     image: buildkite/puppeteer:latest
@@ -116,7 +125,7 @@ pipeline:
     when:
       event: [tag]
       matrix:
-        TEST: deploy-tag
+        TEST: deploy
 
   # Package release build
   package-release:
@@ -127,7 +136,7 @@ pipeline:
     when:
       event: [tag]
       matrix:
-        TEST: deploy-tag
+        TEST: deploy
 
   # Push release to Github
   push-github-release:
@@ -137,27 +146,23 @@ pipeline:
       - ${DRONE_REPO_NAME}-${DRONE_TAG}-sri.json
     checksum:
       - sha1
-    secrets: [ GITHUB_RELEASE_API_KEY ]
+    secrets: [GITHUB_RELEASE_API_KEY]
     when:
       event: [tag]
       matrix:
-        TEST: deploy-tag
+        TEST: deploy
 
   # Trigger deploy event on Github
   create-deploy-production:
     image: fpfis/drone-plugin-github-deploy
     state: create
     deploy_environment: production
-    secrets: [ github_api_token ]
+    secrets: [github_api_token]
     automerge: false
     when:
       event: [tag]
       matrix:
-        TEST: deploy-tag
-
-# =======================================
-# Deployment ============================
-# =======================================
+        TEST: deploy
 
   # Download release from github and extract into build folder
   download-github-release:
@@ -173,50 +178,45 @@ pipeline:
     when:
       event: deployment
       matrix:
-        TEST: deploy-tag
+        TEST: deploy
 
   # Deploy build folder into production
   deploy-to-production:
     image: drillster/drone-rsync
-    secrets: [ rsync_key , MGMT_IP ]
-    hosts: [ $MGMT_IP ]
-    user : fpfis
+    secrets: [rsync_key, MGMT_IP]
+    hosts: [$MGMT_IP]
+    user: fpfis
     source: ./build/
     target: /ec/local/home/fpfis/reference/php-clusters/multisite/production/cluster00/sources/static/europa-component-library/
     script:
-        - export GIT_FPFIS_AUTHOR="Drone ec.deploy.fpfis.eu"
-        - cd /ec/local/home/fpfis/reference/php-clusters/multisite/production/cluster00/sources/static/europa-component-library
-        - git add -A .
-        - git commit -m"Deployed ${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}@${DRONE_TAG} from drone build ${DRONE_BUILD_NUMBER}." .
-        - git push 'nas-reference' 'master'
+      - export GIT_FPFIS_AUTHOR="Drone ec.deploy.fpfis.eu"
+      - cd /ec/local/home/fpfis/reference/php-clusters/multisite/production/cluster00/sources/static/europa-component-library
+      - git add -A .
+      - git commit -m"Deployed ${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}@${DRONE_TAG} from drone build ${DRONE_BUILD_NUMBER}." .
+      - git push 'nas-reference' 'master'
     when:
       event: deployment
       matrix:
-        TEST: deploy-tag
+        TEST: deploy
 
+  # =======================================
+  # Deployment (dev) ======================
+  # =======================================
 
-# =======================================
-# Netlify  ==============================
-# =======================================
-
-netlify-preview: &netlify-preview
-  image: buildkite/puppeteer:latest
-  secrets:
-    [
-      gh_token,
-      netlify_auth_token,
-      netlify_site,
-    ]
-  commands:
-    - yarn clean
-    - yarn
-    - yarn dist
-    - 'npx netlify deploy --site $${NETLIFY_SITE} --message "Drone build: ${CI_BUILD_NUMBER}" --json > netlify_deployment_result.json'
-    - node scripts/set-netlify-deployment-status.js
-
-  netlify-deploy-preview:
-    <<: *netlify-preview
+  deploy-netlify-preview:
+    image: buildkite/puppeteer:latest
+    secrets: [gh_token, netlify_auth_token, netlify_site]
+    commands:
+      - yarn clean
+      - yarn build:icons
+      - yarn build:themes
+      - yarn dist
+      - './node_modules/.bin/netlify deploy --site $${NETLIFY_SITE} --message "Drone build: ${CI_BUILD_NUMBER}" --json > netlify_deployment_result.json'
+      - node scripts/set-netlify-deployment-status.js
     when:
+      event: [push, pull_request]
+      matrix:
+        TEST: deploy
       branch:
         exclude:
           - v0
@@ -224,6 +224,3 @@ netlify-preview: &netlify-preview
           - v2
           - v2-dev
           - next-v2
-      event: [push, pull_request]
-      matrix:
-        TEST: deploy-preview
