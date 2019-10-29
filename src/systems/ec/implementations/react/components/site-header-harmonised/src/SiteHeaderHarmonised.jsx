@@ -314,7 +314,10 @@ SiteHeaderHarmonised.propTypes = {
     inputLabel: PropTypes.string,
     buttonLabel: PropTypes.string,
   }),
-  bannerTop: PropTypes.string,
+  bannerTop: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape(Link.propTypes),
+  ]),
   banner: PropTypes.string,
   menu: PropTypes.bool,
   className: PropTypes.string,
