@@ -30,6 +30,7 @@ pipeline:
   install:
     image: node:dubnium
     commands:
+      - export NOYARNPOSTINSTALL="1"
       - yarn install --frozen-lockfile
     when:
       event: [push, pull_request, tag]
@@ -46,6 +47,9 @@ pipeline:
   conventions:
     image: node:dubnium
     commands:
+      - yarn build:icons
+      - yarn build:themes
+      - yarn build:presets
       - yarn test:coding-conventions
     when:
       event: [push, pull_request, tag]
@@ -55,6 +59,9 @@ pipeline:
   examples:
     image: node:dubnium
     commands:
+      - yarn build:icons
+      - yarn build:themes
+      - yarn build:presets
       - cd examples/webpack4 && yarn build --display=errors-only
       - cd ../webpack4-eu && yarn build --display=errors-only
     when:
@@ -66,6 +73,7 @@ pipeline:
     image: buildkite/puppeteer:latest
     commands:
       - yarn clean
+      - yarn build:themes
       - yarn dist:presets
       - yarn size-limit
     when:
@@ -82,6 +90,8 @@ pipeline:
     commands:
       - yarn browserstats
       - yarn clean
+      - yarn build:icons
+      - yarn build:themes
       - yarn dist:presets
     when:
       event: [tag]
@@ -198,6 +208,8 @@ pipeline:
     secrets: [gh_token, netlify_auth_token, netlify_site]
     commands:
       - yarn clean
+      - yarn build:icons
+      - yarn build:themes
       - yarn dist
       - './node_modules/.bin/netlify deploy --site $${NETLIFY_SITE} --message "Drone build: ${CI_BUILD_NUMBER}" --json > netlify_deployment_result.json'
       - node scripts/set-netlify-deployment-status.js
