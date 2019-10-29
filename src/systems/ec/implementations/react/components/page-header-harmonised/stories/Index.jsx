@@ -15,12 +15,6 @@ import demoMetaTitleDescriptionContent from '@ecl/ec-specs-page-header-harmonise
 
 import PageHeaderHarmonised from '../src/PageHeaderHarmonised';
 
-// Format data
-demoMetaTitleContent.meta = parse(demoMetaTitleContent.meta);
-demoMetaTitleDescriptionContent.meta = parse(
-  demoMetaTitleDescriptionContent.meta
-);
-
 const { items, ...breadcrumbProps } = breadcrumbContent;
 const breadcrumb = (
   <BreadcrumbHarmonised
@@ -59,21 +53,29 @@ storiesOf('Components|Page Headers/Harmonised', module)
       title={text('Title', demoTitleContent.title)}
     />
   ))
-  .add('meta-title', () => (
-    <PageHeaderHarmonised
-      breadcrumb={breadcrumb}
-      title={text('Title', demoMetaTitleContent.title)}
-      meta={text('Meta', demoMetaTitleContent.meta)}
-    />
-  ))
-  .add('meta-title-description', () => (
-    <PageHeaderHarmonised
-      breadcrumb={breadcrumb}
-      title={text('Title', demoMetaTitleDescriptionContent.title)}
-      description={text(
-        'Description',
-        demoMetaTitleDescriptionContent.description
-      )}
-      meta={text('Meta', demoMetaTitleDescriptionContent.meta)}
-    />
-  ));
+  .add(
+    'meta-title',
+    () => (
+      <PageHeaderHarmonised
+        breadcrumb={breadcrumb}
+        title={text('Title', demoMetaTitleContent.title)}
+        meta={parse(text('Meta', demoMetaTitleContent.meta))}
+      />
+    ),
+    { knobs: { escapeHTML: false } }
+  )
+  .add(
+    'meta-title-description',
+    () => (
+      <PageHeaderHarmonised
+        breadcrumb={breadcrumb}
+        title={text('Title', demoMetaTitleDescriptionContent.title)}
+        description={text(
+          'Description',
+          demoMetaTitleDescriptionContent.description
+        )}
+        meta={parse(text('Meta', demoMetaTitleDescriptionContent.meta))}
+      />
+    ),
+    { knobs: { escapeHTML: false } }
+  );

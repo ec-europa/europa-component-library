@@ -15,12 +15,6 @@ import demoMetaTitleDescriptionContent from '@ecl/ec-specs-page-header-core/demo
 
 import PageHeaderCore from '../src/PageHeaderCore';
 
-// Format data
-demoMetaTitleContent.meta = parse(demoMetaTitleContent.meta);
-demoMetaTitleDescriptionContent.meta = parse(
-  demoMetaTitleDescriptionContent.meta
-);
-
 const { items, ...breadcrumbProps } = breadcrumbContent;
 const breadcrumb = (
   <BreadcrumbCore {...breadcrumbProps} data-ecl-auto-init="BreadcrumbCore">
@@ -55,21 +49,29 @@ storiesOf('Components|Page Headers/Core', module)
       title={text('Title', demoTitleContent.title)}
     />
   ))
-  .add('meta-title', () => (
-    <PageHeaderCore
-      breadcrumb={breadcrumb}
-      title={text('Title', demoMetaTitleContent.title)}
-      meta={text('Meta', demoMetaTitleContent.meta)}
-    />
-  ))
-  .add('meta-title-description', () => (
-    <PageHeaderCore
-      breadcrumb={breadcrumb}
-      title={text('Title', demoMetaTitleDescriptionContent.title)}
-      description={text(
-        'Description',
-        demoMetaTitleDescriptionContent.description
-      )}
-      meta={text('Meta', demoMetaTitleDescriptionContent.meta)}
-    />
-  ));
+  .add(
+    'meta-title',
+    () => (
+      <PageHeaderCore
+        breadcrumb={breadcrumb}
+        title={text('Title', demoMetaTitleContent.title)}
+        meta={parse(text('Meta', demoMetaTitleContent.meta))}
+      />
+    ),
+    { knobs: { escapeHTML: false } }
+  )
+  .add(
+    'meta-title-description',
+    () => (
+      <PageHeaderCore
+        breadcrumb={breadcrumb}
+        title={text('Title', demoMetaTitleDescriptionContent.title)}
+        description={text(
+          'Description',
+          demoMetaTitleDescriptionContent.description
+        )}
+        meta={parse(text('Meta', demoMetaTitleDescriptionContent.meta))}
+      />
+    ),
+    { knobs: { escapeHTML: false } }
+  );

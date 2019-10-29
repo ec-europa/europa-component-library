@@ -32,7 +32,7 @@ const PageHeaderHarmonised = ({
 
 PageHeaderHarmonised.propTypes = {
   breadcrumb: PropTypes.node,
-  meta: PropTypes.string,
+  meta: PropTypes.node,
   title: PropTypes.string,
   description: PropTypes.string,
   className: PropTypes.string,

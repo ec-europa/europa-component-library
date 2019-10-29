@@ -30,7 +30,7 @@ const PageHeaderCore = ({
 
 PageHeaderCore.propTypes = {
   breadcrumb: PropTypes.node,
-  meta: PropTypes.string,
+  meta: PropTypes.node,
   title: PropTypes.string,
   description: PropTypes.string,
   className: PropTypes.string,
