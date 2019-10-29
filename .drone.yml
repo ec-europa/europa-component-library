@@ -92,7 +92,7 @@ pipeline:
       - yarn clean
       - yarn dist:presets
     when:
-      event: [pull, pull_request]
+      event: [push, pull_request]
       branch:
         exclude:
           - v0
@@ -253,5 +253,3 @@ pipeline:
           - next-v2    
       matrix:
         TEST: deploy-preview    
-
-
