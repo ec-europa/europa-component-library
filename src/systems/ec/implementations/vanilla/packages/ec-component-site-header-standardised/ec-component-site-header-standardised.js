@@ -119,11 +119,13 @@ export class SiteHeaderStandardised {
 
   openOverlay() {
     this.languageListOverlay.hidden = false;
+    this.languageListOverlay.setAttribute('aria-modal', true);
     this.languageSelector.setAttribute('aria-expanded', true);
   }
 
   closeOverlay() {
     this.languageListOverlay.hidden = true;
+    this.languageListOverlay.removeAttribute('aria-modal');
     this.languageSelector.setAttribute('aria-expanded', false);
   }
 

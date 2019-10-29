@@ -111,7 +111,10 @@ const SiteHeaderHarmonised = ({
                 className="ecl-link ecl-link--standalone ecl-site-header-harmonised__language-selector"
                 href={languageSelector.href}
                 data-ecl-language-selector
-                aria-controls="language-list-overlay"
+                aria-controls={
+                  languageSelector.overlay ? 'language-list-overlay' : null
+                }
+                aria-expanded="false"
               >
                 <span className="ecl-site-header-harmonised__language-icon">
                   <Icon shape="general--language" size="s" />
