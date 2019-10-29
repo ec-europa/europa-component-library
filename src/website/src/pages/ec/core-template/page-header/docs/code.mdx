@@ -5,6 +5,7 @@ order: 2
 
 import Playground from '@ecl/website-components/Playground';
 import PageHeaderCore from '@ecl/ec-react-component-page-header-core';
+import parse from 'html-react-parser';
 
 import breadcrumb from './ShowcaseBreadcrumb';
 import demoTitleContent from '@ecl/ec-specs-page-header-core/demo/data--title';
@@ -30,7 +31,11 @@ import demoMetaTitleDescriptionContent from '@ecl/ec-specs-page-header-core/demo
   selectedStory="meta-title"
   showFrame
 >
-  <PageHeaderCore breadcrumb={breadcrumb} {...demoMetaTitleContent} />
+  <PageHeaderCore
+    breadcrumb={breadcrumb}
+    {...demoMetaTitleContent}
+    meta={parse(demoMetaTitleContent.meta)}
+  />
 </Playground>
 
 ## Meta - Title - Description
@@ -44,5 +49,6 @@ import demoMetaTitleDescriptionContent from '@ecl/ec-specs-page-header-core/demo
   <PageHeaderCore
     breadcrumb={breadcrumb}
     {...demoMetaTitleDescriptionContent}
+    meta={parse(demoMetaTitleDescriptionContent.meta)}
   />
 </Playground>

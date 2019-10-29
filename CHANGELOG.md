@@ -1,5 +1,39 @@
 # Changelog
 
+## 2.14.0 (2019-10-25)
+
+#### :rocket: New Feature
+
+- [#1365](https://github.com/ec-europa/europa-component-library/pull/1365) feat(page-header-core): add component - INNO-1896 ([@emeryro](https://github.com/emeryro))
+- [#1358](https://github.com/ec-europa/europa-component-library/pull/1358) feat(page-header-harmonised): add component - INNO-1816 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#1373](https://github.com/ec-europa/europa-component-library/pull/1373) fix(expandable): use aria-expanded attribute - INNO-1899 ([@yhuard](https://github.com/yhuard))
+- [#1372](https://github.com/ec-europa/europa-component-library/pull/1372) fix(text-input): remove border radius on iOS - INNO-1904 ([@yhuard](https://github.com/yhuard))
+
+#### :nail_care: Enhancement
+
+- [#1364](https://github.com/ec-europa/europa-component-library/pull/1364) feat(eu-page-headers): add missing EU variants - INNO-1844 ([@yhuard](https://github.com/yhuard))
+- [#1362](https://github.com/ec-europa/europa-component-library/pull/1362) feat(site-header): render class name as a link - INNO-1894 ([@yhuard](https://github.com/yhuard))
+
+#### :memo: Documentation
+
+- [#1378](https://github.com/ec-europa/europa-component-library/pull/1378) docs: update breadcrumb - INNO-1901 ([@yhuard](https://github.com/yhuard))
+- [#1377](https://github.com/ec-europa/europa-component-library/pull/1377) docs: add harmonised g2 page header - INNO-1907 ([@yhuard](https://github.com/yhuard))
+- [#1374](https://github.com/ec-europa/europa-component-library/pull/1374) docs: remove bold - INNO-1898 ([@emeryro](https://github.com/emeryro))
+- [#1363](https://github.com/ec-europa/europa-component-library/pull/1363) docs(harmonised): update content - INNO-1888 ([@yhuard](https://github.com/yhuard))
+- [#1361](https://github.com/ec-europa/europa-component-library/pull/1361) docs(harmonised-1): add page header - INNO-1888 ([@yhuard](https://github.com/yhuard))
+
+#### :house: Internal
+
+- [#1367](https://github.com/ec-europa/europa-component-library/pull/1367) chore: update dependencies - INNO-1811 ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- Yannick Huard ([@yhuard](https://github.com/yhuard))
+
 ## 2.13.0 (2019-10-18)
 
 #### :rocket: New Feature
