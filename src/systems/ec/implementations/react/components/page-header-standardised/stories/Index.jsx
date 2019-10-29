@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
+import parse from 'html-react-parser';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
@@ -13,6 +14,12 @@ import demoMetaTitleContent from '@ecl/ec-specs-page-header-standardised/demo/da
 import demoMetaTitleDescriptionContent from '@ecl/ec-specs-page-header-standardised/demo/data--meta-title-description';
 
 import PageHeaderStandardised from '../src/PageHeaderStandardised';
+
+// Format data
+demoMetaTitleContent.meta = parse(demoMetaTitleContent.meta);
+demoMetaTitleDescriptionContent.meta = parse(
+  demoMetaTitleDescriptionContent.meta
+);
 
 const { items, ...breadcrumbProps } = breadcrumbContent;
 const breadcrumb = (
