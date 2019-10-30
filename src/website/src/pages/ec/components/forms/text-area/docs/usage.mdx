@@ -34,16 +34,16 @@ import { Paragraph, Anatomy, Link } from '@ecl/website-components';
 
 | Elements    | Mandatory | Description                                                                       |
 | ----------- | --------- | --------------------------------------------------------------------------------- |
-| Heading     | yes       | Title of the text area                                                            |
-| Helper text | no        | Additional information the user might need, to help them provide the correct data |
-| Text area   | yes       | The area where the user enters their response                                     |
+| Heading     | Yes       | Title of the text area                                                            |
+| Helper text | No        | Additional information the user might need, to help them provide the correct data |
+| Text area   | Yes       | The area where the user enters their response                                     |
 
 ### Conditional (invalid or missing input)
 
 | Elements           | Mandatory | Description                                                                                                                                 |
 | ------------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| Optional indicator | yes       | Indicator stating **if** input fields are **optional**. **All fields are mandatory by default - only ask for information that is required** |
-| Error message      | yes       | A message informing the user **if** there is a problem with their entry                                                                     |
+| Optional indicator | Yes       | Indicator stating **if** input fields are **optional**. **All fields are mandatory by default - only ask for information that is required** |
+| Error message      | Yes       | A message informing the user **if** there is a problem with their entry                                                                     |
 
 ## Do's
 
@@ -83,6 +83,15 @@ import { Paragraph, Anatomy, Link } from '@ecl/website-components';
 
 ## Related components
 
-- <Link to="/ec/components/forms/radio/usage/">Radio button</Link>
-- <Link to="/ec/components/forms/select/usage/">Select</Link>
-- <Link to="/ec/components/forms/text-field/usage/">Text field</Link>
+- <Link to="/ec/components/forms/checkbox/usage/" standalone>
+    Checkbox
+  </Link>
+- <Link to="/ec/components/forms/radio/usage/" standalone>
+    Radio button
+  </Link>
+- <Link to="/ec/components/forms/select/usage/" standalone>
+    Select
+  </Link>
+- <Link to="/ec/components/forms/text-field/usage/" standalone>
+    Text field
+  </Link>
