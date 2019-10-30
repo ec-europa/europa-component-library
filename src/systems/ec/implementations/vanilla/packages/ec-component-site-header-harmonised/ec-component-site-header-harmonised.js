@@ -116,10 +116,14 @@ export class SiteHeaderHarmonised {
 
   openOverlay() {
     this.languageListOverlay.hidden = false;
+    this.languageListOverlay.setAttribute('aria-modal', 'true');
+    this.languageSelector.setAttribute('aria-expanded', 'true');
   }
 
   closeOverlay() {
     this.languageListOverlay.hidden = true;
+    this.languageListOverlay.removeAttribute('aria-modal');
+    this.languageSelector.setAttribute('aria-expanded', 'false');
   }
 
   toggleOverlay(e) {
@@ -153,7 +157,10 @@ export class SiteHeaderHarmonised {
     }
 
     // Toggle the search form
-    this.searchToggle.setAttribute('aria-expanded', !isExpanded);
+    this.searchToggle.setAttribute(
+      'aria-expanded',
+      isExpanded ? 'false' : 'true'
+    );
     if (!isExpanded) {
       this.searchForm.classList.add(
         'ecl-site-header-harmonised__search--active'
@@ -183,7 +190,10 @@ export class SiteHeaderHarmonised {
     }
 
     // Toggle the login box
-    this.loginToggle.setAttribute('aria-expanded', !isExpanded);
+    this.loginToggle.setAttribute(
+      'aria-expanded',
+      isExpanded ? 'false' : 'true'
+    );
     if (!isExpanded) {
       this.loginBox.classList.add(
         'ecl-site-header-harmonised__login-box--active'
