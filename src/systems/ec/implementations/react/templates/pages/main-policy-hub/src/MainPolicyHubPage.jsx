@@ -1,14 +1,15 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
+import DateBlock from '@ecl/ec-react-component-date-block';
 import {
   DescriptionList,
   DescriptionTerm,
   DescriptionDefinition,
 } from '@ecl/ec-react-component-description-list';
-// import FileDownload from '@ecl/ec-react-component-file';
 import Link from '@ecl/ec-react-component-link';
-// import SocialMediaShare from '@ecl/ec-react-component-social-media-share';
+import SocialMediaFollow from '@ecl/ec-react-component-social-media-follow';
+import SocialMediaShare from '@ecl/ec-react-component-social-media-share';
 import Timeline2 from '@ecl/ec-react-component-timeline2';
 
 // Templates
@@ -139,7 +140,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
         <div className="ecl-container">
           <div className="ecl-row">
             <div className="ecl-col-12 ecl-col-md-6">
-              <p className="ecl-u-type-paragraph">
+              <p className="ecl-u-type-paragraph ecl-u-mv-none">
                 Clean air is essential to our health and to the environment. But
                 since the industrial revolution, the qulity of the air we
                 breathe ha deteriorated considerably - mainly as a result of
@@ -161,7 +162,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
                 Objectives
               </h2>
 
-              <p className="ecl-u-type-paragraph ecl-u-type-mt-l">
+              <p className="ecl-u-type-paragraph ecl-u-type-mt-l ecl-u-mb-none">
                 Achieve levels of air quality that do not give rise to
                 significant negative eimpacts on, and risks to, human health and
                 the environment. Since the early 1970s, the EU has been working
@@ -173,23 +174,36 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
             </div>
 
             <div className="ecl-col-12 ecl-col-md-6">
-              <div className="ecl-u-bg-blue-5 ecl-u-border-all ecl-u-border-color-blue-25 ecl-u-pv-l ecl-u-ph-s">
+              <div className="ecl-u-bg-blue-5 ecl-u-border-all ecl-u-border-color-blue-25 ecl-u-pv-l">
                 <DescriptionList variant="horizontal">
-                  <DescriptionTerm>Policy period</DescriptionTerm>
+                  <DescriptionTerm
+                    className="ecl-u-pl-s"
+                    style={{ boxSizing: 'border-box' }}
+                  >
+                    Policy period
+                  </DescriptionTerm>
                   <DescriptionDefinition>
                     01.01.2015 - 01.01.2030
                   </DescriptionDefinition>
 
-                  <DescriptionTerm>Connected topics</DescriptionTerm>
+                  <DescriptionTerm
+                    className="ecl-u-pl-s"
+                    style={{ boxSizing: 'border-box' }}
+                  >
+                    Connected topics
+                  </DescriptionTerm>
                   <DescriptionDefinition>
-                    <link
+                    <Link
                       href="/example"
                       label="Environment"
                       variant="standalone"
                     />
                   </DescriptionDefinition>
 
-                  <DescriptionTerm>
+                  <DescriptionTerm
+                    className="ecl-u-pl-s"
+                    style={{ boxSizing: 'border-box' }}
+                  >
                     Connected Commission priorities
                   </DescriptionTerm>
                   <DescriptionDefinition>
@@ -200,7 +214,12 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
                     />
                   </DescriptionDefinition>
 
-                  <DescriptionTerm>Previous version</DescriptionTerm>
+                  <DescriptionTerm
+                    className="ecl-u-pl-s"
+                    style={{ boxSizing: 'border-box' }}
+                  >
+                    Previous version
+                  </DescriptionTerm>
                   <DescriptionDefinition>
                     <Link
                       href="/example"
@@ -442,11 +461,11 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
         </div>
 
         <div className="ecl-container">
-          <h2 className="ecl-u-type-heading-2 ecl-u-mt-3xl ecl-mb-none">
+          <h2 className="ecl-u-type-heading-2 ecl-u-mt-3xl ecl-u-mb-none">
             Policy timeline
           </h2>
 
-          <article className="ecl-u-bg-blue-5 ecl-u-border-all ecl-u-border-color-blue-25 ecl-u-pv-l ecl-u-ph-s ecl-u-mt-l">
+          <article className="ecl-u-d-inline-block ecl-u-bg-blue-5 ecl-u-border-all ecl-u-border-color-blue-25 ecl-u-pv-l ecl-u-ph-s ecl-u-mt-l">
             <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
               <Link
                 href="/example"
@@ -767,6 +786,393 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
               }}
             />
           </div>
+        </div>
+
+        <div className="ecl-container">
+          <h2 className="ecl-u-type-heading-2 ecl-u-mt-3xl ecl-u-mb-none">
+            Events
+          </h2>
+
+          <article className="ecl-u-d-flex ecl-u-pv-m ecl-u-mt-l">
+            <div className="ecl-u-flex-grow-0 ecl-u-mr-m">
+              <DateBlock
+                dateTime="2019-11-28"
+                day="28"
+                month="Nov"
+                monthFull="November"
+                year="2019"
+              />
+            </div>
+            <div className="ecl-u-flex-grow-1">
+              <div className="ecl-u-type-s ecl-u-type-color-grey-75">
+                <span className="ecl-u-type-uppercase">
+                  Forum | <time dateTime="2019-11-28">28-29 Nov 2019</time>
+                </span>
+              </div>
+              <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                <Link
+                  href="/example"
+                  variant="standalone"
+                  label="EU Clean Air"
+                />
+              </div>
+              <p className="ecl-u-type-paragraph-s ecl-u-type-color-grey ecl-u-mt-xs">
+                With: Daniel Calleja Crespo
+              </p>
+            </div>
+          </article>
+
+          <h2 className="ecl-u-type-heading-2 ecl-u-mt-3xl ecl-u-mb-none">
+            Stakeholders
+          </h2>
+
+          <div className="ecl-row">
+            <div className="ecl-col-12 ecl-col-md-6">
+              <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
+                <div
+                  role="img"
+                  aria-label="Example image"
+                  className="ecl-u-flex-shrink-0 ecl-u-mr-s ecl-u-media-a-s ecl-u-media-bg-size-contain ecl-u-media-bg-repeat-none"
+                  style={{
+                    backgroundImage:
+                      'url("https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg")',
+                  }}
+                />
+
+                <div className="ecl-u-flex-grow-1">
+                  <h2 className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mv-none">
+                    <Link
+                      href="/example"
+                      variant="standalone"
+                      label="Aurel CIOBANU-DORDEA"
+                    />
+                  </h2>
+                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-type-s">
+                    Director
+                  </p>
+                  <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-m">
+                    DG Environment
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div className="ecl-col-12 ecl-col-md-6">
+              <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
+                <div
+                  role="img"
+                  aria-label="Example image"
+                  className="ecl-u-flex-shrink-0 ecl-u-mr-s ecl-u-media-a-s ecl-u-media-bg-size-contain ecl-u-media-bg-repeat-none"
+                  style={{
+                    backgroundImage:
+                      'url("https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg")',
+                  }}
+                />
+
+                <div className="ecl-u-flex-grow-1">
+                  <h2 className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mv-none">
+                    <Link
+                      href="/example"
+                      variant="standalone"
+                      label="T. W. SALMONOWICZ"
+                    />
+                  </h2>
+                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-type-s">
+                    Administrative Assistant
+                  </p>
+                  <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-m">
+                    DG Environment
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div className="ecl-row">
+            <div className="ecl-col-12 ecl-col-md-6">
+              <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
+                <div
+                  role="img"
+                  aria-label="Example image"
+                  className="ecl-u-flex-shrink-0 ecl-u-mr-s ecl-u-media-a-s ecl-u-media-bg-size-contain ecl-u-media-bg-repeat-none"
+                  style={{
+                    backgroundImage:
+                      'url("https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg")',
+                  }}
+                />
+
+                <div className="ecl-u-flex-grow-1">
+                  <h2 className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mv-none">
+                    <Link
+                      href="/example"
+                      variant="standalone"
+                      label="Mr C. SOBOTTA"
+                    />
+                  </h2>
+                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-type-s">
+                    Policy Officer
+                  </p>
+                  <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-m">
+                    DG Environment
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div className="ecl-u-bg-blue-5 ecl-u-pv-l ecl-u-mt-3xl">
+          <div className="ecl-container">
+            <h2 className="ecl-u-type-heading-2 ecl-u-mv-none">Contact</h2>
+
+            <div className="ecl-row">
+              <div className="ecl-col-12 ecl-col-md-6">
+                <h3 className="ecl-u-type-heading-3 ecl-u-mt-l ecl-u-mb-none">
+                  General contact
+                </h3>
+
+                <DescriptionList variant="horizontal" className="ecl-u-mt-l">
+                  <DescriptionTerm>Name</DescriptionTerm>
+                  <DescriptionDefinition>
+                    Roberto Fallieri
+                  </DescriptionDefinition>
+
+                  <DescriptionTerm>Mobile phone</DescriptionTerm>
+                  <DescriptionDefinition>
+                    (0)2 44224411 (Comission switchboard)
+                  </DescriptionDefinition>
+
+                  <DescriptionTerm>Fixed phone</DescriptionTerm>
+                  <DescriptionDefinition>
+                    (0)2 00323311 (Commission switchboard)
+                  </DescriptionDefinition>
+
+                  <DescriptionTerm>Postal address</DescriptionTerm>
+                  <DescriptionDefinition>
+                    Directorate General for Environment
+                    <br />
+                    European Commission
+                    <br />
+                    DG ENV
+                    <br />
+                    B-1049 Brussels
+                    <br />
+                    Belgium
+                  </DescriptionDefinition>
+
+                  <DescriptionTerm>Building code</DescriptionTerm>
+                  <DescriptionDefinition>L-56</DescriptionDefinition>
+
+                  <DescriptionTerm>Room code</DescriptionTerm>
+                  <DescriptionDefinition>08/4A</DescriptionDefinition>
+
+                  <DescriptionTerm>Email</DescriptionTerm>
+                  <DescriptionDefinition>
+                    <Link
+                      href="/example"
+                      label="roberto.fallieri@europa.eu"
+                      variant="standalone"
+                    />
+                  </DescriptionDefinition>
+                </DescriptionList>
+
+                <SocialMediaFollow
+                  description="Social Media"
+                  links={[
+                    {
+                      href: '/example',
+                      label: 'Linkedin',
+                      variant: 'standalone',
+                      iconPosition: 'before',
+                      icon: [
+                        {
+                          shape: 'linkedin',
+                          size: 'xl',
+                        },
+                        {
+                          shape: 'linkedin_hover',
+                          size: 'xl',
+                        },
+                      ],
+                    },
+                  ]}
+                />
+              </div>
+
+              <div className="ecl-col-12 ecl-col-md-6">
+                <h3 className="ecl-u-type-heading-3 ecl-u-mt-l ecl-u-mb-none">
+                  Press contact
+                </h3>
+
+                <DescriptionList variant="horizontal" className="ecl-u-mt-l">
+                  <DescriptionTerm>Name</DescriptionTerm>
+                  <DescriptionDefinition>David Higgins</DescriptionDefinition>
+
+                  <DescriptionTerm>Mobile phone</DescriptionTerm>
+                  <DescriptionDefinition>
+                    (0)2 12312331 (Comission switchboard)
+                  </DescriptionDefinition>
+
+                  <DescriptionTerm>Fixed phone</DescriptionTerm>
+                  <DescriptionDefinition>
+                    (0)2 12345678 (Commission switchboard)
+                  </DescriptionDefinition>
+
+                  <DescriptionTerm>Postal address</DescriptionTerm>
+                  <DescriptionDefinition>
+                    Directorate General for Environment
+                    <br />
+                    European Commission
+                    <br />
+                    DG ENV
+                    <br />
+                    B-1049 Brussels
+                    <br />
+                    Belgium
+                  </DescriptionDefinition>
+
+                  <DescriptionTerm>Building code</DescriptionTerm>
+                  <DescriptionDefinition>L-56</DescriptionDefinition>
+
+                  <DescriptionTerm>Room code</DescriptionTerm>
+                  <DescriptionDefinition>08/4A</DescriptionDefinition>
+
+                  <DescriptionTerm>Email</DescriptionTerm>
+                  <DescriptionDefinition>
+                    <Link
+                      href="/example"
+                      label="david.higgins@europa.eu"
+                      variant="standalone"
+                    />
+                  </DescriptionDefinition>
+                </DescriptionList>
+
+                <SocialMediaFollow
+                  description="Social Media"
+                  links={[
+                    {
+                      href: '/example',
+                      label: 'Linkedin',
+                      variant: 'standalone',
+                      iconPosition: 'before',
+                      icon: [
+                        {
+                          shape: 'linkedin',
+                          size: 'xl',
+                        },
+                        {
+                          shape: 'linkedin_hover',
+                          size: 'xl',
+                        },
+                      ],
+                    },
+                  ]}
+                />
+              </div>
+            </div>
+
+            <Link
+              className="ecl-u-mt-l"
+              href="/example"
+              label="Ask a question"
+              variant="standalone"
+              icon={{
+                shape: 'ui--corner-arrow',
+                transform: 'rotate-90',
+                size: 'fluid',
+              }}
+            />
+          </div>
+        </div>
+
+        <div className="ecl-container">
+          <SocialMediaShare
+            className="ecl-u-mt-3xl"
+            description="Share this page"
+            links={[
+              {
+                href: '/example',
+                label: 'Twitter',
+                className: 'ecl-social-media-share__link--twitter',
+                variant: 'standalone',
+                iconPosition: 'before',
+                icon: [
+                  {
+                    shape: 'twitter',
+                    size: 'xl',
+                    className: '',
+                  },
+                  {
+                    shape: 'twitter_hover',
+                    size: 'xl',
+                    className: 'ecl-social-media-share__icon-hover',
+                  },
+                ],
+              },
+              {
+                href: '/example',
+                label: 'Facebook',
+                className: 'ecl-social-media-share__link--facebook',
+                variant: 'standalone',
+                iconPosition: 'before',
+                icon: [
+                  {
+                    shape: 'facebook',
+                    size: 'xl',
+                    className: '',
+                  },
+                  {
+                    shape: 'facebook_hover',
+                    size: 'xl',
+                    className: 'ecl-social-media-share__icon-hover',
+                  },
+                ],
+              },
+              {
+                href: '/example',
+                label: 'Linkedin',
+                className: 'ecl-social-media-share__link--linkedin',
+                variant: 'standalone',
+                iconPosition: 'before',
+                icon: [
+                  {
+                    shape: 'linkedin',
+                    size: 'xl',
+                    className: '',
+                  },
+                  {
+                    shape: 'linkedin_hover',
+                    size: 'xl',
+                    className: 'ecl-social-media-share__icon-hover',
+                  },
+                ],
+              },
+              {
+                href: '/example',
+                label: 'E-mail',
+                className: 'ecl-social-media-share__link--email',
+                variant: 'standalone',
+                iconPosition: 'before',
+                icon: [
+                  {
+                    shape: 'email',
+                    size: 'xl',
+                    className: '',
+                  },
+                  {
+                    shape: 'email_hover',
+                    size: 'xl',
+                    className: 'ecl-social-media-share__icon-hover',
+                  },
+                ],
+              },
+              {
+                href: '/example',
+                label: 'Other social networks',
+                variant: 'standalone',
+              },
+            ]}
+          />
         </div>
       </main>
     </div>
