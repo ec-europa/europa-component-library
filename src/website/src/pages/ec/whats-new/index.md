@@ -9,6 +9,35 @@ Users can still go to ECL v1 to create or upgrade their websites. In 2019, we wi
 
 We will also add new components to the ECL v2 as we continue improving the look and feel of the existing components. New releases under v2 should be published periodically under [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 2.14.0 (2019-10-25)
+
+#### :rocket: New Feature
+
+- [#1365](https://github.com/ec-europa/europa-component-library/pull/1365) feat(page-header-core): add component - INNO-1896
+- [#1358](https://github.com/ec-europa/europa-component-library/pull/1358) feat(page-header-harmonised): add component - INNO-1816
+
+#### :bug: Bug Fix
+
+- [#1373](https://github.com/ec-europa/europa-component-library/pull/1373) fix(expandable): use aria-expanded attribute - INNO-1899
+- [#1372](https://github.com/ec-europa/europa-component-library/pull/1372) fix(text-input): remove border radius on iOS - INNO-1904
+
+#### :nail_care: Enhancement
+
+- [#1364](https://github.com/ec-europa/europa-component-library/pull/1364) feat(eu-page-headers): add missing EU variants - INNO-1844
+- [#1362](https://github.com/ec-europa/europa-component-library/pull/1362) feat(site-header): render class name as a link - INNO-1894
+
+#### :memo: Documentation
+
+- [#1378](https://github.com/ec-europa/europa-component-library/pull/1378) docs: update breadcrumb - INNO-1901
+- [#1377](https://github.com/ec-europa/europa-component-library/pull/1377) docs: add harmonised g2 page header - INNO-1907
+- [#1374](https://github.com/ec-europa/europa-component-library/pull/1374) docs: remove bold - INNO-1898
+- [#1363](https://github.com/ec-europa/europa-component-library/pull/1363) docs(harmonised): update content - INNO-1888
+- [#1361](https://github.com/ec-europa/europa-component-library/pull/1361) docs(harmonised-1): add page header - INNO-1888
+
+#### :house: Internal
+
+- [#1367](https://github.com/ec-europa/europa-component-library/pull/1367) chore: update dependencies - INNO-1811
+
 ## 2.13.0 (2019-10-18)
 
 #### :rocket: New Feature

@@ -1,9 +1,10 @@
 [build]
-  command = "yarn run dist"
+  command = "yarn clean && yarn build:icons && yarn build:themes && yarn dist"
   publish = "dist/website"
 
 [build.environment]
-  YARN_VERSION = "1.12.3"
+  NOYARNPOSTINSTALL = "1"
+  YARN_VERSION = "1.19.1"
   YARN_FLAGS = "--frozen-lockfile"
 
 # v2 branch: only redirect

@@ -1,6 +1,6 @@
 ---
 title: Footer
-order: 2
+order: 3
 defaultTab: group1
 status: ready
 ---

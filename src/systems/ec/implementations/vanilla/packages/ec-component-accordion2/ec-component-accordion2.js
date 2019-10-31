@@ -86,11 +86,11 @@ export class Accordion2 {
       toggle.getAttribute('aria-expanded') === 'true';
 
     // Toggle the expandable/collapsible
-    toggle.setAttribute('aria-expanded', !isExpanded);
+    toggle.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
     if (isExpanded) {
-      target.setAttribute('hidden', true);
+      target.hidden = true;
     } else {
-      target.removeAttribute('hidden');
+      target.hidden = false;
     }
 
     // Toggle icon
