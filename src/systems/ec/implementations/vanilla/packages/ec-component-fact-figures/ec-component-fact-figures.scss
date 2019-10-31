@@ -1,0 +1,18 @@
+/**
+ * Timeline
+ * @define fact-figures; weak
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-fact-figures() {
+  .ecl-fact-figures {
+    margin: 0;
+  }
+}
+
+// Use mixin
+@include exports('ec-component-fact-figures') {
+  @include ecl-fact-figures();
+}
