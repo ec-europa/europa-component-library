@@ -1,6 +1,6 @@
 /**
- * Timeline
- * @define fact-figures; weak
+ * Fact and figures
+ * @define fact-figures
  */
 
 // Import base
@@ -8,7 +8,56 @@
 
 @mixin ecl-fact-figures() {
   .ecl-fact-figures {
+    background-color: $ecl-color-blue-5;
+    border: 1px solid $ecl-color-blue-25;
     margin: 0;
+  }
+
+  .ecl-fact-figures__item {
+    margin-top: $ecl-spacing-xl;
+    padding-left: $ecl-spacing-m;
+    padding-right: $ecl-spacing-m;
+
+    &:first-of-type {
+      margin-top: $ecl-spacing-l;
+    }
+
+    &:last-of-type {
+      margin-bottom: $ecl-spacing-l;
+    }
+  }
+
+  .ecl-fact-figures__icon {
+    color: $ecl-color-blue;
+    margin-bottom: $ecl-spacing-s;
+  }
+
+  .ecl-fact-figures__value {
+    color: $ecl-color-blue;
+    font: $ecl-font-3-xl;
+    font-weight: $ecl-font-weight-bold;
+  }
+
+  .ecl-fact-figures__title {
+    color: $ecl-color-blue;
+    font: $ecl-font-prolonged-l;
+    font-weight: $ecl-font-weight-bold;
+    margin-top: $ecl-spacing-xs;
+  }
+
+  .ecl-fact-figures__description {
+    color: $ecl-color-blue;
+    font: $ecl-font-prolonged-m;
+    margin-top: $ecl-spacing-s;
+  }
+
+  .ecl-fact-figures__view-all {
+    border-top: 1px solid $ecl-color-blue-25;
+    margin-bottom: $ecl-spacing-l;
+    margin-left: $ecl-spacing-m;
+    margin-right: $ecl-spacing-m;
+    margin-top: $ecl-spacing-l;
+    padding-top: $ecl-spacing-l;
   }
 }
 
