@@ -164,9 +164,13 @@ const MainPolicyLegislationPage = ({ siteHeader, footer, template }) => (
             Legislative actions
           </h2>
 
-          <div className="ecl-row">
+          <div className="ecl-row ecl-u-mt-l">
             <div className="ecl-col-12 ecl-col-md-4">
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
+              {/* TODO: use utilities */}
+              <article
+                className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m"
+                style={{ height: '100%', boxSizing: 'border-box' }}
+              >
                 <div className="ecl-u-type-s ecl-u-type-color-grey-75">
                   COMMUNICATION DOCUMENT | 52018DC0330
                 </div>
@@ -185,7 +189,11 @@ const MainPolicyLegislationPage = ({ siteHeader, footer, template }) => (
             </div>
 
             <div className="ecl-col-12 ecl-col-md-4">
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
+              {/* TODO: use utilities */}
+              <article
+                className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m"
+                style={{ height: '100%', boxSizing: 'border-box' }}
+              >
                 <div className="ecl-u-type-s ecl-u-type-color-grey-75">
                   COMMUNICATION DOCUMENT | 52013DC0918
                 </div>
@@ -205,7 +213,11 @@ const MainPolicyLegislationPage = ({ siteHeader, footer, template }) => (
             </div>
 
             <div className="ecl-col-12 ecl-col-md-4">
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
+              {/* TODO: use utilities */}
+              <article
+                className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m"
+                style={{ height: '100%', boxSizing: 'border-box' }}
+              >
                 <div className="ecl-u-type-s ecl-u-type-color-grey-75">
                   PROPOSAL | 52013PC0920
                 </div>
@@ -226,7 +238,11 @@ const MainPolicyLegislationPage = ({ siteHeader, footer, template }) => (
 
           <div className="ecl-row">
             <div className="ecl-col-12 ecl-col-md-4">
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
+              {/* TODO: use utilities */}
+              <article
+                className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m"
+                style={{ height: '100%', boxSizing: 'border-box' }}
+              >
                 <div className="ecl-u-type-s ecl-u-type-color-grey-75">
                   PROPOSAL | 52013PC0917
                 </div>
@@ -247,7 +263,11 @@ const MainPolicyLegislationPage = ({ siteHeader, footer, template }) => (
             </div>
 
             <div className="ecl-col-12 ecl-col-md-4">
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
+              {/* TODO: use utilities */}
+              <article
+                className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m"
+                style={{ height: '100%', boxSizing: 'border-box' }}
+              >
                 <div className="ecl-u-type-s ecl-u-type-color-grey-75">
                   STAFF WORKING DOCUMENT | 5201SC0531
                 </div>
@@ -269,7 +289,11 @@ const MainPolicyLegislationPage = ({ siteHeader, footer, template }) => (
             </div>
 
             <div className="ecl-col-12 ecl-col-md-4">
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
+              {/* TODO: use utilities */}
+              <article
+                className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m"
+                style={{ height: '100%', boxSizing: 'border-box' }}
+              >
                 <div className="ecl-u-type-s ecl-u-type-color-grey-75">
                   STAFF WORKING DOCUMENT | 52013SC0532
                 </div>
@@ -292,7 +316,11 @@ const MainPolicyLegislationPage = ({ siteHeader, footer, template }) => (
 
           <div className="ecl-row">
             <div className="ecl-col-12 ecl-col-md-4">
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
+              {/* TODO: use utilities */}
+              <article
+                className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m"
+                style={{ height: '100%', boxSizing: 'border-box' }}
+              >
                 <div className="ecl-u-type-s ecl-u-type-color-grey-75">
                   INTERINSTITUTIONAL FILE | 2013/044
                 </div>
@@ -311,7 +339,11 @@ const MainPolicyLegislationPage = ({ siteHeader, footer, template }) => (
             </div>
 
             <div className="ecl-col-12 ecl-col-md-4">
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
+              {/* TODO: use utilities */}
+              <article
+                className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m"
+                style={{ height: '100%', boxSizing: 'border-box' }}
+              >
                 <div className="ecl-u-type-s ecl-u-type-color-grey-75">
                   DIRECTIVE | 32008L0050
                 </div>
