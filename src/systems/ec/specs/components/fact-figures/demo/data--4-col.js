@@ -1,4 +1,5 @@
 module.exports = {
+  column: 4,
   viewAll: {
     href: '/example',
     label: 'View all metrics',
@@ -32,6 +33,16 @@ module.exports = {
       title: 'Donec suscipit interdum augue, ac dapibus eros finibus a.',
       description:
         'Cras vestibulum efficitur mi, quis porta tellus rutrum ut. Quisque at pulvinar sem.',
+    },
+    {
+      icon: {
+        shape: 'general--digital',
+        size: 'm',
+      },
+      value: '00.0 million',
+      title: 'Aenean dapibus',
+      description:
+        'Aliquam lacinia diam eu sem malesuada, in interdum ante bibendum.',
     },
   ],
 };

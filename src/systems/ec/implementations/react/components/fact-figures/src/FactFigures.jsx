@@ -5,11 +5,25 @@ import classnames from 'classnames';
 import Link from '@ecl/ec-react-component-link';
 import { FactFiguresItem } from './FactFiguresItem';
 
-export const FactFigures = ({ items, viewAll, className, ...props }) => {
+export const FactFigures = ({
+  column,
+  items,
+  viewAll,
+  className,
+  ...props
+}) => {
   return (
-    <div {...props} className={classnames(className, 'ecl-fact-figures')}>
-      {items &&
-        items.map(item => <FactFiguresItem key={item.title} {...item} />)}
+    <div
+      {...props}
+      className={classnames(className, 'ecl-fact-figures', {
+        [`ecl-fact-figures--col-${column}`]: column,
+      })}
+    >
+      <div className="ecl-fact-figures__items">
+        {items &&
+          items.map(item => <FactFiguresItem key={item.title} {...item} />)}
+      </div>
+
       {!!(viewAll && Object.values(viewAll).length >= 1) && (
         <div className="ecl-fact-figures__view-all">
           <Link
@@ -27,12 +41,14 @@ export const FactFigures = ({ items, viewAll, className, ...props }) => {
 };
 
 FactFigures.propTypes = {
+  column: PropTypes.number,
   items: PropTypes.arrayOf(PropTypes.shape(FactFiguresItem.propTypes)),
   viewAll: PropTypes.shape(Link.PropTypes),
   className: PropTypes.string,
 };
 
 FactFigures.defaultProps = {
+  column: 3,
   items: [],
   viewAll: {},
   className: '',
