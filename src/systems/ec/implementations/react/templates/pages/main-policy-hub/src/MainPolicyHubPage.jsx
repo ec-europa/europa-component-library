@@ -174,7 +174,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
             </div>
 
             <div className="ecl-col-12 ecl-col-md-6">
-              <div className="ecl-u-bg-blue-5 ecl-u-border-all ecl-u-border-color-blue-25 ecl-u-pv-l">
+              <div className="ecl-u-bg-blue-5 ecl-u-border-all ecl-u-border-width-2 ecl-u-border-color-blue-25 ecl-u-pv-l">
                 <DescriptionList variant="horizontal">
                   <DescriptionTerm
                     className="ecl-u-pl-s"
@@ -337,7 +337,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
 
           <div className="ecl-row">
             <div className="ecl-col-12 ecl-col-md-6">
-              <article className="ecl-u-pv-m">
+              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15  ecl-u-border-width-md-0 ecl-u-pv-m">
                 <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
                   <Link
                     href="/example"
@@ -404,10 +404,10 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
             />
 
             <div className="ecl-row ecl-u-mt-l ecl-u-border-top ecl-u-border-color-grey-25">
-              <div className="ecl-col-12 ecl-col-md-6">
-                <h2 className="ecl-u-type-heading-2 ecl-u-mt-l ecl-u-mb-none">
+              <div className="ecl-col-12 ecl-col-md-6 ecl-u-border-bottom ecl-u-border-color-grey-25 ecl-u-border-width-md-0 ecl-u-pb-l ecl-u-pb-md-none">
+                <h3 className="ecl-u-type-heading-3 ecl-u-mt-l ecl-u-mb-none">
                   Monitoring
-                </h2>
+                </h3>
 
                 <p className="ecl-u-type-paragraph ecl-u-mt-m">
                   The new PRIMES 2016 reference scenario and any developments in
@@ -432,9 +432,9 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
               </div>
 
               <div className="ecl-col-12 ecl-col-md-6">
-                <h2 className="ecl-u-type-heading-2 ecl-u-mt-l ecl-u-mb-none">
+                <h3 className="ecl-u-type-heading-3 ecl-u-mt-l ecl-u-mb-none">
                   Evaluation
-                </h2>
+                </h3>
 
                 <p className="ecl-u-type-paragraph ecl-u-mt-m ecl-u-mb-none">
                   This review will build on and reinforce the objectives of the
@@ -465,7 +465,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
             Policy timeline
           </h2>
 
-          <article className="ecl-u-d-inline-block ecl-u-bg-blue-5 ecl-u-border-all ecl-u-border-color-blue-25 ecl-u-pv-l ecl-u-ph-s ecl-u-mt-l">
+          <article className="ecl-u-d-inline-block ecl-u-bg-blue-5 ecl-u-border-all ecl-u-border-width-2 ecl-u-border-color-blue-25 ecl-u-pv-l ecl-u-ph-s ecl-u-mt-l">
             <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
               <Link
                 href="/example"
