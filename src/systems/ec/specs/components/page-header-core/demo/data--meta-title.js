@@ -1,4 +1,4 @@
 module.exports = {
   title: 'Page title',
-  meta: 'Meta info',
+  meta: '<span class="ecl-u-type-uppercase">Meta info</span>',
 };

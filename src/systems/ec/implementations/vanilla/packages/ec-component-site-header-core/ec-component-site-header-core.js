@@ -91,10 +91,14 @@ export class SiteHeaderCore {
 
   openOverlay() {
     this.languageListOverlay.hidden = false;
+    this.languageListOverlay.setAttribute('aria-modal', 'true');
+    this.languageSelector.setAttribute('aria-expanded', 'true');
   }
 
   closeOverlay() {
     this.languageListOverlay.hidden = true;
+    this.languageListOverlay.removeAttribute('aria-modal');
+    this.languageSelector.setAttribute('aria-expanded', 'false');
   }
 
   toggleOverlay(e) {
@@ -120,7 +124,10 @@ export class SiteHeaderCore {
       this.searchToggle.getAttribute('aria-expanded') === 'true';
 
     // Toggle the search form
-    this.searchToggle.setAttribute('aria-expanded', !isExpanded);
+    this.searchToggle.setAttribute(
+      'aria-expanded',
+      isExpanded ? 'false' : 'true'
+    );
     if (!isExpanded) {
       this.searchForm.classList.add('ecl-site-header-core__search--active');
     } else {
