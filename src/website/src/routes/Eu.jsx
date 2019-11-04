@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
 import meta from '../preval/get-meta-eu';
 
@@ -38,6 +38,18 @@ const pagesToRoutes = pages =>
         `../pages/eu${page.key.slice(1)}`
       )
     );
+
+    if (page.attributes.defaultTab) {
+      return (
+        <Redirect
+          key={page.attributes.url}
+          from={page.attributes.url}
+          to={`${page.attributes.url}${page.attributes.defaultTab}/`}
+          exact
+          strict
+        />
+      );
+    }
 
     return (
       <Route
