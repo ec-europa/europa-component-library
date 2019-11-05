@@ -1,0 +1,40 @@
+/**
+ * Box utilities
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-utility-box() {
+  /* Box sizing */
+  .ecl-u-box-sizing-content {
+    box-sizing: content-box;
+  }
+
+  .ecl-u-box-sizing-border {
+    box-sizing: border-box;
+  }
+
+  /* Height */
+  .ecl-u-height-auto {
+    height: auto;
+  }
+
+  .ecl-u-height-100 {
+    height: 100%;
+  }
+
+  /* Width */
+  .ecl-u-width-auto {
+    width: auto;
+  }
+
+  .ecl-u-width-100 {
+    width: 100%;
+  }
+}
+
+// Use mixin
+@include exports('ec-utility-box') {
+  @include ecl-utility-box();
+}
