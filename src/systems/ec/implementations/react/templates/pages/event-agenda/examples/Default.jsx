@@ -15,23 +15,23 @@ import { Timeline2, Timeline2Item } from '@ecl/ec-react-component-timeline2';
 import footerContent from '@ecl/ec-specs-footer-harmonised/demo/data--group2';
 import siteHeaderContent from '@ecl/ec-specs-site-header-harmonised/demo/data--group2';
 
-export default () => {
-  const breadcrumb = (
-    <BreadcrumbHarmonised
-      className="ecl-page-header__breadcrumb"
-      ellipsisLabel="Click to expand"
-      data-ecl-auto-init="BreadcrumbHarmonised"
-    >
-      <BreadcrumbHarmonisedItem label="Home" href="/example" />
-      <BreadcrumbHarmonisedItem label="Events" href="/example" />
-      <BreadcrumbHarmonisedItem
-        label="Fair of European Innovators in Cultural heritage"
-        href="/example"
-      />
-      <BreadcrumbHarmonisedItem label="Programme" />
-    </BreadcrumbHarmonised>
-  );
+const breadcrumb = (
+  <BreadcrumbHarmonised
+    className="ecl-page-header__breadcrumb"
+    ellipsisLabel="Click to expand"
+    data-ecl-auto-init="BreadcrumbHarmonised"
+  >
+    <BreadcrumbHarmonisedItem label="Home" href="/example" />
+    <BreadcrumbHarmonisedItem label="Events" href="/example" />
+    <BreadcrumbHarmonisedItem
+      label="Fair of European Innovators in Cultural heritage"
+      href="/example"
+    />
+    <BreadcrumbHarmonisedItem label="Programme" />
+  </BreadcrumbHarmonised>
+);
 
+export default () => {
   return (
     <Fragment>
       <SiteHeaderHarmonised
