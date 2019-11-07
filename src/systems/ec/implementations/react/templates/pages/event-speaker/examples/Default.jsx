@@ -1,44 +1,52 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { Fragment } from 'react';
 
-import Breadcrumb, { BreadcrumbItem } from '@ecl/ec-react-component-breadcrumb';
-import Footer from '@ecl/ec-react-component-footer';
+import BreadcrumbHarmonised, {
+  BreadcrumbHarmonisedItem,
+} from '@ecl/ec-react-component-breadcrumb-harmonised';
+import FooterHarmonised from '@ecl/ec-react-component-footer-harmonised';
 import Link from '@ecl/ec-react-component-link';
 import PageBanner from '@ecl/ec-react-component-page-banner';
-import PageHeader from '@ecl/ec-react-component-page-header';
-import SiteHeader from '@ecl/ec-react-component-site-header';
+import PageHeaderHarmonised from '@ecl/ec-react-component-page-header-harmonised';
+import SiteHeaderHarmonised from '@ecl/ec-react-component-site-header-harmonised';
 
-import footerContent from '@ecl/ec-specs-footer/demo/data--corporate';
-import siteHeaderContent from '@ecl/ec-specs-site-header/demo/data--en';
+import footerContent from '@ecl/ec-specs-footer-harmonised/demo/data--group2';
+import siteHeaderContent from '@ecl/ec-specs-site-header-harmonised/demo/data--group2';
+
+const breadcrumb = (
+  <BreadcrumbHarmonised
+    className="ecl-page-header__breadcrumb"
+    ellipsisLabel="Click to expand"
+    data-ecl-auto-init="BreadcrumbHarmonised"
+  >
+    <BreadcrumbHarmonisedItem label="Home" href="/example" />
+    <BreadcrumbHarmonisedItem label="Events" href="/example" />
+    <BreadcrumbHarmonisedItem
+      label="Fair of European Innovators in Cultural heritage"
+      href="/example"
+    />
+    <BreadcrumbHarmonisedItem label="Programme" />
+  </BreadcrumbHarmonised>
+);
 
 export default () => {
-  const breadcrumb = (
-    <Breadcrumb className="ecl-page-header__breadcrumb">
-      <BreadcrumbItem label="Home" href="/example" />
-      <BreadcrumbItem label="Events" href="/example" />
-      <BreadcrumbItem
-        label="Fair of European Innovators in Cultural heritage"
-        href="/example"
-      />
-      <BreadcrumbItem label="Speakers" />
-    </Breadcrumb>
-  );
-
   return (
     <Fragment>
-      <SiteHeader {...siteHeaderContent} data-ecl-auto-init="SiteHeader" />
-      <PageHeader
+      <SiteHeaderHarmonised
+        {...siteHeaderContent}
+        data-ecl-auto-init="SiteHeaderHarmonised"
+        className="ecl-site-header-harmonised--group2"
+      />
+      <PageHeaderHarmonised
         breadcrumb={breadcrumb}
         meta="Conference"
         title="Fair of European Innovators in Cultural heritage"
       />
-
       <main className="ecl-u-pv-2xl ecl-u-pv-md-3xl">
         <div className="ecl-container">
           <h2 className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l">
             Keynote Speakers
           </h2>
-
           <div className="ecl-row">
             <div className="ecl-col-12 ecl-col-md-4">
               <article className="ecl-card">
@@ -88,7 +96,6 @@ export default () => {
                 </section>
               </article>
             </div>
-
             <div className="ecl-col-12 ecl-col-md-4 ecl-u-mt-l ecl-u-mt-md-none">
               <article className="ecl-card">
                 <header className="ecl-card__header">
@@ -138,7 +145,6 @@ export default () => {
                 </section>
               </article>
             </div>
-
             <div className="ecl-col-12 ecl-col-md-4 ecl-u-mt-l ecl-u-mt-md-none">
               <article className="ecl-card">
                 <header className="ecl-card__header">
@@ -189,18 +195,15 @@ export default () => {
               </article>
             </div>
           </div>
-
           <Link
             variant="cta"
             label="Register"
             href="/example"
             className="ecl-u-mt-2xl"
           />
-
           <h2 className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
             Speakers
           </h2>
-
           <div className="ecl-row">
             <div className="ecl-col-12 ecl-col-md-6">
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
@@ -214,7 +217,6 @@ export default () => {
                     backgroundSize: 'contain',
                   }}
                 />
-
                 <div className="ecl-u-flex-grow-1">
                   <h2 className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mv-none">
                     <Link
@@ -240,7 +242,6 @@ export default () => {
                   </div>
                 </div>
               </article>
-
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
@@ -252,7 +253,6 @@ export default () => {
                     backgroundSize: 'contain',
                   }}
                 />
-
                 <div className="ecl-u-flex-grow-1">
                   <h2 className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mv-none">
                     <Link
@@ -278,7 +278,6 @@ export default () => {
                   </div>
                 </div>
               </article>
-
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
@@ -290,7 +289,6 @@ export default () => {
                     backgroundSize: 'contain',
                   }}
                 />
-
                 <div className="ecl-u-flex-grow-1">
                   <h2 className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mv-none">
                     <Link
@@ -318,7 +316,6 @@ export default () => {
                   </div>
                 </div>
               </article>
-
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
@@ -330,7 +327,6 @@ export default () => {
                     backgroundSize: 'contain',
                   }}
                 />
-
                 <div className="ecl-u-flex-grow-1">
                   <h2 className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mv-none">
                     <Link
@@ -357,7 +353,6 @@ export default () => {
                   </div>
                 </div>
               </article>
-
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
@@ -369,7 +364,6 @@ export default () => {
                     backgroundSize: 'contain',
                   }}
                 />
-
                 <div className="ecl-u-flex-grow-1">
                   <h2 className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mv-none">
                     <Link
@@ -396,7 +390,6 @@ export default () => {
                   </div>
                 </div>
               </article>
-
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
@@ -408,7 +401,6 @@ export default () => {
                     backgroundSize: 'contain',
                   }}
                 />
-
                 <div className="ecl-u-flex-grow-1">
                   <h2 className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mv-none">
                     <Link
@@ -435,7 +427,6 @@ export default () => {
                   </div>
                 </div>
               </article>
-
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
@@ -447,7 +438,6 @@ export default () => {
                     backgroundSize: 'contain',
                   }}
                 />
-
                 <div className="ecl-u-flex-grow-1">
                   <h2 className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mv-none">
                     <Link
@@ -473,7 +463,6 @@ export default () => {
                   </div>
                 </div>
               </article>
-
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
@@ -485,7 +474,6 @@ export default () => {
                     backgroundSize: 'contain',
                   }}
                 />
-
                 <div className="ecl-u-flex-grow-1">
                   <h2 className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mv-none">
                     <Link
@@ -512,7 +500,6 @@ export default () => {
                 </div>
               </article>
             </div>
-
             <div className="ecl-col-12 ecl-col-md-6">
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
@@ -525,7 +512,6 @@ export default () => {
                     backgroundSize: 'contain',
                   }}
                 />
-
                 <div className="ecl-u-flex-grow-1">
                   <h2 className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mv-none">
                     <Link
@@ -564,7 +550,6 @@ export default () => {
                   </div>
                 </div>
               </article>
-
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
@@ -576,7 +561,6 @@ export default () => {
                     backgroundSize: 'contain',
                   }}
                 />
-
                 <div className="ecl-u-flex-grow-1">
                   <h2 className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mv-none">
                     <Link
@@ -602,7 +586,6 @@ export default () => {
                   </div>
                 </div>
               </article>
-
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
@@ -614,7 +597,6 @@ export default () => {
                     backgroundSize: 'contain',
                   }}
                 />
-
                 <div className="ecl-u-flex-grow-1">
                   <h2 className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mv-none">
                     <Link
@@ -642,7 +624,6 @@ export default () => {
                   </div>
                 </div>
               </article>
-
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
@@ -654,7 +635,6 @@ export default () => {
                     backgroundSize: 'contain',
                   }}
                 />
-
                 <div className="ecl-u-flex-grow-1">
                   <h2 className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mv-none">
                     <Link
@@ -680,7 +660,6 @@ export default () => {
                   </div>
                 </div>
               </article>
-
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
@@ -692,7 +671,6 @@ export default () => {
                     backgroundSize: 'contain',
                   }}
                 />
-
                 <div className="ecl-u-flex-grow-1">
                   <h2 className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mv-none">
                     <Link
@@ -719,7 +697,6 @@ export default () => {
                   </div>
                 </div>
               </article>
-
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
@@ -731,7 +708,6 @@ export default () => {
                     backgroundSize: 'contain',
                   }}
                 />
-
                 <div className="ecl-u-flex-grow-1">
                   <h2 className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mv-none">
                     <Link
@@ -758,7 +734,6 @@ export default () => {
                   </div>
                 </div>
               </article>
-
               <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
                 <div
                   role="img"
@@ -770,7 +745,6 @@ export default () => {
                     backgroundSize: 'contain',
                   }}
                 />
-
                 <div className="ecl-u-flex-grow-1">
                   <h2 className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mv-none">
                     <Link
@@ -800,9 +774,8 @@ export default () => {
           </div>
         </div>
       </main>
-
       <PageBanner
-        variant="default"
+        variant="primary"
         isCentered
         title="Fair of European Innovators in Cultural Heritage"
         link={{
@@ -810,7 +783,10 @@ export default () => {
           href: '/example',
         }}
       />
-      <Footer {...footerContent} />
+      <FooterHarmonised
+        {...footerContent}
+        className="ecl-footer-harmonised--group2"
+      />
     </Fragment>
   );
 };

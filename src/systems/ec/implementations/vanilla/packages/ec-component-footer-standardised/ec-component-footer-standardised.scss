@@ -15,8 +15,8 @@
   $text-color: $ecl-color-white,
   $column-gap: $ecl-grid-gutter-width
 ) {
-  /* 
-   * Global rules 
+  /*
+   * Global rules
    */
   .ecl-footer-standardised {
     background-color: $bg-color;
@@ -154,8 +154,8 @@
     }
   }
 
-  /* 
-   * Section related rules 
+  /*
+   * Section related rules
    */
   .ecl-footer-standardised__section1,
   .ecl-footer-standardised__section2 {
@@ -196,6 +196,7 @@
     .ecl-footer-standardised__container {
       column-gap: $column-gap;
       display: grid;
+      grid-gap: 0 $column-gap;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: repeat(4, minmax(min-content, max-content));
       row-gap: 0;

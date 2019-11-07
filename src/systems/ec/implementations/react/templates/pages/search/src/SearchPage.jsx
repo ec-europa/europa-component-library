@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import Button from '@ecl/ec-react-component-button';
 import Link from '@ecl/ec-react-component-link';
-// import PageHeader from '@ecl/ec-react-component-page-header';
 import Pagination from '@ecl/ec-react-component-pagination';
 import Select from '@ecl/ec-react-component-select';
 import Tag from '@ecl/ec-react-component-tag';
@@ -12,36 +11,50 @@ import Tag from '@ecl/ec-react-component-tag';
 import SiteHeaderCore from '@ecl/ec-react-component-site-header-core';
 import SiteHeaderHarmonised from '@ecl/ec-react-component-site-header-harmonised';
 import SiteHeaderStandardised from '@ecl/ec-react-component-site-header-standardised';
+import PageHeaderCore from '@ecl/ec-react-component-page-header-core';
+import PageHeaderHarmonised from '@ecl/ec-react-component-page-header-harmonised';
+import PageHeaderStandardised from '@ecl/ec-react-component-page-header-standardised';
 import FooterCore from '@ecl/ec-react-component-footer-core';
 import FooterHarmonised from '@ecl/ec-react-component-footer-harmonised';
 import FooterStandardised from '@ecl/ec-react-component-footer-standardised';
 
-const SearchPage = ({ siteHeader, /* pageHeader, */ footer, template }) => (
+const SearchPage = ({ siteHeader, pageHeader, footer, template }) => (
   <Fragment>
     {template === 'core' && (
-      <SiteHeaderCore {...siteHeader} data-ecl-auto-init="SiteHeaderCore" />
+      <Fragment>
+        <SiteHeaderCore {...siteHeader} data-ecl-auto-init="SiteHeaderCore" />
+        <PageHeaderCore {...pageHeader} />
+      </Fragment>
     )}
     {template === 'standardised' && (
-      <SiteHeaderStandardised
-        {...siteHeader}
-        data-ecl-auto-init="SiteHeaderStandardised"
-      />
+      <Fragment>
+        <SiteHeaderStandardised
+          {...siteHeader}
+          data-ecl-auto-init="SiteHeaderStandardised"
+        />
+        <PageHeaderStandardised {...pageHeader} />
+      </Fragment>
     )}
     {template === 'harmonised-g1' && (
-      <SiteHeaderHarmonised
-        {...siteHeader}
-        data-ecl-auto-init="SiteHeaderHarmonised"
-        className="ecl-site-header-harmonised--group1"
-      />
+      <Fragment>
+        <SiteHeaderHarmonised
+          {...siteHeader}
+          data-ecl-auto-init="SiteHeaderHarmonised"
+          className="ecl-site-header-harmonised--group1"
+        />
+        <PageHeaderHarmonised {...pageHeader} />
+      </Fragment>
     )}
     {template === 'harmonised-g2' && (
-      <SiteHeaderHarmonised
-        {...siteHeader}
-        data-ecl-auto-init="SiteHeaderHarmonised"
-        className="ecl-site-header-harmonised--group2"
-      />
+      <Fragment>
+        <SiteHeaderHarmonised
+          {...siteHeader}
+          data-ecl-auto-init="SiteHeaderHarmonised"
+          className="ecl-site-header-harmonised--group2"
+        />
+        <PageHeaderHarmonised {...pageHeader} />
+      </Fragment>
     )}
-    {/* <PageHeader {...pageHeader} /> */}
     <div className="ecl-u-pv-3xl">
       <div className="ecl-container">
         <div className="ecl-row">
@@ -400,7 +413,11 @@ SearchPage.propTypes = {
     PropTypes.shape(SiteHeaderHarmonised.propTypes),
     PropTypes.shape(SiteHeaderStandardised.propTypes),
   ]),
-  // pageHeader: PropTypes.shape(PageHeader.propTypes),
+  pageHeader: PropTypes.oneOfType([
+    PropTypes.shape(PageHeaderCore.propTypes),
+    PropTypes.shape(PageHeaderHarmonised.propTypes),
+    PropTypes.shape(PageHeaderStandardised.propTypes),
+  ]),
   footer: PropTypes.oneOfType([
     PropTypes.shape(FooterCore.propTypes),
     PropTypes.shape(FooterHarmonised.propTypes),
@@ -411,7 +428,7 @@ SearchPage.propTypes = {
 
 SearchPage.defaultProps = {
   siteHeader: {},
-  // pageHeader: {},
+  pageHeader: {},
   footer: {},
   template: '',
 };
