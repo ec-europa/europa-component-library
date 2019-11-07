@@ -4,7 +4,15 @@ import PropTypes from 'prop-types';
 
 import getData from '@ecl/ec-specs-search-page/demo/data';
 
-// import Breadcrumb, { BreadcrumbItem } from '@ecl/ec-react-component-breadcrumb';
+import BreadcrumbCore, {
+  BreadcrumbCoreItem,
+} from '@ecl/ec-react-component-breadcrumb-core';
+import BreadcrumbHarmonised, {
+  BreadcrumbHarmonisedItem,
+} from '@ecl/ec-react-component-breadcrumb-harmonised';
+import BreadcrumbStandardised, {
+  BreadcrumbStandardisedItem,
+} from '@ecl/ec-react-component-breadcrumb-standardised';
 import SearchPage from '../src/SearchPage';
 
 class SearchExample extends React.Component {
@@ -40,7 +48,20 @@ class SearchExample extends React.Component {
     const { template } = this.props;
     const data = getData(template);
 
-    /*
+    let Breadcrumb = null;
+    let BreadcrumbItem = null;
+
+    if (template === 'core') {
+      Breadcrumb = BreadcrumbCore;
+      BreadcrumbItem = BreadcrumbCoreItem;
+    } else if (template === 'standardised') {
+      Breadcrumb = BreadcrumbStandardised;
+      BreadcrumbItem = BreadcrumbStandardisedItem;
+    } else {
+      Breadcrumb = BreadcrumbHarmonised;
+      BreadcrumbItem = BreadcrumbHarmonisedItem;
+    }
+
     const { items, ...breadcrumbProps } = data.breadcrumb;
     const breadcrumb = (
       <Breadcrumb {...breadcrumbProps}>
@@ -50,12 +71,11 @@ class SearchExample extends React.Component {
       </Breadcrumb>
     );
     data.pageHeader.breadcrumb = breadcrumb;
-    */
 
     return (
       <SearchPage
         siteHeader={data.siteHeader}
-        // pageHeader={data.pageHeader}
+        pageHeader={data.pageHeader}
         footer={data.footer}
         template={template}
       />

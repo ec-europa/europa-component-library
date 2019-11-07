@@ -17,6 +17,7 @@
   .ecl-media-container__media {
     display: block;
     height: auto;
+    min-height: 1px; // IE 11 fix
     object-fit: cover;
     width: 100%;
   }

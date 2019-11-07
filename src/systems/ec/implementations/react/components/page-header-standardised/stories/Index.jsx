@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
+import parse from 'html-react-parser';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
@@ -51,21 +52,29 @@ storiesOf('Components|Page Headers/Standardised', module)
       title={text('Title', demoTitleContent.title)}
     />
   ))
-  .add('meta-title', () => (
-    <PageHeaderStandardised
-      breadcrumb={breadcrumb}
-      title={text('Title', demoMetaTitleContent.title)}
-      meta={text('Meta', demoMetaTitleContent.meta)}
-    />
-  ))
-  .add('meta-title-description', () => (
-    <PageHeaderStandardised
-      breadcrumb={breadcrumb}
-      title={text('Title', demoMetaTitleDescriptionContent.title)}
-      description={text(
-        'Description',
-        demoMetaTitleDescriptionContent.description
-      )}
-      meta={text('Meta', demoMetaTitleDescriptionContent.meta)}
-    />
-  ));
+  .add(
+    'meta-title',
+    () => (
+      <PageHeaderStandardised
+        breadcrumb={breadcrumb}
+        title={text('Title', demoMetaTitleContent.title)}
+        meta={parse(text('Meta', demoMetaTitleContent.meta))}
+      />
+    ),
+    { knobs: { escapeHTML: false } }
+  )
+  .add(
+    'meta-title-description',
+    () => (
+      <PageHeaderStandardised
+        breadcrumb={breadcrumb}
+        title={text('Title', demoMetaTitleDescriptionContent.title)}
+        description={text(
+          'Description',
+          demoMetaTitleDescriptionContent.description
+        )}
+        meta={parse(text('Meta', demoMetaTitleDescriptionContent.meta))}
+      />
+    ),
+    { knobs: { escapeHTML: false } }
+  );
