@@ -128,7 +128,7 @@ const MainPolicyLegislationPage = ({ siteHeader, footer, template }) => (
       />
     )}
 
-    <div className="ecl-u-pv-3xl">
+    <div className="ecl-u-pv-xl ecl-u-pv-lg-3xl">
       <div className="ecl-container">
         <main>
           <p className="ecl-u-type-paragraph ecl-u-mv-none">
@@ -160,19 +160,18 @@ const MainPolicyLegislationPage = ({ siteHeader, footer, template }) => (
             }}
           />
 
-          <h2 className="ecl-u-type-heading-2 ecl-u-mt-3xl ecl-u-mb-none">
+          <h2 className="ecl-u-type-heading-2 ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
             Legislative actions
           </h2>
 
-          <div className="ecl-row ecl-u-mt-l">
+          <div className="ecl-row ecl-u-mt-m ecl-u-mt-lg-l">
             <div className="ecl-col-12 ecl-col-md-4">
-              {/* TODO: use utilities */}
-              <article
-                className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m"
-                style={{ height: '100%', boxSizing: 'border-box' }}
-              >
+              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
                 <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  COMMUNICATION DOCUMENT | 52018DC0330
+                  <span className="ecl-u-type-uppercase">
+                    Communication document
+                  </span>{' '}
+                  | 52018DC0330
                 </div>
                 <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
                   <Link
@@ -189,13 +188,12 @@ const MainPolicyLegislationPage = ({ siteHeader, footer, template }) => (
             </div>
 
             <div className="ecl-col-12 ecl-col-md-4">
-              {/* TODO: use utilities */}
-              <article
-                className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m"
-                style={{ height: '100%', boxSizing: 'border-box' }}
-              >
+              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
                 <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  COMMUNICATION DOCUMENT | 52013DC0918
+                  <span className="ecl-u-type-uppercase">
+                    Communication document
+                  </span>{' '}
+                  | 52013DC0918
                 </div>
                 <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
                   <Link
@@ -213,13 +211,10 @@ const MainPolicyLegislationPage = ({ siteHeader, footer, template }) => (
             </div>
 
             <div className="ecl-col-12 ecl-col-md-4">
-              {/* TODO: use utilities */}
-              <article
-                className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m"
-                style={{ height: '100%', boxSizing: 'border-box' }}
-              >
+              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
                 <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  PROPOSAL | 52013PC0920
+                  <span className="ecl-u-type-uppercase">Proposal</span> |
+                  52013PC0920
                 </div>
                 <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
                   <Link
@@ -238,13 +233,10 @@ const MainPolicyLegislationPage = ({ siteHeader, footer, template }) => (
 
           <div className="ecl-row">
             <div className="ecl-col-12 ecl-col-md-4">
-              {/* TODO: use utilities */}
-              <article
-                className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m"
-                style={{ height: '100%', boxSizing: 'border-box' }}
-              >
+              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
                 <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  PROPOSAL | 52013PC0917
+                  <span className="ecl-u-type-uppercase">Proposal</span> |
+                  52013PC0917
                 </div>
                 <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
                   <Link
@@ -263,13 +255,12 @@ const MainPolicyLegislationPage = ({ siteHeader, footer, template }) => (
             </div>
 
             <div className="ecl-col-12 ecl-col-md-4">
-              {/* TODO: use utilities */}
-              <article
-                className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m"
-                style={{ height: '100%', boxSizing: 'border-box' }}
-              >
+              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
                 <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  STAFF WORKING DOCUMENT | 5201SC0531
+                  <span className="ecl-u-type-uppercase">
+                    Staff working document
+                  </span>{' '}
+                  | 5201SC0531
                 </div>
                 <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
                   <Link
@@ -289,13 +280,12 @@ const MainPolicyLegislationPage = ({ siteHeader, footer, template }) => (
             </div>
 
             <div className="ecl-col-12 ecl-col-md-4">
-              {/* TODO: use utilities */}
-              <article
-                className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m"
-                style={{ height: '100%', boxSizing: 'border-box' }}
-              >
+              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
                 <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  STAFF WORKING DOCUMENT | 52013SC0532
+                  <span className="ecl-u-type-uppercase">
+                    Staff working document
+                  </span>{' '}
+                  | 52013SC0532
                 </div>
                 <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
                   <Link
@@ -316,13 +306,12 @@ const MainPolicyLegislationPage = ({ siteHeader, footer, template }) => (
 
           <div className="ecl-row">
             <div className="ecl-col-12 ecl-col-md-4">
-              {/* TODO: use utilities */}
-              <article
-                className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m"
-                style={{ height: '100%', boxSizing: 'border-box' }}
-              >
+              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
                 <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  INTERINSTITUTIONAL FILE | 2013/044
+                  <span className="ecl-u-type-uppercase">
+                    Interinstitutional file
+                  </span>{' '}
+                  | 2013/044
                 </div>
                 <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
                   <Link
@@ -339,13 +328,10 @@ const MainPolicyLegislationPage = ({ siteHeader, footer, template }) => (
             </div>
 
             <div className="ecl-col-12 ecl-col-md-4">
-              {/* TODO: use utilities */}
-              <article
-                className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m"
-                style={{ height: '100%', boxSizing: 'border-box' }}
-              >
+              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
                 <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  DIRECTIVE | 32008L0050
+                  <span className="ecl-u-type-uppercase">Directive</span> |
+                  32008L0050
                 </div>
                 <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
                   <Link
@@ -364,7 +350,7 @@ const MainPolicyLegislationPage = ({ siteHeader, footer, template }) => (
           </div>
 
           <SocialMediaShare
-            className="ecl-u-mt-3xl"
+            className="ecl-u-mt-xl ecl-u-mt-lg-3xl"
             description="Share this page"
             links={[
               {
