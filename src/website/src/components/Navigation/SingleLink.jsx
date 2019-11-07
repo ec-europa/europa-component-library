@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import classnames from 'classnames';
+// import classnames from 'classnames';
 
 import NavigationLink from './NavigationLink';
 import styles from './SingleLink.scss';
@@ -12,14 +12,14 @@ const SingleLink = React.memo(({ page, level }) => (
     className={`${styles['page-list-item']} ${styles[`level-${level}`]}`}
     activeClassName={styles['page-list-item--active']}
   >
-    {page.status && (
+    {/* page.status && (
       <span
         className={classnames(styles['page-status'], {
           [styles[`status-${page.status}`]]: true,
         })}
         title={page.status}
       />
-    )}
+      ) */}
     {page.title}
   </NavigationLink>
 ));
