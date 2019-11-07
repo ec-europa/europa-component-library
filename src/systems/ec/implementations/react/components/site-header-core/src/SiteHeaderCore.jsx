@@ -29,6 +29,8 @@ const SiteHeaderCore = ({
   // eslint-disable-next-line global-require, import/no-dynamic-require
   const logoSrc = require(`@ecl/ec-resources-logo/logo--${logoLanguage}.svg`);
 
+  const hasLanguageOverlay = !!(languageSelector && languageSelector.overlay);
+
   return (
     <header {...props} className={classNames}>
       <div className="ecl-site-header-core__container ecl-container">
@@ -57,6 +59,10 @@ const SiteHeaderCore = ({
                 className="ecl-link ecl-link--standalone ecl-site-header-core__language-selector"
                 href={languageSelector.href}
                 data-ecl-language-selector
+                {...(hasLanguageOverlay && {
+                  'aria-controls': 'language-list-overlay',
+                  'aria-expanded': 'false',
+                })}
               >
                 <span className="ecl-site-header-core__language-icon">
                   <Icon shape="general--language" size="s" />
@@ -94,9 +100,12 @@ const SiteHeaderCore = ({
           </div>
         </div>
       </div>
-
-      {!!(languageSelector && languageSelector.overlay) && (
-        <LanguageListOverlay {...languageSelector.overlay} hidden />
+      {hasLanguageOverlay && (
+        <LanguageListOverlay
+          {...languageSelector.overlay}
+          id="language-list-overlay"
+          hidden
+        />
       )}
     </header>
   );

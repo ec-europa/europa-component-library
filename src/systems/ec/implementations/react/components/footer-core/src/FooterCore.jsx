@@ -97,10 +97,10 @@ FooterCore.propTypes = {
   sections: PropTypes.arrayOf(
     PropTypes.shape({
       key: PropTypes.string,
-      title: PropTypes.oneOfType(
+      title: PropTypes.oneOfType([
         PropTypes.string,
-        PropTypes.shape(Link.propTypes)
-      ),
+        PropTypes.shape(Link.propTypes),
+      ]),
       description: PropTypes.string,
       contentBefore: PropTypes.string,
       links: PropTypes.arrayOf(PropTypes.shape(Link.propTypes)),
