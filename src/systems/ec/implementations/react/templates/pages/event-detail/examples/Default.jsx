@@ -1,7 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { Fragment } from 'react';
 
-import Breadcrumb, { BreadcrumbItem } from '@ecl/ec-react-component-breadcrumb';
+import BreadcrumbHarmonised, {
+  BreadcrumbHarmonisedItem,
+} from '@ecl/ec-react-component-breadcrumb-harmonised';
 import Card from '@ecl/ec-react-component-card';
 import DateBlock from '@ecl/ec-react-component-date-block';
 import {
@@ -9,40 +11,51 @@ import {
   DescriptionTerm,
   DescriptionDefinition,
 } from '@ecl/ec-react-component-description-list';
-import Footer from '@ecl/ec-react-component-footer';
+import FooterHarmonised from '@ecl/ec-react-component-footer-harmonised';
 import Icon from '@ecl/ec-react-component-icon';
 import Link from '@ecl/ec-react-component-link';
 import MediaContainer from '@ecl/ec-react-component-media-container';
 import PageBanner from '@ecl/ec-react-component-page-banner';
-import PageHeader from '@ecl/ec-react-component-page-header';
-import SiteHeader from '@ecl/ec-react-component-site-header';
+import PageHeaderHarmonised from '@ecl/ec-react-component-page-header-harmonised';
+import SiteHeaderHarmonised from '@ecl/ec-react-component-site-header-harmonised';
 import SocialMediaFollow from '@ecl/ec-react-component-social-media-follow';
 import {
   UnorderedList,
   UnorderedListItem,
 } from '@ecl/ec-react-component-unordered-list';
 
-import footerContent from '@ecl/ec-specs-footer/demo/data--corporate';
-import siteHeaderContent from '@ecl/ec-specs-site-header/demo/data--en';
+import footerContent from '@ecl/ec-specs-footer-harmonised/demo/data--group2';
+import siteHeaderContent from '@ecl/ec-specs-site-header-harmonised/demo/data--group2';
+
+const breadcrumb = (
+  <BreadcrumbHarmonised
+    className="ecl-page-header__breadcrumb"
+    ellipsisLabel="Click to expand"
+    data-ecl-auto-init="BreadcrumbHarmonised"
+  >
+    <BreadcrumbHarmonisedItem label="Home" href="/example" />
+    <BreadcrumbHarmonisedItem label="Events" href="/example" />
+    <BreadcrumbHarmonisedItem
+      label="Fair of European Innovators in Cultural heritage"
+      href="/example"
+    />
+    <BreadcrumbHarmonisedItem label="Programme" />
+  </BreadcrumbHarmonised>
+);
 
 export default () => {
-  const breadcrumb = (
-    <Breadcrumb className="ecl-page-header__breadcrumb">
-      <BreadcrumbItem label="Home" href="/example" />
-      <BreadcrumbItem label="Events" href="/example" />
-      <BreadcrumbItem label="Fair of European Innovators in Cultural heritage" />
-    </Breadcrumb>
-  );
-
   return (
     <Fragment>
-      <SiteHeader {...siteHeaderContent} data-ecl-auto-init="SiteHeader" />
-      <PageHeader
+      <SiteHeaderHarmonised
+        {...siteHeaderContent}
+        data-ecl-auto-init="SiteHeaderHarmonised"
+        className="ecl-site-header-harmonised--group2"
+      />
+      <PageHeaderHarmonised
         breadcrumb={breadcrumb}
         meta="Conference"
         title="Fair of European Innovators in Cultural heritage"
       />
-
       <main className="ecl-u-pv-2xl ecl-u-pv-md-3xl">
         <div className="ecl-container">
           <div className="ecl-row">
@@ -78,7 +91,6 @@ export default () => {
                 </UnorderedListItem>
               </UnorderedList>
             </div>
-
             <div className="ecl-col-12 ecl-col-md-6 ecl-u-mt-2xl ecl-u-mt-md-none">
               <p className="ecl-u-type-paragraph ecl-u-mt-none">
                 How is innovation in cultural heritage developped and how it the
@@ -101,24 +113,20 @@ export default () => {
               />
             </div>
           </div>
-
           <Link
             variant="cta"
             label="Register"
             href="/example"
             className="ecl-u-mt-2xl"
           />
-
           {/* :'( Custom heading spacing */}
           <h2 className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
             Programme
           </h2>
-
           {/* :'( Custom heading spacing */}
           <h3 className="ecl-u-type-heading-3 ecl-u-mb-s ecl-u-mb-md-xs">
             Highlights
           </h3>
-
           <div className="ecl-row">
             <div className="ecl-col-12 ecl-col-md-6">
               {/* :'( Card tags styling not conform */}
@@ -158,12 +166,10 @@ export default () => {
               transform: 'rotate-90',
             }}
           />
-
           {/* :'( Custom heading spacing */}
           <h2 className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
             Speakers
           </h2>
-
           <div className="ecl-row">
             <div className="ecl-col-12 ecl-col-md-4">
               <article className="ecl-card">
@@ -213,7 +219,6 @@ export default () => {
                 </section>
               </article>
             </div>
-
             <div className="ecl-col-12 ecl-col-md-4 ecl-u-mt-l ecl-u-mt-md-none">
               <article className="ecl-card">
                 <header className="ecl-card__header">
@@ -263,7 +268,6 @@ export default () => {
                 </section>
               </article>
             </div>
-
             <div className="ecl-col-12 ecl-col-md-4 ecl-u-mt-l ecl-u-mt-md-none">
               <article className="ecl-card">
                 <header className="ecl-card__header">
@@ -325,12 +329,10 @@ export default () => {
               transform: 'rotate-90',
             }}
           />
-
           {/* :'( Custom heading spacing */}
           <h2 className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
             Practical information
           </h2>
-
           <div className="ecl-row">
             <div className="ecl-col-12 ecl-col-md-6">
               <DescriptionList variant="horizontal">
@@ -349,7 +351,6 @@ export default () => {
                     }}
                   />
                 </DescriptionDefinition>
-
                 <DescriptionTerm>Where</DescriptionTerm>
                 <DescriptionDefinition>
                   The EGG, Rue Barra 175, 1070 Brussels, Belgium
@@ -363,27 +364,22 @@ export default () => {
                     }}
                   />
                 </DescriptionDefinition>
-
                 <DescriptionTerm>Live streaming</DescriptionTerm>
                 <DescriptionDefinition>
                   08:00 CET | 00d:23h:35m
                 </DescriptionDefinition>
-
                 <DescriptionTerm>Languages</DescriptionTerm>
                 <DescriptionDefinition>
                   English. Transcripts in Dutch and French
                 </DescriptionDefinition>
-
                 <DescriptionTerm>Organizer</DescriptionTerm>
                 <DescriptionDefinition>
                   Directorate-General Education, Youth, Sport and Culture
                 </DescriptionDefinition>
-
                 <DescriptionTerm>Event part of</DescriptionTerm>
                 <DescriptionDefinition>
                   European Year of Culture Heritage
                 </DescriptionDefinition>
-
                 <DescriptionTerm>Website</DescriptionTerm>
                 <DescriptionDefinition>
                   <Link
@@ -391,21 +387,17 @@ export default () => {
                     href="/example"
                   />
                 </DescriptionDefinition>
-
                 <DescriptionTerm>Target audience</DescriptionTerm>
                 <DescriptionDefinition>
                   European Year of Culture Heritage
                 </DescriptionDefinition>
-
                 <DescriptionTerm>Number of seats</DescriptionTerm>
                 <DescriptionDefinition>
                   170 seats, 11 available
                 </DescriptionDefinition>
-
                 <DescriptionTerm>Entrance fee</DescriptionTerm>
                 <DescriptionDefinition>Free</DescriptionDefinition>
               </DescriptionList>
-
               <SocialMediaFollow
                 className="ecl-u-mt-l"
                 description="Social Media"
@@ -445,7 +437,6 @@ export default () => {
                 ]}
               />
             </div>
-
             <div className="ecl-col-12 ecl-col-md-6">
               <script type="application/json">
                 {`
@@ -463,14 +454,12 @@ export default () => {
               </script>
             </div>
           </div>
-
           <Link
             className="ecl-u-mt-l"
             variant="cta"
             label="Register"
             href="/example"
           />
-
           {/* :'( Custom heading spacing */}
           <h2
             className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l"
@@ -478,7 +467,6 @@ export default () => {
           >
             Description
           </h2>
-
           <div className="ecl-row">
             <div className="ecl-col-12 ecl-col-md-6 ecl-u-order-md-last ecl-u-mb-l ecl-u-mb-md-none">
               <MediaContainer
@@ -487,7 +475,6 @@ export default () => {
                 description="Best booth: iMARECULTURE"
               />
             </div>
-
             <div className="ecl-col-12 ecl-col-md-6">
               <p className="ecl-u-type-paragraph ecl-u-mt-none">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -537,33 +524,28 @@ export default () => {
               </p>
             </div>
           </div>
-
           {/* :'( Custom heading spacing */}
           <h2 className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
             Contact
           </h2>
-
           <div className="ecl-row">
             <div className="ecl-col-12 ecl-col-md-6">
               {/* :'( Custom heading spacing */}
               <h3 className="ecl-u-type-heading-3 ecl-u-mt-none ecl-u-mb-m ecl-u-mb-md-l">
                 General contact
               </h3>
-
               <address>
                 <DescriptionList variant="horizontal">
                   <DescriptionTerm>Phone number</DescriptionTerm>
                   <DescriptionDefinition>
                     (0)2 29 56186 (Commission switchboard)
                   </DescriptionDefinition>
-
                   <DescriptionTerm>Postal address</DescriptionTerm>
                   <DescriptionDefinition>
                     Directorate-General for Education and Culture
                     <br />
                     European Commission B-1049 Brussels Belgium
                   </DescriptionDefinition>
-
                   <DescriptionTerm>Email address</DescriptionTerm>
                   <DescriptionDefinition>
                     <Link
@@ -574,12 +556,10 @@ export default () => {
                 </DescriptionList>
               </address>
             </div>
-
             <div className="ecl-col-12 ecl-col-md-6 ecl-u-mt-l ecl-u-mt-md-none">
               <h3 className="ecl-u-type-heading-3 ecl-u-mt-none ecl-u-mb-m ecl-u-mb-md-l">
                 Press contact
               </h3>
-
               <address>
                 <DescriptionList variant="horizontal">
                   <DescriptionTerm>Name</DescriptionTerm>
@@ -599,7 +579,6 @@ export default () => {
                     />
                   </DescriptionDefinition>
                 </DescriptionList>
-
                 <SocialMediaFollow
                   className="ecl-u-mt-l"
                   description="Social media"
@@ -641,12 +620,10 @@ export default () => {
               </address>
             </div>
           </div>
-
           {/* :'( Custom heading spacing */}
           <h2 className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
             Related events
           </h2>
-
           <article className="ecl-u-d-flex">
             <div className="ecl-u-flex-grow-0 ecl-u-mr-m">
               <DateBlock
@@ -685,7 +662,6 @@ export default () => {
               </UnorderedList>
             </div>
           </article>
-
           <article className="ecl-u-d-flex ecl-u-mt-l ecl-u-mt-md-xl">
             <div className="ecl-u-flex-grow-0 ecl-u-mr-m">
               <DateBlock
@@ -716,7 +692,6 @@ export default () => {
               </UnorderedList>
             </div>
           </article>
-
           <article className="ecl-u-d-flex ecl-u-mt-l ecl-u-mt-md-xl">
             <div className="ecl-u-flex-grow-0 ecl-u-mr-m">
               <DateBlock
@@ -751,9 +726,8 @@ export default () => {
           </article>
         </div>
       </main>
-
       <PageBanner
-        variant="default"
+        variant="primary"
         isCentered
         title="Fair of European Innovators in Cultural Heritage"
         link={{
@@ -761,7 +735,10 @@ export default () => {
           href: '/example',
         }}
       />
-      <Footer {...footerContent} />
+      <FooterHarmonised
+        {...footerContent}
+        className="ecl-footer-harmonised--group2"
+      />
     </Fragment>
   );
 };

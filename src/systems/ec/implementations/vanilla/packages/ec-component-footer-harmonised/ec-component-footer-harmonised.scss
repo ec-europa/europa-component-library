@@ -10,8 +10,8 @@
 @include check-imports(('ec-layout-grid', 'ec-component-link'));
 
 @mixin ecl-footer-harmonised() {
-  /* 
-   * Global rules 
+  /*
+   * Global rules
    */
   .ecl-footer-harmonised {
     margin: 0;
@@ -146,8 +146,8 @@
   $description-color: $ecl-color-blue-25,
   $column-gap: $ecl-grid-gutter-width
 ) {
-  /* 
-   * Global rules 
+  /*
+   * Global rules
    */
   .ecl-footer-harmonised--group1 {
     background-color: $bg-color;
@@ -180,8 +180,8 @@
       color: $text-color;
     }
 
-    /* 
-     * Section related rules 
+    /*
+     * Section related rules
      */
     .ecl-footer-harmonised__section1,
     .ecl-footer-harmonised__section2 {
@@ -222,6 +222,7 @@
       .ecl-footer-harmonised__container {
         column-gap: $column-gap;
         display: grid;
+        grid-gap: 0 $column-gap;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(4, minmax(min-content, max-content));
         row-gap: 0;
@@ -278,8 +279,8 @@
   $description-color: $ecl-color-blue,
   $column-gap: $ecl-grid-gutter-width
 ) {
-  /* 
-   * Global rules 
+  /*
+   * Global rules
    */
   .ecl-footer-harmonised--group2 {
     background-color: $bg-color;
@@ -312,8 +313,8 @@
       color: $text-color;
     }
 
-    /* 
-    * Section related rules 
+    /*
+    * Section related rules
     */
     .ecl-footer-harmonised__section1 {
       margin-top: $ecl-spacing-l;
@@ -329,6 +330,7 @@
       .ecl-footer-harmonised__container {
         column-gap: $column-gap;
         display: grid;
+        grid-gap: 0 $column-gap;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(1, minmax(min-content, max-content));
         row-gap: 0;
