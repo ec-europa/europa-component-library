@@ -1,4 +1,5 @@
 ---
 title: Events
-type: group
 ---
+
+(work in progress)
