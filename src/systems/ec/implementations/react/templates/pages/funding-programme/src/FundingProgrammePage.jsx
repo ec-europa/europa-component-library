@@ -145,7 +145,7 @@ const FundingProgrammePage = ({ siteHeader, footer, template }) => (
       <div className="ecl-container">
         <div className="ecl-row">
           <div className="ecl-col-12 ecl-col-lg-3">
-            <aside>
+            <aside className="ecl-u-height-100">
               <InpageNavigation
                 data-ecl-auto-init="InpageNavigation"
                 title="Page contents"
