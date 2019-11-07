@@ -141,10 +141,10 @@ const FundingProgrammePage = ({ siteHeader, footer, template }) => (
       />
     )}
 
-    <div className="ecl-u-pv-3xl">
+    <div className="ecl-u-pv-3xl ecl-u-pv-lg-4xl">
       <div className="ecl-container">
         <div className="ecl-row">
-          <div className="ecl-col-12 ecl-col-md-3">
+          <div className="ecl-col-12 ecl-col-lg-3">
             <aside>
               <InpageNavigation
                 data-ecl-auto-init="InpageNavigation"
@@ -175,7 +175,7 @@ const FundingProgrammePage = ({ siteHeader, footer, template }) => (
             </aside>
           </div>
 
-          <div className="ecl-col-12 ecl-col-md-3">
+          <div className="ecl-col-12 ecl-col-lg-9">
             <main>
               <h2
                 className="ecl-u-type-heading-2 ecl-u-mv-none"
@@ -327,7 +327,7 @@ const FundingProgrammePage = ({ siteHeader, footer, template }) => (
               </UnorderedList>
 
               <SocialMediaShare
-                className="ecl-u-mt-xl"
+                className="ecl-u-mt-xl ecl-u-mt-lg-4xl"
                 description="Share this page"
                 links={[
                   {
