@@ -3,9 +3,11 @@ title: Spacing
 order: 6
 ---
 
-import { RemToPixels } from '@ecl/website-components';
+import { Paragraph, RemToPixels } from '@ecl/website-components';
 
-Spacing tokens are used to consistently apply margin and padding across components and layouts. With a set spacing, information can be structured to have a consistent and intuitive user interface across the website.
+<Paragraph size="lead">
+  Spacing tokens are used to consistently apply margin and padding across components and layouts. With a set spacing, information can be structured to have a consistent and intuitive user interface across the website.
+</Paragraph>
 
 ## Two spacing scales
 
@@ -14,7 +16,7 @@ ECL provides two separate sets of scales:
 1. Inner spacing: the spacing within the components
 2. Layout spacing: the spacing between the omponents (+ other elements outside of a component)
 
-For spacing tokens to be able to conform in the baseline grid and contribute to the vertical rhythm, all sizes must be multiples of 4px. A vertical rhythm starts from a baseline and it’s the basis for everything from the font sizes, line height and image sizes. The spacing tokens always referring to fixed values and thus they are not responsive. All spacing tokens can be used as values for both margins and paddings.
+For spacing tokens to be able to conform in the baseline grid and contribute to the vertical rhythm, all sizes must be multiples of <RemToPixels rem="0.25" />px. A vertical rhythm starts from a baseline and it’s the basis for everything from the font sizes, line height and image sizes. The spacing tokens always referring to fixed values and thus they are not responsive. All spacing tokens can be used as values for both margins and paddings.
 
 ## Use of space
 
@@ -22,7 +24,7 @@ Space is used to create hierarchy and visual relationships. By using the space t
 
 ## Inner component space
 
-Whenever we need a fixed horizontal or vertical spacing inside components then these spacing tokens are to be used. All the values are multiples of 4px so they can complement the typography when placed in a 4px vertical grid. The values are based on a geometric progression. There are some exceptions like the 12px/0.75rem and 48px/3rem that they don't fit in the geometric progression, but the need of having was apparent for some rare occasions where the only using geometric progression values wasn't enough
+Whenever we need a fixed horizontal or vertical spacing inside components then these spacing tokens are to be used. All the values are multiples of <RemToPixels rem="0.25" />px so they can complement the typography when placed in a <RemToPixels rem="0.25" />px vertical grid. The values are based on a geometric progression. There are some exceptions like the <RemToPixels rem="0.75" />px/0.75rem and <RemToPixels rem="3" />px/3rem that they don't fit in the geometric progression, but the need of having was apparent for some rare occasions where the only using geometric progression values wasn't enough
 
 <img src="https://inno-ecl.s3.amazonaws.com/media/images/EC/Spacing/Spacing%20-%20Inner%20component%20scale.png" srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/Spacing/Spacing%20-%20Inner%20component%20scale%20-%20Mobile.png 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/Spacing/Spacing%20-%20Inner%20component%20scale.png 734w" alt="Space token of components" width="600" />
 
@@ -53,7 +55,7 @@ Whenever we need a fixed horizontal or vertical spacing to place components in a
 ## Don'ts
 
 - don't go outside the provided spacing tokens
-- don't stack the spacing tokens (e.g. 12px + 16px)
+- don't stack the spacing tokens (e.g. <RemToPixels rem="0.75" />px + <RemToPixels rem="1" />px)
 
 ## When to use
 
