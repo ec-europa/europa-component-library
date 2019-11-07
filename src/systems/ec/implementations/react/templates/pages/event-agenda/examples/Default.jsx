@@ -1,50 +1,57 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { Fragment } from 'react';
 
-import Breadcrumb, { BreadcrumbItem } from '@ecl/ec-react-component-breadcrumb';
+import BreadcrumbHarmonised, {
+  BreadcrumbHarmonisedItem,
+} from '@ecl/ec-react-component-breadcrumb-harmonised';
 import Card from '@ecl/ec-react-component-card';
-import Footer from '@ecl/ec-react-component-footer';
+import FooterHarmonised from '@ecl/ec-react-component-footer-harmonised';
 import Link from '@ecl/ec-react-component-link';
 import PageBanner from '@ecl/ec-react-component-page-banner';
-import PageHeader from '@ecl/ec-react-component-page-header';
-import SiteHeader from '@ecl/ec-react-component-site-header';
+import PageHeaderHarmonised from '@ecl/ec-react-component-page-header-harmonised';
+import SiteHeaderHarmonised from '@ecl/ec-react-component-site-header-harmonised';
 import { Timeline2, Timeline2Item } from '@ecl/ec-react-component-timeline2';
 
-import footerContent from '@ecl/ec-specs-footer/demo/data--corporate';
-import siteHeaderContent from '@ecl/ec-specs-site-header/demo/data--en';
+import footerContent from '@ecl/ec-specs-footer-harmonised/demo/data--group2';
+import siteHeaderContent from '@ecl/ec-specs-site-header-harmonised/demo/data--group2';
+
+const breadcrumb = (
+  <BreadcrumbHarmonised
+    className="ecl-page-header__breadcrumb"
+    ellipsisLabel="Click to expand"
+    data-ecl-auto-init="BreadcrumbHarmonised"
+  >
+    <BreadcrumbHarmonisedItem label="Home" href="/example" />
+    <BreadcrumbHarmonisedItem label="Events" href="/example" />
+    <BreadcrumbHarmonisedItem
+      label="Fair of European Innovators in Cultural heritage"
+      href="/example"
+    />
+    <BreadcrumbHarmonisedItem label="Programme" />
+  </BreadcrumbHarmonised>
+);
 
 export default () => {
-  const breadcrumb = (
-    <Breadcrumb className="ecl-page-header__breadcrumb">
-      <BreadcrumbItem label="Home" href="/example" />
-      <BreadcrumbItem label="Events" href="/example" />
-      <BreadcrumbItem
-        label="Fair of European Innovators in Cultural heritage"
-        href="/example"
-      />
-      <BreadcrumbItem label="Programme" />
-    </Breadcrumb>
-  );
-
   return (
     <Fragment>
-      <SiteHeader {...siteHeaderContent} data-ecl-auto-init="SiteHeader" />
-      <PageHeader
+      <SiteHeaderHarmonised
+        {...siteHeaderContent}
+        data-ecl-auto-init="SiteHeaderHarmonised"
+        className="ecl-site-header-harmonised--group2"
+      />
+      <PageHeaderHarmonised
         breadcrumb={breadcrumb}
         meta="Conference"
         title="Fair of European Innovators in Cultural heritage"
       />
-
-      <main className="ecl-u-pv-2xl ecl-u-pv-md-3xl">
+      <main className="ecl-u-pv-2xl ecl-u-pv-md-3xl" id="main">
         <div className="ecl-container">
           <h2 className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l">
             Programme
           </h2>
-
           <h3 className="ecl-u-type-heading-3 ecl-u-mb-s ecl-u-mb-md-xs">
             Highlights
           </h3>
-
           <div className="ecl-row">
             <div className="ecl-col-12 ecl-col-md-6">
               <Card
@@ -73,18 +80,15 @@ export default () => {
               />
             </div>
           </div>
-
           <Link
             variant="cta"
             label="Register"
             href="/example"
             className="ecl-u-mt-2xl"
           />
-
           <h3 className="ecl-u-type-heading-3 ecl-u-mb-none ecl-u-mt-2xl ecl-u-mt-md-3xl">
             Full programme
           </h3>
-
           <div>
             <div
               className="ecl-u-d-flex ecl-u-align-items-center ecl-u-flex-wrap ecl-u-z-navigation ecl-u-bg-white ecl-u-pv-s"
@@ -112,7 +116,6 @@ export default () => {
                 href="#day2"
               />
             </div>
-
             <div>
               <h4
                 className="ecl-u-type-heading-4 ecl-u-mb-m ecl-u-mt-none
@@ -123,7 +126,6 @@ export default () => {
               >
                 Day 1 - Thursday, 15 November 2019
               </h4>
-
               <Timeline2
                 id="day1"
                 data-ecl-template-timeline
@@ -138,7 +140,6 @@ export default () => {
                     Welcome coffee in the Riverside
                   </p>
                 </Timeline2Item>
-
                 <Timeline2Item
                   label="09:00 - 09:15"
                   title="Opening of the conference"
@@ -157,7 +158,6 @@ export default () => {
                     European Commission President
                   </p>
                 </Timeline2Item>
-
                 <Timeline2Item
                   label="09:15 - 10:00"
                   title="Why are we innovating in cultural heritage? An inspirational dialog among unusual supsects"
@@ -213,7 +213,6 @@ export default () => {
                     Media Deals
                   </p>
                 </Timeline2Item>
-
                 <Timeline2Item
                   label="09:15 - 12:00"
                   title="How innovation is created and supported? Who are the innovators in cultural heritage? Panel discussion with pitches from EU R&I projects"
@@ -257,7 +256,6 @@ export default () => {
                     Director of Impact Hub Vienna
                   </p>
                 </Timeline2Item>
-
                 <Timeline2Item
                   label="12:00 - 12:15"
                   title="How to innovate in cities through cutlural heritage. Athens, Capital of Innovation 2018"
@@ -276,7 +274,6 @@ export default () => {
                     Vice-Mayor for Civil Society and Innovatio, City of Athens
                   </p>
                 </Timeline2Item>
-
                 <Timeline2Item
                   label="12:30 - 13:00"
                   title="Opening of the exhibition"
@@ -330,14 +327,12 @@ export default () => {
                     Director for Culture & Creativity GD EAC European Commission
                   </p>
                 </Timeline2Item>
-
                 <Timeline2Item
                   label="13:00 - 14:30"
                   title="Walking lunch with guided visit to the exhibition"
                 >
                   <div className="ecl-u-type-s">Riverside</div>
                 </Timeline2Item>
-
                 <Timeline2Item
                   label="14:30 - 18:00"
                   title="'Working on what?' Building a Community of Innovators in Cultural Heritage. Promotion: 'Circular, sustainable and creative cities'"
@@ -363,7 +358,6 @@ export default () => {
                     &apos;European National Research Network&apos;
                   </p>
                 </Timeline2Item>
-
                 <Timeline2Item
                   label="14:30 - 18:00"
                   title="'Working on what?' Building a Community of Innovators in Cultural Heritage. Assistance: 'Heritage at risk'"
@@ -412,7 +406,6 @@ export default () => {
                     General for Research and Innovation
                   </p>
                 </Timeline2Item>
-
                 <Timeline2Item
                   label="18:00 - 20:00"
                   title="Cocktail - Visit to the exhibition"
@@ -421,7 +414,6 @@ export default () => {
                 </Timeline2Item>
               </Timeline2>
             </div>
-
             <div>
               <h4
                 className="ecl-u-type-heading-4 ecl-u-mb-m ecl-u-mt-none
@@ -432,7 +424,6 @@ export default () => {
               >
                 Day 2 - Friday, 16 November 2019
               </h4>
-
               <Timeline2 id="day2" data-ecl-template-timeline>
                 <Timeline2Item label="08:00 - 10:30" title="Innovators at work">
                   <div className="ecl-u-type-s">Workshop | Breakout rooms</div>
@@ -445,7 +436,6 @@ export default () => {
                   </div>
                   <div className="ecl-u-type-s ecl-u-mt-xs">Riverside</div>
                 </Timeline2Item>
-
                 <Timeline2Item
                   label="08:00 - 12:30"
                   title="Cultural heritage supporting intercultrural dialog and cultural diplomacy"
@@ -483,11 +473,9 @@ export default () => {
                     society for the protection&quot;
                   </p>
                 </Timeline2Item>
-
                 <Timeline2Item label="12:30 - 14:00" title="Networking lunch">
                   <div className="ecl-u-type-s">Riverside</div>
                 </Timeline2Item>
-
                 <Timeline2Item
                   label="14:00 - 15:30"
                   title="When in the future? Debate on opportunities for innovation in Cutliral Heritage"
@@ -531,7 +519,6 @@ export default () => {
                     for Internal Market, Industry, Entrepreneurship, and SMEs
                   </p>
                 </Timeline2Item>
-
                 <Timeline2Item label="15:30 - 17:00" title="B2B networking">
                   <div className="ecl-u-type-s">Riverside</div>
                 </Timeline2Item>
@@ -540,9 +527,8 @@ export default () => {
           </div>
         </div>
       </main>
-
       <PageBanner
-        variant="default"
+        variant="primary"
         isCentered
         title="Fair of European Innovators in Cultural Heritage"
         link={{
@@ -550,7 +536,10 @@ export default () => {
           href: '/example',
         }}
       />
-      <Footer {...footerContent} />
+      <FooterHarmonised
+        {...footerContent}
+        className="ecl-footer-harmonised--group2"
+      />
     </Fragment>
   );
 };
