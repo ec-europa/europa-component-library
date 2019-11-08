@@ -81,6 +81,41 @@ const pageHeaderContent = {
   title: 'Policy evaluation',
 };
 
+const fileTranslations = {
+  toggle: {
+    label: 'Other languages (3)',
+  },
+  items: [
+    {
+      title: 'български',
+      meta: '(392 KB - PDF - 2 pages)',
+      lang: 'bg',
+      download: {
+        label: 'Download',
+        href: '/example#bg',
+      },
+    },
+    {
+      title: 'español',
+      meta: '(392 KB - PDF - 2 pages)',
+      lang: 'es',
+      download: {
+        label: 'Download',
+        href: '/example#es',
+      },
+    },
+    {
+      title: 'français',
+      meta: '(392 KB - PDF - 2 pages)',
+      lang: 'fr',
+      download: {
+        label: 'Download',
+        href: '/example#fr',
+      },
+    },
+  ],
+};
+
 const MainPolicyEvaluationPage = ({ siteHeader, footer, template }) => (
   <Fragment>
     {template === 'core' && (
@@ -364,40 +399,7 @@ const MainPolicyEvaluationPage = ({ siteHeader, footer, template }) => (
               label: 'Download',
               href: '/example',
             }}
-            translation={{
-              toggle: {
-                label: 'Other languages (22)',
-              },
-              items: [
-                {
-                  title: 'български',
-                  meta: '(392 KB - PDF - 2 pages)',
-                  lang: 'bg',
-                  download: {
-                    label: 'Download',
-                    href: '/example#bg',
-                  },
-                },
-                {
-                  title: 'español',
-                  meta: '(392 KB - PDF - 2 pages)',
-                  lang: 'es',
-                  download: {
-                    label: 'Download',
-                    href: '/example#es',
-                  },
-                },
-                {
-                  title: 'français',
-                  meta: '(392 KB - PDF - 2 pages)',
-                  lang: 'fr',
-                  download: {
-                    label: 'Download',
-                    href: '/example#fr',
-                  },
-                },
-              ],
-            }}
+            translation={fileTranslations}
           />
 
           <FileDownload
@@ -414,40 +416,7 @@ const MainPolicyEvaluationPage = ({ siteHeader, footer, template }) => (
               label: 'Download',
               href: '/example',
             }}
-            translation={{
-              toggle: {
-                label: 'Other languages (22)',
-              },
-              items: [
-                {
-                  title: 'български',
-                  meta: '(392 KB - PDF - 2 pages)',
-                  lang: 'bg',
-                  download: {
-                    label: 'Download',
-                    href: '/example#bg',
-                  },
-                },
-                {
-                  title: 'español',
-                  meta: '(392 KB - PDF - 2 pages)',
-                  lang: 'es',
-                  download: {
-                    label: 'Download',
-                    href: '/example#es',
-                  },
-                },
-                {
-                  title: 'français',
-                  meta: '(392 KB - PDF - 2 pages)',
-                  lang: 'fr',
-                  download: {
-                    label: 'Download',
-                    href: '/example#fr',
-                  },
-                },
-              ],
-            }}
+            translation={fileTranslations}
           />
 
           <FileDownload
@@ -464,40 +433,7 @@ const MainPolicyEvaluationPage = ({ siteHeader, footer, template }) => (
               label: 'Download',
               href: '/example',
             }}
-            translation={{
-              toggle: {
-                label: 'Other languages (22)',
-              },
-              items: [
-                {
-                  title: 'български',
-                  meta: '(392 KB - PDF - 2 pages)',
-                  lang: 'bg',
-                  download: {
-                    label: 'Download',
-                    href: '/example#bg',
-                  },
-                },
-                {
-                  title: 'español',
-                  meta: '(392 KB - PDF - 2 pages)',
-                  lang: 'es',
-                  download: {
-                    label: 'Download',
-                    href: '/example#es',
-                  },
-                },
-                {
-                  title: 'français',
-                  meta: '(392 KB - PDF - 2 pages)',
-                  lang: 'fr',
-                  download: {
-                    label: 'Download',
-                    href: '/example#fr',
-                  },
-                },
-              ],
-            }}
+            translation={fileTranslations}
           />
 
           <FileDownload
@@ -514,40 +450,7 @@ const MainPolicyEvaluationPage = ({ siteHeader, footer, template }) => (
               label: 'Download',
               href: '/example',
             }}
-            translation={{
-              toggle: {
-                label: 'Other languages (22)',
-              },
-              items: [
-                {
-                  title: 'български',
-                  meta: '(392 KB - PDF - 2 pages)',
-                  lang: 'bg',
-                  download: {
-                    label: 'Download',
-                    href: '/example#bg',
-                  },
-                },
-                {
-                  title: 'español',
-                  meta: '(392 KB - PDF - 2 pages)',
-                  lang: 'es',
-                  download: {
-                    label: 'Download',
-                    href: '/example#es',
-                  },
-                },
-                {
-                  title: 'français',
-                  meta: '(392 KB - PDF - 2 pages)',
-                  lang: 'fr',
-                  download: {
-                    label: 'Download',
-                    href: '/example#fr',
-                  },
-                },
-              ],
-            }}
+            translation={fileTranslations}
           />
 
           <FileDownload
@@ -564,40 +467,7 @@ const MainPolicyEvaluationPage = ({ siteHeader, footer, template }) => (
               label: 'Download',
               href: '/example',
             }}
-            translation={{
-              toggle: {
-                label: 'Other languages (22)',
-              },
-              items: [
-                {
-                  title: 'български',
-                  meta: '(392 KB - PDF - 2 pages)',
-                  lang: 'bg',
-                  download: {
-                    label: 'Download',
-                    href: '/example#bg',
-                  },
-                },
-                {
-                  title: 'español',
-                  meta: '(392 KB - PDF - 2 pages)',
-                  lang: 'es',
-                  download: {
-                    label: 'Download',
-                    href: '/example#es',
-                  },
-                },
-                {
-                  title: 'français',
-                  meta: '(392 KB - PDF - 2 pages)',
-                  lang: 'fr',
-                  download: {
-                    label: 'Download',
-                    href: '/example#fr',
-                  },
-                },
-              ],
-            }}
+            translation={fileTranslations}
           />
 
           <SocialMediaShare

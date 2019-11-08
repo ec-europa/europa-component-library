@@ -29,9 +29,11 @@ $ecl-blockquote-border-width: 0.625rem;
 }
 
 @mixin blockquote-attribution() {
+  font: $ecl-font-prolonged-m;
   margin-top: $ecl-spacing-l;
 
   @include ecl-media-breakpoint-up(md) {
+    font: $ecl-font-prolonged-l;
     margin-top: $ecl-spacing-xl;
   }
 }
