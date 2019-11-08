@@ -9,6 +9,49 @@ Users can still go to ECL v1 to create or upgrade their websites. In 2019, we wi
 
 We will also add new components to the ECL v2 as we continue improving the look and feel of the existing components. New releases under v2 should be published periodically under [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 2.15.0 (2019-11-08)
+
+#### :rocket: New Feature
+
+- [#1371](https://github.com/ec-europa/europa-component-library/pull/1371) feat(main-policy-legislation): add content type - INNO-1879
+- [#1370](https://github.com/ec-europa/europa-component-library/pull/1370) feat(main-policy-background): add content type - INNO-1879
+- [#1375](https://github.com/ec-europa/europa-component-library/pull/1375) feat(main-policy-resources): add content type - INNO-1879
+- [#1384](https://github.com/ec-europa/europa-component-library/pull/1384) feat(main-policy-hub): add content type - INNO-1879
+- [#1376](https://github.com/ec-europa/europa-component-library/pull/1376) feat(main-policy-evaluation): add content type - INNO-1879
+- [#1366](https://github.com/ec-europa/europa-component-library/pull/1366) feat(main-policy-awareness): add content type - INNO-1879
+- [#1399](https://github.com/ec-europa/europa-component-library/pull/1399) feat(funding-programme): add content type - INNO-1930
+- [#1396](https://github.com/ec-europa/europa-component-library/pull/1396) feat(utilities): add dimension and box-sizing utilities - INNO-1940
+- [#1391](https://github.com/ec-europa/europa-component-library/pull/1391) feat(fact and figures): add component - INNO-1927
+
+#### :bug: Bug Fix
+
+- [#1393](https://github.com/ec-europa/europa-component-library/pull/1393) fix(column-gap): fix Firefox 60 issue - INNO-1926
+- [#1392](https://github.com/ec-europa/europa-component-library/pull/1392) fix(IE): provide fixes for IE 11 display issues - INNO-1935
+
+#### :nail_care: Enhancement
+
+- [#1395](https://github.com/ec-europa/europa-component-library/pull/1395) fix(file): amendments - INNO-1939
+- [#1398](https://github.com/ec-europa/europa-component-library/pull/1398) chore(events-ct): update events CT - INNO-1944
+- [#1380](https://github.com/ec-europa/europa-component-library/pull/1380) fix(site-header): add aria - INNO-1900
+- [#1383](https://github.com/ec-europa/europa-component-library/pull/1383) fix(page-header): meta uppercase - INNO-1915
+
+#### :memo: Documentation
+
+- [#1401](https://github.com/ec-europa/europa-component-library/pull/1401) docs: document search CT - INNO-1952
+- [#1400](https://github.com/ec-europa/europa-component-library/pull/1400) docs(blockquotes): update doc - INNO-1951
+- [#1381](https://github.com/ec-europa/europa-component-library/pull/1381) docs: add search content type - INNO-1897
+- [#1394](https://github.com/ec-europa/europa-component-library/pull/1394) docs(spacing): update doc - INNO-1924
+- [#1390](https://github.com/ec-europa/europa-component-library/pull/1390) docs: document checkbox - INNO-1920
+- [#1387](https://github.com/ec-europa/europa-component-library/pull/1387) docs(gallery): update doc - INNO-1921
+- [#1388](https://github.com/ec-europa/europa-component-library/pull/1388) docs(media-container): update doc - INNO-1923
+
+#### :house: Internal
+
+- [#1397](https://github.com/ec-europa/europa-component-library/pull/1397) chore: style 3rd-level nav - INNO-1895
+- [#1389](https://github.com/ec-europa/europa-component-library/pull/1389) chore: set redirections - INNO-1934
+- [#1386](https://github.com/ec-europa/europa-component-library/pull/1386) refactor(ci): in single step - INNO-1905
+- [#1382](https://github.com/ec-europa/europa-component-library/pull/1382) chore(ci): move build and deployment tasks to Drone CI - INNO-1905
+
 ## 2.14.0 (2019-10-25)
 
 #### :rocket: New Feature
