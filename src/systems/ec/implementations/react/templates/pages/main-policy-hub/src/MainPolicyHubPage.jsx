@@ -174,7 +174,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
             </div>
 
             <div className="ecl-col-12 ecl-col-md-6">
-              <div className="ecl-u-bg-blue-5 ecl-u-border-all ecl-u-border-width-2 ecl-u-border-color-blue-25 ecl-u-pv-l ecl-u-mt-l ecl-u-mt-lg-none">
+              <div className="ecl-u-bg-blue-5 ecl-u-border-all ecl-u-border-width-2 ecl-u-border-color-blue-25 ecl-u-pv-l ecl-u-mt-l ecl-u-mt-md-none">
                 <DescriptionList variant="horizontal">
                   <DescriptionTerm className="ecl-u-pl-s ecl-u-box-sizing-border">
                     Policy period
