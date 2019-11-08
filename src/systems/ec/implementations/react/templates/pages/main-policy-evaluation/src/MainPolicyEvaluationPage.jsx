@@ -5,7 +5,7 @@ import Blockquote from '@ecl/ec-react-component-blockquote';
 import FileDownload from '@ecl/ec-react-component-file';
 import Link from '@ecl/ec-react-component-link';
 import SocialMediaShare from '@ecl/ec-react-component-social-media-share';
-import { Timeline2, Timeline2Item } from '@ecl/ec-react-component-timeline2';
+import Timeline2 from '@ecl/ec-react-component-timeline2';
 
 // Templates
 import BreadcrumbCore, {
@@ -131,7 +131,7 @@ const MainPolicyEvaluationPage = ({ siteHeader, footer, template }) => (
       />
     )}
 
-    <div className="ecl-u-pv-3xl">
+    <div className="ecl-u-pv-xl ecl-u-pv-lg-3xl">
       <div className="ecl-container">
         <main>
           <h2 className="ecl-u-type-heading-2 ecl-u-mv-none">Conclusions</h2>
@@ -162,12 +162,12 @@ const MainPolicyEvaluationPage = ({ siteHeader, footer, template }) => (
           </p>
 
           <Blockquote
-            className="ecl-u-mt-m"
+            className="ecl-u-mt-l ecl-u-mt-lg-m"
             author="President Juncker"
             citation="to achieve levels of air quality that do not result in unacceptable impacts on, and risks to, human health and the environment."
           />
 
-          <p className="ecl-u-type-paragraph ecl-u-mt-m">
+          <p className="ecl-u-type-paragraph ecl-u-mt-l ecl-u-mt-lg-m">
             This objective, first set in the 6th Environment Action Programme in
             2002, is confirmed in the 7th Environment Action Programme.
           </p>
@@ -185,7 +185,7 @@ const MainPolicyEvaluationPage = ({ siteHeader, footer, template }) => (
             Member States, industry, NGOs and international stakeholders.
           </p>
 
-          <h2 className="ecl-u-type-heading-2 ecl-u-mt-3xl ecl-u-mb-none">
+          <h2 className="ecl-u-type-heading-2 ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
             Factors taken into consideration
           </h2>
 
@@ -193,7 +193,7 @@ const MainPolicyEvaluationPage = ({ siteHeader, footer, template }) => (
             The Stakeholder Expert Group
           </h3>
 
-          <p className="ecl-u-type-paragraph ecl-u-mt-xs">
+          <p className="ecl-u-type-paragraph ecl-u-mt-m ecl-u-mt-lg-xs">
             The first Stakeholder Expert Group was held on 6 and 7 June 2011,
             the second on 19 and 20 January 2012, the third on 21 June 2012, the
             fourth on 5 December 2012, and the fifth on 2 April 2013.
@@ -206,7 +206,7 @@ const MainPolicyEvaluationPage = ({ siteHeader, footer, template }) => (
             Commitee of the Regions
           </h3>
 
-          <p className="ecl-u-type-paragraph ecl-u-mt-xs ecl-u-mb-none">
+          <p className="ecl-u-type-paragraph ecl-u-mt-m ecl-u-mt-lg-xs ecl-u-mb-none">
             Commitee of the Regions{' '}
             <Link href="/example" label="Outlook Opinion" /> on the review of EU
             Air Policy
@@ -216,7 +216,7 @@ const MainPolicyEvaluationPage = ({ siteHeader, footer, template }) => (
             Public consultation
           </h3>
 
-          <p className="ecl-u-type-paragraph ecl-u-mt-xs">
+          <p className="ecl-u-type-paragraph ecl-u-mt-m ecl-u-mt-lg-xs">
             A first online consultation, on the scope of the review, was
             launched on 30 June 2011. Both the main results and the detailed
             results are available <Link href="/example" label="here" />.
@@ -247,7 +247,7 @@ const MainPolicyEvaluationPage = ({ siteHeader, footer, template }) => (
             Evaluation history
           </h2>
 
-          <p className="ecl-u-type-paragraph ecl-u-mt-l ecl-u-mb-none">
+          <p className="ecl-u-type-paragraph ecl-u-mt-m ecl-u-mt-lg-l ecl-u-mb-none">
             Need for action to improve air quality,which is a shared
             responsibility requiring our joint efforts.
           </p>
@@ -257,94 +257,80 @@ const MainPolicyEvaluationPage = ({ siteHeader, footer, template }) => (
             data-ecl-template-timeline
             data-ecl-auto-init="Timeline2"
             className="ecl-u-mt-l"
-          >
-            <Timeline2Item
-              label="26 Jan 2011"
-              title="Comprehensive review of the EU air policy"
-            >
-              The College of Commissioners gave a mandate for a comprehensive
-              review of the EU air policy, recognising the pressing need for
-              action to improve air qualiy, which is a shared responsibility
-              requiring our joint efforts. The mandate also focused on a number
-              of immediate policy measures that should be taken.
-            </Timeline2Item>
-
-            <Timeline2Item label="7 May 2011" title="Commitee of the Regions">
-              Commitee of the Regions Outlook Opinion on the review of EU Air
-              policy.
-            </Timeline2Item>
-
-            <Timeline2Item label="30 June 2011" title="1st Public consultation">
-              A first online consultation, on the scope of the review, was
-              launched on 30 June 2011. Both the main results and the detailed
-              results are available here.
-            </Timeline2Item>
-
-            <Timeline2Item
-              label="01 October 2011"
-              title="Lorem ipsum dolor sit amet"
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-              nec fermentum velit. Mauris elementum blandit erat, et
-              sollicitudin sapien feugiat nec. Sed nunc orci, tempus auctor
-              fermentum feugiat, condimentum ut lorem.
-            </Timeline2Item>
-
-            <Timeline2Item
-              label="31 December 2011"
-              title="Lorem ipsum dolor sit amet"
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-              nec fermentum velit. Mauris elementum blandit erat, et
-              sollicitudin sapien feugiat nec. Sed nunc orci, tempus auctor
-              fermentum feugiat, condimentum ut lorem.
-            </Timeline2Item>
-
-            <Timeline2Item
-              label="05 April 2012"
-              title="Lorem ipsum dolor sit amet"
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-              nec fermentum velit. Mauris elementum blandit erat, et
-              sollicitudin sapien feugiat nec. Sed nunc orci, tempus auctor
-              fermentum feugiat, condimentum ut lorem.
-            </Timeline2Item>
-
-            <Timeline2Item
-              label="17 July 2012"
-              title="Lorem ipsum dolor sit amet"
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-              nec fermentum velit. Mauris elementum blandit erat, et
-              sollicitudin sapien feugiat nec. Sed nunc orci, tempus auctor
-              fermentum feugiat, condimentum ut lorem.
-            </Timeline2Item>
-
-            <Timeline2Item
-              label="22 October 2012"
-              title="Lorem ipsum dolor sit amet"
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-              nec fermentum velit. Mauris elementum blandit erat, et
-              sollicitudin sapien feugiat nec. Sed nunc orci, tempus auctor
-              fermentum feugiat, condimentum ut lorem.
-            </Timeline2Item>
-
-            <Timeline2Item label="30 Jul 2013" title="2nd Public consultation">
-              A second online consultation focused on the air policy options for
-              the review of the EU Thematic Strategy on Air Pollution and
-              related policies. A report of the second online consultation
-              summarises this.
-            </Timeline2Item>
-
-            <Timeline2Item
-              label="26 Jul - 23 Aug 2017 "
-              title="Fitness check of the EU Ambient Air Quality Directives (Roadmap)"
-            >
-              This fitness check will look at the performance of the two
-              complement8/50/EC and 2004/107/EC).
-            </Timeline2Item>
-          </Timeline2>
+            items={[
+              {
+                id: 0,
+                label: '26 Jan 2011',
+                title: 'Comprehensive review of the EU air policy',
+                content:
+                  'The College of Commissioners gave a mandate for a comprehensive review of the EU air policy, recognising the pressing need for action to improve air qualiy, which is a shared responsibility requiring our joint efforts. The mandate also focused on a number of immediate policy measures that should be taken.',
+              },
+              {
+                id: 1,
+                label: '7 May 2011',
+                title: 'Commitee of the Regions',
+                content:
+                  'Commitee of the Regions Outlook Opinion on the review of EU Air policy.',
+              },
+              {
+                id: 2,
+                label: '30 June 2011',
+                title: '1st Public consultation',
+                content:
+                  'A first online consultation, on the scope of the review, was launched on 30 June 2011. Both the main results and the detailed results are available here.',
+              },
+              {
+                id: 3,
+                label: '01 October 2011',
+                title: 'Lorem ipsum dolor sit amet',
+                content:
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec fermentum velit. Mauris elementum blandit erat, et sollicitudin sapien feugiat nec. Sed nunc orci, tempus auctor fermentum feugiat, condimentum ut lorem.',
+              },
+              {
+                id: 4,
+                label: '31 December 2011',
+                title: 'Lorem ipsum dolor sit amet',
+                content:
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec fermentum velit. Mauris elementum blandit erat, et sollicitudin sapien feugiat nec. Sed nunc orci, tempus auctor fermentum feugiat, condimentum ut lorem.',
+              },
+              {
+                id: 5,
+                label: '05 April 2012',
+                title: 'Lorem ipsum dolor sit amet',
+                content:
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec fermentum velit. Mauris elementum blandit erat, et sollicitudin sapien feugiat nec. Sed nunc orci, tempus auctor fermentum feugiat, condimentum ut lorem.',
+              },
+              {
+                id: 6,
+                label: '17 July 2012',
+                title: 'Lorem ipsum dolor sit amet',
+                content:
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec fermentum velit. Mauris elementum blandit erat, et sollicitudin sapien feugiat nec. Sed nunc orci, tempus auctor fermentum feugiat, condimentum ut lorem.',
+              },
+              {
+                id: 7,
+                label: '22 October 2012',
+                title: 'Lorem ipsum dolor sit amet',
+                content:
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec fermentum velit. Mauris elementum blandit erat, et sollicitudin sapien feugiat nec. Sed nunc orci, tempus auctor fermentum feugiat, condimentum ut lorem.',
+              },
+              {
+                id: 8,
+                label: '30 Jul 2013',
+                title: '2nd Public consultation',
+                content:
+                  'A second online consultation focused on the air policy options for the review of the EU Thematic Strategy on Air Pollution and related policies. A report of the second online consultation summarises this.',
+              },
+              {
+                id: 9,
+                label: '26 Jul - 23 Aug 2017',
+                title:
+                  'Fitness check of the EU Ambient Air Quality Directives (Roadmap)',
+                content:
+                  'This fitness check will look at the performance of the two complement8/50/EC and 2004/107/EC).',
+              },
+            ]}
+          />
 
           <article className="ecl-u-pv-m ecl-u-mt-l">
             <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
@@ -360,7 +346,7 @@ const MainPolicyEvaluationPage = ({ siteHeader, footer, template }) => (
             </p>
           </article>
 
-          <h2 className="ecl-u-type-heading-2 ecl-u-mt-3xl ecl-u-mb-none">
+          <h2 className="ecl-u-type-heading-2 ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
             Reports
           </h2>
 
@@ -416,7 +402,7 @@ const MainPolicyEvaluationPage = ({ siteHeader, footer, template }) => (
 
           <FileDownload
             data-ecl-auto-init="FileDownload"
-            className="ecl-u-mt-3xl"
+            className="ecl-u-mt-m ecl-u-mt-lg-3xl"
             title="Assessment of the reasons for non-compliance of the emission ceilings set in the NEC Directive"
             language="English"
             meta="(392 KB - PDF - 2 pages)"
@@ -466,7 +452,7 @@ const MainPolicyEvaluationPage = ({ siteHeader, footer, template }) => (
 
           <FileDownload
             data-ecl-auto-init="FileDownload"
-            className="ecl-u-mt-3xl"
+            className="ecl-u-mt-m ecl-u-mt-lg-3xl"
             title="Evaluation of progress under the EU NEC Directive, EEA report"
             language="English"
             meta="(392 KB - PDF - 2 pages)"
@@ -516,7 +502,7 @@ const MainPolicyEvaluationPage = ({ siteHeader, footer, template }) => (
 
           <FileDownload
             data-ecl-auto-init="FileDownload"
-            className="ecl-u-mt-3xl"
+            className="ecl-u-mt-m ecl-u-mt-lg-3xl"
             title="Fitness check of the EU Ambient Air QUality Directives (Roadmap)"
             language="English"
             meta="(392 KB - PDF - 2 pages)"
@@ -566,7 +552,7 @@ const MainPolicyEvaluationPage = ({ siteHeader, footer, template }) => (
 
           <FileDownload
             data-ecl-auto-init="FileDownload"
-            className="ecl-u-mt-3xl"
+            className="ecl-u-mt-m ecl-u-mt-lg-3xl"
             title="Commission Staff Working Paper On The Implementation Of Eu Air QUality Policy And Preparing For Its Comprehensive Review"
             language="English"
             meta="(392 KB - PDF - 2 pages)"
@@ -615,7 +601,7 @@ const MainPolicyEvaluationPage = ({ siteHeader, footer, template }) => (
           />
 
           <SocialMediaShare
-            className="ecl-u-mt-3xl"
+            className="ecl-u-mt-xl ecl-u-mt-lg-3xl"
             description="Share this page"
             links={[
               {
