@@ -130,7 +130,7 @@ const MainPolicyBackgroundPage = ({ siteHeader, footer, template }) => (
       />
     )}
 
-    <div className="ecl-u-pv-3xl">
+    <div className="ecl-u-pv-xl ecl-u-pv-lg-3xl">
       <div className="ecl-container">
         <main>
           <p className="ecl-u-type-paragraph ecl-u-mt-none">
@@ -172,7 +172,7 @@ const MainPolicyBackgroundPage = ({ siteHeader, footer, template }) => (
           </p>
 
           <FileDownload
-            className="ecl-u-mt-3xl"
+            className="ecl-u-mt-xl ecl-u-mt-lg-3xl"
             title='"Clean air for all" - General information'
             language="English"
             meta="(392 KB - PDF - 2 pages)"
@@ -187,7 +187,7 @@ const MainPolicyBackgroundPage = ({ siteHeader, footer, template }) => (
           />
 
           <FileDownload
-            className="ecl-u-mt-3xl"
+            className="ecl-u-mt-m ecl-u-mt-lg-3xl"
             title="Brochure in lower-cost sensors for mesuring air quality"
             language="English"
             meta="(392 KB - PDF - 2 pages)"
@@ -203,7 +203,7 @@ const MainPolicyBackgroundPage = ({ siteHeader, footer, template }) => (
 
           <FileDownload
             data-ecl-auto-init="FileDownload"
-            className="ecl-u-mt-3xl"
+            className="ecl-u-mt-m ecl-u-mt-lg-3xl"
             title="Citizen's summary on a New Air Policy for the EU"
             language="English"
             meta="(392 KB - PDF - 2 pages)"
@@ -253,7 +253,7 @@ const MainPolicyBackgroundPage = ({ siteHeader, footer, template }) => (
 
           <FileDownload
             data-ecl-auto-init="FileDownload"
-            className="ecl-u-mt-3xl"
+            className="ecl-u-mt-m ecl-u-mt-lg-3xl"
             title='"Cleaner air for all" - Factsheet about air pollution in the EU'
             language="English"
             meta="(392 KB - PDF - 2 pages)"
@@ -303,7 +303,7 @@ const MainPolicyBackgroundPage = ({ siteHeader, footer, template }) => (
 
           <FileDownload
             data-ecl-auto-init="FileDownload"
-            className="ecl-u-mt-3xl"
+            className="ecl-u-mt-m ecl-u-mt-lg-3xl"
             title="Implementation of the HRAPIE Recommendations for European Air Pollution CBA work"
             language="English"
             meta="(392 KB - PDF - 2 pages)"
@@ -353,7 +353,7 @@ const MainPolicyBackgroundPage = ({ siteHeader, footer, template }) => (
 
           <FileDownload
             data-ecl-auto-init="FileDownload"
-            className="ecl-u-mt-3xl"
+            className="ecl-u-mt-m ecl-u-mt-lg-3xl"
             title="Cost-benefit analysis of Final Policy Scenarios for the EU Clean Air Policy Package"
             language="English"
             meta="(392 KB - PDF - 2 pages)"
@@ -403,7 +403,7 @@ const MainPolicyBackgroundPage = ({ siteHeader, footer, template }) => (
 
           <FileDownload
             data-ecl-auto-init="FileDownload"
-            className="ecl-u-mt-3xl"
+            className="ecl-u-mt-m ecl-u-mt-lg-3xl"
             title="Measures and costs for CH4 implementation by Member State"
             language="English"
             meta="(392 KB - PDF - 2 pages)"
@@ -453,7 +453,7 @@ const MainPolicyBackgroundPage = ({ siteHeader, footer, template }) => (
 
           <FileDownload
             data-ecl-auto-init="FileDownload"
-            className="ecl-u-mt-3xl"
+            className="ecl-u-mt-m ecl-u-mt-lg-3xl"
             title="Cost-benefit Analysis of Scenarios for Cost-Effective Emission Controls after 2020"
             language="English"
             meta="(392 KB - PDF - 2 pages)"
@@ -503,7 +503,7 @@ const MainPolicyBackgroundPage = ({ siteHeader, footer, template }) => (
 
           <FileDownload
             data-ecl-auto-init="FileDownload"
-            className="ecl-u-mt-3xl"
+            className="ecl-u-mt-m ecl-u-mt-lg-3xl"
             title="Costs, Benefits And Economic Impact Of The Eu Clean Air Strategy And Their Implications On Innovation And Competitiveness"
             language="English"
             meta="(392 KB - PDF - 2 pages)"
@@ -551,7 +551,7 @@ const MainPolicyBackgroundPage = ({ siteHeader, footer, template }) => (
             }}
           />
 
-          <h2 className="ecl-u-type-heading-2 ecl-u-mt-3xl ecl-u-mb-none">
+          <h2 className="ecl-u-type-heading-2 ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
             International air pollution policy
           </h2>
 
@@ -559,7 +559,7 @@ const MainPolicyBackgroundPage = ({ siteHeader, footer, template }) => (
             Convention on Long Range Transboundary Air Pollution
           </h3>
 
-          <p className="ecl-u-type-paragraph ecl-u-mt-xs">
+          <p className="ecl-u-type-paragraph ecl-u-mt-m ecl-u-mt-lg-xs">
             In the international context, the EU Member States work closely
             together with other UNECE member countries to control international
             air pollution under the{' '}
@@ -598,7 +598,7 @@ const MainPolicyBackgroundPage = ({ siteHeader, footer, template }) => (
 
           <FileDownload
             data-ecl-auto-init="FileDownload"
-            className="ecl-u-mt-3xl"
+            className="ecl-u-mt-l ecl-u-mt-lg-3xl"
             title="United Nations Environment Assembly of the United Nations Environment Programme"
             language="English"
             meta="(392 KB - PDF - 2 pages)"
@@ -650,7 +650,7 @@ const MainPolicyBackgroundPage = ({ siteHeader, footer, template }) => (
             UNEA/UNEP
           </h3>
 
-          <p className="ecl-u-type-paragraph ecl-u-mt-xs">
+          <p className="ecl-u-type-paragraph ecl-u-mt-m ecl-u-mt-lg-xs">
             The European Commission and the EU Member States participated
             actively in the work on UN Environmental Assembly resolution
             UNEP/EA.3/Res.8 (December 2017) on Preventing and reducing air
@@ -667,13 +667,13 @@ const MainPolicyBackgroundPage = ({ siteHeader, footer, template }) => (
             UN Sustainable Development Goals (SDGs)
           </h3>
 
-          <p className="ecl-u-type-paragraph ecl-u-mt-xs ecl-u-mb-none">
+          <p className="ecl-u-type-paragraph ecl-u-mt-m ecl-u-mt-lg-xs ecl-u-mb-none">
             Several of the <Link href="/example" label="UN SDGs" /> are directly
             or indirectly linked to improvments in air quality.
           </p>
 
           <SocialMediaShare
-            className="ecl-u-mt-3xl"
+            className="ecl-u-mt-xl ecl-u-mt-lg-3xl"
             description="Share this page"
             links={[
               {
