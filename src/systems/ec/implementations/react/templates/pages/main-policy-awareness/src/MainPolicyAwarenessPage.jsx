@@ -130,7 +130,7 @@ const MainPolicyAwarenessPage = ({ siteHeader, footer, template }) => (
       />
     )}
 
-    <div className="ecl-u-pv-3xl">
+    <div className="ecl-u-pv-xl ecl-u-pv-lg-3xl">
       <div className="ecl-container">
         <main>
           <p className="ecl-u-type-paragraph ecl-u-mv-none">
@@ -163,7 +163,7 @@ const MainPolicyAwarenessPage = ({ siteHeader, footer, template }) => (
             }}
           />
 
-          <h2 className="ecl-u-type-heading-2 ecl-u-mt-3xl ecl-u-mb-none">
+          <h2 className="ecl-u-type-heading-2 ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
             Events, communication and awareness-rising
           </h2>
 
@@ -185,7 +185,7 @@ const MainPolicyAwarenessPage = ({ siteHeader, footer, template }) => (
             </p>
           </article>
 
-          <h3 className="ecl-u-type-heading-3 ecl-u-mt-3xl ecl-u-mb-none">
+          <h3 className="ecl-u-type-heading-3 ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
             Events related to this action
           </h3>
 
@@ -201,8 +201,10 @@ const MainPolicyAwarenessPage = ({ siteHeader, footer, template }) => (
             </div>
             <div className="ecl-u-flex-grow-1">
               <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                ONLINE PRESS CONFERENCE |{' '}
-                <time dateTime="2019-05-26">26 MAY</time>
+                <span className="ecl-u-type-uppercase">
+                  Online press conference
+                </span>{' '}
+                | <time dateTime="2019-05-26">26 MAY</time>
                 {' - '}
                 <time dateTime="2019-06-20">20 JUN</time>
               </div>
@@ -219,7 +221,7 @@ const MainPolicyAwarenessPage = ({ siteHeader, footer, template }) => (
             </div>
           </article>
 
-          <h3 className="ecl-u-type-heading-3 ecl-u-mt-3xl ecl-u-mb-none">
+          <h3 className="ecl-u-type-heading-3 ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
             Communication material
           </h3>
 
@@ -275,7 +277,7 @@ const MainPolicyAwarenessPage = ({ siteHeader, footer, template }) => (
 
           <FileDownload
             data-ecl-auto-init="FileDownload"
-            className="ecl-u-mt-3xl"
+            className="ecl-u-mt-m ecl-u-mt-lg-3xl"
             title="Environment press release: New policy package to clean up Europe's air"
             language="English"
             meta="(392 KB - PDF - 2 pages)"
@@ -325,7 +327,7 @@ const MainPolicyAwarenessPage = ({ siteHeader, footer, template }) => (
 
           <FileDownload
             data-ecl-auto-init="FileDownload"
-            className="ecl-u-mt-3xl"
+            className="ecl-u-mt-m ecl-u-mt-lg-3xl"
             title="Questions and answers on the EU Clean Air Policy Package"
             language="English"
             meta="(392 KB - PDF - 2 pages)"
@@ -375,6 +377,7 @@ const MainPolicyAwarenessPage = ({ siteHeader, footer, template }) => (
 
           <SocialMediaShare
             description="Share this page"
+            className="ecl-u-mt-xl ecl-u-mt-lg-3xl"
             links={[
               {
                 href: '/example',
