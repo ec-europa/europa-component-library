@@ -129,7 +129,7 @@ const MainPolicyResourcesPage = ({ siteHeader, footer, template }) => (
       />
     )}
 
-    <div className="ecl-u-pv-3xl">
+    <div className="ecl-u-pv-xl ecl-u-pv-lg-3xl">
       <div className="ecl-container">
         <main>
           <p className="ecl-u-type-paragraph ecl-u-mv-none">
@@ -164,11 +164,11 @@ const MainPolicyResourcesPage = ({ siteHeader, footer, template }) => (
             }}
           />
 
-          <h2 className="ecl-u-type-heading-2 ecl-u-mt-3xl ecl-u-mb-none">
+          <h2 className="ecl-u-type-heading-2 ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
             Databases and other resources
           </h2>
 
-          <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-l">
+          <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-m ecl-u-mt-lg-l">
             <div className="ecl-u-flex-grow-1">
               <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
                 <Link
@@ -210,7 +210,7 @@ const MainPolicyResourcesPage = ({ siteHeader, footer, template }) => (
             />
           </article>
 
-          <h2 className="ecl-u-type-heading-2 ecl-u-mt-3xl ecl-u-mb-none">
+          <h2 className="ecl-u-type-heading-2 ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
             Report
           </h2>
 
@@ -265,7 +265,7 @@ const MainPolicyResourcesPage = ({ siteHeader, footer, template }) => (
           />
 
           <SocialMediaShare
-            className="ecl-u-mt-3xl"
+            className="ecl-u-mt-xl ecl-u-mt-lg-3xl"
             description="Share this page"
             links={[
               {
