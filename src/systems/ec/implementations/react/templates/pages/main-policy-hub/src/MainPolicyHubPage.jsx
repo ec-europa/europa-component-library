@@ -135,7 +135,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
       />
     )}
 
-    <div className="ecl-u-pv-3xl">
+    <div className="ecl-u-pv-xl ecl-u-pv-lg-3xl">
       <main>
         <div className="ecl-container">
           <div className="ecl-row">
@@ -158,7 +158,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
                 }}
               />
 
-              <h2 className="ecl-u-type-heading-2 ecl-u-mt-3xl ecl-u-mb-none">
+              <h2 className="ecl-u-type-heading-2 ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
                 Objectives
               </h2>
 
@@ -174,25 +174,19 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
             </div>
 
             <div className="ecl-col-12 ecl-col-md-6">
-              <div className="ecl-u-bg-blue-5 ecl-u-border-all ecl-u-border-width-2 ecl-u-border-color-blue-25 ecl-u-pv-l">
+              <div className="ecl-u-bg-blue-5 ecl-u-border-all ecl-u-border-width-2 ecl-u-border-color-blue-25 ecl-u-pv-l ecl-u-mt-l ecl-u-mt-lg-none">
                 <DescriptionList variant="horizontal">
-                  <DescriptionTerm
-                    className="ecl-u-pl-s"
-                    style={{ boxSizing: 'border-box' }}
-                  >
+                  <DescriptionTerm className="ecl-u-pl-s ecl-u-box-sizing-border">
                     Policy period
                   </DescriptionTerm>
-                  <DescriptionDefinition>
+                  <DescriptionDefinition className="ecl-u-pl-s ecl-u-pl-lg-none">
                     01.01.2015 - 01.01.2030
                   </DescriptionDefinition>
 
-                  <DescriptionTerm
-                    className="ecl-u-pl-s"
-                    style={{ boxSizing: 'border-box' }}
-                  >
+                  <DescriptionTerm className="ecl-u-pl-s ecl-u-box-sizing-border">
                     Connected topics
                   </DescriptionTerm>
-                  <DescriptionDefinition>
+                  <DescriptionDefinition className="ecl-u-pl-s ecl-u-pl-lg-none">
                     <Link
                       href="/example"
                       label="Environment"
@@ -200,13 +194,10 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
                     />
                   </DescriptionDefinition>
 
-                  <DescriptionTerm
-                    className="ecl-u-pl-s"
-                    style={{ boxSizing: 'border-box' }}
-                  >
+                  <DescriptionTerm className="ecl-u-pl-s ecl-u-box-sizing-border">
                     Connected Commission priorities
                   </DescriptionTerm>
-                  <DescriptionDefinition>
+                  <DescriptionDefinition className="ecl-u-pl-s ecl-u-pl-lg-none">
                     <Link
                       href="/example"
                       label="Energy union and climate"
@@ -214,13 +205,10 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
                     />
                   </DescriptionDefinition>
 
-                  <DescriptionTerm
-                    className="ecl-u-pl-s"
-                    style={{ boxSizing: 'border-box' }}
-                  >
+                  <DescriptionTerm className="ecl-u-pl-s ecl-u-box-sizing-border">
                     Previous version
                   </DescriptionTerm>
-                  <DescriptionDefinition>
+                  <DescriptionDefinition className="ecl-u-pl-s ecl-u-pl-lg-none">
                     <Link
                       href="/example"
                       label="The CAFE Programme (2001 - 2015)"
@@ -233,7 +221,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
           </div>
         </div>
 
-        <div className="ecl-u-mt-3xl ecl-u-pv-l ecl-u-bg-blue-5">
+        <div className="ecl-u-mt-l ecl-u-mt-lg-3xl ecl-u-pv-l ecl-u-bg-blue-5">
           <div className="ecl-container">
             <h2 className="ecl-u-type-heading-2 ecl-u-mv-none">
               Supporting policies
@@ -241,7 +229,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
 
             <div className="ecl-row ecl-u-mt-xs">
               <div className="ecl-col-12 ecl-col-md-6">
-                <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
+                <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
                   <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
                     <Link
                       href="/example"
@@ -249,7 +237,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
                       label="Air quality"
                     />
                   </div>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
                     European Union policy on air quality aims to develop and
                     implement appropriate instruments to improve air quality.
                   </p>
@@ -257,7 +245,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
               </div>
 
               <div className="ecl-col-12 ecl-col-md-6">
-                <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
+                <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
                   <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
                     <Link
                       href="/example"
@@ -265,7 +253,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
                       label="Reduction of National Emissions"
                     />
                   </div>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
                     EU has policies in place limiting individual sources but
                     also national totals of atmospheric emissions of key
                     polluants.
@@ -276,15 +264,15 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
 
             <div className="ecl-row">
               <div className="ecl-col-12 ecl-col-md-6">
-                <article className="ecl-u-pv-m">
-                  <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                <article className="ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
+                  <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs ">
                     <Link
                       href="/example"
                       variant="standalone"
                       label="Air pollution from the main sources"
                     />
                   </div>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
                     Main sources of problems regarding European Union&apos;air
                     pollution.
                   </p>
@@ -295,13 +283,13 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
         </div>
 
         <div className="ecl-container">
-          <h2 className="ecl-u-type-heading-2 ecl-u-mt-3xl ecl-u-mb-none">
+          <h2 className="ecl-u-type-heading-2 ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
             Actions
           </h2>
 
           <div className="ecl-row ecl-u-mt-xs">
             <div className="ecl-col-12 ecl-col-md-6">
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
+              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
                 <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
                   <Link
                     href="/example"
@@ -318,7 +306,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
             </div>
 
             <div className="ecl-col-12 ecl-col-md-6">
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
+              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
                 <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
                   <Link
                     href="/example"
@@ -337,7 +325,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
 
           <div className="ecl-row">
             <div className="ecl-col-12 ecl-col-md-6">
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15  ecl-u-border-width-md-0 ecl-u-pv-m">
+              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15  ecl-u-border-width-md-0 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
                 <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
                   <Link
                     href="/example"
@@ -354,7 +342,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
             </div>
 
             <div className="ecl-col-12 ecl-col-md-6">
-              <article className="ecl-u-pv-m">
+              <article className="ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
                 <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
                   <Link
                     href="/example"
@@ -372,7 +360,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
           </div>
         </div>
 
-        <div className="ecl-u-mt-3xl ecl-u-pv-l ecl-u-bg-blue-5">
+        <div className="ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-pv-l ecl-u-bg-blue-5">
           <div className="ecl-container">
             <h2 className="ecl-u-type-heading-2 ecl-u-mv-none">Outcome</h2>
 
@@ -403,7 +391,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
               }}
             />
 
-            <div className="ecl-row ecl-u-mt-l ecl-u-border-top ecl-u-border-color-grey-25">
+            <div className="ecl-row ecl-u-mt-m ecl-u-mt-lg-l ecl-u-border-top ecl-u-border-color-grey-25">
               <div className="ecl-col-12 ecl-col-md-6 ecl-u-border-bottom ecl-u-border-color-grey-25 ecl-u-border-width-md-0 ecl-u-pb-l ecl-u-pb-md-none">
                 <h3 className="ecl-u-type-heading-3 ecl-u-mt-l ecl-u-mb-none">
                   Monitoring
@@ -461,7 +449,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
         </div>
 
         <div className="ecl-container">
-          <h2 className="ecl-u-type-heading-2 ecl-u-mt-3xl ecl-u-mb-none">
+          <h2 className="ecl-u-type-heading-2 ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
             Policy timeline
           </h2>
 
@@ -626,13 +614,11 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
           </article>
         </div>
 
-        <div className="ecl-u-bg-blue-5 ecl-u-pv-l ecl-u-mt-3xl">
+        <div className="ecl-u-bg-blue-5 ecl-u-pv-l ecl-u-mt-xl ecl-u-mt-lg-3xl">
           <div className="ecl-container">
-            <h2 className="ecl-u-type-heading-2 ecl-u-mt-l ecl-u-mb-none">
-              News
-            </h2>
+            <h2 className="ecl-u-type-heading-2 ecl-u-mv-none">News</h2>
 
-            <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-l">
+            <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-m ecl-u-mt-lg-l">
               <div className="ecl-u-flex-grow-1">
                 <div className="ecl-u-type-s ecl-u-type-color-grey-75">
                   <span className="ecl-u-type-uppercase">News article</span> |{' '}
@@ -645,7 +631,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
                     label="EEA reports on cleaner EU environment and challenges ahead"
                   />
                 </div>
-                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
                   A new report published today by the European Environment
                   Agency shows that a coordinated EU environment policy has
                   delivered substantial benefits for citizens over the past 5
@@ -693,7 +679,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
                     label="Paris Climate Agreement to enter into force as EU agrees ratification"
                   />
                 </div>
-                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
                   The European Parliament has today approved the EU ratification
                   of the Paris Agreement in the presence of Commission President
                   Jean-Claude Juncker.
@@ -740,7 +726,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
                     label="The 6th meeting of the Urban Partnership on Air QUality focuses on the implementation of actions"
                   />
                 </div>
-                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
                   After the presentation of the Draft Action Plan and the
                   corresponding period for analysis of the Public Feedback
                   results, the Urban Partnership Air Quality.
@@ -789,7 +775,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
         </div>
 
         <div className="ecl-container">
-          <h2 className="ecl-u-type-heading-2 ecl-u-mt-3xl ecl-u-mb-none">
+          <h2 className="ecl-u-type-heading-2 ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
             Events
           </h2>
 
@@ -822,7 +808,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
             </div>
           </article>
 
-          <h2 className="ecl-u-type-heading-2 ecl-u-mt-3xl ecl-u-mb-none">
+          <h2 className="ecl-u-type-heading-2 ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
             Stakeholders
           </h2>
 
@@ -921,7 +907,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
           </div>
         </div>
 
-        <div className="ecl-u-bg-blue-5 ecl-u-pv-l ecl-u-mt-3xl">
+        <div className="ecl-u-bg-blue-5 ecl-u-pv-l ecl-u-mt-xl ecl-u-mt-lg-3xl">
           <div className="ecl-container">
             <h2 className="ecl-u-type-heading-2 ecl-u-mv-none">Contact</h2>
 
@@ -1087,7 +1073,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
 
         <div className="ecl-container">
           <SocialMediaShare
-            className="ecl-u-mt-3xl"
+            className="ecl-u-mt-xl ecl-u-mt-lg-3xl"
             description="Share this page"
             links={[
               {
