@@ -230,7 +230,7 @@ const MainPolicyResourcesPage = ({ siteHeader, footer, template }) => (
             }}
             translation={{
               toggle: {
-                label: 'Other languages (22)',
+                label: 'Other languages (3)',
               },
               items: [
                 {
