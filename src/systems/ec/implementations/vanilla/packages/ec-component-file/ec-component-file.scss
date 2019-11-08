@@ -15,11 +15,12 @@
   $container-background: $ecl-color-grey-5,
   $icon-color: $ecl-color-grey-50,
   $info-color: $ecl-color-grey-100,
-  $translation-border-color: $ecl-color-grey-50
+  $translation-border-color: $ecl-color-grey-50,
+  $max-width: 823px
 ) {
   .ecl-file {
     margin: 0;
-    max-width: 823px;
+    max-width: $max-width;
   }
 
   .ecl-file__container {
