@@ -1,0 +1,48 @@
+/**
+ * Editor styles
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+/**
+ * Blockquote
+ */
+@mixin ecl-editor-blockquote($border-width: 0.625rem) {
+  /* stylelint-disable max-nesting-depth */
+  .ecl-editor blockquote {
+    border-left: $border-width solid $ecl-color-secondary;
+    margin: 0;
+    padding: $ecl-spacing-m 0 $ecl-spacing-m $ecl-spacing-l;
+
+    p {
+      color: $ecl-color-text;
+      font: $ecl-font-prolonged-m;
+      font-style: italic;
+      margin: 0;
+      max-width: 85ch; // Limit to ~85 chars max
+      quotes: '\201C''\201D';
+
+      &::before {
+        content: open-quote;
+      }
+
+      &::after {
+        content: close-quote;
+      }
+    }
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up('md') {
+    .ecl-editor blockquote p {
+      font: $ecl-font-prolonged-xl;
+      font-style: italic;
+    }
+  }
+}
+
+// Use mixin
+@include exports('ec-editor') {
+  @include ecl-editor-blockquote();
+}
