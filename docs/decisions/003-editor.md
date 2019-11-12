@@ -1,17 +1,19 @@
 # Handle `editor` CSS rules in ECL
 
-| Status        | proposed   |
-| ------------- | ---------- |
-| **Proposed**  | 21/10/2019 |
-| **Accepted**  |            |
-| **Driver**    | @emeryro   |
-| **Approver**  |            |
-| **Consulted** |            |
-| **Informed**  |            |
+| Status        | proposed                     |
+| ------------- | ---------------------------- |
+| **Proposed**  | 21/10/2019                   |
+| **Accepted**  | 11/11/2019                   |
+| **Driver**    | @emeryro                     |
+| **Approver**  | @yhuard                      |
+| **Consulted** | @degliwe, @yhuard, @planctus |
+| **Informed**  | @emdemaran                   |
 
 ## Decision
 
-(Describe the decision that you propose, ideally in a single sentence)
+- All editor CSS rules are put in a new package `@ecl/ec-editor`.
+- CSS is duplicated from component (no SASS mixins).
+- A new preset `ec-preset-editor` is created to store these rules.
 
 ## Context
 
