@@ -1,6 +1,6 @@
 # Handle `editor` CSS rules in ECL
 
-| Status        | proposed                     |
+| Status        | accepted                     |
 | ------------- | ---------------------------- |
 | **Proposed**  | 21/10/2019                   |
 | **Accepted**  | 11/11/2019                   |
@@ -53,7 +53,7 @@ Currently these rules are added the same way it was done in ECL1:
 
 ec-component-table.scss:
 
-```
+```scss
 .ecl-table,
 .ecl-editor table {
   border-collapse: collapse;
@@ -90,7 +90,7 @@ ec-component-table.scss:
 
 ec-component-table.scss:
 
-```
+```scss
 .ecl-table {
   border-collapse: collapse;
   color: $ecl-color-grey;
@@ -107,7 +107,7 @@ ec-component-table.scss:
 
 ec-component-table-editor.scss:
 
-```
+```scss
 .ecl-editor {
   table {
     border-collapse: collapse;
@@ -142,7 +142,7 @@ Similar to previous option (Editor preset, with duplicated rules), but instead o
 
 mixin.scss:
 
-```
+```scss
 @mixin ecl-table-root() {
   border-collapse: collapse;
   color: $ecl-color-grey;
@@ -158,7 +158,7 @@ mixin.scss:
 
 ec-component-table.scss:
 
-```
+```scss
 .ecl-table {
   @include ecl-table-root();
 }
@@ -170,7 +170,7 @@ ec-component-table.scss:
 
 ec-component-table-editor.scss:
 
-```
+```scss
 .ecl-editor {
   table {
     @include ecl-table-root();
