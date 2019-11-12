@@ -12,9 +12,9 @@ export class Accordion2 {
   constructor(
     element,
     {
-      toggleSelector: toggleSelector = '[data-ecl-accordion2-toggle]',
-      iconSelector: iconSelector = '[data-ecl-accordion2-icon]',
-      attachClickListener: attachClickListener = true,
+      toggleSelector = '[data-ecl-accordion2-toggle]',
+      iconSelector = '[data-ecl-accordion2-icon]',
+      attachClickListener = true,
     } = {}
   ) {
     // Check element
@@ -86,11 +86,11 @@ export class Accordion2 {
       toggle.getAttribute('aria-expanded') === 'true';
 
     // Toggle the expandable/collapsible
-    toggle.setAttribute('aria-expanded', !isExpanded);
+    toggle.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
     if (isExpanded) {
-      target.setAttribute('hidden', true);
+      target.hidden = true;
     } else {
-      target.removeAttribute('hidden');
+      target.hidden = false;
     }
 
     // Toggle icon

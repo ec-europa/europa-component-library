@@ -1,0 +1,35 @@
+/**
+ * Site Header Harmonised
+ * @define site-header-harmonised
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-site-header-harmonised-print() {
+  .ecl-site-header-harmonised__logo-image {
+    height: 1.9cm;
+    width: 7.2cm;
+  }
+
+  .ecl-site-header-harmonised__action {
+    display: none;
+  }
+
+  .ecl-site-header-harmonised__banner-top {
+    color: $ecl-color-black;
+    font: $ecl-font-prolonged-print-s;
+    padding: $ecl-spacing-print-xs 0;
+  }
+
+  .ecl-site-header-harmonised__banner {
+    color: $ecl-color-black;
+    font: $ecl-font-print-2-xl;
+    padding: $ecl-spacing-print-xs 0;
+  }
+}
+
+// Use mixin
+@include exports('ec-component-site-header-harmonised-print') {
+  @include ecl-site-header-harmonised-print();
+}

@@ -1,6 +1,6 @@
 /**
 * Social media share component
-* @define social-media-share
+* @define social-media-share; weak
 */
 
 // Import base
@@ -50,9 +50,15 @@
   }
 
   .ecl-social-media-share__link {
+    align-items: center;
+    box-sizing: border-box;
     display: flex;
     font: $ecl-font-s;
     overflow: hidden; /* Improve rendering on IE */
+
+    .ecl-link__icon {
+      top: 0;
+    }
   }
 }
 

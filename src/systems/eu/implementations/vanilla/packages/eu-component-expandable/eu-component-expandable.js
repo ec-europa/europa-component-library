@@ -12,11 +12,11 @@ export class Expandable {
   constructor(
     element,
     {
-      toggleSelector: toggleSelector = '[data-ecl-expandable-toggle]',
-      labelSelector: labelSelector = '[data-ecl-label]',
-      labelExpanded: labelExpanded = 'data-ecl-label-expanded',
-      labelCollapsed: labelCollapsed = 'data-ecl-label-collapsed',
-      attachClickListener: attachClickListener = true,
+      toggleSelector = '[data-ecl-expandable-toggle]',
+      labelSelector = '[data-ecl-label]',
+      labelExpanded = 'data-ecl-label-expanded',
+      labelCollapsed = 'data-ecl-label-collapsed',
+      attachClickListener = true,
     } = {}
   ) {
     // Check element
@@ -82,11 +82,11 @@ export class Expandable {
       this.toggle.getAttribute('aria-expanded') === 'true';
 
     // Toggle the expandable/collapsible
-    this.toggle.setAttribute('aria-expanded', !isExpanded);
+    this.toggle.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
     if (isExpanded) {
-      this.target.setAttribute('hidden', true);
+      this.target.hidden = true;
     } else {
-      this.target.removeAttribute('hidden');
+      this.target.hidden = false;
     }
 
     // Toggle label if possible

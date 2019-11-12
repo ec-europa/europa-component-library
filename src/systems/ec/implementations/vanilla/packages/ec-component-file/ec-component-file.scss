@@ -15,14 +15,16 @@
   $container-background: $ecl-color-grey-5,
   $icon-color: $ecl-color-grey-50,
   $info-color: $ecl-color-grey-100,
-  $translation-border-color: $ecl-color-grey-50
+  $translation-border-color: $ecl-color-grey-50,
+  $max-width: 823px
 ) {
   .ecl-file {
     margin: 0;
+    max-width: $max-width;
   }
 
   .ecl-file__container {
-    align-items: flex-start;
+    align-items: center;
     background-color: $container-background;
     display: flex;
     flex-wrap: wrap;
@@ -63,6 +65,7 @@
   }
 
   .ecl-file__download {
+    font: $ecl-font-m;
     font-weight: $ecl-font-weight-bold;
     margin-top: $ecl-spacing-l;
     width: 100%;
@@ -80,6 +83,7 @@
     font: $ecl-font-m;
     font-weight: $ecl-font-weight-regular;
     margin-bottom: $ecl-spacing-m - $ecl-spacing-s;
+    margin-right: -$ecl-spacing-m;
     margin-top: $ecl-spacing-m - $ecl-spacing-s;
 
     .no-js & {

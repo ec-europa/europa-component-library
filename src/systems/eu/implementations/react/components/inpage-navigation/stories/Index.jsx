@@ -6,6 +6,14 @@ import StoryWrapper from '@ecl/story-wrapper';
 import { loremIpsum } from 'lorem-ipsum';
 import { InpageNavigation } from '../src/InpageNavigation';
 
+const btnIdRemoveHandler = () => {
+  const numH2s = document.querySelectorAll('.ecl-col-lg-9 h2[id]').length;
+  const position = Math.floor(Math.random() * Math.floor(numH2s));
+  const randomH2 = document.querySelectorAll('.ecl-col-lg-9 h2[id]')[position];
+  randomH2.nextSibling.outerHTML = '';
+  randomH2.outerHTML = '';
+};
+
 storiesOf('Components|Navigation/In page navigation', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
@@ -36,6 +44,7 @@ storiesOf('Components|Navigation/In page navigation', module)
       'Inject a new <h2 id="..." in the main column (random order)';
     const btnIdRemoveLabel =
       'Remove an <h2 id="..." from the main column (random order)';
+
     // Buttons for the demo.
     const btnLeftHandler = () => {
       const btnLeftElement = document.querySelector('.inPageDemoSidebar');
@@ -45,6 +54,7 @@ storiesOf('Components|Navigation/In page navigation', module)
         '<span>This is a block injected in the left sidebar</span>';
       btnLeftElement.append(btnLeftTag);
     };
+
     const btnMainHandler = () => {
       const btnMainElement = document.querySelector('.inPageDemoContent');
       const btnMainTag = document.createElement('div');
@@ -53,6 +63,7 @@ storiesOf('Components|Navigation/In page navigation', module)
         '<h2>This is an injected block in the Main column</h2>';
       btnMainElement.append(btnMainTag);
     };
+
     const btnIdHandler = () => {
       const numParagraphs = document.querySelectorAll('.ecl-col-lg-9 p').length;
       const position = Math.floor(Math.random() * Math.floor(numParagraphs));
@@ -61,7 +72,7 @@ storiesOf('Components|Navigation/In page navigation', module)
       ];
       const demoId = Math.random()
         .toString(36)
-        .substring(7);
+        .slice(7);
       const btnIdTag = document.createElement('h2');
       btnIdTag.classList.add('ecl-u-type-heading-2');
       btnIdTag.id = `new-${demoId}`;
@@ -71,15 +82,6 @@ storiesOf('Components|Navigation/In page navigation', module)
       btnIdParagraph.innerHTML = demoText;
       btnIdElement.insertAdjacentHTML('afterend', btnIdParagraph.outerHTML);
       btnIdElement.insertAdjacentHTML('afterend', btnIdTag.outerHTML);
-    };
-    const btnIdRemoveHandler = () => {
-      const numH2s = document.querySelectorAll('.ecl-col-lg-9 h2[id]').length;
-      const position = Math.floor(Math.random() * Math.floor(numH2s));
-      const randomH2 = document.querySelectorAll('.ecl-col-lg-9 h2[id]')[
-        position
-      ];
-      randomH2.nextSibling.outerHTML = '';
-      randomH2.outerHTML = '';
     };
 
     button(btnLeftLabel, btnLeftHandler, groupId);

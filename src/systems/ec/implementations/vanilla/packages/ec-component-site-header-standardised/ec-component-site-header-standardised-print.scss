@@ -1,0 +1,35 @@
+/**
+ * Site Header Standardised
+ * @define site-header-standardised
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-site-header-standardised-print() {
+  .ecl-site-header-standardised__logo-image {
+    height: 1.9cm;
+    width: 7.2cm;
+  }
+
+  .ecl-site-header-standardised__action {
+    display: none;
+  }
+
+  .ecl-site-header-standardised__banner-top {
+    color: $ecl-color-black;
+    font: $ecl-font-prolonged-print-s;
+    padding: $ecl-spacing-print-xs 0;
+  }
+
+  .ecl-site-header-standardised__banner {
+    color: $ecl-color-black;
+    font: $ecl-font-print-2-xl;
+    padding: $ecl-spacing-print-xs 0;
+  }
+}
+
+// Use mixin
+@include exports('ec-component-site-header-standardised-print') {
+  @include ecl-site-header-standardised-print();
+}

@@ -12,11 +12,11 @@ export class Timeline2 {
   constructor(
     element,
     {
-      buttonSelector: buttonSelector = '[data-ecl-timeline-button]',
-      labelSelector: labelSelector = '[data-ecl-label]',
-      labelExpanded: labelExpanded = 'data-ecl-label-expanded',
-      labelCollapsed: labelCollapsed = 'data-ecl-label-collapsed',
-      attachClickListener: attachClickListener = true,
+      buttonSelector = '[data-ecl-timeline-button]',
+      labelSelector = '[data-ecl-label]',
+      labelExpanded = 'data-ecl-label-expanded',
+      labelCollapsed = 'data-ecl-label-collapsed',
+      attachClickListener = true,
     } = {}
   ) {
     // Check element
@@ -67,14 +67,14 @@ export class Timeline2 {
     const isExpanded = this.button.getAttribute('aria-expanded') === 'true';
 
     // Toggle the expandable/collapsible
-    this.button.setAttribute('aria-expanded', !isExpanded);
+    this.button.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
     if (isExpanded) {
       this.element.removeAttribute('data-ecl-timeline-expanded');
       // Scroll up to the button
       this.button.blur();
       this.button.focus();
     } else {
-      this.element.setAttribute('data-ecl-timeline-expanded', true);
+      this.element.setAttribute('data-ecl-timeline-expanded', 'true');
     }
 
     // Toggle label if possible

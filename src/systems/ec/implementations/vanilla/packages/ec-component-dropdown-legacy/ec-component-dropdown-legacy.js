@@ -12,8 +12,8 @@ export class DropdownLegacy {
   constructor(
     element,
     {
-      toggleSelector: toggleSelector = '[data-ecl-dropdown-legacy-toggle]',
-      attachClickListener: attachClickListener = true,
+      toggleSelector = '[data-ecl-dropdown-legacy-toggle]',
+      attachClickListener = true,
     } = {}
   ) {
     // Check element
@@ -92,11 +92,11 @@ export class DropdownLegacy {
       this.toggle.getAttribute('aria-expanded') === 'true';
 
     // Toggle the dropdown-legacy
-    this.toggle.setAttribute('aria-expanded', !isExpanded);
+    this.toggle.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
     if (isExpanded) {
-      this.target.setAttribute('hidden', true);
+      this.target.hidden = true;
     } else {
-      this.target.removeAttribute('hidden');
+      this.target.hidden = false;
     }
 
     return this;

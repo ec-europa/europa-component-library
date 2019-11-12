@@ -28,6 +28,7 @@
 }
 
 .legend {
+  align-items: center;
   display: flex;
   flex-direction: row;
   list-style: none;
@@ -42,6 +43,12 @@
   &:last-child {
     margin-right: 0;
   }
+}
+
+.legend__item-last {
+  flex-grow: 1;
+  display: inline-flex;
+  justify-content: flex-end;
 }
 
 .legend__color {
@@ -61,6 +68,42 @@
   color: $ecl-color-grey-75;
   font: $ecl-font-prolonged-s;
   margin-top: $ecl-spacing-m;
+}
+
+.link {
+  align-items: center;
+  box-sizing: border-box;
+  color: $ecl-color-blue-100;
+  display: inline-flex;
+  float: right;
+  font: $ecl-font-m;
+  text-decoration: none;
+}
+
+.link__icon {
+  fill: currentColor;
+  height: 1em;
+  margin-left: $ecl-spacing-xs;
+  width: 1em;
+  transform: rotateZ(90deg);
+}
+
+.link:hover,
+.link:focus {
+  color: $ecl-color-black-100;
+  text-decoration: underline;
+
+  &.link--icon {
+    text-decoration: none;
+  }
+  &.link--icon .link__label {
+    text-decoration: underline;
+  }
+}
+
+.link:focus {
+  outline: 3px solid $ecl-color-yellow-100;
+  outline-offset: 2px;
 }
 
 @media screen and (min-width: $ecl-breakpoint-md) {

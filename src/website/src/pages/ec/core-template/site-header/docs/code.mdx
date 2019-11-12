@@ -1,0 +1,32 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+import SiteHeaderCore from '@ecl/ec-react-component-site-header-core';
+
+import demoContentEn from '@ecl/ec-specs-site-header-core/demo/data--en';
+import demoContentFr from '@ecl/ec-specs-site-header-core/demo/data--fr';
+
+<Playground
+  system="ec"
+  selectedKind="components-site-headers-core"
+  selectedStory="default"
+  showFrame
+  frameHeight="180"
+>
+  <SiteHeaderCore {...demoContentEn} data-ecl-auto-init="SiteHeaderCore" />
+</Playground>
+
+## Translated
+
+<Playground
+  system="ec"
+  selectedKind="components-site-headers-core"
+  selectedStory="translated"
+  showFrame
+  frameHeight="180"
+>
+  <SiteHeaderCore {...demoContentFr} data-ecl-auto-init="SiteHeaderCore" />
+</Playground>

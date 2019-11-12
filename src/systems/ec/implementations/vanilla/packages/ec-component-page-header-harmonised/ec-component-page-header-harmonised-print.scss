@@ -1,0 +1,35 @@
+/**
+ * Page header harmonised
+ * @define page-header-harmonised
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-page-header-harmonised-print() {
+  .ecl-page-header-harmonised {
+    color: $ecl-color-black-100;
+  }
+
+  .ecl-page-header-harmonised__meta {
+    font: $ecl-font-print-m;
+  }
+
+  .ecl-page-header-harmonised__title {
+    font: $ecl-font-print-4-xl;
+    font-weight: $ecl-font-weight-print-bold;
+    margin-bottom: 0;
+    margin-top: $ecl-spacing-print-m;
+  }
+
+  .ecl-page-header-harmonised__description {
+    font: $ecl-font-prolonged-print-xl;
+    margin-bottom: 0;
+    margin-top: $ecl-spacing-print-m;
+  }
+}
+
+// Use mixin
+@include exports('ec-component-page-header-harmonised-print') {
+  @include ecl-page-header-harmonised-print();
+}

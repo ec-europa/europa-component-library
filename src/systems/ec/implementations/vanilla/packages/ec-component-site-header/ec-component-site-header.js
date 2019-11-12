@@ -13,9 +13,9 @@ export class SiteHeader {
   constructor(
     element,
     {
-      languageLinkSelector: languageLinkSelector = '[data-ecl-language-selector]',
-      languageListOverlaySelector: languageListOverlaySelector = '[data-ecl-language-list-overlay]',
-      closeOverlaySelector: closeOverlaySelector = '[data-ecl-language-list-close]',
+      languageLinkSelector = '[data-ecl-language-selector]',
+      languageListOverlaySelector = '[data-ecl-language-list-overlay]',
+      closeOverlaySelector = '[data-ecl-language-list-close]',
     } = {}
   ) {
     // Check element
@@ -72,11 +72,11 @@ export class SiteHeader {
   }
 
   openOverlay() {
-    this.languageListOverlay.removeAttribute('hidden');
+    this.languageListOverlay.hidden = false;
   }
 
   closeOverlay() {
-    this.languageListOverlay.setAttribute('hidden', true);
+    this.languageListOverlay.hidden = true;
   }
 
   toggleOverlay(e) {
