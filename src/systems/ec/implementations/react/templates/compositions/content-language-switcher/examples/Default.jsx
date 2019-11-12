@@ -12,8 +12,9 @@ export default () => (
     <div className="ecl-u-d-flex ecl-u-type-color-white ecl-u-align-items-start ecl-u-font-s">
       <span className="ecl-u-d-flex ecl-u-align-items-center ecl-u-pt-xs">
         <Icon shape="general--generic-lang" size="l" />
-
-        <span className="ecl-u-ml-m ecl-u-type-m ecl-u-type-strike">italiano</span>
+        <span className="ecl-u-ml-m ecl-u-type-m ecl-u-type-strike">
+          italiano
+        </span>
       </span>
 
       <Expandable
@@ -29,6 +30,7 @@ export default () => (
         labelExpanded="English"
         labelCollapsed="English"
         className="ecl-u-ml-s"
+        data-ecl-auto-init="Expandable"
       >
         <UnorderedList
           variant="no-bullet"
