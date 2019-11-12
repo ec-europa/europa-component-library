@@ -1,6 +1,18 @@
 import { queryOne, queryAll } from '@ecl/ec-base/helpers/dom';
 
+/**
+ * An accordion object.
+ * @param {number} element any number
+ * @param {number} options number, plus one.
+ * @param {string} options.toggleSelector number, plus one.
+ * @param {boolean} options.attachClickListener number, plus one.
+ */
 export class Accordion2 {
+  /**
+   * Convert a string containing two comma-separated numbers into a point.
+   * @param {string} str - The string containing two comma-separated numbers.
+   * @return {Accordion} An Accordion object.
+   */
   static autoInit(root, { ACCORDION2: defaultOptions = {} } = {}) {
     const accordion2 = new Accordion2(root, defaultOptions);
     accordion2.init();

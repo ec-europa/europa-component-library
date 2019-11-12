@@ -23,7 +23,7 @@
     "lint:js": "eslint . --ext .js --ext .jsx",
     "lint:scss": "stylelint \"./src/**/*.scss\"",
     "lint": "npm-run-all --parallel lint:* -cln",
-    "postinstall": "patch-package && [ -z \"$NOYARNPOSTINSTALL\" ] && lerna run prepublish || echo \"Bypass prepublish\"",
+    "postinstall": "patch-package && [ -z \"$NOYARNPOSTINSTALL\" ] && (lerna run postinstall && lerna run prepublish) || echo \"Bypass prepublish\"",
     "pretty-check": "prettier --check \"src/**/*.{md,mdx,html,json,yml,js,jsx,scss}\"",
     "publish": "scripts/publish.sh",
     "serve": "cd src/website && npm run serve",

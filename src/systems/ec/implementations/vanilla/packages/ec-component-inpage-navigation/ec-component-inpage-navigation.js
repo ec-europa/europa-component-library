@@ -1,13 +1,10 @@
 /* eslint-disable unicorn/prefer-includes */
-/**
- * Navigation inpage related behaviors.
- */
-
 import Stickyfill from 'stickyfilljs';
 import Gumshoe from 'gumshoejs/dist/gumshoe.polyfills';
 import { queryOne, queryAll } from '@ecl/ec-base/helpers/dom';
 
 /**
+ * Navigation inpage related behaviors.
  * @param {object} options Object containing configuration overrides
  */
 export class InpageNavigation {
