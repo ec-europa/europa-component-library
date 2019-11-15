@@ -21,6 +21,7 @@ export class InpageNavigation {
     {
       attachClickListener = true,
       stickySelector = '[data-ecl-inpage-navigation]',
+      containerSelector = '[data-ecl-inpage-navigation-container]',
       inPageList = '[data-ecl-inpage-navigation-list]',
       spySelector = '[data-ecl-inpage-navigation-link]',
       toggleSelector = '[data-ecl-inpage-navigation-trigger]',
@@ -41,6 +42,7 @@ export class InpageNavigation {
     this.element = element;
     this.attachClickListener = attachClickListener;
     this.stickySelector = stickySelector;
+    this.containerSelector = containerSelector;
     this.toggleSelector = toggleSelector;
     this.linksSelector = linksSelector;
     this.inPageList = inPageList;
@@ -50,6 +52,8 @@ export class InpageNavigation {
     this.spyClass = spyClass;
     this.spyTrigger = spyTrigger;
     this.gumshoe = null;
+    this.observer = null;
+    this.stickyObserver = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOnToggler = this.handleClickOnToggler.bind(this);
@@ -84,29 +88,78 @@ export class InpageNavigation {
       this.deactivateScrollSpy,
       false
     );
+
+    if ('IntersectionObserver' in window) {
+      const navigationContainer = queryOne(this.containerSelector);
+
+      if (navigationContainer) {
+        let previousY = 0;
+        let previousRatio = 0;
+        let initialized = false;
+
+        this.stickyObserver = new IntersectionObserver(
+          entries => {
+            if (entries && entries[0]) {
+              const entry = entries[0];
+              const currentY = entry.boundingClientRect.y;
+              const currentRatio = entry.intersectionRatio;
+              const { isIntersecting } = entry;
+
+              if (!initialized) {
+                initialized = true;
+                previousY = currentY;
+                previousRatio = currentRatio;
+                return;
+              }
+
+              if (currentY < previousY) {
+                if (!(currentRatio > previousRatio && isIntersecting)) {
+                  // Scrolling down leave
+                  this.element.classList.remove(this.spyActiveContainer);
+                }
+              } else if (currentY > previousY && isIntersecting) {
+                if (currentRatio > previousRatio) {
+                  // Scrolling up enter
+                  this.element.classList.add(this.spyActiveContainer);
+                }
+              }
+
+              previousY = currentY;
+              previousRatio = currentRatio;
+            }
+          },
+          { root: null }
+        );
+
+        // observing a target element
+        this.stickyObserver.observe(navigationContainer);
+      }
+    }
   }
 
   activateScrollSpy(event) {
-    const toggleClass = this.spyActiveContainer;
     const navigationTitle = queryOne(this.spyTrigger);
 
-    this.element.classList.add(toggleClass);
+    this.element.classList.add(this.spyActiveContainer);
     navigationTitle.textContent = event.detail.content.textContent;
   }
 
   deactivateScrollSpy() {
-    const toggleClass = this.spyActiveContainer;
     const navigationTitle = queryOne(this.spyTrigger);
     const currentList = queryOne(this.inPageList, this.element);
     const togglerElement = queryOne(this.toggleSelector, this.element);
 
-    this.element.classList.remove(toggleClass);
+    this.element.classList.remove(this.spyActiveContainer);
     navigationTitle.innerHTML = '';
     currentList.hidden = true;
     togglerElement.setAttribute('aria-expanded', 'false');
   }
 
   destroyScrollSpy() {
+    if (this.stickyObserver) {
+      this.stickyObserver.disconnect();
+    }
+
     document.removeEventListener(
       'gumshoeActivate',
       this.activateScrollSpy,
@@ -121,66 +174,64 @@ export class InpageNavigation {
   }
 
   initObserver() {
-    const self = this;
-    this.observer = new MutationObserver(function observe(mutationsList) {
-      const body = queryOne('.ecl-col-lg-9');
-      const currentInpage = queryOne('[data-ecl-inpage-navigation-list]');
+    if ('MutationObserver' in window) {
+      const self = this;
+      this.observer = new MutationObserver(function observe(mutationsList) {
+        const body = queryOne('.ecl-col-lg-9');
+        const currentInpage = queryOne('[data-ecl-inpage-navigation-list]');
 
-      mutationsList.forEach(mutation => {
-        // Exclude the changes we perform.
-        if (
-          mutation &&
-          mutation.target &&
-          mutation.target.classList &&
-          !mutation.target.classList.contains(
-            'ecl-inpage-navigation__trigger-current'
-          )
-        ) {
-          // Added nodes.
-          if (mutation.addedNodes.length > 0) {
-            [].slice.call(mutation.addedNodes).forEach(addedNode => {
-              if (addedNode.tagName === 'H2' && addedNode.id) {
-                const H2s = queryAll('h2[id]', body);
-                const addedNodeIndex = H2s.findIndex(
-                  H2 => H2.id === addedNode.id
-                );
-                const element = currentInpage.childNodes[
-                  addedNodeIndex - 1
-                ].cloneNode(true);
-                element.childNodes[0].textContent = addedNode.textContent;
-                element.childNodes[0].href = `#${addedNode.id}`;
-                currentInpage.childNodes[addedNodeIndex - 1].after(element);
-              }
-            });
-          }
-          // Removed nodes.
-          if (mutation.removedNodes.length > 0) {
-            [].slice.call(mutation.removedNodes).forEach(removedNode => {
-              if (removedNode.tagName === 'H2' && removedNode.id) {
-                currentInpage.childNodes.forEach(item => {
-                  if (item.childNodes[0].href.indexOf(removedNode.id) !== -1) {
-                    // Remove the element from the inpage.
-                    currentInpage.removeChild(item);
-                  }
-                });
-              }
-            });
-          }
+        mutationsList.forEach(mutation => {
+          // Exclude the changes we perform.
+          if (
+            mutation &&
+            mutation.target &&
+            mutation.target.classList &&
+            !mutation.target.classList.contains(
+              'ecl-inpage-navigation__trigger-current'
+            )
+          ) {
+            // Added nodes.
+            if (mutation.addedNodes.length > 0) {
+              [].slice.call(mutation.addedNodes).forEach(addedNode => {
+                if (addedNode.tagName === 'H2' && addedNode.id) {
+                  const H2s = queryAll('h2[id]', body);
+                  const addedNodeIndex = H2s.findIndex(
+                    H2 => H2.id === addedNode.id
+                  );
+                  const element = currentInpage.childNodes[
+                    addedNodeIndex - 1
+                  ].cloneNode(true);
+                  element.childNodes[0].textContent = addedNode.textContent;
+                  element.childNodes[0].href = `#${addedNode.id}`;
+                  currentInpage.childNodes[addedNodeIndex - 1].after(element);
+                }
+              });
+            }
+            // Removed nodes.
+            if (mutation.removedNodes.length > 0) {
+              [].slice.call(mutation.removedNodes).forEach(removedNode => {
+                if (removedNode.tagName === 'H2' && removedNode.id) {
+                  currentInpage.childNodes.forEach(item => {
+                    if (
+                      item.childNodes[0].href.indexOf(removedNode.id) !== -1
+                    ) {
+                      // Remove the element from the inpage.
+                      currentInpage.removeChild(item);
+                    }
+                  });
+                }
+              });
+            }
 
-          self.update();
-        }
+            self.update();
+          }
+        });
       });
-    });
 
-    this.observer.observe(document, {
-      subtree: true,
-      childList: true,
-    });
-  }
-
-  destroyObserver() {
-    if (this.observer) {
-      this.observer.disconnect();
+      this.observer.observe(document, {
+        subtree: true,
+        childList: true,
+      });
     }
   }
 

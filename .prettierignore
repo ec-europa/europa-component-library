@@ -9,3 +9,34 @@ package.json
 src/website/public/playground
 src/website/src/pages/ec/_jsdoc
 yarn.lock
+
+# Temporarily ignore files until prettier fixes the issue or we find a solution
+
+# General styling is broken
+src/website/src/pages/ec/components/list/docs/usage.mdx
+src/website/src/pages/ec/components/navigation/breadcrumb/docs/usage.mdx
+src/website/src/pages/ec/components/navigation/link/docs/code.mdx
+src/website/src/pages/ec/compositions/content-item/docs/usage.mdx
+src/website/src/pages/ec/compositions/navigation-lists/docs/usage.mdx
+src/website/src/pages/ec/harmonised-templates/docs/group1.mdx
+src/website/src/pages/ec/harmonised-templates/docs/group2.mdx
+src/website/src/pages/ec/utilities/grid/index.mdx
+src/website/src/pages/ec/utilities/stacks/docs/code.mdx
+src/website/src/pages/eu/about/vision/index.mdx
+
+# SyntaxError: Void elements do not have end tags "Link"
+src/website/src/pages/ec/components/forms/checkbox/docs/usage.mdx
+src/website/src/pages/ec/components/forms/radio/docs/usage.mdx
+src/website/src/pages/ec/components/forms/select/docs/usage.mdx
+src/website/src/pages/ec/components/forms/text-area/docs/usage.mdx
+src/website/src/pages/ec/components/forms/text-field/docs/usage.mdx
+src/website/src/pages/ec/components/index.mdx
+src/website/src/pages/ec/components/social-media-follow/docs/usage.mdx
+src/website/src/pages/ec/components/social-media-share/docs/usage.mdx
+src/website/src/pages/ec/components/timeline/docs/usage.mdx
+
+# SyntaxError: Unexpected closing tag "Playground". It may happen when the tag has already been closed by another tag.
+src/website/src/pages/ec/components/message/docs/code.mdx
+
+# SyntaxError: Unexpected closing tag "div". It may happen when the tag has already been closed by another tag.
+src/website/src/pages/eu/about/digital-design-principles/index.mdx

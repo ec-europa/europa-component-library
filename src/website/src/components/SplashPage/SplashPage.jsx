@@ -22,9 +22,7 @@ const SplashPage = React.memo(({ children }) => (
       <Row className={styles['splash-page-actions-row']}>
         <Col
           col="12 md-6"
-          className={`${utilities['d-flex']} ${
-            styles['splash-page-actions-col']
-          }`}
+          className={`${utilities['d-flex']} ${styles['splash-page-actions-col']}`}
         >
           <LogoLink to="/ec/" aria-label="Open EU system">
             <img src={ECLogo} alt="EC Logo" />
@@ -32,9 +30,7 @@ const SplashPage = React.memo(({ children }) => (
         </Col>
         <Col
           col="12 md-6"
-          className={`${utilities['d-flex']} ${
-            styles['splash-page-actions-col']
-          }`}
+          className={`${utilities['d-flex']} ${styles['splash-page-actions-col']}`}
         >
           <LogoLink to="/eu/" aria-label="Open EU system">
             <img src={EULogo} alt="EU Logo" />
