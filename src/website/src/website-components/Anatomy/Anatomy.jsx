@@ -58,15 +58,11 @@ const Anatomy = ({
               ))}
               {playgroundUrl && (
                 <li
-                  className={`${styles.legend__item} ${
-                    styles['legend__item-last']
-                  }`}
+                  className={`${styles.legend__item} ${styles['legend__item-last']}`}
                 >
                   <a
                     href={playgroundUrl}
-                    className={`${styles.link} ${styles['link--icon']} ${
-                      styles['playground-link']
-                    }`}
+                    className={`${styles.link} ${styles['link--icon']} ${styles['playground-link']}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >

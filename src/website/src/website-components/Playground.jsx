@@ -108,9 +108,7 @@ class Playground extends PureComponent {
           {fullFrameUrl && (
             <a
               href={fullFrameUrl}
-              className={`${styles.link} ${styles['link--icon']} ${
-                styles.fullscreen
-              }`}
+              className={`${styles.link} ${styles['link--icon']} ${styles.fullscreen}`}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -151,9 +149,7 @@ class Playground extends PureComponent {
             </pre>
             <button
               type="button"
-              className={`${styles.link} ${styles['link--icon']} ${
-                styles.toggle
-              }`}
+              className={`${styles.link} ${styles['link--icon']} ${styles.toggle}`}
               onClick={this.handleClickOnToggle}
             >
               <div className={styles.toggle__container}>
@@ -177,9 +173,7 @@ class Playground extends PureComponent {
             </p>
             <a
               href={playgroundUrl}
-              className={`${styles.link} ${styles['link--icon']} ${
-                styles['playground-link']
-              }`}
+              className={`${styles.link} ${styles['link--icon']} ${styles['playground-link']}`}
               target="_blank"
               rel="noopener noreferrer"
             >
