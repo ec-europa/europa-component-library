@@ -11,7 +11,10 @@
   $padding-horizontal: $ecl-spacing-s,
   $padding-vertical: $ecl-spacing-m
 ) {
-  .ecl-editor button {
+  /* stylelint-disable selector-no-qualifying-type */
+  .ecl-editor button,
+  .ecl-editor input[type='button'],
+  .ecl-editor input[type='submit'] {
     appearance: none;
     background: none;
     background-color: $ecl-color-blue-100;
