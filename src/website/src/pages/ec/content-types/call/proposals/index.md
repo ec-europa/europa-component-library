@@ -4,5 +4,5 @@ defaultTab: usage
 status: ready
 playground:
   system: ec
-  path: /story/templates-pages--call-for-proposal
+  path: /story/templates-pages--call-for-proposals
 ---

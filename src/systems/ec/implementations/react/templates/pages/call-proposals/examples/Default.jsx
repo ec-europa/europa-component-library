@@ -2,11 +2,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import getData from '@ecl/ec-specs-call-proposal-page/demo/data';
+import getData from '@ecl/ec-specs-call-proposals-page/demo/data';
 
-import CallProposalPage from '../src/CallProposalPage';
+import CallProposalsPage from '../src/CallProposalsPage';
 
-class CallProposalExample extends React.Component {
+class CallProposalsExample extends React.Component {
   constructor(props) {
     super(props);
     this.components = null;
@@ -40,7 +40,7 @@ class CallProposalExample extends React.Component {
     const data = getData(template);
 
     return (
-      <CallProposalPage
+      <CallProposalsPage
         siteHeader={data.siteHeader}
         footer={data.footer}
         template={template}
@@ -49,8 +49,8 @@ class CallProposalExample extends React.Component {
   }
 }
 
-CallProposalExample.propTypes = {
+CallProposalsExample.propTypes = {
   template: PropTypes.string.isRequired,
 };
 
-export default CallProposalExample;
+export default CallProposalsExample;

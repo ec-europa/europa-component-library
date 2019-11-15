@@ -2,7 +2,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, radios } from '@storybook/addon-knobs';
-import CallProposalPageExample from '../examples/Default';
+import CallProposalsPageExample from '../examples/Default';
 
 storiesOf('Templates|Pages', module)
   .addDecorator(withKnobs)
@@ -18,5 +18,5 @@ storiesOf('Templates|Pages', module)
       'core'
     );
 
-    return <CallProposalPageExample template={template} />;
+    return <CallProposalsPageExample template={template} />;
   });

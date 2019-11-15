@@ -96,7 +96,7 @@ const pageHeaderContent = {
     'Preparatory action to provide a financial contribution to a European financial expertise centre for the direct benefit of European end-users and other non-industry stakeholders',
 };
 
-const CallProposalPage = ({ siteHeader, footer, template }) => (
+const CallProposalsPage = ({ siteHeader, footer, template }) => (
   <Fragment>
     {template === 'core' && (
       <SiteHeaderCore {...siteHeader} data-ecl-auto-init="SiteHeaderCore" />
@@ -461,7 +461,7 @@ const CallProposalPage = ({ siteHeader, footer, template }) => (
   </Fragment>
 );
 
-CallProposalPage.propTypes = {
+CallProposalsPage.propTypes = {
   siteHeader: PropTypes.oneOfType([
     PropTypes.shape(SiteHeaderCore.propTypes),
     PropTypes.shape(SiteHeaderHarmonised.propTypes),
@@ -475,10 +475,10 @@ CallProposalPage.propTypes = {
   template: PropTypes.string,
 };
 
-CallProposalPage.defaultProps = {
+CallProposalsPage.defaultProps = {
   siteHeader: {},
   footer: {},
   template: '',
 };
 
-export default CallProposalPage;
+export default CallProposalsPage;
