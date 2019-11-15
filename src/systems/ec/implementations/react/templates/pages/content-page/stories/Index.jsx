@@ -22,4 +22,4 @@ storiesOf('Templates|Pages', module)
       {story()}
     </StoryWrapper>
   ))
-  .add('Content', ContentPageExample);
+  .add('Content (deprecated)', ContentPageExample);
