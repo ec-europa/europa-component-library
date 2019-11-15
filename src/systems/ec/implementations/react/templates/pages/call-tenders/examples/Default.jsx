@@ -2,11 +2,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import getData from '@ecl/ec-specs-call-tender-page/demo/data';
+import getData from '@ecl/ec-specs-call-tenders-page/demo/data';
 
-import CallTenderPage from '../src/CallTenderPage';
+import CallTendersPage from '../src/CallTendersPage';
 
-class CallTenderExample extends React.Component {
+class CallTendersExample extends React.Component {
   constructor(props) {
     super(props);
     this.components = null;
@@ -40,7 +40,7 @@ class CallTenderExample extends React.Component {
     const data = getData(template);
 
     return (
-      <CallTenderPage
+      <CallTendersPage
         siteHeader={data.siteHeader}
         footer={data.footer}
         template={template}
@@ -49,8 +49,8 @@ class CallTenderExample extends React.Component {
   }
 }
 
-CallTenderExample.propTypes = {
+CallTendersExample.propTypes = {
   template: PropTypes.string.isRequired,
 };
 
-export default CallTenderExample;
+export default CallTendersExample;

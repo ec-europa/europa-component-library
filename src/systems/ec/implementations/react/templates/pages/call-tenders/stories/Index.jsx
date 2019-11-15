@@ -2,11 +2,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, radios } from '@storybook/addon-knobs';
-import CallTenderPageExample from '../examples/Default';
+import CallTendersPageExample from '../examples/Default';
 
 storiesOf('Templates|Pages', module)
   .addDecorator(withKnobs)
-  .add('Call for tender', () => {
+  .add('Call for tenders', () => {
     const template = radios(
       'Template',
       {
@@ -18,5 +18,5 @@ storiesOf('Templates|Pages', module)
       'core'
     );
 
-    return <CallTenderPageExample template={template} />;
+    return <CallTendersPageExample template={template} />;
   });

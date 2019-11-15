@@ -91,7 +91,7 @@ const pageHeaderContent = {
     'Industry Level Growth and Productivity Data with Special Focus on Intangible Assets',
 };
 
-const CallTenderPage = ({ siteHeader, footer, template }) => (
+const CallTendersPage = ({ siteHeader, footer, template }) => (
   <Fragment>
     {template === 'core' && (
       <SiteHeaderCore {...siteHeader} data-ecl-auto-init="SiteHeaderCore" />
@@ -398,7 +398,7 @@ const CallTenderPage = ({ siteHeader, footer, template }) => (
   </Fragment>
 );
 
-CallTenderPage.propTypes = {
+CallTendersPage.propTypes = {
   siteHeader: PropTypes.oneOfType([
     PropTypes.shape(SiteHeaderCore.propTypes),
     PropTypes.shape(SiteHeaderHarmonised.propTypes),
@@ -412,10 +412,10 @@ CallTenderPage.propTypes = {
   template: PropTypes.string,
 };
 
-CallTenderPage.defaultProps = {
+CallTendersPage.defaultProps = {
   siteHeader: {},
   footer: {},
   template: '',
 };
 
-export default CallTenderPage;
+export default CallTendersPage;
