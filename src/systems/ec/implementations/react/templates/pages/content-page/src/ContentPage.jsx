@@ -12,7 +12,7 @@ const ContentPage = ({ siteHeader, pageHeader, footer, inpageNavigation }) => (
     <SiteHeader {...siteHeader} data-ecl-auto-init="SiteHeader" />
     <PageHeader {...pageHeader} />
     <div className="ecl-container">
-      <div className="ecl-row ecl-u-mt-l">
+      <div className="ecl-row ecl-u-mt-l" data-ecl-inpage-navigation-container>
         <div className="ecl-col-md-3">
           <InpageNavigation
             {...inpageNavigation}
