@@ -1,5 +1,5 @@
 ---
-title: Call For Proposal
+title: Call for proposals
 defaultTab: usage
 status: ready
 playground:
