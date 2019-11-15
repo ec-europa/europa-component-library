@@ -80,7 +80,7 @@ pipeline:
     hosts: [$MGMT_IP]
     user: fpfis
     source: ./dist/website
-    target: /ec/local/home/fpfis/reference/php-clusters/multisite/production/cluster00/sources/static/europa-component-library/v1
+    target: '/ec/local/home/fpfis/reference/php-clusters/multisite/production/cluster00/sources/static/europa-component-library/${DRONE_TAG}'
     script:
       - export GIT_FPFIS_AUTHOR="Drone ec.deploy.fpfis.eu"
       - cd /ec/local/home/fpfis/reference/php-clusters/multisite/production/cluster00/sources/static/europa-component-library
