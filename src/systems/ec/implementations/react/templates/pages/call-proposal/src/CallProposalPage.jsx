@@ -45,7 +45,7 @@ const breadcrumbItems = [
   { label: 'Funding opportunities', href: '/example' },
   {
     label:
-      'Preporatory action - capacity building in the area of finanial services - FISMA/2015/135/D',
+      'Preparatory action - capacity building in the area of financial services - FISMA/2015/135/D',
   },
 ];
 const breadcrumbCore = (
