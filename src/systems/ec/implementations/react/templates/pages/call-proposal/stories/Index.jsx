@@ -6,7 +6,7 @@ import CallProposalPageExample from '../examples/Default';
 
 storiesOf('Templates|Pages', module)
   .addDecorator(withKnobs)
-  .add('Call for proposal', () => {
+  .add('Call for proposals', () => {
     const template = radios(
       'Template',
       {
