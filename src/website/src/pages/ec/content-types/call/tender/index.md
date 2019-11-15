@@ -1,5 +1,5 @@
 ---
-title: Call For Tenders
+title: Call for tenders
 defaultTab: usage
 status: ready
 playground:
