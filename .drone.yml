@@ -74,6 +74,7 @@ pipeline:
       matrix:
         TEST: functional
 
+  # inventory for regression tests
   s3:
     image: garland/aws-cli-docker
     secrets: [AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION]
@@ -85,7 +86,7 @@ pipeline:
         echo "Transfer complete" ;
         fi
     when:
-      event: [tag]
+      event: [push]
       matrix:
         TEST: functional
 
