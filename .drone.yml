@@ -51,11 +51,11 @@ pipeline:
   build:
     image: node:dubnium
     commands:
-      - if [ "${DRONE_BRANCH}" = "v1" ] || [ "${DRONE_BUILD_EVENT}" = "tag" ] || yarn updated --ignoreCache ; then
+      - if [ "${DRONE_BRANCH}" = "v1" ] || [ "${DRONE_BUILD_EVENT}" = "deployment" ] || [ "${DRONE_BUILD_EVENT}" = "tag" ] || yarn updated --ignoreCache ; then
         yarn dist ;
         fi
     when:
-      event: [push, tag]
+      event: [push, tag, deployment]
       matrix:
         TEST: functional
 
@@ -74,17 +74,7 @@ pipeline:
       matrix:
         TEST: functional
 
-  deploy-pages:
-    image: node:dubnium
-    secrets: [GH_TOKEN]
-    commands:
-      - ./scripts/deploy.sh
-    when:
-      event: [push]
-      branch: v1
-      matrix:
-        TEST: functional
-
+  # inventory for regression tests
   s3:
     image: garland/aws-cli-docker
     secrets: [AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION]
@@ -97,6 +87,37 @@ pipeline:
         fi
     when:
       event: [push]
+      matrix:
+        TEST: functional
+
+  # Trigger deploy event on Github
+  create-deployment-event:
+    image: fpfis/drone-plugin-github-deploy
+    state: create
+    deploy_environment: v1
+    secrets: [github_api_token]
+    automerge: false
+    when:
+      event: [tag]
+      matrix:
+        TEST: functional
+
+  deploy-v1:
+    image: drillster/drone-rsync
+    secrets: [rsync_key, MGMT_IP]
+    hosts: [$MGMT_IP]
+    user: fpfis
+    source: ./dist/website
+    target: '/ec/local/home/fpfis/reference/php-clusters/multisite/production/cluster00/sources/static/europa-component-library/${DRONE_TAG}'
+    script:
+      - export GIT_FPFIS_AUTHOR="Drone ec.deploy.fpfis.eu"
+      - cd /ec/local/home/fpfis/reference/php-clusters/multisite/production/cluster00/sources/static/europa-component-library
+      - git add -A .
+      - git commit -m "Deployed ${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}@${DRONE_TAG} from drone build ${DRONE_BUILD_NUMBER}." .
+      - git push 'nas-reference' 'master'
+    when:
+      event: deployment
+      environment: v1
       matrix:
         TEST: functional
 
