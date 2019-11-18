@@ -62,6 +62,9 @@ export class InpageNavigation {
     this.initObserver = this.initObserver.bind(this);
     this.activateScrollSpy = this.activateScrollSpy.bind(this);
     this.deactivateScrollSpy = this.deactivateScrollSpy.bind(this);
+    this.destroySticky = this.destroySticky.bind(this);
+    this.destroyScrollSpy = this.destroyScrollSpy.bind(this);
+    this.destroyObserver = this.destroyObserver.bind(this);
   }
 
   // ACTIONS
@@ -232,6 +235,12 @@ export class InpageNavigation {
         subtree: true,
         childList: true,
       });
+    }
+  }
+
+  destroyObserver() {
+    if (this.observer) {
+      this.observer.disconnect();
     }
   }
 
