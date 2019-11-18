@@ -1,8 +1,6 @@
 import { queryOne, queryAll } from '@ecl/ec-base/helpers/dom';
 
 /**
- * Accordion2
- *
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
  * @param {String} options.toggleSelector Selector for toggling element
@@ -90,8 +88,6 @@ export class Accordion2 {
   }
 
   /**
-   * Destroy component.
-   *
    * @param {HTMLElement} toggle Target element to toggle.
    */
   handleClickOnToggle(toggle) {
