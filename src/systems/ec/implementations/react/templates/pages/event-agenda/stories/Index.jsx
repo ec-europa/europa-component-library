@@ -1,27 +1,22 @@
-/* eslint-disable no-param-reassign */
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import StoryWrapper from '@ecl/story-wrapper';
-
+import { withKnobs, radios } from '@storybook/addon-knobs';
 import EventAgendaPageExample from '../examples/Default';
 
 storiesOf('Templates|Pages', module)
-  .addDecorator(story => (
-    <StoryWrapper
-      afterMount={() => {
-        if (!window.ECL) return {};
+  .addDecorator(withKnobs)
+  .add('Event agenda', () => {
+    const template = radios(
+      'Template',
+      {
+        Core: 'core',
+        Standardised: 'standardised',
+        'Harmonised group 1': 'harmonised-g1',
+        'Harmonised group 2': 'harmonised-g2',
+      },
+      'core'
+    );
 
-        const components = window.ECL.autoInit();
-        return { components };
-      }}
-      beforeUnmount={context => {
-        if (context.components) {
-          context.components.forEach(c => c.destroy());
-        }
-      }}
-    >
-      {story()}
-    </StoryWrapper>
-  ))
-  .add('Event agenda', EventAgendaPageExample);
+    return <EventAgendaPageExample template={template} />;
+  });
