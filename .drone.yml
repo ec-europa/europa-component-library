@@ -51,11 +51,11 @@ pipeline:
   build:
     image: node:dubnium
     commands:
-      - if [ "${DRONE_BRANCH}" = "v1" ] || [ "${DRONE_BUILD_EVENT}" = "tag" ] || yarn updated --ignoreCache ; then
+      - if [ "${DRONE_BRANCH}" = "v1" ] || [ "${DRONE_BUILD_EVENT}" = "deployment" ] || [ "${DRONE_BUILD_EVENT}" = "tag" ] || yarn updated --ignoreCache ; then
         yarn dist ;
         fi
     when:
-      event: [push, tag]
+      event: [push, tag, deployment]
       matrix:
         TEST: functional
 
@@ -69,6 +69,33 @@ pipeline:
         aws s3 cp --recursive --quiet . s3://inno-ecl/ecl/${DRONE_TAG}/ ;
         echo "Transfer complete" ;
         fi
+    when:
+      event: [tag]
+      matrix:
+        TEST: functional
+
+  s3:
+    image: garland/aws-cli-docker
+    secrets: [AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION]
+    commands:
+      - if [ -d "./dist" ] ; then
+        cd ./dist/website ;
+        aws configure set default.s3.max_concurrent_requests 20 ;
+        aws s3 cp --recursive --quiet . s3://inno-ecl/build/${DRONE_BUILD_NUMBER}/ ;
+        echo "Transfer complete" ;
+        fi
+    when:
+      event: [tag]
+      matrix:
+        TEST: functional
+
+  # Trigger deploy event on Github
+  create-deploy-production:
+    image: fpfis/drone-plugin-github-deploy
+    state: create
+    deploy_environment: v1
+    secrets: [github_api_token]
+    automerge: false
     when:
       event: [tag]
       matrix:
@@ -88,23 +115,8 @@ pipeline:
       - git commit -m "Deployed ${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}@${DRONE_TAG} from drone build ${DRONE_BUILD_NUMBER}." .
       - git push 'nas-reference' 'master'
     when:
-      event: [push]
-      branch: v1
-      matrix:
-        TEST: functional
-
-  s3:
-    image: garland/aws-cli-docker
-    secrets: [AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION]
-    commands:
-      - if [ -d "./dist" ] ; then
-        cd ./dist/website ;
-        aws configure set default.s3.max_concurrent_requests 20 ;
-        aws s3 cp --recursive --quiet . s3://inno-ecl/build/${DRONE_BUILD_NUMBER}/ ;
-        echo "Transfer complete" ;
-        fi
-    when:
-      event: [push]
+      event: deployment
+      environment: v1
       matrix:
         TEST: functional
 
