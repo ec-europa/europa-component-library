@@ -1,2 +1,18 @@
 [build]
-  publish = "dist"
+  command = "echo 'Setting redirects...'"
+  publish = "static/assets"
+
+[[redirects]]
+  from = "https://v0--europa-component-library.netlify.com/*"
+  to = "https://ec.europa.eu/component-library/v0.24.0/:splat"
+  force = true
+
+[[redirects]]
+  from = "https://v0--europa-component-library.netlify.com"
+  to = "https://ec.europa.eu/component-library/v0.24.0/"
+  force = true
+
+[[headers]]
+  for = "/*"
+    [headers.values]
+    Access-Control-Allow-Origin = "*"

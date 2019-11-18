@@ -1,5 +1,5 @@
 branches:
-  exclude: [ gh-pages ]
+  exclude: [gh-pages]
 
 clone:
   git:
@@ -10,9 +10,9 @@ clone:
       - git fetch --no-tags origin master ${DRONE_COMMIT_REF}
       - git checkout -qf master;
       - if [ "${DRONE_BUILD_EVENT}" == "pull_request" ] || [ "${DRONE_BUILD_EVENT}" == "tag" ] ; then
-          git checkout -qf FETCH_HEAD;
+        git checkout -qf FETCH_HEAD;
         else
-          git checkout -qf ${DRONE_COMMIT_BRANCH};
+        git checkout -qf ${DRONE_COMMIT_BRANCH};
         fi
 
 matrix:
@@ -43,20 +43,9 @@ pipeline:
       matrix:
         TEST: functional
 
-  deploy-pages:
-    image: node:latest
-    secrets: [ GH_TOKEN ]
-    commands:
-      - ./scripts/deploy.sh
-    when:
-      event: [push]
-      branch: master
-      matrix:
-        TEST: functional
-
   s3:
     image: garland/aws-cli-docker
-    secrets: [ AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION ]
+    secrets: [AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION]
     commands:
       - cd ./dist
       - aws configure set default.s3.max_concurrent_requests 20
@@ -69,10 +58,10 @@ pipeline:
 
   functional:
     image: node:latest
-    secrets: [ SAUCE_USERNAME, SAUCE_ACCESS_KEY ]
+    secrets: [SAUCE_USERNAME, SAUCE_ACCESS_KEY]
     commands:
       - if [ "${DRONE_BRANCH}" = "master" ] || yarn lerna updated -- --since master ; then
-          yarn test:functional;
+        yarn test:functional;
         fi
     when:
       event: [push]
