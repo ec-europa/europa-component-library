@@ -1,17 +1,22 @@
 import { queryOne, queryAll } from '@ecl/ec-base/helpers/dom';
 
 /**
- * An accordion object.
- * @param {number} element any number
- * @param {number} options number, plus one.
- * @param {string} options.toggleSelector number, plus one.
- * @param {boolean} options.attachClickListener number, plus one.
+ * Accordion2
+ *
+ * @param {HTMLElement} element DOM element for component instantiation and scope
+ * @param {Object} options
+ * @param {String} options.toggleSelector Selector for toggling element
+ * @param {String} options.iconSelector Selector for icon element
+ * @param {Boolean} options.attachClickListener Whether or not to bind click events on toggle
  */
 export class Accordion2 {
   /**
-   * Convert a string containing two comma-separated numbers into a point.
-   * @param {string} str - The string containing two comma-separated numbers.
-   * @return {Accordion} An Accordion object.
+   * @static
+   * Shorthand for instance creation and initialisation.
+   *
+   * @param {HTMLElement} root DOM element for component instantiation and scope
+   *
+   * @return {Accordion} An instance of Accordion2.
    */
   static autoInit(root, { ACCORDION2: defaultOptions = {} } = {}) {
     const accordion2 = new Accordion2(root, defaultOptions);
@@ -53,6 +58,9 @@ export class Accordion2 {
     this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
   }
 
+  /**
+   * Initialise component.
+   */
   init() {
     this.toggles = queryAll(this.toggleSelector, this.element);
 
@@ -70,6 +78,9 @@ export class Accordion2 {
     }
   }
 
+  /**
+   * Destroy component.
+   */
   destroy() {
     if (this.attachClickListener && this.toggles) {
       this.toggles.forEach(toggle => {
@@ -78,6 +89,11 @@ export class Accordion2 {
     }
   }
 
+  /**
+   * Destroy component.
+   *
+   * @param {HTMLElement} toggle Target element to toggle.
+   */
   handleClickOnToggle(toggle) {
     // Get target element
     const target = queryOne(
