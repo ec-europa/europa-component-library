@@ -90,7 +90,7 @@ pipeline:
         TEST: functional
 
   # Trigger deploy event on Github
-  create-deploy-production:
+  create-deployment-event:
     image: fpfis/drone-plugin-github-deploy
     state: create
     deploy_environment: v1
@@ -101,7 +101,7 @@ pipeline:
       matrix:
         TEST: functional
 
-  deploy-to-production:
+  deploy-v1:
     image: drillster/drone-rsync
     secrets: [rsync_key, MGMT_IP]
     hosts: [$MGMT_IP]
