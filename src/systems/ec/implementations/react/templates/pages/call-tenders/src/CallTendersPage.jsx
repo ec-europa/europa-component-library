@@ -143,7 +143,7 @@ const CallTendersPage = ({ siteHeader, footer, template }) => (
 
     <div className="ecl-u-pv-3xl ecl-u-pv-lg-4xl">
       <div className="ecl-container">
-        <div className="ecl-row">
+        <div className="ecl-row" data-ecl-inpage-navigation-container>
           <div className="ecl-col-12 ecl-col-lg-3">
             <aside className="ecl-u-height-100">
               <InpageNavigation
