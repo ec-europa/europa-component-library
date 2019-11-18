@@ -81,6 +81,7 @@ pipeline:
 
   functional:
     image: node:dubnium
+    group: tests
     secrets: [SAUCE_USERNAME, SAUCE_ACCESS_KEY]
     commands:
       - if [ -d "./dist" ] ; then
