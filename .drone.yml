@@ -23,28 +23,8 @@ pipeline:
     when:
       event: [push, pull_request, deployment]
 
-  conventions:
-    image: node:dubnium
-    group: tests
-    commands:
-      - yarn test:coding-conventions
-      - yarn test:independent-sass
-    when:
-      event: [push]
-
-  examples:
-    image: node:dubnium
-    group: tests
-    commands:
-      - cd examples/webpack3 && yarn build --display=errors-only
-      - cd ../webpack4 && yarn build --display=errors-only
-      - cd ../webpack4-eu && yarn build --display=errors-only
-    when:
-      event: [push]
-
   build:
     image: node:dubnium
-    group: tests
     commands:
       - if [ "${DRONE_BRANCH}" = "v1" ] || [ "${DRONE_BUILD_EVENT}" = "deployment" ] || [ "${DRONE_BUILD_EVENT}" = "tag" ] || yarn updated --ignoreCache ; then
         yarn dist ;
@@ -80,8 +60,28 @@ pipeline:
     when:
       event: [push]
 
+  conventions:
+    image: node:dubnium
+    group: tests
+    commands:
+      - yarn test:coding-conventions
+      - yarn test:independent-sass
+    when:
+      event: [push]
+
+  examples:
+    image: node:dubnium
+    group: tests
+    commands:
+      - cd examples/webpack3 && yarn build --display=errors-only
+      - cd ../webpack4 && yarn build --display=errors-only
+      - cd ../webpack4-eu && yarn build --display=errors-only
+    when:
+      event: [push]
+
   functional:
     image: node:dubnium
+    group: tests
     secrets: [SAUCE_USERNAME, SAUCE_ACCESS_KEY]
     commands:
       - if [ -d "./dist" ] ; then
