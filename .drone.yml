@@ -7,7 +7,7 @@ clone:
     commands:
       - git init
       - git remote add origin ${DRONE_REMOTE_URL}
-      - git fetch --no-tags origin v1 ${DRONE_COMMIT_REF}
+      - git fetch origin v1 ${DRONE_COMMIT_REF}
       - git checkout -qf v1;
       - if [ "${DRONE_BUILD_EVENT}" == "pull_request" ] || [ "${DRONE_BUILD_EVENT}" == "tag" ] ; then
         git checkout -qf FETCH_HEAD;
@@ -15,52 +15,46 @@ clone:
         git checkout -qf ${DRONE_COMMIT_BRANCH};
         fi
 
-matrix:
-  TEST:
-    - functional
-    - conventions
-    - examples
-
 pipeline:
   install:
     image: node:dubnium
     commands:
       - yarn install --frozen-lockfile
+    when:
+      event: [push, pull_request, deployment]
 
   conventions:
     image: node:dubnium
+    group: tests
     commands:
       - yarn test:coding-conventions
       - yarn test:independent-sass
     when:
       event: [push]
-      matrix:
-        TEST: conventions
 
   examples:
     image: node:dubnium
+    group: tests
     commands:
       - cd examples/webpack3 && yarn build --display=errors-only
       - cd ../webpack4 && yarn build --display=errors-only
       - cd ../webpack4-eu && yarn build --display=errors-only
     when:
       event: [push]
-      matrix:
-        TEST: examples
 
   build:
     image: node:dubnium
+    group: tests
     commands:
       - if [ "${DRONE_BRANCH}" = "v1" ] || [ "${DRONE_BUILD_EVENT}" = "deployment" ] || [ "${DRONE_BUILD_EVENT}" = "tag" ] || yarn updated --ignoreCache ; then
         yarn dist ;
         fi
     when:
-      event: [push, tag, deployment]
-      matrix:
-        TEST: functional
+      event: [push, deployment]
 
   deploy-cdn:
     image: garland/aws-cli-docker
+    group: s3
     secrets: [AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION]
     commands:
       - if [ -d "./dist" ] ; then
@@ -71,12 +65,10 @@ pipeline:
         fi
     when:
       event: [tag]
-      matrix:
-        TEST: functional
 
-  # inventory for regression tests
   s3:
     image: garland/aws-cli-docker
+    group: s3
     secrets: [AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION]
     commands:
       - if [ -d "./dist" ] ; then
@@ -87,8 +79,16 @@ pipeline:
         fi
     when:
       event: [push]
-      matrix:
-        TEST: functional
+
+  functional:
+    image: node:dubnium
+    secrets: [SAUCE_USERNAME, SAUCE_ACCESS_KEY]
+    commands:
+      - if [ -d "./dist" ] ; then
+        yarn test:functional ;
+        fi
+    when:
+      event: [push]
 
   # Trigger deploy event on Github
   create-deployment-event:
@@ -99,8 +99,6 @@ pipeline:
     automerge: false
     when:
       event: [tag]
-      matrix:
-        TEST: functional
 
   deploy-v1:
     image: drillster/drone-rsync
@@ -118,17 +116,3 @@ pipeline:
     when:
       event: deployment
       environment: v1
-      matrix:
-        TEST: functional
-
-  functional:
-    image: node:dubnium
-    secrets: [SAUCE_USERNAME, SAUCE_ACCESS_KEY]
-    commands:
-      - if [ -d "./dist" ] ; then
-        yarn test:functional ;
-        fi
-    when:
-      event: [push]
-      matrix:
-        TEST: functional
