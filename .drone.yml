@@ -8,8 +8,7 @@ clone:
       - git init
       - git remote add origin ${DRONE_REMOTE_URL}
       - if  [ "${DRONE_BUILD_EVENT}" == "deployment" ] ; then
-        git fetch --no-tags origin ${DRONE_TAG}:${DRONE_TAG};
-        git checkout ${DRONE_TAG};
+        echo "Skipping git init/clone :)";
         else
         git fetch --no-tags origin v1 ${DRONE_COMMIT_REF};
         git checkout -qf v1;
@@ -19,6 +18,8 @@ clone:
         git checkout -qf ${DRONE_COMMIT_BRANCH};
         fi
         fi
+    when:
+      event: [push, pull_request, tag]
 
 pipeline:
   install:
@@ -136,18 +137,10 @@ pipeline:
   # Deployment ============================
   # =======================================
 
-  download-website-archive:
-    image: garland/aws-cli-docker
-    secrets: [AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION]
-    commands:
-      - aws s3 cp s3://inno-ecl/ecl/${DRONE_TAG}/website.tar.gz .
-    when:
-      event: deployment
-      environment: v1
-
-  extract-website:
+  prepare-website:
     image: alpine:3.10
     commands:
+      - wget http://inno-ecl.s3.amazonaws.com/ecl/${DRONE_TAG}/website.tar.gz
       - rm -rf ./website
       - mkdir ./website
       - tar -C ./website -xvf website.tar.gz
