@@ -21,17 +21,24 @@ clone:
         fi
 
 pipeline:
+
+  # =======================================
+  # General changes =======================
+  # =======================================
+
   install:
     image: node:dubnium
     commands:
       - yarn install --frozen-lockfile
+    when:
+      event: push
 
   build:
     image: node:dubnium
     commands:
-      - if [ "${DRONE_BRANCH}" = "v1" ] || [ "${DRONE_BUILD_EVENT}" = "push" ] || [ "${DRONE_BUILD_EVENT}" = "deployment" ] || yarn updated --ignoreCache ; then
-        yarn dist ;
-        fi
+      - yarn dist
+    when:
+      event: push
 
   deploy-netlify-preview:
     image: buildkite/puppeteer:latest
@@ -40,21 +47,7 @@ pipeline:
       - './node_modules/.bin/netlify deploy --site $${NETLIFY_SITE} --message "Drone build: ${CI_BUILD_NUMBER}" --json > netlify_deployment_result.json'
       - node scripts/set-netlify-deployment-status.js
     when:
-      event: [push]
-
-  deploy-cdn:
-    image: garland/aws-cli-docker
-    group: s3
-    secrets: [AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION]
-    commands:
-      - if [ -d "./dist" ] ; then
-        cd ./dist/packages ;
-        aws configure set default.s3.max_concurrent_requests 20 ;
-        aws s3 cp --recursive --quiet . s3://inno-ecl/ecl/${DRONE_TAG}/ ;
-        echo "Transfer complete" ;
-        fi
-    when:
-      event: [tag]
+      event: push
 
   s3:
     image: garland/aws-cli-docker
@@ -68,7 +61,7 @@ pipeline:
         echo "Transfer complete" ;
         fi
     when:
-      event: [push]
+      event: push
 
   conventions:
     image: node:dubnium
@@ -77,7 +70,7 @@ pipeline:
       - yarn test:coding-conventions
       - yarn test:independent-sass
     when:
-      event: [push]
+      event: push
 
   examples:
     image: node:dubnium
@@ -87,7 +80,7 @@ pipeline:
       - cd ../webpack4 && yarn build --display=errors-only
       - cd ../webpack4-eu && yarn build --display=errors-only
     when:
-      event: [push]
+      event: push
 
   functional:
     image: node:dubnium
@@ -98,9 +91,57 @@ pipeline:
         yarn test:functional ;
         fi
     when:
-      event: [push]
+      event: push
 
-  # Trigger deploy event on Github
+  # =======================================
+  # Tag ===================================
+  # =======================================
+
+  install:
+    image: node:dubnium
+    commands:
+      - yarn install --frozen-lockfile
+    when:
+      event: tag
+
+  build:
+    image: node:dubnium
+    commands:
+      - yarn dist
+      - echo ${DRONE_TAG=${DRONE_COMMIT_BRANCH=rc}} > dist/website/.version
+      - echo ${DRONE_COMMIT_SHA} > dist/website/.commit
+    when:
+      event: tag      
+
+  archive-website:
+    image: alpine:3.10
+    commands:
+      - tar -czC dist/website -f website.tar.gz .
+    when:
+      event: tag
+
+  upload-website-archive:
+    image: garland/aws-cli-docker
+    secrets: [AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION]
+    commands:
+      - aws s3 cp website.tar.gz s3://inno-ecl/ecl/${DRONE_TAG}/
+    when:
+      event: tag
+
+  deploy-cdn:
+    image: garland/aws-cli-docker
+    group: s3
+    secrets: [AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION]
+    commands:
+      - if [ -d "./dist" ] ; then
+        cd ./dist/packages ;
+        aws configure set default.s3.max_concurrent_requests 20 ;
+        aws s3 cp --recursive --quiet . s3://inno-ecl/ecl/${DRONE_TAG}/ ;
+        echo "Transfer complete" ;
+        fi
+    when:
+      event: tag
+
   create-deployment-event:
     image: fpfis/drone-plugin-github-deploy
     state: create
@@ -108,14 +149,37 @@ pipeline:
     secrets: [github_api_token]
     automerge: false
     when:
-      event: [tag]
+      event: tag
+
+  # =======================================
+  # Deployment ============================
+  # =======================================
+
+  download-website-archive:
+    image: garland/aws-cli-docker
+    secrets: [AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION]
+    commands:
+      - aws s3 cp s3://inno-ecl/ecl/${DRONE_TAG}/website.tar.gz .
+    when:
+      event: deployment
+      environment: v1
+
+  extract-website:
+    image: alpine:3.10
+    commands:
+      - rm -rf ./website
+      - mkdir ./website
+      - tar -C ./website -xvf website.tar.gz 
+    when:
+      event: deployment
+      environment: v1       
 
   deploy-v1:
     image: drillster/drone-rsync
     secrets: [rsync_key, MGMT_IP]
     hosts: [$MGMT_IP]
     user: fpfis
-    source: ./dist/website
+    source: ./website/
     target: '/ec/local/home/fpfis/reference/php-clusters/multisite/production/cluster00/sources/static/europa-component-library/${DRONE_TAG}'
     script:
       - export GIT_FPFIS_AUTHOR="Drone ec.deploy.fpfis.eu"
