@@ -20,7 +20,15 @@ storiesOf('Components|Card', module)
     };
 
     // Meta
-    const meta = text('Meta', demoContentCard.meta);
+    let meta = '';
+    if (
+      Array.isArray(demoContentCard.meta) &&
+      demoContentCard.meta.length > 0
+    ) {
+      meta = text('Meta', demoContentCard.meta.join(' | '));
+    } else {
+      meta = text('Meta', demoContentCard.meta);
+    }
 
     // Title
     const title = {

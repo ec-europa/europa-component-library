@@ -4,7 +4,7 @@ module.exports = {
     alt: 'card image',
     src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
   },
-  meta: 'Meta1 | Meta2',
+  meta: ['Meta1', 'Meta2'],
   title: {
     variant: 'standalone',
     label: 'Better regulation',

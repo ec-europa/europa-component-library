@@ -37,7 +37,11 @@ const Card = ({
   // Meta
   let metaMarkup = '';
   if (meta) {
-    metaMarkup = <div className="ecl-card__meta">{meta}</div>;
+    if (Array.isArray(meta) && meta.length > 0) {
+      metaMarkup = <div className="ecl-card__meta">{meta.join(' | ')}</div>;
+    } else {
+      metaMarkup = <div className="ecl-card__meta">{meta}</div>;
+    }
   }
 
   // Title
@@ -134,7 +138,10 @@ Card.propTypes = {
       icon: PropTypes.shape(Icon.propTypes),
     })
   ),
-  meta: PropTypes.string,
+  meta: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+  ]),
   title: PropTypes.shape({
     label: PropTypes.string,
     href: PropTypes.string,
