@@ -21,24 +21,21 @@ clone:
         fi
 
 pipeline:
-
-  # =======================================
-  # General changes =======================
-  # =======================================
-
   install:
     image: node:dubnium
     commands:
       - yarn install --frozen-lockfile
     when:
-      event: push
+      event: [push, tag]
 
   build:
     image: node:dubnium
     commands:
       - yarn dist
+      - echo ${DRONE_TAG=${DRONE_COMMIT_BRANCH=rc}} > dist/website/.version
+      - echo ${DRONE_COMMIT_SHA} > dist/website/.commit
     when:
-      event: push
+      event: [push, tag]
 
   deploy-netlify-preview:
     image: buildkite/puppeteer:latest
@@ -97,22 +94,6 @@ pipeline:
   # Tag ===================================
   # =======================================
 
-  install:
-    image: node:dubnium
-    commands:
-      - yarn install --frozen-lockfile
-    when:
-      event: tag
-
-  build:
-    image: node:dubnium
-    commands:
-      - yarn dist
-      - echo ${DRONE_TAG=${DRONE_COMMIT_BRANCH=rc}} > dist/website/.version
-      - echo ${DRONE_COMMIT_SHA} > dist/website/.commit
-    when:
-      event: tag      
-
   archive-website:
     image: alpine:3.10
     commands:
@@ -169,10 +150,10 @@ pipeline:
     commands:
       - rm -rf ./website
       - mkdir ./website
-      - tar -C ./website -xvf website.tar.gz 
+      - tar -C ./website -xvf website.tar.gz
     when:
       event: deployment
-      environment: v1       
+      environment: v1
 
   deploy-v1:
     image: drillster/drone-rsync
