@@ -25,8 +25,6 @@ pipeline:
     image: node:dubnium
     commands:
       - yarn install --frozen-lockfile
-    when:
-      event: [push, pull_request, deployment]
 
   build:
     image: node:dubnium
@@ -34,8 +32,6 @@ pipeline:
       - if [ "${DRONE_BRANCH}" = "v1" ] || [ "${DRONE_BUILD_EVENT}" = "push" ] || [ "${DRONE_BUILD_EVENT}" = "deployment" ] || yarn updated --ignoreCache ; then
         yarn dist ;
         fi
-    when:
-      event: [push, deployment]
 
   deploy-netlify-preview:
     image: buildkite/puppeteer:latest
