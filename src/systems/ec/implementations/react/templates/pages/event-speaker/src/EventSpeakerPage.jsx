@@ -855,7 +855,7 @@ const EventSpeakerPage = ({ siteHeader, footer, template }) => (
     </main>
 
     <PageBanner
-      variant="primary"
+      variant={template === 'harmonised-g2' ? 'primary' : 'default'}
       isCentered
       title="Fair of European Innovators in Cultural Heritage"
       link={{
