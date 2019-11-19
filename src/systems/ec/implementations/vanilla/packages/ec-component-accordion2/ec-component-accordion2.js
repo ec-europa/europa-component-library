@@ -14,7 +14,7 @@ export class Accordion2 {
    *
    * @param {HTMLElement} root DOM element for component instantiation and scope
    *
-   * @return {Accordion} An instance of Accordion2.
+   * @return {Accordion2} An instance of Accordion2.
    */
   static autoInit(root, { ACCORDION2: defaultOptions = {} } = {}) {
     const accordion2 = new Accordion2(root, defaultOptions);
