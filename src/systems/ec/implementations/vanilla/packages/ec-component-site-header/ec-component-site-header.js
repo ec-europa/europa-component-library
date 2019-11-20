@@ -1,22 +1,7 @@
 import { queryOne } from '@ecl/ec-base/helpers/dom';
 import createFocusTrap from 'focus-trap';
 
-/**
- * @param {HTMLElement} element DOM element for component instantiation and scope
- * @param {Object} options
- * @param {String} options.languageLinkSelector
- * @param {String} options.languageListOverlaySelector
- * @param {String} options.closeOverlaySelector
- */
 export class SiteHeader {
-  /**
-   * @static
-   * Shorthand for instance creation and initialisation.
-   *
-   * @param {HTMLElement} root DOM element for component instantiation and scope
-   *
-   * @return {SiteHeader} An instance of SiteHeader.
-   */
   static autoInit(root, { SITE_HEADER: defaultOptions = {} } = {}) {
     const siteHeader = new SiteHeader(root, defaultOptions);
     siteHeader.init();
@@ -59,9 +44,6 @@ export class SiteHeader {
     this.toggleOverlay = this.toggleOverlay.bind(this);
   }
 
-  /**
-   * Initialise component.
-   */
   init() {
     this.languageSelector = queryOne(this.languageLinkSelector);
     this.languageListOverlay = queryOne(this.languageListOverlaySelector);
@@ -76,9 +58,6 @@ export class SiteHeader {
     this.close.addEventListener('click', this.toggleOverlay);
   }
 
-  /**
-   * Destroy component.
-   */
   destroy() {
     if (this.languageSelector) {
       this.languageSelector.removeEventListener('click', this.toggleOverlay);
@@ -92,23 +71,14 @@ export class SiteHeader {
     }
   }
 
-  /**
-   * Show language list overlay.
-   */
   openOverlay() {
     this.languageListOverlay.hidden = false;
   }
 
-  /**
-   * Hide language list overlay.
-   */
   closeOverlay() {
     this.languageListOverlay.hidden = true;
   }
 
-  /**
-   * @param {Event} e
-   */
   toggleOverlay(e) {
     if (!this.languageListOverlay || !this.focusTrap) return;
 
