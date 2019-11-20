@@ -2,7 +2,38 @@ import createFocusTrap from 'focus-trap';
 
 import { queryOne, queryAll } from '@ecl/ec-base/helpers/dom';
 
+/**
+ * @param {HTMLElement} element DOM element for component instantiation and scope
+ * @param {Object} options
+ * @param {String} options.galleryItemSelector Selector for gallery element
+ * @param {String} options.descriptionSelector Selector for gallery description element
+ * @param {String} options.metaSelector Selector for gallery meta info element
+ * @param {String} options.closeButtonSelector Selector for close button element
+ * @param {String} options.overlaySelector Selector for gallery overlay element
+ * @param {String} options.overlayHeaderSelector Selector for gallery overlay header element
+ * @param {String} options.overlayFooterSelector Selector for gallery overlay footer element
+ * @param {String} options.overlayImageSelector DEPRECATED! Selector for gallery overlay image element
+ * @param {String} options.overlayMediaSelector Selector for gallery overlay media element
+ * @param {String} options.overlayCounterCurrentSelector Selector for gallery overlay current number element
+ * @param {String} options.overlayCounterMaxSelector Selector for display of number of elements in the gallery overlay
+ * @param {String} options.overlayDownloadSelector Selector for gallery overlay download element
+ * @param {String} options.overlayShareSelector Selector for gallery overlay share element
+ * @param {String} options.overlayDescriptionSelector Selector for gallery overlay description element
+ * @param {String} options.overlayMetaSelector Selector for gallery overlay meta info element
+ * @param {String} options.overlayPreviousSelector Selector for gallery overlay previous link element
+ * @param {String} options.overlayNextSelector Selector for gallery overlay next link element
+ * @param {Boolean} options.attachClickListener Whether or not to bind click events
+ * @param {Boolean} options.attachKeyListener Whether or not to bind keyup events
+ */
 export class Gallery {
+  /**
+   * @static
+   * Shorthand for instance creation and initialisation.
+   *
+   * @param {HTMLElement} root DOM element for component instantiation and scope
+   *
+   * @return {Gallery} An instance of Gallery.
+   */
   static autoInit(root, { GALLERY: defaultOptions = {} } = {}) {
     const gallery = new Gallery(root, defaultOptions);
     gallery.init();
@@ -96,6 +127,9 @@ export class Gallery {
     this.handleKeyboard = this.handleKeyboard.bind(this);
   }
 
+  /**
+   * Initialise component.
+   */
   init() {
     // Query elements
     this.galleryItems = queryAll(this.galleryItemSelector, this.element);
@@ -179,6 +213,9 @@ export class Gallery {
     });
   }
 
+  /**
+   * Destroy component.
+   */
   destroy() {
     if (this.attachClickListener && this.closeButton) {
       this.closeButton.removeEventListener(
@@ -215,6 +252,9 @@ export class Gallery {
     }
   }
 
+  /**
+   * @param {HTMLElement} selectedItem Media element
+   */
   updateOverlay(selectedItem) {
     this.selectedItem = selectedItem;
     const video = queryOne('video', selectedItem);
@@ -319,6 +359,11 @@ export class Gallery {
     this.overlayDescription.innerHTML = description.innerHTML;
   }
 
+  /**
+   * Handles keyboard events such as Escape and navigation.
+   *
+   * @param {Event} e
+   */
   handleKeyboard(e) {
     // Detect press on Escape
     // Only used if the browser do not support <dialog>
@@ -327,6 +372,9 @@ export class Gallery {
     }
   }
 
+  /**
+   * Invoke listeners for close events.
+   */
   handleClickOnCloseButton() {
     if (this.isDialogSupported) {
       this.overlay.close();
@@ -348,6 +396,11 @@ export class Gallery {
     document.body.classList.remove('ecl-u-disablescroll');
   }
 
+  /**
+   * Invoke listeners for on pressing the spacebar button.
+   *
+   * @param {Event} e
+   */
   handleKeyPressOnItem(e) {
     if (e.keyCode === 32) {
       // If spacebar trigger the modal
@@ -355,6 +408,11 @@ export class Gallery {
     }
   }
 
+  /**
+   * Invoke listeners for on click events on the given gallery item.
+   *
+   * @param {Event} e
+   */
   handleClickOnItem(e) {
     e.preventDefault();
 
@@ -375,6 +433,9 @@ export class Gallery {
     this.focusTrap.activate();
   }
 
+  /**
+   * Invoke listeners for on click events on previous navigation link.
+   */
   handleClickOnPreviousButton() {
     // Get current id
     const currentId = this.selectedItem.getAttribute(
@@ -396,6 +457,9 @@ export class Gallery {
     return this;
   }
 
+  /**
+   * Invoke listeners for on click events on next navigation link.
+   */
   handleClickOnNextButton() {
     // Get current id
     const currentId = this.selectedItem.getAttribute(
