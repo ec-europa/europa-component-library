@@ -23,7 +23,7 @@ if (!Element.prototype.closest)
  * @param {String} options.menuItemSelector Selector for the menu item
  * @param {String} options.menuLinkSelector Selector for the menu link
  * @param {String} options.menuMegaSelector Selector for the mega menu
- * @param {Boolean} options.attachClickListener Whether or not to bind click events on toggle
+ * @param {Boolean} options.attachClickListener Whether or not to bind click events
  */
 export class MenuLegacy {
   /**
