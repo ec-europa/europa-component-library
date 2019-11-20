@@ -15,7 +15,25 @@ if (!Element.prototype.closest)
     return null;
   };
 
+/**
+ * @param {HTMLElement} element DOM element for component instantiation and scope
+ * @param {Object} options
+ * @param {String} options.hamburgerButtonSelector Selector for the hamburger button
+ * @param {String} options.menuListSelector Selector for the list
+ * @param {String} options.menuItemSelector Selector for the menu item
+ * @param {String} options.menuLinkSelector Selector for the menu link
+ * @param {String} options.menuMegaSelector Selector for the mega menu
+ * @param {Boolean} options.attachClickListener Whether or not to bind click events on toggle
+ */
 export class MenuLegacy {
+  /**
+   * @static
+   * Shorthand for instance creation and initialisation.
+   *
+   * @param {HTMLElement} root DOM element for component instantiation and scope
+   *
+   * @return {MenuLegacy} An instance of MenuLegacy.
+   */
   static autoInit(root, { MENU_LEGACY: defaultOptions = {} } = {}) {
     const menuLegacy = new MenuLegacy(root, defaultOptions);
     menuLegacy.init();
@@ -63,6 +81,9 @@ export class MenuLegacy {
     this.handleClickOnLink = this.handleClickOnLink.bind(this);
   }
 
+  /**
+   * Initialise component.
+   */
   init() {
     // Query elements
     this.hamburgerButton = queryOne(this.hamburgerButtonSelector, this.element);
@@ -91,6 +112,9 @@ export class MenuLegacy {
     }
   }
 
+  /**
+   * Destroy component.
+   */
   destroy() {
     if (this.attachClickListener && this.ellipsisButton) {
       this.hamburgerButton.removeEventListener(
@@ -111,6 +135,9 @@ export class MenuLegacy {
     }
   }
 
+  /**
+   * Toggle menu list.
+   */
   handleClickOnHamburger() {
     this.element.setAttribute(
       'aria-expanded',
@@ -125,6 +152,9 @@ export class MenuLegacy {
     return this;
   }
 
+  /**
+   * @param {Event} e
+   */
   handleClickOnLink(e) {
     e.preventDefault();
 
