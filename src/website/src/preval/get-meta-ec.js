@@ -8,6 +8,7 @@ const dir = '../pages/ec';
 
 const files = glob.sync('**/*.@(md|mdx)', {
   cwd: resolve(__dirname, dir),
+  ignore: '**/_jsdoc/**',
 });
 
 const getUrl = file =>
