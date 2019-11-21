@@ -13,6 +13,68 @@ import {
 } from '@ecl/ec-react-component-unordered-list';
 
 const FeedbackForm = ({ state, className, ...props }) => {
+  let radioItems = [];
+  if (state === 'translation') {
+    radioItems = [
+      {
+        id: 'feedback-translation',
+        value: 'translation',
+        label: 'This page is not translated',
+        checked: true,
+      },
+      {
+        id: 'feedback-information',
+        value: 'information',
+        label: "I can't find the information that I need",
+      },
+      {
+        id: 'feedback-technical',
+        value: 'technical',
+        label: "There's a technical issue",
+      },
+    ];
+  }
+  if (state === 'information') {
+    radioItems = [
+      {
+        id: 'feedback-translation',
+        value: 'translation',
+        label: 'This page is not translated',
+      },
+      {
+        id: 'feedback-information',
+        value: 'information',
+        label: "I can't find the information that I need",
+        checked: true,
+      },
+      {
+        id: 'feedback-technical',
+        value: 'technical',
+        label: "There's a technical issue",
+      },
+    ];
+  }
+  if (state === 'technical') {
+    radioItems = [
+      {
+        id: 'feedback-translation',
+        value: 'translation',
+        label: 'This page is not translated',
+      },
+      {
+        id: 'feedback-information',
+        value: 'information',
+        label: "I can't find the information that I need",
+      },
+      {
+        id: 'feedback-technical',
+        value: 'technical',
+        label: "There's a technical issue",
+        checked: true,
+      },
+    ];
+  }
+
   return (
     <section
       {...props}
@@ -46,26 +108,7 @@ const FeedbackForm = ({ state, className, ...props }) => {
             <RadioGroup
               legend="Help us to improve your experience by sharing any problem you encountered."
               name="feedback-form-radios"
-              items={[
-                {
-                  id: 'feedback-translation',
-                  value: 'translation',
-                  label: 'This page is not translated',
-                  checked: state === 'translation',
-                },
-                {
-                  id: 'feedback-information',
-                  value: 'information',
-                  label: "I can't find the information that I need",
-                  checked: state === 'information',
-                },
-                {
-                  id: 'feedback-technical',
-                  value: 'technical',
-                  label: "There's a technical issue",
-                  checked: state === 'technical',
-                },
-              ]}
+              items={radioItems}
             />
 
             {/* Page not translated */}
