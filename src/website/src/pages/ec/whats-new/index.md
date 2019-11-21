@@ -9,6 +9,34 @@ Users can still go to ECL v1 to create or upgrade their websites. In 2019, we wi
 
 We will also add new components to the ECL v2 as we continue improving the look and feel of the existing components. New releases under v2 should be published periodically under [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 2.16.0 (2019-11-21)
+
+#### :rocket: New Feature
+
+- [#1360](https://github.com/ec-europa/europa-component-library/pull/1360) feat(ecl-editor): add editor CSS rules - INNO-1846 ([@emeryro](https://github.com/emeryro))
+- [#1406](https://github.com/ec-europa/europa-component-library/pull/1406) feat(call-tenders): add content type - INNO-1957 ([@emeryro](https://github.com/emeryro))
+- [#1405](https://github.com/ec-europa/europa-component-library/pull/1405) feat(call-proposal): add content type - INNO-1956 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#1404](https://github.com/ec-europa/europa-component-library/pull/1404) fix(inpage-nav): remove sticky nav when out of viewport - INNO-1948 ([@yhuard](https://github.com/yhuard))
+
+#### :nail_care: Enhancement
+
+- [#1412](https://github.com/ec-europa/europa-component-library/pull/1412) feat(event): allow to select template - INNO-1963 ([@emeryro](https://github.com/emeryro))
+- [#1416](https://github.com/ec-europa/europa-component-library/pull/1416) fix(site-header): add separator - INNO-1965 ([@emeryro](https://github.com/emeryro))
+- [#1403](https://github.com/ec-europa/europa-component-library/pull/1403) fix(footers): set default rules - INNO -1955 ([@emeryro](https://github.com/emeryro))
+
+#### :memo: Documentation
+
+- [#1407](https://github.com/ec-europa/europa-component-library/pull/1407) docs(api): integrate JSDoc into website - INNO-1961 ([@yhuard](https://github.com/yhuard))
+- [#1413](https://github.com/ec-europa/europa-component-library/pull/1413) docs(utilities): dimension and display - INNO-1947 ([@emeryro](https://github.com/emeryro))
+- [#1409](https://github.com/ec-europa/europa-component-library/pull/1409) docs(storybook): deprecate content page - INNO-1964 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#1410](https://github.com/ec-europa/europa-component-library/pull/1410) chore(deps): update dependencies - INNO-1811 ([@yhuard](https://github.com/yhuard))
+
 ## 2.15.0 (2019-11-08)
 
 #### :rocket: New Feature
