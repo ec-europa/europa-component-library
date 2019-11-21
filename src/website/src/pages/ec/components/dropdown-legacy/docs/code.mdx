@@ -15,33 +15,3 @@ import DropdownExample from '@ecl/ec-react-component-dropdown-legacy/examples/De
 >
   <DropdownExample />
 </Playground>
-
-## JS behaviour
-
-### Auto initialisation
-
-In order to automatically initalise the JS behaviour, add `data-ecl-auto-init="DropdownLegacy"` to your component's markup:
-
-```html
-<div
-  class="ecl-dropdown-legacy"
-  data-ecl-dropdown-legacy
-  data-ecl-auto-init="DropdownLegacy"
->
-  ...
-</div>
-```
-
-Don't forget to call `ECL.autoInit()` when your page is ready!
-
-### Manual initialisation
-
-When the document is ready, query the element. For example, you can use `document.querySelector('[data-ecl-dropdown-legacy]')` if you only have 1 dropdown in the page.
-
-Then, instantiate the `DropdownLegacy` component and call `init()`:
-
-```js
-var elt = document.querySelector('[data-ecl-dropdown-legacy]');
-var dropdownLegacy = new ECL.DropdownLegacy(elt);
-dropdownLegacy.init();
-```

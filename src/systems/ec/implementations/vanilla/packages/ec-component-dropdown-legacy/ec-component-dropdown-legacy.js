@@ -1,6 +1,20 @@
 import { queryOne } from '@ecl/ec-base/helpers/dom';
 
+/**
+ * @param {HTMLElement} element DOM element for component instantiation and scope
+ * @param {Object} options
+ * @param {String} options.toggleSelector Selector for toggling element
+ * @param {Boolean} options.attachClickListener Whether or not to bind click events
+ */
 export class DropdownLegacy {
+  /**
+   * @static
+   * Shorthand for instance creation and initialisation.
+   *
+   * @param {HTMLElement} root DOM element for component instantiation and scope
+   *
+   * @return {DropdownLegacy} An instance of DropdownLegacy.
+   */
   static autoInit(root, { DROPDOWN_LEGACY: defaultOptions = {} } = {}) {
     const dropdownLegacy = new DropdownLegacy(root, defaultOptions);
     dropdownLegacy.init();
@@ -40,6 +54,9 @@ export class DropdownLegacy {
     this.handleClickOnDocument = this.handleClickOnDocument.bind(this);
   }
 
+  /**
+   * Initialise component.
+   */
   init() {
     this.toggle = queryOne(this.toggleSelector, this.element);
 
@@ -62,6 +79,9 @@ export class DropdownLegacy {
     }
   }
 
+  /**
+   * Destroy component.
+   */
   destroy() {
     if (this.attachClickListener && this.toggle) {
       this.toggle.removeEventListener('click', this.handleClickOnToggle);
@@ -69,6 +89,9 @@ export class DropdownLegacy {
     }
   }
 
+  /**
+   * @param {Event} event
+   */
   handleClickOnDocument(event) {
     if (
       !this.target ||
@@ -85,6 +108,9 @@ export class DropdownLegacy {
     }
   }
 
+  /**
+   * Toggle visibility.
+   */
   handleClickOnToggle() {
     // Get current status
     const isExpanded =
