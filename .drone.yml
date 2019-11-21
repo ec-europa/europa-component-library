@@ -38,7 +38,7 @@ pipeline:
   audit:
     image: node:dubnium
     commands:
-      - yarn audit
+      - yarn audit; [[ $? -ge 8 ]] && exit 1 || exit 0
     when:
       event: [push, pull_request, tag]
       matrix:
