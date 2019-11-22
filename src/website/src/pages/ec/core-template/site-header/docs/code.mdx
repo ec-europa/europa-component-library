@@ -14,9 +14,24 @@ import demoContentFr from '@ecl/ec-specs-site-header-core/demo/data--fr';
   selectedKind="components-site-headers-core"
   selectedStory="default"
   showFrame
-  frameHeight="180"
 >
   <SiteHeaderCore {...demoContentEn} data-ecl-auto-init="SiteHeaderCore" />
+</Playground>
+
+## Logged in
+
+<Playground
+  system="ec"
+  selectedKind="components-site-headers-core"
+  selectedStory="logged-in"
+  showFrame
+  frameHeight="220"
+>
+  <SiteHeaderCore
+    {...demoContentEn}
+    data-ecl-auto-init="SiteHeaderCore"
+    logged
+  />
 </Playground>
 
 ## Translated
@@ -26,7 +41,6 @@ import demoContentFr from '@ecl/ec-specs-site-header-core/demo/data--fr';
   selectedKind="components-site-headers-core"
   selectedStory="translated"
   showFrame
-  frameHeight="180"
 >
   <SiteHeaderCore {...demoContentFr} data-ecl-auto-init="SiteHeaderCore" />
 </Playground>

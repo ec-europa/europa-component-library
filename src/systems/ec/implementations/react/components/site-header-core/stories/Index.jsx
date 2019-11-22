@@ -28,6 +28,13 @@ storiesOf('Components|Site Headers/Core', module)
   .add('default', () => (
     <SiteHeaderCore {...demoContentEn} data-ecl-auto-init="SiteHeaderCore" />
   ))
+  .add('logged in', () => (
+    <SiteHeaderCore
+      {...demoContentEn}
+      data-ecl-auto-init="SiteHeaderCore"
+      logged
+    />
+  ))
   .add('translated', () => (
     <SiteHeaderCore {...demoContentFr} data-ecl-auto-init="SiteHeaderCore" />
   ));

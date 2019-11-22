@@ -10,9 +10,12 @@
 @include check-imports(('ec-component-icon', 'ec-component-search-form'));
 
 @mixin ecl-site-header-core(
-  $logo-height-xs: 2.5rem,
+  $logo-height-xs: 1.75rem,
   $logo-height-s: 3rem,
-  $logo-height-m: 4.5rem
+  $logo-height-m: 3.75rem,
+  $logo-height-l: 4.5rem,
+  $search-width-l: 25rem,
+  $search-width-xl: 31.5rem
 ) {
   .ecl-site-header-core {
     background-color: $ecl-color-white-100;
@@ -26,6 +29,7 @@
   }
 
   .ecl-site-header-core__top {
+    align-items: flex-end;
     display: flex;
     flex-grow: 1;
     justify-content: space-between;
@@ -46,6 +50,7 @@
     display: flex;
   }
 
+  .ecl-site-header-core__login-toggle,
   .ecl-site-header-core__search-toggle {
     align-items: center;
     border-left: 1px solid $ecl-color-white;
@@ -69,6 +74,7 @@
     }
   }
 
+  .ecl-site-header-core__login-box,
   .ecl-site-header-core__search {
     background-color: $ecl-color-blue-5;
     border: 1px solid $ecl-color-blue-25;
@@ -83,6 +89,23 @@
     position: absolute;
     width: calc(100% - #{$ecl-spacing-m} - #{$ecl-spacing-m});
     z-index: $ecl-z-index-dropdown;
+  }
+
+  .ecl-site-header-core__login-box--active {
+    display: block;
+  }
+
+  .ecl-site-header-core__login-description {
+    margin: 0;
+    max-width: 80ch;
+  }
+
+  .ecl-site-header-core__login-separator {
+    background-color: $ecl-color-blue-25;
+    border-width: 0;
+    height: 1px;
+    margin-bottom: $ecl-spacing-m;
+    margin-top: $ecl-spacing-m;
   }
 
   .ecl-site-header-core__language-selector {
@@ -153,6 +176,13 @@
       height: $logo-height-m;
     }
 
+    .ecl-site-header-core__login-box {
+      left: auto;
+      margin-top: calc(#{$ecl-spacing-xl} - 1px);
+      width: auto;
+    }
+
+    .ecl-site-header-core__login-toggle,
     .ecl-site-header-core__language-selector {
       align-items: center;
       display: flex;
@@ -162,6 +192,12 @@
       padding: $ecl-spacing-s;
     }
 
+    .ecl-site-header-core__login-toggle[aria-expanded='true'] {
+      margin-bottom: -$ecl-spacing-xl;
+      padding-bottom: calc(#{$ecl-spacing-s} + #{$ecl-spacing-xl});
+    }
+
+    .ecl-site-header-core__login-toggle,
     .ecl-site-header-core__language-icon {
       .ecl-icon {
         height: $ecl-icon-m;
@@ -195,7 +231,17 @@
       padding: 0;
       position: relative;
       top: 0;
-      width: 31.5rem;
+      width: $search-width-l;
+    }
+  }
+
+  @include ecl-media-breakpoint-up(xl) {
+    .ecl-site-header-core__logo-image {
+      height: $logo-height-l;
+    }
+
+    .ecl-site-header-core__search {
+      width: $search-width-xl;
     }
   }
 }
