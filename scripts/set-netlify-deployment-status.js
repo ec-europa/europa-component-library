@@ -89,6 +89,8 @@ const run = async () => {
       body: JSON.stringify(payload),
     }
   );
+
+  console.log('Status on pull request successfully updated!');
 };
 
 try {
