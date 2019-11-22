@@ -1,7 +1,26 @@
 import { queryOne } from '@ecl/ec-base/helpers/dom';
 import createFocusTrap from 'focus-trap';
 
+/**
+ * @param {HTMLElement} element DOM element for component instantiation and scope
+ * @param {Object} options
+ * @param {String} options.languageLinkSelector
+ * @param {String} options.languageListOverlaySelector
+ * @param {String} options.closeOverlaySelector
+ * @param {String} options.searchToggleSelector
+ * @param {String} options.searchFormSelector
+ * @param {String} options.loginToggleSelector
+ * @param {String} options.loginBoxSelector
+ */
 export class SiteHeaderStandardised {
+  /**
+   * @static
+   * Shorthand for instance creation and initialisation.
+   *
+   * @param {HTMLElement} root DOM element for component instantiation and scope
+   *
+   * @return {SiteHeaderStandardised} An instance of SiteHeaderStandardised.
+   */
   static autoInit(root, { SITE_HEADER_CORE: defaultOptions = {} } = {}) {
     const siteHeaderStandardised = new SiteHeaderStandardised(
       root,
@@ -61,6 +80,9 @@ export class SiteHeaderStandardised {
     this.toggleLogin = this.toggleLogin.bind(this);
   }
 
+  /**
+   * Initialise component.
+   */
   init() {
     // Language list management
     this.languageSelector = queryOne(this.languageLinkSelector);
@@ -96,6 +118,9 @@ export class SiteHeaderStandardised {
     }
   }
 
+  /**
+   * Destroy component.
+   */
   destroy() {
     if (this.languageSelector) {
       this.languageSelector.removeEventListener('click', this.toggleOverlay);
@@ -117,18 +142,29 @@ export class SiteHeaderStandardised {
     }
   }
 
+  /**
+   * Shows the modal language list overlay.
+   */
   openOverlay() {
     this.languageListOverlay.hidden = false;
     this.languageListOverlay.setAttribute('aria-modal', 'true');
     this.languageSelector.setAttribute('aria-expanded', 'true');
   }
 
+  /**
+   * Hides the modal language list overlay.
+   */
   closeOverlay() {
     this.languageListOverlay.hidden = true;
     this.languageListOverlay.removeAttribute('aria-modal');
     this.languageSelector.setAttribute('aria-expanded', 'false');
   }
 
+  /**
+   * Toggles the modal language list overlay.
+   *
+   * @param {Event} e
+   */
   toggleOverlay(e) {
     if (!this.languageListOverlay || !this.focusTrap) return;
 
@@ -142,6 +178,11 @@ export class SiteHeaderStandardised {
     }
   }
 
+  /**
+   * Toggles the search form.
+   *
+   * @param {Event} e
+   */
   toggleSearch(e) {
     if (!this.searchForm) return;
 
@@ -175,6 +216,11 @@ export class SiteHeaderStandardised {
     }
   }
 
+  /**
+   * Toggles the login form.
+   *
+   * @param {Event} e
+   */
   toggleLogin(e) {
     if (!this.loginBox) return;
 

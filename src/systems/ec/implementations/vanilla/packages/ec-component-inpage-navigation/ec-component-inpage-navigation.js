@@ -1,16 +1,32 @@
 /* eslint-disable unicorn/prefer-includes */
-/**
- * Navigation inpage related behaviors.
- */
-
 import Stickyfill from 'stickyfilljs';
 import Gumshoe from 'gumshoejs/dist/gumshoe.polyfills';
 import { queryOne, queryAll } from '@ecl/ec-base/helpers/dom';
 
 /**
- * @param {object} options Object containing configuration overrides
+ * @param {HTMLElement} element DOM element for component instantiation and scope
+ * @param {Object} options
+ * @param {String} options.stickySelector Selector for sticky inpage navigation element
+ * @param {String} options.containerSelector Selector for inpage navigation container element
+ * @param {String} options.inPageList Selector for inpage navigation list element
+ * @param {String} options.spySelector Selector for inpage navigation spied element
+ * @param {String} options.toggleSelector Selector for inpage navigation trigger element
+ * @param {String} options.linksSelector Selector for inpage navigation link element
+ * @param {String} options.spyActiveContainer Selector for inpage navigation container to spy on element
+ * @param {String} options.spyClass Selector to spy on
+ * @param {String} options.spyTrigger
+ * @param {Number} options.spyOffset
+ * @param {Boolean} options.attachClickListener Whether or not to bind click events
  */
 export class InpageNavigation {
+  /**
+   * @static
+   * Shorthand for instance creation and initialisation.
+   *
+   * @param {HTMLElement} root DOM element for component instantiation and scope
+   *
+   * @return {InpageNavigation} An instance of InpageNavigation.
+   */
   static autoInit(root, { INPAGE_NAVIGATION: defaultOptions = {} } = {}) {
     const inpageNavigation = new InpageNavigation(root, defaultOptions);
     inpageNavigation.init();
@@ -22,7 +38,6 @@ export class InpageNavigation {
   constructor(
     element,
     {
-      attachClickListener = true,
       stickySelector = '[data-ecl-inpage-navigation]',
       containerSelector = '[data-ecl-inpage-navigation-container]',
       inPageList = '[data-ecl-inpage-navigation-list]',
@@ -33,6 +48,7 @@ export class InpageNavigation {
       spyOffset = 20,
       spyClass = 'ecl-inpage-navigation__item--active',
       spyTrigger = '[data-ecl-inpage-navigation-trigger-current]',
+      attachClickListener = true,
     } = {}
   ) {
     // Check element
@@ -71,16 +87,25 @@ export class InpageNavigation {
   }
 
   // ACTIONS
+  /**
+   * Initiate sticky behaviors.
+   */
   initSticky() {
     this.stickyInstance = new Stickyfill.Sticky(this.element);
   }
 
+  /**
+   * Destroy sticky behaviors.
+   */
   destroySticky() {
     if (this.stickyInstance) {
       this.stickyInstance.remove();
     }
   }
 
+  /**
+   * Initiate scroll spy behaviors.
+   */
   initScrollSpy() {
     this.gumshoe = new Gumshoe(this.spySelector, {
       navClass: this.spyClass,
@@ -143,6 +168,11 @@ export class InpageNavigation {
     }
   }
 
+  /**
+   * Activate scroll spy behaviors.
+   *
+   * @param {Event} event
+   */
   activateScrollSpy(event) {
     const navigationTitle = queryOne(this.spyTrigger);
 
@@ -150,6 +180,9 @@ export class InpageNavigation {
     navigationTitle.textContent = event.detail.content.textContent;
   }
 
+  /**
+   * Deactivate scroll spy behaviors.
+   */
   deactivateScrollSpy() {
     const navigationTitle = queryOne(this.spyTrigger);
     const currentList = queryOne(this.inPageList, this.element);
@@ -161,6 +194,9 @@ export class InpageNavigation {
     togglerElement.setAttribute('aria-expanded', 'false');
   }
 
+  /**
+   * Destroy scroll spy behaviors.
+   */
   destroyScrollSpy() {
     if (this.stickyObserver) {
       this.stickyObserver.disconnect();
@@ -179,6 +215,9 @@ export class InpageNavigation {
     this.gumshoe.destroy();
   }
 
+  /**
+   * Initiate observer.
+   */
   initObserver() {
     if ('MutationObserver' in window) {
       const self = this;
@@ -241,13 +280,18 @@ export class InpageNavigation {
     }
   }
 
+  /**
+   * Destroy observer.
+   */
   destroyObserver() {
     if (this.observer) {
       this.observer.disconnect();
     }
   }
 
-  // Init
+  /**
+   * Initialise component.
+   */
   init() {
     const toggleElement = queryOne(this.toggleSelector, this.element);
     const navLinks = queryAll(this.linksSelector, this.element);
@@ -267,10 +311,18 @@ export class InpageNavigation {
     }
   }
 
+  /**
+   * Update scroll spy instance.
+   */
   update() {
     this.gumshoe.setup();
   }
 
+  /**
+   * Invoke event listeners on toggle click.
+   *
+   * @param {Event} e
+   */
   handleClickOnToggler(e) {
     const currentList = queryOne(this.inPageList, this.element);
     const currentState = currentList.getAttributeNode('hidden');
@@ -287,6 +339,9 @@ export class InpageNavigation {
     e.preventDefault();
   }
 
+  /**
+   * Sets the necessary attributes to collapse inpage navigation list.
+   */
   handleClickOnLink() {
     const currentList = queryOne(this.inPageList, this.element);
     const togglerElement = queryOne(this.toggleSelector, this.element);
@@ -295,7 +350,9 @@ export class InpageNavigation {
     togglerElement.setAttribute('aria-expanded', 'false');
   }
 
-  // Destroy
+  /**
+   * Destroy component instance.
+   */
   destroy() {
     if (this.attachClickListener && this.toggleElement) {
       this.toggleElement.removeEventListener(
