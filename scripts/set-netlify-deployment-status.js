@@ -2,9 +2,9 @@
 
 const fetch = require('node-fetch');
 
-const NETLIFY_API = 'https://api.netlify.com/api/v1';
-
 const run = async () => {
+  const NETLIFY_API = 'https://api.netlify.com/api/v1';
+
   const {
     GH_TOKEN,
     DRONE_BUILD_NUMBER,
@@ -15,7 +15,7 @@ const run = async () => {
     NETLIFY_AUTH_TOKEN,
   } = process.env;
 
-  if (DRONE_BUILD_NUMBER) {
+  if (!DRONE_BUILD_NUMBER) {
     console.info('Missing information about build number.');
     return;
   }
