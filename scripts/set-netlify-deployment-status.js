@@ -43,7 +43,8 @@ const run = async () => {
     const deployments = require(path.resolve(__dirname, '../deployments.json'));
 
     const currentDeployment = deployments.find(
-      deployment => deployment.title === `Drone build: ${CI_BUILD_NUMBER}`
+      deployment => deployment.title === `Drone build: 5645`
+      // deployment => deployment.title === `Drone build: ${CI_BUILD_NUMBER}`
     );
 
     const siteDeployment = await fetch(
