@@ -212,7 +212,7 @@ pipeline:
       - yarn build:themes
       - yarn dist
       - './node_modules/.bin/netlify deploy --site $${NETLIFY_SITE} --message "Drone build: ${CI_BUILD_NUMBER}"'
-      - './node_modules/.bin/netlify api listSiteDeploys --data "{ "site_id": $${NETLIFY_SITE}}" > deployments.json'
+      - './node_modules/.bin/netlify api listSiteDeploys --data "{ "site_id": ${NETLIFY_SITE}" > deployments.json'
       - node scripts/set-netlify-deployment-status.js
     when:
       event: [push, pull_request]
