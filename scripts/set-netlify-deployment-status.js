@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
-const path = require('path');
 const fetch = require('node-fetch');
+
+const NETLIFY_API = 'https://api.netlify.com/api/v1';
 
 const run = async () => {
   const {
@@ -10,7 +11,7 @@ const run = async () => {
     DRONE_REPO,
     DRONE_COMMIT_SHA,
     DRONE_BUILD_LINK,
-    NETLIFY_SITE,
+    NETLIFY_SITE_ID,
     NETLIFY_AUTH_TOKEN,
   } = process.env;
 
@@ -39,16 +40,8 @@ const run = async () => {
   let payload = {};
 
   try {
-    // eslint-disable-next-line global-require, import/no-dynamic-require
-    const deployments = require(path.resolve(__dirname, '../deployments.json'));
-
-    const currentDeployment = deployments.find(
-      deployment => deployment.title === `Drone build: 5645`
-      // deployment => deployment.title === `Drone build: ${CI_BUILD_NUMBER}`
-    );
-
-    const siteDeployment = await fetch(
-      `https://api.netlify.com/api/v1/sites/${NETLIFY_SITE}/deploys/${currentDeployment.id}`,
+    const deploymentsResponse = await fetch(
+      `${NETLIFY_API}/sites/${NETLIFY_SITE_ID}/deploys`,
       {
         method: 'GET',
         headers: {
@@ -59,6 +52,27 @@ const run = async () => {
         },
       }
     );
+
+    const deployments = await deploymentsResponse.json();
+
+    const currentDeployment = deployments.find(
+      deployment => deployment.title === `Drone build: ${CI_BUILD_NUMBER}`
+    );
+
+    const siteDeploymentResponse = await fetch(
+      `${NETLIFY_API}/sites/${NETLIFY_SITE_ID}/deploys/${currentDeployment.id}`,
+      {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          'Accept-Charset': 'utf-8',
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${NETLIFY_AUTH_TOKEN}`,
+        },
+      }
+    );
+
+    const siteDeployment = await siteDeploymentResponse.json();
 
     payload = {
       state: 'success',
