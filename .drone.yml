@@ -192,7 +192,7 @@ pipeline:
       - export GIT_FPFIS_AUTHOR="Drone ec.deploy.fpfis.eu"
       - cd /ec/local/home/fpfis/reference/php-clusters/multisite/production/cluster00/sources/static/europa-component-library
       - git add -A .
-      - git commit -m"Deployed ${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}@${DRONE_TAG} from drone build ${DRONE_BUILD_NUMBER}." .
+      - git commit -m "Deployed ${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}@${DRONE_TAG} from drone build ${DRONE_BUILD_NUMBER}." .
       - git push 'nas-reference' 'master'
     when:
       event: deployment
@@ -211,7 +211,8 @@ pipeline:
       - yarn build:icons
       - yarn build:themes
       - yarn dist
-      - './node_modules/.bin/netlify deploy --site $${NETLIFY_SITE} --message "Drone build: ${CI_BUILD_NUMBER}" --json > netlify_deployment_result.json'
+      - './node_modules/.bin/netlify deploy --site $${NETLIFY_SITE} --message "Drone build: ${CI_BUILD_NUMBER}"'
+      - './node_modules/.bin/netlify api listSiteDeploys --data '{ "site_id": $${NETLIFY_SITE}}' > deployments.json'
       - node scripts/set-netlify-deployment-status.js
     when:
       event: [push, pull_request]

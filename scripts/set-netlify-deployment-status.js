@@ -5,11 +5,19 @@ const fetch = require('node-fetch');
 
 const run = async () => {
   const {
+    CI_BUILD_NUMBER,
     GH_TOKEN,
     DRONE_REPO,
     DRONE_COMMIT_SHA,
     DRONE_BUILD_LINK,
+    NETLIFY_SITE,
+    NETLIFY_AUTH_TOKEN,
   } = process.env;
+
+  if (CI_BUILD_NUMBER) {
+    console.info('Missing information about build number.');
+    return;
+  }
 
   if (!GH_TOKEN) {
     console.info("Won't be able to communicate Netlify deployment to Github.");
@@ -32,14 +40,28 @@ const run = async () => {
 
   try {
     // eslint-disable-next-line global-require, import/no-dynamic-require
-    const deploymentResult = require(path.resolve(
-      __dirname,
-      '../netlify_deployment_result.json'
-    ));
+    const deployments = require(path.resolve(__dirname, '../deployments.json'));
+
+    const currentDeployment = deployments.find(
+      deployment => deployment.title === `Drone build: ${CI_BUILD_NUMBER}`
+    );
+
+    const siteDeployment = await fetch(
+      `https://api.netlify.com/api/v1/sites/${NETLIFY_SITE}/deploys/${currentDeployment.id}`,
+      {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          'Accept-Charset': 'utf-8',
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${NETLIFY_AUTH_TOKEN}`,
+        },
+      }
+    );
 
     payload = {
       state: 'success',
-      target_url: deploymentResult.deploy_url,
+      target_url: siteDeployment.deploy_url,
       description: 'Preview ready!',
       context: 'drone/netlify',
     };
