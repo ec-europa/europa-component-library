@@ -216,8 +216,8 @@ pipeline:
       - node scripts/set-netlify-deployment-status.js
     when:
       event: [push, pull_request]
-      matrix:
-        TEST: deploy
+      # matrix:
+      #   TEST: deploy
       branch:
         exclude:
           - v0
