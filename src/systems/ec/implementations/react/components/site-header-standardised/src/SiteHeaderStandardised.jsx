@@ -83,10 +83,14 @@ const SiteHeaderStandardised = ({
                       className="ecl-site-header-standardised__login-box"
                       data-ecl-login-box
                     >
-                      <p className="ecl-site-header-standardised__login-description">
-                        {loginBox.description}
-                      </p>
-                      <hr className="ecl-site-header-standardised__login-separator" />
+                      {loginBox.description && (
+                        <Fragment>
+                          <p className="ecl-site-header-standardised__login-description">
+                            {loginBox.description}
+                          </p>
+                          <hr className="ecl-site-header-standardised__login-separator" />
+                        </Fragment>
+                      )}
                       <Link
                         label={loginBox.label}
                         href={loginBox.href}

@@ -80,10 +80,14 @@ const SiteHeaderCore = ({
                       className="ecl-site-header-core__login-box"
                       data-ecl-login-box
                     >
-                      <p className="ecl-site-header-core__login-description">
-                        {loginBox.description}
-                      </p>
-                      <hr className="ecl-site-header-core__login-separator" />
+                      {loginBox.description && (
+                        <Fragment>
+                          <p className="ecl-site-header-core__login-description">
+                            {loginBox.description}
+                          </p>
+                          <hr className="ecl-site-header-core__login-separator" />
+                        </Fragment>
+                      )}
                       <Link
                         label={loginBox.label}
                         href={loginBox.href}
