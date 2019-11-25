@@ -57,7 +57,7 @@ const run = async () => {
       $(link).attr('href', `../${href}`);
     });
 
-    htmlUpdated = $.html();
+    const htmlUpdated = $.html();
 
     fs.writeFileSync(`${dir}/index.html`, htmlUpdated);
   });
