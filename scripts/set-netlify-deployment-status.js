@@ -76,7 +76,7 @@ const run = async () => {
 
     payload = {
       state: 'success',
-      target_url: siteDeployment.deploy_url,
+      target_url: `https://${siteDeployment.deploy_url}`,
       description: 'Preview ready!',
       context: 'drone/netlify',
     };
