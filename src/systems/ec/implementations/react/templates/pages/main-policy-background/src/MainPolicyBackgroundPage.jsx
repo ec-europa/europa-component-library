@@ -166,9 +166,9 @@ const MainPolicyBackgroundPage = ({ siteHeader, footer, template }) => (
     )}
 
     <div className="ecl-u-pv-xl ecl-u-pv-lg-3xl">
-      <div className="ecl-container">
+      <div className="ecl-container ecl-u-type-m">
         <main>
-          <p className="ecl-u-type-paragraph ecl-u-mt-none">
+          <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none">
             The human toll for poor air quality is worse than for road traffic
             accidents, making it the number one environmental cause of premature
             death in Europe, with over 390 000 premature deaths every years. It
@@ -178,7 +178,7 @@ const MainPolicyBackgroundPage = ({ siteHeader, footer, template }) => (
             ashtmatics and the eldery the worst affected. It damages ecosystems
             through excess nitrogen pollution (eutrophication) and acid rain.
           </p>
-          <p className="ecl-u-type-paragraph">
+          <p className="ecl-u-type-paragraph ecl-u-type-color-black">
             To counter this, the European Union has set itself the goal to
             achieve levels of air quality that do not give rise to significant
             negative impacts on, and risks to, human health and the environment.
@@ -187,7 +187,7 @@ const MainPolicyBackgroundPage = ({ siteHeader, footer, template }) => (
             atmosphere, improving fuel quality, and by integrating environmental
             protection requirements into the transport and energy sectors.
           </p>
-          <p className="ecl-u-type-paragraph">
+          <p className="ecl-u-type-paragraph ecl-u-type-color-black">
             As a result, much progress has been made in tackling air polluants
             such as sulphur dioxide, lead, nitrogen oxides, carbon monoxide and
             benzene. Yet, and despite the progress made to date, poor air
@@ -197,7 +197,7 @@ const MainPolicyBackgroundPage = ({ siteHeader, footer, template }) => (
             for Europe setting objectives for 2020 and 2030, and accompanying
             legislative measures.
           </p>
-          <p className="ecl-u-type-paragraph ecl-u-mb-none">
+          <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
             <Link
               href="/example"
               label="Cleaner air for all facts and figures"
@@ -355,15 +355,15 @@ const MainPolicyBackgroundPage = ({ siteHeader, footer, template }) => (
             translation={fileTranslations}
           />
 
-          <h2 className="ecl-u-type-heading-2 ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
+          <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
             International air pollution policy
           </h2>
 
-          <h3 className="ecl-u-type-heading-3 ecl-u-mt-l ecl-u-mb-none">
+          <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mt-l ecl-u-mb-none">
             Convention on Long Range Transboundary Air Pollution
           </h3>
 
-          <p className="ecl-u-type-paragraph ecl-u-mt-m ecl-u-mt-lg-xs">
+          <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mt-lg-xs">
             In the international context, the EU Member States work closely
             together with other UNECE member countries to control international
             air pollution under the{' '}
@@ -374,13 +374,13 @@ const MainPolicyBackgroundPage = ({ siteHeader, footer, template }) => (
             (the Air Convention). The Air Convention was adopted in 1979 and
             celebrates its 40th anniversary in 2019.
           </p>
-          <p className="ecl-u-type-paragraph">
+          <p className="ecl-u-type-paragraph ecl-u-type-color-black">
             Within the Air Convention framework, a number of task forces,
             centers and International Cooperative Programmes provide research,
             scientific assessments and dialogue on the common knowledge base on
             air quality issues.
           </p>
-          <p className="ecl-u-type-paragraph">
+          <p className="ecl-u-type-paragraph ecl-u-type-color-black">
             The Air Convention has been extended by{' '}
             <Link href="/example" label="eight Protocols" />. The European Union
             is party to seven of these Protocols. Notably, the original
@@ -392,7 +392,7 @@ const MainPolicyBackgroundPage = ({ siteHeader, footer, template }) => (
             (EU) 2017/1757in follow-up of the Commission Clean Air Policy
             Package.
           </p>
-          <p className="ecl-u-type-paragraph ecl-u-mb-none">
+          <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
             The EU continues to work closely with the Air Convention to
             encourage ratification and implementation of the revised Protocol by
             the broadest range of parties, and to pursue further work on key
@@ -417,28 +417,28 @@ const MainPolicyBackgroundPage = ({ siteHeader, footer, template }) => (
             translation={fileTranslations}
           />
 
-          <h3 className="ecl-u-type-heading-3 ecl-u-mt-l ecl-u-mb-none">
+          <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mt-l ecl-u-mb-none">
             UNEA/UNEP
           </h3>
 
-          <p className="ecl-u-type-paragraph ecl-u-mt-m ecl-u-mt-lg-xs">
+          <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mt-lg-xs">
             The European Commission and the EU Member States participated
             actively in the work on UN Environmental Assembly resolution
             UNEP/EA.3/Res.8 (December 2017) on Preventing and reducing air
             pollution to improve air quality globally.
           </p>
-          <p className="ecl-u-type-paragraph ecl-u-mb-none">
+          <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
             Within the UN Environmental Programme, the Stockholm Convention on
             Persistent Organic Pollutants, adopted on 22 May 2001, also provides
             a complementing international framework of relevance for EU air
             quality.
           </p>
 
-          <h3 className="ecl-u-type-heading-3 ecl-u-mt-l">
+          <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mt-l">
             UN Sustainable Development Goals (SDGs)
           </h3>
 
-          <p className="ecl-u-type-paragraph ecl-u-mt-m ecl-u-mt-lg-xs ecl-u-mb-none">
+          <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mt-lg-xs ecl-u-mb-none">
             Several of the <Link href="/example" label="UN SDGs" /> are directly
             or indirectly linked to improvments in air quality.
           </p>

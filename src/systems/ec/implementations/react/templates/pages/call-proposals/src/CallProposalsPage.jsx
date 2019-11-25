@@ -147,7 +147,7 @@ const CallProposalsPage = ({ siteHeader, footer, template }) => (
     )}
 
     <div className="ecl-u-pv-3xl ecl-u-pv-lg-4xl">
-      <div className="ecl-container">
+      <div className="ecl-container ecl-u-type-m">
         <Message
           data-ecl-auto-init="Message"
           className="ecl-u-mb-3xl"
@@ -202,7 +202,10 @@ const CallProposalsPage = ({ siteHeader, footer, template }) => (
 
           <div className="ecl-col-12 ecl-col-lg-9">
             <main>
-              <h2 className="ecl-u-type-heading-2 ecl-u-mv-none" id="details">
+              <h2
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mv-none"
+                id="details"
+              >
                 Details
               </h2>
 
@@ -244,13 +247,13 @@ const CallProposalsPage = ({ siteHeader, footer, template }) => (
               </DescriptionList>
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-mt-xl ecl-u-mb-none"
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mb-none"
                 id="description"
               >
                 Description
               </h2>
 
-              <p className="ecl-u-type-paragraph ecl-u-mt-m">
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m">
                 The objective of this 2016 preparatory action was to provide a
                 financial contribution for the activities carried out by a
                 European financial expertise centre to the direct benefit of
@@ -258,20 +261,20 @@ const CallProposalsPage = ({ siteHeader, footer, template }) => (
                 area of financial services.
               </p>
 
-              <p className="ecl-u-type-paragraph">
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black">
                 The beneficiaries of this grant were selected though an open
                 procedure. The call for proposals was launched on 8 February
                 2016 and applications had to be submitted by 15 March 2016.
               </p>
 
-              <p className="ecl-u-type-paragraph ecl-u-mb-none">
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
                 The maximum EU contribution was €1,500,000, which is further
                 limited to maximum 60% of the total eligible costs of the
                 proposed action.
               </p>
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-mt-xl ecl-u-mb-none"
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mb-none"
                 id="documents"
               >
                 Documents
@@ -308,7 +311,7 @@ const CallProposalsPage = ({ siteHeader, footer, template }) => (
               />
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-mt-xl ecl-u-mb-none"
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mb-none"
                 id="contact"
               >
                 Contact
@@ -325,7 +328,7 @@ const CallProposalsPage = ({ siteHeader, footer, template }) => (
               </DescriptionList>
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-mt-xl ecl-u-mb-none"
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mb-none"
                 id="related"
               >
                 Related
