@@ -3,6 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const glob = require('glob');
+const cheerio = require('cheerio');
 
 const run = async () => {
   const { NODE_ENV } = process.env;
@@ -21,11 +22,44 @@ const run = async () => {
   htmlFiles.forEach(file => {
     const dir = file.replace(/\.html+$/i, '');
     if (!fs.existsSync(dir)) {
-      console.log(`Creating folder: ${dir}`);
       fs.mkdirSync(dir);
     }
 
-    fs.copyFileSync(file, `${dir}/index.html`);
+    const html = fs.readFileSync(file);
+    const $ = cheerio.load(html);
+
+    $('link').each((_, link) => {
+      const href = $(link).attr('href');
+      if (!href || href[0] === '#' || href.includes('http')) return;
+      $(link).attr('href', `../${href}`);
+    });
+
+    $('script').each((_, script) => {
+      const scriptPath = $(script).attr('src');
+      if (!scriptPath || scriptPath.includes('http')) return;
+      $(script).attr('src', `../${scriptPath}`);
+    });
+
+    $('meta').each((_, metaTag) => {
+      const contentPath = $(metaTag).attr('content');
+      $(metaTag).attr('content', `../${contentPath}`);
+    });
+
+    $('iframe').each((_, iframe) => {
+      const src = $(iframe).attr('src');
+      if (!src || src[0] === '#' || src.includes('http')) return;
+      $(iframe).attr('src', `../${src}`);
+    });
+
+    $('a').each((_, link) => {
+      const href = $(link).attr('href');
+      if (!href || href[0] === '#' || href.includes('http')) return;
+      $(link).attr('href', `../${href}`);
+    });
+
+    htmlUpdated = $.html();
+
+    fs.writeFileSync(`${dir}/index.html`, htmlUpdated);
   });
 };
 
