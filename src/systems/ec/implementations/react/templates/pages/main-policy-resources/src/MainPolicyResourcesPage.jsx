@@ -130,9 +130,9 @@ const MainPolicyResourcesPage = ({ siteHeader, footer, template }) => (
     )}
 
     <div className="ecl-u-pv-xl ecl-u-pv-lg-3xl">
-      <div className="ecl-container">
+      <div className="ecl-container ecl-u-type-m">
         <main>
-          <p className="ecl-u-type-paragraph ecl-u-mv-none">
+          <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mv-none">
             The European Environment Agency&apos;s &apos;European Air Quality
             Index&apos; informs citizens about air quality levels based on data
             reported by Member States, and an &apos;Urban PM2.5 Atlas&apos; from
@@ -164,7 +164,7 @@ const MainPolicyResourcesPage = ({ siteHeader, footer, template }) => (
             }}
           />
 
-          <h2 className="ecl-u-type-heading-2 ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
+          <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
             Databases and other resources
           </h2>
 
@@ -210,7 +210,7 @@ const MainPolicyResourcesPage = ({ siteHeader, footer, template }) => (
             />
           </article>
 
-          <h2 className="ecl-u-type-heading-2 ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
+          <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
             Report
           </h2>
 

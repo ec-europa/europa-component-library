@@ -166,9 +166,9 @@ const MainPolicyAwarenessPage = ({ siteHeader, footer, template }) => (
     )}
 
     <div className="ecl-u-pv-xl ecl-u-pv-lg-3xl">
-      <div className="ecl-container">
+      <div className="ecl-container ecl-u-type-m">
         <main>
-          <p className="ecl-u-type-paragraph ecl-u-mv-none">
+          <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mv-none">
             Public relations campaings that aim to increase public awareness
             towards the problems Europe encounters when it comes to air
             pollution. The campain offers the solution incorporated in the new
@@ -198,11 +198,11 @@ const MainPolicyAwarenessPage = ({ siteHeader, footer, template }) => (
             }}
           />
 
-          <h2 className="ecl-u-type-heading-2 ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
+          <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
             Events, communication and awareness-rising
           </h2>
 
-          <h3 className="ecl-u-type-heading-3 ecl-u-mt-l ecl-u-mb-none">
+          <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mt-l ecl-u-mb-none">
             Websites
           </h3>
 
@@ -220,7 +220,7 @@ const MainPolicyAwarenessPage = ({ siteHeader, footer, template }) => (
             </p>
           </article>
 
-          <h3 className="ecl-u-type-heading-3 ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
+          <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
             Events related to this action
           </h3>
 
@@ -256,7 +256,7 @@ const MainPolicyAwarenessPage = ({ siteHeader, footer, template }) => (
             </div>
           </article>
 
-          <h3 className="ecl-u-type-heading-3 ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
+          <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
             Communication material
           </h3>
 
