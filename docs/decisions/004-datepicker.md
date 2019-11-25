@@ -21,7 +21,7 @@ We have to find a good way to provide such feature.
 
 The component has to:
 
-- respect the styling provided [in the specifications|https://webgate.ec.europa.eu/CITnet/confluence/x/fqvBN]
+- respect the styling provided [in the specifications](https://webgate.ec.europa.eu/CITnet/confluence/x/fqvBN)
 - be translatable
 - offer a no-js behavior (still to be defined)
 - propose different date format
@@ -37,7 +37,7 @@ The component has to:
 
 #### Pikaday
 
-On ECL1 we used [Pikaday|https://github.com/Pikaday/Pikaday] to handle datepicker.  
+On ECL1 we used [Pikaday](https://github.com/Pikaday/Pikaday) to handle datepicker.  
 We could rely on it again, as it seems to follow most of the requirements.
 
 **Pros**
