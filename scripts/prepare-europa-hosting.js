@@ -5,8 +5,29 @@ const path = require('path');
 const glob = require('glob');
 const cheerio = require('cheerio');
 
+const indices = glob.sync(
+  path.resolve(__dirname, '../dist/**/*(ec|eu)/index.html')
+);
+
+indices.forEach(index => {
+  console.log(`Working on: ${index}`);
+
+  const html = fs.readFileSync(index);
+  const $ = cheerio.load(html);
+
+  $('a').each((_, link) => {
+    const href = $(link).attr('href');
+    if (!href || href[0] === '#' || href.includes('http')) return;
+    $(link).attr('href', `${href}/`);
+  });
+
+  const htmlUpdated = $.html();
+
+  fs.writeFileSync(index, htmlUpdated);
+});
+
 const htmlFiles = glob.sync(path.resolve(__dirname, '../dist/**/*.html'), {
-  ignore: ['**/index.html'],
+  ignore: ['**/index.html', '**/assets.html'],
 });
 
 htmlFiles.forEach(file => {
