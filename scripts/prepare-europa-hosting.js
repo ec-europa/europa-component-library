@@ -40,13 +40,13 @@ htmlFiles.forEach(file => {
   $('iframe').each((_, iframe) => {
     const src = $(iframe).attr('src');
     if (!src || src[0] === '#' || src.includes('http')) return;
-    $(iframe).attr('src', `../${src}`);
+    $(iframe).attr('src', `../${src}/`);
   });
 
   $('a').each((_, link) => {
     const href = $(link).attr('href');
     if (!href || href[0] === '#' || href.includes('http')) return;
-    $(link).attr('href', `../${href}`);
+    $(link).attr('href', `../${href}/`);
   });
 
   const htmlUpdated = $.html();

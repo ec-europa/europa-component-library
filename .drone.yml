@@ -30,6 +30,7 @@ pipeline:
   build:
     image: node:dubnium
     commands:
+      - export ECL_VERSION=${DRONE_TAG}
       - yarn dist
       - echo ${DRONE_TAG=${DRONE_COMMIT_BRANCH=rc}} > dist/website/.version
       - echo ${DRONE_COMMIT_SHA} > dist/website/.commit

@@ -1,3 +1,9 @@
+{% set url = frctl.get('project.url') + 'ec/docs/overview/' %}
+
+{% if frctl.get('project.version') != null %}
+  {% set url = frctl.get('project.url') + frctl.get('project.version') + '/ec/docs/overview/' %}
+{% endif %}
+
 <li class="ecl-footer__list-item">
-  <a class="ecl-link ecl-footer__link" href="ec/docs/overview">Documentation</a>
+  <a class="ecl-link ecl-footer__link" href={{ url }}>Documentation</a>
 </li>
