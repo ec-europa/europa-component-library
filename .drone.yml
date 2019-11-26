@@ -154,7 +154,7 @@ pipeline:
       event: deployment
       environment: v1
 
-  deploy-v1:
+  deploy:
     image: drillster/drone-rsync
     secrets: [rsync_key, MGMT_IP]
     hosts: [$MGMT_IP]

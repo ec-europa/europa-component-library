@@ -1,2 +1,17 @@
 [build]
   publish = "dist/website"
+
+[[redirects]]
+  from = "https://v1--europa-component-library.netlify.com/*"
+  to = "https://ec.europa.eu/component-library/v1.14.2/:splat"
+  force = true
+
+[[redirects]]
+  from = "https://v1--europa-component-library.netlify.com"
+  to = "https://ec.europa.eu/component-library/v1.14.2/"
+  force = true
+
+[[headers]]
+  for = "/*"
+    [headers.values]
+    Access-Control-Allow-Origin = "*"
