@@ -132,8 +132,8 @@ const EventSpeakerPage = ({ siteHeader, footer, template }) => (
     )}
 
     <main className="ecl-u-pv-2xl ecl-u-pv-md-3xl">
-      <div className="ecl-container">
-        <h2 className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l">
+      <div className="ecl-container ecl-u-type-m">
+        <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l">
           Keynote Speakers
         </h2>
         <div className="ecl-row">
@@ -281,7 +281,7 @@ const EventSpeakerPage = ({ siteHeader, footer, template }) => (
           href="/example"
           className="ecl-u-mt-2xl"
         />
-        <h2 className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
+        <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
           Speakers
         </h2>
         <div className="ecl-row">

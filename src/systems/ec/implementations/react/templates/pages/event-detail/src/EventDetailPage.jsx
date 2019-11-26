@@ -146,7 +146,7 @@ const EventDetailPage = ({ siteHeader, footer, template }) => (
     )}
 
     <main className="ecl-u-pv-2xl ecl-u-pv-md-3xl">
-      <div className="ecl-container">
+      <div className="ecl-container ecl-u-type-m">
         <div className="ecl-row">
           <div className="ecl-col-12 ecl-col-md-6 ecl-u-order-md-last">
             <UnorderedList variant="no-bullet">
@@ -181,12 +181,12 @@ const EventDetailPage = ({ siteHeader, footer, template }) => (
             </UnorderedList>
           </div>
           <div className="ecl-col-12 ecl-col-md-6 ecl-u-mt-2xl ecl-u-mt-md-none">
-            <p className="ecl-u-type-paragraph ecl-u-mt-none">
+            <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none">
               How is innovation in cultural heritage developped and how it the
               EU supporting it? What are the results of EU-funded projects in
               cultural heritage?
             </p>
-            <p className="ecl-u-type-paragraph ecl-u-mb-none">
+            <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
               Join us for two days of meetings, learning and discoveries!
             </p>
             <Link
@@ -209,11 +209,11 @@ const EventDetailPage = ({ siteHeader, footer, template }) => (
           className="ecl-u-mt-2xl"
         />
 
-        <h2 className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
+        <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
           Programme
         </h2>
 
-        <h3 className="ecl-u-type-heading-3 ecl-u-mb-s ecl-u-mb-md-xs">
+        <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mb-s ecl-u-mb-md-xs">
           Highlights
         </h3>
         <div className="ecl-row">
@@ -254,7 +254,7 @@ const EventDetailPage = ({ siteHeader, footer, template }) => (
           }}
         />
 
-        <h2 className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
+        <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
           Speakers
         </h2>
         <div className="ecl-row">
@@ -408,7 +408,7 @@ const EventDetailPage = ({ siteHeader, footer, template }) => (
           }}
         />
 
-        <h2 className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
+        <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
           Practical information
         </h2>
         <div className="ecl-row">
@@ -540,7 +540,7 @@ const EventDetailPage = ({ siteHeader, footer, template }) => (
         />
 
         <h2
-          className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l"
+          className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l"
           id="description"
         >
           Description
@@ -554,12 +554,12 @@ const EventDetailPage = ({ siteHeader, footer, template }) => (
             />
           </div>
           <div className="ecl-col-12 ecl-col-md-6">
-            <p className="ecl-u-type-paragraph ecl-u-mt-none">
+            <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
               nunc risus, venenatis non nibh ac, condimentum vestibulum risus.
               Ut risus elit, interdum in leo nec, pharetra scelerisque nulla.
             </p>
-            <p className="ecl-u-type-paragraph">
+            <p className="ecl-u-type-paragraph ecl-u-type-color-black">
               Integer bibendum nisl orci, nec sagittis nisi cursus sed. Interdum
               et malesuada fames ac ante ipsum primis in faucibus. Maecenas eget
               urna enim. Mauris vitae augue mi. Nunc elementum rhoncus
@@ -567,7 +567,7 @@ const EventDetailPage = ({ siteHeader, footer, template }) => (
               rutrum magna. Cras dignissim enim at orci laoreet, et pulvinar
               metus aliquam. Aenean eu odio non dui pharetra sagittis.
             </p>
-            <p className="ecl-u-type-paragraph">
+            <p className="ecl-u-type-paragraph ecl-u-type-color-black">
               Etiam dignissim odio mauris, at pellentesque justo ultrices nec.
               Ut non metus sagittis augue molestie luctus ac ac odio. Sed
               vestibulum lacus in pharetra pellentesque. Vivamus laoreet
@@ -577,7 +577,7 @@ const EventDetailPage = ({ siteHeader, footer, template }) => (
               volutpat maximus iaculis. Etiam pretium massa eget nisl vulputate,
               id luctus erat ullamcorper.
             </p>
-            <p className="ecl-u-type-paragraph">
+            <p className="ecl-u-type-paragraph ecl-u-type-color-black">
               In efficitur mi id consectetur interdum. Donec eu fringilla magna,
               non sodales purus. Vivamus sit amet condimentum ipsum. Donec
               lacinia neque at viverra tempor. Praesent metus leo, malesuada sed
@@ -592,7 +592,7 @@ const EventDetailPage = ({ siteHeader, footer, template }) => (
               Vestibulum fermentum imperdiet urna, eget suscipit ipsum bibendum
               sed. Quisque in ultrices velit, ut aliquam nisl.
             </p>
-            <p className="ecl-u-type-paragraph ecl-u-mb-none">
+            <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
               Ut convallis est et nisi gravida, quis rhoncus mi tincidunt.
               Suspendisse maximus efficitur erat, at fermentum nibh vulputate
               non.
@@ -600,12 +600,12 @@ const EventDetailPage = ({ siteHeader, footer, template }) => (
           </div>
         </div>
 
-        <h2 className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
+        <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
           Contact
         </h2>
         <div className="ecl-row">
           <div className="ecl-col-12 ecl-col-md-6">
-            <h3 className="ecl-u-type-heading-3 ecl-u-mt-none ecl-u-mb-m ecl-u-mb-md-l">
+            <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-m ecl-u-mb-md-l">
               General contact
             </h3>
             <address>
@@ -631,7 +631,7 @@ const EventDetailPage = ({ siteHeader, footer, template }) => (
             </address>
           </div>
           <div className="ecl-col-12 ecl-col-md-6 ecl-u-mt-l ecl-u-mt-md-none">
-            <h3 className="ecl-u-type-heading-3 ecl-u-mt-none ecl-u-mb-m ecl-u-mb-md-l">
+            <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-m ecl-u-mb-md-l">
               Press contact
             </h3>
             <address>
