@@ -7,41 +7,33 @@ clone:
     commands:
       - git init
       - git remote add origin ${DRONE_REMOTE_URL}
-      - git fetch --no-tags origin master ${DRONE_COMMIT_REF}
-      - git checkout -qf master;
-      - if [ "${DRONE_BUILD_EVENT}" == "pull_request" ] || [ "${DRONE_BUILD_EVENT}" == "tag" ] ; then
+      - if  [ "${DRONE_BUILD_EVENT}" == "deployment" ] ; then
+        echo "Skipping git init/clone :)";
+        else
+        git fetch --no-tags origin v0 ${DRONE_COMMIT_REF};
+        git checkout -qf v0;
+        if [ "${DRONE_BUILD_EVENT}" == "pull_request" ] || [ "${DRONE_BUILD_EVENT}" == "tag" ] ; then
         git checkout -qf FETCH_HEAD;
         else
         git checkout -qf ${DRONE_COMMIT_BRANCH};
         fi
-
-matrix:
-  TEST:
-    - coding-conventions
-    - functional
+        fi
 
 pipeline:
   install:
     image: node:latest
     commands:
       - yarn install --frozen-lockfile
-
-  coding-conventions:
-    image: node:latest
-    commands:
-      - yarn test:coding-conventions
     when:
-      matrix:
-        TEST: coding-conventions
+      event: [push, pull_request, tag]
 
   build:
     image: node:latest
     commands:
+      - export ECL_VERSION=${DRONE_TAG}
       - yarn dist
     when:
-      event: [push]
-      matrix:
-        TEST: functional
+      event: [push, pull_request, tag]
 
   s3:
     image: garland/aws-cli-docker
@@ -52,18 +44,90 @@ pipeline:
       - aws s3 cp --recursive --quiet . s3://inno-ecl/build/${DRONE_BUILD_NUMBER}/
       - echo "Transfer complete"
     when:
-      event: [push]
-      matrix:
-        TEST: functional
+      event: [push, pull_request]
+
+  conventions:
+    image: node:latest
+    group: tests
+    commands:
+      - yarn test:coding-conventions
+    when:
+      event: [push, pull_request]
 
   functional:
     image: node:latest
+    group: tests
     secrets: [SAUCE_USERNAME, SAUCE_ACCESS_KEY]
     commands:
       - if [ "${DRONE_BRANCH}" = "master" ] || yarn lerna updated -- --since master ; then
         yarn test:functional;
         fi
     when:
-      event: [push]
-      matrix:
-        TEST: functional
+      event: [push, pull_request]
+
+  # =======================================
+  # Tag ===================================
+  # =======================================
+
+  prepare-hosting:
+    image: node:dubnium
+    commands:
+      - node scripts/prepare-europa-hosting.js
+    when:
+      event: tag
+
+  archive-website:
+    image: alpine:3.10
+    commands:
+      - tar -czC dist -f website.tar.gz .
+    when:
+      event: tag
+
+  upload-website-archive:
+    image: garland/aws-cli-docker
+    secrets: [AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION]
+    commands:
+      - aws s3 cp website.tar.gz s3://inno-ecl/ecl/${DRONE_TAG}/
+    when:
+      event: tag
+
+  create-deployment-event:
+    image: fpfis/drone-plugin-github-deploy
+    state: create
+    deploy_environment: v0
+    secrets: [github_api_token]
+    automerge: false
+    when:
+      event: tag
+
+  # =======================================
+  # Deployment ============================
+  # =======================================
+
+  prepare-website:
+    image: alpine:3.10
+    commands:
+      - wget http://inno-ecl.s3.amazonaws.com/ecl/${DRONE_TAG}/website.tar.gz
+      - rm -rf ./website
+      - mkdir ./website
+      - tar -C ./website -xvf website.tar.gz
+    when:
+      event: deployment
+      environment: v0
+
+  deploy-v1:
+    image: drillster/drone-rsync
+    secrets: [rsync_key, MGMT_IP]
+    hosts: [$MGMT_IP]
+    user: fpfis
+    source: ./website/
+    target: '/ec/local/home/fpfis/reference/php-clusters/multisite/production/cluster00/sources/static/europa-component-library/${DRONE_TAG}'
+    script:
+      - export GIT_FPFIS_AUTHOR="Drone ec.deploy.fpfis.eu"
+      - cd /ec/local/home/fpfis/reference/php-clusters/multisite/production/cluster00/sources/static/europa-component-library
+      - git add -A .
+      - git commit -m "Deployed ${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}@${DRONE_TAG} from drone build ${DRONE_BUILD_NUMBER}." .
+      - git push 'nas-reference' 'master'
+    when:
+      event: deployment
+      environment: v0
