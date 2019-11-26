@@ -5,9 +5,7 @@ const path = require('path');
 const glob = require('glob'); // eslint-disable-line import/no-extraneous-dependencies
 const cheerio = require('cheerio'); // eslint-disable-line import/no-extraneous-dependencies
 
-const indices = glob.sync(
-  path.resolve(__dirname, '../dist/**/*(ec|eu)/index.html')
-);
+const indices = glob.sync(path.resolve(__dirname, '../dist/index.html'));
 
 indices.forEach(index => {
   console.log(`Working on: ${index}`);
