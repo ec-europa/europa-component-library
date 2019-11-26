@@ -21,14 +21,14 @@ clone:
 
 pipeline:
   install:
-    image: node:latest
+    image: node:carbon
     commands:
       - yarn install --frozen-lockfile
     when:
       event: [push, pull_request, tag]
 
   build:
-    image: node:latest
+    image: node:carbon
     commands:
       - export ECL_VERSION=${DRONE_TAG}
       - yarn dist
@@ -47,7 +47,7 @@ pipeline:
       event: [push, pull_request]
 
   conventions:
-    image: node:latest
+    image: node:carbon
     group: tests
     commands:
       - yarn test:coding-conventions
@@ -55,7 +55,7 @@ pipeline:
       event: [push, pull_request]
 
   functional:
-    image: node:latest
+    image: node:carbon
     group: tests
     secrets: [SAUCE_USERNAME, SAUCE_ACCESS_KEY]
     commands:
@@ -70,7 +70,7 @@ pipeline:
   # =======================================
 
   prepare-hosting:
-    image: node:dubnium
+    image: node:carbon
     commands:
       - node scripts/prepare-europa-hosting.js
     when:
