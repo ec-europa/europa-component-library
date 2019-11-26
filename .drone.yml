@@ -95,8 +95,6 @@ pipeline:
 
   prepare-hosting:
     image: node:dubnium
-    environment:
-      - NODE_ENV=production
     commands:
       - node scripts/prepare-europa-hosting.js
     when:

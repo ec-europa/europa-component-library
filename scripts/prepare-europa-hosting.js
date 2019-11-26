@@ -5,13 +5,6 @@ const path = require('path');
 const glob = require('glob');
 const cheerio = require('cheerio');
 
-if (process.env.NODE_ENV !== 'production') {
-  console.log(
-    'This script should be run only when going in production on europa.eu PHP hosting with Varnish constraints.'
-  );
-  return;
-}
-
 const htmlFiles = glob.sync(path.resolve(__dirname, '../dist/**/*.html'), {
   ignore: ['**/index.html'],
 });
