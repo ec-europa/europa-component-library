@@ -10,7 +10,7 @@ clone:
         else
           git init;
           git remote add origin "${DRONE_REMOTE_URL}";
-          git fetch --no-tags origin "${DRONE_COMMIT_REF}";
+          git fetch --no-tags --depth 1 origin "${DRONE_COMMIT_REF}";
           if [ "${DRONE_BUILD_EVENT}" == "pull_request" ] || [ "${DRONE_BUILD_EVENT}" == "tag" ] ; then
             git checkout -qf FETCH_HEAD;
           else
@@ -192,7 +192,7 @@ pipeline:
       - export GIT_FPFIS_AUTHOR="Drone ec.deploy.fpfis.eu"
       - cd /ec/local/home/fpfis/reference/php-clusters/multisite/production/cluster00/sources/static/europa-component-library
       - git add -A .
-      - git commit -m"Deployed ${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}@${DRONE_TAG} from drone build ${DRONE_BUILD_NUMBER}." .
+      - git commit -m "Deployed ${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}@${DRONE_TAG} from drone build ${DRONE_BUILD_NUMBER}." .
       - git push 'nas-reference' 'master'
     when:
       event: deployment
@@ -205,13 +205,13 @@ pipeline:
 
   deploy-netlify-preview:
     image: buildkite/puppeteer:latest
-    secrets: [gh_token, netlify_auth_token, netlify_site]
+    secrets: [gh_token, netlify_auth_token, netlify_site_id]
     commands:
       - yarn clean
       - yarn build:icons
       - yarn build:themes
       - yarn dist
-      - './node_modules/.bin/netlify deploy --site $${NETLIFY_SITE} --message "Drone build: ${CI_BUILD_NUMBER}" --json > netlify_deployment_result.json'
+      - 'yarn netlify deploy --site $${NETLIFY_SITE_ID} --message "Drone build: ${DRONE_BUILD_NUMBER}"'
       - node scripts/set-netlify-deployment-status.js
     when:
       event: [push, pull_request]

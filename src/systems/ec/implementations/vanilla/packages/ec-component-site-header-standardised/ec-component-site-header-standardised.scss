@@ -12,7 +12,9 @@
 @mixin ecl-site-header-standardised(
   $logo-height-xs: 1.75rem,
   $logo-height-s: 3rem,
-  $logo-height-m: 3.75rem
+  $logo-height-m: 3.75rem,
+  $search-width-l: 25rem,
+  $search-width-xl: 31.5rem
 ) {
   .ecl-site-header-standardised {
     background-color: $ecl-color-white-100;
@@ -191,8 +193,8 @@
     .ecl-site-header-standardised__container {
       align-items: flex-end;
       flex-direction: row;
-      padding-bottom: $ecl-spacing-xl;
-      padding-top: $ecl-spacing-xl;
+      padding-bottom: $ecl-spacing-l;
+      padding-top: $ecl-spacing-l;
     }
 
     .ecl-site-header-standardised__action {
@@ -261,7 +263,7 @@
       padding: 0;
       position: relative;
       top: 0;
-      width: 25rem;
+      width: $search-width-l;
     }
 
     .ecl-site-header-standardised__banner-top,
@@ -326,7 +328,7 @@
 
   @include ecl-media-breakpoint-up(xl) {
     .ecl-site-header-standardised__search {
-      width: 31.5rem;
+      width: $search-width-xl;
     }
   }
 }

@@ -1,5 +1,32 @@
 # Changelog
 
+## 2.17.0 (2019-11-28)
+
+#### :rocket: New Feature
+
+- [#1421](https://github.com/ec-europa/europa-component-library/pull/1421) feat(site-header-core): add login - INNO-1970 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#1422](https://github.com/ec-europa/europa-component-library/pull/1422) fix(site-header): fix spacing - INNO-1971 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#1431](https://github.com/ec-europa/europa-component-library/pull/1431) feat(form-errors): add new colour on hover - INNO-1983 ([@yhuard](https://github.com/yhuard))
+- [#1429](https://github.com/ec-europa/europa-component-library/pull/1429) fix(site-header-harmonised): update logo size and position - INNO-1980 ([@emeryro](https://github.com/emeryro))
+- [#1425](https://github.com/ec-europa/europa-component-library/pull/1425) fix(content-types): fix for global rules - INNO-1954 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#1423](https://github.com/ec-europa/europa-component-library/pull/1423) refactor(drone): preview - INNO-1975 ([@kalinchernev](https://github.com/kalinchernev))
+- [#1424](https://github.com/ec-europa/europa-component-library/pull/1424) chore(ci): use fetch --depth arg ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 3
+
+- Kalin Chernev ([@kalinchernev](https://github.com/kalinchernev))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- Yannick Huard ([@yhuard](https://github.com/yhuard))
+
 ## 2.16.0 (2019-11-21)
 
 #### :rocket: New Feature

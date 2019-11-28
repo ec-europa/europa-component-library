@@ -134,11 +134,11 @@ const EventAgendaPage = ({ siteHeader, footer, template }) => (
     )}
 
     <main className="ecl-u-pv-2xl ecl-u-pv-md-3xl" id="main">
-      <div className="ecl-container">
-        <h2 className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l">
+      <div className="ecl-container ecl-u-type-m">
+        <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l">
           Programme
         </h2>
-        <h3 className="ecl-u-type-heading-3 ecl-u-mb-s ecl-u-mb-md-xs">
+        <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mb-s ecl-u-mb-md-xs">
           Highlights
         </h3>
         <div className="ecl-row">
@@ -175,12 +175,12 @@ const EventAgendaPage = ({ siteHeader, footer, template }) => (
           href="/example"
           className="ecl-u-mt-2xl"
         />
-        <h3 className="ecl-u-type-heading-3 ecl-u-mb-none ecl-u-mt-2xl ecl-u-mt-md-3xl">
+        <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mb-none ecl-u-mt-2xl ecl-u-mt-md-3xl">
           Full programme
         </h3>
         <div>
           <div
-            className="ecl-u-d-flex ecl-u-align-items-center ecl-u-flex-wrap ecl-u-z-navigation ecl-u-bg-white ecl-u-pv-s"
+            className="ecl-u-d-flex ecl-u-align-items-center ecl-u-flex-wrap ecl-u-z-navigation ecl-u-bg-white ecl-u-type-m ecl-u-pv-s"
             data-ecl-template-sticky-nav
             style={{ position: 'sticky', top: '0' }}
           >
