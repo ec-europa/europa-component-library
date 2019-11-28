@@ -1,0 +1,18 @@
+/*
+ * Menu Harmonised component
+ * @define menu-harmonised
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-menu-harmonised-print() {
+  .ecl-menu-harmonised {
+    display: none;
+  }
+}
+
+// Use mixin
+@include exports('ec-component-menu-harmonised-print') {
+  @include ecl-menu-harmonised-print();
+}

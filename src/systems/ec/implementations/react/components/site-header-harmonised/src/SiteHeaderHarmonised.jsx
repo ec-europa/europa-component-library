@@ -162,7 +162,7 @@ const SiteHeaderHarmonised = ({
             </div>
           )}
           {!!(typeof bannerTop === 'string') && (
-            <div className="ecl-container">Hello</div>
+            <div className="ecl-container">{bannerTop}</div>
           )}
         </div>
       )}
