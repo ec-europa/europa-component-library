@@ -116,7 +116,7 @@
     background-color: $ecl-color-grey-5;
   }
 
-  /* stylelint-disable-next-line  no-descending-specificity */
+  /* stylelint-disable-next-line no-descending-specificity */
   .ecl-select__container--disabled .ecl-select__icon,
   .ecl-select__container--disabled .ecl-select:hover + .ecl-select__icon,
   .ecl-select__container--disabled .ecl-select:focus + .ecl-select__icon {
@@ -141,9 +141,18 @@
     border-color: $ecl-color-error;
     box-shadow: none;
 
-    /* stylelint-disable-next-line  no-descending-specificity */
+    /* stylelint-disable-next-line no-descending-specificity */
     + .ecl-select__icon {
       background-color: $ecl-color-error;
+    }
+
+    &:hover {
+      border-color: $ecl-color-red-130;
+
+      /* stylelint-disable-next-line */
+      + .ecl-select__icon {
+        background-color: $ecl-color-red-130;
+      }
     }
   }
 }
