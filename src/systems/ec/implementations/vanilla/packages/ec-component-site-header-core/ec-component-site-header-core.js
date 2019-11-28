@@ -9,6 +9,8 @@ import createFocusTrap from 'focus-trap';
  * @param {String} options.closeOverlaySelector
  * @param {String} options.searchToggleSelector
  * @param {String} options.searchFormSelector
+ * @param {String} options.loginToggleSelector
+ * @param {String} options.loginBoxSelector
  */
 export class SiteHeaderCore {
   /**
@@ -35,6 +37,8 @@ export class SiteHeaderCore {
       closeOverlaySelector = '[data-ecl-language-list-close]',
       searchToggleSelector = '[data-ecl-search-toggle]',
       searchFormSelector = '[data-ecl-search-form]',
+      loginToggleSelector = '[data-ecl-login-toggle]',
+      loginBoxSelector = '[data-ecl-login-box]',
     } = {}
   ) {
     // Check element
@@ -52,6 +56,8 @@ export class SiteHeaderCore {
     this.closeOverlaySelector = closeOverlaySelector;
     this.searchToggleSelector = searchToggleSelector;
     this.searchFormSelector = searchFormSelector;
+    this.loginToggleSelector = loginToggleSelector;
+    this.loginBoxSelector = loginBoxSelector;
 
     // Private variables
     this.languageSelector = null;
@@ -60,12 +66,15 @@ export class SiteHeaderCore {
     this.focusTrap = null;
     this.searchToggle = null;
     this.searchForm = null;
+    this.loginToggle = null;
+    this.loginBox = null;
 
     // Bind `this` for use in callbacks
     this.openOverlay = this.openOverlay.bind(this);
     this.closeOverlay = this.closeOverlay.bind(this);
     this.toggleOverlay = this.toggleOverlay.bind(this);
     this.toggleSearch = this.toggleSearch.bind(this);
+    this.toggleLogin = this.toggleLogin.bind(this);
   }
 
   /**
@@ -90,6 +99,14 @@ export class SiteHeaderCore {
     this.searchForm = queryOne(this.searchFormSelector);
 
     this.searchToggle.addEventListener('click', this.toggleSearch);
+
+    // Login management
+    this.loginToggle = queryOne(this.loginToggleSelector);
+    this.loginBox = queryOne(this.loginBoxSelector);
+
+    if (this.loginToggle) {
+      this.loginToggle.addEventListener('click', this.toggleLogin);
+    }
   }
 
   /**
@@ -109,6 +126,10 @@ export class SiteHeaderCore {
 
     if (this.searchToggle) {
       this.searchToggle.removeEventListener('click', this.toggleSearch);
+    }
+
+    if (this.loginToggle) {
+      this.loginToggle.removeEventListener('click', this.toggleLogin);
     }
   }
 
@@ -162,6 +183,14 @@ export class SiteHeaderCore {
     const isExpanded =
       this.searchToggle.getAttribute('aria-expanded') === 'true';
 
+    // Close other boxes
+    if (
+      this.loginToggle &&
+      this.loginToggle.getAttribute('aria-expanded') === 'true'
+    ) {
+      this.toggleLogin(e);
+    }
+
     // Toggle the search form
     this.searchToggle.setAttribute(
       'aria-expanded',
@@ -171,6 +200,40 @@ export class SiteHeaderCore {
       this.searchForm.classList.add('ecl-site-header-core__search--active');
     } else {
       this.searchForm.classList.remove('ecl-site-header-core__search--active');
+    }
+  }
+
+  /**
+   * Toggles the login form.
+   *
+   * @param {Event} e
+   */
+  toggleLogin(e) {
+    if (!this.loginBox) return;
+
+    e.preventDefault();
+
+    // Get current status
+    const isExpanded =
+      this.loginToggle.getAttribute('aria-expanded') === 'true';
+
+    // Close other boxes
+    if (
+      this.searchToggle &&
+      this.searchToggle.getAttribute('aria-expanded') === 'true'
+    ) {
+      this.toggleSearch(e);
+    }
+
+    // Toggle the login box
+    this.loginToggle.setAttribute(
+      'aria-expanded',
+      isExpanded ? 'false' : 'true'
+    );
+    if (!isExpanded) {
+      this.loginBox.classList.add('ecl-site-header-core__login-box--active');
+    } else {
+      this.loginBox.classList.remove('ecl-site-header-core__login-box--active');
     }
   }
 }
