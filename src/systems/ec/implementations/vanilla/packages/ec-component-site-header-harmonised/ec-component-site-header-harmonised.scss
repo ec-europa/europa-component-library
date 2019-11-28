@@ -10,7 +10,7 @@
 @include check-imports(('ec-component-icon', 'ec-component-search-form'));
 
 @mixin ecl-site-header-harmonised(
-  $logo-height-xs: 1.75rem,
+  $logo-height-xs: 2.5rem,
   $logo-height-s: 3rem,
   $logo-height-m: 3.75rem
 ) {
@@ -33,6 +33,7 @@
   }
 
   .ecl-site-header-harmonised__logo-link {
+    align-self: center;
     flex-grow: 1;
     margin-bottom: calc(#{$ecl-spacing-m} + 1px);
   }
@@ -177,6 +178,7 @@
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up(sm) {
     .ecl-site-header-harmonised__logo-link {
+      align-self: flex-end;
       flex-grow: 0;
     }
 
