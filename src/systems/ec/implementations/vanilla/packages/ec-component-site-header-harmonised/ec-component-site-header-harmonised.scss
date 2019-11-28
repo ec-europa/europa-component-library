@@ -10,7 +10,8 @@
 @include check-imports(('ec-component-icon', 'ec-component-search-form'));
 
 @mixin ecl-site-header-harmonised(
-  $logo-height-xs: 2.5rem,
+  $logo-height-xs: 1.75rem,
+  $logo-height-xs-g2: 2.5rem,
   $logo-height-s: 3rem,
   $logo-height-m: 3.75rem
 ) {
@@ -33,7 +34,6 @@
   }
 
   .ecl-site-header-harmonised__logo-link {
-    align-self: center;
     flex-grow: 1;
     margin-bottom: calc(#{$ecl-spacing-m} + 1px);
   }
@@ -41,7 +41,7 @@
   .ecl-site-header-harmonised__logo-image {
     display: block;
     max-height: $logo-height-xs;
-    max-width: 10.1rem; // hack to allow logo to be resized dynamically
+    max-width: 7rem; // hack to allow logo to be resized dynamically
   }
 
   .ecl-site-header-harmonised__action {
@@ -337,6 +337,11 @@
    */
   .ecl-site-header-harmonised--group2 {
     box-shadow: 0 2px 5px 0 rgba(0, 47, 103, 0.2);
+
+    .ecl-site-header-harmonised__logo-image {
+      max-height: $logo-height-xs-g2;
+      max-width: 10.1rem; // hack to allow logo to be resized dynamically
+    }
   }
 }
 
