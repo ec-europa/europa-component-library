@@ -1,4 +1,4 @@
-# Contextual Navigations
+# Context Navigations
 
 ## Why and how to use this component
 
@@ -9,7 +9,7 @@ current page.
 
 Context navigation is placed:
 
-* near the top of the page, below the title. It is placed there in case the
+- near the top of the page, below the title. It is placed there in case the
   context is crucial to interpret the page content.
-* near the bottom of the page. That way it serves as a next step, for example as
+- near the bottom of the page. That way it serves as a next step, for example as
   a next step to other content within the same context.
