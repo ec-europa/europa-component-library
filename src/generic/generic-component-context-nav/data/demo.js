@@ -2,7 +2,7 @@ module.exports = {
   _demo: {
     scripts: `document.addEventListener('DOMContentLoaded', function () { ECL.contextualNavs(); });`,
   },
-  label: 'Label for contextual nav',
+  label: 'Label for context nav',
   items: [
     {
       href: '../../example.html#',
