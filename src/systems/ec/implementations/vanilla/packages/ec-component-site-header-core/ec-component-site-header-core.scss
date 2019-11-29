@@ -11,9 +11,13 @@
 
 @mixin ecl-site-header-core(
   $logo-height-xs: 1.75rem,
-  $logo-height-s: 3rem,
-  $logo-height-m: 3.75rem,
-  $logo-height-l: 4.5rem,
+  $logo-width-xs: 10.1rem,
+  $logo-height-sm: 3rem,
+  $logo-width-sm: 12.1rem,
+  $logo-height-lg: 3.75rem,
+  $logo-width-lg: 15.1rem,
+  $logo-height-xl: 4.5rem,
+  $logo-width-xl: 18.1rem,
   $search-width-l: 25rem,
   $search-width-xl: 31.5rem
 ) {
@@ -43,7 +47,7 @@
   .ecl-site-header-core__logo-image {
     display: block;
     max-height: $logo-height-xs;
-    max-width: 10.1rem; // hack to allow logo to be resized dynamically
+    max-width: $logo-width-xs; // hack to allow logo to be resized dynamically
   }
 
   .ecl-site-header-core__action {
@@ -146,9 +150,10 @@
     }
 
     .ecl-site-header-core__logo-image {
-      height: $logo-height-s;
+      height: $logo-height-sm;
       max-height: 100%;
       max-width: 100%;
+      width: $logo-width-sm;
     }
   }
 
@@ -173,7 +178,8 @@
     }
 
     .ecl-site-header-core__logo-image {
-      height: $logo-height-m;
+      height: $logo-height-lg;
+      width: $logo-width-lg;
     }
 
     .ecl-site-header-core__login-box {
@@ -237,7 +243,8 @@
 
   @include ecl-media-breakpoint-up(xl) {
     .ecl-site-header-core__logo-image {
-      height: $logo-height-l;
+      height: $logo-height-xl;
+      width: $logo-width-xl;
     }
 
     .ecl-site-header-core__search {

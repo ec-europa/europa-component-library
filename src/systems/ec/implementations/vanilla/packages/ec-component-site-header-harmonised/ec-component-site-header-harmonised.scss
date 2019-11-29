@@ -11,9 +11,13 @@
 
 @mixin ecl-site-header-harmonised(
   $logo-height-xs: 1.75rem,
+  $logo-width-xs: 7rem,
   $logo-height-xs-g2: 2.5rem,
-  $logo-height-s: 3rem,
-  $logo-height-m: 3.75rem
+  $logo-width-xs-g2: 10.1rem,
+  $logo-height-sm: 3rem,
+  $logo-width-sm: 12.1rem,
+  $logo-height-lg: 3.75rem,
+  $logo-width-lg: 15.1rem
 ) {
   .ecl-site-header-harmonised {
     background-color: $ecl-color-white-100;
@@ -41,7 +45,7 @@
   .ecl-site-header-harmonised__logo-image {
     display: block;
     max-height: $logo-height-xs;
-    max-width: 7rem; // hack to allow logo to be resized dynamically
+    max-width: $logo-width-xs; // hack to allow logo to be resized dynamically
   }
 
   .ecl-site-header-harmonised__action {
@@ -183,9 +187,10 @@
     }
 
     .ecl-site-header-harmonised__logo-image {
-      height: $logo-height-s;
+      height: $logo-height-sm;
       max-height: 100%;
       max-width: 100%;
+      width: $logo-width-sm;
     }
   }
 
@@ -206,7 +211,8 @@
     }
 
     .ecl-site-header-harmonised__logo-image {
-      height: $logo-height-m;
+      height: $logo-height-lg;
+      width: $logo-width-lg;
     }
 
     .ecl-site-header-harmonised__login-box {
@@ -340,7 +346,27 @@
 
     .ecl-site-header-harmonised__logo-image {
       max-height: $logo-height-xs-g2;
-      max-width: 10.1rem; // hack to allow logo to be resized dynamically
+      max-width: $logo-width-xs-g2; // hack to allow logo to be resized dynamically
+    }
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up(sm) {
+    .ecl-site-header-harmonised--group2
+      .ecl-site-header-harmonised__logo-image {
+      height: $logo-height-sm;
+      max-height: 100%;
+      max-width: 100%;
+      width: $logo-width-sm;
+    }
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up(lg) {
+    .ecl-site-header-harmonised--group2
+      .ecl-site-header-harmonised__logo-image {
+      height: $logo-height-lg;
+      width: $logo-width-lg;
     }
   }
 }
