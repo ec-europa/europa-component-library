@@ -1,5 +1,23 @@
 # Changelog
 
+## 2.17.3 (2019-11-29)
+
+#### :bug: Bug Fix
+
+- [#1433](https://github.com/ec-europa/europa-component-library/pull/1433) fix(site-headers): fix logo size on IE11 ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 1
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
+## 2.17.2 (2019-11-28)
+
+Re-publish 2.17.0
+
+## 2.17.1 (2019-11-28)
+
+Re-publish 2.17.0
+
 ## 2.17.0 (2019-11-28)
 
 #### :rocket: New Feature
