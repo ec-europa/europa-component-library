@@ -9,6 +9,20 @@ Users can still go to ECL v1 to create or upgrade their websites. In 2019, we wi
 
 We will also add new components to the ECL v2 as we continue improving the look and feel of the existing components. New releases under v2 should be published periodically under [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 2.17.3 (2019-11-29)
+
+#### :bug: Bug Fix
+
+- [#1433](https://github.com/ec-europa/europa-component-library/pull/1433) fix(site-headers): fix logo size on IE11
+
+## 2.17.2 (2019-11-28)
+
+Re-publish 2.17.0
+
+## 2.17.1 (2019-11-28)
+
+Re-publish 2.17.0
+
 ## 2.17.0 (2019-11-28)
 
 #### :rocket: New Feature
