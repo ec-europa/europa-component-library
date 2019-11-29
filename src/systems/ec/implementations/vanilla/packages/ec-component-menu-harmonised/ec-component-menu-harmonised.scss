@@ -130,6 +130,7 @@
   }
 
   .ecl-menu-harmonised__item {
+    box-sizing: border-box;
     position: relative;
 
     &::before {
@@ -261,6 +262,10 @@
     list-style: none;
     margin: 0;
     padding: 0;
+  }
+
+  .ecl-menu-harmonised__subitem {
+    box-sizing: border-box;
   }
 
   .ecl-menu-harmonised__subitem--current {
