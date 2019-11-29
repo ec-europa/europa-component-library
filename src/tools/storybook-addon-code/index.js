@@ -8,7 +8,11 @@ export const withCode = makeDecorator({
     const channel = addons.getChannel();
     const story = getStory(context);
 
-    const code = ReactDOMServer.renderToStaticMarkup(story);
+    // Render as string and unescape &nbsp;
+    const code = ReactDOMServer.renderToStaticMarkup(story).replace(
+      /\u00A0/g,
+      '&nbsp;'
+    );
     channel.emit(EVENTS.ADD_CODE, code);
 
     return story;
