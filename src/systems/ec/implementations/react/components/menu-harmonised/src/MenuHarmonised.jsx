@@ -24,26 +24,28 @@ export const MenuHarmonised = ({
       aria-expanded="false"
       data-ecl-menu-harmonised
     >
-      <a
-        className="ecl-link ecl-link--standalone ecl-menu-harmonised__toggle"
-        href="/example"
-        data-ecl-menu-harmonised-hamburger-button
-      >
-        <div className="ecl-menu-harmonised__toggle-open">
-          <Icon shape="general--hamburger" size="s" />
-          {toggleLabelOpen}
-        </div>
-        <div className="ecl-menu-harmonised__toggle-close">
-          <Icon shape="ui--close-filled" size="s" />
-          {toggleLabelClose}
-        </div>
-      </a>
-      <div className="ecl-menu__site-name">{siteName}</div>
-      <ul className="ecl-menu-harmonised__list" data-ecl-menu-harmonised-list>
-        {items.map(item => (
-          <MenuHarmonisedItem {...item} key={item.label} />
-        ))}
-      </ul>
+      <div className="ecl-container">
+        <a
+          className="ecl-link ecl-link--standalone ecl-menu-harmonised__toggle"
+          href="/example"
+          data-ecl-menu-harmonised-hamburger-button
+        >
+          <div className="ecl-menu-harmonised__toggle-open">
+            <Icon shape="general--hamburger" size="s" />
+            {toggleLabelOpen}
+          </div>
+          <div className="ecl-menu-harmonised__toggle-close">
+            <Icon shape="ui--close-filled" size="s" />
+            {toggleLabelClose}
+          </div>
+        </a>
+        <div className="ecl-menu-harmonised__site-name">{siteName}</div>
+        <ul className="ecl-menu-harmonised__list" data-ecl-menu-harmonised-list>
+          {items.map(item => (
+            <MenuHarmonisedItem {...item} key={item.label} />
+          ))}
+        </ul>
+      </div>
     </nav>
   );
 };

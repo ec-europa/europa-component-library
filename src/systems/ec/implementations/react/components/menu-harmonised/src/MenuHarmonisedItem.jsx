@@ -26,7 +26,7 @@ export const MenuHarmonisedItem = ({ label, href, isCurrent, subItems }) => {
         {...(hasSubItems && {
           icon: {
             shape: 'ui--corner-arrow',
-            size: 'xs',
+            size: 's',
             transform: 'rotate-180',
             className: 'ecl-menu-harmonised__link-icon',
           },

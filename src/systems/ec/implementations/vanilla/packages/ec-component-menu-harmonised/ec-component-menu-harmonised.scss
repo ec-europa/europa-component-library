@@ -41,6 +41,25 @@
   .ecl-menu-harmonised {
     background-color: $ecl-color-blue;
     margin: 0;
+    padding-bottom: $ecl-spacing-m;
+    padding-top: $ecl-spacing-m;
+  }
+
+  .ecl-menu-harmonised__site-name {
+    color: $ecl-color-white;
+    font: $ecl-font-2-xl;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up(lg) {
+    .ecl-menu-harmonised {
+      padding-bottom: 0;
+      padding-top: $ecl-spacing-l;
+    }
+
+    .ecl-menu-harmonised__site-name {
+      font: $ecl-font-3-xl;
+    }
   }
 
   /*
@@ -74,7 +93,7 @@
   }
 
   .ecl-menu-harmonised[aria-expanded='true'] {
-    margin-bottom: -$ecl-spacing-m;
+    padding-bottom: 0;
 
     .ecl-menu-harmonised__toggle-close {
       display: flex;
@@ -96,6 +115,7 @@
    * First level
    */
   .ecl-menu-harmonised__list {
+    box-sizing: border-box;
     clear: right;
     display: none;
     flex-direction: column;
@@ -181,10 +201,15 @@
   }
 
   /* stylelint-disable-next-line order/order */
-  @include ecl-media-breakpoint-up('md') {
+  @include ecl-media-breakpoint-up('lg') {
     .ecl-menu-harmonised__list {
       display: flex;
       flex-direction: row;
+      margin-top: $ecl-spacing-l;
+
+      &::before {
+        display: none;
+      }
     }
 
     .ecl-menu-harmonised__item {
@@ -196,32 +221,41 @@
     }
 
     .ecl-menu-harmonised__link {
+      align-items: center;
       border-bottom-width: 0;
-      color: $item-color-desktop;
-      padding: $ecl-spacing-m $ecl-spacing-s;
+      color: $ecl-color-white;
+      padding-bottom: $ecl-spacing-m;
+      padding-left: $ecl-spacing-m;
+      padding-right: $ecl-spacing-s;
+      padding-top: $ecl-spacing-m;
 
       &:hover,
       &:active {
-        color: $item-color-hover-desktop;
+        color: $ecl-color-white;
       }
 
       &:focus {
-        color: $item-color-hover-desktop;
+        color: $ecl-color-white;
         outline-offset: -3px;
       }
     }
 
     .ecl-menu-harmonised__item--current {
       .ecl-menu-harmonised__link {
-        background-color: $item-current-background-desktop;
-        color: $item-current-color-desktop;
+        background-color: $ecl-color-blue-120;
       }
     }
 
-    .ecl-menu-harmonised__item[aria-expanded='true']
+    .ecl-menu-harmonised__item[aria-expanded='true'] {
       .ecl-menu-harmonised__link {
-      background-color: $item-selected-background-desktop;
-      color: $item-selected-color-desktop;
+        background-color: $ecl-color-blue-5;
+        color: $ecl-color-blue;
+      }
+    }
+
+    .ecl-menu-harmonised__link-icon {
+      height: $ecl-icon-2-xs;
+      width: $ecl-icon-2-xs;
     }
   }
 
@@ -229,6 +263,7 @@
    * Second level
    */
   .ecl-menu-harmonised__mega {
+    box-sizing: border-box;
     display: none;
     flex-direction: column;
     flex-grow: 1;
@@ -308,18 +343,24 @@
   }
 
   /* stylelint-disable-next-line order/order */
-  @include ecl-media-breakpoint-up('md') {
+  @include ecl-media-breakpoint-up('lg') {
     .ecl-menu-harmonised__mega {
-      flex-direction: row;
+      background-color: $ecl-color-blue-5;
+      box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
       left: 0;
+      padding-bottom: $ecl-spacing-xl;
+      padding-top: $ecl-spacing-xl;
       position: absolute;
       width: 100%;
       z-index: 1;
 
       &::before {
-        background-color: $subitem-background-desktop;
-        display: block;
+        display: none;
       }
+    }
+
+    .ecl-menu-harmonised__sublist {
+      column-count: 4;
     }
 
     .ecl-menu-harmonised__subitem::before {
@@ -328,17 +369,21 @@
 
     .ecl-menu-harmonised__subitem {
       box-sizing: border-box;
-      padding-right: $ecl-spacing-m;
+      padding-bottom: $ecl-spacing-s;
+    }
+
+    .ecl-menu-harmonised__subitem:last-of-type {
+      margin-bottom: 0;
     }
 
     .ecl-menu-harmonised__sublink {
-      color: $subitem-color-desktop;
+      margin-left: $ecl-spacing-m;
+      margin-right: $ecl-spacing-m;
+      padding: 0;
+    }
 
-      &:hover,
-      &:focus,
-      &:active {
-        color: $subitem-color-hover-desktop;
-      }
+    .ecl-menu-harmonised__sublink--current {
+      font-weight: $ecl-font-weight-bold;
     }
   }
 }

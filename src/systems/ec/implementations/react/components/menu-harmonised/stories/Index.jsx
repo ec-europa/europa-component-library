@@ -25,15 +25,11 @@ storiesOf('Components|Menus/Harmonised', module)
     </StoryWrapper>
   ))
   .add('group 1', () => (
-    <div className="ecl-site-header-harmonised__banner">
-      <div className="ecl-container">
-        <MenuHarmonised
-          {...demoContent}
-          data-ecl-auto-init="MenuHarmonised"
-          className="ecl-menu-harmonised--group1"
-        />
-      </div>
-    </div>
+    <MenuHarmonised
+      {...demoContent}
+      data-ecl-auto-init="MenuHarmonised"
+      className="ecl-menu-harmonised--group1"
+    />
   ))
   .add('group 2', () => (
     <MenuHarmonised
