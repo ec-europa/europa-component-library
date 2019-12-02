@@ -2,10 +2,15 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import StoryWrapper from '@ecl/story-wrapper';
+import demoMenuEn from '@ecl/ec-specs-menu-standardised/demo/data--en';
+import demoMenuFr from '@ecl/ec-specs-menu-standardised/demo/data--fr';
 import demoContentEn from '@ecl/ec-specs-site-header-standardised/demo/data--en';
 import demoContentFr from '@ecl/ec-specs-site-header-standardised/demo/data--fr';
 
 import SiteHeaderStandardised from '../src/SiteHeaderStandardised';
+
+demoMenuEn['data-ecl-auto-init'] = 'MenuStandardised';
+demoMenuFr['data-ecl-auto-init'] = 'MenuStandardised';
 
 storiesOf('Components|Site Headers/Standardised', module)
   .addDecorator(story => (
@@ -28,12 +33,14 @@ storiesOf('Components|Site Headers/Standardised', module)
   .add('default', () => (
     <SiteHeaderStandardised
       {...demoContentEn}
+      menu={demoMenuEn}
       data-ecl-auto-init="SiteHeaderStandardised"
     />
   ))
   .add('logged in', () => (
     <SiteHeaderStandardised
       {...demoContentEn}
+      menu={demoMenuEn}
       data-ecl-auto-init="SiteHeaderStandardised"
       logged
     />
@@ -41,6 +48,7 @@ storiesOf('Components|Site Headers/Standardised', module)
   .add('translated', () => (
     <SiteHeaderStandardised
       {...demoContentFr}
+      menu={demoMenuFr}
       data-ecl-auto-init="SiteHeaderStandardised"
     />
   ));

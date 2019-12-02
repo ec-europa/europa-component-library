@@ -176,7 +176,9 @@ const SiteHeaderHarmonised = ({
           <div className="ecl-container">{banner}</div>
         </div>
       )}
-      {menu && <MenuHarmonised {...menu} />}
+      {!!(menu && Object.values(menu).length >= 1) && (
+        <MenuHarmonised {...menu} />
+      )}
       {hasLanguageOverlay && (
         <LanguageListOverlay
           {...languageSelector.overlay}
