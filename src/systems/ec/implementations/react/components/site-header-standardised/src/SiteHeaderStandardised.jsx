@@ -62,7 +62,7 @@ const SiteHeaderStandardised = ({
           <div className="ecl-site-header-standardised__action">
             {!!(
               loginToggle &&
-              Object.values(loginToggle).length >= 1 &&
+              Object.keys(loginToggle).length >= 1 &&
               loginBox
             ) && (
               <div className="ecl-site-header-standardised__login-container">
@@ -112,7 +112,7 @@ const SiteHeaderStandardised = ({
               </div>
             )}
             {!!(
-              languageSelector && Object.values(languageSelector).length >= 1
+              languageSelector && Object.keys(languageSelector).length >= 1
             ) && (
               <a
                 className="ecl-link ecl-link--standalone ecl-site-header-standardised__language-selector"
@@ -134,7 +134,7 @@ const SiteHeaderStandardised = ({
             )}
             {!!(
               searchToggle &&
-              Object.values(searchToggle).length >= 1 &&
+              Object.keys(searchToggle).length >= 1 &&
               searchForm
             ) && (
               <div className="ecl-site-header-standardised__search-container">
@@ -176,7 +176,7 @@ const SiteHeaderStandardised = ({
           <div className="ecl-container">{banner}</div>
         </div>
       )}
-      {!!(menu && Object.values(menu).length >= 1) && (
+      {!!(menu && Object.keys(menu).length >= 1) && (
         <MenuStandardised {...menu} />
       )}
       {hasLanguageOverlay && (
