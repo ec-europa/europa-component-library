@@ -24,7 +24,7 @@ export const FactFigures = ({
           items.map(item => <FactFiguresItem key={item.title} {...item} />)}
       </div>
 
-      {!!(viewAll && Object.values(viewAll).length >= 1) && (
+      {!!(viewAll && Object.keys(viewAll).length >= 1) && (
         <div className="ecl-fact-figures__view-all">
           <Link
             className={classnames(
