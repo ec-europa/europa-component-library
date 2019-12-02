@@ -9,35 +9,7 @@
 // Check if overridden dependencies are already loaded, if needed
 @include check-imports(('ec-component-link', 'ec-component-button'));
 
-@mixin ecl-menu-harmonised(
-  $menu-background-mobile: $ecl-color-blue-25,
-  $menu-background-desktop: $ecl-color-blue-25,
-  $toggle-background: $ecl-color-blue-75,
-  $toggle-color: $ecl-color-white,
-  $toggle-color-hover: $ecl-color-white,
-  $item-background-mobile: $ecl-color-blue-25,
-  $item-background-desktop: $ecl-color-blue,
-  $item-color-mobile: $ecl-color-blue-120,
-  $item-color-hover-mobile: $ecl-color-blue-120,
-  $item-color-desktop: $ecl-color-blue-120,
-  $item-color-hover-desktop: $ecl-color-blue-120,
-  $item-border: $ecl-color-blue-50,
-  $item-selected-background-mobile: $ecl-color-blue-25,
-  $item-selected-background-desktop: $ecl-color-grey-5,
-  $item-selected-color-mobile: $ecl-color-blue-120,
-  $item-selected-color-desktop: $ecl-color-blue,
-  $item-current-background-mobile: $ecl-color-blue-75,
-  $item-current-background-desktop: $ecl-color-blue-75,
-  $item-current-color-mobile: $ecl-color-white,
-  $item-current-color-desktop: $ecl-color-white,
-  $separator-color: $ecl-color-grey,
-  $subitem-background-mobile: $ecl-color-grey-5,
-  $subitem-background-desktop: $ecl-color-grey-5,
-  $subitem-color-mobile: $ecl-color-grey-75,
-  $subitem-color-hover-mobile: $ecl-color-blue,
-  $subitem-color-desktop: $ecl-color-blue,
-  $subitem-color-hover-desktop: $ecl-color-grey
-) {
+@mixin ecl-menu-harmonised() {
   .ecl-menu-harmonised {
     background-color: $ecl-color-blue;
     margin: 0;
@@ -348,15 +320,20 @@
       background-color: $ecl-color-blue-5;
       box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
       left: 0;
-      padding-bottom: $ecl-spacing-xl;
+      padding-bottom: calc(#{$ecl-spacing-xl} - #{$ecl-spacing-s});
       padding-top: $ecl-spacing-xl;
       position: absolute;
       width: 100%;
-      z-index: 1;
+      z-index: $ecl-z-index-dropdown;
 
       &::before {
         display: none;
       }
+    }
+
+    .ecl-menu-harmonised__item[aria-expanded='true']
+      .ecl-menu-harmonised__link {
+      z-index: calc(#{$ecl-z-index-dropdown} + 1); // hack for box-shadow
     }
 
     .ecl-menu-harmonised__sublist {

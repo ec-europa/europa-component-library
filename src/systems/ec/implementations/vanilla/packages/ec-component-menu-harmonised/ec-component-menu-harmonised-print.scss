@@ -8,6 +8,15 @@
 
 @mixin ecl-menu-harmonised-print() {
   .ecl-menu-harmonised {
+    margin: 0;
+  }
+
+  .ecl-menu-harmonised__site-name {
+    font: $ecl-font-print-3-xl;
+  }
+
+  .ecl-menu-harmonised__toggle,
+  .ecl-menu-harmonised__list {
     display: none;
   }
 }

@@ -45,7 +45,7 @@ export class MenuHarmonised {
   constructor(
     element,
     {
-      hamburgerButtonSelector = '[data-ecl-menu-harmonised-hamburger-button]',
+      toggleSelector = '[data-ecl-menu-harmonised-toggle]',
       menuListSelector = '[data-ecl-menu-harmonised-list]',
       menuItemSelector = '[data-ecl-menu-harmonised-item]',
       menuLinkSelector = '[data-ecl-menu-harmonised-link]',
@@ -63,7 +63,7 @@ export class MenuHarmonised {
     this.element = element;
 
     // Options
-    this.hamburgerButtonSelector = hamburgerButtonSelector;
+    this.toggleSelector = toggleSelector;
     this.menuListSelector = menuListSelector;
     this.menuItemSelector = menuItemSelector;
     this.menuLinkSelector = menuLinkSelector;
@@ -71,13 +71,13 @@ export class MenuHarmonised {
     this.attachClickListener = attachClickListener;
 
     // Private variables
-    this.hamburgerButton = null;
+    this.toggle = null;
     this.menuList = null;
     this.menuItems = null;
     this.menuLinks = null;
 
     // Bind `this` for use in callbacks
-    this.handleClickOnHamburger = this.handleClickOnHamburger.bind(this);
+    this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
     this.handleClickOnLink = this.handleClickOnLink.bind(this);
   }
 
@@ -86,17 +86,14 @@ export class MenuHarmonised {
    */
   init() {
     // Query elements
-    this.hamburgerButton = queryOne(this.hamburgerButtonSelector, this.element);
+    this.toggle = queryOne(this.toggleSelector, this.element);
     this.menuList = queryOne(this.menuListSelector, this.element);
     this.menuItems = queryAll(this.menuItemSelector, this.element);
     this.menuLinks = queryAll(this.menuLinkSelector, this.element);
 
-    // Bind click event on hamburger
-    if (this.attachClickListener && this.hamburgerButton) {
-      this.hamburgerButton.addEventListener(
-        'click',
-        this.handleClickOnHamburger
-      );
+    // Bind click event on toggle
+    if (this.attachClickListener && this.toggle) {
+      this.toggle.addEventListener('click', this.handleClickOnToggle);
     }
 
     // Bind click event on menu links
@@ -117,10 +114,7 @@ export class MenuHarmonised {
    */
   destroy() {
     if (this.attachClickListener && this.ellipsisButton) {
-      this.hamburgerButton.removeEventListener(
-        'click',
-        this.handleClickOnHamburger
-      );
+      this.toggle.removeEventListener('click', this.handleClickOnToggle);
     }
 
     if (this.attachClickListener && this.menuLinks) {
@@ -138,7 +132,7 @@ export class MenuHarmonised {
   /**
    * Toggle menu list.
    */
-  handleClickOnHamburger(e) {
+  handleClickOnToggle(e) {
     e.preventDefault();
 
     this.element.setAttribute(

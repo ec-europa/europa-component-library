@@ -28,7 +28,7 @@ export const MenuHarmonised = ({
         <a
           className="ecl-link ecl-link--standalone ecl-menu-harmonised__toggle"
           href="/example"
-          data-ecl-menu-harmonised-hamburger-button
+          data-ecl-menu-harmonised-toggle
         >
           <div className="ecl-menu-harmonised__toggle-open">
             <Icon shape="general--hamburger" size="s" />

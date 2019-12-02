@@ -30,11 +30,4 @@ storiesOf('Components|Menus/Harmonised', module)
       data-ecl-auto-init="MenuHarmonised"
       className="ecl-menu-harmonised--group1"
     />
-  ))
-  .add('group 2', () => (
-    <MenuHarmonised
-      {...demoContent}
-      data-ecl-auto-init="MenuHarmonised"
-      className="ecl-menu-harmonised--group2"
-    />
   ));

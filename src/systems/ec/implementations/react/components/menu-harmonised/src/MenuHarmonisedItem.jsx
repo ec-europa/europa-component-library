@@ -38,17 +38,13 @@ export const MenuHarmonisedItem = ({ label, href, isCurrent, subItems }) => {
           className="ecl-menu-harmonised__mega"
           data-ecl-menu-harmonised-mega
         >
-          <ul
-            className="ecl-menu-harmonised__sublist"
-            data-ecl-menu-harmonised-sublist
-          >
+          <ul className="ecl-menu-harmonised__sublist">
             {subItems.map(subItem => (
               <li
                 className={classnames('ecl-menu-harmonised__subitem', {
                   'ecl-menu-harmonised__subitem--current': subItem.isCurrent,
                 })}
                 key={subItem.label}
-                data-ecl-menu-harmonised-subitem
               >
                 <Link
                   label={subItem.label}
@@ -57,7 +53,6 @@ export const MenuHarmonisedItem = ({ label, href, isCurrent, subItems }) => {
                   className={classnames('ecl-menu-harmonised__sublink', {
                     [`ecl-menu-harmonised__sublink--current`]: subItem.isCurrent,
                   })}
-                  data-ecl-menu-harmonised-sublink
                 />
               </li>
             ))}
