@@ -1,15 +1,13 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React, { Fragment, PureComponent } from 'react';
-import ReactDOMServer from 'react-dom/server';
+import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
-import Prism from 'prismjs';
-import beautifyHtml from 'js-beautify/js/src/html';
 
 import iconSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import Iframe from './Showcase/Iframe';
 import styles from './Playground.scss';
+import Code from './Code';
 
-class Playground extends PureComponent {
+class Playground extends Component {
   constructor(props) {
     super(props);
     this.showcaseCodeRef = React.createRef();
@@ -18,6 +16,12 @@ class Playground extends PureComponent {
     // Parameters
     this.showcaseLineHeight = 1.5;
     this.showcaseNbLines = 6;
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError() {
+    // Update state so the next render will show the fallback UI.
+    return { hasError: true };
   }
 
   componentDidMount() {
@@ -66,7 +70,18 @@ class Playground extends PureComponent {
       children,
     } = this.props;
 
+    const { hasError } = this.state;
+
     if (!children) return null;
+
+    if (hasError)
+      return (
+        <div className={styles.playground}>
+          <p className={styles.description}>
+            An error happened when rendering the playground!
+          </p>
+        </div>
+      );
 
     let playgroundUrl;
 
@@ -130,22 +145,7 @@ class Playground extends PureComponent {
               className={`${styles['code-pre']} language-html`}
               ref={this.showcaseCodeRef}
             >
-              <code
-                className="language-html"
-                dangerouslySetInnerHTML={{
-                  __html: Prism.highlight(
-                    beautifyHtml(
-                      ReactDOMServer.renderToStaticMarkup(children),
-                      {
-                        indent_size: 2,
-                        wrap_line_length: 120,
-                      }
-                    ),
-                    Prism.languages.html,
-                    'html'
-                  ),
-                }}
-              />
+              <Code>{children}</Code>
             </pre>
             <button
               type="button"
