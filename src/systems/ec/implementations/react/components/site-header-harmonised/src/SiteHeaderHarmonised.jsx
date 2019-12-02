@@ -61,7 +61,7 @@ const SiteHeaderHarmonised = ({
           <div className="ecl-site-header-harmonised__action">
             {!!(
               loginToggle &&
-              Object.values(loginToggle).length >= 1 &&
+              Object.keys(loginToggle).length >= 1 &&
               loginBox
             ) && (
               <div className="ecl-site-header-harmonised__login-container">
@@ -111,7 +111,7 @@ const SiteHeaderHarmonised = ({
               </div>
             )}
             {!!(
-              languageSelector && Object.values(languageSelector).length >= 1
+              languageSelector && Object.keys(languageSelector).length >= 1
             ) && (
               <a
                 className="ecl-link ecl-link--standalone ecl-site-header-harmonised__language-selector"
@@ -133,7 +133,7 @@ const SiteHeaderHarmonised = ({
             )}
             {!!(
               searchToggle &&
-              Object.values(searchToggle).length >= 1 &&
+              Object.keys(searchToggle).length >= 1 &&
               searchForm
             ) && (
               <div className="ecl-site-header-harmonised__search-container">

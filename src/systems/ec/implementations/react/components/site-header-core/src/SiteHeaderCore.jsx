@@ -58,7 +58,7 @@ const SiteHeaderCore = ({
           <div className="ecl-site-header-core__action">
             {!!(
               loginToggle &&
-              Object.values(loginToggle).length >= 1 &&
+              Object.keys(loginToggle).length >= 1 &&
               loginBox
             ) && (
               <div className="ecl-site-header-core__login-container">
@@ -108,7 +108,7 @@ const SiteHeaderCore = ({
               </div>
             )}
             {!!(
-              languageSelector && Object.values(languageSelector).length >= 1
+              languageSelector && Object.keys(languageSelector).length >= 1
             ) && (
               <a
                 className="ecl-link ecl-link--standalone ecl-site-header-core__language-selector"
@@ -130,7 +130,7 @@ const SiteHeaderCore = ({
             )}
             {!!(
               searchToggle &&
-              Object.values(searchToggle).length >= 1 &&
+              Object.keys(searchToggle).length >= 1 &&
               searchForm
             ) && (
               <div className="ecl-site-header-core__search-container">
