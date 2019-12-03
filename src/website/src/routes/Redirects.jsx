@@ -71,6 +71,14 @@ export default () => (
       from="/r/ec-menu-legacy"
       to="/ec/components/navigation/menu-legacy/"
     />
+    <Redirect
+      from="/r/ec-menu-harmonised"
+      to="/ec/components/navigation/menu-harmonised/"
+    />
+    <Redirect
+      from="/r/ec-menu-standardised"
+      to="/ec/components/navigation/menu-standardised/"
+    />
     <Redirect from="/r/ec-message" to="/ec/components/message/" />
     <Redirect
       from="/r/ec-navigation-lists"

@@ -71,6 +71,4 @@ module.exports = {
     label: 'Nom de la classe',
     href: '/example',
   },
-  banner: 'Nom du site',
-  menu: true,
 };
