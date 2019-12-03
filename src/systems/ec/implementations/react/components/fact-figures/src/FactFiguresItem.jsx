@@ -13,7 +13,7 @@ export const FactFiguresItem = ({
   ...props
 }) => (
   <div {...props} className={classnames(className, 'ecl-fact-figures__item')}>
-    {!!(icon && Object.values(icon).length >= 1) && (
+    {!!(icon && Object.keys(icon).length >= 1) && (
       <Icon className="ecl-fact-figures__icon" {...icon} />
     )}
     {value && <div className="ecl-fact-figures__value">{value}</div>}
