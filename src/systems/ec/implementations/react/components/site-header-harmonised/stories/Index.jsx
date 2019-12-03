@@ -2,10 +2,13 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import StoryWrapper from '@ecl/story-wrapper';
+import demoMenu from '@ecl/ec-specs-menu-harmonised/demo/data';
 import demoContentGroup1 from '@ecl/ec-specs-site-header-harmonised/demo/data--group1';
 import demoContentGroup2 from '@ecl/ec-specs-site-header-harmonised/demo/data--group2';
 
 import SiteHeaderHarmonised from '../src/SiteHeaderHarmonised';
+
+demoMenu['data-ecl-auto-init'] = 'MenuHarmonised';
 
 storiesOf('Components|Site Headers/Harmonised', module)
   .addDecorator(story => (
@@ -28,6 +31,7 @@ storiesOf('Components|Site Headers/Harmonised', module)
   .add('group 1', () => (
     <SiteHeaderHarmonised
       {...demoContentGroup1}
+      menu={demoMenu}
       data-ecl-auto-init="SiteHeaderHarmonised"
       logged
       className="ecl-site-header-harmonised--group1"
