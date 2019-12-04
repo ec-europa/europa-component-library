@@ -975,6 +975,202 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
                 }}
               />
 
+              <h2
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mb-none"
+                id="contact"
+              >
+                Contact
+              </h2>
+
+              <div className="ecl-row ecl-u-mt-xs">
+                <div className="ecl-col-12 ecl-col-md-6">
+                  <article className="ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
+                    <h2>Research Enquiry Service</h2>
+                    <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
+                      You can contact the Research Enquiry Service to find out
+                      more about research in Europe, the EU&apos;s research and
+                      innovation funding programmes as well as calls for
+                      proposals and project funding.
+                    </p>
+                    <Link
+                      className="ecl-u-mt-l ecl-u-type-bold"
+                      variant="standalone"
+                      label="Ask a question"
+                      href="/example"
+                      icon={{
+                        shape: 'ui--corner-arrow',
+                        size: 'm',
+                        transform: 'rotate-90',
+                      }}
+                    />
+                  </article>
+                </div>
+
+                <div className="ecl-col-12 ecl-col-md-6">
+                  <article className="ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
+                    <h2>National Contact Points (NCPs)</h2>
+                    <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
+                      The NCP network gives guidance and information on
+                      participating in Horizon 2020. NCPs are established in all
+                      EU countries and many non-EU countries.
+                    </p>
+                    <Link
+                      className="ecl-u-mt-l ecl-u-type-bold"
+                      variant="standalone"
+                      label="Find your national contact point"
+                      href="/example"
+                      icon={{
+                        shape: 'ui--corner-arrow',
+                        size: 'm',
+                        transform: 'rotate-90',
+                      }}
+                    />
+                  </article>
+                </div>
+              </div>
+
+              <h2
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-l ecl-u-mt-lg-3xl ecl-u-mb-none"
+                id="departments"
+              >
+                Related Commission departments
+              </h2>
+
+              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-m">
+                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
+                  <span className="ecl-u-type-uppercase">
+                    Directorate-general | RTD
+                  </span>
+                </div>
+                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                  <Link
+                    href="/example"
+                    variant="standalone"
+                    label="Research and Innovation"
+                  />
+                </div>
+              </article>
+
+              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-m">
+                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
+                  <span className="ecl-u-type-uppercase">
+                    Directorate-general | JRC
+                  </span>
+                </div>
+                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                  <Link
+                    href="/example"
+                    variant="standalone"
+                    label="Joint Research Centre"
+                  />
+                </div>
+              </article>
+
+              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-m">
+                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
+                  <span className="ecl-u-type-uppercase">
+                    Directorate-general | MARE
+                  </span>
+                </div>
+                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                  <Link
+                    href="/example"
+                    variant="standalone"
+                    label="Maritime Affairs and Fisheries"
+                  />
+                </div>
+              </article>
+
+              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-m">
+                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
+                  <span className="ecl-u-type-uppercase">
+                    Directorate-general | ENV
+                  </span>
+                </div>
+                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                  <Link
+                    href="/example"
+                    variant="standalone"
+                    label="Environment"
+                  />
+                </div>
+              </article>
+
+              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-m">
+                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
+                  <span className="ecl-u-type-uppercase">
+                    Directorate-general | NEAR
+                  </span>
+                </div>
+                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                  <Link
+                    href="/example"
+                    variant="standalone"
+                    label="European Neighbourhood Policy and Enlargement Negotiations"
+                  />
+                </div>
+              </article>
+
+              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-m">
+                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
+                  <span className="ecl-u-type-uppercase">
+                    Directorate-general | EEAS
+                  </span>
+                </div>
+                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                  <Link
+                    href="/example"
+                    variant="standalone"
+                    label="European External Action Service (EEAS)"
+                  />
+                </div>
+              </article>
+
+              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-m">
+                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
+                  <span className="ecl-u-type-uppercase">
+                    Directorate-general | INEA
+                  </span>
+                </div>
+                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                  <Link
+                    href="/example"
+                    variant="standalone"
+                    label="Innovation and Networks Executive Agency"
+                  />
+                </div>
+              </article>
+
+              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-m">
+                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
+                  <span className="ecl-u-type-uppercase">
+                    Directorate-general | EASME
+                  </span>
+                </div>
+                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                  <Link
+                    href="/example"
+                    variant="standalone"
+                    label="Executive Agency for Small and Medium-sized Enterprises"
+                  />
+                </div>
+              </article>
+
+              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-m">
+                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
+                  <span className="ecl-u-type-uppercase">
+                    Directorate-general | REA
+                  </span>
+                </div>
+                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                  <Link
+                    href="/example"
+                    variant="standalone"
+                    label="Research Executive Agency"
+                  />
+                </div>
+              </article>
+
               <SocialMediaShare
                 className="ecl-u-mt-xl ecl-u-mt-lg-4xl"
                 description="Share this page"
