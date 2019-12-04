@@ -192,19 +192,19 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
           <div className="ecl-col-12 ecl-col-lg-9">
             <main>
               <h2
-                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mv-none"
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l"
                 id="why-eu"
               >
                 Why the EU supports innovation in oceans and seas
               </h2>
 
-              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-none">
                 Achieve levels of air quality that do not give rise to
                 significant negative impacts on, and risks to, human health and
                 the environment. Since the Policy focus early 1970s, the EU has
-                been working to improve air quality by controlling . emissions
-                of harmful substances into the atmosphere, improving fuel
-                Funding opportunities quality, and by integrating environmental
+                been working to improve air quality by controlling emissions of
+                harmful substances into the atmosphere, improving fuel Funding
+                opportunities quality, and by integrating environmental
                 protection requirements into the Collaboration and jobs
                 transport and energy sectors.
               </p>
@@ -215,13 +215,13 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
               </p>
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-l ecl-u-mt-lg-3xl ecl-u-mb-none"
+                className="ecl-u-type-heading-2 ecl-u-mb-l ecl-u-mt-lg-3xl ecl-u-type-color-black"
                 id="policy-focus"
               >
                 Policy focus
               </h2>
 
-              <UnorderedList className="ecl-u-mt-m" variant="no-bullet">
+              <UnorderedList variant="no-bullet">
                 <UnorderedListItem className="ecl-u-pv-m ecl-u-border-bottom ecl-u-border-color-grey-15">
                   <Link
                     variant="standalone"
@@ -281,13 +281,13 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
               </UnorderedList>
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mb-none"
+                className="ecl-u-type-heading-2 ecl-u-mb-l ecl-u-mt-lg-3xl ecl-u-type-color-black"
                 id="funding-opportunities"
               >
                 Funding opportunities
               </h2>
 
-              <div className="ecl-row ecl-u-mt-xs">
+              <div className="ecl-row">
                 <div className="ecl-col-12 ecl-col-md-6">
                   <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
                     <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
@@ -342,13 +342,13 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
               </div>
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mb-none"
+                className="ecl-u-type-heading-2 ecl-u-mb-l ecl-u-mt-lg-3xl ecl-u-type-color-black"
                 id="collaboration-jobs"
               >
                 Collaboration and jobs
               </h2>
 
-              <div className="ecl-row ecl-u-mt-xs">
+              <div className="ecl-row ecl-u-mb-m">
                 <div className="ecl-col-12 ecl-col-md-6">
                   <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
                     <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
@@ -417,13 +417,13 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
               </div>
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mb-none"
+                className="ecl-u-type-heading-2 ecl-u-mb-l ecl-u-mt-lg-3xl ecl-u-type-color-black"
                 id="projects-results"
               >
                 Projects and results
               </h2>
 
-              <div className="ecl-row ecl-u-mt-xs">
+              <div className="ecl-row">
                 <div className="ecl-col-12 ecl-col-md-6">
                   <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
                     <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
@@ -581,13 +581,13 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
               </div>
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mb-none"
+                className="ecl-u-type-heading-2 ecl-u-mb-l ecl-u-mt-lg-3xl ecl-u-type-color-black"
                 id="tools"
               >
                 Scientific publications, tools and databases
               </h2>
 
-              <div className="ecl-row ecl-u-mt-xs">
+              <div className="ecl-row">
                 <div className="ecl-col-12 ecl-col-md-6">
                   <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
                     <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
@@ -754,7 +754,7 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
                 </div>
               </div>
               <h2
-                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-l ecl-u-mt-lg-3xl ecl-u-mb-none"
+                className="ecl-u-type-heading-2 ecl-u-mb-l ecl-u-mt-lg-3xl ecl-u-type-color-black"
                 id="news"
               >
                 News
@@ -799,7 +799,7 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
                 href="/example"
                 icon={{
                   shape: 'ui--corner-arrow',
-                  size: 'm',
+                  size: 'xs',
                   transform: 'rotate-90',
                 }}
               />
@@ -881,7 +881,7 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
               />
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none"
+                className="ecl-u-type-heading-2 ecl-u-mb-l ecl-u-mt-lg-3xl ecl-u-type-color-black"
                 id="events"
               >
                 Related events
@@ -970,13 +970,13 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
                 href="/example"
                 icon={{
                   shape: 'ui--corner-arrow',
-                  size: 'm',
+                  size: 'xs',
                   transform: 'rotate-90',
                 }}
               />
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mb-none"
+                className="ecl-u-type-heading-2 ecl-u-mb-l ecl-u-mt-lg-3xl ecl-u-type-color-black"
                 id="contact"
               >
                 Contact
@@ -999,7 +999,7 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
                       href="/example"
                       icon={{
                         shape: 'ui--corner-arrow',
-                        size: 'm',
+                        size: 'xs',
                         transform: 'rotate-90',
                       }}
                     />
@@ -1021,7 +1021,7 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
                       href="/example"
                       icon={{
                         shape: 'ui--corner-arrow',
-                        size: 'm',
+                        size: 'xs',
                         transform: 'rotate-90',
                       }}
                     />
@@ -1030,7 +1030,7 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
               </div>
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-l ecl-u-mt-lg-3xl ecl-u-mb-none"
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-l ecl-u-mb-m ecl-u-mb-none"
                 id="departments"
               >
                 Related Commission departments
@@ -1172,7 +1172,7 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
               </article>
 
               <SocialMediaShare
-                className="ecl-u-mt-xl ecl-u-mt-lg-4xl"
+                className="ecl-u-mv-3xl"
                 description="Share this page"
                 links={[
                   {
