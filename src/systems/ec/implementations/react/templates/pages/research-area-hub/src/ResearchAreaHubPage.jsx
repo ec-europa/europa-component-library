@@ -1,8 +1,11 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
+import DateBlock from '@ecl/ec-react-component-date-block';
 import Link from '@ecl/ec-react-component-link';
+import Icon from '@ecl/ec-react-component-icon';
 import InpageNavigation from '@ecl/ec-react-component-inpage-navigation';
+import SocialMediaFollow from '@ecl/ec-react-component-social-media-follow';
 import SocialMediaShare from '@ecl/ec-react-component-social-media-share';
 import {
   UnorderedList,
@@ -212,7 +215,7 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
               </p>
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mb-none"
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-l ecl-u-mt-lg-3xl ecl-u-mb-none"
                 id="policy-focus"
               >
                 Policy focus
@@ -751,7 +754,7 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
                 </div>
               </div>
               <h2
-                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mb-none"
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-l ecl-u-mt-lg-3xl ecl-u-mb-none"
                 id="news"
               >
                 News
@@ -793,6 +796,177 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
                 className="ecl-u-mt-l ecl-u-type-bold"
                 variant="standalone"
                 label="More news"
+                href="/example"
+                icon={{
+                  shape: 'ui--corner-arrow',
+                  size: 'm',
+                  transform: 'rotate-90',
+                }}
+              />
+
+              <SocialMediaFollow
+                className="ecl-u-mt-l"
+                description="Follow the latest progress and learn more about getting involved."
+                links={[
+                  {
+                    href: '/example',
+                    label: 'Twitter',
+                    variant: 'standalone',
+                    iconPosition: 'before',
+                    icon: [
+                      {
+                        shape: 'twitter',
+                        size: 'xl',
+                      },
+                      {
+                        shape: 'twitter_hover',
+                        size: 'xl',
+                      },
+                    ],
+                  },
+                  {
+                    href: '/example',
+                    label: 'Facebook',
+                    variant: 'standalone',
+                    iconPosition: 'before',
+                    icon: [
+                      {
+                        shape: 'facebook',
+                        size: 'xl',
+                      },
+                      {
+                        shape: 'facebook_hover',
+                        size: 'xl',
+                      },
+                    ],
+                  },
+                  {
+                    href: '/example',
+                    label: 'Instagram',
+                    variant: 'standalone',
+                    iconPosition: 'before',
+                    icon: [
+                      {
+                        shape: 'instagram',
+                        size: 'xl',
+                      },
+                      {
+                        shape: 'instagram_hover',
+                        size: 'xl',
+                      },
+                    ],
+                  },
+                  {
+                    href: '/example',
+                    label: 'LinkedinIn',
+                    variant: 'standalone',
+                    iconPosition: 'before',
+                    icon: [
+                      {
+                        shape: 'linkedin',
+                        size: 'xl',
+                      },
+                      {
+                        shape: 'linkedin_hover',
+                        size: 'xl',
+                      },
+                    ],
+                  },
+                  {
+                    href: '/example',
+                    label: 'Other social networks',
+                    variant: 'standalone',
+                  },
+                ]}
+              />
+
+              <h2
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none"
+                id="events"
+              >
+                Related events
+              </h2>
+
+              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-d-flex ecl-u-pv-m">
+                <div className="ecl-u-flex-grow-0 ecl-u-mr-m">
+                  <DateBlock
+                    dateTime="2020-02-06"
+                    day="06"
+                    month="Feb"
+                    monthFull="February"
+                    year="2020"
+                  />
+                </div>
+                <div className="ecl-u-flex-grow-1">
+                  <div className="ecl-u-d-inline-block ecl-u-type-s ecl-u-bg-yellow-25 ecl-u-pa-2xs">
+                    Upcoming
+                  </div>
+                  <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                    <Link
+                      href="/example"
+                      variant="standalone"
+                      label="Save the date for All-Atlantic Ocean Research Forum"
+                    />
+                  </div>
+                  <UnorderedList
+                    variant="no-bullet"
+                    className="ecl-u-mt-s ecl-u-type-color-grey-75"
+                  >
+                    <UnorderedListItem className="ecl-u-d-flex ecl-u-align-items-center">
+                      <Icon shape="general--location" size="m" />
+                      <span className="ecl-u-type-s ecl-u-ml-s">
+                        Brussels, Belgium
+                      </span>
+                    </UnorderedListItem>
+                  </UnorderedList>
+                </div>
+              </article>
+
+              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-d-flex ecl-u-pv-m">
+                <div className="ecl-u-flex-grow-0 ecl-u-mr-m">
+                  <DateBlock
+                    variant="past"
+                    dateTime="2019-11-13"
+                    day="13"
+                    month="Nov"
+                    monthFull="November"
+                    year="2019"
+                  />
+                </div>
+                <div className="ecl-u-flex-grow-1">
+                  <div className="ecl-u-d-inline-block ecl-u-type-s ecl-u-bg-grey-25 ecl-u-pa-2xs">
+                    Past
+                  </div>
+                  <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                    <Link
+                      href="/example"
+                      variant="standalone"
+                      label="2019 Global Ocean Science Education Workshop"
+                    />
+                  </div>
+                  <UnorderedList
+                    variant="no-bullet"
+                    className="ecl-u-mt-s ecl-u-type-color-grey-75"
+                  >
+                    <UnorderedListItem className="ecl-u-d-flex ecl-u-align-items-center">
+                      <Icon shape="general--location" size="m" />
+                      <span className="ecl-u-type-s ecl-u-ml-s">
+                        Washington, United States
+                      </span>
+                    </UnorderedListItem>
+                    <UnorderedListItem className="ecl-u-d-flex ecl-u-align-items-center">
+                      <Icon shape="ui--external" size="m" />
+                      <span className="ecl-u-type-s ecl-u-ml-s">
+                        External event
+                      </span>
+                    </UnorderedListItem>
+                  </UnorderedList>
+                </div>
+              </article>
+              <Link
+                className="ecl-u-mt-l ecl-u-type-bold"
+                variant="standalone"
+                label="More events"
                 href="/example"
                 icon={{
                   shape: 'ui--corner-arrow',
