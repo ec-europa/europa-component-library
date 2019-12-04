@@ -579,50 +579,227 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
 
               <h2
                 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mb-none"
-                id="latest"
+                id="tools"
               >
-                Latest
+                Scientific publications, tools and databases
+              </h2>
+
+              <div className="ecl-row ecl-u-mt-xs">
+                <div className="ecl-col-12 ecl-col-md-6">
+                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
+                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
+                      <Link
+                        href="/example"
+                        variant="standalone"
+                        label="Results Scientific publications"
+                      />
+                    </div>
+                    <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
+                      Scientific publications produced by the European
+                      Commission (JRC)
+                    </p>
+                  </article>
+                </div>
+
+                <div className="ecl-col-12 ecl-col-md-6">
+                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
+                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
+                      <Link
+                        href="/example"
+                        variant="standalone"
+                        label="Marine research tools and databases"
+                      />
+                    </div>
+                    <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
+                      The Commission&apos;s Joint Research Centre compiles
+                      databases and develops software and modelling tools. You
+                      can access marine related ones here.
+                    </p>
+                  </article>
+                </div>
+              </div>
+
+              <div className="ecl-row">
+                <div className="ecl-col-12 ecl-col-md-6">
+                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
+                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
+                      <Link
+                        href="/example"
+                        variant="standalone"
+                        label="EU Open Data Portal"
+                      />
+                    </div>
+                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
+                      Single point of access to open data produced by the EU
+                      institutions. All data free to use for commercial and
+                      non-commercial purposes.
+                    </p>
+                  </article>
+                </div>
+
+                <div className="ecl-col-12 ecl-col-md-6">
+                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
+                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
+                      <Link
+                        href="/example"
+                        variant="standalone"
+                        label="OpenAIRE"
+                      />
+                    </div>
+                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
+                      You can access all scientific publications from Horizon
+                      2020 via OpenAIRE.
+                    </p>
+                  </article>
+                </div>
+              </div>
+
+              <div className="ecl-row">
+                <div className="ecl-col-12 ecl-col-md-6">
+                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
+                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
+                      <Link
+                        href="/example"
+                        variant="standalone"
+                        label="Copernicus"
+                      />
+                    </div>
+                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
+                      Access to marine data from the Copernicus programme.
+                    </p>
+                  </article>
+                </div>
+
+                <div className="ecl-col-12 ecl-col-md-6">
+                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
+                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
+                      <Link
+                        href="/example"
+                        variant="standalone"
+                        label="iMarine"
+                      />
+                    </div>
+                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
+                      Data e-Infrastructure initiative for fishieries management
+                      and conservation.
+                    </p>
+                  </article>
+                </div>
+              </div>
+
+              <div className="ecl-row">
+                <div className="ecl-col-12 ecl-col-md-6">
+                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
+                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
+                      <Link
+                        href="/example"
+                        variant="standalone"
+                        label="Pangaea"
+                      />
+                    </div>
+                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
+                      Data publisher for earth and environmental science.
+                    </p>
+                  </article>
+                </div>
+
+                <div className="ecl-col-12 ecl-col-md-6">
+                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
+                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
+                      <Link
+                        href="/example"
+                        variant="standalone"
+                        label="SeaDataNet"
+                      />
+                    </div>
+                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
+                      Ocean and marine data management Infrastructure.
+                    </p>
+                  </article>
+                </div>
+              </div>
+
+              <div className="ecl-row">
+                <div className="ecl-col-12 ecl-col-md-6">
+                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
+                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
+                      <Link
+                        href="/example"
+                        variant="standalone"
+                        label="EMODnet"
+                      />
+                    </div>
+                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
+                      Access to marine data in Europe.
+                    </p>
+                  </article>
+                </div>
+
+                <div className="ecl-col-12 ecl-col-md-6">
+                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
+                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
+                      <Link
+                        href="/example"
+                        variant="standalone"
+                        label="Fisheries data collection"
+                      />
+                    </div>
+                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
+                      Commission (JRC) data collection on fishieries.
+                    </p>
+                  </article>
+                </div>
+              </div>
+              <h2
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mb-none"
+                id="news"
+              >
+                News
               </h2>
 
               <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-m">
                 <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">News article</span> |{' '}
-                  <time dateTime="2019-10-17">17 October 2019</time>
+                  <span className="ecl-u-type-uppercase">Press release</span> |{' '}
+                  <time dateTime="2019-10-17">25 September 2019</time>
                 </div>
                 <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
                   <Link
                     href="/example"
                     variant="standalone"
-                    label="EU funded Ebola treatment"
+                    label="Commissioners Miguel Arias, Karmenu Vella and Carlos Moedas welcome the UN report on oceans and climate change"
                   />
                 </div>
-                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Phasellus ut ex tristique, dignissim sem ac, bibendum est. Sed
-                  vehicula lorem non nunc tincidunt hendrerit. Nunc tristique
-                  ante et fringilla fermentum.
-                </p>
               </article>
 
               <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
                 <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">News article</span> |{' '}
-                  <time dateTime="2019-10-17">17 October 2019</time>
+                  <span className="ecl-u-type-uppercase">News</span> |{' '}
+                  <time dateTime="2019-10-17">19 September 2019</time>
                 </div>
                 <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
                   <Link
                     href="/example"
                     variant="standalone"
-                    label="EU funded Ebola treatment"
+                    label="Ocean plastic lab returns to Brussels to tackle ocean pollution"
                   />
                 </div>
                 <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Phasellus ut ex tristique, dignissim sem ac, bibendum est. Sed
-                  vehicula lorem non nunc tincidunt hendrerit. Nunc tristique
-                  ante et fringilla fermentum.
+                  Back in Brussels from 19 to 30 September 2019, in the
+                  framework of the Research and Innovation Days organised by the
+                  European Commission
                 </p>
               </article>
+              <Link
+                className="ecl-u-mt-l ecl-u-type-bold"
+                variant="standalone"
+                label="More news"
+                href="/example"
+                icon={{
+                  shape: 'ui--corner-arrow',
+                  size: 'm',
+                  transform: 'rotate-90',
+                }}
+              />
 
               <SocialMediaShare
                 className="ecl-u-mt-xl ecl-u-mt-lg-4xl"
