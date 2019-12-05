@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import Button from '@ecl/ec-react-component-button';
-import Icon from '@ecl/ec-react-component-icon';
 import LanguageList from './LanguageList';
 
 const LanguageListOverlay = ({
@@ -42,11 +41,6 @@ const LanguageListOverlay = ({
             className="ecl-language-list__title ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
             id="ecl-language-list__title"
           >
-            <Icon
-              shape="general--generic-lang"
-              size="m"
-              className="ecl-language-list__title-icon"
-            />
             {title}
           </div>
         </div>
