@@ -37,7 +37,7 @@
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~'"' %}
   {% endfor %}
 {% endif %}
 
@@ -58,7 +58,7 @@
   <div
     {% if profile.expandable.expandable_body.extra_attributes is defined %}
       {% for attr in profile.expandable.expandable_body.extra_attributes %}
-        {% set attribute = attr.name ~ '="' ~ attr.value ~ '"' %}
+        {% set attribute = attr.name ~ '="' ~ attr.value|e ~'"' %}
         {{ attribute }}
       {% endfor %}
     {% endif %}
