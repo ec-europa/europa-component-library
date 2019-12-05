@@ -54,7 +54,7 @@
 
 {% if input_attributes is defined and input_attributes is not empty and input_attributes is iterable %}
   {% for attr in input_attributes %}
-    {% set _input_attributes = _input_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% set _input_attributes = _input_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
   {% endfor %}
 {% endif %}
 
