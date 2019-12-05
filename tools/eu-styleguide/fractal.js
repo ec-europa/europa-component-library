@@ -33,10 +33,12 @@ theme.addLoadPath(path.resolve(__dirname, './theme-overrides'));
 
 // Project config
 fractal.set('project.title', 'EU System');
-fractal.set(
-  'project.url',
-  'https://ec-europa.github.io/europa-component-library/'
-);
+
+if (process.env.ECL_VERSION) {
+  fractal.set('project.version', process.env.ECL_VERSION);
+}
+
+fractal.set('project.url', 'https://ec.europa.eu/component-library/');
 fractal.set(
   'project.repo',
   'https://github.com/ec-europa/europa-component-library'

@@ -1,5 +1,5 @@
 /**
- * Contextual navigation scripts
+ * Context navigation scripts
  */
 
 import { queryAll } from '@ecl/ec-base/helpers/dom';
