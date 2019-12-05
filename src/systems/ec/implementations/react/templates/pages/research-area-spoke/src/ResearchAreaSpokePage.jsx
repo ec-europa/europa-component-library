@@ -36,7 +36,8 @@ const breadcrumbItems = [
   { label: 'Home', href: '/example' },
   { label: 'Research and innovation', href: '/example' },
   { label: 'Research by area', href: '/example' },
-  { label: 'Oceans and seas' },
+  { label: 'Oceans and seas', href: '/example' },
+  { label: 'Integrated Maritime Policy' },
 ];
 const breadcrumbCore = (
   <BreadcrumbCore {...breadcrumbContent} data-ecl-auto-init="BreadcrumbCore">
@@ -79,7 +80,9 @@ const breadcrumbHarmonised2 = (
 );
 
 const pageHeaderContent = {
-  title: 'Oceans and seas',
+  title: 'Integrated Maritime Policy',
+  description:
+    'Marine research and innovation is part of an integrated strategy which deals with 5 specific areas. These are detailed below.',
 };
 
 const ResearchAreaSpokePage = ({ siteHeader, footer, template }) => (
@@ -142,44 +145,20 @@ const ResearchAreaSpokePage = ({ siteHeader, footer, template }) => (
                 title="Page contents"
                 links={[
                   {
-                    href: '#why-eu',
-                    label: 'Why the EU supports innovation in oceans and seas',
+                    href: '#what',
+                    label: 'What the Integrated Maritime policy is',
                   },
                   {
-                    href: '#policy-focus',
-                    label: 'Policy focus',
+                    href: '#blue-growth',
+                    label: 'Blue growth',
                   },
                   {
-                    href: '#funding-opportunities',
-                    label: 'Funding opportunities',
+                    href: '#maritime-spatial-planning',
+                    label: 'Maritime spatial planning',
                   },
                   {
-                    href: '#collaboration-jobs',
-                    label: 'Collaboration and jobs',
-                  },
-                  {
-                    href: '#projects-results',
-                    label: 'Projects and results',
-                  },
-                  {
-                    href: '#tools',
-                    label: 'Scientific publications, tools and databases',
-                  },
-                  {
-                    href: '#news',
-                    label: 'News',
-                  },
-                  {
-                    href: '#events',
-                    label: 'Related events',
-                  },
-                  {
-                    href: '#contact',
-                    label: 'Contact',
-                  },
-                  {
-                    href: '#departments',
-                    label: 'Related Commission departments',
+                    href: '#integrated-maritime-surveillance',
+                    label: 'Integrated maritime surveillance',
                   },
                 ]}
               />
@@ -190,812 +169,208 @@ const ResearchAreaSpokePage = ({ siteHeader, footer, template }) => (
             <main>
               <h2
                 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l"
-                id="why-eu"
+                id="what"
               >
-                Why the EU supports innovation in oceans and seas
+                What the Integrated Maritime policy is
               </h2>
 
               <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-none">
-                Achieve levels of air quality that do not give rise to
-                significant negative impacts on, and risks to, human health and
-                the environment. Since the Policy focus early 1970s, the EU has
-                been working to improve air quality by controlling emissions of
-                harmful substances into the atmosphere, improving fuel Funding
-                opportunities quality, and by integrating environmental
-                protection requirements into the Collaboration and jobs
-                transport and energy sectors.
+                The <Link href="/example" label="Integrated Maritime Policy" />{' '}
+                seeks to provide a more coherent approach to maritime issue,
+                which increased coordination between different policy areas.
               </p>
 
               <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
-                Marine and aquatic research and innovation is part of the
-                EU&apos;s <a href="/example">bioeconomy strategy</a>.
+                There are 5 cross-cutting policies in the Integrated Maritime
+                Policy where research and innovation plays a large part - blue
+                growth, marine data and knowledge, maritime spatial planning,
+                integrated maritime suveillance, and sea basin strategies.
               </p>
 
               <h2
                 className="ecl-u-type-heading-2 ecl-u-mb-l ecl-u-mt-lg-3xl ecl-u-type-color-black"
-                id="policy-focus"
+                id="blue-growth"
               >
-                Policy focus
+                Blue growth
               </h2>
 
-              <UnorderedList variant="no-bullet">
-                <UnorderedListItem className="ecl-u-pv-m ecl-u-border-bottom ecl-u-border-color-grey-15">
-                  <Link
-                    variant="standalone"
-                    className="ecl-u-type-bold"
-                    href="/example"
-                    label="Integrated Maritime Policy"
-                  />
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-none">
+                The policy is the marine and maritime contribution to achieving
+                the <Link href="/example" label="Europe 2020 strategy" /> for
+                smart, sustainable and inclusive growth.
+              </p>
+
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
+                Related to this is the Commission communication:{' '}
+                <Link
+                  href="/example"
+                  variant="external"
+                  label="Innovation in the Blue Economy: realising the potential of our
+                  seas and oceans for jobs and growth"
+                />
+                .
+              </p>
+
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
+                <Link href="/example" label="Horizon 2020" /> has Blue Growth
+                calls for proposal dedicated to implementing the strategy.
+              </p>
+
+              <h2
+                className="ecl-u-type-heading-2 ecl-u-mb-l ecl-u-mt-lg-3xl ecl-u-type-color-black"
+                id="maritime-spatial-planning"
+              >
+                Maritime spatial planning
+              </h2>
+
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-none">
+                There is an increasing demand for physical space for new
+                maritime activities ranging from renewable energy to aquaculture
+                installations.
+              </p>
+
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
+                Coherent planning and scientific knowledge are needed to support
+                the development of stratetic plans for regulation, zoning,
+                management, protection of the marine environment.
+              </p>
+
+              <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black">
+                Some examples
+              </h3>
+
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-none">
+                <UnorderedList className="ecl-u-mt-l ecl-u-type-color-black">
+                  <UnorderedListItem>
+                    the interaction between aquaculture and the marine
+                    environment and the resulting competition for space has been
+                    addressed in the{' '}
+                    <Link href="/example" variant="external" label="COEXIST" />{' '}
+                    project
+                  </UnorderedListItem>
+                  <UnorderedListItem>
+                    similarly, the{' '}
+                    <Link href="/example" variant="external" label="PERSEUS" />{' '}
+                    project helped to foster and strengthen cooperation and
+                    paved the way to advance the work with international
+                    partners in the Mediterranean, with the{' '}
+                    <Link
+                      href="/example"
+                      variant="external"
+                      label="BLUEMED initiative"
+                    />
+                    , and also the Black Sea.
+                  </UnorderedListItem>
+                </UnorderedList>
+              </p>
+
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
+                Read more about{' '}
+                <Link href="/example" label="maritime spatial planning" />.
+              </p>
+
+              <h2
+                className="ecl-u-type-heading-2 ecl-u-mb-l ecl-u-mt-lg-3xl ecl-u-type-color-black"
+                id="integrated-maritime-surveillance"
+              >
+                Integrated maritime surveillance
+              </h2>
+
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-none">
+                Integrated maritime surveillance provides authorities interested
+                or active in maritime surveillance with ways to exchange
+                information and data. Sharing data makes surveillance cheaper
+                and more effective.
+              </p>
+
+              <h2 className="ecl-u-type-heading-2 ecl-u-mb-l ecl-u-mt-lg-3xl ecl-u-type-color-black">
+                Atlantic Ocean
+              </h2>
+
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-none">
+                The EU pursued the implementation of activities under the{' '}
+                <Link
+                  href="/example"
+                  variant="external"
+                  label="All Atlantic Ocean Research Alliance"
+                />{' '}
+                with the
+              </p>
+
+              <UnorderedList className="ecl-u-mt-l ecl-u-type-color-black">
+                <UnorderedListItem>
+                  signing of the EU-USA-Canada{' '}
+                  <Link href="/example" label="Galway Statement" /> on Atlantic
+                  Ocean Cooperation in 2013.
                 </UnorderedListItem>
-                <UnorderedListItem className="ecl-u-pv-m ecl-u-border-bottom ecl-u-border-color-grey-15">
-                  <Link
-                    variant="standalone"
-                    className="ecl-u-type-bold"
-                    href="/example"
-                    label="International policy"
-                  />
-                </UnorderedListItem>
-                <UnorderedListItem className="ecl-u-pv-m ecl-u-border-bottom ecl-u-border-color-grey-15">
-                  <Link
-                    variant="standalone"
-                    className="ecl-u-type-bold"
-                    href="/example"
-                    label="Plastics in a circular economy"
-                  />
-                </UnorderedListItem>
-                <UnorderedListItem className="ecl-u-pv-m ecl-u-border-bottom ecl-u-border-color-grey-15">
-                  <Link
-                    variant="standalone"
-                    className="ecl-u-type-bold"
-                    href="/example"
-                    label="EU Common Fisheries Policy"
-                  />
-                </UnorderedListItem>
-                <UnorderedListItem className="ecl-u-pv-m ecl-u-border-bottom ecl-u-border-color-grey-15">
-                  <Link
-                    variant="standalone"
-                    className="ecl-u-type-bold"
-                    href="/example"
-                    label="EU Marine Strategy Framework Directive"
-                  />
-                </UnorderedListItem>
-                <UnorderedListItem className="ecl-u-pv-m ecl-u-border-bottom ecl-u-border-color-grey-15">
-                  <Link
-                    variant="standalone"
-                    className="ecl-u-type-bold"
-                    href="/example"
-                    label="Food 2030"
-                  />
-                </UnorderedListItem>
-                <UnorderedListItem className="ecl-u-pv-m ecl-u-border-bottom ecl-u-border-color-grey-15">
-                  <Link
-                    variant="standalone"
-                    className="ecl-u-type-bold"
-                    href="/example"
-                    label="Bioeconomy strategy"
-                  />
+                <UnorderedListItem>
+                  signing of the EU-Brazil-South Africa{' '}
+                  <Link href="/example" label="Belem Statement" /> on Atlantic
+                  Ocean Cooperation in 2013.
                 </UnorderedListItem>
               </UnorderedList>
 
-              <h2
-                className="ecl-u-type-heading-2 ecl-u-mb-l ecl-u-mt-lg-3xl ecl-u-type-color-black"
-                id="funding-opportunities"
-              >
-                Funding opportunities
-              </h2>
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
+                There are now over 500 international research teams working
+                together towards a healthy, productive, secure and resilient
+                Atlantic Ocean.
+              </p>
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
+                There are also wide-ranging cooperation agreements with other
+                countries.
+              </p>
 
-              <div className="ecl-row">
-                <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Horizon 2020"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Calls for proposal related to marine resources are spread
-                      across numerous schemes in Horizon 2020. This page lists
-                      them and explains how you can apply.
-                    </p>
-                  </article>
-                </div>
+              <UnorderedList className="ecl-u-mt-l ecl-u-type-color-black">
+                <UnorderedListItem>
+                  <Link
+                    variant="external"
+                    href="/example"
+                    label="European Commission and Argentina"
+                  />{' '}
+                  signed administrative agreement in marine research and
+                  innovation cooperation.
+                </UnorderedListItem>
+                <UnorderedListItem>
+                  <Link
+                    variant="external"
+                    href="/example"
+                    label="European Commission and Cabo Verde"
+                  />{' '}
+                  signed administrative agreement in marine research and
+                  innovation cooperation.
+                </UnorderedListItem>
+              </UnorderedList>
 
-                <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="European structural and investment funds"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Marine research related calls may be found in this
-                      programme, particularly in the European maritine and
-                      fishieries fund.
-                    </p>
-                  </article>
-                </div>
-              </div>
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
+                The ambition is to have more than 1,000 research teams funded by
+                Horizon 2020 working in Antractica to the Arctic by 2020.
+              </p>
 
-              <div className="ecl-row">
-                <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="LIFE programme"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Some maritine research related calls may be found in this
-                      programme.
-                    </p>
-                  </article>
-                </div>
-              </div>
-
-              <h2
-                className="ecl-u-type-heading-2 ecl-u-mb-l ecl-u-mt-lg-3xl ecl-u-type-color-black"
-                id="collaboration-jobs"
-              >
-                Collaboration and jobs
-              </h2>
-
-              <div className="ecl-row ecl-u-mb-m">
-                <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Find project partners"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Search and view profiles of all organisations that have
-                      received funding via the funding and tender opportunities
-                      portal.
-                    </p>
-                  </article>
-                </div>
-
-                <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Joint programming initiatives"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Partnerships with EU countries on marine research
-                      programmes.
-                    </p>
-                  </article>
-                </div>
-              </div>
-
-              <div className="ecl-row">
-                <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Research infrastructures"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Major facilities, resources and services used by the
-                      science community.
-                    </p>
-                  </article>
-                </div>
-
-                <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Jobs (EURAXESS)"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Researcher jobs in related fields.
-                    </p>
-                  </article>
-                </div>
-              </div>
-
-              <h2
-                className="ecl-u-type-heading-2 ecl-u-mb-l ecl-u-mt-lg-3xl ecl-u-type-color-black"
-                id="projects-results"
-              >
-                Projects and results
-              </h2>
-
-              <div className="ecl-row">
-                <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Research project database (CORDIS)"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      The Commission&apos;s primary portal for results of
-                      EU-funded research projects.
-                    </p>
-                  </article>
-                </div>
-
-                <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Project success stories"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Stories of particularly successful EU-funded research
-                      projects.
-                    </p>
-                  </article>
-                </div>
-              </div>
-
-              <div className="ecl-row">
-                <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Information sharing platform on marine and maritine research"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      The platform, currently in its pilot stage, shares
-                      available research data and key results from EU funded
-                      projects related to the marine and maritine research
-                      sectors.
-                    </p>
-                  </article>
-                </div>
-
-                <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Project for policy - Blue Economy"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Blue Economy was one of the first three P4P pilot
-                      showcasting how research and innovation project results
-                      shape policy making.
-                    </p>
-                  </article>
-                </div>
-              </div>
-
-              <div className="ecl-row">
-                <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Results pack on ocean plastics"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      A thematic collection of innovative EU-funded research
-                      results.
-                    </p>
-                  </article>
-                </div>
-
-                <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Results pack on seafood"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      A thematic collection of innovative EU-funded research
-                      results.
-                    </p>
-                  </article>
-                </div>
-              </div>
-
-              <div className="ecl-row">
-                <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Results pack on algae"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      A thematic collection of innovative EU-funded research
-                      results.
-                    </p>
-                  </article>
-                </div>
-
-                <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Results pack on better marine stewardship"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      A thematic collection of innovative EU-funded research
-                      results.
-                    </p>
-                  </article>
-                </div>
-              </div>
-
-              <div className="ecl-row">
-                <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Results pack on microbiome research"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      A thematic collection of innovative EU-funded research
-                      results.
-                    </p>
-                  </article>
-                </div>
-              </div>
-
-              <h2
-                className="ecl-u-type-heading-2 ecl-u-mb-l ecl-u-mt-lg-3xl ecl-u-type-color-black"
-                id="tools"
-              >
-                Scientific publications, tools and databases
-              </h2>
-
-              <div className="ecl-row">
-                <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Results Scientific publications"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Scientific publications produced by the European
-                      Commission (JRC)
-                    </p>
-                  </article>
-                </div>
-
-                <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Marine research tools and databases"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      The Commission&apos;s Joint Research Centre compiles
-                      databases and develops software and modelling tools. You
-                      can access marine related ones here.
-                    </p>
-                  </article>
-                </div>
-              </div>
-
-              <div className="ecl-row">
-                <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="EU Open Data Portal"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Single point of access to open data produced by the EU
-                      institutions. All data free to use for commercial and
-                      non-commercial purposes.
-                    </p>
-                  </article>
-                </div>
-
-                <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="OpenAIRE"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      You can access all scientific publications from Horizon
-                      2020 via OpenAIRE.
-                    </p>
-                  </article>
-                </div>
-              </div>
-
-              <div className="ecl-row">
-                <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Copernicus"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Access to marine data from the Copernicus programme.
-                    </p>
-                  </article>
-                </div>
-
-                <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="iMarine"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Data e-Infrastructure initiative for fishieries management
-                      and conservation.
-                    </p>
-                  </article>
-                </div>
-              </div>
-
-              <div className="ecl-row">
-                <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Pangaea"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Data publisher for earth and environmental science.
-                    </p>
-                  </article>
-                </div>
-
-                <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="SeaDataNet"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Ocean and marine data management Infrastructure.
-                    </p>
-                  </article>
-                </div>
-              </div>
-
-              <div className="ecl-row">
-                <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="EMODnet"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Access to marine data in Europe.
-                    </p>
-                  </article>
-                </div>
-
-                <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Fisheries data collection"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Commission (JRC) data collection on fishieries.
-                    </p>
-                  </article>
-                </div>
-              </div>
-              <h2
-                className="ecl-u-type-heading-2 ecl-u-mb-l ecl-u-mt-lg-3xl ecl-u-type-color-black"
-                id="news"
-              >
-                News
-              </h2>
-
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-m">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">Press release</span> |{' '}
-                  <time dateTime="2019-10-17">25 September 2019</time>
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+              <UnorderedList className="ecl-u-mt-l">
+                <UnorderedListItem>
                   <Link
                     href="/example"
-                    variant="standalone"
-                    label="Commissioners Miguel Arias, Karmenu Vella and Carlos Moedas welcome the UN report on oceans and climate change"
-                  />
-                </div>
-              </article>
-
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">News</span> |{' '}
-                  <time dateTime="2019-10-17">19 September 2019</time>
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                    label="EU funded research projects with Cabo Verde partners"
+                  />{' '}
+                </UnorderedListItem>
+                <UnorderedListItem>
                   <Link
                     href="/example"
-                    variant="standalone"
-                    label="Ocean plastic lab returns to Brussels to tackle ocean pollution"
-                  />
-                </div>
-                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                  Back in Brussels from 19 to 30 September 2019, in the
-                  framework of the Research and Innovation Days organised by the
-                  European Commission
-                </p>
-              </article>
-              <Link
-                className="ecl-u-mt-l ecl-u-type-bold"
-                variant="standalone"
-                label="More news"
-                href="/example"
-                icon={{
-                  shape: 'ui--corner-arrow',
-                  size: 'xs',
-                  transform: 'rotate-90',
-                }}
-              />
+                    label="EU funded research projects on Atlantic Ocean"
+                  />{' '}
+                </UnorderedListItem>
+              </UnorderedList>
 
-              <h2
-                className="ecl-u-type-heading-2 ecl-u-mb-l ecl-u-mt-lg-3xl ecl-u-type-color-black"
-                id="contact"
-              >
-                Contact
-              </h2>
-
-              <div className="ecl-row ecl-u-mt-xs">
-                <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <h2>Research Enquiry Service</h2>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      You can contact the Research Enquiry Service to find out
-                      more about research in Europe, the EU&apos;s research and
-                      innovation funding programmes as well as calls for
-                      proposals and project funding.
-                    </p>
-                    <Link
-                      className="ecl-u-mt-l ecl-u-type-bold"
-                      variant="standalone"
-                      label="Ask a question"
-                      href="/example"
-                      icon={{
-                        shape: 'ui--corner-arrow',
-                        size: 'xs',
-                        transform: 'rotate-90',
-                      }}
-                    />
-                  </article>
-                </div>
-
-                <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <h2>National Contact Points (NCPs)</h2>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      The NCP network gives guidance and information on
-                      participating in Horizon 2020. NCPs are established in all
-                      EU countries and many non-EU countries.
-                    </p>
-                    <Link
-                      className="ecl-u-mt-l ecl-u-type-bold"
-                      variant="standalone"
-                      label="Find your national contact point"
-                      href="/example"
-                      icon={{
-                        shape: 'ui--corner-arrow',
-                        size: 'xs',
-                        transform: 'rotate-90',
-                      }}
-                    />
-                  </article>
-                </div>
-              </div>
-
-              <h2
-                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-l ecl-u-mb-m ecl-u-mb-none"
-                id="departments"
-              >
-                Related Commission departments
-              </h2>
-
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-m">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">
-                    Directorate-general | RTD
-                  </span>
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Research and Innovation"
-                  />
-                </div>
-              </article>
-
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-m">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">
-                    Directorate-general | JRC
-                  </span>
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Joint Research Centre"
-                  />
-                </div>
-              </article>
-
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-m">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">
-                    Directorate-general | MARE
-                  </span>
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Maritime Affairs and Fisheries"
-                  />
-                </div>
-              </article>
-
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-m">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">
-                    Directorate-general | ENV
-                  </span>
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Environment"
-                  />
-                </div>
-              </article>
-
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-m">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">
-                    Directorate-general | NEAR
-                  </span>
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="European Neighbourhood Policy and Enlargement Negotiations"
-                  />
-                </div>
-              </article>
-
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-m">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">
-                    Directorate-general | EEAS
-                  </span>
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="European External Action Service (EEAS)"
-                  />
-                </div>
-              </article>
-
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-m">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">
-                    Directorate-general | INEA
-                  </span>
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Innovation and Networks Executive Agency"
-                  />
-                </div>
-              </article>
-
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-m">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">
-                    Directorate-general | EASME
-                  </span>
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Executive Agency for Small and Medium-sized Enterprises"
-                  />
-                </div>
-              </article>
-
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-m">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">
-                    Directorate-general | REA
-                  </span>
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Research Executive Agency"
-                  />
-                </div>
-              </article>
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
+                The Galway and Belem Statements address the challenges put
+                forward in the EU Atlantic Strategy and its associated action
+                plan, and are recognised as a major achievements of both the
+                strategy and the action plan.
+              </p>
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
+                <Link href="/example" label="More information" /> about Atlantic
+                Ocean sea basin strategies.
+              </p>
 
               <SocialMediaShare
                 className="ecl-u-mv-3xl"

@@ -211,7 +211,11 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
 
               <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
                 Marine and aquatic research and innovation is part of the
-                EU&apos;s <a href="/example">bioeconomy strategy</a>.
+                EU&apos;s{' '}
+                <a className="ecl-link" href="/example">
+                  bioeconomy strategy
+                </a>
+                .
               </p>
 
               <h2
