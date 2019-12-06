@@ -39,7 +39,9 @@ export const MenuHarmonised = ({
             {toggleLabelClose}
           </div>
         </a>
-        <div className="ecl-menu-harmonised__site-name">{siteName}</div>
+        {siteName && (
+          <div className="ecl-menu-harmonised__site-name">{siteName}</div>
+        )}
         <ul className="ecl-menu-harmonised__list" data-ecl-menu-harmonised-list>
           {items.map(item => (
             <MenuHarmonisedItem {...item} key={item.label} />
