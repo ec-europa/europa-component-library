@@ -1,5 +1,41 @@
 # Changelog
 
+## 2.18.0 (2019-12-06)
+
+#### :rocket: New Feature
+
+- [#1442](https://github.com/ec-europa/europa-component-library/pull/1442) feat(content-types): add research areas - INNO-1994 ([@kalinchernev](https://github.com/kalinchernev))
+- [#1446](https://github.com/ec-europa/europa-component-library/pull/1446) feat(menu): add harmonised group2 + small fixes - INNO-1999 ([@emeryro](https://github.com/emeryro))
+- [#1440](https://github.com/ec-europa/europa-component-library/pull/1440) feat(department): add content type - INNO-1993 ([@emeryro](https://github.com/emeryro))
+- [#1430](https://github.com/ec-europa/europa-component-library/pull/1430) feat(menu): add component - INNO-1981 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#1438](https://github.com/ec-europa/europa-component-library/pull/1438) fix(ie11): fix js error - INNO-1988 ([@emeryro](https://github.com/emeryro))
+- [#1437](https://github.com/ec-europa/europa-component-library/pull/1437) fix(code-preview): unescape &nbsp - INNO-1756 ([@yhuard](https://github.com/yhuard))
+
+#### :nail_care: Enhancement
+
+- [#1443](https://github.com/ec-europa/europa-component-library/pull/1443) feat(language-list): Removing icon in EC and EU - INNO-2001 ([@planctus](https://github.com/planctus))
+- [#1441](https://github.com/ec-europa/europa-component-library/pull/1441) refactor(calls): split to 2 content types - INNO-1995 ([@kalinchernev](https://github.com/kalinchernev))
+- [#1439](https://github.com/ec-europa/europa-component-library/pull/1439) refactor(tags): add specs - INNO-1968 ([@emeryro](https://github.com/emeryro))
+
+#### :memo: Documentation
+
+- [#1447](https://github.com/ec-europa/europa-component-library/pull/1447) docs(site-header-harmonised): update doc - INNO-2000 ([@emeryro](https://github.com/emeryro))
+- [#1444](https://github.com/ec-europa/europa-component-library/pull/1444) docs(harmonised-group-2): Updates - INNO-1998 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#1436](https://github.com/ec-europa/europa-component-library/pull/1436) chore: setup internal redirects - INNO-1941 ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 4
+
+- Kalin Chernev ([@kalinchernev](https://github.com/kalinchernev))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- Yannick Huard ([@yhuard](https://github.com/yhuard))
+- [@planctus](https://github.com/planctus)
+
 ## 2.17.3 (2019-11-29)
 
 #### :bug: Bug Fix
