@@ -1,6 +1,6 @@
 /**
  * Menu Standardised component
- * @define menu-standardised; weak
+ * @define menu-standardised
  */
 
 // Import base
@@ -58,6 +58,7 @@
     align-items: center;
     display: flex;
     flex-direction: column;
+    margin-top: -0.1rem; // visually center the icon
   }
 
   .ecl-menu-standardised__toggle-close {
@@ -144,18 +145,21 @@
     display: flex;
     font: $ecl-font-m;
     font-weight: $ecl-font-weight-bold;
+    justify-content: space-between;
     padding-bottom: $ecl-spacing-s;
     padding-top: $ecl-spacing-s;
     position: relative;
+    text-decoration: none;
 
     &:hover,
     &:focus,
     &:active {
       color: $ecl-color-white;
+      text-decoration: underline;
     }
 
-    .ecl-link__label {
-      flex-grow: 1;
+    &:focus {
+      outline: 3px solid $ecl-color-yellow;
     }
   }
 
@@ -196,6 +200,7 @@
       align-items: center;
       border-bottom-width: 0;
       color: $ecl-color-white;
+      justify-content: flex-start;
       padding-bottom: $ecl-spacing-m;
       padding-left: $ecl-spacing-m;
       padding-right: $ecl-spacing-s;
@@ -227,6 +232,7 @@
 
     .ecl-menu-standardised__link-icon {
       height: $ecl-icon-2-xs;
+      margin-left: $ecl-spacing-xs;
       width: $ecl-icon-2-xs;
     }
   }
@@ -299,11 +305,17 @@
     padding-bottom: $ecl-spacing-s;
     padding-top: $ecl-spacing-s;
     position: relative;
+    text-decoration: none;
 
     &:hover,
     &:focus,
     &:active {
       color: $ecl-color-blue;
+      text-decoration: underline;
+    }
+
+    &:focus {
+      outline: 3px solid $ecl-color-yellow;
     }
   }
 

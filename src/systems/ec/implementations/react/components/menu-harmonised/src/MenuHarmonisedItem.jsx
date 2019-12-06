@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Link from '@ecl/ec-react-component-link';
+import Icon from '@ecl/ec-react-component-icon';
 
 export const MenuHarmonisedItem = ({ label, href, isCurrent, subItems }) => {
   const hasSubItems = subItems && subItems.length > 0;
@@ -15,23 +15,24 @@ export const MenuHarmonisedItem = ({ label, href, isCurrent, subItems }) => {
       data-ecl-has-children={hasSubItems ? 'true' : 'false'}
       data-ecl-menu-harmonised-item
     >
-      <Link
-        label={label}
+      <a
         href={href}
-        variant="standalone"
         className={classnames('ecl-menu-harmonised__link', {
           [`ecl-menu-harmonised__link--current`]: isCurrent,
         })}
         data-ecl-menu-harmonised-link
-        {...(hasSubItems && {
-          icon: {
-            shape: 'ui--corner-arrow',
-            size: 's',
-            transform: 'rotate-180',
-            className: 'ecl-menu-harmonised__link-icon',
-          },
-        })}
-      />
+      >
+        {label}
+
+        {hasSubItems && (
+          <Icon
+            shape="ui--corner-arrow"
+            size="xs"
+            transform="rotate-180"
+            className="ecl-menu-harmonised__link-icon"
+          />
+        )}
+      </a>
 
       {hasSubItems && (
         <div
@@ -46,14 +47,14 @@ export const MenuHarmonisedItem = ({ label, href, isCurrent, subItems }) => {
                 })}
                 key={subItem.label}
               >
-                <Link
-                  label={subItem.label}
+                <a
                   href={subItem.href}
-                  variant="standalone"
                   className={classnames('ecl-menu-harmonised__sublink', {
                     [`ecl-menu-harmonised__sublink--current`]: subItem.isCurrent,
                   })}
-                />
+                >
+                  {subItem.label}
+                </a>
               </li>
             ))}
           </ul>
