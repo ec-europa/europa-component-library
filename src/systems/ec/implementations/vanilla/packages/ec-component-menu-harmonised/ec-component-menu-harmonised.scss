@@ -363,6 +363,20 @@
       font-weight: $ecl-font-weight-bold;
     }
   }
+
+  /*
+   * Group 2
+   */
+  .ecl-menu-harmonised--group2 {
+    min-height: $ecl-line-height-2-xl;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up('lg') {
+    .ecl-menu-harmonised--group2 {
+      padding-top: 0;
+    }
+  }
 }
 
 @include exports('ec-component-menu-harmonised') {
