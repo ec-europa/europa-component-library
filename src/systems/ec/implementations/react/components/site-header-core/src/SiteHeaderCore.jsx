@@ -73,6 +73,7 @@ const SiteHeaderCore = ({
                     >
                       <Icon shape="general--logged-in" size="s" />
                       {loginToggle.labelLogged}
+                      <Icon shape="ui--corner-arrow" size="xs" />
                     </a>
 
                     <div

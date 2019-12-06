@@ -78,6 +78,12 @@
     }
   }
 
+  .ecl-site-header-core__login-toggle {
+    .ecl-icon--xs {
+      display: none;
+    }
+  }
+
   .ecl-site-header-core__login-box,
   .ecl-site-header-core__search {
     background-color: $ecl-color-blue-5;
@@ -209,6 +215,21 @@
         height: $ecl-icon-m;
         margin-right: $ecl-spacing-xs;
         width: $ecl-icon-m;
+      }
+    }
+
+    .ecl-site-header-core__login-toggle {
+      .ecl-icon--xs {
+        display: inline-block;
+        height: $ecl-icon-xs;
+        margin-left: $ecl-spacing-xs;
+        transform: rotate(0deg);
+        width: $ecl-icon-xs;
+      }
+      &[aria-expanded='false'] {
+        .ecl-icon--xs {
+          transform: rotate(180deg);
+        }
       }
     }
 
