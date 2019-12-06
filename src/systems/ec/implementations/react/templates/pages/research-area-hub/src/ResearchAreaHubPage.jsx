@@ -135,7 +135,7 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
       />
     )}
 
-    <div className="ecl-u-pv-3xl ecl-u-pv-lg-4xl">
+    <div className="ecl-u-pv-xl ecl-u-pv-lg-3xl">
       <div className="ecl-container ecl-u-type-m">
         <div className="ecl-row" data-ecl-inpage-navigation-container>
           <div className="ecl-col-12 ecl-col-lg-3">
@@ -992,9 +992,9 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
               <div className="ecl-row ecl-u-mt-l">
                 <div className="ecl-col-12 ecl-col-md-6">
                   <article className="ecl-u-height-100 ecl-u-box-sizing-border">
-                    <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mv-none">
+                    <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mv-none">
                       Research Enquiry Service
-                    </h2>
+                    </h3>
 
                     <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-m ecl-u-mb-none">
                       You can contact the Research Enquiry Service to find out
@@ -1019,9 +1019,9 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
 
                 <div className="ecl-col-12 ecl-col-md-6">
                   <article className="ecl-u-height-100 ecl-u-box-sizing-border">
-                    <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mv-none">
+                    <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mv-none">
                       National Contact Points (NCPs)
-                    </h2>
+                    </h3>
 
                     <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-m ecl-u-mb-none">
                       The NCP network gives guidance and information on
@@ -1045,7 +1045,7 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
               </div>
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-mb-none ecl-u-mt-l ecl-u-type-color-black"
+                className="ecl-u-type-heading-2 ecl-u-mb-none ecl-u-mt-lg-3xl ecl-u-type-color-black"
                 id="departments"
               >
                 Related Commission departments
@@ -1187,7 +1187,7 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
               </article>
 
               <SocialMediaShare
-                className="ecl-u-mv-3xl"
+                className="ecl-u-mt-xl ecl-u-mt-lg-3xl"
                 description="Share this page"
                 links={[
                   {

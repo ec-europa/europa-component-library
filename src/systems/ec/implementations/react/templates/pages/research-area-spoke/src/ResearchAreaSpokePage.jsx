@@ -135,7 +135,7 @@ const ResearchAreaSpokePage = ({ siteHeader, footer, template }) => (
       />
     )}
 
-    <div className="ecl-u-pv-3xl ecl-u-pv-lg-4xl">
+    <div className="ecl-u-pv-xl ecl-u-pv-lg-3xl">
       <div className="ecl-container ecl-u-type-m">
         <div className="ecl-row" data-ecl-inpage-navigation-container>
           <div className="ecl-col-12 ecl-col-lg-3">
@@ -167,12 +167,12 @@ const ResearchAreaSpokePage = ({ siteHeader, footer, template }) => (
 
           <div className="ecl-col-12 ecl-col-lg-9">
             <main>
-              <h2
-                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mv-none"
+              <h3
+                className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mv-none"
                 id="what"
               >
                 What the Integrated Maritime policy is
-              </h2>
+              </h3>
 
               <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-l">
                 The <Link href="/example" label="Integrated Maritime Policy" />{' '}
@@ -279,7 +279,7 @@ const ResearchAreaSpokePage = ({ siteHeader, footer, template }) => (
               </p>
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-l ecl-u-mb-none"
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-lg-3xl ecl-u-mb-none"
                 id="integrated-maritime-surveillance"
               >
                 Integrated maritime surveillance
@@ -387,7 +387,7 @@ const ResearchAreaSpokePage = ({ siteHeader, footer, template }) => (
               </p>
 
               <SocialMediaShare
-                className="ecl-u-mv-3xl"
+                className="ecl-u-mt-xl ecl-u-mt-lg-3xl"
                 description="Share this page"
                 links={[
                   {
