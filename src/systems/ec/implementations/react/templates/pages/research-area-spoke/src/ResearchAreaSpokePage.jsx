@@ -168,13 +168,13 @@ const ResearchAreaSpokePage = ({ siteHeader, footer, template }) => (
           <div className="ecl-col-12 ecl-col-lg-9">
             <main>
               <h2
-                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l"
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mv-none"
                 id="what"
               >
                 What the Integrated Maritime policy is
               </h2>
 
-              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-none">
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-l">
                 The <Link href="/example" label="Integrated Maritime Policy" />{' '}
                 seeks to provide a more coherent approach to maritime issue,
                 which increased coordination between different policy areas.
@@ -188,116 +188,126 @@ const ResearchAreaSpokePage = ({ siteHeader, footer, template }) => (
               </p>
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-mb-l ecl-u-mt-lg-3xl ecl-u-type-color-black"
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-lg-3xl ecl-u-mb-none"
                 id="blue-growth"
               >
                 Blue growth
               </h2>
 
-              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-none">
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-l">
                 The policy is the marine and maritime contribution to achieving
                 the <Link href="/example" label="Europe 2020 strategy" /> for
                 smart, sustainable and inclusive growth.
               </p>
 
-              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
                 Related to this is the Commission communication:{' '}
                 <Link
                   href="/example"
                   variant="external"
                   label="Innovation in the Blue Economy: realising the potential of our
                   seas and oceans for jobs and growth"
+                  icon={{ shape: 'ui--external', size: 'xs' }}
                 />
-                .
               </p>
 
-              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
                 <Link href="/example" label="Horizon 2020" /> has Blue Growth
                 calls for proposal dedicated to implementing the strategy.
               </p>
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-mb-l ecl-u-mt-lg-3xl ecl-u-type-color-black"
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-lg-3xl ecl-u-mb-none"
                 id="maritime-spatial-planning"
               >
                 Maritime spatial planning
               </h2>
 
-              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-none">
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-l">
                 There is an increasing demand for physical space for new
                 maritime activities ranging from renewable energy to aquaculture
                 installations.
               </p>
 
-              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
                 Coherent planning and scientific knowledge are needed to support
                 the development of stratetic plans for regulation, zoning,
                 management, protection of the marine environment.
               </p>
 
-              <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black">
+              <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mt-l ecl-u-mb-none">
                 Some examples
               </h3>
 
-              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-none">
-                <UnorderedList className="ecl-u-mt-l ecl-u-type-color-black">
-                  <UnorderedListItem>
-                    the interaction between aquaculture and the marine
-                    environment and the resulting competition for space has been
-                    addressed in the{' '}
-                    <Link href="/example" variant="external" label="COEXIST" />{' '}
-                    project
-                  </UnorderedListItem>
-                  <UnorderedListItem>
-                    similarly, the{' '}
-                    <Link href="/example" variant="external" label="PERSEUS" />{' '}
-                    project helped to foster and strengthen cooperation and
-                    paved the way to advance the work with international
-                    partners in the Mediterranean, with the{' '}
-                    <Link
-                      href="/example"
-                      variant="external"
-                      label="BLUEMED initiative"
-                    />
-                    , and also the Black Sea.
-                  </UnorderedListItem>
-                </UnorderedList>
-              </p>
+              <UnorderedList className="ecl-u-mt-m ecl-u-mb-none ecl-u-type-color-black">
+                <UnorderedListItem>
+                  the interaction between aquaculture and the marine environment
+                  and the resulting competition for space has been addressed in
+                  the{' '}
+                  <Link
+                    href="/example"
+                    variant="external"
+                    label="COEXIST"
+                    icon={{ shape: 'ui--external', size: 'xs' }}
+                  />{' '}
+                  project
+                </UnorderedListItem>
+                <UnorderedListItem>
+                  similarly, the{' '}
+                  <Link
+                    href="/example"
+                    variant="external"
+                    label="PERSEUS"
+                    icon={{ shape: 'ui--external', size: 'xs' }}
+                  />{' '}
+                  project helped to foster and strengthen cooperation and paved
+                  the way to advance the work with international partners in the
+                  Mediterranean, with the{' '}
+                  <Link
+                    href="/example"
+                    variant="external"
+                    label="BLUEMED initiative"
+                    icon={{ shape: 'ui--external', size: 'xs' }}
+                  />
+                  , and also the Black Sea.
+                </UnorderedListItem>
+              </UnorderedList>
 
-              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
                 Read more about{' '}
                 <Link href="/example" label="maritime spatial planning" />.
               </p>
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-mb-l ecl-u-mt-lg-3xl ecl-u-type-color-black"
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-l ecl-u-mb-none"
                 id="integrated-maritime-surveillance"
               >
                 Integrated maritime surveillance
               </h2>
 
-              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-none">
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
                 Integrated maritime surveillance provides authorities interested
                 or active in maritime surveillance with ways to exchange
                 information and data. Sharing data makes surveillance cheaper
                 and more effective.
               </p>
 
-              <h2 className="ecl-u-type-heading-2 ecl-u-mb-l ecl-u-mt-lg-3xl ecl-u-type-color-black">
+              <h2 className="ecl-u-type-heading-2 ecl-u-mt-l ecl-u-mb-none ecl-u-type-color-black">
                 Atlantic Ocean
               </h2>
 
-              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-none">
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
                 The EU pursued the implementation of activities under the{' '}
                 <Link
                   href="/example"
                   variant="external"
                   label="All Atlantic Ocean Research Alliance"
+                  icon={{ shape: 'ui--external', size: 'xs' }}
                 />{' '}
                 with the
               </p>
 
-              <UnorderedList className="ecl-u-mt-l ecl-u-type-color-black">
+              <UnorderedList className="ecl-u-mt-m ecl-u-mb-none ecl-u-type-color-black">
                 <UnorderedListItem>
                   signing of the EU-USA-Canada{' '}
                   <Link href="/example" label="Galway Statement" /> on Atlantic
@@ -310,22 +320,24 @@ const ResearchAreaSpokePage = ({ siteHeader, footer, template }) => (
                 </UnorderedListItem>
               </UnorderedList>
 
-              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
                 There are now over 500 international research teams working
                 together towards a healthy, productive, secure and resilient
                 Atlantic Ocean.
               </p>
-              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
+
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
                 There are also wide-ranging cooperation agreements with other
                 countries.
               </p>
 
-              <UnorderedList className="ecl-u-mt-l ecl-u-type-color-black">
+              <UnorderedList className="ecl-u-mt-m ecl-u-mb-none ecl-u-type-color-black">
                 <UnorderedListItem>
                   <Link
                     variant="external"
                     href="/example"
                     label="European Commission and Argentina"
+                    icon={{ shape: 'ui--external', size: 'xs' }}
                   />{' '}
                   signed administrative agreement in marine research and
                   innovation cooperation.
@@ -335,18 +347,19 @@ const ResearchAreaSpokePage = ({ siteHeader, footer, template }) => (
                     variant="external"
                     href="/example"
                     label="European Commission and Cabo Verde"
+                    icon={{ shape: 'ui--external', size: 'xs' }}
                   />{' '}
                   signed administrative agreement in marine research and
                   innovation cooperation.
                 </UnorderedListItem>
               </UnorderedList>
 
-              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
                 The ambition is to have more than 1,000 research teams funded by
                 Horizon 2020 working in Antractica to the Arctic by 2020.
               </p>
 
-              <UnorderedList className="ecl-u-mt-l">
+              <UnorderedList className="ecl-u-mt-m ecl-u-mb-none">
                 <UnorderedListItem>
                   <Link
                     href="/example"
@@ -361,13 +374,14 @@ const ResearchAreaSpokePage = ({ siteHeader, footer, template }) => (
                 </UnorderedListItem>
               </UnorderedList>
 
-              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
                 The Galway and Belem Statements address the challenges put
                 forward in the EU Atlantic Strategy and its associated action
                 plan, and are recognised as a major achievements of both the
                 strategy and the action plan.
               </p>
-              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
+
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
                 <Link href="/example" label="More information" /> about Atlantic
                 Ocean sea basin strategies.
               </p>
