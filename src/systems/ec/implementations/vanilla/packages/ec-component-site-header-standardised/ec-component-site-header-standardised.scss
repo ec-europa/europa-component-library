@@ -77,7 +77,7 @@
   }
 
   .ecl-site-header-standardised__login-toggle {
-    .ecl-icon--xs {
+    .ecl-site-header-standardised__login-icon {
       display: none;
     }
   }
@@ -227,7 +227,7 @@
     }
 
     .ecl-site-header-standardised__login-toggle {
-      .ecl-icon--xs {
+      .ecl-site-header-standardised__login-icon {
         display: inline-block;
         height: $ecl-icon-xs;
         margin-left: $ecl-spacing-xs;
@@ -235,7 +235,7 @@
         width: $ecl-icon-xs;
       }
       &[aria-expanded='false'] {
-        .ecl-icon--xs {
+        .ecl-site-header-standardised__login-icon {
           transform: rotate(180deg);
         }
       }

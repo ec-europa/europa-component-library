@@ -77,7 +77,11 @@ const SiteHeaderHarmonised = ({
                     >
                       <Icon shape="general--logged-in" size="s" />
                       {loginToggle.labelLogged}
-                      <Icon shape="ui--corner-arrow" size="xs" />
+                      <Icon
+                        shape="ui--corner-arrow"
+                        size="xs"
+                        className="ecl-site-header-harmonised__login-icon"
+                      />
                     </a>
 
                     <div
