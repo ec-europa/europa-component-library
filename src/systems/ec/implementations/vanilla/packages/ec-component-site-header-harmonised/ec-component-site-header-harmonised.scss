@@ -220,20 +220,16 @@
 
     .ecl-site-header-harmonised__login-toggle,
     .ecl-site-header-harmonised__language-icon {
-      .ecl-icon {
-        height: $ecl-icon-m;
+      .ecl-icon--m {
         margin-right: $ecl-spacing-xs;
-        width: $ecl-icon-m;
       }
     }
 
     .ecl-site-header-harmonised__login-toggle {
       .ecl-site-header-harmonised__login-icon {
         display: inline-block;
-        height: $ecl-icon-xs;
         margin-left: $ecl-spacing-xs;
         transform: rotate(0);
-        width: $ecl-icon-xs;
       }
       &[aria-expanded='false'] {
         .ecl-site-header-harmonised__login-icon {

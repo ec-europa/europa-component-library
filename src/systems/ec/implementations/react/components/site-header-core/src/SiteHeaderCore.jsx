@@ -71,7 +71,7 @@ const SiteHeaderCore = ({
                       aria-controls={loginBox.id}
                       aria-expanded="false"
                     >
-                      <Icon shape="general--logged-in" size="s" />
+                      <Icon shape="general--logged-in" size="m" />
                       {loginToggle.labelLogged}
                       <Icon
                         shape="ui--corner-arrow"
@@ -125,7 +125,7 @@ const SiteHeaderCore = ({
                 })}
               >
                 <span className="ecl-site-header-core__language-icon">
-                  <Icon shape="general--language" size="s" />
+                  <Icon shape="general--language" size="m" />
                   <span className="ecl-site-header-core__language-code">
                     {languageSelector.code}
                   </span>
