@@ -40,7 +40,13 @@ const SiteHeaderStandardised = ({
   const hasLanguageOverlay = !!(languageSelector && languageSelector.overlay);
 
   return (
-    <header {...props} className={classNames}>
+    <header
+      {...props}
+      className={classNames}
+      {...(!!(menu && Object.keys(menu).length >= 1) && {
+        'data-ecl-has-menu': true,
+      })}
+    >
       <div className="ecl-site-header-standardised__container ecl-container">
         <div className="ecl-site-header-standardised__top">
           <a
