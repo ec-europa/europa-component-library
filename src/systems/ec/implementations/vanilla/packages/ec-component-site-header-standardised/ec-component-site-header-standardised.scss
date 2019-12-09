@@ -77,7 +77,7 @@
   }
 
   .ecl-site-header-standardised__login-toggle {
-    .ecl-site-header-standardised__login-icon {
+    .ecl-site-header-standardised__login-arrow {
       display: none;
     }
   }
@@ -219,19 +219,23 @@
 
     .ecl-site-header-standardised__login-toggle,
     .ecl-site-header-standardised__language-icon {
-      .ecl-icon--m {
+      .ecl-site-header-standardised__icon {
+        height: $ecl-icon-m;
         margin-right: $ecl-spacing-xs;
+        width: $ecl-icon-m;
       }
     }
 
     .ecl-site-header-standardised__login-toggle {
-      .ecl-site-header-standardised__login-icon {
-        display: inline-block;
+      .ecl-site-header-standardised__login-arrow {
+        display: block;
+        height: $ecl-icon-xs;
         margin-left: $ecl-spacing-xs;
         transform: rotate(0);
+        width: $ecl-icon-xs;
       }
       &[aria-expanded='false'] {
-        .ecl-site-header-standardised__login-icon {
+        .ecl-site-header-standardised__login-arrow {
           transform: rotate(180deg);
         }
       }
@@ -246,6 +250,7 @@
 
     .ecl-site-header-standardised__search-container {
       flex-grow: 1;
+      margin-left: $ecl-spacing-s;
     }
 
     .ecl-site-header-standardised__search-toggle {
