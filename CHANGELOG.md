@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.15.0 (2019-12-09)
+
+#### :nail_care: Enhancement
+
+- [#1368](https://github.com/ec-europa/europa-component-library/pull/1368) feat: Escape attributes values in Ecl Twig v1. ([@LOBsTerr](https://github.com/LOBsTerr))
+
+#### Committers: 1
+
+- Nikolay Lobachev ([LOBsTerr](https://github.com/LOBsTerr))
+
 ## 1.14.0 (2019-10-25)
 
 #### :rocket: New Feature
