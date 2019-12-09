@@ -4,6 +4,7 @@ import classnames from 'classnames';
 
 import Icon from '@ecl/ec-react-component-icon';
 import Link from '@ecl/ec-react-component-link';
+import MenuHarmonised from '@ecl/ec-react-component-menu-harmonised';
 import SearchForm from '@ecl/ec-react-component-search-form';
 import { LanguageListOverlay } from '@ecl/ec-react-component-language-list';
 
@@ -16,7 +17,7 @@ const SiteHeaderHarmonised = ({
   searchToggle,
   searchForm,
   bannerTop,
-  banner,
+  banner, // used if there is no menu
   menu,
   className,
   ...props
@@ -39,7 +40,13 @@ const SiteHeaderHarmonised = ({
   const hasLanguageOverlay = !!(languageSelector && languageSelector.overlay);
 
   return (
-    <header {...props} className={classNames}>
+    <header
+      {...props}
+      className={classNames}
+      {...(!!(menu && Object.keys(menu).length >= 1) && {
+        'data-ecl-has-menu': true,
+      })}
+    >
       <div className="ecl-site-header-harmonised__container ecl-container">
         <div className="ecl-site-header-harmonised__top">
           <a
@@ -61,7 +68,7 @@ const SiteHeaderHarmonised = ({
           <div className="ecl-site-header-harmonised__action">
             {!!(
               loginToggle &&
-              Object.values(loginToggle).length >= 1 &&
+              Object.keys(loginToggle).length >= 1 &&
               loginBox
             ) && (
               <div className="ecl-site-header-harmonised__login-container">
@@ -83,10 +90,14 @@ const SiteHeaderHarmonised = ({
                       className="ecl-site-header-harmonised__login-box"
                       data-ecl-login-box
                     >
-                      <p className="ecl-site-header-harmonised__login-description">
-                        {loginBox.description}
-                      </p>
-                      <hr className="ecl-site-header-harmonised__login-separator" />
+                      {loginBox.description && (
+                        <Fragment>
+                          <p className="ecl-site-header-harmonised__login-description">
+                            {loginBox.description}
+                          </p>
+                          <hr className="ecl-site-header-harmonised__login-separator" />
+                        </Fragment>
+                      )}
                       <Link
                         label={loginBox.label}
                         href={loginBox.href}
@@ -107,7 +118,7 @@ const SiteHeaderHarmonised = ({
               </div>
             )}
             {!!(
-              languageSelector && Object.values(languageSelector).length >= 1
+              languageSelector && Object.keys(languageSelector).length >= 1
             ) && (
               <a
                 className="ecl-link ecl-link--standalone ecl-site-header-harmonised__language-selector"
@@ -129,7 +140,7 @@ const SiteHeaderHarmonised = ({
             )}
             {!!(
               searchToggle &&
-              Object.values(searchToggle).length >= 1 &&
+              Object.keys(searchToggle).length >= 1 &&
               searchForm
             ) && (
               <div className="ecl-site-header-harmonised__search-container">
@@ -162,119 +173,17 @@ const SiteHeaderHarmonised = ({
             </div>
           )}
           {!!(typeof bannerTop === 'string') && (
-            <div className="ecl-container">Hello</div>
+            <div className="ecl-container">{bannerTop}</div>
           )}
         </div>
       )}
       {banner && (
         <div className="ecl-site-header-harmonised__banner">
-          <div className="ecl-container">
-            {menu && (
-              <a
-                className="ecl-link ecl-link--standalone ecl-site-header-harmonised__menu-toggle"
-                href="/example"
-              >
-                <Icon shape="general--hamburger" size="s" />
-                Menu
-              </a>
-            )}
-            {banner}
-          </div>
+          <div className="ecl-container">{banner}</div>
         </div>
       )}
-      {menu && (
-        <div className="ecl-site-header-harmonised__menu">
-          <div className="ecl-container">
-            <ul className="ecl-site-header-harmonised__menu-list">
-              <li className="ecl-site-header-harmonised__menu-item">
-                <Link
-                  href="/example"
-                  label="Home"
-                  className="ecl-site-header-harmonised__menu-link"
-                  variant="standalone"
-                />
-              </li>
-              <li className="ecl-site-header-harmonised__menu-item">
-                <Link
-                  href="/example"
-                  label="Item 1"
-                  className="ecl-site-header-harmonised__menu-link ecl-site-header-harmonised__menu-link--active"
-                  variant="standalone"
-                  icon={{
-                    shape: 'ui--corner-arrow',
-                    size: '2xs',
-                    transform: 'rotate-180',
-                  }}
-                />
-              </li>
-              <li className="ecl-site-header-harmonised__menu-item">
-                <Link
-                  href="/example"
-                  label="Item 2"
-                  className="ecl-site-header-harmonised__menu-link"
-                  variant="standalone"
-                  icon={{
-                    shape: 'ui--corner-arrow',
-                    size: '2xs',
-                    transform: 'rotate-180',
-                  }}
-                />
-              </li>
-              <li className="ecl-site-header-harmonised__menu-item">
-                <Link
-                  href="/example"
-                  label="Item 3"
-                  className="ecl-site-header-harmonised__menu-link"
-                  variant="standalone"
-                  icon={{
-                    shape: 'ui--corner-arrow',
-                    size: '2xs',
-                    transform: 'rotate-180',
-                  }}
-                />
-              </li>
-              <li className="ecl-site-header-harmonised__menu-item">
-                <Link
-                  href="/example"
-                  label="Item 4"
-                  className="ecl-site-header-harmonised__menu-link"
-                  variant="standalone"
-                  icon={{
-                    shape: 'ui--corner-arrow',
-                    size: '2xs',
-                    transform: 'rotate-180',
-                  }}
-                />
-              </li>
-              <li className="ecl-site-header-harmonised__menu-item">
-                <Link
-                  href="/example"
-                  label="Item 5"
-                  className="ecl-site-header-harmonised__menu-link"
-                  variant="standalone"
-                  icon={{
-                    shape: 'ui--corner-arrow',
-                    size: '2xs',
-                    transform: 'rotate-180',
-                  }}
-                />
-              </li>
-              <li className="ecl-site-header-harmonised__menu-item">
-                <Link
-                  href="/example"
-                  label="Item 6"
-                  className="ecl-site-header-harmonised__menu-link"
-                  variant="standalone"
-                  icon={{
-                    shape: 'ui--corner-arrow',
-                    size: '2xs',
-                    transform: 'rotate-180',
-                  }}
-                />
-              </li>
-            </ul>
-          </div>
-        </div>
+      {!!(menu && Object.keys(menu).length >= 1) && (
+        <MenuHarmonised {...menu} />
       )}
       {hasLanguageOverlay && (
         <LanguageListOverlay
@@ -329,7 +238,7 @@ SiteHeaderHarmonised.propTypes = {
     PropTypes.shape(Link.propTypes),
   ]),
   banner: PropTypes.string,
-  menu: PropTypes.bool,
+  menu: PropTypes.shape(MenuHarmonised.propTypes),
   className: PropTypes.string,
 };
 
@@ -348,7 +257,7 @@ SiteHeaderHarmonised.defaultProps = {
   searchForm: {},
   bannerTop: '',
   banner: '',
-  menu: false,
+  menu: {},
   className: '',
 };
 

@@ -89,6 +89,15 @@
   .ecl-text-input--invalid {
     border-color: $ecl-color-error;
     box-shadow: none;
+
+    &:hover {
+      outline-color: $ecl-color-red-130;
+    }
+
+    &:active,
+    &:focus {
+      outline-color: $ecl-color-yellow-100;
+    }
   }
 }
 

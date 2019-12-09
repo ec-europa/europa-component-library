@@ -90,6 +90,13 @@
       margin-top: $ecl-spacing-xs;
     }
   }
+
+  .ecl-checkbox--invalid
+    .ecl-checkbox__label:hover
+    .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
+    border-color: $ecl-color-red-130;
+  }
+
   // Required
   .ecl-checkbox__required {
     color: $ecl-color-error;
@@ -98,6 +105,7 @@
     padding-left: $ecl-spacing-2-xs;
   }
   // Checked
+  // stylelint-disable no-descending-specificity
   .ecl-checkbox__input:checked {
     + .ecl-checkbox__label .ecl-checkbox__box {
       background: $box-background-checked;

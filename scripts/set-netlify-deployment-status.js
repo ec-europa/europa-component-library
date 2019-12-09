@@ -1,15 +1,24 @@
 #!/usr/bin/env node
 
-const path = require('path');
 const fetch = require('node-fetch');
 
 const run = async () => {
+  const NETLIFY_API = 'https://api.netlify.com/api/v1';
+
   const {
     GH_TOKEN,
+    DRONE_BUILD_NUMBER,
     DRONE_REPO,
     DRONE_COMMIT_SHA,
     DRONE_BUILD_LINK,
+    NETLIFY_SITE_ID,
+    NETLIFY_AUTH_TOKEN,
   } = process.env;
+
+  if (!DRONE_BUILD_NUMBER) {
+    console.info('Missing information about build number.');
+    return;
+  }
 
   if (!GH_TOKEN) {
     console.info("Won't be able to communicate Netlify deployment to Github.");
@@ -31,15 +40,43 @@ const run = async () => {
   let payload = {};
 
   try {
-    // eslint-disable-next-line global-require, import/no-dynamic-require
-    const deploymentResult = require(path.resolve(
-      __dirname,
-      '../netlify_deployment_result.json'
-    ));
+    const deploymentsResponse = await fetch(
+      `${NETLIFY_API}/sites/${NETLIFY_SITE_ID}/deploys`,
+      {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          'Accept-Charset': 'utf-8',
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${NETLIFY_AUTH_TOKEN}`,
+        },
+      }
+    );
+
+    const deployments = await deploymentsResponse.json();
+
+    const currentDeployment = deployments.find(
+      deployment => deployment.title === `Drone build: ${DRONE_BUILD_NUMBER}`
+    );
+
+    const siteDeploymentResponse = await fetch(
+      `${NETLIFY_API}/sites/${NETLIFY_SITE_ID}/deploys/${currentDeployment.id}`,
+      {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          'Accept-Charset': 'utf-8',
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${NETLIFY_AUTH_TOKEN}`,
+        },
+      }
+    );
+
+    const siteDeployment = await siteDeploymentResponse.json();
 
     payload = {
       state: 'success',
-      target_url: deploymentResult.deploy_url,
+      target_url: siteDeployment.deploy_ssl_url,
       description: 'Preview ready!',
       context: 'drone/netlify',
     };
@@ -66,6 +103,8 @@ const run = async () => {
       body: JSON.stringify(payload),
     }
   );
+
+  console.log('Status on pull request successfully updated!');
 };
 
 try {

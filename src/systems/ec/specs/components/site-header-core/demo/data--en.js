@@ -5,6 +5,18 @@ module.exports = {
     href: '/example',
     language: 'en',
   },
+  loginToggle: {
+    labelNotLogged: 'Log in',
+    hrefNotLogged: '/example',
+    labelLogged: 'Logged in',
+    hrefLogged: '/example',
+  },
+  loginBox: {
+    id: 'login-box-id',
+    description: 'Logged in as <last name>, <first name>',
+    label: 'Log out',
+    href: '/example',
+  },
   languageSelector: {
     href: '/example',
     label: 'English',

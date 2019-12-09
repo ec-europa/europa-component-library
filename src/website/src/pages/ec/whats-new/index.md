@@ -9,6 +9,70 @@ Users can still go to ECL v1 to create or upgrade their websites. In 2019, we wi
 
 We will also add new components to the ECL v2 as we continue improving the look and feel of the existing components. New releases under v2 should be published periodically under [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 2.18.0 (2019-12-06)
+
+#### :rocket: New Feature
+
+- [#1442](https://github.com/ec-europa/europa-component-library/pull/1442) feat(content-types): add research areas - INNO-1994
+- [#1446](https://github.com/ec-europa/europa-component-library/pull/1446) feat(menu): add harmonised group2 + small fixes - INNO-1999
+- [#1440](https://github.com/ec-europa/europa-component-library/pull/1440) feat(department): add content type - INNO-1993
+- [#1430](https://github.com/ec-europa/europa-component-library/pull/1430) feat(menu): add component - INNO-1981
+
+#### :bug: Bug Fix
+
+- [#1438](https://github.com/ec-europa/europa-component-library/pull/1438) fix(ie11): fix js error - INNO-1988
+- [#1437](https://github.com/ec-europa/europa-component-library/pull/1437) fix(code-preview): unescape &nbsp - INNO-1756
+
+#### :nail_care: Enhancement
+
+- [#1443](https://github.com/ec-europa/europa-component-library/pull/1443) feat(language-list): Removing icon in EC and EU - INNO-2001
+- [#1441](https://github.com/ec-europa/europa-component-library/pull/1441) refactor(calls): split to 2 content types - INNO-1995
+- [#1439](https://github.com/ec-europa/europa-component-library/pull/1439) refactor(tags): add specs - INNO-1968
+
+#### :memo: Documentation
+
+- [#1447](https://github.com/ec-europa/europa-component-library/pull/1447) docs(site-header-harmonised): update doc - INNO-2000
+- [#1444](https://github.com/ec-europa/europa-component-library/pull/1444) docs(harmonised-group-2): Updates - INNO-1998
+
+#### :house: Internal
+
+- [#1436](https://github.com/ec-europa/europa-component-library/pull/1436) chore: setup internal redirects - INNO-1941
+
+## 2.17.3 (2019-11-29)
+
+#### :bug: Bug Fix
+
+- [#1433](https://github.com/ec-europa/europa-component-library/pull/1433) fix(site-headers): fix logo size on IE11
+
+## 2.17.2 (2019-11-28)
+
+Re-publish 2.17.0
+
+## 2.17.1 (2019-11-28)
+
+Re-publish 2.17.0
+
+## 2.17.0 (2019-11-28)
+
+#### :rocket: New Feature
+
+- [#1421](https://github.com/ec-europa/europa-component-library/pull/1421) feat(site-header-core): add login - INNO-1970
+
+#### :bug: Bug Fix
+
+- [#1422](https://github.com/ec-europa/europa-component-library/pull/1422) fix(site-header): fix spacing - INNO-1971
+
+#### :nail_care: Enhancement
+
+- [#1431](https://github.com/ec-europa/europa-component-library/pull/1431) feat(form-errors): add new colour on hover - INNO-1983
+- [#1429](https://github.com/ec-europa/europa-component-library/pull/1429) fix(site-header-harmonised): update logo size and position - INNO-1980
+- [#1425](https://github.com/ec-europa/europa-component-library/pull/1425) fix(content-types): fix for global rules - INNO-1954
+
+#### :house: Internal
+
+- [#1423](https://github.com/ec-europa/europa-component-library/pull/1423) refactor(drone): preview - INNO-1975
+- [#1424](https://github.com/ec-europa/europa-component-library/pull/1424) chore(ci): use fetch --depth arg
+
 ## 2.16.0 (2019-11-21)
 
 #### :rocket: New Feature

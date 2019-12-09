@@ -11,8 +11,13 @@
 
 @mixin ecl-site-header-standardised(
   $logo-height-xs: 1.75rem,
-  $logo-height-s: 3rem,
-  $logo-height-m: 3.75rem
+  $logo-width-xs: 7rem,
+  $logo-height-sm: 3rem,
+  $logo-width-sm: 12.1rem,
+  $logo-height-lg: 3.75rem,
+  $logo-width-lg: 15.1rem,
+  $search-width-l: 25rem,
+  $search-width-xl: 31.5rem
 ) {
   .ecl-site-header-standardised {
     background-color: $ecl-color-white-100;
@@ -40,7 +45,7 @@
   .ecl-site-header-standardised__logo-image {
     display: block;
     max-height: $logo-height-xs;
-    max-width: 10.1rem; // hack to allow logo to be resized dynamically
+    max-width: $logo-width-xs; // hack to allow logo to be resized dynamically
   }
 
   .ecl-site-header-standardised__action {
@@ -150,30 +155,6 @@
     padding: $ecl-spacing-m 0;
   }
 
-  /* Temporary menu */
-  .ecl-site-header-standardised__menu {
-    display: none;
-  }
-
-  .ecl-site-header-standardised__menu-toggle {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    float: right;
-    font: $ecl-font-xs;
-    margin-top: -$ecl-spacing-xs;
-    padding: $ecl-spacing-xs;
-    text-align: center;
-  }
-
-  .ecl-site-header-standardised__menu-toggle,
-  .ecl-site-header-standardised__menu-toggle:hover,
-  .ecl-site-header-standardised__menu-toggle:focus,
-  .ecl-site-header-standardised__menu-toggle:active,
-  .ecl-site-header-standardised__menu-toggle:visited {
-    color: $ecl-color-white;
-  }
-
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up(sm) {
     .ecl-site-header-standardised__logo-link {
@@ -181,9 +162,10 @@
     }
 
     .ecl-site-header-standardised__logo-image {
-      height: $logo-height-s;
+      height: $logo-height-sm;
       max-height: 100%;
       max-width: 100%;
+      width: $logo-width-sm;
     }
   }
 
@@ -204,7 +186,8 @@
     }
 
     .ecl-site-header-standardised__logo-image {
-      height: $logo-height-m;
+      height: $logo-height-lg;
+      width: $logo-width-lg;
     }
 
     .ecl-site-header-standardised__login-box {
@@ -261,7 +244,7 @@
       padding: 0;
       position: relative;
       top: 0;
-      width: 25rem;
+      width: $search-width-l;
     }
 
     .ecl-site-header-standardised__banner-top,
@@ -279,54 +262,11 @@
       padding-bottom: $ecl-spacing-l;
       padding-top: $ecl-spacing-l;
     }
-
-    /* Temporary menu */
-    .ecl-site-header-standardised__menu-toggle {
-      display: none;
-    }
-
-    .ecl-site-header-standardised__menu {
-      background-color: $ecl-color-blue;
-      color: $ecl-color-white;
-      display: block;
-    }
-
-    .ecl-site-header-standardised__menu-list {
-      align-items: baseline;
-      display: flex;
-      list-style: none;
-      margin: 0;
-      padding-left: 0;
-    }
-
-    .ecl-site-header-standardised__menu-link {
-      font: $ecl-font-s;
-      font-weight: $ecl-font-weight-bold;
-      padding: $ecl-spacing-m $ecl-spacing-s $ecl-spacing-m $ecl-spacing-m;
-    }
-
-    .ecl-site-header-standardised__menu-link,
-    .ecl-site-header-standardised__menu-link:hover,
-    .ecl-site-header-standardised__menu-link:focus,
-    .ecl-site-header-standardised__menu-link:active,
-    .ecl-site-header-standardised__menu-link:visited {
-      color: $ecl-color-white;
-    }
-
-    .ecl-site-header-standardised__menu-item:first-of-type {
-      .ecl-site-header-standardised__menu-link {
-        padding-right: $ecl-spacing-m;
-      }
-    }
-
-    .ecl-site-header-standardised__menu-link--active {
-      background-color: $ecl-color-blue-120;
-    }
   }
 
   @include ecl-media-breakpoint-up(xl) {
     .ecl-site-header-standardised__search {
-      width: 31.5rem;
+      width: $search-width-xl;
     }
   }
 }

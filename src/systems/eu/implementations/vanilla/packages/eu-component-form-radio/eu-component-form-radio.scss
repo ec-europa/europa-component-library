@@ -82,7 +82,14 @@
   }
 
   // Invalid
-  .ecl-radio__box--invalid,
+  .ecl-radio__box--invalid {
+    border-color: $invalid-border-color;
+  }
+
+  .ecl-radio__label:hover .ecl-radio__box--invalid {
+    border-color: $ecl-color-red-130;
+  }
+
   .ecl-radio__input:checked + .ecl-radio__label .ecl-radio__box--invalid {
     border-color: $invalid-border-color;
   }

@@ -4,6 +4,7 @@ import classnames from 'classnames';
 
 import Icon from '@ecl/ec-react-component-icon';
 import Link from '@ecl/ec-react-component-link';
+import MenuStandardised from '@ecl/ec-react-component-menu-standardised';
 import SearchForm from '@ecl/ec-react-component-search-form';
 import { LanguageListOverlay } from '@ecl/ec-react-component-language-list';
 
@@ -16,7 +17,7 @@ const SiteHeaderStandardised = ({
   searchToggle,
   searchForm,
   bannerTop,
-  banner,
+  banner, // used if there is no menu
   menu,
   className,
   ...props
@@ -39,7 +40,13 @@ const SiteHeaderStandardised = ({
   const hasLanguageOverlay = !!(languageSelector && languageSelector.overlay);
 
   return (
-    <header {...props} className={classNames}>
+    <header
+      {...props}
+      className={classNames}
+      {...(!!(menu && Object.keys(menu).length >= 1) && {
+        'data-ecl-has-menu': true,
+      })}
+    >
       <div className="ecl-site-header-standardised__container ecl-container">
         <div className="ecl-site-header-standardised__top">
           <a
@@ -61,7 +68,7 @@ const SiteHeaderStandardised = ({
           <div className="ecl-site-header-standardised__action">
             {!!(
               loginToggle &&
-              Object.values(loginToggle).length >= 1 &&
+              Object.keys(loginToggle).length >= 1 &&
               loginBox
             ) && (
               <div className="ecl-site-header-standardised__login-container">
@@ -83,10 +90,14 @@ const SiteHeaderStandardised = ({
                       className="ecl-site-header-standardised__login-box"
                       data-ecl-login-box
                     >
-                      <p className="ecl-site-header-standardised__login-description">
-                        {loginBox.description}
-                      </p>
-                      <hr className="ecl-site-header-standardised__login-separator" />
+                      {loginBox.description && (
+                        <Fragment>
+                          <p className="ecl-site-header-standardised__login-description">
+                            {loginBox.description}
+                          </p>
+                          <hr className="ecl-site-header-standardised__login-separator" />
+                        </Fragment>
+                      )}
                       <Link
                         label={loginBox.label}
                         href={loginBox.href}
@@ -107,7 +118,7 @@ const SiteHeaderStandardised = ({
               </div>
             )}
             {!!(
-              languageSelector && Object.values(languageSelector).length >= 1
+              languageSelector && Object.keys(languageSelector).length >= 1
             ) && (
               <a
                 className="ecl-link ecl-link--standalone ecl-site-header-standardised__language-selector"
@@ -129,7 +140,7 @@ const SiteHeaderStandardised = ({
             )}
             {!!(
               searchToggle &&
-              Object.values(searchToggle).length >= 1 &&
+              Object.keys(searchToggle).length >= 1 &&
               searchForm
             ) && (
               <div className="ecl-site-header-standardised__search-container">
@@ -155,7 +166,7 @@ const SiteHeaderStandardised = ({
         </div>
       </div>
       {bannerTop && (
-        <div className="ecl-site-header-harmonised__banner-top">
+        <div className="ecl-site-header-standardised__banner-top">
           {!!(typeof bannerTop === 'object') && (
             <div className="ecl-container">
               <Link {...bannerTop} variant="standalone" />
@@ -168,113 +179,11 @@ const SiteHeaderStandardised = ({
       )}
       {banner && (
         <div className="ecl-site-header-standardised__banner">
-          <div className="ecl-container">
-            {menu && (
-              <a
-                className="ecl-link ecl-link--standalone ecl-site-header-standardised__menu-toggle"
-                href="/example"
-              >
-                <Icon shape="general--hamburger" size="s" />
-                Menu
-              </a>
-            )}
-            {banner}
-          </div>
+          <div className="ecl-container">{banner}</div>
         </div>
       )}
-      {menu && (
-        <div className="ecl-site-header-standardised__menu">
-          <div className="ecl-container">
-            <ul className="ecl-site-header-standardised__menu-list">
-              <li className="ecl-site-header-standardised__menu-item">
-                <Link
-                  href="/example"
-                  label="Home"
-                  className="ecl-site-header-standardised__menu-link"
-                  variant="standalone"
-                />
-              </li>
-              <li className="ecl-site-header-standardised__menu-item">
-                <Link
-                  href="/example"
-                  label="Item 1"
-                  className="ecl-site-header-standardised__menu-link ecl-site-header-standardised__menu-link--active"
-                  variant="standalone"
-                  icon={{
-                    shape: 'ui--corner-arrow',
-                    size: '2xs',
-                    transform: 'rotate-180',
-                  }}
-                />
-              </li>
-              <li className="ecl-site-header-standardised__menu-item">
-                <Link
-                  href="/example"
-                  label="Item 2"
-                  className="ecl-site-header-standardised__menu-link"
-                  variant="standalone"
-                  icon={{
-                    shape: 'ui--corner-arrow',
-                    size: '2xs',
-                    transform: 'rotate-180',
-                  }}
-                />
-              </li>
-              <li className="ecl-site-header-standardised__menu-item">
-                <Link
-                  href="/example"
-                  label="Item 3"
-                  className="ecl-site-header-standardised__menu-link"
-                  variant="standalone"
-                  icon={{
-                    shape: 'ui--corner-arrow',
-                    size: '2xs',
-                    transform: 'rotate-180',
-                  }}
-                />
-              </li>
-              <li className="ecl-site-header-standardised__menu-item">
-                <Link
-                  href="/example"
-                  label="Item 4"
-                  className="ecl-site-header-standardised__menu-link"
-                  variant="standalone"
-                  icon={{
-                    shape: 'ui--corner-arrow',
-                    size: '2xs',
-                    transform: 'rotate-180',
-                  }}
-                />
-              </li>
-              <li className="ecl-site-header-standardised__menu-item">
-                <Link
-                  href="/example"
-                  label="Item 5"
-                  className="ecl-site-header-standardised__menu-link"
-                  variant="standalone"
-                  icon={{
-                    shape: 'ui--corner-arrow',
-                    size: '2xs',
-                    transform: 'rotate-180',
-                  }}
-                />
-              </li>
-              <li className="ecl-site-header-standardised__menu-item">
-                <Link
-                  href="/example"
-                  label="Item 6"
-                  className="ecl-site-header-standardised__menu-link"
-                  variant="standalone"
-                  icon={{
-                    shape: 'ui--corner-arrow',
-                    size: '2xs',
-                    transform: 'rotate-180',
-                  }}
-                />
-              </li>
-            </ul>
-          </div>
-        </div>
+      {!!(menu && Object.keys(menu).length >= 1) && (
+        <MenuStandardised {...menu} />
       )}
       {hasLanguageOverlay && (
         <LanguageListOverlay
@@ -329,7 +238,7 @@ SiteHeaderStandardised.propTypes = {
     PropTypes.shape(Link.propTypes),
   ]),
   banner: PropTypes.string,
-  menu: PropTypes.bool,
+  menu: PropTypes.shape(MenuStandardised.propTypes),
   className: PropTypes.string,
 };
 
@@ -348,7 +257,7 @@ SiteHeaderStandardised.defaultProps = {
   searchForm: {},
   bannerTop: '',
   banner: '',
-  menu: false,
+  menu: {},
   className: '',
 };
 

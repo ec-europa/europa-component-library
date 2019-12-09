@@ -11,8 +11,13 @@
 
 @mixin ecl-site-header-harmonised(
   $logo-height-xs: 1.75rem,
-  $logo-height-s: 3rem,
-  $logo-height-m: 3.75rem
+  $logo-width-xs: 7rem,
+  $logo-height-xs-g2: 2.5rem,
+  $logo-width-xs-g2: 10.1rem,
+  $logo-height-sm: 3rem,
+  $logo-width-sm: 12.1rem,
+  $logo-height-lg: 3.75rem,
+  $logo-width-lg: 15.1rem
 ) {
   .ecl-site-header-harmonised {
     background-color: $ecl-color-white-100;
@@ -40,7 +45,7 @@
   .ecl-site-header-harmonised__logo-image {
     display: block;
     max-height: $logo-height-xs;
-    max-width: 10.1rem; // hack to allow logo to be resized dynamically
+    max-width: $logo-width-xs; // hack to allow logo to be resized dynamically
   }
 
   .ecl-site-header-harmonised__action {
@@ -150,40 +155,18 @@
     padding: $ecl-spacing-m 0;
   }
 
-  /* Temporary menu */
-  .ecl-site-header-harmonised__menu {
-    display: none;
-  }
-
-  .ecl-site-header-harmonised__menu-toggle {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    float: right;
-    font: $ecl-font-xs;
-    margin-top: -$ecl-spacing-xs;
-    padding: $ecl-spacing-xs;
-    text-align: center;
-  }
-
-  .ecl-site-header-harmonised__menu-toggle,
-  .ecl-site-header-harmonised__menu-toggle:hover,
-  .ecl-site-header-harmonised__menu-toggle:focus,
-  .ecl-site-header-harmonised__menu-toggle:active,
-  .ecl-site-header-harmonised__menu-toggle:visited {
-    color: $ecl-color-white;
-  }
-
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up(sm) {
     .ecl-site-header-harmonised__logo-link {
+      align-self: flex-end;
       flex-grow: 0;
     }
 
     .ecl-site-header-harmonised__logo-image {
-      height: $logo-height-s;
+      height: $logo-height-sm;
       max-height: 100%;
       max-width: 100%;
+      width: $logo-width-sm;
     }
   }
 
@@ -204,7 +187,8 @@
     }
 
     .ecl-site-header-harmonised__logo-image {
-      height: $logo-height-m;
+      height: $logo-height-lg;
+      width: $logo-width-lg;
     }
 
     .ecl-site-header-harmonised__login-box {
@@ -279,49 +263,6 @@
       padding-bottom: $ecl-spacing-l;
       padding-top: $ecl-spacing-l;
     }
-
-    /* Temporary menu */
-    .ecl-site-header-harmonised__menu-toggle {
-      display: none;
-    }
-
-    .ecl-site-header-harmonised__menu {
-      background-color: $ecl-color-blue;
-      color: $ecl-color-white;
-      display: block;
-    }
-
-    .ecl-site-header-harmonised__menu-list {
-      align-items: baseline;
-      display: flex;
-      list-style: none;
-      margin: 0;
-      padding-left: 0;
-    }
-
-    .ecl-site-header-harmonised__menu-link {
-      font: $ecl-font-s;
-      font-weight: $ecl-font-weight-bold;
-      padding: $ecl-spacing-m $ecl-spacing-s $ecl-spacing-m $ecl-spacing-m;
-    }
-
-    .ecl-site-header-harmonised__menu-link,
-    .ecl-site-header-harmonised__menu-link:hover,
-    .ecl-site-header-harmonised__menu-link:focus,
-    .ecl-site-header-harmonised__menu-link:active,
-    .ecl-site-header-harmonised__menu-link:visited {
-      color: $ecl-color-white;
-    }
-
-    .ecl-site-header-harmonised__menu-item:first-of-type {
-      .ecl-site-header-harmonised__menu-link {
-        padding-right: $ecl-spacing-m;
-      }
-    }
-
-    .ecl-site-header-harmonised__menu-link--active {
-      background-color: $ecl-color-blue-120;
-    }
   }
 
   @include ecl-media-breakpoint-up(xl) {
@@ -334,7 +275,34 @@
    * Group 2
    */
   .ecl-site-header-harmonised--group2 {
-    box-shadow: 0 2px 5px 0 rgba(0, 47, 103, 0.2);
+    &:not([data-ecl-has-menu='true']) {
+      box-shadow: 0 2px 5px 0 rgba(0, 47, 103, 0.2);
+    }
+
+    .ecl-site-header-harmonised__logo-image {
+      max-height: $logo-height-xs-g2;
+      max-width: $logo-width-xs-g2; // hack to allow logo to be resized dynamically
+    }
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up(sm) {
+    .ecl-site-header-harmonised--group2
+      .ecl-site-header-harmonised__logo-image {
+      height: $logo-height-sm;
+      max-height: 100%;
+      max-width: 100%;
+      width: $logo-width-sm;
+    }
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up(lg) {
+    .ecl-site-header-harmonised--group2
+      .ecl-site-header-harmonised__logo-image {
+      height: $logo-height-lg;
+      width: $logo-width-lg;
+    }
   }
 }
 

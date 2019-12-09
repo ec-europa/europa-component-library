@@ -137,10 +137,10 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
 
     <div className="ecl-u-pv-xl ecl-u-pv-lg-3xl">
       <main>
-        <div className="ecl-container">
+        <div className="ecl-container ecl-u-type-m">
           <div className="ecl-row">
             <div className="ecl-col-12 ecl-col-md-6">
-              <p className="ecl-u-type-paragraph ecl-u-mv-none">
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mv-none">
                 Clean air is essential to our health and to the environment. But
                 since the industrial revolution, the qulity of the air we
                 breathe ha deteriorated considerably - mainly as a result of
@@ -158,11 +158,11 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
                 }}
               />
 
-              <h2 className="ecl-u-type-heading-2 ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
+              <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
                 Objectives
               </h2>
 
-              <p className="ecl-u-type-paragraph ecl-u-type-mt-l ecl-u-mb-none">
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-mt-l ecl-u-mb-none">
                 Achieve levels of air quality that do not give rise to
                 significant negative eimpacts on, and risks to, human health and
                 the environment. Since the early 1970s, the EU has been working
@@ -222,8 +222,8 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
         </div>
 
         <div className="ecl-u-mt-l ecl-u-mt-lg-3xl ecl-u-pv-l ecl-u-bg-blue-5">
-          <div className="ecl-container">
-            <h2 className="ecl-u-type-heading-2 ecl-u-mv-none">
+          <div className="ecl-container ecl-u-type-m">
+            <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mv-none">
               Supporting policies
             </h2>
 
@@ -237,7 +237,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
                       label="Air quality"
                     />
                   </div>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
+                  <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
                     European Union policy on air quality aims to develop and
                     implement appropriate instruments to improve air quality.
                   </p>
@@ -253,7 +253,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
                       label="Reduction of National Emissions"
                     />
                   </div>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
+                  <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
                     EU has policies in place limiting individual sources but
                     also national totals of atmospheric emissions of key
                     polluants.
@@ -282,8 +282,8 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
           </div>
         </div>
 
-        <div className="ecl-container">
-          <h2 className="ecl-u-type-heading-2 ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
+        <div className="ecl-container ecl-u-type-m">
+          <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
             Actions
           </h2>
 
@@ -333,7 +333,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
                     label="Resources"
                   />
                 </div>
-                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
+                <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
                   The European Environment Agency&apos;s &apos;European Air
                   Quality Index&apos; informs citizens about air quality levels
                   based on Member States data.
@@ -350,7 +350,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
                     label="Raising awareness"
                   />
                 </div>
-                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
+                <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
                   Public relations campaigns that aim to increase public
                   awareness towards the problem Europe enounters when it comes
                   to air pollution.
@@ -361,14 +361,16 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
         </div>
 
         <div className="ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-pv-l ecl-u-bg-blue-5">
-          <div className="ecl-container">
-            <h2 className="ecl-u-type-heading-2 ecl-u-mv-none">Outcome</h2>
+          <div className="ecl-container ecl-u-type-m">
+            <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mv-none">
+              Outcome
+            </h2>
 
-            <h3 className="ecl-u-type-heading-3 ecl-u-mt-l ecl-u-mb-none">
+            <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mt-l ecl-u-mb-none">
               Results
             </h3>
 
-            <p className="ecl-u-type-paragraph ecl-u-mt-m ecl-u-mb-none">
+            <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
               As a result, much progress has been made in tackling air polluants
               such as sulphur dioxide, lead, nitrogen oxides, carbon monoxide
               and benzene. Yet, and despite the progressmade to date, poor air
@@ -393,15 +395,15 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
 
             <div className="ecl-row ecl-u-mt-m ecl-u-mt-lg-l ecl-u-border-top ecl-u-border-color-grey-25">
               <div className="ecl-col-12 ecl-col-md-6 ecl-u-border-bottom ecl-u-border-color-grey-25 ecl-u-border-width-md-0 ecl-u-pb-l ecl-u-pb-md-none">
-                <h3 className="ecl-u-type-heading-3 ecl-u-mt-l ecl-u-mb-none">
+                <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mt-l ecl-u-mb-none">
                   Monitoring
                 </h3>
 
-                <p className="ecl-u-type-paragraph ecl-u-mt-m">
+                <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m">
                   The new PRIMES 2016 reference scenario and any developments in
                   the CAPRI and TREMOVE modelling frameworks.
                 </p>
-                <p className="ecl-u-type-paragraph ecl-u-mb-none">
+                <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
                   The impacts of Climate and Energy Policy as finally proposed
                   by the Commission
                 </p>
@@ -420,11 +422,11 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
               </div>
 
               <div className="ecl-col-12 ecl-col-md-6">
-                <h3 className="ecl-u-type-heading-3 ecl-u-mt-l ecl-u-mb-none">
+                <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mt-l ecl-u-mb-none">
                   Evaluation
                 </h3>
 
-                <p className="ecl-u-type-paragraph ecl-u-mt-m ecl-u-mb-none">
+                <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
                   This review will build on and reinforce the objectives of the
                   Europe 2030 strategy for smart, sustainable and inclusive
                   growth and involve all relevant stakeholders. Meanwhile,
@@ -448,8 +450,8 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
           </div>
         </div>
 
-        <div className="ecl-container">
-          <h2 className="ecl-u-type-heading-2 ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
+        <div className="ecl-container ecl-u-type-m">
+          <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
             Policy timeline
           </h2>
 
@@ -461,7 +463,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
                 label="Review of the Clean air policy"
               />
             </div>
-            <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
+            <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
               This package was based on an extensive review of the EU air policy
               to date.
             </p>
@@ -615,8 +617,10 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
         </div>
 
         <div className="ecl-u-bg-blue-5 ecl-u-pv-l ecl-u-mt-xl ecl-u-mt-lg-3xl">
-          <div className="ecl-container">
-            <h2 className="ecl-u-type-heading-2 ecl-u-mv-none">News</h2>
+          <div className="ecl-container ecl-u-type-m">
+            <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mv-none">
+              News
+            </h2>
 
             <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-m ecl-u-mt-lg-l">
               <div className="ecl-u-flex-grow-1">
@@ -774,8 +778,8 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
           </div>
         </div>
 
-        <div className="ecl-container">
-          <h2 className="ecl-u-type-heading-2 ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
+        <div className="ecl-container ecl-u-type-m">
+          <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
             Events
           </h2>
 
@@ -808,7 +812,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
             </div>
           </article>
 
-          <h2 className="ecl-u-type-heading-2 ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
+          <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
             Stakeholders
           </h2>
 
@@ -908,12 +912,14 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
         </div>
 
         <div className="ecl-u-bg-blue-5 ecl-u-pv-l ecl-u-mt-xl ecl-u-mt-lg-3xl">
-          <div className="ecl-container">
-            <h2 className="ecl-u-type-heading-2 ecl-u-mv-none">Contact</h2>
+          <div className="ecl-container ecl-u-type-m">
+            <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mv-none">
+              Contact
+            </h2>
 
             <div className="ecl-row">
               <div className="ecl-col-12 ecl-col-md-6">
-                <h3 className="ecl-u-type-heading-3 ecl-u-mt-l ecl-u-mb-none">
+                <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mt-l ecl-u-mb-none">
                   General contact
                 </h3>
 
@@ -986,7 +992,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
               </div>
 
               <div className="ecl-col-12 ecl-col-md-6">
-                <h3 className="ecl-u-type-heading-3 ecl-u-mt-l ecl-u-mb-none">
+                <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mt-l ecl-u-mb-none">
                   Press contact
                 </h3>
 
@@ -1071,7 +1077,7 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
           </div>
         </div>
 
-        <div className="ecl-container">
+        <div className="ecl-container ecl-u-type-m">
           <SocialMediaShare
             className="ecl-u-mt-xl ecl-u-mt-lg-3xl"
             description="Share this page"

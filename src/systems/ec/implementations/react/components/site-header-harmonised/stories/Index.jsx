@@ -2,10 +2,17 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import StoryWrapper from '@ecl/story-wrapper';
+import demoMenuGroup1 from '@ecl/ec-specs-menu-harmonised/demo/data--group1';
+import demoMenuGroup2 from '@ecl/ec-specs-menu-harmonised/demo/data--group2';
 import demoContentGroup1 from '@ecl/ec-specs-site-header-harmonised/demo/data--group1';
 import demoContentGroup2 from '@ecl/ec-specs-site-header-harmonised/demo/data--group2';
 
 import SiteHeaderHarmonised from '../src/SiteHeaderHarmonised';
+
+demoMenuGroup1['data-ecl-auto-init'] = 'MenuHarmonised';
+demoMenuGroup1.className = 'ecl-menu-harmonised--group1';
+demoMenuGroup2['data-ecl-auto-init'] = 'MenuHarmonised';
+demoMenuGroup2.className = 'ecl-menu-harmonised--group2';
 
 storiesOf('Components|Site Headers/Harmonised', module)
   .addDecorator(story => (
@@ -28,6 +35,7 @@ storiesOf('Components|Site Headers/Harmonised', module)
   .add('group 1', () => (
     <SiteHeaderHarmonised
       {...demoContentGroup1}
+      menu={demoMenuGroup1}
       data-ecl-auto-init="SiteHeaderHarmonised"
       logged
       className="ecl-site-header-harmonised--group1"
@@ -36,6 +44,7 @@ storiesOf('Components|Site Headers/Harmonised', module)
   .add('group 2', () => (
     <SiteHeaderHarmonised
       {...demoContentGroup2}
+      menu={demoMenuGroup2}
       data-ecl-auto-init="SiteHeaderHarmonised"
       className="ecl-site-header-harmonised--group2"
     />

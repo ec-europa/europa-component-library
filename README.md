@@ -3,7 +3,6 @@
 [![Build Status](https://drone.fpfis.eu/api/badges/ec-europa/europa-component-library/status.svg)](https://drone.fpfis.eu/ec-europa/europa-component-library)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/adff9a95-45f4-411e-a148-fef1211ac9ed/deploy-status)](https://app.netlify.com/sites/europa-component-library/deploys)
 
 The Europa Component Library (ECL) is a library of components applicable to all European Commission websites (hosted under ec.europa.eu domain). The library contains all available components which you can use to build your website.
 
@@ -30,16 +29,15 @@ The ECL is bundled in various [presets](docs/06-presets.md) in order to accomoda
   ```html
   <link
     rel="stylesheet"
-    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.16.0/ec-preset-website/styles/ecl-ec-preset-website.css"
-    integrity="sha256-7kX/h+SNydEhSktvx5zZEBWkmhXqAdOIdwhiyzDZ3dc= sha384-v1Dp+eBId2c1uaHM5Xhi8kfBybtJBdnMRhXmygq1esnZzrhVBr8hpbDKn5LVqRBD
-    sha512-XAFgclwSUZyX9oeXGHEs4OTKEGA5kcRflFirjJKTUolAcR40EPeR1J+hOpztCcvDJ3f+j9sP1oYBANF4SHTR5g=="
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.18.0/ec-preset-website/styles/ecl-ec-preset-website.css"
+    integrity="sha256-HtzHUO3ZJyE2JV+3kOa/2jCTSWtCwDK2OoPXkd+Bu0A= sha384-SQXmalhs6Gv7tyOax3TP6I0ZSnXTlg9gT3dGC1UpIynbc7YivL6GBqTho51flc9K sha512-SzxVNYLSQJ7MAsdGWw6LNTJPV2/Pxd0adFSyapg+XWBJvyVG0aJnJqQitFZMAgsIKOkor2e4SF1awLdgUU2mDg=="
     crossorigin="anonymous"
     media="screen"
   />
   <link
     rel="stylesheet"
-    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.16.0/ec-preset-website/styles/ecl-ec-preset-website-print.css"
-    integrity="sha256-WsUuOhKXXO40felqifdWsQ5YOLok9xaxAMokcdQJzlA= sha384-zSuJUBQ6PHGu6rvdRtMXf4wfiFC7olOYqcWSVUztLeUU4mw1SUYAQibNVkaqLjf9 sha512-sCPf86Sb/516BD0uIIh1fkQYTi2WOwr/DwUszan4IhEao+bb1LfAYJsW3zdRS9t/jZvr1JVlq6Mwqp8eht3AeQ=="
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.18.0/ec-preset-website/styles/ecl-ec-preset-website-print.css"
+    integrity="sha256-H5kBHR9KRS4qeg51PYUDNa2DYKO3c0nGh0T9cTFOMYE= sha384-A/T+35RTu1EzSNsUX58hvxjhY5NCwUqcBvuO4P4qGSGdYBDrGANXehx7geCi6NFl sha512-/lAhgk/DOzS2UT9Ebn794sZzUStVzgc7ZQ/DXJz+7RgvBorWBMhoIYKvCIFh6PUW23MFfNo+a7BohinEcyBy+g=="
     crossorigin="anonymous"
     media="print"
   />
@@ -47,8 +45,8 @@ The ECL is bundled in various [presets](docs/06-presets.md) in order to accomoda
 
   ```html
   <script
-    src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.16.0/ec-preset-website/scripts/ecl-ec-preset-website.js"
-    integrity="sha256-9hOg/MMiAO/wWCkWNNddyFOFYtofdtArP6G+aUe1YtY= sha384-RMfXIHG1Ifrlz7+y1P0aihKpkz7BGNoNc184BiEgP03T9zSZt8nTsqrZZ96FaSVH sha512-b3+Qs3g2RIHaMuyDR3axXixzNdgjY7Ow1iihNvK72dSJsoFTTsR5+qt6ZS1I3UKnXwpKcWOmVZ19Fx8SYdWmHQ=="
+    src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.18.0/ec-preset-website/scripts/ecl-ec-preset-website.js"
+    integrity="sha256-s1WkAZrd7OXFfO6kUlEW/TR1G9WsmnJXPRbel3R1MTI= sha384-0hTM0LMGhYdr4PdGOpmwc3mSbeV9JbJNkXY9itzUniXOEM+aljtbshxFQ9AmtfDv sha512-17LE/oBp/8Dzi23GlPhLh6rnjLn/qsCiLAEeqkkacvsVeZX0LBUG/AAC/JdPSx2GCnfQNEIpKnQLgLnF2YEgZA=="
     crossorigin="anonymous"
   ></script>
   ```
@@ -59,5 +57,5 @@ Please contact [COMM Europa Management](mailto:Europamanagement@ec.europa.eu) fo
 
 ## Previous major versions
 
-- v1.14.0: [sources](https://github.com/ec-europa/europa-component-library/tree/v1) - [release](https://github.com/ec-europa/europa-component-library/releases/tag/v1.14.0) - [website](https://v1--europa-component-library.netlify.com/)
-- v0.24.0: [sources](https://github.com/ec-europa/europa-component-library/tree/v0) - [release](https://github.com/ec-europa/europa-component-library/releases/tag/v0.24.0) - [website](https://v0--europa-component-library.netlify.com/)
+- v1.14.3: [sources](https://github.com/ec-europa/europa-component-library/tree/v1) - [release](https://github.com/ec-europa/europa-component-library/releases/tag/v1.14.3) - [website](https://ec.europa.eu/component-library/v1.14.3/)
+- v0.24.3: [sources](https://github.com/ec-europa/europa-component-library/tree/v0) - [release](https://github.com/ec-europa/europa-component-library/releases/tag/v0.24.3) - [website](https://ec.europa.eu/component-library/v0.24.3/)

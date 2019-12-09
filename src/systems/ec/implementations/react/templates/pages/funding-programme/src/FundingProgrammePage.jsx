@@ -142,7 +142,7 @@ const FundingProgrammePage = ({ siteHeader, footer, template }) => (
     )}
 
     <div className="ecl-u-pv-3xl ecl-u-pv-lg-4xl">
-      <div className="ecl-container">
+      <div className="ecl-container ecl-u-type-m">
         <div className="ecl-row" data-ecl-inpage-navigation-container>
           <div className="ecl-col-12 ecl-col-lg-3">
             <aside className="ecl-u-height-100">
@@ -178,13 +178,13 @@ const FundingProgrammePage = ({ siteHeader, footer, template }) => (
           <div className="ecl-col-12 ecl-col-lg-9">
             <main>
               <h2
-                className="ecl-u-type-heading-2 ecl-u-mv-none"
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mv-none"
                 id="description"
               >
                 Description
               </h2>
 
-              <p className="ecl-u-type-paragraph ecl-u-mt-m ecl-u-mb-none">
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Curabitur tempus enim sed massa vulputate, id finibus nulla
                 eleifend. Sed placerat ligula ut augue ultrices, non gravida
@@ -192,7 +192,7 @@ const FundingProgrammePage = ({ siteHeader, footer, template }) => (
               </p>
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-mt-xl ecl-u-mb-none"
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mb-none"
                 id="latest"
               >
                 Latest
@@ -239,7 +239,7 @@ const FundingProgrammePage = ({ siteHeader, footer, template }) => (
               </article>
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-mt-xl ecl-u-mb-none"
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mb-none"
                 id="documents"
               >
                 Documents
@@ -276,7 +276,7 @@ const FundingProgrammePage = ({ siteHeader, footer, template }) => (
               />
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-mt-xl ecl-u-mb-none"
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mb-none"
                 id="contact"
               >
                 Contact
@@ -293,7 +293,7 @@ const FundingProgrammePage = ({ siteHeader, footer, template }) => (
               </DescriptionList>
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-mt-xl ecl-u-mb-none"
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mb-none"
                 id="related"
               >
                 Related
