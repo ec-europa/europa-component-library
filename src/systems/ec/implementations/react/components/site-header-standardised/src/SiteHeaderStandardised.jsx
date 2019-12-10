@@ -81,8 +81,17 @@ const SiteHeaderStandardised = ({
                       aria-controls={loginBox.id}
                       aria-expanded="false"
                     >
-                      <Icon shape="general--logged-in" size="s" />
+                      <Icon
+                        shape="general--logged-in"
+                        size="m"
+                        className="ecl-site-header-standardised__icon"
+                      />
                       {loginToggle.labelLogged}
+                      <Icon
+                        shape="ui--corner-arrow"
+                        size="xs"
+                        className="ecl-site-header-standardised__login-arrow"
+                      />
                     </a>
 
                     <div
@@ -111,7 +120,11 @@ const SiteHeaderStandardised = ({
                     className="ecl-link ecl-link--standalone ecl-site-header-standardised__login-toggle"
                     href={loginToggle.hrefNotLogged}
                   >
-                    <Icon shape="general--log-in" size="s" />
+                    <Icon
+                      shape="general--log-in"
+                      size="m"
+                      className="ecl-site-header-standardised__icon"
+                    />
                     {loginToggle.labelNotLogged}
                   </a>
                 )}
@@ -130,7 +143,11 @@ const SiteHeaderStandardised = ({
                 })}
               >
                 <span className="ecl-site-header-standardised__language-icon">
-                  <Icon shape="general--language" size="s" />
+                  <Icon
+                    shape="general--language"
+                    size="m"
+                    className="ecl-site-header-standardised__icon"
+                  />
                   <span className="ecl-site-header-standardised__language-code">
                     {languageSelector.code}
                   </span>

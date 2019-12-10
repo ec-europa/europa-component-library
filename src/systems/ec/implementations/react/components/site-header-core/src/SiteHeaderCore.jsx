@@ -71,8 +71,17 @@ const SiteHeaderCore = ({
                       aria-controls={loginBox.id}
                       aria-expanded="false"
                     >
-                      <Icon shape="general--logged-in" size="s" />
+                      <Icon
+                        shape="general--logged-in"
+                        size="m"
+                        className="ecl-site-header-core__icon"
+                      />
                       {loginToggle.labelLogged}
+                      <Icon
+                        shape="ui--corner-arrow"
+                        size="xs"
+                        className="ecl-site-header-core__login-arrow"
+                      />
                     </a>
 
                     <div
@@ -101,7 +110,11 @@ const SiteHeaderCore = ({
                     className="ecl-link ecl-link--standalone ecl-site-header-core__login-toggle"
                     href={loginToggle.hrefNotLogged}
                   >
-                    <Icon shape="general--log-in" size="s" />
+                    <Icon
+                      shape="general--log-in"
+                      size="m"
+                      className="ecl-site-header-core__icon"
+                    />
                     {loginToggle.labelNotLogged}
                   </a>
                 )}
@@ -120,7 +133,11 @@ const SiteHeaderCore = ({
                 })}
               >
                 <span className="ecl-site-header-core__language-icon">
-                  <Icon shape="general--language" size="s" />
+                  <Icon
+                    shape="general--language"
+                    size="m"
+                    className="ecl-site-header-core__icon"
+                  />
                   <span className="ecl-site-header-core__language-code">
                     {languageSelector.code}
                   </span>

@@ -76,6 +76,12 @@
     }
   }
 
+  .ecl-site-header-standardised__login-toggle {
+    .ecl-site-header-standardised__login-arrow {
+      display: none;
+    }
+  }
+
   .ecl-site-header-standardised__login-box,
   .ecl-site-header-standardised__search {
     background-color: $ecl-color-blue-5;
@@ -213,10 +219,25 @@
 
     .ecl-site-header-standardised__login-toggle,
     .ecl-site-header-standardised__language-icon {
-      .ecl-icon {
+      .ecl-site-header-standardised__icon {
         height: $ecl-icon-m;
         margin-right: $ecl-spacing-xs;
         width: $ecl-icon-m;
+      }
+    }
+
+    .ecl-site-header-standardised__login-toggle {
+      .ecl-site-header-standardised__login-arrow {
+        display: block;
+        height: $ecl-icon-xs;
+        margin-left: $ecl-spacing-xs;
+        transform: rotate(0);
+        width: $ecl-icon-xs;
+      }
+      &[aria-expanded='false'] {
+        .ecl-site-header-standardised__login-arrow {
+          transform: rotate(180deg);
+        }
       }
     }
 
@@ -229,6 +250,7 @@
 
     .ecl-site-header-standardised__search-container {
       flex-grow: 1;
+      margin-left: $ecl-spacing-s;
     }
 
     .ecl-site-header-standardised__search-toggle {
