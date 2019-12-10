@@ -273,10 +273,16 @@ const ResearchAreaSpokePage = ({ siteHeader, footer, template }) => (
                 </UnorderedListItem>
               </UnorderedList>
 
-              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
-                Read more about{' '}
-                <Link href="/example" label="maritime spatial planning" />.
-              </p>
+              <Link
+                className="ecl-u-mt-l ecl-u-mb-none ecl-u-type-bold"
+                variant="standalone"
+                label="Read more"
+                href="/example"
+                icon={{
+                  shape: 'ui--external',
+                  size: 'xs',
+                }}
+              />
 
               <h2
                 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-lg-3xl ecl-u-mb-none"
@@ -381,10 +387,121 @@ const ResearchAreaSpokePage = ({ siteHeader, footer, template }) => (
                 strategy and the action plan.
               </p>
 
+              <Link
+                className="ecl-u-mt-l ecl-u-mb-none ecl-u-type-bold"
+                variant="standalone"
+                label="More information"
+                href="/example"
+                icon={{
+                  shape: 'ui--external',
+                  size: 'xs',
+                }}
+              />
+
+              <h2 className="ecl-u-type-heading-2 ecl-u-mt-l ecl-u-mb-none ecl-u-type-color-black">
+                Baltic Sea
+              </h2>
+
               <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
-                <Link href="/example" label="More information" /> about Atlantic
-                Ocean sea basin strategies.
+                BONUS was the joint Baltic Sea research and development
+                programme from 2010-2017.
               </p>
+
+              <UnorderedList
+                className="ecl-u-mt-m ecl-u-mb-none"
+                variant="no-bullet"
+              >
+                <UnorderedListItem>
+                  <Link
+                    className="ecl-u-mb-none"
+                    variant="standalone"
+                    label="BONUS website"
+                    href="/example"
+                    icon={{
+                      shape: 'ui--external',
+                      size: 'xs',
+                    }}
+                  />
+                </UnorderedListItem>
+                <UnorderedListItem>
+                  <Link
+                    className="ecl-u-mb-none"
+                    variant="standalone"
+                    label="BONUS strategic research agenda"
+                    href="/example"
+                    icon={{
+                      shape: 'ui--external',
+                      size: 'xs',
+                    }}
+                  />
+                </UnorderedListItem>
+              </UnorderedList>
+
+              <Link
+                className="ecl-u-mt-l ecl-u-mb-none ecl-u-type-bold"
+                variant="standalone"
+                label="More information"
+                href="/example"
+                icon={{
+                  shape: 'ui--external',
+                  size: 'xs',
+                }}
+              />
+
+              <h2 className="ecl-u-type-heading-2 ecl-u-mt-l ecl-u-mb-none ecl-u-type-color-black">
+                Mediterranean Sea
+              </h2>
+
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
+                BLUEMED is the research and innovation initiative for promoting
+                the blue economy in the Mediterranean Basin.
+              </p>
+
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
+                The{' '}
+                <Link
+                  href="/example"
+                  variant="external"
+                  label="BLUEMED initiative"
+                  icon={{ shape: 'ui--external', size: 'xs' }}
+                />{' '}
+                will contribute to the creation of new blue jobs, social
+                wellbeing and a sustainable growth in the marine and maritime
+                sectors through the implementation of its Strategic Research and
+                Innovation Agenda,{' '}
+                <Link
+                  href="/example"
+                  variant="external"
+                  label="the BLUEMED SRIA"
+                  icon={{ shape: 'ui--external', size: 'xs' }}
+                />
+              </p>
+
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
+                The countries bordering the Mediterranean Sea have agreed to
+                launch a pilot for a plastic-free, healthy Mediterranean Sea
+                under the umbrella of the BLUEMED initiative, as agreed by the{' '}
+                <Link
+                  href="/example"
+                  variant="external"
+                  label="Group of Senior Officials"
+                  icon={{ shape: 'ui--external', size: 'xs' }}
+                />{' '}
+                (GSO) BLUEMED Working Group. This pilot initiative aims to
+                mobilise key actors to tackle plastic pollution in the
+                Mediterranean Sea.
+              </p>
+
+              <Link
+                className="ecl-u-mt-l ecl-u-mb-none ecl-u-type-bold"
+                variant="standalone"
+                label="More information"
+                href="/example"
+                icon={{
+                  shape: 'ui--external',
+                  size: 'xs',
+                }}
+              />
 
               <SocialMediaShare
                 className="ecl-u-mt-xl ecl-u-mt-lg-3xl"
