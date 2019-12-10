@@ -503,6 +503,68 @@ const ResearchAreaSpokePage = ({ siteHeader, footer, template }) => (
                 }}
               />
 
+              <h2 className="ecl-u-type-heading-2 ecl-u-mt-l ecl-u-mb-none ecl-u-type-color-black">
+                Black Sea
+              </h2>
+
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
+                An initiative for research and Innovation in the Black Sea was
+                launched in May 2018 with the aim to advance a shared vision for
+                a productive, healthy, resilient, sustainable and better valued
+                Black Sea by 2030.
+              </p>
+
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
+                This is one of the main pillars of the Black Sea Maritime
+                Strategy and was launched during the Romanian Presidency of the
+                Council of the EU during a conference on 8-9 May 2019.
+              </p>
+
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
+                This builds on the 2015 European Union External Action Service
+                and the Commission staff working document on{' '}
+                <Link
+                  href="/example"
+                  variant="external"
+                  label="Black Sea synergy"
+                  icon={{ shape: 'ui--external', size: 'xs' }}
+                />
+                .
+              </p>
+
+              <Link
+                className="ecl-u-mt-l ecl-u-mb-none ecl-u-type-bold"
+                variant="standalone"
+                label="More information"
+                href="/example"
+                icon={{
+                  shape: 'ui--external',
+                  size: 'xs',
+                }}
+              />
+
+              <h3 className="ecl-u-type-heading-3 ecl-u-mt-l ecl-u-mb-none ecl-u-type-color-black">
+                Related documents
+              </h3>
+
+              <UnorderedList className="ecl-u-mt-m ecl-u-mb-none ecl-u-type-color-black">
+                <UnorderedListItem>
+                  <Link href="/example" label="Press release" /> announcing the
+                  strategic agenda
+                </UnorderedListItem>
+                <UnorderedListItem>
+                  <Link
+                    variant="standalone"
+                    href="/example"
+                    label="Fact sheet"
+                  />
+                </UnorderedListItem>
+                <UnorderedListItem>
+                  <Link href="/example" label="Bucharest declaration" />{' '}
+                  launching the Black Sea research and innovation agenda
+                </UnorderedListItem>
+              </UnorderedList>
+
               <SocialMediaShare
                 className="ecl-u-mt-xl ecl-u-mt-lg-3xl"
                 description="Share this page"
