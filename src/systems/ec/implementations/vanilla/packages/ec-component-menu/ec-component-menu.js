@@ -25,31 +25,31 @@ if (!Element.prototype.closest)
  * @param {String} options.menuMegaSelector Selector for the mega menu
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
  */
-export class MenuStandardised {
+export class Menu {
   /**
    * @static
    * Shorthand for instance creation and initialisation.
    *
    * @param {HTMLElement} root DOM element for component instantiation and scope
    *
-   * @return {MenuStandardised} An instance of MenuStandardised.
+   * @return {Menu} An instance of Menu.
    */
-  static autoInit(root, { MENU_STANDARDISED: defaultOptions = {} } = {}) {
-    const menuStandardised = new MenuStandardised(root, defaultOptions);
-    menuStandardised.init();
+  static autoInit(root, { MENU: defaultOptions = {} } = {}) {
+    const menu = new Menu(root, defaultOptions);
+    menu.init();
     // eslint-disable-next-line no-param-reassign
-    root.ECLMenuStandardised = menuStandardised;
-    return menuStandardised;
+    root.ECLMenu = menu;
+    return menu;
   }
 
   constructor(
     element,
     {
-      toggleSelector = '[data-ecl-menu-standardised-toggle]',
-      menuListSelector = '[data-ecl-menu-standardised-list]',
-      menuItemSelector = '[data-ecl-menu-standardised-item]',
-      menuLinkSelector = '[data-ecl-menu-standardised-link]',
-      menuMegaSelector = '[data-ecl-menu-standardised-mega]',
+      toggleSelector = '[data-ecl-menu-toggle]',
+      menuListSelector = '[data-ecl-menu-list]',
+      menuItemSelector = '[data-ecl-menu-item]',
+      menuLinkSelector = '[data-ecl-menu-link]',
+      menuMegaSelector = '[data-ecl-menu-mega]',
       attachClickListener = true,
     } = {}
   ) {
@@ -187,4 +187,4 @@ export class MenuStandardised {
   }
 }
 
-export default MenuStandardised;
+export default Menu;
