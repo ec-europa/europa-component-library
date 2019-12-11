@@ -9,8 +9,8 @@ import demoContentFr from '@ecl/ec-specs-site-header-standardised/demo/data--fr'
 
 import SiteHeaderStandardised from '../src/SiteHeaderStandardised';
 
-demoMenuEn['data-ecl-auto-init'] = 'MenuStandardised';
-demoMenuFr['data-ecl-auto-init'] = 'MenuStandardised';
+demoMenuEn['data-ecl-auto-init'] = 'Menu';
+demoMenuFr['data-ecl-auto-init'] = 'Menu';
 
 storiesOf('Components|Site Headers/Standardised', module)
   .addDecorator(story => (

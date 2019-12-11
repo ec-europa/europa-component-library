@@ -9,10 +9,10 @@ import demoContentGroup2 from '@ecl/ec-specs-site-header-harmonised/demo/data--g
 
 import SiteHeaderHarmonised from '../src/SiteHeaderHarmonised';
 
-demoMenuGroup1['data-ecl-auto-init'] = 'MenuHarmonised';
-demoMenuGroup1.className = 'ecl-menu-harmonised--group1';
-demoMenuGroup2['data-ecl-auto-init'] = 'MenuHarmonised';
-demoMenuGroup2.className = 'ecl-menu-harmonised--group2';
+demoMenuGroup1['data-ecl-auto-init'] = 'Menu';
+demoMenuGroup1.className = 'ecl-menu--group1';
+demoMenuGroup2['data-ecl-auto-init'] = 'Menu';
+demoMenuGroup2.className = 'ecl-menu--group2';
 
 storiesOf('Components|Site Headers/Harmonised', module)
   .addDecorator(story => (
