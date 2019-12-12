@@ -365,7 +365,7 @@ const ResearchAreaSpokePage = ({ siteHeader, footer, template }) => (
                 Horizon 2020 working in Antractica to the Arctic by 2020.
               </p>
 
-              <UnorderedList className="ecl-u-mt-m ecl-u-mb-none">
+              <UnorderedList className="ecl-u-mt-xs ecl-u-mb-none">
                 <UnorderedListItem>
                   <Link
                     href="/example"
@@ -408,7 +408,7 @@ const ResearchAreaSpokePage = ({ siteHeader, footer, template }) => (
               </p>
 
               <UnorderedList
-                className="ecl-u-mt-m ecl-u-mb-none"
+                className="ecl-u-mt-xs ecl-u-mb-none"
                 variant="no-bullet"
               >
                 <UnorderedListItem>
