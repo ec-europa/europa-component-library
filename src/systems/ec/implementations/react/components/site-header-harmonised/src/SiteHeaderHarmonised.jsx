@@ -10,6 +10,7 @@ import { LanguageListOverlay } from '@ecl/ec-react-component-language-list';
 
 const SiteHeaderHarmonised = ({
   logo,
+  siteName,
   logged,
   loginToggle,
   loginBox,
@@ -31,11 +32,12 @@ const SiteHeaderHarmonised = ({
     alt: logoAlt,
     title: logoTitle,
     language: logoLanguage,
+    src: logoSrc,
     ...logoProps
   } = logo;
 
   // eslint-disable-next-line global-require, import/no-dynamic-require
-  const logoSrc = require(`@ecl/ec-resources-logo/logo--${logoLanguage}.svg`);
+  const logoECSrc = require(`@ecl/ec-resources-logo/logo--${logoLanguage}.svg`);
 
   const hasLanguageOverlay = !!(languageSelector && languageSelector.overlay);
 
@@ -49,6 +51,7 @@ const SiteHeaderHarmonised = ({
     >
       <div className="ecl-site-header-harmonised__container ecl-container">
         <div className="ecl-site-header-harmonised__top">
+          {/* Logo */}
           <a
             className="ecl-link ecl-link--standalone ecl-site-header-harmonised__logo-link"
             href={logoHref}
@@ -62,126 +65,148 @@ const SiteHeaderHarmonised = ({
                 logoClassName,
                 'ecl-site-header-harmonised__logo-image'
               )}
-              src={logoSrc}
+              src={logoSrc || logoECSrc}
             />
           </a>
-          <div className="ecl-site-header-harmonised__action">
-            {!!(
-              loginToggle &&
-              Object.keys(loginToggle).length >= 1 &&
-              loginBox
-            ) && (
-              <div className="ecl-site-header-harmonised__login-container">
-                {logged && (
-                  <Fragment>
+
+          {/* Site name */}
+          {siteName && (
+            <div className="ecl-site-header-harmonised__site-name">
+              {siteName}
+            </div>
+          )}
+
+          {/* Actions (login, language selector and search */}
+          {!!(
+            (loginToggle && Object.keys(loginToggle).length >= 1) ||
+            (languageSelector && Object.keys(languageSelector).length >= 1) ||
+            (searchToggle && Object.keys(searchToggle).length >= 1)
+          ) && (
+            <div className="ecl-site-header-harmonised__action">
+              {/* Login */}
+              {!!(
+                loginToggle &&
+                Object.keys(loginToggle).length >= 1 &&
+                loginBox
+              ) && (
+                <div className="ecl-site-header-harmonised__login-container">
+                  {logged && (
+                    <Fragment>
+                      <a
+                        className="ecl-link ecl-link--standalone ecl-site-header-harmonised__login-toggle"
+                        href={loginToggle.hrefLogged}
+                        data-ecl-login-toggle
+                        aria-controls={loginBox.id}
+                        aria-expanded="false"
+                      >
+                        <Icon
+                          shape="general--logged-in"
+                          size="s"
+                          className="ecl-site-header-harmonised__icon"
+                        />
+                        {loginToggle.labelLogged}
+                        <Icon
+                          shape="ui--corner-arrow"
+                          size="xs"
+                          className="ecl-site-header-harmonised__login-arrow"
+                        />
+                      </a>
+
+                      <div
+                        id={loginBox.id}
+                        className="ecl-site-header-harmonised__login-box"
+                        data-ecl-login-box
+                      >
+                        {loginBox.description && (
+                          <Fragment>
+                            <p className="ecl-site-header-harmonised__login-description">
+                              {loginBox.description}
+                            </p>
+                            <hr className="ecl-site-header-harmonised__login-separator" />
+                          </Fragment>
+                        )}
+                        <Link
+                          label={loginBox.label}
+                          href={loginBox.href}
+                          variant="standalone"
+                        />
+                      </div>
+                    </Fragment>
+                  )}
+                  {!logged && (
                     <a
                       className="ecl-link ecl-link--standalone ecl-site-header-harmonised__login-toggle"
-                      href={loginToggle.hrefLogged}
-                      data-ecl-login-toggle
-                      aria-controls={loginBox.id}
-                      aria-expanded="false"
+                      href={loginToggle.hrefNotLogged}
                     >
                       <Icon
-                        shape="general--logged-in"
-                        size="m"
+                        shape="general--log-in"
+                        size="s"
                         className="ecl-site-header-harmonised__icon"
                       />
-                      {loginToggle.labelLogged}
-                      <Icon
-                        shape="ui--corner-arrow"
-                        size="xs"
-                        className="ecl-site-header-harmonised__login-arrow"
-                      />
+                      {loginToggle.labelNotLogged}
                     </a>
+                  )}
+                </div>
+              )}
 
-                    <div
-                      id={loginBox.id}
-                      className="ecl-site-header-harmonised__login-box"
-                      data-ecl-login-box
-                    >
-                      {loginBox.description && (
-                        <Fragment>
-                          <p className="ecl-site-header-harmonised__login-description">
-                            {loginBox.description}
-                          </p>
-                          <hr className="ecl-site-header-harmonised__login-separator" />
-                        </Fragment>
-                      )}
-                      <Link
-                        label={loginBox.label}
-                        href={loginBox.href}
-                        variant="standalone"
-                      />
-                    </div>
-                  </Fragment>
-                )}
-                {!logged && (
-                  <a
-                    className="ecl-link ecl-link--standalone ecl-site-header-harmonised__login-toggle"
-                    href={loginToggle.hrefNotLogged}
-                  >
+              {/* Language selector */}
+              {!!(
+                languageSelector && Object.keys(languageSelector).length >= 1
+              ) && (
+                <a
+                  className="ecl-link ecl-link--standalone ecl-site-header-harmonised__language-selector"
+                  href={languageSelector.href}
+                  data-ecl-language-selector
+                  {...(hasLanguageOverlay && {
+                    'aria-controls': 'language-list-overlay',
+                    'aria-expanded': 'false',
+                  })}
+                >
+                  <span className="ecl-site-header-harmonised__language-icon">
                     <Icon
-                      shape="general--log-in"
-                      size="m"
+                      shape="general--language"
+                      size="s"
                       className="ecl-site-header-harmonised__icon"
                     />
-                    {loginToggle.labelNotLogged}
-                  </a>
-                )}
-              </div>
-            )}
-            {!!(
-              languageSelector && Object.keys(languageSelector).length >= 1
-            ) && (
-              <a
-                className="ecl-link ecl-link--standalone ecl-site-header-harmonised__language-selector"
-                href={languageSelector.href}
-                data-ecl-language-selector
-                {...(hasLanguageOverlay && {
-                  'aria-controls': 'language-list-overlay',
-                  'aria-expanded': 'false',
-                })}
-              >
-                <span className="ecl-site-header-harmonised__language-icon">
-                  <Icon
-                    shape="general--language"
-                    size="m"
-                    className="ecl-site-header-harmonised__icon"
-                  />
-                  <span className="ecl-site-header-harmonised__language-code">
-                    {languageSelector.code}
+                    <span className="ecl-site-header-harmonised__language-code">
+                      {languageSelector.code}
+                    </span>
                   </span>
-                </span>
-                {languageSelector.label}
-              </a>
-            )}
-            {!!(
-              searchToggle &&
-              Object.keys(searchToggle).length >= 1 &&
-              searchForm
-            ) && (
-              <div className="ecl-site-header-harmonised__search-container">
-                <a
-                  className="ecl-link ecl-link--standalone ecl-site-header-harmonised__search-toggle"
-                  href={searchToggle.href}
-                  data-ecl-search-toggle
-                  aria-controls={searchForm.id}
-                  aria-expanded="false"
-                >
-                  <Icon shape="general--search" size="s" />
-                  {searchToggle.label}
+                  {languageSelector.label}
                 </a>
-                <SearchForm
-                  {...searchForm}
-                  className="ecl-site-header-harmonised__search"
-                  id={searchForm.id}
-                  data-ecl-search-form
-                />
-              </div>
-            )}
-          </div>
+              )}
+
+              {/* Search */}
+              {!!(
+                searchToggle &&
+                Object.keys(searchToggle).length >= 1 &&
+                searchForm
+              ) && (
+                <div className="ecl-site-header-harmonised__search-container">
+                  <a
+                    className="ecl-link ecl-link--standalone ecl-site-header-harmonised__search-toggle"
+                    href={searchToggle.href}
+                    data-ecl-search-toggle
+                    aria-controls={searchForm.id}
+                    aria-expanded="false"
+                  >
+                    <Icon shape="general--search" size="s" />
+                    {searchToggle.label}
+                  </a>
+                  <SearchForm
+                    {...searchForm}
+                    className="ecl-site-header-harmonised__search"
+                    id={searchForm.id}
+                    data-ecl-search-form
+                  />
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
+
+      {/* Banner top */}
       {bannerTop && (
         <div className="ecl-site-header-harmonised__banner-top">
           {!!(typeof bannerTop === 'object') && (
@@ -194,14 +219,20 @@ const SiteHeaderHarmonised = ({
           )}
         </div>
       )}
+
+      {/* Banner */}
       {banner && (
         <div className="ecl-site-header-harmonised__banner">
           <div className="ecl-container">{banner}</div>
         </div>
       )}
+
+      {/* Menu */}
       {!!(menu && Object.keys(menu).length >= 1) && (
         <MenuHarmonised {...menu} />
       )}
+
+      {/* Language selector overlay */}
       {hasLanguageOverlay && (
         <LanguageListOverlay
           {...languageSelector.overlay}
@@ -219,8 +250,10 @@ SiteHeaderHarmonised.propTypes = {
     alt: PropTypes.string,
     language: PropTypes.string,
     href: PropTypes.string,
+    src: PropTypes.string,
     className: PropTypes.string,
   }),
+  siteName: PropTypes.string,
   logged: PropTypes.bool,
   loginToggle: PropTypes.shape({
     labelNotLogged: PropTypes.string,
@@ -265,7 +298,9 @@ SiteHeaderHarmonised.defaultProps = {
     alt: '',
     language: 'en',
     href: '#',
+    src: '',
   },
+  siteName: '',
   logged: false,
   loginToggle: {},
   loginBox: {},
