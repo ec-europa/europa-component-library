@@ -1,5 +1,23 @@
 # Changelog
 
+## 2.19.0 (2019-12-12)
+
+#### :bug: Bug Fix
+
+- [#1448](https://github.com/ec-europa/europa-component-library/pull/1448) fix(site-headers): Add arrow icon to login link - INNO-1996 ([@papegaill](https://github.com/papegaill))
+
+#### :nail_care: Enhancement
+
+- [#1450](https://github.com/ec-europa/europa-component-library/pull/1450) refactor(content-types): update research CT - INNO-2010 ([@kalinchernev](https://github.com/kalinchernev))
+- [#1451](https://github.com/ec-europa/europa-component-library/pull/1451) refactor(menu): all to one - INNO-2007 ([@kalinchernev](https://github.com/kalinchernev))
+- [#1445](https://github.com/ec-europa/europa-component-library/pull/1445) fix(site-header-standardised): fix logo position - INNO-1980 ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 3
+
+- Kalin Chernev ([@kalinchernev](https://github.com/kalinchernev))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@papegaill](https://github.com/papegaill)
+
 ## 2.18.0 (2019-12-06)
 
 #### :rocket: New Feature
