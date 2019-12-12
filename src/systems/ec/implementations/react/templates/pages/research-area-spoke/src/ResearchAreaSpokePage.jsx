@@ -167,12 +167,12 @@ const ResearchAreaSpokePage = ({ siteHeader, footer, template }) => (
 
           <div className="ecl-col-12 ecl-col-lg-9">
             <main>
-              <h3
-                className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mv-none"
+              <h2
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mv-none"
                 id="what"
               >
                 What the Integrated Maritime policy is
-              </h3>
+              </h2>
 
               <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-l">
                 The <Link href="/example" label="Integrated Maritime Policy" />{' '}
@@ -188,7 +188,7 @@ const ResearchAreaSpokePage = ({ siteHeader, footer, template }) => (
               </p>
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-lg-3xl ecl-u-mb-none"
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none"
                 id="blue-growth"
               >
                 Blue growth
@@ -217,7 +217,7 @@ const ResearchAreaSpokePage = ({ siteHeader, footer, template }) => (
               </p>
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-lg-3xl ecl-u-mb-none"
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none"
                 id="maritime-spatial-planning"
               >
                 Maritime spatial planning
@@ -285,7 +285,7 @@ const ResearchAreaSpokePage = ({ siteHeader, footer, template }) => (
               />
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-lg-3xl ecl-u-mb-none"
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none"
                 id="integrated-maritime-surveillance"
               >
                 Integrated maritime surveillance
@@ -298,7 +298,7 @@ const ResearchAreaSpokePage = ({ siteHeader, footer, template }) => (
                 and more effective.
               </p>
 
-              <h2 className="ecl-u-type-heading-2 ecl-u-mt-l ecl-u-mb-none ecl-u-type-color-black">
+              <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
                 Atlantic Ocean
               </h2>
 
@@ -398,7 +398,7 @@ const ResearchAreaSpokePage = ({ siteHeader, footer, template }) => (
                 }}
               />
 
-              <h2 className="ecl-u-type-heading-2 ecl-u-mt-l ecl-u-mb-none ecl-u-type-color-black">
+              <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
                 Baltic Sea
               </h2>
 
@@ -448,7 +448,7 @@ const ResearchAreaSpokePage = ({ siteHeader, footer, template }) => (
                 }}
               />
 
-              <h2 className="ecl-u-type-heading-2 ecl-u-mt-l ecl-u-mb-none ecl-u-type-color-black">
+              <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
                 Mediterranean Sea
               </h2>
 
@@ -503,7 +503,7 @@ const ResearchAreaSpokePage = ({ siteHeader, footer, template }) => (
                 }}
               />
 
-              <h2 className="ecl-u-type-heading-2 ecl-u-mt-l ecl-u-mb-none ecl-u-type-color-black">
+              <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
                 Black Sea
               </h2>
 
