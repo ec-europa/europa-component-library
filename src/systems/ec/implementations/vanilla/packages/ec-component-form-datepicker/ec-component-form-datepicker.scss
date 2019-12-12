@@ -1,0 +1,73 @@
+/**
+ * Datepicker component
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+/* stylelint-disable-next-line scss/at-import-partial-extension-blacklist */
+@import 'pikaday/scss/pikaday.scss';
+
+@mixin ecl-datepicker() {
+  .ecl-datepicker {
+    margin: 0;
+  }
+
+  .ecl-datepicker-theme {
+    color: $ecl-color-grey;
+    font: $ecl-font-m;
+
+    &.is-hidden {
+      display: block;
+    }
+
+    &.is-bound {
+      box-shadow: none;
+    }
+
+    .pika-lendar {
+      background-color: $ecl-color-grey-5;
+      margin: 0;
+      width: 100%;
+    }
+
+    .pika-title {
+      background-color: $ecl-color-grey-10;
+      display: flex;
+    }
+
+    .pika-label {
+      background-color: transparent;
+      color: $ecl-color-grey;
+      flex-grow: 1;
+      font: $ecl-font-m;
+      padding: 0;
+    }
+
+    .pika-label::after {
+      content: ' \25be';
+    }
+
+    .pika-select {
+      padding: $ecl-spacing-s $ecl-spacing-m;
+    }
+
+    .pika-prev {
+      order: -1;
+    }
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up('md') {
+    .ecl-datepicker-theme {
+      .pika-lendar {
+        width: 20rem;
+      }
+    }
+  }
+}
+
+// Use mixin
+@include exports('ec-component-form-datepicker') {
+  @include ecl-datepicker();
+}
