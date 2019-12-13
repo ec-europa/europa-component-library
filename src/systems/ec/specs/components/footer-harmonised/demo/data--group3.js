@@ -14,13 +14,13 @@ module.exports = {
           title: 'Partnership 1',
           alt: 'Partnership 1 logo',
           src:
-            'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+            'https://inno-ecl.s3.amazonaws.com/media/examples/placeholder.svg',
         },
         {
           title: 'Partnership 2',
           alt: 'Partnership 2 logo',
           src:
-            'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg',
+            'https://inno-ecl.s3.amazonaws.com/media/examples/placeholder.svg',
         },
         {
           title: 'European Commission',
