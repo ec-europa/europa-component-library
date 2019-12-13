@@ -5,9 +5,9 @@ import classnames from 'classnames';
 
 import Icon from '@ecl/ec-react-component-icon';
 
-import { MenuHarmonisedItem } from './MenuHarmonisedItem';
+import { MenuItem } from './MenuItem';
 
-export const MenuHarmonised = ({
+export const Menu = ({
   toggleLabelOpen,
   toggleLabelClose,
   siteName,
@@ -15,36 +15,29 @@ export const MenuHarmonised = ({
   className,
   ...props
 }) => {
-  const classNames = classnames(className, 'ecl-menu-harmonised');
+  const classNames = classnames(className, 'ecl-menu');
 
   return (
-    <nav
-      {...props}
-      className={classNames}
-      aria-expanded="false"
-      data-ecl-menu-harmonised
-    >
+    <nav {...props} className={classNames} aria-expanded="false" data-ecl-menu>
       <div className="ecl-container">
         <a
-          className="ecl-link ecl-link--standalone ecl-menu-harmonised__toggle"
+          className="ecl-link ecl-link--standalone ecl-menu__toggle"
           href="/example"
-          data-ecl-menu-harmonised-toggle
+          data-ecl-menu-toggle
         >
-          <div className="ecl-menu-harmonised__toggle-open">
+          <div className="ecl-menu__toggle-open">
             <Icon shape="general--hamburger" size="s" />
             {toggleLabelOpen}
           </div>
-          <div className="ecl-menu-harmonised__toggle-close">
+          <div className="ecl-menu__toggle-close">
             <Icon shape="ui--close-filled" size="s" />
             {toggleLabelClose}
           </div>
         </a>
-        {siteName && (
-          <div className="ecl-menu-harmonised__site-name">{siteName}</div>
-        )}
-        <ul className="ecl-menu-harmonised__list" data-ecl-menu-harmonised-list>
+        <div className="ecl-menu__site-name">{siteName}</div>
+        <ul className="ecl-menu__list" data-ecl-menu-list>
           {items.map(item => (
-            <MenuHarmonisedItem {...item} key={item.label} />
+            <MenuItem {...item} key={item.label} />
           ))}
         </ul>
       </div>
@@ -52,17 +45,17 @@ export const MenuHarmonised = ({
   );
 };
 
-export default MenuHarmonised;
+export default Menu;
 
-MenuHarmonised.propTypes = {
+Menu.propTypes = {
   toggleLabelOpen: PropTypes.string,
   toggleLabelClose: PropTypes.string,
   siteName: PropTypes.string,
-  items: PropTypes.arrayOf(PropTypes.shape(MenuHarmonisedItem.propTypes)),
+  items: PropTypes.arrayOf(PropTypes.shape(MenuItem.propTypes)),
   className: PropTypes.string,
 };
 
-MenuHarmonised.defaultProps = {
+Menu.defaultProps = {
   toggleLabelOpen: '',
   toggleLabelClose: '',
   siteName: '',
