@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import Icon from '@ecl/ec-react-component-icon';
 import Link from '@ecl/ec-react-component-link';
-import MenuStandardised from '@ecl/ec-react-component-menu-standardised';
+import Menu from '@ecl/ec-react-component-menu';
 import SearchForm from '@ecl/ec-react-component-search-form';
 import { LanguageListOverlay } from '@ecl/ec-react-component-language-list';
 
@@ -199,9 +199,7 @@ const SiteHeaderStandardised = ({
           <div className="ecl-container">{banner}</div>
         </div>
       )}
-      {!!(menu && Object.keys(menu).length >= 1) && (
-        <MenuStandardised {...menu} />
-      )}
+      {!!(menu && Object.keys(menu).length >= 1) && <Menu {...menu} />}
       {hasLanguageOverlay && (
         <LanguageListOverlay
           {...languageSelector.overlay}
@@ -255,7 +253,7 @@ SiteHeaderStandardised.propTypes = {
     PropTypes.shape(Link.propTypes),
   ]),
   banner: PropTypes.string,
-  menu: PropTypes.shape(MenuStandardised.propTypes),
+  menu: PropTypes.shape(Menu.propTypes),
   className: PropTypes.string,
 };
 

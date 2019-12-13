@@ -167,12 +167,12 @@ const ResearchAreaSpokePage = ({ siteHeader, footer, template }) => (
 
           <div className="ecl-col-12 ecl-col-lg-9">
             <main>
-              <h3
-                className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mv-none"
+              <h2
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mv-none"
                 id="what"
               >
                 What the Integrated Maritime policy is
-              </h3>
+              </h2>
 
               <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-l">
                 The <Link href="/example" label="Integrated Maritime Policy" />{' '}
@@ -188,7 +188,7 @@ const ResearchAreaSpokePage = ({ siteHeader, footer, template }) => (
               </p>
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-lg-3xl ecl-u-mb-none"
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none"
                 id="blue-growth"
               >
                 Blue growth
@@ -217,7 +217,7 @@ const ResearchAreaSpokePage = ({ siteHeader, footer, template }) => (
               </p>
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-lg-3xl ecl-u-mb-none"
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none"
                 id="maritime-spatial-planning"
               >
                 Maritime spatial planning
@@ -273,13 +273,19 @@ const ResearchAreaSpokePage = ({ siteHeader, footer, template }) => (
                 </UnorderedListItem>
               </UnorderedList>
 
-              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
-                Read more about{' '}
-                <Link href="/example" label="maritime spatial planning" />.
-              </p>
+              <Link
+                className="ecl-u-mt-l ecl-u-mb-none ecl-u-type-bold"
+                variant="standalone"
+                label="Read more"
+                href="/example"
+                icon={{
+                  shape: 'ui--external',
+                  size: 'xs',
+                }}
+              />
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-lg-3xl ecl-u-mb-none"
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none"
                 id="integrated-maritime-surveillance"
               >
                 Integrated maritime surveillance
@@ -292,7 +298,7 @@ const ResearchAreaSpokePage = ({ siteHeader, footer, template }) => (
                 and more effective.
               </p>
 
-              <h2 className="ecl-u-type-heading-2 ecl-u-mt-l ecl-u-mb-none ecl-u-type-color-black">
+              <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
                 Atlantic Ocean
               </h2>
 
@@ -359,7 +365,7 @@ const ResearchAreaSpokePage = ({ siteHeader, footer, template }) => (
                 Horizon 2020 working in Antractica to the Arctic by 2020.
               </p>
 
-              <UnorderedList className="ecl-u-mt-m ecl-u-mb-none">
+              <UnorderedList className="ecl-u-mt-xs ecl-u-mb-none">
                 <UnorderedListItem>
                   <Link
                     href="/example"
@@ -381,10 +387,183 @@ const ResearchAreaSpokePage = ({ siteHeader, footer, template }) => (
                 strategy and the action plan.
               </p>
 
+              <Link
+                className="ecl-u-mt-l ecl-u-mb-none ecl-u-type-bold"
+                variant="standalone"
+                label="More information"
+                href="/example"
+                icon={{
+                  shape: 'ui--external',
+                  size: 'xs',
+                }}
+              />
+
+              <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
+                Baltic Sea
+              </h2>
+
               <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
-                <Link href="/example" label="More information" /> about Atlantic
-                Ocean sea basin strategies.
+                BONUS was the joint Baltic Sea research and development
+                programme from 2010-2017.
               </p>
+
+              <UnorderedList
+                className="ecl-u-mt-xs ecl-u-mb-none"
+                variant="no-bullet"
+              >
+                <UnorderedListItem>
+                  <Link
+                    className="ecl-u-mb-none"
+                    variant="standalone"
+                    label="BONUS website"
+                    href="/example"
+                    icon={{
+                      shape: 'ui--external',
+                      size: 'xs',
+                    }}
+                  />
+                </UnorderedListItem>
+                <UnorderedListItem>
+                  <Link
+                    className="ecl-u-mb-none"
+                    variant="standalone"
+                    label="BONUS strategic research agenda"
+                    href="/example"
+                    icon={{
+                      shape: 'ui--external',
+                      size: 'xs',
+                    }}
+                  />
+                </UnorderedListItem>
+              </UnorderedList>
+
+              <Link
+                className="ecl-u-mt-l ecl-u-mb-none ecl-u-type-bold"
+                variant="standalone"
+                label="More information"
+                href="/example"
+                icon={{
+                  shape: 'ui--external',
+                  size: 'xs',
+                }}
+              />
+
+              <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
+                Mediterranean Sea
+              </h2>
+
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
+                BLUEMED is the research and innovation initiative for promoting
+                the blue economy in the Mediterranean Basin.
+              </p>
+
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
+                The{' '}
+                <Link
+                  href="/example"
+                  variant="external"
+                  label="BLUEMED initiative"
+                  icon={{ shape: 'ui--external', size: 'xs' }}
+                />{' '}
+                will contribute to the creation of new blue jobs, social
+                wellbeing and a sustainable growth in the marine and maritime
+                sectors through the implementation of its Strategic Research and
+                Innovation Agenda,{' '}
+                <Link
+                  href="/example"
+                  variant="external"
+                  label="the BLUEMED SRIA"
+                  icon={{ shape: 'ui--external', size: 'xs' }}
+                />
+              </p>
+
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
+                The countries bordering the Mediterranean Sea have agreed to
+                launch a pilot for a plastic-free, healthy Mediterranean Sea
+                under the umbrella of the BLUEMED initiative, as agreed by the{' '}
+                <Link
+                  href="/example"
+                  variant="external"
+                  label="Group of Senior Officials"
+                  icon={{ shape: 'ui--external', size: 'xs' }}
+                />{' '}
+                (GSO) BLUEMED Working Group. This pilot initiative aims to
+                mobilise key actors to tackle plastic pollution in the
+                Mediterranean Sea.
+              </p>
+
+              <Link
+                className="ecl-u-mt-l ecl-u-mb-none ecl-u-type-bold"
+                variant="standalone"
+                label="More information"
+                href="/example"
+                icon={{
+                  shape: 'ui--external',
+                  size: 'xs',
+                }}
+              />
+
+              <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
+                Black Sea
+              </h2>
+
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
+                An initiative for research and Innovation in the Black Sea was
+                launched in May 2018 with the aim to advance a shared vision for
+                a productive, healthy, resilient, sustainable and better valued
+                Black Sea by 2030.
+              </p>
+
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
+                This is one of the main pillars of the Black Sea Maritime
+                Strategy and was launched during the Romanian Presidency of the
+                Council of the EU during a conference on 8-9 May 2019.
+              </p>
+
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
+                This builds on the 2015 European Union External Action Service
+                and the Commission staff working document on{' '}
+                <Link
+                  href="/example"
+                  variant="external"
+                  label="Black Sea synergy"
+                  icon={{ shape: 'ui--external', size: 'xs' }}
+                />
+                .
+              </p>
+
+              <Link
+                className="ecl-u-mt-l ecl-u-mb-none ecl-u-type-bold"
+                variant="standalone"
+                label="More information"
+                href="/example"
+                icon={{
+                  shape: 'ui--external',
+                  size: 'xs',
+                }}
+              />
+
+              <h3 className="ecl-u-type-heading-3 ecl-u-mt-l ecl-u-mb-none ecl-u-type-color-black">
+                Related documents
+              </h3>
+
+              <UnorderedList className="ecl-u-mt-m ecl-u-mb-none ecl-u-type-color-black">
+                <UnorderedListItem>
+                  <Link href="/example" label="Press release" /> announcing the
+                  strategic agenda
+                </UnorderedListItem>
+                <UnorderedListItem>
+                  <Link
+                    variant="standalone"
+                    href="/example"
+                    label="Fact sheet"
+                  />
+                </UnorderedListItem>
+                <UnorderedListItem>
+                  <Link href="/example" label="Bucharest declaration" />{' '}
+                  launching the Black Sea research and innovation agenda
+                </UnorderedListItem>
+              </UnorderedList>
 
               <SocialMediaShare
                 className="ecl-u-mt-xl ecl-u-mt-lg-3xl"

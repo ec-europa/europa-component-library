@@ -2,15 +2,15 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import StoryWrapper from '@ecl/story-wrapper';
-import demoMenuEn from '@ecl/ec-specs-menu-standardised/demo/data--en';
-import demoMenuFr from '@ecl/ec-specs-menu-standardised/demo/data--fr';
+import demoMenuEn from '@ecl/ec-specs-menu/demo/data--en';
+import demoMenuFr from '@ecl/ec-specs-menu/demo/data--fr';
 import demoContentEn from '@ecl/ec-specs-site-header-standardised/demo/data--en';
 import demoContentFr from '@ecl/ec-specs-site-header-standardised/demo/data--fr';
 
 import SiteHeaderStandardised from '../src/SiteHeaderStandardised';
 
-demoMenuEn['data-ecl-auto-init'] = 'MenuStandardised';
-demoMenuFr['data-ecl-auto-init'] = 'MenuStandardised';
+demoMenuEn['data-ecl-auto-init'] = 'Menu';
+demoMenuFr['data-ecl-auto-init'] = 'Menu';
 
 storiesOf('Components|Site Headers/Standardised', module)
   .addDecorator(story => (
