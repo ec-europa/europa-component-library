@@ -9,6 +9,18 @@ Users can still go to ECL v1 to create or upgrade their websites. In 2019, we wi
 
 We will also add new components to the ECL v2 as we continue improving the look and feel of the existing components. New releases under v2 should be published periodically under [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 2.19.0 (2019-12-12)
+
+#### :bug: Bug Fix
+
+- [#1448](https://github.com/ec-europa/europa-component-library/pull/1448) fix(site-headers): Add arrow icon to login link - INNO-1996
+
+#### :nail_care: Enhancement
+
+- [#1450](https://github.com/ec-europa/europa-component-library/pull/1450) refactor(content-types): update research CT - INNO-2010
+- [#1451](https://github.com/ec-europa/europa-component-library/pull/1451) refactor(menu): all to one - INNO-2007
+- [#1445](https://github.com/ec-europa/europa-component-library/pull/1445) fix(site-header-standardised): fix logo position - INNO-1980
+
 ## 2.18.0 (2019-12-06)
 
 #### :rocket: New Feature

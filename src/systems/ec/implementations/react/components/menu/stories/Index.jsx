@@ -2,11 +2,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import StoryWrapper from '@ecl/story-wrapper';
-import demoContent from '@ecl/ec-specs-menu-standardised/demo/data--en';
+import demoContent from '@ecl/ec-specs-menu/demo/data--en';
 
-import { MenuStandardised } from '../src/MenuStandardised';
+import { Menu } from '../src/Menu';
 
-storiesOf('Components|Menus/Standardised', module)
+storiesOf('Components|Navigation/Menu', module)
   .addDecorator(story => (
     <StoryWrapper
       afterMount={() => {
@@ -25,9 +25,9 @@ storiesOf('Components|Menus/Standardised', module)
     </StoryWrapper>
   ))
   .add('default', () => (
-    <MenuStandardised
+    <Menu
       {...demoContent}
-      data-ecl-auto-init="MenuStandardised"
-      className="ecl-menu-standardised--group1"
+      data-ecl-auto-init="Menu"
+      className="ecl-menu--group1"
     />
   ));

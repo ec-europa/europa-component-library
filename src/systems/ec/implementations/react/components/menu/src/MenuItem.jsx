@@ -4,23 +4,23 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Icon from '@ecl/ec-react-component-icon';
 
-export const MenuStandardisedItem = ({ label, href, isCurrent, subItems }) => {
+export const MenuItem = ({ label, href, isCurrent, subItems }) => {
   const hasSubItems = subItems && subItems.length > 0;
 
   return (
     <li
-      className={classnames('ecl-menu-standardised__item', {
-        'ecl-menu-standardised__item--current': isCurrent,
+      className={classnames('ecl-menu__item', {
+        'ecl-menu__item--current': isCurrent,
       })}
       data-ecl-has-children={hasSubItems ? 'true' : 'false'}
-      data-ecl-menu-standardised-item
+      data-ecl-menu-item
     >
       <a
         href={href}
-        className={classnames('ecl-menu-standardised__link', {
-          [`ecl-menu-standardised__link--current`]: isCurrent,
+        className={classnames('ecl-menu__link', {
+          [`ecl-menu__link--current`]: isCurrent,
         })}
-        data-ecl-menu-standardised-link
+        data-ecl-menu-link
       >
         {label}
 
@@ -29,28 +29,25 @@ export const MenuStandardisedItem = ({ label, href, isCurrent, subItems }) => {
             shape="ui--corner-arrow"
             size="xs"
             transform="rotate-180"
-            className="ecl-menu-standardised__link-icon"
+            className="ecl-menu__link-icon"
           />
         )}
       </a>
 
       {hasSubItems && (
-        <div
-          className="ecl-menu-standardised__mega"
-          data-ecl-menu-standardised-mega
-        >
-          <ul className="ecl-menu-standardised__sublist">
+        <div className="ecl-menu__mega" data-ecl-menu-mega>
+          <ul className="ecl-menu__sublist">
             {subItems.map(subItem => (
               <li
-                className={classnames('ecl-menu-standardised__subitem', {
-                  'ecl-menu-standardised__subitem--current': subItem.isCurrent,
+                className={classnames('ecl-menu__subitem', {
+                  'ecl-menu__subitem--current': subItem.isCurrent,
                 })}
                 key={subItem.label}
               >
                 <a
                   href={subItem.href}
-                  className={classnames('ecl-menu-standardised__sublink', {
-                    [`ecl-menu-standardised__sublink--current`]: subItem.isCurrent,
+                  className={classnames('ecl-menu__sublink', {
+                    [`ecl-menu__sublink--current`]: subItem.isCurrent,
                   })}
                 >
                   {subItem.label}
@@ -64,7 +61,7 @@ export const MenuStandardisedItem = ({ label, href, isCurrent, subItems }) => {
   );
 };
 
-MenuStandardisedItem.propTypes = {
+MenuItem.propTypes = {
   label: PropTypes.string,
   href: PropTypes.string,
   isCurrent: PropTypes.bool,
@@ -77,11 +74,11 @@ MenuStandardisedItem.propTypes = {
   ),
 };
 
-MenuStandardisedItem.defaultProps = {
+MenuItem.defaultProps = {
   label: '',
   href: '',
   isCurrent: false,
   subItems: [],
 };
 
-export default MenuStandardisedItem;
+export default MenuItem;
