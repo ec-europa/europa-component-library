@@ -113,8 +113,10 @@ const CommemorativeCoinPage = ({
 
             <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-m ecl-u-mt-lg-l">
               <div className="ecl-u-flex-grow-1">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-type-uppercase">
-                  Greece | <time dateTime="2019-06-01">June 2019</time>
+                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
+                  <span className="ecl-u-type-uppercase">Greece</span>
+                  {' | '}
+                  <time dateTime="2019-06-01">June 2019</time>
                 </div>
                 <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
                   <Link
@@ -124,12 +126,19 @@ const CommemorativeCoinPage = ({
                     label="Centenary of the birth of Manolis Andronicos"
                   />
                 </div>
-                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
+                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
                   Manolis Andronicos (1919-1992) was one of Greece&apos;s
                   greatest archaelogists. His discovery of the royal tombs at
                   Verginia in 1977 brought to light exquisite finds that attest
                   to the splendour of ancient Macedonian civilisation.
                 </p>
+
+                <div className="ecl-row ecl-u-type-paragraph ecl-u-mt-m">
+                  <div className="ecl-col-12 ecl-col-md-3">
+                    <span className="ecl-u-type-bold">Issuing volume</span>
+                  </div>
+                  <div className="ecl-col-12 ecl-col-md-9">750.000 coins</div>
+                </div>
               </div>
 
               <div
@@ -162,22 +171,106 @@ const CommemorativeCoinPage = ({
             <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
               <div className="ecl-u-flex-grow-1">
                 <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  NEWS ARTICLE |{' '}
-                  <time dateTime="2019-10-17">17 October 2019</time>
+                  <span className="ecl-u-type-uppercase">Greece</span>
+                  {' | '}
+                  <time dateTime="2019-06-01">June 2019</time>
                 </div>
                 <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
                   <Link
+                    className="ecl-u-type-color-black"
                     href="/example"
                     variant="standalone"
-                    label="Article title"
+                    label="Andreas Kalvos - 150 years in memoriam"
                   />
                 </div>
-                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Phasellus ut ex tristique, dignissim sem ac, bibendum est. Sed
-                  vehicula lorem non nunc tincidunt hendrerit. Nunc tristique
-                  ante et fringilla fermentum.
+                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
+                  Born in Zante, Andreas Kalvos (1792 - 1869) is one of the most
+                  important modern Greek poets. Combining a solid neo-classicist
+                  education with the high ideas of Romanticism and archaicising
+                  with demotic Greek, he expressed both the revolutionary ideas
+                  of his time and his personal vision.
                 </p>
+
+                <div className="ecl-row ecl-u-type-paragraph ecl-u-mt-m">
+                  <div className="ecl-col-12 ecl-col-md-3">
+                    <span className="ecl-u-type-bold">Issuing volume</span>
+                  </div>
+                  <div className="ecl-col-12 ecl-col-md-9">750.000 coins</div>
+                </div>
+              </div>
+
+              <div
+                role="img"
+                aria-label="Example image"
+                className="ecl-u-media-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
+                style={{
+                  backgroundImage:
+                    'url("https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg")',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'contain',
+                  width: '7.5rem',
+                }}
+              />
+
+              <div
+                role="img"
+                aria-label="Example image"
+                className="ecl-u-media-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
+                style={{
+                  backgroundImage:
+                    'url("https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg")',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'contain',
+                  width: '13.125rem',
+                }}
+              />
+            </article>
+
+            <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mb-none">
+              <div className="ecl-u-flex-grow-1">
+                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
+                  <span className="ecl-u-type-uppercase">Andora</span>
+                  {' | '}
+                  <time dateTime="2019-03-01">March 2019</time>
+                </div>
+                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                  <Link
+                    className="ecl-u-type-color-black"
+                    href="/example"
+                    variant="standalone"
+                    label="Ski World Cup Finals 2019"
+                  />
+                </div>
+                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
+                  The 2019 Ski World Cup Finals will be held in the Principality
+                  of Andorra from 11 to 17 March 2019. With this event, the
+                  Principality of Andorra will host one of the most important
+                  alpine skiing competition in the world.
+                </p>
+
+                <div className="ecl-row ecl-u-type-paragraph ecl-u-mt-m">
+                  <div className="ecl-col-12 ecl-col-md-3">
+                    <span className="ecl-u-type-bold">Issuing volume</span>
+                  </div>
+                  <div className="ecl-col-12 ecl-col-md-9">750.000 coins</div>
+                </div>
+
+                <div className="ecl-row ecl-u-type-paragraph ecl-u-mt-m">
+                  <div className="ecl-col-12 ecl-col-md-3">
+                    <span className="ecl-u-type-bold">Official journal</span>
+                  </div>
+                  <div className="ecl-col-12 ecl-col-md-9">
+                    <Link
+                      href="/example"
+                      variant="standalone"
+                      label="2019/C 130/06"
+                      icon={{
+                        shape: 'ui--external',
+                        size: 'xs',
+                      }}
+                    />
+                  </div>
+                </div>
               </div>
 
               <div
@@ -208,7 +301,7 @@ const CommemorativeCoinPage = ({
             </article>
 
             <Pagination
-              className="ecl-u-mt-l"
+              className="ecl-u-mt-xl ecl-u-mt-lg-3xl"
               items={[
                 {
                   isPrevious: true,
