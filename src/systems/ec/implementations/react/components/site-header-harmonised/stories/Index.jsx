@@ -6,6 +6,7 @@ import demoMenuGroup1 from '@ecl/ec-specs-menu/demo/data--group1';
 import demoMenuGroup2 from '@ecl/ec-specs-menu/demo/data--group2';
 import demoContentGroup1 from '@ecl/ec-specs-site-header-harmonised/demo/data--group1';
 import demoContentGroup2 from '@ecl/ec-specs-site-header-harmonised/demo/data--group2';
+import demoContentGroup3 from '@ecl/ec-specs-site-header-harmonised/demo/data--group3';
 
 import SiteHeaderHarmonised from '../src/SiteHeaderHarmonised';
 
@@ -47,5 +48,11 @@ storiesOf('Components|Site Headers/Harmonised', module)
       menu={demoMenuGroup2}
       data-ecl-auto-init="SiteHeaderHarmonised"
       className="ecl-site-header-harmonised--group2"
+    />
+  ))
+  .add('group 3', () => (
+    <SiteHeaderHarmonised
+      {...demoContentGroup3}
+      className="ecl-site-header-harmonised--group3"
     />
   ));
