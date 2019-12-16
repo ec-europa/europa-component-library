@@ -5,10 +5,7 @@ module.exports = {
   sections: [
     {
       key: 'section 1',
-      title: {
-        label: 'Joint partnership',
-        href: '/example',
-      },
+      title: 'Joint partnership',
       logos: [
         {
           title: 'Partnership 1',
