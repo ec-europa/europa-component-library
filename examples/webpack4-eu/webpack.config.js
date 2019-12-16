@@ -29,7 +29,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(ttf|otf|eot|svg\?#icon|woff(2)?)(\?[a-z0-9]+)?$/,
+        test: /\.(ttf|otf|eot|svg\?#icon|woff(2)?)(\?[\da-z]+)?$/,
         use: {
           loader: 'file-loader',
           options: {

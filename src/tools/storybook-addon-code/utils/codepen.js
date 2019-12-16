@@ -8,13 +8,13 @@ const baseUrl =
 
 const replaceLogo = code =>
   code.replace(
-    /dist\/images\/logo([-a-z0-9]*)\.([a-z0-9]*)\.svg/gi,
+    /dist\/images\/logo([\d-a-z]*)\.([\da-z]*)\.svg/gi,
     `${baseUrl}images/logo/logo$1.svg`
   );
 
 const replaceIcons = code =>
   code.replace(
-    /dist\/images\/icons\.([a-z0-9]*)\.svg/gi,
+    /dist\/images\/icons\.([\da-z]*)\.svg/gi,
     `${baseUrl}images/icons/sprites/icons.svg`
   );
 
