@@ -60,7 +60,7 @@ const CommemorativeCoinPage = ({
         <PageHeaderHarmonised {...pageHeader} />
       </Fragment>
     )}
-    <div className="ecl-u-pv-3xl">
+    <div className="ecl-u-pv-xl ecl-u-pv-lg-3xl">
       <div className="ecl-container">
         <div className="ecl-row">
           <aside className="ecl-col-12 ecl-col-lg-3">
@@ -74,21 +74,21 @@ const CommemorativeCoinPage = ({
               <TextInput id="facet-keywords" label="Keywords" width="m" />
               <Select
                 id="facet-countries"
-                groupClassName="ecl-u-mt-m"
+                groupClassName="ecl-u-mt-l"
                 label="Issuing country"
                 width="m"
                 options={[]}
               />
               <Select
                 id="facet-year"
-                groupClassName="ecl-u-mt-m"
+                groupClassName="ecl-u-mt-l"
                 label="Year of issue"
                 width="m"
                 options={[]}
               />
               <Select
                 id="facet-collection"
-                groupClassName="ecl-u-mt-m"
+                groupClassName="ecl-u-mt-l"
                 label="Collection"
                 width="m"
                 options={[]}
