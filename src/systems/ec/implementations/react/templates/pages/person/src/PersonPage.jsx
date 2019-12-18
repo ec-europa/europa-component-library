@@ -1,12 +1,14 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
+import DateBlock from '@ecl/ec-react-component-date-block';
 import {
   DescriptionList,
   DescriptionTerm,
   DescriptionDefinition,
 } from '@ecl/ec-react-component-description-list';
 import FileDownload from '@ecl/ec-react-component-file';
+import Icon from '@ecl/ec-react-component-icon';
 import InpageNavigation from '@ecl/ec-react-component-inpage-navigation';
 import Link from '@ecl/ec-react-component-link';
 import SocialMediaFollow from '@ecl/ec-react-component-social-media-follow';
@@ -471,6 +473,94 @@ const PersonPage = ({ siteHeader, footer, template }) => (
                 download={{
                   label: 'Download',
                   href: '/example',
+                }}
+              />
+
+              <h2 className="ecl-u-type-heading-2 ecl-u-mv-none" id="events">
+                Events
+              </h2>
+
+              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-d-flex ecl-u-mt-l ecl-u-pv-m">
+                <div className="ecl-u-flex-grow-0 ecl-u-mr-m">
+                  <DateBlock
+                    dateTime="2019-09-02"
+                    day="02"
+                    month="Sep"
+                    monthFull="September"
+                    year="2019"
+                  />
+                </div>
+                <div className="ecl-u-flex-grow-1">
+                  <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-type-uppercase">
+                    Meeting
+                  </div>
+                  <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                    <Link
+                      href="/example"
+                      variant="standalone"
+                      label="Meeting with Mrs Patricia Flor, EU Ambassador to Japan"
+                    />
+                  </div>
+                  <UnorderedList
+                    variant="no-bullet"
+                    className="ecl-u-type-s ecl-u-mt-s ecl-u-type-color-grey-75"
+                  >
+                    <UnorderedListItem className="ecl-u-d-flex ecl-u-align-items-center">
+                      Vytenis Andriukaitis
+                    </UnorderedListItem>
+                    <UnorderedListItem className="ecl-u-d-flex ecl-u-align-items-center">
+                      <Icon shape="general--location" size="m" />
+                      <span className="ecl-u-ml-s">Brussels, Belgium</span>
+                    </UnorderedListItem>
+                  </UnorderedList>
+                </div>
+              </article>
+
+              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-d-flex ecl-u-pv-m">
+                <div className="ecl-u-flex-grow-0 ecl-u-mr-m">
+                  <DateBlock
+                    dateTime="2020-02-06"
+                    day="06"
+                    month="Feb"
+                    monthFull="February"
+                    year="2020"
+                  />
+                </div>
+                <div className="ecl-u-flex-grow-1">
+                  <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-type-uppercase">
+                    Meeting
+                  </div>
+                  <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                    <Link
+                      href="/example"
+                      variant="standalone"
+                      label="Meeting with Les Producteurs des Legumes de France (SOLAAL)"
+                    />
+                  </div>
+                  <UnorderedList
+                    variant="no-bullet"
+                    className="ecl-u-type-s ecl-u-mt-s ecl-u-type-color-grey-75"
+                  >
+                    <UnorderedListItem className="ecl-u-d-flex ecl-u-align-items-center">
+                      Vytenis Andriukaitis
+                    </UnorderedListItem>
+                    <UnorderedListItem className="ecl-u-d-flex ecl-u-align-items-center">
+                      <Icon shape="general--location" size="m" />
+                      <span className="ecl-u-ml-s">Brussels, Belgium</span>
+                    </UnorderedListItem>
+                  </UnorderedList>
+                </div>
+              </article>
+
+              <Link
+                className="ecl-u-mt-l ecl-u-type-bold"
+                variant="standalone"
+                label="All events"
+                href="/example"
+                icon={{
+                  shape: 'ui--corner-arrow',
+                  size: 'xs',
+                  transform: 'rotate-90',
                 }}
               />
 
