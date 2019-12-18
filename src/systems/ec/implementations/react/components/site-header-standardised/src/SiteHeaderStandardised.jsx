@@ -83,7 +83,7 @@ const SiteHeaderStandardised = ({
                     >
                       <Icon
                         shape="general--logged-in"
-                        size="m"
+                        size="s"
                         className="ecl-site-header-standardised__icon"
                       />
                       {loginToggle.labelLogged}
@@ -122,7 +122,7 @@ const SiteHeaderStandardised = ({
                   >
                     <Icon
                       shape="general--log-in"
-                      size="m"
+                      size="s"
                       className="ecl-site-header-standardised__icon"
                     />
                     {loginToggle.labelNotLogged}
@@ -145,7 +145,7 @@ const SiteHeaderStandardised = ({
                 <span className="ecl-site-header-standardised__language-icon">
                   <Icon
                     shape="general--language"
-                    size="m"
+                    size="s"
                     className="ecl-site-header-standardised__icon"
                   />
                   <span className="ecl-site-header-standardised__language-code">
@@ -168,11 +168,7 @@ const SiteHeaderStandardised = ({
                   aria-controls={searchForm.id}
                   aria-expanded="false"
                 >
-                  <Icon
-                    shape="general--search"
-                    size="s"
-                    className="ecl-site-header-standardised__search-icon"
-                  />
+                  <Icon shape="general--search" size="s" />
                   {searchToggle.label}
                 </a>
                 <SearchForm
