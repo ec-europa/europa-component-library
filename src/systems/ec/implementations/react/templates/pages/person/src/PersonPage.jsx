@@ -214,7 +214,7 @@ const PersonPage = ({ siteHeader, footer, template }) => (
               />
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-m"
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-m ecl-u-mb-lg-l"
                 id="contact"
               >
                 Contact
@@ -235,11 +235,14 @@ const PersonPage = ({ siteHeader, footer, template }) => (
                 </DescriptionDefinition>
               </DescriptionList>
 
-              <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-m">
+              <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-m ecl-u-mb-lg-l">
                 General contact
               </h3>
 
-              <DescriptionList variant="horizontal" className="ecl-u-mb-l">
+              <DescriptionList
+                variant="horizontal"
+                className="ecl-u-mb-l ecl-u-mb-lg-l"
+              >
                 <DescriptionTerm>Email</DescriptionTerm>
                 <DescriptionDefinition>
                   <a
@@ -301,11 +304,11 @@ const PersonPage = ({ siteHeader, footer, template }) => (
                 </DescriptionDefinition>
               </DescriptionList>
 
-              <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mt-none ecl-u-mt-none ecl-u-mb-m">
+              <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-m">
                 Press contact
               </h3>
 
-              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-xl">
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-xl ecl-u-mb-lg-3xl">
                 Media enquiries should be directed to the{' '}
                 <Link
                   href="/example"
@@ -315,13 +318,13 @@ const PersonPage = ({ siteHeader, footer, template }) => (
               </p>
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l"
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l"
                 id="biography"
               >
                 Biography
               </h2>
 
-              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l">
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l">
                 Lithuanian nationality. Married with three children.
               </p>
 
@@ -329,7 +332,7 @@ const PersonPage = ({ siteHeader, footer, template }) => (
                 id="timeline"
                 data-ecl-template-timeline
                 data-ecl-auto-init="Timeline2"
-                className="ecl-u-mt-none ecl-u-mb-l"
+                className="ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l"
                 toggleCollapsed="Show %d more items"
                 toggleExpanded="Hide %d items"
                 button={{
@@ -419,7 +422,7 @@ const PersonPage = ({ siteHeader, footer, template }) => (
 
               <FileDownload
                 data-ecl-auto-init="FileDownload"
-                className="ecl-u-mt-none ecl-u-mb-xl"
+                className="ecl-u-mt-none ecl-u-mb-xl ecl-u-mb-lg-3xl"
                 title="Vytenis Andriukaitis' CV"
                 language="English"
                 meta="(43.8 KB - PDF)"
@@ -434,13 +437,13 @@ const PersonPage = ({ siteHeader, footer, template }) => (
               />
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l"
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l"
                 id="responsibilities"
               >
                 Responsibilities
               </h2>
 
-              <UnorderedList className="ecl-u-mt-none ecl-u-mb-xl">
+              <UnorderedList className="ecl-u-mt-none ecl-u-mb-xl ecl-u-mb-lg-l">
                 <UnorderedListItem>
                   modernising and simplifying EU food safety policy while
                   keeping the current high level of safety and ensuring existing
@@ -458,18 +461,18 @@ const PersonPage = ({ siteHeader, footer, template }) => (
                 </UnorderedListItem>
               </UnorderedList>
 
-              <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l">
+              <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l">
                 Mission letter
               </h3>
 
-              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l">
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-m">
                 Ursula von der Leyen&apos;s personal letter to Vytenis
                 Andriukaitis, outlining his role in the Commission.
               </p>
 
               <FileDownload
                 data-ecl-auto-init="FileDownload"
-                className="ecl-u-mt-none ecl-u-mb-xl"
+                className="ecl-u-mt-none ecl-u-mb-xl ecl-u-mb-lg-3xl"
                 title="President Junker's Mission Letter to Vytenis Andriukaitis"
                 language="English"
                 meta="(43.8 KB - PDF)"
@@ -484,7 +487,7 @@ const PersonPage = ({ siteHeader, footer, template }) => (
               />
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l"
+                className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l"
                 id="events"
               >
                 Events
@@ -526,7 +529,7 @@ const PersonPage = ({ siteHeader, footer, template }) => (
                 </div>
               </article>
 
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-d-flex ecl-u-mt-none ecl-u-mb-l ecl-u-pv-m">
+              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-d-flex ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l ecl-u-pv-m">
                 <div className="ecl-u-flex-grow-0 ecl-u-mr-m">
                   <DateBlock
                     dateTime="2020-02-06"
@@ -563,7 +566,7 @@ const PersonPage = ({ siteHeader, footer, template }) => (
               </article>
 
               <Link
-                className="ecl-u-mt-none ecl-u-mb-xl ecl-u-type-bold"
+                className="ecl-u-mt-none ecl-u-mb-xl ecl-u-mb-lg-3xl ecl-u-type-bold"
                 variant="standalone"
                 label="All events"
                 href="/example"
@@ -575,7 +578,7 @@ const PersonPage = ({ siteHeader, footer, template }) => (
               />
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l"
+                className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l"
                 id="media"
               >
                 Media
@@ -584,11 +587,11 @@ const PersonPage = ({ siteHeader, footer, template }) => (
               <Gallery
                 {...demoContentGallery}
                 data-ecl-auto-init="Gallery"
-                className="ecl-u-mt-none ecl-u-mb-l"
+                className="ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l"
               />
 
               <Link
-                className="ecl-u-mt-none ecl-u-mb-xl ecl-u-type-bold"
+                className="ecl-u-mt-none ecl-u-mb-xl ecl-u-mb-lg-3xl ecl-u-type-bold"
                 variant="standalone"
                 label="All media"
                 href="/example"
@@ -600,7 +603,7 @@ const PersonPage = ({ siteHeader, footer, template }) => (
               />
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l"
+                className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l"
                 id="news"
               >
                 News and publications
@@ -663,7 +666,7 @@ const PersonPage = ({ siteHeader, footer, template }) => (
               </article>
 
               <Link
-                className="ecl-u-mt-none ecl-u-mb-xl ecl-u-type-bold"
+                className="ecl-u-mt-none ecl-u-mb-xl ecl-u-mb-lg-3xl ecl-u-type-bold"
                 variant="standalone"
                 label="See more"
                 href="/example"
@@ -675,18 +678,18 @@ const PersonPage = ({ siteHeader, footer, template }) => (
               />
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l"
+                className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l"
                 id="team"
               >
                 Team
               </h2>
 
-              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l">
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l">
                 Vytenis Andriukaitis &apos; team supports him in his daily work.
               </p>
 
               <Link
-                className="ecl-u-mt-none ecl-u-mb-xl ecl-u-type-bold"
+                className="ecl-u-mt-none ecl-u-mb-xl ecl-u-mb-lg-3xl ecl-u-type-bold"
                 variant="standalone"
                 label="Team page"
                 href="/example"
@@ -698,7 +701,7 @@ const PersonPage = ({ siteHeader, footer, template }) => (
               />
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l"
+                className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l"
                 id="hearings"
               >
                 European Parliament hearings
@@ -706,7 +709,7 @@ const PersonPage = ({ siteHeader, footer, template }) => (
 
               <FileDownload
                 data-ecl-auto-init="FileDownload"
-                className="ecl-u-mt-none ecl-u-mb-m"
+                className="ecl-u-mt-none ecl-u-mb-m ecl-u-mb-lg-l"
                 title="Answers to European Parliament questionnaire"
                 language="English"
                 meta="(43.8 KB - PDF)"
@@ -722,7 +725,7 @@ const PersonPage = ({ siteHeader, footer, template }) => (
 
               <FileDownload
                 data-ecl-auto-init="FileDownload"
-                className="ecl-u-mt-none ecl-u-mb-xl"
+                className="ecl-u-mt-none ecl-u-mb-xl ecl-u-mb-lg-3xl"
                 title="Introductory statement to the European Parliament"
                 language="English"
                 meta="(43.8 KB - PDF)"
@@ -737,19 +740,19 @@ const PersonPage = ({ siteHeader, footer, template }) => (
               />
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l"
+                className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l"
                 id="declaration"
               >
                 Declaration of interests
               </h2>
 
-              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l">
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l">
                 Vytenis Andriukaitis &apos; team supports him in his daily work.
               </p>
 
               <FileDownload
                 data-ecl-auto-init="FileDownload"
-                className="ecl-u-mt-none ecl-u-mb-xl"
+                className="ecl-u-mt-none ecl-u-mb-xl ecl-u-mb-lg-3xl"
                 title="Vytenis Andriukaitis' Declaration of Interests"
                 language="English"
                 meta="(43.8 KB - PDF)"
@@ -764,13 +767,13 @@ const PersonPage = ({ siteHeader, footer, template }) => (
               />
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l"
+                className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l"
                 id="transparency"
               >
                 Transparency
               </h2>
 
-              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-xl">
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-xl ecl-u-mb-lg-3xl">
                 As part of the Commission&apos;s commitment to transparency,
                 Commissioners and their members of Cabinet publish informatoin
                 on meetings held with organisations or self-employed
@@ -778,7 +781,7 @@ const PersonPage = ({ siteHeader, footer, template }) => (
               </p>
 
               <SocialMediaShare
-                className="ecl-u-mt-none ecl-u-mb-xl"
+                className="ecl-u-mt-none ecl-u-mb-xl ecl-u-mb-lg-3xl"
                 description="Share this page"
                 links={[
                   {
