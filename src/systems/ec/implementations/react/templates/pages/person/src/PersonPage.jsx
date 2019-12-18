@@ -153,7 +153,7 @@ const PersonPage = ({ siteHeader, footer, template }) => (
             <img
               className="ecl-u-width-100 ecl-u-d-none ecl-u-d-md-block ecl-u-mb-xl ecl-u-mb-lg-3xl"
               alt="example"
-              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png"
             />
             <aside className="ecl-u-height-100">
               <InpageNavigation
@@ -210,7 +210,7 @@ const PersonPage = ({ siteHeader, footer, template }) => (
               <img
                 className="ecl-u-width-100 ecl-u-d-md-none ecl-u-mb-xl ecl-u-mb-lg-3xl"
                 alt="example"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png"
               />
 
               <h2
