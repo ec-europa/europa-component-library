@@ -8,6 +8,9 @@ import {
   DescriptionDefinition,
 } from '@ecl/ec-react-component-description-list';
 import FileDownload from '@ecl/ec-react-component-file';
+import Gallery from '@ecl/ec-react-component-gallery';
+
+import demoContentGallery from '@ecl/ec-specs-gallery/demo/data';
 import Icon from '@ecl/ec-react-component-icon';
 import InpageNavigation from '@ecl/ec-react-component-inpage-navigation';
 import Link from '@ecl/ec-react-component-link';
@@ -460,6 +463,7 @@ const PersonPage = ({ siteHeader, footer, template }) => (
                 Ursula von der Leyen&apos;s personal letter to Vytenis
                 Andriukaitis, outlining his role in the Commission.
               </p>
+
               <FileDownload
                 data-ecl-auto-init="FileDownload"
                 className="ecl-u-mt-l"
@@ -563,6 +567,193 @@ const PersonPage = ({ siteHeader, footer, template }) => (
                   transform: 'rotate-90',
                 }}
               />
+
+              <h2 className="ecl-u-type-heading-2 ecl-u-mv-none" id="media">
+                Media
+              </h2>
+
+              <Gallery {...demoContentGallery} data-ecl-auto-init="Gallery" />
+
+              <Link
+                className="ecl-u-mt-l ecl-u-type-bold"
+                variant="standalone"
+                label="All media"
+                href="/example"
+                icon={{
+                  shape: 'ui--corner-arrow',
+                  size: 'xs',
+                  transform: 'rotate-90',
+                }}
+              />
+
+              <h2 className="ecl-u-type-heading-2 ecl-u-mv-none" id="news">
+                News and publications
+              </h2>
+
+              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-l">
+                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
+                  <span className="ecl-u-type-uppercase">Statement</span> |{' '}
+                  <time dateTime="2019-10-17">25 September 2019</time>
+                </div>
+                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                  <Link
+                    href="/example"
+                    variant="standalone"
+                    label="Timely testing saves lives: Statement by Commissioner Andriukaitis on the World Hepatitis Day"
+                  />
+                </div>
+              </article>
+
+              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
+                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
+                  <span className="ecl-u-type-uppercase">Article</span> |{' '}
+                  <time dateTime="2019-10-17">19 September 2019</time>
+                </div>
+                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                  <Link
+                    href="/example"
+                    variant="standalone"
+                    label="'Boris, you are wrong'"
+                  />
+                </div>
+              </article>
+
+              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
+                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
+                  <span className="ecl-u-type-uppercase">Speech</span> |{' '}
+                  <time dateTime="2019-10-17">19 September 2019</time>
+                </div>
+                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                  <Link
+                    href="/example"
+                    variant="standalone"
+                    label="AgriFish Council - Animal welfare during transport"
+                  />
+                </div>
+              </article>
+
+              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
+                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
+                  <span className="ecl-u-type-uppercase">Article</span> |{' '}
+                  <time dateTime="2019-10-17">19 September 2019</time>
+                </div>
+                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
+                  <Link
+                    href="/example"
+                    variant="standalone"
+                    label="Call to action on food fraud"
+                  />
+                </div>
+              </article>
+
+              <Link
+                className="ecl-u-mt-l ecl-u-type-bold"
+                variant="standalone"
+                label="See more"
+                href="/example"
+                icon={{
+                  shape: 'ui--corner-arrow',
+                  size: 'xs',
+                  transform: 'rotate-90',
+                }}
+              />
+
+              <h2 className="ecl-u-type-heading-2 ecl-u-mv-none" id="team">
+                Team
+              </h2>
+
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-l">
+                Vytenis Andriukaitis &apos; team supports him in his daily work.
+              </p>
+
+              <Link
+                className="ecl-u-mt-l ecl-u-type-bold"
+                variant="standalone"
+                label="Team page"
+                href="/example"
+                icon={{
+                  shape: 'ui--corner-arrow',
+                  size: 'xs',
+                  transform: 'rotate-90',
+                }}
+              />
+
+              <h2 className="ecl-u-type-heading-2 ecl-u-mv-none" id="hearings">
+                European Parliament hearings
+              </h2>
+
+              <FileDownload
+                data-ecl-auto-init="FileDownload"
+                className="ecl-u-mt-l"
+                title="Answers to European Parliament questionnaire"
+                language="English"
+                meta="(43.8 KB - PDF)"
+                icon={{
+                  shape: 'general--copy',
+                  size: '2xl',
+                }}
+                download={{
+                  label: 'Download',
+                  href: '/example',
+                }}
+              />
+
+              <FileDownload
+                data-ecl-auto-init="FileDownload"
+                className="ecl-u-mt-l"
+                title="Introductory statement to the European Parliament"
+                language="English"
+                meta="(43.8 KB - PDF)"
+                icon={{
+                  shape: 'general--copy',
+                  size: '2xl',
+                }}
+                download={{
+                  label: 'Download',
+                  href: '/example',
+                }}
+              />
+
+              <h2
+                className="ecl-u-type-heading-2 ecl-u-mv-none"
+                id="declaration"
+              >
+                Declaration of interests
+              </h2>
+
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-l">
+                Vytenis Andriukaitis &apos; team supports him in his daily work.
+              </p>
+
+              <FileDownload
+                data-ecl-auto-init="FileDownload"
+                className="ecl-u-mt-l"
+                title="Vytenis Andriukaitis' Declaration of Interests"
+                language="English"
+                meta="(43.8 KB - PDF)"
+                icon={{
+                  shape: 'general--copy',
+                  size: '2xl',
+                }}
+                download={{
+                  label: 'Download',
+                  href: '/example',
+                }}
+              />
+
+              <h2
+                className="ecl-u-type-heading-2 ecl-u-mv-none"
+                id="transparency"
+              >
+                Transparency
+              </h2>
+
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-l">
+                As part of the Commission&apos;s commitment to transparency,
+                Commissioners and their members of Cabinet publish informatoin
+                on meetings held with organisations or self-employed
+                individuals.
+              </p>
 
               <SocialMediaShare
                 className="ecl-u-mt-xl ecl-u-mt-lg-3xl"
