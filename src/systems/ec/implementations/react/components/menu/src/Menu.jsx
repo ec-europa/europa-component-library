@@ -34,7 +34,7 @@ export const Menu = ({
             {toggleLabelClose}
           </div>
         </a>
-        <div className="ecl-menu__site-name">{siteName}</div>
+        {siteName && <div className="ecl-menu__site-name">{siteName}</div>}
         <ul className="ecl-menu__list" data-ecl-menu-list>
           {items.map(item => (
             <MenuItem {...item} key={item.label} />

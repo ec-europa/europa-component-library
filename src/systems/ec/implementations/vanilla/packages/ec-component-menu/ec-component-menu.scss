@@ -31,6 +31,7 @@
 
     .ecl-menu__site-name {
       font: $ecl-font-3-xl;
+      margin-bottom: $ecl-spacing-l;
     }
   }
 
@@ -95,7 +96,7 @@
     flex-grow: 1;
     list-style: none;
     margin-bottom: 0;
-    margin-top: $ecl-spacing-m;
+    margin-top: 0;
     padding-left: 0;
     padding-top: 1px; // Used to display separator
     position: relative;
@@ -180,7 +181,6 @@
     .ecl-menu__list {
       display: flex;
       flex-direction: row;
-      margin-top: $ecl-spacing-l;
 
       &::before {
         display: none;
