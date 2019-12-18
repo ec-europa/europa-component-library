@@ -158,7 +158,11 @@ const SiteHeaderCore = ({
                   aria-controls={searchForm.id}
                   aria-expanded="false"
                 >
-                  <Icon shape="general--search" size="s" />
+                  <Icon
+                    shape="general--search"
+                    size="s"
+                    className="ecl-site-header-core__search-icon"
+                  />
                   {searchToggle.label}
                 </a>
                 <SearchForm

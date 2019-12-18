@@ -11,7 +11,7 @@
 
 @mixin ecl-site-header-core(
   $logo-height-xs: 1.75rem,
-  $logo-width-xs: 10.1rem,
+  $logo-width-xs: 7rem,
   $logo-height-sm: 3rem,
   $logo-width-sm: 12.1rem,
   $logo-height-lg: 3.75rem,
@@ -99,6 +99,12 @@
     position: absolute;
     width: calc(100% - #{$ecl-spacing-m} - #{$ecl-spacing-m});
     z-index: $ecl-z-index-dropdown;
+  }
+
+  .ecl-site-header-core__search-icon {
+    height: $ecl-icon-s;
+    margin-bottom: 0.25rem;
+    width: $ecl-icon-s;
   }
 
   .ecl-site-header-core__login-box--active {

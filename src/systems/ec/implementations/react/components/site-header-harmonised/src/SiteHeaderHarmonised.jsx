@@ -101,7 +101,7 @@ const SiteHeaderHarmonised = ({
                       >
                         <Icon
                           shape="general--logged-in"
-                          size="s"
+                          size="m"
                           className="ecl-site-header-harmonised__icon"
                         />
                         {loginToggle.labelLogged}
@@ -140,7 +140,7 @@ const SiteHeaderHarmonised = ({
                     >
                       <Icon
                         shape="general--log-in"
-                        size="s"
+                        size="m"
                         className="ecl-site-header-harmonised__icon"
                       />
                       {loginToggle.labelNotLogged}
@@ -165,7 +165,7 @@ const SiteHeaderHarmonised = ({
                   <span className="ecl-site-header-harmonised__language-icon">
                     <Icon
                       shape="general--language"
-                      size="s"
+                      size="m"
                       className="ecl-site-header-harmonised__icon"
                     />
                     <span className="ecl-site-header-harmonised__language-code">
@@ -190,7 +190,11 @@ const SiteHeaderHarmonised = ({
                     aria-controls={searchForm.id}
                     aria-expanded="false"
                   >
-                    <Icon shape="general--search" size="s" />
+                    <Icon
+                      shape="general--search"
+                      size="s"
+                      className="ecl-site-header-harmonised__search-icon"
+                    />
                     {searchToggle.label}
                   </a>
                   <SearchForm
