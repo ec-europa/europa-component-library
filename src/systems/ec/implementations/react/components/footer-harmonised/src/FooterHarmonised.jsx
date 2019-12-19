@@ -13,6 +13,7 @@ const FooterHarmonised = ({ sections, className, ...props }) => (
             1}`}
           key={section.key}
         >
+          {/* Title */}
           {!!(section.title && typeof section.title === 'object') && (
             <Link
               {...section.title}
@@ -33,6 +34,32 @@ const FooterHarmonised = ({ sections, className, ...props }) => (
               {section.title}
             </div>
           )}
+
+          {/* Logos */}
+          {!!(section.logos && Object.keys(section.logos).length >= 1) && (
+            <ul
+              className={classnames(
+                'ecl-footer-harmonised__logo-list',
+                section.descriptionClassName
+              )}
+            >
+              {section.logos.map(logo => (
+                <li className="ecl-footer-harmonised__logo-item" key={logo.src}>
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    title={logo.title}
+                    className={classnames(
+                      logo.className,
+                      'ecl-footer-harmonised__logo'
+                    )}
+                  />
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {/* Description */}
           {section.description && (
             <div
               className={classnames(
@@ -43,6 +70,8 @@ const FooterHarmonised = ({ sections, className, ...props }) => (
               {section.description}
             </div>
           )}
+
+          {/* Content before links list */}
           {section.contentBefore && (
             <div
               className={classnames(
@@ -53,6 +82,8 @@ const FooterHarmonised = ({ sections, className, ...props }) => (
               {section.contentBefore}
             </div>
           )}
+
+          {/* Links list */}
           {section.links && (
             <ul
               className={classnames(
@@ -77,6 +108,8 @@ const FooterHarmonised = ({ sections, className, ...props }) => (
               ))}
             </ul>
           )}
+
+          {/* Content after links list */}
           {section.contentAfter && (
             <div
               className={classnames(
@@ -101,6 +134,14 @@ FooterHarmonised.propTypes = {
         PropTypes.string,
         PropTypes.shape(Link.propTypes),
       ]),
+      logos: PropTypes.arrayOf(
+        PropTypes.shape({
+          title: PropTypes.string,
+          alt: PropTypes.string,
+          src: PropTypes.string,
+          className: PropTypes.string,
+        })
+      ),
       description: PropTypes.string,
       contentBefore: PropTypes.string,
       links: PropTypes.arrayOf(PropTypes.shape(Link.propTypes)),
