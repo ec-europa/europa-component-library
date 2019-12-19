@@ -145,38 +145,124 @@ const PersonListPage = ({ siteHeader, footer, template }) => (
     <div className="ecl-u-pv-xl ecl-u-pv-lg-3xl">
       <div className="ecl-container">
         <div className="ecl-row">
+          <div className="ecl-col-12 ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-mt-none ecl-u-mb-xl ecl-u-mb-lg-3xl">
+            <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l">
+              Contact the team
+            </h2>
+            <DescriptionList
+              variant="horizontal"
+              className="ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l"
+            >
+              <DescriptionTerm>Email</DescriptionTerm>
+              <DescriptionDefinition>
+                <a
+                  className="ecl-link"
+                  href="mailto:cab-andriukatis-webpage@ec.europa.eu"
+                >
+                  cab-andriukatis-webpage@ec.europa.eu
+                </a>
+              </DescriptionDefinition>
+              <DescriptionTerm>Address</DescriptionTerm>
+              <DescriptionDefinition>
+                European Commission
+                <br />
+                Rue de la Loi / Wetstraat 200
+                <br />
+                1049 Brussels
+                <br />
+                Belgium
+              </DescriptionDefinition>
+            </DescriptionList>
+            <Link
+              className="ecl-u-mt-none ecl-u-mb-xl ecl-u-mb-lg-3xl"
+              variant="standalone"
+              label="Media enquiries"
+              href="/example"
+              icon={{
+                shape: 'ui--corner-arrow',
+                size: 'xs',
+                transform: 'rotate-90',
+              }}
+            />
+          </div>
+        </div>
+        <div className="ecl-row">
           <aside className="ecl-col-12 ecl-col-lg-3">
-            <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-d-lg-none ecl-u-mv-none">
+            <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-d-lg-none ecl-u-mt-none ecl-u-mt-none ecl-u-mb-xl ecl-u-mb-lg-l">
               People (11)
             </h2>
-            <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mt-l ecl-u-mt-lg-none">
+            <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-lg-l">
               Filter by
             </h3>
             <form>
-              <TextInput id="facet-name" label="Name" width="m" />
+              <TextInput
+                className="ecl-u-mb-m"
+                id="facet-name"
+                label="Name"
+                width="m"
+              />
               <Select
                 id="facet-team"
-                groupClassName="ecl-u-mt-l"
+                groupClassName="ecl-u-mb-m"
                 label="Team"
                 width="m"
                 options={[]}
               />
               <Select
                 id="facet-portfolio"
-                groupClassName="ecl-u-mt-l"
+                groupClassName="ecl-u-mb-m"
                 label="Portfolio"
                 width="m"
                 options={[]}
               />
 
-              <Button className="ecl-u-mt-l" label="Search" variant="search" />
-              <br />
+              <Button
+                className="ecl-u-mt-none"
+                label="Search"
+                variant="search"
+              />
             </form>
           </aside>
           <main className="ecl-col-12 ecl-col-lg-9">
             <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-d-none ecl-u-d-lg-block ecl-u-mv-none">
               People (11)
             </h2>
+
+            <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s ecl-u-mt-xl ecl-u-mt-lg-l">
+              <div
+                role="img"
+                aria-label="Example image"
+                className="ecl-u-flex-shrink-0 ecl-u-mr-l ecl-u-media-a-m"
+                style={{
+                  backgroundImage:
+                    'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
+                  backgroundSize: 'contain',
+                }}
+              />
+              <div className="ecl-u-flex-grow-1">
+                <h3 className="ecl-u-type-heading-3 ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-none ecl-u-mb-xs">
+                  Arūnas Vinčiūnas
+                </h3>
+                <p className="ecl-u-type-paragraph ecl-u-type-uppercase ecl-u-type-color-grey-75 ecl-u-mt-none ecl-u-type-s">
+                  Head of Cabinet
+                </p>
+                <DescriptionList variant="horizontal">
+                  <DescriptionTerm>Responsibilities</DescriptionTerm>
+                  <DescriptionDefinition>
+                    <UnorderedList>
+                      <UnorderedListItem>
+                        strategic co-ordination and programming
+                      </UnorderedListItem>
+                      <UnorderedListItem>HEBDO</UnorderedListItem>
+                      <UnorderedListItem>
+                        management of the Cabinet
+                      </UnorderedListItem>
+                      <UnorderedListItem>Senior management</UnorderedListItem>
+                    </UnorderedList>
+                  </DescriptionDefinition>
+                </DescriptionList>
+              </div>
+            </article>
 
             <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
               <div
@@ -190,32 +276,66 @@ const PersonListPage = ({ siteHeader, footer, template }) => (
                 }}
               />
               <div className="ecl-u-flex-grow-1">
-                <h2 className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mv-none">
-                  Arūnas Vinčiūnas
-                </h2>
+                <h3 className="ecl-u-type-heading-3 ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-none ecl-u-mb-xs">
+                  Nathalie Chaze
+                </h3>
                 <p className="ecl-u-type-paragraph ecl-u-type-uppercase ecl-u-type-color-grey-75 ecl-u-mt-none ecl-u-type-s">
-                  Head of Cabinet
+                  Deputy Head of Cabinet
                 </p>
-                <DescriptionList
-                  variant="horizontal"
-                  className="ecl-u-mb-l ecl-u-mb-lg-l"
-                >
-                  <DescriptionTerm>Email</DescriptionTerm>
-                  <DescriptionDefinition>
-                    <a
-                      className="ecl-link"
-                      href="mailto:cab-andriukatis-webpage@ec.europa.eu"
-                    >
-                      cab-andriukatis-webpage@ec.europa.eu
-                    </a>
-                  </DescriptionDefinition>
+                <DescriptionList variant="horizontal">
+                  <DescriptionTerm>Phone number</DescriptionTerm>
+                  <DescriptionDefinition>+32 2 29 64816</DescriptionDefinition>
                   <DescriptionTerm>Responsibilities</DescriptionTerm>
                   <DescriptionDefinition>
-                    <UnorderedList className="ecl-u-mt-none ecl-u-mb-xl ecl-u-mb-lg-l ecl-u-pl-s">
-                      <UnorderedListItem>one</UnorderedListItem>
-                      <UnorderedListItem>two</UnorderedListItem>
-                      <UnorderedListItem>three</UnorderedListItem>
+                    <UnorderedList className="ecl-u-mv-m">
+                      <UnorderedListItem>
+                        Food information and composition
+                      </UnorderedListItem>
+                      <UnorderedListItem>
+                        Food processing technologies and novel foods
+                      </UnorderedListItem>
                     </UnorderedList>
+                    <Link
+                      variant="standalone"
+                      label="See all responsibilities"
+                      href="/example"
+                      icon={{
+                        shape: 'ui--corner-arrow',
+                        size: 'xs',
+                        transform: 'rotate-90',
+                      }}
+                    />
+                  </DescriptionDefinition>
+                </DescriptionList>
+              </div>
+            </article>
+
+            <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s ecl-u-mb-xl ecl-u-mb-lg-3xl">
+              <div
+                role="img"
+                aria-label="Example image"
+                className="ecl-u-flex-shrink-0 ecl-u-mr-l ecl-u-media-a-m"
+                style={{
+                  backgroundImage:
+                    'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
+                  backgroundSize: 'contain',
+                }}
+              />
+              <div className="ecl-u-flex-grow-1">
+                <h3 className="ecl-u-type-heading-3 ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-none ecl-u-mb-xs">
+                  Natasha Bertaud
+                </h3>
+                <p className="ecl-u-type-paragraph ecl-u-type-uppercase ecl-u-type-color-grey-75 ecl-u-mt-none ecl-u-type-s">
+                  Deputy Chief Spokesperson
+                </p>
+                <DescriptionList variant="horizontal">
+                  <DescriptionTerm>Phone number</DescriptionTerm>
+                  <DescriptionDefinition>+32 2 29 64816</DescriptionDefinition>
+                  <DescriptionTerm>Email</DescriptionTerm>
+                  <DescriptionDefinition>
+                    <a href="mailto:natasha.bertaud@ec.europa.eu">
+                      natasha.bertaud@ec.europa.eu
+                    </a>
                   </DescriptionDefinition>
                   <DescriptionTerm>Social media</DescriptionTerm>
                   <DescriptionDefinition className="ecl-u-mv-none ecl-u-pv-none">
@@ -256,6 +376,26 @@ const PersonListPage = ({ siteHeader, footer, template }) => (
                         },
                       ]}
                     />
+                  </DescriptionDefinition>
+                  <DescriptionTerm>Office</DescriptionTerm>
+                  <DescriptionDefinition>BERL 04/353</DescriptionDefinition>
+                  <DescriptionTerm>Spokesperson</DescriptionTerm>
+                  <DescriptionDefinition>
+                    <UnorderedList>
+                      <UnorderedListItem>
+                        activities of the president
+                      </UnorderedListItem>
+                      <UnorderedListItem>
+                        policies of the first vice-president
+                      </UnorderedListItem>
+                      <UnorderedListItem>
+                        better regulation, interinstitutional affairs
+                      </UnorderedListItem>
+                      <UnorderedListItem>
+                        migration, home affairs and citizenship
+                      </UnorderedListItem>
+                      <UnorderedListItem>security union</UnorderedListItem>
+                    </UnorderedList>
                   </DescriptionDefinition>
                 </DescriptionList>
               </div>
