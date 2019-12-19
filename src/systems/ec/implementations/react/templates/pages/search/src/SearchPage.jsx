@@ -225,10 +225,10 @@ const SearchPage = ({ siteHeader, pageHeader, footer, template }) => (
                 className="ecl-u-type-prolonged-m ecl-u-type-bold"
               />
               <p className="ecl-u-type-paragraph-m ecl-u-type-color-grey ecl-u-mv-none">
-                The EU is building an energy union that ensures Europe’s energy
-                supply is safe, viable and accessible to all. In doing so, it
-                can boost the economy and attract investments that can create
-                new jobs opportunities.
+                The EU is building an energy union that make sures Europe’s
+                energy supply is safe, viable and accessible to all. In doing
+                so, it can boost the economy and attract investments that can
+                create new jobs opportunities.
               </p>
             </article>
             <hr className="ecl-u-mv-none" />
@@ -253,7 +253,7 @@ const SearchPage = ({ siteHeader, pageHeader, footer, template }) => (
               />
               <p className="ecl-u-type-paragraph-m ecl-u-type-color-grey ecl-u-mv-none">
                 Within the Economic and Monetary Union (EMU), EU countries’
-                economic policies are coordinated to: ensure EU countries can
+                economic policies are coordinated to: make sure EU countries can
                 withstand future crises through economic and social reforms and
                 responsible fiscal policies, encourage investment and enhance
                 competitiveness, deliver more job opportunities and better
