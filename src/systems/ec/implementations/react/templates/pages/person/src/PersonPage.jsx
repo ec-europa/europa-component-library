@@ -157,6 +157,7 @@ const PersonPage = ({ siteHeader, footer, template }) => (
             />
             <aside className="ecl-u-height-100">
               <InpageNavigation
+                className="ecl-u-z-navigation"
                 data-ecl-auto-init="InpageNavigation"
                 title="Page contents"
                 links={[
@@ -239,10 +240,7 @@ const PersonPage = ({ siteHeader, footer, template }) => (
                 General contact
               </h3>
 
-              <DescriptionList
-                variant="horizontal"
-                className="ecl-u-mb-l ecl-u-mb-lg-l"
-              >
+              <DescriptionList variant="horizontal" className="ecl-u-mb-l">
                 <DescriptionTerm>Email</DescriptionTerm>
                 <DescriptionDefinition>
                   <a
@@ -318,13 +316,13 @@ const PersonPage = ({ siteHeader, footer, template }) => (
               </p>
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l"
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l"
                 id="biography"
               >
                 Biography
               </h2>
 
-              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l">
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l">
                 Lithuanian nationality. Married with three children.
               </p>
 
@@ -332,7 +330,7 @@ const PersonPage = ({ siteHeader, footer, template }) => (
                 id="timeline"
                 data-ecl-template-timeline
                 data-ecl-auto-init="Timeline2"
-                className="ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l"
+                className="ecl-u-mt-none ecl-u-mb-l"
                 toggleCollapsed="Show %d more items"
                 toggleExpanded="Hide %d items"
                 button={{
@@ -437,7 +435,7 @@ const PersonPage = ({ siteHeader, footer, template }) => (
               />
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l"
+                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-lg-l"
                 id="responsibilities"
               >
                 Responsibilities
@@ -461,7 +459,7 @@ const PersonPage = ({ siteHeader, footer, template }) => (
                 </UnorderedListItem>
               </UnorderedList>
 
-              <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l">
+              <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-lg-l">
                 Mission letter
               </h3>
 
@@ -487,7 +485,7 @@ const PersonPage = ({ siteHeader, footer, template }) => (
               />
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l"
+                className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l"
                 id="events"
               >
                 Events
@@ -529,7 +527,7 @@ const PersonPage = ({ siteHeader, footer, template }) => (
                 </div>
               </article>
 
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-d-flex ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l ecl-u-pv-m">
+              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-d-flex ecl-u-mt-none ecl-u-mb-l ecl-u-pv-m">
                 <div className="ecl-u-flex-grow-0 ecl-u-mr-m">
                   <DateBlock
                     dateTime="2020-02-06"
@@ -578,7 +576,7 @@ const PersonPage = ({ siteHeader, footer, template }) => (
               />
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l"
+                className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l"
                 id="media"
               >
                 Media
@@ -587,7 +585,7 @@ const PersonPage = ({ siteHeader, footer, template }) => (
               <Gallery
                 {...demoContentGallery}
                 data-ecl-auto-init="Gallery"
-                className="ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l"
+                className="ecl-u-mt-none ecl-u-mb-l"
               />
 
               <Link
@@ -603,7 +601,7 @@ const PersonPage = ({ siteHeader, footer, template }) => (
               />
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l"
+                className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l"
                 id="news"
               >
                 News and publications
@@ -678,13 +676,13 @@ const PersonPage = ({ siteHeader, footer, template }) => (
               />
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l"
+                className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l"
                 id="team"
               >
                 Team
               </h2>
 
-              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l">
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l">
                 Vytenis Andriukaitis &apos; team supports him in his daily work.
               </p>
 
@@ -701,7 +699,7 @@ const PersonPage = ({ siteHeader, footer, template }) => (
               />
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l"
+                className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l"
                 id="hearings"
               >
                 European Parliament hearings
@@ -740,13 +738,13 @@ const PersonPage = ({ siteHeader, footer, template }) => (
               />
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l"
+                className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l"
                 id="declaration"
               >
                 Declaration of interests
               </h2>
 
-              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l">
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l">
                 Vytenis Andriukaitis &apos; team supports him in his daily work.
               </p>
 
@@ -767,13 +765,13 @@ const PersonPage = ({ siteHeader, footer, template }) => (
               />
 
               <h2
-                className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l"
+                className="ecl-u-type-heading-2 ecl-u-mt-none ecl-u-mb-l"
                 id="transparency"
               >
                 Transparency
               </h2>
 
-              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-xl ecl-u-mb-lg-3xl">
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none">
                 As part of the Commission&apos;s commitment to transparency,
                 Commissioners and their members of Cabinet publish informatoin
                 on meetings held with organisations or self-employed

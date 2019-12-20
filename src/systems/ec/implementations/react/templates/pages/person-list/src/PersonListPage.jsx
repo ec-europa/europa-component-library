@@ -151,7 +151,7 @@ const PersonListPage = ({ siteHeader, footer, template }) => (
             </h2>
             <DescriptionList
               variant="horizontal"
-              className="ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-l"
+              className="ecl-u-mt-none ecl-u-mb-l"
             >
               <DescriptionTerm>Email</DescriptionTerm>
               <DescriptionDefinition>
@@ -402,7 +402,7 @@ const PersonListPage = ({ siteHeader, footer, template }) => (
             </article>
 
             <SocialMediaShare
-              className="ecl-u-mt-none ecl-u-mb-xl ecl-u-mb-lg-3xl"
+              className="ecl-u-mt-none"
               description="Share this page"
               links={[
                 {
