@@ -218,7 +218,7 @@ const PersonPage = ({ siteHeader, footer, template }) => (
                 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-m ecl-u-mb-lg-l"
                 id="contact"
               >
-                Contact
+                Contact information
               </h2>
 
               <DescriptionList variant="horizontal" className="ecl-u-mb-l">
@@ -459,6 +459,31 @@ const PersonPage = ({ siteHeader, footer, template }) => (
                 </UnorderedListItem>
               </UnorderedList>
 
+              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l">
+                Vytenis Andriukaitis is part of the following project teams:
+              </p>
+
+              <UnorderedList className="ecl-u-mt-none ecl-u-mb-xl ecl-u-mb-lg-l">
+                <UnorderedListItem>
+                  <Link
+                    href="/example"
+                    label="Jobs, Growth, Investment and Competitiveness"
+                  />
+                </UnorderedListItem>
+                <UnorderedListItem>
+                  <Link href="/example" label="Digital Single Market" />
+                </UnorderedListItem>
+                <UnorderedListItem>
+                  <Link
+                    href="/example"
+                    label="Better Regulation and Inter-Institutional Affairs"
+                  />
+                </UnorderedListItem>
+                <UnorderedListItem>
+                  <Link href="/example" label="Budget and Human Resources" />
+                </UnorderedListItem>
+              </UnorderedList>
+
               <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-lg-l">
                 Mission letter
               </h3>
@@ -683,7 +708,8 @@ const PersonPage = ({ siteHeader, footer, template }) => (
               </h2>
 
               <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l">
-                Vytenis Andriukaitis &apos; team supports him in his daily work.
+                Meet Vytenis Andriukaitis &apos; team supports him in his daily
+                work.
               </p>
 
               <Link
@@ -745,7 +771,8 @@ const PersonPage = ({ siteHeader, footer, template }) => (
               </h2>
 
               <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l">
-                Vytenis Andriukaitis &apos; team supports him in his daily work.
+                Interests that could conflict with, have the potential to
+                conflict, or could be perceived to conflict with the Commission.
               </p>
 
               <FileDownload

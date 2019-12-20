@@ -189,7 +189,7 @@ const PersonListPage = ({ siteHeader, footer, template }) => (
         <div className="ecl-row">
           <aside className="ecl-col-12 ecl-col-lg-3">
             <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-d-lg-none ecl-u-mt-none ecl-u-mt-none ecl-u-mb-xl ecl-u-mb-lg-l">
-              People (11)
+              Team members (11)
             </h2>
             <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-lg-l">
               Filter by
@@ -225,7 +225,7 @@ const PersonListPage = ({ siteHeader, footer, template }) => (
           </aside>
           <main className="ecl-col-12 ecl-col-lg-9">
             <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-d-none ecl-u-d-lg-block ecl-u-mv-none">
-              People (11)
+              Team members (11)
             </h2>
 
             <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s ecl-u-mt-xl ecl-u-mt-lg-l">
