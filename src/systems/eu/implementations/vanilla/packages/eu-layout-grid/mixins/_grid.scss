@@ -80,7 +80,7 @@
 @mixin ecl-make-col($size, $columns: $ecl-grid-columns) {
   flex: 0 0 percentage($size / $columns);
   // width: percentage($size / $columns);
-  // Add a `max-width` to ensure content within each column does not blow out
+  // Add a `max-width` to make sure content within each column does not blow out
   // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
   // do not appear to require this.
   max-width: percentage($size / $columns);

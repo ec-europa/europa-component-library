@@ -13,5 +13,5 @@ module.exports = {
   labelExpanded: 'Expanded button',
   labelCollapsed: 'Collapsed button',
   content:
-    'The EU is building an energy union that ensures Europe’s energy supply is safe, viable and accessible to all. In doing so, it can boost the economy and attract investments that can create new jobs opportunities.',
+    'The EU is building an energy union that make sures Europe’s energy supply is safe, viable and accessible to all. In doing so, it can boost the economy and attract investments that can create new jobs opportunities.',
 };
