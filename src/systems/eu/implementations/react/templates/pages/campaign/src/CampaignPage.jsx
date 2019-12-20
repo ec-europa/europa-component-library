@@ -35,7 +35,7 @@ const CampaignPage = ({
               reflects rapid developments in innovation, the economy, the
               environment and geopolitics, amongst others. The Commission is
               putting forward modern, clearer and simpler EU financial rules
-              that ensure the EU budget delivers on the issues that matter to
+              that make sure the EU budget delivers on the issues that matter to
               Europeans.
             </p>
           </div>

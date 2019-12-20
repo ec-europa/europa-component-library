@@ -55,7 +55,7 @@ Whenever we need a fixed horizontal or vertical spacing to place components in a
 ## Don'ts
 
 - don't go outside the provided spacing tokens
-- don't stack the spacing tokens (e.g. <RemToPixels rem="0.75" />px + <RemToPixels rem="1" />px)
+- don't stack the spacing tokens (such as <RemToPixels rem="0.75" />px + <RemToPixels rem="1" />px)
 
 ## When to use
 
