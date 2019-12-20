@@ -29,10 +29,10 @@ _Infographics_: Use these for visual storytelling to make complex information ea
 
 | File type (short) | File type (long)                      | File extension |
 | ----------------- | ------------------------------------- | -------------- |
-| GIF               | Graphics Interchange Format           | .gif           |
-| JPEG              | Joint Photographic Expert Group image | .jpeg .jpg     |
-| PNG               | Portable Network Graphics             | .png           |
-| SVG               | Scalable Vector Graphics              | .svg           |
+| GIF               | graphics Interchange Format           | .gif           |
+| JPEG              | joint Photographic Expert Group image | .jpeg .jpg     |
+| PNG               | portable Network Graphics             | .png           |
+| SVG               | scalable Vector Graphics              | .svg           |
 
 ### Raster graphic
 
