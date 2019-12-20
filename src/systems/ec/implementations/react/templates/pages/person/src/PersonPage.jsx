@@ -148,13 +148,41 @@ const PersonPage = ({ siteHeader, footer, template }) => (
 
     <div className="ecl-u-pv-xl ecl-u-pv-lg-3xl">
       <div className="ecl-container ecl-u-type-m">
-        <div className="ecl-row" data-ecl-inpage-navigation-container>
+        <div className="ecl-row">
           <div className="ecl-col-12 ecl-col-lg-3">
             <img
               className="ecl-u-width-100 ecl-u-d-none ecl-u-d-md-block ecl-u-mb-xl ecl-u-mb-lg-3xl"
               alt="example"
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png"
             />
+          </div>
+          <div className="ecl-col-12 ecl-col-lg-9">
+            <h2
+              className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-m ecl-u-mb-lg-l"
+              id="contact"
+            >
+              Contact information
+            </h2>
+
+            <DescriptionList variant="horizontal" className="ecl-u-mb-l">
+              <DescriptionTerm>Name</DescriptionTerm>
+              <DescriptionDefinition>
+                Vytenis Andriukaitis
+              </DescriptionDefinition>
+              <DescriptionTerm>Title</DescriptionTerm>
+              <DescriptionDefinition>
+                Commissioner (2014 - 2019)
+              </DescriptionDefinition>
+              <DescriptionTerm>Organization</DescriptionTerm>
+              <DescriptionDefinition>
+                Health & Food Safety
+              </DescriptionDefinition>
+            </DescriptionList>
+          </div>
+        </div>
+
+        <div className="ecl-row" data-ecl-inpage-navigation-container>
+          <div className="ecl-col-12 ecl-col-lg-3">
             <aside className="ecl-u-height-100">
               <InpageNavigation
                 className="ecl-u-z-navigation"
@@ -208,34 +236,6 @@ const PersonPage = ({ siteHeader, footer, template }) => (
 
           <div className="ecl-col-12 ecl-col-lg-9">
             <main>
-              <img
-                className="ecl-u-width-100 ecl-u-d-md-none ecl-u-mb-xl ecl-u-mb-lg-3xl"
-                alt="example"
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png"
-              />
-
-              <h2
-                className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-m ecl-u-mb-lg-l"
-                id="contact"
-              >
-                Contact information
-              </h2>
-
-              <DescriptionList variant="horizontal" className="ecl-u-mb-l">
-                <DescriptionTerm>Name</DescriptionTerm>
-                <DescriptionDefinition>
-                  Vytenis Andriukaitis
-                </DescriptionDefinition>
-                <DescriptionTerm>Title</DescriptionTerm>
-                <DescriptionDefinition>
-                  Commissioner (2014 - 2019)
-                </DescriptionDefinition>
-                <DescriptionTerm>Organization</DescriptionTerm>
-                <DescriptionDefinition>
-                  Health & Food Safety
-                </DescriptionDefinition>
-              </DescriptionList>
-
               <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-m ecl-u-mb-lg-l">
                 General contact
               </h3>
