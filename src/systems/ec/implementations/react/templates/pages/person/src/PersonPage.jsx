@@ -151,7 +151,7 @@ const PersonPage = ({ siteHeader, footer, template }) => (
         <div className="ecl-row">
           <div className="ecl-col-12 ecl-col-lg-3">
             <img
-              className="ecl-u-width-100 ecl-u-d-none ecl-u-d-md-block ecl-u-mb-xl ecl-u-mb-lg-3xl"
+              className="ecl-u-width-100 ecl-u-d-md-block ecl-u-mb-xl ecl-u-mb-lg-3xl"
               alt="example"
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png"
             />
