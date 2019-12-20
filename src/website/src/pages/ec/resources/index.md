@@ -3,4 +3,8 @@ title: Resources
 order: 13
 ---
 
-Various resources that complement the usage and understanding of the ECL.
+import { Paragraph } from '@ecl/website-components';
+
+<Paragraph size="lead">
+  The resources page presents the users with all the relevant <strong>resources related to a policy</strong>, it further connects to various <strong>results and objectives</strong> associated with it.
+</Paragraph>
