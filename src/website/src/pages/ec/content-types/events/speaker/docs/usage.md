@@ -3,4 +3,11 @@ title: Usage
 order: 1
 ---
 
-Templates allow you to quickly create web pages and websites that are in line with the European Commission's corporate guidelines.
+import { Paragraph, Anatomy, Link } from '@ecl/website-components';
+
+<Paragraph size="lead">
+  The speaker page provides a <strong>complete list of the presenters</strong> 
+  that will contribute to the event, along with other practical information, 
+  such as <strong>what</strong> they will be presenting, <strong>when</strong> 
+  and <strong>where</strong>, and their occupation. 
+</Paragraph>
