@@ -1,11 +1,14 @@
 ---
 title: Group 3
-order: 2
+order: 3
 ---
 
-import { Anatomy, Link } from '@ecl/website-components';
+import { Anatomy, Link, Paragraph } from '@ecl/website-components';
 
-(Work in progress)
+<Paragraph size="lead">
+  The Harmonised footer is present on every page. It provides supplementary
+  information about the partnerships.
+</Paragraph>
 
 ## Anatomy
 
@@ -28,3 +31,25 @@ import { Anatomy, Link } from '@ecl/website-components';
   selectedKind="components-footers-harmonised"
   selectedStory="group-3"
 />
+
+| Component                | Mandatory | Description                                                                                       |
+| ------------------------ | --------- | ------------------------------------------------------------------------------------------------- |
+| Partnership label        | yes       | customisable label                                                                                |
+| Partnership logo         | no        | logo of the Partnerships involved. More than one can be added in front of the European Commission |
+| European Commission logo | yes       | logo of the European Commission, always the last one on the right                                 |
+
+## Do's
+
+- make sure the pages contain all the elements in the anatomy table above
+
+## Don'ts
+
+- don't use more than one Footer per page
+
+## When to use
+
+- always use a Footer when building your page
+
+## When not to use
+
+- do not follow these guidelines when you are updating sites that fall under the <Link to="/ec/harmonised-templates/group1/">Harmonised group 1</Link> and <Link to="/ec/harmonised-templates/group2/">2</Link> category
