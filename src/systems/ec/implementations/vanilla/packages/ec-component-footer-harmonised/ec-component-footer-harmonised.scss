@@ -355,9 +355,111 @@
   }
 }
 
+/* Group 3 */
+@mixin ecl-footer-harmonised-group3(
+  $bg-color: $ecl-color-grey-5,
+  $text-color: $ecl-color-grey-75,
+  $logo-height-xs: 2rem,
+  $logo-height-lg: 2.5rem
+) {
+  .ecl-footer-harmonised--group3 {
+    background-color: $bg-color;
+    color: $text-color;
+    // padding to handle margin below title
+    padding-bottom: calc(#{$ecl-spacing-m} - #{$ecl-spacing-xs});
+    padding-top: $ecl-spacing-m;
+
+    .ecl-footer-harmonised__section1 {
+      align-items: center;
+      display: inline-flex;
+      flex-wrap: wrap;
+      margin: 0;
+    }
+
+    .ecl-footer-harmonised__title {
+      font: $ecl-font-prolonged-m;
+      margin-bottom: $ecl-spacing-xs;
+      margin-right: $ecl-spacing-xl;
+    }
+
+    .ecl-footer-harmonised__title,
+    .ecl-footer-harmonised__title:hover,
+    .ecl-footer-harmonised__title:active,
+    .ecl-footer-harmonised__title:focus {
+      color: $text-color;
+    }
+
+    .ecl-footer-harmonised__logo-list {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 0;
+      padding-left: 0;
+    }
+
+    .ecl-footer-harmonised__logo-item {
+      margin-bottom: $ecl-spacing-xs;
+      margin-right: $ecl-spacing-s;
+    }
+
+    .ecl-footer-harmonised__logo-item:last-of-type {
+      margin-right: 0;
+    }
+
+    .ecl-footer-harmonised__logo {
+      height: $logo-height-xs;
+    }
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up('md') {
+    .ecl-footer-harmonised--group3 {
+      .ecl-footer-harmonised__title {
+        margin-bottom: $ecl-spacing-m;
+      }
+
+      .ecl-footer-harmonised__logo-list {
+        display: inline-flex;
+        flex-direction: initial;
+        flex-wrap: initial;
+      }
+    }
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up('lg') {
+    .ecl-footer-harmonised--group3 {
+      padding-bottom: $ecl-spacing-m;
+
+      .ecl-footer-harmonised__section1 {
+        align-items: flex-start;
+      }
+
+      .ecl-footer-harmonised__title {
+        margin-bottom: 0;
+      }
+
+      .ecl-footer-harmonised__logo-list {
+        margin-bottom: 0;
+      }
+
+      .ecl-footer-harmonised__logo-item {
+        margin-bottom: 0;
+        margin-right: $ecl-spacing-l;
+      }
+
+      .ecl-footer-harmonised__logo {
+        height: $logo-height-lg;
+      }
+    }
+  }
+}
+
 // Use mixin
 @include exports('ec-component-footer-harmonised') {
   @include ecl-footer-harmonised();
   @include ecl-footer-harmonised-group1();
   @include ecl-footer-harmonised-group2();
+  @include ecl-footer-harmonised-group3();
 }
