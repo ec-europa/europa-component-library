@@ -1,5 +1,63 @@
 # Changelog
 
+## 2.20 (2019-12-23)
+
+#### :rocket: New Feature
+
+- [#1462](https://github.com/ec-europa/europa-component-library/pull/1462) feat(content-types): add job/person - INNO-2030 ([@kalinchernev](https://github.com/kalinchernev))
+- [#1453](https://github.com/ec-europa/europa-component-library/pull/1453) feat(footer-harmonised): add group 3 - INNO-2016 ([@emeryro](https://github.com/emeryro))
+- [#1455](https://github.com/ec-europa/europa-component-library/pull/1455) feat(commemorative-coin): add content type demo - INNO-2004 ([@kalinchernev](https://github.com/kalinchernev))
+- [#1452](https://github.com/ec-europa/europa-component-library/pull/1452) feat(site-header-harmonised): add group 3 - INNO-2011 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#1460](https://github.com/ec-europa/europa-component-library/pull/1460) fix(site-headers): logo alignment and search label on mobile - INNO-2022 ([@papegaill](https://github.com/papegaill))
+- [#1457](https://github.com/ec-europa/europa-component-library/pull/1457) fix(menu): Remove top margin for site-header-harmonised group 2 - INNO-2021 ([@papegaill](https://github.com/papegaill))
+
+#### :memo: Documentation
+
+- [#1491](https://github.com/ec-europa/europa-component-library/pull/1491) docs(policy): Use links instead of native links - INNO-2039 ([@papegaill](https://github.com/papegaill))
+- [#1477](https://github.com/ec-europa/europa-component-library/pull/1477) docs(gallery-overlay): Adding content - INNO-2035 ([@papegaill](https://github.com/papegaill))
+- [#1489](https://github.com/ec-europa/europa-component-library/pull/1489) docs(department): add documentation - INNO-2057 ([@emeryro](https://github.com/emeryro))
+- [#1488](https://github.com/ec-europa/europa-component-library/pull/1488) docs(call-for-tenders): add documentation - INNO-2058 ([@emeryro](https://github.com/emeryro))
+- [#1486](https://github.com/ec-europa/europa-component-library/pull/1486) docs(research-area): add documentation - INNO-2060 ([@emeryro](https://github.com/emeryro))
+- [#1471](https://github.com/ec-europa/europa-component-library/pull/1471) docs(button): update usage page - INNO-2038 ([@papegaill](https://github.com/papegaill))
+- [#1484](https://github.com/ec-europa/europa-component-library/pull/1484) docs(dateblock): add documentation - INNO-2033 ([@emeryro](https://github.com/emeryro))
+- [#1480](https://github.com/ec-europa/europa-component-library/pull/1480) docs(events): Adding content - INNO-2046 ([@papegaill](https://github.com/papegaill))
+- [#1485](https://github.com/ec-europa/europa-component-library/pull/1485) docs(funding-programme): add documentation - INNO-2056 ([@emeryro](https://github.com/emeryro))
+- [#1487](https://github.com/ec-europa/europa-component-library/pull/1487) docs(call-for-proposals): add documentation - INNO-2059 ([@emeryro](https://github.com/emeryro))
+- [#1483](https://github.com/ec-europa/europa-component-library/pull/1483) docs(events-speaker): Adding content - INNO-2049 ([@papegaill](https://github.com/papegaill))
+- [#1478](https://github.com/ec-europa/europa-component-library/pull/1478) feat(docs): Background, Policy CT - INNO-2041 ([@planctus](https://github.com/planctus))
+- [#1479](https://github.com/ec-europa/europa-component-library/pull/1479) docs(policy-resources): Adding content - INNO-2045 ([@papegaill](https://github.com/papegaill))
+- [#1475](https://github.com/ec-europa/europa-component-library/pull/1475) feat(docs): Hub, Policy CT - INNO-2043 ([@planctus](https://github.com/planctus))
+- [#1482](https://github.com/ec-europa/europa-component-library/pull/1482) docs(events-detail): Adding content - INNO-2048 ([@papegaill](https://github.com/papegaill))
+- [#1474](https://github.com/ec-europa/europa-component-library/pull/1474) feat(docs): Evaluation, Policy CT - INNO-2042 ([@planctus](https://github.com/planctus))
+- [#1476](https://github.com/ec-europa/europa-component-library/pull/1476) feat(docs): Legislation, Policy CT - INNO-2044 ([@planctus](https://github.com/planctus))
+- [#1481](https://github.com/ec-europa/europa-component-library/pull/1481) docs(event): Agenda - INNO-2047 ([@planctus](https://github.com/planctus))
+- [#1473](https://github.com/ec-europa/europa-component-library/pull/1473) docs(policy): Awareness usage page - INNO-2040 ([@planctus](https://github.com/planctus))
+- [#1470](https://github.com/ec-europa/europa-component-library/pull/1470) docs(policy): Adding content - INNO-2039 ([@planctus](https://github.com/planctus))
+- [#1469](https://github.com/ec-europa/europa-component-library/pull/1469) docs(hg3): header + footer - INNO-2032 ([@kalinchernev](https://github.com/kalinchernev))
+- [#1468](https://github.com/ec-europa/europa-component-library/pull/1468) docs(hg3): add landing page - INNO-2031 ([@kalinchernev](https://github.com/kalinchernev))
+- [#1472](https://github.com/ec-europa/europa-component-library/pull/1472) docs(table): lowercasing in tables - INNO-2051 ([@Joosthe](https://github.com/Joosthe))
+- [#1467](https://github.com/ec-europa/europa-component-library/pull/1467) docs(table): add documentation - INNO-2037 ([@emeryro](https://github.com/emeryro))
+- [#1465](https://github.com/ec-europa/europa-component-library/pull/1465) docs(website): replace ensure with make sure - INNO-2029 ([@kalinchernev](https://github.com/kalinchernev))
+- [#1466](https://github.com/ec-europa/europa-component-library/pull/1466) docs(icon): add documentation - INNO-2036 ([@emeryro](https://github.com/emeryro))
+- [#1464](https://github.com/ec-europa/europa-component-library/pull/1464) docs(website): replace e.g. with such as - INNO-2028 ([@kalinchernev](https://github.com/kalinchernev))
+- [#1461](https://github.com/ec-europa/europa-component-library/pull/1461) docs(facts-figures): add documentation - INNO-2033 ([@emeryro](https://github.com/emeryro))
+- [#1463](https://github.com/ec-europa/europa-component-library/pull/1463) docs(website): decapitalise labels - INNO-2027 ([@kalinchernev](https://github.com/kalinchernev))
+
+#### :house: Internal
+
+- [#1456](https://github.com/ec-europa/europa-component-library/pull/1456) chore(deps): upgrade dependencies - noissue ([@kalinchernev](https://github.com/kalinchernev))
+
+#### Committers: 5
+
+- Kalin Chernev ([@kalinchernev](https://github.com/kalinchernev))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@Joosthe](https://github.com/Joosthe)
+- [@papegaill](https://github.com/papegaill)
+- [@planctus](https://github.com/planctus)
+
 ## 2.19.0 (2019-12-12)
 
 #### :bug: Bug Fix
