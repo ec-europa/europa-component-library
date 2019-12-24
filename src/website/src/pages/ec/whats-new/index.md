@@ -9,6 +9,68 @@ Users can still go to ECL v1 to create or upgrade their websites. In 2019, we wi
 
 We will also add new components to the ECL v2 as we continue improving the look and feel of the existing components. New releases under v2 should be published periodically under [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 2.20 (2019-12-23)
+
+#### :rocket: New Feature
+
+- [#1462](https://github.com/ec-europa/europa-component-library/pull/1462) feat(content-types): add job/person - INNO-2030
+- [#1453](https://github.com/ec-europa/europa-component-library/pull/1453) feat(footer-harmonised): add group 3 - INNO-2016
+- [#1455](https://github.com/ec-europa/europa-component-library/pull/1455) feat(commemorative-coin): add content type demo - INNO-2004
+- [#1452](https://github.com/ec-europa/europa-component-library/pull/1452) feat(site-header-harmonised): add group 3 - INNO-2011
+
+#### :bug: Bug Fix
+
+- [#1460](https://github.com/ec-europa/europa-component-library/pull/1460) fix(site-headers): logo alignment and search label on mobile - INNO-2022
+- [#1457](https://github.com/ec-europa/europa-component-library/pull/1457) fix(menu): Remove top margin for site-header-harmonised group 2 - INNO-2021
+
+#### :memo: Documentation
+
+- [#1491](https://github.com/ec-europa/europa-component-library/pull/1491) docs(policy): Use links instead of native links - INNO-2039
+- [#1477](https://github.com/ec-europa/europa-component-library/pull/1477) docs(gallery-overlay): Adding content - INNO-2035
+- [#1489](https://github.com/ec-europa/europa-component-library/pull/1489) docs(department): add documentation - INNO-2057
+- [#1488](https://github.com/ec-europa/europa-component-library/pull/1488) docs(call-for-tenders): add documentation - INNO-2058
+- [#1486](https://github.com/ec-europa/europa-component-library/pull/1486) docs(research-area): add documentation - INNO-2060
+- [#1471](https://github.com/ec-europa/europa-component-library/pull/1471) docs(button): update usage page - INNO-2038
+- [#1484](https://github.com/ec-europa/europa-component-library/pull/1484) docs(dateblock): add documentation - INNO-2033
+- [#1480](https://github.com/ec-europa/europa-component-library/pull/1480) docs(events): Adding content - INNO-2046
+- [#1485](https://github.com/ec-europa/europa-component-library/pull/1485) docs(funding-programme): add documentation - INNO-2056
+- [#1487](https://github.com/ec-europa/europa-component-library/pull/1487) docs(call-for-proposals): add documentation - INNO-2059
+- [#1483](https://github.com/ec-europa/europa-component-library/pull/1483) docs(events-speaker): Adding content - INNO-2049
+- [#1478](https://github.com/ec-europa/europa-component-library/pull/1478) feat(docs): Background, Policy CT - INNO-2041
+- [#1479](https://github.com/ec-europa/europa-component-library/pull/1479) docs(policy-resources): Adding content - INNO-2045
+- [#1475](https://github.com/ec-europa/europa-component-library/pull/1475) feat(docs): Hub, Policy CT - INNO-2043
+- [#1482](https://github.com/ec-europa/europa-component-library/pull/1482) docs(events-detail): Adding content - INNO-2048
+- [#1474](https://github.com/ec-europa/europa-component-library/pull/1474) feat(docs): Evaluation, Policy CT - INNO-2042
+- [#1476](https://github.com/ec-europa/europa-component-library/pull/1476) feat(docs): Legislation, Policy CT - INNO-2044
+- [#1481](https://github.com/ec-europa/europa-component-library/pull/1481) docs(event): Agenda - INNO-2047
+- [#1473](https://github.com/ec-europa/europa-component-library/pull/1473) docs(policy): Awareness usage page - INNO-2040
+- [#1470](https://github.com/ec-europa/europa-component-library/pull/1470) docs(policy): Adding content - INNO-2039
+- [#1469](https://github.com/ec-europa/europa-component-library/pull/1469) docs(hg3): header + footer - INNO-2032
+- [#1468](https://github.com/ec-europa/europa-component-library/pull/1468) docs(hg3): add landing page - INNO-2031
+- [#1472](https://github.com/ec-europa/europa-component-library/pull/1472) docs(table): lowercasing in tables - INNO-2051
+- [#1467](https://github.com/ec-europa/europa-component-library/pull/1467) docs(table): add documentation - INNO-2037
+- [#1465](https://github.com/ec-europa/europa-component-library/pull/1465) docs(website): replace ensure with make sure - INNO-2029
+- [#1466](https://github.com/ec-europa/europa-component-library/pull/1466) docs(icon): add documentation - INNO-2036
+- [#1464](https://github.com/ec-europa/europa-component-library/pull/1464) docs(website): replace e.g. with such as - INNO-2028
+- [#1461](https://github.com/ec-europa/europa-component-library/pull/1461) docs(facts-figures): add documentation - INNO-2033
+- [#1463](https://github.com/ec-europa/europa-component-library/pull/1463) docs(website): decapitalise labels - INNO-2027
+
+#### :house: Internal
+
+- [#1456](https://github.com/ec-europa/europa-component-library/pull/1456) chore(deps): upgrade dependencies - noissue
+
+## 2.19.0 (2019-12-12)
+
+#### :bug: Bug Fix
+
+- [#1448](https://github.com/ec-europa/europa-component-library/pull/1448) fix(site-headers): Add arrow icon to login link - INNO-1996
+
+#### :nail_care: Enhancement
+
+- [#1450](https://github.com/ec-europa/europa-component-library/pull/1450) refactor(content-types): update research CT - INNO-2010
+- [#1451](https://github.com/ec-europa/europa-component-library/pull/1451) refactor(menu): all to one - INNO-2007
+- [#1445](https://github.com/ec-europa/europa-component-library/pull/1445) fix(site-header-standardised): fix logo position - INNO-1980
+
 ## 2.18.0 (2019-12-06)
 
 #### :rocket: New Feature

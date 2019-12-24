@@ -11,7 +11,7 @@
 
 @mixin ecl-site-header-core(
   $logo-height-xs: 1.75rem,
-  $logo-width-xs: 10.1rem,
+  $logo-width-xs: 7rem,
   $logo-height-sm: 3rem,
   $logo-width-sm: 12.1rem,
   $logo-height-lg: 3.75rem,
@@ -75,6 +75,12 @@
       border-color: $ecl-color-blue-25;
       margin-bottom: 0;
       padding-bottom: calc(#{$ecl-spacing-m} + 1px);
+    }
+  }
+
+  .ecl-site-header-core__login-toggle {
+    .ecl-site-header-core__login-arrow {
+      display: none;
     }
   }
 
@@ -205,10 +211,25 @@
 
     .ecl-site-header-core__login-toggle,
     .ecl-site-header-core__language-icon {
-      .ecl-icon {
+      .ecl-site-header-core__icon {
         height: $ecl-icon-m;
         margin-right: $ecl-spacing-xs;
         width: $ecl-icon-m;
+      }
+    }
+
+    .ecl-site-header-core__login-toggle {
+      .ecl-site-header-core__login-arrow {
+        display: block;
+        height: $ecl-icon-xs;
+        margin-left: $ecl-spacing-xs;
+        transform: rotate(0);
+        width: $ecl-icon-xs;
+      }
+      &[aria-expanded='false'] {
+        .ecl-site-header-core__login-arrow {
+          transform: rotate(180deg);
+        }
       }
     }
 

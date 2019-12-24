@@ -2,17 +2,18 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import StoryWrapper from '@ecl/story-wrapper';
-import demoMenuGroup1 from '@ecl/ec-specs-menu-harmonised/demo/data--group1';
-import demoMenuGroup2 from '@ecl/ec-specs-menu-harmonised/demo/data--group2';
+import demoMenuGroup1 from '@ecl/ec-specs-menu/demo/data--group1';
+import demoMenuGroup2 from '@ecl/ec-specs-menu/demo/data--group2';
 import demoContentGroup1 from '@ecl/ec-specs-site-header-harmonised/demo/data--group1';
 import demoContentGroup2 from '@ecl/ec-specs-site-header-harmonised/demo/data--group2';
+import demoContentGroup3 from '@ecl/ec-specs-site-header-harmonised/demo/data--group3';
 
 import SiteHeaderHarmonised from '../src/SiteHeaderHarmonised';
 
-demoMenuGroup1['data-ecl-auto-init'] = 'MenuHarmonised';
-demoMenuGroup1.className = 'ecl-menu-harmonised--group1';
-demoMenuGroup2['data-ecl-auto-init'] = 'MenuHarmonised';
-demoMenuGroup2.className = 'ecl-menu-harmonised--group2';
+demoMenuGroup1['data-ecl-auto-init'] = 'Menu';
+demoMenuGroup1.className = 'ecl-menu--group1';
+demoMenuGroup2['data-ecl-auto-init'] = 'Menu';
+demoMenuGroup2.className = 'ecl-menu--group2';
 
 storiesOf('Components|Site Headers/Harmonised', module)
   .addDecorator(story => (
@@ -47,5 +48,11 @@ storiesOf('Components|Site Headers/Harmonised', module)
       menu={demoMenuGroup2}
       data-ecl-auto-init="SiteHeaderHarmonised"
       className="ecl-site-header-harmonised--group2"
+    />
+  ))
+  .add('group 3', () => (
+    <SiteHeaderHarmonised
+      {...demoContentGroup3}
+      className="ecl-site-header-harmonised--group3"
     />
   ));

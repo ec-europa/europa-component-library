@@ -73,11 +73,11 @@ export default () => (
     />
     <Redirect
       from="/r/ec-menu-harmonised"
-      to="/ec/components/navigation/menu-harmonised/"
+      to="/ec/components/navigation/menu/"
     />
     <Redirect
       from="/r/ec-menu-standardised"
-      to="/ec/components/navigation/menu-standardised/"
+      to="/ec/components/navigation/menu/"
     />
     <Redirect from="/r/ec-message" to="/ec/components/message/" />
     <Redirect

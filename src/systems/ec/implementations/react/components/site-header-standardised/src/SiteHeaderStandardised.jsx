@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import Icon from '@ecl/ec-react-component-icon';
 import Link from '@ecl/ec-react-component-link';
-import MenuStandardised from '@ecl/ec-react-component-menu-standardised';
+import Menu from '@ecl/ec-react-component-menu';
 import SearchForm from '@ecl/ec-react-component-search-form';
 import { LanguageListOverlay } from '@ecl/ec-react-component-language-list';
 
@@ -81,8 +81,17 @@ const SiteHeaderStandardised = ({
                       aria-controls={loginBox.id}
                       aria-expanded="false"
                     >
-                      <Icon shape="general--logged-in" size="s" />
+                      <Icon
+                        shape="general--logged-in"
+                        size="s"
+                        className="ecl-site-header-standardised__icon"
+                      />
                       {loginToggle.labelLogged}
+                      <Icon
+                        shape="ui--corner-arrow"
+                        size="xs"
+                        className="ecl-site-header-standardised__login-arrow"
+                      />
                     </a>
 
                     <div
@@ -111,7 +120,11 @@ const SiteHeaderStandardised = ({
                     className="ecl-link ecl-link--standalone ecl-site-header-standardised__login-toggle"
                     href={loginToggle.hrefNotLogged}
                   >
-                    <Icon shape="general--log-in" size="s" />
+                    <Icon
+                      shape="general--log-in"
+                      size="s"
+                      className="ecl-site-header-standardised__icon"
+                    />
                     {loginToggle.labelNotLogged}
                   </a>
                 )}
@@ -130,7 +143,11 @@ const SiteHeaderStandardised = ({
                 })}
               >
                 <span className="ecl-site-header-standardised__language-icon">
-                  <Icon shape="general--language" size="s" />
+                  <Icon
+                    shape="general--language"
+                    size="s"
+                    className="ecl-site-header-standardised__icon"
+                  />
                   <span className="ecl-site-header-standardised__language-code">
                     {languageSelector.code}
                   </span>
@@ -182,9 +199,7 @@ const SiteHeaderStandardised = ({
           <div className="ecl-container">{banner}</div>
         </div>
       )}
-      {!!(menu && Object.keys(menu).length >= 1) && (
-        <MenuStandardised {...menu} />
-      )}
+      {!!(menu && Object.keys(menu).length >= 1) && <Menu {...menu} />}
       {hasLanguageOverlay && (
         <LanguageListOverlay
           {...languageSelector.overlay}
@@ -238,7 +253,7 @@ SiteHeaderStandardised.propTypes = {
     PropTypes.shape(Link.propTypes),
   ]),
   banner: PropTypes.string,
-  menu: PropTypes.shape(MenuStandardised.propTypes),
+  menu: PropTypes.shape(Menu.propTypes),
   className: PropTypes.string,
 };
 

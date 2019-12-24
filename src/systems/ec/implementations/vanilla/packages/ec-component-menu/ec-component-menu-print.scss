@@ -1,0 +1,27 @@
+/*
+ * Menu Harmonised component
+ * @define menu
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-menu-print() {
+  .ecl-menu {
+    margin: 0;
+  }
+
+  .ecl-menu__site-name {
+    font: $ecl-font-print-3-xl;
+  }
+
+  .ecl-menu__toggle,
+  .ecl-menu__list {
+    display: none;
+  }
+}
+
+// Use mixin
+@include exports('ec-component-menu-print') {
+  @include ecl-menu-print();
+}
