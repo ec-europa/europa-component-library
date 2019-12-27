@@ -13,8 +13,8 @@ import { Paragraph, RemToPixels } from '@ecl/website-components';
 
 ECL provides two separate sets of scales:
 
-1. Inner spacing: the spacing within the components
-2. Layout spacing: the spacing between the omponents (+ other elements outside of a component)
+1. inner spacing: the spacing within the components
+2. layout spacing: the spacing between the omponents (+ other elements outside of a component)
 
 For spacing tokens to be able to conform in the baseline grid and contribute to the vertical rhythm, all sizes must be multiples of <RemToPixels rem="0.25" />px. A vertical rhythm starts from a baseline and it’s the basis for everything from the font sizes, line height and image sizes. The spacing tokens always referring to fixed values and thus they are not responsive. All spacing tokens can be used as values for both margins and paddings.
 
