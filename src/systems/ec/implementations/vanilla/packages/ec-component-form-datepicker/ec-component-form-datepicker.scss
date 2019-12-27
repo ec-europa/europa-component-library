@@ -2,6 +2,8 @@
  * Datepicker component
  */
 
+/* stylelint-disable max-nesting-depth */
+
 // Import base
 @import '@ecl/ec-base/ec-base';
 
@@ -11,15 +13,83 @@
 @mixin ecl-datepicker() {
   .ecl-datepicker {
     margin: 0;
+    position: relative;
   }
 
+  .ecl-datepicker--s {
+    width: 50%;
+
+    @include ecl-media-breakpoint-up('md') {
+      width: 30%;
+    }
+
+    @include ecl-media-breakpoint-up('lg') {
+      width: $ecl-width-form-s;
+    }
+  }
+
+  .ecl-datepicker--m {
+    width: 100%;
+
+    @include ecl-media-breakpoint-up('md') {
+      width: 50%;
+    }
+
+    @include ecl-media-breakpoint-up('lg') {
+      width: $ecl-width-form-m;
+    }
+  }
+
+  .ecl-datepicker--l {
+    width: 100%;
+
+    @include ecl-media-breakpoint-up('lg') {
+      width: $ecl-width-form-l;
+    }
+  }
+
+  .ecl-datepicker__field.ecl-text-input {
+    padding-right: $ecl-spacing-xl;
+    width: 100%;
+  }
+
+  .ecl-datepicker__icon {
+    color: $ecl-color-grey-50;
+    margin-right: calc(#{$ecl-spacing-s} - 1px);
+    margin-top: calc(#{$ecl-spacing-s} - 1px);
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .ecl-datepicker--invalid .ecl-datepicker__icon {
+    color: $ecl-color-red-100;
+  }
+
+  .ecl-datepicker--invalid:hover .ecl-datepicker__icon {
+    color: $ecl-color-red-130;
+  }
+
+  .ecl-datepicker:hover .ecl-datepicker__icon {
+    color: $ecl-color-blue;
+  }
+
+  .ecl-datepicker__field:active + .ecl-datepicker__icon {
+    color: $ecl-color-grey;
+  }
+
+  .ecl-datepicker__field:focus + .ecl-datepicker__icon {
+    color: $ecl-color-grey-50;
+  }
+
+  /*
+   * pikaday styling
+   */
   .ecl-datepicker-theme {
+    border-width: 0;
     color: $ecl-color-grey;
     font: $ecl-font-m;
-
-    &.is-hidden {
-      display: block;
-    }
+    width: 100%;
 
     &.is-bound {
       box-shadow: none;
@@ -32,16 +102,20 @@
     }
 
     .pika-title {
-      background-color: $ecl-color-grey-10;
+      background-color: $ecl-color-white;
       display: flex;
     }
 
     .pika-label {
-      background-color: transparent;
+      align-items: center;
+      background-color: $ecl-color-grey-10;
       color: $ecl-color-grey;
+      display: flex;
       flex-grow: 1;
       font: $ecl-font-m;
-      padding: 0;
+      justify-content: space-between;
+      margin-right: $ecl-spacing-2-xs;
+      padding: $ecl-spacing-s $ecl-spacing-m;
     }
 
     .pika-label::after {
@@ -49,19 +123,81 @@
     }
 
     .pika-select {
-      padding: $ecl-spacing-s $ecl-spacing-m;
+      border-width: 0;
+      height: 100%;
+      top: 0;
+      width: 100%;
     }
 
     .pika-prev {
+      margin-right: $ecl-spacing-2-xs;
       order: -1;
+    }
+
+    .pika-prev,
+    .pika-next {
+      background-color: $ecl-color-grey-10;
+      height: auto;
+      opacity: 1;
+    }
+
+    .pika-table {
+      border-collapse: initial;
+      border-spacing: $ecl-spacing-2-xs;
+
+      th {
+        color: $ecl-color-grey;
+        font: $ecl-font-m;
+        padding: $ecl-spacing-xs 0;
+      }
+
+      abbr {
+        text-decoration: none;
+      }
+    }
+
+    .pika-button {
+      background-color: $ecl-color-white;
+      color: $ecl-color-grey;
+      font: $ecl-font-m;
+      padding: $ecl-spacing-s;
+      text-align: center;
+
+      &:hover {
+        background-color: $ecl-color-grey-10;
+        border-radius: 0;
+      }
+    }
+
+    .is-today .pika-button {
+      box-shadow: inset 0 0 0 3px $ecl-color-blue-25;
+    }
+
+    .is-selected .pika-button {
+      background-color: $ecl-color-blue;
+      border-radius: 0;
+      box-shadow: none;
+      color: $ecl-color-white;
+      font-weight: $ecl-font-weight-bold;
+    }
+
+    .is-outside-current-month .pika-button {
+      background-color: $ecl-color-grey-10;
+      color: $ecl-color-grey-50;
     }
   }
 
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up('md') {
     .ecl-datepicker-theme {
+      width: auto;
+
       .pika-lendar {
         width: 20rem;
+      }
+
+      .pika-button {
+        padding: $ecl-spacing-xs;
       }
     }
   }

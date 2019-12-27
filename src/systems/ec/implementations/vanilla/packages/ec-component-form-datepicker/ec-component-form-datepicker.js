@@ -25,8 +25,10 @@ export class Datepicker {
   constructor(
     element,
     {
-      datepickerFormat = 'YYYY-MM-DD',
-      datepickerTheme = 'ecl-datepicker-theme',
+      format = 'YYYY-MM-DD',
+      theme = 'ecl-datepicker-theme',
+      showDaysInNextAndPreviousMonths = true,
+      enableSelectionDaysInNextAndPreviousMonths = true,
     } = {}
   ) {
     // Check element
@@ -39,8 +41,10 @@ export class Datepicker {
     this.element = element;
 
     // Options
-    this.datepickerFormat = datepickerFormat;
-    this.datepickerTheme = datepickerTheme;
+    this.format = format;
+    this.theme = theme;
+    this.showDaysInNextAndPreviousMonths = showDaysInNextAndPreviousMonths;
+    this.enableSelectionDaysInNextAndPreviousMonths = enableSelectionDaysInNextAndPreviousMonths;
   }
 
   /**
@@ -49,8 +53,11 @@ export class Datepicker {
   init() {
     const picker = new Pikaday({
       field: this.element,
-      format: this.datepickerFormat,
-      theme: this.datepickerTheme,
+      format: this.format,
+      theme: this.theme,
+      showDaysInNextAndPreviousMonths: this.showDaysInNextAndPreviousMonths,
+      enableSelectionDaysInNextAndPreviousMonths: this
+        .enableSelectionDaysInNextAndPreviousMonths,
     });
 
     return picker;

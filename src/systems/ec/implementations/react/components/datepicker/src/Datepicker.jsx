@@ -2,10 +2,13 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
+import Icon from '@ecl/ec-react-component-icon';
+
 const Datepicker = ({
   id,
   disabled,
   groupClassName,
+  containerClassName,
   helperText,
   invalid,
   invalidText,
@@ -20,11 +23,6 @@ const Datepicker = ({
   className,
   ...props
 }) => {
-  const classNames = classnames(className, 'ecl-datepicker ecl-text-input', {
-    'ecl-text-input--invalid': invalid,
-    [`ecl-text-input--${width}`]: width,
-  });
-
   return (
     <div
       className={classnames(
@@ -68,16 +66,35 @@ const Datepicker = ({
       {invalid && invalidText && (
         <div className="ecl-feedback-message">{invalidText}</div>
       )}
-      <input
-        {...props}
-        id={id}
-        name={name || undefined}
-        type={type}
-        className={classNames}
-        disabled={disabled}
-        required={required}
-        data-ecl-datepicker-toggle
-      />
+      <div
+        className={classnames(containerClassName, 'ecl-datepicker', {
+          'ecl-datepicker--invalid': invalid,
+          [`ecl-datepicker--${width}`]: width,
+        })}
+      >
+        <input
+          {...props}
+          id={id}
+          name={name || undefined}
+          type={type}
+          className={classnames(
+            className,
+            'ecl-datepicker__field ecl-text-input',
+            {
+              'ecl-text-input--invalid': invalid,
+              [`ecl-text-input--${width}`]: width,
+            }
+          )}
+          disabled={disabled}
+          required={required}
+          data-ecl-datepicker-toggle
+        />
+        <Icon
+          className="ecl-datepicker__icon"
+          shape="general--calendar"
+          size="s"
+        />
+      </div>
     </div>
   );
 };
@@ -86,6 +103,7 @@ Datepicker.propTypes = {
   id: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   groupClassName: PropTypes.string,
+  containerClassName: PropTypes.string,
   helperText: PropTypes.node,
   invalid: PropTypes.bool,
   invalidText: PropTypes.node,
@@ -103,6 +121,7 @@ Datepicker.propTypes = {
 Datepicker.defaultProps = {
   disabled: false,
   groupClassName: '',
+  containerClassName: '',
   helperText: '',
   invalid: false,
   invalidText: '',
