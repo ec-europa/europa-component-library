@@ -27,6 +27,7 @@ export class Datepicker {
     {
       format = 'YYYY-MM-DD',
       theme = 'ecl-datepicker-theme',
+      reposition = false,
       showDaysInNextAndPreviousMonths = true,
       enableSelectionDaysInNextAndPreviousMonths = true,
     } = {}
@@ -45,6 +46,7 @@ export class Datepicker {
     this.theme = theme;
     this.showDaysInNextAndPreviousMonths = showDaysInNextAndPreviousMonths;
     this.enableSelectionDaysInNextAndPreviousMonths = enableSelectionDaysInNextAndPreviousMonths;
+    this.reposition = reposition;
   }
 
   /**
@@ -55,6 +57,7 @@ export class Datepicker {
       field: this.element,
       format: this.format,
       theme: this.theme,
+      reposition: this.reposition,
       showDaysInNextAndPreviousMonths: this.showDaysInNextAndPreviousMonths,
       enableSelectionDaysInNextAndPreviousMonths: this
         .enableSelectionDaysInNextAndPreviousMonths,

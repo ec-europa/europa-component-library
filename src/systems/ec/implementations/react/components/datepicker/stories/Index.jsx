@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
 
-import demoContentDefault from '@ecl/ec-specs-datepicker/demo/data--default';
+import demoContent from '@ecl/ec-specs-datepicker/demo/data';
 
 import Datepicker from '../src/Datepicker';
 
@@ -32,15 +32,16 @@ storiesOf('Components|Forms/Datepicker', module)
     () => (
       <Datepicker
         data-ecl-auto-init="Datepicker"
-        id="example"
-        label={text('Label', demoContentDefault.label)}
-        helperText={text('Helper text', "This is the input's helper text.")}
+        id={demoContent.id}
+        name={demoContent.name}
+        label={text('Label', demoContent.label)}
+        helperText={text('Helper text', demoContent.helperText)}
         invalid={boolean('Invalid', false)}
-        invalidText={text('Invalid text', 'This is the error message')}
+        invalidText={text('Invalid text', demoContent.invalidText)}
         disabled={boolean('Disabled', false)}
         required={boolean('Required', true)}
-        requiredText={text('Required text', '*')}
-        optionalText={text('Optional text', ' (optional)')}
+        requiredText={text('Required text', demoContent.requiredText)}
+        optionalText={text('Optional text', demoContent.optionalText)}
         width={select(
           'Width',
           {
@@ -48,7 +49,7 @@ storiesOf('Components|Forms/Datepicker', module)
             medium: 'm',
             large: 'l',
           },
-          demoContentDefault.width
+          demoContent.width
         )}
       />
     ),
