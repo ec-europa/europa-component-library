@@ -18,6 +18,7 @@ module.exports = {
     // Disable "unicorn/prefer-dataset", since setAttribute and getAttribute are faster
     // https://jsperf.com/html5-dataset-vs-native-setattribute
     'unicorn/prefer-dataset': 'off',
+    'import/no-extraneous-dependencies': 'off',
   },
   overrides: [
     {
