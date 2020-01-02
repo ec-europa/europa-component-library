@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
+import DateBlock from '@ecl/ec-react-component-date-block';
 import Icon from '@ecl/ec-react-component-icon';
 import Link from '@ecl/ec-react-component-link';
 import {
@@ -15,6 +16,7 @@ const ContentItem = ({
   description,
   information,
   images,
+  date,
   children,
   className,
   ...props
@@ -57,6 +59,13 @@ const ContentItem = ({
             />
           )}
         </Fragment>
+      )}
+
+      {/* Date block */}
+      {!!(date && Object.keys(date).length >= 1) && (
+        <div className="ecl-u-flex-grow-0 ecl-u-mr-m">
+          <DateBlock {...date} />
+        </div>
       )}
 
       <div className="ecl-u-flex-grow-1">
@@ -183,6 +192,7 @@ ContentItem.propTypes = {
       })
     ),
   }),
+  date: PropTypes.shape(DateBlock.propTypes),
   images: PropTypes.shape({
     position: PropTypes.string,
     mobile: {
@@ -205,6 +215,7 @@ ContentItem.defaultProps = {
   title: {},
   description: {},
   information: {},
+  date: {},
   images: {},
   children: null,
   className: '',
