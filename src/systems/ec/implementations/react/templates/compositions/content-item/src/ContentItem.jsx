@@ -38,7 +38,10 @@ const ContentItem = ({
               aria-label={images.mobile.alt}
               className={classnames(
                 images.mobile.className,
-                'ecl-u-flex-shrink-0 ecl-u-mr-s ecl-u-media-a-s ecl-u-media-bg-size-contain ecl-u-media-bg-repeat-none ecl-u-d-lg-none'
+                'ecl-u-flex-shrink-0 ecl-u-mr-s ecl-u-media-a-s ecl-u-media-bg-size-contain ecl-u-media-bg-repeat-none',
+                {
+                  'ecl-u-d-lg-none': images.desktop,
+                }
               )}
               style={{
                 backgroundImage: `url("${images.mobile.src}")`,
@@ -51,7 +54,10 @@ const ContentItem = ({
               aria-label={images.desktop.alt}
               className={classnames(
                 images.desktop.className,
-                'ecl-u-flex-shrink-0 ecl-u-mr-s ecl-u-media-a-s ecl-u-media-bg-size-contain ecl-u-media-bg-repeat-none ecl-u-d-none ecl-u-d-lg-block'
+                'ecl-u-flex-shrink-0 ecl-u-mr-s ecl-u-media-a-s ecl-u-media-bg-size-contain ecl-u-media-bg-repeat-none ',
+                {
+                  'ecl-u-d-none ecl-u-d-lg-block': images.mobile,
+                }
               )}
               style={{
                 backgroundImage: `url("${images.desktop.src}")`,
@@ -125,8 +131,18 @@ const ContentItem = ({
                   'ecl-u-d-flex ecl-u-align-items-center ecl-u-type-color-grey-75'
                 )}
               >
-                <Icon {...item.icon} />
-                <span className="ecl-u-type-s ecl-u-ml-s">{item.label}</span>
+                {item.icon && (
+                  <Fragment>
+                    <Icon {...item.icon} />
+                    <span className="ecl-u-type-s ecl-u-ml-s">
+                      {item.label}
+                    </span>
+                  </Fragment>
+                )}
+
+                {!item.icon && (
+                  <span className="ecl-u-type-s">{item.label}</span>
+                )}
               </UnorderedListItem>
             ))}
           </UnorderedList>
