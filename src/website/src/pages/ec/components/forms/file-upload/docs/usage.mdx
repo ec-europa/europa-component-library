@@ -3,4 +3,78 @@ title: Usage
 order: 1
 ---
 
-(work in progress)
+import { Paragraph, Anatomy } from '@ecl/website-components';
+
+<Paragraph size="lead">
+  The file upload button is used to select and upload files.
+</Paragraph>
+
+## Anatomy
+
+<Anatomy
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/FileUpload/Anatomy.png"
+  alt="Anatomy of file upload button"
+  legend={{
+    items: [
+      {
+        color: '#404040',
+        label: 'mandatory',
+      },
+      {
+        color: '#004494',
+        label: 'optional',
+      },
+    ],
+  }}
+/>
+
+### Default
+
+| Elements          | Mandatory | Description                                                                                                                       |
+| ----------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| heading           | yes       | short explanation of the purpose of the upload                                                                                    |
+| helper text       | no        | helper text information assists a user in using the upload file component                                                         |
+| file requirements | yes       | technical requirement of the system in terms of the size and format of accepted files                                             |
+| drag & drop area  | yes       | area in which users can drop their desired files to be uploaded without them needing to browse through the inter OS file explorer |
+| upload button     | yes       | clicking it will open internal OS file explorer for users to browse for their files                                               |
+
+### Conditional (if a file was added)
+
+| Elements       | Mandatory | Description                                                                                   |
+| -------------- | --------- | --------------------------------------------------------------------------------------------- |
+| discard button | yes       | clicking it will remove the file that was previously uploaded, if a file has been uploaded    |
+| file details   | yes       | file details displays the file language, file type and file size, if a file has been uploaded |
+| error message  | yes       | a message informing the user if there is a problem with their entry                           |
+
+## Do's
+
+- allow users to upload a file in the commonly accepted formats, don't ask them to convert files to a specific format
+- specify accepted formats in advance, through the use of the file extension (.png, .jpeg, .pdf, .doc, .docx, .ppt, etc)
+- specify maximum file size in advance, if there is one
+
+## Don'ts
+
+- don't limit the file upload size or type, unless specifically mentioned in the file requirements
+
+## When to use
+
+- use when users are asked to upload files, necessary to completing their task
+- use when one or multiple files must be uploaded as part of an application (e.g. Grants & funding applications)
+
+## When not to use
+
+- when there is no need to upload documents
+- when certain information is better processed (and organised) by other input fields
+
+## Notes
+
+### Content
+
+Write clear messages to inform or warn users about the upload task:
+
+- if the file upload wasn't completed
+- if the file type can't be uploaded
+- if the file is too big
+- if the file is empty
+- if the file contains a virus
+- if the file is password protected
