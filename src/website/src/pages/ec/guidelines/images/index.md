@@ -76,6 +76,6 @@ Vector image format can produce results with high fidelity at every resolution s
 
 ## Editing visuals
 
-- Don't apply effects, gradients, borders or filters. It can make the picture look manipulated.
-- Don't pick photos with frames, rounded corners or drop shadows.
-- Cropping. Pay attention to the copyright. In some cases you need prior consent from the author to alter the image.
+- don't apply effects, gradients, borders or filters. It can make the picture look manipulated.
+- don't pick photos with frames, rounded corners or drop shadows.
+- cropping. Pay attention to the copyright. In some cases you need prior consent from the author to alter the image.
