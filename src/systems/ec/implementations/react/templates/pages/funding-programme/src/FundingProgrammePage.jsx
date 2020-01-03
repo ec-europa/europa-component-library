@@ -219,7 +219,6 @@ const FundingProgrammePage = ({ siteHeader, footer, template }) => (
               />
 
               <ContentItem
-                className="ecl-u-mt-m"
                 meta={{
                   label: parse(
                     "<span class='ecl-u-type-uppercase'>News article</span> | <time dateTime='2019-10-17'>17 October 2019</time>"
