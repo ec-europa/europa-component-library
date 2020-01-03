@@ -1,9 +1,10 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import parse from 'html-react-parser';
 
-import DateBlock from '@ecl/ec-react-component-date-block';
+import ContentItem from '@ecl/ec-react-composition-content-item';
 import Link from '@ecl/ec-react-component-link';
-import Icon from '@ecl/ec-react-component-icon';
 import InpageNavigation from '@ecl/ec-react-component-inpage-navigation';
 import SocialMediaFollow from '@ecl/ec-react-component-social-media-follow';
 import SocialMediaShare from '@ecl/ec-react-component-social-media-share';
@@ -293,55 +294,47 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
 
               <div className="ecl-row ecl-u-mt-l">
                 <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Horizon 2020"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Calls for proposal related to marine resources are spread
-                      across numerous schemes in Horizon 2020. This page lists
-                      them and explains how you can apply.
-                    </p>
-                  </article>
+                  <ContentItem
+                    className="ecl-u-height-100 ecl-u-box-sizing-border"
+                    title={{
+                      href: '/example',
+                      label: 'Horizon 2020',
+                    }}
+                    description={{
+                      label:
+                        'Calls for proposal related to marine resources are spread across numerous schemes in Horizon 2020. This page lists them and explains how you can apply.',
+                    }}
+                  />
                 </div>
 
                 <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="European structural and investment funds"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Marine research related calls may be found in this
-                      programme, particularly in the European maritine and
-                      fishieries fund.
-                    </p>
-                  </article>
+                  <ContentItem
+                    className="ecl-u-height-100 ecl-u-box-sizing-border"
+                    title={{
+                      href: '/example',
+                      label: 'European structural and investment funds',
+                    }}
+                    description={{
+                      label:
+                        'Marine research related calls may be found in this programme, particularly in the European maritine and fishieries fund.',
+                    }}
+                  />
                 </div>
               </div>
 
               <div className="ecl-row">
                 <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="LIFE programme"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Some maritine research related calls may be found in this
-                      programme.
-                    </p>
-                  </article>
+                  <ContentItem
+                    className="ecl-u-height-100 ecl-u-box-sizing-border"
+                    title={{
+                      href: '/example',
+                      label: 'LIFE programme',
+                    }}
+                    description={{
+                      label:
+                        'Some maritine research related calls may be found in this programme.',
+                    }}
+                  />
                 </div>
               </div>
 
@@ -354,69 +347,60 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
 
               <div className="ecl-row ecl-u-mt-l">
                 <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Find project partners"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Search and view profiles of all organisations that have
-                      received funding via the funding and tender opportunities
-                      portal.
-                    </p>
-                  </article>
+                  <ContentItem
+                    className="ecl-u-height-100 ecl-u-box-sizing-border"
+                    title={{
+                      href: '/example',
+                      label: 'Find project partners',
+                    }}
+                    description={{
+                      label:
+                        'Search and view profiles of all organisations that have received funding via the funding and tender opportunities portal.',
+                    }}
+                  />
                 </div>
 
                 <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Joint programming initiatives"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Partnerships with EU countries on marine research
-                      programmes.
-                    </p>
-                  </article>
+                  <ContentItem
+                    className="ecl-u-height-100 ecl-u-box-sizing-border"
+                    title={{
+                      href: '/example',
+                      label: 'Joint programming initiatives',
+                    }}
+                    description={{
+                      label:
+                        'Partnerships with EU countries on marine research programmes.',
+                    }}
+                  />
                 </div>
               </div>
 
               <div className="ecl-row ecl-u-mt-m">
                 <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Research infrastructures"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Major facilities, resources and services used by the
-                      science community.
-                    </p>
-                  </article>
+                  <ContentItem
+                    className="ecl-u-height-100 ecl-u-box-sizing-border"
+                    title={{
+                      href: '/example',
+                      label: 'Research infrastructures',
+                    }}
+                    description={{
+                      label:
+                        'Major facilities, resources and services used by the science community.',
+                    }}
+                  />
                 </div>
 
                 <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Jobs (EURAXESS)"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Researcher jobs in related fields.
-                    </p>
-                  </article>
+                  <ContentItem
+                    className="ecl-u-height-100 ecl-u-box-sizing-border"
+                    title={{
+                      href: '/example',
+                      label: 'Jobs (EURAXESS)',
+                    }}
+                    description={{
+                      label: 'Researcher jobs in related fields.',
+                    }}
+                  />
                 </div>
               </div>
 
@@ -429,158 +413,138 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
 
               <div className="ecl-row ecl-u-mt-l">
                 <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Research project database (CORDIS)"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      The Commission&apos;s primary portal for results of
-                      EU-funded research projects.
-                    </p>
-                  </article>
+                  <ContentItem
+                    className="ecl-u-height-100 ecl-u-box-sizing-border"
+                    title={{
+                      href: '/example',
+                      label: 'Research project database (CORDIS)',
+                    }}
+                    description={{
+                      label:
+                        'The Commission&apos;s primary portal for results of EU-funded research projects.',
+                    }}
+                  />
                 </div>
 
                 <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Project success stories"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Stories of particularly successful EU-funded research
-                      projects.
-                    </p>
-                  </article>
+                  <ContentItem
+                    className="ecl-u-height-100 ecl-u-box-sizing-border"
+                    title={{
+                      href: '/example',
+                      label: 'Project success stories',
+                    }}
+                    description={{
+                      label:
+                        'Stories of particularly successful EU-funded research projects.',
+                    }}
+                  />
                 </div>
               </div>
 
               <div className="ecl-row ecl-u-mt-m">
                 <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Information sharing platform on marine and maritine research"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      The platform, currently in its pilot stage, shares
-                      available research data and key results from EU funded
-                      projects related to the marine and maritine research
-                      sectors.
-                    </p>
-                  </article>
+                  <ContentItem
+                    className="ecl-u-height-100 ecl-u-box-sizing-border"
+                    title={{
+                      href: '/example',
+                      label:
+                        'Information sharing platform on marine and maritine research',
+                    }}
+                    description={{
+                      label:
+                        'The platform, currently in its pilot stage, shares available research data and key results from EU funded projects related to the marine and maritine research sectors.',
+                    }}
+                  />
                 </div>
 
                 <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Project for policy - Blue Economy"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Blue Economy was one of the first three P4P pilot
-                      showcasting how research and innovation project results
-                      shape policy making.
-                    </p>
-                  </article>
+                  <ContentItem
+                    className="ecl-u-height-100 ecl-u-box-sizing-border"
+                    title={{
+                      href: '/example',
+                      label: 'Project for policy - Blue Economy',
+                    }}
+                    description={{
+                      label:
+                        'Blue Economy was one of the first three P4P pilot showcasting how research and innovation project results shape policy making.',
+                    }}
+                  />
                 </div>
               </div>
 
               <div className="ecl-row ecl-u-mt-m">
                 <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Results pack on ocean plastics"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      A thematic collection of innovative EU-funded research
-                      results.
-                    </p>
-                  </article>
+                  <ContentItem
+                    className="ecl-u-height-100 ecl-u-box-sizing-border"
+                    title={{
+                      href: '/example',
+                      label: 'Results pack on ocean plastics',
+                    }}
+                    description={{
+                      label:
+                        'A thematic collection of innovative EU-funded research results.',
+                    }}
+                  />
                 </div>
 
                 <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Results pack on seafood"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      A thematic collection of innovative EU-funded research
-                      results.
-                    </p>
-                  </article>
+                  <ContentItem
+                    className="ecl-u-height-100 ecl-u-box-sizing-border"
+                    title={{
+                      href: '/example',
+                      label: 'Results pack on seafood',
+                    }}
+                    description={{
+                      label:
+                        'A thematic collection of innovative EU-funded research results.',
+                    }}
+                  />
                 </div>
               </div>
 
               <div className="ecl-row ecl-u-mt-m">
                 <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Results pack on algae"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      A thematic collection of innovative EU-funded research
-                      results.
-                    </p>
-                  </article>
+                  <ContentItem
+                    className="ecl-u-height-100 ecl-u-box-sizing-border"
+                    title={{
+                      href: '/example',
+                      label: 'Results pack on algae',
+                    }}
+                    description={{
+                      label:
+                        'A thematic collection of innovative EU-funded research results.',
+                    }}
+                  />
                 </div>
 
                 <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Results pack on better marine stewardship"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      A thematic collection of innovative EU-funded research
-                      results.
-                    </p>
-                  </article>
+                  <ContentItem
+                    className="ecl-u-height-100 ecl-u-box-sizing-border"
+                    title={{
+                      href: '/example',
+                      label: 'Results pack on better marine stewardship',
+                    }}
+                    description={{
+                      label:
+                        'A thematic collection of innovative EU-funded research results.',
+                    }}
+                  />
                 </div>
               </div>
 
               <div className="ecl-row ecl-u-mt-m">
                 <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Results pack on microbiome research"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      A thematic collection of innovative EU-funded research
-                      results.
-                    </p>
-                  </article>
+                  <ContentItem
+                    className="ecl-u-height-100 ecl-u-box-sizing-border"
+                    title={{
+                      href: '/example',
+                      label: 'Results pack on microbiome research',
+                    }}
+                    description={{
+                      label:
+                        'A thematic collection of innovative EU-funded research results.',
+                    }}
+                  />
                 </div>
               </div>
 
@@ -593,168 +557,148 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
 
               <div className="ecl-row ecl-row ecl-u-mt-l">
                 <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Results Scientific publications"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Scientific publications produced by the European
-                      Commission (JRC)
-                    </p>
-                  </article>
+                  <ContentItem
+                    className="ecl-u-height-100 ecl-u-box-sizing-border"
+                    title={{
+                      href: '/example',
+                      label: 'Results Scientific publications',
+                    }}
+                    description={{
+                      label:
+                        'Scientific publications produced by the European Commission (JRC)',
+                    }}
+                  />
                 </div>
 
                 <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Marine research tools and databases"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      The Commission&apos;s Joint Research Centre compiles
-                      databases and develops software and modelling tools. You
-                      can access marine related ones here.
-                    </p>
-                  </article>
+                  <ContentItem
+                    className="ecl-u-height-100 ecl-u-box-sizing-border"
+                    title={{
+                      href: '/example',
+                      label: 'Marine research tools and databases',
+                    }}
+                    description={{
+                      label:
+                        "The Commission's Joint Research Centre compilesdatabases and develops software and modelling tools. You can access marine related ones here.",
+                    }}
+                  />
                 </div>
               </div>
 
               <div className="ecl-row ecl-u-mt-m">
                 <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="EU Open Data Portal"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Single point of access to open data produced by the EU
-                      institutions. All data free to use for commercial and
-                      non-commercial purposes.
-                    </p>
-                  </article>
+                  <ContentItem
+                    className="ecl-u-height-100 ecl-u-box-sizing-border"
+                    title={{
+                      href: '/example',
+                      label: 'EU Open Data Portal',
+                    }}
+                    description={{
+                      label:
+                        'Single point of access to open data produced by the EU institutions. All data free to use for commercial and non-commercial purposes.',
+                    }}
+                  />
                 </div>
 
                 <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="OpenAIRE"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      You can access all scientific publications from Horizon
-                      2020 via OpenAIRE.
-                    </p>
-                  </article>
+                  <ContentItem
+                    className="ecl-u-height-100 ecl-u-box-sizing-border"
+                    title={{
+                      href: '/example',
+                      label: 'OpenAIRE',
+                    }}
+                    description={{
+                      label:
+                        'You can access all scientific publications from Horizon 2020 via OpenAIRE.',
+                    }}
+                  />
                 </div>
               </div>
 
               <div className="ecl-row ecl-u-mt-m">
                 <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Copernicus"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Access to marine data from the Copernicus programme.
-                    </p>
-                  </article>
+                  <ContentItem
+                    className="ecl-u-height-100 ecl-u-box-sizing-border"
+                    title={{
+                      href: '/example',
+                      label: 'Copernicus',
+                    }}
+                    description={{
+                      label:
+                        'Access to marine data from the Copernicus programme.',
+                    }}
+                  />
                 </div>
 
                 <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="iMarine"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Data e-Infrastructure initiative for fishieries management
-                      and conservation.
-                    </p>
-                  </article>
+                  <ContentItem
+                    className="ecl-u-height-100 ecl-u-box-sizing-border"
+                    title={{
+                      href: '/example',
+                      label: 'iMarine',
+                    }}
+                    description={{
+                      label:
+                        'Data e-Infrastructure initiative for fishieries management and conservation.',
+                    }}
+                  />
                 </div>
               </div>
 
               <div className="ecl-row ecl-u-mt-m">
                 <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Pangaea"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Data publisher for earth and environmental science.
-                    </p>
-                  </article>
+                  <ContentItem
+                    className="ecl-u-height-100 ecl-u-box-sizing-border"
+                    title={{
+                      href: '/example',
+                      label: 'Pangaea',
+                    }}
+                    description={{
+                      label:
+                        'Data publisher for earth and environmental science.',
+                    }}
+                  />
                 </div>
 
                 <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="SeaDataNet"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Ocean and marine data management Infrastructure.
-                    </p>
-                  </article>
+                  <ContentItem
+                    className="ecl-u-height-100 ecl-u-box-sizing-border"
+                    title={{
+                      href: '/example',
+                      label: 'SeaDataNet',
+                    }}
+                    description={{
+                      label: 'Ocean and marine data management Infrastructure.',
+                    }}
+                  />
                 </div>
               </div>
 
               <div className="ecl-row ecl-u-mt-m">
                 <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="EMODnet"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Access to marine data in Europe.
-                    </p>
-                  </article>
+                  <ContentItem
+                    className="ecl-u-height-100 ecl-u-box-sizing-border"
+                    title={{
+                      href: '/example',
+                      label: 'EMODnet',
+                    }}
+                    description={{
+                      label: 'Access to marine data in Europe.',
+                    }}
+                  />
                 </div>
 
                 <div className="ecl-col-12 ecl-col-md-6">
-                  <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                      <Link
-                        href="/example"
-                        variant="standalone"
-                        label="Fisheries data collection"
-                      />
-                    </div>
-                    <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                      Commission (JRC) data collection on fishieries.
-                    </p>
-                  </article>
+                  <ContentItem
+                    className="ecl-u-height-100 ecl-u-box-sizing-border"
+                    title={{
+                      href: '/example',
+                      label: 'Fisheries data collection',
+                    }}
+                    description={{
+                      label: 'Commission (JRC) data collection on fishieries.',
+                    }}
+                  />
                 </div>
               </div>
 
@@ -765,38 +709,35 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
                 News
               </h2>
 
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-l">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">Press release</span> |{' '}
-                  <time dateTime="2019-10-17">25 September 2019</time>
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Commissioners Miguel Arias, Karmenu Vella and Carlos Moedas welcome the UN report on oceans and climate change"
-                  />
-                </div>
-              </article>
+              <ContentItem
+                meta={{
+                  label: parse(
+                    "<span class='ecl-u-type-uppercase'>Press release</span> | <time dateTime='2019-09-25'>25 September 2019</time>"
+                  ),
+                }}
+                title={{
+                  href: '/example',
+                  label:
+                    'Commissioners Miguel Arias, Karmenu Vella and Carlos Moedas welcome the UN report on oceans and climate change',
+                }}
+              />
 
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">News</span> |{' '}
-                  <time dateTime="2019-10-17">19 September 2019</time>
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Ocean plastic lab returns to Brussels to tackle ocean pollution"
-                  />
-                </div>
-                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                  Back in Brussels from 19 to 30 September 2019, in the
-                  framework of the Research and Innovation Days organised by the
-                  European Commission
-                </p>
-              </article>
+              <ContentItem
+                meta={{
+                  label: parse(
+                    "<span class='ecl-u-type-uppercase'>News</span> | <time dateTime='2019-09-19'>19 September 2019</time>"
+                  ),
+                }}
+                title={{
+                  href: '/example',
+                  label:
+                    'Ocean plastic lab returns to Brussels to tackle ocean pollution',
+                }}
+                description={{
+                  label:
+                    'Back in Brussels from 19 to 30 September 2019, in the framework of the Research and Innovation Days organised by the European Commission',
+                }}
+              />
 
               <Link
                 className="ecl-u-mt-l ecl-u-type-bold"
@@ -893,82 +834,73 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
                 Related events
               </h2>
 
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-d-flex ecl-u-mt-l ecl-u-pv-m">
-                <div className="ecl-u-flex-grow-0 ecl-u-mr-m">
-                  <DateBlock
-                    dateTime="2020-02-06"
-                    day="06"
-                    month="Feb"
-                    monthFull="February"
-                    year="2020"
-                  />
-                </div>
-                <div className="ecl-u-flex-grow-1">
-                  <div className="ecl-u-d-inline-block ecl-u-type-s ecl-u-bg-yellow-25 ecl-u-pa-2xs">
-                    Upcoming
-                  </div>
-                  <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                    <Link
-                      href="/example"
-                      variant="standalone"
-                      label="Save the date for All-Atlantic Ocean Research Forum"
-                    />
-                  </div>
-                  <UnorderedList
-                    variant="no-bullet"
-                    className="ecl-u-mt-s ecl-u-type-color-grey-75"
-                  >
-                    <UnorderedListItem className="ecl-u-d-flex ecl-u-align-items-center">
-                      <Icon shape="general--location" size="m" />
-                      <span className="ecl-u-type-s ecl-u-ml-s">
-                        Brussels, Belgium
-                      </span>
-                    </UnorderedListItem>
-                  </UnorderedList>
-                </div>
-              </article>
+              <ContentItem
+                meta={{
+                  label: parse(
+                    "<div class='ecl-u-d-inline-block ecl-u-bg-yellow-25 ecl-u-type-color-black ecl-u-pa-2xs'>Upcoming</div>"
+                  ),
+                }}
+                title={{
+                  href: '/example',
+                  label: 'Save the date for All-Atlantic Ocean Research Forum',
+                }}
+                date={{
+                  dateTime: '2020-02-06',
+                  day: '06',
+                  month: 'Feb',
+                  monthFull: 'February',
+                  year: '2020',
+                }}
+                information={{
+                  items: [
+                    {
+                      icon: {
+                        shape: 'general--location',
+                        size: 'm',
+                      },
+                      label: 'Brussels, Belgium',
+                    },
+                  ],
+                }}
+              />
 
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-d-flex ecl-u-pv-m">
-                <div className="ecl-u-flex-grow-0 ecl-u-mr-m">
-                  <DateBlock
-                    variant="past"
-                    dateTime="2019-11-13"
-                    day="13"
-                    month="Nov"
-                    monthFull="November"
-                    year="2019"
-                  />
-                </div>
-                <div className="ecl-u-flex-grow-1">
-                  <div className="ecl-u-d-inline-block ecl-u-type-s ecl-u-bg-grey-25 ecl-u-pa-2xs">
-                    Past
-                  </div>
-                  <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                    <Link
-                      href="/example"
-                      variant="standalone"
-                      label="2019 Global Ocean Science Education Workshop"
-                    />
-                  </div>
-                  <UnorderedList
-                    variant="no-bullet"
-                    className="ecl-u-mt-s ecl-u-type-color-grey-75"
-                  >
-                    <UnorderedListItem className="ecl-u-d-flex ecl-u-align-items-center">
-                      <Icon shape="general--location" size="m" />
-                      <span className="ecl-u-type-s ecl-u-ml-s">
-                        Washington, United States
-                      </span>
-                    </UnorderedListItem>
-                    <UnorderedListItem className="ecl-u-d-flex ecl-u-align-items-center">
-                      <Icon shape="ui--external" size="m" />
-                      <span className="ecl-u-type-s ecl-u-ml-s">
-                        External event
-                      </span>
-                    </UnorderedListItem>
-                  </UnorderedList>
-                </div>
-              </article>
+              <ContentItem
+                meta={{
+                  label: parse(
+                    "<div class='ecl-u-d-inline-block ecl-u-bg-grey-25 ecl-u-type-color-black ecl-u-pa-2xs'>Past</div>"
+                  ),
+                }}
+                title={{
+                  href: '/example',
+                  label: '2019 Global Ocean Science Education Workshop',
+                }}
+                date={{
+                  variant: 'past',
+                  dateTime: '2019-11-13',
+                  day: '13',
+                  month: 'Nov',
+                  monthFull: 'November',
+                  year: '2019',
+                }}
+                information={{
+                  items: [
+                    {
+                      icon: {
+                        shape: 'general--location',
+                        size: 'm',
+                      },
+                      label: 'Washington, United States',
+                    },
+                    {
+                      icon: {
+                        shape: 'ui--external',
+                        size: 'm',
+                      },
+                      label: 'External event',
+                    },
+                  ],
+                }}
+              />
 
               <Link
                 className="ecl-u-mt-l ecl-u-type-bold"
@@ -1051,140 +983,115 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
                 Related Commission departments
               </h2>
 
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-m">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">
-                    Directorate-general | RTD
-                  </span>
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Research and Innovation"
-                  />
-                </div>
-              </article>
+              <ContentItem
+                meta={{
+                  label: parse(
+                    "<span class='ecl-u-type-uppercase'>Directorate-general</span> | RTD"
+                  ),
+                }}
+                title={{
+                  href: '/example',
+                  label: 'Research and Innovation',
+                }}
+              />
 
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">
-                    Directorate-general | JRC
-                  </span>
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Joint Research Centre"
-                  />
-                </div>
-              </article>
+              <ContentItem
+                meta={{
+                  label: parse(
+                    "<span class='ecl-u-type-uppercase'>Directorate-general</span> | JRC"
+                  ),
+                }}
+                title={{
+                  href: '/example',
+                  label: 'Joint Research Centre',
+                }}
+              />
 
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">
-                    Directorate-general | MARE
-                  </span>
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Maritime Affairs and Fisheries"
-                  />
-                </div>
-              </article>
+              <ContentItem
+                meta={{
+                  label: parse(
+                    "<span class='ecl-u-type-uppercase'>Directorate-general</span> | MARE"
+                  ),
+                }}
+                title={{
+                  href: '/example',
+                  label: 'Maritime Affairs and Fisheries',
+                }}
+              />
 
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">
-                    Directorate-general | ENV
-                  </span>
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Environment"
-                  />
-                </div>
-              </article>
+              <ContentItem
+                meta={{
+                  label: parse(
+                    "<span class='ecl-u-type-uppercase'>Directorate-general</span> | ENV"
+                  ),
+                }}
+                title={{
+                  href: '/example',
+                  label: 'Environment',
+                }}
+              />
 
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">
-                    Directorate-general | NEAR
-                  </span>
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="European Neighbourhood Policy and Enlargement Negotiations"
-                  />
-                </div>
-              </article>
+              <ContentItem
+                meta={{
+                  label: parse(
+                    "<span class='ecl-u-type-uppercase'>Directorate-general</span> | NEAR"
+                  ),
+                }}
+                title={{
+                  href: '/example',
+                  label:
+                    'European Neighbourhood Policy and Enlargement Negotiations',
+                }}
+              />
 
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">
-                    Directorate-general | EEAS
-                  </span>
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="European External Action Service (EEAS)"
-                  />
-                </div>
-              </article>
+              <ContentItem
+                meta={{
+                  label: parse(
+                    "<span class='ecl-u-type-uppercase'>Directorate-general</span> | EEAS"
+                  ),
+                }}
+                title={{
+                  href: '/example',
+                  label: 'European External Action Service (EEAS)',
+                }}
+              />
 
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">
-                    Directorate-general | INEA
-                  </span>
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Innovation and Networks Executive Agency"
-                  />
-                </div>
-              </article>
+              <ContentItem
+                meta={{
+                  label: parse(
+                    "<span class='ecl-u-type-uppercase'>Directorate-general</span> | INEA"
+                  ),
+                }}
+                title={{
+                  href: '/example',
+                  label: 'Innovation and Networks Executive Agency',
+                }}
+              />
 
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">
-                    Directorate-general | EASME
-                  </span>
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Executive Agency for Small and Medium-sized Enterprises"
-                  />
-                </div>
-              </article>
+              <ContentItem
+                meta={{
+                  label: parse(
+                    "<span class='ecl-u-type-uppercase'>Directorate-general</span> | EASME"
+                  ),
+                }}
+                title={{
+                  href: '/example',
+                  label:
+                    'Executive Agency for Small and Medium-sized Enterprises',
+                }}
+              />
 
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">
-                    Directorate-general | REA
-                  </span>
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Research Executive Agency"
-                  />
-                </div>
-              </article>
+              <ContentItem
+                meta={{
+                  label: parse(
+                    "<span class='ecl-u-type-uppercase'>Directorate-general</span> | REA"
+                  ),
+                }}
+                title={{
+                  href: '/example',
+                  label: 'Research Executive Agency',
+                }}
+              />
 
               <SocialMediaShare
                 className="ecl-u-mt-xl ecl-u-mt-lg-3xl"
