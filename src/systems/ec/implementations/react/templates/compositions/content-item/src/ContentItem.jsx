@@ -48,7 +48,7 @@ const ContentItem = ({
           {images.desktop && (
             <div
               role="img"
-              aria-label={images.mobile.alt}
+              aria-label={images.desktop.alt}
               className={classnames(
                 images.desktop.className,
                 'ecl-u-flex-shrink-0 ecl-u-mr-s ecl-u-media-a-s ecl-u-media-bg-size-contain ecl-u-media-bg-repeat-none ecl-u-d-none ecl-u-d-lg-block'
@@ -156,7 +156,7 @@ const ContentItem = ({
           {images.desktop && (
             <div
               role="img"
-              aria-label={images.mobile.alt}
+              aria-label={images.desktop.alt}
               className={classnames(
                 images.desktop.className,
                 'ecl-u-media-ratio-3-2 ecl-u-media-bg-size-contain ecl-u-media-bg-repeat-none ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block'
