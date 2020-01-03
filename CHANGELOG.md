@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.21 (2020-01-03)
+
+#### :memo: Documentation
+
+- [#1494](https://github.com/ec-europa/europa-component-library/pull/1494) fix(person-content-type): reorder element on website - INNO-2063 ([@emeryro](https://github.com/emeryro))
+- [#1495](https://github.com/ec-europa/europa-component-library/pull/1495) docs(website): remove caps - INNO-2025 ([@emeryro](https://github.com/emeryro))
+- [#1493](https://github.com/ec-europa/europa-component-library/pull/1493) docs(spacing): add documentation - INNO-2062 ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 1
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
 ## 2.20 (2019-12-23)
 
 #### :rocket: New Feature
