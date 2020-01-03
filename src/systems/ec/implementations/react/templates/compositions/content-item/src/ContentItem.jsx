@@ -11,6 +11,7 @@ import {
 } from '@ecl/ec-react-component-unordered-list';
 
 const ContentItem = ({
+  hasBorder,
   meta,
   title,
   description,
@@ -24,10 +25,9 @@ const ContentItem = ({
   return (
     <article
       {...props}
-      className={classnames(
-        className,
-        'ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m'
-      )}
+      className={classnames(className, 'ecl-u-d-flex ecl-u-pv-m', {
+        'ecl-u-border-bottom ecl-u-border-color-grey-15': hasBorder === true,
+      })}
     >
       {/* Images (left) */}
       {!!(images && images.position === 'left') && (
@@ -174,6 +174,7 @@ const ContentItem = ({
 };
 
 ContentItem.propTypes = {
+  hasBorder: PropTypes.bool,
   meta: PropTypes.shape({
     className: PropTypes.string,
     label: PropTypes.string,
@@ -211,6 +212,7 @@ ContentItem.propTypes = {
 };
 
 ContentItem.defaultProps = {
+  hasBorder: true,
   meta: {},
   title: {},
   description: {},
