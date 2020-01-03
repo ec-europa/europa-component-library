@@ -34,9 +34,9 @@ import { Paragraph, Anatomy, Link } from '@ecl/website-components';
 
 | Elements        | Mandatory | Description                                                                                                                                  |
 | --------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| Media thumbnail | yes       | thumbnail representative of the linked media                                                                                                 |
-| Media icon      | yes       | icon indicating the type of media                                                                                                            |
-| Caption         | no        | use caption indicative of the media linked content - this allows users to form a mental model of the information available<br />\* see notes |
+| media thumbnail | yes       | thumbnail representative of the linked media                                                                                                 |
+| media icon      | yes       | icon indicating the type of media                                                                                                            |
+| caption         | no        | use caption indicative of the media linked content - this allows users to form a mental model of the information available<br />\* see notes |
 
 ## Do's
 
@@ -70,9 +70,9 @@ import { Paragraph, Anatomy, Link } from '@ecl/website-components';
 
 ### Design
 
-- Captions
-  - Desktop: display on hover
-  - Mobile: display under the thumbnail
+- captions
+  - desktop: display on hover
+  - mobile: display under the thumbnail
 
 # Overlay
 
@@ -106,19 +106,19 @@ import { Paragraph, Anatomy, Link } from '@ecl/website-components';
 
 | Elements                | Mandatory desktop | Mandatory mobile | Description                                                                                                     |
 | ----------------------- | ----------------- | ---------------- | --------------------------------------------------------------------------------------------------------------- |
-| (Change picture) button | yes               | yes              | button that let's you scroll through all media content                                                          |
-| (Download) button       | yes               | yes              | button that downloads the picture/video currently on display                                                    |
-| (Social media) button   | no                | no               | social media share button, opens <Link to="/ec/components/social-media-share/usage/">Social media</Link> pop-up |
-| (Close) button          | yes               | yes              | closes the gallery overlay                                                                                      |
-| Caption                 | no                | no               | caption that explains the media content being linked to                                                         |
-| Media thumbnail         | **yes**           | **no**           | thumbnail that represents the media being linked to                                                             |
-| (Pagination) button     | yes               | yes              | button that scrolls through available pages of media content                                                    |
+| (change picture) button | yes               | yes              | button that let's you scroll through all media content                                                          |
+| (download) button       | yes               | yes              | button that downloads the picture/video currently on display                                                    |
+| (social media) button   | no                | no               | social media share button, opens <Link to="/ec/components/social-media-share/usage/">Social media</Link> pop-up |
+| (close) button          | yes               | yes              | closes the gallery overlay                                                                                      |
+| caption                 | no                | no               | caption that explains the media content being linked to                                                         |
+| media thumbnail         | **yes**           | **no**           | thumbnail that represents the media being linked to                                                             |
+| (pagination) button     | yes               | yes              | button that scrolls through available pages of media content                                                    |
 
 ## Conditional
 
 | Elements         | Mandatory desktop | Mandatory mobile | Description                                                                                                                                                                  |
 | ---------------- | ----------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Show more button | yes               | yes              | if there are more than 12 media files, the last item becomes a button informing the users there are more files available. Clicking it acts the same as the pagination arrows |
+| show more button | yes               | yes              | if there are more than 12 media files, the last item becomes a button informing the users there are more files available. Clicking it acts the same as the pagination arrows |
 
 ## Do's/ Don'ts/ When to use/ When not to use
 
