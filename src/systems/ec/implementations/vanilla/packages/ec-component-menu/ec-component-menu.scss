@@ -188,8 +188,6 @@
     }
 
     .ecl-menu__item {
-      position: initial;
-
       &::before {
         display: none;
       }
@@ -334,7 +332,6 @@
       padding-bottom: calc(#{$ecl-spacing-xl} - #{$ecl-spacing-s});
       padding-top: $ecl-spacing-xl;
       position: absolute;
-      width: 100%;
       z-index: $ecl-z-index-dropdown;
 
       &::before {
@@ -347,7 +344,10 @@
     }
 
     .ecl-menu__sublist {
-      column-count: 4;
+      display: grid;
+      grid-auto-columns: max-content;
+      grid-auto-flow: column;
+      grid-template-rows: 25% 25% 25% 25%;
     }
 
     .ecl-menu__subitem::before {
