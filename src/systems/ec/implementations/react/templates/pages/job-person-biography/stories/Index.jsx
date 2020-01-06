@@ -6,7 +6,7 @@ import PersonPageExample from '../examples/Default';
 
 storiesOf('Templates|Pages', module)
   .addDecorator(withKnobs)
-  .add('Person', () => {
+  .add('Person biography', () => {
     const template = radios(
       'Template',
       {
