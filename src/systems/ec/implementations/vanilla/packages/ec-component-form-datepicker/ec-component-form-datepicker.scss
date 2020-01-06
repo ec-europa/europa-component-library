@@ -67,12 +67,12 @@
     color: $ecl-color-red-100;
   }
 
-  .ecl-datepicker--invalid:hover .ecl-datepicker__icon {
-    color: $ecl-color-red-130;
-  }
-
   .ecl-datepicker:hover .ecl-datepicker__icon {
     color: $ecl-color-blue;
+  }
+
+  .ecl-datepicker--invalid:hover .ecl-datepicker__icon {
+    color: $ecl-color-red-130;
   }
 
   .ecl-datepicker__field:active + .ecl-datepicker__icon {
@@ -80,6 +80,10 @@
   }
 
   .ecl-datepicker__field:focus + .ecl-datepicker__icon {
+    color: $ecl-color-grey-50;
+  }
+
+  .ecl-datepicker__field:disabled:hover + .ecl-datepicker__icon {
     color: $ecl-color-grey-50;
   }
 
