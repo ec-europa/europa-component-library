@@ -57,6 +57,7 @@
     color: $ecl-color-grey-50;
     margin-right: calc(#{$ecl-spacing-s} - 1px);
     margin-top: calc(#{$ecl-spacing-s} - 1px);
+    pointer-events: none;
     position: absolute;
     right: 0;
     top: 0;
@@ -116,10 +117,19 @@
       justify-content: space-between;
       margin-right: $ecl-spacing-2-xs;
       padding: $ecl-spacing-s $ecl-spacing-m;
+
+      &:last-of-type {
+        margin-right: none;
+      }
     }
 
     .pika-label::after {
-      content: ' \25be';
+      border: solid $ecl-color-grey;
+      border-width: 0 2px 2px 0;
+      content: '';
+      display: inline-block;
+      padding: 3px;
+      transform: rotate(45deg);
     }
 
     .pika-select {
@@ -129,16 +139,9 @@
       width: 100%;
     }
 
-    .pika-prev {
-      margin-right: $ecl-spacing-2-xs;
-      order: -1;
-    }
-
     .pika-prev,
     .pika-next {
-      background-color: $ecl-color-grey-10;
-      height: auto;
-      opacity: 1;
+      display: none;
     }
 
     .pika-table {
@@ -184,6 +187,7 @@
     .is-outside-current-month .pika-button {
       background-color: $ecl-color-grey-10;
       color: $ecl-color-grey;
+      opacity: 1;
     }
   }
 
