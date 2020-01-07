@@ -31,6 +31,7 @@ storiesOf('Components|Forms/Datepicker', module)
     'default',
     () => (
       <Datepicker
+        {...demoContent}
         data-ecl-auto-init="Datepicker"
         id={demoContent.id}
         name={demoContent.name}

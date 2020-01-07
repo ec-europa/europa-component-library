@@ -25,7 +25,7 @@ export class Datepicker {
   constructor(
     element,
     {
-      format = 'YYYY-MM-DD',
+      format = 'DD-MM-YYYY',
       theme = 'ecl-datepicker-theme',
       reposition = false,
       showDaysInNextAndPreviousMonths = true,

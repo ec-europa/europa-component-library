@@ -8,4 +8,5 @@ module.exports = {
   requiredText: '*',
   optionalText: ' (optional)',
   width: 'm',
+  placeholder: 'DD-MM-YYYY',
 };
