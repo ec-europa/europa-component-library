@@ -7,6 +7,5 @@ module.exports = {
   invalidText: 'This is the error message',
   requiredText: '*',
   optionalText: ' (optional)',
-  width: 'm',
   placeholder: 'DD-MM-YYYY',
 };

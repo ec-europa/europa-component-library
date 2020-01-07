@@ -14,9 +14,6 @@
   .ecl-datepicker {
     margin: 0;
     position: relative;
-  }
-
-  .ecl-datepicker--s {
     width: 50%;
 
     @include ecl-media-breakpoint-up('md') {
@@ -25,26 +22,6 @@
 
     @include ecl-media-breakpoint-up('lg') {
       width: $ecl-width-form-s;
-    }
-  }
-
-  .ecl-datepicker--m {
-    width: 100%;
-
-    @include ecl-media-breakpoint-up('md') {
-      width: 50%;
-    }
-
-    @include ecl-media-breakpoint-up('lg') {
-      width: $ecl-width-form-m;
-    }
-  }
-
-  .ecl-datepicker--l {
-    width: 100%;
-
-    @include ecl-media-breakpoint-up('lg') {
-      width: $ecl-width-form-l;
     }
   }
 

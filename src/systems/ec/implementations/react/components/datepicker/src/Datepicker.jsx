@@ -19,7 +19,6 @@ const Datepicker = ({
   required,
   requiredText,
   type,
-  width,
   className,
   ...props
 }) => {
@@ -69,7 +68,6 @@ const Datepicker = ({
       <div
         className={classnames(containerClassName, 'ecl-datepicker', {
           'ecl-datepicker--invalid': invalid,
-          [`ecl-datepicker--${width}`]: width,
         })}
       >
         <input
@@ -79,10 +77,9 @@ const Datepicker = ({
           type={type}
           className={classnames(
             className,
-            'ecl-datepicker__field ecl-text-input',
+            'ecl-datepicker__field ecl-text-input ecl-text-input--s',
             {
               'ecl-text-input--invalid': invalid,
-              [`ecl-text-input--${width}`]: width,
             }
           )}
           disabled={disabled}
@@ -114,7 +111,6 @@ Datepicker.propTypes = {
   required: PropTypes.bool,
   requiredText: PropTypes.string,
   type: PropTypes.string,
-  width: PropTypes.string,
   className: PropTypes.string,
 };
 
@@ -132,7 +128,6 @@ Datepicker.defaultProps = {
   required: false,
   requiredText: '',
   type: 'text',
-  width: '',
   className: '',
 };
 

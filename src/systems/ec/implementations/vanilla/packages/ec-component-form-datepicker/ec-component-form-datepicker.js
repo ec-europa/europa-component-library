@@ -27,6 +27,7 @@ export class Datepicker {
     {
       format = 'DD-MM-YYYY',
       theme = 'ecl-datepicker-theme',
+      yearRange = 40,
       reposition = false,
       showDaysInNextAndPreviousMonths = true,
       enableSelectionDaysInNextAndPreviousMonths = true,
@@ -44,6 +45,7 @@ export class Datepicker {
     // Options
     this.format = format;
     this.theme = theme;
+    this.yearRange = yearRange;
     this.showDaysInNextAndPreviousMonths = showDaysInNextAndPreviousMonths;
     this.enableSelectionDaysInNextAndPreviousMonths = enableSelectionDaysInNextAndPreviousMonths;
     this.reposition = reposition;
@@ -56,6 +58,7 @@ export class Datepicker {
     const picker = new Pikaday({
       field: this.element,
       format: this.format,
+      yearRange: this.yearRange,
       theme: this.theme,
       reposition: this.reposition,
       showDaysInNextAndPreviousMonths: this.showDaysInNextAndPreviousMonths,
