@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
 
 import demoContent from '@ecl/ec-specs-datepicker/demo/data';
@@ -43,15 +43,6 @@ storiesOf('Components|Forms/Datepicker', module)
         required={boolean('Required', true)}
         requiredText={text('Required text', demoContent.requiredText)}
         optionalText={text('Optional text', demoContent.optionalText)}
-        width={select(
-          'Width',
-          {
-            small: 's',
-            medium: 'm',
-            large: 'l',
-          },
-          demoContent.width
-        )}
       />
     ),
     {
