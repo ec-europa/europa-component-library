@@ -347,7 +347,7 @@
       display: grid;
       grid-auto-columns: max-content;
       grid-auto-flow: column;
-      grid-template-rows: 25% 25% 25% 25%;
+      grid-template-rows: auto auto auto auto;
     }
 
     .ecl-menu__subitem::before {
@@ -356,6 +356,7 @@
 
     .ecl-menu__subitem {
       box-sizing: border-box;
+      max-width: 20ch;
       padding-bottom: $ecl-spacing-s;
     }
 
