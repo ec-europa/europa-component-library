@@ -7,7 +7,7 @@ import demoContentCustom from '@ecl/ec-specs-footer/demo/data--custom';
 
 import Footer from '../src/Footer';
 
-storiesOf('Page structure|Footer', module)
+storiesOf('Deprecated|Footer (ECL<2-12-0)', module)
   .addParameters({
     a11y: {
       options: {

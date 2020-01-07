@@ -7,7 +7,7 @@ import demoContentFr from '@ecl/ec-specs-site-header/demo/data--fr';
 
 import SiteHeader from '../src/SiteHeader';
 
-storiesOf('Page structure|SiteHeader', module)
+storiesOf('Deprecated|Site Header (ECL<2-12-0)', module)
   .addDecorator(story => (
     <StoryWrapper
       afterMount={() => {
