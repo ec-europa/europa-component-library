@@ -9,7 +9,7 @@ import demoContent from '@ecl/ec-specs-accordion/demo/data';
 import { Accordion } from '../src/Accordion';
 import { AccordionItem } from '../src/AccordionItem';
 
-storiesOf('Components|Accordion', module)
+storiesOf('Deprecated|Accordion (ECL<2-6-0)', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryWrapper
@@ -62,7 +62,7 @@ storiesOf('Components|Accordion', module)
       },
     ],
   })
-  .add('[deprecated] ECL <2.6.0', () => {
+  .add('default (ECL <2.6.0)', () => {
     const toggle1 = {
       ...demoContent.items[0].toggle,
       label: text('Toggle 1', demoContent.items[0].toggle.label),

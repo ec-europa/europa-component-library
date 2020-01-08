@@ -2,9 +2,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import StoryWrapper from '@ecl/story-wrapper';
-import StandardPageExample from '../examples/Default';
+import ContentPageExample from '../examples/Default';
 
-storiesOf('Templates|Pages', module)
+storiesOf('Deprecated|Templates', module)
   .addDecorator(story => (
     <StoryWrapper
       afterMount={() => {
@@ -22,4 +22,4 @@ storiesOf('Templates|Pages', module)
       {story()}
     </StoryWrapper>
   ))
-  .add('Standard (deprecated since ECL 2.12.0)', StandardPageExample);
+  .add('Content page (ECL<2-12-0)', ContentPageExample);
