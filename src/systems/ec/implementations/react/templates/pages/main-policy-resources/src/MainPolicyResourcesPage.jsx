@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
+import ContentItem from '@ecl/ec-react-composition-content-item';
 import FileDownload from '@ecl/ec-react-component-file';
 import Link from '@ecl/ec-react-component-link';
 import SocialMediaShare from '@ecl/ec-react-component-social-media-share';
@@ -168,47 +169,30 @@ const MainPolicyResourcesPage = ({ siteHeader, footer, template }) => (
             Databases and other resources
           </h2>
 
-          <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-m ecl-u-mt-lg-l">
-            <div className="ecl-u-flex-grow-1">
-              <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                <Link
-                  href="/example"
-                  variant="standalone"
-                  label="European Air Quality Index"
-                />
-              </div>
-              <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
-                The European Environment Agency now offers an Air Quality Index
-                that allows citizens to monitor air quality in real time.
-              </p>
-            </div>
-
-            <div
-              role="img"
-              aria-label="Example image"
-              className="ecl-u-media-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
-              style={{
-                backgroundImage:
-                  'url("https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg")',
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'contain',
-                width: '7.5rem',
-              }}
-            />
-
-            <div
-              role="img"
-              aria-label="Example image"
-              className="ecl-u-media-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
-              style={{
-                backgroundImage:
-                  'url("https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg")',
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'contain',
-                width: '13.125rem',
-              }}
-            />
-          </article>
+          <ContentItem
+            className="ecl-u-mt-m ecl-u-mt-lg-l"
+            title={{
+              href: '/example',
+              label: 'European Air Quality Index',
+            }}
+            description={{
+              label:
+                'The European Environment Agency now offers an Air Quality Index that allows citizens to monitor air quality in real time.',
+            }}
+            images={{
+              position: 'right',
+              mobile: {
+                alt: 'Example image',
+                src:
+                  'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+              },
+              desktop: {
+                alt: 'Example image',
+                src:
+                  'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+              },
+            }}
+          />
 
           <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
             Report

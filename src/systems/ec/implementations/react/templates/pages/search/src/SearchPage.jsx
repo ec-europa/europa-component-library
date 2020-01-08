@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import Button from '@ecl/ec-react-component-button';
-import Link from '@ecl/ec-react-component-link';
+import ContentItem from '@ecl/ec-react-composition-content-item';
 import Pagination from '@ecl/ec-react-component-pagination';
 import Select from '@ecl/ec-react-component-select';
 import Tag from '@ecl/ec-react-component-tag';
@@ -189,145 +189,119 @@ const SearchPage = ({ siteHeader, pageHeader, footer, template }) => (
                 />
               </span>
             </div>
-            <article className="ecl-u-type-m ecl-u-mt-l ecl-u-pb-l ecl-u-pb-lg-m">
-              <Link
-                href="/example"
-                label="Jobs, growth and investment"
-                className="ecl-u-type-prolonged-m ecl-u-type-bold"
-              />
-              <p className="ecl-u-type-paragraph-m ecl-u-type-color-grey ecl-u-mv-none">
-                Since the global economic and financial crisis, the EU has been
-                suffering from low levels of investment. Coordinated efforts at
-                European level are needed to put Europe on the path of economic
-                recovery.
-              </p>
-            </article>
-            <hr className="ecl-u-mv-none" />
-            <article className="ecl-u-type-m ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
-              <Link
-                href="/example"
-                label="Digital single market"
-                className="ecl-u-type-prolonged-m ecl-u-type-bold"
-              />
-              <p className="ecl-u-type-paragraph-m ecl-u-type-color-grey ecl-u-mv-none">
-                The internet and digital technologies are transforming our
-                world. But existing barriers online mean citizens miss out on
-                goods and services, internet companies and start-ups have their
-                horizons limited, and businesses and governments cannot fully
-                benefit from digital tools.
-              </p>
-            </article>
-            <hr className="ecl-u-mv-none" />
-            <article className="ecl-u-type-m ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
-              <Link
-                href="/example"
-                label="Energy union and climate"
-                className="ecl-u-type-prolonged-m ecl-u-type-bold"
-              />
-              <p className="ecl-u-type-paragraph-m ecl-u-type-color-grey ecl-u-mv-none">
-                The EU is building an energy union that make sures Europe’s
-                energy supply is safe, viable and accessible to all. In doing
-                so, it can boost the economy and attract investments that can
-                create new jobs opportunities.
-              </p>
-            </article>
-            <hr className="ecl-u-mv-none" />
-            <article className="ecl-u-type-m ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
-              <Link
-                href="/example"
-                label="Internal market"
-                className="ecl-u-type-prolonged-m ecl-u-type-bold"
-              />
-              <p className="ecl-u-type-paragraph-m ecl-u-type-color-grey ecl-u-mv-none">
-                The single market is one of Europe’s major achievements and its
-                best asset in times of increasing globalisation. It is an engine
-                for building a stronger and fairer EU economy.
-              </p>
-            </article>
-            <hr className="ecl-u-mv-none" />
-            <article className="ecl-u-type-m ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
-              <Link
-                href="/example"
-                label="A deeper and fairer economic and monetary union"
-                className="ecl-u-type-prolonged-m ecl-u-type-bold"
-              />
-              <p className="ecl-u-type-paragraph-m ecl-u-type-color-grey ecl-u-mv-none">
-                Within the Economic and Monetary Union (EMU), EU countries’
-                economic policies are coordinated to: make sure EU countries can
-                withstand future crises through economic and social reforms and
-                responsible fiscal policies, encourage investment and enhance
-                competitiveness, deliver more job opportunities and better
-                living standards
-              </p>
-            </article>
-            <hr className="ecl-u-mv-none" />
-            <article className="ecl-u-type-m ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
-              <Link
-                href="/example"
-                label="A balanced and progressive trade policy to harness globalisation"
-                className="ecl-u-type-prolonged-m ecl-u-type-bold"
-              />
-              <p className="ecl-u-type-paragraph-m ecl-u-type-color-grey ecl-u-mv-none">
-                In the modern global economy trade is essential for growth, jobs
-                and competiveness, and the EU is committed to maintaining an
-                open and rules-based trading system.
-              </p>
-            </article>
-            <hr className="ecl-u-mv-none" />
-            <article className="ecl-u-type-m ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
-              <Link
-                href="/example"
-                label="Justice and fundamental rights"
-                className="ecl-u-type-prolonged-m ecl-u-type-bold"
-              />
-              <p className="ecl-u-type-paragraph-m ecl-u-type-color-grey ecl-u-mv-none">
-                Every EU citizen enjoys the same fundamental rights based on the
-                values of equality, non-discrimination, inclusion, human
-                dignity, freedom and democracy.
-              </p>
-            </article>
-            <hr className="ecl-u-mv-none" />
-            <article className="ecl-u-type-m ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
-              <Link
-                href="/example"
-                label="Migration"
-                className="ecl-u-type-prolonged-m ecl-u-type-bold"
-              />
-              <p className="ecl-u-type-paragraph-m ecl-u-type-color-grey ecl-u-mv-none">
-                The plight of thousands of migrants putting their lives in peril
-                to cross the Mediterranean has shocked. It is clear that no EU
-                country can or should be left alone to address huge migratory
-                pressures.
-              </p>
-            </article>
-            <hr className="ecl-u-mv-none" />
-            <article className="ecl-u-type-m ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
-              <Link
-                href="/example"
-                label="A stronger global actor"
-                className="ecl-u-type-prolonged-m ecl-u-type-bold"
-              />
-              <p className="ecl-u-type-paragraph-m ecl-u-type-color-grey ecl-u-mv-none">
-                The EU needs a strong common foreign policy to respond
-                efficiently to global challenges, including the crises in its
-                neighbourhood, project its values, reject protectionism and keep
-                EU trade standards and contribute to peace and prosperity in the
-                world.
-              </p>
-            </article>
-            <hr className="ecl-u-mv-none" />
-            <article className="ecl-u-type-m ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
-              <Link
-                href="/example"
-                label="Democratic change"
-                className="ecl-u-type-prolonged-m ecl-u-type-bold"
-              />
-              <p className="ecl-u-type-paragraph-m ecl-u-type-color-grey ecl-u-mv-none">
-                For the first time, in 2014, EU countries had to take the
-                results of the elections into account when proposing a candidate
-                for European Commission President.
-              </p>
-            </article>
+
+            <ContentItem
+              title={{
+                href: '/example',
+                label: 'Jobs, growth and investment',
+              }}
+              description={{
+                label:
+                  'Since the global economic and financial crisis, the EU has been suffering from low levels of investment. Coordinated efforts at European level are needed to put Europe on the path of economic recovery.',
+              }}
+            />
+
+            <ContentItem
+              title={{
+                href: '/example',
+                label: 'Digital single market',
+              }}
+              description={{
+                label:
+                  'The internet and digital technologies are transforming our world. But existing barriers online mean citizens miss out on goods and services, internet companies and start-ups have their horizons limited, and businesses and governments cannot fully benefit from digital tools.',
+              }}
+            />
+
+            <ContentItem
+              title={{
+                href: '/example',
+                label: 'Energy union and climate',
+              }}
+              description={{
+                label:
+                  "The EU is building an energy union that make sures Europe's energy supply is safe, viable and accessible to all. In doing so, it can boost the economy and attract investments that can create new jobs opportunities.",
+              }}
+            />
+
+            <ContentItem
+              title={{
+                href: '/example',
+                label: 'Internal market',
+              }}
+              description={{
+                label:
+                  'The single market is one of Europe’s major achievements and its best asset in times of increasing globalisation. It is an engine for building a stronger and fairer EU economy.',
+              }}
+            />
+
+            <ContentItem
+              title={{
+                href: '/example',
+                label: 'A deeper and fairer economic and monetary union',
+              }}
+              description={{
+                label:
+                  "Within the Economic and Monetary Union (EMU), EU countries' economic policies are coordinated to: make sure EU countries can withstand future crises through economic and social reforms and responsible fiscal policies, encourage investment and enhance competitiveness, deliver more job opportunities and better living standards",
+              }}
+            />
+
+            <ContentItem
+              title={{
+                href: '/example',
+                label:
+                  'A balanced and progressive trade policy to harness globalisation',
+              }}
+              description={{
+                label:
+                  'In the modern global economy trade is essential for growth, jobs and competiveness, and the EU is committed to maintaining an open and rules-based trading system.',
+              }}
+            />
+
+            <ContentItem
+              title={{
+                href: '/example',
+                label: 'Justice and fundamental rights',
+              }}
+              description={{
+                label:
+                  'Every EU citizen enjoys the same fundamental rights based on the values of equality, non-discrimination, inclusion, human dignity, freedom and democracy.',
+              }}
+            />
+
+            <ContentItem
+              title={{
+                href: '/example',
+                label: 'Migration',
+              }}
+              description={{
+                label:
+                  'The plight of thousands of migrants putting their lives in peril to cross the Mediterranean has shocked. It is clear that no EU country can or should be left alone to address huge migratory pressures.',
+              }}
+            />
+
+            <ContentItem
+              title={{
+                href: '/example',
+                label: 'A stronger global actor',
+              }}
+              description={{
+                label:
+                  'The EU needs a strong common foreign policy to respond efficiently to global challenges, including the crises in its neighbourhood, project its values, reject protectionism and keep EU trade standards and contribute to peace and prosperity in the world.',
+              }}
+            />
+
+            <ContentItem
+              hasBorder="false"
+              title={{
+                href: '/example',
+                label: 'Democratic change',
+              }}
+              description={{
+                label:
+                  'For the first time, in 2014, EU countries had to take the results of the elections into account when proposing a candidate for European Commission President.',
+              }}
+            />
+
             <Pagination
               className="ecl-u-mt-l"
               items={[

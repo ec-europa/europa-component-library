@@ -1,7 +1,9 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import parse from 'html-react-parser';
 
-import DateBlock from '@ecl/ec-react-component-date-block';
+import ContentItem from '@ecl/ec-react-composition-content-item';
 import {
   DescriptionList,
   DescriptionTerm,
@@ -11,7 +13,6 @@ import FileDownload from '@ecl/ec-react-component-file';
 import Gallery from '@ecl/ec-react-component-gallery';
 
 import demoContentGallery from '@ecl/ec-specs-gallery/demo/data';
-import Icon from '@ecl/ec-react-component-icon';
 import InpageNavigation from '@ecl/ec-react-component-inpage-navigation';
 import Link from '@ecl/ec-react-component-link';
 import SocialMediaFollow from '@ecl/ec-react-component-social-media-follow';
@@ -516,80 +517,78 @@ const PersonPage = ({ siteHeader, footer, template }) => (
                 Events
               </h2>
 
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-d-flex ecl-u-mt-none ecl-u-pv-m">
-                <div className="ecl-u-flex-grow-0 ecl-u-mr-m">
-                  <DateBlock
-                    dateTime="2019-09-02"
-                    day="02"
-                    month="Sep"
-                    monthFull="September"
-                    year="2019"
-                  />
-                </div>
-                <div className="ecl-u-flex-grow-1">
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-type-uppercase">
-                    Meeting
-                  </div>
-                  <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                    <Link
-                      href="/example"
-                      variant="standalone"
-                      label="Meeting with Mrs Patricia Flor, EU Ambassador to Japan"
-                    />
-                  </div>
-                  <UnorderedList
-                    variant="no-bullet"
-                    className="ecl-u-type-s ecl-u-mt-s ecl-u-type-color-grey-75"
-                  >
-                    <UnorderedListItem className="ecl-u-d-flex ecl-u-align-items-center">
-                      Vytenis Andriukaitis
-                    </UnorderedListItem>
-                    <UnorderedListItem className="ecl-u-d-flex ecl-u-align-items-center">
-                      <Icon shape="general--location" size="m" />
-                      <span className="ecl-u-ml-s">Brussels, Belgium</span>
-                    </UnorderedListItem>
-                  </UnorderedList>
-                </div>
-              </article>
+              <ContentItem
+                meta={{
+                  label: parse(
+                    "<span class='ecl-u-type-uppercase'>Meeting</span>"
+                  ),
+                }}
+                title={{
+                  href: '/example',
+                  label:
+                    'Meeting with Mrs Patricia Flor, EU Ambassador to Japan',
+                }}
+                description={{
+                  className: 'ecl-u-type-s ecl-u-type-color-grey-75',
+                  label: 'Vytenis Andriukaitis',
+                }}
+                date={{
+                  dateTime: '2019-09-02',
+                  day: '02',
+                  month: 'Sep',
+                  monthFull: 'September',
+                  year: '2019',
+                }}
+                information={{
+                  items: [
+                    {
+                      icon: {
+                        shape: 'general--location',
+                        size: 'm',
+                      },
+                      label: 'Brussels, Belgium',
+                    },
+                  ],
+                }}
+              />
 
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-d-flex ecl-u-mt-none ecl-u-mb-l ecl-u-pv-m">
-                <div className="ecl-u-flex-grow-0 ecl-u-mr-m">
-                  <DateBlock
-                    dateTime="2020-02-06"
-                    day="06"
-                    month="Feb"
-                    monthFull="February"
-                    year="2020"
-                  />
-                </div>
-                <div className="ecl-u-flex-grow-1">
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-type-uppercase">
-                    Meeting
-                  </div>
-                  <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                    <Link
-                      href="/example"
-                      variant="standalone"
-                      label="Meeting with Les Producteurs des Legumes de France (SOLAAL)"
-                    />
-                  </div>
-                  <UnorderedList
-                    variant="no-bullet"
-                    className="ecl-u-type-s ecl-u-mt-s ecl-u-type-color-grey-75"
-                  >
-                    <UnorderedListItem className="ecl-u-d-flex ecl-u-align-items-center">
-                      Vytenis Andriukaitis
-                    </UnorderedListItem>
-                    <UnorderedListItem className="ecl-u-d-flex ecl-u-align-items-center">
-                      <Icon shape="general--location" size="m" />
-                      <span className="ecl-u-ml-s">Brussels, Belgium</span>
-                    </UnorderedListItem>
-                  </UnorderedList>
-                </div>
-              </article>
+              <ContentItem
+                meta={{
+                  label: parse(
+                    "<span class='ecl-u-type-uppercase'>Meeting</span>"
+                  ),
+                }}
+                title={{
+                  href: '/example',
+                  label:
+                    'Meeting with Les Producteurs des Legumes de France (SOLAAL)',
+                }}
+                description={{
+                  className: 'ecl-u-type-s ecl-u-type-color-grey-75',
+                  label: 'Vytenis Andriukaitis',
+                }}
+                date={{
+                  dateTime: '2020-02-06',
+                  day: '06',
+                  month: 'Feb',
+                  monthFull: 'February',
+                  year: '2020',
+                }}
+                information={{
+                  items: [
+                    {
+                      icon: {
+                        shape: 'general--location',
+                        size: 'm',
+                      },
+                      label: 'Brussels, Belgium',
+                    },
+                  ],
+                }}
+              />
 
               <Link
-                className="ecl-u-mt-none ecl-u-mb-xl ecl-u-mb-lg-3xl ecl-u-type-bold"
+                className="ecl-u-mt-l ecl-u-mb-xl ecl-u-mb-lg-3xl ecl-u-type-bold"
                 variant="standalone"
                 label="All events"
                 href="/example"
@@ -632,64 +631,57 @@ const PersonPage = ({ siteHeader, footer, template }) => (
                 News and publications
               </h2>
 
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-none">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">Statement</span> |{' '}
-                  <time dateTime="2019-10-17">25 September 2019</time>
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Timely testing saves lives: Statement by Commissioner Andriukaitis on the World Hepatitis Day"
-                  />
-                </div>
-              </article>
+              <ContentItem
+                meta={{
+                  label: parse(
+                    "<span class='ecl-u-type-uppercase'>Statement</span> | <time dateTime='2019-09-25'>25 September 2019</time>"
+                  ),
+                }}
+                title={{
+                  href: '/example',
+                  label:
+                    'Timely testing saves lives: Statement by Commissioner Andriukaitis on the World Hepatitis Day',
+                }}
+              />
 
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">Article</span> |{' '}
-                  <time dateTime="2019-10-17">19 September 2019</time>
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="'Boris, you are wrong'"
-                  />
-                </div>
-              </article>
+              <ContentItem
+                meta={{
+                  label: parse(
+                    "<span class='ecl-u-type-uppercase'>Article</span> | <time dateTime='2019-09-19'>19 September 2019</time>"
+                  ),
+                }}
+                title={{
+                  href: '/example',
+                  label: "'Boris, you are wrong'",
+                }}
+              />
 
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">Speech</span> |{' '}
-                  <time dateTime="2019-10-17">19 September 2019</time>
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="AgriFish Council - Animal welfare during transport"
-                  />
-                </div>
-              </article>
+              <ContentItem
+                meta={{
+                  label: parse(
+                    "<span class='ecl-u-type-uppercase'>Speech</span> | <time dateTime='2019-09-19'>19 September 2019</time>"
+                  ),
+                }}
+                title={{
+                  href: '/example',
+                  label: 'AgriFish Council - Animal welfare during transport',
+                }}
+              />
 
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-mb-l ecl-u-pv-m">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">Article</span> |{' '}
-                  <time dateTime="2019-10-17">19 September 2019</time>
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Call to action on food fraud"
-                  />
-                </div>
-              </article>
+              <ContentItem
+                meta={{
+                  label: parse(
+                    "<span class='ecl-u-type-uppercase'>Speech</span> | <time dateTime='2019-09-19'>19 September 2019</time>"
+                  ),
+                }}
+                title={{
+                  href: '/example',
+                  label: 'Call to action on food fraud',
+                }}
+              />
 
               <Link
-                className="ecl-u-mt-none ecl-u-mb-xl ecl-u-mb-lg-3xl ecl-u-type-bold"
+                className="ecl-u-mt-l ecl-u-mb-xl ecl-u-mb-lg-3xl ecl-u-type-bold"
                 variant="standalone"
                 label="See more"
                 href="/example"
