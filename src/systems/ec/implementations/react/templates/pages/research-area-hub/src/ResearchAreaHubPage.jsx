@@ -375,7 +375,7 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
                 </div>
               </div>
 
-              <div className="ecl-row ecl-u-mt-m">
+              <div className="ecl-row">
                 <div className="ecl-col-12 ecl-col-md-6">
                   <ContentItem
                     className="ecl-u-height-100 ecl-u-box-sizing-border"
@@ -441,7 +441,7 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
                 </div>
               </div>
 
-              <div className="ecl-row ecl-u-mt-m">
+              <div className="ecl-row">
                 <div className="ecl-col-12 ecl-col-md-6">
                   <ContentItem
                     className="ecl-u-height-100 ecl-u-box-sizing-border"
@@ -472,7 +472,7 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
                 </div>
               </div>
 
-              <div className="ecl-row ecl-u-mt-m">
+              <div className="ecl-row">
                 <div className="ecl-col-12 ecl-col-md-6">
                   <ContentItem
                     className="ecl-u-height-100 ecl-u-box-sizing-border"
@@ -502,7 +502,7 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
                 </div>
               </div>
 
-              <div className="ecl-row ecl-u-mt-m">
+              <div className="ecl-row">
                 <div className="ecl-col-12 ecl-col-md-6">
                   <ContentItem
                     className="ecl-u-height-100 ecl-u-box-sizing-border"
@@ -532,7 +532,7 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
                 </div>
               </div>
 
-              <div className="ecl-row ecl-u-mt-m">
+              <div className="ecl-row">
                 <div className="ecl-col-12 ecl-col-md-6">
                   <ContentItem
                     className="ecl-u-height-100 ecl-u-box-sizing-border"
@@ -585,7 +585,7 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
                 </div>
               </div>
 
-              <div className="ecl-row ecl-u-mt-m">
+              <div className="ecl-row">
                 <div className="ecl-col-12 ecl-col-md-6">
                   <ContentItem
                     className="ecl-u-height-100 ecl-u-box-sizing-border"
@@ -615,7 +615,7 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
                 </div>
               </div>
 
-              <div className="ecl-row ecl-u-mt-m">
+              <div className="ecl-row">
                 <div className="ecl-col-12 ecl-col-md-6">
                   <ContentItem
                     className="ecl-u-height-100 ecl-u-box-sizing-border"
@@ -645,7 +645,7 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
                 </div>
               </div>
 
-              <div className="ecl-row ecl-u-mt-m">
+              <div className="ecl-row">
                 <div className="ecl-col-12 ecl-col-md-6">
                   <ContentItem
                     className="ecl-u-height-100 ecl-u-box-sizing-border"
@@ -674,7 +674,7 @@ const ResearchAreaHubPage = ({ siteHeader, footer, template }) => (
                 </div>
               </div>
 
-              <div className="ecl-row ecl-u-mt-m">
+              <div className="ecl-row">
                 <div className="ecl-col-12 ecl-col-md-6">
                   <ContentItem
                     className="ecl-u-height-100 ecl-u-box-sizing-border"

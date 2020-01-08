@@ -120,6 +120,7 @@ const CommemorativeCoinPage = ({
             </h2>
 
             <ContentItem
+              className="ecl-u-mt-m ecl-u-mt-lg-l"
               meta={{
                 label: parse(
                   "<span class='ecl-u-type-uppercase'>Greece</span> | <time dateTime='2019-06-01'>June 2019</time>"

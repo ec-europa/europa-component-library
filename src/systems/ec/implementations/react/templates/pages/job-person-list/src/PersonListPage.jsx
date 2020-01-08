@@ -249,7 +249,7 @@ const PersonListPage = ({ siteHeader, footer, template }) => (
               <DescriptionList variant="horizontal">
                 <DescriptionTerm>Responsibilities</DescriptionTerm>
                 <DescriptionDefinition>
-                  <UnorderedList>
+                  <UnorderedList className="ecl-u-pl-m">
                     <UnorderedListItem>
                       strategic co-ordination and programming
                     </UnorderedListItem>
@@ -284,7 +284,7 @@ const PersonListPage = ({ siteHeader, footer, template }) => (
                 <DescriptionDefinition>+32 2 29 64816</DescriptionDefinition>
                 <DescriptionTerm>Responsibilities</DescriptionTerm>
                 <DescriptionDefinition>
-                  <UnorderedList className="ecl-u-mv-m">
+                  <UnorderedList className="ecl-u-pl-m">
                     <UnorderedListItem>
                       Food information and composition
                     </UnorderedListItem>
@@ -375,7 +375,7 @@ const PersonListPage = ({ siteHeader, footer, template }) => (
                 <DescriptionDefinition>BERL 04/353</DescriptionDefinition>
                 <DescriptionTerm>Spokesperson</DescriptionTerm>
                 <DescriptionDefinition>
-                  <UnorderedList>
+                  <UnorderedList className="ecl-u-pl-m">
                     <UnorderedListItem>
                       activities of the president
                     </UnorderedListItem>
