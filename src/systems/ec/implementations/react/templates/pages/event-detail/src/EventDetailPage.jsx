@@ -1,8 +1,10 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import parse from 'html-react-parser';
 
 import Card from '@ecl/ec-react-component-card';
-import DateBlock from '@ecl/ec-react-component-date-block';
+import ContentItem from '@ecl/ec-react-composition-content-item';
 import {
   DescriptionList,
   DescriptionTerm,
@@ -695,99 +697,106 @@ const EventDetailPage = ({ siteHeader, footer, template }) => (
         <h2 className="ecl-u-type-heading-2 ecl-u-mt-2xl ecl-u-mt-md-3xl ecl-u-mb-l">
           Related events
         </h2>
-        <article className="ecl-u-d-flex">
-          <div className="ecl-u-flex-grow-0 ecl-u-mr-m">
-            <DateBlock
-              dateTime="2019-08-26"
-              day="26"
-              month="Aug"
-              monthFull="August"
-              year="2019"
-            />
-          </div>
-          <div className="ecl-u-flex-grow-1">
-            <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-              PUBLIC DEBATE | <time dateTime="2019-08-26">August 26, 2019</time>
-            </div>
-            <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-              <Link
-                href="/example"
-                variant="standalone"
-                label="Dialog with Commissioner Georgieva"
-              />
-            </div>
-            <UnorderedList variant="no-bullet" className="ecl-u-mt-s">
-              <UnorderedListItem className="ecl-u-d-flex ecl-u-align-items-center">
-                <Icon shape="general--location" size="m" />
-                <span className="ecl-u-type-s ecl-u-ml-s">Munich, Germany</span>
-              </UnorderedListItem>
-              <UnorderedListItem className="ecl-u-d-flex ecl-u-align-items-center">
-                <Icon shape="general--livestreaming" size="m" />
-                <span className="ecl-u-type-s ecl-u-ml-s">Live streaming</span>
-              </UnorderedListItem>
-            </UnorderedList>
-          </div>
-        </article>
-        <article className="ecl-u-d-flex ecl-u-mt-l ecl-u-mt-md-xl">
-          <div className="ecl-u-flex-grow-0 ecl-u-mr-m">
-            <DateBlock
-              dateTime="2019-05-26"
-              day="26"
-              month="May"
-              monthFull="May"
-              year="2019"
-            />
-          </div>
-          <div className="ecl-u-flex-grow-1">
-            <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-              INFO DAYS |{' '}
-              <time dateTime="2019-05-26">May 26 - June 06, 2019</time>
-            </div>
-            <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-              <Link
-                href="/example"
-                variant="standalone"
-                label="Info days on founds for cultural projects"
-              />
-            </div>
-            <UnorderedList variant="no-bullet" className="ecl-u-mt-s">
-              <UnorderedListItem className="ecl-u-d-flex ecl-u-align-items-center">
-                <Icon shape="general--location" size="m" />
-                <span className="ecl-u-type-s ecl-u-ml-s">Online</span>
-              </UnorderedListItem>
-            </UnorderedList>
-          </div>
-        </article>
-        <article className="ecl-u-d-flex ecl-u-mt-l ecl-u-mt-md-xl">
-          <div className="ecl-u-flex-grow-0 ecl-u-mr-m">
-            <DateBlock
-              dateTime="2019-09-06"
-              day="06"
-              month="Sep"
-              monthFull="September"
-              year="2019"
-            />
-          </div>
-          <div className="ecl-u-flex-grow-1">
-            <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-              COLLEGE MEETING |{' '}
-              <time dateTime="2019-09-06">September 06, 2019</time>
-            </div>
-            <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-              <Link
-                href="/example"
-                variant="standalone"
-                label="Meeting of the College of Commissioners"
-              />
-            </div>
-            <UnorderedList variant="no-bullet" className="ecl-u-mt-s">
-              <UnorderedListItem className="ecl-u-d-flex ecl-u-align-items-center">
-                <Icon shape="general--location" size="m" />
-                <span className="ecl-u-type-s ecl-u-ml-s">Munich, Germany</span>
-              </UnorderedListItem>
-            </UnorderedList>
-          </div>
-        </article>
+
+        <ContentItem
+          hasBorder="false"
+          meta={{
+            label: parse(
+              "<span class='ecl-u-type-uppercase'>Public debate</span> | <time dateTime='2019-08-26'>August 26, 2019</time>"
+            ),
+          }}
+          title={{
+            href: '/example',
+            label: 'Dialog with Commissioner Georgieva',
+          }}
+          date={{
+            dateTime: '2019-08-26',
+            day: '26',
+            month: 'Aug',
+            monthFull: 'August',
+            year: '2019',
+          }}
+          information={{
+            items: [
+              {
+                icon: {
+                  shape: 'general--location',
+                  size: 'm',
+                },
+                label: 'Munich, Germany',
+              },
+              {
+                icon: {
+                  shape: 'general--livestreaming',
+                  size: 'm',
+                },
+                label: 'Live streaming',
+              },
+            ],
+          }}
+        />
+
+        <ContentItem
+          hasBorder="false"
+          meta={{
+            label: parse(
+              "<span class='ecl-u-type-uppercase'>Info days</span> | <time dateTime='2019-05-26'>May 26 - June 06, 2019</time>"
+            ),
+          }}
+          title={{
+            href: '/example',
+            label: 'Info days on founds for cultural projects',
+          }}
+          date={{
+            dateTime: '2019-05-26',
+            day: '26',
+            month: 'May',
+            monthFull: 'May',
+            year: '2019',
+          }}
+          information={{
+            items: [
+              {
+                icon: {
+                  shape: 'general--location',
+                  size: 'm',
+                },
+                label: 'Online',
+              },
+            ],
+          }}
+        />
+
+        <ContentItem
+          hasBorder="false"
+          meta={{
+            label: parse(
+              "<span class='ecl-u-type-uppercase'>College meeting</span> | <time dateTime='2019-09-06'>September 06, 2019</time>"
+            ),
+          }}
+          title={{
+            href: '/example',
+            label: 'Meeting of the College of Commissioners',
+          }}
+          date={{
+            dateTime: '2019-09-06',
+            day: '06',
+            month: 'Sep',
+            monthFull: 'September',
+            year: '2019',
+          }}
+          information={{
+            items: [
+              {
+                icon: {
+                  shape: 'general--location',
+                  size: 'm',
+                },
+                label: 'Munich, Germany',
+              },
+            ],
+          }}
+        />
       </div>
     </main>
 

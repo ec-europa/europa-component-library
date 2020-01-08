@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import Button from '@ecl/ec-react-component-button';
+import ContentItem from '@ecl/ec-react-composition-content-item';
 import {
   DescriptionList,
   DescriptionTerm,
@@ -228,181 +229,173 @@ const PersonListPage = ({ siteHeader, footer, template }) => (
               Team members (11)
             </h2>
 
-            <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s ecl-u-mt-xl ecl-u-mt-lg-l">
-              <div
-                role="img"
-                aria-label="Example image"
-                className="ecl-u-flex-shrink-0 ecl-u-mr-l ecl-u-media-a-m"
-                style={{
-                  backgroundImage:
-                    'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                  backgroundSize: 'contain',
-                }}
-              />
-              <div className="ecl-u-flex-grow-1">
-                <h3 className="ecl-u-type-heading-3 ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-none ecl-u-mb-xs">
-                  Arūnas Vinčiūnas
-                </h3>
-                <p className="ecl-u-type-paragraph ecl-u-type-uppercase ecl-u-type-color-grey-75 ecl-u-mt-none ecl-u-type-s">
-                  Head of Cabinet
-                </p>
-                <DescriptionList variant="horizontal">
-                  <DescriptionTerm>Responsibilities</DescriptionTerm>
-                  <DescriptionDefinition>
-                    <UnorderedList>
-                      <UnorderedListItem>
-                        strategic co-ordination and programming
-                      </UnorderedListItem>
-                      <UnorderedListItem>HEBDO</UnorderedListItem>
-                      <UnorderedListItem>
-                        management of the Cabinet
-                      </UnorderedListItem>
-                      <UnorderedListItem>Senior management</UnorderedListItem>
-                    </UnorderedList>
-                  </DescriptionDefinition>
-                </DescriptionList>
-              </div>
-            </article>
+            <ContentItem
+              className="ecl-u-mt-xl ecl-u-mt-lg-l"
+              images={{
+                position: 'left',
+                desktop: {
+                  alt: 'Example image',
+                  src:
+                    'https://inno-ecl.s3.amazonaws.com/media/examples/example-person.png',
+                },
+              }}
+            >
+              <h3 className="ecl-u-type-heading-3 ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-none ecl-u-mb-xs">
+                Arūnas Vinčiūnas
+              </h3>
+              <p className="ecl-u-type-paragraph ecl-u-type-uppercase ecl-u-type-color-grey-75 ecl-u-mt-none ecl-u-type-s">
+                Head of Cabinet
+              </p>
+              <DescriptionList variant="horizontal">
+                <DescriptionTerm>Responsibilities</DescriptionTerm>
+                <DescriptionDefinition>
+                  <UnorderedList className="ecl-u-pl-m">
+                    <UnorderedListItem>
+                      strategic co-ordination and programming
+                    </UnorderedListItem>
+                    <UnorderedListItem>HEBDO</UnorderedListItem>
+                    <UnorderedListItem>
+                      management of the Cabinet
+                    </UnorderedListItem>
+                    <UnorderedListItem>Senior management</UnorderedListItem>
+                  </UnorderedList>
+                </DescriptionDefinition>
+              </DescriptionList>
+            </ContentItem>
 
-            <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
-              <div
-                role="img"
-                aria-label="Example image"
-                className="ecl-u-flex-shrink-0 ecl-u-mr-l ecl-u-media-a-m"
-                style={{
-                  backgroundImage:
-                    'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                  backgroundSize: 'contain',
-                }}
-              />
-              <div className="ecl-u-flex-grow-1">
-                <h3 className="ecl-u-type-heading-3 ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-none ecl-u-mb-xs">
-                  Nathalie Chaze
-                </h3>
-                <p className="ecl-u-type-paragraph ecl-u-type-uppercase ecl-u-type-color-grey-75 ecl-u-mt-none ecl-u-type-s">
-                  Deputy Head of Cabinet
-                </p>
-                <DescriptionList variant="horizontal">
-                  <DescriptionTerm>Phone number</DescriptionTerm>
-                  <DescriptionDefinition>+32 2 29 64816</DescriptionDefinition>
-                  <DescriptionTerm>Responsibilities</DescriptionTerm>
-                  <DescriptionDefinition>
-                    <UnorderedList className="ecl-u-mv-m">
-                      <UnorderedListItem>
-                        Food information and composition
-                      </UnorderedListItem>
-                      <UnorderedListItem>
-                        Food processing technologies and novel foods
-                      </UnorderedListItem>
-                    </UnorderedList>
-                    <Link
-                      variant="standalone"
-                      label="See all responsibilities"
-                      href="/example"
-                      icon={{
-                        shape: 'ui--corner-arrow',
-                        size: 'xs',
-                        transform: 'rotate-90',
-                      }}
-                    />
-                  </DescriptionDefinition>
-                </DescriptionList>
-              </div>
-            </article>
+            <ContentItem
+              images={{
+                position: 'left',
+                desktop: {
+                  alt: 'Example image',
+                  src:
+                    'https://inno-ecl.s3.amazonaws.com/media/examples/example-person.png',
+                },
+              }}
+            >
+              <h3 className="ecl-u-type-heading-3 ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-none ecl-u-mb-xs">
+                Nathalie Chaze
+              </h3>
+              <p className="ecl-u-type-paragraph ecl-u-type-uppercase ecl-u-type-color-grey-75 ecl-u-mt-none ecl-u-type-s">
+                Deputy Head of Cabinet
+              </p>
+              <DescriptionList variant="horizontal">
+                <DescriptionTerm>Phone number</DescriptionTerm>
+                <DescriptionDefinition>+32 2 29 64816</DescriptionDefinition>
+                <DescriptionTerm>Responsibilities</DescriptionTerm>
+                <DescriptionDefinition>
+                  <UnorderedList className="ecl-u-pl-m">
+                    <UnorderedListItem>
+                      Food information and composition
+                    </UnorderedListItem>
+                    <UnorderedListItem>
+                      Food processing technologies and novel foods
+                    </UnorderedListItem>
+                  </UnorderedList>
+                  <Link
+                    variant="standalone"
+                    label="See all responsibilities"
+                    href="/example"
+                    icon={{
+                      shape: 'ui--corner-arrow',
+                      size: 'xs',
+                      transform: 'rotate-90',
+                    }}
+                  />
+                </DescriptionDefinition>
+              </DescriptionList>
+            </ContentItem>
 
-            <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s ecl-u-mb-xl ecl-u-mb-lg-3xl">
-              <div
-                role="img"
-                aria-label="Example image"
-                className="ecl-u-flex-shrink-0 ecl-u-mr-l ecl-u-media-a-m"
-                style={{
-                  backgroundImage:
-                    'url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Emojione_1F464.svg/1024px-Emojione_1F464.svg.png")',
-                  backgroundSize: 'contain',
-                }}
-              />
-              <div className="ecl-u-flex-grow-1">
-                <h3 className="ecl-u-type-heading-3 ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-none ecl-u-mb-xs">
-                  Natasha Bertaud
-                </h3>
-                <p className="ecl-u-type-paragraph ecl-u-type-uppercase ecl-u-type-color-grey-75 ecl-u-mt-none ecl-u-type-s">
-                  Deputy Chief Spokesperson
-                </p>
-                <DescriptionList variant="horizontal">
-                  <DescriptionTerm>Phone number</DescriptionTerm>
-                  <DescriptionDefinition>+32 2 29 64816</DescriptionDefinition>
-                  <DescriptionTerm>Email</DescriptionTerm>
-                  <DescriptionDefinition>
-                    <a href="mailto:natasha.bertaud@ec.europa.eu">
-                      natasha.bertaud@ec.europa.eu
-                    </a>
-                  </DescriptionDefinition>
-                  <DescriptionTerm>Social media</DescriptionTerm>
-                  <DescriptionDefinition className="ecl-u-mv-none ecl-u-pv-none">
-                    <SocialMediaFollow
-                      className="ecl-u-mt-m ecl-u-pa-none ecl-u-bg-white"
-                      links={[
-                        {
-                          href: '/example',
-                          label: 'Twitter',
-                          variant: 'standalone',
-                          iconPosition: 'before',
-                          icon: [
-                            {
-                              shape: 'twitter',
-                              size: 's',
-                            },
-                            {
-                              shape: 'twitter_hover',
-                              size: 's',
-                            },
-                          ],
-                        },
-                        {
-                          href: '/example',
-                          label: 'Facebook',
-                          variant: 'standalone',
-                          iconPosition: 'before',
-                          icon: [
-                            {
-                              shape: 'facebook',
-                              size: 's',
-                            },
-                            {
-                              shape: 'facebook_hover',
-                              size: 's',
-                            },
-                          ],
-                        },
-                      ]}
-                    />
-                  </DescriptionDefinition>
-                  <DescriptionTerm>Office</DescriptionTerm>
-                  <DescriptionDefinition>BERL 04/353</DescriptionDefinition>
-                  <DescriptionTerm>Spokesperson</DescriptionTerm>
-                  <DescriptionDefinition>
-                    <UnorderedList>
-                      <UnorderedListItem>
-                        activities of the president
-                      </UnorderedListItem>
-                      <UnorderedListItem>
-                        policies of the first vice-president
-                      </UnorderedListItem>
-                      <UnorderedListItem>
-                        better regulation, interinstitutional affairs
-                      </UnorderedListItem>
-                      <UnorderedListItem>
-                        migration, home affairs and citizenship
-                      </UnorderedListItem>
-                      <UnorderedListItem>security union</UnorderedListItem>
-                    </UnorderedList>
-                  </DescriptionDefinition>
-                </DescriptionList>
-              </div>
-            </article>
+            <ContentItem
+              images={{
+                position: 'left',
+                desktop: {
+                  alt: 'Example image',
+                  src:
+                    'https://inno-ecl.s3.amazonaws.com/media/examples/example-person.png',
+                },
+              }}
+            >
+              <h3 className="ecl-u-type-heading-3 ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-none ecl-u-mb-xs">
+                Natasha Bertaud
+              </h3>
+              <p className="ecl-u-type-paragraph ecl-u-type-uppercase ecl-u-type-color-grey-75 ecl-u-mt-none ecl-u-type-s">
+                Deputy Chief Spokesperson
+              </p>
+              <DescriptionList variant="horizontal">
+                <DescriptionTerm>Phone number</DescriptionTerm>
+                <DescriptionDefinition>+32 2 29 64816</DescriptionDefinition>
+                <DescriptionTerm>Email</DescriptionTerm>
+                <DescriptionDefinition>
+                  <a href="mailto:natasha.bertaud@ec.europa.eu">
+                    natasha.bertaud@ec.europa.eu
+                  </a>
+                </DescriptionDefinition>
+                <DescriptionTerm>Social media</DescriptionTerm>
+                <DescriptionDefinition className="ecl-u-mv-none ecl-u-pv-none">
+                  <SocialMediaFollow
+                    className="ecl-u-mt-m ecl-u-pa-none ecl-u-bg-white"
+                    links={[
+                      {
+                        href: '/example',
+                        label: 'Twitter',
+                        variant: 'standalone',
+                        iconPosition: 'before',
+                        icon: [
+                          {
+                            shape: 'twitter',
+                            size: 's',
+                          },
+                          {
+                            shape: 'twitter_hover',
+                            size: 's',
+                          },
+                        ],
+                      },
+                      {
+                        href: '/example',
+                        label: 'Facebook',
+                        variant: 'standalone',
+                        iconPosition: 'before',
+                        icon: [
+                          {
+                            shape: 'facebook',
+                            size: 's',
+                          },
+                          {
+                            shape: 'facebook_hover',
+                            size: 's',
+                          },
+                        ],
+                      },
+                    ]}
+                  />
+                </DescriptionDefinition>
+                <DescriptionTerm>Office</DescriptionTerm>
+                <DescriptionDefinition>BERL 04/353</DescriptionDefinition>
+                <DescriptionTerm>Spokesperson</DescriptionTerm>
+                <DescriptionDefinition>
+                  <UnorderedList className="ecl-u-pl-m">
+                    <UnorderedListItem>
+                      activities of the president
+                    </UnorderedListItem>
+                    <UnorderedListItem>
+                      policies of the first vice-president
+                    </UnorderedListItem>
+                    <UnorderedListItem>
+                      better regulation, interinstitutional affairs
+                    </UnorderedListItem>
+                    <UnorderedListItem>
+                      migration, home affairs and citizenship
+                    </UnorderedListItem>
+                    <UnorderedListItem>security union</UnorderedListItem>
+                  </UnorderedList>
+                </DescriptionDefinition>
+              </DescriptionList>
+            </ContentItem>
 
             <SocialMediaShare
-              className="ecl-u-mt-none"
+              className="ecl-u-mt-xl ecl-u-mt-lg-3xl"
               description="Share this page"
               links={[
                 {

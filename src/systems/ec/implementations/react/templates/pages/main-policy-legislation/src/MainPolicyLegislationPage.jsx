@@ -1,6 +1,9 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import parse from 'html-react-parser';
 
+import ContentItem from '@ecl/ec-react-composition-content-item';
 import Link from '@ecl/ec-react-component-link';
 import SocialMediaShare from '@ecl/ec-react-component-social-media-share';
 
@@ -166,186 +169,159 @@ const MainPolicyLegislationPage = ({ siteHeader, footer, template }) => (
 
           <div className="ecl-row ecl-u-mt-m ecl-u-mt-lg-l">
             <div className="ecl-col-12 ecl-col-md-4">
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">
-                    Communication document
-                  </span>{' '}
-                  | 52018DC0330
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Clean air for all"
-                  />
-                </div>
-                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                  Provides national, regional and local actors practical help to
-                  improve air quality in Europe.
-                </p>
-              </article>
+              <ContentItem
+                className="ecl-u-height-100 ecl-u-box-sizing-border"
+                meta={{
+                  label: parse(
+                    '<span class="ecl-u-type-uppercase">Communication document</span> | 52018DC0330'
+                  ),
+                }}
+                title={{
+                  href: '/example',
+                  label: 'Clean air for all',
+                }}
+                description={{
+                  label:
+                    'Provides national, regional and local actors practical help to improve air quality in Europe.',
+                }}
+              />
             </div>
 
             <div className="ecl-col-12 ecl-col-md-4">
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">
-                    Communication document
-                  </span>{' '}
-                  | 52013DC0918
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="A Clean Air Programme for Europe"
-                  />
-                </div>
-                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                  Communication from the Commission to the Coucil, the European
-                  Parliement, the European Economic and Social Committee and the
-                  Committee of the Regions.
-                </p>
-              </article>
+              <ContentItem
+                className="ecl-u-height-100 ecl-u-box-sizing-border"
+                meta={{
+                  label: parse(
+                    '<span class="ecl-u-type-uppercase">Communication document</span> | 52013DC0918'
+                  ),
+                }}
+                title={{
+                  href: '/example',
+                  label: 'A Clean Air Programme for Europe',
+                }}
+                description={{
+                  label:
+                    'Communication from the Commission to the Coucil, the European Parliement, the European Economic and Social Committee and the Committee of the Regions.',
+                }}
+              />
             </div>
 
             <div className="ecl-col-12 ecl-col-md-4">
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">Proposal</span> |
-                  52013PC0920
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Proposal for a Directive"
-                  />
-                </div>
-                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                  Reduction of national emissions of certain atmospheric
-                  polluants and amending Directive 2003/35/EC.
-                </p>
-              </article>
+              <ContentItem
+                className="ecl-u-height-100 ecl-u-box-sizing-border"
+                meta={{
+                  label: parse(
+                    '<span class="ecl-u-type-uppercase">Proposal</span> | 52013PC0920'
+                  ),
+                }}
+                title={{
+                  href: '/example',
+                  label: 'Proposal for a Directive',
+                }}
+                description={{
+                  label:
+                    'Reduction of national emissions of certain atmospheric polluants and amending Directive 2003/35/EC',
+                }}
+              />
             </div>
           </div>
 
           <div className="ecl-row">
             <div className="ecl-col-12 ecl-col-md-4">
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">Proposal</span> |
-                  52013PC0917
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Proposal for a Directive"
-                  />
-                </div>
-                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                  Proposal for a Council Decision on the acceptance of the
-                  Amendement to the 1999 Protocol to the 1979 Convention on
-                  Long-Range Transboundary Air Pollution to Abate Acidification,
-                  Eutrophication and Ground-level Ozone.
-                </p>
-              </article>
+              <ContentItem
+                className="ecl-u-height-100 ecl-u-box-sizing-border"
+                meta={{
+                  label: parse(
+                    '<span class="ecl-u-type-uppercase">Proposal</span> | 52013PC0917'
+                  ),
+                }}
+                title={{
+                  href: '/example',
+                  label: 'Proposal for a Directive',
+                }}
+                description={{
+                  label:
+                    'Proposal for a Council Decision on the acceptance of the Amendement to the 1999 Protocol to the 1979 Convention on Long-Range Transboundary Air Pollution to Abate Acidification, Eutrophication and Ground-level Ozone.',
+                }}
+              />
             </div>
 
             <div className="ecl-col-12 ecl-col-md-4">
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">
-                    Staff working document
-                  </span>{' '}
-                  | 5201SC0531
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Impact assessment"
-                  />
-                </div>
-                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                  Impact assessment accompanying the Proposal for a Council
-                  Decision on the acceptance of the Amendment to the 1999
-                  Protocol to the 1979 Convention on Long-Range Transboundary
-                  Air Pollution to Abate Acidification, Eutrophication and
-                  Ground-level Ozone.
-                </p>
-              </article>
+              <ContentItem
+                className="ecl-u-height-100 ecl-u-box-sizing-border"
+                meta={{
+                  label: parse(
+                    '<span class="ecl-u-type-uppercase">Staff working document</span> | 5201SC0531'
+                  ),
+                }}
+                title={{
+                  href: '/example',
+                  label: 'Impact assessment',
+                }}
+                description={{
+                  label:
+                    'Impact assessment accompanying the Proposal for a Council Decision on the acceptance of the Amendment to the 1999 Protocol to the 1979 Convention on Long-Range Transboundary Air Pollution to Abate Acidification, Eutrophication and Ground-level Ozone.',
+                }}
+              />
             </div>
 
             <div className="ecl-col-12 ecl-col-md-4">
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">
-                    Staff working document
-                  </span>{' '}
-                  | 52013SC0532
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Proposal for a Directive"
-                  />
-                </div>
-                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                  Impact assessment executive summary accompanying the Proposal
-                  for a Council Decision on the acceptence of the Amendement of
-                  the 1999 Convention on Long-Range Transboundary Air Pollution
-                  to Abate Acidification, Eutrophication and Ground-level Ozone.
-                </p>
-              </article>
+              <ContentItem
+                className="ecl-u-height-100 ecl-u-box-sizing-border"
+                meta={{
+                  label: parse(
+                    '<span class="ecl-u-type-uppercase">Staff working document</span> | 52013SC0532'
+                  ),
+                }}
+                title={{
+                  href: '/example',
+                  label: 'Proposal for a Directive',
+                }}
+                description={{
+                  label:
+                    'Impact assessment executive summary accompanying the Proposal for a Council Decision on the acceptance of the Amendment to the 1999 Protocol to the 1979 Convention on Long-Range Transboundary Air Pollution to Abate Acidification, Eutrophication and Ground-level Ozone.',
+                }}
+              />
             </div>
           </div>
 
           <div className="ecl-row">
             <div className="ecl-col-12 ecl-col-md-4">
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">
-                    Interinstitutional file
-                  </span>{' '}
-                  | 2013/044
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Proposal for a Directive"
-                  />
-                </div>
-                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                  The objective of the methane NERC is to provide a first step
-                  towards international work on methane emission reductions.
-                </p>
-              </article>
+              <ContentItem
+                className="ecl-u-height-100 ecl-u-box-sizing-border"
+                meta={{
+                  label: parse(
+                    '<span class="ecl-u-type-uppercase">Interinstitutional file</span> | 2013/044'
+                  ),
+                }}
+                title={{
+                  href: '/example',
+                  label: 'Proposal for a Directive',
+                }}
+                description={{
+                  label:
+                    'The objective of the methane NERC is to provide a first step towards international work on methane emission reductions.',
+                }}
+              />
             </div>
 
             <div className="ecl-col-12 ecl-col-md-4">
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">Directive</span> |
-                  32008L0050
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Ambient Air Quality Directive"
-                  />
-                </div>
-                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                  Directive 2008/50/EC of the European Parliament and of the
-                  Council of 21 May 2008 on ambient air quality and cleaner air
-                  for Europe.
-                </p>
-              </article>
+              <ContentItem
+                className="ecl-u-height-100 ecl-u-box-sizing-border"
+                meta={{
+                  label: parse(
+                    '<span class="ecl-u-type-uppercase">Directive</span> | 32008L0050'
+                  ),
+                }}
+                title={{
+                  href: '/example',
+                  label: 'Ambient Air Quality Directive',
+                }}
+                description={{
+                  label:
+                    'Directive 2008/50/EC of the European Parliament and of the Council of 21 May 2008 on ambient air quality and cleaner air for Europe.',
+                }}
+              />
             </div>
           </div>
 

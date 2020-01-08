@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import Blockquote from '@ecl/ec-react-component-blockquote';
+import ContentItem from '@ecl/ec-react-composition-content-item';
 import FileDownload from '@ecl/ec-react-component-file';
 import Link from '@ecl/ec-react-component-link';
 import SocialMediaShare from '@ecl/ec-react-component-social-media-share';
@@ -369,19 +370,17 @@ const MainPolicyEvaluationPage = ({ siteHeader, footer, template }) => (
             ]}
           />
 
-          <article className="ecl-u-pv-m ecl-u-mt-l">
-            <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-              <Link
-                href="/example"
-                variant="standalone"
-                label="EC policy process"
-              />
-            </div>
-            <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-xs">
-              Get more information about how decisions are made in the policy
-              process.
-            </p>
-          </article>
+          <ContentItem
+            hasBorder="false"
+            title={{
+              href: '/example',
+              label: 'EC policy process',
+            }}
+            description={{
+              label:
+                'Get more information about how decisions are made in the policy process.',
+            }}
+          />
 
           <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
             Reports
