@@ -122,6 +122,7 @@ const contexts = [
   require.context('../../layout', true, /stories.*\.jsx?$/),
   require.context('../../components', true, /stories.*\.jsx?$/),
   require.context('../../utilities', true, /stories.*\.jsx?$/),
+  require.context('../../deprecated', true, /stories.*\.jsx?$/),
 ];
 
 configure(() => {

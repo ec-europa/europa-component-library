@@ -29,7 +29,7 @@ const btnAddContent = () => {
   }
 };
 
-storiesOf('Components|Timeline', module)
+storiesOf('Deprecated|Timeline (ECL<2-5-0)', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryWrapper
@@ -82,7 +82,7 @@ storiesOf('Components|Timeline', module)
       },
     ],
   })
-  .add('[deprecated] ECL <2.5.0', () => {
+  .add('default', () => {
     button('Add dummy content', btnAddContent, 'buttons');
 
     return <TimelineExample />;

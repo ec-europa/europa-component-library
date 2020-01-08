@@ -23,7 +23,7 @@ const breadcrumb = (
   </Breadcrumb>
 );
 
-storiesOf('Page structure|PageHeader', module)
+storiesOf('Deprecated|Page Header (ECL<2-14-0)', module)
   .addDecorator(withKnobs)
   .add('title', () => (
     <PageHeader
