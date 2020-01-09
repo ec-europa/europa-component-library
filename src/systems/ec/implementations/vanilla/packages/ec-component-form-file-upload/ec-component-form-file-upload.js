@@ -106,7 +106,6 @@ export class FileUpload {
   handleChange(e) {
     if (!('files' in e.target)) return;
 
-    console.log(e.target.files);
     let fileList = '';
 
     // Get file names
