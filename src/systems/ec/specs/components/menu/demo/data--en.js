@@ -123,7 +123,7 @@ module.exports = {
         { label: 'Item 7.1', href: '/example' },
         { label: 'Item 7.2', href: '/example' },
         { label: 'Item 7.3', href: '/example' },
-        { label: 'Item 7.4', href: '/example' },
+        { label: 'Item 7.4 with a very long label', href: '/example' },
         { label: 'Item 7.5', href: '/example' },
         { label: 'Item 7.6', href: '/example' },
         { label: 'Item 7.7', href: '/example' },

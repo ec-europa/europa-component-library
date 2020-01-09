@@ -341,6 +341,11 @@
       }
     }
 
+    .ecl-menu__mega--rtl {
+      left: auto;
+      right: 0;
+    }
+
     .ecl-menu__item[aria-expanded='true'] .ecl-menu__link {
       z-index: calc(#{$ecl-z-index-dropdown} + 1); // hack for box-shadow
     }
