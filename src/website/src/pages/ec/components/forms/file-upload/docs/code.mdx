@@ -21,6 +21,22 @@ import demoContentDefault from '@ecl/ec-specs-file-upload/demo/data--default';
   />
 </Playground>
 
+## Multiple uploads
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-file-upload"
+  selectedStory="default"
+>
+  <FileUpload
+    id="file-upload-id"
+    name={demoContentDefault.name}
+    label={demoContentDefault.label}
+    helperText={demoContentDefault.helperText}
+    multiple
+  />
+</Playground>
+
 ## Disabled
 
 <Playground

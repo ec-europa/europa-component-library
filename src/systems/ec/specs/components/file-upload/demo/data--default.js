@@ -4,4 +4,8 @@ module.exports = {
   name: 'file-upload-name',
   label: 'Label',
   helperText: "This is the input's helper text.",
+  invalidText: 'This is the error message',
+  requiredText: '*',
+  optionalText: ' (optional)',
+  buttonLabel: 'Choose files',
 };
