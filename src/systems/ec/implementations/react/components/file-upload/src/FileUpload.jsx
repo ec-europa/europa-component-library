@@ -87,6 +87,8 @@ const FileUpload = ({
         disabled={disabled}
         required={required}
       />
+
+      <ul className="ecl-file-upload__list" data-ecl-file-upload-list />
     </div>
   );
 };

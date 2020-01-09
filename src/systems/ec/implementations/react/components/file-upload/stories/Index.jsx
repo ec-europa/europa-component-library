@@ -3,8 +3,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import StoryWrapper from '@ecl/story-wrapper';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import parse from 'html-react-parser';
 
 import demoContentDefault from '@ecl/ec-specs-file-upload/demo/data--default';
+import demoContentMultiple from '@ecl/ec-specs-file-upload/demo/data--multiple';
 
 import FileUpload from '../src/FileUpload';
 
@@ -35,7 +37,7 @@ storiesOf('Components|Forms/File upload', module)
         data-ecl-auto-init="FileUpload"
         id="example-file-upload"
         label={text('Label', demoContentDefault.label)}
-        helperText={text('Helper text', demoContentDefault.helperText)}
+        helperText={parse(text('Helper text', demoContentDefault.helperText))}
         invalid={boolean('Invalid', false)}
         invalidText={text('Invalid text', demoContentDefault.invalidText)}
         disabled={boolean('Disabled', false)}
@@ -55,18 +57,18 @@ storiesOf('Components|Forms/File upload', module)
     'multiple',
     () => (
       <FileUpload
-        {...demoContentDefault}
+        {...demoContentMultiple}
         data-ecl-auto-init="FileUpload"
         id="example-file-upload"
-        label={text('Label', demoContentDefault.label)}
-        helperText={text('Helper text', demoContentDefault.helperText)}
+        label={text('Label', demoContentMultiple.label)}
+        helperText={parse(text('Helper text', demoContentMultiple.helperText))}
         invalid={boolean('Invalid', false)}
-        invalidText={text('Invalid text', demoContentDefault.invalidText)}
+        invalidText={text('Invalid text', demoContentMultiple.invalidText)}
         disabled={boolean('Disabled', false)}
         required={boolean('Required', true)}
-        requiredText={text('Required text', demoContentDefault.requiredText)}
-        optionalText={text('Optional text', demoContentDefault.optionalText)}
-        buttonLabel={text('Button label', demoContentDefault.buttonLabel)}
+        requiredText={text('Required text', demoContentMultiple.requiredText)}
+        optionalText={text('Optional text', demoContentMultiple.optionalText)}
+        buttonLabel={text('Button label', demoContentMultiple.buttonLabel)}
         multiple
       />
     ),

@@ -8,5 +8,5 @@ module.exports = {
   invalidText: 'This is the error message',
   requiredText: '*',
   optionalText: ' (optional)',
-  buttonLabel: 'Choose file',
+  buttonLabel: 'Choose files',
 };

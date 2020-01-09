@@ -20,7 +20,7 @@ if (!Element.prototype.closest)
  * @param {Object} options
  * @param {String} options.fileUploadGroupSelector Selector for file upload form group
  * @param {String} options.fileUploadButtonSelector Selector for file upload button
- * @param {String} options.fileUploadContainerSelector Selector for container of file names
+ * @param {String} options.fileUploadListSelector Selector for list of file names
  * @param {Boolean} options.attachClickListener Whether or not to bind click events on toggle
  */
 export class FileUpload {
@@ -45,7 +45,7 @@ export class FileUpload {
     {
       fileUploadGroupSelector = '[data-ecl-file-upload-group]',
       fileUploadButtonSelector = '[data-ecl-file-upload-button]',
-      fileUploadContainerSelector = '[data-ecl-file-upload-container]',
+      fileUploadListSelector = '[data-ecl-file-upload-list]',
       attachChangeListener = true,
     } = {}
   ) {
@@ -61,14 +61,14 @@ export class FileUpload {
     // Options
     this.fileUploadGroupSelector = fileUploadGroupSelector;
     this.fileUploadButtonSelector = fileUploadButtonSelector;
-    this.fileUploadContainerSelector = fileUploadContainerSelector;
+    this.fileUploadListSelector = fileUploadListSelector;
     this.attachChangeListener = attachChangeListener;
 
     // Private variables
     this.fileUploadGroup = null;
     this.fileUploadInput = null;
     this.fileUploadButton = null;
-    this.fileUploadContainer = null;
+    this.fileUploadList = null;
 
     // Bind `this` for use in callbacks
     this.handleChange = this.handleChange.bind(this);
@@ -80,17 +80,13 @@ export class FileUpload {
   init() {
     this.fileUploadGroup = this.element.closest(this.fileUploadGroupSelector);
     this.fileUploadInput = this.element;
-    this.fileUploadContainer = queryOne(
-      this.fileUploadContainerSelector,
+    this.fileUploadList = queryOne(
+      this.fileUploadListSelector,
       this.fileUploadGroup
     );
 
     // Bind change event on input
-    console.log(this.fileUploadGroup);
-    console.log(this.fileUploadInput);
-    console.log(this.fileUploadContainer);
     if (this.attachChangeListener && this.fileUploadInput) {
-      console.log('bind');
       this.fileUploadInput.addEventListener('change', this.handleChange);
     }
   }
@@ -108,11 +104,18 @@ export class FileUpload {
    * @param {Event} e
    */
   handleChange(e) {
-    console.log('change');
-    if (!('files' in e.target)) return this;
+    if (!('files' in e.target)) return;
 
     console.log(e.target.files);
-    return this;
+    let fileList = '';
+
+    // Get file names
+    e.target.files.forEach(file => {
+      fileList += `<li class="ecl-file-upload__item">${file.name}</li>`;
+    });
+
+    // Update file list
+    this.fileUploadList.innerHTML = fileList;
   }
 }
 
