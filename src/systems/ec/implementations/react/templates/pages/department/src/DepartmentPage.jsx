@@ -1,6 +1,9 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import parse from 'html-react-parser';
 
+import ContentItem from '@ecl/ec-react-composition-content-item';
 import {
   DescriptionList,
   DescriptionTerm,
@@ -260,72 +263,60 @@ const DepartmentPage = ({ siteHeader, footer, template }) => (
                 Plans and reports
               </h2>
 
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-l">
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Commission work programme"
-                  />
-                </div>
-                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                  Overview of institution-wide deliverables for current year
-                </p>
-              </article>
+              <ContentItem
+                className="ecl-u-mt-l"
+                title={{
+                  href: '/example',
+                  label: 'Commission work programme',
+                }}
+                description={{
+                  label:
+                    'Overview of institution-wide deliverables for current year',
+                }}
+              />
 
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Strategic plan"
-                  />
-                </div>
-                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                  Department strategy, objectives for 2016-2020
-                </p>
-              </article>
+              <ContentItem
+                title={{
+                  href: '/example',
+                  label: 'Strategic plan',
+                }}
+                description={{
+                  label: 'Department strategy, objectives for 2016-2020',
+                }}
+              />
 
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Management plan"
-                  />
-                </div>
-                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                  Department forecasted outputs, activities, resources for
-                  current year
-                </p>
-              </article>
+              <ContentItem
+                title={{
+                  href: '/example',
+                  label: 'Management plan',
+                }}
+                description={{
+                  label:
+                    'Department forecasted outputs, activities, resources for current year',
+                }}
+              />
 
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Annual activity report"
-                  />
-                </div>
-                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                  Department achievements, resources used during previous year
-                </p>
-              </article>
+              <ContentItem
+                title={{
+                  href: '/example',
+                  label: 'Annual activity report',
+                }}
+                description={{
+                  label:
+                    'Department achievements, resources used during previous year',
+                }}
+              />
 
-              <article className="ecl-u-pv-m">
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Annual work programme"
-                  />
-                </div>
-                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                  Budget line for certain policies and funding programmes for
-                  current year
-                </p>
-              </article>
+              <ContentItem
+                title={{
+                  href: '/example',
+                  label: 'Annual work programme',
+                }}
+                description={{
+                  label:
+                    'Budget line for certain policies and funding programmes for current year',
+                }}
+              />
 
               <h2
                 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-l ecl-u-mt-lg-3xl ecl-u-mb-none"
@@ -373,105 +364,102 @@ const DepartmentPage = ({ siteHeader, footer, template }) => (
                 Leadership and organisation
               </h2>
 
-              <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-mt-l ecl-u-pa-s">
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-flex-shrink-0 ecl-u-mr-s ecl-u-media-a-s ecl-u-media-bg-size-contain ecl-u-media-bg-repeat-none"
-                  style={{
-                    backgroundImage:
-                      'url("https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg")',
-                  }}
-                />
+              <ContentItem
+                className="ecl-u-mt-l"
+                title={{
+                  href: '/example',
+                  label: 'Jean-Claude Juncker',
+                }}
+                description={{
+                  className: 'ecl-u-type-uppercase ecl-u-type-s',
+                  label: 'President',
+                }}
+                images={{
+                  position: 'left',
+                  mobile: {
+                    alt: 'Example image',
+                    src:
+                      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg',
+                  },
+                  desktop: {
+                    alt: 'Example image',
+                    src:
+                      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg',
+                  },
+                }}
+              />
 
-                <div className="ecl-u-flex-grow-1">
-                  <h2 className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mv-none">
-                    <Link
-                      href="/example"
-                      variant="standalone"
-                      label="Jean-Claude Juncker"
-                    />
-                  </h2>
-                  <p className="ecl-u-type-paragraph ecl-u-type-uppercase ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none ecl-u-type-s">
-                    President
-                  </p>
-                </div>
-              </article>
+              <ContentItem
+                title={{
+                  href: '/example',
+                  label: 'Pia Ahrenkilde Hansen',
+                }}
+                description={{
+                  className: 'ecl-u-type-uppercase ecl-u-type-s',
+                  label: 'Director-general',
+                }}
+                images={{
+                  position: 'left',
+                  mobile: {
+                    alt: 'Example image',
+                    src:
+                      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg',
+                  },
+                  desktop: {
+                    alt: 'Example image',
+                    src:
+                      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg',
+                  },
+                }}
+              />
 
-              <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-flex-shrink-0 ecl-u-mr-s ecl-u-media-a-s ecl-u-media-bg-size-contain ecl-u-media-bg-repeat-none"
-                  style={{
-                    backgroundImage:
-                      'url("https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg")',
-                  }}
-                />
+              <ContentItem
+                title={{
+                  href: '/example',
+                  label: 'Sixtine Bouygues',
+                }}
+                description={{
+                  className: 'ecl-u-type-uppercase ecl-u-type-s',
+                  label: 'Deputy Director-general',
+                }}
+                images={{
+                  position: 'left',
+                  mobile: {
+                    alt: 'Example image',
+                    src:
+                      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg',
+                  },
+                  desktop: {
+                    alt: 'Example image',
+                    src:
+                      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg',
+                  },
+                }}
+              />
 
-                <div className="ecl-u-flex-grow-1">
-                  <h2 className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mv-none">
-                    <Link
-                      href="/example"
-                      variant="standalone"
-                      label="Pia Ahrenkilde Hansen"
-                    />
-                  </h2>
-                  <p className="ecl-u-type-paragraph ecl-u-type-uppercase ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none ecl-u-type-s">
-                    Director-general
-                  </p>
-                </div>
-              </article>
-
-              <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-flex-shrink-0 ecl-u-mr-s ecl-u-media-a-s ecl-u-media-bg-size-contain ecl-u-media-bg-repeat-none"
-                  style={{
-                    backgroundImage:
-                      'url("https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg")',
-                  }}
-                />
-
-                <div className="ecl-u-flex-grow-1">
-                  <h2 className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mv-none">
-                    <Link
-                      href="/example"
-                      variant="standalone"
-                      label="Sixtine Bouygues"
-                    />
-                  </h2>
-                  <p className="ecl-u-type-paragraph ecl-u-type-uppercase ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none ecl-u-type-s">
-                    Deputy Director-general
-                  </p>
-                </div>
-              </article>
-
-              <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-flex-shrink-0 ecl-u-mr-s ecl-u-media-a-s ecl-u-media-bg-size-contain ecl-u-media-bg-repeat-none"
-                  style={{
-                    backgroundImage:
-                      'url("https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg")',
-                  }}
-                />
-
-                <div className="ecl-u-flex-grow-1">
-                  <h2 className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mv-none">
-                    <Link
-                      href="/example"
-                      variant="standalone"
-                      label="Margaritis Schinas"
-                    />
-                  </h2>
-                  <p className="ecl-u-type-paragraph ecl-u-type-uppercase ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none ecl-u-type-s">
-                    Deputy Director-general
-                  </p>
-                </div>
-              </article>
+              <ContentItem
+                title={{
+                  href: '/example',
+                  label: 'Margaritis Schinas',
+                }}
+                description={{
+                  className: 'ecl-u-type-uppercase ecl-u-type-s',
+                  label: 'Deputy Director-general',
+                }}
+                images={{
+                  position: 'left',
+                  mobile: {
+                    alt: 'Example image',
+                    src:
+                      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg',
+                  },
+                  desktop: {
+                    alt: 'Example image',
+                    src:
+                      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg',
+                  },
+                }}
+              />
 
               <FileDownload
                 data-ecl-auto-init="FileDownload"
@@ -541,144 +529,98 @@ const DepartmentPage = ({ siteHeader, footer, template }) => (
                 News
               </h2>
 
-              <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-l">
-                <div className="ecl-u-flex-grow-1">
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                    <span className="ecl-u-type-uppercase">News article</span> |{' '}
-                    <time dateTime="2019-12-15">15 December 2019</time>
-                  </div>
-                  <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                    <Link
-                      href="/example"
-                      variant="standalone"
-                      label="New stockshot: Vocational education and training accross the EU"
-                    />
-                  </div>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                    New stockshot: Vocational education and training accross the
-                    EU
-                  </p>
-                </div>
+              <ContentItem
+                className="ecl-u-mt-l"
+                meta={{
+                  label: parse(
+                    "<span class='ecl-u-type-uppercase'>News article</span> | <time dateTime='2019-12-15'>15 December 2019</time>"
+                  ),
+                }}
+                title={{
+                  href: '/example',
+                  label:
+                    'New stockshot: Vocational education and training accross the EU',
+                }}
+                description={{
+                  label:
+                    'New stockshot: Vocational education and training accross the EU',
+                }}
+                images={{
+                  position: 'right',
+                  mobile: {
+                    alt: 'Example image',
+                    src:
+                      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+                  },
+                  desktop: {
+                    alt: 'Example image',
+                    src:
+                      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+                  },
+                }}
+              />
 
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-media-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none ecl-u-media-bg-size-contain ecl-u-media-bg-repeat-none"
-                  style={{
-                    backgroundImage:
-                      'url("https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg")',
-                    width: '7.5rem',
-                  }}
-                />
+              <ContentItem
+                className="ecl-u-mt-l"
+                meta={{
+                  label: parse(
+                    "<span class='ecl-u-type-uppercase'>News article</span> | <time dateTime='2019-02-01'>1 February 2019</time>"
+                  ),
+                }}
+                title={{
+                  href: '/example',
+                  label:
+                    'Understanding the EU - promotional material for publications',
+                }}
+                description={{
+                  label:
+                    'The "Citizens information" unit of DG COMM has produced some promotional items that might help you publicise EU publications. We have in particual bookmarks, but also pens, bags ans other goodies.',
+                }}
+                images={{
+                  position: 'right',
+                  mobile: {
+                    alt: 'Example image',
+                    src:
+                      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+                  },
+                  desktop: {
+                    alt: 'Example image',
+                    src:
+                      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+                  },
+                }}
+              />
 
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-media-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block ecl-u-media-bg-size-contain ecl-u-media-bg-repeat-none"
-                  style={{
-                    backgroundImage:
-                      'url("https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg")',
-                    width: '13.125rem',
-                  }}
-                />
-              </article>
-
-              <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-flex-grow-1">
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                    <span className="ecl-u-type-uppercase">News article</span> |{' '}
-                    <time dateTime="2019-02-01">1 February 2019</time>
-                  </div>
-                  <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                    <Link
-                      href="/example"
-                      variant="standalone"
-                      label="Understanding the EU - promotional material for publications"
-                    />
-                  </div>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                    The &quot;Citizens information&quot; unit of DG COMM has
-                    produced some promotional items that might help you
-                    publicise EU publications. We have in particual bookmarks,
-                    but also pens, bags ans other goodies.
-                  </p>
-                </div>
-
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-media-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none ecl-u-media-bg-size-contain ecl-u-media-bg-repeat-none"
-                  style={{
-                    backgroundImage:
-                      'url("https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg")',
-                    width: '7.5rem',
-                  }}
-                />
-
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-media-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block ecl-u-media-bg-size-contain ecl-u-media-bg-repeat-none"
-                  style={{
-                    backgroundImage:
-                      'url("https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg")',
-                    width: '13.125rem',
-                  }}
-                />
-              </article>
-
-              <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-flex-grow-1">
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                    <span className="ecl-u-type-uppercase">News article</span> |{' '}
-                    <time dateTime="2015-12-02">2 December 2015</time>
-                  </div>
-                  <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                    <Link
-                      href="/example"
-                      variant="standalone"
-                      label="Juncker talks to citizens, DG COMM backs up with solid reading matter"
-                    />
-                  </div>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                    Jean-Clause Juncker was seemingly not afraid of anything:
-                    just three days after the terrorist attacks in Paris, the
-                    Commission President honoured his commitment to attend a
-                    Citizens&apos; Dialogue in central Brussels. For one hour,
-                    President Jucker listened to the audience, answered their
-                    questions and had a frank and forthright exchange of views
-                    on the issues of most concern to the majority on Europeans.
-                    In the city&apos;s beautiful &apos;Bozar&apos; concert hall,
-                    designed by Belgium&apos;s famous architect Victor Horta,
-                    around 850 citizens were given the opportunity to meet the
-                    Commission&apos; highest respresentative. Out in the lobby,
-                    DG COMM&apos; Citizens&apos; Information Unit handed out
-                    some of the Commission&apos;s publications to participants.
-                  </p>
-                </div>
-
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-media-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none ecl-u-media-bg-size-contain ecl-u-media-bg-repeat-none"
-                  style={{
-                    backgroundImage:
-                      'url("https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg")',
-                    width: '7.5rem',
-                  }}
-                />
-
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-media-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block ecl-u-media-bg-size-contain ecl-u-media-bg-repeat-none"
-                  style={{
-                    backgroundImage:
-                      'url("https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg")',
-                    width: '13.125rem',
-                  }}
-                />
-              </article>
+              <ContentItem
+                className="ecl-u-mt-l"
+                meta={{
+                  label: parse(
+                    "<span class='ecl-u-type-uppercase'>News article</span> | <time dateTime='2015-12-02'>2 December 2015</time>"
+                  ),
+                }}
+                title={{
+                  href: '/example',
+                  label:
+                    'Juncker talks to citizens, DG COMM backs up with solid reading matter',
+                }}
+                description={{
+                  label:
+                    "Jean-Clause Juncker was seemingly not afraid of anything: just three days after the terrorist attacks in Paris, the Commission President honoured his commitment to attend a Citizens' Dialogue in central Brussels. For one hour, President Jucker listened to the audience, answered their questions and had a frank and forthright exchange of views on the issues of most concern to the majority on Europeans. In the city's beautiful 'Bozar' concert hall, designed by Belgium's famous architect Victor Horta, around 850 citizens were given the opportunity to meet the Commission's highest respresentative. Out in the lobby, DG COMM' Citizens' Information Unit handed out some of the Commission's publications to participants.",
+                }}
+                images={{
+                  position: 'right',
+                  mobile: {
+                    alt: 'Example image',
+                    src:
+                      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+                  },
+                  desktop: {
+                    alt: 'Example image',
+                    src:
+                      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+                  },
+                }}
+              />
 
               <h2
                 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-l ecl-u-mt-lg-3xl ecl-u-mb-none"
