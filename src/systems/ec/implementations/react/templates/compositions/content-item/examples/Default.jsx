@@ -1,62 +1,11 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import Icon from '@ecl/ec-react-component-icon';
-import Link from '@ecl/ec-react-component-link';
-import {
-  UnorderedList,
-  UnorderedListItem,
-} from '@ecl/ec-react-component-unordered-list';
+import parse from 'html-react-parser';
 
-export default () => (
-  <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-    <div className="ecl-u-flex-grow-1">
-      <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-        NEWS ARTICLE | <time dateTime="2019-10-17">17 October 2019</time>
-      </div>
-      <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-        <Link href="/example" variant="standalone" label="Article title" />
-      </div>
-      <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut ex
-        tristique, dignissim sem ac, bibendum est. Sed vehicula lorem non nunc
-        tincidunt hendrerit. Nunc tristique ante et fringilla fermentum.
-      </p>
+import demoContentDefault from '@ecl/ec-specs-content-item/demo/data--default';
+import ContentItem from '../src/ContentItem';
 
-      <UnorderedList variant="no-bullet" className="ecl-u-mt-m">
-        <UnorderedListItem className="ecl-u-d-flex ecl-u-align-items-center ecl-u-type-color-grey-75">
-          <Icon shape="general--location" size="m" />
-          <span className="ecl-u-type-s ecl-u-ml-s">Brussels, Belgium</span>
-        </UnorderedListItem>
-        <UnorderedListItem className="ecl-u-d-flex ecl-u-align-items-center ecl-u-type-color-grey-75">
-          <Icon shape="general--livestreaming" size="m" />
-          <span className="ecl-u-type-s ecl-u-ml-s">Live stream available</span>
-        </UnorderedListItem>
-      </UnorderedList>
-    </div>
+// Format data
+demoContentDefault.meta.label = parse(demoContentDefault.meta.label);
 
-    <div
-      role="img"
-      aria-label="Example image"
-      className="ecl-u-media-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
-      style={{
-        backgroundImage:
-          'url("https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg")',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'contain',
-        width: '7.5rem',
-      }}
-    />
-
-    <div
-      role="img"
-      aria-label="Example image"
-      className="ecl-u-media-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
-      style={{
-        backgroundImage:
-          'url("https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg")',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'contain',
-        width: '13.125rem',
-      }}
-    />
-  </article>
-);
+export default () => <ContentItem {...demoContentDefault} />;

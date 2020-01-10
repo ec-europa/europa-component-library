@@ -1,7 +1,9 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import parse from 'html-react-parser';
 
-import DateBlock from '@ecl/ec-react-component-date-block';
+import ContentItem from '@ecl/ec-react-composition-content-item';
 import FileDownload from '@ecl/ec-react-component-file';
 import Link from '@ecl/ec-react-component-link';
 import SocialMediaShare from '@ecl/ec-react-component-social-media-share';
@@ -206,55 +208,44 @@ const MainPolicyAwarenessPage = ({ siteHeader, footer, template }) => (
             Websites
           </h3>
 
-          <article className="ecl-u-pv-m">
-            <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-              <Link
-                href="/example"
-                variant="standalone"
-                label="New policy package to clean up Europe's air"
-              />
-            </div>
-            <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-xs">
-              LIVE EC press conference on Environment. The new policy package to
-              clean up Europe&apos;s air.
-            </p>
-          </article>
+          <ContentItem
+            hasBorder="false"
+            title={{
+              href: '/example',
+              label: "New policy package to clean up Europe's air",
+            }}
+            description={{
+              label:
+                "LIVE EC press conference on Environment. The new policy package to clean up Europe's air.",
+            }}
+          />
 
           <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
             Events related to this action
           </h3>
 
-          <article className="ecl-u-d-flex ecl-u-pv-m">
-            <div className="ecl-u-flex-grow-0 ecl-u-mr-m">
-              <DateBlock
-                dateTime="2019-05-26"
-                day="26"
-                month="May"
-                monthFull="May"
-                year="2019"
-              />
-            </div>
-            <div className="ecl-u-flex-grow-1">
-              <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                <span className="ecl-u-type-uppercase">
-                  Online press conference
-                </span>{' '}
-                | <time dateTime="2019-05-26">26 MAY</time>
-                {' - '}
-                <time dateTime="2019-06-20">20 JUN</time>
-              </div>
-              <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                <Link
-                  href="/example"
-                  variant="standalone"
-                  label="New policy package to clean up Europe's air"
-                />
-              </div>
-              <p className="ecl-u-type-paragraph-s ecl-u-type-color-grey ecl-u-mt-xs">
-                With: Jean-Claude Juncker
-              </p>
-            </div>
-          </article>
+          <ContentItem
+            hasBorder="false"
+            meta={{
+              label: parse(
+                "<span class='ecl-u-type-uppercase'>Online press conference</span> | <time dateTime='2019-05-26'>26 MAY</time> - <time dateTime='2019-06-20'>20 JUN</time>"
+              ),
+            }}
+            title={{
+              href: '/example',
+              label: "New policy package to clean up Europe's air",
+            }}
+            description={{
+              label: 'With: Jean-Claude Juncker',
+            }}
+            date={{
+              dateTime: '2019-05-26',
+              day: '26',
+              month: 'May',
+              monthFull: 'May',
+              year: '2019',
+            }}
+          />
 
           <h3 className="ecl-u-type-heading-3 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
             Communication material
