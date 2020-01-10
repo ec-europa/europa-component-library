@@ -1,7 +1,9 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import parse from 'html-react-parser';
 
-import DateBlock from '@ecl/ec-react-component-date-block';
+import ContentItem from '@ecl/ec-react-composition-content-item';
 import {
   DescriptionList,
   DescriptionTerm,
@@ -229,54 +231,48 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
 
             <div className="ecl-row ecl-u-mt-xs">
               <div className="ecl-col-12 ecl-col-md-6">
-                <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                  <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                    <Link
-                      href="/example"
-                      variant="standalone"
-                      label="Air quality"
-                    />
-                  </div>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                    European Union policy on air quality aims to develop and
-                    implement appropriate instruments to improve air quality.
-                  </p>
-                </article>
+                <ContentItem
+                  className="ecl-u-height-100 ecl-u-box-sizing-border"
+                  title={{
+                    href: '/example',
+                    label: 'Air quality',
+                  }}
+                  description={{
+                    label:
+                      'European Union policy on air quality aims to develop and implement appropriate instruments to improve air quality.',
+                  }}
+                />
               </div>
 
               <div className="ecl-col-12 ecl-col-md-6">
-                <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                  <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                    <Link
-                      href="/example"
-                      variant="standalone"
-                      label="Reduction of National Emissions"
-                    />
-                  </div>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                    EU has policies in place limiting individual sources but
-                    also national totals of atmospheric emissions of key
-                    polluants.
-                  </p>
-                </article>
+                <ContentItem
+                  className="ecl-u-height-100 ecl-u-box-sizing-border"
+                  title={{
+                    href: '/example',
+                    label: 'Reduction of National Emissions',
+                  }}
+                  description={{
+                    label:
+                      'EU has policies in place limiting individual sources but also national totals of atmospheric emissions of key polluants.',
+                  }}
+                />
               </div>
             </div>
 
             <div className="ecl-row">
               <div className="ecl-col-12 ecl-col-md-6">
-                <article className="ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                  <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs ">
-                    <Link
-                      href="/example"
-                      variant="standalone"
-                      label="Air pollution from the main sources"
-                    />
-                  </div>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                    Main sources of problems regarding European Union&apos;air
-                    pollution.
-                  </p>
-                </article>
+                <ContentItem
+                  hasBorder="false"
+                  className="ecl-u-height-100 ecl-u-box-sizing-border"
+                  title={{
+                    href: '/example',
+                    label: 'Air pollution from the main sources',
+                  }}
+                  description={{
+                    label:
+                      "Main sources of problems regarding European Union's air pollution.",
+                  }}
+                />
               </div>
             </div>
           </div>
@@ -289,73 +285,63 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
 
           <div className="ecl-row ecl-u-mt-xs">
             <div className="ecl-col-12 ecl-col-md-6">
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Legislation"
-                  />
-                </div>
-                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                  &quot;A Europe that protects: Clean air for all&quot; provides
-                  national, regional and local actors practical help to improve
-                  air quality in Europe.
-                </p>
-              </article>
+              <ContentItem
+                className="ecl-u-height-100 ecl-u-box-sizing-border"
+                title={{
+                  href: '/example',
+                  label: 'Legislation',
+                }}
+                description={{
+                  label:
+                    '"A Europe that protects: Clean air for all" provides national, regional and local actors practical help to improve air quality in Europe.',
+                }}
+              />
             </div>
 
             <div className="ecl-col-12 ecl-col-md-6">
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Consultation and cooperation"
-                  />
-                </div>
-                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                  Clean Air Country Dialogues foster the collaborative approach
-                  required to deliver actions for enhancing air quality and
-                  reducing air pollution in the future.
-                </p>
-              </article>
+              <ContentItem
+                className="ecl-u-height-100 ecl-u-box-sizing-border"
+                title={{
+                  href: '/example',
+                  label: 'Consultation and cooperation',
+                }}
+                description={{
+                  label:
+                    'Clean Air Country Dialogues foster the collaborative approach required to deliver actions for enhancing air quality and reducing air pollution in the future.',
+                }}
+              />
             </div>
           </div>
 
           <div className="ecl-row">
             <div className="ecl-col-12 ecl-col-md-6">
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15  ecl-u-border-width-md-0 ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Resources"
-                  />
-                </div>
-                <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                  The European Environment Agency&apos;s &apos;European Air
-                  Quality Index&apos; informs citizens about air quality levels
-                  based on Member States data.
-                </p>
-              </article>
+              <ContentItem
+                hasBorder="false"
+                className="ecl-u-height-100 ecl-u-box-sizing-border"
+                title={{
+                  href: '/example',
+                  label: 'Resources',
+                }}
+                description={{
+                  label:
+                    "The European Environment Agency's 'European Air Quality Index' informs citizens about air quality levels based on Member States data.",
+                }}
+              />
             </div>
 
             <div className="ecl-col-12 ecl-col-md-6">
-              <article className="ecl-u-pv-m ecl-u-height-100 ecl-u-box-sizing-border">
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Raising awareness"
-                  />
-                </div>
-                <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                  Public relations campaigns that aim to increase public
-                  awareness towards the problem Europe enounters when it comes
-                  to air pollution.
-                </p>
-              </article>
+              <ContentItem
+                hasBorder="false"
+                className="ecl-u-height-100 ecl-u-box-sizing-border"
+                title={{
+                  href: '/example',
+                  label: 'Raising awareness',
+                }}
+                description={{
+                  label:
+                    'Public relations campaigns that aim to increase public awareness towards the problem Europe enounters when it comes to air pollution.',
+                }}
+              />
             </div>
           </div>
         </div>
@@ -601,19 +587,18 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
             ]}
           />
 
-          <article className="ecl-u-pv-m ecl-u-mt-l">
-            <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-              <Link
-                href="/example"
-                variant="standalone"
-                label="EC policy process"
-              />
-            </div>
-            <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-              Get more information about how decisions are made in the policy
-              process.
-            </p>
-          </article>
+          <ContentItem
+            hasBorder="false"
+            className="ecl-u-mt-l"
+            title={{
+              href: '/example',
+              label: 'EC policy process',
+            }}
+            description={{
+              label:
+                'Get more information about how decisions are made in the policy process.',
+            }}
+          />
         </div>
 
         <div className="ecl-u-bg-blue-5 ecl-u-pv-l ecl-u-mt-xl ecl-u-mt-lg-3xl">
@@ -622,147 +607,96 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
               News
             </h2>
 
-            <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-m ecl-u-mt-lg-l">
-              <div className="ecl-u-flex-grow-1">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">News article</span> |{' '}
-                  <time dateTime="2019-05-06">06 May 2019</time>
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="EEA reports on cleaner EU environment and challenges ahead"
-                  />
-                </div>
-                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                  A new report published today by the European Environment
-                  Agency shows that a coordinated EU environment policy has
-                  delivered substantial benefits for citizens over the past 5
-                  years.
-                </p>
-              </div>
+            <ContentItem
+              className="ecl-u-mt-m ecl-u-mt-lg-l"
+              meta={{
+                label: parse(
+                  "<span class='ecl-u-type-uppercase'>News article</span> | <time dateTime='2019-05-06'>06 May 2019</time>"
+                ),
+              }}
+              title={{
+                href: '/example',
+                label:
+                  'EEA reports on cleaner EU environment and challenges ahead',
+              }}
+              description={{
+                label:
+                  'A new report published today by the European Environment Agency shows that a coordinated EU environment policy has delivered substantial benefits for citizens over the past 5 years.',
+              }}
+              images={{
+                position: 'right',
+                mobile: {
+                  alt: 'Example image',
+                  src:
+                    'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+                },
+                desktop: {
+                  alt: 'Example image',
+                  src:
+                    'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+                },
+              }}
+            />
 
-              <div
-                role="img"
-                aria-label="Example image"
-                className="ecl-u-media-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
-                style={{
-                  backgroundImage:
-                    'url("https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg")',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'contain',
-                  width: '7.5rem',
-                }}
-              />
+            <ContentItem
+              meta={{
+                label: parse(
+                  "<span class='ecl-u-type-uppercase'>News article</span> | <time dateTime='2019-03-23'>23 March 2019</time>"
+                ),
+              }}
+              title={{
+                href: '/example',
+                label:
+                  'Paris Climate Agreement to enter into force as EU agrees ratification',
+              }}
+              description={{
+                label:
+                  'The European Parliament has today approved the EU ratification of the Paris Agreement in the presence of Commission President Jean-Claude Juncker.',
+              }}
+              images={{
+                position: 'right',
+                mobile: {
+                  alt: 'Example image',
+                  src:
+                    'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+                },
+                desktop: {
+                  alt: 'Example image',
+                  src:
+                    'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+                },
+              }}
+            />
 
-              <div
-                role="img"
-                aria-label="Example image"
-                className="ecl-u-media-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
-                style={{
-                  backgroundImage:
-                    'url("https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg")',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'contain',
-                  width: '13.125rem',
-                }}
-              />
-            </article>
-
-            <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-              <div className="ecl-u-flex-grow-1">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">News article</span> |{' '}
-                  <time dateTime="2019-03-23">23 March 2019</time>
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="Paris Climate Agreement to enter into force as EU agrees ratification"
-                  />
-                </div>
-                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                  The European Parliament has today approved the EU ratification
-                  of the Paris Agreement in the presence of Commission President
-                  Jean-Claude Juncker.
-                </p>
-              </div>
-
-              <div
-                role="img"
-                aria-label="Example image"
-                className="ecl-u-media-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
-                style={{
-                  backgroundImage:
-                    'url("https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg")',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'contain',
-                  width: '7.5rem',
-                }}
-              />
-
-              <div
-                role="img"
-                aria-label="Example image"
-                className="ecl-u-media-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
-                style={{
-                  backgroundImage:
-                    'url("https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg")',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'contain',
-                  width: '13.125rem',
-                }}
-              />
-            </article>
-
-            <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-              <div className="ecl-u-flex-grow-1">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">News article</span> |{' '}
-                  <time dateTime="2015-10-17">17 October 2015</time>
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="The 6th meeting of the Urban Partnership on Air QUality focuses on the implementation of actions"
-                  />
-                </div>
-                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                  After the presentation of the Draft Action Plan and the
-                  corresponding period for analysis of the Public Feedback
-                  results, the Urban Partnership Air Quality.
-                </p>
-              </div>
-
-              <div
-                role="img"
-                aria-label="Example image"
-                className="ecl-u-media-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
-                style={{
-                  backgroundImage:
-                    'url("https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg")',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'contain',
-                  width: '7.5rem',
-                }}
-              />
-
-              <div
-                role="img"
-                aria-label="Example image"
-                className="ecl-u-media-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
-                style={{
-                  backgroundImage:
-                    'url("https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg")',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'contain',
-                  width: '13.125rem',
-                }}
-              />
-            </article>
+            <ContentItem
+              meta={{
+                label: parse(
+                  "<span class='ecl-u-type-uppercase'>News article</span> | <time dateTime='2019-10-17'>17 October 2015</time>"
+                ),
+              }}
+              title={{
+                href: '/example',
+                label:
+                  'The 6th meeting of the Urban Partnership on Air QUality focuses on the implementation of actions',
+              }}
+              description={{
+                label:
+                  'After the presentation of the Draft Action Plan and the corresponding period for analysis of the Public Feedback results, the Urban Partnership Air Quality.',
+              }}
+              images={{
+                position: 'right',
+                mobile: {
+                  alt: 'Example image',
+                  src:
+                    'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+                },
+                desktop: {
+                  alt: 'Example image',
+                  src:
+                    'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+                },
+              }}
+            />
 
             <Link
               className="ecl-u-mt-l"
@@ -783,34 +717,29 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
             Events
           </h2>
 
-          <article className="ecl-u-d-flex ecl-u-pv-m ecl-u-mt-l">
-            <div className="ecl-u-flex-grow-0 ecl-u-mr-m">
-              <DateBlock
-                dateTime="2019-11-28"
-                day="28"
-                month="Nov"
-                monthFull="November"
-                year="2019"
-              />
-            </div>
-            <div className="ecl-u-flex-grow-1">
-              <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                <span className="ecl-u-type-uppercase">
-                  Forum | <time dateTime="2019-11-28">28-29 Nov 2019</time>
-                </span>
-              </div>
-              <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                <Link
-                  href="/example"
-                  variant="standalone"
-                  label="EU Clean Air"
-                />
-              </div>
-              <p className="ecl-u-type-paragraph-s ecl-u-type-color-grey ecl-u-mt-xs">
-                With: Daniel Calleja Crespo
-              </p>
-            </div>
-          </article>
+          <ContentItem
+            hasBorder="false"
+            meta={{
+              label: parse(
+                "<span class='ecl-u-type-uppercase'>Forum</span> | <time dateTime='2019-11-28'>28-29 Nov 2019</time>"
+              ),
+            }}
+            title={{
+              href: '/example',
+              label: 'EU Clean Air',
+            }}
+            description={{
+              className: 'ecl-u-type-s',
+              label: 'With: Daniel Calleja Crespo',
+            }}
+            date={{
+              dateTime: '2019-11-28',
+              day: '28',
+              month: 'Nov',
+              monthFull: 'November',
+              year: '2019',
+            }}
+          />
 
           <h2 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mt-lg-3xl ecl-u-mb-none">
             Stakeholders
@@ -818,95 +747,89 @@ const MainPolicyHubPage = ({ siteHeader, footer, template }) => (
 
           <div className="ecl-row">
             <div className="ecl-col-12 ecl-col-md-6">
-              <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-flex-shrink-0 ecl-u-mr-s ecl-u-media-a-s ecl-u-media-bg-size-contain ecl-u-media-bg-repeat-none"
-                  style={{
-                    backgroundImage:
-                      'url("https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg")',
-                  }}
-                />
-
-                <div className="ecl-u-flex-grow-1">
-                  <h2 className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mv-none">
-                    <Link
-                      href="/example"
-                      variant="standalone"
-                      label="Aurel CIOBANU-DORDEA"
-                    />
-                  </h2>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-type-s">
-                    Director
-                  </p>
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-m">
-                    DG Environment
-                  </div>
-                </div>
-              </article>
+              <ContentItem
+                title={{
+                  href: '/example',
+                  label: 'Aurel CIOBANU-DORDEA',
+                }}
+                description={{
+                  className: 'ecl-u-type-s',
+                  label: 'Director',
+                }}
+                images={{
+                  position: 'left',
+                  desktop: {
+                    alt: 'Example image',
+                    src:
+                      'https://inno-ecl.s3.amazonaws.com/media/examples/example-person.png',
+                  },
+                }}
+                information={{
+                  items: [
+                    {
+                      label: 'DG Environment',
+                    },
+                  ],
+                }}
+              />
             </div>
 
             <div className="ecl-col-12 ecl-col-md-6">
-              <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-flex-shrink-0 ecl-u-mr-s ecl-u-media-a-s ecl-u-media-bg-size-contain ecl-u-media-bg-repeat-none"
-                  style={{
-                    backgroundImage:
-                      'url("https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg")',
-                  }}
-                />
-
-                <div className="ecl-u-flex-grow-1">
-                  <h2 className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mv-none">
-                    <Link
-                      href="/example"
-                      variant="standalone"
-                      label="T. W. SALMONOWICZ"
-                    />
-                  </h2>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-type-s">
-                    Administrative Assistant
-                  </p>
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-m">
-                    DG Environment
-                  </div>
-                </div>
-              </article>
+              <ContentItem
+                title={{
+                  href: '/example',
+                  label: 'T. W. SALMONOWICZ',
+                }}
+                description={{
+                  className: 'ecl-u-type-s',
+                  label: 'Administrative Assistant',
+                }}
+                images={{
+                  position: 'left',
+                  desktop: {
+                    alt: 'Example image',
+                    src:
+                      'https://inno-ecl.s3.amazonaws.com/media/examples/example-person.png',
+                  },
+                }}
+                information={{
+                  items: [
+                    {
+                      label: 'DG Environment',
+                    },
+                  ],
+                }}
+              />
             </div>
           </div>
 
           <div className="ecl-row">
             <div className="ecl-col-12 ecl-col-md-6">
-              <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pa-s">
-                <div
-                  role="img"
-                  aria-label="Example image"
-                  className="ecl-u-flex-shrink-0 ecl-u-mr-s ecl-u-media-a-s ecl-u-media-bg-size-contain ecl-u-media-bg-repeat-none"
-                  style={{
-                    backgroundImage:
-                      'url("https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg")',
-                  }}
-                />
-
-                <div className="ecl-u-flex-grow-1">
-                  <h2 className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mv-none">
-                    <Link
-                      href="/example"
-                      variant="standalone"
-                      label="Mr C. SOBOTTA"
-                    />
-                  </h2>
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-type-s">
-                    Policy Officer
-                  </p>
-                  <div className="ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-mt-m">
-                    DG Environment
-                  </div>
-                </div>
-              </article>
+              <ContentItem
+                title={{
+                  href: '/example',
+                  label: 'Mr C. SOBOTTA',
+                }}
+                description={{
+                  className: 'ecl-u-type-s',
+                  label: 'Policy Officer',
+                }}
+                images={{
+                  position: 'left',
+                  desktop: {
+                    alt: 'Example image',
+                    src:
+                      'https://inno-ecl.s3.amazonaws.com/media/examples/example-person.png',
+                  },
+                }}
+                information={{
+                  items: [
+                    {
+                      label: 'DG Environment',
+                    },
+                  ],
+                }}
+              />
             </div>
           </div>
         </div>

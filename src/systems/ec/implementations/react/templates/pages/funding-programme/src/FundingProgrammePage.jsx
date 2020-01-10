@@ -1,6 +1,9 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import parse from 'html-react-parser';
 
+import ContentItem from '@ecl/ec-react-composition-content-item';
 import {
   DescriptionList,
   DescriptionTerm,
@@ -198,45 +201,38 @@ const FundingProgrammePage = ({ siteHeader, footer, template }) => (
                 Latest
               </h2>
 
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m ecl-u-mt-m">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">News article</span> |{' '}
-                  <time dateTime="2019-10-17">17 October 2019</time>
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="EU funded Ebola treatment"
-                  />
-                </div>
-                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Phasellus ut ex tristique, dignissim sem ac, bibendum est. Sed
-                  vehicula lorem non nunc tincidunt hendrerit. Nunc tristique
-                  ante et fringilla fermentum.
-                </p>
-              </article>
+              <ContentItem
+                className="ecl-u-mt-m"
+                meta={{
+                  label: parse(
+                    "<span class='ecl-u-type-uppercase'>News article</span> | <time dateTime='2019-10-17'>17 October 2019</time>"
+                  ),
+                }}
+                title={{
+                  href: '/example',
+                  label: 'EU funded Ebola treatment',
+                }}
+                description={{
+                  label:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut ex tristique, dignissim sem ac, bibendum est. Sed vehicula lorem non nunc tincidunt hendrerit. Nunc tristique ante et fringilla fermentum.',
+                }}
+              />
 
-              <article className="ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
-                <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-                  <span className="ecl-u-type-uppercase">News article</span> |{' '}
-                  <time dateTime="2019-10-17">17 October 2019</time>
-                </div>
-                <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
-                  <Link
-                    href="/example"
-                    variant="standalone"
-                    label="EU funded Ebola treatment"
-                  />
-                </div>
-                <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Phasellus ut ex tristique, dignissim sem ac, bibendum est. Sed
-                  vehicula lorem non nunc tincidunt hendrerit. Nunc tristique
-                  ante et fringilla fermentum.
-                </p>
-              </article>
+              <ContentItem
+                meta={{
+                  label: parse(
+                    "<span class='ecl-u-type-uppercase'>News article</span> | <time dateTime='2019-10-17'>17 October 2019</time>"
+                  ),
+                }}
+                title={{
+                  href: '/example',
+                  label: 'EU funded Ebola treatment',
+                }}
+                description={{
+                  label:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut ex tristique, dignissim sem ac, bibendum est. Sed vehicula lorem non nunc tincidunt hendrerit. Nunc tristique ante et fringilla fermentum.',
+                }}
+              />
 
               <h2
                 className="ecl-u-type-heading-2 ecl-u-type-color-black ecl-u-mt-xl ecl-u-mb-none"
