@@ -35,7 +35,7 @@ storiesOf('Components|Forms/File upload', module)
       <FileUpload
         {...demoContentDefault}
         data-ecl-auto-init="FileUpload"
-        id="example-file-upload"
+        id="example-file-upload-default"
         label={text('Label', demoContentDefault.label)}
         helperText={parse(text('Helper text', demoContentDefault.helperText))}
         invalid={boolean('Invalid', false)}
@@ -59,7 +59,7 @@ storiesOf('Components|Forms/File upload', module)
       <FileUpload
         {...demoContentMultiple}
         data-ecl-auto-init="FileUpload"
-        id="example-file-upload"
+        id="example-file-upload-multiple"
         label={text('Label', demoContentMultiple.label)}
         helperText={parse(text('Helper text', demoContentMultiple.helperText))}
         invalid={boolean('Invalid', false)}
@@ -70,6 +70,78 @@ storiesOf('Components|Forms/File upload', module)
         optionalText={text('Optional text', demoContentMultiple.optionalText)}
         buttonLabel={text('Button label', demoContentMultiple.buttonLabel)}
         multiple
+      />
+    ),
+    {
+      knobs: {
+        escapeHTML: false,
+      },
+    }
+  )
+  .add(
+    'disabled',
+    () => (
+      <FileUpload
+        {...demoContentDefault}
+        data-ecl-auto-init="FileUpload"
+        id="example-file-upload-disable"
+        label={text('Label', demoContentDefault.label)}
+        helperText={parse(text('Helper text', demoContentDefault.helperText))}
+        invalid={boolean('Invalid', false)}
+        invalidText={text('Invalid text', demoContentDefault.invalidText)}
+        disabled={boolean('Disabled', true)}
+        required={boolean('Required', true)}
+        requiredText={text('Required text', demoContentDefault.requiredText)}
+        optionalText={text('Optional text', demoContentDefault.optionalText)}
+        buttonLabel={text('Button label', demoContentDefault.buttonLabel)}
+      />
+    ),
+    {
+      knobs: {
+        escapeHTML: false,
+      },
+    }
+  )
+  .add(
+    'invalid',
+    () => (
+      <FileUpload
+        {...demoContentDefault}
+        data-ecl-auto-init="FileUpload"
+        id="example-file-upload-invalid"
+        label={text('Label', demoContentDefault.label)}
+        helperText={parse(text('Helper text', demoContentDefault.helperText))}
+        invalid={boolean('Invalid', true)}
+        invalidText={text('Invalid text', demoContentDefault.invalidText)}
+        disabled={boolean('Disabled', false)}
+        required={boolean('Required', true)}
+        requiredText={text('Required text', demoContentDefault.requiredText)}
+        optionalText={text('Optional text', demoContentDefault.optionalText)}
+        buttonLabel={text('Button label', demoContentDefault.buttonLabel)}
+      />
+    ),
+    {
+      knobs: {
+        escapeHTML: false,
+      },
+    }
+  )
+  .add(
+    'optional',
+    () => (
+      <FileUpload
+        {...demoContentDefault}
+        data-ecl-auto-init="FileUpload"
+        id="example-file-upload-invalid"
+        label={text('Label', demoContentDefault.label)}
+        helperText={parse(text('Helper text', demoContentDefault.helperText))}
+        invalid={boolean('Invalid', false)}
+        invalidText={text('Invalid text', demoContentDefault.invalidText)}
+        disabled={boolean('Disabled', false)}
+        required={boolean('Required', false)}
+        requiredText={text('Required text', demoContentDefault.requiredText)}
+        optionalText={text('Optional text', demoContentDefault.optionalText)}
+        buttonLabel={text('Button label', demoContentDefault.buttonLabel)}
       />
     ),
     {

@@ -72,6 +72,9 @@ const FileUpload = ({
         <span
           data-ecl-file-upload-button
           className="ecl-file-upload__button ecl-button ecl-button--primary"
+          {...(disabled && {
+            disabled: true,
+          })}
         >
           {buttonLabel}
         </span>
