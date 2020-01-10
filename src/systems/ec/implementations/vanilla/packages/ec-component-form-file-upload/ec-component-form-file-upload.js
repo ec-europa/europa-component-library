@@ -21,7 +21,7 @@ if (!Element.prototype.closest)
  * @param {String} options.fileUploadGroupSelector Selector for file upload form group
  * @param {String} options.fileUploadButtonSelector Selector for file upload button
  * @param {String} options.fileUploadListSelector Selector for list of file names
- * @param {Boolean} options.attachClickListener Whether or not to bind click events on toggle
+ * @param {Boolean} options.attachChangeListener Whether or not to bind change events on toggle
  */
 export class FileUpload {
   /**
@@ -85,7 +85,7 @@ export class FileUpload {
       this.fileUploadGroup
     );
 
-    // Bind change event on input
+    // Bind events on input
     if (this.attachChangeListener && this.fileUploadInput) {
       this.fileUploadInput.addEventListener('change', this.handleChange);
     }
