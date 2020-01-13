@@ -18,9 +18,11 @@ if (!Element.prototype.closest)
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
- * @param {String} options.fileUploadGroupSelector Selector for file upload form group
- * @param {String} options.fileUploadButtonSelector Selector for file upload button
- * @param {String} options.fileUploadListSelector Selector for list of file names
+ * @param {String} options.groupSelector Selector for file upload form group
+ * @param {String} options.buttonSelector Selector for file upload button
+ * @param {String} options.listSelector Selector for list of file names
+ * @param {String} options.labelChoose Label choose state
+ * @param {String} options.labelReplace Label replace state
  * @param {Boolean} options.attachChangeListener Whether or not to bind change events on toggle
  */
 export class FileUpload {
@@ -43,9 +45,11 @@ export class FileUpload {
   constructor(
     element,
     {
-      fileUploadGroupSelector = '[data-ecl-file-upload-group]',
-      fileUploadButtonSelector = '[data-ecl-file-upload-button]',
-      fileUploadListSelector = '[data-ecl-file-upload-list]',
+      groupSelector = '[data-ecl-file-upload-group]',
+      buttonSelector = '[data-ecl-file-upload-button]',
+      listSelector = '[data-ecl-file-upload-list]',
+      labelChoose = 'data-ecl-file-upload-label-choose',
+      labelReplace = 'data-ecl-file-upload-label-replace',
       attachChangeListener = true,
     } = {}
   ) {
@@ -59,9 +63,11 @@ export class FileUpload {
     this.element = element;
 
     // Options
-    this.fileUploadGroupSelector = fileUploadGroupSelector;
-    this.fileUploadButtonSelector = fileUploadButtonSelector;
-    this.fileUploadListSelector = fileUploadListSelector;
+    this.groupSelector = groupSelector;
+    this.buttonSelector = buttonSelector;
+    this.listSelector = listSelector;
+    this.labelChoose = labelChoose;
+    this.labelReplace = labelReplace;
     this.attachChangeListener = attachChangeListener;
 
     // Private variables
@@ -78,12 +84,10 @@ export class FileUpload {
    * Initialise component.
    */
   init() {
-    this.fileUploadGroup = this.element.closest(this.fileUploadGroupSelector);
+    this.fileUploadGroup = this.element.closest(this.groupSelector);
     this.fileUploadInput = this.element;
-    this.fileUploadList = queryOne(
-      this.fileUploadListSelector,
-      this.fileUploadGroup
-    );
+    this.fileUploadButton = queryOne(this.buttonSelector, this.fileUploadGroup);
+    this.fileUploadList = queryOne(this.listSelector, this.fileUploadGroup);
 
     // Bind events on input
     if (this.attachChangeListener && this.fileUploadInput) {
@@ -104,7 +108,14 @@ export class FileUpload {
    * @param {Event} e
    */
   handleChange(e) {
-    if (!('files' in e.target)) return;
+    if (!('files' in e.target)) {
+      if (this.fileUploadButton.hasAttribute(this.labelChoose)) {
+        this.fileUploadButton.innerHTML = this.fileUploadButton.getAttribute(
+          this.labelChoose
+        );
+      }
+      return;
+    }
 
     let fileList = '';
 
@@ -115,6 +126,13 @@ export class FileUpload {
 
     // Update file list
     this.fileUploadList.innerHTML = fileList;
+
+    // Update button label
+    if (this.fileUploadButton.hasAttribute(this.labelReplace)) {
+      this.fileUploadButton.innerHTML = this.fileUploadButton.getAttribute(
+        this.labelReplace
+      );
+    }
   }
 }
 

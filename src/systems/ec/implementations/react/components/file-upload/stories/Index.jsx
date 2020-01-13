@@ -44,7 +44,14 @@ storiesOf('Components|Forms/File upload', module)
         required={boolean('Required', true)}
         requiredText={text('Required text', demoContentDefault.requiredText)}
         optionalText={text('Optional text', demoContentDefault.optionalText)}
-        buttonLabel={text('Button label', demoContentDefault.buttonLabel)}
+        buttonChooseLabel={text(
+          'Button choose label',
+          demoContentDefault.buttonChooseLabel
+        )}
+        buttonReplaceLabel={text(
+          'Button replace label',
+          demoContentDefault.buttonReplaceLabel
+        )}
       />
     ),
     {
@@ -68,7 +75,14 @@ storiesOf('Components|Forms/File upload', module)
         required={boolean('Required', true)}
         requiredText={text('Required text', demoContentMultiple.requiredText)}
         optionalText={text('Optional text', demoContentMultiple.optionalText)}
-        buttonLabel={text('Button label', demoContentMultiple.buttonLabel)}
+        buttonChooseLabel={text(
+          'Button choose label',
+          demoContentMultiple.buttonChooseLabel
+        )}
+        buttonReplaceLabel={text(
+          'Button replace label',
+          demoContentMultiple.buttonReplaceLabel
+        )}
         multiple
       />
     ),
@@ -93,7 +107,14 @@ storiesOf('Components|Forms/File upload', module)
         required={boolean('Required', true)}
         requiredText={text('Required text', demoContentDefault.requiredText)}
         optionalText={text('Optional text', demoContentDefault.optionalText)}
-        buttonLabel={text('Button label', demoContentDefault.buttonLabel)}
+        buttonChooseLabel={text(
+          'Button choose label',
+          demoContentDefault.buttonChooseLabel
+        )}
+        buttonReplaceLabel={text(
+          'Button replace label',
+          demoContentDefault.buttonReplaceLabel
+        )}
       />
     ),
     {
@@ -117,7 +138,14 @@ storiesOf('Components|Forms/File upload', module)
         required={boolean('Required', true)}
         requiredText={text('Required text', demoContentDefault.requiredText)}
         optionalText={text('Optional text', demoContentDefault.optionalText)}
-        buttonLabel={text('Button label', demoContentDefault.buttonLabel)}
+        buttonChooseLabel={text(
+          'Button choose label',
+          demoContentDefault.buttonChooseLabel
+        )}
+        buttonReplaceLabel={text(
+          'Button replace label',
+          demoContentDefault.buttonReplaceLabel
+        )}
       />
     ),
     {
@@ -141,7 +169,14 @@ storiesOf('Components|Forms/File upload', module)
         required={boolean('Required', false)}
         requiredText={text('Required text', demoContentDefault.requiredText)}
         optionalText={text('Optional text', demoContentDefault.optionalText)}
-        buttonLabel={text('Button label', demoContentDefault.buttonLabel)}
+        buttonChooseLabel={text(
+          'Button choose label',
+          demoContentDefault.buttonChooseLabel
+        )}
+        buttonReplaceLabel={text(
+          'Button replace label',
+          demoContentDefault.buttonReplaceLabel
+        )}
       />
     ),
     {
