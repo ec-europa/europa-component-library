@@ -357,14 +357,23 @@
       grid-template-rows: auto auto auto auto;
     }
 
+    // Special hack for IE
+    @media all and (-ms-high-contrast: none) {
+      .ecl-menu__sublist {
+        break-inside: avoid;
+        column-count: 4;
+        display: block;
+      }
+    }
+
     .ecl-menu__subitem::before {
       display: none;
     }
 
     .ecl-menu__subitem {
       box-sizing: border-box;
+      margin-bottom: $ecl-spacing-s;
       max-width: 20ch;
-      padding-bottom: $ecl-spacing-s;
     }
 
     .ecl-menu__subitem:last-of-type {
