@@ -1,5 +1,5 @@
 import { configure, addDecorator, addParameters } from '@storybook/react';
-import { withOptions } from '@storybook/addon-options';
+import { withHTML } from '@whitespace/storybook-addon-html/react';
 import { create } from '@storybook/theming';
 import { withA11y } from '@storybook/addon-a11y';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
@@ -9,6 +9,7 @@ import { withCode } from '../../../../../../tools/storybook-addon-code';
 import './ECL';
 
 addDecorator(withCode);
+addDecorator(withHTML);
 addDecorator(withA11y);
 addDecorator(withCssResources);
 
