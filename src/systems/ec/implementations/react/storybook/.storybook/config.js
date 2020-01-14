@@ -125,6 +125,10 @@ const contexts = [
   require.context('../../deprecated', true, /stories.*\.jsx?$/),
 ];
 
+/**
+ * Currently using storiesOf API, so the loader function does not return any value.
+ * @see https://storybook.js.org/docs/basics/writing-stories/#loading-stories
+ */
 configure(() => {
   contexts.forEach(context => {
     context
