@@ -1,0 +1,18 @@
+/**
+ * File
+ * @define file
+ */
+
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
+@import '@ecl/generic-component-file/generic-component-file';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(
+  ('eu-style-icon', 'eu-component-button', 'eu-component-link')
+);
+
+// Use generic mixin
+@include exports('eu-component-file') {
+  @include ecl-file();
+}

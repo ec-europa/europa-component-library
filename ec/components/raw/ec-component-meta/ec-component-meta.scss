@@ -1,0 +1,12 @@
+/*
+ * ECL meta
+ */
+
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-meta/generic-component-meta';
+
+// Use generic mixin
+@include exports('ec-component-meta') {
+  @include ecl-meta();
+}

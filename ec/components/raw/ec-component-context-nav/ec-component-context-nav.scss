@@ -1,0 +1,16 @@
+/*
+ * Context navigation
+ * @define context-nav
+ */
+
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-context-nav/generic-component-context-nav';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(('ec-component-button', 'ec-component-link'));
+
+// Use generic mixin
+@include exports('ec-component-context-nav') {
+  @include ecl-context-nav();
+}

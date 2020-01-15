@@ -1,0 +1,12 @@
+/**
+ * Float utilities
+ */
+
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
+@import '@ecl/generic-utility-float/generic-utility-float';
+
+// Use generic mixin
+@include exports('eu-utility-float') {
+  @include ecl-utility-float();
+}

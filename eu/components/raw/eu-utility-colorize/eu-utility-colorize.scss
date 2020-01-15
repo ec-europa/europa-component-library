@@ -1,0 +1,12 @@
+/**
+ * Colorize utilities
+ */
+
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
+@import '@ecl/generic-utility-colorize/generic-utility-colorize';
+
+// Use generic mixin
+@include exports('eu-utility-colorize') {
+  @include ecl-utility-colorize();
+}

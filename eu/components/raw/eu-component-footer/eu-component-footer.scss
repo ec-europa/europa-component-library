@@ -1,0 +1,211 @@
+/**
+ * Footers component
+ * @define footer; weak
+ */
+
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
+@import '@ecl/generic-component-footer/generic-component-footer';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(
+  (
+    'eu-layout-grid',
+    'eu-component-link',
+    'eu-style-typography-list',
+    'eu-style-icon'
+  )
+);
+
+// Use generic mixin
+@include exports('eu-component-footer') {
+  @include ecl-footer();
+
+  .ecl-footer__custom {
+    background-color: map-get($ecl-colors, 'grey-5');
+    padding-bottom: map-get($ecl-spacing, 'm');
+    padding-top: map-get($ecl-spacing, 'm');
+  }
+
+  .ecl-footer__custom-label {
+    color: map-get($ecl-colors, 'grey-100');
+    display: inline-block;
+    font-size: map-get($ecl-font-size, 's');
+    font-weight: normal;
+    margin-bottom: map-get($ecl-spacing, 's');
+  }
+
+  .ecl-footer__custom-title {
+    color: map-get($ecl-colors, 'grey-100');
+    display: inline-block;
+    font-size: map-get($ecl-font-size, 'm');
+    margin-bottom: map-get($ecl-spacing, 's');
+  }
+
+  .ecl-footer__corporate {
+    border-top: 4px solid map-get($ecl-colors, 'blue-100');
+  }
+
+  .ecl-footer__corporate-top {
+    background-color: map-get($ecl-colors, 'grey-15');
+    color: map-get($ecl-colors, 'grey-100');
+    padding-bottom: map-get($ecl-spacing, 'l');
+    padding-top: map-get($ecl-spacing, 'l');
+  }
+
+  .ecl-footer__list {
+    margin-top: -(map-get($ecl-spacing, 's'));
+  }
+
+  .ecl-footer__list-item {
+    line-height: 1.125;
+    padding-top: map-get($ecl-spacing, 's');
+  }
+
+  .ecl-footer__list--inline {
+    margin-top: -(map-get($ecl-spacing, 's'));
+
+    .ecl-footer__list-item {
+      margin-left: 0;
+      margin-right: map-get($ecl-spacing, 'm');
+      padding-top: map-get($ecl-spacing, 's');
+    }
+  }
+
+  .ecl-footer__corporate-bottom {
+    background-color: map-get($ecl-colors, 'grey-20');
+    color: map-get($ecl-colors, 'grey-100');
+    padding-bottom: map-get($ecl-spacing, 'm');
+    padding-top: map-get($ecl-spacing, 'm');
+
+    /* stylelint-disable-next-line */
+    .ecl-footer__list--inline {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    /* stylelint-disable-next-line */
+    .ecl-footer__list-item {
+      margin-right: map-get($ecl-spacing, 'l');
+      margin-top: map-get($ecl-spacing, 's');
+      padding-top: 0;
+    }
+
+    /* stylelint-disable-next-line */
+    .ecl-footer__publication-date {
+      border-right: 1px solid map-get($ecl-colors, 'grey-50');
+      margin-right: map-get($ecl-spacing, 'm');
+      padding-right: map-get($ecl-spacing, 'm');
+    }
+  }
+
+  .ecl-footer__other-links {
+    margin-top: map-get($ecl-spacing, 's');
+
+    @include ecl-media-breakpoint-up(md) {
+      margin-top: 0;
+    }
+  }
+
+  .ecl-footer__spaced-column {
+    padding-top: 0;
+  }
+
+  .ecl-footer__spaced-column:last-child {
+    padding-bottom: 0;
+  }
+
+  .ecl-footer__row + .ecl-footer__row {
+    padding-top: map-get($ecl-spacing, 'xl');
+  }
+
+  // Links in EU footers should look like standalone links
+  // The rule is added via CSS in order to allow better context management in twig, i.e. external links having variant
+
+  .ecl-footer__link {
+    font-size: map-get($ecl-font-size, 's');
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: map-get($ecl-colors, 'blue-100');
+      text-decoration: underline;
+    }
+  }
+
+  .ecl-footer__column-title {
+    border-bottom: 2px solid map-get($ecl-colors, 'grey-25');
+    color: map-get($ecl-colors, 'grey-100');
+    font-size: map-get($ecl-font-size, 'm');
+    font-weight: bold;
+    margin-bottom: map-get($ecl-spacing, 'm');
+    padding-bottom: map-get($ecl-spacing, 'xs');
+  }
+
+  .ecl-footer__list--2-col {
+    column-count: 2;
+  }
+
+  .ecl-footer__list--3-col {
+    column-count: 3;
+  }
+
+  .ecl-footer__social-links {
+    display: inline-block;
+  }
+
+  .ecl-footer__list--short {
+    display: block;
+  }
+
+  .ecl-footer__list--long {
+    display: none;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up(sm) {
+    .ecl-footer__list--short {
+      display: none;
+    }
+
+    .ecl-footer__list--long {
+      display: block;
+    }
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-down(sm) {
+    .ecl-footer__list--2-col,
+    .ecl-footer__list--3-col {
+      column-count: 1;
+    }
+
+    .ecl-footer__custom {
+      padding-bottom: map-get($ecl-spacing, 's');
+      padding-top: map-get($ecl-spacing, 's');
+    }
+
+    .ecl-footer__custom-title {
+      margin-bottom: map-get($ecl-spacing, 's');
+    }
+
+    .ecl-footer__custom-label {
+      display: inline-block;
+      margin-bottom: map-get($ecl-spacing, 's');
+    }
+
+    .ecl-footer__corporate-top {
+      padding-bottom: map-get($ecl-spacing, 'l');
+      padding-top: map-get($ecl-spacing, 'l');
+    }
+
+    .ecl-footer__column-title {
+      margin-bottom: map-get($ecl-spacing, 'm');
+      padding-bottom: map-get($ecl-spacing, 'xs');
+    }
+
+    .ecl-footer__spaced-column + .ecl-footer__spaced-column {
+      padding-top: map-get($ecl-spacing, 'l');
+    }
+  }
+}

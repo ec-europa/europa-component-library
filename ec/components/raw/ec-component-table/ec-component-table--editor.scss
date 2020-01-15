@@ -1,0 +1,6 @@
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-table/generic-component-table--editor';
+
+@include exports('ec-component-table--editor') {
+  @include ecl-editor-table();
+}

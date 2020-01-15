@@ -1,0 +1,13 @@
+/**
+ * Aria utilities
+ * Automatically apply certain styles depending on the aria attributes
+ */
+
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-utility-aria/generic-utility-aria';
+
+// Use generic mixin
+@include exports('ec-utility-aria') {
+  @include ecl-utility-aria();
+}

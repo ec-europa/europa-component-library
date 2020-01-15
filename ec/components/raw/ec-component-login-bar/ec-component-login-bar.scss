@@ -1,0 +1,41 @@
+/**
+* Login bar component
+* @define login-bar
+*/
+
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(('ec-layout-grid', 'ec-component-link'));
+
+@mixin ecl-login-bar() {
+  .ecl-login-bar {
+    @include ecl-hidden-print();
+
+    background-color: map-get($ecl-colors, 'grey-5');
+    display: block;
+    font-size: map-get($ecl-font-size, 's');
+    margin: 0;
+    padding: map-get($ecl-spacing, 'xxs') 0;
+  }
+
+  .ecl-login-bar__container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .ecl-login-bar__message {
+    color: map-get($ecl-colors, 'grey-100');
+    margin-right: map-get($ecl-spacing, 'l');
+  }
+
+  .ecl-login-bar__link {
+    flex-shrink: 0;
+  }
+}
+
+// Use generic mixin
+@include exports('ec-component-login bar') {
+  @include ecl-login-bar();
+}

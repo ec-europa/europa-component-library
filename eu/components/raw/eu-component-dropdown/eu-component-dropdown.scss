@@ -1,0 +1,16 @@
+/**
+ * ECL Dropdowns
+ * @define dropdown
+ */
+
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
+@import '@ecl/generic-component-dropdown/generic-component-dropdown';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(('eu-component-button', 'eu-component-link-block'));
+
+// Use generic mixin
+@include exports('eu-component-dropdown') {
+  @include ecl-dropdown();
+}

@@ -1,0 +1,112 @@
+/**
+ * Footers component
+ * @define footer-standardised
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(
+  (
+    'ec-layout-grid',
+    'ec-component-link',
+    'ec-style-typography-list',
+    'ec-style-icon'
+  )
+);
+
+@mixin ecl-footer-standardised() {
+  .ecl-footer-standardised {
+    @include ecl-hidden-print();
+
+    background-color: map-get($ecl-colors, 'blue-100');
+    margin: 0;
+    padding: map-get($ecl-spacing, 'l') 0;
+  }
+
+  .ecl-footer-standardised__title {
+    color: #fff;
+    font-size: map-get($ecl-font-size, 's');
+    font-weight: 600;
+    line-height: 1.1;
+    margin: 0;
+    max-width: 32em;
+    padding: 0;
+  }
+
+  .ecl-footer-standardised__title--bordered {
+    border-bottom: 2px solid map-get($ecl-colors, 'blue-50');
+    margin-bottom: map-get($ecl-spacing, 'xxs');
+    padding-bottom: map-get($ecl-spacing, 'xxs');
+  }
+
+  .ecl-footer-standardised__description {
+    color: map-get($ecl-colors, 'blue-25');
+    font-size: map-get($ecl-font-size, 'xs');
+    font-weight: 400;
+    line-height: 1.66;
+    margin: 0;
+    max-width: 32em;
+    padding: 0;
+  }
+
+  .ecl-footer-standardised__icon::before {
+    margin-right: map-get($ecl-spacing, 'xxs');
+  }
+
+  .ecl-footer-standardised__list-item {
+    color: #fff;
+    font-size: map-get($ecl-font-size, 'xs');
+    font-weight: 400;
+    line-height: 1.66;
+    margin: 0;
+    max-width: 32em;
+    padding: 0;
+  }
+
+  .ecl-footer-standardised__list-inline {
+    .ecl-footer-standardised__list-item {
+      margin-left: map-get($ecl-spacing, 'm');
+    }
+
+    .ecl-footer-standardised__list-item:first-child {
+      margin-left: 0;
+    }
+  }
+
+  .ecl-footer-standardised__list-vertical
+    .ecl-footer-standardised__list-item
+    + .ecl-footer-standardised__list-item {
+    margin-top: map-get($ecl-spacing, 's');
+  }
+
+  .ecl-footer-standardised__list-vertical--compact
+    .ecl-footer-standardised__list-item
+    + .ecl-footer-standardised__list-item {
+    margin-top: map-get($ecl-spacing, 'xxs');
+  }
+
+  .ecl-footer-standardised__bordered-row::before {
+    border-top: 2px solid map-get($ecl-colors, 'blue-50');
+    content: '';
+    display: block;
+    margin: 0 1rem;
+    padding-top: map-get($ecl-spacing, 's');
+    width: 100%;
+  }
+
+  .ecl-footer-standardised__bordered-row::after {
+    border-bottom: 2px solid map-get($ecl-colors, 'blue-50');
+    content: '';
+    display: block;
+    margin: 0 1rem;
+    padding-bottom: map-get($ecl-spacing, 's');
+    width: 100%;
+  }
+}
+
+// Use generic mixin
+@include exports('ec-component-footer-standardised') {
+  @include ecl-footer-standardised();
+}

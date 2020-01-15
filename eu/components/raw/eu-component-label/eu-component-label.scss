@@ -1,0 +1,13 @@
+/**
+ * Labels component
+ * @define label
+ */
+
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
+@import '@ecl/generic-component-label/generic-component-label';
+
+// Use generic mixin
+@include exports('eu-component-label') {
+  @include ecl-label();
+}

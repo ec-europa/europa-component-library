@@ -1,0 +1,16 @@
+/**
+ * ECL Navigation
+ * @define navigation-list
+ */
+
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-navigation-list/generic-component-navigation-list';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(('ec-component-link'));
+
+// Use generic mixin
+@include exports('ec-component-navigation-list') {
+  @include ecl-navigation-list();
+}

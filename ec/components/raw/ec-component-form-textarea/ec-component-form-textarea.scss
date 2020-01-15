@@ -1,0 +1,13 @@
+/**
+ * Textarea component
+ * @define textarea
+ */
+
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-form-textarea/generic-component-form-textarea';
+
+// Use generic mixin
+@include exports('ec-component-form-textarea') {
+  @include ecl-textarea();
+}

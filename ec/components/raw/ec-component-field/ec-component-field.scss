@@ -1,0 +1,13 @@
+/**
+ * Fields component
+ * @define field
+ */
+
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-field/generic-component-field';
+
+// Use generic mixin
+@include exports('ec-component-field') {
+  @include ecl-field();
+}

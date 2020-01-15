@@ -1,0 +1,12 @@
+/**
+ * Flex utilities
+ */
+
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-utility-flex/generic-utility-flex';
+
+// Use generic mixin
+@include exports('ec-utility-flex') {
+  @include ecl-utility-flex();
+}

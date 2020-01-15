@@ -1,0 +1,16 @@
+/**
+ * Blockquotes
+ * @define rss-link
+ */
+
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
+@import '@ecl/generic-component-rss-link/generic-component-rss-link';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(('eu-component-social-icon'));
+
+// Use generic mixin
+@include exports('eu-component-rss-link') {
+  @include ecl-rss-link();
+}

@@ -1,0 +1,13 @@
+/**
+ * Form
+ * @define form
+ */
+
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-form-form/generic-component-form-form';
+
+// Use generic mixin
+@include exports('ec-component-form-form') {
+  @include ecl-form();
+}
