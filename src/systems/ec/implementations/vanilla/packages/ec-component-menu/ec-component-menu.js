@@ -177,10 +177,22 @@ export class Menu {
     const menuMega = queryOne(this.menuMegaSelector, menuItem);
 
     if (menuMega) {
+      // Display the menu
       menuMega.setAttribute(
         'aria-hidden',
         menuMega.getAttribute('aria-hidden') === 'false' ? 'true' : 'false'
       );
+
+      // Check if there is enough space to display the menu
+      const menuWidth = menuMega.clientWidth;
+      const windowWidth = window.innerWidth;
+      const menuPosition = menuItem.getBoundingClientRect();
+
+      if (menuPosition.left + menuWidth < windowWidth) {
+        menuMega.classList.remove('ecl-menu__mega--rtl');
+      } else {
+        menuMega.classList.add('ecl-menu__mega--rtl');
+      }
     }
 
     return this;
