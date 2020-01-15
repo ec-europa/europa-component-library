@@ -329,6 +329,7 @@
   @include ecl-media-breakpoint-up('lg') {
     .ecl-menu__mega {
       background-color: $ecl-color-blue-5;
+      border-bottom: 3px solid $ecl-color-blue-25;
       box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
       left: 0;
       padding-bottom: calc(#{$ecl-spacing-xl} - #{$ecl-spacing-s});
@@ -372,13 +373,11 @@
     }
 
     .ecl-menu__subitem {
+      align-items: center;
       box-sizing: border-box;
+      display: flex;
       margin-bottom: $ecl-spacing-s;
       max-width: 20ch;
-    }
-
-    .ecl-menu__subitem:last-of-type {
-      margin-bottom: 0;
     }
 
     .ecl-menu__sublink {
