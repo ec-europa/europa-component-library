@@ -8,8 +8,28 @@ const footerHarmonisedGroup1Content = require('@ecl/ec-specs-footer-harmonised/d
 const footerHarmonisedGroup2Content = require('@ecl/ec-specs-footer-harmonised/demo/data--group2');
 const footerStandardisedContent = require('@ecl/ec-specs-footer-standardised/demo/data');
 
+const breadcrumbContent = {
+  label: 'You are here:',
+};
+const breadcrumbItems = [
+  { label: 'Home', href: '/example' },
+  { label: 'Departments and executive agencies', href: '/example' },
+  { label: 'Communication' },
+];
+
+const pageHeaderContent = {
+  meta: 'Directorate-general | COMM',
+  title: 'Communication',
+  description:
+    'The Directorate-General for Communication is the Commission department responsible for explaining EU policies to outside audiences. It keeps the Commission abreast of political developments and of trends in public opinion and the media. It also coordinates communication campains within the Commission.',
+};
+
 module.exports = template => {
-  const data = {};
+  const data = {
+    breadcrumbContent,
+    breadcrumbItems,
+    pageHeader: pageHeaderContent,
+  };
 
   if (template === 'core') {
     data.siteHeader = siteHeaderCoreContent;
