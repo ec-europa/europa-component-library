@@ -2,7 +2,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, radios } from '@storybook/addon-knobs';
-import FundingProgrammePageExample from '../examples/Default';
+
+import FundingProgrammeCore from '../examples/FundingProgrammeCore';
+import FundingProgrammeStandardised from '../examples/FundingProgrammeStandardised';
+import FundingProgrammeHarmonisedG1 from '../examples/FundingProgrammeHarmonisedG1';
+import FundingProgrammeHarmonisedG2 from '../examples/FundingProgrammeHarmonisedG2';
 
 storiesOf('Templates|Pages', module)
   .addDecorator(withKnobs)
@@ -18,5 +22,9 @@ storiesOf('Templates|Pages', module)
       'core'
     );
 
-    return <FundingProgrammePageExample template={template} />;
+    if (template === 'standardised') return <FundingProgrammeStandardised />;
+    if (template === 'harmonised-g1') return <FundingProgrammeHarmonisedG1 />;
+    if (template === 'harmonised-g2') return <FundingProgrammeHarmonisedG2 />;
+
+    return <FundingProgrammeCore />;
   });

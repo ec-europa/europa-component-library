@@ -8,8 +8,29 @@ const footerHarmonisedGroup1Content = require('@ecl/ec-specs-footer-harmonised/d
 const footerHarmonisedGroup2Content = require('@ecl/ec-specs-footer-harmonised/demo/data--group2');
 const footerStandardisedContent = require('@ecl/ec-specs-footer-standardised/demo/data');
 
+const breadcrumbContent = {
+  label: 'You are here:',
+};
+const breadcrumbItems = [
+  { label: 'Home', href: '/example' },
+  { label: 'Funding, tenders', href: '/example' },
+  { label: 'Funding opportunities', href: '/example' },
+  { label: 'Overview of funding programmes', href: '/example' },
+  { label: 'European structural and investment funds' },
+];
+
+const pageHeaderContent = {
+  title: 'European structural and investment funds',
+  description:
+    'The European structural and investment funds are: European regional development fund, European social fund, Cohesion fund, European agricultural fund for rural development, European maritime and fisheries fund.',
+};
+
 module.exports = template => {
-  const data = {};
+  const data = {
+    breadcrumbContent,
+    breadcrumbItems,
+    pageHeader: pageHeaderContent,
+  };
 
   if (template === 'core') {
     data.siteHeader = siteHeaderCoreContent;
