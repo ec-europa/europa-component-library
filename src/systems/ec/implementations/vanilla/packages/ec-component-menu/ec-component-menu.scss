@@ -189,8 +189,6 @@
     }
 
     .ecl-menu__item {
-      position: initial;
-
       &::before {
         display: none;
       }
@@ -331,12 +329,12 @@
   @include ecl-media-breakpoint-up('lg') {
     .ecl-menu__mega {
       background-color: $ecl-color-blue-5;
+      border-bottom: 3px solid $ecl-color-blue-25;
       box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
       left: 0;
       padding-bottom: calc(#{$ecl-spacing-xl} - #{$ecl-spacing-s});
       padding-top: $ecl-spacing-xl;
       position: absolute;
-      width: 100%;
       z-index: $ecl-z-index-dropdown;
 
       &::before {
@@ -344,12 +342,29 @@
       }
     }
 
+    .ecl-menu__mega--rtl {
+      left: auto;
+      right: 0;
+    }
+
     .ecl-menu__item[aria-expanded='true'] .ecl-menu__link {
       z-index: calc(#{$ecl-z-index-dropdown} + 1); // hack for box-shadow
     }
 
     .ecl-menu__sublist {
-      column-count: 4;
+      display: grid;
+      grid-auto-columns: max-content;
+      grid-auto-flow: column;
+      grid-template-rows: auto auto auto auto;
+    }
+
+    // Special hack for IE
+    @media all and (-ms-high-contrast: none) {
+      .ecl-menu__sublist {
+        break-inside: avoid;
+        column-count: 4;
+        display: block;
+      }
     }
 
     .ecl-menu__subitem::before {
@@ -357,12 +372,11 @@
     }
 
     .ecl-menu__subitem {
+      align-items: center;
       box-sizing: border-box;
-      padding-bottom: $ecl-spacing-s;
-    }
-
-    .ecl-menu__subitem:last-of-type {
-      margin-bottom: 0;
+      display: flex;
+      margin-bottom: $ecl-spacing-s;
+      max-width: 20ch;
     }
 
     .ecl-menu__sublink {

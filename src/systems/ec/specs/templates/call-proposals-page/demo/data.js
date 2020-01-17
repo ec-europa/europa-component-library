@@ -40,10 +40,18 @@ module.exports = template => {
     data.siteHeader = siteHeaderCoreContent;
     data.footer = footerCoreContent;
   } else if (template === 'standardised') {
-    data.siteHeader = siteHeaderStandardisedContent;
+    const siteHeaderStandardisedContentCopy = JSON.parse(
+      JSON.stringify(siteHeaderStandardisedContent)
+    );
+    siteHeaderStandardisedContentCopy.banner = 'Site name';
+    data.siteHeader = siteHeaderStandardisedContentCopy;
     data.footer = footerStandardisedContent;
   } else if (template === 'harmonised-g1') {
-    data.siteHeader = siteHeaderHarmonisedGroup1Content;
+    const siteHeaderHarmonisedGroup1ContentCopy = JSON.parse(
+      JSON.stringify(siteHeaderHarmonisedGroup1Content)
+    );
+    siteHeaderHarmonisedGroup1ContentCopy.banner = 'Site name';
+    data.siteHeader = siteHeaderHarmonisedGroup1ContentCopy;
     data.footer = footerHarmonisedGroup1Content;
   } else if (template === 'harmonised-g2') {
     data.siteHeader = siteHeaderHarmonisedGroup2Content;
