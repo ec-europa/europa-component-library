@@ -77,7 +77,6 @@
   .ecl-file-upload__list {
     color: $ecl-color-grey;
     font: $ecl-font-m;
-    font-weight: $ecl-font-weight-bold;
     list-style: none;
     margin-top: $ecl-spacing-m;
     max-width: 538px; // 6 columns; provided by designers
@@ -93,6 +92,15 @@
     border-top: 1px solid $ecl-color-grey-50;
     padding-bottom: $ecl-spacing-m;
     padding-top: $ecl-spacing-m;
+
+    .ecl-file-upload__item-name {
+      font-weight: $ecl-font-weight-bold;
+    }
+
+    .ecl-file-upload__item-infos {
+      display: block;
+      padding-top: $ecl-spacing-2-xs;
+    }
   }
 
   /* 

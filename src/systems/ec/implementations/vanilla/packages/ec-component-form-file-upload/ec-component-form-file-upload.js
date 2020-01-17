@@ -1,4 +1,5 @@
 import { queryOne } from '@ecl/ec-base/helpers/dom';
+import { formatBytes } from '@ecl/ec-base/helpers/utilities';
 
 // Polyfill for closest (support for IE11)
 if (!Element.prototype.matches)
@@ -121,7 +122,12 @@ export class FileUpload {
 
     // Get file names
     e.target.files.forEach(file => {
-      fileList += `<li class="ecl-file-upload__item">${file.name}</li>`;
+      const fileSize = formatBytes(file.size);
+      const fileExtension = file.name.split('.').pop();
+      fileList += `<li class="ecl-file-upload__item">
+      <span class="ecl-file-upload__item-name">${file.name}</span>
+      <span class="ecl-file-upload__item-infos">(${fileSize} - ${fileExtension})</span>
+      </li>`;
     });
 
     // Update file list
