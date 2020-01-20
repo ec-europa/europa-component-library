@@ -122,11 +122,11 @@ export class FileUpload {
 
     // Get file names
     e.target.files.forEach(file => {
-      const fileSize = formatBytes(file.size);
+      const fileSize = formatBytes(file.size, 1);
       const fileExtension = file.name.split('.').pop();
       fileList += `<li class="ecl-file-upload__item">
       <span class="ecl-file-upload__item-name">${file.name}</span>
-      <span class="ecl-file-upload__item-infos">(${fileSize} - ${fileExtension})</span>
+      <span class="ecl-file-upload__item-meta">(${fileSize} - ${fileExtension})</span>
       </li>`;
     });
 
