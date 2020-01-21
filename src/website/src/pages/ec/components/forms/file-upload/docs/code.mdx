@@ -6,19 +6,24 @@ order: 2
 import Playground from '@ecl/website-components/Playground';
 import FileUpload from '@ecl/ec-react-component-file-upload';
 
-import demoContentDefault from '@ecl/ec-specs-file-upload/demo/data--default';
-
 <Playground
   system="ec"
   selectedKind="components-forms-file-upload"
   selectedStory="default"
+  showFrame
 >
-  <FileUpload
-    id="file-upload-id"
-    name={demoContentDefault.name}
-    label={demoContentDefault.label}
-    helperText={demoContentDefault.helperText}
-  />
+  <FileUpload id="example-file-upload-default" />
+</Playground>
+
+## Multiple uploads
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-file-upload"
+  selectedStory="multiple"
+  showFrame
+>
+  <FileUpload id="example-file-upload-multiple" />
 </Playground>
 
 ## Disabled
@@ -26,15 +31,10 @@ import demoContentDefault from '@ecl/ec-specs-file-upload/demo/data--default';
 <Playground
   system="ec"
   selectedKind="components-forms-file-upload"
-  selectedStory="default"
+  selectedStory="disabled"
+  showFrame
 >
-  <FileUpload
-    id="file-upload-id-2"
-    name={demoContentDefault.name}
-    label={demoContentDefault.label}
-    helperText={demoContentDefault.helperText}
-    disabled
-  />
+  <FileUpload id="example-file-upload-disabled" />
 </Playground>
 
 ## With error
@@ -42,33 +42,10 @@ import demoContentDefault from '@ecl/ec-specs-file-upload/demo/data--default';
 <Playground
   system="ec"
   selectedKind="components-forms-file-upload"
-  selectedStory="default"
+  selectedStory="invalid"
+  showFrame
 >
-  <FileUpload
-    id="file-upload-id-3"
-    name={demoContentDefault.name}
-    label={demoContentDefault.label}
-    helperText={demoContentDefault.helperText}
-    invalid
-    invalidText="This is the error message"
-  />
-</Playground>
-
-## Required
-
-<Playground
-  system="ec"
-  selectedKind="components-forms-file-upload"
-  selectedStory="default"
->
-  <FileUpload
-    id="file-upload-id-4"
-    name={demoContentDefault.name}
-    label={demoContentDefault.label}
-    helperText={demoContentDefault.helperText}
-    required
-    requiredText="*"
-  />
+  <FileUpload id="example-file-upload-invalid" />
 </Playground>
 
 ## Optional
@@ -76,13 +53,8 @@ import demoContentDefault from '@ecl/ec-specs-file-upload/demo/data--default';
 <Playground
   system="ec"
   selectedKind="components-forms-file-upload"
-  selectedStory="default"
+  selectedStory="optional"
+  showFrame
 >
-  <FileUpload
-    id="file-upload-id-5"
-    name={demoContentDefault.name}
-    label={demoContentDefault.label}
-    helperText={demoContentDefault.helperText}
-    optionalText=" (optional)"
-  />
+  <FileUpload id="example-file-upload-optional" />
 </Playground>

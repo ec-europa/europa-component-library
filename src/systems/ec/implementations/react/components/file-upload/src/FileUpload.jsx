@@ -15,6 +15,8 @@ const FileUpload = ({
   optionalText,
   required,
   requiredText,
+  buttonChooseLabel,
+  buttonReplaceLabel,
   className,
   ...props
 }) => {
@@ -24,6 +26,7 @@ const FileUpload = ({
 
   return (
     <div
+      data-ecl-file-upload-group
       className={classnames(
         groupClassName,
         'ecl-form-group ecl-form-group--file-upload'
@@ -66,8 +69,23 @@ const FileUpload = ({
         <div className="ecl-feedback-message">{invalidText}</div>
       )}
 
+      <label className="ecl-file-upload__button-container" htmlFor={id}>
+        <span
+          data-ecl-file-upload-button
+          data-ecl-file-upload-label-choose={buttonChooseLabel}
+          data-ecl-file-upload-label-replace={buttonReplaceLabel}
+          className="ecl-file-upload__button ecl-button ecl-button--primary"
+          {...(disabled && {
+            disabled: true,
+          })}
+        >
+          {buttonChooseLabel}
+        </span>
+      </label>
+
       <input
         {...props}
+        data-ecl-file-upload-input
         id={id}
         name={name || undefined}
         type="file"
@@ -75,6 +93,8 @@ const FileUpload = ({
         disabled={disabled}
         required={required}
       />
+
+      <ul className="ecl-file-upload__list" data-ecl-file-upload-list />
     </div>
   );
 };
@@ -92,6 +112,8 @@ FileUpload.propTypes = {
   labelClassName: PropTypes.string,
   required: PropTypes.bool,
   requiredText: PropTypes.string,
+  buttonChooseLabel: PropTypes.string,
+  buttonReplaceLabel: PropTypes.string,
   className: PropTypes.string,
 };
 
@@ -107,6 +129,8 @@ FileUpload.defaultProps = {
   labelClassName: '',
   required: false,
   requiredText: '',
+  buttonChooseLabel: '',
+  buttonReplaceLabel: '',
   className: '',
 };
 
