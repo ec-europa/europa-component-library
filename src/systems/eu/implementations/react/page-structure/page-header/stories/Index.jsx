@@ -4,14 +4,14 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import Breadcrumb, { BreadcrumbItem } from '@ecl/eu-react-component-breadcrumb';
 
-import breadcrumbContent from '@ecl/eu-specs-breadcrumb/demo/data-simple';
-import demoBasic from '@ecl/eu-specs-page-header/demo/data-basic';
-import demoHomepage from '@ecl/eu-specs-page-header/demo/data-homepage';
-import demoHomepageImage from '@ecl/eu-specs-page-header/demo/data-homepage-image';
-import demoBrandedHomepage from '@ecl/eu-specs-page-header/demo/data-branded-homepage';
-import demoBrandedHomepageImage from '@ecl/eu-specs-page-header/demo/data-branded-homepage-image';
-import demoEventsContent from '@ecl/eu-specs-page-header/demo/data-events';
-import demoEventsDescriptionContent from '@ecl/eu-specs-page-header/demo/data-events-description';
+import breadcrumbContent from '@ecl/eu-specs-breadcrumb/demo/data--simple';
+import demoBasic from '@ecl/eu-specs-page-header/demo/data--basic';
+import demoHomepage from '@ecl/eu-specs-page-header/demo/data--homepage';
+import demoHomepageImage from '@ecl/eu-specs-page-header/demo/data--homepage-image';
+import demoBrandedHomepage from '@ecl/eu-specs-page-header/demo/data--branded-homepage';
+import demoBrandedHomepageImage from '@ecl/eu-specs-page-header/demo/data--branded-homepage-image';
+import demoEventsContent from '@ecl/eu-specs-page-header/demo/data--events';
+import demoEventsDescriptionContent from '@ecl/eu-specs-page-header/demo/data--events-description';
 
 import PageHeader from '../src/PageHeader';
 
