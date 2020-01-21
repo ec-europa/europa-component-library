@@ -46,17 +46,66 @@
 
 @mixin ecl-file-upload() {
   .ecl-file-upload {
-    color: $ecl-color-grey;
-    font: $ecl-font-m;
+    display: none;
     margin: 0;
 
-    &:active,
-    &:focus {
-      outline: 3px solid $ecl-color-yellow;
-      outline-offset: -3px;
+    .no-js & {
+      color: $ecl-color-grey;
+      display: block;
+      font: $ecl-font-m;
+      margin: 0;
+
+      // stylelint-disable max-nesting-depth
+      &:active,
+      &:focus {
+        outline: 3px solid $ecl-color-yellow;
+        outline-offset: -3px;
+      }
+      // stylelint-enable max-nesting-depth
     }
   }
 
+  /*
+   * Extra fields for js version
+   */
+  .ecl-file-upload__button-container {
+    .no-js & {
+      display: none;
+    }
+  }
+
+  .ecl-file-upload__list {
+    color: $ecl-color-grey;
+    font: $ecl-font-m;
+    list-style: none;
+    margin-top: $ecl-spacing-m;
+    max-width: 538px; // 6 columns; provided by designers
+    padding-left: 0;
+    width: 100%;
+
+    .no-js & {
+      display: none;
+    }
+  }
+
+  .ecl-file-upload__item {
+    border-top: 1px solid $ecl-color-grey-50;
+    padding-bottom: $ecl-spacing-m;
+    padding-top: $ecl-spacing-m;
+
+    .ecl-file-upload__item-name {
+      font-weight: $ecl-font-weight-bold;
+    }
+
+    .ecl-file-upload__item-meta {
+      display: block;
+      padding-top: $ecl-spacing-2-xs;
+    }
+  }
+
+  /* 
+   * Standard input styling
+   */
   // stylelint-disable-next-line no-descending-specificity
   .ecl-file-upload::-webkit-file-upload-button {
     @include browse-button();
