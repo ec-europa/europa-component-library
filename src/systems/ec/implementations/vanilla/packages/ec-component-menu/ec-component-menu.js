@@ -99,10 +99,7 @@ export class Menu {
     // Bind click event on menu links
     if (this.attachClickListener && this.menuLinks) {
       this.menuLinks.forEach(menuLink => {
-        if (
-          menuLink.parentElement.getAttribute('data-ecl-has-children') ===
-          'true'
-        ) {
+        if (menuLink.parentElement.hasAttribute('data-ecl-has-children')) {
           menuLink.addEventListener('click', this.handleClickOnLink);
         }
       });
@@ -119,10 +116,7 @@ export class Menu {
 
     if (this.attachClickListener && this.menuLinks) {
       this.menuLinks.forEach(menuLink => {
-        if (
-          menuLink.parentElement.getAttribute('data-ecl-has-children') ===
-          'true'
-        ) {
+        if (menuLink.parentElement.hasAttribute('data-ecl-has-children')) {
           menuLink.removeEventListener('click', this.handleClickOnLink);
         }
       });
