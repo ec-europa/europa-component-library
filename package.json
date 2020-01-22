@@ -78,20 +78,9 @@
     "yarn": "^1.10.1"
   },
   "lint-staged": {
-    "*.{md,mdx,html,json,yml}": [
-      "prettier --write",
-      "git add"
-    ],
-    "*.{js,jsx}": [
-      "prettier --write",
-      "eslint",
-      "git add"
-    ],
-    "*.scss": [
-      "prettier --write",
-      "stylelint",
-      "git add"
-    ]
+    "*.{md,mdx,html,json,yml}": [ "prettier --write" ],
+    "*.{js,jsx}": [ "prettier --write", "eslint" ],
+    "*.scss": [ "prettier --write", "stylelint" ]
   },
   "workspaces": [
     "examples/*",
