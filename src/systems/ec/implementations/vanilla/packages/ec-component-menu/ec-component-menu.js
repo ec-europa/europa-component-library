@@ -99,10 +99,7 @@ export class Menu {
     // Bind click event on menu links
     if (this.attachClickListener && this.menuLinks) {
       this.menuLinks.forEach(menuLink => {
-        if (
-          menuLink.parentElement.getAttribute('data-ecl-has-children') ===
-          'true'
-        ) {
+        if (menuLink.parentElement.hasAttribute('data-ecl-has-children')) {
           menuLink.addEventListener('click', this.handleClickOnLink);
         }
       });
@@ -119,10 +116,7 @@ export class Menu {
 
     if (this.attachClickListener && this.menuLinks) {
       this.menuLinks.forEach(menuLink => {
-        if (
-          menuLink.parentElement.getAttribute('data-ecl-has-children') ===
-          'true'
-        ) {
+        if (menuLink.parentElement.hasAttribute('data-ecl-has-children')) {
           menuLink.removeEventListener('click', this.handleClickOnLink);
         }
       });
@@ -177,10 +171,22 @@ export class Menu {
     const menuMega = queryOne(this.menuMegaSelector, menuItem);
 
     if (menuMega) {
+      // Display the menu
       menuMega.setAttribute(
         'aria-hidden',
         menuMega.getAttribute('aria-hidden') === 'false' ? 'true' : 'false'
       );
+
+      // Check if there is enough space to display the menu
+      const menuWidth = menuMega.clientWidth;
+      const windowWidth = window.innerWidth;
+      const menuPosition = menuItem.getBoundingClientRect();
+
+      if (menuPosition.left + menuWidth < windowWidth) {
+        menuMega.classList.remove('ecl-menu__mega--rtl');
+      } else {
+        menuMega.classList.add('ecl-menu__mega--rtl');
+      }
     }
 
     return this;

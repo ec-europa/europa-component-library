@@ -12,7 +12,9 @@ export const MenuItem = ({ label, href, isCurrent, subItems }) => {
       className={classnames('ecl-menu__item', {
         'ecl-menu__item--current': isCurrent,
       })}
-      data-ecl-has-children={hasSubItems ? 'true' : 'false'}
+      {...(hasSubItems && {
+        'data-ecl-has-children': true,
+      })}
       data-ecl-menu-item
     >
       <a

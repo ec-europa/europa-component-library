@@ -8,6 +8,6 @@ module.exports = {
   invalidText: 'This is the error message',
   requiredText: '*',
   optionalText: ' (optional)',
-  buttonChooseLabel: 'Choose file',
-  buttonReplaceLabel: 'Replace file',
+  buttonChooseLabel: 'Choose files',
+  buttonReplaceLabel: 'Replace files',
 };
