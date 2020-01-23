@@ -9,6 +9,36 @@ Users can still go to ECL v1 to create or upgrade their websites. In 2019, we wi
 
 We will also add new components to the ECL v2 as we continue improving the look and feel of the existing components. New releases under v2 should be published periodically under [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 2.22 (2020-01-23)
+
+#### :rocket: New Feature
+* [#1426](https://github.com/ec-europa/europa-component-library/pull/1426) feat(datepicker): Add component - INNO-1599
+* [#1503](https://github.com/ec-europa/europa-component-library/pull/1503) feat(file-upload): upload multiple files - INNO-2065
+
+#### :bug: Bug Fix
+* [#1514](https://github.com/ec-europa/europa-component-library/pull/1514) fix(menu): improve booolean data management - INNO-2024
+* [#1509](https://github.com/ec-europa/europa-component-library/pull/1509) fix(website): display image thumbnails for IE Edge - INNO-2085
+* [#1504](https://github.com/ec-europa/europa-component-library/pull/1504) fix(templates): add site name - INNO-2055
+* [#1502](https://github.com/ec-europa/europa-component-library/pull/1502) fix(menus): Hide menu bullet lists for IE/Edge - INNO-2052
+
+#### :nail_care: Enhancement
+* [#1499](https://github.com/ec-europa/europa-component-library/pull/1499) refactor(menu): menu improvements - INNO-2005
+* [#1501](https://github.com/ec-europa/europa-component-library/pull/1501) docs(storybook): group deprecated - INNO-1933
+
+#### :memo: Documentation
+* [#1515](https://github.com/ec-europa/europa-component-library/pull/1515) docs(components): add missing components images - INNO-2074
+* [#1511](https://github.com/ec-europa/europa-component-library/pull/1511) docs(job-person): update doc - INNO-2088
+* [#1512](https://github.com/ec-europa/europa-component-library/pull/1512) docs(research-area): update doc - INNO-2089
+* [#1510](https://github.com/ec-europa/europa-component-library/pull/1510) docs(events): update doc - INNO-2087
+* [#1508](https://github.com/ec-europa/europa-component-library/pull/1508) docs(commemorative-coin): add doc - INNO-2086
+* [#1500](https://github.com/ec-europa/europa-component-library/pull/1500) docs(hg3): correction - noissue
+
+#### :house: Internal
+* [#1516](https://github.com/ec-europa/europa-component-library/pull/1516) chore(deps): upgrade babel and other dependencies - INNO-2091
+* [#1513](https://github.com/ec-europa/europa-component-library/pull/1513) fix(data): fix data file name - INNO-2081
+* [#1496](https://github.com/ec-europa/europa-component-library/pull/1496) refactor(content-item): use template - INNO-2019
+
+
 ## 2.21 (2020-01-03)
 
 #### :memo: Documentation
