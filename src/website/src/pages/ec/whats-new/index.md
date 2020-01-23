@@ -39,6 +39,7 @@ We will also add new components to the ECL v2 as we continue improving the look 
 
 #### :house: Internal
 
+- [#1507](https://github.com/ec-europa/europa-component-library/pull/1507) refactor(content-types): remove logic - INNO-1977
 - [#1516](https://github.com/ec-europa/europa-component-library/pull/1516) chore(deps): upgrade babel and other dependencies - INNO-2091
 - [#1513](https://github.com/ec-europa/europa-component-library/pull/1513) fix(data): fix data file name - INNO-2081
 - [#1496](https://github.com/ec-europa/europa-component-library/pull/1496) refactor(content-item): use template - INNO-2019
