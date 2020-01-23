@@ -40,8 +40,13 @@
       margin-top: $ecl-spacing-s;
     }
 
-    > *:not(.ecl-form-label--hidden) + .ecl-file-upload {
+    > *:not(.ecl-form-label--hidden) + .ecl-file-upload,
+    > *:not(.ecl-form-label--hidden) + .ecl-file-upload__button-container {
       margin-top: $ecl-spacing-s;
+    }
+
+    > *:not(.ecl-form-label--hidden) + .ecl-file-upload__list {
+      margin-top: $ecl-spacing-m;
     }
 
     > .ecl-feedback-message + .ecl-help-block {
