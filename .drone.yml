@@ -272,5 +272,6 @@ pipeline:
       - node scripts/set-netlify-deployment-status.js
     when:
       event: [push, pull_request]
+      status: [success, failure]
       matrix:
         TEST: deploy
