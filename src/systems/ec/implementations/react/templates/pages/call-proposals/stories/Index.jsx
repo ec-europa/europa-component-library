@@ -30,24 +30,32 @@ storiesOf('Templates|Pages', module)
       optional.siteHeaderLogin = boolean(
         'Site header - Login',
         true,
-        'optional'
+        'optional (standardised)'
       );
       optional.siteHeaderLangSelect = boolean(
         'Site header - Language selector',
         true,
-        'optional'
+        'optional (standardised)'
       );
-      optional.siteHeaderMenu = boolean('Site header - Menu', true, 'optional');
+      optional.siteHeaderMenu = boolean(
+        'Site header - Menu',
+        true,
+        'optional (standardised)'
+      );
       optional.pageHeaderBreadcrumb = boolean(
         'Page header - Breadcrumb',
         true,
-        'optional'
+        'optional (standardised)'
       );
-      optional.pageHeaderMeta = boolean('Page header - Meta', true, 'optional');
+      optional.pageHeaderMeta = boolean(
+        'Page header - Meta',
+        true,
+        'optional (standardised)'
+      );
       optional.pageHeaderIntro = boolean(
         'Page header - Introduction',
         true,
-        'optional'
+        'optional (standardised)'
       );
 
       return <CallProposalsStandardised {...optional} />;
@@ -58,34 +66,42 @@ storiesOf('Templates|Pages', module)
       optional.siteHeaderLogin = boolean(
         'Site header - Login',
         true,
-        'optional'
+        'optional (harmonised group 1)'
       );
       optional.siteHeaderLangSelect = boolean(
         'Site header - Language selector',
         true,
-        'optional'
+        'optional (harmonised group 1)'
       );
       optional.siteHeaderSearch = boolean(
         'Site header - Search',
         true,
-        'optional'
+        'optional (harmonised group 1)'
       );
       optional.siteHeaderClassName = boolean(
         'Site header - Class name',
         true,
-        'optional'
+        'optional (harmonised group 1)'
       );
-      optional.siteHeaderMenu = boolean('Site header - Menu', true, 'optional');
+      optional.siteHeaderMenu = boolean(
+        'Site header - Menu',
+        true,
+        'optional (harmonised group 1)'
+      );
       optional.pageHeaderBreadcrumb = boolean(
         'Page header - Breadcrumb',
         true,
-        'optional'
+        'optional (harmonised group 1)'
       );
-      optional.pageHeaderMeta = boolean('Page header - Meta', true, 'optional');
+      optional.pageHeaderMeta = boolean(
+        'Page header - Meta',
+        true,
+        'optional (harmonised group 1)'
+      );
       optional.pageHeaderIntro = boolean(
         'Page header - Introduction',
         true,
-        'optional'
+        'optional (harmonised group 1)'
       );
 
       return <CallProposalsHarmonisedG1 {...optional} />;
@@ -96,36 +112,52 @@ storiesOf('Templates|Pages', module)
       optional.siteHeaderLangSelect = boolean(
         'Site header - Language selector',
         true,
-        'optional'
+        'optional (harmonised group 2)'
       );
       optional.siteHeaderSearch = boolean(
         'Site header - Search',
         true,
-        'optional'
+        'optional (harmonised group 2)'
       );
-      optional.siteHeaderMenu = boolean('Site header - Menu', true, 'optional');
+      optional.siteHeaderMenu = boolean(
+        'Site header - Menu',
+        true,
+        'optional (harmonised group 2)'
+      );
       optional.pageHeaderBreadcrumb = boolean(
         'Page header - Breadcrumb',
         true,
-        'optional'
+        'optional (harmonised group 2)'
       );
-      optional.pageHeaderMeta = boolean('Page header - Meta', true, 'optional');
+      optional.pageHeaderMeta = boolean(
+        'Page header - Meta',
+        true,
+        'optional (harmonised group 2)'
+      );
       optional.pageHeaderIntro = boolean(
         'Page header - Introduction',
         true,
-        'optional'
+        'optional (harmonised group 2)'
       );
 
       return <CallProposalsHarmonisedG2 {...optional} />;
     }
 
     // Core (default)
-    optional.siteHeaderLogin = boolean('Site header - Login', true, 'optional');
-    optional.pageHeaderMeta = boolean('Page header - Meta', true, 'optional');
+    optional.siteHeaderLogin = boolean(
+      'Site header - Login',
+      true,
+      'optional (core)'
+    );
+    optional.pageHeaderMeta = boolean(
+      'Page header - Meta',
+      true,
+      'optional (core)'
+    );
     optional.pageHeaderIntro = boolean(
       'Page header - Introduction',
       true,
-      'optional'
+      'optional (core)'
     );
     return <CallProposalsCore {...optional} />;
   });
