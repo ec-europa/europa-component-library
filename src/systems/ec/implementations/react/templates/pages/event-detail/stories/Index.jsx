@@ -2,7 +2,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, radios } from '@storybook/addon-knobs';
-import EventDetailPageExample from '../examples/Default';
+
+import EventDetailCore from '../examples/EventDetailCore';
+import EventDetailStandardised from '../examples/EventDetailStandardised';
+import EventDetailHarmonisedG1 from '../examples/EventDetailHarmonisedG1';
+import EventDetailHarmonisedG2 from '../examples/EventDetailHarmonisedG2';
 
 storiesOf('Templates|Pages', module)
   .addDecorator(withKnobs)
@@ -18,5 +22,9 @@ storiesOf('Templates|Pages', module)
       'core'
     );
 
-    return <EventDetailPageExample template={template} />;
+    if (template === 'standardised') return <EventDetailStandardised />;
+    if (template === 'harmonised-g1') return <EventDetailHarmonisedG1 />;
+    if (template === 'harmonised-g2') return <EventDetailHarmonisedG2 />;
+
+    return <EventDetailCore />;
   });

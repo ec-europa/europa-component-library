@@ -2,7 +2,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, radios } from '@storybook/addon-knobs';
-import SearchPageExample from '../examples/Default';
+
+import SearchCore from '../examples/SearchCore';
+import SearchStandardised from '../examples/SearchStandardised';
+import SearchHarmonisedG1 from '../examples/SearchHarmonisedG1';
+import SearchHarmonisedG2 from '../examples/SearchHarmonisedG2';
 
 storiesOf('Templates|Pages', module)
   .addDecorator(withKnobs)
@@ -18,5 +22,9 @@ storiesOf('Templates|Pages', module)
       'core'
     );
 
-    return <SearchPageExample template={template} />;
+    if (template === 'standardised') return <SearchStandardised />;
+    if (template === 'harmonised-g1') return <SearchHarmonisedG1 />;
+    if (template === 'harmonised-g2') return <SearchHarmonisedG2 />;
+
+    return <SearchCore />;
   });
