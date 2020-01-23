@@ -8,8 +8,26 @@ const footerHarmonisedGroup1Content = require('@ecl/ec-specs-footer-harmonised/d
 const footerHarmonisedGroup2Content = require('@ecl/ec-specs-footer-harmonised/demo/data--group2');
 const footerStandardisedContent = require('@ecl/ec-specs-footer-standardised/demo/data');
 
+const breadcrumbContent = {
+  label: 'You are here:',
+};
+const breadcrumbItems = [
+  { label: 'Home', href: '/example' },
+  { label: 'Research and innovation', href: '/example' },
+  { label: 'Research by area', href: '/example' },
+  { label: 'Oceans and seas' },
+];
+
+const pageHeaderContent = {
+  title: 'Oceans and seas',
+};
+
 module.exports = template => {
-  const data = {};
+  const data = {
+    breadcrumbContent,
+    breadcrumbItems,
+    pageHeader: pageHeaderContent,
+  };
 
   if (template === 'core') {
     data.siteHeader = siteHeaderCoreContent;
