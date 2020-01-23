@@ -1,9 +1,7 @@
 ---
-order: 1,
+order: 1
 title: Glossary
 ---
-
-(work in progress)
 
 ## Accessibility
 
