@@ -3,33 +3,39 @@
 ## 2.22 (2020-01-23)
 
 #### :rocket: New Feature
-* [#1426](https://github.com/ec-europa/europa-component-library/pull/1426) feat(datepicker): Add component - INNO-1599 ([@emeryro](https://github.com/emeryro))
-* [#1503](https://github.com/ec-europa/europa-component-library/pull/1503) feat(file-upload): upload multiple files - INNO-2065 ([@emeryro](https://github.com/emeryro))
+
+- [#1426](https://github.com/ec-europa/europa-component-library/pull/1426) feat(datepicker): Add component - INNO-1599 ([@emeryro](https://github.com/emeryro))
+- [#1503](https://github.com/ec-europa/europa-component-library/pull/1503) feat(file-upload): upload multiple files - INNO-2065 ([@emeryro](https://github.com/emeryro))
 
 #### :bug: Bug Fix
-* [#1514](https://github.com/ec-europa/europa-component-library/pull/1514) fix(menu): improve booolean data management - INNO-2024 ([@emeryro](https://github.com/emeryro))
-* [#1509](https://github.com/ec-europa/europa-component-library/pull/1509) fix(website): display image thumbnails for IE Edge - INNO-2085 ([@papegaill](https://github.com/papegaill))
-* [#1504](https://github.com/ec-europa/europa-component-library/pull/1504) fix(templates): add site name - INNO-2055 ([@emeryro](https://github.com/emeryro))
-* [#1502](https://github.com/ec-europa/europa-component-library/pull/1502) fix(menus): Hide menu bullet lists for IE/Edge - INNO-2052 ([@papegaill](https://github.com/papegaill))
+
+- [#1514](https://github.com/ec-europa/europa-component-library/pull/1514) fix(menu): improve booolean data management - INNO-2024 ([@emeryro](https://github.com/emeryro))
+- [#1509](https://github.com/ec-europa/europa-component-library/pull/1509) fix(website): display image thumbnails for IE Edge - INNO-2085 ([@papegaill](https://github.com/papegaill))
+- [#1504](https://github.com/ec-europa/europa-component-library/pull/1504) fix(templates): add site name - INNO-2055 ([@emeryro](https://github.com/emeryro))
+- [#1502](https://github.com/ec-europa/europa-component-library/pull/1502) fix(menus): Hide menu bullet lists for IE/Edge - INNO-2052 ([@papegaill](https://github.com/papegaill))
 
 #### :nail_care: Enhancement
-* [#1499](https://github.com/ec-europa/europa-component-library/pull/1499) refactor(menu): menu improvements - INNO-2005 ([@emeryro](https://github.com/emeryro))
-* [#1501](https://github.com/ec-europa/europa-component-library/pull/1501) docs(storybook): group deprecated - INNO-1933 ([@emeryro](https://github.com/emeryro))
+
+- [#1499](https://github.com/ec-europa/europa-component-library/pull/1499) refactor(menu): menu improvements - INNO-2005 ([@emeryro](https://github.com/emeryro))
+- [#1501](https://github.com/ec-europa/europa-component-library/pull/1501) docs(storybook): group deprecated - INNO-1933 ([@emeryro](https://github.com/emeryro))
 
 #### :memo: Documentation
-* [#1515](https://github.com/ec-europa/europa-component-library/pull/1515) docs(components): add missing components images - INNO-2074 ([@emeryro](https://github.com/emeryro))
-* [#1511](https://github.com/ec-europa/europa-component-library/pull/1511) docs(job-person): update doc - INNO-2088 ([@emeryro](https://github.com/emeryro))
-* [#1512](https://github.com/ec-europa/europa-component-library/pull/1512) docs(research-area): update doc - INNO-2089 ([@emeryro](https://github.com/emeryro))
-* [#1510](https://github.com/ec-europa/europa-component-library/pull/1510) docs(events): update doc - INNO-2087 ([@emeryro](https://github.com/emeryro))
-* [#1508](https://github.com/ec-europa/europa-component-library/pull/1508) docs(commemorative-coin): add doc - INNO-2086 ([@emeryro](https://github.com/emeryro))
-* [#1500](https://github.com/ec-europa/europa-component-library/pull/1500) docs(hg3): correction - noissue ([@kalinchernev](https://github.com/kalinchernev))
+
+- [#1515](https://github.com/ec-europa/europa-component-library/pull/1515) docs(components): add missing components images - INNO-2074 ([@emeryro](https://github.com/emeryro))
+- [#1511](https://github.com/ec-europa/europa-component-library/pull/1511) docs(job-person): update doc - INNO-2088 ([@emeryro](https://github.com/emeryro))
+- [#1512](https://github.com/ec-europa/europa-component-library/pull/1512) docs(research-area): update doc - INNO-2089 ([@emeryro](https://github.com/emeryro))
+- [#1510](https://github.com/ec-europa/europa-component-library/pull/1510) docs(events): update doc - INNO-2087 ([@emeryro](https://github.com/emeryro))
+- [#1508](https://github.com/ec-europa/europa-component-library/pull/1508) docs(commemorative-coin): add doc - INNO-2086 ([@emeryro](https://github.com/emeryro))
+- [#1500](https://github.com/ec-europa/europa-component-library/pull/1500) docs(hg3): correction - noissue ([@kalinchernev](https://github.com/kalinchernev))
 
 #### :house: Internal
-* [#1516](https://github.com/ec-europa/europa-component-library/pull/1516) chore(deps): upgrade babel and other dependencies - INNO-2091 ([@kalinchernev](https://github.com/kalinchernev))
-* [#1513](https://github.com/ec-europa/europa-component-library/pull/1513) fix(data): fix data file name - INNO-2081 ([@emeryro](https://github.com/emeryro))
-* [#1496](https://github.com/ec-europa/europa-component-library/pull/1496) refactor(content-item): use template - INNO-2019 ([@emeryro](https://github.com/emeryro))
+
+- [#1516](https://github.com/ec-europa/europa-component-library/pull/1516) chore(deps): upgrade babel and other dependencies - INNO-2091 ([@kalinchernev](https://github.com/kalinchernev))
+- [#1513](https://github.com/ec-europa/europa-component-library/pull/1513) fix(data): fix data file name - INNO-2081 ([@emeryro](https://github.com/emeryro))
+- [#1496](https://github.com/ec-europa/europa-component-library/pull/1496) refactor(content-item): use template - INNO-2019 ([@emeryro](https://github.com/emeryro))
 
 #### Committers: 3
+
 - Alexis Gaillard ([@papegaill](https://github.com/papegaill))
 - Kalin Chernev ([@kalinchernev](https://github.com/kalinchernev))
 - Romain Emery ([@emeryro](https://github.com/emeryro))
