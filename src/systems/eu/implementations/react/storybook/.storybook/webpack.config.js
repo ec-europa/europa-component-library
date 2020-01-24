@@ -1,5 +1,11 @@
+const path = require('path');
+
 module.exports = ({ config: defaultConfig }) => {
-  // Exclude node_modules
+  // Babel loader: include "src"
+  defaultConfig.module.rules[0].include.push(
+    path.resolve(__dirname, '../../../../../..')
+  );
+
   defaultConfig.module.rules[0].exclude.push(/node_modules/);
 
   // Change media dist folder

@@ -1,12 +1,9 @@
-const path = require('path');
-
 const stories = [
   '../../templates/**/*/stories/*.jsx',
   '../../page-structure/**/*/stories/*.jsx',
   '../../layout/**/*/stories/*.jsx',
   '../../components/**/*/stories/*.jsx',
   '../../utilities/**/*/stories/*.jsx',
-  '../../deprecated/**/*/stories/*.jsx',
 ];
 
 const addons = [
