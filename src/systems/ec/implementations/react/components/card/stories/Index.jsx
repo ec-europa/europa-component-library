@@ -6,7 +6,7 @@ import { withKnobs, text, array } from '@storybook/addon-knobs';
 import demoContentCard from '@ecl/ec-specs-card/demo/data--card';
 import demoContentTile from '@ecl/ec-specs-card/demo/data--tile';
 
-import template from './Template';
+import { Template } from './Template';
 
 import Card from '../src/Card';
 
@@ -97,4 +97,4 @@ storiesOf('Components|Card', module)
 
     return <Card title={title} description={description} links={links} />;
   })
-  .add('template', template);
+  .add('template', Template);
