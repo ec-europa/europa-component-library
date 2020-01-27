@@ -5,6 +5,208 @@
 // Import base
 @import '@ecl/eu-base/eu-base';
 
+// Spacing inset
+@mixin ecl-utility-spacing-inset() {
+  .ecl-u-spacing-inset-2xs {
+    padding: $ecl-spacing-2-xs !important;
+  }
+
+  .ecl-u-spacing-inset-xs {
+    padding: $ecl-spacing-xs !important;
+  }
+
+  .ecl-u-spacing-inset-s {
+    padding: $ecl-spacing-s !important;
+  }
+
+  .ecl-u-spacing-inset-m {
+    padding: $ecl-spacing-m !important;
+  }
+
+  .ecl-u-spacing-inset-l {
+    padding: $ecl-spacing-l !important;
+  }
+
+  .ecl-u-spacing-inset-xl {
+    padding: $ecl-spacing-l !important;
+  }
+
+  .ecl-u-spacing-inset-2xl {
+    padding: $ecl-spacing-xl !important;
+  }
+
+  .ecl-u-spacing-inset-3xl {
+    padding: $ecl-spacing-xl !important;
+  }
+
+  .ecl-u-spacing-inset-4xl {
+    padding: $ecl-spacing-3-xl !important;
+  }
+
+  .ecl-u-spacing-inset-5xl {
+    padding: $ecl-spacing-3-xl !important;
+  }
+
+  .ecl-u-spacing-inset-6xl {
+    padding: $ecl-spacing-3-xl !important;
+  }
+
+  .ecl-u-spacing-inset-7xl {
+    padding: $ecl-spacing-3-xl !important;
+  }
+
+  .ecl-u-spacing-inset-8xl {
+    padding: $ecl-spacing-5-xl !important;
+  }
+
+  .ecl-u-spacing-inset-9xl {
+    padding: $ecl-spacing-5-xl !important;
+  }
+
+  .ecl-u-spacing-inset-10xl {
+    padding: $ecl-spacing-5-xl !important;
+  }
+
+  .ecl-u-spacing-inset-11xl {
+    padding: $ecl-spacing-5-xl !important;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up('xl') {
+    .ecl-u-spacing-inset-xl {
+      padding: $ecl-spacing-xl !important;
+    }
+
+    .ecl-u-spacing-inset-2xl {
+      padding: $ecl-spacing-2-xl !important;
+    }
+
+    .ecl-u-spacing-inset-3xl {
+      padding: $ecl-spacing-3-xl !important;
+    }
+
+    .ecl-u-spacing-inset-4xl {
+      padding: $ecl-spacing-4-xl !important;
+    }
+
+    .ecl-u-spacing-inset-5xl {
+      padding: $ecl-spacing-5-xl !important;
+    }
+
+    .ecl-u-spacing-inset-6xl {
+      padding: $ecl-spacing-6-xl !important;
+    }
+
+    .ecl-u-spacing-inset-7xl {
+      padding: $ecl-spacing-7-xl !important;
+    }
+
+    .ecl-u-spacing-inset-8xl {
+      padding: $ecl-spacing-8-xl !important;
+    }
+
+    .ecl-u-spacing-inset-9xl {
+      padding: $ecl-spacing-9-xl !important;
+    }
+
+    .ecl-u-spacing-inset-10xl {
+      padding: $ecl-spacing-10-xl !important;
+    }
+
+    .ecl-u-spacing-inset-11xl {
+      padding: $ecl-spacing-11-xl !important;
+    }
+  }
+}
+
+// Spacing inset squish
+@mixin ecl-utility-spacing-inset-squish() {
+  @each $breakpoint in map-keys($ecl-grid-breakpoints) {
+    @include ecl-media-breakpoint-up($breakpoint) {
+      $infix: ecl-breakpoint-infix($breakpoint, $ecl-grid-breakpoints);
+
+      .ecl-u-spacing-inset-squish#{$infix}-s {
+        padding: $ecl-spacing-2-xs $ecl-spacing-xs !important;
+      }
+
+      .ecl-u-spacing-inset-squish#{$infix}-m {
+        padding: $ecl-spacing-xs $ecl-spacing-m !important;
+      }
+
+      .ecl-u-spacing-inset-squish#{$infix}-l {
+        padding: $ecl-spacing-s $ecl-spacing-xl !important;
+      }
+
+      .ecl-u-spacing-inset-squish#{$infix}-xl {
+        padding: $ecl-spacing-m $ecl-spacing-3-xl !important;
+      }
+    }
+  }
+}
+
+// Spacing inset stretch
+@mixin ecl-utility-spacing-inset-stretch() {
+  @each $breakpoint in map-keys($ecl-grid-breakpoints) {
+    @include ecl-media-breakpoint-up($breakpoint) {
+      $infix: ecl-breakpoint-infix($breakpoint, $ecl-grid-breakpoints);
+
+      .ecl-u-spacing-inset-stretch#{$infix}-s {
+        padding: $ecl-spacing-xs $ecl-spacing-2-xs !important;
+      }
+
+      .ecl-u-spacing-inset-stretch#{$infix}-m {
+        padding: $ecl-spacing-m $ecl-spacing-xs !important;
+      }
+
+      .ecl-u-spacing-inset-stretch#{$infix}-l {
+        padding: $ecl-spacing-xl $ecl-spacing-s !important;
+      }
+
+      .ecl-u-spacing-inset-stretch#{$infix}-xl {
+        padding: $ecl-spacing-3-xl $ecl-spacing-m !important;
+      }
+    }
+  }
+}
+
+// Spacing stack
+@mixin ecl-utility-spacing-stack() {
+  @each $breakpoint in map-keys($ecl-grid-breakpoints) {
+    @include ecl-media-breakpoint-up($breakpoint) {
+      $infix: ecl-breakpoint-infix($breakpoint, $ecl-grid-breakpoints);
+
+      @each $key, $value in $ecl-spacing {
+        .ecl-u-spacing-stack#{$infix}-#{$key} {
+          margin-top: $value !important;
+        }
+      }
+
+      .ecl-u-spacing-stack#{$infix}-none {
+        margin-top: 0 !important;
+      }
+    }
+  }
+}
+
+// Spacing inline
+@mixin ecl-utility-spacing-inline() {
+  @each $breakpoint in map-keys($ecl-grid-breakpoints) {
+    @include ecl-media-breakpoint-up($breakpoint) {
+      $infix: ecl-breakpoint-infix($breakpoint, $ecl-grid-breakpoints);
+
+      @each $key, $value in $ecl-spacing {
+        .ecl-u-spacing-inline#{$infix}-#{$key} {
+          margin-left: $value !important;
+        }
+      }
+
+      .ecl-u-spacing-inline#{$infix}-none {
+        margin-left: 0 !important;
+      }
+    }
+  }
+}
+
 /*
    Base:
     m = margin
@@ -182,6 +384,11 @@
 
 // Use mixin
 @include exports('eu-utility-spacing') {
+  @include ecl-utility-spacing-inset();
+  @include ecl-utility-spacing-inset-squish();
+  @include ecl-utility-spacing-inset-stretch();
+  @include ecl-utility-spacing-stack();
+  @include ecl-utility-spacing-inline();
   @include ecl-utility-margin();
   @include ecl-utility-padding();
 }
