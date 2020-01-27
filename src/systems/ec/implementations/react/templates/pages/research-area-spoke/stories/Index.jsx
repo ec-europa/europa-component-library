@@ -2,11 +2,15 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, radios } from '@storybook/addon-knobs';
-import ResearchAreaSpokePageExample from '../examples/Default';
+
+import ResearchAreaSpokeCore from '../examples/ResearchAreaSpokeCore';
+import ResearchAreaSpokeStandardised from '../examples/ResearchAreaSpokeStandardised';
+import ResearchAreaSpokeHarmonisedG1 from '../examples/ResearchAreaSpokeHarmonisedG1';
+import ResearchAreaSpokeHarmonisedG2 from '../examples/ResearchAreaSpokeHarmonisedG2';
 
 storiesOf('Templates|Pages', module)
   .addDecorator(withKnobs)
-  .add('Research Area Spoke', () => {
+  .add('Research area spoke', () => {
     const template = radios(
       'Template',
       {
@@ -18,5 +22,9 @@ storiesOf('Templates|Pages', module)
       'core'
     );
 
-    return <ResearchAreaSpokePageExample template={template} />;
+    if (template === 'standardised') return <ResearchAreaSpokeStandardised />;
+    if (template === 'harmonised-g1') return <ResearchAreaSpokeHarmonisedG1 />;
+    if (template === 'harmonised-g2') return <ResearchAreaSpokeHarmonisedG2 />;
+
+    return <ResearchAreaSpokeCore />;
   });

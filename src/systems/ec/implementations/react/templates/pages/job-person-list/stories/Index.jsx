@@ -2,7 +2,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, radios } from '@storybook/addon-knobs';
-import PersonListPageExample from '../examples/Default';
+
+import PersonListCore from '../examples/PersonListCore';
+import PersonListStandardised from '../examples/PersonListStandardised';
+import PersonListHarmonisedG1 from '../examples/PersonListHarmonisedG1';
+import PersonListHarmonisedG2 from '../examples/PersonListHarmonisedG2';
 
 storiesOf('Templates|Pages', module)
   .addDecorator(withKnobs)
@@ -18,5 +22,9 @@ storiesOf('Templates|Pages', module)
       'core'
     );
 
-    return <PersonListPageExample template={template} />;
+    if (template === 'standardised') return <PersonListStandardised />;
+    if (template === 'harmonised-g1') return <PersonListHarmonisedG1 />;
+    if (template === 'harmonised-g2') return <PersonListHarmonisedG2 />;
+
+    return <PersonListCore />;
   });

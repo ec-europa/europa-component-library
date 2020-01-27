@@ -8,8 +8,33 @@ const footerHarmonisedGroup1Content = require('@ecl/ec-specs-footer-harmonised/d
 const footerHarmonisedGroup2Content = require('@ecl/ec-specs-footer-harmonised/demo/data--group2');
 const footerStandardisedContent = require('@ecl/ec-specs-footer-standardised/demo/data');
 
+const breadcrumbContent = {
+  label: 'You are here:',
+};
+const breadcrumbItems = [
+  { label: 'Home', href: '/example' },
+  { label: 'Funding, tenders', href: '/example' },
+  { label: 'Funding opportunities', href: '/example' },
+  {
+    label:
+      'Preparatory action - capacity building in the area of financial services - FISMA/2015/135/D',
+  },
+];
+
+const pageHeaderContent = {
+  meta: 'Funding | Call for proposals',
+  title:
+    'Preparatory action - capacity building in the area of financial services - FISMA/2015/135/D',
+  description:
+    'Preparatory action to provide a financial contribution to a European financial expertise centre for the direct benefit of European end-users and other non-industry stakeholders',
+};
+
 module.exports = template => {
-  const data = {};
+  const data = {
+    breadcrumbContent,
+    breadcrumbItems,
+    pageHeader: pageHeaderContent,
+  };
 
   if (template === 'core') {
     data.siteHeader = siteHeaderCoreContent;

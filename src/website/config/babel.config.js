@@ -13,7 +13,6 @@ module.exports = {
   plugins: [
     'preval',
     'react-hot-loader/babel',
-    '@babel/plugin-syntax-dynamic-import',
     '@babel/plugin-proposal-export-namespace-from',
     '@babel/plugin-proposal-export-default-from',
   ],

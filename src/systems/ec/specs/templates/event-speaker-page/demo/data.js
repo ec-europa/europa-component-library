@@ -8,8 +8,39 @@ const footerHarmonisedGroup1Content = require('@ecl/ec-specs-footer-harmonised/d
 const footerHarmonisedGroup2Content = require('@ecl/ec-specs-footer-harmonised/demo/data--group2');
 const footerStandardisedContent = require('@ecl/ec-specs-footer-standardised/demo/data');
 
+const breadcrumbContent = {
+  label: 'You are here:',
+};
+const breadcrumbItems = [
+  { label: 'Home', href: '/example' },
+  { label: 'Events', href: '/example' },
+  {
+    label: 'Fair of European Innovators in Cultural heritage',
+    href: '/example',
+  },
+  { label: 'Programme' },
+];
+
+const pageHeaderContent = {
+  title: 'Conference',
+  description: 'Fair of European Innovators in Cultural heritage',
+};
+
+const pageBannerContent = {
+  title: 'Fair of European Innovators in Cultural Heritage',
+  link: {
+    label: 'Register',
+    href: '/example',
+  },
+};
+
 module.exports = template => {
-  const data = {};
+  const data = {
+    breadcrumbContent,
+    breadcrumbItems,
+    pageHeader: pageHeaderContent,
+    pageBanner: pageBannerContent,
+  };
 
   if (template === 'core') {
     data.siteHeader = siteHeaderCoreContent;

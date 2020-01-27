@@ -2,7 +2,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, radios } from '@storybook/addon-knobs';
-import CallTendersPageExample from '../examples/Default';
+
+import CallTendersCore from '../examples/CallTendersCore';
+import CallTendersStandardised from '../examples/CallTendersStandardised';
+import CallTendersHarmonisedG1 from '../examples/CallTendersHarmonisedG1';
+import CallTendersHarmonisedG2 from '../examples/CallTendersHarmonisedG2';
 
 storiesOf('Templates|Pages', module)
   .addDecorator(withKnobs)
@@ -18,5 +22,9 @@ storiesOf('Templates|Pages', module)
       'core'
     );
 
-    return <CallTendersPageExample template={template} />;
+    if (template === 'standardised') return <CallTendersStandardised />;
+    if (template === 'harmonised-g1') return <CallTendersHarmonisedG1 />;
+    if (template === 'harmonised-g2') return <CallTendersHarmonisedG2 />;
+
+    return <CallTendersCore />;
   });
