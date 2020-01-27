@@ -2,11 +2,11 @@ import { addDecorator, addParameters } from '@storybook/react';
 import { withA11y } from '@storybook/addon-a11y';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { withCssResources } from '@storybook/addon-cssresources';
-// import { withCode } from '../../../../../../tools/storybook-addon-code';
+import { withCode } from '../../../../../../tools/storybook-addon-code';
 
 import './ECL';
 
-// addDecorator(withCode);
+addDecorator(withCode);
 addDecorator(withA11y);
 addDecorator(withCssResources);
 
@@ -21,12 +21,12 @@ addParameters({
   cssresources: [
     {
       id: 'ecl-screen',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec-preset-website.css" />`,
+      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-eu-preset-website.css" />`,
       picked: true,
     },
     {
       id: 'ecl-print',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec-preset-website-print.css" />`,
+      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-eu-preset-website-print.css" />`,
       picked: false,
     },
     {

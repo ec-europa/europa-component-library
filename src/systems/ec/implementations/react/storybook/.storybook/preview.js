@@ -2,11 +2,11 @@ import { addDecorator, addParameters } from '@storybook/react';
 import { withA11y } from '@storybook/addon-a11y';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { withCssResources } from '@storybook/addon-cssresources';
-// import { withCode } from '../../../../../../tools/storybook-addon-code';
+import { withCode } from '../../../../../../tools/storybook-addon-code';
 
 import './ECL';
 
-// addDecorator(withCode);
+addDecorator(withCode);
 addDecorator(withA11y);
 addDecorator(withCssResources);
 
