@@ -4,6 +4,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 
+import ExampleFixed from '../examples/Fixed';
 import Example234612 from '../examples/234612';
 import Example642 from '../examples/642';
 import Example282 from '../examples/282';
@@ -36,7 +37,25 @@ const Background = () => (
     }}
   >
     <div
-      className="ecl-row"
+      className="ecl-row ecl-u-d-m-none"
+      style={{
+        height: '100%',
+      }}
+    >
+      {new Array(4).fill().map((v, i) => (
+        <div className="ecl-col-3" key={`bg-${i}`}>
+          <div
+            style={{
+              backgroundColor: '#E9E3FC',
+              height: '100%',
+              width: '100%',
+            }}
+          />
+        </div>
+      ))}
+    </div>
+    <div
+      className="ecl-row ecl-u-d-none ecl-u-d-m-flex"
       style={{
         height: '100%',
       }}
@@ -63,6 +82,12 @@ storiesOf('Layout|Grid', module)
     },
   })
   .addDecorator(withKnobs)
+  .add('Fixed grid', () => (
+    <Demo>
+      <Background />
+      <ExampleFixed />
+    </Demo>
+  ))
   .add('2-3-4-6-12', () => {
     return (
       <Demo>

@@ -2,24 +2,44 @@ imports:
   - '../tokens/grid.yml'
 
 props:
-  - name: CONTAINER_MAX_WIDTH_SM
-    value: '{!CONTAINER_MAX_WIDTH_SM}'
+  - name: CONTAINER_MAX_WIDTH_S
+    value: '{!CONTAINER_MAX_WIDTH_S}'
     type: 'number'
     category: 'grid'
-  - name: CONTAINER_MAX_WIDTH_MD
-    value: '{!CONTAINER_MAX_WIDTH_MD}'
+  - name: CONTAINER_MAX_WIDTH_M
+    value: '{!CONTAINER_MAX_WIDTH_M}'
     type: 'number'
     category: 'grid'
-  - name: CONTAINER_MAX_WIDTH_LG
-    value: '{!CONTAINER_MAX_WIDTH_LG}'
+  - name: CONTAINER_MAX_WIDTH_L
+    value: '{!CONTAINER_MAX_WIDTH_L}'
     type: 'number'
     category: 'grid'
   - name: CONTAINER_MAX_WIDTH_XL
     value: '{!CONTAINER_MAX_WIDTH_XL}'
     type: 'number'
     category: 'grid'
-  - name: GRID_GUTTER_WIDTH
-    value: '{!GRID_GUTTER_WIDTH}'
+  - name: CONTAINER_MAX_WIDTH_2XL
+    value: '{!CONTAINER_MAX_WIDTH_2XL}'
+    type: 'number'
+    category: 'grid'
+  - name: GRID_GUTTER_WIDTH_S
+    value: '{!GRID_GUTTER_WIDTH_S}'
+    type: 'number'
+    category: 'grid'
+  - name: GRID_GUTTER_WIDTH_M
+    value: '{!GRID_GUTTER_WIDTH_M}'
+    type: 'number'
+    category: 'grid'
+  - name: GRID_GUTTER_WIDTH_L
+    value: '{!GRID_GUTTER_WIDTH_L}'
+    type: 'number'
+    category: 'grid'
+  - name: GRID_GUTTER_WIDTH_XL
+    value: '{!GRID_GUTTER_WIDTH_XL}'
+    type: 'number'
+    category: 'grid'
+  - name: GRID_GUTTER_WIDTH_2XL
+    value: '{!GRID_GUTTER_WIDTH_2XL}'
     type: 'number'
     category: 'grid'
   - name: GRID_COLUMNS

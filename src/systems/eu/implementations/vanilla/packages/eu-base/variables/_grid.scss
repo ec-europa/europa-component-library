@@ -2,27 +2,28 @@
 
 $ecl-grid-breakpoints: (
   xs: $ecl-breakpoint-xs,
-  sm: $ecl-breakpoint-sm,
-  md: $ecl-breakpoint-md,
-  lg: $ecl-breakpoint-lg,
+  s: $ecl-breakpoint-s,
+  m: $ecl-breakpoint-m,
+  l: $ecl-breakpoint-l,
   xl: $ecl-breakpoint-xl,
+  '2xl': $ecl-breakpoint-2-xl,
 ) !default;
 
 // ECL Grid
 
 $ecl-container-max-widths: (
-  sm: $ecl-container-max-width-sm,
-  md: $ecl-container-max-width-md,
-  lg: $ecl-container-max-width-lg,
+  s: $ecl-container-max-width-s,
+  m: $ecl-container-max-width-m,
+  l: $ecl-container-max-width-l,
   xl: $ecl-container-max-width-xl,
+  '2xl': $ecl-container-max-width-2-xl,
 ) !default;
 
-$ecl-grid-gutter-width-base: $ecl-grid-gutter-width !default;
-
 $ecl-grid-gutter-widths: (
-  xs: $ecl-grid-gutter-width-base,
-  sm: $ecl-grid-gutter-width-base,
-  md: $ecl-grid-gutter-width-base,
-  lg: $ecl-grid-gutter-width-base,
-  xl: $ecl-grid-gutter-width-base,
+  xs: $ecl-grid-gutter-width-s,
+  s: $ecl-grid-gutter-width-s,
+  m: $ecl-grid-gutter-width-m,
+  l: $ecl-grid-gutter-width-l,
+  xl: $ecl-grid-gutter-width-xl,
+  '2xl': $ecl-grid-gutter-width-2-xl,
 ) !default;
