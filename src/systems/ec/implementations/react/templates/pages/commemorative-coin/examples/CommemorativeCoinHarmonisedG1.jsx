@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 import BreadcrumbHarmonised, {
   BreadcrumbHarmonisedItem,
@@ -42,40 +43,99 @@ class CommemorativeCoinHarmonisedG1 extends React.Component {
   }
 
   render() {
+    const optional = this.props;
     const data = getData('harmonised-g1');
+    const dataCopy = JSON.parse(JSON.stringify(data));
 
-    const breadcrumb = (
-      <BreadcrumbHarmonised
-        {...data.breadcrumbContent}
-        data-ecl-auto-init="BreadcrumbHarmonised"
-        className="ecl-breadcrumb-harmonised--group1"
-      >
-        {data.breadcrumbItems.map(item => (
-          <BreadcrumbHarmonisedItem {...item} key={item.label} />
-        ))}
-      </BreadcrumbHarmonised>
-    );
-    data.pageHeader.breadcrumb = breadcrumb;
+    // Optional items
+    if (!optional.siteHeaderLogin) {
+      delete dataCopy.siteHeader.loginToggle;
+      delete dataCopy.siteHeader.loginBox;
+    }
+
+    if (!optional.siteHeaderLangSelect) {
+      delete dataCopy.siteHeader.languageSelector;
+    }
+
+    if (!optional.siteHeaderSearch) {
+      delete dataCopy.siteHeader.searchToggle;
+      delete dataCopy.siteHeader.searchForm;
+    }
+
+    if (!optional.siteHeaderClassName) {
+      delete dataCopy.siteHeader.bannerTop;
+    }
+
+    if (optional.siteHeaderMenu) {
+      delete dataCopy.siteHeader.banner;
+    } else {
+      delete dataCopy.siteHeader.menu;
+    }
+
+    if (!optional.pageHeaderMeta) {
+      delete dataCopy.pageHeader.meta;
+    }
+
+    if (!optional.pageHeaderIntro) {
+      delete dataCopy.pageHeader.description;
+    }
+
+    if (optional.pageHeaderBreadcrumb) {
+      const breadcrumb = (
+        <BreadcrumbHarmonised
+          {...dataCopy.breadcrumbContent}
+          data-ecl-auto-init="BreadcrumbHarmonised"
+          className="ecl-breadcrumb-harmonised--group1"
+        >
+          {dataCopy.breadcrumbItems.map(item => (
+            <BreadcrumbHarmonisedItem {...item} key={item.label} />
+          ))}
+        </BreadcrumbHarmonised>
+      );
+      dataCopy.pageHeader.breadcrumb = breadcrumb;
+    }
 
     return (
       <Fragment>
         <SiteHeaderHarmonised
-          {...data.siteHeader}
+          {...dataCopy.siteHeader}
           data-ecl-auto-init="SiteHeaderHarmonised"
           className="ecl-site-header-harmonised--group1"
         />
         <PageHeaderHarmonised
-          {...data.pageHeader}
+          {...dataCopy.pageHeader}
           className="ecl-page-header-harmonised--group1"
         />
         <CommemorativeCoinPage template="harmonised-g1" />
         <FooterHarmonised
-          {...data.footer}
+          {...dataCopy.footer}
           className="ecl-footer-harmonised--group1"
         />
       </Fragment>
     );
   }
 }
+
+CommemorativeCoinHarmonisedG1.propTypes = {
+  siteHeaderLogin: PropTypes.bool,
+  siteHeaderLangSelect: PropTypes.bool,
+  siteHeaderSearch: PropTypes.bool,
+  siteHeaderClassName: PropTypes.bool,
+  siteHeaderMenu: PropTypes.bool,
+  pageHeaderMeta: PropTypes.bool,
+  pageHeaderIntro: PropTypes.bool,
+  pageHeaderBreadcrumb: PropTypes.bool,
+};
+
+CommemorativeCoinHarmonisedG1.defaultProps = {
+  siteHeaderLogin: true,
+  siteHeaderLangSelect: true,
+  siteHeaderSearch: true,
+  siteHeaderClassName: true,
+  siteHeaderMenu: true,
+  pageHeaderMeta: true,
+  pageHeaderIntro: true,
+  pageHeaderBreadcrumb: true,
+};
 
 export default CommemorativeCoinHarmonisedG1;
