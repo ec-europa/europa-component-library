@@ -7,6 +7,9 @@ module.exports = async ({ config: defaultConfig, mode }) => {
     path.resolve(__dirname, '../../../../../..')
   );
 
+  // Add Btn to export Json story for sketch
+  defaultConfig.entry.push(require.resolve('storybook-addon-sketch/entry'));
+
   // Exclude node_modules
   defaultConfig.module.rules[0].exclude = /node_modules/;
 

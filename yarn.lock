@@ -1153,6 +1153,16 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@brainly/html-sketchapp@^4.3.0":
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/@brainly/html-sketchapp/-/html-sketchapp-4.4.0.tgz#56e0670d1d668ffff1e6a1c00ca41206d5865b6d"
+  integrity sha512-5NAJAyBdkXuWKK40D8zg93KWyUeM01rNqjSL8srdBoiHQGn77G+x7FQzdgQ5UNI15IvFJMK88CU4wyWLg/NIbQ==
+  dependencies:
+    murmur2js "^1.0.0"
+    normalize-css-color "^1.0.2"
+    sketch-constants "^1.1.0"
+    sketchapp-json-plugin "^0.1.2"
+
 "@emotion/cache@^10.0.17", "@emotion/cache@^10.0.9":
   version "10.0.19"
   resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-10.0.19.tgz#d258d94d9c707dcadaf1558def968b86bb87ad71"
@@ -3108,6 +3118,11 @@
   resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.3.tgz#9c088679876f374eb5983f150d4787aa6fb32d7e"
   integrity sha512-FvUupuM3rlRsRtCN+fDudtmytGO6iHJuuRKS1Ss0pG5z8oX0diNEw94UEL7hgDbpN94rgaK5R7sWm6RrSkZuAQ==
 
+"@types/url-join@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@types/url-join/-/url-join-4.0.0.tgz#72eff71648a429c7d4acf94e03780e06671369bd"
+  integrity sha512-awrJu8yML4E/xTwr2EMatC+HBnHGoDxc2+ImA9QyeUELI1S7dOCIZcyjki1rkwoA8P2D2NVgLAJLjnclkdLtAw==
+
 "@types/vfile-message@*":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@types/vfile-message/-/vfile-message-2.0.0.tgz#690e46af0fdfc1f9faae00cd049cc888957927d5"
@@ -4564,7 +4579,7 @@ babel-preset-react-app@^9.0.0:
     babel-plugin-macros "2.7.1"
     babel-plugin-transform-react-remove-prop-types "0.4.24"
 
-babel-runtime@^6.18.0, babel-runtime@^6.23.0:
+babel-runtime@^6.18.0, babel-runtime@^6.23.0, babel-runtime@^6.26.0:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   integrity sha1-llxwWGaOgrVde/4E/yM3vItWR/4=
@@ -6349,6 +6364,16 @@ corejs-upgrade-webpack-plugin@^2.2.0:
   dependencies:
     resolve-from "^5.0.0"
     webpack "^4.38.0"
+
+cosmiconfig@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/cosmiconfig/-/cosmiconfig-4.0.0.tgz#760391549580bbd2df1e562bc177b13c290972dc"
+  integrity sha512-6e5vDdrXZD+t5v0L8CrurPeybg4Fmf+FCSYxXKYVAqLUtyCSbuyqE059d0kDthTNRzKVjL7QMgNpEUlsoYH3iQ==
+  dependencies:
+    is-directory "^0.3.1"
+    js-yaml "^3.9.0"
+    parse-json "^4.0.0"
+    require-from-string "^2.0.1"
 
 cosmiconfig@^5.0.0, cosmiconfig@^5.1.0, cosmiconfig@^5.2.1:
   version "5.2.1"
@@ -8705,6 +8730,11 @@ file-loader@^4.3.0:
     loader-utils "^1.2.3"
     schema-utils "^2.5.0"
 
+file-saver@^2.0.1:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/file-saver/-/file-saver-2.0.2.tgz#06d6e728a9ea2df2cce2f8d9e84dfcdc338ec17a"
+  integrity sha512-Wz3c3XQ5xroCxd1G8b7yL0Ehkf0TC9oYC6buPFkNnU9EnaPlifeAFCyCh+iewXTyFRcg0a6j3J7FmJsIhlhBdw==
+
 file-size@0.0.5:
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/file-size/-/file-size-0.0.5.tgz#057d43c3a3ed735da3f90d6052ab380f1e6d5e3b"
@@ -9264,7 +9294,7 @@ get-amd-module-type@^3.0.0:
     ast-module-types "^2.3.2"
     node-source-walk "^4.0.0"
 
-get-caller-file@^1.0.1:
+get-caller-file@^1.0.1, get-caller-file@^1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-1.0.3.tgz#f978fa4c90d1dfe7ff2d6beda2a515e713bdcf4a"
   integrity sha512-3t6rVToeoZfYSGd8YoLFR2DJkiQrIiUrGcjvFX2mDw3bn6k2OtwHN0TNCLbBO+w8qTvimhDkv+LSscbJY1vE6w==
@@ -11510,7 +11540,7 @@ js-tokens@^3.0.2:
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
   integrity sha1-mGbfOVECEw449/mWvOtlRDIJwls=
 
-js-yaml@3.13.1, js-yaml@^3.10.0, js-yaml@^3.11.0, js-yaml@^3.12.0, js-yaml@^3.13.1:
+js-yaml@3.13.1, js-yaml@^3.10.0, js-yaml@^3.11.0, js-yaml@^3.12.0, js-yaml@^3.13.1, js-yaml@^3.9.0:
   version "3.13.1"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.13.1.tgz#aff151b30bfdfa8e49e05da22e7415e9dfa37847"
   integrity sha512-YfbcO7jXDdyj0DGxYVSlSeQNHbD7XPWvrVWeVUujrQEoZzWJIRrCPoyk6kL6IAjAG2IolMK4T0hNUe0HOUs5Jw==
@@ -13136,6 +13166,14 @@ mocha@^5.2.0:
     mkdirp "0.5.1"
     supports-color "5.4.0"
 
+mock-require@^3.0.1:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/mock-require/-/mock-require-3.0.3.tgz#ccd544d9eae81dd576b3f219f69ec867318a1946"
+  integrity sha512-lLzfLHcyc10MKQnNUCv7dMcoY/2Qxd6wJfbqCcVk3LDb8An4hF6ohk5AztrvgKhJCqj36uyzi/p5se+tvyD+Wg==
+  dependencies:
+    get-caller-file "^1.0.2"
+    normalize-path "^2.1.1"
+
 modify-values@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/modify-values/-/modify-values-1.0.1.tgz#b3939fa605546474e3e3e3c63d64bd43b4ee6022"
@@ -13246,6 +13284,11 @@ multimatch@^3.0.0:
     array-union "^1.0.2"
     arrify "^1.0.1"
     minimatch "^3.0.4"
+
+murmur2js@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/murmur2js/-/murmur2js-1.0.0.tgz#8f836c365d020d74e5cae5b96af2e768fa48d659"
+  integrity sha1-j4NsNl0CDXTlyuW5avLnaPpI1lk=
 
 mustache@^3.0.0:
   version "3.1.0"
@@ -13673,6 +13716,11 @@ nopt@^4.0.1, nopt@~4.0.1:
   dependencies:
     abbrev "1"
     osenv "^0.1.4"
+
+normalize-css-color@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/normalize-css-color/-/normalize-css-color-1.0.2.tgz#02991e97cccec6623fe573afbbf0de6a1f3e9f8d"
+  integrity sha1-Apkel8zOxmI/5XOvu/Deah8+n40=
 
 normalize-git-url@^3.0.2:
   version "3.0.2"
@@ -15585,7 +15633,7 @@ puppeteer-core@^1.17.0:
     rimraf "^2.6.1"
     ws "^6.1.0"
 
-puppeteer@^1.8.0:
+puppeteer@^1.0.0, puppeteer@^1.8.0:
   version "1.20.0"
   resolved "https://registry.yarnpkg.com/puppeteer/-/puppeteer-1.20.0.tgz#e3d267786f74e1d87cf2d15acc59177f471bbe38"
   integrity sha512-bt48RDBy2eIwZPrkgbcwHtb51mj2nKvHOPMaSH2IsWiv7lOG9k9zhaRzpDZafrk05ajMc3cu+lSQYYOfH2DkVQ==
@@ -15603,6 +15651,11 @@ q@^1.1.2, q@^1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
   integrity sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
+
+qler@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/qler/-/qler-0.3.0.tgz#90c0f1b0934c65332da2169b41ca57b971f72e7c"
+  integrity sha1-kMDxsJNMZTMtohabQcpXuXH3Lnw=
 
 qs@6.5.2, qs@~6.5.2:
   version "6.5.2"
@@ -16823,7 +16876,7 @@ require-directory@^2.1.1:
   resolved "https://registry.yarnpkg.com/require-directory/-/require-directory-2.1.1.tgz#8c64ad5fd30dab1c976e2344ffe7f792a6a6df42"
   integrity sha1-jGStX9MNqxyXbiNE/+f3kqam30I=
 
-require-from-string@^2.0.2:
+require-from-string@^2.0.1, require-from-string@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/require-from-string/-/require-from-string-2.0.2.tgz#89a7fdd938261267318eafe14f9c32e598c36909"
   integrity sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==
@@ -17617,6 +17670,24 @@ size-limit@2.2.2:
     globby "^10.0.1"
     read-pkg-up "^7.0.0"
 
+sketch-constants@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/sketch-constants/-/sketch-constants-1.1.0.tgz#5c2fec53b59b32e7f6f107176e3e54985ad6647d"
+  integrity sha1-XC/sU7WbMuf28QcXbj5UmFrWZH0=
+
+sketchapp-json-flow-types@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/sketchapp-json-flow-types/-/sketchapp-json-flow-types-0.0.2.tgz#226496e79f6a3845b89021d666b090ab4558d7d0"
+  integrity sha1-ImSW559qOEW4kCHWZrCQq0VY19A=
+
+sketchapp-json-plugin@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/sketchapp-json-plugin/-/sketchapp-json-plugin-0.1.2.tgz#f3a77cf309e82dfb0d4ca0de681a54b3c5ac7425"
+  integrity sha512-DnJZOWiBERwvCxZkr5cbM2UrkBXpdatykYqdJs61qZDmgciOzwd0SLBxKJzDJFYXZrAdDVtTDGFAn0JAwAhS4w==
+  dependencies:
+    invariant "^2.2.2"
+    sketchapp-json-flow-types "^0.0.2"
+
 slash@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-1.0.0.tgz#c41f2f6c39fc16d1cd17ad4b5d896114ae470d55"
@@ -17995,6 +18066,33 @@ store2@^2.7.1:
   version "2.10.0"
   resolved "https://registry.yarnpkg.com/store2/-/store2-2.10.0.tgz#46b82bb91878daf1b0d56dec2f1d41e54d5103cf"
   integrity sha512-tWEpK0snS2RPUq1i3R6OahfJNjWCQYNxq0+by1amCSuw0mXtymJpzmZIeYpA1UAa+7B0grCpNYIbDcd7AgTbFg==
+
+story2sketch@^1.5.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/story2sketch/-/story2sketch-1.7.0.tgz#47a3b332fb9207d07fb64319dc07ecdb586545ab"
+  integrity sha512-CP/cLvTceoqQ8BeV30l5yLkFUdBJ61bsjakVKjl8GAI9/Cf6EmB9yzT+K5RDuKMVrajbiVSYwteB8TNSRJUR6A==
+  dependencies:
+    "@brainly/html-sketchapp" "^4.3.0"
+    babel-runtime "^6.26.0"
+    chalk "^2.3.0"
+    cosmiconfig "^4.0.0"
+    find-up "^2.1.0"
+    mkdirp "^0.5.1"
+    mock-require "^3.0.1"
+    progress "^2.0.0"
+    puppeteer "^1.0.0"
+    qler "^0.3.0"
+    yargs "^10.1.1"
+
+storybook-addon-sketch@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/storybook-addon-sketch/-/storybook-addon-sketch-0.1.0.tgz#c62ee46bfadfa62be2aa054dcd114eaf18d35d7c"
+  integrity sha512-BwhKKRlYqnIu9VE6D3HhZCU6W/qnadM1uUHD0OsklrCk6poQOqt51tSKqKyh0zkvVK+iYJ+ZgXiGbYs/YmwL2A==
+  dependencies:
+    "@types/url-join" "^4.0.0"
+    file-saver "^2.0.1"
+    story2sketch "^1.5.0"
+    url-join "^4.0.0"
 
 stream-array@^1.1.2:
   version "1.1.2"
@@ -19558,6 +19656,11 @@ urix@^0.1.0:
   resolved "https://registry.yarnpkg.com/urix/-/urix-0.1.0.tgz#da937f7a62e21fec1fd18d49b35c2935067a6c72"
   integrity sha1-2pN/emLiH+wf0Y1Js1wpNQZ6bHI=
 
+url-join@^4.0.0:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/url-join/-/url-join-4.0.1.tgz#b642e21a2646808ffa178c4c5fda39844e12cde7"
+  integrity sha512-jk1+QP6ZJqyOiuEI9AEWQfju/nB2Pw466kbA0LEZljHwKeMgd9WrAEgEGxjPDD2+TNbbb37rTyhEfrCXfuKXnA==
+
 url-loader@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/url-loader/-/url-loader-3.0.0.tgz#9f1f11b371acf6e51ed15a50db635e02eec18368"
@@ -20486,7 +20589,7 @@ yargs@13.2.4:
     y18n "^4.0.0"
     yargs-parser "^13.1.0"
 
-yargs@^10.0.3:
+yargs@^10.0.3, yargs@^10.1.1:
   version "10.1.2"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-10.1.2.tgz#454d074c2b16a51a43e2fb7807e4f9de69ccb5c5"
   integrity sha512-ivSoxqBGYOqQVruxD35+EyCFDYNEFL/Uo6FcOnz+9xZdZzK0Zzw4r4KhbrME1Oo2gOggwJod2MnsdamSG7H9ig==
