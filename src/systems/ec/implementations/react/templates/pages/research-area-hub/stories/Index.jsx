@@ -2,11 +2,15 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, radios } from '@storybook/addon-knobs';
-import ResearchAreaHubPageExample from '../examples/Default';
+
+import ResearchAreaHubCore from '../examples/ResearchAreaHubCore';
+import ResearchAreaHubStandardised from '../examples/ResearchAreaHubStandardised';
+import ResearchAreaHubHarmonisedG1 from '../examples/ResearchAreaHubHarmonisedG1';
+import ResearchAreaHubHarmonisedG2 from '../examples/ResearchAreaHubHarmonisedG2';
 
 storiesOf('Templates|Pages', module)
   .addDecorator(withKnobs)
-  .add('Research Area Hub', () => {
+  .add('Research area hub', () => {
     const template = radios(
       'Template',
       {
@@ -18,5 +22,9 @@ storiesOf('Templates|Pages', module)
       'core'
     );
 
-    return <ResearchAreaHubPageExample template={template} />;
+    if (template === 'standardised') return <ResearchAreaHubStandardised />;
+    if (template === 'harmonised-g1') return <ResearchAreaHubHarmonisedG1 />;
+    if (template === 'harmonised-g2') return <ResearchAreaHubHarmonisedG2 />;
+
+    return <ResearchAreaHubCore />;
   });

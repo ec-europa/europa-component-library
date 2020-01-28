@@ -3,7 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
-import simpleContent from '@ecl/ec-specs-breadcrumb-standardised/demo/data-simple';
+import simpleContent from '@ecl/ec-specs-breadcrumb-standardised/demo/data--simple';
 import demoContent from '@ecl/ec-specs-breadcrumb-standardised/demo/data';
 
 import { BreadcrumbStandardised } from '../src/BreadcrumbStandardised';

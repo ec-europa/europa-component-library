@@ -1,0 +1,21 @@
+/**
+ * Datepicker component
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-datepicker-print() {
+  .ecl-datepicker {
+    margin: 0;
+  }
+
+  .ecl-datepicker-theme {
+    display: none;
+  }
+}
+
+// Use mixin
+@include exports('ec-component-form-datepicker-print') {
+  @include ecl-datepicker-print();
+}

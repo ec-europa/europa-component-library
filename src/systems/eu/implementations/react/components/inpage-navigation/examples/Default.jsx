@@ -7,7 +7,7 @@ import Breadcrumb, { BreadcrumbItem } from '@ecl/eu-react-component-breadcrumb';
 import Footer from '@ecl/eu-react-component-footer';
 import SiteHeader from '@ecl/eu-react-component-site-header';
 import PageHeader from '@ecl/eu-react-component-page-header';
-import breadcrumbContent from '@ecl/eu-specs-breadcrumb/demo/data-simple';
+import breadcrumbContent from '@ecl/eu-specs-breadcrumb/demo/data--simple';
 import demoContentEn from '@ecl/eu-specs-site-header/demo/data--en';
 import demoContentCorporate from '@ecl/eu-specs-footer/demo/data--corporate';
 import { InpageNavigation } from '../src/InpageNavigation';
