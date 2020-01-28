@@ -2,19 +2,19 @@
 //
 // Generate semantic grid columns with these mixins.
 
-@mixin ecl-make-container($gutters: $ecl-grid-gutter-widths) {
+@mixin ecl-make-container($margins: $ecl-grid-margin-widths) {
   box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
   position: relative;
   width: 100%;
 
-  @each $breakpoint in map-keys($gutters) {
+  @each $breakpoint in map-keys($margins) {
     @include ecl-media-breakpoint-up($breakpoint) {
-      $gutter: map-get($gutters, $breakpoint);
+      $margin: map-get($margins, $breakpoint);
 
-      padding-left: ($gutter / 2);
-      padding-right: ($gutter / 2);
+      padding-left: $margin;
+      padding-right: $margin;
     }
   }
 }
