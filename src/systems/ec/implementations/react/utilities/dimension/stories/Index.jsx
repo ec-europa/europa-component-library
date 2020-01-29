@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import classnames from 'classnames';
-import { storiesOf } from '@storybook/react';
 import { withKnobs, select } from '@storybook/addon-knobs';
 
 const styleContainer = {
@@ -18,59 +17,66 @@ const styleBox = {
   width: '5rem',
 };
 
-storiesOf('Utilities|Display', module)
-  .addDecorator(withKnobs)
-  .add('custom', () => {
-    const displayContainer = select(
-      'Display (container)',
-      {
-        Block: 'ecl-u-d-block',
-        Inline: 'ecl-u-d-inline',
-        'Inline block': 'ecl-u-d-inline-block',
-        Flex: 'ecl-u-d-flex',
-        'inline-flex': 'ecl-u-d-inline-flex',
-        Table: 'ecl-u-d-table',
-        'Table cell': 'ecl-u-d-table-cell',
-        None: 'ecl-u-d-none',
-      },
-      'ecl-u-d-block'
-    );
+export default {
+  title: 'Utilities|Display',
+  decorators: [withKnobs],
+};
 
-    const displayInner = select(
-      'Display (inner box)',
-      {
-        Block: 'ecl-u-d-block',
-        Inline: 'ecl-u-d-inline',
-        'Inline block': 'ecl-u-d-inline-block',
-        Flex: 'ecl-u-d-flex',
-        'inline-flex': 'ecl-u-d-inline-flex',
-        Table: 'ecl-u-d-table',
-        'Table cell': 'ecl-u-d-table-cell',
-        None: 'ecl-u-d-none',
-      },
-      'ecl-u-d-block'
-    );
+export const Custom = () => {
+  const displayContainer = select(
+    'Display (container)',
+    {
+      Block: 'ecl-u-d-block',
+      Inline: 'ecl-u-d-inline',
+      'Inline block': 'ecl-u-d-inline-block',
+      Flex: 'ecl-u-d-flex',
+      'inline-flex': 'ecl-u-d-inline-flex',
+      Table: 'ecl-u-d-table',
+      'Table cell': 'ecl-u-d-table-cell',
+      None: 'ecl-u-d-none',
+    },
+    'ecl-u-d-block'
+  );
 
-    const boxSizing = select(
-      'Box sizing',
-      {
-        'Content box': 'ecl-u-box-sizing-content',
-        'Border box': 'ecl-u-box-sizing-border',
-      },
-      'ecl-u-box-sizing-content'
-    );
+  const displayInner = select(
+    'Display (inner box)',
+    {
+      Block: 'ecl-u-d-block',
+      Inline: 'ecl-u-d-inline',
+      'Inline block': 'ecl-u-d-inline-block',
+      Flex: 'ecl-u-d-flex',
+      'inline-flex': 'ecl-u-d-inline-flex',
+      Table: 'ecl-u-d-table',
+      'Table cell': 'ecl-u-d-table-cell',
+      None: 'ecl-u-d-none',
+    },
+    'ecl-u-d-block'
+  );
 
-    return (
-      <div style={styleContainer} className={displayContainer}>
-        <div style={styleBox} className={classnames(displayInner, boxSizing)}>
-          Box
-        </div>
-        <div style={styleBox} className={classnames(displayInner, boxSizing)}>
-          Box
-        </div>
-        <div style={styleBox} className={classnames(displayInner, boxSizing)}>
-          Box
-        </div>
+  const boxSizing = select(
+    'Box sizing',
+    {
+      'Content box': 'ecl-u-box-sizing-content',
+      'Border box': 'ecl-u-box-sizing-border',
+    },
+    'ecl-u-box-sizing-content'
+  );
+
+  return (
+    <div style={styleContainer} className={displayContainer}>
+      <div style={styleBox} className={classnames(displayInner, boxSizing)}>
+        Box
       </div>
-    );
-  });
+      <div style={styleBox} className={classnames(displayInner, boxSizing)}>
+        Box
+      </div>
+      <div style={styleBox} className={classnames(displayInner, boxSizing)}>
+        Box
+      </div>
+    </div>
+  );
+};
+
+Custom.story = {
+  name: 'custom',
+};

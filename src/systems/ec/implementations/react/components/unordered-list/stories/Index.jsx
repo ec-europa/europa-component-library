@@ -1,11 +1,27 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import { storiesOf } from '@storybook/react';
+/* eslint-disable no-underscore-dangle */
 
 import Unordered from '../examples/Unordered';
 import UnorderedWithoutBullet from '../examples/UnorderedWithoutBullet';
 import UnorderedWithDivider from '../examples/UnorderedWithDivider';
 
-storiesOf('Components|List', module)
-  .add('unordered', Unordered)
-  .add('without bullet', UnorderedWithoutBullet)
-  .add('with divider', UnorderedWithDivider);
+export default {
+  title: 'Components|List',
+};
+
+export const _Unordered = Unordered;
+
+_Unordered.story = {
+  name: 'unordered',
+};
+
+export const WithoutBullet = UnorderedWithoutBullet;
+
+WithoutBullet.story = {
+  name: 'without bullet',
+};
+
+export const WithDivider = UnorderedWithDivider;
+
+WithDivider.story = {
+  name: 'with divider',
+};
