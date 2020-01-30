@@ -1,6 +1,4 @@
-import { configure, addDecorator, addParameters } from '@storybook/react';
-import { withOptions } from '@storybook/addon-options';
-import { create } from '@storybook/theming';
+import { addDecorator, addParameters } from '@storybook/react';
 import { withA11y } from '@storybook/addon-a11y';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { withCssResources } from '@storybook/addon-cssresources';
@@ -51,35 +49,6 @@ html {
       picked: false,
     },
   ],
-  options: {
-    theme: create({
-      base: 'light',
-      colorSecondary: '#004494',
-      appBorderRadius: 0,
-      inputBorderRadius: 0,
-      brandTitle: 'ECL v2 - EC',
-      brandUrl: 'https://github.com/ec-europa/europa-component-library',
-      brandImage: null,
-    }),
-    sidebarAnimations: false,
-    panelPosition: 'right',
-    storySort: (a, b) => {
-      const aParentKind = a[1].kind.split('|').shift();
-      const aKind = a[1].kind
-        .split('|')
-        .slice(1)
-        .join('|');
-      const bParentKind = b[1].kind.split('|').shift();
-      const bKind = b[1].kind
-        .split('|')
-        .slice(1)
-        .join('|');
-
-      return aParentKind !== bParentKind
-        ? 0
-        : aKind.localeCompare(bKind, { numeric: true });
-    },
-  },
   viewport: {
     defaultViewport: 'iphone6',
     viewports: {
@@ -115,21 +84,3 @@ html {
     },
   },
 });
-
-const contexts = [
-  require.context('../../templates', true, /stories.*\.jsx?$/),
-  require.context('../../page-structure', true, /stories.*\.jsx?$/),
-  require.context('../../layout', true, /stories.*\.jsx?$/),
-  require.context('../../components', true, /stories.*\.jsx?$/),
-  require.context('../../utilities', true, /stories.*\.jsx?$/),
-  require.context('../../deprecated', true, /stories.*\.jsx?$/),
-];
-
-configure(() => {
-  contexts.forEach(context => {
-    context
-      .keys()
-      .filter(key => !key.includes('node_modules'))
-      .forEach(context);
-  });
-}, module);
