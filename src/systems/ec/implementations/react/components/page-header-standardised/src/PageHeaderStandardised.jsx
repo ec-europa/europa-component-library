@@ -15,9 +15,10 @@ const PageHeaderStandardised = ({
   return (
     <div {...props} className={classNames}>
       <div className="ecl-container">
-        {React.cloneElement(breadcrumb, {
-          className: 'ecl-page-header-standardised__breadcrumb',
-        })}
+        {breadcrumb &&
+          React.cloneElement(breadcrumb, {
+            className: 'ecl-page-header-standardised__breadcrumb',
+          })}
         {meta && (
           <div className="ecl-page-header-standardised__meta">{meta}</div>
         )}

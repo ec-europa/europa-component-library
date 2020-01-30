@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 import BreadcrumbHarmonised, {
   BreadcrumbHarmonisedItem,
@@ -42,40 +43,86 @@ class MainPolicyHubHarmonisedG2 extends React.Component {
   }
 
   render() {
+    const optional = this.props;
     const data = getData('harmonised-g2');
+    const dataCopy = JSON.parse(JSON.stringify(data));
 
-    const breadcrumb = (
-      <BreadcrumbHarmonised
-        {...data.breadcrumbContent}
-        data-ecl-auto-init="BreadcrumbHarmonised"
-        className="ecl-breadcrumb-harmonised--group2"
-      >
-        {data.breadcrumbItems.map(item => (
-          <BreadcrumbHarmonisedItem {...item} key={item.label} />
-        ))}
-      </BreadcrumbHarmonised>
-    );
-    data.pageHeader.breadcrumb = breadcrumb;
+    // Optional items
+    if (!optional.siteHeaderLangSelect) {
+      delete dataCopy.siteHeader.languageSelector;
+    }
+
+    if (!optional.siteHeaderSearch) {
+      delete dataCopy.siteHeader.searchToggle;
+      delete dataCopy.siteHeader.searchForm;
+    }
+
+    if (optional.siteHeaderMenu) {
+      delete dataCopy.siteHeader.banner;
+    } else {
+      delete dataCopy.siteHeader.menu;
+    }
+
+    if (!optional.pageHeaderMeta) {
+      delete dataCopy.pageHeader.meta;
+    }
+
+    if (!optional.pageHeaderIntro) {
+      delete dataCopy.pageHeader.description;
+    }
+
+    if (optional.pageHeaderBreadcrumb) {
+      const breadcrumb = (
+        <BreadcrumbHarmonised
+          {...dataCopy.breadcrumbContent}
+          data-ecl-auto-init="BreadcrumbHarmonised"
+          className="ecl-breadcrumb-harmonised--group2"
+        >
+          {dataCopy.breadcrumbItems.map(item => (
+            <BreadcrumbHarmonisedItem {...item} key={item.label} />
+          ))}
+        </BreadcrumbHarmonised>
+      );
+      dataCopy.pageHeader.breadcrumb = breadcrumb;
+    }
 
     return (
       <Fragment>
         <SiteHeaderHarmonised
-          {...data.siteHeader}
+          {...dataCopy.siteHeader}
           data-ecl-auto-init="SiteHeaderHarmonised"
           className="ecl-site-header-harmonised--group2"
         />
         <PageHeaderHarmonised
-          {...data.pageHeader}
+          {...dataCopy.pageHeader}
           className="ecl-page-header-harmonised--group2"
         />
         <MainPolicyHubPage template="harmonised-g2" />
         <FooterHarmonised
-          {...data.footer}
+          {...dataCopy.footer}
           className="ecl-footer-harmonised--group2"
         />
       </Fragment>
     );
   }
 }
+
+MainPolicyHubHarmonisedG2.propTypes = {
+  siteHeaderLangSelect: PropTypes.bool,
+  siteHeaderSearch: PropTypes.bool,
+  siteHeaderMenu: PropTypes.bool,
+  pageHeaderMeta: PropTypes.bool,
+  pageHeaderIntro: PropTypes.bool,
+  pageHeaderBreadcrumb: PropTypes.bool,
+};
+
+MainPolicyHubHarmonisedG2.defaultProps = {
+  siteHeaderLangSelect: true,
+  siteHeaderSearch: true,
+  siteHeaderMenu: true,
+  pageHeaderMeta: true,
+  pageHeaderIntro: true,
+  pageHeaderBreadcrumb: true,
+};
 
 export default MainPolicyHubHarmonisedG2;
