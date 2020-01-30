@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 import BreadcrumbCore, {
   BreadcrumbCoreItem,
@@ -43,33 +44,61 @@ class EventAgendaCore extends React.Component {
   }
 
   render() {
+    const optional = this.props;
     const data = getData('core');
+    const dataCopy = JSON.parse(JSON.stringify(data));
+
+    // Optional items
+    if (!optional.siteHeaderLogin) {
+      delete dataCopy.siteHeader.loginToggle;
+      delete dataCopy.siteHeader.loginBox;
+    }
+
+    if (!optional.pageHeaderMeta) {
+      delete dataCopy.pageHeader.meta;
+    }
+
+    if (!optional.pageHeaderIntro) {
+      delete dataCopy.pageHeader.description;
+    }
 
     const breadcrumb = (
       <BreadcrumbCore
-        {...data.breadcrumbContent}
+        {...dataCopy.breadcrumbContent}
         data-ecl-auto-init="BreadcrumbCore"
       >
-        {data.breadcrumbItems.map(item => (
+        {dataCopy.breadcrumbItems.map(item => (
           <BreadcrumbCoreItem {...item} key={item.label} />
         ))}
       </BreadcrumbCore>
     );
-    data.pageHeader.breadcrumb = breadcrumb;
+    dataCopy.pageHeader.breadcrumb = breadcrumb;
 
     return (
       <Fragment>
         <SiteHeaderCore
-          {...data.siteHeader}
+          {...dataCopy.siteHeader}
           data-ecl-auto-init="SiteHeaderCore"
         />
-        <PageHeaderCore {...data.pageHeader} />
+        <PageHeaderCore {...dataCopy.pageHeader} />
         <EventAgendaPage template="core" />
-        <PageBanner {...data.pageBanner} variant="default" isCentered />
-        <FooterCore {...data.footer} />
+        <PageBanner {...dataCopy.pageBanner} variant="default" isCentered />
+        <FooterCore {...dataCopy.footer} />
       </Fragment>
     );
   }
 }
+
+EventAgendaCore.propTypes = {
+  siteHeaderLogin: PropTypes.bool,
+  pageHeaderMeta: PropTypes.bool,
+  pageHeaderIntro: PropTypes.bool,
+};
+
+EventAgendaCore.defaultProps = {
+  siteHeaderLogin: true,
+  pageHeaderMeta: true,
+  pageHeaderIntro: true,
+};
 
 export default EventAgendaCore;

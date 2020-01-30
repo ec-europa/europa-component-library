@@ -1,4 +1,5 @@
 /* eslint "import/no-extraneous-dependencies": ["error", { "devDependencies": true } ] */
+const menuContent = require('@ecl/ec-specs-menu/demo/data--en');
 const siteHeaderCoreContent = require('@ecl/ec-specs-site-header-core/demo/data--en');
 const siteHeaderHarmonisedGroup1Content = require('@ecl/ec-specs-site-header-harmonised/demo/data--group1');
 const siteHeaderHarmonisedGroup2Content = require('@ecl/ec-specs-site-header-harmonised/demo/data--group2');
@@ -27,6 +28,7 @@ module.exports = template => {
   const data = {
     breadcrumbContent,
     breadcrumbItems,
+    menuContent,
     pageHeader: pageHeaderContent,
   };
 
@@ -38,6 +40,7 @@ module.exports = template => {
       JSON.stringify(siteHeaderStandardisedContent)
     );
     siteHeaderStandardisedContentCopy.banner = 'Site name';
+    siteHeaderStandardisedContentCopy.menu = menuContent;
     data.siteHeader = siteHeaderStandardisedContentCopy;
     data.footer = footerStandardisedContent;
   } else if (template === 'harmonised-g1') {
@@ -45,10 +48,15 @@ module.exports = template => {
       JSON.stringify(siteHeaderHarmonisedGroup1Content)
     );
     siteHeaderHarmonisedGroup1ContentCopy.banner = 'Site name';
+    siteHeaderHarmonisedGroup1ContentCopy.menu = menuContent;
     data.siteHeader = siteHeaderHarmonisedGroup1ContentCopy;
     data.footer = footerHarmonisedGroup1Content;
   } else if (template === 'harmonised-g2') {
-    data.siteHeader = siteHeaderHarmonisedGroup2Content;
+    const siteHeaderHarmonisedGroup2ContentCopy = JSON.parse(
+      JSON.stringify(siteHeaderHarmonisedGroup2Content)
+    );
+    siteHeaderHarmonisedGroup2ContentCopy.menu = menuContent;
+    data.siteHeader = siteHeaderHarmonisedGroup2ContentCopy;
     data.footer = footerHarmonisedGroup2Content;
   }
 
