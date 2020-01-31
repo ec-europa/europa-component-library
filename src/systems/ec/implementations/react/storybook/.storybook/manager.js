@@ -1,14 +1,36 @@
-const path = require('path');
+import { addons } from '@storybook/addons';
+import { create } from '@storybook/theming/create';
 
-// Provide a custom webpack config for the manager
-module.exports.managerWebpack = async (baseConfig, options) => {
-  // Babel loader: include "src"
-  baseConfig.module.rules[0].include.push(
-    path.resolve(__dirname, '../../../../../..')
-  );
+const theme = create({
+  base: 'light',
+  colorSecondary: '#004494',
+  appBorderRadius: 0,
+  inputBorderRadius: 0,
+  brandTitle: 'ECL v2 - EC',
+  brandUrl: 'https://github.com/ec-europa/europa-component-library',
+  brandImage: null,
+});
 
-  // Exclude node_modules
-  baseConfig.module.rules[0].exclude = /node_modules/;
+const storySort = (a, b) => {
+  const aParentKind = a[1].kind.split('|').shift();
+  const aKind = a[1].kind
+    .split('|')
+    .slice(1)
+    .join('|');
+  const bParentKind = b[1].kind.split('|').shift();
+  const bKind = b[1].kind
+    .split('|')
+    .slice(1)
+    .join('|');
 
-  return baseConfig;
+  return aParentKind !== bParentKind
+    ? 0
+    : aKind.localeCompare(bKind, { numeric: true });
 };
+
+addons.setConfig({
+  theme,
+  storySort,
+  sidebarAnimations: false,
+  panelPosition: 'right',
+});
