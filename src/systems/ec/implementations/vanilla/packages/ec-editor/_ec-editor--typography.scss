@@ -5,7 +5,7 @@
 // Import base
 @import '@ecl/ec-base/ec-base';
 
-@mixin ecl-editor-typography() {
+@mixin ecl-editor-typography($text-color: $ecl-color-grey-100) {
   /*
    * Headings
    */
@@ -58,6 +58,7 @@
    * Paragraph
    */
   .ecl-editor p {
+    color: $text-color;
     font: $ecl-font-prolonged-m;
     max-width: 80ch;
   }
