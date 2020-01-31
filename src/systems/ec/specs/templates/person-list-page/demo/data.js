@@ -8,8 +8,28 @@ const footerHarmonisedGroup1Content = require('@ecl/ec-specs-footer-harmonised/d
 const footerHarmonisedGroup2Content = require('@ecl/ec-specs-footer-harmonised/demo/data--group2');
 const footerStandardisedContent = require('@ecl/ec-specs-footer-standardised/demo/data');
 
+const breadcrumbContent = {
+  label: 'You are here:',
+};
+const breadcrumbItems = [
+  { label: 'Home', href: '/example' },
+  { label: 'The Commissioners', href: '/example' },
+  { label: 'Vytenis Andriukaitis', href: '/example' },
+  { label: "Vytenis Andriukaitis' team" },
+];
+
+const pageHeaderContent = {
+  meta: 'TEAM',
+  title: "Vytenis Andriukaitis' team",
+  description: "Vytenis Andriukaitis' team supports him in his daily work.",
+};
+
 module.exports = template => {
-  const data = {};
+  const data = {
+    breadcrumbContent,
+    breadcrumbItems,
+    pageHeader: pageHeaderContent,
+  };
 
   if (template === 'core') {
     data.siteHeader = siteHeaderCoreContent;

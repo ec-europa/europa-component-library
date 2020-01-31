@@ -4,13 +4,13 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import Breadcrumb, { BreadcrumbItem } from '@ecl/ec-react-component-breadcrumb';
 
-import breadcrumbContent from '@ecl/ec-specs-breadcrumb/demo/data-simple';
-import demoTitleContent from '@ecl/ec-specs-page-header/demo/data-title';
-import demoMetaTitleContent from '@ecl/ec-specs-page-header/demo/data-meta-title';
-import demoMetaTitleDescriptionContent from '@ecl/ec-specs-page-header/demo/data-meta-title-description';
-import demoTitleDescriptionContent from '@ecl/ec-specs-page-header/demo/data-title-description';
-import demoEventsContent from '@ecl/ec-specs-page-header/demo/data-events';
-import demoEventsDescriptionContent from '@ecl/ec-specs-page-header/demo/data-events-description';
+import breadcrumbContent from '@ecl/ec-specs-breadcrumb/demo/data--simple';
+import demoTitleContent from '@ecl/ec-specs-page-header/demo/data--title';
+import demoMetaTitleContent from '@ecl/ec-specs-page-header/demo/data--meta-title';
+import demoMetaTitleDescriptionContent from '@ecl/ec-specs-page-header/demo/data--meta-title-description';
+import demoTitleDescriptionContent from '@ecl/ec-specs-page-header/demo/data--title-description';
+import demoEventsContent from '@ecl/ec-specs-page-header/demo/data--events';
+import demoEventsDescriptionContent from '@ecl/ec-specs-page-header/demo/data--events-description';
 
 import PageHeader from '../src/PageHeader';
 

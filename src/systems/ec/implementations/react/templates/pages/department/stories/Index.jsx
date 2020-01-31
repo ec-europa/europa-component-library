@@ -2,7 +2,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, radios } from '@storybook/addon-knobs';
-import DepartmentPageExample from '../examples/Default';
+
+import DepartmentCore from '../examples/DepartmentCore';
+import DepartmentStandardised from '../examples/DepartmentStandardised';
+import DepartmentHarmonisedG1 from '../examples/DepartmentHarmonisedG1';
+import DepartmentHarmonisedG2 from '../examples/DepartmentHarmonisedG2';
 
 storiesOf('Templates|Pages', module)
   .addDecorator(withKnobs)
@@ -18,5 +22,9 @@ storiesOf('Templates|Pages', module)
       'core'
     );
 
-    return <DepartmentPageExample template={template} />;
+    if (template === 'standardised') return <DepartmentStandardised />;
+    if (template === 'harmonised-g1') return <DepartmentHarmonisedG1 />;
+    if (template === 'harmonised-g2') return <DepartmentHarmonisedG2 />;
+
+    return <DepartmentCore />;
   });

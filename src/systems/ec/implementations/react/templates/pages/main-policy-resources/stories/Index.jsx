@@ -2,7 +2,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, radios } from '@storybook/addon-knobs';
-import MainPolicyResourcesPageExample from '../examples/Default';
+
+import MainPolicyResourcesCore from '../examples/MainPolicyResourcesCore';
+import MainPolicyResourcesStandardised from '../examples/MainPolicyResourcesStandardised';
+import MainPolicyResourcesHarmonisedG1 from '../examples/MainPolicyResourcesHarmonisedG1';
+import MainPolicyResourcesHarmonisedG2 from '../examples/MainPolicyResourcesHarmonisedG2';
 
 storiesOf('Templates|Pages', module)
   .addDecorator(withKnobs)
@@ -18,5 +22,11 @@ storiesOf('Templates|Pages', module)
       'core'
     );
 
-    return <MainPolicyResourcesPageExample template={template} />;
+    if (template === 'standardised') return <MainPolicyResourcesStandardised />;
+    if (template === 'harmonised-g1')
+      return <MainPolicyResourcesHarmonisedG1 />;
+    if (template === 'harmonised-g2')
+      return <MainPolicyResourcesHarmonisedG2 />;
+
+    return <MainPolicyResourcesCore />;
   });

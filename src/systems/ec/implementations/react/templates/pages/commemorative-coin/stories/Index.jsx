@@ -2,7 +2,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, radios } from '@storybook/addon-knobs';
-import CommemorativeCoinPageExample from '../examples/Default';
+
+import CommemorativeCoinCore from '../examples/CommemorativeCoinCore';
+import CommemorativeCoinStandardised from '../examples/CommemorativeCoinStandardised';
+import CommemorativeCoinHarmonisedG1 from '../examples/CommemorativeCoinHarmonisedG1';
+import CommemorativeCoinHarmonisedG2 from '../examples/CommemorativeCoinHarmonisedG2';
 
 storiesOf('Templates|Pages', module)
   .addDecorator(withKnobs)
@@ -18,5 +22,9 @@ storiesOf('Templates|Pages', module)
       'core'
     );
 
-    return <CommemorativeCoinPageExample template={template} />;
+    if (template === 'standardised') return <CommemorativeCoinStandardised />;
+    if (template === 'harmonised-g1') return <CommemorativeCoinHarmonisedG1 />;
+    if (template === 'harmonised-g2') return <CommemorativeCoinHarmonisedG2 />;
+
+    return <CommemorativeCoinCore />;
   });

@@ -9,13 +9,13 @@ const footerHarmonisedGroup2Content = require('@ecl/ec-specs-footer-harmonised/d
 const footerStandardisedContent = require('@ecl/ec-specs-footer-standardised/demo/data');
 
 const breadcrumbContent = {
-  items: [
-    { label: 'Home', href: '/example' },
-    { label: 'About the European Commission', href: '/example' },
-    { label: 'Commemorative coins', href: '/example' },
-  ],
   label: 'You are here:',
 };
+const breadcrumbItems = [
+  { label: 'Home', href: '/example' },
+  { label: 'About the European Commission', href: '/example' },
+  { label: 'Commemorative coins', href: '/example' },
+];
 
 const pageHeaderContent = {
   title: 'Commemorative coins',
@@ -23,7 +23,8 @@ const pageHeaderContent = {
 
 module.exports = template => {
   const data = {
-    breadcrumb: breadcrumbContent,
+    breadcrumbContent,
+    breadcrumbItems,
     pageHeader: pageHeaderContent,
   };
 
