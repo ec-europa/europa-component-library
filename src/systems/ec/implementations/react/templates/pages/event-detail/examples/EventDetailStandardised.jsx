@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 import BreadcrumbStandardised, {
   BreadcrumbStandardisedItem,
@@ -43,33 +44,79 @@ class EventDetailStandardised extends React.Component {
   }
 
   render() {
+    const optional = this.props;
     const data = getData('standardised');
+    const dataCopy = JSON.parse(JSON.stringify(data));
 
-    const breadcrumb = (
-      <BreadcrumbStandardised
-        {...data.breadcrumbContent}
-        data-ecl-auto-init="BreadcrumbStandardised"
-      >
-        {data.breadcrumbItems.map(item => (
-          <BreadcrumbStandardisedItem {...item} key={item.label} />
-        ))}
-      </BreadcrumbStandardised>
-    );
-    data.pageHeader.breadcrumb = breadcrumb;
+    // Optional items
+    if (!optional.siteHeaderLogin) {
+      delete dataCopy.siteHeader.loginToggle;
+      delete dataCopy.siteHeader.loginBox;
+    }
+
+    if (!optional.siteHeaderLangSelect) {
+      delete dataCopy.siteHeader.languageSelector;
+    }
+
+    if (optional.siteHeaderMenu) {
+      delete dataCopy.siteHeader.banner;
+    } else {
+      delete dataCopy.siteHeader.menu;
+    }
+
+    if (!optional.pageHeaderMeta) {
+      delete dataCopy.pageHeader.meta;
+    }
+
+    if (!optional.pageHeaderIntro) {
+      delete dataCopy.pageHeader.description;
+    }
+
+    if (optional.pageHeaderBreadcrumb) {
+      const breadcrumb = (
+        <BreadcrumbStandardised
+          {...dataCopy.breadcrumbContent}
+          data-ecl-auto-init="BreadcrumbStandardised"
+        >
+          {dataCopy.breadcrumbItems.map(item => (
+            <BreadcrumbStandardisedItem {...item} key={item.label} />
+          ))}
+        </BreadcrumbStandardised>
+      );
+      dataCopy.pageHeader.breadcrumb = breadcrumb;
+    }
 
     return (
       <Fragment>
         <SiteHeaderStandardised
-          {...data.siteHeader}
+          {...dataCopy.siteHeader}
           data-ecl-auto-init="SiteHeaderStandardised"
         />
-        <PageHeaderStandardised {...data.pageHeader} />
+        <PageHeaderStandardised {...dataCopy.pageHeader} />
         <EventDetailPage template="standardised" />
-        <PageBanner {...data.pageBanner} variant="default" isCentered />
-        <FooterStandardised {...data.footer} />
+        <PageBanner {...dataCopy.pageBanner} variant="default" isCentered />
+        <FooterStandardised {...dataCopy.footer} />
       </Fragment>
     );
   }
 }
+
+EventDetailStandardised.propTypes = {
+  siteHeaderLogin: PropTypes.bool,
+  siteHeaderLangSelect: PropTypes.bool,
+  siteHeaderMenu: PropTypes.bool,
+  pageHeaderMeta: PropTypes.bool,
+  pageHeaderIntro: PropTypes.bool,
+  pageHeaderBreadcrumb: PropTypes.bool,
+};
+
+EventDetailStandardised.defaultProps = {
+  siteHeaderLogin: true,
+  siteHeaderLangSelect: true,
+  siteHeaderMenu: true,
+  pageHeaderMeta: true,
+  pageHeaderIntro: true,
+  pageHeaderBreadcrumb: true,
+};
 
 export default EventDetailStandardised;
