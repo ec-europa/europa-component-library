@@ -1,6 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import Breadcrumb, { BreadcrumbItem } from '@ecl/ec-react-component-breadcrumb';
 
@@ -23,62 +22,91 @@ const breadcrumb = (
   </Breadcrumb>
 );
 
-storiesOf('Deprecated|Page Header (ECL<2-14-0)', module)
-  .addDecorator(withKnobs)
-  .add('title', () => (
-    <PageHeader
-      breadcrumb={breadcrumb}
-      title={text('Title', demoTitleContent.title)}
-    />
-  ))
-  .add('meta-title', () => (
-    <PageHeader
-      breadcrumb={breadcrumb}
-      title={text('Title', demoMetaTitleContent.title)}
-      meta={text('Meta', demoMetaTitleContent.meta)}
-    />
-  ))
-  .add('meta-title-description', () => (
-    <PageHeader
-      breadcrumb={breadcrumb}
-      title={text('Title', demoMetaTitleDescriptionContent.title)}
-      description={text(
-        'Description',
-        demoMetaTitleDescriptionContent.description
-      )}
-      meta={text('Meta', demoMetaTitleDescriptionContent.meta)}
-    />
-  ))
-  .add('title-description', () => (
-    <PageHeader
-      breadcrumb={breadcrumb}
-      title={text('Title', demoTitleDescriptionContent.title)}
-      description={text('Description', demoTitleDescriptionContent.description)}
-    />
-  ))
-  .add('events', () => (
-    <PageHeader
-      breadcrumb={breadcrumb}
-      title={text('Title', demoEventsContent.title)}
-      meta={text('Meta', demoEventsContent.meta)}
-      infos={demoEventsContent.infos.map((info, index) => ({
-        icon: info.icon,
-        text: text(`Info ${index} text`, info.text),
-      }))}
-    />
-  ))
-  .add('events-description', () => (
-    <PageHeader
-      breadcrumb={breadcrumb}
-      title={text('Title', demoEventsDescriptionContent.title)}
-      description={text(
-        'Description',
-        demoEventsDescriptionContent.description
-      )}
-      meta={text('Meta', demoEventsDescriptionContent.meta)}
-      infos={demoEventsDescriptionContent.infos.map((info, index) => ({
-        icon: info.icon,
-        text: text(`Info ${index} text`, info.text),
-      }))}
-    />
-  ));
+export default {
+  title: 'Deprecated|Page Header (ECL<2-14-0)',
+  decorators: [withKnobs],
+};
+
+export const Title = () => (
+  <PageHeader
+    breadcrumb={breadcrumb}
+    title={text('Title', demoTitleContent.title)}
+  />
+);
+
+Title.story = {
+  name: 'title',
+};
+
+export const MetaTitle = () => (
+  <PageHeader
+    breadcrumb={breadcrumb}
+    title={text('Title', demoMetaTitleContent.title)}
+    meta={text('Meta', demoMetaTitleContent.meta)}
+  />
+);
+
+MetaTitle.story = {
+  name: 'meta-title',
+};
+
+export const MetaTitleDescription = () => (
+  <PageHeader
+    breadcrumb={breadcrumb}
+    title={text('Title', demoMetaTitleDescriptionContent.title)}
+    description={text(
+      'Description',
+      demoMetaTitleDescriptionContent.description
+    )}
+    meta={text('Meta', demoMetaTitleDescriptionContent.meta)}
+  />
+);
+
+MetaTitleDescription.story = {
+  name: 'meta-title-description',
+};
+
+export const TitleDescription = () => (
+  <PageHeader
+    breadcrumb={breadcrumb}
+    title={text('Title', demoTitleDescriptionContent.title)}
+    description={text('Description', demoTitleDescriptionContent.description)}
+  />
+);
+
+TitleDescription.story = {
+  name: 'title-description',
+};
+
+export const Events = () => (
+  <PageHeader
+    breadcrumb={breadcrumb}
+    title={text('Title', demoEventsContent.title)}
+    meta={text('Meta', demoEventsContent.meta)}
+    infos={demoEventsContent.infos.map((info, index) => ({
+      icon: info.icon,
+      text: text(`Info ${index} text`, info.text),
+    }))}
+  />
+);
+
+Events.story = {
+  name: 'events',
+};
+
+export const EventsDescription = () => (
+  <PageHeader
+    breadcrumb={breadcrumb}
+    title={text('Title', demoEventsDescriptionContent.title)}
+    description={text('Description', demoEventsDescriptionContent.description)}
+    meta={text('Meta', demoEventsDescriptionContent.meta)}
+    infos={demoEventsDescriptionContent.infos.map((info, index) => ({
+      icon: info.icon,
+      text: text(`Info ${index} text`, info.text),
+    }))}
+  />
+);
+
+EventsDescription.story = {
+  name: 'events-description',
+};
