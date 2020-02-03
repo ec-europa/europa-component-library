@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import parse from 'html-react-parser';
-import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
 import BreadcrumbCore, {
@@ -24,54 +23,68 @@ const breadcrumb = (
   </BreadcrumbCore>
 );
 
-storiesOf('Components|Page Headers/Core', module)
-  .addDecorator(withKnobs)
-  .addDecorator(story => (
-    <StoryWrapper
-      afterMount={() => {
-        if (!window.ECL) return {};
+export default {
+  title: 'Components|Page Headers/Core',
 
-        const components = window.ECL.autoInit();
-        return { components };
-      }}
-      beforeUnmount={context => {
-        if (context.components) {
-          context.components.forEach(c => c.destroy());
-        }
-      }}
-    >
-      {story()}
-    </StoryWrapper>
-  ))
-  .add('title', () => (
-    <PageHeaderCore
-      breadcrumb={breadcrumb}
-      title={text('Title', demoTitleContent.title)}
-    />
-  ))
-  .add(
-    'meta-title',
-    () => (
-      <PageHeaderCore
-        breadcrumb={breadcrumb}
-        title={text('Title', demoMetaTitleContent.title)}
-        meta={parse(text('Meta', demoMetaTitleContent.meta))}
-      />
+  decorators: [
+    withKnobs,
+    story => (
+      <StoryWrapper
+        afterMount={() => {
+          if (!window.ECL) return {};
+
+          const components = window.ECL.autoInit();
+          return { components };
+        }}
+        beforeUnmount={context => {
+          if (context.components) {
+            context.components.forEach(c => c.destroy());
+          }
+        }}
+      >
+        {story()}
+      </StoryWrapper>
     ),
-    { knobs: { escapeHTML: false } }
-  )
-  .add(
-    'meta-title-description',
-    () => (
-      <PageHeaderCore
-        breadcrumb={breadcrumb}
-        title={text('Title', demoMetaTitleDescriptionContent.title)}
-        description={text(
-          'Description',
-          demoMetaTitleDescriptionContent.description
-        )}
-        meta={parse(text('Meta', demoMetaTitleDescriptionContent.meta))}
-      />
-    ),
-    { knobs: { escapeHTML: false } }
-  );
+  ],
+};
+
+export const Title = () => (
+  <PageHeaderCore
+    breadcrumb={breadcrumb}
+    title={text('Title', demoTitleContent.title)}
+  />
+);
+
+Title.story = {
+  name: 'title',
+};
+
+export const MetaTitle = () => (
+  <PageHeaderCore
+    breadcrumb={breadcrumb}
+    title={text('Title', demoMetaTitleContent.title)}
+    meta={parse(text('Meta', demoMetaTitleContent.meta))}
+  />
+);
+
+MetaTitle.story = {
+  name: 'meta-title',
+  parameters: { knobs: { escapeHTML: false } },
+};
+
+export const MetaTitleDescription = () => (
+  <PageHeaderCore
+    breadcrumb={breadcrumb}
+    title={text('Title', demoMetaTitleDescriptionContent.title)}
+    description={text(
+      'Description',
+      demoMetaTitleDescriptionContent.description
+    )}
+    meta={parse(text('Meta', demoMetaTitleDescriptionContent.meta))}
+  />
+);
+
+MetaTitleDescription.story = {
+  name: 'meta-title-description',
+  parameters: { knobs: { escapeHTML: false } },
+};

@@ -1,6 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs/react';
 import { withCssResources } from '@storybook/addon-cssresources';
 import StoryWrapper from '@ecl/story-wrapper';
@@ -8,27 +7,32 @@ import demoContent from '@ecl/ec-specs-menu-legacy/demo/data';
 
 import { MenuLegacy } from '../src/MenuLegacy';
 
-storiesOf('Deprecated|Menu (legacy)', module)
-  .addDecorator(withKnobs)
-  .addDecorator(story => (
-    <StoryWrapper
-      afterMount={() => {
-        if (!window.ECL) return {};
+export default {
+  title: 'Deprecated|Menu (legacy)',
 
-        const components = window.ECL.autoInit();
-        return { components };
-      }}
-      beforeUnmount={context => {
-        if (context.components) {
-          context.components.forEach(c => c.destroy());
-        }
-      }}
-    >
-      {story()}
-    </StoryWrapper>
-  ))
-  .addDecorator(withCssResources)
-  .addParameters({
+  decorators: [
+    withKnobs,
+    story => (
+      <StoryWrapper
+        afterMount={() => {
+          if (!window.ECL) return {};
+
+          const components = window.ECL.autoInit();
+          return { components };
+        }}
+        beforeUnmount={context => {
+          if (context.components) {
+            context.components.forEach(c => c.destroy());
+          }
+        }}
+      >
+        {story()}
+      </StoryWrapper>
+    ),
+    withCssResources,
+  ],
+
+  parameters: {
     cssresources: [
       {
         id: 'ecl-legacy-screen',
@@ -60,7 +64,13 @@ storiesOf('Deprecated|Menu (legacy)', module)
         picked: false,
       },
     ],
-  })
-  .add('default', () => (
-    <MenuLegacy {...demoContent} data-ecl-auto-init="MenuLegacy" />
-  ));
+  },
+};
+
+export const Default = () => (
+  <MenuLegacy {...demoContent} data-ecl-auto-init="MenuLegacy" />
+);
+
+Default.story = {
+  name: 'default',
+};

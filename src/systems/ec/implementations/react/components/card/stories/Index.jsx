@@ -1,6 +1,5 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies, no-underscore-dangle */
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { withKnobs, text, array } from '@storybook/addon-knobs';
 
 import demoContentCard from '@ecl/ec-specs-card/demo/data--card';
@@ -10,91 +9,102 @@ import { Template as template } from './Template';
 
 import Card from '../src/Card';
 
-storiesOf('Components|Card', module)
-  .addDecorator(withKnobs)
-  .add('card', () => {
-    // Image
-    const image = {
-      alt: demoContentCard.image.alt,
-      src: text('Image path', demoContentCard.image.src),
-    };
+export default {
+  title: 'Components|Card',
+  decorators: [withKnobs],
+};
 
-    // Meta
-    const meta = text('Meta', demoContentCard.meta);
+export const _Card = () => {
+  const image = {
+    alt: demoContentCard.image.alt,
+    src: text('Image path', demoContentCard.image.src),
+  };
 
-    // Title
-    const title = {
-      variant: demoContentCard.title.variant,
-      label: text('Title', demoContentCard.title.label),
-      href: demoContentCard.title.href,
-      level: demoContentCard.title.level,
-    };
+  const meta = text('Meta', demoContentCard.meta);
 
-    // Description
-    const description = text('Description', demoContentCard.description);
+  const title = {
+    variant: demoContentCard.title.variant,
+    label: text('Title', demoContentCard.title.label),
+    href: demoContentCard.title.href,
+    level: demoContentCard.title.level,
+  };
 
-    // infos
-    const infosArray = array(
-      'infos (comma separated)',
-      demoContentCard.infos.map(info => info.label)
-    );
-    const infos = infosArray.map((info, key) => ({
-      label: info,
-      icon: demoContentCard.infos[key]
-        ? demoContentCard.infos[key].icon
-        : { shape: 'general--faq', size: 'xs' },
-    }));
+  const description = text('Description', demoContentCard.description);
 
-    // Tags
-    const tagsArray = array(
-      'Tags (comma separated)',
-      demoContentCard.tags.map(tag => tag.label)
-    );
-    const tags = tagsArray.map((tag, key) => ({
-      label: tag,
-      href: demoContentCard.tags[key]
-        ? demoContentCard.tags[key].href
-        : '/example',
-    }));
+  const infosArray = array(
+    'infos (comma separated)',
+    demoContentCard.infos.map(info => info.label)
+  );
 
-    return (
-      <Card
-        image={image}
-        meta={meta}
-        title={title}
-        description={description}
-        infos={infos}
-        tags={tags}
-      />
-    );
-  })
-  .add('tile', () => {
-    // Title
-    const title = {
-      variant: demoContentTile.title.variant,
-      label: text('Title', demoContentTile.title.label),
-      href: '',
-      level: demoContentTile.title.level,
-    };
+  const infos = infosArray.map((info, key) => ({
+    label: info,
+    icon: demoContentCard.infos[key]
+      ? demoContentCard.infos[key].icon
+      : { shape: 'general--faq', size: 'xs' },
+  }));
 
-    // Description
-    const description = text('Description', demoContentTile.description);
+  const tagsArray = array(
+    'Tags (comma separated)',
+    demoContentCard.tags.map(tag => tag.label)
+  );
 
-    // Links
-    const linksArray = array(
-      'Links (comma separated)',
-      demoContentTile.links.map(link => link.label)
-    );
-    const links = linksArray.map((link, key) => ({
-      label: link,
-      href: demoContentTile.links[key]
-        ? demoContentTile.links[key].href
-        : '/example',
-      variant: demoContentTile.links[key]
-        ? demoContentTile.links[key].variant
-        : 'standalone',
-    }));
+  const tags = tagsArray.map((tag, key) => ({
+    label: tag,
+    href: demoContentCard.tags[key]
+      ? demoContentCard.tags[key].href
+      : '/example',
+  }));
 
-    return <Card title={title} description={description} links={links} />;
-  })
-  .add('template', template);
+  return (
+    <Card
+      image={image}
+      meta={meta}
+      title={title}
+      description={description}
+      infos={infos}
+      tags={tags}
+    />
+  );
+};
+
+_Card.story = {
+  name: 'card',
+};
+
+export const Tile = () => {
+  const title = {
+    variant: demoContentTile.title.variant,
+    label: text('Title', demoContentTile.title.label),
+    href: '',
+    level: demoContentTile.title.level,
+  };
+
+  const description = text('Description', demoContentTile.description);
+
+  const linksArray = array(
+    'Links (comma separated)',
+    demoContentTile.links.map(link => link.label)
+  );
+
+  const links = linksArray.map((link, key) => ({
+    label: link,
+    href: demoContentTile.links[key]
+      ? demoContentTile.links[key].href
+      : '/example',
+    variant: demoContentTile.links[key]
+      ? demoContentTile.links[key].variant
+      : 'standalone',
+  }));
+
+  return <Card title={title} description={description} links={links} />;
+};
+
+Tile.story = {
+  name: 'tile',
+};
+
+export const _Template = template;
+
+_Template.story = {
+  name: 'template',
+};

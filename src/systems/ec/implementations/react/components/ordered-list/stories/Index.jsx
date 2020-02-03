@@ -1,6 +1,13 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import { storiesOf } from '@storybook/react';
+/* eslint-disable no-underscore-dangle */
 
 import Ordered from '../examples/Ordered';
 
-storiesOf('Components|List', module).add('ordered', Ordered);
+export default {
+  title: 'Components|List',
+};
+
+export const _Ordered = Ordered;
+
+_Ordered.story = {
+  name: 'ordered',
+};

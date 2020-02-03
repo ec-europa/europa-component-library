@@ -1,6 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 
 import demoDataLink from '@ecl/ec-specs-tag/demo/data--link';
@@ -9,21 +8,38 @@ import demoDataRemovable from '@ecl/ec-specs-tag/demo/data--removable';
 
 import Tag from '../src/Tag';
 
-storiesOf('Components|Tag', module)
-  .addDecorator(withKnobs)
-  .add('as a link', () => (
-    <Tag
-      label={text('Label', demoDataLink.label)}
-      href={text('Link', demoDataLink.href)}
-    />
-  ))
-  .add('as a button', () => (
-    <Tag label={text('Label', demoDataButton.label)} type="button" />
-  ))
-  .add('removable', () => (
-    <Tag
-      label={text('Label', demoDataRemovable.label)}
-      variant="removable"
-      dismissButtonLabel={demoDataRemovable.dismissButtonLabel}
-    />
-  ));
+export default {
+  title: 'Components|Tag',
+  decorators: [withKnobs],
+};
+
+export const AsALink = () => (
+  <Tag
+    label={text('Label', demoDataLink.label)}
+    href={text('Link', demoDataLink.href)}
+  />
+);
+
+AsALink.story = {
+  name: 'as a link',
+};
+
+export const AsAButton = () => (
+  <Tag label={text('Label', demoDataButton.label)} type="button" />
+);
+
+AsAButton.story = {
+  name: 'as a button',
+};
+
+export const Removable = () => (
+  <Tag
+    label={text('Label', demoDataRemovable.label)}
+    variant="removable"
+    dismissButtonLabel={demoDataRemovable.dismissButtonLabel}
+  />
+);
+
+Removable.story = {
+  name: 'removable',
+};
