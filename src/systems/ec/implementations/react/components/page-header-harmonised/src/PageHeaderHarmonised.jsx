@@ -15,12 +15,13 @@ const PageHeaderHarmonised = ({
   return (
     <div {...props} className={classNames}>
       <div className="ecl-container">
-        {React.cloneElement(breadcrumb, {
-          className: classnames(
-            breadcrumb.props.className,
-            'ecl-page-header-harmonised__breadcrumb'
-          ),
-        })}
+        {breadcrumb &&
+          React.cloneElement(breadcrumb, {
+            className: classnames(
+              breadcrumb.props.className,
+              'ecl-page-header-harmonised__breadcrumb'
+            ),
+          })}
         {meta && <div className="ecl-page-header-harmonised__meta">{meta}</div>}
         {title && (
           <h1 className="ecl-page-header-harmonised__title">{title}</h1>

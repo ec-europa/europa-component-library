@@ -6,7 +6,9 @@ import demoContentTile from '@ecl/ec-specs-card/demo/data--tile';
 
 import Card from '../src/Card';
 
-const Template = () => {
+// Storybook issues with modules' resolutions https://github.com/storybookjs/storybook/issues/9621
+/* eslint-disable-next-line import/prefer-default-export */
+export const Template = () => {
   const image1 = {
     alt: demoContentCard.image.alt,
     src: demoContentCard.image.src,
@@ -97,5 +99,3 @@ const Template = () => {
     </div>
   );
 };
-
-export default Template;

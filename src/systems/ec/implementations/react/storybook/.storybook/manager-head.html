@@ -1,6 +1,5 @@
 <script>
   if (window.localStorage) {
-    // Set panel to the right by default + set brand title
     if (!window.localStorage.getItem('@storybook/ui/store')) {
       window.localStorage.setItem(
         '@storybook/ui/store',
@@ -17,23 +16,24 @@
       );
     }
 
-    // Set "correct" panel widths
     var item = window.localStorage.getItem('storybook-layout');
-    if (!item) {
-      var leftPanelWidth = 210;
-      var rightPanelWidth = 500;
 
-      window.localStorage.setItem(
-        'storybook-layout',
-        JSON.stringify({
-          resizerPanel: {
-            x: window.innerWidth - rightPanelWidth,
-            y: 0,
-          },
-          resizerNav: { x: leftPanelWidth, y: 0 },
-        })
-      );
-    }
+    var leftPanelWidth = 210;
+    var rightPanelWidth = 400;
+
+    window.localStorage.setItem(
+      'storybook-layout',
+      JSON.stringify({
+        resizerPanel: {
+          x: window.innerWidth - rightPanelWidth,
+          y: 0,
+        },
+        resizerNav: {
+          x: leftPanelWidth,
+          y: 0,
+        },
+      })
+    );
   }
 </script>
 <script

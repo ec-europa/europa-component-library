@@ -81,6 +81,7 @@ const Select = ({
           name={name || undefined}
           className={classNames}
           disabled={disabled}
+          required={required}
         >
           {options.map(option => (
             <option key={option.label} value={option.value}>

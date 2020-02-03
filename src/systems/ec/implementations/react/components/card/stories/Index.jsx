@@ -6,7 +6,7 @@ import { withKnobs, text, array } from '@storybook/addon-knobs';
 import demoContentCard from '@ecl/ec-specs-card/demo/data--card';
 import demoContentTile from '@ecl/ec-specs-card/demo/data--tile';
 
-import template from './Template';
+import { Template as template } from './Template';
 
 import Card from '../src/Card';
 
