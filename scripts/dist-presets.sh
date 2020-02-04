@@ -22,3 +22,4 @@ cp -r ./src/systems/eu/implementations/vanilla/packages/eu-preset-full/dist ./di
 cp -r ./src/systems/eu/implementations/vanilla/packages/eu-preset-legacy/dist ./dist/packages/eu-preset-legacy
 cp -r ./src/systems/eu/implementations/vanilla/packages/eu-preset-legacy-website/dist ./dist/packages/eu-preset-legacy-website
 cp -r ./src/systems/eu/implementations/vanilla/packages/eu-preset-website/dist ./dist/packages/eu-preset-website
+cp -r ./src/systems/eu/implementations/vanilla/packages/eu-preset-website-poc/dist ./dist/packages/eu-preset-website-poc

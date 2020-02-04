@@ -1,0 +1,36 @@
+{
+  "name": "@ecl/eu-theme-poc",
+  "author": "European Commission",
+  "license": "EUPL-1.1",
+  "version": "2.22.0",
+  "description": "ECL — EU PoC Theme",
+  "scripts": {
+    "build": "node scripts/build-tokens.js",
+    "prepublish": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ec-europa/europa-component-library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ec-europa/europa-component-library/issues"
+  },
+  "homepage": "https://github.com/ec-europa/europa-component-library",
+  "keywords": [
+    "ecl",
+    "europa-component-library",
+    "design-system",
+    "design-tokens",
+    "theme"
+  ],
+  "dependencies": {
+    "@ecl/eu-design-tokens": "^2.22.0"
+  },
+  "devDependencies": {
+    "mkdirp": "0.5.1",
+    "theo": "8.1.4"
+  }
+}

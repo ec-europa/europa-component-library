@@ -25,6 +25,11 @@ addParameters({
       picked: true,
     },
     {
+      id: 'ecl-screen-poc',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-eu-preset-website-poc.css" />`,
+      picked: false,
+    },
+    {
       id: 'ecl-print',
       code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-eu-preset-website-print.css" />`,
       picked: false,
