@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.22.1 (2020-02-04)
+
+#### :bug: Bug Fix
+
+- [#1534](https://github.com/ec-europa/europa-component-library/pull/1534) fix(ec-editor): update paragraph color - INNO-2104 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#1525](https://github.com/ec-europa/europa-component-library/pull/1525) fix(ec-editor): fix list and paragraph - INNO-2104 ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 1
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
 ## 2.22 (2020-01-23)
 
 #### :rocket: New Feature
