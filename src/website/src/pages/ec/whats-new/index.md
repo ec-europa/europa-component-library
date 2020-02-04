@@ -9,6 +9,16 @@ Users can still go to ECL v1 to create or upgrade their websites. In 2019, we wi
 
 We will also add new components to the ECL v2 as we continue improving the look and feel of the existing components. New releases under v2 should be published periodically under [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 2.22.1 (2020-02-04)
+
+#### :bug: Bug Fix
+
+- [#1534](https://github.com/ec-europa/europa-component-library/pull/1534) fix(ec-editor): update paragraph color - INNO-2104
+
+#### :nail_care: Enhancement
+
+- [#1525](https://github.com/ec-europa/europa-component-library/pull/1525) fix(ec-editor): fix list and paragraph - INNO-2104
+
 ## 2.22 (2020-01-23)
 
 #### :rocket: New Feature
