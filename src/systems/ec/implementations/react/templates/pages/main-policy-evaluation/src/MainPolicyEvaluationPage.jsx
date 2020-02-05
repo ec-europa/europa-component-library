@@ -50,7 +50,7 @@ const MainPolicyEvaluationPage = () => (
           Conclusions
         </h2>
 
-        <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-l">
+        <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-l">
           Considering bellow, a comprehensive review of the EU air quality
           policies should be launched soon and completed by 2020 at the latest.
           This review willaim to produce a robust EU Clean Air package, updating
@@ -67,7 +67,7 @@ const MainPolicyEvaluationPage = () => (
           effectively and overcome current noncompliance situations in the short
           to medium term.
         </p>
-        <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
+        <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mb-none">
           European air pollution policy has a long history and some notable
           success stories to its name. Prior to this review, the most recent
           wave of policy was launched in 2005 with the Thematic Strategy on Air
@@ -81,18 +81,18 @@ const MainPolicyEvaluationPage = () => (
           citation="to achieve levels of air quality that do not result in unacceptable impacts on, and risks to, human health and the environment."
         />
 
-        <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-l ecl-u-mt-lg-m">
+        <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-l ecl-u-mt-lg-m">
           This objective, first set in the 6th Environment Action Programme in
           2002, is confirmed in the 7th Environment Action Programme.
         </p>
-        <p className="ecl-u-type-paragraph ecl-u-type-color-black">
+        <p className="ecl-u-type-paragraph ecl-u-type-color-grey">
           In January 2011, the College of Commissioners gave a mandate for a
           comprehensive review of EU air policy, recognising the pressing need
           for action to improv air quality, which is a shared responsibility
           requiring our joint efforts. The mandate also focused on a number of
           immediate policy measures that should be taken.
         </p>
-        <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
+        <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mb-none">
           As part of the review, the Commission conducted a broad consultation
           process by organising a series of Stakeholder Expert Groups in the
           period 2011 to 2013, involving a wide range of participants from
@@ -107,7 +107,7 @@ const MainPolicyEvaluationPage = () => (
           The Stakeholder Expert Group
         </h3>
 
-        <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mt-lg-xs">
+        <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-m ecl-u-mt-lg-xs">
           The first Stakeholder Expert Group was held on 6 and 7 June 2011, the
           second on 19 and 20 January 2012, the third on 21 June 2012, the
           fourth on 5 December 2012, and the fifth on 2 April 2013.
@@ -119,7 +119,7 @@ const MainPolicyEvaluationPage = () => (
           Commitee of the Regions
         </h3>
 
-        <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mt-lg-xs ecl-u-mb-none">
+        <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-m ecl-u-mt-lg-xs ecl-u-mb-none">
           Commitee of the Regions{' '}
           <Link href="/example" label="Outlook Opinion" /> on the review of EU
           Air Policy
@@ -129,12 +129,12 @@ const MainPolicyEvaluationPage = () => (
           Public consultation
         </h3>
 
-        <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mt-lg-xs">
+        <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-m ecl-u-mt-lg-xs">
           A first online consultation, on the scope of the review, was launched
           on 30 June 2011. Both the main results and the detailed results are
           available <Link href="/example" label="here" />.
         </p>
-        <p className="ecl-u-type-paragraph ecl-u-type-color-black">
+        <p className="ecl-u-type-paragraph ecl-u-type-color-grey">
           A second online consultation focused on the policy options for the
           review of the EU Thematic Strategy on Air Pollution and related
           policies. A{' '}
@@ -144,12 +144,12 @@ const MainPolicyEvaluationPage = () => (
           />{' '}
           summarises this.
         </p>
-        <p className="ecl-u-type-paragraph ecl-u-type-color-black">
+        <p className="ecl-u-type-paragraph ecl-u-type-color-grey">
           <Link href="/example" label="Analysis of the impacts" /> of various
           options to control emissions from the cobustion of fuels in
           installations with a total rated thermal input below 50MW.
         </p>
-        <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
+        <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mb-none">
           The <Link href="/example" label="particule matter workshop" />{' '}
           supports the review of the EU Air Quality strategy by providing inputs
           from the Member States and other stakeholders with the implementation
@@ -160,7 +160,7 @@ const MainPolicyEvaluationPage = () => (
           Evaluation history
         </h2>
 
-        <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mt-lg-l ecl-u-mb-none">
+        <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-m ecl-u-mt-lg-l ecl-u-mb-none">
           Need for action to improve air quality,which is a shared
           responsibility requiring our joint efforts.
         </p>

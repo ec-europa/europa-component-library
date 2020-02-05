@@ -76,7 +76,7 @@ const ResearchAreaHubPage = () => (
               Why the EU supports innovation in oceans and seas
             </h2>
 
-            <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-l">
+            <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-l">
               Achieve levels of air quality that do not give rise to significant
               negative impacts on, and risks to, human health and the
               environment. Since the Policy focus early 1970s, the EU has been
@@ -87,7 +87,7 @@ const ResearchAreaHubPage = () => (
               sectors.
             </p>
 
-            <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
+            <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-m ecl-u-mb-none">
               Marine and aquatic research and innovation is part of the
               EU&apos;s{' '}
               <a className="ecl-link" href="/example">
@@ -805,7 +805,7 @@ const ResearchAreaHubPage = () => (
                     Research Enquiry Service
                   </h3>
 
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-m ecl-u-mb-none">
+                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-m ecl-u-mb-none">
                     You can contact the Research Enquiry Service to find out
                     more about research in Europe, the EU&apos;s research and
                     innovation funding programmes as well as calls for proposals
@@ -832,7 +832,7 @@ const ResearchAreaHubPage = () => (
                     National Contact Points (NCPs)
                   </h3>
 
-                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey-100 ecl-u-mt-m ecl-u-mb-none">
+                  <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-m ecl-u-mb-none">
                     The NCP network gives guidance and information on
                     participating in Horizon 2020. NCPs are established in all
                     EU countries and many non-EU countries.
