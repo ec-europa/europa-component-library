@@ -23,7 +23,7 @@
 
     li {
       margin-top: $ecl-spacing-xs;
-      max-width: 80ch;
+      max-width: calc(80ch - #{$ecl-spacing-2-xl});
 
       &:first-child {
         margin-top: 0;
@@ -49,7 +49,7 @@
 
     li {
       margin-top: $ecl-spacing-xs;
-      max-width: 80ch;
+      max-width: calc(80ch - #{$ecl-spacing-2-xl});
 
       &:first-child {
         margin-top: 0;
@@ -68,7 +68,7 @@
     font: $ecl-font-prolonged-xl;
     font-weight: $ecl-font-weight-bold;
     margin-top: $ecl-spacing-l;
-    max-width: 80ch;
+    max-width: calc(80ch - #{$ecl-spacing-2-xl});
 
     + dt {
       margin-top: $ecl-spacing-2-xs;
@@ -84,7 +84,7 @@
     font: $ecl-font-prolonged-m;
     margin-left: 0;
     margin-top: $ecl-spacing-m;
-    max-width: 80ch;
+    max-width: calc(80ch - #{$ecl-spacing-2-xl});
     padding-left: $ecl-spacing-s;
 
     + dd {
