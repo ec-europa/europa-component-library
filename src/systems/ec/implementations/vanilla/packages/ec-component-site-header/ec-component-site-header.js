@@ -54,8 +54,12 @@ export class SiteHeader {
       onDeactivate: this.closeOverlay,
     });
 
-    this.languageSelector.addEventListener('click', this.toggleOverlay);
-    this.close.addEventListener('click', this.toggleOverlay);
+    if (this.languageSelector) {
+      this.languageSelector.addEventListener('click', this.toggleOverlay);
+    }
+    if (this.close) {
+      this.close.addEventListener('click', this.toggleOverlay);
+    }
   }
 
   destroy() {
