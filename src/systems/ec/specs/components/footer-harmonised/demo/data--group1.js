@@ -1,6 +1,7 @@
 module.exports = {
   sections: [
     {
+      // Mandatory
       key: 'section 1',
       title: {
         label: 'Site name',
@@ -10,6 +11,7 @@ module.exports = {
         'This site is managed by the Directorate-General for "DG identification"',
     },
     {
+      // Optional
       key: 'section 2',
       title: 'Contact us',
       titleClassName: 'ecl-footer-harmonised__title--separator',
@@ -21,6 +23,7 @@ module.exports = {
       ],
     },
     {
+      // Optional
       key: 'section 3',
       title: 'About us',
       titleClassName: 'ecl-footer-harmonised__title--separator',
@@ -32,6 +35,7 @@ module.exports = {
       ],
     },
     {
+      // Optional
       key: 'section 4',
       title: 'Follow us on',
       titleClassName: 'ecl-footer-harmonised__title--separator',
@@ -67,6 +71,7 @@ module.exports = {
       listClassName: 'ecl-footer-harmonised__list--inline',
     },
     {
+      // Optional
       key: 'section 5',
       title: 'Related sites',
       titleClassName: 'ecl-footer-harmonised__title--separator',
@@ -94,6 +99,7 @@ module.exports = {
       ],
     },
     {
+      // Optional
       key: 'section 6',
       contentBefore: 'More information on:',
       links: [
@@ -109,6 +115,7 @@ module.exports = {
       listClassName: 'ecl-footer-harmonised__list--condensed',
     },
     {
+      // Mandatory
       key: 'section 7',
       title: {
         label: 'European Commission',
@@ -116,6 +123,7 @@ module.exports = {
       },
     },
     {
+      // Mandatory
       key: 'section 8',
       links: [
         {
@@ -138,6 +146,7 @@ module.exports = {
       ],
     },
     {
+      // Mandatory
       key: 'section 9',
       links: [
         {

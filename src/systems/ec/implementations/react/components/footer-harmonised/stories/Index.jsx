@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 
 import demoContentGroup1 from '@ecl/ec-specs-footer-harmonised/demo/data--group1';
 import demoContentGroup2 from '@ecl/ec-specs-footer-harmonised/demo/data--group2';
@@ -13,12 +13,20 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Group1 = () => (
-  <FooterHarmonised
-    {...demoContentGroup1}
-    className="ecl-footer-harmonised--group1"
-  />
-);
+export const Group1 = () => {
+  // Optional section
+  const sectionContact = boolean('Contact us', true);
+
+  // Update data
+  const dataCopy = JSON.parse(JSON.stringify(demoContentGroup1));
+  if (!sectionContact) {
+    dataCopy[1] = { key: 'section 2' };
+  }
+
+  return (
+    <FooterHarmonised {...dataCopy} className="ecl-footer-harmonised--group1" />
+  );
+};
 
 Group1.story = {
   name: 'group 1',
