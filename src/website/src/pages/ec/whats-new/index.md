@@ -9,6 +9,34 @@ Users can still go to ECL v1 to create or upgrade their websites. In 2019, we wi
 
 We will also add new components to the ECL v2 as we continue improving the look and feel of the existing components. New releases under v2 should be published periodically under [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 2.23 (2020-02-06)
+
+#### :bug: Bug Fix
+
+- [#1531](https://github.com/ec-europa/europa-component-library/pull/1531) fix(site-header): check language switcher - FRONT-447
+- [#1527](https://github.com/ec-europa/europa-component-library/pull/1527) fix(select): add required attribute - FRONT-11
+
+#### :nail_care: Enhancement
+
+- [#1539](https://github.com/ec-europa/europa-component-library/pull/1539) fix(content-types): update paragraph color - FONT-470
+- [#1540](https://github.com/ec-europa/europa-component-library/pull/1540) fix(list): add max-width - FRONT-471
+- [#1506](https://github.com/ec-europa/europa-component-library/pull/1506) fix(storybook): unset sidebar customization - INNO-2006
+- [#1518](https://github.com/ec-europa/europa-component-library/pull/1518) feat(content-types): manage optional items - INNO-1878
+
+#### :memo: Documentation
+
+- [#1538](https://github.com/ec-europa/europa-component-library/pull/1538) docs(gp2): add intro - FRONT-451
+- [#1519](https://github.com/ec-europa/europa-component-library/pull/1519) docs(file-upload): update images - INNO-2090
+- [#1529](https://github.com/ec-europa/europa-component-library/pull/1529) docs(page-header-harmonised-1): update doc - FRONT-144
+- [#1528](https://github.com/ec-europa/europa-component-library/pull/1528) docs(footer-harmonised-1): update doc - FRONT-148
+
+#### :house: Internal
+
+- [#1541](https://github.com/ec-europa/europa-component-library/pull/1541) chore(deps): upgrade storybook to latest fixing knobs
+- [#1537](https://github.com/ec-europa/europa-component-library/pull/1537) fix(stroybook): fix storybook error - FRONT-464
+- [#1526](https://github.com/ec-europa/europa-component-library/pull/1526) refactor(storybook): convert stories format - INNO-2076
+- [#1520](https://github.com/ec-europa/europa-component-library/pull/1520) chore(storybook): upgrade to 5.3 - INNO-2075
+
 ## 2.22.1 (2020-02-04)
 
 #### :bug: Bug Fix
