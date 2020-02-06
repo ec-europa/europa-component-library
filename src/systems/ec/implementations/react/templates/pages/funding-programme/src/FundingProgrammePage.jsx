@@ -61,7 +61,7 @@ const FundingProgrammePage = () => (
               Description
             </h2>
 
-            <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
+            <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-m ecl-u-mb-none">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
               tempus enim sed massa vulputate, id finibus nulla eleifend. Sed
               placerat ligula ut augue ultrices, non gravida odio mattis.
