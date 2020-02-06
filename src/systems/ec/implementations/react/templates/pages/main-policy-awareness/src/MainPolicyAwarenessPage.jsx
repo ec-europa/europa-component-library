@@ -46,7 +46,7 @@ const MainPolicyAwarenessPage = () => (
   <div className="ecl-u-pv-xl ecl-u-pv-lg-3xl">
     <div className="ecl-container ecl-u-type-m">
       <main>
-        <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mv-none">
+        <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mv-none">
           Public relations campaings that aim to increase public awareness
           towards the problems Europe encounters when it comes to air pollution.
           The campain offers the solution incorporated in the new policy package

@@ -43,7 +43,7 @@ const MainPolicyBackgroundPage = () => (
   <div className="ecl-u-pv-xl ecl-u-pv-lg-3xl">
     <div className="ecl-container ecl-u-type-m">
       <main>
-        <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none">
+        <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-none">
           The human toll for poor air quality is worse than for road traffic
           accidents, making it the number one environmental cause of premature
           death in Europe, with over 390 000 premature deaths every years. It
@@ -53,7 +53,7 @@ const MainPolicyBackgroundPage = () => (
           and the eldery the worst affected. It damages ecosystems through
           excess nitrogen pollution (eutrophication) and acid rain.
         </p>
-        <p className="ecl-u-type-paragraph ecl-u-type-color-black">
+        <p className="ecl-u-type-paragraph ecl-u-type-color-grey">
           To counter this, the European Union has set itself the goal to achieve
           levels of air quality that do not give rise to significant negative
           impacts on, and risks to, human health and the environment. Since the
@@ -62,7 +62,7 @@ const MainPolicyBackgroundPage = () => (
           improving fuel quality, and by integrating environmental protection
           requirements into the transport and energy sectors.
         </p>
-        <p className="ecl-u-type-paragraph ecl-u-type-color-black">
+        <p className="ecl-u-type-paragraph ecl-u-type-color-grey">
           As a result, much progress has been made in tackling air polluants
           such as sulphur dioxide, lead, nitrogen oxides, carbon monoxide and
           benzene. Yet, and despite the progress made to date, poor air quality
@@ -72,7 +72,7 @@ const MainPolicyBackgroundPage = () => (
           setting objectives for 2020 and 2030, and accompanying legislative
           measures.
         </p>
-        <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
+        <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mb-none">
           <Link href="/example" label="Cleaner air for all facts and figures" />{' '}
           is a dynamic page with animations that present general facts and
           figures about the clean air policy.
@@ -235,7 +235,7 @@ const MainPolicyBackgroundPage = () => (
           Convention on Long Range Transboundary Air Pollution
         </h3>
 
-        <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mt-lg-xs">
+        <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-m ecl-u-mt-lg-xs">
           In the international context, the EU Member States work closely
           together with other UNECE member countries to control international
           air pollution under the{' '}
@@ -246,13 +246,13 @@ const MainPolicyBackgroundPage = () => (
           (the Air Convention). The Air Convention was adopted in 1979 and
           celebrates its 40th anniversary in 2019.
         </p>
-        <p className="ecl-u-type-paragraph ecl-u-type-color-black">
+        <p className="ecl-u-type-paragraph ecl-u-type-color-grey">
           Within the Air Convention framework, a number of task forces, centers
           and International Cooperative Programmes provide research, scientific
           assessments and dialogue on the common knowledge base on air quality
           issues.
         </p>
-        <p className="ecl-u-type-paragraph ecl-u-type-color-black">
+        <p className="ecl-u-type-paragraph ecl-u-type-color-grey">
           The Air Convention has been extended by{' '}
           <Link href="/example" label="eight Protocols" />. The European Union
           is party to seven of these Protocols. Notably, the original Gothenburg
@@ -263,7 +263,7 @@ const MainPolicyBackgroundPage = () => (
           The amended protocol was ratified by Council Decision (EU) 2017/1757in
           follow-up of the Commission Clean Air Policy Package.
         </p>
-        <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
+        <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mb-none">
           The EU continues to work closely with the Air Convention to encourage
           ratification and implementation of the revised Protocol by the
           broadest range of parties, and to pursue further work on key areas
@@ -291,13 +291,13 @@ const MainPolicyBackgroundPage = () => (
           UNEA/UNEP
         </h3>
 
-        <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mt-lg-xs">
+        <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-m ecl-u-mt-lg-xs">
           The European Commission and the EU Member States participated actively
           in the work on UN Environmental Assembly resolution UNEP/EA.3/Res.8
           (December 2017) on Preventing and reducing air pollution to improve
           air quality globally.
         </p>
-        <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
+        <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mb-none">
           Within the UN Environmental Programme, the Stockholm Convention on
           Persistent Organic Pollutants, adopted on 22 May 2001, also provides a
           complementing international framework of relevance for EU air quality.
@@ -307,7 +307,7 @@ const MainPolicyBackgroundPage = () => (
           UN Sustainable Development Goals (SDGs)
         </h3>
 
-        <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mt-lg-xs ecl-u-mb-none">
+        <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-m ecl-u-mt-lg-xs ecl-u-mb-none">
           Several of the <Link href="/example" label="UN SDGs" /> are directly
           or indirectly linked to improvments in air quality.
         </p>

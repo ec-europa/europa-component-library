@@ -199,7 +199,7 @@ const DepartmentPage = () => (
               Europe direct
             </h2>
 
-            <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-l ecl-u-mb-none">
+            <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-l ecl-u-mb-none">
               Budget line for certain policies and funding programmes for
               current year
             </p>
