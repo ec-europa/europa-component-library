@@ -13,15 +13,62 @@ export default {
   decorators: [withKnobs],
 };
 
+const UpdateData = (
+  data,
+  sectionContact,
+  sectionAbout,
+  sectionFollow,
+  sectionRelated,
+  sectionClass
+) => {
+  const dataCopy = JSON.parse(JSON.stringify(data));
+
+  if (!sectionContact) {
+    dataCopy.sections[1] = { key: 'section 2' };
+  }
+  if (!sectionAbout) {
+    dataCopy.sections[2] = { key: 'section 3' };
+  }
+  if (!sectionFollow) {
+    dataCopy.sections[3] = { key: 'section 4' };
+  }
+  if (!sectionRelated) {
+    dataCopy.sections[4] = { key: 'section 5' };
+  }
+  if (!sectionClass) {
+    dataCopy.sections[5] = { key: 'section 6' };
+  }
+
+  // Special cases
+  if (!sectionFollow && !sectionContact) {
+    dataCopy.sections[1] = { ...dataCopy.sections[2] };
+    dataCopy.sections[1].key = 'section 2';
+    dataCopy.sections[2] = { key: 'section 3' };
+    dataCopy.sections[3] = { ...dataCopy.sections[4] };
+    dataCopy.sections[3].key = 'section 4';
+    dataCopy.sections[4] = { key: 'section 5' };
+  }
+
+  return dataCopy;
+};
+
 export const Group1 = () => {
   // Optional section
   const sectionContact = boolean('Contact us', true);
+  const sectionAbout = boolean('About us', true);
+  const sectionFollow = boolean('Follow us', true);
+  const sectionRelated = boolean('Related sites', true);
+  const sectionClass = boolean('Class name', true);
 
   // Update data
-  const dataCopy = JSON.parse(JSON.stringify(demoContentGroup1));
-  if (!sectionContact) {
-    dataCopy[1] = { key: 'section 2' };
-  }
+  const dataCopy = UpdateData(
+    demoContentGroup1,
+    sectionContact,
+    sectionAbout,
+    sectionFollow,
+    sectionRelated,
+    sectionClass
+  );
 
   return (
     <FooterHarmonised {...dataCopy} className="ecl-footer-harmonised--group1" />
