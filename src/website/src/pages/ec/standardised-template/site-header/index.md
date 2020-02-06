@@ -1,6 +1,6 @@
 ---
 title: Site header
 defaultTab: usage
-status: wip
+status: ready
 order: 1
 ---

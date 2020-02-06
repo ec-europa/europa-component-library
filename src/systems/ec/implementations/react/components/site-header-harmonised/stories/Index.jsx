@@ -15,7 +15,7 @@ demoMenuGroup2['data-ecl-auto-init'] = 'Menu';
 demoMenuGroup2.className = 'ecl-menu--group2';
 
 export default {
-  title: 'Components|Site Headers/Harmonised (WIP)',
+  title: 'Components|Site Headers/Harmonised',
 
   decorators: [
     story => (
