@@ -79,7 +79,7 @@ const CallTendersPage = () => (
               Description
             </h2>
 
-            <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
+            <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-m ecl-u-mb-none">
               Industry Level Growth and Productivity Data with Special Focus on
               Intangible Assets
             </p>

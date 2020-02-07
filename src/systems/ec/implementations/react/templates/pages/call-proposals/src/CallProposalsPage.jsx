@@ -123,7 +123,7 @@ const CallProposalsPage = () => (
               Description
             </h2>
 
-            <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m">
+            <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-m">
               The objective of this 2016 preparatory action was to provide a
               financial contribution for the activities carried out by a
               European financial expertise centre to the direct benefit of
@@ -131,13 +131,13 @@ const CallProposalsPage = () => (
               of financial services.
             </p>
 
-            <p className="ecl-u-type-paragraph ecl-u-type-color-black">
+            <p className="ecl-u-type-paragraph ecl-u-type-color-grey">
               The beneficiaries of this grant were selected though an open
               procedure. The call for proposals was launched on 8 February 2016
               and applications had to be submitted by 15 March 2016.
             </p>
 
-            <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
+            <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mb-none">
               The maximum EU contribution was €1,500,000, which is further
               limited to maximum 60% of the total eligible costs of the proposed
               action.

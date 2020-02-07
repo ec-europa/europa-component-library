@@ -9,7 +9,7 @@ const MainPolicyResourcesPage = () => (
   <div className="ecl-u-pv-xl ecl-u-pv-lg-3xl">
     <div className="ecl-container ecl-u-type-m">
       <main>
-        <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mv-none">
+        <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mv-none">
           The European Environment Agency&apos;s &apos;European Air Quality
           Index&apos; informs citizens about air quality levels based on data
           reported by Member States, and an &apos;Urban PM2.5 Atlas&apos; from

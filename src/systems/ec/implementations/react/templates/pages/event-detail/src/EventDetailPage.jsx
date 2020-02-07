@@ -47,12 +47,12 @@ const EventDetailPage = () => (
           </UnorderedList>
         </div>
         <div className="ecl-col-12 ecl-col-md-6 ecl-u-mt-2xl ecl-u-mt-md-none">
-          <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none">
+          <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-none">
             How is innovation in cultural heritage developped and how it the EU
             supporting it? What are the results of EU-funded projects in
             cultural heritage?
           </p>
-          <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
+          <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mb-none">
             Join us for two days of meetings, learning and discoveries!
           </p>
           <Link
@@ -420,12 +420,12 @@ const EventDetailPage = () => (
           />
         </div>
         <div className="ecl-col-12 ecl-col-md-6">
-          <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none">
+          <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-none">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
             nunc risus, venenatis non nibh ac, condimentum vestibulum risus. Ut
             risus elit, interdum in leo nec, pharetra scelerisque nulla.
           </p>
-          <p className="ecl-u-type-paragraph ecl-u-type-color-black">
+          <p className="ecl-u-type-paragraph ecl-u-type-color-grey">
             Integer bibendum nisl orci, nec sagittis nisi cursus sed. Interdum
             et malesuada fames ac ante ipsum primis in faucibus. Maecenas eget
             urna enim. Mauris vitae augue mi. Nunc elementum rhoncus dignissim.
@@ -433,7 +433,7 @@ const EventDetailPage = () => (
             Cras dignissim enim at orci laoreet, et pulvinar metus aliquam.
             Aenean eu odio non dui pharetra sagittis.
           </p>
-          <p className="ecl-u-type-paragraph ecl-u-type-color-black">
+          <p className="ecl-u-type-paragraph ecl-u-type-color-grey">
             Etiam dignissim odio mauris, at pellentesque justo ultrices nec. Ut
             non metus sagittis augue molestie luctus ac ac odio. Sed vestibulum
             lacus in pharetra pellentesque. Vivamus laoreet dignissim leo, at
@@ -442,7 +442,7 @@ const EventDetailPage = () => (
             gravida justo id pharetra. In volutpat maximus iaculis. Etiam
             pretium massa eget nisl vulputate, id luctus erat ullamcorper.
           </p>
-          <p className="ecl-u-type-paragraph ecl-u-type-color-black">
+          <p className="ecl-u-type-paragraph ecl-u-type-color-grey">
             In efficitur mi id consectetur interdum. Donec eu fringilla magna,
             non sodales purus. Vivamus sit amet condimentum ipsum. Donec lacinia
             neque at viverra tempor. Praesent metus leo, malesuada sed placerat
@@ -457,7 +457,7 @@ const EventDetailPage = () => (
             eget suscipit ipsum bibendum sed. Quisque in ultrices velit, ut
             aliquam nisl.
           </p>
-          <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
+          <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mb-none">
             Ut convallis est et nisi gravida, quis rhoncus mi tincidunt.
             Suspendisse maximus efficitur erat, at fermentum nibh vulputate non.
           </p>
