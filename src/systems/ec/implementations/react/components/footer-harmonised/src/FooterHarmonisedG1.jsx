@@ -2,10 +2,16 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import FooterHarmonisedSection from './FooterHarmonisedSection';
+import { FooterHarmonisedSection } from './FooterHarmonisedSection';
 
-const FooterHarmonised = ({ sections, className, ...props }) => (
-  <footer {...props} className={classnames(className, 'ecl-footer-harmonised')}>
+export const FooterHarmonisedG1 = ({ sections, className, ...props }) => (
+  <footer
+    {...props}
+    className={classnames(
+      className,
+      'ecl-footer-harmonised ecl-footer-harmonised--group1'
+    )}
+  >
     <div className="ecl-container ecl-footer-harmonised__container">
       {!Array.isArray(sections) && (
         <Fragment>
@@ -74,15 +80,16 @@ const FooterHarmonised = ({ sections, className, ...props }) => (
         </Fragment>
       )}
 
-      {/* DEPRECATED; retro compatibility */}
+      {/* DEPRECATED; backwards compatibility */}
       {Array.isArray(sections) && (
         <Fragment>
           {sections.map((section, index) => (
-            <FooterHarmonisedSection
-              key={section.key}
-              section={section}
-              className={`ecl-footer-harmonised__section${index + 1}`}
-            />
+            <section
+              className={`ecl-footer-harmonised__section ecl-footer-harmonised__section${index +
+                1}`}
+            >
+              <FooterHarmonisedSection key={section.key} section={section} />
+            </section>
           ))}
         </Fragment>
       )}
@@ -90,7 +97,7 @@ const FooterHarmonised = ({ sections, className, ...props }) => (
   </footer>
 );
 
-FooterHarmonised.propTypes = {
+FooterHarmonisedG1.propTypes = {
   sections: PropTypes.oneOfType([
     PropTypes.shape({
       siteName: PropTypes.shape(FooterHarmonisedSection.propTypes),
@@ -110,8 +117,8 @@ FooterHarmonised.propTypes = {
   className: PropTypes.string,
 };
 
-FooterHarmonised.defaultProps = {
+FooterHarmonisedG1.defaultProps = {
   className: '',
 };
 
-export default FooterHarmonised;
+export default FooterHarmonisedG1;

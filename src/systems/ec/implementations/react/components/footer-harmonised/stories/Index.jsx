@@ -6,22 +6,25 @@ import demoContentGroup1 from '@ecl/ec-specs-footer-harmonised/demo/data--group1
 import demoContentGroup2 from '@ecl/ec-specs-footer-harmonised/demo/data--group2';
 import demoContentGroup3 from '@ecl/ec-specs-footer-harmonised/demo/data--group3';
 
-import FooterHarmonised from '../src/FooterHarmonised';
+import { FooterHarmonisedG1 } from '../src/FooterHarmonisedG1';
+import { FooterHarmonisedG2 } from '../src/FooterHarmonisedG2';
+import { FooterHarmonisedG3 } from '../src/FooterHarmonisedG3';
 
 export default {
   title: 'Components|Footers/Harmonised',
   decorators: [withKnobs],
 };
 
-const UpdateData = (
-  data,
-  sectionContact,
-  sectionAbout,
-  sectionFollow,
-  sectionRelated,
-  sectionClass
-) => {
-  const dataCopy = JSON.parse(JSON.stringify(data));
+export const Group1 = () => {
+  // Optional section
+  const sectionContact = boolean('Contact us', true);
+  const sectionFollow = boolean('Follow us', true);
+  const sectionAbout = boolean('About us', true);
+  const sectionRelated = boolean('Related sites', true);
+  const sectionClass = boolean('Class name', true);
+
+  // Update data
+  const dataCopy = JSON.parse(JSON.stringify(demoContentGroup1));
 
   if (!sectionContact) {
     delete dataCopy.sections.dgServices[0];
@@ -45,53 +48,32 @@ const UpdateData = (
     delete dataCopy.sections.dgNavigations;
   }
 
-  return dataCopy;
-};
-
-export const Group1 = () => {
-  // Optional section
-  const sectionContact = boolean('Contact us', true);
-  const sectionFollow = boolean('Follow us', true);
-  const sectionAbout = boolean('About us', true);
-  const sectionRelated = boolean('Related sites', true);
-  const sectionClass = boolean('Class name', true);
-
-  // Update data
-  const dataCopy = UpdateData(
-    demoContentGroup1,
-    sectionContact,
-    sectionAbout,
-    sectionFollow,
-    sectionRelated,
-    sectionClass
-  );
-
-  return (
-    <FooterHarmonised {...dataCopy} className="ecl-footer-harmonised--group1" />
-  );
+  return <FooterHarmonisedG1 {...dataCopy} />;
 };
 
 Group1.story = {
   name: 'group 1',
 };
 
-export const Group2 = () => (
-  <FooterHarmonised
-    {...demoContentGroup2}
-    className="ecl-footer-harmonised--group2"
-  />
-);
+export const Group2 = () => <FooterHarmonisedG2 {...demoContentGroup2} />;
 
 Group2.story = {
   name: 'group 2',
 };
 
-export const Group3 = () => (
-  <FooterHarmonised
-    {...demoContentGroup3}
-    className="ecl-footer-harmonised--group3"
-  />
-);
+export const Group3 = () => {
+  // Optional section
+  const sectionPartnershipLogo = boolean('Partnership logo', true);
+
+  // Update data
+  const dataCopy = JSON.parse(JSON.stringify(demoContentGroup3));
+
+  if (!sectionPartnershipLogo) {
+    delete dataCopy.sections.partnershipLogos;
+  }
+
+  return <FooterHarmonisedG3 {...dataCopy} />;
+};
 
 Group3.story = {
   name: 'group 3',

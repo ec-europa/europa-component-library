@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import Link from '@ecl/ec-react-component-link';
 
-const FooterHarmonisedSection = ({ section }) => (
+export const FooterHarmonisedSection = ({ section }) => (
   <Fragment>
     {/* Title */}
     {!!(section && section.title && typeof section.title === 'object') && (
@@ -28,28 +28,17 @@ const FooterHarmonisedSection = ({ section }) => (
       </div>
     )}
 
-    {/* Logos */}
-    {!!(section && section.logos && Object.keys(section.logos).length >= 1) && (
-      <ul
+    {/* Logo */}
+    {!!(section && section.logo) && (
+      <img
+        src={section.logo.src}
+        alt={section.logo.alt}
+        title={section.logo.title}
         className={classnames(
-          'ecl-footer-harmonised__logo-list',
-          section.descriptionClassName
+          section.logo.className,
+          'ecl-footer-harmonised__logo'
         )}
-      >
-        {section.logos.map(logo => (
-          <li className="ecl-footer-harmonised__logo-item" key={logo.src}>
-            <img
-              src={logo.src}
-              alt={logo.alt}
-              title={logo.title}
-              className={classnames(
-                logo.className,
-                'ecl-footer-harmonised__logo'
-              )}
-            />
-          </li>
-        ))}
-      </ul>
+      />
     )}
 
     {/* Description */}
@@ -120,14 +109,12 @@ FooterHarmonisedSection.propTypes = {
       PropTypes.shape(Link.propTypes),
     ]),
     titleClassName: PropTypes.string,
-    logos: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string,
-        alt: PropTypes.string,
-        src: PropTypes.string,
-        className: PropTypes.string,
-      })
-    ),
+    logo: PropTypes.shape({
+      title: PropTypes.string,
+      alt: PropTypes.string,
+      src: PropTypes.string,
+      className: PropTypes.string,
+    }),
     description: PropTypes.string,
     descriptionClassName: PropTypes.string,
     contentBefore: PropTypes.string,
