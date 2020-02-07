@@ -24,29 +24,25 @@ const UpdateData = (
   const dataCopy = JSON.parse(JSON.stringify(data));
 
   if (!sectionContact) {
-    dataCopy.sections[1] = { key: 'section 2' };
-  }
-  if (!sectionAbout) {
-    dataCopy.sections[2] = { key: 'section 3' };
+    delete dataCopy.sections.dgServices[0];
   }
   if (!sectionFollow) {
-    dataCopy.sections[3] = { key: 'section 4' };
+    delete dataCopy.sections.dgServices[1];
+  }
+  if (!sectionAbout) {
+    delete dataCopy.sections.dgNavigations[0];
   }
   if (!sectionRelated) {
-    dataCopy.sections[4] = { key: 'section 5' };
+    delete dataCopy.sections.dgNavigations[1];
   }
   if (!sectionClass) {
-    dataCopy.sections[5] = { key: 'section 6' };
+    delete dataCopy.sections.classes;
   }
 
   // Special cases
-  if (!sectionFollow && !sectionContact) {
-    dataCopy.sections[1] = { ...dataCopy.sections[2] };
-    dataCopy.sections[1].key = 'section 2';
-    dataCopy.sections[2] = { key: 'section 3' };
-    dataCopy.sections[3] = { ...dataCopy.sections[4] };
-    dataCopy.sections[3].key = 'section 4';
-    dataCopy.sections[4] = { key: 'section 5' };
+  if (!sectionFollow && !sectionContact && dataCopy.sections.dgNavigations) {
+    dataCopy.sections.dgServices = [...dataCopy.sections.dgNavigations];
+    delete dataCopy.sections.dgNavigations;
   }
 
   return dataCopy;
@@ -55,8 +51,8 @@ const UpdateData = (
 export const Group1 = () => {
   // Optional section
   const sectionContact = boolean('Contact us', true);
-  const sectionAbout = boolean('About us', true);
   const sectionFollow = boolean('Follow us', true);
+  const sectionAbout = boolean('About us', true);
   const sectionRelated = boolean('Related sites', true);
   const sectionClass = boolean('Class name', true);
 

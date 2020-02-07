@@ -1,19 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import Link from '@ecl/ec-react-component-link';
 
-const FooterHarmonisedSection = ({ section, id, className, ...props }) => (
-  <section
-    {...props}
-    className={classnames(className, 'ecl-footer-harmonised__section', {
-      [`ecl-footer-harmonised__section${id}`]: id,
-    })}
-    key={section.key}
-  >
+const FooterHarmonisedSection = ({ section }) => (
+  <Fragment>
     {/* Title */}
-    {!!(section.title && typeof section.title === 'object') && (
+    {!!(section && section.title && typeof section.title === 'object') && (
       <Link
         {...section.title}
         variant="standalone"
@@ -23,7 +17,7 @@ const FooterHarmonisedSection = ({ section, id, className, ...props }) => (
         )}
       />
     )}
-    {!!(section.title && typeof section.title === 'string') && (
+    {!!(section && section.title && typeof section.title === 'string') && (
       <div
         className={classnames(
           'ecl-footer-harmonised__title',
@@ -35,7 +29,7 @@ const FooterHarmonisedSection = ({ section, id, className, ...props }) => (
     )}
 
     {/* Logos */}
-    {!!(section.logos && Object.keys(section.logos).length >= 1) && (
+    {!!(section && section.logos && Object.keys(section.logos).length >= 1) && (
       <ul
         className={classnames(
           'ecl-footer-harmonised__logo-list',
@@ -59,7 +53,7 @@ const FooterHarmonisedSection = ({ section, id, className, ...props }) => (
     )}
 
     {/* Description */}
-    {section.description && (
+    {!!(section && section.description) && (
       <div
         className={classnames(
           'ecl-footer-harmonised__description',
@@ -71,7 +65,7 @@ const FooterHarmonisedSection = ({ section, id, className, ...props }) => (
     )}
 
     {/* Content before links list */}
-    {section.contentBefore && (
+    {!!(section && section.contentBefore) && (
       <div
         className={classnames(
           'ecl-footer-harmonised__content',
@@ -83,7 +77,7 @@ const FooterHarmonisedSection = ({ section, id, className, ...props }) => (
     )}
 
     {/* Links list */}
-    {section.links && (
+    {!!(section && section.links) && (
       <ul
         className={classnames(
           'ecl-footer-harmonised__list',
@@ -106,7 +100,7 @@ const FooterHarmonisedSection = ({ section, id, className, ...props }) => (
     )}
 
     {/* Content after links list */}
-    {section.contentAfter && (
+    {!!(section && section.contentAfter) && (
       <div
         className={classnames(
           'ecl-footer-harmonised__content',
@@ -116,12 +110,11 @@ const FooterHarmonisedSection = ({ section, id, className, ...props }) => (
         {section.contentAfter}
       </div>
     )}
-  </section>
+  </Fragment>
 );
 
 FooterHarmonisedSection.propTypes = {
   section: PropTypes.shape({
-    key: PropTypes.string,
     title: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.shape(Link.propTypes),
@@ -144,14 +137,10 @@ FooterHarmonisedSection.propTypes = {
     contentAfter: PropTypes.string,
     contentAfterClassName: PropTypes.string,
   }),
-  id: PropTypes.number,
-  className: PropTypes.string,
 };
 
 FooterHarmonisedSection.defaultProps = {
   section: {},
-  id: 0,
-  className: '',
 };
 
 export default FooterHarmonisedSection;
