@@ -1,117 +1,75 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import Link from '@ecl/ec-react-component-link';
+import { FooterCoreSection } from './FooterCoreSection';
 
-const FooterCore = ({ sections, className, ...props }) => (
+export const FooterCore = ({ sections, className, ...props }) => (
   <footer {...props} className={classnames(className, 'ecl-footer-core')}>
     <div className="ecl-container ecl-footer-core__container">
-      {sections.map((section, index) => (
-        <div
-          className={classnames(
-            'ecl-footer-core__section',
-            `ecl-footer-core__section${index + 1}`,
-            section.sectionClassName
-          )}
-          key={section.key}
-        >
-          {!!(section.title && typeof section.title === 'object') && (
-            <Link
-              {...section.title}
-              variant="standalone"
-              className={classnames(
-                section.titleClassName,
-                'ecl-footer-core__title'
-              )}
-            />
-          )}
-          {!!(section.title && typeof section.title === 'string') && (
-            <div
-              className={classnames(
-                'ecl-footer-core__title',
-                section.titleClassName
-              )}
+      {!Array.isArray(sections) && (
+        <Fragment>
+          {/* Site name */}
+          <section className="ecl-footer-core__section ecl-footer-core__section1">
+            {sections.siteName && (
+              <FooterCoreSection section={sections.siteName} />
+            )}
+          </section>
+
+          {/* Class navigation */}
+          <section className="ecl-footer-core__section ecl-footer-core__section2 ecl-footer-core__section--separator">
+            {sections.classes && (
+              <FooterCoreSection section={sections.classes} />
+            )}
+          </section>
+
+          {/* Service navigation */}
+          <section className="ecl-footer-core__section ecl-footer-core__section3">
+            {sections.serviceNavigation && (
+              <FooterCoreSection section={sections.serviceNavigation} />
+            )}
+          </section>
+
+          {/* Legal navigation */}
+          <section className="ecl-footer-core__section ecl-footer-core__section4">
+            {sections.legalNavigation && (
+              <FooterCoreSection section={sections.legalNavigation} />
+            )}
+          </section>
+        </Fragment>
+      )}
+
+      {/* DEPRECATED; backwards compatibility */}
+      {Array.isArray(sections) && (
+        <Fragment>
+          {sections.map((section, index) => (
+            <section
+              className={`ecl-footer-core__section ecl-footer-core__section${index +
+                1}`}
             >
-              {section.title}
-            </div>
-          )}
-          {section.description && (
-            <div
-              className={classnames(
-                'ecl-footer-core__description',
-                section.descriptionClassName
-              )}
-            >
-              {section.description}
-            </div>
-          )}
-          {section.contentBefore && (
-            <div
-              className={classnames(
-                'ecl-footer-core__content',
-                section.contentBeforeClassName
-              )}
-            >
-              {section.contentBefore}
-            </div>
-          )}
-          {section.links && (
-            <ul
-              className={classnames(
-                'ecl-footer-core__list',
-                section.listClassName
-              )}
-            >
-              {section.links.map(link => (
-                <li className="ecl-footer-core__list-item" key={link.label}>
-                  <Link
-                    {...link}
-                    variant="standalone"
-                    className={classnames(
-                      link.className,
-                      'ecl-footer-core__link'
-                    )}
-                  />
-                </li>
-              ))}
-            </ul>
-          )}
-          {section.contentAfter && (
-            <div
-              className={classnames(
-                'ecl-footer-core__content',
-                section.contentAfterClassName
-              )}
-            >
-              {section.contentAfter}
-            </div>
-          )}
-        </div>
-      ))}
+              <FooterCoreSection key={section.key} section={section} />
+            </section>
+          ))}
+        </Fragment>
+      )}
     </div>
   </footer>
 );
 
 FooterCore.propTypes = {
-  sections: PropTypes.arrayOf(
+  sections: PropTypes.oneOfType([
     PropTypes.shape({
-      key: PropTypes.string,
-      title: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.shape(Link.propTypes),
-      ]),
-      description: PropTypes.string,
-      contentBefore: PropTypes.string,
-      links: PropTypes.arrayOf(PropTypes.shape(Link.propTypes)),
-      contentAfter: PropTypes.string,
-    })
-  ),
+      siteName: PropTypes.shape(FooterCoreSection.propTypes),
+      classes: PropTypes.shape(FooterCoreSection.propTypes),
+      serviceNavigation: PropTypes.shape(FooterCoreSection.propTypes),
+      legalNavigation: PropTypes.shape(FooterCoreSection.propTypes),
+    }),
+    PropTypes.arrayOf(PropTypes.shape(FooterCoreSection.propTypes)),
+  ]).isRequired,
   className: PropTypes.string,
 };
 
 FooterCore.defaultProps = {
-  sections: [],
   className: '',
 };
 

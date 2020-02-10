@@ -7,10 +7,7 @@ import { FooterStandardisedSection } from './FooterStandardisedSection';
 export const FooterStandardised = ({ sections, className, ...props }) => (
   <footer
     {...props}
-    className={classnames(
-      className,
-      'ecl-footer-standardised ecl-footer-standardised--group1'
-    )}
+    className={classnames(className, 'ecl-footer-standardised')}
   >
     <div className="ecl-container ecl-footer-standardised__container">
       {!Array.isArray(sections) && (

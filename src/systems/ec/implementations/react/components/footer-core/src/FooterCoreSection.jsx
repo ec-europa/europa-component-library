@@ -4,25 +4,19 @@ import classnames from 'classnames';
 
 import Link from '@ecl/ec-react-component-link';
 
-export const FooterStandardisedSection = ({ section }) => (
+export const FooterCoreSection = ({ section }) => (
   <Fragment>
     {/* Title */}
     {!!(section && section.title && typeof section.title === 'object') && (
       <Link
         {...section.title}
         variant="standalone"
-        className={classnames(
-          section.titleClassName,
-          'ecl-footer-standardised__title'
-        )}
+        className={classnames(section.titleClassName, 'ecl-footer-core__title')}
       />
     )}
     {!!(section && section.title && typeof section.title === 'string') && (
       <div
-        className={classnames(
-          'ecl-footer-standardised__title',
-          section.titleClassName
-        )}
+        className={classnames('ecl-footer-core__title', section.titleClassName)}
       >
         {section.title}
       </div>
@@ -31,7 +25,7 @@ export const FooterStandardisedSection = ({ section }) => (
     {!!(section && section.description) && (
       <div
         className={classnames(
-          'ecl-footer-standardised__description',
+          'ecl-footer-core__description',
           section.descriptionClassName
         )}
       >
@@ -42,7 +36,7 @@ export const FooterStandardisedSection = ({ section }) => (
     {!!(section && section.contentBefore) && (
       <div
         className={classnames(
-          'ecl-footer-standardised__content',
+          'ecl-footer-core__content',
           section.contentBeforeClassName
         )}
       >
@@ -52,20 +46,14 @@ export const FooterStandardisedSection = ({ section }) => (
     {/* Links list */}
     {!!(section && section.links) && (
       <ul
-        className={classnames(
-          'ecl-footer-standardised__list',
-          section.listClassName
-        )}
+        className={classnames('ecl-footer-core__list', section.listClassName)}
       >
         {section.links.map(link => (
-          <li className="ecl-footer-standardised__list-item" key={link.label}>
+          <li className="ecl-footer-core__list-item" key={link.label}>
             <Link
               {...link}
               variant="standalone"
-              className={classnames(
-                link.className,
-                'ecl-footer-standardised__link'
-              )}
+              className={classnames(link.className, 'ecl-footer-core__link')}
             />
           </li>
         ))}
@@ -75,7 +63,7 @@ export const FooterStandardisedSection = ({ section }) => (
     {!!(section && section.contentAfter) && (
       <div
         className={classnames(
-          'ecl-footer-standardised__content',
+          'ecl-footer-core__content',
           section.contentAfterClassName
         )}
       >
@@ -85,7 +73,7 @@ export const FooterStandardisedSection = ({ section }) => (
   </Fragment>
 );
 
-FooterStandardisedSection.propTypes = {
+FooterCoreSection.propTypes = {
   section: PropTypes.shape({
     title: PropTypes.oneOfType([
       PropTypes.string,
@@ -103,8 +91,8 @@ FooterStandardisedSection.propTypes = {
   }),
 };
 
-FooterStandardisedSection.defaultProps = {
+FooterCoreSection.defaultProps = {
   section: {},
 };
 
-export default FooterStandardisedSection;
+export default FooterCoreSection;
