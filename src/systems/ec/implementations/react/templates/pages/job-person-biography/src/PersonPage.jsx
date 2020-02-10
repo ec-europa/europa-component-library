@@ -179,7 +179,7 @@ const PersonPage = () => (
               Press contact
             </h3>
 
-            <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-xl ecl-u-mb-lg-3xl">
+            <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-none ecl-u-mb-xl ecl-u-mb-lg-3xl">
               Media enquiries should be directed to the{' '}
               <Link href="/example" label="European Commission press service" />
               .
@@ -192,7 +192,7 @@ const PersonPage = () => (
               Biography
             </h2>
 
-            <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l">
+            <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-none ecl-u-mb-l">
               Lithuanian nationality. Married with three children.
             </p>
 
@@ -329,7 +329,7 @@ const PersonPage = () => (
               </UnorderedListItem>
             </UnorderedList>
 
-            <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l">
+            <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-none ecl-u-mb-l">
               Vytenis Andriukaitis is part of the following project teams:
             </p>
 
@@ -358,7 +358,7 @@ const PersonPage = () => (
               Mission letter
             </h3>
 
-            <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-m">
+            <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-none ecl-u-mb-l ecl-u-mb-lg-m">
               Ursula von der Leyen&apos;s personal letter to Vytenis
               Andriukaitis, outlining his role in the Commission.
             </p>
@@ -567,7 +567,7 @@ const PersonPage = () => (
               Team
             </h2>
 
-            <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l">
+            <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-none ecl-u-mb-l">
               Meet Vytenis Andriukaitis &apos; team supports him in his daily
               work.
             </p>
@@ -630,7 +630,7 @@ const PersonPage = () => (
               Declaration of interests
             </h2>
 
-            <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none ecl-u-mb-l">
+            <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-none ecl-u-mb-l">
               Interests that could conflict with, have the potential to
               conflict, or could be perceived to conflict with the Commission.
             </p>
@@ -658,7 +658,7 @@ const PersonPage = () => (
               Transparency
             </h2>
 
-            <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-none">
+            <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-none">
               As part of the Commission&apos;s commitment to transparency,
               Commissioners and their members of Cabinet publish informatoin on
               meetings held with organisations or self-employed individuals.

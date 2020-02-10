@@ -3,6 +3,8 @@ order: 1
 title: Getting started
 ---
 
+import styles from '../../../components/Navigation/SingleLink.scss';
+
 The Europa Component Library is a design system for the European Commission and websites managed by the Commission.
 
 We provide design guidelines and code to help users create consistent and accessible government web presence.
@@ -125,4 +127,12 @@ Then, in the footer of the document (or whenever the document is ready), call `E
 </html>
 ```
 
-And that's it!
+## Components statuses
+
+Components and their variants have been given statuses reflecting their state of completion. The available statuses are listed below.
+
+| Label / Colour                                                                                       | Description                               |
+| ---------------------------------------------------------------------------------------------------- | ----------------------------------------- |
+| <span className={styles['status-ready']} style={{color: '#fff', padding: '0.5rem'}}>ready</span>     | Can be used in production.                |
+| <span className={styles['status-planned']} style={{color: '#fff', padding: '0.5rem'}}>planned</span> | Still under discussion.                   |
+| <span className={styles['status-wip']} style={{color: '#fff', padding: '0.5rem'}}>wip</span>         | Work in progress. Implement with caution. |

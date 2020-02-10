@@ -10,7 +10,7 @@ const MainPolicyLegislationPage = () => (
   <div className="ecl-u-pv-xl ecl-u-pv-lg-3xl">
     <div className="ecl-container ecl-u-type-m">
       <main>
-        <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mv-none">
+        <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mv-none">
           In 2018 the Commission adopted a Communication &quot;A Europe that
           protects: Clean air fo all&quot; that provides national, regional and
           local actors practical help to improve quality of air in Europe.

@@ -19,7 +19,7 @@ const MainPolicyHubPage = () => (
       <div className="ecl-container ecl-u-type-m">
         <div className="ecl-row">
           <div className="ecl-col-12 ecl-col-md-6">
-            <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mv-none">
+            <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mv-none">
               Clean air is essential to our health and to the environment. But
               since the industrial revolution, the qulity of the air we breathe
               ha deteriorated considerably - mainly as a result of human
@@ -41,7 +41,7 @@ const MainPolicyHubPage = () => (
               Objectives
             </h2>
 
-            <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-mt-l ecl-u-mb-none">
+            <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-type-mt-l ecl-u-mb-none">
               Achieve levels of air quality that do not give rise to significant
               negative eimpacts on, and risks to, human health and the
               environment. Since the early 1970s, the EU has been working to
@@ -233,7 +233,7 @@ const MainPolicyHubPage = () => (
             Results
           </h3>
 
-          <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
+          <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-m ecl-u-mb-none">
             As a result, much progress has been made in tackling air polluants
             such as sulphur dioxide, lead, nitrogen oxides, carbon monoxide and
             benzene. Yet, and despite the progressmade to date, poor air quality
@@ -262,11 +262,11 @@ const MainPolicyHubPage = () => (
                 Monitoring
               </h3>
 
-              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m">
+              <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-m">
                 The new PRIMES 2016 reference scenario and any developments in
                 the CAPRI and TREMOVE modelling frameworks.
               </p>
-              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mb-none">
+              <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mb-none">
                 The impacts of Climate and Energy Policy as finally proposed by
                 the Commission
               </p>
@@ -289,7 +289,7 @@ const MainPolicyHubPage = () => (
                 Evaluation
               </h3>
 
-              <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-mt-m ecl-u-mb-none">
+              <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-mt-m ecl-u-mb-none">
                 This review will build on and reinforce the objectives of the
                 Europe 2030 strategy for smart, sustainable and inclusive growth
                 and involve all relevant stakeholders. Meanwhile, important
@@ -325,7 +325,7 @@ const MainPolicyHubPage = () => (
               label="Review of the Clean air policy"
             />
           </div>
-          <p className="ecl-u-type-paragraph ecl-u-type-color-black ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
+          <p className="ecl-u-type-paragraph ecl-u-type-color-grey ecl-u-type-color-grey-100 ecl-u-mt-xs ecl-u-mb-none">
             This package was based on an extensive review of the EU air policy
             to date.
           </p>
