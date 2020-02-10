@@ -16,30 +16,22 @@ import DepartmentPage from '../src/DepartmentPage';
 class DepartmentHarmonisedG2 extends React.Component {
   constructor(props) {
     super(props);
-    this.components = null;
+    this.autoinit = null;
   }
 
   componentDidMount() {
     if (!window.ECL) return;
-    this.components = window.ECL.autoInit();
+    this.autoinit = window.ECL.autoInit();
   }
 
   componentDidUpdate() {
     if (!window.ECL) return;
-
-    if (this.components) {
-      this.components.forEach(c => c.destroy());
-    }
-
-    this.components = window.ECL.autoInit();
+    this.autoinit.update();
   }
 
   componentWillUnmount() {
     if (!window.ECL) return;
-
-    if (this.components) {
-      this.components.forEach(c => c.destroy());
-    }
+    this.autoinit.destroy();
   }
 
   render() {
