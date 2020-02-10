@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import HomePage from './HomePage';
 import Example from './Example';
+import Stats from './Stats';
 import PageNotFound from './404';
 import Redirects from './Redirects';
 
@@ -54,6 +55,7 @@ const MainRoutes = () => (
   <Switch>
     <Route exact strict path="/" component={HomePage} />
     <Route strict path="/example" component={Example} />
+    <Route strict path="/stats" component={Stats} />
     <Route path="/ec/" strict component={WaitingEC} />
     <Route path="/eu/" strict component={WaitingEU} />
     <Redirects />
