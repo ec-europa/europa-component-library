@@ -1,17 +1,17 @@
 module.exports = {
-  sections: [
-    {
-      key: 'section 1',
+  sections: {
+    siteName: {
+      // Mandatory
       title: {
         label: 'European Commission website',
-        href: '#',
+        href: '/example',
       },
       description:
         'This site is managed by the Directorate-General for Communication',
     },
-    {
-      key: 'section 2',
-      sectionClassName: 'ecl-footer-core__section--separator',
+    classes: {
+      // Mandatory
+      contentBefore: 'More information on:',
       links: [
         {
           label: 'Strategy',
@@ -84,8 +84,8 @@ module.exports = {
       ],
       listClassName: 'ecl-footer-core__list--columns',
     },
-    {
-      key: 'section 3',
+    serviceNavigation: {
+      // Mandatory
       links: [
         {
           label: 'Contact the European Commission',
@@ -106,8 +106,8 @@ module.exports = {
         },
       ],
     },
-    {
-      key: 'section 4',
+    legalNavigation: {
+      // Mandatory
       links: [
         {
           label: 'Language policy',
@@ -131,5 +131,5 @@ module.exports = {
         },
       ],
     },
-  ],
+  },
 };
