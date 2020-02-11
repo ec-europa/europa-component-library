@@ -1,7 +1,7 @@
 module.exports = {
-  sections: [
-    {
-      key: 'section 1',
+  sections: {
+    siteName: {
+      // Mandatory
       title: {
         label: 'Site name',
         href: '/example',
@@ -9,92 +9,96 @@ module.exports = {
       description:
         'This site is managed by the Directorate-General for "DG identification"',
     },
-    {
-      key: 'section 2',
-      title: 'Contact us',
-      titleClassName: 'ecl-footer-harmonised__title--separator',
-      links: [
-        {
-          label: 'Contact information of the DG',
-          href: '/example',
-        },
-      ],
-    },
-    {
-      key: 'section 3',
-      title: 'About us',
-      titleClassName: 'ecl-footer-harmonised__title--separator',
-      links: [
-        {
-          label: 'Information about the DG',
-          href: '/example',
-        },
-      ],
-    },
-    {
-      key: 'section 4',
-      title: 'Follow us on',
-      titleClassName: 'ecl-footer-harmonised__title--separator',
-      links: [
-        {
-          label: 'Facebook',
-          href: '/example',
-          iconPosition: 'before',
-          icon: {
-            shape: 'branded--facebook',
-            size: 'xs',
+    dgServices: [
+      {
+        // Optional
+        title: 'Contact us',
+        titleClassName: 'ecl-footer-harmonised__title--separator',
+        links: [
+          {
+            label: 'Contact information of the DG',
+            href: '/example',
           },
-        },
-        {
-          label: 'Twitter',
-          href: '/example',
-          iconPosition: 'before',
-          icon: {
-            shape: 'branded--twitter',
-            size: 'xs',
+        ],
+      },
+      {
+        // Optional
+        title: 'Follow us on',
+        titleClassName: 'ecl-footer-harmonised__title--separator',
+        links: [
+          {
+            label: 'Facebook',
+            href: '/example',
+            iconPosition: 'before',
+            icon: {
+              shape: 'branded--facebook',
+              size: 'xs',
+            },
           },
-        },
-        {
-          label: 'Linkedin',
-          href: '/example',
-          iconPosition: 'before',
-          icon: {
-            shape: 'branded--linkedin',
-            size: 'xs',
+          {
+            label: 'Twitter',
+            href: '/example',
+            iconPosition: 'before',
+            icon: {
+              shape: 'branded--twitter',
+              size: 'xs',
+            },
           },
-        },
-      ],
-      listClassName: 'ecl-footer-harmonised__list--inline',
-    },
-    {
-      key: 'section 5',
-      title: 'Related sites',
-      titleClassName: 'ecl-footer-harmonised__title--separator',
-      links: [
-        {
-          label: 'Related link 1',
-          href: '/example',
-        },
-        {
-          label: 'Related link 2',
-          href: '/example',
-        },
-        {
-          label: 'Related link 3',
-          href: '/example',
-        },
-        {
-          label: 'Related link 4',
-          href: '/example',
-        },
-        {
-          label: 'Related link 5',
-          href: '/example',
-        },
-      ],
-    },
-    {
-      key: 'section 6',
+          {
+            label: 'Linkedin',
+            href: '/example',
+            iconPosition: 'before',
+            icon: {
+              shape: 'branded--linkedin',
+              size: 'xs',
+            },
+          },
+        ],
+        listClassName: 'ecl-footer-harmonised__list--inline',
+      },
+    ],
+    dgNavigations: [
+      {
+        // Optional
+        title: 'About us',
+        titleClassName: 'ecl-footer-harmonised__title--separator',
+        links: [
+          {
+            label: 'Information about the DG',
+            href: '/example',
+          },
+        ],
+      },
+      {
+        // Optional
+        title: 'Related sites',
+        titleClassName: 'ecl-footer-harmonised__title--separator',
+        links: [
+          {
+            label: 'Related link 1',
+            href: '/example',
+          },
+          {
+            label: 'Related link 2',
+            href: '/example',
+          },
+          {
+            label: 'Related link 3',
+            href: '/example',
+          },
+          {
+            label: 'Related link 4',
+            href: '/example',
+          },
+          {
+            label: 'Related link 5',
+            href: '/example',
+          },
+        ],
+      },
+    ],
+    classes: {
+      // Optional
       contentBefore: 'More information on:',
       links: [
         {
@@ -108,15 +112,15 @@ module.exports = {
       ],
       listClassName: 'ecl-footer-harmonised__list--condensed',
     },
-    {
-      key: 'section 7',
+    corporateName: {
+      // Mandatory
       title: {
         label: 'European Commission',
         href: 'https://ec.europa.eu/info/index_en',
       },
     },
-    {
-      key: 'section 8',
+    serviceNavigation: {
+      // Mandatory
       links: [
         {
           label: 'Contact the European Commission',
@@ -137,8 +141,8 @@ module.exports = {
         },
       ],
     },
-    {
-      key: 'section 9',
+    legalNavigation: {
+      // Mandatory
       links: [
         {
           label: 'Language policy',
@@ -162,5 +166,5 @@ module.exports = {
         },
       ],
     },
-  ],
+  },
 };

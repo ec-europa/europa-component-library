@@ -1,120 +1,120 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import Link from '@ecl/ec-react-component-link';
+import { FooterStandardisedSection } from './FooterStandardisedSection';
 
-const FooterStandardised = ({ sections, className, ...props }) => (
+export const FooterStandardised = ({ sections, className, ...props }) => (
   <footer
     {...props}
     className={classnames(className, 'ecl-footer-standardised')}
   >
     <div className="ecl-container ecl-footer-standardised__container">
-      {sections.map((section, index) => (
-        <div
-          className={`ecl-footer-standardised__section ecl-footer-standardised__section${index +
-            1}`}
-          key={section.key}
-        >
-          {!!(section.title && typeof section.title === 'object') && (
-            <Link
-              {...section.title}
-              variant="standalone"
-              className={classnames(
-                section.titleClassName,
-                'ecl-footer-standardised__title'
-              )}
-            />
-          )}
-          {!!(section.title && typeof section.title === 'string') && (
-            <div
-              className={classnames(
-                'ecl-footer-standardised__title',
-                section.titleClassName
-              )}
-            >
-              {section.title}
-            </div>
-          )}
-          {section.description && (
-            <div
-              className={classnames(
-                'ecl-footer-standardised__description',
-                section.descriptionClassName
-              )}
-            >
-              {section.description}
-            </div>
-          )}
-          {section.contentBefore && (
-            <div
-              className={classnames(
-                'ecl-footer-standardised__content',
-                section.contentBeforeClassName
-              )}
-            >
-              {section.contentBefore}
-            </div>
-          )}
-          {section.links && (
-            <ul
-              className={classnames(
-                'ecl-footer-standardised__list',
-                section.listClassName
-              )}
-            >
-              {section.links.map(link => (
-                <li
-                  className="ecl-footer-standardised__list-item"
-                  key={link.label}
-                >
-                  <Link
-                    {...link}
-                    variant="standalone"
-                    className={classnames(
-                      link.className,
-                      'ecl-footer-standardised__link'
-                    )}
+      {!Array.isArray(sections) && (
+        <Fragment>
+          {/* Site name */}
+          <section className="ecl-footer-standardised__section ecl-footer-standardised__section1">
+            {sections.siteName && (
+              <FooterStandardisedSection section={sections.siteName} />
+            )}
+          </section>
+
+          {/* DG services */}
+          <div className="ecl-footer-standardised__section2">
+            {sections.dgServices &&
+              sections.dgServices.map((section, index) => (
+                <section className="ecl-footer-standardised__section">
+                  <FooterStandardisedSection
+                    // eslint-disable-next-line react/no-array-index-key
+                    key={`dg-services-${index}`}
+                    section={section}
                   />
-                </li>
+                </section>
               ))}
-            </ul>
-          )}
-          {section.contentAfter && (
-            <div
-              className={classnames(
-                'ecl-footer-standardised__content',
-                section.contentAfterClassName
-              )}
+          </div>
+
+          {/* DG navigation */}
+          <div className="ecl-footer-standardised__section3">
+            {sections.dgNavigations &&
+              sections.dgNavigations.map((section, index) => (
+                <section className="ecl-footer-standardised__section">
+                  <FooterStandardisedSection
+                    // eslint-disable-next-line react/no-array-index-key
+                    key={`dg-navigation-${index}`}
+                    section={section}
+                  />
+                </section>
+              ))}
+          </div>
+
+          {/* Classes */}
+          <section className="ecl-footer-standardised__section ecl-footer-standardised__section6">
+            {sections.classes && (
+              <FooterStandardisedSection section={sections.classes} />
+            )}
+          </section>
+
+          {/* Corporate name */}
+          <section className="ecl-footer-standardised__section ecl-footer-standardised__section7">
+            {sections.corporateName && (
+              <FooterStandardisedSection section={sections.corporateName} />
+            )}
+          </section>
+
+          {/* Service navigation */}
+          <section className="ecl-footer-standardised__section ecl-footer-standardised__section8">
+            {sections.serviceNavigation && (
+              <FooterStandardisedSection section={sections.serviceNavigation} />
+            )}
+          </section>
+
+          {/* Legal navigation */}
+          <section className="ecl-footer-standardised__section ecl-footer-standardised__section9">
+            {sections.serviceNavigation && (
+              <FooterStandardisedSection section={sections.legalNavigation} />
+            )}
+          </section>
+        </Fragment>
+      )}
+
+      {/* DEPRECATED; backwards compatibility */}
+      {Array.isArray(sections) && (
+        <Fragment>
+          {sections.map((section, index) => (
+            <section
+              className={`ecl-footer-standardised__section ecl-footer-standardised__section${index +
+                1}`}
             >
-              {section.contentAfter}
-            </div>
-          )}
-        </div>
-      ))}
+              <FooterStandardisedSection key={section.key} section={section} />
+            </section>
+          ))}
+        </Fragment>
+      )}
     </div>
   </footer>
 );
 
 FooterStandardised.propTypes = {
-  sections: PropTypes.arrayOf(
+  sections: PropTypes.oneOfType([
     PropTypes.shape({
-      key: PropTypes.string,
-      title: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.shape(Link.propTypes),
-      ]),
-      description: PropTypes.string,
-      contentBefore: PropTypes.string,
-      links: PropTypes.arrayOf(PropTypes.shape(Link.propTypes)),
-      contentAfter: PropTypes.string,
-    })
-  ),
+      siteName: PropTypes.shape(FooterStandardisedSection.propTypes),
+      dgServices: PropTypes.arrayOf(
+        PropTypes.shape(FooterStandardisedSection.propTypes)
+      ),
+      dgNavigations: PropTypes.arrayOf(
+        PropTypes.shape(FooterStandardisedSection.propTypes)
+      ),
+      classes: PropTypes.shape(FooterStandardisedSection.propTypes),
+      corporateName: PropTypes.shape(FooterStandardisedSection.propTypes),
+      serviceNavigation: PropTypes.shape(FooterStandardisedSection.propTypes),
+      legalNavigation: PropTypes.shape(FooterStandardisedSection.propTypes),
+    }),
+    PropTypes.arrayOf(PropTypes.shape(FooterStandardisedSection.propTypes)),
+  ]).isRequired,
   className: PropTypes.string,
 };
 
 FooterStandardised.defaultProps = {
-  sections: [],
   className: '',
 };
 

@@ -1,14 +1,14 @@
 module.exports = {
-  sections: [
-    {
-      key: 'section 1',
+  sections: {
+    corporateName: {
+      // Mandatory
       title: {
         label: 'European Commission',
         href: 'https://ec.europa.eu/info/index_en',
       },
     },
-    {
-      key: 'section 2',
+    serviceNavigation: {
+      // Mandatory
       links: [
         {
           label: 'Contact the European Commission',
@@ -29,8 +29,8 @@ module.exports = {
         },
       ],
     },
-    {
-      key: 'section 3',
+    legalNavigation: {
+      // Mandatory
       links: [
         {
           label: 'Language policy',
@@ -54,5 +54,5 @@ module.exports = {
         },
       ],
     },
-  ],
+  },
 };
