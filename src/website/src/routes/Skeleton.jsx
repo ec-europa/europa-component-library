@@ -75,7 +75,15 @@ class Skeleton extends Component {
 
   render() {
     const { sidebarOpen, forceRefresh } = this.state;
-    const { HomePage, prefix, title, pages, routes, isLoading } = this.props;
+    const {
+      HomePage,
+      prefix,
+      title,
+      pages,
+      routes,
+      isLoading,
+      children,
+    } = this.props;
 
     return (
       <Fragment>
@@ -103,6 +111,7 @@ class Skeleton extends Component {
             {routes}
             <Route component={isLoading ? LoadingPage : PageNotFound} />
           </Switch>
+          {children}
         </MainContainer>
       </Fragment>
     );
@@ -117,12 +126,14 @@ Skeleton.propTypes = {
   pages: PropTypes.array, // eslint-disable-line react/forbid-prop-types
   routes: PropTypes.node,
   isLoading: PropTypes.bool,
+  children: PropTypes.node,
 };
 
 Skeleton.defaultProps = {
   pages: [],
   routes: null,
   isLoading: false,
+  children: null,
 };
 
 export default Skeleton;

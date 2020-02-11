@@ -1,15 +1,19 @@
 @import '@ecl/ec-theme-default/index';
 
 .list {
+  color: $ecl-color-grey-100;
+  display: inline-flex;
+  flex-wrap: wrap;
+  font: $ecl-font-prolonged-m;
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
 
-  &[aria-hidden='true'] {
-    display: none;
+.list-item {
+  margin-left: $ecl-spacing-m;
 
-    :global(.no-js) & {
-      display: block;
-    }
+  &:first-of-type {
+    margin-left: 0;
   }
 }
