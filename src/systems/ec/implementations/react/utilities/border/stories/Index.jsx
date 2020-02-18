@@ -15,7 +15,7 @@ const styleBox = {
 };
 
 export default {
-  title: 'Utilities|Border',
+  title: 'Utilities/Border',
   decorators: [withKnobs],
 };
 

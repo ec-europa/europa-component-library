@@ -3,7 +3,7 @@ import TableZebra from '../examples/TableZebra';
 import TableMulti from '../examples/TableMulti';
 
 export default {
-  title: 'Components|Table',
+  title: 'Components/Table',
 };
 
 export const Default = Table;

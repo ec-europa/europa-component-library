@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { withKnobs, select } from '@storybook/addon-knobs';
 
 export default {
-  title: 'Utilities|Background',
+  title: 'Utilities/Background',
   decorators: [withKnobs],
 };
 

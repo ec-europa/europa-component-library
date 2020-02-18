@@ -12,7 +12,7 @@ demoMenuEn['data-ecl-auto-init'] = 'Menu';
 demoMenuFr['data-ecl-auto-init'] = 'Menu';
 
 export default {
-  title: 'Components|Site Headers/Standardised',
+  title: 'Components/Site Headers/Standardised',
 
   decorators: [
     story => (

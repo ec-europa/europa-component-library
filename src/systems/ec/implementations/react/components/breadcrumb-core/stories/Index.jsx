@@ -9,7 +9,7 @@ import { BreadcrumbCore } from '../src/BreadcrumbCore';
 import { BreadcrumbCoreItem } from '../src/BreadcrumbCoreItem';
 
 export default {
-  title: 'Components|Navigation/Breadcrumb core',
+  title: 'Components/Navigation/Breadcrumb core',
 
   decorators: [
     withKnobs,

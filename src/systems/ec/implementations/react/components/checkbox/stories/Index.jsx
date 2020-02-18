@@ -6,7 +6,7 @@ import demoContentDefault from '@ecl/ec-specs-checkbox/demo/data--default';
 import CheckboxGroup from '../src/CheckboxGroup';
 
 export default {
-  title: 'Components|Forms/Checkbox',
+  title: 'Components/Forms/Checkbox',
   decorators: [withKnobs],
 };
 

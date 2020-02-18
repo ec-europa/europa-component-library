@@ -3,7 +3,7 @@ import React from 'react';
 import { withKnobs } from '@storybook/addon-knobs';
 
 export default {
-  title: 'Utilities|Editor',
+  title: 'Utilities/Editor',
   decorators: [withKnobs],
 };
 

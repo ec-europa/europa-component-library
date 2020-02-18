@@ -7,7 +7,7 @@ import demoContent from '@ecl/ec-specs-pagination/demo/data';
 import Pagination from '../src/Pagination';
 
 export default {
-  title: 'Components|Navigation/Pagination',
+  title: 'Components/Navigation/Pagination',
   decorators: [withKnobs],
 };
 

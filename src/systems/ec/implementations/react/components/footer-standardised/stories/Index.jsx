@@ -7,7 +7,7 @@ import demoContent from '@ecl/ec-specs-footer-standardised/demo/data';
 import { FooterStandardised } from '../src/FooterStandardised';
 
 export default {
-  title: 'Components|Footers/Standardised',
+  title: 'Components/Footers/Standardised',
   decorators: [withKnobs],
 };
 

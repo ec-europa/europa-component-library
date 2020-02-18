@@ -18,7 +18,7 @@ const styleBox = {
 };
 
 export default {
-  title: 'Utilities|Display',
+  title: 'Utilities/Display',
   decorators: [withKnobs],
 };
 

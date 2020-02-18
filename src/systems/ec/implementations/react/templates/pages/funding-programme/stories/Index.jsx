@@ -8,7 +8,7 @@ import FundingProgrammeHarmonisedG1 from '../examples/FundingProgrammeHarmonised
 import FundingProgrammeHarmonisedG2 from '../examples/FundingProgrammeHarmonisedG2';
 
 export default {
-  title: 'Templates|Pages',
+  title: 'Templates/Pages',
   decorators: [withKnobs],
 };
 

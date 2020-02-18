@@ -8,7 +8,7 @@ import { Accordion2 } from '../src/Accordion2';
 import { Accordion2Item } from '../src/Accordion2Item';
 
 export default {
-  title: 'Components|Accordion',
+  title: 'Components/Accordion',
 
   decorators: [
     withKnobs,
