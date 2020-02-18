@@ -7,7 +7,7 @@ import demoContent from '@ecl/eu-specs-date-block/demo/data';
 
 import DateBlock from '../src/DateBlock';
 
-storiesOf('Components|Date Block', module)
+storiesOf('Components/Date Block', module)
   .addDecorator(withKnobs)
   .add('default', () => (
     <DateBlock

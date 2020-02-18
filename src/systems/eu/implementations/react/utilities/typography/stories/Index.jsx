@@ -7,7 +7,7 @@ import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import demoContentHeading from '@ecl/eu-specs-typography/demo/data--heading';
 import demoContentParagraph from '@ecl/eu-specs-typography/demo/data--paragraph';
 
-storiesOf('Utilities|Typography', module)
+storiesOf('Utilities/Typography', module)
   .addDecorator(withKnobs)
   .add('paragraph', () => {
     const content = text('Content', demoContentParagraph.content);

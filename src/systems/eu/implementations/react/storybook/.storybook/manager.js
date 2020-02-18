@@ -11,26 +11,8 @@ const theme = create({
   brandImage: null,
 });
 
-const storySort = (a, b) => {
-  const aParentKind = a[1].kind.split('|').shift();
-  const aKind = a[1].kind
-    .split('|')
-    .slice(1)
-    .join('|');
-  const bParentKind = b[1].kind.split('|').shift();
-  const bKind = b[1].kind
-    .split('|')
-    .slice(1)
-    .join('|');
-
-  return aParentKind !== bParentKind
-    ? 0
-    : aKind.localeCompare(bKind, { numeric: true });
-};
-
 addons.setConfig({
   theme,
-  storySort,
   sidebarAnimations: false,
   panelPosition: 'right',
 });

@@ -7,7 +7,7 @@ import demoContent from '@ecl/eu-specs-select/demo/data';
 
 import Select from '../src/Select';
 
-storiesOf('Components|Forms/Select', module)
+storiesOf('Components/Forms/Select', module)
   // Example of how to disable an axe-core rule
   /*
   .addParameters({

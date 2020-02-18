@@ -7,7 +7,7 @@ import { withCssResources } from '@storybook/addon-cssresources';
 import demoData from '@ecl/eu-specs-skip-link/demo/data';
 import { SkipLink } from '../src/SkipLink';
 
-storiesOf('Components|Navigation/Skip link', module)
+storiesOf('Components/Navigation/Skip link', module)
   .addDecorator(withKnobs)
   .addDecorator(withCssResources)
   .addParameters({

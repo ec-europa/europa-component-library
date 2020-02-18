@@ -6,7 +6,7 @@ import StoryWrapper from '@ecl/story-wrapper';
 
 import EventAgendaPageExample from '../examples/Default';
 
-storiesOf('Templates|Pages', module)
+storiesOf('Templates/Pages', module)
   .addDecorator(story => (
     <StoryWrapper
       afterMount={() => {
