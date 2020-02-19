@@ -10,7 +10,7 @@ import { Template as template } from './Template';
 import Card from '../src/Card';
 
 export default {
-  title: 'Components|Card',
+  title: 'Components/Card',
   decorators: [withKnobs],
 };
 

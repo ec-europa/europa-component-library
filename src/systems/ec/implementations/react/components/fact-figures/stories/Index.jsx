@@ -8,7 +8,7 @@ import demoContent4Col from '@ecl/ec-specs-fact-figures/demo/data--4-col';
 import { FactFigures } from '../src/FactFigures';
 
 export default {
-  title: 'Components|Fact figures',
+  title: 'Components/Fact figures',
   decorators: [withKnobs],
 };
 

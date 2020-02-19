@@ -29,7 +29,7 @@ const btnAddContent = () => {
   }
 };
 
-storiesOf('Components|Timeline', module)
+storiesOf('Components/Timeline', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryWrapper

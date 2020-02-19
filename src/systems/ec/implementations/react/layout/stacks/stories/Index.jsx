@@ -24,7 +24,7 @@ const Box = ({ width, shrink, grow, ...props }) => (
 );
 
 export default {
-  title: 'Layout|Stacks',
+  title: 'Layout/Stacks',
   decorators: [withKnobs],
 
   parameters: {

@@ -55,7 +55,7 @@ const Background = () => (
 );
 
 export default {
-  title: 'Layout|Grid',
+  title: 'Layout/Grid',
   decorators: [withKnobs],
 
   parameters: {

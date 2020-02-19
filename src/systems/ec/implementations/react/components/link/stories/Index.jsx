@@ -25,7 +25,7 @@ const iconPosition = {
 };
 
 export default {
-  title: 'Components|Navigation/Link',
+  title: 'Components/Navigation/Link',
   decorators: [withKnobs],
 };
 

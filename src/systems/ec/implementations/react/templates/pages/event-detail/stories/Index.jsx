@@ -8,7 +8,7 @@ import EventDetailHarmonisedG1 from '../examples/EventDetailHarmonisedG1';
 import EventDetailHarmonisedG2 from '../examples/EventDetailHarmonisedG2';
 
 export default {
-  title: 'Templates|Pages',
+  title: 'Templates/Pages',
   decorators: [withKnobs],
 };
 

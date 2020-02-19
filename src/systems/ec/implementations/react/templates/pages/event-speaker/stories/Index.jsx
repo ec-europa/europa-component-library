@@ -8,7 +8,7 @@ import EventSpeakerHarmonisedG1 from '../examples/EventSpeakerHarmonisedG1';
 import EventSpeakerHarmonisedG2 from '../examples/EventSpeakerHarmonisedG2';
 
 export default {
-  title: 'Templates|Pages',
+  title: 'Templates/Pages',
   decorators: [withKnobs],
 };
 

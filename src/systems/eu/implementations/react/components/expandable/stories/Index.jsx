@@ -7,7 +7,7 @@ import demoContent from '@ecl/eu-specs-expandable/demo/data';
 
 import { Expandable } from '../src/Expandable';
 
-storiesOf('Components|Expandables', module)
+storiesOf('Components/Expandables', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryWrapper

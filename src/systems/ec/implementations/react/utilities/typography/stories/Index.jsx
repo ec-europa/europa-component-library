@@ -7,7 +7,7 @@ import demoContentHeading from '@ecl/ec-specs-typography/demo/data--heading';
 import demoContentParagraph from '@ecl/ec-specs-typography/demo/data--paragraph';
 
 export default {
-  title: 'Utilities|Typography',
+  title: 'Utilities/Typography',
   decorators: [withKnobs],
 };
 

@@ -56,7 +56,7 @@ const Background = () => (
   </div>
 );
 
-storiesOf('Layout|Grid', module)
+storiesOf('Layout/Grid', module)
   .addParameters({
     viewport: {
       defaultViewport: 'responsive',

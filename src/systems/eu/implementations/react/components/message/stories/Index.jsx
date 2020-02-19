@@ -10,7 +10,7 @@ import demoContentError from '@ecl/eu-specs-message/demo/data--error';
 
 import { Message } from '../src/Message';
 
-storiesOf('Components|Messages', module)
+storiesOf('Components/Messages', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryWrapper

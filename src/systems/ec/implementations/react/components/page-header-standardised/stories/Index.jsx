@@ -27,7 +27,7 @@ const breadcrumb = (
 );
 
 export default {
-  title: 'Components|Page Headers/Standardised',
+  title: 'Components/Page Headers/Standardised',
 
   decorators: [
     withKnobs,

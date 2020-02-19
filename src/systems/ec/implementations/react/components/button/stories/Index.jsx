@@ -22,7 +22,7 @@ const iconPosition = {
 };
 
 export default {
-  title: 'Components|Button',
+  title: 'Components/Button',
   decorators: [withKnobs],
 };
 

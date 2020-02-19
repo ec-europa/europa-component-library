@@ -4,7 +4,7 @@ import StoryWrapper from '@ecl/story-wrapper';
 import StandardPageExample from '../examples/Default';
 
 export default {
-  title: 'Deprecated|Templates',
+  title: 'Deprecated/Templates',
 
   decorators: [
     story => (

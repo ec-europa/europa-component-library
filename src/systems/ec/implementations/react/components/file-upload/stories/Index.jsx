@@ -10,7 +10,7 @@ import demoContentMultiple from '@ecl/ec-specs-file-upload/demo/data--multiple';
 import FileUpload from '../src/FileUpload';
 
 export default {
-  title: 'Components|Forms/File upload',
+  title: 'Components/Forms/File upload',
 
   decorators: [
     withKnobs,

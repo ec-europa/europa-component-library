@@ -25,7 +25,7 @@ const iconPosition = {
   after: 'after',
 };
 
-storiesOf('Components|Navigation/Link', module)
+storiesOf('Components/Navigation/Link', module)
   .addDecorator(withKnobs)
   .add('default', () => {
     const linkIcon = {

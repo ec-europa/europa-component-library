@@ -42,7 +42,7 @@ const Spacing = (type, token) => (
 );
 
 export default {
-  title: 'Utilities|Spacing',
+  title: 'Utilities/Spacing',
   decorators: [withKnobs],
 
   parameters: {

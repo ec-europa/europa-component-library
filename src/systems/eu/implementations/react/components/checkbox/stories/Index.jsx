@@ -6,7 +6,7 @@ import demoContentDefault from '@ecl/eu-specs-checkbox/demo/data--default';
 
 import CheckboxGroup from '../src/CheckboxGroup';
 
-storiesOf('Components|Forms/Checkbox', module)
+storiesOf('Components/Forms/Checkbox', module)
   .addDecorator(withKnobs)
   .add('default', () => (
     <CheckboxGroup

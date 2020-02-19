@@ -1,7 +1,7 @@
 import NavigationListExample from '../examples/Default';
 
 export default {
-  title: 'Templates|Compositions',
+  title: 'Templates/Compositions',
 };
 
 export const NavigationLists = NavigationListExample;

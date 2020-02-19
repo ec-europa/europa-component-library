@@ -10,7 +10,7 @@ import demoContentError from '@ecl/ec-specs-message/demo/data--error';
 import { Message } from '../src/Message';
 
 export default {
-  title: 'Components|Messages',
+  title: 'Components/Messages',
 
   decorators: [
     withKnobs,

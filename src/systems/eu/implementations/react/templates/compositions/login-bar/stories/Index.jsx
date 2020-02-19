@@ -5,7 +5,7 @@ import { withKnobs, text } from '@storybook/addon-knobs';
 import { LoggedOut } from '../examples/LoggedOut';
 import { LoggedIn } from '../examples/LoggedIn';
 
-storiesOf('Templates|Compositions/Login bar', module)
+storiesOf('Templates/Compositions/Login bar', module)
   .addDecorator(withKnobs)
   .add('Logged out', LoggedOut)
   .add(

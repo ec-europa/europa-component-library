@@ -40,7 +40,7 @@ const transforms = {
 const defaultTransform = '';
 
 export default {
-  title: 'Components|Icon',
+  title: 'Components/Icon',
   decorators: [withKnobs],
 };
 

@@ -7,7 +7,7 @@ import demoData from '@ecl/ec-specs-skip-link/demo/data';
 import { SkipLink } from '../src/SkipLink';
 
 export default {
-  title: 'Components|Navigation/Skip link',
+  title: 'Components/Navigation/Skip link',
   decorators: [withKnobs, withCssResources],
 
   parameters: {

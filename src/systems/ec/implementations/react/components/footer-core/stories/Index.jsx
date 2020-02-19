@@ -7,7 +7,7 @@ import demoContent from '@ecl/ec-specs-footer-core/demo/data';
 import { FooterCore } from '../src/FooterCore';
 
 export default {
-  title: 'Components|Footers/Core',
+  title: 'Components/Footers/Core',
   decorators: [withKnobs],
 };
 

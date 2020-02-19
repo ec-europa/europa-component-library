@@ -8,7 +8,7 @@ import demoContentTranslation from '@ecl/ec-specs-file/demo/data--with-translati
 import { FileDownload } from '../src/FileDownload';
 
 export default {
-  title: 'Components|File',
+  title: 'Components/File',
 
   decorators: [
     withKnobs,

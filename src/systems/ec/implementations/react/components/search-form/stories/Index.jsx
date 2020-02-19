@@ -7,7 +7,7 @@ import demoContent from '@ecl/ec-specs-search-form/demo/data';
 import SearchForm from '../src/SearchForm';
 
 export default {
-  title: 'Components|Forms/SearchForm',
+  title: 'Components/Forms/SearchForm',
   decorators: [withKnobs],
 };
 

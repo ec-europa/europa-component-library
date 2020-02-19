@@ -7,7 +7,7 @@ import demoContentFr from '@ecl/ec-specs-site-header/demo/data--fr';
 import SiteHeader from '../src/SiteHeader';
 
 export default {
-  title: 'Deprecated|Site Header (ECL<2-12-0)',
+  title: 'Deprecated/Site Header (ECL<2-12-0)',
 
   decorators: [
     story => (

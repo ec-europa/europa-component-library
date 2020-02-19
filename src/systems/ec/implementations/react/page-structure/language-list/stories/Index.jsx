@@ -8,7 +8,7 @@ import LanguageListSplash from '../src/LanguageListSplash';
 import LanguageListOverlay from '../src/LanguageListOverlay';
 
 export default {
-  title: 'Page structure|LanguageList',
+  title: 'Page structure/LanguageList',
 };
 
 export const Splash = () => <LanguageListSplash {...demoContentSplash} />;

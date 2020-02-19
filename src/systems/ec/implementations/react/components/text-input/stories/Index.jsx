@@ -7,7 +7,7 @@ import demoContentDefault from '@ecl/ec-specs-text-input/demo/data--default';
 import TextInput from '../src/TextInput';
 
 export default {
-  title: 'Components|Forms/Text field',
+  title: 'Components/Forms/Text field',
   decorators: [withKnobs],
 };
 

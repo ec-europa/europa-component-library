@@ -7,7 +7,7 @@ import demoContent from '@ecl/ec-specs-social-media-share/demo/data';
 import SocialMediaShare from '../src/SocialMediaShare';
 
 export default {
-  title: 'Components|SocialMediaShare',
+  title: 'Components/SocialMediaShare',
   decorators: [withKnobs],
 };
 

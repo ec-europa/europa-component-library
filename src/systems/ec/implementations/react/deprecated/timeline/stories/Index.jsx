@@ -29,7 +29,7 @@ const btnAddContent = () => {
 };
 
 export default {
-  title: 'Deprecated|Timeline (ECL<2-5-0)',
+  title: 'Deprecated/Timeline (ECL<2-5-0)',
 
   decorators: [
     withKnobs,
