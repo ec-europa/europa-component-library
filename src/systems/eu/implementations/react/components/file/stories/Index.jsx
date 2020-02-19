@@ -8,7 +8,7 @@ import demoContentTranslation from '@ecl/eu-specs-file/demo/data--with-translati
 
 import { FileDownload } from '../src/FileDownload';
 
-storiesOf('Components|File', module)
+storiesOf('Components/File', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryWrapper

@@ -23,7 +23,7 @@ const breadcrumb = (
 );
 
 export default {
-  title: 'Deprecated|Page Header (ECL<2-14-0)',
+  title: 'Deprecated/Page Header (ECL<2-14-0)',
   decorators: [withKnobs],
 };
 

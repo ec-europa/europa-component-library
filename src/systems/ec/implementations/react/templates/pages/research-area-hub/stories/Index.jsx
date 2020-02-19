@@ -8,7 +8,7 @@ import ResearchAreaHubHarmonisedG1 from '../examples/ResearchAreaHubHarmonisedG1
 import ResearchAreaHubHarmonisedG2 from '../examples/ResearchAreaHubHarmonisedG2';
 
 export default {
-  title: 'Templates|Pages',
+  title: 'Templates/Pages',
   decorators: [withKnobs],
 };
 

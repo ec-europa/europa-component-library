@@ -11,7 +11,7 @@ import { FooterHarmonisedG2 } from '../src/FooterHarmonisedG2';
 import { FooterHarmonisedG3 } from '../src/FooterHarmonisedG3';
 
 export default {
-  title: 'Components|Footers/Harmonised',
+  title: 'Components/Footers/Harmonised',
   decorators: [withKnobs],
 };
 

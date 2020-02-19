@@ -9,7 +9,7 @@ import ContentItemExampleDate from '../examples/Date';
 import ContentItemExampleCustom from '../examples/Custom';
 
 export default {
-  title: 'Templates|Compositions/Content items',
+  title: 'Templates/Compositions/Content items',
   decorators: [withKnobs],
 };
 

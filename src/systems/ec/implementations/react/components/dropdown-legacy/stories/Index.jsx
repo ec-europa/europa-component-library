@@ -6,7 +6,7 @@ import StoryWrapper from '@ecl/story-wrapper';
 import DropdownExample from '../examples/Default';
 
 export default {
-  title: 'Components|Dropdown Legacy',
+  title: 'Components/Dropdown Legacy',
 
   decorators: [
     withKnobs,

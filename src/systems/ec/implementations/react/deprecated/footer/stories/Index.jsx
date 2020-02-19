@@ -7,7 +7,7 @@ import demoContentCustom from '@ecl/ec-specs-footer/demo/data--custom';
 import Footer from '../src/Footer';
 
 export default {
-  title: 'Deprecated|Footer (ECL<2-12-0)',
+  title: 'Deprecated/Footer (ECL<2-12-0)',
 
   parameters: {
     a11y: {

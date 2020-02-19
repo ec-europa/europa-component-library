@@ -9,7 +9,6 @@ const stories = [
 ];
 
 const addons = [
-  '@storybook/addon-options',
   '@storybook/addon-knobs',
   '@storybook/addon-viewport',
   '@storybook/addon-a11y',

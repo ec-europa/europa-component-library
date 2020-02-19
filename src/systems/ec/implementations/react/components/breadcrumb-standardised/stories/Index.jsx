@@ -9,7 +9,7 @@ import { BreadcrumbStandardised } from '../src/BreadcrumbStandardised';
 import { BreadcrumbStandardisedItem } from '../src/BreadcrumbStandardisedItem';
 
 export default {
-  title: 'Components|Navigation/Breadcrumb standardised',
+  title: 'Components/Navigation/Breadcrumb standardised',
 
   decorators: [
     withKnobs,

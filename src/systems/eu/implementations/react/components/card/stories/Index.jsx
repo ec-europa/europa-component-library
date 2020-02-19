@@ -10,7 +10,7 @@ import { Template as template } from './Template';
 
 import Card from '../src/Card';
 
-storiesOf('Components|Card', module)
+storiesOf('Components/Card', module)
   .addDecorator(withKnobs)
   .add('card', () => {
     // Image

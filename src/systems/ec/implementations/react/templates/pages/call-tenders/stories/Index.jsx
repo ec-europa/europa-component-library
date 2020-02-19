@@ -8,7 +8,7 @@ import CallTendersHarmonisedG1 from '../examples/CallTendersHarmonisedG1';
 import CallTendersHarmonisedG2 from '../examples/CallTendersHarmonisedG2';
 
 export default {
-  title: 'Templates|Pages',
+  title: 'Templates/Pages',
   decorators: [withKnobs],
 };
 

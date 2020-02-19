@@ -7,7 +7,7 @@ import demoContent from '@ecl/eu-specs-gallery/demo/data';
 
 import { Gallery } from '../src/Gallery';
 
-storiesOf('Components|Gallery', module)
+storiesOf('Components/Gallery', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryWrapper

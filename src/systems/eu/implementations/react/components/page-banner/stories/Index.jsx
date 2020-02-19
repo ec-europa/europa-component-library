@@ -11,7 +11,7 @@ import demoContentAlignLeft from '@ecl/eu-specs-page-banner/demo/data--align-lef
 
 import PageBanner from '../src/PageBanner';
 
-storiesOf('Components|Banners/Page Banner', module)
+storiesOf('Components/Banners/Page Banner', module)
   .addDecorator(withKnobs)
   .add('image', () => {
     const link = {

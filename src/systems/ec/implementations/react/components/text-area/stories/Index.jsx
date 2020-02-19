@@ -13,7 +13,7 @@ import demoContentDefault from '@ecl/ec-specs-text-area/demo/data--default';
 import TextArea from '../src/TextArea';
 
 export default {
-  title: 'Components|Forms/TextArea',
+  title: 'Components/Forms/TextArea',
   decorators: [withKnobs],
 };
 

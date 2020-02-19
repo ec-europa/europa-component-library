@@ -7,7 +7,7 @@ import demoContent from '@ecl/ec-specs-expandable/demo/data';
 import { Expandable } from '../src/Expandable';
 
 export default {
-  title: 'Components|Expandables',
+  title: 'Components/Expandables',
 
   decorators: [
     withKnobs,

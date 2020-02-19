@@ -4,7 +4,7 @@ import Description from '../examples/Description';
 import DescriptionHorizontal from '../examples/DescriptionHorizontal';
 
 export default {
-  title: 'Components|List',
+  title: 'Components/List',
 };
 
 export const _Description = Description;

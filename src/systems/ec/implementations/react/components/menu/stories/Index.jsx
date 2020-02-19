@@ -6,7 +6,7 @@ import demoContent from '@ecl/ec-specs-menu/demo/data--en';
 import { Menu } from '../src/Menu';
 
 export default {
-  title: 'Components|Navigation/Menu',
+  title: 'Components/Navigation/Menu',
 
   decorators: [
     story => (

@@ -8,7 +8,7 @@ import MainPolicyResourcesHarmonisedG1 from '../examples/MainPolicyResourcesHarm
 import MainPolicyResourcesHarmonisedG2 from '../examples/MainPolicyResourcesHarmonisedG2';
 
 export default {
-  title: 'Templates|Pages',
+  title: 'Templates/Pages',
   decorators: [withKnobs],
 };
 

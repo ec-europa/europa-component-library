@@ -7,7 +7,7 @@ import demoContentDefault from '@ecl/eu-specs-file-upload/demo/data--default';
 
 import FileUpload from '../src/FileUpload';
 
-storiesOf('Components|Forms/File upload', module)
+storiesOf('Components/Forms/File upload', module)
   .addDecorator(withKnobs)
   .add(
     'default',

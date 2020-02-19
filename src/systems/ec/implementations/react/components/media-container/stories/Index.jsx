@@ -8,7 +8,7 @@ import demoContentVideo from '@ecl/ec-specs-media-container/demo/data--video';
 import MediaContainer from '../src/MediaContainer';
 
 export default {
-  title: 'Components|MediaContainer',
+  title: 'Components/MediaContainer',
   decorators: [withKnobs],
 };
 
