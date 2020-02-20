@@ -78,6 +78,8 @@ In terms of how ECL-based websites follow up with the library's evolution when c
 - `preset-legacy-website` is an easy upgrade path to websites which have started off `preset-website` and have experienced less frequent upgrades. If any component used in `preset-website` has been deprecated and has become unavailable to a higher version, the deprecated will remain available in `preset-website-legacy` for backwards compatibility.
 - `preset-legacy` contains what has been deprecated in time.
 
+Using presets is a highly-recommended approach of implementing ECL.
+
 ## Can I build/use a customised version of ECL?
 
 Short answer: yes, you can.
@@ -104,3 +106,39 @@ Supported browsers: and_chr 78 chrome 78 chrome 77 chrome 76 chrome 75 chrome 74
 These browsers account for 93.29015157876893% of all users in Europe
 ------------------------
 ```
+
+## Is ECL accessible?
+
+ECL components and website have been developed with accessibility in mind on many levels. Here is a non-exhaustive list of items taken into considerations.
+
+### HTML
+
+- it's structured with as-simple-as-possible architecture
+- it's semantic using native elements as much as possible
+- content has been described with all possible attributes (dates, abbreviations, etc.)
+- text labels are also as descriptive as possible
+- tables include additional attributes for accessibility
+- SVG images are used instead of font icons
+- ARIA roles have been utilized at all possible cases
+
+### CSS
+
+- focus states are styled distinctively
+- visibility rules using `visibility: hidden` and `display: none` have been used with careful considerations of actual implications
+- color contrast have been taken into account and continuously tested in components visualisation testing
+
+### JavaScript
+
+- it's used as an enhancement rather than content management approach
+- keyboard navigation has been ensured both automatically and manually
+
+### Automations
+
+Although with lesser value in comparison to our conscient efforts to achieve maximum accessibility, these are a few tools used in our development tool-chain to automate accessibility checks of our source code:
+
+- `axe-core` is used in component testing interfaces to ensure WCAG rules coverage
+- `eslint-plugin-jsx-a11y` is used to validate ECL website's source code
+
+Components and combinations of components (compositions) provide demonstration of HTML representation combined with CSS rules (classes) and sometimes JavaScript behaviors. These aim to make implementation of existing best practices as simple and straight-forward as possible.
+
+With the provision of such guidelines ECL hopes to facilitate its consumers and implementers and empower them to develop and maintain accessible websites and applications.
