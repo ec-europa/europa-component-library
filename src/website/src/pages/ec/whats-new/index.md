@@ -12,10 +12,12 @@ We will also add new components to the ECL v2 as we continue improving the look 
 ## 2.24 (2020-02-20)
 
 #### :nail_care: Enhancement
-* [#1543](https://github.com/ec-europa/europa-component-library/pull/1543) fix(footer): handle optional elements - FRONT-467
+
+- [#1543](https://github.com/ec-europa/europa-component-library/pull/1543) fix(footer): handle optional elements - FRONT-467
 
 #### :house: Internal
-* [#1547](https://github.com/ec-europa/europa-component-library/pull/1547) refactor(storybook): migrate to slash separator - FRONT-495
+
+- [#1547](https://github.com/ec-europa/europa-component-library/pull/1547) refactor(storybook): migrate to slash separator - FRONT-495
 
 ## 2.23 (2020-02-06)
 
