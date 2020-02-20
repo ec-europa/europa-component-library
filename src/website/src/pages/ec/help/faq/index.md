@@ -58,12 +58,11 @@ There are several ways to get ECL resources:
 
 A preset is a set of components from a specific system (EC or EU) bundled together for distribution. Each system has a set of ready-to-use presets:
 
-- `[@ecl/ec-preset-dev](https://www.npmjs.com/package/@ecl/ec-preset-dev)`
-- `[@ecl/ec-preset-editor](https://www.npmjs.com/package/@ecl/ec-preset-editor)`
-- `[@ecl/ec-preset-website](https://www.npmjs.com/package/@ecl/ec-preset-website)`
-- `[@ecl/ec-preset-full](https://www.npmjs.com/package/@ecl/ec-preset-full)`
-- `[@ecl/ec-preset-legacy](https://www.npmjs.com/package/@ecl/ec-preset-legacy)`
-- `[@ecl/ec-preset-legacy-website](https://www.npmjs.com/package/@ecl/ec-preset-legacy-website)`
+- [@ecl/ec-preset-editor](https://www.npmjs.com/package/@ecl/ec-preset-editor)
+- [@ecl/ec-preset-website](https://www.npmjs.com/package/@ecl/ec-preset-website)
+- [@ecl/ec-preset-full](https://www.npmjs.com/package/@ecl/ec-preset-full)
+- [@ecl/ec-preset-legacy](https://www.npmjs.com/package/@ecl/ec-preset-legacy)
+- [@ecl/ec-preset-legacy-website](https://www.npmjs.com/package/@ecl/ec-preset-legacy-website)
 
 To access EU system presets, please use the same links as above and change `ec-` to `eu-`.
 
