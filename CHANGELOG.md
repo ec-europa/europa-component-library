@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.24 (2020-02-20)
+
+#### :nail_care: Enhancement
+* [#1543](https://github.com/ec-europa/europa-component-library/pull/1543) fix(footer): handle optional elements - FRONT-467 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+* [#1547](https://github.com/ec-europa/europa-component-library/pull/1547) refactor(storybook): migrate to slash separator - FRONT-495 ([@kalinchernev](https://github.com/kalinchernev))
+
+#### Committers: 2
+- Kalin Chernev ([@kalinchernev](https://github.com/kalinchernev))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
 ## 2.23 (2020-02-06)
 
 #### :bug: Bug Fix
