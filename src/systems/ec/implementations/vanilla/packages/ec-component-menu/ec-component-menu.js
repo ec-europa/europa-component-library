@@ -26,7 +26,9 @@ if (!Element.prototype.closest)
  * @param {String} options.menuItemSelector Selector for the menu item
  * @param {String} options.menuLinkSelector Selector for the menu link
  * @param {String} options.menuMegaSelector Selector for the mega menu
+ * @param {String} options.menuSubItemSelector Selector for the menu sub items
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
+ * @param {Boolean} options.attachHoverListener Whether or not to bind hover events
  */
 export class Menu {
   /**
@@ -55,7 +57,9 @@ export class Menu {
       menuItemSelector = '[data-ecl-menu-item]',
       menuLinkSelector = '[data-ecl-menu-link]',
       menuMegaSelector = '[data-ecl-menu-mega]',
+      menuSubItemSelector = '[data-ecl-menu-subitem]',
       attachClickListener = true,
+      attachHoverListener = true,
     } = {}
   ) {
     // Check element
@@ -75,7 +79,9 @@ export class Menu {
     this.menuItemSelector = menuItemSelector;
     this.menuLinkSelector = menuLinkSelector;
     this.menuMegaSelector = menuMegaSelector;
+    this.menuSubItemSelector = menuSubItemSelector;
     this.attachClickListener = attachClickListener;
+    this.attachHoverListener = attachHoverListener;
 
     // Private variables
     this.open = null;
@@ -90,6 +96,7 @@ export class Menu {
     this.handleClickOnClose = this.handleClickOnClose.bind(this);
     this.handleClickOnBack = this.handleClickOnBack.bind(this);
     this.handleClickOnLink = this.handleClickOnLink.bind(this);
+    this.handleHoverOnLink = this.handleHoverOnLink.bind(this);
   }
 
   /**
@@ -128,8 +135,28 @@ export class Menu {
       });
     }
 
+    // Bind hover event on menu links
+    if (this.attachHoverListener && this.menuLinks) {
+      this.menuLinks.forEach(menuLink => {
+        if (menuLink.parentElement.hasAttribute('data-ecl-has-children')) {
+          menuLink.addEventListener('mouseover', this.handleHoverOnLink);
+        }
+      });
+    }
+
+    // TODO: only trigger on mobile?
     // Init sticky header
     this.stickyInstance = new Stickyfill.Sticky(this.element);
+
+    // TODO: ?
+    // Add css class for transition
+    // It should be added after load to prevent blinking
+    this.menuItems.forEach(item => {
+      const subMenu = queryOne(this.menuMegaSelector, item);
+      if (subMenu) {
+        subMenu.classList.add('ecl-menu__mega--transition');
+      }
+    });
   }
 
   /**
@@ -155,6 +182,47 @@ export class Menu {
         }
       });
     }
+  }
+
+  // TODO: trigger only on desktop
+  /**
+   * Check available space for menu items.
+   * @param {Event} e
+   */
+  handleHoverOnLink(e) {
+    const menuItem = e.target.closest('[data-ecl-menu-item]');
+
+    const menuMega = queryOne(this.menuMegaSelector, menuItem);
+
+    if (menuMega) {
+      // Check if there are 4 columns of items
+      const subItems = queryAll(this.menuSubItemSelector, menuMega);
+
+      if (subItems.length > 8) {
+        menuItem.classList.add('ecl-menu__item--full');
+        return this;
+      }
+
+      // Check if there is enough space on the right to display the menu
+      const megaBounding = menuMega.getBoundingClientRect();
+      const containerBounding = this.menuInner.getBoundingClientRect();
+      const menuBounding = menuItem.getBoundingClientRect();
+
+      const menuWidth = megaBounding.width;
+      const containerWidth = containerBounding.width;
+      const menuPosition = menuBounding.left - containerBounding.left;
+      console.log(
+        `menuWidth: ${menuWidth} | containerWidth: ${containerWidth} | menuPosition: ${menuPosition}`
+      );
+
+      if (menuPosition + menuWidth > containerWidth) {
+        menuMega.classList.add('ecl-menu__mega--rtl');
+      } else {
+        menuMega.classList.remove('ecl-menu__mega--rtl');
+      }
+    }
+
+    return this;
   }
 
   /**
@@ -206,6 +274,7 @@ export class Menu {
     return this;
   }
 
+  // TODO: trigger only on mobile
   /**
    * Click on a menu item
    * @param {Event} e
@@ -218,11 +287,6 @@ export class Menu {
 
     // Disable link
     e.preventDefault();
-
-    // Disable click on current item
-    if (e.target.classList.contains('ecl-menu__')) {
-      console.log('blip');
-    }
 
     // Add css class to inner menu
     this.menuInner.classList.add('ecl-menu__inner--expanded');
@@ -265,6 +329,7 @@ export class Menu {
     */
 
     // Toggle sub items
+    /*
     const menuMega = queryOne(this.menuMegaSelector, menuItem);
 
     if (menuMega) {
@@ -285,7 +350,7 @@ export class Menu {
         menuMega.classList.add('ecl-menu__mega--rtl');
       }
     }
-
+*/
     return this;
   }
 }

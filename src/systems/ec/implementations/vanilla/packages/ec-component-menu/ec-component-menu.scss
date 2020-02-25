@@ -267,6 +267,10 @@
       flex-direction: row;
     }
 
+    .ecl-menu__item--full {
+      position: static;
+    }
+
     .ecl-menu__link {
       border-top-width: 0;
       padding: $ecl-spacing-m;
@@ -365,11 +369,10 @@
       box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
       display: flex;
       left: 0;
-      padding-bottom: calc(#{$ecl-spacing-xl} - #{$ecl-spacing-s});
+      padding-bottom: calc(#{$ecl-spacing-xl} - #{$ecl-spacing-m});
       padding-top: $ecl-spacing-xl;
       position: absolute;
-      transition-delay: 0.5s;
-      transition-property: visibility;
+      transition: none;
       visibility: hidden;
       z-index: $ecl-z-index-dropdown;
 
@@ -383,6 +386,16 @@
         top: 0;
         width: calc(100% + #{$ecl-spacing-l} + #{$ecl-spacing-l});
       }
+    }
+
+    .ecl-menu__mega--transition {
+      transition-delay: 0.5s;
+      transition-property: visibility;
+    }
+
+    .ecl-menu__item--full .ecl-menu__mega {
+      left: 0;
+      right: 0;
     }
 
     .ecl-menu__item:hover .ecl-menu__mega {
@@ -416,16 +429,13 @@
       }
     }
 
-    .ecl-menu__subitem::before {
-      display: none;
-    }
-
     .ecl-menu__subitem {
       align-items: center;
+      border-top-width: 0;
       box-sizing: border-box;
       display: flex;
-      margin-bottom: $ecl-spacing-s;
-      max-width: 20ch;
+      margin-bottom: $ecl-spacing-m;
+      width: 13.56rem; // Written in the specs
     }
 
     .ecl-menu__sublink {

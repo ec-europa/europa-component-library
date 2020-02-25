@@ -45,6 +45,7 @@ export const MenuItem = ({ label, href, isCurrent, subItems }) => {
                   'ecl-menu__subitem--current': subItem.isCurrent,
                 })}
                 key={subItem.label}
+                data-ecl-menu-subitem
               >
                 <a
                   href={subItem.href}
