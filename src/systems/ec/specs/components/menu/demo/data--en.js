@@ -1,8 +1,10 @@
 // Simple content for demo
 module.exports = {
-  toggleLabelOpen: 'Menu',
-  toggleLabelClose: 'Close',
+  title: 'Menu',
+  close: 'Close',
+  back: 'Back',
   siteName: 'Site name',
+  menuLink: '/example',
   items: [
     { label: 'Home', href: '/example' },
     {

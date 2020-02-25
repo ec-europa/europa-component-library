@@ -30,7 +30,7 @@ export const MenuItem = ({ label, href, isCurrent, subItems }) => {
           <Icon
             shape="ui--corner-arrow"
             size="xs"
-            transform="rotate-180"
+            transform="rotate-90"
             className="ecl-menu__link-icon"
           />
         )}
