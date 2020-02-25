@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -8,6 +8,7 @@ const MediaContainer = ({
   sources,
   tracks,
   description,
+  children,
   className,
   ...props
 }) => {
@@ -15,24 +16,31 @@ const MediaContainer = ({
 
   return (
     <figure {...props} className={classNames}>
-      {Array.isArray(sources) && sources.length !== 0 ? (
-        /* eslint-disable-next-line jsx-a11y/media-has-caption */
-        <video
-          className="ecl-media-container__media"
-          controls="controls"
-          poster={image}
-        >
-          {sources.map(source => (
-            <source {...source} key={source.src} />
-          ))}
-
-          {tracks.map(track => (
-            <track {...track} key={track.src} />
-          ))}
-        </video>
+      {children ? (
+        <div className="ecl-media-container__media">{children}</div>
       ) : (
-        <img className="ecl-media-container__media" src={image} alt={alt} />
+        <Fragment>
+          {Array.isArray(sources) && sources.length !== 0 ? (
+            /* eslint-disable-next-line jsx-a11y/media-has-caption */
+            <video
+              className="ecl-media-container__media"
+              controls="controls"
+              poster={image}
+            >
+              {sources.map(source => (
+                <source {...source} key={source.src} />
+              ))}
+
+              {tracks.map(track => (
+                <track {...track} key={track.src} />
+              ))}
+            </video>
+          ) : (
+            <img className="ecl-media-container__media" src={image} alt={alt} />
+          )}
+        </Fragment>
       )}
+
       {description && (
         <figcaption className="ecl-media-container__caption">
           {description}
@@ -60,6 +68,7 @@ MediaContainer.propTypes = {
       label: PropTypes.string,
     })
   ),
+  children: PropTypes.node,
   className: PropTypes.string,
 };
 
@@ -70,6 +79,7 @@ MediaContainer.defaultProps = {
   className: '',
   sources: [],
   tracks: [],
+  children: null,
 };
 
 export default MediaContainer;
