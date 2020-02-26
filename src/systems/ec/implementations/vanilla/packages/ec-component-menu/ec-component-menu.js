@@ -198,7 +198,7 @@ export class Menu {
       // Check if there are 4 columns of items
       const subItems = queryAll(this.menuSubItemSelector, menuMega);
 
-      if (subItems.length > 8) {
+      if (subItems.length > 12) {
         menuItem.classList.add('ecl-menu__item--full');
         return this;
       }
@@ -211,9 +211,6 @@ export class Menu {
       const menuWidth = megaBounding.width;
       const containerWidth = containerBounding.width;
       const menuPosition = menuBounding.left - containerBounding.left;
-      console.log(
-        `menuWidth: ${menuWidth} | containerWidth: ${containerWidth} | menuPosition: ${menuPosition}`
-      );
 
       if (menuPosition + menuWidth > containerWidth) {
         menuMega.classList.add('ecl-menu__mega--rtl');
