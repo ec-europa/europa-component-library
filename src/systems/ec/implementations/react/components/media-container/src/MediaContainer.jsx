@@ -9,6 +9,7 @@ const MediaContainer = ({
   tracks,
   description,
   children,
+  iframeRatio,
   className,
   ...props
 }) => {
@@ -17,7 +18,13 @@ const MediaContainer = ({
   return (
     <figure {...props} className={classNames}>
       {children ? (
-        <div className="ecl-media-container__media">{children}</div>
+        <div
+          className={classnames(className, 'ecl-media-container__media', {
+            [`ecl-media-container__media--ratio-${iframeRatio}`]: iframeRatio,
+          })}
+        >
+          {children}
+        </div>
       ) : (
         <Fragment>
           {Array.isArray(sources) && sources.length !== 0 ? (
@@ -69,6 +76,7 @@ MediaContainer.propTypes = {
     })
   ),
   children: PropTypes.node,
+  iframeRatio: PropTypes.string,
   className: PropTypes.string,
 };
 
@@ -80,6 +88,7 @@ MediaContainer.defaultProps = {
   sources: [],
   tracks: [],
   children: null,
+  iframeRatio: '16-9',
 };
 
 export default MediaContainer;
