@@ -36,6 +36,7 @@ export const Menu = ({
         {siteName && <div className="ecl-menu__site-name">{siteName}</div>}
 
         <section className="ecl-menu__inner" data-ecl-menu-inner>
+          <div className="ecl-menu__overlay" data-ecl-menu-overlay />
           <header className="ecl-menu__inner-header">
             {/* Close menu */}
             <Button

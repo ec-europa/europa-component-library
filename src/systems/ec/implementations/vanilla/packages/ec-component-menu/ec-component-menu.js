@@ -1,6 +1,8 @@
 import Stickyfill from 'stickyfilljs';
 import { queryOne, queryAll } from '@ecl/ec-base/helpers/dom';
 
+import MobileDetect from 'mobile-detect';
+
 // Polyfill for closest (support for IE11)
 if (!Element.prototype.matches)
   Element.prototype.matches = Element.prototype.msMatchesSelector;
@@ -22,11 +24,12 @@ if (!Element.prototype.closest)
  * @param {String} options.openSelector Selector for the hamburger button
  * @param {String} options.closeSelector Selector for the close button
  * @param {String} options.backSelector Selector for the back button
- * @param {String} options.menuInnerSelector Selector for the menu inner
- * @param {String} options.menuItemSelector Selector for the menu item
- * @param {String} options.menuLinkSelector Selector for the menu link
- * @param {String} options.menuMegaSelector Selector for the mega menu
- * @param {String} options.menuSubItemSelector Selector for the menu sub items
+ * @param {String} options.overlaySelector Selector for the menu overlay
+ * @param {String} options.innerSelector Selector for the menu inner
+ * @param {String} options.itemSelector Selector for the menu item
+ * @param {String} options.linkSelector Selector for the menu link
+ * @param {String} options.megaSelector Selector for the mega menu
+ * @param {String} options.subItemSelector Selector for the menu sub items
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
  * @param {Boolean} options.attachHoverListener Whether or not to bind hover events
  */
@@ -53,11 +56,12 @@ export class Menu {
       openSelector = '[data-ecl-menu-open]',
       closeSelector = '[data-ecl-menu-close]',
       backSelector = '[data-ecl-menu-back]',
-      menuInnerSelector = '[data-ecl-menu-inner]',
-      menuItemSelector = '[data-ecl-menu-item]',
-      menuLinkSelector = '[data-ecl-menu-link]',
-      menuMegaSelector = '[data-ecl-menu-mega]',
-      menuSubItemSelector = '[data-ecl-menu-subitem]',
+      overlaySelector = '[data-ecl-menu-overlay]',
+      innerSelector = '[data-ecl-menu-inner]',
+      itemSelector = '[data-ecl-menu-item]',
+      linkSelector = '[data-ecl-menu-link]',
+      megaSelector = '[data-ecl-menu-mega]',
+      subItemSelector = '[data-ecl-menu-subitem]',
       attachClickListener = true,
       attachHoverListener = true,
     } = {}
@@ -75,11 +79,12 @@ export class Menu {
     this.openSelector = openSelector;
     this.closeSelector = closeSelector;
     this.backSelector = backSelector;
-    this.menuInnerSelector = menuInnerSelector;
-    this.menuItemSelector = menuItemSelector;
-    this.menuLinkSelector = menuLinkSelector;
-    this.menuMegaSelector = menuMegaSelector;
-    this.menuSubItemSelector = menuSubItemSelector;
+    this.overlaySelector = overlaySelector;
+    this.innerSelector = innerSelector;
+    this.itemSelector = itemSelector;
+    this.linkSelector = linkSelector;
+    this.megaSelector = megaSelector;
+    this.subItemSelector = subItemSelector;
     this.attachClickListener = attachClickListener;
     this.attachHoverListener = attachHoverListener;
 
@@ -87,9 +92,12 @@ export class Menu {
     this.open = null;
     this.close = null;
     this.back = null;
-    this.menuInner = null;
-    this.menuItems = null;
-    this.menuLinks = null;
+    this.overlay = null;
+    this.inner = null;
+    this.items = null;
+    this.links = null;
+    this.mobileDetect = null;
+    this.useDesktopDisplay = false;
 
     // Bind `this` for use in callbacks
     this.handleClickOnOpen = this.handleClickOnOpen.bind(this);
@@ -97,19 +105,27 @@ export class Menu {
     this.handleClickOnBack = this.handleClickOnBack.bind(this);
     this.handleClickOnLink = this.handleClickOnLink.bind(this);
     this.handleHoverOnLink = this.handleHoverOnLink.bind(this);
+    this.checkDesktopDisplay = this.checkDesktopDisplay.bind(this);
   }
 
   /**
    * Initialise component.
    */
   init() {
+    // Check user agent
+    this.mobileDetect = new MobileDetect(window.navigator.userAgent);
+
     // Query elements
     this.open = queryOne(this.openSelector, this.element);
     this.close = queryOne(this.closeSelector, this.element);
     this.back = queryOne(this.backSelector, this.element);
-    this.menuInner = queryOne(this.menuInnerSelector, this.element);
-    this.menuItems = queryAll(this.menuItemSelector, this.element);
-    this.menuLinks = queryAll(this.menuLinkSelector, this.element);
+    this.overlay = queryOne(this.overlaySelector, this.element);
+    this.inner = queryOne(this.innerSelector, this.element);
+    this.items = queryAll(this.itemSelector, this.element);
+    this.links = queryAll(this.linkSelector, this.element);
+
+    // Check if we should use desktop display (it does not rely only on breakpoints)
+    this.useDesktopDisplay = this.checkDesktopDisplay();
 
     // Bind click event on open
     if (this.attachClickListener && this.open) {
@@ -126,37 +142,37 @@ export class Menu {
       this.back.addEventListener('click', this.handleClickOnBack);
     }
 
+    // Bind click event on overlay
+    if (this.attachClickListener && this.overlay) {
+      this.overlay.addEventListener('click', this.handleClickOnClose);
+    }
+
     // Bind click event on menu links
-    if (this.attachClickListener && this.menuLinks) {
-      this.menuLinks.forEach(menuLink => {
-        if (menuLink.parentElement.hasAttribute('data-ecl-has-children')) {
-          menuLink.addEventListener('click', this.handleClickOnLink);
+    if (this.attachClickListener && this.links) {
+      this.links.forEach(link => {
+        if (link.parentElement.hasAttribute('data-ecl-has-children')) {
+          link.addEventListener('click', this.handleClickOnLink);
         }
       });
     }
 
     // Bind hover event on menu links
-    if (this.attachHoverListener && this.menuLinks) {
-      this.menuLinks.forEach(menuLink => {
-        if (menuLink.parentElement.hasAttribute('data-ecl-has-children')) {
-          menuLink.addEventListener('mouseover', this.handleHoverOnLink);
+    if (this.attachHoverListener && this.links) {
+      this.links.forEach(link => {
+        if (link.parentElement.hasAttribute('data-ecl-has-children')) {
+          link.addEventListener('mouseover', this.handleHoverOnLink);
         }
       });
     }
 
-    // TODO: only trigger on mobile?
     // Init sticky header
     this.stickyInstance = new Stickyfill.Sticky(this.element);
 
-    // TODO: ?
-    // Add css class for transition
-    // It should be added after load to prevent blinking
-    this.menuItems.forEach(item => {
-      const subMenu = queryOne(this.menuMegaSelector, item);
-      if (subMenu) {
-        subMenu.classList.add('ecl-menu__mega--transition');
-      }
-    });
+    // Hack to prevent css transition to be played on page load on chrome
+    this.element.classList.add('ecl-menu--no-transition');
+    setTimeout(() => {
+      this.element.classList.remove('ecl-menu--no-transition');
+    }, 500);
   }
 
   /**
@@ -175,28 +191,72 @@ export class Menu {
       this.back.removeEventListener('click', this.handleClickOnBack);
     }
 
-    if (this.attachClickListener && this.menuLinks) {
-      this.menuLinks.forEach(menuLink => {
-        if (menuLink.parentElement.hasAttribute('data-ecl-has-children')) {
-          menuLink.removeEventListener('click', this.handleClickOnLink);
+    if (this.attachClickListener && this.overlay) {
+      this.overlay.removeEventListener('click', this.handleClickOnClose);
+    }
+
+    if (this.attachClickListener && this.links) {
+      this.links.forEach(link => {
+        if (link.parentElement.hasAttribute('data-ecl-has-children')) {
+          link.removeEventListener('click', this.handleClickOnLink);
+        }
+      });
+    }
+
+    if (this.attachHoverListener && this.links) {
+      this.links.forEach(link => {
+        if (link.parentElement.hasAttribute('data-ecl-has-children')) {
+          link.removeEventListener('mouseover', this.handleHoverOnLink);
         }
       });
     }
   }
 
-  // TODO: trigger only on desktop
   /**
-   * Check available space for menu items.
+   * Check if desktop display has to be used
+   * - not using a phone or tablet (whatever the screen size is)
+   * - enough space to display all the menu items
+   */
+  checkDesktopDisplay() {
+    // Force mobile display on tablet
+    if (this.mobileDetect.tablet()) {
+      this.element.classList.add('ecl-menu--forced-mobile');
+      return false;
+    }
+
+    // TODO
+    // Detect mobile display
+    if (window.getComputedStyle(this.open).display !== 'none') {
+      return false;
+    }
+
+    // Check menu width and available space
+    const containerWidth = this.inner.getBoundingClientRect().width;
+
+    const allItemsWidth = this.links
+      .map(link => link.clientWidth)
+      .reduce((a, b) => a + b);
+
+    if (allItemsWidth > 0 && allItemsWidth > containerWidth) {
+      this.element.classList.add('ecl-menu--forced-mobile');
+      return false;
+    }
+    this.element.classList.remove('ecl-menu--forced-mobile');
+    return true;
+  }
+
+  /**
+   * Display mega menu on hover
    * @param {Event} e
    */
   handleHoverOnLink(e) {
     const menuItem = e.target.closest('[data-ecl-menu-item]');
 
-    const menuMega = queryOne(this.menuMegaSelector, menuItem);
+    const menuMega = queryOne(this.megaSelector, menuItem);
 
     if (menuMega) {
       // Check if there are 4 columns of items
-      const subItems = queryAll(this.menuSubItemSelector, menuMega);
+      const subItems = queryAll(this.subItemSelector, menuMega);
 
       if (subItems.length > 12) {
         menuItem.classList.add('ecl-menu__item--full');
@@ -205,14 +265,14 @@ export class Menu {
 
       // Check if there is enough space on the right to display the menu
       const megaBounding = menuMega.getBoundingClientRect();
-      const containerBounding = this.menuInner.getBoundingClientRect();
-      const menuBounding = menuItem.getBoundingClientRect();
+      const containerBounding = this.inner.getBoundingClientRect();
+      const menuItemBounding = menuItem.getBoundingClientRect();
 
-      const menuWidth = megaBounding.width;
+      const megaWidth = megaBounding.width;
       const containerWidth = containerBounding.width;
-      const menuPosition = menuBounding.left - containerBounding.left;
+      const menuItemPosition = menuItemBounding.left - containerBounding.left;
 
-      if (menuPosition + menuWidth > containerWidth) {
+      if (menuItemPosition + megaWidth > containerWidth) {
         menuMega.classList.add('ecl-menu__mega--rtl');
       } else {
         menuMega.classList.remove('ecl-menu__mega--rtl');
@@ -231,7 +291,7 @@ export class Menu {
 
     this.element.setAttribute('aria-expanded', 'true');
 
-    this.menuInner.setAttribute('aria-hidden', 'false');
+    this.inner.setAttribute('aria-hidden', 'false');
 
     return this;
   }
@@ -243,11 +303,11 @@ export class Menu {
     this.element.setAttribute('aria-expanded', 'false');
 
     // Remove css class and attribute from inner menu
-    this.menuInner.classList.remove('ecl-menu__inner--expanded');
-    this.menuInner.setAttribute('aria-hidden', 'true');
+    this.inner.classList.remove('ecl-menu__inner--expanded');
+    this.inner.setAttribute('aria-hidden', 'true');
 
     // Remove css class and attribute from menu items
-    this.menuItems.forEach(item => {
+    this.items.forEach(item => {
       item.classList.remove('ecl-menu__item--expanded');
       item.setAttribute('aria-expanded', 'false');
     });
@@ -260,10 +320,10 @@ export class Menu {
    */
   handleClickOnBack() {
     // Remove css class from inner menu
-    this.menuInner.classList.remove('ecl-menu__inner--expanded');
+    this.inner.classList.remove('ecl-menu__inner--expanded');
 
     // Remove css class and attribute from menu items
-    this.menuItems.forEach(item => {
+    this.items.forEach(item => {
       item.classList.remove('ecl-menu__item--expanded');
       item.setAttribute('aria-expanded', 'false');
     });
@@ -271,14 +331,18 @@ export class Menu {
     return this;
   }
 
-  // TODO: trigger only on mobile
   /**
    * Click on a menu item
    * @param {Event} e
    */
   handleClickOnLink(e) {
+    // If desktop display is used, the link should work by default
+    if (this.useDesktopDisplay) {
+      return true;
+    }
+
     // If the list is expanded, the link should work by default
-    if (this.menuInner.classList.contains('ecl-menu__inner--expanded')) {
+    if (this.inner.classList.contains('ecl-menu__inner--expanded')) {
       return true;
     }
 
@@ -286,11 +350,11 @@ export class Menu {
     e.preventDefault();
 
     // Add css class to inner menu
-    this.menuInner.classList.add('ecl-menu__inner--expanded');
+    this.inner.classList.add('ecl-menu__inner--expanded');
 
     // Add css class and attribute to current item, and remove it from others
     const menuItem = e.target.closest('[data-ecl-menu-item]');
-    this.menuItems.forEach(item => {
+    this.items.forEach(item => {
       if (item === menuItem) {
         item.classList.add('ecl-menu__item--expanded');
         item.setAttribute('aria-expanded', 'true');

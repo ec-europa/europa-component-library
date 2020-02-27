@@ -30,21 +30,23 @@
     right: 0;
     top: 0;
     width: 100%;
+    z-index: $ecl-z-index-modal;
 
     /* Force display if JS is disabled */
     .no-js & {
       display: flex;
     }
+  }
 
-    &::before {
-      background-color: rgba(0, 0, 0, 0.5);
-      content: '';
-      height: 100%;
-      left: 0;
-      position: fixed;
-      top: 0;
-      width: 100%;
-    }
+  .ecl-menu__overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    content: '';
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: $ecl-z-index-modal;
   }
 
   // Expanded
@@ -61,18 +63,22 @@
 
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up(lg) {
+    .ecl-menu {
+      padding-bottom: $ecl-spacing-l;
+      padding-top: $ecl-spacing-l;
+    }
+
     .ecl-menu:not(.ecl-menu--forced-mobile) {
       padding-bottom: 0;
-      padding-top: $ecl-spacing-l;
 
       .ecl-menu__inner {
         display: block;
         position: relative;
         width: 100%;
+      }
 
-        &::before {
-          display: none;
-        }
+      .ecl-menu__overlay {
+        display: none;
       }
     }
   }
@@ -103,11 +109,18 @@
     color: $ecl-color-white;
   }
 
+  .ecl-menu__open:focus {
+    outline-offset: -3px;
+  }
+
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up(lg) {
+    .ecl-menu__site-name {
+      font: $ecl-font-3-xl;
+    }
+
     .ecl-menu:not(.ecl-menu--forced-mobile) {
       .ecl-menu__site-name {
-        font: $ecl-font-3-xl;
         margin-bottom: $ecl-spacing-l;
       }
 
@@ -191,6 +204,7 @@
     margin-top: 0;
     padding-left: 0;
     position: relative;
+    z-index: $ecl-z-index-modal + 1;
   }
 
   .ecl-menu__item {
@@ -230,6 +244,7 @@
 
     &:focus {
       outline: 3px solid $ecl-color-yellow;
+      outline-offset: -3px;
     }
 
     &:active {
@@ -271,9 +286,7 @@
       }
 
       .ecl-menu__item {
-        background-color: $ecl-color-blue;
-        transition-delay: 0.5s;
-        transition-property: background-color;
+        white-space: nowrap; // Needed to check menu width and switch to mobile display
       }
 
       .ecl-menu__item--full {
@@ -281,10 +294,12 @@
       }
 
       .ecl-menu__link {
+        background-color: transparent;
         border-top-width: 0;
         padding: $ecl-spacing-m;
         transition-delay: 0.5s;
-        transition-property: color;
+        transition-property: color, background-color, z-index;
+        z-index: 0;
 
         &:hover,
         &:active,
@@ -296,7 +311,6 @@
 
         &:focus {
           color: $ecl-color-white;
-          outline-offset: -3px;
         }
       }
 
@@ -317,17 +331,15 @@
       }
 
       .ecl-menu__item:hover {
-        background-color: $ecl-color-blue-5;
-        transition-delay: 0.5s;
-        transition-property: background-color;
-
         .ecl-menu__link,
         .ecl-menu__link:hover,
         .ecl-menu__link:active,
         .ecl-menu__link:focus {
+          background-color: $ecl-color-blue-5;
           color: $ecl-color-blue;
           transition-delay: 0.5s;
-          transition-property: color;
+          transition-property: color, background-color, z-index;
+          z-index: $ecl-z-index-dropdown + 1;
         }
 
         .ecl-menu__link-icon {
@@ -393,6 +405,7 @@
 
     &:focus {
       outline: 3px solid $ecl-color-yellow;
+      outline-offset: -3px;
     }
 
     &:active {
@@ -416,7 +429,8 @@
         padding-bottom: calc(#{$ecl-spacing-xl} - #{$ecl-spacing-m});
         padding-top: $ecl-spacing-xl;
         position: absolute;
-        transition: none;
+        transition-delay: 0.5s;
+        transition-property: visibility;
         visibility: hidden;
         z-index: $ecl-z-index-dropdown;
 
@@ -430,11 +444,6 @@
           top: 0;
           width: calc(100% + #{$ecl-spacing-l} + #{$ecl-spacing-l});
         }
-      }
-
-      .ecl-menu__mega--transition {
-        transition-delay: 0.5s;
-        transition-property: visibility;
       }
 
       .ecl-menu__item--full .ecl-menu__mega {
@@ -496,6 +505,11 @@
         font-weight: $ecl-font-weight-bold;
       }
     }
+  }
+
+  // Hack to prevent transition issue on page load on chrome
+  .ecl-menu--no-transition * {
+    transition: none !important;
   }
 
   /*
