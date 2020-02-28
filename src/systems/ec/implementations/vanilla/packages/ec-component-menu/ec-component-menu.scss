@@ -297,21 +297,7 @@
         background-color: transparent;
         border-top-width: 0;
         padding: $ecl-spacing-m;
-        transition-delay: 0.5s;
-        transition-property: color, background-color, z-index;
         z-index: 0;
-
-        &:hover,
-        &:active,
-        &:focus {
-          color: $ecl-color-white;
-          transition-delay: 0.5s;
-          transition-property: color;
-        }
-
-        &:focus {
-          color: $ecl-color-white;
-        }
       }
 
       .ecl-menu__item[aria-expanded='true'] {
@@ -337,8 +323,6 @@
         .ecl-menu__link:focus {
           background-color: $ecl-color-blue-5;
           color: $ecl-color-blue;
-          transition-delay: 0.5s;
-          transition-property: color, background-color, z-index;
           z-index: $ecl-z-index-dropdown + 1;
         }
 
@@ -346,6 +330,13 @@
           transform: rotate(0);
           transition-delay: 0.5s;
           transition-property: transform;
+        }
+      }
+
+      .ecl-menu__item:not([data-ecl-has-children]):hover {
+        .ecl-menu__link {
+          border-bottom: 3px solid $ecl-color-blue-25;
+          padding-bottom: calc(#{$ecl-spacing-m} - 3px);
         }
       }
     }

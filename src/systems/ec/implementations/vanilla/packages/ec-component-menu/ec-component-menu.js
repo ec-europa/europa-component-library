@@ -2,6 +2,7 @@ import Stickyfill from 'stickyfilljs';
 import { queryOne, queryAll } from '@ecl/ec-base/helpers/dom';
 
 import MobileDetect from 'mobile-detect';
+import SwipeListener from 'swipe-listener';
 
 // Polyfill for closest (support for IE11)
 if (!Element.prototype.matches)
@@ -32,6 +33,7 @@ if (!Element.prototype.closest)
  * @param {String} options.subItemSelector Selector for the menu sub items
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
  * @param {Boolean} options.attachHoverListener Whether or not to bind hover events
+ * @param {Boolean} options.attachSwipeListener Whether or not to bind swipe events
  */
 export class Menu {
   /**
@@ -64,6 +66,7 @@ export class Menu {
       subItemSelector = '[data-ecl-menu-subitem]',
       attachClickListener = true,
       attachHoverListener = true,
+      attachSwipeListener = true,
     } = {}
   ) {
     // Check element
@@ -87,6 +90,7 @@ export class Menu {
     this.subItemSelector = subItemSelector;
     this.attachClickListener = attachClickListener;
     this.attachHoverListener = attachHoverListener;
+    this.attachSwipeListener = attachSwipeListener;
 
     // Private variables
     this.open = null;
@@ -105,6 +109,7 @@ export class Menu {
     this.handleClickOnBack = this.handleClickOnBack.bind(this);
     this.handleClickOnLink = this.handleClickOnLink.bind(this);
     this.handleHoverOnLink = this.handleHoverOnLink.bind(this);
+    this.handleSwipe = this.handleSwipe.bind(this);
     this.checkDesktopDisplay = this.checkDesktopDisplay.bind(this);
   }
 
@@ -163,6 +168,12 @@ export class Menu {
           link.addEventListener('mouseover', this.handleHoverOnLink);
         }
       });
+    }
+
+    // Bind swipe events
+    this.swipeInstance = SwipeListener(document);
+    if (this.attachSwipeListener) {
+      document.addEventListener('swipe', this.handleSwipe);
     }
 
     // Init sticky header
@@ -243,6 +254,24 @@ export class Menu {
     }
     this.element.classList.remove('ecl-menu--forced-mobile');
     return true;
+  }
+
+  /**
+   * Open/close menu on swipe
+   * @param {Event} e
+   */
+  handleSwipe(e) {
+    const { directions } = e.detail;
+
+    if (directions.left) {
+      this.handleClickOnOpen(e);
+    }
+
+    if (directions.right) {
+      this.handleClickOnClose(e);
+    }
+
+    return this;
   }
 
   /**
