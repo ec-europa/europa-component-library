@@ -229,26 +229,27 @@ export class Menu {
    * - enough space to display all the menu items
    */
   checkDesktopDisplay() {
+    if (this.mobileDetect.phone()) {
+      return false;
+    }
+
     // Force mobile display on tablet
     if (this.mobileDetect.tablet()) {
       this.element.classList.add('ecl-menu--forced-mobile');
       return false;
     }
 
-    // TODO
-    // Detect mobile display
-    if (window.getComputedStyle(this.open).display !== 'none') {
-      return false;
-    }
-
     // Check menu width and available space
     const containerWidth = this.inner.getBoundingClientRect().width;
+    if (containerWidth === 0) {
+      return false;
+    }
 
     const allItemsWidth = this.links
       .map(link => link.clientWidth)
       .reduce((a, b) => a + b);
 
-    if (allItemsWidth > 0 && allItemsWidth > containerWidth) {
+    if (allItemsWidth > containerWidth) {
       this.element.classList.add('ecl-menu--forced-mobile');
       return false;
     }
@@ -393,54 +394,6 @@ export class Menu {
       }
     });
 
-    //
-    //
-    //
-    // TODO: still usefull?
-    // Close other items
-    /*
-    this.menuItems.forEach(item => {
-      if (item !== menuItem) {
-        item.setAttribute('aria-expanded', 'false');
-        const subMenu = queryOne(this.menuMegaSelector, item);
-        if (subMenu) {
-          subMenu.setAttribute('aria-hidden', 'true');
-        }
-      }
-    });
-    */
-
-    // Toggle current item
-    /*
-    menuItem.setAttribute(
-      'aria-expanded',
-      menuItem.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
-    );
-    */
-
-    // Toggle sub items
-    /*
-    const menuMega = queryOne(this.menuMegaSelector, menuItem);
-
-    if (menuMega) {
-      // Display the menu
-      menuMega.setAttribute(
-        'aria-hidden',
-        menuMega.getAttribute('aria-hidden') === 'false' ? 'true' : 'false'
-      );
-
-      // Check if there is enough space to display the menu
-      const menuWidth = menuMega.clientWidth;
-      const windowWidth = window.innerWidth;
-      const menuPosition = menuItem.getBoundingClientRect();
-
-      if (menuPosition.left + menuWidth < windowWidth) {
-        menuMega.classList.remove('ecl-menu__mega--rtl');
-      } else {
-        menuMega.classList.add('ecl-menu__mega--rtl');
-      }
-    }
-*/
     return this;
   }
 }
