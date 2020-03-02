@@ -101,7 +101,6 @@ export class Menu {
     this.items = null;
     this.links = null;
     this.mobileDetect = null;
-    this.useDesktopDisplay = false;
 
     // Bind `this` for use in callbacks
     this.handleClickOnOpen = this.handleClickOnOpen.bind(this);
@@ -110,7 +109,7 @@ export class Menu {
     this.handleClickOnLink = this.handleClickOnLink.bind(this);
     this.handleHoverOnLink = this.handleHoverOnLink.bind(this);
     this.handleSwipe = this.handleSwipe.bind(this);
-    this.checkDesktopDisplay = this.checkDesktopDisplay.bind(this);
+    this.useDesktopDisplay = this.useDesktopDisplay.bind(this);
   }
 
   /**
@@ -128,9 +127,6 @@ export class Menu {
     this.inner = queryOne(this.innerSelector, this.element);
     this.items = queryAll(this.itemSelector, this.element);
     this.links = queryAll(this.linkSelector, this.element);
-
-    // Check if we should use desktop display (it does not rely only on breakpoints)
-    this.useDesktopDisplay = this.checkDesktopDisplay();
 
     // Bind click event on open
     if (this.attachClickListener && this.open) {
@@ -228,7 +224,7 @@ export class Menu {
    * - not using a phone or tablet (whatever the screen size is)
    * - enough space to display all the menu items
    */
-  checkDesktopDisplay() {
+  useDesktopDisplay() {
     if (this.mobileDetect.phone()) {
       return false;
     }
@@ -367,7 +363,7 @@ export class Menu {
    */
   handleClickOnLink(e) {
     // If desktop display is used, the link should work by default
-    if (this.useDesktopDisplay) {
+    if (this.useDesktopDisplay()) {
       return true;
     }
 
