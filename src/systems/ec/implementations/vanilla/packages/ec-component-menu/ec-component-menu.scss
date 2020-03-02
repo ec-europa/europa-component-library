@@ -293,9 +293,17 @@
         position: static;
       }
 
+      // Special hack for IE
+      @media all and (-ms-high-contrast: none) {
+        .ecl-menu__item {
+          position: static;
+        }
+      }
+
       .ecl-menu__link {
         background-color: transparent;
         border-top-width: 0;
+        display: inline-flex;
         padding: $ecl-spacing-m;
         z-index: 0;
       }
@@ -470,6 +478,11 @@
 
       // Special hack for IE
       @media all and (-ms-high-contrast: none) {
+        .ecl-menu__mega {
+          left: 0;
+          right: 0;
+        }
+
         .ecl-menu__sublist {
           break-inside: avoid;
           column-count: 4;
