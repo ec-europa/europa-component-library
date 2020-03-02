@@ -128,6 +128,9 @@ export class Menu {
     this.items = queryAll(this.itemSelector, this.element);
     this.links = queryAll(this.linkSelector, this.element);
 
+    // Check if we should use desktop display (it does not rely only on breakpoints)
+    this.useDesktopDisplay();
+
     // Bind click event on open
     if (this.attachClickListener && this.open) {
       this.open.addEventListener('click', this.handleClickOnOpen);
