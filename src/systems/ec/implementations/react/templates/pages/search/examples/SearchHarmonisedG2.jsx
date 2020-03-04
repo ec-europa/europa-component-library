@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import BreadcrumbHarmonised, {
   BreadcrumbHarmonisedItem,
 } from '@ecl/ec-react-component-breadcrumb-harmonised';
-import FooterHarmonised from '@ecl/ec-react-component-footer-harmonised';
+import { FooterHarmonisedG2 } from '@ecl/ec-react-component-footer-harmonised';
 import PageHeaderHarmonised from '@ecl/ec-react-component-page-header-harmonised';
 import SiteHeaderHarmonised from '@ecl/ec-react-component-site-header-harmonised';
 
@@ -98,10 +98,7 @@ class SearchHarmonisedG2 extends React.Component {
           className="ecl-page-header-harmonised--group2"
         />
         <SearchPage template="harmonised-g2" />
-        <FooterHarmonised
-          {...dataCopy.footer}
-          className="ecl-footer-harmonised--group2"
-        />
+        <FooterHarmonisedG2 {...dataCopy.footer} />
       </Fragment>
     );
   }

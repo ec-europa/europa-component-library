@@ -107,10 +107,7 @@ class PersonHarmonisedG1 extends React.Component {
           className="ecl-page-header-harmonised--group1"
         />
         <PersonPage template="harmonised-g1" />
-        <FooterHarmonised
-          {...dataCopy.footer}
-          className="ecl-footer-harmonised--group1"
-        />
+        <FooterHarmonised {...dataCopy.footer} />
       </Fragment>
     );
   }

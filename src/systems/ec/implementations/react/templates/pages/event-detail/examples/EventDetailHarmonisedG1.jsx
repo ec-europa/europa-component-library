@@ -109,10 +109,7 @@ class EventDetailHarmonisedG1 extends React.Component {
         />
         <EventDetailPage template="harmonised-g1" />
         <PageBanner {...dataCopy.pageBanner} variant="default" isCentered />
-        <FooterHarmonised
-          {...dataCopy.footer}
-          className="ecl-footer-harmonised--group1"
-        />
+        <FooterHarmonised {...dataCopy.footer} />
       </Fragment>
     );
   }
