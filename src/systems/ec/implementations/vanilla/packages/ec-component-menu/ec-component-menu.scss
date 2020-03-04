@@ -25,8 +25,11 @@
   }
 
   .ecl-menu__inner {
+    background-color: $ecl-color-blue;
+    bottom: 0;
     display: none;
-    position: absolute;
+    overflow-y: auto;
+    position: fixed;
     right: 0;
     top: 0;
     width: 100%;
@@ -44,8 +47,8 @@
     height: 100%;
     left: 0;
     position: fixed;
+    right: 25rem; // Mobile menu width
     top: 0;
-    width: 100%;
     z-index: $ecl-z-index-modal;
   }
 
@@ -72,7 +75,9 @@
       padding-bottom: 0;
 
       .ecl-menu__inner {
+        background-color: transparent;
         display: block;
+        overflow-y: visible;
         position: relative;
         width: 100%;
       }
@@ -192,7 +197,6 @@
    * First level
    */
   .ecl-menu__list {
-    background-color: $ecl-color-blue;
     box-sizing: border-box;
     clear: right;
     display: flex;
@@ -257,7 +261,7 @@
   }
 
   // Expanded
-  .ecl-menu__inner--expanded .ecl-menu__list {
+  .ecl-menu__inner--expanded {
     background-color: $ecl-color-blue-5;
   }
 
@@ -282,6 +286,7 @@
   @include ecl-media-breakpoint-up('lg') {
     .ecl-menu:not(.ecl-menu--forced-mobile) {
       .ecl-menu__list {
+        background-color: $ecl-color-blue;
         flex-direction: row;
       }
 
@@ -319,7 +324,6 @@
         height: $ecl-icon-2-xs;
         margin-left: $ecl-spacing-xs;
         transform: rotate(180deg);
-        transition-delay: 0.5s;
         transition-property: transform;
         width: $ecl-icon-2-xs;
       }
@@ -336,7 +340,6 @@
 
         .ecl-menu__link-icon {
           transform: rotate(0);
-          transition-delay: 0.5s;
           transition-property: transform;
         }
       }
@@ -428,7 +431,6 @@
         padding-bottom: calc(#{$ecl-spacing-xl} - #{$ecl-spacing-m});
         padding-top: $ecl-spacing-xl;
         position: absolute;
-        transition-delay: 0.5s;
         transition-property: visibility;
         visibility: hidden;
         z-index: $ecl-z-index-dropdown;
@@ -451,7 +453,6 @@
       }
 
       .ecl-menu__item:hover .ecl-menu__mega {
-        transition-delay: 0.5s;
         transition-property: visibility;
         visibility: visible;
       }
@@ -499,10 +500,23 @@
         width: 13.56rem; // Written in the specs
       }
 
+      .ecl-menu__item--full .ecl-menu__subitem {
+        width: 100%;
+      }
+
       .ecl-menu__sublink {
         margin-left: $ecl-spacing-m;
         margin-right: $ecl-spacing-m;
         padding: 0;
+        white-space: normal;
+
+        &:active {
+          background-color: transparent;
+        }
+
+        &:focus {
+          outline-offset: 3px;
+        }
       }
 
       .ecl-menu__sublink--current {
@@ -512,8 +526,16 @@
   }
 
   // Hack to prevent transition issue on page load on chrome
-  .ecl-menu--no-transition * {
-    transition: none !important;
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up('lg') {
+    .ecl-menu:not(.ecl-menu--forced-mobile).ecl-menu--transition {
+      .ecl-menu__link-icon,
+      .ecl-menu__item:hover .ecl-menu__link-icon,
+      .ecl-menu__mega,
+      .ecl-menu__item:hover .ecl-menu__mega {
+        transition-delay: 0.5s;
+      }
+    }
   }
 
   /*

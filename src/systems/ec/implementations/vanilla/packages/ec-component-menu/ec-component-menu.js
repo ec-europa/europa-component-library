@@ -32,7 +32,6 @@ if (!Element.prototype.closest)
  * @param {String} options.megaSelector Selector for the mega menu
  * @param {String} options.subItemSelector Selector for the menu sub items
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
- * @param {Boolean} options.attachHoverListener Whether or not to bind hover events
  * @param {Boolean} options.attachSwipeListener Whether or not to bind swipe events
  */
 export class Menu {
@@ -65,7 +64,6 @@ export class Menu {
       megaSelector = '[data-ecl-menu-mega]',
       subItemSelector = '[data-ecl-menu-subitem]',
       attachClickListener = true,
-      attachHoverListener = true,
       attachSwipeListener = true,
     } = {}
   ) {
@@ -89,7 +87,6 @@ export class Menu {
     this.megaSelector = megaSelector;
     this.subItemSelector = subItemSelector;
     this.attachClickListener = attachClickListener;
-    this.attachHoverListener = attachHoverListener;
     this.attachSwipeListener = attachSwipeListener;
 
     // Private variables
@@ -107,7 +104,6 @@ export class Menu {
     this.handleClickOnClose = this.handleClickOnClose.bind(this);
     this.handleClickOnBack = this.handleClickOnBack.bind(this);
     this.handleClickOnLink = this.handleClickOnLink.bind(this);
-    this.handleHoverOnLink = this.handleHoverOnLink.bind(this);
     this.handleSwipe = this.handleSwipe.bind(this);
     this.useDesktopDisplay = this.useDesktopDisplay.bind(this);
   }
@@ -160,28 +156,25 @@ export class Menu {
       });
     }
 
-    // Bind hover event on menu links
-    if (this.attachHoverListener && this.links) {
-      this.links.forEach(link => {
-        if (link.parentElement.hasAttribute('data-ecl-has-children')) {
-          link.addEventListener('mouseover', this.handleHoverOnLink);
-        }
-      });
-    }
-
     // Bind swipe events
     this.swipeInstance = SwipeListener(document);
     if (this.attachSwipeListener) {
       document.addEventListener('swipe', this.handleSwipe);
     }
 
+    // Check mega menu display (right to left, full width, ...)
+    if (this.items && !this.mobileDetect.mobile()) {
+      this.items.forEach(item => {
+        this.checkMenuItem(item);
+      });
+    }
+
     // Init sticky header
     this.stickyInstance = new Stickyfill.Sticky(this.element);
 
     // Hack to prevent css transition to be played on page load on chrome
-    this.element.classList.add('ecl-menu--no-transition');
     setTimeout(() => {
-      this.element.classList.remove('ecl-menu--no-transition');
+      this.element.classList.add('ecl-menu--transition');
     }, 500);
   }
 
@@ -275,12 +268,10 @@ export class Menu {
   }
 
   /**
-   * Display mega menu on hover
-   * @param {Event} e
+   * Check for a specific menu item how to display the mega menu
+   * @param {Node} menuItem
    */
-  handleHoverOnLink(e) {
-    const menuItem = e.target.closest('[data-ecl-menu-item]');
-
+  checkMenuItem(menuItem) {
     const menuMega = queryOne(this.megaSelector, menuItem);
 
     if (menuMega) {
@@ -289,7 +280,7 @@ export class Menu {
 
       if (subItems.length > 12) {
         menuItem.classList.add('ecl-menu__item--full');
-        return this;
+        return;
       }
 
       // Check if there is enough space on the right to display the menu
@@ -307,8 +298,6 @@ export class Menu {
         menuMega.classList.remove('ecl-menu__mega--rtl');
       }
     }
-
-    return this;
   }
 
   /**

@@ -58,7 +58,10 @@ module.exports = {
       subItems: [
         { label: 'Item 4.1', href: '/example' },
         { label: 'Item 4.2', href: '/example' },
-        { label: 'Item 4.3 with a very long label', href: '/example' },
+        {
+          label: 'Item 4.3 with a very long label going on 2 lines',
+          href: '/example',
+        },
         { label: 'Item 4.4', href: '/example' },
         { label: 'Item 4.5', href: '/example' },
         { label: 'Item 4.6', href: '/example' },
