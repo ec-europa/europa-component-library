@@ -46,6 +46,7 @@ class MainPolicyAwarenessHarmonisedG1 extends React.Component {
     const optional = this.props;
     const data = getData('harmonised-g1');
     const dataCopy = JSON.parse(JSON.stringify(data));
+    const pageHeaderClassName = ['ecl-page-header-harmonised--group1'];
 
     // Optional items
     if (!optional.siteHeaderLogin) {
@@ -93,6 +94,8 @@ class MainPolicyAwarenessHarmonisedG1 extends React.Component {
         </BreadcrumbHarmonised>
       );
       dataCopy.pageHeader.breadcrumb = breadcrumb;
+    } else {
+      pageHeaderClassName.push('ecl-u-pt-xl');
     }
 
     return (
@@ -104,7 +107,7 @@ class MainPolicyAwarenessHarmonisedG1 extends React.Component {
         />
         <PageHeaderHarmonised
           {...dataCopy.pageHeader}
-          className="ecl-page-header-harmonised--group1"
+          className={pageHeaderClassName.join(' ')}
         />
         <MainPolicyAwarenessPage template="harmonised-g1" />
         <FooterHarmonised

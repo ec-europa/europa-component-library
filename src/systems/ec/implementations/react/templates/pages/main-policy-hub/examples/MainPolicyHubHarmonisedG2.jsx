@@ -46,6 +46,7 @@ class MainPolicyHubHarmonisedG2 extends React.Component {
     const optional = this.props;
     const data = getData('harmonised-g2');
     const dataCopy = JSON.parse(JSON.stringify(data));
+    const pageHeaderClassName = ['ecl-page-header-harmonised--group2'];
 
     // Optional items
     if (!optional.siteHeaderLangSelect) {
@@ -84,6 +85,8 @@ class MainPolicyHubHarmonisedG2 extends React.Component {
         </BreadcrumbHarmonised>
       );
       dataCopy.pageHeader.breadcrumb = breadcrumb;
+    } else {
+      pageHeaderClassName.push('ecl-u-pt-xl');
     }
 
     return (
@@ -95,7 +98,7 @@ class MainPolicyHubHarmonisedG2 extends React.Component {
         />
         <PageHeaderHarmonised
           {...dataCopy.pageHeader}
-          className="ecl-page-header-harmonised--group2"
+          className={pageHeaderClassName.join(' ')}
         />
         <MainPolicyHubPage template="harmonised-g2" />
         <FooterHarmonised

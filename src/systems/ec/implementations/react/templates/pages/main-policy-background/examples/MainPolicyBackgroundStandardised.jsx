@@ -46,6 +46,7 @@ class MainPolicyBackgroundStandardised extends React.Component {
     const optional = this.props;
     const data = getData('standardised');
     const dataCopy = JSON.parse(JSON.stringify(data));
+    const pageHeaderClassName = [];
 
     // Optional items
     if (!optional.siteHeaderLogin) {
@@ -83,6 +84,8 @@ class MainPolicyBackgroundStandardised extends React.Component {
         </BreadcrumbStandardised>
       );
       dataCopy.pageHeader.breadcrumb = breadcrumb;
+    } else {
+      pageHeaderClassName.push('ecl-u-pt-xl');
     }
 
     return (
@@ -91,7 +94,10 @@ class MainPolicyBackgroundStandardised extends React.Component {
           {...dataCopy.siteHeader}
           data-ecl-auto-init="SiteHeaderStandardised"
         />
-        <PageHeaderStandardised {...dataCopy.pageHeader} />
+        <PageHeaderStandardised
+          {...dataCopy.pageHeader}
+          className={pageHeaderClassName.join(' ')}
+        />
         <MainPolicyBackgroundPage template="standardised" />
         <FooterStandardised {...dataCopy.footer} />
       </Fragment>
