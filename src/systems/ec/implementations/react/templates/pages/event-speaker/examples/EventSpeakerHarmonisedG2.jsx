@@ -6,7 +6,7 @@ import classnames from 'classnames';
 import BreadcrumbHarmonised, {
   BreadcrumbHarmonisedItem,
 } from '@ecl/ec-react-component-breadcrumb-harmonised';
-import FooterHarmonised from '@ecl/ec-react-component-footer-harmonised';
+import { FooterHarmonisedG2 } from '@ecl/ec-react-component-footer-harmonised';
 import PageBanner from '@ecl/ec-react-component-page-banner';
 import PageHeaderHarmonised from '@ecl/ec-react-component-page-header-harmonised';
 import SiteHeaderHarmonised from '@ecl/ec-react-component-site-header-harmonised';
@@ -107,10 +107,7 @@ class EventSpeakerHarmonisedG2 extends React.Component {
         />
         <EventSpeakerPage template="harmonised-g2" />
         <PageBanner {...dataCopy.pageBanner} variant="primary" isCentered />
-        <FooterHarmonised
-          {...dataCopy.footer}
-          className="ecl-footer-harmonised--group2"
-        />
+        <FooterHarmonisedG2 {...dataCopy.footer} />
       </Fragment>
     );
   }

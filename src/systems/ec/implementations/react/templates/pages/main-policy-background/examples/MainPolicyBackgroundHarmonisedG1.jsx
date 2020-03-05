@@ -114,10 +114,7 @@ class MainPolicyBackgroundHarmonisedG1 extends React.Component {
           className={pageHeaderClassName}
         />
         <MainPolicyBackgroundPage template="harmonised-g1" />
-        <FooterHarmonised
-          {...dataCopy.footer}
-          className="ecl-footer-harmonised--group1"
-        />
+        <FooterHarmonised {...dataCopy.footer} />
       </Fragment>
     );
   }

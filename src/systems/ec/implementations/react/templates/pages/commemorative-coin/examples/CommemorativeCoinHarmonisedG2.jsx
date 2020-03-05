@@ -6,7 +6,7 @@ import classnames from 'classnames';
 import BreadcrumbHarmonised, {
   BreadcrumbHarmonisedItem,
 } from '@ecl/ec-react-component-breadcrumb-harmonised';
-import FooterHarmonised from '@ecl/ec-react-component-footer-harmonised';
+import { FooterHarmonisedG2 } from '@ecl/ec-react-component-footer-harmonised';
 import PageHeaderHarmonised from '@ecl/ec-react-component-page-header-harmonised';
 import SiteHeaderHarmonised from '@ecl/ec-react-component-site-header-harmonised';
 
@@ -105,10 +105,7 @@ class CommemorativeCoinHarmonisedG2 extends React.Component {
           className={pageHeaderClassName}
         />
         <CommemorativeCoinPage template="harmonised-g2" />
-        <FooterHarmonised
-          {...dataCopy.footer}
-          className="ecl-footer-harmonised--group2"
-        />
+        <FooterHarmonisedG2 {...dataCopy.footer} />
       </Fragment>
     );
   }
