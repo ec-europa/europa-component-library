@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 import BreadcrumbStandardised, {
   BreadcrumbStandardisedItem,
@@ -47,7 +48,9 @@ class EventDetailStandardised extends React.Component {
     const optional = this.props;
     const data = getData('standardised');
     const dataCopy = JSON.parse(JSON.stringify(data));
-    const pageHeaderClassName = [];
+    const pageHeaderClassName = classnames({
+      'ecl-u-pt-xl': !optional.pageHeaderBreadcrumb,
+    });
 
     // Optional items
     if (!optional.siteHeaderLogin) {
@@ -85,8 +88,6 @@ class EventDetailStandardised extends React.Component {
         </BreadcrumbStandardised>
       );
       dataCopy.pageHeader.breadcrumb = breadcrumb;
-    } else {
-      pageHeaderClassName.push('ecl-u-pt-xl');
     }
 
     return (
