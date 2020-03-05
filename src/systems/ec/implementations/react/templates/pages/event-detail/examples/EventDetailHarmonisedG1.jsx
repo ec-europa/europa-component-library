@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 import BreadcrumbHarmonised, {
   BreadcrumbHarmonisedItem,
@@ -47,6 +48,12 @@ class EventDetailHarmonisedG1 extends React.Component {
     const optional = this.props;
     const data = getData('harmonised-g1');
     const dataCopy = JSON.parse(JSON.stringify(data));
+    const pageHeaderClassName = classnames(
+      'ecl-page-header-harmonised--group1',
+      {
+        'ecl-u-pt-xl': !optional.pageHeaderBreadcrumb,
+      }
+    );
 
     // Optional items
     if (!optional.siteHeaderLogin) {
@@ -105,14 +112,11 @@ class EventDetailHarmonisedG1 extends React.Component {
         />
         <PageHeaderHarmonised
           {...dataCopy.pageHeader}
-          className="ecl-page-header-harmonised--group1"
+          className={pageHeaderClassName}
         />
         <EventDetailPage template="harmonised-g1" />
         <PageBanner {...dataCopy.pageBanner} variant="default" isCentered />
-        <FooterHarmonised
-          {...dataCopy.footer}
-          className="ecl-footer-harmonised--group1"
-        />
+        <FooterHarmonised {...dataCopy.footer} />
       </Fragment>
     );
   }

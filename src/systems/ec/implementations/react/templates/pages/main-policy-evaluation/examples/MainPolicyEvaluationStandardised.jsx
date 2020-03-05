@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 import BreadcrumbStandardised, {
   BreadcrumbStandardisedItem,
@@ -46,6 +47,9 @@ class MainPolicyEvaluationStandardised extends React.Component {
     const optional = this.props;
     const data = getData('standardised');
     const dataCopy = JSON.parse(JSON.stringify(data));
+    const pageHeaderClassName = classnames({
+      'ecl-u-pt-xl': !optional.pageHeaderBreadcrumb,
+    });
 
     // Optional items
     if (!optional.siteHeaderLogin) {
@@ -91,7 +95,10 @@ class MainPolicyEvaluationStandardised extends React.Component {
           {...dataCopy.siteHeader}
           data-ecl-auto-init="SiteHeaderStandardised"
         />
-        <PageHeaderStandardised {...dataCopy.pageHeader} />
+        <PageHeaderStandardised
+          {...dataCopy.pageHeader}
+          className={pageHeaderClassName.join(' ')}
+        />
         <MainPolicyEvaluationPage template="standardised" />
         <FooterStandardised {...dataCopy.footer} />
       </Fragment>
