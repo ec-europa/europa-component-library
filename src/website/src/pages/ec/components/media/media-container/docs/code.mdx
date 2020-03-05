@@ -19,7 +19,7 @@ import demoContentVideo from '@ecl/ec-specs-media-container/demo/data--video';
   <MediaContainer {...demoContentImage} />
 </Playground>
 
-## Video
+## Video (using &lt;video&gt; tag)
 
 <Playground
   system="ec"
@@ -27,4 +27,27 @@ import demoContentVideo from '@ecl/ec-specs-media-container/demo/data--video';
   selectedStory="video"
 >
   <MediaContainer {...demoContentVideo} />
+</Playground>
+
+## Embedded video (using &lt;iframe&gt;)
+
+Note: for embedded videos, a ratio has to be specified in order to display the iframe in a responsive way.
+Possible ratios are: '16-9', '4-3', '3-2' and '1-1'. Most common ratio is 16-9.
+
+<Playground
+  system="ec"
+  selectedKind="components-mediacontainer"
+  selectedStory="embed-video"
+>
+  <MediaContainer description={demoContentVideo.description}>
+    <iframe
+      title="New digital strategy"
+      width="350"
+      height="197"
+      src="https://www.youtube.com/embed/fgi-GSCB6ho"
+      frameBorder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    />
+  </MediaContainer>
 </Playground>
