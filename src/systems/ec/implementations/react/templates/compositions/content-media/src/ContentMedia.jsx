@@ -18,12 +18,12 @@ const ContentMedia = ({
     <article {...props} className={classnames(className)}>
       <div className="ecl-row">
         {mediaPosition === 'left' && (
-          <div className="ecl-col-12 ecl-col-sm-6">
+          <div className="ecl-col-12 ecl-col-md-6 ecl-u-mb-m ecl-u-mb-md-none">
             <MediaContainer {...media} />
           </div>
         )}
 
-        <div className="ecl-col-12 ecl-col-sm-6 ecl-u-mt-m ecl-u-mt-sm-none">
+        <div className="ecl-col-12 ecl-col-md-6">
           {title && (
             <div className="ecl-u-type-m ecl-u-type-bold ecl-u-type-color-grey">
               {title}
@@ -35,11 +35,17 @@ const ContentMedia = ({
               {...link}
               className={classnames(
                 link.className,
-                'ecl-u-mt-m ecl-u-mt-sm-l ecl-u-type-bold'
+                'ecl-u-mt-m ecl-u-mt-md-l ecl-u-type-bold'
               )}
             />
           )}
         </div>
+
+        {mediaPosition === 'right' && (
+          <div className="ecl-col-12 ecl-col-md-6 ecl-u-mt-m ecl-u-mt-md-none">
+            <MediaContainer {...media} />
+          </div>
+        )}
       </div>
     </article>
   );

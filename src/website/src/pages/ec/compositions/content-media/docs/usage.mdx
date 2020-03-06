@@ -1,0 +1,52 @@
+---
+title: Usage
+order: 1
+---
+
+import { Paragraph, Anatomy } from '@ecl/website-components';
+
+<Paragraph size="lead">
+  A composition paragraph, which will prominently display a Media item and a
+  Text as a highlight, ideally on top of a landing page.
+</Paragraph>
+
+## Anatomy
+
+A media container composition contains:
+
+- heading 2
+- image or a video and a caption
+- paragraph title
+- paragraph
+- link / Call to action link
+
+<Anatomy
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/ContentMedia/Content-media-desktop.png"
+  srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/ContentMedia/Content-media-mobile.png 892w, https://inno-ecl.s3.amazonaws.com/media/images/EC/ContentMedia/Content-media-desktop.png 1468w"
+  alt="Anatomy of content media"
+  legend={{
+    items: [
+      {
+        color: '#404040',
+        label: 'mandatory',
+      },
+      {
+        color: '#004494',
+        label: 'optional',
+      },
+    ],
+  }}
+/>
+
+| Elements                   | Mandatory | Description                                 |
+| -------------------------- | --------- | ------------------------------------------- |
+| heading 2                  | no        |                                             |
+| image or video             | yes       | left or right aligned                       |
+| caption                    | no        | explanatory caption to complement image     |
+| paragraph title            | no        |                                             |
+| paragraph                  | yes       | simple rich text                            |
+| link / call to action link | no        | default label is "read more" (overwritable) |
+
+## When to use
+
+- people respond positively to visual content. Having a site-wide horizontal image on top of your website is a good way to invite visitors to explore your website, or a particular section of it.
