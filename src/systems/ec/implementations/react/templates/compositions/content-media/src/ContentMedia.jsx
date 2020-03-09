@@ -25,7 +25,7 @@ const ContentMedia = ({
 
         <div className="ecl-col-12 ecl-col-md-6">
           {title && (
-            <div className="ecl-u-type-m ecl-u-type-bold ecl-u-type-color-grey">
+            <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-type-color-grey">
               {title}
             </div>
           )}
