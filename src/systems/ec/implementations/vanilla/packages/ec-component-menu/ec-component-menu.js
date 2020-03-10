@@ -98,6 +98,7 @@ export class Menu {
     this.items = null;
     this.links = null;
     this.mobileDetect = null;
+    this.isOpen = false;
 
     // Bind `this` for use in callbacks
     this.handleClickOnOpen = this.handleClickOnOpen.bind(this);
@@ -231,8 +232,14 @@ export class Menu {
       return false;
     }
 
+    // Check if mobile toggle is displayed
+    if (getComputedStyle(this.open, null).display !== 'none') {
+      return false;
+    }
+
     // Check menu width and available space
     const containerWidth = this.inner.getBoundingClientRect().width;
+
     if (containerWidth === 0) {
       return false;
     }
@@ -241,10 +248,13 @@ export class Menu {
       .map(link => link.clientWidth)
       .reduce((a, b) => a + b);
 
-    if (allItemsWidth > containerWidth) {
+    // If there is not enough space, mobile display is used
+    if (allItemsWidth === 0 || allItemsWidth > containerWidth) {
       this.element.classList.add('ecl-menu--forced-mobile');
       return false;
     }
+
+    // Everything is fine to use desktop display
     this.element.classList.remove('ecl-menu--forced-mobile');
     return true;
   }
@@ -280,6 +290,16 @@ export class Menu {
 
       if (subItems.length > 12) {
         menuItem.classList.add('ecl-menu__item--full');
+
+        // Check if there are more than 16 items
+        // If so, hide them on desktop
+        if (subItems.length > 16) {
+          subItems
+            .slice(16)
+            .forEach(subItem =>
+              subItem.classList.add('ecl-menu__subitem--extra')
+            );
+        }
         return;
       }
 
@@ -308,8 +328,8 @@ export class Menu {
     e.preventDefault();
 
     this.element.setAttribute('aria-expanded', 'true');
-
     this.inner.setAttribute('aria-hidden', 'false');
+    this.isOpen = true;
 
     return this;
   }
@@ -329,6 +349,8 @@ export class Menu {
       item.classList.remove('ecl-menu__item--expanded');
       item.setAttribute('aria-expanded', 'false');
     });
+
+    this.isOpen = false;
 
     return this;
   }
@@ -354,13 +376,11 @@ export class Menu {
    * @param {Event} e
    */
   handleClickOnLink(e) {
-    // If desktop display is used, the link should work by default
-    if (this.useDesktopDisplay()) {
-      return true;
-    }
-
-    // If the list is expanded, the link should work by default
-    if (this.inner.classList.contains('ecl-menu__inner--expanded')) {
+    // If the menu is expanded, the link should work by default
+    if (
+      !this.isOpen ||
+      this.inner.classList.contains('ecl-menu__inner--expanded')
+    ) {
       return true;
     }
 

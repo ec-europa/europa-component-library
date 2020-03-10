@@ -27,10 +27,9 @@
   .ecl-menu__inner {
     background-color: $ecl-color-blue;
     bottom: 0;
-    display: none;
     overflow-y: auto;
     position: fixed;
-    right: 0;
+    right: -100%;
     top: 0;
     width: 100%;
     z-index: $ecl-z-index-modal;
@@ -41,26 +40,33 @@
     }
   }
 
-  .ecl-menu__overlay {
-    background-color: rgba(0, 0, 0, 0.5);
-    content: '';
-    height: 100%;
-    left: 0;
-    position: fixed;
-    right: 25rem; // Mobile menu width
-    top: 0;
-    z-index: $ecl-z-index-modal;
-  }
-
   // Expanded
   .ecl-menu[aria-expanded='true'] .ecl-menu__inner {
-    display: block;
+    right: 0;
   }
 
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up(sm) {
     .ecl-menu__inner {
+      right: -25rem;
       width: 25rem;
+    }
+
+    .ecl-menu__overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      content: '';
+      height: 100%;
+      left: -100%;
+      position: fixed;
+      right: 0;
+      top: 0;
+      width: 100%;
+      z-index: $ecl-z-index-modal;
+    }
+
+    .ecl-menu[aria-expanded='true'] .ecl-menu__overlay {
+      left: 0;
+      width: calc(100% - 25rem); // 100% - Mobile menu width
     }
   }
 
@@ -79,6 +85,8 @@
         display: block;
         overflow-y: visible;
         position: relative;
+        right: 0;
+        transition: none;
         width: 100%;
       }
 
@@ -508,6 +516,10 @@
         width: 13.56rem; // Written in the specs
       }
 
+      .ecl-menu__subitem--extra {
+        display: none;
+      }
+
       .ecl-menu__item--full .ecl-menu__subitem {
         width: 100%;
       }
@@ -534,6 +546,18 @@
   }
 
   // Hack to prevent transition issue on page load on chrome
+  /* stylelint-disable-next-line no-descending-specificity */
+  .ecl-menu--transition .ecl-menu__inner {
+    transition: right 0.5s;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up(sm) {
+    .ecl-menu--transition .ecl-menu__overlay {
+      transition: width 0.5s;
+    }
+  }
+
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up('lg') {
     .ecl-menu:not(.ecl-menu--forced-mobile).ecl-menu--transition {
