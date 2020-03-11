@@ -47,11 +47,9 @@ class ResearchAreaSpokeStandardised extends React.Component {
     const optional = this.props;
     const data = getData('standardised');
     const dataCopy = JSON.parse(JSON.stringify(data));
-    const pageHeaderClassName = classnames(
-      {
-        'ecl-u-pt-xl': !optional.pageHeaderBreadcrumb,
-      }
-    );
+    const pageHeaderClassName = classnames({
+      'ecl-u-pt-xl': !optional.pageHeaderBreadcrumb,
+    });
 
     // Optional items
     if (!optional.siteHeaderLogin) {
