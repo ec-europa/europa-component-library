@@ -18,16 +18,16 @@ Please fill in the description following the template.
 
 4.  Create a change log entry for the release:
 
-    - You'll need an [access token for the GitHub API](https://help.github.com/articles/creating-an-access-token-for-command-line-use/). This token should have all the "repo" permission granted (no need for other permissions). Save it to this environment variable: `export GITHUB_AUTH="..."`
-    - Run `npm run changelog`. The command will find all the labeled pull requests merged since the last release and create a change log entry with all the changes and links to PRs and their authors.
-    - Copy and paste the output from the changelog generator to `CHANGELOG.md`.
-    - Paste the same contents to `src/website/src/pages/{system}/whats-new/index.md`. Remove the mentions and the committers.
-    - For older releases before v2, ensure to edit also main `README.md` file.
+- You'll need an [access token for the GitHub API](https://help.github.com/articles/creating-an-access-token-for-command-line-use/). This token should have all the "repo" permission granted (no need for other permissions). Save it to this environment variable: `export GITHUB_AUTH="..."`
+- Run `npm run changelog`. The command will find all the labeled pull requests merged since the last release and create a change log entry with all the changes and links to PRs and their authors.
+- Copy and paste the output from the changelog generator to `CHANGELOG.md`.
+- Paste the same contents to `src/website/src/pages/{system}/whats-new/index.md`. Remove the mentions and the committers.
+- For older releases before v2, ensure to edit also main `README.md` file.
 
 5.  Increment packages version:
 
-    - Make sure the version number in `lerna.json` is set to the last version published (so for instance to release version `2.25`, lerna version has to be `2.24`).
-    - Run `npm run update-version`. It will increment the version number of the updated packages.
+- Make sure the version number in `lerna.json` is set to the last version published (so for instance to release version `2.25`, lerna version has to be `2.24`).
+- Run `npm run update-version`. It will increment the version number of the updated packages.
 
 6.  Open a pull request with changes you've made from the previous steps. Don't apply any `tag: *` label on it.
 
@@ -47,8 +47,8 @@ Please fill in the description following the template.
 
 14. Finally, create a GitHub Release from branch `v2` or `v2-dev` (they are equal at this point), with the following text:
 
-    - paste the changelog generated at step 3
-    - add "useful links" section (copy from another release and update version number)
+- Paste the changelog generated at step 3
+- Add "useful links" section (copy from another release and update version number)
 
 15. Once the tag is created, drone will publish the assets on the CDN. It may take a few minutes for everything to be there.
 
@@ -56,5 +56,5 @@ Please fill in the description following the template.
 
 17. Final step: Don't forget to update branch `v2-dev` to add new info:
 
-    - update the root `README.md` with the new SRI hashes (provided in the release assets)
-    - set `"version": "2-dev"` back in `lerna.json`.
+- Update the root `README.md` with the new SRI hashes (provided in the release assets)
+- Set `"version": "2-dev"` back in `lerna.json`.
