@@ -3,26 +3,16 @@ title: Usage
 order: 1
 ---
 
-import { Paragraph, Anatomy } from '@ecl/website-components';
+import { Paragraph, Anatomy, Link } from '@ecl/website-components';
 
 <Paragraph size="lead">
-  A composition paragraph, which will prominently display a Media item and a
-  Text as a highlight, ideally on top of a landing page.
+  This composition makes use of the media container and brings additional details through the usage of paragraphs, optionally to be followed by a link where users can find further information about the content in question.
 </Paragraph>
 
 ## Anatomy
 
-A media container composition contains:
-
-- heading 2
-- image or a video and a caption
-- paragraph title
-- paragraph
-- link / Call to action link
-
 <Anatomy
   image="https://inno-ecl.s3.amazonaws.com/media/images/EC/ContentMedia/Content-media-desktop.png"
-  srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/ContentMedia/Content-media-mobile.png 892w, https://inno-ecl.s3.amazonaws.com/media/images/EC/ContentMedia/Content-media-desktop.png 1468w"
   alt="Anatomy of content media"
   legend={{
     items: [
@@ -38,15 +28,46 @@ A media container composition contains:
   }}
 />
 
-| Elements                   | Mandatory | Description                                 |
-| -------------------------- | --------- | ------------------------------------------- |
-| heading 2                  | no        |                                             |
-| image or video             | yes       | left or right aligned                       |
-| caption                    | no        | explanatory caption to complement image     |
-| paragraph title            | no        |                                             |
-| paragraph                  | yes       | simple rich text                            |
-| link / call to action link | no        | default label is "read more" (overwritable) |
+| Elements                                                                      | Mandatory | Description                                                                                                                                      |
+| ----------------------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| heading                                                                       | no        | title of the composition                                                                                                                         |
+| <Link to="/ec/components/media/media-container/usage/">media container</Link> | yes       | a media container is used to display media items (video, audio, image or other data) with a caption (optional)                                   |
+| paragraph title                                                               | no        | title of the paragraph                                                                                                                           |
+| paragraph                                                                     | yes       | paragraph / simple rich text                                                                                                                     |
+| <Link to="/ec/components/navigation/link/usage/">link / CTA link</Link>       | no        | link to either internal or external source (default label: "Read more", can be overwritten to indicate what CTA or the following system actions) |
+
+## Do's
+
+- always place at the top of the page
+- always include thumbnails
+- select an appropriate image or video thumbnail, that is suggestive, complementary and relevant for the related content
+- make sure that the height of the text does not exceed the height of the media container
+
+## Don'ts
+
+- don't use a CTA link if the page already contains one
+- don't use more than one composition on a single page
+- don't choose images which are too complex to be distinguished in thumbnail size
 
 ## When to use
 
-- people respond positively to visual content. Having a site-wide horizontal image on top of your website is a good way to invite visitors to explore your website, or a particular section of it.
+- whenever there is a need to display a media file with a paragraph 
+- when a page can benefit from added visual appeal 
+- when the media file is complementary to the content available on that page
+
+## When not to use
+
+- do not use when you only need to display the media without the paragraph, use <Link to="/ec/components/media/media-container/usage/">Media container</Link> instead
+
+## Exceptions
+
+- <Link to="/ec/harmonised-templates/group2/">harmonised group 2</Link>
+
+  - placement at the top of the page is optional
+  - you can use more than one composition per page
+  - if using links in multiple compositions, keep only the most important link as <Link to="/ec/components/navigation/link/usage/">Call-to-action link</Link> (while leaving the rest as regular links)
+
+## Related components
+
+- <Link to="/ec/components/media/gallery/usage/">media gallery</Link>
+- <Link to="/ec/components/media/media-container/usage/">media container</Link>
