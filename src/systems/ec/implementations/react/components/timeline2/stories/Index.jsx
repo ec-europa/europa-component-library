@@ -29,7 +29,7 @@ const btnAddContent = () => {
 };
 
 export default {
-  title: 'Components|Timeline',
+  title: 'Components/Timeline',
 
   decorators: [
     withKnobs,

@@ -9,7 +9,7 @@ import demoContent from '@ecl/eu-specs-accordion/demo/data';
 import { Accordion } from '../src/Accordion';
 import { AccordionItem } from '../src/AccordionItem';
 
-storiesOf('Components|Accordion', module)
+storiesOf('Components/Accordion', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryWrapper

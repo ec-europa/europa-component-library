@@ -14,7 +14,7 @@ const btnIdRemoveHandler = () => {
   randomH2.outerHTML = '';
 };
 
-storiesOf('Components|Navigation/In page navigation', module)
+storiesOf('Components/Navigation/In page navigation', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryWrapper

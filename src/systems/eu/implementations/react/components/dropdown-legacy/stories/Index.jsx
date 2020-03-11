@@ -6,7 +6,7 @@ import { withCssResources } from '@storybook/addon-cssresources';
 import StoryWrapper from '@ecl/story-wrapper';
 import DropdownExample from '../examples/Default';
 
-storiesOf('Components|Dropdown Legacy', module)
+storiesOf('Components/Dropdown Legacy', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryWrapper

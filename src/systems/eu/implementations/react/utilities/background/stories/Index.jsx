@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, select } from '@storybook/addon-knobs';
 
-storiesOf('Utilities|Background', module)
+storiesOf('Utilities/Background', module)
   .addDecorator(withKnobs)
   .add('custom', () => {
     const background = select(

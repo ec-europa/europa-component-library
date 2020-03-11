@@ -8,7 +8,7 @@ import demoContent from '@ecl/eu-specs-menu-legacy/demo/data';
 
 import { MenuLegacy } from '../src/MenuLegacy';
 
-storiesOf('Components|Navigation/Menu (legacy)', module)
+storiesOf('Components/Navigation/Menu (legacy)', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryWrapper

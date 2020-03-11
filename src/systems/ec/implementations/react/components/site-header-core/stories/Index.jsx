@@ -7,7 +7,7 @@ import demoContentFr from '@ecl/ec-specs-site-header-core/demo/data--fr';
 import SiteHeaderCore from '../src/SiteHeaderCore';
 
 export default {
-  title: 'Components|Site Headers/Core',
+  title: 'Components/Site Headers/Core',
 
   decorators: [
     story => (

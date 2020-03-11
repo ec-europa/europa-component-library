@@ -9,7 +9,7 @@ import { Accordion } from '../src/Accordion';
 import { AccordionItem } from '../src/AccordionItem';
 
 export default {
-  title: 'Deprecated|Accordion (ECL<2-6-0)',
+  title: 'Deprecated/Accordion (ECL<2-6-0)',
 
   decorators: [
     withKnobs,

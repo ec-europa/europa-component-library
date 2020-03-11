@@ -8,7 +8,7 @@ import PersonHarmonisedG1 from '../examples/PersonHarmonisedG1';
 import PersonHarmonisedG2 from '../examples/PersonHarmonisedG2';
 
 export default {
-  title: 'Templates|Pages',
+  title: 'Templates/Pages',
   decorators: [withKnobs],
 };
 

@@ -8,7 +8,7 @@ import ResearchAreaSpokeHarmonisedG1 from '../examples/ResearchAreaSpokeHarmonis
 import ResearchAreaSpokeHarmonisedG2 from '../examples/ResearchAreaSpokeHarmonisedG2';
 
 export default {
-  title: 'Templates|Pages',
+  title: 'Templates/Pages',
   decorators: [withKnobs],
 };
 

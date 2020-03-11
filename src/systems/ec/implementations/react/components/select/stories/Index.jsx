@@ -7,7 +7,7 @@ import demoContent from '@ecl/ec-specs-select/demo/data';
 import Select from '../src/Select';
 
 export default {
-  title: 'Components|Forms/Select',
+  title: 'Components/Forms/Select',
   decorators: [withKnobs],
 };
 

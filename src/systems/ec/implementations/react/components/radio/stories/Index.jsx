@@ -8,7 +8,7 @@ import demoContentBinary from '@ecl/ec-specs-radio/demo/data--binary';
 import RadioGroup from '../src/RadioGroup';
 
 export default {
-  title: 'Components|Forms/Radio',
+  title: 'Components/Forms/Radio',
   decorators: [withKnobs],
 };
 

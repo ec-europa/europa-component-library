@@ -8,7 +8,7 @@ import MainPolicyEvaluationHarmonisedG1 from '../examples/MainPolicyEvaluationHa
 import MainPolicyEvaluationHarmonisedG2 from '../examples/MainPolicyEvaluationHarmonisedG2';
 
 export default {
-  title: 'Templates|Pages',
+  title: 'Templates/Pages',
   decorators: [withKnobs],
 };
 

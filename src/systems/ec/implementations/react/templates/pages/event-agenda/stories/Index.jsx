@@ -8,7 +8,7 @@ import EventAgendaHarmonisedG1 from '../examples/EventAgendaHarmonisedG1';
 import EventAgendaHarmonisedG2 from '../examples/EventAgendaHarmonisedG2';
 
 export default {
-  title: 'Templates|Pages',
+  title: 'Templates/Pages',
   decorators: [withKnobs],
 };
 

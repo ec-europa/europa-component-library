@@ -8,7 +8,7 @@ import demoContent from '@ecl/ec-specs-menu-legacy/demo/data';
 import { MenuLegacy } from '../src/MenuLegacy';
 
 export default {
-  title: 'Deprecated|Menu (legacy)',
+  title: 'Deprecated/Menu (legacy)',
 
   decorators: [
     withKnobs,

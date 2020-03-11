@@ -11,7 +11,7 @@ import demoContentAlignLeft from '@ecl/ec-specs-page-banner/demo/data--align-lef
 import PageBanner from '../src/PageBanner';
 
 export default {
-  title: 'Components|Banners/Page Banner',
+  title: 'Components/Banners/Page Banner',
   decorators: [withKnobs],
 };
 

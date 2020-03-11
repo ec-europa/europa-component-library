@@ -14,7 +14,7 @@ const btnIdRemoveHandler = () => {
 };
 
 export default {
-  title: 'Components|Navigation/In page navigation',
+  title: 'Components/Navigation/In page navigation',
 
   decorators: [
     withKnobs,

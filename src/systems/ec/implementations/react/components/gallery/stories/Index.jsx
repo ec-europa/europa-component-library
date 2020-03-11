@@ -7,7 +7,7 @@ import demoContent from '@ecl/ec-specs-gallery/demo/data';
 import { Gallery } from '../src/Gallery';
 
 export default {
-  title: 'Components|Gallery',
+  title: 'Components/Gallery',
 
   decorators: [
     withKnobs,
