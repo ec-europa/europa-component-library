@@ -1,14 +1,34 @@
 # Changelog
 
+## 2.25 (2020-03-11)
+
+#### :rocket: New Feature
+
+- [#1556](https://github.com/ec-europa/europa-component-library/pull/1556) feat(content-media): add media container composition - FRONT-895 ([@emeryro](https://github.com/emeryro))
+- [#1550](https://github.com/ec-europa/europa-component-library/pull/1550) feat(media-container): allows embedded videos - FRONT-836 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#1554](https://github.com/ec-europa/europa-component-library/pull/1554) fix(pages): Add pageHeader top padding if breadcrumb is not displayed - FRONT-890 ([@papegaill](https://github.com/papegaill))
+- [#1553](https://github.com/ec-europa/europa-component-library/pull/1553) fix(pages): Add correct harmonised G2 footer template for all pages - FRONT-889 ([@papegaill](https://github.com/papegaill))
+
+#### Committers: 2
+
+- Alexis Gaillard ([@papegaill](https://github.com/papegaill))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
 ## 2.24 (2020-02-20)
 
 #### :nail_care: Enhancement
-* [#1543](https://github.com/ec-europa/europa-component-library/pull/1543) fix(footer): handle optional elements - FRONT-467 ([@emeryro](https://github.com/emeryro))
+
+- [#1543](https://github.com/ec-europa/europa-component-library/pull/1543) fix(footer): handle optional elements - FRONT-467 ([@emeryro](https://github.com/emeryro))
 
 #### :house: Internal
-* [#1547](https://github.com/ec-europa/europa-component-library/pull/1547) refactor(storybook): migrate to slash separator - FRONT-495 ([@kalinchernev](https://github.com/kalinchernev))
+
+- [#1547](https://github.com/ec-europa/europa-component-library/pull/1547) refactor(storybook): migrate to slash separator - FRONT-495 ([@kalinchernev](https://github.com/kalinchernev))
 
 #### Committers: 2
+
 - Kalin Chernev ([@kalinchernev](https://github.com/kalinchernev))
 - Romain Emery ([@emeryro](https://github.com/emeryro))
 
