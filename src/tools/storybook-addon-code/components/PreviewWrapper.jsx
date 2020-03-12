@@ -83,7 +83,7 @@ export class PreviewWrapper extends Component {
 
     document.body.appendChild(form);
     form.submit();
-    document.body.removeChild(form);
+    form.remove();
   }
 
   render() {
