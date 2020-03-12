@@ -9,6 +9,18 @@ Users can still go to ECL v1 to create or upgrade their websites. In 2019, we wi
 
 We will also add new components to the ECL v2 as we continue improving the look and feel of the existing components. New releases under v2 should be published periodically under [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 2.25 (2020-02-20)
+
+#### :rocket: New Feature
+
+- [#1556](https://github.com/ec-europa/europa-component-library/pull/1556) feat(content-media): add media container composition - FRONT-895
+- [#1550](https://github.com/ec-europa/europa-component-library/pull/1550) feat(media-container): allows embedded videos - FRONT-836
+
+#### :bug: Bug Fix
+
+- [#1554](https://github.com/ec-europa/europa-component-library/pull/1554) fix(pages): Add pageHeader top padding if breadcrumb is not displayed - FRONT-890
+- [#1553](https://github.com/ec-europa/europa-component-library/pull/1553) fix(pages): Add correct harmonised G2 footer template for all pages - FRONT-889
+
 ## 2.24 (2020-02-20)
 
 #### :nail_care: Enhancement
