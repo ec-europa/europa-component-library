@@ -55,8 +55,9 @@
     .ecl-menu__overlay {
       background-color: rgba(0, 0, 0, 0.5);
       content: '';
+      display: none;
       height: 100%;
-      left: -100%;
+      left: 0;
       position: fixed;
       right: 0;
       top: 0;
@@ -65,8 +66,7 @@
     }
 
     .ecl-menu[aria-expanded='true'] .ecl-menu__overlay {
-      left: 0;
-      width: calc(100% - 25rem); // 100% - Mobile menu width
+      display: block;
     }
   }
 
@@ -234,7 +234,7 @@
     align-items: center;
     border-top: 1px solid $ecl-color-blue-50;
     color: $ecl-color-white;
-    display: flex;
+    display: inline-flex;
     font: $ecl-font-m;
     font-weight: $ecl-font-weight-bold;
     justify-content: space-between;
@@ -246,12 +246,13 @@
     padding-top: $ecl-spacing-m;
     position: relative;
     text-decoration: none;
+    width: 100%;
 
     &:hover,
     &:focus,
     &:active {
       color: $ecl-color-white;
-      text-decoration: underline;
+      text-decoration: none;
     }
 
     &:focus {
@@ -548,14 +549,7 @@
   // Hack to prevent transition issue on page load on chrome
   /* stylelint-disable-next-line no-descending-specificity */
   .ecl-menu--transition .ecl-menu__inner {
-    transition: right 0.5s;
-  }
-
-  /* stylelint-disable-next-line order/order */
-  @include ecl-media-breakpoint-up(sm) {
-    .ecl-menu--transition .ecl-menu__overlay {
-      transition: width 0.5s;
-    }
+    transition: right 375ms;
   }
 
   /* stylelint-disable-next-line order/order */

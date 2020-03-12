@@ -33,6 +33,7 @@ if (!Element.prototype.closest)
  * @param {String} options.subItemSelector Selector for the menu sub items
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
  * @param {Boolean} options.attachSwipeListener Whether or not to bind swipe events
+ * @param {Boolean} options.attachResizeListener Whether or not to bind resize events
  */
 export class Menu {
   /**
@@ -65,6 +66,7 @@ export class Menu {
       subItemSelector = '[data-ecl-menu-subitem]',
       attachClickListener = true,
       attachSwipeListener = true,
+      attachResizeListener = true,
     } = {}
   ) {
     // Check element
@@ -88,6 +90,7 @@ export class Menu {
     this.subItemSelector = subItemSelector;
     this.attachClickListener = attachClickListener;
     this.attachSwipeListener = attachSwipeListener;
+    this.attachResizeListener = attachResizeListener;
 
     // Private variables
     this.open = null;
@@ -99,6 +102,7 @@ export class Menu {
     this.links = null;
     this.mobileDetect = null;
     this.isOpen = false;
+    this.resizeTimer = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOnOpen = this.handleClickOnOpen.bind(this);
@@ -106,6 +110,7 @@ export class Menu {
     this.handleClickOnBack = this.handleClickOnBack.bind(this);
     this.handleClickOnLink = this.handleClickOnLink.bind(this);
     this.handleSwipe = this.handleSwipe.bind(this);
+    this.handleResize = this.handleResize.bind(this);
     this.useDesktopDisplay = this.useDesktopDisplay.bind(this);
   }
 
@@ -163,6 +168,11 @@ export class Menu {
       document.addEventListener('swipe', this.handleSwipe);
     }
 
+    // Bind resize events
+    if (this.attachResizeListener) {
+      window.addEventListener('resize', this.handleResize);
+    }
+
     // Check mega menu display (right to left, full width, ...)
     if (this.items && !this.mobileDetect.mobile()) {
       this.items.forEach(item => {
@@ -207,12 +217,12 @@ export class Menu {
       });
     }
 
-    if (this.attachHoverListener && this.links) {
-      this.links.forEach(link => {
-        if (link.parentElement.hasAttribute('data-ecl-has-children')) {
-          link.removeEventListener('mouseover', this.handleHoverOnLink);
-        }
-      });
+    if (this.attachSwipeListener) {
+      document.removeEventListener('swipe', this.handleSwipe);
+    }
+
+    if (this.attachResizeListener) {
+      window.removeEventListener('resize', this.handleResize);
     }
   }
 
@@ -229,11 +239,6 @@ export class Menu {
     // Force mobile display on tablet
     if (this.mobileDetect.tablet()) {
       this.element.classList.add('ecl-menu--forced-mobile');
-      return false;
-    }
-
-    // Check if mobile toggle is displayed
-    if (getComputedStyle(this.open, null).display !== 'none') {
       return false;
     }
 
@@ -257,6 +262,34 @@ export class Menu {
     // Everything is fine to use desktop display
     this.element.classList.remove('ecl-menu--forced-mobile');
     return true;
+  }
+
+  /**
+   * Trigger events on resize
+   * Uses a debounce, for performance
+   */
+  handleResize() {
+    // Disable transition and forced mobile display
+    this.element.classList.remove('ecl-menu--transition');
+    this.element.classList.remove('ecl-menu--forced-mobile');
+
+    clearTimeout(this.resizeTimer);
+    this.resizeTimer = setTimeout(() => {
+      // Check global display
+      this.useDesktopDisplay();
+
+      // Check mega menu display (right to left, full width, ...)
+      if (this.items && !this.mobileDetect.mobile()) {
+        this.items.forEach(item => {
+          this.checkMenuItem(item);
+        });
+      }
+
+      // Bring transition back
+      this.element.classList.add('ecl-menu--transition');
+    }, 400);
+
+    return this;
   }
 
   /**
