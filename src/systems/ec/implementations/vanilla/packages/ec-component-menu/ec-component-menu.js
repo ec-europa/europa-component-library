@@ -270,12 +270,12 @@ export class Menu {
    */
   handleResize() {
     console.log('resize');
-    // Disable transition and forced mobile display
+    // Disable transition
     this.element.classList.remove('ecl-menu--transition');
-    this.element.classList.remove('ecl-menu--forced-mobile');
 
     clearTimeout(this.resizeTimer);
     this.resizeTimer = setTimeout(() => {
+      this.element.classList.remove('ecl-menu--forced-mobile');
       console.log('debounce');
       // Check global display
       this.useDesktopDisplay();
