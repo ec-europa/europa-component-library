@@ -29,6 +29,16 @@ yarn start:ec
 yarn start:eu
 ```
 
+Both `start:(ec|eu)` commands will spawn instances of Storybook development environments. These environments watch for changes in components of preview pane, thus it will be enough when developing components' structures.
+
+When changes are to be applied also in SCSS/CSS and/or JavaScript assets part of "vanilla" packages, the following command will be more useful:
+
+```bash
+yarn start:(ec|eu):dev
+```
+
+Please note that Storybook's HMR or browser page reload cannot be promised. Please keep in mind to reload browser manually or from command line when watch task changes have finished.
+
 **Website:**
 
 ```bash
