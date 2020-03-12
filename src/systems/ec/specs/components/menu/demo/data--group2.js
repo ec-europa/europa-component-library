@@ -52,7 +52,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Item 4 with a long label',
+      label: 'Item 4',
       href: '/example',
       subItems: [
         { label: 'Item 4.1', href: '/example' },
