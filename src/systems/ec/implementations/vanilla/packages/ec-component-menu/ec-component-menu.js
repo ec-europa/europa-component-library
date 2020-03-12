@@ -269,12 +269,14 @@ export class Menu {
    * Uses a debounce, for performance
    */
   handleResize() {
+    console.log('resize');
     // Disable transition and forced mobile display
     this.element.classList.remove('ecl-menu--transition');
     this.element.classList.remove('ecl-menu--forced-mobile');
 
     clearTimeout(this.resizeTimer);
     this.resizeTimer = setTimeout(() => {
+      console.log('debounce');
       // Check global display
       this.useDesktopDisplay();
 
@@ -287,7 +289,7 @@ export class Menu {
 
       // Bring transition back
       this.element.classList.add('ecl-menu--transition');
-    }, 400);
+    }, 200);
 
     return this;
   }
