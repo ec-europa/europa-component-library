@@ -18,7 +18,8 @@ Please fill in the description following the template.
 
 4.  Create a change log entry for the release:
 
-    - You'll need an [access token for the GitHub API](https://help.github.com/articles/creating-an-access-token-for-command-line-use/). This token should have all the "repo" permission granted (no need for other permissions). Save it to this environment variable: `export GITHUB_AUTH="..."`
+    - You'll need an [access token for the GitHub API](https://help.github.com/articles/creating-an-access-token-for-command-line-use/). See [lerna documentation](https://github.com/lerna/lerna-changelog#github-token) for more information about it (including needed permissions).
+    - Save the token to this environment variable: `export GITHUB_AUTH="..."`
     - Run `npm run changelog`. The command will find all the labeled pull requests merged since the last release and create a change log entry with all the changes and links to PRs and their authors.
     - Copy and paste the output from the changelog generator to `CHANGELOG.md`.
     - Paste the same contents to `src/website/src/pages/{system}/whats-new/index.md`. Remove the mentions and the committers.
@@ -45,7 +46,7 @@ Please fill in the description following the template.
 
 13. Push the locally-synched `v2` to the remote. This marks the release as complete.
 
-14. Finally, create a GitHub Release from branch `v2` or `v2-dev` (they are equal at this point), with the following text:
+14. Finally, create a GitHub Release from branch `v2`, with the following text:
 
     - Paste the changelog generated at step 3
     - Add "useful links" section (copy from another release and update version number)
