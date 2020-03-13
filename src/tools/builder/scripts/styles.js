@@ -7,10 +7,6 @@ const autoprefixer = require('autoprefixer');
 const mkdirp = require('mkdirp');
 const bannerPlugin = require('postcss-banner');
 
-const handleError = err => {
-  if (err) throw err;
-};
-
 module.exports = (entry, dest, options) => {
   const plugins = [autoprefixer({ grid: 'no-autoplace' })];
 
@@ -50,23 +46,22 @@ module.exports = (entry, dest, options) => {
     (sassErr, sassResult) => {
       if (sassErr) throw sassErr;
 
-      postcss(plugins)
-        .process(sassResult.css, {
+      const postcssOperation = async () => {
+        const postcssResult = await postcss(plugins).process(sassResult.css, {
           map: postcssSourceMap,
           from: entry,
           to: dest,
-        })
-        .then(postcssResult => {
-          mkdirp(path.dirname(dest), err => {
-            if (err) throw err;
-
-            fs.writeFile(dest, postcssResult.css, handleError);
-
-            if (postcssResult.map) {
-              fs.writeFile(`${dest}.map`, postcssResult.map, handleError);
-            }
-          });
         });
+
+        await mkdirp(path.dirname(dest));
+        fs.writeFileSync(dest, postcssResult.css);
+
+        if (postcssResult.map) {
+          fs.writeFileSync(`${dest}.map`, postcssResult.map);
+        }
+      };
+
+      postcssOperation();
     }
   );
 };
