@@ -38,7 +38,7 @@
     "start:ec:watch:preset-legacy-website": "cd src/systems/ec/implementations/vanilla/packages/ec-preset-legacy-website && npm run watch",
     "start:ec:watch:storybook": "cd src/systems/ec/implementations/react/storybook && npm run start:watch",
     "start:eu": "cd src/systems/eu/implementations/react/storybook && npm run start",
-    "start:eu:dev": "run-s build:preset:website:eu start:eu:watch",
+    "start:eu:dev": "run-s build:preset-website:eu build:preset-legacy-website:eu start:eu:watch",
     "start:eu:watch": "run-p start:eu:watch:*",
     "start:eu:watch:preset-website": "cd src/systems/eu/implementations/vanilla/packages/eu-preset-website && npm run watch",
     "start:eu:watch:preset-legacy-website": "cd src/systems/eu/implementations/vanilla/packages/eu-preset-legacy-website && npm run watch",
