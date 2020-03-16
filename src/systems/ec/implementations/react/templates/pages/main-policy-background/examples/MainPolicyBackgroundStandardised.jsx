@@ -97,7 +97,7 @@ class MainPolicyBackgroundStandardised extends React.Component {
         />
         <PageHeaderStandardised
           {...dataCopy.pageHeader}
-          className={pageHeaderClassName.join(' ')}
+          className={pageHeaderClassName}
         />
         <MainPolicyBackgroundPage template="standardised" />
         <FooterStandardised {...dataCopy.footer} />

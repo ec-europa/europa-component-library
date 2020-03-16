@@ -97,7 +97,7 @@ class CallProposalsStandardised extends React.Component {
         />
         <PageHeaderStandardised
           {...dataCopy.pageHeader}
-          className={pageHeaderClassName.join(' ')}
+          className={pageHeaderClassName}
         />
         <CallProposalsPage template="standardised" />
         <FooterStandardised {...dataCopy.footer} />

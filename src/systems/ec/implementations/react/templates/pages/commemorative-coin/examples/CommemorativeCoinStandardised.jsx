@@ -97,7 +97,7 @@ class CommemorativeCoinStandardised extends React.Component {
         />
         <PageHeaderStandardised
           {...dataCopy.pageHeader}
-          className={pageHeaderClassName.join(' ')}
+          className={pageHeaderClassName}
         />
         <CommemorativeCoinPage template="standardised" />
         <FooterStandardised {...dataCopy.footer} />

@@ -97,7 +97,7 @@ class DepartmentStandardised extends React.Component {
         />
         <PageHeaderStandardised
           {...dataCopy.pageHeader}
-          className={pageHeaderClassName.join(' ')}
+          className={pageHeaderClassName}
         />
         <DepartmentPage template="standardised" />
         <FooterStandardised {...dataCopy.footer} />

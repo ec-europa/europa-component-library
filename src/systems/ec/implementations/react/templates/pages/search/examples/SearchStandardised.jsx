@@ -97,7 +97,7 @@ class SearchStandardised extends React.Component {
         />
         <PageHeaderStandardised
           {...dataCopy.pageHeader}
-          className={pageHeaderClassName.join(' ')}
+          className={pageHeaderClassName}
         />
         <SearchPage template="standardised" />
         <FooterStandardised {...dataCopy.footer} />

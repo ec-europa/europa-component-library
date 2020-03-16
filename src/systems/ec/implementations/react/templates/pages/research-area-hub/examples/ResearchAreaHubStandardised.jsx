@@ -97,7 +97,7 @@ class ResearchAreaHubStandardised extends React.Component {
         />
         <PageHeaderStandardised
           {...dataCopy.pageHeader}
-          className={pageHeaderClassName.join(' ')}
+          className={pageHeaderClassName}
         />
         <ResearchAreaHubPage template="standardised" />
         <FooterStandardised {...dataCopy.footer} />

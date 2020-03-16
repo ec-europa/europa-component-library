@@ -97,7 +97,7 @@ class PersonListStandardised extends React.Component {
         />
         <PageHeaderStandardised
           {...dataCopy.pageHeader}
-          className={pageHeaderClassName.join(' ')}
+          className={pageHeaderClassName}
         />
         <PersonListPage template="standardised" />
         <FooterStandardised {...dataCopy.footer} />

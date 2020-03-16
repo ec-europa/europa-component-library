@@ -98,7 +98,7 @@ class EventDetailStandardised extends React.Component {
         />
         <PageHeaderStandardised
           {...dataCopy.pageHeader}
-          className={pageHeaderClassName.join(' ')}
+          className={pageHeaderClassName}
         />
         <EventDetailPage template="standardised" />
         <PageBanner {...dataCopy.pageBanner} variant="default" isCentered />
