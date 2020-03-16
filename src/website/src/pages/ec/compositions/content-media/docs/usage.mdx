@@ -6,7 +6,9 @@ order: 1
 import { Paragraph, Anatomy, Link } from '@ecl/website-components';
 
 <Paragraph size="lead">
-  This composition makes use of the media container and brings additional details through the usage of paragraphs, optionally to be followed by a link where users can find further information about the content in question.
+  This composition makes use of the media container and brings additional
+  details through the usage of paragraphs, optionally to be followed by a link
+  where users can find further information about the content in question.
 </Paragraph>
 
 ## Anatomy
@@ -28,13 +30,13 @@ import { Paragraph, Anatomy, Link } from '@ecl/website-components';
   }}
 />
 
-| Elements                                                                      | Mandatory | Description                                                                                                                                      |
-| ----------------------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| heading                                                                       | no        | title of the composition                                                                                                                         |
-| <Link to="/ec/components/media/media-container/usage/">media container</Link> | yes       | a media container is used to display media items (video, audio, image or other data) with a caption (optional)                                   |
-| paragraph title                                                               | no        | title of the paragraph                                                                                                                           |
-| paragraph                                                                     | yes       | paragraph / simple rich text                                                                                                                     |
-| <Link to="/ec/components/navigation/link/usage/">link / CTA link</Link>       | no        | link to either internal or external source (default label: "Read more", can be overwritten to indicate what CTA or the following system actions) |
+| Elements                                                                          | Mandatory | Description                                                                                                                                      |
+| --------------------------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| heading                                                                           | no        | title of the composition                                                                                                                         |
+| <Link to="/ec/components/media/media-container/usage/" label="media container" /> | yes       | a media container is used to display media items (video, audio, image or other data) with a caption (optional)                                   |
+| paragraph title                                                                   | no        | title of the paragraph                                                                                                                           |
+| paragraph                                                                         | yes       | paragraph / simple rich text                                                                                                                     |
+| <Link to="/ec/components/navigation/link/usage/" label="link / CTA link" />       | no        | link to either internal or external source (default label: "Read more", can be overwritten to indicate what CTA or the following system actions) |
 
 ## Do's
 
@@ -51,23 +53,31 @@ import { Paragraph, Anatomy, Link } from '@ecl/website-components';
 
 ## When to use
 
-- whenever there is a need to display a media file with a paragraph 
-- when a page can benefit from added visual appeal 
+- whenever there is a need to display a media file with a paragraph
+- when a page can benefit from added visual appeal
 - when the media file is complementary to the content available on that page
 
 ## When not to use
 
-- do not use when you only need to display the media without the paragraph, use <Link to="/ec/components/media/media-container/usage/">Media container</Link> instead
+- do not use when you only need to display the media without the paragraph, use <Link to="/ec/components/media/media-container/usage/" label="Media container" /> instead
 
 ## Exceptions
 
-- <Link to="/ec/harmonised-templates/group2/">harmonised group 2</Link>
+- <Link to="/ec/harmonised-templates/group2/" label="harmonised group 2" />
 
   - placement at the top of the page is optional
   - you can use more than one composition per page
-  - if using links in multiple compositions, keep only the most important link as <Link to="/ec/components/navigation/link/usage/">Call-to-action link</Link> (while leaving the rest as regular links)
+  - if using links in multiple compositions, keep only the most important link as <Link to="/ec/components/navigation/link/usage/" label="Call-to-action link"/> (while leaving the rest as regular links)
 
 ## Related components
 
-- <Link to="/ec/components/media/gallery/usage/">media gallery</Link>
-- <Link to="/ec/components/media/media-container/usage/">media container</Link>
+- <Link
+    to="/ec/components/media/gallery/usage/"
+    label="media gallery"
+    standalone
+  />
+- <Link
+    to="/ec/components/media/media-container/usage/"
+    label="media container"
+    standalone
+  />
