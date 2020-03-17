@@ -6,39 +6,60 @@ export const autoInit = ({ root = document, ...options } = {}) => {
   }
 
   const components = [];
-
   const nodes = queryAll('[data-ecl-auto-init]', root);
-  nodes
-    .filter(node => node.getAttribute('data-ecl-auto-initialized') !== 'true')
-    .forEach(node => {
-      const componentType = node.getAttribute('data-ecl-auto-init');
 
-      if (!componentType) {
-        throw new TypeError(
-          `(ecl-auto-init) ${componentType} data-ecl-auto-init is empty`
-        );
-      }
+  const init = () => {
+    nodes
+      .filter(node => node.getAttribute('data-ecl-auto-initialized') !== 'true')
+      .forEach(node => {
+        const componentType = node.getAttribute('data-ecl-auto-init');
 
-      const ctor = ECL[componentType];
-      if (typeof ctor !== 'function') {
-        throw new TypeError(
-          `(ecl-auto-init) Could not find '${componentType}'`
-        );
-      }
+        if (!componentType) {
+          throw new TypeError(
+            `(ecl-auto-init) ${componentType} data-ecl-auto-init is empty`
+          );
+        }
 
-      if (typeof ctor.autoInit !== 'function') {
-        throw new TypeError(
-          `(ecl-auto-init) Could not find autoInit for '${componentType}'`
-        );
-      }
+        const ctor = ECL[componentType];
+        if (typeof ctor !== 'function') {
+          throw new TypeError(
+            `(ecl-auto-init) Could not find '${componentType}'`
+          );
+        }
 
-      const component = ctor.autoInit(node, options);
-      components.push(component);
+        if (typeof ctor.autoInit !== 'function') {
+          throw new TypeError(
+            `(ecl-auto-init) Could not find autoInit for '${componentType}'`
+          );
+        }
 
-      node.setAttribute('data-ecl-auto-initialized', 'true');
-    });
+        const component = ctor.autoInit(node, options);
 
-  return components;
+        components.push(component);
+
+        node.setAttribute('data-ecl-auto-initialized', 'true');
+      });
+  };
+
+  // Destroy should not throw, in order to be non-blocking.
+  const destroy = () => {
+    nodes
+      .filter(node => node.getAttribute('data-ecl-auto-initialized') === 'true')
+      .forEach(node => {
+        const componentType = node.getAttribute('data-ecl-auto-init');
+
+        if (componentType && ECL[componentType] && ECL[componentType].destroy) {
+          ECL[componentType].destroy();
+          node.removeAttribute('data-ecl-auto-initialized');
+        }
+      });
+  };
+
+  const update = () => init();
+
+  init();
+
+  return { update, destroy, components };
 };
 
 export default autoInit;
