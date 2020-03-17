@@ -89,7 +89,7 @@ class MainPolicyAwarenessStandardised extends React.Component {
         />
         <PageHeaderStandardised
           {...dataCopy.pageHeader}
-          className={pageHeaderClassName.join(' ')}
+          className={pageHeaderClassName}
         />
         <MainPolicyAwarenessPage template="standardised" />
         <FooterStandardised {...dataCopy.footer} />

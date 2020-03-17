@@ -7,7 +7,14 @@ import icons from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
 import styles from './Link.scss';
 
-const StyledLink = ({ className, standalone, to, children, ...props }) => {
+const StyledLink = ({
+  className,
+  standalone,
+  to,
+  label,
+  children,
+  ...props
+}) => {
   const cls = classnames(className, styles.link, {
     [styles.standalone]: standalone,
   });
@@ -25,7 +32,7 @@ const StyledLink = ({ className, standalone, to, children, ...props }) => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        {children}&nbsp;
+        {label || children}&nbsp;
         <svg focusable="false" aria-hidden="true" className={styles.icon}>
           <use xlinkHref={`${icons}#ui--external`} />
         </svg>
@@ -35,7 +42,7 @@ const StyledLink = ({ className, standalone, to, children, ...props }) => {
 
   return (
     <Link {...props} to={to} className={cls}>
-      {children}
+      {label || children}
     </Link>
   );
 };
@@ -45,12 +52,14 @@ StyledLink.propTypes = {
   children: PropTypes.node.isRequired,
   standalone: PropTypes.bool,
   to: PropTypes.string,
+  label: PropTypes.string,
 };
 
 StyledLink.defaultProps = {
   className: '',
   standalone: false,
   to: '',
+  label: '',
 };
 
 export default StyledLink;

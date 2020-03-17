@@ -1,26 +1,23 @@
 const path = require('path');
-const copy = require('ncp').ncp;
+const { promisify } = require('util');
+const { ncp } = require('ncp');
 const mkdirp = require('mkdirp');
 const globby = require('globby');
 
+const copy = promisify(ncp);
+
 module.exports = (patterns, from, to) => {
-  globby(patterns, {
-    nodir: true,
-    cwd: from,
-  }).then(paths => {
-    paths.forEach(file => {
+  const executor = async () => {
+    const paths = await globby(patterns, { nodir: true, cwd: from });
+
+    paths.map(async file => {
       const input = path.resolve(from, file);
       const dest = path.resolve(to, file);
 
-      mkdirp(path.dirname(dest), mkdirpError => {
-        if (mkdirpError) throw mkdirpError;
-
-        copy(input, dest, copyError => {
-          if (copyError) throw copyError;
-
-          return 0;
-        });
-      });
+      await mkdirp(path.dirname(dest));
+      await copy(input, dest);
     });
-  });
+  };
+
+  executor();
 };

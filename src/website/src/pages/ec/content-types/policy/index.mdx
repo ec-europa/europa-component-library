@@ -8,10 +8,15 @@ import { Paragraph, Link } from '@ecl/website-components';
 <Paragraph size="lead">
   The policy content type is organised and structured throughout{' '}
   <strong>multiple pages</strong> (e.g.{' '}
-  {<Link to="/ec/content-types/policy/background/usage/">background</Link>},{' '}
-  {<Link to="/ec/content-types/policy/legislation/usage/">legislation</Link>},{' '}
-  {<Link to="/ec/content-types/policy/resources/usage/">resources</Link>}, etc.){' '}
-  <strong>so overload of information is minimised.</strong>
+  {<Link to="/ec/content-types/policy/background/usage/" label="background" />},{' '}
+  {
+    <Link
+      to="/ec/content-types/policy/legislation/usage/"
+      label="legislation"
+    />
+  }
+  , {<Link to="/ec/content-types/policy/resources/usage/" label="resources" />},
+  etc.) <strong>so overload of information is minimised.</strong>
 </Paragraph>
 <Paragraph size="lead">
   In order to promote further navigation to the auxiliary pages, content
