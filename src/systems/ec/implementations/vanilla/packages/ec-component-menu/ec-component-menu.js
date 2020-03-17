@@ -1,7 +1,7 @@
 import Stickyfill from 'stickyfilljs';
 import { queryOne, queryAll } from '@ecl/ec-base/helpers/dom';
 
-import MobileDetect from 'mobile-detect';
+import isMobile from 'mobile-device-detect';
 import SwipeListener from 'swipe-listener';
 
 // Polyfill for closest (support for IE11)
@@ -100,7 +100,6 @@ export class Menu {
     this.inner = null;
     this.items = null;
     this.links = null;
-    this.mobileDetect = null;
     this.isOpen = false;
     this.resizeTimer = null;
 
@@ -118,9 +117,6 @@ export class Menu {
    * Initialise component.
    */
   init() {
-    // Check user agent
-    this.mobileDetect = new MobileDetect(window.navigator.userAgent);
-
     // Query elements
     this.open = queryOne(this.openSelector, this.element);
     this.close = queryOne(this.closeSelector, this.element);
@@ -174,7 +170,7 @@ export class Menu {
     }
 
     // Check mega menu display (right to left, full width, ...)
-    if (this.items && !this.mobileDetect.mobile()) {
+    if (this.items && !isMobile.isMobile) {
       this.items.forEach(item => {
         this.checkMenuItem(item);
       });
@@ -232,12 +228,12 @@ export class Menu {
    * - enough space to display all the menu items
    */
   useDesktopDisplay() {
-    if (this.mobileDetect.phone()) {
+    if (isMobile.isMobileOnly) {
       return false;
     }
 
     // Force mobile display on tablet
-    if (this.mobileDetect.tablet()) {
+    if (isMobile.isTablet) {
       this.element.classList.add('ecl-menu--forced-mobile');
       return false;
     }
@@ -280,7 +276,7 @@ export class Menu {
       this.useDesktopDisplay();
 
       // Check mega menu display (right to left, full width, ...)
-      if (this.items && !this.mobileDetect.mobile()) {
+      if (this.items && !isMobile.isMobile) {
         this.items.forEach(item => {
           this.checkMenuItem(item);
         });
