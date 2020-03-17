@@ -220,19 +220,15 @@
   }
 
   .ecl-menu__item {
+    border-top: 1px solid $ecl-color-blue-50;
     box-sizing: content-box;
-    padding-left: $ecl-spacing-m;
-    padding-right: $ecl-spacing-m;
+    margin-left: $ecl-spacing-m;
+    margin-right: $ecl-spacing-m;
     position: relative;
-  }
-
-  .ecl-menu__item--current:not(.ecl-menu__item--expanded) {
-    background-color: $ecl-color-blue-120;
   }
 
   .ecl-menu__link {
     align-items: center;
-    border-top: 1px solid $ecl-color-blue-50;
     color: $ecl-color-white;
     display: inline-flex;
     font: $ecl-font-m;
@@ -259,10 +255,10 @@
       outline: 3px solid $ecl-color-yellow;
       outline-offset: -3px;
     }
+  }
 
-    &:active {
-      background-color: $ecl-color-blue-120;
-    }
+  .ecl-menu__item--current:not(.ecl-menu__item--expanded) .ecl-menu__link {
+    background-color: $ecl-color-blue-120;
   }
 
   .ecl-menu__link-icon {
@@ -278,8 +274,8 @@
     display: none;
   }
 
+  /* stylelint-disable-next-line no-descending-specificity */
   .ecl-menu__inner--expanded .ecl-menu__link {
-    border-top-width: 0;
     color: $ecl-color-blue;
 
     &:active {
@@ -291,6 +287,10 @@
     display: none;
   }
 
+  .ecl-menu__item--expanded {
+    border-top-width: 0;
+  }
+
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up('lg') {
     .ecl-menu:not(.ecl-menu--forced-mobile) {
@@ -300,6 +300,11 @@
       }
 
       .ecl-menu__item {
+        border-top-width: 0;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: $ecl-spacing-m;
+        padding-right: $ecl-spacing-m;
         white-space: nowrap; // Needed to check menu width and switch to mobile display
       }
 
@@ -317,7 +322,6 @@
       .ecl-menu__link {
         background-color: transparent;
         border-bottom: 3px solid transparent;
-        border-top-width: 0;
         color: $ecl-color-white;
         display: inline-flex;
         padding-bottom: calc(#{$ecl-spacing-m} - 3px);
