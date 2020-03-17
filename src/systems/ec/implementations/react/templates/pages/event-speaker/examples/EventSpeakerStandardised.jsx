@@ -90,7 +90,7 @@ class EventSpeakerStandardised extends React.Component {
         />
         <PageHeaderStandardised
           {...dataCopy.pageHeader}
-          className={pageHeaderClassName.join(' ')}
+          className={pageHeaderClassName}
         />
         <EventSpeakerPage template="standardised" />
         <PageBanner {...dataCopy.pageBanner} variant="default" isCentered />

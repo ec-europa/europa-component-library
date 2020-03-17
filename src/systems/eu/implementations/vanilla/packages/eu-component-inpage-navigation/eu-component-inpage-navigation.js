@@ -222,7 +222,7 @@ export class InpageNavigation {
                       item.childNodes[0].href.indexOf(removedNode.id) !== -1
                     ) {
                       // Remove the element from the inpage.
-                      currentInpage.removeChild(item);
+                      item.remove();
                     }
                   });
                 }

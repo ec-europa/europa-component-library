@@ -89,7 +89,7 @@ class CallTendersStandardised extends React.Component {
         />
         <PageHeaderStandardised
           {...dataCopy.pageHeader}
-          className={pageHeaderClassName.join(' ')}
+          className={pageHeaderClassName}
         />
         <CallTendersPage template="standardised" />
         <FooterStandardised {...dataCopy.footer} />

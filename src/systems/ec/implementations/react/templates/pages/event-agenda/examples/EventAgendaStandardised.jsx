@@ -90,7 +90,7 @@ class EventAgendaStandardised extends React.Component {
         />
         <PageHeaderStandardised
           {...dataCopy.pageHeader}
-          className={pageHeaderClassName.join(' ')}
+          className={pageHeaderClassName}
         />
         <EventAgendaPage template="standardised" />
         <PageBanner {...dataCopy.pageBanner} variant="default" isCentered />
