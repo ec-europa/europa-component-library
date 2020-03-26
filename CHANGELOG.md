@@ -1,5 +1,26 @@
 # Changelog
 
+## 2.26 (2020-03-26)
+
+#### :rocket: New Feature
+
+- [#1551](https://github.com/ec-europa/europa-component-library/pull/1551) feat(menu): implement menu v2 - FRONT-811 ([@emeryro](https://github.com/emeryro))
+
+#### :boom: Breaking Change
+
+- [#1544](https://github.com/ec-europa/europa-component-library/pull/1544) feat(lib): provide update and destroy methods on ECL.autoInit() - FRONT-33 ([@kalinchernev](https://github.com/kalinchernev))
+
+#### :house: Internal
+
+- [#1560](https://github.com/ec-europa/europa-component-library/pull/1560) chore(deps): upgrade dependencies - FRONT-929 ([@kalinchernev](https://github.com/kalinchernev))
+- [#1559](https://github.com/ec-europa/europa-component-library/pull/1559) docs(release): improve release documentation - FRONT-940 ([@emeryro](https://github.com/emeryro))
+- [#1557](https://github.com/ec-europa/europa-component-library/pull/1557) feat(ecl): provide watch mode including website presets - FRONT-934 ([@kalinchernev](https://github.com/kalinchernev))
+
+#### Committers: 2
+
+- Kalin Chernev ([@kalinchernev](https://github.com/kalinchernev))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
 ## 2.25 (2020-03-11)
 
 #### :rocket: New Feature
