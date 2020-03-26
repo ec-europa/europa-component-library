@@ -27,10 +27,7 @@ const FileUpload = ({
   return (
     <div
       data-ecl-file-upload-group
-      className={classnames(
-        groupClassName,
-        'ecl-form-group ecl-form-group--file-upload'
-      )}
+      className={classnames(groupClassName, 'ecl-form-group')}
     >
       {label && (
         <label

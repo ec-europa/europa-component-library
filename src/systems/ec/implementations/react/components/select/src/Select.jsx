@@ -27,12 +27,7 @@ const Select = ({
   });
 
   return (
-    <div
-      className={classnames(
-        groupClassName,
-        'ecl-form-group ecl-form-group--select'
-      )}
-    >
+    <div className={classnames(groupClassName, 'ecl-form-group')}>
       {label && (
         <label
           className={classnames(labelClassName, 'ecl-form-label', {
