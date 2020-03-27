@@ -8,7 +8,7 @@ import demoContent from '@ecl/ec-specs-datepicker/demo/data';
 import Datepicker from '../src/Datepicker';
 
 export default {
-  title: 'Components|Forms/Datepicker',
+  title: 'Components/Forms/Datepicker',
 
   decorators: [
     withKnobs,
@@ -17,8 +17,8 @@ export default {
         afterMount={() => {
           if (!window.ECL) return {};
 
-          const components = window.ECL.autoInit();
-          return { components };
+          const autoinit = window.ECL.autoInit();
+          return { components: autoinit.components };
         }}
         beforeUnmount={context => {
           if (context.components) {

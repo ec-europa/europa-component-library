@@ -7,7 +7,7 @@ import demoContent from '@ecl/ec-specs-social-media-follow/demo/data';
 import SocialMediaFollow from '../src/SocialMediaFollow';
 
 export default {
-  title: 'Components|SocialMediaFollow',
+  title: 'Components/SocialMediaFollow',
   decorators: [withKnobs],
 };
 

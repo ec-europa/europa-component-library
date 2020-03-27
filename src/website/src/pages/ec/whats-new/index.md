@@ -9,6 +9,44 @@ Users can still go to ECL v1 to create or upgrade their websites. In 2019, we wi
 
 We will also add new components to the ECL v2 as we continue improving the look and feel of the existing components. New releases under v2 should be published periodically under [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 2.26 (2020-03-26)
+
+#### :rocket: New Feature
+
+- [#1551](https://github.com/ec-europa/europa-component-library/pull/1551) feat(menu): implement menu v2 - FRONT-811
+
+#### :boom: Breaking Change
+
+- [#1544](https://github.com/ec-europa/europa-component-library/pull/1544) feat(lib): provide update and destroy methods on ECL.autoInit() - FRONT-33
+
+#### :house: Internal
+
+- [#1560](https://github.com/ec-europa/europa-component-library/pull/1560) chore(deps): upgrade dependencies - FRONT-929
+- [#1559](https://github.com/ec-europa/europa-component-library/pull/1559) docs(release): improve release documentation - FRONT-940
+- [#1557](https://github.com/ec-europa/europa-component-library/pull/1557) feat(ecl): provide watch mode including website presets - FRONT-934
+
+## 2.25 (2020-02-20)
+
+#### :rocket: New Feature
+
+- [#1556](https://github.com/ec-europa/europa-component-library/pull/1556) feat(content-media): add media container composition - FRONT-895
+- [#1550](https://github.com/ec-europa/europa-component-library/pull/1550) feat(media-container): allows embedded videos - FRONT-836
+
+#### :bug: Bug Fix
+
+- [#1554](https://github.com/ec-europa/europa-component-library/pull/1554) fix(pages): Add pageHeader top padding if breadcrumb is not displayed - FRONT-890
+- [#1553](https://github.com/ec-europa/europa-component-library/pull/1553) fix(pages): Add correct harmonised G2 footer template for all pages - FRONT-889
+
+## 2.24 (2020-02-20)
+
+#### :nail_care: Enhancement
+
+- [#1543](https://github.com/ec-europa/europa-component-library/pull/1543) fix(footer): handle optional elements - FRONT-467
+
+#### :house: Internal
+
+- [#1547](https://github.com/ec-europa/europa-component-library/pull/1547) refactor(storybook): migrate to slash separator - FRONT-495
+
 ## 2.23 (2020-02-06)
 
 #### :bug: Bug Fix

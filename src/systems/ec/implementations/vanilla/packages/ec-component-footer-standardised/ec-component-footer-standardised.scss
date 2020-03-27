@@ -41,6 +41,10 @@
     > :first-child {
       margin-top: 0;
     }
+
+    &:empty {
+      margin-top: 0;
+    }
   }
 
   .ecl-footer-standardised__section--separator {
@@ -123,6 +127,10 @@
   @include ecl-media-breakpoint-up('md') {
     .ecl-footer-standardised__section {
       margin-top: $ecl-spacing-xl;
+
+      &:empty {
+        margin-top: 0;
+      }
     }
 
     .ecl-footer-standardised__section--separator {
@@ -184,6 +192,11 @@
     border-top: 1px solid $separator-color;
     padding-bottom: $ecl-spacing-m;
     padding-top: $ecl-spacing-m;
+
+    /* stylelint-disable-next-line max-nesting-depth */
+    &:empty {
+      border-top-width: 0;
+    }
   }
 
   .ecl-footer-standardised__section8,
@@ -227,6 +240,10 @@
       border-bottom-width: 2px;
       border-top-width: 2px;
       grid-area: 3 / 1 / 4 / 4;
+
+      &:empty {
+        border-top-width: 0;
+      }
     }
 
     .ecl-footer-standardised__section7 {

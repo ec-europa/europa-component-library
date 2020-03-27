@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 import BreadcrumbStandardised, {
   BreadcrumbStandardisedItem,
@@ -16,36 +17,31 @@ import MainPolicyLegislationPage from '../src/MainPolicyLegislationPage';
 class MainPolicyLegislationStandardised extends React.Component {
   constructor(props) {
     super(props);
-    this.components = null;
+    this.autoinit = null;
   }
 
   componentDidMount() {
     if (!window.ECL) return;
-    this.components = window.ECL.autoInit();
+    this.autoinit = window.ECL.autoInit();
   }
 
   componentDidUpdate() {
     if (!window.ECL) return;
-
-    if (this.components) {
-      this.components.forEach(c => c.destroy());
-    }
-
-    this.components = window.ECL.autoInit();
+    this.autoinit.update();
   }
 
   componentWillUnmount() {
     if (!window.ECL) return;
-
-    if (this.components) {
-      this.components.forEach(c => c.destroy());
-    }
+    this.autoinit.destroy();
   }
 
   render() {
     const optional = this.props;
     const data = getData('standardised');
     const dataCopy = JSON.parse(JSON.stringify(data));
+    const pageHeaderClassName = classnames({
+      'ecl-u-pt-xl': !optional.pageHeaderBreadcrumb,
+    });
 
     // Optional items
     if (!optional.siteHeaderLogin) {
@@ -91,7 +87,10 @@ class MainPolicyLegislationStandardised extends React.Component {
           {...dataCopy.siteHeader}
           data-ecl-auto-init="SiteHeaderStandardised"
         />
-        <PageHeaderStandardised {...dataCopy.pageHeader} />
+        <PageHeaderStandardised
+          {...dataCopy.pageHeader}
+          className={pageHeaderClassName}
+        />
         <MainPolicyLegislationPage template="standardised" />
         <FooterStandardised {...dataCopy.footer} />
       </Fragment>

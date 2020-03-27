@@ -8,7 +8,7 @@ const baseUrl =
 
 const replaceLogo = code =>
   code.replace(
-    /dist\/images\/logo([\d-a-z]*)\.([\da-z]*)\.svg/gi,
+    /dist\/images\/logo([\d-az-]*)\.([\da-z]*)\.svg/gi,
     `${baseUrl}images/logo/logo$1.svg`
   );
 

@@ -6,7 +6,7 @@ import demoContent from '@ecl/ec-specs-blockquote/demo/data';
 import Blockquote from '../src/Blockquote';
 
 export default {
-  title: 'Components|Blockquote',
+  title: 'Components/Blockquote',
   decorators: [withKnobs],
 };
 

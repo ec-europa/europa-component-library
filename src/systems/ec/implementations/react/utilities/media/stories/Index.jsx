@@ -97,7 +97,7 @@ const MediaBg = (bgPosition, bgOrigin, bgRepeat, bgSize) => (
 );
 
 export default {
-  title: 'Utilities|Media',
+  title: 'Utilities/Media',
   decorators: [withKnobs],
 };
 

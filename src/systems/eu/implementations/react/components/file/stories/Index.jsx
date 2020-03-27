@@ -8,15 +8,15 @@ import demoContentTranslation from '@ecl/eu-specs-file/demo/data--with-translati
 
 import { FileDownload } from '../src/FileDownload';
 
-storiesOf('Components|File', module)
+storiesOf('Components/File', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryWrapper
       afterMount={() => {
         if (!window.ECL) return {};
 
-        const components = window.ECL.autoInit();
-        return { components };
+        const autoinit = window.ECL.autoInit();
+        return { components: autoinit.components };
       }}
       beforeUnmount={context => {
         if (context.components) {

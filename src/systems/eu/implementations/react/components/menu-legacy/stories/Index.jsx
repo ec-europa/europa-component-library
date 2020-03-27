@@ -8,15 +8,15 @@ import demoContent from '@ecl/eu-specs-menu-legacy/demo/data';
 
 import { MenuLegacy } from '../src/MenuLegacy';
 
-storiesOf('Components|Navigation/Menu (legacy)', module)
+storiesOf('Components/Navigation/Menu (legacy)', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryWrapper
       afterMount={() => {
         if (!window.ECL) return {};
 
-        const components = window.ECL.autoInit();
-        return { components };
+        const autoinit = window.ECL.autoInit();
+        return { components: autoinit.components };
       }}
       beforeUnmount={context => {
         if (context.components) {

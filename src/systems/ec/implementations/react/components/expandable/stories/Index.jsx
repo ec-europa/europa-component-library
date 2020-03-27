@@ -7,7 +7,7 @@ import demoContent from '@ecl/ec-specs-expandable/demo/data';
 import { Expandable } from '../src/Expandable';
 
 export default {
-  title: 'Components|Expandables',
+  title: 'Components/Expandables',
 
   decorators: [
     withKnobs,
@@ -16,8 +16,8 @@ export default {
         afterMount={() => {
           if (!window.ECL) return {};
 
-          const components = window.ECL.autoInit();
-          return { components };
+          const autoinit = window.ECL.autoInit();
+          return { components: autoinit.components };
         }}
         beforeUnmount={context => {
           if (context.components) {

@@ -14,15 +14,15 @@ const btnIdRemoveHandler = () => {
   randomH2.outerHTML = '';
 };
 
-storiesOf('Components|Navigation/In page navigation', module)
+storiesOf('Components/Navigation/In page navigation', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryWrapper
       afterMount={() => {
         if (!window.ECL) return {};
 
-        const components = window.ECL.autoInit();
-        return { components };
+        const autoinit = window.ECL.autoInit();
+        return { components: autoinit.components };
       }}
       beforeUnmount={context => {
         if (context.components) {

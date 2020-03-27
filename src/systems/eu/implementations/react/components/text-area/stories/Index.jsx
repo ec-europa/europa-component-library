@@ -13,7 +13,7 @@ import demoContentDefault from '@ecl/eu-specs-text-area/demo/data--default';
 
 import TextArea from '../src/TextArea';
 
-storiesOf('Components|Forms/TextArea', module)
+storiesOf('Components/Forms/TextArea', module)
   .addDecorator(withKnobs)
   .add(
     'default',

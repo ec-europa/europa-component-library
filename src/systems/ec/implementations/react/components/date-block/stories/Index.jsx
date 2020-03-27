@@ -7,7 +7,7 @@ import demoContent from '@ecl/ec-specs-date-block/demo/data';
 import DateBlock from '../src/DateBlock';
 
 export default {
-  title: 'Components|Date Block',
+  title: 'Components/Date Block',
   decorators: [withKnobs],
 };
 

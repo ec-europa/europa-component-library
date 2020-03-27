@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 import BreadcrumbHarmonised, {
   BreadcrumbHarmonisedItem,
@@ -17,36 +18,34 @@ import EventAgendaPage from '../src/EventAgendaPage';
 class EventAgendaHarmonisedG1 extends React.Component {
   constructor(props) {
     super(props);
-    this.components = null;
+    this.autoinit = null;
   }
 
   componentDidMount() {
     if (!window.ECL) return;
-    this.components = window.ECL.autoInit();
+    this.autoinit = window.ECL.autoInit();
   }
 
   componentDidUpdate() {
     if (!window.ECL) return;
-
-    if (this.components) {
-      this.components.forEach(c => c.destroy());
-    }
-
-    this.components = window.ECL.autoInit();
+    this.autoinit.update();
   }
 
   componentWillUnmount() {
     if (!window.ECL) return;
-
-    if (this.components) {
-      this.components.forEach(c => c.destroy());
-    }
+    this.autoinit.destroy();
   }
 
   render() {
     const optional = this.props;
     const data = getData('harmonised-g1');
     const dataCopy = JSON.parse(JSON.stringify(data));
+    const pageHeaderClassName = classnames(
+      'ecl-page-header-harmonised--group1',
+      {
+        'ecl-u-pt-xl': !optional.pageHeaderBreadcrumb,
+      }
+    );
 
     // Optional items
     if (!optional.siteHeaderLogin) {
@@ -105,14 +104,11 @@ class EventAgendaHarmonisedG1 extends React.Component {
         />
         <PageHeaderHarmonised
           {...dataCopy.pageHeader}
-          className="ecl-page-header-harmonised--group1"
+          className={pageHeaderClassName}
         />
         <EventAgendaPage template="harmonised-g1" />
         <PageBanner {...dataCopy.pageBanner} variant="default" isCentered />
-        <FooterHarmonised
-          {...dataCopy.footer}
-          className="ecl-footer-harmonised--group1"
-        />
+        <FooterHarmonised {...dataCopy.footer} />
       </Fragment>
     );
   }

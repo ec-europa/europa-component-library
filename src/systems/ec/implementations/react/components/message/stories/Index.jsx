@@ -10,7 +10,7 @@ import demoContentError from '@ecl/ec-specs-message/demo/data--error';
 import { Message } from '../src/Message';
 
 export default {
-  title: 'Components|Messages',
+  title: 'Components/Messages',
 
   decorators: [
     withKnobs,
@@ -19,8 +19,8 @@ export default {
         afterMount={() => {
           if (!window.ECL) return {};
 
-          const components = window.ECL.autoInit();
-          return { components };
+          const autoinit = window.ECL.autoInit();
+          return { components: autoinit.components };
         }}
         beforeUnmount={context => {
           if (context.components) {

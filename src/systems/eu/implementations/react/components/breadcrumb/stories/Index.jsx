@@ -9,7 +9,7 @@ import demoContent from '@ecl/eu-specs-breadcrumb/demo/data';
 import { Breadcrumb } from '../src/Breadcrumb';
 import { BreadcrumbItem } from '../src/BreadcrumbItem';
 
-storiesOf('Components|Navigation/Breadcrumb', module)
+storiesOf('Components/Navigation/Breadcrumb', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <div style={{ backgroundColor: '#004494' }}>{story()}</div>
@@ -19,8 +19,8 @@ storiesOf('Components|Navigation/Breadcrumb', module)
       afterMount={() => {
         if (!window.ECL) return {};
 
-        const components = window.ECL.autoInit();
-        return { components };
+        const autoinit = window.ECL.autoInit();
+        return { components: autoinit.components };
       }}
       beforeUnmount={context => {
         if (context.components) {

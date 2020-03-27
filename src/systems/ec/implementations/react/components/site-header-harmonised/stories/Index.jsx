@@ -15,7 +15,7 @@ demoMenuGroup2['data-ecl-auto-init'] = 'Menu';
 demoMenuGroup2.className = 'ecl-menu--group2';
 
 export default {
-  title: 'Components|Site Headers/Harmonised',
+  title: 'Components/Site Headers/Harmonised',
 
   decorators: [
     story => (
@@ -23,8 +23,8 @@ export default {
         afterMount={() => {
           if (!window.ECL) return {};
 
-          const components = window.ECL.autoInit();
-          return { components };
+          const autoinit = window.ECL.autoInit();
+          return { components: autoinit.components };
         }}
         beforeUnmount={context => {
           if (context.components) {

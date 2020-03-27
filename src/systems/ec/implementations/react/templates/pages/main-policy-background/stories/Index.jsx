@@ -8,7 +8,7 @@ import MainPolicyBackgroundHarmonisedG1 from '../examples/MainPolicyBackgroundHa
 import MainPolicyBackgroundHarmonisedG2 from '../examples/MainPolicyBackgroundHarmonisedG2';
 
 export default {
-  title: 'Templates|Pages',
+  title: 'Templates/Pages',
   decorators: [withKnobs],
 };
 

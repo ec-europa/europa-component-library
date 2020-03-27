@@ -9,7 +9,7 @@ import { Accordion } from '../src/Accordion';
 import { AccordionItem } from '../src/AccordionItem';
 
 export default {
-  title: 'Deprecated|Accordion (ECL<2-6-0)',
+  title: 'Deprecated/Accordion (ECL<2-6-0)',
 
   decorators: [
     withKnobs,
@@ -18,8 +18,8 @@ export default {
         afterMount={() => {
           if (!window.ECL) return {};
 
-          const components = window.ECL.autoInit();
-          return { components };
+          const autoinit = window.ECL.autoInit();
+          return { components: autoinit.components };
         }}
         beforeUnmount={context => {
           if (context.components) {

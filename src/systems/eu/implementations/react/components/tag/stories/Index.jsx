@@ -9,7 +9,7 @@ import demoDataRemovable from '@ecl/eu-specs-tag/demo/data--removable';
 
 import Tag from '../src/Tag';
 
-storiesOf('Components|Tag', module)
+storiesOf('Components/Tag', module)
   .addDecorator(withKnobs)
   .add('as a link', () => (
     <Tag

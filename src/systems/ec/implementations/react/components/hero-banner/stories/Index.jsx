@@ -11,7 +11,7 @@ import demoContentAlignLeft from '@ecl/ec-specs-hero-banner/demo/data--align-lef
 import HeroBanner from '../src/HeroBanner';
 
 export default {
-  title: 'Components|Banners/Hero Banner',
+  title: 'Components/Banners/Hero Banner',
   decorators: [withKnobs],
 };
 

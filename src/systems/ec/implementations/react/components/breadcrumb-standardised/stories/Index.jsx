@@ -9,7 +9,7 @@ import { BreadcrumbStandardised } from '../src/BreadcrumbStandardised';
 import { BreadcrumbStandardisedItem } from '../src/BreadcrumbStandardisedItem';
 
 export default {
-  title: 'Components|Navigation/Breadcrumb standardised',
+  title: 'Components/Navigation/Breadcrumb standardised',
 
   decorators: [
     withKnobs,
@@ -18,8 +18,8 @@ export default {
         afterMount={() => {
           if (!window.ECL) return {};
 
-          const components = window.ECL.autoInit();
-          return { components };
+          const autoinit = window.ECL.autoInit();
+          return { components: autoinit.components };
         }}
         beforeUnmount={context => {
           if (context.components) {

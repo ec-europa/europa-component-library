@@ -8,15 +8,15 @@ import demoContent from '@ecl/eu-specs-accordion2/demo/data';
 import { Accordion2 } from '../src/Accordion2';
 import { Accordion2Item } from '../src/Accordion2Item';
 
-storiesOf('Components|Accordion', module)
+storiesOf('Components/Accordion', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryWrapper
       afterMount={() => {
         if (!window.ECL) return {};
 
-        const components = window.ECL.autoInit();
-        return { components };
+        const autoinit = window.ECL.autoInit();
+        return { components: autoinit.components };
       }}
       beforeUnmount={context => {
         if (context.components) {

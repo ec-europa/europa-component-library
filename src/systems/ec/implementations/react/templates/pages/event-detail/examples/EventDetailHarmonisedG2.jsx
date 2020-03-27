@@ -1,11 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 import BreadcrumbHarmonised, {
   BreadcrumbHarmonisedItem,
 } from '@ecl/ec-react-component-breadcrumb-harmonised';
-import FooterHarmonised from '@ecl/ec-react-component-footer-harmonised';
+import { FooterHarmonisedG2 } from '@ecl/ec-react-component-footer-harmonised';
 import PageBanner from '@ecl/ec-react-component-page-banner';
 import PageHeaderHarmonised from '@ecl/ec-react-component-page-header-harmonised';
 import SiteHeaderHarmonised from '@ecl/ec-react-component-site-header-harmonised';
@@ -17,36 +18,34 @@ import EventDetailPage from '../src/EventDetailPage';
 class EventDetailHarmonisedG2 extends React.Component {
   constructor(props) {
     super(props);
-    this.components = null;
+    this.autoinit = null;
   }
 
   componentDidMount() {
     if (!window.ECL) return;
-    this.components = window.ECL.autoInit();
+    this.autoinit = window.ECL.autoInit();
   }
 
   componentDidUpdate() {
     if (!window.ECL) return;
-
-    if (this.components) {
-      this.components.forEach(c => c.destroy());
-    }
-
-    this.components = window.ECL.autoInit();
+    this.autoinit.update();
   }
 
   componentWillUnmount() {
     if (!window.ECL) return;
-
-    if (this.components) {
-      this.components.forEach(c => c.destroy());
-    }
+    this.autoinit.destroy();
   }
 
   render() {
     const optional = this.props;
     const data = getData('harmonised-g2');
     const dataCopy = JSON.parse(JSON.stringify(data));
+    const pageHeaderClassName = classnames(
+      'ecl-page-header-harmonised--group2',
+      {
+        'ecl-u-pt-xl': !optional.pageHeaderBreadcrumb,
+      }
+    );
 
     // Optional items
     if (!optional.siteHeaderLangSelect) {
@@ -96,14 +95,11 @@ class EventDetailHarmonisedG2 extends React.Component {
         />
         <PageHeaderHarmonised
           {...dataCopy.pageHeader}
-          className="ecl-page-header-harmonised--group2"
+          className={pageHeaderClassName}
         />
         <EventDetailPage template="harmonised-g2" />
         <PageBanner {...dataCopy.pageBanner} variant="primary" isCentered />
-        <FooterHarmonised
-          {...dataCopy.footer}
-          className="ecl-footer-harmonised--group2"
-        />
+        <FooterHarmonisedG2 {...dataCopy.footer} />
       </Fragment>
     );
   }

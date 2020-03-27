@@ -10,7 +10,7 @@ import demoContentMultiple from '@ecl/ec-specs-file-upload/demo/data--multiple';
 import FileUpload from '../src/FileUpload';
 
 export default {
-  title: 'Components|Forms/File upload',
+  title: 'Components/Forms/File upload',
 
   decorators: [
     withKnobs,
@@ -19,8 +19,8 @@ export default {
         afterMount={() => {
           if (!window.ECL) return {};
 
-          const components = window.ECL.autoInit();
-          return { components };
+          const autoinit = window.ECL.autoInit();
+          return { components: autoinit.components };
         }}
         beforeUnmount={context => {
           if (context.components) {

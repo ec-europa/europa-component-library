@@ -30,15 +30,15 @@ const btnAddContent = () => {
   }
 };
 
-storiesOf('Components|Timeline', module)
+storiesOf('Components/Timeline', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryWrapper
       afterMount={() => {
         if (!window.ECL) return {};
 
-        const components = window.ECL.autoInit();
-        return { components };
+        const autoinit = window.ECL.autoInit();
+        return { components: autoinit.components };
       }}
       beforeUnmount={context => {
         if (context.components) {

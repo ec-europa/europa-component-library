@@ -6,7 +6,7 @@ import { LoggedOut } from '../examples/LoggedOut';
 import { LoggedIn } from '../examples/LoggedIn';
 
 export default {
-  title: 'Templates|Compositions/Login bar',
+  title: 'Templates/Compositions/Login bar',
   decorators: [withKnobs],
 };
 

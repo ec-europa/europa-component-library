@@ -7,7 +7,7 @@ import demoContentFr from '@ecl/ec-specs-site-header/demo/data--fr';
 import SiteHeader from '../src/SiteHeader';
 
 export default {
-  title: 'Deprecated|Site Header (ECL<2-12-0)',
+  title: 'Deprecated/Site Header (ECL<2-12-0)',
 
   decorators: [
     story => (
@@ -15,8 +15,8 @@ export default {
         afterMount={() => {
           if (!window.ECL) return {};
 
-          const components = window.ECL.autoInit();
-          return { components };
+          const autoinit = window.ECL.autoInit();
+          return { components: autoinit.components };
         }}
         beforeUnmount={context => {
           if (context.components) {

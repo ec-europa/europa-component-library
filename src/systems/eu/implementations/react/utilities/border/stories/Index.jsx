@@ -15,7 +15,7 @@ const styleBox = {
   width: '10rem',
 };
 
-storiesOf('Utilities|Border', module)
+storiesOf('Utilities/Border', module)
   .addDecorator(withKnobs)
   .add('custom', () => {
     const color = select(

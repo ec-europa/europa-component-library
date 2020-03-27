@@ -8,7 +8,7 @@ import defaultData from '@ecl/ec-specs-campaign-page/demo/data';
 import CampaignPage from '../src/CampaignPage';
 
 export default {
-  title: 'Templates|Pages',
+  title: 'Templates/Pages',
 
   decorators: [
     withKnobs,
@@ -18,8 +18,8 @@ export default {
         afterMount={() => {
           if (!window.ECL) return {};
 
-          const components = window.ECL.autoInit();
-          return { components };
+          const autoinit = window.ECL.autoInit();
+          return { components: autoinit.components };
         }}
         beforeUnmount={context => {
           if (context.components) {

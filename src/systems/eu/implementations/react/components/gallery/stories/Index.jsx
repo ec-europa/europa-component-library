@@ -7,15 +7,15 @@ import demoContent from '@ecl/eu-specs-gallery/demo/data';
 
 import { Gallery } from '../src/Gallery';
 
-storiesOf('Components|Gallery', module)
+storiesOf('Components/Gallery', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryWrapper
       afterMount={() => {
         if (!window.ECL) return {};
 
-        const components = window.ECL.autoInit();
-        return { components };
+        const autoinit = window.ECL.autoInit();
+        return { components: autoinit.components };
       }}
       beforeUnmount={context => {
         if (context.components) {

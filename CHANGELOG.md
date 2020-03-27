@@ -1,5 +1,58 @@
 # Changelog
 
+## 2.26 (2020-03-26)
+
+#### :rocket: New Feature
+
+- [#1551](https://github.com/ec-europa/europa-component-library/pull/1551) feat(menu): implement menu v2 - FRONT-811 ([@emeryro](https://github.com/emeryro))
+
+#### :boom: Breaking Change
+
+- [#1544](https://github.com/ec-europa/europa-component-library/pull/1544) feat(lib): provide update and destroy methods on ECL.autoInit() - FRONT-33 ([@kalinchernev](https://github.com/kalinchernev))
+
+#### :house: Internal
+
+- [#1560](https://github.com/ec-europa/europa-component-library/pull/1560) chore(deps): upgrade dependencies - FRONT-929 ([@kalinchernev](https://github.com/kalinchernev))
+- [#1559](https://github.com/ec-europa/europa-component-library/pull/1559) docs(release): improve release documentation - FRONT-940 ([@emeryro](https://github.com/emeryro))
+- [#1557](https://github.com/ec-europa/europa-component-library/pull/1557) feat(ecl): provide watch mode including website presets - FRONT-934 ([@kalinchernev](https://github.com/kalinchernev))
+
+#### Committers: 2
+
+- Kalin Chernev ([@kalinchernev](https://github.com/kalinchernev))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
+## 2.25 (2020-03-11)
+
+#### :rocket: New Feature
+
+- [#1556](https://github.com/ec-europa/europa-component-library/pull/1556) feat(content-media): add media container composition - FRONT-895 ([@emeryro](https://github.com/emeryro))
+- [#1550](https://github.com/ec-europa/europa-component-library/pull/1550) feat(media-container): allows embedded videos - FRONT-836 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#1554](https://github.com/ec-europa/europa-component-library/pull/1554) fix(pages): Add pageHeader top padding if breadcrumb is not displayed - FRONT-890 ([@papegaill](https://github.com/papegaill))
+- [#1553](https://github.com/ec-europa/europa-component-library/pull/1553) fix(pages): Add correct harmonised G2 footer template for all pages - FRONT-889 ([@papegaill](https://github.com/papegaill))
+
+#### Committers: 2
+
+- Alexis Gaillard ([@papegaill](https://github.com/papegaill))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
+## 2.24 (2020-02-20)
+
+#### :nail_care: Enhancement
+
+- [#1543](https://github.com/ec-europa/europa-component-library/pull/1543) fix(footer): handle optional elements - FRONT-467 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#1547](https://github.com/ec-europa/europa-component-library/pull/1547) refactor(storybook): migrate to slash separator - FRONT-495 ([@kalinchernev](https://github.com/kalinchernev))
+
+#### Committers: 2
+
+- Kalin Chernev ([@kalinchernev](https://github.com/kalinchernev))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
 ## 2.23 (2020-02-06)
 
 #### :bug: Bug Fix

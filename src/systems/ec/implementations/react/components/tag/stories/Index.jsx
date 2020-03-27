@@ -9,7 +9,7 @@ import demoDataRemovable from '@ecl/ec-specs-tag/demo/data--removable';
 import Tag from '../src/Tag';
 
 export default {
-  title: 'Components|Tag',
+  title: 'Components/Tag',
   decorators: [withKnobs],
 };
 

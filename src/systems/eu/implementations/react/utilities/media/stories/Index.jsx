@@ -97,7 +97,7 @@ const MediaBg = (bgPosition, bgOrigin, bgRepeat, bgSize) => (
   />
 );
 
-storiesOf('Utilities|Media', module)
+storiesOf('Utilities/Media', module)
   .addDecorator(withKnobs)
   .add('custom', () => {
     const direction = select(

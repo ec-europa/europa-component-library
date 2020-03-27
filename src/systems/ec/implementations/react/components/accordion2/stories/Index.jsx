@@ -8,7 +8,7 @@ import { Accordion2 } from '../src/Accordion2';
 import { Accordion2Item } from '../src/Accordion2Item';
 
 export default {
-  title: 'Components|Accordion',
+  title: 'Components/Accordion',
 
   decorators: [
     withKnobs,
@@ -17,8 +17,8 @@ export default {
         afterMount={() => {
           if (!window.ECL) return {};
 
-          const components = window.ECL.autoInit();
-          return { components };
+          const autoinit = window.ECL.autoInit();
+          return { components: autoinit.components };
         }}
         beforeUnmount={context => {
           if (context.components) {

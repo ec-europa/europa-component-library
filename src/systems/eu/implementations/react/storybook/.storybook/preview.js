@@ -88,4 +88,7 @@ html {
       },
     },
   },
+  options: {
+    showRoots: true,
+  },
 });

@@ -7,15 +7,15 @@ import demoContent from '@ecl/eu-specs-expandable/demo/data';
 
 import { Expandable } from '../src/Expandable';
 
-storiesOf('Components|Expandables', module)
+storiesOf('Components/Expandables', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryWrapper
       afterMount={() => {
         if (!window.ECL) return {};
 
-        const components = window.ECL.autoInit();
-        return { components };
+        const autoinit = window.ECL.autoInit();
+        return { components: autoinit.components };
       }}
       beforeUnmount={context => {
         if (context.components) {

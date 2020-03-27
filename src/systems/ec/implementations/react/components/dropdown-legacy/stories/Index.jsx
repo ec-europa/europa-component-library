@@ -6,7 +6,7 @@ import StoryWrapper from '@ecl/story-wrapper';
 import DropdownExample from '../examples/Default';
 
 export default {
-  title: 'Components|Dropdown Legacy',
+  title: 'Components/Dropdown Legacy',
 
   decorators: [
     withKnobs,
@@ -15,8 +15,8 @@ export default {
         afterMount={() => {
           if (!window.ECL) return {};
 
-          const components = window.ECL.autoInit();
-          return { components };
+          const autoinit = window.ECL.autoInit();
+          return { components: autoinit.components };
         }}
         beforeUnmount={context => {
           if (context.components) {
