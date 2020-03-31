@@ -68,7 +68,15 @@
   }
 
   .ecl-radio__help {
+    box-sizing: border-box;
+    color: $ecl-color-grey-100;
+    display: block;
+    font: $ecl-font-prolonged-s;
     margin-top: $ecl-spacing-xs;
+  }
+
+  .ecl-radio__help--disabled {
+    color: $ecl-color-grey-50;
   }
 
   // Checked
@@ -134,22 +142,15 @@
     }
   }
 
-  // Binary group
-  .ecl-radio__group--binary {
-    // stylelint-disable-next-line plugin/selector-bem-pattern
-    &.ecl-form-group {
-      display: block;
-    }
+  // Binary radio
+  .ecl-radio--binary {
+    display: inline-flex;
+    margin-right: $ecl-spacing-m;
+    vertical-align: top;
+  }
 
-    .ecl-radio {
-      display: inline-flex;
-      margin-right: $ecl-spacing-m;
-      vertical-align: top;
-    }
-
-    .ecl-radio:last-child {
-      margin-right: 0;
-    }
+  .ecl-radio--binary:last-child {
+    margin-right: 0;
   }
 
   // DEPRECATED
@@ -182,6 +183,23 @@
     .ecl-radio__box {
       background-color: $box-background-disabled;
       border-color: $box-border-color-disabled;
+    }
+  }
+
+  .ecl-radio__group--binary {
+    // stylelint-disable-next-line plugin/selector-bem-pattern
+    &.ecl-form-group {
+      display: block;
+    }
+
+    .ecl-radio {
+      display: inline-flex;
+      margin-right: $ecl-spacing-m;
+      vertical-align: top;
+    }
+
+    .ecl-radio:last-child {
+      margin-right: 0;
     }
   }
   // stylelint-enable no-descending-specificity
