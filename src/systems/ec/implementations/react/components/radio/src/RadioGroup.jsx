@@ -20,13 +20,7 @@ const RadioGroup = ({
   className,
   ...props
 }) => {
-  const classNames = classnames(
-    className,
-    'ecl-form-group ecl-form-group--radio',
-    {
-      'ecl-radio__group--binary': binary,
-    }
-  );
+  const classNames = classnames(className, 'ecl-form-group');
 
   return (
     <fieldset
@@ -68,7 +62,15 @@ const RadioGroup = ({
       )}
 
       {items.map(item => (
-        <RadioButton {...item} name={name} key={item.id} invalid={invalid} />
+        <RadioButton
+          {...item}
+          name={name}
+          key={item.id}
+          invalid={invalid}
+          className={classnames({
+            'ecl-radio--binary': binary,
+          })}
+        />
       ))}
     </fieldset>
   );
