@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
+import { boolean } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
 import demoContentEn from '@ecl/ec-specs-site-header-core/demo/data--en';
 import demoContentFr from '@ecl/ec-specs-site-header-core/demo/data--fr';
@@ -30,29 +31,60 @@ export default {
   ],
 };
 
-export const Default = () => (
-  <SiteHeaderCore {...demoContentEn} data-ecl-auto-init="SiteHeaderCore" />
-);
+export const Default = () => {
+  // Optional elements
+  const optional = {};
+  optional.siteHeaderLogin = boolean('Login', true, 'optional');
+
+  const dataCopy = JSON.parse(JSON.stringify(demoContentEn));
+
+  if (!optional.siteHeaderLogin) {
+    delete dataCopy.loginToggle;
+    delete dataCopy.loginBox;
+  }
+
+  return <SiteHeaderCore {...dataCopy} data-ecl-auto-init="SiteHeaderCore" />;
+};
 
 Default.story = {
   name: 'default',
 };
 
-export const LoggedIn = () => (
-  <SiteHeaderCore
-    {...demoContentEn}
-    data-ecl-auto-init="SiteHeaderCore"
-    logged
-  />
-);
+export const LoggedIn = () => {
+  // Optional elements
+  const optional = {};
+  optional.siteHeaderLogin = boolean('Login', true, 'optional');
+
+  const dataCopy = JSON.parse(JSON.stringify(demoContentEn));
+
+  if (!optional.siteHeaderLogin) {
+    delete dataCopy.loginToggle;
+    delete dataCopy.loginBox;
+  }
+
+  return (
+    <SiteHeaderCore {...dataCopy} data-ecl-auto-init="SiteHeaderCore" logged />
+  );
+};
 
 LoggedIn.story = {
   name: 'logged in',
 };
 
-export const Translated = () => (
-  <SiteHeaderCore {...demoContentFr} data-ecl-auto-init="SiteHeaderCore" />
-);
+export const Translated = () => {
+  // Optional elements
+  const optional = {};
+  optional.siteHeaderLogin = boolean('Login', true, 'optional');
+
+  const dataCopy = JSON.parse(JSON.stringify(demoContentFr));
+
+  if (!optional.siteHeaderLogin) {
+    delete dataCopy.loginToggle;
+    delete dataCopy.loginBox;
+  }
+
+  return <SiteHeaderCore {...dataCopy} data-ecl-auto-init="SiteHeaderCore" />;
+};
 
 Translated.story = {
   name: 'translated',

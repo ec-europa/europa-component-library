@@ -52,22 +52,24 @@ const SiteHeaderHarmonised = ({
       <div className="ecl-site-header-harmonised__container ecl-container">
         <div className="ecl-site-header-harmonised__top">
           {/* Logo */}
-          <a
-            className="ecl-link ecl-link--standalone ecl-site-header-harmonised__logo-link"
-            href={logoHref}
-            aria-label={logoTitle}
-          >
-            <img
-              {...logoProps}
-              alt={logoAlt}
-              title={logoTitle}
-              className={classnames(
-                logoClassName,
-                'ecl-site-header-harmonised__logo-image'
-              )}
-              src={logoSrc || logoECSrc}
-            />
-          </a>
+          {!!(logo && logoHref) && (
+            <a
+              className="ecl-link ecl-link--standalone ecl-site-header-harmonised__logo-link"
+              href={logoHref}
+              aria-label={logoTitle}
+            >
+              <img
+                {...logoProps}
+                alt={logoAlt}
+                title={logoTitle}
+                className={classnames(
+                  logoClassName,
+                  'ecl-site-header-harmonised__logo-image'
+                )}
+                src={logoSrc || logoECSrc}
+              />
+            </a>
+          )}
 
           {/* Site name */}
           {siteName && (
@@ -295,7 +297,7 @@ SiteHeaderHarmonised.defaultProps = {
     title: '',
     alt: '',
     language: 'en',
-    href: '#',
+    href: '',
     src: '',
   },
   siteName: '',
