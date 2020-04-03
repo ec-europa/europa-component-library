@@ -58,7 +58,7 @@ export default class DefaultExample extends React.Component {
               </h2>
               <p className="ecl-u-type-paragraph-m">{demoText}</p>
               <h2 className="ecl-u-type-heading-2" id="inline-nav-2">
-                Heading 2
+                Heading 2 with a long title going on several lines
               </h2>
               <p className="ecl-u-type-paragraph-m">{demoText}</p>
               <h2 className="ecl-u-type-heading-2" id="inline-nav-3">
