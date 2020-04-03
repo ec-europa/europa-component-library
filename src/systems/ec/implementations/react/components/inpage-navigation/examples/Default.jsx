@@ -3,13 +3,17 @@ import React, { Fragment } from 'react';
 import VanillaInpageNavigation from '@ecl/ec-component-inpage-navigation';
 import demoContent from '@ecl/ec-specs-inpage-navigation/demo/data';
 import { loremIpsum } from 'lorem-ipsum';
-import Breadcrumb, { BreadcrumbItem } from '@ecl/ec-react-component-breadcrumb';
-import Footer from '@ecl/ec-react-component-footer';
-import SiteHeader from '@ecl/ec-react-component-site-header';
-import PageHeader from '@ecl/ec-react-component-page-header';
-import breadcrumbContent from '@ecl/ec-specs-breadcrumb/demo/data--simple';
-import demoContentEn from '@ecl/ec-specs-site-header/demo/data--en';
-import demoContentCorporate from '@ecl/ec-specs-footer/demo/data--corporate';
+import BreadcrumbCore, {
+  BreadcrumbCoreItem,
+} from '@ecl/ec-react-component-breadcrumb-core';
+import FooterCore from '@ecl/ec-react-component-footer-core';
+import SiteHeaderCore from '@ecl/ec-react-component-site-header-core';
+import PageHeaderCore from '@ecl/ec-react-component-page-header-core';
+
+import breadcrumbContent from '@ecl/ec-specs-breadcrumb-core/demo/data--simple';
+import siteHeaderContent from '@ecl/ec-specs-site-header-core/demo/data--en';
+import footerContent from '@ecl/ec-specs-footer-core/demo/data';
+
 import { InpageNavigation } from '../src/InpageNavigation';
 
 export default class DefaultExample extends React.Component {
@@ -34,23 +38,30 @@ export default class DefaultExample extends React.Component {
     const demoText = loremIpsum({ count: 25 });
     const { items, ...breadcrumbProps } = breadcrumbContent;
     const breadcrumb = (
-      <Breadcrumb {...breadcrumbProps}>
+      <BreadcrumbCore {...breadcrumbProps} data-ecl-auto-init="BreadcrumbCore">
         {items.map(item => (
-          <BreadcrumbItem {...item} key={item.label} />
+          <BreadcrumbCoreItem {...item} key={item.label} />
         ))}
-      </Breadcrumb>
+      </BreadcrumbCore>
     );
+
     return (
       <Fragment>
-        <SiteHeader {...demoContentEn} />
-        <PageHeader breadcrumb={breadcrumb} title="A demo page" />
+        <SiteHeaderCore
+          {...siteHeaderContent}
+          data-ecl-auto-init="SiteHeaderCore"
+        />
+        <PageHeaderCore breadcrumb={breadcrumb} title="A demo page" />
         <div className="ecl-container">
           <div
             className="ecl-row ecl-u-mt-l"
             data-ecl-inpage-navigation-container
           >
             <div className="ecl-col-lg-3">
-              <InpageNavigation {...demoContent} />
+              <InpageNavigation
+                {...demoContent}
+                data-ecl-auto-init="InpageNavigation"
+              />
             </div>
             <div className="ecl-col-lg-9">
               <h2 className="ecl-u-type-heading-2" id="inline-nav-1">
@@ -72,7 +83,7 @@ export default class DefaultExample extends React.Component {
             </div>
           </div>
         </div>
-        <Footer {...demoContentCorporate} />
+        <FooterCore {...footerContent} />
       </Fragment>
     );
   }
