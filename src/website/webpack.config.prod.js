@@ -226,6 +226,7 @@ module.exports = {
               loader: 'file-loader',
               options: {
                 name: 'dist/media/[name].[hash:8].[ext]',
+                esModule: false,
               },
             },
           },
