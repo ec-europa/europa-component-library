@@ -1,16 +1,9 @@
 // Simple content for demo
 module.exports = {
   variant: 'default',
-  title: 'EU Budget for the future',
-  baseline: 'Innovation, economy, environment and geopolitics',
-  link: {
-    label: 'Subscribe',
-    href: '/example',
-    icon: {
-      shape: 'ui--corner-arrow',
-      transform: 'rotate-90',
-      size: 'xs',
-    },
-  },
-  isCentered: true,
+  meta: 'Meta tags',
+  title: 'Page title',
+  baseline:
+    'The introduction should be as accurate as possible, as users often arrive on a page via a search engine or a link, and will not have the context provided through normal site navigation.',
+  isCentered: false,
 };

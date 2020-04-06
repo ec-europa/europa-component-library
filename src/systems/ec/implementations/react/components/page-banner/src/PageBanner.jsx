@@ -7,10 +7,12 @@ import Link from '@ecl/ec-react-component-link';
 
 const PageBanner = ({
   variant,
+  meta,
   title,
   baseline,
   image,
   isCentered,
+  isFullWidth,
   button, // DEPRECATED
   link,
   className,
@@ -19,6 +21,7 @@ const PageBanner = ({
   const classNames = classnames(className, 'ecl-page-banner', {
     [`ecl-page-banner--${variant}`]: variant,
     [`ecl-page-banner--centered`]: isCentered,
+    [`ecl-page-banner--full-width`]: isFullWidth,
   });
 
   return (
@@ -31,6 +34,7 @@ const PageBanner = ({
       )}
       <div className="ecl-container ecl-page-banner__container">
         <div className="ecl-page-banner__content">
+          {meta && <div className="ecl-page-banner__meta">{meta}</div>}
           {title && <h1 className="ecl-page-banner__title">{title}</h1>}
           {baseline && <p className="ecl-page-banner__baseline">{baseline}</p>}
           {link && link.label && (
@@ -52,10 +56,12 @@ const PageBanner = ({
 
 PageBanner.propTypes = {
   variant: PropTypes.string,
+  meta: PropTypes.string,
   title: PropTypes.string,
   baseline: PropTypes.string,
   image: PropTypes.string,
   isCentered: PropTypes.bool,
+  isFullWidth: PropTypes.bool,
   button: PropTypes.shape(Button.propTypes),
   link: PropTypes.shape(Link.propTypes),
   className: PropTypes.string,
@@ -63,10 +69,12 @@ PageBanner.propTypes = {
 
 PageBanner.defaultProps = {
   variant: '',
+  meta: '',
   title: '',
   baseline: '',
   image: '',
   isCentered: false,
+  isFullWidth: false,
   button: {},
   link: {},
   className: '',

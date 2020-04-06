@@ -1,27 +1,15 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import parse from 'html-react-parser';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
-import BreadcrumbCore, {
-  BreadcrumbCoreItem,
-} from '@ecl/ec-react-component-breadcrumb-core';
 
 import breadcrumbContent from '@ecl/ec-specs-breadcrumb-core/demo/data';
-import demoTitleContent from '@ecl/ec-specs-page-header-core/demo/data--title';
-import demoMetaTitleContent from '@ecl/ec-specs-page-header-core/demo/data--meta-title';
-import demoMetaTitleDescriptionContent from '@ecl/ec-specs-page-header-core/demo/data--meta-title-description';
+import bannerContentShade from '@ecl/ec-specs-page-banner/demo/data--image-shade';
+import bannerContentImage from '@ecl/ec-specs-page-banner/demo/data--image';
+import bannerContentPrimary from '@ecl/ec-specs-page-banner/demo/data--primary';
+import bannerContentDefault from '@ecl/ec-specs-page-banner/demo/data--default';
 
 import PageHeaderCore from '../src/PageHeaderCore';
-
-const { items, ...breadcrumbProps } = breadcrumbContent;
-const breadcrumb = (
-  <BreadcrumbCore {...breadcrumbProps} data-ecl-auto-init="BreadcrumbCore">
-    {items.map(item => (
-      <BreadcrumbCoreItem {...item} key={item.label} />
-    ))}
-  </BreadcrumbCore>
-);
 
 export default {
   title: 'Components/Page Headers/Core',
@@ -48,43 +36,54 @@ export default {
   ],
 };
 
-export const Title = () => (
-  <PageHeaderCore
-    breadcrumb={breadcrumb}
-    title={text('Title', demoTitleContent.title)}
-  />
-);
+export const Primary = () => {
+  const dataBannerCopy = JSON.parse(JSON.stringify(bannerContentPrimary));
+  dataBannerCopy.isCentered = boolean('Banner centered', false);
 
-Title.story = {
-  name: 'title',
+  return (
+    <PageHeaderCore breadcrumb={breadcrumbContent} banner={dataBannerCopy} />
+  );
 };
 
-export const MetaTitle = () => (
-  <PageHeaderCore
-    breadcrumb={breadcrumb}
-    title={text('Title', demoMetaTitleContent.title)}
-    meta={parse(text('Meta', demoMetaTitleContent.meta))}
-  />
-);
-
-MetaTitle.story = {
-  name: 'meta-title',
-  parameters: { knobs: { escapeHTML: false } },
+Primary.story = {
+  name: 'primary',
 };
 
-export const MetaTitleDescription = () => (
-  <PageHeaderCore
-    breadcrumb={breadcrumb}
-    title={text('Title', demoMetaTitleDescriptionContent.title)}
-    description={text(
-      'Description',
-      demoMetaTitleDescriptionContent.description
-    )}
-    meta={parse(text('Meta', demoMetaTitleDescriptionContent.meta))}
-  />
-);
+export const ImageShade = () => {
+  const dataBannerCopy = JSON.parse(JSON.stringify(bannerContentShade));
+  dataBannerCopy.isCentered = boolean('Banner centered', true);
 
-MetaTitleDescription.story = {
-  name: 'meta-title-description',
-  parameters: { knobs: { escapeHTML: false } },
+  return (
+    <PageHeaderCore breadcrumb={breadcrumbContent} banner={dataBannerCopy} />
+  );
+};
+
+ImageShade.story = {
+  name: 'image shade',
+};
+
+export const Image = () => {
+  const dataBannerCopy = JSON.parse(JSON.stringify(bannerContentImage));
+  dataBannerCopy.isCentered = boolean('Banner centered', true);
+
+  return (
+    <PageHeaderCore breadcrumb={breadcrumbContent} banner={dataBannerCopy} />
+  );
+};
+
+Image.story = {
+  name: 'image',
+};
+
+export const Default = () => {
+  const dataBannerCopy = JSON.parse(JSON.stringify(bannerContentDefault));
+  dataBannerCopy.isCentered = boolean('Banner centered', false);
+
+  return (
+    <PageHeaderCore breadcrumb={breadcrumbContent} banner={dataBannerCopy} />
+  );
+};
+
+Default.story = {
+  name: 'default',
 };

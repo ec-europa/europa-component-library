@@ -2,45 +2,40 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-const PageHeaderCore = ({
-  breadcrumb,
-  meta,
-  title,
-  description,
-  className,
-  ...props
-}) => {
-  const classNames = classnames(className, 'ecl-page-header-core');
+import BreadcrumbCore, {
+  BreadcrumbCoreItem,
+} from '@ecl/ec-react-component-breadcrumb-core';
+import PageBanner from '@ecl/ec-react-component-page-banner';
 
+const PageHeaderCore = ({ breadcrumb, banner, className, ...props }) => {
   return (
-    <div {...props} className={classNames}>
+    <div {...props} className={classnames(className, 'ecl-page-header-core')}>
       <div className="ecl-container">
-        {React.cloneElement(breadcrumb, {
-          className: 'ecl-page-header-core__breadcrumb',
-        })}
-        {meta && <div className="ecl-page-header-core__meta">{meta}</div>}
-        {title && <h1 className="ecl-page-header-core__title">{title}</h1>}
-        {description && (
-          <p className="ecl-page-header-core__description">{description}</p>
+        {/* Breadcrumb (before) */}
+        {breadcrumb && (
+          <BreadcrumbCore data-ecl-auto-init="BreadcrumbCore">
+            {breadcrumb.items.map(item => (
+              <BreadcrumbCoreItem {...item} key={item.label} />
+            ))}
+          </BreadcrumbCore>
         )}
+
+        {/* Banner */}
+        {banner && <PageBanner {...banner} isFullWidth />}
       </div>
     </div>
   );
 };
 
 PageHeaderCore.propTypes = {
-  breadcrumb: PropTypes.node,
-  meta: PropTypes.node,
-  title: PropTypes.string,
-  description: PropTypes.string,
+  breadcrumb: PropTypes.shape(BreadcrumbCore.propTypes),
+  banner: PropTypes.shape(PageBanner.propTypes),
   className: PropTypes.string,
 };
 
 PageHeaderCore.defaultProps = {
-  breadcrumb: null,
-  meta: '',
-  title: '',
-  description: '',
+  breadcrumb: {},
+  banner: {},
   className: '',
 };
 

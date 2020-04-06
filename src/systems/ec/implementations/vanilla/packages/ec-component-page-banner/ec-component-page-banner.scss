@@ -11,16 +11,20 @@
 
 @mixin ecl-page-banner(
   $background-color-default: $ecl-color-grey-5,
+  $meta-color-default: $ecl-color-black-100,
   $title-color-default: $ecl-color-black-100,
   $baseline-color-default: $ecl-color-grey-100,
   $background-color-primary: $ecl-color-primary,
+  $meta-color-primary: $ecl-color-white-100,
   $title-color-primary: $ecl-color-white-100,
   $baseline-color-primary: $ecl-color-white-100,
   $background-color-image: $ecl-color-white-100,
+  $meta-color-image: $ecl-color-black-100,
   $title-color-image: $ecl-color-black-100,
   $baseline-color-image: $ecl-color-grey-100,
   $border-color-image: $ecl-color-yellow-100,
   $background-color-image-shade: rgba(0, 0, 0, 0.7),
+  $meta-color-image-shade: $ecl-color-white-100,
   $title-color-image-shade: $ecl-color-white-100,
   $baseline-color-image-shade: $ecl-color-white-100,
   $content-width: 42.5rem
@@ -42,7 +46,8 @@
   .ecl-page-banner__content {
     box-sizing: content-box;
     display: block;
-    padding: $ecl-spacing-l;
+    padding-bottom: $ecl-spacing-l;
+    padding-top: $ecl-spacing-l;
   }
 
   .ecl-page-banner__image {
@@ -50,6 +55,11 @@
     height: (1/4) * 100vw;
     position: relative;
     width: 100%;
+  }
+
+  .ecl-page-banner__meta {
+    font: $ecl-font-m;
+    text-transform: uppercase;
   }
 
   .ecl-page-banner__title {
@@ -80,22 +90,13 @@
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up('md') {
     .ecl-page-banner__content {
-      padding: $ecl-spacing-xl;
+      padding-bottom: $ecl-spacing-xl;
+      padding-top: $ecl-spacing-xl;
     }
   }
 
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up('lg') {
-    .ecl-page-banner {
-      // manage ratio 4:1
-      height: 1px; // IE11 fix, see https://github.com/philipwalton/flexbugs/issues/231
-      min-height: (1/4) * 100vw;
-    }
-
-    .ecl-page-banner__container {
-      padding: $ecl-spacing-l;
-    }
-
     .ecl-page-banner__content {
       max-width: $content-width;
     }
@@ -105,6 +106,10 @@
       left: 0;
       position: absolute;
       top: 0;
+    }
+
+    .ecl-page-banner__meta {
+      font: $ecl-font-l;
     }
 
     .ecl-page-banner__title {
@@ -139,6 +144,10 @@
   .ecl-page-banner--default {
     background-color: $background-color-default;
 
+    .ecl-page-banner__meta {
+      color: $meta-color-default;
+    }
+
     .ecl-page-banner__title {
       color: $title-color-default;
     }
@@ -153,6 +162,10 @@
    */
   .ecl-page-banner--primary {
     background-color: $background-color-primary;
+
+    .ecl-page-banner__meta {
+      color: $meta-color-primary;
+    }
 
     .ecl-page-banner__title {
       color: $title-color-primary;
@@ -179,7 +192,11 @@
     }
 
     .ecl-page-banner__content {
-      padding-top: calc(#{$ecl-spacing-l} - 4px);
+      padding: calc(#{$ecl-spacing-l} - 4px) $ecl-spacing-l $ecl-spacing-l;
+    }
+
+    .ecl-page-banner__meta {
+      color: $meta-color-image;
     }
 
     .ecl-page-banner__title {
@@ -203,6 +220,10 @@
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up('lg') {
     .ecl-page-banner--image {
+      // manage ratio 4:1
+      height: 1px; // IE11 fix, see https://github.com/philipwalton/flexbugs/issues/231
+      min-height: (1/4) * 100vw;
+
       .ecl-page-banner__container {
         border-top-width: 0;
       }
@@ -229,6 +250,10 @@
       width: 100%;
     }
 
+    .ecl-page-banner__meta {
+      color: $meta-color-default;
+    }
+
     .ecl-page-banner__title {
       color: $title-color-default;
     }
@@ -241,6 +266,14 @@
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up('lg') {
     .ecl-page-banner--image-shade {
+      // manage ratio 4:1
+      height: 1px; // IE11 fix, see https://github.com/philipwalton/flexbugs/issues/231
+      min-height: (1/4) * 100vw;
+
+      .ecl-page-banner__meta {
+        color: $meta-color-image-shade;
+      }
+
       .ecl-page-banner__title {
         color: $title-color-image-shade;
       }
@@ -257,6 +290,19 @@
         color: $baseline-color-image-shade;
       }
     }
+  }
+
+  /*
+   * full width banner
+   */
+  .ecl-page-banner--full-width {
+    left: 50%;
+    margin-left: -50vw;
+    width: 100vw;
+  }
+  .ecl-page-banner--full-width .ecl-page-banner__container {
+    margin: 0 auto;
+    max-width: 1140px;
   }
 }
 
