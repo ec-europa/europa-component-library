@@ -32,22 +32,26 @@ const PageBanner = ({
           style={{ backgroundImage: `url(${image})` }}
         />
       )}
-      <div className="ecl-container ecl-page-banner__container">
-        <div className="ecl-page-banner__content">
-          {meta && <div className="ecl-page-banner__meta">{meta}</div>}
-          {title && <h1 className="ecl-page-banner__title">{title}</h1>}
-          {baseline && <p className="ecl-page-banner__baseline">{baseline}</p>}
-          {link && link.label && (
-            <Link
-              {...link}
-              variant="cta"
-              className="ecl-page-banner__link-cta"
-            />
-          )}
-          {/* DEPRECATED */}
-          {button && button.label && (
-            <Button {...button} className="ecl-page-banner__button" />
-          )}
+      <div className="ecl-page-banner__container">
+        <div className="ecl-container">
+          <div className="ecl-page-banner__content">
+            {meta && <div className="ecl-page-banner__meta">{meta}</div>}
+            {title && <h1 className="ecl-page-banner__title">{title}</h1>}
+            {baseline && (
+              <p className="ecl-page-banner__baseline">{baseline}</p>
+            )}
+            {!!(link && link.label) && (
+              <Link
+                {...link}
+                variant="cta"
+                className="ecl-page-banner__link-cta"
+              />
+            )}
+            {/* DEPRECATED */}
+            {!!(button && button.label) && (
+              <Button {...button} className="ecl-page-banner__button" />
+            )}
+          </div>
         </div>
       </div>
     </section>

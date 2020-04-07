@@ -7,12 +7,22 @@ import BreadcrumbCore, {
 } from '@ecl/ec-react-component-breadcrumb-core';
 import PageBanner from '@ecl/ec-react-component-page-banner';
 
-const PageHeaderCore = ({ breadcrumb, banner, className, ...props }) => {
+const PageHeaderCore = ({
+  breadcrumb,
+  breadcrumbPosition,
+  banner,
+  className,
+  ...props
+}) => {
   return (
     <div {...props} className={classnames(className, 'ecl-page-header-core')}>
       <div className="ecl-container">
         {/* Breadcrumb (before) */}
-        {breadcrumb && (
+        {!!(
+          breadcrumb &&
+          Object.keys(breadcrumb).length >= 1 &&
+          breadcrumbPosition === 'before'
+        ) && (
           <BreadcrumbCore data-ecl-auto-init="BreadcrumbCore">
             {breadcrumb.items.map(item => (
               <BreadcrumbCoreItem {...item} key={item.label} />
@@ -22,6 +32,19 @@ const PageHeaderCore = ({ breadcrumb, banner, className, ...props }) => {
 
         {/* Banner */}
         {banner && <PageBanner {...banner} isFullWidth />}
+
+        {/* Breadcrumb (after) */}
+        {!!(
+          breadcrumb &&
+          Object.keys(breadcrumb).length >= 1 &&
+          breadcrumbPosition === 'after'
+        ) && (
+          <BreadcrumbCore data-ecl-auto-init="BreadcrumbCore">
+            {breadcrumb.items.map(item => (
+              <BreadcrumbCoreItem {...item} key={item.label} />
+            ))}
+          </BreadcrumbCore>
+        )}
       </div>
     </div>
   );
@@ -29,12 +52,14 @@ const PageHeaderCore = ({ breadcrumb, banner, className, ...props }) => {
 
 PageHeaderCore.propTypes = {
   breadcrumb: PropTypes.shape(BreadcrumbCore.propTypes),
+  breadcrumbPosition: PropTypes.string,
   banner: PropTypes.shape(PageBanner.propTypes),
   className: PropTypes.string,
 };
 
 PageHeaderCore.defaultProps = {
   breadcrumb: {},
+  breadcrumbPosition: 'before',
   banner: {},
   className: '',
 };

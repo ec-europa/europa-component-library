@@ -5,50 +5,51 @@ order: 2
 
 import Playground from '@ecl/website-components/Playground';
 import PageHeaderCore from '@ecl/ec-react-component-page-header-core';
-import parse from 'html-react-parser';
 
-import breadcrumb from './ShowcaseBreadcrumb';
-import demoTitleContent from '@ecl/ec-specs-page-header-core/demo/data--title';
-import demoMetaTitleContent from '@ecl/ec-specs-page-header-core/demo/data--meta-title';
-import demoMetaTitleDescriptionContent from '@ecl/ec-specs-page-header-core/demo/data--meta-title-description';
+import breadcrumbContent from '@ecl/ec-specs-breadcrumb-core/demo/data';
+import bannerContentShade from '@ecl/ec-specs-page-banner/demo/data--image-shade';
+import bannerContentImage from '@ecl/ec-specs-page-banner/demo/data--image';
+import bannerContentPrimary from '@ecl/ec-specs-page-banner/demo/data--primary';
 
-## Title
-
-<Playground
-  system="ec"
-  selectedKind="components-page-headers-core"
-  selectedStory="title"
-  showFrame
->
-  <PageHeaderCore breadcrumb={breadcrumb} {...demoTitleContent} />
-</Playground>
-
-## Meta - Title
+## Primary
 
 <Playground
   system="ec"
   selectedKind="components-page-headers-core"
-  selectedStory="meta-title"
-  showFrame
+  selectedStory="primary"
 >
   <PageHeaderCore
-    breadcrumb={breadcrumb}
-    {...demoMetaTitleContent}
-    meta={parse(demoMetaTitleContent.meta)}
+    breadcrumb={breadcrumbContent}
+    banner={bannerContentPrimary}
   />
 </Playground>
 
-## Meta - Title - Description
+## Image
 
 <Playground
   system="ec"
   selectedKind="components-page-headers-core"
-  selectedStory="meta-title-description"
+  selectedStory="image"
   showFrame
 >
   <PageHeaderCore
-    breadcrumb={breadcrumb}
-    {...demoMetaTitleDescriptionContent}
-    meta={parse(demoMetaTitleDescriptionContent.meta)}
+    breadcrumb={breadcrumbContent}
+    breadcrumbPosition="after"
+    banner={bannerContentImage}
+  />
+</Playground>
+
+## Image shade
+
+<Playground
+  system="ec"
+  selectedKind="components-page-headers-core"
+  selectedStory="image-shade"
+  showFrame
+>
+  <PageHeaderCore
+    breadcrumb={breadcrumbContent}
+    breadcrumbPosition="after"
+    banner={bannerContentShade}
   />
 </Playground>

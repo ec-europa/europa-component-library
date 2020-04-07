@@ -16,10 +16,12 @@ export default {
 };
 
 export const Image = () => {
-  const link = {
-    ...demoContentImage.link,
-    label: text('Link label', demoContentImage.link.label),
-  };
+  const link = demoContentImage.link
+    ? {
+        ...demoContentImage.link,
+        label: text('Link label', demoContentImage.link.label),
+      }
+    : {};
 
   return (
     <PageBanner
@@ -38,10 +40,12 @@ Image.story = {
 };
 
 export const ImageShade = () => {
-  const link = {
-    ...demoContentImageShade.link,
-    label: text('Link label', demoContentImageShade.link.label),
-  };
+  const link = demoContentImageShade.link
+    ? {
+        ...demoContentImageShade.link,
+        label: text('Link label', demoContentImageShade.link.label),
+      }
+    : {};
 
   return (
     <PageBanner
@@ -60,10 +64,12 @@ ImageShade.story = {
 };
 
 export const Primary = () => {
-  const link = {
-    ...demoContentPrimary.link,
-    label: text('Link label', demoContentPrimary.link.label),
-  };
+  const link = demoContentPrimary.link
+    ? {
+        ...demoContentPrimary.link,
+        label: text('Link label', demoContentPrimary.link.label),
+      }
+    : {};
 
   return (
     <PageBanner
@@ -81,10 +87,12 @@ Primary.story = {
 };
 
 export const Default = () => {
-  const link = {
-    ...demoContentDefault.link,
-    label: text('Link label', demoContentDefault.link.label),
-  };
+  const link = demoContentDefault.link
+    ? {
+        ...demoContentDefault.link,
+        label: text('Link label', demoContentDefault.link.label),
+      }
+    : {};
 
   return (
     <PageBanner
@@ -102,10 +110,12 @@ Default.story = {
 };
 
 export const AlignLeft = () => {
-  const link = {
-    ...demoContentAlignLeft.link,
-    label: text('Link label', demoContentAlignLeft.link.label),
-  };
+  const link = demoContentAlignLeft.link
+    ? {
+        ...demoContentAlignLeft.link,
+        label: text('Link label', demoContentAlignLeft.link.label),
+      }
+    : {};
 
   return (
     <PageBanner

@@ -13,20 +13,20 @@
   $background-color-default: $ecl-color-grey-5,
   $meta-color-default: $ecl-color-black-100,
   $title-color-default: $ecl-color-black-100,
-  $baseline-color-default: $ecl-color-grey-100,
+  $description-color-default: $ecl-color-grey-100,
   $background-color-primary: $ecl-color-primary,
   $meta-color-primary: $ecl-color-white-100,
   $title-color-primary: $ecl-color-white-100,
-  $baseline-color-primary: $ecl-color-white-100,
+  $description-color-primary: $ecl-color-white-100,
   $background-color-image: $ecl-color-white-100,
   $meta-color-image: $ecl-color-black-100,
   $title-color-image: $ecl-color-black-100,
-  $baseline-color-image: $ecl-color-grey-100,
+  $description-color-image: $ecl-color-grey-100,
   $border-color-image: $ecl-color-yellow-100,
   $background-color-image-shade: rgba(0, 0, 0, 0.7),
   $meta-color-image-shade: $ecl-color-white-100,
   $title-color-image-shade: $ecl-color-white-100,
-  $baseline-color-image-shade: $ecl-color-white-100,
+  $description-color-image-shade: $ecl-color-white-100,
   $content-width: 42.5rem
 ) {
   .ecl-page-banner {
@@ -40,7 +40,6 @@
 
   .ecl-page-banner__container {
     display: flex;
-    width: 100%;
   }
 
   .ecl-page-banner__content {
@@ -59,15 +58,18 @@
 
   .ecl-page-banner__meta {
     font: $ecl-font-m;
+    margin-bottom: $ecl-spacing-m;
     text-transform: uppercase;
   }
 
   .ecl-page-banner__title {
     font: $ecl-font-3-xl;
-    margin: 0;
+    margin-bottom: $ecl-spacing-m;
+    margin-top: 0;
   }
 
-  .ecl-page-banner__baseline {
+  .ecl-page-banner__baseline, // DEPRECATED
+  .ecl-page-banner__description {
     font: $ecl-font-l;
     margin: 0;
   }
@@ -116,7 +118,8 @@
       font: $ecl-font-4-xl;
     }
 
-    .ecl-page-banner__baseline {
+    .ecl-page-banner__baseline, // DEPRECATED
+    .ecl-page-banner__description {
       font: $ecl-font-xl;
     }
 
@@ -134,6 +137,7 @@
     }
 
     .ecl-page-banner__content {
+      margin: 0 auto;
       text-align: center;
     }
   }
@@ -152,8 +156,9 @@
       color: $title-color-default;
     }
 
-    .ecl-page-banner__baseline {
-      color: $baseline-color-default;
+    .ecl-page-banner__baseline, // DEPRECATED
+    .ecl-page-banner__description {
+      color: $description-color-default;
     }
   }
 
@@ -171,15 +176,16 @@
       color: $title-color-primary;
     }
 
-    .ecl-page-banner__baseline {
-      color: $baseline-color-primary;
+    .ecl-page-banner__baseline, // DEPRECATED
+    .ecl-page-banner__description {
+      color: $description-color-primary;
     }
 
     /* DEPRECATED */
     .ecl-page-banner__link,
     .ecl-page-banner__link:hover,
     .ecl-page-banner__link:focus {
-      color: $baseline-color-primary;
+      color: $description-color-primary;
     }
   }
 
@@ -188,11 +194,12 @@
    */
   .ecl-page-banner--image {
     .ecl-page-banner__container {
+      background-color: $ecl-color-white;
       border-top: 4px solid $border-color-image;
     }
 
     .ecl-page-banner__content {
-      padding: calc(#{$ecl-spacing-l} - 4px) $ecl-spacing-l $ecl-spacing-l;
+      padding: calc(#{$ecl-spacing-l} - 4px) 0 $ecl-spacing-l;
     }
 
     .ecl-page-banner__meta {
@@ -203,8 +210,9 @@
       color: $title-color-image;
     }
 
-    .ecl-page-banner__baseline {
-      color: $baseline-color-image;
+    .ecl-page-banner__baseline, // DEPRECATED
+    .ecl-page-banner__description {
+      color: $description-color-image;
     }
   }
 
@@ -212,7 +220,7 @@
   @include ecl-media-breakpoint-up('md') {
     .ecl-page-banner--image {
       .ecl-page-banner__content {
-        padding: calc(#{$ecl-spacing-xl} - 4px) $ecl-spacing-xl $ecl-spacing-xl;
+        padding: calc(#{$ecl-spacing-xl} - 4px) 0 $ecl-spacing-xl;
       }
     }
   }
@@ -225,6 +233,7 @@
       min-height: (1/4) * 100vw;
 
       .ecl-page-banner__container {
+        background-color: transparent;
         border-top-width: 0;
       }
 
@@ -250,6 +259,10 @@
       width: 100%;
     }
 
+    .ecl-page-banner__container {
+      background-color: $ecl-color-white;
+    }
+
     .ecl-page-banner__meta {
       color: $meta-color-default;
     }
@@ -258,8 +271,9 @@
       color: $title-color-default;
     }
 
-    .ecl-page-banner__baseline {
-      color: $baseline-color-default;
+    .ecl-page-banner__baseline, // DEPRECATED
+    .ecl-page-banner__description {
+      color: $description-color-default;
     }
   }
 
@@ -270,6 +284,10 @@
       height: 1px; // IE11 fix, see https://github.com/philipwalton/flexbugs/issues/231
       min-height: (1/4) * 100vw;
 
+      .ecl-page-banner__container {
+        background-color: transparent;
+      }
+
       .ecl-page-banner__meta {
         color: $meta-color-image-shade;
       }
@@ -278,8 +296,9 @@
         color: $title-color-image-shade;
       }
 
-      .ecl-page-banner__baseline {
-        color: $baseline-color-image-shade;
+      .ecl-page-banner__baseline, // DEPRECATED
+      .ecl-page-banner__description {
+        color: $description-color-image-shade;
       }
 
       /* DEPRECATED */
@@ -287,7 +306,7 @@
       .ecl-page-banner__link,
       .ecl-page-banner__link:hover,
       .ecl-page-banner__link:focus {
-        color: $baseline-color-image-shade;
+        color: $description-color-image-shade;
       }
     }
   }
@@ -300,9 +319,10 @@
     margin-left: -50vw;
     width: 100vw;
   }
+
   .ecl-page-banner--full-width .ecl-page-banner__container {
     margin: 0 auto;
-    max-width: 1140px;
+    width: 100%;
   }
 }
 
