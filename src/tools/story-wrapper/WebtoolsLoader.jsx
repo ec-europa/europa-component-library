@@ -1,10 +1,17 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import querystring from 'querystring';
 
 const cachedScripts = [];
 
-const WebtoolsLoader = ({ src, options, onLoad, onError }) => {
+const WebtoolsLoader = ({ loader, query, options, onLoad, onError }) => {
   const [state, setState] = useState({ loaded: false, error: false });
+
+  let src = loader || 'https://europa.eu/webtools/load.js';
+
+  if (query) {
+    src += `?${querystring.stringify(query)}`;
+  }
 
   useEffect(() => {
     if (cachedScripts.includes(src)) {
@@ -52,7 +59,7 @@ const WebtoolsLoader = ({ src, options, onLoad, onError }) => {
     script.addEventListener('load', onWebtoolsSuccess);
     script.addEventListener('error', onWebtoolsError);
 
-    document.body.appendChild(script);
+    document.body.append(script);
 
     return () => {
       script.removeEventListener('load', onWebtoolsSuccess);
@@ -64,7 +71,8 @@ const WebtoolsLoader = ({ src, options, onLoad, onError }) => {
 };
 
 WebtoolsLoader.propTypes = {
-  src: PropTypes.string.isRequired,
+  loader: PropTypes.string,
+  query: PropTypes.shape({}),
   options: PropTypes.shape({
     type: PropTypes.string,
     charset: PropTypes.string,
@@ -76,6 +84,8 @@ WebtoolsLoader.propTypes = {
 };
 
 WebtoolsLoader.defaultProps = {
+  loader: 'https://europa.eu/webtools/load.js',
+  query: {},
   options: {
     type: 'text/javascript',
     async: true,

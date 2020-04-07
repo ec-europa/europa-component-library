@@ -14,7 +14,7 @@ export default {
     story => (
       <>
         <WebtoolsLoader
-          src="https://europa.eu/webtools/load.js?globan=1110"
+          query={{ globan: 1110 }}
           options={{ type: 'text/javascript', defer: true }}
           onLoad={() => console.log('global banner loaded')}
           onError={() => console.error('global banner failed to load')}
