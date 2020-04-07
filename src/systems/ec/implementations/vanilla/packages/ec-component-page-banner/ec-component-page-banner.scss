@@ -324,6 +324,13 @@
     margin: 0 auto;
     width: 100%;
   }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up('lg') {
+    .ecl-page-banner--full-width .ecl-page-banner__container {
+      width: auto;
+    }
+  }
 }
 
 // Use  mixin
