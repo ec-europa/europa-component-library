@@ -21,24 +21,17 @@
     return link;
   }
 
-  if (
-    inIframe() &&
-    window.frameElement &&
-    window.frameElement.id === 'storybook-preview-iframe'
-  ) {
+  if (inIframe() && window.frameElement && window.frameElement.id === 'storybook-preview-iframe') {
     // Let CSS Resources inject the styles
   } else {
     // Manually inject styles
     var head = document.head || document.getElementsByTagName('head')[0];
-    head.appendChild(
-      createLink('./styles/ecl-ec-preset-legacy-website.css', 'screen')
-    );
-    head.appendChild(
-      createLink('./styles/ecl-ec-preset-legacy-website-print.css', 'print')
-    );
+    head.append(createLink('./styles/ecl-ec-preset-legacy-website.css', 'screen'));
+    head.append(createLink('./styles/ecl-ec-preset-legacy-website-print.css', 'print'));
   }
 </script>
 <script
   type="text/javascript"
   src="./scripts/ecl-ec-preset-legacy-website.js"
 ></script>
+<script defer src="https://europa.eu/webtools/load.js" type="text/javascript"></script>

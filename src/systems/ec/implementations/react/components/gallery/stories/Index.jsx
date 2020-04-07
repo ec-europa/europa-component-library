@@ -12,45 +12,41 @@ export default {
   decorators: [
     withKnobs,
     story => (
-      <>
-        <WebtoolsLoader
-          // query={{ globan: 1110 }}
-          options={{ type: 'text/javascript', defer: true }}
-          onLoad={() => {
-            const root = document.getElementById('root');
-            const div = document.createElement('div');
-            div.setAttribute('id', 'wt-init');
+      <StoryWrapper
+        afterMount={() => {
+          const root = document.getElementById('root');
+          const div = document.createElement('div');
+          div.setAttribute('id', 'wt-init');
 
-            root.prepend(div);
+          root.prepend(div);
 
-            $wt.render(div, {
-              utility: 'globan',
-              lang: 'en',
-              theme: 'dark',
-              logo: true,
-              link: true,
-              mode: false,
-              zindex: 40,
+          (function($wt) {
+            $wt.ready(function() {
+              $wt.render(div, {
+                utility: 'globan',
+                lang: 'en',
+                theme: 'dark',
+                logo: true,
+                link: true,
+                mode: false,
+                zindex: 40,
+              });
             });
-          }}
-          onError={() => console.error('global banner failed to load')}
-        />
-        <StoryWrapper
-          afterMount={() => {
-            if (!window.ECL) return {};
+          })($wt);
 
-            const autoinit = window.ECL.autoInit();
-            return { components: autoinit.components };
-          }}
-          beforeUnmount={context => {
-            if (context.components) {
-              context.components.forEach(c => c.destroy());
-            }
-          }}
-        >
-          {story()}
-        </StoryWrapper>
-      </>
+          if (!window.ECL) return {};
+
+          const autoinit = window.ECL.autoInit();
+          return { components: autoinit.components };
+        }}
+        beforeUnmount={context => {
+          if (context.components) {
+            context.components.forEach(c => c.destroy());
+          }
+        }}
+      >
+        {story()}
+      </StoryWrapper>
     ),
   ],
 };
