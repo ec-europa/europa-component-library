@@ -1,5 +1,31 @@
 # Changelog
 
+## 2.27 (2020-04-07)
+
+#### :bug: Bug Fix
+
+- [#1565](https://github.com/ec-europa/europa-component-library/pull/1565) fix(inpage navigation): fix long label and design update - FRONT-899 ([@emeryro](https://github.com/emeryro))
+- [#1566](https://github.com/ec-europa/europa-component-library/pull/1566) fix(examples): update babel configuration in webpack - FRONT-974 ([@kalinchernev](https://github.com/kalinchernev))
+
+#### :nail_care: Enhancement
+
+- [#1564](https://github.com/ec-europa/europa-component-library/pull/1564) feat(storybook): add knobs for optional elements - FRONT-983 ([@emeryro](https://github.com/emeryro))
+- [#1563](https://github.com/ec-europa/europa-component-library/pull/1563) refactor(forms): cleanup forms markup - FRONT-933 ([@emeryro](https://github.com/emeryro))
+
+#### :memo: Documentation
+
+- [#1568](https://github.com/ec-europa/europa-component-library/pull/1568) docs(images): add notes regarding SVGs ([@kalinchernev](https://github.com/kalinchernev))
+- [#1567](https://github.com/ec-europa/europa-component-library/pull/1567) docs(page banner): update doc - FRONT-998 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#1569](https://github.com/ec-europa/europa-component-library/pull/1569) chore(deps): upgrades - FRONT-1012 ([@kalinchernev](https://github.com/kalinchernev))
+
+#### Committers: 2
+
+- Kalin Chernev ([@kalinchernev](https://github.com/kalinchernev))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
 ## 2.26 (2020-03-26)
 
 #### :rocket: New Feature
