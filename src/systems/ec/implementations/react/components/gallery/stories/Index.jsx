@@ -14,9 +14,25 @@ export default {
     story => (
       <>
         <WebtoolsLoader
-          query={{ globan: 1110 }}
+          // query={{ globan: 1110 }}
           options={{ type: 'text/javascript', defer: true }}
-          onLoad={() => console.log('global banner loaded')}
+          onLoad={() => {
+            const root = document.getElementById('root');
+            const div = document.createElement('div');
+            div.setAttribute('id', 'wt-init');
+
+            root.prepend(div);
+
+            $wt.render(div, {
+              utility: 'globan',
+              lang: 'en',
+              theme: 'dark',
+              logo: true,
+              link: true,
+              mode: false,
+              zindex: 40,
+            });
+          }}
           onError={() => console.error('global banner failed to load')}
         />
         <StoryWrapper
