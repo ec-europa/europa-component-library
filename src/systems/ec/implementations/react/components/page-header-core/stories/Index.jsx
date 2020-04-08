@@ -102,7 +102,7 @@ ImageShade.story = {
   name: 'image shade',
 };
 
-export const Background = () => {
+export const ImageBackground = () => {
   const dataBannerCopy = JSON.parse(JSON.stringify(bannerContentBackground));
   dataBannerCopy.isCentered = boolean('Banner centered', false);
 
@@ -120,6 +120,6 @@ export const Background = () => {
   );
 };
 
-Background.story = {
+ImageBackground.story = {
   name: 'image background',
 };

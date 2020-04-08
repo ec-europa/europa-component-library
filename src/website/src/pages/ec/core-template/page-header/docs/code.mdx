@@ -10,6 +10,7 @@ import breadcrumbContent from '@ecl/ec-specs-breadcrumb-core/demo/data';
 import bannerContentShade from '@ecl/ec-specs-page-banner/demo/data--image-shade';
 import bannerContentImage from '@ecl/ec-specs-page-banner/demo/data--image';
 import bannerContentPrimary from '@ecl/ec-specs-page-banner/demo/data--primary';
+import bannerContentBackground from '@ecl/ec-specs-page-banner/demo/data--image-background';
 
 ## Primary
 
@@ -52,5 +53,20 @@ import bannerContentPrimary from '@ecl/ec-specs-page-banner/demo/data--primary';
     breadcrumb={breadcrumbContent}
     breadcrumbPosition="after"
     banner={bannerContentShade}
+  />
+</Playground>
+
+## Image background
+
+<Playground
+  system="ec"
+  selectedKind="components-page-headers-core"
+  selectedStory="image-background"
+  showFrame
+>
+  <PageHeaderCore
+    breadcrumb={breadcrumbContent}
+    breadcrumbPosition="after"
+    banner={bannerContentBackground}
   />
 </Playground>
