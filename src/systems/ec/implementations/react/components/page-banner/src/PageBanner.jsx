@@ -9,7 +9,8 @@ const PageBanner = ({
   variant,
   meta,
   title,
-  baseline,
+  baseline, // DEPRECATED
+  description,
   image,
   isCentered,
   isFullWidth,
@@ -36,10 +37,18 @@ const PageBanner = ({
         <div className="ecl-container">
           <div className="ecl-page-banner__content">
             {meta && <div className="ecl-page-banner__meta">{meta}</div>}
+
             {title && <h1 className="ecl-page-banner__title">{title}</h1>}
+
+            {/* DEPRECATED */}
             {baseline && (
               <p className="ecl-page-banner__baseline">{baseline}</p>
             )}
+
+            {description && (
+              <p className="ecl-page-banner__description">{description}</p>
+            )}
+
             {!!(link && link.label) && (
               <Link
                 {...link}
@@ -47,6 +56,7 @@ const PageBanner = ({
                 className="ecl-page-banner__link-cta"
               />
             )}
+
             {/* DEPRECATED */}
             {!!(button && button.label) && (
               <Button {...button} className="ecl-page-banner__button" />
@@ -63,6 +73,7 @@ PageBanner.propTypes = {
   meta: PropTypes.string,
   title: PropTypes.string,
   baseline: PropTypes.string,
+  description: PropTypes.string,
   image: PropTypes.string,
   isCentered: PropTypes.bool,
   isFullWidth: PropTypes.bool,
@@ -76,6 +87,7 @@ PageBanner.defaultProps = {
   meta: '',
   title: '',
   baseline: '',
+  description: '',
   image: '',
   isCentered: false,
   isFullWidth: false,

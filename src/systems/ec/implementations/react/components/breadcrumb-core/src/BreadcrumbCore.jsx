@@ -11,6 +11,7 @@ export const BreadcrumbCore = ({
   children,
   minItemsLeft,
   minItemsRight,
+  hasSeparator,
   ...props
 }) => {
   if (!children) return null;
@@ -31,7 +32,9 @@ export const BreadcrumbCore = ({
     ];
   }
 
-  const classNames = classnames(className, 'ecl-breadcrumb-core');
+  const classNames = classnames(className, 'ecl-breadcrumb-core', {
+    [`ecl-breadcrumb-core--no-separator`]: hasSeparator === false,
+  });
 
   const childrenCount = React.Children.count(children);
 
@@ -103,6 +106,7 @@ BreadcrumbCore.propTypes = {
   children: PropTypes.node,
   minItemsLeft: PropTypes.number,
   minItemsRight: PropTypes.number,
+  hasSeparator: PropTypes.bool,
 };
 
 BreadcrumbCore.defaultProps = {
@@ -111,6 +115,7 @@ BreadcrumbCore.defaultProps = {
   children: null,
   minItemsLeft: 1,
   minItemsRight: 2,
+  hasSeparator: true,
 };
 
 export default BreadcrumbCore;

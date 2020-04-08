@@ -27,7 +27,7 @@ export const Image = () => {
     <PageBanner
       variant="image"
       title={text('Title', demoContentImage.title)}
-      baseline={text('Baseline', demoContentImage.baseline)}
+      description={text('Description', demoContentImage.description)}
       link={link}
       isCentered={boolean('Centered', true)}
       image={text('Image', demoContentImage.image)}
@@ -51,7 +51,7 @@ export const ImageShade = () => {
     <PageBanner
       variant="image-shade"
       title={text('Title', demoContentImageShade.title)}
-      baseline={text('Baseline', demoContentImageShade.baseline)}
+      description={text('Description', demoContentImageShade.description)}
       link={link}
       isCentered={boolean('Centered', true)}
       image={text('Image', demoContentImageShade.image)}
@@ -75,7 +75,7 @@ export const Primary = () => {
     <PageBanner
       variant="primary"
       title={text('Title', demoContentPrimary.title)}
-      baseline={text('Baseline', demoContentPrimary.baseline)}
+      description={text('Description', demoContentPrimary.description)}
       link={link}
       isCentered={boolean('Centered', true)}
     />
@@ -98,7 +98,7 @@ export const Default = () => {
     <PageBanner
       variant="default"
       title={text('Title', demoContentDefault.title)}
-      baseline={text('Baseline', demoContentDefault.baseline)}
+      description={text('Description', demoContentDefault.description)}
       link={link}
       isCentered={boolean('Centered', true)}
     />
@@ -121,7 +121,7 @@ export const AlignLeft = () => {
     <PageBanner
       variant="default"
       title={text('Title', demoContentAlignLeft.title)}
-      baseline={text('Baseline', demoContentAlignLeft.baseline)}
+      description={text('Description', demoContentAlignLeft.description)}
       link={link}
       isCentered={false}
     />

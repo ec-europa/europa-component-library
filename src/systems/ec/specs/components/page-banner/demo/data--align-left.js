@@ -3,7 +3,7 @@
 module.exports = {
   variant: 'default',
   title: 'EU Budget for the future',
-  baseline: 'Innovation, economy, environment and geopolitics',
+  description: 'Innovation, economy, environment and geopolitics',
   link: {
     label: 'Subscribe',
     href: '/example',

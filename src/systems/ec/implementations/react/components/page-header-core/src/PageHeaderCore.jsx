@@ -8,12 +8,15 @@ import BreadcrumbCore, {
 import PageBanner from '@ecl/ec-react-component-page-banner';
 
 const PageHeaderCore = ({
+  variant,
   breadcrumb,
   breadcrumbPosition,
   banner,
   className,
   ...props
 }) => {
+  const hasBreadcrumbSeparator = variant === 'primary';
+
   return (
     <div {...props} className={classnames(className, 'ecl-page-header-core')}>
       <div className="ecl-container">
@@ -23,7 +26,10 @@ const PageHeaderCore = ({
           Object.keys(breadcrumb).length >= 1 &&
           breadcrumbPosition === 'before'
         ) && (
-          <BreadcrumbCore data-ecl-auto-init="BreadcrumbCore">
+          <BreadcrumbCore
+            data-ecl-auto-init="BreadcrumbCore"
+            hasSeparator={hasBreadcrumbSeparator}
+          >
             {breadcrumb.items.map(item => (
               <BreadcrumbCoreItem {...item} key={item.label} />
             ))}
@@ -39,7 +45,10 @@ const PageHeaderCore = ({
           Object.keys(breadcrumb).length >= 1 &&
           breadcrumbPosition === 'after'
         ) && (
-          <BreadcrumbCore data-ecl-auto-init="BreadcrumbCore">
+          <BreadcrumbCore
+            data-ecl-auto-init="BreadcrumbCore"
+            hasSeparator={hasBreadcrumbSeparator}
+          >
             {breadcrumb.items.map(item => (
               <BreadcrumbCoreItem {...item} key={item.label} />
             ))}
@@ -51,6 +60,7 @@ const PageHeaderCore = ({
 };
 
 PageHeaderCore.propTypes = {
+  variant: PropTypes.string,
   breadcrumb: PropTypes.shape(BreadcrumbCore.propTypes),
   breadcrumbPosition: PropTypes.string,
   banner: PropTypes.shape(PageBanner.propTypes),
@@ -58,6 +68,7 @@ PageHeaderCore.propTypes = {
 };
 
 PageHeaderCore.defaultProps = {
+  variant: 'primary',
   breadcrumb: {},
   breadcrumbPosition: 'before',
   banner: {},

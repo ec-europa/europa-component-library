@@ -27,6 +27,9 @@
   $meta-color-image-shade: $ecl-color-white-100,
   $title-color-image-shade: $ecl-color-white-100,
   $description-color-image-shade: $ecl-color-white-100,
+  $meta-color-image-background: $ecl-color-white-100,
+  $title-color-image-background: $ecl-color-white-100,
+  $description-color-image-background: $ecl-color-white-100,
   $content-width: 42.5rem
 ) {
   .ecl-page-banner {
@@ -194,7 +197,7 @@
    */
   .ecl-page-banner--image {
     .ecl-page-banner__container {
-      background-color: $ecl-color-white;
+      background-color: $background-color-image;
       border-top: 4px solid $border-color-image;
     }
 
@@ -307,6 +310,62 @@
       .ecl-page-banner__link:hover,
       .ecl-page-banner__link:focus {
         color: $description-color-image-shade;
+      }
+    }
+  }
+
+  /*
+   * variant: image-background
+   */
+  .ecl-page-banner--image-background {
+    .ecl-page-banner__container {
+      background-color: $ecl-color-white;
+    }
+
+    .ecl-page-banner__meta {
+      color: $meta-color-default;
+    }
+
+    .ecl-page-banner__title {
+      color: $title-color-default;
+    }
+
+    .ecl-page-banner__baseline, // DEPRECATED
+    .ecl-page-banner__description {
+      color: $description-color-default;
+    }
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up('lg') {
+    .ecl-page-banner--image-background {
+      // manage ratio 4:1
+      height: 1px; // IE11 fix, see https://github.com/philipwalton/flexbugs/issues/231
+      min-height: (1/4) * 100vw;
+
+      .ecl-page-banner__container {
+        background-color: transparent;
+      }
+
+      .ecl-page-banner__meta {
+        color: $meta-color-image-background;
+      }
+
+      .ecl-page-banner__title {
+        color: $title-color-image-background;
+      }
+
+      .ecl-page-banner__baseline, // DEPRECATED
+      .ecl-page-banner__description {
+        color: $description-color-image-background;
+      }
+
+      /* DEPRECATED */
+      /* stylelint-disable-next-line no-descending-specificity */
+      .ecl-page-banner__link,
+      .ecl-page-banner__link:hover,
+      .ecl-page-banner__link:focus {
+        color: $description-color-image-background;
       }
     }
   }
