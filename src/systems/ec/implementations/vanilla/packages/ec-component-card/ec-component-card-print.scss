@@ -1,18 +1,14 @@
 /**
  * Card
- * @define card
+ * @define card; weak
  */
 
 // Import base
 @import '@ecl/ec-base/ec-base';
 
-@mixin ecl-card-print(
-  $color-meta: $ecl-color-grey-100,
-  $color-description: $ecl-color-black-100,
-  $color-info: $ecl-color-grey-100
-) {
+@mixin ecl-card-print() {
   .ecl-card {
-    margin-top: $ecl-spacing-print-l;
+    margin: 0;
   }
 
   .ecl-card__image {
@@ -20,46 +16,59 @@
   }
 
   .ecl-card__meta {
-    color: $color-meta;
-    font: $ecl-font-print-xs;
-    margin-top: $ecl-spacing-print-xs;
+    color: $ecl-color-grey;
+    font: $ecl-font-print-s;
+    font-family: $ecl-font-family-print-alt;
+    margin-bottom: $ecl-spacing-xs;
+    text-transform: uppercase;
   }
 
   .ecl-card__title {
     font: $ecl-font-print-m;
     font-weight: $ecl-font-weight-print-bold;
-    margin-top: $ecl-spacing-print-s;
+    margin: 0;
+
+    .ecl-link::after {
+      display: block;
+      font-weight: $ecl-font-weight-print-regular;
+      margin-top: $ecl-spacing-print-xs;
+    }
   }
 
   .ecl-card__description {
-    color: $color-description;
+    color: $ecl-color-black;
     font: $ecl-font-print-m;
-    margin-top: $ecl-spacing-print-xs;
+    margin-top: $ecl-spacing-print-m;
   }
 
   .ecl-card__info-container {
-    display: flex;
-    flex-wrap: wrap;
     list-style: none;
     margin-bottom: 0;
-    margin-top: $ecl-spacing-print-s;
+    margin-top: $ecl-spacing-print-m;
     padding: 0;
   }
 
   .ecl-card__info-item {
-    color: $color-info;
+    color: $ecl-color-grey;
+    display: flex;
     font: $ecl-font-print-s;
-    margin-right: $ecl-spacing-print-xs;
+    font-family: $ecl-font-family-print-alt;
+    margin-top: $ecl-spacing-print-xs;
 
-    &:last-child {
-      margin-right: 0;
+    &:first-child {
+      margin-top: 0;
+    }
+
+    .ecl-icon {
+      display: block;
+      margin-right: $ecl-spacing-print-s;
     }
   }
 
   .ecl-card__link-container {
     list-style: none;
     margin-bottom: 0;
-    margin-top: $ecl-spacing-print-s;
+    margin-top: $ecl-spacing-print-m;
     padding: 0;
   }
 
@@ -78,16 +87,17 @@
   }
 
   .ecl-card__tag-container {
-    display: flex;
+    display: inline-flex;
     flex-wrap: wrap;
     list-style: none;
     margin-bottom: 0;
-    margin-top: $ecl-spacing-print-s;
+    margin-top: $ecl-spacing-print-m;
     padding: 0;
   }
 
   .ecl-card__tag-item {
-    margin-right: $ecl-spacing-print-xs;
+    color: $ecl-color-grey;
+    margin-right: $ecl-spacing-print-s;
 
     &:last-child {
       margin-right: 0;
@@ -101,7 +111,6 @@
     .ecl-card__title {
       font: $ecl-font-prolonged-print-l;
       font-weight: $ecl-font-weight-print-bold;
-      margin-top: calc(#{$ecl-spacing-print-l} - 1px);
     }
   }
 }
