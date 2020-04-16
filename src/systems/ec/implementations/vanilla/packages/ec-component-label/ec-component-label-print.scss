@@ -1,0 +1,18 @@
+/**
+ * Label
+ * @define label
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-blockquote-label() {
+  .ecl-label {
+    margin: 0;
+  }
+}
+
+// Use mixin
+@include exports('ec-component-blockquote-label') {
+  @include ecl-blockquote-label();
+}
