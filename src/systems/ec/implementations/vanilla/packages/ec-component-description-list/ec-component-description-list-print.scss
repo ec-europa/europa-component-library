@@ -26,7 +26,46 @@
   }
 }
 
+@mixin ecl-description-list-horizontal-print(
+  $term-width: 174px,
+  $definition-width: 325px
+) {
+  .ecl-description-list--horizontal {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: calc(
+      #{$term-width} + #{$definition-width} + #{$ecl-spacing-print-xl}
+    );
+  }
+
+  .ecl-description-list--horizontal .ecl-description-list__term {
+    font: $ecl-font-print-m;
+    font-weight: $ecl-font-weight-bold;
+    margin-top: $ecl-spacing-print-m;
+    width: $term-width;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  .ecl-description-list--horizontal .ecl-description-list__definition {
+    font: $ecl-font-print-m;
+    margin-left: $ecl-spacing-print-xl;
+    margin-top: $ecl-spacing-print-m;
+    overflow-wrap: break-word;
+    padding-left: 0;
+    width: $definition-width;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+}
+
 // Use mixin
 @include exports('ec-component-description-list-print') {
   @include ecl-description-list-print();
+  @include ecl-description-list-horizontal-print();
 }
