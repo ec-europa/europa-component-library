@@ -11,14 +11,6 @@
     margin: 0;
   }
 
-  .ecl-file__icon {
-    display: block;
-    float: left;
-    height: $ecl-icon-print-s;
-    margin-right: $ecl-spacing-print-xs;
-    width: $ecl-icon-print-s;
-  }
-
   .ecl-file__info {
     display: flex;
     flex-wrap: wrap;
@@ -49,7 +41,6 @@
     clear: left;
     font: $ecl-font-print-s;
     font-weight: $ecl-font-weight-print-regular;
-    padding-left: calc(#{$ecl-icon-print-s} + #{$ecl-spacing-xs});
   }
 
   .ecl-file__translation-toggle {
@@ -60,7 +51,7 @@
     display: block;
     list-style: none;
     margin: 0;
-    padding-left: calc(#{$ecl-icon-print-s} + #{$ecl-spacing-xs});
+    padding-left: 0;
   }
 
   .ecl-file__translation-item {

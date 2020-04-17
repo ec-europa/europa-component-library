@@ -8,8 +8,16 @@
 
 @mixin ecl-message-print($boder-width: 0.5mm) {
   .ecl-message {
+    display: inline-flex;
     margin: 0;
-    padding: $ecl-spacing-print-m;
+    padding: $ecl-spacing-print-l $ecl-spacing-print-m $ecl-spacing-print-l
+      $ecl-spacing-print-l;
+  }
+
+  .ecl-message__icon {
+    display: block;
+    flex-shrink: 0;
+    margin-right: $ecl-spacing-print-m;
   }
 
   .ecl-message__close {
@@ -17,35 +25,52 @@
   }
 
   .ecl-message__title {
-    color: $ecl-color-black-100;
+    color: $ecl-color-black;
     font: $ecl-font-prolonged-print-m;
     font-weight: $ecl-font-weight-print-bold;
   }
 
   .ecl-message__description {
-    font: $ecl-font-prolonged-print-s;
+    color: $ecl-color-grey;
+    font: $ecl-font-prolonged-print-m;
     margin-bottom: 0;
-    margin-top: $ecl-spacing-print-s;
+    margin-top: $ecl-spacing-print-xs;
   }
 
   // information
   .ecl-message--info {
     border: $boder-width solid $ecl-color-info;
+
+    .ecl-message__icon {
+      fill: $ecl-color-info;
+    }
   }
 
   // success
   .ecl-message--success {
     border: $boder-width solid $ecl-color-success;
+
+    .ecl-message__icon {
+      fill: $ecl-color-success;
+    }
   }
 
   // warning
   .ecl-message--warning {
     border: $boder-width solid $ecl-color-warning;
+
+    .ecl-message__icon {
+      fill: $ecl-color-warning;
+    }
   }
 
   // error
   .ecl-message--error {
     border: $boder-width solid $ecl-color-error;
+
+    .ecl-message__icon {
+      fill: $ecl-color-error;
+    }
   }
 }
 

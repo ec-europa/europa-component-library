@@ -12,24 +12,36 @@
   }
 
   .ecl-social-media-follow__description {
-    color: $ecl-color-black-100;
+    color: $ecl-color-black;
     font: $ecl-font-prolonged-print-m;
     font-weight: $ecl-font-weight-print-bold;
     margin: 0;
   }
 
   .ecl-social-media-follow__list {
-    margin-bottom: 0;
-    margin-top: $ecl-spacing-print-s;
+    list-style: none;
+    margin-top: $ecl-spacing-print-l;
+    padding-left: 0;
   }
 
   .ecl-social-media-follow__item {
-    color: $ecl-color-black-100;
+    color: $ecl-color-grey;
     font: $ecl-font-prolonged-m;
+    margin-top: $ecl-spacing-print-s;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
   }
 
   .ecl-social-media-follow__link {
+    align-items: center;
+    display: flex;
+  }
+
+  .ecl-social-media-follow__icon {
     display: block;
+    margin-right: $ecl-spacing-print-s;
   }
 }
 
