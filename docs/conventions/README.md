@@ -3,5 +3,5 @@
 - [Git commits](./git.md)
 - [Components](./component.md)
 - [Markdown](./markdown.md)
-- [SCSS](./scss.jd)
+- [SCSS](./scss.md)
 - [JavaScript](./javascript.md)
