@@ -1,8 +1,27 @@
-# Components coding conventions
+# Components conventions
 
 ## Introduction
 
-If you are not familiar with the concept of systems in ECL, first have a look at [the system documentation](../ec-eu-systems.md).
+It's important to know the concept of systems in ECL before developing components. If you are not familiar with the concept yet, read this first [systems' documentation](../ec-eu-systems.md).
+
+Each component in ECL is an npm package. Each package represents an isolated set of source code and assets related to the given component: SCSS, JavaScript, etc. Packages interact with each other based on native npm means: `dependencies`, `devDependencies` and other relevant attributes in the `package.json` manifest.
+
+The following sections touch upon the important aspects of maintaining a component package.
+
+## Manifest file package.json
+
+As mentioned earlier in the introduction, the `package.json` is the first and most important element to attend to when working with components packages.
+
+Please ensure the presence of the following attributes:
+
+- `name`: name of the package. Follow naming conventions presented in the next section
+- `sass`: path to a SCSS file. Higher priority than 'style'
+- `style`: path to a CSS file. This is the main bundled stylesheet (dist/[name].css)
+- `main`: path to a JavaScript file. Used by non ES6-aware tools (UMD) (dist/[name].js)
+- `module`: path to a JavaScript file file. Used by ES6-aware tools like webpack
+- `dependencies`: list of other packages' code which is required for the given package
+
+It's important to have packages within `src/systems/ec/implementations/react` folder with `"private": true` flag because these are used only for internal purposes of demonstrating implementaiton of vanilla components on ECL website.
 
 ## Naming
 
@@ -36,88 +55,8 @@ Please refer to the [dedicated conventions section regarding JavaScript](./javas
 
 If a component contains links, they should always lead to an internal example page instead of blank link (`#`) or external links: `../../example.html#{component_name}`
 
-## package.json
+## Binary resources
 
-`package.json` files are needed for both generic and system components, and should include dependencies related to the component.
+If a component relies on binary assets such as images which are not source code, they should also be placed in a folder inside the component.
 
-All components have to specify a dependency to the corresponding base (`generic-base`, `ec-base`, ...).
-
-The only extra rule for system components' package.json is that it should have the generic component as a dependency.
-
-SCSS and JS files (if any) should be set in corresponding attributes:
-
-- `sass` (SCSS): the path to SCSS file. Higher priority than 'style'
-- `style` (CSS): the path to the main bundled stylesheet (dist/[name].css)
-- `main` (JS): the path to JS file. Used by non ES6-aware tools (UMD) (dist/[name].js)
-- `module` (JS): the path to JS file. Used by ES6-aware tools like webpack
-
-Example (generic):
-
-```
-{
-  "name": "@ecl/generic-component-navigation-menu",
-  "author": "European Commission",
-  "license": "EUPL-1.1",
-  "version": "0.0.1",
-  "description": "ECL Navigation Menu",
-  "main": "generic-component-navigation-menu.js",
-  "module": "generic-component-navigation-menu.js",
-  "style": "generic-component-navigation-menu.scss",
-  "sass": "generic-component-navigation-menu.scss",
-  "dependencies": {
-    "@ecl/generic-base": "^0.0.1",
-    [...]
-  },
-  "publishConfig": { "access": "public" },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ec-europa/europa-component-library.git"
-  },
-  "bugs": {
-    "url": "https://github.com/ec-europa/europa-component-library/issues"
-  },
-  "homepage": "https://github.com/ec-europa/europa-component-library",
-  "keywords": ["ecl", "europa-component-library", "design-system"]
-}
-```
-
-Example (system):
-
-```
-{
-  "name": "@ecl/eu-component-navigation-menu",
-  "author": "European Commission",
-  "license": "EUPL-1.1",
-  "version": "0.0.1",
-  "description": "ECL Navigation Menu",
-  "main": "eu-component-navigation-menu.js",
-  "module": "eu-component-navigation-menu.js",
-  "style": "eu-component-navigation-menu.scss",
-  "sass": "eu-component-navigation-menu.scss",
-  "dependencies": {
-    "@ecl/eu-base": "^0.0.1",
-    [...]
-    "@ecl/generic-component-navigation-menu": "^0.0.1"
-  },
-  "publishConfig": { "access": "public" },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ec-europa/europa-component-library.git"
-  },
-  "bugs": {
-    "url": "https://github.com/ec-europa/europa-component-library/issues"
-  },
-  "homepage": "https://github.com/ec-europa/europa-component-library",
-  "keywords": ["ecl", "europa-component-library", "design-system"]
-}
-```
-
-## Other assets
-
-If a component rely on other assets (images, fonts, ...), they should be placed in a folder inside the component.
-
-## Exception: components existing in only one system
-
-If a component exists only in one system, it can be defined in the system only. This means that there is no need to create a generic component, and files in system component should contain all the code/logic needed for the component.
-
-As soon as the component should be available in another system, a generic component has to be created, and the logic refactored as explained ahead.
+However, respect existing resource packages for favicons, icons, logos and social icons at `src/systems/(ec|eu)/resources`
