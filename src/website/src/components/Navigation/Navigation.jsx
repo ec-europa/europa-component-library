@@ -55,7 +55,7 @@ const Navigation = React.memo(
         </li>
         <li className={styles['system-list-item']}>
           <NavLink
-            to="/eu/"
+            to="/eu/about/vision/"
             strict
             className={styles['system-list-item-link']}
             activeClassName={styles['system-list-item-link--selected']}

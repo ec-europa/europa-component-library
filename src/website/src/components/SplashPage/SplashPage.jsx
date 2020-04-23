@@ -32,7 +32,7 @@ const SplashPage = React.memo(({ children }) => (
           col="12 md-6"
           className={`${utilities['d-flex']} ${styles['splash-page-actions-col']}`}
         >
-          <LogoLink to="/eu/" aria-label="Open EU system">
+          <LogoLink to="/eu/about/vision/" aria-label="Open EU system">
             <img src={EULogo} alt="EU Logo" />
           </LogoLink>
         </Col>
