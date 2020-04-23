@@ -17,8 +17,8 @@ If you are not familiar with the concept of systems in ECL, first have a look at
 
 ### Naming of components
 
-* Throughout the whole project, in `package.json` files, the namespace should always be `@ecl/`, regardless whether work is to be done on a generic or system component. One reason is that `@ecl` namespace should be preserved for correct organization on [npmjs](https://www.npmjs.com/).
-* Flavored components should be prefixed with the name of their corresponding system and type (component, style, template): `[generic|ec|eu]-[component|style|template|utility]`.
+- Throughout the whole project, in `package.json` files, the namespace should always be `@ecl/`, regardless whether work is to be done on a generic or system component. One reason is that `@ecl` namespace should be preserved for correct organization on [npmjs](https://www.npmjs.com/).
+- Flavored components should be prefixed with the name of their corresponding system and type (component, style, template): `[generic|ec|eu]-[component|style|template|utility]`.
 
 Example:
 
@@ -176,22 +176,16 @@ _(File name: ec-component-navigation-menu.scss)_
 }
 ```
 
-## Twig
-
-Every component should have a directly usable Twig file. The goal is to be able to include the code in other components or templates by putting most of the content in context, without having to duplicate it.
-
-Apart from the [rules that should be applied to all Twig files](twig.md), there are some specifications for components:
-
 ### Generic component
 
 A generic component Twig file defines all the markup for the component. It should contain all the logic required to use the component, as it is intended to be used by systems components (or anything based on Twig).
 
 This Twig file consists of different sections (see link above for more details):
 
-* Parameters/Blocks: list of exposed parameters and blocks
-* Internal properties: definition of custom variables
-* Internal logic: preprocess and other custom logic
-* Print: HTML markup
+- Parameters/Blocks: list of exposed parameters and blocks
+- Internal properties: definition of custom variables
+- Internal logic: preprocess and other custom logic
+- Print: HTML markup
 
 Example:
 _(File name: generic-component-blockquote.twig)_
@@ -319,8 +313,8 @@ In most cases, the context is defined in the generic component and used in corre
 
 Generic context files should be placed in a `data` folder, inside component's folder.
 
-* If there is only one variant for the component, the file should be named following component's name.
-* If there are multiple variants, a file should be created for each variant, using the component's name and the variant.
+- If there is only one variant for the component, the file should be named following component's name.
+- If there are multiple variants, a file should be created for each variant, using the component's name and the variant.
 
 Example - single variant:
 _(File name: data/demo.js)_
@@ -420,10 +414,10 @@ The only extra rule for system components' package.json is that it should have t
 
 SCSS and JS files (if any) should be set in corresponding attributes:
 
-* `sass` (SCSS): the path to SCSS file. Higher priority than 'style'
-* `style` (CSS): the path to the main bundled stylesheet (dist/[name].css)
-* `main` (JS): the path to JS file. Used by non ES6-aware tools (UMD) (dist/[name].js)
-* `module` (JS): the path to JS file. Used by ES6-aware tools like webpack
+- `sass` (SCSS): the path to SCSS file. Higher priority than 'style'
+- `style` (CSS): the path to the main bundled stylesheet (dist/[name].css)
+- `main` (JS): the path to JS file. Used by non ES6-aware tools (UMD) (dist/[name].js)
+- `module` (JS): the path to JS file. Used by ES6-aware tools like webpack
 
 Example (generic):
 
