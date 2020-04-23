@@ -2,14 +2,6 @@
 
 ## Introduction
 
-Building components in a project with several systems means that first step in the construction of the component is the base of the component, i.e. the generic component containing common rules.
-
-On a high-level, the base should serve as an interface and systems' components as specific implementations. Inheritance, though, should be achieved by composition and not by polymorphism.
-
-That's why the base should also be thought of, and managed as, a common layer of re-usable set of rules and guidelines.
-
-All components should follow the same file structure and naming conventions.
-
 If you are not familiar with the concept of systems in ECL, first have a look at [the system documentation](../ec-eu-systems.md).
 
 ## Naming

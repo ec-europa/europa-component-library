@@ -1,6 +1,8 @@
 # Documentation
 
-Welcome to ECL documentation pages where you can find information about:
+ECL v2 consists of 2 systems (EC & EU) composed of more than 540 packages organized in 2 implementations within this repository - Vanilla and React.[Twig](https://github.com/ec-europa/ecl-twig) implementation is a separate project with nearly 60 packages in the 2 systems.
+
+To maintain these it's important to have a good grasp of few concepts before diving in the code of the packages.
 
 - [Conventions](./conventions/README.md): collection of best practices.
 - [Core concepts](core-concepts.md): useful read for anyone interested in the fundamentals of ECL.
