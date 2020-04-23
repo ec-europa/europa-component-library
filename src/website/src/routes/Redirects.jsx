@@ -142,5 +142,6 @@ export default () => (
     <Redirect from="/r/ec-timeline" to="/ec/components/timeline/" />
     <Redirect from="/r/ec-timeline2" to="/ec/components/timeline/" />
     <Redirect from="/r/ec-unordered-list" to="/ec/components/list/" />
+    <Redirect from="/eu" to="/eu/about/vision/" />
   </Switch>
 );
