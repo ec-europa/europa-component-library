@@ -50,7 +50,3 @@ yarn start:website
 ```bash
 yarn lint
 ```
-
-## Functional testing
-
-Functional testing is not yet available in this version of the library.
