@@ -1,7 +1,4 @@
----
-title: JavaScript coding conventions
-label: JavaScript
----
+# JavaScript coding conventions
 
 We follow the most widely adopted JavaScript Style Guide: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript). It helps us follow good practices and avoid some errors.
 

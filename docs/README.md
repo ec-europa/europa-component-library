@@ -1,10 +1,4 @@
----
-title: Documentation
-label: intro
-handle: intro
-name: intro
-hidden: true
----
+# Documentation
 
 Welcome to ECL documentation landing page. Within these documentation pages, one can find the following types of information:
 

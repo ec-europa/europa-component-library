@@ -1,7 +1,4 @@
----
-title: Components coding conventions
-label: Components
----
+# Components coding conventions
 
 ## General rules
 
