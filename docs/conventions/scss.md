@@ -43,69 +43,14 @@ ECL repository uses [prettier](https://prettier.io) formatter for SCSS.
 
 The following sections present details regarding how SCSS is organized in ECL components.
 
-### Vanilla components
+All components' CSS rules should be organized in such a way that each component should support theming and composition on a high level through `ec-base` and `eu-base` packages. They contain the core variables and mixins on which all other components build upon.
 
-All CSS rules should be organized in mixins in order to allow for theming and composition. It is acceptable to have rules break-down into several smaller mixins. However the component's main SCSS file should contain one main mixin calling those smaller mixins.
+Inside each component there is a main SCSS file which should contain a main mixin which allows for the theming and potential compositions. It is acceptable to have rules break-down into several smaller mixins. However, the component's main SCSS file should contain one main mixin calling those smaller mixins.
 
-The main mixin should be named based the component's main class.
+The main mixin should be named based the component's main CSS class. Theming parameters should be defined as input parameters of the main mixin.
 
-Rules in vanilla components should not contain EC/EU system specificity such as colours, sizes, etc.
+There are 2 very important rules to follow while developing the SCSS of a component in order to ensure its consistency in the global design system.
 
-If a given component should be themed differently based on EC/EU system specificity then each difference should be defined as an input parameters of the main mixin.
+1. Main SCSS file should always start with an import of base variables and mixins for respecting global theming parameters `@import '@ecl/(ec|eu)-base/(ec|eu)-base';`.
 
-### Systems component
-
-The SCSS file in system-specific components relies on SCSS file defined in the corresponding generic component.
-
-The flow of best practices in a system-specific SCSS file would look like the following:
-
-#### Import base and generic mixins
-
-The file should import generic rules located in `@ecl/{system}-base`, and the ones of the generic component.
-
-#### Check dependencies calls
-
-If the component override some other components (like links, buttons, ...), it should ensure that these dependencies have been loaded beforehand.
-This is done by using the mixin `check-imports`.
-
-#### Generic mixin use
-
-Call the mixin defined in the generic component with custom parameters.
-
-#### Additional CSS rules
-
-If needed, some extra CSS rules could be added after to customize the component.
-
-Example:
-_(File name: ec-component-navigation-menu.scss)_
-
-```scss
-// Import base and generic
-@import '@ecl/ec-base/ec-base';
-@import '@ecl/generic-component-navigation-menu/generic-component-navigation-menu';
-
-// Check if overridden dependencies are already loaded, if needed
-@include check-imports(('ec-component-link', 'ec-component-button'));
-
-// Use generic mixin
-@include exports('ec-component-navigation-menu') {
-  @include ecl-navigation-menu(
-    $bar-bg-mobile: map-get($ecl-colors, 'grey-15'),
-    $bar-bg-desktop: map-get($ecl-colors, 'grey-10'),
-    $toggle-btn-color: map-get($ecl-colors, 'blue-100'),
-    $group-bg: map-get($ecl-colors, 'grey-5'),
-    $separator-mobile: map-get($ecl-colors, 'grey-15'),
-    $link-color: map-get($ecl-colors, 'blue-100'),
-    $active-color: map-get($ecl-colors, 'blue-100'),
-    $active-bg: map-get($ecl-colors, 'grey-10')
-  );
-
-  // Add custom rules
-  .ecl-navigation-menu__item--active {
-    [...]
-  }
-  .ecl-navigation-menu__group::before {
-    [...]
-  }
-}
-```
+2. Use `check-imports()` mixin to ensure dependencies in stylesheets. If a component depends on or overrides another component's styles, it should ensure that its dependent code is loaded beforehand.
