@@ -55,8 +55,8 @@ Please refer to the [dedicated conventions section regarding JavaScript](./javas
 
 If a component contains links, they should always lead to an internal example page instead of blank link (`#`) or external links: `../../example.html#{component_name}`
 
-## Binary resources
+## Binary
 
-If a component relies on binary assets such as images which are not source code, they should also be placed in a folder inside the component.
+If a component relies on non-code related assets such as images which are not source code, they should also be placed in a folder inside the component.
 
 However, respect existing resource packages for favicons, icons, logos and social icons at `src/systems/(ec|eu)/resources`
