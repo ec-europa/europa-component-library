@@ -1,8 +1,6 @@
 # Components conventions
 
-## Introduction
-
-It's important to know the concept of systems in ECL before developing components. If you are not familiar with the concept yet, read this first [systems' documentation](../ec-eu-systems.md).
+It's important to know the concept of systems in ECL before developing components. If you are not familiar with the concept yet, read [systems' documentation](../ec-eu-systems.md) first.
 
 Each component in ECL is an npm package. Each package represents an isolated set of source code and assets related to the given component: SCSS, JavaScript, etc. Packages interact with each other based on native npm means: `dependencies`, `devDependencies` and other relevant attributes in the `package.json` manifest.
 
@@ -10,18 +8,20 @@ The following sections touch upon the important aspects of maintaining a compone
 
 ## Manifest file package.json
 
-As mentioned earlier in the introduction, the `package.json` is the first and most important element to attend to when working with components packages.
+As mentioned earlier in the introduction, the `package.json` is the first and most important element to attend to when working with components' packages.
 
 Please ensure the presence of the following attributes:
 
-- `name`: name of the package. Follow naming conventions presented in the next section
-- `sass`: path to a SCSS file. Higher priority than 'style'
+- `name`: name of the package. Follow naming conventions presented in the following section
 - `style`: path to a CSS file. This is the main bundled stylesheet (dist/[name].css)
+- `sass`: path to a SCSS file. Higher priority than `style`
 - `main`: path to a JavaScript file. Used by non ES6-aware tools (UMD) (dist/[name].js)
 - `module`: path to a JavaScript file file. Used by ES6-aware tools like webpack
 - `dependencies`: list of other packages' code which is required for the given package
 
 It's important to have packages within `src/systems/ec/implementations/react` folder with `"private": true` flag because these are used only for internal purposes of demonstrating implementaiton of vanilla components on ECL website.
+
+**React components should not be shared publicly. They are not an official implementation of ECL.**
 
 ## Naming
 
@@ -57,6 +57,6 @@ If a component contains links, they should always lead to an internal example pa
 
 ## Binary
 
-If a component relies on non-code related assets such as images which are not source code, they should also be placed in a folder inside the component.
+If a component relies on assets such as images which are not source code, they should also be placed in a folder inside the component.
 
 However, respect existing resource packages for favicons, icons, logos and social icons at `src/systems/(ec|eu)/resources`

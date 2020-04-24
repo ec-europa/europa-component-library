@@ -20,7 +20,7 @@ The **header** and **scope** are the most important items of the commit as they 
 
 ## Revert
 
-In rare occasions when a the commit reverts a previous commit, it should begin with `revert:`, followed by the header of the reverted commit. In the body it should say: `This reverts commit <hash>.`, where the hash is the SHA of the commit being reverted.
+In rare occasions when a commit reverts a previous commit, it should begin with `revert:`, followed by the header of the reverted commit. In the body it should say: `This reverts commit <hash>.`, where the hash is the SHA of the commit being reverted.
 
 ## Type
 

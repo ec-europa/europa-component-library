@@ -1,3 +1,3 @@
 # Markdown coding conventions
 
-We use [Prettier](https://github.com/prettier/prettier) as our code formatter.
+ECL repository uses [prettier](https://prettier.io) formatter for both `.md` and `.mdx` files.
