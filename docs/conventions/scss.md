@@ -1,6 +1,6 @@
 # SCSS coding conventions
 
-In order to enforce consistent conventions and avoid errors in our stylesheets, ECL project integrates with [stylelint](https://stylelint.io/) linter.
+CSS (SCSS) source code conventions within ECL repository are enforced through [stylelint](https://stylelint.io/) linter.
 
 ## Rules
 
@@ -33,7 +33,7 @@ More information can be found on [postcss-bem-linter](https://github.com/postcss
 
 ### Configuration
 
-All the rules are made availble through [.stylelintrc.js](../../.stylelintrc.js) config.
+Please refer to [.stylelintrc.js](../../.stylelintrc.js) config file.
 
 ## Automatic formatting
 
