@@ -10,6 +10,7 @@ import demoMetaTitleDescriptionContent from '@ecl/ec-specs-page-header/demo/data
 import demoTitleDescriptionContent from '@ecl/ec-specs-page-header/demo/data--title-description';
 import demoEventsContent from '@ecl/ec-specs-page-header/demo/data--events';
 import demoEventsDescriptionContent from '@ecl/ec-specs-page-header/demo/data--events-description';
+import demoBackgroundImage from '@ecl/ec-specs-page-header/demo/data--background-image';
 
 import PageHeader from '../src/PageHeader';
 
@@ -109,4 +110,18 @@ export const EventsDescription = () => (
 
 EventsDescription.story = {
   name: 'events-description',
+};
+
+export const BackgroundImage = () => (
+  <PageHeader
+    breadcrumb={breadcrumb}
+    title={text('Title', demoBackgroundImage.title)}
+    description={text('Description', demoBackgroundImage.description)}
+    meta={text('Meta', demoBackgroundImage.meta)}
+    backgroundImage={demoBackgroundImage.backgroundImage}
+  />
+);
+
+BackgroundImage.story = {
+  name: 'background-image',
 };
