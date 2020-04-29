@@ -9,7 +9,6 @@ To maintain these it's important to have a good grasp of few concepts before div
 - [Decisions](./decisions/README.md): the place to store and refer to vital technical or non-technical decisions taken during the project's evolution.
 - [ECL development kick-off](./developers-start-here.md): start here when you need to develop or maintain ECL.
 - [Understand EC & EU systems separation](./ec-eu-systems.md)
-- [Documentation update guidelines](./update-documentation.md): attempt to facilitate technical and non-technical users in suggesting documentation improvements to ECL.
 - [Create new components in ECL](./create-new-component.md)
 - [JavaScript](./javascript.md)
 - [Presets](./presets.md)
