@@ -86,7 +86,21 @@
     background-size: cover;
     display: block;
     height: auto;
+    position: relative;
     width: 100%;
+
+    &::before {
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.4) 0%,
+        rgba(0, 0, 0, 0.2) 100%
+      );
+      content: '';
+      display: block;
+      height: 100%;
+      position: absolute;
+      width: 100%;
+    }
 
     .ecl-page-header__breadcrumb {
       background-color: transparent;
