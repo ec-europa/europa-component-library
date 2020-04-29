@@ -9,13 +9,15 @@
 @mixin ecl-link-print($link-color: $ecl-color-blue) {
   .ecl-link {
     color: $link-color;
-    font-style: italic;
     page-break-inside: avoid;
-    text-decoration: underline;
+    text-decoration: none;
   }
 
   .ecl-link::after {
-    content: ' (' attr(href) ')';
+    content: '(' attr(href) ')';
+    font-style: italic;
+    margin-left: $ecl-spacing-print-2-xs;
+    text-decoration: underline;
   }
 
   .ecl-link--icon-before,
