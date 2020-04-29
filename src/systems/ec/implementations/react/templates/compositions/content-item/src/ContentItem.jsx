@@ -80,7 +80,7 @@ const ContentItem = ({
           <div
             className={classnames(
               meta.className,
-              'ecl-u-type-s ecl-u-type-color-grey-75'
+              'ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-type-family-alt'
             )}
           >
             {meta.label}
@@ -94,7 +94,7 @@ const ContentItem = ({
             variant="standalone"
             className={classnames(
               title.className,
-              'ecl-u-d-inline-block ecl-u-type-prolonged-m ecl-u-type-bold',
+              'ecl-u-d-inline-block ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-type-family-alt',
               {
                 'ecl-u-mt-xs': !!(meta && meta.label),
               }
@@ -134,7 +134,7 @@ const ContentItem = ({
                 {item.icon && (
                   <Fragment>
                     <Icon {...item.icon} />
-                    <span className="ecl-u-type-s ecl-u-ml-s">
+                    <span className="ecl-u-type-s ecl-u-ml-s ecl-u-type-family-alt">
                       {item.label}
                     </span>
                   </Fragment>

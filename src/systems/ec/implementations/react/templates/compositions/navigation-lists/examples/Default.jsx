@@ -10,7 +10,7 @@ export default () => (
     <h2 className="ecl-u-ma-none ecl-u-type-prolonged-xl ecl-u-type-bold">
       <Link
         href="/example"
-        className="ecl-link--standalone"
+        className="ecl-link--standalone ecl-u-type-family-alt"
         label="Page title section (child A)"
       />
     </h2>

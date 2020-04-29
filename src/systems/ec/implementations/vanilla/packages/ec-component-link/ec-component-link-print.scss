@@ -10,11 +10,14 @@
   .ecl-link {
     color: $link-color;
     page-break-inside: avoid;
-    text-decoration: underline;
+    text-decoration: none;
   }
 
   .ecl-link::after {
-    content: ' (' attr(href) ')';
+    content: '(' attr(href) ')';
+    font-style: italic;
+    margin-left: $ecl-spacing-print-2-xs;
+    text-decoration: underline;
   }
 
   .ecl-link--icon-before,
@@ -39,12 +42,10 @@
 
   .ecl-link--standalone {
     font-family: $ecl-font-family-print;
-    text-decoration: none;
   }
 
   .ecl-link--cta {
     font-family: $ecl-font-family-print;
-    text-decoration: none;
   }
 }
 
