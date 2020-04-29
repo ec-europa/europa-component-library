@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import Icon from '@ecl/ec-react-component-icon';
 
 const PageHeader = ({
+  backgroundImage,
   breadcrumb,
   title,
   description,
@@ -12,12 +13,22 @@ const PageHeader = ({
   className,
   ...props
 }) => {
-  const classNames = classnames(className, 'ecl-page-header');
+  const classNames = classnames(className, 'ecl-page-header', {
+    [`ecl-page-header--background-image`]: backgroundImage,
+  });
 
   const infosArray = Array.isArray(infos) ? infos : [infos];
 
   return (
-    <div {...props} className={classNames}>
+    <div
+      {...props}
+      className={classNames}
+      {...(backgroundImage
+        ? {
+            style: { 'background-image': `url(${backgroundImage})` },
+          }
+        : {})}
+    >
       <div className="ecl-container">
         {React.cloneElement(breadcrumb, {
           className: 'ecl-page-header__breadcrumb',
@@ -49,6 +60,7 @@ const PageHeader = ({
 };
 
 PageHeader.propTypes = {
+  backgroundImage: PropTypes.string,
   breadcrumb: PropTypes.node,
   title: PropTypes.string,
   description: PropTypes.string,
@@ -63,6 +75,7 @@ PageHeader.propTypes = {
 };
 
 PageHeader.defaultProps = {
+  backgroundImage: '',
   breadcrumb: null,
   title: '',
   description: '',
