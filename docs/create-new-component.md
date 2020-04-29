@@ -2,9 +2,11 @@
 
 ## Vanilla
 
+These components serve as the base for the implementation of other components. This is the starting point of the development of new components.
+
 ### Components
 
-This is the vanilla version of the component, therefore it's a npm package made of a scss file defining the styles and a JavaScript file when needed. The package exports a mixin of the component and the related JavaScript as a module.
+This is the vanilla version of a given component which is not bound to any library or framework implementation. The npm package consists of a SCSS file defining styles and a JavaScript file defining interactions whenever SCSS styles do not suffice. Each package exports the component's SCSS mixin and the related JavaScript as a module.
 
 The name of the component is prefixed by _{system}-component_
 
@@ -20,11 +22,11 @@ The name of the component is prefixed by _{system}-component_
 Concerning dependencies in the `package.json` file, the following rule should be applied:
 
 - {system}-base should be put in `dependencies`
-- no need to put the specs in `devDependencies` for now
+- specs should not be put in `devDependencies`
 
 ### Utilities
 
-There is a set of packages in the list of the vanilla ones which provides utility classes to be applied to the layouts when needed. Mind the fact that those utilities are not meant to be used in the component definition but only when defining layouts.
+There is a set of utilities which can be handy for ECL users for applying atomic styling changes gluing components together in actual implementations. Utilities are not meant to be used in component definitions.
 
 Their names are prefixed by _{system}-utility_
 
@@ -36,21 +38,17 @@ Their names are prefixed by _{system}-utility_
   - package.json
   - README.md
 
-There is also a convention adopted for utility CSS classes, which is: _ecl-u-\*_ where the placeholder is replaced by the specific utility.
+By convention, utility classes have the following namespace: _ecl-u-\*_.
 
 ### Presets
 
-These are the presets collecting the different components, assembling them together and exporting those in a single package.
+Presets are collections of packages combined for a specific purpose. Do not develop or update components through the presets as they are only a manifest of exports for a selected list of elements.
 
-At the moment, the available presets are:
-
-- **{system}-preset-dev**: it imports all the available components.
-- **{system}-preset-full**: final CSS, JS and images distributed in the `dist` folder with all the components included.
-- **{system}-preset-website**: final CSS, JS and images distributed in the `dist` folder, with extra global CSS rules ; recommended for projects using ECL.
+Further details are presented in a [dedicated presets section](./presets.md).
 
 ## Specs
 
-This is the npm package containing the data for the component, templates and utilities demo. They can contain several data files, depending on the complexity and variants of the component.
+These are package containing data for demos. They can contain several data files, depending on the complexity and variants of the component.
 
 - **path**: src/systems/{system}/specs/\*/
 - **base_name**: {system}-specs-{component_name}
@@ -63,7 +61,7 @@ This is the npm package containing the data for the component, templates and uti
 
 ### Components
 
-It's a React component defined as a npm package, so it is made in its simplest form of a JSX file defining the component and a package.json describing the package. More complex component can use multiple `.jsx` files.
+After having the vanilla version of a component ready in terms of SCSS, the next step of a component implementation is the React version. React components are private packages used only internally for demonstrating components on the ECL website.
 
 - **path**: src/systems/{system}/implementations/react/packages/
 - **base_name**: {component_name}
@@ -104,17 +102,3 @@ They are located in the website folder.
   - docs/style.md
   - docs/usage.md
   - index.md
-
-## Extra modifications
-
-### Presets
-
-To be part of the released distributions of ECL, make sure to add your component to the `{system}-preset-dev` preset.
-
-It consists of 3 files:
-
-- src/systems/{system}/implementations/vanilla/packages/{system}-preset-dev/package.json
-- src/systems/{system}/implementations/vanilla/packages/{system}-preset-dev/src/{system}-preset-dev.scss
-- src/systems/{system}/implementations/vanilla/packages/{system}-preset-dev/src/{system}-preset-dev.js
-
-Note that the JS file modification is optional ; it only concerns components with custom JavaScript.
