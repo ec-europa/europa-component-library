@@ -51,9 +51,13 @@ Please refer to the [dedicated conventions section regarding SCSS](./scss.md).
 
 Please refer to the [dedicated conventions section regarding JavaScript](./javascript.md).
 
-## Links
+## Specs
 
-If a component contains links, they should always lead to an internal example page instead of blank link (`#`) or external links: `../../example.html#{component_name}`
+Each component has a so called specification file which contains demo data for how information is fed into the component. Specifications are stored in `src/systems/ec/specs` and are published on npm in order to be shared by all ECL implementations.
+
+Links inside specifications should always lead to an internal example page instead of blank link (`#`) or external links: `../../example.html#{component_name}`
+
+Please note that if a given implementation requires that the demo data structure from a given specification to be different, data structure should be modified on implementation level through adapters rather than the specification.
 
 ## Binary
 
