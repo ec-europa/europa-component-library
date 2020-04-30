@@ -9,6 +9,22 @@ Users can still go to ECL v1 to create or upgrade their websites. In 2019, we wi
 
 We will also add new components to the ECL v2 as we continue improving the look and feel of the existing components. New releases under v2 should be published periodically under [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 2.28 (2020-04-30)
+
+#### :rocket: New Feature
+
+- [#1584](https://github.com/ec-europa/europa-component-library/pull/1584) feat(legacy-page-header): add background image - FRONT-1130
+- [#1580](https://github.com/ec-europa/europa-component-library/pull/1580) feat(label): add component - FRONT-1006
+
+#### :bug: Bug Fix
+
+- [#1585](https://github.com/ec-europa/europa-component-library/pull/1585) fix(gallery): update z-index for overlay - FRONT-996
+- [#1582](https://github.com/ec-europa/europa-component-library/pull/1582) fix(site-header-core): add tests for language switcher
+
+#### :nail_care: Enhancement
+
+- [#1579](https://github.com/ec-europa/europa-component-library/pull/1579) feat(print): update print css
+
 ## 2.27 (2020-04-07)
 
 #### :bug: Bug Fix
