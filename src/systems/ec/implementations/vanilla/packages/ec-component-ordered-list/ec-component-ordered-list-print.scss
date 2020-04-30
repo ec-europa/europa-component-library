@@ -15,6 +15,18 @@
     font: $ecl-font-prolonged-print-m;
     margin: 0;
   }
+
+  .ecl-ordered-list__item {
+    margin-top: $ecl-spacing-print-s;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  .ecl-ordered-list .ecl-ordered-list {
+    margin-top: $ecl-spacing-print-s;
+  }
 }
 
 // Use mixin
