@@ -1,27 +1,23 @@
----
-title: JavaScript coding conventions
-label: JavaScript
----
+# JavaScript coding conventions
 
-We follow the most widely adopted JavaScript Style Guide: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript). It helps us follow good practices and avoid some errors.
+JavaScript source code conventions within ECL repository are enforced through [ESlint](https://eslint.org/) linter.
 
-## Prettier
+## Rules
 
-Upon that, we use [prettier](https://github.com/prettier/prettier) which removes all original styling and ensures that all outputted JavaScript conforms to a consistent style.
+Code within the ECL module composed by components' APIs should not violate the linter rules and should not mutate globals outside the module.
 
-## ECL configuration
+For details regarding the ECL JavaScript API, please refer to [the main JavaScript documentation page](../javascript.md).
 
-Thus, our [eslint-config-ecl](https://github.com/ec-europa/ecl-toolkit/tree/master/packages/eslint-config-ecl) extends both [eslint-config-airbnb-base](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base) and [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier).
+### Presets
 
-## Automatically format the code and fix errors
+ECL ESlint rules are based on the most widely-adopted [Airbnb Style Guide](https://github.com/airbnb/javascript).
 
-On every git commit, a hook is called and runs the following commands:
+## Automatic formatting
 
-```json
-  "*.js": [
-    "prettier-eslint --write",
-    "git add"
-  ],
-```
+ECL repository uses [prettier](https://prettier.io) formatter for JavaScript. An integration with ESlint is achieved through `eslint-config-prettier` and `eslint-plugin-prettier`.
 
-It formats your JavaScript using `prettier` followed by `eslint --fix`.
+On each commit, a hook attempts to fix all issues violating the ESlint conventions and format modified JavaScript code.
+
+### Configuration
+
+Please refer to [.eslintrc.js](../../.eslintrc.js) config file.
