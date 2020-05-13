@@ -68,7 +68,7 @@
     padding: $ecl-spacing-xs $ecl-spacing-xs 0;
     position: relative;
     text-align: center;
-    z-index: $ecl-z-index-dropdown + 1;
+    z-index: $ecl-z-index-modal + 2;
 
     &[aria-expanded='true'] {
       background-color: $ecl-color-blue-5;
@@ -98,7 +98,7 @@
     padding: calc(#{$ecl-spacing-m} - 1px);
     position: absolute;
     width: calc(100% - #{$ecl-spacing-m} - #{$ecl-spacing-m});
-    z-index: $ecl-z-index-dropdown;
+    z-index: $ecl-z-index-modal + 1;
   }
 
   .ecl-site-header-harmonised__login-box--active {
