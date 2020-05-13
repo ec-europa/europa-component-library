@@ -1,5 +1,25 @@
 # Changelog
 
+## 2.28 (2020-04-30)
+
+#### :rocket: New Feature
+
+- [#1584](https://github.com/ec-europa/europa-component-library/pull/1584) feat(legacy-page-header): add background image - FRONT-1130 ([@emeryro](https://github.com/emeryro))
+- [#1580](https://github.com/ec-europa/europa-component-library/pull/1580) feat(label): add component - FRONT-1006 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#1585](https://github.com/ec-europa/europa-component-library/pull/1585) fix(gallery): update z-index for overlay - FRONT-996 ([@emeryro](https://github.com/emeryro))
+- [#1582](https://github.com/ec-europa/europa-component-library/pull/1582) fix(site-header-core): add tests for language switcher ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#1579](https://github.com/ec-europa/europa-component-library/pull/1579) feat(print): update print css ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 1
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
 ## 2.27 (2020-04-07)
 
 #### :bug: Bug Fix

@@ -91,14 +91,20 @@ export class SiteHeaderCore {
       onDeactivate: this.closeOverlay,
     });
 
-    this.languageSelector.addEventListener('click', this.toggleOverlay);
-    this.close.addEventListener('click', this.toggleOverlay);
+    if (this.languageSelector) {
+      this.languageSelector.addEventListener('click', this.toggleOverlay);
+    }
+    if (this.close) {
+      this.close.addEventListener('click', this.toggleOverlay);
+    }
 
     // Search form management
     this.searchToggle = queryOne(this.searchToggleSelector);
     this.searchForm = queryOne(this.searchFormSelector);
 
-    this.searchToggle.addEventListener('click', this.toggleSearch);
+    if (this.searchToggle) {
+      this.searchToggle.addEventListener('click', this.toggleSearch);
+    }
 
     // Login management
     this.loginToggle = queryOne(this.loginToggleSelector);

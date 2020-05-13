@@ -7,34 +7,43 @@
 @import '@ecl/ec-base/ec-base';
 
 @mixin ecl-accordion2-print() {
-  .ecl-accordion2__item + .ecl-accordion2__item {
-    margin-top: $ecl-spacing-xs;
+  .ecl-accordion2__item {
+    margin-top: $ecl-spacing-print-l;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  .ecl-accordion2__toggle-icon {
+    display: none;
   }
 
   .ecl-accordion2__title {
-    font: $ecl-font-print-2-xl;
+    font: $ecl-font-prolonged-print-m;
+    font-family: $ecl-font-family-print-alt;
     font-weight: $ecl-font-weight-print-bold;
     margin: 0;
-    padding: 0;
   }
 
   .ecl-accordion2__toggle {
     background-color: transparent;
     border-width: 0;
-    color: $ecl-color-black-100;
+    color: $ecl-color-grey;
     display: block;
     font: $ecl-font-prolonged-print-m;
+    font-family: $ecl-font-family-print-alt;
     font-weight: $ecl-font-weight-print-bold;
-    padding: $ecl-spacing-s 0;
-    position: relative;
+    padding: 0;
     text-align: left;
     width: 100%;
   }
 
   .ecl-accordion2__content {
-    color: $ecl-color-black-100;
+    color: $ecl-color-grey;
     display: block;
     font: $ecl-font-prolonged-print-m;
+    margin-top: $ecl-spacing-print-m;
     page-break-inside: avoid;
   }
 }
