@@ -4,9 +4,9 @@ import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 
 import demoContentImage from '@ecl/ec-specs-page-banner/demo/data--image';
 import demoContentImageShade from '@ecl/ec-specs-page-banner/demo/data--image-shade';
-import demoContentPrimary from '@ecl/ec-specs-page-banner/demo/data--primary';
-import demoContentDefault from '@ecl/ec-specs-page-banner/demo/data--default';
-import demoContentAlignLeft from '@ecl/ec-specs-page-banner/demo/data--align-left';
+
+import demoContentSimple from '@ecl/ec-specs-page-banner/demo/data--simple';
+import demoContentBackgroundImage from '@ecl/ec-specs-page-banner/demo/data--background-image';
 
 import PageBanner from '../src/PageBanner';
 
@@ -22,14 +22,17 @@ export const Image = () => {
   };
 
   return (
-    <PageBanner
-      variant="image"
-      title={text('Title', demoContentImage.title)}
-      baseline={text('Baseline', demoContentImage.baseline)}
-      link={link}
-      isCentered={boolean('Centered', true)}
-      image={text('Image', demoContentImage.image)}
-    />
+    <div className="ecl-container">
+      <PageBanner
+        {...demoContentImage}
+        variant="image"
+        title={text('Title', demoContentImage.title)}
+        baseline={text('Baseline', demoContentImage.baseline)}
+        link={link}
+        isCentered={boolean('Centered', true)}
+        image={text('Image', demoContentImage.image)}
+      />
+    </div>
   );
 };
 
@@ -44,14 +47,17 @@ export const ImageShade = () => {
   };
 
   return (
-    <PageBanner
-      variant="image-shade"
-      title={text('Title', demoContentImageShade.title)}
-      baseline={text('Baseline', demoContentImageShade.baseline)}
-      link={link}
-      isCentered={boolean('Centered', true)}
-      image={text('Image', demoContentImageShade.image)}
-    />
+    <div className="ecl-container">
+      <PageBanner
+        {...demoContentImageShade}
+        variant="image-shade"
+        title={text('Title', demoContentImageShade.title)}
+        baseline={text('Baseline', demoContentImageShade.baseline)}
+        link={link}
+        isCentered={boolean('Centered', true)}
+        image={text('Image', demoContentImageShade.image)}
+      />
+    </div>
   );
 };
 
@@ -59,62 +65,124 @@ ImageShade.story = {
   name: 'image-shade',
 };
 
-export const Primary = () => {
+export const SimplePrimary = () => {
   const link = {
-    ...demoContentPrimary.link,
-    label: text('Link label', demoContentPrimary.link.label),
+    ...demoContentSimple.link,
+    label: text('Link label', demoContentSimple.link.label),
   };
 
   return (
-    <PageBanner
-      variant="primary"
-      title={text('Title', demoContentPrimary.title)}
-      baseline={text('Baseline', demoContentPrimary.baseline)}
-      link={link}
-      isCentered={boolean('Centered', true)}
-    />
+    <div className="ecl-container">
+      <PageBanner
+        {...demoContentSimple}
+        variant="primary"
+        meta={text('Meta', demoContentSimple.meta)}
+        title={text('Title', demoContentSimple.title)}
+        baseline={text('Baseline', demoContentSimple.baseline)}
+        link={link}
+        isCentered={boolean('Centered', true)}
+      />
+    </div>
   );
 };
 
-Primary.story = {
-  name: 'primary',
+SimplePrimary.story = {
+  name: 'simple-primary',
 };
 
-export const Default = () => {
+export const SimpleGrey = () => {
   const link = {
-    ...demoContentDefault.link,
-    label: text('Link label', demoContentDefault.link.label),
+    ...demoContentSimple.link,
+    label: text('Link label', demoContentSimple.link.label),
   };
 
   return (
-    <PageBanner
-      variant="default"
-      title={text('Title', demoContentDefault.title)}
-      baseline={text('Baseline', demoContentDefault.baseline)}
-      link={link}
-      isCentered={boolean('Centered', true)}
-    />
+    <div className="ecl-container">
+      <PageBanner
+        {...demoContentSimple}
+        variant="grey"
+        meta={text('Meta', demoContentSimple.meta)}
+        title={text('Title', demoContentSimple.title)}
+        baseline={text('Baseline', demoContentSimple.baseline)}
+        link={link}
+        isCentered={boolean('Centered', true)}
+      />
+    </div>
   );
 };
 
-Default.story = {
-  name: 'default',
+SimpleGrey.story = {
+  name: 'simple-grey',
+};
+
+export const SimpleWhite = () => {
+  const link = {
+    ...demoContentSimple.link,
+    label: text('Link label', demoContentSimple.link.label),
+  };
+
+  return (
+    <div className="ecl-container">
+      <PageBanner
+        {...demoContentSimple}
+        variant="white"
+        meta={text('Meta', demoContentSimple.meta)}
+        title={text('Title', demoContentSimple.title)}
+        baseline={text('Baseline', demoContentSimple.baseline)}
+        link={link}
+        isCentered={boolean('Centered', true)}
+      />
+    </div>
+  );
+};
+
+SimpleWhite.story = {
+  name: 'simple-white',
+};
+
+export const SimpleBackgroundImage = () => {
+  const link = {
+    ...demoContentBackgroundImage.link,
+    label: text('Link label', demoContentBackgroundImage.link.label),
+  };
+
+  return (
+    <div className="ecl-container">
+      <PageBanner
+        {...demoContentBackgroundImage}
+        variant="background-image"
+        meta={text('Meta', demoContentBackgroundImage.meta)}
+        title={text('Title', demoContentBackgroundImage.title)}
+        baseline={text('Baseline', demoContentBackgroundImage.baseline)}
+        link={link}
+        isCentered={boolean('Centered', true)}
+      />
+    </div>
+  );
+};
+
+SimpleBackgroundImage.story = {
+  name: 'simple-background-image',
 };
 
 export const AlignLeft = () => {
   const link = {
-    ...demoContentAlignLeft.link,
-    label: text('Link label', demoContentAlignLeft.link.label),
+    ...demoContentSimple.link,
+    label: text('Link label', demoContentSimple.link.label),
   };
 
   return (
-    <PageBanner
-      variant="default"
-      title={text('Title', demoContentAlignLeft.title)}
-      baseline={text('Baseline', demoContentAlignLeft.baseline)}
-      link={link}
-      isCentered={false}
-    />
+    <div className="ecl-container">
+      <PageBanner
+        {...demoContentSimple}
+        variant="primary"
+        meta={text('Meta', demoContentSimple.meta)}
+        title={text('Title', demoContentSimple.title)}
+        baseline={text('Baseline', demoContentSimple.baseline)}
+        link={link}
+        isCentered={false}
+      />
+    </div>
   );
 };
 

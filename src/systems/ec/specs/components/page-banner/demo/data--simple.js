@@ -1,8 +1,9 @@
 // Simple content for demo
 module.exports = {
-  variant: 'default',
-  title: 'EU Budget for the future',
-  baseline: 'Innovation, economy, environment and geopolitics',
+  meta: 'Meta info | 17 October 2019',
+  title: 'Headline',
+  baseline:
+    'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium',
   link: {
     label: 'Subscribe',
     href: '/example',
@@ -12,5 +13,4 @@ module.exports = {
       size: 'xs',
     },
   },
-  isCentered: true,
 };

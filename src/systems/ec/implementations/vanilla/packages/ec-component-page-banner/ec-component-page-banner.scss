@@ -1,6 +1,6 @@
 /**
  * Page Banner component
- * @define page-banner
+ * @define page-banner; weak
  */
 
 // Import base
@@ -10,20 +10,40 @@
 @include check-imports(('ec-component-button', 'ec-component-link'));
 
 @mixin ecl-page-banner(
-  $background-color-default: $ecl-color-grey-5,
-  $title-color-default: $ecl-color-black-100,
-  $baseline-color-default: $ecl-color-grey-100,
-  $background-color-primary: $ecl-color-primary,
-  $title-color-primary: $ecl-color-white-100,
-  $baseline-color-primary: $ecl-color-white-100,
-  $background-color-image: $ecl-color-white-100,
-  $title-color-image: $ecl-color-black-100,
-  $baseline-color-image: $ecl-color-grey-100,
-  $border-color-image: $ecl-color-yellow-100,
-  $background-color-image-shade: rgba(0, 0, 0, 0.7),
-  $title-color-image-shade: $ecl-color-white-100,
-  $baseline-color-image-shade: $ecl-color-white-100,
-  $content-width: 42.5rem
+  // common
+    $content-width: 42.5rem,
+  // primary
+    $primary-background-color: $ecl-color-primary,
+  $primary-meta-color: $ecl-color-white,
+  $primary-title-color: $ecl-color-white,
+  $primary-baseline-color: $ecl-color-white,
+  // grey
+    $grey-background-color: $ecl-color-grey-5,
+  $grey-meta-color: $ecl-color-grey-75,
+  $grey-title-color: $ecl-color-black,
+  $grey-baseline-color: $ecl-color-grey,
+  // white
+    $white-background-color: $ecl-color-white,
+  $white-meta-color: $ecl-color-grey-75,
+  $white-title-color: $ecl-color-black,
+  $white-baseline-color: $ecl-color-grey,
+  // background image
+    $bg-image-meta-color: $ecl-color-white,
+  $bg-image-title-color: $ecl-color-white,
+  $bg-image-baseline-color: $ecl-color-white,
+  // image
+    $image-background-color: $ecl-color-white,
+  $image-meta-color: $ecl-color-grey-75,
+  $image-title-color: $ecl-color-black,
+  $image-baseline-color: $ecl-color-grey,
+  $image-border-color: $ecl-color-yellow,
+  // image shade
+    $image-shade-background-color: $ecl-color-primary,
+  $image-shade-overlay-color: rgba(0, 0, 0, 0.7),
+  $image-shade-meta-color: $ecl-color-white,
+  $image-shade-title-color: $ecl-color-white,
+  $image-shade-baseline-color: $ecl-color-white,
+  $image-shade-border-color: $ecl-color-yellow
 ) {
   .ecl-page-banner {
     align-items: center;
@@ -36,13 +56,14 @@
 
   .ecl-page-banner__container {
     display: flex;
+    padding-bottom: $ecl-spacing-l;
+    padding-top: $ecl-spacing-l;
     width: 100%;
   }
 
   .ecl-page-banner__content {
     box-sizing: content-box;
     display: block;
-    padding: $ecl-spacing-l;
   }
 
   .ecl-page-banner__image {
@@ -52,6 +73,12 @@
     width: 100%;
   }
 
+  .ecl-page-banner__meta {
+    font: $ecl-font-m;
+    margin-bottom: $ecl-spacing-m;
+    text-transform: uppercase;
+  }
+
   .ecl-page-banner__title {
     font: $ecl-font-3-xl;
     margin: 0;
@@ -59,9 +86,10 @@
 
   .ecl-page-banner__baseline {
     font: $ecl-font-l;
-    margin: 0;
+    margin-top: $ecl-spacing-s;
   }
 
+  /* DEPRECATED */
   .ecl-page-banner__button {
     margin-top: $ecl-spacing-m;
   }
@@ -78,33 +106,9 @@
   }
 
   /* stylelint-disable-next-line order/order */
-  @include ecl-media-breakpoint-up('md') {
-    .ecl-page-banner__content {
-      padding: $ecl-spacing-xl;
-    }
-  }
-
-  /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up('lg') {
-    .ecl-page-banner {
-      // manage ratio 4:1
-      height: 1px; // IE11 fix, see https://github.com/philipwalton/flexbugs/issues/231
-      min-height: (1/4) * 100vw;
-    }
-
-    .ecl-page-banner__container {
-      padding: $ecl-spacing-l;
-    }
-
     .ecl-page-banner__content {
       max-width: $content-width;
-    }
-
-    .ecl-page-banner__image {
-      height: 100%;
-      left: 0;
-      position: absolute;
-      top: 0;
     }
 
     .ecl-page-banner__title {
@@ -134,39 +138,87 @@
   }
 
   /*
-   * variant: default
-   */
-  .ecl-page-banner--default {
-    background-color: $background-color-default;
-
-    .ecl-page-banner__title {
-      color: $title-color-default;
-    }
-
-    .ecl-page-banner__baseline {
-      color: $baseline-color-default;
-    }
-  }
-
-  /*
    * variant: primary
    */
   .ecl-page-banner--primary {
-    background-color: $background-color-primary;
+    background-color: $primary-background-color;
+
+    .ecl-page-banner__meta {
+      color: $primary-meta-color;
+    }
 
     .ecl-page-banner__title {
-      color: $title-color-primary;
+      color: $primary-title-color;
     }
 
     .ecl-page-banner__baseline {
-      color: $baseline-color-primary;
+      color: $primary-baseline-color;
     }
 
     /* DEPRECATED */
     .ecl-page-banner__link,
     .ecl-page-banner__link:hover,
     .ecl-page-banner__link:focus {
-      color: $baseline-color-primary;
+      color: $primary-baseline-color;
+    }
+  }
+
+  /*
+   * variant: grey
+   */
+  .ecl-page-banner--default, // DEPRECATED
+  .ecl-page-banner--grey {
+    background-color: $grey-background-color;
+
+    .ecl-page-banner__meta {
+      color: $grey-meta-color;
+    }
+
+    .ecl-page-banner__title {
+      color: $grey-title-color;
+    }
+
+    .ecl-page-banner__baseline {
+      color: $grey-baseline-color;
+    }
+  }
+
+  /*
+   * variant: white
+   */
+  .ecl-page-banner--white {
+    background-color: $white-background-color;
+
+    .ecl-page-banner__meta {
+      color: $white-meta-color;
+    }
+
+    .ecl-page-banner__title {
+      color: $white-title-color;
+    }
+
+    .ecl-page-banner__baseline {
+      color: $white-baseline-color;
+    }
+  }
+
+  /*
+   * variant: background image
+   */
+  .ecl-page-banner--background-image {
+    background-position: 0 0;
+    background-size: cover;
+
+    .ecl-page-banner__meta {
+      color: $bg-image-meta-color;
+    }
+
+    .ecl-page-banner__title {
+      color: $bg-image-title-color;
+    }
+
+    .ecl-page-banner__baseline {
+      color: $bg-image-baseline-color;
     }
   }
 
@@ -174,20 +226,26 @@
    * variant: image
    */
   .ecl-page-banner--image {
-    .ecl-page-banner__container {
-      border-top: 4px solid $border-color-image;
+    background-color: $image-background-color;
+
+    .ecl-page-banner__image {
+      border-bottom: 4px solid $image-border-color;
     }
 
     .ecl-page-banner__content {
       padding-top: calc(#{$ecl-spacing-l} - 4px);
     }
 
+    .ecl-page-banner__meta {
+      color: $image-meta-color;
+    }
+
     .ecl-page-banner__title {
-      color: $title-color-image;
+      color: $image-title-color;
     }
 
     .ecl-page-banner__baseline {
-      color: $baseline-color-image;
+      color: $image-baseline-color;
     }
   }
 
@@ -203,14 +261,34 @@
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up('lg') {
     .ecl-page-banner--image {
+      // manage ratio 4:1
+      &::before {
+        content: '';
+        display: block;
+        padding-top: (1 / 4) * 100%;
+        width: 100%;
+      }
+
+      .ecl-page-banner__image {
+        border-bottom-width: 0;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+      }
+
+      .ecl-container {
+        position: absolute;
+      }
+
       .ecl-page-banner__container {
-        border-top-width: 0;
+        padding-bottom: 0;
+        padding-top: 0;
       }
 
       .ecl-page-banner__content {
-        background-color: $background-color-image;
-        border-bottom: 4px solid $border-color-image;
-        border-top-width: 0;
+        background-color: $image-background-color;
+        border-bottom: 4px solid $image-border-color;
         padding: $ecl-spacing-xl $ecl-spacing-xl calc(#{$ecl-spacing-xl} - 4px);
       }
     }
@@ -220,41 +298,64 @@
    * variant: image-shade
    */
   .ecl-page-banner--image-shade {
-    .ecl-page-banner__image::before {
-      background-color: $background-color-image-shade;
-      content: '';
-      display: block;
-      height: 100%;
-      position: absolute;
-      width: 100%;
+    background-color: $image-shade-background-color;
+
+    .ecl-page-banner__image {
+      border-bottom: 4px solid $image-shade-border-color;
+    }
+
+    .ecl-page-banner__meta {
+      color: $image-shade-meta-color;
     }
 
     .ecl-page-banner__title {
-      color: $title-color-default;
+      color: $image-shade-title-color;
     }
 
     .ecl-page-banner__baseline {
-      color: $baseline-color-default;
+      color: $image-shade-baseline-color;
     }
   }
 
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up('lg') {
     .ecl-page-banner--image-shade {
-      .ecl-page-banner__title {
-        color: $title-color-image-shade;
+      // manage ratio 4:1
+      &::before {
+        content: '';
+        display: block;
+        padding-top: (1 / 4) * 100%;
+        width: 100%;
       }
 
-      .ecl-page-banner__baseline {
-        color: $baseline-color-image-shade;
+      .ecl-page-banner__image {
+        border-bottom-width: 0;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
       }
 
-      /* DEPRECATED */
-      /* stylelint-disable-next-line no-descending-specificity */
-      .ecl-page-banner__link,
-      .ecl-page-banner__link:hover,
-      .ecl-page-banner__link:focus {
-        color: $baseline-color-image-shade;
+      .ecl-page-banner__image::before {
+        background-color: $image-shade-overlay-color;
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        width: 100%;
+      }
+
+      .ecl-container {
+        position: absolute;
+      }
+
+      .ecl-page-banner__container {
+        padding-bottom: 0;
+        padding-top: 0;
+      }
+
+      .ecl-page-banner__content {
+        padding: $ecl-spacing-xl $ecl-spacing-xl calc(#{$ecl-spacing-xl} - 4px);
       }
     }
   }
