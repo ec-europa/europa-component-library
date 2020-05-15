@@ -30,6 +30,7 @@ export const Image = () => {
         baseline={text('Baseline', demoContentImage.baseline)}
         link={link}
         isCentered={boolean('Centered', true)}
+        isFullWidth={boolean('Full width', false)}
         image={text('Image', demoContentImage.image)}
       />
     </div>
@@ -55,6 +56,7 @@ export const ImageShade = () => {
         baseline={text('Baseline', demoContentImageShade.baseline)}
         link={link}
         isCentered={boolean('Centered', true)}
+        isFullWidth={boolean('Full width', false)}
         image={text('Image', demoContentImageShade.image)}
       />
     </div>
@@ -62,7 +64,7 @@ export const ImageShade = () => {
 };
 
 ImageShade.story = {
-  name: 'image-shade',
+  name: 'image shade',
 };
 
 export const SimplePrimary = () => {
@@ -81,13 +83,14 @@ export const SimplePrimary = () => {
         baseline={text('Baseline', demoContentSimple.baseline)}
         link={link}
         isCentered={boolean('Centered', true)}
+        isFullWidth={boolean('Full width', false)}
       />
     </div>
   );
 };
 
 SimplePrimary.story = {
-  name: 'simple-primary',
+  name: 'primary',
 };
 
 export const SimpleGrey = () => {
@@ -106,13 +109,14 @@ export const SimpleGrey = () => {
         baseline={text('Baseline', demoContentSimple.baseline)}
         link={link}
         isCentered={boolean('Centered', true)}
+        isFullWidth={boolean('Full width', false)}
       />
     </div>
   );
 };
 
 SimpleGrey.story = {
-  name: 'simple-grey',
+  name: 'grey',
 };
 
 export const SimpleWhite = () => {
@@ -131,13 +135,14 @@ export const SimpleWhite = () => {
         baseline={text('Baseline', demoContentSimple.baseline)}
         link={link}
         isCentered={boolean('Centered', true)}
+        isFullWidth={boolean('Full width', false)}
       />
     </div>
   );
 };
 
 SimpleWhite.story = {
-  name: 'simple-white',
+  name: 'white',
 };
 
 export const SimpleBackgroundImage = () => {
@@ -156,13 +161,14 @@ export const SimpleBackgroundImage = () => {
         baseline={text('Baseline', demoContentBackgroundImage.baseline)}
         link={link}
         isCentered={boolean('Centered', true)}
+        isFullWidth={boolean('Full width', false)}
       />
     </div>
   );
 };
 
 SimpleBackgroundImage.story = {
-  name: 'simple-background-image',
+  name: 'background image',
 };
 
 export const AlignLeft = () => {
@@ -181,11 +187,38 @@ export const AlignLeft = () => {
         baseline={text('Baseline', demoContentSimple.baseline)}
         link={link}
         isCentered={false}
+        isFullWidth={false}
       />
     </div>
   );
 };
 
 AlignLeft.story = {
-  name: 'align-left',
+  name: 'aligned left',
+};
+
+export const FullWidth = () => {
+  const link = {
+    ...demoContentSimple.link,
+    label: text('Link label', demoContentSimple.link.label),
+  };
+
+  return (
+    <div className="ecl-container">
+      <PageBanner
+        {...demoContentSimple}
+        variant="primary"
+        meta={text('Meta', demoContentSimple.meta)}
+        title={text('Title', demoContentSimple.title)}
+        baseline={text('Baseline', demoContentSimple.baseline)}
+        link={link}
+        isCentered={false}
+        isFullWidth
+      />
+    </div>
+  );
+};
+
+FullWidth.story = {
+  name: 'full width',
 };

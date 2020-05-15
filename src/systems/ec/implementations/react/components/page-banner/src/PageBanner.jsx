@@ -13,6 +13,7 @@ const PageBanner = ({
   backgroundImage,
   image,
   isCentered,
+  isFullWidth,
   button, // DEPRECATED
   link,
   className,
@@ -21,6 +22,7 @@ const PageBanner = ({
   const classNames = classnames(className, 'ecl-page-banner', {
     [`ecl-page-banner--${variant}`]: variant,
     [`ecl-page-banner--centered`]: isCentered,
+    [`ecl-page-banner--full-width`]: isFullWidth,
   });
 
   return (
@@ -73,6 +75,7 @@ PageBanner.propTypes = {
   backgroundImage: PropTypes.string,
   image: PropTypes.string,
   isCentered: PropTypes.bool,
+  isFullWidth: PropTypes.bool,
   button: PropTypes.shape(Button.propTypes),
   link: PropTypes.shape(Link.propTypes),
   className: PropTypes.string,
@@ -86,6 +89,7 @@ PageBanner.defaultProps = {
   backgroundImage: '',
   image: '',
   isCentered: false,
+  isFullWidth: false,
   button: {},
   link: {},
   className: '',
