@@ -48,7 +48,7 @@
 
   .ecl-select__container {
     background-color: $ecl-color-white-100;
-    display: inline-flex;
+    display: block;
     max-width: 100%;
     position: relative;
   }
@@ -154,6 +154,17 @@
         background-color: $ecl-color-red-130;
       }
     }
+  }
+
+  /*
+   * Multiple
+   */
+  .ecl-select__multiple-toggle {
+    cursor: pointer;
+  }
+
+  .ecl-select__multiple-dropdown {
+    background-color: $ecl-color-grey-5;
   }
 }
 
