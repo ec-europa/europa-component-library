@@ -69,6 +69,7 @@ export const Multiple = () => (
       },
       'm'
     )}
+    multiple
     multiplePlaceholder={text(
       'Placeholder (multiple)',
       demoContentMultiple.multiplePlaceholder

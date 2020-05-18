@@ -1,6 +1,6 @@
 /**
  * Select component
- * @define select
+ * @define select; weak;
  */
 
 // Import base
@@ -48,7 +48,8 @@
 
   .ecl-select__container {
     background-color: $ecl-color-white-100;
-    display: block;
+    display: flex;
+    flex-direction: column;
     max-width: 100%;
     position: relative;
   }
@@ -159,12 +160,49 @@
   /*
    * Multiple
    */
-  .ecl-select__multiple-toggle {
-    cursor: pointer;
+  // stylelint-disable-next-line no-descending-specificity
+  .ecl-select[multiple] + .ecl-select__icon {
+    display: none;
   }
 
-  .ecl-select__multiple-dropdown {
-    background-color: $ecl-color-grey-5;
+  .ecl-select__multiple {
+    .ecl-select__multiple-toggle[readonly] {
+      cursor: default;
+    }
+
+    .ecl-select__multiple-dropdown {
+      background-color: $ecl-color-grey-5;
+      border: 1px solid $ecl-color-grey-15;
+      box-sizing: border-box;
+      margin-top: $ecl-spacing-xs;
+    }
+
+    .ecl-checkbox:first-of-type {
+      border-bottom: 1px solid $ecl-color-grey-25;
+      margin-bottom: $ecl-spacing-xs;
+    }
+
+    .ecl-checkbox:last-of-type {
+      margin-bottom: $ecl-spacing-xs;
+    }
+
+    .ecl-checkbox__label {
+      padding-bottom: $ecl-spacing-xs;
+      padding-left: $ecl-spacing-m;
+      padding-right: $ecl-spacing-m;
+      padding-top: $ecl-spacing-xs;
+      width: calc(100% - #{$ecl-spacing-m} - #{$ecl-spacing-m});
+    }
+
+    .ecl-checkbox__label:hover,
+    .ecl-checkbox__label:focus {
+      background-color: $ecl-color-grey-15;
+    }
+
+    .ecl-checkbox:first-of-type .ecl-checkbox__label {
+      margin-bottom: $ecl-spacing-xs;
+      margin-top: $ecl-spacing-xs;
+    }
   }
 }
 
