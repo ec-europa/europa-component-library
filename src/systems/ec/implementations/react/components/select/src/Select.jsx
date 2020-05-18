@@ -85,8 +85,8 @@ const Select = ({
           {...(multiple
             ? {
                 'data-ecl-select-multiple': true,
-                'data-ecl-select-default': { multiplePlaceholder },
-                'data-ecl-select-search': { multipleSearchText },
+                'data-ecl-select-default': multiplePlaceholder,
+                'data-ecl-select-search': multipleSearchText,
               }
             : {})}
         >

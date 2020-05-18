@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
+import StoryWrapper from '@ecl/story-wrapper';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 
 import demoContentSingle from '@ecl/ec-specs-select/demo/data--single';
@@ -9,7 +10,26 @@ import Select from '../src/Select';
 
 export default {
   title: 'Components/Forms/Select',
-  decorators: [withKnobs],
+  decorators: [
+    withKnobs,
+    story => (
+      <StoryWrapper
+        afterMount={() => {
+          if (!window.ECL) return {};
+
+          const autoinit = window.ECL.autoInit();
+          return { components: autoinit.components };
+        }}
+        beforeUnmount={context => {
+          if (context.components) {
+            context.components.forEach(c => c.destroy());
+          }
+        }}
+      >
+        {story()}
+      </StoryWrapper>
+    ),
+  ],
 };
 
 export const Default = () => (
@@ -50,6 +70,7 @@ Default.story = {
 export const Multiple = () => (
   <Select
     {...demoContentMultiple}
+    data-ecl-auto-init="Select"
     id="select-multiple"
     options={demoContentMultiple.options}
     label={text('Label', demoContentMultiple.label)}
