@@ -1,5 +1,27 @@
 import { queryOne } from '@ecl/ec-base/helpers/dom';
 
+function createCheckbox() {
+  const checkboxWrapper = document.createElement('div');
+  checkboxWrapper.classList.add('ecl-checkbox');
+  const checkboxInput = document.createElement('input');
+  checkboxInput.classList.add('ecl-checkbox__input');
+  checkboxInput.setAttribute('type', 'checkbox');
+  checkboxInput.setAttribute('id', 'select-multiple-all');
+  checkboxWrapper.append(checkboxInput);
+
+  const checkboxLabel = document.createElement('label');
+  checkboxLabel.classList.add('ecl-checkbox__label');
+  checkboxLabel.setAttribute('for', 'select-multiple-all');
+  checkboxWrapper.append(checkboxLabel);
+
+  const checkboxLabelContents = document.createElement('span');
+  checkboxLabelContents.classList.add('ecl-checkbox__box');
+  checkboxLabelContents.textContent = 'Select all';
+  checkboxLabel.append(checkboxLabelContents);
+
+  return checkboxWrapper;
+}
+
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
@@ -58,6 +80,7 @@ export class Select {
     this.copySearchWrapper = null;
     this.defaultPlaceholder = null;
     this.searchPlaceholder = null;
+    this.selectAll = null;
 
     // Bind `this` for use in callbacks
   }
@@ -119,6 +142,9 @@ export class Select {
       this.searchPlaceholder || ''
     );
     this.copySearchWrapper.append(this.copySearchInput);
+
+    this.selectAll = createCheckbox();
+    this.copySearchWrapper.append(this.selectAll);
 
     this.original.parentNode.parentNode.insertBefore(
       this.copyWrapper,
