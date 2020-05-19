@@ -8,9 +8,8 @@ import PageBanner from '@ecl/ec-react-component-page-banner';
 
 import demoContentImage from '@ecl/ec-specs-page-banner/demo/data--image';
 import demoContentImageShade from '@ecl/ec-specs-page-banner/demo/data--image-shade';
-import demoContentPrimary from '@ecl/ec-specs-page-banner/demo/data--primary';
-import demoContentDefault from '@ecl/ec-specs-page-banner/demo/data--default';
-import demoContentAlignLeft from '@ecl/ec-specs-page-banner/demo/data--align-left';
+import demoContentSimple from '@ecl/ec-specs-page-banner/demo/data--simple';
+import demoContentBackgroundImage from '@ecl/ec-specs-page-banner/demo/data--background-image';
 
 ## Image banner
 
@@ -19,7 +18,7 @@ import demoContentAlignLeft from '@ecl/ec-specs-page-banner/demo/data--align-lef
   selectedKind="components-banners-page-banner"
   selectedStory="image"
 >
-  <PageBanner {...demoContentImage} />
+  <PageBanner {...demoContentImage} variant="image" isCentered />
 </Playground>
 
 ## Shade image banner
@@ -29,35 +28,76 @@ import demoContentAlignLeft from '@ecl/ec-specs-page-banner/demo/data--align-lef
   selectedKind="components-banners-page-banner"
   selectedStory="image-shade"
 >
-  <PageBanner {...demoContentImageShade} />
+  <PageBanner {...demoContentImageShade} variant="image-shade" isCentered />
 </Playground>
 
-## Primary banner
+## Simple banners
+
+### Primary
 
 <Playground
   system="ec"
   selectedKind="components-banners-page-banner"
-  selectedStory="primary"
+  selectedStory="simple-primary"
 >
-  <PageBanner {...demoContentPrimary} />
+  <PageBanner {...demoContentSimple} variant="primary" isCentered />
 </Playground>
 
-## Default banner
+### Grey
 
 <Playground
   system="ec"
   selectedKind="components-banners-page-banner"
   selectedStory="default"
 >
-  <PageBanner {...demoContentDefault} />
+  <PageBanner {...demoContentSimple} variant="grey" isCentered />
 </Playground>
 
-## Align left
+### White
+
+<Playground
+  system="ec"
+  selectedKind="components-banners-page-banner"
+  selectedStory="default"
+>
+  <PageBanner {...demoContentSimple} variant="white" isCentered />
+</Playground>
+
+### Background image
+
+<Playground
+  system="ec"
+  selectedKind="components-banners-page-banner"
+  selectedStory="default"
+>
+  <PageBanner
+    {...demoContentBackgroundImage}
+    variant="background-image"
+    isCentered
+  />
+</Playground>
+
+## Other variants
+
+Note: Variants below can be applied to all kind of banners.  
+Check usage guidelines for more information.
+
+### Align left
 
 <Playground
   system="ec"
   selectedKind="components-banners-page-banner"
   selectedStory="align-left"
 >
-  <PageBanner {...demoContentAlignLeft} />
+  <PageBanner {...demoContentSimple} variant="primary" />
+</Playground>
+
+### Full width
+
+<Playground
+  system="ec"
+  selectedKind="components-banners-page-banner"
+  selectedStory="full-width"
+>
+  <PageBanner {...demoContentSimple} variant="primary" isFullWidth="true" />
 </Playground>
