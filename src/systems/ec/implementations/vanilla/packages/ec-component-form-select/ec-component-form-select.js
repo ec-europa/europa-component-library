@@ -55,6 +55,7 @@ export class Select {
     this.copyWrapper = null;
     this.copyInputWrapper = null;
     this.copyInput = null;
+    this.copySearchWrapper = null;
     this.defaultPlaceholder = null;
     this.searchPlaceholder = null;
 
@@ -97,6 +98,27 @@ export class Select {
     this.copyInput.setAttribute('readonly', true);
     this.copyInputWrapper.append(this.copyInput);
     this.copyInputWrapper.append(this.selectIcon);
+
+    this.copySearchWrapper = document.createElement('div');
+    this.copySearchWrapper.classList.add(
+      'ecl-select__container',
+      'ecl-select__multiple-dropdown',
+      'ecl-select__container--m'
+    );
+    this.copyWrapper.append(this.copySearchWrapper);
+
+    this.copySearchInput = document.createElement('input');
+    this.copySearchInput.classList.add('ecl-text-input', 'ecl-text-input--m');
+    this.copySearchInput.setAttribute(
+      'id',
+      `select-multiple-search-${this.id}`
+    );
+    this.copySearchInput.setAttribute('type', 'text');
+    this.copySearchInput.setAttribute(
+      'placeholder',
+      this.searchPlaceholder || ''
+    );
+    this.copySearchWrapper.append(this.copySearchInput);
 
     this.original.parentNode.parentNode.insertBefore(
       this.copyWrapper,
