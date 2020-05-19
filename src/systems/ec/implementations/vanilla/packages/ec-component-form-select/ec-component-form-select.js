@@ -1,3 +1,5 @@
+import { queryOne } from '@ecl/ec-base/helpers/dom';
+
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
@@ -23,10 +25,10 @@ export class Select {
   constructor(
     element,
     {
-      copySelector = 'ecl-select__multiple',
+      originalDataSelector = 'data-ecl-select-multiple',
+      copyCssSelector = 'ecl-select__multiple',
       defaultPlaceholderSelector = 'data-ecl-select-default',
       searchPlaceholderSelector = 'data-ecl-select-search',
-      showSearch = true,
     } = {}
   ) {
     // Check element
@@ -39,12 +41,14 @@ export class Select {
     this.element = element;
 
     // Options
-    this.showSearch = showSearch;
-    this.copySelector = copySelector;
+    this.originalDataSelector = originalDataSelector;
+    this.copyCssSelector = copyCssSelector;
     this.defaultPlaceholderSelector = defaultPlaceholderSelector;
     this.searchPlaceholderSelector = searchPlaceholderSelector;
 
     // Private variables
+    this.id = 0;
+    this.original = null;
     this.copy = null;
     this.defaultPlaceholder = null;
     this.searchPlaceholder = null;
@@ -56,11 +60,22 @@ export class Select {
    * Initialise component.
    */
   init() {
+    this.id += 1;
     this.defaultPlaceholder = this.element.getAttribute(
       this.defaultPlaceholderSelector
     );
     this.searchPlaceholder = this.element.getAttribute(
       this.searchPlaceholderSelector
+    );
+
+    this.original = queryOne(`[${this.originalDataSelector}]`);
+    this.copy = document.createElement('div');
+    this.copy.classList.add(this.copyCssSelector);
+    this.copy.setAttribute('id', `${this.copyCssSelector}-${this.id}`);
+
+    this.original.parentNode.parentNode.insertBefore(
+      this.copy,
+      this.original.parentNode.nextSibling
     );
   }
 
