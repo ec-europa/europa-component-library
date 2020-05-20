@@ -1,4 +1,17 @@
 import { queryOne } from '@ecl/ec-base/helpers/dom';
+import iconSvgUiCheck from '@ecl/ec-resources-icons/dist/svg/ui/check.svg';
+
+function createCheckboxIcon() {
+  const tempElement = document.createElement('div');
+  tempElement.innerHTML = iconSvgUiCheck; // avoiding the use of not-so-stable createElementNs
+  const svg = tempElement.childNodes[0];
+  svg.removeAttribute('height');
+  svg.removeAttribute('width');
+  svg.setAttribute('focusable', false);
+  svg.setAttribute('aria-hidden', true);
+  svg.classList.add('ecl-icon', 'ecl-icon--s', 'ecl-checkbox__icon');
+  return svg;
+}
 
 function createCheckbox() {
   const checkboxWrapper = document.createElement('div');
@@ -16,7 +29,10 @@ function createCheckbox() {
 
   const checkboxLabelContents = document.createElement('span');
   checkboxLabelContents.classList.add('ecl-checkbox__box');
-  checkboxLabelContents.textContent = 'Select all';
+  const checkboxIcon = createCheckboxIcon();
+  checkboxLabelContents.append(checkboxIcon);
+  const text = document.createTextNode('Select all');
+  checkboxLabelContents.append(text);
   checkboxLabel.append(checkboxLabelContents);
 
   return checkboxWrapper;
