@@ -1,6 +1,9 @@
 import { queryOne } from '@ecl/ec-base/helpers/dom';
 import iconSvgUiCheck from '@ecl/ec-resources-icons/dist/svg/ui/check.svg';
 
+/**
+ * @returns {HTMLElement}
+ */
 function createCheckboxIcon() {
   const tempElement = document.createElement('div');
   tempElement.innerHTML = iconSvgUiCheck; // avoiding the use of not-so-stable createElementNs
@@ -13,29 +16,30 @@ function createCheckboxIcon() {
   return svg;
 }
 
-function createCheckbox() {
-  const checkboxWrapper = document.createElement('div');
-  checkboxWrapper.classList.add('ecl-checkbox');
-  const checkboxInput = document.createElement('input');
-  checkboxInput.classList.add('ecl-checkbox__input');
-  checkboxInput.setAttribute('type', 'checkbox');
-  checkboxInput.setAttribute('id', 'select-multiple-all');
-  checkboxWrapper.append(checkboxInput);
-
-  const checkboxLabel = document.createElement('label');
-  checkboxLabel.classList.add('ecl-checkbox__label');
-  checkboxLabel.setAttribute('for', 'select-multiple-all');
-  checkboxWrapper.append(checkboxLabel);
-
-  const checkboxLabelContents = document.createElement('span');
-  checkboxLabelContents.classList.add('ecl-checkbox__box');
-  const checkboxIcon = createCheckboxIcon();
-  checkboxLabelContents.append(checkboxIcon);
-  const text = document.createTextNode('Select all');
-  checkboxLabelContents.append(text);
-  checkboxLabel.append(checkboxLabelContents);
-
-  return checkboxWrapper;
+/**
+ * @param {String} id
+ * @param {String} text
+ * @returns {HTMLElement}
+ */
+function createCheckbox(id, text) {
+  if (!id || !text) return '';
+  const checkbox = document.createElement('div');
+  checkbox.classList.add('ecl-checkbox');
+  const input = document.createElement('input');
+  input.classList.add('ecl-checkbox__input');
+  input.setAttribute('type', 'checkbox');
+  input.setAttribute('id', id);
+  checkbox.append(input);
+  const label = document.createElement('label');
+  label.classList.add('ecl-checkbox__label');
+  label.setAttribute('for', id);
+  const box = document.createElement('span');
+  box.classList.add('ecl-checkbox__box');
+  box.append(createCheckboxIcon());
+  label.append(box);
+  label.append(document.createTextNode(text));
+  checkbox.append(label);
+  return checkbox;
 }
 
 /**
@@ -159,7 +163,7 @@ export class Select {
     );
     this.copySearchWrapper.append(this.copySearchInput);
 
-    this.selectAll = createCheckbox();
+    this.selectAll = createCheckbox('select-multiple-all', 'Select all');
     this.copySearchWrapper.append(this.selectAll);
 
     this.original.parentNode.parentNode.insertBefore(
