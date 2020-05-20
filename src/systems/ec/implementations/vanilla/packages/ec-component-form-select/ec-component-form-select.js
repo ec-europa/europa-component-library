@@ -92,16 +92,16 @@ export class Select {
 
     // Private variables
     this.id = 0;
-    this.selector = null;
-    this.selectIcon = null;
-    this.selectMultiple = null;
-    this.inputContainer = null;
     this.input = null;
-    this.searchContainer = null;
+    this.search = null;
+    this.select = null;
+    this.selectIcon = null;
     this.textDefalt = null;
     this.textSearch = null;
-    this.selectAll = null;
-    this.selectorStyleDisplay = null;
+    this.selectMultiple = null;
+    this.inputContainer = null;
+    this.searchContainer = null;
+    this.selectStyleDisplay = null;
 
     // Bind `this` for use in callbacks
   }
@@ -111,6 +111,10 @@ export class Select {
    */
   init() {
     this.id += 1; // Ensures unique elements in the markup even when multiple instances.
+    const containerClasses = [
+      'ecl-select__container',
+      'ecl-select__container--m',
+    ];
     this.textDefalt = this.element.getAttribute(
       this.selectTextDefaultDataSelector
     );
@@ -118,10 +122,10 @@ export class Select {
       this.selectTextSearchDataSelector
     );
 
-    this.selector = queryOne(`[${this.selectDataSelector}]`);
-    this.selectorStyleDisplay = this.selector.style.display;
-    if (this.selector.nextSibling.classList.contains('ecl-select__icon')) {
-      this.selectIcon = this.selector.nextSibling;
+    this.select = queryOne(`[${this.selectDataSelector}]`);
+    this.selectStyleDisplay = this.select.style.display;
+    if (this.select.nextSibling.classList.contains('ecl-select__icon')) {
+      this.selectIcon = this.select.nextSibling;
     }
 
     this.selectMultiple = document.createElement('div');
@@ -132,10 +136,7 @@ export class Select {
     );
 
     this.inputContainer = document.createElement('div');
-    this.inputContainer.classList.add(
-      'ecl-select__container',
-      'ecl-select__container--m'
-    );
+    this.inputContainer.classList.add(...containerClasses);
     this.selectMultiple.append(this.inputContainer);
 
     this.input = document.createElement('input');
@@ -149,9 +150,8 @@ export class Select {
 
     this.searchContainer = document.createElement('div');
     this.searchContainer.classList.add(
-      'ecl-select__container',
-      'ecl-select__container--m',
-      'ecl-select__multiple-dropdown'
+      'ecl-select__multiple-dropdown',
+      ...containerClasses
     );
     this.selectMultiple.append(this.searchContainer);
 
@@ -162,23 +162,24 @@ export class Select {
     this.search.setAttribute('placeholder', this.textSearch || '');
     this.searchContainer.append(this.search);
 
-    this.selectAll = createCheckbox('select-multiple-all', 'Select all');
-    this.searchContainer.append(this.selectAll);
+    this.searchContainer.append(
+      createCheckbox('select-multiple-all', 'Select all')
+    );
 
-    if (this.selector.options && this.selector.options.length > 0) {
-      this.selector.options.forEach(option => {
+    if (this.select.options && this.select.options.length > 0) {
+      this.select.options.forEach(option => {
         this.searchContainer.append(
           createCheckbox(`select-multiple-item-${option.value}`, option.text)
         );
       });
     }
 
-    this.selector.parentNode.parentNode.insertBefore(
+    this.select.parentNode.parentNode.insertBefore(
       this.selectMultiple,
-      this.selector.parentNode.nextSibling
+      this.select.parentNode.nextSibling
     );
 
-    this.selector.style.display = 'none';
+    this.select.style.display = 'none';
   }
 
   /**
@@ -188,7 +189,7 @@ export class Select {
     if (this.selectMultiple) {
       this.selectMultiple.remove();
     }
-    this.selector.style.display = this.selectorStyleDisplay;
+    this.select.style.display = this.selectStyleDisplay;
   }
 }
 
