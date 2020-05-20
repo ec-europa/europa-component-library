@@ -19,6 +19,10 @@ export default {
 
           const autoinit = window.ECL.autoInit();
           return { components: autoinit.components };
+          // const select = window.ECL.Select.autoInit(
+          //   document.querySelector(`[data-ecl-select-multiple]`)
+          // );
+          // select.destroy();
         }}
         beforeUnmount={context => {
           if (context.components) {

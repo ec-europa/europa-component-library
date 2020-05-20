@@ -67,9 +67,9 @@ export class Select {
   constructor(
     element,
     {
-      originalId = 'select-multiple',
-      copyWrapperCssSelector = 'ecl-select__multiple',
-      originalDataSelector = 'data-ecl-select-multiple',
+      selectIdSelector = 'select-multiple',
+      selectDataSelector = 'data-ecl-select-multiple',
+      multiselectCssSelector = 'ecl-select__multiple',
       defaultPlaceholderSelector = 'data-ecl-select-default',
       searchPlaceholderSelector = 'data-ecl-select-search',
     } = {}
@@ -84,15 +84,15 @@ export class Select {
     this.element = element;
 
     // Options
-    this.originalId = originalId;
-    this.copyWrapperCssSelector = copyWrapperCssSelector;
-    this.originalDataSelector = originalDataSelector;
+    this.selectIdSelector = selectIdSelector;
+    this.selectDataSelector = selectDataSelector;
+    this.multiselectCssSelector = multiselectCssSelector;
     this.defaultPlaceholderSelector = defaultPlaceholderSelector;
     this.searchPlaceholderSelector = searchPlaceholderSelector;
 
     // Private variables
-    this.id = 0;
-    this.original = null;
+    this.instanceId = 0;
+    this.selector = null;
     this.selectIcon = null;
     this.copyWrapper = null;
     this.copyInputWrapper = null;
@@ -101,6 +101,7 @@ export class Select {
     this.defaultPlaceholder = null;
     this.searchPlaceholder = null;
     this.selectAll = null;
+    this.selectorStyleDisplay = null;
 
     // Bind `this` for use in callbacks
   }
@@ -109,7 +110,7 @@ export class Select {
    * Initialise component.
    */
   init() {
-    this.id += 1; // Ensures unique elements in the markup even when multiple instances.
+    this.instanceId += 1; // Ensures unique elements in the markup even when multiple instances.
     this.defaultPlaceholder = this.element.getAttribute(
       this.defaultPlaceholderSelector
     );
@@ -117,14 +118,18 @@ export class Select {
       this.searchPlaceholderSelector
     );
 
-    this.original = queryOne(`[${this.originalDataSelector}]`);
-    if (this.original.nextSibling.classList.contains('ecl-select__icon')) {
-      this.selectIcon = this.original.nextSibling;
+    this.selector = queryOne(`[${this.selectDataSelector}]`);
+    this.selectorStyleDisplay = this.selector.style.display;
+    if (this.selector.nextSibling.classList.contains('ecl-select__icon')) {
+      this.selectIcon = this.selector.nextSibling;
     }
 
     this.copyWrapper = document.createElement('div');
-    this.copyWrapper.classList.add(this.copyWrapperCssSelector);
-    this.copyWrapper.setAttribute('id', `${this.originalId}-${this.id}`);
+    this.copyWrapper.classList.add(this.multiselectCssSelector);
+    this.copyWrapper.setAttribute(
+      'id',
+      `${this.selectIdSelector}-${this.instanceId}`
+    );
 
     this.copyInputWrapper = document.createElement('div');
     this.copyInputWrapper.classList.add(
@@ -135,7 +140,10 @@ export class Select {
 
     this.copyInput = document.createElement('input');
     this.copyInput.classList.add('ecl-select', 'ecl-select__multiple-toggle');
-    this.copyInput.setAttribute('id', `select-multiple-toggle-${this.id}`);
+    this.copyInput.setAttribute(
+      'id',
+      `select-multiple-toggle-${this.instanceId}`
+    );
     this.copyInput.setAttribute('type', 'text');
     this.copyInput.setAttribute('placeholder', this.defaultPlaceholder || '');
     this.copyInput.setAttribute('readonly', true);
@@ -154,7 +162,7 @@ export class Select {
     this.copySearchInput.classList.add('ecl-text-input', 'ecl-text-input--m');
     this.copySearchInput.setAttribute(
       'id',
-      `select-multiple-search-${this.id}`
+      `select-multiple-search-${this.instanceId}`
     );
     this.copySearchInput.setAttribute('type', 'text');
     this.copySearchInput.setAttribute(
@@ -166,10 +174,20 @@ export class Select {
     this.selectAll = createCheckbox('select-multiple-all', 'Select all');
     this.copySearchWrapper.append(this.selectAll);
 
-    this.original.parentNode.parentNode.insertBefore(
+    if (this.selector.options && this.selector.options.length > 0) {
+      this.selector.options.forEach(option => {
+        this.copySearchWrapper.append(
+          createCheckbox(`select-multiple-item-${option.value}`, option.text)
+        );
+      });
+    }
+
+    this.selector.parentNode.parentNode.insertBefore(
       this.copyWrapper,
-      this.original.parentNode.nextSibling
+      this.selector.parentNode.nextSibling
     );
+
+    this.selector.style.display = 'none';
   }
 
   /**
@@ -179,6 +197,7 @@ export class Select {
     if (this.copyWrapper) {
       this.copyWrapper.remove();
     }
+    this.selector.style.display = this.selectorStyleDisplay;
   }
 }
 
