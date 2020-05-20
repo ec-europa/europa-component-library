@@ -95,9 +95,9 @@ export class Select {
     this.selector = null;
     this.selectIcon = null;
     this.selectMultiple = null;
-    this.copyInputWrapper = null;
-    this.copyInput = null;
-    this.copySearchWrapper = null;
+    this.inputContainer = null;
+    this.input = null;
+    this.searchContainer = null;
     this.textDefalt = null;
     this.textSearch = null;
     this.selectAll = null;
@@ -108,7 +108,8 @@ export class Select {
 
   /**
    * Initialise component.
-   */ init() {
+   */
+  init() {
     this.id += 1; // Ensures unique elements in the markup even when multiple instances.
     this.textDefalt = this.element.getAttribute(
       this.selectTextDefaultDataSelector
@@ -130,46 +131,43 @@ export class Select {
       `${this.selectIdSelector}-${this.id}`
     );
 
-    this.copyInputWrapper = document.createElement('div');
-    this.copyInputWrapper.classList.add(
+    this.inputContainer = document.createElement('div');
+    this.inputContainer.classList.add(
       'ecl-select__container',
       'ecl-select__container--m'
     );
-    this.selectMultiple.append(this.copyInputWrapper);
+    this.selectMultiple.append(this.inputContainer);
 
-    this.copyInput = document.createElement('input');
-    this.copyInput.classList.add('ecl-select', 'ecl-select__multiple-toggle');
-    this.copyInput.setAttribute('id', `select-multiple-toggle-${this.id}`);
-    this.copyInput.setAttribute('type', 'text');
-    this.copyInput.setAttribute('placeholder', this.textDefalt || '');
-    this.copyInput.setAttribute('readonly', true);
-    this.copyInputWrapper.append(this.copyInput);
-    this.copyInputWrapper.append(this.selectIcon);
+    this.input = document.createElement('input');
+    this.input.classList.add('ecl-select', 'ecl-select__multiple-toggle');
+    this.input.setAttribute('id', `select-multiple-toggle-${this.id}`);
+    this.input.setAttribute('type', 'text');
+    this.input.setAttribute('placeholder', this.textDefalt || '');
+    this.input.setAttribute('readonly', true);
+    this.inputContainer.append(this.input);
+    this.inputContainer.append(this.selectIcon);
 
-    this.copySearchWrapper = document.createElement('div');
-    this.copySearchWrapper.classList.add(
+    this.searchContainer = document.createElement('div');
+    this.searchContainer.classList.add(
       'ecl-select__container',
       'ecl-select__container--m',
       'ecl-select__multiple-dropdown'
     );
-    this.selectMultiple.append(this.copySearchWrapper);
+    this.selectMultiple.append(this.searchContainer);
 
-    this.copySearchInput = document.createElement('input');
-    this.copySearchInput.classList.add('ecl-text-input', 'ecl-text-input--m');
-    this.copySearchInput.setAttribute(
-      'id',
-      `select-multiple-search-${this.id}`
-    );
-    this.copySearchInput.setAttribute('type', 'text');
-    this.copySearchInput.setAttribute('placeholder', this.textSearch || '');
-    this.copySearchWrapper.append(this.copySearchInput);
+    this.search = document.createElement('input');
+    this.search.classList.add('ecl-text-input', 'ecl-text-input--m');
+    this.search.setAttribute('id', `select-multiple-search-${this.id}`);
+    this.search.setAttribute('type', 'text');
+    this.search.setAttribute('placeholder', this.textSearch || '');
+    this.searchContainer.append(this.search);
 
     this.selectAll = createCheckbox('select-multiple-all', 'Select all');
-    this.copySearchWrapper.append(this.selectAll);
+    this.searchContainer.append(this.selectAll);
 
     if (this.selector.options && this.selector.options.length > 0) {
       this.selector.options.forEach(option => {
-        this.copySearchWrapper.append(
+        this.searchContainer.append(
           createCheckbox(`select-multiple-item-${option.value}`, option.text)
         );
       });
