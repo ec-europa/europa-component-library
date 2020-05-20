@@ -69,9 +69,9 @@ export class Select {
     {
       selectIdSelector = 'select-multiple',
       selectDataSelector = 'data-ecl-select-multiple',
-      multiselectCssSelector = 'ecl-select__multiple',
-      defaultPlaceholderSelector = 'data-ecl-select-default',
-      searchPlaceholderSelector = 'data-ecl-select-search',
+      selectMultipleCssSelector = 'ecl-select__multiple',
+      selectTextDefaultDataSelector = 'data-ecl-select-default',
+      selectTextSearchDataSelector = 'data-ecl-select-search',
     } = {}
   ) {
     // Check element
@@ -86,20 +86,20 @@ export class Select {
     // Options
     this.selectIdSelector = selectIdSelector;
     this.selectDataSelector = selectDataSelector;
-    this.multiselectCssSelector = multiselectCssSelector;
-    this.defaultPlaceholderSelector = defaultPlaceholderSelector;
-    this.searchPlaceholderSelector = searchPlaceholderSelector;
+    this.selectMultipleCssSelector = selectMultipleCssSelector;
+    this.selectTextDefaultDataSelector = selectTextDefaultDataSelector;
+    this.selectTextSearchDataSelector = selectTextSearchDataSelector;
 
     // Private variables
-    this.instanceId = 0;
+    this.id = 0;
     this.selector = null;
     this.selectIcon = null;
-    this.copyWrapper = null;
+    this.selectMultiple = null;
     this.copyInputWrapper = null;
     this.copyInput = null;
     this.copySearchWrapper = null;
-    this.defaultPlaceholder = null;
-    this.searchPlaceholder = null;
+    this.textDefalt = null;
+    this.textSearch = null;
     this.selectAll = null;
     this.selectorStyleDisplay = null;
 
@@ -108,14 +108,13 @@ export class Select {
 
   /**
    * Initialise component.
-   */
-  init() {
-    this.instanceId += 1; // Ensures unique elements in the markup even when multiple instances.
-    this.defaultPlaceholder = this.element.getAttribute(
-      this.defaultPlaceholderSelector
+   */ init() {
+    this.id += 1; // Ensures unique elements in the markup even when multiple instances.
+    this.textDefalt = this.element.getAttribute(
+      this.selectTextDefaultDataSelector
     );
-    this.searchPlaceholder = this.element.getAttribute(
-      this.searchPlaceholderSelector
+    this.textSearch = this.element.getAttribute(
+      this.selectTextSearchDataSelector
     );
 
     this.selector = queryOne(`[${this.selectDataSelector}]`);
@@ -124,11 +123,11 @@ export class Select {
       this.selectIcon = this.selector.nextSibling;
     }
 
-    this.copyWrapper = document.createElement('div');
-    this.copyWrapper.classList.add(this.multiselectCssSelector);
-    this.copyWrapper.setAttribute(
+    this.selectMultiple = document.createElement('div');
+    this.selectMultiple.classList.add(this.selectMultipleCssSelector);
+    this.selectMultiple.setAttribute(
       'id',
-      `${this.selectIdSelector}-${this.instanceId}`
+      `${this.selectIdSelector}-${this.id}`
     );
 
     this.copyInputWrapper = document.createElement('div');
@@ -136,16 +135,13 @@ export class Select {
       'ecl-select__container',
       'ecl-select__container--m'
     );
-    this.copyWrapper.append(this.copyInputWrapper);
+    this.selectMultiple.append(this.copyInputWrapper);
 
     this.copyInput = document.createElement('input');
     this.copyInput.classList.add('ecl-select', 'ecl-select__multiple-toggle');
-    this.copyInput.setAttribute(
-      'id',
-      `select-multiple-toggle-${this.instanceId}`
-    );
+    this.copyInput.setAttribute('id', `select-multiple-toggle-${this.id}`);
     this.copyInput.setAttribute('type', 'text');
-    this.copyInput.setAttribute('placeholder', this.defaultPlaceholder || '');
+    this.copyInput.setAttribute('placeholder', this.textDefalt || '');
     this.copyInput.setAttribute('readonly', true);
     this.copyInputWrapper.append(this.copyInput);
     this.copyInputWrapper.append(this.selectIcon);
@@ -153,22 +149,19 @@ export class Select {
     this.copySearchWrapper = document.createElement('div');
     this.copySearchWrapper.classList.add(
       'ecl-select__container',
-      'ecl-select__multiple-dropdown',
-      'ecl-select__container--m'
+      'ecl-select__container--m',
+      'ecl-select__multiple-dropdown'
     );
-    this.copyWrapper.append(this.copySearchWrapper);
+    this.selectMultiple.append(this.copySearchWrapper);
 
     this.copySearchInput = document.createElement('input');
     this.copySearchInput.classList.add('ecl-text-input', 'ecl-text-input--m');
     this.copySearchInput.setAttribute(
       'id',
-      `select-multiple-search-${this.instanceId}`
+      `select-multiple-search-${this.id}`
     );
     this.copySearchInput.setAttribute('type', 'text');
-    this.copySearchInput.setAttribute(
-      'placeholder',
-      this.searchPlaceholder || ''
-    );
+    this.copySearchInput.setAttribute('placeholder', this.textSearch || '');
     this.copySearchWrapper.append(this.copySearchInput);
 
     this.selectAll = createCheckbox('select-multiple-all', 'Select all');
@@ -183,7 +176,7 @@ export class Select {
     }
 
     this.selector.parentNode.parentNode.insertBefore(
-      this.copyWrapper,
+      this.selectMultiple,
       this.selector.parentNode.nextSibling
     );
 
@@ -194,8 +187,8 @@ export class Select {
    * Destroy component.
    */
   destroy() {
-    if (this.copyWrapper) {
-      this.copyWrapper.remove();
+    if (this.selectMultiple) {
+      this.selectMultiple.remove();
     }
     this.selector.style.display = this.selectorStyleDisplay;
   }
