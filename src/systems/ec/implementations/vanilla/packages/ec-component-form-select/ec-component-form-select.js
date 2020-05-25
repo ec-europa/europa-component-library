@@ -67,11 +67,11 @@ export class Select {
   constructor(
     element,
     {
-      selectIdSelector = 'select-multiple',
-      selectDataSelector = 'data-ecl-select-multiple',
-      selectMultipleCssSelector = 'ecl-select__multiple',
-      selectTextDefaultDataSelector = 'data-ecl-select-default',
-      selectTextSearchDataSelector = 'data-ecl-select-search',
+      selectId = 'select-multiple',
+      selectMultipleSelector = '[data-ecl-select-multiple]',
+      defaultTextAttribute = 'data-ecl-select-default',
+      searchTextAttribute = 'data-ecl-select-search',
+      selectAllTextAttribute = 'data-ecl-select-all',
     } = {}
   ) {
     // Check element
@@ -84,11 +84,11 @@ export class Select {
     this.element = element;
 
     // Options
-    this.selectIdSelector = selectIdSelector;
-    this.selectDataSelector = selectDataSelector;
-    this.selectMultipleCssSelector = selectMultipleCssSelector;
-    this.selectTextDefaultDataSelector = selectTextDefaultDataSelector;
-    this.selectTextSearchDataSelector = selectTextSearchDataSelector;
+    this.selectId = selectId;
+    this.selectMultipleSelector = selectMultipleSelector;
+    this.defaultTextAttribute = defaultTextAttribute;
+    this.searchTextAttribute = searchTextAttribute;
+    this.selectAllTextAttribute = selectAllTextAttribute;
 
     // Private variables
     this.id = 0;
@@ -98,6 +98,7 @@ export class Select {
     this.selectIcon = null;
     this.textDefault = null;
     this.textSearch = null;
+    this.textSelectAll = null;
     this.selectMultiple = null;
     this.inputContainer = null;
     this.searchContainer = null;
@@ -115,25 +116,19 @@ export class Select {
       'ecl-select__container',
       'ecl-select__container--m',
     ];
-    this.textDefault = this.element.getAttribute(
-      this.selectTextDefaultDataSelector
-    );
-    this.textSearch = this.element.getAttribute(
-      this.selectTextSearchDataSelector
-    );
+    this.textDefault = this.element.getAttribute(this.defaultTextAttribute);
+    this.textSearch = this.element.getAttribute(this.searchTextAttribute);
+    this.textSelectAll = this.element.getAttribute(this.selectAllTextAttribute);
 
-    this.select = queryOne(`[${this.selectDataSelector}]`);
+    this.select = queryOne(this.selectMultipleSelector);
     this.selectStyleDisplay = this.select.style.display;
     if (this.select.nextSibling.classList.contains('ecl-select__icon')) {
       this.selectIcon = this.select.nextSibling;
     }
 
     this.selectMultiple = document.createElement('div');
-    this.selectMultiple.classList.add(this.selectMultipleCssSelector);
-    this.selectMultiple.setAttribute(
-      'id',
-      `${this.selectIdSelector}-${this.id}`
-    );
+    this.selectMultiple.classList.add('ecl-select__multiple');
+    this.selectMultiple.setAttribute('id', `${this.selectId}-${this.id}`);
 
     this.inputContainer = document.createElement('div');
     this.inputContainer.classList.add(...containerClasses);
@@ -163,7 +158,7 @@ export class Select {
     this.searchContainer.append(this.search);
 
     this.searchContainer.append(
-      createCheckbox('select-multiple-all', 'Select all')
+      createCheckbox('select-multiple-all', this.textSelectAll)
     );
 
     if (this.select.options && this.select.options.length > 0) {
