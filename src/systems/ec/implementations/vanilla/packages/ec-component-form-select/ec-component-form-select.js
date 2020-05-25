@@ -19,20 +19,23 @@ function createCheckboxIcon() {
 /**
  * @param {String} id
  * @param {String} text
+ * @param {String} scope
  * @returns {HTMLElement}
  */
-function createCheckbox(id, text) {
+function createCheckbox(id, text, scope) {
   if (!id || !text) return '';
   const checkbox = document.createElement('div');
   checkbox.classList.add('ecl-checkbox');
+  checkbox.setAttribute('data-select-multiple-id', scope);
+  checkbox.setAttribute('data-select-multiple-value', id);
   const input = document.createElement('input');
   input.classList.add('ecl-checkbox__input');
   input.setAttribute('type', 'checkbox');
-  input.setAttribute('id', id);
+  input.setAttribute('id', `${scope}-${id}`);
   checkbox.append(input);
   const label = document.createElement('label');
   label.classList.add('ecl-checkbox__label');
-  label.setAttribute('for', id);
+  label.setAttribute('for', `${scope}-${id}`);
   const box = document.createElement('span');
   box.classList.add('ecl-checkbox__box');
   box.append(createCheckboxIcon());
@@ -45,6 +48,11 @@ function createCheckbox(id, text) {
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
+ * @param {String} options.selectMultipleId The id attribute of the select multiple
+ * @param {String} options.selectMultipleSelector The data attribute selector of the select multiple
+ * @param {String} options.defaultTextAttribute The data attribute for the default placeholder text
+ * @param {String} options.searchTextAttribute The data attribute for the default search text
+ * @param {String} options.selectAllTextAttribute The data attribute for the select all text
  */
 export class Select {
   /**
@@ -67,7 +75,7 @@ export class Select {
   constructor(
     element,
     {
-      selectId = 'select-multiple',
+      selectMultipleId = 'select-multiple',
       selectMultipleSelector = '[data-ecl-select-multiple]',
       defaultTextAttribute = 'data-ecl-select-default',
       searchTextAttribute = 'data-ecl-select-search',
@@ -84,14 +92,13 @@ export class Select {
     this.element = element;
 
     // Options
-    this.selectId = selectId;
+    this.selectMultipleId = selectMultipleId;
     this.selectMultipleSelector = selectMultipleSelector;
     this.defaultTextAttribute = defaultTextAttribute;
     this.searchTextAttribute = searchTextAttribute;
     this.selectAllTextAttribute = selectAllTextAttribute;
 
     // Private variables
-    this.id = 0;
     this.input = null;
     this.search = null;
     this.select = null;
@@ -104,13 +111,13 @@ export class Select {
     this.searchContainer = null;
 
     // Bind `this` for use in callbacks
+    this.handleClickCheckbox = this.handleClickCheckbox.bind(this);
   }
 
   /**
    * Initialise component.
    */
   init() {
-    this.id += 1; // Ensures unique elements in the markup even when multiple instances.
     const containerClasses = [
       'ecl-select__container',
       'ecl-select__container--m',
@@ -127,7 +134,6 @@ export class Select {
 
     this.selectMultiple = document.createElement('div');
     this.selectMultiple.classList.add('ecl-select__multiple');
-    this.selectMultiple.setAttribute('id', `${this.selectId}-${this.id}`);
 
     this.inputContainer = document.createElement('div');
     this.inputContainer.classList.add(...containerClasses);
@@ -135,7 +141,6 @@ export class Select {
 
     this.input = document.createElement('input');
     this.input.classList.add('ecl-select', 'ecl-select__multiple-toggle');
-    this.input.setAttribute('id', `select-multiple-toggle-${this.id}`);
     this.input.setAttribute('type', 'text');
     this.input.setAttribute('placeholder', this.textDefault || '');
     this.input.setAttribute('readonly', true);
@@ -151,20 +156,27 @@ export class Select {
 
     this.search = document.createElement('input');
     this.search.classList.add('ecl-text-input', 'ecl-text-input--m');
-    this.search.setAttribute('id', `select-multiple-search-${this.id}`);
     this.search.setAttribute('type', 'text');
     this.search.setAttribute('placeholder', this.textSearch || '');
     this.searchContainer.append(this.search);
 
     this.searchContainer.append(
-      createCheckbox('select-multiple-all', this.textSelectAll)
+      createCheckbox(
+        'select-multiple-all',
+        this.textSelectAll,
+        this.selectMultipleId
+      )
     );
 
     if (this.select.options && this.select.options.length > 0) {
       this.select.options.forEach(option => {
-        this.searchContainer.append(
-          createCheckbox(`select-multiple-item-${option.value}`, option.text)
+        const checkbox = createCheckbox(
+          option.value,
+          option.text,
+          this.selectMultipleId
         );
+        checkbox.addEventListener('click', this.handleClickCheckbox);
+        this.searchContainer.append(checkbox);
       });
     }
 
@@ -173,7 +185,7 @@ export class Select {
       this.select.parentNode.nextSibling
     );
 
-    this.select.parentNode.classList.add('ecl-select__container--hidden');
+    // this.select.parentNode.classList.add('ecl-select__container--hidden');
   }
 
   /**
@@ -185,6 +197,17 @@ export class Select {
     }
 
     this.select.parentNode.classList.remove('ecl-select__container--hidden');
+  }
+
+  /**
+   * @param {Event} e
+   */
+  handleClickCheckbox(e) {
+    e.preventDefault();
+    const checkbox = e.target.parentNode;
+    const option = checkbox.getAttribute('data-select-multiple-value');
+    this.element.options[option].selected = 'selected';
+    return this;
   }
 }
 
