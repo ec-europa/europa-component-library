@@ -24,6 +24,7 @@ const Select = ({
   multiple,
   multiplePlaceholder,
   multipleSearchText,
+  multipleAllText,
   className,
   ...props
 }) => {
@@ -88,6 +89,7 @@ const Select = ({
                 'data-ecl-select-multiple': true,
                 'data-ecl-select-default': multiplePlaceholder,
                 'data-ecl-select-search': multipleSearchText,
+                'data-ecl-select-all': multipleAllText,
               }
             : {})}
         >
@@ -147,7 +149,7 @@ const Select = ({
                 [`ecl-text-input--${width}`]: width,
               })}
             />
-            <Checkbox id="select-multiple-all" label="Select all" />
+            <Checkbox id="select-multiple-all" label={multipleAllText} />
             <Checkbox id="select-multiple-item-1" label="Belgium" />
             <Checkbox id="select-multiple-item-2" label="France" />
             <Checkbox id="select-multiple-item-3" label="Luxembourg" />
@@ -188,6 +190,7 @@ Select.propTypes = {
   multiple: PropTypes.bool,
   multiplePlaceholder: PropTypes.string,
   multipleSearchText: PropTypes.string,
+  multipleAllText: PropTypes.string,
   className: PropTypes.string,
 };
 
@@ -208,6 +211,7 @@ Select.defaultProps = {
   multiple: false,
   multiplePlaceholder: '',
   multipleSearchText: '',
+  multipleAllText: '',
   className: '',
 };
 

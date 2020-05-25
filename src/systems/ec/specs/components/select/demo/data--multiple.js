@@ -49,4 +49,5 @@ module.exports = {
   multiple: true,
   multiplePlaceholder: 'Placeholder text',
   multipleSearchText: 'Search',
+  multipleAllText: 'Select all',
 };
