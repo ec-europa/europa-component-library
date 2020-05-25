@@ -23,6 +23,7 @@ const Select = ({
   multiple,
   multiplePlaceholder,
   multipleSearchText,
+  multipleAllText,
   className,
   ...props
 }) => {
@@ -87,6 +88,7 @@ const Select = ({
                 'data-ecl-select-multiple': true,
                 'data-ecl-select-default': multiplePlaceholder,
                 'data-ecl-select-search': multipleSearchText,
+                'data-ecl-select-all': multipleAllText,
               }
             : {})}
         >
@@ -132,6 +134,7 @@ Select.propTypes = {
   multiple: PropTypes.bool,
   multiplePlaceholder: PropTypes.string,
   multipleSearchText: PropTypes.string,
+  multipleAllText: PropTypes.string,
   className: PropTypes.string,
 };
 
@@ -152,6 +155,7 @@ Select.defaultProps = {
   multiple: false,
   multiplePlaceholder: '',
   multipleSearchText: '',
+  multipleAllText: '',
   className: '',
 };
 

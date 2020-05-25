@@ -95,14 +95,17 @@ export const Multiple = () => (
       'm'
     )}
     multiple
-    multiplePlaceholder={text(
+    data-ecl-select-default={text(
       'Placeholder (multiple)',
       demoContentMultiple.multiplePlaceholder
     )}
-    multipleSearch
-    text={text(
+    data-ecl-select-search={text(
       'Search text (multiple)',
       demoContentMultiple.multipleSearchText
+    )}
+    data-ecl-select-all={text(
+      'Select all label (multiple)',
+      demoContentMultiple.multipleAllText
     )}
   />
 );
