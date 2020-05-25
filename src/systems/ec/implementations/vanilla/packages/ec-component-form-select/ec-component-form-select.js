@@ -96,7 +96,7 @@ export class Select {
     this.search = null;
     this.select = null;
     this.selectIcon = null;
-    this.textDefalt = null;
+    this.textDefault = null;
     this.textSearch = null;
     this.selectMultiple = null;
     this.inputContainer = null;
@@ -115,7 +115,7 @@ export class Select {
       'ecl-select__container',
       'ecl-select__container--m',
     ];
-    this.textDefalt = this.element.getAttribute(
+    this.textDefault = this.element.getAttribute(
       this.selectTextDefaultDataSelector
     );
     this.textSearch = this.element.getAttribute(
@@ -143,7 +143,7 @@ export class Select {
     this.input.classList.add('ecl-select', 'ecl-select__multiple-toggle');
     this.input.setAttribute('id', `select-multiple-toggle-${this.id}`);
     this.input.setAttribute('type', 'text');
-    this.input.setAttribute('placeholder', this.textDefalt || '');
+    this.input.setAttribute('placeholder', this.textDefault || '');
     this.input.setAttribute('readonly', true);
     this.inputContainer.append(this.input);
     this.inputContainer.append(this.selectIcon);
