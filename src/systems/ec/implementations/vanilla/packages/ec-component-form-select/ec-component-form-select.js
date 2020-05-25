@@ -102,7 +102,6 @@ export class Select {
     this.selectMultiple = null;
     this.inputContainer = null;
     this.searchContainer = null;
-    this.selectStyleDisplay = null;
 
     // Bind `this` for use in callbacks
   }
@@ -121,7 +120,7 @@ export class Select {
     this.textSelectAll = this.element.getAttribute(this.selectAllTextAttribute);
 
     this.select = queryOne(this.selectMultipleSelector);
-    this.selectStyleDisplay = this.select.style.display;
+
     if (this.select.nextSibling.classList.contains('ecl-select__icon')) {
       this.selectIcon = this.select.nextSibling;
     }
@@ -174,7 +173,7 @@ export class Select {
       this.select.parentNode.nextSibling
     );
 
-    this.select.style.display = 'none';
+    this.select.parentNode.classList.add('ecl-select__container--hidden');
   }
 
   /**
@@ -184,7 +183,8 @@ export class Select {
     if (this.selectMultiple) {
       this.selectMultiple.remove();
     }
-    this.select.style.display = this.selectStyleDisplay;
+
+    this.select.parentNode.classList.remove('ecl-select__container--hidden');
   }
 }
 
