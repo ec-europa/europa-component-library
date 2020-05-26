@@ -10,6 +10,7 @@ module.exports = {
     node: true,
   },
   rules: {
+    'class-methods-use-this': 'off',
     'no-underscore-dangle': 'off',
     'react/jsx-fragments': 'off',
     'react/jsx-props-no-spreading': 'off',

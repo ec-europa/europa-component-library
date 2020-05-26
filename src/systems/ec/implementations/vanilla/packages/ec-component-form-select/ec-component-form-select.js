@@ -2,50 +2,6 @@ import { queryOne } from '@ecl/ec-base/helpers/dom';
 import iconSvgUiCheck from '@ecl/ec-resources-icons/dist/svg/ui/check.svg';
 
 /**
- * @returns {HTMLElement}
- */
-function createCheckboxIcon() {
-  const tempElement = document.createElement('div');
-  tempElement.innerHTML = iconSvgUiCheck; // avoiding the use of not-so-stable createElementNs
-  const svg = tempElement.childNodes[0];
-  svg.removeAttribute('height');
-  svg.removeAttribute('width');
-  svg.setAttribute('focusable', false);
-  svg.setAttribute('aria-hidden', true);
-  svg.classList.add('ecl-icon', 'ecl-icon--s', 'ecl-checkbox__icon');
-  return svg;
-}
-
-/**
- * @param {String} id
- * @param {String} text
- * @param {String} scope
- * @returns {HTMLElement}
- */
-function createCheckbox(id, text, scope) {
-  if (!id || !text) return '';
-  const checkbox = document.createElement('div');
-  checkbox.classList.add('ecl-checkbox');
-  checkbox.setAttribute('data-select-multiple-id', scope);
-  checkbox.setAttribute('data-select-multiple-value', id);
-  const input = document.createElement('input');
-  input.classList.add('ecl-checkbox__input');
-  input.setAttribute('type', 'checkbox');
-  input.setAttribute('id', `${scope}-${id}`);
-  checkbox.append(input);
-  const label = document.createElement('label');
-  label.classList.add('ecl-checkbox__label');
-  label.setAttribute('for', `${scope}-${id}`);
-  const box = document.createElement('span');
-  box.classList.add('ecl-checkbox__box');
-  box.append(createCheckboxIcon());
-  label.append(box);
-  label.append(document.createTextNode(text));
-  checkbox.append(label);
-  return checkbox;
-}
-
-/**
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
  * @param {String} options.selectMultipleId The id attribute of the select multiple
@@ -110,8 +66,53 @@ export class Select {
     this.inputContainer = null;
     this.searchContainer = null;
 
-    // Bind `this` for use in callbacks
+    this.createCheckboxIcon = this.createCheckboxIcon.bind(this);
+    this.createCheckbox = this.createCheckbox.bind(this);
     this.handleClickCheckbox = this.handleClickCheckbox.bind(this);
+  }
+
+  /**
+   * @returns {HTMLElement}
+   */
+  createCheckboxIcon() {
+    const tempElement = document.createElement('div');
+    tempElement.innerHTML = iconSvgUiCheck; // avoiding the use of not-so-stable createElementNs
+    const svg = tempElement.childNodes[0];
+    svg.removeAttribute('height');
+    svg.removeAttribute('width');
+    svg.setAttribute('focusable', false);
+    svg.setAttribute('aria-hidden', true);
+    svg.classList.add('ecl-icon', 'ecl-icon--s', 'ecl-checkbox__icon');
+    return svg;
+  }
+
+  /**
+   * @param {String} id
+   * @param {String} text
+   * @param {String} scope
+   * @param {Function} clickHandler
+   * @returns {HTMLElement}
+   */
+  createCheckbox(id, text, scope) {
+    if (!id || !text || !scope) return '';
+    const checkbox = document.createElement('div');
+    checkbox.classList.add('ecl-checkbox');
+    checkbox.setAttribute('data-select-multiple-value', text);
+    const input = document.createElement('input');
+    input.classList.add('ecl-checkbox__input');
+    input.setAttribute('type', 'checkbox');
+    input.setAttribute('id', `${scope}-${id}`);
+    checkbox.append(input);
+    const label = document.createElement('label');
+    label.classList.add('ecl-checkbox__label');
+    label.setAttribute('for', `${scope}-${id}`);
+    const box = document.createElement('span');
+    box.classList.add('ecl-checkbox__box');
+    box.append(this.createCheckboxIcon());
+    label.append(box);
+    label.append(document.createTextNode(text));
+    checkbox.append(label);
+    return checkbox;
   }
 
   /**
@@ -160,17 +161,16 @@ export class Select {
     this.search.setAttribute('placeholder', this.textSearch || '');
     this.searchContainer.append(this.search);
 
-    this.searchContainer.append(
-      createCheckbox(
-        'select-multiple-all',
-        this.textSelectAll,
-        this.selectMultipleId
-      )
+    const selectAll = this.createCheckbox(
+      'all',
+      this.textSelectAll,
+      this.selectMultipleId
     );
+    this.searchContainer.append(selectAll);
 
     if (this.select.options && this.select.options.length > 0) {
       this.select.options.forEach(option => {
-        const checkbox = createCheckbox(
+        const checkbox = this.createCheckbox(
           option.value,
           option.text,
           this.selectMultipleId
@@ -205,9 +205,19 @@ export class Select {
   handleClickCheckbox(e) {
     e.preventDefault();
     const checkbox = e.target.parentNode;
-    const option = checkbox.getAttribute('data-select-multiple-value');
-    this.element.options[option].selected = 'selected';
-    return this;
+    const input = checkbox.querySelector('input');
+
+    // Toggle values
+    input.checked = !input.checked;
+    this.select.options.forEach(option => {
+      if (option.text === checkbox.getAttribute('data-select-multiple-value')) {
+        if (option.getAttribute('selected')) {
+          option.removeAttribute('selected');
+        } else {
+          option.setAttribute('selected', 'selected');
+        }
+      }
+    });
   }
 }
 
