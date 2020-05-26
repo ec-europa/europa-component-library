@@ -11,6 +11,7 @@ module.exports = {
   },
   rules: {
     'class-methods-use-this': 'off',
+    'unicorn/prefer-node-append': 'off', // IE browsers support appendChild and not append
     'no-underscore-dangle': 'off',
     'react/jsx-fragments': 'off',
     'react/jsx-props-no-spreading': 'off',

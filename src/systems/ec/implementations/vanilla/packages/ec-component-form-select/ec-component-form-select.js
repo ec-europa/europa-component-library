@@ -102,16 +102,16 @@ export class Select {
     input.classList.add('ecl-checkbox__input');
     input.setAttribute('type', 'checkbox');
     input.setAttribute('id', `${scope}-${id}`);
-    checkbox.append(input);
+    checkbox.appendChild(input);
     const label = document.createElement('label');
     label.classList.add('ecl-checkbox__label');
     label.setAttribute('for', `${scope}-${id}`);
     const box = document.createElement('span');
     box.classList.add('ecl-checkbox__box');
-    box.append(this.createCheckboxIcon());
-    label.append(box);
-    label.append(document.createTextNode(text));
-    checkbox.append(label);
+    box.appendChild(this.createCheckboxIcon());
+    label.appendChild(box);
+    label.appendChild(document.createTextNode(text));
+    checkbox.appendChild(label);
     return checkbox;
   }
 
@@ -138,35 +138,35 @@ export class Select {
 
     this.inputContainer = document.createElement('div');
     this.inputContainer.classList.add(...containerClasses);
-    this.selectMultiple.append(this.inputContainer);
+    this.selectMultiple.appendChild(this.inputContainer);
 
     this.input = document.createElement('input');
     this.input.classList.add('ecl-select', 'ecl-select__multiple-toggle');
     this.input.setAttribute('type', 'text');
     this.input.setAttribute('placeholder', this.textDefault || '');
     this.input.setAttribute('readonly', true);
-    this.inputContainer.append(this.input);
-    this.inputContainer.append(this.selectIcon);
+    this.inputContainer.appendChild(this.input);
+    this.inputContainer.appendChild(this.selectIcon);
 
     this.searchContainer = document.createElement('div');
     this.searchContainer.classList.add(
       'ecl-select__multiple-dropdown',
       ...containerClasses
     );
-    this.selectMultiple.append(this.searchContainer);
+    this.selectMultiple.appendChild(this.searchContainer);
 
     this.search = document.createElement('input');
     this.search.classList.add('ecl-text-input', 'ecl-text-input--m');
     this.search.setAttribute('type', 'text');
     this.search.setAttribute('placeholder', this.textSearch || '');
-    this.searchContainer.append(this.search);
+    this.searchContainer.appendChild(this.search);
 
     const selectAll = this.createCheckbox(
       'all',
       this.textSelectAll,
       this.selectMultipleId
     );
-    this.searchContainer.append(selectAll);
+    this.searchContainer.appendChild(selectAll);
 
     if (this.select.options && this.select.options.length > 0) {
       this.select.options.forEach(option => {
@@ -176,7 +176,7 @@ export class Select {
           this.selectMultipleId
         );
         checkbox.addEventListener('click', this.handleClickCheckbox);
-        this.searchContainer.append(checkbox);
+        this.searchContainer.appendChild(checkbox);
       });
     }
 
