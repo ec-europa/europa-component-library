@@ -70,6 +70,7 @@ export class Select {
     this.createCheckboxIcon = this.createCheckboxIcon.bind(this);
     this.createCheckbox = this.createCheckbox.bind(this);
     this.updateInputValue = this.updateInputValue.bind(this);
+    this.handleClickSelectMultiple = this.handleClickSelectMultiple.bind(this);
     this.handleClickCheckbox = this.handleClickCheckbox.bind(this);
     this.handleClickSelectAll = this.handleClickSelectAll.bind(this);
   }
@@ -138,6 +139,10 @@ export class Select {
 
     this.selectMultiple = document.createElement('div');
     this.selectMultiple.classList.add('ecl-select__multiple');
+    this.selectMultiple.addEventListener(
+      'click',
+      this.handleClickSelectMultiple
+    );
 
     this.inputContainer = document.createElement('div');
     this.inputContainer.classList.add(...containerClasses);
@@ -152,6 +157,7 @@ export class Select {
     this.inputContainer.appendChild(this.selectIcon);
 
     this.searchContainer = document.createElement('div');
+    this.searchContainer.style.display = 'none';
     this.searchContainer.classList.add(
       'ecl-select__multiple-dropdown',
       ...containerClasses
@@ -189,13 +195,18 @@ export class Select {
       this.select.parentNode.nextSibling
     );
 
-    // this.select.parentNode.classList.add('ecl-select__container--hidden');
+    this.select.parentNode.classList.add('ecl-select__container--hidden');
   }
 
   /**
    * Destroy component.
    */
   destroy() {
+    this.searchContainer.querySelectorAll('input').forEach(input => {
+      input.removeEventListener('click', this.handleClickSelectAll);
+      input.removeEventListener('click', this.handleClickCheckbox);
+    });
+
     if (this.selectMultiple) {
       this.selectMultiple.remove();
     }
@@ -208,6 +219,19 @@ export class Select {
       .filter(option => option.getAttribute('selected'))
       .map(option => option.text)
       .join(', ');
+  }
+
+  /**
+   * @param {Event} e
+   */
+  handleClickSelectMultiple(e) {
+    e.preventDefault();
+
+    if (this.searchContainer.style.display === 'none') {
+      this.searchContainer.style.display = 'block';
+    } else {
+      this.searchContainer.style.display = 'none';
+    }
   }
 
   /**
