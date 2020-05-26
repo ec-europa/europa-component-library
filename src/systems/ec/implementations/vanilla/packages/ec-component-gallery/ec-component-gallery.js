@@ -270,7 +270,6 @@ export class Gallery {
 
       if (this.overlayMedia) {
         this.overlayMedia.innerHTML = '';
-        /* eslint-disable-next-line unicorn/prefer-node-append */
         this.overlayMedia.appendChild(mediaElement);
       }
 
@@ -280,7 +279,6 @@ export class Gallery {
         const sourceTag = document.createElement('source');
         sourceTag.setAttribute('src', source.getAttribute('src'));
         sourceTag.setAttribute('type', source.getAttribute('type'));
-        /* eslint-disable-next-line unicorn/prefer-node-append */
         mediaElement.appendChild(sourceTag);
       });
 
@@ -292,7 +290,6 @@ export class Gallery {
         trackTag.setAttribute('kind', track.getAttribute('kind'));
         trackTag.setAttribute('srclang', track.getAttribute('srcLang'));
         trackTag.setAttribute('label', track.getAttribute('label'));
-        /* eslint-disable-next-line unicorn/prefer-node-append */
         mediaElement.appendChild(trackTag);
       });
 
@@ -308,7 +305,6 @@ export class Gallery {
 
       if (this.overlayMedia) {
         this.overlayMedia.innerHTML = '';
-        /* eslint-disable-next-line unicorn/prefer-node-append */
         this.overlayMedia.appendChild(mediaElement);
       }
 

@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/prefer-includes */
 import Stickyfill from 'stickyfilljs';
 import Gumshoe from 'gumshoejs/dist/gumshoe.polyfills';
 import { queryOne, queryAll } from '@ecl/ec-base/helpers/dom';

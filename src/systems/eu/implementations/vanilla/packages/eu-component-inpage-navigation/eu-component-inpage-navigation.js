@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/prefer-includes */
 /**
  * Navigation inpage related behaviors.
  */

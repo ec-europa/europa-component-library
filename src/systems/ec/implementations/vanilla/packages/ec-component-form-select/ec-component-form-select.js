@@ -218,6 +218,11 @@ export class Select {
         }
       }
     });
+
+    this.input.value = Array.from(this.select.options)
+      .filter(option => option.getAttribute('selected'))
+      .map(option => option.text)
+      .join(', ');
   }
 }
 
