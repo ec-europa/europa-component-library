@@ -1,3 +1,4 @@
+/* eslint-disable no-return-assign */
 import { queryOne } from '@ecl/ec-base/helpers/dom';
 import iconSvgUiCheck from '@ecl/ec-resources-icons/dist/svg/ui/check.svg';
 
@@ -23,7 +24,6 @@ export class Select {
     const select = new Select(root, defaultOptions);
 
     select.init();
-    // eslint-disable-next-line no-param-reassign
     root.ECLSelect = select;
     return select;
   }
@@ -66,9 +66,12 @@ export class Select {
     this.inputContainer = null;
     this.searchContainer = null;
 
+    // Bind `this` for use in callbacks
     this.createCheckboxIcon = this.createCheckboxIcon.bind(this);
     this.createCheckbox = this.createCheckbox.bind(this);
+    this.updateInputValue = this.updateInputValue.bind(this);
     this.handleClickCheckbox = this.handleClickCheckbox.bind(this);
+    this.handleClickSelectAll = this.handleClickSelectAll.bind(this);
   }
 
   /**
@@ -166,6 +169,7 @@ export class Select {
       this.textSelectAll,
       this.selectMultipleId
     );
+    selectAll.addEventListener('click', this.handleClickSelectAll);
     this.searchContainer.appendChild(selectAll);
 
     if (this.select.options && this.select.options.length > 0) {
@@ -199,6 +203,13 @@ export class Select {
     this.select.parentNode.classList.remove('ecl-select__container--hidden');
   }
 
+  updateInputValue() {
+    this.input.value = Array.from(this.select.options)
+      .filter(option => option.getAttribute('selected'))
+      .map(option => option.text)
+      .join(', ');
+  }
+
   /**
    * @param {Event} e
    */
@@ -219,10 +230,35 @@ export class Select {
       }
     });
 
-    this.input.value = Array.from(this.select.options)
-      .filter(option => option.getAttribute('selected'))
-      .map(option => option.text)
-      .join(', ');
+    this.updateInputValue();
+  }
+
+  /**
+   * @param {Event} e
+   */
+  handleClickSelectAll(e) {
+    e.preventDefault();
+    const checkbox = e.target.parentNode;
+    const input = checkbox.querySelector('input');
+    input.checked = !input.checked;
+
+    const options = Array.from(
+      this.searchContainer.querySelectorAll('input')
+    ).filter(option => option.getAttribute('id') !== 'select-multiple-all');
+
+    if (this.select.getAttribute('data-all-checked') === 'true') {
+      this.select.options.forEach(option => option.removeAttribute('selected'));
+      options.map(option => (option.checked = false));
+      this.select.setAttribute('data-all-checked', false);
+    } else {
+      this.select.options.forEach(option =>
+        option.setAttribute('selected', 'selected')
+      );
+      options.map(option => (option.checked = true));
+      this.select.setAttribute('data-all-checked', true);
+    }
+
+    this.updateInputValue();
   }
 }
 

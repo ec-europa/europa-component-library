@@ -37,7 +37,6 @@ export class Gallery {
   static autoInit(root, { GALLERY: defaultOptions = {} } = {}) {
     const gallery = new Gallery(root, defaultOptions);
     gallery.init();
-    // eslint-disable-next-line no-param-reassign
     root.ECLGallery = gallery;
     return gallery;
   }

@@ -24,7 +24,6 @@ export class SiteHeaderCore {
   static autoInit(root, { SITE_HEADER_CORE: defaultOptions = {} } = {}) {
     const siteHeaderCore = new SiteHeaderCore(root, defaultOptions);
     siteHeaderCore.init();
-    // eslint-disable-next-line no-param-reassign
     root.ECLSiteHeaderCore = siteHeaderCore;
     return siteHeaderCore;
   }

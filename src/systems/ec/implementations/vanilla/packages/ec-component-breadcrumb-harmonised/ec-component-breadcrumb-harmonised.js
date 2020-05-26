@@ -4,7 +4,6 @@ export class BreadcrumbHarmonised {
   static autoInit(root, { BREADCRUMB_HARMONISED: defaultOptions = {} } = {}) {
     const breadcrumbHarmonised = new BreadcrumbHarmonised(root, defaultOptions);
     breadcrumbHarmonised.init();
-    // eslint-disable-next-line no-param-reassign
     root.ECLBreadcrumbHarmonised = breadcrumbHarmonised;
     return breadcrumbHarmonised;
   }
