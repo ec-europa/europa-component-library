@@ -208,4 +208,6 @@ module.exports = {
       },
     },
   },
+  viewAllLabel: 'View all',
+  counterLabel: 'Media files in this gallery',
 };
