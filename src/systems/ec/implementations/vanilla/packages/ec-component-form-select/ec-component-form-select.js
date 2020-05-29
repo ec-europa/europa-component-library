@@ -58,6 +58,7 @@ export class Select {
     this.input = null;
     this.search = null;
     this.select = null;
+    this.selectAll = null;
     this.selectIcon = null;
     this.textDefault = null;
     this.textSearch = null;
@@ -70,7 +71,9 @@ export class Select {
     this.createCheckboxIcon = this.createCheckboxIcon.bind(this);
     this.createCheckbox = this.createCheckbox.bind(this);
     this.updateInputValue = this.updateInputValue.bind(this);
-    this.handleClickSelectMultiple = this.handleClickSelectMultiple.bind(this);
+    this.toggleSearchContainerVisibility = this.toggleSearchContainerVisibility.bind(
+      this
+    );
     this.handleClickCheckbox = this.handleClickCheckbox.bind(this);
     this.handleClickSelectAll = this.handleClickSelectAll.bind(this);
   }
@@ -139,10 +142,6 @@ export class Select {
 
     this.selectMultiple = document.createElement('div');
     this.selectMultiple.classList.add('ecl-select__multiple');
-    this.selectMultiple.addEventListener(
-      'click',
-      this.handleClickSelectMultiple
-    );
 
     this.inputContainer = document.createElement('div');
     this.inputContainer.classList.add(...containerClasses);
@@ -153,6 +152,11 @@ export class Select {
     this.input.setAttribute('type', 'text');
     this.input.setAttribute('placeholder', this.textDefault || '');
     this.input.setAttribute('readonly', true);
+    this.input.addEventListener(
+      'keypress',
+      this.toggleSearchContainerVisibility
+    );
+    this.input.addEventListener('click', this.toggleSearchContainerVisibility);
     this.inputContainer.appendChild(this.input);
     this.inputContainer.appendChild(this.selectIcon);
 
@@ -162,6 +166,7 @@ export class Select {
       'ecl-select__multiple-dropdown',
       ...containerClasses
     );
+
     this.selectMultiple.appendChild(this.searchContainer);
 
     this.search = document.createElement('input');
@@ -170,13 +175,14 @@ export class Select {
     this.search.setAttribute('placeholder', this.textSearch || '');
     this.searchContainer.appendChild(this.search);
 
-    const selectAll = this.createCheckbox(
+    this.selectAll = this.createCheckbox(
       'all',
       this.textSelectAll,
       this.selectMultipleId
     );
-    selectAll.addEventListener('click', this.handleClickSelectAll);
-    this.searchContainer.appendChild(selectAll);
+    this.selectAll.addEventListener('click', this.handleClickSelectAll);
+    this.selectAll.addEventListener('keypress', this.handleClickSelectAll);
+    this.searchContainer.appendChild(this.selectAll);
 
     if (this.select.options && this.select.options.length > 0) {
       this.select.options.forEach(option => {
@@ -186,6 +192,7 @@ export class Select {
           this.selectMultipleId
         );
         checkbox.addEventListener('click', this.handleClickCheckbox);
+        checkbox.addEventListener('keypress', this.handleClickCheckbox);
         this.searchContainer.appendChild(checkbox);
       });
     }
@@ -195,7 +202,7 @@ export class Select {
       this.select.parentNode.nextSibling
     );
 
-    this.select.parentNode.classList.add('ecl-select__container--hidden');
+    // this.select.parentNode.classList.add('ecl-select__container--hidden');
   }
 
   /**
@@ -224,7 +231,7 @@ export class Select {
   /**
    * @param {Event} e
    */
-  handleClickSelectMultiple(e) {
+  toggleSearchContainerVisibility(e) {
     e.preventDefault();
 
     if (this.searchContainer.style.display === 'none') {
@@ -248,6 +255,9 @@ export class Select {
       if (option.text === checkbox.getAttribute('data-select-multiple-value')) {
         if (option.getAttribute('selected')) {
           option.removeAttribute('selected');
+          // Uncheck select all when a single option has been unchecked.
+          this.selectAll.querySelector('input').checked = false;
+          this.select.setAttribute('data-all-checked', false);
         } else {
           option.setAttribute('selected', 'selected');
         }
