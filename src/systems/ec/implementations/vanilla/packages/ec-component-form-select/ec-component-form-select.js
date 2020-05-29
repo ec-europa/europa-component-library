@@ -142,6 +142,15 @@ export class Select {
 
     this.selectMultiple = document.createElement('div');
     this.selectMultiple.classList.add('ecl-select__multiple');
+    // Close the searchContainer when tabbing out of the selectMultple
+    this.selectMultiple.addEventListener('focusout', e => {
+      if (
+        !this.selectMultiple.contains(e.relatedTarget) &&
+        this.searchContainer.style.display === 'block'
+      ) {
+        this.searchContainer.style.display = 'none';
+      }
+    });
 
     this.inputContainer = document.createElement('div');
     this.inputContainer.classList.add(...containerClasses);
@@ -202,7 +211,16 @@ export class Select {
       this.select.parentNode.nextSibling
     );
 
-    // this.select.parentNode.classList.add('ecl-select__container--hidden');
+    // Close when clicking outside.
+    document.addEventListener('click', e => {
+      if (!this.selectMultiple.contains(e.target)) {
+        if (this.searchContainer.style.display === 'block') {
+          this.searchContainer.style.display = 'none';
+        }
+      }
+    });
+
+    this.select.parentNode.classList.add('ecl-select__container--hidden');
   }
 
   /**
