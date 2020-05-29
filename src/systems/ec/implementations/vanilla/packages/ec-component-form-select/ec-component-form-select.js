@@ -57,6 +57,7 @@ export class Select {
     // Private variables
     this.input = null;
     this.search = null;
+    this.checkboxes = null;
     this.select = null;
     this.selectAll = null;
     this.selectIcon = null;
@@ -71,9 +72,7 @@ export class Select {
     this.createCheckboxIcon = this.createCheckboxIcon.bind(this);
     this.createCheckbox = this.createCheckbox.bind(this);
     this.updateInputValue = this.updateInputValue.bind(this);
-    this.toggleSearchContainerVisibility = this.toggleSearchContainerVisibility.bind(
-      this
-    );
+    this.handleToggle = this.handleToggle.bind(this);
     this.handleClickCheckbox = this.handleClickCheckbox.bind(this);
     this.handleClickSelectAll = this.handleClickSelectAll.bind(this);
   }
@@ -163,11 +162,8 @@ export class Select {
     this.input.setAttribute('type', 'text');
     this.input.setAttribute('placeholder', this.textDefault || '');
     this.input.setAttribute('readonly', true);
-    this.input.addEventListener(
-      'keypress',
-      this.toggleSearchContainerVisibility
-    );
-    this.input.addEventListener('click', this.toggleSearchContainerVisibility);
+    this.input.addEventListener('keypress', this.handleToggle);
+    this.input.addEventListener('click', this.handleToggle);
     this.inputContainer.appendChild(this.input);
     this.inputContainer.appendChild(this.selectIcon);
 
@@ -184,6 +180,28 @@ export class Select {
     this.search.classList.add('ecl-text-input', 'ecl-text-input--m');
     this.search.setAttribute('type', 'text');
     this.search.setAttribute('placeholder', this.textSearch || '');
+    this.search.addEventListener('keyup', e => {
+      const keyword = e.target.value;
+      if (keyword.length > 2) {
+        this.checkboxes.forEach(checkbox => {
+          if (
+            !checkbox
+              .getAttribute('data-select-multiple-value')
+              .includes(keyword)
+          ) {
+            checkbox.style.visibility = 'hidden';
+          } else {
+            checkbox.style.visibility = 'inherit';
+          }
+        });
+      }
+      // reset
+      if (keyword.length === 0) {
+        this.checkboxes.forEach(
+          checkbox => (checkbox.style.visibility = 'inherit')
+        );
+      }
+    });
     this.searchContainer.appendChild(this.search);
 
     this.selectAll = this.createCheckbox(
@@ -196,7 +214,7 @@ export class Select {
     this.searchContainer.appendChild(this.selectAll);
 
     if (this.select.options && this.select.options.length > 0) {
-      this.select.options.forEach(option => {
+      this.checkboxes = Array.from(this.select.options).map(option => {
         const checkbox = this.createCheckbox(
           option.value,
           option.text,
@@ -205,6 +223,7 @@ export class Select {
         checkbox.addEventListener('click', this.handleClickCheckbox);
         checkbox.addEventListener('keypress', this.handleClickCheckbox);
         this.searchContainer.appendChild(checkbox);
+        return checkbox;
       });
     }
 
@@ -215,10 +234,12 @@ export class Select {
 
     // Close when clicking outside.
     document.addEventListener('click', e => {
-      if (!this.selectMultiple.contains(e.target)) {
-        if (this.searchContainer.style.display === 'block') {
-          this.searchContainer.style.display = 'none';
-        }
+      if (
+        e.target &&
+        !this.selectMultiple.contains(e.target) &&
+        this.searchContainer.style.display === 'block'
+      ) {
+        this.searchContainer.style.display = 'none';
       }
     });
 
@@ -251,7 +272,7 @@ export class Select {
   /**
    * @param {Event} e
    */
-  toggleSearchContainerVisibility(e) {
+  handleToggle(e) {
     e.preventDefault();
 
     if (this.searchContainer.style.display === 'none') {
