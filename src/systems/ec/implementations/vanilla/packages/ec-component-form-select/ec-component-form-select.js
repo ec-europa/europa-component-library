@@ -84,12 +84,13 @@ export class Select {
   createCheckboxIcon() {
     const tempElement = document.createElement('div');
     tempElement.innerHTML = iconSvgUiCheck; // avoiding the use of not-so-stable createElementNs
-    const svg = tempElement.childNodes[0];
+    const svg = tempElement.children[0];
     svg.removeAttribute('height');
     svg.removeAttribute('width');
     svg.setAttribute('focusable', false);
     svg.setAttribute('aria-hidden', true);
-    svg.classList.add('ecl-icon', 'ecl-icon--s', 'ecl-checkbox__icon');
+    // The following element is <path> which does not support classList API as others.
+    svg.setAttribute('class', 'ecl-icon ecl-icon--s ecl-checkbox__icon');
     return svg;
   }
 
@@ -145,6 +146,7 @@ export class Select {
     // Close the searchContainer when tabbing out of the selectMultple
     this.selectMultiple.addEventListener('focusout', e => {
       if (
+        e.relatedTarget &&
         !this.selectMultiple.contains(e.relatedTarget) &&
         this.searchContainer.style.display === 'block'
       ) {
