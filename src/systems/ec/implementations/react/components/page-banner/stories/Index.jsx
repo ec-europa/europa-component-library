@@ -1,12 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
+import React, { Fragment } from 'react';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 
 import demoContentImage from '@ecl/ec-specs-page-banner/demo/data--image';
 import demoContentImageShade from '@ecl/ec-specs-page-banner/demo/data--image-shade';
 
 import demoContentSimple from '@ecl/ec-specs-page-banner/demo/data--simple';
-import demoContentBackgroundImage from '@ecl/ec-specs-page-banner/demo/data--background-image';
 
 import PageBanner from '../src/PageBanner';
 
@@ -145,30 +144,42 @@ SimpleWhite.story = {
   name: 'white',
 };
 
-export const SimpleBackgroundImage = () => {
+export const SimpleGhost = () => {
   const link = {
-    ...demoContentBackgroundImage.link,
-    label: text('Link label', demoContentBackgroundImage.link.label),
+    ...demoContentSimple.link,
+    label: text('Link label', demoContentSimple.link.label),
   };
 
   return (
-    <div className="ecl-container">
-      <PageBanner
-        {...demoContentBackgroundImage}
-        variant="background-image"
-        meta={text('Meta', demoContentBackgroundImage.meta)}
-        title={text('Title', demoContentBackgroundImage.title)}
-        baseline={text('Baseline', demoContentBackgroundImage.baseline)}
-        link={link}
-        isCentered={boolean('Centered', true)}
-        isFullWidth={boolean('Full width', false)}
-      />
-    </div>
+    <Fragment>
+      <p className="ecl-u-type-paragraph">
+        Note: this variant comes with a transparent background; the image here
+        in inline style is just for demo
+      </p>
+      <div className="ecl-container">
+        <PageBanner
+          style={{
+            'background-image':
+              "url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')",
+            'background-size': 'cover',
+            'background-position': '0 0',
+          }}
+          {...demoContentSimple}
+          variant="ghost"
+          meta={text('Meta', demoContentSimple.meta)}
+          title={text('Title', demoContentSimple.title)}
+          baseline={text('Baseline', demoContentSimple.baseline)}
+          link={link}
+          isCentered={boolean('Centered', true)}
+          isFullWidth={boolean('Full width', false)}
+        />
+      </div>
+    </Fragment>
   );
 };
 
-SimpleBackgroundImage.story = {
-  name: 'background image',
+SimpleGhost.story = {
+  name: 'ghost',
 };
 
 export const AlignLeft = () => {

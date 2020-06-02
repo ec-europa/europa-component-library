@@ -10,7 +10,6 @@ const PageBanner = ({
   meta,
   title,
   baseline,
-  backgroundImage,
   image,
   isCentered,
   isFullWidth,
@@ -26,15 +25,7 @@ const PageBanner = ({
   });
 
   return (
-    <section
-      {...props}
-      className={classNames}
-      {...(backgroundImage
-        ? {
-            style: { 'background-image': `url(${backgroundImage})` },
-          }
-        : {})}
-    >
+    <section {...props} className={classNames}>
       {image && (
         <div
           className="ecl-page-banner__image"
@@ -72,7 +63,6 @@ PageBanner.propTypes = {
   meta: PropTypes.string,
   title: PropTypes.string,
   baseline: PropTypes.string,
-  backgroundImage: PropTypes.string,
   image: PropTypes.string,
   isCentered: PropTypes.bool,
   isFullWidth: PropTypes.bool,
@@ -86,7 +76,6 @@ PageBanner.defaultProps = {
   meta: '',
   title: '',
   baseline: '',
-  backgroundImage: '',
   image: '',
   isCentered: false,
   isFullWidth: false,
