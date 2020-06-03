@@ -32,79 +32,37 @@ import demoContentSimple from '@ecl/ec-specs-page-banner/demo/data--simple';
 
 ## Simple banners
 
-### Primary
-
 <Playground
   system="ec"
   selectedKind="components-banners-page-banner"
   selectedStory="simple-primary"
 >
-  <PageBanner {...demoContentSimple} variant="primary" isCentered />
+  <PageBanner {...demoContentSimple} variant="primary" />
 </Playground>
 
-### Grey
+### Colours
 
-<Playground
-  system="ec"
-  selectedKind="components-banners-page-banner"
-  selectedStory="default"
->
-  <PageBanner {...demoContentSimple} variant="grey" isCentered />
-</Playground>
+Simple banners can be displayed with several background colours by using one css class or another.
+Here are the possibilities
 
-### White
-
-<Playground
-  system="ec"
-  selectedKind="components-banners-page-banner"
-  selectedStory="default"
->
-  <PageBanner {...demoContentSimple} variant="white" isCentered />
-</Playground>
-
-### Ghost
-
-Note: this variant comes with a transparent background; the image here in inline style is just for demo
-
-<Playground
-  system="ec"
-  selectedKind="components-banners-page-banner"
-  selectedStory="default"
->
-  <PageBanner
-    {...demoContentSimple}
-    style={{
-      'background-image':
-        "url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')",
-      'background-size': 'cover',
-      'background-position': '0 0',
-    }}
-    variant="ghost"
-    isCentered
-  />
-</Playground>
+| variant | colour      | css class                   | notes                                                                       |
+| ------- | ----------- | --------------------------- | --------------------------------------------------------------------------- |
+| primary | blue        | `.ecl-page-banner--primary` | primary colour may vary if a different theme is used                        |
+| grey    | light grey  | `.ecl-page-banner--grey`    |                                                                             |
+| white   | white       | `.ecl-page-banner--white`   |                                                                             |
+| ghost   | transparent | `.ecl-page-banner--ghost`   | ghost varient is intended to be used in a container with a background image |
 
 ## Other variants
 
 Note: Variants below can be applied to all kind of banners.  
 Check usage guidelines for more information.
 
-### Align left
+### Center content
 
-<Playground
-  system="ec"
-  selectedKind="components-banners-page-banner"
-  selectedStory="align-left"
->
-  <PageBanner {...demoContentSimple} variant="primary" />
-</Playground>
+Adding class `.ecl-page-banner--center` will center the text in the banner.
 
 ### Full width
 
-<Playground
-  system="ec"
-  selectedKind="components-banners-page-banner"
-  selectedStory="full-width"
->
-  <PageBanner {...demoContentSimple} variant="primary" isFullWidth="true" />
-</Playground>
+The best way to have a full width banner is to place it outside of the grid container (`.ecl-container`).
+
+If there is a need to have a full width banner inside the container, css class `.ecl-page-banner--fullwidth` can be used.
