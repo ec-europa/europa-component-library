@@ -69,8 +69,6 @@ export class Select {
     this.searchContainer = null;
 
     // Bind `this` for use in callbacks
-    this.createCheckboxIcon = this.createCheckboxIcon.bind(this);
-    this.createCheckbox = this.createCheckbox.bind(this);
     this.updateInputValue = this.updateInputValue.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
     this.handleClickCheckbox = this.handleClickCheckbox.bind(this);
@@ -80,7 +78,7 @@ export class Select {
   /**
    * @returns {HTMLElement}
    */
-  createCheckboxIcon() {
+  static createCheckboxIcon() {
     const tempElement = document.createElement('div');
     tempElement.innerHTML = iconSvgUiCheck; // avoiding the use of not-so-stable createElementNs
     const svg = tempElement.children[0];
@@ -100,7 +98,7 @@ export class Select {
    * @param {Function} clickHandler
    * @returns {HTMLElement}
    */
-  createCheckbox(id, text, scope) {
+  static createCheckbox(id, text, scope) {
     if (!id || !text || !scope) return '';
     const checkbox = document.createElement('div');
     checkbox.classList.add('ecl-checkbox');
@@ -115,7 +113,7 @@ export class Select {
     label.setAttribute('for', `${scope}-${id}`);
     const box = document.createElement('span');
     box.classList.add('ecl-checkbox__box');
-    box.appendChild(this.createCheckboxIcon());
+    box.appendChild(Select.createCheckboxIcon());
     label.appendChild(box);
     label.appendChild(document.createTextNode(text));
     checkbox.appendChild(label);
@@ -187,24 +185,23 @@ export class Select {
           if (
             !checkbox
               .getAttribute('data-select-multiple-value')
+              .toLocaleLowerCase()
               .includes(keyword)
           ) {
-            checkbox.style.visibility = 'hidden';
+            checkbox.style.display = 'none';
           } else {
-            checkbox.style.visibility = 'inherit';
+            checkbox.style.display = 'flex';
           }
         });
       }
       // reset
       if (keyword.length === 0) {
-        this.checkboxes.forEach(
-          checkbox => (checkbox.style.visibility = 'inherit')
-        );
+        this.checkboxes.forEach(checkbox => (checkbox.style.display = 'flex'));
       }
     });
     this.searchContainer.appendChild(this.search);
 
-    this.selectAll = this.createCheckbox(
+    this.selectAll = Select.createCheckbox(
       'all',
       this.textSelectAll,
       this.selectMultipleId
@@ -215,7 +212,7 @@ export class Select {
 
     if (this.select.options && this.select.options.length > 0) {
       this.checkboxes = Array.from(this.select.options).map(option => {
-        const checkbox = this.createCheckbox(
+        const checkbox = Select.createCheckbox(
           option.value,
           option.text,
           this.selectMultipleId
