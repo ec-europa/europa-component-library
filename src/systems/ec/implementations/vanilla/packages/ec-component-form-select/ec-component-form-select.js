@@ -86,7 +86,7 @@ export class Select {
     // Bind `this` for use in callbacks
     this.updateInputValue = this.updateInputValue.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
-    this.handleClickCheckbox = this.handleClickCheckbox.bind(this);
+    this.handleClickOption = this.handleClickOption.bind(this);
     this.handleClickSelectAll = this.handleClickSelectAll.bind(this);
   }
 
@@ -133,6 +133,15 @@ export class Select {
     label.appendChild(document.createTextNode(text));
     checkbox.appendChild(label);
     return checkbox;
+  }
+
+  /**
+   * Manually checks an ECL-specific checkbox when previously defualt has been prevented.
+   * @param {Event} e
+   */
+  static checkCheckbox(e) {
+    const input = e.target.closest('.ecl-checkbox').querySelector('input');
+    input.checked = !input.checked;
   }
 
   /**
@@ -232,8 +241,8 @@ export class Select {
           option.text,
           this.selectMultipleId
         );
-        checkbox.addEventListener('click', this.handleClickCheckbox);
-        checkbox.addEventListener('keypress', this.handleClickCheckbox);
+        checkbox.addEventListener('click', this.handleClickOption);
+        checkbox.addEventListener('keypress', this.handleClickOption);
         this.searchContainer.appendChild(checkbox);
         return checkbox;
       });
@@ -264,7 +273,7 @@ export class Select {
   destroy() {
     this.searchContainer.querySelectorAll('input').forEach(input => {
       input.removeEventListener('click', this.handleClickSelectAll);
-      input.removeEventListener('click', this.handleClickCheckbox);
+      input.removeEventListener('click', this.handleClickOption);
     });
 
     if (this.selectMultiple) {
@@ -297,13 +306,12 @@ export class Select {
   /**
    * @param {Event} e
    */
-  handleClickCheckbox(e) {
+  handleClickOption(e) {
     e.preventDefault();
-    const checkbox = e.target.closest('.ecl-checkbox');
-    const input = checkbox.querySelector('input');
+    Select.checkCheckbox(e);
 
     // Toggle values
-    input.checked = !input.checked;
+    const checkbox = e.target.closest('.ecl-checkbox');
     this.select.options.forEach(option => {
       if (option.text === checkbox.getAttribute('data-select-multiple-value')) {
         if (option.getAttribute('selected')) {
@@ -325,9 +333,7 @@ export class Select {
    */
   handleClickSelectAll(e) {
     e.preventDefault();
-    const checkbox = e.target.parentNode;
-    const input = checkbox.querySelector('input');
-    input.checked = !input.checked;
+    Select.checkCheckbox(e);
 
     const options = Array.from(
       this.searchContainer.querySelectorAll('input')
