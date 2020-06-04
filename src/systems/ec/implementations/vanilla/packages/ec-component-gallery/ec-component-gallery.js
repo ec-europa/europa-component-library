@@ -9,6 +9,7 @@ import { queryOne, queryAll } from '@ecl/ec-base/helpers/dom';
  * @param {String} options.descriptionSelector Selector for gallery description element
  * @param {String} options.metaSelector Selector for gallery meta info element
  * @param {String} options.closeButtonSelector Selector for close button element
+ * @param {String} options.allButtonSelector Selector for view all button element
  * @param {String} options.overlaySelector Selector for gallery overlay element
  * @param {String} options.overlayHeaderSelector Selector for gallery overlay header element
  * @param {String} options.overlayFooterSelector Selector for gallery overlay footer element
@@ -48,6 +49,8 @@ export class Gallery {
       descriptionSelector = '[data-ecl-gallery-description]',
       metaSelector = '[data-ecl-gallery-meta]',
       closeButtonSelector = '[data-ecl-gallery-close]',
+      viewAllSelector = '[data-ecl-gallery-all]',
+      countSelector = '[data-ecl-gallery-count]',
       overlaySelector = '[data-ecl-gallery-overlay]',
       overlayHeaderSelector = '[data-ecl-gallery-overlay-header]',
       overlayFooterSelector = '[data-ecl-gallery-overlay-footer]',
@@ -63,6 +66,7 @@ export class Gallery {
       overlayNextSelector = '[data-ecl-gallery-overlay-next]',
       attachClickListener = true,
       attachKeyListener = true,
+      attachResizeListener = true,
     } = {}
   ) {
     // Check element
@@ -79,6 +83,8 @@ export class Gallery {
     this.descriptionSelector = descriptionSelector;
     this.metaSelector = metaSelector;
     this.closeButtonSelector = closeButtonSelector;
+    this.viewAllSelector = viewAllSelector;
+    this.countSelector = countSelector;
     this.overlaySelector = overlaySelector;
     this.overlayHeaderSelector = overlayHeaderSelector;
     this.overlayFooterSelector = overlayFooterSelector;
@@ -94,11 +100,14 @@ export class Gallery {
     this.overlayNextSelector = overlayNextSelector;
     this.attachClickListener = attachClickListener;
     this.attachKeyListener = attachKeyListener;
+    this.attachResizeListener = attachResizeListener;
 
     // Private variables
     this.galleryItems = null;
     this.meta = null;
     this.closeButton = null;
+    this.viewAll = null;
+    this.count = null;
     this.overlay = null;
     this.overlayHeader = null;
     this.overlayFooter = null;
@@ -114,9 +123,14 @@ export class Gallery {
     this.overlayNext = null;
     this.selectedItem = null;
     this.focusTrap = null;
+    this.isDesktop = false;
+    this.resizeTimer = null;
+    this.breakpointMd = 768;
+    this.imageHeight = 185;
 
     // Bind `this` for use in callbacks
     this.handleClickOnCloseButton = this.handleClickOnCloseButton.bind(this);
+    this.handleClickOnViewAll = this.handleClickOnViewAll.bind(this);
     this.handleClickOnItem = this.handleClickOnItem.bind(this);
     this.handleKeyPressOnItem = this.handleKeyPressOnItem.bind(this);
     this.handleClickOnPreviousButton = this.handleClickOnPreviousButton.bind(
@@ -124,6 +138,7 @@ export class Gallery {
     );
     this.handleClickOnNextButton = this.handleClickOnNextButton.bind(this);
     this.handleKeyboard = this.handleKeyboard.bind(this);
+    this.handleResize = this.handleResize.bind(this);
   }
 
   /**
@@ -133,6 +148,8 @@ export class Gallery {
     // Query elements
     this.galleryItems = queryAll(this.galleryItemSelector, this.element);
     this.closeButton = queryOne(this.closeButtonSelector, this.element);
+    this.viewAll = queryOne(this.viewAllSelector, this.element);
+    this.count = queryOne(this.countSelector, this.element);
     this.overlay = queryOne(this.overlaySelector, this.element);
     this.overlayHeader = queryOne(this.overlayHeaderSelector, this.overlay);
     this.overlayFooter = queryOne(this.overlayFooterSelector, this.overlay);
@@ -173,6 +190,11 @@ export class Gallery {
       this.closeButton.addEventListener('click', this.handleClickOnCloseButton);
     }
 
+    // Bind click event on view all (open first item)
+    if (this.attachClickListener && this.viewAll) {
+      this.viewAll.addEventListener('click', this.handleClickOnViewAll);
+    }
+
     // Bind click event on gallery items
     if (this.attachClickListener && this.galleryItems) {
       this.galleryItems.forEach(galleryItem => {
@@ -206,10 +228,24 @@ export class Gallery {
       this.overlay.addEventListener('close', this.handleClickOnCloseButton);
     }
 
+    // Bind resize events
+    if (this.attachResizeListener) {
+      window.addEventListener('resize', this.handleResize);
+    }
+
+    // Init display of gallery items
+    this.checkScreen();
+    this.hideItems();
+
     // Add number to gallery items
     this.galleryItems.forEach((galleryItem, key) => {
       galleryItem.setAttribute('data-ecl-gallery-item-id', key);
     });
+
+    // Update counter
+    if (this.count) {
+      this.count.innerHTML = this.galleryItems.length;
+    }
   }
 
   /**
@@ -221,6 +257,10 @@ export class Gallery {
         'click',
         this.handleClickOnCloseButton
       );
+    }
+
+    if (this.attachClickListener && this.viewAll) {
+      this.viewAll.removeEventListener('click', this.handleClickOnViewAll);
     }
 
     if (this.attachClickListener && this.galleryItems) {
@@ -249,6 +289,73 @@ export class Gallery {
     if (this.isDialogSupported && this.overlay) {
       this.overlay.removeEventListener('close', this.handleClickOnCloseButton);
     }
+
+    if (this.attachResizeListener) {
+      window.removeEventListener('resize', this.handleResize);
+    }
+  }
+
+  /**
+   * Check if current display is desktop or mobile
+   */
+  checkScreen() {
+    if (window.innerWidth > this.breakpointMd) {
+      this.isDesktop = true;
+      return;
+    }
+
+    this.isDesktop = false;
+  }
+
+  /**
+   * Hide several gallery items by default
+   * - 2 "lines" of items on desktop
+   * - only 3 items on mobile
+   */
+  hideItems() {
+    if (!this.viewAll) return;
+
+    if (this.isDesktop) {
+      const galleryY = this.element.getBoundingClientRect().top;
+      let hiddenItemIds = [];
+      // We should browse the list first to mark the items to be hidden, and hide them later
+      // otherwise, it will interfer with the calculus
+      this.galleryItems.forEach((galleryItem, key) => {
+        galleryItem.parentNode.classList.remove('ecl-gallery__item--hidden');
+        if (
+          galleryItem.getBoundingClientRect().top - galleryY >
+          this.imageHeight * 2
+        ) {
+          hiddenItemIds = [...hiddenItemIds, key];
+        }
+      });
+      hiddenItemIds.forEach(id => {
+        this.galleryItems[id].parentNode.classList.add(
+          'ecl-gallery__item--hidden'
+        );
+      });
+      return;
+    }
+
+    this.galleryItems.forEach((galleryItem, key) => {
+      if (key > 2) {
+        galleryItem.parentNode.classList.add('ecl-gallery__item--hidden');
+      } else {
+        galleryItem.parentNode.classList.remove('ecl-gallery__item--hidden');
+      }
+    });
+  }
+
+  /**
+   * Trigger events on resize
+   * Uses a debounce, for performance
+   */
+  handleResize() {
+    clearTimeout(this.resizeTimer);
+    this.resizeTimer = setTimeout(() => {
+      this.checkScreen();
+      this.hideItems();
+    }, 200);
   }
 
   /**
@@ -401,6 +508,31 @@ export class Gallery {
       // If spacebar trigger the modal
       this.handleClickOnItem(e);
     }
+  }
+
+  /**
+   * Invoke listeners for on click events on view all.
+   *
+   * @param {Event} e
+   */
+  handleClickOnViewAll(e) {
+    e.preventDefault();
+
+    // Disable scroll on body
+    document.body.classList.add('ecl-u-disablescroll');
+
+    // Display overlay
+    if (this.isDialogSupported) {
+      this.overlay.showModal();
+    } else {
+      this.overlay.setAttribute('open', '');
+    }
+
+    // Update overlay
+    this.updateOverlay(this.galleryItems[0]);
+
+    // Trap focus
+    this.focusTrap.activate();
   }
 
   /**

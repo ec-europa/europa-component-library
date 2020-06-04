@@ -27,9 +27,7 @@ const Select = ({
   className,
   ...props
 }) => {
-  const classNames = classnames(className, 'ecl-select', {
-    'ecl-select--invalid': invalid,
-  });
+  const classNames = classnames(className, 'ecl-select');
 
   return (
     <div className={classnames(groupClassName, 'ecl-form-group')}>
@@ -72,6 +70,7 @@ const Select = ({
       <div
         className={classnames('ecl-select__container', {
           'ecl-select__container--disabled': disabled,
+          'ecl-select__container--invalid': invalid,
           [`ecl-select__container--${width}`]: width,
         })}
       >
