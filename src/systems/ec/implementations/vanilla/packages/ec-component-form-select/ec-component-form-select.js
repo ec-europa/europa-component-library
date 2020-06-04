@@ -148,15 +148,11 @@ export class Select {
    * Initialise component.
    */
   init() {
-    const containerClasses = [
-      'ecl-select__container',
-      'ecl-select__container--m',
-    ];
+    this.select = queryOne(this.selectMultipleSelector);
+    const containerClasses = Array.from(this.select.parentElement.classList);
     this.textDefault = this.element.getAttribute(this.defaultTextAttribute);
     this.textSearch = this.element.getAttribute(this.searchTextAttribute);
     this.textSelectAll = this.element.getAttribute(this.selectAllTextAttribute);
-
-    this.select = queryOne(this.selectMultipleSelector);
 
     if (this.select.nextSibling.classList.contains('ecl-select__icon')) {
       this.selectIcon = this.select.nextSibling;
@@ -184,6 +180,9 @@ export class Select {
     this.input.setAttribute('type', 'text');
     this.input.setAttribute('placeholder', this.textDefault || '');
     this.input.setAttribute('readonly', true);
+    if (containerClasses.find(c => c.includes('disabled'))) {
+      this.input.setAttribute('disabled', true);
+    }
     this.input.addEventListener('keypress', this.handleToggle);
     this.input.addEventListener('click', this.handleToggle);
     this.inputContainer.appendChild(this.input);
