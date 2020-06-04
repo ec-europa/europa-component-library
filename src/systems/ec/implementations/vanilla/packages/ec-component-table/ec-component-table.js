@@ -78,18 +78,13 @@ export class Table {
    * @param {HTMLElement} toggle Target element to toggle.
    */
   handleClickOnSort(toggle) {
-    const getCellValue = (tr, idx) =>
-      // eslint-disable-next-line unicorn/prefer-text-content
-      tr.children[idx].innerText || tr.children[idx].textContent;
-
     const comparer = (idx, asc) => (a, b) =>
       ((v1, v2) =>
-        // eslint-disable-next-line no-restricted-globals
-        v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2)
+        v1 !== '' && v2 !== '' && !Number.isNaN(+v1) && !Number.isNaN(+v2)
           ? v1 - v2
           : v1.toString().localeCompare(v2))(
-        getCellValue(asc ? a : b, idx),
-        getCellValue(asc ? b : a, idx)
+        (asc ? a : b).children[idx].textContent,
+        (asc ? b : a).children[idx].textContent
       );
 
     const table = toggle.closest('table');
@@ -103,8 +98,7 @@ export class Table {
           (this.asc = !this.asc)
         )
       )
-      // eslint-disable-next-line unicorn/prefer-node-append
-      .forEach(tr => tbody.appendChild(tr));
+      .forEach(tr => tbody.append(tr));
   }
 }
 
