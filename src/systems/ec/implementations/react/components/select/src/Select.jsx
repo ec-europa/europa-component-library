@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import Icon from '@ecl/ec-react-component-icon';
-import Checkbox from '@ecl/ec-react-component-checkbox';
 
 const Select = ({
   disabled,
@@ -28,9 +27,7 @@ const Select = ({
   className,
   ...props
 }) => {
-  const classNames = classnames(className, 'ecl-select', {
-    'ecl-select--invalid': invalid,
-  });
+  const classNames = classnames(className, 'ecl-select');
 
   return (
     <div className={classnames(groupClassName, 'ecl-form-group')}>
@@ -73,6 +70,7 @@ const Select = ({
       <div
         className={classnames('ecl-select__container', {
           'ecl-select__container--disabled': disabled,
+          'ecl-select__container--invalid': invalid,
           [`ecl-select__container--${width}`]: width,
         })}
       >
@@ -108,61 +106,6 @@ const Select = ({
           />
         </div>
       </div>
-      {/* temporary markup */}
-      {multiple && (
-        <div className="ecl-select__multiple">
-          <div
-            className={classnames('ecl-select__container', {
-              [`ecl-select__container--${width}`]: width,
-            })}
-          >
-            <input
-              id="select-multiple-toggle"
-              type="text"
-              className="ecl-select ecl-select__multiple-toggle"
-              placeholder={multiplePlaceholder}
-              readOnly
-            />
-
-            <div className="ecl-select__icon">
-              <Icon
-                shape="ui--corner-arrow"
-                transform="rotate-180"
-                size="s"
-                className="ecl-select__icon-shape"
-              />
-            </div>
-          </div>
-          <div
-            className={classnames(
-              'ecl-select__container ecl-select__multiple-dropdown',
-              {
-                [`ecl-select__container--${width}`]: width,
-              }
-            )}
-          >
-            <input
-              placeholder={multipleSearchText}
-              id="select-multiple-search"
-              type="search"
-              className={classnames('ecl-text-input', {
-                [`ecl-text-input--${width}`]: width,
-              })}
-            />
-            <Checkbox id="select-multiple-all" label={multipleAllText} />
-            <Checkbox id="select-multiple-item-1" label="Belgium" />
-            <Checkbox id="select-multiple-item-2" label="France" />
-            <Checkbox id="select-multiple-item-3" label="Luxembourg" />
-            <Checkbox id="select-multiple-item-4" label="Germany" />
-            <Checkbox id="select-multiple-item-5" label="Bulgaria" />
-            <Checkbox id="select-multiple-item-6" label="Italy" />
-            <Checkbox id="select-multiple-item-7" label="Romania" />
-            <Checkbox id="select-multiple-item-8" label="Greece" />
-            <Checkbox id="select-multiple-item-9" label="Hungary" />
-            <Checkbox id="select-multiple-item-10" label="Portugal" />
-          </div>
-        </div>
-      )}
     </div>
   );
 };
