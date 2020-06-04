@@ -317,14 +317,14 @@ export class Gallery {
     if (!this.viewAll) return;
 
     if (this.isDesktop) {
-      const galleryY = this.element.getBoundingClientRect().y;
+      const galleryY = this.element.getBoundingClientRect().top;
       let hiddenItemIds = [];
       // We should browse the list first to mark the items to be hidden, and hide them later
       // otherwise, it will interfer with the calculus
       this.galleryItems.forEach((galleryItem, key) => {
         galleryItem.parentNode.classList.remove('ecl-gallery__item--hidden');
         if (
-          galleryItem.getBoundingClientRect().y - galleryY >
+          galleryItem.getBoundingClientRect().top - galleryY >
           this.imageHeight * 2
         ) {
           hiddenItemIds = [...hiddenItemIds, key];
