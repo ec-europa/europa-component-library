@@ -88,6 +88,9 @@ export class Select {
     this.handleToggle = this.handleToggle.bind(this);
     this.handleClickOption = this.handleClickOption.bind(this);
     this.handleClickSelectAll = this.handleClickSelectAll.bind(this);
+    this.handleFocusout = this.handleFocusout.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
   }
 
   /**
@@ -161,15 +164,7 @@ export class Select {
     this.selectMultiple = document.createElement('div');
     this.selectMultiple.classList.add('ecl-select__multiple');
     // Close the searchContainer when tabbing out of the selectMultple
-    this.selectMultiple.addEventListener('focusout', e => {
-      if (
-        e.relatedTarget &&
-        !this.selectMultiple.contains(e.relatedTarget) &&
-        this.searchContainer.style.display === 'block'
-      ) {
-        this.searchContainer.style.display = 'none';
-      }
-    });
+    this.selectMultiple.addEventListener('focusout', this.handleFocusout);
 
     this.inputContainer = document.createElement('div');
     this.inputContainer.classList.add(...containerClasses);
@@ -201,27 +196,7 @@ export class Select {
     this.search.classList.add('ecl-text-input', 'ecl-text-input--m');
     this.search.setAttribute('type', 'text');
     this.search.setAttribute('placeholder', this.textSearch || '');
-    this.search.addEventListener('keyup', e => {
-      const keyword = e.target.value;
-      if (keyword.length > 2) {
-        this.checkboxes.forEach(checkbox => {
-          if (
-            !checkbox
-              .getAttribute('data-select-multiple-value')
-              .toLocaleLowerCase()
-              .includes(keyword)
-          ) {
-            checkbox.style.display = 'none';
-          } else {
-            checkbox.style.display = 'flex';
-          }
-        });
-      }
-      // reset
-      if (keyword.length === 0) {
-        this.checkboxes.forEach(checkbox => (checkbox.style.display = 'flex'));
-      }
-    });
+    this.search.addEventListener('keyup', this.handleSearch);
     this.searchContainer.appendChild(this.search);
 
     this.selectAll = Select.createCheckbox(
@@ -252,16 +227,7 @@ export class Select {
       this.select.parentNode.nextSibling
     );
 
-    // Close when clicking outside.
-    document.addEventListener('click', e => {
-      if (
-        e.target &&
-        !this.selectMultiple.contains(e.target) &&
-        this.searchContainer.style.display === 'block'
-      ) {
-        this.searchContainer.style.display = 'none';
-      }
-    });
+    document.addEventListener('click', this.handleClickOutside);
 
     this.select.parentNode.classList.add('ecl-select__container--hidden');
   }
@@ -270,10 +236,17 @@ export class Select {
    * Destroy component.
    */
   destroy() {
-    this.searchContainer.querySelectorAll('input').forEach(input => {
-      input.removeEventListener('click', this.handleClickSelectAll);
-      input.removeEventListener('click', this.handleClickOption);
+    this.selectMultiple.removeEventListener('focusout', this.handleFocusout);
+    this.input.removeEventListener('keypress', this.handleToggle);
+    this.input.removeEventListener('click', this.handleToggle);
+    this.search.removeEventListener('keyup', this.handleSearch);
+    this.selectAll.removeEventListener('click', this.handleClickSelectAll);
+    this.selectAll.removeEventListener('keypress', this.handleClickSelectAll);
+    this.checkboxes.forEach(checkbox => {
+      checkbox.removeEventListener('click', this.handleClickSelectAll);
+      checkbox.removeEventListener('click', this.handleClickOption);
     });
+    document.removeEventListener('click', this.handleClickOutside);
 
     if (this.selectMultiple) {
       this.selectMultiple.remove();
@@ -351,6 +324,59 @@ export class Select {
     }
 
     this.updateInputValue();
+  }
+
+  /**
+   * @param {Event} e
+   */
+  handleFocusout(e) {
+    if (
+      e.relatedTarget &&
+      this.selectMultiple &&
+      !this.selectMultiple.contains(e.relatedTarget) &&
+      this.searchContainer.style.display === 'block'
+    ) {
+      this.searchContainer.style.display = 'none';
+    }
+  }
+
+  /**
+   * @param {Event} e
+   */
+  handleSearch(e) {
+    const keyword = e.target.value;
+    if (keyword.length > 2) {
+      this.checkboxes.forEach(checkbox => {
+        if (
+          !checkbox
+            .getAttribute('data-select-multiple-value')
+            .toLocaleLowerCase()
+            .includes(keyword)
+        ) {
+          checkbox.style.display = 'none';
+        } else {
+          checkbox.style.display = 'flex';
+        }
+      });
+    }
+    // reset
+    if (keyword.length === 0) {
+      this.checkboxes.forEach(checkbox => (checkbox.style.display = 'flex'));
+    }
+  }
+
+  /**
+   * @param {Event} e
+   */
+  handleClickOutside(e) {
+    if (
+      e.target &&
+      this.selectMultiple &&
+      !this.selectMultiple.contains(e.target) &&
+      this.searchContainer.style.display === 'block'
+    ) {
+      this.searchContainer.style.display = 'none';
+    }
   }
 }
 
