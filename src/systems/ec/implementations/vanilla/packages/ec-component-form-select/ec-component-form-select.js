@@ -345,20 +345,18 @@ export class Select {
    */
   handleSearch(e) {
     const keyword = e.target.value;
-    if (keyword.length > 2) {
-      this.checkboxes.forEach(checkbox => {
-        if (
-          !checkbox
-            .getAttribute('data-select-multiple-value')
-            .toLocaleLowerCase()
-            .includes(keyword)
-        ) {
-          checkbox.style.display = 'none';
-        } else {
-          checkbox.style.display = 'flex';
-        }
-      });
-    }
+    this.checkboxes.forEach(checkbox => {
+      if (
+        !checkbox
+          .getAttribute('data-select-multiple-value')
+          .toLocaleLowerCase()
+          .includes(keyword)
+      ) {
+        checkbox.style.display = 'none';
+      } else {
+        checkbox.style.display = 'flex';
+      }
+    });
     // reset
     if (keyword.length === 0) {
       this.checkboxes.forEach(checkbox => (checkbox.style.display = 'flex'));
