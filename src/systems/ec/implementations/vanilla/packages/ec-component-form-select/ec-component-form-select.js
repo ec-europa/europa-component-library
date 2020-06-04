@@ -307,19 +307,19 @@ export class Select {
     e.preventDefault();
     Select.checkCheckbox(e);
 
-    const options = Array.from(
-      this.searchContainer.querySelectorAll('input')
-    ).filter(option => option.getAttribute('id') !== 'select-multiple-all');
-
     if (this.select.getAttribute('data-all-checked') === 'true') {
       this.select.options.forEach(option => option.removeAttribute('selected'));
-      options.map(option => (option.checked = false));
+      this.checkboxes.map(
+        checkbox => (checkbox.querySelector('input').checked = false)
+      );
       this.select.setAttribute('data-all-checked', false);
     } else {
       this.select.options.forEach(option =>
         option.setAttribute('selected', 'selected')
       );
-      options.map(option => (option.checked = true));
+      this.checkboxes.map(
+        checkbox => (checkbox.querySelector('input').checked = true)
+      );
       this.select.setAttribute('data-all-checked', true);
     }
 
