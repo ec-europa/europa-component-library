@@ -16,6 +16,7 @@ import demoContentSimple from '@ecl/ec-specs-page-banner/demo/data--simple';
   system="ec"
   selectedKind="components-banners-page-banner"
   selectedStory="image"
+  showFrame
 >
   <PageBanner {...demoContentImage} variant="image" isCentered />
 </Playground>
@@ -26,6 +27,7 @@ import demoContentSimple from '@ecl/ec-specs-page-banner/demo/data--simple';
   system="ec"
   selectedKind="components-banners-page-banner"
   selectedStory="image-shade"
+  showFrame
 >
   <PageBanner {...demoContentImageShade} variant="image-shade" isCentered />
 </Playground>
@@ -36,6 +38,7 @@ import demoContentSimple from '@ecl/ec-specs-page-banner/demo/data--simple';
   system="ec"
   selectedKind="components-banners-page-banner"
   selectedStory="simple-primary"
+  showFrame
 >
   <PageBanner {...demoContentSimple} variant="primary" />
 </Playground>
@@ -61,8 +64,10 @@ Check usage guidelines for more information.
 
 Adding class `.ecl-page-banner--center` will center the text in the banner.
 
-### Full width
+### Banner width
 
-The best way to have a full width banner is to place it outside of the grid container (`.ecl-container`).
+Banners placed inside a grid container (`.ecl-container`) will expand to this container width.
 
-If there is a need to have a full width banner inside the container, css class `.ecl-page-banner--fullwidth` can be used.
+To have a full width banner, the best way is to place it outside of the grid container.
+
+If there is a need to have a full width banner inside the container, the css class `.ecl-page-banner--fullwidth` can be used (just put it at the same level as `.ecl-page-banner`)
