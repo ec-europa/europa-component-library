@@ -35,7 +35,7 @@ export const Image = () => {
   const centered = boolean('Centered', true, 'Banner display');
   const fullWidth = boolean(
     'Full width (outside the grid)',
-    false,
+    true,
     'Banner display'
   );
   const fullWidthGrid = boolean(
@@ -103,7 +103,7 @@ export const ImageShade = () => {
   const centered = boolean('Centered', true, 'Banner display');
   const fullWidth = boolean(
     'Full width (outside the grid)',
-    false,
+    true,
     'Banner display'
   );
   const fullWidthGrid = boolean(
@@ -167,7 +167,7 @@ export const SimplePrimary = () => {
   const centered = boolean('Centered', false, 'Banner display');
   const fullWidth = boolean(
     'Full width (outside the grid)',
-    false,
+    true,
     'Banner display'
   );
   const fullWidthGrid = boolean(
@@ -231,7 +231,7 @@ export const SimpleGrey = () => {
   const centered = boolean('Centered', false, 'Banner display');
   const fullWidth = boolean(
     'Full width (outside the grid)',
-    false,
+    true,
     'Banner display'
   );
   const fullWidthGrid = boolean(
@@ -295,7 +295,7 @@ export const SimpleWhite = () => {
   const centered = boolean('Centered', false, 'Banner display');
   const fullWidth = boolean(
     'Full width (outside the grid)',
-    false,
+    true,
     'Banner display'
   );
   const fullWidthGrid = boolean(
@@ -359,7 +359,7 @@ export const SimpleGhost = () => {
   const centered = boolean('Centered', false, 'Banner display');
   const fullWidth = boolean(
     'Full width (outside the grid)',
-    false,
+    true,
     'Banner display'
   );
   const fullWidthGrid = boolean(
