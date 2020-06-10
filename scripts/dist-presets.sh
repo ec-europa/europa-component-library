@@ -18,6 +18,7 @@ cp -r ./src/systems/ec/implementations/vanilla/packages/ec-preset-full/dist ./di
 cp -r ./src/systems/ec/implementations/vanilla/packages/ec-preset-legacy/dist ./dist/packages/ec-preset-legacy
 cp -r ./src/systems/ec/implementations/vanilla/packages/ec-preset-legacy-website/dist ./dist/packages/ec-preset-legacy-website
 cp -r ./src/systems/ec/implementations/vanilla/packages/ec-preset-website/dist ./dist/packages/ec-preset-website
+cp -r ./src/systems/eu/implementations/vanilla/packages/eu-preset-editor/dist ./dist/packages/eu-preset-editor
 cp -r ./src/systems/eu/implementations/vanilla/packages/eu-preset-full/dist ./dist/packages/eu-preset-full
 cp -r ./src/systems/eu/implementations/vanilla/packages/eu-preset-legacy/dist ./dist/packages/eu-preset-legacy
 cp -r ./src/systems/eu/implementations/vanilla/packages/eu-preset-legacy-website/dist ./dist/packages/eu-preset-legacy-website
