@@ -2,7 +2,7 @@
 module.exports = {
   meta: 'Meta info | 17 October 2019',
   title: 'Headline',
-  baseline:
+  description:
     'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium',
   link: {
     label: 'Subscribe',

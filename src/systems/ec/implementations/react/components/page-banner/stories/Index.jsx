@@ -4,7 +4,6 @@ import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 
 import demoContentImage from '@ecl/ec-specs-page-banner/demo/data--image';
 import demoContentImageShade from '@ecl/ec-specs-page-banner/demo/data--image-shade';
-
 import demoContentSimple from '@ecl/ec-specs-page-banner/demo/data--simple';
 
 import PageBanner from '../src/PageBanner';
@@ -20,9 +19,9 @@ export default {
 export const Image = () => {
   // Banner content
   const title = text('Title', demoContentImage.title, 'Banner content');
-  const baseline = text(
-    'Baseline',
-    demoContentImage.baseline,
+  const description = text(
+    'Description',
+    demoContentImage.description,
     'Banner content'
   );
   const link = {
@@ -50,7 +49,7 @@ export const Image = () => {
         {...demoContentImage}
         variant="image"
         title={title}
-        baseline={baseline}
+        description={description}
         link={link}
         isCentered={centered}
         isFullWidth={fullWidthGrid}
@@ -64,7 +63,7 @@ export const Image = () => {
         {...demoContentImage}
         variant="image"
         title={title}
-        baseline={baseline}
+        description={description}
         link={link}
         isCentered={centered}
         isFullWidth={fullWidthGrid}
@@ -84,9 +83,9 @@ Image.story = {
 export const ImageShade = () => {
   // Banner content
   const title = text('Title', demoContentImageShade.title, 'Banner content');
-  const baseline = text(
-    'Baseline',
-    demoContentImageShade.baseline,
+  const description = text(
+    'Description',
+    demoContentImageShade.description,
     'Banner content'
   );
   const link = {
@@ -118,7 +117,7 @@ export const ImageShade = () => {
         {...demoContentImageShade}
         variant="image-shade"
         title={title}
-        baseline={baseline}
+        description={description}
         link={link}
         isCentered={centered}
         isFullWidth={fullWidthGrid}
@@ -132,7 +131,7 @@ export const ImageShade = () => {
         {...demoContentImageShade}
         variant="image-shade"
         title={title}
-        baseline={baseline}
+        description={description}
         link={link}
         isCentered={centered}
         isFullWidth={fullWidthGrid}
@@ -153,9 +152,9 @@ export const SimplePrimary = () => {
   // Banner content
   const meta = text('Meta', demoContentSimple.meta, 'Banner content');
   const title = text('Title', demoContentSimple.title, 'Banner content');
-  const baseline = text(
-    'Baseline',
-    demoContentSimple.baseline,
+  const description = text(
+    'Description',
+    demoContentSimple.description,
     'Banner content'
   );
   const link = {
@@ -183,7 +182,7 @@ export const SimplePrimary = () => {
         variant="primary"
         meta={meta}
         title={title}
-        baseline={baseline}
+        description={description}
         link={link}
         isCentered={centered}
         isFullWidth={fullWidthGrid}
@@ -197,7 +196,7 @@ export const SimplePrimary = () => {
         variant="primary"
         meta={meta}
         title={title}
-        baseline={baseline}
+        description={description}
         link={link}
         isCentered={centered}
         isFullWidth={fullWidthGrid}
@@ -217,9 +216,9 @@ export const SimpleGrey = () => {
   // Banner content
   const meta = text('Meta', demoContentSimple.meta, 'Banner content');
   const title = text('Title', demoContentSimple.title, 'Banner content');
-  const baseline = text(
-    'Baseline',
-    demoContentSimple.baseline,
+  const description = text(
+    'Description',
+    demoContentSimple.description,
     'Banner content'
   );
   const link = {
@@ -247,7 +246,7 @@ export const SimpleGrey = () => {
         variant="grey"
         meta={meta}
         title={title}
-        baseline={baseline}
+        description={description}
         link={link}
         isCentered={centered}
         isFullWidth={fullWidthGrid}
@@ -261,7 +260,7 @@ export const SimpleGrey = () => {
         variant="grey"
         meta={meta}
         title={title}
-        baseline={baseline}
+        description={description}
         link={link}
         isCentered={centered}
         isFullWidth={fullWidthGrid}
@@ -281,9 +280,9 @@ export const SimpleWhite = () => {
   // Banner content
   const meta = text('Meta', demoContentSimple.meta, 'Banner content');
   const title = text('Title', demoContentSimple.title, 'Banner content');
-  const baseline = text(
-    'Baseline',
-    demoContentSimple.baseline,
+  const description = text(
+    'Description',
+    demoContentSimple.description,
     'Banner content'
   );
   const link = {
@@ -311,7 +310,7 @@ export const SimpleWhite = () => {
         variant="white"
         meta={meta}
         title={title}
-        baseline={baseline}
+        description={description}
         link={link}
         isCentered={centered}
         isFullWidth={fullWidthGrid}
@@ -325,7 +324,7 @@ export const SimpleWhite = () => {
         variant="white"
         meta={meta}
         title={title}
-        baseline={baseline}
+        description={description}
         link={link}
         isCentered={centered}
         isFullWidth={fullWidthGrid}
@@ -345,9 +344,9 @@ export const SimpleGhost = () => {
   // Banner content
   const meta = text('Meta', demoContentSimple.meta, 'Banner content');
   const title = text('Title', demoContentSimple.title, 'Banner content');
-  const baseline = text(
-    'Baseline',
-    demoContentSimple.baseline,
+  const description = text(
+    'Description',
+    demoContentSimple.description,
     'Banner content'
   );
   const link = {
@@ -386,7 +385,7 @@ export const SimpleGhost = () => {
           variant="ghost"
           meta={meta}
           title={title}
-          baseline={baseline}
+          description={description}
           link={link}
           isCentered={centered}
           isFullWidth={fullWidthGrid}
@@ -412,7 +411,7 @@ export const SimpleGhost = () => {
           variant="ghost"
           meta={meta}
           title={title}
-          baseline={baseline}
+          description={description}
           link={link}
           isCentered={centered}
           isFullWidth={fullWidthGrid}

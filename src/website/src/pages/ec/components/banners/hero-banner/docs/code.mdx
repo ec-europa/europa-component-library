@@ -8,9 +8,7 @@ import HeroBanner from '@ecl/ec-react-component-hero-banner';
 
 import demoContentImage from '@ecl/ec-specs-hero-banner/demo/data--image';
 import demoContentImageShade from '@ecl/ec-specs-hero-banner/demo/data--image-shade';
-import demoContentPrimary from '@ecl/ec-specs-hero-banner/demo/data--primary';
-import demoContentDefault from '@ecl/ec-specs-hero-banner/demo/data--default';
-import demoContentAlignLeft from '@ecl/ec-specs-hero-banner/demo/data--align-left';
+import demoContentSimple from '@ecl/ec-specs-hero-banner/demo/data--simple';
 
 ## Image banner
 
@@ -18,8 +16,9 @@ import demoContentAlignLeft from '@ecl/ec-specs-hero-banner/demo/data--align-lef
   system="ec"
   selectedKind="components-banners-hero-banner"
   selectedStory="image"
+  showFrame
 >
-  <HeroBanner {...demoContentImage} />
+  <HeroBanner {...demoContentImage} variant="image" isCentered />
 </Playground>
 
 ## Shade image banner
@@ -28,36 +27,49 @@ import demoContentAlignLeft from '@ecl/ec-specs-hero-banner/demo/data--align-lef
   system="ec"
   selectedKind="components-banners-hero-banner"
   selectedStory="image-shade"
+  showFrame
 >
-  <HeroBanner {...demoContentImageShade} />
+  <HeroBanner {...demoContentImageShade} variant="image-shade" isCentered />
 </Playground>
 
-## Primary banner
+## Simple banners
 
 <Playground
   system="ec"
   selectedKind="components-banners-hero-banner"
-  selectedStory="primary"
+  selectedStory="simple-primary"
+  showFrame
 >
-  <HeroBanner {...demoContentPrimary} />
+  <HeroBanner {...demoContentSimple} variant="primary" />
 </Playground>
 
-## Default banner
+### Colours
 
-<Playground
-  system="ec"
-  selectedKind="components-banners-hero-banner"
-  selectedStory="default"
->
-  <HeroBanner {...demoContentDefault} />
-</Playground>
+Simple banners can be displayed with several background colours by using one css class or another.
+Here are the possibilities
 
-## Align left
+| variant | colour      | css class                   | notes                                                                       |
+| ------- | ----------- | --------------------------- | --------------------------------------------------------------------------- |
+| primary | blue        | `.ecl-hero-banner--primary` | primary colour may vary if a different theme is used                        |
+| grey    | light grey  | `.ecl-hero-banner--grey`    |                                                                             |
+| white   | white       | `.ecl-hero-banner--white`   |                                                                             |
+| ghost   | transparent | `.ecl-hero-banner--ghost`   | ghost variant is intended to be used in a container with a background image |
 
-<Playground
-  system="ec"
-  selectedKind="components-banners-hero-banner"
-  selectedStory="align-left"
->
-  <HeroBanner {...demoContentAlignLeft} />
-</Playground>
+## Other variants
+
+Note: Variants below can be applied to all kind of banners.  
+Check usage guidelines for more information.
+
+### Center content
+
+Adding class `.ecl-hero-banner--center` will center the text in the banner.
+
+### Banner width
+
+Banners placed inside a grid container (`.ecl-container`) will expand to this container width.
+
+To have a full width banner, the recommanded way is to place it outside of the grid container.
+
+However, if there is a need to have a full width banner inside the container, the css class `.ecl-hero-banner--fullwidth` can be used (just put it at the same level as `.ecl-hero-banner`).
+
+**Caution**: if you plan to use full width banner inside a container, we recommand to use the "website" preset, as some global rules here would improve the display.

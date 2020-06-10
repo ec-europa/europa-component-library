@@ -1,7 +1,7 @@
 // Simple content for demo
 module.exports = {
   title: 'Headline',
-  baseline: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem',
+  description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem',
   link: {
     label: 'Subscribe',
     href: '/example',

@@ -7,7 +7,9 @@
 @import '@ecl/ec-base/ec-base';
 
 // Check if overridden dependencies are already loaded, if needed
-@include check-imports(('ec-component-button', 'ec-component-link'));
+@include check-imports(
+  ('ec-component-button', 'ec-component-link', 'ec-layout-grid')
+);
 
 @mixin ecl-page-banner(
   // common
@@ -16,26 +18,26 @@
     $primary-background-color: $ecl-color-primary,
   $primary-meta-color: $ecl-color-white,
   $primary-title-color: $ecl-color-white,
-  $primary-baseline-color: $ecl-color-white,
+  $primary-description-color: $ecl-color-white,
   // grey
     $grey-background-color: $ecl-color-grey-5,
   $grey-meta-color: $ecl-color-grey-75,
   $grey-title-color: $ecl-color-black,
-  $grey-baseline-color: $ecl-color-grey,
+  $grey-description-color: $ecl-color-grey,
   // white
     $white-background-color: $ecl-color-white,
   $white-meta-color: $ecl-color-grey-75,
   $white-title-color: $ecl-color-black,
-  $white-baseline-color: $ecl-color-grey,
+  $white-description-color: $ecl-color-grey,
   // ghost
     $ghost-meta-color: $ecl-color-white,
   $ghost-title-color: $ecl-color-white,
-  $ghost-baseline-color: $ecl-color-white,
+  $ghost-description-color: $ecl-color-white,
   // image
     $image-background-color: $ecl-color-white,
   $image-meta-color: $ecl-color-grey-75,
   $image-title-color: $ecl-color-black,
-  $image-baseline-color: $ecl-color-grey,
+  $image-description-color: $ecl-color-grey,
   $image-border-color: $ecl-color-yellow,
   // image shade
     $image-shade-background-color: $ecl-color-blue-120,
@@ -43,7 +45,7 @@
     linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%),
   $image-shade-meta-color: $ecl-color-white,
   $image-shade-title-color: $ecl-color-white,
-  $image-shade-baseline-color: $ecl-color-white,
+  $image-shade-description-color: $ecl-color-white,
   $image-shade-border-color: $ecl-color-yellow
 ) {
   .ecl-page-banner {
@@ -87,7 +89,7 @@
     margin: 0;
   }
 
-  .ecl-page-banner__baseline {
+  .ecl-page-banner__description {
     font: $ecl-font-prolonged-l;
     margin-bottom: 0;
     margin-top: $ecl-spacing-m;
@@ -125,7 +127,7 @@
       font-weight: $ecl-font-weight-bold;
     }
 
-    .ecl-page-banner__baseline {
+    .ecl-page-banner__description {
       font: $ecl-font-prolonged-xl;
     }
 
@@ -170,15 +172,15 @@
       color: $primary-title-color;
     }
 
-    .ecl-page-banner__baseline {
-      color: $primary-baseline-color;
+    .ecl-page-banner__description {
+      color: $primary-description-color;
     }
 
     /* DEPRECATED */
     .ecl-page-banner__link,
     .ecl-page-banner__link:hover,
     .ecl-page-banner__link:focus {
-      color: $primary-baseline-color;
+      color: $primary-description-color;
     }
   }
 
@@ -197,8 +199,8 @@
       color: $grey-title-color;
     }
 
-    .ecl-page-banner__baseline {
-      color: $grey-baseline-color;
+    .ecl-page-banner__description {
+      color: $grey-description-color;
     }
   }
 
@@ -216,8 +218,8 @@
       color: $white-title-color;
     }
 
-    .ecl-page-banner__baseline {
-      color: $white-baseline-color;
+    .ecl-page-banner__description {
+      color: $white-description-color;
     }
   }
 
@@ -233,8 +235,8 @@
       color: $ghost-title-color;
     }
 
-    .ecl-page-banner__baseline {
-      color: $ghost-baseline-color;
+    .ecl-page-banner__description {
+      color: $ghost-description-color;
     }
   }
 
@@ -270,8 +272,8 @@
       color: $image-title-color;
     }
 
-    .ecl-page-banner__baseline {
-      color: $image-baseline-color;
+    .ecl-page-banner__description {
+      color: $image-description-color;
       margin-top: $ecl-spacing-xs;
     }
   }
@@ -350,8 +352,8 @@
       color: $image-shade-title-color;
     }
 
-    .ecl-page-banner__baseline {
-      color: $image-shade-baseline-color;
+    .ecl-page-banner__description {
+      color: $image-shade-description-color;
       margin-top: $ecl-spacing-xs;
     }
   }
