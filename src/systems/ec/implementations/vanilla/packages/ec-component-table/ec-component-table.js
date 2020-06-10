@@ -2,6 +2,21 @@
 import { queryOne, queryAll } from '@ecl/ec-base/helpers/dom';
 import iconSvgUiArrow from '@ecl/ec-resources-icons/dist/svg/ui/solid-arrow.svg';
 
+// Polyfill for closest (support for IE11)
+if (!Element.prototype.matches)
+  Element.prototype.matches = Element.prototype.msMatchesSelector;
+if (!Element.prototype.closest)
+  Element.prototype.closest = function poly(selector) {
+    let el = this;
+    while (el) {
+      if (el.matches(selector)) {
+        return el;
+      }
+      el = el.parentElement;
+    }
+    return null;
+  };
+
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
@@ -103,11 +118,10 @@ export class Table {
    */
   handleClickOnSort(toggle) {
     const table = toggle.closest('table');
-    const heading = toggle.closest('th');
     const tbody = queryOne('tbody', table);
 
     let colIndex = 0;
-    let prev = heading.previousElementSibling;
+    let prev = toggle.previousElementSibling;
     while (prev) {
       colIndex += prev.getAttribute('colspan')
         ? Number(prev.getAttribute('colspan'))
@@ -130,7 +144,7 @@ export class Table {
 
     this.sortHeadings.forEach(th => {
       const order = this.asc ? 'asc' : 'desc';
-      if (th === heading) {
+      if (th === toggle) {
         th.setAttribute('data-ecl-tablesort-toggle', order);
       } else {
         th.setAttribute('data-ecl-tablesort-toggle', true);
