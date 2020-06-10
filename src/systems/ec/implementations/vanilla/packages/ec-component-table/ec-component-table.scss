@@ -162,6 +162,46 @@
       padding-top: $ecl-spacing-s;
     }
   }
+
+  // SortTable
+  .ecl-table__header {
+    &[data-ecl-tablesort-toggle] {
+      cursor: pointer;
+      padding-left: calc(#{$ecl-spacing-m} + #{$ecl-icon-2-xs} + #{$ecl-spacing-xs});
+      position: relative;
+
+      .ecl-table__arrow {
+        left: $ecl-spacing-m;
+        position: absolute;
+    
+        .ecl-icon {
+          left: 0;
+          position: absolute;
+          fill: $ecl-color-grey-50;
+
+          &.ecl-table__icon-up {
+            top: 0;
+          }
+          &.ecl-table__icon-down {
+            top: $ecl-icon-2-xs;
+            transform: rotate(180deg);
+          }
+        }
+      }
+
+      &[data-ecl-tablesort-toggle="asc"] {
+        .ecl-table__icon-down {
+          fill: $ecl-color-black-100;
+        }
+      }
+  
+      &[data-ecl-tablesort-toggle="desc"] {
+        .ecl-table__icon-up {
+          fill: $ecl-color-black-100;
+        }
+      }
+    }
+  }
 }
 
 // Use mixin

@@ -21,15 +21,24 @@ export default () => {
       <TableHead>
         {demoContentDefault.headers.map((row, rowIndex) => (
           <TableRow key={`header-row${rowIndex}`}>
-            {row.map(({ label, ...cellProps }, cellIndex) => (
-              <TableHeader
-                {...adaptCellProps(cellProps)}
-                key={`header-row${rowIndex}-cell${cellIndex}`}
-                data-ecl-tablesort-toggle
-              >
-                {parse(label)}
-              </TableHeader>
-            ))}
+            {row.map(({ label, ...cellProps }, cellIndex) =>
+              label ? (
+                <TableHeader
+                  {...adaptCellProps(cellProps)}
+                  key={`header-row${rowIndex}-cell${cellIndex}`}
+                  data-ecl-tablesort-toggle
+                >
+                  {parse(label)}
+                </TableHeader>
+              ) : (
+                <TableHeader
+                  {...adaptCellProps(cellProps)}
+                  key={`header-row${rowIndex}-cell${cellIndex}`}
+                >
+                  {parse(label)}
+                </TableHeader>
+              )
+            )}
           </TableRow>
         ))}
       </TableHead>

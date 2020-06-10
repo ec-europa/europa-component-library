@@ -1,5 +1,6 @@
-/* eslint-disable unicorn/consistent-function-scoping */
+/* eslint-disable unicorn/consistent-function-scoping, no-unused-vars */
 import { queryOne, queryAll } from '@ecl/ec-base/helpers/dom';
+import iconSvgUiArrow from '@ecl/ec-resources-icons/dist/svg/ui/solid-arrow.svg';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -44,23 +45,44 @@ export class Table {
     this.sortSelector = sortSelector;
     this.attachClickListener = attachClickListener;
 
+    // Private variables
+    this.sortHeadings = null;
+
     // Bind `this` for use in callbacks
     this.handleClickOnSort = this.handleClickOnSort.bind(this);
+  }
+
+  /**
+   * @returns {HTMLElement}
+   */
+  static createSortIcon(customClass) {
+    const tempElement = document.createElement('span');
+    tempElement.innerHTML = iconSvgUiArrow; // avoiding the use of not-so-stable createElementNs
+    const svg = tempElement.children[0];
+    svg.removeAttribute('height');
+    svg.removeAttribute('width');
+    svg.setAttribute('focusable', false);
+    svg.setAttribute('aria-hidden', true);
+    // The following element is <path> which does not support classList API as others.
+    svg.setAttribute('class', `ecl-icon ecl-icon--2xs ${customClass}`);
+    return svg;
   }
 
   /**
    * Initialise component.
    */
   init() {
-    this.toggles = queryAll(this.sortSelector, this.element);
+    this.sortHeadings = queryAll(this.sortSelector, this.element);
 
     // Bind click event on toggles
-    if (this.attachClickListener && this.toggles) {
-      this.toggles.forEach(toggle => {
-        toggle.addEventListener(
-          'click',
-          this.handleClickOnSort.bind(this, toggle)
-        );
+    if (this.attachClickListener && this.sortHeadings) {
+      this.sortHeadings.forEach(tr => {
+        const sort = document.createElement('span');
+        sort.classList.add('ecl-table__arrow');
+        sort.append(Table.createSortIcon('ecl-table__icon-up'));
+        sort.append(Table.createSortIcon('ecl-table__icon-down'));
+        tr.prepend(sort);
+        tr.addEventListener('click', this.handleClickOnSort.bind(this, tr));
       });
     }
   }
@@ -78,6 +100,19 @@ export class Table {
    * @param {HTMLElement} toggle Target element to toggle.
    */
   handleClickOnSort(toggle) {
+    const table = toggle.closest('table');
+    const heading = toggle.closest('th');
+    const tbody = queryOne('tbody', table);
+
+    let colIndex = 0;
+    let prev = heading.previousElementSibling;
+    while (prev) {
+      colIndex += prev.getAttribute('colspan')
+        ? Number(prev.getAttribute('colspan'))
+        : 1;
+      prev = prev.previousElementSibling;
+    }
+
     const comparer = (idx, asc) => (a, b) =>
       ((v1, v2) =>
         v1 !== '' && v2 !== '' && !Number.isNaN(+v1) && !Number.isNaN(+v2)
@@ -87,18 +122,18 @@ export class Table {
         (asc ? b : a).children[idx].textContent
       );
 
-    const table = toggle.closest('table');
-    const tbody = queryOne('tbody', table);
-
     [...queryAll('tr', tbody)]
-      .sort(
-        comparer(
-          // eslint-disable-next-line unicorn/prefer-spread
-          Array.from(toggle.parentNode.children).indexOf(toggle),
-          (this.asc = !this.asc)
-        )
-      )
+      .sort(comparer(colIndex, (this.asc = !this.asc)))
       .forEach(tr => tbody.append(tr));
+
+    this.sortHeadings.forEach(th => {
+      const order = this.asc ? 'asc' : 'desc';
+      if (th === heading) {
+        th.setAttribute('data-ecl-tablesort-toggle', order);
+      } else {
+        th.setAttribute('data-ecl-tablesort-toggle', true);
+      }
+    });
   }
 }
 
