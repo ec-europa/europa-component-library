@@ -17,7 +17,7 @@ const adaptCellProps = ({ colspan, ...otherProps }) => ({
 
 export default () => {
   return (
-    <Table data-ecl-auto-init="Table" data-ecl-table>
+    <Table data-ecl-auto-init="Table">
       <TableHead>
         {demoContentDefault.headers.map((row, rowIndex) => (
           <TableRow key={`header-row${rowIndex}`}>

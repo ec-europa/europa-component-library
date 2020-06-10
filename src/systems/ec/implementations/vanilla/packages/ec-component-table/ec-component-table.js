@@ -91,8 +91,10 @@ export class Table {
    * Destroy component.
    */
   destroy() {
-    if (this.attachClickListener && this.order) {
-      this.order.removeEventListener('click', this.handleClickOnSort);
+    if (this.attachClickListener && this.sortHeadings) {
+      this.sortHeadings.forEach(tr => {
+        tr.removeEventListener('click', this.handleClickOnSort);
+      });
     }
   }
 

@@ -30,9 +30,9 @@ export default {
   ],
 };
 
-export const DefaultTable = Table;
+export const Default = Table;
 
-DefaultTable.story = {
+Default.story = {
   name: 'default',
 };
 
