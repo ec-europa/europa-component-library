@@ -87,9 +87,12 @@ export class Table {
       this.sortHeadings.forEach(tr => {
         const sort = document.createElement('span');
         sort.classList.add('ecl-table__arrow');
-        sort.append(Table.createSortIcon('ecl-table__icon-up'));
-        sort.append(Table.createSortIcon('ecl-table__icon-down'));
-        tr.prepend(sort);
+        /* eslint-disable-next-line unicorn/prefer-node-append */
+        sort.appendChild(Table.createSortIcon('ecl-table__icon-up'));
+        /* eslint-disable-next-line unicorn/prefer-node-append */
+        sort.appendChild(Table.createSortIcon('ecl-table__icon-down'));
+        /* eslint-disable-next-line unicorn/prefer-node-append */
+        tr.appendChild(sort);
         tr.addEventListener('click', this.handleClickOnSort.bind(this, tr));
       });
     }
@@ -133,7 +136,8 @@ export class Table {
 
     [...queryAll('tr', tbody)]
       .sort(comparer(colIndex, (this.asc = !this.asc)))
-      .forEach(tr => tbody.append(tr));
+      /* eslint-disable-next-line unicorn/prefer-node-append */
+      .forEach(tr => tbody.appendChild(tr));
 
     this.sortHeadings.forEach(th => {
       const order = this.asc ? 'asc' : 'desc';
