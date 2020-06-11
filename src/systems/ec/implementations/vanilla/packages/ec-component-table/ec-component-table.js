@@ -40,13 +40,7 @@ export class Table {
     return table;
   }
 
-  constructor(
-    element,
-    {
-      sortSelector = '[data-ecl-tablesort-toggle]',
-      attachClickListener = true,
-    } = {}
-  ) {
+  constructor(element, { sortSelector = '[data-ecl-tablesort-toggle]' } = {}) {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
       throw new TypeError(
@@ -58,7 +52,6 @@ export class Table {
 
     // Options
     this.sortSelector = sortSelector;
-    this.attachClickListener = attachClickListener;
 
     // Private variables
     this.sortHeadings = null;
@@ -90,7 +83,7 @@ export class Table {
     this.sortHeadings = queryAll(this.sortSelector, this.element);
 
     // Bind click event on toggles
-    if (this.attachClickListener && this.sortHeadings) {
+    if (this.sortHeadings) {
       this.sortHeadings.forEach(tr => {
         const sort = document.createElement('span');
         sort.classList.add('ecl-table__arrow');
@@ -106,7 +99,7 @@ export class Table {
    * Destroy component.
    */
   destroy() {
-    if (this.attachClickListener && this.sortHeadings) {
+    if (this.sortHeadings) {
       this.sortHeadings.forEach(tr => {
         tr.removeEventListener('click', this.handleClickOnSort);
       });
