@@ -26,12 +26,7 @@ const TextArea = ({
   });
 
   return (
-    <div
-      className={classnames(
-        groupClassName,
-        'ecl-form-group ecl-form-group--text-area'
-      )}
-    >
+    <div className={classnames(groupClassName, 'ecl-form-group')}>
       {label && (
         <label
           className={classnames(labelClassName, 'ecl-form-label', {
