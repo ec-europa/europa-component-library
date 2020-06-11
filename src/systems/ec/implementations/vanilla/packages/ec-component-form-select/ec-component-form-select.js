@@ -84,7 +84,7 @@ export class Select {
     this.searchContainer = null;
 
     // Bind `this` for use in callbacks
-    this.updateInputValue = this.updateInputValue.bind(this);
+    this.updateCurrentValue = this.updateCurrentValue.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
     this.handleClickOption = this.handleClickOption.bind(this);
     this.handleClickSelectAll = this.handleClickSelectAll.bind(this);
@@ -145,6 +145,7 @@ export class Select {
   static checkCheckbox(e) {
     const input = e.target.closest('.ecl-checkbox').querySelector('input');
     input.checked = !input.checked;
+    return input.checked;
   }
 
   /**
@@ -215,6 +216,7 @@ export class Select {
           option.text,
           this.selectMultipleId
         );
+        checkbox.setAttribute('data-visible', true);
         checkbox.addEventListener('click', this.handleClickOption);
         checkbox.addEventListener('keypress', this.handleClickOption);
         this.searchContainer.appendChild(checkbox);
@@ -255,7 +257,7 @@ export class Select {
     this.select.parentNode.classList.remove('ecl-select__container--hidden');
   }
 
-  updateInputValue() {
+  updateCurrentValue() {
     this.input.value = Array.from(this.select.options)
       .filter(option => option.getAttribute('selected'))
       .map(option => option.text)
@@ -290,14 +292,13 @@ export class Select {
           option.removeAttribute('selected');
           // Uncheck select all when a single option has been unchecked.
           this.selectAll.querySelector('input').checked = false;
-          this.select.setAttribute('data-all-checked', false);
         } else {
           option.setAttribute('selected', 'selected');
         }
       }
     });
 
-    this.updateInputValue();
+    this.updateCurrentValue();
   }
 
   /**
@@ -305,25 +306,28 @@ export class Select {
    */
   handleClickSelectAll(e) {
     e.preventDefault();
-    Select.checkCheckbox(e);
+    const checked = Select.checkCheckbox(e);
+    const options = Array.from(this.select.options);
+    const checkboxes = Array.from(
+      this.searchContainer.querySelectorAll('[data-visible="true"]')
+    );
 
-    if (this.select.getAttribute('data-all-checked') === 'true') {
-      this.select.options.forEach(option => option.removeAttribute('selected'));
-      this.checkboxes.map(
-        checkbox => (checkbox.querySelector('input').checked = false)
+    checkboxes.forEach(checkbox => {
+      checkbox.querySelector('input').checked = checked;
+      const option = options.find(
+        o => o.text === checkbox.getAttribute('data-select-multiple-value')
       );
-      this.select.setAttribute('data-all-checked', false);
-    } else {
-      this.select.options.forEach(option =>
-        option.setAttribute('selected', 'selected')
-      );
-      this.checkboxes.map(
-        checkbox => (checkbox.querySelector('input').checked = true)
-      );
-      this.select.setAttribute('data-all-checked', true);
-    }
 
-    this.updateInputValue();
+      if (option) {
+        if (checked) {
+          option.setAttribute('selected', 'selected');
+        } else {
+          option.removeAttribute('selected', 'selected');
+        }
+      }
+    });
+
+    this.updateCurrentValue();
   }
 
   /**
@@ -352,14 +356,19 @@ export class Select {
           .toLocaleLowerCase()
           .includes(keyword)
       ) {
+        checkbox.setAttribute('data-visible', false);
         checkbox.style.display = 'none';
       } else {
+        checkbox.setAttribute('data-visible', true);
         checkbox.style.display = 'flex';
       }
     });
     // reset
     if (keyword.length === 0) {
-      this.checkboxes.forEach(checkbox => (checkbox.style.display = 'flex'));
+      this.checkboxes.forEach(checkbox => {
+        checkbox.setAttribute('data-visible', true);
+        checkbox.style.display = 'flex';
+      });
     }
   }
 
