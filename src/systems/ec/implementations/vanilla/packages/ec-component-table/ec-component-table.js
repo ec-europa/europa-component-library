@@ -141,19 +141,17 @@ export class Table {
       );
 
     if (order === 'desc') {
-      // If current order is 'desc' reset column filter.
+      // If current order is 'desc' reset column filter and unset order.
       [...queryAll('tr', tbody)].forEach((tr, index) => {
         const defaultTr = queryOne(`[data-ecl-table-order='${index}']`);
         tbody.appendChild(defaultTr);
       });
-      // Set default order.
       order = true;
     } else {
-      // Otherwise we sort the column and set new order.
+      // Otherwise we sort the column and set new order and set new order.
       [...queryAll('tr', tbody)]
         .sort(comparer(colIndex, order !== 'asc'))
         .forEach(tr => tbody.appendChild(tr));
-      // Set new order.
       order = order === 'asc' ? 'desc' : 'asc';
     }
 
