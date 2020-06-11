@@ -27,7 +27,7 @@ export default () => {
                 key={`header-row${rowIndex}-cell${cellIndex}`}
                 {...(label &&
                   !cellProps.colspan && {
-                    'data-ecl-tablesort-toggle': true,
+                    'data-ecl-table-sort-toggle': true,
                   })}
               >
                 {parse(label)}

@@ -1,4 +1,4 @@
-/* eslint-disable unicorn/consistent-function-scoping, no-unused-vars */
+/* eslint-disable unicorn/consistent-function-scoping, unicorn/prefer-node-append */
 import { queryOne, queryAll } from '@ecl/ec-base/helpers/dom';
 import iconSvgUiArrow from '@ecl/ec-resources-icons/dist/svg/ui/solid-arrow.svg';
 
@@ -40,7 +40,7 @@ export class Table {
     return table;
   }
 
-  constructor(element, { sortSelector = '[data-ecl-tablesort-toggle]' } = {}) {
+  constructor(element, { sortSelector = '[data-ecl-table-sort-toggle]' } = {}) {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
       throw new TypeError(
@@ -82,20 +82,23 @@ export class Table {
   init() {
     this.sortHeadings = queryAll(this.sortSelector, this.element);
 
-    // Bind click event on toggles
+    // Add sort arrows and bind click event on toggles.
     if (this.sortHeadings) {
       this.sortHeadings.forEach(tr => {
         const sort = document.createElement('span');
         sort.classList.add('ecl-table__arrow');
-        /* eslint-disable-next-line unicorn/prefer-node-append */
         sort.appendChild(Table.createSortIcon('ecl-table__icon-up'));
-        /* eslint-disable-next-line unicorn/prefer-node-append */
         sort.appendChild(Table.createSortIcon('ecl-table__icon-down'));
-        /* eslint-disable-next-line unicorn/prefer-node-append */
         tr.appendChild(sort);
         tr.addEventListener('click', this.handleClickOnSort.bind(this, tr));
       });
     }
+
+    // Set default row order via dataset.
+    const tbody = queryOne('tbody', this.element);
+    [...queryAll('tr', tbody)].forEach((tr, index) => {
+      tr.setAttribute('data-ecl-table-order', index);
+    });
   }
 
   /**
@@ -115,7 +118,9 @@ export class Table {
   handleClickOnSort(toggle) {
     const table = toggle.closest('table');
     const tbody = queryOne('tbody', table);
+    let order = toggle.getAttribute('data-ecl-table-sort-toggle');
 
+    // Get current column index, taking into account the colspan.
     let colIndex = 0;
     let prev = toggle.previousElementSibling;
     while (prev) {
@@ -125,6 +130,7 @@ export class Table {
       prev = prev.previousElementSibling;
     }
 
+    // Cell comparer function.
     const comparer = (idx, asc) => (a, b) =>
       ((v1, v2) =>
         v1 !== '' && v2 !== '' && !Number.isNaN(+v1) && !Number.isNaN(+v2)
@@ -134,18 +140,29 @@ export class Table {
         (asc ? b : a).children[idx].textContent
       );
 
-    [...queryAll('tr', tbody)]
-      .sort(comparer(colIndex, (this.asc = !this.asc)))
-      /* eslint-disable-next-line unicorn/prefer-node-append */
-      .forEach(tr => tbody.appendChild(tr));
+    if (order === 'desc') {
+      // If current order is 'desc' reset column filter.
+      [...queryAll('tr', tbody)].forEach((tr, index) => {
+        const defaultTr = queryOne(`[data-ecl-table-order='${index}']`);
+        tbody.appendChild(defaultTr);
+      });
+      // Set default order.
+      order = true;
+    } else {
+      // Otherwise we sort the column and set new order.
+      [...queryAll('tr', tbody)]
+        .sort(comparer(colIndex, order !== 'asc'))
+        .forEach(tr => tbody.appendChild(tr));
+      // Set new order.
+      order = order === 'asc' ? 'desc' : 'asc';
+    }
 
+    // Change heading dataset to update arrow icons styles.
     this.sortHeadings.forEach(th => {
-      const order = this.asc ? 'asc' : 'desc';
-      if (th === toggle) {
-        th.setAttribute('data-ecl-tablesort-toggle', order);
-      } else {
-        th.setAttribute('data-ecl-tablesort-toggle', true);
-      }
+      th.setAttribute(
+        'data-ecl-table-sort-toggle',
+        th === toggle ? order : true
+      );
     });
   }
 }

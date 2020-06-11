@@ -165,7 +165,7 @@
 
   // SortTable
   .ecl-table__header {
-    &[data-ecl-tablesort-toggle] {
+    &[data-ecl-table-sort-toggle] {
       cursor: pointer;
       padding-left: calc(#{$ecl-spacing-m} + #{$ecl-icon-2-xs} + #{$ecl-spacing-xs});
       position: relative;
@@ -189,13 +189,13 @@
         }
       }
 
-      &[data-ecl-tablesort-toggle="asc"] {
+      &[data-ecl-table-sort-toggle="asc"] {
         .ecl-table__icon-down {
           fill: $ecl-color-grey-100;
         }
       }
   
-      &[data-ecl-tablesort-toggle="desc"] {
+      &[data-ecl-table-sort-toggle="desc"] {
         .ecl-table__icon-up {
           fill: $ecl-color-grey-100;
         }
