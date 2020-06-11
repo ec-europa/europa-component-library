@@ -3,11 +3,32 @@ order: 2
 title: What's new
 ---
 
-For the time being, ECL v2 components are composed of vanilla (simple) HTML; adaptable to any technologies while the Twig versions (to be implemented with Drupal 8) will be built within the next 3 months in preparation for the Drupal 8 upgrade.
+Detailed release information is available on [Github](https://github.com/ec-europa/europa-component-library/releases).
 
-Users can still go to ECL v1 to create or upgrade their websites. In 2019, we will be able to offer users a full set of components from ECL v2 when Drupal 8 is ready.
+## 2.29 (2020-06-11)
 
-We will also add new components to the ECL v2 as we continue improving the look and feel of the existing components. New releases under v2 should be published periodically under [Github](https://github.com/ec-europa/europa-component-library/releases).
+#### :rocket: New Feature
+
+- [#1600](https://github.com/ec-europa/europa-component-library/pull/1600) fix(EU): add missing elements - FRONT-1190
+
+#### :bug: Bug Fix
+
+- [#1588](https://github.com/ec-europa/europa-component-library/pull/1588) fix(site-header): update z-index for language switcher - FRONT-1134
+
+#### :nail_care: Enhancement
+
+- [#1596](https://github.com/ec-europa/europa-component-library/pull/1596) feat(gallery): improve gallery - FRONT-1168
+
+#### :memo: Documentation
+
+- [#1602](https://github.com/ec-europa/europa-component-library/pull/1602) docs(hero-banner): update usage page - FRONT-1175
+- [#1594](https://github.com/ec-europa/europa-component-library/pull/1594) docs(menu): add usage page - FRONT-1164
+- [#1593](https://github.com/ec-europa/europa-component-library/pull/1593) docs(content-media): update usage page - FRONT-1165
+- [#1583](https://github.com/ec-europa/europa-component-library/pull/1583) docs(ECL): 🧹 major grooming since v1 => v2 changes - FRONT-955
+
+#### :house: Internal
+
+- [#1601](https://github.com/ec-europa/europa-component-library/pull/1601) chore(deps): upgrade deps with vulnerabilities - FRONT-1172
 
 ## 2.28 (2020-04-30)
 
