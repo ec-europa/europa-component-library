@@ -348,6 +348,7 @@ export class Select {
    * @param {Event} e
    */
   handleSearch(e) {
+    const visible = [];
     const keyword = e.target.value;
     this.checkboxes.forEach(checkbox => {
       if (
@@ -361,8 +362,16 @@ export class Select {
       } else {
         checkbox.setAttribute('data-visible', true);
         checkbox.style.display = 'flex';
+        visible.push(checkbox);
       }
     });
+    // Select all checkbox follows along.
+    const checked = visible.filter(c => c.querySelector('input').checked);
+    if (visible.length !== checked.length) {
+      this.selectAll.querySelector('input').checked = false;
+    } else {
+      this.selectAll.querySelector('input').checked = true;
+    }
     // reset
     if (keyword.length === 0) {
       this.checkboxes.forEach(checkbox => {
