@@ -1,6 +1,26 @@
 import { queryOne, queryAll } from '@ecl/eu-base/helpers/dom';
 
+/**
+ * @param {HTMLElement} element DOM element for component instantiation and scope
+ * @param {Object} options
+ * @param {String} options.ellipsisButtonSelector
+ * @param {String} options.ellipsisSelector
+ * @param {String} options.segmentSelector
+ * @param {String} options.expandableItemsSelector
+ * @param {String} options.staticItemsSelector
+ * @param {Function} options.onPartialExpand
+ * @param {Function} options.onFullExpand
+ * @param {Boolean} options.attachClickListener
+ */
 export class Breadcrumb {
+  /**
+   * @static
+   * Shorthand for instance creation and initialisation.
+   *
+   * @param {HTMLElement} root DOM element for component instantiation and scope
+   *
+   * @return {Breadcrumb} An instance of Breadcrumb.
+   */
   static autoInit(root, { BREADCRUMB: defaultOptions = {} } = {}) {
     const breadcrumb = new Breadcrumb(root, defaultOptions);
     breadcrumb.init();
@@ -51,6 +71,9 @@ export class Breadcrumb {
     this.handleClickOnEllipsis = this.handleClickOnEllipsis.bind(this);
   }
 
+  /**
+   * Initialise component.
+   */
   init() {
     this.ellipsisButton = queryOne(this.ellipsisButtonSelector, this.element);
 
@@ -69,6 +92,9 @@ export class Breadcrumb {
     this.check();
   }
 
+  /**
+   * Destroy component.
+   */
   destroy() {
     if (this.attachClickListener && this.ellipsisButton) {
       this.ellipsisButton.removeEventListener(
@@ -78,10 +104,16 @@ export class Breadcrumb {
     }
   }
 
+  /**
+   * Invoke event listener attached on the elipsis. Traslates to a full expand.
+   */
   handleClickOnEllipsis() {
     return this.handleFullExpand();
   }
 
+  /**
+   * Apply partial or full expand.
+   */
   check() {
     const visibilityMap = this.computeVisibilityMap();
 
@@ -94,6 +126,9 @@ export class Breadcrumb {
     }
   }
 
+  /**
+   * Removes the elipsis element and its event listeners.
+   */
   hideEllipsis() {
     // Hide ellipsis
     const ellipsis = queryOne(this.ellipsisSelector, this.element);
@@ -110,12 +145,18 @@ export class Breadcrumb {
     }
   }
 
+  /**
+   * Show all expandable elements.
+   */
   showAllItems() {
     this.expandableElements.forEach(item =>
       item.setAttribute('aria-hidden', 'false')
     );
   }
 
+  /**
+   * @param {Object} visibilityMap
+   */
   handlePartialExpand(visibilityMap) {
     if (!visibilityMap) return;
 
@@ -134,6 +175,9 @@ export class Breadcrumb {
     }
   }
 
+  /**
+   * Display all elements.
+   */
   handleFullExpand() {
     if (this.onFullExpand) {
       this.onFullExpand();
@@ -143,6 +187,9 @@ export class Breadcrumb {
     }
   }
 
+  /**
+   * Measure/evaluate which elements can be displayed and toggle those who don't fit.
+   */
   computeVisibilityMap() {
     // Ignore if there are no expandableElements
     if (!this.expandableElements || this.expandableElements.length === 0) {
