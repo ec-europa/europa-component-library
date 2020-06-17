@@ -268,7 +268,7 @@ pipeline:
       - yarn build:icons
       - yarn build:themes
       - yarn dist
-      - 'yarn netlify deploy --site $${NETLIFY_SITE_ID} --message "Drone build: ${DRONE_BUILD_NUMBER}"'
+      - 'yarn netlify deploy --site $${NETLIFY_SITE_ID} --alias ${DRONE_COMMIT_BRANCH} --message "Drone build: ${DRONE_BUILD_NUMBER}"'
       - node scripts/set-netlify-deployment-status.js
     when:
       event: [push, pull_request]
