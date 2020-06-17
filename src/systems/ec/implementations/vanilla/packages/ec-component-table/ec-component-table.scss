@@ -168,25 +168,6 @@
     cursor: pointer;
     padding-left: calc(#{$ecl-spacing-m} + #{$ecl-icon-2-xs} + #{$ecl-spacing-xs});
     position: relative;
-
-    .ecl-table__arrow {
-      left: $ecl-spacing-m;
-      position: absolute;
-    }
-
-    .ecl-icon {
-      left: 0;
-      position: absolute;
-      fill: $ecl-color-grey-50;
-
-      &.ecl-table__icon-up {
-        top: 0;
-      }
-      &.ecl-table__icon-down {
-        top: $ecl-icon-2-xs;
-        transform: rotate(180deg);
-      }
-    }
       
     &[aria-sort="ascending"] {
       .ecl-table__icon-down {
@@ -199,6 +180,26 @@
         fill: $ecl-color-grey-100;
       }
     }
+  }
+  
+  .ecl-table__arrow {
+    left: $ecl-spacing-m;
+    position: absolute;
+  }
+
+  .ecl-table__icon-up {
+    left: 0;
+    position: absolute;
+    fill: $ecl-color-grey-50;
+    top: 0;
+  }
+
+  .ecl-table__icon-down {
+    left: 0;
+    position: absolute;
+    fill: $ecl-color-grey-50;
+    top: $ecl-icon-2-xs;
+    transform: rotate(180deg);
   }
 }
 
