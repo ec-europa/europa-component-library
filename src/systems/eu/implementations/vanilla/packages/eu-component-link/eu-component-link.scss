@@ -5,15 +5,14 @@
 
 // Import base
 @import '@ecl/eu-base/eu-base';
-@import 'mixins';
 
 // Check if overridden dependencies are already loaded, if needed
 @include check-imports(('eu-component-icon'));
 
 @mixin ecl-link(
-  $link-color: $ecl-color-primary,
-  $link-color-hover: $ecl-color-black-100,
-  $link-color-focus: $ecl-color-secondary
+  $link-color: $ecl-color-blue,
+  $link-color-hover: $ecl-color-black,
+  $link-color-focus: $ecl-color-yellow
 ) {
   .ecl-link {
     color: $link-color;
