@@ -325,18 +325,20 @@ export class InpageNavigation {
    */
   handleClickOnToggler(e) {
     const currentList = queryOne(this.inPageList, this.element);
-    const currentState = currentList.getAttributeNode('hidden');
     const togglerElement = queryOne(this.toggleSelector, this.element);
 
-    if (currentState) {
-      currentList.hidden = false;
-      togglerElement.setAttribute('aria-expanded', 'true');
-    } else {
-      currentList.hidden = true;
-      togglerElement.setAttribute('aria-expanded', 'false');
-    }
-
     e.preventDefault();
+
+    // Get current status
+    const isExpanded = togglerElement.getAttribute('aria-expanded') === 'true';
+
+    // Toggle the expandable/collapsible
+    togglerElement.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+    if (isExpanded) {
+      currentList.classList.remove('ecl-inpage-navigation__list--visible');
+    } else {
+      currentList.classList.add('ecl-inpage-navigation__list--visible');
+    }
   }
 
   /**
@@ -346,7 +348,7 @@ export class InpageNavigation {
     const currentList = queryOne(this.inPageList, this.element);
     const togglerElement = queryOne(this.toggleSelector, this.element);
 
-    currentList.hidden = true;
+    currentList.classList.remove('ecl-inpage-navigation__list--visible');
     togglerElement.setAttribute('aria-expanded', 'false');
   }
 
