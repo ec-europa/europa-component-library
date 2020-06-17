@@ -118,7 +118,7 @@ export class Table {
   handleClickOnSort(toggle) {
     const table = toggle.closest('table');
     const tbody = queryOne('tbody', table);
-    let order = toggle.getAttribute('data-ecl-table-sort-toggle');
+    let order = toggle.getAttribute('aria-sort');
 
     // Get current column index, taking into account the colspan.
     let colIndex = 0;
@@ -140,27 +140,28 @@ export class Table {
         (asc ? b : a).children[idx].textContent
       );
 
-    if (order === 'desc') {
-      // If current order is 'desc' reset column filter and unset order.
+    if (order === 'descending') {
+      // If current order is 'descending' reset column filter sort rows by default order.
       [...queryAll('tr', tbody)].forEach((tr, index) => {
         const defaultTr = queryOne(`[data-ecl-table-order='${index}']`);
         tbody.appendChild(defaultTr);
       });
-      order = true;
+      order = null;
     } else {
-      // Otherwise we sort the column and set new order and set new order.
+      // Otherwise we sort the rows and set new order.
       [...queryAll('tr', tbody)]
-        .sort(comparer(colIndex, order !== 'asc'))
+        .sort(comparer(colIndex, order !== 'ascending'))
         .forEach(tr => tbody.appendChild(tr));
-      order = order === 'asc' ? 'desc' : 'asc';
+      order = order === 'ascending' ? 'descending' : 'ascending';
     }
 
-    // Change heading dataset to update arrow icons styles.
+    // Change heading aria-sort attr.
     this.sortHeadings.forEach(th => {
-      th.setAttribute(
-        'data-ecl-table-sort-toggle',
-        th === toggle ? order : true
-      );
+      if (order && th === toggle) {
+        th.setAttribute('aria-sort', order);
+      } else {
+        th.removeAttribute('aria-sort');
+      }
     });
   }
 }
