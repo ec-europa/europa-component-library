@@ -1,5 +1,35 @@
 # Changelog
 
+## 2.29 (2020-06-11)
+
+#### :rocket: New Feature
+
+- [#1600](https://github.com/ec-europa/europa-component-library/pull/1600) fix(EU): add missing elements - FRONT-1190 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#1588](https://github.com/ec-europa/europa-component-library/pull/1588) fix(site-header): update z-index for language switcher - FRONT-1134 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#1596](https://github.com/ec-europa/europa-component-library/pull/1596) feat(gallery): improve gallery - FRONT-1168 ([@emeryro](https://github.com/emeryro))
+
+#### :memo: Documentation
+
+- [#1602](https://github.com/ec-europa/europa-component-library/pull/1602) docs(hero-banner): update usage page - FRONT-1175 ([@emeryro](https://github.com/emeryro))
+- [#1594](https://github.com/ec-europa/europa-component-library/pull/1594) docs(menu): add usage page - FRONT-1164 ([@emeryro](https://github.com/emeryro))
+- [#1593](https://github.com/ec-europa/europa-component-library/pull/1593) docs(content-media): update usage page - FRONT-1165 ([@emeryro](https://github.com/emeryro))
+- [#1583](https://github.com/ec-europa/europa-component-library/pull/1583) docs(ECL): 🧹 major grooming since v1 => v2 changes - FRONT-955 ([@kalinchernev](https://github.com/kalinchernev))
+
+#### :house: Internal
+
+- [#1601](https://github.com/ec-europa/europa-component-library/pull/1601) chore(deps): upgrade deps with vulnerabilities - FRONT-1172 ([@kalinchernev](https://github.com/kalinchernev))
+
+#### Committers: 2
+
+- Kalin Chernev ([@kalinchernev](https://github.com/kalinchernev))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
 ## 2.28 (2020-04-30)
 
 #### :rocket: New Feature
