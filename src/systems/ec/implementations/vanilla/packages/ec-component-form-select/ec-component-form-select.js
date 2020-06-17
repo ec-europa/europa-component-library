@@ -1,6 +1,7 @@
 /* eslint-disable no-return-assign */
 import { queryOne } from '@ecl/ec-base/helpers/dom';
 import iconSvgUiCheck from '@ecl/ec-resources-icons/dist/svg/ui/check.svg';
+import iconSvgUiCornerArrow from '@ecl/ec-resources-icons/dist/svg/ui/corner-arrow.svg';
 
 // Polyfill for closest (support for IE11)
 if (!Element.prototype.matches)
@@ -96,16 +97,16 @@ export class Select {
   /**
    * @returns {HTMLElement}
    */
-  static createCheckboxIcon() {
+  static createSvgIcon(icon, classes) {
     const tempElement = document.createElement('div');
-    tempElement.innerHTML = iconSvgUiCheck; // avoiding the use of not-so-stable createElementNs
+    tempElement.innerHTML = icon; // avoiding the use of not-so-stable createElementNs
     const svg = tempElement.children[0];
     svg.removeAttribute('height');
     svg.removeAttribute('width');
     svg.setAttribute('focusable', false);
     svg.setAttribute('aria-hidden', true);
     // The following element is <path> which does not support classList API as others.
-    svg.setAttribute('class', 'ecl-icon ecl-icon--s ecl-checkbox__icon');
+    svg.setAttribute('class', classes);
     return svg;
   }
 
@@ -131,11 +132,30 @@ export class Select {
     label.setAttribute('for', `${scope}-${id}`);
     const box = document.createElement('span');
     box.classList.add('ecl-checkbox__box');
-    box.appendChild(Select.createCheckboxIcon());
+    box.appendChild(
+      Select.createSvgIcon(
+        iconSvgUiCheck,
+        'ecl-icon ecl-icon--s ecl-checkbox__icon'
+      )
+    );
     label.appendChild(box);
     label.appendChild(document.createTextNode(text));
     checkbox.appendChild(label);
     return checkbox;
+  }
+
+  /**
+   * @returns {HTMLElement}
+   */
+  static createSelectIcon() {
+    const wrapper = document.createElement('div');
+    wrapper.classList.add('ecl-select__icon');
+    const icon = Select.createSvgIcon(
+      iconSvgUiCornerArrow,
+      'ecl-icon ecl-icon--s ecl-select__icon-shape ecl-icon--rotate-180'
+    );
+    wrapper.appendChild(icon);
+    return wrapper;
   }
 
   /**
@@ -158,10 +178,6 @@ export class Select {
     this.textSearch = this.element.getAttribute(this.searchTextAttribute);
     this.textSelectAll = this.element.getAttribute(this.selectAllTextAttribute);
 
-    if (this.select.nextSibling.classList.contains('ecl-select__icon')) {
-      this.selectIcon = this.select.nextSibling;
-    }
-
     this.selectMultiple = document.createElement('div');
     this.selectMultiple.classList.add('ecl-select__multiple');
     // Close the searchContainer when tabbing out of the selectMultple
@@ -181,8 +197,9 @@ export class Select {
     }
     this.input.addEventListener('keypress', this.handleToggle);
     this.input.addEventListener('click', this.handleToggle);
+
     this.inputContainer.appendChild(this.input);
-    this.inputContainer.appendChild(this.selectIcon);
+    this.inputContainer.appendChild(Select.createSelectIcon());
 
     this.searchContainer = document.createElement('div');
     this.searchContainer.style.display = 'none';

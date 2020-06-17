@@ -1,6 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
-import StoryWrapper from '@ecl/story-wrapper';
+import React, { useEffect } from 'react';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 
 import demoContentSingle from '@ecl/ec-specs-select/demo/data--single';
@@ -10,30 +9,7 @@ import Select from '../src/Select';
 
 export default {
   title: 'Components/Forms/Select',
-  decorators: [
-    withKnobs,
-    story => (
-      <StoryWrapper
-        afterMount={() => {
-          if (!window.ECL) return {};
-
-          const autoinit = window.ECL.autoInit();
-          return { components: autoinit.components };
-          // const select = window.ECL.Select.autoInit(
-          //   document.querySelector(`[data-ecl-select-multiple]`)
-          // );
-          // select.destroy();
-        }}
-        beforeUnmount={context => {
-          if (context.components) {
-            context.components.forEach(c => c.destroy());
-          }
-        }}
-      >
-        {story()}
-      </StoryWrapper>
-    ),
-  ],
+  decorators: [withKnobs],
 };
 
 export const Default = () => (
@@ -71,44 +47,61 @@ Default.story = {
   },
 };
 
-export const Multiple = () => (
-  <Select
-    {...demoContentMultiple}
-    data-ecl-auto-init="Select"
-    id="select-multiple"
-    options={demoContentMultiple.options}
-    label={text('Label', demoContentMultiple.label)}
-    helperText={text('Helper text', demoContentMultiple.helperText)}
-    invalid={boolean('Invalid', false)}
-    invalidText={text('Invalid text', demoContentMultiple.invalidText)}
-    disabled={boolean('Disabled', false)}
-    required={boolean('Required', true)}
-    requiredText={text('Required text', demoContentMultiple.requiredText)}
-    optionalText={text('Optional text', demoContentMultiple.optionalText)}
-    width={select(
-      'Width',
-      {
-        small: 's',
-        medium: 'm',
-        large: 'l',
-      },
-      'm'
-    )}
-    multiple
-    data-ecl-select-default={text(
-      'Placeholder (multiple)',
-      demoContentMultiple.multiplePlaceholder
-    )}
-    data-ecl-select-search={text(
-      'Search text (multiple)',
-      demoContentMultiple.multipleSearchText
-    )}
-    data-ecl-select-all={text(
-      'Select all label (multiple)',
-      demoContentMultiple.multipleAllText
-    )}
-  />
-);
+export const Multiple = () => {
+  const textDefault = text(
+    'Placeholder (multiple)',
+    demoContentMultiple.multiplePlaceholder
+  );
+  const textSearch = text(
+    'Search text (multiple)',
+    demoContentMultiple.multipleSearchText
+  );
+  const textSelectAll = text(
+    'Select all label (multiple)',
+    demoContentMultiple.multipleAllText
+  );
+  const isDisabled = boolean('Disabled', false);
+  const isRequired = boolean('Required', true);
+
+  useEffect(() => {
+    if (!document || !window.ECL) return {};
+
+    const instance = window.ECL.Select.autoInit(
+      document.querySelector('[data-ecl-select-multiple]')
+    );
+
+    return () => instance.destroy();
+  }, [textDefault, textSearch, textSelectAll, isDisabled, isRequired]);
+
+  return (
+    <Select
+      {...demoContentMultiple}
+      id="select-multiple"
+      options={demoContentMultiple.options}
+      label={text('Label', demoContentMultiple.label)}
+      helperText={text('Helper text', demoContentMultiple.helperText)}
+      invalid={boolean('Invalid', false)}
+      invalidText={text('Invalid text', demoContentMultiple.invalidText)}
+      disabled={isDisabled}
+      required={isRequired}
+      requiredText={text('Required text', demoContentMultiple.requiredText)}
+      optionalText={text('Optional text', demoContentMultiple.optionalText)}
+      width={select(
+        'Width',
+        {
+          small: 's',
+          medium: 'm',
+          large: 'l',
+        },
+        'm'
+      )}
+      multiple
+      data-ecl-select-default={textDefault}
+      data-ecl-select-search={textSearch}
+      data-ecl-select-all={textSelectAll}
+    />
+  );
+};
 
 Multiple.story = {
   name: 'multiple',
