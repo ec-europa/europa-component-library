@@ -16,10 +16,16 @@
     flex-wrap: wrap;
   }
 
+  .ecl-file__icon {
+    display: none;
+  }
+
   .ecl-file__title {
     color: $ecl-color-black-100;
     font: $ecl-font-print-m;
+    font-family: $ecl-font-family-print-alt;
     font-weight: $ecl-font-weight-print-bold;
+    margin-bottom: $ecl-spacing-print-s;
     width: 100%;
   }
 
@@ -28,19 +34,18 @@
     font: $ecl-font-print-s;
     font-weight: $ecl-font-weight-print-bold;
     margin-right: $ecl-spacing-print-2-xs;
-    margin-top: $ecl-spacing-print-2-xs;
   }
 
   .ecl-file__meta {
     color: $ecl-color-black-100;
     font: $ecl-font-print-s;
-    margin-top: $ecl-spacing-print-2-xs;
   }
 
   .ecl-file__download {
     border-width: 0;
+    clear: left;
+    font: $ecl-font-print-s;
     font-weight: $ecl-font-weight-print-regular;
-    padding: 0;
   }
 
   .ecl-file__translation-toggle {
@@ -77,6 +82,11 @@
   .ecl-file__translation-description {
     color: $ecl-color-black-100;
     font: $ecl-font-print-m;
+    margin-top: $ecl-spacing-print-s;
+  }
+
+  .ecl-file__translation-download {
+    font: $ecl-font-print-s;
   }
 }
 
