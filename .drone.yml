@@ -28,7 +28,7 @@ matrix:
 
 pipeline:
   install:
-    image: node:dubnium
+    image: node:erbium
     commands:
       - export NOYARNPOSTINSTALL="1"
       - yarn install --frozen-lockfile
@@ -36,7 +36,7 @@ pipeline:
       event: [push, pull_request, tag]
 
   audit:
-    image: node:dubnium
+    image: node:erbium
     commands:
       - ./scripts/audit.sh
     when:
@@ -45,7 +45,7 @@ pipeline:
         TEST: audit
 
   conventions:
-    image: node:dubnium
+    image: node:erbium
     commands:
       - yarn build:icons
       - yarn build:themes
@@ -57,7 +57,7 @@ pipeline:
         TEST: conventions
 
   examples:
-    image: node:dubnium
+    image: node:erbium
     commands:
       - yarn build:icons
       - yarn build:themes
@@ -86,7 +86,7 @@ pipeline:
   # =======================================
 
   build-presets:
-    image: node:dubnium
+    image: node:erbium
     commands:
       - yarn browserstats
       - yarn clean
