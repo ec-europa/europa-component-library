@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+/* eslint-disable no-console */
 const fs = require('fs');
 const path = require('path');
 const glob = require('glob'); // eslint-disable-line import/no-extraneous-dependencies
