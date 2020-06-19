@@ -19,8 +19,14 @@ if (!Element.prototype.closest)
   };
 
 /**
+ * There are multiple labels contained in this component. You can set them in 2 ways: directly as a string or through data attributes.
+ * Textual values have precedence and if they are not provided, then DOM data attributes are used.
+ *
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
+ * @param {String} options.defaultText The default placeholder
+ * @param {String} options.searchText The label for search
+ * @param {String} options.selectAllText The label for select all
  * @param {String} options.selectMultipleId The id attribute of the select multiple
  * @param {String} options.selectMultipleSelector The data attribute selector of the select multiple
  * @param {String} options.defaultTextAttribute The data attribute for the default placeholder text
@@ -36,7 +42,7 @@ export class Select {
    *
    * @return {Select} An instance of Select.
    */
-  static autoInit(root, { SELECT: defaultOptions = {} } = {}) {
+  static autoInit(root, defaultOptions = {}) {
     const select = new Select(root, defaultOptions);
 
     select.init();
@@ -47,6 +53,9 @@ export class Select {
   constructor(
     element,
     {
+      defaultText = '',
+      searchText = '',
+      selectAllText = '',
       selectMultipleId = 'select-multiple',
       selectMultipleSelector = '[data-ecl-select-multiple]',
       defaultTextAttribute = 'data-ecl-select-default',
@@ -69,6 +78,9 @@ export class Select {
     this.defaultTextAttribute = defaultTextAttribute;
     this.searchTextAttribute = searchTextAttribute;
     this.selectAllTextAttribute = selectAllTextAttribute;
+    this.defaultText = defaultText;
+    this.searchText = searchText;
+    this.selectAllText = selectAllText;
 
     // Private variables
     this.input = null;
@@ -174,9 +186,13 @@ export class Select {
   init() {
     this.select = queryOne(this.selectMultipleSelector);
     const containerClasses = Array.from(this.select.parentElement.classList);
-    this.textDefault = this.element.getAttribute(this.defaultTextAttribute);
-    this.textSearch = this.element.getAttribute(this.searchTextAttribute);
-    this.textSelectAll = this.element.getAttribute(this.selectAllTextAttribute);
+    this.textDefault =
+      this.defaultText || this.element.getAttribute(this.defaultTextAttribute);
+    this.textSearch =
+      this.searchText || this.element.getAttribute(this.searchTextAttribute);
+    this.textSelectAll =
+      this.selectAllText ||
+      this.element.getAttribute(this.selectAllTextAttribute);
 
     this.selectMultiple = document.createElement('div');
     this.selectMultiple.classList.add('ecl-select__multiple');

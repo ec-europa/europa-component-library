@@ -48,15 +48,15 @@ Default.story = {
 };
 
 export const Multiple = () => {
-  const textDefault = text(
+  const defaultText = text(
     'Placeholder (multiple)',
     demoContentMultiple.multiplePlaceholder
   );
-  const textSearch = text(
+  const searchText = text(
     'Search text (multiple)',
     demoContentMultiple.multipleSearchText
   );
-  const textSelectAll = text(
+  const selectAllText = text(
     'Select all label (multiple)',
     demoContentMultiple.multipleAllText
   );
@@ -67,11 +67,12 @@ export const Multiple = () => {
     if (!document || !window.ECL) return {};
 
     const instance = window.ECL.Select.autoInit(
-      document.querySelector('[data-ecl-select-multiple]')
+      document.querySelector('[data-ecl-select-multiple]'),
+      { defaultText, searchText, selectAllText }
     );
 
     return () => instance.destroy();
-  }, [textDefault, textSearch, textSelectAll, isDisabled, isRequired]);
+  }, [defaultText, searchText, selectAllText, isDisabled, isRequired]);
 
   return (
     <Select
@@ -96,9 +97,9 @@ export const Multiple = () => {
         'm'
       )}
       multiple
-      data-ecl-select-default={textDefault}
-      data-ecl-select-search={textSearch}
-      data-ecl-select-all={textSelectAll}
+      data-ecl-select-default={defaultText}
+      data-ecl-select-search={searchText}
+      data-ecl-select-all={selectAllText}
     />
   );
 };
