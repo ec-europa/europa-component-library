@@ -1,6 +1,23 @@
 import { queryOne } from '@ecl/eu-base/helpers/dom';
 
+/**
+ * @param {HTMLElement} element DOM element for component instantiation and scope
+ * @param {Object} options
+ * @param {String} options.toggleSelector Selector for toggling element
+ * @param {String} options.labelSelector Selector for label
+ * @param {String} options.labelExpanded Label state
+ * @param {String} options.labelCollapsed Label collapsed state
+ * @param {Boolean} options.attachClickListener Whether or not to bind click events on toggle
+ */
 export class Expandable {
+  /**
+   * @static
+   * Shorthand for instance creation and initialisation.
+   *
+   * @param {HTMLElement} root DOM element for component instantiation and scope
+   *
+   * @return {Expandable} An instance of Expandable.
+   */
   static autoInit(root, { EXPANDABLE: defaultOptions = {} } = {}) {
     const expandable = new Expandable(root, defaultOptions);
     expandable.init();
@@ -45,6 +62,9 @@ export class Expandable {
     this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
   }
 
+  /**
+   * Initialise component.
+   */
   init() {
     this.toggle = queryOne(this.toggleSelector, this.element);
 
@@ -69,12 +89,18 @@ export class Expandable {
     }
   }
 
+  /**
+   * Destroy component.
+   */
   destroy() {
     if (this.attachClickListener && this.toggle) {
       this.toggle.removeEventListener('click', this.handleClickOnToggle);
     }
   }
 
+  /**
+   * Toggles between collapsed/expanded states.
+   */
   handleClickOnToggle() {
     // Get current status
     const isExpanded =

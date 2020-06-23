@@ -1,6 +1,20 @@
 import { queryOne } from '@ecl/eu-base/helpers/dom';
 
+/**
+ * @param {HTMLElement} element DOM element for component instantiation and scope
+ * @param {Object} options
+ * @param {String} options.closeSelector Selector for closing the message
+ * @param {Boolean} options.attachClickListener Whether or not to bind click events
+ */
 export class Message {
+  /**
+   * @static
+   * Shorthand for instance creation and initialisation.
+   *
+   * @param {HTMLElement} root DOM element for component instantiation and scope
+   *
+   * @return {Message} An instance of Message.
+   */
   static autoInit(root, { MESSAGE: defaultOptions = {} } = {}) {
     const message = new Message(root, defaultOptions);
     message.init();
@@ -36,6 +50,9 @@ export class Message {
     this.handleClickOnClose = this.handleClickOnClose.bind(this);
   }
 
+  /**
+   * Initialise component.
+   */
   init() {
     this.close = queryOne(this.closeSelector, this.element);
 
@@ -45,12 +62,18 @@ export class Message {
     }
   }
 
+  /**
+   * Destroy component.
+   */
   destroy() {
     if (this.attachClickListener && this.close) {
       this.close.removeEventListener('click', this.handleClickOnClose);
     }
   }
 
+  /**
+   * Remove the message component.
+   */
   handleClickOnClose() {
     // IE way to remove a node...
     if (this.element.parentNode) {

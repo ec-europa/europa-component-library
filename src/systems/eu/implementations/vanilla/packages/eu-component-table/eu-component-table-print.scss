@@ -12,11 +12,13 @@
     color: $ecl-color-grey;
     font: $ecl-font-print-m;
     margin: 0;
+    page-break-inside: avoid;
     width: 100%;
   }
 
   .ecl-table__header {
-    padding: $ecl-spacing-s $ecl-spacing-m;
+    padding: $ecl-spacing-print-s $ecl-spacing-print-xl $ecl-spacing-print-s
+      $ecl-spacing-print-m;
     text-align: left;
     vertical-align: baseline;
   }
@@ -30,7 +32,8 @@
   }
 
   .ecl-table__cell {
-    padding: $ecl-spacing-s $ecl-spacing-m;
+    padding: $ecl-spacing-print-s $ecl-spacing-print-xl $ecl-spacing-print-s
+      $ecl-spacing-print-m;
   }
 }
 
