@@ -3,9 +3,9 @@
 export * from '@ecl/eu-auto-init';
 export * from '@ecl/eu-component-accordion2';
 export * from '@ecl/eu-component-breadcrumb';
-// export * from '@ecl/eu-component-breadcrumb-core';
-// export * from '@ecl/eu-component-breadcrumb-harmonised';
-// export * from '@ecl/eu-component-breadcrumb-standardised';
+export * from '@ecl/eu-component-breadcrumb-core';
+export * from '@ecl/eu-component-breadcrumb-harmonised';
+export * from '@ecl/eu-component-breadcrumb-standardised';
 export * from '@ecl/eu-component-contextual-navigation';
 export * from '@ecl/eu-component-expandable';
 export * from '@ecl/eu-component-file';
