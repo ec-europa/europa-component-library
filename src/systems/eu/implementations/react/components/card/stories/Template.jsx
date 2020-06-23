@@ -17,7 +17,7 @@ export const Template = () => {
     variant: 'standalone',
     label: 'Policy coherence for development in the European Union',
     href: '/example#1',
-    level: 1,
+    level: 3,
   };
   const title2 = {
     variant: 'standalone',
