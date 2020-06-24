@@ -28,7 +28,7 @@ export const FooterCore = ({ logo, sections, className, ...props }) => {
             {/* Site name */}
             <section className="ecl-footer-core__section ecl-footer-core__section1">
               <a
-                className="ecl-link ecl-link--standalone ecl-footer-core__logo-link-mobile"
+                className="ecl-link ecl-link--standalone ecl-footer-core__logo-link"
                 href={logoHref}
                 aria-label={logoTitle}
               >
@@ -38,23 +38,17 @@ export const FooterCore = ({ logo, sections, className, ...props }) => {
                   title={logoTitle}
                   className={classnames(
                     logoClassName,
-                    'ecl-footer-core__logo-image'
+                    'ecl-footer-core__logo-image-mobile'
                   )}
                   src={logoSrcMobile}
                 />
-              </a>
-              <a
-                className="ecl-link ecl-link--standalone ecl-footer-core__logo-link-desktop"
-                href={logoHref}
-                aria-label={logoTitle}
-              >
                 <img
                   {...logoProps}
                   alt={logoAlt}
                   title={logoTitle}
                   className={classnames(
                     logoClassName,
-                    'ecl-footer-core__logo-image'
+                    'ecl-footer-core__logo-image-desktop'
                   )}
                   src={logoSrcDesktop}
                 />

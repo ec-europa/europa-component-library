@@ -1,4 +1,4 @@
-import { queryOne } from '@ecl/ec-base/helpers/dom';
+import { queryOne } from '@ecl/eu-base/helpers/dom';
 import createFocusTrap from 'focus-trap';
 
 /**
@@ -12,7 +12,7 @@ import createFocusTrap from 'focus-trap';
  * @param {String} options.loginToggleSelector
  * @param {String} options.loginBoxSelector
  */
-export class SiteHeaderHarmonised {
+export class SiteHeaderStandardised {
   /**
    * @static
    * Shorthand for instance creation and initialisation.
@@ -22,11 +22,14 @@ export class SiteHeaderHarmonised {
    * @return {SiteHeaderStandardised} An instance of SiteHeaderStandardised.
    */
   static autoInit(root, { SITE_HEADER_CORE: defaultOptions = {} } = {}) {
-    const siteHeaderHarmonised = new SiteHeaderHarmonised(root, defaultOptions);
-    siteHeaderHarmonised.init();
+    const siteHeaderStandardised = new SiteHeaderStandardised(
+      root,
+      defaultOptions
+    );
+    siteHeaderStandardised.init();
     // eslint-disable-next-line no-param-reassign
-    root.ECLSiteHeaderHarmonised = siteHeaderHarmonised;
-    return siteHeaderHarmonised;
+    root.ECLSiteHeaderStandardised = siteHeaderStandardised;
+    return siteHeaderStandardised;
   }
 
   constructor(
@@ -204,11 +207,11 @@ export class SiteHeaderHarmonised {
     );
     if (!isExpanded) {
       this.searchForm.classList.add(
-        'ecl-site-header-harmonised__search--active'
+        'ecl-site-header-standardised__search--active'
       );
     } else {
       this.searchForm.classList.remove(
-        'ecl-site-header-harmonised__search--active'
+        'ecl-site-header-standardised__search--active'
       );
     }
   }
@@ -242,14 +245,14 @@ export class SiteHeaderHarmonised {
     );
     if (!isExpanded) {
       this.loginBox.classList.add(
-        'ecl-site-header-harmonised__login-box--active'
+        'ecl-site-header-standardised__login-box--active'
       );
     } else {
       this.loginBox.classList.remove(
-        'ecl-site-header-harmonised__login-box--active'
+        'ecl-site-header-standardised__login-box--active'
       );
     }
   }
 }
 
-export default SiteHeaderHarmonised;
+export default SiteHeaderStandardised;

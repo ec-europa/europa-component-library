@@ -107,16 +107,16 @@
     font: $ecl-font-s;
   }
 
-  .ecl-footer-core__logo-link-mobile {
+  .ecl-footer-core__logo-link {
     display: inline-block;
     margin-bottom: $ecl-spacing-xs;
   }
 
-  .ecl-footer-core__logo-link-desktop {
+  .ecl-footer-core__logo-image-desktop {
     display: none;
   }
 
-  .ecl-footer-core__logo-image {
+  .ecl-footer-core__logo-image-mobile {
     display: block;
     height: 2.5rem;
   }
@@ -151,17 +151,17 @@
       font: $ecl-font-prolonged-s;
     }
 
-    .ecl-footer-core__logo-link-mobile {
+    .ecl-footer-core__logo-image-mobile {
       display: none;
     }
 
-    .ecl-footer-core__logo-link-desktop {
-      display: inline-block;
-      margin-bottom: $ecl-spacing-m;
+    .ecl-footer-core__logo-image-desktop {
+      display: block;
+      height: 2.75rem;
     }
 
-    .ecl-footer-core__logo-image {
-      height: 2.75rem;
+    .ecl-footer-core__logo-link {
+      margin-bottom: $ecl-spacing-m;
     }
   }
 

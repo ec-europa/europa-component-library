@@ -1,4 +1,4 @@
-import { queryOne } from '@ecl/ec-base/helpers/dom';
+import { queryOne } from '@ecl/eu-base/helpers/dom';
 import createFocusTrap from 'focus-trap';
 
 /**
@@ -12,21 +12,21 @@ import createFocusTrap from 'focus-trap';
  * @param {String} options.loginToggleSelector
  * @param {String} options.loginBoxSelector
  */
-export class SiteHeaderHarmonised {
+export class SiteHeaderCore {
   /**
    * @static
    * Shorthand for instance creation and initialisation.
    *
    * @param {HTMLElement} root DOM element for component instantiation and scope
    *
-   * @return {SiteHeaderStandardised} An instance of SiteHeaderStandardised.
+   * @return {SiteHeaderCore} An instance of SiteHeaderCore.
    */
   static autoInit(root, { SITE_HEADER_CORE: defaultOptions = {} } = {}) {
-    const siteHeaderHarmonised = new SiteHeaderHarmonised(root, defaultOptions);
-    siteHeaderHarmonised.init();
+    const siteHeaderCore = new SiteHeaderCore(root, defaultOptions);
+    siteHeaderCore.init();
     // eslint-disable-next-line no-param-reassign
-    root.ECLSiteHeaderHarmonised = siteHeaderHarmonised;
-    return siteHeaderHarmonised;
+    root.ECLSiteHeaderCore = siteHeaderCore;
+    return siteHeaderCore;
   }
 
   constructor(
@@ -203,13 +203,9 @@ export class SiteHeaderHarmonised {
       isExpanded ? 'false' : 'true'
     );
     if (!isExpanded) {
-      this.searchForm.classList.add(
-        'ecl-site-header-harmonised__search--active'
-      );
+      this.searchForm.classList.add('ecl-site-header-core__search--active');
     } else {
-      this.searchForm.classList.remove(
-        'ecl-site-header-harmonised__search--active'
-      );
+      this.searchForm.classList.remove('ecl-site-header-core__search--active');
     }
   }
 
@@ -241,15 +237,11 @@ export class SiteHeaderHarmonised {
       isExpanded ? 'false' : 'true'
     );
     if (!isExpanded) {
-      this.loginBox.classList.add(
-        'ecl-site-header-harmonised__login-box--active'
-      );
+      this.loginBox.classList.add('ecl-site-header-core__login-box--active');
     } else {
-      this.loginBox.classList.remove(
-        'ecl-site-header-harmonised__login-box--active'
-      );
+      this.loginBox.classList.remove('ecl-site-header-core__login-box--active');
     }
   }
 }
 
-export default SiteHeaderHarmonised;
+export default SiteHeaderCore;

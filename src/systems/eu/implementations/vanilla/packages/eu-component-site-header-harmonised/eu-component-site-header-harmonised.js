@@ -1,4 +1,4 @@
-import { queryOne } from '@ecl/ec-base/helpers/dom';
+import { queryOne } from '@ecl/eu-base/helpers/dom';
 import createFocusTrap from 'focus-trap';
 
 /**

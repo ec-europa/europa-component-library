@@ -111,16 +111,16 @@
     font: $ecl-font-s;
   }
 
-  .ecl-footer-harmonised__logo-link-mobile {
+  .ecl-footer-harmonised__logo-link {
     display: inline-block;
     margin-bottom: $ecl-spacing-xs;
   }
 
-  .ecl-footer-harmonised__logo-link-desktop {
+  .ecl-footer-harmonised__logo-image-desktop {
     display: none;
   }
 
-  .ecl-footer-harmonised__logo-image {
+  .ecl-footer-harmonised__logo-image-mobile {
     display: block;
     height: 2.5rem;
   }
@@ -159,13 +159,17 @@
       font: $ecl-font-prolonged-s;
     }
 
-    .ecl-footer-harmonised__logo-link-desktop {
-      display: inline-block;
+    .ecl-footer-harmonised__logo-link {
       margin-bottom: $ecl-spacing-m;
     }
 
-    .ecl-footer-harmonised__logo-image {
+    .ecl-footer-harmonised__logo-image-desktop {
+      display: block;
       height: 2.75rem;
+    }
+
+    .ecl-footer-harmonised__logo-image-mobile {
+      display: none;
     }
   }
 
