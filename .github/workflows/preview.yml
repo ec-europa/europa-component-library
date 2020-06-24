@@ -20,15 +20,11 @@ jobs:
         run: yarn build:themes
       - name: Package application
         run: yarn dist
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: github_branch
       - name: Deploy application
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        run: npx netlify-cli deploy --alias ${{ steps.github_branch.outputs.branch }}
+        run: npx netlify-cli deploy
       - name: Set status on pull request
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
