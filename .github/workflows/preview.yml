@@ -1,0 +1,33 @@
+name: Netlify Preview
+
+on: pull_request
+
+jobs:
+  deploy:
+    name: Deploy a preview of ECL website on Netlify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+      - name: Install dependencies
+        run: yarn install
+      - name: Build icons
+        run: yarn build:icons
+      - name: Build themes
+        run: yarn build:themes
+      - name: Package application
+        run: yarn dist
+      - name: Deploy application
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        run: yarn netlify-cli deploy
+      - name: Set status on pull request
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        run: node scripts/set-deployment-status.js
