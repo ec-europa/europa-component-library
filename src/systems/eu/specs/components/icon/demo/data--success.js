@@ -1,4 +1,4 @@
 // Simple content for demo
 module.exports = {
-  shape: 'notifications-success',
+  shape: 'notifications--success',
 };

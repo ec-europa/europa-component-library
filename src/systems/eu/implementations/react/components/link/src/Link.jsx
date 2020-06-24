@@ -9,6 +9,7 @@ const Link = ({
   variant,
   href,
   label,
+  ariaLabel,
   icon,
   iconPosition,
   className,
@@ -38,7 +39,7 @@ const Link = ({
   if (iconMarkup) {
     if (iconPosition === 'before') {
       return (
-        <a {...props} href={href} className={classNames}>
+        <a {...props} href={href} className={classNames} aria-label={ariaLabel}>
           {iconMarkup}
           &nbsp;
           <span className="ecl-link__label">{label}</span>
@@ -47,7 +48,7 @@ const Link = ({
     }
 
     return (
-      <a {...props} href={href} className={classNames}>
+      <a {...props} href={href} className={classNames} aria-label={ariaLabel}>
         <span className="ecl-link__label">{label}</span>
         &nbsp;
         {iconMarkup}
@@ -56,7 +57,7 @@ const Link = ({
   }
 
   return (
-    <a {...props} href={href} className={classNames}>
+    <a {...props} href={href} className={classNames} aria-label={ariaLabel}>
       {label}
     </a>
   );
@@ -66,6 +67,7 @@ Link.propTypes = {
   variant: PropTypes.string,
   href: PropTypes.string,
   label: PropTypes.string,
+  ariaLabel: PropTypes.string,
   icon: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.shape(Icon.propTypes)),
     PropTypes.shape(Icon.propTypes),
@@ -78,6 +80,7 @@ Link.defaultProps = {
   variant: '',
   href: '',
   label: '',
+  ariaLabel: '',
   icon: {},
   iconPosition: 'after',
   className: '',
