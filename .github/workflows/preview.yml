@@ -24,7 +24,8 @@ jobs:
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        run: npx netlify-cli deploy
+        run: |
+          npx netlify-cli deploy --message "Github Actions Run: $GITHUB_RUN_ID"
       - name: Set status on pull request
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}

@@ -14,6 +14,8 @@ const run = async () => {
     NETLIFY_AUTH_TOKEN,
   } = process.env;
 
+  console.log(GITHUB_RUN_ID, GITHUB_REPOSITORY, GITHUB_SHA);
+
   if (!GITHUB_RUN_ID) {
     console.info('Missing information about build number.');
     return;
@@ -52,31 +54,45 @@ const run = async () => {
 
     const deployments = await deploymentsResponse.json();
 
+    console.log('deployments', deployments);
+
     const currentDeployment = deployments.find(
       deployment => deployment.title === `Github Actions Run: ${GITHUB_RUN_ID}`
     );
 
-    const siteDeploymentResponse = await fetch(
-      `${NETLIFY_API}/sites/${NETLIFY_SITE_ID}/deploys/${currentDeployment.id}`,
-      {
-        method: 'GET',
-        headers: {
-          Accept: 'application/json',
-          'Accept-Charset': 'utf-8',
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${NETLIFY_AUTH_TOKEN}`,
-        },
-      }
-    );
+    if (!currentDeployment) {
+      payload = {
+        state: 'warning',
+        description: 'Deployment status was not possible to retrieve.',
+        context: 'github_actions/netlify_preview',
+      };
+    } else {
+      console.log('currentDeployment', currentDeployment);
 
-    const siteDeployment = await siteDeploymentResponse.json();
+      const siteDeploymentResponse = await fetch(
+        `${NETLIFY_API}/sites/${NETLIFY_SITE_ID}/deploys/${currentDeployment.id}`,
+        {
+          method: 'GET',
+          headers: {
+            Accept: 'application/json',
+            'Accept-Charset': 'utf-8',
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${NETLIFY_AUTH_TOKEN}`,
+          },
+        }
+      );
 
-    payload = {
-      state: 'success',
-      target_url: siteDeployment.deploy_ssl_url,
-      description: 'Preview ready!',
-      context: 'github_actions/netlify_preview',
-    };
+      const siteDeployment = await siteDeploymentResponse.json();
+
+      console.log('siteDeployment', siteDeployment);
+
+      payload = {
+        state: 'success',
+        target_url: siteDeployment.deploy_ssl_url,
+        description: 'Preview ready!',
+        context: 'github_actions/netlify_preview',
+      };
+    }
   } catch (error) {
     payload = {
       state: 'error',
