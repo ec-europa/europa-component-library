@@ -207,6 +207,29 @@ buildTokens({
   format: 'widths.scss.map',
 });
 
+// Z-index SCSS map
+const zIndexPrefix = 'Z_INDEX_';
+theo.registerFormat(
+  'z-index.scss.map',
+  scssMap({
+    mapName: '$ecl-z-index',
+    keyName: prop =>
+      prop
+        .get('name')
+        .slice(zIndexPrefix.length)
+        .toLowerCase()
+        .replace(/_/g, '-'),
+    filter: prop => prop.get('name').indexOf(zIndexPrefix) === 0,
+  })
+);
+
+buildTokens({
+  input: path.join(__dirname, '../aliases/z-index.yml'),
+  output: path.join(__dirname, '../exports/z-index.scss'),
+  type: 'web',
+  format: 'z-index.scss.map',
+});
+
 // JSON Tokens
 buildTokens({
   input: path.join(__dirname, '../index.yml'),

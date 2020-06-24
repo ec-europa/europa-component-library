@@ -38,6 +38,7 @@ storiesOf('Components/Navigation/Link', module)
         variant="default"
         href="/example#default-link"
         label={text('Label', demoContentDefault.label)}
+        ariaLabel={text('Aria label', demoContentDefault.ariaLabel)}
         icon={linkIcon}
         iconPosition={select('Icon position', iconPosition, 'after')}
       />
@@ -54,6 +55,7 @@ storiesOf('Components/Navigation/Link', module)
         variant="standalone"
         href="/example#standalone-link"
         label={text('Label', demoContentStandalone.label)}
+        ariaLabel={text('Aria label', demoContentDefault.ariaLabel)}
         icon={linkIcon}
         iconPosition={select('Icon position', iconPosition, 'after')}
       />
@@ -70,6 +72,7 @@ storiesOf('Components/Navigation/Link', module)
         variant={demoContentCTA.variant}
         href={demoContentCTA.href}
         label={text('Label', demoContentCTA.label)}
+        ariaLabel={text('Aria label', demoContentStandalone.ariaLabel)}
         icon={linkIcon}
         iconPosition={select('Icon position', iconPosition, 'after')}
       />

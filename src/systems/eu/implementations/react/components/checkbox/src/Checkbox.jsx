@@ -36,13 +36,7 @@ const Checkbox = ({
       />
 
       <label
-        className={classnames(
-          labelClassName,
-          'ecl-form-label ecl-checkbox__label',
-          {
-            'ecl-form-label--invalid': invalid,
-          }
-        )}
+        className={classnames(labelClassName, 'ecl-checkbox__label')}
         htmlFor={id}
       >
         <span
@@ -59,8 +53,8 @@ const Checkbox = ({
       {helperText && (
         <div
           {...(helperId ? { id: helperId } : {})}
-          className={classnames('ecl-help-block ecl-checkbox__help', {
-            'ecl-help-block--disabled': disabled,
+          className={classnames('ecl-checkbox__help', {
+            'ecl-checkbox__help--disabled': disabled,
           })}
         >
           {helperText}

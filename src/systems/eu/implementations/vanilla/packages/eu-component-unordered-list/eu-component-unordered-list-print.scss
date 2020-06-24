@@ -13,10 +13,22 @@
     margin: 0;
   }
 
+  .ecl-unordered-list__item {
+    margin-top: $ecl-spacing-print-s;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+
   .ecl-unordered-list--no-bullet,
   .ecl-unordered-list--divider {
     list-style: none;
     padding-left: 0;
+  }
+
+  .ecl-unordered-list .ecl-unordered-list {
+    margin-top: $ecl-spacing-print-s;
   }
 }
 

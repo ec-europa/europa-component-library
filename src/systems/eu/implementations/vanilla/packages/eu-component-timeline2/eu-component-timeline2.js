@@ -1,6 +1,23 @@
 import { queryOne } from '@ecl/eu-base/helpers/dom';
 
+/**
+ * @param {HTMLElement} element DOM element for component instantiation and scope
+ * @param {Object} options
+ * @param {String} options.buttonSelector
+ * @param {String} options.labelSelector
+ * @param {String} options.labelExpanded
+ * @param {String} options.labelCollapsed
+ * @param {Boolean} options.attachClickListener Whether or not to bind click events
+ */
 export class Timeline2 {
+  /**
+   * @static
+   * Shorthand for instance creation and initialisation.
+   *
+   * @param {HTMLElement} root DOM element for component instantiation and scope
+   *
+   * @return {Timeline2} An instance of Timeline2.
+   */
   static autoInit(root, { TIMELINE2: defaultOptions = {} } = {}) {
     const timeline2 = new Timeline2(root, defaultOptions);
     timeline2.init();
@@ -43,6 +60,9 @@ export class Timeline2 {
     this.handleClickOnButton = this.handleClickOnButton.bind(this);
   }
 
+  /**
+   * Initialise component.
+   */
   init() {
     // Query elements
     this.button = queryOne(this.buttonSelector, this.element);
@@ -56,12 +76,18 @@ export class Timeline2 {
     }
   }
 
+  /**
+   * Destroy component.
+   */
   destroy() {
     if (this.attachClickListener && this.button) {
       this.button.removeEventListener('click', this.handleClickOnButton);
     }
   }
 
+  /**
+   * Expand timeline if not such already.
+   */
   handleClickOnButton() {
     // Get current status
     const isExpanded = this.button.getAttribute('aria-expanded') === 'true';
