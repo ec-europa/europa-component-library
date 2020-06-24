@@ -49,8 +49,8 @@ const RadioButton = ({
       {helperText && (
         <div
           {...(helperId ? { id: helperId } : {})}
-          className={classnames('ecl-help-block ecl-radio__help', {
-            'ecl-help-block--disabled': disabled,
+          className={classnames('ecl-radio__help', {
+            'ecl-radio__help--disabled': disabled,
           })}
         >
           {helperText}

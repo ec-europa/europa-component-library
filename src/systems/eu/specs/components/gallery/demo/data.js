@@ -51,11 +51,13 @@ module.exports = {
           'https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg',
         sources: [
           {
-            src: 'https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4',
+            src:
+              'https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/720/Big_Buck_Bunny_720_10s_2MB.mp4',
             type: 'video/mp4',
           },
           {
-            src: 'https://clips.vorwaerts-gmbh.de/big_buck_bunny.webm',
+            src:
+              'https://test-videos.co.uk/vids/bigbuckbunny/webm/vp9/720/Big_Buck_Bunny_720_10s_2MB.webm',
             type: 'video/webm',
           },
         ],
@@ -206,4 +208,6 @@ module.exports = {
       },
     },
   },
+  viewAllLabel: 'View all',
+  counterLabel: 'Media files in this gallery',
 };
