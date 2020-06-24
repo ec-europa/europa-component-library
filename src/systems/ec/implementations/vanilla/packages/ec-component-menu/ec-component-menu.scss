@@ -33,7 +33,7 @@
     right: -100%;
     top: 0;
     width: 100%;
-    z-index: $ecl-z-index-modal;
+    z-index: $ecl-z-index-modal + 3;
 
     /* Force display if JS is disabled */
     .no-js & {
@@ -80,6 +80,7 @@
 
     .ecl-menu:not(.ecl-menu--forced-mobile) {
       padding-bottom: 0;
+      padding-top: 0;
 
       .ecl-menu__inner {
         background-color: transparent;
@@ -89,6 +90,7 @@
         right: 0;
         transition: none;
         width: 100%;
+        z-index: $ecl-z-index-modal;
       }
 
       .ecl-menu__overlay {
@@ -136,6 +138,7 @@
     .ecl-menu:not(.ecl-menu--forced-mobile) {
       .ecl-menu__site-name {
         margin-bottom: $ecl-spacing-l;
+        padding-top: $ecl-spacing-l;
       }
 
       .ecl-menu__inner-header,

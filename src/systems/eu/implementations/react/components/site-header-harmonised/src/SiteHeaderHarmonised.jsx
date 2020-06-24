@@ -61,7 +61,7 @@ const SiteHeaderHarmonised = ({
               title={logoTitle}
               className={classnames(
                 logoClassName,
-                'ecl-site-header-core__logo-image-mobile'
+                'ecl-site-header-harmonised__logo-image-mobile'
               )}
               src={logoSrcMobile}
             />
@@ -71,7 +71,7 @@ const SiteHeaderHarmonised = ({
               title={logoTitle}
               className={classnames(
                 logoClassName,
-                'ecl-site-header-core__logo-image-desktop'
+                'ecl-site-header-harmonised__logo-image-desktop'
               )}
               src={logoSrcDesktop}
             />

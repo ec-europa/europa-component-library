@@ -42,10 +42,10 @@
     margin-bottom: calc(#{$ecl-spacing-m} + 1px);
   }
 
-  .ecl-site-header-standardised__logo-image {
+  .ecl-site-header-standardised__logo-image-mobile {
     display: block;
     max-height: $logo-height-xs;
-    max-width: $logo-width-xs; // hack to allow logo to be resized dynamically
+    max-width: 100%; // hack to allow logo to be resized dynamically
   }
 
   .ecl-site-header-standardised__logo-image-desktop {
@@ -164,7 +164,7 @@
       flex-grow: 0;
     }
 
-    .ecl-site-header-standardised__logo-image {
+    .ecl-site-header-standardised__logo-image-mobile {
       height: $logo-height-sm;
       max-height: 100%;
       max-width: 100%;
@@ -188,7 +188,7 @@
       margin-bottom: 0;
     }
 
-    .ecl-site-header-standardised__logo-image {
+    .ecl-site-header-standardised__logo-image-mobile {
       display: none;
     }
 
