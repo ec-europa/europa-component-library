@@ -62,6 +62,16 @@ export const Multiple = () => {
   );
   const isDisabled = boolean('Disabled', false);
   const isRequired = boolean('Required', true);
+  const isInvalid = boolean('Invalid', false);
+  const width = select(
+    'Width',
+    {
+      small: 's',
+      medium: 'm',
+      large: 'l',
+    },
+    'm'
+  );
 
   useEffect(() => {
     if (!document || !window.ECL) return {};
@@ -72,7 +82,15 @@ export const Multiple = () => {
     );
 
     return () => instance.destroy();
-  }, [defaultText, searchText, selectAllText, isDisabled, isRequired]);
+  }, [
+    defaultText,
+    searchText,
+    selectAllText,
+    isDisabled,
+    isRequired,
+    isInvalid,
+    width,
+  ]);
 
   return (
     <Select
@@ -81,21 +99,13 @@ export const Multiple = () => {
       options={demoContentMultiple.options}
       label={text('Label', demoContentMultiple.label)}
       helperText={text('Helper text', demoContentMultiple.helperText)}
-      invalid={boolean('Invalid', false)}
+      invalid={isInvalid}
       invalidText={text('Invalid text', demoContentMultiple.invalidText)}
       disabled={isDisabled}
       required={isRequired}
       requiredText={text('Required text', demoContentMultiple.requiredText)}
       optionalText={text('Optional text', demoContentMultiple.optionalText)}
-      width={select(
-        'Width',
-        {
-          small: 's',
-          medium: 'm',
-          large: 'l',
-        },
-        'm'
-      )}
+      width={width}
       multiple
       data-ecl-select-default={defaultText}
       data-ecl-select-search={searchText}
