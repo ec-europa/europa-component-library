@@ -5,7 +5,6 @@ export class SiteHeaderHarmonised {
   static autoInit(root, { SITE_HEADER_CORE: defaultOptions = {} } = {}) {
     const siteHeaderHarmonised = new SiteHeaderHarmonised(root, defaultOptions);
     siteHeaderHarmonised.init();
-    // eslint-disable-next-line no-param-reassign
     root.ECLSiteHeaderHarmonised = siteHeaderHarmonised;
     return siteHeaderHarmonised;
   }
