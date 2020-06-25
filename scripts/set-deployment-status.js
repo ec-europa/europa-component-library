@@ -6,7 +6,8 @@ const run = async () => {
   const NETLIFY_API = 'https://api.netlify.com/api/v1';
 
   const {
-    GITHUB_TOKEN,
+    GH_TOKEN,
+    GITHUB_REF,
     GITHUB_RUN_ID,
     GITHUB_REPOSITORY,
     GITHUB_SHA,
@@ -14,14 +15,16 @@ const run = async () => {
     NETLIFY_AUTH_TOKEN,
   } = process.env;
 
+  console.log('GITHUB_REF', GITHUB_REF);
+
   if (!GITHUB_RUN_ID) {
     console.info('Missing information about build number.');
     return;
   }
 
-  if (!GITHUB_TOKEN) {
+  if (!GH_TOKEN) {
     console.info("Won't be able to communicate Netlify deployment to Github.");
-    console.info('GITHUB_TOKEN environment variable is required!');
+    console.info('GH_TOKEN environment variable is required!');
     return;
   }
 
@@ -93,8 +96,13 @@ const run = async () => {
     };
   }
 
+  console.log('GITHUB_REPOSITORY', GITHUB_REPOSITORY);
+  console.log(
+    `https://api.github.com/repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}`
+  );
+
   // @see https://developer.github.com/v3/repos/statuses
-  await fetch(
+  const reply = await fetch(
     `https://api.github.com/repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}`,
     {
       method: 'POST',
@@ -102,11 +110,13 @@ const run = async () => {
         Accept: 'application/json',
         'Accept-Charset': 'utf-8',
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${GITHUB_TOKEN}`,
+        Authorization: `Bearer ${GH_TOKEN}`,
       },
       body: JSON.stringify(payload),
     }
   );
+
+  console.log('reply', reply);
 
   console.log('Status on pull request successfully updated!');
 };
