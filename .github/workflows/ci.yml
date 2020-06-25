@@ -1,7 +1,6 @@
 name: CI
 
 on:
-  push:
   pull_request:
     types: [opened, synchronize]
 
@@ -26,6 +25,8 @@ jobs:
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.1
         with:
+          alias: ${{ github.head_ref }}
+          publish-dir: 'dist/website'
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: 'Deploy from GitHub Actions'
         env:
