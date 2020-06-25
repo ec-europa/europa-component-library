@@ -11,14 +11,28 @@ import { Paragraph, Anatomy, Link } from '@ecl/website-components';
 
 ## Anatomy
 
-| Desktop showcase | Mobile showcase |
-| ---------------- | --------------- |
-| <Anatomy image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Media%20Container/Media%20container.png" alt="Anatomy of media container desktop" legend={{ items: [ { color: '#404040', label: 'mandatory', }, { color: '#004494', label: 'optional', },     ],   }} /> | <Anatomy   image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Media%20Container/Media%20container%20-%20Mobile.png"   alt="Anatomy of media container mobile"   legend={{     items: [ { color: '#404040', label: 'mandatory', }, { color: '#004494', label: 'optional', },     ],   }} /> |
+<Anatomy
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Media%20Container/Media%20container.png"
+  srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/Media%20Container/Media%20container%20-%20Mobile.png 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/Media%20Container/Media%20container.png 1246w"
+  alt="Anatomy of blockquotes"
+  legend={{
+    items: [
+      {
+        color: '#404040',
+        label: 'mandatory',
+      },
+      {
+        color: '#004494',
+        label: 'optional',
+      },
+    ],
+  }}
+/>
 
 | Elements        | Mandatory desktop | Mandatory mobile | Description.                                                                      |
 | --------------- | ----------------- | ---------------- | --------------------------------------------------------------------------------- |
-| Media Thumbnail | yes               | yes              | thumbnail representative of the linked media      |
-| Caption | no  | no | Use caption representative of the media content - this allows users to form a mental model of the information available while scanning the page |
+| media thumbnail | yes               | yes              | thumbnail representative of the linked media      |
+| Caption         | no                | no               | Use caption representative of the media content - this allows users to form a mental model of the information available while scanning the page |
 
 ## Do's
 
