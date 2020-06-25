@@ -30,7 +30,7 @@ jobs:
         uses: nelonoel/branch-name@v1
       - name: Set status on pull request
         env:
-          BRANCH_NAME: ${{ BRANCH_NAME }}
+          BRANCH_NAME: $BRANCH_NAME
           COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
