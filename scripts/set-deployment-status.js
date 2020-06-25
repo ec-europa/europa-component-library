@@ -6,7 +6,7 @@ const run = async () => {
   const NETLIFY_API = 'https://api.netlify.com/api/v1';
 
   const {
-    GH_TOKEN,
+    GITHUB_TOKEN,
     BRANCH_NAME,
     GITHUB_RUN_ID,
     GITHUB_REPOSITORY,
@@ -22,9 +22,9 @@ const run = async () => {
     return;
   }
 
-  if (!GH_TOKEN) {
+  if (!GITHUB_TOKEN) {
     console.info("Won't be able to communicate Netlify deployment to Github.");
-    console.info('GH_TOKEN environment variable is required!');
+    console.info('GITHUB_TOKEN environment variable is required!');
     return;
   }
 
@@ -110,7 +110,7 @@ const run = async () => {
         Accept: 'application/json',
         'Accept-Charset': 'utf-8',
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${GH_TOKEN}`,
+        Authorization: `Bearer ${GITHUB_TOKEN}`,
       },
       body: JSON.stringify(payload),
     }
