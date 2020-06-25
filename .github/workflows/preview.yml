@@ -26,8 +26,9 @@ jobs:
       #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       #   run: |
       #     npx netlify-cli deploy --message "Github Actions Run: $GITHUB_RUN_ID"
-      - name: Set status on pull request
+      - name: Prepare branch name
         uses: nelonoel/branch-name@v1
+      - name: Set status on pull request
         env:
           BRANCH_NAME: ${{ BRANCH_NAME }}
           COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
