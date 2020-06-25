@@ -28,6 +28,7 @@ jobs:
       #     npx netlify-cli deploy --message "Github Actions Run: $GITHUB_RUN_ID"
       - name: Set status on pull request
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         run: node scripts/set-deployment-status.js
