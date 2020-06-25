@@ -14,20 +14,18 @@ jobs:
           node-version: '12'
       - name: Install dependencies
         run: yarn install
-      # - name: Build icons
-      #   run: yarn build:icons
-      # - name: Build themes
-      #   run: yarn build:themes
-      # - name: Package application
-      #   run: yarn dist
-      # - name: Deploy application
-      #   env:
-      #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      #   run: |
-      #     npx netlify-cli deploy --message "Github Actions Run: $GITHUB_RUN_ID"
-      - name: Prepare branch name
-        uses: nelonoel/branch-name@v1
+      - name: Build icons
+        run: yarn build:icons
+      - name: Build themes
+        run: yarn build:themes
+      - name: Package application
+        run: yarn dist
+      - name: Deploy application
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        run: |
+          npx netlify-cli deploy --message "Github Actions Run: $GITHUB_RUN_ID"
       - name: Set status on pull request
         env:
           COMMIT_SHA: ${{ github.event.pull_request.head.sha }}

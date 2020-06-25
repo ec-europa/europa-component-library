@@ -260,18 +260,18 @@ pipeline:
   # Deployment (dev) ======================
   # =======================================
 
-  deploy-netlify-preview:
-    image: buildkite/puppeteer:latest
-    secrets: [gh_token, netlify_auth_token, netlify_site_id]
-    commands:
-      - yarn clean
-      - yarn build:icons
-      - yarn build:themes
-      - yarn dist
-      - 'yarn netlify deploy --site $${NETLIFY_SITE_ID} --alias ${DRONE_COMMIT_BRANCH} --message "Drone build: ${DRONE_BUILD_NUMBER}"'
-      - node scripts/set-netlify-deployment-status.js
-    when:
-      event: [push, pull_request]
-      status: [success, failure]
-      matrix:
-        TEST: deploy
+  # deploy-netlify-preview:
+  #   image: buildkite/puppeteer:latest
+  #   secrets: [gh_token, netlify_auth_token, netlify_site_id]
+  #   commands:
+  #     - yarn clean
+  #     - yarn build:icons
+  #     - yarn build:themes
+  #     - yarn dist
+  #     - 'yarn netlify deploy --site $${NETLIFY_SITE_ID} --alias ${DRONE_COMMIT_BRANCH} --message "Drone build: ${DRONE_BUILD_NUMBER}"'
+  #     - node scripts/set-netlify-deployment-status.js
+  #   when:
+  #     event: [push, pull_request]
+  #     status: [success, failure]
+  #     matrix:
+  #       TEST: deploy

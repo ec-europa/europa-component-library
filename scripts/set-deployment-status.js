@@ -96,13 +96,8 @@ const run = async () => {
     };
   }
 
-  console.log('GITHUB_REPOSITORY', GITHUB_REPOSITORY);
-  console.log(
-    `https://api.github.com/repos/${GITHUB_REPOSITORY}/statuses/${COMMIT_SHA}`
-  );
-
   // @see https://developer.github.com/v3/repos/statuses
-  const reply = await fetch(
+  await fetch(
     `https://api.github.com/repos/${GITHUB_REPOSITORY}/statuses/${COMMIT_SHA}`,
     {
       method: 'POST',
@@ -115,8 +110,6 @@ const run = async () => {
       body: JSON.stringify(payload),
     }
   );
-
-  console.log('reply', reply);
 
   console.log('Status on pull request successfully updated!');
 };
