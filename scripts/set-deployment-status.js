@@ -7,15 +7,15 @@ const run = async () => {
 
   const {
     GH_TOKEN,
-    GITHUB_REF,
+    BRANCH_NAME,
     GITHUB_RUN_ID,
     GITHUB_REPOSITORY,
-    GITHUB_SHA,
+    COMMIT_SHA,
     NETLIFY_SITE_ID,
     NETLIFY_AUTH_TOKEN,
   } = process.env;
 
-  console.log('GITHUB_REF', GITHUB_REF);
+  console.log('BRANCH_NAME', BRANCH_NAME);
 
   if (!GITHUB_RUN_ID) {
     console.info('Missing information about build number.');
@@ -28,12 +28,12 @@ const run = async () => {
     return;
   }
 
-  if (!GITHUB_REPOSITORY || !GITHUB_SHA) {
+  if (!GITHUB_REPOSITORY || !COMMIT_SHA) {
     console.error('Missing required environment variables.');
     console.info(
       'Please see https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables'
     );
-    console.log('Required: GITHUB_REPOSITORY, GITHUB_SHA');
+    console.log('Required: GITHUB_REPOSITORY, COMMIT_SHA');
     return;
   }
 
@@ -61,7 +61,7 @@ const run = async () => {
 
     if (!currentDeployment) {
       payload = {
-        state: 'warning',
+        state: 'failure',
         description: 'Deployment status was not possible to retrieve.',
         context: 'github_actions/netlify_preview',
       };
@@ -98,12 +98,12 @@ const run = async () => {
 
   console.log('GITHUB_REPOSITORY', GITHUB_REPOSITORY);
   console.log(
-    `https://api.github.com/repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}`
+    `https://api.github.com/repos/${GITHUB_REPOSITORY}/statuses/${COMMIT_SHA}`
   );
 
   // @see https://developer.github.com/v3/repos/statuses
   const reply = await fetch(
-    `https://api.github.com/repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}`,
+    `https://api.github.com/repos/${GITHUB_REPOSITORY}/statuses/${COMMIT_SHA}`,
     {
       method: 'POST',
       headers: {
