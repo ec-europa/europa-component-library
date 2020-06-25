@@ -40,6 +40,7 @@ export const Default = () => {
       variant="default"
       href="/example#default-link"
       label={text('Label', demoContentDefault.label)}
+      ariaLabel={text('Aria label', demoContentDefault.ariaLabel)}
       icon={linkIcon}
       iconPosition={select('Icon position', iconPosition, 'after')}
     />
@@ -61,6 +62,7 @@ export const Standalone = () => {
       variant="standalone"
       href="/example#standalone-link"
       label={text('Label', demoContentStandalone.label)}
+      ariaLabel={text('Aria label', demoContentStandalone.ariaLabel)}
       icon={linkIcon}
       iconPosition={select('Icon position', iconPosition, 'after')}
     />
@@ -82,6 +84,7 @@ export const CallToAction = () => {
       variant={demoContentCTA.variant}
       href={demoContentCTA.href}
       label={text('Label', demoContentCTA.label)}
+      ariaLabel={text('Aria label', demoContentCTA.ariaLabel)}
       icon={linkIcon}
       iconPosition={select('Icon position', iconPosition, 'after')}
     />

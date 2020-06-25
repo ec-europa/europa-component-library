@@ -7,7 +7,7 @@ module.exports = {
     },
     {
       href: '#inline-nav-2',
-      label: 'Heading 2',
+      label: 'Heading 2 with a long title going on several lines',
     },
     {
       href: '#inline-nav-3',

@@ -10,7 +10,7 @@ export * from '@ecl/eu-component-contextual-navigation';
 export * from '@ecl/eu-component-expandable';
 export * from '@ecl/eu-component-file';
 export * from '@ecl/eu-component-form-datepicker';
-// export * from '@ecl/eu-component-form-file-upload';
+export * from '@ecl/eu-component-form-file-upload';
 export * from '@ecl/eu-component-gallery';
 export * from '@ecl/eu-component-inpage-navigation';
 export * from '@ecl/eu-component-menu';

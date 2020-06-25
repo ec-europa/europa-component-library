@@ -62,7 +62,15 @@
   }
 
   .ecl-checkbox__help {
+    box-sizing: border-box;
+    color: $ecl-color-grey-100;
+    display: block;
+    font: $ecl-font-prolonged-s;
     margin-top: $ecl-spacing-xs;
+  }
+
+  .ecl-checkbox__help--disabled {
+    color: $ecl-color-grey-50;
   }
 
   .ecl-checkbox__icon {
