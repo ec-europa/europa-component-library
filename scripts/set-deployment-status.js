@@ -6,7 +6,7 @@ const run = async () => {
   const NETLIFY_API = 'https://api.netlify.com/api/v1';
 
   const {
-    GH_TOKEN,
+    GITHUB_TOKEN,
     GITHUB_RUN_ID,
     GITHUB_REPOSITORY,
     GITHUB_SHA,
@@ -14,16 +14,14 @@ const run = async () => {
     NETLIFY_AUTH_TOKEN,
   } = process.env;
 
-  console.log(GITHUB_RUN_ID, GITHUB_REPOSITORY, GITHUB_SHA);
-
   if (!GITHUB_RUN_ID) {
     console.info('Missing information about build number.');
     return;
   }
 
-  if (!GH_TOKEN) {
+  if (!GITHUB_TOKEN) {
     console.info("Won't be able to communicate Netlify deployment to Github.");
-    console.info('GH_TOKEN environment variable is required!');
+    console.info('GITHUB_TOKEN environment variable is required!');
     return;
   }
 
@@ -54,8 +52,6 @@ const run = async () => {
 
     const deployments = await deploymentsResponse.json();
 
-    console.log('deployments', deployments);
-
     const currentDeployment = deployments.find(
       deployment => deployment.title === `Github Actions Run: ${GITHUB_RUN_ID}`
     );
@@ -67,8 +63,6 @@ const run = async () => {
         context: 'github_actions/netlify_preview',
       };
     } else {
-      console.log('currentDeployment', currentDeployment);
-
       const siteDeploymentResponse = await fetch(
         `${NETLIFY_API}/sites/${NETLIFY_SITE_ID}/deploys/${currentDeployment.id}`,
         {
@@ -83,8 +77,6 @@ const run = async () => {
       );
 
       const siteDeployment = await siteDeploymentResponse.json();
-
-      console.log('siteDeployment', siteDeployment);
 
       payload = {
         state: 'success',
@@ -110,7 +102,7 @@ const run = async () => {
         Accept: 'application/json',
         'Accept-Charset': 'utf-8',
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${GH_TOKEN}`,
+        Authorization: `Bearer ${GITHUB_TOKEN}`,
       },
       body: JSON.stringify(payload),
     }
