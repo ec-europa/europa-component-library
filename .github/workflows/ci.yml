@@ -33,16 +33,3 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         timeout-minutes: 1
-      # - name: Deploy application
-      #   env:
-      #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      #   run: |
-      #     npx netlify-cli deploy --message "Github Actions Run: $GITHUB_RUN_ID"
-      # - name: Set status on pull request
-      #   env:
-      #     COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      #   run: node scripts/set-netlify-deployment-status.js
