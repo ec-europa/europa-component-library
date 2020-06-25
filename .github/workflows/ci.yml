@@ -1,10 +1,10 @@
-name: Netlify Preview
+name: CI
 
 on: pull_request
 
 jobs:
   deploy:
-    name: Deploy a preview of ECL website on Netlify
+    name: netlify preview
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -32,4 +32,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        run: node scripts/set-deployment-status.js
+        run: node scripts/set-netlify-deployment-status.js
