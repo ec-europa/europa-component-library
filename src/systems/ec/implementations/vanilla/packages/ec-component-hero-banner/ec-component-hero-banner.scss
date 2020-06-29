@@ -30,9 +30,13 @@
   $white-title-color: $ecl-color-black,
   $white-description-color: $ecl-color-grey,
   // ghost
-    $ghost-meta-color: $ecl-color-white,
-  $ghost-title-color: $ecl-color-white,
-  $ghost-description-color: $ecl-color-white,
+    $ghost-meta-color: $ecl-color-grey,
+  $ghost-title-color: $ecl-color-grey,
+  $ghost-description-color: $ecl-color-grey,
+  // ghost inverted
+    $ghost-invert-meta-color: $ecl-color-white,
+  $ghost-invert-title-color: $ecl-color-white,
+  $ghost-invert-description-color: $ecl-color-white,
   // image
     $image-background-color: $ecl-color-white,
   $image-meta-color: $ecl-color-grey-75,
@@ -80,7 +84,6 @@
   .ecl-hero-banner__meta {
     font: $ecl-font-m;
     margin-bottom: $ecl-spacing-m;
-    text-transform: uppercase;
   }
 
   .ecl-hero-banner__title {
@@ -247,6 +250,23 @@
 
     .ecl-hero-banner__description {
       color: $ghost-description-color;
+    }
+  }
+
+  /*
+   * variant: ghost inverted
+   */
+  .ecl-hero-banner--ghost-invert {
+    .ecl-hero-banner__meta {
+      color: $ghost-invert-meta-color;
+    }
+
+    .ecl-hero-banner__title {
+      color: $ghost-invert-title-color;
+    }
+
+    .ecl-hero-banner__description {
+      color: $ghost-invert-description-color;
     }
   }
 

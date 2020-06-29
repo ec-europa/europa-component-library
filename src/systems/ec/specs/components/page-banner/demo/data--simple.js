@@ -1,6 +1,6 @@
 // Simple content for demo
 module.exports = {
-  meta: 'Meta info | 17 October 2019',
+  meta: 'META INFO | 17 October 2019',
   title: 'Headline',
   description:
     'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium',

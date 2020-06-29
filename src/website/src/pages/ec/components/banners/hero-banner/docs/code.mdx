@@ -10,24 +10,22 @@ import demoContentImage from '@ecl/ec-specs-hero-banner/demo/data--image';
 import demoContentImageShade from '@ecl/ec-specs-hero-banner/demo/data--image-shade';
 import demoContentSimple from '@ecl/ec-specs-hero-banner/demo/data--simple';
 
-## Image banner
+## Text box image banner
 
 <Playground
   system="ec"
   selectedKind="components-banners-hero-banner"
   selectedStory="image"
-  showFrame
 >
   <HeroBanner {...demoContentImage} variant="image" isCentered />
 </Playground>
 
-## Shade image banner
+## Shaded image banner
 
 <Playground
   system="ec"
   selectedKind="components-banners-hero-banner"
   selectedStory="image-shade"
-  showFrame
 >
   <HeroBanner {...demoContentImageShade} variant="image-shade" isCentered />
 </Playground>
@@ -38,9 +36,8 @@ import demoContentSimple from '@ecl/ec-specs-hero-banner/demo/data--simple';
   system="ec"
   selectedKind="components-banners-hero-banner"
   selectedStory="simple-primary"
-  showFrame
 >
-  <HeroBanner {...demoContentSimple} variant="primary" />
+  <HeroBanner {...demoContentSimple} variant="primary" isCentered />
 </Playground>
 
 ### Colours
@@ -48,21 +45,22 @@ import demoContentSimple from '@ecl/ec-specs-hero-banner/demo/data--simple';
 Simple banners can be displayed with several background colours by using one css class or another.
 Here are the possibilities
 
-| variant | colour      | css class                   | notes                                                                       |
-| ------- | ----------- | --------------------------- | --------------------------------------------------------------------------- |
-| primary | blue        | `.ecl-hero-banner--primary` | primary colour may vary if a different theme is used                        |
-| grey    | light grey  | `.ecl-hero-banner--grey`    |                                                                             |
-| white   | white       | `.ecl-hero-banner--white`   |                                                                             |
-| ghost   | transparent | `.ecl-hero-banner--ghost`   | ghost variant is intended to be used in a container with a background image |
+| variant                  | colour      | css class                        | notes                                                                             |
+| ------------------------ | ----------- | -------------------------------- | --------------------------------------------------------------------------------- |
+| primary                  | blue        | `.ecl-hero-banner--primary`      | primary colour may vary if a different theme is used                              |
+| grey                     | light grey  | `.ecl-hero-banner--grey`         |                                                                                   |
+| white                    | white       | `.ecl-hero-banner--white`        |                                                                                   |
+| transparent (grey text)  | transparent | `.ecl-hero-banner--ghost`        | transparent variant is intended to be used in a container with a background image |
+| transparent (white text) | transparent | `.ecl-hero-banner--ghost-invert` | transparent variant is intended to be used in a container with a background image |
 
 ## Other variants
 
 Note: Variants below can be applied to all kind of banners.  
 Check usage guidelines for more information.
 
-### Center content
+### Left aligned content
 
-Adding class `.ecl-hero-banner--center` will center the text in the banner.
+Removing class `.ecl-hero-banner--center` will put the text back on left in the banner.
 
 ### Banner width
 
