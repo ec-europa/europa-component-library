@@ -21,7 +21,6 @@ export class Timeline2 {
   static autoInit(root, { TIMELINE2: defaultOptions = {} } = {}) {
     const timeline2 = new Timeline2(root, defaultOptions);
     timeline2.init();
-    // eslint-disable-next-line no-param-reassign
     root.ECLTimeline2 = timeline2;
     return timeline2;
   }

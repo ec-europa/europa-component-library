@@ -18,7 +18,6 @@ export class Message {
   static autoInit(root, { MESSAGE: defaultOptions = {} } = {}) {
     const message = new Message(root, defaultOptions);
     message.init();
-    // eslint-disable-next-line no-param-reassign
     root.ECLMessage = message;
     return message;
   }

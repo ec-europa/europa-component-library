@@ -33,7 +33,6 @@ export class InpageNavigation {
   static autoInit(root, { INPAGE_NAVIGATION: defaultOptions = {} } = {}) {
     const inpageNavigation = new InpageNavigation(root, defaultOptions);
     inpageNavigation.init();
-    // eslint-disable-next-line no-param-reassign
     root.ECLInpageNavigation = inpageNavigation;
     return inpageNavigation;
   }

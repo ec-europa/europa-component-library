@@ -4,7 +4,6 @@ export class Accordion {
   static autoInit(root, { ACCORDION: defaultOptions = {} } = {}) {
     const accordion = new Accordion(root, defaultOptions);
     accordion.init();
-    // eslint-disable-next-line no-param-reassign
     root.ECLAccordion = accordion;
     return accordion;
   }
