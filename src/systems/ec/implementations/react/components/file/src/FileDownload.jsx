@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Button from '@ecl/ec-react-component-button';
@@ -6,39 +6,89 @@ import Icon from '@ecl/ec-react-component-icon';
 import Link from '@ecl/ec-react-component-link';
 
 export const FileDownload = ({
+  variant,
   title,
   language,
   meta,
   icon,
   download,
+  thumbnailMeta,
+  description,
+  image,
   translation,
   className,
   ...props
 }) => {
-  const classNames = classnames(className, 'ecl-file');
+  const classNames = classnames(className, 'ecl-file', {
+    [`ecl-file--${variant}`]: variant,
+  });
 
   return (
     <div {...props} className={classNames} data-ecl-file>
       <div className="ecl-file__container">
-        <Icon
-          {...icon}
-          className={classnames(icon.className, 'ecl-file__icon')}
-        />
-        <div className="ecl-file__info">
-          <div className="ecl-file__title">{title}</div>
-          <div className="ecl-file__language">{language}</div>
-          <div className="ecl-file__meta">{meta}</div>
-        </div>
-        <Link
-          {...download}
-          icon={{
-            shape: 'ui--download',
-            size: 'fluid',
-          }}
-          variant="standalone"
-          className={classnames(download.className, 'ecl-file__download')}
-          download
-        />
+        {variant === 'thumbnail' ? (
+          <Fragment>
+            <div className="ecl-file__thumbnail">
+              <div className="ecl-file__thumbnail-info">
+                {thumbnailMeta && (
+                  <div className="ecl-file__thumbnail-meta">
+                    {thumbnailMeta}
+                  </div>
+                )}
+                <div className="ecl-file__thumbnail-title">{title}</div>
+                {description && (
+                  <div className="ecl-file__thumbnail-description">
+                    {description}
+                  </div>
+                )}
+              </div>
+
+              {image && (
+                <img
+                  className="ecl-file__thumbnail-image"
+                  src={image.src}
+                  alt={image.alt}
+                />
+              )}
+            </div>
+            <div className="ecl-file__info">
+              <div className="ecl-file__language">{language}</div>
+              <div className="ecl-file__meta">{meta}</div>
+            </div>
+            <Link
+              {...download}
+              icon={{
+                shape: 'ui--download',
+                size: 'fluid',
+              }}
+              variant="standalone"
+              className={classnames(download.className, 'ecl-file__download')}
+              download
+            />
+          </Fragment>
+        ) : (
+          <Fragment>
+            <Icon
+              {...icon}
+              className={classnames(icon.className, 'ecl-file__icon')}
+            />
+            <div className="ecl-file__info">
+              <div className="ecl-file__title">{title}</div>
+              <div className="ecl-file__language">{language}</div>
+              <div className="ecl-file__meta">{meta}</div>
+            </div>
+            <Link
+              {...download}
+              icon={{
+                shape: 'ui--download',
+                size: 'fluid',
+              }}
+              variant="standalone"
+              className={classnames(download.className, 'ecl-file__download')}
+              download
+            />
+          </Fragment>
+        )}
       </div>
       {!!(translation && translation.items && translation.items.length > 0) && (
         <div
@@ -109,11 +159,18 @@ export const FileDownload = ({
 };
 
 FileDownload.propTypes = {
+  variant: PropTypes.string,
   icon: PropTypes.shape(Icon.propTypes),
   title: PropTypes.string,
   language: PropTypes.string,
   meta: PropTypes.string,
   download: PropTypes.shape(Link.propTypes),
+  thumbnailMeta: PropTypes.string,
+  description: PropTypes.string,
+  image: PropTypes.shape({
+    src: PropTypes.string,
+    alt: PropTypes.string,
+  }),
   translation: PropTypes.shape({
     toggle: PropTypes.shape(Button.propTypes),
     items: PropTypes.arrayOf(
@@ -129,11 +186,15 @@ FileDownload.propTypes = {
 };
 
 FileDownload.defaultProps = {
+  variant: '',
   icon: Icon.defaultProps,
   title: '',
   language: '',
   meta: '',
   download: {},
+  thumbnailMeta: '',
+  description: '',
+  image: {},
   translation: {},
   className: '',
 };

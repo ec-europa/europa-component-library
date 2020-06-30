@@ -16,7 +16,8 @@
   $icon-color: $ecl-color-grey-50,
   $info-color: $ecl-color-grey-100,
   $translation-border-color: $ecl-color-grey-50,
-  $max-width: 823px
+  $max-width: 823px,
+  $image-width: 13.125rem // Same as content item
 ) {
   .ecl-file {
     margin: 0;
@@ -171,6 +172,82 @@
 
     .ecl-file__translation-download {
       margin-top: 0;
+    }
+  }
+
+  /*
+   * thumbnail variant
+   */
+  .ecl-file--thumbnail {
+    .ecl-file__container {
+      padding-bottom: $ecl-spacing-m;
+    }
+
+    .ecl-file__info {
+      margin-left: 0;
+    }
+
+    .ecl-file__language,
+    .ecl-file__meta {
+      margin-top: 0;
+    }
+
+    .ecl-file__download {
+      float: right;
+      margin-top: 0;
+      width: auto;
+    }
+  }
+
+  .ecl-file__thumbnail {
+    border-bottom: 1px solid $ecl-color-grey-20;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $ecl-spacing-m;
+    padding-bottom: $ecl-spacing-m;
+  }
+
+  .ecl-file__thumbnail-meta {
+    color: $ecl-color-grey-75;
+    font: $ecl-font-s;
+    margin-bottom: $ecl-spacing-xs;
+  }
+
+  .ecl-file__thumbnail-title {
+    color: $ecl-color-grey;
+    font: $ecl-font-prolonged-m;
+    font-weight: $ecl-font-weight-bold;
+  }
+
+  .ecl-file__thumbnail-description {
+    color: $ecl-color-grey;
+    font: $ecl-font-prolonged-m;
+    margin-top: $ecl-spacing-xs;
+  }
+
+  .ecl-file__thumbnail-image {
+    display: block;
+    margin-top: $ecl-spacing-m;
+    max-width: 100%;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up('lg') {
+    .ecl-file--thumbnail {
+      .ecl-file__container {
+        padding-bottom: $ecl-spacing-l;
+      }
+    }
+
+    .ecl-file__thumbnail {
+      flex-direction: row;
+    }
+
+    .ecl-file__thumbnail-image {
+      align-self: flex-start;
+      margin-left: $ecl-spacing-l;
+      margin-top: 0;
+      max-width: $image-width;
     }
   }
 }
