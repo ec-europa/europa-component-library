@@ -10,7 +10,6 @@ if (!isDrone || process.env.DRONE_BUILD_EVENT !== 'tag') {
   console.warn(
     'This script can only be run in drone on a tag event. Skipping...'
   );
-  // eslint-disable-next-line unicorn/no-process-exit
   process.exit(0);
 }
 
