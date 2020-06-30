@@ -18,7 +18,7 @@
   .ecl-gallery__list {
     display: block;
     list-style: none;
-    margin-bottom: $ecl-spacing-xs;
+    margin-bottom: $ecl-spacing-m;
     margin-top: -($ecl-spacing-xs);
     padding-left: 0;
   }
@@ -104,6 +104,12 @@
     float: right;
     font: $ecl-font-xs;
     padding: $ecl-spacing-xs $ecl-spacing-s;
+  }
+
+  .ecl-gallery__footer {
+    border-top: 1px solid $ecl-color-grey-10;
+    margin-top: calc(#{$ecl-spacing-xs} - 2px);
+    padding-top: $ecl-spacing-m;
   }
 
   /* stylelint-disable-next-line order/order */

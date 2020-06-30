@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import Button from '@ecl/ec-react-component-button';
+import Link from '@ecl/ec-react-component-link';
+import Icon from '@ecl/ec-react-component-icon';
 
 import { GalleryItem } from './GalleryItem';
 import { GalleryOverlay } from './GalleryOverlay';
@@ -11,6 +13,7 @@ export const Gallery = ({
   overlay,
   items,
   viewAllLabel,
+  footerLinkLabel,
   counterLabel,
   selectedItemId,
   className,
@@ -32,6 +35,20 @@ export const Gallery = ({
 
       <Button label={viewAllLabel} variant="ghost" data-ecl-gallery-all />
 
+      <div className="ecl-gallery__footer">
+        <Link
+          href="#"
+          aria-label={footerLinkLabel}
+          label={footerLinkLabel}
+          icon={{
+            shape: 'ui--external',
+            size: 's',
+          }}
+          iconPosition="after"
+          className="ecl-link--standalone"
+        />   
+      </div>
+
       <GalleryOverlay
         overlay={overlay}
         item={items[selectedItemId] ? items[selectedItemId] : {}}
@@ -44,6 +61,7 @@ Gallery.propTypes = {
   overlay: PropTypes.shape(GalleryOverlay.propTypes),
   items: PropTypes.arrayOf(PropTypes.shape(GalleryItem.propTypes)),
   viewAllLabel: PropTypes.string,
+  footerLinkLabel: PropTypes.string,
   counterLabel: PropTypes.string,
   selectedItemId: PropTypes.number,
   className: PropTypes.string,
@@ -53,6 +71,7 @@ Gallery.defaultProps = {
   overlay: {},
   items: [],
   viewAllLabel: '',
+  footerLinkLabel: '',
   counterLabel: '',
   selectedItemId: 0,
   className: '',

@@ -209,5 +209,6 @@ module.exports = {
     },
   },
   viewAllLabel: 'View all',
+  footerLinkLabel: 'Link to further media items',
   counterLabel: 'Media files in this gallery',
 };
