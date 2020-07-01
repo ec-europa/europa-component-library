@@ -70,6 +70,10 @@ module.exports = {
         titleClassName: 'ecl-footer-core__title--separator',
         links: [
           {
+            label: 'About this site',
+            href: '/example',
+          },
+          {
             label: 'Language policy',
             href: '/example',
           },

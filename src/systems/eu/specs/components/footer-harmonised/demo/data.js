@@ -145,6 +145,10 @@ module.exports = {
         titleClassName: 'ecl-footer-harmonised__title--separator',
         links: [
           {
+            label: 'About this site',
+            href: '/example',
+          },
+          {
             label: 'Language policy',
             href: '/example',
           },
