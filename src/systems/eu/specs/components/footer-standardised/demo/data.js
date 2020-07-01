@@ -119,35 +119,9 @@ module.exports = {
         ],
       },
       {
-        title: 'Optional links',
-        titleClassName: 'ecl-footer-standardised__title--separator',
-        links: [
-          {
-            label: 'Link 1',
-            href: '/example',
-          },
-          {
-            label: 'Link 2',
-            href: '/example',
-          },
-          {
-            label: 'Link 3',
-            href: '/example',
-          },
-          {
-            label: 'Link 4',
-            href: '/example',
-          },
-        ],
-      },
-      {
         title: 'Legal',
         titleClassName: 'ecl-footer-standardised__title--separator',
         links: [
-          {
-            label: 'About this site',
-            href: '/example',
-          },
           {
             label: 'Language policy',
             href: '/example',
