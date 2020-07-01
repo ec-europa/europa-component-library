@@ -7,7 +7,6 @@ export class BreadcrumbStandardised {
       defaultOptions
     );
     breadcrumbStandardised.init();
-    // eslint-disable-next-line no-param-reassign
     root.ECLBreadcrumbStandardised = breadcrumbStandardised;
     return breadcrumbStandardised;
   }

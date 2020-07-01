@@ -19,7 +19,6 @@ export class ContextualNavigation {
   static autoInit(root, { CONTEXTUAL_NAVIGATION: defaultOptions = {} } = {}) {
     const contextualNavigation = new ContextualNavigation(root, defaultOptions);
     contextualNavigation.init();
-    // eslint-disable-next-line no-param-reassign
     root.ECLContextualNavigation = contextualNavigation;
     return contextualNavigation;
   }

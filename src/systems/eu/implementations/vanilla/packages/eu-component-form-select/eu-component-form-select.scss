@@ -1,6 +1,6 @@
 /**
  * Select component
- * @define select
+ * @define select; weak;
  */
 
 // Import base
@@ -48,7 +48,8 @@
 
   .ecl-select__container {
     background-color: $ecl-color-white-100;
-    display: inline-flex;
+    display: flex;
+    flex-direction: column;
     max-width: 100%;
     position: relative;
   }
@@ -85,6 +86,18 @@
     }
   }
 
+  .ecl-select__container--hidden {
+    margin-top: 0 !important;
+
+    .ecl-select {
+      clip: rect(1px, 1px, 1px, 1px);
+      height: 1px;
+      overflow: hidden;
+      position: absolute !important;
+      width: 1px;
+    }
+  }
+
   .ecl-select__icon {
     align-items: center;
     background-color: $border-color;
@@ -114,19 +127,26 @@
    */
   .ecl-select__container--disabled {
     background-color: $ecl-color-grey-5;
+
+    /* stylelint-disable-next-line no-descending-specificity */
+    .ecl-select__icon,
+    .ecl-select:hover + .ecl-select__icon,
+    .ecl-select:focus + .ecl-select__icon {
+      background-color: $ecl-color-grey-50;
+    }
+
+    .ecl-select__icon-shape {
+      fill: $ecl-color-grey-5;
+    }
+
+    .ecl-select {
+      border-color: $ecl-color-grey-50;
+      color: $ecl-color-grey-50;
+      cursor: not-allowed;
+    }
   }
 
-  /* stylelint-disable-next-line no-descending-specificity */
-  .ecl-select__container--disabled .ecl-select__icon,
-  .ecl-select__container--disabled .ecl-select:hover + .ecl-select__icon,
-  .ecl-select__container--disabled .ecl-select:focus + .ecl-select__icon {
-    background-color: $ecl-color-grey-50;
-  }
-
-  .ecl-select__container--disabled .ecl-select__icon-shape {
-    fill: $ecl-color-grey-5;
-  }
-
+  // DEPRECATED
   .ecl-select[disabled],
   .ecl-select[readonly] {
     border-color: $ecl-color-grey-50;
@@ -135,8 +155,31 @@
   }
 
   /*
-   * Error
+   * Invalid
    */
+  .ecl-select__container--invalid {
+    /* stylelint-disable-next-line no-descending-specificity */
+    .ecl-select__icon {
+      background-color: $ecl-color-error;
+    }
+
+    .ecl-select:hover + .ecl-select__icon,
+    .ecl-select:focus + .ecl-select__icon {
+      background-color: $ecl-color-red-130;
+    }
+
+    .ecl-select {
+      border-color: $ecl-color-error;
+      box-shadow: none;
+    }
+
+    .ecl-select:hover,
+    .ecl-select:focus {
+      border-color: $ecl-color-red-130;
+    }
+  }
+
+  // DEPRECATED
   .ecl-select--invalid {
     border-color: $ecl-color-error;
     box-shadow: none;
@@ -153,6 +196,57 @@
       + .ecl-select__icon {
         background-color: $ecl-color-red-130;
       }
+    }
+  }
+
+  /*
+   * Multiple
+   */
+  // stylelint-disable-next-line no-descending-specificity
+  .ecl-select[multiple] + .ecl-select__icon {
+    display: none;
+  }
+
+  .ecl-select__multiple {
+    .ecl-select__multiple-toggle[readonly] {
+      border-color: $ecl-color-grey;
+      color: $ecl-color-grey;
+      cursor: default;
+    }
+
+    .ecl-select__multiple-dropdown {
+      background-color: $ecl-color-grey-5;
+      border: 1px solid $ecl-color-grey-15;
+      box-sizing: border-box;
+      margin-top: $ecl-spacing-xs;
+      position: absolute;
+    }
+
+    .ecl-checkbox:first-of-type {
+      border-bottom: 1px solid $ecl-color-grey-25;
+      margin-bottom: $ecl-spacing-xs;
+    }
+
+    .ecl-checkbox:last-of-type {
+      margin-bottom: $ecl-spacing-xs;
+    }
+
+    .ecl-checkbox__label {
+      padding-bottom: $ecl-spacing-xs;
+      padding-left: $ecl-spacing-m;
+      padding-right: $ecl-spacing-m;
+      padding-top: $ecl-spacing-xs;
+      width: calc(100% - #{$ecl-spacing-m} - #{$ecl-spacing-m});
+    }
+
+    .ecl-checkbox__label:hover,
+    .ecl-checkbox__label:focus {
+      background-color: $ecl-color-grey-15;
+    }
+
+    .ecl-checkbox:first-of-type .ecl-checkbox__label {
+      margin-bottom: $ecl-spacing-xs;
+      margin-top: $ecl-spacing-xs;
     }
   }
 }
