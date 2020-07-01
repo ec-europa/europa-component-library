@@ -47,7 +47,6 @@ export class Menu {
   static autoInit(root, { MENU: defaultOptions = {} } = {}) {
     const menu = new Menu(root, defaultOptions);
     menu.init();
-    // eslint-disable-next-line no-param-reassign
     root.ECLMenu = menu;
     return menu;
   }
