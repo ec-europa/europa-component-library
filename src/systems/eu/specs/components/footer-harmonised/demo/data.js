@@ -165,10 +165,6 @@ module.exports = {
             href: '/example',
           },
           {
-            label: 'Web accessibility',
-            href: '/example',
-          },
-          {
             label: 'Cookies',
             href: '/example',
           },
