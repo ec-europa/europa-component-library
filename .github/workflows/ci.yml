@@ -55,7 +55,7 @@ jobs:
       - name: Test webpack4
         run: cd examples/webpack4 && yarn build --display=errors-only
       - name: Test webpack4-eu
-        run: cd ../webpack4-eu && yarn build --display=errors-only
+        run: cd examples/webpack4-eu && yarn build --display=errors-only
   size:
     name: size
     runs-on: ubuntu-latest
@@ -72,7 +72,7 @@ jobs:
       - name: Build presets
         run: yarn build:presets
       - name: Test
-        run: size-limit
+        run: yarn size-limit
   deploy:
     name: preview
     runs-on: ubuntu-latest
