@@ -24,7 +24,6 @@ export class Breadcrumb {
   static autoInit(root, { BREADCRUMB: defaultOptions = {} } = {}) {
     const breadcrumb = new Breadcrumb(root, defaultOptions);
     breadcrumb.init();
-    // eslint-disable-next-line no-param-reassign
     root.ECLBreadcrumb = breadcrumb;
     return breadcrumb;
   }
