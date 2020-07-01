@@ -25,6 +25,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12'
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
       - name: Build icons
         run: yarn build:icons
       - name: Build themes
@@ -42,6 +44,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12'
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
       - name: Build icons
         run: yarn build:icons
       - name: Build themes
@@ -61,8 +65,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12'
-      - name: Clean
-        run: yarn clean
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
       - name: Build themes
         run: yarn build:themes
       - name: Build presets
@@ -79,7 +83,7 @@ jobs:
         with:
           node-version: '12'
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --frozen-lockfile
       - name: Build icons
         run: yarn build:icons
       - name: Build themes
@@ -89,7 +93,7 @@ jobs:
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.1
         with:
-          alias: deploy-preview-${{ github.event.number }}
+          alias: ecl-preview-${{ github.event.number }}
           publish-dir: 'dist/website'
           github-token: ${{ secrets.GITHUB_TOKEN }}
         env:
