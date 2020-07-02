@@ -12,7 +12,7 @@ export const FileDownload = ({
   meta,
   icon,
   download,
-  thumbnailMeta,
+  detailMeta,
   description,
   image,
   translation,
@@ -28,24 +28,20 @@ export const FileDownload = ({
       <div className="ecl-file__container">
         {variant === 'thumbnail' ? (
           <Fragment>
-            <div className="ecl-file__thumbnail">
-              <div className="ecl-file__thumbnail-info">
-                {thumbnailMeta && (
-                  <div className="ecl-file__thumbnail-meta">
-                    {thumbnailMeta}
-                  </div>
+            <div className="ecl-file__detail">
+              <div className="ecl-file__detail-info">
+                {detailMeta && (
+                  <div className="ecl-file__detail-meta">{detailMeta}</div>
                 )}
-                <div className="ecl-file__thumbnail-title">{title}</div>
+                <div className="ecl-file__title">{title}</div>
                 {description && (
-                  <div className="ecl-file__thumbnail-description">
-                    {description}
-                  </div>
+                  <div className="ecl-file__description">{description}</div>
                 )}
               </div>
 
               {image && (
                 <img
-                  className="ecl-file__thumbnail-image"
+                  className="ecl-file__image"
                   src={image.src}
                   alt={image.alt}
                 />
@@ -112,42 +108,99 @@ export const FileDownload = ({
           />
 
           <ul className="ecl-file__translation-list">
-            {translation.items.map(item => (
-              <li
-                className={classnames(
-                  item.className,
-                  'ecl-file__translation-item'
-                )}
-                key={item.title}
-              >
-                <div className="ecl-file__translation-info">
-                  <div
-                    className="ecl-file__translation-title"
-                    {...(item.lang && { lang: item.lang })}
+            {variant === 'thumbnail' ? (
+              <Fragment>
+                {translation.items.map(item => (
+                  <li
+                    className={classnames(
+                      item.className,
+                      'ecl-file__translation-item'
+                    )}
+                    key={item.title}
                   >
-                    {item.title}
-                  </div>
+                    <div className="ecl-file__translation-detail">
+                      <div
+                        className="ecl-file__translation-title"
+                        {...(item.lang && { lang: item.lang })}
+                      >
+                        {item.title}
+                      </div>
+                      <div
+                        className="ecl-file__translation-description"
+                        {...(item.lang && { lang: item.lang })}
+                      >
+                        {item.description}
+                      </div>
+                    </div>
+                    <div className="ecl-file__translation-info">
+                      <div className="ecl-file__translation-language">
+                        {item.langFull}
+                      </div>
+                      <div className="ecl-file__translation-meta">
+                        {item.meta}
+                      </div>
+                    </div>
+                    <Link
+                      {...item.download}
+                      icon={{
+                        shape: 'ui--download',
+                        size: 'fluid',
+                      }}
+                      href={item.download.href || download.href}
+                      label={item.download.label || download.label}
+                      variant="standalone"
+                      className={classnames(
+                        item.download.className,
+                        'ecl-file__translation-download'
+                      )}
+                      download
+                      {...(item.lang && { hrefLang: item.lang })}
+                    />
+                  </li>
+                ))}
+              </Fragment>
+            ) : (
+              <Fragment>
+                {translation.items.map(item => (
+                  <li
+                    className={classnames(
+                      item.className,
+                      'ecl-file__translation-item'
+                    )}
+                    key={item.title}
+                  >
+                    <div className="ecl-file__translation-info">
+                      <div
+                        className="ecl-file__translation-title"
+                        {...(item.lang && { lang: item.lang })}
+                      >
+                        {item.title}
+                      </div>
 
-                  <div className="ecl-file__translation-meta">{item.meta}</div>
-                </div>
-                <Link
-                  {...item.download}
-                  icon={{
-                    shape: 'ui--download',
-                    size: 'fluid',
-                  }}
-                  href={item.download.href || download.href}
-                  label={item.download.label || download.label}
-                  variant="standalone"
-                  className={classnames(
-                    item.download.className,
-                    'ecl-file__translation-download'
-                  )}
-                  download
-                  {...(item.lang && { hrefLang: item.lang })}
-                />
-              </li>
-            ))}
+                      <div className="ecl-file__translation-meta">
+                        {item.meta}
+                      </div>
+                    </div>
+                    <Link
+                      {...item.download}
+                      icon={{
+                        shape: 'ui--download',
+                        size: 'fluid',
+                      }}
+                      href={item.download.href || download.href}
+                      label={item.download.label || download.label}
+                      variant="standalone"
+                      className={classnames(
+                        item.download.className,
+                        'ecl-file__translation-download'
+                      )}
+                      download
+                      {...(item.lang && { hrefLang: item.lang })}
+                    />
+                  </li>
+                ))}
+              </Fragment>
+            )}
             <li className="ecl-file__translation-item ecl-file__translation-description">
               {translation.description}
             </li>
@@ -165,7 +218,7 @@ FileDownload.propTypes = {
   language: PropTypes.string,
   meta: PropTypes.string,
   download: PropTypes.shape(Link.propTypes),
-  thumbnailMeta: PropTypes.string,
+  detailMeta: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.shape({
     src: PropTypes.string,
@@ -176,8 +229,11 @@ FileDownload.propTypes = {
     items: PropTypes.arrayOf(
       PropTypes.shape({
         title: PropTypes.string,
+        description: PropTypes.string,
         meta: PropTypes.string,
         lang: PropTypes.string,
+        langFull: PropTypes.string,
+        download: PropTypes.shape(Link.propTypes),
       })
     ),
     description: PropTypes.string,
@@ -192,7 +248,7 @@ FileDownload.defaultProps = {
   language: '',
   meta: '',
   download: {},
-  thumbnailMeta: '',
+  detailMeta: '',
   description: '',
   image: {},
   translation: {},

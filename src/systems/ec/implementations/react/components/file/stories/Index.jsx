@@ -83,7 +83,9 @@ WithTranslation.story = {
 };
 
 export const Thumbnail = () => {
+  const meta = text('Meta', demoContentThumbnail.detailMeta);
   const title = text('File title', demoContentThumbnail.title);
+  const description = text('Description', demoContentThumbnail.description);
 
   const images = {
     lanscape:
@@ -116,6 +118,8 @@ export const Thumbnail = () => {
     <FileDownload
       {...demoContentThumbnail}
       variant="thumbnail"
+      detailMeta={meta}
+      description={description}
       title={title}
       image={image}
       download={download}
