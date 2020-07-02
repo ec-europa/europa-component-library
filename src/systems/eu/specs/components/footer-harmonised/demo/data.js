@@ -119,28 +119,6 @@ module.exports = {
         ],
       },
       {
-        title: 'Optional links',
-        titleClassName: 'ecl-footer-harmonised__title--separator',
-        links: [
-          {
-            label: 'Link 1',
-            href: '/example',
-          },
-          {
-            label: 'Link 2',
-            href: '/example',
-          },
-          {
-            label: 'Link 3',
-            href: '/example',
-          },
-          {
-            label: 'Link 4',
-            href: '/example',
-          },
-        ],
-      },
-      {
         title: 'Legal',
         titleClassName: 'ecl-footer-harmonised__title--separator',
         links: [
@@ -158,10 +136,6 @@ module.exports = {
           },
           {
             label: 'Brexit content disclaimer',
-            href: '/example',
-          },
-          {
-            label: 'Web accessibility',
             href: '/example',
           },
           {
