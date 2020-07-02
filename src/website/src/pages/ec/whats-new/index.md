@@ -5,6 +5,40 @@ title: What's new
 
 Detailed release information is available on [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 2.30 (2020-07-02)
+
+#### :rocket: New Feature
+
+- [#1590](https://github.com/ec-europa/europa-component-library/pull/1590) feat(select): add multiple select - FRONT-1142
+- [#1609](https://github.com/ec-europa/europa-component-library/pull/1609) feat(EU): add families components - FRONT-1203
+
+#### :bug: Bug Fix
+
+- [#1606](https://github.com/ec-europa/europa-component-library/pull/1606) fix(inpage-navigation): fix hidden attribute - FRONT-1170
+
+#### :nail_care: Enhancement
+
+- [#1614](https://github.com/ec-europa/europa-component-library/pull/1614) feat(EU-components): small fixes to header/footer - FRONT-1203
+- [#1605](https://github.com/ec-europa/europa-component-library/pull/1605) feat(EU): update EU components
+- [#1608](https://github.com/ec-europa/europa-component-library/pull/1608) feat(link): adding aria-label to EC and EU link component-FRONT-1239
+
+#### :memo: Documentation
+
+- [#1616](https://github.com/ec-europa/europa-component-library/pull/1616) docs(multi-select): add usage page - FRONT-1256
+- [#1612](https://github.com/ec-europa/europa-component-library/pull/1612) docs(breadcrumb): update usage page - FRONT-1231
+- [#1611](https://github.com/ec-europa/europa-component-library/pull/1611) docs(media-container): update usage page - FRONT-1230
+
+#### :house: Internal
+
+- [#1610](https://github.com/ec-europa/europa-component-library/pull/1610) chore(ci): use github actions for building previews - FRONT-1250
+- [#1607](https://github.com/ec-europa/europa-component-library/pull/1607) chore(node): upgrade to erbium - FRONT-1228
+
+#### Committers: 3
+
+- Kalin Chernev
+- Paulo Gingao
+- Romain Emery
+
 ## 2.29 (2020-06-11)
 
 #### :rocket: New Feature
