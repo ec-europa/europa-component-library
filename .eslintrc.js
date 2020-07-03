@@ -9,21 +9,13 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'no-param-reassign': 'off',
     'no-underscore-dangle': 'off',
-    'react/jsx-curly-brace-presence': 'off',
-    'react/jsx-fragments': 'off',
-    'react/jsx-props-no-spreading': 'off',
+    'react/forbid-prop-types': 'off',
   },
   overrides: [
     {
       files: '**/scripts/**/*.js',
       rules: {
         'no-console': 'off',
-      },
-    },
-    {
-      files: '**/src/**/*.jsx',
-      rules: {
-        'react/forbid-prop-types': 'off',
       },
     },
   ],

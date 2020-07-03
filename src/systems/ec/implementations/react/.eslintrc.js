@@ -18,12 +18,14 @@ module.exports = {
     },
   },
   rules: {
-    'react/jsx-fragments': 'off',
-    'react/jsx-props-no-spreading': 'off',
+    'react/forbid-prop-types': 'off',
+    'jsx-a11y/role-supports-aria-props': 'off',
     // Temporary disable rule until https://github.com/yannickcr/eslint-plugin-react/issues/2427 is fixed
     'react/jsx-curly-brace-presence': 'off',
-    'unicorn/prevent-abbreviations': 'off',
+    'react/jsx-fragments': 'off',
+    'react/jsx-props-no-spreading': 'off',
     'unicorn/no-for-loop': 'off',
+    'unicorn/prevent-abbreviations': 'off',
   },
   overrides: [
     {
