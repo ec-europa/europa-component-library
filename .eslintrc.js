@@ -4,7 +4,16 @@ module.exports = {
   env: {
     node: true,
   },
-  rules: {},
+  rules: {
+    'class-methods-use-this': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'no-param-reassign': 'off',
+    'no-underscore-dangle': 'off',
+    'react/forbid-prop-types': 'off',
+    'react/jsx-curly-brace-presence': 'off',
+    'react/jsx-fragments': 'off',
+    'react/jsx-props-no-spreading': 'off',
+  },
   overrides: [
     {
       files: '**/scripts/**/*.js',
