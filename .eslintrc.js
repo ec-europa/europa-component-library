@@ -9,7 +9,6 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'no-param-reassign': 'off',
     'no-underscore-dangle': 'off',
-    'react/forbid-prop-types': 'off',
     'react/jsx-curly-brace-presence': 'off',
     'react/jsx-fragments': 'off',
     'react/jsx-props-no-spreading': 'off',
@@ -19,6 +18,12 @@ module.exports = {
       files: '**/scripts/**/*.js',
       rules: {
         'no-console': 'off',
+      },
+    },
+    {
+      files: '**/src/**/*.jsx',
+      rules: {
+        'react/forbid-prop-types': 'off',
       },
     },
   ],
