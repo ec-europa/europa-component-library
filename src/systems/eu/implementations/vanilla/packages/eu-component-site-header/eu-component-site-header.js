@@ -5,7 +5,6 @@ export class SiteHeader {
   static autoInit(root, { SITE_HEADER: defaultOptions = {} } = {}) {
     const siteHeader = new SiteHeader(root, defaultOptions);
     siteHeader.init();
-    // eslint-disable-next-line no-param-reassign
     root.ECLSiteHeader = siteHeader;
     return siteHeader;
   }

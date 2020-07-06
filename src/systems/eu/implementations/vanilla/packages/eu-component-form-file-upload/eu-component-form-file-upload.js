@@ -38,7 +38,6 @@ export class FileUpload {
   static autoInit(root, { FILE_UPLOAD: defaultOptions = {} } = {}) {
     const fileUpload = new FileUpload(root, defaultOptions);
     fileUpload.init();
-    // eslint-disable-next-line no-param-reassign
     root.ECLFileUpload = fileUpload;
     return fileUpload;
   }

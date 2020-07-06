@@ -4,7 +4,6 @@ export class BreadcrumbCore {
   static autoInit(root, { BREADCRUMB_CORE: defaultOptions = {} } = {}) {
     const breadcrumbCore = new BreadcrumbCore(root, defaultOptions);
     breadcrumbCore.init();
-    // eslint-disable-next-line no-param-reassign
     root.ECLBreadcrumbCore = breadcrumbCore;
     return breadcrumbCore;
   }

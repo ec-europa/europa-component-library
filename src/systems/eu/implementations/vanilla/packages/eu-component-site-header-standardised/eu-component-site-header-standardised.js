@@ -27,7 +27,6 @@ export class SiteHeaderStandardised {
       defaultOptions
     );
     siteHeaderStandardised.init();
-    // eslint-disable-next-line no-param-reassign
     root.ECLSiteHeaderStandardised = siteHeaderStandardised;
     return siteHeaderStandardised;
   }
