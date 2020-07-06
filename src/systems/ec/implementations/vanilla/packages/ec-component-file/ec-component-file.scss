@@ -90,6 +90,7 @@
     color: $ecl-color-grey;
     font: $ecl-font-prolonged-m;
     margin-top: $ecl-spacing-xs;
+    max-width: 80ch;
   }
 
   .ecl-file__image {
@@ -175,6 +176,7 @@
   .ecl-file__translation-description {
     color: $info-color;
     font: $ecl-font-m;
+    max-width: 80ch;
   }
 
   .ecl-file__translation-container[aria-expanded='true'] {
@@ -251,6 +253,11 @@
       flex-wrap: wrap;
     }
 
+    .ecl-file__translation-item:first-of-type {
+      border-top-width: 0;
+      padding-top: 0;
+    }
+
     .ecl-file__translation-detail {
       margin-bottom: $ecl-spacing-xs;
     }
@@ -282,6 +289,15 @@
     .ecl-file--thumbnail {
       .ecl-file__container {
         padding-bottom: $ecl-spacing-l;
+      }
+
+      .ecl-file__translation-container {
+        padding-left: $ecl-spacing-l;
+      }
+
+      .ecl-file__translation-item {
+        padding-bottom: $ecl-spacing-l;
+        padding-top: $ecl-spacing-l;
       }
     }
   }
