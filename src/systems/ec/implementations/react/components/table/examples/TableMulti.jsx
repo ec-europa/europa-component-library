@@ -9,6 +9,7 @@ import TableHead from '../src/TableHead';
 import TableHeader from '../src/TableHeader';
 import TableBody from '../src/TableBody';
 import TableCell from '../src/TableCell';
+
 // Map to known JSX properties
 const adaptCellProps = ({ colspan, ...otherProps }) => ({
   colSpan: colspan,

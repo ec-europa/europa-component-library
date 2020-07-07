@@ -26,12 +26,7 @@ const TextInput = ({
   });
 
   return (
-    <div
-      className={classnames(
-        groupClassName,
-        'ecl-form-group ecl-form-group--text-input'
-      )}
-    >
+    <div className={classnames(groupClassName, 'ecl-form-group')}>
       {label && (
         <label
           className={classnames(labelClassName, 'ecl-form-label', {

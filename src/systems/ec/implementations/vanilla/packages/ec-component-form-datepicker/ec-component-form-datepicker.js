@@ -17,7 +17,6 @@ export class Datepicker {
   static autoInit(root, { DATEPICKER: defaultOptions = {} } = {}) {
     const datepicker = new Datepicker(root, defaultOptions);
     datepicker.init();
-    // eslint-disable-next-line no-param-reassign
     root.ECLDatepicker = datepicker;
     return datepicker;
   }

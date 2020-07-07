@@ -6,21 +6,17 @@ order: 1
 import { Paragraph, Anatomy } from '@ecl/website-components';
 
 <Paragraph size="lead">
-  The breadcrumb informs the users on their current location relative to the
-  homepage of the website and allows them to navigate to higher levels.
+  The breadcrumb is a trail, informing the users on their current location in the site's structure. This is done relative to the homepage, and allows them to navigate up the site's information architecture.
 </Paragraph>
 
 ## Anatomy
 
-The breadcrumb is an horizontal set of links\* starting from the homepage or root of the hierarchy and work down to the current location.
-
-<Paragraph size="s">
-  * except the last item in the group, which is the current page
-</Paragraph>
+### Core
 
 <Anatomy
-  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/breadcrumb.png"
-  alt="Anatomy of the breadcrumb"
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb%20-%20desktop.png"
+  srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb%20-%20mobile.png 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb%20-%20desktop.png 1246w"
+  alt="Anatomy of the core breadcrumb"
   legend={{
     items: [
       {
@@ -35,25 +31,50 @@ The breadcrumb is an horizontal set of links\* starting from the homepage or roo
   }}
 />
 
-| Name      | Mandatory | Description                                                                                                                         |
-| --------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| link      | yes       | item that redirects the user to the level in the hierarchy above the current page                                                   |
-| separator | yes       | symbol that separates breadcrumb items it is also used to denote hierarchy, as in the format of Parent category &gt; Child category |
-| label     | yes       | last item of the breadcrumb that indicates the current page.<br />It’s not a clickable element                                      |
+### Standardised \(Harmonised\)
+
+<Anatomy
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb%20-%20strd%20-%20desktop.png​​​​​​​"
+  srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb%20-%20strd%20-%20mobile.png 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb%20-%20strd%20-%20desktop.png 1246w"
+  alt="Anatomy of the standardised breadcrumb"
+  legend={{
+    items: [
+      {
+        color: '#404040',
+        label: 'mandatory',
+      },
+      {
+        color: '#004494',
+        label: 'optional',
+      },
+    ],
+  }}
+/>
+
+
+| Elements         | Mandatory desktop | Mandatory mobile | Description                                                                                                                         |
+| ---------------- | ----------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| homepage link    | yes               | yes              | link taking users to the homepage \(this is considered level 0\)     |
+| parent page link | yes               | yes              | link taking users to the parent page \(this is considered level 1\) |
+| child page label | yes               | yes              | label of the current page (this is considered level 2)               |
+
+<Paragraph>
+Note: Showcase images reflect the minimum number of levels (homepage + 2 levels)
+</Paragraph>
 
 ## Do's
 
-- the first element of the breadcrumb must always be labelled 'Home' and must link to the homepage of the actual site where the current user page is located
+- always label the the first element 'Home' and link to the homepage of the current site
 
 ## Don'ts
 
-- don't use long labels unless necessary
+- do not add the link to European Commission \(previous iteration\), the redirect now happens from the EC logo
 
 ## When to use
 
-- if your website's navigational structure is a tree of more than 2 levels
+- when you site is 2 or more levels deep
 
 ## When not to use
 
-- if your website's navigational structure has less than 3 levels of depth
-- if your site navigational structure isn't a tree
+- do not use on one-page sites
+- do not use when your site only has childless parent pages \(as indicator of the current page is displayed in the horizontal menu\)

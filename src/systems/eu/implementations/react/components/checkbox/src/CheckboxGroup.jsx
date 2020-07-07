@@ -20,10 +20,7 @@ const CheckboxGroup = ({
   requiredText,
   ...props
 }) => {
-  const classNames = classnames(
-    className,
-    'ecl-form-group ecl-form-group--checkbox'
-  );
+  const classNames = classnames(className, 'ecl-form-group');
 
   return (
     <fieldset
@@ -56,10 +53,7 @@ const CheckboxGroup = ({
       )}
 
       {helperText && (
-        <div
-          {...(helperId ? { id: helperId } : {})}
-          className="ecl-checkbox__help ecl-help-block"
-        >
+        <div {...(helperId ? { id: helperId } : {})} className="ecl-help-block">
           {helperText}
         </div>
       )}
