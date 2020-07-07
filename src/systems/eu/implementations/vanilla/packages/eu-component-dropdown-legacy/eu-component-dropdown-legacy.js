@@ -18,7 +18,6 @@ export class DropdownLegacy {
   static autoInit(root, { DROPDOWN_LEGACY: defaultOptions = {} } = {}) {
     const dropdownLegacy = new DropdownLegacy(root, defaultOptions);
     dropdownLegacy.init();
-    // eslint-disable-next-line no-param-reassign
     root.ECLDropdownLegacy = dropdownLegacy;
     return dropdownLegacy;
   }

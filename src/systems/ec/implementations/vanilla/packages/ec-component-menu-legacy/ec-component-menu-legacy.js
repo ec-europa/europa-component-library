@@ -37,7 +37,6 @@ export class MenuLegacy {
   static autoInit(root, { MENU_LEGACY: defaultOptions = {} } = {}) {
     const menuLegacy = new MenuLegacy(root, defaultOptions);
     menuLegacy.init();
-    // eslint-disable-next-line no-param-reassign
     root.ECLMenuLegacy = menuLegacy;
     return menuLegacy;
   }
