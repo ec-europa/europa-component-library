@@ -20,6 +20,7 @@ module.exports = {
     // https://jsperf.com/html5-dataset-vs-native-setattribute
     'unicorn/prefer-dataset': 'off',
     'import/no-extraneous-dependencies': 'off',
+    'react/no-array-index-key': 'off',
   },
   overrides: [
     {
