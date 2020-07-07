@@ -92,6 +92,8 @@ export const Thumbnail = () => {
       'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
     portrait:
       'https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg',
+    square:
+      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg',
   };
   const image = {
     src: select('Image example', images, demoContentThumbnail.image.src),
