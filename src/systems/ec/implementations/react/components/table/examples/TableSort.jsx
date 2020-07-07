@@ -44,7 +44,7 @@ export default () => {
                 {...adaptCellProps(cellProps)}
                 key={`body-row${rowIndex}-cell${cellIndex}`}
               >
-                {parse(label)}
+                {label}
               </TableCell>
             ))}
           </TableRow>
