@@ -30,7 +30,7 @@ export default () => {
                     'data-ecl-table-sort-toggle': true,
                   })}
               >
-                {parse(label)}
+                {label}
               </TableHeader>
             ))}
           </TableRow>
