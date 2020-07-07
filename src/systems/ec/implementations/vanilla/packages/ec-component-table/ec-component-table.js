@@ -21,7 +21,7 @@ if (!Element.prototype.closest)
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
  * @param {String} options.sortSelector Selector for toggling element
- * @param {Boolean} options.attachClickListener Whether or not to bind click events on toggle
+ * @param {Boolean} options.attachClickListener
  */
 export class Table {
   /**
@@ -72,7 +72,10 @@ export class Table {
     svg.setAttribute('focusable', false);
     svg.setAttribute('aria-hidden', true);
     // The following element is <path> which does not support classList API as others.
-    svg.setAttribute('class', `ecl-icon ecl-icon--2xs ${customClass}`);
+    svg.setAttribute(
+      'class',
+      `ecl-table__icon ecl-icon ecl-icon--2xs ${customClass}`
+    );
     return svg;
   }
 
