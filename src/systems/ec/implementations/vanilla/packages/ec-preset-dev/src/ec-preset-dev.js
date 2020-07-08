@@ -20,4 +20,5 @@ export * from '@ecl/ec-component-site-header';
 export * from '@ecl/ec-component-site-header-core';
 export * from '@ecl/ec-component-site-header-harmonised';
 export * from '@ecl/ec-component-site-header-standardised';
+export * from '@ecl/ec-component-table';
 export * from '@ecl/ec-component-timeline2';

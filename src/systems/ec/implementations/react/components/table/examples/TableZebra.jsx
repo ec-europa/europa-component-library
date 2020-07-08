@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies, react/no-array-index-key */
+/* eslint-disable import/no-extraneous-dependencies */
 import demoContentDefault from '@ecl/ec-specs-table/demo/data--default';
 
 import React from 'react';

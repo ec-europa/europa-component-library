@@ -2,14 +2,12 @@
 import demoContentDefault from '@ecl/ec-specs-table/demo/data--multi';
 
 import React from 'react';
-import parse from 'html-react-parser';
 import Table from '../src/Table';
 import TableRow from '../src/TableRow';
 import TableHead from '../src/TableHead';
 import TableHeader from '../src/TableHeader';
 import TableBody from '../src/TableBody';
 import TableCell from '../src/TableCell';
-
 // Map to known JSX properties
 const adaptCellProps = ({ colspan, ...otherProps }) => ({
   colSpan: colspan,
@@ -18,7 +16,7 @@ const adaptCellProps = ({ colspan, ...otherProps }) => ({
 
 export default () => {
   return (
-    <Table>
+    <Table data-ecl-auto-init="Table" data-ecl-table>
       <TableHead>
         {demoContentDefault.headers.map((row, rowIndex) => (
           <TableRow key={`header-row${rowIndex}`}>
@@ -26,8 +24,12 @@ export default () => {
               <TableHeader
                 {...adaptCellProps(cellProps)}
                 key={`header-row${rowIndex}-cell${cellIndex}`}
+                {...(label &&
+                  !cellProps.colspan && {
+                    'data-ecl-table-sort-toggle': true,
+                  })}
               >
-                {parse(label)}
+                {label}
               </TableHeader>
             ))}
           </TableRow>
@@ -41,7 +43,7 @@ export default () => {
                 {...adaptCellProps(cellProps)}
                 key={`body-row${rowIndex}-cell${cellIndex}`}
               >
-                {parse(label)}
+                {label}
               </TableCell>
             ))}
           </TableRow>
