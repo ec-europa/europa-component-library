@@ -1,97 +1,514 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
-import { storiesOf } from '@storybook/react';
+import React, { Fragment } from 'react';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 
 import demoContentImage from '@ecl/eu-specs-page-banner/demo/data--image';
 import demoContentImageShade from '@ecl/eu-specs-page-banner/demo/data--image-shade';
-import demoContentPrimary from '@ecl/eu-specs-page-banner/demo/data--primary';
-import demoContentDefault from '@ecl/eu-specs-page-banner/demo/data--default';
-import demoContentAlignLeft from '@ecl/eu-specs-page-banner/demo/data--align-left';
+import demoContentSimple from '@ecl/eu-specs-page-banner/demo/data--simple';
 
 import PageBanner from '../src/PageBanner';
 
-storiesOf('Components/Banners/Page Banner', module)
-  .addDecorator(withKnobs)
-  .add('image', () => {
-    const link = {
-      ...demoContentImage.link,
-      label: text('Link label', demoContentImage.link.label),
-    };
+export default {
+  title: 'Components/Banners/Page Banner',
+  decorators: [withKnobs],
+};
 
+/*
+ * Image
+ */
+export const Image = () => {
+  // Banner content
+  const title = text('Title', demoContentImage.title, 'Banner content');
+  const description = text(
+    'Description',
+    demoContentImage.description,
+    'Banner content'
+  );
+  const link = {
+    ...demoContentImage.link,
+    label: text('Link label', demoContentImage.link.label, 'Banner content'),
+  };
+  const image = text('Image', demoContentImage.image, 'Banner content');
+
+  // Banner display
+  const centered = boolean('Centered', true, 'Banner display');
+  const fullWidth = boolean(
+    'Full width (outside the grid)',
+    true,
+    'Banner display'
+  );
+  const fullWidthGrid = boolean(
+    'Full width (inside the grid)',
+    false,
+    'Banner display'
+  );
+
+  if (fullWidth) {
     return (
       <PageBanner
+        {...demoContentImage}
         variant="image"
-        title={text('Title', demoContentImage.title)}
-        baseline={text('Baseline', demoContentImage.baseline)}
+        title={title}
+        description={description}
         link={link}
-        isCentered={boolean('Centered', true)}
-        image={text('Image', demoContentImage.image)}
+        isCentered={centered}
+        isFullWidth={fullWidthGrid}
+        image={image}
       />
     );
-  })
-  .add('image-shade', () => {
-    const link = {
-      ...demoContentImageShade.link,
-      label: text('Link label', demoContentImageShade.link.label),
-    };
+  }
+  return (
+    <div className="ecl-container">
+      <PageBanner
+        {...demoContentImage}
+        variant="image"
+        title={title}
+        description={description}
+        link={link}
+        isCentered={centered}
+        isFullWidth={fullWidthGrid}
+        image={image}
+      />
+    </div>
+  );
+};
 
+Image.story = {
+  name: 'image',
+};
+
+/*
+ * Image shade
+ */
+export const ImageShade = () => {
+  // Banner content
+  const title = text('Title', demoContentImageShade.title, 'Banner content');
+  const description = text(
+    'Description',
+    demoContentImageShade.description,
+    'Banner content'
+  );
+  const link = {
+    ...demoContentImageShade.link,
+    label: text(
+      'Link label',
+      demoContentImageShade.link.label,
+      'Banner content'
+    ),
+  };
+  const image = text('Image', demoContentImageShade.image, 'Banner content');
+
+  // Banner display
+  const centered = boolean('Centered', true, 'Banner display');
+  const fullWidth = boolean(
+    'Full width (outside the grid)',
+    true,
+    'Banner display'
+  );
+  const fullWidthGrid = boolean(
+    'Full width (inside the grid)',
+    false,
+    'Banner display'
+  );
+
+  if (fullWidth) {
     return (
       <PageBanner
+        {...demoContentImageShade}
         variant="image-shade"
-        title={text('Title', demoContentImageShade.title)}
-        baseline={text('Baseline', demoContentImageShade.baseline)}
+        title={title}
+        description={description}
         link={link}
-        isCentered={boolean('Centered', true)}
-        image={text('Image', demoContentImageShade.image)}
+        isCentered={centered}
+        isFullWidth={fullWidthGrid}
+        image={image}
       />
     );
-  })
-  .add('primary', () => {
-    const link = {
-      ...demoContentPrimary.link,
-      label: text('Link label', demoContentPrimary.link.label),
-    };
+  }
+  return (
+    <div className="ecl-container">
+      <PageBanner
+        {...demoContentImageShade}
+        variant="image-shade"
+        title={title}
+        description={description}
+        link={link}
+        isCentered={centered}
+        isFullWidth={fullWidthGrid}
+        image={image}
+      />
+    </div>
+  );
+};
 
+ImageShade.story = {
+  name: 'image shade',
+};
+
+/*
+ * Simple primary
+ */
+export const SimplePrimary = () => {
+  // Banner content
+  const meta = text('Meta', demoContentSimple.meta, 'Banner content');
+  const title = text('Title', demoContentSimple.title, 'Banner content');
+  const description = text(
+    'Description',
+    demoContentSimple.description,
+    'Banner content'
+  );
+  const link = {
+    ...demoContentSimple.link,
+    label: text('Link label', demoContentSimple.link.label, 'Banner content'),
+  };
+
+  // Banner display
+  const centered = boolean('Centered', true, 'Banner display');
+  const fullWidth = boolean(
+    'Full width (outside the grid)',
+    true,
+    'Banner display'
+  );
+  const fullWidthGrid = boolean(
+    'Full width (inside the grid)',
+    false,
+    'Banner display'
+  );
+
+  if (fullWidth) {
     return (
       <PageBanner
+        {...demoContentSimple}
         variant="primary"
-        title={text('Title', demoContentPrimary.title)}
-        baseline={text('Baseline', demoContentPrimary.baseline)}
+        meta={meta}
+        title={title}
+        description={description}
         link={link}
-        isCentered={boolean('Centered', true)}
+        isCentered={centered}
+        isFullWidth={fullWidthGrid}
       />
     );
-  })
-  .add('default', () => {
-    const link = {
-      ...demoContentDefault.link,
-      label: text('Link label', demoContentDefault.link.label),
-    };
+  }
+  return (
+    <div className="ecl-container">
+      <PageBanner
+        {...demoContentSimple}
+        variant="primary"
+        meta={meta}
+        title={title}
+        description={description}
+        link={link}
+        isCentered={centered}
+        isFullWidth={fullWidthGrid}
+      />
+    </div>
+  );
+};
 
+SimplePrimary.story = {
+  name: 'simple - primary',
+};
+
+/*
+ * Simple grey
+ */
+export const SimpleGrey = () => {
+  // Banner content
+  const meta = text('Meta', demoContentSimple.meta, 'Banner content');
+  const title = text('Title', demoContentSimple.title, 'Banner content');
+  const description = text(
+    'Description',
+    demoContentSimple.description,
+    'Banner content'
+  );
+  const link = {
+    ...demoContentSimple.link,
+    label: text('Link label', demoContentSimple.link.label, 'Banner content'),
+  };
+
+  // Banner display
+  const centered = boolean('Centered', true, 'Banner display');
+  const fullWidth = boolean(
+    'Full width (outside the grid)',
+    true,
+    'Banner display'
+  );
+  const fullWidthGrid = boolean(
+    'Full width (inside the grid)',
+    false,
+    'Banner display'
+  );
+
+  if (fullWidth) {
     return (
       <PageBanner
-        variant="default"
-        title={text('Title', demoContentDefault.title)}
-        baseline={text('Baseline', demoContentDefault.baseline)}
+        {...demoContentSimple}
+        variant="grey"
+        meta={meta}
+        title={title}
+        description={description}
         link={link}
-        isCentered={boolean('Centered', true)}
+        isCentered={centered}
+        isFullWidth={fullWidthGrid}
       />
     );
-  })
-  .add('align-left', () => {
-    const link = {
-      ...demoContentAlignLeft.link,
-      label: text('Link label', demoContentAlignLeft.link.label),
-    };
+  }
+  return (
+    <div className="ecl-container">
+      <PageBanner
+        {...demoContentSimple}
+        variant="grey"
+        meta={meta}
+        title={title}
+        description={description}
+        link={link}
+        isCentered={centered}
+        isFullWidth={fullWidthGrid}
+      />
+    </div>
+  );
+};
 
+SimpleGrey.story = {
+  name: 'simple - grey',
+};
+
+/*
+ * Simple white
+ */
+export const SimpleWhite = () => {
+  // Banner content
+  const meta = text('Meta', demoContentSimple.meta, 'Banner content');
+  const title = text('Title', demoContentSimple.title, 'Banner content');
+  const description = text(
+    'Description',
+    demoContentSimple.description,
+    'Banner content'
+  );
+  const link = {
+    ...demoContentSimple.link,
+    label: text('Link label', demoContentSimple.link.label, 'Banner content'),
+  };
+
+  // Banner display
+  const centered = boolean('Centered', true, 'Banner display');
+  const fullWidth = boolean(
+    'Full width (outside the grid)',
+    true,
+    'Banner display'
+  );
+  const fullWidthGrid = boolean(
+    'Full width (inside the grid)',
+    false,
+    'Banner display'
+  );
+
+  if (fullWidth) {
     return (
       <PageBanner
-        variant="default"
-        title={text('Title', demoContentAlignLeft.title)}
-        baseline={text('Baseline', demoContentAlignLeft.baseline)}
+        {...demoContentSimple}
+        variant="white"
+        meta={meta}
+        title={title}
+        description={description}
         link={link}
-        isCentered={false}
+        isCentered={centered}
+        isFullWidth={fullWidthGrid}
       />
     );
-  });
+  }
+  return (
+    <div className="ecl-container">
+      <PageBanner
+        {...demoContentSimple}
+        variant="white"
+        meta={meta}
+        title={title}
+        description={description}
+        link={link}
+        isCentered={centered}
+        isFullWidth={fullWidthGrid}
+      />
+    </div>
+  );
+};
+
+SimpleWhite.story = {
+  name: 'simple - white',
+};
+
+/*
+ * Simple ghost
+ */
+export const SimpleGhost = () => {
+  // Banner content
+  const meta = text('Meta', demoContentSimple.meta, 'Banner content');
+  const title = text('Title', demoContentSimple.title, 'Banner content');
+  const description = text(
+    'Description',
+    demoContentSimple.description,
+    'Banner content'
+  );
+  const link = {
+    ...demoContentSimple.link,
+    label: text('Link label', demoContentSimple.link.label, 'Banner content'),
+  };
+
+  // Banner display
+  const centered = boolean('Centered', true, 'Banner display');
+  const fullWidth = boolean(
+    'Full width (outside the grid)',
+    true,
+    'Banner display'
+  );
+  const fullWidthGrid = boolean(
+    'Full width (inside the grid)',
+    false,
+    'Banner display'
+  );
+
+  if (fullWidth) {
+    return (
+      <Fragment>
+        <p className="ecl-u-type-paragraph">
+          Note: this variant comes with a transparent background; the image here
+          in inline style is just for demo
+        </p>
+        <PageBanner
+          style={{
+            'background-image':
+              "url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image11.jpg')",
+            'background-size': 'cover',
+            'background-position': '0 0',
+          }}
+          {...demoContentSimple}
+          variant="ghost"
+          meta={meta}
+          title={title}
+          description={description}
+          link={link}
+          isCentered={centered}
+          isFullWidth={fullWidthGrid}
+        />
+      </Fragment>
+    );
+  }
+  return (
+    <Fragment>
+      <p className="ecl-u-type-paragraph">
+        Note: this variant comes with a transparent background; the image here
+        in inline style is just for demo
+      </p>
+      <div className="ecl-container">
+        <PageBanner
+          style={{
+            'background-image':
+              "url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image11.jpg')",
+            'background-size': 'cover',
+            'background-position': '0 0',
+          }}
+          {...demoContentSimple}
+          variant="ghost"
+          meta={meta}
+          title={title}
+          description={description}
+          link={link}
+          isCentered={centered}
+          isFullWidth={fullWidthGrid}
+        />
+      </div>
+    </Fragment>
+  );
+};
+
+SimpleGhost.story = {
+  name: 'simple - transparent (grey text)',
+};
+
+/*
+ * Simple ghost (invert)
+ */
+export const SimpleGhostInvert = () => {
+  // Banner content
+  const meta = text('Meta', demoContentSimple.meta, 'Banner content');
+  const title = text('Title', demoContentSimple.title, 'Banner content');
+  const description = text(
+    'Description',
+    demoContentSimple.description,
+    'Banner content'
+  );
+  const link = {
+    ...demoContentSimple.link,
+    label: text('Link label', demoContentSimple.link.label, 'Banner content'),
+  };
+
+  // Banner display
+  const centered = boolean('Centered', true, 'Banner display');
+  const fullWidth = boolean(
+    'Full width (outside the grid)',
+    true,
+    'Banner display'
+  );
+  const fullWidthGrid = boolean(
+    'Full width (inside the grid)',
+    false,
+    'Banner display'
+  );
+
+  if (fullWidth) {
+    return (
+      <Fragment>
+        <p className="ecl-u-type-paragraph">
+          Note: this variant comes with a transparent background; the image here
+          in inline style is just for demo
+        </p>
+        <PageBanner
+          style={{
+            'background-image':
+              "url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')",
+            'background-size': 'cover',
+            'background-position': '0 0',
+          }}
+          {...demoContentSimple}
+          variant="ghost-invert"
+          meta={meta}
+          title={title}
+          description={description}
+          link={link}
+          isCentered={centered}
+          isFullWidth={fullWidthGrid}
+        />
+      </Fragment>
+    );
+  }
+  return (
+    <Fragment>
+      <p className="ecl-u-type-paragraph">
+        Note: this variant comes with a transparent background; the image here
+        in inline style is just for demo
+      </p>
+      <div className="ecl-container">
+        <PageBanner
+          style={{
+            'background-image':
+              "url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')",
+            'background-size': 'cover',
+            'background-position': '0 0',
+          }}
+          {...demoContentSimple}
+          variant="ghost-invert"
+          meta={meta}
+          title={title}
+          description={description}
+          link={link}
+          isCentered={centered}
+          isFullWidth={fullWidthGrid}
+        />
+      </div>
+    </Fragment>
+  );
+};
+
+SimpleGhostInvert.story = {
+  name: 'simple - transparent (white text)',
+};
