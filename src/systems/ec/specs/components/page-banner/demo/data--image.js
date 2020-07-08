@@ -1,7 +1,7 @@
 // Simple content for demo
 module.exports = {
-  title: 'Headline',
-  description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem',
+  title: 'EU Budget for the future',
+  description: 'Innovation, economy, environment and geopolitics',
   link: {
     label: 'Subscribe',
     href: '/example',
