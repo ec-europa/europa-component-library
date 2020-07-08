@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/prefer-node-append */
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import {
