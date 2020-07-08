@@ -20,7 +20,7 @@ class IconList extends PureComponent {
           .keys()
           .filter(
             icon =>
-              icon.indexOf('/_') === -1 && // eslint-disable-line unicorn/prefer-includes
+              icon.indexOf('/_') === -1 &&
               (!set || icon.indexOf(`./${set}`) === 0)
           )
           .map(icon => (

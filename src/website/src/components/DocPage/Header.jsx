@@ -9,7 +9,6 @@ import styles from './Header.scss';
 import { getPageTitle, getSectionTitle } from './utils/title';
 
 const navigateTab = (e, history) => {
-  // eslint-disable-next-line unicorn/prefer-includes
   if (e.target.value.indexOf('/playground/') !== -1) {
     window.location.href = e.target.value;
     return;
