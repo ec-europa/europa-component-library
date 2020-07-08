@@ -100,7 +100,7 @@ export class MenuLegacy {
 
     // Bind click event on menu links
     if (this.attachClickListener && this.menuLinks) {
-      this.menuLinks.forEach(menuLink => {
+      this.menuLinks.forEach((menuLink) => {
         if (
           menuLink.parentElement.getAttribute('data-ecl-has-children') ===
           'true'
@@ -123,7 +123,7 @@ export class MenuLegacy {
     }
 
     if (this.attachClickListener && this.menuLinks) {
-      this.menuLinks.forEach(menuLink => {
+      this.menuLinks.forEach((menuLink) => {
         if (
           menuLink.parentElement.getAttribute('data-ecl-has-children') ===
           'true'
@@ -160,7 +160,7 @@ export class MenuLegacy {
     const menuItem = e.target.closest('[data-ecl-has-children]');
 
     // Close other items
-    this.menuItems.forEach(item => {
+    this.menuItems.forEach((item) => {
       if (item !== menuItem) {
         item.setAttribute('aria-expanded', 'false');
         const subMenu = queryOne(this.menuMegaSelector, item);

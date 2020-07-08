@@ -8,7 +8,7 @@ import demoContentFr from '@ecl/eu-specs-site-header/demo/data--fr';
 import SiteHeader from '../src/SiteHeader';
 
 storiesOf('Page Structure/SiteHeader', module)
-  .addDecorator(story => (
+  .addDecorator((story) => (
     <StoryWrapper
       afterMount={() => {
         if (!window.ECL) return {};
@@ -16,9 +16,9 @@ storiesOf('Page Structure/SiteHeader', module)
         const components = window.ECL.autoInit();
         return { components };
       }}
-      beforeUnmount={context => {
+      beforeUnmount={(context) => {
         if (context.components) {
-          context.components.forEach(c => c.destroy());
+          context.components.forEach((c) => c.destroy());
         }
       }}
     >

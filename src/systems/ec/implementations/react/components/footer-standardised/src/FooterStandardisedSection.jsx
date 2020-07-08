@@ -57,7 +57,7 @@ export const FooterStandardisedSection = ({ section }) => (
           section.listClassName
         )}
       >
-        {section.links.map(link => (
+        {section.links.map((link) => (
           <li className="ecl-footer-standardised__list-item" key={link.label}>
             <Link
               {...link}

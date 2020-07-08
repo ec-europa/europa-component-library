@@ -68,7 +68,7 @@ export const Menu = ({
           </header>
           {/* Menu items */}
           <ul className="ecl-menu__list">
-            {items.map(item => (
+            {items.map((item) => (
               <MenuItem {...item} key={item.label} />
             ))}
           </ul>

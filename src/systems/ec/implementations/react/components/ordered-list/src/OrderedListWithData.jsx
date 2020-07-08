@@ -7,7 +7,7 @@ import OrderedListItem from './OrderedListItem';
 const OrderedListWithData = ({ items, className, ...props }) => {
   return (
     <OrderedList {...props} className={className}>
-      {items.map(item => (
+      {items.map((item) => (
         <OrderedListItem key={item.label}>
           {item.label}
           {item.nested && <OrderedListWithData items={item.nested} />}

@@ -5,19 +5,19 @@ const baseUrl =
     ? `https://cdn1.fpfis.tech.ec.europa.eu/ecl/v${version}/ec-preset-legacy-website/`
     : window.location.origin + window.location.pathname;
 
-const replaceLogo = code =>
+const replaceLogo = (code) =>
   code.replace(
     /dist\/images\/logo([\d-az-]*)\.([\da-z]*)\.svg/gi,
     `${baseUrl}images/logo/logo$1.svg`
   );
 
-const replaceIcons = code =>
+const replaceIcons = (code) =>
   code.replace(
     /dist\/images\/icons\.([\da-z]*)\.svg/gi,
     `${baseUrl}images/icons/sprites/icons.svg`
   );
 
-const prefillPen = code => {
+const prefillPen = (code) => {
   return JSON.stringify({
     title: 'ECL Pen',
     description: "Exported from ECL's playground",

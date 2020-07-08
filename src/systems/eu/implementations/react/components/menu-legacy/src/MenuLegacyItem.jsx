@@ -12,10 +12,10 @@ export const MenuLegacyItem = ({ label, href, isCurrent, children }) => {
   // Sub items
   let columnsMarkup = '';
   if (children && children.length > 0) {
-    const columns = children.map(child => {
+    const columns = children.map((child) => {
       let subItemsMarkup = '';
       if (child.items && child.items.length > 0) {
-        const subItemsArray = child.items.map(item => {
+        const subItemsArray = child.items.map((item) => {
           const subClassNames = classnames('ecl-menu-legacy__subitem', {
             'ecl-menu-legacy__subitem--current': isCurrent,
           });

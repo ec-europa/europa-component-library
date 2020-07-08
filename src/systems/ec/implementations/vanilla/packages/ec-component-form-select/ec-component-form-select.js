@@ -208,7 +208,7 @@ export class Select {
     this.input.setAttribute('type', 'text');
     this.input.setAttribute('placeholder', this.textDefault || '');
     this.input.setAttribute('readonly', true);
-    if (containerClasses.find(c => c.includes('disabled'))) {
+    if (containerClasses.find((c) => c.includes('disabled'))) {
       this.input.setAttribute('disabled', true);
     }
     this.input.addEventListener('keypress', this.handleToggle);
@@ -243,7 +243,7 @@ export class Select {
     this.searchContainer.appendChild(this.selectAll);
 
     if (this.select.options && this.select.options.length > 0) {
-      this.checkboxes = Array.from(this.select.options).map(option => {
+      this.checkboxes = Array.from(this.select.options).map((option) => {
         const checkbox = Select.createCheckbox(
           option.value,
           option.text,
@@ -277,7 +277,7 @@ export class Select {
     this.search.removeEventListener('keyup', this.handleSearch);
     this.selectAll.removeEventListener('click', this.handleClickSelectAll);
     this.selectAll.removeEventListener('keypress', this.handleClickSelectAll);
-    this.checkboxes.forEach(checkbox => {
+    this.checkboxes.forEach((checkbox) => {
       checkbox.removeEventListener('click', this.handleClickSelectAll);
       checkbox.removeEventListener('click', this.handleClickOption);
     });
@@ -292,8 +292,8 @@ export class Select {
 
   updateCurrentValue() {
     this.input.value = Array.from(this.select.options)
-      .filter(option => option.getAttribute('selected'))
-      .map(option => option.text)
+      .filter((option) => option.getAttribute('selected'))
+      .map((option) => option.text)
       .join(', ');
   }
 
@@ -319,7 +319,7 @@ export class Select {
 
     // Toggle values
     const checkbox = e.target.closest('.ecl-checkbox');
-    this.select.options.forEach(option => {
+    this.select.options.forEach((option) => {
       if (option.text === checkbox.getAttribute('data-select-multiple-value')) {
         if (option.getAttribute('selected')) {
           option.removeAttribute('selected');
@@ -345,10 +345,10 @@ export class Select {
       this.searchContainer.querySelectorAll('[data-visible="true"]')
     );
 
-    checkboxes.forEach(checkbox => {
+    checkboxes.forEach((checkbox) => {
       checkbox.querySelector('input').checked = checked;
       const option = options.find(
-        o => o.text === checkbox.getAttribute('data-select-multiple-value')
+        (o) => o.text === checkbox.getAttribute('data-select-multiple-value')
       );
 
       if (option) {
@@ -383,7 +383,7 @@ export class Select {
   handleSearch(e) {
     const visible = [];
     const keyword = e.target.value;
-    this.checkboxes.forEach(checkbox => {
+    this.checkboxes.forEach((checkbox) => {
       if (
         !checkbox
           .getAttribute('data-select-multiple-value')
@@ -399,7 +399,7 @@ export class Select {
       }
     });
     // Select all checkbox follows along.
-    const checked = visible.filter(c => c.querySelector('input').checked);
+    const checked = visible.filter((c) => c.querySelector('input').checked);
     if (visible.length !== checked.length) {
       this.selectAll.querySelector('input').checked = false;
     } else {
@@ -407,7 +407,7 @@ export class Select {
     }
     // reset
     if (keyword.length === 0) {
-      this.checkboxes.forEach(checkbox => {
+      this.checkboxes.forEach((checkbox) => {
         checkbox.setAttribute('data-visible', true);
         checkbox.style.display = 'flex';
       });

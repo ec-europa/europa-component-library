@@ -56,5 +56,5 @@ module.exports = (input, dest, options) => {
     globals: options.globals || {},
   };
 
-  rollup.rollup(inputOptions).then(bundle => bundle.write(outputOptions));
+  rollup.rollup(inputOptions).then((bundle) => bundle.write(outputOptions));
 };
