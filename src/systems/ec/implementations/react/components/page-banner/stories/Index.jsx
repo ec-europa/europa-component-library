@@ -163,7 +163,7 @@ export const SimplePrimary = () => {
   };
 
   // Banner display
-  const centered = boolean('Centered', false, 'Banner display');
+  const centered = boolean('Centered', true, 'Banner display');
   const fullWidth = boolean(
     'Full width (outside the grid)',
     true,
@@ -227,7 +227,7 @@ export const SimpleGrey = () => {
   };
 
   // Banner display
-  const centered = boolean('Centered', false, 'Banner display');
+  const centered = boolean('Centered', true, 'Banner display');
   const fullWidth = boolean(
     'Full width (outside the grid)',
     true,
@@ -291,7 +291,7 @@ export const SimpleWhite = () => {
   };
 
   // Banner display
-  const centered = boolean('Centered', false, 'Banner display');
+  const centered = boolean('Centered', true, 'Banner display');
   const fullWidth = boolean(
     'Full width (outside the grid)',
     true,
@@ -355,7 +355,7 @@ export const SimpleGhost = () => {
   };
 
   // Banner display
-  const centered = boolean('Centered', false, 'Banner display');
+  const centered = boolean('Centered', true, 'Banner display');
   const fullWidth = boolean(
     'Full width (outside the grid)',
     true,
@@ -377,7 +377,7 @@ export const SimpleGhost = () => {
         <PageBanner
           style={{
             'background-image':
-              "url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')",
+              "url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image11.jpg')",
             'background-size': 'cover',
             'background-position': '0 0',
           }}
@@ -403,7 +403,7 @@ export const SimpleGhost = () => {
         <PageBanner
           style={{
             'background-image':
-              "url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')",
+              "url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image11.jpg')",
             'background-size': 'cover',
             'background-position': '0 0',
           }}
@@ -443,7 +443,7 @@ export const SimpleGhostInvert = () => {
   };
 
   // Banner display
-  const centered = boolean('Centered', false, 'Banner display');
+  const centered = boolean('Centered', true, 'Banner display');
   const fullWidth = boolean(
     'Full width (outside the grid)',
     true,
