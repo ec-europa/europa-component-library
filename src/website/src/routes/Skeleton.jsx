@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router-dom';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 
 // Layout
 import Navigation from '../components/Navigation/Navigation';
@@ -67,7 +67,7 @@ class Skeleton extends Component {
   }
 
   toggleSidebar() {
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       sidebarOpen: !prevState.sidebarOpen,
     }));
   }

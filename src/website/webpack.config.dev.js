@@ -211,7 +211,6 @@ module.exports = {
     new HtmlWebPackPlugin({
       inject: true,
       template: './public/index.html',
-      // filename: './index.html',
     }),
     new InterpolateHtmlPlugin(HtmlWebPackPlugin, {
       PUBLIC_URL: publicUrl,
