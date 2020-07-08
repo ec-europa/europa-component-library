@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/prefer-includes */
 import { version } from '../package.json';
 
 const baseUrl =

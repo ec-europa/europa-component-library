@@ -1,5 +1,39 @@
 # Changelog
 
+## 2.30 (2020-07-02)
+
+#### :rocket: New Feature
+
+- [#1590](https://github.com/ec-europa/europa-component-library/pull/1590) feat(select): add multiple select - FRONT-1142 ([@emeryro](https://github.com/emeryro))
+- [#1609](https://github.com/ec-europa/europa-component-library/pull/1609) feat(EU): add families components - FRONT-1203 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#1606](https://github.com/ec-europa/europa-component-library/pull/1606) fix(inpage-navigation): fix hidden attribute - FRONT-1170 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#1614](https://github.com/ec-europa/europa-component-library/pull/1614) feat(EU-components): small fixes to header/footer - FRONT-1203 ([@emeryro](https://github.com/emeryro))
+- [#1605](https://github.com/ec-europa/europa-component-library/pull/1605) feat(EU): update EU components ([@emeryro](https://github.com/emeryro))
+- [#1608](https://github.com/ec-europa/europa-component-library/pull/1608) feat(link): adding aria-label to EC and EU link component-FRONT-1239 ([@gingapa](https://github.com/gingapa))
+
+#### :memo: Documentation
+
+- [#1616](https://github.com/ec-europa/europa-component-library/pull/1616) docs(multi-select): add usage page - FRONT-1256 ([@emeryro](https://github.com/emeryro))
+- [#1612](https://github.com/ec-europa/europa-component-library/pull/1612) docs(breadcrumb): update usage page - FRONT-1231 ([@gingapa](https://github.com/gingapa))
+- [#1611](https://github.com/ec-europa/europa-component-library/pull/1611) docs(media-container): update usage page - FRONT-1230 ([@gingapa](https://github.com/gingapa))
+
+#### :house: Internal
+
+- [#1610](https://github.com/ec-europa/europa-component-library/pull/1610) chore(ci): use github actions for building previews - FRONT-1250 ([@kalinchernev](https://github.com/kalinchernev))
+- [#1607](https://github.com/ec-europa/europa-component-library/pull/1607) chore(node): upgrade to erbium - FRONT-1228 ([@kalinchernev](https://github.com/kalinchernev))
+
+#### Committers: 3
+
+- Kalin Chernev ([@kalinchernev](https://github.com/kalinchernev))
+- Paulo Gingao ([@gingapa](https://github.com/gingapa))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
 ## 2.29 (2020-06-11)
 
 #### :rocket: New Feature

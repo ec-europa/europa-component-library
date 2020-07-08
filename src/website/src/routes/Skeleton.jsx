@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/prefer-node-append, unicorn/prefer-query-selector */
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router-dom';
