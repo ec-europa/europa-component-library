@@ -25,7 +25,6 @@ const btnAddContent = () => {
     const dummyContent = document.createElement('p');
     dummyContent.classList.add('ecl-u-type-paragraph');
     dummyContent.innerHTML = lorem.generateParagraphs(1);
-    /* eslint-disable-next-line unicorn/prefer-node-append */
     root.appendChild(dummyContent);
   }
 };

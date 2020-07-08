@@ -1,12 +1,6 @@
 module.exports = {
   parser: 'babel-eslint',
-  extends: [
-    'airbnb',
-    'plugin:unicorn/recommended',
-    'plugin:prettier/recommended',
-    'prettier/unicorn',
-    'prettier/react',
-  ],
+  extends: ['airbnb', 'plugin:prettier/recommended', 'prettier/react'],
   plugins: ['react', 'jsx-a11y'],
   env: {
     browser: true,
@@ -17,22 +11,4 @@ module.exports = {
       jsx: true,
     },
   },
-  rules: {
-    'unicorn/prevent-abbreviations': 'off',
-  },
-  overrides: [
-    {
-      files: ['**/*.jsx'],
-      rules: {
-        // JSX files' name should be in PascalCase
-        'unicorn/filename-case': ['error', { case: 'pascalCase' }],
-      },
-    },
-    {
-      files: '**/demo/**/*.js',
-      rules: {
-        'unicorn/filename-case': 'off',
-      },
-    },
-  ],
 };

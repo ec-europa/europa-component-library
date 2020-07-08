@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/consistent-function-scoping, unicorn/prefer-node-append */
 import { queryOne, queryAll } from '@ecl/ec-base/helpers/dom';
 import iconSvgUiArrow from '@ecl/ec-resources-icons/dist/svg/ui/solid-arrow.svg';
 
