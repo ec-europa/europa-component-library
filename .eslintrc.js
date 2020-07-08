@@ -13,7 +13,6 @@ module.exports = {
     // Temporary disable rule until https://github.com/yannickcr/eslint-plugin-react/issues/2427 is fixed
     'react/jsx-curly-brace-presence': 'off',
     'import/no-extraneous-dependencies': 'off',
-    'react/no-array-index-key': 'off',
   },
   overrides: [
     {
