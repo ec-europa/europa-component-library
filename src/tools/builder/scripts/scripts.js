@@ -3,7 +3,6 @@ const rollup = require('rollup');
 const babel = require('rollup-plugin-babel');
 const resolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
-const svg = require('rollup-plugin-svg');
 const { uglify } = require('rollup-plugin-uglify');
 const svg = require('rollup-plugin-svg');
 const browserslist = require('browserslist');
