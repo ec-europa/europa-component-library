@@ -8,8 +8,6 @@ const selectorPrefixer = require('postcss-prefix-selector');
 const frontmatter = require('remark-frontmatter');
 const emoji = require('remark-emoji');
 
-// const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
-
 const babelConfig = require('./config/babel.config');
 const lernaJson = require('../../lerna.json');
 

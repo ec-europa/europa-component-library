@@ -348,9 +348,6 @@ module.exports = {
       fileName: 'asset-manifest.json',
       publicPath,
     }),
-    // If you want to invetigate the bundle size, uncomment the following line
-    // eslint-disable-next-line global-require
-    // new (require('webpack-bundle-analyzer')).BundleAnalyzerPlugin(),
   ],
   performance: {
     hints: 'warning',

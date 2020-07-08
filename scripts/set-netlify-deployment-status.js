@@ -56,7 +56,7 @@ const run = async () => {
     const deployments = await deploymentsResponse.json();
 
     const currentDeployment = deployments.find(
-      deployment => deployment.title === `Drone build: ${DRONE_BUILD_NUMBER}`
+      (deployment) => deployment.title === `Drone build: ${DRONE_BUILD_NUMBER}`
     );
 
     const siteDeploymentResponse = await fetch(
