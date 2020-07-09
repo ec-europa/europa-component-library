@@ -150,7 +150,7 @@ export class Menu {
 
     // Bind click event on menu links
     if (this.attachClickListener && this.links) {
-      this.links.forEach(link => {
+      this.links.forEach((link) => {
         if (link.parentElement.hasAttribute('data-ecl-has-children')) {
           link.addEventListener('click', this.handleClickOnLink);
         }
@@ -170,7 +170,7 @@ export class Menu {
 
     // Check mega menu display (right to left, full width, ...)
     if (this.items && !isMobile.isMobile) {
-      this.items.forEach(item => {
+      this.items.forEach((item) => {
         this.checkMenuItem(item);
       });
     }
@@ -205,7 +205,7 @@ export class Menu {
     }
 
     if (this.attachClickListener && this.links) {
-      this.links.forEach(link => {
+      this.links.forEach((link) => {
         if (link.parentElement.hasAttribute('data-ecl-has-children')) {
           link.removeEventListener('click', this.handleClickOnLink);
         }
@@ -245,7 +245,7 @@ export class Menu {
     }
 
     const allItemsWidth = this.links
-      .map(link => link.clientWidth)
+      .map((link) => link.clientWidth)
       .reduce((a, b) => a + b);
 
     // If there is not enough space, mobile display is used
@@ -276,7 +276,7 @@ export class Menu {
 
       // Check mega menu display (right to left, full width, ...)
       if (this.items && !isMobile.isMobile) {
-        this.items.forEach(item => {
+        this.items.forEach((item) => {
           this.checkMenuItem(item);
         });
       }
@@ -325,7 +325,7 @@ export class Menu {
         if (subItems.length > 16) {
           subItems
             .slice(16)
-            .forEach(subItem =>
+            .forEach((subItem) =>
               subItem.classList.add('ecl-menu__subitem--extra')
             );
         }
@@ -374,7 +374,7 @@ export class Menu {
     this.inner.setAttribute('aria-hidden', 'true');
 
     // Remove css class and attribute from menu items
-    this.items.forEach(item => {
+    this.items.forEach((item) => {
       item.classList.remove('ecl-menu__item--expanded');
       item.setAttribute('aria-expanded', 'false');
     });
@@ -392,7 +392,7 @@ export class Menu {
     this.inner.classList.remove('ecl-menu__inner--expanded');
 
     // Remove css class and attribute from menu items
-    this.items.forEach(item => {
+    this.items.forEach((item) => {
       item.classList.remove('ecl-menu__item--expanded');
       item.setAttribute('aria-expanded', 'false');
     });
@@ -421,7 +421,7 @@ export class Menu {
 
     // Add css class and attribute to current item, and remove it from others
     const menuItem = e.target.closest('[data-ecl-menu-item]');
-    this.items.forEach(item => {
+    this.items.forEach((item) => {
       if (item === menuItem) {
         item.classList.add('ecl-menu__item--expanded');
         item.setAttribute('aria-expanded', 'true');

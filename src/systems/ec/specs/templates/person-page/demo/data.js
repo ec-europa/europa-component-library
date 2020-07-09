@@ -24,7 +24,7 @@ const pageHeaderContent = {
   description: 'Health & Food Safety',
 };
 
-module.exports = template => {
+module.exports = (template) => {
   const data = {
     breadcrumbContent,
     breadcrumbItems,

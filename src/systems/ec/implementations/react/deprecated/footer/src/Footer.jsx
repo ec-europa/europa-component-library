@@ -41,7 +41,7 @@ const Footer = ({
               <span className="ecl-footer__identity-label">
                 {identity.follow.label}
               </span>
-              {identity.follow.links.map(link => (
+              {identity.follow.links.map((link) => (
                 <Link
                   {...link}
                   key={link.label}
@@ -54,7 +54,7 @@ const Footer = ({
             </div>
 
             <div className="ecl-footer__identity-info ecl-col-12 ecl-col-md-4">
-              {identity.info.map(link => (
+              {identity.info.map((link) => (
                 <Link
                   {...link}
                   key={link.label}
@@ -78,7 +78,7 @@ const Footer = ({
             <h1 className="ecl-footer__section-title">{sections[0].title}</h1>
 
             <ul className="ecl-footer__section-list">
-              {sections[0].links.map(link => (
+              {sections[0].links.map((link) => (
                 <li className="ecl-footer__section-item" key={link.label}>
                   <Link
                     {...link}
@@ -96,7 +96,7 @@ const Footer = ({
             <h1 className="ecl-footer__section-title">{sections[1].title}</h1>
 
             <ul className="ecl-footer__section-list ecl-footer__section-list--inline">
-              {sections[1].links.map(link => (
+              {sections[1].links.map((link) => (
                 <li className="ecl-footer__section-item" key={link.label}>
                   <Link
                     {...link}
@@ -114,7 +114,7 @@ const Footer = ({
             <h1 className="ecl-footer__section-title">{sections[2].title}</h1>
 
             <ul className="ecl-footer__section-list">
-              {sections[2].links.map(link => (
+              {sections[2].links.map((link) => (
                 <li className="ecl-footer__section-item" key={link.label}>
                   <Link
                     {...link}
@@ -134,7 +134,7 @@ const Footer = ({
     {/* Common */}
     <div className="ecl-footer__common">
       <div className="ecl-container ecl-footer__common-container">
-        {common.map(link => (
+        {common.map((link) => (
           <Link
             {...link}
             key={link.label}

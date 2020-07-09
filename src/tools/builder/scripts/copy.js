@@ -10,7 +10,7 @@ module.exports = (patterns, from, to) => {
   const executor = async () => {
     const paths = await globby(patterns, { nodir: true, cwd: from });
 
-    paths.map(async file => {
+    paths.map(async (file) => {
       const input = path.resolve(from, file);
       const dest = path.resolve(to, file);
 

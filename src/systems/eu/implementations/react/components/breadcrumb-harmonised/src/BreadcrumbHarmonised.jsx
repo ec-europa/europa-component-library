@@ -49,7 +49,7 @@ export const BreadcrumbHarmonised = ({
     // Insert left items
     const leftItems = childrenArray.slice(0, minItemsLeft);
     items.push(
-      ...leftItems.map(item => React.cloneElement(item, { isVisible: true }))
+      ...leftItems.map((item) => React.cloneElement(item, { isVisible: true }))
     );
 
     // Insert Ellipsis

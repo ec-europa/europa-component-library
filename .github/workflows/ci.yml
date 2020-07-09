@@ -10,10 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Setup node
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12'
       - name: Test
         run: ./scripts/audit.sh
   conventions:
@@ -21,10 +17,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Setup node
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Build icons
@@ -40,10 +32,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Setup node
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Build icons
@@ -61,10 +49,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Setup node
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Build themes
@@ -78,10 +62,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Setup node
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Build icons

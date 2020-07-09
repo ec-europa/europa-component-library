@@ -24,7 +24,7 @@ const pageHeaderContent = {
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra dui in cursus finibus. In cursus sapien ligula, quis lobortis ipsum vulputate eget.',
 };
 
-module.exports = template => {
+module.exports = (template) => {
   const data = {
     breadcrumbContent,
     breadcrumbItems,

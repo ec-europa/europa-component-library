@@ -39,7 +39,7 @@ export default class DefaultExample extends React.Component {
     const { items, ...breadcrumbProps } = breadcrumbContent;
     const breadcrumb = (
       <BreadcrumbCore {...breadcrumbProps} data-ecl-auto-init="BreadcrumbCore">
-        {items.map(item => (
+        {items.map((item) => (
           <BreadcrumbCoreItem {...item} key={item.label} />
         ))}
       </BreadcrumbCore>

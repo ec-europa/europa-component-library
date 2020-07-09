@@ -18,7 +18,7 @@ const EURoutes = lazy(() =>
   import(/* webpackChunkName: "eu", webpackPrefetch: true */ './Eu')
 );
 
-const WaitingEC = props => (
+const WaitingEC = (props) => (
   <Suspense
     fallback={
       <Skeleton
@@ -34,7 +34,7 @@ const WaitingEC = props => (
   </Suspense>
 );
 
-const WaitingEU = props => (
+const WaitingEU = (props) => (
   <Suspense
     fallback={
       <Skeleton

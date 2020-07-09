@@ -8,8 +8,6 @@ const selectorPrefixer = require('postcss-prefix-selector');
 const frontmatter = require('remark-frontmatter');
 const emoji = require('remark-emoji');
 
-// const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
-
 const babelConfig = require('./config/babel.config');
 const lernaJson = require('../../lerna.json');
 
@@ -211,7 +209,6 @@ module.exports = {
     new HtmlWebPackPlugin({
       inject: true,
       template: './public/index.html',
-      // filename: './index.html',
     }),
     new InterpolateHtmlPlugin(HtmlWebPackPlugin, {
       PUBLIC_URL: publicUrl,

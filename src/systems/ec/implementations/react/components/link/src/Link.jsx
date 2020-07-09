@@ -18,7 +18,7 @@ const Link = ({
   let iconMarkup = '';
   if (Array.isArray(icon)) {
     if (icon.length > 0) {
-      iconMarkup = icon.map(i => (
+      iconMarkup = icon.map((i) => (
         <Icon {...i} className={classnames(i.className, 'ecl-link__icon')} />
       ));
     }

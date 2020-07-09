@@ -35,7 +35,7 @@ export default class DefaultExample extends React.Component {
     const { items, ...breadcrumbProps } = breadcrumbContent;
     const breadcrumb = (
       <Breadcrumb {...breadcrumbProps}>
-        {items.map(item => (
+        {items.map((item) => (
           <BreadcrumbItem {...item} key={item.label} />
         ))}
       </Breadcrumb>

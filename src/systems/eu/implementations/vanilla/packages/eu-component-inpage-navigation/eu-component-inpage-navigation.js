@@ -131,7 +131,7 @@ export class InpageNavigation {
         let initialized = false;
 
         this.stickyObserver = new IntersectionObserver(
-          entries => {
+          (entries) => {
             if (entries && entries[0]) {
               const entry = entries[0];
               const currentY = entry.boundingClientRect.y;
@@ -227,7 +227,7 @@ export class InpageNavigation {
         const body = queryOne('.ecl-col-lg-9');
         const currentInpage = queryOne('[data-ecl-inpage-navigation-list]');
 
-        mutationsList.forEach(mutation => {
+        mutationsList.forEach((mutation) => {
           // Exclude the changes we perform.
           if (
             mutation &&
@@ -239,11 +239,11 @@ export class InpageNavigation {
           ) {
             // Added nodes.
             if (mutation.addedNodes.length > 0) {
-              [].slice.call(mutation.addedNodes).forEach(addedNode => {
+              [].slice.call(mutation.addedNodes).forEach((addedNode) => {
                 if (addedNode.tagName === 'H2' && addedNode.id) {
                   const H2s = queryAll('h2[id]', body);
                   const addedNodeIndex = H2s.findIndex(
-                    H2 => H2.id === addedNode.id
+                    (H2) => H2.id === addedNode.id
                   );
                   const element = currentInpage.childNodes[
                     addedNodeIndex - 1
@@ -256,9 +256,9 @@ export class InpageNavigation {
             }
             // Removed nodes.
             if (mutation.removedNodes.length > 0) {
-              [].slice.call(mutation.removedNodes).forEach(removedNode => {
+              [].slice.call(mutation.removedNodes).forEach((removedNode) => {
                 if (removedNode.tagName === 'H2' && removedNode.id) {
-                  currentInpage.childNodes.forEach(item => {
+                  currentInpage.childNodes.forEach((item) => {
                     if (
                       item.childNodes[0].href.indexOf(removedNode.id) !== -1
                     ) {
@@ -306,7 +306,7 @@ export class InpageNavigation {
       toggleElement.addEventListener('click', this.handleClickOnToggler);
     }
     if (this.attachClickListener && navLinks) {
-      navLinks.forEach(link =>
+      navLinks.forEach((link) =>
         link.addEventListener('click', this.handleClickOnLink)
       );
       toggleElement.addEventListener('click', this.handleClickOnToggler);
@@ -365,7 +365,7 @@ export class InpageNavigation {
       );
     }
     if (this.attachClickListener && this.navLinks) {
-      this.navLinks.forEach(link =>
+      this.navLinks.forEach((link) =>
         link.removeEventListener('click', this.handleClickOnLink)
       );
     }
