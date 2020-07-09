@@ -71,7 +71,6 @@ const run = async () => {
     );
 
     const siteDeployment = await siteDeploymentResponse.json();
-    console.log('siteDeployment', siteDeployment);
 
     await fetch(
       `https://api.github.com/repos/${DRONE_REPO}/statuses/${DRONE_COMMIT_SHA}`,
@@ -86,8 +85,8 @@ const run = async () => {
         body: JSON.stringify({
           state: 'success',
           target_url: siteDeployment.deploy_ssl_url,
-          description: 'Preview: branch alias',
-          context: 'drone/netlify-preview',
+          description: 'Preview with URL based on current branch',
+          context: 'drone/netlify-preview/branch-alias',
         }),
       }
     );
@@ -105,8 +104,8 @@ const run = async () => {
         body: JSON.stringify({
           state: 'success',
           target_url: `https://${currentDeployment.id}--europa-component-library.netlify.app`,
-          description: 'Preview: deployment ID',
-          context: 'drone/netlify-preview',
+          description: 'Preview with URL based on the deployment ID',
+          context: 'drone/netlify-preview/deployment-id',
         }),
       }
     );
