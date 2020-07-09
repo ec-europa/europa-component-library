@@ -71,6 +71,7 @@ const run = async () => {
     );
 
     const siteDeployment = await siteDeploymentResponse.json();
+    console.log('siteDeployment', siteDeployment);
 
     await fetch(
       `https://api.github.com/repos/${DRONE_REPO}/statuses/${DRONE_COMMIT_SHA}`,
