@@ -87,7 +87,7 @@ class EventSpeakerHarmonisedG1 extends React.Component {
           data-ecl-auto-init="BreadcrumbHarmonised"
           className="ecl-breadcrumb-harmonised--group1"
         >
-          {dataCopy.breadcrumbItems.map(item => (
+          {dataCopy.breadcrumbItems.map((item) => (
             <BreadcrumbHarmonisedItem {...item} key={item.label} />
           ))}
         </BreadcrumbHarmonised>

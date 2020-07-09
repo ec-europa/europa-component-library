@@ -25,7 +25,7 @@ const pageHeaderContent = {
   description: "Vytenis Andriukaitis' team supports him in his daily work.",
 };
 
-module.exports = template => {
+module.exports = (template) => {
   const data = {
     breadcrumbContent,
     breadcrumbItems,

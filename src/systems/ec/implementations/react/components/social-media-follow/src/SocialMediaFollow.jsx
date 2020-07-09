@@ -22,7 +22,7 @@ const SocialMediaFollow = ({
         <p className="ecl-social-media-follow__description">{description}</p>
       )}
       <ul className="ecl-social-media-follow__list">
-        {links.map(link => (
+        {links.map((link) => (
           <li key={link.label} className="ecl-social-media-follow__item">
             <Link
               {...link}

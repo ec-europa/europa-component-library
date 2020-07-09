@@ -47,7 +47,7 @@ const Anatomy = ({
         <Col col={vertical ? '12 md-3' : '12'}>
           <div className={styles.container}>
             <ul className={styles.legend}>
-              {legend.items.map(item => (
+              {legend.items.map((item) => (
                 <li className={styles.legend__item} key={item.label}>
                   <div
                     className={styles.legend__color}

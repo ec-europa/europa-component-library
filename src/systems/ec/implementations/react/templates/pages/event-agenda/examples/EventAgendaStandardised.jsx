@@ -74,7 +74,7 @@ class EventAgendaStandardised extends React.Component {
           {...dataCopy.breadcrumbContent}
           data-ecl-auto-init="BreadcrumbStandardised"
         >
-          {dataCopy.breadcrumbItems.map(item => (
+          {dataCopy.breadcrumbItems.map((item) => (
             <BreadcrumbStandardisedItem {...item} key={item.label} />
           ))}
         </BreadcrumbStandardised>

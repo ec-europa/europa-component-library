@@ -8,7 +8,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const safePostCssParser = require('postcss-safe-parser');
 const ManifestPlugin = require('webpack-manifest-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
 const selectorPrefixer = require('postcss-prefix-selector');
@@ -289,7 +289,10 @@ module.exports = {
     runtimeChunk: true,
   },
   plugins: [
-    new CopyWebpackPlugin([path.resolve(__dirname, 'public')], {}),
+    new CopyPlugin({
+      patterns: [path.resolve(__dirname, 'public')],
+      options: {},
+    }),
     new HtmlWebPackPlugin({
       inject: true,
       template: path.resolve(__dirname, 'public/index.html'),
@@ -345,9 +348,6 @@ module.exports = {
       fileName: 'asset-manifest.json',
       publicPath,
     }),
-    // If you want to invetigate the bundle size, uncomment the following line
-    // eslint-disable-next-line global-require
-    // new (require('webpack-bundle-analyzer')).BundleAnalyzerPlugin(),
   ],
   performance: {
     hints: 'warning',

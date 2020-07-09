@@ -27,10 +27,10 @@ try {
 console.log('Start processing JSDoc...');
 
 Promise.all(
-  files.map(file =>
+  files.map((file) =>
     documentation
       .build([path.resolve(dir, file)], {})
-      .then(res => {
+      .then((res) => {
         if (res && res.length > 0) {
           return Promise.resolve([
             res[0].namespace,
@@ -40,10 +40,10 @@ Promise.all(
 
         return Promise.resolve(null);
       })
-      .then(output => {
+      .then((output) => {
         if (output) {
           const [namespace, contentPromise] = output;
-          contentPromise.then(content => {
+          contentPromise.then((content) => {
             fs.writeFileSync(
               path.resolve(outputDir, `${namespace.toLowerCase()}.md`),
               content

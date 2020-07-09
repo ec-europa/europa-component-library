@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 import { MDXProvider } from '@mdx-js/react';

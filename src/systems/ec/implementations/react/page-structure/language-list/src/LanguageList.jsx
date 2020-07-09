@@ -11,7 +11,7 @@ const LanguageList = ({ items, isOverlay }) => {
     <div className="ecl-row">
       <div className="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2">
         <ul className="ecl-language-list__list">
-          {column1.map(item => (
+          {column1.map((item) => (
             <li
               key={item.label}
               className={`ecl-language-list__item ${
@@ -25,7 +25,7 @@ const LanguageList = ({ items, isOverlay }) => {
       </div>
       <div className="ecl-language-list__column ecl-col-12 ecl-col-lg-4">
         <ul className="ecl-language-list__list">
-          {column2.map(item => (
+          {column2.map((item) => (
             <li
               key={item.label}
               className={`ecl-language-list__item ${

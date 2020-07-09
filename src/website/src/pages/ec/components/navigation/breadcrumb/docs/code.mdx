@@ -34,7 +34,7 @@ import longContentHarmonised from '@ecl/ec-specs-breadcrumb-harmonised/demo/data
     label={simpleContentCore.label}
     ellipsisLabel="Click to expand"
   >
-    {simpleContentCore.items.map(item => (
+    {simpleContentCore.items.map((item) => (
       <BreadcrumbCoreItem {...item} key={item.label} />
     ))}
   </BreadcrumbCore>
@@ -51,7 +51,7 @@ import longContentHarmonised from '@ecl/ec-specs-breadcrumb-harmonised/demo/data
     label={simpleContentStandardised.label}
     ellipsisLabel="Click to expand"
   >
-    {simpleContentStandardised.items.map(item => (
+    {simpleContentStandardised.items.map((item) => (
       <BreadcrumbStandardisedItem {...item} key={item.label} />
     ))}
   </BreadcrumbStandardised>
@@ -68,7 +68,7 @@ import longContentHarmonised from '@ecl/ec-specs-breadcrumb-harmonised/demo/data
     label={simpleContentHarmonised.label}
     ellipsisLabel="Click to expand"
   >
-    {simpleContentHarmonised.items.map(item => (
+    {simpleContentHarmonised.items.map((item) => (
       <BreadcrumbHarmonisedItem {...item} key={item.label} />
     ))}
   </BreadcrumbHarmonised>
@@ -93,7 +93,7 @@ The first item and the last 2 items should always be visible.
     ellipsisLabel="Click to expand"
     data-ecl-auto-init="BreadcrumbCore"
   >
-    {longContentCore.items.map(item => (
+    {longContentCore.items.map((item) => (
       <BreadcrumbCoreItem {...item} key={item.label} />
     ))}
   </BreadcrumbCore>
@@ -112,7 +112,7 @@ The first item and the last 2 items should always be visible.
     ellipsisLabel="Click to expand"
     data-ecl-auto-init="BreadcrumbStandardised"
   >
-    {longContentStandardised.items.map(item => (
+    {longContentStandardised.items.map((item) => (
       <BreadcrumbStandardisedItem {...item} key={item.label} />
     ))}
   </BreadcrumbStandardised>
@@ -131,7 +131,7 @@ The first item and the last 2 items should always be visible.
     ellipsisLabel="Click to expand"
     data-ecl-auto-init="BreadcrumbHarmonised"
   >
-    {longContentHarmonised.items.map(item => (
+    {longContentHarmonised.items.map((item) => (
       <BreadcrumbHarmonisedItem {...item} key={item.label} />
     ))}
   </BreadcrumbHarmonised>

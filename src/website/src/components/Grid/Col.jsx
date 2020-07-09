@@ -9,12 +9,12 @@ const Col = React.memo(
   ({ col, spacing, flex, className, children, ...props }) => {
     const colClasses = col
       .split(' ')
-      .map(c => grid[`ecl-col-${c}`])
+      .map((c) => grid[`ecl-col-${c}`])
       .join(' ');
 
     const spacingClasses = spacing
       .split(' ')
-      .map(sp => utilities[sp])
+      .map((sp) => utilities[sp])
       .join(' ');
 
     const classNames = classnames(

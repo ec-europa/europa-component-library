@@ -25,7 +25,7 @@ const pageHeaderContent = {
     'The Directorate-General for Communication is the Commission department responsible for explaining EU policies to outside audiences. It keeps the Commission abreast of political developments and of trends in public opinion and the media. It also coordinates communication campains within the Commission.',
 };
 
-module.exports = template => {
+module.exports = (template) => {
   const data = {
     breadcrumbContent,
     breadcrumbItems,
