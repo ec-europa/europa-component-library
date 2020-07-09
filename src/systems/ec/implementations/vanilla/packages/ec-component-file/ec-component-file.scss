@@ -96,7 +96,7 @@
   .ecl-file__image {
     display: block;
     margin-top: $ecl-spacing-m;
-    max-width: 100%;
+    max-width: $image-width;
   }
 
   .ecl-file__translation-language {
@@ -190,7 +190,7 @@
   }
 
   /* stylelint-disable-next-line order/order */
-  @include ecl-media-breakpoint-up('lg') {
+  @include ecl-media-breakpoint-up('md') {
     .ecl-file__download {
       margin-top: 0;
       width: auto;
@@ -202,6 +202,7 @@
 
     .ecl-file__translation-item {
       flex-direction: row;
+      max-width: 100%;
     }
 
     .ecl-file__translation-download {
@@ -216,7 +217,6 @@
       align-self: flex-start;
       margin-left: $ecl-spacing-l;
       margin-top: 0;
-      max-width: $image-width;
     }
   }
 
@@ -285,7 +285,7 @@
   }
 
   /* stylelint-disable-next-line order/order */
-  @include ecl-media-breakpoint-up('lg') {
+  @include ecl-media-breakpoint-up('md') {
     .ecl-file--thumbnail {
       .ecl-file__container {
         padding-bottom: $ecl-spacing-l;
