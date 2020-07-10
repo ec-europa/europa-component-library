@@ -5,7 +5,6 @@ module.exports = {
     node: true,
   },
   rules: {
-    'class-methods-use-this': 'off',
     'import/no-extraneous-dependencies': 'off',
     'no-param-reassign': 'off',
     'no-underscore-dangle': 'off',
