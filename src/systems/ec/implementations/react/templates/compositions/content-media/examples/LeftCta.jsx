@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 
 import demoContentLeftCta from '@ecl/ec-specs-content-media/demo/data--left-cta';

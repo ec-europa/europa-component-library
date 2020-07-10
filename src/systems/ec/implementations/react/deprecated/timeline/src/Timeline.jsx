@@ -1,5 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Button from '@ecl/ec-react-component-button';
@@ -21,7 +20,7 @@ export const Timeline = ({ items, button, className, ...props }) => {
   return (
     <ol {...props} className={classNames} data-ecl-timeline>
       {items.map((item, index) => (
-        <Fragment key={item.id}>
+        <div key={item.id}>
           <TimelineItem
             label={item.label}
             className={classnames({
@@ -31,7 +30,7 @@ export const Timeline = ({ items, button, className, ...props }) => {
             {item.content}
           </TimelineItem>
           {index === 2 && showAllButton}
-        </Fragment>
+        </div>
       ))}
     </ol>
   );

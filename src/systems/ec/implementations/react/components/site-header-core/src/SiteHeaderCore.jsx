@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -63,7 +63,7 @@ const SiteHeaderCore = ({
             ) && (
               <div className="ecl-site-header-core__login-container">
                 {logged && (
-                  <Fragment>
+                  <>
                     <a
                       className="ecl-link ecl-link--standalone ecl-site-header-core__login-toggle"
                       href={loginToggle.hrefLogged}
@@ -90,12 +90,12 @@ const SiteHeaderCore = ({
                       data-ecl-login-box
                     >
                       {loginBox.description && (
-                        <Fragment>
+                        <>
                           <p className="ecl-site-header-core__login-description">
                             {loginBox.description}
                           </p>
                           <hr className="ecl-site-header-core__login-separator" />
-                        </Fragment>
+                        </>
                       )}
                       <Link
                         label={loginBox.label}
@@ -103,7 +103,7 @@ const SiteHeaderCore = ({
                         variant="standalone"
                       />
                     </div>
-                  </Fragment>
+                  </>
                 )}
                 {!logged && (
                   <a

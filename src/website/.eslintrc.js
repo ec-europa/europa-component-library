@@ -12,7 +12,16 @@ module.exports = {
     },
   },
   rules: {
-    'react/jsx-fragments': 'off',
+    'import/no-extraneous-dependencies': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'react/no-danger': 'off',
   },
+  overrides: [
+    {
+      files: 'scripts/*.js',
+      rules: {
+        'no-console': 'off',
+      },
+    },
+  ],
 };

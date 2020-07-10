@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import demoContentDefault from '@ecl/ec-specs-checkbox/demo/data--default';

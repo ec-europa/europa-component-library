@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -93,7 +93,7 @@ const SiteHeaderHarmonised = ({
               ) && (
                 <div className="ecl-site-header-harmonised__login-container">
                   {logged && (
-                    <Fragment>
+                    <>
                       <a
                         className="ecl-link ecl-link--standalone ecl-site-header-harmonised__login-toggle"
                         href={loginToggle.hrefLogged}
@@ -120,12 +120,12 @@ const SiteHeaderHarmonised = ({
                         data-ecl-login-box
                       >
                         {loginBox.description && (
-                          <Fragment>
+                          <>
                             <p className="ecl-site-header-harmonised__login-description">
                               {loginBox.description}
                             </p>
                             <hr className="ecl-site-header-harmonised__login-separator" />
-                          </Fragment>
+                          </>
                         )}
                         <Link
                           label={loginBox.label}
@@ -133,7 +133,7 @@ const SiteHeaderHarmonised = ({
                           variant="standalone"
                         />
                       </div>
-                    </Fragment>
+                    </>
                   )}
                   {!logged && (
                     <a

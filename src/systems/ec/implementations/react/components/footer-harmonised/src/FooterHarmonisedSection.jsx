@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import Link from '@ecl/ec-react-component-link';
 
 export const FooterHarmonisedSection = ({ section }) => (
-  <Fragment>
+  <>
     {/* Title */}
     {!!(section && section.title && typeof section.title === 'object') && (
       <Link
@@ -99,7 +99,7 @@ export const FooterHarmonisedSection = ({ section }) => (
         {section.contentAfter}
       </div>
     )}
-  </Fragment>
+  </>
 );
 
 FooterHarmonisedSection.propTypes = {

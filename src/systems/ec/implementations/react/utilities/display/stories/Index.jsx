@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import classnames from 'classnames';
 import { withKnobs, select } from '@storybook/addon-knobs';

@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Link, withRouter } from 'react-router-dom';
@@ -48,7 +48,7 @@ class LinkSection extends Component {
       : attributes.url;
 
     return (
-      <Fragment>
+      <>
         <span className={styles['group-list-parent']}>
           <Link
             to={to}
@@ -82,7 +82,7 @@ class LinkSection extends Component {
           aria-hidden={!isOpen}
           showStatus={showStatus}
         />
-      </Fragment>
+      </>
     );
   }
 }

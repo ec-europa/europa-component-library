@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 const fs = require('fs');
 const mkdirp = require('mkdirp');
 const glob = require('glob');

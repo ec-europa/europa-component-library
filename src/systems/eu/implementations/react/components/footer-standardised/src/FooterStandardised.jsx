@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -27,7 +27,7 @@ export const FooterStandardised = ({ logo, sections, className, ...props }) => {
     >
       <div className="ecl-container ecl-footer-standardised__container">
         {!Array.isArray(sections) && (
-          <Fragment>
+          <>
             {/* Site name */}
             <section className="ecl-footer-standardised__section ecl-footer-standardised__section1">
               {sections.siteName && (
@@ -116,12 +116,12 @@ export const FooterStandardised = ({ logo, sections, className, ...props }) => {
                 <FooterStandardisedSection section={sections.legalNavigation} />
               )}
             </section>
-          </Fragment>
+          </>
         )}
 
         {/* DEPRECATED; backwards compatibility */}
         {Array.isArray(sections) && (
-          <Fragment>
+          <>
             {sections.map((section, index) => (
               <section
                 className={`ecl-footer-standardised__section ecl-footer-standardised__section${
@@ -134,7 +134,7 @@ export const FooterStandardised = ({ logo, sections, className, ...props }) => {
                 />
               </section>
             ))}
-          </Fragment>
+          </>
         )}
       </div>
     </footer>

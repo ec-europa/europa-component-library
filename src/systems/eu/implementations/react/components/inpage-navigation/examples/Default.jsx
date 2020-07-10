@@ -1,5 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React, { Fragment } from 'react';
+import React from 'react';
 import VanillaInpageNavigation from '@ecl/eu-component-inpage-navigation';
 import demoContent from '@ecl/eu-specs-inpage-navigation/demo/data';
 import { loremIpsum } from 'lorem-ipsum';
@@ -41,7 +40,7 @@ export default class DefaultExample extends React.Component {
       </Breadcrumb>
     );
     return (
-      <Fragment>
+      <>
         <SiteHeader {...demoContentEn} />
         <PageHeader breadcrumb={breadcrumb} title="A demo page" />
         <div className="ecl-container">
@@ -73,7 +72,7 @@ export default class DefaultExample extends React.Component {
           </div>
         </div>
         <Footer {...demoContentCorporate} />
-      </Fragment>
+      </>
     );
   }
 }

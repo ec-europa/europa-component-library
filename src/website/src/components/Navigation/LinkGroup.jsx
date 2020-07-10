@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
@@ -6,10 +6,10 @@ import styles from './LinkGroup.scss';
 import LinkList from './LinkList'; // eslint-disable-line import/no-cycle
 
 const LinkGroup = React.memo(({ pages, level, showStatus, group }) => (
-  <Fragment>
+  <>
     <span className={styles.group}>{group}</span>
     <LinkList pages={pages} level={level + 1} showStatus={showStatus} />
-  </Fragment>
+  </>
 ));
 
 LinkGroup.propTypes = {

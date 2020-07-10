@@ -1,5 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -94,7 +93,7 @@ class PersonHarmonisedG2 extends React.Component {
     }
 
     return (
-      <Fragment>
+      <>
         <SiteHeaderHarmonised
           {...dataCopy.siteHeader}
           data-ecl-auto-init="SiteHeaderHarmonised"
@@ -106,7 +105,7 @@ class PersonHarmonisedG2 extends React.Component {
         />
         <PersonPage template="harmonised-g2" />
         <FooterHarmonisedG2 {...dataCopy.footer} />
-      </Fragment>
+      </>
     );
   }
 }

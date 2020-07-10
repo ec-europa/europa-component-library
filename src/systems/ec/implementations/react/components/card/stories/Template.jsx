@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 
 import demoContentCard from '@ecl/ec-specs-card/demo/data--card';

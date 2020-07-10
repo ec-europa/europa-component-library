@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -41,17 +41,17 @@ const Select = ({
         >
           {label}
           {required ? (
-            <Fragment>
+            <>
               {requiredText && (
                 <span className="ecl-form-label__required">{requiredText}</span>
               )}
-            </Fragment>
+            </>
           ) : (
-            <Fragment>
+            <>
               {optionalText && (
                 <span className="ecl-form-label__optional">{optionalText}</span>
               )}
-            </Fragment>
+            </>
           )}
         </label>
       )}

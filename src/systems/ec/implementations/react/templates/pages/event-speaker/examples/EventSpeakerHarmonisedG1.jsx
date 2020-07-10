@@ -1,5 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -96,7 +95,7 @@ class EventSpeakerHarmonisedG1 extends React.Component {
     }
 
     return (
-      <Fragment>
+      <>
         <SiteHeaderHarmonised
           {...dataCopy.siteHeader}
           data-ecl-auto-init="SiteHeaderHarmonised"
@@ -109,7 +108,7 @@ class EventSpeakerHarmonisedG1 extends React.Component {
         <EventSpeakerPage template="harmonised-g1" />
         <PageBanner {...dataCopy.pageBanner} variant="default" isCentered />
         <FooterHarmonised {...dataCopy.footer} />
-      </Fragment>
+      </>
     );
   }
 }

@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies, no-underscore-dangle */
 import React from 'react';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 
