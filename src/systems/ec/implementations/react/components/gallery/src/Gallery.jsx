@@ -36,7 +36,7 @@ export const Gallery = ({
 
       <div className="ecl-gallery__footer">
         <Link
-        {...footerLink}
+          {...footerLink}
           variant="standalone"
         />   
       </div>
