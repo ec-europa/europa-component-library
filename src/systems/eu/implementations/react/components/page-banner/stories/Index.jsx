@@ -43,33 +43,23 @@ export const Image = () => {
     'Banner display'
   );
 
-  if (fullWidth) {
-    return (
-      <PageBanner
-        {...demoContentImage}
-        variant="image"
-        title={title}
-        description={description}
-        link={link}
-        isCentered={centered}
-        isFullWidth={fullWidthGrid}
-        image={image}
-      />
-    );
-  }
-  return (
-    <div className="ecl-container">
-      <PageBanner
-        {...demoContentImage}
-        variant="image"
-        title={title}
-        description={description}
-        link={link}
-        isCentered={centered}
-        isFullWidth={fullWidthGrid}
-        image={image}
-      />
-    </div>
+  const pageBanner = (
+    <PageBanner
+      {...demoContentImage}
+      variant="image"
+      title={title}
+      description={description}
+      link={link}
+      isCentered={centered}
+      isFullWidth={fullWidthGrid}
+      image={image}
+    />
+  );
+
+  return fullWidth ? (
+    pageBanner
+  ) : (
+    <div className="ecl-container">{pageBanner}</div>
   );
 };
 
@@ -111,33 +101,22 @@ export const ImageShade = () => {
     'Banner display'
   );
 
-  if (fullWidth) {
-    return (
-      <PageBanner
-        {...demoContentImageShade}
-        variant="image-shade"
-        title={title}
-        description={description}
-        link={link}
-        isCentered={centered}
-        isFullWidth={fullWidthGrid}
-        image={image}
-      />
-    );
-  }
-  return (
-    <div className="ecl-container">
-      <PageBanner
-        {...demoContentImageShade}
-        variant="image-shade"
-        title={title}
-        description={description}
-        link={link}
-        isCentered={centered}
-        isFullWidth={fullWidthGrid}
-        image={image}
-      />
-    </div>
+  const pageBanner = (
+    <PageBanner
+      {...demoContentImageShade}
+      variant="image-shade"
+      title={title}
+      description={description}
+      link={link}
+      isCentered={centered}
+      isFullWidth={fullWidthGrid}
+      image={image}
+    />
+  );
+  return fullWidth ? (
+    pageBanner
+  ) : (
+    <div className="ecl-container">{pageBanner}</div>
   );
 };
 
@@ -175,33 +154,22 @@ export const SimplePrimary = () => {
     'Banner display'
   );
 
-  if (fullWidth) {
-    return (
-      <PageBanner
-        {...demoContentSimple}
-        variant="primary"
-        meta={meta}
-        title={title}
-        description={description}
-        link={link}
-        isCentered={centered}
-        isFullWidth={fullWidthGrid}
-      />
-    );
-  }
-  return (
-    <div className="ecl-container">
-      <PageBanner
-        {...demoContentSimple}
-        variant="primary"
-        meta={meta}
-        title={title}
-        description={description}
-        link={link}
-        isCentered={centered}
-        isFullWidth={fullWidthGrid}
-      />
-    </div>
+  const pageBanner = (
+    <PageBanner
+      {...demoContentSimple}
+      variant="primary"
+      meta={meta}
+      title={title}
+      description={description}
+      link={link}
+      isCentered={centered}
+      isFullWidth={fullWidthGrid}
+    />
+  );
+  return fullWidth ? (
+    pageBanner
+  ) : (
+    <div className="ecl-container">{pageBanner}</div>
   );
 };
 
@@ -239,33 +207,22 @@ export const SimpleGrey = () => {
     'Banner display'
   );
 
-  if (fullWidth) {
-    return (
-      <PageBanner
-        {...demoContentSimple}
-        variant="grey"
-        meta={meta}
-        title={title}
-        description={description}
-        link={link}
-        isCentered={centered}
-        isFullWidth={fullWidthGrid}
-      />
-    );
-  }
-  return (
-    <div className="ecl-container">
-      <PageBanner
-        {...demoContentSimple}
-        variant="grey"
-        meta={meta}
-        title={title}
-        description={description}
-        link={link}
-        isCentered={centered}
-        isFullWidth={fullWidthGrid}
-      />
-    </div>
+  const pageBanner = (
+    <PageBanner
+      {...demoContentSimple}
+      variant="grey"
+      meta={meta}
+      title={title}
+      description={description}
+      link={link}
+      isCentered={centered}
+      isFullWidth={fullWidthGrid}
+    />
+  );
+  return fullWidth ? (
+    pageBanner
+  ) : (
+    <div className="ecl-container">{pageBanner}</div>
   );
 };
 
@@ -303,33 +260,22 @@ export const SimpleWhite = () => {
     'Banner display'
   );
 
-  if (fullWidth) {
-    return (
-      <PageBanner
-        {...demoContentSimple}
-        variant="white"
-        meta={meta}
-        title={title}
-        description={description}
-        link={link}
-        isCentered={centered}
-        isFullWidth={fullWidthGrid}
-      />
-    );
-  }
-  return (
-    <div className="ecl-container">
-      <PageBanner
-        {...demoContentSimple}
-        variant="white"
-        meta={meta}
-        title={title}
-        description={description}
-        link={link}
-        isCentered={centered}
-        isFullWidth={fullWidthGrid}
-      />
-    </div>
+  const pageBanner = (
+    <PageBanner
+      {...demoContentSimple}
+      variant="white"
+      meta={meta}
+      title={title}
+      description={description}
+      link={link}
+      isCentered={centered}
+      isFullWidth={fullWidthGrid}
+    />
+  );
+  return fullWidth ? (
+    pageBanner
+  ) : (
+    <div className="ecl-container">{pageBanner}</div>
   );
 };
 
@@ -367,56 +313,39 @@ export const SimpleGhost = () => {
     'Banner display'
   );
 
-  if (fullWidth) {
-    return (
-      <Fragment>
-        <p className="ecl-u-type-paragraph">
-          Note: this variant comes with a transparent background; the image here
-          in inline style is just for demo
-        </p>
-        <PageBanner
-          style={{
-            'background-image':
-              "url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image11.jpg')",
-            'background-size': 'cover',
-            'background-position': '0 0',
-          }}
-          {...demoContentSimple}
-          variant="ghost"
-          meta={meta}
-          title={title}
-          description={description}
-          link={link}
-          isCentered={centered}
-          isFullWidth={fullWidthGrid}
-        />
-      </Fragment>
-    );
-  }
-  return (
+  const pageBanner = (
+    <PageBanner
+      style={{
+        'background-image':
+          "url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image11.jpg')",
+        'background-size': 'cover',
+        'background-position': '0 0',
+      }}
+      {...demoContentSimple}
+      variant="ghost"
+      meta={meta}
+      title={title}
+      description={description}
+      link={link}
+      isCentered={centered}
+      isFullWidth={fullWidthGrid}
+    />
+  );
+  return fullWidth ? (
     <Fragment>
       <p className="ecl-u-type-paragraph">
         Note: this variant comes with a transparent background; the image here
         in inline style is just for demo
       </p>
-      <div className="ecl-container">
-        <PageBanner
-          style={{
-            'background-image':
-              "url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image11.jpg')",
-            'background-size': 'cover',
-            'background-position': '0 0',
-          }}
-          {...demoContentSimple}
-          variant="ghost"
-          meta={meta}
-          title={title}
-          description={description}
-          link={link}
-          isCentered={centered}
-          isFullWidth={fullWidthGrid}
-        />
-      </div>
+      {pageBanner}
+    </Fragment>
+  ) : (
+    <Fragment>
+      <p className="ecl-u-type-paragraph">
+        Note: this variant comes with a transparent background; the image here
+        in inline style is just for demo
+      </p>
+      <div className="ecl-container">{pageBanner}</div>
     </Fragment>
   );
 };
@@ -455,56 +384,39 @@ export const SimpleGhostInvert = () => {
     'Banner display'
   );
 
-  if (fullWidth) {
-    return (
-      <Fragment>
-        <p className="ecl-u-type-paragraph">
-          Note: this variant comes with a transparent background; the image here
-          in inline style is just for demo
-        </p>
-        <PageBanner
-          style={{
-            'background-image':
-              "url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')",
-            'background-size': 'cover',
-            'background-position': '0 0',
-          }}
-          {...demoContentSimple}
-          variant="ghost-invert"
-          meta={meta}
-          title={title}
-          description={description}
-          link={link}
-          isCentered={centered}
-          isFullWidth={fullWidthGrid}
-        />
-      </Fragment>
-    );
-  }
-  return (
+  const pageBanner = (
+    <PageBanner
+      style={{
+        'background-image':
+          "url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')",
+        'background-size': 'cover',
+        'background-position': '0 0',
+      }}
+      {...demoContentSimple}
+      variant="ghost-invert"
+      meta={meta}
+      title={title}
+      description={description}
+      link={link}
+      isCentered={centered}
+      isFullWidth={fullWidthGrid}
+    />
+  );
+  return fullWidth ? (
     <Fragment>
       <p className="ecl-u-type-paragraph">
         Note: this variant comes with a transparent background; the image here
         in inline style is just for demo
       </p>
-      <div className="ecl-container">
-        <PageBanner
-          style={{
-            'background-image':
-              "url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')",
-            'background-size': 'cover',
-            'background-position': '0 0',
-          }}
-          {...demoContentSimple}
-          variant="ghost-invert"
-          meta={meta}
-          title={title}
-          description={description}
-          link={link}
-          isCentered={centered}
-          isFullWidth={fullWidthGrid}
-        />
-      </div>
+      {pageBanner}
+    </Fragment>
+  ) : (
+    <Fragment>
+      <p className="ecl-u-type-paragraph">
+        Note: this variant comes with a transparent background; the image here
+        in inline style is just for demo
+      </p>
+      <div className="ecl-container">{pageBanner}</div>
     </Fragment>
   );
 };

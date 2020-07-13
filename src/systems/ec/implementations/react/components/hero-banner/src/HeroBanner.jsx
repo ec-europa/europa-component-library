@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import Button from '@ecl/ec-react-component-button';
 import Link from '@ecl/ec-react-component-link';
 
 const HeroBanner = ({
@@ -13,7 +12,6 @@ const HeroBanner = ({
   image,
   isCentered,
   isFullWidth,
-  button, // DEPRECATED
   link,
   className,
   ...props
@@ -47,10 +45,6 @@ const HeroBanner = ({
                 className="ecl-hero-banner__link-cta"
               />
             )}
-            {/* DEPRECATED */}
-            {button && button.label && (
-              <Button {...button} className="ecl-hero-banner__button" />
-            )}
           </div>
         </div>
       </div>
@@ -66,7 +60,6 @@ HeroBanner.propTypes = {
   image: PropTypes.string,
   isCentered: PropTypes.bool,
   isFullWidth: PropTypes.bool,
-  button: PropTypes.shape(Button.propTypes),
   link: PropTypes.shape(Link.propTypes),
   className: PropTypes.string,
 };
@@ -79,7 +72,6 @@ HeroBanner.defaultProps = {
   image: '',
   isCentered: false,
   isFullWidth: false,
-  button: {},
   link: {},
   className: '',
 };
