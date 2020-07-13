@@ -5,8 +5,8 @@ import demoLink from '@ecl/ec-specs-unordered-list/demo/data--link';
 import UnorderedList from '../src/UnorderedList';
 import UnorderedListItem from '../src/UnorderedListItem';
 
-const listContent = items =>
-  items.map(item => {
+const listContent = (items) =>
+  items.map((item) => {
     if (item.nested) {
       return (
         <UnorderedListItem key={item.label}>

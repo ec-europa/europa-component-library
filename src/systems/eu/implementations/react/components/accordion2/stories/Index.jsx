@@ -10,7 +10,7 @@ import { Accordion2Item } from '../src/Accordion2Item';
 
 storiesOf('Components/Accordion', module)
   .addDecorator(withKnobs)
-  .addDecorator(story => (
+  .addDecorator((story) => (
     <StoryWrapper
       afterMount={() => {
         if (!window.ECL) return {};
@@ -18,9 +18,9 @@ storiesOf('Components/Accordion', module)
         const autoinit = window.ECL.autoInit();
         return { components: autoinit.components };
       }}
-      beforeUnmount={context => {
+      beforeUnmount={(context) => {
         if (context.components) {
-          context.components.forEach(c => c.destroy());
+          context.components.forEach((c) => c.destroy());
         }
       }}
     >

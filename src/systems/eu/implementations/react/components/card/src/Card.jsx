@@ -71,7 +71,7 @@ const Card = ({
   // Links
   let linksMarkup = '';
   if (links && links.length > 0) {
-    const linksArray = links.map(link => (
+    const linksArray = links.map((link) => (
       <li className="ecl-card__link-item" key={link.label}>
         <Link className="ecl-card__link" {...link} />
       </li>
@@ -82,7 +82,7 @@ const Card = ({
   // Infos
   let infosMarkup = '';
   if (infos && infos.length > 0) {
-    const infosArray = infos.map(info => (
+    const infosArray = infos.map((info) => (
       <li className="ecl-card__info-item" key={info.label}>
         <Icon {...info.icon} />
         <span className="ecl-card__info-label">{info.label}</span>
@@ -94,7 +94,7 @@ const Card = ({
   // Tags
   let tagsMarkup = '';
   if (tags && tags.length > 0) {
-    const tagsArray = tags.map(tag => (
+    const tagsArray = tags.map((tag) => (
       <li className="ecl-card__tag-item" key={tag.label}>
         <Tag className="ecl-card__tag" {...tag} />
       </li>

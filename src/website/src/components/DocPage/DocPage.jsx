@@ -1,6 +1,6 @@
 import React, { Component, Fragment, Suspense } from 'react';
 import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import { withRouter } from 'react-router-dom';
 import Prism from 'prismjs';
 

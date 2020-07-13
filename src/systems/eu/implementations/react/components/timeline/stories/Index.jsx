@@ -31,7 +31,7 @@ const btnAddContent = () => {
 
 storiesOf('Components/Timeline', module)
   .addDecorator(withKnobs)
-  .addDecorator(story => (
+  .addDecorator((story) => (
     <StoryWrapper
       afterMount={() => {
         if (!window.ECL) return {};
@@ -39,9 +39,9 @@ storiesOf('Components/Timeline', module)
         const autoinit = window.ECL.autoInit();
         return { components: autoinit.components };
       }}
-      beforeUnmount={context => {
+      beforeUnmount={(context) => {
         if (context.components) {
-          context.components.forEach(c => c.destroy());
+          context.components.forEach((c) => c.destroy());
         }
       }}
     >

@@ -9,7 +9,7 @@ export default {
   title: 'Components/Navigation/Menu',
 
   decorators: [
-    story => (
+    (story) => (
       <StoryWrapper
         afterMount={() => {
           if (!window.ECL) return {};
@@ -17,9 +17,9 @@ export default {
           const autoinit = window.ECL.autoInit();
           return { components: autoinit.components };
         }}
-        beforeUnmount={context => {
+        beforeUnmount={(context) => {
           if (context.components) {
-            context.components.forEach(c => c.destroy());
+            context.components.forEach((c) => c.destroy());
           }
         }}
       >

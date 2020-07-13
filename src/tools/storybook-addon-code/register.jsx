@@ -16,7 +16,7 @@ addons.register(ADDON_ID, () => {
   addons.add(PANEL_ID, {
     title: '',
     type: types.PREVIEW,
-    render: props => (
+    render: (props) => (
       <PreviewWrapper channel={addons.getChannel()} {...props} />
     ),
   });

@@ -37,8 +37,6 @@ const run = async () => {
     return;
   }
 
-  let payload = {};
-
   try {
     const deploymentsResponse = await fetch(
       `${NETLIFY_API}/sites/${NETLIFY_SITE_ID}/deploys`,
@@ -56,7 +54,7 @@ const run = async () => {
     const deployments = await deploymentsResponse.json();
 
     const currentDeployment = deployments.find(
-      deployment => deployment.title === `Drone build: ${DRONE_BUILD_NUMBER}`
+      (deployment) => deployment.title === `Drone build: ${DRONE_BUILD_NUMBER}`
     );
 
     const siteDeploymentResponse = await fetch(
@@ -74,35 +72,64 @@ const run = async () => {
 
     const siteDeployment = await siteDeploymentResponse.json();
 
-    payload = {
-      state: 'success',
-      target_url: siteDeployment.deploy_ssl_url,
-      description: 'Preview ready!',
-      context: 'drone/netlify',
-    };
-  } catch (error) {
-    payload = {
-      state: 'error',
-      target_url: DRONE_BUILD_LINK,
-      description: 'Could not get data about Netlify deployment.',
-      context: 'drone/netlify',
-    };
-  }
+    await fetch(
+      `https://api.github.com/repos/${DRONE_REPO}/statuses/${DRONE_COMMIT_SHA}`,
+      {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Accept-Charset': 'utf-8',
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${GH_TOKEN}`,
+        },
+        body: JSON.stringify({
+          state: 'success',
+          target_url: siteDeployment.deploy_ssl_url,
+          description: 'Preview with URL based on current branch',
+          context: 'drone/netlify-preview/branch-alias',
+        }),
+      }
+    );
 
-  // @see https://developer.github.com/v3/repos/statuses
-  await fetch(
-    `https://api.github.com/repos/${DRONE_REPO}/statuses/${DRONE_COMMIT_SHA}`,
-    {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Accept-Charset': 'utf-8',
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${GH_TOKEN}`,
-      },
-      body: JSON.stringify(payload),
-    }
-  );
+    await fetch(
+      `https://api.github.com/repos/${DRONE_REPO}/statuses/${DRONE_COMMIT_SHA}`,
+      {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Accept-Charset': 'utf-8',
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${GH_TOKEN}`,
+        },
+        body: JSON.stringify({
+          state: 'success',
+          target_url: `https://${currentDeployment.id}--europa-component-library.netlify.app`,
+          description: 'Preview with URL based on the deployment ID',
+          context: 'drone/netlify-preview/deployment-id',
+        }),
+      }
+    );
+  } catch (error) {
+    // @see https://developer.github.com/v3/repos/statuses
+    await fetch(
+      `https://api.github.com/repos/${DRONE_REPO}/statuses/${DRONE_COMMIT_SHA}`,
+      {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Accept-Charset': 'utf-8',
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${GH_TOKEN}`,
+        },
+        body: JSON.stringify({
+          state: 'error',
+          target_url: DRONE_BUILD_LINK,
+          description: `[${error.name}: ${error.message}]`,
+          context: 'drone/netlify-preview',
+        }),
+      }
+    );
+  }
 
   console.log('Status on pull request successfully updated!');
 };

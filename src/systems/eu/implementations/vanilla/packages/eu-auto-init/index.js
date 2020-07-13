@@ -10,8 +10,10 @@ export const autoInit = ({ root = document, ...options } = {}) => {
 
   const init = () => {
     nodes
-      .filter(node => node.getAttribute('data-ecl-auto-initialized') !== 'true')
-      .forEach(node => {
+      .filter(
+        (node) => node.getAttribute('data-ecl-auto-initialized') !== 'true'
+      )
+      .forEach((node) => {
         const componentType = node.getAttribute('data-ecl-auto-init');
 
         if (!componentType) {
@@ -44,8 +46,10 @@ export const autoInit = ({ root = document, ...options } = {}) => {
   // Destroy should not throw, in order to be non-blocking.
   const destroy = () => {
     nodes
-      .filter(node => node.getAttribute('data-ecl-auto-initialized') === 'true')
-      .forEach(node => {
+      .filter(
+        (node) => node.getAttribute('data-ecl-auto-initialized') === 'true'
+      )
+      .forEach((node) => {
         const componentType = node.getAttribute('data-ecl-auto-init');
 
         if (componentType && ECL[componentType] && ECL[componentType].destroy) {
