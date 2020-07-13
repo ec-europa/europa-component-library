@@ -316,10 +316,10 @@ export const SimpleGhost = () => {
   const pageBanner = (
     <PageBanner
       style={{
-        'background-image':
+        backgroundImage:
           "url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image11.jpg')",
-        'background-size': 'cover',
-        'background-position': '0 0',
+        backgroundSize: 'cover',
+        backgroundPosition: '0 0',
       }}
       {...demoContentSimple}
       variant="ghost"
@@ -387,10 +387,10 @@ export const SimpleGhostInvert = () => {
   const pageBanner = (
     <PageBanner
       style={{
-        'background-image':
+        backgroundImage:
           "url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')",
-        'background-size': 'cover',
-        'background-position': '0 0',
+        backgroundSize: 'cover',
+        backgroundPosition: '0 0',
       }}
       {...demoContentSimple}
       variant="ghost-invert"
