@@ -13,8 +13,8 @@ import { Paragraph, Anatomy, Link } from '@ecl/website-components';
 ## Anatomy
 
 <Anatomy
-  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Table/table-desktop.png"
-  srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/Table/table-mobile.png 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/Table/table-desktop.png 734w"
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Table/table-sort-desktop.png"
+  srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/Table/table-mobile.png 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/Table/table-sort-desktop.png 734w"
   alt="Anatomy of table"
   legend={{
     items: [
@@ -30,10 +30,18 @@ import { Paragraph, Anatomy, Link } from '@ecl/website-components';
   }}
 />
 
+### Default
+
 | Elements | Mandatory | Description              |
 | -------- | --------- | ------------------------ |
 | headings | yes       | columns headlines        |
 | cells    | yes       | actual data in the cells |
+
+### Conditional
+
+| Elements         | Mandatory desktop | Mandatory mobile | Description                                                                                                                                                                                                                                                                                          |
+| ---------------- | ----------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Action indicator | no                | no               | <strong>if</strong> sorting is selected <strong>then</strong> users can click the action indicator to have the columns of the table sorted depending on the selection in the following fashion:<br>- 1st click - ascending order<br>- 2nd click - descending order<br>- 3rd click - reset to default |
 
 ## Do's
 
