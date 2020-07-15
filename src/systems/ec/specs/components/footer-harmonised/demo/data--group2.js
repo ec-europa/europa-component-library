@@ -4,6 +4,7 @@ module.exports = {
       // Mandatory
       title: {
         label: 'European Commission',
+        ariaLabel: 'Link to European Commission',
         href: 'https://ec.europa.eu/info/index_en',
       },
     },
@@ -12,10 +13,12 @@ module.exports = {
       links: [
         {
           label: 'Contact the European Commission',
+          ariaLabel: 'Link to Contact the European Commission',
           href: '/example',
         },
         {
           label: 'Follow the European Commission on social media',
+          ariaLabel: 'Link to Follow the European Commission on social media',
           href: '/example',
           iconPosition: 'after',
           icon: {
@@ -25,6 +28,7 @@ module.exports = {
         },
         {
           label: 'Resources for partners',
+          ariaLabel: 'Link to Resources for partners',
           href: '/example',
         },
       ],
@@ -34,22 +38,27 @@ module.exports = {
       links: [
         {
           label: 'Language policy',
+          ariaLabel: 'Link to Language policy',
           href: '/example',
         },
         {
           label: 'Cookies',
+          ariaLabel: 'Link to Cookies',
           href: '/example',
         },
         {
           label: 'Privacy policy',
+          ariaLabel: 'Link to Privacy policy',
           href: '/example',
         },
         {
           label: 'Legal notice',
+          ariaLabel: 'Link to Legal notice',
           href: '/example',
         },
         {
           label: 'Brexit content disclaimer',
+          ariaLabel: 'Link to Brexit content disclaimer',
           href: '/example',
         },
       ],

@@ -22,7 +22,7 @@ module.exports = {
         links: [
           {
             label: 'Link',
-            ariaLabel: 'Link to example',
+            ariaLabel: 'Link to Link example',
             href: '/example',
           },
         ],
