@@ -26,7 +26,7 @@ const Highlight = ({
         )}
 
         <div className="ecl-row">
-          <div className="ecl-col-12 ecl-col-md-8">
+          <div className="ecl-col-12 ecl-col-md-8 ecl-u-border-md-right ecl-u-border-color-md-grey-15">
             {contentItems &&
               contentItems.map((contentItem, index) => (
                 <ContentItem
