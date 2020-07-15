@@ -34,11 +34,11 @@ const MediaContainer = ({
               controls="controls"
               poster={image}
             >
-              {sources.map(source => (
+              {sources.map((source) => (
                 <source {...source} key={source.src} />
               ))}
 
-              {tracks.map(track => (
+              {tracks.map((track) => (
                 <track {...track} key={track.src} />
               ))}
             </video>

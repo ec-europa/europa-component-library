@@ -36,7 +36,7 @@ const pageBannerContent = {
   },
 };
 
-module.exports = template => {
+module.exports = (template) => {
   const data = {
     breadcrumbContent,
     breadcrumbItems,

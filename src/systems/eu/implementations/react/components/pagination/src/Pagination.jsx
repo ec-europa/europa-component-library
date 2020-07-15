@@ -10,7 +10,7 @@ const Pagination = ({ label, items, className, ...props }) => {
   return (
     <nav {...props} className={classNames} aria-label={label}>
       <ul className="ecl-pagination__list">
-        {items.map(item => (
+        {items.map((item) => (
           <li
             key={item.link ? item.link.label : item.label}
             className={classnames('ecl-pagination__item', {

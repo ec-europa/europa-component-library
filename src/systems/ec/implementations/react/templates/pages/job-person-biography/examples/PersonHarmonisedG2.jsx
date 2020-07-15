@@ -29,7 +29,7 @@ class PersonHarmonisedG2 extends React.Component {
     if (!window.ECL) return;
 
     if (this.components) {
-      this.components.forEach(c => c.destroy());
+      this.components.forEach((c) => c.destroy());
     }
 
     this.components = window.ECL.autoInit();
@@ -39,7 +39,7 @@ class PersonHarmonisedG2 extends React.Component {
     if (!window.ECL) return;
 
     if (this.components) {
-      this.components.forEach(c => c.destroy());
+      this.components.forEach((c) => c.destroy());
     }
   }
 
@@ -85,7 +85,7 @@ class PersonHarmonisedG2 extends React.Component {
           data-ecl-auto-init="BreadcrumbHarmonised"
           className="ecl-breadcrumb-harmonised--group2"
         >
-          {dataCopy.breadcrumbItems.map(item => (
+          {dataCopy.breadcrumbItems.map((item) => (
             <BreadcrumbHarmonisedItem {...item} key={item.label} />
           ))}
         </BreadcrumbHarmonised>

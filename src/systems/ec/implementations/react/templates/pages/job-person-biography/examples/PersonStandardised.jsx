@@ -29,7 +29,7 @@ class PersonStandardised extends React.Component {
     if (!window.ECL) return;
 
     if (this.components) {
-      this.components.forEach(c => c.destroy());
+      this.components.forEach((c) => c.destroy());
     }
 
     this.components = window.ECL.autoInit();
@@ -39,7 +39,7 @@ class PersonStandardised extends React.Component {
     if (!window.ECL) return;
 
     if (this.components) {
-      this.components.forEach(c => c.destroy());
+      this.components.forEach((c) => c.destroy());
     }
   }
 
@@ -81,7 +81,7 @@ class PersonStandardised extends React.Component {
           {...dataCopy.breadcrumbContent}
           data-ecl-auto-init="BreadcrumbStandardised"
         >
-          {dataCopy.breadcrumbItems.map(item => (
+          {dataCopy.breadcrumbItems.map((item) => (
             <BreadcrumbStandardisedItem {...item} key={item.label} />
           ))}
         </BreadcrumbStandardised>

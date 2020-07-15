@@ -46,7 +46,7 @@ export class Accordion {
 
     // Bind click event on toggles
     if (this.attachClickListener && this.toggles) {
-      this.toggles.forEach(toggle => {
+      this.toggles.forEach((toggle) => {
         toggle.addEventListener(
           'click',
           this.handleClickOnToggle.bind(this, toggle)
@@ -57,7 +57,7 @@ export class Accordion {
 
   destroy() {
     if (this.attachClickListener && this.toggles) {
-      this.toggles.forEach(toggle => {
+      this.toggles.forEach((toggle) => {
         toggle.removeEventListener('click', this.handleClickOnToggle);
       });
     }

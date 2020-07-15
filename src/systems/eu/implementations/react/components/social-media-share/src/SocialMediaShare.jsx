@@ -12,7 +12,7 @@ const SocialMediaShare = ({ description, links, className, ...props }) => {
     <div {...props} className={classNames}>
       <p className="ecl-social-media-share__description">{description}</p>
       <ul className="ecl-social-media-share__list">
-        {links.map(link => (
+        {links.map((link) => (
           <li key={link.label} className="ecl-social-media-share__item">
             <Link
               {...link}
@@ -22,7 +22,7 @@ const SocialMediaShare = ({ description, links, className, ...props }) => {
               )}
               icon={
                 link.icon &&
-                link.icon.map(i => ({
+                link.icon.map((i) => ({
                   key: i.shape,
                   ...i,
                   className: classnames(

@@ -110,7 +110,7 @@ export class BreadcrumbCore {
   }
 
   showAllItems() {
-    this.expandableElements.forEach(item =>
+    this.expandableElements.forEach((item) =>
       item.setAttribute('aria-hidden', 'false')
     );
   }
@@ -153,7 +153,7 @@ export class BreadcrumbCore {
     // Get the sum of all items' width
     const allItemsWidth = this.itemsElements
       .map(
-        breadcrumbCoreSegment =>
+        (breadcrumbCoreSegment) =>
           breadcrumbCoreSegment.getBoundingClientRect().width
       )
       .reduce((a, b) => a + b);
@@ -185,7 +185,7 @@ export class BreadcrumbCore {
     // Careful: reverse() is destructive, that's why we make a copy of the array
     const isItemVisible = [...this.expandableElements]
       .reverse()
-      .map(otherSegment => {
+      .map((otherSegment) => {
         if (!isPreviousItemVisible) return false;
 
         previousItemsWidth += otherSegment.getBoundingClientRect().width;

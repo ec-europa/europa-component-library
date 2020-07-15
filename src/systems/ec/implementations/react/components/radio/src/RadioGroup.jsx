@@ -61,7 +61,7 @@ const RadioGroup = ({
         <div className="ecl-feedback-message">{invalidText}</div>
       )}
 
-      {items.map(item => (
+      {items.map((item) => (
         <RadioButton
           {...item}
           name={name}

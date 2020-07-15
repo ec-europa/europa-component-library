@@ -8,7 +8,7 @@ import utilities from '../../styles/utilities.scss';
 const Container = React.memo(({ spacing, className, children, ...props }) => {
   const spacingClasses = spacing
     .split(' ')
-    .map(sp => utilities[sp])
+    .map((sp) => utilities[sp])
     .join(' ');
 
   const classNames = classnames(

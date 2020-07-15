@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies, react/forbid-prop-types */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styles from './DisplayTokens.scss';
@@ -11,12 +11,12 @@ class DisplayTokens extends PureComponent {
       <ul className={styles.ul}>
         {Object.keys(tokens.props)
           .filter(
-            key =>
+            (key) =>
               (!category && !name) ||
               (category && tokens.props[key].category === category) ||
               (name && tokens.props[key].name === name)
           )
-          .map(key => (
+          .map((key) => (
             <li key={key}>
               {key}: {tokens.props[key].value}
             </li>

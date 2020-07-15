@@ -86,7 +86,7 @@ export class Table {
 
     // Add sort arrows and bind click event on toggles.
     if (this.sortHeadings) {
-      this.sortHeadings.forEach(tr => {
+      this.sortHeadings.forEach((tr) => {
         const sort = document.createElement('span');
         sort.classList.add('ecl-table__arrow');
         sort.appendChild(Table.createSortIcon('ecl-table__icon-up'));
@@ -108,7 +108,7 @@ export class Table {
    */
   destroy() {
     if (this.sortHeadings) {
-      this.sortHeadings.forEach(tr => {
+      this.sortHeadings.forEach((tr) => {
         tr.removeEventListener('click', this.handleClickOnSort);
       });
     }
@@ -153,12 +153,12 @@ export class Table {
       // Otherwise we sort the rows and set new order.
       [...queryAll('tr', tbody)]
         .sort(comparer(colIndex, order !== 'ascending'))
-        .forEach(tr => tbody.appendChild(tr));
+        .forEach((tr) => tbody.appendChild(tr));
       order = order === 'ascending' ? 'descending' : 'ascending';
     }
 
     // Change heading aria-sort attr.
-    this.sortHeadings.forEach(th => {
+    this.sortHeadings.forEach((th) => {
       if (order && th === toggle) {
         th.setAttribute('aria-sort', order);
       } else {

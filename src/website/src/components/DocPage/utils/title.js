@@ -1,4 +1,4 @@
-export const getTitle = component => {
+export const getTitle = (component) => {
   if (
     component &&
     component.attributes &&
@@ -11,7 +11,7 @@ export const getTitle = component => {
   return '';
 };
 
-export const getPageTitle = component => {
+export const getPageTitle = (component) => {
   if (component.attributes.isTab) {
     if (component.parent) {
       return getTitle(component.parent);
@@ -23,7 +23,7 @@ export const getPageTitle = component => {
   return getTitle(component);
 };
 
-export const getSectionTitle = component => {
+export const getSectionTitle = (component) => {
   if (component.attributes.isTab) {
     if (component.parent && component.parent.parent) {
       return getTitle(component.parent.parent);
