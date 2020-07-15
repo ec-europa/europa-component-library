@@ -12,7 +12,7 @@ const svgo = new SVGO(svgoConfig);
 const src = path.resolve(__dirname, '../src');
 const out = path.resolve(__dirname, '../dist/svg');
 
-glob.sync('**/*.svg', { cwd: src }).forEach(file => {
+glob.sync('**/*.svg', { cwd: src }).forEach((file) => {
   const filepath = path.resolve(src, file);
   const outputPath = path.resolve(out, file);
 
@@ -21,7 +21,7 @@ glob.sync('**/*.svg', { cwd: src }).forEach(file => {
       throw err;
     }
 
-    svgo.optimize(data, { path: filepath }).then(result => {
+    svgo.optimize(data, { path: filepath }).then((result) => {
       mkdirp.sync(path.dirname(outputPath));
       fs.writeFileSync(outputPath, result.data, 'utf8');
     });

@@ -27,7 +27,7 @@ const pageHeaderContent = {
     'Marine research and innovation is part of an integrated strategy which deals with 5 specific areas. These are detailed below.',
 };
 
-module.exports = template => {
+module.exports = (template) => {
   const data = {
     breadcrumbContent,
     breadcrumbItems,

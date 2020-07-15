@@ -7,8 +7,8 @@ const Box = ({ className }) => (
     <div className="ecl-u-pa-xs ecl-u-bg-blue-25 ecl-u-border-all ecl-u-border-color-blue ecl-u-type-color-blue ecl-u-type-l ecl-u-type-bold">
       {className
         .split(' ')
-        .filter(str => str)
-        .map(str => `.${str}`)
+        .filter((str) => str)
+        .map((str) => `.${str}`)
         .join(' ')}
     </div>
   </div>

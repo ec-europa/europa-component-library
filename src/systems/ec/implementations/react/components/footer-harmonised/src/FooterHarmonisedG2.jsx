@@ -43,8 +43,9 @@ export const FooterHarmonisedG2 = ({ sections, className, ...props }) => (
         <Fragment>
           {sections.map((section, index) => (
             <section
-              className={`ecl-footer-harmonised__section ecl-footer-harmonised__section${index +
-                1}`}
+              className={`ecl-footer-harmonised__section ecl-footer-harmonised__section${
+                index + 1
+              }`}
             >
               <FooterHarmonisedSection key={section.key} section={section} />
             </section>

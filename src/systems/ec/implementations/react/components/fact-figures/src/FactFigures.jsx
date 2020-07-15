@@ -21,7 +21,7 @@ export const FactFigures = ({
     >
       <div className="ecl-fact-figures__items">
         {items &&
-          items.map(item => <FactFiguresItem key={item.title} {...item} />)}
+          items.map((item) => <FactFiguresItem key={item.title} {...item} />)}
       </div>
 
       {!!(viewAll && Object.keys(viewAll).length >= 1) && (

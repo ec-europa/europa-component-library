@@ -24,11 +24,11 @@ export const GalleryItem = ({ item, className, ...props }) => {
           {item.video ? (
             /* eslint-disable-next-line jsx-a11y/media-has-caption */
             <video className="ecl-gallery__image" poster={item.video.poster}>
-              {item.video.sources.map(source => (
+              {item.video.sources.map((source) => (
                 <source {...source} key={source.src} />
               ))}
 
-              {item.video.tracks.map(track => (
+              {item.video.tracks.map((track) => (
                 <track {...track} key={track.src} />
               ))}
             </video>

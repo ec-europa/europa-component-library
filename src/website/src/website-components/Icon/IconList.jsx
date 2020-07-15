@@ -19,18 +19,13 @@ class IconList extends PureComponent {
         {ecIcons
           .keys()
           .filter(
-            icon =>
+            (icon) =>
               icon.indexOf('/_') === -1 &&
               (!set || icon.indexOf(`./${set}`) === 0)
           )
-          .map(icon => (
+          .map((icon) => (
             <IconCard
-              name={
-                icon
-                  .split('/')
-                  .pop()
-                  .split('.svg')[0]
-              }
+              name={icon.split('/').pop().split('.svg')[0]}
               svg={ecIcons(icon).default}
               key={icon}
             />

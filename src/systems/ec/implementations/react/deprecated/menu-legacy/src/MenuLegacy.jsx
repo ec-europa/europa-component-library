@@ -30,7 +30,7 @@ export const MenuLegacy = ({ label, items, className, ...props }) => {
           </div>
         </button>
         <ul className="ecl-menu-legacy__list" data-ecl-menu-legacy-list>
-          {items.map(item => (
+          {items.map((item) => (
             <MenuLegacyItem {...item} key={item.label} />
           ))}
         </ul>

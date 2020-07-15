@@ -39,7 +39,7 @@ export const InpageNavigation = ({ title, links, className, ...props }) => {
           data-ecl-inpage-navigation-list
           id="ecl-inpage-navigation-list"
         >
-          {links.map(link => (
+          {links.map((link) => (
             <li key={link.label} className="ecl-inpage-navigation__item">
               <Link
                 {...link}

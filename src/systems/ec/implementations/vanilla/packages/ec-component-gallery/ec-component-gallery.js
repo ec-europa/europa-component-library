@@ -197,7 +197,7 @@ export class Gallery {
 
     // Bind click event on gallery items
     if (this.attachClickListener && this.galleryItems) {
-      this.galleryItems.forEach(galleryItem => {
+      this.galleryItems.forEach((galleryItem) => {
         if (this.attachClickListener) {
           galleryItem.addEventListener('click', this.handleClickOnItem);
         }
@@ -264,7 +264,7 @@ export class Gallery {
     }
 
     if (this.attachClickListener && this.galleryItems) {
-      this.galleryItems.forEach(galleryItem => {
+      this.galleryItems.forEach((galleryItem) => {
         galleryItem.removeEventListener('click', this.handleClickOnItem);
       });
     }
@@ -329,7 +329,7 @@ export class Gallery {
           hiddenItemIds = [...hiddenItemIds, key];
         }
       });
-      hiddenItemIds.forEach(id => {
+      hiddenItemIds.forEach((id) => {
         this.galleryItems[id].parentNode.classList.add(
           'ecl-gallery__item--hidden'
         );
@@ -381,7 +381,7 @@ export class Gallery {
 
       // Get sources
       const sources = queryAll('source', video);
-      sources.forEach(source => {
+      sources.forEach((source) => {
         const sourceTag = document.createElement('source');
         sourceTag.setAttribute('src', source.getAttribute('src'));
         sourceTag.setAttribute('type', source.getAttribute('type'));
@@ -390,7 +390,7 @@ export class Gallery {
 
       // Get tracks
       const tracks = queryAll('track', video);
-      tracks.forEach(track => {
+      tracks.forEach((track) => {
         const trackTag = document.createElement('track');
         trackTag.setAttribute('src', track.getAttribute('src'));
         trackTag.setAttribute('kind', track.getAttribute('kind'));

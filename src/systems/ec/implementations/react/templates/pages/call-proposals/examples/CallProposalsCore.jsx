@@ -58,7 +58,7 @@ class CallProposalsCore extends React.Component {
         {...dataCopy.breadcrumbContent}
         data-ecl-auto-init="BreadcrumbCore"
       >
-        {dataCopy.breadcrumbItems.map(item => (
+        {dataCopy.breadcrumbItems.map((item) => (
           <BreadcrumbCoreItem {...item} key={item.label} />
         ))}
       </BreadcrumbCore>

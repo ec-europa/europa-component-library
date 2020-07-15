@@ -86,8 +86,9 @@ export const FooterCore = ({ logo, sections, className, ...props }) => {
           <Fragment>
             {sections.map((section, index) => (
               <section
-                className={`ecl-footer-core__section ecl-footer-core__section${index +
-                  1}`}
+                className={`ecl-footer-core__section ecl-footer-core__section${
+                  index + 1
+                }`}
               >
                 <FooterCoreSection key={section.key} section={section} />
               </section>

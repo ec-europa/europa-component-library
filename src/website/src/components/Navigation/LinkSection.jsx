@@ -33,7 +33,7 @@ class LinkSection extends Component {
   }
 
   toggleSection() {
-    this.setState(state => ({
+    this.setState((state) => ({
       isOpen: !state.isOpen,
     }));
   }

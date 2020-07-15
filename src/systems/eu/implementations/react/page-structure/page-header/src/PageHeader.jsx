@@ -47,7 +47,7 @@ const PageHeader = ({
         )}
         {!!(infosArray && infosArray.length > 0) && (
           <ul className="ecl-page-header__info-list">
-            {infos.map(infoItem => (
+            {infos.map((infoItem) => (
               <li className="ecl-page-header__info-item" key={infoItem.text}>
                 <Icon
                   className="ecl-page-header__info-icon"

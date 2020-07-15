@@ -16,7 +16,7 @@ const btnIdRemoveHandler = () => {
 
 storiesOf('Components/Navigation/In page navigation', module)
   .addDecorator(withKnobs)
-  .addDecorator(story => (
+  .addDecorator((story) => (
     <StoryWrapper
       afterMount={() => {
         if (!window.ECL) return {};
@@ -24,9 +24,9 @@ storiesOf('Components/Navigation/In page navigation', module)
         const autoinit = window.ECL.autoInit();
         return { components: autoinit.components };
       }}
-      beforeUnmount={context => {
+      beforeUnmount={(context) => {
         if (context.components) {
-          context.components.forEach(c => c.destroy());
+          context.components.forEach((c) => c.destroy());
         }
       }}
     >
@@ -70,9 +70,7 @@ storiesOf('Components/Navigation/In page navigation', module)
       const btnIdElement = document.querySelectorAll('.ecl-col-lg-9 p')[
         position
       ];
-      const demoId = Math.random()
-        .toString(36)
-        .slice(7);
+      const demoId = Math.random().toString(36).slice(7);
       const btnIdTag = document.createElement('h2');
       btnIdTag.classList.add('ecl-u-type-heading-2');
       btnIdTag.id = `new-${demoId}`;

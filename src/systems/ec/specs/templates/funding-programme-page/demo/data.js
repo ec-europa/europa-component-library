@@ -27,7 +27,7 @@ const pageHeaderContent = {
     'The European structural and investment funds are: European regional development fund, European social fund, Cohesion fund, European agricultural fund for rural development, European maritime and fisheries fund.',
 };
 
-module.exports = template => {
+module.exports = (template) => {
   const data = {
     breadcrumbContent,
     breadcrumbItems,

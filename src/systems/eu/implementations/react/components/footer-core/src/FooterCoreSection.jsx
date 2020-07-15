@@ -50,7 +50,7 @@ export const FooterCoreSection = ({ section }) => (
       <ul
         className={classnames('ecl-footer-core__list', section.listClassName)}
       >
-        {section.links.map(link => (
+        {section.links.map((link) => (
           <li className="ecl-footer-core__list-item" key={link.label}>
             <Link
               {...link}
