@@ -110,7 +110,7 @@ export const FileDownload = ({
           <ul className="ecl-file__translation-list">
             {variant === 'thumbnail' ? (
               <Fragment>
-                {translation.items.map(item => (
+                {translation.items.map((item) => (
                   <li
                     className={classnames(
                       item.className,
@@ -161,7 +161,7 @@ export const FileDownload = ({
               </Fragment>
             ) : (
               <Fragment>
-                {translation.items.map(item => (
+                {translation.items.map((item) => (
                   <li
                     className={classnames(
                       item.className,
