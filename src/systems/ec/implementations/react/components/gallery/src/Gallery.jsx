@@ -35,10 +35,7 @@ export const Gallery = ({
       <Button label={viewAllLabel} variant="ghost" data-ecl-gallery-all />
 
       <div className="ecl-gallery__footer">
-        <Link
-          {...footerLink}
-          variant="standalone"
-        />   
+        <Link {...footerLink} variant="standalone" />
       </div>
 
       <GalleryOverlay
