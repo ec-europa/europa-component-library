@@ -382,7 +382,7 @@ export class Select {
    */
   handleSearch(e) {
     const visible = [];
-    const keyword = e.target.value;
+    const keyword = e.target.value.toLowerCase();
     this.checkboxes.forEach((checkbox) => {
       if (
         !checkbox
