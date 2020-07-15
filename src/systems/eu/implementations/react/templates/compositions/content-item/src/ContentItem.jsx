@@ -123,7 +123,7 @@ const ContentItem = ({
             variant="no-bullet"
             className={classnames(information.className, 'ecl-u-mt-m')}
           >
-            {information.items.map(item => (
+            {information.items.map((item) => (
               <UnorderedListItem
                 key={item.label}
                 className={classnames(

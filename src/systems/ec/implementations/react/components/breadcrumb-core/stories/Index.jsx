@@ -13,7 +13,7 @@ export default {
 
   decorators: [
     withKnobs,
-    story => (
+    (story) => (
       <StoryWrapper
         afterMount={() => {
           if (!window.ECL) return {};
@@ -21,9 +21,9 @@ export default {
           const autoinit = window.ECL.autoInit();
           return { components: autoinit.components };
         }}
-        beforeUnmount={context => {
+        beforeUnmount={(context) => {
           if (context.components) {
-            context.components.forEach(c => c.destroy());
+            context.components.forEach((c) => c.destroy());
           }
         }}
       >
@@ -41,7 +41,7 @@ export const Simple = () => {
 
   return (
     <BreadcrumbCore label={simpleContent.label} ellipsisLabel="Click to expand">
-      {items.map(item => (
+      {items.map((item) => (
         <BreadcrumbCoreItem {...item} key={item.label} />
       ))}
     </BreadcrumbCore>
@@ -64,7 +64,7 @@ export const Long = () => {
       ellipsisLabel="Click to expand"
       data-ecl-auto-init="BreadcrumbCore"
     >
-      {items.map(item => (
+      {items.map((item) => (
         <BreadcrumbCoreItem {...item} key={item.label} />
       ))}
     </BreadcrumbCore>

@@ -11,7 +11,7 @@ const files = glob.sync('**/*.@(md|mdx)', {
   ignore: '**/_jsdoc/**',
 });
 
-const getUrl = file =>
+const getUrl = (file) =>
   `/ec/${file
     .replace('docs', '')
     .replace('index', '')
@@ -19,7 +19,7 @@ const getUrl = file =>
     .replace('.md', '')
     .replace('./', '')}/`.replace('//', '/');
 
-const meta = files.map(file => {
+const meta = files.map((file) => {
   const front = matter.read(resolve(__dirname, dir, file));
   return {
     key: `./${file}`,

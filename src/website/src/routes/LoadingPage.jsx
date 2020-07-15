@@ -1,5 +1,5 @@
 import React from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 
 import PageNotFound from '../components/PageNotFound/PageNotFound';
 import mdStyles from '../styles/markdown.scss';

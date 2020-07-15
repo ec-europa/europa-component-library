@@ -62,7 +62,7 @@ const CheckboxGroup = ({
         <div className="ecl-feedback-message">{invalidText}</div>
       )}
 
-      {items.map(item => (
+      {items.map((item) => (
         <Checkbox {...item} name={name} key={item.id} invalid={invalid} />
       ))}
     </fieldset>

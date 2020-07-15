@@ -9,7 +9,6 @@ import styles from './Header.scss';
 import { getPageTitle, getSectionTitle } from './utils/title';
 
 const navigateTab = (e, history) => {
-  // eslint-disable-next-line unicorn/prefer-includes
   if (e.target.value.indexOf('/playground/') !== -1) {
     window.location.href = e.target.value;
     return;
@@ -35,8 +34,8 @@ const Header = React.memo(({ component, history, location }) => {
           <Fragment>
             <ul className={styles.header__tabs}>
               {component.parent.children
-                .filter(t => t.attributes.isTab)
-                .map(tab => (
+                .filter((t) => t.attributes.isTab)
+                .map((tab) => (
                   <li key={tab.attributes.url}>
                     <NavLink
                       to={tab.attributes.url}
@@ -76,10 +75,10 @@ const Header = React.memo(({ component, history, location }) => {
               <select
                 id="header-tabs"
                 className={styles.select}
-                onChange={e => navigateTab(e, history)}
+                onChange={(e) => navigateTab(e, history)}
                 defaultValue={location.pathname}
               >
-                {component.parent.children.map(tab => (
+                {component.parent.children.map((tab) => (
                   <option key={tab.attributes.url} value={tab.attributes.url}>
                     {tab.attributes.title}
                   </option>

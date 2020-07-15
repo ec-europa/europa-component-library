@@ -23,7 +23,6 @@ const btnAddContent = () => {
     const dummyContent = document.createElement('p');
     dummyContent.classList.add('ecl-u-type-paragraph');
     dummyContent.innerHTML = lorem.generateParagraphs(1);
-    /* eslint-disable-next-line unicorn/prefer-node-append */
     root.appendChild(dummyContent);
   }
 };
@@ -33,7 +32,7 @@ export default {
 
   decorators: [
     withKnobs,
-    story => (
+    (story) => (
       <StoryWrapper
         afterMount={() => {
           if (!window.ECL) return {};
@@ -41,9 +40,9 @@ export default {
           const autoinit = window.ECL.autoInit();
           return { components: autoinit.components };
         }}
-        beforeUnmount={context => {
+        beforeUnmount={(context) => {
           if (context.components) {
-            context.components.forEach(c => c.destroy());
+            context.components.forEach((c) => c.destroy());
           }
         }}
       >

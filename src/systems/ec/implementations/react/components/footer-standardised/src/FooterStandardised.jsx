@@ -82,8 +82,9 @@ export const FooterStandardised = ({ sections, className, ...props }) => (
         <Fragment>
           {sections.map((section, index) => (
             <section
-              className={`ecl-footer-standardised__section ecl-footer-standardised__section${index +
-                1}`}
+              className={`ecl-footer-standardised__section ecl-footer-standardised__section${
+                index + 1
+              }`}
             >
               <FooterStandardisedSection key={section.key} section={section} />
             </section>

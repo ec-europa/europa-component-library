@@ -26,7 +26,7 @@ export const FooterHarmonisedG3 = ({ sections, className, ...props }) => (
           <section className="ecl-footer-harmonised__section ecl-footer-harmonised__section2">
             <ul className="ecl-footer-harmonised__logo-list">
               {sections.partnershipLogos &&
-                sections.partnershipLogos.map(section => (
+                sections.partnershipLogos.map((section) => (
                   <li
                     className="ecl-footer-harmonised__logo-item"
                     key={section.logo.title}
@@ -53,8 +53,9 @@ export const FooterHarmonisedG3 = ({ sections, className, ...props }) => (
         <Fragment>
           {sections.map((section, index) => (
             <section
-              className={`ecl-footer-harmonised__section ecl-footer-harmonised__section${index +
-                1}`}
+              className={`ecl-footer-harmonised__section ecl-footer-harmonised__section${
+                index + 1
+              }`}
             >
               <FooterHarmonisedSection key={section.key} section={section} />
             </section>

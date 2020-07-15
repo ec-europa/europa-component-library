@@ -19,7 +19,7 @@ const managerEntries = [
   '../../../../../../src/tools/storybook-addon-code/register',
 ];
 
-const managerWebpack = async baseConfig => {
+const managerWebpack = async (baseConfig) => {
   // Babel loader: include "src"
   baseConfig.module.rules[0].include.push(
     path.resolve(__dirname, '../../../../../..')

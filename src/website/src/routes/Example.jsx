@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 
 import Example from '../components/Example/Example';
 

@@ -30,7 +30,7 @@ const pageHeaderContent = {
     'Preparatory action to provide a financial contribution to a European financial expertise centre for the direct benefit of European end-users and other non-industry stakeholders',
 };
 
-module.exports = template => {
+module.exports = (template) => {
   const data = {
     breadcrumbContent,
     breadcrumbItems,

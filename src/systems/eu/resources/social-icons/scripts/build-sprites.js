@@ -9,13 +9,13 @@ const src = path.resolve(__dirname, '../dist/svg');
 const files = glob.sync('**/*.svg', { cwd: src });
 
 const filesByFolder = {};
-files.forEach(file => {
+files.forEach((file) => {
   const [folder, filename] = file.split('/');
   if (!filesByFolder[folder]) filesByFolder[folder] = [];
   filesByFolder[folder].push(filename);
 });
 
-Object.keys(filesByFolder).forEach(folder => {
+Object.keys(filesByFolder).forEach((folder) => {
   const spriter = new SVGSpriter({
     dest: path.resolve(__dirname, '../dist/sprites'),
     shape: {
@@ -35,7 +35,7 @@ Object.keys(filesByFolder).forEach(folder => {
     },
   });
 
-  filesByFolder[folder].forEach(file => {
+  filesByFolder[folder].forEach((file) => {
     const filePath = path.resolve(__dirname, '../src', folder, file);
     spriter.add(
       filePath,
@@ -45,8 +45,8 @@ Object.keys(filesByFolder).forEach(folder => {
   });
 
   spriter.compile((error, result) => {
-    Object.keys(result).forEach(mode => {
-      Object.keys(result[mode]).forEach(resource => {
+    Object.keys(result).forEach((mode) => {
+      Object.keys(result[mode]).forEach((resource) => {
         mkdirp.sync(path.dirname(result[mode][resource].path));
         fs.writeFileSync(
           result[mode][resource].path,

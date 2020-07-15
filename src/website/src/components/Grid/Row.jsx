@@ -8,7 +8,7 @@ import utilities from '../../styles/utilities.scss';
 const Row = React.memo(({ spacing, className, children, ...props }) => {
   const spacingClasses = spacing
     .split(' ')
-    .map(sp => utilities[sp])
+    .map((sp) => utilities[sp])
     .join(' ');
 
   const classNames = classnames(className, grid['ecl-row'], spacingClasses);
