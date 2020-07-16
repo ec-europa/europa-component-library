@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import Button from '@ecl/eu-react-component-button';
-import Link from '@ecl/ec-react-component-link';
+import Link from '@ecl/eu-react-component-link';
 
 import { GalleryItem } from './GalleryItem';
 import { GalleryOverlay } from './GalleryOverlay';
