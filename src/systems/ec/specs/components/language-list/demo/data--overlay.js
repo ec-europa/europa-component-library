@@ -40,6 +40,6 @@ module.exports = {
     { lang: 'tr', label: 'Türk', href: '/example' },
     { lang: 'ru', label: 'pусский', href: '/example' },
     { lang: 'ca', label: 'Català', href: '/example' },
-    { lang: '??', label: '???', href: '/example' },
+    { lang: 'ar', label: 'عَرَبِيّ', href: '/example' },
   ],
 };
