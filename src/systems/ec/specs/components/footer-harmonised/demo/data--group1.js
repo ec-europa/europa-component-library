@@ -4,6 +4,7 @@ module.exports = {
       // Mandatory
       title: {
         label: 'Site name',
+        ariaLabel: 'Link to example',
         href: '/example',
       },
       description:
@@ -17,6 +18,7 @@ module.exports = {
         links: [
           {
             label: 'Contact information of the DG',
+            ariaLabel: 'Link to Contact information of the DG',
             href: '/example',
           },
         ],
@@ -28,6 +30,7 @@ module.exports = {
         links: [
           {
             label: 'Facebook',
+            ariaLabel: 'Link to Facebook',
             href: '/example',
             iconPosition: 'before',
             icon: {
@@ -37,6 +40,7 @@ module.exports = {
           },
           {
             label: 'Twitter',
+            ariaLabel: 'Link to Twitter',
             href: '/example',
             iconPosition: 'before',
             icon: {
@@ -46,6 +50,7 @@ module.exports = {
           },
           {
             label: 'Linkedin',
+            ariaLabel: 'Link to Linkedin',
             href: '/example',
             iconPosition: 'before',
             icon: {
@@ -65,6 +70,7 @@ module.exports = {
         links: [
           {
             label: 'Information about the DG',
+            ariaLabel: 'Link to Information about the DG',
             href: '/example',
           },
         ],
@@ -76,22 +82,27 @@ module.exports = {
         links: [
           {
             label: 'Related link 1',
+            ariaLabel: 'Link to Related link 1',
             href: '/example',
           },
           {
             label: 'Related link 2',
+            ariaLabel: 'Link to Related link 2',
             href: '/example',
           },
           {
             label: 'Related link 3',
+            ariaLabel: 'Link to Related link 3',
             href: '/example',
           },
           {
             label: 'Related link 4',
+            ariaLabel: 'Link to Related link 4',
             href: '/example',
           },
           {
             label: 'Related link 5',
+            ariaLabel: 'Link to Related link 5',
             href: '/example',
           },
         ],
@@ -103,10 +114,12 @@ module.exports = {
       links: [
         {
           label: 'Class name 1',
+          ariaLabel: 'Link to Class name 1',
           href: '/example',
         },
         {
           label: 'Class name 2',
+          ariaLabel: 'Link to Class name 2',
           href: '/example',
         },
       ],
@@ -124,10 +137,12 @@ module.exports = {
       links: [
         {
           label: 'Contact the European Commission',
+          ariaLabel: 'Link to Contact the European Commission',
           href: '/example',
         },
         {
           label: 'Follow the European Commission on social media',
+          ariaLabel: 'Link to Follow the European Commission',
           href: '/example',
           iconPosition: 'after',
           icon: {
@@ -137,6 +152,7 @@ module.exports = {
         },
         {
           label: 'Resources for partners',
+          ariaLabel: 'Link to Resources for partners',
           href: '/example',
         },
       ],
@@ -146,22 +162,27 @@ module.exports = {
       links: [
         {
           label: 'Language policy',
+          ariaLabel: 'Link to Language policy',
           href: '/example',
         },
         {
           label: 'Cookies',
+          ariaLabel: 'Link to Cookies',
           href: '/example',
         },
         {
           label: 'Privacy policy',
+          ariaLabel: 'Link to Privacy policy',
           href: '/example',
         },
         {
           label: 'Legal notice',
+          ariaLabel: 'Link to Legal notice',
           href: '/example',
         },
         {
           label: 'Brexit content disclaimer',
+          ariaLabel: 'Link to Brexit content disclaimer',
           href: '/example',
         },
       ],
