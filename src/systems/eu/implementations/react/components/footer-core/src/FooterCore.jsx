@@ -59,10 +59,10 @@ export const FooterCore = ({ logo, sections, className, ...props }) => {
             </section>
 
             {/* Service navigation */}
-            <div className="ecl-footer-core__section3">
+            <section className="ecl-footer-core__section3">
               {sections.serviceNavigation &&
                 sections.serviceNavigation.map((section, index) => (
-                  <section className="ecl-footer-standardised__section">
+                  <section className="ecl-footer-core__section">
                     <FooterCoreSection
                       // eslint-disable-next-line react/no-array-index-key
                       key={`dg-services-${index}`}
@@ -70,7 +70,7 @@ export const FooterCore = ({ logo, sections, className, ...props }) => {
                     />
                   </section>
                 ))}
-            </div>
+            </section>
 
             {/* Legal navigation */}
             <section className="ecl-footer-core__section ecl-footer-core__section4">
