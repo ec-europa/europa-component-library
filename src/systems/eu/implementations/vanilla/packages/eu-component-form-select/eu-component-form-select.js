@@ -228,7 +228,7 @@ export class Select {
     this.selectMultiple.appendChild(this.searchContainer);
 
     this.search = document.createElement('input');
-    this.search.classList.add('ecl-text-input', 'ecl-text-input--m');
+    this.search.classList.add('ecl-text-input');
     this.search.setAttribute('type', 'text');
     this.search.setAttribute('placeholder', this.textSearch || '');
     this.search.addEventListener('keyup', this.handleSearch);
