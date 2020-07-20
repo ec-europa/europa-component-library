@@ -2,6 +2,7 @@
 module.exports = {
   closeLabel: 'Close',
   title: 'Select your language',
+  categoryEu: 'EU official languages',
   items: [
     { lang: 'bg', label: 'български', href: '/example#language_bg' },
     { lang: 'es', label: 'español', href: '/example#language_es' },
@@ -32,5 +33,13 @@ module.exports = {
     { lang: 'sl', label: 'slovenščina', href: '/example#language_sl' },
     { lang: 'fi', label: 'suomi', href: '/example#language_fi' },
     { lang: 'sv', label: 'svenska', href: '/example#language_sv' },
+  ],
+  categoryNonEu: 'Non-EU languages',
+  itemsNonEu: [
+    { lang: 'zh', label: '中文', href: '/example' },
+    { lang: 'tr', label: 'Türk', href: '/example' },
+    { lang: 'ru', label: 'pусский', href: '/example' },
+    { lang: 'ca', label: 'Català', href: '/example' },
+    { lang: '??', label: '???', href: '/example' },
   ],
 };
