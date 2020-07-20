@@ -66,7 +66,7 @@ export const FooterStandardised = ({ logo, sections, className, ...props }) => {
             {/* Corporate name */}
             <section className="ecl-footer-standardised__section ecl-footer-standardised__section7">
               <a
-                className="ecl-link ecl-link--standalone ecl-footer-core__logo-link"
+                className="ecl-link ecl-link--standalone ecl-footer-standardised__logo-link"
                 href={logoHref}
                 aria-label={logoTitle}
               >
@@ -76,7 +76,7 @@ export const FooterStandardised = ({ logo, sections, className, ...props }) => {
                   title={logoTitle}
                   className={classnames(
                     logoClassName,
-                    'ecl-footer-core__logo-image-mobile'
+                    'ecl-footer-standardised__logo-image-mobile'
                   )}
                   src={logoSrcMobile}
                 />
@@ -86,7 +86,7 @@ export const FooterStandardised = ({ logo, sections, className, ...props }) => {
                   title={logoTitle}
                   className={classnames(
                     logoClassName,
-                    'ecl-footer-core__logo-image-desktop'
+                    'ecl-footer-standardised__logo-image-desktop'
                   )}
                   src={logoSrcDesktop}
                 />
