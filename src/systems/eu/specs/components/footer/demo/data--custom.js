@@ -76,7 +76,7 @@ module.exports = {
       },
     ],
   },
-    sections: [
+  sections: [
     {
       title: 'Contact the EU',
       items: [

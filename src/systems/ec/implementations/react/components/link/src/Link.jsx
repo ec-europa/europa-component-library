@@ -39,7 +39,12 @@ const Link = ({
   if (iconMarkup) {
     if (iconPosition === 'before') {
       return (
-        <a {...props} href={href} className={classNames} {...(ariaLabel ? { 'aria-label': ariaLabel } : {})}>
+        <a
+          {...props}
+          href={href}
+          className={classNames}
+          {...(ariaLabel ? { 'aria-label': ariaLabel } : {})}
+        >
           {iconMarkup}
           &nbsp;
           <span className="ecl-link__label">{label}</span>
@@ -48,7 +53,12 @@ const Link = ({
     }
 
     return (
-      <a {...props} href={href} className={classNames} {...(ariaLabel ? { 'aria-label': ariaLabel } : {})}>
+      <a
+        {...props}
+        href={href}
+        className={classNames}
+        {...(ariaLabel ? { 'aria-label': ariaLabel } : {})}
+      >
         <span className="ecl-link__label">{label}</span>
         &nbsp;
         {iconMarkup}
@@ -57,7 +67,12 @@ const Link = ({
   }
 
   return (
-    <a {...props} href={href} className={classNames} {...(ariaLabel ? { 'aria-label': ariaLabel } : {})}>
+    <a
+      {...props}
+      href={href}
+      className={classNames}
+      {...(ariaLabel ? { 'aria-label': ariaLabel } : {})}
+    >
       {label}
     </a>
   );
