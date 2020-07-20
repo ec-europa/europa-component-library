@@ -222,7 +222,7 @@
       position: absolute;
     }
 
-    .ecl-checkbox:first-of-type {
+    .ecl-select__multiple-all {
       border-bottom: 1px solid $ecl-color-grey-25;
       margin-bottom: $ecl-spacing-xs;
     }
@@ -244,8 +244,11 @@
       background-color: $ecl-color-grey-15;
     }
 
-    .ecl-checkbox:first-of-type .ecl-checkbox__label {
+    .ecl-select__multiple-all .ecl-checkbox__label {
       margin-bottom: $ecl-spacing-xs;
+    }
+
+    .ecl-checkbox:first-of-type .ecl-checkbox__label {
       margin-top: $ecl-spacing-xs;
     }
   }

@@ -239,7 +239,7 @@ export class Select {
         'all',
         this.textSelectAll,
         this.selectMultipleId,
-        'ecl-checkbox--all'
+        'ecl-select__multiple-all'
       );
       this.selectAll.addEventListener('click', this.handleClickSelectAll);
       this.selectAll.addEventListener('keypress', this.handleClickSelectAll);
