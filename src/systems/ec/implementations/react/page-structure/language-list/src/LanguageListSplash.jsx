@@ -5,7 +5,15 @@ import classnames from 'classnames';
 import logoSvg from '@ecl/ec-resources-logo/logo--mute.svg';
 import LanguageList from './LanguageList';
 
-const LanguageListSplash = ({ logoAlt, items, className, ...props }) => {
+const LanguageListSplash = ({
+  logoAlt,
+  categoryEu,
+  items,
+  categoryNonEu,
+  itemsNonEu,
+  className,
+  ...props
+}) => {
   const classNames = classnames(
     className,
     'ecl-language-list',
@@ -18,7 +26,12 @@ const LanguageListSplash = ({ logoAlt, items, className, ...props }) => {
         <img className="ecl-language-list__logo" src={logoSvg} alt={logoAlt} />
       </header>
       <div className="ecl-language-list__container ecl-container">
-        <LanguageList items={items} />
+        <LanguageList
+          items={items}
+          categoryEu={categoryEu}
+          itemsNonEu={itemsNonEu}
+          categoryNonEu={categoryNonEu}
+        />
       </div>
     </div>
   );
@@ -26,7 +39,16 @@ const LanguageListSplash = ({ logoAlt, items, className, ...props }) => {
 
 LanguageListSplash.propTypes = {
   logoAlt: PropTypes.string,
+  categoryEu: PropTypes.string,
   items: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+      href: PropTypes.string,
+      isActive: PropTypes.bool,
+    })
+  ),
+  categoryNonEu: PropTypes.string,
+  itemsNonEu: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
       href: PropTypes.string,
@@ -38,7 +60,10 @@ LanguageListSplash.propTypes = {
 
 LanguageListSplash.defaultProps = {
   logoAlt: '',
+  categoryEu: '',
   items: [],
+  categoryNonEu: '',
+  itemsNonEu: [],
   className: '',
 };
 
