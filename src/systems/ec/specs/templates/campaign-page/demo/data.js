@@ -1,4 +1,3 @@
-/* eslint "import/no-extraneous-dependencies": ["error", { "devDependencies": true } ] */
 const siteHeaderContent = require('@ecl/ec-specs-site-header-harmonised/demo/data--group2');
 const heroBannerContent = require('@ecl/ec-specs-hero-banner/demo/data--image');
 const languageListContent = require('@ecl/ec-specs-language-list/demo/data--overlay');

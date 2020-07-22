@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 
 import demoContentImage from '@ecl/eu-specs-highlight/demo/data--image';
