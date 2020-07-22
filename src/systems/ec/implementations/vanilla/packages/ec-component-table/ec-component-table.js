@@ -34,7 +34,6 @@ export class Table {
   static autoInit(root, { TABLE: defaultOptions = {} } = {}) {
     const table = new Table(root, defaultOptions);
     table.init();
-    // eslint-disable-next-line no-param-reassign
     root.ECLTable = table;
     return table;
   }

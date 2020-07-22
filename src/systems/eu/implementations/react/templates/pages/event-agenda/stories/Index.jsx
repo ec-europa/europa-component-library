@@ -1,5 +1,3 @@
-/* eslint-disable no-param-reassign */
-
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import StoryWrapper from '@ecl/story-wrapper';
