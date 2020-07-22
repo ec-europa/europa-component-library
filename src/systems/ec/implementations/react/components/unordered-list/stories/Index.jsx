@@ -1,5 +1,3 @@
-/* eslint-disable no-underscore-dangle */
-
 import Unordered from '../examples/Unordered';
 import UnorderedWithoutBullet from '../examples/UnorderedWithoutBullet';
 import UnorderedWithDivider from '../examples/UnorderedWithDivider';

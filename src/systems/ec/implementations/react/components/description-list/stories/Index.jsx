@@ -1,5 +1,3 @@
-/* eslint-disable no-underscore-dangle */
-
 import Description from '../examples/Description';
 import DescriptionHorizontal from '../examples/DescriptionHorizontal';
 

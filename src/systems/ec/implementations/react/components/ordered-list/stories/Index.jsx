@@ -1,5 +1,3 @@
-/* eslint-disable no-underscore-dangle */
-
 import Ordered from '../examples/Ordered';
 
 export default {

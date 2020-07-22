@@ -1,4 +1,4 @@
-/* eslint-disable no-underscore-dangle, import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies */
 
 import { withKnobs, text } from '@storybook/addon-knobs';
 
