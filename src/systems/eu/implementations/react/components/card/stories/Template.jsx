@@ -5,8 +5,6 @@ import demoContentTile from '@ecl/eu-specs-card/demo/data--tile';
 
 import Card from '../src/Card';
 
-// Storybook issues with modules' resolutions https://github.com/storybookjs/storybook/issues/9621
-/* eslint-disable-next-line import/prefer-default-export */
 export const Template = () => {
   const image1 = {
     alt: demoContentCard.image.alt,

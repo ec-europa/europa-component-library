@@ -14,6 +14,7 @@ module.exports = {
   rules: {
     'import/no-extraneous-dependencies': 'off',
     'no-param-reassign': 'off',
+    'react/forbid-prop-types': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/no-danger': 'off',
   },

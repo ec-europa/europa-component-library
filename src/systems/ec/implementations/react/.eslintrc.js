@@ -22,6 +22,7 @@ module.exports = {
     {
       files: ['**/stories/*.jsx'],
       rules: {
+        'import/prefer-default-export': 'off',
         'no-underscore-dangle': 'off',
       },
     },

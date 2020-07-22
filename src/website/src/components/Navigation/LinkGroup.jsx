@@ -16,7 +16,7 @@ LinkGroup.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string,
   }).isRequired,
-  pages: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
+  pages: PropTypes.array.isRequired,
   showStatus: PropTypes.bool,
   level: PropTypes.number,
   group: PropTypes.string,
