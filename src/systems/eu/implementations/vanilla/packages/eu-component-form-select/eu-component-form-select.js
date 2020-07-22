@@ -129,10 +129,11 @@ export class Select {
    * @param {Function} clickHandler
    * @returns {HTMLElement}
    */
-  static createCheckbox(id, text, scope) {
+  static createCheckbox(id, text, scope, extraClass) {
     if (!id || !text || !scope) return '';
     const checkbox = document.createElement('div');
     checkbox.classList.add('ecl-checkbox');
+    if (extraClass) checkbox.classList.add(extraClass);
     checkbox.setAttribute('data-select-multiple-value', text);
     const input = document.createElement('input');
     input.classList.add('ecl-checkbox__input');
@@ -233,14 +234,17 @@ export class Select {
     this.search.addEventListener('keyup', this.handleSearch);
     this.searchContainer.appendChild(this.search);
 
-    this.selectAll = Select.createCheckbox(
-      'all',
-      this.textSelectAll,
-      this.selectMultipleId
-    );
-    this.selectAll.addEventListener('click', this.handleClickSelectAll);
-    this.selectAll.addEventListener('keypress', this.handleClickSelectAll);
-    this.searchContainer.appendChild(this.selectAll);
+    if (this.textSelectAll) {
+      this.selectAll = Select.createCheckbox(
+        'all',
+        this.textSelectAll,
+        this.selectMultipleId,
+        'ecl-select__multiple-all'
+      );
+      this.selectAll.addEventListener('click', this.handleClickSelectAll);
+      this.selectAll.addEventListener('keypress', this.handleClickSelectAll);
+      this.searchContainer.appendChild(this.selectAll);
+    }
 
     if (this.select.options && this.select.options.length > 0) {
       this.checkboxes = Array.from(this.select.options).map((option) => {
@@ -382,7 +386,7 @@ export class Select {
    */
   handleSearch(e) {
     const visible = [];
-    const keyword = e.target.value;
+    const keyword = e.target.value.toLowerCase();
     this.checkboxes.forEach((checkbox) => {
       if (
         !checkbox
