@@ -25,7 +25,6 @@ export const FooterStandardised = ({ sections, className, ...props }) => (
               sections.dgServices.map((section, index) => (
                 <section className="ecl-footer-standardised__section">
                   <FooterStandardisedSection
-                    // eslint-disable-next-line react/no-array-index-key
                     key={`dg-services-${index}`}
                     section={section}
                   />
@@ -39,7 +38,6 @@ export const FooterStandardised = ({ sections, className, ...props }) => (
               sections.dgNavigations.map((section, index) => (
                 <section className="ecl-footer-standardised__section">
                   <FooterStandardisedSection
-                    // eslint-disable-next-line react/no-array-index-key
                     key={`dg-navigation-${index}`}
                     section={section}
                   />

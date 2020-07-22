@@ -41,7 +41,6 @@ export const FooterHarmonised = ({ logo, sections, className, ...props }) => {
                 sections.dgServices.map((section, index) => (
                   <section className="ecl-footer-harmonised__section">
                     <FooterHarmonisedSection
-                      // eslint-disable-next-line react/no-array-index-key
                       key={`dg-services-${index}`}
                       section={section}
                     />
@@ -102,7 +101,6 @@ export const FooterHarmonised = ({ logo, sections, className, ...props }) => {
                 sections.serviceNavigation.map((section, index) => (
                   <section className="ecl-footer-harmonised__section">
                     <FooterHarmonisedSection
-                      // eslint-disable-next-line react/no-array-index-key
                       key={`dg-services-${index}`}
                       section={section}
                     />

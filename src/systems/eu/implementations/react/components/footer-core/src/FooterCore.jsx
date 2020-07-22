@@ -64,7 +64,6 @@ export const FooterCore = ({ logo, sections, className, ...props }) => {
                 sections.serviceNavigation.map((section, index) => (
                   <section className="ecl-footer-core__section">
                     <FooterCoreSection
-                      // eslint-disable-next-line react/no-array-index-key
                       key={`dg-services-${index}`}
                       section={section}
                     />
