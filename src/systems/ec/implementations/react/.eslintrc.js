@@ -20,6 +20,13 @@ module.exports = {
   },
   overrides: [
     {
+      files: ['**/*.jsx'],
+      rules: {
+        'import/no-dynamic-require': 'off',
+        'global-require': 'off',
+      },
+    },
+    {
       files: ['**/stories/*.jsx'],
       rules: {
         'import/prefer-default-export': 'off',

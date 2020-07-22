@@ -36,7 +36,6 @@ const SiteHeaderHarmonised = ({
     ...logoProps
   } = logo;
 
-  // eslint-disable-next-line global-require, import/no-dynamic-require
   const logoECSrc = require(`@ecl/ec-resources-logo/logo--${logoLanguage}.svg`);
 
   const hasLanguageOverlay = !!(languageSelector && languageSelector.overlay);

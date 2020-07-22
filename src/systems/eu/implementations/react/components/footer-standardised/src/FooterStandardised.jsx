@@ -15,9 +15,7 @@ export const FooterStandardised = ({ logo, sections, className, ...props }) => {
     ...logoProps
   } = logo;
 
-  // eslint-disable-next-line global-require, import/no-dynamic-require
   const logoSrcMobile = require(`@ecl/eu-resources-logo/condensed-version/positive/${logoLanguage}.svg`);
-  // eslint-disable-next-line global-require, import/no-dynamic-require
   const logoSrcDesktop = require(`@ecl/eu-resources-logo/standard-version/positive/${logoLanguage}.svg`);
 
   return (
