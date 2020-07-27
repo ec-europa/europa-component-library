@@ -78,6 +78,7 @@
     flex-direction: column;
     margin-bottom: $ecl-spacing-m;
     padding-bottom: $ecl-spacing-m;
+    width: 100%;
   }
 
   .ecl-file__detail-meta {
@@ -211,6 +212,10 @@
 
     .ecl-file__detail {
       flex-direction: row;
+    }
+
+    .ecl-file__detail-info {
+      flex-grow: 1;
     }
 
     .ecl-file__image {
