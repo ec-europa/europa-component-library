@@ -3,21 +3,6 @@ import { queryOne } from '@ecl/ec-base/helpers/dom';
 import iconSvgUiCheck from '@ecl/ec-resources-icons/dist/svg/ui/check.svg';
 import iconSvgUiCornerArrow from '@ecl/ec-resources-icons/dist/svg/ui/corner-arrow.svg';
 
-// Polyfill for closest (support for IE11)
-if (!Element.prototype.matches)
-  Element.prototype.matches = Element.prototype.msMatchesSelector;
-if (!Element.prototype.closest)
-  Element.prototype.closest = function poly(selector) {
-    let el = this;
-    while (el) {
-      if (el.matches(selector)) {
-        return el;
-      }
-      el = el.parentElement;
-    }
-    return null;
-  };
-
 /**
  * There are multiple labels contained in this component. You can set them in 2 ways: directly as a string or through data attributes.
  * Textual values have precedence and if they are not provided, then DOM data attributes are used.
@@ -129,10 +114,11 @@ export class Select {
    * @param {Function} clickHandler
    * @returns {HTMLElement}
    */
-  static createCheckbox(id, text, scope) {
+  static createCheckbox(id, text, scope, extraClass) {
     if (!id || !text || !scope) return '';
     const checkbox = document.createElement('div');
     checkbox.classList.add('ecl-checkbox');
+    if (extraClass) checkbox.classList.add(extraClass);
     checkbox.setAttribute('data-select-multiple-value', text);
     const input = document.createElement('input');
     input.classList.add('ecl-checkbox__input');
@@ -227,20 +213,23 @@ export class Select {
     this.selectMultiple.appendChild(this.searchContainer);
 
     this.search = document.createElement('input');
-    this.search.classList.add('ecl-text-input', 'ecl-text-input--m');
+    this.search.classList.add('ecl-text-input');
     this.search.setAttribute('type', 'text');
     this.search.setAttribute('placeholder', this.textSearch || '');
     this.search.addEventListener('keyup', this.handleSearch);
     this.searchContainer.appendChild(this.search);
 
-    this.selectAll = Select.createCheckbox(
-      'all',
-      this.textSelectAll,
-      this.selectMultipleId
-    );
-    this.selectAll.addEventListener('click', this.handleClickSelectAll);
-    this.selectAll.addEventListener('keypress', this.handleClickSelectAll);
-    this.searchContainer.appendChild(this.selectAll);
+    if (this.textSelectAll) {
+      this.selectAll = Select.createCheckbox(
+        'all',
+        this.textSelectAll,
+        this.selectMultipleId,
+        'ecl-select__multiple-all'
+      );
+      this.selectAll.addEventListener('click', this.handleClickSelectAll);
+      this.selectAll.addEventListener('keypress', this.handleClickSelectAll);
+      this.searchContainer.appendChild(this.selectAll);
+    }
 
     if (this.select.options && this.select.options.length > 0) {
       this.checkboxes = Array.from(this.select.options).map((option) => {

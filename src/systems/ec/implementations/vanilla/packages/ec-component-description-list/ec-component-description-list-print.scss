@@ -28,16 +28,14 @@
 }
 
 @mixin ecl-description-list-horizontal-print(
-  $term-width: 174px,
-  $definition-width: 325px
+  $term-width: 32%,
+  $definition-width: 68%
 ) {
   .ecl-description-list--horizontal {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    max-width: calc(
-      #{$term-width} + #{$definition-width} + #{$ecl-spacing-print-xl}
-    );
+    max-width: calc(499px + #{$ecl-spacing-print-xl});
   }
 
   .ecl-description-list--horizontal .ecl-description-list__term {
@@ -57,7 +55,7 @@
     margin-top: $ecl-spacing-print-m;
     overflow-wrap: break-word;
     padding-left: 0;
-    width: $definition-width;
+    width: calc(#{$definition-width} - #{$ecl-spacing-xl});
 
     &:first-of-type {
       margin-top: 0;
