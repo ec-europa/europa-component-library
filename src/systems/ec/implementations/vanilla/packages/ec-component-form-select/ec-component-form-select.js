@@ -3,21 +3,6 @@ import { queryOne } from '@ecl/ec-base/helpers/dom';
 import iconSvgUiCheck from '@ecl/ec-resources-icons/dist/svg/ui/check.svg';
 import iconSvgUiCornerArrow from '@ecl/ec-resources-icons/dist/svg/ui/corner-arrow.svg';
 
-// Polyfill for closest (support for IE11)
-if (!Element.prototype.matches)
-  Element.prototype.matches = Element.prototype.msMatchesSelector;
-if (!Element.prototype.closest)
-  Element.prototype.closest = function poly(selector) {
-    let el = this;
-    while (el) {
-      if (el.matches(selector)) {
-        return el;
-      }
-      el = el.parentElement;
-    }
-    return null;
-  };
-
 /**
  * There are multiple labels contained in this component. You can set them in 2 ways: directly as a string or through data attributes.
  * Textual values have precedence and if they are not provided, then DOM data attributes are used.
