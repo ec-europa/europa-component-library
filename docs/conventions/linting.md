@@ -6,20 +6,25 @@ Please refer to the [getting started](https://eslint.org/docs/user-guide/getting
 
 ## Introduction
 
-There are few main configuration files within the repository:
+There are 2 main types of configurations within ECL project:
 
-- root config file at `.eslintrc.js`
-- local override for EC React implementation at `src/systems/ec/implementations/react/.eslintrc.js`
-- local override for EU React implementation at `src/systems/eu/implementations/react/.eslintrc.js`
-- local override for the website at `src/website/.eslintrc.js`
+1. root configuration file at `.eslintrc.js` containing global rules
+2. overrides related to modules and sub-projects containing specific rules for a sub-system
 
-There are few more overrides which are less frequently necessary for the overall coding flow of the project. Keep in mind that the closer a configuration file is to a given file, an overriding takes place. Thus, when updating rules, pay attention to scope of rules.
+Few important overrides are:
+
+- ECL public website: `src/website/.eslintrc.js`
+- React implementation: `src/systems/(ec|eu)/implementations/react/.eslintrc.js`
+- Specs: `src/systems/(ec|eu)/specs/.eslintrc.js`
 
 ## Specifics
 
-Here are a few useful details to keep in mind when maintaining the set of linting rules for the ECL project:
+Here are a few useful details to keep in mind when maintaining the set of linting rules:
 
-- `import/no-extraneous-dependencies` is set throughout because of the lerna workspace features
-- `no-param-reassign` is
-- React-specific rules are to be contained within React-specific implementations
-- If there more than a few inline eslint ignore rules, consider making the rule more global
+- `import/no-extraneous-dependencies` is disabled globally because of the lerna workspace feature
+- `no-param-reassign` is disabled as irrelevant for ECL project needs (ECL.js module specifically)
+- `import/prefer-default-export` is disabled for storybook stories because stories' naming depends on named exports and not default exports
+
+## Recommendations
+
+As a general rule of thumb, if there are more than a few inline eslint ignore rules, consider making the rule more global
