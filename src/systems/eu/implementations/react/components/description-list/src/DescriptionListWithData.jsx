@@ -32,10 +32,10 @@ const DescriptionListWithData = ({ items, className, ...props }) => {
         }
 
         return (
-          <div key={item.term}>
+          <React.Fragment key={item.term}>
             {terms}
             {definitions}
-          </div>
+          </React.Fragment>
         );
       })}
     </DescriptionList>

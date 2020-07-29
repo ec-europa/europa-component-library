@@ -46,7 +46,7 @@ export const Timeline2 = ({
       {items &&
         items.map(
           ({ id: itemId, content: itemContent, ...itemProps }, index) => (
-            <div key={itemId}>
+            <React.Fragment key={itemId}>
               <Timeline2Item
                 {...itemProps}
                 className={classnames({
@@ -59,7 +59,7 @@ export const Timeline2 = ({
               {threshold < items.length &&
                 index === items.length - 3 &&
                 showAllButton}
-            </div>
+            </React.Fragment>
           )
         )}
       {children && children}

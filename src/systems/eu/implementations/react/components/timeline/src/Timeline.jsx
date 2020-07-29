@@ -20,7 +20,7 @@ export const Timeline = ({ items, button, className, ...props }) => {
   return (
     <ol {...props} className={classNames} data-ecl-timeline>
       {items.map((item, index) => (
-        <div key={item.id}>
+        <React.Fragment key={item.id}>
           <TimelineItem
             label={item.label}
             className={classnames({
@@ -30,7 +30,7 @@ export const Timeline = ({ items, button, className, ...props }) => {
             {item.content}
           </TimelineItem>
           {index === 2 && showAllButton}
-        </div>
+        </React.Fragment>
       ))}
     </ol>
   );
