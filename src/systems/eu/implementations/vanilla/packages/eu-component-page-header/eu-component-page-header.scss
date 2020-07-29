@@ -36,15 +36,11 @@
   }
 
   .ecl-page-header__title-wrapper {
-    margin: $ecl-spacing-l;
-
-    @include ecl-media-breakpoint-up('lg') {
-      margin: $ecl-spacing-l 0;
-    }
+    margin: $ecl-spacing-l 0;
 
     .ecl-page-header--branded-homepage &,
     .ecl-page-header--homepage & {
-      margin: $ecl-spacing-xl $ecl-spacing-l;
+      margin: $ecl-spacing-xl 0;
 
       @include ecl-media-breakpoint-up('lg') {
         margin: $ecl-spacing-4-xl 0;
