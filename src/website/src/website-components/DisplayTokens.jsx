@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies, react/forbid-prop-types */
+/* eslint-disable react/forbid-prop-types */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styles from './DisplayTokens.scss';

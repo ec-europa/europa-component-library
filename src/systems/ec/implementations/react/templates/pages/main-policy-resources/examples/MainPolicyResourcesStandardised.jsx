@@ -1,5 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -82,7 +81,7 @@ class MainPolicyResourcesStandardised extends React.Component {
     }
 
     return (
-      <Fragment>
+      <>
         <SiteHeaderStandardised
           {...dataCopy.siteHeader}
           data-ecl-auto-init="SiteHeaderStandardised"
@@ -93,7 +92,7 @@ class MainPolicyResourcesStandardised extends React.Component {
         />
         <MainPolicyResourcesPage template="standardised" />
         <FooterStandardised {...dataCopy.footer} />
-      </Fragment>
+      </>
     );
   }
 }

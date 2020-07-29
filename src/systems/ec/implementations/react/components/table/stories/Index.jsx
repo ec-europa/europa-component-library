@@ -1,4 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope, import/no-extraneous-dependencies */
 import React from 'react';
 import StoryWrapper from '@ecl/story-wrapper';
 import Table from '../examples/Table';

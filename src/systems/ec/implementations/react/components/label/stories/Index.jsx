@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import demoContent from '@ecl/ec-specs-label/demo/data';

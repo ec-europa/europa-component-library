@@ -62,6 +62,24 @@
     margin-bottom: $ecl-spacing-print-xs;
   }
 
+  .ecl-file__detail-meta-item {
+    margin-left: $ecl-spacing-print-xs;
+
+    &::before {
+      content: '|';
+      margin-right: $ecl-spacing-print-xs;
+    }
+  }
+
+  .ecl-file__detail-meta-item:first-of-type {
+    margin-left: 0;
+    text-transform: uppercase;
+
+    &::before {
+      display: none;
+    }
+  }
+
   .ecl-file__image {
     align-self: flex-start;
     display: block;

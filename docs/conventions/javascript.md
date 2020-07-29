@@ -20,4 +20,4 @@ On each commit, a hook attempts to fix all issues violating the ESlint conventio
 
 ### Configuration
 
-Please refer to [.eslintrc.js](../../.eslintrc.js) config file.
+Please refer to our guide for project-specific [linting rules](./linting.md)

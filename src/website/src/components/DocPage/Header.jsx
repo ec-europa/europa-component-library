@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import icons from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
@@ -31,7 +31,7 @@ const Header = React.memo(({ component, history, location }) => {
         )}
         <h1 className={styles['header__page-title']}>{pageTitle}</h1>
         {component.attributes.isTab && (
-          <Fragment>
+          <>
             <ul className={styles.header__tabs}>
               {component.parent.children
                 .filter((t) => t.attributes.isTab)
@@ -105,7 +105,7 @@ const Header = React.memo(({ component, history, location }) => {
                 </svg>
               </div>
             </div>
-          </Fragment>
+          </>
         )}
       </Container>
     </header>

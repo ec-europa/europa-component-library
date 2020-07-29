@@ -6,6 +6,9 @@ module.exports = {
     browser: true,
     node: true,
   },
+  rules: {
+    'import/no-extraneous-dependencies': 'off',
+  },
   parserOptions: {
     ecmaFeatures: {
       jsx: true,

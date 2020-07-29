@@ -1,5 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React, { Fragment } from 'react';
+import React from 'react';
 import { withKnobs } from '@storybook/addon-knobs';
 
 export default {
@@ -9,7 +8,7 @@ export default {
 
 export const Display = () => {
   return (
-    <Fragment>
+    <>
       <div className="ecl-u-type-m">
         Note: on the playground, you can use the checkboxes located in &quot;CSS
         Resources&quot; (on the right) to switch between print and screen
@@ -32,7 +31,7 @@ export const Display = () => {
         <br />
         This paragraph is displayed only on print
       </p>
-    </Fragment>
+    </>
   );
 };
 
@@ -42,7 +41,7 @@ Display.story = {
 
 export const PageBreak = () => {
   return (
-    <Fragment>
+    <>
       <div className="ecl-u-type-m">
         Note: In order to see the page breaks, you should open the demo in a new
         tab (button &quot;Open canvas in new tab&quot; in the top bar), and open
@@ -129,7 +128,7 @@ export const PageBreak = () => {
         libero vel lectus imperdiet, vitae varius est ultricies. Curabitur sit
         amet odio pretium, dignissim magna nec, ullamcorper eros.
       </p>
-    </Fragment>
+    </>
   );
 };
 

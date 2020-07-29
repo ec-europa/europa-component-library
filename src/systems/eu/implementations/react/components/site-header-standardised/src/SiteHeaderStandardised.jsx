@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -33,9 +33,7 @@ const SiteHeaderStandardised = ({
     ...logoProps
   } = logo;
 
-  // eslint-disable-next-line global-require, import/no-dynamic-require
   const logoSrcMobile = require(`@ecl/eu-resources-logo/condensed-version/positive/${logoLanguage}.svg`);
-  // eslint-disable-next-line global-require, import/no-dynamic-require
   const logoSrcDesktop = require(`@ecl/eu-resources-logo/standard-version/positive/${logoLanguage}.svg`);
 
   const hasLanguageOverlay = !!(languageSelector && languageSelector.overlay);
@@ -84,7 +82,7 @@ const SiteHeaderStandardised = ({
             ) && (
               <div className="ecl-site-header-standardised__login-container">
                 {logged && (
-                  <Fragment>
+                  <>
                     <a
                       className="ecl-link ecl-link--standalone ecl-site-header-standardised__login-toggle"
                       href={loginToggle.hrefLogged}
@@ -111,12 +109,12 @@ const SiteHeaderStandardised = ({
                       data-ecl-login-box
                     >
                       {loginBox.description && (
-                        <Fragment>
+                        <>
                           <p className="ecl-site-header-standardised__login-description">
                             {loginBox.description}
                           </p>
                           <hr className="ecl-site-header-standardised__login-separator" />
-                        </Fragment>
+                        </>
                       )}
                       <Link
                         label={loginBox.label}
@@ -124,7 +122,7 @@ const SiteHeaderStandardised = ({
                         variant="standalone"
                       />
                     </div>
-                  </Fragment>
+                  </>
                 )}
                 {!logged && (
                   <a

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import DescriptionList from './DescriptionList';
@@ -32,10 +32,10 @@ const DescriptionListWithData = ({ items, className, ...props }) => {
         }
 
         return (
-          <Fragment key={item.term}>
+          <React.Fragment key={item.term}>
             {terms}
             {definitions}
-          </Fragment>
+          </React.Fragment>
         );
       })}
     </DescriptionList>

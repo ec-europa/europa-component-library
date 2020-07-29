@@ -1,4 +1,3 @@
-// eslint-disable-next-line global-require, import/no-dynamic-require
 const logoECSrc = require(`@ecl/ec-resources-logo/logo--en.svg`);
 
 module.exports = {

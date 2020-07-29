@@ -1,5 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React, { Fragment } from 'react';
+import React from 'react';
 import { withKnobs } from '@storybook/addon-knobs';
 
 const styleLine = {
@@ -53,7 +52,7 @@ export default {
 };
 
 export const Default = () => (
-  <Fragment>
+  <>
     <h2 className="ecl-u-type-heading-2">All around spacing</h2>
     {Spacing('a', '2xs')}
     {Spacing('a', 'xs')}
@@ -86,7 +85,7 @@ export const Default = () => (
     {Spacing('h', '2xl')}
     {Spacing('h', '3xl')}
     {Spacing('h', '4xl')}
-  </Fragment>
+  </>
 );
 
 Default.story = {

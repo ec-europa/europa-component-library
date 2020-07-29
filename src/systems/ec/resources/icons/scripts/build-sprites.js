@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 const glob = require('glob');
 const path = require('path');
 

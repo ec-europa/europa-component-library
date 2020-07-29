@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import Blockquote from '@ecl/eu-react-component-blockquote';
@@ -18,7 +18,7 @@ const CampaignPage = ({
   card,
   blockquote,
 }) => (
-  <Fragment>
+  <>
     <SiteHeader {...siteHeader} id="top" data-ecl-auto-init="SiteHeader" />
     <HeroBanner {...heroBanner} />
     <main className="ecl-u-pv-xl">
@@ -73,7 +73,7 @@ const CampaignPage = ({
     </main>
 
     <Footer {...footer} />
-  </Fragment>
+  </>
 );
 
 CampaignPage.propTypes = {

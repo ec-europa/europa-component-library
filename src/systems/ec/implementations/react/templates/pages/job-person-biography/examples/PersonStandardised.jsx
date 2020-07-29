@@ -1,5 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -90,7 +89,7 @@ class PersonStandardised extends React.Component {
     }
 
     return (
-      <Fragment>
+      <>
         <SiteHeaderStandardised
           {...dataCopy.siteHeader}
           data-ecl-auto-init="SiteHeaderStandardised"
@@ -101,7 +100,7 @@ class PersonStandardised extends React.Component {
         />
         <PersonPage template="standardised" />
         <FooterStandardised {...dataCopy.footer} />
-      </Fragment>
+      </>
     );
   }
 }

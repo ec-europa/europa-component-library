@@ -1,5 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -83,7 +82,7 @@ class EventAgendaStandardised extends React.Component {
     }
 
     return (
-      <Fragment>
+      <>
         <SiteHeaderStandardised
           {...dataCopy.siteHeader}
           data-ecl-auto-init="SiteHeaderStandardised"
@@ -95,7 +94,7 @@ class EventAgendaStandardised extends React.Component {
         <EventAgendaPage template="standardised" />
         <PageBanner {...dataCopy.pageBanner} variant="default" isCentered />
         <FooterStandardised {...dataCopy.footer} />
-      </Fragment>
+      </>
     );
   }
 }

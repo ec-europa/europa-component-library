@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 
 import demoContentDefault from '@ecl/ec-specs-highlight/demo/data--default';

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -31,7 +31,7 @@ const ContentItem = ({
     >
       {/* Images (left) */}
       {!!(images && images.position === 'left') && (
-        <Fragment>
+        <>
           {images.mobile && (
             <div
               role="img"
@@ -64,7 +64,7 @@ const ContentItem = ({
               }}
             />
           )}
-        </Fragment>
+        </>
       )}
 
       {/* Date block */}
@@ -132,12 +132,12 @@ const ContentItem = ({
                 )}
               >
                 {item.icon && (
-                  <Fragment>
+                  <>
                     <Icon {...item.icon} />
                     <span className="ecl-u-type-s ecl-u-ml-s ecl-u-type-family-alt">
                       {item.label}
                     </span>
-                  </Fragment>
+                  </>
                 )}
 
                 {!item.icon && (
@@ -154,7 +154,7 @@ const ContentItem = ({
 
       {/* Images (right) */}
       {!!(images && images.position === 'right') && (
-        <Fragment>
+        <>
           {images.mobile && (
             <div
               role="img"
@@ -183,7 +183,7 @@ const ContentItem = ({
               }}
             />
           )}
-        </Fragment>
+        </>
       )}
     </article>
   );

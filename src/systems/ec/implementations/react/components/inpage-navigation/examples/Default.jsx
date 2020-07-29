@@ -1,5 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React, { Fragment } from 'react';
+import React from 'react';
 import VanillaInpageNavigation from '@ecl/ec-component-inpage-navigation';
 import demoContent from '@ecl/ec-specs-inpage-navigation/demo/data';
 import { loremIpsum } from 'lorem-ipsum';
@@ -46,7 +45,7 @@ export default class DefaultExample extends React.Component {
     );
 
     return (
-      <Fragment>
+      <>
         <SiteHeaderCore
           {...siteHeaderContent}
           data-ecl-auto-init="SiteHeaderCore"
@@ -84,7 +83,7 @@ export default class DefaultExample extends React.Component {
           </div>
         </div>
         <FooterCore {...footerContent} />
-      </Fragment>
+      </>
     );
   }
 }

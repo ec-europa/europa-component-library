@@ -1,5 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React, { Fragment } from 'react';
+import React from 'react';
 import classnames from 'classnames';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
@@ -13,7 +12,7 @@ storiesOf('Utilities/Typography', module)
     const content = text('Content', demoContentParagraph.content);
 
     return (
-      <Fragment>
+      <>
         <h2 className="ecl-u-type-heading-2">Lead paragraph</h2>
         <p className="ecl-u-type-paragraph-lead">{content}</p>
 
@@ -25,20 +24,20 @@ storiesOf('Utilities/Typography', module)
 
         <h2 className="ecl-u-type-heading-2">Extra small paragraph</h2>
         <p className="ecl-u-type-paragraph-xs">{content}</p>
-      </Fragment>
+      </>
     );
   })
   .add('heading', () => {
     const content = text('Content', demoContentHeading.content);
 
     return (
-      <Fragment>
+      <>
         <h1 className="ecl-u-type-heading-1">H1. {content}</h1>
         <h2 className="ecl-u-type-heading-2">H2. {content}</h2>
         <h3 className="ecl-u-type-heading-3">H3. {content}</h3>
         <h4 className="ecl-u-type-heading-4">H4. {content}</h4>
         <h5 className="ecl-u-type-heading-5">H5. {content}</h5>
-      </Fragment>
+      </>
     );
   })
   .add('text colour', () => {
@@ -59,11 +58,11 @@ storiesOf('Utilities/Typography', module)
     );
 
     return (
-      <Fragment>
+      <>
         <p className={classnames('ecl-u-type-paragraph-m', colour)}>
           {demoContentParagraph.content}
         </p>
-      </Fragment>
+      </>
     );
   })
   .add('text style', () => {
@@ -83,7 +82,7 @@ storiesOf('Utilities/Typography', module)
     );
 
     return (
-      <Fragment>
+      <>
         <p
           className={classnames('ecl-u-type-paragraph-m', style, {
             [`ecl-u-type-bold`]: bold,
@@ -91,6 +90,6 @@ storiesOf('Utilities/Typography', module)
         >
           {demoContentParagraph.content}
         </p>
-      </Fragment>
+      </>
     );
   });
