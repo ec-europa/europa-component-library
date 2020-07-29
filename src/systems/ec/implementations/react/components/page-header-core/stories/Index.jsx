@@ -1,20 +1,17 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import parse from 'html-react-parser';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { withKnobs } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
 import BreadcrumbCore, {
   BreadcrumbCoreItem,
 } from '@ecl/ec-react-component-breadcrumb-core';
 
-import breadcrumbContent from '@ecl/ec-specs-breadcrumb-core/demo/data';
-import demoTitleContent from '@ecl/ec-specs-page-header-core/demo/data--title';
-import demoMetaTitleContent from '@ecl/ec-specs-page-header-core/demo/data--meta-title';
-import demoMetaTitleDescriptionContent from '@ecl/ec-specs-page-header-core/demo/data--meta-title-description';
+import demoContentBreadcrumb from '@ecl/ec-specs-breadcrumb-core/demo/data';
+import demoContentBannerShaded from '@ecl/ec-specs-page-banner/demo/data--image-shade';
 
 import PageHeaderCore from '../src/PageHeaderCore';
 
-const { items, ...breadcrumbProps } = breadcrumbContent;
+const { items, ...breadcrumbProps } = demoContentBreadcrumb;
 const breadcrumb = (
   <BreadcrumbCore {...breadcrumbProps} data-ecl-auto-init="BreadcrumbCore">
     {items.map((item) => (
@@ -48,43 +45,14 @@ export default {
   ],
 };
 
-export const Title = () => (
+export const Shaded = () => (
   <PageHeaderCore
     breadcrumb={breadcrumb}
-    title={text('Title', demoTitleContent.title)}
+    banner={demoContentBannerShaded}
+    breadcrumbPosition="after"
   />
 );
 
-Title.story = {
-  name: 'title',
-};
-
-export const MetaTitle = () => (
-  <PageHeaderCore
-    breadcrumb={breadcrumb}
-    title={text('Title', demoMetaTitleContent.title)}
-    meta={parse(text('Meta', demoMetaTitleContent.meta))}
-  />
-);
-
-MetaTitle.story = {
-  name: 'meta-title',
-  parameters: { knobs: { escapeHTML: false } },
-};
-
-export const MetaTitleDescription = () => (
-  <PageHeaderCore
-    breadcrumb={breadcrumb}
-    title={text('Title', demoMetaTitleDescriptionContent.title)}
-    description={text(
-      'Description',
-      demoMetaTitleDescriptionContent.description
-    )}
-    meta={parse(text('Meta', demoMetaTitleDescriptionContent.meta))}
-  />
-);
-
-MetaTitleDescription.story = {
-  name: 'meta-title-description',
-  parameters: { knobs: { escapeHTML: false } },
+Shaded.story = {
+  name: 'shaded',
 };

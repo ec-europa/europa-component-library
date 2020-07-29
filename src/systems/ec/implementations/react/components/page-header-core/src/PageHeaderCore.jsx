@@ -2,45 +2,49 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
+import PageBanner from '@ecl/ec-react-component-page-banner';
+
 const PageHeaderCore = ({
   breadcrumb,
-  meta,
-  title,
-  description,
+  breadcrumbPosition,
+  banner,
   className,
   ...props
 }) => {
-  const classNames = classnames(className, 'ecl-page-header-core');
-
   return (
-    <div {...props} className={classNames}>
-      <div className="ecl-container">
-        {React.cloneElement(breadcrumb, {
-          className: 'ecl-page-header-core__breadcrumb',
-        })}
-        {meta && <div className="ecl-page-header-core__meta">{meta}</div>}
-        {title && <h1 className="ecl-page-header-core__title">{title}</h1>}
-        {description && (
-          <p className="ecl-page-header-core__description">{description}</p>
-        )}
-      </div>
+    <div {...props} className={classnames(className, 'ecl-page-header-core')}>
+      {breadcrumbPosition === 'before' && (
+        <div className="ecl-container">
+          {React.cloneElement(breadcrumb, {
+            className: 'ecl-page-header-core__breadcrumb',
+          })}
+        </div>
+      )}
+
+      {banner && <PageBanner {...banner} />}
+
+      {breadcrumbPosition === 'after' && (
+        <div className="ecl-container">
+          {React.cloneElement(breadcrumb, {
+            className: 'ecl-page-header-core__breadcrumb',
+          })}
+        </div>
+      )}
     </div>
   );
 };
 
 PageHeaderCore.propTypes = {
   breadcrumb: PropTypes.node,
-  meta: PropTypes.node,
-  title: PropTypes.string,
-  description: PropTypes.string,
+  breadcrumbPosition: PropTypes.string,
+  banner: PropTypes.shape(PageBanner.propTypes),
   className: PropTypes.string,
 };
 
 PageHeaderCore.defaultProps = {
   breadcrumb: null,
-  meta: '',
-  title: '',
-  description: '',
+  breadcrumbPosition: 'before',
+  banner: {},
   className: '',
 };
 
