@@ -1,21 +1,6 @@
 import { queryOne, queryAll } from '@ecl/ec-base/helpers/dom';
 import iconSvgUiArrow from '@ecl/ec-resources-icons/dist/svg/ui/solid-arrow.svg';
 
-// Polyfill for closest (support for IE11)
-if (!Element.prototype.matches)
-  Element.prototype.matches = Element.prototype.msMatchesSelector;
-if (!Element.prototype.closest)
-  Element.prototype.closest = function poly(selector) {
-    let el = this;
-    while (el) {
-      if (el.matches(selector)) {
-        return el;
-      }
-      el = el.parentElement;
-    }
-    return null;
-  };
-
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options

@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import iconSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
@@ -105,7 +105,7 @@ class Playground extends Component {
       <div className={styles.playground}>
         <div className={styles.showcase}>
           {!hideDemo && (
-            <Fragment>
+            <>
               {showFrame && fullFrameUrl ? (
                 <Iframe
                   url={fullFrameUrl}
@@ -116,7 +116,7 @@ class Playground extends Component {
               ) : (
                 <div className={styles.showcase__content}>{children}</div>
               )}
-            </Fragment>
+            </>
           )}
 
           {fullFrameUrl && (
@@ -166,7 +166,7 @@ class Playground extends Component {
         )}
 
         {playgroundUrl && (
-          <Fragment>
+          <>
             <p className={styles.description}>
               Try it yourself on the playground
             </p>
@@ -185,7 +185,7 @@ class Playground extends Component {
                 <use xlinkHref={`${iconSprite}#ui--corner-arrow`} />
               </svg>
             </a>
-          </Fragment>
+          </>
         )}
       </div>
     );

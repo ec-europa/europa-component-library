@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
   SyntaxHighlighter,
@@ -97,7 +97,7 @@ export class PreviewWrapper extends Component {
     });
 
     return (
-      <Fragment>
+      <>
         {children}
         {expanded && (
           <Overlay id="storybook-code">
@@ -119,7 +119,7 @@ export class PreviewWrapper extends Component {
             </DocumentWrapper>
           </Overlay>
         )}
-      </Fragment>
+      </>
     );
   }
 }

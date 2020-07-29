@@ -31,6 +31,23 @@
   .ecl-hero-banner__description + .ecl-link {
     margin-top: $ecl-spacing-print-m;
   }
+
+  .ecl-hero-banner__meta {
+    font: $ecl-font-print-m;
+    margin-bottom: $ecl-spacing-print-m;
+  }
+
+  /*
+   * variant: ghost inverted
+   */
+  .ecl-hero-banner--ghost-invert {
+    .ecl-hero-banner__meta,
+    .ecl-hero-banner__title,
+    .ecl-hero-banner__description,
+    .ecl-hero-banner__link-cta {
+      color: $ecl-color-white;
+    }
+  }
 }
 
 // Use mixin
