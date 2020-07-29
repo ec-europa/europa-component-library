@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, select, array } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
 import demoContent from '@ecl/eu-specs-file/demo/data--without-translation';
 import demoContentTranslation from '@ecl/eu-specs-file/demo/data--with-translation';
@@ -83,7 +83,9 @@ WithTranslation.story = {
 };
 
 export const Thumbnail = () => {
-  const meta = text('Meta', demoContentThumbnail.detailMeta);
+  const meta = Array.isArray(demoContentThumbnail.detailMeta)
+    ? array('Meta (comma separated)', demoContentThumbnail.detailMeta)
+    : text('Meta', demoContentThumbnail.detailMeta);
   const title = text('File title', demoContentThumbnail.title);
   const description = text('Description', demoContentThumbnail.description);
 

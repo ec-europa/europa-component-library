@@ -31,7 +31,22 @@ export const FileDownload = ({
             <div className="ecl-file__detail">
               <div className="ecl-file__detail-info">
                 {detailMeta && (
-                  <div className="ecl-file__detail-meta">{detailMeta}</div>
+                  <div className="ecl-file__detail-meta">
+                    {Array.isArray(detailMeta) ? (
+                      <>
+                        {detailMeta.map((metaData) => (
+                          <span
+                            key={metaData}
+                            className="ecl-file__detail-meta-item"
+                          >
+                            {metaData}
+                          </span>
+                        ))}
+                      </>
+                    ) : (
+                      <>{detailMeta}</>
+                    )}
+                  </div>
                 )}
                 <div className="ecl-file__title">{title}</div>
                 {description && (
@@ -218,7 +233,10 @@ FileDownload.propTypes = {
   language: PropTypes.string,
   meta: PropTypes.string,
   download: PropTypes.shape(Link.propTypes),
-  detailMeta: PropTypes.string,
+  detailMeta: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.string),
+    PropTypes.string,
+  ]),
   description: PropTypes.string,
   image: PropTypes.shape({
     src: PropTypes.string,

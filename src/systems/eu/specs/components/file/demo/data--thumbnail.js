@@ -1,5 +1,5 @@
 module.exports = {
-  detailMeta: 'RESOURCE TYPE | Publication date',
+  detailMeta: ['Resource type', 'Publication date'],
   title: 'State of the Union 2018 brochure',
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies.',
@@ -25,7 +25,7 @@ module.exports = {
       'Looking for another language which is not on the list? Find out why.',
     items: [
       {
-        title: 'Title',
+        title: 'Title bg',
         description:
           'Morbi fringilla turpis augue, et interdum ipsum egestas sed. Proin tristique, ante id aliquet malesuada, lorem dolor vulputate magna, a commodo purus ante nec massa.',
         meta: '(15.7 MB - PDF)',
@@ -37,7 +37,7 @@ module.exports = {
         },
       },
       {
-        title: 'Title',
+        title: 'Title es',
         description:
           'Proin sagittis nisi hendrerit purus porta, at suscipit est hendrerit. Duis facilisis augue imperdiet, pharetra nisl sed, molestie nulla.',
         meta: '(15.8 MB - PDF)',
@@ -49,7 +49,7 @@ module.exports = {
         },
       },
       {
-        title: 'Title',
+        title: 'Title fr',
         description:
           'Duis eget lacinia arcu. Nullam mattis ornare nibh. Proin tristique, ante id aliquet malesuada. Pellentesque porttitor commodo libero sed fringilla. Curabitur varius sodales elit, id tincidunt erat. Aenean tincidunt luctus molestie.',
         meta: '(15.4 MB - PDF)',
