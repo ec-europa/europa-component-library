@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
@@ -77,7 +77,7 @@ class Skeleton extends Component {
     const { HomePage, prefix, title, pages, routes, isLoading } = this.props;
 
     return (
-      <Fragment>
+      <>
         <Navigation
           pages={pages}
           prefix={prefix}
@@ -103,7 +103,7 @@ class Skeleton extends Component {
             <Route component={isLoading ? LoadingPage : PageNotFound} />
           </Switch>
         </MainContainer>
-      </Fragment>
+      </>
     );
   }
 }

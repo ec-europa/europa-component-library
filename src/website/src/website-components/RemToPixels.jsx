@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 const RemToPixels = ({ rem }) => (
-  <Fragment>
+  <div>
     {rem * parseFloat(getComputedStyle(document.documentElement).fontSize)}
-  </Fragment>
+  </div>
 );
 
 RemToPixels.propTypes = {

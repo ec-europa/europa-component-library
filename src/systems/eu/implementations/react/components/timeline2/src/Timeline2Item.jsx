@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -10,11 +10,11 @@ export const Timeline2Item = ({
   ...props
 }) => (
   <li {...props} className={classnames(className, 'ecl-timeline2__item')}>
-    <Fragment>
+    <>
       <div className="ecl-timeline2__label">{label}</div>
       {title && <div className="ecl-timeline2__title">{title}</div>}
       <div className="ecl-timeline2__content">{children}</div>
-    </Fragment>
+    </>
   </li>
 );
 

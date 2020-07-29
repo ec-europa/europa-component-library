@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import LanguageListItem from './LanguageListItem';
@@ -17,7 +17,7 @@ const LanguageList = ({
   const column2NonEu = itemsNonEu.slice(Math.ceil(itemsNonEu.length / 2));
 
   return (
-    <Fragment>
+    <>
       {/* EU languages */}
       {!!(items && items.length > 0) && (
         <div className="ecl-row ecl-language-list__eu">
@@ -97,7 +97,7 @@ const LanguageList = ({
           </div>
         </div>
       )}
-    </Fragment>
+    </>
   );
 };
 

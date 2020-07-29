@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import demoContentDefault from '@ecl/ec-specs-table/demo/data--multi';
 
 import React from 'react';

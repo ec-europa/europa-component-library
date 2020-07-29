@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 
 import demoContentCorporate from '@ecl/ec-specs-footer/demo/data--corporate';

@@ -2,8 +2,8 @@
 
 const fs = require('fs');
 const path = require('path');
-const glob = require('glob'); // eslint-disable-line import/no-extraneous-dependencies
-const documentation = require('documentation'); // eslint-disable-line import/no-extraneous-dependencies
+const glob = require('glob');
+const documentation = require('documentation');
 
 const dir = path.resolve(
   __dirname,

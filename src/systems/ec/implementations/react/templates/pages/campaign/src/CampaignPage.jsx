@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import Blockquote from '@ecl/ec-react-component-blockquote';
@@ -19,7 +19,7 @@ const CampaignPage = ({
   card,
   blockquote,
 }) => (
-  <Fragment>
+  <>
     <SkipLink href="#main" label="Skip to main content" />
     <SiteHeader
       {...siteHeader}
@@ -76,7 +76,7 @@ const CampaignPage = ({
       </div>
     </main>
     <Footer {...footer} className="ecl-footer-harmonised--group2" />
-  </Fragment>
+  </>
 );
 
 CampaignPage.propTypes = {

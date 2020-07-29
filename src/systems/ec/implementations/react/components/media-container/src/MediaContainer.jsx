@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -26,7 +26,7 @@ const MediaContainer = ({
           {children}
         </div>
       ) : (
-        <Fragment>
+        <>
           {Array.isArray(sources) && sources.length !== 0 ? (
             /* eslint-disable-next-line jsx-a11y/media-has-caption */
             <video
@@ -45,7 +45,7 @@ const MediaContainer = ({
           ) : (
             <img className="ecl-media-container__media" src={image} alt={alt} />
           )}
-        </Fragment>
+        </>
       )}
 
       {description && (

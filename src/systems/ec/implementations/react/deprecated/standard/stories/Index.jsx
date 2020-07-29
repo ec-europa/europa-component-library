@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import StoryWrapper from '@ecl/story-wrapper';
 import StandardPageExample from '../examples/Default';

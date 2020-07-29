@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 
 import breadcrumbContent from '@ecl/ec-specs-breadcrumb/demo/data--simple';

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -26,7 +26,7 @@ const Pagination = ({ label, items, className, ...props }) => {
                 aria-label={item.ariaLabel}
               />
             ) : (
-              <Fragment>
+              <>
                 <span
                   className="ecl-pagination__text ecl-pagination__text--summary"
                   aria-label={item.ariaLabel}
@@ -40,7 +40,7 @@ const Pagination = ({ label, items, className, ...props }) => {
                 >
                   {item.ariaLabel}
                 </span>
-              </Fragment>
+              </>
             )}
           </li>
         ))}

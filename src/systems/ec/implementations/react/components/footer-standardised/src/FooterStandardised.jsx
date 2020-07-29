@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -11,7 +11,7 @@ export const FooterStandardised = ({ sections, className, ...props }) => (
   >
     <div className="ecl-container ecl-footer-standardised__container">
       {!Array.isArray(sections) && (
-        <Fragment>
+        <>
           {/* Site name */}
           <section className="ecl-footer-standardised__section ecl-footer-standardised__section1">
             {sections.siteName && (
@@ -25,7 +25,6 @@ export const FooterStandardised = ({ sections, className, ...props }) => (
               sections.dgServices.map((section, index) => (
                 <section className="ecl-footer-standardised__section">
                   <FooterStandardisedSection
-                    // eslint-disable-next-line react/no-array-index-key
                     key={`dg-services-${index}`}
                     section={section}
                   />
@@ -39,7 +38,6 @@ export const FooterStandardised = ({ sections, className, ...props }) => (
               sections.dgNavigations.map((section, index) => (
                 <section className="ecl-footer-standardised__section">
                   <FooterStandardisedSection
-                    // eslint-disable-next-line react/no-array-index-key
                     key={`dg-navigation-${index}`}
                     section={section}
                   />
@@ -74,12 +72,12 @@ export const FooterStandardised = ({ sections, className, ...props }) => (
               <FooterStandardisedSection section={sections.legalNavigation} />
             )}
           </section>
-        </Fragment>
+        </>
       )}
 
       {/* DEPRECATED; backwards compatibility */}
       {Array.isArray(sections) && (
-        <Fragment>
+        <>
           {sections.map((section, index) => (
             <section
               className={`ecl-footer-standardised__section ecl-footer-standardised__section${
@@ -89,7 +87,7 @@ export const FooterStandardised = ({ sections, className, ...props }) => (
               <FooterStandardisedSection key={section.key} section={section} />
             </section>
           ))}
-        </Fragment>
+        </>
       )}
     </div>
   </footer>

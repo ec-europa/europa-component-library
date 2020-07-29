@@ -1,5 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Link from '@ecl/ec-react-component-link';
@@ -40,7 +39,7 @@ export const MenuLegacyItem = ({ label, href, isCurrent, children }) => {
         });
 
         subItemsMarkup = (
-          <Fragment>
+          <>
             {child.title && (
               <div className="ecl-menu-legacy__separator">{child.title}</div>
             )}
@@ -50,7 +49,7 @@ export const MenuLegacyItem = ({ label, href, isCurrent, children }) => {
             >
               {subItemsArray}
             </ul>
-          </Fragment>
+          </>
         );
       }
 

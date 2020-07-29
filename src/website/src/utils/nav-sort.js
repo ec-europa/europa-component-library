@@ -43,7 +43,7 @@ const loopThroughPages = (pages, level = 0) => {
 
 const addParent = (pages) => {
   pages.forEach((page) => {
-    page.parent = null; // eslint-disable-line no-param-reassign
+    page.parent = null;
 
     if (
       page.children &&
@@ -53,7 +53,7 @@ const addParent = (pages) => {
       addParent(page.children);
 
       page.children.forEach((p) => {
-        p.parent = page; // eslint-disable-line no-param-reassign
+        p.parent = page;
       });
     }
   });

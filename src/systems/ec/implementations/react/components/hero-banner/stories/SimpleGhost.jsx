@@ -1,5 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies, import/prefer-default-export */
-import React, { Fragment } from 'react';
+import React from 'react';
 import { text, boolean } from '@storybook/addon-knobs';
 
 import demoContentSimple from '@ecl/ec-specs-hero-banner/demo/data--simple';
@@ -52,21 +51,21 @@ export const SimpleGhost = () => {
     />
   );
   return fullWidth ? (
-    <Fragment>
+    <>
       <p className="ecl-u-type-paragraph">
         Note: this variant comes with a transparent background; the image here
         in inline style is just for demo
       </p>
       {heroBanner}
-    </Fragment>
+    </>
   ) : (
-    <Fragment>
+    <>
       <p className="ecl-u-type-paragraph">
         Note: this variant comes with a transparent background; the image here
         in inline style is just for demo
       </p>
       <div className="ecl-container">{heroBanner}</div>
-    </Fragment>
+    </>
   );
 };
 

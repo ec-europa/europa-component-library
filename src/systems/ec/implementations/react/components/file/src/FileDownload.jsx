@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Button from '@ecl/ec-react-component-button';
@@ -27,7 +27,7 @@ export const FileDownload = ({
     <div {...props} className={classNames} data-ecl-file>
       <div className="ecl-file__container">
         {variant === 'thumbnail' ? (
-          <Fragment>
+          <>
             <div className="ecl-file__detail">
               <div className="ecl-file__detail-info">
                 {detailMeta && (
@@ -61,9 +61,9 @@ export const FileDownload = ({
               className={classnames(download.className, 'ecl-file__download')}
               download
             />
-          </Fragment>
+          </>
         ) : (
-          <Fragment>
+          <>
             <Icon
               {...icon}
               className={classnames(icon.className, 'ecl-file__icon')}
@@ -83,7 +83,7 @@ export const FileDownload = ({
               className={classnames(download.className, 'ecl-file__download')}
               download
             />
-          </Fragment>
+          </>
         )}
       </div>
       {!!(translation && translation.items && translation.items.length > 0) && (
@@ -109,7 +109,7 @@ export const FileDownload = ({
 
           <ul className="ecl-file__translation-list">
             {variant === 'thumbnail' ? (
-              <Fragment>
+              <>
                 {translation.items.map((item) => (
                   <li
                     className={classnames(
@@ -158,9 +158,9 @@ export const FileDownload = ({
                     />
                   </li>
                 ))}
-              </Fragment>
+              </>
             ) : (
-              <Fragment>
+              <>
                 {translation.items.map((item) => (
                   <li
                     className={classnames(
@@ -199,7 +199,7 @@ export const FileDownload = ({
                     />
                   </li>
                 ))}
-              </Fragment>
+              </>
             )}
             <li className="ecl-file__translation-item ecl-file__translation-description">
               {translation.description}

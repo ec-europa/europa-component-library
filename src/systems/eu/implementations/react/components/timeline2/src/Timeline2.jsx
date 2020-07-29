@@ -1,5 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Button from '@ecl/eu-react-component-button';
@@ -47,7 +46,7 @@ export const Timeline2 = ({
       {items &&
         items.map(
           ({ id: itemId, content: itemContent, ...itemProps }, index) => (
-            <Fragment key={itemId}>
+            <React.Fragment key={itemId}>
               <Timeline2Item
                 {...itemProps}
                 className={classnames({
@@ -60,7 +59,7 @@ export const Timeline2 = ({
               {threshold < items.length &&
                 index === items.length - 3 &&
                 showAllButton}
-            </Fragment>
+            </React.Fragment>
           )
         )}
       {children && children}
