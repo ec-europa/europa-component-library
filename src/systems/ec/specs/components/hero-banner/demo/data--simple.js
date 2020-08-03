@@ -1,6 +1,6 @@
 // Simple content for demo
 module.exports = {
-  meta: 'META INFO | 17 October 2019',
+  meta: ['Meta info', '17 October 2019'],
   title: 'EU Budget for the future',
   description: 'Innovation, economy, environment and geopolitics',
   link: {

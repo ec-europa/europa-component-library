@@ -37,6 +37,24 @@
     margin-bottom: $ecl-spacing-print-m;
   }
 
+  .ecl-hero-banner__meta-item {
+    margin-left: $ecl-spacing-print-xs;
+
+    &::before {
+      content: '|';
+      margin-right: $ecl-spacing-print-xs;
+    }
+  }
+
+  .ecl-hero-banner__meta-item:first-of-type {
+    margin-left: 0;
+    text-transform: uppercase;
+
+    &::before {
+      display: none;
+    }
+  }
+
   /*
    * variant: ghost inverted
    */
