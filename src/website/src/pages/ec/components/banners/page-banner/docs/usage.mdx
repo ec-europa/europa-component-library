@@ -3,47 +3,113 @@ title: Usage
 order: 1
 ---
 
-import { Paragraph } from '@ecl/website-components';
+import { Paragraph, Link, Anatomy } from '@ecl/website-components';
 
 <Paragraph size="lead">
-  A page banner is smaller than a hero banner. The banner is displayed below the
-  European Commission site header. It is the first image users see when they
-  come to the page. It can be used to promote a specific message you have in
-  mind. It is also a specific place where you can provide a call to action
-  button to take your users to a detail page.
+  A Page banner displays the main message of the page, along with additional
+  information and a clear action, if needed. They are a good way to inform users
+  of the main goal of a certain page, such as registering to an event or
+  applying for funding.
 </Paragraph>
 
-## Anatomy
+## Simple/Color
 
-Banners display a focused message and provide users with clear action to take. They are placed at the top of the page below the site header.
+### Anatomy
 
-Page banner images have an aspect ratio of 4:1, meaning the width will be always four times the height of the images.
+<Anatomy
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Page%20Banner/Page%20banner%20-%20Simple.png"
+  srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/Page%20Banner/Page%20banner%20-%20Simple%20-%20Mobile.png 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/Page%20Banner/Page%20banner%20-%20Simple.png 1246w"
+  alt="Anatomy of page banner simple"
+  legend={{
+    items: [
+      {
+        color: '#404040',
+        label: 'mandatory',
+      },
+      {
+        color: '#004494',
+        label: 'optional',
+      },
+    ],
+  }}
+/>
 
-| Components     | Constraint | Restrictions                                               |
-| -------------- | ---------- | ---------------------------------------------------------- |
-| image          | optional   | choice between 2 background colours when there is no image |
-| title          | optional   | single sentence, between 40-50 characters including space  |
-| description    | optional   | 100-150 characters maximum, including space                |
-| call to action | optional   | actionable, verbs, 25 characters maximum, including space  |
+| Elements            | Mandatory | Description                                                                                                                                                                                                                                                                                                                                |
+| ------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| primary meta        | no        | metadata related to the subject and other information if needed (such as date)<br /><br />**Note**: the first item is emphasised and it will be capitalised; items following that will have normal (sentence) capitalisation and separated by a divider                                                                                    |
+| heading             | yes       | heading of the item<br /><br />**Note**: limited to 170 characters, including space - limitation seen on the CMS, adding it now might impact the usage page of other components                                                                                                                                                            |
+| description         | no        | a summary of the content that the component addresses<br /><br />**Note**: limited to 250 characters, including space - limitation seen on the CMS, adding it now might impact the usage page of other components                                                                                                                          |
+| call to action link | no        | link to either internal or external source (the call to action label can be changed to indicate the intended action or goal)<br /><br />**Note**: limited to 25 characters, including space - limitation seen on the CMS, adding it now might impact the usage page of other components                                                    |
+| background          | yes       | choice between 3 background colors - <Link to="/playground/ec/?path=/story/components-banners-page-banner--simple-primary">Blue</Link> / <Link to="/playground/ec/?path=/story/components-banners-page-banner--simple-grey">Grey</Link> / <Link to="/playground/ec/?path=/story/components-banners-page-banner--simple-white">White</Link> |
 
-## When to use
+### Do's
 
-- exclusively for the homepage or a landing page
-- to communicate important messages, such as a motto or a tagline, also possible for user to take an action
+- always use with a short, distinct and indicative heading
+- keep in mind the font-to-background contrast ratio, this improves a page's readability (e.g. dark backgrounds - white text / light backgrounds - black text)
 
-## When not to use
+### Don'ts
 
-- do not use more than one banner in the same webpage
+- do not use the content-width variant next to a full-width element (such as the header & footer)
+- do not display more than 1 call to action per page
+- do not use more than 3 banners on the same page (top, middle and bottom)
+- do not opt for center font-alignment, unless you already have center-aligned content
 
-## Do's
+### When to use it
 
-- the supporting illustration is:
-  - relevant
-  - high quality
-  - emotionally persuasive
-  - full width
-  - the minimum ratio is 4:1
+- when you need to promote or convey an important message to user
+- exclusively on Harmonised (group 2) sites
 
-## Don'ts
+## Image
 
-- where there isn't any specific need to promote or convey an important message to users in that page
+### Anatomy
+
+| Instance       | Anatomy                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| text box       | <Anatomy image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Page%20Banner/Page%20banner%20-%20Image%20-%20Text%20box.png" srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/Page%20Banner/Page%20banner%20-%20Image%20-%20Text%20box%20-%20Mobile.png 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/Page%20Banner/Page%20banner%20-%20Image%20-%20Text%20box.png 1246w" alt="Anatomy of page banner image (text box)" legend={{items: [{color: '#404040',label: 'mandatory'},{color: '#004494',label: 'optional'}]}} /> |
+| shaded overlay | <Anatomy image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Page%20Banner/Page%20banner%20-%20Image%20-%20Shaded.png" srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/Page%20Banner/Page%20banner%20-%20Image%20-%20Shaded%20-%20Mobile.png 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/Page%20Banner/Page%20banner%20-%20Image%20-%20Shaded.png 1246w" alt="Anatomy of page banner image (shaded)" legend={{items: [{color: '#404040',label: 'mandatory'},{color: '#004494',label: 'optional'}]}} />               |
+
+#### Default
+
+| Elements            | Mandatory | Description                                                                                                                                                                                                                                                                             |
+| ------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| image               | yes       | representative image for the page content<br /><br />**Note**: aspect ratio of 4:1                                                                                                                                                                                                      |
+| heading             | yes       | heading of the item<br /><br />**Note**: limited to 50 characters, including space - limitation seen on the CMS, adding it now might impact the usage page of other components                                                                                                          |
+| description         | no        | a summary of the content that the component addresses<br /><br />**Note**: limited to 150 characters, including space - limitation seen on the CMS, adding it now might impact the usage page of other components                                                                       |
+| call to action link | no        | link to either internal or external source (the call to action label can be changed to indicate the intended action or goal)<br /><br />**Note**: limited to 25 characters, including space - limitation seen on the CMS, adding it now might impact the usage page of other components |
+
+#### Conditional
+
+| Elements                | Mandatory | Description                                                                                                                                                                                                                                 |
+| ----------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| text box/shaded overlay | yes       | element that allows for better font-to-background contrast ratio<br /><br />**Note**: If the shaded option has been selected, the text will then be displayed directly on top of the image and not within the text box (see anatomy images) |
+
+### Do's
+
+- always use with a short, distinct and indicative heading
+- select an appropriate image, that is of high quality, suggestive, complementary and relevant for the related content
+- choose the appropriate version (Text-box or Shaded), depending on the chosen image while keeping the contrast ratio in mind
+- keep in mind the font-to-background contrast ratio, this improves a page's readability (e.g. dark backgrounds - white text / light backgrounds - black text)
+- make sure the highlight or main object within the image is visible (depending on the alignment option selected)
+
+### Don'ts
+
+- do not use the content-width variant next to a full-width element (such as the header & footer)
+- do not chose an image that could be visually intrusive or overwhelming in terms of elements
+- do not display more than 1 call to action per page
+- do not use more than 3 banners on the same page (top, middle and bottom)
+- do not opt for centre font-alignment, unless you already have centre-aligned content
+
+### When to use it
+
+- when you need to promote or convey an important message to user
+- exclusively on Harmonised (group 2) sites
+
+### When not to use it
+
+- do not use it on Core, Standardised and Harmonised (group 1 & 3) sites - use <Link to="/ec/components/banners/hero-banner/usage/">Hero banner instead</Link>
+
+## Related components
+
+- <Link to="/ec/components/banners/hero-banner/usage/" standalone>
+    Hero banner
+  </Link>
