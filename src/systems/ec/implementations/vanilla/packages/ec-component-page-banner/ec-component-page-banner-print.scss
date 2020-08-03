@@ -21,15 +21,32 @@
     margin-top: 0;
   }
 
-  .ecl-page-banner__baseline {
+  .ecl-page-banner__description {
     color: $ecl-color-black-100;
     font: $ecl-font-prolonged-print-l;
     margin-bottom: 0;
     margin-top: $ecl-spacing-print-m;
   }
 
-  .ecl-page-banner__baseline + .ecl-link {
+  .ecl-page-banner__description + .ecl-link {
     margin-top: $ecl-spacing-print-m;
+  }
+
+  .ecl-page-banner__meta {
+    font: $ecl-font-print-m;
+    margin-bottom: $ecl-spacing-print-m;
+  }
+
+  /*
+   * variant: ghost inverted
+   */
+  .ecl-page-banner--ghost-invert {
+    .ecl-page-banner__meta,
+    .ecl-page-banner__title,
+    .ecl-page-banner__description,
+    .ecl-page-banner__link-cta {
+      color: $ecl-color-white;
+    }
   }
 }
 

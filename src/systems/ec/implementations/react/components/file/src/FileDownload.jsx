@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Button from '@ecl/ec-react-component-button';
@@ -27,11 +27,26 @@ export const FileDownload = ({
     <div {...props} className={classNames} data-ecl-file>
       <div className="ecl-file__container">
         {variant === 'thumbnail' ? (
-          <Fragment>
+          <>
             <div className="ecl-file__detail">
               <div className="ecl-file__detail-info">
                 {detailMeta && (
-                  <div className="ecl-file__detail-meta">{detailMeta}</div>
+                  <div className="ecl-file__detail-meta">
+                    {Array.isArray(detailMeta) ? (
+                      <>
+                        {detailMeta.map((metaData) => (
+                          <span
+                            key={metaData}
+                            className="ecl-file__detail-meta-item"
+                          >
+                            {metaData}
+                          </span>
+                        ))}
+                      </>
+                    ) : (
+                      <>{detailMeta}</>
+                    )}
+                  </div>
                 )}
                 <div className="ecl-file__title">{title}</div>
                 {description && (
@@ -61,9 +76,9 @@ export const FileDownload = ({
               className={classnames(download.className, 'ecl-file__download')}
               download
             />
-          </Fragment>
+          </>
         ) : (
-          <Fragment>
+          <>
             <Icon
               {...icon}
               className={classnames(icon.className, 'ecl-file__icon')}
@@ -83,7 +98,7 @@ export const FileDownload = ({
               className={classnames(download.className, 'ecl-file__download')}
               download
             />
-          </Fragment>
+          </>
         )}
       </div>
       {!!(translation && translation.items && translation.items.length > 0) && (
@@ -109,7 +124,7 @@ export const FileDownload = ({
 
           <ul className="ecl-file__translation-list">
             {variant === 'thumbnail' ? (
-              <Fragment>
+              <>
                 {translation.items.map((item) => (
                   <li
                     className={classnames(
@@ -158,9 +173,9 @@ export const FileDownload = ({
                     />
                   </li>
                 ))}
-              </Fragment>
+              </>
             ) : (
-              <Fragment>
+              <>
                 {translation.items.map((item) => (
                   <li
                     className={classnames(
@@ -199,7 +214,7 @@ export const FileDownload = ({
                     />
                   </li>
                 ))}
-              </Fragment>
+              </>
             )}
             <li className="ecl-file__translation-item ecl-file__translation-description">
               {translation.description}
@@ -218,7 +233,10 @@ FileDownload.propTypes = {
   language: PropTypes.string,
   meta: PropTypes.string,
   download: PropTypes.shape(Link.propTypes),
-  detailMeta: PropTypes.string,
+  detailMeta: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.string),
+    PropTypes.string,
+  ]),
   description: PropTypes.string,
   image: PropTypes.shape({
     src: PropTypes.string,

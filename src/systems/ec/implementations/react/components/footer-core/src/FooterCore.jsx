@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -8,7 +8,7 @@ export const FooterCore = ({ sections, className, ...props }) => (
   <footer {...props} className={classnames(className, 'ecl-footer-core')}>
     <div className="ecl-container ecl-footer-core__container">
       {!Array.isArray(sections) && (
-        <Fragment>
+        <>
           {/* Site name */}
           <section className="ecl-footer-core__section ecl-footer-core__section1">
             {sections.siteName && (
@@ -36,12 +36,12 @@ export const FooterCore = ({ sections, className, ...props }) => (
               <FooterCoreSection section={sections.legalNavigation} />
             )}
           </section>
-        </Fragment>
+        </>
       )}
 
       {/* DEPRECATED; backwards compatibility */}
       {Array.isArray(sections) && (
-        <Fragment>
+        <>
           {sections.map((section, index) => (
             <section
               className={`ecl-footer-core__section ecl-footer-core__section${
@@ -51,7 +51,7 @@ export const FooterCore = ({ sections, className, ...props }) => (
               <FooterCoreSection key={section.key} section={section} />
             </section>
           ))}
-        </Fragment>
+        </>
       )}
     </div>
   </footer>

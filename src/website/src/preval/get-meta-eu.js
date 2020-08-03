@@ -1,5 +1,5 @@
 // @preval
-/* eslint-disable import/no-extraneous-dependencies */
+
 const matter = require('gray-matter');
 const { resolve } = require('path');
 const glob = require('glob');

@@ -1,5 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import Breadcrumb, { BreadcrumbItem } from '@ecl/eu-react-component-breadcrumb';
 import Card from '@ecl/eu-react-component-card';
@@ -35,7 +34,7 @@ export default () => {
   );
 
   return (
-    <Fragment>
+    <>
       <SiteHeader {...siteHeaderContent} data-ecl-auto-init="SiteHeader" />
       <PageHeader
         breadcrumb={breadcrumb}
@@ -762,6 +761,6 @@ export default () => {
         }}
       />
       <Footer {...footerContent} />
-    </Fragment>
+    </>
   );
 };

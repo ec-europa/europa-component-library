@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 
 import demoContentSimple from '@ecl/ec-specs-content-item/demo/data--simple';

@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import demoContent from '@ecl/ec-specs-dropdown-legacy/demo/data';
 import parse from 'html-react-parser';

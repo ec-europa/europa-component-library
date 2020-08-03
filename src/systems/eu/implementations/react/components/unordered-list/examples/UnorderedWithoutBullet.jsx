@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import parse from 'html-react-parser';
 import demoLink from '@ecl/eu-specs-unordered-list/demo/data--link';

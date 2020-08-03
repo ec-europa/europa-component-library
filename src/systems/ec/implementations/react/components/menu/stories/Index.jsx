@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import StoryWrapper from '@ecl/story-wrapper';
 import demoContent from '@ecl/ec-specs-menu/demo/data--en';

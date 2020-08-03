@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import Footer from '@ecl/ec-react-component-footer';
@@ -8,7 +8,7 @@ import SiteHeader from '@ecl/ec-react-component-site-header';
 import data from '@ecl/ec-specs-content-page/demo/data';
 
 const ContentPage = ({ siteHeader, pageHeader, footer, inpageNavigation }) => (
-  <Fragment>
+  <>
     <SiteHeader {...siteHeader} data-ecl-auto-init="SiteHeader" />
     <PageHeader {...pageHeader} />
     <div className="ecl-container">
@@ -60,7 +60,7 @@ const ContentPage = ({ siteHeader, pageHeader, footer, inpageNavigation }) => (
       </div>
     </div>
     <Footer {...footer} />
-  </Fragment>
+  </>
 );
 
 ContentPage.propTypes = {

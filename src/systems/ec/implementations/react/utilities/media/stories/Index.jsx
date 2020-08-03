@@ -1,5 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React, { Fragment } from 'react';
+import React from 'react';
 import classnames from 'classnames';
 import { withKnobs, select } from '@storybook/addon-knobs';
 
@@ -177,7 +176,7 @@ export const Custom = () => {
   );
 
   return (
-    <Fragment>
+    <>
       <h2 className="ecl-u-type-heading-2">Media sizes</h2>
       {Media(direction, size)}
 
@@ -188,7 +187,7 @@ export const Custom = () => {
 
       <h2 className="ecl-u-type-heading-2">Background media</h2>
       {MediaBg(bgPosition, bgOrigin, bgRepeat, bgSize)}
-    </Fragment>
+    </>
   );
 };
 

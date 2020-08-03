@@ -1,5 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import BreadcrumbCore, {
@@ -66,7 +65,7 @@ class PersonListCore extends React.Component {
     dataCopy.pageHeader.breadcrumb = breadcrumb;
 
     return (
-      <Fragment>
+      <>
         <SiteHeaderCore
           {...dataCopy.siteHeader}
           data-ecl-auto-init="SiteHeaderCore"
@@ -74,7 +73,7 @@ class PersonListCore extends React.Component {
         <PageHeaderCore {...dataCopy.pageHeader} />
         <PersonListPage template="core" />
         <FooterCore {...dataCopy.footer} />
-      </Fragment>
+      </>
     );
   }
 }

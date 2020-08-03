@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 
 import demoContentSplash from '@ecl/ec-specs-language-list/demo/data--splash';

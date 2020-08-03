@@ -1,5 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React, { Fragment } from 'react';
+import React from 'react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { withCssResources } from '@storybook/addon-cssresources';
 
@@ -47,10 +46,10 @@ export default {
 
 export const Default = () => {
   return (
-    <Fragment>
+    <>
       <SkipLink href={demoData.href} label={text('Label', demoData.label)} />
       <div id={demoData.href.replace('#', '')} />
-    </Fragment>
+    </>
   );
 };
 

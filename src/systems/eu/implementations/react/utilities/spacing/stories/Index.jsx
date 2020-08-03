@@ -1,5 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React, { Fragment } from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 
@@ -50,7 +49,7 @@ storiesOf('Utilities/Spacing', module)
   })
   .addDecorator(withKnobs)
   .add('default', () => (
-    <Fragment>
+    <>
       <h2 className="ecl-u-type-heading-2">All around spacing</h2>
       {Spacing('a', '2xs')}
       {Spacing('a', 'xs')}
@@ -83,5 +82,5 @@ storiesOf('Utilities/Spacing', module)
       {Spacing('h', '2xl')}
       {Spacing('h', '3xl')}
       {Spacing('h', '4xl')}
-    </Fragment>
+    </>
   ));

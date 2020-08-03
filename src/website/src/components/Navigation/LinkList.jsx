@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
@@ -29,7 +29,7 @@ const LinkList = React.memo(
                   level={level}
                 />
               ) : (
-                <Fragment>
+                <>
                   {p.attributes.type === 'group' ? (
                     <LinkGroup
                       pages={p.children}
@@ -46,7 +46,7 @@ const LinkList = React.memo(
                       level={level}
                     />
                   )}
-                </Fragment>
+                </>
               )}
             </li>
           );

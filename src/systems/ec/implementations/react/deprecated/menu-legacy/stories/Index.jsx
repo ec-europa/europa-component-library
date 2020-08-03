@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { withKnobs } from '@storybook/addon-knobs/react';
 import { withCssResources } from '@storybook/addon-cssresources';

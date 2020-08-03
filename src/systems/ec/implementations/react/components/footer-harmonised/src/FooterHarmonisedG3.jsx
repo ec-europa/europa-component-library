@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -14,7 +14,7 @@ export const FooterHarmonisedG3 = ({ sections, className, ...props }) => (
   >
     <div className="ecl-container ecl-footer-harmonised__container">
       {!Array.isArray(sections) && (
-        <Fragment>
+        <>
           {/* Partnership label */}
           <section className="ecl-footer-harmonised__section ecl-footer-harmonised__section1">
             {sections.partnershipLabel && (
@@ -45,12 +45,12 @@ export const FooterHarmonisedG3 = ({ sections, className, ...props }) => (
               )}
             </ul>
           </section>
-        </Fragment>
+        </>
       )}
 
       {/* DEPRECATED; backwards compatibility */}
       {Array.isArray(sections) && (
-        <Fragment>
+        <>
           {sections.map((section, index) => (
             <section
               className={`ecl-footer-harmonised__section ecl-footer-harmonised__section${
@@ -60,7 +60,7 @@ export const FooterHarmonisedG3 = ({ sections, className, ...props }) => (
               <FooterHarmonisedSection key={section.key} section={section} />
             </section>
           ))}
-        </Fragment>
+        </>
       )}
     </div>
   </footer>

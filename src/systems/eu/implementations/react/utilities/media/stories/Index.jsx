@@ -1,5 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React, { Fragment } from 'react';
+import React from 'react';
 import classnames from 'classnames';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, select } from '@storybook/addon-knobs';
@@ -175,7 +174,7 @@ storiesOf('Utilities/Media', module)
     );
 
     return (
-      <Fragment>
+      <>
         <h2 className="ecl-u-type-heading-2">Media sizes</h2>
         {Media(direction, size)}
 
@@ -186,6 +185,6 @@ storiesOf('Utilities/Media', module)
 
         <h2 className="ecl-u-type-heading-2">Background media</h2>
         {MediaBg(bgPosition, bgOrigin, bgRepeat, bgSize)}
-      </Fragment>
+      </>
     );
   });

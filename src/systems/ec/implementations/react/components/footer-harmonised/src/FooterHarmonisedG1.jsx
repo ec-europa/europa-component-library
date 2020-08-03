@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -14,7 +14,7 @@ export const FooterHarmonisedG1 = ({ sections, className, ...props }) => (
   >
     <div className="ecl-container ecl-footer-harmonised__container">
       {!Array.isArray(sections) && (
-        <Fragment>
+        <>
           {/* Site name */}
           <section className="ecl-footer-harmonised__section ecl-footer-harmonised__section1">
             {sections.siteName && (
@@ -28,7 +28,6 @@ export const FooterHarmonisedG1 = ({ sections, className, ...props }) => (
               sections.dgServices.map((section, index) => (
                 <section className="ecl-footer-harmonised__section">
                   <FooterHarmonisedSection
-                    // eslint-disable-next-line react/no-array-index-key
                     key={`dg-services-${index}`}
                     section={section}
                   />
@@ -42,7 +41,6 @@ export const FooterHarmonisedG1 = ({ sections, className, ...props }) => (
               sections.dgNavigations.map((section, index) => (
                 <section className="ecl-footer-harmonised__section">
                   <FooterHarmonisedSection
-                    // eslint-disable-next-line react/no-array-index-key
                     key={`dg-navigation-${index}`}
                     section={section}
                   />
@@ -77,12 +75,12 @@ export const FooterHarmonisedG1 = ({ sections, className, ...props }) => (
               <FooterHarmonisedSection section={sections.legalNavigation} />
             )}
           </section>
-        </Fragment>
+        </>
       )}
 
       {/* DEPRECATED; backwards compatibility */}
       {Array.isArray(sections) && (
-        <Fragment>
+        <>
           {sections.map((section, index) => (
             <section
               className={`ecl-footer-harmonised__section ecl-footer-harmonised__section${
@@ -92,7 +90,7 @@ export const FooterHarmonisedG1 = ({ sections, className, ...props }) => (
               <FooterHarmonisedSection key={section.key} section={section} />
             </section>
           ))}
-        </Fragment>
+        </>
       )}
     </div>
   </footer>

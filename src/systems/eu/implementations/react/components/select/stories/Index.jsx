@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React, { useEffect } from 'react';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 

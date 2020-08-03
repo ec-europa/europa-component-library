@@ -87,6 +87,24 @@
     margin-bottom: $ecl-spacing-xs;
   }
 
+  .ecl-file__detail-meta-item {
+    margin-left: $ecl-spacing-xs;
+
+    &::before {
+      content: '|';
+      margin-right: $ecl-spacing-xs;
+    }
+  }
+
+  .ecl-file__detail-meta-item:first-of-type {
+    margin-left: 0;
+    text-transform: uppercase;
+
+    &::before {
+      display: none;
+    }
+  }
+
   .ecl-file__description {
     color: $ecl-color-grey;
     font: $ecl-font-prolonged-m;
