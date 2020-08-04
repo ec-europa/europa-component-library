@@ -1,5 +1,5 @@
 ---
-title: File
+title: Files
 defaultTab: usage
 status: ready
 ---
