@@ -1,6 +1,7 @@
 module.exports = {
   detailMeta: ['Resource type', 'Publication date'],
   title: 'State of the Union 2018 brochure',
+  arialLabel: 'Download file State of the Union 2018 brochure',
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies.',
   image: {

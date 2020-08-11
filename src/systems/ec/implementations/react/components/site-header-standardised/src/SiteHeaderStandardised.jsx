@@ -135,10 +135,10 @@ const SiteHeaderStandardised = ({
               <a
                 className="ecl-link ecl-link--standalone ecl-site-header-standardised__language-selector"
                 href={languageSelector.href}
+                arial-label={languageSelector.label}
                 data-ecl-language-selector
                 {...(hasLanguageOverlay && {
                   'aria-controls': 'language-list-overlay',
-                  'aria-expanded': 'false',
                 })}
               >
                 <span className="ecl-site-header-standardised__language-icon">

@@ -8,6 +8,7 @@ import Link from '@ecl/ec-react-component-link';
 export const FileDownload = ({
   variant,
   title,
+  arialLabel,
   language,
   meta,
   icon,
@@ -74,6 +75,7 @@ export const FileDownload = ({
               }}
               variant="standalone"
               className={classnames(download.className, 'ecl-file__download')}
+              aria-label={arialLabel}
               download
             />
           </>
@@ -96,6 +98,7 @@ export const FileDownload = ({
               }}
               variant="standalone"
               className={classnames(download.className, 'ecl-file__download')}
+              aria-label={arialLabel}
               download
             />
           </>
@@ -209,6 +212,7 @@ export const FileDownload = ({
                         item.download.className,
                         'ecl-file__translation-download'
                       )}
+                      aria-label={arialLabel}
                       download
                       {...(item.lang && { hrefLang: item.lang })}
                     />
@@ -263,6 +267,7 @@ FileDownload.defaultProps = {
   variant: '',
   icon: Icon.defaultProps,
   title: '',
+  arialLabel: '',
   language: '',
   meta: '',
   download: {},
