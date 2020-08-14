@@ -33,7 +33,24 @@ const HeroBanner = ({
       <div className="ecl-container">
         <div className="ecl-hero-banner__container">
           <div className="ecl-hero-banner__content">
-            {meta && <div className="ecl-hero-banner__meta">{meta}</div>}
+            {meta && (
+              <div className="ecl-hero-banner__meta">
+                {Array.isArray(meta) ? (
+                  <>
+                    {meta.map((metaData) => (
+                      <span
+                        key={metaData}
+                        className="ecl-hero-banner__meta-item"
+                      >
+                        {metaData}
+                      </span>
+                    ))}
+                  </>
+                ) : (
+                  meta
+                )}
+              </div>
+            )}
             {title && <div className="ecl-hero-banner__title">{title}</div>}
             {description && (
               <p className="ecl-hero-banner__description">{description}</p>
@@ -54,7 +71,10 @@ const HeroBanner = ({
 
 HeroBanner.propTypes = {
   variant: PropTypes.string,
-  meta: PropTypes.string,
+  meta: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.string),
+    PropTypes.string,
+  ]),
   title: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,
