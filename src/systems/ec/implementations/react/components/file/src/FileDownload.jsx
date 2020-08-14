@@ -234,6 +234,7 @@ FileDownload.propTypes = {
   variant: PropTypes.string,
   icon: PropTypes.shape(Icon.propTypes),
   title: PropTypes.string,
+  ariaLabel: PropTypes.string,
   language: PropTypes.string,
   meta: PropTypes.string,
   download: PropTypes.shape(Link.propTypes),
