@@ -47,7 +47,7 @@ const PageBanner = ({
                     ))}
                   </>
                 ) : (
-                  <>{meta}</>
+                  meta
                 )}
               </div>
             )}

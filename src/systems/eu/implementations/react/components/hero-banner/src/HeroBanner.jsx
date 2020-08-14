@@ -47,7 +47,7 @@ const HeroBanner = ({
                     ))}
                   </>
                 ) : (
-                  <>{meta}</>
+                  meta
                 )}
               </div>
             )}
