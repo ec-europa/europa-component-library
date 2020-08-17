@@ -223,6 +223,7 @@ module.exports = {
       'process.env.ECL_EC_PRESET_WEBSITE_PRINT_CSS': JSON.stringify('n/a'),
       'process.env.ECL_EC_PRESET_WEBSITE_JS': JSON.stringify('n/a'),
       'process.env.ECL_EU_PRESET_WEBSITE_CSS': JSON.stringify('n/a'),
+      'process.env.ECL_EU_PRESET_WEBSITE_POC_CSS': JSON.stringify('n/a'),
       'process.env.ECL_EU_PRESET_WEBSITE_PRINT_CSS': JSON.stringify('n/a'),
       'process.env.ECL_EU_PRESET_WEBSITE_JS': JSON.stringify('n/a'),
     }),

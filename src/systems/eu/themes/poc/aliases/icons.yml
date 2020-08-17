@@ -4,6 +4,7 @@ imports:
 
 # Custom aliases used in the "PoC" theme
 aliases:
+  _ICON_2XS: '{!ICON_2XS}'
   _ICON_XS: '{!ICON_XS}'
   _ICON_S: '{!ICON_S}'
   _ICON_M: '{!ICON_M}'
@@ -12,6 +13,7 @@ aliases:
   _ICON_2XL: '{!ICON_2XL}'
   _ICON_FLUID: '{!ICON_FLUID}'
 
+  _ICON_PRINT_2XS: '{!ICON_PRINT_2XS}'
   _ICON_PRINT_XS: '{!ICON_PRINT_XS}'
   _ICON_PRINT_S: '{!ICON_PRINT_S}'
   _ICON_PRINT_M: '{!ICON_PRINT_M}'
@@ -22,6 +24,11 @@ aliases:
 
 # Export properties
 props:
+  - name: ICON_2XS
+    value: '{!_ICON_2XS}'
+    comment: Icon 2XS
+    type: icon
+    category: icon
   - name: ICON_XS
     value: '{!_ICON_XS}'
     comment: Icon XS
@@ -58,6 +65,11 @@ props:
     type: icon
     category: icon
 
+  - name: ICON_PRINT_2XS
+    value: '{!_ICON_PRINT_2XS}'
+    comment: Icon Print 2XS
+    type: icon
+    category: icon
   - name: ICON_PRINT_XS
     value: '{!_ICON_PRINT_XS}'
     comment: Icon Print XS

@@ -328,6 +328,9 @@ module.exports = {
       'process.env.ECL_EU_PRESET_WEBSITE_CSS': JSON.stringify(
         (sri['ecl-eu-preset-website.css'] || []).join(' ') || 'n/a'
       ),
+      'process.env.ECL_EU_PRESET_WEBSITE_POC_CSS': JSON.stringify(
+        (sri['ecl-eu-preset-website-poc.css'] || []).join(' ') || 'n/a'
+      ),
       'process.env.ECL_EU_PRESET_WEBSITE_PRINT_CSS': JSON.stringify(
         (sri['ecl-eu-preset-website-print.css'] || []).join(' ') || 'n/a'
       ),

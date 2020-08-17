@@ -9,14 +9,24 @@
 @include check-imports(('eu-component-icon'));
 
 @mixin ecl-button(
-  $border-width: 2px,
+  // Global parameters:
+    $border-radius: 0,
+  // Component variables
+    $border-width: 2px,
   $outline-width: 3px,
   $padding-horizontal: $ecl-spacing-s,
   $padding-vertical: $ecl-spacing-m
 ) {
+  @if $ecl-global-border-radius == 1 {
+    $border-radius: $ecl-border-radius-4;
+  } @else {
+    $border-radius: $ecl-border-radius-0;
+  }
+
   .ecl-button {
     appearance: none;
     background: none;
+    border-radius: $border-radius;
     border-width: 0;
     box-sizing: border-box;
     display: inline-block;
@@ -63,18 +73,18 @@
    * Primary
    */
   .ecl-button--primary {
-    background-color: $ecl-color-primary;
+    background-color: $ecl-color-blue-100;
     color: $ecl-color-white-100;
 
     &:hover,
     &:active {
-      background-color: $ecl-color-primary-120;
+      background-color: $ecl-color-blue-130;
     }
 
     &[disabled],
     &[disabled]:hover {
-      background-color: $ecl-color-primary-25;
-      border-color: $ecl-color-primary-25;
+      background-color: $ecl-color-blue-25;
+      border-color: $ecl-color-blue-25;
       color: $ecl-color-white-100;
     }
   }
@@ -84,22 +94,22 @@
    */
   .ecl-button--secondary {
     background-color: $ecl-color-white-100;
-    border: $border-width solid $ecl-color-secondary;
-    color: $ecl-color-secondary;
+    border: $border-width solid $ecl-color-blue-100;
+    color: $ecl-color-blue-100;
     padding: calc(#{$padding-horizontal} - #{$border-width})
       calc(#{$padding-vertical} - #{$border-width});
 
     &:hover,
     &:active {
-      border-color: $ecl-color-secondary-120;
-      color: $ecl-color-secondary-120;
+      border-color: $ecl-color-blue-130;
+      color: $ecl-color-blue-130;
     }
 
     &[disabled],
     &[disabled]:hover {
       background-color: $ecl-color-white-100;
-      border-color: $ecl-color-secondary-25;
-      color: $ecl-color-secondary-25;
+      border-color: $ecl-color-blue-25;
+      color: $ecl-color-blue-25;
     }
   }
 

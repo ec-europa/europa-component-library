@@ -14,5 +14,6 @@ cp -r ../../dist/packages/ec-preset-website/. ./public/playground/ec
 cp -r ../../dist/packages/ec-preset-legacy-website/. ./public/playground/ec
 cp -r ../../dist/packages/ec-preset-editor/. ./public/playground/ec
 cp -r ../../dist/packages/eu-preset-website/. ./public/playground/eu
+cp -r ../../dist/packages/eu-preset-website-poc/. ./public/playground/eu
 cp -r ../../dist/packages/eu-preset-legacy-website/. ./public/playground/eu
 cp -r ../../dist/packages/eu-preset-editor/. ./public/playground/eu

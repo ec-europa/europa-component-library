@@ -2,17 +2,14 @@ module.exports = ({
   mapName = '',
   keyName = undefined,
   filter = () => true,
-}) => defs => {
+}) => (defs) => {
   const declarations = defs
     .get('props')
     .filter(filter)
-    .map(prop => {
+    .map((prop) => {
       const k = keyName
         ? keyName(prop)
-        : prop
-            .get('name')
-            .toLowerCase()
-            .replace(/_/g, '-');
+        : prop.get('name').toLowerCase().replace(/_/g, '-');
 
       const v =
         prop.get('type') === 'string'

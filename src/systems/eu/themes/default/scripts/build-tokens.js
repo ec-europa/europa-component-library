@@ -17,6 +17,29 @@ buildTokens({
   format: 'ecl.scss',
 });
 
+// Global SCSS map
+const globalPrefix = 'GLOBAL_';
+theo.registerFormat(
+  'global.scss.map',
+  scssMap({
+    mapName: '$ecl-global',
+    keyName: (prop) =>
+      prop
+        .get('name')
+        .slice(globalPrefix.length)
+        .toLowerCase()
+        .replace(/_/g, '-'),
+    filter: (prop) => prop.get('name').indexOf(globalPrefix) === 0,
+  })
+);
+
+buildTokens({
+  input: path.join(__dirname, '../aliases/global.yml'),
+  output: path.join(__dirname, '../exports/global.scss'),
+  type: 'web',
+  format: 'global.scss.map',
+});
+
 // Spacings SCSS map
 const spacingPrefix = 'SPACING_';
 theo.registerFormat(
@@ -136,6 +159,29 @@ buildTokens({
   output: path.join(__dirname, '../exports/media.scss'),
   type: 'web',
   format: 'media.scss.map',
+});
+
+// Border radius SCSS map
+const borderRadiusPrefix = 'BORDER_RADIUS_';
+theo.registerFormat(
+  'border-radius.scss.map',
+  scssMap({
+    mapName: '$ecl-border-radius',
+    keyName: (prop) =>
+      prop
+        .get('name')
+        .slice(borderRadiusPrefix.length)
+        .toLowerCase()
+        .replace(/_/g, '-'),
+    filter: (prop) => prop.get('name').indexOf(borderRadiusPrefix) === 0,
+  })
+);
+
+buildTokens({
+  input: path.join(__dirname, '../aliases/border-radius.yml'),
+  output: path.join(__dirname, '../exports/border-radius.scss'),
+  type: 'web',
+  format: 'border-radius.scss.map',
 });
 
 // Colors SCSS map
