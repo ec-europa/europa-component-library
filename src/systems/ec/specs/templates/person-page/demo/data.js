@@ -1,4 +1,3 @@
-/* eslint "import/no-extraneous-dependencies": ["error", { "devDependencies": true } ] */
 const menuContent = require('@ecl/ec-specs-menu/demo/data--en');
 const siteHeaderCoreContent = require('@ecl/ec-specs-site-header-core/demo/data--en');
 const siteHeaderHarmonisedGroup1Content = require('@ecl/ec-specs-site-header-harmonised/demo/data--group1');
@@ -24,7 +23,7 @@ const pageHeaderContent = {
   description: 'Health & Food Safety',
 };
 
-module.exports = template => {
+module.exports = (template) => {
   const data = {
     breadcrumbContent,
     breadcrumbItems,

@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 
 import demoContentCard from '@ecl/eu-specs-card/demo/data--card';
@@ -6,8 +5,6 @@ import demoContentTile from '@ecl/eu-specs-card/demo/data--tile';
 
 import Card from '../src/Card';
 
-// Storybook issues with modules' resolutions https://github.com/storybookjs/storybook/issues/9621
-/* eslint-disable-next-line import/prefer-default-export */
 export const Template = () => {
   const image1 = {
     alt: demoContentCard.image.alt,
@@ -17,7 +14,7 @@ export const Template = () => {
     variant: 'standalone',
     label: 'Policy coherence for development in the European Union',
     href: '/example#1',
-    level: 1,
+    level: 3,
   };
   const title2 = {
     variant: 'standalone',

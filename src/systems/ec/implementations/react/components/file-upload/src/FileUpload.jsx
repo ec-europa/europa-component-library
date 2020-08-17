@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -27,10 +27,7 @@ const FileUpload = ({
   return (
     <div
       data-ecl-file-upload-group
-      className={classnames(
-        groupClassName,
-        'ecl-form-group ecl-form-group--file-upload'
-      )}
+      className={classnames(groupClassName, 'ecl-form-group')}
     >
       {label && (
         <label
@@ -42,17 +39,17 @@ const FileUpload = ({
         >
           {label}
           {required ? (
-            <Fragment>
+            <>
               {requiredText && (
                 <span className="ecl-form-label__required">{requiredText}</span>
               )}
-            </Fragment>
+            </>
           ) : (
-            <Fragment>
+            <>
               {optionalText && (
                 <span className="ecl-form-label__optional">{optionalText}</span>
               )}
-            </Fragment>
+            </>
           )}
         </label>
       )}

@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 const fs = require('fs');
 const mkdirp = require('mkdirp');
 const path = require('path');
@@ -12,7 +11,7 @@ const writeSprite = ({ cwd, files, dest, outputFile }) => {
         generator(name) {
           const segments = name.split(path.sep);
           const id = segments
-            .map(segment => {
+            .map((segment) => {
               let s = segment;
               if (segment.startsWith('_')) {
                 console.log(
@@ -44,7 +43,7 @@ const writeSprite = ({ cwd, files, dest, outputFile }) => {
     },
   });
 
-  files.forEach(file => {
+  files.forEach((file) => {
     const filePath = path.resolve(cwd, file);
     spriter.add(
       filePath,
@@ -54,8 +53,8 @@ const writeSprite = ({ cwd, files, dest, outputFile }) => {
   });
 
   spriter.compile((error, result) => {
-    Object.keys(result).forEach(mode => {
-      Object.keys(result[mode]).forEach(resource => {
+    Object.keys(result).forEach((mode) => {
+      Object.keys(result[mode]).forEach((resource) => {
         mkdirp.sync(path.dirname(result[mode][resource].path));
         fs.writeFileSync(
           result[mode][resource].path,

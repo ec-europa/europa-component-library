@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 
 import breadcrumbContent from '@ecl/eu-specs-breadcrumb/demo/data--simple';
@@ -15,7 +14,7 @@ export default () => {
   const { items, ...breadcrumbProps } = breadcrumbContent;
   const breadcrumb = (
     <Breadcrumb {...breadcrumbProps}>
-      {items.map(item => (
+      {items.map((item) => (
         <BreadcrumbItem {...item} key={item.label} />
       ))}
     </Breadcrumb>

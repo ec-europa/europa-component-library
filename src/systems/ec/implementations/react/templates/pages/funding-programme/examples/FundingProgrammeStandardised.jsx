@@ -1,5 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -76,7 +75,7 @@ class FundingProgrammeStandardised extends React.Component {
           {...dataCopy.breadcrumbContent}
           data-ecl-auto-init="BreadcrumbStandardised"
         >
-          {dataCopy.breadcrumbItems.map(item => (
+          {dataCopy.breadcrumbItems.map((item) => (
             <BreadcrumbStandardisedItem {...item} key={item.label} />
           ))}
         </BreadcrumbStandardised>
@@ -85,7 +84,7 @@ class FundingProgrammeStandardised extends React.Component {
     }
 
     return (
-      <Fragment>
+      <>
         <SiteHeaderStandardised
           {...dataCopy.siteHeader}
           data-ecl-auto-init="SiteHeaderStandardised"
@@ -96,7 +95,7 @@ class FundingProgrammeStandardised extends React.Component {
         />
         <FundingProgrammePage template="standardised" />
         <FooterStandardised {...dataCopy.footer} />
-      </Fragment>
+      </>
     );
   }
 }

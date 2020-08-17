@@ -1,4 +1,3 @@
-/* eslint "import/no-extraneous-dependencies": ["error", { "devDependencies": true } ] */
 const menuContent = require('@ecl/ec-specs-menu/demo/data--en');
 const siteHeaderCoreContent = require('@ecl/ec-specs-site-header-core/demo/data--en');
 const siteHeaderHarmonisedGroup1Content = require('@ecl/ec-specs-site-header-harmonised/demo/data--group1');
@@ -30,7 +29,7 @@ const pageHeaderContent = {
     'Preparatory action to provide a financial contribution to a European financial expertise centre for the direct benefit of European end-users and other non-industry stakeholders',
 };
 
-module.exports = template => {
+module.exports = (template) => {
   const data = {
     breadcrumbContent,
     breadcrumbItems,

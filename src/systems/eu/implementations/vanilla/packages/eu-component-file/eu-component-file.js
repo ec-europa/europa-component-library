@@ -1,10 +1,24 @@
 import { queryOne } from '@ecl/eu-base/helpers/dom';
 
+/**
+ * @param {HTMLElement} element DOM element for component instantiation and scope
+ * @param {Object} options
+ * @param {String} options.translationToggleSelector Selector for toggling translatoins section
+ * @param {String} options.translationContainerSelector Selector for translations section container
+ * @param {Boolean} options.attachClickListener Whether or not to bind click events on toggle
+ */
 export class FileDownload {
+  /**
+   * @static
+   * Shorthand for instance creation and initialisation.
+   *
+   * @param {HTMLElement} root DOM element for component instantiation and scope
+   *
+   * @return {FileDownload} An instance of FileDownload.
+   */
   static autoInit(root, { FILE_DOWNLOAD: defaultOptions = {} } = {}) {
     const fileDownload = new FileDownload(root, defaultOptions);
     fileDownload.init();
-    // eslint-disable-next-line no-param-reassign
     root.ECLFileDownload = fileDownload;
     return fileDownload;
   }
@@ -39,6 +53,9 @@ export class FileDownload {
     this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
   }
 
+  /**
+   * Initialise component.
+   */
   init() {
     this.translationToggle = queryOne(
       this.translationToggleSelector,
@@ -58,6 +75,9 @@ export class FileDownload {
     }
   }
 
+  /**
+   * Destroy component.
+   */
   destroy() {
     if (this.attachClickListener && this.translationToggle) {
       this.translationToggle.removeEventListener(
@@ -67,6 +87,9 @@ export class FileDownload {
     }
   }
 
+  /**
+   * @param {Event} e
+   */
   handleClickOnToggle(e) {
     e.preventDefault();
 

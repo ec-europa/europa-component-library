@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -36,7 +36,6 @@ const SiteHeaderHarmonised = ({
     ...logoProps
   } = logo;
 
-  // eslint-disable-next-line global-require, import/no-dynamic-require
   const logoECSrc = require(`@ecl/ec-resources-logo/logo--${logoLanguage}.svg`);
 
   const hasLanguageOverlay = !!(languageSelector && languageSelector.overlay);
@@ -52,22 +51,24 @@ const SiteHeaderHarmonised = ({
       <div className="ecl-site-header-harmonised__container ecl-container">
         <div className="ecl-site-header-harmonised__top">
           {/* Logo */}
-          <a
-            className="ecl-link ecl-link--standalone ecl-site-header-harmonised__logo-link"
-            href={logoHref}
-            aria-label={logoTitle}
-          >
-            <img
-              {...logoProps}
-              alt={logoAlt}
-              title={logoTitle}
-              className={classnames(
-                logoClassName,
-                'ecl-site-header-harmonised__logo-image'
-              )}
-              src={logoSrc || logoECSrc}
-            />
-          </a>
+          {!!(logo && logoHref) && (
+            <a
+              className="ecl-link ecl-link--standalone ecl-site-header-harmonised__logo-link"
+              href={logoHref}
+              aria-label={logoTitle}
+            >
+              <img
+                {...logoProps}
+                alt={logoAlt}
+                title={logoTitle}
+                className={classnames(
+                  logoClassName,
+                  'ecl-site-header-harmonised__logo-image'
+                )}
+                src={logoSrc || logoECSrc}
+              />
+            </a>
+          )}
 
           {/* Site name */}
           {siteName && (
@@ -91,7 +92,7 @@ const SiteHeaderHarmonised = ({
               ) && (
                 <div className="ecl-site-header-harmonised__login-container">
                   {logged && (
-                    <Fragment>
+                    <>
                       <a
                         className="ecl-link ecl-link--standalone ecl-site-header-harmonised__login-toggle"
                         href={loginToggle.hrefLogged}
@@ -118,12 +119,12 @@ const SiteHeaderHarmonised = ({
                         data-ecl-login-box
                       >
                         {loginBox.description && (
-                          <Fragment>
+                          <>
                             <p className="ecl-site-header-harmonised__login-description">
                               {loginBox.description}
                             </p>
                             <hr className="ecl-site-header-harmonised__login-separator" />
-                          </Fragment>
+                          </>
                         )}
                         <Link
                           label={loginBox.label}
@@ -131,7 +132,7 @@ const SiteHeaderHarmonised = ({
                           variant="standalone"
                         />
                       </div>
-                    </Fragment>
+                    </>
                   )}
                   {!logged && (
                     <a
@@ -156,10 +157,10 @@ const SiteHeaderHarmonised = ({
                 <a
                   className="ecl-link ecl-link--standalone ecl-site-header-harmonised__language-selector"
                   href={languageSelector.href}
+                  arial-label={languageSelector.label}
                   data-ecl-language-selector
                   {...(hasLanguageOverlay && {
                     'aria-controls': 'language-list-overlay',
-                    'aria-expanded': 'false',
                   })}
                 >
                   <span className="ecl-site-header-harmonised__language-icon">
@@ -295,7 +296,7 @@ SiteHeaderHarmonised.defaultProps = {
     title: '',
     alt: '',
     language: 'en',
-    href: '#',
+    href: '',
     src: '',
   },
   siteName: '',

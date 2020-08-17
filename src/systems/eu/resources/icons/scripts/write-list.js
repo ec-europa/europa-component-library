@@ -1,9 +1,9 @@
-/* eslint-disable import/no-extraneous-dependencies */
 const fs = require('fs');
 const mkdirp = require('mkdirp');
 const path = require('path');
 
-const sanitizeFilenames = files => files.map(icon => icon.replace('.svg', ''));
+const sanitizeFilenames = (files) =>
+  files.map((icon) => icon.replace('.svg', ''));
 
 const writeList = ({ dest, files, outputFile }) => {
   const file = path.resolve(dest, outputFile);

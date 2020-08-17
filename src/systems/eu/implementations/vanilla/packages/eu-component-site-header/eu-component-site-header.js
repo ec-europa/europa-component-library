@@ -5,7 +5,6 @@ export class SiteHeader {
   static autoInit(root, { SITE_HEADER: defaultOptions = {} } = {}) {
     const siteHeader = new SiteHeader(root, defaultOptions);
     siteHeader.init();
-    // eslint-disable-next-line no-param-reassign
     root.ECLSiteHeader = siteHeader;
     return siteHeader;
   }
@@ -54,8 +53,12 @@ export class SiteHeader {
       onDeactivate: this.closeOverlay,
     });
 
-    this.languageSelector.addEventListener('click', this.toggleOverlay);
-    this.close.addEventListener('click', this.toggleOverlay);
+    if (this.languageSelector) {
+      this.languageSelector.addEventListener('click', this.toggleOverlay);
+    }
+    if (this.close) {
+      this.close.addEventListener('click', this.toggleOverlay);
+    }
   }
 
   destroy() {

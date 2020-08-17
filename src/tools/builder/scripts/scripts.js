@@ -4,7 +4,7 @@ const babel = require('rollup-plugin-babel');
 const resolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
 const { uglify } = require('rollup-plugin-uglify');
-const browserslist = require('browserslist');
+const svg = require('rollup-plugin-svg');
 
 module.exports = (input, dest, options) => {
   const uglifyCode =
@@ -21,26 +21,20 @@ module.exports = (input, dest, options) => {
     input,
     external: options.external || [],
     plugins: [
-      resolve({
-        jsnext: true,
-        main: true,
-        browser: true,
-      }),
+      resolve(),
       commonjs(),
       babel({
         presets: [
           [
             babelPresetEnv,
             {
-              targets: {
-                browsers: browserslist(),
-              },
               modules: false,
               loose: true,
             },
           ],
         ],
       }),
+      svg(),
       uglifyCode && uglify(uglifyOptions),
     ],
   };
@@ -54,5 +48,5 @@ module.exports = (input, dest, options) => {
     globals: options.globals || {},
   };
 
-  rollup.rollup(inputOptions).then(bundle => bundle.write(outputOptions));
+  rollup.rollup(inputOptions).then((bundle) => bundle.write(outputOptions));
 };

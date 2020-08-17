@@ -3,11 +3,137 @@ order: 2
 title: What's new
 ---
 
-For the time being, ECL v2 components are composed of vanilla (simple) HTML; adaptable to any technologies while the Twig versions (to be implemented with Drupal 8) will be built within the next 3 months in preparation for the Drupal 8 upgrade.
+Detailed release information is available on [Github](https://github.com/ec-europa/europa-component-library/releases).
 
-Users can still go to ECL v1 to create or upgrade their websites. In 2019, we will be able to offer users a full set of components from ECL v2 when Drupal 8 is ready.
+## 2.31 (2020-07-23)
 
-We will also add new components to the ECL v2 as we continue improving the look and feel of the existing components. New releases under v2 should be published periodically under [Github](https://github.com/ec-europa/europa-component-library/releases).
+#### :rocket: New Feature
+
+- [#1632](https://github.com/ec-europa/europa-component-library/pull/1632) feat(language-list): add non-eu languages - FRONT-1272
+- [#1627](https://github.com/ec-europa/europa-component-library/pull/1627) feat(highlight-composition): add highlight composition - FRONT-1284
+- [#1618](https://github.com/ec-europa/europa-component-library/pull/1618) feat(file-download): add thumbnail variant - FRONT-1202
+- [#1598](https://github.com/ec-europa/europa-component-library/pull/1598) feat(table): add sorttable - FRONT-1155
+
+#### :bug: Bug Fix
+
+- [#1636](https://github.com/ec-europa/europa-component-library/pull/1636) fix(skip-link): put skip link in full preset - FRONT-1224
+- [#1626](https://github.com/ec-europa/europa-component-library/pull/1626) fix(footer-core): fix markup on footer core EU - FRONT-1275
+- [#1624](https://github.com/ec-europa/europa-component-library/pull/1624) fix(multi-select): search with uppercase - FRONT-1281
+
+#### :nail_care: Enhancement
+
+- [#1622](https://github.com/ec-europa/europa-component-library/pull/1622) fix(multi-select): check if data-ecl-select-all attribute is set - FRONT-1274
+- [#1620](https://github.com/ec-europa/europa-component-library/pull/1620) fix(multi-select): search input width for larger select - FRONT-1273
+- [#1628](https://github.com/ec-europa/europa-component-library/pull/1628) fix(footer): check if aria-label is set, and add aria-label values to links - FRONT-1283
+- [#1613](https://github.com/ec-europa/europa-component-library/pull/1613) feat(gallery): add footer link - FRONT-1252
+- [#1623](https://github.com/ec-europa/europa-component-library/pull/1623) fix(horizontal-list): percentage instead of fixed width - FRONT-1279
+
+#### :memo: Documentation
+
+- [#1633](https://github.com/ec-europa/europa-component-library/pull/1633) docs(language-list): update usage page for non-EU languages - FRONT-1289
+- [#1631](https://github.com/ec-europa/europa-component-library/pull/1631) docs(file): add usage for file download with thumbnail - FRONT-1288
+- [#1630](https://github.com/ec-europa/europa-component-library/pull/1630) docs(table): update usage page for sortable - FRONT-1287
+
+#### :house: Internal
+
+- [#1619](https://github.com/ec-europa/europa-component-library/pull/1619) chore(deps): upgrade - FRONT-1193
+- [#1615](https://github.com/ec-europa/europa-component-library/pull/1615) chore(github-actions): fix netlify previews - FRONT-1254
+
+## 2.30 (2020-07-02)
+
+#### :rocket: New Feature
+
+- [#1590](https://github.com/ec-europa/europa-component-library/pull/1590) feat(select): add multiple select - FRONT-1142
+- [#1609](https://github.com/ec-europa/europa-component-library/pull/1609) feat(EU): add families components - FRONT-1203
+
+#### :bug: Bug Fix
+
+- [#1606](https://github.com/ec-europa/europa-component-library/pull/1606) fix(inpage-navigation): fix hidden attribute - FRONT-1170
+
+#### :nail_care: Enhancement
+
+- [#1614](https://github.com/ec-europa/europa-component-library/pull/1614) feat(EU-components): small fixes to header/footer - FRONT-1203
+- [#1605](https://github.com/ec-europa/europa-component-library/pull/1605) feat(EU): update EU components
+- [#1608](https://github.com/ec-europa/europa-component-library/pull/1608) feat(link): adding aria-label to EC and EU link component-FRONT-1239
+
+#### :memo: Documentation
+
+- [#1616](https://github.com/ec-europa/europa-component-library/pull/1616) docs(multi-select): add usage page - FRONT-1256
+- [#1612](https://github.com/ec-europa/europa-component-library/pull/1612) docs(breadcrumb): update usage page - FRONT-1231
+- [#1611](https://github.com/ec-europa/europa-component-library/pull/1611) docs(media-container): update usage page - FRONT-1230
+
+#### :house: Internal
+
+- [#1610](https://github.com/ec-europa/europa-component-library/pull/1610) chore(ci): use github actions for building previews - FRONT-1250
+- [#1607](https://github.com/ec-europa/europa-component-library/pull/1607) chore(node): upgrade to erbium - FRONT-1228
+
+#### Committers: 3
+
+- Kalin Chernev
+- Paulo Gingao
+- Romain Emery
+
+## 2.29 (2020-06-11)
+
+#### :rocket: New Feature
+
+- [#1600](https://github.com/ec-europa/europa-component-library/pull/1600) fix(EU): add missing elements - FRONT-1190
+
+#### :bug: Bug Fix
+
+- [#1588](https://github.com/ec-europa/europa-component-library/pull/1588) fix(site-header): update z-index for language switcher - FRONT-1134
+
+#### :nail_care: Enhancement
+
+- [#1596](https://github.com/ec-europa/europa-component-library/pull/1596) feat(gallery): improve gallery - FRONT-1168
+
+#### :memo: Documentation
+
+- [#1602](https://github.com/ec-europa/europa-component-library/pull/1602) docs(hero-banner): update usage page - FRONT-1175
+- [#1594](https://github.com/ec-europa/europa-component-library/pull/1594) docs(menu): add usage page - FRONT-1164
+- [#1593](https://github.com/ec-europa/europa-component-library/pull/1593) docs(content-media): update usage page - FRONT-1165
+- [#1583](https://github.com/ec-europa/europa-component-library/pull/1583) docs(ECL): 🧹 major grooming since v1 => v2 changes - FRONT-955
+
+#### :house: Internal
+
+- [#1601](https://github.com/ec-europa/europa-component-library/pull/1601) chore(deps): upgrade deps with vulnerabilities - FRONT-1172
+
+## 2.28 (2020-04-30)
+
+#### :rocket: New Feature
+
+- [#1584](https://github.com/ec-europa/europa-component-library/pull/1584) feat(legacy-page-header): add background image - FRONT-1130
+- [#1580](https://github.com/ec-europa/europa-component-library/pull/1580) feat(label): add component - FRONT-1006
+
+#### :bug: Bug Fix
+
+- [#1585](https://github.com/ec-europa/europa-component-library/pull/1585) fix(gallery): update z-index for overlay - FRONT-996
+- [#1582](https://github.com/ec-europa/europa-component-library/pull/1582) fix(site-header-core): add tests for language switcher
+
+#### :nail_care: Enhancement
+
+- [#1579](https://github.com/ec-europa/europa-component-library/pull/1579) feat(print): update print css
+
+## 2.27 (2020-04-07)
+
+#### :bug: Bug Fix
+
+- [#1565](https://github.com/ec-europa/europa-component-library/pull/1565) fix(inpage navigation): fix long label and design update - FRONT-899
+- [#1566](https://github.com/ec-europa/europa-component-library/pull/1566) fix(examples): update babel configuration in webpack - FRONT-974
+
+#### :nail_care: Enhancement
+
+- [#1564](https://github.com/ec-europa/europa-component-library/pull/1564) feat(storybook): add knobs for optional elements - FRONT-983
+- [#1563](https://github.com/ec-europa/europa-component-library/pull/1563) refactor(forms): cleanup forms markup - FRONT-933
+
+#### :memo: Documentation
+
+- [#1568](https://github.com/ec-europa/europa-component-library/pull/1568) docs(images): add notes regarding SVGs
+- [#1567](https://github.com/ec-europa/europa-component-library/pull/1567) docs(page banner): update doc - FRONT-998
+
+#### :house: Internal
+
+- [#1569](https://github.com/ec-europa/europa-component-library/pull/1569) chore(deps): upgrades - FRONT-1012
 
 ## 2.26 (2020-03-26)
 

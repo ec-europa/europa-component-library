@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import DescriptionList from './DescriptionList';
@@ -8,10 +8,10 @@ import DescriptionDefinition from './DescriptionDefinition';
 const DescriptionListWithData = ({ items, className, ...props }) => {
   return (
     <DescriptionList {...props} className={className}>
-      {items.map(item => {
+      {items.map((item) => {
         let terms = '';
         if (Array.isArray(item.term)) {
-          terms = item.term.map(term => (
+          terms = item.term.map((term) => (
             <DescriptionTerm key={term}>{term}</DescriptionTerm>
           ));
         } else {
@@ -20,7 +20,7 @@ const DescriptionListWithData = ({ items, className, ...props }) => {
 
         let definitions = '';
         if (Array.isArray(item.definition)) {
-          definitions = item.definition.map(definition => (
+          definitions = item.definition.map((definition) => (
             <DescriptionDefinition key={definition}>
               {definition}
             </DescriptionDefinition>
@@ -32,10 +32,10 @@ const DescriptionListWithData = ({ items, className, ...props }) => {
         }
 
         return (
-          <Fragment key={item.term}>
+          <React.Fragment key={item.term}>
             {terms}
             {definitions}
-          </Fragment>
+          </React.Fragment>
         );
       })}
     </DescriptionList>

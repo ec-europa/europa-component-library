@@ -1,5 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -86,7 +85,7 @@ class MainPolicyBackgroundHarmonisedG1 extends React.Component {
           data-ecl-auto-init="BreadcrumbHarmonised"
           className="ecl-breadcrumb-harmonised--group1"
         >
-          {dataCopy.breadcrumbItems.map(item => (
+          {dataCopy.breadcrumbItems.map((item) => (
             <BreadcrumbHarmonisedItem {...item} key={item.label} />
           ))}
         </BreadcrumbHarmonised>
@@ -95,7 +94,7 @@ class MainPolicyBackgroundHarmonisedG1 extends React.Component {
     }
 
     return (
-      <Fragment>
+      <>
         <SiteHeaderHarmonised
           {...dataCopy.siteHeader}
           data-ecl-auto-init="SiteHeaderHarmonised"
@@ -107,7 +106,7 @@ class MainPolicyBackgroundHarmonisedG1 extends React.Component {
         />
         <MainPolicyBackgroundPage template="harmonised-g1" />
         <FooterHarmonised {...dataCopy.footer} />
-      </Fragment>
+      </>
     );
   }
 }

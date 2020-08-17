@@ -11,8 +11,7 @@
     align-items: flex-start;
     border-width: 0;
     box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
+    display: block;
     margin: 0;
     padding: 0;
 
@@ -40,8 +39,13 @@
       margin-top: $ecl-spacing-s;
     }
 
-    > *:not(.ecl-form-label--hidden) + .ecl-file-upload {
+    > *:not(.ecl-form-label--hidden) + .ecl-file-upload,
+    > *:not(.ecl-form-label--hidden) + .ecl-file-upload__button-container {
       margin-top: $ecl-spacing-s;
+    }
+
+    > *:not(.ecl-form-label--hidden) + .ecl-file-upload__list {
+      margin-top: $ecl-spacing-m;
     }
 
     > .ecl-feedback-message + .ecl-help-block {

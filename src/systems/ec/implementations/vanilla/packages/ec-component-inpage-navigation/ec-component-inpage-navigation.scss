@@ -8,13 +8,18 @@
 // Import base
 @import '@ecl/ec-base/ec-base';
 
-@mixin ecl-inpage-navigation($inpage-link-border: $ecl-spacing-2-xs) {
+@mixin ecl-inpage-navigation(
+  $inpage-link-border: $ecl-spacing-2-xs,
+  $toggle-width: calc(#{$ecl-spacing-m} + #{$ecl-icon-s} + #{$ecl-spacing-m})
+) {
   .ecl-inpage-navigation {
+    display: none;
     margin: 0;
     position: relative;
     z-index: 1;
 
     @include ecl-media-breakpoint-up('lg') {
+      display: block;
       position: sticky;
       top: 0;
     }
@@ -23,8 +28,8 @@
   .ecl-inpage-navigation__trigger {
     background: linear-gradient(
       to left,
-      $ecl-color-blue-120 50px,
-      $ecl-color-primary 50px
+      $ecl-color-blue-120 $toggle-width,
+      $ecl-color-primary $toggle-width
     );
     border: 0;
     color: $ecl-color-white-100;
@@ -34,12 +39,24 @@
     text-align: left;
     width: 100%;
 
+    @include ecl-media-breakpoint-up('lg') {
+      display: none;
+    }
+
     &:focus {
       outline: none;
     }
+  }
 
-    .ecl-inpage-navigation--visible & {
+  .ecl-inpage-navigation--visible {
+    display: block;
+
+    .ecl-inpage-navigation__trigger {
       display: block;
+      overflow-x: hidden;
+      padding-right: calc(#{$toggle-width} + #{$ecl-spacing-m});
+      text-overflow: ellipsis;
+      white-space: nowrap;
 
       @include ecl-media-breakpoint-up('lg') {
         display: none;
@@ -58,7 +75,7 @@
 
   .ecl-inpage-navigation__trigger-icon {
     position: absolute;
-    right: 1em;
+    right: $ecl-spacing-m;
 
     .ecl-inpage-navigation__trigger[aria-expanded='true'] & {
       transform: rotate(0deg);
@@ -79,16 +96,23 @@
   }
 
   .ecl-inpage-navigation__list {
-    border-top: 1px solid #4073af;
+    border-top: 1px solid $ecl-color-blue-120;
+    display: none;
+    list-style-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
     list-style-type: none;
     margin: 0;
-    padding: $ecl-spacing-xl $ecl-spacing-m 0;
+    padding: 0 $ecl-spacing-m;
 
     @include ecl-media-breakpoint-up('lg') {
-      border-top: 0;
+      border-top-width: 0;
       display: block;
       padding: 0;
     }
+  }
+
+  .ecl-inpage-navigation__list--visible {
+    display: flex;
+    flex-direction: column;
   }
 
   .ecl-inpage-navigation__link {
@@ -122,7 +146,7 @@
     }
 
     .ecl-inpage-navigation--visible & {
-      border-top: 1px solid $ecl-color-blue-120;
+      border-top: 1px solid $ecl-color-blue-75;
       color: $ecl-color-white-100;
       display: block;
 
@@ -141,6 +165,10 @@
     }
   }
 
+  .ecl-inpage-navigation__item:first-of-type .ecl-inpage-navigation__link {
+    border-top-width: 0;
+  }
+
   .ecl-inpage-navigation__link--is-active {
     @include ecl-media-breakpoint-up('lg') {
       background-color: $ecl-color-grey-5;
@@ -151,7 +179,7 @@
 
   .ecl-inpage-navigation__body {
     .ecl-inpage-navigation--visible & {
-      background-color: $ecl-color-primary;
+      background-color: $ecl-color-blue-110;
       left: 0;
       position: fixed;
       right: 0;

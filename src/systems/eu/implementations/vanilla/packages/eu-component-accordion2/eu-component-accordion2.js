@@ -1,10 +1,24 @@
 import { queryOne, queryAll } from '@ecl/eu-base/helpers/dom';
 
+/**
+ * @param {HTMLElement} element DOM element for component instantiation and scope
+ * @param {Object} options
+ * @param {String} options.toggleSelector Selector for toggling element
+ * @param {String} options.iconSelector Selector for icon element
+ * @param {Boolean} options.attachClickListener Whether or not to bind click events on toggle
+ */
 export class Accordion2 {
+  /**
+   * @static
+   * Shorthand for instance creation and initialisation.
+   *
+   * @param {HTMLElement} root DOM element for component instantiation and scope
+   *
+   * @return {Accordion2} An instance of Accordion2.
+   */
   static autoInit(root, { ACCORDION2: defaultOptions = {} } = {}) {
     const accordion2 = new Accordion2(root, defaultOptions);
     accordion2.init();
-    // eslint-disable-next-line no-param-reassign
     root.ECLAccordion2 = accordion2;
     return accordion2;
   }
@@ -41,6 +55,9 @@ export class Accordion2 {
     this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
   }
 
+  /**
+   * Initialise component.
+   */
   init() {
     this.toggles = queryAll(this.toggleSelector, this.element);
 
@@ -49,7 +66,7 @@ export class Accordion2 {
 
     // Bind click event on toggles
     if (this.attachClickListener && this.toggles) {
-      this.toggles.forEach(toggle => {
+      this.toggles.forEach((toggle) => {
         toggle.addEventListener(
           'click',
           this.handleClickOnToggle.bind(this, toggle)
@@ -58,14 +75,20 @@ export class Accordion2 {
     }
   }
 
+  /**
+   * Destroy component.
+   */
   destroy() {
     if (this.attachClickListener && this.toggles) {
-      this.toggles.forEach(toggle => {
+      this.toggles.forEach((toggle) => {
         toggle.removeEventListener('click', this.handleClickOnToggle);
       });
     }
   }
 
+  /**
+   * @param {HTMLElement} toggle Target element to toggle.
+   */
   handleClickOnToggle(toggle) {
     // Get target element
     const target = queryOne(

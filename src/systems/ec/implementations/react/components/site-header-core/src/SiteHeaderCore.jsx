@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -30,7 +30,6 @@ const SiteHeaderCore = ({
     ...logoProps
   } = logo;
 
-  // eslint-disable-next-line global-require, import/no-dynamic-require
   const logoSrc = require(`@ecl/ec-resources-logo/logo--${logoLanguage}.svg`);
 
   const hasLanguageOverlay = !!(languageSelector && languageSelector.overlay);
@@ -63,7 +62,7 @@ const SiteHeaderCore = ({
             ) && (
               <div className="ecl-site-header-core__login-container">
                 {logged && (
-                  <Fragment>
+                  <>
                     <a
                       className="ecl-link ecl-link--standalone ecl-site-header-core__login-toggle"
                       href={loginToggle.hrefLogged}
@@ -90,12 +89,12 @@ const SiteHeaderCore = ({
                       data-ecl-login-box
                     >
                       {loginBox.description && (
-                        <Fragment>
+                        <>
                           <p className="ecl-site-header-core__login-description">
                             {loginBox.description}
                           </p>
                           <hr className="ecl-site-header-core__login-separator" />
-                        </Fragment>
+                        </>
                       )}
                       <Link
                         label={loginBox.label}
@@ -103,7 +102,7 @@ const SiteHeaderCore = ({
                         variant="standalone"
                       />
                     </div>
-                  </Fragment>
+                  </>
                 )}
                 {!logged && (
                   <a
@@ -126,10 +125,10 @@ const SiteHeaderCore = ({
               <a
                 className="ecl-link ecl-link--standalone ecl-site-header-core__language-selector"
                 href={languageSelector.href}
+                arial-label={languageSelector.label}
                 data-ecl-language-selector
                 {...(hasLanguageOverlay && {
                   'aria-controls': 'language-list-overlay',
-                  'aria-expanded': 'false',
                 })}
               >
                 <span className="ecl-site-header-core__language-icon">

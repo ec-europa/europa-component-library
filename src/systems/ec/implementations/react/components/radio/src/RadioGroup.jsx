@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -20,13 +20,7 @@ const RadioGroup = ({
   className,
   ...props
 }) => {
-  const classNames = classnames(
-    className,
-    'ecl-form-group ecl-form-group--radio',
-    {
-      'ecl-radio__group--binary': binary,
-    }
-  );
+  const classNames = classnames(className, 'ecl-form-group');
 
   return (
     <fieldset
@@ -42,17 +36,17 @@ const RadioGroup = ({
         >
           {legend}
           {required ? (
-            <Fragment>
+            <>
               {requiredText && (
                 <span className="ecl-form-label__required">{requiredText}</span>
               )}
-            </Fragment>
+            </>
           ) : (
-            <Fragment>
+            <>
               {optionalText && (
                 <span className="ecl-form-label__optional">{optionalText}</span>
               )}
-            </Fragment>
+            </>
           )}
         </legend>
       )}
@@ -67,8 +61,16 @@ const RadioGroup = ({
         <div className="ecl-feedback-message">{invalidText}</div>
       )}
 
-      {items.map(item => (
-        <RadioButton {...item} name={name} key={item.id} invalid={invalid} />
+      {items.map((item) => (
+        <RadioButton
+          {...item}
+          name={name}
+          key={item.id}
+          invalid={invalid}
+          className={classnames({
+            'ecl-radio--binary': binary,
+          })}
+        />
       ))}
     </fieldset>
   );

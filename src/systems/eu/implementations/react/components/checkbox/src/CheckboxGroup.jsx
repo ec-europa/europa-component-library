@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -20,10 +20,7 @@ const CheckboxGroup = ({
   requiredText,
   ...props
 }) => {
-  const classNames = classnames(
-    className,
-    'ecl-form-group ecl-form-group--checkbox'
-  );
+  const classNames = classnames(className, 'ecl-form-group');
 
   return (
     <fieldset
@@ -40,26 +37,23 @@ const CheckboxGroup = ({
         >
           {legend}
           {required ? (
-            <Fragment>
+            <>
               {requiredText && (
                 <span className="ecl-form-label__required">{requiredText}</span>
               )}
-            </Fragment>
+            </>
           ) : (
-            <Fragment>
+            <>
               {optionalText && (
                 <span className="ecl-form-label__optional">{optionalText}</span>
               )}
-            </Fragment>
+            </>
           )}
         </legend>
       )}
 
       {helperText && (
-        <div
-          {...(helperId ? { id: helperId } : {})}
-          className="ecl-checkbox__help ecl-help-block"
-        >
+        <div {...(helperId ? { id: helperId } : {})} className="ecl-help-block">
           {helperText}
         </div>
       )}
@@ -68,7 +62,7 @@ const CheckboxGroup = ({
         <div className="ecl-feedback-message">{invalidText}</div>
       )}
 
-      {items.map(item => (
+      {items.map((item) => (
         <Checkbox {...item} name={name} key={item.id} invalid={invalid} />
       ))}
     </fieldset>

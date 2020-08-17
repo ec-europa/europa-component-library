@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 
@@ -12,7 +11,7 @@ import Link from '../src/Link';
 const icons = {
   none: '',
   ...uiIcons
-    .map(icon => ({ [`${icon}`]: `ui--${icon}` }))
+    .map((icon) => ({ [`${icon}`]: `ui--${icon}` }))
     .reduce((a, b) => ({
       ...a,
       ...b,
@@ -40,6 +39,7 @@ export const Default = () => {
       variant="default"
       href="/example#default-link"
       label={text('Label', demoContentDefault.label)}
+      ariaLabel={text('Aria label', demoContentDefault.ariaLabel)}
       icon={linkIcon}
       iconPosition={select('Icon position', iconPosition, 'after')}
     />
@@ -61,6 +61,7 @@ export const Standalone = () => {
       variant="standalone"
       href="/example#standalone-link"
       label={text('Label', demoContentStandalone.label)}
+      ariaLabel={text('Aria label', demoContentStandalone.ariaLabel)}
       icon={linkIcon}
       iconPosition={select('Icon position', iconPosition, 'after')}
     />
@@ -82,6 +83,7 @@ export const CallToAction = () => {
       variant={demoContentCTA.variant}
       href={demoContentCTA.href}
       label={text('Label', demoContentCTA.label)}
+      ariaLabel={text('Aria label', demoContentCTA.ariaLabel)}
       icon={linkIcon}
       iconPosition={select('Icon position', iconPosition, 'after')}
     />

@@ -1,4 +1,5 @@
-import React, { Fragment } from 'react';
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -19,20 +20,17 @@ const Select = ({
   required,
   requiredText,
   width,
+  multiple,
+  multiplePlaceholder,
+  multipleSearchText,
+  multipleAllText,
   className,
   ...props
 }) => {
-  const classNames = classnames(className, 'ecl-select', {
-    'ecl-select--invalid': invalid,
-  });
+  const classNames = classnames(className, 'ecl-select');
 
   return (
-    <div
-      className={classnames(
-        groupClassName,
-        'ecl-form-group ecl-form-group--select'
-      )}
-    >
+    <div className={classnames(groupClassName, 'ecl-form-group')}>
       {label && (
         <label
           className={classnames(labelClassName, 'ecl-form-label', {
@@ -43,17 +41,17 @@ const Select = ({
         >
           {label}
           {required ? (
-            <Fragment>
+            <>
               {requiredText && (
                 <span className="ecl-form-label__required">{requiredText}</span>
               )}
-            </Fragment>
+            </>
           ) : (
-            <Fragment>
+            <>
               {optionalText && (
                 <span className="ecl-form-label__optional">{optionalText}</span>
               )}
-            </Fragment>
+            </>
           )}
         </label>
       )}
@@ -72,6 +70,7 @@ const Select = ({
       <div
         className={classnames('ecl-select__container', {
           'ecl-select__container--disabled': disabled,
+          'ecl-select__container--invalid': invalid,
           [`ecl-select__container--${width}`]: width,
         })}
       >
@@ -82,8 +81,17 @@ const Select = ({
           className={classNames}
           disabled={disabled}
           required={required}
+          {...(multiple
+            ? {
+                multiple,
+                'data-ecl-select-multiple': true,
+                'data-ecl-select-default': multiplePlaceholder,
+                'data-ecl-select-search': multipleSearchText,
+                'data-ecl-select-all': multipleAllText,
+              }
+            : {})}
         >
-          {options.map(option => (
+          {options.map((option) => (
             <option key={option.label} value={option.value}>
               {option.label}
             </option>
@@ -122,6 +130,10 @@ Select.propTypes = {
     })
   ),
   width: PropTypes.string,
+  multiple: PropTypes.bool,
+  multiplePlaceholder: PropTypes.string,
+  multipleSearchText: PropTypes.string,
+  multipleAllText: PropTypes.string,
   className: PropTypes.string,
 };
 
@@ -139,6 +151,10 @@ Select.defaultProps = {
   requiredText: '',
   options: [],
   width: '',
+  multiple: false,
+  multiplePlaceholder: '',
+  multipleSearchText: '',
+  multipleAllText: '',
   className: '',
 };
 

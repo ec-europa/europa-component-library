@@ -1,5 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -78,7 +77,7 @@ class EventAgendaHarmonisedG2 extends React.Component {
           data-ecl-auto-init="BreadcrumbHarmonised"
           className="ecl-breadcrumb-harmonised--group2"
         >
-          {dataCopy.breadcrumbItems.map(item => (
+          {dataCopy.breadcrumbItems.map((item) => (
             <BreadcrumbHarmonisedItem {...item} key={item.label} />
           ))}
         </BreadcrumbHarmonised>
@@ -87,7 +86,7 @@ class EventAgendaHarmonisedG2 extends React.Component {
     }
 
     return (
-      <Fragment>
+      <>
         <SiteHeaderHarmonised
           {...dataCopy.siteHeader}
           data-ecl-auto-init="SiteHeaderHarmonised"
@@ -100,7 +99,7 @@ class EventAgendaHarmonisedG2 extends React.Component {
         <EventAgendaPage template="harmonised-g2" />
         <PageBanner {...dataCopy.pageBanner} variant="primary" isCentered />
         <FooterHarmonisedG2 {...dataCopy.footer} />
-      </Fragment>
+      </>
     );
   }
 }

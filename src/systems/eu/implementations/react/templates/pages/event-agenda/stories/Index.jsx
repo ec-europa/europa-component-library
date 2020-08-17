@@ -1,5 +1,3 @@
-/* eslint-disable no-param-reassign */
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import StoryWrapper from '@ecl/story-wrapper';
@@ -7,7 +5,7 @@ import StoryWrapper from '@ecl/story-wrapper';
 import EventAgendaPageExample from '../examples/Default';
 
 storiesOf('Templates/Pages', module)
-  .addDecorator(story => (
+  .addDecorator((story) => (
     <StoryWrapper
       afterMount={() => {
         if (!window.ECL) return {};
@@ -15,9 +13,9 @@ storiesOf('Templates/Pages', module)
         const components = window.ECL.autoInit();
         return { components };
       }}
-      beforeUnmount={context => {
+      beforeUnmount={(context) => {
         if (context.components) {
-          context.components.forEach(c => c.destroy());
+          context.components.forEach((c) => c.destroy());
         }
       }}
     >

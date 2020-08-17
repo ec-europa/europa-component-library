@@ -21,6 +21,7 @@
   }
 
   .ecl-menu__container {
+    min-height: $ecl-line-height-2-xl;
     position: initial; // Needed for full screen overlay
   }
 
@@ -32,7 +33,7 @@
     right: -100%;
     top: 0;
     width: 100%;
-    z-index: $ecl-z-index-modal;
+    z-index: $ecl-z-index-modal + 3;
 
     /* Force display if JS is disabled */
     .no-js & {
@@ -62,7 +63,7 @@
       right: 0;
       top: 0;
       width: 100%;
-      z-index: $ecl-z-index-modal;
+      z-index: $ecl-z-index-modal + 2;
     }
 
     .ecl-menu[aria-expanded='true'] .ecl-menu__overlay {
@@ -79,6 +80,7 @@
 
     .ecl-menu:not(.ecl-menu--forced-mobile) {
       padding-bottom: 0;
+      padding-top: 0;
 
       .ecl-menu__inner {
         background-color: transparent;
@@ -88,6 +90,7 @@
         right: 0;
         transition: none;
         width: 100%;
+        z-index: $ecl-z-index-modal;
       }
 
       .ecl-menu__overlay {
@@ -135,6 +138,7 @@
     .ecl-menu:not(.ecl-menu--forced-mobile) {
       .ecl-menu__site-name {
         margin-bottom: $ecl-spacing-l;
+        padding-top: $ecl-spacing-l;
       }
 
       .ecl-menu__inner-header,
@@ -331,6 +335,10 @@
         transition-property: background-color, border-bottom-color, color,
           z-index;
         z-index: 0;
+      }
+
+      .ecl-menu__item--current .ecl-menu__link {
+        background-color: $ecl-color-blue-120;
       }
 
       .ecl-menu__item[aria-expanded='true'] {

@@ -1,12 +1,6 @@
 module.exports = {
   parser: 'babel-eslint',
-  extends: [
-    'airbnb',
-    'plugin:unicorn/recommended',
-    'plugin:prettier/recommended',
-    'prettier/unicorn',
-    'prettier/react',
-  ],
+  extends: ['airbnb', 'plugin:prettier/recommended', 'prettier/react'],
   plugins: ['react', 'jsx-a11y'],
   env: {
     browser: true,
@@ -18,21 +12,25 @@ module.exports = {
     },
   },
   rules: {
-    'react/jsx-fragments': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'react/forbid-prop-types': 'off',
+    'jsx-a11y/role-supports-aria-props': 'off',
     'react/jsx-props-no-spreading': 'off',
-    // Temporary disable rule until https://github.com/yannickcr/eslint-plugin-react/issues/2427 is fixed
-    'react/jsx-curly-brace-presence': 'off',
-    'unicorn/prevent-abbreviations': 'off',
-    'unicorn/no-for-loop': 'off',
+    'react/no-array-index-key': 'off',
   },
   overrides: [
     {
       files: ['**/*.jsx'],
       rules: {
-        // JSX files' name should be in PascalCase
-        'unicorn/filename-case': ['error', { case: 'pascalCase' }],
-        // deprecated: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/2a490286937fa8eba3ed213a4637edec932748de/docs/rules/label-has-for.md
-        'jsx-a11y/label-has-for': 'off',
+        'import/no-dynamic-require': 'off',
+        'global-require': 'off',
+      },
+    },
+    {
+      files: ['**/stories/*.jsx'],
+      rules: {
+        'import/prefer-default-export': 'off',
+        'no-underscore-dangle': 'off',
       },
     },
   ],

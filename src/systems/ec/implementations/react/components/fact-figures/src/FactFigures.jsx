@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -21,7 +20,7 @@ export const FactFigures = ({
     >
       <div className="ecl-fact-figures__items">
         {items &&
-          items.map(item => <FactFiguresItem key={item.title} {...item} />)}
+          items.map((item) => <FactFiguresItem key={item.title} {...item} />)}
       </div>
 
       {!!(viewAll && Object.keys(viewAll).length >= 1) && (

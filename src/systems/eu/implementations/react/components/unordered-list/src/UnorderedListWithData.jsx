@@ -7,7 +7,7 @@ import UnorderedListItem from './UnorderedListItem';
 const UnorderedListWithData = ({ variant, items, className, ...props }) => {
   return (
     <UnorderedList {...props} className={className}>
-      {items.map(item => (
+      {items.map((item) => (
         <UnorderedListItem key={item.label}>
           {item.label}
           {item.nested && <UnorderedListWithData items={item.nested} />}

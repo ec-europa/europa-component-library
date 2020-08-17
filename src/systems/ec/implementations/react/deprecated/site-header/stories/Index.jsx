@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import StoryWrapper from '@ecl/story-wrapper';
 import demoContentEn from '@ecl/ec-specs-site-header/demo/data--en';
@@ -10,7 +9,7 @@ export default {
   title: 'Deprecated/Site Header (ECL<2-12-0)',
 
   decorators: [
-    story => (
+    (story) => (
       <StoryWrapper
         afterMount={() => {
           if (!window.ECL) return {};
@@ -18,9 +17,9 @@ export default {
           const autoinit = window.ECL.autoInit();
           return { components: autoinit.components };
         }}
-        beforeUnmount={context => {
+        beforeUnmount={(context) => {
           if (context.components) {
-            context.components.forEach(c => c.destroy());
+            context.components.forEach((c) => c.destroy());
           }
         }}
       >

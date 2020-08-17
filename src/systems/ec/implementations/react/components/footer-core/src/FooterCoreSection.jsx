@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import Link from '@ecl/ec-react-component-link';
 
 export const FooterCoreSection = ({ section }) => (
-  <Fragment>
+  <>
     {/* Title */}
     {!!(section && section.title && typeof section.title === 'object') && (
       <Link
@@ -48,7 +48,7 @@ export const FooterCoreSection = ({ section }) => (
       <ul
         className={classnames('ecl-footer-core__list', section.listClassName)}
       >
-        {section.links.map(link => (
+        {section.links.map((link) => (
           <li className="ecl-footer-core__list-item" key={link.label}>
             <Link
               {...link}
@@ -70,7 +70,7 @@ export const FooterCoreSection = ({ section }) => (
         {section.contentAfter}
       </div>
     )}
-  </Fragment>
+  </>
 );
 
 FooterCoreSection.propTypes = {

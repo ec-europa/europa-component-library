@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -39,7 +38,7 @@ export const MenuItem = ({ label, href, isCurrent, subItems }) => {
       {hasSubItems && (
         <div className="ecl-menu__mega" data-ecl-menu-mega>
           <ul className="ecl-menu__sublist">
-            {subItems.map(subItem => (
+            {subItems.map((subItem) => (
               <li
                 className={classnames('ecl-menu__subitem', {
                   'ecl-menu__subitem--current': subItem.isCurrent,

@@ -2,11 +2,42 @@ import createFocusTrap from 'focus-trap';
 
 import { queryOne, queryAll } from '@ecl/eu-base/helpers/dom';
 
+/**
+ * @param {HTMLElement} element DOM element for component instantiation and scope
+ * @param {Object} options
+ * @param {String} options.galleryItemSelector Selector for gallery element
+ * @param {String} options.descriptionSelector Selector for gallery description element
+ * @param {String} options.metaSelector Selector for gallery meta info element
+ * @param {String} options.closeButtonSelector Selector for close button element
+ * @param {String} options.allButtonSelector Selector for view all button element
+ * @param {String} options.overlaySelector Selector for gallery overlay element
+ * @param {String} options.overlayHeaderSelector Selector for gallery overlay header element
+ * @param {String} options.overlayFooterSelector Selector for gallery overlay footer element
+ * @param {String} options.overlayImageSelector DEPRECATED! Selector for gallery overlay image element
+ * @param {String} options.overlayMediaSelector Selector for gallery overlay media element
+ * @param {String} options.overlayCounterCurrentSelector Selector for gallery overlay current number element
+ * @param {String} options.overlayCounterMaxSelector Selector for display of number of elements in the gallery overlay
+ * @param {String} options.overlayDownloadSelector Selector for gallery overlay download element
+ * @param {String} options.overlayShareSelector Selector for gallery overlay share element
+ * @param {String} options.overlayDescriptionSelector Selector for gallery overlay description element
+ * @param {String} options.overlayMetaSelector Selector for gallery overlay meta info element
+ * @param {String} options.overlayPreviousSelector Selector for gallery overlay previous link element
+ * @param {String} options.overlayNextSelector Selector for gallery overlay next link element
+ * @param {Boolean} options.attachClickListener Whether or not to bind click events
+ * @param {Boolean} options.attachKeyListener Whether or not to bind keyup events
+ */
 export class Gallery {
+  /**
+   * @static
+   * Shorthand for instance creation and initialisation.
+   *
+   * @param {HTMLElement} root DOM element for component instantiation and scope
+   *
+   * @return {Gallery} An instance of Gallery.
+   */
   static autoInit(root, { GALLERY: defaultOptions = {} } = {}) {
     const gallery = new Gallery(root, defaultOptions);
     gallery.init();
-    // eslint-disable-next-line no-param-reassign
     root.ECLGallery = gallery;
     return gallery;
   }
@@ -18,6 +49,8 @@ export class Gallery {
       descriptionSelector = '[data-ecl-gallery-description]',
       metaSelector = '[data-ecl-gallery-meta]',
       closeButtonSelector = '[data-ecl-gallery-close]',
+      viewAllSelector = '[data-ecl-gallery-all]',
+      countSelector = '[data-ecl-gallery-count]',
       overlaySelector = '[data-ecl-gallery-overlay]',
       overlayHeaderSelector = '[data-ecl-gallery-overlay-header]',
       overlayFooterSelector = '[data-ecl-gallery-overlay-footer]',
@@ -33,6 +66,7 @@ export class Gallery {
       overlayNextSelector = '[data-ecl-gallery-overlay-next]',
       attachClickListener = true,
       attachKeyListener = true,
+      attachResizeListener = true,
     } = {}
   ) {
     // Check element
@@ -49,6 +83,8 @@ export class Gallery {
     this.descriptionSelector = descriptionSelector;
     this.metaSelector = metaSelector;
     this.closeButtonSelector = closeButtonSelector;
+    this.viewAllSelector = viewAllSelector;
+    this.countSelector = countSelector;
     this.overlaySelector = overlaySelector;
     this.overlayHeaderSelector = overlayHeaderSelector;
     this.overlayFooterSelector = overlayFooterSelector;
@@ -64,11 +100,14 @@ export class Gallery {
     this.overlayNextSelector = overlayNextSelector;
     this.attachClickListener = attachClickListener;
     this.attachKeyListener = attachKeyListener;
+    this.attachResizeListener = attachResizeListener;
 
     // Private variables
     this.galleryItems = null;
     this.meta = null;
     this.closeButton = null;
+    this.viewAll = null;
+    this.count = null;
     this.overlay = null;
     this.overlayHeader = null;
     this.overlayFooter = null;
@@ -84,9 +123,14 @@ export class Gallery {
     this.overlayNext = null;
     this.selectedItem = null;
     this.focusTrap = null;
+    this.isDesktop = false;
+    this.resizeTimer = null;
+    this.breakpointMd = 768;
+    this.imageHeight = 185;
 
     // Bind `this` for use in callbacks
     this.handleClickOnCloseButton = this.handleClickOnCloseButton.bind(this);
+    this.handleClickOnViewAll = this.handleClickOnViewAll.bind(this);
     this.handleClickOnItem = this.handleClickOnItem.bind(this);
     this.handleKeyPressOnItem = this.handleKeyPressOnItem.bind(this);
     this.handleClickOnPreviousButton = this.handleClickOnPreviousButton.bind(
@@ -94,12 +138,18 @@ export class Gallery {
     );
     this.handleClickOnNextButton = this.handleClickOnNextButton.bind(this);
     this.handleKeyboard = this.handleKeyboard.bind(this);
+    this.handleResize = this.handleResize.bind(this);
   }
 
+  /**
+   * Initialise component.
+   */
   init() {
     // Query elements
     this.galleryItems = queryAll(this.galleryItemSelector, this.element);
     this.closeButton = queryOne(this.closeButtonSelector, this.element);
+    this.viewAll = queryOne(this.viewAllSelector, this.element);
+    this.count = queryOne(this.countSelector, this.element);
     this.overlay = queryOne(this.overlaySelector, this.element);
     this.overlayHeader = queryOne(this.overlayHeaderSelector, this.overlay);
     this.overlayFooter = queryOne(this.overlayFooterSelector, this.overlay);
@@ -140,9 +190,14 @@ export class Gallery {
       this.closeButton.addEventListener('click', this.handleClickOnCloseButton);
     }
 
+    // Bind click event on view all (open first item)
+    if (this.attachClickListener && this.viewAll) {
+      this.viewAll.addEventListener('click', this.handleClickOnViewAll);
+    }
+
     // Bind click event on gallery items
     if (this.attachClickListener && this.galleryItems) {
-      this.galleryItems.forEach(galleryItem => {
+      this.galleryItems.forEach((galleryItem) => {
         if (this.attachClickListener) {
           galleryItem.addEventListener('click', this.handleClickOnItem);
         }
@@ -173,12 +228,29 @@ export class Gallery {
       this.overlay.addEventListener('close', this.handleClickOnCloseButton);
     }
 
+    // Bind resize events
+    if (this.attachResizeListener) {
+      window.addEventListener('resize', this.handleResize);
+    }
+
+    // Init display of gallery items
+    this.checkScreen();
+    this.hideItems();
+
     // Add number to gallery items
     this.galleryItems.forEach((galleryItem, key) => {
       galleryItem.setAttribute('data-ecl-gallery-item-id', key);
     });
+
+    // Update counter
+    if (this.count) {
+      this.count.innerHTML = this.galleryItems.length;
+    }
   }
 
+  /**
+   * Destroy component.
+   */
   destroy() {
     if (this.attachClickListener && this.closeButton) {
       this.closeButton.removeEventListener(
@@ -187,8 +259,12 @@ export class Gallery {
       );
     }
 
+    if (this.attachClickListener && this.viewAll) {
+      this.viewAll.removeEventListener('click', this.handleClickOnViewAll);
+    }
+
     if (this.attachClickListener && this.galleryItems) {
-      this.galleryItems.forEach(galleryItem => {
+      this.galleryItems.forEach((galleryItem) => {
         galleryItem.removeEventListener('click', this.handleClickOnItem);
       });
     }
@@ -213,8 +289,78 @@ export class Gallery {
     if (this.isDialogSupported && this.overlay) {
       this.overlay.removeEventListener('close', this.handleClickOnCloseButton);
     }
+
+    if (this.attachResizeListener) {
+      window.removeEventListener('resize', this.handleResize);
+    }
   }
 
+  /**
+   * Check if current display is desktop or mobile
+   */
+  checkScreen() {
+    if (window.innerWidth > this.breakpointMd) {
+      this.isDesktop = true;
+      return;
+    }
+
+    this.isDesktop = false;
+  }
+
+  /**
+   * Hide several gallery items by default
+   * - 2 "lines" of items on desktop
+   * - only 3 items on mobile
+   */
+  hideItems() {
+    if (!this.viewAll) return;
+
+    if (this.isDesktop) {
+      const galleryY = this.element.getBoundingClientRect().top;
+      let hiddenItemIds = [];
+      // We should browse the list first to mark the items to be hidden, and hide them later
+      // otherwise, it will interfer with the calculus
+      this.galleryItems.forEach((galleryItem, key) => {
+        galleryItem.parentNode.classList.remove('ecl-gallery__item--hidden');
+        if (
+          galleryItem.getBoundingClientRect().top - galleryY >
+          this.imageHeight * 2
+        ) {
+          hiddenItemIds = [...hiddenItemIds, key];
+        }
+      });
+      hiddenItemIds.forEach((id) => {
+        this.galleryItems[id].parentNode.classList.add(
+          'ecl-gallery__item--hidden'
+        );
+      });
+      return;
+    }
+
+    this.galleryItems.forEach((galleryItem, key) => {
+      if (key > 2) {
+        galleryItem.parentNode.classList.add('ecl-gallery__item--hidden');
+      } else {
+        galleryItem.parentNode.classList.remove('ecl-gallery__item--hidden');
+      }
+    });
+  }
+
+  /**
+   * Trigger events on resize
+   * Uses a debounce, for performance
+   */
+  handleResize() {
+    clearTimeout(this.resizeTimer);
+    this.resizeTimer = setTimeout(() => {
+      this.checkScreen();
+      this.hideItems();
+    }, 200);
+  }
+
+  /**
+   * @param {HTMLElement} selectedItem Media element
+   */
   updateOverlay(selectedItem) {
     this.selectedItem = selectedItem;
     const video = queryOne('video', selectedItem);
@@ -230,29 +376,26 @@ export class Gallery {
 
       if (this.overlayMedia) {
         this.overlayMedia.innerHTML = '';
-        /* eslint-disable-next-line unicorn/prefer-node-append */
         this.overlayMedia.appendChild(mediaElement);
       }
 
       // Get sources
       const sources = queryAll('source', video);
-      sources.forEach(source => {
+      sources.forEach((source) => {
         const sourceTag = document.createElement('source');
         sourceTag.setAttribute('src', source.getAttribute('src'));
         sourceTag.setAttribute('type', source.getAttribute('type'));
-        /* eslint-disable-next-line unicorn/prefer-node-append */
         mediaElement.appendChild(sourceTag);
       });
 
       // Get tracks
       const tracks = queryAll('track', video);
-      tracks.forEach(track => {
+      tracks.forEach((track) => {
         const trackTag = document.createElement('track');
         trackTag.setAttribute('src', track.getAttribute('src'));
         trackTag.setAttribute('kind', track.getAttribute('kind'));
         trackTag.setAttribute('srclang', track.getAttribute('srcLang'));
         trackTag.setAttribute('label', track.getAttribute('label'));
-        /* eslint-disable-next-line unicorn/prefer-node-append */
         mediaElement.appendChild(trackTag);
       });
 
@@ -268,7 +411,6 @@ export class Gallery {
 
       if (this.overlayMedia) {
         this.overlayMedia.innerHTML = '';
-        /* eslint-disable-next-line unicorn/prefer-node-append */
         this.overlayMedia.appendChild(mediaElement);
       }
 
@@ -319,6 +461,11 @@ export class Gallery {
     this.overlayDescription.innerHTML = description.innerHTML;
   }
 
+  /**
+   * Handles keyboard events such as Escape and navigation.
+   *
+   * @param {Event} e
+   */
   handleKeyboard(e) {
     // Detect press on Escape
     // Only used if the browser do not support <dialog>
@@ -327,6 +474,9 @@ export class Gallery {
     }
   }
 
+  /**
+   * Invoke listeners for close events.
+   */
   handleClickOnCloseButton() {
     if (this.isDialogSupported) {
       this.overlay.close();
@@ -348,6 +498,11 @@ export class Gallery {
     document.body.classList.remove('ecl-u-disablescroll');
   }
 
+  /**
+   * Invoke listeners for on pressing the spacebar button.
+   *
+   * @param {Event} e
+   */
   handleKeyPressOnItem(e) {
     if (e.keyCode === 32) {
       // If spacebar trigger the modal
@@ -355,6 +510,36 @@ export class Gallery {
     }
   }
 
+  /**
+   * Invoke listeners for on click events on view all.
+   *
+   * @param {Event} e
+   */
+  handleClickOnViewAll(e) {
+    e.preventDefault();
+
+    // Disable scroll on body
+    document.body.classList.add('ecl-u-disablescroll');
+
+    // Display overlay
+    if (this.isDialogSupported) {
+      this.overlay.showModal();
+    } else {
+      this.overlay.setAttribute('open', '');
+    }
+
+    // Update overlay
+    this.updateOverlay(this.galleryItems[0]);
+
+    // Trap focus
+    this.focusTrap.activate();
+  }
+
+  /**
+   * Invoke listeners for on click events on the given gallery item.
+   *
+   * @param {Event} e
+   */
   handleClickOnItem(e) {
     e.preventDefault();
 
@@ -375,6 +560,9 @@ export class Gallery {
     this.focusTrap.activate();
   }
 
+  /**
+   * Invoke listeners for on click events on previous navigation link.
+   */
   handleClickOnPreviousButton() {
     // Get current id
     const currentId = this.selectedItem.getAttribute(
@@ -396,6 +584,9 @@ export class Gallery {
     return this;
   }
 
+  /**
+   * Invoke listeners for on click events on next navigation link.
+   */
   handleClickOnNextButton() {
     // Get current id
     const currentId = this.selectedItem.getAttribute(

@@ -26,9 +26,8 @@ function flatDeep(pages) {
   }, []);
 }
 
-const pagesToRoutes = pages =>
-  flatDeep(pages).map(page => {
-    // eslint-disable-next-line no-param-reassign
+const pagesToRoutes = (pages) =>
+  flatDeep(pages).map((page) => {
     page.document = React.lazy(() =>
       import(
         /* webpackInclude: /\.mdx?$/ */

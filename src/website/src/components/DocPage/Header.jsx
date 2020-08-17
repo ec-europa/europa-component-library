@@ -1,4 +1,5 @@
-import React, { Fragment } from 'react';
+/* eslint-disable react/prop-types */
+import React from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import icons from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
@@ -9,7 +10,6 @@ import styles from './Header.scss';
 import { getPageTitle, getSectionTitle } from './utils/title';
 
 const navigateTab = (e, history) => {
-  // eslint-disable-next-line unicorn/prefer-includes
   if (e.target.value.indexOf('/playground/') !== -1) {
     window.location.href = e.target.value;
     return;
@@ -32,11 +32,11 @@ const Header = React.memo(({ component, history, location }) => {
         )}
         <h1 className={styles['header__page-title']}>{pageTitle}</h1>
         {component.attributes.isTab && (
-          <Fragment>
+          <>
             <ul className={styles.header__tabs}>
               {component.parent.children
-                .filter(t => t.attributes.isTab)
-                .map(tab => (
+                .filter((t) => t.attributes.isTab)
+                .map((tab) => (
                   <li key={tab.attributes.url}>
                     <NavLink
                       to={tab.attributes.url}
@@ -76,10 +76,10 @@ const Header = React.memo(({ component, history, location }) => {
               <select
                 id="header-tabs"
                 className={styles.select}
-                onChange={e => navigateTab(e, history)}
+                onChange={(e) => navigateTab(e, history)}
                 defaultValue={location.pathname}
               >
-                {component.parent.children.map(tab => (
+                {component.parent.children.map((tab) => (
                   <option key={tab.attributes.url} value={tab.attributes.url}>
                     {tab.attributes.title}
                   </option>
@@ -106,7 +106,7 @@ const Header = React.memo(({ component, history, location }) => {
                 </svg>
               </div>
             </div>
-          </Fragment>
+          </>
         )}
       </Container>
     </header>

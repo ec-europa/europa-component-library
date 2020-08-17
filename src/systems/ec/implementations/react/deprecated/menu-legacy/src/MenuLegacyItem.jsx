@@ -1,5 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Link from '@ecl/ec-react-component-link';
@@ -12,10 +11,10 @@ export const MenuLegacyItem = ({ label, href, isCurrent, children }) => {
   // Sub items
   let columnsMarkup = '';
   if (children && children.length > 0) {
-    const columns = children.map(child => {
+    const columns = children.map((child) => {
       let subItemsMarkup = '';
       if (child.items && child.items.length > 0) {
-        const subItemsArray = child.items.map(item => {
+        const subItemsArray = child.items.map((item) => {
           const subClassNames = classnames('ecl-menu-legacy__subitem', {
             'ecl-menu-legacy__subitem--current': isCurrent,
           });
@@ -40,7 +39,7 @@ export const MenuLegacyItem = ({ label, href, isCurrent, children }) => {
         });
 
         subItemsMarkup = (
-          <Fragment>
+          <>
             {child.title && (
               <div className="ecl-menu-legacy__separator">{child.title}</div>
             )}
@@ -50,7 +49,7 @@ export const MenuLegacyItem = ({ label, href, isCurrent, children }) => {
             >
               {subItemsArray}
             </ul>
-          </Fragment>
+          </>
         );
       }
 

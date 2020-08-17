@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -30,7 +29,7 @@ export const MenuLegacy = ({ label, items, className, ...props }) => {
           </div>
         </button>
         <ul className="ecl-menu-legacy__list" data-ecl-menu-legacy-list>
-          {items.map(item => (
+          {items.map((item) => (
             <MenuLegacyItem {...item} key={item.label} />
           ))}
         </ul>

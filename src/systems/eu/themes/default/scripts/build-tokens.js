@@ -23,13 +23,13 @@ theo.registerFormat(
   'spacing.scss.map',
   scssMap({
     mapName: '$ecl-spacing',
-    keyName: prop =>
+    keyName: (prop) =>
       prop
         .get('name')
         .slice(spacingPrefix.length)
         .toLowerCase()
         .replace(/_/g, '-'),
-    filter: prop =>
+    filter: (prop) =>
       prop.get('name').indexOf(spacingPrefix) === 0 &&
       !prop.get('name').startsWith(`${spacingPrefix}${printPrefix}`),
   })
@@ -46,14 +46,14 @@ theo.registerFormat(
   'spacing.scss.map',
   scssMap({
     mapName: '$ecl-spacing-print',
-    keyName: prop =>
+    keyName: (prop) =>
       prop
         .get('name')
         .slice(spacingPrefix.length)
         .slice(printPrefix.length)
         .toLowerCase()
         .replace(/_/g, '-'),
-    filter: prop =>
+    filter: (prop) =>
       prop.get('name').indexOf(spacingPrefix) === 0 &&
       prop.get('name').startsWith(`${spacingPrefix}${printPrefix}`),
   })
@@ -72,13 +72,13 @@ theo.registerFormat(
   'font-size.scss.map',
   scssMap({
     mapName: '$ecl-font-size',
-    keyName: prop =>
+    keyName: (prop) =>
       prop
         .get('name')
         .slice(fontSizePrefix.length)
         .toLowerCase()
         .replace(/_/g, '-'),
-    filter: prop =>
+    filter: (prop) =>
       prop.get('name').indexOf(fontSizePrefix) === 0 &&
       !prop.get('name').startsWith(`${fontSizePrefix}${printPrefix}`),
   })
@@ -95,14 +95,14 @@ theo.registerFormat(
   'font-size.scss.map',
   scssMap({
     mapName: '$ecl-font-size-print',
-    keyName: prop =>
+    keyName: (prop) =>
       prop
         .get('name')
         .slice(fontSizePrefix.length)
         .slice(printPrefix.length)
         .toLowerCase()
         .replace(/_/g, '-'),
-    filter: prop =>
+    filter: (prop) =>
       prop.get('name').indexOf(fontSizePrefix) === 0 &&
       prop.get('name').startsWith(`${fontSizePrefix}${printPrefix}`),
   })
@@ -121,13 +121,13 @@ theo.registerFormat(
   'media.scss.map',
   scssMap({
     mapName: '$ecl-media',
-    keyName: prop =>
+    keyName: (prop) =>
       prop
         .get('name')
         .slice(mediaPrefix.length)
         .toLowerCase()
         .replace(/_/g, '-'),
-    filter: prop => prop.get('name').indexOf(mediaPrefix) === 0,
+    filter: (prop) => prop.get('name').indexOf(mediaPrefix) === 0,
   })
 );
 
@@ -144,13 +144,13 @@ theo.registerFormat(
   'colors.scss.map',
   scssMap({
     mapName: '$ecl-colors',
-    keyName: prop =>
+    keyName: (prop) =>
       prop
         .get('name')
         .slice(colorPrefix.length)
         .toLowerCase()
         .replace(/_/g, '-'),
-    filter: prop => prop.get('name').indexOf(colorPrefix) === 0,
+    filter: (prop) => prop.get('name').indexOf(colorPrefix) === 0,
   })
 );
 
@@ -167,13 +167,13 @@ theo.registerFormat(
   'background-colors.scss.map',
   scssMap({
     mapName: '$ecl-colors-bg',
-    keyName: prop =>
+    keyName: (prop) =>
       prop
         .get('name')
         .slice(bgColorPrefix.length)
         .toLowerCase()
         .replace(/_/g, '-'),
-    filter: prop => prop.get('name').indexOf(bgColorPrefix) === 0,
+    filter: (prop) => prop.get('name').indexOf(bgColorPrefix) === 0,
   })
 );
 
@@ -190,13 +190,13 @@ theo.registerFormat(
   'widths.scss.map',
   scssMap({
     mapName: '$ecl-width',
-    keyName: prop =>
+    keyName: (prop) =>
       prop
         .get('name')
         .slice(widthPrefix.length)
         .toLowerCase()
         .replace(/_/g, '-'),
-    filter: prop => prop.get('name').indexOf(widthPrefix) === 0,
+    filter: (prop) => prop.get('name').indexOf(widthPrefix) === 0,
   })
 );
 
@@ -205,6 +205,29 @@ buildTokens({
   output: path.join(__dirname, '../exports/widths.scss'),
   type: 'web',
   format: 'widths.scss.map',
+});
+
+// Z-index SCSS map
+const zIndexPrefix = 'Z_INDEX_';
+theo.registerFormat(
+  'z-index.scss.map',
+  scssMap({
+    mapName: '$ecl-z-index',
+    keyName: (prop) =>
+      prop
+        .get('name')
+        .slice(zIndexPrefix.length)
+        .toLowerCase()
+        .replace(/_/g, '-'),
+    filter: (prop) => prop.get('name').indexOf(zIndexPrefix) === 0,
+  })
+);
+
+buildTokens({
+  input: path.join(__dirname, '../aliases/z-index.yml'),
+  output: path.join(__dirname, '../exports/z-index.scss'),
+  type: 'web',
+  format: 'z-index.scss.map',
 });
 
 // JSON Tokens

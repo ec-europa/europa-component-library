@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies, react/no-array-index-key */
 import React from 'react';
 import Box from './Box';
 

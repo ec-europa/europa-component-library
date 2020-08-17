@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -26,12 +26,7 @@ const TextArea = ({
   });
 
   return (
-    <div
-      className={classnames(
-        groupClassName,
-        'ecl-form-group ecl-form-group--text-area'
-      )}
-    >
+    <div className={classnames(groupClassName, 'ecl-form-group')}>
       {label && (
         <label
           className={classnames(labelClassName, 'ecl-form-label', {
@@ -42,17 +37,17 @@ const TextArea = ({
         >
           {label}
           {required ? (
-            <Fragment>
+            <>
               {requiredText && (
                 <span className="ecl-form-label__required">{requiredText}</span>
               )}
-            </Fragment>
+            </>
           ) : (
-            <Fragment>
+            <>
               {optionalText && (
                 <span className="ecl-form-label__optional">{optionalText}</span>
               )}
-            </Fragment>
+            </>
           )}
         </label>
       )}

@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
@@ -12,7 +11,7 @@ export default {
 
   decorators: [
     withKnobs,
-    story => (
+    (story) => (
       <StoryWrapper
         afterMount={() => {
           if (!window.ECL) return {};
@@ -20,9 +19,9 @@ export default {
           const autoinit = window.ECL.autoInit();
           return { components: autoinit.components };
         }}
-        beforeUnmount={context => {
+        beforeUnmount={(context) => {
           if (context.components) {
-            context.components.forEach(c => c.destroy());
+            context.components.forEach((c) => c.destroy());
           }
         }}
       >

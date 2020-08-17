@@ -1,4 +1,3 @@
-/* eslint "import/no-extraneous-dependencies": ["error", { "devDependencies": true } ] */
 const menuContent = require('@ecl/ec-specs-menu/demo/data--en');
 const siteHeaderCoreContent = require('@ecl/ec-specs-site-header-core/demo/data--en');
 const siteHeaderHarmonisedGroup1Content = require('@ecl/ec-specs-site-header-harmonised/demo/data--group1');
@@ -25,7 +24,7 @@ const pageHeaderContent = {
     'The Directorate-General for Communication is the Commission department responsible for explaining EU policies to outside audiences. It keeps the Commission abreast of political developments and of trends in public opinion and the media. It also coordinates communication campains within the Commission.',
 };
 
-module.exports = template => {
+module.exports = (template) => {
   const data = {
     breadcrumbContent,
     breadcrumbItems,

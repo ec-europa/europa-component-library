@@ -1,5 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -29,7 +28,7 @@ class PersonHarmonisedG2 extends React.Component {
     if (!window.ECL) return;
 
     if (this.components) {
-      this.components.forEach(c => c.destroy());
+      this.components.forEach((c) => c.destroy());
     }
 
     this.components = window.ECL.autoInit();
@@ -39,7 +38,7 @@ class PersonHarmonisedG2 extends React.Component {
     if (!window.ECL) return;
 
     if (this.components) {
-      this.components.forEach(c => c.destroy());
+      this.components.forEach((c) => c.destroy());
     }
   }
 
@@ -85,7 +84,7 @@ class PersonHarmonisedG2 extends React.Component {
           data-ecl-auto-init="BreadcrumbHarmonised"
           className="ecl-breadcrumb-harmonised--group2"
         >
-          {dataCopy.breadcrumbItems.map(item => (
+          {dataCopy.breadcrumbItems.map((item) => (
             <BreadcrumbHarmonisedItem {...item} key={item.label} />
           ))}
         </BreadcrumbHarmonised>
@@ -94,7 +93,7 @@ class PersonHarmonisedG2 extends React.Component {
     }
 
     return (
-      <Fragment>
+      <>
         <SiteHeaderHarmonised
           {...dataCopy.siteHeader}
           data-ecl-auto-init="SiteHeaderHarmonised"
@@ -106,7 +105,7 @@ class PersonHarmonisedG2 extends React.Component {
         />
         <PersonPage template="harmonised-g2" />
         <FooterHarmonisedG2 {...dataCopy.footer} />
-      </Fragment>
+      </>
     );
   }
 }

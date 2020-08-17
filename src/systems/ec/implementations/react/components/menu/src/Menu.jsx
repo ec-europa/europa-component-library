@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -68,7 +67,7 @@ export const Menu = ({
           </header>
           {/* Menu items */}
           <ul className="ecl-menu__list">
-            {items.map(item => (
+            {items.map((item) => (
               <MenuItem {...item} key={item.label} />
             ))}
           </ul>

@@ -4,7 +4,6 @@ export class Accordion {
   static autoInit(root, { ACCORDION: defaultOptions = {} } = {}) {
     const accordion = new Accordion(root, defaultOptions);
     accordion.init();
-    // eslint-disable-next-line no-param-reassign
     root.ECLAccordion = accordion;
     return accordion;
   }
@@ -47,7 +46,7 @@ export class Accordion {
 
     // Bind click event on toggles
     if (this.attachClickListener && this.toggles) {
-      this.toggles.forEach(toggle => {
+      this.toggles.forEach((toggle) => {
         toggle.addEventListener(
           'click',
           this.handleClickOnToggle.bind(this, toggle)
@@ -58,7 +57,7 @@ export class Accordion {
 
   destroy() {
     if (this.attachClickListener && this.toggles) {
-      this.toggles.forEach(toggle => {
+      this.toggles.forEach((toggle) => {
         toggle.removeEventListener('click', this.handleClickOnToggle);
       });
     }

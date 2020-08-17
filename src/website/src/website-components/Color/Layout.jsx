@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
@@ -11,7 +10,7 @@ class Layout extends PureComponent {
 
     return (
       <Row style={{ border: 'red' }}>
-        {React.Children.map(children, child => (
+        {React.Children.map(children, (child) => (
           <Col col={cols} spacing="mt-m" flex>
             {child}
           </Col>

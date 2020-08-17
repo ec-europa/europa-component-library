@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -31,7 +31,7 @@ const ContentItem = ({
     >
       {/* Images (left) */}
       {!!(images && images.position === 'left') && (
-        <Fragment>
+        <>
           {images.mobile && (
             <div
               role="img"
@@ -64,7 +64,7 @@ const ContentItem = ({
               }}
             />
           )}
-        </Fragment>
+        </>
       )}
 
       {/* Date block */}
@@ -80,7 +80,7 @@ const ContentItem = ({
           <div
             className={classnames(
               meta.className,
-              'ecl-u-type-s ecl-u-type-color-grey-75'
+              'ecl-u-type-s ecl-u-type-color-grey-75 ecl-u-type-family-alt'
             )}
           >
             {meta.label}
@@ -94,7 +94,7 @@ const ContentItem = ({
             variant="standalone"
             className={classnames(
               title.className,
-              'ecl-u-d-inline-block ecl-u-type-prolonged-m ecl-u-type-bold',
+              'ecl-u-d-inline-block ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-type-family-alt',
               {
                 'ecl-u-mt-xs': !!(meta && meta.label),
               }
@@ -123,7 +123,7 @@ const ContentItem = ({
             variant="no-bullet"
             className={classnames(information.className, 'ecl-u-mt-m')}
           >
-            {information.items.map(item => (
+            {information.items.map((item) => (
               <UnorderedListItem
                 key={item.label}
                 className={classnames(
@@ -132,12 +132,12 @@ const ContentItem = ({
                 )}
               >
                 {item.icon && (
-                  <Fragment>
+                  <>
                     <Icon {...item.icon} />
-                    <span className="ecl-u-type-s ecl-u-ml-s">
+                    <span className="ecl-u-type-s ecl-u-ml-s ecl-u-type-family-alt">
                       {item.label}
                     </span>
-                  </Fragment>
+                  </>
                 )}
 
                 {!item.icon && (
@@ -154,7 +154,7 @@ const ContentItem = ({
 
       {/* Images (right) */}
       {!!(images && images.position === 'right') && (
-        <Fragment>
+        <>
           {images.mobile && (
             <div
               role="img"
@@ -183,7 +183,7 @@ const ContentItem = ({
               }}
             />
           )}
-        </Fragment>
+        </>
       )}
     </article>
   );

@@ -1,5 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import BreadcrumbCore, {
@@ -58,7 +57,7 @@ class SearchCore extends React.Component {
         {...dataCopy.breadcrumbContent}
         data-ecl-auto-init="BreadcrumbCore"
       >
-        {dataCopy.breadcrumbItems.map(item => (
+        {dataCopy.breadcrumbItems.map((item) => (
           <BreadcrumbCoreItem {...item} key={item.label} />
         ))}
       </BreadcrumbCore>
@@ -66,7 +65,7 @@ class SearchCore extends React.Component {
     dataCopy.pageHeader.breadcrumb = breadcrumb;
 
     return (
-      <Fragment>
+      <>
         <SiteHeaderCore
           {...dataCopy.siteHeader}
           data-ecl-auto-init="SiteHeaderCore"
@@ -74,7 +73,7 @@ class SearchCore extends React.Component {
         <PageHeaderCore {...dataCopy.pageHeader} />
         <SearchPage template="core" />
         <FooterCore {...dataCopy.footer} />
-      </Fragment>
+      </>
     );
   }
 }

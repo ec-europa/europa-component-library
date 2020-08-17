@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies, no-underscore-dangle */
 import React from 'react';
 import { withKnobs, text, array } from '@storybook/addon-knobs';
 
@@ -33,7 +32,7 @@ export const _Card = () => {
 
   const infosArray = array(
     'infos (comma separated)',
-    demoContentCard.infos.map(info => info.label)
+    demoContentCard.infos.map((info) => info.label)
   );
 
   const infos = infosArray.map((info, key) => ({
@@ -45,7 +44,7 @@ export const _Card = () => {
 
   const tagsArray = array(
     'Tags (comma separated)',
-    demoContentCard.tags.map(tag => tag.label)
+    demoContentCard.tags.map((tag) => tag.label)
   );
 
   const tags = tagsArray.map((tag, key) => ({
@@ -83,7 +82,7 @@ export const Tile = () => {
 
   const linksArray = array(
     'Links (comma separated)',
-    demoContentTile.links.map(link => link.label)
+    demoContentTile.links.map((link) => link.label)
   );
 
   const links = linksArray.map((link, key) => ({

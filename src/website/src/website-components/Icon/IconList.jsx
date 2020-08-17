@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
@@ -19,18 +18,13 @@ class IconList extends PureComponent {
         {ecIcons
           .keys()
           .filter(
-            icon =>
-              icon.indexOf('/_') === -1 && // eslint-disable-line unicorn/prefer-includes
+            (icon) =>
+              icon.indexOf('/_') === -1 &&
               (!set || icon.indexOf(`./${set}`) === 0)
           )
-          .map(icon => (
+          .map((icon) => (
             <IconCard
-              name={
-                icon
-                  .split('/')
-                  .pop()
-                  .split('.svg')[0]
-              }
+              name={icon.split('/').pop().split('.svg')[0]}
               svg={ecIcons(icon).default}
               key={icon}
             />

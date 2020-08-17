@@ -25,7 +25,6 @@ const SiteHeader = ({
     ...logoProps
   } = logo;
 
-  // eslint-disable-next-line global-require, import/no-dynamic-require
   const logoSrc = require(`@ecl/ec-resources-logo/logo--${logoLanguage}.svg`);
 
   return (

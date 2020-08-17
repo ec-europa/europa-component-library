@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
@@ -11,10 +10,10 @@ import { BreadcrumbItem } from '../src/BreadcrumbItem';
 
 storiesOf('Components/Navigation/Breadcrumb', module)
   .addDecorator(withKnobs)
-  .addDecorator(story => (
+  .addDecorator((story) => (
     <div style={{ backgroundColor: '#004494' }}>{story()}</div>
   ))
-  .addDecorator(story => (
+  .addDecorator((story) => (
     <StoryWrapper
       afterMount={() => {
         if (!window.ECL) return {};
@@ -22,9 +21,9 @@ storiesOf('Components/Navigation/Breadcrumb', module)
         const autoinit = window.ECL.autoInit();
         return { components: autoinit.components };
       }}
-      beforeUnmount={context => {
+      beforeUnmount={(context) => {
         if (context.components) {
-          context.components.forEach(c => c.destroy());
+          context.components.forEach((c) => c.destroy());
         }
       }}
     >
@@ -39,7 +38,7 @@ storiesOf('Components/Navigation/Breadcrumb', module)
 
     return (
       <Breadcrumb label={simpleContent.label} ellipsisLabel="Click to expand">
-        {items.map(item => (
+        {items.map((item) => (
           <BreadcrumbItem {...item} key={item.label} />
         ))}
       </Breadcrumb>
@@ -57,7 +56,7 @@ storiesOf('Components/Navigation/Breadcrumb', module)
         ellipsisLabel="Click to expand"
         data-ecl-auto-init="Breadcrumb"
       >
-        {items.map(item => (
+        {items.map((item) => (
           <BreadcrumbItem {...item} key={item.label} />
         ))}
       </Breadcrumb>

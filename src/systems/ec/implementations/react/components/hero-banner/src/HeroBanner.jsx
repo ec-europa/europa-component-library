@@ -2,16 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import Button from '@ecl/ec-react-component-button';
 import Link from '@ecl/ec-react-component-link';
 
 const HeroBanner = ({
   variant,
+  meta,
   title,
   description,
   image,
   isCentered,
-  button, // DEPRECATED
+  isFullWidth,
   link,
   className,
   ...props
@@ -19,27 +19,50 @@ const HeroBanner = ({
   const classNames = classnames(className, 'ecl-hero-banner', {
     [`ecl-hero-banner--${variant}`]: variant,
     [`ecl-hero-banner--centered`]: isCentered,
+    [`ecl-hero-banner--full-width`]: isFullWidth,
   });
 
   return (
     <section {...props} className={classNames}>
-      {!!(variant && image) && (
+      {image && (
         <div
           className="ecl-hero-banner__image"
           style={{ backgroundImage: `url(${image})` }}
         />
       )}
-      <div className="ecl-container ecl-hero-banner__container">
-        <div className="ecl-hero-banner__content">
-          {title && <h1 className="ecl-hero-banner__title">{title}</h1>}
-          {description && (
-            <p className="ecl-hero-banner__description">{description}</p>
-          )}
-          {link && link.label && <Link {...link} variant="cta" />}
-          {/* DEPRECATED */}
-          {button && button.label && (
-            <Button {...button} className="ecl-hero-banner__button" />
-          )}
+      <div className="ecl-container">
+        <div className="ecl-hero-banner__container">
+          <div className="ecl-hero-banner__content">
+            {meta && (
+              <div className="ecl-hero-banner__meta">
+                {Array.isArray(meta) ? (
+                  <>
+                    {meta.map((metaData) => (
+                      <span
+                        key={metaData}
+                        className="ecl-hero-banner__meta-item"
+                      >
+                        {metaData}
+                      </span>
+                    ))}
+                  </>
+                ) : (
+                  meta
+                )}
+              </div>
+            )}
+            {title && <div className="ecl-hero-banner__title">{title}</div>}
+            {description && (
+              <p className="ecl-hero-banner__description">{description}</p>
+            )}
+            {link && link.label && (
+              <Link
+                {...link}
+                variant="cta"
+                className="ecl-hero-banner__link-cta"
+              />
+            )}
+          </div>
         </div>
       </div>
     </section>
@@ -48,22 +71,27 @@ const HeroBanner = ({
 
 HeroBanner.propTypes = {
   variant: PropTypes.string,
+  meta: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.string),
+    PropTypes.string,
+  ]),
   title: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,
   isCentered: PropTypes.bool,
-  button: PropTypes.shape(Button.propTypes),
+  isFullWidth: PropTypes.bool,
   link: PropTypes.shape(Link.propTypes),
   className: PropTypes.string,
 };
 
 HeroBanner.defaultProps = {
   variant: '',
+  meta: '',
   title: '',
   description: '',
   image: '',
   isCentered: false,
-  button: {},
+  isFullWidth: false,
   link: {},
   className: '',
 };

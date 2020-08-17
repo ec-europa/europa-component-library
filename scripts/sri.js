@@ -10,7 +10,6 @@ if (!isDrone || process.env.DRONE_BUILD_EVENT !== 'tag') {
   console.warn(
     'This script can only be run in drone on a tag event. Skipping...'
   );
-  // eslint-disable-next-line unicorn/no-process-exit
   process.exit(0);
 }
 
@@ -21,7 +20,7 @@ const files = glob.sync(
 
 // Compute SRI hashes
 const hashes = {};
-files.forEach(file => {
+files.forEach((file) => {
   const data = fs.readFileSync(file);
   const integrityObj = ssri.fromData(data, {
     algorithms: ['sha256', 'sha384', 'sha512'],

@@ -1,10 +1,24 @@
 import { queryOne } from '@ecl/eu-base/helpers/dom';
 
+/**
+ * @param {HTMLElement} element DOM element for component instantiation and scope
+ * @param {Object} options
+ * @param {String} options.moreItemSelector Selector for more button
+ * @param {String} options.listSelector Selector for list element
+ * @param {Boolean} options.attachClickListener Whether or not to bind click events
+ */
 export class ContextualNavigation {
+  /**
+   * @static
+   * Shorthand for instance creation and initialisation.
+   *
+   * @param {HTMLElement} root DOM element for component instantiation and scope
+   *
+   * @return {ContextualNavigation} An instance of ContextualNavigation.
+   */
   static autoInit(root, { CONTEXTUAL_NAVIGATION: defaultOptions = {} } = {}) {
     const contextualNavigation = new ContextualNavigation(root, defaultOptions);
     contextualNavigation.init();
-    // eslint-disable-next-line no-param-reassign
     root.ECLContextualNavigation = contextualNavigation;
     return contextualNavigation;
   }
@@ -39,6 +53,9 @@ export class ContextualNavigation {
     this.handleClickOnMore = this.handleClickOnMore.bind(this);
   }
 
+  /**
+   * Initialise component.
+   */
   init() {
     this.moreItem = queryOne(this.moreItemSelector, this.element);
     this.list = queryOne(this.listSelector, this.element);
@@ -49,12 +66,18 @@ export class ContextualNavigation {
     }
   }
 
+  /**
+   * Destroy component.
+   */
   destroy() {
     if (this.attachClickListener && this.moreItem) {
       this.moreItem.removeEventListener('click', this.handleClickOnMore);
     }
   }
 
+  /**
+   * Expands the list of items.
+   */
   handleClickOnMore() {
     this.list.setAttribute('aria-expanded', 'true');
     // IE way to remove a node...

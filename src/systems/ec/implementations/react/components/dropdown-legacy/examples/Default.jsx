@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import demoContent from '@ecl/ec-specs-dropdown-legacy/demo/data';
 import parse from 'html-react-parser';
@@ -8,8 +7,8 @@ import {
 } from '@ecl/ec-react-component-unordered-list';
 import { DropdownLegacy } from '../src/DropdownLegacy';
 
-const listContent = items =>
-  items.map(item => {
+const listContent = (items) =>
+  items.map((item) => {
     if (item.nested) {
       return (
         <UnorderedListItem key={item.label}>

@@ -1,5 +1,3 @@
-/* eslint-disable no-underscore-dangle, import/no-extraneous-dependencies */
-
 import { withKnobs, text } from '@storybook/addon-knobs';
 
 import { LoggedOut } from '../examples/LoggedOut';

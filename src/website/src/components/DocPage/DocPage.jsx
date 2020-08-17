@@ -1,6 +1,6 @@
-import React, { Component, Fragment, Suspense } from 'react';
+import React, { Component, Suspense } from 'react';
 import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import { withRouter } from 'react-router-dom';
 import Prism from 'prismjs';
 
@@ -28,7 +28,7 @@ class DocPage extends Component {
     }
 
     return (
-      <Fragment>
+      <>
         <ScrollToTopOnMount />
         <Helmet title={title} />
         <Header component={component} />
@@ -43,7 +43,7 @@ class DocPage extends Component {
             </Suspense>
           </Container>
         </main>
-      </Fragment>
+      </>
     );
   }
 }

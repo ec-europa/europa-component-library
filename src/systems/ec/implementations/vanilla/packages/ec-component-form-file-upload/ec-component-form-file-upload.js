@@ -1,21 +1,6 @@
 import { queryOne } from '@ecl/ec-base/helpers/dom';
 import { formatBytes } from '@ecl/ec-base/helpers/utilities';
 
-// Polyfill for closest (support for IE11)
-if (!Element.prototype.matches)
-  Element.prototype.matches = Element.prototype.msMatchesSelector;
-if (!Element.prototype.closest)
-  Element.prototype.closest = function poly(selector) {
-    let el = this;
-    while (el) {
-      if (el.matches(selector)) {
-        return el;
-      }
-      el = el.parentElement;
-    }
-    return null;
-  };
-
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
@@ -38,7 +23,6 @@ export class FileUpload {
   static autoInit(root, { FILE_UPLOAD: defaultOptions = {} } = {}) {
     const fileUpload = new FileUpload(root, defaultOptions);
     fileUpload.init();
-    // eslint-disable-next-line no-param-reassign
     root.ECLFileUpload = fileUpload;
     return fileUpload;
   }
@@ -121,7 +105,7 @@ export class FileUpload {
     let fileList = '';
 
     // Get file names
-    e.target.files.forEach(file => {
+    e.target.files.forEach((file) => {
       const fileSize = formatBytes(file.size, 1);
       const fileExtension = file.name.split('.').pop();
       fileList += `<li class="ecl-file-upload__item">

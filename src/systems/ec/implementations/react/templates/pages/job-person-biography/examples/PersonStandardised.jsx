@@ -1,5 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -29,7 +28,7 @@ class PersonStandardised extends React.Component {
     if (!window.ECL) return;
 
     if (this.components) {
-      this.components.forEach(c => c.destroy());
+      this.components.forEach((c) => c.destroy());
     }
 
     this.components = window.ECL.autoInit();
@@ -39,7 +38,7 @@ class PersonStandardised extends React.Component {
     if (!window.ECL) return;
 
     if (this.components) {
-      this.components.forEach(c => c.destroy());
+      this.components.forEach((c) => c.destroy());
     }
   }
 
@@ -81,7 +80,7 @@ class PersonStandardised extends React.Component {
           {...dataCopy.breadcrumbContent}
           data-ecl-auto-init="BreadcrumbStandardised"
         >
-          {dataCopy.breadcrumbItems.map(item => (
+          {dataCopy.breadcrumbItems.map((item) => (
             <BreadcrumbStandardisedItem {...item} key={item.label} />
           ))}
         </BreadcrumbStandardised>
@@ -90,7 +89,7 @@ class PersonStandardised extends React.Component {
     }
 
     return (
-      <Fragment>
+      <>
         <SiteHeaderStandardised
           {...dataCopy.siteHeader}
           data-ecl-auto-init="SiteHeaderStandardised"
@@ -101,7 +100,7 @@ class PersonStandardised extends React.Component {
         />
         <PersonPage template="standardised" />
         <FooterStandardised {...dataCopy.footer} />
-      </Fragment>
+      </>
     );
   }
 }

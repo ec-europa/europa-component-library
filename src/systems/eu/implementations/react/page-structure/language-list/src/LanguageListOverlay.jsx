@@ -8,7 +8,10 @@ import LanguageList from './LanguageList';
 const LanguageListOverlay = ({
   closeLabel,
   title,
+  categoryEu,
   items,
+  categoryNonEu,
+  itemsNonEu,
   className,
   ...props
 }) => {
@@ -44,7 +47,13 @@ const LanguageListOverlay = ({
             {title}
           </div>
         </div>
-        <LanguageList items={items} isOverlay />
+        <LanguageList
+          items={items}
+          categoryEu={categoryEu}
+          itemsNonEu={itemsNonEu}
+          categoryNonEu={categoryNonEu}
+          isOverlay
+        />
       </div>
     </div>
   );
@@ -53,7 +62,16 @@ const LanguageListOverlay = ({
 LanguageListOverlay.propTypes = {
   closeLabel: PropTypes.string,
   title: PropTypes.string,
+  categoryEu: PropTypes.string,
   items: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+      href: PropTypes.string,
+      isActive: PropTypes.bool,
+    })
+  ),
+  categoryNonEu: PropTypes.string,
+  itemsNonEu: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
       href: PropTypes.string,
@@ -66,7 +84,10 @@ LanguageListOverlay.propTypes = {
 LanguageListOverlay.defaultProps = {
   closeLabel: '',
   title: '',
+  categoryEu: '',
   items: [],
+  categoryNonEu: '',
+  itemsNonEu: [],
   className: '',
 };
 

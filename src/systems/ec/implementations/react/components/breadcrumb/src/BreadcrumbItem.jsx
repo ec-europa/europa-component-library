@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Icon from '@ecl/ec-react-component-icon';
@@ -24,7 +24,7 @@ export const BreadcrumbItem = ({
     aria-hidden={!isVisible}
   >
     {!isLastItem ? (
-      <Fragment>
+      <>
         <Link
           href={href}
           label={label}
@@ -40,9 +40,9 @@ export const BreadcrumbItem = ({
           role="presentation"
           aria-hidden
         />
-      </Fragment>
+      </>
     ) : (
-      <Fragment>{label}</Fragment>
+      <>{label}</>
     )}
   </li>
 );

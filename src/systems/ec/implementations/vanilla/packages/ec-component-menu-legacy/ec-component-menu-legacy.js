@@ -1,20 +1,5 @@
 import { queryOne, queryAll } from '@ecl/ec-base/helpers/dom';
 
-// Polyfill for closest (support for IE11)
-if (!Element.prototype.matches)
-  Element.prototype.matches = Element.prototype.msMatchesSelector;
-if (!Element.prototype.closest)
-  Element.prototype.closest = function poly(selector) {
-    let el = this;
-    while (el) {
-      if (el.matches(selector)) {
-        return el;
-      }
-      el = el.parentElement;
-    }
-    return null;
-  };
-
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
@@ -37,7 +22,6 @@ export class MenuLegacy {
   static autoInit(root, { MENU_LEGACY: defaultOptions = {} } = {}) {
     const menuLegacy = new MenuLegacy(root, defaultOptions);
     menuLegacy.init();
-    // eslint-disable-next-line no-param-reassign
     root.ECLMenuLegacy = menuLegacy;
     return menuLegacy;
   }
@@ -101,7 +85,7 @@ export class MenuLegacy {
 
     // Bind click event on menu links
     if (this.attachClickListener && this.menuLinks) {
-      this.menuLinks.forEach(menuLink => {
+      this.menuLinks.forEach((menuLink) => {
         if (
           menuLink.parentElement.getAttribute('data-ecl-has-children') ===
           'true'
@@ -124,7 +108,7 @@ export class MenuLegacy {
     }
 
     if (this.attachClickListener && this.menuLinks) {
-      this.menuLinks.forEach(menuLink => {
+      this.menuLinks.forEach((menuLink) => {
         if (
           menuLink.parentElement.getAttribute('data-ecl-has-children') ===
           'true'
@@ -161,7 +145,7 @@ export class MenuLegacy {
     const menuItem = e.target.closest('[data-ecl-has-children]');
 
     // Close other items
-    this.menuItems.forEach(item => {
+    this.menuItems.forEach((item) => {
       if (item !== menuItem) {
         item.setAttribute('aria-expanded', 'false');
         const subMenu = queryOne(this.menuMegaSelector, item);

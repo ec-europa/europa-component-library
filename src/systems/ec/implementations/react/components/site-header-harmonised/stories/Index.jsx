@@ -1,5 +1,5 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
+import { boolean } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
 import demoMenuGroup1 from '@ecl/ec-specs-menu/demo/data--group1';
 import demoMenuGroup2 from '@ecl/ec-specs-menu/demo/data--group2';
@@ -18,7 +18,7 @@ export default {
   title: 'Components/Site Headers/Harmonised',
 
   decorators: [
-    story => (
+    (story) => (
       <StoryWrapper
         afterMount={() => {
           if (!window.ECL) return {};
@@ -26,9 +26,9 @@ export default {
           const autoinit = window.ECL.autoInit();
           return { components: autoinit.components };
         }}
-        beforeUnmount={context => {
+        beforeUnmount={(context) => {
           if (context.components) {
-            context.components.forEach(c => c.destroy());
+            context.components.forEach((c) => c.destroy());
           }
         }}
       >
@@ -38,39 +38,119 @@ export default {
   ],
 };
 
-export const Group1 = () => (
-  <SiteHeaderHarmonised
-    {...demoContentGroup1}
-    menu={demoMenuGroup1}
-    data-ecl-auto-init="SiteHeaderHarmonised"
-    logged
-    className="ecl-site-header-harmonised--group1"
-  />
-);
+export const Group1 = () => {
+  // Optional elements
+  const optional = {};
+  optional.siteHeaderLogin = boolean('Login', true, 'optional');
+  optional.siteHeaderLangSelect = boolean(
+    'Language selector',
+    true,
+    'optional'
+  );
+  optional.siteHeaderSearch = boolean('Search', true, 'optional');
+  optional.siteHeaderClassName = boolean('Class name', true, 'optional');
+  optional.siteHeaderMenu = boolean('Menu', true, 'optional');
+
+  const dataCopy = JSON.parse(JSON.stringify(demoContentGroup1));
+
+  if (!optional.siteHeaderLogin) {
+    delete dataCopy.loginToggle;
+    delete dataCopy.loginBox;
+  }
+  if (!optional.siteHeaderLangSelect) {
+    delete dataCopy.languageSelector;
+  }
+  if (!optional.siteHeaderSearch) {
+    delete dataCopy.searchToggle;
+    delete dataCopy.searchForm;
+  }
+  if (!optional.siteHeaderClassName) {
+    delete dataCopy.bannerTop;
+  }
+  if (optional.siteHeaderMenu) {
+    delete dataCopy.banner;
+  } else {
+    dataCopy.banner = 'Site name';
+    delete dataCopy.menu;
+  }
+
+  return (
+    <SiteHeaderHarmonised
+      {...dataCopy}
+      {...(optional.siteHeaderMenu && {
+        menu: demoMenuGroup1,
+      })}
+      data-ecl-auto-init="SiteHeaderHarmonised"
+      logged
+      className="ecl-site-header-harmonised--group1"
+    />
+  );
+};
 
 Group1.story = {
   name: 'group 1',
 };
 
-export const Group2 = () => (
-  <SiteHeaderHarmonised
-    {...demoContentGroup2}
-    menu={demoMenuGroup2}
-    data-ecl-auto-init="SiteHeaderHarmonised"
-    className="ecl-site-header-harmonised--group2"
-  />
-);
+export const Group2 = () => {
+  // Optional elements
+  const optional = {};
+  optional.siteHeaderLangSelect = boolean(
+    'Language selector',
+    true,
+    'optional'
+  );
+  optional.siteHeaderSearch = boolean('Search', true, 'optional');
+  optional.siteHeaderMenu = boolean('Menu', true, 'optional');
+
+  const dataCopy = JSON.parse(JSON.stringify(demoContentGroup2));
+
+  if (!optional.siteHeaderLangSelect) {
+    delete dataCopy.languageSelector;
+  }
+  if (!optional.siteHeaderSearch) {
+    delete dataCopy.searchToggle;
+    delete dataCopy.searchForm;
+  }
+  if (optional.siteHeaderMenu) {
+    delete dataCopy.banner;
+  } else {
+    delete dataCopy.menu;
+  }
+
+  return (
+    <SiteHeaderHarmonised
+      {...dataCopy}
+      {...(optional.siteHeaderMenu && {
+        menu: demoMenuGroup2,
+      })}
+      data-ecl-auto-init="SiteHeaderHarmonised"
+      className="ecl-site-header-harmonised--group2"
+    />
+  );
+};
 
 Group2.story = {
   name: 'group 2',
 };
 
-export const Group3 = () => (
-  <SiteHeaderHarmonised
-    {...demoContentGroup3}
-    className="ecl-site-header-harmonised--group3"
-  />
-);
+export const Group3 = () => {
+  // Optional elements
+  const optional = {};
+  optional.siteHeaderPartnership = boolean('Partnership', true, 'optional');
+
+  const dataCopy = JSON.parse(JSON.stringify(demoContentGroup3));
+
+  if (!optional.siteHeaderPartnership) {
+    delete dataCopy.logo;
+  }
+
+  return (
+    <SiteHeaderHarmonised
+      {...dataCopy}
+      className="ecl-site-header-harmonised--group3"
+    />
+  );
+};
 
 Group3.story = {
   name: 'group 3',

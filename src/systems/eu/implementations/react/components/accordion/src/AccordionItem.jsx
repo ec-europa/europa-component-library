@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Button from '@ecl/eu-react-component-button';
@@ -7,7 +7,7 @@ export const AccordionItem = ({ id, toggle, level, children }) => {
   const HeadingTag = `h${level || 3}`;
 
   return (
-    <Fragment>
+    <>
       {!!(toggle && toggle.label) && (
         <HeadingTag className="ecl-accordion__title">
           <Button
@@ -31,7 +31,7 @@ export const AccordionItem = ({ id, toggle, level, children }) => {
       >
         {children}
       </div>
-    </Fragment>
+    </>
   );
 };
 

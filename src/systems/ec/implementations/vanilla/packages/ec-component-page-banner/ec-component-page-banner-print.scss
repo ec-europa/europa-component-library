@@ -1,6 +1,6 @@
 /*
  * Page banner
- * @define page-banner
+ * @define page-banner; weak
  */
 
 // Import base
@@ -9,29 +9,62 @@
 @mixin ecl-page-banner-print() {
   .ecl-page-banner {
     margin: 0;
+    padding-bottom: $ecl-spacing-print-l;
+    padding-top: $ecl-spacing-print-l;
   }
 
   .ecl-page-banner__title {
     color: $ecl-color-black-100;
     font: $ecl-font-print-4-xl;
+    font-family: $ecl-font-family-print-alt;
     margin-bottom: 0;
     margin-top: 0;
   }
 
-  .ecl-page-banner__baseline {
+  .ecl-page-banner__description {
     color: $ecl-color-black-100;
-    font: $ecl-font-prolonged-print-xl;
+    font: $ecl-font-prolonged-print-l;
     margin-bottom: 0;
     margin-top: $ecl-spacing-print-m;
   }
 
-  .ecl-page-banner__button {
-    display: none;
+  .ecl-page-banner__description + .ecl-link {
+    margin-top: $ecl-spacing-print-m;
   }
 
-  .ecl-page-banner__link {
-    font-weight: $ecl-font-weight-print-bold;
-    padding: $ecl-spacing-m $ecl-spacing-s;
+  .ecl-page-banner__meta {
+    font: $ecl-font-print-m;
+    margin-bottom: $ecl-spacing-print-m;
+  }
+
+  .ecl-page-banner__meta-item {
+    margin-left: $ecl-spacing-print-xs;
+
+    &::before {
+      content: '|';
+      margin-right: $ecl-spacing-print-xs;
+    }
+  }
+
+  .ecl-page-banner__meta-item:first-of-type {
+    margin-left: 0;
+    text-transform: uppercase;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  /*
+   * variant: ghost inverted
+   */
+  .ecl-page-banner--ghost-invert {
+    .ecl-page-banner__meta,
+    .ecl-page-banner__title,
+    .ecl-page-banner__description,
+    .ecl-page-banner__link-cta {
+      color: $ecl-color-white;
+    }
   }
 }
 

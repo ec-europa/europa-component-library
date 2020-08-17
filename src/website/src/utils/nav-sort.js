@@ -1,6 +1,6 @@
 import merge from 'deepmerge';
 
-const sortPages = pages => {
+const sortPages = (pages) => {
   pages.sort((a, b) => {
     if (!a.attributes || !b.attributes) return 0;
 
@@ -28,7 +28,7 @@ const sortPages = pages => {
 };
 
 const loopThroughPages = (pages, level = 0) => {
-  pages.forEach(page => {
+  pages.forEach((page) => {
     if (
       page.children &&
       Array.isArray(page.children) &&
@@ -41,9 +41,9 @@ const loopThroughPages = (pages, level = 0) => {
   sortPages(pages, level);
 };
 
-const addParent = pages => {
-  pages.forEach(page => {
-    page.parent = null; // eslint-disable-line no-param-reassign
+const addParent = (pages) => {
+  pages.forEach((page) => {
+    page.parent = null;
 
     if (
       page.children &&
@@ -52,20 +52,20 @@ const addParent = pages => {
     ) {
       addParent(page.children);
 
-      page.children.forEach(p => {
-        p.parent = page; // eslint-disable-line no-param-reassign
+      page.children.forEach((p) => {
+        p.parent = page;
       });
     }
   });
 };
 
-const processPages = pages => {
+const processPages = (pages) => {
   const newPages = [];
 
   // First pass
-  pages.forEach(p => {
+  pages.forEach((p) => {
     const { url } = p.attributes;
-    const sections = url.split('/').filter(s => s);
+    const sections = url.split('/').filter((s) => s);
 
     let parentSection = newPages;
     let fullSection = '';

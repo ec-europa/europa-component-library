@@ -1,5 +1,156 @@
 # Changelog
 
+## 2.31 (2020-07-23)
+
+#### :rocket: New Feature
+
+- [#1632](https://github.com/ec-europa/europa-component-library/pull/1632) feat(language-list): add non-eu languages - FRONT-1272 ([@emeryro](https://github.com/emeryro))
+- [#1627](https://github.com/ec-europa/europa-component-library/pull/1627) feat(highlight-composition): add highlight composition - FRONT-1284 ([@emeryro](https://github.com/emeryro))
+- [#1618](https://github.com/ec-europa/europa-component-library/pull/1618) feat(file-download): add thumbnail variant - FRONT-1202 ([@emeryro](https://github.com/emeryro))
+- [#1598](https://github.com/ec-europa/europa-component-library/pull/1598) feat(table): add sorttable - FRONT-1155 ([@papegaill](https://github.com/papegaill))
+
+#### :bug: Bug Fix
+
+- [#1636](https://github.com/ec-europa/europa-component-library/pull/1636) fix(skip-link): put skip link in full preset - FRONT-1224 ([@emeryro](https://github.com/emeryro))
+- [#1626](https://github.com/ec-europa/europa-component-library/pull/1626) fix(footer-core): fix markup on footer core EU - FRONT-1275 ([@gingapa](https://github.com/gingapa))
+- [#1624](https://github.com/ec-europa/europa-component-library/pull/1624) fix(multi-select): search with uppercase - FRONT-1281 ([@papegaill](https://github.com/papegaill))
+
+#### :nail_care: Enhancement
+
+- [#1622](https://github.com/ec-europa/europa-component-library/pull/1622) fix(multi-select): check if data-ecl-select-all attribute is set - FRONT-1274 ([@papegaill](https://github.com/papegaill))
+- [#1620](https://github.com/ec-europa/europa-component-library/pull/1620) fix(multi-select): search input width for larger select - FRONT-1273 ([@papegaill](https://github.com/papegaill))
+- [#1628](https://github.com/ec-europa/europa-component-library/pull/1628) fix(footer): check if aria-label is set, and add aria-label values to links - FRONT-1283 ([@gingapa](https://github.com/gingapa))
+- [#1613](https://github.com/ec-europa/europa-component-library/pull/1613) feat(gallery): add footer link - FRONT-1252 ([@gingapa](https://github.com/gingapa))
+- [#1623](https://github.com/ec-europa/europa-component-library/pull/1623) fix(horizontal-list): percentage instead of fixed width - FRONT-1279 ([@papegaill](https://github.com/papegaill))
+
+#### :memo: Documentation
+
+- [#1633](https://github.com/ec-europa/europa-component-library/pull/1633) docs(language-list): update usage page for non-EU languages - FRONT-1289 ([@papegaill](https://github.com/papegaill))
+- [#1631](https://github.com/ec-europa/europa-component-library/pull/1631) docs(file): add usage for file download with thumbnail - FRONT-1288 ([@papegaill](https://github.com/papegaill))
+- [#1630](https://github.com/ec-europa/europa-component-library/pull/1630) docs(table): update usage page for sortable - FRONT-1287 ([@papegaill](https://github.com/papegaill))
+
+#### :house: Internal
+
+- [#1619](https://github.com/ec-europa/europa-component-library/pull/1619) chore(deps): upgrade - FRONT-1193 ([@kalinchernev](https://github.com/kalinchernev))
+- [#1615](https://github.com/ec-europa/europa-component-library/pull/1615) chore(github-actions): fix netlify previews - FRONT-1254 ([@kalinchernev](https://github.com/kalinchernev))
+
+#### Committers: 4
+
+- Alexis Gaillard ([@papegaill](https://github.com/papegaill))
+- Kalin Chernev ([@kalinchernev](https://github.com/kalinchernev))
+- Paulo Gingao ([@gingapa](https://github.com/gingapa))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
+## 2.30 (2020-07-02)
+
+#### :rocket: New Feature
+
+- [#1590](https://github.com/ec-europa/europa-component-library/pull/1590) feat(select): add multiple select - FRONT-1142 ([@emeryro](https://github.com/emeryro))
+- [#1609](https://github.com/ec-europa/europa-component-library/pull/1609) feat(EU): add families components - FRONT-1203 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#1606](https://github.com/ec-europa/europa-component-library/pull/1606) fix(inpage-navigation): fix hidden attribute - FRONT-1170 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#1614](https://github.com/ec-europa/europa-component-library/pull/1614) feat(EU-components): small fixes to header/footer - FRONT-1203 ([@emeryro](https://github.com/emeryro))
+- [#1605](https://github.com/ec-europa/europa-component-library/pull/1605) feat(EU): update EU components ([@emeryro](https://github.com/emeryro))
+- [#1608](https://github.com/ec-europa/europa-component-library/pull/1608) feat(link): adding aria-label to EC and EU link component-FRONT-1239 ([@gingapa](https://github.com/gingapa))
+
+#### :memo: Documentation
+
+- [#1616](https://github.com/ec-europa/europa-component-library/pull/1616) docs(multi-select): add usage page - FRONT-1256 ([@emeryro](https://github.com/emeryro))
+- [#1612](https://github.com/ec-europa/europa-component-library/pull/1612) docs(breadcrumb): update usage page - FRONT-1231 ([@gingapa](https://github.com/gingapa))
+- [#1611](https://github.com/ec-europa/europa-component-library/pull/1611) docs(media-container): update usage page - FRONT-1230 ([@gingapa](https://github.com/gingapa))
+
+#### :house: Internal
+
+- [#1610](https://github.com/ec-europa/europa-component-library/pull/1610) chore(ci): use github actions for building previews - FRONT-1250 ([@kalinchernev](https://github.com/kalinchernev))
+- [#1607](https://github.com/ec-europa/europa-component-library/pull/1607) chore(node): upgrade to erbium - FRONT-1228 ([@kalinchernev](https://github.com/kalinchernev))
+
+#### Committers: 3
+
+- Kalin Chernev ([@kalinchernev](https://github.com/kalinchernev))
+- Paulo Gingao ([@gingapa](https://github.com/gingapa))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
+## 2.29 (2020-06-11)
+
+#### :rocket: New Feature
+
+- [#1600](https://github.com/ec-europa/europa-component-library/pull/1600) fix(EU): add missing elements - FRONT-1190 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#1588](https://github.com/ec-europa/europa-component-library/pull/1588) fix(site-header): update z-index for language switcher - FRONT-1134 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#1596](https://github.com/ec-europa/europa-component-library/pull/1596) feat(gallery): improve gallery - FRONT-1168 ([@emeryro](https://github.com/emeryro))
+
+#### :memo: Documentation
+
+- [#1602](https://github.com/ec-europa/europa-component-library/pull/1602) docs(hero-banner): update usage page - FRONT-1175 ([@emeryro](https://github.com/emeryro))
+- [#1594](https://github.com/ec-europa/europa-component-library/pull/1594) docs(menu): add usage page - FRONT-1164 ([@emeryro](https://github.com/emeryro))
+- [#1593](https://github.com/ec-europa/europa-component-library/pull/1593) docs(content-media): update usage page - FRONT-1165 ([@emeryro](https://github.com/emeryro))
+- [#1583](https://github.com/ec-europa/europa-component-library/pull/1583) docs(ECL): 🧹 major grooming since v1 => v2 changes - FRONT-955 ([@kalinchernev](https://github.com/kalinchernev))
+
+#### :house: Internal
+
+- [#1601](https://github.com/ec-europa/europa-component-library/pull/1601) chore(deps): upgrade deps with vulnerabilities - FRONT-1172 ([@kalinchernev](https://github.com/kalinchernev))
+
+#### Committers: 2
+
+- Kalin Chernev ([@kalinchernev](https://github.com/kalinchernev))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
+## 2.28 (2020-04-30)
+
+#### :rocket: New Feature
+
+- [#1584](https://github.com/ec-europa/europa-component-library/pull/1584) feat(legacy-page-header): add background image - FRONT-1130 ([@emeryro](https://github.com/emeryro))
+- [#1580](https://github.com/ec-europa/europa-component-library/pull/1580) feat(label): add component - FRONT-1006 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#1585](https://github.com/ec-europa/europa-component-library/pull/1585) fix(gallery): update z-index for overlay - FRONT-996 ([@emeryro](https://github.com/emeryro))
+- [#1582](https://github.com/ec-europa/europa-component-library/pull/1582) fix(site-header-core): add tests for language switcher ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#1579](https://github.com/ec-europa/europa-component-library/pull/1579) feat(print): update print css ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 1
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
+## 2.27 (2020-04-07)
+
+#### :bug: Bug Fix
+
+- [#1565](https://github.com/ec-europa/europa-component-library/pull/1565) fix(inpage navigation): fix long label and design update - FRONT-899 ([@emeryro](https://github.com/emeryro))
+- [#1566](https://github.com/ec-europa/europa-component-library/pull/1566) fix(examples): update babel configuration in webpack - FRONT-974 ([@kalinchernev](https://github.com/kalinchernev))
+
+#### :nail_care: Enhancement
+
+- [#1564](https://github.com/ec-europa/europa-component-library/pull/1564) feat(storybook): add knobs for optional elements - FRONT-983 ([@emeryro](https://github.com/emeryro))
+- [#1563](https://github.com/ec-europa/europa-component-library/pull/1563) refactor(forms): cleanup forms markup - FRONT-933 ([@emeryro](https://github.com/emeryro))
+
+#### :memo: Documentation
+
+- [#1568](https://github.com/ec-europa/europa-component-library/pull/1568) docs(images): add notes regarding SVGs ([@kalinchernev](https://github.com/kalinchernev))
+- [#1567](https://github.com/ec-europa/europa-component-library/pull/1567) docs(page banner): update doc - FRONT-998 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#1569](https://github.com/ec-europa/europa-component-library/pull/1569) chore(deps): upgrades - FRONT-1012 ([@kalinchernev](https://github.com/kalinchernev))
+
+#### Committers: 2
+
+- Kalin Chernev ([@kalinchernev](https://github.com/kalinchernev))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
 ## 2.26 (2020-03-26)
 
 #### :rocket: New Feature

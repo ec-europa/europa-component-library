@@ -19,7 +19,6 @@ export class Accordion2 {
   static autoInit(root, { ACCORDION2: defaultOptions = {} } = {}) {
     const accordion2 = new Accordion2(root, defaultOptions);
     accordion2.init();
-    // eslint-disable-next-line no-param-reassign
     root.ECLAccordion2 = accordion2;
     return accordion2;
   }
@@ -67,7 +66,7 @@ export class Accordion2 {
 
     // Bind click event on toggles
     if (this.attachClickListener && this.toggles) {
-      this.toggles.forEach(toggle => {
+      this.toggles.forEach((toggle) => {
         toggle.addEventListener(
           'click',
           this.handleClickOnToggle.bind(this, toggle)
@@ -81,7 +80,7 @@ export class Accordion2 {
    */
   destroy() {
     if (this.attachClickListener && this.toggles) {
-      this.toggles.forEach(toggle => {
+      this.toggles.forEach((toggle) => {
         toggle.removeEventListener('click', this.handleClickOnToggle);
       });
     }

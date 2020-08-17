@@ -8,15 +8,14 @@
 
 @mixin ecl-blockquote-print() {
   .ecl-blockquote {
-    font: $ecl-font-print-2-xl;
-    font-weight: $ecl-font-weight-print-bold;
     margin: 0;
   }
 
   .ecl-blockquote__body {
-    color: $ecl-color-black-100;
-    font: $ecl-font-prolonged-print-xl;
+    color: $ecl-color-grey;
+    font: $ecl-font-prolonged-print-l;
     font-style: italic;
+    margin: 0;
     quotes: '\201C''\201D';
 
     &::before {
@@ -34,7 +33,7 @@
 
   .ecl-blockquote__author {
     color: $ecl-color-black-100;
-    font: $ecl-font-prolonged-print-l;
+    font: $ecl-font-prolonged-print-m;
     font-weight: $ecl-font-weight-print-bold;
 
     &::before {

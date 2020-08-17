@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react';
-import Helmet from 'react-helmet';
+import React from 'react';
+import { Helmet } from 'react-helmet';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 import { MDXProvider } from '@mdx-js/react';
@@ -111,7 +111,7 @@ class App extends React.Component {
     return (
       <MDXProvider components={customComponents}>
         <Router basename={process.env.PUBLIC_URL}>
-          <Fragment>
+          <>
             <Helmet
               titleTemplate="%s - ECL v2"
               defaultTitle="Europa Component Library"
@@ -122,7 +122,7 @@ class App extends React.Component {
               />
             </Helmet>
             <MainRoutes />
-          </Fragment>
+          </>
         </Router>
       </MDXProvider>
     );

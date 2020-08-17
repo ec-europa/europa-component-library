@@ -1,12 +1,11 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import parse from 'html-react-parser';
 import demoLink from '@ecl/eu-specs-unordered-list/demo/data--link';
 import UnorderedList from '../src/UnorderedList';
 import UnorderedListItem from '../src/UnorderedListItem';
 
-const listContent = items =>
-  items.map(item => {
+const listContent = (items) =>
+  items.map((item) => {
     if (item.nested) {
       return (
         <UnorderedListItem key={item.label}>

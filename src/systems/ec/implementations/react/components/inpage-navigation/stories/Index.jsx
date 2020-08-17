@@ -1,8 +1,8 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { withKnobs, text, button } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
 import { loremIpsum } from 'lorem-ipsum';
+import demoContent from '@ecl/ec-specs-inpage-navigation/demo/data';
 import { InpageNavigation } from '../src/InpageNavigation';
 
 const btnIdRemoveHandler = () => {
@@ -18,7 +18,7 @@ export default {
 
   decorators: [
     withKnobs,
-    story => (
+    (story) => (
       <StoryWrapper
         afterMount={() => {
           if (!window.ECL) return {};
@@ -26,9 +26,9 @@ export default {
           const autoinit = window.ECL.autoInit();
           return { components: autoinit.components };
         }}
-        beforeUnmount={context => {
+        beforeUnmount={(context) => {
           if (context.components) {
-            context.components.forEach(c => c.destroy());
+            context.components.forEach((c) => c.destroy());
           }
         }}
       >
@@ -73,9 +73,7 @@ export const Default = () => {
     const numParagraphs = document.querySelectorAll('.ecl-col-lg-9 p').length;
     const position = Math.floor(Math.random() * Math.floor(numParagraphs));
     const btnIdElement = document.querySelectorAll('.ecl-col-lg-9 p')[position];
-    const demoId = Math.random()
-      .toString(36)
-      .slice(7);
+    const demoId = Math.random().toString(36).slice(7);
     const btnIdTag = document.createElement('h2');
     btnIdTag.classList.add('ecl-u-type-heading-2');
     btnIdTag.id = `new-${demoId}`;
@@ -95,20 +93,20 @@ export const Default = () => {
   const inpageProps = {
     links: [
       {
-        href: '#inline-nav-1',
-        label: text('First element label', 'Heading 1'),
+        href: demoContent.links[0].href,
+        label: text('First element label', demoContent.links[0].label),
       },
       {
-        href: '#inline-nav-2',
-        label: text('Second element label', 'Heading 2'),
+        href: demoContent.links[1].href,
+        label: text('Second element label', demoContent.links[1].label),
       },
       {
-        href: '#inline-nav-3',
-        label: text('Third element label', 'Heading 3'),
+        href: demoContent.links[2].href,
+        label: text('Third element label', demoContent.links[2].label),
       },
       {
-        href: '#inline-nav-4',
-        label: text('Fourth element label', 'Heading 4'),
+        href: demoContent.links[3].href,
+        label: text('Fourth element label', demoContent.links[3].label),
       },
     ],
   };
@@ -127,19 +125,19 @@ export const Default = () => {
         <div className="ecl-col-lg-9">
           <div className="inPageDemoContent" />
           <h2 className="ecl-u-type-heading-2" id="inline-nav-1">
-            Heading 1
+            {inpageProps.links[0].label}
           </h2>
           <p className="ecl-u-type-paragraph-m">{demoText}</p>
           <h2 className="ecl-u-type-heading-2" id="inline-nav-2">
-            Heading 2
+            {inpageProps.links[1].label}
           </h2>
           <p className="ecl-u-type-paragraph-m">{demoText}</p>
           <h2 className="ecl-u-type-heading-2" id="inline-nav-3">
-            Heading 3
+            {inpageProps.links[2].label}
           </h2>
           <p className="ecl-u-type-paragraph-m">{demoText}</p>
           <h2 className="ecl-u-type-heading-2" id="inline-nav-4">
-            Heading 4
+            {inpageProps.links[3].label}
           </h2>
           <p className="ecl-u-type-paragraph-m">{demoText}</p>
         </div>

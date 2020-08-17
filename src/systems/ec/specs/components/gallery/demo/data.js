@@ -208,4 +208,17 @@ module.exports = {
       },
     },
   },
+
+  viewAllLabel: 'View all',
+
+  footerLink: {
+    href: '/example',
+    ariaLabel: 'View all link aria-label value',
+    label: 'Link to further media items',
+    icon: {
+      shape: 'ui--external',
+      size: 's',
+    },
+  },
+  counterLabel: 'Media files in this gallery',
 };

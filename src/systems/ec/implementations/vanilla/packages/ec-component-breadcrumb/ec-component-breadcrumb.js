@@ -24,7 +24,6 @@ export class Breadcrumb {
   static autoInit(root, { BREADCRUMB: defaultOptions = {} } = {}) {
     const breadcrumb = new Breadcrumb(root, defaultOptions);
     breadcrumb.init();
-    // eslint-disable-next-line no-param-reassign
     root.ECLBreadcrumb = breadcrumb;
     return breadcrumb;
   }
@@ -149,7 +148,7 @@ export class Breadcrumb {
    * Show all expandable elements.
    */
   showAllItems() {
-    this.expandableElements.forEach(item =>
+    this.expandableElements.forEach((item) =>
       item.setAttribute('aria-hidden', 'false')
     );
   }
@@ -200,7 +199,9 @@ export class Breadcrumb {
 
     // Get the sum of all items' width
     const allItemsWidth = this.itemsElements
-      .map(breadcrumbSegment => breadcrumbSegment.getBoundingClientRect().width)
+      .map(
+        (breadcrumbSegment) => breadcrumbSegment.getBoundingClientRect().width
+      )
       .reduce((a, b) => a + b);
 
     if (allItemsWidth <= wrapperWidth) {
@@ -230,7 +231,7 @@ export class Breadcrumb {
     // Careful: reverse() is destructive, that's why we make a copy of the array
     const isItemVisible = [...this.expandableElements]
       .reverse()
-      .map(otherSegment => {
+      .map((otherSegment) => {
         if (!isPreviousItemVisible) return false;
 
         previousItemsWidth += otherSegment.getBoundingClientRect().width;

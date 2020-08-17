@@ -16,6 +16,7 @@
     font: $ecl-font-prolonged-xl;
     font-weight: $ecl-font-weight-bold;
     margin-top: $ecl-spacing-l;
+    max-width: calc(80ch - #{$ecl-spacing-2-xl});
 
     &:first-child {
       margin-top: 0;
@@ -31,6 +32,7 @@
     font: $ecl-font-prolonged-m;
     margin-left: 0;
     margin-top: $ecl-spacing-m;
+    max-width: calc(80ch - #{$ecl-spacing-2-xl});
     padding-left: $ecl-spacing-s;
   }
 
@@ -40,8 +42,8 @@
 }
 
 @mixin ecl-description-list-horizontal(
-  $term-width: 174px,
-  $definition-width: 325px
+  $term-width: 32%,
+  $definition-width: 68%
 ) {
   .ecl-description-list--horizontal {
     display: flex;
@@ -69,20 +71,18 @@
     .ecl-description-list--horizontal {
       flex-direction: row;
       flex-wrap: wrap;
-      max-width: calc(
-        #{$term-width} + #{$definition-width} + #{$ecl-spacing-xl}
-      );
+      max-width: calc(499px + #{$ecl-spacing-xl});
     }
 
     .ecl-description-list--horizontal .ecl-description-list__term {
-      width: 174px;
+      width: $term-width;
     }
 
     .ecl-description-list--horizontal .ecl-description-list__definition {
       margin-left: $ecl-spacing-xl;
       margin-top: $ecl-spacing-m;
       overflow-wrap: break-word;
-      width: 325px;
+      width: calc(#{$definition-width} - #{$ecl-spacing-xl});
     }
 
     .ecl-description-list--horizontal

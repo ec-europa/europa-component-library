@@ -1,9 +1,11 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import { storiesOf } from '@storybook/react';
-
 import NavigationListExample from '../examples/Default';
 
-storiesOf('Templates/Compositions', module).add(
-  'Navigation lists',
-  NavigationListExample
-);
+export default {
+  title: 'Templates/Compositions',
+};
+
+export const NavigationLists = NavigationListExample;
+
+NavigationLists.story = {
+  name: 'Navigation lists',
+};

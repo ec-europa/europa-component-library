@@ -43,6 +43,7 @@ aliases:
   _FONT_WEIGHT_PRINT_REGULAR: '{!FONT_WEIGHT_PRINT_REGULAR}'
   _FONT_WEIGHT_PRINT_BOLD: '{!FONT_WEIGHT_PRINT_BOLD}'
   _FONT_FAMILY_PRINT: '{!FONT_FAMILY_PRINT}'
+  _FONT_FAMILY_PRINT_ALT: '{!FONT_FAMILY_PRINT_ALT}'
 
 # Export properties
 props:
@@ -370,6 +371,11 @@ props:
   - name: FONT_FAMILY_PRINT
     value: '{!_FONT_FAMILY_PRINT}'
     comment: Font family print
+    type: font
+    category: font
+  - name: FONT_FAMILY_PRINT_ALT
+    value: '{!_FONT_FAMILY_PRINT_ALT}'
+    comment: Font family print alt
     type: font
     category: font
   - name: FONT_SIZE_PRINT_2XS

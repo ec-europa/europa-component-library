@@ -1,5 +1,5 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
+import { boolean } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
 import demoMenuEn from '@ecl/ec-specs-menu/demo/data--en';
 import demoMenuFr from '@ecl/ec-specs-menu/demo/data--fr';
@@ -15,7 +15,7 @@ export default {
   title: 'Components/Site Headers/Standardised',
 
   decorators: [
-    story => (
+    (story) => (
       <StoryWrapper
         afterMount={() => {
           if (!window.ECL) return {};
@@ -23,9 +23,9 @@ export default {
           const autoinit = window.ECL.autoInit();
           return { components: autoinit.components };
         }}
-        beforeUnmount={context => {
+        beforeUnmount={(context) => {
           if (context.components) {
-            context.components.forEach(c => c.destroy());
+            context.components.forEach((c) => c.destroy());
           }
         }}
       >
@@ -35,38 +35,128 @@ export default {
   ],
 };
 
-export const Default = () => (
-  <SiteHeaderStandardised
-    {...demoContentEn}
-    menu={demoMenuEn}
-    data-ecl-auto-init="SiteHeaderStandardised"
-  />
-);
+export const Default = () => {
+  // Optional elements
+  const optional = {};
+  optional.siteHeaderLogin = boolean('Login', true, 'optional');
+  optional.siteHeaderLangSelect = boolean(
+    'Language selector',
+    true,
+    'optional'
+  );
+  optional.siteHeaderMenu = boolean('Menu', true, 'optional');
+
+  const dataCopy = JSON.parse(JSON.stringify(demoContentEn));
+
+  if (!optional.siteHeaderLogin) {
+    delete dataCopy.loginToggle;
+    delete dataCopy.loginBox;
+  }
+  if (!optional.siteHeaderLangSelect) {
+    delete dataCopy.languageSelector;
+  }
+  if (optional.siteHeaderMenu) {
+    delete dataCopy.banner;
+  } else {
+    dataCopy.banner = 'Site name';
+    delete dataCopy.menu;
+  }
+
+  return (
+    <SiteHeaderStandardised
+      {...dataCopy}
+      {...(optional.siteHeaderMenu && {
+        menu: demoMenuEn,
+      })}
+      data-ecl-auto-init="SiteHeaderStandardised"
+    />
+  );
+};
 
 Default.story = {
   name: 'default',
 };
 
-export const LoggedIn = () => (
-  <SiteHeaderStandardised
-    {...demoContentEn}
-    menu={demoMenuEn}
-    data-ecl-auto-init="SiteHeaderStandardised"
-    logged
-  />
-);
+export const LoggedIn = () => {
+  // Optional elements
+  const optional = {};
+  optional.siteHeaderLogin = boolean('Login', true, 'optional');
+  optional.siteHeaderLangSelect = boolean(
+    'Language selector',
+    true,
+    'optional'
+  );
+  optional.siteHeaderMenu = boolean('Menu', true, 'optional');
+
+  const dataCopy = JSON.parse(JSON.stringify(demoContentEn));
+
+  if (!optional.siteHeaderLogin) {
+    delete dataCopy.loginToggle;
+    delete dataCopy.loginBox;
+  }
+  if (!optional.siteHeaderLangSelect) {
+    delete dataCopy.languageSelector;
+  }
+  if (optional.siteHeaderMenu) {
+    delete dataCopy.banner;
+  } else {
+    dataCopy.banner = 'Site name';
+    delete dataCopy.menu;
+  }
+
+  return (
+    <SiteHeaderStandardised
+      {...dataCopy}
+      {...(optional.siteHeaderMenu && {
+        menu: demoMenuEn,
+      })}
+      data-ecl-auto-init="SiteHeaderStandardised"
+      logged
+    />
+  );
+};
 
 LoggedIn.story = {
   name: 'logged in',
 };
 
-export const Translated = () => (
-  <SiteHeaderStandardised
-    {...demoContentFr}
-    menu={demoMenuFr}
-    data-ecl-auto-init="SiteHeaderStandardised"
-  />
-);
+export const Translated = () => {
+  // Optional elements
+  const optional = {};
+  optional.siteHeaderLogin = boolean('Login', true, 'optional');
+  optional.siteHeaderLangSelect = boolean(
+    'Language selector',
+    true,
+    'optional'
+  );
+  optional.siteHeaderMenu = boolean('Menu', true, 'optional');
+
+  const dataCopy = JSON.parse(JSON.stringify(demoContentFr));
+
+  if (!optional.siteHeaderLogin) {
+    delete dataCopy.loginToggle;
+    delete dataCopy.loginBox;
+  }
+  if (!optional.siteHeaderLangSelect) {
+    delete dataCopy.languageSelector;
+  }
+  if (optional.siteHeaderMenu) {
+    delete dataCopy.banner;
+  } else {
+    dataCopy.banner = 'Nom du site';
+    delete dataCopy.menu;
+  }
+
+  return (
+    <SiteHeaderStandardised
+      {...dataCopy}
+      {...(optional.siteHeaderMenu && {
+        menu: demoMenuFr,
+      })}
+      data-ecl-auto-init="SiteHeaderStandardised"
+    />
+  );
+};
 
 Translated.story = {
   name: 'translated',

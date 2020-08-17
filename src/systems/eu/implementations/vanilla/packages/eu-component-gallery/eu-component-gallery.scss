@@ -18,6 +18,7 @@
   .ecl-gallery__list {
     display: block;
     list-style: none;
+    margin-bottom: $ecl-spacing-m;
     margin-top: -($ecl-spacing-xs);
     padding-left: 0;
   }
@@ -26,6 +27,10 @@
     display: block;
     margin-bottom: 0;
     margin-top: $ecl-spacing-xs;
+  }
+
+  .ecl-gallery__item--hidden {
+    display: none;
   }
 
   .ecl-gallery__item-link {
@@ -92,6 +97,19 @@
     position: absolute;
     top: auto;
     width: 1px;
+  }
+
+  .ecl-gallery__info {
+    background-color: $ecl-color-grey-10;
+    float: right;
+    font: $ecl-font-xs;
+    padding: $ecl-spacing-xs $ecl-spacing-s;
+  }
+
+  .ecl-gallery__footer {
+    border-top: 1px solid $ecl-color-grey-10;
+    margin-top: $ecl-spacing-xs;
+    padding-top: $ecl-spacing-m;
   }
 
   /* stylelint-disable-next-line order/order */
@@ -164,7 +182,7 @@
  */
 @mixin ecl-gallery-overlay(
   $overlay-background: $ecl-color-black-100,
-  $overlay-z-index: 20,
+  $overlay-z-index: $ecl-z-index-modal,
   $detail-background: $ecl-color-grey-100,
   $detail-color: $ecl-color-white-100
 ) {

@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, array } from '@storybook/addon-knobs';
@@ -36,7 +35,7 @@ storiesOf('Components/Card', module)
     // infos
     const infosArray = array(
       'infos (comma separated)',
-      demoContentCard.infos.map(info => info.label)
+      demoContentCard.infos.map((info) => info.label)
     );
     const infos = infosArray.map((info, key) => ({
       label: info,
@@ -48,7 +47,7 @@ storiesOf('Components/Card', module)
     // Tags
     const tagsArray = array(
       'Tags (comma separated)',
-      demoContentCard.tags.map(tag => tag.label)
+      demoContentCard.tags.map((tag) => tag.label)
     );
     const tags = tagsArray.map((tag, key) => ({
       label: tag,
@@ -83,7 +82,7 @@ storiesOf('Components/Card', module)
     // Links
     const linksArray = array(
       'Links (comma separated)',
-      demoContentTile.links.map(link => link.label)
+      demoContentTile.links.map((link) => link.label)
     );
     const links = linksArray.map((link, key) => ({
       label: link,

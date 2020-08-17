@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
@@ -11,14 +11,15 @@ const LinkList = React.memo(
   ({ pages, level, showStatus, 'aria-hidden': ariaHidden }) => (
     <ul className={styles.list} data-level={level} aria-hidden={ariaHidden}>
       {pages
-        .filter(p => p.attributes.hidden !== true)
-        .filter(p => p.attributes.isTab !== true)
-        .map(p => {
+        .filter((p) => p.attributes.hidden !== true)
+        .filter((p) => p.attributes.isTab !== true)
+        .map((p) => {
           const hasChildren =
             p.children &&
             p.children.length > 0 &&
-            p.children.filter(childPage => childPage.attributes.isTab !== true)
-              .length > 0;
+            p.children.filter(
+              (childPage) => childPage.attributes.isTab !== true
+            ).length > 0;
           return (
             <li key={p.key}>
               {!hasChildren ? (
@@ -28,7 +29,7 @@ const LinkList = React.memo(
                   level={level}
                 />
               ) : (
-                <Fragment>
+                <>
                   {p.attributes.type === 'group' ? (
                     <LinkGroup
                       pages={p.children}
@@ -45,7 +46,7 @@ const LinkList = React.memo(
                       level={level}
                     />
                   )}
-                </Fragment>
+                </>
               )}
             </li>
           );

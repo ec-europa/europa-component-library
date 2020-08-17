@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import Link from '@ecl/ec-react-component-link';
 
 export const FooterStandardisedSection = ({ section }) => (
-  <Fragment>
+  <>
     {/* Title */}
     {!!(section && section.title && typeof section.title === 'object') && (
       <Link
@@ -57,7 +57,7 @@ export const FooterStandardisedSection = ({ section }) => (
           section.listClassName
         )}
       >
-        {section.links.map(link => (
+        {section.links.map((link) => (
           <li className="ecl-footer-standardised__list-item" key={link.label}>
             <Link
               {...link}
@@ -82,7 +82,7 @@ export const FooterStandardisedSection = ({ section }) => (
         {section.contentAfter}
       </div>
     )}
-  </Fragment>
+  </>
 );
 
 FooterStandardisedSection.propTypes = {
