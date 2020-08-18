@@ -4,57 +4,32 @@ imports:
 
 # Export properties
 props:
-  # Main colors
+  # Primary colors
 
-  - name: COLOR_PRIMARY
+  - name: COLOR_BLUE
     value: '{!COLOR_BLUE_100}'
-    comment: Primary colour
-    type: color
-    category: color
-    docs:
-      title: Primary colour
-      ui: light
-  - name: COLOR_PRIMARY_120
-    value: '{!COLOR_BLUE_120}'
-    comment: Primary colour 120
-    type: color
-    category: color
-    docs:
-      title: Primary colour 120
-      ui: light
-  - name: COLOR_PRIMARY_25
-    value: '{!COLOR_BLUE_25}'
-    comment: Primary colour
-    type: color
-    category: color
-    docs:
-      title: Primary colour 25
-      ui: light
-
-  - name: COLOR_SECONDARY
-    value: '{!COLOR_YELLOW_100}'
-    comment: Secondary colour
-    type: color
-    category: color
-    docs:
-      title: Secondary colour
-      ui: dark
-  - name: COLOR_SECONDARY_120
-    value: '{!COLOR_YELLOW_120}'
-    comment: Secondary colour 120
+    comment: Primary Blue
     type: color
     category: color
     docs:
       title: EU Blue
-      ui: dark
-  - name: COLOR_SECONDARY_25
-    value: '{!COLOR_YELLOW_25}'
-    comment: Secondary colour
+      ui: light
+  - name: COLOR_YELLOW
+    value: '{!COLOR_YELLOW_100}'
+    comment: Primary Yellow
     type: color
     category: color
     docs:
-      title: Secondary colour 25
+      title: EU Yellow
       ui: dark
+  - name: COLOR_GREY
+    value: '{!COLOR_GREY_100}'
+    comment: Primary Grey
+    type: color
+    category: color
+    docs:
+      title: EU Grey
+      ui: light
 
   # B&W
 
@@ -302,30 +277,24 @@ props:
 
   # DEPRECATED
 
-  - name: COLOR_BLUE
+  - name: COLOR_PRIMARY
     value: '{!COLOR_BLUE_100}'
-    comment: Primary Blue
+    comment: Primary colour
     type: color
     category: color
     docs:
       title: EU Blue
+      description: Blue is commonly...
       ui: light
-  - name: COLOR_YELLOW
+  - name: COLOR_SECONDARY
     value: '{!COLOR_YELLOW_100}'
-    comment: Primary Yellow
+    comment: Secondary colour
     type: color
     category: color
     docs:
       title: EU Yellow
+      description: Yellow is commonly...
       ui: dark
-  - name: COLOR_GREY
-    value: '{!COLOR_GREY_100}'
-    comment: Primary Grey
-    type: color
-    category: color
-    docs:
-      title: EU Grey
-      ui: light
   - name: COLOR_TERTIARY
     value: '{!COLOR_GREY_15}'
     comment: Tertiary colour
