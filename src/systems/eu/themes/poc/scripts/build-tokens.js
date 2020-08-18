@@ -184,6 +184,29 @@ buildTokens({
   format: 'border-radius.scss.map',
 });
 
+// Shadow SCSS map
+const shadowPrefix = 'SHADOW_';
+theo.registerFormat(
+  'shadow.scss.map',
+  scssMap({
+    mapName: '$ecl-shadow',
+    keyName: (prop) =>
+      prop
+        .get('name')
+        .slice(shadowPrefix.length)
+        .toLowerCase()
+        .replace(/_/g, '-'),
+    filter: (prop) => prop.get('name').indexOf(shadowPrefix) === 0,
+  })
+);
+
+buildTokens({
+  input: path.join(__dirname, '../aliases/shadow.yml'),
+  output: path.join(__dirname, '../exports/shadow.scss'),
+  type: 'web',
+  format: 'shadow.scss.map',
+});
+
 // Colors SCSS map
 const colorPrefix = 'COLOR_';
 theo.registerFormat(

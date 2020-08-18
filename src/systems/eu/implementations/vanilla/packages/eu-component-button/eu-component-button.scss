@@ -11,6 +11,7 @@
 @mixin ecl-button(
   // Global parameters:
     $border-radius: 0,
+  $shadow: none,
   // Component variables
     $border-width: 2px,
   $outline-width: 3px,
@@ -21,6 +22,12 @@
     $border-radius: $ecl-border-radius-4;
   } @else {
     $border-radius: $ecl-border-radius-0;
+  }
+
+  @if $ecl-global-shadow == blue {
+    $shadow: $ecl-shadow-blue;
+  } @else {
+    $shadow: $ecl-shadow-none;
   }
 
   .ecl-button {
@@ -35,6 +42,10 @@
     margin: 0;
     padding: $padding-horizontal $padding-vertical;
     text-decoration: none;
+
+    &:hover {
+      box-shadow: $shadow;
+    }
 
     &:hover,
     &:focus,
