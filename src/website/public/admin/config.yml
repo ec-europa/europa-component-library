@@ -1,0 +1,27 @@
+backend:
+  name: git-gateway
+  branch: v2-dev
+  squash_merges: true
+  commit_messages:
+    create: 'feat({{collection}}): create {{collection}} “{{slug}}”'
+    update: 'feat({{collection}}): update {{collection}} “{{slug}}”'
+    delete: 'feat({{collection}}): delete {{collection}} “{{slug}}”'
+    uploadMedia: 'feat(media): upload “{{path}}”'
+    deleteMedia: 'feat(media): delete “{{path}}”'
+
+media_folder: src/website/public/img
+public_folder: /img
+
+collections:
+  - label: 'Components'
+    name: 'components'
+    files:
+      - label: 'Accordion'
+        name: 'accordion'
+        file: 'src/website/src/pages/ec/components/accordion/docs/accordion.md'
+      - label: 'Hero Banner'
+        name: 'hero banner'
+        file: 'src/website/src/pages/ec/components/banners/hero-banner/docs/hero-banner.md'
+      - label: 'Page Banner'
+        name: 'page banner'
+        file: 'src/website/src/pages/ec/components/banners/page-banner/docs/page-banner.md'
