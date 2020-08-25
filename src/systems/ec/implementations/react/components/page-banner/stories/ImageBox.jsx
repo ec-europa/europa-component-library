@@ -1,11 +1,11 @@
 import React from 'react';
 import { text, boolean } from '@storybook/addon-knobs';
 
-import demoContentImage from '@ecl/eu-specs-page-banner/demo/data--image';
+import demoContentImage from '@ecl/ec-specs-page-banner/demo/data--image';
 
 import PageBanner from '../src/PageBanner';
 
-export const Image = () => {
+export const ImageBox = () => {
   // Banner content
   const title = text('Title', demoContentImage.title, 'Banner content');
   const description = text(
@@ -52,6 +52,6 @@ export const Image = () => {
   );
 };
 
-Image.story = {
-  name: 'image',
+ImageBox.story = {
+  name: 'image - text box',
 };

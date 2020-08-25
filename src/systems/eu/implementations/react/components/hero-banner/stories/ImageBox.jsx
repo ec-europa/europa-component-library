@@ -5,7 +5,7 @@ import demoContentImage from '@ecl/eu-specs-hero-banner/demo/data--image';
 
 import HeroBanner from '../src/HeroBanner';
 
-export const Image = () => {
+export const ImageBox = () => {
   // Banner content
   const title = text('Title', demoContentImage.title, 'Banner content');
   const description = text(
@@ -52,6 +52,6 @@ export const Image = () => {
   );
 };
 
-Image.story = {
-  name: 'image',
+ImageBox.story = {
+  name: 'image - text box',
 };

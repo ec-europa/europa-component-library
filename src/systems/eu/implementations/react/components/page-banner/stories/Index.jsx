@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { withKnobs } from '@storybook/addon-knobs';
 
-export { Image } from './Image';
+export { ImageBox } from './ImageBox';
 export { ImageShade } from './ImageShade';
 export { ImageGradient } from './ImageGradient';
 export { SimplePrimary } from './SimplePrimary';
