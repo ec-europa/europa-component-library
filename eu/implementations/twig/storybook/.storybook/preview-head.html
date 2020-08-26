@@ -1,0 +1,57 @@
+<link
+  rel="stylesheet"
+  href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.31.0/eu-preset-legacy-website/styles/ecl-eu-preset-legacy-website.css"
+  integrity="sha256-tZ9SrXC80uoLsGcy0bY+tZCgoO3vPBfLFzTLqCnOktU=
+  sha384-R7vJXsWkQ0M2os26I8F4ggFihed6hBW4ki8dXmwRivBx/yLOZ4AugXYcjYUiEtB+
+  sha512-W+jF1GHzSUK0WdIcRQYm6YHA/UIWTJgLSQ5OWlAdzkUzspK5hZXtG+E/WAhTO3a2sw+ye+vsunR7/9GUjST+jA=="
+  crossorigin="anonymous"
+  media="screen"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.31.0/eu-preset-legacy-website/styles/ecl-eu-preset-legacy-website-print.css"
+  integrity="sha256-lK2AnDyePAArmP/PYfGnk91zDMvo0CmVa8ooxQctrMQ=
+  sha384-vIHrG1Z+AsW+odFxs8uVWxvWXNM5XCFERXBSmw7UkRpGdrh6G+dOzujtWKWlTE4o
+  sha512-JNoZ5a90pTdQdzhD7cdvzfhPs+FVEVou4DfLaec98sg2eX0kjmlx2xiKbz/XVtQkR87mVmTxHdImduDhgOuNXQ=="
+  crossorigin="anonymous"
+  media="print"
+/>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/tippy.js@6/animations/scale-extreme.css"
+/>
+<link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/svg-arrow.css" />
+<script
+  src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.31.0/eu-preset-legacy-website/scripts/ecl-eu-preset-legacy-website.js"
+  integrity="sha256-mtZMxk8eaAn0KxNFTDRb3nW4wKzlLUh5PJDikj+7mFE=
+  sha384-huMQ8jXFGBgEutK2UCJRldaSPnwTvgH/DW6aoWg4WVRXVzANZyd3cKCmJF5tyxKu
+  sha512-sQeUlKOQDfz2b9zcrPy12hGDxfSLvk7dEHYapMUMcQ7byKej/C4pLe8CuBFS1h9wEPun1z3/lmoFoVGTEnDiIg=="
+  crossorigin="anonymous"
+></script>
+<script src="https://unpkg.com/svg4everybody@2.1.9/dist/svg4everybody.min.js"></script>
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script>
+  // https://github.com/storybookjs/storybook/issues/6113#issuecomment-473965255
+  function runOnPageChange() {
+    ECL.autoInit();
+  }
+  document.addEventListener(
+    'DOMContentLoaded',
+    function () {
+      const callback = function (mutationsList) {
+        for (let i = 0, len = mutationsList.length; i < len; i++) {
+          if (mutationsList[i].type == 'childList') {
+            runOnPageChange();
+            break;
+          }
+        }
+      };
+      const observer = new MutationObserver(callback);
+      const config = { childList: true, subtree: false };
+      observer.observe(document.getElementById('root'), config);
+    },
+    false
+  );
+  svg4everybody();
+</script>
