@@ -19,7 +19,11 @@ const DateBlock = ({
   let monthMarkup = '';
   if (monthFull !== '' && monthFull !== month) {
     monthMarkup = (
-      <abbr title={monthFull} className="ecl-date-block__month">
+      <abbr
+        aria-hidden="true"
+        title={monthFull}
+        className="ecl-date-block__month"
+      >
         {month}
       </abbr>
     );
@@ -29,9 +33,14 @@ const DateBlock = ({
 
   return (
     <time {...props} className={classNames} dateTime={dateTime}>
-      <span className="ecl-date-block__day">{day}</span>
+      <span className="ecl-u-sr-only">{dateTime}</span>
+      <span aria-hidden="true" className="ecl-date-block__day">
+        {day}
+      </span>
       {monthMarkup}
-      <span className="ecl-date-block__year">{year}</span>
+      <span aria-hidden="true" className="ecl-date-block__year">
+        {year}
+      </span>
     </time>
   );
 };
