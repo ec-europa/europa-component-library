@@ -1,0 +1,214 @@
+{% spaceless %}
+
+{#
+  Parameters:
+  - "identity" (object) (default: {}):
+    - "title" (string) (default: '')
+    - "follow" (object) (default: {}):
+      - "label" (string) (defaul: '')
+      - "links" (array of link objects) (default: [])
+    - "info" (array of link objects) (default: [])
+  - "sections" (array) (default: []):
+    - "title" (string) (default: '')
+    - "links" (array of link objects) (default: [])
+  - "common" (array of link objects) (default: [])
+  - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
+  - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (optional) (string) Attribute value, eg: 'data-test-1',
+  _ "_compliance_" (boolean) (default: false) Activates debug
+#}
+
+{# Internal properties #}
+
+{% set _identity = identity|default({}) %}
+{% set _sections = sections|default({}) %}
+{% set _common = common|default({}) %}
+{% set _compliance = _compliance_|default(false) %}
+{% set _css_class = 'ecl-footer' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if _identity is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-footer--custom' %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<footer class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  {# Back to top #}
+  {# Disabled
+  {% set _back_to_top = back_to_top|default({}) %}
+  {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with _back_to_top|merge({
+    link: _back_to_top.link|default({})|merge({
+      type: 'standalone',
+      icon_position: 'after',
+    }),
+    icon: _back_to_top.icon|default({})|merge({
+      type: 'ui',
+      name: 'corner-arrow',
+    }),
+    extra_classes: 'ecl-footer__back-to-top'
+  }) only %}
+  #}
+
+  {# Site identity #}
+  {% if _identity is not empty %}
+    <section class="ecl-footer__identity">
+      <div class="ecl-container">
+        <div class="ecl-row">
+          <div class="ecl-col-12 ecl-col-md-4">
+            <h1 class="ecl-footer__identity-title">{{ _identity.title }}</h1>
+          </div>
+          <div class="ecl-footer__identity-follow ecl-col-12 ecl-col-md-4">
+            <span class="ecl-footer__identity-label">
+              {{- identity.follow.label -}}
+            </span>
+            {% for item in _identity.follow.links %}
+              {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with item|merge({
+                link: item.link|default({})|merge({
+                  type: 'standalone',
+                }),
+                icon: item.icon|default({})|merge({
+                  size: 'xs',
+                }),
+                extra_classes: 'ecl-footer__identity-link',
+                _compliance_: _compliance,
+                _compliance_inner_check_: true
+              }) only %}
+            {% endfor %}
+          </div>
+          <div class="ecl-footer__identity-info ecl-col-12 ecl-col-md-4">
+            {% for item in _identity.info %}
+              {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with item|merge({
+                link: item.link|default({})|merge({
+                  type: 'standalone',
+                }),
+                icon: item.icon|default({})|merge({
+                  size: 'xs',
+                }),
+                extra_classes: 'ecl-footer__identity-link',
+                _compliance_: _compliance,
+                _compliance_inner_check_: true
+              }) only %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+  {% endif %}
+
+  {# European Commission #}
+  <div class="ecl-footer__sections">
+    <div class="ecl-container">
+      <div class="ecl-row">
+        <section class="ecl-footer__section ecl-col-12 ecl-col-md-4">
+          <h1 class="ecl-footer__section-title">{{ sections[0].title }}</h1>
+          <ul class="ecl-footer__section-list">
+            {% for item in _sections[0].links %}
+              <li class="ecl-footer__section-item">
+                {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with item|merge({
+                  link: item.link|default({})|merge({
+                    type: 'standalone',
+                  }),
+                  icon: item.icon|default({})|merge({
+                    size: 'xs',
+                  }),
+                  extra_classes: 'ecl-footer__section-link',
+                  _compliance_: _compliance,
+                  _compliance_inner_check_: true
+                }) only %}
+              </li>
+            {% endfor %}
+          </ul>
+        </section>
+        <section class="ecl-footer__section ecl-col-12 ecl-col-md-4">
+          <h1 class="ecl-footer__section-title">{{ sections[1].title }}</h1>
+          <ul class="ecl-footer__section-list ecl-footer__section-list--inline">
+            {% for item in _sections[1].links %}
+              <li class="ecl-footer__section-item">
+                {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with item|merge({
+                  link: item.link|default({})|merge({
+                    type: 'standalone',
+                  }),
+                  icon: item.icon|default({})|merge({
+                    size: 'xs',
+                  }),
+                  extra_classes: 'ecl-footer__section-link',
+                  _compliance_: _compliance,
+                  _compliance_inner_check_: true
+                }) only %}
+              </li>
+            {% endfor %}
+          </ul>
+        </section>
+        <section class="ecl-footer__section ecl-col-12 ecl-col-md-4">
+          <h1 class="ecl-footer__section-title">{{ sections[2].title }}</h1>
+          <ul class="ecl-footer__section-list">
+            {% for item in _sections[2].links %}
+              <li class="ecl-footer__section-item">
+                {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with item|merge({
+                  link: item.link|default({})|merge({
+                    type: 'standalone',
+                  }),
+                  icon: item.icon|default({})|merge({
+                    size: 'xs',
+                  }),
+                  extra_classes: 'ecl-footer__section-link',
+                  _compliance_: _compliance,
+                  _compliance_inner_check_: true
+                }) only %}
+              </li>
+            {% endfor %}
+          </ul>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  {# Common #}
+  <div class="ecl-footer__common">
+    <div class="ecl-container ecl-footer__common-container">
+      {% for item in _common %}
+        {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with item|merge({
+          link: item.link|default({})|merge({
+            type: 'standalone',
+          }),
+          icon: item.icon|default({})|merge({
+            size: 'xs',
+          }),
+          extra_classes: 'ecl-footer__common-link',
+          _compliance_: _compliance,
+          _compliance_inner_check_: true
+        }) only %}
+      {% endfor %}
+    </div>
+  </div>
+</footer>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-footer.html.twig' with {
+    identity: _identity,
+    sections: _sections,
+    common: _common
+  } only %}
+{% endif %}
+
+{% endspaceless %}

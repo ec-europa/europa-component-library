@@ -1,0 +1,150 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EC - Date Block renders correctly 1`] = `
+<test>
+  <time
+    class="ecl-date-block"
+    datetime="2019-09-26"
+  >
+    <span
+      class="ecl-date-block__day"
+    >
+      26
+    </span>
+    <abbr
+      class="ecl-date-block__month"
+      title="September"
+    >
+      Sep
+    </abbr>
+    <span
+      class="ecl-date-block__year"
+    >
+      2019
+    </span>
+  </time>
+</test>
+`;
+
+exports[`EC - Date Block renders correctly with extra attributes 1`] = `
+<test>
+  <time
+    class="ecl-date-block"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
+    datetime="2019-09-26"
+  >
+    <span
+      class="ecl-date-block__day"
+    >
+      26
+    </span>
+    <abbr
+      class="ecl-date-block__month"
+      title="September"
+    >
+      Sep
+    </abbr>
+    <span
+      class="ecl-date-block__year"
+    >
+      2019
+    </span>
+  </time>
+</test>
+`;
+
+exports[`EC - Date Block renders correctly with extra attributes and time set 1`] = `
+<test>
+  <time
+    class="ecl-date-block"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
+    datetime="15:30"
+  >
+    <span
+      class="ecl-date-block__day"
+    >
+      26
+    </span>
+    <abbr
+      class="ecl-date-block__month"
+      title="September"
+    >
+      Sep
+    </abbr>
+    <span
+      class="ecl-date-block__year"
+    >
+      2019
+    </span>
+  </time>
+</test>
+`;
+
+exports[`EC - Date Block renders correctly with extra class names 1`] = `
+<test>
+  <time
+    class="ecl-date-block custom-class custom-class--test"
+    datetime="2019-09-26"
+  >
+    <span
+      class="ecl-date-block__day"
+    >
+      26
+    </span>
+    <abbr
+      class="ecl-date-block__month"
+      title="September"
+    >
+      Sep
+    </abbr>
+    <span
+      class="ecl-date-block__year"
+    >
+      2019
+    </span>
+  </time>
+</test>
+`;
+
+exports[`EC - Date Block renders correctly with time set 1`] = `
+<test>
+  <time
+    class="ecl-date-block"
+    datetime="15:30"
+  >
+    <span
+      class="ecl-date-block__day"
+    >
+      26
+    </span>
+    <abbr
+      class="ecl-date-block__month"
+      title="September"
+    >
+      Sep
+    </abbr>
+    <span
+      class="ecl-date-block__year"
+    >
+      2019
+    </span>
+  </time>
+</test>
+`;
+
+exports[`EC - Date Block with validation enabled and missing input data returns the right warning message 1`] = `
+<test>
+  <!-- ecl2-compliance: date-block -->
+  <div
+    class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+  >
+    <p
+      class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
+    >
+      [date-block] - "year" is mandatory.
+    </p>
+  </div>
+</test>
+`;

@@ -1,0 +1,278 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EC - Tag Button renders correctly 1`] = `
+<test>
+  <button
+    class="ecl-tag"
+    type="button"
+  >
+    Button tag
+  </button>
+</test>
+`;
+
+exports[`EC - Tag Button renders correctly with extra attributes 1`] = `
+<test>
+  <button
+    class="ecl-tag"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
+    type="button"
+  >
+    Button tag
+  </button>
+</test>
+`;
+
+exports[`EC - Tag Button renders correctly with extra class names 1`] = `
+<test>
+  <button
+    class="ecl-tag custom-class custom-class--test"
+    type="button"
+  >
+    Button tag
+  </button>
+</test>
+`;
+
+exports[`EC - Tag Button with missing input data and debug enabled returns the right warning message 1`] = `
+<test>
+  <button
+    class="ecl-tag"
+    type="button"
+  />
+  <!-- ecl2-compliance: tag--button -->
+  <div
+    class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+  >
+    <p
+      class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
+    >
+      [tag--button] -  {{ tag.label }} needs to set and filled inis mandatory.
+    </p>
+  </div>
+</test>
+`;
+
+exports[`EC - Tag Link renders correctly 1`] = `
+<test>
+  <a
+    class="ecl-tag"
+    href="/example"
+  >
+    Link tag
+  </a>
+</test>
+`;
+
+exports[`EC - Tag Link renders correctly with extra attributes 1`] = `
+<test>
+  <a
+    class="ecl-tag"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
+    href="/example"
+  >
+    Link tag
+  </a>
+</test>
+`;
+
+exports[`EC - Tag Link renders correctly with extra class names 1`] = `
+<test>
+  <a
+    class="ecl-tag custom-class custom-class--test"
+    href="/example"
+  >
+    Link tag
+  </a>
+</test>
+`;
+
+exports[`EC - Tag Link with missing input data and debug enabled returns the right warning message 1`] = `
+<test>
+  <a
+    class="ecl-tag"
+    href=""
+  >
+    Link tag
+  </a>
+  <!-- ecl2-compliance: tag--link -->
+  <div
+    class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+  >
+    <p
+      class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
+    >
+      [tag--link] -  When the tag is a link the {{ tag.path }} property need to be set and filled in.
+    </p>
+  </div>
+</test>
+`;
+
+exports[`EC - Tag Removable renders correctly 1`] = `
+<test>
+  <span
+    class="ecl-tag ecl-tag--removable"
+  >
+    Removable tag
+    <button
+      aria-label="Dismiss"
+      class="ecl-tag__icon"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
+        focusable="false"
+      >
+        <use
+          xlink:href="/icons.svg#ui--close"
+        />
+      </svg>
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--xs ecl-tag__icon-close-filled"
+        focusable="false"
+      >
+        <use
+          xlink:href="/icons.svg#ui--close-filled"
+        />
+      </svg>
+    </button>
+  </span>
+</test>
+`;
+
+exports[`EC - Tag Removable renders correctly with extra attributes 1`] = `
+<test>
+  <span
+    class="ecl-tag ecl-tag--removable"
+  >
+    Removable tag
+    <button
+      aria-label="Dismiss"
+      class="ecl-tag__icon"
+      data-test="data-test-value"
+      data-test-1="data-test-value-1"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
+        focusable="false"
+      >
+        <use
+          xlink:href="/icons.svg#ui--close"
+        />
+      </svg>
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--xs ecl-tag__icon-close-filled"
+        focusable="false"
+      >
+        <use
+          xlink:href="/icons.svg#ui--close-filled"
+        />
+      </svg>
+    </button>
+  </span>
+</test>
+`;
+
+exports[`EC - Tag Removable renders correctly with extra class names 1`] = `
+<test>
+  <span
+    class="ecl-tag ecl-tag--removable custom-class custom-class--test"
+  >
+    Removable tag
+    <button
+      aria-label="Dismiss"
+      class="ecl-tag__icon"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
+        focusable="false"
+      >
+        <use
+          xlink:href="/icons.svg#ui--close"
+        />
+      </svg>
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--xs ecl-tag__icon-close-filled"
+        focusable="false"
+      >
+        <use
+          xlink:href="/icons.svg#ui--close-filled"
+        />
+      </svg>
+    </button>
+  </span>
+</test>
+`;
+
+exports[`EC - Tag Removable with missing input data and debug enabled returns the right warning message 1`] = `
+<test>
+  <span
+    class="ecl-tag ecl-tag--removable"
+  >
+    Removable tag
+    <button
+      class="ecl-tag__icon"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
+        focusable="false"
+      >
+        <use
+          xlink:href="#ui--close"
+        />
+      </svg>
+      <!-- ecl2-compliance: icon -->
+      <div
+        class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+      >
+        <p
+          class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
+        >
+          [icon] - {{ icon.name }} and {{ icon.path }} properties need to set and filled in.
+        </p>
+      </div>
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--xs ecl-tag__icon-close-filled"
+        focusable="false"
+      >
+        <use
+          xlink:href="#ui--close-filled"
+        />
+      </svg>
+      <!-- ecl2-compliance: icon -->
+      <div
+        class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+      >
+        <p
+          class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
+        >
+          [icon] - {{ icon.name }} and {{ icon.path }} properties need to set and filled in.
+        </p>
+      </div>
+    </button>
+  </span>
+  <!-- ecl2-compliance: tag--removable -->
+  <div
+    class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+  >
+    <p
+      class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
+    >
+      [tag--removable] -  {{ default_icon_path }} needs to be set and filled in. {{ aria_label }} needs to be set and filled in for accessibility reasons.
+    </p>
+  </div>
+</test>
+`;
