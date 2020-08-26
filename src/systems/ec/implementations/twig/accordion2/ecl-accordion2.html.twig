@@ -64,7 +64,7 @@
             aria-controls="{{ _item.id }}-content"
           >
             <span class="ecl-accordion2__toggle-flex">
-              {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
+              {% include '@ecl/ec-twig-component-icon/ecl-icon.html.twig' with {
                 icon: {
                   path: _item.toggle.icon.path,
                   type: "ui",
@@ -99,7 +99,7 @@
 {# Validation #}
 
 {% if _compliance %}
-  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-accordion.html.twig' with {
+  {% include '@ecl/ec-twig-component-ecl-compliance/components/ecl-compliance-accordion.html.twig' with {
     items: _items
   } only %}
 {% endif %}

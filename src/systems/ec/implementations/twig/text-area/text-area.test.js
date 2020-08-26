@@ -4,7 +4,7 @@ import dataDisabled from './demo/data--is-disabled';
 import dataError from './demo/data--has-error';
 
 describe('EC - Text area', () => {
-  const template = '@ecl-twig/ec-component-text-area/ecl-text-area.html.twig';
+  const template = '@ecl/ec-twig-component-text-area/ecl-text-area.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {

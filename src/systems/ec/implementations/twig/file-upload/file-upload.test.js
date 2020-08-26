@@ -5,7 +5,7 @@ import dataDefault from './demo/data';
 
 describe('EC - File Upload ', () => {
   const template =
-    '@ecl-twig/ec-component-file-upload/ecl-file-upload.html.twig';
+    '@ecl/ec-twig-component-file-upload/ecl-file-upload.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {

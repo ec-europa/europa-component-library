@@ -69,7 +69,7 @@
         {% set _link_extra_classes = _link_extra_classes ~ ' ' ~ link.extra_classes %}
       {% endif %}
       <li class="ecl-social-media-share__item">
-        {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with link|merge({
+        {% include '@ecl/ec-twig-component-link/ecl-link.html.twig' with link|merge({
           link: link|default({})|merge({
             type: 'standalone',
           }),
@@ -86,7 +86,7 @@
 {# Validation #}
 
 {% if _compliance %}
-  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-social-media.html.twig' with {
+  {% include '@ecl/ec-twig-component-ecl-compliance/components/ecl-compliance-social-media.html.twig' with {
     description: _description,
     links: _links,
     variant: 'share'

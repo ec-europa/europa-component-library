@@ -7,7 +7,7 @@ import dataBinary from './demo/data--binary';
 import dataBinaryInvalid from './demo/data--binary-invalid';
 
 describe('EC - Radio', () => {
-  const template = '@ecl-twig/ec-component-radio/ecl-radio-group.html.twig';
+  const template = '@ecl/ec-twig-component-radio/ecl-radio-group.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {

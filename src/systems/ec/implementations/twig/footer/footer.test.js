@@ -3,7 +3,7 @@ import dataCustom from './demo/data--custom';
 import dataCorporate from './demo/data--corporate';
 
 describe('EC - Footer', () => {
-  const template = '@ecl-twig/ec-component-footer/ecl-footer.html.twig';
+  const template = '@ecl/ec-twig-component-footer/ecl-footer.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Corporate', () => {

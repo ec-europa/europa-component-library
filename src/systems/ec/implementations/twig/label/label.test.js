@@ -2,7 +2,7 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 import dataDefault from '@ecl/ec-specs-label/demo/data';
 
 describe('EC - Label', () => {
-  const template = '@ecl-twig/ec-component-label/ecl-label.html.twig';
+  const template = '@ecl/ec-twig-component-label/ecl-label.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
   test('renders correctly', () => {

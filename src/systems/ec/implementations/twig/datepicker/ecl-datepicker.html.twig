@@ -124,7 +124,7 @@
     {% endif %}
     />
   {% if _icons_path is not empty %}
-    {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
+    {% include '@ecl/ec-twig-component-icon/ecl-icon.html.twig' with {
       icon: {
         type: 'general',
         name: 'calendar',
@@ -142,7 +142,7 @@
 {# Validation #}
 
 {% if _compliance %}
-  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-datepicker.html.twig' with {
+  {% include '@ecl/ec-twig-component-ecl-compliance/components/ecl-compliance-datepicker.html.twig' with {
     helper_id: _helper_id,
     invalid: _invalid,
     required: _required,

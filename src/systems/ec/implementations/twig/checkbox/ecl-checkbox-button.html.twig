@@ -94,7 +94,7 @@
     class="ecl-checkbox__label"
   >
     <span class="{{ _box_css_class }}">
-      {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
+      {% include '@ecl/ec-twig-component-icon/ecl-icon.html.twig' with {
         icon: {
           path: _icon_path,
           type: "ui",
@@ -124,7 +124,7 @@
 {# Validation #}
 
 {% if _compliance %}
-  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-checkbox.html.twig' with {
+  {% include '@ecl/ec-twig-component-ecl-compliance/components/ecl-compliance-checkbox.html.twig' with {
     icon_path: _icon_path,
     label: _label,
     _compliance_inner_check_: true

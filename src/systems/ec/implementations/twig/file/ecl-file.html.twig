@@ -103,7 +103,7 @@
     </div>
     {% endif %}
   {% else %}
-    {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
+    {% include '@ecl/ec-twig-component-icon/ecl-icon.html.twig' with {
       icon: _icon,
       extra_classes: 'ecl-file__icon',
       _compliance_: _compliance,
@@ -123,7 +123,7 @@
     {% endif %}
     </div>
   {% endif %}
-    {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with _download|merge({
+    {% include '@ecl/ec-twig-component-link/ecl-link.html.twig' with _download|merge({
       link: _download.link|default({})|merge({
         type: 'standalone',
         icon_position: 'after',
@@ -145,7 +145,7 @@
       class="ecl-file__translation-container"
       data-ecl-file-translation-container
     >
-      {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with _translation.toggle|merge({
+      {% include '@ecl/ec-twig-component-button/ecl-button.html.twig' with _translation.toggle|merge({
         variant: 'ghost',
         type: 'button',
         icon: _translation.toggle.icon|default({})|merge({
@@ -204,7 +204,7 @@
               </div>
             {% endif %}
             </div>
-            {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with _download|merge({
+            {% include '@ecl/ec-twig-component-link/ecl-link.html.twig' with _download|merge({
               link: _item.download.link|default(_download.link|default({}))|merge({
                 type: 'standalone',
                 icon_position: 'after'
@@ -235,7 +235,7 @@
 {# Validation #}
 
 {% if _compliance %}
-  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-file.html.twig' with {
+  {% include '@ecl/ec-twig-component-ecl-compliance/components/ecl-compliance-file.html.twig' with {
     icon: _icon,
     title: _title,
     language: _language,

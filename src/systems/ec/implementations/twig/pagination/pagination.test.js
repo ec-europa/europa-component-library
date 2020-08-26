@@ -4,7 +4,7 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 import data from './demo/data';
 
 describe('EC - Pagination', () => {
-  const template = '@ecl-twig/ec-component-pagination/ecl-pagination.html.twig';
+  const template = '@ecl/ec-twig-component-pagination/ecl-pagination.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {

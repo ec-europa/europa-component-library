@@ -52,7 +52,7 @@
 {# Print the result #}
 
 <div class="{{ _css_class }}" data-ecl-message role="alert"{{ _extra_attributes|raw }}>
-  {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
+  {% include '@ecl/ec-twig-component-icon/ecl-icon.html.twig' with {
     icon: _icon,
     extra_classes: 'ecl-message__icon',
   } only %}
@@ -63,7 +63,7 @@
     {% endif %}
   {% endif %}
   <div class="ecl-message__content">
-    {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with _close|merge({
+    {% include '@ecl/ec-twig-component-button/ecl-button.html.twig' with _close|merge({
       type: 'button',
       variant: 'ghost',
       icon: _icon,
@@ -83,7 +83,7 @@
 {# Validation #}
 
 {% if _compliance %}
-  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-message.html.twig' with {
+  {% include '@ecl/ec-twig-component-ecl-compliance/components/ecl-compliance-message.html.twig' with {
     variant: _variant,
     title: _title,
     close: _close,

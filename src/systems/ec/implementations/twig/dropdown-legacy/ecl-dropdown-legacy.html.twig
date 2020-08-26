@@ -75,7 +75,7 @@
 {# Print the result #}
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with _button only %}
+  {% include '@ecl/ec-twig-component-button/ecl-button.html.twig' with _button only %}
   <div
     id="{{ _id ~ '-content' }}"
     class="ecl-dropdown-legacy__content"
@@ -94,7 +94,7 @@
 {# Validation #}
 
 {% if _compliance %}
-  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-dropdown-legacy.html.twig' with {
+  {% include '@ecl/ec-twig-component-ecl-compliance/components/ecl-compliance-dropdown-legacy.html.twig' with {
     id: _id,
     button: _button,
     list: _list

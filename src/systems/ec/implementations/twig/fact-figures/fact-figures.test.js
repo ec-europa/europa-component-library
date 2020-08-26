@@ -6,7 +6,7 @@ import data4Col from './demo/data--4-col';
 
 describe('EC - Fact and figures', () => {
   const template =
-    '@ecl-twig/ec-component-fact-figures/ecl-fact-figures.html.twig';
+    '@ecl/ec-twig-component-fact-figures/ecl-fact-figures.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('3 cols', () => {

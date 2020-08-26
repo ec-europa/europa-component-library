@@ -98,7 +98,7 @@
 
   {% if _items is not empty and _items is iterable %}
     {%- for _item in _items %}
-      {% include '@ecl-twig/ec-component-radio/ecl-radio-button.html.twig' with _item|merge({
+      {% include '@ecl/ec-twig-component-radio/ecl-radio-button.html.twig' with _item|merge({
         name: _name,
         invalid: _invalid,
         binary: _binary,
@@ -112,7 +112,7 @@
 {# Validation #}
 
 {% if _compliance %}
-  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-form-group.html.twig' with {
+  {% include '@ecl/ec-twig-component-ecl-compliance/components/ecl-compliance-form-group.html.twig' with {
     label: _label,
     invalid_text: _invalid_text,
     optional_text: _optional_text,

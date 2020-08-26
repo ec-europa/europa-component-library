@@ -67,7 +67,7 @@
         <p class="ecl-page-banner__baseline">{{ _baseline }}</p>
       {% endif %}
       {% if _link is not empty %}
-        {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with _link|merge({
+        {% include '@ecl/ec-twig-component-link/ecl-link.html.twig' with _link|merge({
           link: _link.link|merge({
             type: 'cta',
           }),
@@ -76,7 +76,7 @@
           _compliance_inner_check_: true
         }) only %}
       {% elseif _button is not empty %}
-        {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with _button|merge({
+        {% include '@ecl/ec-twig-component-button/ecl-button.html.twig' with _button|merge({
           extra_classes: 'ecl-page-banner__button',
           _compliance_: _compliance,
           _compliance_inner_check_: true
@@ -90,7 +90,7 @@
 {# Validation #}
 
 {% if _compliance %}
-  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-page-banner.html.twig' with {
+  {% include '@ecl/ec-twig-component-ecl-compliance/components/ecl-compliance-page-banner.html.twig' with {
     type: _type,
     image: _image,
     _compliance_inner_check_: _compliance_inner_check

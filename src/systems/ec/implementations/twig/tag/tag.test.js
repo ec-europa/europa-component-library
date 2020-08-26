@@ -4,7 +4,7 @@ import dataButton from './demo/data--button';
 import dataRemovable from './demo/data--removable';
 
 describe('EC - Tag', () => {
-  const template = '@ecl-twig/ec-component-tag/ecl-tag.html.twig';
+  const template = '@ecl/ec-twig-component-tag/ecl-tag.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Link', () => {

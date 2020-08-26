@@ -69,7 +69,7 @@
     { name: 'data-ecl-label-collapsed', value: _label_collapsed },
     { name: 'aria-expanded', value: 'false' }
   ] %}
-  {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with _button|merge({
+  {% include '@ecl/ec-twig-component-button/ecl-button.html.twig' with _button|merge({
     label: _label,
     variant: 'secondary',
     type: 'button',
@@ -97,7 +97,7 @@
 {# Validation #}
 
 {% if _compliance %}
-  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-expandable.html.twig' with {
+  {% include '@ecl/ec-twig-component-ecl-compliance/components/ecl-compliance-expandable.html.twig' with {
     id: _id,
     label_expanded: _label_expanded,
     label_collapsed: _label_collapsed,

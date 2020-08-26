@@ -6,7 +6,7 @@ import dataMulti from './demo/data--multi';
 import dataSortable from './demo/data--sort-table';
 
 describe('EC - Table', () => {
-  const template = '@ecl-twig/ec-component-table/ecl-table.html.twig';
+  const template = '@ecl/ec-twig-component-table/ecl-table.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Zebra', () => {

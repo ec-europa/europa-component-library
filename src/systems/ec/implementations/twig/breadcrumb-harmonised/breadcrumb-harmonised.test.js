@@ -7,7 +7,7 @@ import dataLongEu from './demo/eu-data';
 
 describe('EC - Breadcrumb Harmonised', () => {
   const template =
-    '@ecl-twig/ec-component-breadcrumb-harmonised/ecl-breadcrumb-harmonised.html.twig';
+    '@ecl/ec-twig-component-breadcrumb-harmonised/ecl-breadcrumb-harmonised.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Simple', () => {

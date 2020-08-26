@@ -93,13 +93,13 @@
           {% if key == 1 %}
             <li class="{{ _breadcrumb_segment_class ~ ' ecl-breadcrumb__segment--ellipsis' }}" aria-hidden="false" data-ecl-breadcrumb-ellipsis="true">
               <button type="button" class="ecl-breadcrumb__ellipsis" aria-label="{{ _ellipsis_label }}" data-ecl-breadcrumb-ellipsis-button="true">…</button>
-              {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with _default_icon_structure only %}
+              {% include '@ecl/ec-twig-component-icon/ecl-icon.html.twig' with _default_icon_structure only %}
             </li>
           {% endif %}
           {% set _breadcrumb_segment_attributes = 'data-ecl-breadcrumb-item="expandable" aria-hidden="true"' %}
         {% endif %}
         <li class="{{ _breadcrumb_segment_class }}" {{ _breadcrumb_segment_attributes|raw }}>
-          {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
+          {% include '@ecl/ec-twig-component-link/ecl-link.html.twig' with {
             link: {
               type: 'standalone',
               label: link.label,
@@ -110,7 +110,7 @@
             _compliance_inner_check_: true,
             icon_path: _icon_file_path
           } only %}
-          {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with _default_icon_structure only %}
+          {% include '@ecl/ec-twig-component-icon/ecl-icon.html.twig' with _default_icon_structure only %}
         </li>
       {% endif %}
     {% endfor %}
@@ -121,7 +121,7 @@
 {# Validation #}
 
 {% if _compliance %}
-  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-breadcrumb.html.twig' with {
+  {% include '@ecl/ec-twig-component-ecl-compliance/components/ecl-compliance-breadcrumb.html.twig' with {
     links: _links,
     navigation_text: _navigation_text,
     ellipsis_label: _ellipsis_label,

@@ -13,7 +13,7 @@ demoData.links.forEach((link) => {
 
 describe('EC - Social Media Share', () => {
   const template =
-    '@ecl-twig/ec-component-social-media-share/ecl-social-media-share.html.twig';
+    '@ecl/ec-twig-component-social-media-share/ecl-social-media-share.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
   describe('Default', () => {
     test('renders correctly with extra class names', () => {

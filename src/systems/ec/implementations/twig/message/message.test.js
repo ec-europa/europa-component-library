@@ -7,7 +7,7 @@ import dataError from './demo/data--error';
 import dataWarning from './demo/data--warning';
 
 describe('EC - Message', () => {
-  const template = '@ecl-twig/ec-component-message/ecl-message.html.twig';
+  const template = '@ecl/ec-twig-component-message/ecl-message.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Info', () => {

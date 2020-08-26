@@ -87,7 +87,7 @@ Parameters:
       {% if (_hide_amount > 0 and loop.revindex == _bottom_amount + 1) or (_hide_amount > 0 and _hide_to == 0 and loop.revindex == 1) %}
         {% set _toggler = true %}
         <li class="ecl-timeline2__item ecl-timeline2__item--toggle">
-          {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with {
+          {% include '@ecl/ec-twig-component-button/ecl-button.html.twig' with {
             label: _toggle_collapsed,
             variant: 'secondary',
             type: 'button',
@@ -117,7 +117,7 @@ Parameters:
 {# Validation #}
 
 {% if _compliance %}
-  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-timeline.html.twig' with {
+  {% include '@ecl/ec-twig-component-ecl-compliance/components/ecl-compliance-timeline.html.twig' with {
     toggler: _toggler,
     hide_amout: _hide_amount,
     items: _items,

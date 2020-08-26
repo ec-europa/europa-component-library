@@ -95,7 +95,7 @@
     {% endif %}
     <h1 class="ecl-card__title">
       {%- if _card.title.path %}
-        {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
+        {% include '@ecl/ec-twig-component-link/ecl-link.html.twig' with {
           link: _card.title,
           _compliance_: _compliance,
           _compliance_inner_check_: true,
@@ -117,7 +117,7 @@
     <ul class="ecl-card__link-container">
       {% for link in _card.links %}
         <li class="ecl-card__link-item">
-          {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
+          {% include '@ecl/ec-twig-component-link/ecl-link.html.twig' with {
             link: link|merge({ type: 'standalone' }),
             extra_classes: 'ecl-card__link',
             _compliance_: _compliance,
@@ -144,7 +144,7 @@
             {% endif %}
           {% endif %}
           <li class="ecl-card__info-item">
-            {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
+            {% include '@ecl/ec-twig-component-icon/ecl-icon.html.twig' with {
               icon: _icon|default({}),
               _compliance_: _compliance,
               _compliance_inner_check_: true
@@ -158,7 +158,7 @@
       <ul class="ecl-card__tag-container">
         {% for tag in _card.tags %}
           <li class="ecl-card__tag-item">
-            {% include '@ecl-twig/ec-component-tag/ecl-tag.html.twig' with {
+            {% include '@ecl/ec-twig-component-tag/ecl-tag.html.twig' with {
               tag: tag,
               extra_classes: 'ecl-card__tag',
               _compliance_: _compliance,
@@ -175,7 +175,7 @@
 {# Validation #}
 
 {% if _compliance %}
-  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-card.html.twig' with {
+  {% include '@ecl/ec-twig-component-ecl-compliance/components/ecl-compliance-card.html.twig' with {
     card: _card,
     _compliance_inner_check_: _compliance_inner_check,
     icon_path: _icon_path

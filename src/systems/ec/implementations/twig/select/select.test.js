@@ -4,7 +4,7 @@ import dataSingle from './demo/data--single';
 import dataMultiple from './demo/data--multiple';
 
 describe('EC - Select', () => {
-  const template = '@ecl-twig/ec-component-select/ecl-select.html.twig';
+  const template = '@ecl/ec-twig-component-select/ecl-select.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {

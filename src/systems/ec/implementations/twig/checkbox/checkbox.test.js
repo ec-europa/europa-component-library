@@ -6,7 +6,7 @@ import dataInvalid from './demo/data--invalid';
 
 describe('EC - checkbox', () => {
   const template =
-    '@ecl-twig/ec-component-checkbox/ecl-checkbox-group.html.twig';
+    '@ecl/ec-twig-component-checkbox/ecl-checkbox-group.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {

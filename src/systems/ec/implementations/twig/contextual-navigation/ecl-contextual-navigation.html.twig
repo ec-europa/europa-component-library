@@ -3,8 +3,8 @@
 {#
   Parameters:
     - "label" (string) (default: '')
-    - "items" (iterable of predefined structure) (default: []): format: see @ecl-twig/ec-component-link component
-    - "item_more (predefined structure) (default: {}): format: see @ecl-twig/ec-component-button
+    - "items" (iterable of predefined structure) (default: []): format: see @ecl/ec-twig-component-link component
+    - "item_more (predefined structure) (default: {}): format: see @ecl/ec-twig-component-button
     - "items_limit": (number) (default: 3) Number of items to show by default. The rest of the "items" are hidden and a "More" button is shown.
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -59,7 +59,7 @@
           {% set _item_classes = _item_classes ~ ' ' ~ 'ecl-contextual-navigation__item--collapsed' %}
         {% endif %}
         <li class="{{ _item_classes }}">
-          {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with item|merge({
+          {% include '@ecl/ec-twig-component-link/ecl-link.html.twig' with item|merge({
             extra_classes: 'ecl-contextual-navigation__link',
             link: item,
           }) only %}
@@ -70,7 +70,7 @@
           }) %}
           {% set _item_classes = _item_classes ~ ' ' ~ 'ecl-contextual-navigation__item--more' %}
           <li class="{{ _item_classes }}">
-            {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with _item_more|merge({
+            {% include '@ecl/ec-twig-component-button/ecl-button.html.twig' with _item_more|merge({
               type: 'button',
               extra_attributes: [
                 { name: 'data-ecl-contextual-navigation-more', value: 'true' },

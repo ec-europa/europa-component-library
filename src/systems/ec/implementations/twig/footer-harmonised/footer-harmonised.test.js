@@ -7,7 +7,7 @@ import dataEu from './demo/eu-data';
 
 describe('EC - Footer Harmonised', () => {
   const template =
-    '@ecl-twig/ec-component-footer-harmonised/ecl-footer-harmonised.html.twig';
+    '@ecl/ec-twig-component-footer-harmonised/ecl-footer-harmonised.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Group 1', () => {

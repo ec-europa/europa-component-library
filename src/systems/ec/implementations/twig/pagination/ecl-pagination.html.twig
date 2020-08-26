@@ -54,7 +54,7 @@
           {% if _item.link.icon is defined and _item.link.icon is not empty %}
             {% set _icon = _icon_path is not empty ? _item.link.icon|merge({ path: _icon_path }) : _item.link.icon %}
           {% endif %}
-          {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with _item.link|merge({
+          {% include '@ecl/ec-twig-component-link/ecl-link.html.twig' with _item.link|merge({
             link: _link|default({}),
             icon: _icon|default({}),
             extra_classes: "ecl-pagination__link",
@@ -85,7 +85,7 @@
 {# Validation #}
 
 {% if _compliance %}
-  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-pagination.html.twig' with {
+  {% include '@ecl/ec-twig-component-ecl-compliance/components/ecl-compliance-pagination.html.twig' with {
     label: _label,
     items: _items,
     _compliance_inner_check_: _compliance_inner_check

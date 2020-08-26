@@ -34,7 +34,7 @@
   <a href="{{ item.path }}" class="{{ _menu_item_class }}" {{ _menu_item_attributes }}>
     {{- item.label -}}
     {%- if item.children is defined and item.children is not empty and item.children is iterable -%}
-      {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
+      {% include '@ecl/ec-twig-component-icon/ecl-icon.html.twig' with {
         icon: {
           path: icon_path,
           type: 'ui',
@@ -80,7 +80,7 @@
 {# Validation #}
 
 {% if _compliance %}
-  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-menu-item.html.twig' with {
+  {% include '@ecl/ec-twig-component-ecl-compliance/components/ecl-compliance-menu-item.html.twig' with {
     icon_path: _icon_path,
     item: _item,
   } only %}

@@ -66,7 +66,7 @@
         <p class="ecl-hero-banner__description">{{ _description }}</p>
       {% endif %}
       {% if _link is not empty %}
-        {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with _link|merge({
+        {% include '@ecl/ec-twig-component-link/ecl-link.html.twig' with _link|merge({
           link: _link.link|merge({
             type: 'cta',
           }),
@@ -74,7 +74,7 @@
            _compliance_inner_check_: true
         }) only %}
       {% elseif _button is not empty %}
-        {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with _button|merge({
+        {% include '@ecl/ec-twig-component-button/ecl-button.html.twig' with _button|merge({
           extra_classes: 'ecl-hero-banner__button',
           _compliance_: _compliance,
           _compliance_inner_check_: true
@@ -87,7 +87,7 @@
 {# Validation #}
 
 {% if _compliance %}
-  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-hero-banner.html.twig' with {
+  {% include '@ecl/ec-twig-component-ecl-compliance/components/ecl-compliance-hero-banner.html.twig' with {
     type: _type,
     title: _title,
     description: _description,

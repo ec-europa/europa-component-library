@@ -78,12 +78,12 @@
   {% if _item is not empty %}
     <figure class="ecl-gallery__image-container">
       {% if _item.video is defined and _item.video is not empty %}
-        {% include '@ecl-twig/ec-component-gallery/ecl-video.html.twig' %}
+        {% include '@ecl/ec-twig-component-gallery/ecl-video.html.twig' %}
       {% else %}
         <img src="{{ _media_href }}" alt="{{ _image_alt }}" class="ecl-gallery__image" />
       {% endif %}
       {% if _has_icon %}
-        {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
+        {% include '@ecl/ec-twig-component-icon/ecl-icon.html.twig' with {
           icon: _item.icon|merge({
             size: "l",
           }),
@@ -98,7 +98,7 @@
       >
         {{- _item.description -}}
         {% if _has_icon %}
-          {%- include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
+          {%- include '@ecl/ec-twig-component-icon/ecl-icon.html.twig' with {
             icon: _item.icon|merge({
               size: "l",
             }),
@@ -121,7 +121,7 @@
 {# Validation #}
 
 {% if _compliance %}
-  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-gallery-item.html.twig' with {
+  {% include '@ecl/ec-twig-component-ecl-compliance/components/ecl-compliance-gallery-item.html.twig' with {
     item: _item
   } only %}
 {% endif %}

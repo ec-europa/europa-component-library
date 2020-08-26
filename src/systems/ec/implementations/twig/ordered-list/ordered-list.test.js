@@ -3,7 +3,7 @@ import data from './demo/data';
 
 describe('EC - Ordered list', () => {
   const template =
-    '@ecl-twig/ec-component-ordered-list/ecl-ordered-list.html.twig';
+    '@ecl/ec-twig-component-ordered-list/ecl-ordered-list.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {

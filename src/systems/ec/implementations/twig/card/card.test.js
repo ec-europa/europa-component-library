@@ -4,7 +4,7 @@ import dataCardEvent from './demo/data--event';
 import dataTile from './demo/data--tile';
 
 describe('EC - Card', () => {
-  const template = '@ecl-twig/ec-component-card/ecl-card.html.twig';
+  const template = '@ecl/ec-twig-component-card/ecl-card.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {

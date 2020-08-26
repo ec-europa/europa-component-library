@@ -2,7 +2,7 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 import specs from '@ecl/ec-specs-skip-link/demo/data';
 
 describe('EC - Skip Link', () => {
-  const template = '@ecl-twig/ec-component-skip-link/ecl-skip-link.html.twig';
+  const template = '@ecl/ec-twig-component-skip-link/ecl-skip-link.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {

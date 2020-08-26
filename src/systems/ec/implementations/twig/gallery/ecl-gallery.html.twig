@@ -71,7 +71,7 @@
       {% if _item.extra_attributes is defined and _item.extra_attributes is not empty %}
         {% set _item_attrs = _item.extra_attributes %}
       {% endif %}
-      {% include '@ecl-twig/ec-component-gallery/ecl-gallery-item.html.twig' with {
+      {% include '@ecl/ec-twig-component-gallery/ecl-gallery-item.html.twig' with {
         item: _item,
         extra_attributes: _item_attrs,
         extra_classes: _item_class,
@@ -83,7 +83,7 @@
     <strong data-ecl-gallery-count>0</strong> {{ _counter_label -}}
   </div>
 
-  {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with {
+  {% include '@ecl/ec-twig-component-button/ecl-button.html.twig' with {
     label: _view_all_label,
     type: 'submit',
     variant: 'ghost',
@@ -92,7 +92,7 @@
 
 {% if _footer is not empty and _footer.link is defined and _footer.link is not empty %}
   <div class="ecl-gallery__footer">
-    {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
+    {% include '@ecl/ec-twig-component-link/ecl-link.html.twig' with {
       link: _footer.link|merge({
         type: 'standalone',
         icon_position: 'after',
@@ -111,7 +111,7 @@
   {% if overlay.extra_attributes is defined and overlay.extra_attributes is not empty %}
     {% set _overlay_attrs = overlay.extra_attributes %}
   {% endif %}
-  {% include '@ecl-twig/ec-component-gallery/ecl-gallery-overlay.html.twig' with {
+  {% include '@ecl/ec-twig-component-gallery/ecl-gallery-overlay.html.twig' with {
     overlay: _overlay,
     extra_attributes: _overlay_attrs,
     extra_classes: _overlay_class,
@@ -123,7 +123,7 @@
 {# Validation #}
 
 {% if _compliance %}
-  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-gallery.html.twig' with {
+  {% include '@ecl/ec-twig-component-ecl-compliance/components/ecl-compliance-gallery.html.twig' with {
     items: _items
   } only %}
 {% endif %}

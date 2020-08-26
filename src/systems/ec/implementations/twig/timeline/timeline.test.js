@@ -3,7 +3,7 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 import demoData from './demo/data';
 
 describe('EC - Timeline', () => {
-  const template = '@ecl-twig/ec-component-timeline/ecl-timeline.html.twig';
+  const template = '@ecl/ec-twig-component-timeline/ecl-timeline.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
   test('renders correctly without hidden items', () => {

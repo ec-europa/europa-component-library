@@ -48,7 +48,7 @@
 
 <dialog class="{{ _css_class }}"{{ _extra_attributes }} data-ecl-gallery-overlay>
   <header class="ecl-gallery__close" data-ecl-gallery-overlay-header>
-    {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with _overlay.close|merge({
+    {% include '@ecl/ec-twig-component-button/ecl-button.html.twig' with _overlay.close|merge({
       extra_classes: 'ecl-gallery__close-button',
       variant: _button_variant,
       type: 'submit',
@@ -62,7 +62,7 @@
   <section class="ecl-gallery__slider">
     <div class="{{ _css_media_class }}" data-ecl-gallery-overlay-media></div>
     {% if _overlay.previous is defined and _overlay.previous is not empty %}
-      {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with _overlay.previous|merge({
+      {% include '@ecl/ec-twig-component-button/ecl-button.html.twig' with _overlay.previous|merge({
         extra_classes: 'ecl-gallery__slider-previous',
         type: _button_type,
         variant: _button_variant,
@@ -81,7 +81,7 @@
     {% endif %}
     {% if (_overlay.next is defined and _overlay.next is not empty) and
       (_overlay.next.icon is defined and _overlay.next.icon is not empty) %}
-      {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with _overlay.next|merge({
+      {% include '@ecl/ec-twig-component-button/ecl-button.html.twig' with _overlay.next|merge({
         extra_classes: 'ecl-gallery__slider-next',
         type: _button_type,
         variant: _button_variant,
@@ -110,7 +110,7 @@
     <div class="ecl-gallery__detail-actions">
     {% if (_overlay.download is defined and _overlay.download is not empty) and
       (_overlay.download.link is defined and _overlay.download.link is not empty) %}
-      {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with _overlay.download|merge({
+      {% include '@ecl/ec-twig-component-link/ecl-link.html.twig' with _overlay.download|merge({
         link: _overlay.download.link|merge({
           icon_position: 'after'
         }),
@@ -129,7 +129,7 @@
     {% endif %}
     {% if (_overlay.share is defined and _overlay.share is not empty) and
       (_overlay.share.link is defined and _overlay.share.link is not empty) %}
-      {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with _overlay.share|merge({
+      {% include '@ecl/ec-twig-component-link/ecl-link.html.twig' with _overlay.share|merge({
         link: _overlay.share.link|merge({
           icon_position: 'after'
         }),
@@ -165,7 +165,7 @@
 {# Validation #}
 
 {% if _compliance %}
-  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-gallery-overlay.html.twig' with {
+  {% include '@ecl/ec-twig-component-ecl-compliance/components/ecl-compliance-gallery-overlay.html.twig' with {
     overlay: _overlay,
     item: _item
   } only %}

@@ -42,7 +42,7 @@
           {% set _item_class = _item_class ~ ' ecl-language-list__item--is-active' %}
         {% endif %}
         <li class="{{ _item_class }}">
-          {% include '@ecl-twig/ec-component-language-list/ecl-language-list-item.html.twig' with {
+          {% include '@ecl/ec-twig-component-language-list/ecl-language-list-item.html.twig' with {
             item: _item,
             overlay: _overlay,
             icon_path: _icon_path,
@@ -60,7 +60,7 @@
           {% set _item_class = _item_class ~ ' ecl-language-list__item--is-active' %}
         {% endif %}
         <li class="{{ _item_class }}">
-          {% include '@ecl-twig/ec-component-language-list/ecl-language-list-item.html.twig' with {
+          {% include '@ecl/ec-twig-component-language-list/ecl-language-list-item.html.twig' with {
             item: _item,
             overlay: _overlay,
             icon_path: _icon_path,

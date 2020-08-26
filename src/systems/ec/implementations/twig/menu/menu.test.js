@@ -5,7 +5,7 @@ import enData from './demo/data--en';
 import frData from './demo/data--fr';
 
 describe('EC - Menu', () => {
-  const template = '@ecl-twig/ec-component-menu/ecl-menu.html.twig';
+  const template = '@ecl/ec-twig-component-menu/ecl-menu.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {

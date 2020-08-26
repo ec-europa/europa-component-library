@@ -7,7 +7,7 @@ demoData.button.icon.path = 'static/icons.svg';
 
 describe('EC - Dropdown legacy', () => {
   const template =
-    '@ecl-twig/ec-component-dropdown-legacy/ecl-dropdown-legacy.html.twig';
+    '@ecl/ec-twig-component-dropdown-legacy/ecl-dropdown-legacy.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {

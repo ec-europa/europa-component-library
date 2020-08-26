@@ -5,7 +5,7 @@ import dataLinkNoBullet from './demo/data--without-bullet';
 
 describe('EC - Unordered list', () => {
   const template =
-    '@ecl-twig/ec-component-unordered-list/ecl-unordered-list.html.twig';
+    '@ecl/ec-twig-component-unordered-list/ecl-unordered-list.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {
