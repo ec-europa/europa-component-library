@@ -1,11 +1,11 @@
 import React from 'react';
 import { text, boolean } from '@storybook/addon-knobs';
 
-import demoContentImage from '@ecl/ec-specs-page-banner/demo/data--image';
+import demoContentImage from '@ecl/ec-specs-hero-banner/demo/data--image';
 
-import PageBanner from '../src/PageBanner';
+import HeroBanner from '../src/HeroBanner';
 
-export const Image = () => {
+export const ImageBox = () => {
   // Banner content
   const title = text('Title', demoContentImage.title, 'Banner content');
   const description = text(
@@ -32,8 +32,8 @@ export const Image = () => {
     'Banner display'
   );
 
-  const pageBanner = (
-    <PageBanner
+  const heroBanner = (
+    <HeroBanner
       {...demoContentImage}
       variant="image"
       title={title}
@@ -46,12 +46,12 @@ export const Image = () => {
   );
 
   return fullWidth ? (
-    pageBanner
+    heroBanner
   ) : (
-    <div className="ecl-container">{pageBanner}</div>
+    <div className="ecl-container">{heroBanner}</div>
   );
 };
 
-Image.story = {
-  name: 'image',
+ImageBox.story = {
+  name: 'image - text box',
 };

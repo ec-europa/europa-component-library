@@ -10,18 +10,20 @@ import demoContentImage from '@ecl/ec-specs-hero-banner/demo/data--image';
 import demoContentImageShade from '@ecl/ec-specs-hero-banner/demo/data--image-shade';
 import demoContentSimple from '@ecl/ec-specs-hero-banner/demo/data--simple';
 
-## Text box image banner
+## Image banners
+
+### Text box image banner
 
 <Playground
   system="ec"
   selectedKind="components-banners-hero-banner"
-  selectedStory="image"
+  selectedStory="image-box"
   showFrame
 >
   <HeroBanner {...demoContentImage} variant="image" isCentered />
 </Playground>
 
-## Shaded image banner
+### Shaded image banner
 
 <Playground
   system="ec"
@@ -30,6 +32,17 @@ import demoContentSimple from '@ecl/ec-specs-hero-banner/demo/data--simple';
   showFrame
 >
   <HeroBanner {...demoContentImageShade} variant="image-shade" isCentered />
+</Playground>
+
+### Gradient image banner
+
+<Playground
+  system="ec"
+  selectedKind="components-banners-hero-banner"
+  selectedStory="image-gradient"
+  showFrame
+>
+  <HeroBanner {...demoContentImageShade} variant="image-gradient" isCentered />
 </Playground>
 
 ## Simple banners
@@ -43,18 +56,16 @@ import demoContentSimple from '@ecl/ec-specs-hero-banner/demo/data--simple';
   <HeroBanner {...demoContentSimple} variant="primary" isCentered />
 </Playground>
 
-### Colours
+### Simple banners colour
 
 Simple banners can be displayed with several background colours by using one css class or another.
 Here are the possibilities
 
-| variant                  | colour      | css class                        | notes                                                                             |
-| ------------------------ | ----------- | -------------------------------- | --------------------------------------------------------------------------------- |
-| primary                  | blue        | `.ecl-hero-banner--primary`      | primary colour may vary if a different theme is used                              |
-| grey                     | light grey  | `.ecl-hero-banner--grey`         |                                                                                   |
-| white                    | white       | `.ecl-hero-banner--white`        |                                                                                   |
-| transparent (grey text)  | transparent | `.ecl-hero-banner--ghost`        | transparent variant is intended to be used in a container with a background image |
-| transparent (white text) | transparent | `.ecl-hero-banner--ghost-invert` | transparent variant is intended to be used in a container with a background image |
+| variant | colour     | css class                   |
+| ------- | ---------- | --------------------------- |
+| primary | blue       | `.ecl-hero-banner--primary` |
+| grey    | light grey | `.ecl-hero-banner--grey`    |
+| white   | white      | `.ecl-hero-banner--white`   |
 
 ## Other variants
 
@@ -73,4 +84,4 @@ To have a full width banner, the recommanded way is to place it outside of the g
 
 However, if there is a need to have a full width banner inside the container, the css class `.ecl-hero-banner--fullwidth` can be used (just put it at the same level as `.ecl-hero-banner`).
 
-**Caution**: if you plan to use full width banner inside a container, we recommand to use the "website" preset, as some global rules here would improve the display.
+**Caution**: if you plan to use full width banner inside a container, we recommend to use the "website" preset, as some global rules here would improve the display.

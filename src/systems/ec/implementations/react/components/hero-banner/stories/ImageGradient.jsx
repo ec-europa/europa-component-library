@@ -1,23 +1,27 @@
 import React from 'react';
 import { text, boolean } from '@storybook/addon-knobs';
 
-import demoContentImage from '@ecl/eu-specs-hero-banner/demo/data--image';
+import demoContentImageGradient from '@ecl/ec-specs-hero-banner/demo/data--image-shade';
 
 import HeroBanner from '../src/HeroBanner';
 
-export const Image = () => {
+export const ImageGradient = () => {
   // Banner content
-  const title = text('Title', demoContentImage.title, 'Banner content');
+  const title = text('Title', demoContentImageGradient.title, 'Banner content');
   const description = text(
     'Description',
-    demoContentImage.description,
+    demoContentImageGradient.description,
     'Banner content'
   );
   const link = {
-    ...demoContentImage.link,
-    label: text('Link label', demoContentImage.link.label, 'Banner content'),
+    ...demoContentImageGradient.link,
+    label: text(
+      'Link label',
+      demoContentImageGradient.link.label,
+      'Banner content'
+    ),
   };
-  const image = text('Image', demoContentImage.image, 'Banner content');
+  const image = text('Image', demoContentImageGradient.image, 'Banner content');
 
   // Banner display
   const centered = boolean('Centered', true, 'Banner display');
@@ -34,8 +38,8 @@ export const Image = () => {
 
   const heroBanner = (
     <HeroBanner
-      {...demoContentImage}
-      variant="image"
+      {...demoContentImageGradient}
+      variant="image-gradient"
       title={title}
       description={description}
       link={link}
@@ -44,7 +48,6 @@ export const Image = () => {
       image={image}
     />
   );
-
   return fullWidth ? (
     heroBanner
   ) : (
@@ -52,6 +55,6 @@ export const Image = () => {
   );
 };
 
-Image.story = {
-  name: 'image',
+ImageGradient.story = {
+  name: 'image - gradient',
 };

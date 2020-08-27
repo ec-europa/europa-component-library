@@ -1,27 +1,27 @@
 import React from 'react';
 import { text, boolean } from '@storybook/addon-knobs';
 
-import demoContentImageShade from '@ecl/eu-specs-hero-banner/demo/data--image-shade';
+import demoContentImageGradient from '@ecl/eu-specs-page-banner/demo/data--image-shade';
 
-import HeroBanner from '../src/HeroBanner';
+import PageBanner from '../src/PageBanner';
 
-export const ImageShade = () => {
+export const ImageGradient = () => {
   // Banner content
-  const title = text('Title', demoContentImageShade.title, 'Banner content');
+  const title = text('Title', demoContentImageGradient.title, 'Banner content');
   const description = text(
     'Description',
-    demoContentImageShade.description,
+    demoContentImageGradient.description,
     'Banner content'
   );
   const link = {
-    ...demoContentImageShade.link,
+    ...demoContentImageGradient.link,
     label: text(
       'Link label',
-      demoContentImageShade.link.label,
+      demoContentImageGradient.link.label,
       'Banner content'
     ),
   };
-  const image = text('Image', demoContentImageShade.image, 'Banner content');
+  const image = text('Image', demoContentImageGradient.image, 'Banner content');
 
   // Banner display
   const centered = boolean('Centered', true, 'Banner display');
@@ -36,10 +36,10 @@ export const ImageShade = () => {
     'Banner display'
   );
 
-  const heroBanner = (
-    <HeroBanner
-      {...demoContentImageShade}
-      variant="image-shade"
+  const pageBanner = (
+    <PageBanner
+      {...demoContentImageGradient}
+      variant="image-gradient"
       title={title}
       description={description}
       link={link}
@@ -49,12 +49,12 @@ export const ImageShade = () => {
     />
   );
   return fullWidth ? (
-    heroBanner
+    pageBanner
   ) : (
-    <div className="ecl-container">{heroBanner}</div>
+    <div className="ecl-container">{pageBanner}</div>
   );
 };
 
-ImageShade.story = {
-  name: 'image - shade',
+ImageGradient.story = {
+  name: 'image - gradient',
 };

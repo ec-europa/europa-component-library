@@ -6,7 +6,6 @@ import Link from '@ecl/ec-react-component-link';
 
 const PageBanner = ({
   variant,
-  meta,
   title,
   description,
   image,
@@ -33,24 +32,6 @@ const PageBanner = ({
       <div className="ecl-container">
         <div className="ecl-page-banner__container">
           <div className="ecl-page-banner__content">
-            {meta && (
-              <div className="ecl-page-banner__meta">
-                {Array.isArray(meta) ? (
-                  <>
-                    {meta.map((metaData) => (
-                      <span
-                        key={metaData}
-                        className="ecl-page-banner__meta-item"
-                      >
-                        {metaData}
-                      </span>
-                    ))}
-                  </>
-                ) : (
-                  meta
-                )}
-              </div>
-            )}
             {title && <div className="ecl-page-banner__title">{title}</div>}
             {description && (
               <p className="ecl-page-banner__description">{description}</p>
@@ -71,10 +52,6 @@ const PageBanner = ({
 
 PageBanner.propTypes = {
   variant: PropTypes.string,
-  meta: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.string),
-    PropTypes.string,
-  ]),
   title: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,
@@ -86,7 +63,6 @@ PageBanner.propTypes = {
 
 PageBanner.defaultProps = {
   variant: '',
-  meta: '',
   title: '',
   description: '',
   image: '',
