@@ -1,13 +1,9 @@
 /* eslint-disable no-shadow, no-unused-vars, no-undef */
 import he from 'he';
-import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import withCode from '@ecl-twig/storybook-addon-code';
+import { withNotes } from '@ecl/storybook-addon-notes';
+import withCode from '@ecl/storybook-addon-code-twig';
 import { withKnobs, button, text, optionsKnob } from '@storybook/addon-knobs';
-import {
-  getExtraKnobs,
-  tabLabels,
-  getComplianceKnob,
-} from '@ecl-twig/story-utils';
+import { getExtraKnobs, tabLabels, getComplianceKnob } from '@ecl/story-utils';
 
 import euLogoMobile from '@ecl/eu-resources-logo/condensed-version/positive/en.svg';
 import euLogoDesktop from '@ecl/eu-resources-logo/standard-version/positive/en.svg';

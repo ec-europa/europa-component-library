@@ -1,4 +1,4 @@
-import { formatLink, formatIcon } from '@ecl-twig/data-utils';
+import { formatLink, formatIcon } from '@ecl/data-utils-twig';
 
 const adapter = (initialData) => {
   // Copy reference specification demo adaptedData.

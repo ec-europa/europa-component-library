@@ -1,11 +1,7 @@
 import { withKnobs, text, button } from '@storybook/addon-knobs';
-import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import withCode from '@ecl-twig/storybook-addon-code';
-import {
-  getExtraKnobs,
-  tabLabels,
-  getComplianceKnob,
-} from '@ecl-twig/story-utils';
+import { withNotes } from '@ecl/storybook-addon-notes';
+import withCode from '@ecl/storybook-addon-code-twig';
+import { getExtraKnobs, tabLabels, getComplianceKnob } from '@ecl/story-utils';
 
 import specs from '@ecl/ec-specs-skip-link/demo/data';
 import skipLink from './ecl-skip-link.html.twig';

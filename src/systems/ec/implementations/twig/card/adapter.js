@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies, no-param-reassign */
-import { formatLinkAlt } from '@ecl-twig/data-utils';
+import { formatLinkAlt } from '@ecl/data-utils-twig';
 
 const adapter = (initialData) => {
   // Copy reference specification demo adaptedData.

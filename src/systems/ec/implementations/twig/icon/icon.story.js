@@ -1,12 +1,12 @@
 import { withKnobs, select } from '@storybook/addon-knobs';
-import { withNotes } from '@ecl-twig/storybook-addon-notes';
+import { withNotes } from '@ecl/storybook-addon-notes';
 import {
   getExtraKnobs,
   getIconKnobs,
   tabLabels,
   getComplianceKnob,
-} from '@ecl-twig/story-utils';
-import withCode from '@ecl-twig/storybook-addon-code';
+} from '@ecl/story-utils';
+import withCode from '@ecl/storybook-addon-code-twig';
 
 import brandedIcons from '@ecl/ec-resources-icons/dist/lists/branded.json';
 import generalIcons from '@ecl/ec-resources-icons/dist/lists/general.json';

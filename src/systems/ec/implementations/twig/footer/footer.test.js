@@ -1,4 +1,4 @@
-import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
+import { merge, renderTwigFileAsNode } from '@ecl/test-utils-twig';
 import dataCustom from './demo/data--custom';
 import dataCorporate from './demo/data--corporate';
 

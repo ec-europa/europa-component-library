@@ -1,5 +1,5 @@
 /* eslint-disable default-case */
-import { formatLink } from '@ecl-twig/data-utils';
+import { formatLink } from '@ecl/data-utils-twig';
 
 const formatSection = (section) => {
   const sections = [];

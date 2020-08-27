@@ -1,4 +1,4 @@
-import { formatLink } from '@ecl-twig/data-utils';
+import { formatLink } from '@ecl/data-utils-twig';
 
 const adapter = (initialData) => {
   const adaptedData = {};

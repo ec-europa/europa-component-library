@@ -1,4 +1,4 @@
-import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
+import { merge, renderTwigFileAsNode } from '@ecl/test-utils-twig';
 import dataCard from './demo/data--card';
 import dataCardEvent from './demo/data--event';
 import dataTile from './demo/data--tile';

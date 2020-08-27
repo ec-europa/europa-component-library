@@ -1,17 +1,12 @@
 import he from 'he';
 import { withKnobs, text, select, object } from '@storybook/addon-knobs';
-import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import withCode from '@ecl-twig/storybook-addon-code';
-import {
-  getExtraKnobs,
-  tabLabels,
-  getComplianceKnob,
-} from '@ecl-twig/story-utils';
+import { withNotes } from '@ecl/storybook-addon-notes';
+import withCode from '@ecl/storybook-addon-code-twig';
+import { getExtraKnobs, tabLabels, getComplianceKnob } from '@ecl/story-utils';
 
 import demoImg from './demo/data--image';
 import demoVideo from './demo/data--video';
 import demoEmbed from './demo/data--embed-video';
-import exampleImg from '../../../../static/images/example-image.jpg';
 import mediaContainer from './ecl-media-container.html.twig';
 import notes from './README.md';
 
@@ -32,7 +27,11 @@ const prepareMediaContainer = (data, media) => {
       tabLabels.optional
     );
     data.alt = text('alt', demoImg.alt, tabLabels.required);
-    data.image = text('image', exampleImg, tabLabels.required);
+    data.image = text(
+      'image',
+      'https://raw.githubusercontent.com/ec-europa/ecl-twig/master/static/images/example-image.jpg',
+      tabLabels.required
+    );
   } else {
     const options = ['16-9', '4-3', '3-2', '1-1'];
     data.embedded_media = he.decode(

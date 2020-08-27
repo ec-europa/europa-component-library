@@ -1,11 +1,11 @@
 import { withKnobs } from '@storybook/addon-knobs';
-import { withNotes } from '@ecl-twig/storybook-addon-notes';
+import { withNotes } from '@ecl/storybook-addon-notes';
 import {
   getExtraKnobs,
   getFormKnobs,
   getComplianceKnob,
-} from '@ecl-twig/story-utils';
-import withCode from '@ecl-twig/storybook-addon-code';
+} from '@ecl/story-utils';
+import withCode from '@ecl/storybook-addon-code-twig';
 import specData from './demo/data--default';
 import textArea from './ecl-text-area.html.twig';
 import notes from './README.md';

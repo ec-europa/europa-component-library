@@ -1,12 +1,8 @@
-import { withNotes } from '@ecl-twig/storybook-addon-notes';
+import { withNotes } from '@ecl/storybook-addon-notes';
 import { withKnobs, select, text } from '@storybook/addon-knobs';
-import {
-  getExtraKnobs,
-  tabLabels,
-  getComplianceKnob,
-} from '@ecl-twig/story-utils';
+import { getExtraKnobs, tabLabels, getComplianceKnob } from '@ecl/story-utils';
 import he from 'he';
-import withCode from '@ecl-twig/storybook-addon-code';
+import withCode from '@ecl/storybook-addon-code-twig';
 
 import dataDefault from './demo/data';
 import dataLinkDivider from './demo/data--with-divider';

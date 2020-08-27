@@ -1,13 +1,13 @@
 /* eslint-disable dot-notation */
 import { withKnobs, text, select, optionsKnob } from '@storybook/addon-knobs';
-import { withNotes } from '@ecl-twig/storybook-addon-notes';
+import { withNotes } from '@ecl/storybook-addon-notes';
 import {
   getExtraKnobs,
   tabLabels,
   getBrandedIconsOptions,
   getComplianceKnob,
-} from '@ecl-twig/story-utils';
-import withCode from '@ecl-twig/storybook-addon-code';
+} from '@ecl/story-utils';
+import withCode from '@ecl/storybook-addon-code-twig';
 
 import defaultSprite from '@ecl/ec-resources-social-icons/dist/sprites/icons-social.svg';
 import demoData from './demo/data';

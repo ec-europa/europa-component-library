@@ -1,4 +1,4 @@
-import { withNotes } from '@ecl-twig/storybook-addon-notes';
+import { withNotes } from '@ecl/storybook-addon-notes';
 import {
   withKnobs,
   boolean,
@@ -6,12 +6,8 @@ import {
   button,
   select,
 } from '@storybook/addon-knobs';
-import withCode from '@ecl-twig/storybook-addon-code';
-import {
-  getExtraKnobs,
-  tabLabels,
-  getComplianceKnob,
-} from '@ecl-twig/story-utils';
+import withCode from '@ecl/storybook-addon-code-twig';
+import { getExtraKnobs, tabLabels, getComplianceKnob } from '@ecl/story-utils';
 
 import generalIcons from '@ecl/ec-resources-icons/dist/lists/general.json';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';

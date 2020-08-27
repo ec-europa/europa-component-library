@@ -1,12 +1,12 @@
 import { withKnobs, text, select, optionsKnob } from '@storybook/addon-knobs';
-import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import withCode from '@ecl-twig/storybook-addon-code';
+import { withNotes } from '@ecl/storybook-addon-notes';
+import withCode from '@ecl/storybook-addon-code-twig';
 import {
   getExtraKnobs,
   tabLabels,
   getIconKnobs,
   getComplianceKnob,
-} from '@ecl-twig/story-utils';
+} from '@ecl/story-utils';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 // Import data for demos
 import dataInfo from './demo/data--info';

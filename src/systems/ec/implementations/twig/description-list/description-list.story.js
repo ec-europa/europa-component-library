@@ -1,11 +1,7 @@
-import { withNotes } from '@ecl-twig/storybook-addon-notes';
+import { withNotes } from '@ecl/storybook-addon-notes';
 import { withKnobs, select, text } from '@storybook/addon-knobs';
-import {
-  getExtraKnobs,
-  tabLabels,
-  getComplianceKnob,
-} from '@ecl-twig/story-utils';
-import withCode from '@ecl-twig/storybook-addon-code';
+import { getExtraKnobs, tabLabels, getComplianceKnob } from '@ecl/story-utils';
+import withCode from '@ecl/storybook-addon-code-twig';
 
 import specs from '@ecl/ec-specs-description-list/demo/data';
 import specsHorizontal from './demo/data--horizontal';

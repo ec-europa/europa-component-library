@@ -1,12 +1,12 @@
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
-import { withNotes } from '@ecl-twig/storybook-addon-notes';
+import { withNotes } from '@ecl/storybook-addon-notes';
 import {
   getExtraKnobs,
   tabLabels,
   getFormKnobs,
   getComplianceKnob,
-} from '@ecl-twig/story-utils';
-import withCode from '@ecl-twig/storybook-addon-code';
+} from '@ecl/story-utils';
+import withCode from '@ecl/storybook-addon-code-twig';
 
 // Import data for tests
 import dataDefault from './demo/data';

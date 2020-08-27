@@ -1,5 +1,5 @@
 /* eslint-disable default-case */
-import { formatLink } from '@ecl-twig/data-utils';
+import { formatLink } from '@ecl/data-utils-twig';
 
 let system = false;
 if (process.env.STORYBOOK_SYSTEM === 'EU') {

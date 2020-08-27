@@ -1,4 +1,4 @@
-import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
+import { merge, renderTwigFileAsNode } from '@ecl/test-utils-twig';
 import dataDefault from './demo/data--default';
 import dataCta from './demo/data--call-to-action';
 import dataStandalone from './demo/data--standalone';

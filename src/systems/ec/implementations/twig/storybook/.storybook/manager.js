@@ -1,11 +1,9 @@
 import { addons } from '@storybook/addons';
 import browserUpdate from 'browser-update';
 import { create } from '@storybook/theming';
-import { version } from '../../../../lerna.json';
+import { version } from '../../../../../../../lerna.json';
 
-const system = process.env.STORYBOOK_SYSTEM
-  ? process.env.STORYBOOK_SYSTEM
-  : 'EC';
+const system = process.env.STORYBOOK_SYSTEM || 'EC';
 
 addons.setConfig({
   isFullscreen: false,
@@ -17,8 +15,8 @@ addons.setConfig({
   isToolshown: true,
   theme: create({
     base: 'light',
-    brandTitle: `ECL-Twig ${system} v${version}`,
-    brandUrl: 'https://github.com/ec-europa/ecl-twig',
+    brandTitle: `ECL Twig ${system} v${version}`,
+    brandUrl: 'https://github.com/ec-europa/europa-component-library',
     brandImage: undefined,
   }),
   selectedPanel: 'notes',

@@ -1,8 +1,8 @@
-import { withNotes } from '@ecl-twig/storybook-addon-notes';
+import { withNotes } from '@ecl/storybook-addon-notes';
 import { withKnobs, text, optionsKnob } from '@storybook/addon-knobs';
-import withCode from '@ecl-twig/storybook-addon-code';
+import withCode from '@ecl/storybook-addon-code-twig';
 import he from 'he';
-import { getExtraKnobs } from '@ecl-twig/story-utils';
+import { getExtraKnobs } from '@ecl/story-utils';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import euLogoMobile from '@ecl/eu-resources-logo/condensed-version/positive/en.svg';

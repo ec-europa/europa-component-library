@@ -1,12 +1,8 @@
-import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import withCode from '@ecl-twig/storybook-addon-code';
+import { withNotes } from '@ecl/storybook-addon-notes';
+import withCode from '@ecl/storybook-addon-code-twig';
 import he from 'he';
 import { withKnobs, text, select, optionsKnob } from '@storybook/addon-knobs';
-import {
-  getExtraKnobs,
-  tabLabels,
-  getComplianceKnob,
-} from '@ecl-twig/story-utils';
+import { getExtraKnobs, tabLabels, getComplianceKnob } from '@ecl/story-utils';
 
 import brandedIcons from '@ecl/ec-resources-icons/dist/lists/branded.json';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';

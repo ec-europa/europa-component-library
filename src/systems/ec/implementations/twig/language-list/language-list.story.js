@@ -5,13 +5,9 @@ import {
   boolean,
   optionsKnob,
 } from '@storybook/addon-knobs';
-import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import withCode from '@ecl-twig/storybook-addon-code';
-import {
-  getExtraKnobs,
-  tabLabels,
-  getComplianceKnob,
-} from '@ecl-twig/story-utils';
+import { withNotes } from '@ecl/storybook-addon-notes';
+import withCode from '@ecl/storybook-addon-code-twig';
+import { getExtraKnobs, tabLabels, getComplianceKnob } from '@ecl/story-utils';
 
 import logoPath from '@ecl/ec-resources-logo/logo--mute.svg';
 import euLogoPath from '@ecl/eu-resources-logo/logo--mute.svg';

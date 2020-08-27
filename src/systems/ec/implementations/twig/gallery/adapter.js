@@ -1,4 +1,4 @@
-import { formatLink, formatIcon, formatButton } from '@ecl-twig/data-utils';
+import { formatLink, formatIcon, formatButton } from '@ecl/data-utils-twig';
 
 function formatItem(i) {
   const item = {

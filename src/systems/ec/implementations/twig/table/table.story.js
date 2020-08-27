@@ -1,10 +1,6 @@
-import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import {
-  getExtraKnobs,
-  tabLabels,
-  getComplianceKnob,
-} from '@ecl-twig/story-utils';
-import withCode from '@ecl-twig/storybook-addon-code';
+import { withNotes } from '@ecl/storybook-addon-notes';
+import { getExtraKnobs, tabLabels, getComplianceKnob } from '@ecl/story-utils';
+import withCode from '@ecl/storybook-addon-code-twig';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 
 import dataDefault from './demo/data--default';

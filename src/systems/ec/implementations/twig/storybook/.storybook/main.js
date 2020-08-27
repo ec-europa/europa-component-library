@@ -1,17 +1,18 @@
 const path = require('path');
 
-const stories = ['../../packages/**/!(*contextual-navigation|eu*).story.js'];
+const stories = ['../../**/*.story.js'];
 
 const addons = [
-  '@ecl-twig/storybook-addon-notes/src/register',
-  '@ecl-twig/storybook-addon-code/src/register',
+  '@ecl/storybook-addon-notes/src/register',
+  '@ecl/storybook-addon-code-twig/src/register',
+  '@ecl/storybook-addon-jscode/src/register',
   '@storybook/addon-viewport',
   '@storybook/addon-knobs',
 ];
 
 const webpackFinal = (config) => {
   // Trick "babel-loader", force it to transpile @ecl-twig addons
-  config.module.rules[0].exclude = /node_modules\/(?!@ecl-twig\/).*/;
+  config.module.rules[0].exclude = /node_modules\/(?!@ecl\/).*/;
   config.module.rules.push({
     test: /\.twig$/,
     loader: 'twing-loader',

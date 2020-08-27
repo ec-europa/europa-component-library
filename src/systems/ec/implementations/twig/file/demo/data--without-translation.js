@@ -1,5 +1,5 @@
 import specDataWithoutTranslation from '@ecl/ec-specs-file/demo/data--without-translation';
-import { formatLink, formatIcon } from '@ecl-twig/data-utils';
+import { formatLink, formatIcon } from '@ecl/data-utils-twig';
 
 export default {
   title: specDataWithoutTranslation.title,

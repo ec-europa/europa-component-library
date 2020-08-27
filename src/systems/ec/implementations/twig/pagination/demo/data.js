@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import specData from '@ecl/ec-specs-pagination/demo/data';
-import { formatLink } from '@ecl-twig/data-utils';
+import { formatLink } from '@ecl/data-utils-twig';
 
 function formatItem(i) {
   let type = '';

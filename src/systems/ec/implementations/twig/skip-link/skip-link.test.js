@@ -1,4 +1,4 @@
-import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
+import { merge, renderTwigFileAsNode } from '@ecl/test-utils-twig';
 import specs from '@ecl/ec-specs-skip-link/demo/data';
 
 describe('EC - Skip Link', () => {
