@@ -16,41 +16,34 @@
     $content-width: 45.5rem,
   // primary
     $primary-background-color: $ecl-color-primary,
-  $primary-meta-color: $ecl-color-white,
   $primary-title-color: $ecl-color-white,
   $primary-description-color: $ecl-color-white,
   // grey
     $grey-background-color: $ecl-color-grey-5,
-  $grey-meta-color: $ecl-color-grey-75,
   $grey-title-color: $ecl-color-grey,
   $grey-description-color: $ecl-color-grey,
   // white
     $white-background-color: $ecl-color-white,
-  $white-meta-color: $ecl-color-grey-75,
   $white-title-color: $ecl-color-grey,
   $white-description-color: $ecl-color-grey,
-  // ghost
-    $ghost-meta-color: $ecl-color-grey-75,
-  $ghost-title-color: $ecl-color-grey,
-  $ghost-description-color: $ecl-color-grey,
-  // ghost inverted
-    $ghost-invert-meta-color: $ecl-color-white,
-  $ghost-invert-title-color: $ecl-color-white,
-  $ghost-invert-description-color: $ecl-color-white,
   // image
     $image-background-color: $ecl-color-white,
-  $image-meta-color: $ecl-color-grey-75,
   $image-title-color: $ecl-color-grey,
   $image-description-color: $ecl-color-grey,
   $image-border-color: $ecl-color-yellow,
   // image shade
     $image-shade-background-color: $ecl-color-blue-120,
-  $image-shade-overlay-color:
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%),
-  $image-shade-meta-color: $ecl-color-white,
+  $image-shade-overlay-color: rgba(0, 0, 0, 0.5),
   $image-shade-title-color: $ecl-color-white,
   $image-shade-description-color: $ecl-color-white,
-  $image-shade-border-color: $ecl-color-yellow
+  $image-shade-border-color: $ecl-color-yellow,
+  // image gradient
+    $image-gradient-background-color: $ecl-color-blue-120,
+  $image-gradient-overlay-color:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%),
+  $image-gradient-title-color: $ecl-color-white,
+  $image-gradient-description-color: $ecl-color-white,
+  $image-gradient-border-color: $ecl-color-yellow
 ) {
   .ecl-page-banner {
     align-items: center;
@@ -81,29 +74,6 @@
     width: 100%;
   }
 
-  .ecl-page-banner__meta {
-    font: $ecl-font-m;
-    margin-bottom: $ecl-spacing-m;
-  }
-
-  .ecl-page-banner__meta-item {
-    margin-left: $ecl-spacing-xs;
-
-    &::before {
-      content: '|';
-      margin-right: $ecl-spacing-xs;
-    }
-  }
-
-  .ecl-page-banner__meta-item:first-of-type {
-    margin-left: 0;
-    text-transform: uppercase;
-
-    &::before {
-      display: none;
-    }
-  }
-
   .ecl-page-banner__title {
     font: $ecl-font-3-xl;
     font-weight: $ecl-font-weight-bold;
@@ -113,7 +83,7 @@
   .ecl-page-banner__description {
     font: $ecl-font-prolonged-l;
     margin-bottom: 0;
-    margin-top: $ecl-spacing-m;
+    margin-top: $ecl-spacing-xs;
   }
 
   .ecl-page-banner__link-cta {
@@ -127,6 +97,18 @@
 
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up('lg') {
+    // manage ratio 4:1
+    .ecl-page-banner::before {
+      content: '';
+      display: block;
+      padding-top: (1 / 4) * 100%;
+      width: 100%;
+    }
+
+    .ecl-page-banner .ecl-container {
+      position: absolute;
+    }
+
     .ecl-page-banner__content {
       max-width: $content-width;
     }
@@ -142,6 +124,11 @@
 
     .ecl-page-banner__button {
       margin-top: $ecl-spacing-l;
+    }
+
+    .ecl-page-banner:not(.ecl-page-banner--full-width) .ecl-container {
+      padding-left: $ecl-spacing-4-xl;
+      padding-right: $ecl-spacing-4-xl;
     }
   }
 
@@ -173,10 +160,6 @@
   .ecl-page-banner--primary {
     background-color: $primary-background-color;
 
-    .ecl-page-banner__meta {
-      color: $primary-meta-color;
-    }
-
     .ecl-page-banner__title {
       color: $primary-title-color;
     }
@@ -191,10 +174,6 @@
    */
   .ecl-page-banner--grey {
     background-color: $grey-background-color;
-
-    .ecl-page-banner__meta {
-      color: $grey-meta-color;
-    }
 
     .ecl-page-banner__title {
       color: $grey-title-color;
@@ -211,50 +190,12 @@
   .ecl-page-banner--white {
     background-color: $white-background-color;
 
-    .ecl-page-banner__meta {
-      color: $white-meta-color;
-    }
-
     .ecl-page-banner__title {
       color: $white-title-color;
     }
 
     .ecl-page-banner__description {
       color: $white-description-color;
-    }
-  }
-
-  /*
-   * variant: ghost
-   */
-  .ecl-page-banner--ghost {
-    .ecl-page-banner__meta {
-      color: $ghost-meta-color;
-    }
-
-    .ecl-page-banner__title {
-      color: $ghost-title-color;
-    }
-
-    .ecl-page-banner__description {
-      color: $ghost-description-color;
-    }
-  }
-
-  /*
-   * variant: ghost inverted
-   */
-  .ecl-page-banner--ghost-invert {
-    .ecl-page-banner__meta {
-      color: $ghost-invert-meta-color;
-    }
-
-    .ecl-page-banner__title {
-      color: $ghost-invert-title-color;
-    }
-
-    .ecl-page-banner__description {
-      color: $ghost-invert-description-color;
     }
   }
 
@@ -281,32 +222,18 @@
       width: 100%;
     }
 
-    .ecl-page-banner__meta {
-      color: $image-meta-color;
-      margin-bottom: $ecl-spacing-xs;
-    }
-
     .ecl-page-banner__title {
       color: $image-title-color;
     }
 
     .ecl-page-banner__description {
       color: $image-description-color;
-      margin-top: $ecl-spacing-xs;
     }
   }
 
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up('lg') {
     .ecl-page-banner--image {
-      // manage ratio 4:1
-      &::before {
-        content: '';
-        display: block;
-        padding-top: (1 / 4) * 100%;
-        width: 100%;
-      }
-
       .ecl-page-banner__container {
         padding-bottom: 0;
         padding-top: 0;
@@ -323,10 +250,6 @@
       .ecl-page-banner__image::before {
         height: 100%;
         padding-top: 0;
-      }
-
-      .ecl-container {
-        position: absolute;
       }
 
       .ecl-page-banner__content {
@@ -354,16 +277,11 @@
 
     // manage ratio 4:1
     .ecl-page-banner__image::before {
-      background-image: $image-shade-overlay-color;
+      background-color: $image-shade-overlay-color;
       content: '';
       display: block;
       padding-top: (1 / 4) * 100%;
       width: 100%;
-    }
-
-    .ecl-page-banner__meta {
-      color: $image-shade-meta-color;
-      margin-bottom: $ecl-spacing-xs;
     }
 
     .ecl-page-banner__title {
@@ -372,21 +290,12 @@
 
     .ecl-page-banner__description {
       color: $image-shade-description-color;
-      margin-top: $ecl-spacing-xs;
     }
   }
 
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up('lg') {
     .ecl-page-banner--image-shade {
-      // manage ratio 4:1
-      &::before {
-        content: '';
-        display: block;
-        padding-top: (1 / 4) * 100%;
-        width: 100%;
-      }
-
       .ecl-page-banner__container {
         padding-bottom: $ecl-spacing-xl;
         padding-top: $ecl-spacing-xl;
@@ -404,9 +313,61 @@
         height: 100%;
         padding-top: 0;
       }
+    }
+  }
 
-      .ecl-container {
+  /*
+   * variant: image-gradient
+   */
+  .ecl-page-banner--image-gradient {
+    background-color: $image-gradient-background-color;
+
+    .ecl-page-banner__container {
+      padding-bottom: $ecl-spacing-l;
+      padding-top: calc(#{$ecl-spacing-l} - 4px);
+    }
+
+    .ecl-page-banner__image {
+      border-bottom: 4px solid $image-gradient-border-color;
+    }
+
+    // manage ratio 4:1
+    .ecl-page-banner__image::before {
+      background-image: $image-gradient-overlay-color;
+      content: '';
+      display: block;
+      padding-top: (1 / 4) * 100%;
+      width: 100%;
+    }
+
+    .ecl-page-banner__title {
+      color: $image-gradient-title-color;
+    }
+
+    .ecl-page-banner__description {
+      color: $image-gradient-description-color;
+    }
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up('lg') {
+    .ecl-page-banner--image-gradient {
+      .ecl-page-banner__container {
+        padding-bottom: $ecl-spacing-xl;
+        padding-top: $ecl-spacing-xl;
+      }
+
+      .ecl-page-banner__image {
+        border-bottom-width: 0;
+        height: 100%;
+        left: 0;
         position: absolute;
+        top: 0;
+      }
+
+      .ecl-page-banner__image::before {
+        height: 100%;
+        padding-top: 0;
       }
     }
   }

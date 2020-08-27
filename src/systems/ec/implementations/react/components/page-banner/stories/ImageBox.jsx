@@ -1,22 +1,23 @@
 import React from 'react';
 import { text, boolean } from '@storybook/addon-knobs';
 
-import demoContentSimple from '@ecl/ec-specs-hero-banner/demo/data--simple';
+import demoContentImage from '@ecl/ec-specs-page-banner/demo/data--image';
 
-import HeroBanner from '../src/HeroBanner';
+import PageBanner from '../src/PageBanner';
 
-export const SimpleGrey = () => {
+export const ImageBox = () => {
   // Banner content
-  const title = text('Title', demoContentSimple.title, 'Banner content');
+  const title = text('Title', demoContentImage.title, 'Banner content');
   const description = text(
     'Description',
-    demoContentSimple.description,
+    demoContentImage.description,
     'Banner content'
   );
   const link = {
-    ...demoContentSimple.link,
-    label: text('Link label', demoContentSimple.link.label, 'Banner content'),
+    ...demoContentImage.link,
+    label: text('Link label', demoContentImage.link.label, 'Banner content'),
   };
+  const image = text('Image', demoContentImage.image, 'Banner content');
 
   // Banner display
   const centered = boolean('Centered', true, 'Banner display');
@@ -31,24 +32,26 @@ export const SimpleGrey = () => {
     'Banner display'
   );
 
-  const heroBanner = (
-    <HeroBanner
-      {...demoContentSimple}
-      variant="grey"
+  const pageBanner = (
+    <PageBanner
+      {...demoContentImage}
+      variant="image"
       title={title}
       description={description}
       link={link}
       isCentered={centered}
       isFullWidth={fullWidthGrid}
+      image={image}
     />
   );
+
   return fullWidth ? (
-    heroBanner
+    pageBanner
   ) : (
-    <div className="ecl-container">{heroBanner}</div>
+    <div className="ecl-container">{pageBanner}</div>
   );
 };
 
-SimpleGrey.story = {
-  name: 'simple - grey',
+ImageBox.story = {
+  name: 'image - text box',
 };
