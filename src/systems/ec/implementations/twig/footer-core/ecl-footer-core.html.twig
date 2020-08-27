@@ -87,7 +87,7 @@
           src="{{ _section.logo.src_desktop }}"
         />
       {% endset %}
-      {% include '@ecl/ec-twig-component-link/ecl-link.html.twig' with {
+      {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
         link: {
           path: _section.logo.path,
           label: _label,
@@ -104,7 +104,7 @@
     {# title #}
     {% if _section.title is defined and _section.title is not empty %}
       {% if _section.title.link is defined and _section.title.link is not empty %}
-        {% include '@ecl/ec-twig-component-link/ecl-link.html.twig' with {
+        {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
           link: _section.title.link|default({})|merge({
             type: 'standalone',
           }),
@@ -131,7 +131,7 @@
       <ul class="{{ 'ecl-footer-core__list ' ~ _list_class }}">
       {% for _item in _section.links %}
         <li class="ecl-footer-core__list-item">
-        {% include '@ecl/ec-twig-component-link/ecl-link.html.twig' with _item|merge({
+        {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with _item|merge({
           link: _item.link|default({})|merge({
             type: 'standalone',
           }),
@@ -159,7 +159,7 @@
 {# Validation #}
 
 {% if _compliance %}
-  {% include '@ecl/ec-twig-component-ecl-compliance/components/ecl-compliance-footer-core.html.twig' with {
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-footer-core.html.twig' with {
     sections: _sections
   } only %}
 {% endif %}

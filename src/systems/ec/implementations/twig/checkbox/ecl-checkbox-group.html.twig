@@ -101,7 +101,7 @@
 
   {% if _items is not empty %}
     {%- for _item in _items %}
-      {% include '@ecl/ec-twig-component-checkbox/ecl-checkbox-button.html.twig' with _item|merge({
+      {% include '@ecl-twig/ec-component-checkbox/ecl-checkbox-button.html.twig' with _item|merge({
         name: _name,
         invalid: _invalid,
         _compliance_: _compliance,
@@ -115,7 +115,7 @@
 {# Validation #}
 
 {% if _compliance %}
-  {% include '@ecl/ec-twig-component-ecl-compliance/components/ecl-compliance-form-group.html.twig' with {
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-form-group.html.twig' with {
     helper_id: _helper_id,
     invalid: _invalid,
     required: _required,

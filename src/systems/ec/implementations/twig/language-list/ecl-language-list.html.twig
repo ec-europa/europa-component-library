@@ -79,7 +79,7 @@
   <div class="ecl-language-list__container ecl-container">
     <div class="ecl-row">
       <div class="ecl-language-list__close ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2">
-        {% include '@ecl/ec-twig-component-button/ecl-button.html.twig' with {
+        {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with {
           label: _close_label,
           variant: "ghost",
           icon: {
@@ -112,7 +112,7 @@
   <div class="ecl-language-list__container ecl-container">
 {% endif %}
   {% if _items is not empty and _items is iterable %}
-    {% include '@ecl/ec-twig-component-language-list/ecl-language-list-grid.html.twig' with {
+    {% include '@ecl-twig/ec-component-language-list/ecl-language-list-grid.html.twig' with {
         items: _items,
         overlay: _overlay,
         icon_path: _icon_path,
@@ -122,7 +122,7 @@
     } only %}
   {% endif %}
   {% if _non_eu_items is not empty and _non_eu_items is iterable %}
-    {% include '@ecl/ec-twig-component-language-list/ecl-language-list-grid.html.twig' with {
+    {% include '@ecl-twig/ec-component-language-list/ecl-language-list-grid.html.twig' with {
         items: _non_eu_items,
         overlay: _overlay,
         icon_path: _icon_path,
@@ -137,7 +137,7 @@
 {# Validation #}
 
 {% if _compliance %}
-  {% include '@ecl/ec-twig-component-ecl-compliance/components/ecl-compliance-language-list.html.twig' with {
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-language-list.html.twig' with {
     overlay: _overlay,
     close_label: _close_label,
     eu_category: _eu_category,

@@ -97,7 +97,7 @@
       {% endif %}
       {% if _link.children is not defined or _link.children is empty %}
       <li class="{{ _link_class_name }}" data-{{ _prefix_class }}-item data-ecl-has-children="false">
-        {%- include '@ecl/ec-twig-component-link/ecl-link.html.twig' with {
+        {%- include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
           link: {
             type: 'standalone',
             'label': _link.label,
@@ -111,7 +111,7 @@
         } only -%}
       {% else %}
       <li class="{{ _link_class_name }}" data-{{ _prefix_class }}-item data-ecl-has-children="true" >
-        {%- include '@ecl/ec-twig-component-link/ecl-link.html.twig' with {
+        {%- include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
           link: {'type': 'standalone', 'label': _link.label, 'path': _link.href, 'icon_position': 'after'},
           icon: _icon,
           extra_classes: _extra_classes,
@@ -131,7 +131,7 @@
             {% for _child_link in _column.items %}
               {% set _extra_classes = _prefix_class ~ '__sublink' ~ (_child_link.is_current ? ' ' ~ _prefix_class ~ '__sublink--current' : '') %}
               <li class="{{ _list_subelement_custom_class }}" data-ecl-menu-legacy-subitem>
-               {%- include '@ecl/ec-twig-component-link/ecl-link.html.twig' with {
+               {%- include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
                   link: {'type': 'standalone', 'label': _child_link.label, 'path': _child_link.href},
                   extra_classes: _extra_classes,
                   extra_attributes: [{ name: 'data-ecl-menu-legacy-sublink' }],
@@ -156,7 +156,7 @@
 {# Validation #}
 
 {% if _compliance %}
-  {% include '@ecl/ec-twig-component-ecl-compliance/components/ecl-compliance-menu-legacy.html.twig' with {
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-menu-legacy.html.twig' with {
     icon_path: _icon_path,
     items: _links,
     label: _menu_label,

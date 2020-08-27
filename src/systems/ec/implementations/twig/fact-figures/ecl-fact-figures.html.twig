@@ -60,7 +60,7 @@
     <div class="ecl-fact-figures__item">
     {% if item.icon is defined and item.icon is not empty and _display_icons %}
       {% set _icon_path = item.icon.path|default('') %}
-      {% include '@ecl/ec-twig-component-icon/ecl-icon.html.twig' with {
+      {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
         icon: item.icon|merge(_icon),
         extra_classes: 'ecl-fact-figures__icon',
         _compliance_: _compliance,
@@ -89,7 +89,7 @@
 
 {% if view_all.link is defined and view_all.link is not empty %}
   <div class="ecl-fact-figures__view-all">
-    {% include '@ecl/ec-twig-component-link/ecl-link.html.twig' with view_all|merge({
+    {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with view_all|merge({
       link: view_all.link|merge({
         type: 'standalone',
       }),
@@ -105,7 +105,7 @@
 {# Validation #}
 
 {% if _compliance %}
-  {% include '@ecl/ec-twig-component-ecl-compliance/components/ecl-compliance-fact-figures.html.twig' with {
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-fact-figures.html.twig' with {
   items: items,
   display_icons: _display_icons
   } only %}

@@ -47,14 +47,14 @@
 
 <form class="{{ _css_class }}" role="search"{{ _extra_attributes|raw }}>
   {% if _text_input is not empty %}
-    {% include '@ecl/ec-twig-component-text-input/ecl-text-input.html.twig' with _text_input|merge({
+    {% include '@ecl-twig/ec-component-text-input/ecl-text-input.html.twig' with _text_input|merge({
       type: 'search',
       extra_label_classes: 'ecl-search-form__label',
       extra_classes: 'ecl-search-form__text-input'
     }) only %}
   {% endif %}
   {% if _button is not empty %}
-    {% include '@ecl/ec-twig-component-button/ecl-button.html.twig' with _button|merge({
+    {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with _button|merge({
       variant: 'search',
       icon: {
         path: _button.icon.path,
@@ -74,7 +74,7 @@
 {# Validation #}
 
 {% if _compliance %}
-  {% include '@ecl/ec-twig-component-ecl-compliance/components/ecl-compliance-search-form.html.twig' with {
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-search-form.html.twig' with {
     button: _button,
     _compliance_inner_check_: _compliance_inner_check
   } only %}

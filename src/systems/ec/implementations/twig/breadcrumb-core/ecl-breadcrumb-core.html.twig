@@ -117,13 +117,13 @@
               >
                 {{- _ellipsis_text -}}
               </button>
-              {% include '@ecl/ec-twig-component-icon/ecl-icon.html.twig' with _breadcrumb_icon only %}
+              {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with _breadcrumb_icon only %}
             </li>
           {% endif %}
         {% endif %}
         {# Render all the items with different attributes, aria labels are set via js #}
         <li class="{{ _breadcrumb_segment_class }}" {{ _breadcrumb_segment_attributes|raw }}>
-          {% include '@ecl/ec-twig-component-link/ecl-link.html.twig' with {
+          {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
             link: link|default({})|merge({
               type: 'standalone',
             }),
@@ -132,7 +132,7 @@
             _compliance_inner_check_: true,
             icon_path: _icon_file_path
           } only %}
-          {% include '@ecl/ec-twig-component-icon/ecl-icon.html.twig' with _breadcrumb_icon only %}
+          {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with _breadcrumb_icon only %}
         </li>
       {% endif %}
     {% endfor %}
@@ -143,7 +143,7 @@
 {# Validation #}
 
 {% if _compliance %}
-  {% include '@ecl/ec-twig-component-ecl-compliance/components/ecl-compliance-breadcrumb.html.twig' with {
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-breadcrumb.html.twig' with {
     links: _links,
     navigation_text: _navigation_text,
     ellipsis_label: _ellipsis_label,

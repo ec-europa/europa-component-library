@@ -56,7 +56,7 @@
   {% if _items is not empty %}
     {% for _item in _items %}
       <h{{ _item.level|default(3) }} class="ecl-accordion__title">
-        {% include '@ecl/ec-twig-component-button/ecl-button.html.twig' with {
+        {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with {
           label: _item.toggle.label,
           variant: 'ghost',
           type: 'button',
@@ -87,7 +87,7 @@
 {# Validation #}
 
 {% if _compliance %}
-  {% include '@ecl/ec-twig-component-ecl-compliance/components/ecl-compliance-accordion.html.twig' with {
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-accordion.html.twig' with {
     items: _items
   } only %}
 {% endif %}

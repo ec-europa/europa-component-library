@@ -1,6 +1,7 @@
 const path = require('path');
 const { TwingEnvironment, TwingLoaderFilesystem } = require('twing');
 
+debugger;
 const ecAbsPath = path.resolve(__dirname, '../..');
 const loader = new TwingLoaderFilesystem(ecAbsPath);
 
@@ -8,7 +9,7 @@ const loader = new TwingLoaderFilesystem(ecAbsPath);
 // TWigLoaderNull, we need to avoid processing this.
 if (typeof loader.addPath === 'function') {
   // Add namespace ecl-twig.
-  loader.addPath(ecAbsPath, 'ecl');
+  loader.addPath(ecAbsPath, 'ecl-twig');
 }
 
 module.exports = new TwingEnvironment(loader);

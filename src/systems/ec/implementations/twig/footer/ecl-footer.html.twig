@@ -54,7 +54,7 @@
   {# Back to top #}
   {# Disabled
   {% set _back_to_top = back_to_top|default({}) %}
-  {% include '@ecl/ec-twig-component-link/ecl-link.html.twig' with _back_to_top|merge({
+  {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with _back_to_top|merge({
     link: _back_to_top.link|default({})|merge({
       type: 'standalone',
       icon_position: 'after',
@@ -80,7 +80,7 @@
               {{- identity.follow.label -}}
             </span>
             {% for item in _identity.follow.links %}
-              {% include '@ecl/ec-twig-component-link/ecl-link.html.twig' with item|merge({
+              {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with item|merge({
                 link: item.link|default({})|merge({
                   type: 'standalone',
                 }),
@@ -95,7 +95,7 @@
           </div>
           <div class="ecl-footer__identity-info ecl-col-12 ecl-col-md-4">
             {% for item in _identity.info %}
-              {% include '@ecl/ec-twig-component-link/ecl-link.html.twig' with item|merge({
+              {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with item|merge({
                 link: item.link|default({})|merge({
                   type: 'standalone',
                 }),
@@ -122,7 +122,7 @@
           <ul class="ecl-footer__section-list">
             {% for item in _sections[0].links %}
               <li class="ecl-footer__section-item">
-                {% include '@ecl/ec-twig-component-link/ecl-link.html.twig' with item|merge({
+                {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with item|merge({
                   link: item.link|default({})|merge({
                     type: 'standalone',
                   }),
@@ -142,7 +142,7 @@
           <ul class="ecl-footer__section-list ecl-footer__section-list--inline">
             {% for item in _sections[1].links %}
               <li class="ecl-footer__section-item">
-                {% include '@ecl/ec-twig-component-link/ecl-link.html.twig' with item|merge({
+                {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with item|merge({
                   link: item.link|default({})|merge({
                     type: 'standalone',
                   }),
@@ -162,7 +162,7 @@
           <ul class="ecl-footer__section-list">
             {% for item in _sections[2].links %}
               <li class="ecl-footer__section-item">
-                {% include '@ecl/ec-twig-component-link/ecl-link.html.twig' with item|merge({
+                {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with item|merge({
                   link: item.link|default({})|merge({
                     type: 'standalone',
                   }),
@@ -185,7 +185,7 @@
   <div class="ecl-footer__common">
     <div class="ecl-container ecl-footer__common-container">
       {% for item in _common %}
-        {% include '@ecl/ec-twig-component-link/ecl-link.html.twig' with item|merge({
+        {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with item|merge({
           link: item.link|default({})|merge({
             type: 'standalone',
           }),
@@ -204,7 +204,7 @@
 {# Validation #}
 
 {% if _compliance %}
-  {% include '@ecl/ec-twig-component-ecl-compliance/components/ecl-compliance-footer.html.twig' with {
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-footer.html.twig' with {
     identity: _identity,
     sections: _sections,
     common: _common

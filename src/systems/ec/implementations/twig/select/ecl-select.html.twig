@@ -152,7 +152,7 @@
     </select>
 
     <div class="ecl-select__icon">
-      {% include '@ecl/ec-twig-component-icon/ecl-icon.html.twig' with {
+      {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
         icon: {
           path: _icon_path,
           type: "ui",
@@ -169,7 +169,7 @@
 {# Validation #}
 
 {% if _compliance %}
-  {% include '@ecl/ec-twig-component-ecl-compliance/components/ecl-compliance-select.html.twig' with {
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-select.html.twig' with {
     id: _id,
     options: _options,
     disabled: _disabled,

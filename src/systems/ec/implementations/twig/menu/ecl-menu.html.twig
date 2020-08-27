@@ -82,7 +82,7 @@
       href="{{ _menu_link }}"
       data-ecl-menu-open
     >
-      {% include '@ecl/ec-twig-component-icon/ecl-icon.html.twig' with {
+      {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
         icon: {
           size: 's',
           type: 'general',
@@ -104,7 +104,7 @@
           type="submit"
           data-ecl-menu-close
         ><span class="ecl-menu__close-container ecl-button__container">
-            {% include '@ecl/ec-twig-component-icon/ecl-icon.html.twig' with {
+            {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
               icon: {
                 path: icon_path,
                 name: 'close-filled',
@@ -130,7 +130,7 @@
           class="ecl-menu__back ecl-button ecl-button--text"
         >
           <span class="ecl-button__container">
-            {% include '@ecl/ec-twig-component-icon/ecl-icon.html.twig' with {
+            {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
               icon: {
                 path: _icon_path,
                 name: 'corner-arrow',
@@ -156,7 +156,7 @@
       {% if items is defined and items is not empty and items is iterable %}
         {% for item in items %}
         {% if item is defined and item is not empty %}
-          {% include '@ecl/ec-twig-component-menu/ecl-menu-item.html.twig' with {
+          {% include '@ecl-twig/ec-component-menu/ecl-menu-item.html.twig' with {
             item: item,
             icon_path: _icon_path,
             _compliance_: _compliance
@@ -172,7 +172,7 @@
 {# Validation #}
 
 {% if _compliance %}
-  {% include '@ecl/ec-twig-component-ecl-compliance/components/ecl-compliance-menu.html.twig' with {
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-menu.html.twig' with {
     title: _title,
     close: _close,
     back: _back,
