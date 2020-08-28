@@ -1,5 +1,3 @@
-/* global Element */
-
 // Polyfill for closest (support for IE11)
 if (!Element.prototype.matches)
   Element.prototype.matches = Element.prototype.msMatchesSelector;

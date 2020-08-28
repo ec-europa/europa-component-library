@@ -1,8 +1,13 @@
 module.exports = {
   root: true,
-  extends: ['airbnb-base', 'plugin:prettier/recommended'],
+  extends: [
+    'airbnb-base',
+    'plugin:prettier/recommended',
+    'plugin:jest/recommended',
+  ],
   env: {
     node: true,
+    browser: true,
   },
   rules: {
     'import/no-extraneous-dependencies': 'off',
