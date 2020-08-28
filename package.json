@@ -44,24 +44,30 @@
     "start:eu:watch:preset-legacy-website": "cd src/systems/eu/implementations/vanilla/packages/eu-preset-legacy-website && npm run watch",
     "start:eu:watch:storybook": "cd src/systems/eu/implementations/react/storybook && npm run start:watch",
     "start:website": "cd src/website && npm run start",
+    "test:twig": "jest",
     "test:coding-conventions": "npm run lint && npm run pretty-check",
     "update-version": "scripts/update-version.sh"
   },
   "devDependencies": {
+    "@babel/preset-env": "7.11.0",
+    "@babel/plugin-transform-runtime": "7.11.0",
     "@size-limit/preset-big-lib": "4.5.6",
     "babel-eslint": "10.1.0",
+    "babel-jest": "26.3.0",
     "classnames": "2.2.6",
     "eslint": "7.6.0",
     "eslint-config-airbnb": "18.2.0",
     "eslint-config-airbnb-base": "14.2.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-import": "2.22.0",
+    "eslint-plugin-jest": "23.20.0",
     "eslint-plugin-jsx-a11y": "6.3.1",
     "eslint-plugin-prettier": "3.1.4",
     "eslint-plugin-react": "7.20.6",
     "eslint-plugin-react-hooks": "4.0.8",
     "glob": "7.1.6",
     "husky": "4.2.5",
+    "jest": "26.4.0",
     "lerna": "3.22.1",
     "lerna-changelog": "1.0.1",
     "lint-staged": "10.2.11",
@@ -86,6 +92,9 @@
     "stylelint-scss": "3.18.0",
     "stylelint-selector-bem-pattern": "2.1.0",
     "svg4everybody": "2.1.9"
+  },
+  "jest": {
+    "verbose": true
   },
   "resolutions": {
     "dot-prop": "^5.1.1",

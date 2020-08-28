@@ -1,4 +1,4 @@
-import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
+import { merge, renderTwigFileAsNode } from '@ecl/test-utils-twig';
 
 import dataSingle from './demo/data--single';
 import dataMultiple from './demo/data--multiple';

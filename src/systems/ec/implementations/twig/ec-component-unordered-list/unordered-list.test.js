@@ -1,4 +1,4 @@
-import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
+import { merge, renderTwigFileAsNode } from '@ecl/test-utils-twig';
 import data from './demo/data';
 import dataLinkDivider from './demo/data--with-divider';
 import dataLinkNoBullet from './demo/data--without-bullet';

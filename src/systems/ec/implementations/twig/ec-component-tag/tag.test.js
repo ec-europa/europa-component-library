@@ -1,4 +1,4 @@
-import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
+import { merge, renderTwigFileAsNode } from '@ecl/test-utils-twig';
 import dataLink from './demo/data--link';
 import dataButton from './demo/data--button';
 import dataRemovable from './demo/data--removable';

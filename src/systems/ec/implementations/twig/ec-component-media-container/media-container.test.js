@@ -1,4 +1,4 @@
-import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
+import { merge, renderTwigFileAsNode } from '@ecl/test-utils-twig';
 
 import demoContentImg from './demo/data--image';
 import demoContentVideo from './demo/data--video';

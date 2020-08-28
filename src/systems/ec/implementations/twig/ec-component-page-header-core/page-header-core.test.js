@@ -1,4 +1,4 @@
-import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
+import { merge, renderTwigFileAsNode } from '@ecl/test-utils-twig';
 
 import demoTitleContent from './demo/data--title';
 import demoMetaTitleContent from './demo/data--meta-title';

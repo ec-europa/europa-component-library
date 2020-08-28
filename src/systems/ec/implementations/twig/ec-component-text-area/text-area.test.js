@@ -1,4 +1,4 @@
-import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
+import { merge, renderTwigFileAsNode } from '@ecl/test-utils-twig';
 import dataDefault from './demo/data--default';
 import dataDisabled from './demo/data--is-disabled';
 import dataError from './demo/data--has-error';
