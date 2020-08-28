@@ -1,7 +1,41 @@
-import { addParameters } from '@storybook/html';
+import { addDecorator, addParameters } from '@storybook/html';
+import { withCssResources } from '@storybook/addon-cssresources';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 
+import './ECL';
+
 addParameters({
+  cssresources: [
+    {
+      id: 'ecl-screen',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec-preset-website.css" />`,
+      picked: true,
+    },
+    {
+      id: 'ecl-print',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec-preset-website-print.css" />`,
+      picked: false,
+    },
+    {
+      id: 'test-fake-global-rules',
+      code: `
+<style>
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color: red;
+  font-family: serif;
+  font-weight: 700;
+  line-height: 2;
+}
+</style>`,
+      picked: false,
+    },
+  ],
   viewport: {
     defaultViewport: 'responsive',
     viewports: {
@@ -37,3 +71,5 @@ addParameters({
     },
   },
 });
+
+addDecorator(withCssResources);

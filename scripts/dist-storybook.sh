@@ -11,7 +11,7 @@ cd "$(dirname "$0")"
 cd ..
 
 # Build storybook
-yarn --cwd "./src/systems/ec/implementations/react/storybook" build
+yarn --cwd "./src/systems/ec/implementations/twig/storybook" build
 yarn --cwd "./src/systems/eu/implementations/react/storybook" build
 
 # Copy builds

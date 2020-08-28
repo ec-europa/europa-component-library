@@ -8,6 +8,7 @@ const addons = [
   '@ecl/storybook-addon-jscode/src/register',
   '@storybook/addon-viewport',
   '@storybook/addon-knobs',
+  '@storybook/addon-cssresources',
 ];
 
 const webpackFinal = (config) => {
