@@ -1,0 +1,12 @@
+{#
+  Parameters:
+    title: (string)
+#}
+
+{% extends "@ecl-twig/ec-component-ecl-compliance/ecl-compliance.html.twig" %}
+
+{% set message = '' %}
+{% set component = 'page-header-harmonised' %}
+{% set not_compliant = title is empty %}
+{% set message = '{{ title }} needs to be set and filled in.' %}
+

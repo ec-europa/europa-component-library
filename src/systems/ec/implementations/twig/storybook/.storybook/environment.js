@@ -1,7 +1,6 @@
 const path = require('path');
 const { TwingEnvironment, TwingLoaderFilesystem } = require('twing');
 
-debugger;
 const ecAbsPath = path.resolve(__dirname, '../..');
 const loader = new TwingLoaderFilesystem(ecAbsPath);
 

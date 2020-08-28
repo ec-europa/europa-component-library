@@ -1,1 +1,1 @@
-# @ecl-twig/story-utils
+# @ecl/story-utils

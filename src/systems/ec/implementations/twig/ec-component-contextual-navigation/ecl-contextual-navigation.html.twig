@@ -1,0 +1,87 @@
+{% spaceless %}
+
+{#
+  Parameters:
+    - "label" (string) (default: '')
+    - "items" (iterable of predefined structure) (default: []): format: see @ecl-twig/ec-component-link component
+    - "item_more (predefined structure) (default: {}): format: see @ecl-twig/ec-component-button
+    - "items_limit": (number) (default: 3) Number of items to show by default. The rest of the "items" are hidden and a "More" button is shown.
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        ...
+      ]
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-contextual-navigation' %}
+{% set _extra_attributes = 'data-ecl-auto-init="ContextualNavigation"' %}
+
+{% set _label = label|default('') %}
+{% set _items = items|default([]) %}
+{% set _item_more = item_more|default({}) %}
+{% set _items_limit = items_limit|default(3) %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<nav
+  class="{{ _css_class }}"{{ _extra_attributes|raw }}
+  data-ecl-contextual-navigation
+>
+  <div class="ecl-contextual-navigation__label">{{ _label }}</div>
+  <ul
+    class="ecl-contextual-navigation__list"
+    data-ecl-contextual-navigation-list
+  >
+    {% if _items is not empty and _items is iterable %}
+      {% for item in _items %}
+        {% set _item_classes = 'ecl-contextual-navigation__item' %}
+        {% if loop.index > _items_limit %}
+          {% set _item_classes = _item_classes ~ ' ' ~ 'ecl-contextual-navigation__item--collapsed' %}
+        {% endif %}
+        <li class="{{ _item_classes }}">
+          {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with item|merge({
+            extra_classes: 'ecl-contextual-navigation__link',
+            link: item,
+          }) only %}
+        </li>
+        {% if _item_more is not empty and loop.last and _items|length > _items_limit %}
+          {% set _item_classes = _item_classes|replace({
+            'ecl-contextual-navigation__item--collapsed': '',
+          }) %}
+          {% set _item_classes = _item_classes ~ ' ' ~ 'ecl-contextual-navigation__item--more' %}
+          <li class="{{ _item_classes }}">
+            {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with _item_more|merge({
+              type: 'button',
+              extra_attributes: [
+                { name: 'data-ecl-contextual-navigation-more', value: 'true' },
+              ],
+              extra_classes: 'ecl-contextual-navigation__more',
+            }) only %}
+          </li>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </ul>
+</nav>
+
+{% endspaceless %}
