@@ -5,6 +5,42 @@ title: What's new
 
 Detailed release information is available on [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 2.32 (2020-08-27)
+
+#### :rocket: New Feature
+
+- [#1649](https://github.com/ec-europa/europa-component-library/pull/1649) feat(label): add highlight variant - FRONT-1336
+- [#1589](https://github.com/ec-europa/europa-component-library/pull/1589) feat(banners): add new banner variants - FRONT-1153
+
+#### :boom: Breaking Change
+
+- [#1589](https://github.com/ec-europa/europa-component-library/pull/1589) feat(banners): add new banner variants - FRONT-1153
+
+#### :bug: Bug Fix
+
+- [#1642](https://github.com/ec-europa/europa-component-library/pull/1642) fix(file): allow array of meta - FRONT-1309
+- [#1635](https://github.com/ec-europa/europa-component-library/pull/1635) fix(pageHeader): fix margin title for mobile formats - FRONT-1292
+- [#1640](https://github.com/ec-europa/europa-component-library/pull/1640) fix(file-download): fix display of optional elements - FRONT-1308
+- [#1639](https://github.com/ec-europa/europa-component-library/pull/1639) fix(menu): fix active status - FRONT-1311
+
+#### :nail_care: Enhancement
+
+- [#1651](https://github.com/ec-europa/europa-component-library/pull/1651) refactor(banners): apply latest specs - FRONT-1331
+- [#1645](https://github.com/ec-europa/europa-component-library/pull/1645) fix(banners): apply latest specs for meta - FRONT-1453
+- [#1643](https://github.com/ec-europa/europa-component-library/pull/1643) fix(language-list): add missing elements - FRONT-1378
+
+#### :memo: Documentation
+
+- [#1644](https://github.com/ec-europa/europa-component-library/pull/1644) docs(banners): update usage page - FRONT-1331
+- [#1646](https://github.com/ec-europa/europa-component-library/pull/1646) docs(website): Content update(broken links and text updates) - FRONT-1339
+
+#### :house: Internal
+
+- [#1647](https://github.com/ec-europa/europa-component-library/pull/1647) fix(components): Apply small accessibility improvements - FRONT-1454
+- [#1648](https://github.com/ec-europa/europa-component-library/pull/1648) chore(deps): treat security warnings - FRONT-1481
+- [#1625](https://github.com/ec-europa/europa-component-library/pull/1625) chore(eslint): update rules - FRONT-1247
+- [#1637](https://github.com/ec-europa/europa-component-library/pull/1637) feat(polyfills): enable centralized management - FRONT-1187
+
 ## 2.31 (2020-07-23)
 
 #### :rocket: New Feature

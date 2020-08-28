@@ -1,5 +1,5 @@
 import React from 'react';
-import { text, boolean, array } from '@storybook/addon-knobs';
+import { text, boolean } from '@storybook/addon-knobs';
 
 import demoContentSimple from '@ecl/ec-specs-hero-banner/demo/data--simple';
 
@@ -7,14 +7,6 @@ import HeroBanner from '../src/HeroBanner';
 
 export const SimpleGrey = () => {
   // Banner content
-  const meta = Array.isArray(demoContentSimple.meta)
-    ? array(
-        'Meta (comma separated)',
-        demoContentSimple.meta,
-        ',',
-        'Banner content'
-      )
-    : text('Meta', demoContentSimple.meta, 'Banner content');
   const title = text('Title', demoContentSimple.title, 'Banner content');
   const description = text(
     'Description',
@@ -43,7 +35,6 @@ export const SimpleGrey = () => {
     <HeroBanner
       {...demoContentSimple}
       variant="grey"
-      meta={meta}
       title={title}
       description={description}
       link={link}

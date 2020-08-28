@@ -16,6 +16,7 @@ const Anatomy = ({
   system,
   selectedKind,
   selectedStory,
+  additionalLink,
 }) => {
   const playgroundUrl =
     system && selectedKind && selectedStory
@@ -76,6 +77,27 @@ const Anatomy = ({
                   </a>
                 </li>
               )}
+              {!!(additionalLink && additionalLink.label) && (
+                <li
+                  className={`${styles.legend__item} ${styles['legend__item-last']}`}
+                >
+                  <a
+                    href={additionalLink.href}
+                    className={`${styles.link} ${styles['link--icon']} ${styles['playground-link']}`}
+                  >
+                    <span className={styles.link__label}>
+                      {additionalLink.label}
+                    </span>
+                    <svg
+                      focusable="false"
+                      aria-hidden="true"
+                      className={styles.link__icon}
+                    >
+                      <use xlinkHref={`${iconSprite}#ui--corner-arrow`} />
+                    </svg>
+                  </a>
+                </li>
+              )}
             </ul>
             {legend.description && (
               <div className={styles.legend__description}>
@@ -106,6 +128,10 @@ Anatomy.propTypes = {
   system: PropTypes.string,
   selectedKind: PropTypes.string,
   selectedStory: PropTypes.string,
+  additionalLink: PropTypes.shape({
+    href: PropTypes.string,
+    label: PropTypes.string,
+  }),
 };
 
 Anatomy.defaultProps = {
@@ -117,6 +143,7 @@ Anatomy.defaultProps = {
   system: '',
   selectedKind: '',
   selectedStory: '',
+  additionalLink: {},
 };
 
 export default Anatomy;
