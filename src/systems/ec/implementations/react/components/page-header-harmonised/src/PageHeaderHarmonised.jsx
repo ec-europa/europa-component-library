@@ -21,6 +21,7 @@ const PageHeaderHarmonised = ({
               breadcrumb.props.className,
               'ecl-page-header-harmonised__breadcrumb'
             ),
+            ellipsisLabel: 'Click to expand',
           })}
         {meta && <div className="ecl-page-header-harmonised__meta">{meta}</div>}
         {title && (
