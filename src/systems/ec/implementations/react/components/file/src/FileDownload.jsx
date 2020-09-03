@@ -166,6 +166,7 @@ export const FileDownload = ({
                       }}
                       href={item.download.href || download.href}
                       label={item.download.label || download.label}
+                      aria-label={ariaLabel}
                       variant="standalone"
                       className={classnames(
                         item.download.className,
