@@ -166,7 +166,11 @@ export const FileDownload = ({
                       }}
                       href={item.download.href || download.href}
                       label={item.download.label || download.label}
-                      ariaLabel={`${item.download.ariaLabel} ${item.title}`}
+                      {...(item.download.ariaLabel
+                        ? {
+                            ariaLabel: `${item.download.ariaLabel} ${item.lang}`,
+                          }
+                        : {})}
                       variant="standalone"
                       className={classnames(
                         item.download.className,
@@ -208,12 +212,16 @@ export const FileDownload = ({
                       }}
                       href={item.download.href || download.href}
                       label={item.download.label || download.label}
+                      {...(item.download.ariaLabel
+                        ? {
+                            ariaLabel: `${item.download.ariaLabel} ${item.lang}`,
+                          }
+                        : {})}
                       variant="standalone"
                       className={classnames(
                         item.download.className,
                         'ecl-file__translation-download'
                       )}
-                      ariaLabel={`${item.download.ariaLabel} ${item.title}`}
                       download
                       {...(item.lang && { hrefLang: item.lang })}
                     />
