@@ -168,7 +168,7 @@ export const FileDownload = ({
                       label={item.download.label || download.label}
                       {...(item.download.ariaLabel
                         ? {
-                            ariaLabel: `${item.download.ariaLabel} ${item.lang}`,
+                            ariaLabel: item.download.ariaLabel,
                           }
                         : {})}
                       variant="standalone"
@@ -214,7 +214,7 @@ export const FileDownload = ({
                       label={item.download.label || download.label}
                       {...(item.download.ariaLabel
                         ? {
-                            ariaLabel: `${item.download.ariaLabel} ${item.lang}`,
+                            ariaLabel: item.download.ariaLabel,
                           }
                         : {})}
                       variant="standalone"
