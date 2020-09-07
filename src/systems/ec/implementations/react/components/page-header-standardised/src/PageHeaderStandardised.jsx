@@ -18,7 +18,6 @@ const PageHeaderStandardised = ({
         {breadcrumb &&
           React.cloneElement(breadcrumb, {
             className: 'ecl-page-header-standardised__breadcrumb',
-            ellipsisLabel: 'Click to expand',
           })}
         {meta && (
           <div className="ecl-page-header-standardised__meta">{meta}</div>

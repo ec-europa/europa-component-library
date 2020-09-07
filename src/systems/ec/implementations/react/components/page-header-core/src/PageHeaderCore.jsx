@@ -17,7 +17,6 @@ const PageHeaderCore = ({
       <div className="ecl-container">
         {React.cloneElement(breadcrumb, {
           className: 'ecl-page-header-core__breadcrumb',
-          ellipsisLabel: 'Click to expand',
         })}
         {meta && <div className="ecl-page-header-core__meta">{meta}</div>}
         {title && <h1 className="ecl-page-header-core__title">{title}</h1>}
