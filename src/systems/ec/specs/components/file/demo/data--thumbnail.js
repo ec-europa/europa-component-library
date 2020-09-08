@@ -34,7 +34,7 @@ module.exports = {
         langFull: 'български',
         download: {
           label: 'Download',
-          ariaLabel: 'Download file',
+          ariaLabel: 'Download file български',
           href: '/example#bg',
         },
       },
@@ -47,7 +47,7 @@ module.exports = {
         langFull: 'español',
         download: {
           label: 'Download',
-          ariaLabel: 'Download file',
+          ariaLabel: 'Download file español',
           href: '/example#es',
         },
       },
@@ -60,7 +60,7 @@ module.exports = {
         langFull: 'français',
         download: {
           label: 'Download',
-          ariaLabel: 'Download file',
+          ariaLabel: 'Download file français',
           href: '/example#fr',
         },
       },
