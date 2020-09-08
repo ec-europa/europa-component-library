@@ -157,7 +157,7 @@ const SiteHeaderHarmonised = ({
                 <a
                   className="ecl-link ecl-link--standalone ecl-site-header-harmonised__language-selector"
                   href={languageSelector.href}
-                  arial-label={languageSelector.label}
+                  aria-label={languageSelector.label}
                   data-ecl-language-selector
                   {...(hasLanguageOverlay && {
                     'aria-controls': 'language-list-overlay',
