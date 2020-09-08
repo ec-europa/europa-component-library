@@ -75,7 +75,7 @@ export const FileDownload = ({
               }}
               variant="standalone"
               className={classnames(download.className, 'ecl-file__download')}
-              aria-label={ariaLabel}
+              {...(ariaLabel && { ariaLabel })}
               download
             />
           </>
@@ -98,7 +98,7 @@ export const FileDownload = ({
               }}
               variant="standalone"
               className={classnames(download.className, 'ecl-file__download')}
-              aria-label={ariaLabel}
+              {...(ariaLabel && { ariaLabel })}
               download
             />
           </>
@@ -166,6 +166,9 @@ export const FileDownload = ({
                       }}
                       href={item.download.href || download.href}
                       label={item.download.label || download.label}
+                      {...(item.download.ariaLabel && {
+                        ariaLabel: item.download.ariaLabel,
+                      })}
                       variant="standalone"
                       className={classnames(
                         item.download.className,
@@ -207,12 +210,14 @@ export const FileDownload = ({
                       }}
                       href={item.download.href || download.href}
                       label={item.download.label || download.label}
+                      {...(item.download.ariaLabel && {
+                        ariaLabel: item.download.ariaLabel,
+                      })}
                       variant="standalone"
                       className={classnames(
                         item.download.className,
                         'ecl-file__translation-download'
                       )}
-                      aria-label={ariaLabel}
                       download
                       {...(item.lang && { hrefLang: item.lang })}
                     />
