@@ -6,6 +6,7 @@ import classnames from 'classnames';
 import Icon from '@ecl/ec-react-component-icon';
 
 const Select = ({
+  defaultValue,
   disabled,
   groupClassName,
   helperText,
@@ -81,6 +82,7 @@ const Select = ({
           className={classNames}
           disabled={disabled}
           required={required}
+          defaultValue
           {...(multiple
             ? {
                 multiple,
@@ -91,11 +93,21 @@ const Select = ({
               }
             : {})}
         >
-          {options.map((option) => (
-            <option key={option.label} value={option.value}>
-              {option.label}
-            </option>
-          ))}
+          {options.map((option) => {
+            const attributes = {};
+            if (option.attributes) {
+              option.attributes.map((attr) => {
+                attributes[attr.name] = [];
+                attributes[attr.name] = attr.value ? attr.value : true;
+                return attributes;
+              });
+            }
+            return (
+              <option key={option.label} value={option.value} {...attributes}>
+                {option.label}
+              </option>
+            );
+          })}
         </select>
         <div className="ecl-select__icon">
           <Icon
@@ -111,6 +123,7 @@ const Select = ({
 };
 
 Select.propTypes = {
+  defaultValue: PropTypes.string,
   disabled: PropTypes.bool,
   groupClassName: PropTypes.string,
   helperText: PropTypes.node,
@@ -127,6 +140,7 @@ Select.propTypes = {
     PropTypes.shape({
       value: PropTypes.string,
       label: PropTypes.string,
+      attributes: PropTypes.array,
     })
   ),
   width: PropTypes.string,
@@ -138,6 +152,7 @@ Select.propTypes = {
 };
 
 Select.defaultProps = {
+  defaultValue: '',
   disabled: false,
   groupClassName: '',
   helperText: '',
