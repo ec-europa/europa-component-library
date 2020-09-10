@@ -6,7 +6,7 @@ import breadcrumbContent from '@ecl/ec-specs-breadcrumb-standardised/demo/data';
 
 const { items, ...breadcrumbProps } = breadcrumbContent;
 const breadcrumb = (
-  <BreadcrumbStandardised {...breadcrumbProps}>
+  <BreadcrumbStandardised {...breadcrumbProps} ellipsisLabel="Click to expand">
     {items.map((item) => (
       <BreadcrumbStandardisedItem {...item} key={item.label} />
     ))}
