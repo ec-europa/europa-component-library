@@ -4,7 +4,6 @@ module.exports = {
   invalidText: 'This is the error message',
   requiredText: '*',
   optionalText: ' (optional)',
-  defaultValue: [],
   options: [
     {
       value: '1',
@@ -29,10 +28,6 @@ module.exports = {
     {
       value: '6',
       label: 'Italy',
-      attributes: [
-        { name: 'disabled' },
-        { name: 'custom-attr', value: 'custom-value' },
-      ],
     },
     {
       value: '7',
