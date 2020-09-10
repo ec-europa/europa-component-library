@@ -82,7 +82,7 @@ const Select = ({
           className={classNames}
           disabled={disabled}
           required={required}
-          defaultValue
+          defaultValue={defaultValue}
           {...(multiple
             ? {
                 multiple,
@@ -93,21 +93,15 @@ const Select = ({
               }
             : {})}
         >
-          {options.map((option) => {
-            const attributes = {};
-            if (option.attributes) {
-              option.attributes.map((attr) => {
-                attributes[attr.name] = [];
-                attributes[attr.name] = attr.value ? attr.value : true;
-                return attributes;
-              });
-            }
-            return (
-              <option key={option.label} value={option.value} {...attributes}>
-                {option.label}
-              </option>
-            );
-          })}
+          {options.map((option) => (
+            <option
+              key={option.label}
+              value={option.value}
+              disabled={option.isDisabled}
+            >
+              {option.label}
+            </option>
+          ))}
         </select>
         <div className="ecl-select__icon">
           <Icon
@@ -123,7 +117,7 @@ const Select = ({
 };
 
 Select.propTypes = {
-  defaultValue: PropTypes.string,
+  defaultValue: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
   disabled: PropTypes.bool,
   groupClassName: PropTypes.string,
   helperText: PropTypes.node,

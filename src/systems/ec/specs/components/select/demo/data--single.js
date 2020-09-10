@@ -3,7 +3,6 @@ module.exports = {
   helperText: "This is the input's helper text.",
   invalidText: 'This is the error message',
   requiredText: '*',
-  defaultValue: '2',
   optionalText: ' (optional)',
   options: [
     {
@@ -29,10 +28,7 @@ module.exports = {
     {
       value: '6',
       label: 'Italy',
-      attributes: [
-        { name: 'disabled' },
-        { name: 'custom-attr', value: 'custom-value' },
-      ],
+      isDisabled: true,
     },
     {
       value: '7',

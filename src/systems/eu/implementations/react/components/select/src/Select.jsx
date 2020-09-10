@@ -6,6 +6,7 @@ import classnames from 'classnames';
 import Icon from '@ecl/eu-react-component-icon';
 
 const Select = ({
+  defaultValue,
   disabled,
   groupClassName,
   helperText,
@@ -81,6 +82,7 @@ const Select = ({
           className={classNames}
           disabled={disabled}
           required={required}
+          defaultValue={defaultValue}
           {...(multiple
             ? {
                 multiple,
@@ -92,7 +94,11 @@ const Select = ({
             : {})}
         >
           {options.map((option) => (
-            <option key={option.label} value={option.value}>
+            <option
+              key={option.label}
+              value={option.value}
+              disabled={option.isDisabled}
+            >
               {option.label}
             </option>
           ))}
@@ -111,6 +117,7 @@ const Select = ({
 };
 
 Select.propTypes = {
+  defaultValue: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
   disabled: PropTypes.bool,
   groupClassName: PropTypes.string,
   helperText: PropTypes.node,
@@ -127,6 +134,7 @@ Select.propTypes = {
     PropTypes.shape({
       value: PropTypes.string,
       label: PropTypes.string,
+      attributes: PropTypes.array,
     })
   ),
   width: PropTypes.string,
@@ -138,6 +146,7 @@ Select.propTypes = {
 };
 
 Select.defaultProps = {
+  defaultValue: '',
   disabled: false,
   groupClassName: '',
   helperText: '',

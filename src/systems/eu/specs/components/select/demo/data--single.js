@@ -28,6 +28,7 @@ module.exports = {
     {
       value: '6',
       label: 'Italy',
+      isDisabled: true,
     },
     {
       value: '7',
