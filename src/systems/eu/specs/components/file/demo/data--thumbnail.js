@@ -38,8 +38,7 @@ module.exports = {
       },
       {
         title: 'Title es',
-        description:
-          'Proin sagittis nisi hendrerit purus porta, at suscipit est hendrerit. Duis facilisis augue imperdiet, pharetra nisl sed, molestie nulla.',
+        description: 'Proin sagittis nisi hendrerit purus porta.',
         meta: '(15.8 MB - PDF)',
         lang: 'es',
         langFull: 'español',
