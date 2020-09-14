@@ -10,6 +10,7 @@ export const MenuItem = ({ label, href, isCurrent, subItems }) => {
     <li
       className={classnames('ecl-menu__item', {
         'ecl-menu__item--current': isCurrent,
+        'ecl-menu__item--has-children': hasSubItems,
       })}
       {...(hasSubItems && {
         'data-ecl-has-children': true,
