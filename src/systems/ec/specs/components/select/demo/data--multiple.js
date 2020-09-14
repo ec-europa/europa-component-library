@@ -16,6 +16,7 @@ module.exports = {
     {
       value: '3',
       label: 'Luxembourg',
+      disabled: true,
     },
     {
       value: '4',
@@ -24,6 +25,7 @@ module.exports = {
     {
       value: '5',
       label: 'Bulgaria',
+      selected: true,
     },
     {
       value: '6',
