@@ -25,6 +25,7 @@ module.exports = {
         download: {
           label: 'Download',
           href: '/example#bg',
+          ariaLabel: 'Download file български',
         },
       },
       {
@@ -34,6 +35,7 @@ module.exports = {
         download: {
           label: 'Download',
           href: '/example#es',
+          ariaLabel: 'Download file español',
         },
       },
       {
@@ -43,6 +45,7 @@ module.exports = {
         download: {
           label: 'Download',
           href: '/example#fr',
+          ariaLabel: 'Download file français',
         },
       },
     ],

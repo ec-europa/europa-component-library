@@ -34,18 +34,19 @@ module.exports = {
         langFull: 'български',
         download: {
           label: 'Download',
+          ariaLabel: 'Download file български',
           href: '/example#bg',
         },
       },
       {
         title: 'Title es',
-        description:
-          'Proin sagittis nisi hendrerit purus porta, at suscipit est hendrerit. Duis facilisis augue imperdiet, pharetra nisl sed, molestie nulla.',
+        description: 'Proin sagittis nisi hendrerit purus porta.',
         meta: '(15.8 MB - PDF)',
         lang: 'es',
         langFull: 'español',
         download: {
           label: 'Download',
+          ariaLabel: 'Download file español',
           href: '/example#es',
         },
       },
@@ -58,6 +59,7 @@ module.exports = {
         langFull: 'français',
         download: {
           label: 'Download',
+          ariaLabel: 'Download file français',
           href: '/example#fr',
         },
       },
