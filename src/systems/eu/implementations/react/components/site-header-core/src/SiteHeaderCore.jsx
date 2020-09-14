@@ -145,6 +145,7 @@ const SiteHeaderCore = ({
               <a
                 className="ecl-link ecl-link--standalone ecl-site-header-core__language-selector"
                 href={languageSelector.href}
+                aria-label={languageSelector.label}
                 data-ecl-language-selector
                 {...(hasLanguageOverlay && {
                   'aria-controls': 'language-list-overlay',
