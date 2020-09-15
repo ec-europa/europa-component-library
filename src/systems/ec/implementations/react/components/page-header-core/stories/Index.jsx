@@ -15,7 +15,11 @@ import PageHeaderCore from '../src/PageHeaderCore';
 
 const { items, ...breadcrumbProps } = breadcrumbContent;
 const breadcrumb = (
-  <BreadcrumbCore {...breadcrumbProps} data-ecl-auto-init="BreadcrumbCore">
+  <BreadcrumbCore
+    {...breadcrumbProps}
+    ellipsisLabel="Click here to expand"
+    data-ecl-auto-init="BreadcrumbCore"
+  >
     {items.map((item) => (
       <BreadcrumbCoreItem {...item} key={item.label} />
     ))}

@@ -17,6 +17,7 @@ const { items, ...breadcrumbProps } = breadcrumbContent;
 const breadcrumb = (
   <BreadcrumbStandardised
     {...breadcrumbProps}
+    ellipsisLabel="Click here to expand"
     data-ecl-auto-init="BreadcrumbStandardised"
   >
     {items.map((item) => (
