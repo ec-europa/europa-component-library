@@ -9,7 +9,7 @@
 // Check if overridden dependencies are already loaded, if needed
 @include check-imports(('ec-layout-grid', 'ec-component-link'));
 
-@mixin ecl-footer-harmonised() {
+@mixin ecl-footer-harmonised($column-gap: $ecl-grid-gutter-width) {
   /*
    * Global rules
    */
@@ -139,6 +139,7 @@
 
     .ecl-footer-harmonised__list--columns {
       column-count: 2;
+      column-gap: $column-gap;
     }
 
     .ecl-footer-harmonised__link {
