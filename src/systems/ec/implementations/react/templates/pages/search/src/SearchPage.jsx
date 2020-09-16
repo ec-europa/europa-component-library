@@ -101,6 +101,39 @@ const SearchPage = () => (
                 },
               ]}
             />
+            <Select
+              id="select-multiple"
+              label="Content type"
+              groupClassName="ecl-u-mt-m"
+              helperText="Helper text"
+              invalidText="No results"
+              width="m"
+              multiple
+              className="ecl-select"
+              options={[
+                {
+                  value: '1',
+                  label: 'News',
+                },
+                {
+                  value: '2',
+                  label: 'Events',
+                },
+                {
+                  value: '3',
+                  label: 'Tenders',
+                },
+                {
+                  value: '4',
+                  label: 'Meetings',
+                },
+              ]}
+              data-ecl-auto-init="Select"
+              multiplePlaceholder="Placeholder text"
+              multipleSearchText="Search"
+              multipleAllText="Select all"
+              data-ecl-select-multiple="true"
+            />
             <Button
               className="ecl-u-mt-l"
               label="Refine results"
