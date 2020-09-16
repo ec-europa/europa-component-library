@@ -108,27 +108,48 @@ export class Select {
   }
 
   /**
-   * @param {String} id
-   * @param {String} text
-   * @param {String} scope
-   * @param {Function} clickHandler
+   * @param {Object} options
+   * @param {String} options.id
+   * @param {String} options.text
+   * @param {String} [options.extraClass] - additional CSS class
+   * @param {String} [options.disabled] - relevant when re-creating an option from <select>
+   * @param {String} [options.selected] - relevant when re-creating an option from <select>
+   * @param {String} ctx
    * @returns {HTMLElement}
    */
-  static createCheckbox(id, text, scope, extraClass) {
-    if (!id || !text || !scope) return '';
+  static createCheckbox(options, ctx) {
+    // Early returns.
+    if (!options || !ctx) return '';
+    const { id, text, disabled, selected, extraClass } = options;
+    if (!id || !text) return '';
+
+    // Elements to work with.
     const checkbox = document.createElement('div');
-    checkbox.classList.add('ecl-checkbox');
-    if (extraClass) checkbox.classList.add(extraClass);
-    checkbox.setAttribute('data-select-multiple-value', text);
     const input = document.createElement('input');
+    const label = document.createElement('label');
+    const box = document.createElement('span');
+
+    // Respect optional input parameters.
+    if (extraClass) {
+      checkbox.classList.add(extraClass);
+    }
+    if (selected) {
+      input.setAttribute('checked', true);
+    }
+    if (disabled) {
+      checkbox.classList.add('ecl-checkbox--disabled');
+      input.setAttribute('disabled', disabled);
+    }
+
+    // Imperative work follows.
+    checkbox.classList.add('ecl-checkbox');
+    checkbox.setAttribute('data-select-multiple-value', text);
     input.classList.add('ecl-checkbox__input');
     input.setAttribute('type', 'checkbox');
-    input.setAttribute('id', `${scope}-${id}`);
+    input.setAttribute('id', `${ctx}-${id}`);
     checkbox.appendChild(input);
-    const label = document.createElement('label');
     label.classList.add('ecl-checkbox__label');
-    label.setAttribute('for', `${scope}-${id}`);
-    const box = document.createElement('span');
+    label.setAttribute('for', `${ctx}-${id}`);
     box.classList.add('ecl-checkbox__box');
     box.appendChild(
       Select.createSvgIcon(
@@ -221,10 +242,12 @@ export class Select {
 
     if (this.textSelectAll) {
       this.selectAll = Select.createCheckbox(
-        'all',
-        this.textSelectAll,
-        this.selectMultipleId,
-        'ecl-select__multiple-all'
+        {
+          id: 'all',
+          text: this.textSelectAll,
+          extraClass: 'ecl-select__multiple-all',
+        },
+        this.selectMultipleId
       );
       this.selectAll.addEventListener('click', this.handleClickSelectAll);
       this.selectAll.addEventListener('keypress', this.handleClickSelectAll);
@@ -234,8 +257,12 @@ export class Select {
     if (this.select.options && this.select.options.length > 0) {
       this.checkboxes = Array.from(this.select.options).map((option) => {
         const checkbox = Select.createCheckbox(
-          option.value,
-          option.text,
+          {
+            id: option.value,
+            text: option.text,
+            disabled: option.disabled,
+            selected: option.selected,
+          },
           this.selectMultipleId
         );
         checkbox.setAttribute('data-visible', true);
