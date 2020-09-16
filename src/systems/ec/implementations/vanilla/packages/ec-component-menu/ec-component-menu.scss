@@ -312,6 +312,19 @@
         white-space: nowrap; // Needed to check menu width and switch to mobile display
       }
 
+      .ecl-menu__link-icon {
+        height: $ecl-icon-2-xs;
+        margin-left: $ecl-spacing-xs;
+        transform: rotate(180deg);
+        transition-property: transform;
+        width: $ecl-icon-2-xs;
+      }
+
+      .ecl-menu__inner--expanded .ecl-menu__item,
+      .ecl-menu__inner--expanded .ecl-menu__link-icon {
+        display: block;
+      }
+
       .ecl-menu__item--full {
         position: static;
       }
@@ -341,21 +354,6 @@
         background-color: $ecl-color-blue-120;
       }
 
-      .ecl-menu__item[aria-expanded='true'] {
-        .ecl-menu__link {
-          background-color: $ecl-color-blue-5;
-          color: $ecl-color-blue;
-        }
-      }
-
-      .ecl-menu__link-icon {
-        height: $ecl-icon-2-xs;
-        margin-left: $ecl-spacing-xs;
-        transform: rotate(180deg);
-        transition-property: transform;
-        width: $ecl-icon-2-xs;
-      }
-
       .ecl-menu__item:hover {
         .ecl-menu__link,
         .ecl-menu__link:hover,
@@ -374,7 +372,9 @@
         }
       }
 
+      .ecl-menu__item:not(.ecl-menu__item--has-children):hover,
       .ecl-menu__item:not([data-ecl-has-children]):hover {
+        // DEPRECATED
         .ecl-menu__link {
           border-bottom-color: $ecl-color-blue-25;
         }
