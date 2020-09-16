@@ -363,10 +363,10 @@ export class Select {
   handleClickSelectAll(e) {
     e.preventDefault();
     const checked = Select.checkCheckbox(e);
-    const options = Array.from(this.select.options);
+    const options = Array.from(this.select.options).filter((o) => !o.disabled);
     const checkboxes = Array.from(
       this.searchContainer.querySelectorAll('[data-visible="true"]')
-    );
+    ).filter((checkbox) => !checkbox.querySelector('input').disabled);
 
     checkboxes.forEach((checkbox) => {
       checkbox.querySelector('input').checked = checked;
