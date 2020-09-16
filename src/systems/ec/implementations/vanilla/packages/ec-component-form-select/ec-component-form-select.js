@@ -218,14 +218,14 @@ export class Select {
     if (containerClasses.find((c) => c.includes('disabled'))) {
       this.input.setAttribute('disabled', true);
     }
-    this.input.addEventListener('keypress', this.handleToggle);
-    this.input.addEventListener('click', this.handleToggle);
+    // this.input.addEventListener('keypress', this.handleToggle);
+    // this.input.addEventListener('click', this.handleToggle);
 
     this.inputContainer.appendChild(this.input);
     this.inputContainer.appendChild(Select.createSelectIcon());
 
     this.searchContainer = document.createElement('div');
-    this.searchContainer.style.display = 'none';
+    // this.searchContainer.style.display = 'none';
     this.searchContainer.classList.add(
       'ecl-select__multiple-dropdown',
       ...containerClasses
@@ -258,6 +258,7 @@ export class Select {
       this.checkboxes = Array.from(this.select.options).map((option) => {
         const checkbox = Select.createCheckbox(
           {
+            // spread operator does not work in storybook context so we map 1:1
             id: option.value,
             text: option.text,
             disabled: option.disabled,
@@ -266,8 +267,10 @@ export class Select {
           this.selectMultipleId
         );
         checkbox.setAttribute('data-visible', true);
-        checkbox.addEventListener('click', this.handleClickOption);
-        checkbox.addEventListener('keypress', this.handleClickOption);
+        if (!checkbox.classList.contains('ecl-checkbox--disabled')) {
+          checkbox.addEventListener('click', this.handleClickOption);
+          checkbox.addEventListener('keypress', this.handleClickOption);
+        }
         this.searchContainer.appendChild(checkbox);
         return checkbox;
       });
@@ -280,7 +283,7 @@ export class Select {
 
     document.addEventListener('click', this.handleClickOutside);
 
-    this.select.parentNode.classList.add('ecl-select__container--hidden');
+    // this.select.parentNode.classList.add('ecl-select__container--hidden');
 
     // Respect default selected options.
     this.updateCurrentValue();
