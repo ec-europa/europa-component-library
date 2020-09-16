@@ -450,7 +450,7 @@
 
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up('lg') {
-    .ecl-menu:not(.ecl-menu--forced-mobile) {
+    .ecl-menu:not(.ecl-menu--forced-mobile):not(.ecl-menu--forced-close) {
       .ecl-menu__mega {
         background-color: $ecl-color-blue-5;
         border-bottom: 3px solid $ecl-color-blue-25;

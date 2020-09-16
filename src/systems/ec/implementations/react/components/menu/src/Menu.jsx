@@ -17,7 +17,7 @@ export const Menu = ({
   className,
   ...props
 }) => {
-  const classNames = classnames(className, 'ecl-menu');
+  const classNames = classnames(className, 'ecl-menu ecl-menu--forced-close');
 
   return (
     <nav {...props} className={classNames} aria-expanded="false" data-ecl-menu>
