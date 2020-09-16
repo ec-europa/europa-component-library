@@ -103,6 +103,13 @@ const SearchPage = () => (
             />
             <Select
               id="select-multiple"
+              label="Content type"
+              groupClassName="ecl-u-mt-m"
+              helperText="Helper text"
+              invalidText="No results"
+              width="m"
+              multiple
+              className="ecl-select"
               options={[
                 {
                   value: '1',
@@ -121,20 +128,11 @@ const SearchPage = () => (
                   label: 'Meetings',
                 },
               ]}
-              label="Content type"
-              groupClassName="ecl-u-mt-m"
-              helperText="Helper text"
-              invalidText=""
-              width="m"
-              multiple
+              data-ecl-auto-init="Select"
+              multiplePlaceholder="Placeholder text"
+              multipleSearchText="Search"
+              multipleAllText="Select all"
               data-ecl-select-multiple="true"
-              data-ecl-select-default="Placeholder text"
-              data-ecl-select-search="Search"
-              data-ecl-select-all="Select all"
-              className="ecl-select"
-              data-ecl-select-multiple="true"
-              
-
             />
             <Button
               className="ecl-u-mt-l"
