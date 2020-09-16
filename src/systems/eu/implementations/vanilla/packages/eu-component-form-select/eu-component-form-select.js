@@ -308,7 +308,7 @@ export class Select {
 
     // Toggle values
     const checkbox = e.target.closest('.ecl-checkbox');
-    this.select.options.forEach((option) => {
+    Array.from(this.select.options).forEach((option) => {
       if (option.text === checkbox.getAttribute('data-select-multiple-value')) {
         if (option.getAttribute('selected')) {
           option.removeAttribute('selected');
