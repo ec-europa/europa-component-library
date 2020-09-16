@@ -218,14 +218,14 @@ export class Select {
     if (containerClasses.find((c) => c.includes('disabled'))) {
       this.input.setAttribute('disabled', true);
     }
-    // this.input.addEventListener('keypress', this.handleToggle);
-    // this.input.addEventListener('click', this.handleToggle);
+    this.input.addEventListener('keypress', this.handleToggle);
+    this.input.addEventListener('click', this.handleToggle);
 
     this.inputContainer.appendChild(this.input);
     this.inputContainer.appendChild(Select.createSelectIcon());
 
     this.searchContainer = document.createElement('div');
-    // this.searchContainer.style.display = 'none';
+    this.searchContainer.style.display = 'none';
     this.searchContainer.classList.add(
       'ecl-select__multiple-dropdown',
       ...containerClasses
@@ -283,7 +283,7 @@ export class Select {
 
     document.addEventListener('click', this.handleClickOutside);
 
-    // this.select.parentNode.classList.add('ecl-select__container--hidden');
+    this.select.parentNode.classList.add('ecl-select__container--hidden');
 
     // Respect default selected options.
     this.updateCurrentValue();
@@ -343,12 +343,13 @@ export class Select {
     const checkbox = e.target.closest('.ecl-checkbox');
     Array.from(this.select.options).forEach((option) => {
       if (option.text === checkbox.getAttribute('data-select-multiple-value')) {
-        if (option.getAttribute('selected')) {
+        if (option.getAttribute('selected') || option.selected) {
           option.removeAttribute('selected');
-          // Uncheck select all when a single option has been unchecked.
+          option.selected = false;
           this.selectAll.querySelector('input').checked = false;
         } else {
           option.setAttribute('selected', 'selected');
+          option.selected = true;
         }
       }
     });
@@ -376,8 +377,10 @@ export class Select {
       if (option) {
         if (checked) {
           option.setAttribute('selected', 'selected');
+          option.selected = true;
         } else {
           option.removeAttribute('selected', 'selected');
+          option.selected = false;
         }
       }
     });
