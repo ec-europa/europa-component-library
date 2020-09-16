@@ -281,6 +281,9 @@ export class Select {
     document.addEventListener('click', this.handleClickOutside);
 
     this.select.parentNode.classList.add('ecl-select__container--hidden');
+
+    // Respect default selected options.
+    this.updateCurrentValue();
   }
 
   /**
@@ -308,7 +311,7 @@ export class Select {
 
   updateCurrentValue() {
     this.input.value = Array.from(this.select.options)
-      .filter((option) => option.getAttribute('selected'))
+      .filter((option) => option.selected) // do not rely on getAttribute as it does not work in all cases
       .map((option) => option.text)
       .join(', ');
   }
