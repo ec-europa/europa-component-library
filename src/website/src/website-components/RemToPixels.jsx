@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const RemToPixels = ({ rem }) => (
-  <div>
-    {rem * parseFloat(getComputedStyle(document.documentElement).fontSize)}
-  </div>
+  <>{rem * parseFloat(getComputedStyle(document.documentElement).fontSize)}</>
 );
 
 RemToPixels.propTypes = {

@@ -30,7 +30,7 @@ Whenever we need a fixed horizontal or vertical spacing inside components then t
 
 ## Layout spacing
 
-Whenever we need a fixed horizontal or vertical spacing to place components in a layout then the below tokens need to be used. In most cases, the horizontal spacing is been determined to be the 12 column horizontal grid (If there are cases of fixed horizontal spacing, then the tokens need to be used). So the layout spacing tokens are used mostly to define the vertical relationships between components. These spaces are always fixed (thus we use the tokens).
+Whenever we need a fixed horizontal or vertical spacing to place components in a layout then the below tokens need to be used. In most cases, the horizontal spacing has been determined to be the 12 column horizontal grid (If there are cases of fixed horizontal spacing, then the tokens need to be used). So the layout spacing tokens are used mostly to define the vertical relationships between components. These spaces are always fixed (thus we use the tokens).
 
 <img src="https://inno-ecl.s3.amazonaws.com/media/images/EC/Spacing/Spacing%20-%20Layout%20scale.png" srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/Spacing/Spacing%20-%20Layout%20scale%20-%20Mobile.png 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/Spacing/Spacing%20-%20Layout%20scale.png 734w" alt="Space token of components" width="600" />
 

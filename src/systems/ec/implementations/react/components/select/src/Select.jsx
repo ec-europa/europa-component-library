@@ -92,7 +92,12 @@ const Select = ({
             : {})}
         >
           {options.map((option) => (
-            <option key={option.label} value={option.value}>
+            <option
+              key={option.label}
+              value={option.value}
+              {...(option.disabled ? { disabled: true } : {})}
+              {...(option.selected ? { selected: true } : {})}
+            >
               {option.label}
             </option>
           ))}

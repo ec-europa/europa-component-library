@@ -3,7 +3,7 @@
   "name": "@ecl/ec-react-storybook",
   "author": "European Commission",
   "license": "EUPL-1.1",
-  "version": "2.31.0",
+  "version": "2.33.0",
   "description": "ECL Base",
   "scripts": {
     "build": "build-storybook -c .storybook -o build",
@@ -11,11 +11,11 @@
     "start:watch": "start-storybook -p 6006 -s ../../vanilla/packages/ec-preset-website/build,../../vanilla/packages/ec-preset-legacy-website/build,../../vanilla/packages/ec-preset-editor/dist -c .storybook"
   },
   "devDependencies": {
-    "@babel/core": "7.10.4",
+    "@babel/core": "7.11.1",
     "@babel/plugin-proposal-export-default-from": "7.10.4",
     "@babel/plugin-proposal-export-namespace-from": "7.10.4",
-    "@babel/runtime": "7.10.4",
-    "@ecl/story-wrapper": "^2.31.0",
+    "@babel/runtime": "7.11.2",
+    "@ecl/story-wrapper": "^2.33.0",
     "@storybook/addon-a11y": "5.3.19",
     "@storybook/addon-cssresources": "5.3.19",
     "@storybook/addon-knobs": "5.3.19",
@@ -30,7 +30,7 @@
     "postcss-loader": "3.0.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "regenerator-runtime": "0.13.5",
+    "regenerator-runtime": "0.13.7",
     "resolve-url-loader": "3.1.1",
     "style-loader": "1.2.1"
   }

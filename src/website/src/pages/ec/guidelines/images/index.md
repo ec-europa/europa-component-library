@@ -93,6 +93,6 @@ To have actual plus sign icon rendered correctly, replace the `/component-librar
 
 ## Editing visuals
 
-- don't apply effects, gradients, borders or filters. It can make the picture look manipulated.
-- don't pick photos with frames, rounded corners or drop shadows.
-- cropping. Pay attention to the copyright. In some cases you need prior consent from the author to alter the image.
+- don't apply effects, gradients, borders or filters. It can make the picture look manipulated
+- don't pick photos with frames, rounded corners or drop shadows
+- cropping. Pay attention to the copyright. In some cases you need prior consent from the author to alter the image

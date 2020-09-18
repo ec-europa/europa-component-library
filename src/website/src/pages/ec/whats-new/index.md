@@ -5,6 +5,75 @@ title: What's new
 
 Detailed release information is available on [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 2.33 (2020-09-17)
+
+#### :rocket: New Feature
+
+- [#1673](https://github.com/ec-europa/europa-component-library/pull/1673) feat(select-multiple): support additional attributes - FRONT-1589
+- [#1669](https://github.com/ec-europa/europa-component-library/pull/1669) feat(icon): add tag icon - FRONT-1549
+
+#### :bug: Bug Fix
+
+- [#1672](https://github.com/ec-europa/europa-component-library/pull/1672) fix(select-multiple): adding position relative to component container - FRONT-1601
+- [#1665](https://github.com/ec-europa/europa-component-library/pull/1665) fix(forms-select--multiple): fix footer overlapping issue - FRONT-1578
+- [#1666](https://github.com/ec-europa/europa-component-library/pull/1666) fix(select): add disabled and selected parameters for options
+- [#1668](https://github.com/ec-europa/europa-component-library/pull/1668) fix(menu): fix item display when switching from mobile to desktop - FRONT-1580
+- [#1663](https://github.com/ec-europa/europa-component-library/pull/1663) fix(select): options click handler - FRONT-1584
+- [#1660](https://github.com/ec-europa/europa-component-library/pull/1660) fix(page-headers): adding missing aria-label - FRONT-1575
+- [#1661](https://github.com/ec-europa/europa-component-library/pull/1661) fix(file): fix translation detail on thumbnail variant - FRONT-1587
+- [#1659](https://github.com/ec-europa/europa-component-library/pull/1659) fix(file): add aria-label - FRONT-1573
+- [#1658](https://github.com/ec-europa/europa-component-library/pull/1658) fix(site-headers): aria-label typo - FRONT-1571
+
+#### :nail_care: Enhancement
+
+- [#1667](https://github.com/ec-europa/europa-component-library/pull/1667) fix(menu): use css class instead of data-attribute - FRONT-1563
+- [#1670](https://github.com/ec-europa/europa-component-library/pull/1670) refactor(logo): update fr logo - FRONT-1596
+- [#1664](https://github.com/ec-europa/europa-component-library/pull/1664) fix(footers): fix columns gap - FRONT-1477
+
+#### :memo: Documentation
+
+- [#1671](https://github.com/ec-europa/europa-component-library/pull/1671) fix(banners): update links in usage page - FRONT-1600
+
+#### :house: Internal
+
+- [#1674](https://github.com/ec-europa/europa-component-library/pull/1674) chore(deps): treat security reports - FRONT-324
+
+## 2.32 (2020-08-27)
+
+#### :rocket: New Feature
+
+- [#1649](https://github.com/ec-europa/europa-component-library/pull/1649) feat(label): add highlight variant - FRONT-1336
+- [#1589](https://github.com/ec-europa/europa-component-library/pull/1589) feat(banners): add new banner variants - FRONT-1153
+
+#### :boom: Breaking Change
+
+- [#1589](https://github.com/ec-europa/europa-component-library/pull/1589) feat(banners): add new banner variants - FRONT-1153
+
+#### :bug: Bug Fix
+
+- [#1642](https://github.com/ec-europa/europa-component-library/pull/1642) fix(file): allow array of meta - FRONT-1309
+- [#1635](https://github.com/ec-europa/europa-component-library/pull/1635) fix(pageHeader): fix margin title for mobile formats - FRONT-1292
+- [#1640](https://github.com/ec-europa/europa-component-library/pull/1640) fix(file-download): fix display of optional elements - FRONT-1308
+- [#1639](https://github.com/ec-europa/europa-component-library/pull/1639) fix(menu): fix active status - FRONT-1311
+
+#### :nail_care: Enhancement
+
+- [#1651](https://github.com/ec-europa/europa-component-library/pull/1651) refactor(banners): apply latest specs - FRONT-1331
+- [#1645](https://github.com/ec-europa/europa-component-library/pull/1645) fix(banners): apply latest specs for meta - FRONT-1453
+- [#1643](https://github.com/ec-europa/europa-component-library/pull/1643) fix(language-list): add missing elements - FRONT-1378
+
+#### :memo: Documentation
+
+- [#1644](https://github.com/ec-europa/europa-component-library/pull/1644) docs(banners): update usage page - FRONT-1331
+- [#1646](https://github.com/ec-europa/europa-component-library/pull/1646) docs(website): Content update(broken links and text updates) - FRONT-1339
+
+#### :house: Internal
+
+- [#1647](https://github.com/ec-europa/europa-component-library/pull/1647) fix(components): Apply small accessibility improvements - FRONT-1454
+- [#1648](https://github.com/ec-europa/europa-component-library/pull/1648) chore(deps): treat security warnings - FRONT-1481
+- [#1625](https://github.com/ec-europa/europa-component-library/pull/1625) chore(eslint): update rules - FRONT-1247
+- [#1637](https://github.com/ec-europa/europa-component-library/pull/1637) feat(polyfills): enable centralized management - FRONT-1187
+
 ## 2.31 (2020-07-23)
 
 #### :rocket: New Feature

@@ -1,6 +1,6 @@
 module.exports = {
   logo: {
-    title: 'European Commission',
+    title: 'Home (European Commission)',
     alt: 'European Commission logo',
     href: '/example',
     language: 'en',

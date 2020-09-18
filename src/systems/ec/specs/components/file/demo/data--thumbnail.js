@@ -1,6 +1,7 @@
 module.exports = {
   detailMeta: ['Resource type', 'Publication date'],
   title: 'State of the Union 2018 brochure',
+  ariaLabel: 'Download file State of the Union 2018 brochure',
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies.',
   image: {
@@ -33,18 +34,19 @@ module.exports = {
         langFull: 'български',
         download: {
           label: 'Download',
+          ariaLabel: 'Download file български',
           href: '/example#bg',
         },
       },
       {
         title: 'Title es',
-        description:
-          'Proin sagittis nisi hendrerit purus porta, at suscipit est hendrerit. Duis facilisis augue imperdiet, pharetra nisl sed, molestie nulla.',
+        description: 'Proin sagittis nisi hendrerit purus porta.',
         meta: '(15.8 MB - PDF)',
         lang: 'es',
         langFull: 'español',
         download: {
           label: 'Download',
+          ariaLabel: 'Download file español',
           href: '/example#es',
         },
       },
@@ -57,6 +59,7 @@ module.exports = {
         langFull: 'français',
         download: {
           label: 'Download',
+          ariaLabel: 'Download file français',
           href: '/example#fr',
         },
       },

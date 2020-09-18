@@ -8,6 +8,7 @@ const variant = {
   'low importance': 'low',
   'medium importance': 'medium',
   'high importance': 'high',
+  highlight: 'highlight',
 };
 
 export default {
