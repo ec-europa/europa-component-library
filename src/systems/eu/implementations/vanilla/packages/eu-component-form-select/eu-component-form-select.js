@@ -1,5 +1,4 @@
 /* eslint-disable no-return-assign */
-import { queryOne } from '@ecl/eu-base/helpers/dom';
 import iconSvgUiCheck from '@ecl/eu-resources-icons/dist/svg/ui/check.svg';
 import iconSvgUiCornerArrow from '@ecl/eu-resources-icons/dist/svg/ui/corner-arrow.svg';
 
@@ -191,7 +190,7 @@ export class Select {
    * Initialise component.
    */
   init() {
-    this.select = queryOne(this.selectMultipleSelector);
+    this.select = this.element;
     const containerClasses = Array.from(this.select.parentElement.classList);
     this.textDefault =
       this.defaultText || this.element.getAttribute(this.defaultTextAttribute);
