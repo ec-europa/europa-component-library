@@ -11,6 +11,7 @@ import breadcrumb from './ShowcaseBreadcrumb';
 import demoTitleContent from '@ecl/ec-specs-page-header-core/demo/data--title';
 import demoMetaTitleContent from '@ecl/ec-specs-page-header-core/demo/data--meta-title';
 import demoMetaTitleDescriptionContent from '@ecl/ec-specs-page-header-core/demo/data--meta-title-description';
+import demoBackgroundImageContent from '@ecl/ec-specs-page-header-core/demo/data--background-image';
 
 ## Title
 
@@ -50,5 +51,20 @@ import demoMetaTitleDescriptionContent from '@ecl/ec-specs-page-header-core/demo
     breadcrumb={breadcrumb}
     {...demoMetaTitleDescriptionContent}
     meta={parse(demoMetaTitleDescriptionContent.meta)}
+  />
+</Playground>
+
+## Background image
+
+<Playground
+  system="ec"
+  selectedKind="components-page-headers-core"
+  selectedStory="background-image"
+  showFrame
+>
+  <PageHeaderCore
+    breadcrumb={breadcrumb}
+    {...demoBackgroundImageContent}
+    meta={parse(demoBackgroundImageContent.meta)}
   />
 </Playground>
