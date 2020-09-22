@@ -109,6 +109,7 @@ export const Multiple = () => {
       data-ecl-select-default={defaultText}
       data-ecl-select-search={searchText}
       data-ecl-select-all={selectAllText}
+      data-ecl-auto-init="Select"
     />
   );
 };

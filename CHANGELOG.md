@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.33.1 (2020-09-22)
+
+#### :bug: Bug Fix
+
+- [#1678](https://github.com/ec-europa/europa-component-library/pull/1678) fix(select): allows several multiple select lists - FRONT-1579 ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 1
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
 ## 2.33 (2020-09-17)
 
 #### :rocket: New Feature
