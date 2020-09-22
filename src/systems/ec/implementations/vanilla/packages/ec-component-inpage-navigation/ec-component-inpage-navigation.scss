@@ -194,28 +194,22 @@
 }
 
 @include ecl-media-breakpoint-down('md') {
-  // Select all .ecl-u-type-heading-2 with a "inline-nav-..." ID. 
-  .ecl-u-type-heading-2[id^='inline-nav-'] {
-    /*
-    // Works but the Title displayed on the navigation is wrong.
-    scroll-margin-top: $ecl-spacing-4-xl;
-    scroll-snap-margin-top: $ecl-spacing-4-xl;
-    */
+  .ecl-inpage-navigation__heading {
     &:before {
       content: "";
       visibility: hidden;
       display: block;
     }
     
-    // Select only the first header when it's .active.
-    &#inline-nav-1.active {
-      padding-top: $ecl-spacing-4-xl;
-    }
-    // Select the .active headers except the first one.
-    &.active:not(#inline-nav-1){
-      &:before {
+    &.active {
+      &:first-of-type {
         padding-top: $ecl-spacing-4-xl;
-        margin-top: -$ecl-spacing-4-xl;
+      }
+      &:not(:first-of-type){
+        &:before {
+          padding-top: $ecl-spacing-4-xl;
+          margin-top: -$ecl-spacing-4-xl;
+        }
       }
     }
   }

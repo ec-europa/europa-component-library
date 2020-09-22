@@ -124,19 +124,19 @@ export const Default = () => {
 
         <div className="ecl-col-lg-9">
           <div className="inPageDemoContent" />
-          <h2 className="ecl-u-type-heading-2" id="inline-nav-1">
+          <h2 className="ecl-u-type-heading-2 ecl-inpage-navigation__heading" id="inline-nav-1">
             {inpageProps.links[0].label}
           </h2>
           <p className="ecl-u-type-paragraph-m">{demoText}</p>
-          <h2 className="ecl-u-type-heading-2" id="inline-nav-2">
+          <h2 className="ecl-u-type-heading-2 ecl-inpage-navigation__heading" id="inline-nav-2">
             {inpageProps.links[1].label}
           </h2>
           <p className="ecl-u-type-paragraph-m">{demoText}</p>
-          <h2 className="ecl-u-type-heading-2" id="inline-nav-3">
+          <h2 className="ecl-u-type-heading-2 ecl-inpage-navigation__heading" id="inline-nav-3">
             {inpageProps.links[2].label}
           </h2>
           <p className="ecl-u-type-paragraph-m">{demoText}</p>
-          <h2 className="ecl-u-type-heading-2" id="inline-nav-4">
+          <h2 className="ecl-u-type-heading-2 ecl-inpage-navigation__heading" id="inline-nav-4">
             {inpageProps.links[3].label}
           </h2>
           <p className="ecl-u-type-paragraph-m">{demoText}</p>
