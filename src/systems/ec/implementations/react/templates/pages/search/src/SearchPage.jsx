@@ -105,7 +105,6 @@ const SearchPage = () => (
               id="select-multiple"
               label="Content type"
               groupClassName="ecl-u-mt-m"
-              helperText="Helper text"
               invalidText="No results"
               width="m"
               multiple
@@ -126,6 +125,38 @@ const SearchPage = () => (
                 {
                   value: '4',
                   label: 'Meetings',
+                },
+              ]}
+              data-ecl-auto-init="Select"
+              multiplePlaceholder="Placeholder text"
+              multipleSearchText="Search"
+              multipleAllText="Select all"
+              data-ecl-select-multiple="true"
+            />
+            <Select
+              id="select-multiple-2"
+              label="Topic"
+              groupClassName="ecl-u-mt-m"
+              invalidText="No results"
+              width="m"
+              multiple
+              className="ecl-select"
+              options={[
+                {
+                  value: '1',
+                  label: 'Economy',
+                },
+                {
+                  value: '2',
+                  label: 'Agriculture',
+                },
+                {
+                  value: '3',
+                  label: 'Climate action',
+                },
+                {
+                  value: '4',
+                  label: 'Environment',
                 },
               ]}
               data-ecl-auto-init="Select"
