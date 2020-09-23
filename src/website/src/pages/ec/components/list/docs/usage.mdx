@@ -3,7 +3,7 @@ title: Usage
 order: 1
 ---
 
-import { Paragraph, DoDont, Link } from '@ecl/website-components';
+import { Paragraph, Anatomy, DoDont, Link } from '@ecl/website-components';
 
 <Paragraph size="lead">
   Used to present chunks of information in a concise and scannable way, lists
@@ -79,3 +79,63 @@ Description lists are lists of terms with their related definition or descriptio
 
 - do not use for navigation purpose; use <Link to="/ec/compositions/navigation-lists/usage/">navigation lists</Link> instead
 - do not use to display search results; use <Link to="/ec/utilities/stacks/usage/">stacks</Link> instead
+
+## Horizontal description list
+
+### Introduction
+
+Horizontal description list **displays information or related links**, based on the context presented in the page.
+
+### Anatomy
+
+<Anatomy
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/List/Description%20list%20(Horizontal)%20-%20Desktop.png"
+  srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/List/Description%20list%20(Horizontal)%20-%20Mobile.png 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/List/Description%20list%20(Horizontal)%20-%20Desktop.png 734w"
+  alt="Anatomy of horizontal description list"
+  legend={{
+    items: [
+      {
+        color: '#404040',
+        label: 'mandatory',
+      },
+      {
+        color: '#004494',
+        label: 'optional',
+      },
+    ],
+  }}
+/>
+
+#### Default
+
+| Elements | Mandatory | Description                                                                                                                                                                              |
+| -------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| heading  | yes       | heading for the category, explains the **relation** of the text or link items (e.g. Last updated)                                                                                        |
+| text     | yes       | contextual information with regards to the Heading<br /><br />**Note**: input is done through a rich-text editor, we recommend stylisation and addition of further elements to a minimum |
+| link(s)  | no        | URL links to **related content**, done through the rich-text editor as well<br /><br />**Note**: if multiple links are added, they will be separated by a divider                        |
+| tag(s)   | no        | complementary tags, associated to the page's content                                                                                                                                     |
+
+### Do's
+
+- **label each item** with a short, distinct and indicative title
+- choose the **appropriate category in terms of relevance** and added value to the users
+- **group** related fields according to their type
+- **order** logically according to their hierarchy, significance and degree of relatedness
+
+### Don'ts
+
+- don't implement the horizontal description list navigation arbitrarily - there has to be a specific reason for its usage that cannot be covered otherwise
+
+### When to use
+
+- **on content pages to add additional information** (such as lastest update on the content of a page) **or link to pages of interest**
+- **on class navigation pages to indicate overarching category or theme items are part of** (such as department in charge of content)
+
+### When not to use
+
+- **do not use for as main navigation**
+
+### Notes
+- horizontal description list can only be placed in 2 locations:
+  - **at the top of the page**, below the title, aiding users with information that is relevant to the page or context
+  - **near the bottom of the page** to serve as a next step to further related content or links
