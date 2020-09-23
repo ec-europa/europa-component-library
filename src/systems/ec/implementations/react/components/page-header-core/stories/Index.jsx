@@ -10,6 +10,7 @@ import breadcrumbContent from '@ecl/ec-specs-breadcrumb-core/demo/data';
 import demoTitleContent from '@ecl/ec-specs-page-header-core/demo/data--title';
 import demoMetaTitleContent from '@ecl/ec-specs-page-header-core/demo/data--meta-title';
 import demoMetaTitleDescriptionContent from '@ecl/ec-specs-page-header-core/demo/data--meta-title-description';
+import demoBackgroundImage from '@ecl/ec-specs-page-header-core/demo/data--background-image';
 
 import PageHeaderCore from '../src/PageHeaderCore';
 
@@ -89,5 +90,20 @@ export const MetaTitleDescription = () => (
 
 MetaTitleDescription.story = {
   name: 'meta-title-description',
+  parameters: { knobs: { escapeHTML: false } },
+};
+
+export const BackgroundImage = () => (
+  <PageHeaderCore
+    image={text('Background image URL', demoBackgroundImage.image)}
+    breadcrumb={breadcrumb}
+    title={text('Title', demoBackgroundImage.title)}
+    description={text('Description', demoBackgroundImage.description)}
+    meta={parse(text('Meta', demoBackgroundImage.meta))}
+  />
+);
+
+BackgroundImage.story = {
+  name: 'background image',
   parameters: { knobs: { escapeHTML: false } },
 };

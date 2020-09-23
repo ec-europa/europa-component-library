@@ -51,6 +51,31 @@
       font: $ecl-font-prolonged-xl;
     }
   }
+
+  /*
+   * background image variant
+   */
+  .ecl-page-header-core--image {
+    background-position: 0 0;
+    background-size: cover;
+    position: relative;
+
+    &::before {
+      background-image: linear-gradient(
+        90deg,
+        rgba(0, 68, 148, 1) 0%,
+        rgba(0, 68, 148, 0.7) 100%
+      );
+      content: '';
+      height: 100%;
+      position: absolute;
+      width: 100%;
+    }
+
+    .ecl-page-header-core__breadcrumb {
+      background-color: transparent;
+    }
+  }
 }
 
 // Use mixin
