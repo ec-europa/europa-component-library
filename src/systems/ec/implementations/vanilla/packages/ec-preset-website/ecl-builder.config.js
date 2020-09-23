@@ -53,13 +53,6 @@ module.exports = {
   ],
   copy: [
     {
-      from: path.resolve(
-        nodeModules,
-        '@ecl/ec-component-form-feedback-message/images'
-      ),
-      to: path.resolve(outputFolder, 'images'),
-    },
-    {
       from: path.resolve(nodeModules, '@ecl/ec-resources-icons/dist'),
       to: path.resolve(outputFolder, 'images/icons'),
     },

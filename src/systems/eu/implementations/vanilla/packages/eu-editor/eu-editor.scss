@@ -2,22 +2,9 @@
  * Editor styles
  */
 
-// Import base
-@import 'eu-editor--blockquote';
 @import 'eu-editor--button';
-@import 'eu-editor--link';
-@import 'eu-editor--list';
-@import 'eu-editor--table';
-@import 'eu-editor--typography';
 
 // Use mixin
 @include exports('eu-editor') {
-  @include ecl-editor-blockquote();
   @include ecl-editor-button();
-  @include ecl-editor-description-list();
-  @include ecl-editor-link();
-  @include ecl-editor-ordered-list();
-  @include ecl-editor-table();
-  @include ecl-editor-typography();
-  @include ecl-editor-unordered-list();
 }
