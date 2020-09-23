@@ -1,6 +1,6 @@
 /**
  * ECL Navigation inpage
- * @define inpage-navigation; weak
+ * @define inpage-navigation
  */
 
 @include check-imports(('ec-component-link', 'ec-component-icon'));
@@ -194,22 +194,21 @@
 }
 
 @include ecl-media-breakpoint-down('md') {
-  .ecl-inpage-navigation--heading {
+  .ecl-inpage-navigation__heading {
     &::before {
       content: "";
       display: block;
       visibility: hidden;
     }
-    
-    &.active {
-      &:first-of-type {
+  }
+  .ecl-inpage-navigation__heading--active {
+    &:first-of-type {
+      padding-top: $ecl-spacing-4-xl;
+    }
+    &:not(:first-of-type) {
+      &::before {
+        margin-top: -$ecl-spacing-4-xl;
         padding-top: $ecl-spacing-4-xl;
-      }
-      &:not(:first-of-type){
-        &::before {
-          margin-top: -$ecl-spacing-4-xl;
-          padding-top: $ecl-spacing-4-xl;
-        }
       }
     }
   }

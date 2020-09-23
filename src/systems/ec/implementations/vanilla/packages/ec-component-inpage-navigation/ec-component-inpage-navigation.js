@@ -47,6 +47,7 @@ export class InpageNavigation {
       spyClass = 'ecl-inpage-navigation__item--active',
       spyTrigger = '[data-ecl-inpage-navigation-trigger-current]',
       attachClickListener = true,
+      contentClass = 'ecl-inpage-navigation__heading--active',
     } = {}
   ) {
     // Check element
@@ -68,6 +69,7 @@ export class InpageNavigation {
     this.spyOffset = spyOffset;
     this.spyClass = spyClass;
     this.spyTrigger = spyTrigger;
+    this.contentClass = contentClass;
     this.gumshoe = null;
     this.observer = null;
     this.stickyObserver = null;
@@ -107,6 +109,7 @@ export class InpageNavigation {
   initScrollSpy() {
     this.gumshoe = new Gumshoe(this.spySelector, {
       navClass: this.spyClass,
+      contentClass: this.contentClass,
       offset: this.spyOffset,
       reflow: true,
     });
