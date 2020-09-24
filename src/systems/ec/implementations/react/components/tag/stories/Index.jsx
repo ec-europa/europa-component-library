@@ -1,8 +1,8 @@
 import React from 'react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 
+import demoDataDisplay from '@ecl/ec-specs-tag/demo/data--display';
 import demoDataLink from '@ecl/ec-specs-tag/demo/data--link';
-import demoDataButton from '@ecl/ec-specs-tag/demo/data--button';
 import demoDataRemovable from '@ecl/ec-specs-tag/demo/data--removable';
 
 import Tag from '../src/Tag';
@@ -12,23 +12,23 @@ export default {
   decorators: [withKnobs],
 };
 
-export const AsALink = () => (
+export const Display = () => (
+  <Tag label={text('Label', demoDataDisplay.label)} variant="display" />
+);
+
+Display.story = {
+  name: 'display tag',
+};
+
+export const Link = () => (
   <Tag
     label={text('Label', demoDataLink.label)}
     href={text('Link', demoDataLink.href)}
   />
 );
 
-AsALink.story = {
-  name: 'as a link',
-};
-
-export const AsAButton = () => (
-  <Tag label={text('Label', demoDataButton.label)} type="button" />
-);
-
-AsAButton.story = {
-  name: 'as a button',
+Link.story = {
+  name: 'link tag',
 };
 
 export const Removable = () => (
@@ -40,5 +40,5 @@ export const Removable = () => (
 );
 
 Removable.story = {
-  name: 'removable',
+  name: 'removable tag',
 };

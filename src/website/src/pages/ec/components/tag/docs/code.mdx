@@ -6,20 +6,23 @@ order: 2
 import Playground from '@ecl/website-components/Playground';
 import Tag from '@ecl/ec-react-component-tag';
 
+import demoContentDisplay from '@ecl/ec-specs-tag/demo/data--display';
 import demoContentLink from '@ecl/ec-specs-tag/demo/data--link';
 import demoContentRemovable from '@ecl/ec-specs-tag/demo/data--removable';
 
-## Link
+## Display tag
 
-When the click on the tag leads to another page.
+<Playground system="ec" selectedKind="components-tag" selectedStory="display">
+  <Tag {...demoContentDisplay} variant="display" />
+</Playground>
 
-<Playground system="ec" selectedKind="components-tag" selectedStory="as-a-link">
+## Link tag
+
+<Playground system="ec" selectedKind="components-tag" selectedStory="link">
   <Tag {...demoContentLink} />
 </Playground>
 
-## Removable
-
-When using the `removable` variant, the tag gets a "Remove" icon. It can be either a button or a link, dependening on your need.
+## Removable tag
 
 <Playground system="ec" selectedKind="components-tag" selectedStory="removable">
   <Tag {...demoContentRemovable} variant="removable" />

@@ -1,28 +1,44 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 
+import demoDataDisplay from '@ecl/eu-specs-tag/demo/data--display';
 import demoDataLink from '@ecl/eu-specs-tag/demo/data--link';
-import demoDataButton from '@ecl/eu-specs-tag/demo/data--button';
 import demoDataRemovable from '@ecl/eu-specs-tag/demo/data--removable';
 
 import Tag from '../src/Tag';
 
-storiesOf('Components/Tag', module)
-  .addDecorator(withKnobs)
-  .add('as a link', () => (
-    <Tag
-      label={text('Label', demoDataLink.label)}
-      href={text('Link', demoDataLink.href)}
-    />
-  ))
-  .add('as a button', () => (
-    <Tag label={text('Label', demoDataButton.label)} type="button" />
-  ))
-  .add('removable', () => (
-    <Tag
-      label={text('Label', demoDataRemovable.label)}
-      variant="removable"
-      dismissButtonLabel={demoDataRemovable.dismissButtonLabel}
-    />
-  ));
+export default {
+  title: 'Components/Tag',
+  decorators: [withKnobs],
+};
+
+export const Display = () => (
+  <Tag label={text('Label', demoDataDisplay.label)} variant="display" />
+);
+
+Display.story = {
+  name: 'display tag',
+};
+
+export const Link = () => (
+  <Tag
+    label={text('Label', demoDataLink.label)}
+    href={text('Link', demoDataLink.href)}
+  />
+);
+
+Link.story = {
+  name: 'link tag',
+};
+
+export const Removable = () => (
+  <Tag
+    label={text('Label', demoDataRemovable.label)}
+    variant="removable"
+    dismissButtonLabel={demoDataRemovable.dismissButtonLabel}
+  />
+);
+
+Removable.story = {
+  name: 'removable tag',
+};
