@@ -43,7 +43,7 @@ class Skeleton extends Component {
         link.rel = 'stylesheet';
         link.type = 'text/css';
         link.id = `${system}-css`;
-        link.href = `${process.env.PUBLIC_URL}/playground/${system}/styles/ecl-${system}-preset-legacy-website.css`;
+        link.href = `${process.env.PUBLIC_URL}/playground/${system}/styles/ecl-${system}-preset-website.css`;
         link.media = 'screen';
 
         const head = document.head || document.getElementsByTagName('head')[0];

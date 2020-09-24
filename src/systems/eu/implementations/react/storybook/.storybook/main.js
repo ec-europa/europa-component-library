@@ -1,12 +1,6 @@
 const path = require('path');
 
-const stories = [
-  '../../templates/**/*/stories/*.jsx',
-  '../../page-structure/**/*/stories/*.jsx',
-  '../../layout/**/*/stories/*.jsx',
-  '../../components/**/*/stories/*.jsx',
-  '../../utilities/**/*/stories/*.jsx',
-];
+const stories = ['../../components/**/*/stories/*.jsx'];
 
 const addons = [
   '@storybook/addon-knobs',

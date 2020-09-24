@@ -7,8 +7,8 @@
   "description": "ECL Base",
   "scripts": {
     "build": "build-storybook -c .storybook -o build",
-    "start": "start-storybook -p 6006 -s ../../vanilla/packages/ec-preset-website/dist,../../vanilla/packages/ec-preset-legacy-website/dist,../../vanilla/packages/ec-preset-editor/dist -c .storybook",
-    "start:watch": "start-storybook -p 6006 -s ../../vanilla/packages/ec-preset-website/build,../../vanilla/packages/ec-preset-legacy-website/build,../../vanilla/packages/ec-preset-editor/dist -c .storybook"
+    "start": "start-storybook -p 6006 -s ../../vanilla/packages/ec-preset-website/dist,../../vanilla/packages/ec-preset-editor/dist -c .storybook",
+    "start:watch": "start-storybook -p 6006 -s ../../vanilla/packages/ec-preset-website/build,../../vanilla/packages/ec-preset-editor/dist -c .storybook"
   },
   "devDependencies": {
     "@babel/core": "7.11.1",

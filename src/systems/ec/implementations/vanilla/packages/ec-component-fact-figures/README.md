@@ -1,1 +1,0 @@
-# EC Fact and Figures
