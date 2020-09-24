@@ -20,7 +20,7 @@ const Tag = ({
   let TagName = href ? 'a' : 'button';
   const TagNameIcon = TagName;
 
-  if (variant === 'removable') {
+  if (variant === 'removable' || variant === 'display') {
     TagName = 'span';
   }
 
