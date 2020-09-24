@@ -196,12 +196,12 @@
 @include ecl-media-breakpoint-down('md') {
   .ecl-inpage-navigation__heading {
     &::before {
-      content: "";
+      content: '';
       display: block;
       visibility: hidden;
     }
   }
-  
+
   .ecl-inpage-navigation__heading--active {
     &:first-of-type {
       padding-top: $ecl-spacing-4-xl;
