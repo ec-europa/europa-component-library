@@ -190,12 +190,10 @@ export class InpageNavigation {
    */
   deactivateScrollSpy() {
     const navigationTitle = queryOne(this.spyTrigger);
-    const currentList = queryOne(this.inPageList, this.element);
     const togglerElement = queryOne(this.toggleSelector, this.element);
 
     this.element.classList.remove(this.spyActiveContainer);
     navigationTitle.innerHTML = '';
-    currentList.hidden = true;
     togglerElement.setAttribute('aria-expanded', 'false');
   }
 
