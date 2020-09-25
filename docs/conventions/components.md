@@ -19,7 +19,7 @@ Please ensure the presence of the following attributes:
 - `module`: path to a JavaScript file file. Used by ES6-aware tools like webpack
 - `dependencies`: list of other packages' code which is required for the given package
 
-It's important to have packages within `src/systems/ec/implementations/react` folder with `"private": true` flag because these are used only for internal purposes of demonstrating implementaiton of vanilla components on ECL website.
+It's important to have packages within `src/implementations/react` folder with `"private": true` flag because these are used only for internal purposes of demonstrating implementaiton of vanilla components on ECL website.
 
 **React components should not be shared publicly. They are not an official implementation of ECL.**
 
@@ -35,12 +35,12 @@ Examples:
 
 ## Implementations
 
-Please follow along existing packages in `src/systems/ec/implementations/vanilla/packages` and `src/systems/ec/implementations/react/components`.
+Please follow along existing packages in `src/implementations/vanilla/packages` and `src/implementations/react/components`.
 
 If you have difficulties figuring out what should be where, here are a few rules of thumb:
 
 - Vanilla code which does not target any particular framework or platform goes into `vanilla/packages`. This is the first-level implementation.
-- Other implementations are done in a folder up `src/systems/ec/implementations` and `react` is currently used for facilitating components demonstration on ECL website developed in `src/website`.
+- Other implementations are done in a folder up `src/implementations` and `react` is currently used for facilitating components demonstration on ECL website developed in `src/website`.
 - There should be no "leaking" of rules between components, each component comes with its own set of rules and logic in isolation.
 
 ## SCSS
@@ -53,7 +53,7 @@ Please refer to the [dedicated conventions section regarding JavaScript](./javas
 
 ## Specs
 
-Each component has a so called specification file which contains demo data for how information is fed into the component. Specifications are stored in `src/systems/ec/specs` and are published on npm in order to be shared by all ECL implementations.
+Each component has a so called specification file which contains demo data for how information is fed into the component. Specifications are stored in `src/specs` and are published on npm in order to be shared by all ECL implementations.
 
 Links inside specifications should always lead to an internal example page instead of blank link (`#`) or external links: `../../example.html#{component_name}`
 

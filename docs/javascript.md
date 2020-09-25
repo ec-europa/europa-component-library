@@ -19,12 +19,12 @@ Each component contains `.init()` and `.destroy()` methods.
 Recommended approach for instantiation is to use main `.autoInit()` method:
 
 ```js
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   ECL.autoInit();
 });
 ```
 
-For more details regarding ECL's autoInit method, follow the [package's README.md file](https://github.com/ec-europa/europa-component-library/blob/v2-dev/src/systems/ec/implementations/vanilla/packages/ec-auto-init/README.md).
+For more details regarding ECL's autoInit method, follow the [package's README.md file](https://github.com/ec-europa/europa-component-library/blob/v2-dev/src/implementations/vanilla/packages/ec-auto-init/README.md).
 
 ## Settings
 

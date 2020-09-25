@@ -9,14 +9,12 @@ const addons = [
   '@storybook/addon-cssresources',
 ];
 
-const managerEntries = [
-  '../../../../../../src/tools/storybook-addon-code/register',
-];
+const managerEntries = ['../../../../src/tools/storybook-addon-code/register'];
 
 const managerWebpack = async (baseConfig) => {
   // Babel loader: include "src"
   baseConfig.module.rules[0].include.push(
-    path.resolve(__dirname, '../../../../../..')
+    path.resolve(__dirname, '../../../..')
   );
 
   // Exclude node_modules

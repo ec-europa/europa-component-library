@@ -6,7 +6,7 @@ const theme = create({
   colorSecondary: '#004494',
   appBorderRadius: 0,
   inputBorderRadius: 0,
-  brandTitle: 'ECL v2 - EC',
+  brandTitle: 'ECL v3',
   brandUrl: 'https://github.com/ec-europa/europa-component-library',
   brandImage: null,
 });

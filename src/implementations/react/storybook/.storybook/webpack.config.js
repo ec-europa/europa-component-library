@@ -4,7 +4,7 @@ const webpack = require('webpack');
 module.exports = ({ config: defaultConfig, mode }) => {
   // Babel loader: include "src"
   defaultConfig.module.rules[0].include.push(
-    path.resolve(__dirname, '../../../../../..')
+    path.resolve(__dirname, '../../../..')
   );
 
   defaultConfig.module.rules[0].exclude.push(/node_modules/);

@@ -4,10 +4,7 @@ const pkg = require('./package.json');
 const isProd = process.env.NODE_ENV === 'production';
 const outputFolder = path.resolve(__dirname, isProd ? './dist' : './build');
 
-const nodeModules = path.resolve(
-  __dirname,
-  '../../../../../../../node_modules'
-);
+const nodeModules = path.resolve(__dirname, '../../../../../node_modules');
 
 // SCSS includePaths
 const includePaths = [nodeModules];
@@ -19,8 +16,8 @@ const banner = `${pkg.name} - ${
 module.exports = {
   scripts: [
     {
-      entry: path.resolve(__dirname, 'src/ec-preset-website.js'),
-      dest: path.resolve(outputFolder, 'scripts/ecl-ec-preset-website.js'),
+      entry: path.resolve(__dirname, 'src/ec-preset-full.js'),
+      dest: path.resolve(outputFolder, 'scripts/ecl-ec-preset-full.js'),
       options: {
         banner,
         moduleName: 'ECL',
@@ -30,8 +27,8 @@ module.exports = {
   ],
   styles: [
     {
-      entry: path.resolve(__dirname, 'src/ec-preset-website.scss'),
-      dest: path.resolve(outputFolder, 'styles/ecl-ec-preset-website.css'),
+      entry: path.resolve(__dirname, 'src/ec-preset-full.scss'),
+      dest: path.resolve(outputFolder, 'styles/ecl-ec-preset-full.css'),
       options: {
         banner,
         includePaths,
@@ -39,11 +36,8 @@ module.exports = {
       },
     },
     {
-      entry: path.resolve(__dirname, 'src/ec-preset-website-print.scss'),
-      dest: path.resolve(
-        outputFolder,
-        'styles/ecl-ec-preset-website-print.css'
-      ),
+      entry: path.resolve(__dirname, 'src/ec-preset-full-print.scss'),
+      dest: path.resolve(outputFolder, 'styles/ecl-ec-preset-full-print.css'),
       options: {
         banner,
         includePaths,
@@ -52,6 +46,13 @@ module.exports = {
     },
   ],
   copy: [
+    {
+      from: path.resolve(
+        nodeModules,
+        '@ecl/ec-component-form-feedback-message/images'
+      ),
+      to: path.resolve(outputFolder, 'images'),
+    },
     {
       from: path.resolve(nodeModules, '@ecl/ec-resources-icons/dist'),
       to: path.resolve(outputFolder, 'images/icons'),
