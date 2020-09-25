@@ -193,6 +193,24 @@
   }
 }
 
+@include ecl-media-breakpoint-down('md') {
+  .ecl-inpage-navigation__heading--active {
+    &:first-of-type {
+      padding-top: $ecl-spacing-4-xl;
+    }
+
+    &:not(:first-of-type) {
+      &::before {
+        content: '';
+        display: block;
+        margin-top: -$ecl-spacing-4-xl;
+        padding-top: $ecl-spacing-4-xl;
+        visibility: hidden;
+      }
+    }
+  }
+}
+
 // Use mixin
 @include exports('ec-component-inpage-navigation') {
   @include ecl-inpage-navigation();
