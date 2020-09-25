@@ -27,23 +27,6 @@ jobs:
         run: yarn build:presets
       - name: Test
         run: yarn test:coding-conventions
-  examples:
-    name: examples
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-      - name: Build icons
-        run: yarn build:icons
-      - name: Build themes
-        run: yarn build:themes
-      - name: Build presets
-        run: yarn build:presets
-      - name: Test webpack4
-        run: cd examples/webpack4 && yarn build --display=errors-only
-      - name: Test webpack4-eu
-        run: cd examples/webpack4-eu && yarn build --display=errors-only
   size:
     name: size
     runs-on: ubuntu-latest
@@ -79,4 +62,3 @@ jobs:
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        timeout-minutes: 1
