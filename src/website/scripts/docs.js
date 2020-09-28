@@ -5,10 +5,7 @@ const path = require('path');
 const glob = require('glob');
 const documentation = require('documentation');
 
-const dir = path.resolve(
-  __dirname,
-  '../../systems/ec/implementations/vanilla/packages'
-);
+const dir = path.resolve(__dirname, '../../implementations/vanilla/packages');
 
 const files = glob.sync('**/*.js', {
   cwd: dir,
