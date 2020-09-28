@@ -7,13 +7,20 @@ const PageHeaderCore = ({
   meta,
   title,
   description,
+  image,
   className,
   ...props
 }) => {
-  const classNames = classnames(className, 'ecl-page-header-core');
+  const classNames = classnames(className, 'ecl-page-header-core', {
+    [`ecl-page-header-core--image`]: image,
+  });
 
   return (
-    <div {...props} className={classNames}>
+    <div
+      {...props}
+      className={classNames}
+      style={image ? { backgroundImage: `url(${image})` } : {}}
+    >
       <div className="ecl-container">
         {React.cloneElement(breadcrumb, {
           className: 'ecl-page-header-core__breadcrumb',
@@ -33,6 +40,7 @@ PageHeaderCore.propTypes = {
   meta: PropTypes.node,
   title: PropTypes.string,
   description: PropTypes.string,
+  image: PropTypes.string,
   className: PropTypes.string,
 };
 
@@ -41,6 +49,7 @@ PageHeaderCore.defaultProps = {
   meta: '',
   title: '',
   description: '',
+  image: '',
   className: '',
 };
 

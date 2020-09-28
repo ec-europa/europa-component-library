@@ -208,6 +208,7 @@
   }
 
   .ecl-select__multiple {
+    position: relative;
     .ecl-select__multiple-toggle[readonly] {
       border-color: $ecl-color-grey;
       color: $ecl-color-grey;
@@ -220,6 +221,7 @@
       box-sizing: border-box;
       margin-top: $ecl-spacing-xs;
       position: absolute;
+      z-index: $ecl-z-index-dropdown;
     }
 
     .ecl-text-input {
