@@ -4,10 +4,6 @@
   "license": "EUPL-1.1",
   "version": "2.33.0",
   "description": "ECL — EC Default Theme",
-  "scripts": {
-    "build": "node scripts/build-tokens.js",
-    "prepublish": "npm run build"
-  },
   "publishConfig": {
     "access": "public"
   },
@@ -23,15 +19,6 @@
     "ecl",
     "europa-component-library",
     "design-system",
-    "design-tokens",
     "theme"
-  ],
-  "dependencies": {
-    "@ecl/ec-design-tokens": "^2.33.0",
-    "@ecl/ec-specs-button": "^2.33.0"
-  },
-  "devDependencies": {
-    "mkdirp": "1.0.4",
-    "theo": "8.1.5"
-  }
+  ]
 }
