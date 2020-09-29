@@ -1,0 +1,569 @@
+/* ECL Variables */
+
+$ecl-breakpoint-xs: 0 !default;
+
+$ecl-breakpoint-sm: 480px !default;
+
+$ecl-breakpoint-md: 768px !default;
+
+$ecl-breakpoint-lg: 996px !default;
+
+$ecl-breakpoint-xl: 1140px !default;
+
+$ecl-container-max-width-sm: 480px !default;
+
+$ecl-container-max-width-md: 768px !default;
+
+$ecl-container-max-width-lg: 996px !default;
+
+$ecl-container-max-width-xl: 1140px !default;
+
+$ecl-grid-gutter-width: 2rem !default;
+
+$ecl-grid-columns: 12 !default;
+
+// Primary Blue
+$ecl-color-blue: rgb(0, 68, 148) !default;
+
+// Primary Yellow
+$ecl-color-yellow: rgb(255, 214, 23) !default;
+
+// Primary Grey
+$ecl-color-grey: rgb(64, 64, 64) !default;
+
+// Black
+$ecl-color-black: rgb(0, 0, 0) !default;
+
+// White
+$ecl-color-white: rgb(255, 255, 255) !default;
+
+// Blue 130
+$ecl-color-blue-130: rgb(0, 47, 103) !default;
+
+// Blue 120
+$ecl-color-blue-120: rgb(0, 55, 118) !default;
+
+// Blue 110
+$ecl-color-blue-110: rgb(0, 61, 132) !default;
+
+// Red is the new blue
+/* stylelint-disable-next-line color-named */
+$ecl-color-blue-100: red !default;
+
+// Blue 75
+$ecl-color-blue-75: rgb(64, 115, 175) !default;
+
+// Blue 50
+$ecl-color-blue-50: rgb(127, 161, 201) !default;
+
+// Blue 25
+$ecl-color-blue-25: rgb(191, 208, 228) !default;
+
+// Blue 5
+$ecl-color-blue-5: rgb(242, 245, 249) !default;
+
+// Yellow 120
+$ecl-color-yellow-120: rgb(248, 174, 33) !default;
+
+// Yellow 110
+$ecl-color-yellow-110: rgb(251, 193, 29) !default;
+
+// Yellow 100
+$ecl-color-yellow-100: rgb(255, 214, 23) !default;
+
+// Yellow 75
+$ecl-color-yellow-75: rgb(255, 222, 57) !default;
+
+// Yellow 50
+$ecl-color-yellow-50: rgb(255, 232, 121) !default;
+
+// Yellow 25
+$ecl-color-yellow-25: rgb(255, 244, 187) !default;
+
+// Grey 100
+$ecl-color-grey-100: rgb(64, 64, 64) !default;
+
+// Grey 75
+$ecl-color-grey-75: rgb(112, 112, 112) !default;
+
+// Grey 50
+$ecl-color-grey-50: rgb(159, 159, 159) !default;
+
+// Grey 25
+$ecl-color-grey-25: rgb(207, 207, 207) !default;
+
+// Grey 20
+$ecl-color-grey-20: rgb(217, 217, 217) !default;
+
+// Grey 15
+$ecl-color-grey-15: rgb(227, 227, 227) !default;
+
+// Grey 10
+$ecl-color-grey-10: rgb(235, 235, 235) !default;
+
+// Grey 5
+$ecl-color-grey-5: rgb(245, 245, 245) !default;
+
+// Blue N
+$ecl-color-blue-n: rgb(0, 111, 180) !default;
+
+// Orange
+$ecl-color-orange: rgb(242, 149, 39) !default;
+
+// Green
+$ecl-color-green: rgb(70, 122, 57) !default;
+
+$ecl-color-red-130: rgb(152, 23, 34) !default;
+
+// Red
+$ecl-color-red: rgb(218, 33, 49) !default;
+
+// Primary colour
+$ecl-color-primary: rgb(0, 68, 148) !default;
+
+// Secondary colour
+$ecl-color-secondary: rgb(255, 214, 23) !default;
+
+// Tertiary colour
+$ecl-color-tertiary: rgb(227, 227, 227) !default;
+
+// Text colour
+$ecl-color-text: rgb(64, 64, 64) !default;
+
+// White colour
+$ecl-color-white-100: rgb(255, 255, 255) !default;
+
+// Black colour
+$ecl-color-black-100: rgb(0, 0, 0) !default;
+
+// Error color
+$ecl-color-error: rgb(218, 33, 49) !default;
+
+// Info color
+$ecl-color-info: rgb(0, 111, 180) !default;
+
+// Success color
+$ecl-color-success: rgb(70, 122, 57) !default;
+
+// Warning color
+$ecl-color-warning: rgb(242, 149, 39) !default;
+
+// Orange 100
+$ecl-color-orange-100: rgb(242, 149, 39) !default;
+
+// Green 100
+$ecl-color-green-100: rgb(70, 122, 57) !default;
+
+// Red 100
+$ecl-color-red-100: rgb(218, 33, 49) !default;
+
+// Icon 2XS
+$ecl-icon-2-xs: 0.625rem !default;
+
+// Icon XS
+$ecl-icon-xs: 1rem !default;
+
+// Icon S
+$ecl-icon-s: 1.25rem !default;
+
+// Icon M
+$ecl-icon-m: 1.5rem !default;
+
+// Icon L
+$ecl-icon-l: 2rem !default;
+
+// Icon XL
+$ecl-icon-xl: 2.5rem !default;
+
+// Icon 2XL
+$ecl-icon-2-xl: 3rem !default;
+
+// Icon FLUID
+$ecl-icon-fluid: 1em !default;
+
+// Icon Print 2XS
+$ecl-icon-print-2-xs: 7.5pt !default;
+
+// Icon Print XS
+$ecl-icon-print-xs: 12pt !default;
+
+// Icon Print S
+$ecl-icon-print-s: 15pt !default;
+
+// Icon Print M
+$ecl-icon-print-m: 18pt !default;
+
+// Icon Print L
+$ecl-icon-print-l: 24pt !default;
+
+// Icon Print XL
+$ecl-icon-print-xl: 30pt !default;
+
+// Icon Print 2XL
+$ecl-icon-print-2-xl: 36pt !default;
+
+// Icon Print Fluid
+$ecl-icon-print-fluid: 1em !default;
+
+// Media S
+$ecl-media-s: 77px !default;
+
+// Media M
+$ecl-media-m: 100px !default;
+
+// Spacing 2XS
+$ecl-spacing-2-xs: 0.25rem !default;
+
+// Spacing XS
+$ecl-spacing-xs: 0.5rem !default;
+
+// Spacing S
+$ecl-spacing-s: 0.75rem !default;
+
+// Spacing M
+$ecl-spacing-m: 1rem !default;
+
+// Spacing L
+$ecl-spacing-l: 1.5rem !default;
+
+// Spacing XL
+$ecl-spacing-xl: 2rem !default;
+
+// Spacing 2XL
+$ecl-spacing-2-xl: 2.5rem !default;
+
+// Spacing 3XL
+$ecl-spacing-3-xl: 3rem !default;
+
+// Spacing 4XL
+$ecl-spacing-4-xl: 4rem !default;
+
+// Spacing Print 2XS
+$ecl-spacing-print-2-xs: 0.1cm !default;
+
+// Spacing Print XS
+$ecl-spacing-print-xs: 0.21cm !default;
+
+// Spacing Print S
+$ecl-spacing-print-s: 0.31cm !default;
+
+// Spacing Print M
+$ecl-spacing-print-m: 0.42cm !default;
+
+// Spacing Print L
+$ecl-spacing-print-l: 0.63cm !default;
+
+// Spacing Print XL
+$ecl-spacing-print-xl: 0.84cm !default;
+
+// Spacing Print 2XL
+$ecl-spacing-print-2-xl: 1.05cm !default;
+
+// Spacing Print 3XL
+$ecl-spacing-print-3-xl: 1.26cm !default;
+
+// Spacing Print 4XL
+$ecl-spacing-print-4-xl: 1.68cm !default;
+
+// Font 2XS
+$ecl-font-2-xs: normal normal 400 0.625rem/1rem arial, sans-serif !default;
+
+// Font XS
+$ecl-font-xs: normal normal 400 0.75rem/1rem arial, sans-serif !default;
+
+// Font S
+$ecl-font-s: normal normal 400 0.875rem/1rem arial, sans-serif !default;
+
+// Font M
+$ecl-font-m: normal normal 400 1rem/1.25rem arial, sans-serif !default;
+
+// Font L
+$ecl-font-l: normal normal 400 1.125rem/1.5rem arial, sans-serif !default;
+
+// Font XL
+$ecl-font-xl: normal normal 400 1.25rem/1.5rem arial, sans-serif !default;
+
+// Font 2XL
+$ecl-font-2-xl: normal normal 400 1.5rem/1.75rem arial, sans-serif !default;
+
+// Font 3XL
+$ecl-font-3-xl: normal normal 400 1.75rem/2rem arial, sans-serif !default;
+
+// Font 4XL
+$ecl-font-4-xl: normal normal 400 2rem/2.5rem arial, sans-serif !default;
+
+// Font 5XL
+$ecl-font-5-xl: normal normal 400 2.25rem/2.75rem arial, sans-serif !default;
+
+// Font 6XL
+$ecl-font-6-xl: normal normal 400 2.625rem/3.25rem arial, sans-serif !default;
+
+// Font prolonged XS
+$ecl-font-prolonged-xs: normal normal 400 0.75rem/1.25rem arial, sans-serif !default;
+
+// Font prolonged S
+$ecl-font-prolonged-s: normal normal 400 0.875rem/1.25rem arial, sans-serif !default;
+
+// Font prolonged M
+$ecl-font-prolonged-m: normal normal 400 1rem/1.5rem arial, sans-serif !default;
+
+// Font prolonged L
+$ecl-font-prolonged-l: normal normal 400 1.125rem/1.75rem arial, sans-serif !default;
+
+// Font prolonged XL
+$ecl-font-prolonged-xl: normal normal 400 1.25rem/1.75rem arial, sans-serif !default;
+
+// Font weight regular
+$ecl-font-weight-regular: 400 !default;
+
+// Font weight bold
+$ecl-font-weight-bold: 600 !default;
+
+// Font family
+$ecl-font-family: arial, sans-serif !default;
+
+// Font size 2XS
+$ecl-font-size-2-xs: 0.625rem !default;
+
+// Font size XS
+$ecl-font-size-xs: 0.75rem !default;
+
+// Font size S
+$ecl-font-size-s: 0.875rem !default;
+
+// Font size M
+$ecl-font-size-m: 1rem !default;
+
+// Font size L
+$ecl-font-size-l: 1.125rem !default;
+
+// Font size XL
+$ecl-font-size-xl: 1.25rem !default;
+
+// Font size 2XL
+$ecl-font-size-2-xl: 1.5rem !default;
+
+// Font size 3XL
+$ecl-font-size-3-xl: 1.75rem !default;
+
+// Font size 4XL
+$ecl-font-size-4-xl: 2rem !default;
+
+// Font size 5XL
+$ecl-font-size-5-xl: 2.25rem !default;
+
+// Font size 6XL
+$ecl-font-size-6-xl: 2.625rem !default;
+
+// Line height 2XS
+$ecl-line-height-2-xs: 1rem !default;
+
+// Line height XS
+$ecl-line-height-xs: 1rem !default;
+
+// Line height S
+$ecl-line-height-s: 1rem !default;
+
+// Line height M
+$ecl-line-height-m: 1.25rem !default;
+
+// Line height L
+$ecl-line-height-l: 1.5rem !default;
+
+// Line height XL
+$ecl-line-height-xl: 1.5rem !default;
+
+// Line height 2XL
+$ecl-line-height-2-xl: 1.75rem !default;
+
+// Line height 3XL
+$ecl-line-height-3-xl: 2rem !default;
+
+// Line height 4XL
+$ecl-line-height-4-xl: 2.5rem !default;
+
+// Line height 5XL
+$ecl-line-height-5-xl: 2.75rem !default;
+
+// Line height 6XL
+$ecl-line-height-6-xl: 3.25rem !default;
+
+// Line height prolonged XS
+$ecl-line-height-prolonged-xs: 1.25rem !default;
+
+// Line height prolonged S
+$ecl-line-height-prolonged-s: 1.25rem !default;
+
+// Line height prolonged M
+$ecl-line-height-prolonged-m: 1.5rem !default;
+
+// Line height prolonged L
+$ecl-line-height-prolonged-l: 1.75rem !default;
+
+// Line height prolonged XL
+$ecl-line-height-prolonged-xl: 1.75rem !default;
+
+// Font print 2XS
+$ecl-font-print-2-xs: normal normal 400 6pt/10pt verdana, sans-serif !default;
+
+// Font print XS
+$ecl-font-print-xs: normal normal 400 7.5pt/12pt verdana, sans-serif !default;
+
+// Font print S
+$ecl-font-print-s: normal normal 400 9pt/12pt verdana, sans-serif !default;
+
+// Font print M
+$ecl-font-print-m: normal normal 400 10.5pt/12pt verdana, sans-serif !default;
+
+// Font print L
+$ecl-font-print-l: normal normal 400 12pt/15pt verdana, sans-serif !default;
+
+// Font print XL
+$ecl-font-print-xl: normal normal 400 13.5pt/18pt verdana, sans-serif !default;
+
+// Font print 2XL
+$ecl-font-print-2-xl: normal normal 400 15pt/18pt verdana, sans-serif !default;
+
+// Font print 3XL
+$ecl-font-print-3-xl: normal normal 400 18pt/21pt verdana, sans-serif !default;
+
+// Font print 4XL
+$ecl-font-print-4-xl: normal normal 400 21pt/24pt verdana, sans-serif !default;
+
+// Font print 5XL
+$ecl-font-print-5-xl: normal normal 400 24pt/30pt verdana, sans-serif !default;
+
+// Font print 6XL
+$ecl-font-print-6-xl: normal normal 400 27pt/33pt verdana, sans-serif !default;
+
+// Font prolonged print XS
+$ecl-font-prolonged-print-xs: normal normal 400 7.5pt/15pt verdana, sans-serif !default;
+
+// Font prolonged print S
+$ecl-font-prolonged-print-s: normal normal 400 9pt/15pt verdana, sans-serif !default;
+
+// Font prolonged print M
+$ecl-font-prolonged-print-m: normal normal 400 10.5pt/15pt verdana, sans-serif !default;
+
+// Font prolonged print L
+$ecl-font-prolonged-print-l: normal normal 400 12pt/18pt verdana, sans-serif !default;
+
+// Font prolonged print XL
+$ecl-font-prolonged-print-xl: normal normal 400 13.5pt/21pt verdana, sans-serif !default;
+
+// Font weight print regular
+$ecl-font-weight-print-regular: 400 !default;
+
+// Font weight print bold
+$ecl-font-weight-print-bold: 600 !default;
+
+// Font family print
+$ecl-font-family-print: verdana, sans-serif !default;
+
+// Font family print alt
+$ecl-font-family-print-alt: arial, sans-serif !default;
+
+// Font size print 2XS
+$ecl-font-size-print-2-xs: 6pt !default;
+
+// Font size print XS
+$ecl-font-size-print-xs: 7.5pt !default;
+
+// Font size print S
+$ecl-font-size-print-s: 9pt !default;
+
+// Font size print M
+$ecl-font-size-print-m: 10.5pt !default;
+
+// Font size print L
+$ecl-font-size-print-l: 12pt !default;
+
+// Font size print XL
+$ecl-font-size-print-xl: 13.5pt !default;
+
+// Font size print 2XL
+$ecl-font-size-print-2-xl: 15pt !default;
+
+// Font size print 3XL
+$ecl-font-size-print-3-xl: 18pt !default;
+
+// Font size print 4XL
+$ecl-font-size-print-4-xl: 21pt !default;
+
+// Font size print 5XL
+$ecl-font-size-print-5-xl: 24pt !default;
+
+// Font size print 6XL
+$ecl-font-size-print-6-xl: 27pt !default;
+
+// Line height print 2XS
+$ecl-line-height-print-2-xs: 10pt !default;
+
+// Line height print XS
+$ecl-line-height-print-xs: 12pt !default;
+
+// Line height print S
+$ecl-line-height-print-s: 12pt !default;
+
+// Line height print M
+$ecl-line-height-print-m: 12pt !default;
+
+// Line height print L
+$ecl-line-height-print-l: 15pt !default;
+
+// Line height print XL
+$ecl-line-height-print-xl: 18pt !default;
+
+// Line height print 2XL
+$ecl-line-height-print-2-xl: 18pt !default;
+
+// Line height print 3XL
+$ecl-line-height-print-3-xl: 21pt !default;
+
+// Line height print 4XL
+$ecl-line-height-print-4-xl: 24pt !default;
+
+// Line height print 5XL
+$ecl-line-height-print-5-xl: 30pt !default;
+
+// Line height print 6XL
+$ecl-line-height-print-6-xl: 33pt !default;
+
+// Line height prolonged print XS
+$ecl-line-height-prolonged-print-xs: 15pt !default;
+
+// Line height prolonged print S
+$ecl-line-height-prolonged-print-s: 15pt !default;
+
+// Line height prolonged print M
+$ecl-line-height-prolonged-print-m: 15pt !default;
+
+// Line height prolonged print L
+$ecl-line-height-prolonged-print-l: 18pt !default;
+
+// Line height prolonged print XL
+$ecl-line-height-prolonged-print-xl: 21pt !default;
+
+// Width form S
+$ecl-width-form-s: 158px !default;
+
+// Width form M
+$ecl-width-form-m: 253px !default;
+
+// Width form L
+$ecl-width-form-l: 443px !default;
+
+// Z-index highlight
+$ecl-z-index-highlight: 1 !default;
+
+// Z-index navigation
+$ecl-z-index-navigation: 10 !default;
+
+// Z-index dropdown
+$ecl-z-index-dropdown: 15 !default;
+
+// Z-index modal
+$ecl-z-index-modal: 50 !default;
+
+// Z-index max
+$ecl-z-index-max: 9999 !default;
