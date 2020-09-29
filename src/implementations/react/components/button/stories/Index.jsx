@@ -6,8 +6,12 @@ import demoContentSecondary from '@ecl/ec-specs-button/demo/data--secondary';
 import demoContentCall from '@ecl/ec-specs-button/demo/data--call';
 import demoContentGhost from '@ecl/ec-specs-button/demo/data--ghost';
 import demoContentSearch from '@ecl/ec-specs-button/demo/data--search';
+import euDemoContentPrimary from '@ecl/ec-specs-button/demo/eu-data--primary';
 
 import Button from '../src/Button';
+
+const system = process.env.STORYBOOK_SYSTEM;
+const dataPrimary = system ? euDemoContentPrimary : demoContentPrimary;
 
 const icons = {
   none: '',
@@ -34,7 +38,7 @@ export const Primary = () => {
   return (
     <Button
       variant="primary"
-      label={text('Label', demoContentPrimary.label)}
+      label={text('Label', dataPrimary.label)}
       type="submit"
       icon={buttonIcon}
       iconPosition={select('Icon position', iconPosition, 'after')}

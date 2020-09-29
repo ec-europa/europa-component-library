@@ -1,6 +1,13 @@
 const path = require('path');
 
-const stories = ['../../components/**/*/stories/*.jsx'];
+let stories = [];
+
+const system = process.env.STORYBOOK_SYSTEM;
+if (!system) {
+  stories = ['../../components/**/*/stories/!(Eu*).jsx'];
+} else {
+  stories = ['../../components/**/*/stories/!(Ec*).jsx'];
+}
 
 const addons = [
   '@storybook/addon-knobs',

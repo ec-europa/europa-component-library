@@ -23,6 +23,7 @@
     "publish": "scripts/publish.sh",
     "serve": "cd src/website && npm run serve",
     "start": "cd src/implementations/react/storybook && npm run start",
+    "start:eu": "cd src/implementations/react/storybook && npm run start:eu",
     "start:dev": "run-s build:preset-website start:watch",
     "start:watch": "run-p start:watch:*",
     "start:watch:preset-website": "cd src/implementations/vanilla/packages/ec-preset-website && npm run watch",
