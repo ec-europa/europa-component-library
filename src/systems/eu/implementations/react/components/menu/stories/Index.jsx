@@ -29,11 +29,7 @@ export default {
 };
 
 export const Default = () => (
-  <Menu
-    {...demoContent}
-    data-ecl-auto-init="Menu"
-    className="ecl-menu--group1"
-  />
+  <Menu {...demoContent} data-ecl-auto-init="Menu" />
 );
 
 Default.story = {
