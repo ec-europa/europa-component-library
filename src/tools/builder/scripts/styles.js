@@ -6,9 +6,21 @@ const cssnano = require('cssnano');
 const autoprefixer = require('autoprefixer');
 const mkdirp = require('mkdirp');
 const bannerPlugin = require('postcss-banner');
+const postcssEnvFunction = require('postcss-env-function');
 
 module.exports = (entry, dest, options) => {
-  const plugins = [autoprefixer({ grid: 'no-autoplace' })];
+  const plugins = [
+    autoprefixer({ grid: 'no-autoplace' }),
+    postcssEnvFunction({
+      importFrom: [
+        {
+          environmentVariables: {
+            '--ecl-theme': process.env.ECL_THEME || 'ec',
+          },
+        },
+      ],
+    }),
+  ];
 
   let postcssSourceMap = false;
   if (options.sourceMap === true) {
