@@ -4,7 +4,6 @@ const fs = require('fs');
 const postcss = require('postcss');
 const cssnano = require('cssnano');
 const autoprefixer = require('autoprefixer');
-const mkdirp = require('mkdirp');
 const bannerPlugin = require('postcss-banner');
 
 const render = async (entry, dest, options, plugins, postcssSourceMap) => {
@@ -26,7 +25,7 @@ const render = async (entry, dest, options, plugins, postcssSourceMap) => {
     to: dest,
   });
 
-  await mkdirp(path.dirname(dest));
+  fs.mkdirSync(path.dirname(dest), { recursive: true });
   fs.writeFileSync(dest, postcssResult.css);
 
   if (postcssResult.map) {
