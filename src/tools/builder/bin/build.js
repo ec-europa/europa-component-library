@@ -6,6 +6,7 @@ const browserslist = require('browserslist');
 const buildScript = require('../scripts/scripts');
 const buildStyles = require('../scripts/styles');
 const copyFiles = require('../scripts/copy');
+const manageThemes = require('../scripts/themes');
 const pkg = require('../package.json');
 
 const loadConfig = (configFile) => {
@@ -33,6 +34,15 @@ Supported browsers: ${browsers.join(' ')}
 These browsers account for ${coverage}% of all users in Europe
 ------------------------
 `);
+  });
+
+program
+  .command('theme')
+  .description('manage themes')
+  .option('-s, --set [theme]', 'theme to set')
+  .option('-r, --remove', 'theme unset')
+  .action((options) => {
+    manageThemes(options, loadConfig(program.config));
   });
 
 program
