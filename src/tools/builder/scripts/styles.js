@@ -45,10 +45,6 @@ const render = (entry, dest, options, plugins, postcssSourceMap) => {
 };
 
 module.exports = (entry, dest, options, themes) => {
-  console.log('entry', entry);
-  console.log('dest', dest);
-  console.log('themes', themes);
-
   const plugins = [
     autoprefixer({ grid: 'no-autoplace' }),
     // postcssEnvFunction({
@@ -85,12 +81,30 @@ module.exports = (entry, dest, options, themes) => {
 
   if (themes && themes.list && Array.isArray(themes.list) && themes.module) {
     let themeDest = dest;
-    themes.list.forEach((theme) => {
+    themes.list.map((theme) => {
+      /**
+       * sass does not support dynamic imports and dynamic theming at the moment.
+       * @see https://github.com/nex3/sass/issues/451
+       * @see https://github.com/sass/sass/issues/1194
+       * @see https://github.com/sass/sass/issues/779
+       * @see https://github.com/sass/sass/issues/739
+       * For this, we create a physical file to mark a theme during build time.
+       */
+      const marker = `${themes.module}/index.scss`;
+
+      if (fs.existsSync(marker)) {
+        fs.unlinkSync(marker);
+      }
+
+      fs.writeFileSync(marker, `@import './${theme}/index';`);
+
       themeDest = dest.split('/');
       themeDest.splice(themeDest.length - 1, 0, theme);
       themeDest = themeDest.join('/');
+
       render(entry, themeDest, options, plugins, postcssSourceMap);
       themeDest = dest; // reset splice mutation
+      return themeDest;
     });
   } else {
     render(entry, dest, options, plugins, postcssSourceMap);
