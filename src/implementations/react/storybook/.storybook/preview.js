@@ -6,6 +6,14 @@ import { withCode } from '../../../../tools/storybook-addon-code';
 
 import './ECL';
 
+const system = process.env.STORYBOOK_SYSTEM;
+const style = system
+  ? 'ecl-eu-preset-website.css'
+  : 'ecl-ec-preset-website.css';
+const printStyle = system
+  ? 'ecl-eu-preset-website-print.css'
+  : 'ecl-ec-preset-website-print.css';
+
 addDecorator(withCode);
 addDecorator(withA11y);
 addDecorator(withCssResources);
@@ -21,12 +29,12 @@ addParameters({
   cssresources: [
     {
       id: 'ecl-screen',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec-preset-website.css" />`,
+      code: `<link rel="stylesheet" type="text/css" href="./styles/${style}" />`,
       picked: true,
     },
     {
       id: 'ecl-print',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec-preset-website-print.css" />`,
+      code: `<link rel="stylesheet" type="text/css" href="./styles/${printStyle}" />`,
       picked: false,
     },
     {

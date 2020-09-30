@@ -1,0 +1,172 @@
+/**
+ * Button component
+ * @define button
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@include check-imports(('ec-component-icon'));
+
+@mixin ecl-button(
+  $border-width: 2px,
+  $outline-width: 3px,
+  $padding-horizontal: $ecl-spacing-s,
+  $padding-vertical: $ecl-spacing-m
+) {
+  .ecl-button {
+    appearance: none;
+    background: none;
+    border: 3px solid $ecl-color-yellow-100;
+    box-sizing: border-box;
+    display: inline-block;
+    font: $ecl-font-m;
+    font-weight: $ecl-font-weight-bold;
+    margin: 0;
+    padding: $padding-horizontal $padding-vertical;
+    text-decoration: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: none;
+    }
+
+    &:focus {
+      outline: $outline-width solid $ecl-color-secondary;
+      outline-offset: -($outline-width);
+    }
+
+    &[disabled],
+    &[disabled]:hover {
+      cursor: not-allowed;
+      text-decoration: none;
+    }
+  }
+
+  .ecl-button__container {
+    align-items: center;
+    display: flex;
+  }
+
+  .ecl-button__icon--before,
+  .ecl-button__icon + .ecl-button__label {
+    margin-right: $ecl-spacing-xs;
+  }
+
+  .ecl-button__icon--after,
+  .ecl-button__label + .ecl-button__icon {
+    margin-left: $ecl-spacing-xs;
+  }
+
+  /*
+   * Primary
+   */
+  .ecl-button--primary {
+    background-color: $ecl-color-blue-100;
+    color: $ecl-color-white-100;
+
+    &:hover,
+    &:active {
+      background-color: $ecl-color-blue-130;
+    }
+
+    &[disabled],
+    &[disabled]:hover {
+      background-color: $ecl-color-blue-25;
+      border-color: $ecl-color-blue-25;
+      color: $ecl-color-white-100;
+    }
+  }
+
+  /*
+   * Secondary
+   */
+  .ecl-button--secondary {
+    background-color: $ecl-color-white-100;
+    border: $border-width solid $ecl-color-blue-100;
+    color: $ecl-color-blue-100;
+    padding: calc(#{$padding-horizontal} - #{$border-width})
+      calc(#{$padding-vertical} - #{$border-width});
+
+    &:hover,
+    &:active {
+      border-color: $ecl-color-blue-130;
+      color: $ecl-color-blue-130;
+    }
+
+    &[disabled],
+    &[disabled]:hover {
+      background-color: $ecl-color-white-100;
+      border-color: $ecl-color-blue-25;
+      color: $ecl-color-blue-25;
+    }
+  }
+
+  /*
+   * Ghost
+   */
+  .ecl-button--ghost {
+    color: $ecl-color-blue-100;
+
+    &:hover,
+    &:active {
+      color: $ecl-color-blue-130;
+    }
+
+    &[disabled],
+    &[disabled]:hover {
+      color: $ecl-color-blue-25;
+    }
+  }
+
+  /*
+   * Call to action
+   */
+  .ecl-button--call {
+    background-color: $ecl-color-yellow-100;
+    color: $ecl-color-black-100;
+
+    &:hover,
+    &:active {
+      border: $border-width solid $ecl-color-black-100;
+      padding: calc(#{$padding-horizontal} - #{$border-width})
+        calc(#{$padding-vertical} - #{$border-width});
+    }
+
+    &:focus {
+      outline-color: $ecl-color-black-100;
+    }
+
+    &[disabled],
+    &[disabled]:hover {
+      background-color: $ecl-color-yellow-25;
+      border-color: $ecl-color-yellow-25;
+      color: $ecl-color-grey-50;
+    }
+  }
+
+  /*
+   * Search
+   */
+  .ecl-button--search {
+    background-color: $ecl-color-grey-10;
+    color: $ecl-color-blue-100;
+
+    &:hover,
+    &:active {
+      background-color: $ecl-color-grey-25;
+    }
+
+    &[disabled],
+    &[disabled]:hover {
+      background-color: $ecl-color-grey-5;
+      color: $ecl-color-grey-50;
+    }
+  }
+}
+
+// Use mixin
+@include exports('ec-component-button') {
+  @include ecl-button();
+}
