@@ -15,5 +15,11 @@ module.exports = {
         'no-console': 'off',
       },
     },
+    {
+      files: ['src/**/*.test.js'],
+      rules: {
+        'no-undef': 'off',
+      },
+    },
   ],
 };

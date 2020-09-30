@@ -15,6 +15,7 @@
     "dist:storybook": "./scripts/dist-storybook.sh",
     "dist:website": "./scripts/dist-website.sh",
     "dist": "npm run clean && npm run browserstats && npm run dist:presets && npm run dist:storybook && npm run dist:website",
+    "jest": "jest",
     "lint:js": "eslint . --ext .js --ext .jsx",
     "lint:scss": "stylelint \"./src/**/*.scss\"",
     "lint": "npm-run-all --parallel lint:* -cln",
@@ -22,29 +23,34 @@
     "pretty-check": "prettier --check \"src/**/*.{md,mdx,html,json,yml,js,jsx,scss}\"",
     "publish": "scripts/publish.sh",
     "serve": "cd src/website && npm run serve",
-    "start": "cd src/implementations/react/storybook && npm run start",
+    "start": "cd src/implementations/twig/storybook && npm run start",
     "start:dev": "run-s build:preset-website start:watch",
     "start:watch": "run-p start:watch:*",
     "start:watch:preset-website": "cd src/implementations/vanilla/packages/ec-preset-website && npm run watch",
-    "start:watch:storybook": "cd src/implementations/react/storybook && npm run start:watch",
+    "start:watch:storybook": "cd src/implementations/twig/storybook && npm run start:watch",
     "start:website": "cd src/website && npm run start",
+    "test:components": "npm run jest",
     "test:coding-conventions": "npm run lint && npm run pretty-check",
     "update-version": "scripts/update-version.sh"
   },
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "7.11.5",
     "@size-limit/preset-big-lib": "4.6.0",
     "babel-eslint": "10.1.0",
+    "babel-jest": "26.3.0",
     "classnames": "2.2.6",
     "eslint": "7.6.0",
     "eslint-config-airbnb": "18.2.0",
     "eslint-config-airbnb-base": "14.2.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-import": "2.22.0",
+    "eslint-plugin-jest": "23.20.0",
     "eslint-plugin-jsx-a11y": "6.3.1",
     "eslint-plugin-prettier": "3.1.4",
     "eslint-plugin-react": "7.20.6",
     "eslint-plugin-react-hooks": "4.0.8",
     "glob": "7.1.6",
+    "jest": "26.4.2",
     "husky": "4.2.5",
     "lerna": "3.22.1",
     "lerna-changelog": "1.0.1",
@@ -94,8 +100,8 @@
     ]
   },
   "workspaces": [
-    "src/implementations/react/components/*",
-    "src/implementations/react/storybook",
+    "src/implementations/twig/storybook",
+    "src/implementations/twig/components/*",
     "src/implementations/vanilla/packages/*",
     "src/resources/*",
     "src/specs/**",
@@ -108,5 +114,8 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
+  },
+    "jest": {
+    "verbose": true
   }
 }
