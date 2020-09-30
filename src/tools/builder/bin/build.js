@@ -51,7 +51,7 @@ program
   .action(() => {
     const config = loadConfig(program.config);
     config.styles.forEach((conf) =>
-      buildStyles(conf.entry, conf.dest, conf.options)
+      buildStyles(conf.entry, conf.dest, conf.options, config.themes)
     );
   });
 

@@ -14,6 +14,10 @@ const banner = `${pkg.name} - ${
 } Built on ${new Date().toISOString()}`;
 
 module.exports = {
+  themes: {
+    list: ['ec', 'eu'],
+    module: `${nodeModules}/@ecl/ec-themes`,
+  },
   scripts: [
     {
       entry: path.resolve(__dirname, 'src/ec-preset-website.js'),

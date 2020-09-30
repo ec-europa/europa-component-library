@@ -6,43 +6,9 @@ const cssnano = require('cssnano');
 const autoprefixer = require('autoprefixer');
 const mkdirp = require('mkdirp');
 const bannerPlugin = require('postcss-banner');
-const postcssEnvFunction = require('postcss-env-function');
+// const postcssEnvFunction = require('postcss-env-function');
 
-module.exports = (entry, dest, options) => {
-  const plugins = [
-    autoprefixer({ grid: 'no-autoplace' }),
-    postcssEnvFunction({
-      importFrom: [
-        {
-          environmentVariables: {
-            '--ecl-theme': process.env.ECL_THEME || 'ec',
-          },
-        },
-      ],
-    }),
-  ];
-
-  let postcssSourceMap = false;
-  if (options.sourceMap === true) {
-    postcssSourceMap = true; // inline
-  } else if (options.sourceMap === 'file') {
-    postcssSourceMap = { inline: false }; // as a file
-  }
-
-  if (process.env.NODE_ENV === 'production') {
-    if (options.banner) {
-      plugins.push(
-        bannerPlugin({
-          banner: options.banner,
-          important: true,
-          inline: true,
-        })
-      );
-    }
-
-    plugins.push(cssnano({ safe: true }));
-  }
-
+const render = (entry, dest, options, plugins, postcssSourceMap) => {
   sass.render(
     {
       file: entry,
@@ -76,4 +42,57 @@ module.exports = (entry, dest, options) => {
       postcssOperation();
     }
   );
+};
+
+module.exports = (entry, dest, options, themes) => {
+  console.log('entry', entry);
+  console.log('dest', dest);
+  console.log('themes', themes);
+
+  const plugins = [
+    autoprefixer({ grid: 'no-autoplace' }),
+    // postcssEnvFunction({
+    //   importFrom: [
+    //     {
+    //       environmentVariables: {
+    //         '--ecl-theme': process.env.ECL_THEME || 'ec',
+    //       },
+    //     },
+    //   ],
+    // }),
+  ];
+
+  let postcssSourceMap = false;
+  if (options.sourceMap === true) {
+    postcssSourceMap = true; // inline
+  } else if (options.sourceMap === 'file') {
+    postcssSourceMap = { inline: false }; // as a file
+  }
+
+  if (process.env.NODE_ENV === 'production') {
+    if (options.banner) {
+      plugins.push(
+        bannerPlugin({
+          banner: options.banner,
+          important: true,
+          inline: true,
+        })
+      );
+    }
+
+    plugins.push(cssnano({ safe: true }));
+  }
+
+  if (themes && themes.list && Array.isArray(themes.list) && themes.module) {
+    let themeDest = dest;
+    themes.list.forEach((theme) => {
+      themeDest = dest.split('/');
+      themeDest.splice(themeDest.length - 1, 0, theme);
+      themeDest = themeDest.join('/');
+      render(entry, themeDest, options, plugins, postcssSourceMap);
+      themeDest = dest; // reset splice mutation
+    });
+  } else {
+    render(entry, dest, options, plugins, postcssSourceMap);
+  }
 };
