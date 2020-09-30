@@ -211,7 +211,6 @@ module.exports = {
       id: '28',
       label: '13-14 December 2018',
       title: 'Item title',
-      title: 'Item title',
       content: 'European Council and Euro Summit',
     },
   ],
