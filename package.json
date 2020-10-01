@@ -9,7 +9,6 @@
     "browserstats": "./src/tools/builder/bin/build.js browsers",
     "build:icons": "lerna --concurrency 3 --scope \"@ecl/*-resources-*\" run dist",
     "build:presets": "lerna --concurrency 3 --scope \"@ecl/*-preset-*\" run dist",
-    "build:themes": "lerna --concurrency 3 --scope \"@ecl/*-theme-*\" run build",
     "build:preset-website": "cd src/implementations/vanilla/packages/ec-preset-website && npm run build",
     "dist:presets": "npm run build:presets && ./scripts/dist-presets.sh",
     "dist:storybook": "./scripts/dist-storybook.sh",

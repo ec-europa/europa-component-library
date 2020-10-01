@@ -21,8 +21,6 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Build icons
         run: yarn build:icons
-      - name: Build themes
-        run: yarn build:themes
       - name: Build presets
         run: yarn build:presets
       - name: Test
@@ -34,8 +32,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-      - name: Build themes
-        run: yarn build:themes
       - name: Build presets
         run: yarn build:presets
       - name: Test
@@ -49,8 +45,6 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Build icons
         run: yarn build:icons
-      - name: Build themes
-        run: yarn build:themes
       - name: Package application
         run: yarn dist
       - name: Deploy to Netlify
