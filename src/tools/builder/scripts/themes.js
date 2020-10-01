@@ -27,7 +27,7 @@ module.exports = (options, config) => {
     );
 
     return console.log('Use --set option for setting a theme.');
-  } else {
-    console.log(`${marker} is present.`);
   }
+
+  return console.log(`Theme setting available at: ${marker}`);
 };

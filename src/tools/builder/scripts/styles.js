@@ -59,7 +59,7 @@ module.exports = (entry, dest, options, themes) => {
 
   if (themes && themes.list && Array.isArray(themes.list) && themes.module) {
     let themeDest = dest;
-    themes.list.map(async (theme) => {
+    return themes.list.map(async (theme) => {
       /**
        * sass does not support dynamic imports and dynamic theming at the moment.
        * @see https://github.com/nex3/sass/issues/451
@@ -90,7 +90,7 @@ module.exports = (entry, dest, options, themes) => {
       themeDest = dest; // reset splice mutation
       return themeDest;
     });
-  } else {
-    render(entry, dest, options, plugins, postcssSourceMap);
   }
+
+  return render(entry, dest, options, plugins, postcssSourceMap);
 };
