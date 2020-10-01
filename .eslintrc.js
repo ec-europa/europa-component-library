@@ -3,6 +3,7 @@ module.exports = {
   extends: ['airbnb-base', 'plugin:prettier/recommended'],
   env: {
     node: true,
+    browser: true,
   },
   rules: {
     'import/no-extraneous-dependencies': 'off',
@@ -13,6 +14,12 @@ module.exports = {
       files: '**/scripts/**/*.js',
       rules: {
         'no-console': 'off',
+      },
+    },
+    {
+      files: ['src/**/*.test.js'],
+      rules: {
+        'no-undef': 'off',
       },
     },
   ],
