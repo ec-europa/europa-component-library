@@ -15,7 +15,6 @@
     "dist:storybook": "./scripts/dist-storybook.sh",
     "dist:website": "./scripts/dist-website.sh",
     "dist": "npm run clean && npm run browserstats && npm run dist:presets && npm run dist:storybook && npm run dist:website",
-    "jest": "jest",
     "lint:js": "eslint . --ext .js --ext .jsx",
     "lint:scss": "stylelint \"./src/**/*.scss\"",
     "lint": "npm-run-all --parallel lint:* -cln",
@@ -29,7 +28,8 @@
     "start:watch:preset-website": "cd src/implementations/vanilla/packages/ec-preset-website && npm run watch",
     "start:watch:storybook": "cd src/implementations/twig/storybook && npm run start:watch",
     "start:website": "cd src/website && npm run start",
-    "test:components": "npm run jest",
+    "test": "run-p test:*",
+    "test:components": "jest --verbose",
     "test:coding-conventions": "npm run lint && npm run pretty-check",
     "update-version": "scripts/update-version.sh"
   },
