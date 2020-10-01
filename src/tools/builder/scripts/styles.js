@@ -92,5 +92,27 @@ module.exports = (entry, dest, options, themes) => {
     });
   }
 
+  // Needs to be changed after https://citnet.tech.ec.europa.eu/CITnet/jira/browse/FRONT-1658
+  const marker = `${path.resolve(
+    __dirname,
+    '../../../../node_modules'
+  )}/@ecl/ec-themes/index.scss`;
+  let system = entry.match(/\b(ec|eu)\b/g);
+  // If there are multiple matches, the one closest to the extension .scss overrule (most specific)
+  if (system.length > 1) {
+    system = system[system.length - 1];
+  }
+  if (system === undefined) {
+    return console.error(
+      'You are using ecl-builder for ECL v3. It was not possible to deduct theme from previous system-based architecture.'
+    );
+  }
+  console.log('You are using ecl-builder for ECL v3\n');
+  console.log('Please refer to ECL documentation for configuring themes.\n');
+  console.log(`${system} is assumed as a theme based on your entry`);
+  fs.writeFileSync(marker, `@import './${system}/index';`);
+  console.log(
+    `${marker} has been created with the assumed theme from previous system-based architecture.`
+  );
   return render(entry, dest, options, plugins, postcssSourceMap);
 };
