@@ -4,38 +4,55 @@ import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 
 import './ECL';
 
-addParameters({
-  cssresources: [
-    {
-      id: 'ecl-screen',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec-preset-website.css" />`,
-      picked: true,
-    },
-    {
-      id: 'ecl-print',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec-preset-website-print.css" />`,
-      picked: false,
-    },
-    {
-      id: 'test-fake-global-rules',
-      code: `
-<style>
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+const system = process.env.STORYBOOK_SYSTEM;
+const cssresources = system
+  ? [
+      {
+        id: 'eu-core',
+        code: `<link rel="stylesheet" type="text/css" media="screen" href="./styles/ecl-preset-eu-core.css" />`,
+        picked: true,
+      },
+      {
+        id: 'ecl-print',
+        code: `<link rel="stylesheet" type="text/css" media="print" href="./styles/ecl-preset-eu-core-print.css" />`,
+        picked: true,
+      },
+      {
+        id: 'eu-standardised',
+        code: `<link rel="stylesheet" type="text/css" media="screen" href="./styles/ecl-preset-eu-standardised.css" />`,
+        picked: false,
+      },
+      {
+        id: 'eu-standardised-print',
+        code: `<link rel="stylesheet" type="text/css" media="print" href="./styles/ecl-preset-eu-standardised-print.css" />`,
+        picked: false,
+      },
+    ]
+  : [
+      {
+        id: 'ec-core',
+        code: `<link rel="stylesheet" type="text/css" media="screen" href="./styles/ecl-preset-ec-core.css" />`,
+        picked: true,
+      },
+      {
+        id: 'ec-core-print',
+        code: `<link rel="stylesheet" type="text/css" media="print" href="./styles/ecl-preset-ec-core-print.css" />`,
+        picked: true,
+      },
+      {
+        id: 'ec-standardised',
+        code: `<link rel="stylesheet" type="text/css" media="screen" href="./styles/ecl-preset-ec-standardised.css" />`,
+        picked: false,
+      },
+      {
+        id: 'ec-standardised-print',
+        code: `<link rel="stylesheet" type="text/css" media="print" href="./styles/ecl-preset-ec-standardised-print.css" />`,
+        picked: false,
+      },
+    ];
 
-html {
-  color: red;
-  font-family: serif;
-  font-weight: 700;
-  line-height: 2;
-}
-</style>`,
-      picked: false,
-    },
-  ],
+addParameters({
+  cssresources,
   viewport: {
     defaultViewport: 'responsive',
     viewports: {

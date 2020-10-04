@@ -1,0 +1,45 @@
+{
+  "name": "@ecl/ecl-preset-custom",
+  "author": "European Commission",
+  "license": "EUPL-1.1",
+  "version": "2.33.0",
+  "description": "ECL Custom preset",
+  "main": "dist/scripts/ecl-preset-custom.js",
+  "style": "dist/styles/ecl-preset-custom.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build:copy": "ecl-builder copy",
+    "build:scripts": "ecl-builder scripts",
+    "build:styles": "ecl-builder styles",
+    "build": "rimraf build && run-p build:* -ln",
+    "clean": "rimraf build dist",
+    "dist": "npm run clean && cross-env NODE_ENV=production run-p build:* -ln",
+    "watch:scripts": "chokidar \"../../../vanilla/**/*.js\" \"../**/*.js\" -i \"/node_modules|build|dist|config\\.js/\" -c \"npm run build:scripts\"",
+    "watch:styles": "chokidar \"../../../vanilla/**/*.scss\" \"../../../../themes/**/*.scss\" \"../**/*.scss\" -i \"/node_modules|build|dist/\" -c \"npm run build:styles\"",
+    "watch": "npm-run-all --parallel watch:* -ln",
+    "prepublish": "npm run dist"
+  },
+  "devDependencies": {
+    "@ecl/builder": "^2.33.0",
+    "@ecl/ec-preset-dev": "^2.33.0",
+    "@ecl/ec-resources-icons": "^2.33.0",
+    "@ecl/ec-resources-logo": "^2.33.0",
+    "@ecl/ecl-theme-custom": "^2.33.0",
+    "chokidar-cli": "2.1.0",
+    "cross-env": "7.0.2",
+    "normalize.css": "8.0.1",
+    "npm-run-all": "4.1.5",
+    "rimraf": "3.0.2"
+  },
+  "keywords": [
+    "ecl",
+    "europa-component-library",
+    "design-system"
+  ],
+  "homepage": "https://github.com/ec-europa/europa-component-library",
+  "bugs": {
+    "url": "https://github.com/ec-europa/europa-component-library/issues"
+  }
+}

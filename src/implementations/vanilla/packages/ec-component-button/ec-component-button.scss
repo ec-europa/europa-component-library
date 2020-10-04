@@ -4,7 +4,7 @@
  */
 
 // Import base
-@import '@ecl/ec-base/ec-base';
+@import '@ecl/ecl-base/ecl-base';
 
 @include check-imports(('ec-component-icon'));
 
@@ -12,16 +12,19 @@
   $border-width: 2px,
   $outline-width: 3px,
   $padding-horizontal: $ecl-spacing-s,
-  $padding-vertical: $ecl-spacing-m
+  $padding-vertical: $ecl-spacing-m,
+  $BORDER_RADIUS: 0,
+  $FONT: arial,
+  $SECONDARY_COLOR_1: #000
 ) {
   .ecl-button {
     appearance: none;
     background: none;
-    border-width: 0;
+    border: 0;
+    border-radius: $BORDER_RADIUS;
     box-sizing: border-box;
     display: inline-block;
-    font: $ecl-font-m;
-    font-weight: $ecl-font-weight-bold;
+    font: $FONT;
     margin: 0;
     padding: $padding-horizontal $padding-vertical;
     text-decoration: none;
@@ -83,7 +86,7 @@
    * Secondary
    */
   .ecl-button--secondary {
-    background-color: $ecl-color-white-100;
+    background-color: $SECONDARY_COLOR_1;
     border: $border-width solid $ecl-color-blue-100;
     color: $ecl-color-blue-100;
     padding: calc(#{$padding-horizontal} - #{$border-width})

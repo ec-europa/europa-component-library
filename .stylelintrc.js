@@ -15,6 +15,7 @@ module.exports = {
     'stylelint-config-prettier',
   ],
   plugins: ['stylelint-selector-bem-pattern'],
+  ignoreFiles: ['src/themes/*/index.scss'],
   rules: {
     'plugin/selector-bem-pattern': {
       componentName: /^[a-z][-a-zA-Z0-9]+$/,
