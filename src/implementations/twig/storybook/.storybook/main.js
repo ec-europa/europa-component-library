@@ -3,12 +3,11 @@ const path = require('path');
 const stories = ['../../**/*.story.js'];
 
 const addons = [
+  '@storybook/addon-cssresources',
   '@ecl/storybook-addon-notes/src/register',
   '@ecl/storybook-addon-code-twig/src/register',
-
   '@storybook/addon-viewport',
   '@storybook/addon-knobs',
-  '@storybook/addon-cssresources',
 ];
 
 const webpackFinal = (config) => {

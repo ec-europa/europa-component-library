@@ -11,21 +11,25 @@ const cssresources = system
         id: 'eu-core',
         code: `<link rel="stylesheet" type="text/css" media="screen" href="./styles/ecl-preset-eu-core.css" />`,
         picked: true,
+        hideCode: true,
       },
       {
         id: 'ecl-print',
         code: `<link rel="stylesheet" type="text/css" media="print" href="./styles/ecl-preset-eu-core-print.css" />`,
         picked: true,
+        hideCode: true,
       },
       {
         id: 'eu-standardised',
         code: `<link rel="stylesheet" type="text/css" media="screen" href="./styles/ecl-preset-eu-standardised.css" />`,
         picked: false,
+        hideCode: true,
       },
       {
         id: 'eu-standardised-print',
         code: `<link rel="stylesheet" type="text/css" media="print" href="./styles/ecl-preset-eu-standardised-print.css" />`,
         picked: false,
+        hideCode: true,
       },
     ]
   : [
@@ -33,21 +37,25 @@ const cssresources = system
         id: 'ec-core',
         code: `<link rel="stylesheet" type="text/css" media="screen" href="./styles/ecl-preset-ec-core.css" />`,
         picked: true,
+        hideCode: true,
       },
       {
         id: 'ec-core-print',
         code: `<link rel="stylesheet" type="text/css" media="print" href="./styles/ecl-preset-ec-core-print.css" />`,
         picked: true,
+        hideCode: true,
       },
       {
         id: 'ec-standardised',
         code: `<link rel="stylesheet" type="text/css" media="screen" href="./styles/ecl-preset-ec-standardised.css" />`,
         picked: false,
+        hideCode: true,
       },
       {
         id: 'ec-standardised-print',
         code: `<link rel="stylesheet" type="text/css" media="print" href="./styles/ecl-preset-ec-standardised-print.css" />`,
         picked: false,
+        hideCode: true,
       },
     ];
 

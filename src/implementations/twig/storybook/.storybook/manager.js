@@ -2,6 +2,10 @@ import { addons } from '@storybook/addons';
 import browserUpdate from 'browser-update';
 import { create } from '@storybook/theming';
 
+const system = process.env.STORYBOOK_SYSTEM
+  ? process.env.STORYBOOK_SYSTEM.toUpperCase()
+  : 'EC';
+
 addons.setConfig({
   isFullscreen: false,
   showNav: true,
@@ -12,13 +16,18 @@ addons.setConfig({
   isToolshown: true,
   theme: create({
     base: 'light',
-    brandTitle: `ECL EC v3`,
+    brandTitle: `ECL ${system} v3`,
     brandUrl: 'https://github.com/ec-europa/europa-component-library',
     brandImage: undefined,
   }),
-  selectedPanel: 'notes',
+  selectedPanel: 'cssresources',
   initialActive: 'sidebar',
   showRoots: false,
+  previewTabs: {
+    'storybook/cssresources/panel': {
+      title: `ECL Themes (${system})`,
+    },
+  },
 });
 
 browserUpdate({
