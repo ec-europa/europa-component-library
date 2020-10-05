@@ -1,16 +1,16 @@
 @import '@ecl/ec-theme-default/index';
 
-$outline-width: 3px;
+$_outline-width: 3px;
 
 .button {
   background: none;
   border-width: 0;
   box-sizing: border-box;
-  color: $ecl-color-primary;
-  font: $ecl-font-m;
-  font-weight: $ecl-font-weight-bold;
+  color: map-get($ecl-color, 'primary');
+  font: map-get($ecl-font, 'm');
+  font-weight: map-get($ecl-font-weight, 'bold');
   margin: 0;
-  padding: $ecl-spacing-s $ecl-spacing-m;
+  padding: map-get($ecl-spacing, 's') map-get($ecl-spacing, 'm');
   text-decoration: none;
 
   &:hover,
@@ -20,7 +20,7 @@ $outline-width: 3px;
   }
 
   &:focus {
-    outline: $outline-width solid $ecl-color-secondary;
-    outline-offset: -($outline-width);
+    outline: $_outline-width solid map-get($ecl-color, 'secondary');
+    outline-offset: -($_outline-width);
   }
 }

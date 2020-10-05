@@ -30,7 +30,7 @@ The **primary colour palette** is comprised of blues, yellows and greys. These c
 
 The secondary colour palette is mainly used for notification colours. The secondary colours should make up 20% or less of the colour in the layout and should be used sparingly to highlight important information and calls to action.
 
-<ColorLayout cols="12 md-3">
+<ColorLayout cols="12 m-3">
   <ColorCard tokens={tokens} name="COLOR_INFO" />
   <ColorCard tokens={tokens} name="COLOR_WARNING" />
   <ColorCard tokens={tokens} name="COLOR_SUCCESS" />

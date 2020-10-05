@@ -17,3 +17,11 @@ $ecl-grid: (
   'gutter': 2rem,
   'columns': 12,
 ) !default;
+
+$ecl-grid-gutter-width: (
+  'xs': map-get($ecl-grid, 'gutter'),
+  's': map-get($ecl-grid, 'gutter'),
+  'm': map-get($ecl-grid, 'gutter'),
+  'lg': map-get($ecl-grid, 'gutter'),
+  'xl': map-get($ecl-grid, 'gutter'),
+) !default;

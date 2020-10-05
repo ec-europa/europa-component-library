@@ -7,58 +7,62 @@
 }
 
 .group-list-item {
-  background-color: $ecl-color-grey-5;
+  background-color: map-get($ecl-color, 'grey-5');
   border-width: 0;
   box-sizing: border-box;
-  color: $ecl-color-text;
+  color: map-get($ecl-color, 'text');
   display: block;
-  font: $ecl-font-m;
-  font-weight: $ecl-font-weight-bold;
+  font: map-get($ecl-font, 'm');
+  font-weight: map-get($ecl-font-weight, 'bold');
   margin: 0;
-  padding: $ecl-spacing-s $ecl-spacing-xs $ecl-spacing-s $ecl-spacing-m;
+  padding: map-get($ecl-spacing, 's') map-get($ecl-spacing, 'xs')
+    map-get($ecl-spacing, 's') map-get($ecl-spacing, 'm');
   text-align: left;
   text-decoration: none;
   text-transform: capitalize;
   width: 100%;
 
   &.level-0 {
-    padding: $ecl-spacing-s $ecl-spacing-xs $ecl-spacing-s $ecl-spacing-m;
+    padding: map-get($ecl-spacing, 's') map-get($ecl-spacing, 'xs')
+      map-get($ecl-spacing, 's') map-get($ecl-spacing, 'm');
   }
 
   &.level-1 {
-    padding: $ecl-spacing-s $ecl-spacing-xs $ecl-spacing-s $ecl-spacing-xl;
+    padding: map-get($ecl-spacing, 's') map-get($ecl-spacing, 'xs')
+      map-get($ecl-spacing, 's') map-get($ecl-spacing, 'xl');
   }
 
   &.level-2 {
-    padding: $ecl-spacing-s $ecl-spacing-xs $ecl-spacing-s $ecl-spacing-3-xl;
+    padding: map-get($ecl-spacing, 's') map-get($ecl-spacing, 'xs')
+      map-get($ecl-spacing, 's') map-get($ecl-spacing, '3xl');
   }
 }
 
 .group-list-item:hover,
 .group-list-item:focus {
-  background-color: $ecl-color-grey-10;
+  background-color: map-get($ecl-color, 'grey-10');
   outline: none;
 }
 
 .group-list-item:active {
-  background-color: $ecl-color-grey-25;
+  background-color: map-get($ecl-color, 'grey-25');
 }
 
 .button {
   appearance: none;
   background-color: transparent;
   border-width: 0;
-  padding: $ecl-spacing-s;
+  padding: map-get($ecl-spacing, 's');
 }
 
 .button:hover,
 .button:focus {
-  background-color: $ecl-color-grey-10;
+  background-color: map-get($ecl-color, 'grey-10');
   outline: none;
 }
 
 .button:active {
-  background-color: $ecl-color-grey-25;
+  background-color: map-get($ecl-color, 'grey-25');
 }
 
 .icon {
