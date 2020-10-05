@@ -1,0 +1,44 @@
+<style>
+  .sb-show-nopreview {
+    display: none;
+  }
+</style>
+<script>
+  function inIframe() {
+    try {
+      return window.self !== window.top;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function createLink(href, media) {
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = href;
+    link.media = media || 'all';
+    return link;
+  }
+
+  if (
+    inIframe() &&
+    window.frameElement &&
+    window.frameElement.id === 'storybook-preview-iframe'
+  ) {
+    // Let CSS Resources inject the styles
+  } else {
+    // Manually inject styles
+    var head = document.head || document.getElementsByTagName('head')[0];
+    head.appendChild(
+      createLink('./styles/ecl-ec-preset-website.css', 'screen')
+    );
+    head.appendChild(
+      createLink('./styles/ecl-ec-preset-website-print.css', 'print')
+    );
+  }
+</script>
+<script
+  type="text/javascript"
+  src="./scripts/ecl-ec-preset-website.js"
+></script>
