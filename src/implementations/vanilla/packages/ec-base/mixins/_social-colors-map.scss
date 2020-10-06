@@ -1,9 +1,0 @@
-// Ecl social icon color map. .
-
-@mixin ecl-social-icon-color-map($list, $component: 'ecl-social-media-share') {
-  @each $social, $color in $list {
-    .#{$component}__link--#{$social} {
-      background-color: #{$color};
-    }
-  }
-}
