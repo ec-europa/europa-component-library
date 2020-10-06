@@ -1,9 +1,9 @@
 # ECL-Twig Button component
 
-npm package: `@ecl-twig/ec-component-button`
+npm package: `@ecl-twig/ecl-component-button`
 
 ```shell
-npm install --save @ecl-twig/ec-component-button
+npm install --save @ecl-twig/ecl-component-button
 ```
 
 ### Parameters
@@ -23,7 +23,7 @@ npm install --save @ecl-twig/ec-component-button
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with { 
+{% include '@ecl-twig/ecl-component-button/ecl-button.html.twig' with { 
   variant: 'primary', 
   label: 'Example button', 
   disabled: false, 
