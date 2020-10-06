@@ -7,10 +7,10 @@ import brandedIcons from '@ecl/ec-resources-icons/dist/lists/branded.json';
 import generalIcons from '@ecl/ec-resources-icons/dist/lists/general.json';
 import notificationsIcons from '@ecl/ec-resources-icons/dist/lists/notifications.json';
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
-import dataBranded from './demo/data--branded';
-import dataNotifications from './demo/data--notifications';
-import dataGeneral from './demo/data--general';
-import dataUi from './demo/data--ui';
+import dataBranded from '@ecl/ecl-specs-icon/demo/data--branded';
+import dataNotifications from '@ecl/ecl-specs-icon/demo/data--notifications';
+import dataGeneral from '@ecl/ecl-specs-icon/demo/data--general';
+import dataUi from '@ecl/ecl-specs-icon/demo/data--ui';
 
 import icon from './ecl-icon.html.twig';
 import notes from './README.md';
