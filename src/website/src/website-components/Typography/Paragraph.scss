@@ -1,24 +1,24 @@
 @import '@ecl/ec-theme-default/index';
 
 .paragraph {
-  color: $ecl-color-grey-100;
-  font: $ecl-font-prolonged-m;
+  color: map-get($ecl-color, 'grey-100');
+  font: map-get($ecl-font-prolonged, 'm');
   margin: 0;
   max-width: 64ch;
   padding: 0;
 }
 
 * + .paragraph {
-  margin-top: $ecl-spacing-m;
+  margin-top: map-get($ecl-spacing, 'm');
 }
 
 .paragraph--lead {
-  font: $ecl-font-prolonged-xl;
+  font: map-get($ecl-font-prolonged, 'xl');
   max-width: 49ch;
 }
 .paragraph--s {
-  font: $ecl-font-prolonged-s;
+  font: map-get($ecl-font-prolonged, 's');
 }
 .paragraph--xs {
-  font: $ecl-font-prolonged-xs;
+  font: map-get($ecl-font-prolonged, 'xs');
 }

@@ -35,7 +35,7 @@ const Anatomy = ({
       })}
     >
       <Row>
-        <Col col={vertical ? '12 md-9' : '12'}>
+        <Col col={vertical ? '12 m-9' : '12'}>
           <div className={styles['image-container']}>
             <img
               src={image}
@@ -45,7 +45,7 @@ const Anatomy = ({
             />
           </div>
         </Col>
-        <Col col={vertical ? '12 md-3' : '12'}>
+        <Col col={vertical ? '12 m-3' : '12'}>
           <div className={styles.container}>
             <ul className={styles.legend}>
               {legend.items.map((item) => (

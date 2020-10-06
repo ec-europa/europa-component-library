@@ -1,13 +1,18 @@
 /* Overrides */
-$ecl-breakpoint-xs: 0;
-$ecl-breakpoint-sm: 480px;
-$ecl-breakpoint-md: 768px;
-$ecl-breakpoint-lg: 1140px;
-$ecl-breakpoint-xl: 1500px;
-$ecl-container-max-width-sm: 480px;
-$ecl-container-max-width-md: 768px;
-$ecl-container-max-width-lg: 768px;
-$ecl-container-max-width-xl: 1140px;
+$ecl-breakpoint: (
+  'xs': 0,
+  's': 480px,
+  'm': 768px,
+  'l': 1140px,
+  'xl': 1500px,
+);
+
+$ecl-container: (
+  's': 480px,
+  'm': 768px,
+  'l': 768px,
+  'xl': 1140px,
+);
 
 /* Use custom ECL Grid */
 @import '@ecl/ec-theme-default/index';

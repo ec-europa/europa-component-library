@@ -6,10 +6,10 @@
 @import '@ecl/ec-base/ec-base';
 
 @mixin ecl-editor-button(
-  $border-width: 2px,
-  $outline-width: 3px,
-  $padding-horizontal: $ecl-spacing-s,
-  $padding-vertical: $ecl-spacing-m
+  $_border-width: 2px,
+  $_outline-width: 3px,
+  $_padding-horizontal: map-get($ecl-spacing, 'm'),
+  $_padding-vertical: map-get($ecl-spacing, 's')
 ) {
   /* stylelint-disable selector-no-qualifying-type */
   .ecl-editor button,
@@ -17,27 +17,27 @@
   .ecl-editor input[type='submit'] {
     appearance: none;
     background: none;
-    background-color: $ecl-color-blue-100;
+    background-color: map-get($ecl-color, 'blue-100');
     border-width: 0;
     box-sizing: border-box;
-    color: $ecl-color-white-100;
+    color: map-get($ecl-color, 'white-100');
     display: inline-block;
-    font: $ecl-font-m;
-    font-weight: $ecl-font-weight-bold;
+    font: map-get($ecl-font, 'm');
+    font-weight: map-get($ecl-font-weight, 'bold');
     margin: 0;
-    padding: $padding-horizontal $padding-vertical;
+    padding: $_padding-vertical $_padding-horizontal;
     text-decoration: none;
 
     &:hover,
     &:focus,
     &:active {
-      background-color: $ecl-color-blue-130;
+      background-color: map-get($ecl-color, 'blue-130');
       text-decoration: none;
     }
 
     &:focus {
-      outline: $outline-width solid $ecl-color-secondary;
-      outline-offset: -($outline-width);
+      outline: $_outline-width solid map-get($ecl-color, 'secondary');
+      outline-offset: -($_outline-width);
     }
   }
 }

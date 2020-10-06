@@ -5,66 +5,60 @@
 // Import base
 @import '@ecl/ec-base/ec-base';
 
-@mixin ecl-icons(
-  $_highlight-background: $ecl-color-secondary,
-  $_highlight-color: $ecl-color-black-100,
-  $_color-primary: $ecl-color-primary,
-  $_color-inverted: $ecl-color-white-100,
-  $_color-default: currentColor
-) {
+@mixin ecl-icons() {
   .ecl-icon {
-    fill: $_color-default;
+    fill: currentColor;
     margin: 0;
     transform: scaleX(1) scaleY(1) rotateZ(0deg);
     transition: transform 300ms ease-in-out;
   }
 
   .ecl-icon--2xs {
-    height: $ecl-icon-2-xs;
-    width: $ecl-icon-2-xs;
+    height: map-get($ecl-icon, '2xs');
+    width: map-get($ecl-icon, '2xs');
   }
 
   .ecl-icon--xs {
-    height: $ecl-icon-xs;
-    width: $ecl-icon-xs;
+    height: map-get($ecl-icon, 'xs');
+    width: map-get($ecl-icon, 'xs');
   }
 
   .ecl-icon--s {
-    height: $ecl-icon-s;
-    width: $ecl-icon-s;
+    height: map-get($ecl-icon, 's');
+    width: map-get($ecl-icon, 's');
   }
 
   .ecl-icon--m {
-    height: $ecl-icon-m;
-    width: $ecl-icon-m;
+    height: map-get($ecl-icon, 'm');
+    width: map-get($ecl-icon, 'm');
   }
 
   .ecl-icon--l {
-    height: $ecl-icon-l;
-    width: $ecl-icon-l;
+    height: map-get($ecl-icon, 'l');
+    width: map-get($ecl-icon, 'l');
   }
 
   .ecl-icon--xl {
-    height: $ecl-icon-xl;
-    width: $ecl-icon-xl;
+    height: map-get($ecl-icon, 'xl');
+    width: map-get($ecl-icon, 'xl');
   }
 
   .ecl-icon--2xl {
-    height: $ecl-icon-2-xl;
-    width: $ecl-icon-2-xl;
+    height: map-get($ecl-icon, '2xl');
+    width: map-get($ecl-icon, '2xl');
   }
 
   .ecl-icon--fluid {
-    height: $ecl-icon-fluid;
-    width: $ecl-icon-fluid;
+    height: map-get($ecl-icon, 'fluid');
+    width: map-get($ecl-icon, 'fluid');
   }
 
   .ecl-icon--primary {
-    fill: $_color-primary;
+    fill: map-get($ecl-color, 'primary');
   }
 
   .ecl-icon--inverted {
-    fill: $_color-inverted;
+    fill: map-get($ecl-color, 'white-100');
   }
 
   .ecl-icon--rotate-90 {

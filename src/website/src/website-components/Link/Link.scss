@@ -1,19 +1,19 @@
 @import '@ecl/ec-theme-default/index';
 
 .link {
-  color: $ecl-color-primary;
+  color: map-get($ecl-color, 'primary');
   display: inline-block;
   fill: currentColor;
-  font-family: $ecl-font-family;
+  font-family: map-get($ecl-font-family, 'default');
   text-decoration: underline;
 
   &:hover,
   &:focus {
-    color: $ecl-color-black-100;
+    color: map-get($ecl-color, 'black-100');
   }
 
   &:focus {
-    outline: 3px solid $ecl-color-secondary;
+    outline: 3px solid map-get($ecl-color, 'secondary');
     outline-offset: 2px;
   }
 }

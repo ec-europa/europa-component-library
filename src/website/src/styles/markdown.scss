@@ -1,73 +1,73 @@
 @import '@ecl/ec-theme-default/index';
 
 .h1 {
-  color: $ecl-color-grey-100;
-  font: $ecl-font-3-xl;
-  font-weight: $ecl-font-weight-bold;
+  color: map-get($ecl-color, 'grey-100');
+  font: map-get($ecl-font, '3xl');
+  font-weight: map-get($ecl-font-weight, 'bold');
   margin: 0;
   padding: 0;
 
   @media screen and (min-width: 768px) {
-    font: $ecl-font-4-xl;
-    font-weight: $ecl-font-weight-bold;
+    font: map-get($ecl-font, '4xl');
+    font-weight: map-get($ecl-font-weight, 'bold');
   }
 }
 
 .h2 {
-  border-bottom: 2px solid $ecl-color-grey-75;
-  color: $ecl-color-grey-100;
-  font: $ecl-font-2-xl;
-  font-weight: $ecl-font-weight-bold;
+  border-bottom: 2px solid map-get($ecl-color, 'grey-75');
+  color: map-get($ecl-color, 'grey-100');
+  font: map-get($ecl-font, '2xl');
+  font-weight: map-get($ecl-font-weight, 'bold');
   margin: 0;
-  padding: 0 0 $ecl-spacing-m 0;
+  padding: 0 0 map-get($ecl-spacing, 'm') 0;
 
   @media screen and (min-width: 768px) {
-    font: $ecl-font-3-xl;
-    font-weight: $ecl-font-weight-bold;
+    font: map-get($ecl-font, '3xl');
+    font-weight: map-get($ecl-font-weight, 'bold');
   }
 }
 
 .h3 {
-  border-bottom: 2px solid $ecl-color-grey-15;
-  color: $ecl-color-grey-100;
-  font: $ecl-font-xl;
-  font-weight: $ecl-font-weight-bold;
+  border-bottom: 2px solid map-get($ecl-color, 'grey-15');
+  color: map-get($ecl-color, 'grey-100');
+  font: map-get($ecl-font, 'xl');
+  font-weight: map-get($ecl-font-weight, 'bold');
   margin: 0;
-  padding: 0 0 $ecl-spacing-m 0;
+  padding: 0 0 map-get($ecl-spacing, 'm') 0;
 
   @media screen and (min-width: 768px) {
-    font: $ecl-font-2-xl;
-    font-weight: $ecl-font-weight-bold;
+    font: map-get($ecl-font, '2xl');
+    font-weight: map-get($ecl-font-weight, 'bold');
   }
 }
 
 .h4 {
-  color: $ecl-color-grey-100;
-  font: $ecl-font-l;
+  color: map-get($ecl-color, 'grey-100');
+  font: map-get($ecl-font, 'l');
   margin: 0;
   padding: 0;
 }
 
 .p {
-  color: $ecl-color-grey-100;
-  font: $ecl-font-prolonged-m;
+  color: map-get($ecl-color, 'grey-100');
+  font: map-get($ecl-font-prolonged, 'm');
   margin: 0;
   max-width: 64ch;
   padding: 0;
 }
 
 .a {
-  color: $ecl-color-primary;
-  font-family: $ecl-font-family;
+  color: map-get($ecl-color, 'primary');
+  font-family: map-get($ecl-font-family, 'default');
   text-decoration: underline;
 
   &:hover,
   &:focus {
-    color: $ecl-color-black-100;
+    color: map-get($ecl-color, 'black-100');
   }
 
   &:focus {
-    outline: 3px solid $ecl-color-secondary;
+    outline: 3px solid map-get($ecl-color, 'secondary');
     outline-offset: 2px;
   }
 }
@@ -85,16 +85,16 @@
 
 .ul {
   box-sizing: border-box;
-  color: $ecl-color-grey-100;
-  font: $ecl-font-prolonged-m;
+  color: map-get($ecl-color, 'grey-100');
+  font: map-get($ecl-font-prolonged, 'm');
   max-width: 64ch;
   margin: 0;
 }
 
 .ol {
   box-sizing: border-box;
-  color: $ecl-color-grey-100;
-  font: $ecl-font-prolonged-m;
+  color: map-get($ecl-color, 'grey-100');
+  font: map-get($ecl-font-prolonged, 'm');
   max-width: 64ch;
   margin: 0;
 }
@@ -107,36 +107,36 @@
 }
 
 .thead .tr {
-  border-bottom: 2px solid $ecl-color-grey-50;
+  border-bottom: 2px solid map-get($ecl-color, 'grey-50');
 }
 
 .tbody .tr {
-  border-bottom: 1px solid $ecl-color-grey-50;
+  border-bottom: 1px solid map-get($ecl-color, 'grey-50');
 }
 
 .th {
   background-color: transparent;
-  font: $ecl-font-prolonged-m;
-  font-weight: $ecl-font-weight-bold;
+  font: map-get($ecl-font-prolonged, 'm');
+  font-weight: map-get($ecl-font-weight, 'bold');
   text-align: left;
 }
 
 .td {
-  font: $ecl-font-prolonged-m;
+  font: map-get($ecl-font-prolonged, 'm');
 }
 
 .td,
 .th {
-  color: $ecl-color-grey-100;
+  color: map-get($ecl-color, 'grey-100');
   display: table-cell;
-  padding: $ecl-spacing-s;
+  padding: map-get($ecl-spacing, 's');
   vertical-align: top;
   margin: 0;
   max-width: 64ch;
 }
 
 .hr {
-  border-color: $ecl-color-grey-75;
+  border-color: map-get($ecl-color, 'grey-75');
   border-width: 1px;
   border-style: solid;
   margin: 0;
@@ -144,26 +144,26 @@
 }
 
 * + .h1 {
-  margin-top: $ecl-spacing-2-xl;
+  margin-top: map-get($ecl-spacing, '2xl');
 }
 
 * + .h2 {
-  margin-top: $ecl-spacing-2-xl;
+  margin-top: map-get($ecl-spacing, '2xl');
 
   @media screen and (min-width: 768px) {
-    margin-top: $ecl-spacing-3-xl;
+    margin-top: map-get($ecl-spacing, '3xl');
   }
 }
 
 * + .h3 {
-  margin-top: $ecl-spacing-xl;
+  margin-top: map-get($ecl-spacing, 'xl');
 }
 
 * + .h4 {
-  margin-top: $ecl-spacing-m;
+  margin-top: map-get($ecl-spacing, 'm');
 
   @media screen and (min-width: 768px) {
-    margin-top: $ecl-spacing-l;
+    margin-top: map-get($ecl-spacing, 'l');
   }
 }
 
@@ -172,7 +172,7 @@
 * + .ul,
 * + .ol,
 * + .table {
-  margin-top: $ecl-spacing-s;
+  margin-top: map-get($ecl-spacing, 's');
 }
 
 .h1 + .p,
@@ -180,7 +180,7 @@
 .h1 + .ul,
 .h1 + .ol,
 .h1 + .table {
-  margin-top: $ecl-spacing-m;
+  margin-top: map-get($ecl-spacing, 'm');
 }
 
 .h2 + .p,
@@ -188,13 +188,13 @@
 .h2 + .ul,
 .h2 + .ol,
 .h2 + .table {
-  margin-top: $ecl-spacing-m;
+  margin-top: map-get($ecl-spacing, 'm');
 }
 
 * + .hr {
-  margin-top: $ecl-spacing-m;
+  margin-top: map-get($ecl-spacing, 'm');
 }
 
 * + .imgA {
-  margin-top: $ecl-spacing-m;
+  margin-top: map-get($ecl-spacing, 'm');
 }
