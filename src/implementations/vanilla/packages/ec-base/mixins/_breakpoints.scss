@@ -4,7 +4,7 @@
 //
 //    (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px)
 //
-// The map defined in the `$ecl-grid-breakpoints` global variable is used as the `$breakpoints` argument by default.
+// The map defined in the `$ecl-breakpoint` global variable is used as the `$breakpoints` argument by default.
 
 // Name of the next breakpoint, or null for the last breakpoint.
 //
@@ -16,7 +16,7 @@
 //    md
 @function ecl-breakpoint-next(
   $name,
-  $breakpoints: $ecl-grid-breakpoints,
+  $breakpoints: $ecl-breakpoint,
   $breakpoint-names: map-keys($breakpoints)
 ) {
   $n: index($breakpoint-names, $name);
@@ -32,7 +32,7 @@
 //
 //    >> ecl-breakpoint-min(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
 //    576px
-@function ecl-breakpoint-min($name, $breakpoints: $ecl-grid-breakpoints) {
+@function ecl-breakpoint-min($name, $breakpoints: $ecl-breakpoints) {
   $min: map-get($breakpoints, $name);
 
   @return if($min != 0, $min, null);
@@ -43,7 +43,7 @@
 //
 //    >> ecl-breakpoint-max(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
 //    767px
-@function ecl-breakpoint-max($name, $breakpoints: $ecl-grid-breakpoints) {
+@function ecl-breakpoint-max($name, $breakpoints: $ecl-breakpoints) {
   $next: ecl-breakpoint-next($name, $breakpoints);
 
   @return if($next, ecl-breakpoint-min($next, $breakpoints) - 1px, null);
@@ -56,13 +56,13 @@
 //    ''  (Returns a blank string)
 //    >> ecl-breakpoint-infix(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
 //    '-sm'
-@function ecl-breakpoint-infix($name, $breakpoints: $ecl-grid-breakpoints) {
+@function ecl-breakpoint-infix($name, $breakpoints: $ecl-breakpoint) {
   @return if(ecl-breakpoint-min($name, $breakpoints) == null, '', '-#{$name}');
 }
 
 // Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
 // Makes the @content apply to the given breakpoint and wider.
-@mixin ecl-media-breakpoint-up($name, $breakpoints: $ecl-grid-breakpoints) {
+@mixin ecl-media-breakpoint-up($name, $breakpoints: $ecl-breakpoint) {
   @if map_has_key($breakpoints, $name) {
     $min: ecl-breakpoint-min($name, $breakpoints);
 
@@ -80,7 +80,7 @@
 
 // Media of at most the maximum breakpoint width. No query for the largest breakpoint.
 // Makes the @content apply to the given breakpoint and narrower.
-@mixin ecl-media-breakpoint-down($name, $breakpoints: $ecl-grid-breakpoints) {
+@mixin ecl-media-breakpoint-down($name, $breakpoints: $ecl-breakpoint) {
   @if map_has_key($breakpoints, $name) {
     $max: ecl-breakpoint-max($name, $breakpoints);
 
@@ -101,7 +101,7 @@
 @mixin ecl-media-breakpoint-between(
   $lower,
   $upper,
-  $breakpoints: $ecl-grid-breakpoints
+  $breakpoints: $ecl-breakpoint
 ) {
   @include ecl-media-breakpoint-up($lower, $breakpoints) {
     @include ecl-media-breakpoint-down($upper, $breakpoints) {
@@ -113,7 +113,7 @@
 // Media between the breakpoint's minimum and maximum widths.
 // No minimum for the smallest breakpoint, and no maximum for the largest one.
 // Makes the @content apply only to the given breakpoint, not viewports any wider or narrower.
-@mixin ecl-media-breakpoint-only($name, $breakpoints: $ecl-grid-breakpoints) {
+@mixin ecl-media-breakpoint-only($name, $breakpoints: $ecl-breakpoint) {
   @include ecl-media-breakpoint-between($name, $name, $breakpoints) {
     @content;
   }

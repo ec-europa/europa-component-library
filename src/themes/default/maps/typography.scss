@@ -1,0 +1,328 @@
+// Screen
+$ecl-font-family: (
+  'default': 'arial, sans-serif',
+) !default;
+
+$ecl-font-size: (
+  '2xs': 0.625rem,
+  'xs': 0.75rem,
+  's': 0.875rem,
+  'm': 1rem,
+  'l': 1.125rem,
+  'xl': 1.25rem,
+  '2xl': 1.5rem,
+  '3xl': 1.75rem,
+  '4xl': 2rem,
+  '5xl': 2.25rem,
+  '6xl': 2.625rem,
+) !default;
+
+$ecl-line-height: (
+  '2xs': 1rem,
+  'xs': 1rem,
+  's': 1rem,
+  'm': 1.25rem,
+  'l': 1.5rem,
+  'xl': 1.5rem,
+  '2xl': 1.75rem,
+  '3xl': 2rem,
+  '4xl': 2.5rem,
+  '5xl': 2.75rem,
+  '6xl': 3.25rem,
+) !default;
+
+$ecl-line-height-prolonged: (
+  'xs': 1.25rem,
+  's': 1.25rem,
+  'm': 1.5rem,
+  'l': 1.75rem,
+  'xl': 1.75rem,
+) !default;
+
+$ecl-font-weight: (
+  'regular': 400,
+  'bold': 600,
+) !default;
+
+$ecl-font: (
+  '2xs': normal normal map-get($ecl-font-weight, 'regular') #{map-get(
+      $ecl-font-size,
+      '2xs'
+    ) + '/' + map-get($ecl-line-height, '2xs')} #{map-get(
+      $ecl-font-family,
+      'default'
+    )},
+  'xs': normal normal map-get($ecl-font-weight, 'regular') #{map-get(
+      $ecl-font-size,
+      'xs'
+    ) + '/' + map-get($ecl-line-height, 'xs')} #{map-get(
+      $ecl-font-family,
+      'default'
+    )},
+  's': normal normal map-get($ecl-font-weight, 'regular') #{map-get(
+      $ecl-font-size,
+      's'
+    ) + '/' + map-get($ecl-line-height, 's')} #{map-get(
+      $ecl-font-family,
+      'default'
+    )},
+  'm': normal normal map-get($ecl-font-weight, 'regular') #{map-get(
+      $ecl-font-size,
+      'm'
+    ) + '/' + map-get($ecl-line-height, 'm')} #{map-get(
+      $ecl-font-family,
+      'default'
+    )},
+  'l': normal normal map-get($ecl-font-weight, 'regular') #{map-get(
+      $ecl-font-size,
+      'l'
+    ) + '/' + map-get($ecl-line-height, 'l')} #{map-get(
+      $ecl-font-family,
+      'default'
+    )},
+  'xl': normal normal map-get($ecl-font-weight, 'regular') #{map-get(
+      $ecl-font-size,
+      'xl'
+    ) + '/' + map-get($ecl-line-height, 'xl')} #{map-get(
+      $ecl-font-family,
+      'default'
+    )},
+  '2xl': normal normal map-get($ecl-font-weight, 'regular') #{map-get(
+      $ecl-font-size,
+      '2xl'
+    ) + '/' + map-get($ecl-line-height, '2xl')} #{map-get(
+      $ecl-font-family,
+      'default'
+    )},
+  '3xl': normal normal map-get($ecl-font-weight, 'regular') #{map-get(
+      $ecl-font-size,
+      '3xl'
+    ) + '/' + map-get($ecl-line-height, '3xl')} #{map-get(
+      $ecl-font-family,
+      'default'
+    )},
+  '4xl': normal normal map-get($ecl-font-weight, 'regular') #{map-get(
+      $ecl-font-size,
+      '4xl'
+    ) + '/' + map-get($ecl-line-height, '4xl')} #{map-get(
+      $ecl-font-family,
+      'default'
+    )},
+  '5xl': normal normal map-get($ecl-font-weight, 'regular') #{map-get(
+      $ecl-font-size,
+      '5xl'
+    ) + '/' + map-get($ecl-line-height, '5xl')} #{map-get(
+      $ecl-font-family,
+      'default'
+    )},
+  '6xl': normal normal map-get($ecl-font-weight, 'regular') #{map-get(
+      $ecl-font-size,
+      '6xl'
+    ) + '/' + map-get($ecl-line-height, '6xl')} #{map-get(
+      $ecl-font-family,
+      'default'
+    )},
+) !default;
+
+$ecl-font-prolonged: (
+  'xs': normal normal map-get($ecl-font-weight, 'regular') #{map-get(
+      $ecl-font-size,
+      'xs'
+    ) + '/' + map-get($ecl-line-height-prolonged, 'xs')} #{map-get(
+      $ecl-font-family,
+      'default'
+    )},
+  's': normal normal map-get($ecl-font-weight, 'regular') #{map-get(
+      $ecl-font-size,
+      's'
+    ) + '/' + map-get($ecl-line-height-prolonged, 's')} #{map-get(
+      $ecl-font-family,
+      'default'
+    )},
+  'm': normal normal map-get($ecl-font-weight, 'regular') #{map-get(
+      $ecl-font-size,
+      'm'
+    ) + '/' + map-get($ecl-line-height-prolonged, 'm')} #{map-get(
+      $ecl-font-family,
+      'default'
+    )},
+  'l': normal normal map-get($ecl-font-weight, 'regular') #{map-get(
+      $ecl-font-size,
+      'l'
+    ) + '/' + map-get($ecl-line-height-prolonged, 'l')} #{map-get(
+      $ecl-font-family,
+      'default'
+    )},
+  'xl': normal normal map-get($ecl-font-weight, 'regular') #{map-get(
+      $ecl-font-size,
+      'xl'
+    ) + '/' + map-get($ecl-line-height-prolonged, 'xl')} #{map-get(
+      $ecl-font-family,
+      'default'
+    )},
+) !default;
+
+// Print
+$ecl-font-family-print: (
+  'default': 'Verdana, sans-serif',
+  'alt': 'Arial, sans-serif',
+) !default;
+
+$ecl-font-size-print: (
+  '2xs': 6pt,
+  'xs': 7.5pt,
+  's': 9pt,
+  'm': 10.5pt,
+  'l': 12pt,
+  'xl': 13.5pt,
+  '2xl': 15pt,
+  '3xl': 18pt,
+  '4xl': 21pt,
+  '5xl': 24pt,
+  '6xl': 27pt,
+) !default;
+
+$ecl-line-height-print: (
+  '2xs': 10pt,
+  'xs': 12pt,
+  's': 12pt,
+  'm': 12pt,
+  'l': 15pt,
+  'xl': 18pt,
+  '2xl': 18pt,
+  '3xl': 21pt,
+  '4xl': 24pt,
+  '5xl': 30pt,
+  '6xl': 33pt,
+) !default;
+
+$ecl-line-height-prolonged-print: (
+  'xs': 15pt,
+  's': 15pt,
+  'm': 15pt,
+  'l': 18pt,
+  'xl': 21pt,
+) !default;
+
+$ecl-font-weight-print: (
+  'regular': 400,
+  'bold': 600,
+) !default;
+
+$ecl-font-print: (
+  '2xs': normal normal map-get($ecl-font-weight-print, 'regular') #{map-get(
+      $ecl-font-size-print,
+      '2xs'
+    ) + '/' + map-get($ecl-line-height-print, '2xs')} #{map-get(
+      $ecl-font-family-print,
+      'default'
+    )},
+  'xs': normal normal map-get($ecl-font-weight-print, 'regular') #{map-get(
+      $ecl-font-size-print,
+      'xs'
+    ) + '/' + map-get($ecl-line-height-print, 'xs')} #{map-get(
+      $ecl-font-family-print,
+      'default'
+    )},
+  's': normal normal map-get($ecl-font-weight-print, 'regular') #{map-get(
+      $ecl-font-size-print,
+      's'
+    ) + '/' + map-get($ecl-line-height-print, 's')} #{map-get(
+      $ecl-font-family-print,
+      'default'
+    )},
+  'm': normal normal map-get($ecl-font-weight-print, 'regular') #{map-get(
+      $ecl-font-size-print,
+      'm'
+    ) + '/' + map-get($ecl-line-height-print, 'm')} #{map-get(
+      $ecl-font-family-print,
+      'default'
+    )},
+  'l': normal normal map-get($ecl-font-weight-print, 'regular') #{map-get(
+      $ecl-font-size-print,
+      'l'
+    ) + '/' + map-get($ecl-line-height-print, 'l')} #{map-get(
+      $ecl-font-family-print,
+      'default'
+    )},
+  'xl': normal normal map-get($ecl-font-weight-print, 'regular') #{map-get(
+      $ecl-font-size-print,
+      'xl'
+    ) + '/' + map-get($ecl-line-height-print, 'xl')} #{map-get(
+      $ecl-font-family-print,
+      'default'
+    )},
+  '2xl': normal normal map-get($ecl-font-weight-print, 'regular') #{map-get(
+      $ecl-font-size-print,
+      '2xl'
+    ) + '/' + map-get($ecl-line-height-print, '2xl')} #{map-get(
+      $ecl-font-family-print,
+      'default'
+    )},
+  '3xl': normal normal map-get($ecl-font-weight-print, 'regular') #{map-get(
+      $ecl-font-size-print,
+      '3xl'
+    ) + '/' + map-get($ecl-line-height-print, '3xl')} #{map-get(
+      $ecl-font-family-print,
+      'default'
+    )},
+  '4xl': normal normal map-get($ecl-font-weight-print, 'regular') #{map-get(
+      $ecl-font-size-print,
+      '4xl'
+    ) + '/' + map-get($ecl-line-height-print, '4xl')} #{map-get(
+      $ecl-font-family-print,
+      'default'
+    )},
+  '5xl': normal normal map-get($ecl-font-weight-print, 'regular') #{map-get(
+      $ecl-font-size-print,
+      '5xl'
+    ) + '/' + map-get($ecl-line-height-print, '5xl')} #{map-get(
+      $ecl-font-family-print,
+      'default'
+    )},
+  '6xl': normal normal map-get($ecl-font-weight-print, 'regular') #{map-get(
+      $ecl-font-size-print,
+      '6xl'
+    ) + '/' + map-get($ecl-line-height-print, '6xl')} #{map-get(
+      $ecl-font-family-print,
+      'default'
+    )},
+) !default;
+
+$ecl-font-prolonged-print: (
+  'xs': normal normal map-get($ecl-font-weight-print, 'regular') #{map-get(
+      $ecl-font-size-print,
+      'xs'
+    ) + '/' + map-get($ecl-line-height-prolonged-print, 'xs')} #{map-get(
+      $ecl-font-family,
+      'default'
+    )},
+  's': normal normal map-get($ecl-font-weight-print, 'regular') #{map-get(
+      $ecl-font-size-print,
+      's'
+    ) + '/' + map-get($ecl-line-height-prolonged-print, 's')} #{map-get(
+      $ecl-font-family,
+      'default'
+    )},
+  'm': normal normal map-get($ecl-font-weight-print, 'regular') #{map-get(
+      $ecl-font-size-print,
+      'm'
+    ) + '/' + map-get($ecl-line-height-prolonged-print, 'm')} #{map-get(
+      $ecl-font-family,
+      'default'
+    )},
+  'l': normal normal map-get($ecl-font-weight-print, 'regular') #{map-get(
+      $ecl-font-size-print,
+      'l'
+    ) + '/' + map-get($ecl-line-height-prolonged-print, 'l')} #{map-get(
+      $ecl-font-family,
+      'default'
+    )},
+  'xl': normal normal map-get($ecl-font-weight-print, 'regular') #{map-get(
+      $ecl-font-size-print,
+      'xl'
+    ) + '/' + map-get($ecl-line-height-prolonged-print, 'xl')} #{map-get(
+      $ecl-font-family,
+      'default'
+    )},
+) !default;

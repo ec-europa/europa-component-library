@@ -5,25 +5,25 @@
   .demo-spacing-line {
     display: flex;
     justify-content: space-between;
-    margin-bottom: $ecl-spacing-xs;
-    margin-top: $ecl-spacing-xs;
+    margin-bottom: map-get($ecl-spacing, 'xs');
+    margin-top: map-get($ecl-spacing, 'xs');
   }
 
   .demo-spacing-container {
-    background-color: $ecl-color-grey-10;
+    background-color: map-get($ecl-color, 'grey-10');
     display: flex;
   }
 
   .demo-spacing-content {
-    background-color: $ecl-color-grey-50;
-    border: 2px solid $ecl-color-grey-100;
+    background-color: map-get($ecl-color, 'grey-50');
+    border: 2px solid map-get($ecl-color, 'grey-100');
     display: flex;
   }
 
   .demo-spacing-item {
-    background-color: $ecl-color-white-100;
+    background-color: map-get($ecl-color, 'white-100');
     display: block;
-    font: $ecl-font-s;
+    font: map-get($ecl-font, 's');
     text-align: center;
     width: 7rem;
   }

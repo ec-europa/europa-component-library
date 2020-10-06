@@ -26,7 +26,7 @@ Layout.propTypes = {
 };
 
 Layout.defaultProps = {
-  cols: '12 md-4',
+  cols: '12 m-4',
 };
 
 export default Layout;

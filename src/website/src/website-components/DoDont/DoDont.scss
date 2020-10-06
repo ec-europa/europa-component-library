@@ -11,7 +11,7 @@
 .do,
 .dont,
 .caution {
-  margin-top: $ecl-spacing-l;
+  margin-top: map-get($ecl-spacing, 'l');
 }
 
 .dodont .do,
@@ -23,7 +23,7 @@
   position: relative;
   width: 100%;
 
-  @media screen and (min-width: $ecl-breakpoint-md) {
+  @media screen and (min-width: map-get($ecl-breakpoint, 'm')) {
     display: flex;
     flex: 0 0 50%;
     flex-direction: column;
@@ -34,7 +34,7 @@
 
 .image-container {
   align-items: center;
-  border: 1px solid $ecl-color-grey-15;
+  border: 1px solid map-get($ecl-color, 'grey-15');
   border-bottom-width: 0;
   display: flex;
   justify-content: center;
@@ -58,54 +58,54 @@
 }
 
 .do .separator {
-  background-color: $ecl-color-success;
+  background-color: map-get($ecl-color, 'success');
 }
 
 .dont .separator {
-  background-color: $ecl-color-error;
+  background-color: map-get($ecl-color, 'error');
 }
 
 .caution .separator {
-  background-color: $ecl-color-warning;
+  background-color: map-get($ecl-color, 'warning');
 }
 
 .container {
-  background-color: $ecl-color-grey-5;
+  background-color: map-get($ecl-color, 'grey-5');
   flex-grow: 1;
   flex-shrink: 0;
-  padding: $ecl-spacing-m $ecl-spacing-l;
+  padding: map-get($ecl-spacing, 'm') map-get($ecl-spacing, 'l');
 }
 
 .title {
   display: flex;
-  font: $ecl-font-prolonged-m;
-  font-weight: $ecl-font-weight-bold;
+  font: map-get($ecl-font-prolonged, 'm');
+  font-weight: map-get($ecl-font-weight, 'bold');
 }
 .do .title {
-  color: $ecl-color-success;
+  color: map-get($ecl-color, 'success');
 }
 .dont .title {
-  color: $ecl-color-error;
+  color: map-get($ecl-color, 'error');
 }
 .caution .title {
-  color: $ecl-color-warning;
+  color: map-get($ecl-color, 'warning');
 }
 
 .title__icon {
   fill: currentColor;
-  height: $ecl-icon-s;
-  margin-right: $ecl-spacing-s;
-  width: $ecl-icon-s;
+  height: map-get($ecl-icon, 's');
+  margin-right: map-get($ecl-spacing, 's');
+  width: map-get($ecl-icon, 's');
 }
 
 .description {
-  color: $ecl-color-grey-100;
-  font: $ecl-font-prolonged-m;
-  margin-top: $ecl-spacing-xs;
+  color: map-get($ecl-color, 'grey-100');
+  font: map-get($ecl-font-prolonged, 'm');
+  margin-top: map-get($ecl-spacing, 'xs');
 }
 
-@media screen and (min-width: $ecl-breakpoint-sm) {
+@media screen and (min-width: map-get($ecl-breakpoint, 's')) {
   .dont {
-    margin-top: $ecl-spacing-l;
+    margin-top: map-get($ecl-spacing, 'l');
   }
 }

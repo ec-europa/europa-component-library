@@ -13,19 +13,19 @@
   flex-direction: column;
   height: 7.875rem;
   justify-content: center;
-  padding-left: $ecl-spacing-m;
-  padding-right: $ecl-spacing-m;
+  padding-left: map-get($ecl-spacing, 'm');
+  padding-right: map-get($ecl-spacing, 'm');
 }
 
 .header--bordered {
-  border: 2px solid $ecl-color-grey-15;
-  padding-left: calc(#{$ecl-spacing-m} - 2px);
-  padding-right: calc(#{$ecl-spacing-m} - 2px);
+  border: 2px solid map-get($ecl-color, 'grey-15');
+  padding-left: calc(#{map-get($ecl-spacing, 'm')} - 2px);
+  padding-right: calc(#{map-get($ecl-spacing, 'm')} - 2px);
 }
 
 .title {
-  font: $ecl-font-m;
-  font-weight: $ecl-font-weight-bold;
+  font: map-get($ecl-font, 'm');
+  font-weight: map-get($ecl-font-weight, 'bold');
   margin: 0;
 
   .card--light & {
@@ -41,9 +41,9 @@
   background: none;
   border-style: solid;
   border-width: 2px;
-  font: $ecl-font-s;
+  font: map-get($ecl-font, 's');
   height: 2.5rem;
-  margin-top: $ecl-spacing-m;
+  margin-top: map-get($ecl-spacing, 'm');
   width: 5rem;
 
   .card--light & {
@@ -64,17 +64,17 @@
 
   /* stylelint-disable-next-line */
   .card--dark & {
-    border-color: $ecl-color-grey-100;
+    border-color: map-get($ecl-color, 'grey-100');
     color: #000;
 
     /* stylelint-disable-next-line */
     &:focus {
-      background-color: rgba($ecl-color-grey-100, 0.1);
+      background-color: rgba(map-get($ecl-color, 'grey-100'), 0.1);
     }
 
     /* stylelint-disable-next-line */
     &:hover {
-      background-color: $ecl-color-grey-100;
+      background-color: map-get($ecl-color, 'grey-100');
       color: #fff;
     }
   }
@@ -93,13 +93,13 @@
 }
 
 .body {
-  background-color: $ecl-color-grey-5;
-  color: $ecl-color-text;
+  background-color: map-get($ecl-color, 'grey-5');
+  color: map-get($ecl-color, 'text');
   flex-grow: 1;
-  font: $ecl-font-prolonged-m;
-  padding: $ecl-spacing-s $ecl-spacing-m;
+  font: map-get($ecl-font-prolonged, 'm');
+  padding: map-get($ecl-spacing, 's') map-get($ecl-spacing, 'm');
 }
 
 * + .card {
-  margin-top: $ecl-spacing-m;
+  margin-top: map-get($ecl-spacing, 'm');
 }
