@@ -50,7 +50,7 @@
 {# Add disabled option if defined #}
 
 {% if _disabled %}
-  {% set _extra_attributes = ' disabled' %}
+  {% set _extra_attributes = _extra_attributes ~ ' disabled' %}
 {% endif %}
 
 {# Print the result #}
