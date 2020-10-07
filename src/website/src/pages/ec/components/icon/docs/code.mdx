@@ -3,7 +3,7 @@ title: Showcase
 order: 2
 ---
 
-import { Link, Playground } from '@ecl/website-components';
+import { Link, Playground, Html } from '@ecl/website-components';
 import {
   iconDefault,
   iconPrimary,
@@ -24,11 +24,7 @@ import {
 } from '../demo/icon';
 
 <Playground system="ec" selectedKind="components-icon" selectedStory="general">
-  <span
-    dangerouslySetInnerHTML={{
-      __html: iconDefault,
-    }}
-  />
+  <Html markup={iconDefault} />
 </Playground>
 
 You can pick an icon from <Link to="/ec/guidelines/iconography/">the library we provide</Link>.
@@ -42,17 +38,8 @@ Note: display of icons on Internet Explorer is made possible by the use of [svg4
 You can use the default, primary or inverted colours:
 
 <Playground system="ec" selectedKind="components-icon" selectedStory="general">
-  <span
-    dangerouslySetInnerHTML={{
-      __html: iconDefault,
-    }}
-  />
-
-  <span
-    dangerouslySetInnerHTML={{
-      __html: iconPrimary,
-    }}
-  />
+  <Html markup={iconDefault} />
+  <Html markup={iconPrimary} />
 </Playground>
 
 ## Size
@@ -68,41 +55,13 @@ You can change the size of the icon by applying one of the following classes:
 - `ecl-icon--fluid`: 1em
 
 <Playground system="ec" selectedKind="components-icon" selectedStory="general">
-  <span
-    dangerouslySetInnerHTML={{
-      __html: iconXs,
-    }}
-  />
-  <span
-    dangerouslySetInnerHTML={{
-      __html: iconS,
-    }}
-  />
-  <span
-    dangerouslySetInnerHTML={{
-      __html: iconM,
-    }}
-  />
-  <span
-    dangerouslySetInnerHTML={{
-      __html: iconL,
-    }}
-  />
-  <span
-    dangerouslySetInnerHTML={{
-      __html: iconXL,
-    }}
-  />
-  <span
-    dangerouslySetInnerHTML={{
-      __html: icon2XL,
-    }}
-  />
-  <span
-    dangerouslySetInnerHTML={{
-      __html: iconFluid,
-    }}
-  />
+  <Html markup={iconXs} />
+  <Html markup={iconS} />
+  <Html markup={iconM} />
+  <Html markup={iconL} />
+  <Html markup={iconXL} />
+  <Html markup={icon2XL} />
+  <Html markup={iconFluid} />
 </Playground>
 
 ## Rotate icons
@@ -115,26 +74,10 @@ You can rotate icons by adding one of the following classes:
 - `ecl-icon--rotate-270`: 270 degrees
 
 <Playground system="ec" selectedKind="components-icon" selectedStory="general">
-  <span
-    dangerouslySetInnerHTML={{
-      __html: iconRotate0,
-    }}
-  />
-  <span
-    dangerouslySetInnerHTML={{
-      __html: iconRotate90,
-    }}
-  />
-  <span
-    dangerouslySetInnerHTML={{
-      __html: iconRotate180,
-    }}
-  />
-  <span
-    dangerouslySetInnerHTML={{
-      __html: iconRotate270,
-    }}
-  />
+  <Html markup={iconRotate0} />
+  <Html markup={iconRotate90} />
+  <Html markup={iconRotate180} />
+  <Html markup={iconRotate270} />
 </Playground>
 
 ## Flip icons
@@ -142,16 +85,8 @@ You can rotate icons by adding one of the following classes:
 You can flip icons by adding the classes `ecl-icon--flip-horizontal` or `ecl-icon--flip-vertical`.
 
 <Playground system="ec" selectedKind="components-icon" selectedStory="general">
-  <span
-    dangerouslySetInnerHTML={{
-      __html: iconFlipHorizontal,
-    }}
-  />
-  <span
-    dangerouslySetInnerHTML={{
-      __html: iconFlipVertical,
-    }}
-  />
+  <Html markup={iconFlipHorizontal} />
+  <Html markup={iconFlipVertical} />
 </Playground>
 
 ## Accessibility
@@ -161,9 +96,5 @@ If your icon is only used as a decorative element, you don't have to add any spe
 On the other hand, if it's used as an image, you might want to add a couple of extra markup:
 
 <Playground system="ec" selectedKind="components-icon" selectedStory="general">
-  <span
-    dangerouslySetInnerHTML={{
-      __html: iconImage,
-    }}
-  />
+  <Html markup={iconImage} />
 </Playground>
