@@ -8,7 +8,7 @@ import dataGhost from '@ecl/ec-specs-button/demo/data--ghost';
 import dataSearch from '@ecl/ec-specs-button/demo/data--search';
 
 describe('EC - Button', () => {
-  const template = '@ecl-twig/ec-component-button/ecl-button.html.twig';
+  const template = '@ecl-twig/ecl-component-button/ecl-button.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Primary', () => {
