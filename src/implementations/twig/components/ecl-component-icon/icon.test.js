@@ -6,7 +6,7 @@ import notificationsIcons from '@ecl/ec-resources-icons/dist/lists/notifications
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
 import dataBranded from '@ecl/ec-specs-icon/demo/data--branded';
 import dataNotifications from '@ecl/ec-specs-icon/demo/data--notifications';
-import dataUi from '@ecl/ec-specs-icon/demo/data--general';
+import dataUi from '@ecl/ec-specs-icon/demo/data--audio';
 
 describe('ECL - Icon', () => {
   const template = '@ecl-twig/ecl-component-icon/ecl-icon.html.twig';

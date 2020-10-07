@@ -9,7 +9,7 @@ import notificationsIcons from '@ecl/ec-resources-icons/dist/lists/notifications
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
 import dataBranded from '@ecl/ec-specs-icon/demo/data--branded';
 import dataNotifications from '@ecl/ec-specs-icon/demo/data--notifications';
-import dataGeneral from '@ecl/ec-specs-icon/demo/data--general';
+import dataGeneral from '@ecl/ec-specs-icon/demo/data--audio';
 import dataUi from '@ecl/ec-specs-icon/demo/data--ui';
 
 import icon from './ecl-icon.html.twig';
