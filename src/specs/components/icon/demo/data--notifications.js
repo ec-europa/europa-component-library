@@ -2,8 +2,8 @@
 module.exports = {
   icon: {
     path: '/icons.svg',
-    type: 'general',
-    name: 'audio',
+    type: 'notifications',
+    name: 'success',
     size: 'm',
   },
 };

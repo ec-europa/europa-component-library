@@ -2,4 +2,5 @@
 module.exports = {
   label: 'Text button',
   variant: 'ghost',
+  type: 'button',
 };

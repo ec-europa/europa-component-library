@@ -2,4 +2,5 @@
 module.exports = {
   label: 'Secondary button',
   variant: 'secondary',
+  type: 'button',
 };
