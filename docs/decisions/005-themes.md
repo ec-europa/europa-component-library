@@ -1,13 +1,13 @@
 # Handle `themes` in ECL v3
 
-| Status        | work in progress |
-| ------------- | ---------------- |
-| **Proposed**  | 07/10/2020       |
-| **Accepted**  | --/--/---        |
-| **Driver**    | @kalinchernev    |
-| **Approver**  |                  |
-| **Consulted** |                  |
-| **Informed**  |                  |
+| Status        | work in progress                                      |
+| ------------- | ----------------------------------------------------- |
+| **Proposed**  | 07/10/2020                                            |
+| **Accepted**  | --/--/---                                             |
+| **Driver**    | @kalinchernev                                         |
+| **Approver**  |                                                       |
+| **Consulted** | @emeryro                                              |
+| **Informed**  | [@team](https://github.com/orgs/ec-europa/teams/inno) |
 
 ## Decisions
 
