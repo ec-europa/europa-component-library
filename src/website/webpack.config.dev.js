@@ -71,6 +71,7 @@ module.exports = {
         __dirname,
         'src/website-components/'
       ),
+      '@ecl/website-utils': path.resolve(__dirname, 'src/utils/'),
     },
   },
   module: {

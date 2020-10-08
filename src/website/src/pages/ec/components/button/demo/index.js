@@ -4,7 +4,7 @@ import demoContentCall from '@ecl/ec-specs-button/demo/data--call';
 import demoContentGhost from '@ecl/ec-specs-button/demo/data--ghost';
 import demoContentSearch from '@ecl/ec-specs-button/demo/data--search';
 import template from '@ecl/ec-twig-component-button/ecl-button.html.twig';
-import correctSvgPath from '../../../../../utils/correctSvgPath';
+import { correctSvgPath } from '@ecl/website-utils';
 
 export const buttonPrimary = template(demoContentPrimary);
 export const buttonSecondary = template(demoContentSecondary);
