@@ -44,7 +44,7 @@ This option has been discarded as too complex for the worth of the result. The c
 #### Option 3: "themes" is single package, multiple presets generate multiple themes output
 
 - `@ecl/ecl-base` - common variables
-- `@ecl/ecl-theme` - set of variables, one per theme
+- `@ecl/ecl-theme` - set of variables related to the themes (global parameters), one set per theme
 - `@ecl/ecl-preset-{ec-core}` - base + theme ec core + components
 - `@ecl/ecl-preset-{eu-core}` - base + theme eu core + components
 - `@ecl/ecl-preset-{ec-standardised}` - base + theme ec standardised + components
