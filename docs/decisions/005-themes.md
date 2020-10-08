@@ -14,7 +14,7 @@
 ## Context
 
 - ECL v2 was made in order to generate two independent design systems, EC and EU.
-- ECL v3 needs to accommodate the concept of `themes`.
+- ECL V3 starts from the assumption that there is only one source template and one design system with multiple `themes`.
 - The number of themes to accommodate is not set as of the time of the document writing, thus the magnitude could vary between 2 (previous systems) to 20+.
 
 ## Prerequisite notes
