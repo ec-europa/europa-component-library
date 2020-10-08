@@ -13,7 +13,7 @@
 
 ## Context
 
-- ECL v2 is based on the concept of `systems` such as EC and EU
+- ECL v2 was made in order to generate two independent design systems, EC and EU.
 - ECL v3 needs to accommodate the concept of `themes`.
 - The number of themes to accommodate is not set as of the time of the document writing, thus the magnitude could vary between 2 (previous systems) to 20+.
 
