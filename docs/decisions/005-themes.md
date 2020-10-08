@@ -17,12 +17,16 @@
 - ECL v3 needs to accommodate the concept of `themes`.
 - The number of themes to accommodate is not set as of the time of the document writing, thus the magnitude could vary between 2 (previous systems) to 20+.
 
+## Prerequisite notes
+
+The term "code duplication" used in this document follows the [conventional definition](https://en.wikipedia.org/wiki/Duplicate_code). Duplicate code example in ECL v2 can be illustrated with source code for EC and EU which is completely identical and exists in several occassions. However, splitting a module file of hundreds of lines of code into multiple files containing portions of the same code is not considered code duplication but code separation or code splitting.
+
 ## Consequences
 
-- There is a continous internal discussions and confusion in ECL team what a theme actually mean and whether it's overlapping with the concept of presets of ECL v2
-- The CSS code of ECL needs reorganizations. It should scale with time and avoid exploding complexity or code duplication.
-- ECL releases will need to be updated accordingly to match the new CSS organization and publish the new themes in a good way.
-- Storybook application(s) (ECL Playground website) needs to be updated to visualize themes differences and components demo. It is unclear whether a single instance of a Storybook application can accommodate the new themes architecture or there will be multiple instances.
+- There are continous internal discussions for the definition of a "theme" and whether it's overlapping with the concept of presets of ECL v2.
+- The CSS source code needs an improved organization. It must scale with time and reduce complexity and code duplication.
+- Release packages will require changes. The question on publishing "themes" is unclear.
+- Storybook application(s) (ECL Playground website) will most probably also need changes accordingly. It is unclear whether a single instance of a Storybook application can accommodate the new themes architecture or there will be multiple instances.
 - There is an strong uncertainty on how to consistently manage all other assets such as JavaScript, markdown files, icon and logo resources, templates, etc. Environment variables have been considered as a global contextual information but above-mentioned ambiguous topics are unclear at this stage.
 
 ## Scopes
