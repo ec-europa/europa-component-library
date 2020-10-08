@@ -6,7 +6,7 @@
 | **Accepted**  | --/--/---                                             |
 | **Driver**    | @kalinchernev                                         |
 | **Approver**  |                                                       |
-| **Consulted** | @emeryro                                              |
+| **Consulted** | @emeryro, @planctus                                   |
 | **Informed**  | [@team](https://github.com/orgs/ec-europa/teams/inno) |
 
 ## Decisions
