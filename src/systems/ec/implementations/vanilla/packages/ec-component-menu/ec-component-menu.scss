@@ -363,7 +363,8 @@
         }
       }
 
-      .ecl-menu__item:hover {
+      .ecl-menu__item:hover,
+      .ecl-menu__item--focused {
         .ecl-menu__link,
         .ecl-menu__link:hover,
         .ecl-menu__link:active,
@@ -490,9 +491,14 @@
         right: 0;
       }
 
-      .ecl-menu__item:hover .ecl-menu__mega {
-        transition-property: visibility;
-        visibility: visible;
+      .ecl-menu__item {
+        &:hover,
+        &.ecl-menu__item--focused {
+          .ecl-menu__mega {
+            transition-property: visibility;
+            visibility: visible;
+          }
+        }
       }
 
       .ecl-menu__mega--rtl {
