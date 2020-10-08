@@ -3,14 +3,14 @@ title: Showcase
 order: 2
 ---
 
-import Playground from '@ecl/website-components/Playground';
-// import Button from '@ecl/ec-react-component-button';
-
-// import demoContentPrimary from '@ecl/ec-specs-button/demo/data--primary';
-// import demoContentSecondary from '@ecl/ec-specs-button/demo/data--secondary';
-// import demoContentCall from '@ecl/ec-specs-button/demo/data--call';
-// import demoContentGhost from '@ecl/ec-specs-button/demo/data--ghost';
-// import demoContentSearch from '@ecl/ec-specs-button/demo/data--search';
+import { Playground, Html } from '@ecl/website-components';
+import {
+  buttonPrimary,
+  buttonSecondary,
+  buttonCall,
+  buttonGhost,
+  buttonSearch,
+} from '../demo';
 
 ## Primary
 
@@ -19,7 +19,7 @@ import Playground from '@ecl/website-components/Playground';
   selectedKind="components-button"
   selectedStory="primary"
 >
-  {/* <Button {...demoContentPrimary} /> */}
+  <Html markup={buttonPrimary} />
 </Playground>
 
 ## Secondary
@@ -29,7 +29,7 @@ import Playground from '@ecl/website-components/Playground';
   selectedKind="components-button"
   selectedStory="secondary"
 >
-  {/* <Button {...demoContentSecondary} /> */}
+  <Html markup={buttonSecondary} />
 </Playground>
 
 ## Call to action with icon
@@ -39,17 +39,17 @@ import Playground from '@ecl/website-components/Playground';
   selectedKind="components-button"
   selectedStory="call-to-action"
 >
-  {/* <Button {...demoContentCall} /> */}
+  <Html markup={buttonCall} />
 </Playground>
 
 ## Text
 
 <Playground system="ec" selectedKind="components-button" selectedStory="text">
-  {/* <Button {...demoContentGhost} /> */}
+  <Html markup={buttonGhost} />
 </Playground>
 
 ## Search
 
 <Playground system="ec" selectedKind="components-button" selectedStory="search">
-  {/* <Button {...demoContentSearch} /> */}
+  <Html markup={buttonSearch} />
 </Playground>
