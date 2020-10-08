@@ -5,11 +5,11 @@ import { getExtraKnobs, tabLabels, getIconKnobs } from '@ecl/story-utils';
 
 // Import data for demos
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
-import dataPrimary from './demo/data--primary';
-import dataSecondary from './demo/data--secondary';
-import dataCall from './demo/data--call';
-import dataGhost from './demo/data--text';
-import dataSearch from './demo/data--search';
+import dataPrimary from '@ecl/ec-specs-button/demo/data--primary';
+import dataSecondary from '@ecl/ec-specs-button/demo/data--secondary';
+import dataCall from '@ecl/ec-specs-button/demo/data--call';
+import dataGhost from '@ecl/ec-specs-button/demo/data--ghost';
+import dataSearch from '@ecl/ec-specs-button/demo/data--search';
 
 import button from './ecl-button.html.twig';
 import notes from './README.md';
@@ -96,7 +96,7 @@ export const CallToAction = () => {
 CallToAction.storyName = 'call to action';
 CallToAction.parameters = { notes: { markdown: notes, json: dataCall } };
 
-export const Text = () => {
+export const Ghost = () => {
   const data = prepareButton(dataGhost, true);
   const name = select('icon.name', iconsList, '', tabLabels.optional);
   if (name !== '') {
@@ -108,8 +108,8 @@ export const Text = () => {
   return button(data);
 };
 
-Text.storyName = 'text';
-Text.parameters = { notes: { markdown: notes, json: dataGhost } };
+Ghost.storyName = 'text';
+Ghost.parameters = { notes: { markdown: notes, json: dataGhost } };
 
 export const Search = () => {
   const data = prepareButton(dataSearch, true);

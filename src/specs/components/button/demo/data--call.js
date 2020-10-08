@@ -1,8 +1,11 @@
 // Simple content for demo
 module.exports = {
+  type: 'submit',
   label: 'Call to action button',
   icon: {
-    shape: 'ui--corner-arrow',
+    path: '/icons.svg',
+    type: 'ui',
+    name: 'corner-arrow',
     size: 'xs',
     transform: 'rotate-90',
   },

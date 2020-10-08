@@ -1,9 +1,9 @@
 # ECL-Twig Icon component
 
-npm package: `@ecl-twig/ec-component-icon`
+npm package: `@ecl-twig/ecl-component-icon`
 
 ```shell
-npm install --save @ecl-twig/ec-component-icon
+npm install --save @ecl-twig/ecl-component-icon
 ```
 
 ### Parameters
@@ -24,7 +24,7 @@ npm install --save @ecl-twig/ec-component-icon
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with { 
+{% include '@ecl-twig/ecl-component-icon/ecl-icon.html.twig' with { 
   icon: { 
     path: '/static/media/icons.svg', 
     type: 'branded', 
