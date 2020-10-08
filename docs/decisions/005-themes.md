@@ -76,3 +76,9 @@ Current organization of v2.
 #### Option 2: single package
 
 - `@ecl/resources`
+
+#### Option 3: include resources in themes
+
+This option does imply that each theme comes in a dedicates package (see ahead).
+Resources useful to display a theme are stored directly in it.
+To limit duplication, some global resources may still be put in dedicated packages.
