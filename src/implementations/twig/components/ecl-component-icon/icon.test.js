@@ -85,6 +85,24 @@ describe('ECL - Icon', () => {
       },
     });
 
+    test('renders correctly with accessibility content', () => {
+      expect.assertions(1);
+
+      const optionsWithAccessibility = merge(options, {
+        as_image: true,
+        extra_accessibility: {
+          title: 'Title',
+          title_id: 'example-title',
+          description: 'Description',
+          description_id: 'example-desc',
+        },
+      });
+
+      return expect(
+        render(optionsWithAccessibility)
+      ).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 

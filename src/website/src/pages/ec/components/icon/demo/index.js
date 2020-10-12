@@ -38,13 +38,12 @@ export const iconFlipHorizontal = template(
 );
 export const iconImage = template(
   merge(dataDefault, {
-    extra_attributes: [
-      { name: 'role', value: 'img' },
-      { name: 'aria-hidden', value: false },
-      { name: 'title', value: 'Title' },
-      { name: 'titleId', value: 'TitleID' },
-      { name: 'desc', value: 'Description' },
-      { name: 'descId', value: 'Description ID' },
-    ],
+    as_image: true,
+    extra_accessibility: {
+      title: 'Title',
+      title_id: 'example-title',
+      description: 'Description',
+      description_id: 'example-desc',
+    },
   })
 );

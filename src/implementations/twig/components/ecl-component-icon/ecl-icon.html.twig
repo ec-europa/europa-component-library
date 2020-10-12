@@ -11,6 +11,14 @@
           transform: 'rotate-0' (available options: 'rotate-0', 'rotate-90', 'rotate-180', 'rotate-270', 'flip-horizontal', 'flip-vertical'),
           color: 'default' (available options: 'default', 'inverted', 'primary')
         }
+    - "as_image": false,
+    - "extra_accessibility" : {
+        description: '' (desc tag)
+        description_id: '' (desc tag id)
+        title: '' (title tag)
+        title_id: '' (title tag id)
+        role: 'image' (role attribute)
+    }
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -22,17 +30,36 @@
 
 {# Internal properties #}
 
+{% set _compliance = _compliance_|default(false) %}
+{% set _compliance_inner_check = _compliance_inner_check_|default(false) %}
+{% set _as_image = as_image|default(false) %}
+{% set _aria_hidden = 'true' %}
+
 {% set _icon = {
   path: '',
   type: '',
   name: '',
   size: 'm',
   transform: '',
-  color: ''
+  color: '',
 }|merge(icon|default({})) %}
+
+{% set _extra_accessibility = {
+  description: '',
+  description_id: '',
+  title: '',
+  title_id: '',
+  role: 'img',
+}|merge(extra_accessibility|default({})) %}
 
 {% set _css_class = 'ecl-icon' %}
 {% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if _as_image %}
+  {% set _aria_hidden = 'false' %}
+{% endif %}
 
 {% for property in ['size', 'transform', 'color'] %}
   {% if _icon[property] is defined and _icon[property] is not empty %}
@@ -40,7 +67,6 @@
   {% endif %}
 {% endfor %}
 
-{# Internal logic - Process properties #}
 {% set _icon_type = '' %}
 {% if _icon.type is not empty %}
   {% set _icon_type = _icon.type ~ '--' %}
@@ -48,6 +74,13 @@
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_accessibility is defined and extra_accessibility is not empty %}
+  {% set extra_attributes = extra_attributes|default([])|merge([
+    { name: 'role', value: _extra_accessibility.role },
+    { name: 'aria-labelledby', value: _extra_accessibility.title_id ~ ' ' ~ _extra_accessibility.description_id },
+  ]) %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
@@ -65,8 +98,26 @@
 <svg
   class="{{ _css_class }}"
   focusable="false"
-  aria-hidden="true"
+  aria-hidden="{{ _aria_hidden }}"
   {{ _extra_attributes|raw }}>
+{% if _extra_accessibility.title is not empty %}
+  <title
+  {% if _extra_accessibility.title_id is not empty %}
+    id="{{ _extra_accessibility.title_id }}"
+  {% endif %}
+  >
+    {{- _extra_accessibility.title -}}
+  </title>
+  {% endif %}
+{% if _extra_accessibility.description is not empty %}
+  <desc
+  {% if _extra_accessibility.description_id is not empty %}
+    id="{{ _extra_accessibility.description_id }}"
+  {% endif %}
+  >
+    {{- _extra_accessibility.description -}}
+  </desc>
+{% endif %}
   <use xlink:href="{{ _icon.path }}#{{ _icon_type }}{{ _icon.name }}"></use>
 </svg>
 
