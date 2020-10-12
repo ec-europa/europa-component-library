@@ -12,7 +12,7 @@ import dataNotifications from '@ecl/specs-component-icon/demo/data--notification
 import dataGeneral from '@ecl/specs-component-icon/demo/data--audio';
 import dataUi from '@ecl/specs-component-icon/demo/data--ui';
 
-import icon from './ecl-icon.html.twig';
+import icon from './icon.html.twig';
 import notes from './README.md';
 
 const prepareIcon = (data, name) => {

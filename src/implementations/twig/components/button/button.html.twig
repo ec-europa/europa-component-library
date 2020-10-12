@@ -59,7 +59,7 @@
   {%- if _icon.name is not empty %}
     <span class="ecl-button__container">
       {% if _icon_position == 'before' %}
-        {% include '@ecl-twig/ecl-component-icon/ecl-icon.html.twig' with {
+        {% include '@ecl-twig/icon/icon.html.twig' with {
           icon: _icon,
           extra_classes: 'ecl-button__icon ecl-button__icon--before',
           extra_attributes: [
@@ -69,7 +69,7 @@
       {% endif %}
       <span class="ecl-button__label" data-ecl-label="true">{% block label _label|raw %}</span>
       {% if _icon_position == 'after' %}
-        {% include '@ecl-twig/ecl-component-icon/ecl-icon.html.twig' with {
+        {% include '@ecl-twig/icon/icon.html.twig' with {
           icon: _icon,
           extra_classes: 'ecl-button__icon ecl-button__icon--after',
           extra_attributes: [

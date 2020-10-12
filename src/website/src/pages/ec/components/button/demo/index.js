@@ -3,7 +3,7 @@ import demoContentSecondary from '@ecl/specs-component-button/demo/data--seconda
 import demoContentCall from '@ecl/specs-component-button/demo/data--call';
 import demoContentGhost from '@ecl/specs-component-button/demo/data--ghost';
 import demoContentSearch from '@ecl/specs-component-button/demo/data--search';
-import template from '@ecl/twig-component-button/ecl-button.html.twig';
+import template from '@ecl/twig-component-button/button.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 
 export const buttonPrimary = template(demoContentPrimary);
