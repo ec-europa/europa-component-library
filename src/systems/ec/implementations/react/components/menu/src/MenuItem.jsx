@@ -25,6 +25,7 @@ export const MenuItem = ({ label, href, isCurrent, subItems }) => {
         data-ecl-menu-link
       >
         {label}
+        {hasSubItems && <span className="ecl-u-sr-only"> (has submenu)</span>}
 
         {hasSubItems && (
           <Icon
