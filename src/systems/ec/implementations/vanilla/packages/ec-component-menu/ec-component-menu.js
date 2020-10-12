@@ -476,6 +476,7 @@ export class Menu {
   handleKeyboard(e) {
     // Detect press on Escape
     if (e.key === 'Escape' || e.key === 'Esc') {
+      this.handleClickOnClose(e);
       this.items.forEach((item) => {
         item.classList.remove('ecl-menu__item--focused');
       });
