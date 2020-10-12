@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 // Import resources
 import ECLogo from '@ecl/ec-preset-full/dist/images/logo/logo--en.svg';
-import EULogo from '@ecl/eu-preset-full/dist/images/logo/logo--en.svg';
 import LogoLink from './LogoLink';
 import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
 
@@ -33,7 +32,7 @@ const SplashPage = React.memo(({ children }) => (
           className={`${utilities['d-flex']} ${styles['splash-page-actions-col']}`}
         >
           <LogoLink to="/eu/" aria-label="Open EU system">
-            <img src={EULogo} alt="EU Logo" />
+            <img src={ECLogo} alt="EU Logo" />
           </LogoLink>
         </Col>
       </Row>

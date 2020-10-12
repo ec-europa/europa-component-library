@@ -2,13 +2,11 @@
   "name": "@ecl/ec-preset-website",
   "author": "European Commission",
   "license": "EUPL-1.1",
-  "version": "2.33.0",
+  "version": "3.0.0",
   "description": "ECL EC Website preset",
   "main": "dist/scripts/ecl-ec-preset-website.js",
   "style": "dist/styles/ecl-ec-preset-website.css",
-  "publishConfig": {
-    "access": "public"
-  },
+  "private": true,
   "scripts": {
     "build:copy": "ecl-builder copy",
     "build:scripts": "ecl-builder scripts",
@@ -22,11 +20,11 @@
     "prepublish": "npm run dist"
   },
   "devDependencies": {
-    "@ecl/builder": "^2.33.0",
-    "@ecl/ec-preset-dev": "^2.33.0",
-    "@ecl/ec-resources-icons": "^2.33.0",
-    "@ecl/ec-resources-logo": "^2.33.0",
-    "@ecl/ec-theme-default": "^2.33.0",
+    "@ecl/builder": "^3.0.0",
+    "@ecl/ec-preset-dev": "^3.0.0",
+    "@ecl/ec-resources-icons": "^3.0.0",
+    "@ecl/ec-resources-logo": "^3.0.0",
+    "@ecl/ec-theme-default": "^3.0.0",
     "chokidar-cli": "2.1.0",
     "cross-env": "7.0.2",
     "normalize.css": "8.0.1",

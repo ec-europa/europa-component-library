@@ -15,6 +15,10 @@ const includePaths = [path.resolve(__dirname, '../../node_modules')];
 const publicUrl = process.env.PUBLIC_URL || '';
 const publicPath = `${publicUrl}/`;
 
+const environmentModulePath = require.resolve(
+  '@ecl/ec-twig-storybook/.storybook/environment.js'
+);
+
 const cssLoader = ({ fixCode = true, prefix } = {}) => [
   { loader: 'style-loader' },
   {
@@ -67,6 +71,7 @@ module.exports = {
         __dirname,
         'src/website-components/'
       ),
+      '@ecl/website-utils': path.resolve(__dirname, 'src/utils/'),
     },
   },
   module: {
@@ -80,6 +85,15 @@ module.exports = {
       },
       {
         oneOf: [
+          {
+            test: /\.twig$/,
+            use: [
+              {
+                loader: 'twing-loader',
+                options: { environmentModulePath },
+              },
+            ],
+          },
           {
             test: /preval.*\.(js|jsx)$/,
             exclude: /node_modules/,
