@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // Import resources
-import ECLogo from '@ecl/ec-preset-full/dist/images/logo/logo--en.svg';
+import ECLogo from '@ecl/preset-full/dist/images/logo/logo--en.svg';
 import LogoLink from './LogoLink';
 import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
 

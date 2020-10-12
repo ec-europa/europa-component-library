@@ -330,13 +330,13 @@ module.exports = {
       'process.env.PUBLIC_URL': JSON.stringify(publicUrl),
       'process.env.ECL_VERSION': JSON.stringify(eclVersion),
       'process.env.ECL_EC_PRESET_WEBSITE_CSS': JSON.stringify(
-        (sri['ecl-ec-preset-website.css'] || []).join(' ') || 'n/a'
+        (sri['ecl-preset-website.css'] || []).join(' ') || 'n/a'
       ),
       'process.env.ECL_EC_PRESET_WEBSITE_PRINT_CSS': JSON.stringify(
-        (sri['ecl-ec-preset-website-print.css'] || []).join(' ') || 'n/a'
+        (sri['ecl-preset-website-print.css'] || []).join(' ') || 'n/a'
       ),
       'process.env.ECL_EC_PRESET_WEBSITE_JS': JSON.stringify(
-        (sri['ecl-ec-preset-website.js'] || []).join(' ') || 'n/a'
+        (sri['ecl-preset-website.js'] || []).join(' ') || 'n/a'
       ),
       'process.env.ECL_EU_PRESET_WEBSITE_CSS': JSON.stringify(
         (sri['ecl-eu-preset-website.css'] || []).join(' ') || 'n/a'

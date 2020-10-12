@@ -1,0 +1,10 @@
+/**
+ * Editor styles
+ */
+
+@import 'editor--button';
+
+// Use mixin
+@include exports('editor') {
+  @include ecl-editor-button();
+}

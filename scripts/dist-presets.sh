@@ -13,6 +13,6 @@ cd ..
 # Copy builds
 rm -rf ./dist/packages
 mkdir -p ./dist/packages
-cp -r ./src/implementations/vanilla/packages/ec-preset-editor/dist ./dist/packages/ec-preset-editor
-cp -r ./src/implementations/vanilla/packages/ec-preset-full/dist ./dist/packages/ec-preset-full
-cp -r ./src/implementations/vanilla/packages/ec-preset-website/dist ./dist/packages/ec-preset-website
+cp -r ./src/implementations/vanilla/packages/preset-editor/dist ./dist/packages/preset-editor
+cp -r ./src/implementations/vanilla/packages/preset-full/dist ./dist/packages/preset-full
+cp -r ./src/implementations/vanilla/packages/preset-website/dist ./dist/packages/preset-website

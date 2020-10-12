@@ -11,7 +11,7 @@
 
 ## Decision
 
-- All editor CSS rules are put in a new package `@ecl/ec-editor`.
+- All editor CSS rules are put in a new package `@ecl/editor`.
 - CSS is duplicated from component (no SASS mixins).
 - A new preset `ec-preset-editor` is created to store these rules.
 

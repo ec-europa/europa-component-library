@@ -1,0 +1,48 @@
+//
+// Grid mixins
+//
+
+// Import base and mixins
+@import '@ecl/base/base';
+@import 'mixins/grid-framework';
+@import 'mixins/grid';
+
+@mixin ecl-grid() {
+  // Container widths
+  //
+  // Set the container width, and override it for fixed navbars in media queries.
+  .ecl-container {
+    @include ecl-make-container();
+    @include ecl-make-container-max-widths();
+  }
+
+  // Row
+  //
+  // Rows contain and clear the floats of your columns.
+  .ecl-row {
+    @include ecl-make-row();
+  }
+
+  // Remove the negative margin from default .row, then the horizontal padding
+  // from all immediate children columns (to prevent runaway style inheritance).
+  .ecl-no-gutters {
+    margin-left: 0;
+    margin-right: 0;
+
+    > .ecl-col,
+    > [class*='ecl-col-'] {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  // Columns
+  //
+  // Common styles for small and large grid columns
+  @include ecl-make-grid-columns(); // stylelint-disable-line
+}
+
+// Use mixin
+@include exports('layout-grid') {
+  @include ecl-grid();
+}

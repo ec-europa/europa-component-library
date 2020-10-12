@@ -4,7 +4,7 @@ order: 2
 ---
 
 import { ColorCard, ColorLayout, ColorPalette } from '@ecl/website-components'
-import tokens from '@ecl/ec-theme-default/tokens.json'
+import tokens from '@ecl/theme-default/tokens.json'
 
 The colour palette is designed to support a flexible, modular visual style that feels connected across EC and EU websites and platforms. The intent of the palette is to **convey a united and open European spirit**, and leave users feeling welcome and in good hands.
 
