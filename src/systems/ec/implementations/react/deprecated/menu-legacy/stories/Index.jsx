@@ -1,5 +1,5 @@
 import React from 'react';
-import { withKnobs } from '@storybook/addon-knobs/react';
+import { withKnobs } from '@storybook/addon-knobs';
 import { withCssResources } from '@storybook/addon-cssresources';
 import StoryWrapper from '@ecl/story-wrapper';
 import demoContent from '@ecl/ec-specs-menu-legacy/demo/data';
