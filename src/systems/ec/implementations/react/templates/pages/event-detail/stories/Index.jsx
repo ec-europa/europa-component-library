@@ -7,7 +7,7 @@ import EventDetailHarmonisedG1 from '../examples/EventDetailHarmonisedG1';
 import EventDetailHarmonisedG2 from '../examples/EventDetailHarmonisedG2';
 
 export default {
-  title: 'Templates/Pages',
+  title: 'Templates/Pages/Event detail',
   decorators: [withKnobs],
 };
 
@@ -161,8 +161,4 @@ export const EventDetail = () => {
     'optional (core)'
   );
   return <EventDetailCore {...optional} />;
-};
-
-EventDetail.story = {
-  name: 'Event detail',
 };

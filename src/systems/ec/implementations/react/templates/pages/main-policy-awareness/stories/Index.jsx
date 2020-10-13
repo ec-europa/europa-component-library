@@ -7,7 +7,7 @@ import MainPolicyAwarenessHarmonisedG1 from '../examples/MainPolicyAwarenessHarm
 import MainPolicyAwarenessHarmonisedG2 from '../examples/MainPolicyAwarenessHarmonisedG2';
 
 export default {
-  title: 'Templates/Pages',
+  title: 'Templates/Pages/Main policy awareness',
   decorators: [withKnobs],
 };
 
@@ -161,8 +161,4 @@ export const MainPolicyAwareness = () => {
     'optional (core)'
   );
   return <MainPolicyAwarenessCore {...optional} />;
-};
-
-MainPolicyAwareness.story = {
-  name: 'Main policy awareness',
 };

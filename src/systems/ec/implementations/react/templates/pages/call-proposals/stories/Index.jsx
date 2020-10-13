@@ -7,7 +7,7 @@ import CallProposalsHarmonisedG1 from '../examples/CallProposalsHarmonisedG1';
 import CallProposalsHarmonisedG2 from '../examples/CallProposalsHarmonisedG2';
 
 export default {
-  title: 'Templates/Pages',
+  title: 'Templates/Pages/Call for proposals',
   decorators: [withKnobs],
 };
 
@@ -161,8 +161,4 @@ export const CallForProposals = () => {
     'optional (core)'
   );
   return <CallProposalsCore {...optional} />;
-};
-
-CallForProposals.story = {
-  name: 'Call for proposals',
 };

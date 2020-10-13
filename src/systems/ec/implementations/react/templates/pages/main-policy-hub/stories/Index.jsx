@@ -7,7 +7,7 @@ import MainPolicyHubHarmonisedG1 from '../examples/MainPolicyHubHarmonisedG1';
 import MainPolicyHubHarmonisedG2 from '../examples/MainPolicyHubHarmonisedG2';
 
 export default {
-  title: 'Templates/Pages',
+  title: 'Templates/Pages/Main policy hub',
   decorators: [withKnobs],
 };
 
@@ -161,8 +161,4 @@ export const MainPolicyHub = () => {
     'optional (core)'
   );
   return <MainPolicyHubCore {...optional} />;
-};
-
-MainPolicyHub.story = {
-  name: 'Main policy hub',
 };

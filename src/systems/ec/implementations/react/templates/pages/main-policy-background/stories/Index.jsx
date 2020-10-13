@@ -7,7 +7,7 @@ import MainPolicyBackgroundHarmonisedG1 from '../examples/MainPolicyBackgroundHa
 import MainPolicyBackgroundHarmonisedG2 from '../examples/MainPolicyBackgroundHarmonisedG2';
 
 export default {
-  title: 'Templates/Pages',
+  title: 'Templates/Pages/Main policy background',
   decorators: [withKnobs],
 };
 
@@ -161,8 +161,4 @@ export const MainPolicyBackground = () => {
     'optional (core)'
   );
   return <MainPolicyBackgroundCore {...optional} />;
-};
-
-MainPolicyBackground.story = {
-  name: 'Main policy background',
 };

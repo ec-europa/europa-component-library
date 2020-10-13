@@ -7,7 +7,7 @@ import PersonHarmonisedG1 from '../examples/PersonHarmonisedG1';
 import PersonHarmonisedG2 from '../examples/PersonHarmonisedG2';
 
 export default {
-  title: 'Templates/Pages',
+  title: 'Templates/Pages/Person biography',
   decorators: [withKnobs],
 };
 
@@ -161,8 +161,4 @@ export const PersonBiography = () => {
     'optional (core)'
   );
   return <PersonCore {...optional} />;
-};
-
-PersonBiography.story = {
-  name: 'Person biography',
 };
