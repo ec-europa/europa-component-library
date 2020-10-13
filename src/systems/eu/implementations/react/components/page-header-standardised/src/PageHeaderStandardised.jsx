@@ -20,7 +20,9 @@ const PageHeaderStandardised = ({
             className: 'ecl-page-header-standardised__breadcrumb',
           })}
         {meta && (
-          <div className="ecl-page-header-standardised__meta">{meta}</div>
+          <div className="ecl-page-header-standardised__meta">
+            {meta.toUpperCase()}
+          </div>
         )}
         {title && (
           <h1 className="ecl-page-header-standardised__title">{title}</h1>
@@ -37,7 +39,7 @@ const PageHeaderStandardised = ({
 
 PageHeaderStandardised.propTypes = {
   breadcrumb: PropTypes.node,
-  meta: PropTypes.node,
+  meta: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
   className: PropTypes.string,

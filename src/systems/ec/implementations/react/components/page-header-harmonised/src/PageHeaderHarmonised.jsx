@@ -22,7 +22,11 @@ const PageHeaderHarmonised = ({
               'ecl-page-header-harmonised__breadcrumb'
             ),
           })}
-        {meta && <div className="ecl-page-header-harmonised__meta">{meta}</div>}
+        {meta && (
+          <div className="ecl-page-header-harmonised__meta">
+            {meta.toUpperCase()}
+          </div>
+        )}
         {title && (
           <h1 className="ecl-page-header-harmonised__title">{title}</h1>
         )}
@@ -38,7 +42,7 @@ const PageHeaderHarmonised = ({
 
 PageHeaderHarmonised.propTypes = {
   breadcrumb: PropTypes.node,
-  meta: PropTypes.node,
+  meta: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
   className: PropTypes.string,
