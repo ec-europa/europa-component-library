@@ -6,6 +6,4 @@ export default {
 
 export const _Ordered = Ordered;
 
-_Ordered.story = {
-  name: 'ordered',
-};
+_Ordered.storyName = 'ordered';

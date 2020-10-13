@@ -29,6 +29,4 @@ export const Custom = () => {
   );
 };
 
-Custom.story = {
-  name: 'custom',
-};
+Custom.storyName = 'custom';

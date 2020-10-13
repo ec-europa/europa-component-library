@@ -70,6 +70,4 @@ export const Default = () => (
   <MenuLegacy {...demoContent} data-ecl-auto-init="MenuLegacy" />
 );
 
-Default.story = {
-  name: 'default',
-};
+Default.storyName = 'default';

@@ -17,9 +17,7 @@ export const Horizontal = () => (
   />
 );
 
-Horizontal.story = {
-  name: 'horizontal',
-};
+Horizontal.storyName = 'horizontal';
 
 export const Vertical = () => (
   <SocialMediaFollow
@@ -29,6 +27,4 @@ export const Vertical = () => (
   />
 );
 
-Vertical.story = {
-  name: 'vertical',
-};
+Vertical.storyName = 'vertical';

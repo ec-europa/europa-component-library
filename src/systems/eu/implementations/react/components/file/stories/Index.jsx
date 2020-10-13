@@ -43,9 +43,7 @@ export const WithoutTranslation = () => {
   return <FileDownload {...demoContent} title={title} download={download} />;
 };
 
-WithoutTranslation.story = {
-  name: 'without translation',
-};
+WithoutTranslation.storyName = 'without translation';
 
 export const WithTranslation = () => {
   const title = text('File title', demoContentTranslation.title);
@@ -77,9 +75,7 @@ export const WithTranslation = () => {
   );
 };
 
-WithTranslation.story = {
-  name: 'with translation',
-};
+WithTranslation.storyName = 'with translation';
 
 export const Thumbnail = () => {
   const meta = Array.isArray(demoContentThumbnail.detailMeta)
@@ -132,6 +128,4 @@ export const Thumbnail = () => {
   );
 };
 
-Thumbnail.story = {
-  name: 'with thumbnail',
-};
+Thumbnail.storyName = 'with thumbnail';

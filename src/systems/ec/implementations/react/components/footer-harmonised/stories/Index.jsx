@@ -50,15 +50,11 @@ export const Group1 = () => {
   return <FooterHarmonisedG1 {...dataCopy} />;
 };
 
-Group1.story = {
-  name: 'group 1',
-};
+Group1.storyName = 'group 1';
 
 export const Group2 = () => <FooterHarmonisedG2 {...demoContentGroup2} />;
 
-Group2.story = {
-  name: 'group 2',
-};
+Group2.storyName = 'group 2';
 
 export const Group3 = () => {
   // Optional section
@@ -74,6 +70,4 @@ export const Group3 = () => {
   return <FooterHarmonisedG3 {...dataCopy} />;
 };
 
-Group3.story = {
-  name: 'group 3',
-};
+Group3.storyName = 'group 3';

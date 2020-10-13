@@ -12,6 +12,4 @@ export default {
 
 export const Default = () => <Pagination {...demoContent} />;
 
-Default.story = {
-  name: 'default',
-};
+Default.storyName = 'default';

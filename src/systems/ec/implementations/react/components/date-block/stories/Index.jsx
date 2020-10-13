@@ -20,9 +20,7 @@ export const Default = () => (
   />
 );
 
-Default.story = {
-  name: 'default',
-};
+Default.storyName = 'default';
 
 export const Ongoing = () => (
   <DateBlock
@@ -35,9 +33,7 @@ export const Ongoing = () => (
   />
 );
 
-Ongoing.story = {
-  name: 'ongoing',
-};
+Ongoing.storyName = 'ongoing';
 
 export const Cancelled = () => (
   <DateBlock
@@ -50,9 +46,7 @@ export const Cancelled = () => (
   />
 );
 
-Cancelled.story = {
-  name: 'cancelled',
-};
+Cancelled.storyName = 'cancelled';
 
 export const Past = () => (
   <DateBlock
@@ -65,6 +59,4 @@ export const Past = () => (
   />
 );
 
-Past.story = {
-  name: 'past',
-};
+Past.storyName = 'past';

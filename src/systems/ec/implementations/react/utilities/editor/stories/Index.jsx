@@ -93,6 +93,4 @@ export const Sample = () => {
   );
 };
 
-Sample.story = {
-  name: 'sample',
-};
+Sample.storyName = 'sample';

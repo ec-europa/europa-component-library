@@ -32,6 +32,4 @@ export const Default = () => (
   <Menu {...demoContent} data-ecl-auto-init="Menu" />
 );
 
-Default.story = {
-  name: 'default',
-};
+Default.storyName = 'default';

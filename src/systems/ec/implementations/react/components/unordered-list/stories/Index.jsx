@@ -8,18 +8,12 @@ export default {
 
 export const _Unordered = Unordered;
 
-_Unordered.story = {
-  name: 'unordered',
-};
+_Unordered.storyName = 'unordered';
 
 export const WithoutBullet = UnorderedWithoutBullet;
 
-WithoutBullet.story = {
-  name: 'without bullet',
-};
+WithoutBullet.storyName = 'without bullet';
 
 export const WithDivider = UnorderedWithDivider;
 
-WithDivider.story = {
-  name: 'with divider',
-};
+WithDivider.storyName = 'with divider';

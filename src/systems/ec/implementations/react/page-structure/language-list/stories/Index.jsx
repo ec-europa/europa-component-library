@@ -12,12 +12,8 @@ export default {
 
 export const Splash = () => <LanguageListSplash {...demoContentSplash} />;
 
-Splash.story = {
-  name: 'splash',
-};
+Splash.storyName = 'splash';
 
 export const Overlay = () => <LanguageListOverlay {...demoContentOverlay} />;
 
-Overlay.story = {
-  name: 'overlay',
-};
+Overlay.storyName = 'overlay';

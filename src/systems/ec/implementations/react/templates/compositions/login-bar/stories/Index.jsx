@@ -10,9 +10,7 @@ export default {
 
 export const _LoggedOut = LoggedOut;
 
-_LoggedOut.story = {
-  name: 'Logged out',
-};
+_LoggedOut.storyName = 'Logged out';
 
 export const _LoggedIn = () => {
   const firstname = text('First name', '<first name>');
@@ -20,12 +18,10 @@ export const _LoggedIn = () => {
   return LoggedIn({ firstname, lastname });
 };
 
-_LoggedIn.story = {
-  name: 'Logged in',
+_LoggedIn.storyName = 'Logged in';
 
-  parameters: {
-    knobs: {
-      escapeHTML: false,
-    },
+_LoggedIn.parameters = {
+  knobs: {
+    escapeHTML: false,
   },
 };

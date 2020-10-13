@@ -66,9 +66,7 @@ export const _Card = () => {
   );
 };
 
-_Card.story = {
-  name: 'card',
-};
+_Card.storyName = 'card';
 
 export const Tile = () => {
   const title = {
@@ -98,12 +96,8 @@ export const Tile = () => {
   return <Card title={title} description={description} links={links} />;
 };
 
-Tile.story = {
-  name: 'tile',
-};
+Tile.storyName = 'tile';
 
 export const _Template = template;
 
-_Template.story = {
-  name: 'template',
-};
+_Template.storyName = 'template';

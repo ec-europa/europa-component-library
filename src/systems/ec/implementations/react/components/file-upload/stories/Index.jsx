@@ -57,13 +57,11 @@ export const Default = () => (
   />
 );
 
-Default.story = {
-  name: 'default',
+Default.storyName = 'default';
 
-  parameters: {
-    knobs: {
-      escapeHTML: false,
-    },
+Default.parameters = {
+  knobs: {
+    escapeHTML: false,
   },
 };
 
@@ -92,13 +90,11 @@ export const Multiple = () => (
   />
 );
 
-Multiple.story = {
-  name: 'multiple',
+Multiple.storyName = 'multiple';
 
-  parameters: {
-    knobs: {
-      escapeHTML: false,
-    },
+Multiple.parameters = {
+  knobs: {
+    escapeHTML: false,
   },
 };
 
@@ -126,13 +122,11 @@ export const Disabled = () => (
   />
 );
 
-Disabled.story = {
-  name: 'disabled',
+Disabled.storyName = 'disabled';
 
-  parameters: {
-    knobs: {
-      escapeHTML: false,
-    },
+Disabled.parameters = {
+  knobs: {
+    escapeHTML: false,
   },
 };
 
@@ -160,13 +154,11 @@ export const Invalid = () => (
   />
 );
 
-Invalid.story = {
-  name: 'invalid',
+Invalid.storyName = 'invalid';
 
-  parameters: {
-    knobs: {
-      escapeHTML: false,
-    },
+Invalid.parameters = {
+  knobs: {
+    escapeHTML: false,
   },
 };
 
@@ -194,12 +186,10 @@ export const Optional = () => (
   />
 );
 
-Optional.story = {
-  name: 'optional',
+Optional.storyName = 'optional';
 
-  parameters: {
-    knobs: {
-      escapeHTML: false,
-    },
+Optional.parameters = {
+  knobs: {
+    escapeHTML: false,
   },
 };

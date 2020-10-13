@@ -7,12 +7,8 @@ export default {
 
 export const _Description = Description;
 
-_Description.story = {
-  name: 'description',
-};
+_Description.storyName = 'description';
 
 export const _DescriptionHorizontal = DescriptionHorizontal;
 
-_DescriptionHorizontal.story = {
-  name: 'description (horizontal)',
-};
+_DescriptionHorizontal.storyName = 'description (horizontal)';
