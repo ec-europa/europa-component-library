@@ -20,9 +20,7 @@ const PageHeaderStandardised = ({
             className: 'ecl-page-header-standardised__breadcrumb',
           })}
         {meta && (
-          <div className="ecl-page-header-standardised__meta">
-            {meta.toUpperCase()}
-          </div>
+          <div className="ecl-page-header-standardised__meta">{meta}</div>
         )}
         {title && (
           <h1 className="ecl-page-header-standardised__title">{title}</h1>

@@ -22,11 +22,7 @@ const PageHeaderHarmonised = ({
               'ecl-page-header-harmonised__breadcrumb'
             ),
           })}
-        {meta && (
-          <div className="ecl-page-header-harmonised__meta">
-            {meta.toUpperCase()}
-          </div>
-        )}
+        {meta && <div className="ecl-page-header-harmonised__meta">{meta}</div>}
         {title && (
           <h1 className="ecl-page-header-harmonised__title">{title}</h1>
         )}

@@ -25,9 +25,7 @@ const PageHeaderCore = ({
         {React.cloneElement(breadcrumb, {
           className: 'ecl-page-header-core__breadcrumb',
         })}
-        {meta && (
-          <div className="ecl-page-header-core__meta">{meta.toUpperCase()}</div>
-        )}
+        {meta && <div className="ecl-page-header-core__meta">{meta}</div>}
         {title && <h1 className="ecl-page-header-core__title">{title}</h1>}
         {description && (
           <p className="ecl-page-header-core__description">{description}</p>
