@@ -55,6 +55,4 @@ export const ImageGradient = () => {
   );
 };
 
-ImageGradient.story = {
-  name: 'image - gradient',
-};
+ImageGradient.storyName = 'image - gradient';

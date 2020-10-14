@@ -12,7 +12,7 @@ export const parameters = {
       checks: { 'color-contrast': { options: { noScroll: true } } },
       restoreScroll: true,
     },
-    manual: true,
+    manual: false,
   },
   cssresources: [
     {

@@ -52,6 +52,4 @@ export const ImageBox = () => {
   );
 };
 
-ImageBox.story = {
-  name: 'image - text box',
-};
+ImageBox.storyName = 'image - text box';

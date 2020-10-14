@@ -1,4 +1,3 @@
-import { withA11y } from '@storybook/addon-a11y';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { withCssResources } from '@storybook/addon-cssresources';
 import { withCode } from '../../../../../../tools/storybook-addon-code';
@@ -13,7 +12,7 @@ export const parameters = {
       checks: { 'color-contrast': { options: { noScroll: true } } },
       restoreScroll: true,
     },
-    manual: true,
+    manual: false,
   },
   cssresources: [
     {
@@ -82,4 +81,4 @@ html {
   },
 };
 
-export const decorators = [withCode, withA11y, withCssResources];
+export const decorators = [withCode, withCssResources];
