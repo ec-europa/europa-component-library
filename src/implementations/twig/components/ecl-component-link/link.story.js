@@ -17,6 +17,20 @@ import dataStandalone from './demo/data--standalone';
 import link from './ecl-link.html.twig';
 import notes from './README.md';
 
+const storyAsString = (story) =>
+  `<p class="ecl-u-type-paragraph">${story}</div>`;
+const storyAsNode = (story) => {
+  const wrapper = document.createElement('p');
+  wrapper.className = 'ecl-u-type-paragraph';
+  wrapper.appendChild(story);
+  return wrapper;
+};
+
+const withParagraph = (story) => {
+  const demo = story();
+  return typeof demo === 'string' ? storyAsString(demo) : storyAsNode(demo);
+};
+
 const iconsList = {};
 iconsList.none = '';
 
@@ -47,7 +61,7 @@ const prepareLink = (data) => {
 
 export default {
   title: 'Components/Navigation/Link',
-  decorators: [withKnobs, withNotes, withCode],
+  decorators: [withKnobs, withNotes, withCode, withParagraph],
 };
 
 export const Default = () => {
@@ -60,14 +74,7 @@ export const Default = () => {
     delete dataStory.icon.name;
   }
 
-  const demo = document.createDocumentFragment();
-  const wrapper = document.createElement('p');
-  wrapper.className = 'ecl-u-type-paragraph';
-  wrapper.setAttribute('demo_only', true);
-  wrapper.innerHTML = link(dataStory);
-  demo.appendChild(wrapper);
-
-  return demo;
+  return link(dataStory);
 };
 
 Default.storyName = 'default';
