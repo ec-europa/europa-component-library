@@ -1,0 +1,162 @@
+{% spaceless %}
+
+{#
+  Parameters:
+   - "link" (associative array) (default: predefined structure): format:
+      {
+        type: 'default' (can be 'default', 'standalone')
+        label: '' (string),
+        path: '', (string) (Link url)
+        aria_label: '' (string) Aria label attribute value
+        icon_position: 'after' (string) (Can be 'before' or 'after'. Is required only if Icon is specified)
+      }
+    - "icon" (associative array) OR (array) of associative arrays : format
+      {
+        name: (string) (default: ''),
+        extra_classes: (string) (default: 'ecl-link__icon'),
+        ...
+      }
+      OR
+      [
+        {
+          name: (string) (default: ''),
+          extra_classes: (string) (default: 'ecl-link__icon'),
+          ....
+        },
+        {
+          name: (string) (default: ''),
+          extra_classes: (string) (default: 'ecl-link__icon'),
+          ...
+        }
+        ...
+      ]
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        ...
+      ],
+    - "_compliance_" (boolean) (default: false) Activates debug
+    - "_compliance_inner_check_" (boolean) (default: false) Inline compliance output
+    - "icon_path" (string) (default: '') Path to the icons sprite
+#}
+
+{# Internal properties #}
+
+{% set _compliance = _compliance_|default(false) %}
+{% set _compliance_inner_check = _compliance_inner_check_|default(false) %}
+{% set _icon_path = icon_path|default('') %}
+
+{% set _link = {
+  type: 'default',
+  label: '',
+  path: '',
+  icon_position: ''
+} %}
+
+{% set _icon = {
+  type: '',
+  name: '',
+  path: '',
+  size: ''
+} %}
+
+{% if link is defined %}
+  {% set _link = _link|merge(link) %}
+{% endif %}
+
+{% if icon.name is defined and icon.name is not empty %}
+  {% set _icons = [icon] %}
+{% elseif icon[1] is defined and icon[1] is not empty %}
+  {% set _icons = icon %}
+{% endif %}
+
+{% set _css_class = ['ecl-link', 'ecl-link--' ~ _link.type]|join(' ') %}
+{% set _extra_attributes = '' %}
+
+{% if _icons is defined and _link.icon_position is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-link--icon ecl-link--icon-' ~ _link.icon_position %}
+{% endif %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if _link.aria_label is defined and _link.aria_label is not empty %}
+  {% set extra_attributes = extra_attributes|default([])|merge([{ name: 'aria-label', value: _link.aria_label }]) %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<a
+  href="{{ _link.path }}"
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
+  {%- if _icons is defined and _link.icon_position == 'before' -%}
+    {% for icon in _icons %}
+      {%- if icon.name is not empty -%}
+        {% set _icon_extra_classes = 'ecl-link__icon' %}
+        {%- if icon.extra_classes is defined and icon.extra_classes is not empty -%}
+          {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ icon.extra_classes %}
+        {%- endif -%}
+        {%- include '@ecl/ec-twig-component-icon/ecl-icon.html.twig' with _icon|merge({
+          icon: icon|default({}),
+          extra_classes: _icon_extra_classes,
+          _compliance_: _compliance,
+          _compliance_inner_check_: true
+        }) only -%}
+      {%- endif -%}
+    {% endfor %}
+    {{- '&nbsp;' -}}
+  {%- endif -%}
+  {%- if _icons is defined and _icons is not empty -%}
+    <span class="ecl-link__label">{{ _link.label }}</span>
+  {%- endif -%}
+  {%- if _icons is defined and _link.icon_position == 'after' -%}
+    {{- '&nbsp;' -}}
+    {% for icon in _icons %}
+      {%- if icon.name is not empty -%}
+        {% set _icon_extra_classes = 'ecl-link__icon' %}
+        {%- if icon.extra_classes is defined and icon.extra_classes is not empty -%}
+          {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ icon.extra_classes %}
+        {%- endif -%}
+        {%- include '@ecl/ec-twig-component-icon/ecl-icon.html.twig' with _icon|merge({
+          icon: icon|default({}),
+          extra_classes: _icon_extra_classes,
+          _compliance_: _compliance,
+          _compliance_inner_check_: true
+        }) only -%}
+      {%- endif -%}
+    {% endfor %}
+  {%- endif -%}
+  {% if _icons is not defined %}
+    {{- _link.label -}}
+  {% endif %}
+</a>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl/ec-twig-component-ecl-compliance/components/ecl-compliance-link.html.twig' with {
+    link: _link,
+    icon: _icons,
+    _compliance_inner_check_: _compliance_inner_check,
+    icon_path: _icon_path
+  } only %}
+{% endif %}
+
+{% endspaceless %}
