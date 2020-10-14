@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { withKnobs, text, button } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
 import { loremIpsum } from 'lorem-ipsum';
@@ -13,131 +12,137 @@ const btnIdRemoveHandler = () => {
   randomH2.outerHTML = '';
 };
 
-storiesOf('Components/Navigation/In page navigation', module)
-  .addDecorator(withKnobs)
-  .addDecorator((story) => (
-    <StoryWrapper
-      afterMount={() => {
-        if (!window.ECL) return {};
+export default {
+  title: 'Components/Navigation/In page navigation',
 
-        const autoinit = window.ECL.autoInit();
-        return { components: autoinit.components };
-      }}
-      beforeUnmount={(context) => {
-        if (context.components) {
-          context.components.forEach((c) => c.destroy());
-        }
-      }}
-    >
-      {story()}
-    </StoryWrapper>
-  ))
-  .add('default', () => {
-    const demoText = loremIpsum({ count: 25 });
-    const cssText =
-      'height: 200px; margin: 0 0 1em; background: #ececec; display:flex; padding: 1em; align-items: center; justify-content: center;';
-    const btnLeftLabel = 'Inject a block in the left sidebar';
-    const btnMainLabel = 'Inject a generic block in the main column';
-    const groupId = 'buttons';
-    const btnIdLabel =
-      'Inject a new <h2 id="..." in the main column (random order)';
-    const btnIdRemoveLabel =
-      'Remove an <h2 id="..." from the main column (random order)';
+  decorators: [
+    withKnobs,
+    (story) => (
+      <StoryWrapper
+        afterMount={() => {
+          if (!window.ECL) return {};
 
-    // Buttons for the demo.
-    const btnLeftHandler = () => {
-      const btnLeftElement = document.querySelector('.inPageDemoSidebar');
-      const btnLeftTag = document.createElement('div');
-      btnLeftTag.style.cssText = cssText;
-      btnLeftTag.innerHTML =
-        '<span>This is a block injected in the left sidebar</span>';
-      btnLeftElement.append(btnLeftTag);
-    };
+          const autoinit = window.ECL.autoInit();
+          return { components: autoinit.components };
+        }}
+        beforeUnmount={(context) => {
+          if (context.components) {
+            context.components.forEach((c) => c.destroy());
+          }
+        }}
+      >
+        {story()}
+      </StoryWrapper>
+    ),
+  ],
+};
 
-    const btnMainHandler = () => {
-      const btnMainElement = document.querySelector('.inPageDemoContent');
-      const btnMainTag = document.createElement('div');
-      btnMainTag.style.cssText = cssText;
-      btnMainTag.innerHTML =
-        '<h2>This is an injected block in the Main column</h2>';
-      btnMainElement.append(btnMainTag);
-    };
+export const Default = () => {
+  const demoText = loremIpsum({ count: 25 });
+  const cssText =
+    'height: 200px; margin: 0 0 1em; background: #ececec; display:flex; padding: 1em; align-items: center; justify-content: center;';
+  const btnLeftLabel = 'Inject a block in the left sidebar';
+  const btnMainLabel = 'Inject a generic block in the main column';
+  const groupId = 'buttons';
+  const btnIdLabel =
+    'Inject a new <h2 id="..." in the main column (random order)';
+  const btnIdRemoveLabel =
+    'Remove an <h2 id="..." from the main column (random order)';
 
-    const btnIdHandler = () => {
-      const numParagraphs = document.querySelectorAll('.ecl-col-lg-9 p').length;
-      const position = Math.floor(Math.random() * Math.floor(numParagraphs));
-      const btnIdElement = document.querySelectorAll('.ecl-col-lg-9 p')[
-        position
-      ];
-      const demoId = Math.random().toString(36).slice(7);
-      const btnIdTag = document.createElement('h2');
-      btnIdTag.classList.add('ecl-u-type-heading-2');
-      btnIdTag.id = `new-${demoId}`;
-      btnIdTag.innerHTML = `New heading ${demoId}`;
-      const btnIdParagraph = document.createElement('p');
-      btnIdParagraph.classList.add('ecl-u-type-paragraph-m');
-      btnIdParagraph.innerHTML = demoText;
-      btnIdElement.insertAdjacentHTML('afterend', btnIdParagraph.outerHTML);
-      btnIdElement.insertAdjacentHTML('afterend', btnIdTag.outerHTML);
-    };
+  // Buttons for the demo.
+  const btnLeftHandler = () => {
+    const btnLeftElement = document.querySelector('.inPageDemoSidebar');
+    const btnLeftTag = document.createElement('div');
+    btnLeftTag.style.cssText = cssText;
+    btnLeftTag.innerHTML =
+      '<span>This is a block injected in the left sidebar</span>';
+    btnLeftElement.append(btnLeftTag);
+  };
 
-    button(btnLeftLabel, btnLeftHandler, groupId);
-    button(btnMainLabel, btnMainHandler, groupId);
-    button(btnIdLabel, btnIdHandler, groupId);
-    button(btnIdRemoveLabel, btnIdRemoveHandler, groupId);
+  const btnMainHandler = () => {
+    const btnMainElement = document.querySelector('.inPageDemoContent');
+    const btnMainTag = document.createElement('div');
+    btnMainTag.style.cssText = cssText;
+    btnMainTag.innerHTML =
+      '<h2>This is an injected block in the Main column</h2>';
+    btnMainElement.append(btnMainTag);
+  };
 
-    const inpageProps = {
-      links: [
-        {
-          href: '#inline-nav-1',
-          label: text('First element label', 'Heading 1'),
-        },
-        {
-          href: '#inline-nav-2',
-          label: text('Second element label', 'Heading 2'),
-        },
-        {
-          href: '#inline-nav-3',
-          label: text('Third element label', 'Heading 3'),
-        },
-        {
-          href: '#inline-nav-4',
-          label: text('Fourth element label', 'Heading 4'),
-        },
-      ],
-    };
+  const btnIdHandler = () => {
+    const numParagraphs = document.querySelectorAll('.ecl-col-lg-9 p').length;
+    const position = Math.floor(Math.random() * Math.floor(numParagraphs));
+    const btnIdElement = document.querySelectorAll('.ecl-col-lg-9 p')[position];
+    const demoId = Math.random().toString(36).slice(7);
+    const btnIdTag = document.createElement('h2');
+    btnIdTag.classList.add('ecl-u-type-heading-2');
+    btnIdTag.id = `new-${demoId}`;
+    btnIdTag.innerHTML = `New heading ${demoId}`;
+    const btnIdParagraph = document.createElement('p');
+    btnIdParagraph.classList.add('ecl-u-type-paragraph-m');
+    btnIdParagraph.innerHTML = demoText;
+    btnIdElement.insertAdjacentHTML('afterend', btnIdParagraph.outerHTML);
+    btnIdElement.insertAdjacentHTML('afterend', btnIdTag.outerHTML);
+  };
 
-    return (
-      <div className="ecl-container">
-        <div className="ecl-row ecl-u-mt-l">
-          <div className="ecl-col-lg-3">
-            <div className="inPageDemoSidebar" />
-            <InpageNavigation
-              {...inpageProps}
-              data-ecl-auto-init="InpageNavigation"
-            />
-          </div>
+  button(btnLeftLabel, btnLeftHandler, groupId);
+  button(btnMainLabel, btnMainHandler, groupId);
+  button(btnIdLabel, btnIdHandler, groupId);
+  button(btnIdRemoveLabel, btnIdRemoveHandler, groupId);
 
-          <div className="ecl-col-lg-9">
-            <div className="inPageDemoContent" />
-            <h2 className="ecl-u-type-heading-2" id="inline-nav-1">
-              Heading 1
-            </h2>
-            <p className="ecl-u-type-paragraph-m">{demoText}</p>
-            <h2 className="ecl-u-type-heading-2" id="inline-nav-2">
-              Heading 2
-            </h2>
-            <p className="ecl-u-type-paragraph-m">{demoText}</p>
-            <h2 className="ecl-u-type-heading-2" id="inline-nav-3">
-              Heading 3
-            </h2>
-            <p className="ecl-u-type-paragraph-m">{demoText}</p>
-            <h2 className="ecl-u-type-heading-2" id="inline-nav-4">
-              Heading 4
-            </h2>
-            <p className="ecl-u-type-paragraph-m">{demoText}</p>
-          </div>
+  const inpageProps = {
+    links: [
+      {
+        href: '#inline-nav-1',
+        label: text('First element label', 'Heading 1'),
+      },
+      {
+        href: '#inline-nav-2',
+        label: text('Second element label', 'Heading 2'),
+      },
+      {
+        href: '#inline-nav-3',
+        label: text('Third element label', 'Heading 3'),
+      },
+      {
+        href: '#inline-nav-4',
+        label: text('Fourth element label', 'Heading 4'),
+      },
+    ],
+  };
+
+  return (
+    <div className="ecl-container">
+      <div className="ecl-row ecl-u-mt-l">
+        <div className="ecl-col-lg-3">
+          <div className="inPageDemoSidebar" />
+          <InpageNavigation
+            {...inpageProps}
+            data-ecl-auto-init="InpageNavigation"
+          />
+        </div>
+
+        <div className="ecl-col-lg-9">
+          <div className="inPageDemoContent" />
+          <h2 className="ecl-u-type-heading-2" id="inline-nav-1">
+            Heading 1
+          </h2>
+          <p className="ecl-u-type-paragraph-m">{demoText}</p>
+          <h2 className="ecl-u-type-heading-2" id="inline-nav-2">
+            Heading 2
+          </h2>
+          <p className="ecl-u-type-paragraph-m">{demoText}</p>
+          <h2 className="ecl-u-type-heading-2" id="inline-nav-3">
+            Heading 3
+          </h2>
+          <p className="ecl-u-type-paragraph-m">{demoText}</p>
+          <h2 className="ecl-u-type-heading-2" id="inline-nav-4">
+            Heading 4
+          </h2>
+          <p className="ecl-u-type-paragraph-m">{demoText}</p>
         </div>
       </div>
-    );
-  });
+    </div>
+  );
+};
+
+Default.storyName = 'default';

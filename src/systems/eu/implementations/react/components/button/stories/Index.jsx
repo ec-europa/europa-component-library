@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 
 import demoContentPrimary from '@ecl/eu-specs-button/demo/data--primary';
@@ -21,90 +20,107 @@ const iconPosition = {
   after: 'after',
 };
 
-storiesOf('Components/Button', module)
-  .addDecorator(withKnobs)
-  .add('primary', () => {
-    const buttonIcon = {
-      shape: select('Icon (sample)', icons, ''),
-      size: 'xs',
-    };
+export default {
+  title: 'Components/Button',
+  decorators: [withKnobs],
+};
 
-    return (
-      <Button
-        variant="primary"
-        label={text('Label', demoContentPrimary.label)}
-        type="submit"
-        icon={buttonIcon}
-        iconPosition={select('Icon position', iconPosition, 'after')}
-        disabled={boolean('Disabled', false)}
-      />
-    );
-  })
-  .add('secondary', () => {
-    const buttonIcon = {
-      shape: select('Icon (sample)', icons, ''),
-      size: 'xs',
-    };
+export const Primary = () => {
+  const buttonIcon = {
+    shape: select('Icon (sample)', icons, ''),
+    size: 'xs',
+  };
 
-    return (
-      <Button
-        variant="secondary"
-        label={text('Label', demoContentSecondary.label)}
-        type="button"
-        icon={buttonIcon}
-        iconPosition={select('Icon position', iconPosition, 'after')}
-        disabled={boolean('Disabled', false)}
-      />
-    );
-  })
-  .add('call to action', () => {
-    const buttonIcon = {
-      shape: select('Icon (sample)', icons, ''),
-      size: 'xs',
-    };
+  return (
+    <Button
+      variant="primary"
+      label={text('Label', demoContentPrimary.label)}
+      type="submit"
+      icon={buttonIcon}
+      iconPosition={select('Icon position', iconPosition, 'after')}
+      disabled={boolean('Disabled', false)}
+    />
+  );
+};
 
-    return (
-      <Button
-        variant="call"
-        label={text('Label', demoContentCall.label)}
-        type="submit"
-        icon={buttonIcon}
-        iconPosition={select('Icon position', iconPosition, 'after')}
-        disabled={boolean('Disabled', false)}
-      />
-    );
-  })
-  .add('text', () => {
-    const buttonIcon = {
-      shape: select('Icon (sample)', icons, ''),
-      size: 'xs',
-    };
+Primary.storyName = 'primary';
 
-    return (
-      <Button
-        variant="ghost"
-        label={text('Label', demoContentGhost.label)}
-        type="button"
-        icon={buttonIcon}
-        iconPosition={select('Icon position', iconPosition, 'after')}
-        disabled={boolean('Disabled', false)}
-      />
-    );
-  })
-  .add('search', () => {
-    const buttonIcon = {
-      shape: select('Icon (sample)', icons, ''),
-      size: 'xs',
-    };
+export const Secondary = () => {
+  const buttonIcon = {
+    shape: select('Icon (sample)', icons, ''),
+    size: 'xs',
+  };
 
-    return (
-      <Button
-        variant="search"
-        label={text('Label', demoContentSearch.label)}
-        type="button"
-        icon={buttonIcon}
-        iconPosition={select('Icon position', iconPosition, 'after')}
-        disabled={boolean('Disabled', false)}
-      />
-    );
-  });
+  return (
+    <Button
+      variant="secondary"
+      label={text('Label', demoContentSecondary.label)}
+      type="button"
+      icon={buttonIcon}
+      iconPosition={select('Icon position', iconPosition, 'after')}
+      disabled={boolean('Disabled', false)}
+    />
+  );
+};
+
+Secondary.storyName = 'secondary';
+
+export const CallToAction = () => {
+  const buttonIcon = {
+    shape: select('Icon (sample)', icons, ''),
+    size: 'xs',
+  };
+
+  return (
+    <Button
+      variant="call"
+      label={text('Label', demoContentCall.label)}
+      type="submit"
+      icon={buttonIcon}
+      iconPosition={select('Icon position', iconPosition, 'after')}
+      disabled={boolean('Disabled', false)}
+    />
+  );
+};
+
+CallToAction.storyName = 'call to action';
+
+export const Text = () => {
+  const buttonIcon = {
+    shape: select('Icon (sample)', icons, ''),
+    size: 'xs',
+  };
+
+  return (
+    <Button
+      variant="ghost"
+      label={text('Label', demoContentGhost.label)}
+      type="button"
+      icon={buttonIcon}
+      iconPosition={select('Icon position', iconPosition, 'after')}
+      disabled={boolean('Disabled', false)}
+    />
+  );
+};
+
+Text.storyName = 'text';
+
+export const Search = () => {
+  const buttonIcon = {
+    shape: select('Icon (sample)', icons, ''),
+    size: 'xs',
+  };
+
+  return (
+    <Button
+      variant="search"
+      label={text('Label', demoContentSearch.label)}
+      type="button"
+      icon={buttonIcon}
+      iconPosition={select('Icon position', iconPosition, 'after')}
+      disabled={boolean('Disabled', false)}
+    />
+  );
+};
+
+Search.storyName = 'search';
