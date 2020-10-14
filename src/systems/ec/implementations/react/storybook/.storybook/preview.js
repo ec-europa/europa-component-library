@@ -1,4 +1,3 @@
-import { withA11y } from '@storybook/addon-a11y';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { withCssResources } from '@storybook/addon-cssresources';
 import { withCode } from '../../../../../../tools/storybook-addon-code';
@@ -7,11 +6,13 @@ import './ECL';
 
 export const parameters = {
   a11y: {
-    configure: {},
+    element: '#root',
+    config: {},
     options: {
       checks: { 'color-contrast': { options: { noScroll: true } } },
       restoreScroll: true,
     },
+    manual: true,
   },
   cssresources: [
     {
@@ -78,9 +79,6 @@ html {
       },
     },
   },
-  options: {
-    showRoots: true,
-  },
 };
 
-export const decorators = [withCode, withA11y, withCssResources];
+export const decorators = [withCode, withCssResources];

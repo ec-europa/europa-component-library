@@ -7,11 +7,13 @@ import './ECL';
 
 export const parameters = {
   a11y: {
-    configure: {},
+    element: '#root',
+    config: {},
     options: {
       checks: { 'color-contrast': { options: { noScroll: true } } },
       restoreScroll: true,
     },
+    manual: true,
   },
   cssresources: [
     {
@@ -77,9 +79,6 @@ html {
         type: 'desktop',
       },
     },
-  },
-  options: {
-    showRoots: true,
   },
 };
 

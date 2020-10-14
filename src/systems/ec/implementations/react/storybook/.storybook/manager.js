@@ -12,6 +12,7 @@ const theme = create({
 });
 
 addons.setConfig({
+  showRoots: false,
   theme,
   sidebarAnimations: false,
   panelPosition: 'right',
