@@ -49,6 +49,4 @@ export const SimpleWhite = () => {
   );
 };
 
-SimpleWhite.story = {
-  name: 'simple - white',
-};
+SimpleWhite.storyName = 'simple - white';

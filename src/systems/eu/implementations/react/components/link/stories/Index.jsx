@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 
 import demoContentDefault from '@ecl/eu-specs-link/demo/data--default';
@@ -24,56 +23,67 @@ const iconPosition = {
   after: 'after',
 };
 
-storiesOf('Components/Navigation/Link', module)
-  .addDecorator(withKnobs)
-  .add('default', () => {
-    const linkIcon = {
-      shape: select('Icon (sample)', icons, ''),
-      size: 'fluid',
-    };
+export default {
+  title: 'Components/Navigation/Link',
+  decorators: [withKnobs],
+};
 
-    return (
-      <Link
-        variant="default"
-        href="/example#default-link"
-        label={text('Label', demoContentDefault.label)}
-        ariaLabel={text('Aria label', demoContentDefault.ariaLabel)}
-        icon={linkIcon}
-        iconPosition={select('Icon position', iconPosition, 'after')}
-      />
-    );
-  })
-  .add('standalone', () => {
-    const linkIcon = {
-      shape: select('Icon (sample)', icons, ''),
-      size: 'fluid',
-    };
+export const Default = () => {
+  const linkIcon = {
+    shape: select('Icon (sample)', icons, ''),
+    size: 'fluid',
+  };
 
-    return (
-      <Link
-        variant="standalone"
-        href="/example#standalone-link"
-        label={text('Label', demoContentStandalone.label)}
-        ariaLabel={text('Aria label', demoContentDefault.ariaLabel)}
-        icon={linkIcon}
-        iconPosition={select('Icon position', iconPosition, 'after')}
-      />
-    );
-  })
-  .add('call-to-action', () => {
-    const linkIcon = {
-      shape: select('Icon (sample)', icons, ''),
-      size: 'fluid',
-    };
+  return (
+    <Link
+      variant="default"
+      href="/example#default-link"
+      label={text('Label', demoContentDefault.label)}
+      ariaLabel={text('Aria label', demoContentDefault.ariaLabel)}
+      icon={linkIcon}
+      iconPosition={select('Icon position', iconPosition, 'after')}
+    />
+  );
+};
 
-    return (
-      <Link
-        variant={demoContentCTA.variant}
-        href={demoContentCTA.href}
-        label={text('Label', demoContentCTA.label)}
-        ariaLabel={text('Aria label', demoContentStandalone.ariaLabel)}
-        icon={linkIcon}
-        iconPosition={select('Icon position', iconPosition, 'after')}
-      />
-    );
-  });
+Default.storyName = 'default';
+
+export const Standalone = () => {
+  const linkIcon = {
+    shape: select('Icon (sample)', icons, ''),
+    size: 'fluid',
+  };
+
+  return (
+    <Link
+      variant="standalone"
+      href="/example#standalone-link"
+      label={text('Label', demoContentStandalone.label)}
+      ariaLabel={text('Aria label', demoContentDefault.ariaLabel)}
+      icon={linkIcon}
+      iconPosition={select('Icon position', iconPosition, 'after')}
+    />
+  );
+};
+
+Standalone.storyName = 'standalone';
+
+export const CallToAction = () => {
+  const linkIcon = {
+    shape: select('Icon (sample)', icons, ''),
+    size: 'fluid',
+  };
+
+  return (
+    <Link
+      variant={demoContentCTA.variant}
+      href={demoContentCTA.href}
+      label={text('Label', demoContentCTA.label)}
+      ariaLabel={text('Aria label', demoContentStandalone.ariaLabel)}
+      icon={linkIcon}
+      iconPosition={select('Icon position', iconPosition, 'after')}
+    />
+  );
+};
+
+CallToAction.storyName = 'call-to-action';

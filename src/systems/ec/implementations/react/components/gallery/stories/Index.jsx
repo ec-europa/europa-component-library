@@ -34,6 +34,4 @@ export const Default = () => (
   <Gallery {...demoContent} data-ecl-auto-init="Gallery" />
 );
 
-Default.story = {
-  name: 'default',
-};
+Default.storyName = 'default';

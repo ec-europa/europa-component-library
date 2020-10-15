@@ -36,13 +36,11 @@ export const Default = () => (
   />
 );
 
-Default.story = {
-  name: 'default',
+Default.storyName = 'default';
 
-  parameters: {
-    knobs: {
-      escapeHTML: false,
-    },
+Default.parameters = {
+  knobs: {
+    escapeHTML: false,
   },
 };
 
@@ -114,12 +112,10 @@ export const Multiple = () => {
   );
 };
 
-Multiple.story = {
-  name: 'multiple',
+Multiple.storyName = 'multiple';
 
-  parameters: {
-    knobs: {
-      escapeHTML: false,
-    },
+Multiple.parameters = {
+  knobs: {
+    escapeHTML: false,
   },
 };

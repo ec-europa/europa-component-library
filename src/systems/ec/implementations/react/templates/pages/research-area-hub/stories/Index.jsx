@@ -7,7 +7,7 @@ import ResearchAreaHubHarmonisedG1 from '../examples/ResearchAreaHubHarmonisedG1
 import ResearchAreaHubHarmonisedG2 from '../examples/ResearchAreaHubHarmonisedG2';
 
 export default {
-  title: 'Templates/Pages',
+  title: 'Templates/Pages/Research area hub',
   decorators: [withKnobs],
 };
 
@@ -161,8 +161,4 @@ export const ResearchAreaHub = () => {
     'optional (core)'
   );
   return <ResearchAreaHubCore {...optional} />;
-};
-
-ResearchAreaHub.story = {
-  name: 'Research area hub',
 };

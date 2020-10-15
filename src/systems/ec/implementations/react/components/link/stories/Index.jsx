@@ -46,9 +46,7 @@ export const Default = () => {
   );
 };
 
-Default.story = {
-  name: 'default',
-};
+Default.storyName = 'default';
 
 export const Standalone = () => {
   const linkIcon = {
@@ -68,9 +66,7 @@ export const Standalone = () => {
   );
 };
 
-Standalone.story = {
-  name: 'standalone',
-};
+Standalone.storyName = 'standalone';
 
 export const CallToAction = () => {
   const linkIcon = {
@@ -90,6 +86,4 @@ export const CallToAction = () => {
   );
 };
 
-CallToAction.story = {
-  name: 'call-to-action',
-};
+CallToAction.storyName = 'call-to-action';

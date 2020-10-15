@@ -21,9 +21,7 @@ export const Video = () => (
   />
 );
 
-Video.story = {
-  name: 'video',
-};
+Video.storyName = 'video';
 
 export const Image = () => (
   <MediaContainer
@@ -33,9 +31,7 @@ export const Image = () => (
   />
 );
 
-Image.story = {
-  name: 'image',
-};
+Image.storyName = 'image';
 
 export const EmbedVideo = () => (
   <MediaContainer
@@ -53,6 +49,4 @@ export const EmbedVideo = () => (
   </MediaContainer>
 );
 
-EmbedVideo.story = {
-  name: 'embedded video',
-};
+EmbedVideo.storyName = 'embedded video';

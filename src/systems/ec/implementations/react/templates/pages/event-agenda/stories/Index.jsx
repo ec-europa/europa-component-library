@@ -7,7 +7,7 @@ import EventAgendaHarmonisedG1 from '../examples/EventAgendaHarmonisedG1';
 import EventAgendaHarmonisedG2 from '../examples/EventAgendaHarmonisedG2';
 
 export default {
-  title: 'Templates/Pages',
+  title: 'Templates/Pages/Event Agenda',
   decorators: [withKnobs],
 };
 
@@ -161,8 +161,4 @@ export const EventAgenda = () => {
     'optional (core)'
   );
   return <EventAgendaCore {...optional} />;
-};
-
-EventAgenda.story = {
-  name: 'Event agenda',
 };

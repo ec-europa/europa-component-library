@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { withKnobs, button } from '@storybook/addon-knobs';
 import { withCssResources } from '@storybook/addon-cssresources';
 import StoryWrapper from '@ecl/story-wrapper';
@@ -28,9 +27,15 @@ const btnAddContent = () => {
   }
 };
 
-storiesOf('Components/Timeline', module)
-  .addDecorator(withKnobs)
-  .addDecorator((story) => (
+export const DeprecatedEcl250 = () => {
+  button('Add dummy content', btnAddContent, 'buttons');
+
+  return <TimelineExample />;
+};
+
+DeprecatedEcl250.decorators = [
+  withKnobs,
+  (story) => (
     <StoryWrapper
       afterMount={() => {
         if (!window.ECL) return {};
@@ -46,43 +51,42 @@ storiesOf('Components/Timeline', module)
     >
       {story()}
     </StoryWrapper>
-  ))
-  .addDecorator(withCssResources)
-  .addParameters({
-    cssresources: [
-      {
-        id: 'ecl-legacy-screen',
-        code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-eu-preset-legacy-website.css" />`,
-        picked: true,
-      },
-      {
-        id: 'ecl-legacy-print',
-        code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-eu-preset-legacy-website-print.css" />`,
-        picked: false,
-      },
-      {
-        id: 'test-fake-global-rules',
-        code: `
-  <style>
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
+  ),
+  withCssResources,
+];
 
-  html {
-    color: red;
-    font-family: serif;
-    font-weight: 700;
-    line-height: 2;
-  }
-  </style>`,
-        picked: false,
-      },
-    ],
-  })
-  .add('[deprecated] ECL <2.5.0', () => {
-    button('Add dummy content', btnAddContent, 'buttons');
+DeprecatedEcl250.parameters = {
+  cssresources: [
+    {
+      id: 'ecl-legacy-screen',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-eu-preset-legacy-website.css" />`,
+      picked: true,
+    },
+    {
+      id: 'ecl-legacy-print',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-eu-preset-legacy-website-print.css" />`,
+      picked: false,
+    },
+    {
+      id: 'test-fake-global-rules',
+      code: `
+<style>
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-    return <TimelineExample />;
-  });
+html {
+  color: red;
+  font-family: serif;
+  font-weight: 700;
+  line-height: 2;
+}
+</style>`,
+      picked: false,
+    },
+  ],
+};
+
+DeprecatedEcl250.storyName = '[deprecated] ECL <2.5.0';

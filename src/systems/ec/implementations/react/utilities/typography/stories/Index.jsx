@@ -30,9 +30,7 @@ export const Paragraph = () => {
   );
 };
 
-Paragraph.story = {
-  name: 'paragraph',
-};
+Paragraph.storyName = 'paragraph';
 
 export const Heading = () => {
   const content = text('Content', demoContentHeading.content);
@@ -48,9 +46,7 @@ export const Heading = () => {
   );
 };
 
-Heading.story = {
-  name: 'heading',
-};
+Heading.storyName = 'heading';
 
 export const TextColour = () => {
   const colour = select(
@@ -78,9 +74,7 @@ export const TextColour = () => {
   );
 };
 
-TextColour.story = {
-  name: 'text colour',
-};
+TextColour.storyName = 'text colour';
 
 export const TextStyle = () => {
   const bold = boolean('Bold text', false);
@@ -111,6 +105,4 @@ export const TextStyle = () => {
   );
 };
 
-TextStyle.story = {
-  name: 'text style',
-};
+TextStyle.storyName = 'text style';

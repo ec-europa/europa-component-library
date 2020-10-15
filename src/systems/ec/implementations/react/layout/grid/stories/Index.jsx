@@ -73,9 +73,7 @@ export const _234612 = () => {
   );
 };
 
-_234612.story = {
-  name: '2-3-4-6-12',
-};
+_234612.storyName = '2-3-4-6-12';
 
 export const _642 = () => {
   return (
@@ -86,9 +84,7 @@ export const _642 = () => {
   );
 };
 
-_642.story = {
-  name: '6-4-2',
-};
+_642.storyName = '6-4-2';
 
 export const _282 = () => {
   return (
@@ -99,9 +95,7 @@ export const _282 = () => {
   );
 };
 
-_282.story = {
-  name: '2-8-2',
-};
+_282.storyName = '2-8-2';
 
 export const _336 = () => {
   return (
@@ -112,9 +106,7 @@ export const _336 = () => {
   );
 };
 
-_336.story = {
-  name: '3-3-6',
-};
+_336.storyName = '3-3-6';
 
 export const _Offset = () => {
   return (
@@ -125,9 +117,7 @@ export const _Offset = () => {
   );
 };
 
-_Offset.story = {
-  name: 'offset',
-};
+_Offset.storyName = 'offset';
 
 export const _Responsive = () => {
   return (
@@ -138,6 +128,4 @@ export const _Responsive = () => {
   );
 };
 
-_Responsive.story = {
-  name: 'responsive',
-};
+_Responsive.storyName = 'responsive';

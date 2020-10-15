@@ -13,24 +13,16 @@ export default {
 
 export const Left = () => <ContentMediaExampleLeft />;
 
-Left.story = {
-  name: 'left',
-};
+Left.storyName = 'left';
 
 export const LeftCta = () => <ContentMediaExampleLeftCta />;
 
-LeftCta.story = {
-  name: 'left, call to action',
-};
+LeftCta.storyName = 'left, call to action';
 
 export const Right = () => <ContentMediaExampleRight />;
 
-Right.story = {
-  name: 'right',
-};
+Right.storyName = 'right';
 
 export const RightCta = () => <ContentMediaExampleRightCta />;
 
-RightCta.story = {
-  name: 'right, call to action',
-};
+RightCta.storyName = 'right, call to action';

@@ -7,7 +7,7 @@ import SearchHarmonisedG1 from '../examples/SearchHarmonisedG1';
 import SearchHarmonisedG2 from '../examples/SearchHarmonisedG2';
 
 export default {
-  title: 'Templates/Pages',
+  title: 'Templates/Pages/Search',
   decorators: [withKnobs],
 };
 

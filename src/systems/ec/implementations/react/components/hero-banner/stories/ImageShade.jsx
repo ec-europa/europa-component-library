@@ -55,6 +55,4 @@ export const ImageShade = () => {
   );
 };
 
-ImageShade.story = {
-  name: 'image - shade',
-};
+ImageShade.storyName = 'image - shade';

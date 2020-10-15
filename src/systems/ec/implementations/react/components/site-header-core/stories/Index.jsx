@@ -45,9 +45,7 @@ export const Default = () => {
   return <SiteHeaderCore {...dataCopy} data-ecl-auto-init="SiteHeaderCore" />;
 };
 
-Default.story = {
-  name: 'default',
-};
+Default.storyName = 'default';
 
 export const LoggedIn = () => {
   // Optional elements
@@ -66,9 +64,7 @@ export const LoggedIn = () => {
   );
 };
 
-LoggedIn.story = {
-  name: 'logged in',
-};
+LoggedIn.storyName = 'logged in';
 
 export const Translated = () => {
   // Optional elements
@@ -85,6 +81,4 @@ export const Translated = () => {
   return <SiteHeaderCore {...dataCopy} data-ecl-auto-init="SiteHeaderCore" />;
 };
 
-Translated.story = {
-  name: 'translated',
-};
+Translated.storyName = 'translated';

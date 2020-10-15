@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { withKnobs, select } from '@storybook/addon-knobs';
 
 import brandedIcons from '@ecl/eu-resources-icons/dist/lists/branded.json';
@@ -39,65 +38,79 @@ const transforms = {
 
 const defaultTransform = '';
 
-storiesOf('Components/Icon', module)
-  .addDecorator(withKnobs)
-  .add('branded', () => {
-    const shape = select('Icon', brandedIcons, brandedIcons[0]);
-    const size = select('Size', sizes, defaultSize);
-    const color = select('Color', colors, defaultColor);
-    const transform = select('Transform', transforms, defaultTransform);
+export default {
+  title: 'Components/Icon',
+  decorators: [withKnobs],
+};
 
-    return (
-      <Icon
-        shape={`branded--${shape}`}
-        size={size}
-        color={color}
-        transform={transform}
-      />
-    );
-  })
-  .add('general', () => {
-    const shape = select('Icon', generalIcons, generalIcons[0]);
-    const size = select('Size', sizes, defaultSize);
-    const color = select('Color', colors, defaultColor);
-    const transform = select('Transform', transforms, defaultTransform);
+export const Branded = () => {
+  const shape = select('Icon', brandedIcons, brandedIcons[0]);
+  const size = select('Size', sizes, defaultSize);
+  const color = select('Color', colors, defaultColor);
+  const transform = select('Transform', transforms, defaultTransform);
 
-    return (
-      <Icon
-        shape={`general--${shape}`}
-        size={size}
-        color={color}
-        transform={transform}
-      />
-    );
-  })
-  .add('notifications', () => {
-    const shape = select('Icon', notificationsIcons, notificationsIcons[0]);
-    const size = select('Size', sizes, defaultSize);
-    const color = select('Color', colors, defaultColor);
-    const transform = select('Transform', transforms, defaultTransform);
+  return (
+    <Icon
+      shape={`branded--${shape}`}
+      size={size}
+      color={color}
+      transform={transform}
+    />
+  );
+};
 
-    return (
-      <Icon
-        shape={`notifications--${shape}`}
-        size={size}
-        color={color}
-        transform={transform}
-      />
-    );
-  })
-  .add('ui', () => {
-    const shape = select('Icon', uiIcons, uiIcons[0]);
-    const size = select('Size', sizes, defaultSize);
-    const color = select('Color', colors, defaultColor);
-    const transform = select('Transform', transforms, defaultTransform);
+Branded.storyName = 'branded';
 
-    return (
-      <Icon
-        shape={`ui--${shape}`}
-        size={size}
-        color={color}
-        transform={transform}
-      />
-    );
-  });
+export const General = () => {
+  const shape = select('Icon', generalIcons, generalIcons[0]);
+  const size = select('Size', sizes, defaultSize);
+  const color = select('Color', colors, defaultColor);
+  const transform = select('Transform', transforms, defaultTransform);
+
+  return (
+    <Icon
+      shape={`general--${shape}`}
+      size={size}
+      color={color}
+      transform={transform}
+    />
+  );
+};
+
+General.storyName = 'general';
+
+export const Notifications = () => {
+  const shape = select('Icon', notificationsIcons, notificationsIcons[0]);
+  const size = select('Size', sizes, defaultSize);
+  const color = select('Color', colors, defaultColor);
+  const transform = select('Transform', transforms, defaultTransform);
+
+  return (
+    <Icon
+      shape={`notifications--${shape}`}
+      size={size}
+      color={color}
+      transform={transform}
+    />
+  );
+};
+
+Notifications.storyName = 'notifications';
+
+export const Ui = () => {
+  const shape = select('Icon', uiIcons, uiIcons[0]);
+  const size = select('Size', sizes, defaultSize);
+  const color = select('Color', colors, defaultColor);
+  const transform = select('Transform', transforms, defaultTransform);
+
+  return (
+    <Icon
+      shape={`ui--${shape}`}
+      size={size}
+      color={color}
+      transform={transform}
+    />
+  );
+};
+
+Ui.storyName = 'ui';

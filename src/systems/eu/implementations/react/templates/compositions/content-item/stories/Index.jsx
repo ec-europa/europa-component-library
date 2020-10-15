@@ -14,30 +14,20 @@ export default {
 
 export const Default = () => <ContentItemExampleDefault />;
 
-Default.story = {
-  name: 'default',
-};
+Default.storyName = 'default';
 
 export const Simple = () => <ContentItemExampleSimple />;
 
-Simple.story = {
-  name: 'simple',
-};
+Simple.storyName = 'simple';
 
 export const ImageOnLeft = () => <ContentItemExampleImageLeft />;
 
-ImageOnLeft.story = {
-  name: 'image on left',
-};
+ImageOnLeft.storyName = 'image on left';
 
 export const WithDate = () => <ContentItemExampleDate />;
 
-WithDate.story = {
-  name: 'with date',
-};
+WithDate.storyName = 'with date';
 
 export const CustomContent = () => <ContentItemExampleCustom />;
 
-CustomContent.story = {
-  name: 'custom content',
-};
+CustomContent.storyName = 'custom content';

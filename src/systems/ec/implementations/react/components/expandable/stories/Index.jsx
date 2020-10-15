@@ -42,6 +42,4 @@ export const Default = () => (
   </Expandable>
 );
 
-Default.story = {
-  name: 'default',
-};
+Default.storyName = 'default';

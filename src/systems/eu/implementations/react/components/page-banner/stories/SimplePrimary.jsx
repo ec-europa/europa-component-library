@@ -49,6 +49,4 @@ export const SimplePrimary = () => {
   );
 };
 
-SimplePrimary.story = {
-  name: 'simple - primary',
-};
+SimplePrimary.storyName = 'simple - primary';
