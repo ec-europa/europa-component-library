@@ -1,7 +1,9 @@
 // Simple content for demo
 module.exports = {
-  variant: 'standalone',
-  label: 'Standalone link',
-  ariaLabel: 'Read more about the Standalone link',
-  href: '/example#link-standalone',
+  link: {
+    type: 'standalone',
+    label: 'Standalone link',
+    path: '/example',
+    aria_label: 'Read more about the Standalone link',
+  },
 };

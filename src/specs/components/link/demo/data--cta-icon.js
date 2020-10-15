@@ -1,12 +1,17 @@
 // Simple content for demo
 module.exports = {
-  variant: 'cta',
-  label: 'Call to action link with icon',
-  ariaLabel: 'Read more about Call to action link with icon',
-  href: '/example#link-cta',
+  link: {
+    type: 'cta',
+    label: 'Call to action link with icon',
+    path: '/example',
+    aria_label: 'Read more about Call to action link with icon',
+    icon_position: 'after',
+  },
   icon: {
-    shape: 'ui--corner-arrow',
-    transform: 'rotate-90',
+    path: '/icons.svg',
+    type: 'ui',
+    name: 'corner-arrow',
     size: 'fluid',
+    transform: 'rotate-90',
   },
 };

@@ -1,7 +1,9 @@
 // Simple content for demo
 module.exports = {
-  variant: 'cta',
-  label: 'Call to action link',
-  ariaLabel: 'Read more about the CTA link component',
-  href: '/example#link-cta',
+  link: {
+    type: 'cta',
+    label: 'Call to action link',
+    path: '/example',
+    aria_label: 'Read more about the CTA link component',
+  },
 };

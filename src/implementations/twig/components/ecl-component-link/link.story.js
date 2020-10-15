@@ -10,9 +10,9 @@ import {
 
 // Import data for demos
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
-import dataDefault from './demo/data--default';
-import dataCta from './demo/data--call-to-action';
-import dataStandalone from './demo/data--standalone';
+import dataDefault from '@ecl/ec-specs-link/demo/data--default';
+import dataCta from '@ecl/ec-specs-link/demo/data--cta';
+import dataStandalone from '@ecl/ec-specs-link/demo/data--standalone';
 
 import link from './ecl-link.html.twig';
 import notes from './README.md';
@@ -69,7 +69,7 @@ export const Default = () => {
 
   const name = select('icon.name', iconsList, '', tabLabels.optional);
   if (name !== '') {
-    getIconKnobs(dataStory, name, 'ui', 'xs');
+    getIconKnobs(dataStory, name, 'ui', 'fluid');
   } else if (name === '' && dataStory.icon) {
     delete dataStory.icon.name;
   }
@@ -85,7 +85,7 @@ export const Standalone = () => {
   const dataStory = prepareLink(dataStandalone);
   const name = select('icon.name', iconsList, '', tabLabels.optional);
   if (name !== '') {
-    getIconKnobs(dataStory, name, 'ui', 'xs');
+    getIconKnobs(dataStory, name, 'ui', 'fluid');
   } else if (name === '' && dataStory.icon) {
     delete dataStory.icon.name;
   }
