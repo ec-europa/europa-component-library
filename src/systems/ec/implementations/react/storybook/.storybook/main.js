@@ -10,26 +10,35 @@ const stories = [
 ];
 
 const addons = [
+  '@ecl/storybook-addon-code/register',
   '@storybook/addon-knobs',
   '@storybook/addon-viewport',
   '@storybook/addon-a11y',
   '@storybook/addon-cssresources',
 ];
 
-const managerEntries = [
-  '../../../../../../src/tools/storybook-addon-code/register',
-];
-
-const managerWebpack = async (baseConfig) => {
+const webpackFinal = (defaultConfig, mode) => {
   // Babel loader: include "src"
-  baseConfig.module.rules[0].include.push(
+  defaultConfig.module.rules[0].include.push(
     path.resolve(__dirname, '../../../../../..')
   );
 
-  // Exclude node_modules
-  baseConfig.module.rules[0].exclude = /node_modules/;
+  defaultConfig.module.rules[0].exclude = /node_modules/;
 
-  return baseConfig;
+  // Change media dist folder
+  defaultConfig.module.rules[5].query.name =
+    'dist/images/[name].[hash:8].[ext]';
+
+  if (mode === 'PRODUCTION') {
+    const processPluginIndex = defaultConfig.plugins.findIndex(
+      (plugin) => plugin instanceof webpack.ProgressPlugin
+    );
+    if (processPluginIndex > 0) {
+      defaultConfig.plugins.splice(processPluginIndex, 1);
+    }
+  }
+
+  return defaultConfig;
 };
 
-module.exports = { stories, addons, managerEntries, managerWebpack };
+module.exports = { stories, addons, webpackFinal };

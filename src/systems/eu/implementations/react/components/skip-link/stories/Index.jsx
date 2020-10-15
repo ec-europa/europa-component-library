@@ -1,15 +1,15 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { withCssResources } from '@storybook/addon-cssresources';
 
 import demoData from '@ecl/eu-specs-skip-link/demo/data';
 import { SkipLink } from '../src/SkipLink';
 
-storiesOf('Components/Navigation/Skip link', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withCssResources)
-  .addParameters({
+export default {
+  title: 'Components/Navigation/Skip link',
+  decorators: [withKnobs, withCssResources],
+
+  parameters: {
     cssresources: [
       {
         id: 'ecl-legacy-screen',
@@ -41,12 +41,16 @@ storiesOf('Components/Navigation/Skip link', module)
         picked: false,
       },
     ],
-  })
-  .add('default', () => {
-    return (
-      <>
-        <SkipLink href={demoData.href} label={text('Label', demoData.label)} />
-        <div id={demoData.href.replace('#', '')} />
-      </>
-    );
-  });
+  },
+};
+
+export const Default = () => {
+  return (
+    <>
+      <SkipLink href={demoData.href} label={text('Label', demoData.label)} />
+      <div id={demoData.href.replace('#', '')} />
+    </>
+  );
+};
+
+Default.storyName = 'default';

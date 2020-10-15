@@ -39,12 +39,10 @@ export const Default = () => (
   />
 );
 
-Default.story = {
-  name: 'default',
+Default.storyName = 'default';
 
-  parameters: {
-    knobs: {
-      escapeHTML: false,
-    },
+Default.parameters = {
+  knobs: {
+    escapeHTML: false,
   },
 };

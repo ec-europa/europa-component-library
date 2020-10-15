@@ -57,6 +57,4 @@ export const Default = () => {
   return <Timeline2Example />;
 };
 
-Default.story = {
-  name: 'default',
-};
+Default.storyName = 'default';

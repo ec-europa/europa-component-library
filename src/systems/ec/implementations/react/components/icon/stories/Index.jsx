@@ -59,9 +59,7 @@ export const Branded = () => {
   );
 };
 
-Branded.story = {
-  name: 'branded',
-};
+Branded.storyName = 'branded';
 
 export const General = () => {
   const shape = select('Icon', generalIcons, generalIcons[0]);
@@ -79,9 +77,7 @@ export const General = () => {
   );
 };
 
-General.story = {
-  name: 'general',
-};
+General.storyName = 'general';
 
 export const Notifications = () => {
   const shape = select('Icon', notificationsIcons, notificationsIcons[0]);
@@ -99,9 +95,7 @@ export const Notifications = () => {
   );
 };
 
-Notifications.story = {
-  name: 'notifications',
-};
+Notifications.storyName = 'notifications';
 
 export const Ui = () => {
   const shape = select('Icon', uiIcons, uiIcons[0]);
@@ -119,6 +113,4 @@ export const Ui = () => {
   );
 };
 
-Ui.story = {
-  name: 'ui',
-};
+Ui.storyName = 'ui';

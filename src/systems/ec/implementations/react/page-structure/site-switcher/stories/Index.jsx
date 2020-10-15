@@ -1,6 +1,5 @@
 /*
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 
 import demoContent from '@ecl/ec-specs-site-switcher/demo/data';
@@ -13,24 +12,29 @@ const variant = {
   footer: 'footer',
 };
 
-storiesOf('Page structure/SiteSwitcher', module)
-  .addDecorator(withKnobs)
-  .add('default', () => (
-    <SiteSwitcher
-      variant={select('variant', variant, 'header')}
-      info={{
-        label: text('info item label', demoContent.info.label),
-        href: demoContent.info.href,
-        isSelected: boolean('info item selected', demoContent.info.isSelected),
-      }}
-      political={{
-        label: text('political item label', demoContent.political.label),
-        href: demoContent.political.href,
-        isSelected: boolean(
-          'political item selected',
-          demoContent.political.isSelected
-        ),
-      }}
-    />
-  ));
+export default {
+  title: 'Page structure/SiteSwitcher',
+  decorators: [withKnobs],
+};
+
+export const Default = () => (
+  <SiteSwitcher
+    variant={select('variant', variant, 'header')}
+    info={{
+      label: text('info item label', demoContent.info.label),
+      href: demoContent.info.href,
+      isSelected: boolean('info item selected', demoContent.info.isSelected),
+    }}
+    political={{
+      label: text('political item label', demoContent.political.label),
+      href: demoContent.political.href,
+      isSelected: boolean(
+        'political item selected',
+        demoContent.political.isSelected
+      ),
+    }}
+  />
+);
+
+Default.storyName = 'default';
 */

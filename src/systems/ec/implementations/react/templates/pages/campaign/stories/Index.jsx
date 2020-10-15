@@ -7,7 +7,7 @@ import defaultData from '@ecl/ec-specs-campaign-page/demo/data';
 import CampaignPage from '../src/CampaignPage';
 
 export default {
-  title: 'Templates/Pages',
+  title: 'Templates/Pages/Campaign page',
 
   decorators: [
     withKnobs,

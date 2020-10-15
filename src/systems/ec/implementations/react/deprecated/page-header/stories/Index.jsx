@@ -34,9 +34,7 @@ export const Title = () => (
   />
 );
 
-Title.story = {
-  name: 'title',
-};
+Title.storyName = 'title';
 
 export const MetaTitle = () => (
   <PageHeader
@@ -46,9 +44,7 @@ export const MetaTitle = () => (
   />
 );
 
-MetaTitle.story = {
-  name: 'meta-title',
-};
+MetaTitle.storyName = 'meta-title';
 
 export const MetaTitleDescription = () => (
   <PageHeader
@@ -62,9 +58,7 @@ export const MetaTitleDescription = () => (
   />
 );
 
-MetaTitleDescription.story = {
-  name: 'meta-title-description',
-};
+MetaTitleDescription.storyName = 'meta-title-description';
 
 export const TitleDescription = () => (
   <PageHeader
@@ -74,9 +68,7 @@ export const TitleDescription = () => (
   />
 );
 
-TitleDescription.story = {
-  name: 'title-description',
-};
+TitleDescription.storyName = 'title-description';
 
 export const Events = () => (
   <PageHeader
@@ -90,9 +82,7 @@ export const Events = () => (
   />
 );
 
-Events.story = {
-  name: 'events',
-};
+Events.storyName = 'events';
 
 export const EventsDescription = () => (
   <PageHeader
@@ -107,9 +97,7 @@ export const EventsDescription = () => (
   />
 );
 
-EventsDescription.story = {
-  name: 'events-description',
-};
+EventsDescription.storyName = 'events-description';
 
 export const BackgroundImage = () => (
   <PageHeader
@@ -121,6 +109,4 @@ export const BackgroundImage = () => (
   />
 );
 
-BackgroundImage.story = {
-  name: 'background-image',
-};
+BackgroundImage.storyName = 'background-image';

@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { withKnobs, button } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
 import { LoremIpsum } from 'lorem-ipsum';
@@ -27,27 +26,37 @@ const btnAddContent = () => {
   }
 };
 
-storiesOf('Components/Timeline', module)
-  .addDecorator(withKnobs)
-  .addDecorator((story) => (
-    <StoryWrapper
-      afterMount={() => {
-        if (!window.ECL) return {};
+export default {
+  title: 'Components/Timeline',
 
-        const autoinit = window.ECL.autoInit();
-        return { components: autoinit.components };
-      }}
-      beforeUnmount={(context) => {
-        if (context.components) {
-          context.components.forEach((c) => c.destroy());
-        }
-      }}
-    >
-      {story()}
-    </StoryWrapper>
-  ))
-  .add('default', () => {
-    button('Add dummy content', btnAddContent, 'buttons');
+  decorators: [
+    withKnobs,
+    (story) => (
+      <StoryWrapper
+        afterMount={() => {
+          if (!window.ECL) return {};
 
-    return <TimelineExample />;
-  });
+          const autoinit = window.ECL.autoInit();
+          return { components: autoinit.components };
+        }}
+        beforeUnmount={(context) => {
+          if (context.components) {
+            context.components.forEach((c) => c.destroy());
+          }
+        }}
+      >
+        {story()}
+      </StoryWrapper>
+    ),
+  ],
+};
+
+export const Default = () => {
+  button('Add dummy content', btnAddContent, 'buttons');
+
+  return <TimelineExample />;
+};
+
+Default.storyName = 'default';
+
+export * from '../../timeline/stories/Index';

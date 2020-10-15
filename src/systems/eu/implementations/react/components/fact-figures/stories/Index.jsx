@@ -30,9 +30,7 @@ export const _3Columns = () => {
   return <FactFigures {...demoContentCopy} />;
 };
 
-_3Columns.story = {
-  name: '3 columns',
-};
+_3Columns.storyName = '3 columns';
 
 export const _4Columns = () => {
   const demoContentCopy = { ...demoContent4Col };
@@ -53,6 +51,4 @@ export const _4Columns = () => {
   return <FactFigures {...demoContentCopy} />;
 };
 
-_4Columns.story = {
-  name: '4 columns',
-};
+_4Columns.storyName = '4 columns';

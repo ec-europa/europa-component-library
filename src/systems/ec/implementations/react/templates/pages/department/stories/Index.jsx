@@ -7,7 +7,7 @@ import DepartmentHarmonisedG1 from '../examples/DepartmentHarmonisedG1';
 import DepartmentHarmonisedG2 from '../examples/DepartmentHarmonisedG2';
 
 export default {
-  title: 'Templates/Pages',
+  title: 'Templates/Pages/Department',
   decorators: [withKnobs],
 };
 

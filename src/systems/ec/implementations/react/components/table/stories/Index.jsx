@@ -31,24 +31,16 @@ export default {
 
 export const Default = Table;
 
-Default.story = {
-  name: 'default',
-};
+Default.storyName = 'default';
 
 export const Zebra = TableZebra;
 
-Zebra.story = {
-  name: 'zebra',
-};
+Zebra.storyName = 'zebra';
 
 export const MultiHeader = TableMulti;
 
-MultiHeader.story = {
-  name: 'multi header',
-};
+MultiHeader.storyName = 'multi header';
 
 export const SortTable = TableSort;
 
-SortTable.story = {
-  name: 'sort table',
-};
+SortTable.storyName = 'sort table';

@@ -50,9 +50,7 @@ export const Simple = () => {
   );
 };
 
-Simple.story = {
-  name: 'simple',
-};
+Simple.storyName = 'simple';
 
 export const Long = () => {
   const items = demoContent.items.map((item, index) => ({
@@ -73,6 +71,4 @@ export const Long = () => {
   );
 };
 
-Long.story = {
-  name: 'long',
-};
+Long.storyName = 'long';

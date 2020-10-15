@@ -42,9 +42,7 @@ export const Info = () => (
   />
 );
 
-Info.story = {
-  name: 'info',
-};
+Info.storyName = 'info';
 
 export const Success = () => (
   <Message
@@ -55,9 +53,7 @@ export const Success = () => (
   />
 );
 
-Success.story = {
-  name: 'success',
-};
+Success.storyName = 'success';
 
 export const Warning = () => (
   <Message
@@ -68,9 +64,7 @@ export const Warning = () => (
   />
 );
 
-Warning.story = {
-  name: 'warning',
-};
+Warning.storyName = 'warning';
 
 export const Error = () => (
   <Message
@@ -81,6 +75,4 @@ export const Error = () => (
   />
 );
 
-Error.story = {
-  name: 'error',
-};
+Error.storyName = 'error';

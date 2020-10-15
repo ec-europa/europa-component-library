@@ -7,7 +7,7 @@ import MainPolicyLegislationHarmonisedG1 from '../examples/MainPolicyLegislation
 import MainPolicyLegislationHarmonisedG2 from '../examples/MainPolicyLegislationHarmonisedG2';
 
 export default {
-  title: 'Templates/Pages',
+  title: 'Templates/Pages/Main policy legislation',
   decorators: [withKnobs],
 };
 
@@ -161,8 +161,4 @@ export const MainPolicyLegislation = () => {
     'optional (core)'
   );
   return <MainPolicyLegislationCore {...optional} />;
-};
-
-MainPolicyLegislation.story = {
-  name: 'Main policy legislation',
 };

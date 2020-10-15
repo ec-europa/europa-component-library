@@ -49,6 +49,4 @@ export const SimpleGrey = () => {
   );
 };
 
-SimpleGrey.story = {
-  name: 'simple - grey',
-};
+SimpleGrey.storyName = 'simple - grey';

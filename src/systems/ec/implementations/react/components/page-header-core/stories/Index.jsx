@@ -59,9 +59,7 @@ export const Title = () => (
   />
 );
 
-Title.story = {
-  name: 'title',
-};
+Title.storyName = 'title';
 
 export const MetaTitle = () => (
   <PageHeaderCore
@@ -71,10 +69,8 @@ export const MetaTitle = () => (
   />
 );
 
-MetaTitle.story = {
-  name: 'meta-title',
-  parameters: { knobs: { escapeHTML: false } },
-};
+MetaTitle.storyName = 'meta-title';
+MetaTitle.parameters = { knobs: { escapeHTML: false } };
 
 export const MetaTitleDescription = () => (
   <PageHeaderCore
@@ -88,10 +84,8 @@ export const MetaTitleDescription = () => (
   />
 );
 
-MetaTitleDescription.story = {
-  name: 'meta-title-description',
-  parameters: { knobs: { escapeHTML: false } },
-};
+MetaTitleDescription.storyName = 'meta-title-description';
+MetaTitleDescription.parameters = { knobs: { escapeHTML: false } };
 
 export const BackgroundImage = () => (
   <PageHeaderCore
@@ -103,7 +97,5 @@ export const BackgroundImage = () => (
   />
 );
 
-BackgroundImage.story = {
-  name: 'background image',
-  parameters: { knobs: { escapeHTML: false } },
-};
+BackgroundImage.storyName = 'background image';
+BackgroundImage.parameters = { knobs: { escapeHTML: false } };

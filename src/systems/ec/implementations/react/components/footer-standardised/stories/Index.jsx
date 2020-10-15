@@ -42,6 +42,4 @@ export const Default = () => {
   return <FooterStandardised {...dataCopy} />;
 };
 
-Default.story = {
-  name: 'default',
-};
+Default.storyName = 'default';

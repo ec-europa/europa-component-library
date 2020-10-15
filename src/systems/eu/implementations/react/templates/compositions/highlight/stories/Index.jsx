@@ -11,12 +11,8 @@ export default {
 
 export const Default = () => <HighlightExampleDefault />;
 
-Default.story = {
-  name: 'default',
-};
+Default.storyName = 'default';
 
 export const Image = () => <HighlightExampleImage />;
 
-Image.story = {
-  name: 'with image',
-};
+Image.storyName = 'with image';
