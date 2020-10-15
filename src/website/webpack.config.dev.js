@@ -1,3 +1,4 @@
+const ESLintPlugin = require('eslint-webpack-plugin');
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
@@ -72,12 +73,6 @@ module.exports = {
   module: {
     strictExportPresence: true,
     rules: [
-      {
-        test: /\.(js|jsx|mjs)$/,
-        enforce: 'pre',
-        use: ['eslint-loader'],
-        include: [path.resolve(__dirname, 'src')],
-      },
       {
         oneOf: [
           {
@@ -205,6 +200,10 @@ module.exports = {
     ],
   },
   plugins: [
+    new ESLintPlugin({
+      files: 'src',
+      extensions: ['.js', '.jsx', '.mjs'],
+    }),
     // new InterpolateHtmlPlugin(process.env),
     new HtmlWebPackPlugin({
       inject: true,
