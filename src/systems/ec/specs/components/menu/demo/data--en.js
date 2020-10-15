@@ -10,7 +10,7 @@ module.exports = {
     {
       label: 'Item 2',
       href: '/example',
-      hasSubmenu: 'has submenu',
+      hasSubmenuLabel: 'has submenu',
       isCurrent: true,
       subItems: [
         { label: 'Item 2.1', href: '/example' },
@@ -34,7 +34,7 @@ module.exports = {
     {
       label: 'Item 3',
       href: '/example',
-      hasSubmenu: 'has submenu',
+      hasSubmenuLabel: 'has submenu',
       subItems: [
         { label: 'Item 3.1', href: '/example' },
         { label: 'Item 3.2', href: '/example' },
@@ -44,7 +44,7 @@ module.exports = {
     {
       label: 'Item 4',
       href: '/example',
-      hasSubmenu: 'has submenu',
+      hasSubmenuLabel: 'has submenu',
       subItems: [
         { label: 'Item 4.1', href: '/example' },
         { label: 'Item 4.2', href: '/example' },
@@ -68,7 +68,7 @@ module.exports = {
     {
       label: 'Item 5',
       href: '/example',
-      hasSubmenu: 'has submenu',
+      hasSubmenuLabel: 'has submenu',
       subItems: [
         { label: 'Item 5.1', href: '/example' },
         { label: 'Item 5.2', href: '/example' },
@@ -82,7 +82,7 @@ module.exports = {
     {
       label: 'Item 6',
       href: '/example',
-      hasSubmenu: 'has submenu',
+      hasSubmenuLabel: 'has submenu',
       subItems: [
         { label: 'Item 6.1', href: '/example' },
         { label: 'Item 6.2', href: '/example' },
@@ -105,7 +105,7 @@ module.exports = {
     {
       label: 'Item 7 with a long label',
       href: '/example',
-      hasSubmenu: 'has submenu',
+      hasSubmenuLabel: 'has submenu',
       subItems: [
         { label: 'Item 7.1', href: '/example' },
         { label: 'Item 7.2', href: '/example' },

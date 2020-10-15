@@ -49,6 +49,8 @@ export class Menu {
       megaSelector = '[data-ecl-menu-mega]',
       subItemSelector = '[data-ecl-menu-subitem]',
       attachClickListener = true,
+      attachFocusListener = true,
+      attachKeyListener = true,
       attachSwipeListener = true,
       attachResizeListener = true,
     } = {}
@@ -73,6 +75,8 @@ export class Menu {
     this.megaSelector = megaSelector;
     this.subItemSelector = subItemSelector;
     this.attachClickListener = attachClickListener;
+    this.attachFocusListener = attachFocusListener;
+    this.attachKeyListener = attachKeyListener;
     this.attachSwipeListener = attachSwipeListener;
     this.attachResizeListener = attachResizeListener;
 
@@ -92,6 +96,8 @@ export class Menu {
     this.handleClickOnClose = this.handleClickOnClose.bind(this);
     this.handleClickOnBack = this.handleClickOnBack.bind(this);
     this.handleClickOnLink = this.handleClickOnLink.bind(this);
+    this.handleFocusOnLink = this.handleFocusOnLink.bind(this);
+    this.handleKeyboard = this.handleKeyboard.bind(this);
     this.handleSwipe = this.handleSwipe.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.useDesktopDisplay = this.useDesktopDisplay.bind(this);
@@ -140,6 +146,18 @@ export class Menu {
           link.addEventListener('click', this.handleClickOnLink);
         }
       });
+    }
+
+    // Bind focus event on menu links
+    if (this.attachFocusListener && this.links) {
+      this.links.forEach((link) => {
+        link.addEventListener('focus', this.handleFocusOnLink);
+      });
+    }
+
+    // Bind close event
+    if (this.attachKeyListener && this.links) {
+      document.addEventListener('keyup', this.handleKeyboard);
     }
 
     // Bind swipe events
@@ -195,6 +213,16 @@ export class Menu {
           link.removeEventListener('click', this.handleClickOnLink);
         }
       });
+    }
+
+    if (this.attachFocusListener && this.links) {
+      this.links.forEach((link) => {
+        link.removeEventListener('focus', this.handleFocusOnLink);
+      });
+    }
+
+    if (this.attachKeyListener && this.links) {
+      document.removeEventListener('keyup', this.handleKeyboard);
     }
 
     if (this.attachSwipeListener) {
@@ -417,6 +445,45 @@ export class Menu {
     });
 
     return this;
+  }
+
+  /**
+   * Focus on a menu item
+   * @param {Event} e
+   */
+  handleFocusOnLink(e) {
+    // Disable link
+    e.preventDefault();
+
+    // Add css class to current item, and remove it from others
+    const menuItem = e.target.closest('[data-ecl-menu-item]');
+    this.items.forEach((item) => {
+      if (item === menuItem) {
+        item.classList.add('ecl-menu__item--focused');
+      } else {
+        item.classList.remove('ecl-menu__item--focused');
+      }
+    });
+
+    return this;
+  }
+
+  /**
+   * Handles keyboard events such as Escape and navigation.
+   *
+   * @param {Event} e
+   */
+  handleKeyboard(e) {
+    // Detect press on Escape
+    if (e.key === 'Escape' || e.key === 'Esc') {
+      this.handleClickOnClose(e);
+      this.items.forEach((item) => {
+        item.classList.remove('ecl-menu__item--focused');
+      });
+      this.links.forEach((link) => {
+        link.blur();
+      });
+    }
   }
 }
 
