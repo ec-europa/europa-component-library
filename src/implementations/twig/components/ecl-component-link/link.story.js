@@ -18,7 +18,7 @@ import link from './ecl-link.html.twig';
 import notes from './README.md';
 
 const storyAsString = (story) =>
-  `<p class="ecl-u-type-paragraph">${story}</div>`;
+  `<p class="ecl-u-type-paragraph">The European Commission is the executive of ${story} and promotes its general interest.</div>`;
 const storyAsNode = (story) => {
   const wrapper = document.createElement('p');
   wrapper.className = 'ecl-u-type-paragraph';
@@ -61,7 +61,7 @@ const prepareLink = (data) => {
 
 export default {
   title: 'Components/Navigation/Link',
-  decorators: [withKnobs, withNotes, withCode, withParagraph],
+  decorators: [withKnobs, withNotes, withCode],
 };
 
 export const Default = () => {
@@ -79,6 +79,7 @@ export const Default = () => {
 
 Default.storyName = 'default';
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
+Default.decorators = [withKnobs, withNotes, withCode, withParagraph];
 
 export const Standalone = () => {
   const dataStory = prepareLink(dataStandalone);
