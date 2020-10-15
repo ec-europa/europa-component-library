@@ -1,5 +1,27 @@
 # Changelog
 
+## 2.34.0 (2020-10-07)
+
+#### :rocket: New Feature
+
+- [#1686](https://github.com/ec-europa/europa-component-library/pull/1686) feat(menu): add option to manually close the menu - FRONT-1581 ([@emeryro](https://github.com/emeryro))
+- [#1680](https://github.com/ec-europa/europa-component-library/pull/1680) feat(tags): updat usage page and tag variants - FRONT-1334 ([@emeryro](https://github.com/emeryro))
+- [#1677](https://github.com/ec-europa/europa-component-library/pull/1677) feat(page-header): add background image variant - FRONT-1333 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#1684](https://github.com/ec-europa/europa-component-library/pull/1684) fix(inpage-nav): remove unnecessary hidden attribute - FRONT-1690 ([@emeryro](https://github.com/emeryro))
+- [#1681](https://github.com/ec-europa/europa-component-library/pull/1681) fix(inPageNavigation): menu overlaping headers - FRONT-1248 ([@gingapa](https://github.com/gingapa))
+
+#### :nail_care: Enhancement
+
+- [#1696](https://github.com/ec-europa/europa-component-library/pull/1696) fix(ecl-editor): fix css conflict - FRONT-1697 ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 2
+
+- Paulo Gingao ([@gingapa](https://github.com/gingapa))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
 ## 2.33.1 (2020-09-22)
 
 #### :bug: Bug Fix

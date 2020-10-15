@@ -18,7 +18,7 @@ export const Timeline2 = ({
   // Calculate collapse threshold
   const threshold =
     items.length > 12
-      ? Math.min(Math.floor(items.length * 0.2), 7)
+      ? Math.min(Math.floor(items.length * 0.2), 3)
       : items.length;
   const hidenItemsLength = items.length - threshold - 2;
 

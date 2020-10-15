@@ -5,6 +5,23 @@ title: What's new
 
 Detailed release information is available on [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 2.34.0 (2020-10-07)
+
+#### :rocket: New Feature
+
+- [#1686](https://github.com/ec-europa/europa-component-library/pull/1686) feat(menu): add option to manually close the menu - FRONT-1581
+- [#1680](https://github.com/ec-europa/europa-component-library/pull/1680) feat(tags): updat usage page and tag variants - FRONT-1334
+- [#1677](https://github.com/ec-europa/europa-component-library/pull/1677) feat(page-header): add background image variant - FRONT-1333
+
+#### :bug: Bug Fix
+
+- [#1684](https://github.com/ec-europa/europa-component-library/pull/1684) fix(inpage-nav): remove unnecessary hidden attribute - FRONT-1690
+- [#1681](https://github.com/ec-europa/europa-component-library/pull/1681) fix(inPageNavigation): menu overlaping headers - FRONT-1248
+
+#### :nail_care: Enhancement
+
+- [#1696](https://github.com/ec-europa/europa-component-library/pull/1696) fix(ecl-editor): fix css conflict - FRONT-1697
+
 ## 2.33.1 (2020-09-22)
 
 #### :bug: Bug Fix
