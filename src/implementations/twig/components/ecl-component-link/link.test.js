@@ -4,7 +4,7 @@ import dataCta from '@ecl/ec-specs-link/demo/data--cta';
 import dataStandalone from '@ecl/ec-specs-link/demo/data--standalone';
 
 describe('EC - Link', () => {
-  const template = '@ecl-twig/ec-component-link/ecl-link.html.twig';
+  const template = '@ecl/ec-twig-component-link/ecl-link.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
   const defaultIconPath = 'static/icons.svg';
 
