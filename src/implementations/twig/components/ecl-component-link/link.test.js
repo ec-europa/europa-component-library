@@ -1,7 +1,7 @@
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
-import dataDefault from './demo/data--default';
-import dataCta from './demo/data--call-to-action';
-import dataStandalone from './demo/data--standalone';
+import dataDefault from '@ecl/ec-specs-link/demo/data--default';
+import dataCta from '@ecl/ec-specs-link/demo/data--cta';
+import dataStandalone from '@ecl/ec-specs-link/demo/data--standalone';
 
 describe('EC - Link', () => {
   const template = '@ecl-twig/ec-component-link/ecl-link.html.twig';
