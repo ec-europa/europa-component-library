@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Icon from '@ecl/ec-react-component-icon';
 
-export const MenuItem = ({ label, href, isCurrent, subItems }) => {
+export const MenuItem = ({ label, href, isCurrent, hasSubmenu, subItems }) => {
   const hasSubItems = subItems && subItems.length > 0;
 
   return (
@@ -25,8 +25,7 @@ export const MenuItem = ({ label, href, isCurrent, subItems }) => {
         data-ecl-menu-link
       >
         {label}
-        {hasSubItems && <span className="ecl-u-sr-only"> (has submenu)</span>}
-
+        {hasSubItems && <span className="ecl-u-sr-only"> ({hasSubmenu})</span>}
         {hasSubItems && (
           <Icon
             shape="ui--corner-arrow"
@@ -69,6 +68,7 @@ MenuItem.propTypes = {
   label: PropTypes.string,
   href: PropTypes.string,
   isCurrent: PropTypes.bool,
+  hasSubmenu: PropTypes.string,
   subItems: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
@@ -82,6 +82,7 @@ MenuItem.defaultProps = {
   label: '',
   href: '',
   isCurrent: false,
+  hasSubmenu: '',
   subItems: [],
 };
 

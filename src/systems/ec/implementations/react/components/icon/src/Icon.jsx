@@ -37,7 +37,7 @@ const Icon = ({
     >
       {title && <title {...(titleId && { id: titleId })}>{title}</title>}
       {desc && <desc {...(descId && { id: descId })}>{desc}</desc>}
-      <use xlinkHref={`${iconPath}#${shape}`} aria-hidden="true" />
+      <use xlinkHref={`${iconPath}#${shape}`} />
     </svg>
   );
 };
