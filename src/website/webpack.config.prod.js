@@ -1,3 +1,4 @@
+const ESLintPlugin = require('eslint-webpack-plugin');
 const fs = require('fs');
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
@@ -122,12 +123,6 @@ module.exports = {
     // strictExportPresence makes missing exports an error instead of warning
     strictExportPresence: true,
     rules: [
-      {
-        test: /\.(js|jsx|mjs)$/,
-        enforce: 'pre',
-        use: ['eslint-loader'],
-        include: [path.resolve(__dirname, 'src')],
-      },
       {
         oneOf: [
           {
@@ -289,6 +284,10 @@ module.exports = {
     runtimeChunk: true,
   },
   plugins: [
+    new ESLintPlugin({
+      files: 'src',
+      extensions: ['.js', '.jsx', '.mjs'],
+    }),
     new CopyPlugin({
       patterns: [path.resolve(__dirname, 'public')],
       options: {},
