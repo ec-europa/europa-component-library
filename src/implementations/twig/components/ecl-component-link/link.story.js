@@ -18,7 +18,7 @@ import link from './ecl-link.html.twig';
 import notes from './README.md';
 
 const storyAsString = (story) =>
-  `<p class="ecl-u-type-paragraph">The European Commission is the executive of ${story} and promotes its general interest.</div>`;
+  `<p class="ecl-u-type-paragraph">The European Commission is the executive of ${story} and promotes its general interest.</p>`;
 const storyAsNode = (story) => {
   const wrapper = document.createElement('p');
   wrapper.className = 'ecl-u-type-paragraph';
