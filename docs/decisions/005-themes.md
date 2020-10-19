@@ -1,15 +1,19 @@
 # Handle `themes` in ECL v3
 
-| Status        | work in progress                                      |
+| Status        | accepted                                              |
 | ------------- | ----------------------------------------------------- |
 | **Proposed**  | 07/10/2020                                            |
-| **Accepted**  | --/--/---                                             |
+| **Accepted**  | 19/10/2020                                            |
 | **Driver**    | @kalinchernev                                         |
-| **Approver**  |                                                       |
+| **Approver**  | [@team](https://github.com/orgs/ec-europa/teams/inno) |
 | **Consulted** | @emeryro, @planctus                                   |
 | **Informed**  | [@team](https://github.com/orgs/ec-europa/teams/inno) |
 
 ## Decisions
+
+- Themes will be managed as separate packages (described in [this point](#option-4-themes-are-multiple-packages-multiple-presets-generate-multiple-themes-output))
+- Resources will be managed as separate packages (described in [this point](#option-1-separate-package-per-system-or-per-theme))
+- Decisions can be revised after actual iterations
 
 ## Context
 
