@@ -3,12 +3,28 @@ title: Showcase
 order: 2
 ---
 
-import { Link, Playground } from '@ecl/website-components';
-import Icon from '@ecl/ec-react-component-icon';
-import demoContentAudio from '@ecl/ec-specs-icon/demo/data--audio';
+import { Link, Playground, Html } from '@ecl/website-components';
+import {
+  iconDefault,
+  iconPrimary,
+  iconXs,
+  iconS,
+  iconM,
+  iconL,
+  iconXL,
+  icon2XL,
+  iconFluid,
+  iconRotate0,
+  iconRotate90,
+  iconRotate180,
+  iconRotate270,
+  iconFlipHorizontal,
+  iconFlipVertical,
+  iconImage,
+} from '../demo';
 
 <Playground system="ec" selectedKind="components-icon" selectedStory="general">
-  <Icon {...demoContentAudio} />
+  <Html markup={iconDefault} />
 </Playground>
 
 You can pick an icon from <Link to="/ec/guidelines/iconography/">the library we provide</Link>.
@@ -22,9 +38,8 @@ Note: display of icons on Internet Explorer is made possible by the use of [svg4
 You can use the default, primary or inverted colours:
 
 <Playground system="ec" selectedKind="components-icon" selectedStory="general">
-  <Icon {...demoContentAudio} />
-  <Icon {...demoContentAudio} color="primary" />
-  <Icon {...demoContentAudio} color="inverted" />
+  <Html markup={iconDefault} />
+  <Html markup={iconPrimary} />
 </Playground>
 
 ## Size
@@ -40,13 +55,13 @@ You can change the size of the icon by applying one of the following classes:
 - `ecl-icon--fluid`: 1em
 
 <Playground system="ec" selectedKind="components-icon" selectedStory="general">
-  <Icon {...demoContentAudio} size="xs" />
-  <Icon {...demoContentAudio} size="s" />
-  <Icon {...demoContentAudio} size="m" />
-  <Icon {...demoContentAudio} size="l" />
-  <Icon {...demoContentAudio} size="xl" />
-  <Icon {...demoContentAudio} size="2xl" />
-  <Icon {...demoContentAudio} size="fluid" />
+  <Html markup={iconXs} />
+  <Html markup={iconS} />
+  <Html markup={iconM} />
+  <Html markup={iconL} />
+  <Html markup={iconXL} />
+  <Html markup={icon2XL} />
+  <Html markup={iconFluid} />
 </Playground>
 
 ## Rotate icons
@@ -59,10 +74,10 @@ You can rotate icons by adding one of the following classes:
 - `ecl-icon--rotate-270`: 270 degrees
 
 <Playground system="ec" selectedKind="components-icon" selectedStory="general">
-  <Icon {...demoContentAudio} transform="rotate-0" />
-  <Icon {...demoContentAudio} transform="rotate-90" />
-  <Icon {...demoContentAudio} transform="rotate-180" />
-  <Icon {...demoContentAudio} transform="rotate-270" />
+  <Html markup={iconRotate0} />
+  <Html markup={iconRotate90} />
+  <Html markup={iconRotate180} />
+  <Html markup={iconRotate270} />
 </Playground>
 
 ## Flip icons
@@ -70,8 +85,8 @@ You can rotate icons by adding one of the following classes:
 You can flip icons by adding the classes `ecl-icon--flip-horizontal` or `ecl-icon--flip-vertical`.
 
 <Playground system="ec" selectedKind="components-icon" selectedStory="general">
-  <Icon {...demoContentAudio} transform="flip-horizontal" />
-  <Icon {...demoContentAudio} transform="flip-vertical" />
+  <Html markup={iconFlipHorizontal} />
+  <Html markup={iconFlipVertical} />
 </Playground>
 
 ## Accessibility
@@ -81,13 +96,5 @@ If your icon is only used as a decorative element, you don't have to add any spe
 On the other hand, if it's used as an image, you might want to add a couple of extra markup:
 
 <Playground system="ec" selectedKind="components-icon" selectedStory="general">
-  <Icon
-    {...demoContentAudio}
-    role="img"
-    aria-hidden="false"
-    title="Title"
-    titleId="example-title"
-    desc="Description"
-    descId="example-desc"
-  />
+  <Html markup={iconImage} />
 </Playground>
