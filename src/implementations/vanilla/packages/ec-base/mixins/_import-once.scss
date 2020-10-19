@@ -18,15 +18,3 @@ $imported-modules: () !default;
     @warn 'Module `#{$name}` has already been imported.';
   }
 }
-
-// Warn if external dependencies have not been imported yet
-@mixin check-imports($dependencies, $warn: $ecl-check-imports-warn) {
-  @if $warn == true {
-    @each $dep in $dependencies {
-      /* stylelint-disable-next-line */
-      @if (index($imported-modules, $dep) == null) {
-        @warn 'Module `#{$dep}` has not been imported yet.';
-      }
-    }
-  }
-}

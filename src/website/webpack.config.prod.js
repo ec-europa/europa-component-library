@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const webpack = require('webpack');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const TerserPlugin = require('terser-webpack-plugin');
@@ -22,6 +23,10 @@ const includePaths = [path.resolve(__dirname, '../../node_modules')];
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 const publicUrl = process.env.PUBLIC_URL || '';
 const publicPath = `${publicUrl}/`;
+
+const environmentModulePath = require.resolve(
+  '@ecl/ec-twig-storybook/.storybook/environment.js'
+);
 
 // Do this as the first thing so that any code reading it knows the right env.
 process.env.BABEL_ENV = 'production';
@@ -116,6 +121,7 @@ module.exports = {
         __dirname,
         'src/website-components/'
       ),
+      '@ecl/website-utils': path.resolve(__dirname, 'src/utils/'),
     },
   },
   module: {
@@ -123,13 +129,16 @@ module.exports = {
     strictExportPresence: true,
     rules: [
       {
-        test: /\.(js|jsx|mjs)$/,
-        enforce: 'pre',
-        use: ['eslint-loader'],
-        include: [path.resolve(__dirname, 'src')],
-      },
-      {
         oneOf: [
+          {
+            test: /\.twig$/,
+            use: [
+              {
+                loader: 'twing-loader',
+                options: { environmentModulePath },
+              },
+            ],
+          },
           {
             test: /\.(js|jsx)$/,
             exclude: /node_modules/,
@@ -289,6 +298,10 @@ module.exports = {
     runtimeChunk: true,
   },
   plugins: [
+    new ESLintPlugin({
+      files: 'src',
+      extensions: ['.js', '.jsx', '.mjs'],
+    }),
     new CopyPlugin({
       patterns: [path.resolve(__dirname, 'public')],
       options: {},

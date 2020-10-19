@@ -468,6 +468,30 @@ exports[`ECL - Icon General - icon video renders correctly 1`] = `
 </svg>
 `;
 
+exports[`ECL - Icon Generic tests - Any icon renders correctly with accessibility content 1`] = `
+<svg
+  aria-hidden="false"
+  aria-labelledby="example-title example-desc"
+  class="ecl-icon ecl-icon--m"
+  focusable="false"
+  role="img"
+>
+  <title
+    id="example-title"
+  >
+    Title
+  </title>
+  <desc
+    id="example-desc"
+  >
+    Description
+  </desc>
+  <use
+    xlink:href="/icons.svg#general--audio"
+  />
+</svg>
+`;
+
 exports[`ECL - Icon Generic tests - Any icon renders correctly with extra attributes 1`] = `
 <svg
   aria-hidden="true"
