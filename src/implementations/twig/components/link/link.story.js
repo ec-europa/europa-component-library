@@ -10,11 +10,11 @@ import {
 
 // Import data for demos
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
-import dataDefault from '@ecl/ec-specs-link/demo/data--default';
-import dataCta from '@ecl/ec-specs-link/demo/data--cta';
-import dataStandalone from '@ecl/ec-specs-link/demo/data--standalone';
+import dataDefault from '@ecl/specs-component-link/demo/data--default';
+import dataCta from '@ecl/specs-component-link/demo/data--cta';
+import dataStandalone from '@ecl/specs-component-link/demo/data--standalone';
 
-import link from './ecl-link.html.twig';
+import link from './link.html.twig';
 import notes from './README.md';
 
 const storyAsString = (story) =>

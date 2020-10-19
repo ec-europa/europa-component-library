@@ -1,10 +1,10 @@
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
-import dataDefault from '@ecl/ec-specs-link/demo/data--default';
-import dataCta from '@ecl/ec-specs-link/demo/data--cta';
-import dataStandalone from '@ecl/ec-specs-link/demo/data--standalone';
+import dataDefault from '@ecl/specs-component-link/demo/data--default';
+import dataCta from '@ecl/specs-component-link/demo/data--cta';
+import dataStandalone from '@ecl/specs-component-link/demo/data--standalone';
 
 describe('EC - Link', () => {
-  const template = '@ecl/ec-twig-component-link/ecl-link.html.twig';
+  const template = '@ecl/twig-component-link/link.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
   const defaultIconPath = 'static/icons.svg';
 
