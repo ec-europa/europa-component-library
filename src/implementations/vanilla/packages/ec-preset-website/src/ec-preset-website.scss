@@ -2,13 +2,13 @@
 $ecl-check-imports-warn: true;
 
 // Import normalize.css
-@import 'normalize.css/normalize';
+@use 'normalize.css/normalize';
 
 // Import global rules
-@import './globals';
+@use './globals';
 
 // Import theme
-@import '@ecl/ec-theme-default/index';
+@use '@ecl/ec-theme-default/index';
 
 // Import ECL
-@import '@ecl/ec-preset-dev/src/ec-preset-dev';
+@use '@ecl/ec-preset-dev/src/ec-preset-dev';

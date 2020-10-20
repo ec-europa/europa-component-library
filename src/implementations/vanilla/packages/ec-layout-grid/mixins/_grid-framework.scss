@@ -1,5 +1,5 @@
 @use "sass:map";
-@use "@ecl/ec-base/ec-base";
+@use "@ecl/ec-base/mixins/breakpoints";
 @use "@ecl/ec-theme-default/maps/layout";
 @use "grid";
 
@@ -26,7 +26,7 @@
   }
 
   @each $breakpoint in map.keys($breakpoints) {
-    $infix: ec-base.ecl-breakpoint-infix($breakpoint, $breakpoints);
+    $infix: breakpoints.ecl-breakpoint-infix($breakpoint, $breakpoints);
 
     // Allow columns to stretch full width below their breakpoints
     @for $i from 1 through $columns {
@@ -36,7 +36,7 @@
     }
 
     /* stylelint-disable-next-line order/order */
-    @include ec-base.ecl-media-breakpoint-up($breakpoint, $breakpoints) {
+    @include breakpoints.ecl-media-breakpoint-up($breakpoint, $breakpoints) {
       @for $i from 1 through $columns {
         .ecl-col#{$infix}-#{$i} {
           @include grid.ecl-make-col($i, $columns);

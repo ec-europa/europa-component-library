@@ -1,6 +1,6 @@
 @use "sass:map";
 @use "sass:math";
-@use "@ecl/ec-base/ec-base";
+@use "@ecl/ec-base/mixins/breakpoints";
 @use "@ecl/ec-theme-default/maps/layout";
 
 /// Grid system
@@ -15,7 +15,7 @@
   width: 100%;
 
   @each $breakpoint in map.keys($gutters) {
-    @include ec-base.ecl-media-breakpoint-up($breakpoint) {
+    @include breakpoints.ecl-media-breakpoint-up($breakpoint) {
       $gutter: map.get($gutters, $breakpoint);
 
       padding-left: ($gutter / 2);
@@ -30,7 +30,7 @@
   $breakpoints: layout.$ecl-breakpoint
 ) {
   @each $breakpoint, $container-max-width in $max-widths {
-    @include ec-base.ecl-media-breakpoint-up($breakpoint, $breakpoints) {
+    @include breakpoints.ecl-media-breakpoint-up($breakpoint, $breakpoints) {
       max-width: 100%;
       width: $container-max-width;
     }
@@ -39,7 +39,7 @@
 
 @mixin ecl-make-gutters($gutters: layout.$ecl-grid-gutter-width) {
   @each $breakpoint in map.keys($gutters) {
-    @include ec-base.ecl-media-breakpoint-up($breakpoint) {
+    @include breakpoints.ecl-media-breakpoint-up($breakpoint) {
       $gutter: map.get($gutters, $breakpoint);
 
       padding-left: ($gutter / 2);
@@ -54,7 +54,7 @@
   flex-wrap: wrap;
 
   @each $breakpoint in map.keys($gutters) {
-    @include ec-base.ecl-media-breakpoint-up($breakpoint) {
+    @include breakpoints.ecl-media-breakpoint-up($breakpoint) {
       $gutter: map.get($gutters, $breakpoint);
 
       margin-left: ($gutter / -2);
@@ -73,7 +73,7 @@
   width: 100%;
 
   @each $breakpoint in map.keys($gutters) {
-    @include ec-base.ecl-media-breakpoint-up($breakpoint) {
+    @include breakpoints.ecl-media-breakpoint-up($breakpoint) {
       $gutter: map.get($gutters, $breakpoint);
 
       padding-left: ($gutter / 2);

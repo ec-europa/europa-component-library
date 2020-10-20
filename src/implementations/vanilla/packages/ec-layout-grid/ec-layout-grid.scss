@@ -3,7 +3,7 @@
 //
 
 // Import base and mixins
-@use '@ecl/ec-base/ec-base';
+@use '@ecl/ec-base/mixins/import-once';
 @use 'mixins/grid-framework';
 @use 'mixins/grid';
 
@@ -43,6 +43,6 @@
 }
 
 // Use mixin
-@include ec-base.exports('ec-layout-grid') {
+@include import-once.exports('ec-layout-grid') {
   @include ecl-grid();
 }
