@@ -4,12 +4,13 @@
  */
 
 // Import base
-@import '@ecl/ec-base/ec-base';
+@use "sass:map";
+@use '@ecl/ec-base/ec-base';
 
 @mixin ecl-button-print(
   $_border-width: 1.5pt,
-  $_padding-horizontal: map-get($ecl-spacing-print, 'm'),
-  $_padding-vertical: map-get($ecl-spacing-print, 's')
+  $_padding-horizontal: map.get($ecl-spacing-print, 'm'),
+  $_padding-vertical: map.get($ecl-spacing-print, 's')
 ) {
   .ecl-button {
     appearance: none;
@@ -17,9 +18,9 @@
     border-width: 0;
     box-sizing: border-box;
     display: inline-block;
-    font: map-get($ecl-font-print, 'm');
-    font-family: map-get($ecl-font-family-print, 'alt');
-    font-weight: map-get($ecl-font-weight-print, 'bold');
+    font: map.get($ecl-font-print, 'm');
+    font-family: map.get($ecl-font-family-print, 'alt');
+    font-weight: map.get($ecl-font-weight-print, 'bold');
     margin: 0;
     padding: $_padding-vertical $_padding-horizontal;
     text-decoration: none;
@@ -44,25 +45,25 @@
 
   .ecl-button__icon--before,
   .ecl-button__icon + .ecl-button__label {
-    margin-right: map-get($ecl-spacing-print, 'xs');
+    margin-right: map.get($ecl-spacing-print, 'xs');
   }
 
   .ecl-button__icon--after,
   .ecl-button__label + .ecl-button__icon {
-    margin-left: map-get($ecl-spacing-print, 'xs');
+    margin-left: map.get($ecl-spacing-print, 'xs');
   }
 
   /*
    * Primary
    */
   .ecl-button--primary {
-    background-color: map-get($ecl-color, 'blue-100');
-    color: map-get($ecl-color, 'white-100');
+    background-color: map.get($ecl-color, 'blue-100');
+    color: map.get($ecl-color, 'white-100');
 
     &[disabled] {
-      background-color: map-get($ecl-color, 'blue-25');
-      border-color: map-get($ecl-color, 'blue-25');
-      color: map-get($ecl-color, 'white-100');
+      background-color: map.get($ecl-color, 'blue-25');
+      border-color: map.get($ecl-color, 'blue-25');
+      color: map.get($ecl-color, 'white-100');
     }
   }
 
@@ -70,17 +71,17 @@
    * Secondary
    */
   .ecl-button--secondary {
-    background-color: map-get($ecl-color, 'white-100');
-    border: $_border-width solid map-get($ecl-color, 'blue-100');
-    color: map-get($ecl-color, 'blue-100');
+    background-color: map.get($ecl-color, 'white-100');
+    border: $_border-width solid map.get($ecl-color, 'blue-100');
+    color: map.get($ecl-color, 'blue-100');
     padding: calc(#{$_padding-vertical} - #{$_border-width})
       calc(#{$_padding-horizontal} - #{$_border-width});
 
     &[disabled] {
-      background-color: map-get($ecl-color, 'white-100');
-      border-color: map-get($ecl-color, 'blue-25');
+      background-color: map.get($ecl-color, 'white-100');
+      border-color: map.get($ecl-color, 'blue-25');
       border-width: $_border-width;
-      color: map-get($ecl-color, 'blue-25');
+      color: map.get($ecl-color, 'blue-25');
       padding: calc(#{$_padding-vertical} - #{$_border-width})
         calc(#{$_padding-horizontal} - #{$_border-width});
     }
@@ -90,10 +91,10 @@
    * Ghost
    */
   .ecl-button--ghost {
-    color: map-get($ecl-color, 'blue-100');
+    color: map.get($ecl-color, 'blue-100');
 
     &[disabled] {
-      color: map-get($ecl-color, 'blue-25');
+      color: map.get($ecl-color, 'blue-25');
     }
   }
 
@@ -101,13 +102,13 @@
    * Call to action
    */
   .ecl-button--call {
-    background-color: map-get($ecl-color, 'yellow-100');
-    color: map-get($ecl-color, 'black-100');
+    background-color: map.get($ecl-color, 'yellow-100');
+    color: map.get($ecl-color, 'black-100');
 
     &[disabled] {
-      background-color: map-get($ecl-color, 'yellow-25');
-      border-color: map-get($ecl-color, 'yellow-25');
-      color: map-get($ecl-color, 'grey-50');
+      background-color: map.get($ecl-color, 'yellow-25');
+      border-color: map.get($ecl-color, 'yellow-25');
+      color: map.get($ecl-color, 'grey-50');
     }
   }
 
@@ -115,12 +116,12 @@
    * Search
    */
   .ecl-button--search {
-    background-color: map-get($ecl-color, 'grey-10');
-    color: map-get($ecl-color, 'blue-100');
+    background-color: map.get($ecl-color, 'grey-10');
+    color: map.get($ecl-color, 'blue-100');
 
     &[disabled] {
-      background-color: map-get($ecl-color, 'grey-5');
-      color: map-get($ecl-color, 'grey-50');
+      background-color: map.get($ecl-color, 'grey-5');
+      color: map.get($ecl-color, 'grey-50');
     }
   }
 }

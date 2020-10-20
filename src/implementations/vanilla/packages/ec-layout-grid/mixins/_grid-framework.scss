@@ -1,3 +1,8 @@
+@use "sass:map";
+@use "@ecl/ec-base/ec-base";
+@use "@ecl/ec-theme-default/maps/layout";
+@use "grid";
+
 // Framework grid generation
 //
 // Used only by Bootstrap to generate the correct number of grid classes given
@@ -6,13 +11,13 @@
 /* stylelint-disable max-nesting-depth */
 
 @mixin ecl-make-grid-columns(
-  $columns: map-get($ecl-grid, 'columns'),
-  $gutters: $ecl-grid-gutter-width,
-  $breakpoints: $ecl-breakpoint
+  $columns: map.get(layout.$ecl-grid, 'columns'),
+  $gutters: layout.$ecl-grid-gutter-width,
+  $breakpoints: layout.$ecl-breakpoint
 ) {
   // Common properties for all breakpoints
   %ecl-grid-column {
-    @include ecl-make-gutters($gutters);
+    @include grid.ecl-make-gutters($gutters);
 
     box-sizing: border-box;
     min-height: 1px; // Prevent columns from collapsing when empty
@@ -20,8 +25,8 @@
     width: 100%;
   }
 
-  @each $breakpoint in map-keys($breakpoints) {
-    $infix: ecl-breakpoint-infix($breakpoint, $breakpoints);
+  @each $breakpoint in map.keys($breakpoints) {
+    $infix: ec-base.ecl-breakpoint-infix($breakpoint, $breakpoints);
 
     // Allow columns to stretch full width below their breakpoints
     @for $i from 1 through $columns {
@@ -31,17 +36,17 @@
     }
 
     /* stylelint-disable-next-line order/order */
-    @include ecl-media-breakpoint-up($breakpoint, $breakpoints) {
+    @include ec-base.ecl-media-breakpoint-up($breakpoint, $breakpoints) {
       @for $i from 1 through $columns {
         .ecl-col#{$infix}-#{$i} {
-          @include ecl-make-col($i, $columns);
+          @include grid.ecl-make-col($i, $columns);
         }
       }
 
       @each $modifier in (pull, push) {
         @for $i from 0 through $columns {
           .ecl-#{$modifier}#{$infix}-#{$i} {
-            @include ecl-make-col-modifier($modifier, $i, $columns);
+            @include grid.ecl-make-col-modifier($modifier, $i, $columns);
           }
         }
       }
@@ -51,7 +56,7 @@
         @if not($infix == '' and $i == 0) {
           // Avoid emitting useless .offset-xs-0
           .ecl-offset#{$infix}-#{$i} {
-            @include ecl-make-col-modifier(offset, $i, $columns);
+            @include grid.ecl-make-col-modifier(offset, $i, $columns);
           }
         }
       }

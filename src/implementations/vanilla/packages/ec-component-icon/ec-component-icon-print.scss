@@ -3,7 +3,8 @@
  */
 
 // Import base
-@import '@ecl/ec-base/ec-base';
+@use "sass:map";
+@use '@ecl/ec-base/ec-base';
 
 @mixin ecl-icons-print() {
   .ecl-icon {
@@ -13,51 +14,51 @@
   }
 
   .ecl-icon--2xs {
-    height: map-get($ecl-icon-print, '2xs');
-    width: map-get($ecl-icon-print, '2xs');
+    height: map.get($ecl-icon-print, '2xs');
+    width: map.get($ecl-icon-print, '2xs');
   }
 
   .ecl-icon--xs {
-    height: map-get($ecl-icon-print, 'xs');
-    width: map-get($ecl-icon-print, 'xs');
+    height: map.get($ecl-icon-print, 'xs');
+    width: map.get($ecl-icon-print, 'xs');
   }
 
   .ecl-icon--s {
-    height: map-get($ecl-icon-print, 's');
-    width: map-get($ecl-icon-print, 's');
+    height: map.get($ecl-icon-print, 's');
+    width: map.get($ecl-icon-print, 's');
   }
 
   .ecl-icon--m {
-    height: map-get($ecl-icon-print, 'm');
-    width: map-get($ecl-icon-print, 'm');
+    height: map.get($ecl-icon-print, 'm');
+    width: map.get($ecl-icon-print, 'm');
   }
 
   .ecl-icon--l {
-    height: map-get($ecl-icon-print, 'l');
-    width: map-get($ecl-icon-print, 'l');
+    height: map.get($ecl-icon-print, 'l');
+    width: map.get($ecl-icon-print, 'l');
   }
 
   .ecl-icon--xl {
-    height: map-get($ecl-icon-print, 'xl');
-    width: map-get($ecl-icon-print, 'xl');
+    height: map.get($ecl-icon-print, 'xl');
+    width: map.get($ecl-icon-print, 'xl');
   }
 
   .ecl-icon--2xl {
-    height: map-get($ecl-icon-print, '2xl');
-    width: map-get($ecl-icon-print, '2xl');
+    height: map.get($ecl-icon-print, '2xl');
+    width: map.get($ecl-icon-print, '2xl');
   }
 
   .ecl-icon--fluid {
-    height: map-get($ecl-icon-print, 'fluid');
-    width: map-get($ecl-icon-print, 'fluid');
+    height: map.get($ecl-icon-print, 'fluid');
+    width: map.get($ecl-icon-print, 'fluid');
   }
 
   .ecl-icon--primary {
-    fill: map-get($ecl-color, 'primary');
+    fill: map.get($ecl-color, 'primary');
   }
 
   .ecl-icon--inverted {
-    fill: map-get($ecl-color, 'white-100');
+    fill: map.get($ecl-color, 'white-100');
   }
 
   .ecl-icon--rotate-90 {
@@ -82,6 +83,6 @@
 }
 
 // Use mixin
-@include exports('ec-component-icon-print') {
+@include ec-base.exports('ec-component-icon-print') {
   @include ecl-icons-print();
 }
