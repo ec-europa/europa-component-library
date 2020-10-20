@@ -1,1 +1,1 @@
-# ECL - EC Default theme
+# ECL - Default theme
