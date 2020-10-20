@@ -1,3 +1,3 @@
 // Export components
 
-export * from '@ecl/ec-preset-dev/src/ec-preset-dev';
+export * from '@ecl/preset-dev/src/dev';
