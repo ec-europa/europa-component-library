@@ -450,17 +450,17 @@ export class Gallery {
     );
     if (shareHref != null) {
       this.overlayShare.href = shareHref;
-      this.overlayShare.style.display = 'inline-block';
+      this.overlayShare.hidden = false;
     } else {
-      this.overlayShare.style.display = 'none';
+      this.overlayShare.hidden = true;
     }
 
     // Update download link
     if (embeddedVideo != null) {
-      this.overlayDownload.style.display = 'none';
+      this.overlayDownload.hidden = true;
     } else {
       this.overlayDownload.href = this.selectedItem.href;
-      this.overlayDownload.style.display = 'inline-block';
+      this.overlayDownload.hidden = false;
     }
 
     // Update meta
