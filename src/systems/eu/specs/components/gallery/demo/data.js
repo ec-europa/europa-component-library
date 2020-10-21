@@ -112,12 +112,12 @@ module.exports = {
         sources: [
           {
             src:
-              'https://download.videvo.net/videvo_files/video/premium/video0038/small_watermarked/millenium_view_night00_preview.mp4',
+              'https://test-videos.co.uk/vids/jellyfish/mp4/h264/720/Jellyfish_720_10s_2MB.mp4',
             type: 'video/mp4',
           },
           {
             src:
-              'https://download.videvo.net/videvo_files/video/premium/video0038/small_watermarked/millenium_view_night00_preview.webm',
+              'https://test-videos.co.uk/vids/jellyfish/webm/vp9/720/Jellyfish_720_10s_2MB.webm',
             type: 'video/webm',
           },
         ],
