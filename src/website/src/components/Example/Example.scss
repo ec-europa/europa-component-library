@@ -1,4 +1,7 @@
-@import '@ecl/ec-theme-default/index';
+@use "sass:map";
+@use '@ecl/ec-theme-default/maps/color';
+@use '@ecl/ec-theme-default/maps/spacing';
+@use '@ecl/ec-theme-default/maps/typography';
 
 $_outline-width: 3px;
 
@@ -6,11 +9,11 @@ $_outline-width: 3px;
   background: none;
   border-width: 0;
   box-sizing: border-box;
-  color: map-get($ecl-color, 'primary');
-  font: map-get($ecl-font, 'm');
-  font-weight: map-get($ecl-font-weight, 'bold');
+  color: map.get(color.$ecl-color, 'primary');
+  font: map.get(typography.$ecl-font, 'm');
+  font-weight: map.get(typography.$ecl-font-weight, 'bold');
   margin: 0;
-  padding: map-get($ecl-spacing, 's') map-get($ecl-spacing, 'm');
+  padding: map.get(spacing.$ecl-spacing, 's') map.get(spacing.$ecl-spacing, 'm');
   text-decoration: none;
 
   &:hover,
@@ -20,7 +23,7 @@ $_outline-width: 3px;
   }
 
   &:focus {
-    outline: $_outline-width solid map-get($ecl-color, 'secondary');
+    outline: $_outline-width solid map.get(color.$ecl-color, 'secondary');
     outline-offset: -($_outline-width);
   }
 }

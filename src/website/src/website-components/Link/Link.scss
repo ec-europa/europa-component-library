@@ -1,19 +1,21 @@
-@import '@ecl/ec-theme-default/index';
+@use "sass:map";
+@use '@ecl/ec-theme-default/maps/color';
+@use '@ecl/ec-theme-default/maps/typography';
 
 .link {
-  color: map-get($ecl-color, 'primary');
+  color: map.get(color.$ecl-color, 'primary');
   display: inline-block;
   fill: currentColor;
-  font-family: map-get($ecl-font-family, 'default');
+  font-family: map.get(typography.$ecl-font-family, 'default');
   text-decoration: underline;
 
   &:hover,
   &:focus {
-    color: map-get($ecl-color, 'black-100');
+    color: map.get(color.$ecl-color, 'black-100');
   }
 
   &:focus {
-    outline: 3px solid map-get($ecl-color, 'secondary');
+    outline: 3px solid map.get(color.$ecl-color, 'secondary');
     outline-offset: 2px;
   }
 }

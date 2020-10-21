@@ -1,25 +1,28 @@
-@import '@ecl/ec-theme-default/index';
+@use "sass:map";
+@use '@ecl/ec-theme-default/maps/typography';
+@use '@ecl/ec-theme-default/maps/spacing';
+@use '@ecl/ec-theme-default/maps/color';
 
 /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
 :global {
   .demo-media-line {
     display: flex;
     justify-content: space-between;
-    margin-bottom: map-get($ecl-spacing, 'xs');
-    margin-top: map-get($ecl-spacing, 'xs');
+    margin-bottom: map.get(spacing.$ecl-spacing, 'xs');
+    margin-top: map.get(spacing.$ecl-spacing, 'xs');
   }
 
   .demo-media-container-left {
     align-items: flex-start;
     display: flex;
-    font: map-get($ecl-font, 's');
+    font: map.get(typography.$ecl-font, 's');
     flex-direction: column;
   }
 
   .demo-media-container-right {
     align-items: flex-end;
     display: flex;
-    font: map-get($ecl-font, 's');
+    font: map.get(typography.$ecl-font, 's');
     flex-direction: column;
   }
 
@@ -33,7 +36,7 @@
 
   .demo-media-bg {
     background-image: url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg');
-    border: 5px dashed map-get($ecl-color, 'yellow');
+    border: 5px dashed map.get(color.$ecl-color, 'yellow');
     margin-top: 1rem;
     min-height: 1rem;
     min-width: 1rem;

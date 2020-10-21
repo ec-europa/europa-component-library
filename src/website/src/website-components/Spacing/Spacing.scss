@@ -1,29 +1,32 @@
-@import '@ecl/ec-theme-default/index';
+@use "sass:map";
+@use '@ecl/ec-theme-default/maps/spacing';
+@use '@ecl/ec-theme-default/maps/color';
+@use '@ecl/ec-theme-default/maps/typography';
 
 /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
 :global {
   .demo-spacing-line {
     display: flex;
     justify-content: space-between;
-    margin-bottom: map-get($ecl-spacing, 'xs');
-    margin-top: map-get($ecl-spacing, 'xs');
+    margin-bottom: map.get(spacing.$ecl-spacing, 'xs');
+    margin-top: map.get(spacing.$ecl-spacing, 'xs');
   }
 
   .demo-spacing-container {
-    background-color: map-get($ecl-color, 'grey-10');
+    background-color: map.get(color.$ecl-color, 'grey-10');
     display: flex;
   }
 
   .demo-spacing-content {
-    background-color: map-get($ecl-color, 'grey-50');
-    border: 2px solid map-get($ecl-color, 'grey-100');
+    background-color: map.get(color.$ecl-color, 'grey-50');
+    border: 2px solid map.get(color.$ecl-color, 'grey-100');
     display: flex;
   }
 
   .demo-spacing-item {
-    background-color: map-get($ecl-color, 'white-100');
+    background-color: map.get(color.$ecl-color, 'white-100');
     display: block;
-    font: map-get($ecl-font, 's');
+    font: map.get(typography.$ecl-font, 's');
     text-align: center;
     width: 7rem;
   }

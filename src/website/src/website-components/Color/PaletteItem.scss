@@ -1,4 +1,7 @@
-@import '@ecl/ec-theme-default/index';
+@use "sass:map";
+@use '@ecl/ec-theme-default/maps/spacing';
+@use '@ecl/ec-theme-default/maps/typography';
+@use '@ecl/ec-theme-default/maps/color';
 
 .item {
   align-items: center;
@@ -9,12 +12,12 @@
   height: 4.5rem;
   justify-content: space-between;
   margin: 0;
-  padding: map-get($ecl-spacing, 'm');
+  padding: map.get(spacing.$ecl-spacing, 'm');
 }
 
 .title {
-  font: map-get($ecl-font, 's');
-  font-weight: map-get($ecl-font-weight, 'bold');
+  font: map.get(typography.$ecl-font, 's');
+  font-weight: map.get(typography.$ecl-font-weight, 'bold');
   margin: 0;
 
   .item--light & {
@@ -30,9 +33,9 @@
   background: none;
   border-style: solid;
   border-width: 2px;
-  font: map-get($ecl-font, 's');
+  font: map.get(typography.$ecl-font, 's');
   height: 2.5rem;
-  margin-left: map-get($ecl-spacing, 's');
+  margin-left: map.get(spacing.$ecl-spacing, 's');
   width: 5rem;
 
   .item--light & {
@@ -53,17 +56,17 @@
 
   /* stylelint-disable-next-line */
   .item--dark & {
-    border-color: map-get($ecl-color, 'grey-100');
+    border-color: map.get(color.$ecl-color, 'grey-100');
     color: #000;
 
     /* stylelint-disable-next-line */
     &:focus {
-      background-color: rgba(map-get($ecl-color, 'grey-100'), 0.1);
+      background-color: rgba(map.get(color.$ecl-color, 'grey-100'), 0.1);
     }
 
     /* stylelint-disable-next-line */
     &:hover {
-      background-color: map-get($ecl-color, 'grey-100');
+      background-color: map.get(color.$ecl-color, 'grey-100');
       color: #fff;
     }
   }

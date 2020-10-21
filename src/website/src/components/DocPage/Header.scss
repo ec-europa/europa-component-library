@@ -1,31 +1,35 @@
-@import '@ecl/ec-theme-default/index';
+@use "sass:map";
+@use '@ecl/ec-theme-default/maps/color';
+@use '@ecl/ec-theme-default/maps/spacing';
+@use '@ecl/ec-theme-default/maps/typography';
+@use '@ecl/ec-theme-default/maps/layout';
 
-$_header-bg-color: map-get($ecl-color, 'grey-10');
+$_header-bg-color: map.get(color.$ecl-color, 'grey-10');
 $_header-tabs-border-width: 4px;
-$_border-color: map-get($ecl-color, 'grey-100');
+$_border-color: map.get(color.$ecl-color, 'grey-100');
 $_border-width: 1px;
-$_border-color-hover: map-get($ecl-color, 'blue-100');
-$_border-color-focus: map-get($ecl-color, 'yellow-100');
+$_border-color-hover: map.get(color.$ecl-color, 'blue-100');
+$_border-color-focus: map.get(color.$ecl-color, 'yellow-100');
 $_border-width-focus: 3px;
 $_arrow-width: 2.75rem;
 
 .header {
   background-color: $_header-bg-color;
   margin: 0;
-  padding-top: map-get($ecl-spacing, '2xl');
+  padding-top: map.get(spacing.$ecl-spacing, '2xl');
 }
 
 .header__page-title {
-  color: map-get($ecl-color, 'grey-100');
-  font: map-get($ecl-font, '5xl');
+  color: map.get(color.$ecl-color, 'grey-100');
+  font: map.get(typography.$ecl-font, '5xl');
   margin: 0;
-  padding-bottom: map-get($ecl-spacing, '2xl');
+  padding-bottom: map.get(spacing.$ecl-spacing, '2xl');
 }
 
 .header__section-header {
-  color: map-get($ecl-color, 'grey-100');
-  font: map-get($ecl-font, 'm');
-  margin: 0 0 map-get($ecl-spacing, 'xs');
+  color: map.get(color.$ecl-color, 'grey-100');
+  font: map.get(typography.$ecl-font, 'm');
+  margin: 0 0 map.get(spacing.$ecl-spacing, 'xs');
   padding: 0;
 }
 
@@ -46,33 +50,33 @@ $_arrow-width: 2.75rem;
   border-bottom: $_header-tabs-border-width solid transparent;
   color: #000;
   display: flex;
-  font: map-get($ecl-font, 'm');
-  font-weight: map-get($ecl-font-weight, 'bold');
-  margin-right: map-get($ecl-spacing, 'xl');
-  padding-bottom: map-get($ecl-spacing, 'xs');
+  font: map.get(typography.$ecl-font, 'm');
+  font-weight: map.get(typography.$ecl-font-weight, 'bold');
+  margin-right: map.get(spacing.$ecl-spacing, 'xl');
+  padding-bottom: map.get(spacing.$ecl-spacing, 'xs');
   text-decoration: none;
 }
 
 .header__tabs-item:hover,
 .header__tabs-item:focus {
-  background-color: map-get($ecl-color, 'grey-15');
+  background-color: map.get(color.$ecl-color, 'grey-15');
 }
 
 .header__tabs-item--active {
   border-bottom: $_header-tabs-border-width solid
-    map-get($ecl-color, 'yellow-100');
+    map.get(color.$ecl-color, 'yellow-100');
 }
 
 .header__tabs-icon {
   width: 1em;
   height: 1em;
-  margin-left: map-get($ecl-spacing, 'xs');
+  margin-left: map.get(spacing.$ecl-spacing, 'xs');
 }
 
 .select__container {
-  background-color: map-get($ecl-color, 'white-100');
+  background-color: map.get(color.$ecl-color, 'white-100');
   display: inline-flex;
-  margin-bottom: map-get($ecl-spacing, 's');
+  margin-bottom: map.get(spacing.$ecl-spacing, 's');
   position: relative;
   width: 100%;
 
@@ -87,15 +91,17 @@ $_arrow-width: 2.75rem;
   border: $_border-width solid $_border-color;
   border-radius: 0;
   box-sizing: border-box;
-  color: map-get($ecl-color, 'grey-100');
+  color: map.get(color.$ecl-color, 'grey-100');
   display: block;
-  font: map-get($ecl-font, 'm');
+  font: map.get(typography.$ecl-font, 'm');
   margin: 0;
   width: 100%;
-  padding: calc(#{map-get($ecl-spacing, 's')} - #{$_border-width})
-    calc(#{map-get($ecl-spacing, 's')} + #{$_arrow-width} - #{$_border-width})
-    calc(#{map-get($ecl-spacing, 's')} - #{$_border-width})
-    calc(#{map-get($ecl-spacing, 's')} - #{$_border-width});
+  padding: calc(#{map.get(spacing.$ecl-spacing, 's')} - #{$_border-width})
+    calc(
+      #{map.get(spacing.$ecl-spacing, 's')} + #{$_arrow-width} - #{$_border-width}
+    )
+    calc(#{map.get(spacing.$ecl-spacing, 's')} - #{$_border-width})
+    calc(#{map.get(spacing.$ecl-spacing, 's')} - #{$_border-width});
   z-index: 1;
 
   &::-ms-expand {
@@ -110,12 +116,14 @@ $_arrow-width: 2.75rem;
     border-color: $_border-color-focus;
     border-width: $_border-width-focus;
     outline: none;
-    padding: calc(#{map-get($ecl-spacing, 's')} - #{$_border-width-focus})
-      calc(
-        #{map-get($ecl-spacing, 's')} + #{$_arrow-width} - #{$_border-width-focus}
+    padding: calc(
+        #{map.get(spacing.$ecl-spacing, 's')} - #{$_border-width-focus}
       )
-      calc(#{map-get($ecl-spacing, 's')} - #{$_border-width-focus})
-      calc(#{map-get($ecl-spacing, 's')} - #{$_border-width-focus});
+      calc(
+        #{map.get(spacing.$ecl-spacing, 's')} + #{$_arrow-width} - #{$_border-width-focus}
+      )
+      calc(#{map.get(spacing.$ecl-spacing, 's')} - #{$_border-width-focus})
+      calc(#{map.get(spacing.$ecl-spacing, 's')} - #{$_border-width-focus});
   }
 }
 
@@ -140,13 +148,13 @@ $_arrow-width: 2.75rem;
 }
 
 .select__icon-shape {
-  fill: map-get($ecl-color, 'white-100');
+  fill: map.get(color.$ecl-color, 'white-100');
   height: 1.25rem;
   transform: rotate(180deg);
   width: 1.25rem;
 }
 
-@media screen and (min-width: map-get($ecl-breakpoint, 'm')) {
+@media screen and (min-width: map.get(layout.$ecl-breakpoint, 'm')) {
   .select__container {
     display: none;
   }

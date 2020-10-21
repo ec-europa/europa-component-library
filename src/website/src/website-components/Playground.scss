@@ -1,4 +1,7 @@
-@import '@ecl/ec-theme-default/index';
+@use "sass:map";
+@use '@ecl/ec-theme-default/maps/spacing';
+@use '@ecl/ec-theme-default/maps/color';
+@use '@ecl/ec-theme-default/maps/typography';
 
 * + .playground {
   margin-top: 1rem;
@@ -10,8 +13,8 @@
 }
 
 .showcase {
-  background-color: map-get($ecl-color, 'white-100');
-  border: 1px solid map-get($ecl-color, 'grey-10');
+  background-color: map.get(color.$ecl-color, 'white-100');
+  border: 1px solid map.get(color.$ecl-color, 'grey-10');
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -26,28 +29,28 @@
 
 .fullscreen {
   align-self: flex-end;
-  padding: map-get($ecl-spacing, 's');
+  padding: map.get(spacing.$ecl-spacing, 's');
 }
 
 .link {
   align-items: center;
   box-sizing: border-box;
-  color: map-get($ecl-color, 'blue-100');
+  color: map.get(color.$ecl-color, 'blue-100');
   display: inline-flex;
-  font: map-get($ecl-font, 'm');
+  font: map.get(typography.$ecl-font, 'm');
   text-decoration: none;
 }
 
 .link__icon {
   fill: currentColor;
   height: 1em;
-  margin-left: map-get($ecl-spacing, 'xs');
+  margin-left: map.get(spacing.$ecl-spacing, 'xs');
   width: 1em;
 }
 
 .link:hover,
 .link:focus {
-  color: map-get($ecl-color, 'black-100');
+  color: map.get(color.$ecl-color, 'black-100');
   text-decoration: underline;
 
   &.link--icon {
@@ -59,23 +62,23 @@
 }
 
 .link:focus {
-  outline: 3px solid map-get($ecl-color, 'yellow-100');
+  outline: 3px solid map.get(color.$ecl-color, 'yellow-100');
   outline-offset: 2px;
 }
 
 .code {
-  background-color: map-get($ecl-color, 'white-100');
-  border: 1px solid map-get($ecl-color, 'grey-10');
+  background-color: map.get(color.$ecl-color, 'white-100');
+  border: 1px solid map.get(color.$ecl-color, 'grey-10');
   display: flex;
   flex-direction: column;
-  margin-top: map-get($ecl-spacing, 'm');
+  margin-top: map.get(spacing.$ecl-spacing, 'm');
   overflow: visible;
 }
 
 .code-pre {
-  background-color: map-get($ecl-color, 'white-100') !important;
+  background-color: map.get(color.$ecl-color, 'white-100') !important;
   line-height: 1.5rem !important;
-  margin: map-get($ecl-spacing, 'm') !important;
+  margin: map.get(spacing.$ecl-spacing, 'm') !important;
   overflow-y: hidden !important;
   padding: 0 !important;
 
@@ -87,7 +90,7 @@
 
 .playground-link {
   align-self: flex-end;
-  padding: map-get($ecl-spacing, 's');
+  padding: map.get(spacing.$ecl-spacing, 's');
 }
 
 .playground-link .link__icon {
@@ -100,9 +103,9 @@
   border-width: 0;
   box-sizing: border-box;
   display: none;
-  font: map-get($ecl-font, 'm');
+  font: map.get(typography.$ecl-font, 'm');
   margin: 0;
-  padding: map-get($ecl-spacing, 's');
+  padding: map.get(spacing.$ecl-spacing, 's');
   text-decoration: none;
 
   /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
@@ -141,7 +144,8 @@
 }
 
 .description {
-  font: map-get($ecl-font-prolonged, 'm');
-  margin-bottom: map-get($ecl-spacing, 'm') - map-get($ecl-spacing, 's');
-  margin-top: map-get($ecl-spacing, 'm');
+  font: map.get(typography.$ecl-font-prolonged, 'm');
+  margin-bottom: map.get(spacing.$ecl-spacing, 'm') -
+    map.get(spacing.$ecl-spacing, 's');
+  margin-top: map.get(spacing.$ecl-spacing, 'm');
 }

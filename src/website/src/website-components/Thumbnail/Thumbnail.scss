@@ -1,19 +1,22 @@
-@import '@ecl/ec-theme-default/index';
+@use "sass:map";
+@use '@ecl/ec-theme-default/maps/color';
+@use '@ecl/ec-theme-default/maps/spacing';
+@use '@ecl/ec-theme-default/maps/typography';
 
 .thumbnail {
-  border: 1px solid map-get($ecl-color, 'grey-15');
+  border: 1px solid map.get(color.$ecl-color, 'grey-15');
   display: block;
-  padding: map-get($ecl-spacing, 'm');
+  padding: map.get(spacing.$ecl-spacing, 'm');
   text-decoration: none;
 }
 
 .title {
-  color: map-get($ecl-color, 'grey-100');
-  font: map-get($ecl-font, 'l');
+  color: map.get(color.$ecl-color, 'grey-100');
+  font: map.get(typography.$ecl-font, 'l');
 }
 
 .imageContainer {
-  margin-top: map-get($ecl-spacing, 's');
+  margin-top: map.get(spacing.$ecl-spacing, 's');
   padding-top: 75%; /* 4:3 Aspect Ratio */
   position: relative;
 }
