@@ -1,1 +1,0 @@
-# ECL - Default theme
