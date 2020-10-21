@@ -16,13 +16,13 @@ module.exports = {
       // Embedded video
       image: {
         src:
-          'https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg',
-        alt: 'Embed video',
+          'https://inno-ecl.s3.amazonaws.com/media/examples/example-external-video.jpg',
+        alt: 'New digital strategy',
       },
       embeddedVideo: {
         src: 'https://www.youtube.com/embed/fgi-GSCB6ho',
       },
-      description: 'EU budget',
+      description: 'New digital strategy',
       meta: 'Copyright, Author, Licence for embedded media',
       icon: {
         shape: 'general--video',
