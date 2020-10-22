@@ -7,6 +7,8 @@ export const GalleryItem = ({ item, className, ...props }) => {
   let mediaHref = '';
   if (item.video) {
     mediaHref = item.video.sources[0].src;
+  } else if (item.embeddedVideo) {
+    mediaHref = item.embeddedVideo.src;
   } else {
     mediaHref = item.image ? item.image.src : item.src;
   }
@@ -18,7 +20,12 @@ export const GalleryItem = ({ item, className, ...props }) => {
         className="ecl-gallery__item-link"
         aria-label={item.image ? item.image.alt : item.alt || undefined}
         data-ecl-gallery-item
-        data-ecl-gallery-item-share={item.shareHref}
+        {...(item.shareHref
+          ? { 'data-ecl-gallery-item-share': item.shareHref }
+          : {})}
+        {...(item.embeddedVideo
+          ? { 'data-ecl-gallery-item-embed-src': item.embeddedVideo.src }
+          : {})}
       >
         <figure className="ecl-gallery__image-container">
           {item.video ? (
@@ -101,6 +108,9 @@ GalleryItem.propTypes = {
           label: PropTypes.string,
         })
       ),
+    }),
+    embeddedVideo: PropTypes.shape({
+      src: PropTypes.string,
     }),
     description: PropTypes.string,
     meta: PropTypes.string,

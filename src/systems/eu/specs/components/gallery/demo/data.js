@@ -13,6 +13,23 @@ module.exports = {
       shareHref: '/share#example-image.jpg',
     },
     {
+      // Embedded video
+      image: {
+        src:
+          'https://inno-ecl.s3.amazonaws.com/media/examples/example-external-video.jpg',
+        alt: 'New digital strategy',
+      },
+      embeddedVideo: {
+        src: 'https://www.youtube.com/embed/fgi-GSCB6ho',
+      },
+      description: 'New digital strategy',
+      meta: 'Copyright, Author, Licence for embedded media',
+      icon: {
+        shape: 'general--video',
+        size: 'l',
+      },
+    },
+    {
       // Image
       image: {
         src:
