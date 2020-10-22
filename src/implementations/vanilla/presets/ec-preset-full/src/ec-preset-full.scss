@@ -1,8 +1,5 @@
 // Warn on missing dependencies
 $ecl-check-imports-warn: true;
 
-// Import theme
-@import '@ecl/theme-dev/index';
-
-// Import ECL
-@import '@ecl/preset-dev/src/dev';
+@use '@ecl/theme-dev/index';
+@use '@ecl/preset-dev/src/dev';

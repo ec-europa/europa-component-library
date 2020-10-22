@@ -1,10 +1,9 @@
-const sass = require('node-sass');
+const sass = require('sass');
 const path = require('path');
 const fs = require('fs');
 const postcss = require('postcss');
 const cssnano = require('cssnano');
 const autoprefixer = require('autoprefixer');
-const mkdirp = require('mkdirp');
 const bannerPlugin = require('postcss-banner');
 
 module.exports = (entry, dest, options) => {
@@ -31,37 +30,30 @@ module.exports = (entry, dest, options) => {
     plugins.push(cssnano({ safe: true }));
   }
 
-  sass.render(
-    {
-      file: entry,
-      outFile: dest,
-      sourceMap: options.sourceMap === true,
-      sourceMapContents: options.sourceMap === true,
-      sourceMapEmbed: options.sourceMap === true,
-      includePaths: [
-        path.resolve(process.cwd(), 'node_modules'),
-        ...(options.includePaths || []),
-      ],
-    },
-    (sassErr, sassResult) => {
-      if (sassErr) throw sassErr;
+  const sassResult = sass.renderSync({
+    file: entry,
+    outFile: dest,
+    sourceMap: options.sourceMap === true,
+    sourceMapContents: options.sourceMap === true,
+    sourceMapEmbed: options.sourceMap === true,
+    includePaths: [
+      path.resolve(process.cwd(), 'node_modules'),
+      ...(options.includePaths || []),
+    ],
+  });
 
-      const postcssOperation = async () => {
-        const postcssResult = await postcss(plugins).process(sassResult.css, {
-          map: postcssSourceMap,
-          from: entry,
-          to: dest,
-        });
+  postcss(plugins)
+    .process(sassResult.css, {
+      map: postcssSourceMap,
+      from: entry,
+      to: dest,
+    })
+    .then((postcssResult) => {
+      fs.mkdirSync(path.dirname(dest), { recursive: true });
+      fs.writeFileSync(dest, postcssResult.css);
 
-        await mkdirp(path.dirname(dest));
-        fs.writeFileSync(dest, postcssResult.css);
-
-        if (postcssResult.map) {
-          fs.writeFileSync(`${dest}.map`, postcssResult.map);
-        }
-      };
-
-      postcssOperation();
-    }
-  );
+      if (postcssResult.map) {
+        fs.writeFileSync(`${dest}.map`, postcssResult.map);
+      }
+    });
 };

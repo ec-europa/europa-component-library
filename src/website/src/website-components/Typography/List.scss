@@ -1,18 +1,21 @@
-@import '@ecl/theme-dev/index';
+@use "sass:map";
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/maps/typography';
 
 .list {
   box-sizing: border-box;
-  color: map-get($ecl-color, 'grey-100');
-  font: map-get($ecl-font-prolonged, 'm');
+  color: map.get(color.$ecl-color, 'grey-100');
+  font: map.get(typography.$ecl-font-prolonged, 'm');
   margin: 0;
   max-width: 64ch;
 }
 
 * + .list {
-  margin-top: map-get($ecl-spacing, 'm');
+  margin-top: map.get(spacing.$ecl-spacing, 'm');
 }
 
 .list--lead {
-  font: map-get($ecl-font-prolonged, 'xl');
+  font: map.get(typography.$ecl-font-prolonged, 'xl');
   max-width: 49ch;
 }

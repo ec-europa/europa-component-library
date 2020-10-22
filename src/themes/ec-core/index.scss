@@ -1,12 +1,12 @@
-@import '@ecl/theme-dev/maps/color';
-@import '@ecl/theme-dev/maps/icon';
-@import '@ecl/theme-dev/maps/form';
-@import '@ecl/theme-dev/maps/layout';
-@import '@ecl/theme-dev/maps/media';
-@import '@ecl/theme-dev/maps/shape';
-@import '@ecl/theme-dev/maps/spacing';
-@import '@ecl/theme-dev/maps/typography';
-@import '@ecl/theme-dev/maps/z-index';
-
-// Theme parameters
-$ecl-global-border-radius: 'no';
+@use '@ecl/theme-dev/globals' with (
+  $border-radius: 'no'
+);
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/icon';
+@use '@ecl/theme-dev/maps/form';
+@use '@ecl/theme-dev/maps/layout';
+@use '@ecl/theme-dev/maps/media';
+@use '@ecl/theme-dev/maps/shape';
+@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/maps/z-index';

@@ -1,18 +1,22 @@
-@import '@ecl/theme-dev/index';
+@use "sass:map";
+@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/maps/layout';
 
 * + .anatomy {
-  margin-top: map-get($ecl-spacing, 'm');
+  margin-top: map.get(spacing.$ecl-spacing, 'm');
 }
 
 .container {
-  background-color: map-get($ecl-color, 'grey-5');
-  padding: map-get($ecl-spacing, 'l') map-get($ecl-spacing, 'm');
+  background-color: map.get(color.$ecl-color, 'grey-5');
+  padding: map.get(spacing.$ecl-spacing, 'l') map.get(spacing.$ecl-spacing, 'm');
 }
 
 .image-container {
   align-items: center;
-  background-color: map-get($ecl-color, 'white-100');
-  border: 1px solid map-get($ecl-color, 'grey-15');
+  background-color: map.get(color.$ecl-color, 'white-100');
+  border: 1px solid map.get(color.$ecl-color, 'grey-15');
   display: flex;
   justify-content: center;
 }
@@ -38,7 +42,7 @@
 
 .legend__item {
   display: inline-flex;
-  margin-right: map-get($ecl-spacing, 'xl');
+  margin-right: map.get(spacing.$ecl-spacing, 'xl');
 
   &:last-child {
     margin-right: 0;
@@ -54,43 +58,43 @@
 .legend__color {
   border-radius: 2px;
   height: 1rem;
-  margin-right: map-get($ecl-spacing, 's');
+  margin-right: map.get(spacing.$ecl-spacing, 's');
   width: 1.25rem;
 }
 
 .legend__label {
-  color: map-get($ecl-color, 'grey-100');
-  font: map-get($ecl-font, 's');
+  color: map.get(color.$ecl-color, 'grey-100');
+  font: map.get(typography.$ecl-font, 's');
   font-style: italic;
 }
 
 .legend__description {
-  color: map-get($ecl-color, 'grey-75');
-  font: map-get($ecl-font-prolonged, 's');
-  margin-top: map-get($ecl-spacing, 'm');
+  color: map.get(color.$ecl-color, 'grey-75');
+  font: map.get(typography.$ecl-font-prolonged, 's');
+  margin-top: map.get(spacing.$ecl-spacing, 'm');
 }
 
 .link {
   align-items: center;
   box-sizing: border-box;
-  color: map-get($ecl-color, 'blue-100');
+  color: map.get(color.$ecl-color, 'blue-100');
   display: inline-flex;
   float: right;
-  font: map-get($ecl-font, 'm');
+  font: map.get(typography.$ecl-font, 'm');
   text-decoration: none;
 }
 
 .link__icon {
   fill: currentColor;
   height: 1em;
-  margin-left: map-get($ecl-spacing, 'xs');
+  margin-left: map.get(spacing.$ecl-spacing, 'xs');
   width: 1em;
   transform: rotateZ(90deg);
 }
 
 .link:hover,
 .link:focus {
-  color: map-get($ecl-color, 'black-100');
+  color: map.get(color.$ecl-color, 'black-100');
   text-decoration: underline;
 
   &.link--icon {
@@ -102,17 +106,17 @@
 }
 
 .link:focus {
-  outline: 3px solid map-get($ecl-color, 'yellow-100');
+  outline: 3px solid map.get(color.$ecl-color, 'yellow-100');
   outline-offset: 2px;
 }
 
-@media screen and (min-width: map-get($ecl-breakpoint, 'm')) {
+@media screen and (min-width: map.get(layout.$ecl-breakpoint, 'm')) {
   * + .anatomy {
-    margin-top: map-get($ecl-spacing, 'l');
+    margin-top: map.get(spacing.$ecl-spacing, 'l');
   }
 
   .anatomy--vertical {
-    border: 1px solid map-get($ecl-color, 'grey-15');
+    border: 1px solid map.get(color.$ecl-color, 'grey-15');
 
     .image {
       border-width: 0;
@@ -126,7 +130,7 @@
 
     .legend__item {
       margin-right: 0;
-      margin-top: map-get($ecl-spacing, 's');
+      margin-top: map.get(spacing.$ecl-spacing, 's');
 
       &:first-child {
         margin-top: 0;
@@ -134,7 +138,7 @@
     }
 
     .legend__description {
-      margin-top: map-get($ecl-spacing, 'l');
+      margin-top: map.get(spacing.$ecl-spacing, 'l');
     }
   }
 }

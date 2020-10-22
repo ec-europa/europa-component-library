@@ -4,9 +4,13 @@
 */
 
 // Import base
-@import '@ecl/ec-base/ec-base';
+@use "sass:map";
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/ec-base/mixins/import-once';
 
-@mixin ecl-link-print($_link-color: map-get($ecl-color, 'blue')) {
+@mixin ecl-link-print($_link-color: map.get(color.$ecl-color, 'blue')) {
   .ecl-link {
     color: $_link-color;
     page-break-inside: avoid;
@@ -16,7 +20,7 @@
   .ecl-link::after {
     content: '(' attr(href) ')';
     font-style: italic;
-    margin-left: map-get($ecl-spacing-print, '2xs');
+    margin-left: map.get(spacing.$ecl-spacing-print, '2xs');
     text-decoration: underline;
   }
 
@@ -41,15 +45,15 @@
   }
 
   .ecl-link--standalone {
-    font-family: map-get($ecl-font-family-print, 'default');
+    font-family: map.get(typography.$ecl-font-family-print, 'default');
   }
 
   .ecl-link--cta {
-    font-family: map-get($ecl-font-family-print, 'default');
+    font-family: map.get(typography.$ecl-font-family-print, 'default');
   }
 }
 
 // Use mixin
-@include exports('ec-component-link-print') {
+@include import-once.exports('ec-component-link-print') {
   @include ecl-link-print();
 }

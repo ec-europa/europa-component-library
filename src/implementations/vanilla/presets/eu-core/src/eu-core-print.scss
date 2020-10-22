@@ -1,8 +1,5 @@
 // Warn on missing dependencies
 $ecl-check-imports-warn: true;
 
-// Import theme
-@import '@ecl/theme-eu-core/index';
-
-// Import ECL
-@import '@ecl/preset-dev/src/dev-print';
+@use '@ecl/theme-eu-core/index';
+@use '@ecl/preset-dev/src/dev-print';
