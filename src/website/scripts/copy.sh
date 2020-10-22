@@ -11,3 +11,6 @@ cp -r ../../dist/playground/ec ./public/playground
 # Make assets available for storybook
 cp -r ../../dist/packages/ec-preset-website/. ./public/playground/ec
 cp -r ../../dist/packages/ec-preset-editor/. ./public/playground/ec
+
+cp -r ../../dist/packages/preset-ec-core/. ./public/playground/ec
+cp -r ../../dist/packages/preset-eu-core/. ./public/playground/ec
