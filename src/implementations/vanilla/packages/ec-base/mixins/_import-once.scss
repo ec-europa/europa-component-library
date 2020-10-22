@@ -1,3 +1,4 @@
+@use "sass:list";
 // Original: https://github.com/wilsonpage/sass-import-once
 
 $ecl-import-once-warn: false !default;
@@ -11,8 +12,8 @@ $imported-modules: () !default;
 /// @param {Bool} $warn [true] - Warn when module has been already imported
 /// @require $imported-modules
 @mixin exports($name, $warn: $ecl-import-once-warn) {
-  @if (index($imported-modules, $name) == null) {
-    $imported-modules: append($imported-modules, $name) !global;
+  @if (list.index($imported-modules, $name) == null) {
+    $imported-modules: list.append($imported-modules, $name) !global;
     @content;
   } @else if $warn == true {
     @warn 'Module `#{$name}` has already been imported.';

@@ -1,4 +1,9 @@
-@import '@ecl/theme-dev/index';
+@use "sass:map";
+@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/maps/layout';
+@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/icon';
 
 .dodont {
   box-sizing: border-box;
@@ -11,7 +16,7 @@
 .do,
 .dont,
 .caution {
-  margin-top: map-get($ecl-spacing, 'l');
+  margin-top: map.get(spacing.$ecl-spacing, 'l');
 }
 
 .dodont .do,
@@ -23,7 +28,7 @@
   position: relative;
   width: 100%;
 
-  @media screen and (min-width: map-get($ecl-breakpoint, 'm')) {
+  @media screen and (min-width: map.get(layout.$ecl-breakpoint, 'm')) {
     display: flex;
     flex: 0 0 50%;
     flex-direction: column;
@@ -34,7 +39,7 @@
 
 .image-container {
   align-items: center;
-  border: 1px solid map-get($ecl-color, 'grey-15');
+  border: 1px solid map.get(color.$ecl-color, 'grey-15');
   border-bottom-width: 0;
   display: flex;
   justify-content: center;
@@ -58,54 +63,54 @@
 }
 
 .do .separator {
-  background-color: map-get($ecl-color, 'success');
+  background-color: map.get(color.$ecl-color, 'success');
 }
 
 .dont .separator {
-  background-color: map-get($ecl-color, 'error');
+  background-color: map.get(color.$ecl-color, 'error');
 }
 
 .caution .separator {
-  background-color: map-get($ecl-color, 'warning');
+  background-color: map.get(color.$ecl-color, 'warning');
 }
 
 .container {
-  background-color: map-get($ecl-color, 'grey-5');
+  background-color: map.get(color.$ecl-color, 'grey-5');
   flex-grow: 1;
   flex-shrink: 0;
-  padding: map-get($ecl-spacing, 'm') map-get($ecl-spacing, 'l');
+  padding: map.get(spacing.$ecl-spacing, 'm') map.get(spacing.$ecl-spacing, 'l');
 }
 
 .title {
   display: flex;
-  font: map-get($ecl-font-prolonged, 'm');
-  font-weight: map-get($ecl-font-weight, 'bold');
+  font: map.get(typography.$ecl-font-prolonged, 'm');
+  font-weight: map.get(typography.$ecl-font-weight, 'bold');
 }
 .do .title {
-  color: map-get($ecl-color, 'success');
+  color: map.get(color.$ecl-color, 'success');
 }
 .dont .title {
-  color: map-get($ecl-color, 'error');
+  color: map.get(color.$ecl-color, 'error');
 }
 .caution .title {
-  color: map-get($ecl-color, 'warning');
+  color: map.get(color.$ecl-color, 'warning');
 }
 
 .title__icon {
   fill: currentColor;
-  height: map-get($ecl-icon, 's');
-  margin-right: map-get($ecl-spacing, 's');
-  width: map-get($ecl-icon, 's');
+  height: map.get(icon.$ecl-icon, 's');
+  margin-right: map.get(spacing.$ecl-spacing, 's');
+  width: map.get(icon.$ecl-icon, 's');
 }
 
 .description {
-  color: map-get($ecl-color, 'grey-100');
-  font: map-get($ecl-font-prolonged, 'm');
-  margin-top: map-get($ecl-spacing, 'xs');
+  color: map.get(color.$ecl-color, 'grey-100');
+  font: map.get(typography.$ecl-font-prolonged, 'm');
+  margin-top: map.get(spacing.$ecl-spacing, 'xs');
 }
 
-@media screen and (min-width: map-get($ecl-breakpoint, 's')) {
+@media screen and (min-width: map.get(layout.$ecl-breakpoint, 's')) {
   .dont {
-    margin-top: map-get($ecl-spacing, 'l');
+    margin-top: map.get(spacing.$ecl-spacing, 'l');
   }
 }

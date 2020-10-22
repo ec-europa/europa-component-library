@@ -1,11 +1,14 @@
-@import '@ecl/theme-dev/index';
+@use "sass:map";
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/maps/spacing';
 
 .ul {
   box-sizing: border-box;
-  color: map-get($ecl-color, 'grey-75');
-  font: map-get($ecl-font-prolonged, 'm');
+  color: map.get(color.$ecl-color, 'grey-75');
+  font: map.get(typography.$ecl-font-prolonged, 'm');
   margin-bottom: 0;
-  margin-top: map-get($ecl-spacing, 's');
+  margin-top: map.get(spacing.$ecl-spacing, 's');
   max-width: 38em;
   text-transform: lowercase;
 }

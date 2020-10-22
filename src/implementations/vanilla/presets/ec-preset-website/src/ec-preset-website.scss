@@ -1,14 +1,7 @@
 // Warn on missing dependencies
 $ecl-check-imports-warn: true;
 
-// Import normalize.css
-@import 'normalize.css/normalize';
-
-// Import global rules
-@import './globals';
-
-// Import theme
-@import '@ecl/theme-dev/index';
-
-// Import ECL
-@import '@ecl/preset-dev/src/dev';
+@use 'normalize.css/normalize';
+@use './globals';
+@use '@ecl/theme-dev/index';
+@use '@ecl/preset-dev/src/dev';

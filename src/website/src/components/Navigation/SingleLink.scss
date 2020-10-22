@@ -1,62 +1,69 @@
-@import '@ecl/theme-dev/index';
+@use "sass:map";
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/maps/typography';
 
 .page-list-item {
   align-items: center;
-  background-color: map-get($ecl-color, 'grey-5');
+  background-color: map.get(color.$ecl-color, 'grey-5');
   border-width: 0;
-  color: map-get($ecl-color, 'text');
+  color: map.get(color.$ecl-color, 'text');
   display: flex;
-  font: map-get($ecl-font, 'm');
+  font: map.get(typography.$ecl-font, 'm');
   margin: 0;
   text-decoration: none;
 
   &.level-0 {
-    padding: map-get($ecl-spacing, 's') map-get($ecl-spacing, 'm');
+    padding: map.get(spacing.$ecl-spacing, 's')
+      map.get(spacing.$ecl-spacing, 'm');
   }
 
   &.level-1 {
-    padding: map-get($ecl-spacing, 's') map-get($ecl-spacing, 'm')
-      map-get($ecl-spacing, 's') map-get($ecl-spacing, 'xl');
+    padding: map.get(spacing.$ecl-spacing, 's')
+      map.get(spacing.$ecl-spacing, 'm') map.get(spacing.$ecl-spacing, 's')
+      map.get(spacing.$ecl-spacing, 'xl');
   }
 
   &.level-2 {
-    padding: map-get($ecl-spacing, 's') map-get($ecl-spacing, 'm')
-      map-get($ecl-spacing, 's') map-get($ecl-spacing, '3xl');
+    padding: map.get(spacing.$ecl-spacing, 's')
+      map.get(spacing.$ecl-spacing, 'm') map.get(spacing.$ecl-spacing, 's')
+      map.get(spacing.$ecl-spacing, '3xl');
   }
 
   &.level-3 {
-    padding: map-get($ecl-spacing, 's') map-get($ecl-spacing, 'm')
-      map-get($ecl-spacing, 's') map-get($ecl-spacing, '4xl');
+    padding: map.get(spacing.$ecl-spacing, 's')
+      map.get(spacing.$ecl-spacing, 'm') map.get(spacing.$ecl-spacing, 's')
+      map.get(spacing.$ecl-spacing, '4xl');
   }
 }
 
 .page-list-item:hover,
 .page-list-item:focus {
-  background-color: map-get($ecl-color, 'grey-10');
+  background-color: map.get(color.$ecl-color, 'grey-10');
   outline: none;
 }
 
 .page-list-item:active {
-  background-color: map-get($ecl-color, 'grey-25');
+  background-color: map.get(color.$ecl-color, 'grey-25');
 }
 
 .page-list-item--active {
-  border-left: 4px solid map-get($ecl-color, 'yellow-100');
+  border-left: 4px solid map.get(color.$ecl-color, 'yellow-100');
 
   &.level-0 {
-    padding-left: calc(#{map-get($ecl-spacing, 'm')} - 4px);
+    padding-left: calc(#{map.get(spacing.$ecl-spacing, 'm')} - 4px);
   }
 
   &.level-1 {
-    padding-left: calc(#{map-get($ecl-spacing, 'xl')} - 4px);
+    padding-left: calc(#{map.get(spacing.$ecl-spacing, 'xl')} - 4px);
   }
 
   &.level-2 {
-    padding-left: calc(#{map-get($ecl-spacing, '3xl')} - 4px);
+    padding-left: calc(#{map.get(spacing.$ecl-spacing, '3xl')} - 4px);
   }
 
   &.level-3 {
-    padding-left: calc(#{map-get($ecl-spacing, '4xl')} - 4px);
+    padding-left: calc(#{map.get(spacing.$ecl-spacing, '4xl')} - 4px);
   }
 }
 

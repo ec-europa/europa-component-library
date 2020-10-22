@@ -1,24 +1,27 @@
-@import '@ecl/theme-dev/index';
+@use "sass:map";
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/maps/spacing';
 
 .paragraph {
-  color: map-get($ecl-color, 'grey-100');
-  font: map-get($ecl-font-prolonged, 'm');
+  color: map.get(color.$ecl-color, 'grey-100');
+  font: map.get(typography.$ecl-font-prolonged, 'm');
   margin: 0;
   max-width: 64ch;
   padding: 0;
 }
 
 * + .paragraph {
-  margin-top: map-get($ecl-spacing, 'm');
+  margin-top: map.get(spacing.$ecl-spacing, 'm');
 }
 
 .paragraph--lead {
-  font: map-get($ecl-font-prolonged, 'xl');
+  font: map.get(typography.$ecl-font-prolonged, 'xl');
   max-width: 49ch;
 }
 .paragraph--s {
-  font: map-get($ecl-font-prolonged, 's');
+  font: map.get(typography.$ecl-font-prolonged, 's');
 }
 .paragraph--xs {
-  font: map-get($ecl-font-prolonged, 'xs');
+  font: map.get(typography.$ecl-font-prolonged, 'xs');
 }

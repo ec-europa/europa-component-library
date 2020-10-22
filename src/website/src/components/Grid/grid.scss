@@ -1,19 +1,17 @@
-/* Overrides */
-$ecl-breakpoint: (
-  'xs': 0,
-  's': 480px,
-  'm': 768px,
-  'l': 1140px,
-  'xl': 1500px,
+@use '@ecl/theme-dev/maps/layout' with (
+  $ecl-breakpoint: (
+    'xs': 0,
+    's': 480px,
+    'm': 768px,
+    'l': 1140px,
+    'xl': 1500px,
+  ),
+  $ecl-container: (
+    's': 480px,
+    'm': 768px,
+    'l': 768px,
+    'xl': 1140px,
+  ),
 );
 
-$ecl-container: (
-  's': 480px,
-  'm': 768px,
-  'l': 768px,
-  'xl': 1140px,
-);
-
-/* Use custom ECL Grid */
-@import '@ecl/theme-dev/index';
-@import '@ecl/ec-layout-grid/ec-layout-grid';
+@use '@ecl/ec-layout-grid/ec-layout-grid';

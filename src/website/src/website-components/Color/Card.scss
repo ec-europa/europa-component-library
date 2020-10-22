@@ -1,4 +1,7 @@
-@import '@ecl/theme-dev/index';
+@use "sass:map";
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/maps/typography';
 
 .card {
   display: flex;
@@ -13,19 +16,19 @@
   flex-direction: column;
   height: 7.875rem;
   justify-content: center;
-  padding-left: map-get($ecl-spacing, 'm');
-  padding-right: map-get($ecl-spacing, 'm');
+  padding-left: map.get(spacing.$ecl-spacing, 'm');
+  padding-right: map.get(spacing.$ecl-spacing, 'm');
 }
 
 .header--bordered {
-  border: 2px solid map-get($ecl-color, 'grey-15');
-  padding-left: calc(#{map-get($ecl-spacing, 'm')} - 2px);
-  padding-right: calc(#{map-get($ecl-spacing, 'm')} - 2px);
+  border: 2px solid map.get(color.$ecl-color, 'grey-15');
+  padding-left: calc(#{map.get(spacing.$ecl-spacing, 'm')} - 2px);
+  padding-right: calc(#{map.get(spacing.$ecl-spacing, 'm')} - 2px);
 }
 
 .title {
-  font: map-get($ecl-font, 'm');
-  font-weight: map-get($ecl-font-weight, 'bold');
+  font: map.get(typography.$ecl-font, 'm');
+  font-weight: map.get(typography.$ecl-font-weight, 'bold');
   margin: 0;
 
   .card--light & {
@@ -41,9 +44,9 @@
   background: none;
   border-style: solid;
   border-width: 2px;
-  font: map-get($ecl-font, 's');
+  font: map.get(typography.$ecl-font, 's');
   height: 2.5rem;
-  margin-top: map-get($ecl-spacing, 'm');
+  margin-top: map.get(spacing.$ecl-spacing, 'm');
   width: 5rem;
 
   .card--light & {
@@ -64,17 +67,17 @@
 
   /* stylelint-disable-next-line */
   .card--dark & {
-    border-color: map-get($ecl-color, 'grey-100');
+    border-color: map.get(color.$ecl-color, 'grey-100');
     color: #000;
 
     /* stylelint-disable-next-line */
     &:focus {
-      background-color: rgba(map-get($ecl-color, 'grey-100'), 0.1);
+      background-color: rgba(map.get(color.$ecl-color, 'grey-100'), 0.1);
     }
 
     /* stylelint-disable-next-line */
     &:hover {
-      background-color: map-get($ecl-color, 'grey-100');
+      background-color: map.get(color.$ecl-color, 'grey-100');
       color: #fff;
     }
   }
@@ -93,13 +96,13 @@
 }
 
 .body {
-  background-color: map-get($ecl-color, 'grey-5');
-  color: map-get($ecl-color, 'text');
+  background-color: map.get(color.$ecl-color, 'grey-5');
+  color: map.get(color.$ecl-color, 'text');
   flex-grow: 1;
-  font: map-get($ecl-font-prolonged, 'm');
-  padding: map-get($ecl-spacing, 's') map-get($ecl-spacing, 'm');
+  font: map.get(typography.$ecl-font-prolonged, 'm');
+  padding: map.get(spacing.$ecl-spacing, 's') map.get(spacing.$ecl-spacing, 'm');
 }
 
 * + .card {
-  margin-top: map-get($ecl-spacing, 'm');
+  margin-top: map.get(spacing.$ecl-spacing, 'm');
 }

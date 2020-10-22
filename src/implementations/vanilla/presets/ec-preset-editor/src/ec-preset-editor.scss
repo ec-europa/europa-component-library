@@ -1,8 +1,5 @@
 // Warn on missing dependencies
 $ecl-check-imports-warn: true;
 
-// Import theme
-@import '@ecl/theme-dev/index';
-
-// Import editors
-@import '@ecl/ec-editor/ec-editor';
+@use '@ecl/theme-dev/index';
+@use '@ecl/ec-editor/ec-editor';
