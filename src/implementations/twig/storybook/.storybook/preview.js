@@ -7,9 +7,14 @@ import './ECL';
 addParameters({
   cssresources: [
     {
-      id: 'ecl-screen',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec-preset-website.css" />`,
+      id: 'ec-core',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/ec-core.css" />`,
       picked: true,
+    },
+    {
+      id: 'eu-core',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/eu-core.css" />`,
+      picked: false,
     },
     {
       id: 'ecl-print',
