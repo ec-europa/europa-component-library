@@ -12,20 +12,13 @@
 
 @mixin ecl-button(
   // Theme parameters:
-    $_border-radius: 0,
+    $_border-radius: map.get(shape.$ecl-border-radius, 'm'),
   // Component variables
     $_border-width: 2px,
   $_outline-width: 3px,
   $_padding-horizontal: map.get(spacing.$ecl-spacing, 'm'),
   $_padding-vertical: map.get(spacing.$ecl-spacing, 's')
 ) {
-  // Use theme parameters
-  @if $ecl-global-border-radius == 1 {
-    $_border-radius: map.get(shape.$ecl-border-radius, 'm');
-  } @else {
-    $_border-radius: 0;
-  }
-
   .ecl-button {
     appearance: none;
     background: none;

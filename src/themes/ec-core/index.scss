@@ -3,10 +3,13 @@
 @use '@ecl/theme-dev/maps/form';
 @use '@ecl/theme-dev/maps/layout';
 @use '@ecl/theme-dev/maps/media';
-@use '@ecl/theme-dev/maps/shape';
+@use '@ecl/theme-dev/maps/shape' with (
+  $ecl-border-radius: (
+    's': 0,
+    'm': 0,
+    'l': 0,
+  ),
+);
 @use '@ecl/theme-dev/maps/spacing';
 @use '@ecl/theme-dev/maps/typography';
 @use '@ecl/theme-dev/maps/z-index';
-
-// Theme parameters
-$ecl-global-border-radius: 0;
