@@ -4,6 +4,7 @@
  */
 
 @use "sass:map";
+@use '@ecl/theme-dev/globals';
 @use '@ecl/theme-dev/maps/color';
 @use '@ecl/theme-dev/maps/spacing';
 @use '@ecl/theme-dev/maps/shape';
@@ -12,12 +13,19 @@
 
 @mixin ecl-button-print(
   // Theme parameters:
-    $_border-radius: map.get(shape.$ecl-border-radius, 'm'),
+    $_border-radius: 0,
   // Component variables
     $_border-width: 1.5pt,
   $_padding-horizontal: map.get(spacing.$ecl-spacing-print, 'm'),
   $_padding-vertical: map.get(spacing.$ecl-spacing-print, 's')
 ) {
+  // Use theme parameters
+  @if globals.$border-radius == 1 {
+    $_border-radius: map.get(shape.$ecl-border-radius, 'm');
+  } @else {
+    $_border-radius: 0;
+  }
+
   .ecl-button {
     appearance: none;
     background: none;
