@@ -23,5 +23,7 @@ module.exports = {
     },
     // Allow underscores in class names (BEM)
     'selector-class-pattern': null,
+    // Allow use of variables for font family
+    'font-family-no-missing-generic-family-keyword': null,
   },
 };

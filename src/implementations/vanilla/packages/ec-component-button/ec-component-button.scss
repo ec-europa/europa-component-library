@@ -12,25 +12,21 @@
 @use '@ecl/ec-base/mixins/import-once';
 
 @mixin ecl-button(
-  // Theme parameters:
-    $_border-radius: 0,
-  // Component variables
-    $_border-width: 2px,
+  $_border-width: 2px,
   $_outline-width: 3px,
   $_padding-horizontal: map.get(spacing.$ecl-spacing, 'm'),
   $_padding-vertical: map.get(spacing.$ecl-spacing, 's')
 ) {
-  // Use theme parameters
-  @if globals.$border-radius == 1 {
-    $_border-radius: map.get(shape.$ecl-border-radius, 'm');
-  } @else {
-    $_border-radius: 0;
-  }
-
   .ecl-button {
     appearance: none;
     background: none;
-    border-radius: $_border-radius;
+    border-radius: map-get(
+      (
+        no: 0,
+        yes: map.get(shape.$ecl-border-radius, 'm'),
+      ),
+      globals.$border-radius
+    );
     border-width: 0;
     box-sizing: border-box;
     display: inline-block;
