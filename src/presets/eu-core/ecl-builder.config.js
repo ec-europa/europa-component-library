@@ -4,7 +4,7 @@ const pkg = require('./package.json');
 const isProd = process.env.NODE_ENV === 'production';
 const outputFolder = path.resolve(__dirname, isProd ? './dist' : './build');
 
-const nodeModules = path.resolve(__dirname, '../../../../../node_modules');
+const nodeModules = path.resolve(__dirname, '../../../node_modules');
 
 // SCSS includePaths
 const includePaths = [nodeModules];
@@ -16,8 +16,8 @@ const banner = `${pkg.name} - ${
 module.exports = {
   scripts: [
     {
-      entry: path.resolve(__dirname, 'src/ec-core.js'),
-      dest: path.resolve(outputFolder, 'scripts/ec-core.js'),
+      entry: path.resolve(__dirname, 'src/eu-core.js'),
+      dest: path.resolve(outputFolder, 'scripts/eu-core.js'),
       options: {
         banner,
         moduleName: 'ECL',
@@ -27,8 +27,8 @@ module.exports = {
   ],
   styles: [
     {
-      entry: path.resolve(__dirname, 'src/ec-core.scss'),
-      dest: path.resolve(outputFolder, 'styles/ec-core.css'),
+      entry: path.resolve(__dirname, 'src/eu-core.scss'),
+      dest: path.resolve(outputFolder, 'styles/eu-core.css'),
       options: {
         banner,
         includePaths,
@@ -36,8 +36,8 @@ module.exports = {
       },
     },
     {
-      entry: path.resolve(__dirname, 'src/ec-core-print.scss'),
-      dest: path.resolve(outputFolder, 'styles/ec-core-print.css'),
+      entry: path.resolve(__dirname, 'src/eu-core-print.scss'),
+      dest: path.resolve(outputFolder, 'styles/eu-core-print.css'),
       options: {
         banner,
         includePaths,
