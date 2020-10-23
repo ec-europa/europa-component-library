@@ -1,9 +1,9 @@
 # ECL-Twig Button component
 
-npm package: `@ecl/button`
+npm package: `@ecl/twig-component-button`
 
 ```shell
-npm install --save @ecl/button
+npm install --save @ecl/twig-component-button
 ```
 
 ### Parameters

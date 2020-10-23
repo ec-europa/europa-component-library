@@ -1,9 +1,9 @@
 # ECL-Twig Link component
 
-npm package: `@ecl/link`
+npm package: `@ecl/twig-component-link`
 
 ```shell
-npm install --save @ecl/link
+npm install --save @ecl/twig-component-link
 ```
 
 ### Parameters

@@ -1,17 +1,17 @@
 # ECL-Twig Icon component
 
-npm package: `@ecl/icon`
+npm package: `@ecl/twig-component-icon`
 
 ```shell
-npm install --save @ecl/icon
+npm install --save @ecl/twig-component-icon
 ```
 
 ### Parameters
 
 - **"icon"** (associative array) (default: 'predefined structure below')
   - "path" (string) (default: '') - path/url to general icon file (eg. /path-to-icon/icon.svg)
-  - "type" (string) (default: '') - type of icon. Available types are 'general', 'branded', 'notifications', 'ui'. A full list of icon types is available on the [ECL Iconography](https://v2--europa-component-library.netlify.com/ec/guidelines/iconography/)
-  - "name" (string) (default: '') - name of icon, eg. 'facebook', 'twitter'. A full list of icon names is available on the [ECL Iconography](https://v2--europa-component-library.netlify.com/ec/guidelines/iconography/)
+  - "type" (string) (default: '') - type of icon. Available types are 'general', 'branded', 'notifications', 'ui'.
+  - "name" (string) (default: '') - name of icon, eg. 'facebook', 'twitter'.
   - "size" (string) (default: 'm') size of icon. Available sizes are 'xs','s','m','l','xl','2xl','fluid'
   - "transform" (string) (default: '') Transformation of icon. Available transformations are 'rotate-0', 'rotate-90', 'rotate-180', 'rotate-270', 'flip-horizontal', 'flip-vertical')
   - "color" (string) (default: '') Color of icon. Available colors are 'default', 'inverted', 'primary'
