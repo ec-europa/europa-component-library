@@ -1,9 +1,9 @@
 # ECL-Twig Link component
 
-npm package: `@ecl/twig-component-link`
+npm package: `@ecl/link`
 
 ```shell
-npm install --save @ecl/twig-component-link
+npm install --save @ecl/link
 ```
 
 ### Parameters
@@ -27,7 +27,7 @@ npm install --save @ecl/twig-component-link
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl/twig-component-link/link.html.twig' with { 
+{% include '@ecl/link/link.html.twig' with { 
   link: { 
     type: 'standalone', 
     label: 'Standalone link', 

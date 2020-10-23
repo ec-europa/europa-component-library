@@ -1,0 +1,36 @@
+{#
+  Parameters:
+    label (string)
+    invalid_text: (string),
+    optional_text: (string),
+    required_text: (string),
+    invalid: (string),
+    required: (string),
+    button_replace_label: (string),
+    button_choose_label: (string)
+#}
+
+{% extends "@ecl/@compliance/@checker.html.twig" %}
+
+{% include '@ecl/@compliance/form-group.html.twig' with {
+    label: label,
+    invalid_text: invalid_text,
+    optional_text: optional_text,
+    required_text: required_text,
+    invalid: invalid,
+    required: required
+  } only %}
+
+{% set component = 'file-upload' %}
+{% set message = '' %}
+{% set no_button_choose_case = button_choose_label is not defined or button_choose_label is empty %}
+{% set no_button_replace_case = button_replace_label is not defined or button_replace_label is empty %}
+
+{% set not_compliant = no_button_choose_case or no_button_replace_case %}
+
+{% if no_button_choose_case %}
+  {% set message = ' {{ button_choose_label }} needs to be set and filled in.' %}
+{% endif %}
+{% if no_button_replace_case %}
+  {% set message = message ~ ' {{ button_replace_label }} needs to be set and filled in.' %}
+{% endif %}

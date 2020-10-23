@@ -11,7 +11,7 @@ import dataCall from '@ecl/ec-specs-button/demo/data--call';
 import dataGhost from '@ecl/ec-specs-button/demo/data--ghost';
 import dataSearch from '@ecl/ec-specs-button/demo/data--search';
 
-import button from './ecl-button.html.twig';
+import button from './button.html.twig';
 import notes from './README.md';
 
 const iconsList = {};

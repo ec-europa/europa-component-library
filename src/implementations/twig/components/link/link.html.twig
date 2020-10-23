@@ -113,7 +113,7 @@
         {%- if icon.extra_classes is defined and icon.extra_classes is not empty -%}
           {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ icon.extra_classes %}
         {%- endif -%}
-        {%- include '@ecl-twig/ecl-component-icon/ecl-icon.html.twig' with _icon|merge({
+        {%- include '@ecl/icon/icon.html.twig' with _icon|merge({
           icon: icon|default({}),
           extra_classes: _icon_extra_classes,
           _compliance_: _compliance,
@@ -134,7 +134,7 @@
         {%- if icon.extra_classes is defined and icon.extra_classes is not empty -%}
           {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ icon.extra_classes %}
         {%- endif -%}
-        {%- include '@ecl-twig/ecl-component-icon/ecl-icon.html.twig' with _icon|merge({
+        {%- include '@ecl/icon/icon.html.twig' with _icon|merge({
           icon: icon|default({}),
           extra_classes: _icon_extra_classes,
           _compliance_: _compliance,
@@ -151,7 +151,7 @@
 {# Validation #}
 
 {% if _compliance %}
-  {% include '@ecl/ec-twig-component-ecl-compliance/components/ecl-compliance-link.html.twig' with {
+  {% include '@ecl/@compliance/link.html.twig' with {
     link: _link,
     icon: _icons,
     _compliance_inner_check_: _compliance_inner_check,

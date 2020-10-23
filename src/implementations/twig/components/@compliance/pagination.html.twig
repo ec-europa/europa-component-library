@@ -1,0 +1,53 @@
+{#
+  Parameters:
+  - "label" (string)
+  - "items" (array)
+#}
+
+{% extends "@ecl/@compliance/@checker.html.twig" %}
+
+{% set message = '' %}
+{% set next_case = false %}
+{% set previous_case = false %}
+{% set active_case = 0 %}
+{% set no_items_case = items is not defined or items is empty or items is not iterable %}
+{% set no_label_case = label is not defined or label is empty %}
+{% set component = 'pagination' %}
+
+{% if no_label_case %}
+  {% set message = message ~ ' {{ label }} needs to set and filled in for accessibility reasons.' %}
+{% endif %}
+{% if no_items_case %}
+  {% set message = message ~ 'No {{ items }} array was provided.' %}
+  {% else %}
+    {% for item in items %}
+      {% if item.link is not defined %}
+        {% set active_case = active_case + 1 %}
+      {% endif %}
+      {% if item.type == 'previous' %}
+        {% set previous_case = true %}
+      {% endif %}
+      {% if item.type == 'next' %}
+        {% set next_case = true %}
+      {% endif %}
+    {% endfor %}
+{% endif %}
+
+{% set not_compliant =
+  no_label_case or
+  no_items_case or
+  active_case != 1 or
+  next_case == false or
+  previous_case == false
+%}
+
+{% if previous_case == false %}
+  {% set message = message ~ ' Previous link is mandatory.' %}
+{% endif %}
+{% if next_case == false %}
+  {% set message = message ~ ' Next link is mandatory.' %}
+{% endif %}
+{% if active_case != 1 %}
+  {% set message = message ~ ' The active page is mandatory, one item should not contain the {{ link }} object.' %}
+{% endif %}
+

@@ -1,0 +1,57 @@
+{#
+  Parameters:
+    items: (array of objects),
+    icon_path: (string),
+    toggle_collapsed: (string),
+    toggle_expanded: (string),
+    hide_from: (string),
+    hide_to: (string)
+    toggler: (boolean)
+#}
+
+{% extends "@ecl/@compliance/@checker.html.twig" %}
+
+{% set message = '' %}
+{% set component = 'timeline' %}
+{% set no_item_timestamp_case = false %}
+{% set no_toggle_collapsed_case = false %}
+{% set no_toggle_expanded_case = false %}
+{% set no_icon_path_case = false %}
+
+{% if toggler %}
+  {% set no_toggle_collapsed_case = toggle_collapsed is empty %}
+  {% set no_toggle_expanded_case = toggle_expanded is empty %}
+  {% set no_icon_path_case = icon_path is empty %}
+{% endif %}
+
+{% set no_items_case = items is empty or items is not iterable %}
+{% if no_items_case == false %}
+  {% for item in items %}
+    {% if item.label is not defined or item.label is empty %}
+      {% set no_item_timestamp_case = true %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% set not_compliant =
+  no_items_case or
+  no_item_timestamp_case or
+  no_toggle_collapsed_case or
+  no_toggle_expanded_case or
+  no_icon_path_case %}
+
+{% if no_items_case %}
+  {% set message = message ~ ' {{ items }} is mandatory, it needs to be defined as an array of objects.' %}
+{% endif %}
+{% if no_icon_path_case %}
+  {% set message = message ~ ' If the toggler is shown the {{ icon_path }} parameter needs to be set and filled in.' %}
+{% endif %}
+{% if no_item_timestamp_case %}
+  {% set message = message ~ ' Each item of the timeline should contain a {{ label }} property set and filled in as it represents the mandatory timestamp.' %}
+{% endif %}
+{% if no_toggle_collapsed_case %}
+  {% set message = message ~ ' The {{ toggle_collapsed }} property needs to be set and filled in as it represents the toggler button label.' %}
+{% endif %}
+{% if no_toggle_expanded_case %}
+  {% set message = message ~ ' The {{ toggle_expanded }} property needs to be set and filled in as it represents the toggler button label.' %}
+{% endif %}

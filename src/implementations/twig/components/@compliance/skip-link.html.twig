@@ -1,0 +1,12 @@
+{#
+  Parameters:
+  - "href" (string)
+  - "label" (string)
+#}
+
+{% extends "@ecl/@compliance/@checker.html.twig" %}
+
+{% set component = 'skip-link' %}
+{% set not_compliant = (href is not defined or href is empty) or (label is not defined or label is empty) %}
+{% set message = 'The {{ href }} and {{ label }} properties need to be set and filled in.' %}
+

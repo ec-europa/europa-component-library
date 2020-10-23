@@ -1,0 +1,15 @@
+{#
+  Parameters:
+  - "card" (object)
+#}
+
+{% extends "@ecl/@compliance/@checker.html.twig" %}
+
+{% set message = '' %}
+{% set component = 'card' %}
+{% set no_title_case =
+  card.title is not defined or card.title is empty or
+  card.title.label is not defined or card.title.label is empty
+%}
+{% set not_compliant = no_title_case %}
+{% set message = message ~ ' {{ card.title.label }} property needs to set and filled in.' %}
