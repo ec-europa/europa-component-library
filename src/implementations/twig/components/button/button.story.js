@@ -5,11 +5,11 @@ import { getExtraKnobs, tabLabels, getIconKnobs } from '@ecl/story-utils';
 
 // Import data for demos
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
-import dataPrimary from '@ecl/ec-specs-button/demo/data--primary';
-import dataSecondary from '@ecl/ec-specs-button/demo/data--secondary';
-import dataCall from '@ecl/ec-specs-button/demo/data--call';
-import dataGhost from '@ecl/ec-specs-button/demo/data--ghost';
-import dataSearch from '@ecl/ec-specs-button/demo/data--search';
+import dataPrimary from '@ecl/specs-component-button/demo/data--primary';
+import dataSecondary from '@ecl/specs-component-button/demo/data--secondary';
+import dataCall from '@ecl/specs-component-button/demo/data--call';
+import dataGhost from '@ecl/specs-component-button/demo/data--ghost';
+import dataSearch from '@ecl/specs-component-button/demo/data--search';
 
 import button from './button.html.twig';
 import notes from './README.md';

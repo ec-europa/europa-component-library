@@ -1,8 +1,8 @@
-import demoContentPrimary from '@ecl/ec-specs-button/demo/data--primary';
-import demoContentSecondary from '@ecl/ec-specs-button/demo/data--secondary';
-import demoContentCall from '@ecl/ec-specs-button/demo/data--call';
-import demoContentGhost from '@ecl/ec-specs-button/demo/data--ghost';
-import demoContentSearch from '@ecl/ec-specs-button/demo/data--search';
+import demoContentPrimary from '@ecl/specs-component-button/demo/data--primary';
+import demoContentSecondary from '@ecl/specs-component-button/demo/data--secondary';
+import demoContentCall from '@ecl/specs-component-button/demo/data--call';
+import demoContentGhost from '@ecl/specs-component-button/demo/data--ghost';
+import demoContentSearch from '@ecl/specs-component-button/demo/data--search';
 import template from '@ecl/twig-component-button/button.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 

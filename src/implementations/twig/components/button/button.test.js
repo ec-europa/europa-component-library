@@ -1,11 +1,11 @@
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 
 // Import data for tests
-import dataPrimary from '@ecl/ec-specs-button/demo/data--primary';
-import dataSecondary from '@ecl/ec-specs-button/demo/data--secondary';
-import dataCall from '@ecl/ec-specs-button/demo/data--call';
-import dataGhost from '@ecl/ec-specs-button/demo/data--ghost';
-import dataSearch from '@ecl/ec-specs-button/demo/data--search';
+import dataPrimary from '@ecl/specs-component-button/demo/data--primary';
+import dataSecondary from '@ecl/specs-component-button/demo/data--secondary';
+import dataCall from '@ecl/specs-component-button/demo/data--call';
+import dataGhost from '@ecl/specs-component-button/demo/data--ghost';
+import dataSearch from '@ecl/specs-component-button/demo/data--search';
 
 describe('EC - Button', () => {
   const template = '@ecl/button/button.html.twig';
