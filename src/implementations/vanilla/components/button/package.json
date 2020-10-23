@@ -1,15 +1,17 @@
 {
-  "name": "@ecl/ec-layout-grid",
+  "name": "@ecl/vanilla-component-button",
   "author": "European Commission",
   "license": "EUPL-1.1",
   "version": "3.0.0",
-  "description": "ECL Grid",
-  "style": "ec-layout-grid.scss",
-  "private": true,
+  "description": "ECL Buttons",
+  "style": "button.scss",
+  "sass": "button.scss",
   "dependencies": {
     "@ecl/ec-base": "^3.0.0",
-    "@ecl/theme-dev": "^3.0.0"
+    "@ecl/theme-dev": "^3.0.0",
+    "@ecl/vanilla-component-icon": "^3.0.0"
   },
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ec-europa/europa-component-library.git"
@@ -22,6 +24,5 @@
     "ecl",
     "europa-component-library",
     "design-system"
-  ],
-  "sass": "ec-layout-grid.scss"
+  ]
 }

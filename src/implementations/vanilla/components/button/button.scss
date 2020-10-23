@@ -6,15 +6,16 @@
 @use "sass:map";
 @use '@ecl/theme-dev/globals';
 @use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
 @use '@ecl/theme-dev/maps/shape';
+@use '@ecl/theme-dev/maps/spacing';
 @use '@ecl/theme-dev/maps/typography';
 @use '@ecl/ec-base/mixins/import-once';
 
-@mixin ecl-button-print(
-  $_border-width: 1.5pt,
-  $_padding-horizontal: map.get(spacing.$ecl-spacing-print, 'm'),
-  $_padding-vertical: map.get(spacing.$ecl-spacing-print, 's')
+@mixin ecl-button(
+  $_border-width: 2px,
+  $_outline-width: 3px,
+  $_padding-horizontal: map.get(spacing.$ecl-spacing, 'm'),
+  $_padding-vertical: map.get(spacing.$ecl-spacing, 's')
 ) {
   .ecl-button {
     appearance: none;
@@ -29,14 +30,26 @@
     border-width: 0;
     box-sizing: border-box;
     display: inline-block;
-    font: map.get(typography.$ecl-font-print, 'm');
-    font-family: map.get(typography.$ecl-font-family-print, 'alt');
-    font-weight: map.get(typography.$ecl-font-weight-print, 'bold');
+    font: map.get(typography.$ecl-font, 'm');
+    font-weight: map.get(typography.$ecl-font-weight, 'bold');
     margin: 0;
     padding: $_padding-vertical $_padding-horizontal;
     text-decoration: none;
 
-    &[disabled] {
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: none;
+    }
+
+    &:focus {
+      outline: $_outline-width solid map.get(color.$ecl-color, 'secondary');
+      outline-offset: -($_outline-width);
+    }
+
+    &[disabled],
+    &[disabled]:hover {
+      cursor: not-allowed;
       text-decoration: none;
     }
   }
@@ -46,22 +59,14 @@
     display: flex;
   }
 
-  .ecl-button__label {
-    text-align: left;
-  }
-
-  .ecl-button__icon {
-    flex-shrink: 0;
-  }
-
   .ecl-button__icon--before,
   .ecl-button__icon + .ecl-button__label {
-    margin-right: map.get(spacing.$ecl-spacing-print, 'xs');
+    margin-right: map.get(spacing.$ecl-spacing, 'xs');
   }
 
   .ecl-button__icon--after,
   .ecl-button__label + .ecl-button__icon {
-    margin-left: map.get(spacing.$ecl-spacing-print, 'xs');
+    margin-left: map.get(spacing.$ecl-spacing, 'xs');
   }
 
   /*
@@ -71,7 +76,13 @@
     background-color: map.get(color.$ecl-color, 'blue-100');
     color: map.get(color.$ecl-color, 'white-100');
 
-    &[disabled] {
+    &:hover,
+    &:active {
+      background-color: map.get(color.$ecl-color, 'blue-130');
+    }
+
+    &[disabled],
+    &[disabled]:hover {
       background-color: map.get(color.$ecl-color, 'blue-25');
       border-color: map.get(color.$ecl-color, 'blue-25');
       color: map.get(color.$ecl-color, 'white-100');
@@ -88,13 +99,17 @@
     padding: calc(#{$_padding-vertical} - #{$_border-width})
       calc(#{$_padding-horizontal} - #{$_border-width});
 
-    &[disabled] {
+    &:hover,
+    &:active {
+      border-color: map.get(color.$ecl-color, 'blue-130');
+      color: map.get(color.$ecl-color, 'blue-130');
+    }
+
+    &[disabled],
+    &[disabled]:hover {
       background-color: map.get(color.$ecl-color, 'white-100');
       border-color: map.get(color.$ecl-color, 'blue-25');
-      border-width: $_border-width;
       color: map.get(color.$ecl-color, 'blue-25');
-      padding: calc(#{$_padding-vertical} - #{$_border-width})
-        calc(#{$_padding-horizontal} - #{$_border-width});
     }
   }
 
@@ -104,7 +119,13 @@
   .ecl-button--ghost {
     color: map.get(color.$ecl-color, 'blue-100');
 
-    &[disabled] {
+    &:hover,
+    &:active {
+      color: map.get(color.$ecl-color, 'blue-130');
+    }
+
+    &[disabled],
+    &[disabled]:hover {
       color: map.get(color.$ecl-color, 'blue-25');
     }
   }
@@ -116,7 +137,19 @@
     background-color: map.get(color.$ecl-color, 'yellow-100');
     color: map.get(color.$ecl-color, 'black-100');
 
-    &[disabled] {
+    &:hover,
+    &:active {
+      border: $_border-width solid map.get(color.$ecl-color, 'black-100');
+      padding: calc(#{$_padding-vertical} - #{$_border-width})
+        calc(#{$_padding-horizontal} - #{$_border-width});
+    }
+
+    &:focus {
+      outline-color: map.get(color.$ecl-color, 'black-100');
+    }
+
+    &[disabled],
+    &[disabled]:hover {
       background-color: map.get(color.$ecl-color, 'yellow-25');
       border-color: map.get(color.$ecl-color, 'yellow-25');
       color: map.get(color.$ecl-color, 'grey-50');
@@ -130,7 +163,13 @@
     background-color: map.get(color.$ecl-color, 'grey-10');
     color: map.get(color.$ecl-color, 'blue-100');
 
-    &[disabled] {
+    &:hover,
+    &:active {
+      background-color: map.get(color.$ecl-color, 'grey-25');
+    }
+
+    &[disabled],
+    &[disabled]:hover {
       background-color: map.get(color.$ecl-color, 'grey-5');
       color: map.get(color.$ecl-color, 'grey-50');
     }
@@ -138,6 +177,6 @@
 }
 
 // Use mixin
-@include import-once.exports('ec-component-button-print') {
-  @include ecl-button-print();
+@include import-once.exports('vanilla-component-button') {
+  @include ecl-button();
 }
