@@ -8,25 +8,25 @@
   .demo-spacing-line {
     display: flex;
     justify-content: space-between;
-    margin-bottom: map.get(spacing.$ecl-spacing, 'xs');
-    margin-top: map.get(spacing.$ecl-spacing, 'xs');
+    margin-bottom: map.get(spacing.$spacing, 'xs');
+    margin-top: map.get(spacing.$spacing, 'xs');
   }
 
   .demo-spacing-container {
-    background-color: map.get(color.$ecl-color, 'grey-10');
+    background-color: map.get(color.$color, 'grey-10');
     display: flex;
   }
 
   .demo-spacing-content {
-    background-color: map.get(color.$ecl-color, 'grey-50');
-    border: 2px solid map.get(color.$ecl-color, 'grey-100');
+    background-color: map.get(color.$color, 'grey-50');
+    border: 2px solid map.get(color.$color, 'grey-100');
     display: flex;
   }
 
   .demo-spacing-item {
-    background-color: map.get(color.$ecl-color, 'white-100');
+    background-color: map.get(color.$color, 'white-100');
     display: block;
-    font: map.get(typography.$ecl-font, 's');
+    font: map.get(typography.$font, 's');
     text-align: center;
     width: 7rem;
   }

@@ -4,19 +4,19 @@
 @use '@ecl/theme-dev/maps/typography';
 
 .thumbnail {
-  border: 1px solid map.get(color.$ecl-color, 'grey-15');
+  border: 1px solid map.get(color.$color, 'grey-15');
   display: block;
-  padding: map.get(spacing.$ecl-spacing, 'm');
+  padding: map.get(spacing.$spacing, 'm');
   text-decoration: none;
 }
 
 .title {
-  color: map.get(color.$ecl-color, 'grey-100');
-  font: map.get(typography.$ecl-font, 'l');
+  color: map.get(color.$color, 'grey-100');
+  font: map.get(typography.$font, 'l');
 }
 
 .imageContainer {
-  margin-top: map.get(spacing.$ecl-spacing, 's');
+  margin-top: map.get(spacing.$spacing, 's');
   padding-top: 75%; /* 4:3 Aspect Ratio */
   position: relative;
 }

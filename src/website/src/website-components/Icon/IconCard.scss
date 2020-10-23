@@ -5,7 +5,7 @@
 
 .card {
   align-items: center;
-  border: 1px solid map.get(color.$ecl-color, 'grey-15');
+  border: 1px solid map.get(color.$color, 'grey-15');
   box-sizing: border-box;
   display: flex;
   flex-basis: 9rem;
@@ -13,15 +13,14 @@
   flex-grow: 1;
   flex-shrink: 1;
   justify-content: center;
-  margin: map.get(spacing.$ecl-spacing, 's') map.get(spacing.$ecl-spacing, 's')
-    0 0;
+  margin: map.get(spacing.$spacing, 's') map.get(spacing.$spacing, 's') 0 0;
   max-width: 9rem;
-  padding: map.get(spacing.$ecl-spacing, 's');
+  padding: map.get(spacing.$spacing, 's');
 }
 
 .title {
-  color: map.get(color.$ecl-color, 'text');
-  font: map.get(typography.$ecl-font, 's');
-  font-weight: map.get(typography.$ecl-font-weight, 'bold');
-  margin: map.get(spacing.$ecl-spacing, 's') 0 0;
+  color: map.get(color.$color, 'text');
+  font: map.get(typography.$font, 's');
+  font-weight: map.get(typography.$font-weight, 'bold');
+  margin: map.get(spacing.$spacing, 's') 0 0;
 }

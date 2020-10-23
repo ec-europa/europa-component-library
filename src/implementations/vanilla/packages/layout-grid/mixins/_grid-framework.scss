@@ -6,14 +6,14 @@
 // Framework grid generation
 //
 // Used only by Bootstrap to generate the correct number of grid classes given
-// any value of `$ecl-grid-columns`.
+// any value of `$grid-columns`.
 
 /* stylelint-disable max-nesting-depth */
 
 @mixin ecl-make-grid-columns(
-  $columns: map.get(layout.$ecl-grid, 'columns'),
-  $gutters: layout.$ecl-grid-gutter-width,
-  $breakpoints: layout.$ecl-breakpoint
+  $columns: map.get(layout.$grid, 'columns'),
+  $gutters: layout.$grid-gutter-width,
+  $breakpoints: layout.$breakpoint
 ) {
   // Common properties for all breakpoints
   %ecl-grid-column {

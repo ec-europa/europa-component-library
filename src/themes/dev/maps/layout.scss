@@ -1,6 +1,6 @@
 @use "sass:map";
 
-$ecl-breakpoint: (
+$breakpoint: (
   'xs': 0,
   's': 480px,
   'm': 768px,
@@ -8,22 +8,22 @@ $ecl-breakpoint: (
   'xl': 1140px,
 ) !default;
 
-$ecl-container: (
+$container: (
   's': 480px,
   'm': 768px,
   'l': 996px,
   'xl': 1140px,
 ) !default;
 
-$ecl-grid: (
+$grid: (
   'gutter': 2rem,
   'columns': 12,
 ) !default;
 
-$ecl-grid-gutter-width: (
-  'xs': map.get($ecl-grid, 'gutter'),
-  's': map.get($ecl-grid, 'gutter'),
-  'm': map.get($ecl-grid, 'gutter'),
-  'lg': map.get($ecl-grid, 'gutter'),
-  'xl': map.get($ecl-grid, 'gutter'),
+$grid-gutter-width: (
+  'xs': map.get($grid, 'gutter'),
+  's': map.get($grid, 'gutter'),
+  'm': map.get($grid, 'gutter'),
+  'lg': map.get($grid, 'gutter'),
+  'xl': map.get($grid, 'gutter'),
 ) !default;

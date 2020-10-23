@@ -4,20 +4,20 @@
 
 .logo-link {
   align-items: center;
-  background-color: map.get(color.$ecl-color, 'grey-5');
-  border: 1px solid map.get(color.$ecl-color, 'grey-10');
+  background-color: map.get(color.$color, 'grey-5');
+  border: 1px solid map.get(color.$color, 'grey-10');
   box-sizing: border-box;
   display: flex;
   flex-grow: 1;
   justify-content: center;
-  padding: calc(#{map.get(spacing.$ecl-spacing, 'xl')} - 1px);
+  padding: calc(#{map.get(spacing.$spacing, 'xl')} - 1px);
 }
 
 .logo-link:hover,
 .logo-link:focus {
-  border: 3px solid map.get(color.$ecl-color, 'yellow-100');
+  border: 3px solid map.get(color.$color, 'yellow-100');
   outline: none;
-  padding: calc(#{map.get(spacing.$ecl-spacing, 'xl')} - 3px);
+  padding: calc(#{map.get(spacing.$spacing, 'xl')} - 3px);
 }
 
 .logo-link img {

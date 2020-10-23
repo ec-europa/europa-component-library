@@ -3,51 +3,51 @@
 @use '@ecl/theme-dev/maps/layout';
 
 .pv-m {
-  padding-bottom: map.get(spacing.$ecl-spacing, 'm') !important;
-  padding-top: map.get(spacing.$ecl-spacing, 'm') !important;
+  padding-bottom: map.get(spacing.$spacing, 'm') !important;
+  padding-top: map.get(spacing.$spacing, 'm') !important;
 }
 
 .pv-l {
-  padding-bottom: map.get(spacing.$ecl-spacing, 'l') !important;
-  padding-top: map.get(spacing.$ecl-spacing, 'l') !important;
+  padding-bottom: map.get(spacing.$spacing, 'l') !important;
+  padding-top: map.get(spacing.$spacing, 'l') !important;
 }
 
 .pv-xl {
-  padding-bottom: map.get(spacing.$ecl-spacing, 'xl') !important;
-  padding-top: map.get(spacing.$ecl-spacing, 'xl') !important;
+  padding-bottom: map.get(spacing.$spacing, 'xl') !important;
+  padding-top: map.get(spacing.$spacing, 'xl') !important;
 }
 
 .pv-2xl {
-  padding-bottom: map.get(spacing.$ecl-spacing, '2xl') !important;
-  padding-top: map.get(spacing.$ecl-spacing, '2xl') !important;
+  padding-bottom: map.get(spacing.$spacing, '2xl') !important;
+  padding-top: map.get(spacing.$spacing, '2xl') !important;
 }
 
 .pv-3xl {
-  padding-bottom: map.get(spacing.$ecl-spacing, '3xl') !important;
-  padding-top: map.get(spacing.$ecl-spacing, '3xl') !important;
+  padding-bottom: map.get(spacing.$spacing, '3xl') !important;
+  padding-top: map.get(spacing.$spacing, '3xl') !important;
 }
-@media screen and (min-width: map.get(layout.$ecl-breakpoint, 'md')) {
+@media screen and (min-width: map.get(layout.$breakpoint, 'md')) {
   .pv-md-3xl {
-    padding-bottom: map.get(spacing.$ecl-spacing, '3xl') !important;
-    padding-top: map.get(spacing.$ecl-spacing, '3xl') !important;
+    padding-bottom: map.get(spacing.$spacing, '3xl') !important;
+    padding-top: map.get(spacing.$spacing, '3xl') !important;
   }
 }
 
 .pv-4xl {
-  padding-bottom: map.get(spacing.$ecl-spacing, '4xl') !important;
-  padding-top: map.get(spacing.$ecl-spacing, '4xl') !important;
+  padding-bottom: map.get(spacing.$spacing, '4xl') !important;
+  padding-top: map.get(spacing.$spacing, '4xl') !important;
 }
 
 .mt-m {
-  margin-top: map.get(spacing.$ecl-spacing, 'm') !important;
+  margin-top: map.get(spacing.$spacing, 'm') !important;
 }
 
 .mt-l {
-  margin-top: map.get(spacing.$ecl-spacing, 'l') !important;
+  margin-top: map.get(spacing.$spacing, 'l') !important;
 }
 
 .mt-xl {
-  margin-top: map.get(spacing.$ecl-spacing, 'xl') !important;
+  margin-top: map.get(spacing.$spacing, 'xl') !important;
 }
 
 .d-flex {

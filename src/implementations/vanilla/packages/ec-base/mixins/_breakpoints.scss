@@ -8,7 +8,7 @@
 //
 //    (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px)
 //
-// The map defined in the `$ecl-breakpoint` global variable is used as the `$breakpoints` argument by default.
+// The map defined in the `$breakpoint` global variable is used as the `$breakpoints` argument by default.
 
 // Name of the next breakpoint, or null for the last breakpoint.
 //
@@ -20,7 +20,7 @@
 //    md
 @function ecl-breakpoint-next(
   $name,
-  $breakpoints: layout.$ecl-breakpoint,
+  $breakpoints: layout.$breakpoint,
   $breakpoint-names: map.keys($breakpoints)
 ) {
   $n: list.index($breakpoint-names, $name);
@@ -60,13 +60,13 @@
 //    ''  (Returns a blank string)
 //    >> ecl-breakpoint-infix(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
 //    '-sm'
-@function ecl-breakpoint-infix($name, $breakpoints: layout.$ecl-breakpoint) {
+@function ecl-breakpoint-infix($name, $breakpoints: layout.$breakpoint) {
   @return if(ecl-breakpoint-min($name, $breakpoints) == null, '', '-#{$name}');
 }
 
 // Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
 // Makes the @content apply to the given breakpoint and wider.
-@mixin ecl-media-breakpoint-up($name, $breakpoints: layout.$ecl-breakpoint) {
+@mixin ecl-media-breakpoint-up($name, $breakpoints: layout.$breakpoint) {
   @if map_has_key($breakpoints, $name) {
     $min: ecl-breakpoint-min($name, $breakpoints);
 
@@ -84,7 +84,7 @@
 
 // Media of at most the maximum breakpoint width. No query for the largest breakpoint.
 // Makes the @content apply to the given breakpoint and narrower.
-@mixin ecl-media-breakpoint-down($name, $breakpoints: layout.$ecl-breakpoint) {
+@mixin ecl-media-breakpoint-down($name, $breakpoints: layout.$breakpoint) {
   @if map_has_key($breakpoints, $name) {
     $max: ecl-breakpoint-max($name, $breakpoints);
 
@@ -105,7 +105,7 @@
 @mixin ecl-media-breakpoint-between(
   $lower,
   $upper,
-  $breakpoints: layout.$ecl-breakpoint
+  $breakpoints: layout.$breakpoint
 ) {
   @include ecl-media-breakpoint-up($lower, $breakpoints) {
     @include ecl-media-breakpoint-down($upper, $breakpoints) {
@@ -117,7 +117,7 @@
 // Media between the breakpoint's minimum and maximum widths.
 // No minimum for the smallest breakpoint, and no maximum for the largest one.
 // Makes the @content apply only to the given breakpoint, not viewports any wider or narrower.
-@mixin ecl-media-breakpoint-only($name, $breakpoints: layout.$ecl-breakpoint) {
+@mixin ecl-media-breakpoint-only($name, $breakpoints: layout.$breakpoint) {
   @include ecl-media-breakpoint-between($name, $name, $breakpoints) {
     @content;
   }

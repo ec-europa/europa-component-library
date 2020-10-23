@@ -16,7 +16,7 @@
 .do,
 .dont,
 .caution {
-  margin-top: map.get(spacing.$ecl-spacing, 'l');
+  margin-top: map.get(spacing.$spacing, 'l');
 }
 
 .dodont .do,
@@ -28,7 +28,7 @@
   position: relative;
   width: 100%;
 
-  @media screen and (min-width: map.get(layout.$ecl-breakpoint, 'm')) {
+  @media screen and (min-width: map.get(layout.$breakpoint, 'm')) {
     display: flex;
     flex: 0 0 50%;
     flex-direction: column;
@@ -39,7 +39,7 @@
 
 .image-container {
   align-items: center;
-  border: 1px solid map.get(color.$ecl-color, 'grey-15');
+  border: 1px solid map.get(color.$color, 'grey-15');
   border-bottom-width: 0;
   display: flex;
   justify-content: center;
@@ -63,54 +63,54 @@
 }
 
 .do .separator {
-  background-color: map.get(color.$ecl-color, 'success');
+  background-color: map.get(color.$color, 'success');
 }
 
 .dont .separator {
-  background-color: map.get(color.$ecl-color, 'error');
+  background-color: map.get(color.$color, 'error');
 }
 
 .caution .separator {
-  background-color: map.get(color.$ecl-color, 'warning');
+  background-color: map.get(color.$color, 'warning');
 }
 
 .container {
-  background-color: map.get(color.$ecl-color, 'grey-5');
+  background-color: map.get(color.$color, 'grey-5');
   flex-grow: 1;
   flex-shrink: 0;
-  padding: map.get(spacing.$ecl-spacing, 'm') map.get(spacing.$ecl-spacing, 'l');
+  padding: map.get(spacing.$spacing, 'm') map.get(spacing.$spacing, 'l');
 }
 
 .title {
   display: flex;
-  font: map.get(typography.$ecl-font-prolonged, 'm');
-  font-weight: map.get(typography.$ecl-font-weight, 'bold');
+  font: map.get(typography.$font-prolonged, 'm');
+  font-weight: map.get(typography.$font-weight, 'bold');
 }
 .do .title {
-  color: map.get(color.$ecl-color, 'success');
+  color: map.get(color.$color, 'success');
 }
 .dont .title {
-  color: map.get(color.$ecl-color, 'error');
+  color: map.get(color.$color, 'error');
 }
 .caution .title {
-  color: map.get(color.$ecl-color, 'warning');
+  color: map.get(color.$color, 'warning');
 }
 
 .title__icon {
   fill: currentColor;
-  height: map.get(icon.$ecl-icon, 's');
-  margin-right: map.get(spacing.$ecl-spacing, 's');
-  width: map.get(icon.$ecl-icon, 's');
+  height: map.get(icon.$icon, 's');
+  margin-right: map.get(spacing.$spacing, 's');
+  width: map.get(icon.$icon, 's');
 }
 
 .description {
-  color: map.get(color.$ecl-color, 'grey-100');
-  font: map.get(typography.$ecl-font-prolonged, 'm');
-  margin-top: map.get(spacing.$ecl-spacing, 'xs');
+  color: map.get(color.$color, 'grey-100');
+  font: map.get(typography.$font-prolonged, 'm');
+  margin-top: map.get(spacing.$spacing, 'xs');
 }
 
-@media screen and (min-width: map.get(layout.$ecl-breakpoint, 's')) {
+@media screen and (min-width: map.get(layout.$breakpoint, 's')) {
   .dont {
-    margin-top: map.get(spacing.$ecl-spacing, 'l');
+    margin-top: map.get(spacing.$spacing, 'l');
   }
 }

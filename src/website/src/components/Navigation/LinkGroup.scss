@@ -4,11 +4,11 @@
 @use '@ecl/theme-dev/maps/typography';
 
 .group {
-  color: map.get(color.$ecl-color, 'grey-75');
+  color: map.get(color.$color, 'grey-75');
   display: block;
-  font: map.get(typography.$ecl-font, 'm');
-  font-weight: map.get(typography.$ecl-font-weight, 'bold');
+  font: map.get(typography.$font, 'm');
+  font-weight: map.get(typography.$font-weight, 'bold');
   margin: 0;
-  padding: map.get(spacing.$ecl-spacing, 's') map.get(spacing.$ecl-spacing, 'm')
-    map.get(spacing.$ecl-spacing, 's') map.get(spacing.$ecl-spacing, 'xl');
+  padding: map.get(spacing.$spacing, 's') map.get(spacing.$spacing, 'm')
+    map.get(spacing.$spacing, 's') map.get(spacing.$spacing, 'xl');
 }

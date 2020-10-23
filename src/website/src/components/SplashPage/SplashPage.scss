@@ -3,23 +3,22 @@
 @use '@ecl/theme-dev/maps/spacing';
 
 .splash-page {
-  background-color: map.get(color.$ecl-color, 'grey-5');
+  background-color: map.get(color.$color, 'grey-5');
   box-sizing: border-box;
   min-height: 100vh;
-  padding: map.get(spacing.$ecl-spacing, '4xl') 0
-    map.get(spacing.$ecl-spacing, 'xl');
+  padding: map.get(spacing.$spacing, '4xl') 0 map.get(spacing.$spacing, 'xl');
 }
 
 .splash-page-actions-row {
-  margin-top: map.get(spacing.$ecl-spacing, 'xl');
+  margin-top: map.get(spacing.$spacing, 'xl');
 
   @media screen and (min-width: 768px) {
-    margin-top: map.get(spacing.$ecl-spacing, '4xl');
+    margin-top: map.get(spacing.$spacing, '4xl');
   }
 }
 
 .splash-page-actions-row .splash-page-actions-col + .splash-page-actions-col {
-  margin-top: map.get(spacing.$ecl-spacing, 'm');
+  margin-top: map.get(spacing.$spacing, 'm');
 
   @media screen and (min-width: 768px) {
     margin-top: 0;
