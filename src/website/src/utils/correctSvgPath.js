@@ -1,4 +1,4 @@
-import iconPath from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
+import iconPath from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 
 /**
  * Pass a specification data object and get all occurences of *.svg corrected to file loader path.

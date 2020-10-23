@@ -4,7 +4,7 @@ import withCode from '@ecl/storybook-addon-code-twig';
 import { getExtraKnobs, tabLabels, getIconKnobs } from '@ecl/story-utils';
 
 // Import data for demos
-import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
+import uiIcons from '@ecl/resources-ec-icons/dist/lists/ui.json';
 import dataPrimary from '@ecl/specs-component-button/demo/data--primary';
 import dataSecondary from '@ecl/specs-component-button/demo/data--secondary';
 import dataCall from '@ecl/specs-component-button/demo/data--call';

@@ -2,7 +2,7 @@
 import React from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import icons from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
+import icons from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 
 import Container from '../Grid/Container';
 import styles from './Header.scss';

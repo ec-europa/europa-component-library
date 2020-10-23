@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Link, withRouter } from 'react-router-dom';
 
-import icons from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
+import icons from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import styles from './LinkSection.scss';
 import LinkList from './LinkList'; // eslint-disable-line import/no-cycle
 

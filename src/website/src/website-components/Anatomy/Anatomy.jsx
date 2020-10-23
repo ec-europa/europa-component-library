@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import iconSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
+import iconSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 
 import Col from '../../components/Grid/Col';
 import Row from '../../components/Grid/Row';

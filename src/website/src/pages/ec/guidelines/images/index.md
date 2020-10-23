@@ -72,7 +72,7 @@ Vector image format can produce results with high fidelity at every resolution s
 - SVG formats are supported by most contemporary browsers
 - the image file size is lightweight and compressible
   supports transparency
-- ECL icons are of type SVG and are distributed in `@ecl/ec-resources-icons` and `@ecl/eu-resources-icons`.
+- ECL icons are of type SVG and are distributed in `@ecl/resources-ec-icons` and `@ecl/resources-eu-icons`.
 
 When implementing ECL icons, please pay extra attention to image paths with relation to files' physical location. Here is an example of how markup would look like in a component's showcase:
 

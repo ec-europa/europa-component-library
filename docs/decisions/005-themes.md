@@ -78,7 +78,7 @@ Resources are: logo, favicons, icons and other similar types of assets which are
 
 Current organization of v2.
 
-- `@ecl/ec-resources-logo`
+- `@ecl/resources-ec-logo`
 - `@ecl/eu-resources-logo`
 
 #### Option 2: single package

@@ -9,7 +9,7 @@ import {
 } from '@ecl/story-utils';
 
 // Import data for demos
-import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
+import uiIcons from '@ecl/resources-ec-icons/dist/lists/ui.json';
 import dataDefault from '@ecl/specs-component-link/demo/data--default';
 import dataCta from '@ecl/specs-component-link/demo/data--cta';
 import dataStandalone from '@ecl/specs-component-link/demo/data--standalone';

@@ -7,7 +7,7 @@
     "changelog": "lerna-changelog",
     "clean": "rimraf dist",
     "browserstats": "./src/tools/builder/bin/build.js browsers",
-    "build:icons": "lerna --concurrency 3 --scope \"@ecl/*-resources-*\" run dist",
+    "build:icons": "lerna --concurrency 3 --scope \"@ecl/resources-*\" run dist",
     "build:presets": "lerna --concurrency 3 --scope \"@ecl/preset-*\" run dist",
     "build:themes": "lerna --concurrency 3 --scope \"@ecl/theme-*\" run build",
     "build:preset-website": "cd src/presets/ec-preset-website && npm run build",

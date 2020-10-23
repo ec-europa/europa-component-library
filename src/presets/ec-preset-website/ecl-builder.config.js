@@ -50,15 +50,15 @@ module.exports = {
   ],
   copy: [
     {
-      from: path.resolve(nodeModules, '@ecl/ec-resources-icons/dist'),
+      from: path.resolve(nodeModules, '@ecl/resources-ec-icons/dist'),
       to: path.resolve(outputFolder, 'images/icons'),
     },
     {
-      from: path.resolve(nodeModules, '@ecl/ec-resources-social-icons/dist'),
+      from: path.resolve(nodeModules, '@ecl/resources-ec-social-icons/dist'),
       to: path.resolve(outputFolder, 'images/social-icons'),
     },
     {
-      from: path.resolve(nodeModules, '@ecl/ec-resources-logo'),
+      from: path.resolve(nodeModules, '@ecl/resources-ec-logo'),
       to: path.resolve(outputFolder, 'images/logo'),
     },
   ],

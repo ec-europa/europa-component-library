@@ -1,9 +1,9 @@
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 
-import brandedIcons from '@ecl/ec-resources-icons/dist/lists/branded.json';
-import generalIcons from '@ecl/ec-resources-icons/dist/lists/general.json';
-import notificationsIcons from '@ecl/ec-resources-icons/dist/lists/notifications.json';
-import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
+import brandedIcons from '@ecl/resources-ec-icons/dist/lists/branded.json';
+import generalIcons from '@ecl/resources-ec-icons/dist/lists/general.json';
+import notificationsIcons from '@ecl/resources-ec-icons/dist/lists/notifications.json';
+import uiIcons from '@ecl/resources-ec-icons/dist/lists/ui.json';
 import dataBranded from '@ecl/specs-component-icon/demo/data--branded';
 import dataNotifications from '@ecl/specs-component-icon/demo/data--notifications';
 import dataUi from '@ecl/specs-component-icon/demo/data--audio';
