@@ -100,10 +100,7 @@
     ]
   },
   "workspaces": [
-    "src/implementations/twig/storybook",
-    "src/implementations/twig/components/*",
-    "src/implementations/vanilla/components/*",
-    "src/implementations/vanilla/packages/*",
+    "src/implementations/**",
     "src/resources/*",
     "src/specs/**",
     "src/themes/*",
@@ -117,7 +114,7 @@
       "pre-commit": "lint-staged"
     }
   },
-    "jest": {
+  "jest": {
     "verbose": true
   }
 }
