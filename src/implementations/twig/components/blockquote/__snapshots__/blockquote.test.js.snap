@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EC - Blockquote Default renders correctly 1`] = `
+<blockquote
+  class="ecl-blockquote"
+>
+  <p
+    class="ecl-blockquote__body"
+  >
+    An interconnected grid will help deliver the ultimate goal of the Energy Union, to make sure affordable, secure and sustainable energy, and also growth across the EU.
+  </p>
+  <footer
+    class="ecl-blockquote__attribution"
+  >
+    <cite
+      class="ecl-blockquote__author"
+    >
+      President Juncker
+    </cite>
+  </footer>
+</blockquote>
+`;
+
+exports[`EC - Blockquote Default renders correctly with extra attributes 1`] = `
+<blockquote
+  class="ecl-blockquote"
+  data-test="data-test-value"
+  data-test-1="data-test-value-1"
+>
+  <p
+    class="ecl-blockquote__body"
+  >
+    An interconnected grid will help deliver the ultimate goal of the Energy Union, to make sure affordable, secure and sustainable energy, and also growth across the EU.
+  </p>
+  <footer
+    class="ecl-blockquote__attribution"
+  >
+    <cite
+      class="ecl-blockquote__author"
+    >
+      President Juncker
+    </cite>
+  </footer>
+</blockquote>
+`;
+
+exports[`EC - Blockquote Default renders correctly with extra class names 1`] = `
+<blockquote
+  class="ecl-blockquote custom-class custom-class--test"
+>
+  <p
+    class="ecl-blockquote__body"
+  >
+    An interconnected grid will help deliver the ultimate goal of the Energy Union, to make sure affordable, secure and sustainable energy, and also growth across the EU.
+  </p>
+  <footer
+    class="ecl-blockquote__attribution"
+  >
+    <cite
+      class="ecl-blockquote__author"
+    >
+      President Juncker
+    </cite>
+  </footer>
+</blockquote>
+`;
+
+exports[`EC - Blockquote with validation enabled and missing input data returns the right warning message 1`] = `
+<blockquote
+  class="ecl-blockquote"
+>
+  <p
+    class="ecl-blockquote__body"
+  >
+    An interconnected grid will help deliver the ultimate goal of the Energy Union, to make sure affordable, secure and sustainable energy, and also growth across the EU.
+  </p>
+  <footer
+    class="ecl-blockquote__attribution"
+  >
+    <cite
+      class="ecl-blockquote__author"
+    />
+  </footer>
+</blockquote>
+`;
