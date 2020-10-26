@@ -252,6 +252,12 @@
     object-fit: contain;
   }
 
+  .ecl-gallery__slider-embed {
+    @include ecl-aspect-ratio(16, 9);
+
+    width: 100%;
+  }
+
   .ecl-gallery__slider-previous {
     align-self: flex-start;
     color: $detail-color;
@@ -303,6 +309,10 @@
     &:focus {
       color: $detail-color;
     }
+
+    &[hidden] {
+      display: none;
+    }
   }
 
   .ecl-gallery__detail-description {
@@ -325,8 +335,8 @@
       justify-content: space-between;
     }
 
-    .ecl-gallery__slider-image-container, // DEPRECATED
-    .ecl-gallery__slider-media-container {
+    .ecl-gallery__slider-image-container {
+      // DEPRECATED
       flex-grow: 0;
     }
 

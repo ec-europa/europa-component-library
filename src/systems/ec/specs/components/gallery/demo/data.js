@@ -13,6 +13,23 @@ module.exports = {
       shareHref: '/share#example-image.jpg',
     },
     {
+      // Embedded video
+      image: {
+        src:
+          'https://inno-ecl.s3.amazonaws.com/media/examples/example-external-video.jpg',
+        alt: 'New digital strategy',
+      },
+      embeddedVideo: {
+        src: 'https://www.youtube.com/embed/fgi-GSCB6ho',
+      },
+      description: 'New digital strategy',
+      meta: 'Copyright, Author, Licence for embedded media',
+      icon: {
+        shape: 'general--video',
+        size: 'l',
+      },
+    },
+    {
       // Image
       image: {
         src:
@@ -112,12 +129,12 @@ module.exports = {
         sources: [
           {
             src:
-              'https://download.videvo.net/videvo_files/video/premium/video0038/small_watermarked/millenium_view_night00_preview.mp4',
+              'https://test-videos.co.uk/vids/jellyfish/mp4/h264/720/Jellyfish_720_10s_2MB.mp4',
             type: 'video/mp4',
           },
           {
             src:
-              'https://download.videvo.net/videvo_files/video/premium/video0038/small_watermarked/millenium_view_night00_preview.webm',
+              'https://test-videos.co.uk/vids/jellyfish/webm/vp9/720/Jellyfish_720_10s_2MB.webm',
             type: 'video/webm',
           },
         ],

@@ -23,8 +23,8 @@ export const Gallery = ({
   return (
     <section {...props} className={classNames} data-ecl-gallery>
       <ul className="ecl-gallery__list">
-        {items.map((item) => (
-          <GalleryItem item={item} key={item.shareHref} />
+        {items.map((item, i) => (
+          <GalleryItem item={item} key={i} />
         ))}
       </ul>
 
