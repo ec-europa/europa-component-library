@@ -1,0 +1,46 @@
+/**
+ * Editor button styles
+ */
+
+@use "sass:map";
+@use '@ecl/ec-base/ec-base';
+@use "@ecl/theme-dev/maps/spacing";
+@use "@ecl/theme-dev/maps/color";
+@use "@ecl/theme-dev/maps/typography";
+
+@mixin ecl-editor-button(
+  $_border-width: 2px,
+  $_outline-width: 3px,
+  $_padding-horizontal: map.get(spacing.$spacing, 'm'),
+  $_padding-vertical: map.get(spacing.$spacing, 's')
+) {
+  /* stylelint-disable selector-no-qualifying-type */
+  .ecl-editor button,
+  .ecl-editor input[type='button'],
+  .ecl-editor input[type='submit'] {
+    appearance: none;
+    background: none;
+    background-color: map.get(color.$color, 'blue-100');
+    border-width: 0;
+    box-sizing: border-box;
+    color: map.get(color.$color, 'white-100');
+    display: inline-block;
+    font: map.get(typography.$font, 'm');
+    font-weight: map.get(typography.$font-weight, 'bold');
+    margin: 0;
+    padding: $_padding-vertical $_padding-horizontal;
+    text-decoration: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: map.get(color.$color, 'blue-130');
+      text-decoration: none;
+    }
+
+    &:focus {
+      outline: $_outline-width solid map.get(color.$color, 'secondary');
+      outline-offset: -($_outline-width);
+    }
+  }
+}

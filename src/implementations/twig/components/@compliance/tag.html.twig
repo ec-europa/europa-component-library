@@ -1,0 +1,42 @@
+{#
+  Parameters:
+  - tag: (object)
+    - type: string
+    - path: string
+    - label: string
+    - aria_label: (string)
+  - default_icon_path: (string)
+#}
+
+{% extends "@ecl/@compliance/@checker.html.twig" %}
+
+{% set message = '' %}
+{% set component = 'tag' %}
+{% set no_tag_case = tag is not defined or tag is empty %}
+{% set variant = tag.type %}
+
+{% if no_tag_case == false %}
+  {% set no_path_case = (tag.type is defined and tag.type == 'link') and (tag.path is not defined or tag.path is empty) %}
+  {% set no_label_case = tag.label is not defined or tag.label is empty %}
+  {% set no_icon_path_case = (tag.type is defined and tag.type == 'removable') and (default_icon_path is not defined or default_icon_path is empty) %}
+  {% set no_aria_label_case = (tag.type is defined and tag.type == 'removable') and (tag.aria_label is not defined or tag.aria_label is empty) %}
+{% endif %}
+
+{% set not_compliant = no_tag_case or (no_path_case or no_label_case or no_icon_path_case or no_aria_label_case) %}
+
+{% if no_tag_case %}
+  {% set message = 'No tag has been provided.' %}
+{% endif %}
+{% if no_label_case %}
+  {% set message = message ~ ' {{ tag.label }} property needs to set and filled in.' %}
+{% endif %}
+{% if no_path_case %}
+  {% set message = message ~ ' When {{ tag.type }} is "link" the {{ tag.path }} property needs to be set and filled in.' %}
+{% endif %}
+{% if no_icon_path_case %}
+  {% set message = message ~ ' {{ default_icon_path }} property needs to be set and filled in.' %}
+{% endif %}
+{% if no_aria_label_case %}
+  {% set message = message ~ ' {{ aria_label }} property needs to be set and filled in for accessibility reasons.' %}
+{% endif %}
+

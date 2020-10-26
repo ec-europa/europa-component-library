@@ -1,0 +1,21 @@
+{#
+  Parameters:
+  - "label" (string)
+  - "icon_path" (string)
+#}
+
+{% extends "@ecl/@compliance/@checker.html.twig" %}
+
+{% set component = 'checkbox' %}
+{% set message = '' %}
+{% set no_icon_case = icon_path is empty %}
+{% set no_label_case = label is empty %}
+
+{% set not_compliant = no_icon_case or no_label_case %}
+
+{% if no_icon_case %}
+  {% set message = 'The "icon_path" is needed to render the checkbox.' %}
+{% endif %}
+{% if no_label_case %}
+  {% set message = 'The "label" is mandatory.' %}
+{% endif %}

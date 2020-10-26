@@ -1,0 +1,11 @@
+/**
+ * Editor styles
+ */
+
+@use '@ecl/ec-base/mixins/import-once';
+@use 'editor--button';
+
+// Use mixin
+@include import-once.exports('editor') {
+  @include editor--button.ecl-editor-button();
+}

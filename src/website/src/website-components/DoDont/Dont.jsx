@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import iconSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
+import iconSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 
 import styles from './DoDont.scss';
 

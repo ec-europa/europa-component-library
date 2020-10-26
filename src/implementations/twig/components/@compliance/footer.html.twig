@@ -1,0 +1,151 @@
+{#
+  Parameters:
+    identity: (object),
+    sections: (array of objects),
+    common: (object)
+#}
+
+{% extends "@ecl/@compliance/@checker.html.twig" %}
+
+{% set component = 'footer' %}
+{% set message = '' %}
+{% set prefix = '' %}
+{% set section_number = '' %}
+{% set no_identity_title_case = false %}
+{% set no_identity_follow_case = false %}
+{% set no_identity_follow_links_case = false %}
+{% set no_identity_follow_links_link_case = false %}
+{% set no_identity_follow_label_case = false %}
+{% set no_identity_info_link_case = false %}
+{% set no_section_links_case = false %}
+{% set no_section_link_case = false %}
+{% set no_common_link_keys_case = false %}
+{% set failing_sections = [] %}
+
+{% set no_identity_case = identity is empty %}
+{% if no_identity_case == false %}
+  {% set no_identity_title_case = identity.title is not defined or identity.title is empty %}
+  {% set no_identity_follow_case = identity.follow is not defined or identity.follow is empty %}
+  {% if no_identity_follow_case == false %}
+    {% set no_identity_follow_label_case = identity.follow.label is not defined or identity.follow.label is empty %}
+    {% set no_identity_follow_links_case =
+      identity.follow.links is not defined or
+      identity.follow.links is empty or
+      identity.follow.links is not iterable %}
+  {% endif %}
+  {% if no_identity_follow_links_case == false %}
+    {% for item in identity.follow.links %}
+      {% if (item.link is not defined or item.link is empty) or
+        (item.link.label is not defined or item.link.label is empty) or
+        (item.link.path is not defined or item.link.path is empty) %}
+        {% set no_identity_follow_links_link_case = true %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
+  {% set no_identity_info_case =
+    identity.info is not defined or
+    identity.info is empty or
+    identity.info is not iterable %}
+  {% if no_identity_info_case == false %}
+    {% for info_item in identity.info %}
+      {% if (info_item.link is not defined or info_item.link is empty) and
+        (info_item.link.label is not defined or info_item.link.label is empty) and
+        (info_item.link.path is not defined or info_item.link.path is empty) %}
+        {% set no_identity_info_link_case = true %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endif %}
+
+{% set no_sections_case = sections is empty or sections is not iterable %}
+{% if no_sections_case == false %}
+  {% for section in sections %}
+    {% set section_number = loop.index0 %}
+    {% set no_section_links_case =
+      section.links is not defined or
+      section.links is empty or
+      section.links is not iterable %}
+    {% if no_section_links_case == false %}
+      {% for linkItem in section.links %}
+        {% if (linkItem.link.label is not defined or linkItem.link.label is empty) or
+          (linkItem.link.path is not defined or linkItem.link.path is empty) %}
+          {% set no_section_link_case = true %}
+          {% if section_number not in failing_sections|keys %}
+            {% set failing_sections = failing_sections|merge([section_number]) %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% set no_common_case = common is empty or common is not iterable %}
+{% if no_common_case == false %}
+  {% for item in common %}
+    {% set no_common_link_case = item.link is not defined or item.link is empty %}
+    {% if no_common_link_case == false %}
+      {% if (item.link.label is not defined or item.link.label is empty) or
+        (item.link.path is not defined or item.link.path is empty) %}
+        {% set no_common_link_keys_case = true %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% set not_compliant =
+  no_sections_case or
+  no_section_links_case or
+  no_section_link_case or
+  no_identity_title_case or
+  no_identity_follow_label_case or
+  no_identity_follow_links_case or
+  no_identity_follow_links_link_case or
+  no_identity_info_link_case or
+  no_common_case or
+  no_common_link_case or
+  no_common_link_keys_case
+%}
+
+{% if no_sections_case %}
+  {% set message = message ~ ' {{ sections }} is mandatory.' %}
+{% endif %}
+{% if no_common_case %}
+  {% set message = message ~ ' {{ common }} is mandatory.' %}
+{% endif %}
+{% if no_common_link_case %}
+  {% set message = message ~ ' Each item in the {{ common }} array should contain a {{ link }} object.' %}
+{% endif %}
+{% if no_common_link_keys_case %}
+  {% set message = message ~ ' The {{ common }} array contains at least one item missing the {{ label }} or the {{ path }} properties.' %}
+{% endif %}
+{% if no_section_links_case %}
+  {% set message = message ~ ' "Each item in the {{ sections }} array should contain a {{ links }} array of link named objects.' %}
+{% endif %}
+{% if no_section_link_case %}
+  {% set count_sections = failing_sections|length %}
+  {% set label = count_sections > 1 ? 'contain' : 'contains' %}
+  {% for section in failing_sections %}
+    {% if not loop.last %}
+      {% set prefix = prefix ~ '{{ sections[' ~ section ~ '] }} - ' %}
+    {% else %}
+      {% set prefix = prefix ~ '{{ sections[' ~ section ~ '] }} ' ~ label %}
+    {% endif %}
+  {% endfor %}
+  {% set message = message ~ ' ' ~ prefix ~ ' at least one item missing the {{ label }} or the {{ path }} properties.' %}
+{% endif %}
+{% if no_identity_title_case %}
+  {% set message = message ~ ' If {{ identity }} is set, the {{ identity.title }} property needs to be set and filled in.' %}
+{% endif %}
+{% if no_identity_follow_label_case %}
+  {% set message = message ~ ' If {{ identity.follow }} is set, the {{ identity.follow.label }} property needs to be set and filled in.' %}
+{% endif %}
+{% if no_identity_follow_links_case %}
+  {% set message = message ~ ' If {{ identity.follow }} is set, {{ identity.follow.links }} should be defined as an array of link objects.' %}
+{% endif %}
+{% if no_identity_info_link_case %}
+  {% set message = message ~ ' The {{ identity.info }} array contains at least one {{ link }} object missing the {{ label }} or the {{ path }} properties.' %}
+{% endif %}
+{% if no_identity_follow_links_link_case %}
+  {% set message = message ~ ' The {{ identity.follow.links }} array contains at least one {{ link }} object missing the {{ label }} or the {{ path }} properties.' %}
+{% endif %}

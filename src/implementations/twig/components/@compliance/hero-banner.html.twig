@@ -1,0 +1,99 @@
+{#
+  Parameters:
+    type: (string),
+    title: (string),
+    description: (string),
+    button: (object),
+    link: (object)
+#}
+
+{% extends "@ecl/@compliance/@checker.html.twig" %}
+
+{% set message = '' %}
+{% set component = 'hero-banner' %}
+{% set variant = type|default('') %}
+{% set no_image_case = false %}
+{% set no_icon_case = false %}
+{% set no_link_icon_path_case = false %}
+{% set no_button_icon_path_case = false %}
+{% set no_link_label_case = false %}
+{% set no_link_path_case = false %}
+{% set no_title_case = title is not defined or title is empty %}
+{% set no_description_case = description is not defined or description is empty %}
+{% set no_call_to_action_case = (link is not defined or link is empty) and (button is not defined or button is empty) %}
+
+{% if type in ['image', 'image-shade'] %}
+  {% set no_image_case = image is not defined or image is empty %}
+{% endif %}
+
+{% if no_call_to_action_case == false %}
+  {% if link.link %}
+    {% set no_icon_case = link.icon is not defined or link.icon is empty %}
+    {% if no_icon_case == false %}
+      {% set no_link_icon_path_case = link.icon.path is not defined or link.icon.path is empty %}
+      {% set no_link_icon_name_case = link.icon.name is not defined or link.icon.name is empty %}
+      {% set no_link_icon_type_case = link.icon.type is not defined or link.icon.type is empty %}
+    {% endif %}
+    {% set no_link_label_case = link.link.label is not defined or link.link.label is empty %}
+    {% set no_link_path_case = link.link.path is not defined or link.link.path is empty %}
+  {% endif %}
+  {% if button is defined and button is not empty %}
+    {% set no_button_label_case = button.label is not defined or button.label is empty %}
+    {% if button.icon %}
+      {% set no_button_icon_path_case = button.icon.path is not defined or button.icon.path is empty %}
+    {% else %}
+      {% set no_icon_case = true %}
+    {% endif %}
+  {% endif %}
+{% endif %}
+
+{% set not_compliant =
+  no_title_case or
+  no_call_to_action_case or
+  no_image_case or
+  no_icon_case or
+  no_description_case or
+  no_button_icon_path_case or
+  no_link_icon_path_case or
+  no_link_label_case or
+  no_link_path_case or
+  no_link_icon_name_case or
+  no_link_icon_type_case or
+  no_button_label_case
+%}
+
+{% if no_title_case %}
+  {% set message = message ~ ' The {{ title }} property needs to be set and filled in.' %}
+{% endif %}
+{% if no_description_case %}
+  {% set message = message ~ ' The {{ description }} property needs to be set and filled in.' %}
+{% endif %}
+{% if no_icon_case %}
+  {% set message = message ~ ' The action indicator is mandatory, {{ link.icon }} needs to be set and filled in.' %}
+{% endif %}
+{% if no_image_case %}
+  {% set message = message ~ ' When type is ' ~ type ~ ', the {{ image }} property needs to be set and filled in.' %}
+{% endif %}
+{% if no_call_to_action_case %}
+  {% set message = message ~ ' The call to action is mandatory, it should be defined as a link but also a button is supported, although deprecated.' %}
+{% endif %}
+{% if no_button_icon_path_case %}
+  {% set message = message ~ ' The action indicator is mandatory, the {{ button.icon.path }} property needs to be set and filled in.' %}
+{% endif %}
+{% if no_link_icon_path_case %}
+  {% set message = message ~ ' The action indicator is mandatory, the {{ link.icon.path }} property needs to be set and filled in.' %}
+{% endif %}
+{% if no_link_label_case %}
+  {% set message = message ~ ' The label in the call to action link is mandatory, the {{ link.link.label }} property needs to be set and filled in.' %}
+{% endif %}
+{% if no_link_path_case %}
+  {% set message = message ~ ' The {{ link.link.path }} is needed for the call to action link to work.' %}
+{% endif %}
+{% if no_link_icon_name_case %}
+  {% set message = message ~ ' Without {{ link.icon.name }} it would not be possible to render any action indicator in the call to action link.' %}
+{% endif %}
+{% if no_link_icon_type_case %}
+  {% set message = message ~ ' Without {{ link.icon.type }} it would not be possible to render any action indicator in the call to action link.' %}
+{% endif %}
+
+

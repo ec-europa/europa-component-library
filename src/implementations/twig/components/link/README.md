@@ -27,7 +27,7 @@ npm install --save @ecl/twig-component-link
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl/twig-component-link/link.html.twig' with { 
+{% include '@ecl/link/link.html.twig' with { 
   link: { 
     type: 'standalone', 
     label: 'Standalone link', 

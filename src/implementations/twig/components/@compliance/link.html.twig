@@ -1,0 +1,41 @@
+{#
+  Parameters:
+  - "link" (object)
+  - "icon" (object)
+  - "icon_path" (string)
+#}
+
+{% extends "@ecl/@compliance/@checker.html.twig" %}
+
+{% set component = 'link' %}
+{% set no_cta_label_case = false %}
+{% set variant = link.type|default('') %}
+
+{% if icon_path is empty and
+  (icon is defined and icon is not empty and icon is iterable) and
+  (icon[0].path is defined and icon[0].path is not empty) %}
+  {% set icon_path = icon[0].path %}
+{% endif %}
+
+{% if variant == 'cta' %}
+  {% set no_cta_label_case = link.label is not defined or link.label is empty %}
+{% endif %}
+
+{% set no_label_or_icon_case = variant != 'cta' and
+    (link.label is not defined or link.label is empty) and (
+    (link.icon_position is not defined or link.icon_position is empty) or
+    (icon[0].name is not defined or icon[0].name is empty) or
+    (icon[0].type is not defined or icon[0].type is empty) or
+    (icon[0].path is not defined or icon[0].path is empty)) %}
+
+{% set not_compliant =
+  no_cta_label_case or
+  no_label_or_icon_case
+%}
+
+{% if no_label_or_icon_case %}
+ {% set message = '{{ link.label }} and none of {{ link.icon_position }}, {{ icon.name }}, {{ icon.path }} or {{ icon.type }} can be empty at the same time, an unusable link would be generated otherwise' %}
+{% endif %}
+{% if no_cta_label_case %}
+   {% set message = 'In the cta variant the {{ link.label }} property needs to be set and filled in.' %}
+{% endif %}

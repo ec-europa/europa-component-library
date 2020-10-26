@@ -1,0 +1,34 @@
+{#
+  Parameters:
+  - "headers" (array of objects)
+  - "rows" (array of objects)
+#}
+
+{% extends "@ecl/@compliance/@checker.html.twig" %}
+
+{% set message = '' %}
+{% set component = 'table' %}
+{% set no_header_label = false %}
+{% set no_rows_case = rows is not defined or rows is empty or rows is not iterable %}
+{% set no_headers_case = headers is not defined or headers is empty or headers is not iterable %}
+
+{% if no_headers_case == false %}
+  {% for header in headers %}
+    {% for cell in header %}
+      {% if cell.label is not defined or cell.label is empty %}
+        {% set no_header_label_case = true %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+{% endif %}
+
+{% set not_compliant = no_headers_case or no_rows_case or no_header_label_case %}
+{% if no_rows_case %}
+  {% set message = message ~ ' No table cell has been provided, {{ rows }} should be defined as an array or items.' %}
+{% endif %}
+{% if no_headers_case %}
+  {% set message = message ~ ' {{ headers }} are mandatory.' %}
+{% endif %}
+{% if no_header_label_case %}
+  {% set message = message ~ ' You have at least one empty header. The label in each of the {{ headers }} array items needs to be set and filled in.' %}
+{% endif %}

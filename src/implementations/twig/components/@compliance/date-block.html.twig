@@ -1,0 +1,27 @@
+{#
+  Parameters:
+  - variant: (string),
+  - day (integer)
+    month: (integer),
+    year: (integer),
+    month_full: (string)
+#}
+
+{% extends "@ecl/@compliance/@checker.html.twig" %}
+
+{% set message = '' %}
+{% set component = 'date-block' %}
+
+{% set no_year_case = year is not defined or year is empty %}
+{% set no_month_case = (month is not defined or month is empty) or
+  (month_full is not defined or month_full is empty)
+%}
+
+{% set not_compliant = no_year_case or no_month_case %}
+
+{% if no_year_case %}
+  {% set message = '"year" is mandatory.' %}
+{% endif %}
+{% if no_month_case %}
+  {% set message = message ~ ' One of "month" or "month_full" needs to be set.' %}
+{% endif %}

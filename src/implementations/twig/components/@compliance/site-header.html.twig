@@ -1,0 +1,80 @@
+{#
+  Parameters:
+    - "icon_file_path" (string)
+    - "logo" (associative array)
+          "title": (string)
+          "alt": (string)
+          "href": (string)
+          "src": (string)
+    - "language_selector" (associative array)
+      "href": (string)
+      "name": (string)
+      "code": (string)
+      "overlay" (associative array)
+        "close_label": (string)
+        "title": (string)
+        "items": (array)
+          "lang" (string) (default: '')
+          "label" (string) (default: '')
+          "path" (string) (default: '')
+          "active" (boolean) (default: false)
+#}
+
+{% extends "@ecl/@compliance/@checker.html.twig" %}
+
+{% set message = '' %}
+{% set component = 'site-header' %}
+
+{% set no_logo_case = logo is not defined or logo is empty %}
+{% if no_logo_case == false %}
+  {% set no_logo_keys_case =
+    (logo.src is not defined or logo.src is empty) or
+    (logo.alt is not defined or logo.alt is empty) or
+    (logo.title is not defined or logo.title is empty) or
+    (logo.href is not defined or logo.href is empty) or
+    (logo.language is not defined or logo.language is empty) %}
+{% endif %}
+
+{% set no_icon_path_case =
+  icon_file_path is not defined or
+  icon_file_path is empty
+%}
+
+{% set no_language_selector_case = language_selector is empty %}
+{% if no_language_selector_case == false %}
+  {% set no_language_selector_keys_case =
+    (language_selector.name is not defined or language_selector.name is empty) or
+    (language_selector.code is not defined or language_selector.code is empty) %}
+  {% set no_overlay_close_label_case = language_selector.overlay.close_label is not defined or
+      language_selector.overlay.close_label is empty %}
+  {% set no_overlay_title_case = language_selector.overlay.title is not defined or
+      language_selector.overlay.title is empty %}
+{% endif %}
+
+{% set not_compliant =
+  no_logo_case or
+  no_logo_keys_case or
+  no_icon_path_case or
+  no_language_selector_keys_case or
+  no_overlay_close_label_case or
+  no_overlay_title_case
+%}
+
+{% if no_logo_case %}
+  {% set message = message ~ ' {{ logo }} is mandatory.' %}
+{% endif %}
+{% if no_logo_keys_case %}
+  {% set message = message ~ ' {{ logo }} needs to contain an {{ alt }}, a {{ src }}, an {{ href }}, a {{ language }} and a {{ title }} properties set and filled in.' %}
+{% endif %}
+{% if no_icon_path_case %}
+  {% set message = message ~ ' {{ icon_file_path }} property needs to be set and filled in to retrieve the icons sprite.' %}
+{% endif %}
+{% if no_language_selector_keys_case %}
+  {% set message = message ~ ' {{ language_selector }} needs to contain a {{ code }} and a {{ label }} properties set and filled in.' %}
+{% endif %}
+{% if no_overlay_close_label_case %}
+  {% set message = message ~ ' The {{ close_label }} property needs to be defined inside the {{ language_selector.overlay }} object.' %}
+{% endif %}
+{% if no_overlay_title_case %}
+  {% set message = message ~ ' The {{ title }} property needs to defined inside the {{ language_selector.overlay }} object.' %}
+{% endif %}

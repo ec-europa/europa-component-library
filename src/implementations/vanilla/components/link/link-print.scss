@@ -10,7 +10,7 @@
 @use '@ecl/theme-dev/maps/typography';
 @use '@ecl/ec-base/mixins/import-once';
 
-@mixin ecl-link-print($_link-color: map.get(color.$ecl-color, 'blue')) {
+@mixin ecl-link-print($_link-color: map.get(color.$color, 'blue')) {
   .ecl-link {
     color: $_link-color;
     page-break-inside: avoid;
@@ -20,7 +20,7 @@
   .ecl-link::after {
     content: '(' attr(href) ')';
     font-style: italic;
-    margin-left: map.get(spacing.$ecl-spacing-print, '2xs');
+    margin-left: map.get(spacing.$spacing-print, '2xs');
     text-decoration: underline;
   }
 
@@ -45,11 +45,11 @@
   }
 
   .ecl-link--standalone {
-    font-family: map.get(typography.$ecl-font-family-print, 'default');
+    font-family: map.get(typography.$font-family-print, 'default');
   }
 
   .ecl-link--cta {
-    font-family: map.get(typography.$ecl-font-family-print, 'default');
+    font-family: map.get(typography.$font-family-print, 'default');
   }
 }
 

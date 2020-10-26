@@ -25,7 +25,7 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const publicPath = `${publicUrl}/`;
 
 const environmentModulePath = require.resolve(
-  '@ecl/ec-twig-storybook/.storybook/environment.js'
+  '@ecl/twig-storybook/.storybook/environment.js'
 );
 
 // Do this as the first thing so that any code reading it knows the right env.

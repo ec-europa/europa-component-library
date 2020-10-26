@@ -1,0 +1,104 @@
+{#
+  Parameters:
+    - icon: (object),
+    - title: (string),
+    - language: (string),
+    - meta: (string),
+    - download: (object),
+    - translation: (object)
+#}
+
+{% extends "@ecl/@compliance/@checker.html.twig" %}
+
+{% set message = '' %}
+{% set component = 'file' %}
+{% set no_translation_lang_case = false %}
+{% set no_translation_title_case = false %}
+{% set no_translation_meta_case = false %}
+{% set no_translation_download_case = false %}
+{% set no_translation_download_link = false %}
+{% set no_translation_download_link_data_case = false %}
+{% set no_icon_case = icon.path is not defined or icon.path is empty %}
+{% set no_meta_case = meta is not defined or meta is empty %}
+{% set no_title_case = title is not defined or title is empty %}
+{% set no_language_case = language is not defined or language is empty %}
+{% set no_download_case = download.link is not defined or download.link is empty %}
+{% if no_download_case == false %}
+  {% set no_download_link_case = (download.link.path is not defined or download.link.path is empty) or
+  (download.link.label is not defined or download.link.label is empty) %}
+{% endif %}
+
+{% if translation is defined and translation.items is defined and translation.items is not empty and translation.items is iterable %}
+  {% for item in translation.items %}
+    {% if item.title is not defined or item.title is empty %}
+      {% set no_translation_title_case = true %}
+    {% endif %}
+    {% if item.lang is not defined or item.lang is empty %}
+      {% set no_translation_lang_case = true %}
+    {% endif %}
+    {% if item.meta is not defined or item.meta is empty %}
+      {% set no_translation_meta_case = true %}
+    {% endif %}
+    {% set no_translation_download_case = item.download is not defined or item.download is empty %}
+    {% set no_translation_download_link_case = item.download.link is not defined or item.download.link is empty %}
+    {% if no_translation_download_link_case == false %}
+      {% set no_translation_download_link_data_case =
+        item.download.link.path is not defined or
+        item.download.link.path is empty or
+        item.download.link.label is not defined or
+        item.download.link.label is empty %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% set not_compliant =
+  no_icon_case or
+  no_meta_case or
+  no_language_case or
+  no_download_case or
+  no_download_link_case or
+  no_title_case or
+  no_translation_meta_case or
+  no_translation_title_case or
+  no_translation_lang_case or
+  no_translation_download_case or
+  no_translation_download_link_case or
+  no_translation_download_link_data_case
+%}
+
+{% if no_title_case %}
+  {% set message = message ~ ' {{ title }} property needs to be set and filled in.' %}
+{% endif %}
+{% if no_meta_case %}
+  {% set message = message ~ ' {{ meta }} property needs to be set and filled in.' %}
+{% endif %}
+{% if no_language_case %}
+  {% set message = message ~ ' {{ language }} property needs to set and filled in.' %}
+{% endif %}
+{% if no_icon_case %}
+  {% set message = message ~ ' "The {{ icon.path }} property is needed to retrieve the icons file.' %}
+{% endif %}
+{% if no_translation_title_case %}
+  {% set message = message ~ ' "In the {{ translation.items }} each item needs a {{ download.title }} property to be set and filled in.' %}
+{% endif %}
+{% if no_translation_meta_case %}
+  {% set message = message ~ ' "In the {{ translation.items }} each item needs the {{ meta }} property to be set and filled in.' %}
+{% endif %}
+{% if no_translation_lang_case %}
+  {% set message = message ~ ' "In the {{ translation.items }} each item needs the {{ lang }} property to be set and filled in.' %}
+{% endif %}
+{% if no_download_case %}
+  {% set message = message ~ ' {{ download.link }} needs to be set for the file to be downlodable.' %}
+{% endif %}
+{% if no_download_link_case %}
+  {% set message = message ~ ' {{ download.link.path }} and {{ download.link.label }} need to be set for the file to be downlodable.' %}
+{% endif %}
+{% if no_translation_download_case %}
+  {% set message = message ~ ' Each item in the {{ translation.items }} array needs to contain a {{ download }} object.' %}
+{% endif %}
+{% if no_translation_download_link_case %}
+  {% set message = message ~ ' The {{ download }} object in each of the {{ translation.items }} array needs to contain a {{ link }} object.' %}
+{% endif %}
+{% if no_translation_download_link_data_case %}
+  {% set message = message ~ ' The {{ download.link }} object in each of the {{ translation.items }} needs to contain {{ path }} and {{ label }} properties set and filled in.' %}
+{% endif %}

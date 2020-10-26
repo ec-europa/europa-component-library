@@ -7,8 +7,8 @@ const loader = new TwingLoaderFilesystem(absPath);
 // In storybook we get this returned as an instance of
 // TWigLoaderNull, we need to avoid processing this.
 if (typeof loader.addPath === 'function') {
-  // Add namespace ecl-twig.
-  loader.addPath(absPath, 'ecl-twig');
+  // Add namespace.
+  loader.addPath(absPath, 'ecl');
 }
 
 module.exports = new TwingEnvironment(loader);

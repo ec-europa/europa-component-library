@@ -1,0 +1,19 @@
+{#
+  Parameters:
+  - label (string),
+  - variant (String),
+  - type (string_,
+  - icon (object),
+  - icon_position (string)
+  - disabled: (boolean)
+#}
+
+{% extends "@ecl/@compliance/@checker.html.twig" %}
+
+{% set not_compliant = label is empty %}
+{% set component = 'button' %}
+{% if icon is defined and icon is not empty %}
+  {% set icon_path = icon.path|default('') %}
+{% endif %}
+
+{% set message = '{{ label }} property needs to set and filled in.' %}

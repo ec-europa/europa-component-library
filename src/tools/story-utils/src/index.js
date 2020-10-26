@@ -1,8 +1,8 @@
 /* eslint-disable no-param-reassign, dot-notation */
 import he from 'he';
 import { text, select, boolean, optionsKnob } from '@storybook/addon-knobs';
-import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
-import brandedIcons from '@ecl/ec-resources-icons/dist/lists/branded.json';
+import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
+import brandedIcons from '@ecl/resources-ec-icons/dist/lists/branded.json';
 
 export const tabLabels = {
   required: 'Mandatory elements',

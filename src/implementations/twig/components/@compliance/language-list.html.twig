@@ -1,0 +1,130 @@
+ {#
+  Parameters:
+  - "overlay" (boolean)
+  - "close_label (string)
+  - "title" (string)
+  - "items" (array)
+    - "lang" (string)
+    - "label" (string)
+    - "path" (string)
+    - "active (boolean)
+  - "icon_path" (string)
+  - "logo" (object)
+    - "alt" (string)
+    - "path" (string)
+#}
+
+{% extends "@ecl/@compliance/@checker.html.twig" %}
+{% set component = 'language-list' %}
+{% set message = '' %}
+
+{% set no_logo_path_case = false %}
+{% set no_logo_alt_case = false %}
+{% set no_item_label_case = false %}
+{% set no_item_path_case = false %}
+{% set no_item_lang_case = false %}
+{% set no_active_item_case = true %}
+{% set no_active_item_icon_case = false %}
+{% set no_eu_category_case = items is not empty and eu_category is empty %}
+{% set no_non_eu_category_case = non_eu_items is not empty and non_eu_category is empty %}
+
+{% set no_items_case = items is not defined or items is empty or items is not iterable %}
+{% set no_close_label_case =
+  (overlay is defined and overlay is not empty) and
+  (close_label is not defined or close_label is empty)
+%}
+{% set no_title_case =
+  (overlay is defined and overlay is not empty) and
+  (close_label is not defined or close_label is empty)
+%}
+{% set no_icon_path_case =
+  (overlay is defined and overlay is not empty) and
+  (icon_path is not defined or icon_path is empty)
+%}
+{% set no_logo_case =
+  (overlay is not defined or overlay == false) and
+  (logo is not defined or logo is empty)
+%}
+{% if (overlay is not defined or overlay == false) and no_logo_case == false %}
+  {% set no_logo_path_case = logo.path is not defined or logo.path is empty %}
+  {% set no_logo_alt_case = logo.alt is not defined or logo.alt is empty %}
+{% endif %}
+{% if no_items_case == false %}
+  {% for item in items %}
+    {% if item.label is not defined or item.label is empty %}
+      {% set no_item_label_case = true %}
+    {% endif %}
+    {% if item.path is not defined or item.path is empty %}
+      {% set no_item_path_case = true %}
+    {% endif %}
+    {% if item.lang is not defined or item.lang is empty %}
+      {% set no_item_lang_case = true %}
+    {% endif %}
+    {% if item.active is defined and item.active == true %}
+      {% set no_active_item_case = false %}
+      {% if (icon_path is not defined or icon_path is empty) %}
+        {% set no_active_item_icon_case = true %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% set not_compliant =
+  no_items_case or
+  no_close_label_case or
+  no_title_case or
+  no_icon_path_case or
+  no_logo_case or
+  no_logo_path_case or
+  no_logo_alt_case or
+  no_item_path_case or
+  no_item_lang_case or
+  no_item_label_case or
+  no_active_item_case or
+  no_active_item_icon_case or
+  no_eu_category_case or
+  no_non_eu_category_case
+%}
+
+{% if no_items_case %}
+  {% set message = message ~ ' {{ items }} cannot be empty.' %}
+{% endif %}
+{% if no_close_label_case %}
+  {% set message = message ~ ' When {{ overlay }} is set to true the {{ close_label }} property needs to set and filled in.' %}
+{% endif %}
+{% if no_title_case %}
+  {% set message = message ~ ' When {{ overlay }} is set to true the {{ title }} needs to set and filled in.' %}
+{% endif %}
+{% if no_icon_path_case %}
+  {% set message = message ~ ' When {{ overlay }} is set to true the close icon is mandatory, {{ icon_path }} needs to set and filled in.' %}
+{% endif %}
+{% if no_logo_case %}
+  {% set message = message ~ ' In the splash the {{ logo }} object needs to set.' %}
+{% endif %}
+{% if no_logo_path_case %}
+  {% set message = message ~ ' To render the {{ logo }}, {{ logo.path }} needs to be set and filled in.' %}
+{% endif %}
+{% if no_logo_alt_case %}
+  {% set message = message ~ ' Since the {{ logo }} is an image the {{ logo.alt }] property needs to set and filled in.' %}
+{% endif %}
+{% if no_item_label_case %}
+  {% set message = message ~ ' Each item needs to contain a {{ label }} property set and filled in.' %}
+{% endif %}
+{% if no_item_path_case %}
+  {% set message = message ~ ' Each item needs to contain a {{ path }} property set and filled in.' %}
+{% endif %}
+{% if no_item_lang_case %}
+  {% set message = message ~ ' Each item needs to contain a {{ lang }} property set and filled in.' %}
+{% endif %}
+{% if no_active_item_case %}
+  {% set message = message ~ ' The active selection is mandatory, one of the items needs to have the {{ active }} property set to true.' %}
+{% endif %}
+{% if no_active_item_icon_case %}
+  {% set message = message ~ ' The active selection is mandatory, the {{ active }} item needs the {{ icon_path }} property to be set and filled in.' %}
+{% endif %}
+{% if no_eu_category_case %}
+  {% set message = message ~ ' The {{ eu_category }} property needs to be filled in when you list european official languages.' %}
+{% endif %}
+{% if no_non_eu_category_case %}
+  {% set message = message ~ ' The {{ non_eu_category }} property needs to be filled in when you list non european languages.' %}
+{% endif %}

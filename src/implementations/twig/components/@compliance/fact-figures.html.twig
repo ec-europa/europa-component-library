@@ -1,0 +1,43 @@
+{#
+  Parameters:
+  - "items" (array)
+    - "icon" (associate array) (default: { size: 'm' })
+    - "value" (string) (default: '')
+    - "title" (string) (default: '')
+  - "display_icons" (boolean) (default: true)
+#}
+
+{% extends "@ecl/@compliance/@checker.html.twig" %}
+
+{% set component = 'fact-figures' %}
+{% set message = '' %}
+
+{% if items is not empty and items is iterable %}
+  {% for item in items %}
+    {% if item.title is not defined or item.title is empty or item.title == '' %}
+      {% set no_title_case = true %}
+    {% endif %}
+    {% if item.value is not defined or item.value is empty %}
+      {% set no_value_case = true %}
+    {% endif %}
+    {% if display_icons and
+      (item.icon is not defined or item.icon is empty) or
+      (item.icon.name is not defined or item.icon.name is empty) or
+      (item.icon.path is not defined or item.icon.path is empty) or
+      (item.icon.type is not defined or item.icon.type is empty) %}
+      {% set no_icon_case = true %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% set not_compliant = no_icon_case or no_title_case or no_value_case %}
+
+{% if no_icon_case %}
+  {% set message = message ~ 'when {{ display_icons }} is true, the {{ name }}, {{ path }} and {{ type }} properties for each icon need to be set and filled in.' %}
+{% endif %}
+{% if no_title_case %}
+  {% set message = message ~ ' The {{ title }} in each item needs to be set and filled in.' %}
+{% endif %}
+{% if no_value_case %}
+  {% set message = message ~ ' The {{ value }} in each item needs to be set and filled in.' %}
+{% endif %}

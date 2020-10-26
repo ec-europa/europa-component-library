@@ -7,10 +7,10 @@
     "changelog": "lerna-changelog",
     "clean": "rimraf dist",
     "browserstats": "./src/tools/builder/bin/build.js browsers",
-    "build:icons": "lerna --concurrency 3 --scope \"@ecl/*-resources-*\" run dist",
+    "build:icons": "lerna --concurrency 3 --scope \"@ecl/resources-*\" run dist",
     "build:presets": "lerna --concurrency 3 --scope \"@ecl/preset-*\" run dist",
     "build:themes": "lerna --concurrency 3 --scope \"@ecl/theme-*\" run build",
-    "build:preset-website": "cd src/implementations/vanilla/packages/ec-preset-website && npm run build",
+    "build:preset-website": "cd src/presets/ec-preset-website && npm run build",
     "dist:presets": "npm run build:presets && ./scripts/dist-presets.sh",
     "dist:storybook": "./scripts/dist-storybook.sh",
     "dist:website": "./scripts/dist-website.sh",
@@ -25,7 +25,7 @@
     "start": "cd src/implementations/twig/storybook && npm run start",
     "start:dev": "run-s build:preset-website start:watch",
     "start:watch": "run-p start:watch:*",
-    "start:watch:preset-website": "cd src/implementations/vanilla/packages/ec-preset-website && npm run watch",
+    "start:watch:preset-website": "cd src/presets/ec-preset-website && npm run watch",
     "start:watch:storybook": "cd src/implementations/twig/storybook && npm run start:watch",
     "start:website": "cd src/website && npm run start",
     "test": "run-p test:*",
@@ -100,14 +100,11 @@
     ]
   },
   "workspaces": [
-    "src/implementations/twig/storybook",
-    "src/implementations/twig/components/*",
-    "src/implementations/vanilla/components/*",
-    "src/implementations/vanilla/packages/*",
-    "src/implementations/vanilla/presets/*",
+    "src/implementations/**",
     "src/resources/*",
     "src/specs/**",
     "src/themes/*",
+    "src/presets/*",
     "src/tools/*",
     "src/website",
     "src/polyfills"
@@ -117,7 +114,7 @@
       "pre-commit": "lint-staged"
     }
   },
-    "jest": {
+  "jest": {
     "verbose": true
   }
 }

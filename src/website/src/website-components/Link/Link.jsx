@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import icons from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
+import icons from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 
 import styles from './Link.scss';
 

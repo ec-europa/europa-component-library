@@ -1,0 +1,96 @@
+{#
+  Parameters:
+  - "item" (object)
+    - "path" (string)
+    - "image" (object)
+    - "video" (object)
+    - "alt" (string)
+    - "description" (string)
+    - "meta" (string)
+    - "icon" (object)
+    - "share_path" (string) (default: '')
+#}
+
+{% extends "@ecl/@compliance/@checker.html.twig" %}
+{% set component = 'gallery-item' %}
+{% set message = '' %}
+
+{% set no_video_source_case = false %}
+{% set no_image_source_case = false %}
+{% set no_video_sources_case = false %}
+{% set no_video_tracks_case = false %}
+{% set no_item_path_case = false %}
+{% set no_item_alt_case = false %}
+{% set no_icon_case = false %}
+
+{% set no_item_case = item is empty %}
+{% if no_item_case == false %}
+  {% set no_icon_case = (item.video is defined and item.video is not empty) and
+  (item.icon is not defined or item.icon is empty) %}
+  {% if item.video is defined and item.video is not empty %}
+    {% set no_video_sources_case = item.video.sources is not defined or
+      item.video.sources is empty or
+      item.video.sources is not iterable %}
+    {% if no_video_sources_case == false %}
+      {% for source in item.video.sources %}
+        {% if source.src is not defined or source.src is empty %}
+          {% set no_video_source_case = true %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endif %}
+  {% if item.image is defined and item.image is not empty %}
+    {% if (item.image.src is not defined or item.image.src is empty) and
+      (item.path is not defined or item.path is empty) %}
+       {% set no_image_source_case = true %}
+    {% endif %}
+    {% if (item.image.alt is not defined or item.image.alt is empty) and
+      (item.alt is not defined or item.alt is empty) %}
+       {% set no_item_alt_case = true %}
+    {% endif %}
+  {% elseif (item.video is not defined or item.video is empty) and
+    (item.alt is not defined or item.alt is empty) %}
+    {% set no_item_alt_case = true %}
+  {% else %}
+    {% if (item.video is not defined or item.video is empty) and
+      (item.path is not defined or item.path is empty) %}
+      {% set no_image_source_case = true %}
+    {% endif %}
+  {% endif %}
+  {% if no_image_source_case and no_video_source_case %}
+    {% set no_item_path_case = item.path is not defined or item.path is empty %}
+  {% endif %}
+{% endif %}
+
+{% set not_compliant =
+  no_video_sources_case or
+  no_video_source_case or
+  no_item_case or
+  no_item_path_case or
+  no_item_alt_case or
+  no_image_source_case or
+  no_icon_case
+%}
+
+{% if no_item_case %}
+  {% set message = message ~ ' {{ item }} needs to contain a {{ path }}, an {{ alt }} and a {{ description }} properties set and filled in.' %}
+{% endif %}
+{% if no_item_path_case %}
+  {% set message = message ~ ' {{ item.path }} property needs to set and filled in.' %}
+{% endif %}
+{% if no_item_alt_case %}
+  {% set message = message ~ ' When the {{ item }} is an image, one of {{ item.image.alt }} or {{ item.alt }} properties needs to be set and filled in.' %}
+{% endif %}
+{% if no_image_source_case %}
+  {% set message = message ~ ' When the {{ item }} is an image, one of {{ item.image.src }} or {{ item.path }} properties needs to be set and filled in.' %}
+{% endif %}
+{% if no_icon_case %}
+  {% set message = message ~ ' When the {{ item }} is a video, the {{ item.icon }} needs to be set and contain a {{ path }}, a {{ name }} and a {{ type }} properties set and filled in.' %}
+{% endif %}
+{% if no_video_sources_case %}
+  {% set message = message ~ ' When the {{ item }} is a video, the {{ video.sources }} property should be defined as an array containing objects with a {{ src }} property set and filled in.' %}
+{% endif %}
+{% if no_video_source_case %}
+  {% set message = message ~ ' When the {{ item }} is a video each item in the {{ sources }} array should contain a {{ src }} and a {{ type }} properties set and filled in. ' %}
+{% endif %}
+
