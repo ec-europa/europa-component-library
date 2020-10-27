@@ -68,9 +68,7 @@ export const Default = () => {
   );
 };
 
-Default.story = {
-  name: 'default',
-};
+Default.storyName = 'default';
 
 export const LoggedIn = () => {
   // Optional elements
@@ -102,9 +100,7 @@ export const LoggedIn = () => {
   );
 };
 
-LoggedIn.story = {
-  name: 'logged in',
-};
+LoggedIn.storyName = 'logged in';
 
 export const Translated = () => {
   // Optional elements
@@ -135,6 +131,4 @@ export const Translated = () => {
   );
 };
 
-Translated.story = {
-  name: 'translated',
-};
+Translated.storyName = 'translated';

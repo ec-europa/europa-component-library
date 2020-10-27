@@ -306,6 +306,10 @@ export class Menu {
    * @param {Event} e
    */
   handleSwipe(e) {
+    if (!isMobile.isMobile) {
+      return false;
+    }
+
     const { directions } = e.detail;
 
     if (directions.left) {

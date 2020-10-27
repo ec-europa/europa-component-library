@@ -35,9 +35,7 @@ export const Display = () => {
   );
 };
 
-Display.story = {
-  name: 'display',
-};
+Display.storyName = 'display';
 
 export const PageBreak = () => {
   return (
@@ -132,6 +130,4 @@ export const PageBreak = () => {
   );
 };
 
-PageBreak.story = {
-  name: 'page break',
-};
+PageBreak.storyName = 'page break';

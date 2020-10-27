@@ -43,9 +43,7 @@ export const Primary = () => {
   );
 };
 
-Primary.story = {
-  name: 'primary',
-};
+Primary.storyName = 'primary';
 
 export const Secondary = () => {
   const buttonIcon = {
@@ -65,9 +63,7 @@ export const Secondary = () => {
   );
 };
 
-Secondary.story = {
-  name: 'secondary',
-};
+Secondary.storyName = 'secondary';
 
 export const CallToAction = () => {
   const buttonIcon = {
@@ -87,9 +83,7 @@ export const CallToAction = () => {
   );
 };
 
-CallToAction.story = {
-  name: 'call to action',
-};
+CallToAction.storyName = 'call to action';
 
 export const Text = () => {
   const buttonIcon = {
@@ -109,9 +103,7 @@ export const Text = () => {
   );
 };
 
-Text.story = {
-  name: 'text',
-};
+Text.storyName = 'text';
 
 export const Search = () => {
   const buttonIcon = {
@@ -131,6 +123,4 @@ export const Search = () => {
   );
 };
 
-Search.story = {
-  name: 'search',
-};
+Search.storyName = 'search';

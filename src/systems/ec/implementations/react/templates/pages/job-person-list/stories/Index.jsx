@@ -7,7 +7,7 @@ import PersonListHarmonisedG1 from '../examples/PersonListHarmonisedG1';
 import PersonListHarmonisedG2 from '../examples/PersonListHarmonisedG2';
 
 export default {
-  title: 'Templates/Pages',
+  title: 'Templates/Pages/Person list',
   decorators: [withKnobs],
 };
 
@@ -161,8 +161,4 @@ export const PersonList = () => {
     'optional (core)'
   );
   return <PersonListCore {...optional} />;
-};
-
-PersonList.story = {
-  name: 'Person list',
 };

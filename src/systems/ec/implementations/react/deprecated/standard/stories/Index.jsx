@@ -3,7 +3,7 @@ import StoryWrapper from '@ecl/story-wrapper';
 import StandardPageExample from '../examples/Default';
 
 export default {
-  title: 'Deprecated/Templates',
+  title: 'Deprecated/Templates/Standard page (ECL<2-12-0)',
 
   decorators: [
     (story) => (
@@ -27,7 +27,3 @@ export default {
 };
 
 export const StandardPageEcl2120 = StandardPageExample;
-
-StandardPageEcl2120.story = {
-  name: 'Standard page (ECL<2-12-0)',
-};

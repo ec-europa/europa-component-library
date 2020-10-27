@@ -26,13 +26,11 @@ export const Default = () => (
   />
 );
 
-Default.story = {
-  name: 'default',
+Default.storyName = 'default';
 
-  parameters: {
-    knobs: {
-      escapeHTML: false,
-    },
+Default.parameters = {
+  knobs: {
+    escapeHTML: false,
   },
 };
 
@@ -51,12 +49,10 @@ export const Binary = () => (
   />
 );
 
-Binary.story = {
-  name: 'binary',
+Binary.storyName = 'binary';
 
-  parameters: {
-    knobs: {
-      escapeHTML: false,
-    },
+Binary.parameters = {
+  knobs: {
+    escapeHTML: false,
   },
 };

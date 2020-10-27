@@ -7,7 +7,7 @@ import CommemorativeCoinHarmonisedG1 from '../examples/CommemorativeCoinHarmonis
 import CommemorativeCoinHarmonisedG2 from '../examples/CommemorativeCoinHarmonisedG2';
 
 export default {
-  title: 'Templates/Pages',
+  title: 'Templates/Pages/Commemorative Coin',
   decorators: [withKnobs],
 };
 

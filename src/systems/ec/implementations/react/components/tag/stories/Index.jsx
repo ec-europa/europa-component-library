@@ -16,9 +16,7 @@ export const Display = () => (
   <Tag label={text('Label', demoDataDisplay.label)} variant="display" />
 );
 
-Display.story = {
-  name: 'display tag',
-};
+Display.storyName = 'display tag';
 
 export const Link = () => (
   <Tag
@@ -27,9 +25,7 @@ export const Link = () => (
   />
 );
 
-Link.story = {
-  name: 'link tag',
-};
+Link.storyName = 'link tag';
 
 export const Removable = () => (
   <Tag
@@ -39,6 +35,4 @@ export const Removable = () => (
   />
 );
 
-Removable.story = {
-  name: 'removable tag',
-};
+Removable.storyName = 'removable tag';

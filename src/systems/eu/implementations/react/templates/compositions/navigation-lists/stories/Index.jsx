@@ -6,6 +6,4 @@ export default {
 
 export const NavigationLists = NavigationListExample;
 
-NavigationLists.story = {
-  name: 'Navigation lists',
-};
+NavigationLists.storyName = 'Navigation lists';

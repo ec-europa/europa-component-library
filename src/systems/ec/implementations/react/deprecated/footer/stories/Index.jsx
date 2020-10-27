@@ -20,12 +20,8 @@ export default {
 
 export const Corporate = () => <Footer {...demoContentCorporate} />;
 
-Corporate.story = {
-  name: 'corporate',
-};
+Corporate.storyName = 'corporate';
 
 export const Custom = () => <Footer {...demoContentCustom} />;
 
-Custom.story = {
-  name: 'custom',
-};
+Custom.storyName = 'custom';

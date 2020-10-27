@@ -7,7 +7,7 @@ import EventSpeakerHarmonisedG1 from '../examples/EventSpeakerHarmonisedG1';
 import EventSpeakerHarmonisedG2 from '../examples/EventSpeakerHarmonisedG2';
 
 export default {
-  title: 'Templates/Pages',
+  title: 'Templates/Pages/Event speaker',
   decorators: [withKnobs],
 };
 
@@ -161,8 +161,4 @@ export const EventSpeaker = () => {
     'optional (core)'
   );
   return <EventSpeakerCore {...optional} />;
-};
-
-EventSpeaker.story = {
-  name: 'Event speaker',
 };

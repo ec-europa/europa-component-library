@@ -33,14 +33,10 @@ export const Default = () => (
   <SiteHeader {...demoContentEn} data-ecl-auto-init="SiteHeader" />
 );
 
-Default.story = {
-  name: 'default',
-};
+Default.storyName = 'default';
 
 export const Translated = () => (
   <SiteHeader {...demoContentFr} data-ecl-auto-init="SiteHeader" />
 );
 
-Translated.story = {
-  name: 'translated',
-};
+Translated.storyName = 'translated';

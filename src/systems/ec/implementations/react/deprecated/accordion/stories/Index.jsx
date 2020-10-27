@@ -110,6 +110,4 @@ export const DefaultEcl260 = () => {
   );
 };
 
-DefaultEcl260.story = {
-  name: 'default (ECL <2.6.0)',
-};
+DefaultEcl260.storyName = 'default (ECL <2.6.0)';

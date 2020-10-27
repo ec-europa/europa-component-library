@@ -1,6 +1,5 @@
 /*
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { withKnobs, number } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
 
@@ -10,37 +9,45 @@ import VanillaContextualNavigation from '@ecl/ec-component-contextual-navigation
 
 import ContextualNavigation from '../src/ContextualNavigation';
 
-storiesOf('Components/Navigation/Contextual Navigation', module)
-  .addDecorator(withKnobs)
-  .addDecorator(story => (
-    <StoryWrapper
-      afterMount={() => {
-        const element = document.querySelector(
-          '[data-ecl-contextual-navigation]'
-        );
-        const vanillaContextualNavigation = new VanillaContextualNavigation(
-          element
-        );
-        vanillaContextualNavigation.init();
+export default {
+  title: 'Components/Navigation/Contextual Navigation',
 
-        // Return new context
-        return { vanillaContextualNavigation };
-      }}
-      beforeUnmount={context => {
-        if (context.vanillaContextualNavigation) {
-          context.vanillaContextualNavigation.destroy();
-        }
-      }}
-    >
-      {story()}
-    </StoryWrapper>
-  ))
-  .add('default', () => {
-    const data = {
-      ...demoContent,
-      itemsLimit: number('Number of items:', demoContent.itemsLimit),
-    };
+  decorators: [
+    withKnobs,
+    (story) => (
+      <StoryWrapper
+        afterMount={() => {
+          const element = document.querySelector(
+            '[data-ecl-contextual-navigation]'
+          );
+          const vanillaContextualNavigation = new VanillaContextualNavigation(
+            element
+          );
+          vanillaContextualNavigation.init();
 
-    return <ContextualNavigation {...data} />;
-  });
+          // Return new context
+          return { vanillaContextualNavigation };
+        }}
+        beforeUnmount={(context) => {
+          if (context.vanillaContextualNavigation) {
+            context.vanillaContextualNavigation.destroy();
+          }
+        }}
+      >
+        {story()}
+      </StoryWrapper>
+    ),
+  ],
+};
+
+export const Default = () => {
+  const data = {
+    ...demoContent,
+    itemsLimit: number('Number of items:', demoContent.itemsLimit),
+  };
+
+  return <ContextualNavigation {...data} />;
+};
+
+Default.storyName = 'default';
 */
