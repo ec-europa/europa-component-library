@@ -1,0 +1,118 @@
+/**
+ * Form elements
+ */
+
+// Import base
+@use "sass:map";
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/ec-base/mixins/import-once';
+
+@mixin ecl-feedback-message() {
+  .ecl-feedback-message {
+    box-sizing: border-box;
+    color: map.get(color.$color, 'error');
+    display: flex;
+    font: map.get(typography.$font-prolonged, 's');
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@mixin ecl-form-group() {
+  .ecl-form-group {
+    align-items: flex-start;
+    border-width: 0;
+    box-sizing: border-box;
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    > *:not(.ecl-form-label--hidden) + * {
+      margin-top: map.get(spacing.$spacing, 'xs');
+    }
+
+    > *:not(.ecl-form-label--hidden) + .ecl-checkbox {
+      margin-top: map.get(spacing.$spacing, 's');
+    }
+
+    > *:not(.ecl-form-label--hidden) + .ecl-text-input {
+      margin-top: map.get(spacing.$spacing, 's');
+    }
+
+    > *:not(.ecl-form-label--hidden) + .ecl-text-area {
+      margin-top: map.get(spacing.$spacing, 's');
+    }
+
+    > *:not(.ecl-form-label--hidden) + .ecl-select__container {
+      margin-top: map.get(spacing.$spacing, 's');
+    }
+
+    > *:not(.ecl-form-label--hidden) + .ecl-radio {
+      margin-top: map.get(spacing.$spacing, 's');
+    }
+
+    > *:not(.ecl-form-label--hidden) + .ecl-file-upload,
+    > *:not(.ecl-form-label--hidden) + .ecl-file-upload__button-container {
+      margin-top: map.get(spacing.$spacing, 's');
+    }
+
+    > *:not(.ecl-form-label--hidden) + .ecl-file-upload__list {
+      margin-top: map.get(spacing.$spacing, 'm');
+    }
+
+    > .ecl-feedback-message + .ecl-help-block {
+      margin-top: 0;
+    }
+  }
+}
+
+@mixin ecl-help-block() {
+  .ecl-help-block {
+    box-sizing: border-box;
+    color: map.get(color.$color, 'grey-100');
+    display: block;
+    font: map.get(typography.$font-prolonged, 's');
+    margin: 0;
+    padding: 0;
+  }
+
+  .ecl-help-block--disabled {
+    color: map.get(color.$color, 'grey-50');
+  }
+}
+
+@mixin ecl-form-label() {
+  .ecl-form-label {
+    box-sizing: border-box;
+    color: map.get(color.$color, 'text');
+    font: map.get(typography.$font, 'm');
+    font-weight: map.get(typography.$font-weight, 'bold');
+    margin: 0;
+    padding: 0;
+  }
+
+  .ecl-form-label--disabled {
+    color: map.get(color.$color, 'grey-50');
+  }
+
+  .ecl-form-label__required {
+    color: map.get(color.$color, 'red');
+    font: map.get(typography.$font, 'xl');
+    font-weight: map.get(typography.$font-weight, 'bold');
+  }
+
+  .ecl-form-label__optional {
+    font: map.get(typography.$font, 's');
+    font-weight: map.get(typography.$font-weight, 'regular');
+  }
+}
+
+// Use mixin.
+@include import-once.exports('vanilla-component-form') {
+  @include ecl-feedback-message();
+  @include ecl-form-group();
+  @include ecl-help-block();
+  @include ecl-form-label();
+}
