@@ -3,12 +3,10 @@
 * @define link
 */
 
-// Import base
 @use "sass:map";
 @use '@ecl/theme-dev/maps/color';
 @use '@ecl/theme-dev/maps/spacing';
 @use '@ecl/theme-dev/maps/typography';
-@use '@ecl/ec-base/mixins/import-once';
 
 @mixin ecl-link(
   $_link-color: map.get(color.$color, 'blue'),
@@ -96,6 +94,4 @@
 }
 
 // Use mixin
-@include import-once.exports('ec-component-link') {
-  @include ecl-link();
-}
+@include ecl-link();

@@ -9,7 +9,6 @@
 @use '@ecl/theme-dev/maps/shape';
 @use '@ecl/theme-dev/maps/spacing';
 @use '@ecl/theme-dev/maps/typography';
-@use '@ecl/ec-base/mixins/import-once';
 
 @mixin ecl-button(
   $_border-width: 2px,
@@ -176,7 +175,4 @@
   }
 }
 
-// Use mixin
-@include import-once.exports('vanilla-component-button') {
-  @include ecl-button();
-}
+@include ecl-button();

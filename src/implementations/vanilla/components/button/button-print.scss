@@ -9,7 +9,6 @@
 @use '@ecl/theme-dev/maps/spacing';
 @use '@ecl/theme-dev/maps/shape';
 @use '@ecl/theme-dev/maps/typography';
-@use '@ecl/ec-base/mixins/import-once';
 
 @mixin ecl-button-print(
   $_border-width: 1.5pt,
@@ -138,6 +137,4 @@
 }
 
 // Use mixin
-@include import-once.exports('vanilla-component-button-print') {
-  @include ecl-button-print();
-}
+@include ecl-button-print();
