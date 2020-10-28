@@ -8,7 +8,7 @@ import dataBranded from '@ecl/specs-component-icon/demo/data--branded';
 import dataNotifications from '@ecl/specs-component-icon/demo/data--notifications';
 import dataUi from '@ecl/specs-component-icon/demo/data--audio';
 
-describe('ECL - Icon', () => {
+describe('Icon', () => {
   const template = '@ecl/icon/icon.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 

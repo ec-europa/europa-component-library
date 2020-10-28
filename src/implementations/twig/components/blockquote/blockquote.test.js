@@ -2,7 +2,7 @@ import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 
 import data from '@ecl/specs-component-blockquote/demo/data';
 
-describe('EC - Blockquote', () => {
+describe('Blockquote', () => {
   const template = '@ecl/blockquote/blockquote.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 

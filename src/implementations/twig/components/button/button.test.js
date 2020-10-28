@@ -7,7 +7,7 @@ import dataCall from '@ecl/specs-component-button/demo/data--call';
 import dataGhost from '@ecl/specs-component-button/demo/data--ghost';
 import dataSearch from '@ecl/specs-component-button/demo/data--search';
 
-describe('EC - Button', () => {
+describe('Button', () => {
   const template = '@ecl/button/button.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
