@@ -1,0 +1,52 @@
+/**
+ * Blockquote
+ * @define blockquote
+ */
+
+// Import base
+@use "sass:map";
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/ec-base/mixins/import-once';
+
+@mixin ecl-blockquote-print() {
+  .ecl-blockquote {
+    margin: 0;
+  }
+
+  .ecl-blockquote__body {
+    color: map.get(color.$color, 'grey');
+    font: map.get(typography.$font-prolonged-print, 'l');
+    font-style: italic;
+    margin: 0;
+    quotes: '\201C''\201D';
+
+    &::before {
+      content: open-quote;
+    }
+
+    &::after {
+      content: close-quote;
+    }
+  }
+
+  .ecl-blockquote__attribution {
+    margin-top: map.get(spacing.$spacing-print, 'xl');
+  }
+
+  .ecl-blockquote__author {
+    color: map.get(color.$color, 'black-100');
+    font: map.get(typography.$font-prolonged-print, 'm');
+    font-weight: map.get(typography.$font-weight-print, 'bold');
+
+    &::before {
+      content: '\2014\2009';
+    }
+  }
+}
+
+// Use mixin
+@include import-once.exports('ec-component-blockquote-print') {
+  @include ecl-blockquote-print();
+}

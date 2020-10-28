@@ -1,4 +1,4 @@
-# ECL-Twig Icon component
+# ECL Icon component
 
 npm package: `@ecl/twig-component-icon`
 

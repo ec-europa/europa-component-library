@@ -1,0 +1,76 @@
+/**
+ * Blockquote
+ * @define blockquote
+ */
+
+// Import base
+@use "sass:map";
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/ec-base/mixins/breakpoints';
+@use '@ecl/ec-base/mixins/import-once';
+
+@mixin ecl-blockquote($_border-width: 0.625rem) {
+  .ecl-blockquote {
+    border-left: $_border-width solid map.get(color.$color, 'yellow');
+    margin: 0;
+    padding: map.get(spacing.$spacing, 'm') 0 map.get(spacing.$spacing, 'm')
+      map.get(spacing.$spacing, 'l');
+  }
+
+  .ecl-blockquote__body {
+    color: map.get(color.$color, 'grey');
+    font: map.get(typography.$font-prolonged, 'm');
+    font-style: italic;
+    margin: 0;
+    max-width: 85ch; // Limit to ~85 chars max
+    quotes: '\201C''\201D';
+
+    &::before {
+      content: open-quote;
+    }
+
+    &::after {
+      content: close-quote;
+    }
+  }
+
+  .ecl-blockquote__attribution {
+    font: map.get(typography.$font-prolonged, 'm');
+    margin-top: map.get(spacing.$spacing, 'l');
+  }
+
+  .ecl-blockquote__author {
+    color: map.get(color.$color, 'black');
+    font: map.get(typography.$font-prolonged, 'm');
+    font-weight: map.get(typography.$font-weight, 'bold');
+
+    &::before {
+      content: '\2014\2009'; /* Em dash followed by thin space */
+    }
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include breakpoints.ecl-media-breakpoint-up('md') {
+    .ecl-blockquote__body {
+      font: map.get(typography.$font-prolonged, 'xl');
+      font-style: italic;
+    }
+
+    .ecl-blockquote__attribution {
+      font: map.get(typography.$font-prolonged, 'l');
+      margin-top: map.get(spacing.$spacing, 'xl');
+    }
+
+    .ecl-blockquote__author {
+      font: map.get(typography.$font-prolonged, 'l');
+      font-weight: map.get(typography.$font-weight, 'bold');
+    }
+  }
+}
+
+// Use mixin
+@include import-once.exports('ec-component-blockquote') {
+  @include ecl-blockquote();
+}
