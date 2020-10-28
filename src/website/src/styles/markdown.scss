@@ -61,7 +61,7 @@
 
 .a {
   color: map.get(color.$color, 'primary');
-  font-family: map.get(typography.$font-family, 'default');
+  font-family: #{map.get(typography.$font-family, 'default')};
   text-decoration: underline;
 
   &:hover,
