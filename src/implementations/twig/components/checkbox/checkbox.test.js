@@ -4,7 +4,7 @@ import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 import dataDefault from '@ecl/specs-component-checkbox/demo/data--default';
 import dataInvalid from '@ecl/specs-component-checkbox/demo/data--invalid';
 
-describe('EC - checkbox', () => {
+describe('Checkbox', () => {
   const template = '@ecl/checkbox/checkbox-group.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
