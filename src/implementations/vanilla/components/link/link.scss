@@ -8,90 +8,85 @@
 @use '@ecl/theme-dev/maps/spacing';
 @use '@ecl/theme-dev/maps/typography';
 
-@mixin ecl-link(
-  $_link-color: map.get(color.$color, 'blue'),
-  $_link-color-hover: map.get(color.$color, 'black'),
-  $_link-color-focus: map.get(color.$color, 'yellow')
-) {
-  .ecl-link {
-    color: $_link-color;
-    margin: 0;
-    text-decoration: underline;
+$_link-color: map.get(color.$color, 'blue');
+$_link-color-hover: map.get(color.$color, 'black');
+$_link-color-focus: map.get(color.$color, 'yellow');
 
+.ecl-link {
+  color: $_link-color;
+  margin: 0;
+  text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    color: $_link-color-hover;
+  }
+
+  &:focus {
+    outline: 3px solid $_link-color-focus;
+    outline-offset: 2px;
+  }
+}
+
+.ecl-link--icon-before,
+.ecl-link--icon-after {
+  display: inline-block;
+}
+
+.ecl-link--icon {
+  text-decoration: none;
+
+  .ecl-link__icon {
+    fill: currentColor;
+    position: relative;
+    top: -1px;
+    vertical-align: middle;
+  }
+
+  &:not(.ecl-link--standalone) .ecl-link__label {
+    text-decoration: underline;
+  }
+}
+
+.ecl-link--standalone {
+  font-family: #{map.get(typography.$font-family, 'default')};
+  text-decoration: none;
+
+  /* stylelint-disable */
+  &:not(.ecl-link--icon) {
     &:hover,
     &:focus {
-      color: $_link-color-hover;
-    }
-
-    &:focus {
-      outline: 3px solid $_link-color-focus;
-      outline-offset: 2px;
-    }
-  }
-
-  .ecl-link--icon-before,
-  .ecl-link--icon-after {
-    display: inline-block;
-  }
-
-  .ecl-link--icon {
-    text-decoration: none;
-
-    .ecl-link__icon {
-      fill: currentColor;
-      position: relative;
-      top: -1px;
-      vertical-align: middle;
-    }
-
-    &:not(.ecl-link--standalone) .ecl-link__label {
       text-decoration: underline;
     }
   }
 
-  .ecl-link--standalone {
-    font-family: #{map.get(typography.$font-family, 'default')};
-    text-decoration: none;
-
-    /* stylelint-disable */
-    &:not(.ecl-link--icon) {
-      &:hover,
-      &:focus {
-        text-decoration: underline;
-      }
-    }
-
-    &.ecl-link--icon {
-      &:hover .ecl-link__label,
-      &:focus .ecl-link__label {
-        text-decoration: underline;
-      }
-    }
-    /* stylelint-enable */
-  }
-
-  .ecl-link--cta {
-    background-color: map.get(color.$color, 'yellow-100');
-    box-sizing: border-box;
-    color: map.get(color.$color, 'black-100');
-    display: inline-block;
-    font: map.get(typography.$font, 'm');
-    font-weight: map.get(typography.$font-weight, 'bold');
-    padding: map.get(spacing.$spacing, 's') map.get(spacing.$spacing, 'm');
-
-    &:hover,
-    &:active {
-      border: 2px solid map.get(color.$color, 'black-100');
-      padding: calc(#{map.get(spacing.$spacing, 's')} - 2px)
-        calc(#{map.get(spacing.$spacing, 'm')} - 2px);
-    }
-
-    &:focus {
-      outline-color: map.get(color.$color, 'black-100');
-      outline-offset: -3px;
+  &.ecl-link--icon {
+    &:hover .ecl-link__label,
+    &:focus .ecl-link__label {
+      text-decoration: underline;
     }
   }
+  /* stylelint-enable */
 }
 
-// Use mixin
-@include ecl-link();
+.ecl-link--cta {
+  background-color: map.get(color.$color, 'yellow-100');
+  box-sizing: border-box;
+  color: map.get(color.$color, 'black-100');
+  display: inline-block;
+  font: map.get(typography.$font, 'm');
+  font-weight: map.get(typography.$font-weight, 'bold');
+  padding: map.get(spacing.$spacing, 's') map.get(spacing.$spacing, 'm');
+
+  &:hover,
+  &:active {
+    border: 2px solid map.get(color.$color, 'black-100');
+    padding: calc(#{map.get(spacing.$spacing, 's')} - 2px)
+      calc(#{map.get(spacing.$spacing, 'm')} - 2px);
+  }
+
+  &:focus {
+    outline-color: map.get(color.$color, 'black-100');
+    outline-offset: -3px;
+  }
+}

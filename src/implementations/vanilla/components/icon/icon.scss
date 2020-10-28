@@ -1,87 +1,83 @@
 /**
- * Icons
+ * Icon component
+ * @define icon
  */
 
 @use "sass:map";
 @use '@ecl/theme-dev/maps/icon';
 @use '@ecl/theme-dev/maps/color';
 
-@mixin ecl-icons() {
-  .ecl-icon {
-    fill: currentColor;
-    margin: 0;
-    transform: scaleX(1) scaleY(1) rotateZ(0deg);
-    transition: transform 300ms ease-in-out;
-  }
-
-  .ecl-icon--2xs {
-    height: map.get(icon.$icon, '2xs');
-    width: map.get(icon.$icon, '2xs');
-  }
-
-  .ecl-icon--xs {
-    height: map.get(icon.$icon, 'xs');
-    width: map.get(icon.$icon, 'xs');
-  }
-
-  .ecl-icon--s {
-    height: map.get(icon.$icon, 's');
-    width: map.get(icon.$icon, 's');
-  }
-
-  .ecl-icon--m {
-    height: map.get(icon.$icon, 'm');
-    width: map.get(icon.$icon, 'm');
-  }
-
-  .ecl-icon--l {
-    height: map.get(icon.$icon, 'l');
-    width: map.get(icon.$icon, 'l');
-  }
-
-  .ecl-icon--xl {
-    height: map.get(icon.$icon, 'xl');
-    width: map.get(icon.$icon, 'xl');
-  }
-
-  .ecl-icon--2xl {
-    height: map.get(icon.$icon, '2xl');
-    width: map.get(icon.$icon, '2xl');
-  }
-
-  .ecl-icon--fluid {
-    height: map.get(icon.$icon, 'fluid');
-    width: map.get(icon.$icon, 'fluid');
-  }
-
-  .ecl-icon--primary {
-    fill: map.get(color.$color, 'primary');
-  }
-
-  .ecl-icon--inverted {
-    fill: map.get(color.$color, 'white-100');
-  }
-
-  .ecl-icon--rotate-90 {
-    transform: rotateZ(90deg);
-  }
-
-  .ecl-icon--rotate-180 {
-    transform: rotateZ(180deg);
-  }
-
-  .ecl-icon--rotate-270 {
-    transform: rotateZ(270deg);
-  }
-
-  .ecl-icon--flip-horizontal {
-    transform: scaleX(-1);
-  }
-
-  .ecl-icon--flip-vertical {
-    transform: scaleY(-1);
-  }
+.ecl-icon {
+  fill: currentColor;
+  margin: 0;
+  transform: scaleX(1) scaleY(1) rotateZ(0deg);
+  transition: transform 300ms ease-in-out;
 }
 
-// Use mixin
-@include ecl-icons();
+.ecl-icon--2xs {
+  height: map.get(icon.$icon, '2xs');
+  width: map.get(icon.$icon, '2xs');
+}
+
+.ecl-icon--xs {
+  height: map.get(icon.$icon, 'xs');
+  width: map.get(icon.$icon, 'xs');
+}
+
+.ecl-icon--s {
+  height: map.get(icon.$icon, 's');
+  width: map.get(icon.$icon, 's');
+}
+
+.ecl-icon--m {
+  height: map.get(icon.$icon, 'm');
+  width: map.get(icon.$icon, 'm');
+}
+
+.ecl-icon--l {
+  height: map.get(icon.$icon, 'l');
+  width: map.get(icon.$icon, 'l');
+}
+
+.ecl-icon--xl {
+  height: map.get(icon.$icon, 'xl');
+  width: map.get(icon.$icon, 'xl');
+}
+
+.ecl-icon--2xl {
+  height: map.get(icon.$icon, '2xl');
+  width: map.get(icon.$icon, '2xl');
+}
+
+.ecl-icon--fluid {
+  height: map.get(icon.$icon, 'fluid');
+  width: map.get(icon.$icon, 'fluid');
+}
+
+.ecl-icon--primary {
+  fill: map.get(color.$color, 'primary');
+}
+
+.ecl-icon--inverted {
+  fill: map.get(color.$color, 'white-100');
+}
+
+.ecl-icon--rotate-90 {
+  transform: rotateZ(90deg);
+}
+
+.ecl-icon--rotate-180 {
+  transform: rotateZ(180deg);
+}
+
+.ecl-icon--rotate-270 {
+  transform: rotateZ(270deg);
+}
+
+.ecl-icon--flip-horizontal {
+  transform: scaleX(-1);
+}
+
+.ecl-icon--flip-vertical {
+  transform: scaleY(-1);
+}
