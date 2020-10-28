@@ -3,16 +3,6 @@
  * @define checkbox
  */
 
-// Import base
-@use '@ecl/ec-base/mixins/import-once';
-
-@mixin ecl-checkbox-print() {
-  .ecl-checkbox {
-    display: none;
-  }
-}
-
-// Use mixin.
-@include import-once.exports('vanilla-component-checkbox-print') {
-  @include ecl-checkbox-print();
+.ecl-checkbox {
+  display: none;
 }

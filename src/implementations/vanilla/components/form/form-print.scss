@@ -2,37 +2,18 @@
  * Form elments
  */
 
-// Import base
-@use '@ecl/ec-base/mixins/import-once';
-
-@mixin ecl-feedback-message-print() {
-  .ecl-feedback-message {
-    display: none;
-  }
+.ecl-feedback-message {
+  display: none;
 }
 
-@mixin ecl-form-group-print() {
-  .ecl-form-group {
-    display: none;
-  }
+.ecl-form-group {
+  display: none;
 }
 
-@mixin ecl-help-block-print() {
-  .ecl-help-block {
-    display: none;
-  }
+.ecl-help-block {
+  display: none;
 }
 
-@mixin ecl-form-label-print() {
-  .ecl-form-label {
-    display: none;
-  }
-}
-
-// Use mixin.
-@include import-once.exports('vanilla-component-form-print') {
-  @include ecl-feedback-message-print();
-  @include ecl-form-group-print();
-  @include ecl-help-block-print();
-  @include ecl-form-label-print();
+.ecl-form-label {
+  display: none;
 }
