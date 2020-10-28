@@ -55,7 +55,7 @@ module.exports = {
       to: path.resolve(outputFolder, 'images/social-icons'),
     },
     {
-      from: path.resolve(nodeModules, '@ecl/resources-ec-logo'),
+      from: path.resolve(nodeModules, '@ecl/resources-eu-logo'),
       to: path.resolve(outputFolder, 'images/logo'),
     },
   ],
