@@ -1,0 +1,18 @@
+/*
+ * Radio
+ * @define radio
+ */
+
+// Import base
+@use '@ecl/ec-base/mixins/import-once';
+
+@mixin ecl-radio-print() {
+  .ecl-radio {
+    display: none;
+  }
+}
+
+// Use mixin
+@include import-once.exports('vanilla-component-radio-print') {
+  @include ecl-radio-print();
+}

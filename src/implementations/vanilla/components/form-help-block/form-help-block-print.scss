@@ -1,0 +1,19 @@
+/*
+ * Help block
+ * @define help-block
+ */
+
+// Import base
+@use "sass:map";
+@use '@ecl/ec-base/mixins/import-once';
+
+@mixin ecl-help-block-print() {
+  .ecl-help-block {
+    display: none;
+  }
+}
+
+// Use mixin
+@include import-once.exports('vanilla-component-help-block-print') {
+  @include ecl-help-block-print();
+}
