@@ -3,15 +3,6 @@
  * @define form-label
  */
 
-@use '@ecl/ec-base/mixins/import-once';
-
-@mixin ecl-form-label-print() {
-  .ecl-form-label {
-    display: none;
-  }
-}
-
-// Use mixin
-@include import-base.exports('vanilla-component-form-label-print') {
-  @include ecl-form-label-print();
+.ecl-form-label {
+  display: none;
 }

@@ -6,35 +6,27 @@
 @use "sass:map";
 @use '@ecl/theme-dev/maps/color';
 @use '@ecl/theme-dev/maps/typography';
-@use '@ecl/ec-base/mixins/import-once';
 
-@mixin ecl-form-label() {
-  .ecl-form-label {
-    box-sizing: border-box;
-    color: map.get(color.$color, 'text');
-    font: map.get(typography.$font, 'm');
-    font-weight: map.get(typography.$font-weight, 'bold');
-    margin: 0;
-    padding: 0;
-  }
-
-  .ecl-form-label--disabled {
-    color: map.get(color.$color, 'grey-50');
-  }
-
-  .ecl-form-label__required {
-    color: map.get(color.$color, 'red');
-    font: map.get(typography.$font, 'xl');
-    font-weight: map.get(typography.$font-weight, 'bold');
-  }
-
-  .ecl-form-label__optional {
-    font: map.get(typography.$font, 's');
-    font-weight: map.get(typography.$font-weight, 'regular');
-  }
+.ecl-form-label {
+  box-sizing: border-box;
+  color: map.get(color.$color, 'text');
+  font: map.get(typography.$font, 'm');
+  font-weight: map.get(typography.$font-weight, 'bold');
+  margin: 0;
+  padding: 0;
 }
 
-// Use mixin
-@include import-once.exports('vanilla-component-form-label') {
-  @include ecl-form-label();
+.ecl-form-label--disabled {
+  color: map.get(color.$color, 'grey-50');
+}
+
+.ecl-form-label__required {
+  color: map.get(color.$color, 'red');
+  font: map.get(typography.$font, 'xl');
+  font-weight: map.get(typography.$font-weight, 'bold');
+}
+
+.ecl-form-label__optional {
+  font: map.get(typography.$font, 's');
+  font-weight: map.get(typography.$font-weight, 'regular');
 }

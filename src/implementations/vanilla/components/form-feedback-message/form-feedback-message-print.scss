@@ -3,16 +3,6 @@
  * @define feedback-message
  */
 
-// Import base
-@use '@ecl/ec-base/mixins/import-once';
-
-@mixin ecl-feedback-message-print() {
-  .ecl-feedback-message {
-    display: none;
-  }
-}
-
-// Use mixin
-@include import-once.exports('vanilla-component-feedback-message-print') {
-  @include ecl-feedback-message-print();
+.ecl-feedback-message {
+  display: none;
 }

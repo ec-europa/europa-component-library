@@ -7,208 +7,200 @@
 @use '@ecl/theme-dev/maps/color';
 @use '@ecl/theme-dev/maps/typography';
 @use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/ec-base/mixins/import-once';
 
-@mixin ecl-radio(
-  $label-color: map.get(color.$color, 'grey-100'),
-  $label-color-disabled: map.get(color.$color, 'text'),
-  $box-size: 1.25rem,
-  $box-border-width: 2px,
-  $box-border-width-checked: 7px,
-  $box-border-color: map.get(color.$color, 'text'),
-  $box-border-color-disabled: map.get(color.$color, 'grey-50'),
-  $box-border-color-checked: map.get(color.$color, 'grey-100'),
-  $box-border-color-hover: map.get(color.$color, 'grey-100'),
-  $box-background: map.get(color.$color, 'white-100'),
-  $box-background-disabled: map.get(color.$color, 'grey-5'),
-  $outline-width: 2px,
-  $outline-color: map.get(color.$color, 'yellow-100'),
-  $invalid-border-color: map.get(color.$color, 'error'),
-  $invalid-border-width: 2px // DEPRECATED
-) {
-  .ecl-radio {
-    align-items: flex-start;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-  }
+$label-color: map.get(color.$color, 'grey-100');
+$label-color-disabled: map.get(color.$color, 'text');
+$box-size: 1.25rem;
+$box-border-width: 2px;
+$box-border-width-checked: 7px;
+$box-border-color: map.get(color.$color, 'text');
+$box-border-color-disabled: map.get(color.$color, 'grey-50');
+$box-border-color-checked: map.get(color.$color, 'grey-100');
+$box-border-color-hover: map.get(color.$color, 'grey-100');
+$box-background: map.get(color.$color, 'white-100');
+$box-background-disabled: map.get(color.$color, 'grey-5');
+$outline-width: 2px;
+$outline-color: map.get(color.$color, 'yellow-100');
+$invalid-border-color: map.get(color.$color, 'error');
+$invalid-border-width: 2px; // DEPRECATED
 
-  .ecl-radio__input {
-    border: 0;
-    clip: rect(0, 0, 0, 0);
-    clip-path: inset(50%);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-  }
+.ecl-radio {
+  align-items: flex-start;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
 
-  .ecl-radio__label {
-    align-items: center;
-    color: $label-color;
-    display: inline-flex;
-    font: map.get(typography.$font, 'm');
-  }
+.ecl-radio__input {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
 
+.ecl-radio__label {
+  align-items: center;
+  color: $label-color;
+  display: inline-flex;
+  font: map.get(typography.$font, 'm');
+}
+
+.ecl-radio__box {
+  background-color: $box-background;
+  border: $box-border-width solid $box-border-color;
+  border-radius: 50%;
+  box-sizing: content-box;
+  display: block;
+  height: calc(#{$box-size} - (#{$box-border-width} * 2));
+  margin-right: map.get(spacing.$spacing, 's');
+  position: relative;
+  width: calc(#{$box-size} - (#{$box-border-width} * 2));
+}
+
+.ecl-radio__label:hover .ecl-radio__box {
+  border-color: $box-border-color-hover;
+}
+
+.ecl-radio__help {
+  box-sizing: border-box;
+  color: map.get(color.$color, 'grey-100');
+  display: block;
+  font: map.get(typography.$font-prolonged, 's');
+  margin-top: map.get(spacing.$spacing, 'xs');
+}
+
+.ecl-radio__help--disabled {
+  color: map.get(color.$color, 'text');
+}
+
+// Checked
+.ecl-radio__input:checked + .ecl-radio__label {
   .ecl-radio__box {
-    background-color: $box-background;
-    border: $box-border-width solid $box-border-color;
-    border-radius: 50%;
-    box-sizing: content-box;
-    display: block;
-    height: calc(#{$box-size} - (#{$box-border-width} * 2));
-    margin-right: map.get(spacing.$spacing, 's');
-    position: relative;
-    width: calc(#{$box-size} - (#{$box-border-width} * 2));
+    border-color: $box-border-color-checked;
+    border-width: $box-border-width-checked;
+    height: calc(#{$box-size} - (#{$box-border-width-checked} * 2));
+    width: calc(#{$box-size} - (#{$box-border-width-checked} * 2));
   }
+}
 
-  .ecl-radio__label:hover .ecl-radio__box {
-    border-color: $box-border-color-hover;
-  }
+// Invalid
+.ecl-radio__box--invalid {
+  border-color: $invalid-border-color;
+}
 
-  .ecl-radio__help {
-    box-sizing: border-box;
-    color: map.get(color.$color, 'grey-100');
+.ecl-radio__label:hover .ecl-radio__box--invalid {
+  border-color: map.get(color.$color, 'red-130');
+}
+
+.ecl-radio__input:checked + .ecl-radio__label .ecl-radio__box--invalid {
+  border-color: $invalid-border-color;
+}
+
+// Disabled
+.ecl-radio__label--disabled {
+  color: $label-color-disabled;
+  cursor: not-allowed;
+}
+
+// stylelint-disable no-descending-specificity
+.ecl-radio__box--disabled,
+.ecl-radio__input:checked + .ecl-radio__label .ecl-radio__box--disabled,
+.ecl-radio__label--disabled:hover .ecl-radio__box {
+  background-color: $box-background-disabled;
+  border-color: $box-border-color-disabled;
+}
+// stylelint-enable no-descending-specificity
+
+// Focus
+.ecl-radio__input:focus + .ecl-radio__label,
+.ecl-radio__input:active + .ecl-radio__label {
+  .ecl-radio__box::before {
+    // We can't use outline as this is a rounded box
+    border: $outline-width solid $outline-color;
+    border-radius: 100%;
+    content: '';
     display: block;
-    font: map.get(typography.$font-prolonged, 's');
+    height: calc(#{$box-size} - (#{$outline-width} * 2));
+    left: -#{$box-border-width};
+    position: absolute;
+    top: -#{$box-border-width};
+    width: calc(#{$box-size} - (#{$outline-width} * 2));
+  }
+}
+
+.ecl-radio__input:checked:focus + .ecl-radio__label,
+.ecl-radio__input:checked:active + .ecl-radio__label {
+  .ecl-radio__box::before {
+    left: -#{$box-border-width-checked};
+    top: -#{$box-border-width-checked};
+  }
+}
+
+// Binary radio
+.ecl-radio--binary {
+  display: inline-flex;
+  margin-right: map.get(spacing.$spacing, 'm');
+  vertical-align: top;
+}
+
+.ecl-radio--binary:last-child {
+  margin-right: 0;
+}
+
+// DEPRECATED
+// stylelint-disable no-descending-specificity
+.ecl-radio__group {
+  border-style: solid;
+  border-width: 0;
+  margin: 0;
+  padding: 0 map.get(spacing.$spacing, 'l');
+}
+
+.ecl-radio__group--invalid {
+  border-color: $invalid-border-color;
+  border-width: $invalid-border-width;
+  padding-bottom: map.get(spacing.$spacing, 'm');
+  padding-top: map.get(spacing.$spacing, 'm');
+
+  .ecl-radio__invalid {
     margin-top: map.get(spacing.$spacing, 'xs');
   }
+}
 
-  .ecl-radio__help--disabled {
-    color: map.get(color.$color, 'text');
-  }
-
-  // Checked
-  .ecl-radio__input:checked + .ecl-radio__label {
-    .ecl-radio__box {
-      border-color: $box-border-color-checked;
-      border-width: $box-border-width-checked;
-      height: calc(#{$box-size} - (#{$box-border-width-checked} * 2));
-      width: calc(#{$box-size} - (#{$box-border-width-checked} * 2));
-    }
-  }
-
-  // Invalid
-  .ecl-radio__box--invalid {
-    border-color: $invalid-border-color;
-  }
-
-  .ecl-radio__label:hover .ecl-radio__box--invalid {
-    border-color: map.get(color.$color, 'red-130');
-  }
-
-  .ecl-radio__input:checked + .ecl-radio__label .ecl-radio__box--invalid {
-    border-color: $invalid-border-color;
-  }
-
-  // Disabled
-  .ecl-radio__label--disabled {
+.ecl-radio--disabled,
+.ecl-radio--readonly {
+  .ecl-radio__label {
     color: $label-color-disabled;
     cursor: not-allowed;
   }
 
-  // stylelint-disable no-descending-specificity
-  .ecl-radio__box--disabled,
-  .ecl-radio__input:checked + .ecl-radio__label .ecl-radio__box--disabled,
-  .ecl-radio__label--disabled:hover .ecl-radio__box {
+  .ecl-radio__box {
     background-color: $box-background-disabled;
     border-color: $box-border-color-disabled;
   }
-  // stylelint-enable no-descending-specificity
+}
 
-  // Focus
-  .ecl-radio__input:focus + .ecl-radio__label,
-  .ecl-radio__input:active + .ecl-radio__label {
-    .ecl-radio__box::before {
-      // We can't use outline as this is a rounded box
-      border: $outline-width solid $outline-color;
-      border-radius: 100%;
-      content: '';
-      display: block;
-      height: calc(#{$box-size} - (#{$outline-width} * 2));
-      left: -#{$box-border-width};
-      position: absolute;
-      top: -#{$box-border-width};
-      width: calc(#{$box-size} - (#{$outline-width} * 2));
-    }
+.ecl-radio__group--binary {
+  // stylelint-disable-next-line plugin/selector-bem-pattern
+  &.ecl-form-group {
+    display: block;
   }
 
-  .ecl-radio__input:checked:focus + .ecl-radio__label,
-  .ecl-radio__input:checked:active + .ecl-radio__label {
-    .ecl-radio__box::before {
-      left: -#{$box-border-width-checked};
-      top: -#{$box-border-width-checked};
-    }
-  }
-
-  // Binary radio
-  .ecl-radio--binary {
+  .ecl-radio {
     display: inline-flex;
     margin-right: map.get(spacing.$spacing, 'm');
     vertical-align: top;
   }
 
-  .ecl-radio--binary:last-child {
+  .ecl-radio:last-child {
     margin-right: 0;
   }
-
-  // DEPRECATED
-  // stylelint-disable no-descending-specificity
-  .ecl-radio__group {
-    border-style: solid;
-    border-width: 0;
-    margin: 0;
-    padding: 0 map.get(spacing.$spacing, 'l');
-  }
-
-  .ecl-radio__group--invalid {
-    border-color: $invalid-border-color;
-    border-width: $invalid-border-width;
-    padding-bottom: map.get(spacing.$spacing, 'm');
-    padding-top: map.get(spacing.$spacing, 'm');
-
-    .ecl-radio__invalid {
-      margin-top: map.get(spacing.$spacing, 'xs');
-    }
-  }
-
-  .ecl-radio--disabled,
-  .ecl-radio--readonly {
-    .ecl-radio__label {
-      color: $label-color-disabled;
-      cursor: not-allowed;
-    }
-
-    .ecl-radio__box {
-      background-color: $box-background-disabled;
-      border-color: $box-border-color-disabled;
-    }
-  }
-
-  .ecl-radio__group--binary {
-    // stylelint-disable-next-line plugin/selector-bem-pattern
-    &.ecl-form-group {
-      display: block;
-    }
-
-    .ecl-radio {
-      display: inline-flex;
-      margin-right: map.get(spacing.$spacing, 'm');
-      vertical-align: top;
-    }
-
-    .ecl-radio:last-child {
-      margin-right: 0;
-    }
-  }
-  // stylelint-enable no-descending-specificity
 }
-
-// Use mixin
-@include import-once.exports('vanilla-component-form-radio') {
-  @include ecl-radio();
-}
+// stylelint-enable no-descending-specificity

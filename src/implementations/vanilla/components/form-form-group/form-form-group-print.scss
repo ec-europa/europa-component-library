@@ -3,15 +3,6 @@
  * @define form-group
  */
 
-@use '@ecl/ec-base/mixins/import-once';
-
-@mixin ecl-form-group-print() {
-  .ecl-form-group {
-    display: none;
-  }
-}
-
-// Use mixin
-@include import-once.exports('ec-component-form-form-group-print') {
-  @include ecl-form-group-print();
+.ecl-form-group {
+  display: none;
 }
