@@ -1,6 +1,6 @@
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
-import withCode from '@ecl/storybook-addon-code-twig';
+import withCode from '@ecl/storybook-addon-code';
 import { getExtraKnobs, tabLabels, getIconKnobs } from '@ecl/story-utils';
 
 // Import data for demos
