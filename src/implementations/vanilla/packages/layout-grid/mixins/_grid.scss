@@ -1,6 +1,6 @@
 @use "sass:map";
 @use "sass:math";
-@use "@ecl/ec-base/mixins/breakpoints";
+@use 'breakpoints';
 @use "@ecl/theme-dev/maps/layout";
 
 /// Grid system
@@ -15,7 +15,7 @@
   width: 100%;
 
   @each $breakpoint in map.keys($gutters) {
-    @include breakpoints.ecl-media-breakpoint-up($breakpoint) {
+    @include breakpoints.media-breakpoint-up($breakpoint) {
       $gutter: map.get($gutters, $breakpoint);
 
       padding-left: ($gutter / 2);
@@ -30,16 +30,16 @@
   $breakpoints: layout.$breakpoint
 ) {
   @each $breakpoint, $container-max-width in $max-widths {
-    @include breakpoints.ecl-media-breakpoint-up($breakpoint, $breakpoints) {
+    @include breakpoints.media-breakpoint-up($breakpoint, $breakpoints) {
       max-width: 100%;
       width: $container-max-width;
     }
   }
 }
 
-@mixin ecl-make-gutters($gutters: layout.$grid-gutter-width) {
+@mixin make-gutters($gutters: layout.$grid-gutter-width) {
   @each $breakpoint in map.keys($gutters) {
-    @include breakpoints.ecl-media-breakpoint-up($breakpoint) {
+    @include breakpoints.media-breakpoint-up($breakpoint) {
       $gutter: map.get($gutters, $breakpoint);
 
       padding-left: ($gutter / 2);
@@ -54,7 +54,7 @@
   flex-wrap: wrap;
 
   @each $breakpoint in map.keys($gutters) {
-    @include breakpoints.ecl-media-breakpoint-up($breakpoint) {
+    @include breakpoints.media-breakpoint-up($breakpoint) {
       $gutter: map.get($gutters, $breakpoint);
 
       margin-left: ($gutter / -2);
@@ -63,7 +63,7 @@
   }
 }
 
-@mixin ecl-make-col-ready($gutters: layout.$grid-gutter-width) {
+@mixin make-col-ready($gutters: layout.$grid-gutter-width) {
   box-sizing: border-box;
   min-height: 1px; // Prevent collapsing
   position: relative;
@@ -73,7 +73,7 @@
   width: 100%;
 
   @each $breakpoint in map.keys($gutters) {
-    @include breakpoints.ecl-media-breakpoint-up($breakpoint) {
+    @include breakpoints.media-breakpoint-up($breakpoint) {
       $gutter: map.get($gutters, $breakpoint);
 
       padding-left: ($gutter / 2);
@@ -82,7 +82,7 @@
   }
 }
 
-@mixin ecl-make-col($size, $columns: map.get($grid, 'columns')) {
+@mixin make-col($size, $columns: map.get($grid, 'columns')) {
   flex: 0 0 math.percentage($size / $columns);
   // width: percentage($size / $columns);
   // Add a `max-width` to make sure content within each column does not blow out
@@ -91,25 +91,25 @@
   max-width: math.percentage($size / $columns);
 }
 
-@mixin ecl-make-col-offset($size, $columns: map.get($grid, 'columns')) {
+@mixin make-col-offset($size, $columns: map.get($grid, 'columns')) {
   margin-left: math.percentage($size / $columns);
 }
 
-@mixin ecl-make-col-push($size, $columns: map.get($grid, 'columns')) {
+@mixin make-col-push($size, $columns: map.get($grid, 'columns')) {
   left: if($size > 0, math.percentage($size / $columns), auto);
 }
 
-@mixin ecl-make-col-pull($size, $columns: map.get($grid, 'columns')) {
+@mixin make-col-pull($size, $columns: map.get($grid, 'columns')) {
   right: if($size > 0, math.percentage($size / $columns), auto);
 }
 
-@mixin ecl-make-col-modifier($type, $size, $columns) {
+@mixin make-col-modifier($type, $size, $columns) {
   // Work around the lack of dynamic mixin @include support (https://github.com/sass/sass/issues/626)
   @if $type == push {
-    @include ecl-make-col-push($size, $columns);
+    @include make-col-push($size, $columns);
   } @else if $type == pull {
-    @include ecl-make-col-pull($size, $columns);
+    @include make-col-pull($size, $columns);
   } @else if $type == offset {
-    @include ecl-make-col-offset($size, $columns);
+    @include make-col-offset($size, $columns);
   }
 }
