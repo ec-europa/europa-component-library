@@ -4,7 +4,7 @@ const stories = ['../../**/*.story.js'];
 
 const addons = [
   '@ecl/storybook-addon-notes/src/register',
-  '@ecl/storybook-addon-code-twig/src/register',
+  '@ecl/storybook-addon-code/src/register',
   '@storybook/addon-viewport',
   '@storybook/addon-knobs',
   '@storybook/addon-cssresources',
