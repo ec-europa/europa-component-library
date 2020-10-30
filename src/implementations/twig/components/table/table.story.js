@@ -91,12 +91,12 @@ Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 
 export const Zebra = () => table(prepareTable(dataZebra));
 
-Zebra.storyName = 'Zebra';
+Zebra.storyName = 'zebra';
 Zebra.parameters = { notes: { markdown: notes, json: dataZebra } };
 
 export const Multi = () => table(prepareTable(dataMulti));
 
-Multi.storyName = 'Multi';
+Multi.storyName = 'multi header';
 Multi.parameters = { notes: { markdown: notes, json: dataMulti } };
 
 export const WithRowExtraAttributes = () =>
