@@ -1,6 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import { getExtraKnobs, tabLabels, getComplianceKnob } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
+import { withRunScript } from 'storybook-addon-run-script/html';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 
 import dataDefault from '@ecl/specs-component-table/demo/data--default';
@@ -12,6 +13,8 @@ import notes from './README.md';
 // Preserve original data
 const dataZebra = { ...dataDefault, zebra: true };
 
+const init = `ECL.autoInit()`;
+
 const prepareTable = (data, attr) => {
   let defaultAttr = '';
   if (attr) {
@@ -21,14 +24,14 @@ const prepareTable = (data, attr) => {
   data.zebra = boolean('zebra', data.zebra, tabLabels.cases);
   data.sortable = boolean('sortable', data.sortable, tabLabels.cases);
   data.headers.forEach((headers, i) => {
-    headers.forEach((header, ind) => {
+    headers.forEach((header, j) => {
       header.label = text(
-        `headers[${i}][${ind}].label`,
+        `headers[${i}][${j}].label`,
         header.label,
         tabLabels.required
       );
       header.colspan = text(
-        `headers[${i}][${ind}].colspan`,
+        `headers[${i}][${j}].colspan`,
         header.colspan,
         tabLabels.optional
       );
@@ -46,24 +49,24 @@ const prepareTable = (data, attr) => {
       defaultAttr,
       tabLabels.optional
     );
-    row.forEach((cell, ind) => {
+    row.forEach((cell, j) => {
       cell.label = text(
-        `rows[${i}][${ind}].label`,
+        `rows[${i}][${j}].label`,
         cell.label,
         tabLabels.required
       );
       cell['data-ecl-table-header'] = text(
-        `rows[${i}][${ind}]['data-ecl-table-header']`,
+        `rows[${i}][${j}]['data-ecl-table-header']`,
         cell['data-ecl-table-header'],
         tabLabels.required
       );
       cell.group = boolean(
-        `rows[${i}][${ind}].group`,
+        `rows[${i}][${j}].group`,
         cell.group,
         tabLabels.optional
       );
       cell['data-ecl-table-header-group'] = text(
-        `rows[${i}][${ind}]['data-ecl-table-header-group']`,
+        `rows[${i}][${j}]['data-ecl-table-header-group']`,
         cell['data-ecl-table-header-group'],
         tabLabels.optional
       );
@@ -78,7 +81,7 @@ const prepareTable = (data, attr) => {
 
 export default {
   title: 'Components/Table',
-  decorators: [withNotes, withCode, withKnobs],
+  decorators: [withNotes, withCode, withKnobs, withRunScript(init)],
 };
 
 export const Default = () => table(prepareTable(dataDefault));
@@ -96,8 +99,6 @@ export const Multi = () => table(prepareTable(dataMulti));
 Multi.storyName = 'Multi';
 Multi.parameters = { notes: { markdown: notes, json: dataMulti } };
 
-export const Sortable = () => table(prepareTable(dataSortable));
-
 export const WithRowExtraAttributes = () =>
   table(prepareTable(dataDefault, true));
 
@@ -105,6 +106,8 @@ WithRowExtraAttributes.storyName = 'With row extra attributes';
 WithRowExtraAttributes.parameters = {
   notes: { markdown: notes, json: dataDefault },
 };
+
+export const Sortable = () => table(prepareTable(dataSortable));
 
 Sortable.storyName = 'sort table';
 Sortable.parameters = { notes: { markdown: notes, json: dataSortable } };

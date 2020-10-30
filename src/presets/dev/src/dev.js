@@ -1,4 +1,5 @@
 // Export components
 
 export * from '@ecl/polyfills';
-export * from '@ecl/vanilla-component-table/table.js';
+export * from '@ecl/auto-init';
+export * from '@ecl/vanilla-component-table';

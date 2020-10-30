@@ -1,3 +1,4 @@
+import { queryAll, queryOne } from '@ecl/helpers/dom';
 import iconSvgUiArrow from '@ecl/resources-ec-icons/dist/svg/ui/solid-arrow.svg';
 
 /**
@@ -31,7 +32,6 @@ export class Table {
     }
 
     this.element = element;
-
     // Options
     this.sortSelector = sortSelector;
 
@@ -65,10 +65,7 @@ export class Table {
    * Initialise component.
    */
   init() {
-    this.sortHeadings = document.querySelectorAll(
-      this.sortSelector,
-      this.element
-    );
+    this.sortHeadings = queryAll(this.sortSelector, this.element);
     // Add sort arrows and bind click event on toggles.
     if (this.sortHeadings) {
       this.sortHeadings.forEach((tr) => {
@@ -82,8 +79,8 @@ export class Table {
     }
 
     // Set default row order via dataset.
-    const tbody = document.querySelector('tbody', this.element);
-    [...document.querySelectorAll('tr', tbody)].forEach((tr, index) => {
+    const tbody = queryOne('tbody', this.element);
+    [...queryAll('tr', tbody)].forEach((tr, index) => {
       tr.setAttribute('data-ecl-table-order', index);
     });
   }
@@ -104,7 +101,7 @@ export class Table {
    */
   handleClickOnSort(toggle) {
     const table = toggle.closest('table');
-    const tbody = document.querySelector('tbody', table);
+    const tbody = queryOne('tbody', table);
     let order = toggle.getAttribute('aria-sort');
 
     // Get current column index, taking into account the colspan.
@@ -129,16 +126,14 @@ export class Table {
 
     if (order === 'descending') {
       // If current order is 'descending' reset column filter sort rows by default order.
-      [...document.querySelectorAll('tr', tbody)].forEach((tr, index) => {
-        const defaultTr = document.querySelector(
-          `[data-ecl-table-order='${index}']`
-        );
+      [...queryAll('tr', tbody)].forEach((tr, index) => {
+        const defaultTr = queryOne(`[data-ecl-table-order='${index}']`);
         tbody.appendChild(defaultTr);
       });
       order = null;
     } else {
       // Otherwise we sort the rows and set new order.
-      [...document.querySelectorAll('tr', tbody)]
+      [...queryAll('tr', tbody)]
         .sort(comparer(colIndex, order !== 'ascending'))
         .forEach((tr) => tbody.appendChild(tr));
       order = order === 'ascending' ? 'descending' : 'ascending';

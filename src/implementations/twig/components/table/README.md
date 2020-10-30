@@ -1,9 +1,9 @@
-# ECL-Twig Table component
+# ECL Table component
 
 npm package: `@ecl/twig-component-table`
 
 ```shell
-npm install --save @ecl-twig/twig-component-table
+npm install --save @ecl/twig-component-table
 ```
 
 ### Parameters:
@@ -24,13 +24,13 @@ npm install --save @ecl-twig/twig-component-table
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
-- **"_compliance_"** (boolean) (default: false) Activates debug
+- **"\_compliance\_"** (boolean) (default: false) Activates debug
 
 ### Example:
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl-twig/ec-component-table/ecl-table.html.twig' with { 
+{% include '@ecl/table/twig-component-table.html.twig' with { 
   zebra: true, 
   headers: [ 
   [ 
