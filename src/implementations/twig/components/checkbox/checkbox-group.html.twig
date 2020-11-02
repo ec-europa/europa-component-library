@@ -1,0 +1,130 @@
+{% spaceless %}
+
+{#
+  Parameters:
+  - "label_id" (string) (default: '')
+  - "items" (array) (default: []): array of checkbox_button
+  - "name" (string) (default: '')
+  - "helper_id" (string) (default: '')
+  - "invalid" (boolean) (default: false)
+  - "required" (boolean) (default: false)
+  - "extra_classes" (optional) (string) (default: '')
+  - "extra_attributes" (optional) (array) (default: [])
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+  - "_compliance_": (boolean) (default: false)
+  Blocks:
+  - "label"
+  - "helper_text"
+  - "invalid_text"
+  - "optional_text"
+  - "required_text"
+#}
+
+{# Internal properties #}
+
+{% set _label_id = label_id|default('') %}
+{% set _items = items|default([]) %}
+{% set _name = name|default('') %}
+{% set _helper_id = helper_id|default('') %}
+{% set _invalid = invalid|default(false) %}
+{% set _required = required|default(false) %}
+
+{% set _helper_text = helper_text|default('') %}
+{% set _invalid_text = invalid_text|default('') %}
+{% set _required_text = required_text|default('*') %}
+{% set _optional_text = optional_text|default('') %}
+{% set _label = label|default('') %}
+
+{% set _css_class = 'ecl-form-group' %}
+{% set _extra_attributes = '' %}
+{% set _compliance = _compliance_|default(false) %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<fieldset
+  class="{{ _css_class }}"
+{% if _helper_id is not empty %}
+  aria-describedby="{{ _helper_id }}"
+{% endif %}
+  {{ _extra_attributes|raw }}
+>
+  {%- if _label is not empty %}
+    <legend
+      class="ecl-form-label
+      {{- _invalid ? ' ecl-form-label--invalid' -}}"
+    {% if _label_id %}
+      id="{{ _label_id }}"
+    {% endif %}
+    >
+      {%- block label _label|raw -%}
+      {%- if _required and _required_text is not empty -%}
+        <span class="ecl-form-label__required">{{ _required_text }}</span>
+      {%- elseif not _required and _optional_text is not empty -%}
+        <span class="ecl-form-label__optional">{{ ' ' ~ _optional_text }}</span>
+      {%- endif -%}
+    </legend>
+  {% endif %}
+
+  {% if _helper_text is not empty %}
+    <div
+      class="ecl-help-block"
+      {% if _helper_id is not empty %}
+        id="{{ _helper_id }}"
+      {% endif %}
+    >
+      {%- block helper_text _helper_text|raw -%}
+    </div>
+  {% endif %}
+
+  {% if _invalid and _invalid_text is not empty %}
+    <div class="ecl-feedback-message">
+      {%- block invalid_text _invalid_text|raw -%}
+    </div>
+  {% endif %}
+
+  {% if _items is not empty %}
+    {%- for _item in _items %}
+      {% include '@ecl/checkbox/checkbox-item.html.twig' with _item|merge({
+        name: _name,
+        invalid: _invalid,
+        _compliance_: _compliance,
+        _compliance_inner_check_: true
+      }) only %}
+    {% endfor -%}
+  {% endif %}
+
+</fieldset>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl/@compliance/form-group.html.twig' with {
+    helper_id: _helper_id,
+    invalid: _invalid,
+    required: _required,
+    invalid_text: _invalid_text,
+    required_text: _required_text,
+    optional_text: _optional_text,
+    label: _label,
+    variant: 'checkbox'
+  } only %}
+{% endif %}
+
+{% endspaceless %}

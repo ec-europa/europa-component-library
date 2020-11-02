@@ -1,7 +1,7 @@
 import { withKnobs, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import { getExtraKnobs, getIconKnobs, tabLabels } from '@ecl/story-utils';
-import withCode from '@ecl/storybook-addon-code-twig';
+import withCode from '@ecl/storybook-addon-code';
 
 import brandedIcons from '@ecl/resources-ec-icons/dist/lists/branded.json';
 import generalIcons from '@ecl/resources-ec-icons/dist/lists/general.json';

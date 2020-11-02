@@ -2,7 +2,6 @@
 // Grid mixins
 //
 
-@use '@ecl/ec-base/mixins/import-once';
 @use 'mixins/grid-framework';
 @use 'mixins/grid';
 
@@ -38,10 +37,8 @@
   // Columns
   //
   // Common styles for small and large grid columns
-  @include grid-framework.ecl-make-grid-columns(); // stylelint-disable-line
+  @include grid-framework.make-grid-columns(); // stylelint-disable-line
 }
 
 // Use mixin
-@include import-once.exports('layout-grid') {
-  @include ecl-grid();
-}
+@include ecl-grid();

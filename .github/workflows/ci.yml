@@ -3,6 +3,9 @@ name: CI
 on:
   pull_request:
     types: [opened, synchronize]
+  push:
+    branches:
+      - next-v3
 
 jobs:
   audit:
@@ -36,9 +39,10 @@ jobs:
         run: yarn build:presets
       - name: Test
         run: yarn size-limit
-  deploy:
-    name: preview
+  deploy-pull-request-preview:
+    name: deploy preview
     runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
@@ -51,6 +55,27 @@ jobs:
         uses: nwtgck/actions-netlify@v1.1
         with:
           alias: ecl-preview-${{ github.event.number }}
+          publish-dir: 'dist/website'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+  deploy-v3-branch:
+    name: deploy next-v3 branch
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/next-v3'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Build icons
+        run: yarn build:icons
+      - name: Package application
+        run: yarn dist
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v1.1
+        with:
+          alias: v3
           publish-dir: 'dist/website'
           github-token: ${{ secrets.GITHUB_TOKEN }}
         env:
