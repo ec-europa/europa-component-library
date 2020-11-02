@@ -8,32 +8,23 @@
 @use '@ecl/theme-dev/maps/color';
 @use '@ecl/theme-dev/maps/spacing';
 @use '@ecl/theme-dev/maps/typography';
-@use '@ecl/ec-base/mixins/import-once';
 
-/**
- * @define ordered-list
- */
-@mixin ecl-ordered-list-print($_text-color: map.get(color.$color, 'grey-100')) {
-  .ecl-ordered-list {
-    color: $_text-color;
-    font: map.get(typography.$font-prolonged-print, 'm');
-    margin: 0;
-  }
+$_text-color: map.get(color.$color, 'grey-100');
 
-  .ecl-ordered-list__item {
-    margin-top: map.get(spacing.$spacing-print, 's');
+.ecl-ordered-list {
+  color: $_text-color;
+  font: map.get(typography.$font-prolonged-print, 'm');
+  margin: 0;
+}
 
-    &:first-of-type {
-      margin-top: 0;
-    }
-  }
+.ecl-ordered-list__item {
+  margin-top: map.get(spacing.$spacing-print, 's');
 
-  .ecl-ordered-list .ecl-ordered-list {
-    margin-top: map.get(spacing.$spacing-print, 's');
+  &:first-of-type {
+    margin-top: 0;
   }
 }
 
-// Use mixin
-@include import-once.exports('vanilla-component-ordered-list-print') {
-  @include ecl-ordered-list-print();
+.ecl-ordered-list .ecl-ordered-list {
+  margin-top: map.get(spacing.$spacing-print, 's');
 }
