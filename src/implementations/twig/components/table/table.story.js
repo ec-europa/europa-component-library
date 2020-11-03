@@ -15,12 +15,7 @@ const dataZebra = { ...dataDefault, zebra: true };
 
 const init = `ECL.autoInit()`;
 
-const prepareTable = (data, attr) => {
-  let defaultAttr = '';
-  if (attr) {
-    defaultAttr = 'data-test data-test-another';
-  }
-
+const prepareTable = (data) => {
   data.zebra = boolean('zebra', data.zebra, tabLabels.cases);
   data.sortable = boolean('sortable', data.sortable, tabLabels.cases);
   data.headers.forEach((headers, i) => {
@@ -46,7 +41,7 @@ const prepareTable = (data, attr) => {
     );
     row.extra_attributes = text(
       `rows[${i}].extra_attributes`,
-      defaultAttr,
+      '',
       tabLabels.optional
     );
     row.forEach((cell, j) => {
@@ -98,14 +93,6 @@ export const Multi = () => table(prepareTable(dataMulti));
 
 Multi.storyName = 'multi header';
 Multi.parameters = { notes: { markdown: notes, json: dataMulti } };
-
-export const WithRowExtraAttributes = () =>
-  table(prepareTable(dataDefault, true));
-
-WithRowExtraAttributes.storyName = 'With row extra attributes';
-WithRowExtraAttributes.parameters = {
-  notes: { markdown: notes, json: dataDefault },
-};
 
 export const Sortable = () => table(prepareTable(dataSortable));
 
