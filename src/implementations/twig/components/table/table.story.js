@@ -1,7 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import { getExtraKnobs, tabLabels, getComplianceKnob } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
-import { withRunScript } from 'storybook-addon-run-script/html';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 
 import dataDefault from '@ecl/specs-component-table/demo/data--default';
@@ -12,8 +11,6 @@ import notes from './README.md';
 
 // Preserve original data
 const dataZebra = { ...dataDefault, zebra: true };
-
-const init = `ECL.autoInit()`;
 
 const prepareTable = (data) => {
   data.zebra = boolean('zebra', data.zebra, tabLabels.cases);
@@ -76,7 +73,7 @@ const prepareTable = (data) => {
 
 export default {
   title: 'Components/Table',
-  decorators: [withNotes, withCode, withKnobs, withRunScript(init)],
+  decorators: [withNotes, withCode, withKnobs],
 };
 
 export const Default = () => table(prepareTable(dataDefault));

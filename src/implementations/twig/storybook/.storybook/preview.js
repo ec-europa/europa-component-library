@@ -1,8 +1,11 @@
 import { addDecorator, addParameters } from '@storybook/html';
 import { withCssResources } from '@storybook/addon-cssresources';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+import { withRunScript } from 'storybook-addon-run-script/html';
 
 import './ECL';
+
+const init = `ECL.autoInit()`;
 
 addParameters({
   cssresources: [
@@ -78,3 +81,4 @@ html {
 });
 
 addDecorator(withCssResources);
+addDecorator(withRunScript(init));
