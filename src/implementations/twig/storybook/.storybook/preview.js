@@ -10,16 +10,25 @@ addParameters({
       id: 'ec-core',
       code: `<link rel="stylesheet" type="text/css" href="./styles/ec-core.css" />`,
       picked: true,
+      hideCode: true,
     },
     {
       id: 'eu-core',
       code: `<link rel="stylesheet" type="text/css" href="./styles/eu-core.css" />`,
       picked: false,
+      hideCode: true,
     },
     {
-      id: 'ecl-print',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec-preset-website-print.css" />`,
+      id: 'ec-core-print',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/ec-core-print.css" />`,
       picked: false,
+      hideCode: true,
+    },
+    {
+      id: 'eu-core-print',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/eu-core-print.css" />`,
+      picked: false,
+      hideCode: true,
     },
     {
       id: 'test-fake-global-rules',
