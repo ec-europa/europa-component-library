@@ -1,0 +1,86 @@
+/*
+ * Date block
+ * @define date-block
+ */
+
+// Import base
+@use "sass:map";
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/maps/typography';
+
+$circle-width: 0.6rem;
+
+.ecl-date-block {
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-direction: column;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  width: 6.3rem;
+
+  &::before {
+    background-color: map.get(color.$color, 'white');
+    border: 1px solid map.get(color.$color, 'black');
+    border-radius: 50%;
+    box-sizing: content-box;
+    content: '';
+    display: block;
+    height: $circle-width;
+    left: map.get(spacing.$spacing, 's');
+    position: absolute;
+    top: -#{$circle-width / 2};
+    width: $circle-width;
+  }
+
+  &::after {
+    background-color: map.get(color.$color, 'white');
+    border: 1px solid map.get(color.$color, 'black');
+    border-radius: 50%;
+    box-sizing: content-box;
+    content: '';
+    display: block;
+    height: $circle-width;
+    position: absolute;
+    right: map.get(spacing.$spacing, 's');
+    top: -#{$circle-width / 2};
+    width: $circle-width;
+  }
+}
+
+.ecl-date-block__day {
+  border-left: 1px solid map.get(color.$color, 'black');
+  border-right: 1px solid map.get(color.$color, 'black');
+  border-top: 1px solid map.get(color.$color, 'black');
+  color: map.get(color.$color, 'black');
+  display: block;
+  font: map.get(typography.$font-print, '2xl');
+  font-weight: map.get(typography.$font-weight, 'bold');
+  padding-left: map.get(spacing.$spacing-print, '2xs');
+  padding-right: map.get(spacing.$spacing-print, '2xs');
+  padding-top: map.get(spacing.$spacing-print, 'xs');
+}
+
+.ecl-date-block__month {
+  border-left: 1px solid map.get(color.$color, 'black');
+  border-right: 1px solid map.get(color.$color, 'black');
+  color: map.get(color.$color, 'black');
+  display: block;
+  font: map.get(typography.$font-print, 'm');
+  padding-bottom: map.get(spacing.$spacing-print, 'xs');
+  padding-left: map.get(spacing.$spacing-print, '2xs');
+  padding-right: map.get(spacing.$spacing-print, '2xs');
+  text-decoration: none !important;
+  text-transform: uppercase;
+}
+
+.ecl-date-block__year {
+  border: 1px solid map.get(color.$color, 'black');
+  color: map.get(color.$color, 'black');
+  display: block;
+  font: map.get(typography.$font-print, 's');
+  padding: map.get(spacing.$spacing-print, 'xs')
+    map.get(spacing.$spacing-print, '2xs');
+}

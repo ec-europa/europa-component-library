@@ -1,0 +1,83 @@
+{% spaceless %}
+
+{#
+  Parameters:
+    - "variant" (string) (default: '')
+    - "day" (integer) (default: '')
+    - "month" (string) (default: '')
+    - "year" (integer) (default: '')
+    - "date_time" (date/time) (default: '')
+    - "month_full" (string) (default: '')
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        ...
+      ]
+#}
+
+{# Internal properties #}
+{% set _month = month|default('') %}
+{% set _day = day|default('') %}
+{% set _year = year|default('') %}
+{% set _date_time = date_time|default('') %}
+{% set _month_full = month_full|default('') %}
+{% set _variant = variant|default('') %}
+{% set _css_class = 'ecl-date-block' %}
+{% set _extra_attributes = '' %}
+{% set _compliance = _compliance_|default(false) %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if _variant is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _variant %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if (_month is not empty or _month_full is not empty) and _year is not empty %}
+  {% if _month_full is not empty and _month_full != _month %}
+    {% set _month_markup = '<abbr title="' ~ _month_full ~ '" class="ecl-date-block__month" aria-hidden="true">' ~ _month ~ '</abbr>' %}
+  {% else %}
+    {% set _month_markup = '<span class="ecl-date-block__month">' ~ _month ~ '</span>' %}
+  {% endif %}
+  {% if _date_time is not empty %}
+    {% set _extra_attributes = _extra_attributes ~ 'dateTime="' ~ _date_time ~ '"' %}
+  {% endif %}
+
+  <time class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+    {% if _date_time is not empty %}
+      <span class="ecl-date-block__daytime">{{ _date_time }}</span>
+    {% endif %}
+    <span class="ecl-date-block__day" aria-hidden="true">{{ _day }}</span>
+    {{ _month_markup|raw }}
+    <span class="ecl-date-block__year" aria-hidden="true">{{ _year }}</span>
+  </time>
+{% endif %}
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl/@compliance/date-block.html.twig' with {
+    variant: _variant,
+    day: _day,
+    month: _month,
+    year: _year,
+    month_full: _month_full
+  } only %}
+{% endif %}
+
+{% endspaceless %}
