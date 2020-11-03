@@ -9,14 +9,14 @@
 @use '@ecl/theme-dev/maps/spacing';
 
 $_label-color: map.get(color.$color, 'grey-100');
-$_label-color-disabled: map.get(color.$color, 'text');
+$_label-color-disabled: map.get(color.$color, 'grey-50');
 $_box-size: 1.25rem;
 $_box-border-width: 2px;
 $_box-border-width-checked: 7px;
-$_box-border-color: map.get(color.$color, 'text');
+$_box-border-color: map.get(color.$color, 'grey-50');
 $_box-border-color-disabled: map.get(color.$color, 'grey-50');
-$_box-border-color-checked: map.get(color.$color, 'grey-100');
-$_box-border-color-hover: map.get(color.$color, 'grey-100');
+$_box-border-color-checked: map.get(color.$color, 'blue-100');
+$_box-border-color-hover: map.get(color.$color, 'blue-100');
 $_box-background: map.get(color.$color, 'white-100');
 $_box-background-disabled: map.get(color.$color, 'grey-5');
 $_outline-width: 2px;
@@ -77,7 +77,7 @@ $_invalid-border-width: 2px; // DEPRECATED
 }
 
 .ecl-radio__help--disabled {
-  color: map.get(color.$color, 'text');
+  color: map.get(color.$color, 'grey-50');
 }
 
 // Checked
