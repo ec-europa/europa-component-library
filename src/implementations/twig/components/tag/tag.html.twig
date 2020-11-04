@@ -1,0 +1,108 @@
+{% spaceless %}
+
+{#
+  Parameters:
+   - "tag" (associative array) (default: predefined structure): format:
+      {
+        type: string (default: 'link') can be 'link', 'removable', 'display'
+        path: string (default: '') tag url if needed),
+        label: string (default: '') tag text as string,
+        aria_label: (string) (default: '') (optional) aria label for removable tag as a string
+      }
+    - "default_icon_path" (string) Path to the icons sprite
+    - "extra_classes" (string) (default: '') Extra classes
+    - "extra_attributes" (array) (default: []): Extra attributes, format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        ...
+      ]
+    - "_compliance_": (boolean) (default: false) Activates debug
+    - "_compliance_inner_check_": (boolean) (default: false) Inline compliance report
+#}
+
+{# Internal properties #}
+
+{% set _tag = {
+    type: 'link',
+    path: '',
+    label: ''
+} %}
+
+{% if tag is defined %}
+  {% set _tag = _tag|merge(tag) %}
+{% endif %}
+
+{% set _css_class = 'ecl-tag' %}
+{% if _tag.type == 'removable' or _tag.type == 'display' %}
+  {% set _css_class = _css_class ~ ' ecl-tag--' ~ _tag.type %}
+{% endif %}
+{% set _extra_attributes = '' %}
+{% set _compliance = _compliance_|default(false) %}
+{% set _compliance_inner_check = _compliance_inner_check_|default(false) %}
+{% set _default_icon_path = default_icon_path|default('') %}
+
+{# Add extra class for removable tag #}
+{% if _tag.type == 'removable' %}
+  {% if _tag.aria_label is defined and _tag.aria_label is not empty %}
+    {% set _extra_attributes = 'aria-label="' ~ _tag.aria_label ~ '"' %}
+  {% endif %}
+{% endif %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+{% if _tag.type == 'link' %}
+  <a href="{{ _tag.path }}" class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+    {{- _tag.label -}}
+  </a>
+{% else %}
+  <span class="{{ _css_class }}">
+    {{- _tag.label -}}
+  {%- if _tag.type == 'removable' -%}
+    <button type="button" {{ _extra_attributes|raw }} class="ecl-tag__icon">
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: { type: 'ui', name: 'close', size: 'xs', path: _default_icon_path },
+        extra_classes: 'ecl-tag__icon-close',
+        _compliance_: _compliance,
+        _compliance_inner_check_: true
+      } only %}
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: { type: 'ui', name: 'close-filled', size: 'xs', path: _default_icon_path },
+        extra_classes: 'ecl-tag__icon-close-filled',
+        _compliance_: _compliance,
+        _compliance_inner_check_: true
+      } only %}
+    </button>
+  {%- endif -%}
+  </span>
+{% endif %}
+
+{# Validation #}
+
+{% if _compliance %}
+  {% set _icon_path = icon_path|default('') %}
+  {% include '@ecl/@compliance/tag.html.twig' with {
+    tag: _tag,
+    default_icon_path: _default_icon_path,
+    icon_path: _icon_path,
+    _compliance_inner_check_: _compliance_inner_check
+  } only %}
+{% endif %}
+
+{% endspaceless %}
