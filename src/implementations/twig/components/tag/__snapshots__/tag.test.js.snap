@@ -1,0 +1,198 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tag Display renders correctly 1`] = `
+<span
+  class="ecl-tag ecl-tag--display"
+>
+  Display tag
+</span>
+`;
+
+exports[`Tag Display renders correctly with extra attributes 1`] = `
+<span
+  class="ecl-tag ecl-tag--display"
+>
+  Display tag
+</span>
+`;
+
+exports[`Tag Display renders correctly with extra class names 1`] = `
+<span
+  class="ecl-tag ecl-tag--display custom-class custom-class--test"
+>
+  Display tag
+</span>
+`;
+
+exports[`Tag Display with missing input data and debug enabled returns the right warning message 1`] = `
+<span
+  class="ecl-tag ecl-tag--display"
+/>
+`;
+
+exports[`Tag Link renders correctly 1`] = `
+<a
+  class="ecl-tag"
+  href="/example"
+>
+  Link tag
+</a>
+`;
+
+exports[`Tag Link renders correctly with extra attributes 1`] = `
+<a
+  class="ecl-tag"
+  data-test="data-test-value"
+  data-test-1="data-test-value-1"
+  href="/example"
+>
+  Link tag
+</a>
+`;
+
+exports[`Tag Link renders correctly with extra class names 1`] = `
+<a
+  class="ecl-tag custom-class custom-class--test"
+  href="/example"
+>
+  Link tag
+</a>
+`;
+
+exports[`Tag Link with missing input data and debug enabled returns the right warning message 1`] = `
+<a
+  class="ecl-tag"
+  href=""
+>
+  Link tag
+</a>
+`;
+
+exports[`Tag Removable renders correctly 1`] = `
+<span
+  class="ecl-tag ecl-tag--removable"
+>
+  Removable tag
+  <button
+    aria-label="Dismiss"
+    class="ecl-tag__icon"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
+      focusable="false"
+    >
+      <use
+        xlink:href="/icons.svg#ui--close"
+      />
+    </svg>
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--xs ecl-tag__icon-close-filled"
+      focusable="false"
+    >
+      <use
+        xlink:href="/icons.svg#ui--close-filled"
+      />
+    </svg>
+  </button>
+</span>
+`;
+
+exports[`Tag Removable renders correctly with extra attributes 1`] = `
+<span
+  class="ecl-tag ecl-tag--removable"
+>
+  Removable tag
+  <button
+    aria-label="Dismiss"
+    class="ecl-tag__icon"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
+      focusable="false"
+    >
+      <use
+        xlink:href="/icons.svg#ui--close"
+      />
+    </svg>
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--xs ecl-tag__icon-close-filled"
+      focusable="false"
+    >
+      <use
+        xlink:href="/icons.svg#ui--close-filled"
+      />
+    </svg>
+  </button>
+</span>
+`;
+
+exports[`Tag Removable renders correctly with extra class names 1`] = `
+<span
+  class="ecl-tag ecl-tag--removable custom-class custom-class--test"
+>
+  Removable tag
+  <button
+    aria-label="Dismiss"
+    class="ecl-tag__icon"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
+      focusable="false"
+    >
+      <use
+        xlink:href="/icons.svg#ui--close"
+      />
+    </svg>
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--xs ecl-tag__icon-close-filled"
+      focusable="false"
+    >
+      <use
+        xlink:href="/icons.svg#ui--close-filled"
+      />
+    </svg>
+  </button>
+</span>
+`;
+
+exports[`Tag Removable with missing input data and debug enabled returns the right warning message 1`] = `
+<span
+  class="ecl-tag ecl-tag--removable"
+>
+  Removable tag
+  <button
+    class="ecl-tag__icon"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
+      focusable="false"
+    >
+      <use
+        xlink:href="#ui--close"
+      />
+    </svg>
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--xs ecl-tag__icon-close-filled"
+      focusable="false"
+    >
+      <use
+        xlink:href="#ui--close-filled"
+      />
+    </svg>
+  </button>
+</span>
+`;
