@@ -1,4 +1,4 @@
-# ECL-Twig Radio component
+# ECL Radio component
 
 npm package: `@ecl/twig-component-radio`
 

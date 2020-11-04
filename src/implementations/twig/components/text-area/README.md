@@ -1,4 +1,4 @@
-# ECL-Twig Text Area component
+# ECL Text Area component
 
 npm package: `@ecl/twig-component-text-area`
 
