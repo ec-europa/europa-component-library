@@ -1,4 +1,4 @@
-# ECL-Twig Select component
+# ECL Select component
 
 npm package: `@ecl/twig-component-select`
 
