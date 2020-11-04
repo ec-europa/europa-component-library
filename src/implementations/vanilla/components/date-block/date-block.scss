@@ -87,7 +87,7 @@ $circle-width: 0.6rem;
   padding-bottom: map.get(spacing.$spacing, '2xs');
   padding-left: map.get(spacing.$spacing, '2xs');
   padding-right: map.get(spacing.$spacing, '2xs');
-  text-decoration: none !important;
+  text-decoration: none;
   text-transform: uppercase;
 }
 
@@ -115,18 +115,18 @@ $circle-width: 0.6rem;
   }
 
   .ecl-date-block__daytime {
-    border: 0 !important;
-    clip: rect(0, 0, 0, 0) !important;
+    border: 0;
+    clip: rect(0, 0, 0, 0);
     /* stylelint-disable-next-line property-no-vendor-prefix */
-    -webkit-clip-path: inset(50%) !important;
-    clip-path: inset(50%) !important;
-    height: 1px !important;
-    margin: -1px !important;
-    overflow: hidden !important;
-    padding: 0 !important;
-    position: absolute !important;
-    white-space: nowrap !important;
-    width: 1px !important;
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
   }
 }
 
