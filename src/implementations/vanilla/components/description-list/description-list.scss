@@ -1,0 +1,97 @@
+/**
+ * Description List component
+ * @define description-list
+ */
+
+// Import base
+@use "sass:map";
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/layout-grid/mixins/breakpoints';
+
+// Vertical description list
+$_text-color: map.get(color.$color, 'grey-100');
+
+.ecl-description-list {
+  margin: 0;
+}
+
+.ecl-description-list__term {
+  color: $_text-color;
+  font: map.get(typography.$font-prolonged, 'xl');
+  font-weight: map.get(typography.$font-weight, 'bold');
+  margin-top: map.get(spacing.$spacing, 'l');
+  max-width: calc(80ch - #{map.get(spacing.$spacing, '2xl')});
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.ecl-description-list__term + .ecl-description-list__term {
+  margin-top: map.get(spacing.$spacing, '2xs');
+}
+
+.ecl-description-list__definition {
+  color: $_text-color;
+  font: map.get(typography.$font-prolonged, 'm');
+  margin-left: 0;
+  margin-top: map.get(spacing.$spacing, 'm');
+  max-width: calc(80ch - #{map.get(spacing.$spacing, '2xl')});
+  padding-left: map.get(spacing.$spacing, 's');
+}
+
+.ecl-description-list__definition + .ecl-description-list__definition {
+  margin-top: map.get(spacing.$spacing, 'xs');
+}
+
+// Horizontal description list
+$_term-width: 32%;
+$_definition-width: 68%;
+
+.ecl-description-list--horizontal {
+  display: flex;
+  flex-direction: column;
+}
+
+.ecl-description-list--horizontal .ecl-description-list__term {
+  font: map.get(typography.$font, 'm');
+  font-weight: map.get(typography.$font-weight, 'bold');
+  margin-top: map.get(spacing.$spacing, 'm');
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+}
+
+.ecl-description-list--horizontal .ecl-description-list__definition {
+  font: map.get(typography.$font, 'm');
+  margin-top: map.get(spacing.$spacing, '2xs');
+  padding-left: 0;
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.media-breakpoint-up('lg') {
+  .ecl-description-list--horizontal {
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: calc(499px + #{map.get(spacing.$spacing, 'xl')});
+  }
+
+  .ecl-description-list--horizontal .ecl-description-list__term {
+    width: $_term-width;
+  }
+
+  .ecl-description-list--horizontal .ecl-description-list__definition {
+    margin-left: map.get(spacing.$spacing, 'xl');
+    margin-top: map.get(spacing.$spacing, 'm');
+    overflow-wrap: break-word;
+    width: calc(#{$_definition-width} - #{map.get(spacing.$spacing, 'xl')});
+  }
+
+  .ecl-description-list--horizontal
+    .ecl-description-list__definition:first-of-type {
+    margin-top: 0;
+  }
+}

@@ -1,0 +1,87 @@
+{% spaceless %}
+
+{#
+  Parameters:
+    - "items" (array) (default: []): format: [
+        {
+          "term" (string or array of string)
+          "definition" (string or array of string)
+        },
+        ...
+      ]
+    - "variant" (string) (default: '')
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        ...
+      ],
+    - "_compliance_": (boolean) (default: 'false') Activates debug
+#}
+
+{# Internal properties #}
+
+{% set _items = items|default([]) %}
+{% set _css_class = 'ecl-description-list' %}
+{% set _variant = variant|default('') %}
+{% set _extra_attributes = '' %}
+{% set _compliance = _compliance_|default(false) %}
+
+{# Internal logic - Process properties #}
+
+{% if _variant is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _variant %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+{% if _items is not empty and _items is iterable %}
+  <dl class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+    {% for _item in _items %}
+      {% if _item.term is not empty %}
+        {% if _item.term is iterable %}
+          {% for _term in _item.term %}
+            <dt class="ecl-description-list__term">{{ _term|raw }}</dt>
+          {% endfor %}
+        {% else %}
+          <dt class="ecl-description-list__term">{{ _item.term|raw }}</dt>
+        {% endif %}
+      {% endif %}
+      {% if _item.definition is not empty %}
+        {% if _item.definition is iterable %}
+          {% for _definition in _item.definition %}
+            <dd class="ecl-description-list__definition">{{ _definition|raw }}</dd>
+          {% endfor %}
+        {% else %}
+          <dd class="ecl-description-list__definition">{{ _item.definition|raw }}</dd>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </dl>
+{% endif %}
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl/@compliance/description-list.html.twig' with {
+    items: _items,
+    variant: _variant
+  } only %}
+{% endif %}
+
+{% endspaceless %}
