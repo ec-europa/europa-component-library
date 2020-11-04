@@ -1,4 +1,4 @@
-# ECL-Twig Date block
+# ECL Date block
 
 npm package: `@ecl/twig-component-date-block`
 
