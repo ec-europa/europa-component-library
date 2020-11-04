@@ -25,12 +25,6 @@ addParameters({
       hideCode: true,
     },
     {
-      id: 'eu-core-print',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/eu-core-print.css" />`,
-      picked: false,
-      hideCode: true,
-    },
-    {
       id: 'test-fake-global-rules',
       code: `
 <style>
