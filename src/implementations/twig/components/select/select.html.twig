@@ -1,0 +1,201 @@
+{% spaceless %}
+
+{#
+  Parameters:
+  - "id" (string) (default: '')
+  - "options" (array) (default: []):
+    - "value" (string) (default: '')
+    - "label" (string) (default: '')
+    - "disabled" (boolean) (default: false)
+    - "selected" (boolean) (default: false)
+  - "disabled" (boolean) (default: false)
+  - "invalid" (boolean) (default: false)
+  - "required" (boolean) (default: false)
+  - "name" (string) (default: '')
+  - "width" (string) (default: '')
+  - "icon_path" (string) (default: ''): file containing the svg icons
+  - "multiple" (boolean) (optional) (default: false) For the multiple select
+  - "multiple_placeholder" (string)(default: '') Label for the multiple select placeholder
+  - "multiple_all_text" (string)(default: '') Label for the select all option
+  - "multiple_search_text" (string)(default: '') Label for the search box inside the multiple select
+  - "extra_group_classes" (optional) (string) (default: '') Extra classes (space separated) for the select group
+  - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the select
+  - "extra_attributes" (optional) (array) (default: []) Extra attributes for select
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+  - "_compliance_" (boolean) (default: false) Activates debug.
+
+  Blocks:
+  - "helper_text"
+  - "invalid_text"
+  - "required_text"
+  - "optional_text"
+  - "label"
+#}
+
+{# Internal properties #}
+
+{% set _id = id|default('') %}
+{% set _options = options|default([]) %}
+{% set _disabled = disabled|default(false) %}
+{% set _invalid = invalid|default(false) %}
+{% set _required = required|default(false) %}
+{% set _name = name|default('') %}
+{% set _icon_path = icon_path|default(false) %}
+{% set _width = width|default('m') %}
+{% set _helper_text = helper_text|default('') %}
+{% set _invalid_text = invalid_text|default('') %}
+{% set _required_text = required_text|default('') %}
+{% set _optional_text = optional_text|default('') %}
+{% set _label = label|default('') %}
+{% set _multiple = multiple|default(false) %}
+{% set _multiple_placeholder = multiple_placeholder|default('') %}
+{% set _multiple_all_text = multiple_all_text|default('') %}
+{% set _multiple_search_text = multiple_search_text|default('') %}
+{% set _compliance = _compliance_|default(false) %}
+
+{% set _css_group_class = 'ecl-form-group' %}
+{% set _css_class = ['ecl-select'] %}
+
+{% if _invalid %}
+  {% set _css_class = _css_class|merge(['ecl-select--invalid']) %}
+{% endif %}
+{% set _css_class = _css_class|join(' ') %}
+
+{% set _extra_attributes = '' %}
+{% if _multiple %}
+  {% set extra_attributes = [
+    { name: 'multiple' },
+    { name: 'data-ecl-auto-init', value: 'Select' },
+    { name: 'data-ecl-select-multiple'},
+    { name: 'data-ecl-select-default', value: _multiple_placeholder },
+    { name: 'data-ecl-select-search', value: _multiple_search_text },
+    { name: 'data-ecl-select-all', value: _multiple_all_text }
+  ]|merge(extra_attributes|default([])) %}
+{% endif %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_group_classes is defined and extra_group_classes is not empty %}
+  {% set _css_group_class = _css_group_class ~ ' ' ~ extra_group_classes %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+<div class="{{ _css_group_class }}">
+  {% if _label is not empty %}
+    <label
+    {% if _id %}
+      for="{{ _id }}"
+    {% endif %}
+      class="ecl-form-label
+      {{- _invalid ? ' ecl-form-label--invalid' -}}
+      {{- _disabled ? ' ecl-form-label--disabled' }}"
+    >
+      {%- block label _label|raw -%}
+      {%- if _required and _required_text is not empty -%}
+        <span class="ecl-form-label__required">{{ _required_text }}</span>
+      {%- elseif not _required and _optional_text is not empty -%}
+        <span class="ecl-form-label__optional">{{ ' ' ~ _optional_text }}</span>
+      {%- endif -%}
+    </label>
+  {% endif %}
+
+  {% if _helper_text is not empty %}
+    <div class="ecl-help-block{{ _disabled ? ' ecl-help-block--disabled' }}">
+      {%- block helper_text _helper_text|raw -%}
+    </div>
+  {% endif %}
+
+  {% if _invalid and _invalid_text is not empty %}
+    <div class="ecl-feedback-message">
+      {%- block invalid_text _invalid_text|raw -%}
+    </div>
+  {% endif %}
+
+  <div class="ecl-select__container
+    {{- disabled ? ' ecl-select__container--disabled' -}}
+    {{- ' ecl-select__container--' ~ _width }}"
+  >
+    <select
+      class="{{ _css_class }}"
+    {% if _id %}
+      id="{{ _id }}"
+    {% endif %}
+    {% if _name is not empty %}
+      name="{{ _name }}"
+    {% endif %}
+    {% if _required %}
+      required
+    {% endif %}
+    {% if _disabled %}
+      disabled
+    {% endif %}
+      {{- _extra_attributes|raw -}}
+    >
+      {% for _option in _options %}
+        <option
+          value="{{ _option.value }}"
+        {% if _option.selected %}
+          selected
+        {% endif %}
+        {% if _option.disabled %}
+          disabled
+        {% endif %}
+        >
+          {{- _option.label -}}
+        </option>
+      {% endfor %}
+    </select>
+
+    <div class="ecl-select__icon">
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: {
+          path: _icon_path,
+          type: "ui",
+          name: "corner-arrow",
+          size: "s",
+          transform: "rotate-180"
+        },
+        extra_classes: "ecl-select__icon-shape"
+      } only %}
+    </div>
+  </div>
+</div>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl/@compliance/select.html.twig' with {
+    id: _id,
+    options: _options,
+    disabled: _disabled,
+    invalid: _invalid,
+    required: _required,
+    name: _name,
+    icon_path: _icon_path,
+    invalid_text: _invalid_text,
+    required_text: _required_text,
+    label: _label,
+    optional_text: _optional_text,
+    multiple: _multiple,
+    multiple_search_text: _multiple_search_text,
+    multiple_all_text: _multiple_all_text,
+    multiple_placeholder: _multiple_placeholder
+  } only %}
+{% endif %}
+
+{% endspaceless %}
