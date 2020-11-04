@@ -1,0 +1,35 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import { textAreaDefault, textAreaDisabled, textAreaWithError } from '../demo';
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-textarea"
+  selectedStory="default"
+>
+  <Html markup={textAreaDefault} />
+</Playground>
+
+## Disabled
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-textarea"
+  selectedStory="default"
+>
+  <Html markup={textAreaDisabled} />
+</Playground>
+
+## With error
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-textarea"
+  selectedStory="default"
+>
+  <Html markup={textAreaWithError} />
+</Playground>
