@@ -8,21 +8,21 @@
 @use '@ecl/theme-dev/maps/typography';
 @use '@ecl/theme-dev/maps/spacing';
 
-$label-color: map.get(color.$color, 'grey-100');
-$label-color-disabled: map.get(color.$color, 'text');
-$box-size: 1.25rem;
-$box-border-width: 2px;
-$box-border-width-checked: 7px;
-$box-border-color: map.get(color.$color, 'text');
-$box-border-color-disabled: map.get(color.$color, 'grey-50');
-$box-border-color-checked: map.get(color.$color, 'grey-100');
-$box-border-color-hover: map.get(color.$color, 'grey-100');
-$box-background: map.get(color.$color, 'white-100');
-$box-background-disabled: map.get(color.$color, 'grey-5');
-$outline-width: 2px;
-$outline-color: map.get(color.$color, 'yellow-100');
-$invalid-border-color: map.get(color.$color, 'error');
-$invalid-border-width: 2px; // DEPRECATED
+$_label-color: map.get(color.$color, 'grey-100');
+$_label-color-disabled: map.get(color.$color, 'grey-50');
+$_box-size: 1.25rem;
+$_box-border-width: 2px;
+$_box-border-width-checked: 7px;
+$_box-border-color: map.get(color.$color, 'grey-50');
+$_box-border-color-disabled: map.get(color.$color, 'grey-50');
+$_box-border-color-checked: map.get(color.$color, 'blue-100');
+$_box-border-color-hover: map.get(color.$color, 'blue-100');
+$_box-background: map.get(color.$color, 'white-100');
+$_box-background-disabled: map.get(color.$color, 'grey-5');
+$_outline-width: 2px;
+$_outline-color: map.get(color.$color, 'yellow-100');
+$_invalid-border-color: map.get(color.$color, 'error');
+$_invalid-border-width: 2px; // DEPRECATED
 
 .ecl-radio {
   align-items: flex-start;
@@ -47,25 +47,25 @@ $invalid-border-width: 2px; // DEPRECATED
 
 .ecl-radio__label {
   align-items: center;
-  color: $label-color;
+  color: $_label-color;
   display: inline-flex;
   font: map.get(typography.$font, 'm');
 }
 
 .ecl-radio__box {
-  background-color: $box-background;
-  border: $box-border-width solid $box-border-color;
+  background-color: $_box-background;
+  border: $_box-border-width solid $_box-border-color;
   border-radius: 50%;
   box-sizing: content-box;
   display: block;
-  height: calc(#{$box-size} - (#{$box-border-width} * 2));
+  height: calc(#{$_box-size} - (#{$_box-border-width} * 2));
   margin-right: map.get(spacing.$spacing, 's');
   position: relative;
-  width: calc(#{$box-size} - (#{$box-border-width} * 2));
+  width: calc(#{$_box-size} - (#{$_box-border-width} * 2));
 }
 
 .ecl-radio__label:hover .ecl-radio__box {
-  border-color: $box-border-color-hover;
+  border-color: $_box-border-color-hover;
 }
 
 .ecl-radio__help {
@@ -77,22 +77,22 @@ $invalid-border-width: 2px; // DEPRECATED
 }
 
 .ecl-radio__help--disabled {
-  color: map.get(color.$color, 'text');
+  color: map.get(color.$color, 'grey-50');
 }
 
 // Checked
 .ecl-radio__input:checked + .ecl-radio__label {
   .ecl-radio__box {
-    border-color: $box-border-color-checked;
-    border-width: $box-border-width-checked;
-    height: calc(#{$box-size} - (#{$box-border-width-checked} * 2));
-    width: calc(#{$box-size} - (#{$box-border-width-checked} * 2));
+    border-color: $_box-border-color-checked;
+    border-width: $_box-border-width-checked;
+    height: calc(#{$_box-size} - (#{$_box-border-width-checked} * 2));
+    width: calc(#{$_box-size} - (#{$_box-border-width-checked} * 2));
   }
 }
 
 // Invalid
 .ecl-radio__box--invalid {
-  border-color: $invalid-border-color;
+  border-color: $_invalid-border-color;
 }
 
 .ecl-radio__label:hover .ecl-radio__box--invalid {
@@ -100,12 +100,12 @@ $invalid-border-width: 2px; // DEPRECATED
 }
 
 .ecl-radio__input:checked + .ecl-radio__label .ecl-radio__box--invalid {
-  border-color: $invalid-border-color;
+  border-color: $_invalid-border-color;
 }
 
 // Disabled
 .ecl-radio__label--disabled {
-  color: $label-color-disabled;
+  color: $_label-color-disabled;
   cursor: not-allowed;
 }
 
@@ -113,8 +113,8 @@ $invalid-border-width: 2px; // DEPRECATED
 .ecl-radio__box--disabled,
 .ecl-radio__input:checked + .ecl-radio__label .ecl-radio__box--disabled,
 .ecl-radio__label--disabled:hover .ecl-radio__box {
-  background-color: $box-background-disabled;
-  border-color: $box-border-color-disabled;
+  background-color: $_box-background-disabled;
+  border-color: $_box-border-color-disabled;
 }
 // stylelint-enable no-descending-specificity
 
@@ -123,23 +123,23 @@ $invalid-border-width: 2px; // DEPRECATED
 .ecl-radio__input:active + .ecl-radio__label {
   .ecl-radio__box::before {
     // We can't use outline as this is a rounded box
-    border: $outline-width solid $outline-color;
+    border: $_outline-width solid $_outline-color;
     border-radius: 100%;
     content: '';
     display: block;
-    height: calc(#{$box-size} - (#{$outline-width} * 2));
-    left: -#{$box-border-width};
+    height: calc(#{$_box-size} - (#{$_outline-width} * 2));
+    left: -#{$_box-border-width};
     position: absolute;
-    top: -#{$box-border-width};
-    width: calc(#{$box-size} - (#{$outline-width} * 2));
+    top: -#{$_box-border-width};
+    width: calc(#{$_box-size} - (#{$_outline-width} * 2));
   }
 }
 
 .ecl-radio__input:checked:focus + .ecl-radio__label,
 .ecl-radio__input:checked:active + .ecl-radio__label {
   .ecl-radio__box::before {
-    left: -#{$box-border-width-checked};
-    top: -#{$box-border-width-checked};
+    left: -#{$_box-border-width-checked};
+    top: -#{$_box-border-width-checked};
   }
 }
 
@@ -164,8 +164,8 @@ $invalid-border-width: 2px; // DEPRECATED
 }
 
 .ecl-radio__group--invalid {
-  border-color: $invalid-border-color;
-  border-width: $invalid-border-width;
+  border-color: $_invalid-border-color;
+  border-width: $_invalid-border-width;
   padding-bottom: map.get(spacing.$spacing, 'm');
   padding-top: map.get(spacing.$spacing, 'm');
 
@@ -177,13 +177,13 @@ $invalid-border-width: 2px; // DEPRECATED
 .ecl-radio--disabled,
 .ecl-radio--readonly {
   .ecl-radio__label {
-    color: $label-color-disabled;
+    color: $_label-color-disabled;
     cursor: not-allowed;
   }
 
   .ecl-radio__box {
-    background-color: $box-background-disabled;
-    border-color: $box-border-color-disabled;
+    background-color: $_box-background-disabled;
+    border-color: $_box-border-color-disabled;
   }
 }
 
