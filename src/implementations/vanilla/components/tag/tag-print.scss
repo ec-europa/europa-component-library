@@ -1,0 +1,22 @@
+/**
+ * Tags
+ * @define tag
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/typography';
+
+.ecl-tag {
+  appearance: none;
+  background: none;
+  border-width: 0;
+  color: map.get(color.$color, 'grey');
+  font: map.get(typography.$font-print, 's');
+  padding: 0;
+  text-decoration: none;
+}
+
+.ecl-tag__icon {
+  display: none;
+}
