@@ -1,0 +1,50 @@
+/**
+ * Accordion
+ * @define accordion; weak
+ */
+
+// Import base
+@use "sass:map";
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/maps/typography';
+
+.ecl-accordion__item {
+  margin-top: map.get(spacing.$spacing-print, 'l');
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+}
+
+.ecl-accordion__toggle-icon {
+  display: none;
+}
+
+.ecl-accordion__title {
+  font: map.get(typography.$font-prolonged-print, 'm');
+  font-family: map.get(typography.$font-family-print, 'alt');
+  font-weight: map.get(typography.$font-weight-print, 'bold');
+  margin: 0;
+}
+
+.ecl-accordion__toggle {
+  background-color: transparent;
+  border-width: 0;
+  color: map.get(color.$color, 'grey');
+  display: block;
+  font: map.get(typography.$font-prolonged-print, 'm');
+  font-family: map.get(typography.$font-family-print, 'alt');
+  font-weight: map.get(typography.$font-weight-print, 'bold');
+  padding: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.ecl-accordion__content {
+  color: map.get(color.$color, 'grey');
+  display: block;
+  font: map.get(typography.$font-prolonged-print, 'm');
+  margin-top: map.get(spacing.$spacing-print, 'm');
+  page-break-inside: avoid;
+}
