@@ -25,23 +25,10 @@ addParameters({
       hideCode: true,
     },
     {
-      id: 'test-fake-global-rules',
-      code: `
-<style>
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html {
-  color: red;
-  font-family: serif;
-  font-weight: 700;
-  line-height: 2;
-}
-</style>`,
+      id: 'eu-core-print',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/eu-core-print.css" />`,
       picked: false,
+      hideCode: true,
     },
   ],
   viewport: {
