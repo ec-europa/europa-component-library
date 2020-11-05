@@ -111,8 +111,8 @@ export class Select {
    * @param {String} options.id
    * @param {String} options.text
    * @param {String} [options.extraClass] - additional CSS class
-   * @param {String} [options.disabled] - relevant when re-creating an option from <select>
-   * @param {String} [options.selected] - relevant when re-creating an option from <select>
+   * @param {String} [options.disabled] - relevant when re-creating an option
+   * @param {String} [options.selected] - relevant when re-creating an option
    * @param {String} ctx
    * @returns {HTMLElement}
    */
