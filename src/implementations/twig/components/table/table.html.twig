@@ -1,0 +1,136 @@
+{% spaceless %}
+{#
+  Parameters:
+  - "sortable" (boolean) (default: false)
+  - "zebra" (boolean) (default: false))
+  - "headers" (array) (default: []): format: [
+      {
+        "label" (string or array of string)
+        "colspan" (string) (default: ''),
+        "data-ecl-table-header-group" (string) (default: ''),
+      },
+      ...
+    ]
+  - "rows" (array) (default: {}): format: [
+    [
+      "extra_attributes": (string) (default: ''),
+      "extra_classes": (string) (default: ''),
+      {
+        "label" (string or array of string)
+        "data-ecl-table-header" (string) (default: ''),
+        "group" (bool) (default: false),
+      },
+      ...
+    ],
+    ...
+    ]
+  - "extra_classes" (string) (default: '')
+  - "extra_attributes" (array) (default: []): format: [
+      {
+        "name" (string) (default: ''),
+        "value" (optional) (string)
+      },
+      ...
+    ],
+  - "_compliance_" (boolean) (default: false): Activates debug
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-table' %}
+{% set _extra_attributes = '' %}
+{% set _zebra_css_class = 'ecl-table--zebra' %}
+{% set _head_css_class = 'ecl-table__head' %}
+{% set _header_css_class = 'ecl-table__header' %}
+{% set _body_css_class = 'ecl-table__body' %}
+{% set _cell_header_group_class = 'ecl-table__cell--group' %}
+{% set _row_css_class = 'ecl-table__row' %}
+{% set _row_extra_attributes = '' %}
+{% set _headers = headers|default([]) %}
+{% set _sortable = sortable|default(false) %}
+{% set _rows = rows|default([]) %}
+{% set _zebra = zebra|default(false) %}
+{% set _compliance = _compliance_|default(false) %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if _sortable %}
+  {% set extra_attributes = extra_attributes|default([])|merge([
+    { name: 'data-ecl-table' },
+    { name: 'data-ecl-auto-init', value: 'Table' }
+  ]) %}
+{% endif %}
+
+{% if _zebra %}
+  {% set _css_class = _css_class ~ ' ' ~ _zebra_css_class %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<table class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+  <thead class="{{ _head_css_class }}">
+     {% for header in _headers %}
+       <tr class="{{ _row_css_class }}">
+        {% for cell in header %}
+          {% set _heading_attribute = '' %}
+          {% if cell.colspan is not empty %}
+            {% set _heading_attribute = cell.colspan is not empty ? 'colspan="' ~ cell.colspan ~ '"' : '' %}
+          {% else %}
+            {% if cell.label is not empty and _sortable %}
+              {% set _heading_attribute = 'data-ecl-table-sort-toggle' %}
+            {% endif %}
+          {% endif %}
+          <th {{ _heading_attribute|raw }} class="{{ _header_css_class }}">{{ cell.label }}</th>
+        {% endfor %}
+      </tr>
+    {% endfor %}
+  </thead>
+  <tbody class="{{ _body_css_class }}">
+    {% for row in _rows %}
+      {% if row.extra_classes is defined and row.extra_classes is not empty %}
+        {% set _row_css_class = _row_css_class ~ ' ' ~ row.extra_classes %}
+      {% endif %}
+      {% if row.extra_attributes is defined and row.extra_attributes is not empty %}
+        {% set _row_extra_attributes = row.extra_attributes %}
+      {% endif %}
+      <tr class="{{ _row_css_class }}"{{ _row_extra_attributes }}>
+        {% for cell in row %}
+          {% set _cell_css_class = 'ecl-table__cell' %}
+          {% set _cell_attribute = cell['data-ecl-table-header'] is not empty ? 'data-ecl-table-header="' ~ cell['data-ecl-table-header'] ~ '"' : '' %}
+          {% if cell.group %}
+            {% if cell['data-ecl-table-header-group'] is defined and cell['data-ecl-table-header-group'] is not empty %}
+              {% set _cell_attribute = _cell_attribute ~ ' data-ecl-table-header-group="' ~ cell['data-ecl-table-header-group'] ~ '"' %}
+            {% endif %}
+            {% set _cell_css_class = _cell_css_class ~ ' ' ~ _cell_header_group_class %}
+          {% endif %}
+          <td {{ _cell_attribute|raw }} class="{{ _cell_css_class }}" >{{ cell.label|raw }}</td>
+        {% endfor %}
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl/@compliance/table.html.twig' with {
+    headers: _headers,
+    rows: _rows
+  } only %}
+{% endif %}
+
+{% endspaceless %}
