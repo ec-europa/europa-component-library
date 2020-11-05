@@ -5,10 +5,10 @@ import withCode from '@ecl/storybook-addon-code';
 import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import demoData from '@ecl/specs-component-accordion/demo/data';
 
-import accordion2 from './accordion.html.twig';
+import accordion from './accordion.html.twig';
 import notes from './README.md';
 
-const prepareAccordion2 = (data) => {
+const prepareAccordion = (data) => {
   data.items.forEach((item, index) => {
     const levels = [1, 2, 3, 4, 5, 6];
     const { id, level, toggle, content } = item;
@@ -44,7 +44,7 @@ export default {
   title: 'Components/Accordion',
 };
 
-export const Default = () => accordion2(prepareAccordion2(demoData));
+export const Default = () => accordion(prepareAccordion(demoData));
 
 Default.storyName = 'default';
 Default.parameters = { notes: { markdown: notes, json: demoData } };
