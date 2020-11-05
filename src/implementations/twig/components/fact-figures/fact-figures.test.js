@@ -4,7 +4,7 @@ import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 import data3Col from '@ecl/specs-component-fact-figures/demo/data--3-col';
 import data4Col from '@ecl/specs-component-fact-figures/demo/data--4-col';
 
-describe('EC - Fact and figures', () => {
+describe('Fact and figures', () => {
   const template = '@ecl/fact-figures/fact-figures.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
