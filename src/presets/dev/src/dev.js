@@ -1,5 +1,6 @@
 // Export components
 
-export * from '@ecl/polyfills';
-export * from '@ecl/auto-init';
+import '@ecl/utils/polyfills';
+
+export * from '@ecl/utils/autoinit';
 export * from '@ecl/vanilla-component-table';
