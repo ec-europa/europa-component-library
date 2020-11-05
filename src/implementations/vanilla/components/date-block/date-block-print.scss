@@ -9,7 +9,7 @@
 @use '@ecl/theme-dev/maps/spacing';
 @use '@ecl/theme-dev/maps/typography';
 
-$circle-width: 0.6rem;
+$_circle-width: 0.6rem;
 
 .ecl-date-block {
   box-sizing: border-box;
@@ -28,11 +28,11 @@ $circle-width: 0.6rem;
     box-sizing: content-box;
     content: '';
     display: block;
-    height: $circle-width;
+    height: $_circle-width;
     left: map.get(spacing.$spacing, 's');
     position: absolute;
-    top: -#{$circle-width / 2};
-    width: $circle-width;
+    top: -#{$_circle-width / 2};
+    width: $_circle-width;
   }
 
   &::after {
@@ -42,11 +42,11 @@ $circle-width: 0.6rem;
     box-sizing: content-box;
     content: '';
     display: block;
-    height: $circle-width;
+    height: $_circle-width;
     position: absolute;
     right: map.get(spacing.$spacing, 's');
-    top: -#{$circle-width / 2};
-    width: $circle-width;
+    top: -#{$_circle-width / 2};
+    width: $_circle-width;
   }
 }
 
