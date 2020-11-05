@@ -29,8 +29,7 @@ const prepareTag = (data, link, aria) => {
       data.tag.aria_label,
       tabLabels.required
     );
-  }
-  if (aria) {
+
     data.default_icon_path = optionsKnob(
       'default_icon_path',
       { current: defaultSprite, 'no path': '' },
