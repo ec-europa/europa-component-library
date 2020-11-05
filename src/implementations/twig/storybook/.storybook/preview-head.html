@@ -1,0 +1,64 @@
+<style>
+  .sb-show-nopreview {
+    display: none;
+  }
+</style>
+<script>
+  function inIframe() {
+    try {
+      return window.self !== window.top;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function createLink(href, media) {
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = href;
+    link.media = media || 'all';
+    return link;
+  }
+
+  if (
+    inIframe() &&
+    window.frameElement &&
+    window.frameElement.id === 'storybook-preview-iframe'
+  ) {
+    // Let CSS Resources inject the styles
+  } else {
+    // Manually inject styles
+    var head = document.head || document.getElementsByTagName('head')[0];
+    head.appendChild(createLink('./styles/ec-core.css', 'screen'));
+    head.appendChild(createLink('./styles/eu-core.css', 'screen'));
+    head.appendChild(createLink('./styles/ec-core-print.css', 'print'));
+    head.appendChild(createLink('./styles/eu-core-print.css', 'print'));
+  }
+</script>
+<script type="text/javascript" src="./scripts/ec-core.js"></script>
+<script>
+  // https://github.com/storybookjs/storybook/issues/6113#issuecomment-473965255
+  function runOnPageChange() {
+    ECL.autoInit();
+  }
+
+  document.addEventListener(
+    'DOMContentLoaded',
+    function () {
+      runOnPageChange();
+      const callback = function (mutationsList) {
+        for (let i = 0, len = mutationsList.length; i < len; i++) {
+          if (mutationsList[i].type == 'childList') {
+            runOnPageChange();
+            break;
+          }
+        }
+      };
+      const observer = new MutationObserver(callback);
+      const config = { childList: true, subtree: false };
+      observer.observe(document.getElementById('root'), config);
+    },
+    false
+  );
+</script>

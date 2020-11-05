@@ -1,0 +1,28 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Link, Playground, Html } from '@ecl/website-components';
+
+import { factFigures3Col, factFigures4Col } from '../demo';
+
+## 3 columns
+
+<Playground
+  system="ec"
+  selectedKind="components-fact-figures"
+  selectedStory="columns-3"
+>
+  <Html markup={factFigures3Col} />
+</Playground>
+
+## 4 columns
+
+<Playground
+  system="ec"
+  selectedKind="components-fact-figures"
+  selectedStory="columns-4"
+>
+  <Html markup={factFigures4Col} />
+</Playground>
