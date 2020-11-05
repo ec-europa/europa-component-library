@@ -50,7 +50,7 @@ export default {
   decorators: [withKnobs, withNotes, withCode],
 };
 
-export const Display = () => tag(prepareTag(dataDisplay, false, true));
+export const Display = () => tag(prepareTag(dataDisplay));
 
 Display.storyName = 'display tag';
 Display.parameters = { notes: { markdown: notes, json: dataDisplay } };
