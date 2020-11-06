@@ -56,10 +56,6 @@
 
 {% set _css_group_class = 'ecl-form-group' %}
 {% set _css_class = ['ecl-select'] %}
-
-{% if _invalid %}
-  {% set _css_class = _css_class|merge(['ecl-select--invalid']) %}
-{% endif %}
 {% set _css_class = _css_class|join(' ') %}
 
 {% set _extra_attributes = '' %}
@@ -127,7 +123,8 @@
   {% endif %}
 
   <div class="ecl-select__container
-    {{- disabled ? ' ecl-select__container--disabled' -}}
+    {{- _disabled ? ' ecl-select__container--disabled' -}}
+    {{- _invalid ? ' ecl-select__container--invalid' -}}
     {{- ' ecl-select__container--' ~ _width }}"
   >
     <select
