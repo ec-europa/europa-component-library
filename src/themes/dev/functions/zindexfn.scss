@@ -1,0 +1,11 @@
+@use "sass:map";
+@use '@ecl/theme-dev/maps/z-index';
+
+@function ecl-z-index($key) {
+  @if map-has-key(z-index.$z-index, $key) {
+    @return map-get(z-index.$z-index, $key);
+  }
+
+  @warn "Unknown `#{$key}` in z-index.$z-index.";
+  @return null;
+}

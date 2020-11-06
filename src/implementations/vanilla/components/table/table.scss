@@ -12,8 +12,8 @@
 
 .ecl-table {
   border-collapse: collapse;
-  color: color('grey-100');
-  font: font('m');
+  color: ecl-color('grey-100');
+  font: ecl-font('m');
   margin: 0;
   width: 100%;
 }
@@ -23,62 +23,62 @@
 }
 
 .ecl-table__cell {
-  border-top: 1px solid color('grey-25');
+  border-top: 1px solid ecl-color('grey-25');
   display: flex;
-  padding: spacing('s');
+  padding: ecl-spacing('s');
 
   &::before {
-    background-color: color('blue-5');
-    border-right: 2px solid color('grey-50');
+    background-color: ecl-color('blue-5');
+    border-right: 2px solid ecl-color('grey-50');
     content: attr(data-ecl-table-header);
     display: block;
     flex-basis: 10rem;
     flex-grow: 0;
     flex-shrink: 0;
-    font-weight: font-weight('bold');
-    margin-bottom: -#{spacing('s')};
-    margin-left: -#{spacing('s')};
-    margin-right: spacing('s');
-    margin-top: -#{spacing('s')};
-    padding-bottom: spacing('s');
-    padding-left: spacing('s');
-    padding-right: spacing('m');
-    padding-top: spacing('s');
+    font-weight: ecl-font-weight('bold');
+    margin-bottom: -#{ecl-spacing('s')};
+    margin-left: -#{ecl-spacing('s')};
+    margin-right: ecl-spacing('s');
+    margin-top: -#{ecl-spacing('s')};
+    padding-bottom: ecl-spacing('s');
+    padding-left: ecl-spacing('s');
+    padding-right: ecl-spacing('m');
+    padding-top: ecl-spacing('s');
   }
 
   &:last-of-type {
-    border-bottom: 1px solid color('grey-25');
-    margin-bottom: spacing('l');
+    border-bottom: 1px solid ecl-color('grey-25');
+    margin-bottom: ecl-spacing('l');
   }
 }
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.media-breakpoint-up(lg) {
   .ecl-table__head {
-    background-color: color('blue-5');
+    background-color: ecl-color('blue-5');
     display: table-header-group;
   }
 
   .ecl-table__header {
-    font-weight: font-weight('bold');
-    padding: spacing('s') spacing('m');
+    font-weight: ecl-font-weight('bold');
+    padding: ecl-spacing('s') ecl-spacing('m');
     text-align: left;
     vertical-align: bottom;
   }
 
   .ecl-table__row {
-    border-bottom: 1px solid color('grey-25');
+    border-bottom: 1px solid ecl-color('grey-25');
     border-top-width: 0;
   }
 
   .ecl-table__head .ecl-table__row:first-child {
-    border-bottom: 2px solid color('grey-50');
+    border-bottom: 2px solid ecl-color('grey-50');
   }
 
   .ecl-table__cell {
     border-width: 0;
     display: table-cell;
-    padding: spacing('s') spacing('m');
+    padding: ecl-spacing('s') ecl-spacing('m');
 
     &::before {
       display: none;
@@ -89,7 +89,7 @@
 // Zebra
 .ecl-table--zebra {
   .ecl-table__cell:nth-of-type(even) {
-    background-color: color('grey-5');
+    background-color: ecl-color('grey-5');
   }
 }
 
@@ -97,7 +97,7 @@
 @include breakpoints.media-breakpoint-up(lg) {
   .ecl-table--zebra {
     .ecl-table__body .ecl-table__row:nth-of-type(even) {
-      background-color: color('grey-5');
+      background-color: ecl-color('grey-5');
     }
 
     .ecl-table__cell:nth-of-type(even) {
@@ -109,50 +109,51 @@
 // Multi
 .ecl-table__cell[data-ecl-table-header-group] {
   // padding-top + line-height + padding-bottom + border + cell padding-top
+  /* stylelint-disable function-calc-no-unspaced-operator */
   padding-top: calc(
-    #{spacing('s')} + #{line-height('m')} + #{spacing('s')} + 1px + #{spacing(
+    #{ecl-spacing('s')} + #{ecl-line-height('m')} + #{ecl-spacing('s')} + 1px + #{ecl-spacing(
         's'
       )}
   );
   position: relative;
 
   &::after {
-    background-color: color('blue-5');
-    border-bottom: 1px solid color('grey-25');
+    background-color: ecl-color('blue-5');
+    border-bottom: 1px solid ecl-color('grey-25');
     content: attr(data-ecl-table-header-group);
     display: block;
-    font-weight: font-weight('bold');
+    font-weight: ecl-font-weight('bold');
     left: 0;
-    padding-bottom: spacing('s');
-    padding-left: spacing('s');
-    padding-top: spacing('s');
+    padding-bottom: ecl-spacing('s');
+    padding-left: ecl-spacing('s');
+    padding-top: ecl-spacing('s');
     position: absolute;
     top: 0;
-    width: calc(100% - #{spacing('s')});
+    width: calc(100% - #{ecl-spacing('s')});
   }
 }
 
 .ecl-table__cell--group {
   &::before {
-    background-color: color('white-100');
-    border-right-color: color('white-100');
-    margin-left: -#{spacing('s')};
+    background-color: ecl-color('white-100');
+    border-right-color: ecl-color('white-100');
+    margin-left: -#{ecl-spacing('s')};
     margin-right: 0;
-    padding-left: spacing('l');
+    padding-left: ecl-spacing('l');
   }
 }
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.media-breakpoint-up(lg) {
   .ecl-table__head .ecl-table__row:not(:first-child) {
-    background-color: color('white-100');
+    background-color: ecl-color('white-100');
     border-bottom-width: 0;
   }
 
   .ecl-table__head
     .ecl-table__row:not(:first-child)
     .ecl-table__header:not(:empty) {
-    background-color: color('blue-5');
+    background-color: ecl-color('blue-5');
   }
 
   .ecl-table__cell[data-ecl-table-header-group]::after {
@@ -160,23 +161,25 @@
   }
 
   .ecl-table__cell--group {
-    padding-left: spacing('s');
+    padding-left: ecl-spacing('s');
   }
 
   .ecl-table__cell[data-ecl-table-header-group] {
-    padding-top: spacing('s');
+    padding-top: ecl-spacing('s');
   }
 }
 
 // SortTable
 .ecl-table__header[data-ecl-table-sort-toggle] {
   cursor: pointer;
-  padding-left: calc(#{spacing('m')} + #{icon('2xs')} + #{spacing('xs')});
+  padding-left: calc(
+    #{ecl-spacing('m')} + #{ecl-icon('2xs')} + #{ecl-spacing('xs')}
+  );
   position: relative;
 }
 
 .ecl-table__arrow {
-  left: spacing('m');
+  left: ecl-spacing('m');
   position: absolute;
 }
 
@@ -186,24 +189,24 @@
 }
 
 .ecl-table__icon-up {
-  fill: color('grey-50');
+  fill: ecl-color('grey-50');
   top: 0;
 }
 
 .ecl-table__icon-down {
-  fill: color('grey-50');
-  top: icon('2xs');
+  fill: ecl-color('grey-50');
+  top: ecl-icon('2xs');
   transform: rotate(180deg);
 }
 
 .ecl-table__header[aria-sort='ascending'] {
   .ecl-table__icon-down {
-    fill: color('grey-100');
+    fill: ecl-color('grey-100');
   }
 }
 
 .ecl-table__header[aria-sort='descending'] {
   .ecl-table__icon-up {
-    fill: color('grey-100');
+    fill: ecl-color('grey-100');
   }
 }

@@ -5,28 +5,28 @@
 
 // Import base
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/functions/colorfn' as *;
+@use '@ecl/theme-dev/functions/spacingfn' as *;
+@use '@ecl/theme-dev/functions/typographyfn' as *;
 @use '@ecl/layout-grid/mixins/breakpoints';
 
 .ecl-fact-figures {
-  background-color: map.get(color.$color, 'blue-5');
-  border: 1px solid map.get(color.$color, 'blue-25');
+  background-color: ecl-color('blue-5');
+  border: 1px solid ecl-color('blue-25');
   margin: 0;
 }
 
 .ecl-fact-figures__items {
-  padding-bottom: map.get(spacing.$spacing, 'l');
-  padding-top: map.get(spacing.$spacing, 'l');
+  padding-bottom: ecl-spacing('l');
+  padding-top: ecl-spacing('l');
 }
 
 .ecl-fact-figures__item {
   box-sizing: border-box;
-  font: map.get(typography.$font, 'm');
-  margin-top: map.get(spacing.$spacing, 'xl');
-  padding-left: map.get(spacing.$spacing, 'm');
-  padding-right: map.get(spacing.$spacing, 'm');
+  font: ecl-font('m');
+  margin-top: ecl-spacing('xl');
+  padding-left: ecl-spacing('m');
+  padding-right: ecl-spacing('m');
 
   &:first-of-type {
     margin-top: 0;
@@ -34,36 +34,36 @@
 }
 
 .ecl-fact-figures__icon {
-  color: map.get(color.$color, 'blue');
-  margin-bottom: map.get(spacing.$spacing, 's');
+  color: ecl-color('blue');
+  margin-bottom: ecl-spacing('s');
 }
 
 .ecl-fact-figures__value {
-  color: map.get(color.$color, 'blue');
-  font: map.get(typography.$font, '3xl');
-  font-weight: map.get(typography.$font-weight, 'bold');
+  color: ecl-color('blue');
+  font: ecl-font('3xl');
+  font-weight: ecl-font-weight('bold');
 }
 
 .ecl-fact-figures__title {
-  color: map.get(color.$color, 'blue');
-  font: map.get(typography.$font-prolonged, 'l');
-  font-weight: map.get(typography.$font-weight, 'bold');
-  margin-top: map.get(spacing.$spacing, 'xs');
+  color: ecl-color('blue');
+  font: ecl-font-prolonged('l');
+  font-weight: ecl-font-weight('bold');
+  margin-top: ecl-spacing('xs');
 }
 
 .ecl-fact-figures__description {
-  color: map.get(color.$color, 'blue');
-  font: map.get(typography.$font-prolonged, 'm');
-  margin-top: map.get(spacing.$spacing, 's');
+  color: ecl-color('blue');
+  font: ecl-font-prolonged('m');
+  margin-top: ecl-spacing('s');
 }
 
 .ecl-fact-figures__view-all {
-  border-top: 1px solid map.get(color.$color, 'blue-25');
-  font: map.get(typography.$font, 'm');
-  margin-left: map.get(spacing.$spacing, 'm');
-  margin-right: map.get(spacing.$spacing, 'm');
-  padding-bottom: map.get(spacing.$spacing, 'l');
-  padding-top: map.get(spacing.$spacing, 'l');
+  border-top: 1px solid ecl-color('blue-25');
+  font: ecl-font('m');
+  margin-left: ecl-spacing('m');
+  margin-right: ecl-spacing('m');
+  padding-bottom: ecl-spacing('l');
+  padding-top: ecl-spacing('l');
 }
 
 /* stylelint-disable-next-line order/order */
@@ -72,19 +72,19 @@
     display: inline-flex;
     flex-direction: column;
     margin-bottom: 0;
-    margin-top: map.get(spacing.$spacing, 'xl');
-    padding-left: map.get(spacing.$spacing, 'xl');
-    padding-right: map.get(spacing.$spacing, 'xl');
+    margin-top: ecl-spacing('xl');
+    padding-left: ecl-spacing('xl');
+    padding-right: ecl-spacing('xl');
 
     &:first-of-type {
-      margin-top: map.get(spacing.$spacing, 'xl');
+      margin-top: ecl-spacing('xl');
     }
   }
 
   .ecl-fact-figures__items {
     display: flex;
     flex-wrap: wrap;
-    padding-bottom: map.get(spacing.$spacing, 'xl');
+    padding-bottom: ecl-spacing('xl');
     padding-top: 0;
   }
 
@@ -97,12 +97,12 @@
   }
 
   .ecl-fact-figures__value {
-    font: map.get(typography.$font, '4xl');
+    font: ecl-font('4xl');
     font-weight: bold;
   }
 
   .ecl-fact-figures__view-all {
-    margin-left: map.get(spacing.$spacing, 'xl');
-    margin-right: map.get(spacing.$spacing, 'xl');
+    margin-left: ecl-spacing('xl');
+    margin-right: ecl-spacing('xl');
   }
 }

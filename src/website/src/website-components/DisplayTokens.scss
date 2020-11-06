@@ -5,10 +5,10 @@
 
 .ul {
   box-sizing: border-box;
-  color: map.get(color.$color, 'grey-75');
-  font: map.get(typography.$font-prolonged, 'm');
+  color: ecl-color('grey-75');
+  font: ecl-font-prolonged('m');
   margin-bottom: 0;
-  margin-top: map.get(spacing.$spacing, 's');
+  margin-top: ecl-spacing('s');
   max-width: 38em;
   text-transform: lowercase;
 }

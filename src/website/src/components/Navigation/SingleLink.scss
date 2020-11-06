@@ -1,65 +1,64 @@
-@use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/functions/colorfn' as *;
+@use '@ecl/theme-dev/functions/spacingfn' as *;
+@use '@ecl/theme-dev/functions/typographyfn' as *;
 
 .page-list-item {
   align-items: center;
-  background-color: map.get(color.$color, 'grey-5');
+  background-color: ecl-color('grey-5');
   border-width: 0;
-  color: map.get(color.$color, 'text');
+  color: ecl-color('text');
   display: flex;
-  font: map.get(typography.$font, 'm');
+  font: ecl-font('m');
   margin: 0;
   text-decoration: none;
 
   &.level-0 {
-    padding: map.get(spacing.$spacing, 's') map.get(spacing.$spacing, 'm');
+    padding: ecl-spacing('s') ecl-spacing('m');
   }
 
   &.level-1 {
-    padding: map.get(spacing.$spacing, 's') map.get(spacing.$spacing, 'm')
-      map.get(spacing.$spacing, 's') map.get(spacing.$spacing, 'xl');
+    padding: ecl-spacing('s') ecl-spacing('m') ecl-spacing('s')
+      ecl-spacing('xl');
   }
 
   &.level-2 {
-    padding: map.get(spacing.$spacing, 's') map.get(spacing.$spacing, 'm')
-      map.get(spacing.$spacing, 's') map.get(spacing.$spacing, '3xl');
+    padding: ecl-spacing('s') ecl-spacing('m') ecl-spacing('s')
+      ecl-spacing('3xl');
   }
 
   &.level-3 {
-    padding: map.get(spacing.$spacing, 's') map.get(spacing.$spacing, 'm')
-      map.get(spacing.$spacing, 's') map.get(spacing.$spacing, '4xl');
+    padding: ecl-spacing('s') ecl-spacing('m') ecl-spacing('s')
+      ecl-spacing('4xl');
   }
 }
 
 .page-list-item:hover,
 .page-list-item:focus {
-  background-color: map.get(color.$color, 'grey-10');
+  background-color: ecl-color('grey-10');
   outline: none;
 }
 
 .page-list-item:active {
-  background-color: map.get(color.$color, 'grey-25');
+  background-color: ecl-color('grey-25');
 }
 
 .page-list-item--active {
-  border-left: 4px solid map.get(color.$color, 'yellow-100');
+  border-left: 4px solid ecl-color('yellow-100');
 
   &.level-0 {
-    padding-left: calc(#{map.get(spacing.$spacing, 'm')} - 4px);
+    padding-left: calc(#{ecl-spacing('m')} - 4px);
   }
 
   &.level-1 {
-    padding-left: calc(#{map.get(spacing.$spacing, 'xl')} - 4px);
+    padding-left: calc(#{ecl-spacing('xl')} - 4px);
   }
 
   &.level-2 {
-    padding-left: calc(#{map.get(spacing.$spacing, '3xl')} - 4px);
+    padding-left: calc(#{ecl-spacing('3xl')} - 4px);
   }
 
   &.level-3 {
-    padding-left: calc(#{map.get(spacing.$spacing, '4xl')} - 4px);
+    padding-left: calc(#{ecl-spacing('4xl')} - 4px);
   }
 }
 

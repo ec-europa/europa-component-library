@@ -3,18 +3,17 @@
  * @define blockquote
  */
 
-@use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/functions/colorfn' as *;
+@use '@ecl/theme-dev/functions/spacingfn' as *;
+@use '@ecl/theme-dev/functions/typographyfn' as *;
 
 .ecl-blockquote {
   margin: 0;
 }
 
 .ecl-blockquote__body {
-  color: map.get(color.$color, 'grey');
-  font: map.get(typography.$font-prolonged-print, 'l');
+  color: ecl-color('grey');
+  font: ecl-font-prolonged('l');
   font-style: italic;
   margin: 0;
   quotes: '\201C''\201D';
@@ -29,13 +28,13 @@
 }
 
 .ecl-blockquote__attribution {
-  margin-top: map.get(spacing.$spacing-print, 'xl');
+  margin-top: ecl-spacing-print('xl');
 }
 
 .ecl-blockquote__author {
-  color: map.get(color.$color, 'black-100');
-  font: map.get(typography.$font-prolonged-print, 'm');
-  font-weight: map.get(typography.$font-weight-print, 'bold');
+  color: ecl-color('black-100');
+  font: ecl-font-prolonged('m');
+  font-weight: ecl-font-weight-print('bold');
 
   &::before {
     content: '\2014\2009';

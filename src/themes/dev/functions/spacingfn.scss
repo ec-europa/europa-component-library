@@ -1,7 +1,7 @@
 @use "sass:map";
 @use '@ecl/theme-dev/maps/spacing';
 
-@function spacing($key) {
+@function ecl-spacing($key) {
   @if map-has-key(spacing.$spacing, $key) {
     @return map-get(spacing.$spacing, $key);
   }
@@ -10,7 +10,7 @@
   @return null;
 }
 
-@function spacing-print($key) {
+@function ecl-spacing-print($key) {
   @if map-has-key(spacing.$spacing-print, $key) {
     @return map-get(spacing.$spacing-print, $key);
   }

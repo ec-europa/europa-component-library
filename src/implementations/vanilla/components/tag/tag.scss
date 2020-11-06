@@ -3,25 +3,21 @@
  * @define tag
  */
 
-@use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/icon';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/functions/colorfn' as *;
+@use '@ecl/theme-dev/functions/iconfn' as *;
+@use '@ecl/theme-dev/functions/spacingfn' as *;
+@use '@ecl/theme-dev/functions/typographyfn' as *;
 
 .ecl-tag {
   align-items: center;
-  background-color: map.get(color.$color, 'grey-15');
-  border-radius: (
-      2 * map.get(spacing.$spacing, 'xs') +
-        map.get(typography.$line-height, 's')
-    ) / 2;
+  background-color: ecl-color('grey-15');
+  border-radius: (2 * ecl-spacing('xs') + ecl-line-height('s')) / 2;
   border-width: 0;
   box-sizing: border-box;
-  color: map.get(color.$color, 'grey');
+  color: ecl-color('grey');
   display: inline-flex;
-  font: map.get(typography.$font, 's');
-  padding: map.get(spacing.$spacing, 'xs') map.get(spacing.$spacing, 's');
+  font: ecl-font('s');
+  padding: ecl-spacing('xs') ecl-spacing('s');
   text-decoration: underline;
   white-space: nowrap;
 
@@ -32,7 +28,7 @@
   }
 
   &:focus {
-    box-shadow: inset 0 0 0 3px map.get(color.$color, 'yellow');
+    box-shadow: inset 0 0 0 3px ecl-color('yellow');
     outline: none;
   }
 }
@@ -47,8 +43,8 @@
 
   &:hover,
   &:focus {
-    background-color: map.get(color.$color, 'grey');
-    color: map.get(color.$color, 'white');
+    background-color: ecl-color('grey');
+    color: ecl-color('white');
   }
 }
 
@@ -56,20 +52,20 @@
   appearance: none;
   background: none;
   border-width: 0;
-  height: map.get(icon.$icon, 'xs');
-  margin-left: map.get(spacing.$spacing, 'xs');
+  height: ecl-icon('xs');
+  margin-left: ecl-spacing('xs');
   padding: 0;
   pointer-events: auto;
   position: relative;
-  width: map.get(icon.$icon, 'xs');
+  width: ecl-icon('xs');
 
   &:focus {
-    outline: 3px solid map.get(color.$color, 'yellow');
+    outline: 3px solid ecl-color('yellow');
   }
 }
 
 .ecl-tag__icon-close {
-  fill: map.get(color.$color, 'grey');
+  fill: ecl-color('grey');
   left: 0;
   opacity: 1;
   position: absolute;
@@ -77,7 +73,7 @@
 }
 
 .ecl-tag__icon-close-filled {
-  fill: map.get(color.$color, 'white');
+  fill: ecl-color('white');
   left: 0;
   opacity: 0;
   position: absolute;

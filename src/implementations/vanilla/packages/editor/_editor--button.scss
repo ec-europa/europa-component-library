@@ -2,16 +2,15 @@
  * Editor button styles
  */
 
-@use "sass:map";
-@use "@ecl/theme-dev/maps/spacing";
-@use "@ecl/theme-dev/maps/color";
-@use "@ecl/theme-dev/maps/typography";
+@use '@ecl/theme-dev/functions/colorfn' as *;
+@use '@ecl/theme-dev/functions/spacingfn' as *;
+@use '@ecl/theme-dev/functions/typographyfn' as *;
 
 @mixin ecl-editor-button(
   $_border-width: 2px,
   $_outline-width: 3px,
-  $_padding-horizontal: map.get(spacing.$spacing, 'm'),
-  $_padding-vertical: map.get(spacing.$spacing, 's')
+  $_padding-horizontal: ecl-spacing('m'),
+  $_padding-vertical: ecl-spacing('s')
 ) {
   /* stylelint-disable selector-no-qualifying-type */
   .ecl-editor button,
@@ -19,13 +18,13 @@
   .ecl-editor input[type='submit'] {
     appearance: none;
     background: none;
-    background-color: map.get(color.$color, 'blue-100');
+    background-color: ecl-color('blue-100');
     border-width: 0;
     box-sizing: border-box;
-    color: map.get(color.$color, 'white-100');
+    color: ecl-color('white-100');
     display: inline-block;
-    font: map.get(typography.$font, 'm');
-    font-weight: map.get(typography.$font-weight, 'bold');
+    font: ecl-font('m');
+    font-weight: ecl-font-weight('bold');
     margin: 0;
     padding: $_padding-vertical $_padding-horizontal;
     text-decoration: none;
@@ -33,12 +32,12 @@
     &:hover,
     &:focus,
     &:active {
-      background-color: map.get(color.$color, 'blue-130');
+      background-color: ecl-color('blue-130');
       text-decoration: none;
     }
 
     &:focus {
-      outline: $_outline-width solid map.get(color.$color, 'secondary');
+      outline: $_outline-width solid ecl-color('secondary');
       outline-offset: -($_outline-width);
     }
   }

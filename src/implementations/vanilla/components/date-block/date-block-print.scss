@@ -4,10 +4,9 @@
  */
 
 // Import base
-@use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/functions/colorfn' as *;
+@use '@ecl/theme-dev/functions/spacingfn' as *;
+@use '@ecl/theme-dev/functions/typographyfn' as *;
 
 $_circle-width: 0.6rem;
 
@@ -22,65 +21,64 @@ $_circle-width: 0.6rem;
   width: 6.3rem;
 
   &::before {
-    background-color: map.get(color.$color, 'white');
-    border: 1px solid map.get(color.$color, 'black');
+    background-color: ecl-color('white');
+    border: 1px solid ecl-color('black');
     border-radius: 50%;
     box-sizing: content-box;
     content: '';
     display: block;
     height: $_circle-width;
-    left: map.get(spacing.$spacing, 's');
+    left: ecl-spacing('s');
     position: absolute;
     top: -#{$_circle-width / 2};
     width: $_circle-width;
   }
 
   &::after {
-    background-color: map.get(color.$color, 'white');
-    border: 1px solid map.get(color.$color, 'black');
+    background-color: ecl-color('white');
+    border: 1px solid ecl-color('black');
     border-radius: 50%;
     box-sizing: content-box;
     content: '';
     display: block;
     height: $_circle-width;
     position: absolute;
-    right: map.get(spacing.$spacing, 's');
+    right: ecl-spacing('s');
     top: -#{$_circle-width / 2};
     width: $_circle-width;
   }
 }
 
 .ecl-date-block__day {
-  border-left: 1px solid map.get(color.$color, 'black');
-  border-right: 1px solid map.get(color.$color, 'black');
-  border-top: 1px solid map.get(color.$color, 'black');
-  color: map.get(color.$color, 'black');
+  border-left: 1px solid ecl-color('black');
+  border-right: 1px solid ecl-color('black');
+  border-top: 1px solid ecl-color('black');
+  color: ecl-color('black');
   display: block;
-  font: map.get(typography.$font-print, '2xl');
-  font-weight: map.get(typography.$font-weight, 'bold');
-  padding-left: map.get(spacing.$spacing-print, '2xs');
-  padding-right: map.get(spacing.$spacing-print, '2xs');
-  padding-top: map.get(spacing.$spacing-print, 'xs');
+  font: ecl-font-print('2xl');
+  font-weight: ecl-font-weight('bold');
+  padding-left: ecl-spacing-print('2xs');
+  padding-right: ecl-spacing-print('2xs');
+  padding-top: ecl-spacing-print('xs');
 }
 
 .ecl-date-block__month {
-  border-left: 1px solid map.get(color.$color, 'black');
-  border-right: 1px solid map.get(color.$color, 'black');
-  color: map.get(color.$color, 'black');
+  border-left: 1px solid ecl-color('black');
+  border-right: 1px solid ecl-color('black');
+  color: ecl-color('black');
   display: block;
-  font: map.get(typography.$font-print, 'm');
-  padding-bottom: map.get(spacing.$spacing-print, 'xs');
-  padding-left: map.get(spacing.$spacing-print, '2xs');
-  padding-right: map.get(spacing.$spacing-print, '2xs');
+  font: ecl-font-print('m');
+  padding-bottom: ecl-spacing-print('xs');
+  padding-left: ecl-spacing-print('2xs');
+  padding-right: ecl-spacing-print('2xs');
   text-decoration: none !important;
   text-transform: uppercase;
 }
 
 .ecl-date-block__year {
-  border: 1px solid map.get(color.$color, 'black');
-  color: map.get(color.$color, 'black');
+  border: 1px solid ecl-color('black');
+  color: ecl-color('black');
   display: block;
-  font: map.get(typography.$font-print, 's');
-  padding: map.get(spacing.$spacing-print, 'xs')
-    map.get(spacing.$spacing-print, '2xs');
+  font: ecl-font-print('s');
+  padding: ecl-spacing-print('xs') ecl-spacing-print('2xs');
 }

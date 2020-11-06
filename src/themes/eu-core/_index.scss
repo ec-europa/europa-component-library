@@ -1,15 +1,12 @@
 @use '@ecl/theme-dev/globals' with (
   $border-radius: 'yes'
 );
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/icon';
-@use '@ecl/theme-dev/maps/form';
+
 @use '@ecl/theme-dev/maps/layout';
 @use '@ecl/theme-dev/maps/media';
 @use '@ecl/theme-dev/maps/shape';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
-@use '@ecl/theme-dev/maps/z-index';
+@use '@ecl/theme-dev/functions/zindexfn';
+@use '@ecl/theme-dev/functions/formfn';
 @use '@ecl/theme-dev/functions/colorfn';
 @use '@ecl/theme-dev/functions/typographyfn';
 @use '@ecl/theme-dev/functions/spacingfn';

@@ -3,25 +3,24 @@
  * @define radio
  */
 
-@use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/typography';
-@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/functions/colorfn' as *;
+@use '@ecl/theme-dev/functions/spacingfn' as *;
+@use '@ecl/theme-dev/functions/typographyfn' as *;
 
-$_label-color: map.get(color.$color, 'grey-100');
-$_label-color-disabled: map.get(color.$color, 'grey-50');
+$_label-color: ecl-color('grey-100');
+$_label-color-disabled: ecl-color('grey-50');
 $_box-size: 1.25rem;
 $_box-border-width: 2px;
 $_box-border-width-checked: 7px;
-$_box-border-color: map.get(color.$color, 'grey-50');
-$_box-border-color-disabled: map.get(color.$color, 'grey-50');
-$_box-border-color-checked: map.get(color.$color, 'blue-100');
-$_box-border-color-hover: map.get(color.$color, 'blue-100');
-$_box-background: map.get(color.$color, 'white-100');
-$_box-background-disabled: map.get(color.$color, 'grey-5');
+$_box-border-color: ecl-color('grey-50');
+$_box-border-color-disabled: ecl-color('grey-50');
+$_box-border-color-checked: ecl-color('blue-100');
+$_box-border-color-hover: ecl-color('blue-100');
+$_box-background: ecl-color('white-100');
+$_box-background-disabled: ecl-color('grey-5');
 $_outline-width: 2px;
-$_outline-color: map.get(color.$color, 'yellow-100');
-$_invalid-border-color: map.get(color.$color, 'error');
+$_outline-color: ecl-color('yellow-100');
+$_invalid-border-color: ecl-color('error');
 $_invalid-border-width: 2px; // DEPRECATED
 
 .ecl-radio {
@@ -49,7 +48,7 @@ $_invalid-border-width: 2px; // DEPRECATED
   align-items: center;
   color: $_label-color;
   display: inline-flex;
-  font: map.get(typography.$font, 'm');
+  font: ecl-font('m');
 }
 
 .ecl-radio__box {
@@ -59,7 +58,7 @@ $_invalid-border-width: 2px; // DEPRECATED
   box-sizing: content-box;
   display: block;
   height: calc(#{$_box-size} - (#{$_box-border-width} * 2));
-  margin-right: map.get(spacing.$spacing, 's');
+  margin-right: ecl-spacing('s');
   position: relative;
   width: calc(#{$_box-size} - (#{$_box-border-width} * 2));
 }
@@ -70,14 +69,14 @@ $_invalid-border-width: 2px; // DEPRECATED
 
 .ecl-radio__help {
   box-sizing: border-box;
-  color: map.get(color.$color, 'grey-100');
+  color: ecl-color('grey-100');
   display: block;
-  font: map.get(typography.$font-prolonged, 's');
-  margin-top: map.get(spacing.$spacing, 'xs');
+  font: ecl-font-prolonged('s');
+  margin-top: ecl-spacing('xs');
 }
 
 .ecl-radio__help--disabled {
-  color: map.get(color.$color, 'grey-50');
+  color: ecl-color('grey-50');
 }
 
 // Checked
@@ -96,7 +95,7 @@ $_invalid-border-width: 2px; // DEPRECATED
 }
 
 .ecl-radio__label:hover .ecl-radio__box--invalid {
-  border-color: map.get(color.$color, 'red-130');
+  border-color: ecl-color('red-130');
 }
 
 .ecl-radio__input:checked + .ecl-radio__label .ecl-radio__box--invalid {
@@ -146,7 +145,7 @@ $_invalid-border-width: 2px; // DEPRECATED
 // Binary radio
 .ecl-radio--binary {
   display: inline-flex;
-  margin-right: map.get(spacing.$spacing, 'm');
+  margin-right: ecl-spacing('m');
   vertical-align: top;
 }
 
@@ -160,17 +159,17 @@ $_invalid-border-width: 2px; // DEPRECATED
   border-style: solid;
   border-width: 0;
   margin: 0;
-  padding: 0 map.get(spacing.$spacing, 'l');
+  padding: 0 ecl-spacing('l');
 }
 
 .ecl-radio__group--invalid {
   border-color: $_invalid-border-color;
   border-width: $_invalid-border-width;
-  padding-bottom: map.get(spacing.$spacing, 'm');
-  padding-top: map.get(spacing.$spacing, 'm');
+  padding-bottom: ecl-spacing('m');
+  padding-top: ecl-spacing('m');
 
   .ecl-radio__invalid {
-    margin-top: map.get(spacing.$spacing, 'xs');
+    margin-top: ecl-spacing('xs');
   }
 }
 
@@ -195,7 +194,7 @@ $_invalid-border-width: 2px; // DEPRECATED
 
   .ecl-radio {
     display: inline-flex;
-    margin-right: map.get(spacing.$spacing, 'm');
+    margin-right: ecl-spacing('m');
     vertical-align: top;
   }
 

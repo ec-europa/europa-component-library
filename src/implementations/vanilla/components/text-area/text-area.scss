@@ -3,37 +3,36 @@
  * @define text-area
  */
 
-@use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/typography';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/form';
+@use '@ecl/theme-dev/functions/colorfn' as *;
+@use '@ecl/theme-dev/functions/spacingfn' as *;
+@use '@ecl/theme-dev/functions/typographyfn' as *;
+@use '@ecl/theme-dev/functions/formfn' as *;
 @use '@ecl/layout-grid/mixins/breakpoints';
 
-$_border-color: map.get(color.$color, 'grey-75');
+$_border-color: ecl-color('grey-75');
 $_border-width: 1px;
-$_border-color-focus: map.get(color.$color, 'yellow-100');
+$_border-color-focus: ecl-color('yellow-100');
 $_border-width-focus: 3px;
-$_padding-vertical: map.get(spacing.$spacing, 's');
-$_padding-horizontal: map.get(spacing.$spacing, 's');
+$_padding-vertical: ecl-spacing('s');
+$_padding-horizontal: ecl-spacing('s');
 
 .ecl-text-area {
   appearance: none;
-  background-color: map.get(color.$color, 'white-100');
+  background-color: ecl-color('white-100');
   border: $_border-width solid $_border-color;
   border-radius: 0;
   box-shadow: none;
   box-sizing: border-box;
-  color: map.get(color.$color, 'text');
+  color: ecl-color('text');
   display: block;
-  font: map.get(typography.$font, 'm');
+  font: ecl-font('m');
   margin: 0;
   max-width: 100%;
   padding: calc(#{$_padding-vertical} - #{$_border-width})
     calc(#{$_padding-horizontal} - #{$_border-width});
 
   &:hover {
-    outline: 1px solid map.get(color.$color, 'blue-100');
+    outline: 1px solid ecl-color('blue-100');
     outline-offset: -1px;
   }
 
@@ -52,7 +51,7 @@ $_padding-horizontal: map.get(spacing.$spacing, 's');
   }
 
   @include breakpoints.media-breakpoint-up('lg') {
-    width: map.get(form.$form, 'm');
+    width: ecl-form('m');
   }
 }
 
@@ -60,7 +59,7 @@ $_padding-horizontal: map.get(spacing.$spacing, 's');
   width: 100%;
 
   @include breakpoints.media-breakpoint-up('lg') {
-    width: map.get(form.$form, 'l');
+    width: ecl-form('l');
   }
 }
 
@@ -68,8 +67,8 @@ $_padding-horizontal: map.get(spacing.$spacing, 's');
 .ecl-text-area--disabled,
 .ecl-text-area[readonly],
 .ecl-text-area--readonly {
-  background-color: map.get(color.$color, 'grey-5');
-  border-color: map.get(color.$color, 'grey-50');
+  background-color: ecl-color('grey-5');
+  border-color: ecl-color('grey-50');
   cursor: not-allowed;
 
   &:hover {
@@ -78,15 +77,15 @@ $_padding-horizontal: map.get(spacing.$spacing, 's');
 }
 
 .ecl-text-area--invalid {
-  border-color: map.get(color.$color, 'error');
+  border-color: ecl-color('error');
   box-shadow: none;
 
   &:hover {
-    outline-color: map.get(color.$color, 'red-130');
+    outline-color: ecl-color('red-130');
   }
 
   &:active,
   &:focus {
-    outline-color: map.get(color.$color, 'yellow-100');
+    outline-color: ecl-color('yellow-100');
   }
 }

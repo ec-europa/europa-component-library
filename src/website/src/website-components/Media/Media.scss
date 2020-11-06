@@ -8,21 +8,21 @@
   .demo-media-line {
     display: flex;
     justify-content: space-between;
-    margin-bottom: map.get(spacing.$spacing, 'xs');
-    margin-top: map.get(spacing.$spacing, 'xs');
+    margin-bottom: ecl-spacing('xs');
+    margin-top: ecl-spacing('xs');
   }
 
   .demo-media-container-left {
     align-items: flex-start;
     display: flex;
-    font: map.get(typography.$font, 's');
+    font: ecl-font('s');
     flex-direction: column;
   }
 
   .demo-media-container-right {
     align-items: flex-end;
     display: flex;
-    font: map.get(typography.$font, 's');
+    font: ecl-font('s');
     flex-direction: column;
   }
 
@@ -36,7 +36,7 @@
 
   .demo-media-bg {
     background-image: url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg');
-    border: 5px dashed map.get(color.$color, 'yellow');
+    border: 5px dashed ecl-color('yellow');
     margin-top: 1rem;
     min-height: 1rem;
     min-width: 1rem;

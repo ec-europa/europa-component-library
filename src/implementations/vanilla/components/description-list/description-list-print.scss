@@ -4,13 +4,12 @@
  */
 
 // Import base
-@use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/functions/colorfn' as *;
+@use '@ecl/theme-dev/functions/spacingfn' as *;
+@use '@ecl/theme-dev/functions/typographyfn' as *;
 
 // Vertical description list
-$_text-color: map.get(color.$color, 'grey-100');
+$_text-color: ecl-color('grey-100');
 
 .ecl-description-list {
   margin: 0;
@@ -18,14 +17,14 @@ $_text-color: map.get(color.$color, 'grey-100');
 
 .ecl-description-list__term {
   color: $_text-color;
-  font: map.get(typography.$font-prolonged-print, 'xl');
-  font-family: #{map.get(typography.$font-family-print, 'alt')};
-  font-weight: map.get(typography.$font-weight-print, 'bold');
+  font: ecl-font-prolonged('xl');
+  font-family: #{ecl-font-family-print('alt')};
+  font-weight: ecl-font-weight-print('bold');
 }
 
 .ecl-description-list__definition {
   color: $_text-color;
-  font: map.get(typography.$font-prolonged-print, 'm');
+  font: ecl-font-prolonged('m');
 }
 
 // Horizontal description list
@@ -36,13 +35,13 @@ $_definition-width: 68%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  max-width: calc(499px + #{map.get(spacing.$spacing-print, 'xl')});
+  max-width: calc(499px + #{ecl-spacing-print('xl')});
 }
 
 .ecl-description-list--horizontal .ecl-description-list__term {
-  font: map.get(typography.$font-print, 'm');
-  font-weight: map.get(typography.$font-weight-print, 'bold');
-  margin-top: map.get(spacing.$spacing-print, 'm');
+  font: ecl-font-print('m');
+  font-weight: ecl-font-weight-print('bold');
+  margin-top: ecl-spacing-print('m');
   width: $_term-width;
 
   &:first-of-type {
@@ -51,12 +50,12 @@ $_definition-width: 68%;
 }
 
 .ecl-description-list--horizontal .ecl-description-list__definition {
-  font: map.get(typography.$font-print, 'm');
-  margin-left: map.get(spacing.$spacing-print, 'xl');
-  margin-top: map.get(spacing.$spacing-print, 'm');
+  font: ecl-font-print('m');
+  margin-left: ecl-spacing-print('xl');
+  margin-top: ecl-spacing-print('m');
   overflow-wrap: break-word;
   padding-left: 0;
-  width: calc(#{$_definition-width} - #{map.get(spacing.$spacing, 'xl')});
+  width: calc(#{$_definition-width} - #{ecl-spacing('xl')});
 
   &:first-of-type {
     margin-top: 0;

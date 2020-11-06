@@ -5,12 +5,12 @@
 
 // Import base
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/functions/colorfn' as *;
+@use '@ecl/theme-dev/functions/spacingfn' as *;
+@use '@ecl/theme-dev/functions/typographyfn' as *;
 
 .ecl-accordion__item {
-  margin-top: map.get(spacing.$spacing-print, 'l');
+  margin-top: ecl-spacing-print('l');
 
   &:first-of-type {
     margin-top: 0;
@@ -22,29 +22,29 @@
 }
 
 .ecl-accordion__title {
-  font: map.get(typography.$font-prolonged-print, 'm');
-  font-family: map.get(typography.$font-family-print, 'alt');
-  font-weight: map.get(typography.$font-weight-print, 'bold');
+  font: ecl-font-prolonged('m');
+  font-family: ecl-font-family-print('alt');
+  font-weight: ecl-font-weight-print('bold');
   margin: 0;
 }
 
 .ecl-accordion__toggle {
   background-color: transparent;
   border-width: 0;
-  color: map.get(color.$color, 'grey');
+  color: ecl-color('grey');
   display: block;
-  font: map.get(typography.$font-prolonged-print, 'm');
-  font-family: map.get(typography.$font-family-print, 'alt');
-  font-weight: map.get(typography.$font-weight-print, 'bold');
+  font: ecl-font-prolonged('m');
+  font-family: ecl-font-family-print('alt');
+  font-weight: ecl-font-weight-print('bold');
   padding: 0;
   text-align: left;
   width: 100%;
 }
 
 .ecl-accordion__content {
-  color: map.get(color.$color, 'grey');
+  color: ecl-color('grey');
   display: block;
-  font: map.get(typography.$font-prolonged-print, 'm');
-  margin-top: map.get(spacing.$spacing-print, 'm');
+  font: ecl-font-prolonged('m');
+  margin-top: ecl-spacing-print('m');
   page-break-inside: avoid;
 }

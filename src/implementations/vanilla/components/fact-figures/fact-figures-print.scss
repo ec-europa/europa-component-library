@@ -4,20 +4,19 @@
  */
 
 // Import base
-@use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/icon';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/functions/colorfn' as *;
+@use '@ecl/theme-dev/functions/iconfn' as *;
+@use '@ecl/theme-dev/functions/spacingfn' as *;
+@use '@ecl/theme-dev/functions/typographyfn' as *;
 
 .ecl-fact-figures {
   margin: 0;
 }
 
 .ecl-fact-figures__item {
-  border-bottom: 1px solid map.get(color.$color, 'black');
-  padding-bottom: map.get(spacing.$spacing-print, 'xl');
-  padding-top: map.get(spacing.$spacing-print, 'xl');
+  border-bottom: 1px solid ecl-color('black');
+  padding-bottom: ecl-spacing-print('xl');
+  padding-top: ecl-spacing-print('xl');
 
   &:first-of-type {
     padding-top: 0;
@@ -32,33 +31,29 @@
 .ecl-fact-figures__icon {
   display: block;
   float: left;
-  margin-right: map.get(spacing.$spacing-print, 'm');
-  margin-top: map.get(spacing.$spacing-print, '2xs');
+  margin-right: ecl-spacing-print('m');
+  margin-top: ecl-spacing-print('2xs');
 }
 
 .ecl-fact-figures__value {
-  font: map.get(typography.$font-print, '4xl');
-  font-family: map.get(typography.$font-family-print, 'alt');
-  font-weight: map.get(typography.$font-weight, 'bold');
+  font: ecl-font-print('4xl');
+  font-family: ecl-font-family-print('alt');
+  font-weight: ecl-font-weight('bold');
 }
 
 .ecl-fact-figures__title {
   clear: left;
-  font: map.get(typography.$font-prolonged-print, 'l');
-  font-family: map.get(typography.$font-family-print, 'alt');
-  font-weight: map.get(typography.$font-weight, 'bold');
-  margin-left: calc(
-    #{map.get(icon.$icon-print, 'm')} + #{map.get(spacing.$spacing-print, 'm')}
-  );
-  margin-top: map.get(spacing.$spacing-print, 'xs');
+  font: ecl-font-prolonged('l');
+  font-family: ecl-font-family-print('alt');
+  font-weight: ecl-font-weight('bold');
+  margin-left: calc(#{ecl-icon-print('m')} + #{ecl-spacing-print('m')});
+  margin-top: ecl-spacing-print('xs');
 }
 
 .ecl-fact-figures__description {
-  font: map.get(typography.$font-prolonged-print, 'm');
-  margin-left: calc(
-    #{map.get(icon.$icon-print, 'm')} + #{map.get(spacing.$spacing-print, 'm')}
-  );
-  margin-top: map.get(spacing.$spacing-print, 's');
+  font: ecl-font-prolonged('m');
+  margin-left: calc(#{ecl-icon-print('m')} + #{ecl-spacing-print('m')});
+  margin-top: ecl-spacing-print('s');
 }
 
 .ecl-fact-figures__view-all {

@@ -1,0 +1,11 @@
+@use "sass:map";
+@use '@ecl/theme-dev/maps/media';
+
+@function ecl-media($key) {
+  @if map-has-key(media.$media, $key) {
+    @return map-get(media.$media, $key);
+  }
+
+  @warn "Unknown `#{$key}` in media.$media.";
+  @return null;
+}

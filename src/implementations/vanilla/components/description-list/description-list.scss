@@ -5,13 +5,13 @@
 
 // Import base
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/functions/colorfn' as *;
+@use '@ecl/theme-dev/functions/spacingfn' as *;
+@use '@ecl/theme-dev/functions/typographyfn' as *;
 @use '@ecl/layout-grid/mixins/breakpoints';
 
 // Vertical description list
-$_text-color: map.get(color.$color, 'grey-100');
+$_text-color: ecl-color('grey-100');
 
 .ecl-description-list {
   margin: 0;
@@ -19,10 +19,10 @@ $_text-color: map.get(color.$color, 'grey-100');
 
 .ecl-description-list__term {
   color: $_text-color;
-  font: map.get(typography.$font-prolonged, 'xl');
-  font-weight: map.get(typography.$font-weight, 'bold');
-  margin-top: map.get(spacing.$spacing, 'l');
-  max-width: calc(80ch - #{map.get(spacing.$spacing, '2xl')});
+  font: ecl-font-prolonged('xl');
+  font-weight: ecl-font-weight('bold');
+  margin-top: ecl-spacing('l');
+  max-width: calc(80ch - #{ecl-spacing('2xl')});
 
   &:first-child {
     margin-top: 0;
@@ -30,20 +30,20 @@ $_text-color: map.get(color.$color, 'grey-100');
 }
 
 .ecl-description-list__term + .ecl-description-list__term {
-  margin-top: map.get(spacing.$spacing, '2xs');
+  margin-top: ecl-spacing('2xs');
 }
 
 .ecl-description-list__definition {
   color: $_text-color;
-  font: map.get(typography.$font-prolonged, 'm');
+  font: ecl-font-prolonged('m');
   margin-left: 0;
-  margin-top: map.get(spacing.$spacing, 'm');
-  max-width: calc(80ch - #{map.get(spacing.$spacing, '2xl')});
-  padding-left: map.get(spacing.$spacing, 's');
+  margin-top: ecl-spacing('m');
+  max-width: calc(80ch - #{ecl-spacing('2xl')});
+  padding-left: ecl-spacing('s');
 }
 
 .ecl-description-list__definition + .ecl-description-list__definition {
-  margin-top: map.get(spacing.$spacing, 'xs');
+  margin-top: ecl-spacing('xs');
 }
 
 // Horizontal description list
@@ -56,9 +56,9 @@ $_definition-width: 68%;
 }
 
 .ecl-description-list--horizontal .ecl-description-list__term {
-  font: map.get(typography.$font, 'm');
-  font-weight: map.get(typography.$font-weight, 'bold');
-  margin-top: map.get(spacing.$spacing, 'm');
+  font: ecl-font('m');
+  font-weight: ecl-font-weight('bold');
+  margin-top: ecl-spacing('m');
 
   &:first-of-type {
     margin-top: 0;
@@ -66,8 +66,8 @@ $_definition-width: 68%;
 }
 
 .ecl-description-list--horizontal .ecl-description-list__definition {
-  font: map.get(typography.$font, 'm');
-  margin-top: map.get(spacing.$spacing, '2xs');
+  font: ecl-font('m');
+  margin-top: ecl-spacing('2xs');
   padding-left: 0;
 }
 
@@ -76,7 +76,7 @@ $_definition-width: 68%;
   .ecl-description-list--horizontal {
     flex-direction: row;
     flex-wrap: wrap;
-    max-width: calc(499px + #{map.get(spacing.$spacing, 'xl')});
+    max-width: calc(499px + #{ecl-spacing('xl')});
   }
 
   .ecl-description-list--horizontal .ecl-description-list__term {
@@ -84,10 +84,10 @@ $_definition-width: 68%;
   }
 
   .ecl-description-list--horizontal .ecl-description-list__definition {
-    margin-left: map.get(spacing.$spacing, 'xl');
-    margin-top: map.get(spacing.$spacing, 'm');
+    margin-left: ecl-spacing('xl');
+    margin-top: ecl-spacing('m');
     overflow-wrap: break-word;
-    width: calc(#{$_definition-width} - #{map.get(spacing.$spacing, 'xl')});
+    width: calc(#{$_definition-width} - #{ecl-spacing('xl')});
   }
 
   .ecl-description-list--horizontal

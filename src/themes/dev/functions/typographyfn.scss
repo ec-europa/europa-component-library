@@ -1,7 +1,7 @@
 @use "sass:map";
 @use '@ecl/theme-dev/maps/typography';
 
-@function font($key) {
+@function ecl-font($key) {
   @if map-has-key(typography.$font, $key) {
     @return map-get(typography.$font, $key);
   }
@@ -10,7 +10,7 @@
   @return null;
 }
 
-@function font-print($key) {
+@function ecl-font-print($key) {
   @if map-has-key(typography.$font-print, $key) {
     @return map-get(typography.$font-print, $key);
   }
@@ -19,7 +19,7 @@
   @return null;
 }
 
-@function font-weight($key) {
+@function ecl-font-weight($key) {
   @if map-has-key(typography.$font-weight, $key) {
     @return map-get(typography.$font-weight, $key);
   }
@@ -28,7 +28,7 @@
   @return null;
 }
 
-@function font-family($key) {
+@function ecl-font-family($key) {
   @if map-has-key(typography.$font-family, $key) {
     @return map-get(typography.$font-family, $key);
   }
@@ -37,7 +37,7 @@
   @return null;
 }
 
-@function font-family-print($key) {
+@function ecl-font-family-print($key) {
   @if map-has-key(typography.$font-family-print, $key) {
     @return map-get(typography.$font-family-print, $key);
   }
@@ -46,7 +46,7 @@
   @return null;
 }
 
-@function font-prolonged($key) {
+@function ecl-font-prolonged($key) {
   @if map-has-key(typography.$font-prolonged, $key) {
     @return map-get(typography.$font-prolonged, $key);
   }
@@ -55,7 +55,7 @@
   @return null;
 }
 
-@function font-prolonged-print($key) {
+@function ecl-font-prolonged-print($key) {
   @if map-has-key(typography.$font-prolonged-print, $key) {
     @return map-get(typography.$font-prolonged-print, $key);
   }
@@ -64,7 +64,7 @@
   @return null;
 }
 
-@function font-size-print($key) {
+@function ecl-font-size-print($key) {
   @if map-has-key(typography.$font-size-print, $key) {
     @return map-get(typography.$font-size-print, $key);
   }
@@ -73,7 +73,7 @@
   @return null;
 }
 
-@function line-height($key) {
+@function ecl-line-height($key) {
   @if map-has-key(typography.$line-height, $key) {
     @return map-get(typography.$line-height, $key);
   }
@@ -82,7 +82,7 @@
   @return null;
 }
 
-@function line-height-print($key) {
+@function ecl-line-height-print($key) {
   @if map-has-key(typography.$line-height-print, $key) {
     @return map-get(typography.$line-height-print, $key);
   }
@@ -91,7 +91,7 @@
   @return null;
 }
 
-@function line-height-prolonged-print($key) {
+@function ecl-line-height-prolonged-print($key) {
   @if map-has-key(typography.$line-height-prolonged-print, $key) {
     @return map-get(typography.$line-height-prolonged-print, $key);
   }

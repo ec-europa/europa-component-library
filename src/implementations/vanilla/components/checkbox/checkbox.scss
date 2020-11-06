@@ -4,23 +4,22 @@
  */
 
 // Import base
-@use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/functions/colorfn' as *;
+@use '@ecl/theme-dev/functions/spacingfn' as *;
+@use '@ecl/theme-dev/functions/typographyfn' as *;
 
 $_border-width: 2px;
-$_border-color: map.get(color.$color, 'grey-75');
+$_border-color: ecl-color('grey-75');
 $_box-size: 1.25rem;
-$_box-background-disabled: map.get(color.$color, 'grey-5');
-$_box-background-checked: map.get(color.$color, 'blue-100');
-$_box-border-color-disabled: map.get(color.$color, 'grey-50');
-$_box-border-color-checked: map.get(color.$color, 'blue-100');
-$_box-border-color-hover: map.get(color.$color, 'blue-100');
-$_invalid-border-color: map.get(color.$color, 'error');
-$_label-color: map.get(color.$color, 'grey-100');
-$_label-color-disabled: map.get(color.$color, 'grey-50');
-$_outline-color: map.get(color.$color, 'yellow-100');
+$_box-background-disabled: ecl-color('grey-5');
+$_box-background-checked: ecl-color('blue-100');
+$_box-border-color-disabled: ecl-color('grey-50');
+$_box-border-color-checked: ecl-color('blue-100');
+$_box-border-color-hover: ecl-color('blue-100');
+$_invalid-border-color: ecl-color('error');
+$_label-color: ecl-color('grey-100');
+$_label-color-disabled: ecl-color('grey-50');
+$_outline-color: ecl-color('yellow-100');
 $_outline-width: 2px;
 
 .ecl-checkbox {
@@ -43,7 +42,7 @@ $_outline-width: 2px;
   align-items: center;
   color: $_label-color;
   display: inline-flex;
-  font: map.get(typography.$font, 'm');
+  font: ecl-font('m');
 }
 
 .ecl-checkbox__box {
@@ -54,25 +53,25 @@ $_outline-width: 2px;
   flex-shrink: 0;
   height: $_box-size;
   justify-content: center;
-  margin-right: map.get(spacing.$spacing, 's');
+  margin-right: ecl-spacing('s');
   user-select: none;
   width: $_box-size;
 }
 
 .ecl-checkbox__help {
   box-sizing: border-box;
-  color: map.get(color.$color, 'grey-100');
+  color: ecl-color('grey-100');
   display: block;
-  font: map.get(typography.$font-prolonged, 's');
-  margin-top: map.get(spacing.$spacing, 'xs');
+  font: ecl-font-prolonged('s');
+  margin-top: ecl-spacing('xs');
 }
 
 .ecl-checkbox__help--disabled {
-  color: map.get(color.$color, 'grey-50');
+  color: ecl-color('grey-50');
 }
 
 .ecl-checkbox__icon {
-  fill: map.get(color.$color, 'white-100');
+  fill: ecl-color('white-100');
   visibility: hidden;
 }
 // Disabled.
@@ -92,23 +91,23 @@ $_outline-width: 2px;
   border-color: $_invalid-border-color;
 
   .ecl-checkbox__invalid {
-    font: map.get(typography.$font, 's');
-    margin-top: map.get(spacing.$spacing, 'xs');
+    font: ecl-font('s');
+    margin-top: ecl-spacing('xs');
   }
 }
 
 .ecl-checkbox--invalid
   .ecl-checkbox__label:hover
   .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
-  border-color: map.get(color.$color, 'red-130');
+  border-color: ecl-color('red-130');
 }
 
 // Required
 .ecl-checkbox__required {
-  color: map.get(color.$color, 'error');
-  font: map.get(typography.$font, 'xl');
-  font-weight: map.get(typography.$font-weight, 'bold');
-  padding-left: map.get(spacing.$spacing, '2xs');
+  color: ecl-color('error');
+  font: ecl-font('xl');
+  font-weight: ecl-font-weight('bold');
+  padding-left: ecl-spacing('2xs');
 }
 // Checked
 // stylelint-disable no-descending-specificity

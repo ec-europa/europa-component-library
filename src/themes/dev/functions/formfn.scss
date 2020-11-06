@@ -1,0 +1,11 @@
+@use "sass:map";
+@use '@ecl/theme-dev/maps/form';
+
+@function ecl-form($key) {
+  @if map-has-key(form.$form, $key) {
+    @return map-get(form.$form, $key);
+  }
+
+  @warn "Unknown `#{$key}` in form.$form.";
+  @return null;
+}

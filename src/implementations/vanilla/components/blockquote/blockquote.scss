@@ -4,23 +4,22 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/functions/colorfn' as *;
+@use '@ecl/theme-dev/functions/spacingfn' as *;
+@use '@ecl/theme-dev/functions/typographyfn' as *;
 @use '@ecl/layout-grid/mixins/breakpoints';
 
 $_border-width: 0.625rem;
 
 .ecl-blockquote {
-  border-left: $_border-width solid map.get(color.$color, 'yellow');
+  border-left: $_border-width solid ecl-color('yellow');
   margin: 0;
-  padding: map.get(spacing.$spacing, 'm') 0 map.get(spacing.$spacing, 'm')
-    map.get(spacing.$spacing, 'l');
+  padding: ecl-spacing('m') 0 ecl-spacing('m') ecl-spacing('l');
 }
 
 .ecl-blockquote__body {
-  color: map.get(color.$color, 'grey');
-  font: map.get(typography.$font-prolonged, 'm');
+  color: ecl-color('grey');
+  font: ecl-font-prolonged('m');
   font-style: italic;
   margin: 0;
   max-width: 85ch; // Limit to ~85 chars max
@@ -36,14 +35,14 @@ $_border-width: 0.625rem;
 }
 
 .ecl-blockquote__attribution {
-  font: map.get(typography.$font-prolonged, 'm');
-  margin-top: map.get(spacing.$spacing, 'l');
+  font: ecl-font-prolonged('m');
+  margin-top: ecl-spacing('l');
 }
 
 .ecl-blockquote__author {
-  color: map.get(color.$color, 'black');
-  font: map.get(typography.$font-prolonged, 'm');
-  font-weight: map.get(typography.$font-weight, 'bold');
+  color: ecl-color('black');
+  font: ecl-font-prolonged('m');
+  font-weight: ecl-font-weight('bold');
 
   &::before {
     content: '\2014\2009'; /* Em dash followed by thin space */
@@ -53,17 +52,17 @@ $_border-width: 0.625rem;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.media-breakpoint-up('md') {
   .ecl-blockquote__body {
-    font: map.get(typography.$font-prolonged, 'xl');
+    font: ecl-font-prolonged('xl');
     font-style: italic;
   }
 
   .ecl-blockquote__attribution {
-    font: map.get(typography.$font-prolonged, 'l');
-    margin-top: map.get(spacing.$spacing, 'xl');
+    font: ecl-font-prolonged('l');
+    margin-top: ecl-spacing('xl');
   }
 
   .ecl-blockquote__author {
-    font: map.get(typography.$font-prolonged, 'l');
-    font-weight: map.get(typography.$font-weight, 'bold');
+    font: ecl-font-prolonged('l');
+    font-weight: ecl-font-weight('bold');
   }
 }

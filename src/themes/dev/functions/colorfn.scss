@@ -1,7 +1,7 @@
 @use "sass:map";
 @use '@ecl/theme-dev/maps/color';
 
-@function color($key) {
+@function ecl-color($key) {
   @if map-has-key(color.$color, $key) {
     @return map-get(color.$color, $key);
   }

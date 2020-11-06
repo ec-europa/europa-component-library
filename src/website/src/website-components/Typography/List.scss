@@ -1,21 +1,20 @@
-@use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/functions/colorfn' as *;
+@use '@ecl/theme-dev/functions/spacingfn' as *;
+@use '@ecl/theme-dev/functions/typographyfn' as *;
 
 .list {
   box-sizing: border-box;
-  color: map.get(color.$color, 'grey-100');
-  font: map.get(typography.$font-prolonged, 'm');
+  color: ecl-color('grey-100');
+  font: ecl-font-prolonged('m');
   margin: 0;
   max-width: 64ch;
 }
 
 * + .list {
-  margin-top: map.get(spacing.$spacing, 'm');
+  margin-top: ecl-spacing('m');
 }
 
 .list--lead {
-  font: map.get(typography.$font-prolonged, 'xl');
+  font: ecl-font-prolonged('xl');
   max-width: 49ch;
 }

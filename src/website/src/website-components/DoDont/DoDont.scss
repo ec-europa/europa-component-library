@@ -16,7 +16,7 @@
 .do,
 .dont,
 .caution {
-  margin-top: map.get(spacing.$spacing, 'l');
+  margin-top: ecl-spacing('l');
 }
 
 .dodont .do,
@@ -39,7 +39,7 @@
 
 .image-container {
   align-items: center;
-  border: 1px solid map.get(color.$color, 'grey-15');
+  border: 1px solid ecl-color('grey-15');
   border-bottom-width: 0;
   display: flex;
   justify-content: center;
@@ -63,54 +63,54 @@
 }
 
 .do .separator {
-  background-color: map.get(color.$color, 'success');
+  background-color: ecl-color('success');
 }
 
 .dont .separator {
-  background-color: map.get(color.$color, 'error');
+  background-color: ecl-color('error');
 }
 
 .caution .separator {
-  background-color: map.get(color.$color, 'warning');
+  background-color: ecl-color('warning');
 }
 
 .container {
-  background-color: map.get(color.$color, 'grey-5');
+  background-color: ecl-color('grey-5');
   flex-grow: 1;
   flex-shrink: 0;
-  padding: map.get(spacing.$spacing, 'm') map.get(spacing.$spacing, 'l');
+  padding: ecl-spacing('m') ecl-spacing('l');
 }
 
 .title {
   display: flex;
-  font: map.get(typography.$font-prolonged, 'm');
-  font-weight: map.get(typography.$font-weight, 'bold');
+  font: ecl-font-prolonged('m');
+  font-weight: ecl-font-weight('bold');
 }
 .do .title {
-  color: map.get(color.$color, 'success');
+  color: ecl-color('success');
 }
 .dont .title {
-  color: map.get(color.$color, 'error');
+  color: ecl-color('error');
 }
 .caution .title {
-  color: map.get(color.$color, 'warning');
+  color: ecl-color('warning');
 }
 
 .title__icon {
   fill: currentColor;
   height: map.get(icon.$icon, 's');
-  margin-right: map.get(spacing.$spacing, 's');
+  margin-right: ecl-spacing('s');
   width: map.get(icon.$icon, 's');
 }
 
 .description {
-  color: map.get(color.$color, 'grey-100');
-  font: map.get(typography.$font-prolonged, 'm');
-  margin-top: map.get(spacing.$spacing, 'xs');
+  color: ecl-color('grey-100');
+  font: ecl-font-prolonged('m');
+  margin-top: ecl-spacing('xs');
 }
 
 @media screen and (min-width: map.get(layout.$breakpoint, 's')) {
   .dont {
-    margin-top: map.get(spacing.$spacing, 'l');
+    margin-top: ecl-spacing('l');
   }
 }

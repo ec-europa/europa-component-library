@@ -3,7 +3,7 @@
 @use '@ecl/theme-dev/maps/typography';
 
 .link {
-  color: map.get(color.$color, 'primary');
+  color: ecl-color('primary');
   display: inline-block;
   fill: currentColor;
   font-family: map.get(typography.$font-family, 'default');
@@ -11,11 +11,11 @@
 
   &:hover,
   &:focus {
-    color: map.get(color.$color, 'black-100');
+    color: ecl-color('black-100');
   }
 
   &:focus {
-    outline: 3px solid map.get(color.$color, 'secondary');
+    outline: 3px solid ecl-color('secondary');
     outline-offset: 2px;
   }
 }

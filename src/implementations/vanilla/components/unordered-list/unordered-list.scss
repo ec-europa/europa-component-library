@@ -4,29 +4,28 @@
  */
 
 // Import base
-@use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/functions/colorfn' as *;
+@use '@ecl/theme-dev/functions/spacingfn' as *;
+@use '@ecl/theme-dev/functions/typographyfn' as *;
 
-$_text-color: map.get(color.$color, 'grey-100');
-$_divider-color: map.get(color.$color, 'grey-15');
+$_text-color: ecl-color('grey-100');
+$_divider-color: ecl-color('grey-15');
 
 .ecl-unordered-list {
   color: $_text-color;
-  font: map.get(typography.$font-prolonged, 'm');
+  font: ecl-font-prolonged('m');
   list-style-position: outside;
   margin: 0;
-  padding-left: map.get(spacing.$spacing, '2xl');
+  padding-left: ecl-spacing('2xl');
 }
 
 .ecl-unordered-list .ecl-unordered-list {
-  margin-top: map.get(spacing.$spacing, 'xs');
+  margin-top: ecl-spacing('xs');
 }
 
 .ecl-unordered-list__item {
-  margin-top: map.get(spacing.$spacing, 'xs');
-  max-width: calc(80ch - #{map.get(spacing.$spacing, '2xl')});
+  margin-top: ecl-spacing('xs');
+  max-width: calc(80ch - #{ecl-spacing('2xl')});
 
   &:first-child {
     margin-top: 0;
@@ -46,8 +45,8 @@ $_divider-color: map.get(color.$color, 'grey-15');
 
   > .ecl-unordered-list__item {
     border-bottom: 1px solid $_divider-color;
-    margin-bottom: map.get(spacing.$spacing, 'm');
-    padding-bottom: map.get(spacing.$spacing, 'm');
+    margin-bottom: ecl-spacing('m');
+    padding-bottom: ecl-spacing('m');
   }
 
   > .ecl-unordered-list__item:last-child {

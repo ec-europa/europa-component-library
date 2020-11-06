@@ -1,7 +1,6 @@
-@use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/functions/colorfn' as *;
+@use '@ecl/theme-dev/functions/spacingfn' as *;
+@use '@ecl/theme-dev/functions/typographyfn' as *;
 
 .card {
   display: flex;
@@ -16,19 +15,19 @@
   flex-direction: column;
   height: 7.875rem;
   justify-content: center;
-  padding-left: map.get(spacing.$spacing, 'm');
-  padding-right: map.get(spacing.$spacing, 'm');
+  padding-left: ecl-spacing('m');
+  padding-right: ecl-spacing('m');
 }
 
 .header--bordered {
-  border: 2px solid map.get(color.$color, 'grey-15');
-  padding-left: calc(#{map.get(spacing.$spacing, 'm')} - 2px);
-  padding-right: calc(#{map.get(spacing.$spacing, 'm')} - 2px);
+  border: 2px solid ecl-color('grey-15');
+  padding-left: calc(#{ecl-spacing('m')} - 2px);
+  padding-right: calc(#{ecl-spacing('m')} - 2px);
 }
 
 .title {
-  font: map.get(typography.$font, 'm');
-  font-weight: map.get(typography.$font-weight, 'bold');
+  font: ecl-font('m');
+  font-weight: ecl-font-weight('bold');
   margin: 0;
 
   .card--light & {
@@ -44,9 +43,9 @@
   background: none;
   border-style: solid;
   border-width: 2px;
-  font: map.get(typography.$font, 's');
+  font: ecl-font('s');
   height: 2.5rem;
-  margin-top: map.get(spacing.$spacing, 'm');
+  margin-top: ecl-spacing('m');
   width: 5rem;
 
   .card--light & {
@@ -67,17 +66,17 @@
 
   /* stylelint-disable-next-line */
   .card--dark & {
-    border-color: map.get(color.$color, 'grey-100');
+    border-color: ecl-color('grey-100');
     color: #000;
 
     /* stylelint-disable-next-line */
     &:focus {
-      background-color: rgba(map.get(color.$color, 'grey-100'), 0.1);
+      background-color: rgba(ecl-color('grey-100'), 0.1);
     }
 
     /* stylelint-disable-next-line */
     &:hover {
-      background-color: map.get(color.$color, 'grey-100');
+      background-color: ecl-color('grey-100');
       color: #fff;
     }
   }
@@ -96,13 +95,13 @@
 }
 
 .body {
-  background-color: map.get(color.$color, 'grey-5');
-  color: map.get(color.$color, 'text');
+  background-color: ecl-color('grey-5');
+  color: ecl-color('text');
   flex-grow: 1;
-  font: map.get(typography.$font-prolonged, 'm');
-  padding: map.get(spacing.$spacing, 's') map.get(spacing.$spacing, 'm');
+  font: ecl-font-prolonged('m');
+  padding: ecl-spacing('s') ecl-spacing('m');
 }
 
 * + .card {
-  margin-top: map.get(spacing.$spacing, 'm');
+  margin-top: ecl-spacing('m');
 }

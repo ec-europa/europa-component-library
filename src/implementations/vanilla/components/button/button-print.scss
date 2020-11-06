@@ -5,14 +5,14 @@
 
 @use "sass:map";
 @use '@ecl/theme-dev/globals';
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/functions/colorfn' as *;
+@use '@ecl/theme-dev/functions/spacingfn' as *;
+@use '@ecl/theme-dev/functions/typographyfn' as *;
 @use '@ecl/theme-dev/maps/shape';
-@use '@ecl/theme-dev/maps/typography';
 
 $_border-width: 1.5pt;
-$_padding-horizontal: map.get(spacing.$spacing-print, 'm');
-$_padding-vertical: map.get(spacing.$spacing-print, 's');
+$_padding-horizontal: ecl-spacing-print('m');
+$_padding-vertical: ecl-spacing-print('s');
 
 .ecl-button {
   appearance: none;
@@ -27,9 +27,9 @@ $_padding-vertical: map.get(spacing.$spacing-print, 's');
   border-width: 0;
   box-sizing: border-box;
   display: inline-block;
-  font: map.get(typography.$font-print, 'm');
-  font-family: map.get(typography.$font-family-print, 'alt');
-  font-weight: map.get(typography.$font-weight-print, 'bold');
+  font: ecl-font-print('m');
+  font-family: ecl-font-family-print('alt');
+  font-weight: ecl-font-weight-print('bold');
   margin: 0;
   padding: $_padding-vertical $_padding-horizontal;
   text-decoration: none;
@@ -54,25 +54,25 @@ $_padding-vertical: map.get(spacing.$spacing-print, 's');
 
 .ecl-button__icon--before,
 .ecl-button__icon + .ecl-button__label {
-  margin-right: map.get(spacing.$spacing-print, 'xs');
+  margin-right: ecl-spacing-print('xs');
 }
 
 .ecl-button__icon--after,
 .ecl-button__label + .ecl-button__icon {
-  margin-left: map.get(spacing.$spacing-print, 'xs');
+  margin-left: ecl-spacing-print('xs');
 }
 
 /**
  * Primary
  */
 .ecl-button--primary {
-  background-color: map.get(color.$color, 'blue-100');
-  color: map.get(color.$color, 'white-100');
+  background-color: ecl-color('blue-100');
+  color: ecl-color('white-100');
 
   &[disabled] {
-    background-color: map.get(color.$color, 'blue-25');
-    border-color: map.get(color.$color, 'blue-25');
-    color: map.get(color.$color, 'white-100');
+    background-color: ecl-color('blue-25');
+    border-color: ecl-color('blue-25');
+    color: ecl-color('white-100');
   }
 }
 
@@ -80,17 +80,17 @@ $_padding-vertical: map.get(spacing.$spacing-print, 's');
 * Secondary
 */
 .ecl-button--secondary {
-  background-color: map.get(color.$color, 'white-100');
-  border: $_border-width solid map.get(color.$color, 'blue-100');
-  color: map.get(color.$color, 'blue-100');
+  background-color: ecl-color('white-100');
+  border: $_border-width solid ecl-color('blue-100');
+  color: ecl-color('blue-100');
   padding: calc(#{$_padding-vertical} - #{$_border-width})
     calc(#{$_padding-horizontal} - #{$_border-width});
 
   &[disabled] {
-    background-color: map.get(color.$color, 'white-100');
-    border-color: map.get(color.$color, 'blue-25');
+    background-color: ecl-color('white-100');
+    border-color: ecl-color('blue-25');
     border-width: $_border-width;
-    color: map.get(color.$color, 'blue-25');
+    color: ecl-color('blue-25');
     padding: calc(#{$_padding-vertical} - #{$_border-width})
       calc(#{$_padding-horizontal} - #{$_border-width});
   }
@@ -100,10 +100,10 @@ $_padding-vertical: map.get(spacing.$spacing-print, 's');
 * Ghost
 */
 .ecl-button--ghost {
-  color: map.get(color.$color, 'blue-100');
+  color: ecl-color('blue-100');
 
   &[disabled] {
-    color: map.get(color.$color, 'blue-25');
+    color: ecl-color('blue-25');
   }
 }
 
@@ -111,13 +111,13 @@ $_padding-vertical: map.get(spacing.$spacing-print, 's');
 * Call to action
 */
 .ecl-button--call {
-  background-color: map.get(color.$color, 'yellow-100');
-  color: map.get(color.$color, 'black-100');
+  background-color: ecl-color('yellow-100');
+  color: ecl-color('black-100');
 
   &[disabled] {
-    background-color: map.get(color.$color, 'yellow-25');
-    border-color: map.get(color.$color, 'yellow-25');
-    color: map.get(color.$color, 'grey-50');
+    background-color: ecl-color('yellow-25');
+    border-color: ecl-color('yellow-25');
+    color: ecl-color('grey-50');
   }
 }
 
@@ -125,11 +125,11 @@ $_padding-vertical: map.get(spacing.$spacing-print, 's');
 * Search
 */
 .ecl-button--search {
-  background-color: map.get(color.$color, 'grey-10');
-  color: map.get(color.$color, 'blue-100');
+  background-color: ecl-color('grey-10');
+  color: ecl-color('blue-100');
 
   &[disabled] {
-    background-color: map.get(color.$color, 'grey-5');
-    color: map.get(color.$color, 'grey-50');
+    background-color: ecl-color('grey-5');
+    color: ecl-color('grey-50');
   }
 }

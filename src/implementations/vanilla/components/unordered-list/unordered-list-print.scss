@@ -4,21 +4,20 @@
  */
 
 // Import base
-@use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/functions/colorfn' as *;
+@use '@ecl/theme-dev/functions/spacingfn' as *;
+@use '@ecl/theme-dev/functions/typographyfn' as *;
 
-$_text-color: map.get(color.$color, 'grey-100');
+$_text-color: ecl-color('grey-100');
 
 .ecl-unordered-list {
   color: $_text-color;
-  font: map.get(typography.$font-prolonged-print, 'm');
+  font: ecl-font-prolonged('m');
   margin: 0;
 }
 
 .ecl-unordered-list__item {
-  margin-top: map.get(spacing.$spacing-print, 's');
+  margin-top: ecl-spacing-print('s');
 
   &:first-of-type {
     margin-top: 0;
@@ -32,5 +31,5 @@ $_text-color: map.get(color.$color, 'grey-100');
 }
 
 .ecl-unordered-list .ecl-unordered-list {
-  margin-top: map.get(spacing.$spacing-print, 's');
+  margin-top: ecl-spacing-print('s');
 }
