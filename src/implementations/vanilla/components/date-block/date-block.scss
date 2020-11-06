@@ -1,0 +1,186 @@
+/*
+ * Date block
+ * @define date-block
+ */
+
+// Import base
+@use "sass:map";
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/layout-grid/mixins/breakpoints';
+
+$_background-default: map.get(color.$color, 'blue');
+$_text-color-default: map.get(color.$color, 'white');
+$_separator-color-default: map.get(color.$color, 'grey-25');
+$_year-background-default: map.get(color.$color, 'grey-10');
+$_year-text-color-default: map.get(color.$color, 'grey');
+$_background-ongoing: map.get(color.$color, 'yellow');
+$_text-color-ongoing: map.get(color.$color, 'grey');
+$_separator-color-ongoing: map.get(color.$color, 'grey-25');
+$_year-background-ongoing: map.get(color.$color, 'grey-10');
+$_year-text-color-ongoing: map.get(color.$color, 'grey');
+$_background-cancelled: map.get(color.$color, 'grey-10');
+$_text-color-cancelled: map.get(color.$color, 'grey');
+$_separator-color-cancelled: map.get(color.$color, 'grey-25');
+$_year-background-cancelled: map.get(color.$color, 'grey-10');
+$_year-text-color-cancelled: map.get(color.$color, 'grey');
+$_background-past: map.get(color.$color, 'white');
+$_text-color-past: map.get(color.$color, 'grey');
+$_separator-color-past: map.get(color.$color, 'grey-50');
+$_year-background-past: map.get(color.$color, 'white');
+$_year-text-color-past: map.get(color.$color, 'grey');
+$_width-mobile: 5rem;
+$_width-desktop: 6.3rem;
+$_circle-width: 0.6rem;
+
+.ecl-date-block {
+  background-color: $_background-default;
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-direction: column;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  width: $_width-mobile;
+
+  &::before {
+    background-color: map.get(color.$color, 'white');
+    border-radius: 50%;
+    box-sizing: content-box;
+    content: '';
+    display: block;
+    height: $_circle-width;
+    left: map.get(spacing.$spacing, 's');
+    position: absolute;
+    top: -#{$_circle-width / 2};
+    width: $_circle-width;
+  }
+
+  &::after {
+    background-color: map.get(color.$color, 'white');
+    border-radius: 50%;
+    box-sizing: content-box;
+    content: '';
+    display: block;
+    height: $_circle-width;
+    position: absolute;
+    right: map.get(spacing.$spacing, 's');
+    top: -#{$_circle-width / 2};
+    width: $_circle-width;
+  }
+}
+
+.ecl-date-block__day {
+  color: $_text-color-default;
+  font: map.get(typography.$font, '2xl');
+  font-weight: map.get(typography.$font-weight, 'bold');
+  padding-left: map.get(spacing.$spacing, '2xs');
+  padding-right: map.get(spacing.$spacing, '2xs');
+  padding-top: map.get(spacing.$spacing, 'xs');
+}
+
+.ecl-date-block__month {
+  color: $_text-color-default;
+  font: map.get(typography.$font, 'm');
+  padding-bottom: map.get(spacing.$spacing, '2xs');
+  padding-left: map.get(spacing.$spacing, '2xs');
+  padding-right: map.get(spacing.$spacing, '2xs');
+  text-decoration: none !important;
+  text-transform: uppercase;
+}
+
+.ecl-date-block__year {
+  background-color: $_year-background-default;
+  border-top: 1px solid $_separator-color-default;
+  color: $_year-text-color-default;
+  font: map.get(typography.$font, 's');
+  padding: map.get(spacing.$spacing, '2xs');
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.media-breakpoint-up('lg') {
+  .ecl-date-block {
+    width: $_width-desktop;
+  }
+
+  .ecl-date-block__month {
+    padding-bottom: map.get(spacing.$spacing, 'xs');
+  }
+
+  .ecl-date-block__year {
+    padding-bottom: map.get(spacing.$spacing, 'xs');
+    padding-top: map.get(spacing.$spacing, 'xs');
+  }
+
+  .ecl-date-block__daytime {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    /* stylelint-disable-next-line property-no-vendor-prefix */
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+}
+
+// ongoing
+.ecl-date-block--ongoing {
+  background-color: $_background-ongoing;
+
+  .ecl-date-block__day,
+  .ecl-date-block__month {
+    color: $_text-color-ongoing;
+  }
+
+  .ecl-date-block__year {
+    background-color: $_year-background-ongoing;
+    border-top-color: $_separator-color-ongoing;
+    color: $_year-text-color-ongoing;
+  }
+}
+
+// cancelled
+.ecl-date-block--cancelled {
+  background-color: $_background-cancelled;
+
+  .ecl-date-block__day,
+  .ecl-date-block__month {
+    color: $_text-color-cancelled;
+  }
+
+  .ecl-date-block__year {
+    background-color: $_year-background-cancelled;
+    border-top-color: $_separator-color-cancelled;
+    color: $_year-text-color-cancelled;
+  }
+}
+
+// past
+.ecl-date-block--past {
+  background-color: $_background-past;
+  border-top-color: $_separator-color-past;
+  outline: 1px solid $_separator-color-past;
+  outline-offset: -1px;
+
+  &::before,
+  &::after {
+    border: 1px solid $_separator-color-past;
+  }
+
+  .ecl-date-block__day,
+  .ecl-date-block__month {
+    color: $_text-color-past;
+  }
+
+  .ecl-date-block__year {
+    background-color: $_year-background-past;
+    color: $_year-text-color-past;
+  }
+}

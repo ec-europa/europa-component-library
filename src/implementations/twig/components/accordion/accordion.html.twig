@@ -1,0 +1,107 @@
+{% spaceless %}
+
+{#
+  Parameters:
+    - "items" (array) (default: []): format: [
+      {
+        "id": (string),
+        level: (string),
+        toggle: (predefined structure): see Button component, format: {
+          label: (string),
+          icon: (predefined structure): see Icon component,
+        },
+        content: (block),
+      },
+      ...
+    ]
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        ...
+      ],
+    - "_compliance_" (boolean) (default: false)
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-accordion' %}
+{% set _extra_attributes = 'data-ecl-auto-init="Accordion"' %}
+{% set _items = items|default([]) %}
+{% set _compliance = _compliance_|default(false) %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div
+  class="{{ _css_class }}" {{ _extra_attributes|raw }}
+  data-ecl-accordion
+>
+  {% if _items is not empty %}
+    {% for _item in _items %}
+      <div class="ecl-accordion__item">
+        <h{{ _item.level|default(3) }} class="ecl-accordion__title">
+          <button
+            type="button"
+            class="ecl-accordion__toggle"
+            data-ecl-accordion-toggle
+            aria-controls="{{ _item.id }}-content"
+          >
+            <span class="ecl-accordion__toggle-flex">
+              {% include '@ecl/icon/icon.html.twig' with {
+                icon: {
+                  path: _item.toggle.icon.path,
+                  type: "ui",
+                  name: "plus",
+                  size: "m"
+                },
+                extra_classes: 'ecl-accordion__toggle-icon',
+                extra_attributes: [{ name: "data-ecl-accordion-icon" }],
+                _compliance_: _compliance,
+                _compliance_inner_check_: true
+              } only %}
+              <span class="ecl-accordion__toggle-title">
+                {{- _item.toggle.label -}}
+              </span>
+            </span>
+          </button>
+        </h{{ _item.level|default(3) }}>
+        <div
+          class="ecl-accordion__content"
+          hidden
+          id="{{ _item.id }}-content"
+          role="region"
+        >
+          {%- set _content = _item.content|default('') %}
+          {%- block content _content|raw -%}
+        </div>
+      </div>
+    {% endfor %}
+  {% endif %}
+</div>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl/@compliance/accordion.html.twig' with {
+    items: _items
+  } only %}
+{% endif %}
+
+{% endspaceless %}
