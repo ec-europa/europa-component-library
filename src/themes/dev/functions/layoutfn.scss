@@ -1,0 +1,38 @@
+@use "sass:map";
+@use '@ecl/theme-dev/maps/layout';
+
+@function ecl-breakpoint($key) {
+  @if map-has-key(layout.$breakpoint, $key) {
+    @return map-get(layout.$breakpoint, $key);
+  }
+
+  @warn "Unknown `#{$key}` in layout.$breakpoint.";
+  @return null;
+}
+
+@function ecl-container($key) {
+  @if map-has-key(layout.$container, $key) {
+    @return map-get(layout.$container, $key);
+  }
+
+  @warn "Unknown `#{$key}` in layout.$container.";
+  @return null;
+}
+
+@function ecl-grid($key) {
+  @if map-has-key(layout.$grid, $key) {
+    @return map-get(layout.$grid, $key);
+  }
+
+  @warn "Unknown `#{$key}` in layout.$grid.";
+  @return null;
+}
+
+@function ecl-grid-gutter-width($key) {
+  @if map-has-key(layout.$grid-gutter-width, $key) {
+    @return map-get(layout.$grid-gutter-width, $key);
+  }
+
+  @warn "Unknown `#{$key}` in layout.$grid-gutter-width.";
+  @return null;
+}
