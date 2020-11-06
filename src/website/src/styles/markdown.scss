@@ -1,7 +1,6 @@
-@use "sass:map";
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/functions/colorfn' as *;
+@use '@ecl/theme-dev/functions/spacingfn' as *;
+@use '@ecl/theme-dev/functions/typographyfn' as *;
 
 .h1 {
   color: ecl-color('grey-100');
@@ -61,7 +60,7 @@
 
 .a {
   color: ecl-color('primary');
-  font-family: #{map.get(typography.$font-family, 'default')};
+  font-family: #{ecl-font-family('default')};
   text-decoration: underline;
 
   &:hover,

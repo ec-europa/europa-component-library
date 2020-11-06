@@ -1,6 +1,5 @@
-@use "sass:map";
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/layout';
+@use '@ecl/theme-dev/functions/spacingfn' as *;
+@use '@ecl/theme-dev/functions/layoutfn' as *;
 
 .pv-m {
   padding-bottom: ecl-spacing('m') !important;
@@ -26,7 +25,7 @@
   padding-bottom: ecl-spacing('3xl') !important;
   padding-top: ecl-spacing('3xl') !important;
 }
-@media screen and (min-width: map.get(layout.$breakpoint, 'md')) {
+@media screen and (min-width: ecl-breakpoint('m')) {
   .pv-md-3xl {
     padding-bottom: ecl-spacing('3xl') !important;
     padding-top: ecl-spacing('3xl') !important;

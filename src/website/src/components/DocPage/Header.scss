@@ -1,8 +1,8 @@
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
-@use '@ecl/theme-dev/maps/layout';
+@use '@ecl/theme-dev/functions/colorfn' as *;
+@use '@ecl/theme-dev/functions/spacingfn' as *;
+@use '@ecl/theme-dev/functions/typographyfn' as *;
+@use '@ecl/theme-dev/functions/layoutfn' as *;
 
 $_header-bg-color: ecl-color('grey-10');
 $_header-tabs-border-width: 4px;
@@ -147,7 +147,7 @@ $_arrow-width: 2.75rem;
   width: 1.25rem;
 }
 
-@media screen and (min-width: map.get(layout.$breakpoint, 'm')) {
+@media screen and (min-width: ecl-breakpoint('m')) {
   .select__container {
     display: none;
   }

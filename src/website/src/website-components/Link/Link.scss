@@ -1,12 +1,11 @@
-@use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/functions/colorfn' as *;
+@use '@ecl/theme-dev/functions/typographyfn' as *;
 
 .link {
   color: ecl-color('primary');
   display: inline-block;
   fill: currentColor;
-  font-family: map.get(typography.$font-family, 'default');
+  font-family: ecl-font-family('default');
   text-decoration: underline;
 
   &:hover,
