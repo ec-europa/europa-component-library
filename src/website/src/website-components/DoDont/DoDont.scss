@@ -1,9 +1,8 @@
-@use "sass:map";
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/layout';
-@use '@ecl/theme-dev/maps/typography';
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/icon';
+@use '@ecl/theme-dev/functions/iconfn' as *;
+@use '@ecl/theme-dev/functions/colorfn' as *;
+@use '@ecl/theme-dev/functions/spacingfn' as *;
+@use '@ecl/theme-dev/functions/typographyfn' as *;
+@use '@ecl/theme-dev/functions/layoutfn' as *;
 
 .dodont {
   box-sizing: border-box;
@@ -28,7 +27,7 @@
   position: relative;
   width: 100%;
 
-  @media screen and (min-width: map.get(layout.$breakpoint, 'm')) {
+  @media screen and (min-width: ecl-breakpoint('m')) {
     display: flex;
     flex: 0 0 50%;
     flex-direction: column;
@@ -98,9 +97,9 @@
 
 .title__icon {
   fill: currentColor;
-  height: map.get(icon.$icon, 's');
+  height: ecl-icon('s');
   margin-right: ecl-spacing('s');
-  width: map.get(icon.$icon, 's');
+  width: ecl-icon('s');
 }
 
 .description {
@@ -109,7 +108,7 @@
   margin-top: ecl-spacing('xs');
 }
 
-@media screen and (min-width: map.get(layout.$breakpoint, 's')) {
+@media screen and (min-width: ecl-breakpoint('s')) {
   .dont {
     margin-top: ecl-spacing('l');
   }

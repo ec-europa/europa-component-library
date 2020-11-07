@@ -1,8 +1,7 @@
-@use "sass:map";
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/typography';
-@use '@ecl/theme-dev/maps/layout';
+@use '@ecl/theme-dev/functions/colorfn' as *;
+@use '@ecl/theme-dev/functions/spacingfn' as *;
+@use '@ecl/theme-dev/functions/typographyfn' as *;
+@use '@ecl/theme-dev/functions/layoutfn' as *;
 
 * + .anatomy {
   margin-top: ecl-spacing('m');
@@ -110,7 +109,7 @@
   outline-offset: 2px;
 }
 
-@media screen and (min-width: map.get(layout.$breakpoint, 'm')) {
+@media screen and (min-width: ecl-breakpoint('m')) {
   * + .anatomy {
     margin-top: ecl-spacing('l');
   }
