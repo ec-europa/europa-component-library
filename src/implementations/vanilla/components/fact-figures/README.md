@@ -1,1 +1,1 @@
-# ECL Fact and Figures
+# Fact and Figures
