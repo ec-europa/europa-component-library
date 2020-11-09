@@ -1,4 +1,4 @@
-import { queryOne, queryAll } from '@ecl//helpers/dom';
+import { queryAll, queryOne } from '@ecl/dom-utils';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
