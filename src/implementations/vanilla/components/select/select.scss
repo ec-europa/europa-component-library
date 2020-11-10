@@ -1,0 +1,243 @@
+/**
+ * Select component
+ * @define select; weak;
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/maps/form';
+@use '@ecl/theme-dev/maps/z-index';
+@use '@ecl/layout-grid/mixins/breakpoints';
+
+$_border-color: map.get(color.$color, 'grey-100');
+$_border-width: 1px;
+$_border-color-hover: map.get(color.$color, 'blue-100');
+$_border-color-focus: map.get(color.$color, 'yellow-100');
+$_border-width-focus: 3px;
+$_arrow-width: 2.75rem;
+
+.ecl-select {
+  appearance: none;
+  background-color: transparent;
+  border: $_border-width solid $_border-color;
+  border-radius: 0;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: map.get(color.$color, 'text');
+  display: block;
+  font: map.get(typography.$font, 'm');
+  margin: 0;
+  padding: calc(#{map.get(spacing.$spacing, 's')} - #{$_border-width})
+    calc(
+      #{map.get(spacing.$spacing, 's')} + #{$_arrow-width} - #{$_border-width}
+    )
+    calc(#{map.get(spacing.$spacing, 's')} - #{$_border-width})
+    calc(#{map.get(spacing.$spacing, 's')} - #{$_border-width});
+  width: 100%;
+  z-index: 1;
+
+  &::-ms-expand {
+    display: none;
+  }
+
+  &:hover {
+    border-color: $_border-color-hover;
+  }
+
+  &:focus {
+    outline: $_border-width-focus solid $_border-color-focus;
+    outline-offset: -3px;
+  }
+}
+
+.ecl-select__container {
+  background-color: map.get(color.$color, 'white-100');
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  position: relative;
+}
+
+.ecl-select__container--s {
+  width: 50%;
+
+  @include breakpoints.media-breakpoint-up('md') {
+    width: 30%;
+  }
+
+  @include breakpoints.media-breakpoint-up('lg') {
+    width: map.get(form.$form, 's');
+  }
+}
+
+.ecl-select__container--m {
+  width: 100%;
+
+  @include breakpoints.media-breakpoint-up('md') {
+    width: 50%;
+  }
+
+  @include breakpoints.media-breakpoint-up('lg') {
+    width: map.get(form.$form, 'm');
+  }
+}
+
+.ecl-select__container--l {
+  width: 100%;
+
+  @include breakpoints.media-breakpoint-up('lg') {
+    width: map.get(form.$form, 'l');
+  }
+}
+
+.ecl-select__container--hidden {
+  margin-top: 0 !important;
+
+  .ecl-select {
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    position: absolute !important;
+    width: 1px;
+  }
+}
+
+.ecl-select__icon {
+  align-items: center;
+  background-color: $_border-color;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: $_arrow-width;
+  z-index: 0;
+}
+
+.ecl-select:hover + .ecl-select__icon {
+  background-color: $_border-color-hover;
+}
+.ecl-select:focus + .ecl-select__icon {
+  background-color: $_border-color;
+}
+
+.ecl-select__icon-shape {
+  fill: map.get(color.$color, 'white-100');
+}
+
+/*
+   * Disabled
+   */
+.ecl-select__container--disabled {
+  background-color: map.get(color.$color, 'grey-5');
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  .ecl-select__icon,
+  .ecl-select:hover + .ecl-select__icon,
+  .ecl-select:focus + .ecl-select__icon {
+    background-color: map.get(color.$color, 'grey-50');
+  }
+
+  .ecl-select__icon-shape {
+    fill: map.get(color.$color, 'grey-5');
+  }
+
+  .ecl-select {
+    border-color: map.get(color.$color, 'grey-50');
+    color: map.get(color.$color, 'grey-50');
+    cursor: not-allowed;
+  }
+}
+
+/*
+   * Invalid
+   */
+.ecl-select__container--invalid {
+  /* stylelint-disable-next-line no-descending-specificity */
+  .ecl-select__icon {
+    background-color: map.get(color.$color, 'error');
+  }
+
+  .ecl-select:hover + .ecl-select__icon,
+  .ecl-select:focus + .ecl-select__icon {
+    background-color: map.get(color.$color, 'red-130');
+  }
+
+  .ecl-select {
+    border-color: map.get(color.$color, 'error');
+    box-shadow: none;
+  }
+
+  .ecl-select:hover,
+  .ecl-select:focus {
+    border-color: map.get(color.$color, 'red-130');
+  }
+}
+
+/*
+   * Multiple
+   */
+// stylelint-disable-next-line no-descending-specificity
+.ecl-select[multiple] + .ecl-select__icon {
+  display: none;
+}
+
+.ecl-select__multiple {
+  position: relative;
+  .ecl-select__multiple-toggle[readonly] {
+    border-color: map.get(color.$color, 'grey');
+    color: map.get(color.$color, 'grey');
+    cursor: default;
+  }
+
+  .ecl-select__multiple-dropdown {
+    background-color: map.get(color.$color, 'grey-5');
+    border: 1px solid map.get(color.$color, 'grey-15');
+    box-sizing: border-box;
+    margin-top: map.get(spacing.$spacing, 'xs');
+    position: absolute;
+    z-index: map.get(z-index.$z-index, 'dropdown');
+  }
+
+  .ecl-text-input {
+    width: 100%;
+  }
+
+  .ecl-select__multiple-all {
+    border-bottom: 1px solid map.get(color.$color, 'grey-25');
+    margin-bottom: map.get(spacing.$spacing, 'xs');
+  }
+
+  .ecl-checkbox:last-of-type {
+    margin-bottom: map.get(spacing.$spacing, 'xs');
+  }
+
+  .ecl-checkbox__label {
+    padding-bottom: map.get(spacing.$spacing, 'xs');
+    padding-left: map.get(spacing.$spacing, 'm');
+    padding-right: map.get(spacing.$spacing, 'm');
+    padding-top: map.get(spacing.$spacing, 'xs');
+    width: calc(
+      100% - #{map.get(spacing.$spacing, 'm')} - #{map.get(
+          spacing.$spacing,
+          'm'
+        )}
+    );
+  }
+
+  .ecl-checkbox__label:hover,
+  .ecl-checkbox__label:focus {
+    background-color: map.get(color.$color, 'grey-15');
+  }
+
+  .ecl-select__multiple-all .ecl-checkbox__label {
+    margin-bottom: map.get(spacing.$spacing, 'xs');
+  }
+
+  .ecl-checkbox:first-of-type .ecl-checkbox__label {
+    margin-top: map.get(spacing.$spacing, 'xs');
+  }
+}
