@@ -1,4 +1,4 @@
-import { queryAll, queryOne } from '@ecl/helpers/dom';
+import { queryAll, queryOne } from '@ecl/dom-utils';
 import iconSvgUiArrow from '@ecl/resources-ec-icons/dist/svg/ui/solid-arrow.svg';
 
 /**

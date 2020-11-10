@@ -1,4 +1,4 @@
-import { queryAll } from '@ecl/helpers/dom';
+import { queryAll } from '..';
 
 export const autoInit = ({ root = document, ...options } = {}) => {
   if (!ECL) {
