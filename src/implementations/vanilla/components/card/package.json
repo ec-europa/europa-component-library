@@ -1,18 +1,15 @@
 {
-  "name": "@ecl/twig-component-button",
-  "private": true,
+  "name": "@ecl/vanilla-component-card",
   "author": "European Commission",
   "license": "EUPL-1.1",
   "version": "3.0.0",
-  "description": "ECL Button",
+  "description": "ECL Card",
+  "style": "card.scss",
+  "sass": "card.scss",
   "dependencies": {
-    "@ecl/twig-component-icon": "^3.0.0"
+    "@ecl/theme-dev": "^3.0.0"
   },
-  "devDependencies": {
-    "@ecl/resources-ec-icons": "^3.0.0",
-    "@ecl/specs-component-button": "^3.0.0",
-    "@ecl/vanilla-component-button": "^3.0.0"
-  },
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ec-europa/europa-component-library.git"
@@ -24,7 +21,6 @@
   "keywords": [
     "ecl",
     "europa-component-library",
-    "design-system",
-    "twig"
+    "design-system"
   ]
 }
