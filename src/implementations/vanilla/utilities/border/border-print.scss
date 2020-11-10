@@ -1,0 +1,72 @@
+@use "sass:map";
+@use '@ecl/theme-dev/maps/color';
+@use "@ecl/theme-dev/maps/layout";
+@use '@ecl/layout-grid/mixins/breakpoints';
+
+@each $breakpoint in map.keys(layout.$breakpoint) {
+  @include breakpoints.media-breakpoint-up($breakpoint) {
+    $infix: breakpoints.breakpoint-infix($breakpoint, layout.$breakpoint);
+
+    // Full border
+    .ecl-u-border#{$infix}-all {
+      border: 1px solid map.get(color.$color, 'black-100') !important;
+    }
+
+    .ecl-u-border#{$infix}-bottom {
+      border-bottom: 1px solid map.get(color.$color, 'black-100') !important;
+    }
+
+    .ecl-u-border#{$infix}-left {
+      border-left: 1px solid map.get(color.$color, 'black-100') !important;
+    }
+
+    .ecl-u-border#{$infix}-top {
+      border-top: 1px solid map.get(color.$color, 'black-100') !important;
+    }
+
+    .ecl-u-border#{$infix}-right {
+      border-right: 1px solid map.get(color.$color, 'black-100') !important;
+    }
+
+    // Border color
+    @each $key, $value in color.$color {
+      .ecl-u-border-color#{$infix}-#{$key} {
+        border-color: $value !important;
+      }
+    }
+
+    // Border width
+    .ecl-u-border-width#{$infix}-0 {
+      border-width: 0 !important;
+    }
+
+    .ecl-u-border-width#{$infix}-1 {
+      border-width: 0.0625rem !important; // 1px
+    }
+
+    .ecl-u-border-width#{$infix}-2 {
+      border-width: 0.125rem !important; // 2px
+    }
+
+    .ecl-u-border-width#{$infix}-4 {
+      border-width: 0.25rem !important; // 4px
+    }
+
+    .ecl-u-border-width#{$infix}-8 {
+      border-width: 0.5rem !important; // 8px
+    }
+
+    // Border style
+    .ecl-u-border-style#{$infix}-solid {
+      border-style: solid !important;
+    }
+
+    .ecl-u-border-style#{$infix}-dashed {
+      border-style: dashed !important;
+    }
+
+    .ecl-u-border-style#{$infix}-dotted {
+      border-style: dotted !important;
+    }
+  }
+}
