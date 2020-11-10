@@ -28,7 +28,7 @@ $_image-width: 13.125rem;
   font: map.get(typography.$font-print, 'm');
   font-family: map.get(typography.$font-family-print, 'alt');
   font-weight: map.get(typography.$font-weight-print, 'bold');
-  margin-bottom: map.get(typography.$font-print, 's');
+  margin-bottom: map.get(spacing.$spacing-print, 's');
   width: 100%;
 }
 
@@ -55,8 +55,8 @@ $_image-width: 13.125rem;
   border-bottom: 1px solid map.get(color.$color, 'grey-20');
   display: flex;
   flex-direction: row;
-  margin-bottom: map.get(typography.$font-print, 'm');
-  padding-bottom: map.get(typography.$font-print, 'm');
+  margin-bottom: map.get(spacing.$spacing-print, 'm');
+  padding-bottom: map.get(spacing.$spacing-print, 'm');
 }
 
 .ecl-file__detail-meta {
@@ -136,7 +136,7 @@ $_image-width: 13.125rem;
 
 .ecl-file__translation-language {
   color: map.get(color.$color, 'black');
-  font: map.get(spacing.$spacing-print, 's');
+  font: map.get(typography.$font-print, 's');
   font-weight: map.get(typography.$font-weight-print, 'bold');
 }
 

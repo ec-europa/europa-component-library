@@ -135,7 +135,7 @@ $_image-width: 13.125rem; // Same as content item
   font-weight: map.get(typography.$font-weight, 'regular');
   margin-bottom: map.get(spacing.$spacing, 'm') - map.get(spacing.$spacing, 's');
   margin-right: -#{map.get(spacing.$spacing, 'm')};
-  margin-top: map.get(spacing.$spacing, 'm') - map.get(spacing.$spacing, 'm');
+  margin-top: map.get(spacing.$spacing, 'm') - map.get(spacing.$spacing, 's');
 
   .no-js & {
     display: none;
@@ -215,7 +215,7 @@ $_image-width: 13.125rem; // Same as content item
 
   .ecl-file__translation-container {
     padding-left: map.get(spacing.$spacing, 'l') + map.get(icon.$icon, '2xl') +
-      map.get(spacing.$spacing, 'l');
+      map.get(spacing.$spacing, 'm');
   }
 
   .ecl-file__translation-item {
