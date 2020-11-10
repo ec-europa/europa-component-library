@@ -1,1 +1,1 @@
-# ECL Text area
+# Text area
