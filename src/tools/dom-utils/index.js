@@ -1,5 +1,4 @@
-// Utilities helper
-export function formatBytes(bytes, decimals = 2) {
+export const formatBytes = (bytes, decimals = 2) => {
   if (bytes === 0) return '0 Bytes';
 
   const k = 1024;
@@ -9,6 +8,10 @@ export function formatBytes(bytes, decimals = 2) {
   const i = Math.floor(Math.log(bytes) / Math.log(k));
 
   return `${parseFloat((bytes / k ** i).toFixed(dm))} ${sizes[i]}`;
-}
+};
 
-export default formatBytes;
+export const queryAll = (selector, context = document) =>
+  [].slice.call(context.querySelectorAll(selector));
+
+export const queryOne = (selector, context = document) =>
+  context.querySelector(selector);
