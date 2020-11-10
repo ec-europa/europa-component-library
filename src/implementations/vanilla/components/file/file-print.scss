@@ -1,0 +1,145 @@
+/*
+ * File
+ * @define file
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/maps/typography';
+
+$_image-width: 13.125rem;
+
+.ecl-file {
+  margin: 0;
+}
+
+.ecl-file__info {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ecl-file__icon {
+  display: none;
+}
+
+.ecl-file__title {
+  color: map.get(color.$color, 'black-100');
+  font: map.get(typography.$font-print, 'm');
+  font-family: map.get(typography.$font-family-print, 'alt');
+  font-weight: map.get(typography.$font-weight-print, 'bold');
+  margin-bottom: map.get(typography.$font-print, 's');
+  width: 100%;
+}
+
+.ecl-file__language {
+  color: map.get(color.$color, 'black-100');
+  font: map.get(typography.$font-print, 's');
+  font-weight: map.get(typography.$font-weight-print, 'bold');
+  margin-right: map.get(spacing.$spacing-print, '2xs');
+}
+
+.ecl-file__meta {
+  color: map.get(color.$color, 'black-100');
+  font: map.get(typography.$font-print, 's');
+}
+
+.ecl-file__download {
+  border-width: 0;
+  clear: left;
+  font: map.get(typography.$font-print, 's');
+  font-weight: map.get(typography.$font-weight-print, 'regular');
+}
+
+.ecl-file__detail {
+  border-bottom: 1px solid map.get(color.$color, 'grey-20');
+  display: flex;
+  flex-direction: row;
+  margin-bottom: map.get(typography.$font-print, 'm');
+  padding-bottom: map.get(typography.$font-print, 'm');
+}
+
+.ecl-file__detail-meta {
+  color: map.get(color.$color, 'grey-75');
+  font: map.get(typography.$font-print, 's');
+  margin-bottom: map.get(spacing.$spacing-print, 'xs');
+}
+
+.ecl-file__detail-meta-item {
+  margin-left: map.get(spacing.$spacing-print, 'xs');
+
+  &::before {
+    content: '|';
+    margin-right: map.get(spacing.$spacing-print, 'xs');
+  }
+}
+
+.ecl-file__detail-meta-item:first-of-type {
+  margin-left: 0;
+  text-transform: uppercase;
+
+  &::before {
+    display: none;
+  }
+}
+
+.ecl-file__image {
+  align-self: flex-start;
+  display: block;
+  margin-left: map.get(spacing.$spacing, 'l');
+  margin-top: 0;
+  max-width: $_image-width;
+}
+
+.ecl-file__description {
+  color: map.get(color.$color, 'black');
+  font: map.get(typography.$font-prolonged-print, 'm');
+  margin-top: map.get(spacing.$spacing-print, 'xs');
+}
+
+.ecl-file__translation-toggle {
+  display: none;
+}
+
+.ecl-file__translation-list {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+.ecl-file__translation-item {
+  margin-top: map.get(spacing.$spacing-print, 'xs');
+}
+
+.ecl-file__translation-info {
+  display: flex;
+}
+
+.ecl-file__translation-title {
+  color: map.get(color.$color, 'black-100');
+  font: map.get(typography.$font-print, 's');
+  font-weight: map.get(typography.$font-weight-print, 'bold');
+  margin-right: map.get(spacing.$spacing-print, '2xs');
+}
+
+.ecl-file__translation-meta {
+  color: map.get(color.$color, 'black-100');
+  font: map.get(typography.$font-print, 's');
+}
+
+.ecl-file__translation-description {
+  color: map.get(color.$color, 'black-100');
+  font: map.get(typography.$font-print, 'm');
+  margin-top: map.get(spacing.$spacing-print, 's');
+}
+
+.ecl-file__translation-language {
+  color: map.get(color.$color, 'black');
+  font: map.get(spacing.$spacing-print, 's');
+  font-weight: map.get(typography.$font-weight-print, 'bold');
+}
+
+.ecl-file__translation-download {
+  font: map.get(typography.$font-print, 's');
+}
