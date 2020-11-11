@@ -1,0 +1,159 @@
+/**
+ * Message component
+ * @define message
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/layout-grid/mixins/breakpoints';
+
+$_title-color: map.get(color.$color, 'black-100');
+$_description-color: map.get(color.$color, 'grey-100');
+$_close-color: map.get(color.$color, 'black-100');
+
+.ecl-message {
+  box-sizing: border-box;
+  display: flex;
+  margin: 0;
+  padding: map.get(spacing.$spacing, 'l') map.get(spacing.$spacing, 'm')
+    map.get(spacing.$spacing, 'm') map.get(spacing.$spacing, 'l');
+  position: relative;
+}
+
+.ecl-message__icon {
+  flex-shrink: 0;
+  margin-right: map.get(spacing.$spacing, 'm');
+}
+
+.ecl-message__content {
+  width: 100%;
+}
+
+.ecl-message__title {
+  color: $_title-color;
+  font: map.get(typography.$font-prolonged, 'm');
+  font-weight: bold;
+  margin-bottom: map.get(spacing.$spacing, 'xs');
+  max-width: 80ch;
+}
+
+.ecl-message__description {
+  color: $_description-color;
+  font: map.get(typography.$font, 'xs');
+  margin: 0;
+  max-width: 80ch;
+  padding-bottom: map.get(spacing.$spacing, 'xl'); // Extra spacing for IE
+}
+
+.ecl-message__close {
+  bottom: map.get(spacing.$spacing, 'm') - map.get(spacing.$spacing, 's');
+  color: $_close-color;
+  font: map.get(typography.$font, 's');
+  position: absolute;
+  right: 0;
+
+  .no-js & {
+    display: none;
+  }
+}
+
+@supports (display: grid) {
+  .ecl-message__content {
+    display: grid;
+  }
+
+  .ecl-message__title {
+    grid-column-start: 1;
+  }
+
+  .ecl-message__description {
+    grid-column-start: 1;
+    padding-bottom: 0;
+  }
+
+  .ecl-message__close {
+    align-self: self-end;
+    bottom: auto;
+    grid-column-start: 1;
+    grid-row-end: 4;
+    grid-row-start: 3;
+    justify-self: end;
+    margin-bottom: -(map.get(spacing.$spacing, 's'));
+    position: relative;
+    right: auto;
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.media-breakpoint-up('md') {
+  .ecl-message {
+    padding-bottom: map.get(spacing.$spacing, 'l');
+  }
+
+  .ecl-message__description {
+    font: map.get(typography.$font-prolonged, 's');
+    padding-bottom: 0;
+  }
+
+  .ecl-message__close {
+    bottom: auto;
+    font: map.get(typography.$font, 'm');
+    top: map.get(spacing.$spacing, 'l') - map.get(spacing.$spacing, 's');
+  }
+
+  @supports (display: grid) {
+    .ecl-message__content {
+      grid-template-columns: auto max-content;
+    }
+
+    .ecl-message__close {
+      align-self: self-start;
+      grid-column-start: 2;
+      grid-row-end: span 2;
+      grid-row-start: 1;
+      margin-bottom: 0;
+      margin-top: -(map.get(spacing.$spacing, 's'));
+      position: relative;
+      right: auto;
+      top: auto;
+    }
+  }
+}
+
+// information
+.ecl-message--info {
+  border: 2px solid map.get(color.$color, 'info');
+
+  .ecl-message__icon {
+    fill: map.get(color.$color, 'info');
+  }
+}
+
+// success
+.ecl-message--success {
+  border: 2px solid map.get(color.$color, 'success');
+
+  .ecl-message__icon {
+    fill: map.get(color.$color, 'success');
+  }
+}
+
+// warning
+.ecl-message--warning {
+  border: 2px solid map.get(color.$color, 'warning');
+
+  .ecl-message__icon {
+    fill: map.get(color.$color, 'warning');
+  }
+}
+
+// error
+.ecl-message--error {
+  border: 2px solid map.get(color.$color, 'error');
+
+  .ecl-message__icon {
+    fill: map.get(color.$color, 'error');
+  }
+}

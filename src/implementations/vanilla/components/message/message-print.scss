@@ -1,0 +1,79 @@
+/*
+ * Message
+ * @define message
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/maps/typography';
+
+$_boder-width: 0.5mm;
+
+.ecl-message {
+  display: inline-flex;
+  margin: 0;
+  padding: map.get(spacing.$spacing-print, 'l')
+    map.get(spacing.$spacing-print, 'm') map.get(spacing.$spacing-print, 'l')
+    map.get(spacing.$spacing-print, 'l');
+}
+
+.ecl-message__icon {
+  display: block;
+  flex-shrink: 0;
+  margin-right: map.get(spacing.$spacing-print, 'm');
+}
+
+.ecl-message__close {
+  display: none;
+}
+
+.ecl-message__title {
+  color: map.get(color.$color, 'black');
+  font: map.get(typography.$font-prolonged-print, 'm');
+  font-family: #{map.get(typography.$font-family-print, 'alt')};
+  font-weight: map.get(typography.$font-weight-print, 'bold');
+}
+
+.ecl-message__description {
+  color: map.get(color.$color, 'grey');
+  font: map.get(typography.$font-prolonged-print, 'm');
+  margin-bottom: 0;
+  margin-top: map.get(spacing.$spacing-print, 'xs');
+}
+
+// information
+.ecl-message--info {
+  border: $_boder-width solid map.get(color.$color, 'info');
+
+  .ecl-message__icon {
+    fill: map.get(color.$color, 'info');
+  }
+}
+
+// success
+.ecl-message--success {
+  border: $_boder-width solid map.get(color.$color, 'success');
+
+  .ecl-message__icon {
+    fill: map.get(color.$color, 'success');
+  }
+}
+
+// warning
+.ecl-message--warning {
+  border: $_boder-width solid map.get(color.$color, 'warning');
+
+  .ecl-message__icon {
+    fill: map.get(color.$color, 'warning');
+  }
+}
+
+// error
+.ecl-message--error {
+  border: $_boder-width solid map.get(color.$color, 'error');
+
+  .ecl-message__icon {
+    fill: map.get(color.$color, 'error');
+  }
+}
