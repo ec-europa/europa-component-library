@@ -1,3 +1,3 @@
 module.exports = {
-  label: "Label's",
+  label: 'Label',
 };
