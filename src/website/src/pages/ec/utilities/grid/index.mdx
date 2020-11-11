@@ -4,11 +4,11 @@ status: ready
 ---
 
 import { Paragraph, Playground, Html } from '@ecl/website-components';
-import example234612 from '@ecl/twig-layout-grid/examples/234612.html.twig';
-import example642 from '@ecl/twig-layout-grid/examples/642.html.twig';
-import example282 from '@ecl/twig-layout-grid/examples/282.html.twig';
-import example336 from '@ecl/twig-layout-grid/examples/336.html.twig';
-import offset from '@ecl/twig-layout-grid/examples/offset.html.twig';
+import example234612 from '@ecl/twig-layout-grid/examples/234612.html';
+import example642 from '@ecl/twig-layout-grid/examples/642.html';
+import example282 from '@ecl/twig-layout-grid/examples/282.html';
+import example336 from '@ecl/twig-layout-grid/examples/336.html';
+import offset from '@ecl/twig-layout-grid/examples/offset.html';
 
 <Paragraph size="lead">
   <strong>
@@ -43,37 +43,37 @@ The grid's breakpoints are established on the minimum width media queries, there
 <Playground
   system="ec"
   selectedKind="layout-grid"
-  selectedStory="2-3-4-6-12"
+  selectedStory="234612"
   showFrame
 >
-  <Html markup={example234612()} />
+  <Html markup={example234612} />
 </Playground>
 
 <Playground
   system="ec"
   selectedKind="layout-grid"
-  selectedStory="6-4-2"
+  selectedStory="642"
   showFrame
 >
-  <Html markup={example642()} />
+  <Html markup={example642} />
 </Playground>
 
 <Playground
   system="ec"
   selectedKind="layout-grid"
-  selectedStory="2-8-2"
+  selectedStory="282"
   showFrame
 >
-  <Html markup={example282()} />
+  <Html markup={example282} />
 </Playground>
 
 <Playground
   system="ec"
   selectedKind="layout-grid"
-  selectedStory="3-3-6"
+  selectedStory="336"
   showFrame
 >
-  <Html markup={example336()} />
+  <Html markup={example336} />
 </Playground>
 
 ## Grid offset
@@ -86,7 +86,7 @@ When using the ECL grid, there is the ability to offset columns. You can offset 
   selectedStory="offset"
   showFrame
 >
-  <Html markup={offset()} />
+  <Html markup={offset} />
 </Playground>
 
 ## Do's
