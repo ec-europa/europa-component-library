@@ -1,0 +1,109 @@
+{% spaceless %}
+
+{#
+  Parameters:
+    - "id" (string) (default: '')
+    - "label_expanded" (string) (default: '')
+    - "label_collapsed" (string) (default: '')
+    - "button" (predefined structure): Button component structure
+    - "extra_dropdown_classes" (string) (default: '')
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        },
+        ...
+      ],
+    - "_compliance_": (boolean) (default: false) Activates debug.
+  Blocks:
+    - "content"
+#}
+
+{# Internal properties #}
+
+{% set _id = id|default('') %}
+{% set _css_class = 'ecl-expandable' %}
+{% set _extra_attributes = [
+  'data-ecl-expandable="true"',
+  'data-ecl-auto-init="Expandable"']|join(' ')
+%}
+{% set _css_dropdown_class = 'ecl-expandable__content' %}
+{% set _label_expanded = label_expanded|default('') %}
+{% set _label_collapsed = label_collapsed|default('') %}
+{% set _aria_controls = _id ~ '-content' %}
+{% set _content = content|default('') %}
+{% set _button = button|default({}) %}
+{% set _expanded = expanded|default(false) %}
+{% set _content_hidden_attribute = '' %}
+{% set _compliance = _compliance_|default(false) %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_dropdown_classes is defined and extra_dropdown_classes is not empty %}
+  {% set _css_dropdown_class = _css_dropdown_class ~ ' ' ~ extra_dropdown_classes %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  {% set _label = _label_collapsed %}
+  {% set _button_attributes = [
+    { name: 'aria-controls', value: _aria_controls },
+    { name: 'data-ecl-expandable-toggle' },
+    { name: 'data-ecl-label-expanded', value: _label_expanded },
+    { name: 'data-ecl-label-collapsed', value: _label_collapsed },
+    { name: 'aria-expanded', value: 'false' }
+  ] %}
+  {% include '@ecl/button/button.html.twig' with _button|merge({
+    label: _label,
+    variant: 'secondary',
+    type: 'button',
+    icon_position: "after",
+    icon: _button.icon|merge({
+      type: 'ui',
+      name: 'corner-arrow',
+      size: 'fluid',
+      transform: 'rotate-180'
+    }),
+    extra_classes: 'ecl-expandable__toggle',
+    extra_attributes: _button_attributes,
+    _compliance_: _compliance,
+    _compliance_inner_check_: true
+  }) only %}
+  <div
+    id="{{ _id ~ '-content' }}"
+    class="{{ _css_dropdown_class }}"
+    hidden
+  >
+    {%- block content _content|raw -%}
+  </div>
+</div>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl/@compliance/expandable.html.twig' with {
+    id: _id,
+    label_expanded: _label_expanded,
+    label_collapsed: _label_collapsed,
+    button: _button,
+    content: _content
+  } only %}
+{% endif %}
+
+{% endspaceless %}
