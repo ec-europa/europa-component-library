@@ -5,6 +5,7 @@ import {
   optionsKnob as options,
   boolean,
 } from '@storybook/addon-knobs';
+import { styled } from '@ecl/dom-utils';
 
 const styleBox = {
   height: '5rem',
@@ -63,9 +64,11 @@ export const Custom = () => {
   }
 
   return `
-    <div style="${Object.entries(styleBox)
-      .map((rule) => rule.join(': '))
-      .join('; ')}" class="${classnames(direction, color, width)}" />
+    <div style="${styled(styleBox)}" class="${classnames(
+    direction,
+    color,
+    width
+  )}" />
   `;
 };
 
