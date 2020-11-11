@@ -1,0 +1,249 @@
+{% spaceless %}
+
+{#
+  Parameters:
+  - "variant" (string) (default: '') Name of the variant (thumbnail)
+  - "icon" (object) (default: {}): object of type Icon; file type
+  - "title" (string) (default: '')
+  - "description" (string) (default: '') Description text (thumbnail variant)
+  - "language" (string) (default: '')
+  - "meta" (string) (default: '')
+  - "detail_meta" (array) (default: []) Meta element(s) for the thumbnail variant
+  - "download" (object) (default: {}): object of type Link
+  - "image" (object) (default: {}): image for the thumbnail variant
+  - "translation" (array) (default: []):
+    - "toggle" (object) (default: {}): object of type Button
+    - "items" (array) (default: []):
+      - "title" (string) (default: '')
+      - "meta" (string) (default: '')
+      - "lang" (string) (default: '')
+      - "download" (object) (default to the parent download property) object of type Link
+    - "description (string) (default:'')
+  - "extra_classes" (optional) (string) (default: '')
+  - "extra_attributes" (optional) (array) (default: []) [{
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (string) Attribute value, eg: 'data-test-1'
+    },
+    ...
+  ],
+  - "_compliance_" (boolean) (default: false)
+#}
+
+{# Internal properties #}
+
+{% set _icon = icon|default({}) %}
+{% set _title = title|default('') %}
+{% set _language = language|default('') %}
+{% set _meta = meta|default([]) %}
+{% set _download = download|default({}) %}
+{% set _detail_meta = detail_meta|default([]) %}
+{% set _translation = translation|default([]) %}
+{% set _css_class = 'ecl-file' %}
+{% set _image = image|default({}) %}
+{% set _meta_detail_string = '' %}
+{% set _variant = variant|default('') %}
+{% set _description = description|default('') %}
+{% set _extra_attributes = 'data-ecl-file' %}
+{% set _compliance = _compliance_|default(false) %}
+
+{% if _translation is not empty and _translation.items is not empty and _translation.items is iterable %}
+  {% set _extra_attributes = _extra_attributes ~ ' ' ~ 'data-ecl-auto-init="FileDownload"' %}
+{% endif %}
+
+{# Internal logic - Process properties #}
+{% if _variant is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _variant %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if _detail_meta is not empty and _detail_meta is iterable %}
+    {% for meta_detail in _detail_meta %}
+      {% set _meta_detail_string %}
+        {{ _meta_detail_string }}
+        <span class="ecl-file__detail-meta-item">{{ meta_detail }}</span>
+      {% endset %}
+    {% endfor %}
+  {% endif %}
+
+{# Print the result #}
+
+<div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+  <div class="ecl-file__container">
+  {% if _variant == 'thumbnail' %}
+    <div class="ecl-file__detail">
+      <div class="ecl-file__detail-info">
+      {% if _meta_detail_string is not empty %}
+        <div class="ecl-file__detail-meta">
+          {{- _meta_detail_string -}}
+        </div>
+      {% endif %}
+        <div class="ecl-file__title">{{ _title }}</div>
+      {% if _description is not empty %}
+        <div class="ecl-file__description">{{ _description|raw }}</div>
+      {% endif %}
+      </div>
+    {% if _image is not empty and _image.src is defined and _image.src is not empty %}
+      <img
+        class="ecl-file__image"
+        src="{{ _image.src }}"
+        alt="{{ _image.alt }}"
+      />
+    {% endif %}
+    </div>
+  {% else %}
+    {% include '@ecl/icon/icon.html.twig' with {
+      icon: _icon,
+      extra_classes: 'ecl-file__icon',
+      _compliance_: _compliance,
+      _compliance_inner_check_: true
+    } only %}
+  {% endif %}
+  {% if _title is not empty or language is not empty or meta is not empty %}
+    <div class="ecl-file__info">
+    {% if _title is not empty and _variant != 'thumbnail' %}
+      <div class="ecl-file__title">{{ _title }}</div>
+    {% endif %}
+    {% if _language is not empty %}
+      <div class="ecl-file__language">{{ _language }}</div>
+    {% endif %}
+    {% if _meta is not empty %}
+      <div class="ecl-file__meta">{{ _meta }}</div>
+    {% endif %}
+    </div>
+  {% endif %}
+    {% include '@ecl/link/link.html.twig' with _download|merge({
+      link: _download.link|default({})|merge({
+        type: 'standalone',
+        icon_position: 'after',
+      }),
+      icon: _download.icon|default({})|merge({
+        type: 'ui',
+        name: 'download',
+        size: 'fluid'
+      }),
+      extra_classes: 'ecl-file__download',
+      extra_attributes: [{ name: 'download' }],
+      _compliance_: _compliance,
+      _compliance_inner_check_: true
+    }) only %}
+  </div>
+
+  {% if _translation is not empty and _translation.items is not empty and _translation.items is iterable %}
+    <div
+      class="ecl-file__translation-container"
+      data-ecl-file-translation-container
+    >
+      {% include '@ecl/button/button.html.twig' with _translation.toggle|merge({
+        variant: 'ghost',
+        type: 'button',
+        icon: _translation.toggle.icon|default({})|merge({
+          type: 'ui',
+          name: 'corner-arrow',
+          size: 'fluid',
+          transform: 'rotate-180'
+        }),
+        extra_classes: 'ecl-file__translation-toggle',
+        extra_attributes: [{ name: 'data-ecl-file-translation-toggle' }],
+        _compliance_: _compliance,
+        _compliance_inner_check_: true
+      }) only %}
+
+      <ul class="ecl-file__translation-list">
+        {% for _item in _translation.items %}
+        {% set _title %}
+          <div
+              class="ecl-file__translation-title"
+            {% if _item.lang is defined and _item.lang is not empty %}
+              lang="{{ _item.lang }}"
+            {% endif %}
+            >
+              {{- _item.title -}}
+          </div>
+        {% endset %}
+          <li class="ecl-file__translation-item">
+          {% if _variant == 'thumbnail' %}
+            <div class="ecl-file__translation-detail">
+              {{- _title -}}
+            {% if _item.description %}
+              <div
+              class="ecl-file__translation-description"
+              {% if _item.lang is defined and _item.lang is not empty %}
+              lang="{{ _item.lang }}"
+              {% endif %}
+              >
+                {{- _item.description -}}
+              </div>
+            {% endif %}
+            </div>
+          {% endif %}
+            <div class="ecl-file__translation-info">
+            {% if _variant != 'thumbnail' %}
+              {{- _title -}}
+            {% else %}
+              {% if _item.lang_full is defined and _item.lang_full is not empty %}
+              <div class="ecl-file__translation-language">
+                {{- _item.lang_full -}}
+              </div>
+              {% endif %}
+            {% endif %}
+            {% if _item.meta is defined and _item.meta is not empty %}
+              <div class="ecl-file__translation-meta">
+                {{- _item.meta -}}
+              </div>
+            {% endif %}
+            </div>
+            {% include '@ecl/link/link.html.twig' with _download|merge({
+              link: _item.download.link|default(_download.link|default({}))|merge({
+                type: 'standalone',
+                icon_position: 'after'
+              }),
+              icon: _item.download.icon|default(_download.icon|default({}))|merge({
+                type: 'ui',
+                name: 'download',
+                size: 'fluid'
+              }),
+              extra_classes: 'ecl-file__translation-download',
+              extra_attributes: [
+                { name: 'download' },
+                { name: 'hreflang', value: _item.lang }
+              ],
+              _compliance_: _compliance,
+              _compliance_inner_check_: true
+            }) only %}
+          </li>
+        {% endfor %}
+        <li class="ecl-file__translation-item ecl-file__translation-description">
+          {{- _translation.description|raw -}}
+        </li>
+      </ul>
+    </div>
+  {% endif %}
+</div>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl/@compliance/file.html.twig' with {
+    icon: _icon,
+    title: _title,
+    language: _language,
+    meta: _meta,
+    download: _download,
+    translation: _translation
+  } only %}
+{% endif %}
+
+{% endspaceless %}
