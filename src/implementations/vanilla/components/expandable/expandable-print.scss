@@ -1,0 +1,20 @@
+/*
+ * Expandable
+ * @define expandable
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/maps/typography';
+
+.ecl-expandable {
+  margin: 0;
+}
+
+.ecl-expandable__toggle {
+  display: none;
+}
+
+.ecl-expandable__content {
+  display: block;
+  font-family: #{map.get(typography.$font-family-print, 'default')};
+}
