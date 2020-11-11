@@ -6,3 +6,4 @@ export * from '@ecl/vanilla-component-expandable';
 export * from '@ecl/vanilla-component-file';
 export * from '@ecl/vanilla-component-select';
 export * from '@ecl/vanilla-component-table';
+export * from '@ecl/vanilla-component-timeline';
