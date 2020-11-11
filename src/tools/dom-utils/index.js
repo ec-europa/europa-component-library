@@ -17,8 +17,7 @@ export const queryOne = (selector, context = document) =>
   context.querySelector(selector);
 
 /**
- * Object containing styles passed to React `style` prop.
- * @param {Object} stylesObject
+ * @param {Object} stylesObject Object containing styles passed to React `style` prop
  * @returns {String} formatted styles for `style` attribute of a DOM element
  */
 export const styled = (stylesObject) =>
