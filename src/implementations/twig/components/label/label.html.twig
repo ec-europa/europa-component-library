@@ -1,0 +1,58 @@
+{% spaceless %}
+
+{#
+  Parameters:
+    - "variant" (string) (default: 'low') (Allowed values: low, medium, high, highlight) Relevance of the label
+    - "label" (string) (default: '') Text of the label
+    - "extra_classes" (string) (default: low)
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        ...
+      ],
+    - "_compliance_" (boolean) (default: false) Activates debug
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-label' %}
+{% set _variant = variant|default('low') %}
+{% set _extra_attributes = '' %}
+{% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _variant %}
+{% set _label = label|default('') %}
+{% set _compliance = _compliance_|default(false) %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<span
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
+  {{- _label|raw -}}
+</span>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl/@compliance/label.html.twig' with {
+    variant: _variant,
+    label: _label
+  } only %}
+{% endif %}
+
+{% endspaceless %}
