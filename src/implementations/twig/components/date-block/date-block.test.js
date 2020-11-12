@@ -2,7 +2,7 @@ import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 
 import demoData from '@ecl/specs-component-date-block/demo/data';
 
-describe('EC - Date Block', () => {
+describe('Date Block', () => {
   const template = '@ecl/date-block/date-block.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
