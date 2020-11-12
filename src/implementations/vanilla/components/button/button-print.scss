@@ -17,7 +17,7 @@ $_padding-vertical: map.get(spacing.$spacing-print, 's');
 .ecl-button {
   appearance: none;
   background: none;
-  border-radius: map-get(
+  border-radius: map.get(
     (
       no: 0,
       yes: map.get(shape.$border-radius, 'm'),
