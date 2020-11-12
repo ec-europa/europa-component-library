@@ -1,15 +1,5 @@
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
-
 import demoData from '@ecl/specs-component-social-media-follow/demo/data';
-
-// Set fake paths for svgs to render for tests.
-demoData.links.forEach((link) => {
-  if (link.icon) {
-    link.icon.forEach((icon) => {
-      icon.path = 'example'; // eslint-disable-line no-param-reassign
-    });
-  }
-});
 
 describe('EC - Social Media Follow', () => {
   const template = '@ecl/social-media-follow/social-media-follow.html.twig';

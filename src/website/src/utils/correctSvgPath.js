@@ -8,11 +8,7 @@ import iconSocialPath from '@ecl/resources-ec-social-icons/dist/sprites/icons-so
 const correctSvgPath = (data) => {
   Object.keys(data).forEach((prop) => {
     if (typeof data[prop] === 'string' && data[prop].includes('.svg')) {
-      if (data[prop].includes('social')) {
-        data[prop] = iconSocialPath;
-      } else {
-        data[prop] = iconPath;
-      }
+      data[prop] = data[prop].includes('social') ? iconSocialPath : iconPath;
     }
     if (data[prop] !== null && typeof data[prop] === 'object') {
       data[prop] = correctSvgPath(data[prop]);
