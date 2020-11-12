@@ -7,7 +7,7 @@
 @use '@ecl/theme-dev/maps/color';
 @use '@ecl/theme-dev/maps/spacing';
 @use '@ecl/theme-dev/maps/typography';
-@use '@ecl/layout-grid/mixins/breakpoints';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 .ecl-social-media-follow {
   background-color: map.get(color.$color, 'grey-5');
@@ -101,6 +101,6 @@
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.media-breakpoint-down('sm') {
+@include breakpoints.down('s') {
   @include ecl-social-media-follow-vertical;
 }

@@ -31,6 +31,7 @@ addParameters({
       hideCode: true,
     },
   ],
+  layout: 'fullscreen',
   viewport: {
     defaultViewport: 'responsive',
     viewports: {
