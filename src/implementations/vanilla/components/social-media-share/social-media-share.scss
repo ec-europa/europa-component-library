@@ -1,0 +1,91 @@
+/**
+* Social media share component
+* @define social-media-share; weak
+*/
+
+@use "sass:map";
+@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/social-media-list';
+
+.ecl-social-media-share__icon,
+.ecl-social-media-share__icon-hover {
+  flex-shrink: 0;
+  margin-right: 0.5rem;
+}
+
+.ecl-social-media-share__icon {
+  display: block;
+}
+.ecl-social-media-share__icon-hover {
+  display: none;
+}
+
+.ecl-social-media-share__link:hover .ecl-social-media-share__icon {
+  display: none;
+}
+.ecl-social-media-share__link:hover .ecl-social-media-share__icon-hover {
+  display: block;
+}
+
+@mixin social-icon-color-map($list, $component: 'ecl-social-media-share') {
+  @each $social, $color in $list {
+    // stylelint-disable-next-line plugin/selector-bem-pattern
+    .#{$component}__link--#{$social} {
+      background-color: #{$color};
+    }
+  }
+}
+// Use mixin.
+@include social-icon-color-map(social-media-list.$social-media-list);
+
+$_description-color: map.get(color.$color, 'black-100');
+
+.ecl-social-media-share {
+  margin: 0;
+  padding: 0;
+}
+
+.ecl-social-media-share__description {
+  color: $_description-color;
+  font: map.get(typography.$font-prolonged, 'm');
+  font-weight: map.get(typography.$font-weight, 'bold');
+  margin-bottom: map.get(spacing.$spacing, 's');
+  margin-top: 0;
+}
+
+.ecl-social-media-share__list {
+  align-items: flex-end;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+.ecl-social-media-share__item {
+  margin: map.get(spacing.$spacing, 's') map.get(spacing.$spacing, 'xs') 0 0;
+
+  &:not(:last-child) {
+    max-width: 8.625rem;
+  }
+
+  &:not(:last-child) .ecl-link {
+    color: map-get(color.$color, 'white');
+    padding-right: map.get(spacing.$spacing, 'xs');
+    width: 8.125rem;
+  }
+}
+
+.ecl-social-media-share__link {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  font: map-get(typography.$font, 's');
+  overflow: hidden; /* Improve rendering on IE */
+
+  .ecl-link__icon {
+    top: 0;
+  }
+}
