@@ -7,7 +7,7 @@
 @use '@ecl/theme-dev/maps/color';
 @use '@ecl/theme-dev/maps/spacing';
 @use '@ecl/theme-dev/maps/typography';
-@use '@ecl/layout-grid/mixins/breakpoints';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 // common
 $_content-width: 45.5rem;
@@ -96,7 +96,7 @@ $_image-gradient-border-color: map.get(color.$color, 'yellow');
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.media-breakpoint-up('lg') {
+@include breakpoints.media-breakpoint-up('l') {
   // manage ratio 3:1
   .ecl-hero-banner::before {
     content: '';
@@ -232,7 +232,7 @@ $_image-gradient-border-color: map.get(color.$color, 'yellow');
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.media-breakpoint-up('lg') {
+@include breakpoints.media-breakpoint-up('l') {
   .ecl-hero-banner--image {
     .ecl-hero-banner__container {
       padding-bottom: 0;
@@ -295,7 +295,7 @@ $_image-gradient-border-color: map.get(color.$color, 'yellow');
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.media-breakpoint-up('lg') {
+@include breakpoints.media-breakpoint-up('l') {
   .ecl-hero-banner--image-shade {
     .ecl-hero-banner__container {
       padding-bottom: map.get(spacing.$spacing, 'xl');
@@ -351,7 +351,7 @@ $_image-gradient-border-color: map.get(color.$color, 'yellow');
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.media-breakpoint-up('lg') {
+@include breakpoints.media-breakpoint-up('l') {
   .ecl-hero-banner--image-gradient {
     .ecl-hero-banner__container {
       padding-bottom: map.get(spacing.$spacing, 'xl');
