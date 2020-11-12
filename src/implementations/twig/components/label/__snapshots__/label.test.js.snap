@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Label renders correctly 1`] = `
+<span
+  class="ecl-label ecl-label--low"
+>
+  Label
+</span>
+`;
+
+exports[`Label renders correctly with extra attributes 1`] = `
+<span
+  class="ecl-label ecl-label--low"
+  data-test="data-test-value"
+  data-test-1="data-test-value-1"
+>
+  Label
+</span>
+`;
+
+exports[`Label renders correctly with extra class names 1`] = `
+<span
+  class="ecl-label ecl-label--low custom-class custom-class--test"
+>
+  Label
+</span>
+`;
+
+exports[`Label with missing input data and debug enabled it returns the right warning messages. 1`] = `
+<span
+  class="ecl-label ecl-label--low"
+/>
+`;
