@@ -2,15 +2,6 @@ import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 
 import demoData from '@ecl/specs-component-social-media-share/demo/data';
 
-// Set fake paths for svgs to render for tests.
-demoData.links.forEach((link) => {
-  if (link.icon) {
-    link.icon.forEach((icon) => {
-      icon.path = 'example'; // eslint-disable-line no-param-reassign
-    });
-  }
-});
-
 describe('Social Media Share', () => {
   const template = '@ecl/social-media-share/social-media-share.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
