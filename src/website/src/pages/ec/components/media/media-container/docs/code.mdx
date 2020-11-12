@@ -1,0 +1,44 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import {
+  mediaContainerImg,
+  mediaContainerVideo,
+  mediaContainerEmbed
+} from '../demo';
+
+## Image
+
+<Playground
+  system="ec"
+  selectedKind="components-media-container"
+  selectedStory="image"
+>
+  <Html markup={mediaContainerImg} />
+</Playground>
+
+## Video (using &lt;video&gt; tag)
+
+<Playground
+  system="ec"
+  selectedKind="components-media-container"
+  selectedStory="video"
+>
+  <Html markup={mediaContainerVideo} />
+</Playground>
+
+## Embedded video (using &lt;iframe&gt;)
+
+Note: for embedded videos, a ratio has to be specified in order to display the iframe in a responsive way.
+Possible ratios are: '16-9', '4-3', '3-2' and '1-1'. Most common ratio is 16-9.
+
+<Playground
+  system="ec"
+  selectedKind="components-media-container"
+  selectedStory="embed"
+>
+  <Html markup={mediaContainerEmbed} />
+</Playground>
