@@ -1,0 +1,111 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground } from '@ecl/website-components';
+
+import demoContentHeading from '@ecl/specs-utils-typography/demo/data--heading';
+import demoContentParagraph from '@ecl/specs-utils-typography/demo/data--paragraph';
+
+## Headings
+
+<Playground
+  system="ec"
+  selectedKind="utilities-typography"
+  selectedStory="heading"
+>
+  <h1 className="ecl-u-type-heading-1">{demoContentHeading.content}</h1>
+  <h2 className="ecl-u-type-heading-2">{demoContentHeading.content}</h2>
+  <h3 className="ecl-u-type-heading-3">{demoContentHeading.content}</h3>
+  <h4 className="ecl-u-type-heading-4">{demoContentHeading.content}</h4>
+  <h5 className="ecl-u-type-heading-5">{demoContentHeading.content}</h5>
+</Playground>
+
+## Paragraph
+
+### Lead paragraph
+
+<Playground
+  system="ec"
+  selectedKind="utilities-typography"
+  selectedStory="paragraph"
+>
+  <p className="ecl-u-type-paragraph-lead">{demoContentParagraph.content}</p>
+</Playground>
+
+### Medium paragraph
+
+<Playground
+  system="ec"
+  selectedKind="utilities-typography"
+  selectedStory="paragraph"
+>
+  <p className="ecl-u-type-paragraph">{demoContentParagraph.content}</p>
+</Playground>
+
+### Small paragraph
+
+<Playground
+  system="ec"
+  selectedKind="utilities-typography"
+  selectedStory="paragraph"
+>
+  <p className="ecl-u-type-paragraph-s">{demoContentParagraph.content}</p>
+</Playground>
+
+### Extra small paragraph
+
+<Playground
+  system="ec"
+  selectedKind="utilities-typography"
+  selectedStory="paragraph"
+>
+  <p className="ecl-u-type-paragraph-xs">{demoContentParagraph.content}</p>
+</Playground>
+
+## Text colour
+
+Note: this list is not exhaustive, please read the usage page to know available colours.
+
+<Playground
+  system="ec"
+  selectedKind="utilities-typography"
+  selectedStory="text-colour"
+>
+  <div className="ecl-u-type-m ecl-u-type-color-grey">Colour grey</div>
+  <div className="ecl-u-type-m ecl-u-type-color-blue-120">Colour blue 120</div>
+  <div className="ecl-u-type-m ecl-u-type-color-grey-75">Colour grey 75</div>
+  <div className="ecl-u-type-m ecl-u-type-color-red">Colour red</div>
+  <div className="ecl-u-type-m ecl-u-type-color-green">Colour green</div>
+</Playground>
+
+## Text style
+
+<Playground
+  system="ec"
+  selectedKind="utilities-typography"
+  selectedStory="text-style"
+>
+  <div className="ecl-u-type-m ecl-u-type-none">
+    {demoContentHeading.content}
+  </div>
+  <div className="ecl-u-type-m ecl-u-type-lowercase">
+    {demoContentHeading.content}
+  </div>
+  <div className="ecl-u-type-m ecl-u-type-uppercase">
+    {demoContentHeading.content}
+  </div>
+  <div className="ecl-u-type-m ecl-u-type-capitalize">
+    {demoContentHeading.content}
+  </div>
+  <div className="ecl-u-type-m ecl-u-type-overline">
+    {demoContentHeading.content}
+  </div>
+  <div className="ecl-u-type-m ecl-u-type-underline">
+    {demoContentHeading.content}
+  </div>
+  <div className="ecl-u-type-m ecl-u-type-strike">
+    {demoContentHeading.content}
+  </div>
+</Playground>

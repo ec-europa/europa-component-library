@@ -1,0 +1,7 @@
+@use '@ecl/theme-dev/maps/color';
+
+@each $key, $value in color.$color-bg {
+  .ecl-u-bg-#{$key} {
+    background-color: $value !important;
+  }
+}

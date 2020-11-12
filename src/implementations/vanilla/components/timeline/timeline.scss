@@ -1,0 +1,171 @@
+/**
+ * Timeline
+ * @define timeline; weak
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+$_left-spacing: 10rem;
+$_border-width: 0.25rem;
+$_border-color: map.get(color.$color, 'grey-100');
+$_bullet-fill-color: map.get(color.$color, 'white-100');
+$_bullet-size: map.get(spacing.$spacing, 's');
+$_bullet-border-color: map.get(color.$color, 'yellow-100');
+$_bullet-border-width: 0.25rem;
+$_toggle-bullet-border-color: map.get(color.$color, 'grey-25');
+$_toggle-bullet-border-width: 0.125rem;
+$_title-color: map.get(color.$color, 'black-100');
+$_label-color: map.get(color.$color, 'grey-100');
+$_content-color: map.get(color.$color, 'grey-75');
+
+// Timeline structure
+.ecl-timeline {
+  list-style: none;
+  margin: 0 map.get(spacing.$spacing, 'l') 0
+    (
+      map.get(spacing.$spacing, 'l') + ($_bullet-size / 2) +
+        $_bullet-border-width
+    );
+  max-width: 633px;
+  padding-left: 0;
+}
+
+.ecl-timeline__item {
+  padding-bottom: map.get(spacing.$spacing, 'l');
+  padding-left: map.get(spacing.$spacing, 'm') + ($_bullet-size / 2) +
+    $_bullet-border-width;
+  padding-top: map.get(spacing.$spacing, 'xs');
+  position: relative;
+
+  // Border
+  &::before {
+    border-left: $_border-width solid $_border-color;
+    content: '';
+    height: 100%;
+    left: -($_border-width / 2);
+    position: absolute;
+    top: 0;
+    width: 0;
+  }
+
+  // Bullet
+  &::after {
+    background-color: $_bullet-fill-color;
+    border: $_bullet-border-width solid $_bullet-border-color;
+    border-radius: 50%;
+    box-sizing: border-box;
+    content: '';
+    height: $_bullet-size + ($_bullet-border-width * 2);
+    left: -(($_bullet-size / 2) + $_bullet-border-width);
+    position: absolute;
+    top: map.get(spacing.$spacing, 'xs');
+    width: $_bullet-size + ($_bullet-border-width * 2);
+  }
+}
+
+.ecl-timeline__item:hover::after {
+  background-color: $_bullet-border-color;
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.media-breakpoint-up(sm) {
+  .ecl-timeline {
+    margin-left: map.get(spacing.$spacing, 'xs') + $_left-spacing +
+      map.get(spacing.$spacing, 'm');
+    margin-right: map.get(spacing.$spacing, 'xs');
+  }
+}
+
+// Toggle button
+.ecl-timeline__item--toggle {
+  &::before {
+    border-left-style: dashed;
+  }
+
+  &::after {
+    border: $_toggle-bullet-border-width solid $_toggle-bullet-border-color;
+    box-sizing: border-box;
+    height: $_bullet-size + ($_bullet-border-width * 2);
+    top: map.get(spacing.$spacing, 'xs') + map.get(spacing.$spacing, 's');
+    width: $_bullet-size + ($_bullet-border-width * 2);
+  }
+
+  .no-js & {
+    display: none;
+  }
+}
+
+.ecl-timeline[data-ecl-timeline-expanded] .ecl-timeline__item--toggle {
+  padding-bottom: map.get(spacing.$spacing, 'xs');
+  padding-top: map.get(spacing.$spacing, 'l');
+
+  &::after {
+    top: map.get(spacing.$spacing, 'l') + map.get(spacing.$spacing, 's');
+  }
+}
+
+.ecl-timeline__toggle[aria-expanded='true'] .ecl-icon {
+  transform: rotate(0deg);
+}
+
+// Border adjustment
+.ecl-timeline__item:first-child::before {
+  height: calc(100% - #{map.get(spacing.$spacing, 'xs')});
+  top: map.get(spacing.$spacing, 'xs');
+}
+
+.ecl-timeline__item:last-child::before {
+  height: map.get(spacing.$spacing, 'xs');
+}
+
+// Timeline data
+.ecl-timeline__title {
+  color: $_title-color;
+  font: map.get(typography.$font, 'm');
+  font-weight: map.get(typography.$font-weight, 'bold');
+  margin-bottom: map.get(spacing.$spacing, 'xs');
+}
+
+.ecl-timeline__label {
+  color: $_label-color;
+  font: map.get(typography.$font, 'm');
+  margin-bottom: map.get(spacing.$spacing, 's');
+}
+
+.ecl-timeline__content {
+  color: $_content-color;
+  font: map.get(typography.$font, 'm');
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.media-breakpoint-up(sm) {
+  .ecl-timeline__label {
+    font: map.get(typography.$font, 'xs');
+    font-weight: map.get(typography.$font-weight, 'bold');
+    left: -($_left-spacing + map.get(spacing.$spacing, 'm') +
+          ($_bullet-size / 2) + $_bullet-border-width);
+    line-height: map.get(typography.$line-height, 'm');
+    margin-bottom: 0;
+    position: absolute;
+    text-align: right;
+    top: map.get(spacing.$spacing, 'xs');
+    width: $_left-spacing;
+  }
+}
+
+// Collapsible items
+.ecl-timeline__item--collapsed {
+  display: none;
+
+  .no-js & {
+    display: block;
+  }
+}
+
+.ecl-timeline[data-ecl-timeline-expanded] .ecl-timeline__item--collapsed {
+  display: block;
+}

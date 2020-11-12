@@ -4,5 +4,5 @@ defaultTab: usage
 status: ready
 playground:
   system: ec
-  path: /story/components-socialmediashare--default
+  path: /story/components-social-media-share--default
 ---
