@@ -1,0 +1,95 @@
+{% spaceless %}
+
+{#
+  Parameters:
+  - "variant" (string) (default: ''): could be 'info, 'success', 'warning' or 'error'
+  - "icon" (object of type "icon") (default: {})
+  - "title" (string) (default: '')
+  - "close" (object of type "button") (default: {}): close button
+  - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the select
+  - "extra_attributes" (optional) (array) (default: []) Extra attributes for select
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+  - "_compliance_" (boolean) (default: false) Activates debug
+  - "_compliance_inner_check_" (boolean) (default: false) Inline compliance report
+
+  Blocks:
+  - "description": content of the message
+#}
+
+{# Internal properties #}
+
+{% set _variant = variant|default('') %}
+{% set _icon = icon|default({}) %}
+{% set _title = title|default('') %}
+{% set _close = close|default({}) %}
+{% set _description = description|default('') %}
+{% set _compliance = _compliance_|default(false) %}
+{% set _compliance_inner_check = _compliance_inner_check_|default(false) %}
+{% set _css_class = 'ecl-message' %}
+{% set _extra_attributes = 'data-ecl-auto-init="Message"' %}
+
+{# Internal logic - Process properties #}
+
+{% if _variant is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-message--' ~ _variant %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div class="{{ _css_class }}" data-ecl-message role="alert"{{ _extra_attributes|raw }}>
+  {% include '@ecl/icon/icon.html.twig' with {
+    icon: _icon,
+    extra_classes: 'ecl-message__icon',
+  } only %}
+  {% if _close.icon is defined and _close.icon is not empty %}
+    {% set _icon = _close.icon|merge({ size: 's', name: 'close', type: 'ui' }) %}
+    {% if _compliance %}
+      {% set _close = _close|merge({ '_compliance_': _compliance, inner_check: true }) %}
+    {% endif %}
+  {% endif %}
+  <div class="ecl-message__content">
+    {% include '@ecl/button/button.html.twig' with _close|merge({
+      type: 'button',
+      variant: 'ghost',
+      icon: _icon,
+      extra_classes: 'ecl-message__close',
+      extra_attributes: [{
+        name: 'data-ecl-message-close',
+      }],
+      _compliance_: _compliance,
+      _compliance_inner_check_: true
+    }) only %}
+
+    <div class="ecl-message__title">{{ _title }}</div>
+    <p class="ecl-message__description">{{ _description }}</p>
+  </div>
+</div>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl/@compliance/message.html.twig' with {
+    variant: _variant,
+    title: _title,
+    close: _close,
+    description: _description,
+    _compliance_inner_check_: _compliance_inner_check
+  } only %}
+{% endif %}
+
+{% endspaceless %}
