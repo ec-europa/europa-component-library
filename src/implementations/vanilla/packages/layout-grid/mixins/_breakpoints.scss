@@ -36,7 +36,7 @@
 //
 //    >> breakpoint-min(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
 //    576px
-@function breakpoint-min($name, $breakpoints: $ecl-breakpoints) {
+@function breakpoint-min($name, $breakpoints: layout.$breakpoint) {
   $min: map.get($breakpoints, $name);
 
   @return if($min != 0, $min, null);
@@ -47,7 +47,7 @@
 //
 //    >> breakpoint-max(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
 //    767px
-@function breakpoint-max($name, $breakpoints: $ecl-breakpoints) {
+@function breakpoint-max($name, $breakpoints: layout.$breakpoint) {
   $next: breakpoint-next($name, $breakpoints);
 
   @return if($next, breakpoint-min($next, $breakpoints) - 1px, null);

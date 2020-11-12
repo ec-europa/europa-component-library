@@ -207,7 +207,7 @@ $_image-width: 13.125rem; // Same as content item
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.media-breakpoint-up('md') {
+@include breakpoints.media-breakpoint-up('m') {
   .ecl-file__download {
     margin-top: 0;
     width: auto;
@@ -308,7 +308,7 @@ $_image-width: 13.125rem; // Same as content item
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.media-breakpoint-up('md') {
+@include breakpoints.media-breakpoint-up('m') {
   .ecl-file--thumbnail {
     .ecl-file__container {
       padding-bottom: map.get(spacing.$spacing, 'l');
