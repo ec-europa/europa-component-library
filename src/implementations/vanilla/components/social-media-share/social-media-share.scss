@@ -18,15 +18,13 @@
   }
 }
 
-$_description-color: map.get(color.$color, 'black-100');
-
 .ecl-social-media-share {
   margin: 0;
   padding: 0;
 }
 
 .ecl-social-media-share__description {
-  color: $_description-color;
+  color: map.get(color.$color, 'black-100');
   font: map.get(typography.$font-prolonged, 'm');
   font-weight: map.get(typography.$font-weight, 'bold');
   margin-bottom: map.get(spacing.$spacing, 's');
