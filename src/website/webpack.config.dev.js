@@ -90,6 +90,10 @@ module.exports = {
             ],
           },
           {
+            test: /\.html$/i,
+            loader: 'html-loader',
+          },
+          {
             test: /preval.*\.(js|jsx)$/,
             exclude: /node_modules/,
             use: {
