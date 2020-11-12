@@ -5,7 +5,7 @@ import demoContentVideo from '@ecl/specs-component-media-container/demo/data--vi
 import demoContentEmbed from '@ecl/specs-component-media-container/demo/data--embed-video';
 
 describe('EC Media Container', () => {
-  const template = '@ecl/ec-twig-media-container/media-container.html.twig';
+  const template = '@ecl/media-container/media-container.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
   const defaultDataStructure = demoContentImg;
 
