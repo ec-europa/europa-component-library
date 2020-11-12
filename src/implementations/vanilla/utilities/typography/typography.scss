@@ -11,7 +11,7 @@
   font: map.get(typography.$font, '3xl') !important;
   font-weight: map.get(typography.$font-weight, 'bold') !important;
 
-  @include breakpoints.media-breakpoint-up('md') {
+  @include breakpoints.up('md') {
     font: map.get(typography.$font, '4xl') !important;
     font-weight: map.get(typography.$font-weight, 'bold') !important;
   }
@@ -21,7 +21,7 @@
   font: map.get(typography.$font, '2xl') !important;
   font-weight: map.get(typography.$font-weight, 'bold') !important;
 
-  @include breakpoints.media-breakpoint-up('md') {
+  @include breakpoints.up('md') {
     font: map.get(typography.$font, '3xl') !important;
     font-weight: map.get(typography.$font-weight, 'bold') !important;
   }
@@ -31,7 +31,7 @@
   font: map.get(typography.$font, 'xl') !important;
   font-weight: map.get(typography.$font-weight, 'bold') !important;
 
-  @include breakpoints.media-breakpoint-up('md') {
+  @include breakpoints.up('md') {
     font: map.get(typography.$font, '2xl') !important;
     font-weight: map.get(typography.$font-weight, 'bold') !important;
   }
@@ -41,7 +41,7 @@
   font: map.get(typography.$font-prolonged, 'l') !important;
   font-weight: map.get(typography.$font-weight, 'bold') !important;
 
-  @include breakpoints.media-breakpoint-up('md') {
+  @include breakpoints.up('md') {
     font: map.get(typography.$font-prolonged, 'xl') !important;
     font-weight: map.get(typography.$font-weight, 'bold') !important;
   }
@@ -65,7 +65,7 @@
   font: map.get(typography.$font-prolonged, 'l') !important;
   max-width: 80ch !important;
 
-  @include breakpoints.media-breakpoint-up('md') {
+  @include breakpoints.up('md') {
     font: map.get(typography.$font-prolonged, 'xl') !important;
   }
 }

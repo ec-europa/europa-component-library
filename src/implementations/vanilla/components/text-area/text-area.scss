@@ -47,11 +47,11 @@ $_padding-horizontal: map.get(spacing.$spacing, 's');
 .ecl-text-area--m {
   width: 100%;
 
-  @include breakpoints.media-breakpoint-up('md') {
+  @include breakpoints.up('m') {
     width: 50%;
   }
 
-  @include breakpoints.media-breakpoint-up('lg') {
+  @include breakpoints.up('l') {
     width: map.get(form.$form, 'm');
   }
 }
@@ -59,7 +59,7 @@ $_padding-horizontal: map.get(spacing.$spacing, 's');
 .ecl-text-area--l {
   width: 100%;
 
-  @include breakpoints.media-breakpoint-up('lg') {
+  @include breakpoints.up('l') {
     width: map.get(form.$form, 'l');
   }
 }
