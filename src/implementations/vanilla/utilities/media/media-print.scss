@@ -28,8 +28,8 @@
    * Media size
    */
 @each $breakpoint in map.keys(layout.$breakpoint) {
-  @include breakpoints.media-breakpoint-up($breakpoint) {
-    $infix: breakpoints.breakpoint-infix($breakpoint, layout.$breakpoint);
+  @include breakpoints.up($breakpoint) {
+    $infix: breakpoints.infix($breakpoint, layout.$breakpoint);
 
     @each $key, $value in media.$media {
       .ecl-u-media-a#{$infix}-#{$key} {

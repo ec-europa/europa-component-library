@@ -51,7 +51,7 @@ $_border-width: 0.625rem;
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.media-breakpoint-up('m') {
+@include breakpoints.up('m') {
   .ecl-blockquote__body {
     font: map.get(typography.$font-prolonged, 'xl');
     font-style: italic;

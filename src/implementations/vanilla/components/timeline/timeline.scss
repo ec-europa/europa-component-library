@@ -72,7 +72,7 @@ $_content-color: map.get(color.$color, 'grey-75');
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.media-breakpoint-up('s') {
+@include breakpoints.up('s') {
   .ecl-timeline {
     margin-left: map.get(spacing.$spacing, 'xs') + $_left-spacing +
       map.get(spacing.$spacing, 'm');
@@ -142,7 +142,7 @@ $_content-color: map.get(color.$color, 'grey-75');
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.media-breakpoint-up('s') {
+@include breakpoints.up('s') {
   .ecl-timeline__label {
     font: map.get(typography.$font, 'xs');
     font-weight: map.get(typography.$font-weight, 'bold');

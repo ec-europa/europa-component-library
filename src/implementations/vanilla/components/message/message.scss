@@ -87,7 +87,7 @@ $_close-color: map.get(color.$color, 'black-100');
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.media-breakpoint-up('md') {
+@include breakpoints.up('md') {
   .ecl-message {
     padding-bottom: map.get(spacing.$spacing, 'l');
   }

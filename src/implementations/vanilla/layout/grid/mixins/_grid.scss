@@ -15,7 +15,7 @@
   width: 100%;
 
   @each $breakpoint in map.keys($gutters) {
-    @include breakpoints.media-breakpoint-up($breakpoint) {
+    @include breakpoints.up($breakpoint) {
       $gutter: map.get($gutters, $breakpoint);
 
       padding-left: ($gutter / 2);
@@ -30,7 +30,7 @@
   $breakpoints: layout.$breakpoint
 ) {
   @each $breakpoint, $container-max-width in $max-widths {
-    @include breakpoints.media-breakpoint-up($breakpoint, $breakpoints) {
+    @include breakpoints.up($breakpoint, $breakpoints) {
       max-width: 100%;
       width: $container-max-width;
     }
@@ -39,7 +39,7 @@
 
 @mixin make-gutters($gutters: layout.$grid-gutter-width) {
   @each $breakpoint in map.keys($gutters) {
-    @include breakpoints.media-breakpoint-up($breakpoint) {
+    @include breakpoints.up($breakpoint) {
       $gutter: map.get($gutters, $breakpoint);
 
       padding-left: ($gutter / 2);
@@ -54,7 +54,7 @@
   flex-wrap: wrap;
 
   @each $breakpoint in map.keys($gutters) {
-    @include breakpoints.media-breakpoint-up($breakpoint) {
+    @include breakpoints.up($breakpoint) {
       $gutter: map.get($gutters, $breakpoint);
 
       margin-left: ($gutter / -2);
@@ -73,7 +73,7 @@
   width: 100%;
 
   @each $breakpoint in map.keys($gutters) {
-    @include breakpoints.media-breakpoint-up($breakpoint) {
+    @include breakpoints.up($breakpoint) {
       $gutter: map.get($gutters, $breakpoint);
 
       padding-left: ($gutter / 2);

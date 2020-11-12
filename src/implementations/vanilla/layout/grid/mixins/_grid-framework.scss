@@ -26,7 +26,7 @@
   }
 
   @each $breakpoint in map.keys($breakpoints) {
-    $infix: breakpoints.breakpoint-infix($breakpoint, $breakpoints);
+    $infix: breakpoints.infix($breakpoint, $breakpoints);
 
     // Allow columns to stretch full width below their breakpoints
     @for $i from 1 through $columns {
@@ -36,7 +36,7 @@
     }
 
     /* stylelint-disable-next-line order/order */
-    @include breakpoints.media-breakpoint-up($breakpoint, $breakpoints) {
+    @include breakpoints.up($breakpoint, $breakpoints) {
       @for $i from 1 through $columns {
         .ecl-col#{$infix}-#{$i} {
           @include grid.make-col($i, $columns);
