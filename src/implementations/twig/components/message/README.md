@@ -16,7 +16,7 @@ npm install --save @ecl/twig-component-message
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
-- **"_compliance_"** (optional) (boolean) (default: false) Activates debug
+- **"\_compliance\_"** (optional) (boolean) (default: false) Activates debug
 - **"_compliance_inner_check_"** (optional) (boolean) (default: false) Inline compliance report
 
 ### Blocks:
