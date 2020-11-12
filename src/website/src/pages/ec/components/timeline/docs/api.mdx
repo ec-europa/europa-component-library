@@ -1,0 +1,38 @@
+---
+title: API
+order: 3
+---
+
+import TimelineJSDoc from '../../../_jsdoc/timeline.md';
+
+## API
+
+<Timeline2JSDoc />
+
+## Setup
+
+There are 2 ways to initialise the component.
+
+### Automatic
+
+Add `data-ecl-auto-init="Timeline"` attribute to component's markup:
+
+```html
+<ol class="ecl-timeline" data-ecl-timeline="true" data-ecl-auto-init="Timeline">
+  ...
+</ol>
+```
+
+Use the `ECL` library's `autoInit()` (`ECL.autoInit()`) when your page is ready or other custom event you want to hook onto.
+
+### Manual
+
+Get target element, create an instance and invoke `init()`.
+
+Given you have 1 element with an attribute `data-ecl-timeline` on the page:
+
+```js
+var elt = document.querySelector('[data-ecl-timeline]');
+var timeline = new ECL.Timeline(elt);
+timeline.init();
+```
