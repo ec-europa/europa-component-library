@@ -1,0 +1,21 @@
+/**
+ * Media container component
+ * @define media-container
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/typography';
+
+.ecl-media-container {
+  margin: 0;
+}
+
+.ecl-media-container__media {
+  display: none;
+}
+
+.ecl-media-container__caption {
+  color: map.get(color.$color, 'grey');
+  font: map.get(typography.$font-prolonged, 'm');
+}
