@@ -22,7 +22,7 @@ import bannerDataSimpleWhite from '@ecl/specs-component-page-banner/demo/data--s
 import bannerDataImage from '@ecl/specs-component-page-banner/demo/data--image-box';
 import bannerDataImageShade from '@ecl/specs-component-page-banner/demo/data--image-shade';
 import bannerDataImageGradient from '@ecl/specs-component-page-banner/demo/data--image-gradient';
-import pageBanner from './ecl-page-banner.html.twig';
+import pageBanner from './page-banner.html.twig';
 import notes from './README.md';
 
 // Preserve the adapted specs.
