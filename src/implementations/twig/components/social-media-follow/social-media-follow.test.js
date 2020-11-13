@@ -1,7 +1,7 @@
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 import demoData from '@ecl/specs-component-social-media-follow/demo/data';
 
-describe('EC - Social Media Follow', () => {
+describe('Social Media Follow', () => {
   const template = '@ecl/social-media-follow/social-media-follow.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
   describe('Default', () => {
