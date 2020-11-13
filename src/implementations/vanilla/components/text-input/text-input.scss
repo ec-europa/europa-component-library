@@ -8,7 +8,7 @@
 @use '@ecl/theme-dev/maps/form';
 @use '@ecl/theme-dev/maps/typography';
 @use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/layout-grid/mixins/breakpoints';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 $_border-color: map.get(color.$color, 'grey-75');
 $_border-width: 1px;
@@ -47,11 +47,11 @@ $_padding-horizontal: map.get(spacing.$spacing, 's');
 .ecl-text-input--s {
   width: 50%;
 
-  @include breakpoints.media-breakpoint-up('md') {
+  @include breakpoints.up('m') {
     width: 30%;
   }
 
-  @include breakpoints.media-breakpoint-up('lg') {
+  @include breakpoints.up('l') {
     width: map.get(form.$form, 's');
   }
 }
@@ -59,11 +59,11 @@ $_padding-horizontal: map.get(spacing.$spacing, 's');
 .ecl-text-input--m {
   width: 100%;
 
-  @include breakpoints.media-breakpoint-up('md') {
+  @include breakpoints.up('m') {
     width: 50%;
   }
 
-  @include breakpoints.media-breakpoint-up('lg') {
+  @include breakpoints.up('l') {
     width: map.get(form.$form, 'm');
   }
 }
@@ -71,7 +71,7 @@ $_padding-horizontal: map.get(spacing.$spacing, 's');
 .ecl-text-input--l {
   width: 100%;
 
-  @include breakpoints.media-breakpoint-up('lg') {
+  @include breakpoints.up('l') {
     width: map.get(form.$form, 'l');
   }
 }

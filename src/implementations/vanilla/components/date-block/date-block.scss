@@ -7,7 +7,7 @@
 @use '@ecl/theme-dev/maps/color';
 @use '@ecl/theme-dev/maps/spacing';
 @use '@ecl/theme-dev/maps/typography';
-@use '@ecl/layout-grid/mixins/breakpoints';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 $_background-default: map.get(color.$color, 'blue');
 $_text-color-default: map.get(color.$color, 'white');
@@ -99,7 +99,7 @@ $_circle-width: 0.6rem;
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.media-breakpoint-up('lg') {
+@include breakpoints.up('l') {
   .ecl-date-block {
     width: $_width-desktop;
   }

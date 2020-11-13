@@ -1,0 +1,50 @@
+@use "sass:map";
+@use "@ecl/theme-dev/maps/layout";
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+@each $breakpoint in map.keys(layout.$breakpoint) {
+  @include breakpoints.up($breakpoint) {
+    $infix: breakpoints.infix($breakpoint, layout.$breakpoint);
+
+    .ecl-u-d#{$infix}-none {
+      display: none !important;
+    }
+
+    .ecl-u-d#{$infix}-inline {
+      display: inline !important;
+    }
+
+    .ecl-u-d#{$infix}-inline-block {
+      display: inline-block !important;
+    }
+
+    .ecl-u-d#{$infix}-block {
+      display: block !important;
+    }
+
+    .ecl-u-d#{$infix}-table {
+      display: table !important;
+    }
+
+    .ecl-u-d#{$infix}-table-cell {
+      display: table-cell !important;
+    }
+
+    .ecl-u-d#{$infix}-flex {
+      display: flex !important;
+    }
+
+    .ecl-u-d#{$infix}-inline-flex {
+      display: inline-flex !important;
+    }
+  }
+}
+
+/* Box sizing */
+.ecl-u-box-sizing-content {
+  box-sizing: content-box !important;
+}
+
+.ecl-u-box-sizing-border {
+  box-sizing: border-box !important;
+}

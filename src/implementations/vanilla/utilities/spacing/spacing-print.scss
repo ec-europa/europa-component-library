@@ -1,0 +1,175 @@
+@use "sass:map";
+@use "@ecl/theme-dev/maps/layout";
+@use "@ecl/theme-dev/maps/spacing";
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+/*
+   Base:
+    m = margin
+    p = padding
+  Modifiers:
+    a = all
+    h = horizontal
+    v = vertical
+    t = top
+    r = right
+    b = bottom
+    l = left
+*/
+
+/* stylelint-disable max-nesting-depth */
+@each $breakpoint in map.keys(layout.$breakpoint) {
+  @include breakpoints.up($breakpoint) {
+    $infix: breakpoints.infix($breakpoint, layout.$breakpoint);
+
+    @each $key, $value in spacing.$spacing {
+      .ecl-u-ma#{$infix}-#{$key} {
+        margin: $value !important;
+      }
+
+      .ecl-u-mh#{$infix}-#{$key} {
+        margin-left: $value !important;
+        margin-right: $value !important;
+      }
+
+      .ecl-u-mv#{$infix}-#{$key} {
+        margin-bottom: $value !important;
+        margin-top: $value !important;
+      }
+
+      .ecl-u-mt#{$infix}-#{$key} {
+        margin-top: $value !important;
+      }
+
+      .ecl-u-mr#{$infix}-#{$key} {
+        margin-right: $value !important;
+      }
+
+      .ecl-u-mb#{$infix}-#{$key} {
+        margin-bottom: $value !important;
+      }
+
+      .ecl-u-ml#{$infix}-#{$key} {
+        margin-left: $value !important;
+      }
+    }
+
+    // Margin none
+    .ecl-u-ma#{$infix}-none {
+      margin: 0 !important;
+    }
+
+    .ecl-u-mh#{$infix}-none {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+
+    .ecl-u-mv#{$infix}-none {
+      margin-bottom: 0 !important;
+      margin-top: 0 !important;
+    }
+
+    .ecl-u-mt#{$infix}-none {
+      margin-top: 0 !important;
+    }
+
+    .ecl-u-mr#{$infix}-none {
+      margin-right: 0 !important;
+    }
+
+    .ecl-u-mb#{$infix}-none {
+      margin-bottom: 0 !important;
+    }
+
+    .ecl-u-ml#{$infix}-none {
+      margin-left: 0 !important;
+    }
+
+    // Margin auto
+    .ecl-u-ma#{$infix}-auto {
+      margin: auto !important;
+    }
+
+    .ecl-u-mh#{$infix}-auto {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    .ecl-u-mr#{$infix}-auto {
+      margin-right: auto !important;
+    }
+
+    .ecl-u-ml#{$infix}-auto {
+      margin-left: auto !important;
+    }
+  }
+}
+
+@each $breakpoint in map.keys(layout.$breakpoint) {
+  @include breakpoints.up($breakpoint) {
+    $infix: breakpoints.infix($breakpoint, layout.$breakpoint);
+
+    @each $key, $value in spacing.$spacing {
+      .ecl-u-pa#{$infix}-#{$key} {
+        padding: $value !important;
+      }
+
+      .ecl-u-ph#{$infix}-#{$key} {
+        padding-left: $value !important;
+        padding-right: $value !important;
+      }
+
+      .ecl-u-pv#{$infix}-#{$key} {
+        padding-bottom: $value !important;
+        padding-top: $value !important;
+      }
+
+      .ecl-u-pt#{$infix}-#{$key} {
+        padding-top: $value !important;
+      }
+
+      .ecl-u-pr#{$infix}-#{$key} {
+        padding-right: $value !important;
+      }
+
+      .ecl-u-pb#{$infix}-#{$key} {
+        padding-bottom: $value !important;
+      }
+
+      .ecl-u-pl#{$infix}-#{$key} {
+        padding-left: $value !important;
+      }
+    }
+
+    // Padding none
+    .ecl-u-pa#{$infix}-none {
+      padding: 0 !important;
+    }
+
+    .ecl-u-ph#{$infix}-none {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    .ecl-u-pv#{$infix}-none {
+      padding-bottom: 0 !important;
+      padding-top: 0 !important;
+    }
+
+    .ecl-u-pt#{$infix}-none {
+      padding-top: 0 !important;
+    }
+
+    .ecl-u-pr#{$infix}-none {
+      padding-right: 0 !important;
+    }
+
+    .ecl-u-pb#{$infix}-none {
+      padding-bottom: 0 !important;
+    }
+
+    .ecl-u-pl#{$infix}-none {
+      padding-left: 0 !important;
+    }
+  }
+}
