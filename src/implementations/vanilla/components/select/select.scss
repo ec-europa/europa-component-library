@@ -63,11 +63,11 @@ $_arrow-width: 2.75rem;
 .ecl-select__container--s {
   width: 50%;
 
-  @include breakpoints.media-breakpoint-up('md') {
+  @include breakpoints.up('m') {
     width: 30%;
   }
 
-  @include breakpoints.media-breakpoint-up('lg') {
+  @include breakpoints.up('l') {
     width: map.get(form.$form, 's');
   }
 }
@@ -75,11 +75,11 @@ $_arrow-width: 2.75rem;
 .ecl-select__container--m {
   width: 100%;
 
-  @include breakpoints.media-breakpoint-up('md') {
+  @include breakpoints.up('m') {
     width: 50%;
   }
 
-  @include breakpoints.media-breakpoint-up('lg') {
+  @include breakpoints.up('l') {
     width: map.get(form.$form, 'm');
   }
 }
@@ -87,7 +87,7 @@ $_arrow-width: 2.75rem;
 .ecl-select__container--l {
   width: 100%;
 
-  @include breakpoints.media-breakpoint-up('lg') {
+  @include breakpoints.up('l') {
     width: map.get(form.$form, 'l');
   }
 }
