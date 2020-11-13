@@ -16,7 +16,7 @@ import selectBox from './select.html.twig';
 import notes from './README.md';
 
 const prepareSelect = (data, multi) => {
-  getFormKnobs(data, true);
+  getFormKnobs(data);
 
   data.id = text('id', data.id, tabLabels.optional);
   data.icon_path = optionsKnob(
