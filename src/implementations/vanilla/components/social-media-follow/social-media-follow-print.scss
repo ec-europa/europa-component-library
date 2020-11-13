@@ -1,0 +1,54 @@
+/*
+ * Social media follow
+ * @define social-media-follow
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/maps/typography';
+
+.ecl-social-media-follow {
+  margin: 0;
+}
+
+.ecl-social-media-follow__icon-hover {
+  display: none;
+}
+
+.ecl-social-media-follow__description {
+  color: map.get(color.$color, 'black');
+  font: map.get(typography.$font-prolonged-print, 'm');
+  font-weight: map.get(typography.$font-weight-print, 'bold');
+  margin: 0;
+}
+
+.ecl-social-media-follow__list {
+  list-style: none;
+  margin-top: map.get(spacing.$spacing-print, 'l');
+  padding-left: 0;
+}
+
+.ecl-social-media-follow__item {
+  color: map.get(color.$color, 'grey');
+  font: map.get(typography.$font-prolonged, 'm');
+  margin-top: map.get(spacing.$spacing-print, 's');
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+
+  &:last-of-type {
+    display: none;
+  }
+}
+
+.ecl-social-media-follow__link {
+  align-items: center;
+  display: flex;
+}
+
+.ecl-social-media-follow__icon {
+  display: block;
+  margin-right: map.get(spacing.$spacing-print, 's');
+}
