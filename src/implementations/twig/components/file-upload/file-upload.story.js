@@ -8,10 +8,8 @@ import {
 } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
 
-// Import data for tests
 import dataDefault from '@ecl/specs-component-file-upload/demo/data';
 import dataMulti from '@ecl/specs-component-file-upload/demo/data--multiple';
-
 import fileUpload from './file-upload.html.twig';
 import notes from './README.md';
 
