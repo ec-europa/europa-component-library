@@ -1,6 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Media Container EC - Media container image Media container image renders correctly 1`] = `
+exports[`Media Container Media Container generic tests Media container renders correctly with extra attributes 1`] = `
+<figure
+  class="ecl-media-container"
+  data-test="data-test-value"
+  data-test-1="data-test-value-1"
+>
+  <img
+    alt="Jean Monnet banner"
+    class="ecl-media-container__media"
+    src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+  />
+  <figcaption
+    class="ecl-media-container__caption"
+  >
+    The European Commission has put forward ambitious yet realistic proposals for a modern EU budget. It is time for an EU budget that reflects rapid developments in innovation, the economy, the environment and geopolitics, amongst others.
+  </figcaption>
+</figure>
+`;
+
+exports[`Media Container Media Container generic tests renders correctly with extra class names 1`] = `
+<figure
+  class="ecl-media-container custom-class custom-class--test"
+>
+  <img
+    alt="Jean Monnet banner"
+    class="ecl-media-container__media"
+    src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+  />
+  <figcaption
+    class="ecl-media-container__caption"
+  >
+    The European Commission has put forward ambitious yet realistic proposals for a modern EU budget. It is time for an EU budget that reflects rapid developments in innovation, the economy, the environment and geopolitics, amongst others.
+  </figcaption>
+</figure>
+`;
+
+exports[`Media Container Media container image Media container image renders correctly 1`] = `
 <figure
   class="ecl-media-container"
 >
@@ -17,7 +53,7 @@ exports[`Media Container EC - Media container image Media container image render
 </figure>
 `;
 
-exports[`Media Container EC - Media container video renders correctly 1`] = `
+exports[`Media Container Media container video renders correctly 1`] = `
 <figure
   class="ecl-media-container"
 >
@@ -55,7 +91,7 @@ exports[`Media Container EC - Media container video renders correctly 1`] = `
 </figure>
 `;
 
-exports[`Media Container EC - Media container video with embedded media renders correctly 1`] = `
+exports[`Media Container Media container video with embedded media renders correctly 1`] = `
 <figure
   class="ecl-media-container"
 >
@@ -72,42 +108,6 @@ exports[`Media Container EC - Media container video with embedded media renders 
       width="350"
     />
   </div>
-  <figcaption
-    class="ecl-media-container__caption"
-  >
-    The European Commission has put forward ambitious yet realistic proposals for a modern EU budget. It is time for an EU budget that reflects rapid developments in innovation, the economy, the environment and geopolitics, amongst others.
-  </figcaption>
-</figure>
-`;
-
-exports[`Media Container Media Container generic tests Media container renders correctly with extra attributes 1`] = `
-<figure
-  class="ecl-media-container"
-  data-test="data-test-value"
-  data-test-1="data-test-value-1"
->
-  <img
-    alt="Jean Monnet banner"
-    class="ecl-media-container__media"
-    src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-  />
-  <figcaption
-    class="ecl-media-container__caption"
-  >
-    The European Commission has put forward ambitious yet realistic proposals for a modern EU budget. It is time for an EU budget that reflects rapid developments in innovation, the economy, the environment and geopolitics, amongst others.
-  </figcaption>
-</figure>
-`;
-
-exports[`Media Container Media Container generic tests renders correctly with extra class names 1`] = `
-<figure
-  class="ecl-media-container custom-class custom-class--test"
->
-  <img
-    alt="Jean Monnet banner"
-    class="ecl-media-container__media"
-    src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-  />
   <figcaption
     class="ecl-media-container__caption"
   >

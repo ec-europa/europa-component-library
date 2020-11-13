@@ -34,14 +34,14 @@ describe('Media Container', () => {
     });
   });
 
-  describe('EC - Media container image', () => {
+  describe('Media container image', () => {
     test('Media container image renders correctly', () => {
       expect.assertions(1);
       return expect(render(defaultDataStructure)).resolves.toMatchSnapshot();
     });
   });
 
-  describe('EC - Media container video', () => {
+  describe('Media container video', () => {
     test('renders correctly', () => {
       const options = merge(defaultDataStructure, {
         tracks: demoContentVideo.tracks,

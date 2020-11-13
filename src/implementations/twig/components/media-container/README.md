@@ -27,7 +27,6 @@ npm install --save @ecl/twig-component-media-container
   - "value" (string) Attribute value, eg: 'data-test-1'.
 - **"\_compliance\_"** (optional) (boolean) (default: false) Activates debug
 
-
 ### Blocks:
 
 - **"embedded_media"** (optional) (string) (default: '') A block where to set an embed code
