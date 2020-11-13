@@ -1,6 +1,5 @@
 import iconPath from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import iconSocialPath from '@ecl/resources-ec-social-icons/dist/sprites/icons-social.svg';
-
 /**
  * Pass a specification data object and get all occurences of *.svg corrected to file loader path.
  * @param {Object} data
