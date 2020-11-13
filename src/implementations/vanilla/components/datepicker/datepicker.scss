@@ -1,0 +1,187 @@
+/* stylelint-disable max-nesting-depth */
+
+@use "sass:map";
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/form';
+@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+/* stylelint-disable-next-line scss/at-import-partial-extension-blacklist */
+@import 'pikaday/scss/pikaday.scss';
+
+.ecl-datepicker {
+  margin: 0;
+  position: relative;
+  width: 50%;
+
+  @include breakpoints.up('m') {
+    width: 30%;
+  }
+
+  @include breakpoints.up('l') {
+    width: map.get(form.$form, 's');
+  }
+}
+
+.ecl-datepicker__field.ecl-text-input {
+  padding-right: map.get(spacing.$spacing, 'xl');
+  width: 100%;
+}
+
+.ecl-datepicker__icon {
+  color: map.get(color.$color, 'grey-50');
+  margin-right: calc(#{map.get(spacing.$spacing, 's')} - 1px);
+  margin-top: calc(#{map.get(spacing.$spacing, 's')} - 1px);
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.ecl-datepicker--invalid .ecl-datepicker__icon {
+  color: map.get(color.$color, 'red-100');
+}
+
+.ecl-datepicker:hover .ecl-datepicker__icon {
+  color: map.get(color.$color, 'blue');
+}
+
+.ecl-datepicker--invalid:hover .ecl-datepicker__icon {
+  color: map.get(color.$color, 'red-130');
+}
+
+.ecl-datepicker__field:active + .ecl-datepicker__icon {
+  color: map.get(color.$color, 'grey');
+}
+
+.ecl-datepicker__field:focus + .ecl-datepicker__icon {
+  color: map.get(color.$color, 'grey-50');
+}
+
+.ecl-datepicker__field:disabled:hover + .ecl-datepicker__icon {
+  color: map.get(color.$color, 'grey-50');
+}
+
+/*
+   * pikaday styling
+   */
+.ecl-datepicker-theme {
+  border-width: 0;
+  color: map.get(color.$color, 'grey');
+  font: map.get(typography.$font, 'm');
+  width: 100%;
+
+  &.is-bound {
+    box-shadow: none;
+  }
+
+  .pika-lendar {
+    background-color: map.get(color.$color, 'grey-5');
+    margin: 0;
+    width: 100%;
+  }
+
+  .pika-title {
+    background-color: map.get(color.$color, 'white');
+    display: flex;
+  }
+
+  .pika-label {
+    align-items: center;
+    background-color: map.get(color.$color, 'grey-10');
+    color: map.get(color.$color, 'grey');
+    display: flex;
+    flex-grow: 1;
+    font: map.get(typography.$font, 'm');
+    justify-content: space-between;
+    margin-right: map.get(spacing.$spacing, '2xl');
+    padding: map.get(spacing.$spacing, 's') map.get(spacing.$spacing, 'm');
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  .pika-label::after {
+    border: solid map.get(color.$color, 'grey');
+    border-width: 0 2px 2px 0;
+    content: '';
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+  }
+
+  .pika-select {
+    border-width: 0;
+    height: 100%;
+    top: 0;
+    width: 100%;
+  }
+
+  .pika-prev,
+  .pika-next {
+    display: none;
+  }
+
+  .pika-table {
+    border-collapse: initial;
+    border-spacing: map.get(spacing.$spacing, '2xl');
+
+    th {
+      color: map.get(color.$color, 'grey');
+      font: map.get(typography.$font, 'm');
+      padding: map.get(spacing.$spacing, 'xs') 0;
+    }
+
+    abbr {
+      text-decoration: none;
+    }
+  }
+
+  .pika-button {
+    background-color: map.get(color.$color, 'white');
+    color: map.get(color.$color, 'grey');
+    font: map.get(typography.$font, 'm');
+    padding: map.get(spacing.$spacing, 's');
+    text-align: center;
+
+    &:hover {
+      background-color: map.get(color.$color, 'grey-10');
+      border-radius: 0;
+    }
+  }
+
+  .is-today .pika-button {
+    box-shadow: inset 0 0 0 3px map.get(color.$color, 'blue-25');
+  }
+
+  .is-selected .pika-button {
+    background-color: map.get(color.$color, 'blue');
+    border-radius: 0;
+    box-shadow: none;
+    color: map.get(color.$color, 'white');
+    font-weight: map.get(typography.$font-weight, 'bold');
+  }
+
+  .is-outside-current-month .pika-button {
+    background-color: map.get(color.$color, 'grey-10');
+    color: map.get(color.$color, 'grey');
+    opacity: 1;
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('m') {
+  .ecl-datepicker-theme {
+    width: auto;
+
+    .pika-lendar {
+      width: 20rem;
+    }
+
+    .pika-button {
+      padding: map.get(spacing.$spacing, 'xs');
+    }
+  }
+}
