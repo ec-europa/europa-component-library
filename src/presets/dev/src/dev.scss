@@ -1,4 +1,6 @@
-@use '@ecl/vanilla-component-icon/icon'; // must be first
+// Components that must be first
+@use '@ecl/vanilla-component-icon/icon';
+@use '@ecl/vanilla-component-link/link';
 
 // Layout
 @use '@ecl/vanilla-layout-grid/grid';
@@ -6,6 +8,10 @@
 // Components
 @use '@ecl/vanilla-component-accordion/accordion';
 @use '@ecl/vanilla-component-blockquote/blockquote';
+@use '@ecl/vanilla-component-breadcrumb/breadcrumb';
+@use '@ecl/vanilla-component-breadcrumb-core/breadcrumb-core';
+@use '@ecl/vanilla-component-breadcrumb-standardised/breadcrumb-standardised';
+@use '@ecl/vanilla-component-breadcrumb-harmonised/breadcrumb-harmonised';
 @use '@ecl/vanilla-component-button/button';
 @use '@ecl/vanilla-component-card/card';
 @use '@ecl/vanilla-component-checkbox/checkbox';
@@ -17,7 +23,6 @@
 @use '@ecl/vanilla-component-file-upload/file-upload';
 @use '@ecl/vanilla-component-form/form';
 @use '@ecl/vanilla-component-label/label';
-@use '@ecl/vanilla-component-link/link';
 @use '@ecl/vanilla-component-message/message';
 @use '@ecl/vanilla-component-ordered-list/ordered-list';
 @use '@ecl/vanilla-component-radio/radio';
