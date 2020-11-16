@@ -1,0 +1,174 @@
+{% spaceless %}
+
+{#
+  Parameters:
+  - "overlay" (object) (default: {})
+    - "close" (object) (default: {}): object of type button
+    - "previous (object) (default: {}): object of type button
+    - "next" (object) (default: {}): object of type button
+    - "counter_separator" (string) (default: '')
+    - "download" (object) (default: {}): object of type link
+    - "share" (object) (default: {}): object of type link
+  - "item" (object) (default: {}): object of type gallery-item
+  - "extra_classes" (optional) (string) (default: '')
+  - "extra_attributes" (optional) (array) (default: [])
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (string) Attribute value, eg: 'data-test-1'
+  - "_compliance_" (boolean) (default: false) Activates debug
+#}
+
+{# variables #}
+
+{% set _css_class = 'ecl-gallery__overlay' %}
+{% set _css_media_class = 'ecl-gallery__slider-media-container' %}
+{% set _extra_attributes = '' %}
+{% set _button_type = 'button' %}
+{% set _button_variant = 'ghost' %}
+{% set _overlay = overlay|default({}) %}
+{% set _item = item|default({}) %}
+{% set _compliance = _compliance_|default(false) %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<dialog class="{{ _css_class }}"{{ _extra_attributes }} data-ecl-gallery-overlay>
+  <header class="ecl-gallery__close" data-ecl-gallery-overlay-header>
+    {% include '@ecl/button/button.html.twig' with _overlay.close|merge({
+      extra_classes: 'ecl-gallery__close-button',
+      variant: _button_variant,
+      type: 'submit',
+      extra_attributes: [
+        { name: 'data-ecl-gallery-close' },
+      ],
+      _compliance_: _compliance
+    }) only %}
+  </header>
+
+  <section class="ecl-gallery__slider">
+    <div class="{{ _css_media_class }}" data-ecl-gallery-overlay-media></div>
+    {% if _overlay.previous is defined and _overlay.previous is not empty %}
+      {% include '@ecl/button/button.html.twig' with _overlay.previous|merge({
+        extra_classes: 'ecl-gallery__slider-previous',
+        type: _button_type,
+        variant: _button_variant,
+        icon_position: 'before',
+        icon: _overlay.previous.icon|merge({
+          type: 'ui',
+          size: 'l',
+          transform: 'rotate-270',
+          name: 'corner-arrow',
+        }),
+        extra_attributes: [
+          { name: 'data-ecl-gallery-overlay-previous' },
+        ],
+        _compliance_: _compliance
+      }) only %}
+    {% endif %}
+    {% if (_overlay.next is defined and _overlay.next is not empty) and
+      (_overlay.next.icon is defined and _overlay.next.icon is not empty) %}
+      {% include '@ecl/button/button.html.twig' with _overlay.next|merge({
+        extra_classes: 'ecl-gallery__slider-next',
+        type: _button_type,
+        variant: _button_variant,
+        icon: _overlay.next.icon|merge({
+          type: 'ui',
+          size: 'l',
+          transform: 'rotate-90',
+          name: 'corner-arrow',
+        }),
+        extra_attributes: [
+          { name: 'data-ecl-gallery-overlay-next' },
+        ],
+        _compliance_: _compliance
+      }) only %}
+    {% endif %}
+  </section>
+
+  <footer class="ecl-gallery__detail" data-ecl-gallery-overlay-footer>
+  {% if _overlay.counter_separator is defined and _overlay.counter_separator is not empty %}
+    <div class="ecl-gallery__detail-counter">
+      <span data-ecl-gallery-overlay-counter-current>0</span>{{- ' ' -}}
+        {{- _overlay.counter_separator }}{{- ' ' -}}
+      <span data-ecl-gallery-overlay-counter-max>0</span>
+    </div>
+  {% endif %}
+    <div class="ecl-gallery__detail-actions">
+    {% if (_overlay.download is defined and _overlay.download is not empty) and
+      (_overlay.download.link is defined and _overlay.download.link is not empty) %}
+      {% include '@ecl/link/link.html.twig' with _overlay.download|merge({
+        link: _overlay.download.link|merge({
+          icon_position: 'after'
+        }),
+        icon: _overlay.download.icon|merge({
+          name: 'download',
+          size: 'fluid',
+          type: 'ui',
+        }),
+        extra_classes: 'ecl-gallery__download',
+        extra_attributes: [
+          { name: 'data-ecl-gallery-overlay-download' },
+          { name: 'download' },
+        ],
+        _compliance_: _compliance
+      }) only %}
+    {% endif %}
+    {% if (_overlay.share is defined and _overlay.share is not empty) and
+      (_overlay.share.link is defined and _overlay.share.link is not empty) %}
+      {% include '@ecl/link/link.html.twig' with _overlay.share|merge({
+        link: _overlay.share.link|merge({
+          icon_position: 'after'
+        }),
+        icon: _overlay.share.icon|merge({
+          name: 'share',
+          size: 'fluid',
+          type: 'general',
+        }),
+        extra_classes: 'ecl-gallery__share',
+        extra_attributes: [
+          { name: 'data-ecl-gallery-overlay-share' },
+        ],
+        _compliance_: _compliance
+      }) only %}
+    {% endif %}
+    </div>
+  {% if _item.description is defined and _item.description is not empty %}
+    <div
+      class="ecl-gallery__detail-description"
+      data-ecl-gallery-overlay-description
+    >
+      {{- _item.description -}}
+    </div>
+  {% endif %}
+  {% if _item.meta is defined and _item.meta is not empty %}
+    <div class="ecl-gallery__detail-meta" data-ecl-gallery-overlay-meta>
+      {{- _item.meta -}}
+    </div>
+  {% endif %}
+  </footer>
+</dialog>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl/@compliance/gallery-overlay.html.twig' with {
+    overlay: _overlay,
+    item: _item
+  } only %}
+{% endif %}
+
+{% endspaceless %}
