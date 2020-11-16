@@ -1,0 +1,49 @@
+---
+title: API
+order: 3
+---
+
+import BreadcrubJSDoc from '../../../_jsdoc/breadcrumb.md';
+
+## API
+
+<BreadcrubJSDoc />
+
+## Setup
+
+There are 2 ways to initialise the component.
+
+### Automatic
+
+Add `data-ecl-auto-init` attribute to component's markup
+
+```html
+<nav
+  class="ecl-breadcrumb"
+  aria-label="You are here:"
+  data-ecl-breadcrumb-core
+  data-ecl-auto-init="BreadcrumbCore"
+>
+  ...
+</nav>
+```
+
+Possible values:
+
+- `BreadcrumbCore`
+- `BreadcrumbStandardised`
+- `BreadcrumbHarmonised`
+
+Use the `ECL` library's `autoInit()` (`ECL.autoInit()`) when your page is ready or other custom event you want to hook onto.
+
+### Manual
+
+Get target element, create an instance and invoke `init()`.
+
+Given you have 1 element with an attribute `data-ecl-breadcrumb-core` on the page:
+
+```js
+var elt = document.querySelector('[data-ecl-breadcrumb-core]');
+var breadcrumb = new ECL.BreadcrumbCore(elt);
+breadcrumb.init();
+```
