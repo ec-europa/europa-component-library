@@ -424,8 +424,12 @@ exports[`Page Banner image - shade renders correctly 1`] = `
 
 exports[`Page Banner image - text-box renders correctly 1`] = `
 <section
-  class="ecl-page-banner ecl-page-banner--default ecl-page-banner--centered"
+  class="ecl-page-banner ecl-page-banner--image ecl-page-banner--centered"
 >
+  <div
+    class="ecl-page-banner__image"
+    style="background-image:url(https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg)"
+  />
   <div
     class="ecl-container"
   >
@@ -474,10 +478,14 @@ exports[`Page Banner image - text-box renders correctly 1`] = `
 
 exports[`Page Banner image renders correctly with extra attributes 1`] = `
 <section
-  class="ecl-page-banner ecl-page-banner--default ecl-page-banner--centered"
+  class="ecl-page-banner ecl-page-banner--image ecl-page-banner--centered"
   data-test="data-test-value"
   data-test-1="data-test-value-1"
 >
+  <div
+    class="ecl-page-banner__image"
+    style="background-image:url(https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg)"
+  />
   <div
     class="ecl-container"
   >
@@ -526,8 +534,12 @@ exports[`Page Banner image renders correctly with extra attributes 1`] = `
 
 exports[`Page Banner image renders correctly with extra class names 1`] = `
 <section
-  class="ecl-page-banner ecl-page-banner--default ecl-page-banner--centered custom-class custom-class--test"
+  class="ecl-page-banner ecl-page-banner--image ecl-page-banner--centered custom-class custom-class--test"
 >
+  <div
+    class="ecl-page-banner__image"
+    style="background-image:url(https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg)"
+  />
   <div
     class="ecl-container"
   >
@@ -576,7 +588,7 @@ exports[`Page Banner image renders correctly with extra class names 1`] = `
 
 exports[`Page Banner image with validation enabled and missing input data returns the right warning message 1`] = `
 <section
-  class="ecl-page-banner ecl-page-banner--default ecl-page-banner--centered"
+  class="ecl-page-banner ecl-page-banner--image ecl-page-banner--centered"
 >
   <div
     class="ecl-container"
