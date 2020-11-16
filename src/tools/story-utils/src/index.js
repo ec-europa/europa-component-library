@@ -223,7 +223,7 @@ export const getIconKnobs = (
   return data;
 };
 
-export const getFormKnobs = (data, required) => {
+export const getFormKnobs = (data) => {
   let helperTextDefault = '';
   if (data.helper_text) {
     helperTextDefault = data.helper_text;
@@ -233,9 +233,9 @@ export const getFormKnobs = (data, required) => {
     medium: 'm',
     large: 'l',
   };
-  data.invalid = boolean('invalid', false, tabLabels.states);
-  data.disabled = boolean('disabled', false, tabLabels.states);
-  data.required = boolean('required', required, tabLabels.states);
+  data.invalid = boolean('invalid', data.invalid, tabLabels.states);
+  data.disabled = boolean('disabled', data.disabled, tabLabels.states);
+  data.required = boolean('required', data.required, tabLabels.states);
   data.label = text('label', data.label, tabLabels.required);
   if (data.invalid) {
     data.invalid_text = text(
