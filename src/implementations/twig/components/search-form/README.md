@@ -9,7 +9,7 @@ npm install --save @ecl/twig-component-search-form
 ### Parameters
 
 - **"text_input"** (associative array) default: Predefined structure for the text-Input component
-- **"button"** (associative array) default: A predefined structure for EC Button
+- **"button"** (associative array) default: Predefined structure for the Button component
 - **"extra_form_elements"** (optional) (string) (default: '') Extra elements for the form
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
