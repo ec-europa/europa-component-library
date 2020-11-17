@@ -22,10 +22,6 @@ module.exports = {
         banner,
         moduleName: 'ECL',
         sourceMap: isProd ? false : 'inline',
-        // external: ['moment'],
-        // globals: {
-        //   moment: 'moment',
-        // },
       },
     },
   ],
