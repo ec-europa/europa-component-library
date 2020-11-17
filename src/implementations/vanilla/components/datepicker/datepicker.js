@@ -1,5 +1,5 @@
 import Pikaday from 'pikaday';
-import 'moment/src/moment';
+import moment from 'moment';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -16,6 +16,7 @@ export class Datepicker {
    * @return {Datepicker} An instance of Datepicker.
    */
   static autoInit(root, { DATEPICKER: defaultOptions = {} } = {}) {
+    window.moment = moment;
     const datepicker = new Datepicker(root, defaultOptions);
     datepicker.init();
     root.ECLDatepicker = datepicker;
