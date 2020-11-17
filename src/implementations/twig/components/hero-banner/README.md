@@ -14,7 +14,7 @@ npm install --save @ecl/twig-component-hero-banner
 - **"description"** (string) (default: '') Description of banner
 - **"centered"** (bool) (default: true) Define if banner should be centered
 - [DEPRECATED] **"button"** (associative array) (default: predefined structure) predefined structure for EC Button component
-- **"link"** (associative array) (default: predefined structure) predefined structure for EC Link component
+- **"link"** (associative array) (default: predefined structure) predefined structure for the Link component
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
