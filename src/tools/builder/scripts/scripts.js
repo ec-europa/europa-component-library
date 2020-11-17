@@ -3,9 +3,20 @@ const rollup = require('rollup');
 const babel = require('rollup-plugin-babel');
 const resolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
+const { uglify } = require('rollup-plugin-uglify');
 const svg = require('rollup-plugin-svg');
 
 module.exports = (input, dest, options) => {
+  const uglifyCode =
+    options.uglify === true ||
+    (options.uglify !== false && process.env.NODE_ENV === 'production');
+
+  const uglifyOptions = { mangle: { reserved: ['moment'] } };
+
+  if (options.banner) {
+    uglifyOptions.output = { preamble: `/* ${options.banner} */` };
+  }
+
   const inputOptions = {
     input,
     external: options.external || [],
@@ -24,6 +35,7 @@ module.exports = (input, dest, options) => {
         ],
       }),
       svg(),
+      uglifyCode && uglify(uglifyOptions),
     ],
   };
 
