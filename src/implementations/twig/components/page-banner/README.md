@@ -8,13 +8,13 @@ npm install --save @ecl/twig-component-page-banner
 
 ### Parameters
 
-- **"type"** (string) (default: 'default') Type of banner (can be 'default','image','image-shade','primary')
+- **"type"** (string) (default: 'default') Type of banner (can be 'white', 'grey', image','image-shade','image-gradient')
 - **"title"** (string) (default: '') Title of banner
 - **"image"** (string) (default: '') Image for banner (required for image banner type)
 - **"baseline"** (string) (default: '') Baseline of banner
 - **"centered"** (bool) (default: true) Define if banner should be centered
-- [DEPRECATED] **"button"** (associative array) (default: predefined structure) predefined structure for EC Button component
-- **"link"** (associative array) (default: predefined structure) predefined structure for EC Link component
+- [DEPRECATED] **"button"** (associative array) (default: predefined structure) predefined structure for the Button component
+- **"link"** (associative array) (default: predefined structure) predefined structure for the Link component
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
