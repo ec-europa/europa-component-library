@@ -1,0 +1,101 @@
+{% spaceless %}
+
+{#
+  Parameters:
+    - "description" (string) (default: ''),
+    - "variant" (string) (default: ''): can be 'vertical',
+    - "links" (array) (default: []): format: [
+        {
+          "path" (string) (default: ''),
+          "label" (string) (default: ''),
+          "icon_position" (string) (default: ''),
+          "variant" (string) (default: ''),
+          "icon" (array) : format: [
+            {
+              "name" (string),
+              "size": (string),
+              "path": (string),
+              "extra_classes": (string)
+            },
+            ...
+          ]
+        },
+        ...
+      ]
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        ...
+      ],
+  - **"\_compliance\_"** (optional) (boolean) (default: false) Activates debug
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-social-media-follow' %}
+{% set _extra_attributes = '' %}
+{% set _description = description|default('') %}
+{% set _links = links|default({}) %}
+{% set _variant = variant|default('') %}
+{% set _compliance = _compliance_|default(false) %}
+
+{# Internal logic - Process properties #}
+
+{% if _variant is defined and _variant is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-social-media-follow--' ~ _variant %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <p class="ecl-social-media-follow__description">{{ _description }}</p>
+{% if _links is not empty %}
+  <ul class="ecl-social-media-follow__list">
+  {% for link in _links %}
+  {% if link.label is defined and link.label is not empty %}
+    {% set _link_extra_classes = 'ecl-social-media-follow__link' %}
+    {% if link.extra_classes is not empty %}
+      {% set _link_extra_classes = _link_extra_classes ~ ' ' ~ link.extra_classes %}
+    {% endif %}
+    <li class="ecl-social-media-follow__item">
+      {% include '@ecl/link/link.html.twig' with link|merge({
+          link: link|default({})|merge({
+          type: 'standalone',
+        }),
+        extra_classes: _link_extra_classes,
+        _compliance_: _compliance
+      }) only %}
+    </li>
+  {% endif %}
+  {% endfor %}
+  </ul>
+{% endif %}
+</div>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl/@compliance/social-media.html.twig' with {
+    description: _description,
+    links: _links,
+    variant: 'follow'
+  } only %}
+{% endif %}
+
+{% endspaceless %}
