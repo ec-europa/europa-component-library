@@ -6,8 +6,7 @@ import dataOverlay from '@ecl/specs-component-language-list/demo/data--overlay';
 
 describe('Language List', () => {
   describe('Splash', () => {
-    const template =
-      '@ecl-twig/ec-component-language-list/ecl-language-list.html.twig';
+    const template = '@ecl/language-list/language-list.html.twig';
     const render = (params) => renderTwigFileAsNode(template, params);
 
     test('renders correctly', () => {
@@ -52,8 +51,7 @@ describe('Language List', () => {
   });
 
   describe('Overlay', () => {
-    const template =
-      '@ecl-twig/ec-component-language-list/ecl-language-list.html.twig';
+    const template = '@ecl/language-list/language-list.html.twig';
     const render = (params) => renderTwigFileAsNode(template, params);
 
     test('renders correctly', () => {
