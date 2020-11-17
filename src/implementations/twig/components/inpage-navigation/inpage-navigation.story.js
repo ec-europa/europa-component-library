@@ -21,9 +21,9 @@ const btnIdRemoveLabel =
 // Handlers.
 // Remove from content button.
 const btnIdRemoveHandler = () => {
-  const numH2s = document.querySelectorAll('.ecl-col-lg-9 h2[id]').length;
+  const numH2s = document.querySelectorAll('.ecl-col-l-9 h2[id]').length;
   const position = Math.floor(Math.random() * Math.floor(numH2s));
-  const randomH2 = document.querySelectorAll('.ecl-col-lg-9 h2[id]')[position];
+  const randomH2 = document.querySelectorAll('.ecl-col-l-9 h2[id]')[position];
   randomH2.nextSibling.outerHTML = '';
   randomH2.outerHTML = '';
   // Prevent the story from being reloaded.
@@ -53,9 +53,9 @@ const btnMainHandler = () => {
 };
 // Add an h2 with a paragraph in the main column.
 const btnIdHandler = () => {
-  const numParagraphs = document.querySelectorAll('.ecl-col-lg-9 p').length;
+  const numParagraphs = document.querySelectorAll('.ecl-col-l-9 p').length;
   const position = Math.floor(Math.random() * Math.floor(numParagraphs));
-  const btnIdElement = document.querySelectorAll('.ecl-col-lg-9 p')[position];
+  const btnIdElement = document.querySelectorAll('.ecl-col-l-9 p')[position];
   const demoId = Math.random().toString(36).slice(7);
   const btnIdTag = document.createElement('h2');
   btnIdTag.classList.add('ecl-u-type-heading-2');
@@ -92,11 +92,11 @@ export const Default = () => {
   const htmlElement = document.createElement('div');
   htmlElement.innerHTML = `<div class="ecl-container">
                             <div class="ecl-row ecl-u-mt-l" data-ecl-inpage-navigation-container>
-                              <div class="ecl-col-lg-3">
+                              <div class="ecl-col-l-3">
                                 <div class="inPageDemoSidebar"></div>
                                 ${html}
                               </div>
-                              <div class="ecl-col-lg-9">
+                              <div class="ecl-col-l-9">
                                 <div class="inPageDemoContent"></div>
                                 ${pageFillerHtml}
                               </div>

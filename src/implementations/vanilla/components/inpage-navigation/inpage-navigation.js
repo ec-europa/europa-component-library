@@ -221,7 +221,7 @@ export class InpageNavigation {
     if ('MutationObserver' in window) {
       const self = this;
       this.observer = new MutationObserver(function observe(mutationsList) {
-        const body = queryOne('.ecl-col-lg-9');
+        const body = queryOne('.ecl-col-l-9');
         const currentInpage = queryOne('[data-ecl-inpage-navigation-list]');
 
         mutationsList.forEach((mutation) => {
