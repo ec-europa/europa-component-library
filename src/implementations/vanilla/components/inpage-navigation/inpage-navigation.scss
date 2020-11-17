@@ -1,0 +1,226 @@
+/**
+ * ECL Navigation inpage
+ * @define inpage-navigation
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/icon';
+@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+
+$_inpage-link-border: map.get(spacing.$spacing, '2xs');
+$_toggle-width: calc(#{map.get(spacing.$spacing, 'm')} + #{map.get(icon.$icon, 's')} + #{map.get(spacing.$spacing, 'm')});
+
+.ecl-inpage-navigation {
+  display: none;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+
+  /* stylelint-disable-next-line order/order */
+  @include breakpoints.up('l') {
+    display: block;
+    position: sticky;
+    top: 0;
+  }
+}
+
+.ecl-inpage-navigation__trigger {
+  background: linear-gradient(
+    to left,
+    map.get(color.$color, 'blue-120') $_toggle-width,
+    map.get(color.$color, 'primary') $_toggle-width
+  );
+  border: 0;
+  color: map.get(color.$color, 'white-100');
+  display: none;
+  padding: map.get(spacing.$spacing, 's') map.get(spacing.$spacing, 'm');
+  position: relative;
+  text-align: left;
+  width: 100%;
+
+  /* stylelint-disable-next-line order/order */
+  @include breakpoints.up('l') {
+    display: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.ecl-inpage-navigation--visible {
+  display: block;
+
+  .ecl-inpage-navigation__trigger {
+    display: block;
+    overflow-x: hidden;
+    padding-right: calc(#{$_toggle-width} + #{map.get(spacing.$spacing, 'm')});
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    /* stylelint-disable-next-line order/order */
+    @include breakpoints.up('l') {
+      display: none;
+    }
+  }
+}
+
+.ecl-inpage-navigation__trigger-current {
+  font: map.get(typography.$font-prolonged, 'm');
+  font-weight: map.get(typography.$font-weight, 'bold');
+  margin-right: map.get(typography.$font, 'xl');
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ecl-inpage-navigation__trigger-icon {
+  position: absolute;
+  right: map.get(spacing.$spacing, 'm');
+
+  .ecl-inpage-navigation__trigger[aria-expanded='true'] & {
+    transform: rotate(0deg);
+  }
+}
+
+.ecl-inpage-navigation__title {
+  color: map.get(color.$color, 'grey-100');
+  display: none;
+  font: map.get(typography.$font, 'm');
+  padding: map.get(spacing.$spacing, 'xs') calc(#{map.get(spacing.$spacing, 's')} + #{$_inpage-link-border});
+  text-transform: uppercase;
+
+  /* stylelint-disable-next-line order/order */
+  @include breakpoints.up('l') {
+    color: map.get(color.$color, 'grey-100');
+    display: block;
+  }
+}
+
+.ecl-inpage-navigation__list {
+  border-top: 1px solid map.get(color.$color, 'blue-120');
+  display: none;
+  list-style-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
+  list-style-type: none;
+  margin: 0;
+  padding: 0 map.get(spacing.$spacing, 'm');
+
+  /* stylelint-disable-next-line order/order */
+  @include breakpoints.up('l') {
+    border-top-width: 0;
+    display: block;
+    padding: 0;
+  }
+}
+
+.ecl-inpage-navigation__list--visible {
+  display: flex;
+  flex-direction: column;
+}
+
+.ecl-inpage-navigation__link {
+  font: map.get(typography.$font-prolonged, 'm');
+  padding: map.get(spacing.$spacing, 's');
+
+  /* stylelint-disable-next-line order/order */
+  @include breakpoints.up('l') {
+    background-color: transparent;
+    border: 0;
+    border-left: $_inpage-link-border solid transparent;
+    color: map.get(color.$color, 'primary');
+    display: block;
+    font-weight: map.get(typography.$font-weight, 'bold');
+    padding: map.get(spacing.$spacing, 'xs') map.get(spacing.$spacing, 's');
+  }
+
+  &:hover {
+    /* stylelint-disable-next-line order/order */
+    @include breakpoints.up('l') {
+      text-decoration: underline;
+    }
+  }
+
+  &:focus {
+    outline-offset: -2px;
+
+    /* stylelint-disable-next-line order/order */
+    @include breakpoints.up('l') {
+      background-color: map.get(color.$color, 'yellow-100');
+      outline: none;
+      text-decoration: underline;
+    }
+  }
+
+  .ecl-inpage-navigation--visible & {
+    border-top: 1px solid map.get(color.$color, 'blue-75');
+    color: map.get(color.$color, 'white-100');
+    display: block;
+
+    /* stylelint-disable-next-line order/order */
+    @include breakpoints.up('l') {
+      border-top-width: 0;
+      color: map.get(color.$color, 'primary');
+    }
+  }
+
+  .ecl-inpage-navigation__item--active & {
+    /* stylelint-disable-next-line order/order */
+    @include breakpoints.up('l') {
+      background-color: map.get(color.$color, 'grey-5');
+      border-left-color: map.get(color.$color, 'primary');
+      color: map.get(color.$color, 'grey-100');
+    }
+  }
+}
+
+.ecl-inpage-navigation__item:first-of-type .ecl-inpage-navigation__link {
+  border-top-width: 0;
+}
+
+.ecl-inpage-navigation__link--is-active {
+  /* stylelint-disable-next-line order/order */
+  @include breakpoints.up('l') {
+    background-color: map.get(color.$color, 'grey-5');
+    border-left-color: map.get(color.$color, 'primary');
+    color: map.get(color.$color, 'grey-100');
+  }
+}
+
+.ecl-inpage-navigation__body {
+  .ecl-inpage-navigation--visible & {
+    background-color: map.get(color.$color, 'blue-110');
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+
+    /* stylelint-disable-next-line order/order */
+    @include breakpoints.up('l') {
+      background: transparent;
+      position: static;
+    }
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.down('m') {
+  .ecl-inpage-navigation__heading--active {
+    &:first-of-type {
+      padding-top: map.get(spacing.$spacing, '4xl');
+    }
+
+    &:not(:first-of-type) {
+      &::before {
+        content: '';
+        display: block;
+        margin-top: -#{map.get(spacing.$spacing, '4xl')};
+        padding-top: map.get(spacing.$spacing, '4xl');
+        visibility: hidden;
+      }
+    }
+  }
+}
