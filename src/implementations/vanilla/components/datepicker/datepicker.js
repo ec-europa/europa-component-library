@@ -1,4 +1,5 @@
 import Pikaday from 'pikaday';
+import 'moment/src/moment';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
