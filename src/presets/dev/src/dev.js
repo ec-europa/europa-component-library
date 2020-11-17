@@ -1,4 +1,5 @@
 import '@ecl/dom-utils/polyfills';
+import 'moment';
 
 export * from '@ecl/dom-utils/autoinit';
 export * from '@ecl/vanilla-component-accordion';
