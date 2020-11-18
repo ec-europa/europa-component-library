@@ -5,6 +5,7 @@ export * from '@ecl/vanilla-component-accordion';
 export * from '@ecl/vanilla-component-expandable';
 export * from '@ecl/vanilla-component-file';
 export * from '@ecl/vanilla-component-file-upload';
+export * from '@ecl/vanilla-component-gallery';
 export * from '@ecl/vanilla-component-message';
 export * from '@ecl/vanilla-component-menu';
 export * from '@ecl/vanilla-component-select';
