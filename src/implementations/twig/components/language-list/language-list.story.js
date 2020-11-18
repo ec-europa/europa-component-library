@@ -131,7 +131,7 @@ const prepareLanguageList = (data) => {
 };
 
 export default {
-  title: 'Page structure/LanguageList',
+  title: 'Components/Language list',
   decorators: [withKnobs, withCode, withNotes],
 };
 
