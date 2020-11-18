@@ -10,9 +10,13 @@
 @use '@ecl/theme-dev/maps/typography';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-
 $_inpage-link-border: map.get(spacing.$spacing, '2xs');
-$_toggle-width: calc(#{map.get(spacing.$spacing, 'm')} + #{map.get(icon.$icon, 's')} + #{map.get(spacing.$spacing, 'm')});
+$_toggle-width: calc(
+  #{map.get(spacing.$spacing, 'm')} + #{map.get(icon.$icon, 's')} + #{map.get(
+      spacing.$spacing,
+      'm'
+    )}
+);
 
 .ecl-inpage-navigation {
   display: none;
@@ -91,7 +95,8 @@ $_toggle-width: calc(#{map.get(spacing.$spacing, 'm')} + #{map.get(icon.$icon, '
   color: map.get(color.$color, 'grey-100');
   display: none;
   font: map.get(typography.$font, 'm');
-  padding: map.get(spacing.$spacing, 'xs') calc(#{map.get(spacing.$spacing, 's')} + #{$_inpage-link-border});
+  padding: map.get(spacing.$spacing, 'xs')
+    calc(#{map.get(spacing.$spacing, 's')} + #{$_inpage-link-border});
   text-transform: uppercase;
 
   /* stylelint-disable-next-line order/order */
