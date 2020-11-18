@@ -1,0 +1,188 @@
+{% spaceless %}
+
+{#
+  Parameters:
+  - title: (string) (default: ''): Title
+  - close: (string) (default: ''): Close button label
+  - back: (string): (default: ''): Back button label
+  - "group": (string) (default: 'group1'): 'group1' or 'group2'
+  - "icon_path": (string) (default: ''): Path to the icon sprite
+  - "items": (associative array) (default: {}): The menu items - format: [
+    {
+      "label": "Home",
+      "path": "/example",
+      "is_current": true
+    },
+    {
+      "label": "Item 1",
+      "path": "/example",
+      "is_current": true
+      "children": [
+        {
+          "label": "Item 1.1",
+          "path": "/example"
+        },
+        {
+          "label": "Item 1.2",
+          "path": "/example"
+        },
+      },
+    },
+  }],
+  - "site_name": (string) (default: ''): Name of the website
+  - "menu_link": (string) (default: ''): Href attribute of the menu toggler
+  - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the nav element
+  - "extra_attributes" (optional) (array) (default: []) Extra attributes for the nav element
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+  - "_compliance_" (boolean) (default: false) Activates debug
+  - "_compliance_inner_check_" (boolean) (default: false) Inline compliance report
+#}
+
+{# Internal properties #}
+
+{% set _title = title|default('') %}
+{% set _back = back|default('') %}
+{% set _close = close|default('') %}
+{% set _menu_link = menu_link|default('') %}
+{% set _group = group|default('group1') %}
+{% set _css_class = 'ecl-menu' %}
+{% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _group %}
+{% set _extra_attributes = '' %}
+{% set _site_name = site_name|default('') %}
+{% set _icon_path = icon_path|default('') %}
+{% set _compliance = _compliance_|default(false) %}
+{% set _compliance_inner_check = _compliance_inner_check_|default(false) %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+<nav
+  class="{{ _css_class }}"
+  data-ecl-menu
+  data-ecl-auto-init="Menu"
+  aria-expanded="false"
+  {{ _extra_attributes|raw }}
+>
+  <div class="ecl-menu__overlay" data-ecl-menu-overlay></div>
+  <div class="ecl-container ecl-menu__container">
+    <a
+      class="ecl-link ecl-link--standalone ecl-menu__open"
+      href="{{ _menu_link }}"
+      data-ecl-menu-open
+    >
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: {
+          size: 's',
+          type: 'general',
+          name: 'hamburger',
+          path: _icon_path
+        },
+        _compliance_: _compliance,
+        _compliance_inner_check_: true
+      } only %}
+      {{- _title -}}
+    </a>
+    {% if _site_name is not empty %}
+    <div class="ecl-menu__site-name">{{ _site_name }}</div>
+    {% endif %}
+    <section class="ecl-menu__inner" data-ecl-menu-inner>
+      <header class="ecl-menu__inner-header">
+        <button
+          class="ecl-menu__close ecl-button ecl-button--text"
+          type="submit"
+          data-ecl-menu-close
+        ><span class="ecl-menu__close-container ecl-button__container">
+            {% include '@ecl/icon/icon.html.twig' with {
+              icon: {
+                path: icon_path,
+                name: 'close-filled',
+                type: 'ui',
+                size: 's',
+              },
+              extra_classes: 'ecl-button__icon ecl-button__icon--before',
+              extra_attributes: [{ name: 'data-ecl-icon' }],
+              _compliance_: _compliance,
+              _compliance_inner_check_: true
+            } only %}
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true">
+                {{- _close -}}
+            </span>
+          </span>
+        </button>
+        <div class="ecl-menu__title">{{- _title -}}</div>
+        <button
+          data-ecl-menu-back
+          type="submit"
+          class="ecl-menu__back ecl-button ecl-button--text"
+        >
+          <span class="ecl-button__container">
+            {% include '@ecl/icon/icon.html.twig' with {
+              icon: {
+                path: _icon_path,
+                name: 'corner-arrow',
+                type: 'ui',
+                size: 's',
+                transform: 'rotate-270',
+              },
+              extra_classes: 'ecl-button__icon ecl-button__icon--before',
+              extra_attributes: [{ name: 'data-ecl-icon' }],
+              _compliance_: _compliance,
+              _compliance_inner_check_: true
+            } only %}
+            <span
+              class="ecl-button__label"
+              data-ecl-label
+            >
+              {{- _back -}}
+            </span>
+          </span>
+        </button>
+      </header>
+      <ul class="ecl-menu__list">
+      {% if items is defined and items is not empty and items is iterable %}
+        {% for item in items %}
+        {% if item is defined and item is not empty %}
+          {% include '@ecl/menu/menu-item.html.twig' with {
+            item: item,
+            icon_path: _icon_path,
+            _compliance_: _compliance
+          } only %}
+        {% endif %}
+        {% endfor %}
+      {% endif %}
+      </ul>
+    </section>
+  </div>
+</nav>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl/@compliance/menu.html.twig' with {
+    title: _title,
+    close: _close,
+    back: _back,
+    group: _group,
+    icon_path: _icon_path,
+    items: items,
+    site_name: _site_name,
+    menu_link: _menu_link,
+    _compliance_inner_check_: _compliance_inner_check
+  } only %}
+{% endif %}
+
+{% endspaceless %}
