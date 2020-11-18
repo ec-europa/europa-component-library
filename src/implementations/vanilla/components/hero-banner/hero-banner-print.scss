@@ -1,0 +1,34 @@
+/*
+ * Hero banner
+ * @define hero-banner; weak
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/maps/typography';
+
+.ecl-hero-banner {
+  margin: 0;
+  padding-bottom: map.get(spacing.$spacing-print, 'xl');
+  padding-top: map.get(spacing.$spacing-print, 'xl');
+}
+
+.ecl-hero-banner__title {
+  color: map.get(color.$color, 'black-100');
+  font: map.get(typography.$font-print, '4xl');
+  font-family: map.get(typography.$font-family-print, 'alt');
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.ecl-hero-banner__description {
+  color: map.get(color.$color, 'black-100');
+  font: map.get(typography.$font-prolonged-print, 'l');
+  margin-bottom: 0;
+  margin-top: map.get(spacing.$spacing-print, 'xs');
+}
+
+.ecl-hero-banner__description + .ecl-link {
+  margin-top: map.get(spacing.$spacing-print, 'm');
+}
