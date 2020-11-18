@@ -11,6 +11,10 @@ module.exports = (input, dest, options) => {
     options.uglify === true ||
     (options.uglify !== false && process.env.NODE_ENV === 'production');
 
+  // ECL uses Pikaday for its datepicker component. Pikaday dynamically depends on moment.js. ECL does not want to include moment.js in it's bundle to reduce size.
+  // Instruct minifier to preserve the UMD locally scoped 'moment' variable in Pikaday in order to correctly reference the global 'moment' included separately from the ECL library bundle.
+  // When Pikaday really removes moment from it's dependencies and does not load it dynamically, bundlers such as rollup will be able to handle this more gracefully.
+  // @see https://github.com/Pikaday/Pikaday/issues/815
   const uglifyOptions = { mangle: { reserved: ['moment'] } };
 
   if (options.banner) {

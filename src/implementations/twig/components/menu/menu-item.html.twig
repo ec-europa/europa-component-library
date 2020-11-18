@@ -1,0 +1,90 @@
+{% spaceless %}
+
+{#
+  Parameters:
+  - "item" (object)
+    - "is_current" (boolean) Whether the item is currently selected
+    - "label" (string) Label of the menu link
+    - "icon_path" (string) Path to the icon sprite
+    - "children" (array of object) Array of sub-items
+      - "is_current" (boolean) Whether the sub-item is currently selected
+      - "path" (string) Href of the sub-item link
+      - "label" (string) Label of the sub-item link
+  - "_compliance_" (boolean) (default: false) Activates debug
+#}
+
+{% set _item = item|default({}) %}
+{% set _menu_item_class = 'ecl-menu__link' %}
+{% set _menu_item_attributes = 'data-ecl-menu-link' %}
+{% set _menu_list_item_attributes = 'data-ecl-menu-item' %}
+{% set _menu_list_item_class = 'ecl-menu__item' %}
+{% set _icon_path = icon_path|default('') %}
+{% set _compliance = _compliance_|default(false) %}
+
+{% if _item.is_current is defined %}
+  {% set _menu_item_class = _menu_item_class ~ ' ecl-menu__link--current' %}
+  {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-menu__item--current' %}
+{% endif %}
+
+{% if item.children is defined and item.children is not empty and item.children is iterable %}
+  {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' data-ecl-has-children' %}
+  {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-menu__item--has-children' %}
+{% endif %}
+
+<li class="{{ _menu_list_item_class }}" {{ _menu_list_item_attributes }}>
+  <a href="{{ item.path }}" class="{{ _menu_item_class }}" {{ _menu_item_attributes }}>
+    {{- item.label -}}
+    {%- if item.children is defined and item.children is not empty and item.children is iterable -%}
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: {
+          path: icon_path,
+          type: 'ui',
+          name: 'corner-arrow',
+          size: 'xs',
+          transform: 'rotate-90'
+        },
+        extra_classes: 'ecl-menu__link-icon',
+        _compliance_: _compliance,
+        _compliance_inner_check_: true
+      } %}
+    {% endif %}
+  </a>
+{% if item.children is defined and item.children is not empty and item.children is iterable %}
+  <div
+    class="ecl-menu__mega"
+    data-ecl-menu-mega
+  >
+    <ul class="ecl-menu__sublist">
+    {% for child in item.children %}
+      {% set _subitem_class = 'ecl-menu__subitem' %}
+      {% if child.is_current is defined %}
+        {% set _subitem_class = _subitem_class ~ ' ecl-menu__subitem--current' %}
+      {% endif %}
+      <li
+        class="{{ _subitem_class }}"
+        data-ecl-menu-subitem
+      >
+        {% set _sublink_class = 'ecl-menu__sublink' ~ (child.is_current is defined ? ' ecl-menu__sublink--current' : '') %}
+        <a
+          href="{{ child.path }}"
+          class="{{ _sublink_class }}"
+        >
+          {{- child.label -}}
+        </a>
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+{% endif %}
+</li>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl/@compliance/menu-item.html.twig' with {
+    icon_path: _icon_path,
+    item: _item,
+  } only %}
+{% endif %}
+
+{% endspaceless %}
