@@ -5,7 +5,6 @@ module.exports = {
     link: {
       label: 'Subscribe',
       path: '/example',
-      aria_label: '',
       icon_position: 'after',
     },
     icon: {
