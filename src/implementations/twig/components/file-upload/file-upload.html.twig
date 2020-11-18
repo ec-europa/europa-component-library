@@ -1,0 +1,197 @@
+{% spaceless %}
+
+{#
+  Blocks:
+  - "label" (string) (default: '')
+  - "helper_text" (string) (default: '')
+  
+  Parameters:
+  - "id" (string) (default: '')
+  - "name" (string) (default: '')
+  - "invalid" (boolean) (default: false)
+  - "invalid_text" (string) (default: '')
+  - "multiple" (boolean) (default: false)
+  - "disabled" (boolean) (default: false)
+  - "required" (boolean) (default: false)
+  - "required_text" (string) (default: '*')
+  - "optional_text" (string) (default: '')
+  - "button_choose_label" (string) (default: '')
+  - "button_replace_label" (string) (default: '')
+  - "extra_classes" (string) (default: '')
+  - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ],
+    - "_compliance_" (boolean) (default: false) Activates debug
+#}
+
+{# Parameters #}
+
+{% set _button_choose_label = button_choose_label|default('') %}
+{% set _button_replace_label = button_replace_label|default('') %}
+{% set _id = id|default('') %}
+{% set _name = name|default('') %}
+{% set _invalid = invalid|default(false) %}
+{% set _invalid_text = invalid_text|default('') %}
+{% set _disabled = disabled|default(false) %}
+{% set _multiple = multiple|default(false) %}
+{% set _required = required|default(false) %}
+{% set _required_text = required_text|default('*') %}
+{% set _optional_text = optional_text|default('') %}
+{% set _extra_classes = extra_classes|default('') %}
+{% set _compliance = _compliance_|default(false) %}
+
+{# Blocks #}
+{% set _label = label|default('') %}
+{% set _helper_text = helper_text|default('') %}
+
+{# Internal properties #}
+
+{% set _component_class = 'ecl-file-upload' %}
+{% set _main_attributes = 'data-ecl-file-upload-input data-ecl-auto-init="FileUpload"' %}
+{% set _disabled_variant = '--disabled' %}
+{% set _invalid_variant = '--invalid' %}
+{% set _label_base_class = 'ecl-form-label' %}
+{% set _label_classes = _label_base_class %}
+{% set _help_classes = 'ecl-help-block' %}
+{% set _group_css_classes = 'ecl-form-group' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if _id is not empty %}
+  {% set _main_attributes = _main_attributes ~ ' ' ~ 'id="' ~ _id ~ '"' %}
+{% endif %}
+
+{% if _name is not empty %}
+  {% set _main_attributes = _main_attributes ~ ' ' ~ 'name="' ~ _name ~ '"' %}
+{% endif %}
+
+{% if _required %}
+  {% set _main_attributes = _main_attributes ~ ' ' ~ 'required' %}
+{% endif %}
+
+{% if _invalid %}
+  {% set _label_classes = _label_base_class ~ ' ' ~ _label_base_class ~ _invalid_variant %}
+  {% set _component_class = _component_class ~ ' ' ~ _component_class ~ _invalid_variant %}
+{% endif %}
+
+{% if _disabled %}
+  {% set _label_classes = _label_base_class ~ ' ' ~ _label_base_class ~ _disabled_variant %}
+  {% set _help_classes = _help_classes ~ ' ' ~ _help_classes ~ _disabled_variant %}
+  {% set _main_attributes = _main_attributes ~ ' ' ~ 'disabled' %}
+{% endif %}
+
+{% if _multiple %}
+  {% set _main_attributes = _main_attributes ~ ' ' ~ 'multiple' %}
+{% endif %}
+
+{% if _extra_classes is not empty %}
+  {% set _group_css_classes = _group_css_classes ~ ' ' ~ _extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div
+  class="{{ _group_css_classes }}"
+  data-ecl-file-upload-group
+>
+{% if _label is not empty %}
+  <label class="{{ _label_classes }}"
+  {% if _id is not empty %}
+    for="{{ _id }}"
+  {% endif %}
+  >
+    {%- block label _label|raw -%}
+    {%- if _required and _required_text is not empty -%}
+      <span class="{{ _label_base_class }}__required">
+        {{- _required_text -}}
+      </span>
+    {%- elseif not _required and _optional_text is not empty -%}
+      <span class="{{ _label_base_class }}__optional">
+        {{ _optional_text -}}
+      </span>
+    {% endif %}
+  </label>
+{% endif %}
+
+{% if _helper_text is not empty %}
+  <div class="{{ _help_classes }}">
+    {%- block helper_text _helper_text|raw -%}
+  </div>
+{% endif %}
+
+{% if _invalid and _invalid_text is not empty %}
+  <div class="ecl-feedback-message">
+    {%- block invalid_text _invalid_text|raw -%}
+  </div>
+{% endif %}
+
+  <label
+    class="ecl-file-upload__button-container"
+  {% if _id is not empty %}
+    for="{{ _id }}"
+  {% endif %}
+  >
+    <span
+      class="ecl-file-upload__button ecl-button ecl-button--primary"
+      data-ecl-file-upload-button
+    {% if _button_choose_label is not empty %}
+      data-ecl-file-upload-label-choose="{{ _button_choose_label }}"
+    {% endif %}
+       {% if _button_replace_label is not empty %}
+      data-ecl-file-upload-label-replace="{{ _button_replace_label }}"
+    {% endif %}
+    {% if _disabled %}
+      disabled
+    {% endif %}
+    >
+      {{- _button_choose_label -}}
+    </span>
+  </label>
+
+  <input
+    type="file"
+    class="{{ _component_class }}"
+    {{- _main_attributes|raw -}}
+  {% if _extra_attributes is not empty %}
+    {{- _extra_attributes|raw -}}
+  {% endif %}
+  />
+
+  <ul
+    class="ecl-file-upload__list"
+    data-ecl-file-upload-list
+  >
+  </ul>
+</div>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl/@compliance/file-upload.html.twig' with {
+    label: _label,
+    invalid_text: _invalid_text,
+    optional_text: _optional_text,
+    required_text: _required_text,
+    invalid: _invalid,
+    required: _required,
+    button_choose_label: _button_choose_label,
+    button_replace_label: _button_replace_label
+  } only %}
+{% endif %}
+
+{% endspaceless %}
