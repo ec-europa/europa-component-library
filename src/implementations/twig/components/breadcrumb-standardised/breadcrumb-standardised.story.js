@@ -11,19 +11,9 @@ import {
 import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import dataSimple from '@ecl/specs-component-breadcrumb/demo/data--simple';
 import dataLong from '@ecl/specs-component-breadcrumb/demo/data';
-import dataSimpleEu from '@ecl/specs-component-breadcrumb/demo/data--simple';
-import dataLongEu from '@ecl/specs-component-breadcrumb/demo/data';
 
 import breadcrumb from './breadcrumb-standardised.html.twig';
 import notes from './README.md';
-
-// Handle the EU demo.
-const system = process.env.STORYBOOK_SYSTEM
-  ? process.env.STORYBOOK_SYSTEM
-  : false;
-
-const simpleData = system ? dataSimpleEu : dataSimple;
-const longData = system ? dataLongEu : dataLong;
 
 const prepareBreadcrumbStandardised = (data) => {
   data.icon_file_path = optionsKnob(
@@ -57,12 +47,12 @@ export default {
 };
 
 export const Simple = () =>
-  breadcrumb(prepareBreadcrumbStandardised(simpleData));
+  breadcrumb(prepareBreadcrumbStandardised(dataSimple));
 
 Simple.storyName = 'simple';
-Simple.parameters = { notes: { markdown: notes, json: simpleData } };
+Simple.parameters = { notes: { markdown: notes, json: dataSimple } };
 
-export const Long = () => breadcrumb(prepareBreadcrumbStandardised(longData));
+export const Long = () => breadcrumb(prepareBreadcrumbStandardised(dataLong));
 
 Long.storName = 'long';
-Long.parameters = { notes: { markdown: notes, json: longData } };
+Long.parameters = { notes: { markdown: notes, json: dataLong } };

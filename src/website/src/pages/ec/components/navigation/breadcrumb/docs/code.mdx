@@ -4,14 +4,9 @@ order: 2
 ---
 
 import { Playground, Html } from '@ecl/website-components';
-import {
-  simpleContentCore,
-  longContentCore,
-  simpleContentStandardised,
-  longContentStandardised,
-  simpleContentHarmonised,
-  longContentHarmonised,
-} from '../demo';
+import { breadcrumbSimpleCore, breadcrumbLongCore } from '../demo/core';
+import { breadcrumbSimpleStandardised, breadcrumbLongStandardised } from '../demo/standardised';
+import { breadcrumbSimpleHarmonised, breadcrumbLongHarmonised } from '../demo/harmonised';
 
 ## Simple breadcrumb
 
@@ -22,7 +17,7 @@ import {
   selectedKind="components-navigation-breadcrumb-core"
   selectedStory="simple"
 >
-  <Html markup={simpleContentCore} />
+  <Html markup={breadcrumbSimpleCore} />
 </Playground>
 
 ### Standardised
@@ -32,7 +27,7 @@ import {
   selectedKind="components-navigation-breadcrumb-standardised"
   selectedStory="simple"
 >
-  <Html markup={simpleContentStandardised} />
+  <Html markup={breadcrumbSimpleStandardised} />
 </Playground>
 
 ### Harmonised
@@ -42,7 +37,7 @@ import {
   selectedKind="components-navigation-breadcrumb-harmonised"
   selectedStory="simple"
 >
-  <Html markup={simpleContentHarmonised} />
+  <Html markup={breadcrumbSimpleHarmonised} />
 </Playground>
 
 ## Long breadcrumb
@@ -58,7 +53,7 @@ The first item and the last 2 items should always be visible.
   selectedKind="components-navigation-breadcrumb-core"
   selectedStory="long"
 >
-  <Html markup={longContentCore} />
+  <Html markup={breadcrumbLongCore} />
 </Playground>
 
 ### Standardised
@@ -68,7 +63,7 @@ The first item and the last 2 items should always be visible.
   selectedKind="components-navigation-breadcrumb-standardised"
   selectedStory="long"
 >
-  <Html markup={longContentStandardised} />
+  <Html markup={breadcrumbLongStandardised} />
 </Playground>
 
 ### Harmonised
@@ -78,5 +73,5 @@ The first item and the last 2 items should always be visible.
   selectedKind="components-navigation-breadcrumb-harmonised"
   selectedStory="long"
 >
-  <Html markup={longContentHarmonised} />
+  <Html markup={breadcrumbLongHarmonised} />
 </Playground>

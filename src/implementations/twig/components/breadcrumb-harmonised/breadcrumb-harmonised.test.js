@@ -2,8 +2,6 @@ import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 
 import dataSimple from '@ecl/specs-component-breadcrumb/demo/data--simple';
 import dataLong from '@ecl/specs-component-breadcrumb/demo/data';
-import dataSimpleEu from '@ecl/specs-component-breadcrumb/demo/data--simple';
-import dataLongEu from '@ecl/specs-component-breadcrumb/demo/data';
 
 describe('Breadcrumb Harmonised', () => {
   const template = '@ecl/breadcrumb-harmonised/breadcrumb-harmonised.html.twig';
@@ -14,12 +12,6 @@ describe('Breadcrumb Harmonised', () => {
       expect.assertions(1);
 
       return expect(render(dataSimple)).resolves.toMatchSnapshot();
-    });
-
-    test(`renders correctly with EU content`, () => {
-      expect.assertions(1);
-
-      return expect(render(dataSimpleEu)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
@@ -51,12 +43,6 @@ describe('Breadcrumb Harmonised', () => {
       expect.assertions(1);
 
       return expect(render(dataLong)).resolves.toMatchSnapshot();
-    });
-
-    test(`renders correctly with EU content`, () => {
-      expect.assertions(1);
-
-      return expect(render(dataLongEu)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
