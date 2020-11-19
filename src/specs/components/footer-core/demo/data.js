@@ -155,7 +155,7 @@ module.exports = {
             icon_position: 'after',
           },
           icon: {
-            path: 'static/media/icons.3cf410f9.svg',
+            path: '/icons.svg',
             type: 'ui',
             name: 'external',
             size: 'xs',
@@ -198,13 +198,6 @@ module.exports = {
             label: 'Legal notice',
             path: '/example',
             aria_label: 'Link to Legal notice',
-          },
-        },
-        {
-          link: {
-            label: 'Brexit content disclaimer',
-            path: '/example',
-            aria_label: 'Link to Brexit content disclaimer',
           },
         },
       ],
