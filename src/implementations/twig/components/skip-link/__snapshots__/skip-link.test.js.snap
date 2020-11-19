@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Skip Link Default With missing input data returns the right warning message 1`] = `
+<a
+  class="ecl-skip-link"
+  href=""
+>
+  Skip to main content
+</a>
+`;
+
+exports[`Skip Link Default renders correctly 1`] = `
+<a
+  class="ecl-skip-link"
+  href="#top"
+>
+  Skip to main content
+</a>
+`;
+
+exports[`Skip Link Default renders correctly with extra attributes 1`] = `
+<a
+  class="ecl-skip-link"
+  data-test="data-test-value"
+  data-test-1="data-test-value-1"
+  href="#top"
+>
+  Skip to main content
+</a>
+`;
+
+exports[`Skip Link Default renders correctly with extra class names 1`] = `
+<a
+  class="ecl-skip-link custom-class custom-class--test"
+  href="#top"
+>
+  Skip to main content
+</a>
+`;
