@@ -7,6 +7,7 @@
 @use '@ecl/theme-dev/maps/color';
 @use '@ecl/theme-dev/maps/typography';
 @use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/maps/z-index';
 
 .ecl-skip-link {
   background-color: map.get(color.$color, 'blue-75');
@@ -26,7 +27,7 @@
   text-decoration: underline;
   white-space: nowrap;
   width: 1px;
-  z-index: 1;
+  z-index: map.get(z-index.$z-index, 'highlight');
 
   &:active,
   &:focus {
@@ -35,7 +36,6 @@
     height: auto;
     left: map.get(spacing.$spacing, 'l');
     overflow: visible;
-    // position: static;
     position: fixed;
     top: map.get(spacing.$spacing, 'l');
     width: auto;
