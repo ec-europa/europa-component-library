@@ -1,0 +1,113 @@
+/*
+ * Breadcrumbs harmonised
+ * @define breadcrumb-harmonised
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/maps/typography';
+
+$_background-color: transparent;
+$_background-color-hover: map.get(color.$color, 'blue-5');
+$_link-color: map.get(color.$color, 'blue');
+$_last-link-color: map.get(color.$color, 'grey-75');
+$_border-color: map.get(color.$color, 'blue-25');
+
+.ecl-breadcrumb-harmonised {
+  background-color: $_background-color;
+  margin: 0;
+}
+
+.ecl-breadcrumb-harmonised__container {
+  border-bottom: 1px solid $_border-color;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 calc(#{map.get(spacing.$spacing, 'm')} - 1px);
+
+  &::after {
+    clear: both;
+    content: '';
+    display: block;
+  }
+}
+
+.ecl-breadcrumb-harmonised__segment {
+  align-items: center;
+  display: inline-flex;
+  font: map.get(typography.$font, 's');
+  margin-top: map.get(spacing.$spacing, 'm');
+  max-width: 100%;
+
+  &[aria-hidden='true'] {
+    position: absolute;
+    visibility: hidden;
+
+    /* Force display if JS is disabled */
+    /* stylelint-disable-next-line max-nesting-depth */
+    .no-js & {
+      position: static;
+      visibility: visible;
+    }
+  }
+}
+
+.ecl-breadcrumb-harmonised__segment--ellipsis {
+  &[aria-hidden='false'] {
+    /* Force hide if JS is disabled */
+    /* stylelint-disable-next-line max-nesting-depth */
+    .no-js & {
+      display: none;
+    }
+  }
+}
+
+.ecl-breadcrumb-harmonised__ellipsis {
+  background-color: transparent;
+  border-width: 0;
+  box-sizing: border-box;
+  color: $_link-color;
+  font-weight: map.get(typography.$font-weight, 'bold');
+  margin: 0;
+  padding: 0;
+
+  &:hover {
+    background-color: $_background-color-hover;
+  }
+
+  &:focus {
+    outline: 3px solid map.get(color.$color, 'yellow-100');
+    outline-offset: 2px;
+  }
+}
+
+.ecl-breadcrumb-harmonised__link {
+  color: $_link-color;
+  font-weight: map.get(typography.$font-weight, 'bold');
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &:visited {
+    color: $_link-color;
+  }
+}
+
+.ecl-breadcrumb-harmonised__icon {
+  fill: $_link-color;
+  flex-shrink: 0;
+  margin-left: map.get(spacing.$spacing, 'xs');
+  margin-right: map.get(spacing.$spacing, 'xs');
+  vertical-align: text-bottom;
+}
+
+.ecl-breadcrumb-harmonised__current-page {
+  color: $_last-link-color;
+  font-weight: map.get(typography.$font-weight, 'bold');
+}
