@@ -1,0 +1,24 @@
+/*
+ * Menu component
+ * @define menu
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/maps/typography';
+
+.ecl-menu {
+  margin: 0;
+}
+
+.ecl-menu__site-name {
+  font: map.get(typography.$font-print, '3xl');
+  font-family: #{map.get(typography.$font-family-print, 'alt')};
+  font-weight: map.get(typography.$font-weight-print, 'bold');
+  margin-top: map.get(spacing.$spacing-print, 'xs');
+}
+
+.ecl-menu__open,
+.ecl-menu__inner {
+  display: none;
+}
