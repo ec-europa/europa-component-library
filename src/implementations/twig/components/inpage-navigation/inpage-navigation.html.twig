@@ -1,0 +1,84 @@
+{% spaceless %}
+
+{#
+  Parameters:
+   - "title" (string) (default: '')
+   - "links" (array) (default: predefined structure): format: [
+      {
+        href: (string) (default: ''),
+        label: (string) (default: '')
+      },
+      ...
+      ]
+    - "icon_path" (string) (default: ''): path to the icons svg
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        ...
+      ]
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-inpage-navigation' %}
+{% set _icon_path = icon_path|default('') %}
+{% set _extra_attributes = 'data-ecl-auto-init="InpageNavigation"' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<nav class="{{ _css_class }}"{{ _extra_attributes|raw }} data-ecl-inpage-navigation="true">
+  <div class="ecl-inpage-navigation__title">{{ title }}</div>
+  <div class="ecl-inpage-navigation__body">
+    <button type="button" class="ecl-inpage-navigation__trigger"
+            id="ecl-inpage-navigation-trigger" data-ecl-inpage-navigation-trigger="true"
+            aria-controls="ecl-inpage-navigation-list" aria-expanded="false"><span
+            class="ecl-inpage-navigation__trigger-current"
+            data-ecl-inpage-navigation-trigger-current="true"> </span>
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: {
+          path: _icon_path,
+          type: "ui",
+          name: "corner-arrow",
+          size: "s"
+        },
+        extra_classes: 'ecl-icon--rotate-180 ecl-inpage-navigation__trigger-icon',
+      } only %}
+    </button>
+    <ul class="ecl-inpage-navigation__list" aria-labelledby="ecl-inpage-navigation-trigger"
+        data-ecl-inpage-navigation-list="true" id="ecl-inpage-navigation-list">
+      {% for link in links %}
+        <li class="ecl-inpage-navigation__item">
+          {% include '@ecl/link/link.html.twig' with {
+            link: {
+              type: 'standalone',
+              path: link.href,
+              label: link.label,
+            },
+            extra_classes: 'ecl-inpage-navigation__link',
+            extra_attributes: [{ name: 'data-ecl-inpage-navigation-link' }]
+          } only %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</nav>
+
+{% endspaceless %}

@@ -8,7 +8,6 @@ import { getExtraKnobs, tabLabels, getComplianceKnob } from '@ecl/story-utils';
 import demoImg from '@ecl/specs-component-media-container/demo/data--image';
 import demoVideo from '@ecl/specs-component-media-container/demo/data--video';
 import demoEmbed from '@ecl/specs-component-media-container/demo/data--embed-video';
-// import exampleImg from '../../../../static/images/example-image.jpg';
 import mediaContainer from './media-container.html.twig';
 import notes from './README.md';
 
