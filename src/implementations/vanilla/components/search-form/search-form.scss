@@ -71,7 +71,7 @@ $_border-color: map.get(color.$color, 'grey-50');
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up(l) {
+@include breakpoints.up('l') {
   .ecl-search-form {
     max-width: $_form-width-desktop;
   }
