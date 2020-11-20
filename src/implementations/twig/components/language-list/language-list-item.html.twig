@@ -1,0 +1,60 @@
+{% spaceless %}
+
+{#
+  Parameters:
+  - "item" (object) (default: {}):
+    - "lang" (string) (default: '')
+    - "label" (string) (default: '')
+    - "path" (string) (default: '')
+    - "active (boolean) (default: false)
+  - "overlay" (boolean) (default: false)
+  - "icon_path" (string) (default: '')
+  - "_compliance_" (boolean) (default: false) Activates debug.
+#}
+
+{# Internal properties #}
+
+{% set _item = item|default({}) %}
+{% set _overlay = overlay|default(false) %}
+{% set _icon_path = icon_path|default('') %}
+{% set _compliance = _compliance_|default(false) %}
+
+{# Internal logic - Process properties #}
+
+{% set _item_attribute = [] %}
+{% if _item.lang is defined and _item.lang is not empty %}
+  {% set _item_attribute = _item_attribute|merge([{ name: 'lang', value: _item.lang }]) %}
+  {% set _item_attribute = _item_attribute|merge([{ name: 'hreflang', value: _item.lang }]) %}
+{% endif %}
+{% if _overlay %}
+  {% set _item_attribute = _item_attribute|merge([{ name: 'rel', value: 'alternate' }]) %}
+{% endif %}
+
+{# Print the result #}
+
+{% if _item.label is defined and item.label is not empty and
+  _item.path is defined and _item.path is not empty %}
+  {% set _item_icon = {} %}
+  {% if _item.active is defined and item.active == true %}
+    {% set _item_icon = {
+      path: _icon_path,
+      type: 'ui',
+      name: 'check',
+      size: 'xs'
+    } %}
+  {% endif %}
+  {% include '@ecl/link/link.html.twig' with {
+    link: _item|merge({
+      type: 'standalone',
+      icon_position: 'after'
+    }),
+    icon: _item_icon,
+    extra_classes: 'ecl-language-list__link',
+    extra_attributes: _item_attribute,
+    _compliance_: _compliance,
+    _compliance_inner_check_: true,
+    icon_path: _icon_path
+  } only %}
+{% endif %}
+
+{% endspaceless %}
