@@ -28,7 +28,7 @@ module.exports = {
             icon_position: 'after',
           },
           icon: {
-            path: 'static/media/icons.3cf410f9.svg',
+            path: '/icons.svg',
             type: 'ui',
             name: 'external',
             size: 'xs',

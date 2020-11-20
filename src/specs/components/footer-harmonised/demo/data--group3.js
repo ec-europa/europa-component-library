@@ -31,7 +31,7 @@ module.exports = {
           logo: {
             title: 'European Commission',
             alt: 'European Commission logo',
-            src: '/icons.svg',
+            src: '/logo.svg',
           },
           section_id: '2',
           type: 'commission_logo',
