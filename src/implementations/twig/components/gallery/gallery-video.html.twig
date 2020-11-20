@@ -1,0 +1,36 @@
+{% spaceless %}
+
+{#
+  Parameters:
+  - "item" (object) (default: {})"
+  - "_compliance_" (boolean) (default: false) Activate debug
+#}
+
+{# variables #}
+
+{% set _item = item|default({}) %}
+{% set _video_sources = _item.video.sources|default({}) %}
+{% set _video_tracks = _item.video.tracks|default({}) %}
+{% set _compliance = _compliance_|default(false) %}
+
+<video class="ecl-gallery__image" poster="{{ _item.video.poster }}">
+  {% if _video_sources is defined and _video_sources is not empty and _video_sources is iterable %}
+    {% for video in _video_sources %}
+      <source src="{{ video.src }}" type="{{ video.type }}">
+    {% endfor %}
+  {% endif %}
+  {% if _video_tracks is defined and _video_tracks is not empty and _video_tracks is iterable %}
+    {% for track in _video_tracks %}
+      <track src="{{ track.src }}" kind="{{ track.kind }}" srclang="{{ track.src_lang }}" label="{{ track.label }}">
+    {% endfor %}
+  {% endif %}
+</video>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl/@compliance/gallery-video.html.twig' with {
+    item: _item
+  } only %}
+{% endif %}
+{% endspaceless %}

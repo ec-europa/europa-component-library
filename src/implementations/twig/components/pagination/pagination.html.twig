@@ -1,0 +1,101 @@
+{% spaceless %}
+
+{#
+  Parameters:
+  - "label" (string) (default: ''): for screen reader
+  - "icon_path" (string) (default: '') Path to the icons file
+  - "items" (array) (default: []):
+    - "type" (string) (default: ''): could be 'previous', 'current' or 'next'
+    - "label" (string) (default: ''): label used when the item is not a link
+    - "aria_label" (string) (default: '')
+    - "link" (object) (default: ''): object of type Link
+  - "extra_classes" (optional) (string) (default: '')
+  - "extra_attributes" (optional) (array) (default: [])
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+  - "_compliance_" (boolean) (default: false) Activates the debug
+  - "_compliance_inner_check_" (boolean) (default: false) Inline compliance report
+#}
+
+{# Internal properties #}
+
+{% set _label = label|default('') %}
+{% set _items = items|default([]) %}
+{% set _compliance = _compliance_|default(false) %}
+{% set _compliance_inner_check = _compliance_inner_check_|default(false) %}
+{% set _css_class = 'ecl-pagination' %}
+{% set _extra_attributes = '' %}
+{% set _icon_path = icon_path|default('') %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<nav class="{{ _css_class }}"{{ _extra_attributes|raw }} aria-label="{{ _label }}">
+  <ul class="ecl-pagination__list">
+    {% for _item in _items %}
+      <li class="ecl-pagination__item{{ _item.type ? ' ecl-pagination__item--' ~ _item.type }}">
+        {% if _item.link is not empty %}
+          {% set _link = _item.link.link|merge({ type: 'standalone' }) %}
+          {% if _item.aria_label is defined and _item.aria_label is not empty %}
+            {% set _link = _link|merge({ aria_label: _item.aria_label }) %}
+          {% endif %}
+          {% if _item.link.icon is defined and _item.link.icon is not empty %}
+            {% set _icon = _icon_path is not empty ? _item.link.icon|merge({ path: _icon_path }) : _item.link.icon %}
+            {% set _link = _link|merge({ 'icon': _icon }) %}
+          {% endif %}
+          {% include '@ecl/link/link.html.twig' with _item.link|merge({
+            link: _link|default({}),
+            extra_classes: "ecl-pagination__link",
+            _compliance_: _compliance,
+            _compliance_inner_check_: true
+          }) only %}
+        {% else %}
+          <span
+            class="ecl-pagination__text ecl-pagination__text--summary"
+          {% if _item.aria_label is defined and _item.aria_label is not empty %}
+            aria-label="{{ _item.aria_label }}"
+          {% endif %}
+          {% if _item.type == 'current' %}
+            aria-current="true"
+          {% endif %}
+          >
+            {{- _item.label -}}
+          </span>
+          <span
+            class="ecl-pagination__text ecl-pagination__text--full"
+            {{ _item.type == 'current' ? 'aria-current="true"' }}
+          >
+            {{- _item.aria_label -}}
+          </span>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl/@compliance/pagination.html.twig' with {
+    label: _label,
+    items: _items,
+    _compliance_inner_check_: _compliance_inner_check
+  } only %}
+{% endif %}
+
+{% endspaceless %}
