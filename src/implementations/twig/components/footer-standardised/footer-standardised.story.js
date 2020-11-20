@@ -1,8 +1,7 @@
-/* eslint-disable no-shadow, no-unused-vars, no-undef */
-import he from 'he';
+/* eslint-disable no-undef */
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { withKnobs, button, text, optionsKnob } from '@storybook/addon-knobs';
+import { withKnobs, button, text } from '@storybook/addon-knobs';
 import { getExtraKnobs, tabLabels, getComplianceKnob } from '@ecl/story-utils';
 
 import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
@@ -94,12 +93,6 @@ const resetBtnToggler = () => {
 };
 // Dg related navigation. (About us)
 const aboutBtnToggler = () => {
-  // No optional section is rendered.
-  const emptyOptional =
-    !data.sections[1][0].demo_id &&
-    !data.sections[1][1].demo_id &&
-    !data.sections[2][1].demo_id &&
-    !data.sections[2][0].demo_id;
   // If it's where is supposed to be, hide it.
   if (data.sections[2][0].demo_id === 'about_us') {
     data.sections[2][0] = { section_id: 3 };
@@ -113,12 +106,6 @@ const aboutBtnToggler = () => {
 };
 // Dg related navigation. (Related sites)
 const relatedBtnToggler = () => {
-  // No optional section is rendered.
-  const emptyOptional =
-    !data.sections[1][0].demo_id &&
-    !data.sections[1][1].demo_id &&
-    !data.sections[2][1].demo_id &&
-    !data.sections[2][0].demo_id;
   // If it's where is supposed to be, hide it.
   if (data.sections[2][1].demo_id === 'related') {
     data.sections[2][1] = { section_id: 3 };
@@ -172,45 +159,12 @@ const prepareFooterStandardised = (data) => {
           ),
         };
       }
-      if (section.logo) {
-        section.logo.path = text(
-          `sections[${i}].logo.path`,
-          section.logo.path,
-          tabLabels.required
-        );
-        section.logo.title = text(
-          `sections[${i}].logo.title`,
-          section.logo.title,
-          tabLabels.required
-        );
-        section.logo.alt = text(
-          `sections[${i}].logo.alt`,
-          section.logo.alt,
-          tabLabels.required
-        );
-        section.logo.src_mobile = optionsKnob(
-          `sections[${i}].logo.src_mobile`,
-          { current: euLogoMobile, 'no path': '' },
-          euLogoMobile,
-          { display: 'inline-radio' },
-          tabLabels.required
-        );
-        section.logo.src_desktop = optionsKnob(
-          `sections[${i}].logo.src_desktop`,
-          { current: euLogoDesktop, 'no path': '' },
-          euLogoDesktop,
-          { display: 'inline-radio' },
-          tabLabels.required
-        );
-      }
       // Site name & content owner details.
       if (section.description) {
-        section.description = he.decode(
-          text(
-            `sections[${i}].description`,
-            section.description,
-            tabLabels.required
-          )
+        section.description = text(
+          `sections[${i}].description`,
+          section.description,
+          tabLabels.required
         );
       }
       if (section.content_before) {
