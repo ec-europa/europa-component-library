@@ -1,5 +1,4 @@
-import { correctSvgPath } from '@ecl/website-utils';
 import markup from '../examples/default.html';
 
-const inpageNavigationExample = correctSvgPath(markup);
+const inpageNavigationExample = markup;
 export default inpageNavigationExample;
