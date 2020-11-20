@@ -4,5 +4,5 @@ defaultTab: usage
 status: ready
 playground:
   system: ec
-  path: /story/components-navigation-in-page-navigation--default
+  path: /story/components-navigation-inpage-navigation--default
 ---
