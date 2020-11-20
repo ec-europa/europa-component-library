@@ -1,0 +1,167 @@
+{% spaceless %}
+
+{#
+  Parameters:
+  - "sections" (array objects) (default: [])
+    - "logo" (EU only)
+      - "alt" (string) alt attribute for the logo link
+      - "path" (string) logo link path
+      - "language" (string) Language code
+      - "src_mobile" (string) Path the mobile logo
+      - "src_desktop" (string) Path to the desktop logo
+    - "title" (predefined structure) see Link component
+    - "description" (string) (default: ''),
+    - "section_class_name" (string) (default: ''),
+    - "links" (array of link objects) (default: []),
+    - "list_class_name" (string) (default: []),
+  - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
+  - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (string) Attribute value, eg: 'data-test-1',
+  - "_compliance_" (boolean) (default: false) Activates debug
+#}
+
+{# Internal properties #}
+
+{% set _sections = sections|default({}) %}
+{% set _css_class = 'ecl-footer-core' %}
+{% set _extra_attributes = '' %}
+{% set _compliance = _compliance_|default(false) %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<footer class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <div class="ecl-container ecl-footer-core__container">
+{% if _sections is not empty and _sections is iterable %}
+  {% set _section_id = 0 %}
+  {% for _section_group in _sections %}
+    {% set _section_id = _section_id + 1 %}
+    {% set _inner_section = false %}
+    {# A section can be an array or not, so we always make it an array to loop into it #}
+    {% if _section_group[0] is not defined %}
+      {% set _section_group = [_section_group] %}
+    {% else %}
+      {# For the additional inner section elements #}
+      {% set _inner_section = true %}
+      {# We have to jump to section3 in this case #}
+      {% set _section_id = _section_id + 1 %}
+    {% endif %}
+    {% set _section_class = 'ecl-footer-core__section ecl-footer-core__section' ~ _section_id %}
+    {% if _section_group[0].section_class_name is defined and _section_group[0].section_class_name is not empty %}
+      {% set _section_class = _section_class ~ ' ' ~ _section_group[0].section_class_name %}
+    {% endif %}
+    <section class="{{ _section_class }}">
+    {% for _section in _section_group %}
+    {% if _inner_section %}
+      <section class="ecl-footer-core__section">
+    {% endif %}
+    {# logo (EU) #}
+    {% if _section.logo is defined and _section.logo is not empty %}
+      {% set _label %}
+        <img
+          alt="{{ _section.logo.alt }}"
+          title="{{ _section.logo.title }}"
+          class="ecl-footer-core__logo-image-mobile"
+          src="{{ _section.logo.src_mobile }}"
+        />
+        <img
+          alt="{{ _section.logo.alt }}"
+          title="{{ _section.logo.title }}"
+          class="ecl-footer-core__logo-image-desktop"
+          src="{{ _section.logo.src_desktop }}"
+        />
+      {% endset %}
+      {% include '@ecl/link/link.html.twig' with {
+        link: {
+          path: _section.logo.path,
+          label: _label,
+          type: 'standalone',
+          aria_label: _section.logo.title
+        },
+        extra_classes: 'ecl-footer-core__logo-link'
+      } only %}
+    {% endif %}
+    {# content before #}
+    {% if _section.content_before is defined and _section.content_before is not empty %}
+      <div class="ecl-footer-core__content">{{ _section.content_before|raw }}</div>
+    {% endif %}
+    {# title #}
+    {% if _section.title is defined and _section.title is not empty %}
+      {% if _section.title.link is defined and _section.title.link is not empty %}
+        {% include '@ecl/link/link.html.twig' with {
+          link: _section.title.link|default({})|merge({
+            type: 'standalone',
+          }),
+          extra_classes: 'ecl-footer-core__title',
+          _compliance_: _compliance,
+          _compliance_inner_check_: true
+        } only %}
+      {% else %}
+        <div class="ecl-footer-core__title ecl-footer-core__title--separator">
+          {{- _section.title -}}
+        </div>
+      {% endif %}
+    {% endif %}
+    {# description #}
+    {% if _section.description is defined and _section.description is not empty %}
+      <div class="ecl-footer-core__description">{{ _section.description|raw }}</div>
+    {% endif %}
+    {# links #}
+    {% if _section.links is defined and _section.links is not empty %}
+      {% set _list_class = 'ecl-footer-core__list' %}
+      {% if _section.list_class_name is defined and _section.list_class_name is not empty %}
+        {% set _list_class = _list_class ~ ' ' ~ _section.list_class_name %}
+      {% endif %}
+      <ul class="{{ 'ecl-footer-core__list ' ~ _list_class }}">
+      {% for _item in _section.links %}
+        <li class="ecl-footer-core__list-item">
+        {% include '@ecl/link/link.html.twig' with _item|merge({
+          link: _item.link|default({})|merge({
+            type: 'standalone',
+          }),
+          icon: _item.icon|default({})|merge({
+            size: 'xs',
+          }),
+          extra_classes: 'ecl-footer-core__link',
+          _compliance_: _compliance,
+          _compliance_inner_check: true
+        }) only %}
+        </li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+    {% if _inner_section %}
+      </section>
+    {% endif %}
+    {% endfor %}
+    </section>
+  {% endfor %}
+{% endif %}
+  </div>
+</footer>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl/@compliance/footer-core.html.twig' with {
+    sections: _sections
+  } only %}
+{% endif %}
+
+{% endspaceless %}
