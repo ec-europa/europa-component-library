@@ -17,6 +17,7 @@ module.exports = {
     'react/forbid-prop-types': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/no-danger': 'off',
+    'import/prefer-default-export': 'off',
   },
   overrides: [
     {
