@@ -1,0 +1,105 @@
+/**
+ * Pagination
+ * @define pagination
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+$_text-color: map.get(color.$color, 'blue-100');
+$_border-color: map.get(color.$color, 'black-100');
+$_current-text-color: map.get(color.$color, 'black-100');
+$_current-border-color: map.get(color.$color, 'black-100');
+
+.ecl-pagination {
+  border-top: 2px solid $_border-color;
+  color: $_text-color;
+  font: map-get(typography.$font, 'm');
+  margin: 0;
+  padding-bottom: map.get(spacing.$spacing, 'm');
+  padding-top: map.get(spacing.$spacing, 'm');
+}
+
+.ecl-pagination__list {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+.ecl-pagination__item {
+  display: none;
+}
+
+.ecl-pagination__item--previous,
+.ecl-pagination__item--next {
+  display: flex;
+  flex-basis: 0;
+  flex-grow: 1;
+  font-weight: map-get(typography.$font-weight, 'bold');
+}
+
+.ecl-pagination__item--next {
+  justify-content: flex-end;
+}
+
+.ecl-pagination__item--current {
+  color: $_current-text-color;
+  display: flex;
+  font-weight: bold;
+}
+
+.ecl-pagination__text--summary {
+  display: none;
+}
+
+.ecl-pagination__text--full {
+  display: block;
+}
+
+.ecl-pagination__link,
+.ecl-pagination__text {
+  padding: map.get(spacing.$spacing, '2xs');
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('m') {
+  .ecl-pagination__list {
+    justify-content: center;
+  }
+
+  .ecl-pagination__item {
+    display: flex;
+    flex-grow: 0;
+    margin-right: map.get(spacing.$spacing, 'l');
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .ecl-pagination__item--previous,
+  .ecl-pagination__item--next {
+    flex-basis: auto;
+  }
+
+  .ecl-pagination__item--current {
+    border: 2px solid $_current-border-color;
+    border-radius: 10rem; // High value to force circular corners, but not fully circular shape
+    justify-content: center;
+    min-width: 1.75rem;
+  }
+
+  .ecl-pagination__text--summary {
+    display: block;
+  }
+
+  .ecl-pagination__text--full {
+    display: none;
+  }
+}
