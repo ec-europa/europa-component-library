@@ -1,0 +1,43 @@
+/**
+ * Skip link
+ * @define skip-link
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/maps/z-index';
+
+.ecl-skip-link {
+  background-color: map.get(color.$color, 'blue-75');
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  color: map.get(color.$color, 'white');
+  display: block;
+  font: map.get(typography.$font, 'm');
+  height: 1px;
+  margin: 0;
+  outline: 3px solid map.get(color.$color, 'yellow-100');
+  outline-offset: 0;
+  overflow: hidden;
+  padding: map.get(spacing.$spacing, 'xs');
+  position: absolute;
+  text-decoration: underline;
+  white-space: nowrap;
+  width: 1px;
+  z-index: map.get(z-index.$z-index, 'highlight');
+
+  &:active,
+  &:focus {
+    clip: auto;
+    clip-path: none;
+    height: auto;
+    left: map.get(spacing.$spacing, 'l');
+    overflow: visible;
+    position: fixed;
+    top: map.get(spacing.$spacing, 'l');
+    width: auto;
+  }
+}
