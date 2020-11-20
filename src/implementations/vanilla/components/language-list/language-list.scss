@@ -1,0 +1,192 @@
+/**
+ * Language list component
+ * @define language-list; weak
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/z-index';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+$_background-header: map.get(color.$color, 'white-100');
+$_background-container: map.get(color.$color, 'blue-100');
+$_background-link: map.get(color.$color, 'white-100');
+$_background-link-hover: map.get(color.$color, 'yellow-100');
+$_background-link-active: map.get(color.$color, 'yellow-100');
+$_color-link-active: map.get(color.$color, 'black-100');
+$_color-title: map.get(color.$color, 'white-100');
+$_logo-height-desktop: 5.5rem;
+$_logo-width-desktop: 11.25rem;
+$_logo-height-mobile: 3.75rem;
+$_logo-width-mobile: 7.5rem;
+
+.ecl-language-list {
+  background-color: $_background-container;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  margin: 0;
+  min-height: 100vh;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.ecl-language-list__container {
+  flex-grow: 1;
+}
+
+.ecl-language-list__column + .ecl-language-list__column {
+  margin-top: map.get(spacing.$spacing, 'xs');
+}
+
+.ecl-language-list__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ecl-language-list__category {
+  color: map.get(color.$color, 'white');
+  font: map.get(typography.$font, 'm');
+  font-weight: map.get(typography.$font-weight, 'bold');
+  margin-bottom: map.get(spacing.$spacing, 'm');
+}
+
+.ecl-language-list__non-eu {
+  margin-top: map.get(spacing.$spacing, 'l');
+}
+
+.ecl-language-list__item {
+  margin-top: map.get(spacing.$spacing, 'xs');
+}
+
+.ecl-language-list__item:first-child {
+  margin-top: 0;
+}
+
+.ecl-language-list__close-button,
+.ecl-language-list__close-button:hover,
+.ecl-language-list__close-button:focus,
+.ecl-language-list__close-button:active {
+  color: map.get(color.$color, 'white-100');
+}
+
+.ecl-language-list__link {
+  align-items: center;
+  background-color: $_background-link;
+  display: flex;
+  font: map.get(typography.$font, 'm');
+  font-weight: map.get(typography.$font-weight, 'bold');
+  justify-content: space-between;
+  padding: map.get(spacing.$spacing, 's') map.get(spacing.$spacing, 'm');
+
+  &:hover {
+    background-color: $_background-link-hover;
+  }
+
+  &:focus {
+    outline-offset: -3px;
+  }
+
+  .ecl-link__icon {
+    top: 0;
+  }
+}
+
+.ecl-language-list__item--is-active {
+  .ecl-language-list__link {
+    background-color: $_background-link-active;
+    color: $_color-link-active;
+    outline-color: $_color-link-active;
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('l') {
+  .ecl-language-list__logo {
+    height: $_logo-height-desktop;
+    width: $_logo-width-desktop;
+  }
+
+  .ecl-language-list__column + .ecl-language-list__column {
+    margin-top: 0;
+  }
+}
+
+/*
+ * Splash only
+ */
+.ecl-language-list--splash {
+  .ecl-language-list__container {
+    padding-bottom: map.get(spacing.$spacing, '2xl');
+    padding-top: map.get(spacing.$spacing, '2xl');
+  }
+}
+
+.ecl-language-list__header {
+  background-color: $_background-header;
+  display: flex;
+  justify-content: center;
+  padding: map.get(spacing.$spacing, 'xl') 0;
+}
+
+.ecl-language-list__logo {
+  height: $_logo-height-mobile;
+  width: $_logo-width-mobile;
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('l') {
+  .ecl-language-list__container {
+    padding-bottom: map.get(spacing.$spacing, '4xl');
+    padding-top: map.get(spacing.$spacing, '4xl');
+  }
+
+  .ecl-language-list__logo {
+    height: $_logo-height-desktop;
+    width: $_logo-width-desktop;
+  }
+}
+
+/*
+ * Overlay only
+ */
+.ecl-language-list--overlay {
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: map.get(z-index.$z-index, 'modal') + 3;
+
+  .ecl-language-list__container {
+    height: 100%;
+    overflow-y: auto;
+    padding-bottom: map.get(spacing.$spacing, '2xl');
+    padding-top: map.get(spacing.$spacing, '2xl');
+    width: 100%;
+  }
+}
+
+.ecl-language-list__close {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ecl-language-list__title {
+  align-items: center;
+  color: $_color-title;
+  display: flex;
+  font: map.get(typography.$font, 'l');
+  font-weight: map.get(typography.$font-weight, 'bold');
+  margin-bottom: map.get(spacing.$spacing, 'xl');
+  margin-top: map.get(spacing.$spacing, '2xl');
+}
+
+.ecl-language-list__title-icon {
+  margin-right: map.get(spacing.$spacing, 'm');
+}

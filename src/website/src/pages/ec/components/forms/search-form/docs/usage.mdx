@@ -1,0 +1,54 @@
+---
+title: Usage
+order: 1
+---
+
+import { Paragraph, Anatomy } from '@ecl/website-components';
+
+<Paragraph size="lead">
+  The Search Form is a widget which{' '}
+  <strong>enables the user to search and retrieve related information</strong>{' '}
+  from the database using keywords.
+</Paragraph>
+
+## Anatomy
+
+<Anatomy
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Search/Search%20Form.jpg"
+  alt="Anatomy of search form"
+  legend={{
+    items: [
+      {
+        color: '#404040',
+        label: 'mandatory',
+      },
+      {
+        color: '#004494',
+        label: 'optional',
+      },
+    ],
+  }}
+/>
+
+| Elements   | Mandatory | Description                                                    |
+| ---------- | --------- | -------------------------------------------------------------- |
+| text field | yes       | the input field allows the user to input their search keywords |
+| button     | yes       | the button submits the search input                            |
+
+## Do's
+
+- always include a **search button**
+
+## Don'ts
+
+- don't use placeholder text in the text field
+
+## When to use
+
+- **whenever needed, always as part the ECL Site header**
+
+## Notes
+
+### Accessibility
+
+- placeholder text in a text field is bad for accessibility - may not be read by screen reading software, and can be problematic for users with a visual impairment

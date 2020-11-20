@@ -1,0 +1,127 @@
+---
+title: Usage
+order: 1
+---
+
+import { Paragraph, Anatomy } from '@ecl/website-components';
+
+<Paragraph size="lead">
+  The Language switcher is a language selector of the European Commission that
+  users can access on every page, through an overlay. This can accommodate for
+  both official & non-official EU languages.
+</Paragraph>
+
+## Anatomy
+
+<Anatomy
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/LanguageList/Language-list-non-EU-languages.png"
+  srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/LanguageList/Language-list-non-EU-languages-Mobile.png 892w, https://inno-ecl.s3.amazonaws.com/media/images/EC/LanguageList/Language-list-non-EU-languages.png 1468w"
+  alt="Anatomy of Language list"
+  legend={{
+    items: [
+      {
+        color: '#404040',
+        label: 'mandatory',
+      },
+      {
+        color: '#004494',
+        label: 'optional',
+      },
+    ],
+  }}
+/>
+
+### Default
+
+| Elements         | Mandatory desktop | Mandatory mobile | Description                                                                               |
+| ---------------- | ----------------- | ---------------- | ----------------------------------------------------------------------------------------- |
+| icon + legend    | yes               | yes              | heading indicating the required action accompanied by icon (translated in every language) |
+| heading          | yes               | yes              | the **heading of the group** of related list items                                        |
+| language list    | yes               | yes              | list of the available languages                                                           |
+| button           | yes               | yes              | button to close without making a selection                                                |
+| active selection | yes               | yes              | current language selection                                                                |
+
+### Conditional
+
+| Elements              | Mandatory desktop | Mandatory mobile | Description                                                                             |
+| --------------------- | ----------------- | ---------------- | --------------------------------------------------------------------------------------- |
+| heading               | yes               | yes              | the **heading of the group** of related list items                                      |
+| non-EU languages list | yes               | yes              | additional container that lists the non-EU languages available for a given page or site |
+
+## Do's
+
+- **match the label** of the language with the selected language
+- **display only the languages** in which the content has been **translated** in and is **available**
+
+## Don'ts
+
+- **don't display languages** as options in the language list **if they are not available** on your site
+
+## When to use
+
+- **this is a site-wide component** and thus it **must be available on every page** in case users want to switch languages
+
+## When not to use
+
+- should be used on every page
+
+# Language splash page
+
+<Paragraph size="lead">
+  The Language Splash page is a language selector of the European Commission
+  that users are presented with upon entering the website. This can accommodate
+  for both official & non-official EU languages.
+</Paragraph>
+
+## Anatomy
+
+<Anatomy
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/LanguageList/Splash-page-non-EU-languages.png"
+  srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/LanguageList/Splash-page-non-EU-languages-Mobile.png 892w, https://inno-ecl.s3.amazonaws.com/media/images/EC/LanguageList/Splash-page-non-EU-languages.png 1468w"
+  alt="Anatomy of Language list"
+  legend={{
+    items: [
+      {
+        color: '#404040',
+        label: 'mandatory',
+      },
+      {
+        color: '#004494',
+        label: 'optional',
+      },
+    ],
+  }}
+/>
+
+### Default
+
+| Elements         | Mandatory desktop | Mandatory mobile | Description                                                    |
+| ---------------- | ----------------- | ---------------- | -------------------------------------------------------------- |
+| heading          | yes               | yes              | heading indicating type of list (translated in every language) |
+| language list    | yes               | yes              | list of the available languages                                |
+| button           | yes               | yes              | button to close without making a selection                     |
+| active selection | yes               | yes              | current language selection                                     |
+
+### Conditional
+
+| Elements              | Mandatory desktop | Mandatory mobile | Description                                                                             |
+| --------------------- | ----------------- | ---------------- | --------------------------------------------------------------------------------------- |
+| heading               | yes               | yes              | the **heading of the group** of related list items                                      |
+| non-EU languages list | yes               | yes              | additional container that lists the non-EU languages available for a given page or site |
+
+## Do's
+
+- **match the label** of the language with the selected language
+- **display only the languages** in which the content has been **translated** in and is **available**
+
+## Don'ts
+
+- **don't display languages** as options in the language list **if they are not available** on your site
+
+## When to use
+
+- **this is a site-wide component** and thus it **must be available on entry point**, indicating the available languages
+
+## When not to use
+
+- should be used on every page

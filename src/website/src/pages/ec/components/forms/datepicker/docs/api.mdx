@@ -1,0 +1,47 @@
+---
+title: API
+order: 3
+---
+
+import DatepickerJSDoc from '../../../../_jsdoc/datepicker.md';
+
+## Dependencies
+
+The ECL datepicker component uses the [Pikaday](https://github.com/Pikaday/Pikaday) under the hood. Through time, the library has been changing its internals in order to toggle its dependencies to [moment.js](https://momentjs.com/).
+The published version of Pikaday provides an UMD which dynamically loads moment.js. ECL consuming this module which dynamically depends on moment.js makes the latter a dependency which the consumer of ECL will need to include in order to make use of all datepicker functionalities.
+For more information regarding which methods of moment.js trigger the dynamic inclusion, see this [thread on github](https://github.com/Pikaday/Pikaday/issues/815).
+
+Please note that the published version of Pikaday is already included in the ECL.js bundle, and `moment` is handled as a global which is added as an external script. The internal bundler for ECL.js handles the `moment` variable specially in its minification/uglification process preserving its naming in order to avoid local (UMD) to global (IIEF) reference issues appearing during the production bundling of ECL.
+If you're building ECL separately on your side and you don't use the published pre-build version of ECL, you will most probably need to handle this special case in you bundler options or directly include the whole moment.js library instead of using globals.
+
+## API
+
+<DatepickerJSDoc />
+
+## Setup
+
+There are 2 ways to initialise the component.
+
+### Automatic
+
+Add `data-ecl-auto-init="Datepicker"` attribute to component's input markup:
+
+```html
+<input class="ecl-datepicker__field ecl-text-input ecl-text-input--s" data-ecl-auto-init="Datepicker" data-ecl-datepicker-toggle >
+  ...
+</div>
+```
+
+Use the `ECL` library's `autoInit()` (`ECL.autoInit()`) when your page is ready or other custom event you want to hook onto.
+
+### Manual
+
+Get target element, create an instance and invoke `init()`.
+
+Given you have 1 element with an attribute `data-ecl-datepicker-toggle` on the page:
+
+```js
+var elt = document.querySelector('[data-ecl-datepicker-toggle]');
+var datepicker = new ECL.Datepicker(elt);
+datepicker.init();
+```

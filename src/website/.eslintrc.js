@@ -17,6 +17,7 @@ module.exports = {
     'react/forbid-prop-types': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/no-danger': 'off',
+    'import/prefer-default-export': 'off',
   },
   overrides: [
     {
@@ -27,7 +28,7 @@ module.exports = {
     },
     // @ecl/website-utils alias is not handled properly by eslint-loader
     {
-      files: '**/components/**/demo/*.js',
+      files: '**/demo/*.js',
       rules: {
         'import/no-unresolved': 'off',
       },
