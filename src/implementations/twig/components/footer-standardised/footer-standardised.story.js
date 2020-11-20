@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { withKnobs, button, text } from '@storybook/addon-knobs';
+import { withKnobs, text } from '@storybook/addon-knobs';
 import { getExtraKnobs, tabLabels, getComplianceKnob } from '@ecl/story-utils';
 
 import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
@@ -29,120 +29,8 @@ specs.sections.forEach((section) => {
   });
 });
 
-const contactUs = JSON.parse(JSON.stringify(specs.sections[1][0]));
-const followUs = JSON.parse(JSON.stringify(specs.sections[1][1]));
-const aboutUs = JSON.parse(JSON.stringify(specs.sections[2][0]));
-const related = JSON.parse(JSON.stringify(specs.sections[2][1]));
-
-// Buttons callbacks.
-// Dg related service navigation (contact us)
-const serviceBtnToggler = () => {
-  // If it's where is supposed to be, hide it
-  if (data.sections[1][0].demo_id === 'contact_us') {
-    data.sections[1][0] = { section_id: 2 };
-  } else {
-    // Two blocks might have taken its place.
-    if (data.sections[1][1].demo_id === 'related') {
-      data.sections[1][1] = { section_id: 2 };
-      data.sections[2][1] = related;
-      data.sections[2][1].section_id = 3;
-    }
-    if (data.sections[1][0].demo_id === 'about_us') {
-      data.sections[1][0] = { section_id: 2 };
-      data.sections[2][0] = aboutUs;
-      data.sections[2][0].section_id = 3;
-    }
-    // Show it.
-    data.sections[1][0] = contactUs;
-    data.sections[1][0].section_id = 2;
-  }
-};
-
-// Dg related service navigation. (follow us)
-const socialBtnToggler = () => {
-  // If it's where is supposed to be, hide it
-  if (data.sections[1][1].demo_id === 'follow_us') {
-    data.sections[1][1] = { section_id: 2 };
-  } else {
-    // Two blocks might have taken its place.
-    if (data.sections[1][1].demo_id === 'related') {
-      data.sections[1][1] = { section_id: 2 };
-      data.sections[2][1] = related;
-      data.sections[2][1].section_id = 3;
-    }
-    if (data.sections[1][0].demo_id === 'about_us') {
-      data.sections[1][0] = { section_id: 2 };
-      data.sections[2][0] = aboutUs;
-      data.sections[2][0].section_id = 3;
-    }
-    // Show it.
-    data.sections[1][1] = followUs;
-    data.sections[1][1].section_id = 2;
-  }
-};
-// Reset button.
-const resetBtnToggler = () => {
-  data.sections[1][0] = contactUs;
-  data.sections[1][1] = followUs;
-  data.sections[2][0] = aboutUs;
-  data.sections[2][1] = related;
-  data.sections[1][0].section_id = 2;
-  data.sections[1][1].section_id = 2;
-  data.sections[2][0].section_id = 3;
-  data.sections[2][1].section_id = 3;
-};
-// Dg related navigation. (About us)
-const aboutBtnToggler = () => {
-  // If it's where is supposed to be, hide it.
-  if (data.sections[2][0].demo_id === 'about_us') {
-    data.sections[2][0] = { section_id: 3 };
-  } else if (data.swap) {
-    resetBtnToggler();
-    // We show it.
-  } else {
-    data.sections[2][0] = aboutUs;
-    data.sections[2][0].section_id = 3;
-  }
-};
-// Dg related navigation. (Related sites)
-const relatedBtnToggler = () => {
-  // If it's where is supposed to be, hide it.
-  if (data.sections[2][1].demo_id === 'related') {
-    data.sections[2][1] = { section_id: 3 };
-    // If it's in the other column, we hide it.
-  } else if (data.swap) {
-    resetBtnToggler();
-    // We show it.
-  } else {
-    data.sections[2][1] = related;
-    data.sections[2][1].section_id = 3;
-  }
-};
-
 // Prepare the knobs for group1
 const prepareFooterStandardised = (data) => {
-  button(
-    'With or without DG-related service navigation (contact us)',
-    serviceBtnToggler,
-    tabLabels.cases
-  );
-  button(
-    'With or without DG-related service navigation (Follow us)',
-    socialBtnToggler,
-    tabLabels.cases
-  );
-  button(
-    'With or without DG-related navigation (About us)',
-    aboutBtnToggler,
-    tabLabels.cases
-  );
-  button(
-    'With or without DG-related navigation (Related sites)',
-    relatedBtnToggler,
-    tabLabels.cases
-  );
-  button('Reset the layout', resetBtnToggler, tabLabels.cases);
-
   data.sections.forEach((section, i) => {
     if (!Array.isArray(section)) {
       if (section.title && typeof section.title === 'object') {
@@ -277,32 +165,6 @@ const prepareFooterStandardised = (data) => {
       });
     }
   });
-  // Swap the columns when needed.
-  if (
-    !data.sections[1][0].title &&
-    !data.sections[1][1].title &&
-    (data.sections[2][0].title || data.sections[2][1].title)
-  ) {
-    if (data.sections[2][0].demo_id === 'about_us') {
-      data.sections[1][0].title = data.sections[2][0].title;
-      data.sections[1][0].links = [];
-      data.sections[1][0].links = data.sections[2][0].links;
-      data.sections[1][0].demo_id = 'about_us';
-      data.sections[1][0].title_class_name =
-        'ecl-footer-standardised__title--separator';
-    }
-    if (data.sections[2][1].demo_id === 'related') {
-      data.sections[1][1].links = [];
-      data.sections[1][1].title = data.sections[2][1].title;
-      data.sections[1][1].links = data.sections[2][1].links;
-      data.sections[1][1].demo_id = 'related';
-      data.sections[1][1].title_class_name =
-        'ecl-footer-standardised__title--separator';
-    }
-    data.sections[2][0] = { section_id: 3 };
-    data.sections[2][1] = { section_id: 3 };
-    data.swap = true;
-  }
 
   getExtraKnobs(data);
   getComplianceKnob(data);
