@@ -104,7 +104,6 @@ module.exports = {
         {
           label: 'Malti',
           path: '/example',
-
           lang: 'mt',
         },
         {
