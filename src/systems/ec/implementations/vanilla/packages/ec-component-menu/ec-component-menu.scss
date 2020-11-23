@@ -233,6 +233,7 @@
 
   .ecl-menu__link {
     align-items: center;
+    box-sizing: content-box;
     color: $ecl-color-white;
     display: inline-flex;
     font: $ecl-font-m;
@@ -309,10 +310,10 @@
         margin-right: 0;
         padding-left: $ecl-spacing-m;
         padding-right: $ecl-spacing-m;
-        white-space: nowrap; // Needed to check menu width and switch to mobile display
       }
 
       .ecl-menu__link-icon {
+        flex-shrink: 0;
         height: $ecl-icon-2-xs;
         margin-left: $ecl-spacing-xs;
         transform: rotate(180deg);
@@ -339,14 +340,17 @@
       .ecl-menu__link {
         background-color: transparent;
         border-bottom: 3px solid transparent;
+        box-sizing: border-box;
         color: $ecl-color-white;
         display: inline-flex;
+        height: 100%;
         padding-bottom: calc(#{$ecl-spacing-m} - 3px);
         padding-left: $ecl-spacing-m;
         padding-right: $ecl-spacing-m;
         padding-top: $ecl-spacing-m;
         transition-property: background-color, border-bottom-color, color,
           z-index;
+        width: auto;
         z-index: 0;
       }
 
