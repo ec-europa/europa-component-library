@@ -2,7 +2,7 @@ module.exports = {
   logo: {
     title: 'Commmission Européenne',
     alt: 'Logo Commmission Européenne',
-    href: '/example',
+    path: '/example',
     language: 'fr',
     src_desktop: '/logo--fr.svg',
   },

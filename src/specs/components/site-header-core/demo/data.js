@@ -2,7 +2,7 @@ module.exports = {
   logo: {
     title: 'Home (European Commission)',
     alt: 'European Commission logo',
-    href: '/example',
+    path: '/example',
     language: 'en',
     src_desktop: '/logo--en.svg',
   },
