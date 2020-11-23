@@ -14,7 +14,7 @@ module.exports = {
   },
   login_box: {
     id: 'login-box-id',
-    description: 'Connecté en temps que <last name>, <first name>',
+    description: 'Connecté en temps que "last name", "first name"',
     label: 'Déconnexion',
     href: '/example',
   },

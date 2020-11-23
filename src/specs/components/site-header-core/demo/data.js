@@ -14,7 +14,7 @@ module.exports = {
   },
   login_box: {
     id: 'login-box-id',
-    description: 'Logged in as <last name>, <first name>',
+    description: 'Logged in as "last name", "first name"',
     label: 'Log out',
     href: '/example',
   },
