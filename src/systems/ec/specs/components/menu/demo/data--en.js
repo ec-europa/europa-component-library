@@ -78,7 +78,7 @@ module.exports = {
         { label: 'Item 5.7', href: '/example' },
       ],
     },
-    /* {
+    {
       label: 'News and events',
       href: '/example',
       hasSubmenuLabel: 'has submenu',
@@ -100,7 +100,7 @@ module.exports = {
         { label: 'Item 6.15', href: '/example' },
         { label: 'Item 6.16', href: '/example' },
       ],
-    }, */
+    },
     {
       label: 'Contact the EU',
       href: '/example',
