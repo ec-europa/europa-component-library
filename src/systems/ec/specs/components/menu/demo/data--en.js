@@ -6,11 +6,12 @@ module.exports = {
   siteName: 'Site name',
   menuLink: '/example',
   items: [
-    { label: 'Home', href: '/example', isCurrent: true },
+    { label: 'Home', href: '/example' },
     {
-      label: 'Principles, countries, history',
+      label: 'Item 2',
       href: '/example',
       hasSubmenuLabel: 'has submenu',
+      isCurrent: true,
       subItems: [
         { label: 'Item 2.1', href: '/example' },
         { label: 'Item 2.2', href: '/example' },
@@ -31,7 +32,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Institutions, law, budget',
+      label: 'Item 3',
       href: '/example',
       hasSubmenuLabel: 'has submenu',
       subItems: [
@@ -41,7 +42,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Priorities and actions',
+      label: 'Item 4',
       href: '/example',
       hasSubmenuLabel: 'has submenu',
       subItems: [
@@ -65,7 +66,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Live, work, study',
+      label: 'Item 5',
       href: '/example',
       hasSubmenuLabel: 'has submenu',
       subItems: [
@@ -79,7 +80,7 @@ module.exports = {
       ],
     },
     {
-      label: 'News and events',
+      label: 'Item 6',
       href: '/example',
       hasSubmenuLabel: 'has submenu',
       subItems: [
@@ -102,7 +103,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Contact the EU',
+      label: 'Item 7 with a long label',
       href: '/example',
       hasSubmenuLabel: 'has submenu',
       subItems: [
