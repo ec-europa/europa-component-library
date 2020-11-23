@@ -1,0 +1,279 @@
+/**
+ * Site Header Core
+ * @define site-header-core; weak
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/maps/icon';
+@use '@ecl/theme-dev/maps/z-index';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+$_logo-height-xs: 1.75rem;
+$_logo-height-xs: 7rem;
+$_logo-height-sm: 3rem;
+$_logo-width-sm: 12.1rem;
+$_logo-height-lg: 3.75rem;
+$_logo-width-lg: 15.1rem;
+$_logo-height-xl: 4.5rem;
+$_logo-width-xl: 18.1rem;
+$_search-width-l: 25rem;
+$_search-width-xl: 31.5rem;
+
+.ecl-site-header-core {
+  background-color: map.get(color.$color, 'white-100');
+  margin: 0;
+}
+
+.ecl-site-header-core__container {
+  display: flex;
+  flex-direction: column;
+  padding-top: map.get(spacing.$spacing, 'm');
+}
+
+.ecl-site-header-core__top {
+  align-items: flex-end;
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.ecl-site-header-core__logo-link {
+  flex-grow: 1;
+  margin-bottom: calc(#{map.get(spacing.$spacing, 'm')} + 1px);
+}
+
+.ecl-site-header-core__logo-image {
+  display: block;
+  max-height: $_logo-height-xs;
+  max-width: $_logo-height-xs; // hack to allow logo to be resized dynamically
+}
+
+.ecl-site-header-core__action {
+  display: flex;
+}
+
+.ecl-site-header-core__login-toggle,
+.ecl-site-header-core__search-toggle {
+  align-items: center;
+  border-left: 1px solid map.get(color.$color, 'white');
+  border-right: 1px solid map.get(color.$color, 'white');
+  border-top: 1px solid map.get(color.$color, 'white');
+  display: flex;
+  flex-direction: column;
+  font: map.get(typography.$font, 'xs');
+  margin-bottom: calc(#{map.get(spacing.$spacing, 'm')} + 1px);
+  margin-top: -1px;
+  padding: map.get(spacing.$spacing, 'xs') map.get(spacing.$spacing, 'xs') 0;
+  position: relative;
+  text-align: center;
+  z-index: map.get(z-index.$z-index, 'dropdown') + 1;
+
+  &[aria-expanded='true'] {
+    background-color: map.get(color.$color, 'blue-5');
+    border-color: map.get(color.$color, 'blue-25');
+    margin-bottom: 0;
+    padding-bottom: calc(#{map.get(spacing.$spacing, 'm')} + 1px);
+  }
+}
+
+.ecl-site-header-core__login-toggle {
+  .ecl-site-header-core__login-arrow {
+    display: none;
+  }
+}
+
+.ecl-site-header-core__login-box,
+.ecl-site-header-core__search {
+  background-color: map.get(color.$color, 'blue-5');
+  border: 1px solid map.get(color.$color, 'blue-25');
+  box-shadow: 0 2px 5px 0 rgba(0, 47, 103, 0.2);
+  box-sizing: content-box;
+  color: map.get(color.$color, 'grey');
+  display: none;
+  font: map.get(typography.$font-prolonged, 's');
+  left: 0;
+  margin-top: -1px;
+  padding: calc(#{map.get(spacing.$spacing, 'm')} - 1px);
+  position: absolute;
+  width: calc(
+    100% - #{map.get(spacing.$spacing, 'm')} - #{map.get(spacing.$spacing, 'm')}
+  );
+  z-index: map.get(z-index.$z-index, 'dropdown');
+}
+
+.ecl-site-header-core__login-box--active {
+  display: block;
+}
+
+.ecl-site-header-core__login-description {
+  margin: 0;
+  max-width: 80ch;
+}
+
+.ecl-site-header-core__login-separator {
+  background-color: map.get(color.$color, 'blue-25');
+  border-width: 0;
+  height: 1px;
+  margin-bottom: map.get(spacing.$spacing, 'm');
+  margin-top: map.get(spacing.$spacing, 'm');
+}
+
+.ecl-site-header-core__language-selector {
+  font: map.get(typography.$font, 'xs');
+  margin-bottom: calc(#{map.get(spacing.$spacing, 'm')} + 1px);
+  padding: map.get(spacing.$spacing, 'xs') map.get(spacing.$spacing, 'xs') 0;
+  text-align: center;
+}
+
+.ecl-site-header-core__language-icon {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.ecl-site-header-core__language-code {
+  color: map.get(color.$color, 'white');
+  font: map.get(typography.$font, '2xs');
+  left: 50%;
+  position: absolute;
+  text-transform: uppercase;
+  // position top and left has to be set like this because IE...
+  // also ugly magic numbers to center the text on the icon
+  top: 50%;
+  transform: translateX(-50%) translateX(-0.01rem) translateY(-50%)
+    translateY(-0.05rem);
+}
+
+.ecl-site-header-core__search--active {
+  display: flex;
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up(s) {
+  .ecl-site-header-core__logo-link {
+    flex-grow: 0;
+  }
+
+  .ecl-site-header-core__logo-image {
+    height: $_logo-height-sm;
+    max-height: 100%;
+    max-width: 100%;
+    width: $_logo-width-sm;
+  }
+}
+
+@include breakpoints.up(l) {
+  .ecl-site-header-core__container {
+    align-items: flex-end;
+    flex-direction: row;
+    padding-bottom: map.get(spacing.$spacing, 'xl');
+    padding-top: map.get(spacing.$spacing, 'xl');
+  }
+
+  .ecl-site-header-core__top {
+    align-items: flex-end;
+  }
+
+  .ecl-site-header-core__action {
+    align-items: center;
+  }
+
+  .ecl-site-header-core__logo-link {
+    margin-bottom: 0;
+  }
+
+  .ecl-site-header-core__logo-image {
+    height: $_logo-height-lg;
+    width: $_logo-width-lg;
+  }
+
+  .ecl-site-header-core__login-box {
+    left: auto;
+    margin-top: calc(#{map.get(spacing.$spacing, 'xl')} - 1px);
+    width: auto;
+  }
+
+  .ecl-site-header-core__login-toggle,
+  .ecl-site-header-core__language-selector {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    font: map.get(typography.$font, 'm');
+    margin: 0;
+    padding: map.get(spacing.$spacing, 's');
+  }
+
+  .ecl-site-header-core__login-toggle[aria-expanded='true'] {
+    margin-bottom: -#{map.get(spacing.$spacing, 'xl')};
+    padding-bottom: calc(
+      #{map.get(spacing.$spacing, 's')} + #{map.get(spacing.$spacing, 'xl')}
+    );
+  }
+
+  .ecl-site-header-core__login-toggle,
+  .ecl-site-header-core__language-icon {
+    .ecl-site-header-core__icon {
+      height: map.get(icon.$icon, 'm');
+      margin-right: map.get(spacing.$spacing, 'xs');
+      width: map.get(icon.$icon, 'm');
+    }
+  }
+
+  .ecl-site-header-core__login-toggle {
+    .ecl-site-header-core__login-arrow {
+      display: block;
+      height: map.get(icon.$icon, 'xs');
+      margin-left: map.get(spacing.$spacing, 'xs');
+      transform: rotate(0);
+      width: map.get(icon.$icon, 'xs');
+    }
+    &[aria-expanded='false'] {
+      .ecl-site-header-core__login-arrow {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .ecl-site-header-core__language-code {
+    font: map.get(typography.$font, 'xs');
+    margin-right: map.get(spacing.$spacing, 'xs');
+    transform: translateX(-50%) translateX(-0.2rem) translateY(-50%)
+      translateY(-0.05rem);
+  }
+
+  .ecl-site-header-core__search-container {
+    flex-grow: 1;
+    margin-left: map.get(spacing.$spacing, 's');
+  }
+
+  .ecl-site-header-core__search-toggle {
+    display: none;
+  }
+
+  .ecl-site-header-core__search {
+    background-color: map.get(color.$color, 'white');
+    border-width: 0;
+    box-shadow: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 0;
+    width: $_search-width-l;
+  }
+}
+
+@include breakpoints.up(xl) {
+  .ecl-site-header-core__logo-image {
+    height: $_logo-height-xl;
+    width: $_logo-width-xl;
+  }
+
+  .ecl-site-header-core__search {
+    width: $_search-width-xl;
+  }
+}
