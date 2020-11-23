@@ -1,0 +1,163 @@
+{% spaceless %}
+
+{#
+  Parameters:
+  - "sections" (array of objects) (default: [])
+    - "type" (string) (can be: site_name, service_navigation, legal_navigation, corporate_name, dg_related_navigation, dg_services_navigation, class_names)
+    - "section_id" (integer) (default: '') The id will be used to form the class name
+     - "logo" (EU only)
+      - "alt" (string) alt attribute for the logo link
+      - "path" (string) logo link path
+      - "language" (string) Language code
+      - "src_mobile" (string) Path the mobile logo
+      - "src_desktop" (string) Path to the desktop logo
+    - "title" (optional) (string) OR (object with Link component in property)
+    - "title_class_name" (optional) (string) (default: '')
+    - "description" (optional) (string) (default: '')
+    - "content_before" (optional) (string) (default: '')
+    - "list_class_name" (optional) (string) (default: '')
+    - "links" (optional) (array of Link components) (default: [])
+  - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
+  - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (string) Attribute value, eg: 'data-test-1'
+  - "_compliance_" (boolean) (default: false) Activates debug
+#}
+
+{# Internal properties #}
+
+{% set _sections = sections|default([]) %}
+{% set _css_class = 'ecl-footer-standardised' %}
+{% set _extra_attributes = '' %}
+{% set _internal_wrapper = false %}
+{% set _compliance = _compliance_|default(false) %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+<footer class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  {# Main container #}
+  <div class="ecl-container ecl-footer-standardised__container">
+  {% for _full_section in _sections %}
+    {# Section #}
+  {% set _internal_wrapper = false %}
+  {# sections can contain sub-sections #}
+  {% if _full_section[1] is defined and _full_section[1] is not empty %}
+    {% set _grouped_section = _full_section %}
+    {% set _internal_wrapper = true %}
+    {% set _section_id = _full_section[0].section_id %}
+  {% else %}
+    {% set _section_id = _full_section.section_id %}
+    {% set _grouped_section = [_full_section] %}
+  {% endif %}
+  <section class="ecl-footer-standardised__section {{ 'ecl-footer-standardised__section' ~ _section_id }}">
+  {% for _section in _grouped_section %}
+    {# Sub-section wrapper #}
+    {% if _internal_wrapper and _section.title is defined %}
+      <section class="ecl-footer-standardised__section">
+    {% endif %}
+    {# logo (EU) #}
+    {% if _section.logo is defined and _section.logo is not empty %}
+      {% set _label %}
+        <img
+          alt="{{ _section.logo.alt }}"
+          title="{{ _section.logo.title }}"
+          class="ecl-footer-standardised__logo-image-mobile"
+          src="{{ _section.logo.src_mobile }}"
+        />
+        <img
+          alt="{{ _section.logo.alt }}"
+          title="{{ _section.logo.title }}"
+          class="ecl-footer-standardised__logo-image-desktop"
+          src="{{ _section.logo.src_desktop }}"
+        />
+      {% endset %}
+      {% include '@ecl/link/link.html.twig' with {
+        link: {
+          path: _section.logo.path,
+          label: _label,
+          type: 'standalone',
+          aria_label: _section.logo.title
+        },
+        extra_classes: 'ecl-footer-standardised__logo-link'
+      } only %}
+    {% endif %}
+    {# content before #}
+    {% if _section.content_before is defined and _section.content_before is not empty %}
+      <div class="ecl-footer-standardised__content">{{ _section.content_before|raw }}</div>
+    {% endif %}
+    {# title #}
+    {% if _section.title is defined and _section.title is not empty %}
+      {% set _title_class_name = 'ecl-footer-standardised__title' %}
+      {% if _section.title_class_name is defined and _section.title_class_name is not empty %}
+        {% set _title_class_name = _title_class_name ~ ' ' ~ _section.title_class_name %}
+      {% endif %}
+      {% if _section.title.link is defined and _section.title.link is not empty %}
+        {% include '@ecl/link/link.html.twig' with _section|merge({
+          link: _section.title.link|merge({ type: 'standalone'}),
+          extra_classes: _title_class_name,
+          icon: _section.title.icon|default({}),
+          _compliance_: _compliance,
+          _compliance_inner_check_: true
+        }) only %}
+      {% else %}
+        <div class="{{ _title_class_name }}">
+          {{- _section.title -}}
+        </div>
+      {% endif %}
+    {% endif %}
+    {# description #}
+    {% if _section.description is defined and _section.description is not empty %}
+      <div class="ecl-footer-standardised__description">{{ _section.description|raw }}</div>
+    {% endif %}
+    {# list #}
+    {% if _section.links is defined and _section.links is not empty and _section.links is iterable %}
+      {% set _list_class_name = 'ecl-footer-standardised__list' %}
+      {% if _section.list_class_name is defined and _section.list_class_name is not empty %}
+        {% set _list_class_name = _list_class_name ~ ' ' ~ _section.list_class_name %}
+      {% endif %}
+      <ul class="{{ _list_class_name }}">
+        {% for _item in _section.links %}
+          <li class="ecl-footer-standardised__list-item">
+             {% include '@ecl/link/link.html.twig' with _item|merge({
+                link: _item.link|default({})|merge({ type: 'standalone' }),
+                extra_classes: 'ecl-footer-standardised__link',
+                _compliance_: _compliance,
+                _compliance_inner_check_: true
+              }) only %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    {% if _internal_wrapper and _section.title is defined %}
+      </section>
+    {% endif %}
+  {% endfor %}
+    </section>
+  {% endfor %}
+  </div>
+</footer>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl/@compliance/footer-standardised.html.twig' with {
+    sections: _sections
+  } only %}
+{% endif %}
+
+{% endspaceless %}
