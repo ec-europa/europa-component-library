@@ -22,7 +22,6 @@ $_box-background-disabled: map.get(color.$color, 'grey-5');
 $_outline-width: 2px;
 $_outline-color: map.get(color.$color, 'yellow-100');
 $_invalid-border-color: map.get(color.$color, 'error');
-$_invalid-border-width: 2px; // DEPRECATED
 
 .ecl-radio {
   align-items: flex-start;
@@ -153,54 +152,3 @@ $_invalid-border-width: 2px; // DEPRECATED
 .ecl-radio--binary:last-child {
   margin-right: 0;
 }
-
-// DEPRECATED
-// stylelint-disable no-descending-specificity
-.ecl-radio__group {
-  border-style: solid;
-  border-width: 0;
-  margin: 0;
-  padding: 0 map.get(spacing.$spacing, 'l');
-}
-
-.ecl-radio__group--invalid {
-  border-color: $_invalid-border-color;
-  border-width: $_invalid-border-width;
-  padding-bottom: map.get(spacing.$spacing, 'm');
-  padding-top: map.get(spacing.$spacing, 'm');
-
-  .ecl-radio__invalid {
-    margin-top: map.get(spacing.$spacing, 'xs');
-  }
-}
-
-.ecl-radio--disabled,
-.ecl-radio--readonly {
-  .ecl-radio__label {
-    color: $_label-color-disabled;
-    cursor: not-allowed;
-  }
-
-  .ecl-radio__box {
-    background-color: $_box-background-disabled;
-    border-color: $_box-border-color-disabled;
-  }
-}
-
-.ecl-radio__group--binary {
-  // stylelint-disable-next-line plugin/selector-bem-pattern
-  &.ecl-form-group {
-    display: block;
-  }
-
-  .ecl-radio {
-    display: inline-flex;
-    margin-right: map.get(spacing.$spacing, 'm');
-    vertical-align: top;
-  }
-
-  .ecl-radio:last-child {
-    margin-right: 0;
-  }
-}
-// stylelint-enable no-descending-specificity

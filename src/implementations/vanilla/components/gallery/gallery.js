@@ -12,7 +12,6 @@ import createFocusTrap from 'focus-trap';
  * @param {String} options.overlaySelector Selector for gallery overlay element
  * @param {String} options.overlayHeaderSelector Selector for gallery overlay header element
  * @param {String} options.overlayFooterSelector Selector for gallery overlay footer element
- * @param {String} options.overlayImageSelector DEPRECATED! Selector for gallery overlay image element
  * @param {String} options.overlayMediaSelector Selector for gallery overlay media element
  * @param {String} options.overlayCounterCurrentSelector Selector for gallery overlay current number element
  * @param {String} options.overlayCounterMaxSelector Selector for display of number of elements in the gallery overlay
@@ -53,7 +52,6 @@ export class Gallery {
       overlaySelector = '[data-ecl-gallery-overlay]',
       overlayHeaderSelector = '[data-ecl-gallery-overlay-header]',
       overlayFooterSelector = '[data-ecl-gallery-overlay-footer]',
-      overlayImageSelector = '[data-ecl-gallery-overlay-image]', // DEPRECATED
       overlayMediaSelector = '[data-ecl-gallery-overlay-media]',
       overlayCounterCurrentSelector = '[data-ecl-gallery-overlay-counter-current]',
       overlayCounterMaxSelector = '[data-ecl-gallery-overlay-counter-max]',
@@ -87,7 +85,6 @@ export class Gallery {
     this.overlaySelector = overlaySelector;
     this.overlayHeaderSelector = overlayHeaderSelector;
     this.overlayFooterSelector = overlayFooterSelector;
-    this.overlayImageSelector = overlayImageSelector; // DEPRECATED
     this.overlayMediaSelector = overlayMediaSelector;
     this.overlayCounterCurrentSelector = overlayCounterCurrentSelector;
     this.overlayCounterMaxSelector = overlayCounterMaxSelector;
@@ -110,7 +107,6 @@ export class Gallery {
     this.overlay = null;
     this.overlayHeader = null;
     this.overlayFooter = null;
-    this.overlayImage = null; // DEPRECATED
     this.overlayMedia = null;
     this.overlayCounterCurrent = null;
     this.overlayCounterMax = null;
@@ -152,7 +148,6 @@ export class Gallery {
     this.overlay = queryOne(this.overlaySelector, this.element);
     this.overlayHeader = queryOne(this.overlayHeaderSelector, this.overlay);
     this.overlayFooter = queryOne(this.overlayFooterSelector, this.overlay);
-    this.overlayImage = queryOne(this.overlayImageSelector, this.overlay); // DEPRECATED
     this.overlayMedia = queryOne(this.overlayMediaSelector, this.overlay);
     this.overlayCounterCurrent = queryOne(
       this.overlayCounterCurrentSelector,
@@ -412,14 +407,6 @@ export class Gallery {
         this.overlayMedia.innerHTML = '';
         this.overlayMedia.appendChild(mediaElement);
       }
-
-      // DEPRECATED
-      else if (this.overlayImage) {
-        this.overlayImage.setAttribute(
-          'src',
-          selectedItem.getAttribute('href')
-        );
-      }
     }
 
     // Limit image height (fix for FF and IE)
@@ -429,13 +416,6 @@ export class Gallery {
       this.overlayFooter.clientHeight;
     if (this.overlayMedia) {
       Object.assign(mediaElement.style, {
-        maxHeight: `${maxHeight}px`,
-      });
-    }
-
-    // DEPRECATED
-    else if (this.overlayImage) {
-      Object.assign(this.overlayImage.style, {
         maxHeight: `${maxHeight}px`,
       });
     }
