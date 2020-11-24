@@ -14,5 +14,6 @@ export * from '@ecl/vanilla-component-inpage-navigation';
 export * from '@ecl/vanilla-component-message';
 export * from '@ecl/vanilla-component-menu';
 export * from '@ecl/vanilla-component-select';
+export * from '@ecl/vanilla-component-site-header-harmonised';
 export * from '@ecl/vanilla-component-table';
 export * from '@ecl/vanilla-component-timeline';
