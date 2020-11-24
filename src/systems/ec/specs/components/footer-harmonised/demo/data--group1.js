@@ -180,11 +180,6 @@ module.exports = {
           ariaLabel: 'Link to Legal notice',
           href: '/example',
         },
-        {
-          label: 'Brexit content disclaimer',
-          ariaLabel: 'Link to Brexit content disclaimer',
-          href: '/example',
-        },
       ],
     },
   },
