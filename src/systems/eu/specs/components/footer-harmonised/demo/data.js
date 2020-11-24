@@ -152,11 +152,6 @@ module.exports = {
             href: '/example',
           },
           {
-            label: 'Brexit content disclaimer',
-            ariaLabel: 'Link to Brexit content disclaimer',
-            href: '/example',
-          },
-          {
             label: 'Cookies',
             ariaLabel: 'Link to Cookies',
             href: '/example',
