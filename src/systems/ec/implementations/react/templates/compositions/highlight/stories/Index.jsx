@@ -5,7 +5,7 @@ import HighlightExampleDefault from '../examples/Default';
 import HighlightExampleImage from '../examples/Image';
 
 export default {
-  title: 'Templates/Compositions/Homepage highlight',
+  title: 'Templates/Compositions/Highlighted items',
   decorators: [withKnobs],
 };
 
