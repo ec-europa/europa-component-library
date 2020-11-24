@@ -1,0 +1,263 @@
+/**
+ * Footer Standardised component
+ * @define footer-standardised
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/maps/typography';
+@use "@ecl/theme-dev/maps/layout";
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+$_bg-color: map.get(color.$color, 'blue');
+$_separator-color: map.get(color.$color, 'blue-50');
+$_text-color: map.get(color.$color, 'white');
+$_column-gap: map.get(layout.$grid-gutter-width, 'm');
+
+/*
+ * Global rules
+ */
+.ecl-footer-standardised {
+  background-color: $_bg-color;
+  color: $_text-color;
+  margin: 0;
+  padding-bottom: map.get(spacing.$spacing, 'xl');
+}
+
+.ecl-footer-standardised__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.ecl-footer-standardised__section {
+  font: map.get(typography.$font, 'm');
+  margin-top: map.get(spacing.$spacing, 'l');
+
+  &:first-of-type {
+    margin-top: map.get(spacing.$spacing, 'xl');
+  }
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  &:empty {
+    margin-top: 0;
+  }
+}
+
+.ecl-footer-standardised__section--separator {
+  border-bottom: 1px solid $_separator-color;
+  padding-bottom: map.get(spacing.$spacing, 'l');
+}
+
+.ecl-footer-standardised__title,
+.ecl-footer-standardised__title:hover,
+.ecl-footer-standardised__title:focus,
+.ecl-footer-standardised__title:active {
+  color: $_text-color;
+  font: map.get(typography.$font, 'm');
+  font-weight: map.get(typography.$font-weight, 'bold');
+}
+
+.ecl-footer-standardised__title--separator {
+  border-bottom: 1px solid $_separator-color;
+  padding-bottom: map.get(spacing.$spacing, 'xs');
+}
+
+.ecl-footer-standardised__description {
+  color: map.get(color.$color, 'blue-25');
+  font: map.get(typography.$font-prolonged, 's');
+  margin-top: map.get(spacing.$spacing, 'xs');
+}
+
+.ecl-footer-standardised__content {
+  color: map.get(color.$color, 'blue-25');
+  font: map.get(typography.$font, 's');
+  margin-top: map.get(spacing.$spacing, 'xs');
+}
+
+.ecl-footer-standardised__list {
+  list-style: none;
+  margin-bottom: 0;
+  margin-top: map.get(spacing.$spacing, 'xs');
+  padding-left: 0;
+}
+
+.ecl-footer-standardised__list-item {
+  margin-top: map.get(spacing.$spacing, 'm');
+
+  .ecl-footer-standardised__list--condensed & {
+    margin-top: map.get(spacing.$spacing, 'xs');
+  }
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+}
+
+.ecl-footer-standardised__list--inline {
+  display: inline-flex;
+  flex-wrap: wrap;
+
+  .ecl-footer-standardised__list-item {
+    margin-right: map.get(spacing.$spacing, 'l');
+    margin-top: 0;
+
+    /* stylelint-disable-next-line max-nesting-depth */
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}
+
+.ecl-footer-standardised__link {
+  font: map.get(typography.$font, 's');
+}
+
+.ecl-footer-standardised__link,
+.ecl-footer-standardised__link:hover,
+.ecl-footer-standardised__link:active,
+.ecl-footer-standardised__link:focus {
+  color: $_text-color;
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('m') {
+  .ecl-footer-standardised__section {
+    margin-top: map.get(spacing.$spacing, 'xl');
+
+    &:empty {
+      margin-top: 0;
+    }
+  }
+
+  .ecl-footer-standardised__section--separator {
+    border-bottom-width: 2px;
+    padding-bottom: map.get(spacing.$spacing, 'xl');
+  }
+
+  .ecl-footer-standardised__title,
+  .ecl-footer-standardised__title:hover,
+  .ecl-footer-standardised__title:focus,
+  .ecl-footer-standardised__title:active {
+    font: map.get(typography.$font-prolonged, 'm');
+    font-weight: map.get(typography.$font-weight, 'bold');
+  }
+
+  .ecl-footer-standardised__title--separator {
+    border-bottom-width: 2px;
+  }
+
+  .ecl-footer-standardised__description {
+    margin-top: map.get(spacing.$spacing, 'xl');
+  }
+
+  .ecl-footer-standardised__list--columns {
+    column-count: 2;
+    column-gap: $_column-gap;
+  }
+
+  .ecl-footer-standardised__link {
+    font: map.get(typography.$font-prolonged, 's');
+  }
+}
+
+/*
+ * Section related rules
+ */
+.ecl-footer-standardised__section1,
+.ecl-footer-standardised__section2 {
+  order: 1;
+}
+
+.ecl-footer-standardised__section3 {
+  order: 3;
+}
+
+.ecl-footer-standardised__section4 {
+  order: 2;
+}
+
+.ecl-footer-standardised__section5,
+.ecl-footer-standardised__section6,
+.ecl-footer-standardised__section7,
+.ecl-footer-standardised__section8,
+.ecl-footer-standardised__section9 {
+  order: 4;
+}
+
+.ecl-footer-standardised__section6 {
+  border-bottom: 1px solid $_separator-color;
+  border-top: 1px solid $_separator-color;
+  padding-bottom: map.get(spacing.$spacing, 'm');
+  padding-top: map.get(spacing.$spacing, 'm');
+
+  /* stylelint-disable-next-line max-nesting-depth */
+  &:empty {
+    border-top-width: 0;
+  }
+}
+
+.ecl-footer-standardised__section8,
+.ecl-footer-standardised__section9 {
+  margin-top: map.get(spacing.$spacing, 'm');
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('m') {
+  /* Grid layout */
+  .ecl-footer-standardised__container {
+    column-gap: $_column-gap;
+    display: grid;
+    grid-gap: 0 $_column-gap;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, minmax(min-content, max-content));
+    row-gap: 0;
+  }
+
+  .ecl-footer-standardised__section1 {
+    grid-area: 1 / 1 / 3 / 2;
+  }
+
+  .ecl-footer-standardised__section2 {
+    grid-area: 1 / 2 / 2 / 3;
+  }
+
+  .ecl-footer-standardised__section3 {
+    grid-area: 1 / 3 / 2 / 4;
+  }
+
+  .ecl-footer-standardised__section4 {
+    grid-area: 2 / 2 / 3 / 3;
+  }
+
+  .ecl-footer-standardised__section5 {
+    grid-area: 2 / 3 / 3 / 4;
+  }
+
+  .ecl-footer-standardised__section6 {
+    border-bottom-width: 2px;
+    border-top-width: 2px;
+    grid-area: 3 / 1 / 4 / 4;
+
+    &:empty {
+      border-top-width: 0;
+    }
+  }
+
+  .ecl-footer-standardised__section7 {
+    grid-area: 4 / 1 / 5 / 2;
+  }
+
+  .ecl-footer-standardised__section8 {
+    grid-area: 4 / 2 / 5 / 3;
+    margin-top: map.get(spacing.$spacing, 'xl');
+  }
+
+  .ecl-footer-standardised__section9 {
+    grid-area: 4 / 3 / 5 / 4;
+    margin-top: map.get(spacing.$spacing, 'xl');
+  }
+}
