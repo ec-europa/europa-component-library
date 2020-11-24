@@ -7,12 +7,12 @@ import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import demoTitleContent from '@ecl/specs-component-page-header-standardised/demo//data--title';
 import demoMetaTitleContent from '@ecl/specs-component-page-header-standardised/demo/data--meta-title';
 import demoMetaTitleDescriptionContent from '@ecl/specs-component-page-header-standardised/demo/data--meta-title-description';
-import dataBreadcrumbSimple from '@ecl/specs-component-breadcrumb/demo/data--simple';
+import dataBreadcrumbLong from '@ecl/specs-component-breadcrumb/demo/data';
 import pageHeaderStandardised from './page-header-standardised.html.twig';
 import notes from './README.md';
 
 const preparePageHeaderStandardised = (data, desc, meta) => {
-  data.breadcrumb = dataBreadcrumbSimple;
+  data.breadcrumb = dataBreadcrumbLong;
   data.title = text('title', data.title, tabLabels.required);
   if (meta) {
     data.meta = text('meta', data.meta, tabLabels.optional);

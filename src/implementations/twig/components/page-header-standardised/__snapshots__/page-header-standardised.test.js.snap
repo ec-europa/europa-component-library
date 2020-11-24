@@ -10,6 +10,7 @@ exports[`Page Header Standardised Meta-title - renders correctly 1`] = `
     <nav
       aria-label="You are here:"
       class="ecl-breadcrumb-standardised ecl-page-header-standardised__breadcrumb"
+      data-ecl-auto-init="BreadcrumbStandardised"
       data-ecl-breadcrumb-standardised="true"
     >
       <ol
@@ -37,6 +38,71 @@ exports[`Page Header Standardised Meta-title - renders correctly 1`] = `
           </svg>
         </li>
         <li
+          class="ecl-breadcrumb-standardised__segment ecl-breadcrumb-standardised__segment--ellipsis"
+          data-ecl-breadcrumb-standardised-ellipsis=""
+        >
+          <button
+            aria-label="Click to expand"
+            class="ecl-breadcrumb-standardised__ellipsis"
+            data-ecl-breadcrumb-standardised-ellipsis-button=""
+            type="button"
+          >
+            …
+          </button>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-standardised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-standardised__segment"
+          data-ecl-breadcrumb-standardised-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-standardised__link"
+            href="/example"
+          >
+            About the European Commission
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-standardised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-standardised__segment"
+          data-ecl-breadcrumb-standardised-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-standardised__link"
+            href="/example"
+          >
+            Organisational structure
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-standardised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
           class="ecl-breadcrumb-standardised__segment"
           data-ecl-breadcrumb-standardised-item="static"
         >
@@ -44,7 +110,7 @@ exports[`Page Header Standardised Meta-title - renders correctly 1`] = `
             class="ecl-link ecl-link--standalone ecl-breadcrumb-standardised__link"
             href="/example"
           >
-            About the European Commission
+            How the Commission is organised
           </a>
           <svg
             aria-hidden="true"
@@ -96,6 +162,7 @@ exports[`Page Header Standardised Meta-title renders correctly with extra attrib
     <nav
       aria-label="You are here:"
       class="ecl-breadcrumb-standardised ecl-page-header-standardised__breadcrumb"
+      data-ecl-auto-init="BreadcrumbStandardised"
       data-ecl-breadcrumb-standardised="true"
     >
       <ol
@@ -123,6 +190,71 @@ exports[`Page Header Standardised Meta-title renders correctly with extra attrib
           </svg>
         </li>
         <li
+          class="ecl-breadcrumb-standardised__segment ecl-breadcrumb-standardised__segment--ellipsis"
+          data-ecl-breadcrumb-standardised-ellipsis=""
+        >
+          <button
+            aria-label="Click to expand"
+            class="ecl-breadcrumb-standardised__ellipsis"
+            data-ecl-breadcrumb-standardised-ellipsis-button=""
+            type="button"
+          >
+            …
+          </button>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-standardised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-standardised__segment"
+          data-ecl-breadcrumb-standardised-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-standardised__link"
+            href="/example"
+          >
+            About the European Commission
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-standardised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-standardised__segment"
+          data-ecl-breadcrumb-standardised-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-standardised__link"
+            href="/example"
+          >
+            Organisational structure
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-standardised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
           class="ecl-breadcrumb-standardised__segment"
           data-ecl-breadcrumb-standardised-item="static"
         >
@@ -130,7 +262,7 @@ exports[`Page Header Standardised Meta-title renders correctly with extra attrib
             class="ecl-link ecl-link--standalone ecl-breadcrumb-standardised__link"
             href="/example"
           >
-            About the European Commission
+            How the Commission is organised
           </a>
           <svg
             aria-hidden="true"
@@ -180,6 +312,7 @@ exports[`Page Header Standardised Meta-title renders correctly with extra class 
     <nav
       aria-label="You are here:"
       class="ecl-breadcrumb-standardised ecl-page-header-standardised__breadcrumb"
+      data-ecl-auto-init="BreadcrumbStandardised"
       data-ecl-breadcrumb-standardised="true"
     >
       <ol
@@ -207,6 +340,71 @@ exports[`Page Header Standardised Meta-title renders correctly with extra class 
           </svg>
         </li>
         <li
+          class="ecl-breadcrumb-standardised__segment ecl-breadcrumb-standardised__segment--ellipsis"
+          data-ecl-breadcrumb-standardised-ellipsis=""
+        >
+          <button
+            aria-label="Click to expand"
+            class="ecl-breadcrumb-standardised__ellipsis"
+            data-ecl-breadcrumb-standardised-ellipsis-button=""
+            type="button"
+          >
+            …
+          </button>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-standardised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-standardised__segment"
+          data-ecl-breadcrumb-standardised-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-standardised__link"
+            href="/example"
+          >
+            About the European Commission
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-standardised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-standardised__segment"
+          data-ecl-breadcrumb-standardised-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-standardised__link"
+            href="/example"
+          >
+            Organisational structure
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-standardised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
           class="ecl-breadcrumb-standardised__segment"
           data-ecl-breadcrumb-standardised-item="static"
         >
@@ -214,7 +412,7 @@ exports[`Page Header Standardised Meta-title renders correctly with extra class 
             class="ecl-link ecl-link--standalone ecl-breadcrumb-standardised__link"
             href="/example"
           >
-            About the European Commission
+            How the Commission is organised
           </a>
           <svg
             aria-hidden="true"
@@ -264,6 +462,7 @@ exports[`Page Header Standardised Meta-title-description - renders correctly 1`]
     <nav
       aria-label="You are here:"
       class="ecl-breadcrumb-standardised ecl-page-header-standardised__breadcrumb"
+      data-ecl-auto-init="BreadcrumbStandardised"
       data-ecl-breadcrumb-standardised="true"
     >
       <ol
@@ -291,6 +490,71 @@ exports[`Page Header Standardised Meta-title-description - renders correctly 1`]
           </svg>
         </li>
         <li
+          class="ecl-breadcrumb-standardised__segment ecl-breadcrumb-standardised__segment--ellipsis"
+          data-ecl-breadcrumb-standardised-ellipsis=""
+        >
+          <button
+            aria-label="Click to expand"
+            class="ecl-breadcrumb-standardised__ellipsis"
+            data-ecl-breadcrumb-standardised-ellipsis-button=""
+            type="button"
+          >
+            …
+          </button>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-standardised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-standardised__segment"
+          data-ecl-breadcrumb-standardised-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-standardised__link"
+            href="/example"
+          >
+            About the European Commission
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-standardised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-standardised__segment"
+          data-ecl-breadcrumb-standardised-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-standardised__link"
+            href="/example"
+          >
+            Organisational structure
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-standardised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
           class="ecl-breadcrumb-standardised__segment"
           data-ecl-breadcrumb-standardised-item="static"
         >
@@ -298,7 +562,7 @@ exports[`Page Header Standardised Meta-title-description - renders correctly 1`]
             class="ecl-link ecl-link--standalone ecl-breadcrumb-standardised__link"
             href="/example"
           >
-            About the European Commission
+            How the Commission is organised
           </a>
           <svg
             aria-hidden="true"
@@ -355,6 +619,7 @@ exports[`Page Header Standardised Meta-title-description renders correctly with 
     <nav
       aria-label="You are here:"
       class="ecl-breadcrumb-standardised ecl-page-header-standardised__breadcrumb"
+      data-ecl-auto-init="BreadcrumbStandardised"
       data-ecl-breadcrumb-standardised="true"
     >
       <ol
@@ -382,6 +647,71 @@ exports[`Page Header Standardised Meta-title-description renders correctly with 
           </svg>
         </li>
         <li
+          class="ecl-breadcrumb-standardised__segment ecl-breadcrumb-standardised__segment--ellipsis"
+          data-ecl-breadcrumb-standardised-ellipsis=""
+        >
+          <button
+            aria-label="Click to expand"
+            class="ecl-breadcrumb-standardised__ellipsis"
+            data-ecl-breadcrumb-standardised-ellipsis-button=""
+            type="button"
+          >
+            …
+          </button>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-standardised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-standardised__segment"
+          data-ecl-breadcrumb-standardised-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-standardised__link"
+            href="/example"
+          >
+            About the European Commission
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-standardised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-standardised__segment"
+          data-ecl-breadcrumb-standardised-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-standardised__link"
+            href="/example"
+          >
+            Organisational structure
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-standardised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
           class="ecl-breadcrumb-standardised__segment"
           data-ecl-breadcrumb-standardised-item="static"
         >
@@ -389,7 +719,7 @@ exports[`Page Header Standardised Meta-title-description renders correctly with 
             class="ecl-link ecl-link--standalone ecl-breadcrumb-standardised__link"
             href="/example"
           >
-            About the European Commission
+            How the Commission is organised
           </a>
           <svg
             aria-hidden="true"
@@ -444,6 +774,7 @@ exports[`Page Header Standardised Meta-title-description renders correctly with 
     <nav
       aria-label="You are here:"
       class="ecl-breadcrumb-standardised ecl-page-header-standardised__breadcrumb"
+      data-ecl-auto-init="BreadcrumbStandardised"
       data-ecl-breadcrumb-standardised="true"
     >
       <ol
@@ -471,6 +802,71 @@ exports[`Page Header Standardised Meta-title-description renders correctly with 
           </svg>
         </li>
         <li
+          class="ecl-breadcrumb-standardised__segment ecl-breadcrumb-standardised__segment--ellipsis"
+          data-ecl-breadcrumb-standardised-ellipsis=""
+        >
+          <button
+            aria-label="Click to expand"
+            class="ecl-breadcrumb-standardised__ellipsis"
+            data-ecl-breadcrumb-standardised-ellipsis-button=""
+            type="button"
+          >
+            …
+          </button>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-standardised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-standardised__segment"
+          data-ecl-breadcrumb-standardised-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-standardised__link"
+            href="/example"
+          >
+            About the European Commission
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-standardised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-standardised__segment"
+          data-ecl-breadcrumb-standardised-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-standardised__link"
+            href="/example"
+          >
+            Organisational structure
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-standardised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
           class="ecl-breadcrumb-standardised__segment"
           data-ecl-breadcrumb-standardised-item="static"
         >
@@ -478,7 +874,7 @@ exports[`Page Header Standardised Meta-title-description renders correctly with 
             class="ecl-link ecl-link--standalone ecl-breadcrumb-standardised__link"
             href="/example"
           >
-            About the European Commission
+            How the Commission is organised
           </a>
           <svg
             aria-hidden="true"
@@ -533,6 +929,7 @@ exports[`Page Header Standardised Title - renders correctly 1`] = `
     <nav
       aria-label="You are here:"
       class="ecl-breadcrumb-standardised ecl-page-header-standardised__breadcrumb"
+      data-ecl-auto-init="BreadcrumbStandardised"
       data-ecl-breadcrumb-standardised="true"
     >
       <ol
@@ -560,6 +957,71 @@ exports[`Page Header Standardised Title - renders correctly 1`] = `
           </svg>
         </li>
         <li
+          class="ecl-breadcrumb-standardised__segment ecl-breadcrumb-standardised__segment--ellipsis"
+          data-ecl-breadcrumb-standardised-ellipsis=""
+        >
+          <button
+            aria-label="Click to expand"
+            class="ecl-breadcrumb-standardised__ellipsis"
+            data-ecl-breadcrumb-standardised-ellipsis-button=""
+            type="button"
+          >
+            …
+          </button>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-standardised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-standardised__segment"
+          data-ecl-breadcrumb-standardised-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-standardised__link"
+            href="/example"
+          >
+            About the European Commission
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-standardised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-standardised__segment"
+          data-ecl-breadcrumb-standardised-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-standardised__link"
+            href="/example"
+          >
+            Organisational structure
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-standardised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
           class="ecl-breadcrumb-standardised__segment"
           data-ecl-breadcrumb-standardised-item="static"
         >
@@ -567,7 +1029,7 @@ exports[`Page Header Standardised Title - renders correctly 1`] = `
             class="ecl-link ecl-link--standalone ecl-breadcrumb-standardised__link"
             href="/example"
           >
-            About the European Commission
+            How the Commission is organised
           </a>
           <svg
             aria-hidden="true"
@@ -608,6 +1070,7 @@ exports[`Page Header Standardised Title With missing input data and debug enable
     <nav
       aria-label="You are here:"
       class="ecl-breadcrumb-standardised ecl-page-header-standardised__breadcrumb"
+      data-ecl-auto-init="BreadcrumbStandardised"
       data-ecl-breadcrumb-standardised="true"
     >
       <ol
@@ -649,6 +1112,99 @@ exports[`Page Header Standardised Title With missing input data and debug enable
           </svg>
         </li>
         <li
+          class="ecl-breadcrumb-standardised__segment ecl-breadcrumb-standardised__segment--ellipsis"
+          data-ecl-breadcrumb-standardised-ellipsis=""
+        >
+          <button
+            aria-label="Click to expand"
+            class="ecl-breadcrumb-standardised__ellipsis"
+            data-ecl-breadcrumb-standardised-ellipsis-button=""
+            type="button"
+          >
+            …
+          </button>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-standardised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-standardised__segment"
+          data-ecl-breadcrumb-standardised-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-standardised__link"
+            href="/example"
+          >
+            About the European Commission
+          </a>
+          <span
+            class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+            title="[link--standalone] - ecl compliant"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#notifications--success"
+              />
+            </svg>
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-standardised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-standardised__segment"
+          data-ecl-breadcrumb-standardised-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-standardised__link"
+            href="/example"
+          >
+            Organisational structure
+          </a>
+          <span
+            class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+            title="[link--standalone] - ecl compliant"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#notifications--success"
+              />
+            </svg>
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-standardised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
           class="ecl-breadcrumb-standardised__segment"
           data-ecl-breadcrumb-standardised-item="static"
         >
@@ -656,7 +1212,7 @@ exports[`Page Header Standardised Title With missing input data and debug enable
             class="ecl-link ecl-link--standalone ecl-breadcrumb-standardised__link"
             href="/example"
           >
-            About the European Commission
+            How the Commission is organised
           </a>
           <span
             class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
@@ -725,6 +1281,7 @@ exports[`Page Header Standardised Title renders correctly with extra attributes 
     <nav
       aria-label="You are here:"
       class="ecl-breadcrumb-standardised ecl-page-header-standardised__breadcrumb"
+      data-ecl-auto-init="BreadcrumbStandardised"
       data-ecl-breadcrumb-standardised="true"
     >
       <ol
@@ -752,6 +1309,71 @@ exports[`Page Header Standardised Title renders correctly with extra attributes 
           </svg>
         </li>
         <li
+          class="ecl-breadcrumb-standardised__segment ecl-breadcrumb-standardised__segment--ellipsis"
+          data-ecl-breadcrumb-standardised-ellipsis=""
+        >
+          <button
+            aria-label="Click to expand"
+            class="ecl-breadcrumb-standardised__ellipsis"
+            data-ecl-breadcrumb-standardised-ellipsis-button=""
+            type="button"
+          >
+            …
+          </button>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-standardised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-standardised__segment"
+          data-ecl-breadcrumb-standardised-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-standardised__link"
+            href="/example"
+          >
+            About the European Commission
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-standardised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-standardised__segment"
+          data-ecl-breadcrumb-standardised-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-standardised__link"
+            href="/example"
+          >
+            Organisational structure
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-standardised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
           class="ecl-breadcrumb-standardised__segment"
           data-ecl-breadcrumb-standardised-item="static"
         >
@@ -759,7 +1381,7 @@ exports[`Page Header Standardised Title renders correctly with extra attributes 
             class="ecl-link ecl-link--standalone ecl-breadcrumb-standardised__link"
             href="/example"
           >
-            About the European Commission
+            How the Commission is organised
           </a>
           <svg
             aria-hidden="true"
@@ -800,6 +1422,7 @@ exports[`Page Header Standardised Title renders correctly with extra class names
     <nav
       aria-label="You are here:"
       class="ecl-breadcrumb-standardised ecl-page-header-standardised__breadcrumb"
+      data-ecl-auto-init="BreadcrumbStandardised"
       data-ecl-breadcrumb-standardised="true"
     >
       <ol
@@ -827,6 +1450,71 @@ exports[`Page Header Standardised Title renders correctly with extra class names
           </svg>
         </li>
         <li
+          class="ecl-breadcrumb-standardised__segment ecl-breadcrumb-standardised__segment--ellipsis"
+          data-ecl-breadcrumb-standardised-ellipsis=""
+        >
+          <button
+            aria-label="Click to expand"
+            class="ecl-breadcrumb-standardised__ellipsis"
+            data-ecl-breadcrumb-standardised-ellipsis-button=""
+            type="button"
+          >
+            …
+          </button>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-standardised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-standardised__segment"
+          data-ecl-breadcrumb-standardised-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-standardised__link"
+            href="/example"
+          >
+            About the European Commission
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-standardised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-standardised__segment"
+          data-ecl-breadcrumb-standardised-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-standardised__link"
+            href="/example"
+          >
+            Organisational structure
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-standardised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
           class="ecl-breadcrumb-standardised__segment"
           data-ecl-breadcrumb-standardised-item="static"
         >
@@ -834,7 +1522,7 @@ exports[`Page Header Standardised Title renders correctly with extra class names
             class="ecl-link ecl-link--standalone ecl-breadcrumb-standardised__link"
             href="/example"
           >
-            About the European Commission
+            How the Commission is organised
           </a>
           <svg
             aria-hidden="true"
