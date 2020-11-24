@@ -1,8 +1,8 @@
 ---
-title: Homepage highlights
+title: Highlighted items
 defaultTab: usage
 status: ready
 playground:
   system: ec
-  path: /story/templates-compositions--highlight
+  path: /story/templates-compositions-highlighted-items--default
 ---

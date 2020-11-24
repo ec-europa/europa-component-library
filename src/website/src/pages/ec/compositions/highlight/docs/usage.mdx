@@ -6,21 +6,22 @@ order: 1
 import { Paragraph, Anatomy, Do, Dont, Link } from '@ecl/website-components';
 
 <Paragraph size="lead">
-  <strong>This composition is a bespoke solution for items of interest</strong>.
-  The content containers are found in two variations, with the default{' '}
+  The Highlighted items{' '}
+  <strong>is a bespoke solution for items of interest</strong>, commonly found
+  on home or landing pages. It provides a quick overview and the displayed{' '}
   <strong>
-    outlining the necessary information and the tile version displaying links
-  </strong>{' '}
-  to the pages of interest. They are{' '}
-  <strong>often found on home or landing pages</strong>.
+    elements are organised in an easily recognisable structure, intended to
+    support scannability and decision-making through consistent interaction,
+    such as linking to related pages.
+  </strong>
 </Paragraph>
 
 ## Anatomy
 
 <Anatomy
-  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Highlight/Anatomy_img_desktop.png"
-  srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/Highlight/Anatomy_img_desktop.png 892w, https://inno-ecl.s3.amazonaws.com/media/images/EC/Highlight/Anatomy_img_desktop.png 1468w"
-  alt="Anatomy of highlight"
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Highlight/Highlighted-items.png"
+  srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/Highlight/Highlighted-items-mobile.png 892w, https://inno-ecl.s3.amazonaws.com/media/images/EC/Highlight/Highlighted-items.png 1468w"
+  alt="Anatomy of highlighted items"
   legend={{
     items: [
       {
@@ -35,12 +36,12 @@ import { Paragraph, Anatomy, Do, Dont, Link } from '@ecl/website-components';
   }}
 />
 
-| Components & Elements                                                                   | Mandatory desktop | Mandatory mobile | Description                                                                                                                                   |
-| --------------------------------------------------------------------------------------- | ----------------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| heading                                                                                 | yes               | yes              | **title** of the composition                                                                                                                  |
-| <Link to="/ec/compositions/content-item/usage/" label="content containers" /> (default) | yes               | yes              | **default version** of the content container component, **providing a quick overview** of an element in text-heavy listing pages such as news |
-| link                                                                                    | yes               | yes              | link to internal source                                                                                                                       |
-| <Link to="/ec/compositions/content-item/usage/" label="content containers" /> (tiles)   | yes               | yes              | **tile version** of the content container component, **acting as an entry point** for pages of interest                                       |
+| Components & Elements                                                   | Mandatory | Description                                                                                 |
+| ----------------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------- |
+| heading                                                                 | yes       | **title** of the composition                                                                |
+| <Link to="/ec/compositions/content-item/usage/" label="content item" /> | yes       | **the container where relevant media and information is presented**                         |
+| link                                                                    | yes       | **link to internal source**                                                                 |
+| <Link to="/ec/components/card/usage/" label="card" /> (tile version)    | yes       | **tile version** of the cards component, **acting as an entry point** for pages of interest |
 
 ## Do's
 
