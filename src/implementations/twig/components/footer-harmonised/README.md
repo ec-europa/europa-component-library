@@ -39,7 +39,7 @@ npm install --save @ecl/twig-component-footer-harmonised
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl-twig/ec-component-footer-harmonised/ecl-footer-harmonised.html.twig' with { 
+{% include '@ecl/footer-harmonised/footer-harmonised.html.twig' with { 
   group: 'group1', 
   sections: [ 
     { 
