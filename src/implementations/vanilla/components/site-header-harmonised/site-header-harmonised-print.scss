@@ -1,0 +1,51 @@
+/**
+ * Site Header Harmonised
+ * @define site-header-harmonised; weak
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/maps/spacing';
+
+.ecl-site-header-harmonised__logo-image {
+  height: 1.9cm;
+  margin-bottom: map.get(spacing.$spacing-print, '4xl');
+  margin-top: map.get(spacing.$spacing-print, '4xl');
+  padding-bottom: map.get(spacing.$spacing-print, 'xl');
+  padding-top: map.get(spacing.$spacing-print, 'xl');
+  width: 7.2cm;
+}
+
+.ecl-site-header-harmonised__action {
+  display: none;
+}
+
+.ecl-site-header-harmonised__banner-top {
+  color: map.get(color.$color, 'grey');
+  font: map.get(typography.$font-prolonged-print, 'm');
+
+  .ecl-link {
+    color: map.get(color.$color, 'grey');
+  }
+
+  .ecl-link::after {
+    display: none;
+  }
+}
+
+.ecl-site-header-harmonised__banner,
+.ecl-site-header-harmonised__site-name {
+  font: map.get(typography.$font-print, '3xl');
+  font-family: map.get(typography.$font-family-print, 'alt');
+  font-weight: map.get(typography.$font-weight-print, 'bold');
+  margin-top: map.get(spacing.$spacing-print, 'xs');
+}
+
+.ecl-site-header-harmonised__logo-link::after {
+  display: none;
+}
+
+.ecl-site-header-harmonised--group3 .ecl-site-header-harmonised__logo-image {
+  width: auto;
+}
