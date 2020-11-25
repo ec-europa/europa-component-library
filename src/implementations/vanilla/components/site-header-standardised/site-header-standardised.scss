@@ -165,7 +165,7 @@ $_search-width-xl: 31.5rem;
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up(s) {
+@include breakpoints.up('s') {
   .ecl-site-header-standardised__logo-link {
     flex-grow: 0;
   }
@@ -178,7 +178,7 @@ $_search-width-xl: 31.5rem;
   }
 }
 
-@include breakpoints.up(l) {
+@include breakpoints.up('l') {
   .ecl-site-header-standardised__container {
     align-items: flex-end;
     flex-direction: row;
@@ -291,7 +291,7 @@ $_search-width-xl: 31.5rem;
   }
 }
 
-@include breakpoints.up(xl) {
+@include breakpoints.up('xl') {
   .ecl-site-header-standardised__search {
     width: $_search-width-xl;
   }
