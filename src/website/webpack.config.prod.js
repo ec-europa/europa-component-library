@@ -62,6 +62,7 @@ if (isDrone && process.env.DRONE_BUILD_EVENT === 'tag') {
 const cssLoader = ({ fixCode = true, prefix } = {}) => [
   {
     loader: MiniCssExtractPlugin.loader,
+    options: { esModule: false },
   },
   {
     loader: 'css-loader',
@@ -160,6 +161,7 @@ module.exports = {
             use: [
               {
                 loader: MiniCssExtractPlugin.loader,
+                options: { esModule: false },
               },
               {
                 loader: 'css-loader',

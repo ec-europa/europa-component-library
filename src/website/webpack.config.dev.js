@@ -21,7 +21,7 @@ const environmentModulePath = require.resolve(
 );
 
 const cssLoader = ({ fixCode = true, prefix } = {}) => [
-  { loader: 'style-loader' },
+  { loader: 'style-loader', options: { esModule: false } },
   {
     loader: 'css-loader',
     options: { importLoaders: 1 },
@@ -127,7 +127,7 @@ module.exports = {
           {
             test: /\.scss$/,
             use: [
-              { loader: 'style-loader' },
+              { loader: 'style-loader', options: { esModule: false } },
               {
                 loader: 'css-loader',
                 options: {
