@@ -9,10 +9,10 @@
 @use '@ecl/theme-dev/maps/typography';
 
 $_background-color: transparent;
-$_background-color-hover: map.get(color.$color, 'blue-5');
-$_link-color: map.get(color.$color, 'blue');
-$_last-link-color: map.get(color.$color, 'grey-75');
-$_border-color: map.get(color.$color, 'blue-25');
+$_background-color-hover: map.get(color.$ec, 'blue-5');
+$_link-color: map.get(color.$ec, 'blue');
+$_last-link-color: map.get(color.$ec, 'grey-75');
+$_border-color: map.get(color.$ec, 'blue-25');
 
 .ecl-breadcrumb-harmonised {
   background-color: $_background-color;
@@ -79,7 +79,7 @@ $_border-color: map.get(color.$color, 'blue-25');
   }
 
   &:focus {
-    outline: 3px solid map.get(color.$color, 'yellow-100');
+    outline: 3px solid map.get(color.$ec, 'yellow-100');
     outline-offset: 2px;
   }
 }

@@ -39,7 +39,7 @@
 
 .image-container {
   align-items: center;
-  border: 1px solid map.get(color.$color, 'grey-15');
+  border: 1px solid map.get(color.$ec, 'grey-15');
   border-bottom-width: 0;
   display: flex;
   justify-content: center;
@@ -63,19 +63,19 @@
 }
 
 .do .separator {
-  background-color: map.get(color.$color, 'success');
+  background-color: map.get(color.$ec, 'success');
 }
 
 .dont .separator {
-  background-color: map.get(color.$color, 'error');
+  background-color: map.get(color.$ec, 'error');
 }
 
 .caution .separator {
-  background-color: map.get(color.$color, 'warning');
+  background-color: map.get(color.$ec, 'warning');
 }
 
 .container {
-  background-color: map.get(color.$color, 'grey-5');
+  background-color: map.get(color.$ec, 'grey-5');
   flex-grow: 1;
   flex-shrink: 0;
   padding: map.get(spacing.$spacing, 'm') map.get(spacing.$spacing, 'l');
@@ -87,13 +87,13 @@
   font-weight: map.get(typography.$font-weight, 'bold');
 }
 .do .title {
-  color: map.get(color.$color, 'success');
+  color: map.get(color.$ec, 'success');
 }
 .dont .title {
-  color: map.get(color.$color, 'error');
+  color: map.get(color.$ec, 'error');
 }
 .caution .title {
-  color: map.get(color.$color, 'warning');
+  color: map.get(color.$ec, 'warning');
 }
 
 .title__icon {
@@ -104,7 +104,7 @@
 }
 
 .description {
-  color: map.get(color.$color, 'grey-100');
+  color: map.get(color.$ec, 'grey-100');
   font: map.get(typography.$font-prolonged, 'm');
   margin-top: map.get(spacing.$spacing, 'xs');
 }

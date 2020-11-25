@@ -8,9 +8,9 @@
 @use '@ecl/theme-dev/maps/spacing';
 @use '@ecl/theme-dev/maps/typography';
 
-$_link-color: map.get(color.$color, 'blue');
-$_link-color-hover: map.get(color.$color, 'black');
-$_link-color-focus: map.get(color.$color, 'yellow');
+$_link-color: map.get(color.$ec, 'blue');
+$_link-color-hover: map.get(color.$ec, 'black');
+$_link-color-focus: map.get(color.$ec, 'yellow');
 
 .ecl-link {
   color: $_link-color;
@@ -70,9 +70,9 @@ $_link-color-focus: map.get(color.$color, 'yellow');
 }
 
 .ecl-link--cta {
-  background-color: map.get(color.$color, 'yellow-100');
+  background-color: map.get(color.$ec, 'yellow-100');
   box-sizing: border-box;
-  color: map.get(color.$color, 'black-100');
+  color: map.get(color.$ec, 'black-100');
   display: inline-block;
   font: map.get(typography.$font, 'm');
   font-weight: map.get(typography.$font-weight, 'bold');
@@ -80,13 +80,13 @@ $_link-color-focus: map.get(color.$color, 'yellow');
 
   &:hover,
   &:active {
-    border: 2px solid map.get(color.$color, 'black-100');
+    border: 2px solid map.get(color.$ec, 'black-100');
     padding: calc(#{map.get(spacing.$spacing, 's')} - 2px)
       calc(#{map.get(spacing.$spacing, 'm')} - 2px);
   }
 
   &:focus {
-    outline-color: map.get(color.$color, 'black-100');
+    outline-color: map.get(color.$ec, 'black-100');
     outline-offset: -3px;
   }
 }

@@ -132,7 +132,7 @@
 /*
    * Font colour
    */
-@each $key, $value in color.$color {
+@each $key, $value in color.$ec {
   // Filter out yellow colours (text should not be yellow)
   @if not str-index($key, 'yellow-') {
     .ecl-u-type-color-#{$key} {

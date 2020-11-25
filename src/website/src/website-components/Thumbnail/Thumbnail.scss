@@ -4,14 +4,14 @@
 @use '@ecl/theme-dev/maps/typography';
 
 .thumbnail {
-  border: 1px solid map.get(color.$color, 'grey-15');
+  border: 1px solid map.get(color.$ec, 'grey-15');
   display: block;
   padding: map.get(spacing.$spacing, 'm');
   text-decoration: none;
 }
 
 .title {
-  color: map.get(color.$color, 'grey-100');
+  color: map.get(color.$ec, 'grey-100');
   font: map.get(typography.$font, 'l');
 }
 

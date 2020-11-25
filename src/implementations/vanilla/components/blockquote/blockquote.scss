@@ -12,14 +12,14 @@
 $_border-width: 0.625rem;
 
 .ecl-blockquote {
-  border-left: $_border-width solid map.get(color.$color, 'yellow');
+  border-left: $_border-width solid map.get(color.$ec, 'yellow');
   margin: 0;
   padding: map.get(spacing.$spacing, 'm') 0 map.get(spacing.$spacing, 'm')
     map.get(spacing.$spacing, 'l');
 }
 
 .ecl-blockquote__body {
-  color: map.get(color.$color, 'grey');
+  color: map.get(color.$ec, 'grey');
   font: map.get(typography.$font-prolonged, 'm');
   font-style: italic;
   margin: 0;
@@ -41,7 +41,7 @@ $_border-width: 0.625rem;
 }
 
 .ecl-blockquote__author {
-  color: map.get(color.$color, 'black');
+  color: map.get(color.$ec, 'black');
   font: map.get(typography.$font-prolonged, 'm');
   font-weight: map.get(typography.$font-weight, 'bold');
 

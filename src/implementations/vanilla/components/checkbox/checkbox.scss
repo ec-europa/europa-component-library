@@ -9,17 +9,17 @@
 @use '@ecl/theme-dev/maps/typography';
 
 $_border-width: 2px;
-$_border-color: map.get(color.$color, 'grey-75');
+$_border-color: map.get(color.$ec, 'grey-75');
 $_box-size: 1.25rem;
-$_box-background-disabled: map.get(color.$color, 'grey-5');
-$_box-background-checked: map.get(color.$color, 'blue-100');
-$_box-border-color-disabled: map.get(color.$color, 'grey-50');
-$_box-border-color-checked: map.get(color.$color, 'blue-100');
-$_box-border-color-hover: map.get(color.$color, 'blue-100');
-$_invalid-border-color: map.get(color.$color, 'error');
-$_label-color: map.get(color.$color, 'grey-100');
-$_label-color-disabled: map.get(color.$color, 'grey-50');
-$_outline-color: map.get(color.$color, 'yellow-100');
+$_box-background-disabled: map.get(color.$ec, 'grey-5');
+$_box-background-checked: map.get(color.$ec, 'blue-100');
+$_box-border-color-disabled: map.get(color.$ec, 'grey-50');
+$_box-border-color-checked: map.get(color.$ec, 'blue-100');
+$_box-border-color-hover: map.get(color.$ec, 'blue-100');
+$_invalid-border-color: map.get(color.$ec, 'error');
+$_label-color: map.get(color.$ec, 'grey-100');
+$_label-color-disabled: map.get(color.$ec, 'grey-50');
+$_outline-color: map.get(color.$ec, 'yellow-100');
 $_outline-width: 2px;
 
 .ecl-checkbox {
@@ -60,18 +60,18 @@ $_outline-width: 2px;
 
 .ecl-checkbox__help {
   box-sizing: border-box;
-  color: map.get(color.$color, 'grey-100');
+  color: map.get(color.$ec, 'grey-100');
   display: block;
   font: map.get(typography.$font-prolonged, 's');
   margin-top: map.get(spacing.$spacing, 'xs');
 }
 
 .ecl-checkbox__help--disabled {
-  color: map.get(color.$color, 'grey-50');
+  color: map.get(color.$ec, 'grey-50');
 }
 
 .ecl-checkbox__icon {
-  fill: map.get(color.$color, 'white-100');
+  fill: map.get(color.$ec, 'white-100');
   visibility: hidden;
 }
 // Disabled.
@@ -99,12 +99,12 @@ $_outline-width: 2px;
 .ecl-checkbox--invalid
   .ecl-checkbox__label:hover
   .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
-  border-color: map.get(color.$color, 'red-130');
+  border-color: map.get(color.$ec, 'red-130');
 }
 
 // Required
 .ecl-checkbox__required {
-  color: map.get(color.$color, 'error');
+  color: map.get(color.$ec, 'error');
   font: map.get(typography.$font, 'xl');
   font-weight: map.get(typography.$font-weight, 'bold');
   padding-left: map.get(spacing.$spacing, '2xs');

@@ -56,17 +56,17 @@
 
   /* stylelint-disable-next-line */
   .item--dark & {
-    border-color: map.get(color.$color, 'grey-100');
+    border-color: map.get(color.$ec, 'grey-100');
     color: #000;
 
     /* stylelint-disable-next-line */
     &:focus {
-      background-color: rgba(map.get(color.$color, 'grey-100'), 0.1);
+      background-color: rgba(map.get(color.$ec, 'grey-100'), 0.1);
     }
 
     /* stylelint-disable-next-line */
     &:hover {
-      background-color: map.get(color.$color, 'grey-100');
+      background-color: map.get(color.$ec, 'grey-100');
       color: #fff;
     }
   }

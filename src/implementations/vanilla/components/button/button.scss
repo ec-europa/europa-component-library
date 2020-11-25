@@ -41,7 +41,7 @@ $_padding-vertical: map.get(spacing.$spacing, 's');
   }
 
   &:focus {
-    outline: $_outline-width solid map.get(color.$color, 'secondary');
+    outline: $_outline-width solid map.get(color.$ec, 'secondary');
     outline-offset: -($_outline-width);
   }
 
@@ -71,19 +71,19 @@ $_padding-vertical: map.get(spacing.$spacing, 's');
 * Primary
 */
 .ecl-button--primary {
-  background-color: map.get(color.$color, 'blue-100');
-  color: map.get(color.$color, 'white-100');
+  background-color: map.get(color.$ec, 'blue-100');
+  color: map.get(color.$ec, 'white-100');
 
   &:hover,
   &:active {
-    background-color: map.get(color.$color, 'blue-130');
+    background-color: map.get(color.$ec, 'blue-130');
   }
 
   &[disabled],
   &[disabled]:hover {
-    background-color: map.get(color.$color, 'blue-25');
-    border-color: map.get(color.$color, 'blue-25');
-    color: map.get(color.$color, 'white-100');
+    background-color: map.get(color.$ec, 'blue-25');
+    border-color: map.get(color.$ec, 'blue-25');
+    color: map.get(color.$ec, 'white-100');
   }
 }
 
@@ -91,23 +91,23 @@ $_padding-vertical: map.get(spacing.$spacing, 's');
 * Secondary
 */
 .ecl-button--secondary {
-  background-color: map.get(color.$color, 'white-100');
-  border: $_border-width solid map.get(color.$color, 'blue-100');
-  color: map.get(color.$color, 'blue-100');
+  background-color: map.get(color.$ec, 'white-100');
+  border: $_border-width solid map.get(color.$ec, 'blue-100');
+  color: map.get(color.$ec, 'blue-100');
   padding: calc(#{$_padding-vertical} - #{$_border-width})
     calc(#{$_padding-horizontal} - #{$_border-width});
 
   &:hover,
   &:active {
-    border-color: map.get(color.$color, 'blue-130');
-    color: map.get(color.$color, 'blue-130');
+    border-color: map.get(color.$ec, 'blue-130');
+    color: map.get(color.$ec, 'blue-130');
   }
 
   &[disabled],
   &[disabled]:hover {
-    background-color: map.get(color.$color, 'white-100');
-    border-color: map.get(color.$color, 'blue-25');
-    color: map.get(color.$color, 'blue-25');
+    background-color: map.get(color.$ec, 'white-100');
+    border-color: map.get(color.$ec, 'blue-25');
+    color: map.get(color.$ec, 'blue-25');
   }
 }
 
@@ -115,16 +115,16 @@ $_padding-vertical: map.get(spacing.$spacing, 's');
 * Ghost
 */
 .ecl-button--ghost {
-  color: map.get(color.$color, 'blue-100');
+  color: map.get(color.$ec, 'blue-100');
 
   &:hover,
   &:active {
-    color: map.get(color.$color, 'blue-130');
+    color: map.get(color.$ec, 'blue-130');
   }
 
   &[disabled],
   &[disabled]:hover {
-    color: map.get(color.$color, 'blue-25');
+    color: map.get(color.$ec, 'blue-25');
   }
 }
 
@@ -132,25 +132,25 @@ $_padding-vertical: map.get(spacing.$spacing, 's');
 * Call to action
 */
 .ecl-button--call {
-  background-color: map.get(color.$color, 'yellow-100');
-  color: map.get(color.$color, 'black-100');
+  background-color: map.get(color.$ec, 'yellow-100');
+  color: map.get(color.$ec, 'black-100');
 
   &:hover,
   &:active {
-    border: $_border-width solid map.get(color.$color, 'black-100');
+    border: $_border-width solid map.get(color.$ec, 'black-100');
     padding: calc(#{$_padding-vertical} - #{$_border-width})
       calc(#{$_padding-horizontal} - #{$_border-width});
   }
 
   &:focus {
-    outline-color: map.get(color.$color, 'black-100');
+    outline-color: map.get(color.$ec, 'black-100');
   }
 
   &[disabled],
   &[disabled]:hover {
-    background-color: map.get(color.$color, 'yellow-25');
-    border-color: map.get(color.$color, 'yellow-25');
-    color: map.get(color.$color, 'grey-50');
+    background-color: map.get(color.$ec, 'yellow-25');
+    border-color: map.get(color.$ec, 'yellow-25');
+    color: map.get(color.$ec, 'grey-50');
   }
 }
 
@@ -158,17 +158,17 @@ $_padding-vertical: map.get(spacing.$spacing, 's');
 * Search
 */
 .ecl-button--search {
-  background-color: map.get(color.$color, 'grey-10');
-  color: map.get(color.$color, 'blue-100');
+  background-color: map.get(color.$ec, 'grey-10');
+  color: map.get(color.$ec, 'blue-100');
 
   &:hover,
   &:active {
-    background-color: map.get(color.$color, 'grey-25');
+    background-color: map.get(color.$ec, 'grey-25');
   }
 
   &[disabled],
   &[disabled]:hover {
-    background-color: map.get(color.$color, 'grey-5');
-    color: map.get(color.$color, 'grey-50');
+    background-color: map.get(color.$ec, 'grey-5');
+    color: map.get(color.$ec, 'grey-50');
   }
 }

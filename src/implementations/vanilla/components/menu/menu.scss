@@ -15,7 +15,7 @@
 * Menu structure
 */
 .ecl-menu {
-  background-color: map.get(color.$color, 'blue');
+  background-color: map.get(color.$ec, 'blue');
   margin: 0;
   padding-bottom: map.get(spacing.$spacing, 'm');
   padding-top: map.get(spacing.$spacing, 'm');
@@ -27,7 +27,7 @@
 }
 
 .ecl-menu__inner {
-  background-color: map.get(color.$color, 'blue');
+  background-color: map.get(color.$ec, 'blue');
   bottom: 0;
   overflow-y: auto;
   position: fixed;
@@ -104,7 +104,7 @@
   * Menu header
   */
 .ecl-menu__site-name {
-  color: map.get(color.$color, 'white');
+  color: map.get(color.$ec, 'white');
   font: map.get(typography.$font, '2xl');
 }
 
@@ -123,7 +123,7 @@
 .ecl-menu__open:focus,
 .ecl-menu__open:active,
 .ecl-menu__open:visited {
-  color: map.get(color.$color, 'white');
+  color: map.get(color.$ec, 'white');
 }
 
 .ecl-menu__open:focus {
@@ -153,7 +153,7 @@
   * Inner menu
   */
 .ecl-menu__inner-header {
-  background-color: map.get(color.$color, 'blue');
+  background-color: map.get(color.$ec, 'blue');
   padding: map.get(spacing.$spacing, 'l') map.get(spacing.$spacing, 'm');
   position: sticky;
   top: 0;
@@ -161,12 +161,12 @@
 }
 
 .ecl-menu__title {
-  color: map.get(color.$color, 'white');
+  color: map.get(color.$ec, 'white');
   font: map.get(typography.$font, 'xl');
 }
 
 .ecl-menu__back {
-  color: map.get(color.$color, 'white');
+  color: map.get(color.$ec, 'white');
   display: none;
   font: map.get(typography.$font, 'xl');
   margin-bottom: -#{map.get(spacing.$spacing, 's')};
@@ -177,7 +177,7 @@
 }
 
 .ecl-menu__close {
-  color: map.get(color.$color, 'white');
+  color: map.get(color.$ec, 'white');
   font: map.get(typography.$font, 'xs');
   margin-right: map.get(spacing.$spacing, 'm');
   margin-top: map.get(spacing.$spacing, 'xs');
@@ -225,7 +225,7 @@
 }
 
 .ecl-menu__item {
-  border-top: 1px solid map.get(color.$color, 'blue-50');
+  border-top: 1px solid map.get(color.$ec, 'blue-50');
   box-sizing: content-box;
   margin-left: map.get(spacing.$spacing, 'm');
   margin-right: map.get(spacing.$spacing, 'm');
@@ -234,7 +234,7 @@
 
 .ecl-menu__link {
   align-items: center;
-  color: map.get(color.$color, 'white');
+  color: map.get(color.$ec, 'white');
   display: inline-flex;
   font: map.get(typography.$font, 'm');
   font-weight: map.get(typography.$font-weight, 'bold');
@@ -252,18 +252,18 @@
   &:hover,
   &:focus,
   &:active {
-    color: map.get(color.$color, 'white');
+    color: map.get(color.$ec, 'white');
     text-decoration: none;
   }
 
   &:focus {
-    outline: 3px solid map.get(color.$color, 'yellow');
+    outline: 3px solid map.get(color.$ec, 'yellow');
     outline-offset: -3px;
   }
 }
 
 .ecl-menu__item--current:not(.ecl-menu__item--expanded) .ecl-menu__link {
-  background-color: map.get(color.$color, 'blue-120');
+  background-color: map.get(color.$ec, 'blue-120');
 }
 
 .ecl-menu__link-icon {
@@ -272,7 +272,7 @@
 
 // Expanded
 .ecl-menu__inner--expanded {
-  background-color: map.get(color.$color, 'blue-5');
+  background-color: map.get(color.$ec, 'blue-5');
 }
 
 .ecl-menu__inner--expanded .ecl-menu__item:not(.ecl-menu__item--expanded) {
@@ -281,10 +281,10 @@
 
 /* stylelint-disable-next-line no-descending-specificity */
 .ecl-menu__inner--expanded .ecl-menu__link {
-  color: map.get(color.$color, 'blue');
+  color: map.get(color.$ec, 'blue');
 
   &:active {
-    background-color: map.get(color.$color, 'blue-25');
+    background-color: map.get(color.$ec, 'blue-25');
   }
 }
 
@@ -300,7 +300,7 @@
 @include breakpoints.up('l') {
   .ecl-menu:not(.ecl-menu--forced-mobile) {
     .ecl-menu__list {
-      background-color: map.get(color.$color, 'blue');
+      background-color: map.get(color.$ec, 'blue');
       flex-direction: row;
     }
 
@@ -340,7 +340,7 @@
     .ecl-menu__link {
       background-color: transparent;
       border-bottom: 3px solid transparent;
-      color: map.get(color.$color, 'white');
+      color: map.get(color.$ec, 'white');
       display: inline-flex;
       padding-bottom: calc(#{map.get(spacing.$spacing, 'm')} - 3px);
       padding-left: map.get(spacing.$spacing, 'm');
@@ -351,15 +351,15 @@
     }
 
     .ecl-menu__item--current .ecl-menu__link {
-      background-color: map.get(color.$color, 'blue-120');
+      background-color: map.get(color.$ec, 'blue-120');
     }
   }
 
   .ecl-menu:not(.ecl-menu--forced-mobile):not(.ecl-menu--forced-close) {
     .ecl-menu__item[aria-expanded='true'] {
       .ecl-menu__link {
-        background-color: map.get(color.$color, 'blue-5');
-        color: map.get(color.$color, 'blue');
+        background-color: map.get(color.$ec, 'blue-5');
+        color: map.get(color.$ec, 'blue');
       }
     }
 
@@ -368,8 +368,8 @@
       .ecl-menu__link:hover,
       .ecl-menu__link:active,
       .ecl-menu__link:focus {
-        background-color: map.get(color.$color, 'blue-5');
-        color: map.get(color.$color, 'blue');
+        background-color: map.get(color.$ec, 'blue-5');
+        color: map.get(color.$ec, 'blue');
         transition-property: background-color, border-bottom-color, color,
           z-index;
         z-index: map.get(z-index.$z-index, 'dropdown') + 1;
@@ -383,7 +383,7 @@
 
     .ecl-menu__item:not(.ecl-menu__item--has-children):hover {
       .ecl-menu__link {
-        border-bottom-color: map.get(color.$color, 'blue-25');
+        border-bottom-color: map.get(color.$ec, 'blue-25');
       }
     }
   }
@@ -417,12 +417,12 @@
 }
 
 .ecl-menu__subitem {
-  border-top: 1px solid map.get(color.$color, 'blue-25');
+  border-top: 1px solid map.get(color.$ec, 'blue-25');
   box-sizing: border-box;
 }
 
 .ecl-menu__sublink {
-  color: map.get(color.$color, 'blue');
+  color: map.get(color.$ec, 'blue');
   display: block;
   font: map.get(typography.$font, 'm');
   margin-left: -#{map.get(spacing.$spacing, 'm')};
@@ -439,17 +439,17 @@
   &:hover,
   &:focus,
   &:active {
-    color: map.get(color.$color, 'blue');
+    color: map.get(color.$ec, 'blue');
     text-decoration: underline;
   }
 
   &:focus {
-    outline: 3px solid map.get(color.$color, 'yellow');
+    outline: 3px solid map.get(color.$ec, 'yellow');
     outline-offset: -3px;
   }
 
   &:active {
-    background-color: map.get(color.$color, 'blue-25');
+    background-color: map.get(color.$ec, 'blue-25');
   }
 }
 
@@ -461,8 +461,8 @@
 @include breakpoints.up('l') {
   .ecl-menu:not(.ecl-menu--forced-mobile):not(.ecl-menu--forced-close) {
     .ecl-menu__mega {
-      background-color: map.get(color.$color, 'blue-5');
-      border-bottom: 3px solid map.get(color.$color, 'blue-25');
+      background-color: map.get(color.$ec, 'blue-5');
+      border-bottom: 3px solid map.get(color.$ec, 'blue-25');
       box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
       display: flex;
       left: 0;

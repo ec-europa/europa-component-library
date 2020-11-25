@@ -9,7 +9,7 @@ $_outline-width: 3px;
   background: none;
   border-width: 0;
   box-sizing: border-box;
-  color: map.get(color.$color, 'primary');
+  color: map.get(color.$ec, 'primary');
   font: map.get(typography.$font, 'm');
   font-weight: map.get(typography.$font-weight, 'bold');
   margin: 0;
@@ -23,7 +23,7 @@ $_outline-width: 3px;
   }
 
   &:focus {
-    outline: $_outline-width solid map.get(color.$color, 'secondary');
+    outline: $_outline-width solid map.get(color.$ec, 'secondary');
     outline-offset: -($_outline-width);
   }
 }

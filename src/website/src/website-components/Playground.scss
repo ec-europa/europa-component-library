@@ -13,8 +13,8 @@
 }
 
 .showcase {
-  background-color: map.get(color.$color, 'white-100');
-  border: 1px solid map.get(color.$color, 'grey-10');
+  background-color: map.get(color.$ec, 'white-100');
+  border: 1px solid map.get(color.$ec, 'grey-10');
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -35,7 +35,7 @@
 .link {
   align-items: center;
   box-sizing: border-box;
-  color: map.get(color.$color, 'blue-100');
+  color: map.get(color.$ec, 'blue-100');
   display: inline-flex;
   font: map.get(typography.$font, 'm');
   text-decoration: none;
@@ -50,7 +50,7 @@
 
 .link:hover,
 .link:focus {
-  color: map.get(color.$color, 'black-100');
+  color: map.get(color.$ec, 'black-100');
   text-decoration: underline;
 
   &.link--icon {
@@ -62,13 +62,13 @@
 }
 
 .link:focus {
-  outline: 3px solid map.get(color.$color, 'yellow-100');
+  outline: 3px solid map.get(color.$ec, 'yellow-100');
   outline-offset: 2px;
 }
 
 .code {
-  background-color: map.get(color.$color, 'white-100');
-  border: 1px solid map.get(color.$color, 'grey-10');
+  background-color: map.get(color.$ec, 'white-100');
+  border: 1px solid map.get(color.$ec, 'grey-10');
   display: flex;
   flex-direction: column;
   margin-top: map.get(spacing.$spacing, 'm');
@@ -76,7 +76,7 @@
 }
 
 .code-pre {
-  background-color: map.get(color.$color, 'white-100') !important;
+  background-color: map.get(color.$ec, 'white-100') !important;
   line-height: 1.5rem !important;
   margin: map.get(spacing.$spacing, 'm') !important;
   overflow-y: hidden !important;

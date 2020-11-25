@@ -12,8 +12,8 @@
 @use "@ecl/vanilla-layout-grid/mixins/breakpoints";
 
 $_image-height: 185px;
-$_description-background: map.get(color.$color, 'grey-100');
-$_description-color: map.get(color.$color, 'white-100');
+$_description-background: map.get(color.$ec, 'grey-100');
+$_description-color: map.get(color.$ec, 'white-100');
 
 .ecl-gallery {
   margin: 0;
@@ -42,7 +42,7 @@ $_description-color: map.get(color.$color, 'white-100');
 }
 
 .ecl-gallery__image-container {
-  background-color: map.get(color.$color, 'black-100');
+  background-color: map.get(color.$ec, 'black-100');
   flex-grow: 1;
   margin: 0;
 }
@@ -51,7 +51,7 @@ $_description-color: map.get(color.$color, 'white-100');
   outline: none;
 
   .ecl-gallery__image-container {
-    outline: 3px solid map.get(color.$color, 'yellow-100');
+    outline: 3px solid map.get(color.$ec, 'yellow-100');
     outline-offset: -3px;
   }
 }
@@ -104,14 +104,14 @@ $_description-color: map.get(color.$color, 'white-100');
 }
 
 .ecl-gallery__info {
-  background-color: map.get(color.$color, 'grey-10');
+  background-color: map.get(color.$ec, 'grey-10');
   float: right;
   font: map.get(typography.$font, 'xs');
   padding: map.get(spacing.$spacing, 'xs') map.get(spacing.$spacing, 's');
 }
 
 .ecl-gallery__footer {
-  border-top: 1px solid map.get(color.$color, 'grey-10');
+  border-top: 1px solid map.get(color.$ec, 'grey-10');
   margin-top: map.get(spacing.$spacing, 'xs');
   padding-top: map.get(spacing.$spacing, 'm');
 }
@@ -183,10 +183,10 @@ $_description-color: map.get(color.$color, 'white-100');
 /*
  * Overlay
 */
-$_overlay-background: map.get(color.$color, 'black-100');
+$_overlay-background: map.get(color.$ec, 'black-100');
 $_overlay-z-index: map.get(z-index.$z-index, 'modal');
-$_detail-background: map.get(color.$color, 'grey-100');
-$_detail-color: map.get(color.$color, 'white-100');
+$_detail-background: map.get(color.$ec, 'grey-100');
+$_detail-color: map.get(color.$ec, 'white-100');
 
 .ecl-gallery__overlay {
   background-color: $_overlay-background;

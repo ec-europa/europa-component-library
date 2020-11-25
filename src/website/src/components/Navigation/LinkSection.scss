@@ -10,10 +10,10 @@
 }
 
 .group-list-item {
-  background-color: map.get(color.$color, 'grey-5');
+  background-color: map.get(color.$ec, 'grey-5');
   border-width: 0;
   box-sizing: border-box;
-  color: map.get(color.$color, 'text');
+  color: map.get(color.$ec, 'text');
   display: block;
   font: map.get(typography.$font, 'm');
   font-weight: map.get(typography.$font-weight, 'bold');
@@ -43,12 +43,12 @@
 
 .group-list-item:hover,
 .group-list-item:focus {
-  background-color: map.get(color.$color, 'grey-10');
+  background-color: map.get(color.$ec, 'grey-10');
   outline: none;
 }
 
 .group-list-item:active {
-  background-color: map.get(color.$color, 'grey-25');
+  background-color: map.get(color.$ec, 'grey-25');
 }
 
 .button {
@@ -60,12 +60,12 @@
 
 .button:hover,
 .button:focus {
-  background-color: map.get(color.$color, 'grey-10');
+  background-color: map.get(color.$ec, 'grey-10');
   outline: none;
 }
 
 .button:active {
-  background-color: map.get(color.$color, 'grey-25');
+  background-color: map.get(color.$ec, 'grey-25');
 }
 
 .icon {

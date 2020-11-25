@@ -9,26 +9,26 @@
 @use '@ecl/theme-dev/maps/typography';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-$_background-default: map.get(color.$color, 'blue');
-$_text-color-default: map.get(color.$color, 'white');
-$_separator-color-default: map.get(color.$color, 'grey-25');
-$_year-background-default: map.get(color.$color, 'grey-10');
-$_year-text-color-default: map.get(color.$color, 'grey');
-$_background-ongoing: map.get(color.$color, 'yellow');
-$_text-color-ongoing: map.get(color.$color, 'grey');
-$_separator-color-ongoing: map.get(color.$color, 'grey-25');
-$_year-background-ongoing: map.get(color.$color, 'grey-10');
-$_year-text-color-ongoing: map.get(color.$color, 'grey');
-$_background-cancelled: map.get(color.$color, 'grey-10');
-$_text-color-cancelled: map.get(color.$color, 'grey');
-$_separator-color-cancelled: map.get(color.$color, 'grey-25');
-$_year-background-cancelled: map.get(color.$color, 'grey-10');
-$_year-text-color-cancelled: map.get(color.$color, 'grey');
-$_background-past: map.get(color.$color, 'white');
-$_text-color-past: map.get(color.$color, 'grey');
-$_separator-color-past: map.get(color.$color, 'grey-50');
-$_year-background-past: map.get(color.$color, 'white');
-$_year-text-color-past: map.get(color.$color, 'grey');
+$_background-default: map.get(color.$ec, 'blue');
+$_text-color-default: map.get(color.$ec, 'white');
+$_separator-color-default: map.get(color.$ec, 'grey-25');
+$_year-background-default: map.get(color.$ec, 'grey-10');
+$_year-text-color-default: map.get(color.$ec, 'grey');
+$_background-ongoing: map.get(color.$ec, 'yellow');
+$_text-color-ongoing: map.get(color.$ec, 'grey');
+$_separator-color-ongoing: map.get(color.$ec, 'grey-25');
+$_year-background-ongoing: map.get(color.$ec, 'grey-10');
+$_year-text-color-ongoing: map.get(color.$ec, 'grey');
+$_background-cancelled: map.get(color.$ec, 'grey-10');
+$_text-color-cancelled: map.get(color.$ec, 'grey');
+$_separator-color-cancelled: map.get(color.$ec, 'grey-25');
+$_year-background-cancelled: map.get(color.$ec, 'grey-10');
+$_year-text-color-cancelled: map.get(color.$ec, 'grey');
+$_background-past: map.get(color.$ec, 'white');
+$_text-color-past: map.get(color.$ec, 'grey');
+$_separator-color-past: map.get(color.$ec, 'grey-50');
+$_year-background-past: map.get(color.$ec, 'white');
+$_year-text-color-past: map.get(color.$ec, 'grey');
 $_width-mobile: 5rem;
 $_width-desktop: 6.3rem;
 $_circle-width: 0.6rem;
@@ -45,7 +45,7 @@ $_circle-width: 0.6rem;
   width: $_width-mobile;
 
   &::before {
-    background-color: map.get(color.$color, 'white');
+    background-color: map.get(color.$ec, 'white');
     border-radius: 50%;
     box-sizing: content-box;
     content: '';
@@ -58,7 +58,7 @@ $_circle-width: 0.6rem;
   }
 
   &::after {
-    background-color: map.get(color.$color, 'white');
+    background-color: map.get(color.$ec, 'white');
     border-radius: 50%;
     box-sizing: content-box;
     content: '';

@@ -9,7 +9,7 @@
 @use '@ecl/theme-dev/maps/spacing';
 
 .ecl-timeline {
-  color: map.get(color.$color, 'black');
+  color: map.get(color.$ec, 'black');
   font: map.get(typography.$font-print, 'm');
   list-style: disc;
   margin: 0;
@@ -25,20 +25,20 @@
 }
 
 .ecl-timeline__label {
-  color: map.get(color.$color, 'grey');
+  color: map.get(color.$ec, 'grey');
   font: map.get(typography.$font-print, 's');
   font-weight: map.get(typography.$font-weight-print, 'bold');
 }
 
 .ecl-timeline__title {
-  color: map.get(color.$color, 'black');
+  color: map.get(color.$ec, 'black');
   font: map.get(typography.$font-prolonged-print, 'm');
   font-weight: map.get(typography.$font-weight-print, 'bold');
   margin-top: map.get(spacing.$spacing-print, 'xs');
 }
 
 .ecl-timeline__content {
-  color: map.get(color.$color, 'grey');
+  color: map.get(color.$ec, 'grey');
   font: map.get(typography.$font-prolonged-print, 'm');
   margin-top: map.get(spacing.$spacing-print, 'xs');
 }

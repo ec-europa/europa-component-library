@@ -17,7 +17,7 @@
 }
 
 .ecl-card__meta {
-  color: map.get(color.$color, 'grey');
+  color: map.get(color.$ec, 'grey');
   font: map.get(typography.$font-print, 's');
   font-family: #{map.get(typography.$font-family-print, 'alt')};
   margin-bottom: map.get(spacing.$spacing, 'xs');
@@ -42,7 +42,7 @@
 }
 
 .ecl-card__description {
-  color: map.get(color.$color, 'black');
+  color: map.get(color.$ec, 'black');
   font: map.get(typography.$font-print, 'm');
   margin-top: map.get(spacing.$spacing-print, 'm');
 }
@@ -55,7 +55,7 @@
 }
 
 .ecl-card__info-item {
-  color: map.get(color.$color, 'grey');
+  color: map.get(color.$ec, 'grey');
   display: flex;
   font: map.get(typography.$font-print, 's');
   font-family: #{map.get(typography.$font-family-print, 'alt')};
@@ -110,7 +110,7 @@
 }
 
 .ecl-card__tag {
-  color: map.get(color.$color, 'grey');
+  color: map.get(color.$ec, 'grey');
   font: map.get(typography.$font-print, 's');
   font-family: #{map.get(typography.$font-family-print, 'alt')};
 }

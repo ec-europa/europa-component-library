@@ -9,9 +9,9 @@
 @use '@ecl/theme-dev/maps/typography';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-$_title-color: map.get(color.$color, 'black-100');
-$_description-color: map.get(color.$color, 'grey-100');
-$_close-color: map.get(color.$color, 'black-100');
+$_title-color: map.get(color.$ec, 'black-100');
+$_description-color: map.get(color.$ec, 'grey-100');
+$_close-color: map.get(color.$ec, 'black-100');
 
 .ecl-message {
   box-sizing: border-box;
@@ -124,36 +124,36 @@ $_close-color: map.get(color.$color, 'black-100');
 
 // information
 .ecl-message--info {
-  border: 2px solid map.get(color.$color, 'info');
+  border: 2px solid map.get(color.$ec, 'info');
 
   .ecl-message__icon {
-    fill: map.get(color.$color, 'info');
+    fill: map.get(color.$ec, 'info');
   }
 }
 
 // success
 .ecl-message--success {
-  border: 2px solid map.get(color.$color, 'success');
+  border: 2px solid map.get(color.$ec, 'success');
 
   .ecl-message__icon {
-    fill: map.get(color.$color, 'success');
+    fill: map.get(color.$ec, 'success');
   }
 }
 
 // warning
 .ecl-message--warning {
-  border: 2px solid map.get(color.$color, 'warning');
+  border: 2px solid map.get(color.$ec, 'warning');
 
   .ecl-message__icon {
-    fill: map.get(color.$color, 'warning');
+    fill: map.get(color.$ec, 'warning');
   }
 }
 
 // error
 .ecl-message--error {
-  border: 2px solid map.get(color.$color, 'error');
+  border: 2px solid map.get(color.$ec, 'error');
 
   .ecl-message__icon {
-    fill: map.get(color.$color, 'error');
+    fill: map.get(color.$ec, 'error');
   }
 }

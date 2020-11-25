@@ -21,7 +21,7 @@
 }
 
 .header--bordered {
-  border: 2px solid map.get(color.$color, 'grey-15');
+  border: 2px solid map.get(color.$ec, 'grey-15');
   padding-left: calc(#{map.get(spacing.$spacing, 'm')} - 2px);
   padding-right: calc(#{map.get(spacing.$spacing, 'm')} - 2px);
 }
@@ -67,17 +67,17 @@
 
   /* stylelint-disable-next-line */
   .card--dark & {
-    border-color: map.get(color.$color, 'grey-100');
+    border-color: map.get(color.$ec, 'grey-100');
     color: #000;
 
     /* stylelint-disable-next-line */
     &:focus {
-      background-color: rgba(map.get(color.$color, 'grey-100'), 0.1);
+      background-color: rgba(map.get(color.$ec, 'grey-100'), 0.1);
     }
 
     /* stylelint-disable-next-line */
     &:hover {
-      background-color: map.get(color.$color, 'grey-100');
+      background-color: map.get(color.$ec, 'grey-100');
       color: #fff;
     }
   }
@@ -96,8 +96,8 @@
 }
 
 .body {
-  background-color: map.get(color.$color, 'grey-5');
-  color: map.get(color.$color, 'text');
+  background-color: map.get(color.$ec, 'grey-5');
+  color: map.get(color.$ec, 'text');
   flex-grow: 1;
   font: map.get(typography.$font-prolonged, 'm');
   padding: map.get(spacing.$spacing, 's') map.get(spacing.$spacing, 'm');

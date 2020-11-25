@@ -30,7 +30,7 @@
 }
 
 .ecl-datepicker__icon {
-  color: map.get(color.$color, 'grey-50');
+  color: map.get(color.$ec, 'grey-50');
   margin-right: calc(#{map.get(spacing.$spacing, 's')} - 1px);
   margin-top: calc(#{map.get(spacing.$spacing, 's')} - 1px);
   pointer-events: none;
@@ -40,27 +40,27 @@
 }
 
 .ecl-datepicker--invalid .ecl-datepicker__icon {
-  color: map.get(color.$color, 'red-100');
+  color: map.get(color.$ec, 'red-100');
 }
 
 .ecl-datepicker:hover .ecl-datepicker__icon {
-  color: map.get(color.$color, 'blue');
+  color: map.get(color.$ec, 'blue');
 }
 
 .ecl-datepicker--invalid:hover .ecl-datepicker__icon {
-  color: map.get(color.$color, 'red-130');
+  color: map.get(color.$ec, 'red-130');
 }
 
 .ecl-datepicker__field:active + .ecl-datepicker__icon {
-  color: map.get(color.$color, 'grey');
+  color: map.get(color.$ec, 'grey');
 }
 
 .ecl-datepicker__field:focus + .ecl-datepicker__icon {
-  color: map.get(color.$color, 'grey-50');
+  color: map.get(color.$ec, 'grey-50');
 }
 
 .ecl-datepicker__field:disabled:hover + .ecl-datepicker__icon {
-  color: map.get(color.$color, 'grey-50');
+  color: map.get(color.$ec, 'grey-50');
 }
 
 /*
@@ -68,7 +68,7 @@
    */
 .ecl-datepicker-theme {
   border-width: 0;
-  color: map.get(color.$color, 'grey');
+  color: map.get(color.$ec, 'grey');
   font: map.get(typography.$font, 'm');
   width: 100%;
 
@@ -77,20 +77,20 @@
   }
 
   .pika-lendar {
-    background-color: map.get(color.$color, 'grey-5');
+    background-color: map.get(color.$ec, 'grey-5');
     margin: 0;
     width: 100%;
   }
 
   .pika-title {
-    background-color: map.get(color.$color, 'white');
+    background-color: map.get(color.$ec, 'white');
     display: flex;
   }
 
   .pika-label {
     align-items: center;
-    background-color: map.get(color.$color, 'grey-10');
-    color: map.get(color.$color, 'grey');
+    background-color: map.get(color.$ec, 'grey-10');
+    color: map.get(color.$ec, 'grey');
     display: flex;
     flex-grow: 1;
     font: map.get(typography.$font, 'm');
@@ -104,7 +104,7 @@
   }
 
   .pika-label::after {
-    border: solid map.get(color.$color, 'grey');
+    border: solid map.get(color.$ec, 'grey');
     border-width: 0 2px 2px 0;
     content: '';
     display: inline-block;
@@ -129,7 +129,7 @@
     border-spacing: map.get(spacing.$spacing, '2xs');
 
     th {
-      color: map.get(color.$color, 'grey');
+      color: map.get(color.$ec, 'grey');
       font: map.get(typography.$font, 'm');
       padding: map.get(spacing.$spacing, 'xs') 0;
     }
@@ -140,33 +140,33 @@
   }
 
   .pika-button {
-    background-color: map.get(color.$color, 'white');
-    color: map.get(color.$color, 'grey');
+    background-color: map.get(color.$ec, 'white');
+    color: map.get(color.$ec, 'grey');
     font: map.get(typography.$font, 'm');
     padding: map.get(spacing.$spacing, 's');
     text-align: center;
 
     &:hover {
-      background-color: map.get(color.$color, 'grey-10');
+      background-color: map.get(color.$ec, 'grey-10');
       border-radius: 0;
     }
   }
 
   .is-today .pika-button {
-    box-shadow: inset 0 0 0 3px map.get(color.$color, 'blue-25');
+    box-shadow: inset 0 0 0 3px map.get(color.$ec, 'blue-25');
   }
 
   .is-selected .pika-button {
-    background-color: map.get(color.$color, 'blue');
+    background-color: map.get(color.$ec, 'blue');
     border-radius: 0;
     box-shadow: none;
-    color: map.get(color.$color, 'white');
+    color: map.get(color.$ec, 'white');
     font-weight: map.get(typography.$font-weight, 'bold');
   }
 
   .is-outside-current-month .pika-button {
-    background-color: map.get(color.$color, 'grey-10');
-    color: map.get(color.$color, 'grey');
+    background-color: map.get(color.$ec, 'grey-10');
+    color: map.get(color.$ec, 'grey');
     opacity: 1;
   }
 }

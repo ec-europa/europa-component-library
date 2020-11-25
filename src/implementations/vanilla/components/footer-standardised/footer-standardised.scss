@@ -10,9 +10,9 @@
 @use "@ecl/theme-dev/maps/layout";
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-$_bg-color: map.get(color.$color, 'blue');
-$_separator-color: map.get(color.$color, 'blue-50');
-$_text-color: map.get(color.$color, 'white');
+$_bg-color: map.get(color.$ec, 'blue');
+$_separator-color: map.get(color.$ec, 'blue-50');
+$_text-color: map.get(color.$ec, 'white');
 $_column-gap: map.get(layout.$grid-gutter-width, 'm');
 
 /*
@@ -67,13 +67,13 @@ $_column-gap: map.get(layout.$grid-gutter-width, 'm');
 }
 
 .ecl-footer-standardised__description {
-  color: map.get(color.$color, 'blue-25');
+  color: map.get(color.$ec, 'blue-25');
   font: map.get(typography.$font-prolonged, 's');
   margin-top: map.get(spacing.$spacing, 'xs');
 }
 
 .ecl-footer-standardised__content {
-  color: map.get(color.$color, 'blue-25');
+  color: map.get(color.$ec, 'blue-25');
   font: map.get(typography.$font, 's');
   margin-top: map.get(spacing.$spacing, 'xs');
 }

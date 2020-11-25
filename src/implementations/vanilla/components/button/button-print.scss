@@ -66,13 +66,13 @@ $_padding-vertical: map.get(spacing.$spacing-print, 's');
  * Primary
  */
 .ecl-button--primary {
-  background-color: map.get(color.$color, 'blue-100');
-  color: map.get(color.$color, 'white-100');
+  background-color: map.get(color.$ec, 'blue-100');
+  color: map.get(color.$ec, 'white-100');
 
   &[disabled] {
-    background-color: map.get(color.$color, 'blue-25');
-    border-color: map.get(color.$color, 'blue-25');
-    color: map.get(color.$color, 'white-100');
+    background-color: map.get(color.$ec, 'blue-25');
+    border-color: map.get(color.$ec, 'blue-25');
+    color: map.get(color.$ec, 'white-100');
   }
 }
 
@@ -80,17 +80,17 @@ $_padding-vertical: map.get(spacing.$spacing-print, 's');
 * Secondary
 */
 .ecl-button--secondary {
-  background-color: map.get(color.$color, 'white-100');
-  border: $_border-width solid map.get(color.$color, 'blue-100');
-  color: map.get(color.$color, 'blue-100');
+  background-color: map.get(color.$ec, 'white-100');
+  border: $_border-width solid map.get(color.$ec, 'blue-100');
+  color: map.get(color.$ec, 'blue-100');
   padding: calc(#{$_padding-vertical} - #{$_border-width})
     calc(#{$_padding-horizontal} - #{$_border-width});
 
   &[disabled] {
-    background-color: map.get(color.$color, 'white-100');
-    border-color: map.get(color.$color, 'blue-25');
+    background-color: map.get(color.$ec, 'white-100');
+    border-color: map.get(color.$ec, 'blue-25');
     border-width: $_border-width;
-    color: map.get(color.$color, 'blue-25');
+    color: map.get(color.$ec, 'blue-25');
     padding: calc(#{$_padding-vertical} - #{$_border-width})
       calc(#{$_padding-horizontal} - #{$_border-width});
   }
@@ -100,10 +100,10 @@ $_padding-vertical: map.get(spacing.$spacing-print, 's');
 * Ghost
 */
 .ecl-button--ghost {
-  color: map.get(color.$color, 'blue-100');
+  color: map.get(color.$ec, 'blue-100');
 
   &[disabled] {
-    color: map.get(color.$color, 'blue-25');
+    color: map.get(color.$ec, 'blue-25');
   }
 }
 
@@ -111,13 +111,13 @@ $_padding-vertical: map.get(spacing.$spacing-print, 's');
 * Call to action
 */
 .ecl-button--call {
-  background-color: map.get(color.$color, 'yellow-100');
-  color: map.get(color.$color, 'black-100');
+  background-color: map.get(color.$ec, 'yellow-100');
+  color: map.get(color.$ec, 'black-100');
 
   &[disabled] {
-    background-color: map.get(color.$color, 'yellow-25');
-    border-color: map.get(color.$color, 'yellow-25');
-    color: map.get(color.$color, 'grey-50');
+    background-color: map.get(color.$ec, 'yellow-25');
+    border-color: map.get(color.$ec, 'yellow-25');
+    color: map.get(color.$ec, 'grey-50');
   }
 }
 
@@ -125,11 +125,11 @@ $_padding-vertical: map.get(spacing.$spacing-print, 's');
 * Search
 */
 .ecl-button--search {
-  background-color: map.get(color.$color, 'grey-10');
-  color: map.get(color.$color, 'blue-100');
+  background-color: map.get(color.$ec, 'grey-10');
+  color: map.get(color.$ec, 'blue-100');
 
   &[disabled] {
-    background-color: map.get(color.$color, 'grey-5');
-    color: map.get(color.$color, 'grey-50');
+    background-color: map.get(color.$ec, 'grey-5');
+    color: map.get(color.$ec, 'grey-50');
   }
 }

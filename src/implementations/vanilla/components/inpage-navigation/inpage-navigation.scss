@@ -35,11 +35,11 @@ $_toggle-width: calc(
 .ecl-inpage-navigation__trigger {
   background: linear-gradient(
     to left,
-    map.get(color.$color, 'blue-120') $_toggle-width,
-    map.get(color.$color, 'primary') $_toggle-width
+    map.get(color.$ec, 'blue-120') $_toggle-width,
+    map.get(color.$ec, 'primary') $_toggle-width
   );
   border: 0;
-  color: map.get(color.$color, 'white-100');
+  color: map.get(color.$ec, 'white-100');
   display: none;
   padding: map.get(spacing.$spacing, 's') map.get(spacing.$spacing, 'm');
   position: relative;
@@ -91,7 +91,7 @@ $_toggle-width: calc(
 }
 
 .ecl-inpage-navigation__title {
-  color: map.get(color.$color, 'grey-100');
+  color: map.get(color.$ec, 'grey-100');
   display: none;
   font: map.get(typography.$font, 'm');
   padding: map.get(spacing.$spacing, 'xs')
@@ -100,13 +100,13 @@ $_toggle-width: calc(
 
   /* stylelint-disable-next-line order/order */
   @include breakpoints.up('l') {
-    color: map.get(color.$color, 'grey-100');
+    color: map.get(color.$ec, 'grey-100');
     display: block;
   }
 }
 
 .ecl-inpage-navigation__list {
-  border-top: 1px solid map.get(color.$color, 'blue-120');
+  border-top: 1px solid map.get(color.$ec, 'blue-120');
   display: none;
   list-style-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
   list-style-type: none;
@@ -135,7 +135,7 @@ $_toggle-width: calc(
     background-color: transparent;
     border: 0;
     border-left: $_inpage-link-border solid transparent;
-    color: map.get(color.$color, 'primary');
+    color: map.get(color.$ec, 'primary');
     display: block;
     font-weight: map.get(typography.$font-weight, 'bold');
     padding: map.get(spacing.$spacing, 'xs') map.get(spacing.$spacing, 's');
@@ -153,30 +153,30 @@ $_toggle-width: calc(
 
     /* stylelint-disable-next-line order/order */
     @include breakpoints.up('l') {
-      background-color: map.get(color.$color, 'yellow-100');
+      background-color: map.get(color.$ec, 'yellow-100');
       outline: none;
       text-decoration: underline;
     }
   }
 
   .ecl-inpage-navigation--visible & {
-    border-top: 1px solid map.get(color.$color, 'blue-75');
-    color: map.get(color.$color, 'white-100');
+    border-top: 1px solid map.get(color.$ec, 'blue-75');
+    color: map.get(color.$ec, 'white-100');
     display: block;
 
     /* stylelint-disable-next-line order/order */
     @include breakpoints.up('l') {
       border-top-width: 0;
-      color: map.get(color.$color, 'primary');
+      color: map.get(color.$ec, 'primary');
     }
   }
 
   .ecl-inpage-navigation__item--active & {
     /* stylelint-disable-next-line order/order */
     @include breakpoints.up('l') {
-      background-color: map.get(color.$color, 'grey-5');
-      border-left-color: map.get(color.$color, 'primary');
-      color: map.get(color.$color, 'grey-100');
+      background-color: map.get(color.$ec, 'grey-5');
+      border-left-color: map.get(color.$ec, 'primary');
+      color: map.get(color.$ec, 'grey-100');
     }
   }
 }
@@ -188,15 +188,15 @@ $_toggle-width: calc(
 .ecl-inpage-navigation__link--is-active {
   /* stylelint-disable-next-line order/order */
   @include breakpoints.up('l') {
-    background-color: map.get(color.$color, 'grey-5');
-    border-left-color: map.get(color.$color, 'primary');
-    color: map.get(color.$color, 'grey-100');
+    background-color: map.get(color.$ec, 'grey-5');
+    border-left-color: map.get(color.$ec, 'primary');
+    color: map.get(color.$ec, 'grey-100');
   }
 }
 
 .ecl-inpage-navigation__body {
   .ecl-inpage-navigation--visible & {
-    background-color: map.get(color.$color, 'blue-110');
+    background-color: map.get(color.$ec, 'blue-110');
     left: 0;
     position: fixed;
     right: 0;
