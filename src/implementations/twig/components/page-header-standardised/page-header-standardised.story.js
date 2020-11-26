@@ -61,7 +61,7 @@ const preparePageHeaderStandardised = (data, desc, meta) => {
 };
 
 export default {
-  title: 'Components/Page Headers/Page Header Standardised',
+  title: 'Components/Page Headers/Standardised',
   decorators: [withNotes, withCode, withKnobs],
 };
 
