@@ -5,6 +5,33 @@ title: What's new
 
 Detailed release information is available on [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 2.35.0 (2020-11-26)
+
+#### :bug: Bug Fix
+
+- [#1716](https://github.com/ec-europa/europa-component-library/pull/1716) fix(menu): Disable swipe events for desktop version - FRONT-1728
+- [#1710](https://github.com/ec-europa/europa-component-library/pull/1710) fix(page-headers): Meta is a plain-text string - FRONT-1679
+- [#1701](https://github.com/ec-europa/europa-component-library/pull/1701) fix(select): fix spacing - FRONT-1704
+
+#### :nail_care: Enhancement
+
+- [#1774](https://github.com/ec-europa/europa-component-library/pull/1774) fix(logo): update mt logo - FRONT-1793
+- [#1766](https://github.com/ec-europa/europa-component-library/pull/1766) feat(menu): update menu display and behavior - FRONT-1790
+- [#1705](https://github.com/ec-europa/europa-component-library/pull/1705) fix(menu): accessibility - FRONT-1456
+- [#1717](https://github.com/ec-europa/europa-component-library/pull/1717) feat(gallery): Add support for external video iframe - FRONT-1733
+- [#1712](https://github.com/ec-europa/europa-component-library/pull/1712) chore(storybook): Upgrade to version 6 - FRONT-1483
+
+#### :memo: Documentation
+
+- [#1776](https://github.com/ec-europa/europa-component-library/pull/1776) docs(highlight): update usage page - FRONT-1792
+- [#1773](https://github.com/ec-europa/europa-component-library/pull/1773) fix(footers): remove reference to Brexit - FRONT-1794
+- [#1736](https://github.com/ec-europa/europa-component-library/pull/1736) docs(colours): update text colour - FRONT-1764
+- [#1689](https://github.com/ec-europa/europa-component-library/pull/1689) docs(list): update timeline usage page - FRONT-1335
+
+#### :house: Internal
+
+- [#1713](https://github.com/ec-europa/europa-component-library/pull/1713) chore(eslint-webpack-plugin): relacing eslint loader - FRONT-1722
+
 ## 2.34.0 (2020-10-07)
 
 #### :rocket: New Feature
