@@ -74,7 +74,7 @@ const preparePageHeaderCore = (data, desc, meta, img) => {
 };
 
 export default {
-  title: 'Components/Page Headers/Page Header Core',
+  title: 'Components/Page Headers/Core',
   decorators: [withNotes, withCode, withKnobs],
 };
 
