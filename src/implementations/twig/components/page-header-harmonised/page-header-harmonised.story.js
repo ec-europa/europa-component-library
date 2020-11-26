@@ -61,7 +61,7 @@ const preparePageHeaderHarmonised = (data, desc, meta) => {
 };
 
 export default {
-  title: 'Components/Page Headers/Page Header Harmonised',
+  title: 'Components/Page Headers/Harmonised',
   decorators: [withNotes, withCode, withKnobs],
 };
 

@@ -1,4 +1,4 @@
-# ECL-Twig Page Header Harmonised component
+# ECL Page Header Harmonised component
 
 npm package: `@ecl/twig-component-page-header-harmonised`
 
