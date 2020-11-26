@@ -234,6 +234,7 @@
 
 .ecl-menu__link {
   align-items: center;
+  box-sizing: content-box;
   color: map.get(color.$color, 'white');
   display: inline-flex;
   font: map.get(typography.$font, 'm');
@@ -310,10 +311,10 @@
       margin-right: 0;
       padding-left: map.get(spacing.$spacing, 'm');
       padding-right: map.get(spacing.$spacing, 'm');
-      white-space: nowrap; // Needed to check menu width and switch to mobile display
     }
 
     .ecl-menu__link-icon {
+      flex-shrink: 0;
       height: map.get(icon.$icon, '2xs');
       margin-left: map.get(spacing.$spacing, 'xs');
       transform: rotate(180deg);
@@ -340,13 +341,16 @@
     .ecl-menu__link {
       background-color: transparent;
       border-bottom: 3px solid transparent;
+      box-sizing: border-box;
       color: map.get(color.$color, 'white');
       display: inline-flex;
+      height: 100%;
       padding-bottom: calc(#{map.get(spacing.$spacing, 'm')} - 3px);
       padding-left: map.get(spacing.$spacing, 'm');
       padding-right: map.get(spacing.$spacing, 'm');
       padding-top: map.get(spacing.$spacing, 'm');
       transition-property: background-color, border-bottom-color, color, z-index;
+      width: auto;
       z-index: 0;
     }
 
