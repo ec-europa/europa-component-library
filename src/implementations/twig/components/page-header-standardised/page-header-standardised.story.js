@@ -4,7 +4,7 @@ import withCode from '@ecl/storybook-addon-code';
 import { getExtraKnobs, tabLabels, getComplianceKnob } from '@ecl/story-utils';
 
 import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
-import demoTitleContent from '@ecl/specs-component-page-header-standardised/demo//data--title';
+import demoTitleContent from '@ecl/specs-component-page-header-standardised/demo/data--title';
 import demoMetaTitleContent from '@ecl/specs-component-page-header-standardised/demo/data--meta-title';
 import demoMetaTitleDescriptionContent from '@ecl/specs-component-page-header-standardised/demo/data--meta-title-description';
 import dataBreadcrumbLong from '@ecl/specs-component-breadcrumb/demo/data';
