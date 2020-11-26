@@ -10,10 +10,10 @@
 @use '@ecl/theme-dev/maps/typography';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-$_container-background: map.get(color.$ec, 'grey-5');
-$_icon-color: map.get(color.$ec, 'grey-50');
-$_info-color: map.get(color.$ec, 'grey-100');
-$_translation-border-color: map.get(color.$ec, 'grey-20');
+$_container-background: map.get(color.$color, 'grey-5');
+$_icon-color: map.get(color.$color, 'grey-50');
+$_info-color: map.get(color.$color, 'grey-100');
+$_translation-border-color: map.get(color.$color, 'grey-20');
 $_max-width: 823px;
 $_image-width: 13.125rem; // Same as content item
 
@@ -71,7 +71,7 @@ $_image-width: 13.125rem; // Same as content item
 }
 
 .ecl-file__detail {
-  border-bottom: 1px solid map.get(color.$ec, 'grey-20');
+  border-bottom: 1px solid map.get(color.$color, 'grey-20');
   display: flex;
   flex-direction: column;
   margin-bottom: map.get(spacing.$spacing, 'm');
@@ -80,7 +80,7 @@ $_image-width: 13.125rem; // Same as content item
 }
 
 .ecl-file__detail-meta {
-  color: map.get(color.$ec, 'grey-75');
+  color: map.get(color.$color, 'grey-75');
   font: map.get(typography.$font, 's');
   margin-bottom: map.get(spacing.$spacing, 'xs');
 }
@@ -104,7 +104,7 @@ $_image-width: 13.125rem; // Same as content item
 }
 
 .ecl-file__description {
-  color: map.get(color.$ec, 'grey');
+  color: map.get(color.$color, 'grey');
   font: map.get(typography.$font-prolonged, 'm');
   margin-top: map.get(spacing.$spacing, 'xs');
   max-width: 80ch;
@@ -117,7 +117,7 @@ $_image-width: 13.125rem; // Same as content item
 }
 
 .ecl-file__translation-language {
-  color: map.get(color.$ec, 'grey');
+  color: map.get(color.$color, 'grey');
   font: map.get(typography.$font, 's');
   font-weight: map.get(typography.$font-weight, 'bold');
 }

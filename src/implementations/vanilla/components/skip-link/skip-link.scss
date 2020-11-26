@@ -10,16 +10,16 @@
 @use '@ecl/theme-dev/maps/z-index';
 
 .ecl-skip-link {
-  background-color: map.get(color.$ec, 'blue-75');
+  background-color: map.get(color.$color, 'blue-75');
   border: 0;
   clip: rect(0, 0, 0, 0);
   clip-path: inset(50%);
-  color: map.get(color.$ec, 'white');
+  color: map.get(color.$color, 'white');
   display: block;
   font: map.get(typography.$font, 'm');
   height: 1px;
   margin: 0;
-  outline: 3px solid map.get(color.$ec, 'yellow-100');
+  outline: 3px solid map.get(color.$color, 'yellow-100');
   outline-offset: 0;
   overflow: hidden;
   padding: map.get(spacing.$spacing, 'xs');

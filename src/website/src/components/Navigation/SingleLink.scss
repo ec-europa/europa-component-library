@@ -1,13 +1,14 @@
 @use "sass:map";
+@use '@ecl/theme-ec-core';
 @use '@ecl/theme-dev/maps/color';
 @use '@ecl/theme-dev/maps/spacing';
 @use '@ecl/theme-dev/maps/typography';
 
 .page-list-item {
   align-items: center;
-  background-color: map.get(color.$ec, 'grey-5');
+  background-color: map.get(color.$color, 'grey-5');
   border-width: 0;
-  color: map.get(color.$ec, 'text');
+  color: map.get(color.$color, 'text');
   display: flex;
   font: map.get(typography.$font, 'm');
   margin: 0;
@@ -35,16 +36,16 @@
 
 .page-list-item:hover,
 .page-list-item:focus {
-  background-color: map.get(color.$ec, 'grey-10');
+  background-color: map.get(color.$color, 'grey-10');
   outline: none;
 }
 
 .page-list-item:active {
-  background-color: map.get(color.$ec, 'grey-25');
+  background-color: map.get(color.$color, 'grey-25');
 }
 
 .page-list-item--active {
-  border-left: 4px solid map.get(color.$ec, 'yellow-100');
+  border-left: 4px solid map.get(color.$color, 'yellow-100');
 
   &.level-0 {
     padding-left: calc(#{map.get(spacing.$spacing, 'm')} - 4px);

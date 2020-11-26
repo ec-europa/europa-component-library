@@ -9,14 +9,14 @@
 }
 
 .container {
-  background-color: map.get(color.$ec, 'grey-5');
+  background-color: map.get(color.$color, 'grey-5');
   padding: map.get(spacing.$spacing, 'l') map.get(spacing.$spacing, 'm');
 }
 
 .image-container {
   align-items: center;
-  background-color: map.get(color.$ec, 'white-100');
-  border: 1px solid map.get(color.$ec, 'grey-15');
+  background-color: map.get(color.$color, 'white-100');
+  border: 1px solid map.get(color.$color, 'grey-15');
   display: flex;
   justify-content: center;
 }
@@ -63,13 +63,13 @@
 }
 
 .legend__label {
-  color: map.get(color.$ec, 'grey-100');
+  color: map.get(color.$color, 'grey-100');
   font: map.get(typography.$font, 's');
   font-style: italic;
 }
 
 .legend__description {
-  color: map.get(color.$ec, 'grey-75');
+  color: map.get(color.$color, 'grey-75');
   font: map.get(typography.$font-prolonged, 's');
   margin-top: map.get(spacing.$spacing, 'm');
 }
@@ -77,7 +77,7 @@
 .link {
   align-items: center;
   box-sizing: border-box;
-  color: map.get(color.$ec, 'blue-100');
+  color: map.get(color.$color, 'blue-100');
   display: inline-flex;
   float: right;
   font: map.get(typography.$font, 'm');
@@ -94,7 +94,7 @@
 
 .link:hover,
 .link:focus {
-  color: map.get(color.$ec, 'black-100');
+  color: map.get(color.$color, 'black-100');
   text-decoration: underline;
 
   &.link--icon {
@@ -106,7 +106,7 @@
 }
 
 .link:focus {
-  outline: 3px solid map.get(color.$ec, 'yellow-100');
+  outline: 3px solid map.get(color.$color, 'yellow-100');
   outline-offset: 2px;
 }
 
@@ -116,7 +116,7 @@
   }
 
   .anatomy--vertical {
-    border: 1px solid map.get(color.$ec, 'grey-15');
+    border: 1px solid map.get(color.$color, 'grey-15');
 
     .image {
       border-width: 0;

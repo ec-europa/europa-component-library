@@ -10,13 +10,13 @@
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 .ecl-social-media-follow {
-  background-color: map.get(color.$ec, 'grey-5');
+  background-color: map.get(color.$color, 'grey-5');
   margin: 0;
   padding: map.get(spacing.$spacing, 'xl') map.get(spacing.$spacing, 'l');
 }
 
 .ecl-social-media-follow__description {
-  color: map.get(color.$ec, 'black-100');
+  color: map.get(color.$color, 'black-100');
   font: map.get(typography.$font-prolonged, 'm');
   font-weight: map.get(typography.$font-weight, 'bold');
   margin-bottom: map.get(spacing.$spacing, 'l');

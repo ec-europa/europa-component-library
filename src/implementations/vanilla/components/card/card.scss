@@ -8,11 +8,11 @@
 @use '@ecl/theme-dev/maps/spacing';
 @use '@ecl/theme-dev/maps/typography';
 
-$_background-card: map.get(color.$ec, 'grey-5');
-$_border-color-card: map.get(color.$ec, 'grey-10');
-$_color-meta: map.get(color.$ec, 'grey-75');
-$_color-description: map.get(color.$ec, 'grey-100');
-$_color-info: map.get(color.$ec, 'grey-75');
+$_background-card: map.get(color.$color, 'grey-5');
+$_border-color-card: map.get(color.$color, 'grey-10');
+$_color-meta: map.get(color.$color, 'grey-75');
+$_color-description: map.get(color.$color, 'grey-100');
+$_color-info: map.get(color.$color, 'grey-75');
 
 .ecl-card {
   background-color: $_background-card;

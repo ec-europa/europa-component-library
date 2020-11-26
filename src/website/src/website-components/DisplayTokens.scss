@@ -1,11 +1,12 @@
 @use "sass:map";
+@use '@ecl/theme-ec-core';
 @use '@ecl/theme-dev/maps/color';
 @use '@ecl/theme-dev/maps/typography';
 @use '@ecl/theme-dev/maps/spacing';
 
 .ul {
   box-sizing: border-box;
-  color: map.get(color.$ec, 'grey-75');
+  color: map.get(color.$color, 'grey-75');
   font: map.get(typography.$font-prolonged, 'm');
   margin-bottom: 0;
   margin-top: map.get(spacing.$spacing, 's');

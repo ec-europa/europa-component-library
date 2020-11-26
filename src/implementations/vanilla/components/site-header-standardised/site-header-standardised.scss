@@ -21,7 +21,7 @@ $_search-width-l: 25rem;
 $_search-width-xl: 31.5rem;
 
 .ecl-site-header-standardised {
-  background-color: map.get(color.$ec, 'white-100');
+  background-color: map.get(color.$color, 'white-100');
   margin: 0;
 }
 
@@ -56,9 +56,9 @@ $_search-width-xl: 31.5rem;
 .ecl-site-header-standardised__login-toggle,
 .ecl-site-header-standardised__search-toggle {
   align-items: center;
-  border-left: 1px solid map.get(color.$ec, 'white');
-  border-right: 1px solid map.get(color.$ec, 'white');
-  border-top: 1px solid map.get(color.$ec, 'white');
+  border-left: 1px solid map.get(color.$color, 'white');
+  border-right: 1px solid map.get(color.$color, 'white');
+  border-top: 1px solid map.get(color.$color, 'white');
   display: flex;
   flex-direction: column;
   font: map.get(typography.$font, 'xs');
@@ -70,8 +70,8 @@ $_search-width-xl: 31.5rem;
   z-index: map.get(z-index.$z-index, 'modal') + 2;
 
   &[aria-expanded='true'] {
-    background-color: map.get(color.$ec, 'blue-5');
-    border-color: map.get(color.$ec, 'blue-25');
+    background-color: map.get(color.$color, 'blue-5');
+    border-color: map.get(color.$color, 'blue-25');
     margin-bottom: 0;
     padding-bottom: calc(#{map.get(spacing.$spacing, 'm')} + 1px);
   }
@@ -85,11 +85,11 @@ $_search-width-xl: 31.5rem;
 
 .ecl-site-header-standardised__login-box,
 .ecl-site-header-standardised__search {
-  background-color: map.get(color.$ec, 'blue-5');
-  border: 1px solid map.get(color.$ec, 'blue-25');
+  background-color: map.get(color.$color, 'blue-5');
+  border: 1px solid map.get(color.$color, 'blue-25');
   box-shadow: 0 2px 5px 0 rgba(0, 47, 103, 0.2);
   box-sizing: content-box;
-  color: map.get(color.$ec, 'grey');
+  color: map.get(color.$color, 'grey');
   display: none;
   font: map.get(typography.$font-prolonged, 's');
   left: 0;
@@ -112,7 +112,7 @@ $_search-width-xl: 31.5rem;
 }
 
 .ecl-site-header-standardised__login-separator {
-  background-color: map.get(color.$ec, 'blue-25');
+  background-color: map.get(color.$color, 'blue-25');
   border-width: 0;
   height: 1px;
   margin-bottom: map.get(spacing.$spacing, 'm');
@@ -134,7 +134,7 @@ $_search-width-xl: 31.5rem;
 }
 
 .ecl-site-header-standardised__language-code {
-  color: map.get(color.$ec, 'white');
+  color: map.get(color.$color, 'white');
   font: map.get(typography.$font, '2xs');
   left: 50%;
   position: absolute;
@@ -151,15 +151,15 @@ $_search-width-xl: 31.5rem;
 }
 
 .ecl-site-header-standardised__banner-top {
-  background-color: map.get(color.$ec, 'blue-5');
-  color: map.get(color.$ec, 'blue');
+  background-color: map.get(color.$color, 'blue-5');
+  color: map.get(color.$color, 'blue');
   font: map.get(typography.$font-prolonged, 's');
   padding: map.get(spacing.$spacing, 'xs') 0;
 }
 
 .ecl-site-header-standardised__banner {
-  background-color: map.get(color.$ec, 'blue');
-  color: map.get(color.$ec, 'white');
+  background-color: map.get(color.$color, 'blue');
+  color: map.get(color.$color, 'white');
   font: map.get(typography.$font, '2xl');
   padding: map.get(spacing.$spacing, 'm') 0;
 }
@@ -263,7 +263,7 @@ $_search-width-xl: 31.5rem;
   }
 
   .ecl-site-header-standardised__search {
-    background-color: map.get(color.$ec, 'white');
+    background-color: map.get(color.$color, 'white');
     border-width: 0;
     box-shadow: none;
     display: flex;

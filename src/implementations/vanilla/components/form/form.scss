@@ -9,7 +9,7 @@
 
 .ecl-feedback-message {
   box-sizing: border-box;
-  color: map.get(color.$ec, 'error');
+  color: map.get(color.$color, 'error');
   display: flex;
   font: map.get(typography.$font-prolonged, 's');
   margin: 0;
@@ -65,7 +65,7 @@
 // stylelint-disable no-descending-specificity
 .ecl-help-block {
   box-sizing: border-box;
-  color: map.get(color.$ec, 'grey-100');
+  color: map.get(color.$color, 'grey-100');
   display: block;
   font: map.get(typography.$font-prolonged, 's');
   margin: 0;
@@ -73,12 +73,12 @@
 }
 
 .ecl-help-block--disabled {
-  color: map.get(color.$ec, 'grey-50');
+  color: map.get(color.$color, 'grey-50');
 }
 
 .ecl-form-label {
   box-sizing: border-box;
-  color: map.get(color.$ec, 'text');
+  color: map.get(color.$color, 'text');
   font: map.get(typography.$font, 'm');
   font-weight: map.get(typography.$font-weight, 'bold');
   margin: 0;
@@ -86,11 +86,11 @@
 }
 
 .ecl-form-label--disabled {
-  color: map.get(color.$ec, 'grey-50');
+  color: map.get(color.$color, 'grey-50');
 }
 
 .ecl-form-label__required {
-  color: map.get(color.$ec, 'red');
+  color: map.get(color.$color, 'red');
   font: map.get(typography.$font, 'xl');
   font-weight: map.get(typography.$font-weight, 'bold');
 }

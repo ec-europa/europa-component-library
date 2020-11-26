@@ -1,7 +1,43 @@
 @use '@ecl/theme-dev/globals' with (
   $border-radius: 'yes'
 );
-@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/color' with (
+  $color: (
+    'blue-5': #f3f6fc,
+    'blue-10': #e7edfa,
+    'blue-20': #cfdaf5,
+    'blue-40': #9fb5ea,
+    'blue-60': #6e91e0,
+    'blue-80': #3e6cd5,
+    'blue-100': #0e47cb,
+    'blue-110': #0d40b7,
+    'blue-120': #0b39a2,
+    'blue-130': #0a328e,
+    'blue-140': #082b7a,
+    'yellow-10': #fffae6,
+    'yellow-20': #fff5cc,
+    'yellow-40': #ffeb99,
+    'yellow-60': #ffe066,
+    'yellow-80': #ffd633,
+    'yellow-100': #fc0,
+    'yellow-110': #e6b800,
+    'yellow-120': #cca300,
+    'yellow-130': #b38f00,
+    'yellow-140': #b38f00,
+    'grey-5': #f4f5f5,
+    'grey-10': #e9eaeb,
+    'grey-20': #d4d5d7,
+    'grey-40': #a8aaaf,
+    'grey-60': #7d8088,
+    'grey-80': #515560,
+    'grey-100': #262b38,
+    'grey-110': #222732,
+    'grey-120': #1e222d,
+    'grey-130': #1b1e27,
+    'grey-140': #171a22,
+    'purple-100': #510dcd,
+  )
+);
 @use '@ecl/theme-dev/maps/icon';
 @use '@ecl/theme-dev/maps/form';
 @use '@ecl/theme-dev/maps/layout';

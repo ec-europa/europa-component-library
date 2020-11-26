@@ -21,8 +21,8 @@ $_circle-width: 0.6rem;
   width: 6.3rem;
 
   &::before {
-    background-color: map.get(color.$ec, 'white');
-    border: 1px solid map.get(color.$ec, 'black');
+    background-color: map.get(color.$color, 'white');
+    border: 1px solid map.get(color.$color, 'black');
     border-radius: 50%;
     box-sizing: content-box;
     content: '';
@@ -35,8 +35,8 @@ $_circle-width: 0.6rem;
   }
 
   &::after {
-    background-color: map.get(color.$ec, 'white');
-    border: 1px solid map.get(color.$ec, 'black');
+    background-color: map.get(color.$color, 'white');
+    border: 1px solid map.get(color.$color, 'black');
     border-radius: 50%;
     box-sizing: content-box;
     content: '';
@@ -50,10 +50,10 @@ $_circle-width: 0.6rem;
 }
 
 .ecl-date-block__day {
-  border-left: 1px solid map.get(color.$ec, 'black');
-  border-right: 1px solid map.get(color.$ec, 'black');
-  border-top: 1px solid map.get(color.$ec, 'black');
-  color: map.get(color.$ec, 'black');
+  border-left: 1px solid map.get(color.$color, 'black');
+  border-right: 1px solid map.get(color.$color, 'black');
+  border-top: 1px solid map.get(color.$color, 'black');
+  color: map.get(color.$color, 'black');
   display: block;
   font: map.get(typography.$font-print, '2xl');
   font-weight: map.get(typography.$font-weight, 'bold');
@@ -63,9 +63,9 @@ $_circle-width: 0.6rem;
 }
 
 .ecl-date-block__month {
-  border-left: 1px solid map.get(color.$ec, 'black');
-  border-right: 1px solid map.get(color.$ec, 'black');
-  color: map.get(color.$ec, 'black');
+  border-left: 1px solid map.get(color.$color, 'black');
+  border-right: 1px solid map.get(color.$color, 'black');
+  color: map.get(color.$color, 'black');
   display: block;
   font: map.get(typography.$font-print, 'm');
   padding-bottom: map.get(spacing.$spacing-print, 'xs');
@@ -76,8 +76,8 @@ $_circle-width: 0.6rem;
 }
 
 .ecl-date-block__year {
-  border: 1px solid map.get(color.$ec, 'black');
-  color: map.get(color.$ec, 'black');
+  border: 1px solid map.get(color.$color, 'black');
+  color: map.get(color.$color, 'black');
   display: block;
   font: map.get(typography.$font-print, 's');
   padding: map.get(spacing.$spacing-print, 'xs')

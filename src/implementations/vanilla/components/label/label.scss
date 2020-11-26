@@ -9,7 +9,7 @@
 @use '@ecl/theme-dev/maps/color';
 
 .ecl-label {
-  background-color: map.get(color.$ec, 'grey-15');
+  background-color: map.get(color.$color, 'grey-15');
   display: inline-block;
   font: map.get(typography.$font, 'xs');
   margin: 0;
@@ -18,18 +18,18 @@
 }
 
 .ecl-label--low {
-  background-color: map.get(color.$ec, 'grey-15');
+  background-color: map.get(color.$color, 'grey-15');
 }
 
 .ecl-label--medium {
-  background-color: map.get(color.$ec, 'yellow-25');
+  background-color: map.get(color.$color, 'yellow-25');
 }
 
 .ecl-label--high {
-  background-color: map.get(color.$ec, 'yellow');
+  background-color: map.get(color.$color, 'yellow');
 }
 
 .ecl-label--highlight {
-  background-color: map.get(color.$ec, 'blue');
-  color: map.get(color.$ec, 'white');
+  background-color: map.get(color.$color, 'blue');
+  color: map.get(color.$color, 'white');
 }

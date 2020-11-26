@@ -1,9 +1,10 @@
 @use "sass:map";
+@use '@ecl/theme-ec-core';
 @use '@ecl/theme-dev/maps/color';
 @use '@ecl/theme-dev/maps/spacing';
 
 .splash-page {
-  background-color: map.get(color.$ec, 'grey-5');
+  background-color: map.get(color.$color, 'grey-5');
   box-sizing: border-box;
   min-height: 100vh;
   padding: map.get(spacing.$spacing, '4xl') 0 map.get(spacing.$spacing, 'xl');

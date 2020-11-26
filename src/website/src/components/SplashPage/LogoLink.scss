@@ -1,11 +1,12 @@
 @use "sass:map";
+@use '@ecl/theme-ec-core';
 @use '@ecl/theme-dev/maps/color';
 @use '@ecl/theme-dev/maps/spacing';
 
 .logo-link {
   align-items: center;
-  background-color: map.get(color.$ec, 'grey-5');
-  border: 1px solid map.get(color.$ec, 'grey-10');
+  background-color: map.get(color.$color, 'grey-5');
+  border: 1px solid map.get(color.$color, 'grey-10');
   box-sizing: border-box;
   display: flex;
   flex-grow: 1;
@@ -15,7 +16,7 @@
 
 .logo-link:hover,
 .logo-link:focus {
-  border: 3px solid map.get(color.$ec, 'yellow-100');
+  border: 3px solid map.get(color.$color, 'yellow-100');
   outline: none;
   padding: calc(#{map.get(spacing.$spacing, 'xl')} - 3px);
 }

@@ -24,7 +24,7 @@ $_image-width: 13.125rem;
 }
 
 .ecl-file__title {
-  color: map.get(color.$ec, 'black-100');
+  color: map.get(color.$color, 'black-100');
   font: map.get(typography.$font-print, 'm');
   font-family: map.get(typography.$font-family-print, 'alt');
   font-weight: map.get(typography.$font-weight-print, 'bold');
@@ -33,14 +33,14 @@ $_image-width: 13.125rem;
 }
 
 .ecl-file__language {
-  color: map.get(color.$ec, 'black-100');
+  color: map.get(color.$color, 'black-100');
   font: map.get(typography.$font-print, 's');
   font-weight: map.get(typography.$font-weight-print, 'bold');
   margin-right: map.get(spacing.$spacing-print, '2xs');
 }
 
 .ecl-file__meta {
-  color: map.get(color.$ec, 'black-100');
+  color: map.get(color.$color, 'black-100');
   font: map.get(typography.$font-print, 's');
 }
 
@@ -52,7 +52,7 @@ $_image-width: 13.125rem;
 }
 
 .ecl-file__detail {
-  border-bottom: 1px solid map.get(color.$ec, 'grey-20');
+  border-bottom: 1px solid map.get(color.$color, 'grey-20');
   display: flex;
   flex-direction: row;
   margin-bottom: map.get(spacing.$spacing-print, 'm');
@@ -60,7 +60,7 @@ $_image-width: 13.125rem;
 }
 
 .ecl-file__detail-meta {
-  color: map.get(color.$ec, 'grey-75');
+  color: map.get(color.$color, 'grey-75');
   font: map.get(typography.$font-print, 's');
   margin-bottom: map.get(spacing.$spacing-print, 'xs');
 }
@@ -92,7 +92,7 @@ $_image-width: 13.125rem;
 }
 
 .ecl-file__description {
-  color: map.get(color.$ec, 'black');
+  color: map.get(color.$color, 'black');
   font: map.get(typography.$font-prolonged-print, 'm');
   margin-top: map.get(spacing.$spacing-print, 'xs');
 }
@@ -117,25 +117,25 @@ $_image-width: 13.125rem;
 }
 
 .ecl-file__translation-title {
-  color: map.get(color.$ec, 'black-100');
+  color: map.get(color.$color, 'black-100');
   font: map.get(typography.$font-print, 's');
   font-weight: map.get(typography.$font-weight-print, 'bold');
   margin-right: map.get(spacing.$spacing-print, '2xs');
 }
 
 .ecl-file__translation-meta {
-  color: map.get(color.$ec, 'black-100');
+  color: map.get(color.$color, 'black-100');
   font: map.get(typography.$font-print, 's');
 }
 
 .ecl-file__translation-description {
-  color: map.get(color.$ec, 'black-100');
+  color: map.get(color.$color, 'black-100');
   font: map.get(typography.$font-print, 'm');
   margin-top: map.get(spacing.$spacing-print, 's');
 }
 
 .ecl-file__translation-language {
-  color: map.get(color.$ec, 'black');
+  color: map.get(color.$color, 'black');
   font: map.get(typography.$font-print, 's');
   font-weight: map.get(typography.$font-weight-print, 'bold');
 }

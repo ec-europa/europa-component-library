@@ -1,15 +1,16 @@
 @use "sass:map";
+@use '@ecl/theme-ec-core';
 @use '@ecl/theme-dev/maps/color';
 @use '@ecl/theme-dev/maps/spacing';
 @use '@ecl/theme-dev/maps/typography';
 @use '@ecl/theme-dev/maps/layout';
 
-$_header-bg-color: map.get(color.$ec, 'grey-10');
+$_header-bg-color: map.get(color.$color, 'grey-10');
 $_header-tabs-border-width: 4px;
-$_border-color: map.get(color.$ec, 'grey-100');
+$_border-color: map.get(color.$color, 'grey-100');
 $_border-width: 1px;
-$_border-color-hover: map.get(color.$ec, 'blue-100');
-$_border-color-focus: map.get(color.$ec, 'yellow-100');
+$_border-color-hover: map.get(color.$color, 'blue-100');
+$_border-color-focus: map.get(color.$color, 'yellow-100');
 $_border-width-focus: 3px;
 $_arrow-width: 2.75rem;
 
@@ -20,14 +21,14 @@ $_arrow-width: 2.75rem;
 }
 
 .header__page-title {
-  color: map.get(color.$ec, 'grey-100');
+  color: map.get(color.$color, 'grey-100');
   font: map.get(typography.$font, '5xl');
   margin: 0;
   padding-bottom: map.get(spacing.$spacing, '2xl');
 }
 
 .header__section-header {
-  color: map.get(color.$ec, 'grey-100');
+  color: map.get(color.$color, 'grey-100');
   font: map.get(typography.$font, 'm');
   margin: 0 0 map.get(spacing.$spacing, 'xs');
   padding: 0;
@@ -59,12 +60,12 @@ $_arrow-width: 2.75rem;
 
 .header__tabs-item:hover,
 .header__tabs-item:focus {
-  background-color: map.get(color.$ec, 'grey-15');
+  background-color: map.get(color.$color, 'grey-15');
 }
 
 .header__tabs-item--active {
   border-bottom: $_header-tabs-border-width solid
-    map.get(color.$ec, 'yellow-100');
+    map.get(color.$color, 'yellow-100');
 }
 
 .header__tabs-icon {
@@ -74,7 +75,7 @@ $_arrow-width: 2.75rem;
 }
 
 .select__container {
-  background-color: map.get(color.$ec, 'white-100');
+  background-color: map.get(color.$color, 'white-100');
   display: inline-flex;
   margin-bottom: map.get(spacing.$spacing, 's');
   position: relative;
@@ -91,7 +92,7 @@ $_arrow-width: 2.75rem;
   border: $_border-width solid $_border-color;
   border-radius: 0;
   box-sizing: border-box;
-  color: map.get(color.$ec, 'grey-100');
+  color: map.get(color.$color, 'grey-100');
   display: block;
   font: map.get(typography.$font, 'm');
   margin: 0;
@@ -146,7 +147,7 @@ $_arrow-width: 2.75rem;
 }
 
 .select__icon-shape {
-  fill: map.get(color.$ec, 'white-100');
+  fill: map.get(color.$color, 'white-100');
   height: 1.25rem;
   transform: rotate(180deg);
   width: 1.25rem;

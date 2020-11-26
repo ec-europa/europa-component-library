@@ -10,21 +10,21 @@
 @use '@ecl/theme-dev/maps/form';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-$_border-color: map.get(color.$ec, 'grey-75');
+$_border-color: map.get(color.$color, 'grey-75');
 $_border-width: 1px;
-$_border-color-focus: map.get(color.$ec, 'yellow-100');
+$_border-color-focus: map.get(color.$color, 'yellow-100');
 $_border-width-focus: 3px;
 $_padding-vertical: map.get(spacing.$spacing, 's');
 $_padding-horizontal: map.get(spacing.$spacing, 's');
 
 .ecl-text-area {
   appearance: none;
-  background-color: map.get(color.$ec, 'white-100');
+  background-color: map.get(color.$color, 'white-100');
   border: $_border-width solid $_border-color;
   border-radius: 0;
   box-shadow: none;
   box-sizing: border-box;
-  color: map.get(color.$ec, 'text');
+  color: map.get(color.$color, 'text');
   display: block;
   font: map.get(typography.$font, 'm');
   margin: 0;
@@ -33,7 +33,7 @@ $_padding-horizontal: map.get(spacing.$spacing, 's');
     calc(#{$_padding-horizontal} - #{$_border-width});
 
   &:hover {
-    outline: 1px solid map.get(color.$ec, 'blue-100');
+    outline: 1px solid map.get(color.$color, 'blue-100');
     outline-offset: -1px;
   }
 
@@ -68,8 +68,8 @@ $_padding-horizontal: map.get(spacing.$spacing, 's');
 .ecl-text-area--disabled,
 .ecl-text-area[readonly],
 .ecl-text-area--readonly {
-  background-color: map.get(color.$ec, 'grey-5');
-  border-color: map.get(color.$ec, 'grey-50');
+  background-color: map.get(color.$color, 'grey-5');
+  border-color: map.get(color.$color, 'grey-50');
   cursor: not-allowed;
 
   &:hover {
@@ -78,15 +78,15 @@ $_padding-horizontal: map.get(spacing.$spacing, 's');
 }
 
 .ecl-text-area--invalid {
-  border-color: map.get(color.$ec, 'error');
+  border-color: map.get(color.$color, 'error');
   box-shadow: none;
 
   &:hover {
-    outline-color: map.get(color.$ec, 'red-130');
+    outline-color: map.get(color.$color, 'red-130');
   }
 
   &:active,
   &:focus {
-    outline-color: map.get(color.$ec, 'yellow-100');
+    outline-color: map.get(color.$color, 'yellow-100');
   }
 }

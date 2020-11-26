@@ -9,27 +9,27 @@
 
     // Full border
     .ecl-u-border#{$infix}-all {
-      border: 1px solid map.get(color.$eu, 'black-100') !important;
+      border: 1px solid map.get(color.$color, 'black-100') !important;
     }
 
     .ecl-u-border#{$infix}-bottom {
-      border-bottom: 1px solid map.get(color.$eu, 'black-100') !important;
+      border-bottom: 1px solid map.get(color.$color, 'black-100') !important;
     }
 
     .ecl-u-border#{$infix}-left {
-      border-left: 1px solid map.get(color.$eu, 'black-100') !important;
+      border-left: 1px solid map.get(color.$color, 'black-100') !important;
     }
 
     .ecl-u-border#{$infix}-top {
-      border-top: 1px solid map.get(color.$eu, 'black-100') !important;
+      border-top: 1px solid map.get(color.$color, 'black-100') !important;
     }
 
     .ecl-u-border#{$infix}-right {
-      border-right: 1px solid map.get(color.$eu, 'black-100') !important;
+      border-right: 1px solid map.get(color.$color, 'black-100') !important;
     }
 
     // Border color
-    @each $key, $value in color.$eu {
+    @each $key, $value in color.$color {
       .ecl-u-border-color#{$infix}-#{$key} {
         border-color: $value !important;
       }
