@@ -14,7 +14,6 @@ const autoprefixer = require('autoprefixer');
 const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
 const selectorPrefixer = require('postcss-prefix-selector');
 const frontmatter = require('remark-frontmatter');
-const emoji = require('remark-emoji');
 
 const babelConfig = require('./config/babel.config');
 const lernaJson = require('../../lerna.json');
@@ -231,7 +230,6 @@ module.exports = {
                       frontmatter,
                       { type: 'yaml', marker: '-', fence: '---' },
                     ],
-                    emoji,
                   ],
                 },
               },
