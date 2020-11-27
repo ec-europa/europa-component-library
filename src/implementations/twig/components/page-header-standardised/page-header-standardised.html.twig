@@ -1,0 +1,72 @@
+{% spaceless %}
+{#
+  Parameters:
+    - "title" (string) (default: '') Title of header
+    - "description" (string) (default: '') Description of header
+    - "meta" (string) (default: '') Meta of header
+    - "breadcrumb" (associative array) (default: '') Predefined structure compatible with EC Breadcrumb
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        ...
+      ],
+    - "_compliance_" (boolean) (default: false) Activates debug
+#}
+
+{# variables #}
+{% set _title = title|default('') %}
+{% set _meta = meta|default('') %}
+{% set _description = description|default('') %}
+{% set _compliance = _compliance_|default(false) %}
+{% set _css_class = 'ecl-page-header-standardised' %}
+{% set _extra_attributes = '' %}
+{% set _breadcrumb = breadcrumb|default({}) %}
+
+{# Internal logic - Process properties #}
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+<div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+  <div class="ecl-container">
+  {% if _breadcrumb is not empty %}
+    {% include '@ecl/breadcrumb-standardised/breadcrumb-standardised.html.twig' with _breadcrumb|merge({
+      extra_classes: 'ecl-page-header-standardised__breadcrumb',
+      _compliance_: _compliance,
+      _compliance_inner_check_: true
+    }) only %}
+  {% endif %}
+  {% if _meta is not empty %}
+    <div class="ecl-page-header-standardised__meta">
+      {{- _meta -}}
+    </div>
+  {% endif %}
+    <h1 class="ecl-page-header-standardised__title">{{ _title }}</h1>
+  {% if _description is not empty %}
+    <p class="ecl-page-header-standardised__description">{{ _description|raw }}</p>
+  {% endif %}
+  </div>
+</div>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl/@compliance/page-header-standardised.html.twig' with {
+    title: _title
+  } only %}
+{% endif %}
+
+{% endspaceless %}
