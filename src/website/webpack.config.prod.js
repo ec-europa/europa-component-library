@@ -69,18 +69,21 @@ const cssLoader = ({ fixCode = true, prefix } = {}) => [
     options: {
       importLoaders: 1,
       sourceMap: shouldUseSourceMap,
+      esModule: false,
     },
   },
   {
     loader: 'postcss-loader',
     options: {
-      plugins: () => [
-        ...(prefix ? [selectorPrefixer({ prefix })] : []),
-        ...(fixCode
-          ? [postcssFlexbugFixes, autoprefixer({ flexbox: 'no-2009' })]
-          : []),
-      ],
-      sourceMap: shouldUseSourceMap,
+      postcssOptions: {
+        plugins: [
+          ...(prefix ? [selectorPrefixer({ prefix })] : []),
+          ...(fixCode
+            ? [postcssFlexbugFixes, autoprefixer({ flexbox: 'no-2009' })]
+            : []),
+        ],
+        sourceMap: shouldUseSourceMap,
+      },
     },
   },
 ];
@@ -169,19 +172,22 @@ module.exports = {
                   importLoaders: 2,
                   modules: true,
                   sourceMap: shouldUseSourceMap,
+                  esModule: false,
                 },
               },
               {
                 loader: 'postcss-loader',
                 options: {
-                  ident: 'postcss',
-                  plugins: () => [
-                    postcssFlexbugFixes,
-                    autoprefixer({
-                      flexbox: 'no-2009',
-                    }),
-                  ],
-                  sourceMap: shouldUseSourceMap,
+                  postcssOptions: {
+                    ident: 'postcss',
+                    plugins: [
+                      postcssFlexbugFixes,
+                      autoprefixer({
+                        flexbox: 'no-2009',
+                      }),
+                    ],
+                    sourceMap: shouldUseSourceMap,
+                  },
                 },
               },
               {
