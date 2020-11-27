@@ -5,15 +5,12 @@
 
 @use "sass:map";
 @use '@ecl/theme-dev/globals';
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/shape';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/theme';
 
 $_border-width: 2px;
 $_outline-width: 3px;
-$_padding-horizontal: map.get(spacing.$spacing, 'm');
-$_padding-vertical: map.get(spacing.$spacing, 's');
+$_padding-horizontal: map.get(theme.$spacing, 'm');
+$_padding-vertical: map.get(theme.$spacing, 's');
 
 .ecl-button {
   appearance: none;
@@ -21,15 +18,15 @@ $_padding-vertical: map.get(spacing.$spacing, 's');
   border-radius: map.get(
     (
       no: 0,
-      yes: map.get(shape.$border-radius, 'm'),
+      yes: map.get(theme.$border-radius, 'm'),
     ),
     globals.$border-radius
   );
   border-width: 0;
   box-sizing: border-box;
   display: inline-block;
-  font: map.get(typography.$font, 'm');
-  font-weight: map.get(typography.$font-weight, 'bold');
+  font: map.get(theme.$font, 'm');
+  font-weight: map.get(theme.$font-weight, 'bold');
   margin: 0;
   padding: $_padding-vertical $_padding-horizontal;
   text-decoration: none;
@@ -41,7 +38,7 @@ $_padding-vertical: map.get(spacing.$spacing, 's');
   }
 
   &:focus {
-    outline: $_outline-width solid map.get(color.$color, 'secondary');
+    outline: $_outline-width solid map.get(theme.$color, 'secondary');
     outline-offset: -($_outline-width);
   }
 
@@ -59,31 +56,31 @@ $_padding-vertical: map.get(spacing.$spacing, 's');
 
 .ecl-button__icon--before,
 .ecl-button__icon + .ecl-button__label {
-  margin-right: map.get(spacing.$spacing, 'xs');
+  margin-right: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-button__icon--after,
 .ecl-button__label + .ecl-button__icon {
-  margin-left: map.get(spacing.$spacing, 'xs');
+  margin-left: map.get(theme.$spacing, 'xs');
 }
 
 /**
 * Primary
 */
 .ecl-button--primary {
-  background-color: map.get(color.$color, 'blue-100');
-  color: map.get(color.$color, 'white-100');
+  background-color: map.get(theme.$color, 'blue-100');
+  color: map.get(theme.$color, 'white-100');
 
   &:hover,
   &:active {
-    background-color: map.get(color.$color, 'blue-130');
+    background-color: map.get(theme.$color, 'blue-130');
   }
 
   &[disabled],
   &[disabled]:hover {
-    background-color: map.get(color.$color, 'blue-25');
-    border-color: map.get(color.$color, 'blue-25');
-    color: map.get(color.$color, 'white-100');
+    background-color: map.get(theme.$color, 'blue-25');
+    border-color: map.get(theme.$color, 'blue-25');
+    color: map.get(theme.$color, 'white-100');
   }
 }
 
@@ -91,23 +88,23 @@ $_padding-vertical: map.get(spacing.$spacing, 's');
 * Secondary
 */
 .ecl-button--secondary {
-  background-color: map.get(color.$color, 'white-100');
-  border: $_border-width solid map.get(color.$color, 'blue-100');
-  color: map.get(color.$color, 'blue-100');
+  background-color: map.get(theme.$color, 'white-100');
+  border: $_border-width solid map.get(theme.$color, 'blue-100');
+  color: map.get(theme.$color, 'blue-100');
   padding: calc(#{$_padding-vertical} - #{$_border-width})
     calc(#{$_padding-horizontal} - #{$_border-width});
 
   &:hover,
   &:active {
-    border-color: map.get(color.$color, 'blue-130');
-    color: map.get(color.$color, 'blue-130');
+    border-color: map.get(theme.$color, 'blue-130');
+    color: map.get(theme.$color, 'blue-130');
   }
 
   &[disabled],
   &[disabled]:hover {
-    background-color: map.get(color.$color, 'white-100');
-    border-color: map.get(color.$color, 'blue-25');
-    color: map.get(color.$color, 'blue-25');
+    background-color: map.get(theme.$color, 'white-100');
+    border-color: map.get(theme.$color, 'blue-25');
+    color: map.get(theme.$color, 'blue-25');
   }
 }
 
@@ -115,16 +112,16 @@ $_padding-vertical: map.get(spacing.$spacing, 's');
 * Ghost
 */
 .ecl-button--ghost {
-  color: map.get(color.$color, 'blue-100');
+  color: map.get(theme.$color, 'blue-100');
 
   &:hover,
   &:active {
-    color: map.get(color.$color, 'blue-130');
+    color: map.get(theme.$color, 'blue-130');
   }
 
   &[disabled],
   &[disabled]:hover {
-    color: map.get(color.$color, 'blue-25');
+    color: map.get(theme.$color, 'blue-25');
   }
 }
 
@@ -132,25 +129,25 @@ $_padding-vertical: map.get(spacing.$spacing, 's');
 * Call to action
 */
 .ecl-button--call {
-  background-color: map.get(color.$color, 'yellow-100');
-  color: map.get(color.$color, 'black-100');
+  background-color: map.get(theme.$color, 'yellow-100');
+  color: map.get(theme.$color, 'black-100');
 
   &:hover,
   &:active {
-    border: $_border-width solid map.get(color.$color, 'black-100');
+    border: $_border-width solid map.get(theme.$color, 'black-100');
     padding: calc(#{$_padding-vertical} - #{$_border-width})
       calc(#{$_padding-horizontal} - #{$_border-width});
   }
 
   &:focus {
-    outline-color: map.get(color.$color, 'black-100');
+    outline-color: map.get(theme.$color, 'black-100');
   }
 
   &[disabled],
   &[disabled]:hover {
-    background-color: map.get(color.$color, 'yellow-25');
-    border-color: map.get(color.$color, 'yellow-25');
-    color: map.get(color.$color, 'grey-50');
+    background-color: map.get(theme.$color, 'yellow-25');
+    border-color: map.get(theme.$color, 'yellow-25');
+    color: map.get(theme.$color, 'grey-50');
   }
 }
 
@@ -158,17 +155,17 @@ $_padding-vertical: map.get(spacing.$spacing, 's');
 * Search
 */
 .ecl-button--search {
-  background-color: map.get(color.$color, 'grey-10');
-  color: map.get(color.$color, 'blue-100');
+  background-color: map.get(theme.$color, 'grey-10');
+  color: map.get(theme.$color, 'blue-100');
 
   &:hover,
   &:active {
-    background-color: map.get(color.$color, 'grey-25');
+    background-color: map.get(theme.$color, 'grey-25');
   }
 
   &[disabled],
   &[disabled]:hover {
-    background-color: map.get(color.$color, 'grey-5');
-    color: map.get(color.$color, 'grey-50');
+    background-color: map.get(theme.$color, 'grey-5');
+    color: map.get(theme.$color, 'grey-50');
   }
 }
