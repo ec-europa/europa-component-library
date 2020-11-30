@@ -11,7 +11,8 @@
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 $_bg-color: map.get(color.$color, 'blue-5');
-$_separator-color: map.get(color.$color, 'grey-25');
+$_shadow: 0 0 8px rgba(9, 49, 142, 0.2); // Use a map for shadows?
+$_separator-color: map.get(color.$color, 'blue-20');
 $_text-color: map.get(color.$color, 'grey');
 $_column-gap: map.get(layout.$grid-gutter-width, 'm');
 
@@ -20,6 +21,7 @@ $_column-gap: map.get(layout.$grid-gutter-width, 'm');
  */
 .ecl-footer-core {
   background-color: $_bg-color;
+  box-shadow: $_shadow;
   color: $_text-color;
   margin: 0;
   padding-bottom: map.get(spacing.$spacing, 'xl');
