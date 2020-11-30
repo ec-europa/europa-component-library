@@ -1,0 +1,56 @@
+/**
+ * Page header harmonised
+ * @define page-header-harmonised
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+.ecl-page-header-harmonised {
+  margin: 0;
+  padding-bottom: map.get(spacing.$spacing, 'xl');
+}
+
+.ecl-page-header-harmonised__breadcrumb {
+  margin-bottom: map.get(spacing.$spacing, 'xl');
+}
+
+.ecl-page-header-harmonised__meta {
+  color: map.get(color.$color, 'grey-75');
+  font: map.get(typography.$font, 'm');
+  text-transform: uppercase;
+}
+
+.ecl-page-header-harmonised__title {
+  color: map.get(color.$color, 'grey');
+  font: map.get(typography.$font, '3xl');
+  font-weight: map.get(typography.$font-weight, 'bold');
+  margin: 0;
+}
+
+.ecl-page-header-harmonised__meta + .ecl-page-header-harmonised__title {
+  margin-top: map.get(spacing.$spacing, 'm');
+}
+
+.ecl-page-header-harmonised__description {
+  color: map.get(color.$color, 'grey');
+  font: map.get(typography.$font-prolonged, 'l');
+  margin-bottom: 0;
+  margin-top: map.get(spacing.$spacing, 'm');
+  max-width: 80ch;
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('l') {
+  .ecl-page-header-harmonised__title {
+    font: map.get(typography.$font, '4xl');
+    font-weight: map.get(typography.$font-weight, 'bold');
+  }
+
+  .ecl-page-header-harmonised__description {
+    font: map.get(typography.$font-prolonged, 'xl');
+  }
+}

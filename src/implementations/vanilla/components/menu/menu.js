@@ -222,23 +222,6 @@ export class Menu {
       return false;
     }
 
-    // Check menu width and available space
-    const containerWidth = this.inner.getBoundingClientRect().width;
-
-    if (containerWidth === 0) {
-      return false;
-    }
-
-    const allItemsWidth = this.links
-      .map((link) => link.clientWidth)
-      .reduce((a, b) => a + b);
-
-    // If there is not enough space, mobile display is used
-    if (allItemsWidth === 0 || allItemsWidth > containerWidth) {
-      this.element.classList.add('ecl-menu--forced-mobile');
-      return false;
-    }
-
     // Everything is fine to use desktop display
     this.element.classList.remove('ecl-menu--forced-mobile');
     return true;

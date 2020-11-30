@@ -1,5 +1,5 @@
 import { queryOne } from '@ecl/dom-utils';
-import createFocusTrap from 'focus-trap';
+import { createFocusTrap } from 'focus-trap';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
