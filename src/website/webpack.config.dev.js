@@ -7,7 +7,6 @@ const autoprefixer = require('autoprefixer');
 const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
 const selectorPrefixer = require('postcss-prefix-selector');
 const frontmatter = require('remark-frontmatter');
-const emoji = require('remark-emoji');
 
 const babelConfig = require('./config/babel.config');
 const lernaJson = require('../../lerna.json');
@@ -21,20 +20,22 @@ const environmentModulePath = require.resolve(
 );
 
 const cssLoader = ({ fixCode = true, prefix } = {}) => [
-  { loader: 'style-loader' },
+  { loader: 'style-loader', options: { esModule: false } },
   {
     loader: 'css-loader',
-    options: { importLoaders: 1 },
+    options: { importLoaders: 1, esModule: false },
   },
   {
     loader: 'postcss-loader',
     options: {
-      plugins: () => [
-        ...(prefix ? [selectorPrefixer({ prefix })] : []),
-        ...(fixCode
-          ? [postcssFlexbugFixes, autoprefixer({ flexbox: 'no-2009' })]
-          : []),
-      ],
+      postcssOptions: {
+        plugins: [
+          ...(prefix ? [selectorPrefixer({ prefix })] : []),
+          ...(fixCode
+            ? [postcssFlexbugFixes, autoprefixer({ flexbox: 'no-2009' })]
+            : []),
+        ],
+      },
     },
   },
 ];
@@ -127,7 +128,7 @@ module.exports = {
           {
             test: /\.scss$/,
             use: [
-              { loader: 'style-loader' },
+              { loader: 'style-loader', options: { esModule: false } },
               {
                 loader: 'css-loader',
                 options: {
@@ -138,13 +139,15 @@ module.exports = {
               {
                 loader: require.resolve('postcss-loader'),
                 options: {
-                  ident: 'postcss',
-                  plugins: () => [
-                    postcssFlexbugFixes,
-                    autoprefixer({
-                      flexbox: 'no-2009',
-                    }),
-                  ],
+                  postcssOptions: {
+                    ident: 'postcss',
+                    plugins: [
+                      postcssFlexbugFixes,
+                      autoprefixer({
+                        flexbox: 'no-2009',
+                      }),
+                    ],
+                  },
                 },
               },
               {
@@ -193,7 +196,6 @@ module.exports = {
                       frontmatter,
                       { type: 'yaml', marker: '-', fence: '---' },
                     ],
-                    emoji,
                   ],
                 },
               },

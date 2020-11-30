@@ -14,7 +14,6 @@ const autoprefixer = require('autoprefixer');
 const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
 const selectorPrefixer = require('postcss-prefix-selector');
 const frontmatter = require('remark-frontmatter');
-const emoji = require('remark-emoji');
 
 const babelConfig = require('./config/babel.config');
 const lernaJson = require('../../lerna.json');
@@ -62,24 +61,28 @@ if (isDrone && process.env.DRONE_BUILD_EVENT === 'tag') {
 const cssLoader = ({ fixCode = true, prefix } = {}) => [
   {
     loader: MiniCssExtractPlugin.loader,
+    options: { esModule: false },
   },
   {
     loader: 'css-loader',
     options: {
       importLoaders: 1,
       sourceMap: shouldUseSourceMap,
+      esModule: false,
     },
   },
   {
     loader: 'postcss-loader',
     options: {
-      plugins: () => [
-        ...(prefix ? [selectorPrefixer({ prefix })] : []),
-        ...(fixCode
-          ? [postcssFlexbugFixes, autoprefixer({ flexbox: 'no-2009' })]
-          : []),
-      ],
-      sourceMap: shouldUseSourceMap,
+      postcssOptions: {
+        plugins: [
+          ...(prefix ? [selectorPrefixer({ prefix })] : []),
+          ...(fixCode
+            ? [postcssFlexbugFixes, autoprefixer({ flexbox: 'no-2009' })]
+            : []),
+        ],
+        sourceMap: shouldUseSourceMap,
+      },
     },
   },
 ];
@@ -160,6 +163,7 @@ module.exports = {
             use: [
               {
                 loader: MiniCssExtractPlugin.loader,
+                options: { esModule: false },
               },
               {
                 loader: 'css-loader',
@@ -167,19 +171,22 @@ module.exports = {
                   importLoaders: 2,
                   modules: true,
                   sourceMap: shouldUseSourceMap,
+                  esModule: false,
                 },
               },
               {
                 loader: 'postcss-loader',
                 options: {
-                  ident: 'postcss',
-                  plugins: () => [
-                    postcssFlexbugFixes,
-                    autoprefixer({
-                      flexbox: 'no-2009',
-                    }),
-                  ],
-                  sourceMap: shouldUseSourceMap,
+                  postcssOptions: {
+                    ident: 'postcss',
+                    plugins: [
+                      postcssFlexbugFixes,
+                      autoprefixer({
+                        flexbox: 'no-2009',
+                      }),
+                    ],
+                    sourceMap: shouldUseSourceMap,
+                  },
                 },
               },
               {
@@ -223,7 +230,6 @@ module.exports = {
                       frontmatter,
                       { type: 'yaml', marker: '-', fence: '---' },
                     ],
-                    emoji,
                   ],
                 },
               },
