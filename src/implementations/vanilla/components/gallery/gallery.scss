@@ -15,6 +15,29 @@ $_image-height: 185px;
 $_description-background: map.get(color.$color, 'grey-100');
 $_description-color: map.get(color.$color, 'white-100');
 
+@mixin ecl-aspect-ratio($width, $height) {
+  position: relative;
+
+  /* stylelint-disable-next-line */
+  &::before {
+    content: '';
+    display: block;
+    padding-top: ($height / $width) * 100%;
+    width: 100%;
+  }
+
+  /* stylelint-disable-next-line */
+  > iframe {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+  }
+}
+
 .ecl-gallery {
   margin: 0;
 }
@@ -253,6 +276,12 @@ $_detail-color: map.get(color.$color, 'white-100');
   object-fit: contain;
 }
 
+.ecl-gallery__slider-embed {
+  @include ecl-aspect-ratio(16, 9);
+
+  width: 100%;
+}
+
 .ecl-gallery__slider-previous {
   align-self: flex-start;
   color: $_detail-color;
@@ -304,6 +333,10 @@ $_detail-color: map.get(color.$color, 'white-100');
   &:focus {
     color: $_detail-color;
   }
+
+  &[hidden] {
+    display: none;
+  }
 }
 
 .ecl-gallery__detail-description {
@@ -324,10 +357,6 @@ $_detail-color: map.get(color.$color, 'white-100');
   .ecl-gallery__slider {
     flex-direction: row;
     justify-content: space-between;
-  }
-
-  .ecl-gallery__slider-media-container {
-    flex-grow: 0;
   }
 
   .ecl-gallery__slider-previous {
