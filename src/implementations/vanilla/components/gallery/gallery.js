@@ -468,13 +468,6 @@ export class Gallery {
         maxHeight: `${maxHeight}px`,
       });
     }
-
-    // DEPRECATED
-    else if (this.overlayImage) {
-      Object.assign(this.overlayImage.style, {
-        maxHeight: `${maxHeight}px`,
-      });
-    }
   }
 
   /**
