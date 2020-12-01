@@ -7,9 +7,10 @@
     - "alt" (string) (default: '')
     - "meta" (string) (default: '')
     - "icon" (object) (default: {}): object of type icon
-    - "share_path" (string) (default: '')
-    - "video" (optional) (array) (default: [])
-    - "image" (optional) (array) (default: [])
+    - "image" (optional) (object) (default: {})
+    - "video" (optional) (object) (default: {})
+    - "embedded_video" (optional) (object) (default: {})
+    - "share_path" (optional) (string) (default: '')
   - "extra_classes" (optional) (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
@@ -23,6 +24,7 @@
 {% set _use_arial = '' %}
 {% set _media_href = '' %}
 {% set _media_share_path = '' %}
+{% set _media_iframe_href = '' %}
 {% set _image_alt = '' %}
 {% set _item = item|default({}) %}
 
@@ -52,6 +54,9 @@
     {# Use Arial only for image. #}
     {% set _use_arial = 'aria-label="' ~ _image_alt ~ '"' %}
   {% endif %}
+  {% if _item.embedded_video is defined and _item.embedded_video is not empty %}
+    {% set _media_iframe_href = _item.embedded_video.src %}
+  {% endif %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
@@ -68,11 +73,16 @@
 
 <li class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <a
-    href="{{ _media_href }}"
+    href="{{ _media_iframe_href ? _media_iframe_href : _media_href }}"
     class="ecl-gallery__item-link"
     {{ _use_arial|raw }}
     data-ecl-gallery-item
-    data-ecl-gallery-item-share="{{ _media_share_path }}"
+    {% if _media_share_path is not empty %}
+      data-ecl-gallery-item-share="{{ _media_share_path }}"
+    {% endif %}
+    {% if _media_iframe_href is not empty %}
+      data-ecl-gallery-item-embed-src="{{ _media_iframe_href }}"
+    {% endif %}
   >
   {% if _item is not empty %}
     <figure class="ecl-gallery__image-container">
