@@ -10,7 +10,7 @@
 @use "@ecl/theme-dev/maps/typography";
 @use "@ecl/theme-dev/maps/z-index";
 @use "@ecl/vanilla-layout-grid/mixins/breakpoints";
-@use "@ecl/vanilla-utility-media/media";
+@use "@ecl/vanilla-utility-media/media" as uMedia;
 
 $_image-height: 185px;
 $_description-background: map.get(color.$color, 'grey-100');
@@ -255,7 +255,7 @@ $_detail-color: map.get(color.$color, 'white-100');
 }
 
 .ecl-gallery__slider-embed {
-  @include media.aspect-ratio(16, 9);
+  @include uMedia.aspect-ratio(16, 9);
 
   width: 100%;
 }
