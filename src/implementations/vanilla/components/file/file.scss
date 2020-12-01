@@ -4,10 +4,10 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/icon';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/tokens/maps/color';
+@use '@ecl/tokens/maps/icon';
+@use '@ecl/tokens/maps/spacing';
+@use '@ecl/tokens/maps/typography';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 $_container-background: map.get(color.$color, 'grey-5');

@@ -1,6 +1,6 @@
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/tokens/maps/color';
+@use '@ecl/tokens/maps/typography';
 
 .link {
   color: map.get(color.$color, 'primary');

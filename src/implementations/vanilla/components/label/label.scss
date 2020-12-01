@@ -4,9 +4,9 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/typography';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/color';
+@use '@ecl/tokens/maps/typography';
+@use '@ecl/tokens/maps/spacing';
+@use '@ecl/tokens/maps/color';
 
 .ecl-label {
   background-color: map.get(color.$color, 'grey-15');

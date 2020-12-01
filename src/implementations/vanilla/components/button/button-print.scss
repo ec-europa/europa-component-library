@@ -4,11 +4,11 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/globals';
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/shape';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/tokens/globals';
+@use '@ecl/tokens/maps/color';
+@use '@ecl/tokens/maps/spacing';
+@use '@ecl/tokens/maps/shape';
+@use '@ecl/tokens/maps/typography';
 
 $_border-width: 1.5pt;
 $_padding-horizontal: map.get(spacing.$spacing-print, 'm');

@@ -4,9 +4,9 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/typography';
-@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/tokens/maps/color';
+@use '@ecl/tokens/maps/typography';
+@use '@ecl/tokens/maps/spacing';
 
 $_label-color: map.get(color.$color, 'grey-100');
 $_label-color-disabled: map.get(color.$color, 'grey-50');

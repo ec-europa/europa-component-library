@@ -1,12 +1,83 @@
-@use '@ecl/theme-dev/globals' with (
+@use '@ecl/tokens/globals' with (
   $border-radius: 'yes'
 );
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/icon';
-@use '@ecl/theme-dev/maps/form';
-@use '@ecl/theme-dev/maps/layout';
-@use '@ecl/theme-dev/maps/media';
-@use '@ecl/theme-dev/maps/shape';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
-@use '@ecl/theme-dev/maps/z-index';
+@use '@ecl/tokens/maps/color' with (
+  $color: (
+    // Temporary copy of EC colours, until components are updated
+    'black': #000,
+    'white': #fff,
+    'blue-75': #4073af,
+    'blue-50': #7fa1c9,
+    'blue-25': #bfd0e4,
+    'yellow-75': #ffde39,
+    'yellow-50': #ffe879,
+    'yellow-25': #fff4bb,
+    'grey-75': #707070,
+    'grey-50': #9f9f9f,
+    'grey-25': #cfcfcf,
+    'grey-15': #e3e3e3,
+    'blue-n': #006fb4,
+    'orange': #f29527,
+    'green': #467a39,
+    'red-130': #981722,
+    'red': #da2131,
+    'primary': #004494,
+    'secondary': #ffd617,
+    'tertiary': #e3e3e3,
+    'text': #404040,
+    'white-100': #fff,
+    'black-100': #000,
+    'error': #da2131,
+    'info': #006fb4,
+    'success': #467a39,
+    'warning': #f29527,
+    'orange-100': #f29527,
+    'green-100': #467a39,
+    'red-100': #da2131,
+    // EU colours
+    'blue': #0e47cb,
+    'yellow': #fc0,
+    'grey': #262b38,
+    'blue-5': #f3f6fc,
+    'blue-10': #e7edfa,
+    'blue-20': #cfdaf5,
+    'blue-40': #9fb5ea,
+    'blue-60': #6e91e0,
+    'blue-80': #3e6cd5,
+    'blue-100': #0e47cb,
+    'blue-110': #0d40b7,
+    'blue-120': #0b39a2,
+    'blue-130': #0a328e,
+    'blue-140': #082b7a,
+    'yellow-10': #fffae6,
+    'yellow-20': #fff5cc,
+    'yellow-40': #ffeb99,
+    'yellow-60': #ffe066,
+    'yellow-80': #ffd633,
+    'yellow-100': #fc0,
+    'yellow-110': #e6b800,
+    'yellow-120': #cca300,
+    'yellow-130': #b38f00,
+    'yellow-140': #b38f00,
+    'grey-5': #f4f5f5,
+    'grey-10': #e9eaeb,
+    'grey-20': #d4d5d7,
+    'grey-40': #a8aaaf,
+    'grey-60': #7d8088,
+    'grey-80': #515560,
+    'grey-100': #262b38,
+    'grey-110': #222732,
+    'grey-120': #1e222d,
+    'grey-130': #1b1e27,
+    'grey-140': #171a22,
+    'purple-100': #510dcd,
+  )
+);
+@use '@ecl/tokens/maps/icon';
+@use '@ecl/tokens/maps/form';
+@use '@ecl/tokens/maps/layout';
+@use '@ecl/tokens/maps/media';
+@use '@ecl/tokens/maps/shape';
+@use '@ecl/tokens/maps/spacing';
+@use '@ecl/tokens/maps/typography';
+@use '@ecl/tokens/maps/z-index';

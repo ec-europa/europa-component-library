@@ -1,0 +1,57 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+
+import {
+  pageHeaderTitle,
+  pageHeaderMetaTitle,
+  pageHeaderMetaTitleDescription,
+  pageHeaderBackgroundImage,
+} from '../demo';
+
+## Title
+
+<Playground
+  system="ec"
+  selectedKind="components-page-headers-core"
+  selectedStory="title"
+  showFrame
+>
+  <Html markup={pageHeaderTitle} />
+</Playground>
+
+## Meta - Title
+
+<Playground
+  system="ec"
+  selectedKind="components-page-headers-core"
+  selectedStory="meta-title"
+  showFrame
+>
+  <Html markup={pageHeaderMetaTitle} />
+</Playground>
+
+## Meta - Title - Description
+
+<Playground
+  system="ec"
+  selectedKind="components-page-headers-core"
+  selectedStory="meta-title-description"
+  showFrame
+>
+  <Html markup={pageHeaderMetaTitleDescription} />
+</Playground>
+
+## Background image
+
+<Playground
+  system="ec"
+  selectedKind="components-page-headers-core"
+  selectedStory="background-image"
+  showFrame
+>
+  <Html markup={pageHeaderBackgroundImage} />
+</Playground>
