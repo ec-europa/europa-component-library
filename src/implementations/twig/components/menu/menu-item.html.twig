@@ -10,7 +10,6 @@
       - "is_current" (boolean) Whether the sub-item is currently selected
       - "path" (string) Href of the sub-item link
       - "label" (string) Label of the sub-item link
-  - "_compliance_" (boolean) (default: false) Activates debug
 #}
 
 {% set _item = item|default({}) %}
@@ -19,7 +18,7 @@
 {% set _menu_list_item_attributes = 'data-ecl-menu-item' %}
 {% set _menu_list_item_class = 'ecl-menu__item' %}
 {% set _icon_path = icon_path|default('') %}
-{% set _compliance = _compliance_|default(false) %}
+
 
 {% if _item.is_current is defined %}
   {% set _menu_item_class = _menu_item_class ~ ' ecl-menu__link--current' %}
@@ -44,8 +43,6 @@
           transform: 'rotate-90'
         },
         extra_classes: 'ecl-menu__link-icon',
-        _compliance_: _compliance,
-        _compliance_inner_check_: true
       } %}
     {% endif %}
   </a>
@@ -77,14 +74,5 @@
   </div>
 {% endif %}
 </li>
-
-{# Validation #}
-
-{% if _compliance %}
-  {% include '@ecl/@compliance/menu-item.html.twig' with {
-    icon_path: _icon_path,
-    item: _item,
-  } only %}
-{% endif %}
 
 {% endspaceless %}

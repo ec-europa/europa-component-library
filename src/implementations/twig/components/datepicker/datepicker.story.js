@@ -1,12 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import { withKnobs, text, boolean, optionsKnob } from '@storybook/addon-knobs';
 import withCode from '@ecl/storybook-addon-code';
-import {
-  getExtraKnobs,
-  tabLabels,
-  getFormKnobs,
-  getComplianceKnob,
-} from '@ecl/story-utils';
+import { getExtraKnobs, tabLabels, getFormKnobs } from '@ecl/story-utils';
 
 import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import dataDefault from '@ecl/specs-component-datepicker/demo/data';
@@ -33,7 +28,6 @@ const prepareDatePicker = (data) => {
   data.placeholder = text('placeholder', data.placeholder, tabLabels.required);
 
   getExtraKnobs(data);
-  getComplianceKnob(data);
 
   return data;
 };

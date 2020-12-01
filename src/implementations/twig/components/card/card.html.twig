@@ -33,8 +33,6 @@
           "value" (optional) (string)
         ...
       ],
-    - "_compliance_": (boolean) (default: false) Activates debug
-    - "_compliance_inner_check_": (boolean) (default: false) Inline compliance report
 #}
 
 {# Internal properties #}
@@ -54,8 +52,8 @@
   {% set _card = _card|merge(card) %}
 {% endif %}
 
-{% set _compliance = _compliance_|default(false) %}
-{% set _compliance_inner_check = _compliance_inner_check_|default(false) %}
+
+
 {% set _css_class = 'ecl-card' %}
 {% set _extra_attributes = '' %}
 {% set _icon_path = icon_path|default('') %}
@@ -97,8 +95,6 @@
       {%- if _card.title.path %}
         {% include '@ecl/link/link.html.twig' with {
           link: _card.title,
-          _compliance_: _compliance,
-          _compliance_inner_check_: true,
           icon_path: _icon_path
         } only %}
       {% else %}
@@ -120,8 +116,6 @@
           {% include '@ecl/link/link.html.twig' with {
             link: link|merge({ type: 'standalone' }),
             extra_classes: 'ecl-card__link',
-            _compliance_: _compliance,
-            _compliance_inner_check_: true,
             icon_path: _icon_path
           } only %}
         </li>
@@ -146,8 +140,6 @@
           <li class="ecl-card__info-item">
             {% include '@ecl/icon/icon.html.twig' with {
               icon: _icon|default({}),
-              _compliance_: _compliance,
-              _compliance_inner_check_: true
             } only %}
             <span class="ecl-card__info-label">{{ info.label }}</span>
           </li>
@@ -161,8 +153,6 @@
             {% include '@ecl/tag/tag.html.twig' with {
               tag: tag,
               extra_classes: 'ecl-card__tag',
-              _compliance_: _compliance,
-              _compliance_inner_check_: true,
               icon_path: _icon_path
             } only %}
           </li>
@@ -171,15 +161,5 @@
     {% endif %}
   </footer>
 </article>
-
-{# Validation #}
-
-{% if _compliance %}
-  {% include '@ecl/@compliance/card.html.twig' with {
-    card: _card,
-    _compliance_inner_check_: _compliance_inner_check,
-    icon_path: _icon_path
-   } only %}
-{% endif %}
 
 {% endspaceless %}

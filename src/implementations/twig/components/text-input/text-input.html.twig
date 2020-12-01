@@ -25,7 +25,7 @@
 
 {# Internal properties #}
 
-{% set _compliance = _compliance_|default(false) %}
+
 {% set _id = id|default('') %}
 {% set _disabled = disabled|default(false) %}
 {% set _invalid = invalid|default(false) %}
@@ -127,24 +127,5 @@
   />
 
 </div>
-
-{# Validation #}
-
-{% if _compliance %}
-  {% include '@ecl/@compliance/text-input.html.twig' with {
-    id: _id,
-    disabled: _disabled,
-    invalid: _invalid,
-    required: _required,
-    required_text: _required_text,
-    optional_text: _optional_text,
-    name: _name,
-    width: _width,
-    helper_text: _helper_text,
-    label: _label,
-    invalid_text: _invalid_text,
-    type: _type
-  } only %}
-{% endif %}
 
 {% endspaceless %}

@@ -14,7 +14,6 @@ import {
   getLoginKnobs,
   getLanguageSelectorKnobs,
   getSearchFormKnobs,
-  getComplianceKnob,
 } from '@ecl/story-utils';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
@@ -212,8 +211,6 @@ const prepareSiteHeaderHarmonised = (data, variant) => {
     );
     data.menu = object('data.menu', data.menu, tabLabels.optional);
   }
-
-  getComplianceKnob(data);
 
   return data;
 };

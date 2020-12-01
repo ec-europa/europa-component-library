@@ -82,33 +82,11 @@ describe('Select', () => {
     });
   });
 
-  describe('with missing input data and debug enabled returns the right warning message', () => {
-    test('renders correctly', () => {
-      expect.assertions(1);
-
-      const dataCompliance = { ...dataSingle, _compliance_: true };
-      dataCompliance.options[0].value = '';
-
-      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
-    });
-  });
-
   describe('Multiple', () => {
     test('renders correctly', () => {
       expect.assertions(1);
 
       return expect(render(dataMultiple)).resolves.toMatchSnapshot();
-    });
-
-    test('with missing input data and debug enabled returns the right warning message', () => {
-      expect.assertions(1);
-
-      const dataCompliance = { ...dataMultiple, _compliance_: true };
-      dataCompliance.multiple_all_text = '';
-      dataCompliance.multiple_search_text = '';
-      dataCompliance.multiple_placeholder = '';
-
-      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
   });
 });

@@ -1,7 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { withKnobs, text } from '@storybook/addon-knobs';
-import { getExtraKnobs, tabLabels, getComplianceKnob } from '@ecl/story-utils';
+import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
 
 import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import specs from '@ecl/specs-component-footer-core/demo/data';
@@ -190,7 +190,6 @@ const formatFooter = (data) => {
   });
 
   getExtraKnobs(data);
-  getComplianceKnob(data);
 
   return data;
 };

@@ -47,7 +47,7 @@
 {% set _css_class = _css_class|merge(['ecl-text-area--' ~ _width]) %}
 {% set _css_class = _css_class|join(' ') %}
 {% set _extra_attributes = '' %}
-{% set _compliance = _compliance_|default(false) %}
+
 
 {# Internal logic - Process properties #}
 
@@ -127,22 +127,5 @@
 </textarea>
 
 </div>
-
-{# Validation #}
-
-{% if _compliance %}
-  {% include '@ecl/@compliance/form-group.html.twig' with {
-    id: _id,
-    disabled: _disabled,
-    invalid: _invalid,
-    required: _required,
-    name: _name,
-    invalid_text: _invalid_text,
-    required_text: _required_text,
-    label: _label,
-    optional_text: _optional_text,
-    component: 'text-area'
-  } only %}
-{% endif %}
 
 {% endspaceless %}

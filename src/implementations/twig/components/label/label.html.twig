@@ -11,7 +11,6 @@
           "value" (optional) (string)
         ...
       ],
-    - "_compliance_" (boolean) (default: false) Activates debug
 #}
 
 {# Internal properties #}
@@ -21,7 +20,6 @@
 {% set _extra_attributes = '' %}
 {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _variant %}
 {% set _label = label|default('') %}
-{% set _compliance = _compliance_|default(false) %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -45,14 +43,5 @@
 >
   {{- _label|raw -}}
 </span>
-
-{# Validation #}
-
-{% if _compliance %}
-  {% include '@ecl/@compliance/label.html.twig' with {
-    variant: _variant,
-    label: _label
-  } only %}
-{% endif %}
 
 {% endspaceless %}

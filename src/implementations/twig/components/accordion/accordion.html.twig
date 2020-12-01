@@ -21,7 +21,6 @@
           "value" (optional) (string)
         ...
       ],
-    - "_compliance_" (boolean) (default: false)
 #}
 
 {# Internal properties #}
@@ -29,7 +28,6 @@
 {% set _css_class = 'ecl-accordion' %}
 {% set _extra_attributes = 'data-ecl-auto-init="Accordion"' %}
 {% set _items = items|default([]) %}
-{% set _compliance = _compliance_|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -73,8 +71,6 @@
                 },
                 extra_classes: 'ecl-accordion__toggle-icon',
                 extra_attributes: [{ name: "data-ecl-accordion-icon" }],
-                _compliance_: _compliance,
-                _compliance_inner_check_: true
               } only %}
               <span class="ecl-accordion__toggle-title">
                 {{- _item.toggle.label -}}
@@ -95,13 +91,5 @@
     {% endfor %}
   {% endif %}
 </div>
-
-{# Validation #}
-
-{% if _compliance %}
-  {% include '@ecl/@compliance/accordion.html.twig' with {
-    items: _items
-  } only %}
-{% endif %}
 
 {% endspaceless %}

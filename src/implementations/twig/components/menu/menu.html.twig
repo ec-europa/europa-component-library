@@ -35,8 +35,6 @@
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for the nav element
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (optional) (string) Attribute value, eg: 'data-test-1'
-  - "_compliance_" (boolean) (default: false) Activates debug
-  - "_compliance_inner_check_" (boolean) (default: false) Inline compliance report
 #}
 
 {# Internal properties #}
@@ -51,8 +49,6 @@
 {% set _extra_attributes = '' %}
 {% set _site_name = site_name|default('') %}
 {% set _icon_path = icon_path|default('') %}
-{% set _compliance = _compliance_|default(false) %}
-{% set _compliance_inner_check = _compliance_inner_check_|default(false) %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -89,8 +85,6 @@
           name: 'hamburger',
           path: _icon_path
         },
-        _compliance_: _compliance,
-        _compliance_inner_check_: true
       } only %}
       {{- _title -}}
     </a>
@@ -113,8 +107,6 @@
               },
               extra_classes: 'ecl-button__icon ecl-button__icon--before',
               extra_attributes: [{ name: 'data-ecl-icon' }],
-              _compliance_: _compliance,
-              _compliance_inner_check_: true
             } only %}
             <span
               class="ecl-button__label"
@@ -140,8 +132,6 @@
               },
               extra_classes: 'ecl-button__icon ecl-button__icon--before',
               extra_attributes: [{ name: 'data-ecl-icon' }],
-              _compliance_: _compliance,
-              _compliance_inner_check_: true
             } only %}
             <span
               class="ecl-button__label"
@@ -159,7 +149,6 @@
           {% include '@ecl/menu/menu-item.html.twig' with {
             item: item,
             icon_path: _icon_path,
-            _compliance_: _compliance
           } only %}
         {% endif %}
         {% endfor %}
@@ -168,21 +157,5 @@
     </section>
   </div>
 </nav>
-
-{# Validation #}
-
-{% if _compliance %}
-  {% include '@ecl/@compliance/menu.html.twig' with {
-    title: _title,
-    close: _close,
-    back: _back,
-    group: _group,
-    icon_path: _icon_path,
-    items: items,
-    site_name: _site_name,
-    menu_link: _menu_link,
-    _compliance_inner_check_: _compliance_inner_check
-  } only %}
-{% endif %}
 
 {% endspaceless %}

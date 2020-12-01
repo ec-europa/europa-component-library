@@ -14,8 +14,6 @@
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (optional) (string) Attribute value, eg: 'data-test-1'
-  - "_compliance_" (boolean) (default: false) Activates debug
-
   Blocks:
   - "helper_text"
   - "label"
@@ -38,7 +36,7 @@
 {% set _helper_css_class = 'ecl-radio__help' %}
 {% set _box_css_class = 'ecl-radio__box' %}
 {% set _extra_attributes = '' %}
-{% set _compliance = _compliance_|default(false) %}
+
 
 {# Internal logic - Process properties #}
 
@@ -120,11 +118,4 @@
   {% endif %}
 </div>
 
-{# Validation #}
-
-{% if _compliance %}
-  {% include '@ecl/@compliance/radio.html.twig' with {
-    label: _label
-  } only %}
-{% endif %}
 {% endspaceless %}

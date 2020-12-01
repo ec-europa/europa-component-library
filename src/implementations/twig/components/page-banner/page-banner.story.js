@@ -7,12 +7,7 @@ import {
   button,
 } from '@storybook/addon-knobs';
 import withCode from '@ecl/storybook-addon-code';
-import {
-  getExtraKnobs,
-  tabLabels,
-  getIconKnobs,
-  getComplianceKnob,
-} from '@ecl/story-utils';
+import { getExtraKnobs, tabLabels, getIconKnobs } from '@ecl/story-utils';
 
 // Import data for demos
 import uiIcons from '@ecl/resources-ec-icons/dist/lists/ui.json';
@@ -186,7 +181,6 @@ const preparePageBanner = (data, variant) => {
   }
 
   getExtraKnobs(data);
-  getComplianceKnob(data);
 
   return data;
 };

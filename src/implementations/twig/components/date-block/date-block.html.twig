@@ -26,7 +26,7 @@
 {% set _variant = variant|default('') %}
 {% set _css_class = 'ecl-date-block' %}
 {% set _extra_attributes = '' %}
-{% set _compliance = _compliance_|default(false) %}
+
 
 {# Internal logic - Process properties #}
 
@@ -66,18 +66,6 @@
     {{ _month_markup|raw }}
     <span class="ecl-date-block__year" aria-hidden="true">{{ _year }}</span>
   </time>
-{% endif %}
-
-{# Validation #}
-
-{% if _compliance %}
-  {% include '@ecl/@compliance/date-block.html.twig' with {
-    variant: _variant,
-    day: _day,
-    month: _month,
-    year: _year,
-    month_full: _month_full
-  } only %}
 {% endif %}
 
 {% endspaceless %}

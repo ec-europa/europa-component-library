@@ -56,8 +56,6 @@
           "value" (optional) (string)
         ...
       ],
-    - "_compliance_" (boolean) (default: false) Activates debug
-
 #}
 
 {# Default variables #}
@@ -71,7 +69,6 @@
 {% set _search_toggle = search_toggle|default({}) %}
 {% set _extra_attributes = '' %}
 {% set _css_class = 'ecl-site-header-core' %}
-{% set _compliance = _compliance_|default(false) %}
 {% set _menu = menu|default(false) %}
 {% set _search_form_extra_attributes = [{ name: 'data-ecl-search-form' }] %}
 {% set _search_input_extra_classes = 'ecl-search-form__text-input' %}
@@ -162,13 +159,6 @@
   }
 %}
 
-{% if _compliance %}
-  {% set _search_form = _search_form|merge({
-    _compliance_: _compliance,
-    _compliance_inner_check_: true
-  }) %}
-{% endif %}
-
 {# Internal logic - Process properties #}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -238,8 +228,6 @@
                 size: 's'
               },
               extra_classes: 'ecl-site-header-core__icon',
-              _compliance_: _compliance,
-              _compliance_inner_check_: true
             } only %}
              {{- login_toggle.label_logged -}}
              {% include '@ecl/icon/icon.html.twig' with {
@@ -250,8 +238,6 @@
                 size: 'xs'
               },
               extra_classes: 'ecl-site-header-core__login-arrow',
-              _compliance_: _compliance,
-              _compliance_inner_check_: true
             } only %}
           </a>
           <div
@@ -268,8 +254,6 @@
                 label: _login_box.label,
                 path: _login_box.href,
                 type: "standalone",
-                _compliance_: _compliance,
-                _compliance_inner_check_: true
               }
             } only %}
           </div>
@@ -286,8 +270,6 @@
                 size: 's'
               },
               extra_classes: 'ecl-site-header-core__icon',
-              _compliance_: _compliance,
-              _compliance_inner_check_: true
             } only %}
             {{- login_toggle.label_not_logged -}}
           </a>
@@ -312,8 +294,6 @@
                 size: 's'
               },
               extra_classes: 'ecl-site-header-core__icon',
-              _compliance_: _compliance,
-              _compliance_inner_check_: true
             } only %}
             <span class="ecl-site-header-core__language-code">{{ _language_selector.code }}</span>
           </span>
@@ -337,8 +317,6 @@
               extra_attributes: [
                { name: 'aria-hidden', value: true }
               ],
-              _compliance_: _compliance,
-              _compliance_inner_check_: true
             }
           } only -%}
           {{- _search_toggle.label -}}
@@ -352,8 +330,6 @@
 {% if _menu is defined and _menu is not empty %}
   {% include '@ecl/menu/menu.html.twig' with _menu|merge({
     icon_path: _icon_file_path,
-     _compliance_: _compliance,
-     _compliance_inner_check_: true
   }) only %}
 {% endif %}
 {% if _has_overlay is defined and _language_selector.overlay is defined and _language_selector.overlay.items is defined %}
@@ -379,27 +355,9 @@
       { name: 'hidden' },
       { name: 'id', value: 'language-list-overlay' }
     ],
-    _compliance_: _compliance,
-    _compliance_inner_check_: true
   } only %}
 {% endif %}
 
 </header>
-
-{# Validation #}
-
-{% if _compliance %}
-  {% include '@ecl/@compliance/site-header-core.html.twig' with {
-    logo: _logo,
-    language_selector: _language_selector,
-    logged: _logged,
-    login_box: _login_box,
-    login_toggle: _login_toggle,
-    icon_file_path: _icon_file_path,
-    search_toggle: _search_toggle,
-    has_overlay: _has_overlay,
-    search_form: _search_form
-  } only %}
-{% endif %}
 
 {% endspaceless %}

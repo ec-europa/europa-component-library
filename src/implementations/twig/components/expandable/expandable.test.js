@@ -37,15 +37,6 @@ describe('Expandable', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
-
-    test('with missing input data and debug enbaled returns the right warning message', () => {
-      expect.assertions(1);
-
-      const dataCompliance = { ...demoData, _compliance_: true };
-      dataCompliance.label_expanded = '';
-
-      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
-    });
   });
 
   describe('Expanded', () => {

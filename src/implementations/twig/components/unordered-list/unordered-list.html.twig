@@ -18,11 +18,10 @@
         ...
       ]
     - "variant" (string) Component variants (no-bullet, divider),
-    - "_compliance_": (boolean) (default: false) Activates debug
 #}
 
 {# Define main macro #}
-{% macro unordered_list(items, extra_classes, extra_attributes, variant, _compliance_) %}{% spaceless %}
+{% macro unordered_list(items, extra_classes, extra_attributes, variant) %}{% spaceless %}
   {% import _self as list %}
 
   {# Internal properties #}
@@ -31,7 +30,6 @@
   {% set _css_class = 'ecl-unordered-list' %}
   {% set _extra_attributes = '' %}
   {% set _variant = variant|default('') %}
-  {% set _compliance = _compliance_|default(false) %}
 
   {# Internal logic - Process properties #}
 
@@ -69,18 +67,9 @@
     </ul>
   {% endif %}
 
-  {# Validation #}
-
-{% if _compliance %}
-  {% include '@ecl/@compliance/unordered-list.html.twig' with {
-    items: _items,
-    variant: _variant
-  } only %}
-{% endif %}
-
 {% endspaceless %}{% endmacro %}
 
 {# Render macro #}
-{{ list.unordered_list(items, extra_classes, extra_attributes, variant, _compliance_) }}
+{{ list.unordered_list(items, extra_classes, extra_attributes, variant) }}
 
 {% endspaceless %}

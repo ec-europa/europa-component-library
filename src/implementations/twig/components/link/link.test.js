@@ -208,25 +208,4 @@ describe('Link', () => {
       return expect(render(options)).resolves.toMatchSnapshot();
     });
   });
-
-  describe('with validation enabled and missing input data', () => {
-    test('returns the right warning message', () => {
-      expect.assertions(1);
-
-      const options = {
-        link: {
-          label: '',
-          path: '',
-          type: 'standalone',
-          icon_position: 'after',
-        },
-        icon: {
-          name: 'check-filled',
-        },
-        _compliance_: true,
-      };
-
-      return expect(render(options)).resolves.toMatchSnapshot();
-    });
-  });
 });

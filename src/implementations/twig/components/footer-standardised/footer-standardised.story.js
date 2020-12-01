@@ -2,7 +2,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { withKnobs, text } from '@storybook/addon-knobs';
-import { getExtraKnobs, tabLabels, getComplianceKnob } from '@ecl/story-utils';
+import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
 
 import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import specs from '@ecl/specs-component-footer-standardised/demo/data';
@@ -167,7 +167,7 @@ const prepareFooterStandardised = (data) => {
   });
 
   getExtraKnobs(data);
-  getComplianceKnob(data);
+
   // Return the full specs.
   return data;
 };

@@ -69,13 +69,4 @@ describe('Fact and figures', () => {
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
   });
-  describe('with validation enabled and missing input data', () => {
-    test('returns the right warning message', () => {
-      expect.assertions(1);
-      const dataCompliance = { ...data3Col, _compliance_: true };
-      dataCompliance.items[0].value = '';
-
-      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
-    });
-  });
 });

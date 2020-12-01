@@ -29,7 +29,6 @@
           "value" (optional) (string)
         ...
       ],
-    - "_compliance_" (optional) (boolean) (default: false) Activates debug
 #}
 
 {# Internal properties #}
@@ -38,7 +37,6 @@
 {% set _extra_attributes = '' %}
 {% set _description = description|default('') %}
 {% set _links = links|default({}) %}
-{% set _compliance = _compliance_|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -74,7 +72,6 @@
             type: 'standalone',
           }),
           extra_classes: _link_extra_classes,
-          _compliance_: _compliance
         }) only %}
       </li>
     {% endif %}
@@ -82,15 +79,5 @@
     </ul>
   {% endif %}
 </div>
-
-{# Validation #}
-
-{% if _compliance %}
-  {% include '@ecl/@compliance/social-media.html.twig' with {
-    description: _description,
-    links: _links,
-    variant: 'share'
-  } only %}
-{% endif %}
 
 {% endspaceless %}

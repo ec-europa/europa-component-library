@@ -1,10 +1,6 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
-import {
-  getExtraKnobs,
-  getFormKnobs,
-  getComplianceKnob,
-} from '@ecl/story-utils';
+import { getExtraKnobs, getFormKnobs } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
 import specData from '@ecl/specs-component-text-area/demo/data--default';
 import textArea from './text-area.html.twig';
@@ -13,7 +9,6 @@ import notes from './README.md';
 const prepareTextArea = (data) => {
   getFormKnobs(data);
   getExtraKnobs(data);
-  getComplianceKnob(data);
 
   return data;
 };

@@ -34,14 +34,4 @@ describe('Datepicker', () => {
 
     return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
   });
-
-  test('with misssing input data and debug enabled it returns the right warning messages.', () => {
-    expect.assertions(1);
-
-    const dataCompliance = { ...demoData, _compliance_: true };
-    dataCompliance.label = '';
-    dataCompliance.icons_path = '';
-
-    return expect(render(dataCompliance)).resolves.toMatchSnapshot();
-  });
 });
