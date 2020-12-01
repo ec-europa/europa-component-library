@@ -12,87 +12,89 @@ module.exports = {
         src_desktop: '/eu-en-desktop.svg',
       },
     },
-    {
-      title: 'Contact the EU',
-      title_class_name: 'ecl-footer-core__title--separator',
-      links: [
-        {
-          link: {
-            label: 'Call us 00 800 6 7 8 9 10 11',
-            aria_label: 'Link to Call us on 00 800 6 7 8 9 10 11',
-            path: '/example',
+    [
+      {
+        title: 'Contact the EU',
+        title_class_name: 'ecl-footer-core__title--separator',
+        links: [
+          {
+            link: {
+              label: 'Call us 00 800 6 7 8 9 10 11',
+              aria_label: 'Link to Call us on 00 800 6 7 8 9 10 11',
+              path: '/example',
+            },
           },
-        },
-        {
-          link: {
-            label: 'Use other telephone options',
-            aria_label: 'Link to other telephone options',
-            path: '/example',
+          {
+            link: {
+              label: 'Use other telephone options',
+              aria_label: 'Link to other telephone options',
+              path: '/example',
+            },
           },
-        },
-        {
-          link: {
-            label: 'Write us via our contact form',
-            aria_label: 'Link to contact form',
-            path: '/example',
+          {
+            link: {
+              label: 'Write us via our contact form',
+              aria_label: 'Link to contact form',
+              path: '/example',
+            },
           },
-        },
-        {
-          link: {
-            label: 'Meet us at a local EU office',
-            aria_label: 'Link to local offices',
-            path: '/example',
+          {
+            link: {
+              label: 'Meet us at a local EU office',
+              aria_label: 'Link to local offices',
+              path: '/example',
+            },
           },
-        },
-      ],
-    },
-    {
-      title: 'Social media',
-      title_class_name: 'ecl-footer-core__title--separator',
-      links: [
-        {
-          link: {
-            label: 'Search for EU social media channels',
-            aria_label: 'Link to Search EU social media channels',
-            path: '/example',
+        ],
+      },
+      {
+        title: 'Social media',
+        title_class_name: 'ecl-footer-core__title--separator',
+        links: [
+          {
+            link: {
+              label: 'Search for EU social media channels',
+              aria_label: 'Link to Search EU social media channels',
+              path: '/example',
+            },
           },
-        },
-      ],
-    },
-    {
-      title: 'Legal',
-      title_class_name: 'ecl-footer-core__title--separator',
-      links: [
-        {
-          link: {
-            label: 'Language policy',
-            aria_label: 'Link to language policy',
-            path: '/example',
+        ],
+      },
+      {
+        title: 'Legal',
+        title_class_name: 'ecl-footer-core__title--separator',
+        links: [
+          {
+            link: {
+              label: 'Language policy',
+              aria_label: 'Link to language policy',
+              path: '/example',
+            },
           },
-        },
-        {
-          link: {
-            label: 'Privacy policy',
-            aria_label: 'Link to Privacy policy',
-            path: '/example',
+          {
+            link: {
+              label: 'Privacy policy',
+              aria_label: 'Link to Privacy policy',
+              path: '/example',
+            },
           },
-        },
-        {
-          link: {
-            label: 'Legal notice',
-            aria_label: 'Link to Legal notice',
-            path: '/example',
+          {
+            link: {
+              label: 'Legal notice',
+              aria_label: 'Link to Legal notice',
+              path: '/example',
+            },
           },
-        },
-        {
-          link: {
-            label: 'Cookies',
-            aria_label: 'Link to Cookies info',
-            path: '/example',
+          {
+            link: {
+              label: 'Cookies',
+              aria_label: 'Link to Cookies info',
+              path: '/example',
+            },
           },
-        },
-      ],
-    },
+        ],
+      },
+    ],
     {
       title: 'EU institutions',
       title_class_name: 'ecl-footer-core__title--separator',

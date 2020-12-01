@@ -9,13 +9,13 @@ addParameters({
     {
       id: 'ec-core',
       code: `<link rel="stylesheet" type="text/css" href="./styles/ec-core.css" />`,
-      picked: true,
+      picked: false,
       hideCode: true,
     },
     {
       id: 'eu-core',
       code: `<link rel="stylesheet" type="text/css" href="./styles/eu-core.css" />`,
-      picked: false,
+      picked: true,
       hideCode: true,
     },
     {

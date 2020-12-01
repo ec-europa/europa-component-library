@@ -2,6 +2,7 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { getExtraKnobs, tabLabels, getComplianceKnob } from '@ecl/story-utils';
+import he from 'he';
 
 import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import specsEc from '@ecl/specs-component-footer-core/demo/data--ec';
@@ -36,16 +37,16 @@ const formatFooter = (data) => {
         }
       }
       if (section.description) {
-        section.description = text(
-          `sections[${i}].description`,
-          section.description,
-          tabLabels.required
+        section.description = he.decode(
+          text(
+            `sections[${i}].description`,
+            section.description,
+            tabLabels.required
+          )
         );
       } else if (!section.description && i === 0) {
-        section.description = text(
-          `sections[${i}].description`,
-          '',
-          tabLabels.required
+        section.description = he.decode(
+          text(`sections[${i}].description`, '', tabLabels.required)
         );
       }
       if (section.content_before) {
