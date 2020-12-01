@@ -357,7 +357,9 @@ export class Gallery {
    */
   updateOverlay(selectedItem) {
     this.selectedItem = selectedItem;
-    const embeddedVideo = selectedItem.dataset.eclGalleryItemEmbedSrc;
+    const embeddedVideo = selectedItem.getAttribute(
+      'data-ecl-gallery-item-embed-src'
+    );
     const video = queryOne('video', selectedItem);
     let mediaElement = null;
 
@@ -367,8 +369,7 @@ export class Gallery {
       mediaElement = document.createElement('div');
       mediaElement.classList.add('ecl-gallery__slider-embed');
 
-      let mediaIframe = null;
-      mediaIframe = document.createElement('iframe');
+      const mediaIframe = document.createElement('iframe');
       mediaIframe.setAttribute('src', embeddedVideo);
       mediaIframe.setAttribute('frameBorder', '0');
 
@@ -422,14 +423,6 @@ export class Gallery {
       if (this.overlayMedia) {
         this.overlayMedia.innerHTML = '';
         this.overlayMedia.appendChild(mediaElement);
-      }
-
-      // DEPRECATED
-      else if (this.overlayImage) {
-        this.overlayImage.setAttribute(
-          'src',
-          selectedItem.getAttribute('href')
-        );
       }
     }
 
