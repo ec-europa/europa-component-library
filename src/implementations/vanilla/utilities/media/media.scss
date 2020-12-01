@@ -1,6 +1,5 @@
 @use "sass:map";
 @use "@ecl/theme-dev/maps/layout";
-@use "@ecl/theme-dev/maps/media";
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 @mixin aspect-ratio($width, $height) {
@@ -21,6 +20,17 @@
     right: 0 !important;
     top: 0 !important;
     width: 100% !important;
+  }
+
+  /* stylelint-disable-next-line */
+  > iframe {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
   }
 }
 

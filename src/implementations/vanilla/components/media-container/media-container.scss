@@ -4,32 +4,11 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
-
-@mixin ecl-aspect-ratio($width, $height) {
-  position: relative;
-
-  /* stylelint-disable-next-line */
-  &::before {
-    content: '';
-    display: block;
-    padding-top: ($height / $width) * 100%;
-    width: 100%;
-  }
-
-  /* stylelint-disable-next-line */
-  > iframe {
-    bottom: 0;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 100%;
-  }
-}
+@use "@ecl/theme-dev/maps/color";
+@use "@ecl/theme-dev/maps/media";
+@use "@ecl/theme-dev/maps/spacing";
+@use "@ecl/theme-dev/maps/typography";
+@use "@ecl/vanilla-utility-media/media";
 
 .ecl-media-container {
   background-color: map.get(color.$color, 'grey-10');
@@ -54,17 +33,17 @@
 
 // Ratio
 .ecl-media-container__media--ratio-16-9 {
-  @include ecl-aspect-ratio(16, 9);
+  @include media.aspect-ratio(16, 9);
 }
 
 .ecl-media-container__media--ratio-4-3 {
-  @include ecl-aspect-ratio(4, 3);
+  @include media.aspect-ratio(4, 3);
 }
 
 .ecl-media-container__media--ratio-3-2 {
-  @include ecl-aspect-ratio(3, 2);
+  @include media.aspect-ratio(3, 2);
 }
 
 .ecl-media-container__media--ratio-1-1 {
-  @include ecl-aspect-ratio(1, 1);
+  @include media.aspect-ratio(1, 1);
 }
