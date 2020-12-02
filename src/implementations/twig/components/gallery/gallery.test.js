@@ -44,9 +44,9 @@ describe('Gallery', () => {
       dataCompliance.items[2].path = '';
       dataCompliance.overlay.close.icon = {};
       dataCompliance.overlay.next.label = '';
-      dataCompliance.items[4].video.sources[0].src = '';
-      dataCompliance.items[4].icon = {};
-      dataCompliance.items[7].sources = [];
+      dataCompliance.items[5].video.sources[0].src = '';
+      dataCompliance.items[5].icon = {};
+      dataCompliance.items[8].sources = [];
 
       return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });

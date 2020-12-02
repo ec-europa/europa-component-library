@@ -357,11 +357,28 @@ export class Gallery {
    */
   updateOverlay(selectedItem) {
     this.selectedItem = selectedItem;
+    const embeddedVideo = selectedItem.getAttribute(
+      'data-ecl-gallery-item-embed-src'
+    );
     const video = queryOne('video', selectedItem);
     let mediaElement = null;
 
     // Update media
-    if (video != null) {
+    if (embeddedVideo != null) {
+      // Media is a embedded video
+      mediaElement = document.createElement('div');
+      mediaElement.classList.add('ecl-gallery__slider-embed');
+
+      const mediaIframe = document.createElement('iframe');
+      mediaIframe.setAttribute('src', embeddedVideo);
+      mediaIframe.setAttribute('frameBorder', '0');
+
+      if (this.overlayMedia) {
+        mediaElement.appendChild(mediaIframe);
+        this.overlayMedia.innerHTML = '';
+        this.overlayMedia.appendChild(mediaElement);
+      }
+    } else if (video != null) {
       // Media is a video
       mediaElement = document.createElement('video');
       mediaElement.setAttribute('poster', video.poster);
@@ -409,6 +426,38 @@ export class Gallery {
       }
     }
 
+    // Update counter
+    this.overlayCounterCurrent.innerHTML =
+      +selectedItem.getAttribute('data-ecl-gallery-item-id') + 1;
+    this.overlayCounterMax.innerHTML = this.galleryItems.length;
+
+    // Update share link
+    const shareHref = this.selectedItem.getAttribute(
+      'data-ecl-gallery-item-share'
+    );
+    if (shareHref != null) {
+      this.overlayShare.href = shareHref;
+      this.overlayShare.hidden = false;
+    } else {
+      this.overlayShare.hidden = true;
+    }
+
+    // Update download link
+    if (embeddedVideo != null) {
+      this.overlayDownload.hidden = true;
+    } else {
+      this.overlayDownload.href = this.selectedItem.href;
+      this.overlayDownload.hidden = false;
+    }
+
+    // Update meta
+    const meta = queryOne(this.metaSelector, selectedItem);
+    this.overlayMeta.innerHTML = meta.innerHTML;
+
+    // Update description
+    const description = queryOne(this.descriptionSelector, selectedItem);
+    this.overlayDescription.innerHTML = description.innerHTML;
+
     // Limit image height (fix for FF and IE)
     const maxHeight =
       this.overlay.clientHeight -
@@ -419,25 +468,6 @@ export class Gallery {
         maxHeight: `${maxHeight}px`,
       });
     }
-
-    // Update counter
-    this.overlayCounterCurrent.innerHTML =
-      +selectedItem.getAttribute('data-ecl-gallery-item-id') + 1;
-    this.overlayCounterMax.innerHTML = this.galleryItems.length;
-
-    // Update links
-    this.overlayDownload.href = this.selectedItem.href;
-    this.overlayShare.href = this.selectedItem.getAttribute(
-      'data-ecl-gallery-item-share'
-    );
-
-    // Update meta
-    const meta = queryOne(this.metaSelector, selectedItem);
-    this.overlayMeta.innerHTML = meta.innerHTML;
-
-    // Update description
-    const description = queryOne(this.descriptionSelector, selectedItem);
-    this.overlayDescription.innerHTML = description.innerHTML;
   }
 
   /**
@@ -462,6 +492,10 @@ export class Gallery {
     } else {
       this.overlay.removeAttribute('open');
     }
+
+    // Remove iframe
+    const embeddedVideo = queryOne('iframe', this.overlayMedia);
+    if (embeddedVideo) embeddedVideo.remove();
 
     // Stop video
     const video = queryOne('video', this.selectedItem);
