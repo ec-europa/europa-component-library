@@ -16,7 +16,7 @@ module.exports = {
         title_class_name: 'ecl-footer-core__title--separator',
         links: [
           {
-            label_before: 'Call us ',
+            content_before: 'Call us ',
             link: {
               label: '00 800 6 7 8 9 10 11',
               aria_label: 'Link to 00 800 6 7 8 9 10 11',
@@ -24,7 +24,7 @@ module.exports = {
             },
           },
           {
-            label_before: 'Use other ',
+            content_before: 'Use other ',
             link: {
               label: 'telephone options',
               aria_label: 'Link to telephone options',
@@ -32,7 +32,7 @@ module.exports = {
             },
           },
           {
-            label_before: 'Write us via our ',
+            content_before: 'Write us via our ',
             link: {
               label: 'contact form',
               aria_label: 'Link to contact form',
@@ -40,7 +40,7 @@ module.exports = {
             },
           },
           {
-            label_before: 'Meet us at a ',
+            content_before: 'Meet us at a ',
             link: {
               label: 'local EU office',
               aria_label: 'Link to local EU offices',
@@ -54,7 +54,7 @@ module.exports = {
         title_class_name: 'ecl-footer-core__title--separator',
         links: [
           {
-            label_before: 'Search for ',
+            content_before: 'Search for ',
             link: {
               label: 'EU social media channels',
               aria_label: 'Link to EU social media channels',

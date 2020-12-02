@@ -14,8 +14,8 @@
     - "section_class_name" (string) (default: ''),
     - "links" (array of objects) (default: []),
       - "link" (link object)
-      - "label_before" (string) Optional text before the link
-      - "label_after" (string) Optional text after the link
+      - "content_before" (string) Optional text before the link
+      - "content_after" (string) Optional text after the link
     - "list_class_name" (string) (default: []),
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
@@ -130,7 +130,7 @@
       <ul class="{{ 'ecl-footer-core__list ' ~ _list_class }}">
       {% for _item in _section.links %}
         <li class="ecl-footer-core__list-item">
-        {{- _item.label_before -}}
+        {{- _item.content_before -}}
         {% include '@ecl/link/link.html.twig' with _item|merge({
           link: _item.link|default({})|merge({
             type: 'standalone',
@@ -142,7 +142,7 @@
           _compliance_: _compliance,
           _compliance_inner_check: true
         }) only %}
-        {{- _item.label_after -}}
+        {{- _item.content_after -}}
         </li>
       {% endfor %}
       </ul>
