@@ -12,7 +12,10 @@
     - "title" (predefined structure) see Link component
     - "description" (string) (default: ''),
     - "section_class_name" (string) (default: ''),
-    - "items" (array of blocks) (default: []),
+    - "links" (array of objects) (default: []),
+      - "link" (link object)
+      - "label_before" (string) Optional text before the link
+      - "label_after" (string) Optional text after the link
     - "list_class_name" (string) (default: []),
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
@@ -97,10 +100,6 @@
         extra_classes: 'ecl-footer-core__logo-link'
       } only %}
     {% endif %}
-    {# content before #}
-    {% if _section.content_before is defined and _section.content_before is not empty %}
-      <div class="ecl-footer-core__content">{{ _section.content_before|raw }}</div>
-    {% endif %}
     {# title #}
     {% if _section.title is defined and _section.title is not empty %}
       {% if _section.title.link is defined and _section.title.link is not empty %}
@@ -122,16 +121,28 @@
     {% if _section.description is defined and _section.description is not empty %}
       <div class="ecl-footer-core__description">{{ _section.description|raw }}</div>
     {% endif %}
-    {# items #}
-    {% if _section.items is defined and _section.items is not empty %}
+    {# links #}
+    {% if _section.links is defined and _section.links is not empty %}
       {% set _list_class = 'ecl-footer-core__list' %}
       {% if _section.list_class_name is defined and _section.list_class_name is not empty %}
         {% set _list_class = _list_class ~ ' ' ~ _section.list_class_name %}
       {% endif %}
       <ul class="{{ 'ecl-footer-core__list ' ~ _list_class }}">
-      {% for _item in _section.items %}
+      {% for _item in _section.links %}
         <li class="ecl-footer-core__list-item">
-          {%- block item _item|raw -%}
+        {{- _item.label_before -}}
+        {% include '@ecl/link/link.html.twig' with _item|merge({
+          link: _item.link|default({})|merge({
+            type: 'standalone',
+          }),
+          icon: _item.icon|default({})|merge({
+            size: 'xs',
+          }),
+          extra_classes: 'ecl-footer-core__link',
+          _compliance_: _compliance,
+          _compliance_inner_check: true
+        }) only %}
+        {{- _item.label_after -}}
         </li>
       {% endfor %}
       </ul>
