@@ -15,7 +15,6 @@
         },
         ...
       ],
-    - "_compliance_": (boolean) (default: false) Activates debug.
   Blocks:
     - "content"
 #}
@@ -36,7 +35,6 @@
 {% set _button = button|default({}) %}
 {% set _expanded = expanded|default(false) %}
 {% set _content_hidden_attribute = '' %}
-{% set _compliance = _compliance_|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -82,8 +80,6 @@
     }),
     extra_classes: 'ecl-expandable__toggle',
     extra_attributes: _button_attributes,
-    _compliance_: _compliance,
-    _compliance_inner_check_: true
   }) only %}
   <div
     id="{{ _id ~ '-content' }}"
@@ -93,17 +89,5 @@
     {%- block content _content|raw -%}
   </div>
 </div>
-
-{# Validation #}
-
-{% if _compliance %}
-  {% include '@ecl/@compliance/expandable.html.twig' with {
-    id: _id,
-    label_expanded: _label_expanded,
-    label_collapsed: _label_collapsed,
-    button: _button,
-    content: _content
-  } only %}
-{% endif %}
 
 {% endspaceless %}

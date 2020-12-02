@@ -36,15 +36,5 @@ describe('Pagination', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
-
-    test('With missing input data returns the right warning message', () => {
-      expect.assertions(1);
-
-      const dataCompliance = { ...data, _compliance_: true };
-      dataCompliance.label = '';
-      dataCompliance.items[0].type = '';
-
-      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
-    });
   });
 });

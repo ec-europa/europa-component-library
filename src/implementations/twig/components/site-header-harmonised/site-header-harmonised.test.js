@@ -45,20 +45,6 @@ describe('Site Header Harmonised', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
-
-    test('with missing input data and debug enabled returns the right warning message', () => {
-      expect.assertions(1);
-
-      const dataCompliance = { ...dataGroup1, _compliance_: true };
-      dataCompliance.icon_file_path = '';
-      dataCompliance.banner_top = '';
-      dataCompliance.logo.alt = '';
-      dataCompliance.language_selector.code = '';
-      dataCompliance.search_form.button.label = '';
-      dataCompliance.login_toggle.label_not_logged = '';
-
-      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
-    });
   });
 
   describe('Group 2', () => {
@@ -89,15 +75,6 @@ describe('Site Header Harmonised', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
-
-    test('with missing input data and debug enabled returns the right warning message', () => {
-      expect.assertions(1);
-
-      const dataCompliance = { ...dataGroup2, _compliance_: true };
-      dataCompliance.logo.src_desktop = '';
-
-      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
-    });
   });
 
   describe('Group 3', () => {
@@ -127,15 +104,6 @@ describe('Site Header Harmonised', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
-    });
-
-    test('with missing input data and debug enabled returns the right warning message', () => {
-      expect.assertions(1);
-
-      const dataCompliance = { ...dataGroup3, _compliance_: true };
-      dataCompliance.site_name = '';
-
-      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
   });
 });

@@ -37,19 +37,6 @@ describe('Menu', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
-
-    test('with missing input data and debug enabled shows the right warning messages', () => {
-      expect.assertions(1);
-
-      const dataCompliance = { ...enData, _compliance_: true };
-      dataCompliance.items[3].label = '';
-      dataCompliance.close = '';
-      dataCompliance.title = '';
-      dataCompliance.items[1].children[1].label = '';
-      dataCompliance.back = '';
-
-      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
-    });
   });
 
   describe('Translated', () => {

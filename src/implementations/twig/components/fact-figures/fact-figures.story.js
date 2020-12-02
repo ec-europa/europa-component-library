@@ -7,7 +7,7 @@ import {
   select,
 } from '@storybook/addon-knobs';
 import withCode from '@ecl/storybook-addon-code';
-import { getExtraKnobs, tabLabels, getComplianceKnob } from '@ecl/story-utils';
+import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
 
 import generalIcons from '@ecl/resources-ec-icons/dist/lists/general.json';
 import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
@@ -105,7 +105,6 @@ const prepareFactFigures = (data) => {
   data.items = data.items.map((item) => formatItem(item));
 
   getExtraKnobs(data);
-  getComplianceKnob(data);
 
   return data;
 };

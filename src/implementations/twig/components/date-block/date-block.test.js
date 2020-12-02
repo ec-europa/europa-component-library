@@ -60,13 +60,4 @@ describe('Date Block', () => {
       render(optionsWithExtraClassesAndTime)
     ).resolves.toMatchSnapshot();
   });
-
-  test('with validation enabled and missing input data returns the right warning message', () => {
-    expect.assertions(1);
-
-    const dataCompliance = { ...demoData, _compliance_: true };
-    dataCompliance.year = '';
-
-    return expect(render(dataCompliance)).resolves.toMatchSnapshot();
-  });
 });

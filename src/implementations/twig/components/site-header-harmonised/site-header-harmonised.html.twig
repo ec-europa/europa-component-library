@@ -63,7 +63,6 @@
           "value" (optional) (string)
         ...
       ],
-    - "_compliance_" (boolean) (default: false) Activates debug
 #}
 
 {# Default variables #}
@@ -78,7 +77,7 @@
 {% set _logged = logged|default(false) %}
 {% set _menu = menu|default(false) %}
 {% set _extra_attributes = '' %}
-{% set _compliance = _compliance_|default(false) %}
+
 {% set _search_form_extra_attributes = [{ name: 'data-ecl-search-form' }] %}
 {% set _search_input_extra_classes = 'ecl-search-form__text-input' %}
 {% set _search_form_extra_classes = 'ecl-site-header-harmonised__search' %}
@@ -169,12 +168,6 @@
     extra_attributes: _search_form_extra_attributes,
     extra_classes: _search_form_extra_classes,
   } %}
-  {% if _compliance %}
-    {% set _search_form = _search_form|merge({
-      _compliance_: true,
-      _compliance_inner_check_: true
-    }) %}
-  {% endif %}
 {% endif %}
 
 {# Internal logic - Process properties #}
@@ -258,8 +251,6 @@
                 size: 's'
               },
               extra_classes: 'ecl-site-header-harmonised__icon',
-              _compliance_: _compliance,
-              _compliance_inner_check_: true
             } only %}
             {{- login_toggle.label_logged -}}
             {% include '@ecl/icon/icon.html.twig' with {
@@ -270,8 +261,6 @@
                 size: 'xs'
               },
               extra_classes: 'ecl-site-header-harmonised__login-arrow',
-              _compliance_: _compliance,
-              _compliance_inner_check_: true
             } only %}
           </a>
           <div
@@ -289,8 +278,6 @@
                 path: _login_box.href,
                 type: "standalone"
               },
-              _compliance_: _compliance,
-              _compliance_inner_check_: true
             } only %}
           </div>
         {% else %}
@@ -306,8 +293,6 @@
                 size: 's'
               },
                 extra_classes: 'ecl-site-header-harmonised__icon',
-                _compliance_: _compliance,
-                _compliance_inner_check_: true
             } only %}
             {{- login_toggle.label_not_logged -}}
           </a>
@@ -333,8 +318,6 @@
               size: 's'
             },
             extra_classes: 'ecl-site-header-harmonised__icon',
-            _compliance_: _compliance,
-            _compliance_inner_check_: true
           } only %}
             <span class="ecl-site-header-harmonised__language-code">{{ _language_selector.code }}</span>
           </span>
@@ -360,8 +343,6 @@
                 extra_attributes: [
                 { name: 'aria-hidden', value: true }
                 ],
-                _compliance_: _compliance,
-                _compliance_inner_check_: true
               }
             } only -%}
             {{- _search_toggle.label -}}
@@ -380,8 +361,6 @@
       {%- if banner_top.link is defined and banner_top.link is not empty %}
         {% include '@ecl/link/link.html.twig' with banner_top|merge({
           link: banner_top.link|merge({ type: 'standalone'}),
-          _compliance_: _compliance,
-          _compliance_inner_check_: true,
           icon_path: _icon_file_path
         }) only %}
       {% else %}
@@ -399,8 +378,6 @@
   {% include '@ecl/menu/menu.html.twig' with _menu|merge({
     group: _group,
     icon_path: _icon_file_path,
-    _compliance_: _compliance,
-    _compliance_inner_check_: true
   }) only %}
 {% endif %}
 {% if _has_overlay is defined and _language_selector.overlay is defined and _language_selector.overlay.items is defined %}
@@ -426,30 +403,8 @@
       { name: 'hidden' },
       { name: 'id', value: 'language-list-overlay' }
     ],
-    _compliance_: _compliance,
-    _compliance_inner_check_: true
   } only %}
 {% endif %}
 </header>
-
-{# Validation #}
-
-{% if _compliance %}
-  {% include '@ecl/@compliance/site-header-harmonised.html.twig' with {
-    group: _group,
-    banner_top: banner_top,
-    logo: _logo,
-    language_selector: _language_selector,
-    logged: _logged,
-    login_box: _login_box,
-    login_toggle: _login_toggle,
-    icon_file_path: _icon_file_path,
-    search_toggle: _search_toggle,
-    has_overlay: _has_overlay,
-    menu: _menu,
-    search_form: _search_form,
-    site_name: _site_name
-  } only %}
-{% endif %}
 
 {% endspaceless %}

@@ -6,12 +6,7 @@ import {
   button,
 } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
-import {
-  getExtraKnobs,
-  getIconKnobs,
-  tabLabels,
-  getComplianceKnob,
-} from '@ecl/story-utils';
+import { getExtraKnobs, getIconKnobs, tabLabels } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
 
 import uiIcons from '@ecl/resources-ec-icons/dist/lists/ui.json';
@@ -189,7 +184,6 @@ const prepareHeroBanner = (data, variant) => {
   }
 
   getExtraKnobs(data);
-  getComplianceKnob(data);
 
   return data;
 };

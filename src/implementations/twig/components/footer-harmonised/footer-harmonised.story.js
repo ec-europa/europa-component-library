@@ -1,7 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import withCode from '@ecl/storybook-addon-code';
-import { getExtraKnobs, tabLabels, getComplianceKnob } from '@ecl/story-utils';
+import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
 
 import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import logoEC from '@ecl/resources-ec-logo/logo--en.svg';
@@ -78,7 +78,7 @@ const prepareFooterHarmonisedG3 = (data) => {
   });
 
   getExtraKnobs(data);
-  getComplianceKnob(data);
+
   // Return the full specs.
   return data;
 };
@@ -117,7 +117,6 @@ const prepareFooterHarmonisedG2 = (data) => {
   });
 
   getExtraKnobs(dataG2);
-  getComplianceKnob(dataG2);
   // Return the full specs.
   return data;
 };
@@ -253,7 +252,6 @@ const prepareFooterHarmonisedG1 = (data) => {
   });
 
   getExtraKnobs(dataG1);
-  getComplianceKnob(dataG1);
   // Return the full specs.
   return data;
 };

@@ -5,7 +5,6 @@ import {
   getFormGroupKnobs,
   tabLabels,
   getFormItemKnobs,
-  getComplianceKnob,
 } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
 
@@ -30,7 +29,6 @@ const prepareCheckbox = (data) => {
   });
 
   getExtraKnobs(data, true);
-  getComplianceKnob(data);
 
   return data;
 };

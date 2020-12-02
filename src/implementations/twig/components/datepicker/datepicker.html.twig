@@ -23,7 +23,6 @@
           "value" (optional) (string)
         ...
       ],
-    - "_compliance_" (boolean) (default: false) Activates debug
 #}
 
 {# Internal properties #}
@@ -46,7 +45,6 @@
 {% set _required = required|default(false) %}
 {% set _required_text = required_text|default('') %}
 {% set _optional_text = optional_text|default('') %}
-{% set _compliance = _compliance_|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -141,27 +139,9 @@
         path: _icons_path,
       },
       extra_classes: 'ecl-datepicker__icon',
-      _compliance_: _compliance,
-      _compliance_inner_check_: true
     } only %}
   {% endif %}
   </div>
 </div>
-
-{# Validation #}
-
-{% if _compliance %}
-  {% include '@ecl/@compliance/datepicker.html.twig' with {
-    helper_id: _helper_id,
-    invalid: _invalid,
-    required: _required,
-    invalid_text: _invalid_text,
-    required_text: _required_text,
-    optional_text: _optional_text,
-    label: _label,
-    icons_path: _icons_path,
-    placeholder: _placeholder
-  } only %}
-{% endif %}
 
 {% endspaceless %}

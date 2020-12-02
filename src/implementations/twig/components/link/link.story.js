@@ -1,12 +1,7 @@
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import {
-  getExtraKnobs,
-  tabLabels,
-  getIconKnobs,
-  getComplianceKnob,
-} from '@ecl/story-utils';
+import { getExtraKnobs, tabLabels, getIconKnobs } from '@ecl/story-utils';
 
 // Import data for demos
 import uiIcons from '@ecl/resources-ec-icons/dist/lists/ui.json';
@@ -54,7 +49,6 @@ const prepareLink = (data) => {
   );
 
   getExtraKnobs(data);
-  getComplianceKnob(data);
 
   return data;
 };

@@ -1,6 +1,6 @@
 import { withKnobs, text, optionsKnob, array } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
-import { getExtraKnobs, tabLabels, getComplianceKnob } from '@ecl/story-utils';
+import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
 
 import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
@@ -118,7 +118,6 @@ const prepareFile = (data, variant) => {
   }
 
   getExtraKnobs(data);
-  getComplianceKnob(data);
 
   return data;
 };

@@ -1,7 +1,7 @@
 import { withKnobs, text, button } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { getExtraKnobs, tabLabels, getComplianceKnob } from '@ecl/story-utils';
+import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
 
 import specs from '@ecl/specs-component-skip-link/demo/data';
 import skipLink from './skip-link.html.twig';
@@ -24,7 +24,6 @@ const prepareSkipLink = (data) => {
   data.href = text('href', data.href, tabLabels.required);
 
   getExtraKnobs(data);
-  getComplianceKnob(data);
 
   return data;
 };
