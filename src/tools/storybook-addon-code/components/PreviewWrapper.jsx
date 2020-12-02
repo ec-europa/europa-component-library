@@ -103,7 +103,7 @@ export class PreviewWrapper extends Component {
           <Overlay id="storybook-code">
             <DocumentWrapper>
               <TitleBar>
-                <h1>Live HTML</h1>
+                <h1>Component source code</h1>
                 <Button tertiary type="button" onClick={this.openInCodePen}>
                   Open in CodePen
                 </Button>
