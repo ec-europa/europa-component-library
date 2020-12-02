@@ -13,20 +13,8 @@ addParameters({
       hideCode: true,
     },
     {
-      id: 'eu-core',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/eu-core.css" />`,
-      picked: false,
-      hideCode: true,
-    },
-    {
       id: 'ec-core-print',
       code: `<link rel="stylesheet" type="text/css" href="./styles/ec-core-print.css" />`,
-      picked: false,
-      hideCode: true,
-    },
-    {
-      id: 'eu-core-print',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/eu-core-print.css" />`,
       picked: false,
       hideCode: true,
     },

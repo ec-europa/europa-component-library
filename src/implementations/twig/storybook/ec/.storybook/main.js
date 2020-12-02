@@ -1,6 +1,6 @@
 const path = require('path');
 
-const stories = ['../../**/*.story.js'];
+const stories = ['../../../**/!(eu*).story.js'];
 
 const addons = [
   '@storybook/addon-cssresources',

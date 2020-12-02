@@ -16,7 +16,7 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const publicPath = `${publicUrl}/`;
 
 const environmentModulePath = require.resolve(
-  '@ecl/twig-storybook/.storybook/environment.js'
+  '@ecl/twig-ec-storybook/.storybook/environment.js'
 );
 
 const cssLoader = ({ fixCode = true, prefix } = {}) => [

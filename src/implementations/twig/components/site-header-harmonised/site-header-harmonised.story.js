@@ -20,7 +20,8 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 
 import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
-import logo from '@ecl/resources-ec-logo/logo--en.svg';
+import logoEC from '@ecl/resources-ec-logo/logo--en.svg';
+import logoEU from '@ecl/resources-eu-logo/logo--en.svg';
 import dataGroup1 from '@ecl/specs-component-site-header-harmonised/demo/data--group1';
 import dataGroup2 from '@ecl/specs-component-site-header-harmonised/demo/data--group2';
 import dataGroup3 from '@ecl/specs-component-site-header-harmonised/demo/data--group3';
@@ -32,6 +33,9 @@ import notes from './README.md';
 const dataG1 = { ...dataGroup1 };
 const dataG2 = { ...dataGroup2 };
 const dataG3 = { ...dataGroup3 };
+
+const system = process.env.STORYBOOK_SYSTEM === 'EU';
+const logo = system ? logoEU : logoEC;
 
 // Show/hide Partnership logo.
 const btnLogoLabel = 'With or without the patnership logo';
