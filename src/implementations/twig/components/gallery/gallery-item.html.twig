@@ -15,7 +15,6 @@
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (string) Attribute value, eg: 'data-test-1'
-  - "_compliance_" (boolean) (default: false) Activates debug
 #}
 
 {# variables #}
@@ -28,7 +27,7 @@
 {% set _media_iframe_href = '' %}
 {% set _image_alt = '' %}
 {% set _item = item|default({}) %}
-{% set _compliance = _compliance_|default(false) %}
+
 {% set _has_icon = (_item.icon is defined and _item.icon is not empty) and
   (_item.icon.name is defined and _item.icon.name is not empty) %}
 
@@ -98,8 +97,6 @@
             size: "l",
           }),
           extra_classes: 'ecl-gallery__image-icon',
-          _compliance_: _compliance,
-          _compliance_inner_check_: true
         } only %}
       {% endif %}
       <figcaption
@@ -113,8 +110,6 @@
               size: "l",
             }),
             extra_classes: 'ecl-gallery__description-icon',
-            _compliance_: _compliance,
-            _compliance_inner_check_: true
           } only %}
         {% endif %}
         {% if _item.meta is defined and _item.meta is not empty %}
@@ -127,13 +122,5 @@
   {% endif %}
   </a>
 </li>
-
-{# Validation #}
-
-{% if _compliance %}
-  {% include '@ecl/@compliance/gallery-item.html.twig' with {
-    item: _item
-  } only %}
-{% endif %}
 
 {% endspaceless %}

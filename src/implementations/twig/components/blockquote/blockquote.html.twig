@@ -11,7 +11,6 @@
           "value" (optional) (string)
         ...
       ]
-    - "_compliance_" (boolean) (default: false)
 #}
 
 {# Internal properties #}
@@ -20,7 +19,6 @@
 {% set _extra_attributes = '' %}
 {% set _citation = citation|default('') %}
 {% set _author = author|default('') %}
-{% set _compliance = _compliance_|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -44,14 +42,5 @@
   <p class="ecl-blockquote__body">{{ _citation }}</p>
   <footer class="ecl-blockquote__attribution"><cite class="ecl-blockquote__author">{{ _author }}</cite></footer>
 </blockquote>
-
-{# Validation #}
-
-{% if _compliance %}
-  {% include '@ecl/@compliance/blockquote.html.twig' with {
-    citation: _citation,
-    author: _author
-  } only %}
-{% endif %}
 
 {% endspaceless %}

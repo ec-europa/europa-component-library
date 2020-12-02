@@ -45,22 +45,4 @@ describe('Search Form', () => {
       return expect(render(withExtraFormElements)).resolves.toMatchSnapshot();
     });
   });
-  describe('with validation enabled and missing input data', () => {
-    test('returns the right warning message', () => {
-      expect.assertions(1);
-
-      const dataCompliance = {
-        ...data,
-        button: {
-          label: '',
-        },
-        icon: {
-          path: '',
-        },
-        _compliance_: true,
-      };
-
-      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
-    });
-  });
 });

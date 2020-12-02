@@ -29,7 +29,6 @@
       ...
     ]
   - "ratio" (string) (default: 16-9)
-  - "_compliance_" (boolean) (default: false) Activates debug
 
   Blocks:
     - "embedded_media"
@@ -46,7 +45,6 @@
 {% set _ratio = ratio|default('16-9') %}
 {% set _sources = sources|default({}) %}
 {% set _tracks = tracks|default({}) %}
-{% set _compliance = _compliance_|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -104,17 +102,5 @@
   </figcaption>
 {% endif %}
 </figure>
-
-{# Validation #}
-
-{% if _compliance %}
-  {% include '@ecl/@compliance/media-container.html.twig' with {
-    alt: _alt,
-    image: _image,
-    embedded_media: _embedded_media,
-    sources: _sources,
-    tracks: _tracks
-  } only %}
-{% endif %}
 
 {% endspaceless %}

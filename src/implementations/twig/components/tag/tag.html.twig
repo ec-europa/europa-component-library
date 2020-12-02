@@ -17,8 +17,6 @@
           "value" (optional) (string)
         ...
       ]
-    - "_compliance_": (boolean) (default: false) Activates debug
-    - "_compliance_inner_check_": (boolean) (default: false) Inline compliance report
 #}
 
 {# Internal properties #}
@@ -38,8 +36,6 @@
   {% set _css_class = _css_class ~ ' ecl-tag--' ~ _tag.type %}
 {% endif %}
 {% set _extra_attributes = '' %}
-{% set _compliance = _compliance_|default(false) %}
-{% set _compliance_inner_check = _compliance_inner_check_|default(false) %}
 {% set _default_icon_path = default_icon_path|default('') %}
 
 {# Add extra class for removable tag #}
@@ -79,30 +75,14 @@
       {% include '@ecl/icon/icon.html.twig' with {
         icon: { type: 'ui', name: 'close', size: 'xs', path: _default_icon_path },
         extra_classes: 'ecl-tag__icon-close',
-        _compliance_: _compliance,
-        _compliance_inner_check_: true
       } only %}
       {% include '@ecl/icon/icon.html.twig' with {
         icon: { type: 'ui', name: 'close-filled', size: 'xs', path: _default_icon_path },
         extra_classes: 'ecl-tag__icon-close-filled',
-        _compliance_: _compliance,
-        _compliance_inner_check_: true
       } only %}
     </button>
   {%- endif -%}
   </span>
-{% endif %}
-
-{# Validation #}
-
-{% if _compliance %}
-  {% set _icon_path = icon_path|default('') %}
-  {% include '@ecl/@compliance/tag.html.twig' with {
-    tag: _tag,
-    default_icon_path: _default_icon_path,
-    icon_path: _icon_path,
-    _compliance_inner_check_: _compliance_inner_check
-  } only %}
 {% endif %}
 
 {% endspaceless %}

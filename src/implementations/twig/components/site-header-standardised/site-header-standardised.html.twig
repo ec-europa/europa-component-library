@@ -62,7 +62,6 @@
           "value" (optional) (string)
         ...
       ],
-      _compliance_: (boolean) (default: false) Activates debug.
 #}
 
 {# Default variables #}
@@ -78,7 +77,6 @@
 {% set _site_name = site_name|default('') %}
 {% set _extra_attributes = '' %}
 {% set _css_class = 'ecl-site-header-standardised' %}
-{% set _compliance = _compliance_|default(false) %}
 {% set _search_form_extra_attributes = [{ name: 'data-ecl-search-form' }] %}
 {% set _search_input_extra_classes = 'ecl-search-form__text-input' %}
 {% set _search_form_extra_classes = 'ecl-site-header-standardised__search' %}
@@ -175,13 +173,6 @@
 
 {# Internal logic - Process properties #}
 
-{% if _compliance %}
-  {% set _search_form = _search_form|merge({
-    _compliance_: _compliance,
-    _compliance_inner_check_: true
-  }) %}
-{% endif %}
-
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
@@ -249,7 +240,6 @@
                 size: 's'
               },
               extra_classes: 'ecl-site-header-standardised__icon',
-              _compliance_: _compliance
             } only %}
              {{- login_toggle.label_logged -}}
             {% include '@ecl/icon/icon.html.twig' with {
@@ -260,8 +250,6 @@
                 size: 'xs'
               },
               extra_classes: 'ecl-site-header-standardised__login-arrow',
-               _compliance_: _compliance,
-               _compliance_inner_check_: true
             } only %}
           </a>
           <div
@@ -279,8 +267,6 @@
                 path: _login_box.href,
                 type: 'standalone'
               },
-               _compliance_: _compliance,
-               _compliance_inner_check_: true
             } only %}
           </div>
         {% else %}
@@ -296,8 +282,6 @@
                 size: 's'
               },
               extra_classes: 'ecl-site-header-standardised__icon',
-               _compliance_: _compliance,
-               _compliance_inner_check_: true
             } only %}
             {{- login_toggle.label_not_logged -}}
           </a>
@@ -323,8 +307,6 @@
                 size: 's'
               },
               extra_classes: 'ecl-site-header-standardised__icon',
-              _compliance_: _compliance,
-              _compliance_inner_check_: true
             } only %}
             <span class="ecl-site-header-standardised__language-code">{{ _language_selector.code }}</span>
           </span>
@@ -349,8 +331,6 @@
               extra_attributes: [
                { name: 'aria-hidden', value: true }
               ],
-              _compliance_: _compliance,
-              _compliance_inner_check_: true
             }
           } only -%}
           {{- _search_toggle.label -}}
@@ -367,9 +347,7 @@
     {%- if banner_top.link is defined and banner_top.link is not empty %}
       {% include '@ecl/link/link.html.twig' with banner_top|merge({
         link: banner_top.link|merge({ type: 'standalone'}),
-         _compliance_: _compliance,
-         _compliance_inner_check_: true,
-         icon_path: _icon_file_path
+        icon_path: _icon_file_path
       }) only %}
     {% else %}
       {{ banner_top|raw }}
@@ -381,8 +359,6 @@
   {% include '@ecl/menu/menu.html.twig' with _menu|merge({
     site_name: _site_name,
     icon_path: _icon_file_path,
-     _compliance_: _compliance,
-     _compliance_inner_check_: true
   }) only %}
 {% else %}
   <div class="ecl-site-header-standardised__banner">
@@ -412,27 +388,8 @@
       { name: 'hidden' },
       { name: 'id', value: 'language-list-overlay' }
     ],
-    _compliance_: _compliance,
-    _compliance_inner_check_: true
   } only %}
 {% endif %}
 </header>
-
-{# Validation #}
-
-{% if _compliance %}
-  {% include '@ecl/@compliance/site-header-standardised.html.twig' with {
-    banner_top: banner_top,
-    logo: _logo,
-    language_selector: _language_selector,
-    logged: _logged,
-    login_box: _login_box,
-    login_toggle: _login_toggle,
-    icon_file_path: _icon_file_path,
-    search_toggle: _search_toggle,
-    has_overlay: _has_overlay,
-    search_form: _search_form
-  } only %}
-{% endif %}
 
 {% endspaceless %}

@@ -1,5 +1,5 @@
 import { withKnobs, text, select } from '@storybook/addon-knobs';
-import { getExtraKnobs, tabLabels, getComplianceKnob } from '@ecl/story-utils';
+import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 
@@ -24,7 +24,6 @@ const prepareLabel = (data) => {
   );
 
   getExtraKnobs(data);
-  getComplianceKnob(data);
 
   return data;
 };

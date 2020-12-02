@@ -14,7 +14,6 @@ import {
   getLoginKnobs,
   getLanguageSelectorKnobs,
   getSearchFormKnobs,
-  getComplianceKnob,
 } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
 
@@ -98,8 +97,6 @@ const prepareSiteHeaderCore = (data, lang) => {
   );
   // Extra classes and extra attributes.
   getExtraKnobs(data);
-  // Compliance.
-  getComplianceKnob(data);
 
   return data;
 };

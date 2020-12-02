@@ -1,7 +1,7 @@
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { getExtraKnobs, tabLabels, getComplianceKnob } from '@ecl/story-utils';
+import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
 
 import defaultData from '@ecl/specs-component-blockquote/demo/data';
 import blockquote from './blockquote.html.twig';
@@ -13,7 +13,6 @@ const prepareQuote = (data) => {
   data.author = text('author', data.author, tabLabels.required);
 
   getExtraKnobs(data);
-  getComplianceKnob(data);
 
   return data;
 };

@@ -1,12 +1,7 @@
 import { withKnobs, text, select, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import {
-  getExtraKnobs,
-  tabLabels,
-  getIconKnobs,
-  getComplianceKnob,
-} from '@ecl/story-utils';
+import { getExtraKnobs, tabLabels, getIconKnobs } from '@ecl/story-utils';
 import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 // Import data for demos
 import dataInfo from '@ecl/specs-component-message/demo/data--info';
@@ -45,7 +40,6 @@ const prepareMessage = (data) => {
   );
 
   getExtraKnobs(data);
-  getComplianceKnob(data);
 
   return data;
 };

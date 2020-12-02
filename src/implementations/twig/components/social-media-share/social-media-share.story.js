@@ -4,7 +4,6 @@ import {
   getExtraKnobs,
   tabLabels,
   getBrandedIconsOptions,
-  getComplianceKnob,
 } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
 
@@ -124,7 +123,6 @@ const prepareSocialMediaShare = (data) => {
   });
 
   getExtraKnobs(data);
-  getComplianceKnob(data);
 
   return data;
 };

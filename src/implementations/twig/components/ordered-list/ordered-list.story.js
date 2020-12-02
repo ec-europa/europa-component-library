@@ -1,10 +1,9 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import { withKnobs, text } from '@storybook/addon-knobs';
-import { getExtraKnobs, tabLabels, getComplianceKnob } from '@ecl/story-utils';
+import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
 
 import dataOrderedList from '@ecl/specs-component-ordered-list/demo/data';
-
 import orderedList from './ordered-list.html.twig';
 import notes from './README.md';
 
@@ -24,7 +23,6 @@ const prepareOrderedList = (data) => {
   });
 
   getExtraKnobs(data);
-  getComplianceKnob(data);
 
   return data;
 };

@@ -5,7 +5,6 @@ import {
   getExtraKnobs,
   tabLabels,
   getBrandedIconsOptions,
-  getComplianceKnob,
 } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
 
@@ -24,7 +23,6 @@ const prepareSocialMediaFollow = (data, vertical) => {
       'vertical',
       tabLabels.required
     );
-    data['_compliance_'] = false;
   } else {
     delete data.variant;
   }
@@ -136,7 +134,7 @@ const prepareSocialMediaFollow = (data, vertical) => {
   });
 
   getExtraKnobs(data);
-  getComplianceKnob(data);
+
   return data;
 };
 

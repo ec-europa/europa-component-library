@@ -78,17 +78,4 @@ describe('Breadcrumb Standardised', () => {
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
     });
   });
-  describe('with validation enabled and missing input data', () => {
-    test('returns the right warning message', () => {
-      expect.assertions(1);
-
-      const dataCompliance = {
-        ...dataLong,
-        icon_file_path: '',
-        _compliance_: true,
-      };
-
-      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
-    });
-  });
 });

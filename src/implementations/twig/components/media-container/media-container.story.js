@@ -2,7 +2,7 @@ import he from 'he';
 import { withKnobs, text, select, object } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { getExtraKnobs, tabLabels, getComplianceKnob } from '@ecl/story-utils';
+import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
 
 // Import data for demos
 import demoImg from '@ecl/specs-component-media-container/demo/data--image';
@@ -43,7 +43,6 @@ const prepareMediaContainer = (data, media) => {
   }
 
   getExtraKnobs(data);
-  getComplianceKnob(data);
 
   return data;
 };

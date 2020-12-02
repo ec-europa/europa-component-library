@@ -29,8 +29,6 @@
     },
     ...
     ],
-  - "_compliance_": (boolean) (default: false) Activates debug
-  - "_compliance_inner_check_": (boolean) (default: false) Inline compliance report
 #}
 
 {# Internal properties #}
@@ -45,9 +43,7 @@
 {% set _non_eu_category = non_eu_category|default('') %}
 {% set _title = title|default('') %}
 {% set _extra_attributes = '' %}
-{% set _compliance = _compliance_|default(false) %}
 {% set _data_lang_overlay = data_lang_overlay|default('') %}
-{% set _compliance_inner_check = _compliance_inner_check_|default(false) %}
 
 {% if _overlay %}
   {% set _css_class = 'ecl-language-list ecl-language-list--overlay' %}
@@ -91,8 +87,6 @@
           icon_position: "after",
           extra_classes: 'ecl-language-list__close-button',
           extra_attributes: [{ name: 'data-ecl-language-list-close' }],
-          _compliance_: _compliance,
-          _compliance_inner_check_: true
         } only %}
       </div>
       <div
@@ -118,7 +112,6 @@
         icon_path: _icon_path,
         category: eu_category,
         section: 'eu',
-        _compliance_: _compliance
     } only %}
   {% endif %}
   {% if _non_eu_items is not empty and _non_eu_items is iterable %}
@@ -128,27 +121,9 @@
         icon_path: _icon_path,
         category: non_eu_category,
         section: 'non-eu',
-        _compliance_: _compliance
     } only %}
   {% endif %}
   </div>
 </div>
-
-{# Validation #}
-
-{% if _compliance %}
-  {% include '@ecl/@compliance/language-list.html.twig' with {
-    overlay: _overlay,
-    close_label: _close_label,
-    eu_category: _eu_category,
-    non_eu_category: _non_eu_category,
-    non_eu_items: _non_eu_items,
-    title: _title,
-    items: _items,
-    icon_path: _icon_path,
-    logo: _logo,
-    _compliance_inner_check_: _compliance_inner_check
-  } only %}
-{% endif %}
 
 {% endspaceless %}

@@ -1,6 +1,6 @@
 import { withKnobs, text, select, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
-import { getExtraKnobs, tabLabels, getComplianceKnob } from '@ecl/story-utils';
+import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
 import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import demoData from '@ecl/specs-component-accordion/demo/data';
@@ -35,7 +35,6 @@ const prepareAccordion = (data) => {
   });
 
   getExtraKnobs(data);
-  getComplianceKnob(data);
 
   return data;
 };

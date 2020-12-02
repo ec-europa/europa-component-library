@@ -18,7 +18,6 @@ npm install --save @ecl/twig-component-page-header-core
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
-- **"\_compliance\_"** (boolean) (default: false) Activates debug
 
 ### Example :
 

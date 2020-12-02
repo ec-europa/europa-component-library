@@ -12,7 +12,6 @@
         },
         ...
       ],
-   - "_compliance_" (boolean) (default: false) Activates debug
 #}
 
 {# Internal properties #}
@@ -21,7 +20,6 @@
 {% set _href = href|default('') %}
 {% set _label = label|default('') %}
 {% set _extra_attributes = '' %}
-{% set _compliance = _compliance_|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -39,21 +37,12 @@
   {% endfor %}
 {% endif %}
 
-
 {# Print the result #}
 
 <a href="{{ _href }}" class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   {{- _label -}}
 </a>
 
-{# Validation #}
-
-{% if _compliance %}
-  {% include '@ecl/@compliance/skip-link.html.twig' with {
-    href: _href,
-    label: _label
-  } only %}
-{% endif %}
 {% endspaceless %}
 
 

@@ -38,16 +38,6 @@ describe('File', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
-
-    test('with validation enabled and missing input data returns the right warning message', () => {
-      expect.assertions(1);
-
-      const dataCompliance = { ...dataWithTranslation, _compliance_: true };
-      dataCompliance.translation.items[0].title = '';
-      dataCompliance.translation.items[0].download.link.label = '';
-
-      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
-    });
   });
 
   describe('Without translation', () => {
@@ -78,16 +68,6 @@ describe('File', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
-    });
-
-    test('with validation enabled and missing input data returns the right warning message', () => {
-      expect.assertions(1);
-
-      const dataCompliance = { ...dataWithoutTranslation, _compliance_: true };
-      dataCompliance.meta = '';
-      dataCompliance.language = '';
-
-      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
   });
 

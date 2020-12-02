@@ -37,15 +37,11 @@
           "value" (optional) (string)
         ...
       ],
-    - "_compliance_" (boolean) (default: false) Activates debug
-    - "_compliance_inner_check_" (boolean) (default: false) Inline compliance output
     - "icon_path" (string) (default: '') Path to the icons sprite
 #}
 
 {# Internal properties #}
 
-{% set _compliance = _compliance_|default(false) %}
-{% set _compliance_inner_check = _compliance_inner_check_|default(false) %}
 {% set _icon_path = icon_path|default('') %}
 
 {% set _link = {
@@ -116,8 +112,6 @@
         {%- include '@ecl/icon/icon.html.twig' with _icon|merge({
           icon: icon|default({}),
           extra_classes: _icon_extra_classes,
-          _compliance_: _compliance,
-          _compliance_inner_check_: true
         }) only -%}
       {%- endif -%}
     {% endfor %}
@@ -137,8 +131,6 @@
         {%- include '@ecl/icon/icon.html.twig' with _icon|merge({
           icon: icon|default({}),
           extra_classes: _icon_extra_classes,
-          _compliance_: _compliance,
-          _compliance_inner_check_: true
         }) only -%}
       {%- endif -%}
     {% endfor %}
@@ -147,16 +139,5 @@
     {{- _link.label -}}
   {% endif %}
 </a>
-
-{# Validation #}
-
-{% if _compliance %}
-  {% include '@ecl/@compliance/link.html.twig' with {
-    link: _link,
-    icon: _icons,
-    _compliance_inner_check_: _compliance_inner_check,
-    icon_path: _icon_path
-  } only %}
-{% endif %}
 
 {% endspaceless %}

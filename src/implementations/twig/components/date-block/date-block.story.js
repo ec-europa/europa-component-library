@@ -1,7 +1,7 @@
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { getExtraKnobs, tabLabels, getComplianceKnob } from '@ecl/story-utils';
+import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
 
 import specs from '@ecl/specs-component-date-block/demo/data';
 import dateBlock from './date-block.html.twig';
@@ -22,7 +22,6 @@ const prepareDateBlock = (data, variant) => {
   data.date_time = text('date_time', data.date_time, tabLabels.optional);
 
   getExtraKnobs(data);
-  getComplianceKnob(data);
 
   return data;
 };

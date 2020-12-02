@@ -14,7 +14,6 @@ import {
   getLoginKnobs,
   getLanguageSelectorKnobs,
   getSearchFormKnobs,
-  getComplianceKnob,
 } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
 
@@ -159,8 +158,6 @@ const prepareSiteHeaderStandardised = (data, lang) => {
   if (data.menu) {
     data.menu = object('data.menu', data.menu, tabLabels.optional);
   }
-  // Compliance
-  getComplianceKnob(data);
 
   return data;
 };

@@ -12,14 +12,12 @@
           "value" (optional) (string)
         ...
       ],
-    - "_compliance_" (boolean) (default: false) Activates debug
 #}
 
 {# variables #}
 {% set _title = title|default('') %}
 {% set _meta = meta|default('') %}
 {% set _description = description|default('') %}
-{% set _compliance = _compliance_|default(false) %}
 {% set _css_class = 'ecl-page-header-harmonised' %}
 {% set _extra_attributes = '' %}
 {% set _breadcrumb = breadcrumb|default({}) %}
@@ -45,8 +43,6 @@
   {% if _breadcrumb is not empty %}
     {% include '@ecl/breadcrumb-harmonised/breadcrumb-harmonised.html.twig' with _breadcrumb|merge({
       extra_classes: 'ecl-page-header-harmonised__breadcrumb',
-      _compliance_: _compliance,
-      _compliance_inner_check_: true
     }) only %}
   {% endif %}
   {% if _meta is not empty %}
@@ -60,13 +56,5 @@
   {% endif %}
   </div>
 </div>
-
-{# Validation #}
-
-{% if _compliance %}
-  {% include '@ecl/@compliance/page-header-harmonised.html.twig' with {
-    title: _title
-  } only %}
-{% endif %}
 
 {% endspaceless %}
