@@ -132,17 +132,6 @@
       {% for _item in _section.items %}
         <li class="ecl-footer-core__list-item">
           {%- block item _item|raw -%}
-        {#{% include '@ecl/link/link.html.twig' with _item|merge({
-          link: _item.link|default({})|merge({
-            type: 'standalone',
-          }),
-          icon: _item.icon|default({})|merge({
-            size: 'xs',
-          }),
-          extra_classes: 'ecl-footer-core__link',
-          _compliance_: _compliance,
-          _compliance_inner_check: true
-        }) only %}#}
         </li>
       {% endfor %}
       </ul>
