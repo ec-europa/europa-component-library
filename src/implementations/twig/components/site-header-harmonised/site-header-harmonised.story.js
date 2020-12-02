@@ -34,8 +34,8 @@ const dataG1 = { ...dataGroup1 };
 const dataG2 = { ...dataGroup2 };
 const dataG3 = { ...dataGroup3 };
 
-const system = process.env.STORYBOOK_SYSTEM === 'EU';
-const logo = system ? logoEU : logoEC;
+const euSystem = process.env.STORYBOOK_SYSTEM === 'EU';
+const logo = euSystem ? logoEU : logoEC;
 
 // Show/hide Partnership logo.
 const btnLogoLabel = 'With or without the patnership logo';
