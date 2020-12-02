@@ -12,7 +12,7 @@
     - "title" (predefined structure) see Link component
     - "description" (string) (default: ''),
     - "section_class_name" (string) (default: ''),
-    - "links" (array of link objects) (default: []),
+    - "items" (array of blocks) (default: []),
     - "list_class_name" (string) (default: []),
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
@@ -122,16 +122,17 @@
     {% if _section.description is defined and _section.description is not empty %}
       <div class="ecl-footer-core__description">{{ _section.description|raw }}</div>
     {% endif %}
-    {# links #}
-    {% if _section.links is defined and _section.links is not empty %}
+    {# items #}
+    {% if _section.items is defined and _section.items is not empty %}
       {% set _list_class = 'ecl-footer-core__list' %}
       {% if _section.list_class_name is defined and _section.list_class_name is not empty %}
         {% set _list_class = _list_class ~ ' ' ~ _section.list_class_name %}
       {% endif %}
       <ul class="{{ 'ecl-footer-core__list ' ~ _list_class }}">
-      {% for _item in _section.links %}
+      {% for _item in _section.items %}
         <li class="ecl-footer-core__list-item">
-        {% include '@ecl/link/link.html.twig' with _item|merge({
+          {%- block item _item|raw -%}
+        {#{% include '@ecl/link/link.html.twig' with _item|merge({
           link: _item.link|default({})|merge({
             type: 'standalone',
           }),
@@ -141,7 +142,7 @@
           extra_classes: 'ecl-footer-core__link',
           _compliance_: _compliance,
           _compliance_inner_check: true
-        }) only %}
+        }) only %}#}
         </li>
       {% endfor %}
       </ul>
