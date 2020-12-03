@@ -10,7 +10,6 @@ import { Link, Paragraph } from '@ecl/website-components';
   reading devices.
 </Paragraph>
 
-Available classes are:
+To hide some element on screen, just use the `.ecl-u-sr-only` class.
 
-- `.ecl-u-sr-only`: always hidden on screen, and available on screen reader
-- `.ecl-u-sr-only--focusable`: hidden by default on screen, but can be displayed if focused (with keyboard mostly)
+By adding the extra class `.ecl-u-sr-only--focusable` on it, the element will remain hidden by default on screen, but it will be displayed if focused (with keyboard mostly). This class has to be used with element that can be focused by default (links, button), or with a `tabindex`
