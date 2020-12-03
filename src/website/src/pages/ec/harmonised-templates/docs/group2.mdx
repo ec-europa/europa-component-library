@@ -1,0 +1,95 @@
+---
+title: Group 2
+order: 2
+---
+
+import { Paragraph, List, Anatomy, Link } from '@ecl/website-components';
+
+<Paragraph size="lead">
+  On this page you will find information related to the EC
+  branded <strong>Harmonised group 2 websites</strong> that host specific
+  content that answers a particular communication purpose, in particular:
+</Paragraph>
+
+<List size="lead">
+  <li>
+    <strong>Event website</strong> - Purpose of advertising a specific or
+    repeatedly occurring activity that is open to the public, organised and/or
+    hosted by the European Commission. Event websites are only allowed for large
+    and complex events that cannot be accommodated by the events content type
+  </li>
+  <li>
+    <strong>Campaign website</strong> - Providing online communication endeavour
+    dedicated to promoting a single or several thematically linked activities,
+    initiatives, services or products
+  </li>
+  <li>
+    <strong>Blogs</strong> - Regularly updated websites dedicated to publishing
+    general features and news items about specific European Commission
+    activities
+  </li>
+</List>
+
+## Anatomy
+
+<Anatomy
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/HarmonisedTemplate/harmonised-2-template.png"
+  alt="Anatomy of the harmonised template - group 2"
+  legend={{
+    items: [
+      {
+        color: '#404040',
+        label: 'mandatory',
+      },
+      {
+        color: '#004494',
+        label: 'optional',
+      },
+    ],
+  }}
+/>
+
+| Elements                                                                                                           | Mandatory | Description                                                                                                                                                                                                                                                                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <Link to="https://webgate.ec.europa.eu/fpfis/wikis/display/webtools/Global+banner" standalone>global banner</Link> | yes       | the Global banner is the official EU stamp that gives a visual indicator and easy access to EU institutions and bodies sites, guaranteeing the user visits an official EU website                                                                                                                                                                 |
+| <Link to="/ec/harmonised-templates/site-header/group2/" standalone>harmonised site header</Link>                   | yes       | <p>the Harmonised site header is present on every page. It communicates the European Commission brand and provides basic structure and guidance. The site header is composed of several mandatory and optional elements such as:</p><ul><li>European Commission logo</li><li>Language select</li><li>Europa search form</li><li>Menu</li></ul>                 |
+| <Link to="/ec/harmonised-templates/page-header/group2/" standalone>harmonised page header</Link>                   | no        | <p>the Harmonised page header gives context and information to the user on what the page is about. It is present on every page, just below the site header, except for the homepage. The page header is composed of mandatory and optional elements such as:</p><ul><li>Breadcrumb</li><li>Meta</li><li>Page title</li><li>Introduction</li></ul> |
+| <Link to="/ec/harmonised-templates/footer/group2/" standalone>harmonised footer</Link>                             | yes       | the Harmonised footer is present on every page. It provides supplementary information such as copyright, legal, privacy, social media, contact information and links to other important sections within the EC ecosystem.                                                                                                        |
+
+**NOTE**: On the Page body section, ECL components are optional.
+
+## Structural anatomy
+
+When designing the page, make sure to follow appropriate category guidelines available below in terms of structure and layout
+
+| Elements                                                           | Mandatory     | Description                                                             |
+| ------------------------------------------------------------------ | ------------- | ----------------------------------------------------------------------- |
+| <Link to="/ec/utilities/grid/" standalone>grid</Link>              | recommended   | enhance visual consistency                                              |
+| <Link to="/ec/guidelines/colours/" standalone>colours</Link>       | contextual \* | use only EC colour specifications available in the ECL                  |
+| <Link to="/ec/guidelines/typography/" standalone>typography</Link> | contextual \* | apply the typographic guidelines available in the ECL                   |
+| <Link to="/ec/guidelines/spacing/" standalone>spacing</Link>       | contextual \* | apply spacing rules explained in the ECL                                |
+| <Link to="/ec/guidelines/iconography/" standalone>icons</Link>     | contextual \* | where icons feature, use commonly-used icons from the ECL               |
+| <Link to="/ec/guidelines/images/" standalone>images</Link>         | contextual \* | see image guidelines in ECL                                             |
+
+<Paragraph size="s">
+  * <strong>Contextual</strong> – elements that may or may not feature on a
+  page, depending on the communication and/or functional needs – for example
+  Login. Where the element features, use the ECL component.
+</Paragraph>
+
+## Do's
+
+- make sure the pages contain all the elements in the anatomy table above
+
+## Don'ts
+
+- do not replace pages only on existing websites as this will create visual inconsistencies, this must be done at a site level
+
+## When to use
+
+- the Harmonised template must be used for all new development and can also be introduced on existing pages to replace a previous template, but this should be done on a site basis, not page by page
+
+## When not to use
+
+- do not follow these guidelines when you are updating sites that fall under the <Link to="/ec/core-template/">Core</Link> or <Link to="/ec/standardised-template/">Standardised</Link> category
+- do not follow these guidelines when you are updating sites that fall under web information systems, network or internal policy websites - use <Link to="/ec/harmonised-templates/group1/">Harmonised Group 1</Link> instead
