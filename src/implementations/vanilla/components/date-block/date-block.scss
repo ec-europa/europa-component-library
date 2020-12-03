@@ -112,21 +112,21 @@ $_circle-width: 0.6rem;
     padding-bottom: map.get(spacing.$spacing, 'xs');
     padding-top: map.get(spacing.$spacing, 'xs');
   }
+}
 
-  .ecl-date-block__daytime {
-    border: 0;
-    clip: rect(0, 0, 0, 0);
-    /* stylelint-disable-next-line property-no-vendor-prefix */
-    -webkit-clip-path: inset(50%);
-    clip-path: inset(50%);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-  }
+.ecl-date-block__daytime {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 // ongoing
