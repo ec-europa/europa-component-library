@@ -4,82 +4,46 @@ import { styled } from '@ecl/dom-utils';
 
 const styleContainer = {
   backgroundColor: '#d9d9d9',
-  padding: '0.5rem',
+  height: '10rem',
+  font: 'normal normal 400 .875rem/1rem Arial,sans-serif',
+  width: '10rem',
 };
 
 const styleBox = {
   backgroundColor: '#ebebeb',
+  boxSizing: 'border-box',
   border: '2px solid #000',
-  height: '5rem',
-  margin: '0.5rem',
-  padding: '0.5rem',
-  width: '5rem',
+  display: 'inline-block',
 };
 
 export default {
-  title: 'Utilities/Display',
+  title: 'Utilities/Dimension',
   decorators: [withKnobs],
 };
 
 export const Custom = () => {
-  const displayContainer = select(
-    'Display (container)',
+  const width = select(
+    'Width',
     {
-      Block: 'ecl-u-d-block',
-      Inline: 'ecl-u-d-inline',
-      'Inline block': 'ecl-u-d-inline-block',
-      Flex: 'ecl-u-d-flex',
-      'inline-flex': 'ecl-u-d-inline-flex',
-      Table: 'ecl-u-d-table',
-      'Table cell': 'ecl-u-d-table-cell',
-      None: 'ecl-u-d-none',
+      Auto: 'ecl-u-width-auto',
+      '100%': 'ecl-u-width-100',
     },
-    'ecl-u-d-block'
+    'ecl-u-width-auto'
   );
 
-  const displayInner = select(
-    'Display (inner box)',
+  const height = select(
+    'Height',
     {
-      Block: 'ecl-u-d-block',
-      Inline: 'ecl-u-d-inline',
-      'Inline block': 'ecl-u-d-inline-block',
-      Flex: 'ecl-u-d-flex',
-      'inline-flex': 'ecl-u-d-inline-flex',
-      Table: 'ecl-u-d-table',
-      'Table cell': 'ecl-u-d-table-cell',
-      None: 'ecl-u-d-none',
+      Auto: 'ecl-u-height-auto',
+      '100%': 'ecl-u-height-100',
     },
-    'ecl-u-d-block'
-  );
-
-  const boxSizing = select(
-    'Box sizing',
-    {
-      'Content box': 'ecl-u-box-sizing-content',
-      'Border box': 'ecl-u-box-sizing-border',
-    },
-    'ecl-u-box-sizing-content'
+    'ecl-u-height-auto'
   );
 
   return `
-    <div style="${styled(styleContainer)}" class="${displayContainer}">
-      <div style="${styled(styleBox)}" class="${classnames(
-    displayInner,
-    boxSizing
-  )}">
-        Box
-      </div>
-      <div style="${styled(styleBox)}" class="${classnames(
-    displayInner,
-    boxSizing
-  )}">
-        Box
-      </div>
-      <div style="${styled(styleBox)}" class="${classnames(
-    displayInner,
-    boxSizing
-  )}">
-        Box
+    <div style="${styled(styleContainer)}">
+      <div style="${styled(styleBox)}" class="${classnames(width, height)}">
+        Content box
       </div>
     </div> 
   `;

@@ -3,6 +3,7 @@ import { styled } from '@ecl/dom-utils';
 
 const styleContainer = {
   backgroundColor: '#d9d9d9',
+  font: 'normal normal 400 .875rem/1rem Arial,sans-serif',
   padding: '0.5rem',
 };
 
@@ -40,7 +41,7 @@ export const Custom = () => {
         Float right box
       </div>
     </div>
-    Text after
+    <p class="ecl-u-type-paragraph">Text after</p>
   
     <h2 class="ecl-u-type-heading-2">With clearfix</h2>
     <div style="${styled(styleContainer)}" class="ecl-u-clearfix">
@@ -51,7 +52,7 @@ export const Custom = () => {
         Float right box
       </div>
     </div>
-    Text after
+    <p class="ecl-u-type-paragraph">Text after</p>
   `;
 };
 
