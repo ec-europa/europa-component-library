@@ -1,4 +1,4 @@
-const system = 'ec';
+const system = (process.env.STORYBOOK_SYSTEM || 'ec').toLowerCase();
 const baseUrl =
   ['ec.europa.eu', 'localhost'].indexOf(window.location.hostname) !== -1
     ? `https://v3--europa-component-library.netlify.app/playground/${system}`
