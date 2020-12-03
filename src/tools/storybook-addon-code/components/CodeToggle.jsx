@@ -36,7 +36,7 @@ export class CodeToggle extends Component {
         title={!expanded ? 'Show source code' : 'Hide source code'}
         onClick={this.handleClick}
       >
-        Prorotype with the source code
+        Prototype with the source code
       </IconButton>
     );
   }
