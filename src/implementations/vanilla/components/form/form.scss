@@ -40,7 +40,8 @@
     margin-top: map.get(spacing.$spacing, 's');
   }
 
-  > *:not(.ecl-form-label--hidden) + .ecl-select__container {
+  > *:not(.ecl-form-label--hidden) + .ecl-select__container,
+  > *:not(.ecl-form-label--hidden) + .ecl-select__multiple {
     margin-top: map.get(spacing.$spacing, 's');
   }
 
