@@ -127,6 +127,13 @@ Primary.parameters = { notes: { markdown: notes, json: dataPrimary } };
 
 export const Secondary = (args) => button(prepareControls(dataSecondary, args));
 
+// Hide a Control for a specific story
+Secondary.argTypes = {
+  icon_transform: {
+    table: {
+      disable: true,
+    },
+  },
 };
 
 Secondary.args = {
