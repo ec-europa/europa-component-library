@@ -39,6 +39,10 @@ Example: `@ecl/ec-resources-logo` => `@ecl/resources-ec-logo`
 The following packages have been re-organized:
 
 - `@ecl/(ec|eu)-design-tokens` has been removed
+- `@ecl/ec-utility-colorize` has been removed
+- `@ecl/ec-utility-font-size` has been removed
+- `@ecl/ec-utility-ratio` has been removed
+- `@ecl/ec-utility-text` has been removed
 - `@ecl/polyfills` has been moved to `@ecl/dom-utils/polyfills`
 - `@ecl/(ec|eu)-auto-init` have been moved to `@ecl/dom-utils/autoinit`
 - `@ecl/(ec|eu)-base/helpers` have been moved to `@ecl/dom-utils`
@@ -59,7 +63,23 @@ The example holds true for `queryAll()`, `queryOne()` as well.
 
 ## SCSS implementation specifics
 
-// DEPRECATED
+| Removed CSS classes                                                                                                       | Solution                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `ecl-form-label--hidden`                                                                                                  | use `ecl-u-sr-only`                                                                                                          |
+| `ecl-radio__group`, `ecl-radio__group--invalid`, `ecl-radio--disabled`, `ecl-radio--readonly`, `ecl-radio__group--binary` | see latest form radio component                                                                                              |
+| `ecl-select--invalid`                                                                                                     | see latest form select component                                                                                             |
+| `ecl-gallery__slider-image-container`, `ecl-gallery__slider-image-container`                                              | see latest gallery component                                                                                                 |
+| `ecl-menu__link`                                                                                                          | see latest menu component                                                                                                    |
+| `ecl-u-color-*`                                                                                                           | split into `@ecl/vanilla-utility-background` for `ecl-u-bg-*` and `@ecl/vanilla-utility-typography` for `ecl-u-type-color-*` |
+| `ecl-u-fs-*`                                                                                                              | use `@ecl/vanilla-utility-typography` and `ecl-u-type-*` discouraged                                                         |
+| `ecl-u-ratio-*`                                                                                                           | use `@ecl/ec-utility-media` and `ecl-u-media-ratio-*`                                                                        |
+| `ecl-u-text-*`                                                                                                            | use `@ecl/vanilla-utility-typography` and `ecl-u-type-*`                                                                     |
+
+Please note that not all changes listed above will be breaking changes for your project as it depends on how CSS classes have been applied through templates.
+
+If you have applied any of these CSS classes manually or programatically in your website, they please pay extra attention.
+
+If the CSS classes are used through ECL twig templates, then changes are already resolved.
 
 ## Layout specifics
 
@@ -79,12 +99,3 @@ They have been migrated from `[ecl-twig](https://github.com/ec-europa/ecl-twig)`
 Example: `@ecl-twig/ec-component-accordion/ecl-accordion.html.twig` => `@ecl/accordion/accordion.html.twig`
 
 [ECL Compliance component](https://github.com/ec-europa/ecl-twig/tree/master/src/ec/packages/ec-component-ecl-compliance) has been removed.
-
-## Releases
-
-They remain to be published at its [corresponding github page](https://github.com/ec-europa/europa-component-library/releases).
-
-- What happens with `@ecl/(ec|eu)-preset-full`?
-- What happens with `@ecl/(ec|eu)-preset-website`?
-
-A few words regarding `(ec|eu)-core`.
