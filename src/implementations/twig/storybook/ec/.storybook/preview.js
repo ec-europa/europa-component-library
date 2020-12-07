@@ -1,7 +1,6 @@
-import { addDecorator, addParameters } from '@storybook/html';
+import { addParameters } from '@storybook/html';
 import { withCssResources } from '@storybook/addon-cssresources';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
-
 import './ECL';
 
 addParameters({
@@ -56,4 +55,16 @@ addParameters({
   },
 });
 
-addDecorator(withCssResources);
+export const globalTypes = {
+  system: {
+    name: 'System',
+    description: 'Identify EC or EU styleguide',
+    defaultValue: 'EC',
+  },
+};
+
+export const withSwitcher = (StoryFn, context) => {
+  return StoryFn();
+};
+
+export const decorators = [withCssResources, withSwitcher];

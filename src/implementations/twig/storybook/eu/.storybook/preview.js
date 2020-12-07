@@ -56,4 +56,16 @@ addParameters({
   },
 });
 
-addDecorator(withCssResources);
+export const globalTypes = {
+  system: {
+    name: 'System',
+    description: 'Identify EC or EU styleguide',
+    defaultValue: 'EU',
+  },
+};
+
+export const withSwitcher = (StoryFn, context) => {
+  return StoryFn();
+};
+
+export const decorators = [withCssResources, withSwitcher];
