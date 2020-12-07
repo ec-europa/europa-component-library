@@ -38,15 +38,6 @@ describe('File Upload ', () => {
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
 
-    test('with validation enabled and missing input data returns the right warning message', () => {
-      expect.assertions(1);
-
-      const dataCompliance = { ...dataDefault, _compliance_: true };
-      dataCompliance.button_choose_label = '';
-
-      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
-    });
-
     test('renders correctly when required', () => {
       expect.assertions(1);
       const dataRequired = merge(dataDefault, {

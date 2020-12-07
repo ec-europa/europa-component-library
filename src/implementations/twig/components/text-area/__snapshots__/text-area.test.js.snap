@@ -207,24 +207,6 @@ exports[`Text area Default renders correctly with extra label class names 1`] = 
 </div>
 `;
 
-exports[`Text area Default with missing input data and debug enabled returns the right warning message 1`] = `
-<div
-  class="ecl-form-group"
->
-  <div
-    class="ecl-help-block"
-  >
-    This is the input's helper text.
-  </div>
-  <textarea
-    class="ecl-text-area ecl-text-area--m"
-    id="example-textarea-id-1"
-    required=""
-    rows="4"
-  />
-</div>
-`;
-
 exports[`Text area Disabled renders correctly 1`] = `
 <div
   class="ecl-form-group"
@@ -387,24 +369,6 @@ exports[`Text area With error renders correctly with extra group class names 1`]
     class="ecl-feedback-message"
   >
     This is the error message
-  </div>
-  <textarea
-    class="ecl-text-area ecl-text-area--invalid ecl-text-area--m"
-    id="example-textarea-id-3"
-    required=""
-    rows="4"
-  />
-</div>
-`;
-
-exports[`Text area With error with missing input data and debug enabled returns the right warning message 1`] = `
-<div
-  class="ecl-form-group"
->
-  <div
-    class="ecl-help-block"
-  >
-    This is the input's helper text.
   </div>
   <textarea
     class="ecl-text-area ecl-text-area--invalid ecl-text-area--m"

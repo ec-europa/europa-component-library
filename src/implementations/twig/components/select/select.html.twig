@@ -23,8 +23,6 @@
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for select
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (optional) (string) Attribute value, eg: 'data-test-1'
-  - "_compliance_" (boolean) (default: false) Activates debug.
-
   Blocks:
   - "helper_text"
   - "invalid_text"
@@ -52,12 +50,9 @@
 {% set _multiple_placeholder = multiple_placeholder|default('') %}
 {% set _multiple_all_text = multiple_all_text|default('') %}
 {% set _multiple_search_text = multiple_search_text|default('') %}
-{% set _compliance = _compliance_|default(false) %}
-
 {% set _css_group_class = 'ecl-form-group' %}
 {% set _css_class = ['ecl-select'] %}
 {% set _css_class = _css_class|join(' ') %}
-
 {% set _extra_attributes = '' %}
 {% if _multiple %}
   {% set extra_attributes = [
@@ -172,27 +167,5 @@
     </div>
   </div>
 </div>
-
-{# Validation #}
-
-{% if _compliance %}
-  {% include '@ecl/@compliance/select.html.twig' with {
-    id: _id,
-    options: _options,
-    disabled: _disabled,
-    invalid: _invalid,
-    required: _required,
-    name: _name,
-    icon_path: _icon_path,
-    invalid_text: _invalid_text,
-    required_text: _required_text,
-    label: _label,
-    optional_text: _optional_text,
-    multiple: _multiple,
-    multiple_search_text: _multiple_search_text,
-    multiple_all_text: _multiple_all_text,
-    multiple_placeholder: _multiple_placeholder
-  } only %}
-{% endif %}
 
 {% endspaceless %}

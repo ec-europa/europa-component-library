@@ -43,20 +43,6 @@ describe('Site Header Core', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
-
-    test('with missing input data and degug enabled returns the right warning message', () => {
-      expect.assertions(1);
-
-      const dataCompliance = { ...englishData, _compliance_: true };
-      dataCompliance.icon_file_path = '';
-      dataCompliance.search_form.button.label = '';
-      dataCompliance.language_selector.label = '';
-      dataCompliance.search_toggle.label = '';
-      dataCompliance.login_toggle.label_not_logged = '';
-      dataCompliance.logo.alt = '';
-
-      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
-    });
   });
 
   describe('Translated', () => {

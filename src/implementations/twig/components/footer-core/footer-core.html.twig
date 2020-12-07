@@ -21,7 +21,6 @@
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (string) Attribute value, eg: 'data-test-1',
-  - "_compliance_" (boolean) (default: false) Activates debug
 #}
 
 {# Internal properties #}
@@ -29,7 +28,6 @@
 {% set _sections = sections|default({}) %}
 {% set _css_class = 'ecl-footer-core' %}
 {% set _extra_attributes = '' %}
-{% set _compliance = _compliance_|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -108,8 +106,6 @@
             type: 'standalone',
           }),
           extra_classes: 'ecl-footer-core__title',
-          _compliance_: _compliance,
-          _compliance_inner_check_: true
         } only %}
       {% else %}
         <div class="ecl-footer-core__title ecl-footer-core__title--separator">
@@ -139,8 +135,6 @@
             size: 'xs',
           }),
           extra_classes: 'ecl-footer-core__link',
-          _compliance_: _compliance,
-          _compliance_inner_check: true
         }) only %}
         {{- _item.content_after -}}
         </li>
@@ -156,13 +150,5 @@
 {% endif %}
   </div>
 </footer>
-
-{# Validation #}
-
-{% if _compliance %}
-  {% include '@ecl/@compliance/footer-core.html.twig' with {
-    sections: _sections
-  } only %}
-{% endif %}
 
 {% endspaceless %}

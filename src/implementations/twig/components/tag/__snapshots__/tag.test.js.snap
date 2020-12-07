@@ -24,12 +24,6 @@ exports[`Tag Display renders correctly with extra class names 1`] = `
 </span>
 `;
 
-exports[`Tag Display with missing input data and debug enabled returns the right warning message 1`] = `
-<span
-  class="ecl-tag ecl-tag--display"
-/>
-`;
-
 exports[`Tag Link renders correctly 1`] = `
 <a
   class="ecl-tag"
@@ -54,15 +48,6 @@ exports[`Tag Link renders correctly with extra class names 1`] = `
 <a
   class="ecl-tag custom-class custom-class--test"
   href="/example"
->
-  Link tag
-</a>
-`;
-
-exports[`Tag Link with missing input data and debug enabled returns the right warning message 1`] = `
-<a
-  class="ecl-tag"
-  href=""
 >
   Link tag
 </a>
@@ -160,37 +145,6 @@ exports[`Tag Removable renders correctly with extra class names 1`] = `
     >
       <use
         xlink:href="/icons.svg#ui--close-filled"
-      />
-    </svg>
-  </button>
-</span>
-`;
-
-exports[`Tag Removable with missing input data and debug enabled returns the right warning message 1`] = `
-<span
-  class="ecl-tag ecl-tag--removable"
->
-  Removable tag
-  <button
-    class="ecl-tag__icon"
-    type="button"
-  >
-    <svg
-      aria-hidden="true"
-      class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
-      focusable="false"
-    >
-      <use
-        xlink:href="#ui--close"
-      />
-    </svg>
-    <svg
-      aria-hidden="true"
-      class="ecl-icon ecl-icon--xs ecl-tag__icon-close-filled"
-      focusable="false"
-    >
-      <use
-        xlink:href="#ui--close-filled"
       />
     </svg>
   </button>

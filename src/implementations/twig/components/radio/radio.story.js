@@ -6,7 +6,6 @@ import {
   getFormGroupKnobs,
   tabLabels,
   getFormItemKnobs,
-  getComplianceKnob,
 } from '@ecl/story-utils';
 
 import dataDefault from '@ecl/specs-component-radio/demo/data--default';
@@ -25,8 +24,6 @@ const prepareRadio = (data, binary) => {
   getFormItemKnobs(data, true);
   // Extra classes and attributes.
   getExtraKnobs(data, true);
-  // Compliance knob.
-  getComplianceKnob(data);
 
   return data;
 };

@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import { withKnobs, select, text } from '@storybook/addon-knobs';
-import { getExtraKnobs, tabLabels, getComplianceKnob } from '@ecl/story-utils';
+import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
 
 import dataDescriptionListDefault from '@ecl/specs-component-description-list/demo/data--default';
@@ -48,7 +48,6 @@ const prepareList = (data) => {
   });
 
   getExtraKnobs(data);
-  getComplianceKnob(data);
 
   return data;
 };

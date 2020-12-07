@@ -1,6 +1,6 @@
 import { withKnobs, number, text, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
-import { getExtraKnobs, tabLabels, getComplianceKnob } from '@ecl/story-utils';
+import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
 import he from 'he';
 import withCode from '@ecl/storybook-addon-code';
 
@@ -49,7 +49,6 @@ const prepareTimeline = (data) => {
   });
 
   getExtraKnobs(data);
-  getComplianceKnob(data);
 
   return data;
 };

@@ -1,12 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { withKnobs, text, optionsKnob } from '@storybook/addon-knobs';
-import {
-  getExtraKnobs,
-  tabLabels,
-  getLinkKnobs,
-  getComplianceKnob,
-} from '@ecl/story-utils';
+import { getExtraKnobs, tabLabels, getLinkKnobs } from '@ecl/story-utils';
 
 import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import dataSimple from '@ecl/specs-component-breadcrumb/demo/data--simple';
@@ -36,7 +31,6 @@ const prepareBreadcrumbHarmonised = (data) => {
 
   getLinkKnobs(data);
   getExtraKnobs(data);
-  getComplianceKnob(data);
 
   return data;
 };

@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import { withKnobs, select, text } from '@storybook/addon-knobs';
-import { getExtraKnobs, tabLabels, getComplianceKnob } from '@ecl/story-utils';
+import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
 import he from 'he';
 import withCode from '@ecl/storybook-addon-code';
 
@@ -36,7 +36,6 @@ const prepareUnorderedList = (data) => {
   });
 
   getExtraKnobs(data);
-  getComplianceKnob(data);
 
   return data;
 };

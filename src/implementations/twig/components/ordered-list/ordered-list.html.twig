@@ -17,18 +17,16 @@
           "value" (optional) (string)
         ...
       ],
-    - "_compliance_": (boolean) (default: false) Activates debug
 #}
 
 {# Define main macro #}
-{% macro ordered_list(items, extra_classes, extra_attributes, _compliance_) %}{% spaceless %}
+{% macro ordered_list(items, extra_classes, extra_attributes) %}{% spaceless %}
   {% import _self as list %}
 
   {# Internal properties #}
   {% set _items = items|default([]) %}
   {% set _css_class = 'ecl-ordered-list' %}
   {% set _extra_attributes = '' %}
-  {% set _compliance = _compliance_|default(false) %}
 
   {# Internal logic - Process properties #}
 
@@ -62,17 +60,9 @@
     </ol>
   {% endif %}
 
-{# Validation #}
-
-{% if _compliance %}
-  {% include '@ecl/@compliance/ordered-list.html.twig' with {
-    items: _items
-  } only %}
-{% endif %}
-
 {% endspaceless %}{% endmacro %}
 
 {# Render macro #}
-{{ list.ordered_list(items, extra_classes, extra_attributes, _compliance_) }}
+{{ list.ordered_list(items, extra_classes, extra_attributes) }}
 
 {% endspaceless %}

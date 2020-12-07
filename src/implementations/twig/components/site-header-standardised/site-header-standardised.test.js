@@ -52,19 +52,6 @@ describe('Site Header Standardised', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
-
-    test('with missing input data and debug enabled returns the right warning message', () => {
-      expect.assertions(1);
-
-      const dataCompliance = { ...englishData, _compliance_: true };
-      dataCompliance.banner_top = '';
-      dataCompliance.search_form.button.label = '';
-      dataCompliance.search_toggle.label = '';
-      dataCompliance.login_toggle.label_not_logged = '';
-      dataCompliance.logo.alt = '';
-
-      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
-    });
   });
 
   describe('Translated', () => {

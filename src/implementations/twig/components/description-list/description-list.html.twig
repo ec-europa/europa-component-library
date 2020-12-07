@@ -17,7 +17,6 @@
           "value" (optional) (string)
         ...
       ],
-    - "_compliance_": (boolean) (default: 'false') Activates debug
 #}
 
 {# Internal properties #}
@@ -26,7 +25,6 @@
 {% set _css_class = 'ecl-description-list' %}
 {% set _variant = variant|default('') %}
 {% set _extra_attributes = '' %}
-{% set _compliance = _compliance_|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -73,15 +71,6 @@
       {% endif %}
     {% endfor %}
   </dl>
-{% endif %}
-
-{# Validation #}
-
-{% if _compliance %}
-  {% include '@ecl/@compliance/description-list.html.twig' with {
-    items: _items,
-    variant: _variant
-  } only %}
 {% endif %}
 
 {% endspaceless %}

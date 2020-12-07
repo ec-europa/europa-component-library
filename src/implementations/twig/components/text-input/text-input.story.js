@@ -1,10 +1,6 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
-import {
-  getExtraKnobs,
-  getFormKnobs,
-  getComplianceKnob,
-} from '@ecl/story-utils';
+import { getExtraKnobs, getFormKnobs } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
 
 import dataDefault from '@ecl/specs-component-text-input/demo/data--default';
@@ -14,7 +10,6 @@ import notes from './README.md';
 const prepareTextInput = (data) => {
   getFormKnobs(data);
   getExtraKnobs(data);
-  getComplianceKnob(data);
 
   return data;
 };

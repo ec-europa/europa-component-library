@@ -25,7 +25,6 @@
         },
         ...
       ],
-    - "_compliance_" (boolean) (default: false) Activates debug
 #}
 
 {# Parameters #}
@@ -42,7 +41,6 @@
 {% set _required_text = required_text|default('*') %}
 {% set _optional_text = optional_text|default('') %}
 {% set _extra_classes = extra_classes|default('') %}
-{% set _compliance = _compliance_|default(false) %}
 
 {# Blocks #}
 {% set _label = label|default('') %}
@@ -178,20 +176,5 @@
   >
   </ul>
 </div>
-
-{# Validation #}
-
-{% if _compliance %}
-  {% include '@ecl/@compliance/file-upload.html.twig' with {
-    label: _label,
-    invalid_text: _invalid_text,
-    optional_text: _optional_text,
-    required_text: _required_text,
-    invalid: _invalid,
-    required: _required,
-    button_choose_label: _button_choose_label,
-    button_replace_label: _button_replace_label
-  } only %}
-{% endif %}
 
 {% endspaceless %}

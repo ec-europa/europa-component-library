@@ -56,14 +56,4 @@ describe('Checkbox', () => {
       return expect(render(dataInvalid)).resolves.toMatchSnapshot();
     });
   });
-
-  describe('with validation enabled and missing input data', () => {
-    test('returns the right warning message', () => {
-      expect.assertions(1);
-      const dataCompliance = { ...dataDefault, _compliance_: true };
-      dataCompliance.items[0].label = '';
-
-      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
-    });
-  });
 });

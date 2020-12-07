@@ -1,11 +1,6 @@
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
-import {
-  getExtraKnobs,
-  tabLabels,
-  getFormKnobs,
-  getComplianceKnob,
-} from '@ecl/story-utils';
+import { getExtraKnobs, tabLabels, getFormKnobs } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
 
 import dataDefault from '@ecl/specs-component-file-upload/demo/data';
@@ -39,7 +34,6 @@ const prepareFileUpload = (data) => {
   );
 
   getExtraKnobs(data);
-  getComplianceKnob(data);
 
   return data;
 };

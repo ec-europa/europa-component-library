@@ -24,7 +24,6 @@ npm install --save @ecl/twig-component-checkbox
 - **"helper_id"** (string) (default: '')
 - **"invalid"** (boolean) (default: false)
 - **"required"** (boolean) (default: false)
-- **_compliance_** (boolean) (default: false)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

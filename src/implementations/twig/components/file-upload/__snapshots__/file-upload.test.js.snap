@@ -399,68 +399,6 @@ exports[`File Upload  Default renders correctly with extra class names 1`] = `
 </div>
 `;
 
-exports[`File Upload  Default with validation enabled and missing input data returns the right warning message 1`] = `
-<div
-  class="ecl-form-group"
-  data-ecl-file-upload-group=""
->
-  <label
-    class="ecl-form-label"
-    for="example-input-id-1"
-  >
-    Label
-    <span
-      class="ecl-form-label__required"
-    >
-      *
-    </span>
-  </label>
-  <div
-    class="ecl-help-block"
-  >
-    This is the input's helper text.
-    <div
-      class="ecl-u-mt-xs ecl-u-type-color-grey-75"
-    >
-      Only 
-      <strong>
-        txt doc docx pdf odt rtf
-      </strong>
-       files. Maximum size is 
-      <strong>
-        5 MB
-      </strong>
-      .
-      <br />
-      Encrypted documents and those containing macros are not accepted.
-    </div>
-  </div>
-  <label
-    class="ecl-file-upload__button-container"
-    for="example-input-id-1"
-  >
-    <span
-      class="ecl-file-upload__button ecl-button ecl-button--primary"
-      data-ecl-file-upload-button=""
-      data-ecl-file-upload-label-replace="Replace file"
-    />
-  </label>
-  <input
-    class="ecl-file-upload"
-    data-ecl-auto-init="FileUpload"
-    data-ecl-file-upload-input=""
-    id="example-input-id-1"
-    name="file-upload-name"
-    required=""
-    type="file"
-  />
-  <ul
-    class="ecl-file-upload__list"
-    data-ecl-file-upload-list=""
-  />
-</div>
-`;
-
 exports[`File Upload  Multiple renders correctly 1`] = `
 <div
   class="ecl-form-group"

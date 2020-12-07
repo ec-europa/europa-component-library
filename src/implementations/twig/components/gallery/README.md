@@ -21,7 +21,10 @@ npm install --save @ecl/twig-component-gallery
   - "description" (string) (default: '')
   - "meta" (string) (default: '')
   - "icon" (object) (default: {}): object of type icon
-  - "share_path" (string) (default: '')
+  - "image" (optional) (object) (default: {})
+  - "video" (optional) (object) (default: {})
+  - "embedded_video" (optional) (object) (default: {})
+  - "share_path" (optional) (string) (default: '')
 - **"footer"** (object) (default: {}) Footer link
 - **"view_all_label"** (string) (default: '') Label of the view all button
 - **"counter_label"** (string) (default: '') Label of the counter
@@ -30,7 +33,6 @@ npm install --save @ecl/twig-component-gallery
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
-- **"\_compliance\_"** (boolean) (default: false) Activates debug
 
 ### Example :
 

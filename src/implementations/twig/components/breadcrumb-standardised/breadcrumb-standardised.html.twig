@@ -20,8 +20,6 @@
           "value" (optional) (string)
         ...
       ],
-    - "_compliance_" (boolean) (default: false) - Activates debug
-    - "_compliance_inner_check_" (boolean) (default: false) - Inline compliance report
 #}
 
 {# Internal properties #}
@@ -36,12 +34,12 @@
 {% set _breadcrumb_segment_class = 'ecl-breadcrumb-standardised__segment' %}
 {% set _min_items_left = min_items_left|default(1) %}
 {% set _min_items_right = min_items_right|default(2) %}
+{% set _css_class = 'ecl-breadcrumb-standardised' %}
 {% set _nav_attributes = [
   { name: 'aria-label', value: _navigation_text },
   { name: 'data-ecl-breadcrumb-standardised', value: 'true' }]
 %}
-{% set _compliance = _compliance_|default(false) %}
-{% set _compliance_inner_check = _compliance_inner_check_|default(false) %}
+
 {% set _breadcrumb_icon = {
   icon: {
     type: 'ui',
@@ -54,19 +52,10 @@
   extra_attributes: [{ name: 'role', value: 'presentation' }]
 } %}
 
-{% set _css_class = 'ecl-breadcrumb-standardised' %}
-
 {# Internal logic - Process properties #}
 
 {% if _breadcrumb_size > (_min_items_left + _min_items_right) %}
   {% set _nav_attributes = _nav_attributes|merge([{ name: 'data-ecl-auto-init', value: 'BreadcrumbStandardised' }]) %}
-{% endif %}
-
-{% if _compliance %}
-  {% set _breadcrumb_icon = _breadcrumb_icon|merge({
-    _compliance_: true,
-    _compliance_inner_check_: true
-  }) %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -128,8 +117,6 @@
               type: 'standalone'
             }),
             extra_classes: 'ecl-breadcrumb-standardised__link',
-             _compliance_: _compliance,
-             _compliance_inner_check_: true,
              icon_path: _icon_file_path
           } only %}
           {% include '@ecl/icon/icon.html.twig' with _breadcrumb_icon only %}
@@ -138,18 +125,5 @@
     {% endfor %}
   </ol>
 </nav>
-
-{# Validation #}
-
-{% if _compliance %}
-  {% include '@ecl/@compliance/breadcrumb.html.twig' with {
-    links: _links,
-    navigation_text: _navigation_text,
-    ellipsis_label: _ellipsis_label,
-    icon_file_path: icon_file_path,
-    variant: 'standardised',
-    _compliance_inner_check_: _compliance_inner_check
-  } only %}
-{% endif %}
 
 {% endspaceless %}

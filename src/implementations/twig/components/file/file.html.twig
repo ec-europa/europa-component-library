@@ -26,7 +26,6 @@
     },
     ...
   ],
-  - "_compliance_" (boolean) (default: false)
 #}
 
 {# Internal properties #}
@@ -44,7 +43,6 @@
 {% set _variant = variant|default('') %}
 {% set _description = description|default('') %}
 {% set _extra_attributes = 'data-ecl-file' %}
-{% set _compliance = _compliance_|default(false) %}
 
 {% if _translation is not empty and _translation.items is not empty and _translation.items is iterable %}
   {% set _extra_attributes = _extra_attributes ~ ' ' ~ 'data-ecl-auto-init="FileDownload"' %}
@@ -107,8 +105,6 @@
     {% include '@ecl/icon/icon.html.twig' with {
       icon: _icon,
       extra_classes: 'ecl-file__icon',
-      _compliance_: _compliance,
-      _compliance_inner_check_: true
     } only %}
   {% endif %}
   {% if _title is not empty or language is not empty or meta is not empty %}
@@ -136,8 +132,6 @@
       }),
       extra_classes: 'ecl-file__download',
       extra_attributes: [{ name: 'download' }],
-      _compliance_: _compliance,
-      _compliance_inner_check_: true
     }) only %}
   </div>
 
@@ -157,8 +151,6 @@
         }),
         extra_classes: 'ecl-file__translation-toggle',
         extra_attributes: [{ name: 'data-ecl-file-translation-toggle' }],
-        _compliance_: _compliance,
-        _compliance_inner_check_: true
       }) only %}
 
       <ul class="ecl-file__translation-list">
@@ -220,8 +212,6 @@
                 { name: 'download' },
                 { name: 'hreflang', value: _item.lang }
               ],
-              _compliance_: _compliance,
-              _compliance_inner_check_: true
             }) only %}
           </li>
         {% endfor %}
@@ -232,18 +222,5 @@
     </div>
   {% endif %}
 </div>
-
-{# Validation #}
-
-{% if _compliance %}
-  {% include '@ecl/@compliance/file.html.twig' with {
-    icon: _icon,
-    title: _title,
-    language: _language,
-    meta: _meta,
-    download: _download,
-    translation: _translation
-  } only %}
-{% endif %}
 
 {% endspaceless %}

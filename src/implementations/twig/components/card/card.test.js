@@ -35,15 +35,6 @@ describe('Card', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
-
-    test('with validation enabled and missing input data returns the right warning message', () => {
-      expect.assertions(1);
-
-      const dataCompliance = { ...dataCard, _compliance_: true };
-      dataCompliance.card.title.label = '';
-
-      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
-    });
   });
 
   describe('Tile', () => {

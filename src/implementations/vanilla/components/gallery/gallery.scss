@@ -10,6 +10,7 @@
 @use "@ecl/theme-dev/maps/typography";
 @use "@ecl/theme-dev/maps/z-index";
 @use "@ecl/vanilla-layout-grid/mixins/breakpoints";
+@use "@ecl/vanilla-utility-media/media" as uMedia;
 
 $_image-height: 185px;
 $_description-background: map.get(color.$color, 'grey-100');
@@ -253,6 +254,12 @@ $_detail-color: map.get(color.$color, 'white-100');
   object-fit: contain;
 }
 
+.ecl-gallery__slider-embed {
+  @include uMedia.aspect-ratio(16, 9);
+
+  width: 100%;
+}
+
 .ecl-gallery__slider-previous {
   align-self: flex-start;
   color: $_detail-color;
@@ -304,6 +311,10 @@ $_detail-color: map.get(color.$color, 'white-100');
   &:focus {
     color: $_detail-color;
   }
+
+  &[hidden] {
+    display: none;
+  }
 }
 
 .ecl-gallery__detail-description {
@@ -324,10 +335,6 @@ $_detail-color: map.get(color.$color, 'white-100');
   .ecl-gallery__slider {
     flex-direction: row;
     justify-content: space-between;
-  }
-
-  .ecl-gallery__slider-media-container {
-    flex-grow: 0;
   }
 
   .ecl-gallery__slider-previous {
