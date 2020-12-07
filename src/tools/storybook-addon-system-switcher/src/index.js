@@ -1,6 +1,6 @@
 import React from 'react';
 import { useGlobals } from '@storybook/api';
-import { IconButton, Link } from '@storybook/components';
+import { IconButton } from '@storybook/components';
 import euLogo from '@ecl/resources-eu-logo/logo--en.svg';
 import ecLogo from '@ecl/resources-ec-logo/logo--en.svg';
 
