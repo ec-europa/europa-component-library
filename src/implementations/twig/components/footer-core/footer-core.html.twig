@@ -60,8 +60,6 @@
     {% else %}
       {# For the additional inner section elements #}
       {% set _inner_section = true %}
-      {# We have to jump to section3 in this case #}
-      {% set _section_id = _section_id + 1 %}
     {% endif %}
     {% set _section_class = 'ecl-footer-core__section ecl-footer-core__section' ~ _section_id %}
     {% if _section_group[0].section_class_name is defined and _section_group[0].section_class_name is not empty %}
