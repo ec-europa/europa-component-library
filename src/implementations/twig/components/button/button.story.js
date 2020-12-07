@@ -1,7 +1,5 @@
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { getExtraKnobs, tabLabels, getIconKnobs } from '@ecl/story-utils';
 
 // Import data for demos
 import uiIcons from '@ecl/resources-ec-icons/dist/lists/ui.json';
@@ -11,117 +9,154 @@ import dataCall from '@ecl/specs-component-button/demo/data--call';
 import dataGhost from '@ecl/specs-component-button/demo/data--ghost';
 import dataSearch from '@ecl/specs-component-button/demo/data--search';
 
+import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import button from './button.html.twig';
 import notes from './README.md';
 
 const iconsList = {};
-iconsList.none = '';
-
 uiIcons.forEach((icon) => {
   iconsList[icon] = icon;
 });
 
-// Preserve the adapted specs.
-const prepareButton = (data, type) => {
-  const typeLabel = type ? tabLabels.required : tabLabels.optional;
-  data.disabled = boolean('disabled', data.disabled, tabLabels.states);
-  data.label = text('label', data.label, tabLabels.required);
-
-  data.variant = select(
-    'variant',
-    [data.variant],
-    data.variant,
-    tabLabels.required
-  );
-
-  data.type = select('type', [data.type], data.type, typeLabel);
-
-  getExtraKnobs(data);
+const prepareControls = (data, args) => {
+  data.label = args.label;
+  data.disabled = args.disabled;
+  if (args.icon_name != null) {
+    data.icon = {};
+    data.icon.name = args.icon_name;
+    data.icon.type = 'ui';
+    data.icon.size = 'xs';
+    data.icon.transform = args.icon_transform;
+    data.icon.path = defaultSprite;
+    data.icon_position = args.icon_position;
+  } else if (args.icon_name == null && data.icon) {
+    delete data.icon;
+  }
 
   return data;
 };
 
 export default {
   title: 'Components/Button',
-  decorators: [withKnobs, withCode, withNotes],
+  argTypes: {
+    label: {
+      name: 'label',
+      type: { name: 'string', required: true },
+      defaultValue: '',
+      description: 'The main label of the button',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+      },
+      control: {
+        type: 'text',
+      },
+    },
+    icon_name: {
+      name: 'icon.name',
+      type: { name: 'select', required: false },
+      defaultValue: '',
+      description: 'Button icon',
+      table: {
+        type: { summary: 'select' },
+        defaultValue: { summary: 'null' },
+      },
+      control: {
+        type: 'select',
+        options: iconsList,
+      },
+    },
+    icon_transform: {
+      name: 'icon.transform',
+      type: { name: 'select', required: false },
+      defaultValue: null,
+      description: 'Button icon transform',
+      table: {
+        type: { summary: 'select' },
+        defaultValue: { summary: 'null' },
+      },
+      control: {
+        type: 'select',
+        options: [
+          'rotate-90',
+          'rotate-180',
+          'rotate-270',
+          'flip-horizontal',
+          'flip-vertical',
+        ],
+      },
+    },
+    icon_position: {
+      name: 'icon_position',
+      type: { name: 'inline-radio', required: false },
+      defaultValue: 'after',
+      description: 'Icon position inside the button',
+      table: {
+        type: { summary: 'inline-radio' },
+        defaultValue: { summary: 'after' },
+      },
+      control: {
+        type: 'inline-radio',
+        options: ['before', 'after'],
+      },
+    },
+    disabled: {
+      name: 'disabled',
+      type: { name: 'boolean', required: false },
+      defaultValue: false,
+      description: 'Disabled button',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+      control: {
+        type: 'boolean',
+      },
+    },
+  },
+  decorators: [withCode, withNotes],
 };
 
-export const Primary = () => {
-  const data = prepareButton(dataPrimary);
-  const name = select('icon.name', iconsList, '', tabLabels.optional);
-  if (name !== '') {
-    getIconKnobs(data, name, 'ui', 'xs');
-  } else if (name === '' && data.icon) {
-    delete data.icon.name;
-  }
+export const Primary = (args) => button(prepareControls(dataPrimary, args));
 
-  return button(data);
+Primary.args = {
+  label: dataPrimary.label,
 };
-
 Primary.storyName = 'primary';
 Primary.parameters = { notes: { markdown: notes, json: dataPrimary } };
 
-export const Secondary = () => {
-  const data = prepareButton(dataSecondary, true);
-  const name = select('icon.name', iconsList, 'none', tabLabels.optional);
-  if (name !== 'none') {
-    getIconKnobs(data, name, 'ui', 'xs');
-  } else if (name === 'none' && data.icon) {
-    delete data.icon.name;
-  }
+export const Secondary = (args) => button(prepareControls(dataSecondary, args));
 
-  return button(data);
 };
 
+Secondary.args = {
+  label: dataSecondary.label,
+};
 Secondary.storName = 'secondary';
 Secondary.parameters = { notes: { markdown: notes, json: dataSecondary } };
 
-export const CallToAction = () => {
-  const data = prepareButton(dataCall);
-  const name = select(
-    'icon.name',
-    iconsList,
-    'corner-arrow',
-    tabLabels.optional
-  );
-  if (name !== '') {
-    getIconKnobs(data, name, 'ui', 'xs', 'default', 'rotate-90');
-  } else if (name === '' && data.icon) {
-    delete data.icon.name;
-  }
+export const CallToAction = (args) => button(prepareControls(dataCall, args));
 
-  return button(data);
+CallToAction.args = {
+  label: dataCall.label,
+  icon_name: 'corner-arrow',
+  icon_transform: 'rotate-90',
 };
-
 CallToAction.storyName = 'call to action';
 CallToAction.parameters = { notes: { markdown: notes, json: dataCall } };
 
-export const Ghost = () => {
-  const data = prepareButton(dataGhost, true);
-  const name = select('icon.name', iconsList, '', tabLabels.optional);
-  if (name !== '') {
-    getIconKnobs(data, name, 'ui', 'xs');
-  } else if (name === '' && data.icon) {
-    delete data.icon.name;
-  }
+export const Ghost = (args) => button(prepareControls(dataGhost, args));
 
-  return button(data);
+Ghost.args = {
+  label: dataGhost.label,
 };
-
 Ghost.storyName = 'text';
 Ghost.parameters = { notes: { markdown: notes, json: dataGhost } };
 
-export const Search = () => {
-  const data = prepareButton(dataSearch, true);
-  const name = select('icon.name', iconsList, '', tabLabels.optional);
-  if (name !== '') {
-    getIconKnobs(data, name, 'ui', 'xs');
-  } else if (name === '' && data.icon) {
-    delete data.icon.name;
-  }
+export const Search = (args) => button(prepareControls(dataSearch, args));
 
-  return button(data);
+Search.args = {
+  label: dataSearch.label,
 };
-
 Search.storyName = 'search';
 Search.parameters = { notes: { markdown: notes, json: dataSearch } };
