@@ -19,6 +19,7 @@ addParameters({
       hideCode: true,
     },
   ],
+  controls: { expanded: true },
   layout: 'fullscreen',
   viewport: {
     defaultViewport: 'responsive',
