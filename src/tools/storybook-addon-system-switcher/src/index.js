@@ -8,6 +8,7 @@ export const Switcher = () => {
   const [globals] = useGlobals();
   const PARAM_KEY = 'system';
   const ecActive = globals[PARAM_KEY] === 'EC';
+  const queryString = window.location.search;
 
   return (
     <React.Fragment>
@@ -18,7 +19,7 @@ export const Switcher = () => {
         style={{ padding: 0, borderRadius: 0 }}
       >
         {!ecActive ? (
-          <a href="/ec">
+          <a href={'/playground/ec' + queryString}>
             <img style={{ width: 130 + 'px' }} src={ecLogo} />
           </a>
         ) : (
@@ -32,7 +33,7 @@ export const Switcher = () => {
         style={{ padding: 0, borderRadius: 0 }}
       >
         {ecActive ? (
-          <a href="/eu">
+          <a href={'/playground/eu' + queryString}>
             <img style={{ width: 130 + 'px' }} src={euLogo} />
           </a>
         ) : (
