@@ -77,7 +77,7 @@ The example holds true for `queryAll()`, `queryOne()` as well.
 
 Please note that not all changes listed above will be breaking changes for your project as it depends on how CSS classes have been applied through templates.
 
-If you have applied any of these CSS classes manually or programatically in your website, they please pay extra attention.
+If you have applied any of these CSS classes manually or programatically in your website, then please pay extra attention.
 
 If the CSS classes are used through ECL twig templates, then changes are already resolved.
 
