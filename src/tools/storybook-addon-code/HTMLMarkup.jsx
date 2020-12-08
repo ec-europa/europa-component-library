@@ -10,6 +10,7 @@ import { styled } from '@storybook/theming';
 import { html as beautify } from 'js-beautify';
 
 import { ADD_CODE } from './constants';
+import prefillPen from './codepen';
 
 const TitleBar = styled.div`
   align-items: center; /* stylelint-disable-line */
@@ -26,9 +27,9 @@ const StyledSyntaxHighlighter = styled(SyntaxHighlighter)(({ theme }) => ({
 const HTMLMarkup = ({ active, channel }) => {
   const [code, setCode] = useState('');
   useEffect(() => {
-    channel.on(ADD_CODE, (html) => setCode(html));
-
-    return channel.removeListener(ADD_CODE);
+    const executor = (html) => setCode(html);
+    channel.on(ADD_CODE, executor);
+    return channel.removeListener(ADD_CODE, executor);
   }, [code]);
 
   const beautifiedCode = beautify(code, {
@@ -42,8 +43,28 @@ const HTMLMarkup = ({ active, channel }) => {
     <DocumentWrapper>
       <TitleBar>
         <h1>Live HTML</h1>
-        <Button type="button" tertiary>
-          {/* <Button tertiary type="button" onClick={this.openInCodePen}> */}
+        <Button
+          type="button"
+          tertiary
+          onClick={() => {
+            const form = document.createElement('form');
+            const element1 = document.createElement('input');
+
+            form.method = 'POST';
+            form.action = 'https://codepen.io/pen/define';
+            form.target = '_blank';
+
+            element1.type = 'hidden';
+            element1.name = 'data';
+            element1.value = prefillPen(code);
+
+            form.appendChild(element1);
+
+            document.body.appendChild(form);
+            form.submit();
+            form.remove();
+          }}
+        >
           Open in CodePen
         </Button>
       </TitleBar>
