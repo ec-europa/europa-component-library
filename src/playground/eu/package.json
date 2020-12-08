@@ -7,8 +7,8 @@
   "description": "Storybook EU Twig",
   "scripts": {
     "build": "STORYBOOK_SYSTEM=EU build-storybook -c .storybook -o build",
-    "start": "STORYBOOK_SYSTEM=EU start-storybook -p 6007 -s ../../../../presets/eu-core/dist -c .storybook",
-    "start:watch": "STORYBOOK_SYSTEM=EU start-storybook -p 6007 -s ../../../../presets/eu-core/build -c .storybook"
+    "start": "STORYBOOK_SYSTEM=EU start-storybook -p 6007 -s ../../presets/eu-core/dist -c .storybook",
+    "start:watch": "STORYBOOK_SYSTEM=EU start-storybook -p 6007 -s ../../presets/eu-core/build -c .storybook"
   },
   "devDependencies": {
     "@babel/core": "7.12.9",

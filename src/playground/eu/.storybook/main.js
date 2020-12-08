@@ -1,6 +1,6 @@
 const path = require('path');
 
-const stories = ['../../../**/!(ec*).story.js'];
+const stories = ['../../../implementations/twig/**/!(ec*).story.js'];
 
 const addons = [
   '@storybook/addon-cssresources',
