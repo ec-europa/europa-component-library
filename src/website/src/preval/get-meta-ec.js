@@ -14,7 +14,9 @@ const files = glob.sync('**/*.@(md|mdx)', {
 const getUrl = (file) =>
   `/ec/${file
     .replace('docs', '')
+    .replace('z-index', 'zIndex')
     .replace('index', '')
+    .replace('zIndex', 'z-index')
     .replace('.mdx', '')
     .replace('.md', '')
     .replace('./', '')}/`.replace('//', '/');
