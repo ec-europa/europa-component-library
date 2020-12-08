@@ -4,8 +4,7 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/theme';
 
 .ecl-media-container {
   margin: 0;
@@ -16,6 +15,6 @@
 }
 
 .ecl-media-container__caption {
-  color: map.get(color.$color, 'grey');
-  font: map.get(typography.$font-prolonged-print, 'm');
+  color: map.get(theme.$color, 'grey');
+  font: map.get(theme.$font-prolonged-print, 'm');
 }

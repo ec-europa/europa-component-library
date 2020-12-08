@@ -1,55 +1,53 @@
 @use "sass:map";
-@use "@ecl/theme-dev/maps/typography";
-@use "@ecl/theme-dev/maps/color";
-@use "@ecl/theme-dev/maps/layout";
+@use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 /*
    * Headings
    */
 .ecl-u-type-heading-1 {
-  font: map.get(typography.$font, '3xl') !important;
-  font-weight: map.get(typography.$font-weight, 'bold') !important;
+  font: map.get(theme.$font, '3xl') !important;
+  font-weight: map.get(theme.$font-weight, 'bold') !important;
 
   @include breakpoints.up('m') {
-    font: map.get(typography.$font, '4xl') !important;
-    font-weight: map.get(typography.$font-weight, 'bold') !important;
+    font: map.get(theme.$font, '4xl') !important;
+    font-weight: map.get(theme.$font-weight, 'bold') !important;
   }
 }
 
 .ecl-u-type-heading-2 {
-  font: map.get(typography.$font, '2xl') !important;
-  font-weight: map.get(typography.$font-weight, 'bold') !important;
+  font: map.get(theme.$font, '2xl') !important;
+  font-weight: map.get(theme.$font-weight, 'bold') !important;
 
   @include breakpoints.up('m') {
-    font: map.get(typography.$font, '3xl') !important;
-    font-weight: map.get(typography.$font-weight, 'bold') !important;
+    font: map.get(theme.$font, '3xl') !important;
+    font-weight: map.get(theme.$font-weight, 'bold') !important;
   }
 }
 
 .ecl-u-type-heading-3 {
-  font: map.get(typography.$font, 'xl') !important;
-  font-weight: map.get(typography.$font-weight, 'bold') !important;
+  font: map.get(theme.$font, 'xl') !important;
+  font-weight: map.get(theme.$font-weight, 'bold') !important;
 
   @include breakpoints.up('m') {
-    font: map.get(typography.$font, '2xl') !important;
-    font-weight: map.get(typography.$font-weight, 'bold') !important;
+    font: map.get(theme.$font, '2xl') !important;
+    font-weight: map.get(theme.$font-weight, 'bold') !important;
   }
 }
 
 .ecl-u-type-heading-4 {
-  font: map.get(typography.$font-prolonged, 'l') !important;
-  font-weight: map.get(typography.$font-weight, 'bold') !important;
+  font: map.get(theme.$font-prolonged, 'l') !important;
+  font-weight: map.get(theme.$font-weight, 'bold') !important;
 
   @include breakpoints.up('m') {
-    font: map.get(typography.$font-prolonged, 'xl') !important;
-    font-weight: map.get(typography.$font-weight, 'bold') !important;
+    font: map.get(theme.$font-prolonged, 'xl') !important;
+    font-weight: map.get(theme.$font-weight, 'bold') !important;
   }
 }
 
 .ecl-u-type-heading-5 {
-  font: map.get(typography.$font-prolonged, 'm') !important;
-  font-weight: map.get(typography.$font-weight, 'bold') !important;
+  font: map.get(theme.$font-prolonged, 'm') !important;
+  font-weight: map.get(theme.$font-weight, 'bold') !important;
 }
 
 /*
@@ -57,26 +55,26 @@
    */
 .ecl-u-type-paragraph,
 .ecl-u-type-paragraph-m {
-  font: map.get(typography.$font-prolonged, 'm') !important;
+  font: map.get(theme.$font-prolonged, 'm') !important;
   max-width: 80ch !important;
 }
 
 .ecl-u-type-paragraph-lead {
-  font: map.get(typography.$font-prolonged, 'l') !important;
+  font: map.get(theme.$font-prolonged, 'l') !important;
   max-width: 80ch !important;
 
   @include breakpoints.up('m') {
-    font: map.get(typography.$font-prolonged, 'xl') !important;
+    font: map.get(theme.$font-prolonged, 'xl') !important;
   }
 }
 
 .ecl-u-type-paragraph-s {
-  font: map.get(typography.$font-prolonged, 's') !important;
+  font: map.get(theme.$font-prolonged, 's') !important;
   max-width: 80ch !important;
 }
 
 .ecl-u-type-paragraph-xs {
-  font: map.get(typography.$font-prolonged, 'xs') !important;
+  font: map.get(theme.$font-prolonged, 'xs') !important;
   max-width: 80ch !important;
 }
 
@@ -84,55 +82,55 @@
    * Font size
    */
 .ecl-u-type-xs {
-  font: map.get(typography.$font, 'xs') !important;
+  font: map.get(theme.$font, 'xs') !important;
 }
 .ecl-u-type-s {
-  font: map.get(typography.$font, 's') !important;
+  font: map.get(theme.$font, 's') !important;
 }
 .ecl-u-type-m {
-  font: map.get(typography.$font, 'm') !important;
+  font: map.get(theme.$font, 'm') !important;
 }
 .ecl-u-type-l {
-  font: map.get(typography.$font, 'l') !important;
+  font: map.get(theme.$font, 'l') !important;
 }
 .ecl-u-type-xl {
-  font: map.get(typography.$font, 'xl') !important;
+  font: map.get(theme.$font, 'xl') !important;
 }
 .ecl-u-type-2xl {
-  font: map.get(typography.$font, '4xl') !important;
+  font: map.get(theme.$font, '4xl') !important;
 }
 .ecl-u-type-3xl {
-  font: map.get(typography.$font, '3xl') !important;
+  font: map.get(theme.$font, '3xl') !important;
 }
 .ecl-u-type-4xl {
-  font: map.get(typography.$font, '4xl') !important;
+  font: map.get(theme.$font, '4xl') !important;
 }
 .ecl-u-type-5xl {
-  font: map.get(typography.$font, '5xl') !important;
+  font: map.get(theme.$font, '5xl') !important;
 }
 .ecl-u-type-6xl {
-  font: map.get(typography.$font, '6xl') !important;
+  font: map.get(theme.$font, '6xl') !important;
 }
 .ecl-u-type-prolonged-xs {
-  font: map.get(typography.$font-prolonged, 'xs') !important;
+  font: map.get(theme.$font-prolonged, 'xs') !important;
 }
 .ecl-u-type-prolonged-s {
-  font: map.get(typography.$font-prolonged, 's') !important;
+  font: map.get(theme.$font-prolonged, 's') !important;
 }
 .ecl-u-type-prolonged-m {
-  font: map.get(typography.$font-prolonged, 'm') !important;
+  font: map.get(theme.$font-prolonged, 'm') !important;
 }
 .ecl-u-type-prolonged-l {
-  font: map.get(typography.$font-prolonged, 'l') !important;
+  font: map.get(theme.$font-prolonged, 'l') !important;
 }
 .ecl-u-type-prolonged-xl {
-  font: map.get(typography.$font-prolonged, 'xl') !important;
+  font: map.get(theme.$font-prolonged, 'xl') !important;
 }
 
 /*
    * Font colour
    */
-@each $key, $value in color.$color {
+@each $key, $value in theme.$color {
   // Filter out yellow colours (text should not be yellow)
   @if not str-index($key, 'yellow-') {
     .ecl-u-type-color-#{$key} {
@@ -145,10 +143,10 @@
    * Font style
    */
 .ecl-u-type-regular {
-  font-weight: map.get(typography.$font-weight, 'regular') !important;
+  font-weight: map.get(theme.$font-weight, 'regular') !important;
 }
 .ecl-u-type-bold {
-  font-weight: map.get(typography.$font-weight, 'bold') !important;
+  font-weight: map.get(theme.$font-weight, 'bold') !important;
 }
 .ecl-u-type-capitalize {
   text-transform: capitalize !important;

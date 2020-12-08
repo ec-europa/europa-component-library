@@ -4,10 +4,7 @@
 */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/typography';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/social-media-list';
+@use '@ecl/theme-dev/theme';
 
 @mixin social-icon-color-map($list, $component: 'ecl-social-media-share') {
   @each $social, $color in $list {
@@ -24,10 +21,10 @@
 }
 
 .ecl-social-media-share__description {
-  color: map.get(color.$color, 'black-100');
-  font: map.get(typography.$font-prolonged, 'm');
-  font-weight: map.get(typography.$font-weight, 'bold');
-  margin-bottom: map.get(spacing.$spacing, 's');
+  color: map.get(theme.$color, 'black-100');
+  font: map.get(theme.$font-prolonged, 'm');
+  font-weight: map.get(theme.$font-weight, 'bold');
+  margin-bottom: map.get(theme.$spacing, 's');
   margin-top: 0;
 }
 
@@ -41,15 +38,15 @@
 }
 
 .ecl-social-media-share__item {
-  margin: map.get(spacing.$spacing, 's') map.get(spacing.$spacing, 'xs') 0 0;
+  margin: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'xs') 0 0;
 
   &:not(:last-child) {
     max-width: 8.625rem;
   }
 
   &:not(:last-child) .ecl-link {
-    color: map-get(color.$color, 'white');
-    padding-right: map.get(spacing.$spacing, 'xs');
+    color: map-get(theme.$color, 'white');
+    padding-right: map.get(theme.$spacing, 'xs');
     width: 8.125rem;
   }
 }
@@ -58,7 +55,7 @@
   align-items: center;
   box-sizing: border-box;
   display: flex;
-  font: map-get(typography.$font, 's');
+  font: map-get(theme.$font, 's');
   overflow: hidden; /* Improve rendering on IE */
 
   .ecl-link__icon {
@@ -69,7 +66,7 @@
 .ecl-social-media-share__icon,
 .ecl-social-media-share__icon-hover {
   flex-shrink: 0;
-  margin-right: map-get(spacing.$spacing, 'xs');
+  margin-right: map-get(theme.$spacing, 'xs');
 }
 
 .ecl-social-media-share__icon {
@@ -87,4 +84,4 @@
 }
 
 // Use mixin.
-@include social-icon-color-map(social-media-list.$social-media-list);
+@include social-icon-color-map(theme.$social-media-list);

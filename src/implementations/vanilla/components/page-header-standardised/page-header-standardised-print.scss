@@ -4,32 +4,30 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/theme';
 
 .ecl-page-header-standardised {
-  padding-bottom: map.get(spacing.$spacing-print, 'xl');
-  padding-top: map.get(spacing.$spacing-print, 'xl');
+  padding-bottom: map.get(theme.$spacing-print, 'xl');
+  padding-top: map.get(theme.$spacing-print, 'xl');
 }
 
 .ecl-page-header-standardised__meta {
-  color: map.get(color.$color, 'grey');
-  font: map.get(typography.$font-print, 'm');
-  font-family: map.get(typography.$font-family-print, 'alt');
+  color: map.get(theme.$color, 'grey');
+  font: map.get(theme.$font-print, 'm');
+  font-family: map.get(theme.$font-family-print, 'alt');
 }
 
 .ecl-page-header-standardised__title {
-  color: map.get(color.$color, 'grey');
-  font: map.get(typography.$font-print, '4xl');
-  font-family: map.get(typography.$font-family-print, 'alt');
-  font-weight: map.get(typography.$font-weight-print, 'bold');
+  color: map.get(theme.$color, 'grey');
+  font: map.get(theme.$font-print, '4xl');
+  font-family: map.get(theme.$font-family-print, 'alt');
+  font-weight: map.get(theme.$font-weight-print, 'bold');
   margin-bottom: 0;
-  margin-top: map.get(spacing.$spacing-print, 'm');
+  margin-top: map.get(theme.$spacing-print, 'm');
 }
 
 .ecl-page-header-standardised__description {
-  font: map.get(typography.$font-prolonged-print, 'xl');
+  font: map.get(theme.$font-prolonged-print, 'xl');
   margin-bottom: 0;
-  margin-top: map.get(spacing.$spacing-print, 'm');
+  margin-top: map.get(theme.$spacing-print, 'm');
 }

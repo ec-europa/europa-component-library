@@ -1,13 +1,13 @@
 @use "sass:map";
 @use "sass:math";
 @use 'breakpoints';
-@use "@ecl/theme-dev/maps/layout";
+@use '@ecl/theme-dev/theme';
 
 /// Grid system
 //
 // Generate semantic grid columns with these mixins.
 
-@mixin ecl-make-container($gutters: layout.$grid-gutter-width) {
+@mixin ecl-make-container($gutters: theme.$grid-gutter-width) {
   box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
@@ -26,8 +26,8 @@
 
 // For each breakpoint, define the maximum width of the container in a media query
 @mixin ecl-make-container-max-widths(
-  $max-widths: layout.$container,
-  $breakpoints: layout.$breakpoint
+  $max-widths: theme.$container,
+  $breakpoints: theme.$breakpoint
 ) {
   @each $breakpoint, $container-max-width in $max-widths {
     @include breakpoints.up($breakpoint, $breakpoints) {
@@ -37,7 +37,7 @@
   }
 }
 
-@mixin make-gutters($gutters: layout.$grid-gutter-width) {
+@mixin make-gutters($gutters: theme.$grid-gutter-width) {
   @each $breakpoint in map.keys($gutters) {
     @include breakpoints.up($breakpoint) {
       $gutter: map.get($gutters, $breakpoint);
@@ -48,7 +48,7 @@
   }
 }
 
-@mixin ecl-make-row($gutters: layout.$grid-gutter-width) {
+@mixin ecl-make-row($gutters: theme.$grid-gutter-width) {
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
@@ -63,7 +63,7 @@
   }
 }
 
-@mixin make-col-ready($gutters: layout.$grid-gutter-width) {
+@mixin make-col-ready($gutters: theme.$grid-gutter-width) {
   box-sizing: border-box;
   min-height: 1px; // Prevent collapsing
   position: relative;

@@ -1,6 +1,6 @@
 @use "sass:map";
 @use "breakpoints";
-@use "@ecl/theme-dev/maps/layout";
+@use '@ecl/theme-dev/theme';
 @use "grid";
 
 // Framework grid generation
@@ -11,9 +11,9 @@
 /* stylelint-disable max-nesting-depth */
 
 @mixin make-grid-columns(
-  $columns: map.get(layout.$grid, 'columns'),
-  $gutters: layout.$grid-gutter-width,
-  $breakpoints: layout.$breakpoint
+  $columns: map.get(theme.$grid, 'columns'),
+  $gutters: theme.$grid-gutter-width,
+  $breakpoints: theme.$breakpoint
 ) {
   // Common properties for all breakpoints
   %grid-column {

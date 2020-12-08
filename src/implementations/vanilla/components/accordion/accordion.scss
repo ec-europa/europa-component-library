@@ -4,20 +4,18 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/theme';
 
 .ecl-accordion {
   margin: 0;
 }
 
 .ecl-accordion__item {
-  background-color: map.get(color.$color, 'grey-5');
+  background-color: map.get(theme.$color, 'grey-5');
 }
 
 .ecl-accordion__item + .ecl-accordion__item {
-  margin-top: map.get(spacing.$spacing, 'xs');
+  margin-top: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-accordion__title {
@@ -28,22 +26,22 @@
 .ecl-accordion__toggle {
   background-color: transparent;
   border-width: 0;
-  color: map.get(color.$color, 'grey-100');
+  color: map.get(theme.$color, 'grey-100');
   display: block;
-  font: map.get(typography.$font-prolonged, 'm');
-  font-weight: map.get(typography.$font-weight, 'bold');
-  padding: map.get(spacing.$spacing, 's') map.get(spacing.$spacing, 'm');
+  font: map.get(theme.$font-prolonged, 'm');
+  font-weight: map.get(theme.$font-weight, 'bold');
+  padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
   position: relative;
   text-align: left;
   width: 100%;
 }
 
 .ecl-accordion__toggle:hover {
-  background-color: map.get(color.$color, 'grey-20');
+  background-color: map.get(theme.$color, 'grey-20');
 }
 
 .ecl-accordion__toggle:focus {
-  outline: 3px solid map.get(color.$color, 'yellow');
+  outline: 3px solid map.get(theme.$color, 'yellow');
   outline-offset: -3px;
 }
 
@@ -60,12 +58,11 @@
 .ecl-accordion__toggle-icon {
   flex-grow: 0;
   flex-shrink: 0;
-  margin-right: map.get(spacing.$spacing, 'm');
+  margin-right: map.get(theme.$spacing, 'm');
 
   .ecl-accordion__toggle[aria-expanded='true'] & {
     margin-bottom: calc(
-      #{map.get(spacing.$spacing, 'xs')} + #{map.get(spacing.$spacing, 'xs')} +
-        1px
+      #{map.get(theme.$spacing, 'xs')} + #{map.get(theme.$spacing, 'xs')} + 1px
     );
   }
 }
@@ -74,17 +71,17 @@
   flex-grow: 1;
 
   .ecl-accordion__toggle[aria-expanded='true'] & {
-    border-bottom: 1px solid map.get(color.$color, 'grey');
-    margin-bottom: map.get(spacing.$spacing, 'xs');
-    padding-bottom: map.get(spacing.$spacing, 'xs');
+    border-bottom: 1px solid map.get(theme.$color, 'grey');
+    margin-bottom: map.get(theme.$spacing, 'xs');
+    padding-bottom: map.get(theme.$spacing, 'xs');
   }
 }
 
 .ecl-accordion__content {
-  color: map.get(color.$color, 'grey');
-  font: map.get(typography.$font-prolonged, 'm');
+  color: map.get(theme.$color, 'grey');
+  font: map.get(theme.$font-prolonged, 'm');
   margin-left: 0;
-  padding: 0 map.get(spacing.$spacing, 'm') map.get(spacing.$spacing, 's');
+  padding: 0 map.get(theme.$spacing, 'm') map.get(theme.$spacing, 's');
 }
 
 .no-js .ecl-accordion__content {
