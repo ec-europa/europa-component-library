@@ -17,9 +17,18 @@ export const Switcher = () => {
         style={{ padding: 0, borderRadius: 0 }}
       >
         {euActive ? (
-          <a href={'/playground/ec' + queryString}>
-            <img style={{ width: 130 + 'px' }} src={ecLogo} />
-          </a>
+          <link
+            rel="prefetch"
+            title="go to the EU"
+            href={'/playground/ec' + queryString}
+            as="document"
+            style={{
+              display: 'block',
+              width: '100px',
+              height: '30px',
+              border: '1px solid red',
+            }}
+          />
         ) : (
           <img style={{ width: 130 + 'px' }} src={ecLogo} />
         )}
@@ -31,9 +40,18 @@ export const Switcher = () => {
         style={{ padding: 0, borderRadius: 0 }}
       >
         {!euActive ? (
-          <a href={'/playground/eu' + queryString}>
-            <img style={{ width: 130 + 'px' }} src={euLogo} />
-          </a>
+          <link
+            rel="prefetch"
+            title="Go to the EC"
+            href={'/playground/eu' + queryString}
+            as="document"
+            style={{
+              display: 'block',
+              width: '100px',
+              height: '30px',
+              border: '1px solid red',
+            }}
+          />
         ) : (
           <img style={{ width: 130 + 'px' }} src={euLogo} />
         )}
