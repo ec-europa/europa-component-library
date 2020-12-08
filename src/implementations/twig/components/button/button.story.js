@@ -60,6 +60,7 @@ export default {
       table: {
         type: { summary: 'select' },
         defaultValue: { summary: 'null' },
+        category: 'Icon',
       },
       control: {
         type: 'select',
@@ -74,6 +75,7 @@ export default {
       table: {
         type: { summary: 'select' },
         defaultValue: { summary: 'null' },
+        category: 'Icon',
       },
       control: {
         type: 'select',
@@ -94,6 +96,7 @@ export default {
       table: {
         type: { summary: 'inline-radio' },
         defaultValue: { summary: 'after' },
+        category: 'Icon',
       },
       control: {
         type: 'inline-radio',
