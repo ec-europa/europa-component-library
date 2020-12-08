@@ -205,12 +205,9 @@ export default {
   decorators: [withCode, withNotes, withKnobs],
 };
 
-export const Ec = () => footer(formatFooter(specsEc));
+const data = process.env.STORYBOOK_SYSTEM === 'EU' ? specsEu : specsEc;
 
-Ec.storyName = 'ec';
-Ec.parameters = { notes: { markdown: notes, json: specsEc } };
+export const Default = () => footer(formatFooter(data));
 
-export const Eu = () => footer(formatFooter(specsEu));
-
-Eu.storyName = 'eu';
-Eu.parameters = { notes: { markdown: notes, json: specsEu } };
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: data } };
