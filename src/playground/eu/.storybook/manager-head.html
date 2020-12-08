@@ -1,3 +1,32 @@
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="https://unpkg.com/prismjs@1.15.0/themes/prism-okaidia.css"
+/>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="https://unpkg.com/prismjs@1.15.0/plugins/line-numbers/prism-line-numbers.css"
+/>
+<script>
+  if (window.localStorage) {
+    if (!window.localStorage.getItem('@storybook/ui/store')) {
+      window.localStorage.setItem(
+        '@storybook/ui/store',
+        JSON.stringify({
+          layout: {
+            panelPosition: 'bottom',
+          },
+          theme: {
+            brandTitle: 'ECL v3 EC',
+            brandUrl: 'https://github.com/ec-europa/europa-component-library',
+            brandImage: null,
+          },
+        })
+      );
+    }
+  }
+</script>
 <script
   src="https://ec.europa.eu/wel/cookie-consent/consent.js"
   type="text/javascript"

@@ -27,10 +27,9 @@ const StyledSyntaxHighlighter = styled(SyntaxHighlighter)(({ theme }) => ({
 const HTMLMarkup = ({ active, channel }) => {
   const [code, setCode] = useState('');
   useEffect(() => {
-    const executor = (html) => setCode(html);
-    channel.on(ADD_CODE, executor);
-    return channel.removeListener(ADD_CODE, executor);
-  }, [code]);
+    channel.on(ADD_CODE, (html) => setCode(html));
+    return channel.removeListener(ADD_CODE);
+  }, []);
 
   const beautifiedCode = beautify(code, {
     indent_size: 2,
