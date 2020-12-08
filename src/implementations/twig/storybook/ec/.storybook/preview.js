@@ -63,8 +63,4 @@ export const globalTypes = {
   },
 };
 
-export const withSwitcher = (StoryFn, context) => {
-  return StoryFn();
-};
-
-export const decorators = [withCssResources, withSwitcher];
+export const decorators = [withCssResources];
