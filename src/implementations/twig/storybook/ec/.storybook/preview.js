@@ -55,12 +55,4 @@ addParameters({
   },
 });
 
-export const globalTypes = {
-  system: {
-    name: 'System',
-    description: 'Identify EC or EU styleguide',
-    defaultValue: 'EC',
-  },
-};
-
 export const decorators = [withCssResources];

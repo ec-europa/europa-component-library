@@ -5,20 +5,18 @@ import euLogo from '@ecl/resources-eu-logo/logo--en.svg';
 import ecLogo from '@ecl/resources-ec-logo/logo--en.svg';
 
 export const Switcher = () => {
-  const [globals] = useGlobals();
-  const PARAM_KEY = 'system';
-  const ecActive = globals[PARAM_KEY] === 'EC';
+  const euActive = process.env.STORYBOOK_SYSTEM;
   const queryString = window.location.search;
 
   return (
     <React.Fragment>
       <IconButton
         key="ec"
-        active={ecActive}
-        title="Got to the EC styleguide"
+        active={!euActive}
+        title="Go to the EC styleguide"
         style={{ padding: 0, borderRadius: 0 }}
       >
-        {!ecActive ? (
+        {euActive ? (
           <a href={'/playground/ec' + queryString}>
             <img style={{ width: 130 + 'px' }} src={ecLogo} />
           </a>
@@ -28,11 +26,11 @@ export const Switcher = () => {
       </IconButton>
       <IconButton
         key="eu"
-        active={!ecActive}
+        active={euActive}
         title="Go to the EU styleguide"
         style={{ padding: 0, borderRadius: 0 }}
       >
-        {ecActive ? (
+        {!euActive ? (
           <a href={'/playground/eu' + queryString}>
             <img style={{ width: 130 + 'px' }} src={euLogo} />
           </a>
