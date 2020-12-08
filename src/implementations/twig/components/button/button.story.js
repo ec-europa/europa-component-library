@@ -47,6 +47,7 @@ export default {
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
+        category: 'Text',
       },
       control: {
         type: 'text',
@@ -111,6 +112,7 @@ export default {
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },
+        category: 'States',
       },
       control: {
         type: 'boolean',
