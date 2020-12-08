@@ -8,7 +8,7 @@ The following have been kept in v2 in order to avoid breaking changes, but will 
 
 Components:
 
-- Accordion (deprecated since ECL 2.6.0)
+- Accordion (deprecated since ECL 2.6.0; ECL v3 contains an accordion taken from ECL v2 aka accordion2 now named accordion)
 - Footer (deprecated since ECL 2.12.0)
 - Menu (legacy)
 - Page header (deprecated since ECL 2.14.0)
