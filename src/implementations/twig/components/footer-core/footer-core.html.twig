@@ -12,7 +12,10 @@
     - "title" (predefined structure) see Link component
     - "description" (string) (default: ''),
     - "section_class_name" (string) (default: ''),
-    - "links" (array of link objects) (default: []),
+    - "links" (array of objects) (default: []),
+      - "link" (link object)
+      - "content_before" (string) Optional text before the link
+      - "content_after" (string) Optional text after the link
     - "list_class_name" (string) (default: []),
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
@@ -57,8 +60,6 @@
     {% else %}
       {# For the additional inner section elements #}
       {% set _inner_section = true %}
-      {# We have to jump to section3 in this case #}
-      {% set _section_id = _section_id + 1 %}
     {% endif %}
     {% set _section_class = 'ecl-footer-core__section ecl-footer-core__section' ~ _section_id %}
     {% if _section_group[0].section_class_name is defined and _section_group[0].section_class_name is not empty %}
@@ -95,10 +96,6 @@
         extra_classes: 'ecl-footer-core__logo-link'
       } only %}
     {% endif %}
-    {# content before #}
-    {% if _section.content_before is defined and _section.content_before is not empty %}
-      <div class="ecl-footer-core__content">{{ _section.content_before|raw }}</div>
-    {% endif %}
     {# title #}
     {% if _section.title is defined and _section.title is not empty %}
       {% if _section.title.link is defined and _section.title.link is not empty %}
@@ -127,6 +124,7 @@
       <ul class="{{ 'ecl-footer-core__list ' ~ _list_class }}">
       {% for _item in _section.links %}
         <li class="ecl-footer-core__list-item">
+        {{- _item.content_before -}}
         {% include '@ecl/link/link.html.twig' with _item|merge({
           link: _item.link|default({})|merge({
             type: 'standalone',
@@ -136,6 +134,7 @@
           }),
           extra_classes: 'ecl-footer-core__link',
         }) only %}
+        {{- _item.content_after -}}
         </li>
       {% endfor %}
       </ul>
