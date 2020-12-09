@@ -1,6 +1,6 @@
 import React from 'react';
 import { addons, types } from '@storybook/addons';
-import { Switcher } from '@ecl/storybook-addon-system-switcher/src/index.js';
+import Switcher from './systemSwitcher';
 
 const ADDON_ID = 'ecl/storybook/system-switcher';
 const TOOL_ID = `${ADDON_ID}/tool`;
