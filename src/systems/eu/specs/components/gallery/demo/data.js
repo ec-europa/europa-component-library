@@ -69,7 +69,7 @@ module.exports = {
         sources: [
           {
             src:
-              'https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/720/Big_Buck_Bunny_720_10s_2MB.mp4',
+              'https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/720/Big_Buck_Bunny_720_10s_2MB',
             type: 'video/mp4',
           },
           {
@@ -129,12 +129,12 @@ module.exports = {
         sources: [
           {
             src:
-              'https://test-videos.co.uk/vids/jellyfish/mp4/h264/720/Jellyfish_720_10s_2MB.mp4',
+              'https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.mp4',
             type: 'video/mp4',
           },
           {
             src:
-              'https://test-videos.co.uk/vids/jellyfish/webm/vp9/720/Jellyfish_720_10s_2MB.webm',
+              'https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.webm',
             type: 'video/webm',
           },
         ],
