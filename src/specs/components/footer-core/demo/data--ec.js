@@ -134,7 +134,6 @@ module.exports = {
         },
       ],
       list_class_name: 'ecl-footer-core__list--columns',
-      content_before: 'More information on:',
       section_class_name: 'ecl-footer-core__section--separator',
     },
     {
