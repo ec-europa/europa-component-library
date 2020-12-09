@@ -11,16 +11,20 @@ const baseUrl =
     : window.location.origin + window.location.pathname;
 
 const replaceLogo = (code) =>
-  code.replace(
-    /static\/media\/logo([\d-az-]*)\.([\da-z]*)\.svg/gi,
-    `${baseUrl}/images/logo/logo$1.svg`
-  );
+  code
+    .replace(
+      /static\/media\/logo([\d-az-]*)\.([\da-z]*)\.svg/gi,
+      `${baseUrl}/images/logo/logo$1.svg`
+    )
+    .replace(/([^:]\/)\/+/g, '$1'); // remove double forward slashes;
 
 const replaceIcons = (code) =>
-  code.replace(
-    /static\/media\/icons\.([\da-z]*)\.svg/gi,
-    `${baseUrl}/images/icons/sprites/icons.svg`
-  );
+  code
+    .replace(
+      /static\/media\/icons\.([\da-z]*)\.svg/gi,
+      `${baseUrl}/images/icons/sprites/icons.svg`
+    )
+    .replace(/([^:]\/)\/+/g, '$1'); // remove double forward slashes;
 
 const prefillPen = (code) => {
   return JSON.stringify({
