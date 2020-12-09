@@ -126,10 +126,12 @@
       <ul class="{{ _list_class_name }}">
         {% for _item in _section.links %}
           <li class="ecl-footer-standardised__list-item">
-             {% include '@ecl/link/link.html.twig' with _item|merge({
-                link: _item.link|default({})|merge({ type: 'standalone' }),
-                extra_classes: 'ecl-footer-standardised__link',
-              }) only %}
+            {{- _item.content_before -}}
+            {% include '@ecl/link/link.html.twig' with _item|merge({
+              link: _item.link|default({})|merge({ type: 'standalone' }),
+              extra_classes: 'ecl-footer-standardised__link',
+            }) only %}
+            {{- _item.content_after -}}
           </li>
         {% endfor %}
       </ul>
