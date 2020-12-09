@@ -3,13 +3,18 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
+import he from 'he';
 
 import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
-import specs from '@ecl/specs-component-footer-standardised/demo/data';
-import footerStandardised from './footer-standardised.html.twig';
+import specsEc from '@ecl/specs-component-footer-standardised/demo/data--ec';
+import specsEu from '@ecl/specs-component-footer-standardised/demo/data--eu';
+import logoEuMobile from '@ecl/resources-eu-logo/condensed-version/positive/en.svg';
+import logoEuDesktop from '@ecl/resources-eu-logo/standard-version/positive/en.svg';
+import footer from './footer-standardised.html.twig';
 import notes from './README.md';
 
 // Icons.
+/*
 specs.sections.forEach((section) => {
   if (!Array.isArray(section)) {
     section = [section];
@@ -28,9 +33,10 @@ specs.sections.forEach((section) => {
     }
   });
 });
+*/
 
-// Prepare the knobs for group1
-const prepareFooterStandardised = (data) => {
+// Prepare the knobs
+const formatFooter = (data) => {
   data.sections.forEach((section, i) => {
     if (!Array.isArray(section)) {
       if (section.title && typeof section.title === 'object') {
@@ -49,10 +55,12 @@ const prepareFooterStandardised = (data) => {
       }
       // Site name & content owner details.
       if (section.description) {
-        section.description = text(
-          `sections[${i}].description`,
-          section.description,
-          tabLabels.required
+        section.description = he.decode(
+          text(
+            `sections[${i}].description`,
+            section.description,
+            tabLabels.required
+          )
         );
       }
       if (section.content_before) {
@@ -68,6 +76,25 @@ const prepareFooterStandardised = (data) => {
           section.list_class_name,
           tabLabels.required
         );
+      }
+      if (section.logo) {
+        section.logo.path = text(
+          `sections[${i}].logo.path`,
+          section.logo.path,
+          tabLabels.required
+        );
+        section.logo.title = text(
+          `sections[${i}].logo.title`,
+          section.logo.title,
+          tabLabels.required
+        );
+        section.logo.alt = text(
+          `sections[${i}].logo.alt`,
+          section.logo.alt,
+          tabLabels.required
+        );
+        section.logo.src_mobile = logoEuMobile;
+        section.logo.src_desktop = logoEuDesktop;
       }
       if (section.links) {
         section.links.forEach((linkItem, j) => {
@@ -174,11 +201,12 @@ const prepareFooterStandardised = (data) => {
 
 export default {
   title: 'Components/Footers/Standardised',
+  decorators: [withCode, withNotes, withKnobs],
 };
 
-export const Default = () =>
-  footerStandardised(prepareFooterStandardised(specs));
+const data = process.env.STORYBOOK_SYSTEM === 'EU' ? specsEu : specsEc;
 
-Default.storName = 'default';
-Default.parameters = { notes: { markdown: notes, json: specs } };
-Default.decorators = [withNotes, withCode, withKnobs];
+export const Default = () => footer(formatFooter(data));
+
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: data } };

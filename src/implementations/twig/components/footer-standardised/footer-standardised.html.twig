@@ -3,9 +3,8 @@
 {#
   Parameters:
   - "sections" (array of objects) (default: [])
-    - "type" (string) (can be: site_name, service_navigation, legal_navigation, corporate_name, dg_related_navigation, dg_services_navigation, class_names)
     - "section_id" (integer) (default: '') The id will be used to form the class name
-     - "logo" (EU only)
+    - "logo" (EU only)
       - "alt" (string) alt attribute for the logo link
       - "path" (string) logo link path
       - "language" (string) Language code
@@ -14,9 +13,11 @@
     - "title" (optional) (string) OR (object with Link component in property)
     - "title_class_name" (optional) (string) (default: '')
     - "description" (optional) (string) (default: '')
-    - "content_before" (optional) (string) (default: '')
     - "list_class_name" (optional) (string) (default: '')
-    - "links" (optional) (array of Link components) (default: [])
+    - "links" (optional) (array of objects) (default: []),
+      - "link" (link object)
+      - "content_before" (string) Optional text before the link
+      - "content_after" (string) Optional text after the link
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
     - "name" (string) Attribute name, eg. 'data-test'
@@ -93,10 +94,6 @@
         },
         extra_classes: 'ecl-footer-standardised__logo-link'
       } only %}
-    {% endif %}
-    {# content before #}
-    {% if _section.content_before is defined and _section.content_before is not empty %}
-      <div class="ecl-footer-standardised__content">{{ _section.content_before|raw }}</div>
     {% endif %}
     {# title #}
     {% if _section.title is defined and _section.title is not empty %}
