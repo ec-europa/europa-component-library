@@ -4,16 +4,14 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/typography';
-@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/theme';
 
 .ecl-site-header-harmonised__logo-image {
   height: 1.9cm;
-  margin-bottom: map.get(spacing.$spacing-print, '4xl');
-  margin-top: map.get(spacing.$spacing-print, '4xl');
-  padding-bottom: map.get(spacing.$spacing-print, 'xl');
-  padding-top: map.get(spacing.$spacing-print, 'xl');
+  margin-bottom: map.get(theme.$spacing-print, '4xl');
+  margin-top: map.get(theme.$spacing-print, '4xl');
+  padding-bottom: map.get(theme.$spacing-print, 'xl');
+  padding-top: map.get(theme.$spacing-print, 'xl');
   width: 7.2cm;
 }
 
@@ -22,11 +20,11 @@
 }
 
 .ecl-site-header-harmonised__banner-top {
-  color: map.get(color.$color, 'grey');
-  font: map.get(typography.$font-prolonged-print, 'm');
+  color: map.get(theme.$color, 'grey');
+  font: map.get(theme.$font-prolonged-print, 'm');
 
   .ecl-link {
-    color: map.get(color.$color, 'grey');
+    color: map.get(theme.$color, 'grey');
   }
 
   .ecl-link::after {
@@ -36,10 +34,10 @@
 
 .ecl-site-header-harmonised__banner,
 .ecl-site-header-harmonised__site-name {
-  font: map.get(typography.$font-print, '3xl');
-  font-family: map.get(typography.$font-family-print, 'alt');
-  font-weight: map.get(typography.$font-weight-print, 'bold');
-  margin-top: map.get(spacing.$spacing-print, 'xs');
+  font: map.get(theme.$font-print, '3xl');
+  font-family: map.get(theme.$font-family-print, 'alt');
+  font-weight: map.get(theme.$font-weight-print, 'bold');
+  margin-top: map.get(theme.$spacing-print, 'xs');
 }
 
 .ecl-site-header-harmonised__logo-link::after {

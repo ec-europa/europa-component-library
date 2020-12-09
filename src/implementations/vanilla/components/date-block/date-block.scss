@@ -4,31 +4,29 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-$_background-default: map.get(color.$color, 'blue');
-$_text-color-default: map.get(color.$color, 'white');
-$_separator-color-default: map.get(color.$color, 'grey-25');
-$_year-background-default: map.get(color.$color, 'grey-10');
-$_year-text-color-default: map.get(color.$color, 'grey');
-$_background-ongoing: map.get(color.$color, 'yellow');
-$_text-color-ongoing: map.get(color.$color, 'grey');
-$_separator-color-ongoing: map.get(color.$color, 'grey-25');
-$_year-background-ongoing: map.get(color.$color, 'grey-10');
-$_year-text-color-ongoing: map.get(color.$color, 'grey');
-$_background-cancelled: map.get(color.$color, 'grey-10');
-$_text-color-cancelled: map.get(color.$color, 'grey');
-$_separator-color-cancelled: map.get(color.$color, 'grey-25');
-$_year-background-cancelled: map.get(color.$color, 'grey-10');
-$_year-text-color-cancelled: map.get(color.$color, 'grey');
-$_background-past: map.get(color.$color, 'white');
-$_text-color-past: map.get(color.$color, 'grey');
-$_separator-color-past: map.get(color.$color, 'grey-50');
-$_year-background-past: map.get(color.$color, 'white');
-$_year-text-color-past: map.get(color.$color, 'grey');
+$_background-default: map.get(theme.$color, 'blue');
+$_text-color-default: map.get(theme.$color, 'white');
+$_separator-color-default: map.get(theme.$color, 'grey-25');
+$_year-background-default: map.get(theme.$color, 'grey-10');
+$_year-text-color-default: map.get(theme.$color, 'grey');
+$_background-ongoing: map.get(theme.$color, 'yellow');
+$_text-color-ongoing: map.get(theme.$color, 'grey');
+$_separator-color-ongoing: map.get(theme.$color, 'grey-25');
+$_year-background-ongoing: map.get(theme.$color, 'grey-10');
+$_year-text-color-ongoing: map.get(theme.$color, 'grey');
+$_background-cancelled: map.get(theme.$color, 'grey-10');
+$_text-color-cancelled: map.get(theme.$color, 'grey');
+$_separator-color-cancelled: map.get(theme.$color, 'grey-25');
+$_year-background-cancelled: map.get(theme.$color, 'grey-10');
+$_year-text-color-cancelled: map.get(theme.$color, 'grey');
+$_background-past: map.get(theme.$color, 'white');
+$_text-color-past: map.get(theme.$color, 'grey');
+$_separator-color-past: map.get(theme.$color, 'grey-50');
+$_year-background-past: map.get(theme.$color, 'white');
+$_year-text-color-past: map.get(theme.$color, 'grey');
 $_width-mobile: 5rem;
 $_width-desktop: 6.3rem;
 $_circle-width: 0.6rem;
@@ -45,27 +43,27 @@ $_circle-width: 0.6rem;
   width: $_width-mobile;
 
   &::before {
-    background-color: map.get(color.$color, 'white');
+    background-color: map.get(theme.$color, 'white');
     border-radius: 50%;
     box-sizing: content-box;
     content: '';
     display: block;
     height: $_circle-width;
-    left: map.get(spacing.$spacing, 's');
+    left: map.get(theme.$spacing, 's');
     position: absolute;
     top: -#{$_circle-width / 2};
     width: $_circle-width;
   }
 
   &::after {
-    background-color: map.get(color.$color, 'white');
+    background-color: map.get(theme.$color, 'white');
     border-radius: 50%;
     box-sizing: content-box;
     content: '';
     display: block;
     height: $_circle-width;
     position: absolute;
-    right: map.get(spacing.$spacing, 's');
+    right: map.get(theme.$spacing, 's');
     top: -#{$_circle-width / 2};
     width: $_circle-width;
   }
@@ -73,19 +71,19 @@ $_circle-width: 0.6rem;
 
 .ecl-date-block__day {
   color: $_text-color-default;
-  font: map.get(typography.$font, '2xl');
-  font-weight: map.get(typography.$font-weight, 'bold');
-  padding-left: map.get(spacing.$spacing, '2xs');
-  padding-right: map.get(spacing.$spacing, '2xs');
-  padding-top: map.get(spacing.$spacing, 'xs');
+  font: map.get(theme.$font, '2xl');
+  font-weight: map.get(theme.$font-weight, 'bold');
+  padding-left: map.get(theme.$spacing, '2xs');
+  padding-right: map.get(theme.$spacing, '2xs');
+  padding-top: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-date-block__month {
   color: $_text-color-default;
-  font: map.get(typography.$font, 'm');
-  padding-bottom: map.get(spacing.$spacing, '2xs');
-  padding-left: map.get(spacing.$spacing, '2xs');
-  padding-right: map.get(spacing.$spacing, '2xs');
+  font: map.get(theme.$font, 'm');
+  padding-bottom: map.get(theme.$spacing, '2xs');
+  padding-left: map.get(theme.$spacing, '2xs');
+  padding-right: map.get(theme.$spacing, '2xs');
   text-decoration: none !important;
   text-transform: uppercase;
 }
@@ -94,8 +92,8 @@ $_circle-width: 0.6rem;
   background-color: $_year-background-default;
   border-top: 1px solid $_separator-color-default;
   color: $_year-text-color-default;
-  font: map.get(typography.$font, 's');
-  padding: map.get(spacing.$spacing, '2xs');
+  font: map.get(theme.$font, 's');
+  padding: map.get(theme.$spacing, '2xs');
 }
 
 /* stylelint-disable-next-line order/order */
@@ -105,12 +103,12 @@ $_circle-width: 0.6rem;
   }
 
   .ecl-date-block__month {
-    padding-bottom: map.get(spacing.$spacing, 'xs');
+    padding-bottom: map.get(theme.$spacing, 'xs');
   }
 
   .ecl-date-block__year {
-    padding-bottom: map.get(spacing.$spacing, 'xs');
-    padding-top: map.get(spacing.$spacing, 'xs');
+    padding-bottom: map.get(theme.$spacing, 'xs');
+    padding-top: map.get(theme.$spacing, 'xs');
   }
 
   .ecl-date-block__daytime {

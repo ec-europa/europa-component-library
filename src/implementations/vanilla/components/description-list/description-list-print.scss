@@ -4,12 +4,10 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/theme';
 
 // Vertical description list
-$_text-color: map.get(color.$color, 'grey-100');
+$_text-color: map.get(theme.$color, 'grey-100');
 
 .ecl-description-list {
   margin: 0;
@@ -17,14 +15,14 @@ $_text-color: map.get(color.$color, 'grey-100');
 
 .ecl-description-list__term {
   color: $_text-color;
-  font: map.get(typography.$font-prolonged-print, 'xl');
-  font-family: #{map.get(typography.$font-family-print, 'alt')};
-  font-weight: map.get(typography.$font-weight-print, 'bold');
+  font: map.get(theme.$font-prolonged-print, 'xl');
+  font-family: #{map.get(theme.$font-family-print, 'alt')};
+  font-weight: map.get(theme.$font-weight-print, 'bold');
 }
 
 .ecl-description-list__definition {
   color: $_text-color;
-  font: map.get(typography.$font-prolonged-print, 'm');
+  font: map.get(theme.$font-prolonged-print, 'm');
 }
 
 // Horizontal description list
@@ -35,13 +33,13 @@ $_definition-width: 68%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  max-width: calc(499px + #{map.get(spacing.$spacing-print, 'xl')});
+  max-width: calc(499px + #{map.get(theme.$spacing-print, 'xl')});
 }
 
 .ecl-description-list--horizontal .ecl-description-list__term {
-  font: map.get(typography.$font-print, 'm');
-  font-weight: map.get(typography.$font-weight-print, 'bold');
-  margin-top: map.get(spacing.$spacing-print, 'm');
+  font: map.get(theme.$font-print, 'm');
+  font-weight: map.get(theme.$font-weight-print, 'bold');
+  margin-top: map.get(theme.$spacing-print, 'm');
   width: $_term-width;
 
   &:first-of-type {
@@ -50,12 +48,12 @@ $_definition-width: 68%;
 }
 
 .ecl-description-list--horizontal .ecl-description-list__definition {
-  font: map.get(typography.$font-print, 'm');
-  margin-left: map.get(spacing.$spacing-print, 'xl');
-  margin-top: map.get(spacing.$spacing-print, 'm');
+  font: map.get(theme.$font-print, 'm');
+  margin-left: map.get(theme.$spacing-print, 'xl');
+  margin-top: map.get(theme.$spacing-print, 'm');
   overflow-wrap: break-word;
   padding-left: 0;
-  width: calc(#{$_definition-width} - #{map.get(spacing.$spacing, 'xl')});
+  width: calc(#{$_definition-width} - #{map.get(theme.$spacing, 'xl')});
 
   &:first-of-type {
     margin-top: 0;

@@ -1,9 +1,5 @@
 @use "sass:map";
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/layout';
-@use '@ecl/theme-dev/maps/typography';
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/icon';
+@use '@ecl/theme-dev/theme';
 
 .dodont {
   box-sizing: border-box;
@@ -16,7 +12,7 @@
 .do,
 .dont,
 .caution {
-  margin-top: map.get(spacing.$spacing, 'l');
+  margin-top: map.get(theme.$spacing, 'l');
 }
 
 .dodont .do,
@@ -28,7 +24,7 @@
   position: relative;
   width: 100%;
 
-  @media screen and (min-width: map.get(layout.$breakpoint, 'm')) {
+  @media screen and (min-width: map.get(theme.$breakpoint, 'm')) {
     display: flex;
     flex: 0 0 50%;
     flex-direction: column;
@@ -39,7 +35,7 @@
 
 .image-container {
   align-items: center;
-  border: 1px solid map.get(color.$color, 'grey-15');
+  border: 1px solid map.get(theme.$color, 'grey-15');
   border-bottom-width: 0;
   display: flex;
   justify-content: center;
@@ -63,54 +59,54 @@
 }
 
 .do .separator {
-  background-color: map.get(color.$color, 'success');
+  background-color: map.get(theme.$color, 'success');
 }
 
 .dont .separator {
-  background-color: map.get(color.$color, 'error');
+  background-color: map.get(theme.$color, 'error');
 }
 
 .caution .separator {
-  background-color: map.get(color.$color, 'warning');
+  background-color: map.get(theme.$color, 'warning');
 }
 
 .container {
-  background-color: map.get(color.$color, 'grey-5');
+  background-color: map.get(theme.$color, 'grey-5');
   flex-grow: 1;
   flex-shrink: 0;
-  padding: map.get(spacing.$spacing, 'm') map.get(spacing.$spacing, 'l');
+  padding: map.get(theme.$spacing, 'm') map.get(theme.$spacing, 'l');
 }
 
 .title {
   display: flex;
-  font: map.get(typography.$font-prolonged, 'm');
-  font-weight: map.get(typography.$font-weight, 'bold');
+  font: map.get(theme.$font-prolonged, 'm');
+  font-weight: map.get(theme.$font-weight, 'bold');
 }
 .do .title {
-  color: map.get(color.$color, 'success');
+  color: map.get(theme.$color, 'success');
 }
 .dont .title {
-  color: map.get(color.$color, 'error');
+  color: map.get(theme.$color, 'error');
 }
 .caution .title {
-  color: map.get(color.$color, 'warning');
+  color: map.get(theme.$color, 'warning');
 }
 
 .title__icon {
   fill: currentColor;
-  height: map.get(icon.$icon, 's');
-  margin-right: map.get(spacing.$spacing, 's');
-  width: map.get(icon.$icon, 's');
+  height: map.get(theme.$icon, 's');
+  margin-right: map.get(theme.$spacing, 's');
+  width: map.get(theme.$icon, 's');
 }
 
 .description {
-  color: map.get(color.$color, 'grey-100');
-  font: map.get(typography.$font-prolonged, 'm');
-  margin-top: map.get(spacing.$spacing, 'xs');
+  color: map.get(theme.$color, 'grey-100');
+  font: map.get(theme.$font-prolonged, 'm');
+  margin-top: map.get(theme.$spacing, 'xs');
 }
 
-@media screen and (min-width: map.get(layout.$breakpoint, 's')) {
+@media screen and (min-width: map.get(theme.$breakpoint, 's')) {
   .dont {
-    margin-top: map.get(spacing.$spacing, 'l');
+    margin-top: map.get(theme.$spacing, 'l');
   }
 }

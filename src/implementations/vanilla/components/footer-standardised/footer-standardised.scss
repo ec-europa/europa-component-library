@@ -4,16 +4,13 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
-@use "@ecl/theme-dev/maps/layout";
+@use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-$_bg-color: map.get(color.$color, 'blue');
-$_separator-color: map.get(color.$color, 'blue-50');
-$_text-color: map.get(color.$color, 'white');
-$_column-gap: map.get(layout.$grid-gutter-width, 'm');
+$_bg-color: map.get(theme.$color, 'blue');
+$_separator-color: map.get(theme.$color, 'blue-50');
+$_text-color: map.get(theme.$color, 'white');
+$_column-gap: map.get(theme.$grid-gutter-width, 'm');
 
 /*
  * Global rules
@@ -22,7 +19,7 @@ $_column-gap: map.get(layout.$grid-gutter-width, 'm');
   background-color: $_bg-color;
   color: $_text-color;
   margin: 0;
-  padding-bottom: map.get(spacing.$spacing, 'xl');
+  padding-bottom: map.get(theme.$spacing, 'xl');
 }
 
 .ecl-footer-standardised__container {
@@ -31,11 +28,11 @@ $_column-gap: map.get(layout.$grid-gutter-width, 'm');
 }
 
 .ecl-footer-standardised__section {
-  font: map.get(typography.$font, 'm');
-  margin-top: map.get(spacing.$spacing, 'l');
+  font: map.get(theme.$font, 'm');
+  margin-top: map.get(theme.$spacing, 'l');
 
   &:first-of-type {
-    margin-top: map.get(spacing.$spacing, 'xl');
+    margin-top: map.get(theme.$spacing, 'xl');
   }
 
   > :first-child {
@@ -49,7 +46,7 @@ $_column-gap: map.get(layout.$grid-gutter-width, 'm');
 
 .ecl-footer-standardised__section--separator {
   border-bottom: 1px solid $_separator-color;
-  padding-bottom: map.get(spacing.$spacing, 'l');
+  padding-bottom: map.get(theme.$spacing, 'l');
 }
 
 .ecl-footer-standardised__title,
@@ -57,39 +54,39 @@ $_column-gap: map.get(layout.$grid-gutter-width, 'm');
 .ecl-footer-standardised__title:focus,
 .ecl-footer-standardised__title:active {
   color: $_text-color;
-  font: map.get(typography.$font, 'm');
-  font-weight: map.get(typography.$font-weight, 'bold');
+  font: map.get(theme.$font, 'm');
+  font-weight: map.get(theme.$font-weight, 'bold');
 }
 
 .ecl-footer-standardised__title--separator {
   border-bottom: 1px solid $_separator-color;
-  padding-bottom: map.get(spacing.$spacing, 'xs');
+  padding-bottom: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-footer-standardised__description {
-  color: map.get(color.$color, 'blue-25');
-  font: map.get(typography.$font-prolonged, 's');
-  margin-top: map.get(spacing.$spacing, 'xs');
+  color: map.get(theme.$color, 'blue-25');
+  font: map.get(theme.$font-prolonged, 's');
+  margin-top: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-footer-standardised__content {
-  color: map.get(color.$color, 'blue-25');
-  font: map.get(typography.$font, 's');
-  margin-top: map.get(spacing.$spacing, 'xs');
+  color: map.get(theme.$color, 'blue-25');
+  font: map.get(theme.$font, 's');
+  margin-top: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-footer-standardised__list {
   list-style: none;
   margin-bottom: 0;
-  margin-top: map.get(spacing.$spacing, 'xs');
+  margin-top: map.get(theme.$spacing, 'xs');
   padding-left: 0;
 }
 
 .ecl-footer-standardised__list-item {
-  margin-top: map.get(spacing.$spacing, 'm');
+  margin-top: map.get(theme.$spacing, 'm');
 
   .ecl-footer-standardised__list--condensed & {
-    margin-top: map.get(spacing.$spacing, 'xs');
+    margin-top: map.get(theme.$spacing, 'xs');
   }
 
   &:first-of-type {
@@ -102,7 +99,7 @@ $_column-gap: map.get(layout.$grid-gutter-width, 'm');
   flex-wrap: wrap;
 
   .ecl-footer-standardised__list-item {
-    margin-right: map.get(spacing.$spacing, 'l');
+    margin-right: map.get(theme.$spacing, 'l');
     margin-top: 0;
 
     /* stylelint-disable-next-line max-nesting-depth */
@@ -113,7 +110,7 @@ $_column-gap: map.get(layout.$grid-gutter-width, 'm');
 }
 
 .ecl-footer-standardised__link {
-  font: map.get(typography.$font, 's');
+  font: map.get(theme.$font, 's');
 }
 
 .ecl-footer-standardised__link,
@@ -126,7 +123,7 @@ $_column-gap: map.get(layout.$grid-gutter-width, 'm');
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
   .ecl-footer-standardised__section {
-    margin-top: map.get(spacing.$spacing, 'xl');
+    margin-top: map.get(theme.$spacing, 'xl');
 
     &:empty {
       margin-top: 0;
@@ -135,15 +132,15 @@ $_column-gap: map.get(layout.$grid-gutter-width, 'm');
 
   .ecl-footer-standardised__section--separator {
     border-bottom-width: 2px;
-    padding-bottom: map.get(spacing.$spacing, 'xl');
+    padding-bottom: map.get(theme.$spacing, 'xl');
   }
 
   .ecl-footer-standardised__title,
   .ecl-footer-standardised__title:hover,
   .ecl-footer-standardised__title:focus,
   .ecl-footer-standardised__title:active {
-    font: map.get(typography.$font-prolonged, 'm');
-    font-weight: map.get(typography.$font-weight, 'bold');
+    font: map.get(theme.$font-prolonged, 'm');
+    font-weight: map.get(theme.$font-weight, 'bold');
   }
 
   .ecl-footer-standardised__title--separator {
@@ -151,7 +148,7 @@ $_column-gap: map.get(layout.$grid-gutter-width, 'm');
   }
 
   .ecl-footer-standardised__description {
-    margin-top: map.get(spacing.$spacing, 'xl');
+    margin-top: map.get(theme.$spacing, 'xl');
   }
 
   .ecl-footer-standardised__list--columns {
@@ -160,7 +157,7 @@ $_column-gap: map.get(layout.$grid-gutter-width, 'm');
   }
 
   .ecl-footer-standardised__link {
-    font: map.get(typography.$font-prolonged, 's');
+    font: map.get(theme.$font-prolonged, 's');
   }
 }
 
@@ -191,8 +188,8 @@ $_column-gap: map.get(layout.$grid-gutter-width, 'm');
 .ecl-footer-standardised__section6 {
   border-bottom: 1px solid $_separator-color;
   border-top: 1px solid $_separator-color;
-  padding-bottom: map.get(spacing.$spacing, 'm');
-  padding-top: map.get(spacing.$spacing, 'm');
+  padding-bottom: map.get(theme.$spacing, 'm');
+  padding-top: map.get(theme.$spacing, 'm');
 
   /* stylelint-disable-next-line max-nesting-depth */
   &:empty {
@@ -202,7 +199,7 @@ $_column-gap: map.get(layout.$grid-gutter-width, 'm');
 
 .ecl-footer-standardised__section8,
 .ecl-footer-standardised__section9 {
-  margin-top: map.get(spacing.$spacing, 'm');
+  margin-top: map.get(theme.$spacing, 'm');
 }
 
 /* stylelint-disable-next-line order/order */
@@ -253,11 +250,11 @@ $_column-gap: map.get(layout.$grid-gutter-width, 'm');
 
   .ecl-footer-standardised__section8 {
     grid-area: 4 / 2 / 5 / 3;
-    margin-top: map.get(spacing.$spacing, 'xl');
+    margin-top: map.get(theme.$spacing, 'xl');
   }
 
   .ecl-footer-standardised__section9 {
     grid-area: 4 / 3 / 5 / 4;
-    margin-top: map.get(spacing.$spacing, 'xl');
+    margin-top: map.get(theme.$spacing, 'xl');
   }
 }

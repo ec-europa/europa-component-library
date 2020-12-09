@@ -4,15 +4,13 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/theme';
 
-$_background-card: map.get(color.$color, 'grey-5');
-$_border-color-card: map.get(color.$color, 'grey-10');
-$_color-meta: map.get(color.$color, 'grey-75');
-$_color-description: map.get(color.$color, 'grey-100');
-$_color-info: map.get(color.$color, 'grey-75');
+$_background-card: map.get(theme.$color, 'grey-5');
+$_border-color-card: map.get(theme.$color, 'grey-10');
+$_color-meta: map.get(theme.$color, 'grey-75');
+$_color-description: map.get(theme.$color, 'grey-100');
+$_color-info: map.get(theme.$color, 'grey-75');
 
 .ecl-card {
   background-color: $_background-card;
@@ -20,8 +18,8 @@ $_color-info: map.get(color.$color, 'grey-75');
   box-sizing: border-box;
   height: 100%;
   margin: 0;
-  padding-left: calc(#{map.get(spacing.$spacing, 's')} - 1px);
-  padding-right: calc(#{map.get(spacing.$spacing, 's')} - 1px);
+  padding-left: calc(#{map.get(theme.$spacing, 's')} - 1px);
+  padding-right: calc(#{map.get(theme.$spacing, 's')} - 1px);
   width: 100%;
 }
 
@@ -30,7 +28,7 @@ $_color-info: map.get(color.$color, 'grey-75');
   background-size: cover;
   display: block;
   height: auto;
-  margin-top: calc(#{map.get(spacing.$spacing, 's')} - 1px);
+  margin-top: calc(#{map.get(theme.$spacing, 's')} - 1px);
   width: 100%;
 
   // manage ratio 3:2
@@ -44,25 +42,25 @@ $_color-info: map.get(color.$color, 'grey-75');
 
 .ecl-card__meta {
   color: $_color-meta;
-  font: map.get(typography.$font, 'xs');
-  margin-top: map.get(spacing.$spacing, 'xs');
+  font: map.get(theme.$font, 'xs');
+  margin-top: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-card__title {
-  font: map.get(typography.$font, 'm');
-  font-weight: map.get(typography.$font-weight, 'bold');
-  margin-top: map.get(spacing.$spacing, 's');
+  font: map.get(theme.$font, 'm');
+  font-weight: map.get(theme.$font-weight, 'bold');
+  margin-top: map.get(theme.$spacing, 's');
 }
 
 .ecl-card__description {
   color: $_color-description;
-  font: map.get(typography.$font, 'm');
-  margin-top: map.get(spacing.$spacing, 'xs');
+  font: map.get(theme.$font, 'm');
+  margin-top: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-card__info-container {
   list-style: none;
-  margin-top: map.get(spacing.$spacing, 'm');
+  margin-top: map.get(theme.$spacing, 'm');
   padding: 0;
 }
 
@@ -70,8 +68,8 @@ $_color-info: map.get(color.$color, 'grey-75');
   align-content: center;
   color: $_color-info;
   display: flex;
-  font: map.get(typography.$font, 's');
-  margin-top: map.get(spacing.$spacing, 's');
+  font: map.get(theme.$font, 's');
+  margin-top: map.get(theme.$spacing, 's');
 
   &:first-child {
     margin-top: 0;
@@ -79,17 +77,17 @@ $_color-info: map.get(color.$color, 'grey-75');
 }
 
 .ecl-card__info-label {
-  margin-left: map.get(spacing.$spacing, 's');
+  margin-left: map.get(theme.$spacing, 's');
 }
 
 .ecl-card__link-container {
   list-style: none;
-  margin-top: map.get(spacing.$spacing, 'xl');
+  margin-top: map.get(theme.$spacing, 'xl');
   padding: 0;
 }
 
 .ecl-card__link-item {
-  margin-top: map.get(spacing.$spacing, 's');
+  margin-top: map.get(theme.$spacing, 's');
 
   &:first-child {
     margin-top: 0;
@@ -98,8 +96,8 @@ $_color-info: map.get(color.$color, 'grey-75');
 
 .ecl-card__link {
   display: block;
-  font: map.get(typography.$font, 's');
-  font-weight: map.get(typography.$font-weight, 'bold');
+  font: map.get(theme.$font, 's');
+  font-weight: map.get(theme.$font-weight, 'bold');
 }
 
 .ecl-card__tag-container {
@@ -111,7 +109,7 @@ $_color-info: map.get(color.$color, 'grey-75');
 }
 
 .ecl-card__tag-item {
-  margin: map.get(spacing.$spacing, 'm') map.get(spacing.$spacing, 'xs') 0 0;
+  margin: map.get(theme.$spacing, 'm') map.get(theme.$spacing, 'xs') 0 0;
 
   &:last-child {
     margin-right: 0;
@@ -123,9 +121,9 @@ $_color-info: map.get(color.$color, 'grey-75');
   */
 .ecl-card--tile {
   .ecl-card__title {
-    font: map.get(typography.$font-prolonged, 'l');
+    font: map.get(theme.$font-prolonged, 'l');
     font-weight: bold;
-    margin-top: calc(#{map.get(spacing.$spacing, 'l')} - 1px);
+    margin-top: calc(#{map.get(theme.$spacing, 'l')} - 1px);
   }
 }
 
@@ -133,17 +131,17 @@ $_color-info: map.get(color.$color, 'grey-75');
   * Spacing adjustment
   */
 .ecl-card__meta + .ecl-card__title {
-  margin-top: map.get(spacing.$spacing, 'xs');
+  margin-top: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-card > :last-child {
-  margin-bottom: calc(#{map.get(spacing.$spacing, 's')} - 1px);
+  margin-bottom: calc(#{map.get(theme.$spacing, 's')} - 1px);
 }
 
 .ecl-card--tile > :last-child {
-  margin-bottom: calc(#{map.get(spacing.$spacing, 'l')} - 1px);
+  margin-bottom: calc(#{map.get(theme.$spacing, 'l')} - 1px);
 }
 
 .ecl-card__title:last-child {
-  margin-bottom: map.get(spacing.$spacing, 'm');
+  margin-bottom: map.get(theme.$spacing, 'm');
 }

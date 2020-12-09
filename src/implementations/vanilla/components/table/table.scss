@@ -4,16 +4,13 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/icon';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 .ecl-table {
   border-collapse: collapse;
-  color: map.get(color.$color, 'grey-100');
-  font: map.get(typography.$font, 'm');
+  color: map.get(theme.$color, 'grey-100');
+  font: map.get(theme.$font, 'm');
   margin: 0;
   width: 100%;
 }
@@ -23,62 +20,62 @@
 }
 
 .ecl-table__cell {
-  border-top: 1px solid map.get(color.$color, 'grey-25');
+  border-top: 1px solid map.get(theme.$color, 'grey-25');
   display: flex;
-  padding: map.get(spacing.$spacing, 's');
+  padding: map.get(theme.$spacing, 's');
 
   &::before {
-    background-color: map.get(color.$color, 'blue-5');
-    border-right: 2px solid map.get(color.$color, 'grey-50');
+    background-color: map.get(theme.$color, 'blue-5');
+    border-right: 2px solid map.get(theme.$color, 'grey-50');
     content: attr(data-ecl-table-header);
     display: block;
     flex-basis: 10rem;
     flex-grow: 0;
     flex-shrink: 0;
-    font-weight: map.get(typography.$font-weight, 'bold');
-    margin-bottom: -#{map.get(spacing.$spacing, 's')};
-    margin-left: -#{map.get(spacing.$spacing, 's')};
-    margin-right: map.get(spacing.$spacing, 's');
-    margin-top: -#{map.get(spacing.$spacing, 's')};
-    padding-bottom: map.get(spacing.$spacing, 's');
-    padding-left: map.get(spacing.$spacing, 's');
-    padding-right: map.get(spacing.$spacing, 'm');
-    padding-top: map.get(spacing.$spacing, 's');
+    font-weight: map.get(theme.$font-weight, 'bold');
+    margin-bottom: -#{map.get(theme.$spacing, 's')};
+    margin-left: -#{map.get(theme.$spacing, 's')};
+    margin-right: map.get(theme.$spacing, 's');
+    margin-top: -#{map.get(theme.$spacing, 's')};
+    padding-bottom: map.get(theme.$spacing, 's');
+    padding-left: map.get(theme.$spacing, 's');
+    padding-right: map.get(theme.$spacing, 'm');
+    padding-top: map.get(theme.$spacing, 's');
   }
 
   &:last-of-type {
-    border-bottom: 1px solid map.get(color.$color, 'grey-25');
-    margin-bottom: map.get(spacing.$spacing, 'l');
+    border-bottom: 1px solid map.get(theme.$color, 'grey-25');
+    margin-bottom: map.get(theme.$spacing, 'l');
   }
 }
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-table__head {
-    background-color: map.get(color.$color, 'blue-5');
+    background-color: map.get(theme.$color, 'blue-5');
     display: table-header-group;
   }
 
   .ecl-table__header {
-    font-weight: map.get(typography.$font-weight, 'bold');
-    padding: map.get(spacing.$spacing, 's') map.get(spacing.$spacing, 'm');
+    font-weight: map.get(theme.$font-weight, 'bold');
+    padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
     text-align: left;
     vertical-align: bottom;
   }
 
   .ecl-table__row {
-    border-bottom: 1px solid map.get(color.$color, 'grey-25');
+    border-bottom: 1px solid map.get(theme.$color, 'grey-25');
     border-top-width: 0;
   }
 
   .ecl-table__head .ecl-table__row:first-child {
-    border-bottom: 2px solid map.get(color.$color, 'grey-50');
+    border-bottom: 2px solid map.get(theme.$color, 'grey-50');
   }
 
   .ecl-table__cell {
     border-width: 0;
     display: table-cell;
-    padding: map.get(spacing.$spacing, 's') map.get(spacing.$spacing, 'm');
+    padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
 
     &::before {
       display: none;
@@ -89,7 +86,7 @@
 // Zebra
 .ecl-table--zebra {
   .ecl-table__cell:nth-of-type(even) {
-    background-color: map.get(color.$color, 'grey-5');
+    background-color: map.get(theme.$color, 'grey-5');
   }
 }
 
@@ -97,7 +94,7 @@
 @include breakpoints.up('l') {
   .ecl-table--zebra {
     .ecl-table__body .ecl-table__row:nth-of-type(even) {
-      background-color: map.get(color.$color, 'grey-5');
+      background-color: map.get(theme.$color, 'grey-5');
     }
 
     .ecl-table__cell:nth-of-type(even) {
@@ -110,51 +107,50 @@
 .ecl-table__cell[data-ecl-table-header-group] {
   // padding-top + line-height + padding-bottom + border + cell padding-top
   padding-top: calc(
-    #{map.get(spacing.$spacing, 's')} + #{map.get(typography.$line-height, 'm')} +
-      #{map.get(spacing.$spacing, 's')} + 1px + #{map.get(
-        spacing.$spacing,
+    #{map.get(theme.$spacing, 's')} + #{map.get(theme.$line-height, 'm')} + #{map.get(
+        theme.$spacing,
         's'
-      )}
+      )} + 1px + #{map.get(theme.$spacing, 's')}
   );
   position: relative;
 
   &::after {
-    background-color: map.get(color.$color, 'blue-5');
-    border-bottom: 1px solid map.get(color.$color, 'grey-25');
+    background-color: map.get(theme.$color, 'blue-5');
+    border-bottom: 1px solid map.get(theme.$color, 'grey-25');
     content: attr(data-ecl-table-header-group);
     display: block;
-    font-weight: map.get(typography.$font-weight, 'bold');
+    font-weight: map.get(theme.$font-weight, 'bold');
     left: 0;
-    padding-bottom: map.get(spacing.$spacing, 's');
-    padding-left: map.get(spacing.$spacing, 's');
-    padding-top: map.get(spacing.$spacing, 's');
+    padding-bottom: map.get(theme.$spacing, 's');
+    padding-left: map.get(theme.$spacing, 's');
+    padding-top: map.get(theme.$spacing, 's');
     position: absolute;
     top: 0;
-    width: calc(100% - #{map.get(spacing.$spacing, 's')});
+    width: calc(100% - #{map.get(theme.$spacing, 's')});
   }
 }
 
 .ecl-table__cell--group {
   &::before {
-    background-color: map.get(color.$color, 'white-100');
-    border-right-color: map.get(color.$color, 'white-100');
-    margin-left: -#{map.get(spacing.$spacing, 's')};
+    background-color: map.get(theme.$color, 'white-100');
+    border-right-color: map.get(theme.$color, 'white-100');
+    margin-left: -#{map.get(theme.$spacing, 's')};
     margin-right: 0;
-    padding-left: map.get(spacing.$spacing, 'l');
+    padding-left: map.get(theme.$spacing, 'l');
   }
 }
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-table__head .ecl-table__row:not(:first-child) {
-    background-color: map.get(color.$color, 'white-100');
+    background-color: map.get(theme.$color, 'white-100');
     border-bottom-width: 0;
   }
 
   .ecl-table__head
     .ecl-table__row:not(:first-child)
     .ecl-table__header:not(:empty) {
-    background-color: map.get(color.$color, 'blue-5');
+    background-color: map.get(theme.$color, 'blue-5');
   }
 
   .ecl-table__cell[data-ecl-table-header-group]::after {
@@ -162,11 +158,11 @@
   }
 
   .ecl-table__cell--group {
-    padding-left: map.get(spacing.$spacing, 's');
+    padding-left: map.get(theme.$spacing, 's');
   }
 
   .ecl-table__cell[data-ecl-table-header-group] {
-    padding-top: map.get(spacing.$spacing, 's');
+    padding-top: map.get(theme.$spacing, 's');
   }
 }
 
@@ -174,8 +170,8 @@
 .ecl-table__header[data-ecl-table-sort-toggle] {
   cursor: pointer;
   padding-left: calc(
-    #{map.get(spacing.$spacing, 'm')} + #{map.get(icon.$icon, '2xs')} + #{map.get(
-        spacing.$spacing,
+    #{map.get(theme.$spacing, 'm')} + #{map.get(theme.$icon, '2xs')} + #{map.get(
+        theme.$spacing,
         'xs'
       )}
   );
@@ -183,7 +179,7 @@
 }
 
 .ecl-table__arrow {
-  left: map.get(spacing.$spacing, 'm');
+  left: map.get(theme.$spacing, 'm');
   position: absolute;
 }
 
@@ -193,24 +189,24 @@
 }
 
 .ecl-table__icon-up {
-  fill: map.get(color.$color, 'grey-50');
+  fill: map.get(theme.$color, 'grey-50');
   top: 0;
 }
 
 .ecl-table__icon-down {
-  fill: map.get(color.$color, 'grey-50');
-  top: map.get(icon.$icon, '2xs');
+  fill: map.get(theme.$color, 'grey-50');
+  top: map.get(theme.$icon, '2xs');
   transform: rotate(180deg);
 }
 
 .ecl-table__header[aria-sort='ascending'] {
   .ecl-table__icon-down {
-    fill: map.get(color.$color, 'grey-100');
+    fill: map.get(theme.$color, 'grey-100');
   }
 }
 
 .ecl-table__header[aria-sort='descending'] {
   .ecl-table__icon-up {
-    fill: map.get(color.$color, 'grey-100');
+    fill: map.get(theme.$color, 'grey-100');
   }
 }

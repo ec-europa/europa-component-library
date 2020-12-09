@@ -4,14 +4,11 @@
  */
 
 @use "sass:map";
-@use "@ecl/theme-dev/maps/color";
-@use "@ecl/theme-dev/maps/media";
-@use "@ecl/theme-dev/maps/spacing";
-@use "@ecl/theme-dev/maps/typography";
+@use '@ecl/theme-dev/theme';
 @use "@ecl/vanilla-utility-media/media" as uMedia;
 
 .ecl-media-container {
-  background-color: map.get(color.$color, 'grey-10');
+  background-color: map.get(theme.$color, 'grey-10');
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -26,9 +23,9 @@
 }
 
 .ecl-media-container__caption {
-  color: map.get(color.$color, 'grey');
-  font: map.get(typography.$font-prolonged, 'm');
-  padding: map.get(spacing.$spacing, 's');
+  color: map.get(theme.$color, 'grey');
+  font: map.get(theme.$font-prolonged, 'm');
+  padding: map.get(theme.$spacing, 's');
 }
 
 // Ratio

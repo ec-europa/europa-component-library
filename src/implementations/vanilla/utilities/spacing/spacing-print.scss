@@ -1,6 +1,5 @@
 @use "sass:map";
-@use "@ecl/theme-dev/maps/layout";
-@use "@ecl/theme-dev/maps/spacing";
+@use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 /*
@@ -18,11 +17,11 @@
 */
 
 /* stylelint-disable max-nesting-depth */
-@each $breakpoint in map.keys(layout.$breakpoint) {
+@each $breakpoint in map.keys(theme.$breakpoint) {
   @include breakpoints.up($breakpoint) {
-    $infix: breakpoints.infix($breakpoint, layout.$breakpoint);
+    $infix: breakpoints.infix($breakpoint, theme.$breakpoint);
 
-    @each $key, $value in spacing.$spacing {
+    @each $key, $value in theme.$spacing {
       .ecl-u-ma#{$infix}-#{$key} {
         margin: $value !important;
       }
@@ -105,11 +104,11 @@
   }
 }
 
-@each $breakpoint in map.keys(layout.$breakpoint) {
+@each $breakpoint in map.keys(theme.$breakpoint) {
   @include breakpoints.up($breakpoint) {
-    $infix: breakpoints.infix($breakpoint, layout.$breakpoint);
+    $infix: breakpoints.infix($breakpoint, theme.$breakpoint);
 
-    @each $key, $value in spacing.$spacing {
+    @each $key, $value in theme.$spacing {
       .ecl-u-pa#{$infix}-#{$key} {
         padding: $value !important;
       }

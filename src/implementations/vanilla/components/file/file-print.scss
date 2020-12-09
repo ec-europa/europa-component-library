@@ -4,9 +4,7 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/theme';
 
 $_image-width: 13.125rem;
 
@@ -24,53 +22,53 @@ $_image-width: 13.125rem;
 }
 
 .ecl-file__title {
-  color: map.get(color.$color, 'black-100');
-  font: map.get(typography.$font-print, 'm');
-  font-family: map.get(typography.$font-family-print, 'alt');
-  font-weight: map.get(typography.$font-weight-print, 'bold');
-  margin-bottom: map.get(spacing.$spacing-print, 's');
+  color: map.get(theme.$color, 'black-100');
+  font: map.get(theme.$font-print, 'm');
+  font-family: map.get(theme.$font-family-print, 'alt');
+  font-weight: map.get(theme.$font-weight-print, 'bold');
+  margin-bottom: map.get(theme.$spacing-print, 's');
   width: 100%;
 }
 
 .ecl-file__language {
-  color: map.get(color.$color, 'black-100');
-  font: map.get(typography.$font-print, 's');
-  font-weight: map.get(typography.$font-weight-print, 'bold');
-  margin-right: map.get(spacing.$spacing-print, '2xs');
+  color: map.get(theme.$color, 'black-100');
+  font: map.get(theme.$font-print, 's');
+  font-weight: map.get(theme.$font-weight-print, 'bold');
+  margin-right: map.get(theme.$spacing-print, '2xs');
 }
 
 .ecl-file__meta {
-  color: map.get(color.$color, 'black-100');
-  font: map.get(typography.$font-print, 's');
+  color: map.get(theme.$color, 'black-100');
+  font: map.get(theme.$font-print, 's');
 }
 
 .ecl-file__download {
   border-width: 0;
   clear: left;
-  font: map.get(typography.$font-print, 's');
-  font-weight: map.get(typography.$font-weight-print, 'regular');
+  font: map.get(theme.$font-print, 's');
+  font-weight: map.get(theme.$font-weight-print, 'regular');
 }
 
 .ecl-file__detail {
-  border-bottom: 1px solid map.get(color.$color, 'grey-20');
+  border-bottom: 1px solid map.get(theme.$color, 'grey-20');
   display: flex;
   flex-direction: row;
-  margin-bottom: map.get(spacing.$spacing-print, 'm');
-  padding-bottom: map.get(spacing.$spacing-print, 'm');
+  margin-bottom: map.get(theme.$spacing-print, 'm');
+  padding-bottom: map.get(theme.$spacing-print, 'm');
 }
 
 .ecl-file__detail-meta {
-  color: map.get(color.$color, 'grey-75');
-  font: map.get(typography.$font-print, 's');
-  margin-bottom: map.get(spacing.$spacing-print, 'xs');
+  color: map.get(theme.$color, 'grey-75');
+  font: map.get(theme.$font-print, 's');
+  margin-bottom: map.get(theme.$spacing-print, 'xs');
 }
 
 .ecl-file__detail-meta-item {
-  margin-left: map.get(spacing.$spacing-print, 'xs');
+  margin-left: map.get(theme.$spacing-print, 'xs');
 
   &::before {
     content: '|';
-    margin-right: map.get(spacing.$spacing-print, 'xs');
+    margin-right: map.get(theme.$spacing-print, 'xs');
   }
 }
 
@@ -86,15 +84,15 @@ $_image-width: 13.125rem;
 .ecl-file__image {
   align-self: flex-start;
   display: block;
-  margin-left: map.get(spacing.$spacing, 'l');
+  margin-left: map.get(theme.$spacing, 'l');
   margin-top: 0;
   max-width: $_image-width;
 }
 
 .ecl-file__description {
-  color: map.get(color.$color, 'black');
-  font: map.get(typography.$font-prolonged-print, 'm');
-  margin-top: map.get(spacing.$spacing-print, 'xs');
+  color: map.get(theme.$color, 'black');
+  font: map.get(theme.$font-prolonged-print, 'm');
+  margin-top: map.get(theme.$spacing-print, 'xs');
 }
 
 .ecl-file__translation-toggle {
@@ -109,7 +107,7 @@ $_image-width: 13.125rem;
 }
 
 .ecl-file__translation-item {
-  margin-top: map.get(spacing.$spacing-print, 'xs');
+  margin-top: map.get(theme.$spacing-print, 'xs');
 }
 
 .ecl-file__translation-info {
@@ -117,29 +115,29 @@ $_image-width: 13.125rem;
 }
 
 .ecl-file__translation-title {
-  color: map.get(color.$color, 'black-100');
-  font: map.get(typography.$font-print, 's');
-  font-weight: map.get(typography.$font-weight-print, 'bold');
-  margin-right: map.get(spacing.$spacing-print, '2xs');
+  color: map.get(theme.$color, 'black-100');
+  font: map.get(theme.$font-print, 's');
+  font-weight: map.get(theme.$font-weight-print, 'bold');
+  margin-right: map.get(theme.$spacing-print, '2xs');
 }
 
 .ecl-file__translation-meta {
-  color: map.get(color.$color, 'black-100');
-  font: map.get(typography.$font-print, 's');
+  color: map.get(theme.$color, 'black-100');
+  font: map.get(theme.$font-print, 's');
 }
 
 .ecl-file__translation-description {
-  color: map.get(color.$color, 'black-100');
-  font: map.get(typography.$font-print, 'm');
-  margin-top: map.get(spacing.$spacing-print, 's');
+  color: map.get(theme.$color, 'black-100');
+  font: map.get(theme.$font-print, 'm');
+  margin-top: map.get(theme.$spacing-print, 's');
 }
 
 .ecl-file__translation-language {
-  color: map.get(color.$color, 'black');
-  font: map.get(typography.$font-print, 's');
-  font-weight: map.get(typography.$font-weight-print, 'bold');
+  color: map.get(theme.$color, 'black');
+  font: map.get(theme.$font-print, 's');
+  font-weight: map.get(theme.$font-weight-print, 'bold');
 }
 
 .ecl-file__translation-download {
-  font: map.get(typography.$font-print, 's');
+  font: map.get(theme.$font-print, 's');
 }

@@ -4,9 +4,7 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/theme';
 
 .ecl-card {
   margin: 0;
@@ -17,49 +15,49 @@
 }
 
 .ecl-card__meta {
-  color: map.get(color.$color, 'grey');
-  font: map.get(typography.$font-print, 's');
-  font-family: #{map.get(typography.$font-family-print, 'alt')};
-  margin-bottom: map.get(spacing.$spacing, 'xs');
+  color: map.get(theme.$color, 'grey');
+  font: map.get(theme.$font-print, 's');
+  font-family: #{map.get(theme.$font-family-print, 'alt')};
+  margin-bottom: map.get(theme.$spacing, 'xs');
   text-transform: uppercase;
 }
 
 .ecl-card__title {
-  font: map.get(typography.$font-print, 'm');
-  font-family: map.get(typography.$font-family-print, 'alt');
-  font-weight: map.get(typography.$font-weight-print, 'bold');
+  font: map.get(theme.$font-print, 'm');
+  font-family: map.get(theme.$font-family-print, 'alt');
+  font-weight: map.get(theme.$font-weight-print, 'bold');
   margin: 0;
 
   .ecl-link::after {
     display: block;
-    font-weight: map.get(typography.$font-weight-print, 'regular');
-    margin-top: map.get(spacing.$spacing-print, 'xs');
+    font-weight: map.get(theme.$font-weight-print, 'regular');
+    margin-top: map.get(theme.$spacing-print, 'xs');
   }
 }
 
 .ecl-card__title .ecl-link {
-  font-family: #{map.get(typography.$font-family-print, 'alt')};
+  font-family: #{map.get(theme.$font-family-print, 'alt')};
 }
 
 .ecl-card__description {
-  color: map.get(color.$color, 'black');
-  font: map.get(typography.$font-print, 'm');
-  margin-top: map.get(spacing.$spacing-print, 'm');
+  color: map.get(theme.$color, 'black');
+  font: map.get(theme.$font-print, 'm');
+  margin-top: map.get(theme.$spacing-print, 'm');
 }
 
 .ecl-card__info-container {
   list-style: none;
   margin-bottom: 0;
-  margin-top: map.get(spacing.$spacing-print, 'm');
+  margin-top: map.get(theme.$spacing-print, 'm');
   padding: 0;
 }
 
 .ecl-card__info-item {
-  color: map.get(color.$color, 'grey');
+  color: map.get(theme.$color, 'grey');
   display: flex;
-  font: map.get(typography.$font-print, 's');
-  font-family: #{map.get(typography.$font-family-print, 'alt')};
-  margin-top: map.get(spacing.$spacing-print, 'xs');
+  font: map.get(theme.$font-print, 's');
+  font-family: #{map.get(theme.$font-family-print, 'alt')};
+  margin-top: map.get(theme.$spacing-print, 'xs');
 
   &:first-child {
     margin-top: 0;
@@ -67,19 +65,19 @@
 
   .ecl-icon {
     display: block;
-    margin-right: map.get(spacing.$spacing-print, 's');
+    margin-right: map.get(theme.$spacing-print, 's');
   }
 }
 
 .ecl-card__link-container {
   list-style: none;
   margin-bottom: 0;
-  margin-top: map.get(spacing.$spacing-print, 'm');
+  margin-top: map.get(theme.$spacing-print, 'm');
   padding: 0;
 }
 
 .ecl-card__link-item {
-  margin-top: map.get(spacing.$spacing-print, 's');
+  margin-top: map.get(theme.$spacing-print, 's');
 
   &:first-child {
     margin-top: 0;
@@ -88,8 +86,8 @@
 
 .ecl-card__link {
   display: block;
-  font: map.get(typography.$font-print, 's');
-  font-weight: map.get(typography.$font-weight-print, 'bold');
+  font: map.get(theme.$font-print, 's');
+  font-weight: map.get(theme.$font-weight-print, 'bold');
 }
 
 .ecl-card__tag-container {
@@ -97,12 +95,12 @@
   flex-wrap: wrap;
   list-style: none;
   margin-bottom: 0;
-  margin-top: map.get(spacing.$spacing-print, 'm');
+  margin-top: map.get(theme.$spacing-print, 'm');
   padding: 0;
 }
 
 .ecl-card__tag-item {
-  margin-right: map.get(spacing.$spacing-print, 's');
+  margin-right: map.get(theme.$spacing-print, 's');
 
   &:last-child {
     margin-right: 0;
@@ -110,9 +108,9 @@
 }
 
 .ecl-card__tag {
-  color: map.get(color.$color, 'grey');
-  font: map.get(typography.$font-print, 's');
-  font-family: #{map.get(typography.$font-family-print, 'alt')};
+  color: map.get(theme.$color, 'grey');
+  font: map.get(theme.$font-print, 's');
+  font-family: #{map.get(theme.$font-family-print, 'alt')};
 }
 
 /*
@@ -120,7 +118,7 @@
   */
 .ecl-card--tile {
   .ecl-card__title {
-    font: map.get(typography.$font-prolonged-print, 'l');
-    font-weight: map.get(typography.$font-weight-print, 'bold');
+    font: map.get(theme.$font-prolonged-print, 'l');
+    font-weight: map.get(theme.$font-weight-print, 'bold');
   }
 }
