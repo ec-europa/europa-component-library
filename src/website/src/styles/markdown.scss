@@ -1,76 +1,74 @@
 @use "sass:map";
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/theme';
 
 .h1 {
-  color: map.get(color.$color, 'grey-100');
-  font: map.get(typography.$font, '3xl');
-  font-weight: map.get(typography.$font-weight, 'bold');
+  color: map.get(theme.$color, 'grey-100');
+  font: map.get(theme.$font, '3xl');
+  font-weight: map.get(theme.$font-weight, 'bold');
   margin: 0;
   padding: 0;
 
   @media screen and (min-width: 768px) {
-    font: map.get(typography.$font, '4xl');
-    font-weight: map.get(typography.$font-weight, 'bold');
+    font: map.get(theme.$font, '4xl');
+    font-weight: map.get(theme.$font-weight, 'bold');
   }
 }
 
 .h2 {
-  border-bottom: 2px solid map.get(color.$color, 'grey-75');
-  color: map.get(color.$color, 'grey-100');
-  font: map.get(typography.$font, '2xl');
-  font-weight: map.get(typography.$font-weight, 'bold');
+  border-bottom: 2px solid map.get(theme.$color, 'grey-75');
+  color: map.get(theme.$color, 'grey-100');
+  font: map.get(theme.$font, '2xl');
+  font-weight: map.get(theme.$font-weight, 'bold');
   margin: 0;
-  padding: 0 0 map.get(spacing.$spacing, 'm') 0;
+  padding: 0 0 map.get(theme.$spacing, 'm') 0;
 
   @media screen and (min-width: 768px) {
-    font: map.get(typography.$font, '3xl');
-    font-weight: map.get(typography.$font-weight, 'bold');
+    font: map.get(theme.$font, '3xl');
+    font-weight: map.get(theme.$font-weight, 'bold');
   }
 }
 
 .h3 {
-  border-bottom: 2px solid map.get(color.$color, 'grey-15');
-  color: map.get(color.$color, 'grey-100');
-  font: map.get(typography.$font, 'xl');
-  font-weight: map.get(typography.$font-weight, 'bold');
+  border-bottom: 2px solid map.get(theme.$color, 'grey-15');
+  color: map.get(theme.$color, 'grey-100');
+  font: map.get(theme.$font, 'xl');
+  font-weight: map.get(theme.$font-weight, 'bold');
   margin: 0;
-  padding: 0 0 map.get(spacing.$spacing, 'm') 0;
+  padding: 0 0 map.get(theme.$spacing, 'm') 0;
 
   @media screen and (min-width: 768px) {
-    font: map.get(typography.$font, '2xl');
-    font-weight: map.get(typography.$font-weight, 'bold');
+    font: map.get(theme.$font, '2xl');
+    font-weight: map.get(theme.$font-weight, 'bold');
   }
 }
 
 .h4 {
-  color: map.get(color.$color, 'grey-100');
-  font: map.get(typography.$font, 'l');
+  color: map.get(theme.$color, 'grey-100');
+  font: map.get(theme.$font, 'l');
   margin: 0;
   padding: 0;
 }
 
 .p {
-  color: map.get(color.$color, 'grey-100');
-  font: map.get(typography.$font-prolonged, 'm');
+  color: map.get(theme.$color, 'grey-100');
+  font: map.get(theme.$font-prolonged, 'm');
   margin: 0;
   max-width: 64ch;
   padding: 0;
 }
 
 .a {
-  color: map.get(color.$color, 'primary');
-  font-family: #{map.get(typography.$font-family, 'default')};
+  color: map.get(theme.$color, 'primary');
+  font-family: #{map.get(theme.$font-family, 'default')};
   text-decoration: underline;
 
   &:hover,
   &:focus {
-    color: map.get(color.$color, 'black-100');
+    color: map.get(theme.$color, 'black-100');
   }
 
   &:focus {
-    outline: 3px solid map.get(color.$color, 'secondary');
+    outline: 3px solid map.get(theme.$color, 'secondary');
     outline-offset: 2px;
   }
 }
@@ -88,16 +86,16 @@
 
 .ul {
   box-sizing: border-box;
-  color: map.get(color.$color, 'grey-100');
-  font: map.get(typography.$font-prolonged, 'm');
+  color: map.get(theme.$color, 'grey-100');
+  font: map.get(theme.$font-prolonged, 'm');
   max-width: 64ch;
   margin: 0;
 }
 
 .ol {
   box-sizing: border-box;
-  color: map.get(color.$color, 'grey-100');
-  font: map.get(typography.$font-prolonged, 'm');
+  color: map.get(theme.$color, 'grey-100');
+  font: map.get(theme.$font-prolonged, 'm');
   max-width: 64ch;
   margin: 0;
 }
@@ -110,36 +108,36 @@
 }
 
 .thead .tr {
-  border-bottom: 2px solid map.get(color.$color, 'grey-50');
+  border-bottom: 2px solid map.get(theme.$color, 'grey-50');
 }
 
 .tbody .tr {
-  border-bottom: 1px solid map.get(color.$color, 'grey-50');
+  border-bottom: 1px solid map.get(theme.$color, 'grey-50');
 }
 
 .th {
   background-color: transparent;
-  font: map.get(typography.$font-prolonged, 'm');
-  font-weight: map.get(typography.$font-weight, 'bold');
+  font: map.get(theme.$font-prolonged, 'm');
+  font-weight: map.get(theme.$font-weight, 'bold');
   text-align: left;
 }
 
 .td {
-  font: map.get(typography.$font-prolonged, 'm');
+  font: map.get(theme.$font-prolonged, 'm');
 }
 
 .td,
 .th {
-  color: map.get(color.$color, 'grey-100');
+  color: map.get(theme.$color, 'grey-100');
   display: table-cell;
-  padding: map.get(spacing.$spacing, 's');
+  padding: map.get(theme.$spacing, 's');
   vertical-align: top;
   margin: 0;
   max-width: 64ch;
 }
 
 .hr {
-  border-color: map.get(color.$color, 'grey-75');
+  border-color: map.get(theme.$color, 'grey-75');
   border-width: 1px;
   border-style: solid;
   margin: 0;
@@ -147,26 +145,26 @@
 }
 
 * + .h1 {
-  margin-top: map.get(spacing.$spacing, '2xl');
+  margin-top: map.get(theme.$spacing, '2xl');
 }
 
 * + .h2 {
-  margin-top: map.get(spacing.$spacing, '2xl');
+  margin-top: map.get(theme.$spacing, '2xl');
 
   @media screen and (min-width: 768px) {
-    margin-top: map.get(spacing.$spacing, '3xl');
+    margin-top: map.get(theme.$spacing, '3xl');
   }
 }
 
 * + .h3 {
-  margin-top: map.get(spacing.$spacing, 'xl');
+  margin-top: map.get(theme.$spacing, 'xl');
 }
 
 * + .h4 {
-  margin-top: map.get(spacing.$spacing, 'm');
+  margin-top: map.get(theme.$spacing, 'm');
 
   @media screen and (min-width: 768px) {
-    margin-top: map.get(spacing.$spacing, 'l');
+    margin-top: map.get(theme.$spacing, 'l');
   }
 }
 
@@ -175,7 +173,7 @@
 * + .ul,
 * + .ol,
 * + .table {
-  margin-top: map.get(spacing.$spacing, 's');
+  margin-top: map.get(theme.$spacing, 's');
 }
 
 .h1 + .p,
@@ -183,7 +181,7 @@
 .h1 + .ul,
 .h1 + .ol,
 .h1 + .table {
-  margin-top: map.get(spacing.$spacing, 'm');
+  margin-top: map.get(theme.$spacing, 'm');
 }
 
 .h2 + .p,
@@ -191,13 +189,13 @@
 .h2 + .ul,
 .h2 + .ol,
 .h2 + .table {
-  margin-top: map.get(spacing.$spacing, 'm');
+  margin-top: map.get(theme.$spacing, 'm');
 }
 
 * + .hr {
-  margin-top: map.get(spacing.$spacing, 'm');
+  margin-top: map.get(theme.$spacing, 'm');
 }
 
 * + .imgA {
-  margin-top: map.get(spacing.$spacing, 'm');
+  margin-top: map.get(theme.$spacing, 'm');
 }

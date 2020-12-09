@@ -1,6 +1,6 @@
 @use "sass:list";
 @use "sass:map";
-@use "@ecl/theme-dev/maps/layout";
+@use '@ecl/theme-dev/theme';
 
 // Breakpoint viewport sizes and media queries.
 //
@@ -20,7 +20,7 @@
 //    md
 @function next(
   $name,
-  $breakpoints: layout.$breakpoint,
+  $breakpoints: theme.$breakpoint,
   $breakpoint-names: map.keys($breakpoints)
 ) {
   $n: list.index($breakpoint-names, $name);
@@ -36,7 +36,7 @@
 //
 //    >> min(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
 //    576px
-@function min($name, $breakpoints: layout.$breakpoint) {
+@function min($name, $breakpoints: theme.$breakpoint) {
   $min: map.get($breakpoints, $name);
 
   @return if($min != 0, $min, null);
@@ -47,7 +47,7 @@
 //
 //    >> max(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
 //    767px
-@function max($name, $breakpoints: layout.$breakpoint) {
+@function max($name, $breakpoints: theme.$breakpoint) {
   $next: next($name, $breakpoints);
 
   @return if($next, min($next, $breakpoints) - 1px, null);
@@ -60,13 +60,13 @@
 //    ''  (Returns a blank string)
 //    >> infix(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
 //    '-sm'
-@function infix($name, $breakpoints: layout.$breakpoint) {
+@function infix($name, $breakpoints: theme.$breakpoint) {
   @return if(min($name, $breakpoints) == null, '', '-#{$name}');
 }
 
 // Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
 // Makes the @content apply to the given breakpoint and wider.
-@mixin up($name, $breakpoints: layout.$breakpoint) {
+@mixin up($name, $breakpoints: theme.$breakpoint) {
   @if map_has_key($breakpoints, $name) {
     $min: min($name, $breakpoints);
 
@@ -84,7 +84,7 @@
 
 // Media of at most the maximum breakpoint width. No query for the largest breakpoint.
 // Makes the @content apply to the given breakpoint and narrower.
-@mixin down($name, $breakpoints: layout.$breakpoint) {
+@mixin down($name, $breakpoints: theme.$breakpoint) {
   @if map_has_key($breakpoints, $name) {
     $max: max($name, $breakpoints);
 
@@ -102,7 +102,7 @@
 
 // Media that spans multiple breakpoint widths.
 // Makes the @content apply between the min and max breakpoints
-@mixin between($lower, $upper, $breakpoints: layout.$breakpoint) {
+@mixin between($lower, $upper, $breakpoints: theme.$breakpoint) {
   @include up($lower, $breakpoints) {
     @include down($upper, $breakpoints) {
       @content;
@@ -113,7 +113,7 @@
 // Media between the breakpoint's minimum and maximum widths.
 // No minimum for the smallest breakpoint, and no maximum for the largest one.
 // Makes the @content apply only to the given breakpoint, not viewports any wider or narrower.
-@mixin only($name, $breakpoints: layout.$breakpoint) {
+@mixin only($name, $breakpoints: theme.$breakpoint) {
   @include between($name, $name, $breakpoints) {
     @content;
   }

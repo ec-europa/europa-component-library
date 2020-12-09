@@ -4,35 +4,33 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/theme';
 
 @mixin browse-button() {
   appearance: none;
   background: none;
-  background-color: map.get(color.$color, 'blue-100');
+  background-color: map.get(theme.$color, 'blue-100');
   border-radius: 0;
   border-width: 0;
   box-shadow: 0;
   box-sizing: border-box;
-  color: map.get(color.$color, 'white-100');
+  color: map.get(theme.$color, 'white-100');
   display: inline-block;
-  font: map.get(typography.$font, 'm');
-  font-weight: map.get(typography.$font-weight, 'bold');
+  font: map.get(theme.$font, 'm');
+  font-weight: map.get(theme.$font-weight, 'bold');
   margin: 0;
-  padding: map.get(spacing.$spacing, 's') map.get(spacing.$spacing, 'm');
+  padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
   text-decoration: none;
 
   // stylelint-disable plugin/selector-bem-pattern
   &:hover,
   &:active {
-    background-color: map.get(color.$color, 'blue-130');
+    background-color: map.get(theme.$color, 'blue-130');
     text-decoration: none;
   }
 
   &:focus {
-    outline: 3px solid map.get(color.$color, 'yellow');
+    outline: 3px solid map.get(theme.$color, 'yellow');
     outline-offset: -(3px);
     text-decoration: none;
   }
@@ -40,8 +38,8 @@
 }
 
 @mixin browse-button-disabled() {
-  background-color: map.get(color.$color, 'blue-25');
-  color: map.get(color.$color, 'white-100');
+  background-color: map.get(theme.$color, 'blue-25');
+  color: map.get(theme.$color, 'white-100');
   cursor: not-allowed;
   text-decoration: none;
 }
@@ -51,15 +49,15 @@
   margin: 0;
 
   .no-js & {
-    color: map.get(color.$color, 'grey');
+    color: map.get(theme.$color, 'grey');
     display: block;
-    font: map.get(typography.$font, 'm');
+    font: map.get(theme.$font, 'm');
     margin: 0;
 
     // stylelint-disable max-nesting-depth
     &:active,
     &:focus {
-      outline: 3px solid map.get(color.$color, 'yellow');
+      outline: 3px solid map.get(theme.$color, 'yellow');
       outline-offset: -3px;
     }
     // stylelint-enable max-nesting-depth
@@ -76,10 +74,10 @@
 }
 
 .ecl-file-upload__list {
-  color: map.get(color.$color, 'grey');
-  font: map.get(typography.$font, 'm');
+  color: map.get(theme.$color, 'grey');
+  font: map.get(theme.$font, 'm');
   list-style: none;
-  margin-top: map.get(spacing.$spacing, 'm');
+  margin-top: map.get(theme.$spacing, 'm');
   max-width: 538px; // 6 columns; provided by designers
   padding-left: 0;
   width: 100%;
@@ -90,17 +88,17 @@
 }
 
 .ecl-file-upload__item {
-  border-top: 1px solid map.get(color.$color, 'grey-50');
-  padding-bottom: map.get(spacing.$spacing, 'm');
-  padding-top: map.get(spacing.$spacing, 'm');
+  border-top: 1px solid map.get(theme.$color, 'grey-50');
+  padding-bottom: map.get(theme.$spacing, 'm');
+  padding-top: map.get(theme.$spacing, 'm');
 
   .ecl-file-upload__item-name {
-    font-weight: map.get(typography.$font-weight, 'bold');
+    font-weight: map.get(theme.$font-weight, 'bold');
   }
 
   .ecl-file-upload__item-meta {
     display: block;
-    padding-top: map.get(spacing.$spacing, '2xs');
+    padding-top: map.get(theme.$spacing, '2xs');
   }
 }
 
@@ -117,7 +115,7 @@
 }
 
 .ecl-file-upload[disabled] {
-  color: map.get(color.$color, 'grey-50');
+  color: map.get(theme.$color, 'grey-50');
 
   &::-webkit-file-upload-button,
   &::-webkit-file-upload-button:hover {
@@ -131,6 +129,6 @@
 }
 
 .ecl-file-upload::-ms-value {
-  background-color: map.get(color.$color, 'grey-5');
+  background-color: map.get(theme.$color, 'grey-5');
   border-width: 0;
 }

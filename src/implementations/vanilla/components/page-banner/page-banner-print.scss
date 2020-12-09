@@ -4,31 +4,29 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/theme';
 
 .ecl-page-banner {
   margin: 0;
-  padding-bottom: map.get(spacing.$spacing-print, 'l');
-  padding-top: map.get(spacing.$spacing-print, 'l');
+  padding-bottom: map.get(theme.$spacing-print, 'l');
+  padding-top: map.get(theme.$spacing-print, 'l');
 }
 
 .ecl-page-banner__title {
-  color: map.get(color.$color, 'black-100');
-  font: map.get(typography.$font-print, '4xl');
-  font-family: #{map.get(typography.$font-family-print, 'alt')};
+  color: map.get(theme.$color, 'black-100');
+  font: map.get(theme.$font-print, '4xl');
+  font-family: #{map.get(theme.$font-family-print, 'alt')};
   margin-bottom: 0;
   margin-top: 0;
 }
 
 .ecl-page-banner__description {
-  color: map.get(color.$color, 'black-100');
-  font: map.get(typography.$font-prolonged-print, 'l');
+  color: map.get(theme.$color, 'black-100');
+  font: map.get(theme.$font-prolonged-print, 'l');
   margin-bottom: 0;
-  margin-top: map.get(spacing.$spacing-print, 'xs');
+  margin-top: map.get(theme.$spacing-print, 'xs');
 }
 
 .ecl-page-banner__description + .ecl-link {
-  margin-top: map.get(spacing.$spacing-print, 'm');
+  margin-top: map.get(theme.$spacing-print, 'm');
 }

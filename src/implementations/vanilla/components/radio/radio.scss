@@ -4,24 +4,22 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/typography';
-@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/theme';
 
-$_label-color: map.get(color.$color, 'grey-100');
-$_label-color-disabled: map.get(color.$color, 'grey-50');
+$_label-color: map.get(theme.$color, 'grey-100');
+$_label-color-disabled: map.get(theme.$color, 'grey-50');
 $_box-size: 1.25rem;
 $_box-border-width: 2px;
 $_box-border-width-checked: 7px;
-$_box-border-color: map.get(color.$color, 'grey-50');
-$_box-border-color-disabled: map.get(color.$color, 'grey-50');
-$_box-border-color-checked: map.get(color.$color, 'blue-100');
-$_box-border-color-hover: map.get(color.$color, 'blue-100');
-$_box-background: map.get(color.$color, 'white-100');
-$_box-background-disabled: map.get(color.$color, 'grey-5');
+$_box-border-color: map.get(theme.$color, 'grey-50');
+$_box-border-color-disabled: map.get(theme.$color, 'grey-50');
+$_box-border-color-checked: map.get(theme.$color, 'blue-100');
+$_box-border-color-hover: map.get(theme.$color, 'blue-100');
+$_box-background: map.get(theme.$color, 'white-100');
+$_box-background-disabled: map.get(theme.$color, 'grey-5');
 $_outline-width: 2px;
-$_outline-color: map.get(color.$color, 'yellow-100');
-$_invalid-border-color: map.get(color.$color, 'error');
+$_outline-color: map.get(theme.$color, 'yellow-100');
+$_invalid-border-color: map.get(theme.$color, 'error');
 
 .ecl-radio {
   align-items: flex-start;
@@ -48,7 +46,7 @@ $_invalid-border-color: map.get(color.$color, 'error');
   align-items: center;
   color: $_label-color;
   display: inline-flex;
-  font: map.get(typography.$font, 'm');
+  font: map.get(theme.$font, 'm');
 }
 
 .ecl-radio__box {
@@ -58,7 +56,7 @@ $_invalid-border-color: map.get(color.$color, 'error');
   box-sizing: content-box;
   display: block;
   height: calc(#{$_box-size} - (#{$_box-border-width} * 2));
-  margin-right: map.get(spacing.$spacing, 's');
+  margin-right: map.get(theme.$spacing, 's');
   position: relative;
   width: calc(#{$_box-size} - (#{$_box-border-width} * 2));
 }
@@ -69,14 +67,14 @@ $_invalid-border-color: map.get(color.$color, 'error');
 
 .ecl-radio__help {
   box-sizing: border-box;
-  color: map.get(color.$color, 'grey-100');
+  color: map.get(theme.$color, 'grey-100');
   display: block;
-  font: map.get(typography.$font-prolonged, 's');
-  margin-top: map.get(spacing.$spacing, 'xs');
+  font: map.get(theme.$font-prolonged, 's');
+  margin-top: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-radio__help--disabled {
-  color: map.get(color.$color, 'grey-50');
+  color: map.get(theme.$color, 'grey-50');
 }
 
 // Checked
@@ -95,7 +93,7 @@ $_invalid-border-color: map.get(color.$color, 'error');
 }
 
 .ecl-radio__label:hover .ecl-radio__box--invalid {
-  border-color: map.get(color.$color, 'red-130');
+  border-color: map.get(theme.$color, 'red-130');
 }
 
 .ecl-radio__input:checked + .ecl-radio__label .ecl-radio__box--invalid {
@@ -145,7 +143,7 @@ $_invalid-border-color: map.get(color.$color, 'error');
 // Binary radio
 .ecl-radio--binary {
   display: inline-flex;
-  margin-right: map.get(spacing.$spacing, 'm');
+  margin-right: map.get(theme.$spacing, 'm');
   vertical-align: top;
 }
 

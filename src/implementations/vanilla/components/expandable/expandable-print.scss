@@ -4,7 +4,7 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/theme';
 
 .ecl-expandable {
   margin: 0;
@@ -16,5 +16,5 @@
 
 .ecl-expandable__content {
   display: block;
-  font-family: #{map.get(typography.$font-family-print, 'default')};
+  font-family: #{map.get(theme.$font-family-print, 'default')};
 }
