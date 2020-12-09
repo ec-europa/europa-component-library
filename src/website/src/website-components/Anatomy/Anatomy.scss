@@ -1,22 +1,19 @@
 @use "sass:map";
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/typography';
-@use '@ecl/theme-dev/maps/layout';
+@use '@ecl/theme-dev/theme';
 
 * + .anatomy {
-  margin-top: map.get(spacing.$spacing, 'm');
+  margin-top: map.get(theme.$spacing, 'm');
 }
 
 .container {
-  background-color: map.get(color.$color, 'grey-5');
-  padding: map.get(spacing.$spacing, 'l') map.get(spacing.$spacing, 'm');
+  background-color: map.get(theme.$color, 'grey-5');
+  padding: map.get(theme.$spacing, 'l') map.get(theme.$spacing, 'm');
 }
 
 .image-container {
   align-items: center;
-  background-color: map.get(color.$color, 'white-100');
-  border: 1px solid map.get(color.$color, 'grey-15');
+  background-color: map.get(theme.$color, 'white-100');
+  border: 1px solid map.get(theme.$color, 'grey-15');
   display: flex;
   justify-content: center;
 }
@@ -42,7 +39,7 @@
 
 .legend__item {
   display: inline-flex;
-  margin-right: map.get(spacing.$spacing, 'xl');
+  margin-right: map.get(theme.$spacing, 'xl');
 
   &:last-child {
     margin-right: 0;
@@ -58,43 +55,43 @@
 .legend__color {
   border-radius: 2px;
   height: 1rem;
-  margin-right: map.get(spacing.$spacing, 's');
+  margin-right: map.get(theme.$spacing, 's');
   width: 1.25rem;
 }
 
 .legend__label {
-  color: map.get(color.$color, 'grey-100');
-  font: map.get(typography.$font, 's');
+  color: map.get(theme.$color, 'grey-100');
+  font: map.get(theme.$font, 's');
   font-style: italic;
 }
 
 .legend__description {
-  color: map.get(color.$color, 'grey-75');
-  font: map.get(typography.$font-prolonged, 's');
-  margin-top: map.get(spacing.$spacing, 'm');
+  color: map.get(theme.$color, 'grey-75');
+  font: map.get(theme.$font-prolonged, 's');
+  margin-top: map.get(theme.$spacing, 'm');
 }
 
 .link {
   align-items: center;
   box-sizing: border-box;
-  color: map.get(color.$color, 'blue-100');
+  color: map.get(theme.$color, 'blue-100');
   display: inline-flex;
   float: right;
-  font: map.get(typography.$font, 'm');
+  font: map.get(theme.$font, 'm');
   text-decoration: none;
 }
 
 .link__icon {
   fill: currentColor;
   height: 1em;
-  margin-left: map.get(spacing.$spacing, 'xs');
+  margin-left: map.get(theme.$spacing, 'xs');
   width: 1em;
   transform: rotateZ(90deg);
 }
 
 .link:hover,
 .link:focus {
-  color: map.get(color.$color, 'black-100');
+  color: map.get(theme.$color, 'black-100');
   text-decoration: underline;
 
   &.link--icon {
@@ -106,17 +103,17 @@
 }
 
 .link:focus {
-  outline: 3px solid map.get(color.$color, 'yellow-100');
+  outline: 3px solid map.get(theme.$color, 'yellow-100');
   outline-offset: 2px;
 }
 
-@media screen and (min-width: map.get(layout.$breakpoint, 'm')) {
+@media screen and (min-width: map.get(theme.$breakpoint, 'm')) {
   * + .anatomy {
-    margin-top: map.get(spacing.$spacing, 'l');
+    margin-top: map.get(theme.$spacing, 'l');
   }
 
   .anatomy--vertical {
-    border: 1px solid map.get(color.$color, 'grey-15');
+    border: 1px solid map.get(theme.$color, 'grey-15');
 
     .image {
       border-width: 0;
@@ -130,7 +127,7 @@
 
     .legend__item {
       margin-right: 0;
-      margin-top: map.get(spacing.$spacing, 's');
+      margin-top: map.get(theme.$spacing, 's');
 
       &:first-child {
         margin-top: 0;
@@ -138,7 +135,7 @@
     }
 
     .legend__description {
-      margin-top: map.get(spacing.$spacing, 'l');
+      margin-top: map.get(theme.$spacing, 'l');
     }
   }
 }

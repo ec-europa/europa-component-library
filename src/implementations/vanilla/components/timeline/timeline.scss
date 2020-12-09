@@ -4,41 +4,36 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/typography';
-@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 $_left-spacing: 10rem;
 $_border-width: 0.25rem;
-$_border-color: map.get(color.$color, 'grey-100');
-$_bullet-fill-color: map.get(color.$color, 'white-100');
-$_bullet-size: map.get(spacing.$spacing, 's');
-$_bullet-border-color: map.get(color.$color, 'yellow-100');
+$_border-color: map.get(theme.$color, 'grey-100');
+$_bullet-fill-color: map.get(theme.$color, 'white-100');
+$_bullet-size: map.get(theme.$spacing, 's');
+$_bullet-border-color: map.get(theme.$color, 'yellow-100');
 $_bullet-border-width: 0.25rem;
-$_toggle-bullet-border-color: map.get(color.$color, 'grey-25');
+$_toggle-bullet-border-color: map.get(theme.$color, 'grey-25');
 $_toggle-bullet-border-width: 0.125rem;
-$_title-color: map.get(color.$color, 'black-100');
-$_label-color: map.get(color.$color, 'grey-100');
-$_content-color: map.get(color.$color, 'grey-75');
+$_title-color: map.get(theme.$color, 'black-100');
+$_label-color: map.get(theme.$color, 'grey-100');
+$_content-color: map.get(theme.$color, 'grey-75');
 
 // Timeline structure
 .ecl-timeline {
   list-style: none;
-  margin: 0 map.get(spacing.$spacing, 'l') 0
-    (
-      map.get(spacing.$spacing, 'l') + ($_bullet-size / 2) +
-        $_bullet-border-width
-    );
+  margin: 0 map.get(theme.$spacing, 'l') 0
+    (map.get(theme.$spacing, 'l') + ($_bullet-size / 2) + $_bullet-border-width);
   max-width: 633px;
   padding-left: 0;
 }
 
 .ecl-timeline__item {
-  padding-bottom: map.get(spacing.$spacing, 'l');
-  padding-left: map.get(spacing.$spacing, 'm') + ($_bullet-size / 2) +
+  padding-bottom: map.get(theme.$spacing, 'l');
+  padding-left: map.get(theme.$spacing, 'm') + ($_bullet-size / 2) +
     $_bullet-border-width;
-  padding-top: map.get(spacing.$spacing, 'xs');
+  padding-top: map.get(theme.$spacing, 'xs');
   position: relative;
 
   // Border
@@ -62,7 +57,7 @@ $_content-color: map.get(color.$color, 'grey-75');
     height: $_bullet-size + ($_bullet-border-width * 2);
     left: -(($_bullet-size / 2) + $_bullet-border-width);
     position: absolute;
-    top: map.get(spacing.$spacing, 'xs');
+    top: map.get(theme.$spacing, 'xs');
     width: $_bullet-size + ($_bullet-border-width * 2);
   }
 }
@@ -74,9 +69,9 @@ $_content-color: map.get(color.$color, 'grey-75');
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('s') {
   .ecl-timeline {
-    margin-left: map.get(spacing.$spacing, 'xs') + $_left-spacing +
-      map.get(spacing.$spacing, 'm');
-    margin-right: map.get(spacing.$spacing, 'xs');
+    margin-left: map.get(theme.$spacing, 'xs') + $_left-spacing +
+      map.get(theme.$spacing, 'm');
+    margin-right: map.get(theme.$spacing, 'xs');
   }
 }
 
@@ -90,7 +85,7 @@ $_content-color: map.get(color.$color, 'grey-75');
     border: $_toggle-bullet-border-width solid $_toggle-bullet-border-color;
     box-sizing: border-box;
     height: $_bullet-size + ($_bullet-border-width * 2);
-    top: map.get(spacing.$spacing, 'xs') + map.get(spacing.$spacing, 's');
+    top: map.get(theme.$spacing, 'xs') + map.get(theme.$spacing, 's');
     width: $_bullet-size + ($_bullet-border-width * 2);
   }
 
@@ -100,11 +95,11 @@ $_content-color: map.get(color.$color, 'grey-75');
 }
 
 .ecl-timeline[data-ecl-timeline-expanded] .ecl-timeline__item--toggle {
-  padding-bottom: map.get(spacing.$spacing, 'xs');
-  padding-top: map.get(spacing.$spacing, 'l');
+  padding-bottom: map.get(theme.$spacing, 'xs');
+  padding-top: map.get(theme.$spacing, 'l');
 
   &::after {
-    top: map.get(spacing.$spacing, 'l') + map.get(spacing.$spacing, 's');
+    top: map.get(theme.$spacing, 'l') + map.get(theme.$spacing, 's');
   }
 }
 
@@ -114,45 +109,45 @@ $_content-color: map.get(color.$color, 'grey-75');
 
 // Border adjustment
 .ecl-timeline__item:first-child::before {
-  height: calc(100% - #{map.get(spacing.$spacing, 'xs')});
-  top: map.get(spacing.$spacing, 'xs');
+  height: calc(100% - #{map.get(theme.$spacing, 'xs')});
+  top: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-timeline__item:last-child::before {
-  height: map.get(spacing.$spacing, 'xs');
+  height: map.get(theme.$spacing, 'xs');
 }
 
 // Timeline data
 .ecl-timeline__title {
   color: $_title-color;
-  font: map.get(typography.$font, 'm');
-  font-weight: map.get(typography.$font-weight, 'bold');
-  margin-bottom: map.get(spacing.$spacing, 'xs');
+  font: map.get(theme.$font, 'm');
+  font-weight: map.get(theme.$font-weight, 'bold');
+  margin-bottom: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-timeline__label {
   color: $_label-color;
-  font: map.get(typography.$font, 'm');
-  margin-bottom: map.get(spacing.$spacing, 's');
+  font: map.get(theme.$font, 'm');
+  margin-bottom: map.get(theme.$spacing, 's');
 }
 
 .ecl-timeline__content {
   color: $_content-color;
-  font: map.get(typography.$font, 'm');
+  font: map.get(theme.$font, 'm');
 }
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('s') {
   .ecl-timeline__label {
-    font: map.get(typography.$font, 'xs');
-    font-weight: map.get(typography.$font-weight, 'bold');
-    left: -($_left-spacing + map.get(spacing.$spacing, 'm') +
-          ($_bullet-size / 2) + $_bullet-border-width);
-    line-height: map.get(typography.$line-height, 'm');
+    font: map.get(theme.$font, 'xs');
+    font-weight: map.get(theme.$font-weight, 'bold');
+    left: -($_left-spacing + map.get(theme.$spacing, 'm') + ($_bullet-size / 2) +
+          $_bullet-border-width);
+    line-height: map.get(theme.$line-height, 'm');
     margin-bottom: 0;
     position: absolute;
     text-align: right;
-    top: map.get(spacing.$spacing, 'xs');
+    top: map.get(theme.$spacing, 'xs');
     width: $_left-spacing;
   }
 }

@@ -4,17 +4,15 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/theme';
 
 .ecl-blockquote {
   margin: 0;
 }
 
 .ecl-blockquote__body {
-  color: map.get(color.$color, 'grey');
-  font: map.get(typography.$font-prolonged-print, 'l');
+  color: map.get(theme.$color, 'grey');
+  font: map.get(theme.$font-prolonged-print, 'l');
   font-style: italic;
   margin: 0;
   quotes: '\201C''\201D';
@@ -29,13 +27,13 @@
 }
 
 .ecl-blockquote__attribution {
-  margin-top: map.get(spacing.$spacing-print, 'xl');
+  margin-top: map.get(theme.$spacing-print, 'xl');
 }
 
 .ecl-blockquote__author {
-  color: map.get(color.$color, 'black-100');
-  font: map.get(typography.$font-prolonged-print, 'm');
-  font-weight: map.get(typography.$font-weight-print, 'bold');
+  color: map.get(theme.$color, 'black-100');
+  font: map.get(theme.$font-prolonged-print, 'm');
+  font-weight: map.get(theme.$font-weight-print, 'bold');
 
   &::before {
     content: '\2014\2009';

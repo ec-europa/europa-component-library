@@ -4,15 +4,13 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/theme';
 
 $_background-color: transparent;
-$_background-color-hover: map.get(color.$color, 'blue-5');
-$_link-color: map.get(color.$color, 'blue');
-$_last-link-color: map.get(color.$color, 'grey-75');
-$_border-color: map.get(color.$color, 'blue-25');
+$_background-color-hover: map.get(theme.$color, 'blue-5');
+$_link-color: map.get(theme.$color, 'blue');
+$_last-link-color: map.get(theme.$color, 'grey-75');
+$_border-color: map.get(theme.$color, 'blue-25');
 
 .ecl-breadcrumb-harmonised {
   background-color: $_background-color;
@@ -26,7 +24,7 @@ $_border-color: map.get(color.$color, 'blue-25');
   flex-wrap: wrap;
   list-style: none;
   margin: 0;
-  padding: 0 0 calc(#{map.get(spacing.$spacing, 'm')} - 1px);
+  padding: 0 0 calc(#{map.get(theme.$spacing, 'm')} - 1px);
 
   &::after {
     clear: both;
@@ -38,8 +36,8 @@ $_border-color: map.get(color.$color, 'blue-25');
 .ecl-breadcrumb-harmonised__segment {
   align-items: center;
   display: inline-flex;
-  font: map.get(typography.$font, 's');
-  margin-top: map.get(spacing.$spacing, 'm');
+  font: map.get(theme.$font, 's');
+  margin-top: map.get(theme.$spacing, 'm');
   max-width: 100%;
 
   &[aria-hidden='true'] {
@@ -70,7 +68,7 @@ $_border-color: map.get(color.$color, 'blue-25');
   border-width: 0;
   box-sizing: border-box;
   color: $_link-color;
-  font-weight: map.get(typography.$font-weight, 'bold');
+  font-weight: map.get(theme.$font-weight, 'bold');
   margin: 0;
   padding: 0;
 
@@ -79,14 +77,14 @@ $_border-color: map.get(color.$color, 'blue-25');
   }
 
   &:focus {
-    outline: 3px solid map.get(color.$color, 'yellow-100');
+    outline: 3px solid map.get(theme.$color, 'yellow-100');
     outline-offset: 2px;
   }
 }
 
 .ecl-breadcrumb-harmonised__link {
   color: $_link-color;
-  font-weight: map.get(typography.$font-weight, 'bold');
+  font-weight: map.get(theme.$font-weight, 'bold');
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -102,12 +100,12 @@ $_border-color: map.get(color.$color, 'blue-25');
 .ecl-breadcrumb-harmonised__icon {
   fill: $_link-color;
   flex-shrink: 0;
-  margin-left: map.get(spacing.$spacing, 'xs');
-  margin-right: map.get(spacing.$spacing, 'xs');
+  margin-left: map.get(theme.$spacing, 'xs');
+  margin-right: map.get(theme.$spacing, 'xs');
   vertical-align: text-bottom;
 }
 
 .ecl-breadcrumb-harmonised__current-page {
   color: $_last-link-color;
-  font-weight: map.get(typography.$font-weight, 'bold');
+  font-weight: map.get(theme.$font-weight, 'bold');
 }
