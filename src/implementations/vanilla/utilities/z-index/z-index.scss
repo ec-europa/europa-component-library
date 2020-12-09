@@ -1,6 +1,6 @@
-@use "@ecl/theme-dev/maps/z-index";
+@use '@ecl/theme-dev/theme';
 
-@each $key, $value in z-index.$z-index {
+@each $key, $value in theme.$z-index {
   .ecl-u-z-#{$key} {
     z-index: $value !important;
   }

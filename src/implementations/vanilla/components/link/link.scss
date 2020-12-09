@@ -4,13 +4,11 @@
 */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/theme';
 
-$_link-color: map.get(color.$color, 'blue');
-$_link-color-hover: map.get(color.$color, 'black');
-$_link-color-focus: map.get(color.$color, 'yellow');
+$_link-color: map.get(theme.$color, 'blue');
+$_link-color-hover: map.get(theme.$color, 'black');
+$_link-color-focus: map.get(theme.$color, 'yellow');
 
 .ecl-link {
   color: $_link-color;
@@ -49,7 +47,7 @@ $_link-color-focus: map.get(color.$color, 'yellow');
 }
 
 .ecl-link--standalone {
-  font-family: #{map.get(typography.$font-family, 'default')};
+  font-family: #{map.get(theme.$font-family, 'default')};
   text-decoration: none;
 
   /* stylelint-disable */
@@ -70,23 +68,23 @@ $_link-color-focus: map.get(color.$color, 'yellow');
 }
 
 .ecl-link--cta {
-  background-color: map.get(color.$color, 'yellow-100');
+  background-color: map.get(theme.$color, 'yellow-100');
   box-sizing: border-box;
-  color: map.get(color.$color, 'black-100');
+  color: map.get(theme.$color, 'black-100');
   display: inline-block;
-  font: map.get(typography.$font, 'm');
-  font-weight: map.get(typography.$font-weight, 'bold');
-  padding: map.get(spacing.$spacing, 's') map.get(spacing.$spacing, 'm');
+  font: map.get(theme.$font, 'm');
+  font-weight: map.get(theme.$font-weight, 'bold');
+  padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
 
   &:hover,
   &:active {
-    border: 2px solid map.get(color.$color, 'black-100');
-    padding: calc(#{map.get(spacing.$spacing, 's')} - 2px)
-      calc(#{map.get(spacing.$spacing, 'm')} - 2px);
+    border: 2px solid map.get(theme.$color, 'black-100');
+    padding: calc(#{map.get(theme.$spacing, 's')} - 2px)
+      calc(#{map.get(theme.$spacing, 'm')} - 2px);
   }
 
   &:focus {
-    outline-color: map.get(color.$color, 'black-100');
+    outline-color: map.get(theme.$color, 'black-100');
     outline-offset: -3px;
   }
 }

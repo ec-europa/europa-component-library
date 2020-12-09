@@ -1,24 +1,23 @@
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/theme';
 
 .splash-page {
-  background-color: map.get(color.$color, 'grey-5');
+  background-color: map.get(theme.$color, 'grey-5');
   box-sizing: border-box;
   min-height: 100vh;
-  padding: map.get(spacing.$spacing, '4xl') 0 map.get(spacing.$spacing, 'xl');
+  padding: map.get(theme.$spacing, '4xl') 0 map.get(theme.$spacing, 'xl');
 }
 
 .splash-page-actions-row {
-  margin-top: map.get(spacing.$spacing, 'xl');
+  margin-top: map.get(theme.$spacing, 'xl');
 
   @media screen and (min-width: 768px) {
-    margin-top: map.get(spacing.$spacing, '4xl');
+    margin-top: map.get(theme.$spacing, '4xl');
   }
 }
 
 .splash-page-actions-row .splash-page-actions-col + .splash-page-actions-col {
-  margin-top: map.get(spacing.$spacing, 'm');
+  margin-top: map.get(theme.$spacing, 'm');
 
   @media screen and (min-width: 768px) {
     margin-top: 0;

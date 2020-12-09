@@ -4,22 +4,20 @@
 */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 .ecl-social-media-follow {
-  background-color: map.get(color.$color, 'grey-5');
+  background-color: map.get(theme.$color, 'grey-5');
   margin: 0;
-  padding: map.get(spacing.$spacing, 'xl') map.get(spacing.$spacing, 'l');
+  padding: map.get(theme.$spacing, 'xl') map.get(theme.$spacing, 'l');
 }
 
 .ecl-social-media-follow__description {
-  color: map.get(color.$color, 'black-100');
-  font: map.get(typography.$font-prolonged, 'm');
-  font-weight: map.get(typography.$font-weight, 'bold');
-  margin-bottom: map.get(spacing.$spacing, 'l');
+  color: map.get(theme.$color, 'black-100');
+  font: map.get(theme.$font-prolonged, 'm');
+  font-weight: map.get(theme.$font-weight, 'bold');
+  margin-bottom: map.get(theme.$spacing, 'l');
   margin-top: 0;
 }
 
@@ -29,13 +27,13 @@
   flex-wrap: wrap;
   list-style: none;
   margin-bottom: 0;
-  margin-top: -#{map.get(spacing.$spacing, 's')};
+  margin-top: -#{map.get(theme.$spacing, 's')};
   padding-left: 0;
 }
 
 .ecl-social-media-follow__item {
-  margin-right: map.get(spacing.$spacing, 'l');
-  margin-top: map.get(spacing.$spacing, 's');
+  margin-right: map.get(theme.$spacing, 'l');
+  margin-top: map.get(theme.$spacing, 's');
 
   &:last-child {
     margin-right: 0;
@@ -45,7 +43,7 @@
 .ecl-social-media-follow__link {
   align-items: center;
   display: flex;
-  font: map.get(typography.$font, 's');
+  font: map.get(theme.$font, 's');
   overflow: hidden; /* Improve rendering on IE */
 }
 
@@ -53,7 +51,7 @@
 .ecl-social-media-follow__icon,
 .ecl-social-media-follow__icon-hover {
   flex-shrink: 0;
-  margin-right: map.get(spacing.$spacing, 'm');
+  margin-right: map.get(theme.$spacing, 'm');
   top: 0 !important;
 }
 
@@ -90,7 +88,7 @@
 
     &:last-child {
       margin-right: 0;
-      margin-top: map.get(spacing.$spacing, 'm');
+      margin-top: map.get(theme.$spacing, 'm');
     }
   }
 }

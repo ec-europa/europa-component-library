@@ -4,8 +4,7 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/typography';
-@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/theme';
 
 $_logo-height: 2.31cm;
 $_logo-width: 4.725cm;
@@ -20,10 +19,10 @@ $_logo-width: 4.725cm;
 }
 
 .ecl-language-list__category {
-  font: map.get(typography.$font-print, 'm');
-  font-weight: map.get(typography.$font-weight-print, 'bold');
-  margin-bottom: map.get(spacing.$spacing-print, 'm');
-  margin-top: map.get(spacing.$spacing-print, 'l');
+  font: map.get(theme.$font-print, 'm');
+  font-weight: map.get(theme.$font-weight-print, 'bold');
+  margin-bottom: map.get(theme.$spacing-print, 'm');
+  margin-top: map.get(theme.$spacing-print, 'l');
 }
 
 .ecl-language-list__list {
@@ -32,11 +31,11 @@ $_logo-width: 4.725cm;
 }
 
 .ecl-language-list__item--is-active {
-  font-weight: map.get(typography.$font-weight-print, 'bold');
+  font-weight: map.get(theme.$font-weight-print, 'bold');
 }
 
 .ecl-language-list__item {
-  margin-top: map.get(spacing.$spacing, 'xs');
+  margin-top: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-language-list--overlay {

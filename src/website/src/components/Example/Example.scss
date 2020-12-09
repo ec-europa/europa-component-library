@@ -1,7 +1,5 @@
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/theme';
 
 $_outline-width: 3px;
 
@@ -9,11 +7,11 @@ $_outline-width: 3px;
   background: none;
   border-width: 0;
   box-sizing: border-box;
-  color: map.get(color.$color, 'primary');
-  font: map.get(typography.$font, 'm');
-  font-weight: map.get(typography.$font-weight, 'bold');
+  color: map.get(theme.$color, 'primary');
+  font: map.get(theme.$font, 'm');
+  font-weight: map.get(theme.$font-weight, 'bold');
   margin: 0;
-  padding: map.get(spacing.$spacing, 's') map.get(spacing.$spacing, 'm');
+  padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
   text-decoration: none;
 
   &:hover,
@@ -23,7 +21,7 @@ $_outline-width: 3px;
   }
 
   &:focus {
-    outline: $_outline-width solid map.get(color.$color, 'secondary');
+    outline: $_outline-width solid map.get(theme.$color, 'secondary');
     outline-offset: -($_outline-width);
   }
 }

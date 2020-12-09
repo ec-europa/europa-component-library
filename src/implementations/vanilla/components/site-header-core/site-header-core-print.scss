@@ -4,14 +4,14 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/spacing';
+@use '@ecl/theme-dev/theme';
 
 .ecl-site-header-core__logo-image {
   height: 1.9cm;
-  margin-bottom: map.get(spacing.$spacing-print, '4xl');
-  margin-top: map.get(spacing.$spacing-print, '4xl');
-  padding-bottom: map.get(spacing.$spacing-print, 'xl');
-  padding-top: map.get(spacing.$spacing-print, 'xl');
+  margin-bottom: map.get(theme.$spacing-print, '4xl');
+  margin-top: map.get(theme.$spacing-print, '4xl');
+  padding-bottom: map.get(theme.$spacing-print, 'xl');
+  padding-top: map.get(theme.$spacing-print, 'xl');
   width: 7.2cm;
 }
 

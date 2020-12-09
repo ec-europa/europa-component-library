@@ -4,27 +4,25 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-$_title-color: map.get(color.$color, 'black-100');
-$_description-color: map.get(color.$color, 'grey-100');
-$_close-color: map.get(color.$color, 'black-100');
+$_title-color: map.get(theme.$color, 'black-100');
+$_description-color: map.get(theme.$color, 'grey-100');
+$_close-color: map.get(theme.$color, 'black-100');
 
 .ecl-message {
   box-sizing: border-box;
   display: flex;
   margin: 0;
-  padding: map.get(spacing.$spacing, 'l') map.get(spacing.$spacing, 'm')
-    map.get(spacing.$spacing, 'm') map.get(spacing.$spacing, 'l');
+  padding: map.get(theme.$spacing, 'l') map.get(theme.$spacing, 'm')
+    map.get(theme.$spacing, 'm') map.get(theme.$spacing, 'l');
   position: relative;
 }
 
 .ecl-message__icon {
   flex-shrink: 0;
-  margin-right: map.get(spacing.$spacing, 'm');
+  margin-right: map.get(theme.$spacing, 'm');
 }
 
 .ecl-message__content {
@@ -33,24 +31,24 @@ $_close-color: map.get(color.$color, 'black-100');
 
 .ecl-message__title {
   color: $_title-color;
-  font: map.get(typography.$font-prolonged, 'm');
+  font: map.get(theme.$font-prolonged, 'm');
   font-weight: bold;
-  margin-bottom: map.get(spacing.$spacing, 'xs');
+  margin-bottom: map.get(theme.$spacing, 'xs');
   max-width: 80ch;
 }
 
 .ecl-message__description {
   color: $_description-color;
-  font: map.get(typography.$font, 'xs');
+  font: map.get(theme.$font, 'xs');
   margin: 0;
   max-width: 80ch;
-  padding-bottom: map.get(spacing.$spacing, 'xl'); // Extra spacing for IE
+  padding-bottom: map.get(theme.$spacing, 'xl'); // Extra spacing for IE
 }
 
 .ecl-message__close {
-  bottom: map.get(spacing.$spacing, 'm') - map.get(spacing.$spacing, 's');
+  bottom: map.get(theme.$spacing, 'm') - map.get(theme.$spacing, 's');
   color: $_close-color;
-  font: map.get(typography.$font, 's');
+  font: map.get(theme.$font, 's');
   position: absolute;
   right: 0;
 
@@ -80,7 +78,7 @@ $_close-color: map.get(color.$color, 'black-100');
     grid-row-end: 4;
     grid-row-start: 3;
     justify-self: end;
-    margin-bottom: -(map.get(spacing.$spacing, 's'));
+    margin-bottom: -(map.get(theme.$spacing, 's'));
     position: relative;
     right: auto;
   }
@@ -89,18 +87,18 @@ $_close-color: map.get(color.$color, 'black-100');
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
   .ecl-message {
-    padding-bottom: map.get(spacing.$spacing, 'l');
+    padding-bottom: map.get(theme.$spacing, 'l');
   }
 
   .ecl-message__description {
-    font: map.get(typography.$font-prolonged, 's');
+    font: map.get(theme.$font-prolonged, 's');
     padding-bottom: 0;
   }
 
   .ecl-message__close {
     bottom: auto;
-    font: map.get(typography.$font, 'm');
-    top: map.get(spacing.$spacing, 'l') - map.get(spacing.$spacing, 's');
+    font: map.get(theme.$font, 'm');
+    top: map.get(theme.$spacing, 'l') - map.get(theme.$spacing, 's');
   }
 
   @supports (display: grid) {
@@ -114,7 +112,7 @@ $_close-color: map.get(color.$color, 'black-100');
       grid-row-end: span 2;
       grid-row-start: 1;
       margin-bottom: 0;
-      margin-top: -(map.get(spacing.$spacing, 's'));
+      margin-top: -(map.get(theme.$spacing, 's'));
       position: relative;
       right: auto;
       top: auto;
@@ -124,36 +122,36 @@ $_close-color: map.get(color.$color, 'black-100');
 
 // information
 .ecl-message--info {
-  border: 2px solid map.get(color.$color, 'info');
+  border: 2px solid map.get(theme.$color, 'info');
 
   .ecl-message__icon {
-    fill: map.get(color.$color, 'info');
+    fill: map.get(theme.$color, 'info');
   }
 }
 
 // success
 .ecl-message--success {
-  border: 2px solid map.get(color.$color, 'success');
+  border: 2px solid map.get(theme.$color, 'success');
 
   .ecl-message__icon {
-    fill: map.get(color.$color, 'success');
+    fill: map.get(theme.$color, 'success');
   }
 }
 
 // warning
 .ecl-message--warning {
-  border: 2px solid map.get(color.$color, 'warning');
+  border: 2px solid map.get(theme.$color, 'warning');
 
   .ecl-message__icon {
-    fill: map.get(color.$color, 'warning');
+    fill: map.get(theme.$color, 'warning');
   }
 }
 
 // error
 .ecl-message--error {
-  border: 2px solid map.get(color.$color, 'error');
+  border: 2px solid map.get(theme.$color, 'error');
 
   .ecl-message__icon {
-    fill: map.get(color.$color, 'error');
+    fill: map.get(theme.$color, 'error');
   }
 }
