@@ -89,6 +89,7 @@ export const Campaign = () => {
 
   const heroBanner = {
     ...heroBannerData,
+    variant: 'image',
     title: text('Title', heroBannerData.title, 'Hero banner'),
     description: text('Description', heroBannerData.description, 'Hero banner'),
     isCentered: boolean('Centered', true, 'Hero banner'),
