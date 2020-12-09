@@ -13,28 +13,6 @@ import logoEuDesktop from '@ecl/resources-eu-logo/standard-version/positive/en.s
 import footer from './footer-standardised.html.twig';
 import notes from './README.md';
 
-// Icons.
-/*
-specs.sections.forEach((section) => {
-  if (!Array.isArray(section)) {
-    section = [section];
-  }
-
-  section.forEach((s) => {
-    if (section.title && section.title.icon) {
-      section.title.icon.path = defaultSprite;
-    }
-    if (s.links && Array.isArray(s.links)) {
-      s.links.forEach((l) => {
-        if (l.icon) {
-          l.icon.path = defaultSprite;
-        }
-      });
-    }
-  });
-});
-*/
-
 // Prepare the knobs
 const formatFooter = (data) => {
   data.sections.forEach((section, i) => {
