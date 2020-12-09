@@ -1,4 +1,10 @@
-const system = (process.env.STORYBOOK_SYSTEM || 'ec').toLowerCase();
+const system = (
+  window.location.pathname
+    .split('/')
+    .find((part) => part === 'ec' || part === 'eu') ||
+  process.env.STORYBOOK_SYSTEM
+).toLowerCase();
+
 const baseUrl =
   ['ec.europa.eu', 'localhost'].indexOf(window.location.hostname) !== -1
     ? `https://v3--europa-component-library.netlify.app/playground/${system}`
@@ -6,14 +12,14 @@ const baseUrl =
 
 const replaceLogo = (code) =>
   code.replace(
-    /dist\/images\/logo([\d-az-]*)\.([\da-z]*)\.svg/gi,
-    `${baseUrl}images/logo/logo$1.svg`
+    /static\/media\/logo([\d-az-]*)\.([\da-z]*)\.svg/gi,
+    `${baseUrl}/images/logo/logo$1.svg`
   );
 
 const replaceIcons = (code) =>
   code.replace(
-    /dist\/images\/icons\.([\da-z]*)\.svg/gi,
-    `${baseUrl}images/icons/sprites/icons.svg`
+    /static\/media\/icons\.([\da-z]*)\.svg/gi,
+    `${baseUrl}/images/icons/sprites/icons.svg`
   );
 
 const prefillPen = (code) => {
