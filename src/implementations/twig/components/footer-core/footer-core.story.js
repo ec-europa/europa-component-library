@@ -2,9 +2,13 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
+import he from 'he';
 
 import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
-import specs from '@ecl/specs-component-footer-core/demo/data';
+import specsEc from '@ecl/specs-component-footer-core/demo/data--ec';
+import specsEu from '@ecl/specs-component-footer-core/demo/data--eu';
+import logoEuMobile from '@ecl/resources-eu-logo/condensed-version/positive/en.svg';
+import logoEuDesktop from '@ecl/resources-eu-logo/standard-version/positive/en.svg';
 import footer from './footer-core.html.twig';
 import notes from './README.md';
 
@@ -35,16 +39,16 @@ const formatFooter = (data) => {
         }
       }
       if (section.description) {
-        section.description = text(
-          `sections[${i}].description`,
-          section.description,
-          tabLabels.required
+        section.description = he.decode(
+          text(
+            `sections[${i}].description`,
+            section.description,
+            tabLabels.required
+          )
         );
       } else if (!section.description && i === 0) {
-        section.description = text(
-          `sections[${i}].description`,
-          '',
-          tabLabels.required
+        section.description = he.decode(
+          text(`sections[${i}].description`, '', tabLabels.required)
         );
       }
       if (section.content_before) {
@@ -84,6 +88,8 @@ const formatFooter = (data) => {
           section.logo.alt,
           tabLabels.required
         );
+        section.logo.src_mobile = logoEuMobile;
+        section.logo.src_desktop = logoEuDesktop;
       }
       if (section.links) {
         section.links.forEach((link, j) => {
@@ -196,10 +202,12 @@ const formatFooter = (data) => {
 
 export default {
   title: 'Components/Footers/Core',
+  decorators: [withCode, withNotes, withKnobs],
 };
 
-export const Default = () => footer(formatFooter(specs));
+const data = process.env.STORYBOOK_SYSTEM === 'EU' ? specsEu : specsEc;
+
+export const Default = () => footer(formatFooter(data));
 
 Default.storyName = 'default';
-Default.parameters = { notes: { markdown: notes, json: specs } };
-Default.decorators = [withCode, withNotes, withKnobs];
+Default.parameters = { notes: { markdown: notes, json: data } };
