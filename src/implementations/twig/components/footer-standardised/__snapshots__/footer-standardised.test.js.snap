@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Footer Standardised default renders correctly 1`] = `
+exports[`Footer Standardised EC default renders correctly 1`] = `
 <footer
   class="ecl-footer-standardised"
 >
@@ -237,11 +237,6 @@ exports[`Footer Standardised default renders correctly 1`] = `
     <section
       class="ecl-footer-standardised__section ecl-footer-standardised__section6"
     >
-      <div
-        class="ecl-footer-standardised__content"
-      >
-        More information on:
-      </div>
       <ul
         class="ecl-footer-standardised__list ecl-footer-standardised__list--condensed"
       >
@@ -389,7 +384,7 @@ exports[`Footer Standardised default renders correctly 1`] = `
 </footer>
 `;
 
-exports[`Footer Standardised default renders correctly with extra attributes 1`] = `
+exports[`Footer Standardised EC default renders correctly with extra attributes 1`] = `
 <footer
   class="ecl-footer-standardised"
   data-test="data-test-value"
@@ -628,11 +623,6 @@ exports[`Footer Standardised default renders correctly with extra attributes 1`]
     <section
       class="ecl-footer-standardised__section ecl-footer-standardised__section6"
     >
-      <div
-        class="ecl-footer-standardised__content"
-      >
-        More information on:
-      </div>
       <ul
         class="ecl-footer-standardised__list ecl-footer-standardised__list--condensed"
       >
@@ -780,7 +770,7 @@ exports[`Footer Standardised default renders correctly with extra attributes 1`]
 </footer>
 `;
 
-exports[`Footer Standardised default renders correctly with extra class names 1`] = `
+exports[`Footer Standardised EC default renders correctly with extra class names 1`] = `
 <footer
   class="ecl-footer-standardised custom-class custom-class--test"
 >
@@ -1017,11 +1007,6 @@ exports[`Footer Standardised default renders correctly with extra class names 1`
     <section
       class="ecl-footer-standardised__section ecl-footer-standardised__section6"
     >
-      <div
-        class="ecl-footer-standardised__content"
-      >
-        More information on:
-      </div>
       <ul
         class="ecl-footer-standardised__list ecl-footer-standardised__list--condensed"
       >
@@ -1161,6 +1146,1760 @@ exports[`Footer Standardised default renders correctly with extra class names 1`
             href="/example"
           >
             Legal notice
+          </a>
+        </li>
+      </ul>
+    </section>
+  </div>
+</footer>
+`;
+
+exports[`Footer Standardised EU default renders correctly 1`] = `
+<footer
+  class="ecl-footer-standardised"
+>
+  <div
+    class="ecl-container ecl-footer-standardised__container"
+  >
+    <section
+      class="ecl-footer-standardised__section ecl-footer-standardised__section1"
+    >
+      <a
+        aria-label="Link to site name"
+        class="ecl-link ecl-link--standalone ecl-footer-standardised__title"
+        href="/example"
+      >
+        Site name
+      </a>
+      <div
+        class="ecl-footer-standardised__description"
+      >
+        This site is managed by 
+        <a
+          class="ecl-link ecl-link--standalone"
+          href="/example"
+        >
+          site owner name
+        </a>
+         and is an official website of the European Union
+      </div>
+    </section>
+    <section
+      class="ecl-footer-standardised__section ecl-footer-standardised__section2"
+    >
+      <section
+        class="ecl-footer-standardised__section"
+      >
+        <div
+          class="ecl-footer-standardised__title ecl-footer-standardised__title--separator"
+        >
+          Contact site name
+        </div>
+        <ul
+          class="ecl-footer-standardised__list"
+        >
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            <a
+              aria-label="Link to contact site name"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              Link
+            </a>
+          </li>
+        </ul>
+      </section>
+      <section
+        class="ecl-footer-standardised__section"
+      >
+        <div
+          class="ecl-footer-standardised__title ecl-footer-standardised__title--separator"
+        >
+          Follow us
+        </div>
+        <ul
+          class="ecl-footer-standardised__list"
+        >
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            <a
+              aria-label="Link to social 1"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              Social 1
+            </a>
+          </li>
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            <a
+              aria-label="Link to social 2"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              Social 2
+            </a>
+          </li>
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            <a
+              aria-label="Link to social 3"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              Social 3
+            </a>
+          </li>
+        </ul>
+      </section>
+    </section>
+    <section
+      class="ecl-footer-standardised__section ecl-footer-standardised__section3"
+    >
+      <div
+        class="ecl-footer-standardised__title ecl-footer-standardised__title--separator"
+      >
+        Optional links
+      </div>
+      <ul
+        class="ecl-footer-standardised__list"
+      >
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to link 1"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            Link 1
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to link 2"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            Link 2
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to link 3"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            Link 3
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to link 4"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            Link 4
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section
+      class="ecl-footer-standardised__section ecl-footer-standardised__section4"
+    />
+    <section
+      class="ecl-footer-standardised__section ecl-footer-standardised__section5"
+    >
+      <a
+        aria-label="European Union"
+        class="ecl-link ecl-link--standalone ecl-footer-standardised__logo-link"
+        href="/example"
+      >
+        <img
+          alt="European Union logo"
+          class="ecl-footer-standardised__logo-image-mobile"
+          src=""
+          title="European Union"
+        />
+        <img
+          alt="European Union logo"
+          class="ecl-footer-standardised__logo-image-desktop"
+          src=""
+          title="European Union"
+        />
+      </a>
+      <div
+        class="ecl-footer-standardised__description"
+      >
+        Discover more on 
+        <a
+          class="ecl-link ecl-link--standalone"
+          href="/example"
+        >
+          europa.eu
+        </a>
+      </div>
+    </section>
+    <section
+      class="ecl-footer-standardised__section ecl-footer-standardised__section6"
+    >
+      <section
+        class="ecl-footer-standardised__section"
+      >
+        <div
+          class="ecl-footer-standardised__title ecl-footer-standardised__title--separator"
+        >
+          Contact the EU
+        </div>
+        <ul
+          class="ecl-footer-standardised__list"
+        >
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            Call us 
+            <a
+              aria-label="Link to 00 800 6 7 8 9 10 11"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              00 800 6 7 8 9 10 11
+            </a>
+          </li>
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            Use other 
+            <a
+              aria-label="Link to telephone options"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              telephone options
+            </a>
+          </li>
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            Write us via our 
+            <a
+              aria-label="Link to contact form"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              contact form
+            </a>
+          </li>
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            Meet us at a 
+            <a
+              aria-label="Link to local EU offices"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              local EU office
+            </a>
+          </li>
+        </ul>
+      </section>
+      <section
+        class="ecl-footer-standardised__section"
+      >
+        <div
+          class="ecl-footer-standardised__title ecl-footer-standardised__title--separator"
+        >
+          Social media
+        </div>
+        <ul
+          class="ecl-footer-standardised__list"
+        >
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            Search for 
+            <a
+              aria-label="Link to EU social media channels"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              EU social media channels
+            </a>
+          </li>
+        </ul>
+      </section>
+      <section
+        class="ecl-footer-standardised__section"
+      >
+        <div
+          class="ecl-footer-standardised__title ecl-footer-standardised__title--separator"
+        >
+          Legal
+        </div>
+        <ul
+          class="ecl-footer-standardised__list"
+        >
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            <a
+              aria-label="Link to language policy"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              Language policy
+            </a>
+          </li>
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            <a
+              aria-label="Link to Privacy policy"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              Privacy policy
+            </a>
+          </li>
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            <a
+              aria-label="Link to Legal notice"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              Legal notice
+            </a>
+          </li>
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            <a
+              aria-label="Link to Web accessibility"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              Web accessibility
+            </a>
+          </li>
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            <a
+              aria-label="Link to Cookies"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              Cookies
+            </a>
+          </li>
+        </ul>
+      </section>
+    </section>
+    <section
+      class="ecl-footer-standardised__section ecl-footer-standardised__section7"
+    >
+      <div
+        class="ecl-footer-standardised__title ecl-footer-standardised__title--separator"
+      >
+        EU institutions
+      </div>
+      <ul
+        class="ecl-footer-standardised__list"
+      >
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Parliament"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Parliament
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Council"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Council
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to Council of the European Union"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            Council of the European Union
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Commission"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Commission
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to Court of Justice of the European Union"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            Court of Justice of the European Union
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Central Bank"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Central Bank
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Court of Auditors"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Court of Auditors
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European External Action Service"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European External Action Service
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Economic and social Committee"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Economic and Social Committee
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Commitee of the Regions"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Commitee of the Regions
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Investment Bank"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Investment Bank
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Ombudsman"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Ombudsman
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Data Protection Supervisor"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Data Protection Supervisor
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to The European Data Protection Board"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            The European Data Protection Board
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Personnel Selection Office"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Personnel Selection Office
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to Publications office of the European Union"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            Publications Office of the European Union
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to Agencies"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            Agencies
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section
+      class="ecl-footer-standardised__section ecl-footer-standardised__section8"
+    >
+      <div
+        class="ecl-footer-standardised__title ecl-footer-standardised__title--separator"
+      >
+        EU institutions
+      </div>
+      <ul
+        class="ecl-footer-standardised__list"
+      >
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          Search for 
+          <a
+            aria-label="Link to EU institutions"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            EU institutions
+          </a>
+        </li>
+      </ul>
+    </section>
+  </div>
+</footer>
+`;
+
+exports[`Footer Standardised EU default renders correctly with extra attributes 1`] = `
+<footer
+  class="ecl-footer-standardised"
+  data-test="data-test-value"
+  data-test-1="data-test-value-1"
+>
+  <div
+    class="ecl-container ecl-footer-standardised__container"
+  >
+    <section
+      class="ecl-footer-standardised__section ecl-footer-standardised__section1"
+    >
+      <a
+        aria-label="Link to site name"
+        class="ecl-link ecl-link--standalone ecl-footer-standardised__title"
+        href="/example"
+      >
+        Site name
+      </a>
+      <div
+        class="ecl-footer-standardised__description"
+      >
+        This site is managed by 
+        <a
+          class="ecl-link ecl-link--standalone"
+          href="/example"
+        >
+          site owner name
+        </a>
+         and is an official website of the European Union
+      </div>
+    </section>
+    <section
+      class="ecl-footer-standardised__section ecl-footer-standardised__section2"
+    >
+      <section
+        class="ecl-footer-standardised__section"
+      >
+        <div
+          class="ecl-footer-standardised__title ecl-footer-standardised__title--separator"
+        >
+          Contact site name
+        </div>
+        <ul
+          class="ecl-footer-standardised__list"
+        >
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            <a
+              aria-label="Link to contact site name"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              Link
+            </a>
+          </li>
+        </ul>
+      </section>
+      <section
+        class="ecl-footer-standardised__section"
+      >
+        <div
+          class="ecl-footer-standardised__title ecl-footer-standardised__title--separator"
+        >
+          Follow us
+        </div>
+        <ul
+          class="ecl-footer-standardised__list"
+        >
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            <a
+              aria-label="Link to social 1"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              Social 1
+            </a>
+          </li>
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            <a
+              aria-label="Link to social 2"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              Social 2
+            </a>
+          </li>
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            <a
+              aria-label="Link to social 3"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              Social 3
+            </a>
+          </li>
+        </ul>
+      </section>
+    </section>
+    <section
+      class="ecl-footer-standardised__section ecl-footer-standardised__section3"
+    >
+      <div
+        class="ecl-footer-standardised__title ecl-footer-standardised__title--separator"
+      >
+        Optional links
+      </div>
+      <ul
+        class="ecl-footer-standardised__list"
+      >
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to link 1"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            Link 1
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to link 2"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            Link 2
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to link 3"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            Link 3
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to link 4"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            Link 4
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section
+      class="ecl-footer-standardised__section ecl-footer-standardised__section4"
+    />
+    <section
+      class="ecl-footer-standardised__section ecl-footer-standardised__section5"
+    >
+      <a
+        aria-label="European Union"
+        class="ecl-link ecl-link--standalone ecl-footer-standardised__logo-link"
+        href="/example"
+      >
+        <img
+          alt="European Union logo"
+          class="ecl-footer-standardised__logo-image-mobile"
+          src=""
+          title="European Union"
+        />
+        <img
+          alt="European Union logo"
+          class="ecl-footer-standardised__logo-image-desktop"
+          src=""
+          title="European Union"
+        />
+      </a>
+      <div
+        class="ecl-footer-standardised__description"
+      >
+        Discover more on 
+        <a
+          class="ecl-link ecl-link--standalone"
+          href="/example"
+        >
+          europa.eu
+        </a>
+      </div>
+    </section>
+    <section
+      class="ecl-footer-standardised__section ecl-footer-standardised__section6"
+    >
+      <section
+        class="ecl-footer-standardised__section"
+      >
+        <div
+          class="ecl-footer-standardised__title ecl-footer-standardised__title--separator"
+        >
+          Contact the EU
+        </div>
+        <ul
+          class="ecl-footer-standardised__list"
+        >
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            Call us 
+            <a
+              aria-label="Link to 00 800 6 7 8 9 10 11"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              00 800 6 7 8 9 10 11
+            </a>
+          </li>
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            Use other 
+            <a
+              aria-label="Link to telephone options"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              telephone options
+            </a>
+          </li>
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            Write us via our 
+            <a
+              aria-label="Link to contact form"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              contact form
+            </a>
+          </li>
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            Meet us at a 
+            <a
+              aria-label="Link to local EU offices"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              local EU office
+            </a>
+          </li>
+        </ul>
+      </section>
+      <section
+        class="ecl-footer-standardised__section"
+      >
+        <div
+          class="ecl-footer-standardised__title ecl-footer-standardised__title--separator"
+        >
+          Social media
+        </div>
+        <ul
+          class="ecl-footer-standardised__list"
+        >
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            Search for 
+            <a
+              aria-label="Link to EU social media channels"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              EU social media channels
+            </a>
+          </li>
+        </ul>
+      </section>
+      <section
+        class="ecl-footer-standardised__section"
+      >
+        <div
+          class="ecl-footer-standardised__title ecl-footer-standardised__title--separator"
+        >
+          Legal
+        </div>
+        <ul
+          class="ecl-footer-standardised__list"
+        >
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            <a
+              aria-label="Link to language policy"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              Language policy
+            </a>
+          </li>
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            <a
+              aria-label="Link to Privacy policy"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              Privacy policy
+            </a>
+          </li>
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            <a
+              aria-label="Link to Legal notice"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              Legal notice
+            </a>
+          </li>
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            <a
+              aria-label="Link to Web accessibility"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              Web accessibility
+            </a>
+          </li>
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            <a
+              aria-label="Link to Cookies"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              Cookies
+            </a>
+          </li>
+        </ul>
+      </section>
+    </section>
+    <section
+      class="ecl-footer-standardised__section ecl-footer-standardised__section7"
+    >
+      <div
+        class="ecl-footer-standardised__title ecl-footer-standardised__title--separator"
+      >
+        EU institutions
+      </div>
+      <ul
+        class="ecl-footer-standardised__list"
+      >
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Parliament"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Parliament
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Council"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Council
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to Council of the European Union"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            Council of the European Union
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Commission"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Commission
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to Court of Justice of the European Union"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            Court of Justice of the European Union
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Central Bank"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Central Bank
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Court of Auditors"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Court of Auditors
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European External Action Service"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European External Action Service
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Economic and social Committee"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Economic and Social Committee
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Commitee of the Regions"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Commitee of the Regions
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Investment Bank"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Investment Bank
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Ombudsman"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Ombudsman
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Data Protection Supervisor"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Data Protection Supervisor
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to The European Data Protection Board"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            The European Data Protection Board
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Personnel Selection Office"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Personnel Selection Office
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to Publications office of the European Union"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            Publications Office of the European Union
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to Agencies"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            Agencies
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section
+      class="ecl-footer-standardised__section ecl-footer-standardised__section8"
+    >
+      <div
+        class="ecl-footer-standardised__title ecl-footer-standardised__title--separator"
+      >
+        EU institutions
+      </div>
+      <ul
+        class="ecl-footer-standardised__list"
+      >
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          Search for 
+          <a
+            aria-label="Link to EU institutions"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            EU institutions
+          </a>
+        </li>
+      </ul>
+    </section>
+  </div>
+</footer>
+`;
+
+exports[`Footer Standardised EU default renders correctly with extra class names 1`] = `
+<footer
+  class="ecl-footer-standardised custom-class custom-class--test"
+>
+  <div
+    class="ecl-container ecl-footer-standardised__container"
+  >
+    <section
+      class="ecl-footer-standardised__section ecl-footer-standardised__section1"
+    >
+      <a
+        aria-label="Link to site name"
+        class="ecl-link ecl-link--standalone ecl-footer-standardised__title"
+        href="/example"
+      >
+        Site name
+      </a>
+      <div
+        class="ecl-footer-standardised__description"
+      >
+        This site is managed by 
+        <a
+          class="ecl-link ecl-link--standalone"
+          href="/example"
+        >
+          site owner name
+        </a>
+         and is an official website of the European Union
+      </div>
+    </section>
+    <section
+      class="ecl-footer-standardised__section ecl-footer-standardised__section2"
+    >
+      <section
+        class="ecl-footer-standardised__section"
+      >
+        <div
+          class="ecl-footer-standardised__title ecl-footer-standardised__title--separator"
+        >
+          Contact site name
+        </div>
+        <ul
+          class="ecl-footer-standardised__list"
+        >
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            <a
+              aria-label="Link to contact site name"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              Link
+            </a>
+          </li>
+        </ul>
+      </section>
+      <section
+        class="ecl-footer-standardised__section"
+      >
+        <div
+          class="ecl-footer-standardised__title ecl-footer-standardised__title--separator"
+        >
+          Follow us
+        </div>
+        <ul
+          class="ecl-footer-standardised__list"
+        >
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            <a
+              aria-label="Link to social 1"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              Social 1
+            </a>
+          </li>
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            <a
+              aria-label="Link to social 2"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              Social 2
+            </a>
+          </li>
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            <a
+              aria-label="Link to social 3"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              Social 3
+            </a>
+          </li>
+        </ul>
+      </section>
+    </section>
+    <section
+      class="ecl-footer-standardised__section ecl-footer-standardised__section3"
+    >
+      <div
+        class="ecl-footer-standardised__title ecl-footer-standardised__title--separator"
+      >
+        Optional links
+      </div>
+      <ul
+        class="ecl-footer-standardised__list"
+      >
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to link 1"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            Link 1
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to link 2"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            Link 2
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to link 3"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            Link 3
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to link 4"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            Link 4
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section
+      class="ecl-footer-standardised__section ecl-footer-standardised__section4"
+    />
+    <section
+      class="ecl-footer-standardised__section ecl-footer-standardised__section5"
+    >
+      <a
+        aria-label="European Union"
+        class="ecl-link ecl-link--standalone ecl-footer-standardised__logo-link"
+        href="/example"
+      >
+        <img
+          alt="European Union logo"
+          class="ecl-footer-standardised__logo-image-mobile"
+          src=""
+          title="European Union"
+        />
+        <img
+          alt="European Union logo"
+          class="ecl-footer-standardised__logo-image-desktop"
+          src=""
+          title="European Union"
+        />
+      </a>
+      <div
+        class="ecl-footer-standardised__description"
+      >
+        Discover more on 
+        <a
+          class="ecl-link ecl-link--standalone"
+          href="/example"
+        >
+          europa.eu
+        </a>
+      </div>
+    </section>
+    <section
+      class="ecl-footer-standardised__section ecl-footer-standardised__section6"
+    >
+      <section
+        class="ecl-footer-standardised__section"
+      >
+        <div
+          class="ecl-footer-standardised__title ecl-footer-standardised__title--separator"
+        >
+          Contact the EU
+        </div>
+        <ul
+          class="ecl-footer-standardised__list"
+        >
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            Call us 
+            <a
+              aria-label="Link to 00 800 6 7 8 9 10 11"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              00 800 6 7 8 9 10 11
+            </a>
+          </li>
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            Use other 
+            <a
+              aria-label="Link to telephone options"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              telephone options
+            </a>
+          </li>
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            Write us via our 
+            <a
+              aria-label="Link to contact form"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              contact form
+            </a>
+          </li>
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            Meet us at a 
+            <a
+              aria-label="Link to local EU offices"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              local EU office
+            </a>
+          </li>
+        </ul>
+      </section>
+      <section
+        class="ecl-footer-standardised__section"
+      >
+        <div
+          class="ecl-footer-standardised__title ecl-footer-standardised__title--separator"
+        >
+          Social media
+        </div>
+        <ul
+          class="ecl-footer-standardised__list"
+        >
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            Search for 
+            <a
+              aria-label="Link to EU social media channels"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              EU social media channels
+            </a>
+          </li>
+        </ul>
+      </section>
+      <section
+        class="ecl-footer-standardised__section"
+      >
+        <div
+          class="ecl-footer-standardised__title ecl-footer-standardised__title--separator"
+        >
+          Legal
+        </div>
+        <ul
+          class="ecl-footer-standardised__list"
+        >
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            <a
+              aria-label="Link to language policy"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              Language policy
+            </a>
+          </li>
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            <a
+              aria-label="Link to Privacy policy"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              Privacy policy
+            </a>
+          </li>
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            <a
+              aria-label="Link to Legal notice"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              Legal notice
+            </a>
+          </li>
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            <a
+              aria-label="Link to Web accessibility"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              Web accessibility
+            </a>
+          </li>
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            <a
+              aria-label="Link to Cookies"
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              Cookies
+            </a>
+          </li>
+        </ul>
+      </section>
+    </section>
+    <section
+      class="ecl-footer-standardised__section ecl-footer-standardised__section7"
+    >
+      <div
+        class="ecl-footer-standardised__title ecl-footer-standardised__title--separator"
+      >
+        EU institutions
+      </div>
+      <ul
+        class="ecl-footer-standardised__list"
+      >
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Parliament"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Parliament
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Council"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Council
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to Council of the European Union"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            Council of the European Union
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Commission"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Commission
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to Court of Justice of the European Union"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            Court of Justice of the European Union
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Central Bank"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Central Bank
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Court of Auditors"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Court of Auditors
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European External Action Service"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European External Action Service
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Economic and social Committee"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Economic and Social Committee
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Commitee of the Regions"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Commitee of the Regions
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Investment Bank"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Investment Bank
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Ombudsman"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Ombudsman
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Data Protection Supervisor"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Data Protection Supervisor
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to The European Data Protection Board"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            The European Data Protection Board
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to European Personnel Selection Office"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            European Personnel Selection Office
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to Publications office of the European Union"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            Publications Office of the European Union
+          </a>
+        </li>
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          <a
+            aria-label="Link to Agencies"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            Agencies
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section
+      class="ecl-footer-standardised__section ecl-footer-standardised__section8"
+    >
+      <div
+        class="ecl-footer-standardised__title ecl-footer-standardised__title--separator"
+      >
+        EU institutions
+      </div>
+      <ul
+        class="ecl-footer-standardised__list"
+      >
+        <li
+          class="ecl-footer-standardised__list-item"
+        >
+          Search for 
+          <a
+            aria-label="Link to EU institutions"
+            class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+            href="/example"
+          >
+            EU institutions
           </a>
         </li>
       </ul>
