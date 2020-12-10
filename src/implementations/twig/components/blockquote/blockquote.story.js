@@ -1,57 +1,28 @@
+import { withKnobs, text } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
+import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
 
 import defaultData from '@ecl/specs-component-blockquote/demo/data';
 import blockquote from './blockquote.html.twig';
 import notes from './README.md';
 
-const prepareControls = (data, args) => {
-  data.author = args.author;
-  data.citation = args.citation;
+const prepareQuote = (data) => {
+  data.citation = text('citation', data.citation, tabLabels.required);
+
+  data.author = text('author', data.author, tabLabels.required);
+
+  getExtraKnobs(data);
 
   return data;
 };
 
 export default {
   title: 'Components/Blockquote',
-  argTypes: {
-    author: {
-      name: 'Author',
-      type: { name: 'string', required: true },
-      defaultValue: '',
-      description: 'Author of the citation',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-      control: {
-        type: 'text',
-      },
-    },
-    citation: {
-      name: 'Citation',
-      type: { name: 'string', required: true },
-      defaultValue: '',
-      description: 'Blockquote citation',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-      control: {
-        type: 'text',
-      },
-    },
-  },
-  decorators: [withCode, withNotes],
 };
 
-export const Default = (args) => blockquote(prepareControls(defaultData, args));
+export const Default = () => blockquote(prepareQuote(defaultData));
 
-Default.args = {
-  author: defaultData.author,
-  citation: defaultData.citation,
-};
 Default.storyName = 'default';
 Default.parameters = { notes: { markdown: notes, json: defaultData } };
+Default.decorators = [withKnobs, withCode, withNotes];
