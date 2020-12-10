@@ -69,7 +69,7 @@ module.exports = {
           },
         },
       ],
-      section_id: '9',
+      section_id: '3',
       type: 'legal_navigation',
     },
   ],
