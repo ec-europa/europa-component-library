@@ -56,4 +56,4 @@ addParameters({
   },
 });
 
-addDecorator(withCssResources);
+export const decorators = [withCssResources];
