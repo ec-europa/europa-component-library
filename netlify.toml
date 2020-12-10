@@ -1,5 +1,6 @@
 [build]
-  functions="functions"
+  command = "npm install && npm run build"
+  functions = ".netlify/functions/"  
 [[redirects]]
   from="/proxy/*"
   to="/.netlify/functions/proxy/:splat"
