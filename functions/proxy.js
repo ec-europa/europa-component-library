@@ -1,6 +1,6 @@
 "use strict";
 
-const fetch = require("node-fetch");
+const axios = require("axios");
 
 exports.handler = async (event) => {
   const params = event.queryStringParameters;
@@ -23,8 +23,9 @@ exports.handler = async (event) => {
   const url = `${params.url}${requestParams}`;
 
   try {
-    const res = await fetch(url, {
+    const res = await axios({
       method: event.httpMethod,
+      url,
       timeout: 20000,
       headers,
     });
