@@ -47,20 +47,20 @@ export default {
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
-        category: 'Text',
+        category: 'Content',
       },
       control: {
         type: 'text',
       },
     },
     icon_name: {
-      name: 'icon.name',
+      name: 'icon name',
       type: { name: 'select', required: false },
       defaultValue: '',
       description: 'Button icon',
       table: {
-        type: { summary: 'select' },
-        defaultValue: { summary: 'null' },
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
         category: 'Icon',
       },
       control: {
@@ -69,14 +69,15 @@ export default {
       },
     },
     icon_transform: {
-      name: 'icon.transform',
+      name: 'icon transform',
       type: { name: 'select', required: false },
-      defaultValue: null,
+      defaultValue: '',
       description: 'Button icon transform',
       table: {
-        type: { summary: 'select' },
-        defaultValue: { summary: 'null' },
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
         category: 'Icon',
+        disable: true,
       },
       control: {
         type: 'select',
@@ -90,12 +91,12 @@ export default {
       },
     },
     icon_position: {
-      name: 'icon_position',
+      name: 'icon position',
       type: { name: 'inline-radio', required: false },
       defaultValue: 'after',
       description: 'Icon position inside the button',
       table: {
-        type: { summary: 'inline-radio' },
+        type: { summary: 'string' },
         defaultValue: { summary: 'after' },
         category: 'Icon',
       },
@@ -122,7 +123,8 @@ export default {
   decorators: [withCode, withNotes],
 };
 
-export const Primary = (args) => button(prepareControls(dataPrimary, args));
+export const Primary = (args) =>
+  button(prepareControls(Primary, dataPrimary, args));
 
 Primary.args = {
   label: dataPrimary.label,
@@ -132,23 +134,17 @@ Primary.parameters = { notes: { markdown: notes, json: dataPrimary } };
 
 export const Secondary = (args) => button(prepareControls(dataSecondary, args));
 
-// Hide a Control for a specific story
-Secondary.argTypes = {
-  icon_transform: {
-    table: {
-      disable: true,
-    },
-  },
-};
-
 Secondary.args = {
   label: dataSecondary.label,
 };
-Secondary.storName = 'secondary';
+Secondary.storyName = 'secondary';
 Secondary.parameters = { notes: { markdown: notes, json: dataSecondary } };
 
 export const CallToAction = (args) => button(prepareControls(dataCall, args));
 
+CallToAction.argTypes = {
+  icon_transform: { table: { disable: false } },
+};
 CallToAction.args = {
   label: dataCall.label,
   icon_name: 'corner-arrow',
