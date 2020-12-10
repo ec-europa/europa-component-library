@@ -104,8 +104,7 @@ Example: `@ecl-twig/ec-component-accordion/ecl-accordion.html.twig` => `@ecl/acc
 
 Most of the components have been updated without much changes. Altough there are a few exceptions, which may result in breaking changes
 
-- Footers (EU)
+- Footers
   - section ids have been updated to be more consistent (no more jumping from section 3 to section 6 for instance)
   - twig parameter "type" has been removed (not used)
-  - twig parameter "content_before" for sections has been removed (not used)
   - twig parameters added for each link, to allow content before and after it

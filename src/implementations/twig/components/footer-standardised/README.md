@@ -19,6 +19,7 @@ npm install --save @ecl/twig-component-footer-standardised
   - "title" (optional) (string) OR (object with Link component in property)
   - "title_class_name" (optional) (string) (default: '')
   - "description" (optional) (string) (default: '')
+  - "content_before" (optional) (string) (default: '')
   - "list_class_name" (optional) (string) (default: '')
   - "links" (optional) (array of objects) (default: []),
     - "link" (link object)
