@@ -7,6 +7,7 @@ const addons = [
   '@storybook/addon-cssresources',
   '@ecl/storybook-addon-notes/src/register',
   '@ecl/storybook-addon-code/src/register',
+  '@ecl/storybook-addon-system-switcher/register',
   '@storybook/addon-viewport',
   '@storybook/addon-knobs',
   '@storybook/addon-controls',
