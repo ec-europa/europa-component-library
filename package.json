@@ -4,7 +4,7 @@
   "description": "Netlify's main branch. Used to redirect https://europa-component-library.netlify.com/ to the right URL.",
   "main": "index.js",
   "scripts": {
-    "build": "netlify build"
+    "build": "netlify-lambda build functions"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   "homepage": "https://github.com/ec-europa/europa-component-library#readme",
   "dependencies": {
     "netlify-cli": "^2.69.4",
+    "netlify-lambda": "^2.0.1",
     "node-fetch": "^2.6.1"
   }
 }

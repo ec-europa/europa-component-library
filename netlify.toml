@@ -1,6 +1,7 @@
 [build]
-  command = "npm install && npm run build"
-  functions = ".netlify/functions/"  
+command = "netlify-lambda build functions"
+functions = ".netlify/functions/"
+
 [[redirects]]
   from="/proxy/*"
   to="/.netlify/functions/proxy/:splat"
