@@ -99,3 +99,13 @@ They have been migrated from `[ecl-twig](https://github.com/ec-europa/ecl-twig)`
 Example: `@ecl-twig/ec-component-accordion/ecl-accordion.html.twig` => `@ecl/accordion/accordion.html.twig`
 
 [ECL Compliance component](https://github.com/ec-europa/ecl-twig/tree/master/src/ec/packages/ec-component-ecl-compliance) has been removed.
+
+## Component implementation specifics
+
+Most of the components have been updated without much changes. Altough there are a few exceptions, which may result in breaking changes
+
+- Footers (EC)
+  - section ids have been updated to be more consistent (no more jumping from section 3 to section 6 for instance)
+  - twig parameter "type" has been removed (not used)
+  - twig parameter "content_before" for sections has been removed (not used)
+  - twig parameters added for each link, to allow content before and after it

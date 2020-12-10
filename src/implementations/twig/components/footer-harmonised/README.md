@@ -18,7 +18,10 @@ npm install --save @ecl/twig-component-footer-harmonised
   - "description" (optional) (string) (default: '')
   - "content_before" (optional) (string) (default: '')
   - "list_class_name" (optional) (string) (default: '')
-  - "links" (optional) (array of Link components) (default: [])
+  - "links" (optional) (array of objects) (default: []),
+    - "link" (link object)
+    - "content_before" (string) Optional text before the link
+    - "content_after" (string) Optional text after the link
   - "logos" (optional) (array of images objects) (default: []):
     "title": (string) (default: '') Title attribute
     "alt": (string) (default: '') Alternative text

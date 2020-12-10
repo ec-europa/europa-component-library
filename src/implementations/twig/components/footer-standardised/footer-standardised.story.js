@@ -6,6 +6,7 @@ import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
 
 import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import specs from '@ecl/specs-component-footer-standardised/demo/data';
+import he from 'he';
 import footerStandardised from './footer-standardised.html.twig';
 import notes from './README.md';
 
@@ -49,10 +50,12 @@ const prepareFooterStandardised = (data) => {
       }
       // Site name & content owner details.
       if (section.description) {
-        section.description = text(
-          `sections[${i}].description`,
-          section.description,
-          tabLabels.required
+        section.description = he.decode(
+          text(
+            `sections[${i}].description`,
+            section.description,
+            tabLabels.required
+          )
         );
       }
       if (section.content_before) {

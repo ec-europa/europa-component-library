@@ -121,7 +121,7 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('m') {
+@include breakpoints.up('l') {
   .ecl-footer-standardised__section {
     margin-top: map.get(theme.$spacing, 'xl');
 
@@ -145,6 +145,10 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
 
   .ecl-footer-standardised__title--separator {
     border-bottom-width: 2px;
+  }
+
+  .ecl-footer-standardised__content {
+    font: map.get(theme.$font-prolonged, 's');
   }
 
   .ecl-footer-standardised__description {
@@ -174,20 +178,9 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
 }
 
 .ecl-footer-standardised__section4 {
-  order: 2;
-}
-
-.ecl-footer-standardised__section5,
-.ecl-footer-standardised__section6,
-.ecl-footer-standardised__section7,
-.ecl-footer-standardised__section8,
-.ecl-footer-standardised__section9 {
-  order: 4;
-}
-
-.ecl-footer-standardised__section6 {
   border-bottom: 1px solid $_separator-color;
   border-top: 1px solid $_separator-color;
+  order: 4;
   padding-bottom: map.get(theme.$spacing, 'm');
   padding-top: map.get(theme.$spacing, 'm');
 
@@ -197,13 +190,18 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
   }
 }
 
-.ecl-footer-standardised__section8,
-.ecl-footer-standardised__section9 {
+.ecl-footer-standardised__section5 {
+  order: 4;
+}
+
+.ecl-footer-standardised__section6,
+.ecl-footer-standardised__section7 {
   margin-top: map.get(theme.$spacing, 'm');
+  order: 4;
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('m') {
+@include breakpoints.up('l') {
   /* Grid layout */
   .ecl-footer-standardised__container {
     column-gap: $_column-gap;
@@ -227,14 +225,6 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
   }
 
   .ecl-footer-standardised__section4 {
-    grid-area: 2 / 2 / 3 / 3;
-  }
-
-  .ecl-footer-standardised__section5 {
-    grid-area: 2 / 3 / 3 / 4;
-  }
-
-  .ecl-footer-standardised__section6 {
     border-bottom-width: 2px;
     border-top-width: 2px;
     grid-area: 3 / 1 / 4 / 4;
@@ -244,16 +234,16 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
     }
   }
 
-  .ecl-footer-standardised__section7 {
+  .ecl-footer-standardised__section5 {
     grid-area: 4 / 1 / 5 / 2;
   }
 
-  .ecl-footer-standardised__section8 {
+  .ecl-footer-standardised__section6 {
     grid-area: 4 / 2 / 5 / 3;
     margin-top: map.get(theme.$spacing, 'xl');
   }
 
-  .ecl-footer-standardised__section9 {
+  .ecl-footer-standardised__section7 {
     grid-area: 4 / 3 / 5 / 4;
     margin-top: map.get(theme.$spacing, 'xl');
   }

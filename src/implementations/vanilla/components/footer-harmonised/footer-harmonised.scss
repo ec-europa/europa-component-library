@@ -108,7 +108,7 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('m') {
+@include breakpoints.up('l') {
   .ecl-footer-harmonised__section {
     margin-top: map.get(theme.$spacing, 'xl');
 
@@ -132,6 +132,10 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
 
   .ecl-footer-harmonised__title--separator {
     border-bottom-width: 2px;
+  }
+
+  .ecl-footer-harmonised__content {
+    font: map.get(theme.$font-prolonged, 's');
   }
 
   .ecl-footer-harmonised__description {
@@ -231,7 +235,7 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
   }
 
   /* stylelint-disable-next-line order/order */
-  @include breakpoints.up('m') {
+  @include breakpoints.up('l') {
     /* Grid layout */
     .ecl-footer-harmonised__container {
       column-gap: $_column-gap;
@@ -341,7 +345,7 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
   }
 
   /* stylelint-disable-next-line order/order */
-  @include breakpoints.up('m') {
+  @include breakpoints.up('l') {
     /* Grid layout */
     .ecl-footer-harmonised__container {
       column-gap: $_column-gap;
@@ -430,7 +434,7 @@ $_logo-height-lg: 2.5rem;
   }
 
   /* stylelint-disable-next-line order/order */
-  @include breakpoints.up('m') {
+  @include breakpoints.up('l') {
     .ecl-footer-harmonised--group3 {
       .ecl-footer-harmonised__container {
         flex-direction: row;
