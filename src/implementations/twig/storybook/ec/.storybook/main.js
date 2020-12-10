@@ -8,7 +8,6 @@ const addons = [
   '@ecl/storybook-addon-code/src/register',
   '@storybook/addon-viewport',
   '@storybook/addon-knobs',
-  '@storybook/addon-docs',
   '@storybook/addon-controls',
 ];
 
