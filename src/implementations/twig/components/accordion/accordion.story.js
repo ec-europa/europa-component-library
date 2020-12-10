@@ -8,20 +8,10 @@ import notes from './README.md';
 
 const argTypes = {};
 demoData.items.forEach((item, i) => {
-  item.toggle.icon.path = defaultSprite;
-  item.toggle.icon.type = 'general';
-  item.toggle.icon.size = 's';
-  if (i === 0) {
-    item.toggle.icon.name = 'digital';
-  } else if (i === 1) {
-    item.toggle.icon.name = 'growth';
-  } else {
-    item.toggle.icon.name = 'regulation';
-  }
   argTypes[`toggle${i + 1}`] = {
     name: `toggle ${i + 1}`,
     type: { name: 'string', required: true },
-    defaultValue: demoData.items[i].toggle.label,
+    defaultValue: item.toggle.label,
     description: `Text of the accordion toggler`,
     table: {
       type: { summary: 'string' },
@@ -35,7 +25,7 @@ demoData.items.forEach((item, i) => {
   argTypes[`content${i + 1}`] = {
     name: `Content ${i + 1}`,
     type: { name: 'string', required: true },
-    defaultValue: demoData.items[i].content,
+    defaultValue: item.content,
     description: 'Text of the hidden content',
     table: {
       type: { summary: 'string' },
@@ -50,6 +40,16 @@ demoData.items.forEach((item, i) => {
 
 const prepareDataWithArgs = (data, args) => {
   demoData.items.forEach((item, i) => {
+    item.toggle.icon.path = defaultSprite;
+    item.toggle.icon.type = 'general';
+    item.toggle.icon.size = 's';
+    if (i === 0) {
+      item.toggle.icon.name = 'digital';
+    } else if (i === 1) {
+      item.toggle.icon.name = 'growth';
+    } else {
+      item.toggle.icon.name = 'regulation';
+    }
     demoData.items[i].toggle.label = args[`toggle${i + 1}`];
     demoData.items[i].content = args[`content${i + 1}`];
   });
