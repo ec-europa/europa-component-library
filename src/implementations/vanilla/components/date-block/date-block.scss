@@ -8,6 +8,7 @@
 @use '@ecl/theme-dev/maps/spacing';
 @use '@ecl/theme-dev/maps/typography';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+@use "@ecl/vanilla-utility-screen-reader/screen-reader" as uScreenReader;
 
 $_background-default: map.get(color.$color, 'blue');
 $_text-color-default: map.get(color.$color, 'white');
@@ -115,18 +116,7 @@ $_circle-width: 0.6rem;
 }
 
 .ecl-date-block__daytime {
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  /* stylelint-disable-next-line property-no-vendor-prefix */
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
+  @include uScreenReader.sr-only();
 }
 
 // ongoing
