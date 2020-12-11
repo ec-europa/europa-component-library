@@ -123,12 +123,12 @@ const applySpecs = (data, args) => {
 
 export default {
   title: 'Components/Button',
+  argTypes: getArgTypes(),
   decorators: [withCode, withNotes],
 };
 
 export const Primary = (args) => button(applySpecs(dataPrimary, args));
 
-Primary.argTypes = getArgTypes();
 Primary.args = {
   label: dataPrimary.label,
 };
@@ -141,7 +141,6 @@ Primary.parameters = {
 
 export const Secondary = (args) => button(applySpecs(dataSecondary, args));
 
-Secondary.argTypes = getArgTypes(dataScondary);
 Secondary.args = {
   label: dataSecondary.label,
 };
@@ -154,7 +153,6 @@ Secondary.parameters = {
 
 export const CallToAction = (args) => button(applySpecs(dataCall, args));
 
-CallToAction.argTypes = getArgTypes();
 CallToAction.args = {
   label: dataCall.label,
   icon_name: 'corner-arrow',
@@ -169,7 +167,6 @@ CallToAction.parameters = {
 
 export const Ghost = (args) => button(applySpecs(dataGhost, args));
 
-Ghost.argTypes = getArgTypes();
 Ghost.args = {
   label: dataGhost.label,
 };
@@ -182,7 +179,6 @@ Ghost.parameters = {
 
 export const Search = (args) => button(applySpecs(dataSearch, args));
 
-Search.argTypes = getArgTypes();
 Search.args = {
   label: dataSearch.label,
 };
