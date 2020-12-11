@@ -45,15 +45,6 @@ const getArgTypes = () => {
 const applySpecs = (data, args) => {
   demoData.items.forEach((item, i) => {
     item.toggle.icon.path = defaultSprite;
-    item.toggle.icon.type = 'general';
-    item.toggle.icon.size = 's';
-    if (i === 0) {
-      item.toggle.icon.name = 'digital';
-    } else if (i === 1) {
-      item.toggle.icon.name = 'growth';
-    } else {
-      item.toggle.icon.name = 'regulation';
-    }
     item.toggle.label = args[`toggle${i + 1}`];
     item.content = args[`content${i + 1}`];
   });
