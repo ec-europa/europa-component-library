@@ -18,12 +18,12 @@ uiIcons.forEach((icon) => {
   iconsList[icon] = icon;
 });
 
-const getArgTypes = (data) => {
+const getArgTypes = () => {
   const argTypes = {};
   argTypes.label = {
     name: 'label',
     type: { name: 'string', required: true },
-    defaultValue: data.label,
+    defaultValue: ''
     description: 'The main label of the button',
     table: {
       type: { summary: 'string' },
@@ -37,7 +37,7 @@ const getArgTypes = (data) => {
   argTypes.icon_name = {
     name: 'icon name',
     type: { name: 'select' },
-    defaultValue: data.icon.name,
+    defaultValue: '',
     description: 'Button icon',
     table: {
       type: { summary: 'string' },
@@ -52,7 +52,7 @@ const getArgTypes = (data) => {
   argTypes.icon_transform = {
     name: 'icon transform',
     type: { name: 'select' },
-    defaultValue: data.icon.transform,
+    defaultValue: '',
     description: 'Button icon transform',
     table: {
       type: { summary: 'string' },
@@ -73,7 +73,7 @@ const getArgTypes = (data) => {
   argTypes.icon_position = {
     name: 'icon position',
     type: { name: 'inline-radio' },
-    defaultValue: data.icon_position,
+    defaultValue: '',
     description: 'Icon position inside the button',
     table: {
       type: { summary: 'string' },
@@ -88,7 +88,7 @@ const getArgTypes = (data) => {
   argTypes.disabled = {
     name: 'disabled',
     type: { name: 'boolean' },
-    defaultValue: data.disabled,
+    defaultValue: false,
     description: 'Disabled button',
     table: {
       type: { summary: 'boolean' },
@@ -128,7 +128,7 @@ export default {
 
 export const Primary = (args) => button(applySpecs(dataPrimary, args));
 
-Primary.argTypes = getArgTypes(dataPrimary);
+Primary.argTypes = getArgTypes();
 Primary.args = {
   label: dataPrimary.label,
 };
@@ -141,7 +141,7 @@ Primary.parameters = {
 
 export const Secondary = (args) => button(applySpecs(dataSecondary, args));
 
-Secondary.argTypes = getArgTypes(dataSecondary);
+Secondary.argTypes = getArgTypes(dataScondary);
 Secondary.args = {
   label: dataSecondary.label,
 };
@@ -154,7 +154,7 @@ Secondary.parameters = {
 
 export const CallToAction = (args) => button(applySpecs(dataCall, args));
 
-CallToAction.argTypes = getArgTypes(dataCall);
+CallToAction.argTypes = getArgTypes();
 CallToAction.args = {
   label: dataCall.label,
   icon_name: 'corner-arrow',
@@ -169,7 +169,7 @@ CallToAction.parameters = {
 
 export const Ghost = (args) => button(applySpecs(dataGhost, args));
 
-Ghost.argTypes = getArgTypes(dataGhost);
+Ghost.argTypes = getArgTypes();
 Ghost.args = {
   label: dataGhost.label,
 };
@@ -182,7 +182,7 @@ Ghost.parameters = {
 
 export const Search = (args) => button(applySpecs(dataSearch, args));
 
-Search.argTypes = getArgTypes(dataSearch);
+Search.argTypes = getArgTypes();
 Search.args = {
   label: dataSearch.label,
 };
