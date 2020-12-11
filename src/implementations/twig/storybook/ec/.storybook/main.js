@@ -3,6 +3,7 @@ const path = require('path');
 const stories = ['../../../**/!(eu*).story.js'];
 
 const addons = [
+  '@storybook/addon-docs',
   '@storybook/addon-cssresources',
   '@ecl/storybook-addon-notes/src/register',
   '@ecl/storybook-addon-code/src/register',
