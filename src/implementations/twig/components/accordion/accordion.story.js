@@ -23,7 +23,7 @@ demoData.items.forEach((item, i) => {
     },
   };
   argTypes[`content${i + 1}`] = {
-    name: `Content ${i + 1}`,
+    name: `content ${i + 1}`,
     type: { name: 'string', required: true },
     defaultValue: item.content,
     description: 'Text of the hidden content',
@@ -64,5 +64,13 @@ export default {
 export const Default = (args) => accordion(prepareDataWithArgs(demoData, args));
 Default.argTypes = argTypes;
 Default.storyName = 'default';
-Default.parameters = { notes: { markdown: notes, json: demoData } };
+Default.parameters = {
+  notes: {
+    markdown: notes,
+    json: demoData,
+  },
+  knobs: {
+    disabled: true,
+  },
+};
 Default.decorators = [withCode, withNotes];
