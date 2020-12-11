@@ -4,11 +4,9 @@
 */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/theme';
 
-$_link-color: map.get(color.$color, 'blue');
+$_link-color: map.get(theme.$color, 'blue');
 
 .ecl-link {
   color: $_link-color;
@@ -19,7 +17,7 @@ $_link-color: map.get(color.$color, 'blue');
 .ecl-link::after {
   content: '(' attr(href) ')';
   font-style: italic;
-  margin-left: map.get(spacing.$spacing-print, '2xs');
+  margin-left: map.get(theme.$spacing-print, '2xs');
   text-decoration: underline;
 }
 
@@ -44,9 +42,9 @@ $_link-color: map.get(color.$color, 'blue');
 }
 
 .ecl-link--standalone {
-  font-family: map.get(typography.$font-family-print, 'default');
+  font-family: map.get(theme.$font-family-print, 'default');
 }
 
 .ecl-link--cta {
-  font-family: map.get(typography.$font-family-print, 'default');
+  font-family: map.get(theme.$font-family-print, 'default');
 }

@@ -4,28 +4,26 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 .ecl-fact-figures {
-  background-color: map.get(color.$color, 'blue-5');
-  border: 1px solid map.get(color.$color, 'blue-25');
+  background-color: map.get(theme.$color, 'blue-5');
+  border: 1px solid map.get(theme.$color, 'blue-25');
   margin: 0;
 }
 
 .ecl-fact-figures__items {
-  padding-bottom: map.get(spacing.$spacing, 'l');
-  padding-top: map.get(spacing.$spacing, 'l');
+  padding-bottom: map.get(theme.$spacing, 'l');
+  padding-top: map.get(theme.$spacing, 'l');
 }
 
 .ecl-fact-figures__item {
   box-sizing: border-box;
-  font: map.get(typography.$font, 'm');
-  margin-top: map.get(spacing.$spacing, 'xl');
-  padding-left: map.get(spacing.$spacing, 'm');
-  padding-right: map.get(spacing.$spacing, 'm');
+  font: map.get(theme.$font, 'm');
+  margin-top: map.get(theme.$spacing, 'xl');
+  padding-left: map.get(theme.$spacing, 'm');
+  padding-right: map.get(theme.$spacing, 'm');
 
   &:first-of-type {
     margin-top: 0;
@@ -33,36 +31,36 @@
 }
 
 .ecl-fact-figures__icon {
-  color: map.get(color.$color, 'blue');
-  margin-bottom: map.get(spacing.$spacing, 's');
+  color: map.get(theme.$color, 'blue');
+  margin-bottom: map.get(theme.$spacing, 's');
 }
 
 .ecl-fact-figures__value {
-  color: map.get(color.$color, 'blue');
-  font: map.get(typography.$font, '3xl');
-  font-weight: map.get(typography.$font-weight, 'bold');
+  color: map.get(theme.$color, 'blue');
+  font: map.get(theme.$font, '3xl');
+  font-weight: map.get(theme.$font-weight, 'bold');
 }
 
 .ecl-fact-figures__title {
-  color: map.get(color.$color, 'blue');
-  font: map.get(typography.$font-prolonged, 'l');
-  font-weight: map.get(typography.$font-weight, 'bold');
-  margin-top: map.get(spacing.$spacing, 'xs');
+  color: map.get(theme.$color, 'blue');
+  font: map.get(theme.$font-prolonged, 'l');
+  font-weight: map.get(theme.$font-weight, 'bold');
+  margin-top: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-fact-figures__description {
-  color: map.get(color.$color, 'blue');
-  font: map.get(typography.$font-prolonged, 'm');
-  margin-top: map.get(spacing.$spacing, 's');
+  color: map.get(theme.$color, 'blue');
+  font: map.get(theme.$font-prolonged, 'm');
+  margin-top: map.get(theme.$spacing, 's');
 }
 
 .ecl-fact-figures__view-all {
-  border-top: 1px solid map.get(color.$color, 'blue-25');
-  font: map.get(typography.$font, 'm');
-  margin-left: map.get(spacing.$spacing, 'm');
-  margin-right: map.get(spacing.$spacing, 'm');
-  padding-bottom: map.get(spacing.$spacing, 'l');
-  padding-top: map.get(spacing.$spacing, 'l');
+  border-top: 1px solid map.get(theme.$color, 'blue-25');
+  font: map.get(theme.$font, 'm');
+  margin-left: map.get(theme.$spacing, 'm');
+  margin-right: map.get(theme.$spacing, 'm');
+  padding-bottom: map.get(theme.$spacing, 'l');
+  padding-top: map.get(theme.$spacing, 'l');
 }
 
 /* stylelint-disable-next-line order/order */
@@ -71,19 +69,19 @@
     display: inline-flex;
     flex-direction: column;
     margin-bottom: 0;
-    margin-top: map.get(spacing.$spacing, 'xl');
-    padding-left: map.get(spacing.$spacing, 'xl');
-    padding-right: map.get(spacing.$spacing, 'xl');
+    margin-top: map.get(theme.$spacing, 'xl');
+    padding-left: map.get(theme.$spacing, 'xl');
+    padding-right: map.get(theme.$spacing, 'xl');
 
     &:first-of-type {
-      margin-top: map.get(spacing.$spacing, 'xl');
+      margin-top: map.get(theme.$spacing, 'xl');
     }
   }
 
   .ecl-fact-figures__items {
     display: flex;
     flex-wrap: wrap;
-    padding-bottom: map.get(spacing.$spacing, 'xl');
+    padding-bottom: map.get(theme.$spacing, 'xl');
     padding-top: 0;
   }
 
@@ -96,12 +94,12 @@
   }
 
   .ecl-fact-figures__value {
-    font: map.get(typography.$font, '4xl');
+    font: map.get(theme.$font, '4xl');
     font-weight: bold;
   }
 
   .ecl-fact-figures__view-all {
-    margin-left: map.get(spacing.$spacing, 'xl');
-    margin-right: map.get(spacing.$spacing, 'xl');
+    margin-left: map.get(theme.$spacing, 'xl');
+    margin-right: map.get(theme.$spacing, 'xl');
   }
 }

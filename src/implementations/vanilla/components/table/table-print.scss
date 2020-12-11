@@ -4,37 +4,35 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/theme';
 
 .ecl-table {
   border-collapse: collapse;
-  color: map.get(color.$color, 'grey-100');
-  font: map.get(typography.$font-print, 'm');
+  color: map.get(theme.$color, 'grey-100');
+  font: map.get(theme.$font-print, 'm');
   margin: 0;
   page-break-inside: avoid;
   width: 100%;
 }
 
 .ecl-table__header {
-  padding: map.get(spacing.$spacing-print, 's')
-    map.get(spacing.$spacing-print, 'xl') map.get(spacing.$spacing-print, 's')
-    map.get(spacing.$spacing-print, 'm');
+  padding: map.get(theme.$spacing-print, 's')
+    map.get(theme.$spacing-print, 'xl') map.get(theme.$spacing-print, 's')
+    map.get(theme.$spacing-print, 'm');
   text-align: left;
   vertical-align: baseline;
 }
 
 .ecl-table__row {
-  border-bottom: 1px solid map.get(color.$color, 'grey-50');
+  border-bottom: 1px solid map.get(theme.$color, 'grey-50');
 }
 
 .ecl-table__head .ecl-table__row:first-child {
-  border-bottom: 2px solid map.get(color.$color, 'grey-100');
+  border-bottom: 2px solid map.get(theme.$color, 'grey-100');
 }
 
 .ecl-table__cell {
-  padding: map.get(spacing.$spacing-print, 's')
-    map.get(spacing.$spacing-print, 'xl') map.get(spacing.$spacing-print, 's')
-    map.get(spacing.$spacing-print, 'm');
+  padding: map.get(theme.$spacing-print, 's')
+    map.get(theme.$spacing-print, 'xl') map.get(theme.$spacing-print, 's')
+    map.get(theme.$spacing-print, 'm');
 }

@@ -4,8 +4,7 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/icon';
-@use '@ecl/theme-dev/maps/color';
+@use '@ecl/theme-dev/theme';
 
 .ecl-icon {
   fill: currentColor;
@@ -14,51 +13,51 @@
 }
 
 .ecl-icon--2xs {
-  height: map.get(icon.$icon-print, '2xs');
-  width: map.get(icon.$icon-print, '2xs');
+  height: map.get(theme.$icon-print, '2xs');
+  width: map.get(theme.$icon-print, '2xs');
 }
 
 .ecl-icon--xs {
-  height: map.get(icon.$icon-print, 'xs');
-  width: map.get(icon.$icon-print, 'xs');
+  height: map.get(theme.$icon-print, 'xs');
+  width: map.get(theme.$icon-print, 'xs');
 }
 
 .ecl-icon--s {
-  height: map.get(icon.$icon-print, 's');
-  width: map.get(icon.$icon-print, 's');
+  height: map.get(theme.$icon-print, 's');
+  width: map.get(theme.$icon-print, 's');
 }
 
 .ecl-icon--m {
-  height: map.get(icon.$icon-print, 'm');
-  width: map.get(icon.$icon-print, 'm');
+  height: map.get(theme.$icon-print, 'm');
+  width: map.get(theme.$icon-print, 'm');
 }
 
 .ecl-icon--l {
-  height: map.get(icon.$icon-print, 'l');
-  width: map.get(icon.$icon-print, 'l');
+  height: map.get(theme.$icon-print, 'l');
+  width: map.get(theme.$icon-print, 'l');
 }
 
 .ecl-icon--xl {
-  height: map.get(icon.$icon-print, 'xl');
-  width: map.get(icon.$icon-print, 'xl');
+  height: map.get(theme.$icon-print, 'xl');
+  width: map.get(theme.$icon-print, 'xl');
 }
 
 .ecl-icon--2xl {
-  height: map.get(icon.$icon-print, '2xl');
-  width: map.get(icon.$icon-print, '2xl');
+  height: map.get(theme.$icon-print, '2xl');
+  width: map.get(theme.$icon-print, '2xl');
 }
 
 .ecl-icon--fluid {
-  height: map.get(icon.$icon-print, 'fluid');
-  width: map.get(icon.$icon-print, 'fluid');
+  height: map.get(theme.$icon-print, 'fluid');
+  width: map.get(theme.$icon-print, 'fluid');
 }
 
 .ecl-icon--primary {
-  fill: map.get(color.$color, 'primary');
+  fill: map.get(theme.$color, 'primary');
 }
 
 .ecl-icon--inverted {
-  fill: map.get(color.$color, 'white-100');
+  fill: map.get(theme.$color, 'white-100');
 }
 
 .ecl-icon--rotate-90 {

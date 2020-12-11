@@ -4,16 +4,13 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/icon';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-$_inpage-link-border: map.get(spacing.$spacing, '2xs');
+$_inpage-link-border: map.get(theme.$spacing, '2xs');
 $_toggle-width: calc(
-  #{map.get(spacing.$spacing, 'm')} + #{map.get(icon.$icon, 's')} + #{map.get(
-      spacing.$spacing,
+  #{map.get(theme.$spacing, 'm')} + #{map.get(theme.$icon, 's')} + #{map.get(
+      theme.$spacing,
       'm'
     )}
 );
@@ -35,13 +32,13 @@ $_toggle-width: calc(
 .ecl-inpage-navigation__trigger {
   background: linear-gradient(
     to left,
-    map.get(color.$color, 'blue-120') $_toggle-width,
-    map.get(color.$color, 'primary') $_toggle-width
+    map.get(theme.$color, 'blue-120') $_toggle-width,
+    map.get(theme.$color, 'primary') $_toggle-width
   );
   border: 0;
-  color: map.get(color.$color, 'white-100');
+  color: map.get(theme.$color, 'white-100');
   display: none;
-  padding: map.get(spacing.$spacing, 's') map.get(spacing.$spacing, 'm');
+  padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
   position: relative;
   text-align: left;
   width: 100%;
@@ -62,7 +59,7 @@ $_toggle-width: calc(
   .ecl-inpage-navigation__trigger {
     display: block;
     overflow-x: hidden;
-    padding-right: calc(#{$_toggle-width} + #{map.get(spacing.$spacing, 'm')});
+    padding-right: calc(#{$_toggle-width} + #{map.get(theme.$spacing, 'm')});
     text-overflow: ellipsis;
     white-space: nowrap;
 
@@ -74,8 +71,8 @@ $_toggle-width: calc(
 }
 
 .ecl-inpage-navigation__trigger-current {
-  font: map.get(typography.$font-prolonged, 'm');
-  font-weight: map.get(typography.$font-weight, 'bold');
+  font: map.get(theme.$font-prolonged, 'm');
+  font-weight: map.get(theme.$font-weight, 'bold');
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -83,7 +80,7 @@ $_toggle-width: calc(
 
 .ecl-inpage-navigation__trigger-icon {
   position: absolute;
-  right: map.get(spacing.$spacing, 'm');
+  right: map.get(theme.$spacing, 'm');
 
   .ecl-inpage-navigation__trigger[aria-expanded='true'] & {
     transform: rotate(0deg);
@@ -91,27 +88,27 @@ $_toggle-width: calc(
 }
 
 .ecl-inpage-navigation__title {
-  color: map.get(color.$color, 'grey-100');
+  color: map.get(theme.$color, 'grey-100');
   display: none;
-  font: map.get(typography.$font, 'm');
-  padding: map.get(spacing.$spacing, 'xs')
-    calc(#{map.get(spacing.$spacing, 's')} + #{$_inpage-link-border});
+  font: map.get(theme.$font, 'm');
+  padding: map.get(theme.$spacing, 'xs')
+    calc(#{map.get(theme.$spacing, 's')} + #{$_inpage-link-border});
   text-transform: uppercase;
 
   /* stylelint-disable-next-line order/order */
   @include breakpoints.up('l') {
-    color: map.get(color.$color, 'grey-100');
+    color: map.get(theme.$color, 'grey-100');
     display: block;
   }
 }
 
 .ecl-inpage-navigation__list {
-  border-top: 1px solid map.get(color.$color, 'blue-120');
+  border-top: 1px solid map.get(theme.$color, 'blue-120');
   display: none;
   list-style-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
   list-style-type: none;
   margin: 0;
-  padding: 0 map.get(spacing.$spacing, 'm');
+  padding: 0 map.get(theme.$spacing, 'm');
 
   /* stylelint-disable-next-line order/order */
   @include breakpoints.up('l') {
@@ -127,18 +124,18 @@ $_toggle-width: calc(
 }
 
 .ecl-inpage-navigation__link {
-  font: map.get(typography.$font-prolonged, 'm');
-  padding: map.get(spacing.$spacing, 's');
+  font: map.get(theme.$font-prolonged, 'm');
+  padding: map.get(theme.$spacing, 's');
 
   /* stylelint-disable-next-line order/order */
   @include breakpoints.up('l') {
     background-color: transparent;
     border: 0;
     border-left: $_inpage-link-border solid transparent;
-    color: map.get(color.$color, 'primary');
+    color: map.get(theme.$color, 'primary');
     display: block;
-    font-weight: map.get(typography.$font-weight, 'bold');
-    padding: map.get(spacing.$spacing, 'xs') map.get(spacing.$spacing, 's');
+    font-weight: map.get(theme.$font-weight, 'bold');
+    padding: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 's');
   }
 
   &:hover {
@@ -153,30 +150,30 @@ $_toggle-width: calc(
 
     /* stylelint-disable-next-line order/order */
     @include breakpoints.up('l') {
-      background-color: map.get(color.$color, 'yellow-100');
+      background-color: map.get(theme.$color, 'yellow-100');
       outline: none;
       text-decoration: underline;
     }
   }
 
   .ecl-inpage-navigation--visible & {
-    border-top: 1px solid map.get(color.$color, 'blue-75');
-    color: map.get(color.$color, 'white-100');
+    border-top: 1px solid map.get(theme.$color, 'blue-75');
+    color: map.get(theme.$color, 'white-100');
     display: block;
 
     /* stylelint-disable-next-line order/order */
     @include breakpoints.up('l') {
       border-top-width: 0;
-      color: map.get(color.$color, 'primary');
+      color: map.get(theme.$color, 'primary');
     }
   }
 
   .ecl-inpage-navigation__item--active & {
     /* stylelint-disable-next-line order/order */
     @include breakpoints.up('l') {
-      background-color: map.get(color.$color, 'grey-5');
-      border-left-color: map.get(color.$color, 'primary');
-      color: map.get(color.$color, 'grey-100');
+      background-color: map.get(theme.$color, 'grey-5');
+      border-left-color: map.get(theme.$color, 'primary');
+      color: map.get(theme.$color, 'grey-100');
     }
   }
 }
@@ -188,15 +185,15 @@ $_toggle-width: calc(
 .ecl-inpage-navigation__link--is-active {
   /* stylelint-disable-next-line order/order */
   @include breakpoints.up('l') {
-    background-color: map.get(color.$color, 'grey-5');
-    border-left-color: map.get(color.$color, 'primary');
-    color: map.get(color.$color, 'grey-100');
+    background-color: map.get(theme.$color, 'grey-5');
+    border-left-color: map.get(theme.$color, 'primary');
+    color: map.get(theme.$color, 'grey-100');
   }
 }
 
 .ecl-inpage-navigation__body {
   .ecl-inpage-navigation--visible & {
-    background-color: map.get(color.$color, 'blue-110');
+    background-color: map.get(theme.$color, 'blue-110');
     left: 0;
     position: fixed;
     right: 0;
@@ -214,15 +211,15 @@ $_toggle-width: calc(
 @include breakpoints.down('m') {
   .ecl-inpage-navigation__heading--active {
     &:first-of-type {
-      padding-top: map.get(spacing.$spacing, '4xl');
+      padding-top: map.get(theme.$spacing, '4xl');
     }
 
     &:not(:first-of-type) {
       &::before {
         content: '';
         display: block;
-        margin-top: -#{map.get(spacing.$spacing, '4xl')};
-        padding-top: map.get(spacing.$spacing, '4xl');
+        margin-top: -#{map.get(theme.$spacing, '4xl')};
+        padding-top: map.get(theme.$spacing, '4xl');
         visibility: hidden;
       }
     }

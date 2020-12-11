@@ -4,46 +4,44 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
+@use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 // common
 $_content-width: 45.5rem;
 // primary
-$_primary-background-color: map.get(color.$color, 'primary');
-$_primary-title-color: map.get(color.$color, 'white');
-$_primary-description-color: map.get(color.$color, 'white');
+$_primary-background-color: map.get(theme.$color, 'primary');
+$_primary-title-color: map.get(theme.$color, 'white');
+$_primary-description-color: map.get(theme.$color, 'white');
 // grey
-$_grey-background-color: map.get(color.$color, 'grey-5');
-$_grey-title-color: map.get(color.$color, 'grey');
-$_grey-description-color: map.get(color.$color, 'grey');
+$_grey-background-color: map.get(theme.$color, 'grey-5');
+$_grey-title-color: map.get(theme.$color, 'grey');
+$_grey-description-color: map.get(theme.$color, 'grey');
 // white
-$_white-background-color: map.get(color.$color, 'white');
-$_white-title-color: map.get(color.$color, 'grey');
-$_white-description-color: map.get(color.$color, 'grey');
+$_white-background-color: map.get(theme.$color, 'white');
+$_white-title-color: map.get(theme.$color, 'grey');
+$_white-description-color: map.get(theme.$color, 'grey');
 // image
-$_image-background-color: map.get(color.$color, 'white');
-$_image-title-color: map.get(color.$color, 'grey');
-$_image-description-color: map.get(color.$color, 'grey');
-$_image-border-color: map.get(color.$color, 'yellow');
+$_image-background-color: map.get(theme.$color, 'white');
+$_image-title-color: map.get(theme.$color, 'grey');
+$_image-description-color: map.get(theme.$color, 'grey');
+$_image-border-color: map.get(theme.$color, 'yellow');
 // image shade
-$_image-shade-background-color: map.get(color.$color, 'blue-120');
+$_image-shade-background-color: map.get(theme.$color, 'blue-120');
 $_image-shade-overlay-color: rgba(0, 0, 0, 0.5);
-$_image-shade-title-color: map.get(color.$color, 'white');
-$_image-shade-description-color: map.get(color.$color, 'white');
-$_image-shade-border-color: map.get(color.$color, 'yellow');
+$_image-shade-title-color: map.get(theme.$color, 'white');
+$_image-shade-description-color: map.get(theme.$color, 'white');
+$_image-shade-border-color: map.get(theme.$color, 'yellow');
 // image gradient
-$_image-gradient-background-color: map.get(color.$color, 'blue-120');
+$_image-gradient-background-color: map.get(theme.$color, 'blue-120');
 $_image-gradient-overlay-color: linear-gradient(
   to bottom,
   rgba(0, 0, 0, 0.4) 0%,
   rgba(0, 0, 0, 0) 100%
 );
-$_image-gradient-title-color: map.get(color.$color, 'white');
-$_image-gradient-description-color: map.get(color.$color, 'white');
-$_image-gradient-border-color: map.get(color.$color, 'yellow');
+$_image-gradient-title-color: map.get(theme.$color, 'white');
+$_image-gradient-description-color: map.get(theme.$color, 'white');
+$_image-gradient-border-color: map.get(theme.$color, 'yellow');
 
 .ecl-hero-banner {
   align-items: center;
@@ -58,8 +56,8 @@ $_image-gradient-border-color: map.get(color.$color, 'yellow');
 
 .ecl-hero-banner__container {
   display: flex;
-  padding-bottom: map.get(spacing.$spacing, 'xl');
-  padding-top: map.get(spacing.$spacing, 'xl');
+  padding-bottom: map.get(theme.$spacing, 'xl');
+  padding-top: map.get(theme.$spacing, 'xl');
   width: 100%;
 }
 
@@ -75,24 +73,24 @@ $_image-gradient-border-color: map.get(color.$color, 'yellow');
 }
 
 .ecl-hero-banner__title {
-  font: map.get(typography.$font, '3xl');
-  font-weight: map.get(typography.$font-weight, 'bold');
+  font: map.get(theme.$font, '3xl');
+  font-weight: map.get(theme.$font-weight, 'bold');
   margin: 0;
 }
 
 .ecl-hero-banner__description {
-  font: map.get(typography.$font-prolonged, 'l');
+  font: map.get(theme.$font-prolonged, 'l');
   margin-bottom: 0;
-  margin-top: map.get(spacing.$spacing, 'xs');
+  margin-top: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-hero-banner__link-cta {
-  margin-top: map.get(spacing.$spacing, 'l');
+  margin-top: map.get(theme.$spacing, 'l');
 }
 
 .ecl-hero-banner:not(.ecl-hero-banner--full-width) .ecl-container {
-  padding-left: map.get(spacing.$spacing, 'xl');
-  padding-right: map.get(spacing.$spacing, 'xl');
+  padding-left: map.get(theme.$spacing, 'xl');
+  padding-right: map.get(theme.$spacing, 'xl');
 }
 
 /* stylelint-disable-next-line order/order */
@@ -114,21 +112,21 @@ $_image-gradient-border-color: map.get(color.$color, 'yellow');
   }
 
   .ecl-hero-banner__title {
-    font: map.get(typography.$font-size, '4xl');
-    font-weight: map.get(typography.$font-weight, 'bold');
+    font: map.get(theme.$font-size, '4xl');
+    font-weight: map.get(theme.$font-weight, 'bold');
   }
 
   .ecl-hero-banner__description {
-    font: map.get(typography.$font-prolonged, 'xl');
+    font: map.get(theme.$font-prolonged, 'xl');
   }
 
   .ecl-hero-banner__button {
-    margin-top: map.get(spacing.$spacing, 'l');
+    margin-top: map.get(theme.$spacing, 'l');
   }
 
   .ecl-hero-banner:not(.ecl-hero-banner--full-width) .ecl-container {
-    padding-left: map.get(spacing.$spacing, '4xl');
-    padding-right: map.get(spacing.$spacing, '4xl');
+    padding-left: map.get(theme.$spacing, '4xl');
+    padding-right: map.get(theme.$spacing, '4xl');
   }
 }
 
@@ -206,8 +204,8 @@ $_image-gradient-border-color: map.get(color.$color, 'yellow');
   background-color: $_image-background-color;
 
   .ecl-hero-banner__container {
-    padding-bottom: map.get(spacing.$spacing, 'l');
-    padding-top: calc(#{map.get(spacing.$spacing, 'l')} - 4px);
+    padding-bottom: map.get(theme.$spacing, 'l');
+    padding-top: calc(#{map.get(theme.$spacing, 'l')} - 4px);
   }
 
   .ecl-hero-banner__image {
@@ -255,8 +253,8 @@ $_image-gradient-border-color: map.get(color.$color, 'yellow');
     .ecl-hero-banner__content {
       background-color: $_image-background-color;
       border-bottom: 4px solid $_image-border-color;
-      padding: map.get(spacing.$spacing, 'xl') map.get(spacing.$spacing, 'xl')
-        calc(#{map.get(spacing.$spacing, 'xl')} - 4px);
+      padding: map.get(theme.$spacing, 'xl') map.get(theme.$spacing, 'xl')
+        calc(#{map.get(theme.$spacing, 'xl')} - 4px);
     }
   }
 }
@@ -268,8 +266,8 @@ $_image-gradient-border-color: map.get(color.$color, 'yellow');
   background-color: $_image-shade-background-color;
 
   .ecl-hero-banner__container {
-    padding-bottom: map.get(spacing.$spacing, 'l');
-    padding-top: calc(#{map.get(spacing.$spacing, 'l')} - 4px);
+    padding-bottom: map.get(theme.$spacing, 'l');
+    padding-top: calc(#{map.get(theme.$spacing, 'l')} - 4px);
   }
 
   .ecl-hero-banner__image {
@@ -298,8 +296,8 @@ $_image-gradient-border-color: map.get(color.$color, 'yellow');
 @include breakpoints.up('l') {
   .ecl-hero-banner--image-shade {
     .ecl-hero-banner__container {
-      padding-bottom: map.get(spacing.$spacing, 'xl');
-      padding-top: map.get(spacing.$spacing, 'xl');
+      padding-bottom: map.get(theme.$spacing, 'xl');
+      padding-top: map.get(theme.$spacing, 'xl');
     }
 
     .ecl-hero-banner__image {
@@ -324,8 +322,8 @@ $_image-gradient-border-color: map.get(color.$color, 'yellow');
   background-color: $_image-gradient-background-color;
 
   .ecl-hero-banner__container {
-    padding-bottom: map.get(spacing.$spacing, 'l');
-    padding-top: calc(#{map.get(spacing.$spacing, 'l')} - 4px);
+    padding-bottom: map.get(theme.$spacing, 'l');
+    padding-top: calc(#{map.get(theme.$spacing, 'l')} - 4px);
   }
 
   .ecl-hero-banner__image {
@@ -354,8 +352,8 @@ $_image-gradient-border-color: map.get(color.$color, 'yellow');
 @include breakpoints.up('l') {
   .ecl-hero-banner--image-gradient {
     .ecl-hero-banner__container {
-      padding-bottom: map.get(spacing.$spacing, 'xl');
-      padding-top: map.get(spacing.$spacing, 'xl');
+      padding-bottom: map.get(theme.$spacing, 'xl');
+      padding-top: map.get(theme.$spacing, 'xl');
     }
 
     .ecl-hero-banner__image {

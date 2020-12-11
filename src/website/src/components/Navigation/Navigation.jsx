@@ -37,9 +37,19 @@ const Navigation = React.memo(
       </button>
       <header className={styles.header}>
         <span className={styles.version}>v{process.env.ECL_VERSION}</span>
-        <Link to="/" className={styles.logo} title="European Commission">
-          <span className={styles['logo-sr']}>European Commission</span>
-        </Link>
+        {prefix === '/eu' ? (
+          <Link
+            to="/"
+            className={`${styles.logo} ${styles['logo--eu']}`}
+            title="European Union"
+          >
+            <span className={styles['logo-sr']}>European Union</span>
+          </Link>
+        ) : (
+          <Link to="/" className={styles.logo} title="European Commission">
+            <span className={styles['logo-sr']}>European Commission</span>
+          </Link>
+        )}
         <h2 className={styles.title}>Europa Component Library</h2>
       </header>
       <ul className={styles['system-list']}>

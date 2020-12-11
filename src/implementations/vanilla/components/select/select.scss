@@ -4,17 +4,13 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/maps/color';
-@use '@ecl/theme-dev/maps/typography';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/form';
-@use '@ecl/theme-dev/maps/z-index';
+@use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-$_border-color: map.get(color.$color, 'grey-100');
+$_border-color: map.get(theme.$color, 'grey-100');
 $_border-width: 1px;
-$_border-color-hover: map.get(color.$color, 'blue-100');
-$_border-color-focus: map.get(color.$color, 'yellow-100');
+$_border-color-hover: map.get(theme.$color, 'blue-100');
+$_border-color-focus: map.get(theme.$color, 'yellow-100');
 $_border-width-focus: 3px;
 $_arrow-width: 2.75rem;
 
@@ -25,16 +21,14 @@ $_arrow-width: 2.75rem;
   border-radius: 0;
   box-shadow: none;
   box-sizing: border-box;
-  color: map.get(color.$color, 'text');
+  color: map.get(theme.$color, 'text');
   display: block;
-  font: map.get(typography.$font, 'm');
+  font: map.get(theme.$font, 'm');
   margin: 0;
-  padding: calc(#{map.get(spacing.$spacing, 's')} - #{$_border-width})
-    calc(
-      #{map.get(spacing.$spacing, 's')} + #{$_arrow-width} - #{$_border-width}
-    )
-    calc(#{map.get(spacing.$spacing, 's')} - #{$_border-width})
-    calc(#{map.get(spacing.$spacing, 's')} - #{$_border-width});
+  padding: calc(#{map.get(theme.$spacing, 's')} - #{$_border-width})
+    calc(#{map.get(theme.$spacing, 's')} + #{$_arrow-width} - #{$_border-width})
+    calc(#{map.get(theme.$spacing, 's')} - #{$_border-width})
+    calc(#{map.get(theme.$spacing, 's')} - #{$_border-width});
   width: 100%;
   z-index: 1;
 
@@ -53,7 +47,7 @@ $_arrow-width: 2.75rem;
 }
 
 .ecl-select__container {
-  background-color: map.get(color.$color, 'white-100');
+  background-color: map.get(theme.$color, 'white-100');
   display: flex;
   flex-direction: column;
   max-width: 100%;
@@ -68,7 +62,7 @@ $_arrow-width: 2.75rem;
   }
 
   @include breakpoints.up('l') {
-    width: map.get(form.$form, 's');
+    width: map.get(theme.$form, 's');
   }
 }
 
@@ -80,7 +74,7 @@ $_arrow-width: 2.75rem;
   }
 
   @include breakpoints.up('l') {
-    width: map.get(form.$form, 'm');
+    width: map.get(theme.$form, 'm');
   }
 }
 
@@ -88,7 +82,7 @@ $_arrow-width: 2.75rem;
   width: 100%;
 
   @include breakpoints.up('l') {
-    width: map.get(form.$form, 'l');
+    width: map.get(theme.$form, 'l');
   }
 }
 
@@ -125,29 +119,29 @@ $_arrow-width: 2.75rem;
 }
 
 .ecl-select__icon-shape {
-  fill: map.get(color.$color, 'white-100');
+  fill: map.get(theme.$color, 'white-100');
 }
 
 /*
    * Disabled
    */
 .ecl-select__container--disabled {
-  background-color: map.get(color.$color, 'grey-5');
+  background-color: map.get(theme.$color, 'grey-5');
 
   /* stylelint-disable-next-line no-descending-specificity */
   .ecl-select__icon,
   .ecl-select:hover + .ecl-select__icon,
   .ecl-select:focus + .ecl-select__icon {
-    background-color: map.get(color.$color, 'grey-50');
+    background-color: map.get(theme.$color, 'grey-50');
   }
 
   .ecl-select__icon-shape {
-    fill: map.get(color.$color, 'grey-5');
+    fill: map.get(theme.$color, 'grey-5');
   }
 
   .ecl-select {
-    border-color: map.get(color.$color, 'grey-50');
-    color: map.get(color.$color, 'grey-50');
+    border-color: map.get(theme.$color, 'grey-50');
+    color: map.get(theme.$color, 'grey-50');
     cursor: not-allowed;
   }
 }
@@ -158,22 +152,22 @@ $_arrow-width: 2.75rem;
 .ecl-select__container--invalid {
   /* stylelint-disable-next-line no-descending-specificity */
   .ecl-select__icon {
-    background-color: map.get(color.$color, 'error');
+    background-color: map.get(theme.$color, 'error');
   }
 
   .ecl-select:hover + .ecl-select__icon,
   .ecl-select:focus + .ecl-select__icon {
-    background-color: map.get(color.$color, 'red-130');
+    background-color: map.get(theme.$color, 'red-130');
   }
 
   .ecl-select {
-    border-color: map.get(color.$color, 'error');
+    border-color: map.get(theme.$color, 'error');
     box-shadow: none;
   }
 
   .ecl-select:hover,
   .ecl-select:focus {
-    border-color: map.get(color.$color, 'red-130');
+    border-color: map.get(theme.$color, 'red-130');
   }
 }
 
@@ -188,18 +182,18 @@ $_arrow-width: 2.75rem;
 .ecl-select__multiple {
   position: relative;
   .ecl-select__multiple-toggle[readonly] {
-    border-color: map.get(color.$color, 'grey');
-    color: map.get(color.$color, 'grey');
+    border-color: map.get(theme.$color, 'grey');
+    color: map.get(theme.$color, 'grey');
     cursor: default;
   }
 
   .ecl-select__multiple-dropdown {
-    background-color: map.get(color.$color, 'grey-5');
-    border: 1px solid map.get(color.$color, 'grey-15');
+    background-color: map.get(theme.$color, 'grey-5');
+    border: 1px solid map.get(theme.$color, 'grey-15');
     box-sizing: border-box;
-    margin-top: map.get(spacing.$spacing, 'xs');
+    margin-top: map.get(theme.$spacing, 'xs');
     position: absolute;
-    z-index: map.get(z-index.$z-index, 'dropdown');
+    z-index: map.get(theme.$z-index, 'dropdown');
   }
 
   .ecl-text-input {
@@ -207,37 +201,34 @@ $_arrow-width: 2.75rem;
   }
 
   .ecl-select__multiple-all {
-    border-bottom: 1px solid map.get(color.$color, 'grey-25');
-    margin-bottom: map.get(spacing.$spacing, 'xs');
+    border-bottom: 1px solid map.get(theme.$color, 'grey-25');
+    margin-bottom: map.get(theme.$spacing, 'xs');
   }
 
   .ecl-checkbox:last-of-type {
-    margin-bottom: map.get(spacing.$spacing, 'xs');
+    margin-bottom: map.get(theme.$spacing, 'xs');
   }
 
   .ecl-checkbox__label {
-    padding-bottom: map.get(spacing.$spacing, 'xs');
-    padding-left: map.get(spacing.$spacing, 'm');
-    padding-right: map.get(spacing.$spacing, 'm');
-    padding-top: map.get(spacing.$spacing, 'xs');
+    padding-bottom: map.get(theme.$spacing, 'xs');
+    padding-left: map.get(theme.$spacing, 'm');
+    padding-right: map.get(theme.$spacing, 'm');
+    padding-top: map.get(theme.$spacing, 'xs');
     width: calc(
-      100% - #{map.get(spacing.$spacing, 'm')} - #{map.get(
-          spacing.$spacing,
-          'm'
-        )}
+      100% - #{map.get(theme.$spacing, 'm')} - #{map.get(theme.$spacing, 'm')}
     );
   }
 
   .ecl-checkbox__label:hover,
   .ecl-checkbox__label:focus {
-    background-color: map.get(color.$color, 'grey-15');
+    background-color: map.get(theme.$color, 'grey-15');
   }
 
   .ecl-select__multiple-all .ecl-checkbox__label {
-    margin-bottom: map.get(spacing.$spacing, 'xs');
+    margin-bottom: map.get(theme.$spacing, 'xs');
   }
 
   .ecl-checkbox:first-of-type .ecl-checkbox__label {
-    margin-top: map.get(spacing.$spacing, 'xs');
+    margin-top: map.get(theme.$spacing, 'xs');
   }
 }

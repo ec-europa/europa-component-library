@@ -4,17 +4,13 @@
 */
 
 @use "sass:map";
-@use "@ecl/theme-dev/maps/color";
-@use "@ecl/theme-dev/maps/icon";
-@use "@ecl/theme-dev/maps/spacing";
-@use "@ecl/theme-dev/maps/typography";
-@use "@ecl/theme-dev/maps/z-index";
+@use '@ecl/theme-dev/theme';
 @use "@ecl/vanilla-layout-grid/mixins/breakpoints";
 @use "@ecl/vanilla-utility-media/media" as uMedia;
 
 $_image-height: 185px;
-$_description-background: map.get(color.$color, 'grey-100');
-$_description-color: map.get(color.$color, 'white-100');
+$_description-background: map.get(theme.$color, 'grey-100');
+$_description-color: map.get(theme.$color, 'white-100');
 
 .ecl-gallery {
   margin: 0;
@@ -23,15 +19,15 @@ $_description-color: map.get(color.$color, 'white-100');
 .ecl-gallery__list {
   display: block;
   list-style: none;
-  margin-bottom: map.get(spacing.$spacing, 'm');
-  margin-top: -#{map.get(spacing.$spacing, 'xs')};
+  margin-bottom: map.get(theme.$spacing, 'm');
+  margin-top: -#{map.get(theme.$spacing, 'xs')};
   padding-left: 0;
 }
 
 .ecl-gallery__item {
   display: block;
   margin-bottom: 0;
-  margin-top: map.get(spacing.$spacing, 'xs');
+  margin-top: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-gallery__item--hidden {
@@ -43,7 +39,7 @@ $_description-color: map.get(color.$color, 'white-100');
 }
 
 .ecl-gallery__image-container {
-  background-color: map.get(color.$color, 'black-100');
+  background-color: map.get(theme.$color, 'black-100');
   flex-grow: 1;
   margin: 0;
 }
@@ -52,7 +48,7 @@ $_description-color: map.get(color.$color, 'white-100');
   outline: none;
 
   .ecl-gallery__image-container {
-    outline: 3px solid map.get(color.$color, 'yellow-100');
+    outline: 3px solid map.get(theme.$color, 'yellow-100');
     outline-offset: -3px;
   }
 }
@@ -84,11 +80,11 @@ $_description-color: map.get(color.$color, 'white-100');
   background-color: $_description-background;
   color: $_description-color;
   display: flex;
-  font: map.get(typography.$font, 'm');
+  font: map.get(theme.$font, 'm');
   justify-content: space-between;
-  padding: map.get(spacing.$spacing, 's');
+  padding: map.get(theme.$spacing, 's');
   text-decoration: none;
-  width: calc(100% - (#{map.get(spacing.$spacing, 's')} * 2));
+  width: calc(100% - (#{map.get(theme.$spacing, 's')} * 2));
 }
 
 .ecl-gallery__description-icon {
@@ -105,16 +101,16 @@ $_description-color: map.get(color.$color, 'white-100');
 }
 
 .ecl-gallery__info {
-  background-color: map.get(color.$color, 'grey-10');
+  background-color: map.get(theme.$color, 'grey-10');
   float: right;
-  font: map.get(typography.$font, 'xs');
-  padding: map.get(spacing.$spacing, 'xs') map.get(spacing.$spacing, 's');
+  font: map.get(theme.$font, 'xs');
+  padding: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 's');
 }
 
 .ecl-gallery__footer {
-  border-top: 1px solid map.get(color.$color, 'grey-10');
-  margin-top: map.get(spacing.$spacing, 'xs');
-  padding-top: map.get(spacing.$spacing, 'm');
+  border-top: 1px solid map.get(theme.$color, 'grey-10');
+  margin-top: map.get(theme.$spacing, 'xs');
+  padding-top: map.get(theme.$spacing, 'm');
 }
 
 /* stylelint-disable-next-line order/order */
@@ -123,13 +119,13 @@ $_description-color: map.get(color.$color, 'white-100');
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-left: -#{map.get(spacing.$spacing, 'xs')};
+    margin-left: -#{map.get(theme.$spacing, 'xs')};
   }
 
   .ecl-gallery__item {
     flex-grow: 1;
     height: $_image-height;
-    margin-left: map.get(spacing.$spacing, 'xs');
+    margin-left: map.get(theme.$spacing, 'xs');
     min-width: $_image-height;
     position: relative;
   }
@@ -150,7 +146,7 @@ $_description-color: map.get(color.$color, 'white-100');
     bottom: 0;
     display: block;
     fill: $_description-color;
-    padding: map.get(spacing.$spacing, 's');
+    padding: map.get(theme.$spacing, 's');
     position: absolute;
     right: 0;
   }
@@ -160,14 +156,14 @@ $_description-color: map.get(color.$color, 'white-100');
     display: none;
     left: 0;
     max-height: $_image-height;
-    padding: map.get(spacing.$spacing, 'xs');
+    padding: map.get(theme.$spacing, 'xs');
     position: absolute;
-    width: calc(100% - (#{map.get(spacing.$spacing, 'xs')} * 2));
+    width: calc(100% - (#{map.get(theme.$spacing, 'xs')} * 2));
   }
 
   .ecl-gallery__description-icon {
-    height: map-get(icon.$icon, 'm');
-    width: map-get(icon.$icon, 'm');
+    height: map-get(theme.$icon, 'm');
+    width: map-get(theme.$icon, 'm');
   }
 
   .ecl-gallery__item:hover {
@@ -184,10 +180,10 @@ $_description-color: map.get(color.$color, 'white-100');
 /*
  * Overlay
 */
-$_overlay-background: map.get(color.$color, 'black-100');
-$_overlay-z-index: map.get(z-index.$z-index, 'modal');
-$_detail-background: map.get(color.$color, 'grey-100');
-$_detail-color: map.get(color.$color, 'white-100');
+$_overlay-background: map.get(theme.$color, 'black-100');
+$_overlay-z-index: map.get(theme.$z-index, 'modal');
+$_detail-background: map.get(theme.$color, 'grey-100');
+$_detail-color: map.get(theme.$color, 'white-100');
 
 .ecl-gallery__overlay {
   background-color: $_overlay-background;
@@ -218,7 +214,7 @@ $_detail-color: map.get(color.$color, 'white-100');
 
 .ecl-gallery__close-button {
   color: $_detail-color;
-  font-weight: map.get(typography.$font-weight, 'regular');
+  font-weight: map.get(theme.$font-weight, 'regular');
 
   &:hover,
   &:focus {
@@ -289,19 +285,19 @@ $_detail-color: map.get(color.$color, 'white-100');
   background-color: $_detail-background;
   color: $_detail-color;
   flex-shrink: 0;
-  padding: map.get(spacing.$spacing, 'm');
+  padding: map.get(theme.$spacing, 'm');
 }
 
 .ecl-gallery__detail-counter {
-  font: map.get(typography.$font, 's');
+  font: map.get(theme.$font, 's');
 }
 
 .ecl-gallery__detail-actions {
-  font: map.get(typography.$font, 's');
-  margin-top: map.get(spacing.$spacing, 'm');
+  font: map.get(theme.$font, 's');
+  margin-top: map.get(theme.$spacing, 'm');
 }
 .ecl-gallery__share {
-  margin-left: map.get(spacing.$spacing, 's');
+  margin-left: map.get(theme.$spacing, 's');
 }
 .ecl-gallery__download,
 .ecl-gallery__share {
@@ -318,16 +314,16 @@ $_detail-color: map.get(color.$color, 'white-100');
 }
 
 .ecl-gallery__detail-description {
-  font: map.get(typography.$font, 'm');
-  margin-top: map.get(spacing.$spacing, 's');
+  font: map.get(theme.$font, 'm');
+  margin-top: map.get(theme.$spacing, 's');
 }
 .ecl-gallery__overlay .ecl-gallery__description-icon {
   display: none;
 }
 
 .ecl-gallery__detail-meta {
-  font: map.get(typography.$font, 's');
-  margin-top: map.get(spacing.$spacing, 'm');
+  font: map.get(theme.$font, 's');
+  margin-top: map.get(theme.$spacing, 'm');
 }
 
 /* stylelint-disable-next-line order/order */
@@ -339,8 +335,7 @@ $_detail-color: map.get(color.$color, 'white-100');
 
   .ecl-gallery__slider-previous {
     align-self: initial;
-    margin-left: map.get(spacing.$spacing, 'xl') -
-      map.get(spacing.$spacing, 's');
+    margin-left: map.get(theme.$spacing, 'xl') - map.get(theme.$spacing, 's');
     order: -1;
   }
   .ecl-gallery__slider-previous .ecl-button__label {
@@ -353,8 +348,7 @@ $_detail-color: map.get(color.$color, 'white-100');
   .ecl-gallery__slider-next {
     align-self: initial;
     bottom: auto;
-    margin-right: map.get(spacing.$spacing, 'xl') -
-      map.get(spacing.$spacing, 's');
+    margin-right: map.get(theme.$spacing, 'xl') - map.get(theme.$spacing, 's');
     position: relative;
     right: auto;
   }

@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import Prism from 'prismjs';
 import ClipboardJS from 'clipboard';
 import { html as beautifyHtml } from 'js-beautify';
+import PropTypes from 'prop-types';
 import 'prismjs/plugins/line-numbers/prism-line-numbers';
 
 const CodePanel = styled.div({
@@ -142,6 +143,16 @@ class HTMLMarkup extends React.Component {
     ) : null;
   }
 }
+
+HTMLMarkup.propTypes = {
+  api: PropTypes.shape({
+    on: PropTypes.func,
+  }).isRequired,
+  channel: PropTypes.shape({
+    on: PropTypes.func,
+    removeListener: PropTypes.func,
+  }).isRequired,
+};
 
 // Register the addon with a unique name.
 addons.register('ecl/twig-code', (api) => {
