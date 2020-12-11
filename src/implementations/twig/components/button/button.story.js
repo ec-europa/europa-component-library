@@ -123,8 +123,7 @@ export default {
   decorators: [withCode, withNotes],
 };
 
-export const Primary = (args) =>
-  button(prepareControls(Primary, dataPrimary, args));
+export const Primary = (args) => button(prepareControls(dataPrimary, args));
 
 Primary.args = {
   label: dataPrimary.label,
