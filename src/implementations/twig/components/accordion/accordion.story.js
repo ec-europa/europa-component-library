@@ -50,8 +50,8 @@ const prepareDataWithArgs = (data, args) => {
     } else {
       item.toggle.icon.name = 'regulation';
     }
-    demoData.items[i].toggle.label = args[`toggle${i + 1}`];
-    demoData.items[i].content = args[`content${i + 1}`];
+    item.toggle.label = args[`toggle${i + 1}`];
+    item.content = args[`content${i + 1}`];
   });
 
   return data;
