@@ -42,7 +42,6 @@ export default {
     label: {
       name: 'label',
       type: { name: 'string', required: true },
-      defaultValue: '',
       description: 'The main label of the button',
       table: {
         type: { summary: 'string' },
@@ -55,8 +54,7 @@ export default {
     },
     icon_name: {
       name: 'icon name',
-      type: { name: 'select', required: false },
-      defaultValue: '',
+      type: { name: 'select' },
       description: 'Button icon',
       table: {
         type: { summary: 'string' },
@@ -70,8 +68,7 @@ export default {
     },
     icon_transform: {
       name: 'icon transform',
-      type: { name: 'select', required: false },
-      defaultValue: '',
+      type: { name: 'select' },
       description: 'Button icon transform',
       table: {
         type: { summary: 'string' },
@@ -92,7 +89,7 @@ export default {
     },
     icon_position: {
       name: 'icon position',
-      type: { name: 'inline-radio', required: false },
+      type: { name: 'inline-radio' },
       defaultValue: 'after',
       description: 'Icon position inside the button',
       table: {
@@ -107,7 +104,7 @@ export default {
     },
     disabled: {
       name: 'disabled',
-      type: { name: 'boolean', required: false },
+      type: { name: 'boolean' },
       defaultValue: false,
       description: 'Disabled button',
       table: {
