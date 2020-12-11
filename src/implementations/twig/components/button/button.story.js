@@ -23,7 +23,6 @@ const getArgTypes = () => {
   argTypes.label = {
     name: 'label',
     type: { name: 'string', required: true },
-    defaultValue: '',
     description: 'The main label of the button',
     table: {
       type: { summary: 'string' },
@@ -37,7 +36,6 @@ const getArgTypes = () => {
   argTypes.icon_name = {
     name: 'icon name',
     type: { name: 'select' },
-    defaultValue: '',
     description: 'Button icon',
     table: {
       type: { summary: 'string' },
@@ -52,7 +50,6 @@ const getArgTypes = () => {
   argTypes.icon_transform = {
     name: 'icon transform',
     type: { name: 'select' },
-    defaultValue: '',
     description: 'Button icon transform',
     table: {
       type: { summary: 'string' },
@@ -73,7 +70,6 @@ const getArgTypes = () => {
   argTypes.icon_position = {
     name: 'icon position',
     type: { name: 'inline-radio' },
-    defaultValue: '',
     description: 'Icon position inside the button',
     table: {
       type: { summary: 'string' },
