@@ -23,7 +23,7 @@ const getArgTypes = () => {
   argTypes.label = {
     name: 'label',
     type: { name: 'string', required: true },
-    defaultValue: ''
+    defaultValue: '',
     description: 'The main label of the button',
     table: {
       type: { summary: 'string' },
