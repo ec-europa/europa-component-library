@@ -13,6 +13,9 @@ describe('ECL Builder', () => {
     });
 
     it('should return null on no context match', () => {
+      expect(() => {
+        getSystem().not.toThrow();
+      });
       expect(getSystem()).toBe(null);
     });
 
@@ -78,6 +81,26 @@ describe('ECL Builder', () => {
       windowSpy.mockImplementation(() => ({
         location: {
           pathname: '/component-library/playground/eu/',
+        },
+      }));
+
+      expect(getSystem()).toBe('eu');
+    });
+
+    it('should have preference for window.location.pathname over STORYBOOK_SYSTEM', () => {
+      process.env.STORYBOOK_SYSTEM = 'EU';
+      windowSpy.mockImplementation(() => ({
+        location: {
+          pathname: '/playground/ec/',
+        },
+      }));
+
+      expect(getSystem()).toBe('ec');
+
+      process.env.STORYBOOK_SYSTEM = 'EC';
+      windowSpy.mockImplementation(() => ({
+        location: {
+          pathname: '/playground/eu/',
         },
       }));
 
