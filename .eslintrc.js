@@ -22,5 +22,11 @@ module.exports = {
         'no-undef': 'off',
       },
     },
+    {
+      files: ['src/**/*.story.js'],
+      rules: {
+        'no-shadow': 'off',
+      },
+    },
   ],
 };

@@ -1,7 +1,10 @@
 const path = require('path');
 const { TwingEnvironment, TwingLoaderFilesystem } = require('twing');
 
-const absPath = path.resolve(__dirname, '../../../components');
+const absPath = path.resolve(
+  __dirname,
+  '../../../implementations/twig/components'
+);
 const loader = new TwingLoaderFilesystem(absPath);
 
 // In storybook we get this returned as an instance of

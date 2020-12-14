@@ -3,7 +3,7 @@
  * @define u-sr-only
  */
 
-.ecl-u-sr-only {
+@mixin sr-only() {
   border: 0 !important;
   clip: rect(0, 0, 0, 0) !important;
   clip-path: inset(50%) !important;
@@ -14,6 +14,10 @@
   position: absolute !important;
   white-space: nowrap !important;
   width: 1px !important;
+}
+
+.ecl-u-sr-only {
+  @include sr-only();
 }
 
 .ecl-u-sr-only--focusable:active,

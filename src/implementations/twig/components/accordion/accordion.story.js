@@ -1,14 +1,14 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
-import demoData from '@ecl/specs-component-accordion/demo/data';
+import data from '@ecl/specs-component-accordion/demo/data';
 
 import accordion from './accordion.html.twig';
 import notes from './README.md';
 
 const getArgTypes = () => {
   const argTypes = {};
-  demoData.items.forEach((item, i) => {
+  data.items.forEach((item, i) => {
     argTypes[`toggle${i + 1}`] = {
       name: `toggle ${i + 1}`,
       type: { name: 'string', required: true },
@@ -42,8 +42,8 @@ const getArgTypes = () => {
   return argTypes;
 };
 
-const applySpecs = (data, args) => {
-  demoData.items.forEach((item, i) => {
+const prepareData = (data, args) => {
+  data.items.forEach((item, i) => {
     item.toggle.icon.path = defaultSprite;
     item.toggle.label = args[`toggle${i + 1}`];
     item.content = args[`content${i + 1}`];
@@ -56,13 +56,13 @@ export default {
   title: 'Components/Accordion',
 };
 
-export const Default = (args) => accordion(applySpecs(demoData, args));
+export const Default = (args) => accordion(prepareData(data, args));
 Default.argTypes = getArgTypes();
 Default.storyName = 'default';
 Default.parameters = {
   notes: {
     markdown: notes,
-    json: demoData,
+    json: data,
   },
   knobs: {
     disable: true,
