@@ -9,9 +9,6 @@ npm install --save @ecl/twig-component-footer-standardised
 ### Parameters
 
 - **"sections"** (array of objects) (default: [])
-  - "type" (optional) (string) Section type valid values are:
-    (site_name, service_navigation, legal_navigation, corporate_name, dg_related_navigation,
-    dg_services_navigation, class_names)
   - "section_id" (integer) (default: '') The id will be used to form the class name
   - "logo" (EU only)
     - "alt" (string) alt attribute for the logo link
@@ -24,7 +21,10 @@ npm install --save @ecl/twig-component-footer-standardised
   - "description" (optional) (string) (default: '')
   - "content_before" (optional) (string) (default: '')
   - "list_class_name" (optional) (string) (default: '')
-  - "links" (optional) (array of Link components) (default: [])
+  - "links" (optional) (array of objects) (default: []),
+    - "link" (link object)
+    - "content_before" (string) Optional text before the link
+    - "content_after" (string) Optional text after the link
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

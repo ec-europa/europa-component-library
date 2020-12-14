@@ -3,9 +3,8 @@
 {#
   Parameters:
   - "sections" (array of objects) (default: [])
-    - "type" (string) (can be: site_name, service_navigation, legal_navigation, corporate_name, dg_related_navigation, dg_services_navigation, class_names)
     - "section_id" (integer) (default: '') The id will be used to form the class name
-     - "logo" (EU only)
+    - "logo" (EU only)
       - "alt" (string) alt attribute for the logo link
       - "path" (string) logo link path
       - "language" (string) Language code
@@ -16,7 +15,10 @@
     - "description" (optional) (string) (default: '')
     - "content_before" (optional) (string) (default: '')
     - "list_class_name" (optional) (string) (default: '')
-    - "links" (optional) (array of Link components) (default: [])
+    - "links" (optional) (array of objects) (default: []),
+      - "link" (link object)
+      - "content_before" (string) Optional text before the link
+      - "content_after" (string) Optional text after the link
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
     - "name" (string) Attribute name, eg. 'data-test'
@@ -129,10 +131,12 @@
       <ul class="{{ _list_class_name }}">
         {% for _item in _section.links %}
           <li class="ecl-footer-standardised__list-item">
-             {% include '@ecl/link/link.html.twig' with _item|merge({
-                link: _item.link|default({})|merge({ type: 'standalone' }),
-                extra_classes: 'ecl-footer-standardised__link',
-              }) only %}
+            {{- _item.content_before -}}
+            {% include '@ecl/link/link.html.twig' with _item|merge({
+              link: _item.link|default({})|merge({ type: 'standalone' }),
+              extra_classes: 'ecl-footer-standardised__link',
+            }) only %}
+            {{- _item.content_after -}}
           </li>
         {% endfor %}
       </ul>

@@ -1,0 +1,32 @@
+{
+  "private": true,
+  "name": "@ecl/twig-eu-storybook",
+  "author": "European Commission",
+  "license": "EUPL-1.1",
+  "version": "3.0.0",
+  "description": "Storybook EU Twig",
+  "scripts": {
+    "build": "STORYBOOK_SYSTEM=EU build-storybook -c .storybook -o build",
+    "start": "STORYBOOK_SYSTEM=EU start-storybook -p 6007 -s ../../presets/eu-core/dist -c .storybook",
+    "start:watch": "STORYBOOK_SYSTEM=EU start-storybook -p 6007 -s ../../presets/eu-core/build -c .storybook"
+  },
+  "devDependencies": {
+    "@babel/core": "7.12.9",
+    "@babel/preset-env": "7.12.7",
+    "@babel/preset-react": "7.12.7",
+    "@babel/runtime": "7.12.5",
+    "@storybook/addon-docs": "6.1.7",
+    "@storybook/addon-cssresources": "6.1.7",
+    "@storybook/addon-knobs": "6.1.7",
+    "@storybook/addon-viewport": "6.1.7",
+    "@storybook/addon-controls": "6.1.7",
+    "@storybook/html": "6.1.7",
+    "babel-loader": "8.2.2",
+    "browser-update": "3.3.25",
+    "core-js": "3.8.0",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "twing": "2.3.7",
+    "twing-loader": "2.0.2"
+  }
+}
