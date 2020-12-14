@@ -11,8 +11,12 @@ npm install --save @ecl/twig-component-footer-core
 - **"sections"** (array objects) (default: [])
   - "title" (link objects) see Link component
   - "description" (string) (default: ''),
+  - "content_before" (optional) (string) (default: '')
   - "section_class_name" (string) (default: ''),
-  - "links" (array of link objects) (default: []),
+  - "links" (optional) (array of objects) (default: []),
+    - "link" (link object)
+    - "content_before" (string) Optional text before the link
+    - "content_after" (string) Optional text after the link
   - "list_class_name" (string) (default: []),
   - "logo" (EU only)
     - "alt" (string) alt attribute for the logo link
