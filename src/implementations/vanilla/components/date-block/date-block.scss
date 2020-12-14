@@ -6,6 +6,7 @@
 @use "sass:map";
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+@use "@ecl/vanilla-utility-screen-reader/screen-reader" as uScreenReader;
 
 $_background-default: map.get(theme.$color, 'blue');
 $_text-color-default: map.get(theme.$color, 'white');
@@ -110,21 +111,10 @@ $_circle-width: 0.6rem;
     padding-bottom: map.get(theme.$spacing, 'xs');
     padding-top: map.get(theme.$spacing, 'xs');
   }
+}
 
-  .ecl-date-block__daytime {
-    border: 0;
-    clip: rect(0, 0, 0, 0);
-    /* stylelint-disable-next-line property-no-vendor-prefix */
-    -webkit-clip-path: inset(50%);
-    clip-path: inset(50%);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-  }
+.ecl-date-block__daytime {
+  @include uScreenReader.sr-only();
 }
 
 // ongoing

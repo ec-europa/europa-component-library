@@ -11,11 +11,11 @@ cd "$(dirname "$0")"
 cd ..
 
 # Build storybook
-yarn --cwd "./src/implementations/twig/storybook/ec" build
-yarn --cwd "./src/implementations/twig/storybook/eu" build
+yarn --cwd "./src/playground/ec" build
+yarn --cwd "./src/playground/eu" build
 
 # Copy builds
 rm -rf ./dist/playground
 mkdir -p ./dist/playground
-cp -r ./src/implementations/twig/storybook/ec/build ./dist/playground/ec
-cp -r ./src/implementations/twig/storybook/eu/build ./dist/playground/eu
+cp -r ./src/playground/ec/build ./dist/playground/ec
+cp -r ./src/playground/eu/build ./dist/playground/eu
