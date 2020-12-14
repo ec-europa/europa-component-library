@@ -10,7 +10,6 @@ const getArgTypes = () => {
   argTypes.author = {
     name: 'Author',
     type: { name: 'string', required: true },
-    defaultValue: '',
     description: 'Author of the citation',
     table: {
       type: { summary: 'string' },
@@ -24,7 +23,6 @@ const getArgTypes = () => {
   argTypes.citation = {
     name: 'Citation',
     type: { name: 'string', required: true },
-    defaultValue: '',
     description: 'Blockquote citation',
     table: {
       type: { summary: 'string' },
