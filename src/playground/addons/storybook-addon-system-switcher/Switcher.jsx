@@ -1,12 +1,10 @@
 import React from 'react';
 import { IconButton, Separator } from '@storybook/components';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 const Switcher = () => {
   const queryString = window.location.search;
-  let system = window.location.pathname.split('/').filter((p) => p)[1];
-  if (!system) {
-    system = process.env.STORYBOOK_SYSTEM ? 'eu' : 'ec';
-  }
+  const system = getSystem();
   const isEc = system === 'ec';
   const isEu = system === 'eu';
 
