@@ -99,7 +99,7 @@ const getArgTypes = () => {
   return argTypes;
 };
 
-const applySpecs = (data, args) => {
+const prepareData = (data, args) => {
   data.label = args.label;
   data.disabled = args.disabled;
   if (args.icon_name != null) {
@@ -123,7 +123,7 @@ export default {
   decorators: [withCode, withNotes],
 };
 
-export const Primary = (args) => button(applySpecs(dataPrimary, args));
+export const Primary = (args) => button(prepareData(dataPrimary, args));
 
 Primary.args = {
   label: dataPrimary.label,
@@ -135,7 +135,7 @@ Primary.parameters = {
   knobs: { disable: true },
 };
 
-export const Secondary = (args) => button(applySpecs(dataSecondary, args));
+export const Secondary = (args) => button(prepareData(dataSecondary, args));
 
 Secondary.args = {
   label: dataSecondary.label,
@@ -147,7 +147,7 @@ Secondary.parameters = {
   knobs: { disable: true },
 };
 
-export const CallToAction = (args) => button(applySpecs(dataCall, args));
+export const CallToAction = (args) => button(prepareData(dataCall, args));
 
 CallToAction.args = {
   label: dataCall.label,
@@ -161,7 +161,7 @@ CallToAction.parameters = {
   knobs: { disable: true },
 };
 
-export const Ghost = (args) => button(applySpecs(dataGhost, args));
+export const Ghost = (args) => button(prepareData(dataGhost, args));
 
 Ghost.args = {
   label: dataGhost.label,
@@ -173,7 +173,7 @@ Ghost.parameters = {
   knobs: { disable: true },
 };
 
-export const Search = (args) => button(applySpecs(dataSearch, args));
+export const Search = (args) => button(prepareData(dataSearch, args));
 
 Search.args = {
   label: dataSearch.label,
