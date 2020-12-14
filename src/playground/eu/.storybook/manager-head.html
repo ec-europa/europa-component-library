@@ -15,7 +15,7 @@
         '@storybook/ui/store',
         JSON.stringify({
           layout: {
-            panelPosition: 'right',
+            panelPosition: 'bottom',
           },
           theme: {
             brandTitle: 'ECL v3 EC',
@@ -25,25 +25,6 @@
         })
       );
     }
-
-    var item = window.localStorage.getItem('storybook-layout');
-
-    var leftPanelWidth = 210;
-    var rightPanelWidth = 400;
-
-    window.localStorage.setItem(
-      'storybook-layout',
-      JSON.stringify({
-        resizerPanel: {
-          x: window.innerWidth - rightPanelWidth,
-          y: 0,
-        },
-        resizerNav: {
-          x: leftPanelWidth,
-          y: 0,
-        },
-      })
-    );
   }
 </script>
 <script
