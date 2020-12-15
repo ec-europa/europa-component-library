@@ -1,44 +1,10 @@
+import sass from 'sass';
+import postcss from 'postcss';
+
 import getSystem from './utils/getSystem';
 import { getPlugins } from './scripts/styles';
 
-// Keeps track of function names for assertions below.
-const reviver = (_, val) => {
-  if (val instanceof Function || typeof val == 'function') {
-    return val.name === '' ? 'closure()' : `${val.name}fn()`;
-  }
-  return val;
-};
-
 describe('ECL Builder', () => {
-  describe('Styles script', () => {
-    afterEach(() => {
-      delete process.env.NODE_ENV;
-    });
-
-    it('should have its plugins system publicly accessible', () => {
-      expect(typeof getPlugins).toBe('function');
-    });
-
-    it('should use the specified list of plugins in development', () => {
-      const plugins = getPlugins();
-      expect(plugins.length).toBe(1);
-      expect(JSON.stringify(plugins, reviver)).toEqual(
-        '[{"postcssPlugin":"autoprefixer","prepare":"preparefn()","info":"infofn()","options":{"grid":"no-autoplace"}}]'
-      );
-    });
-
-    it('should use the specified list of plugins in production', () => {
-      process.env.NODE_ENV = 'production';
-      const plugins = getPlugins({ banner: 'build label' });
-      expect(plugins.length).toBe(3);
-      expect(plugins[1].toString().includes('andBanner')).toBe(true);
-
-      expect(JSON.stringify(plugins, reviver)).toEqual(
-        '[{"postcssPlugin":"autoprefixer","prepare":"preparefn()","info":"infofn()","options":{"grid":"no-autoplace"}},"andBannerfn()","closure()"]'
-      );
-    });
-  });
-
   describe('System resolution utility', () => {
     let windowSpy;
     beforeEach(() => {
@@ -143,6 +109,81 @@ describe('ECL Builder', () => {
       }));
 
       expect(getSystem()).toBe('eu');
+    });
+  });
+
+  describe('Styles script', () => {
+    // Keeps track of function names for assertions below.
+    const replacer = (_, val) => {
+      if (val instanceof Function || typeof val === 'function') {
+        return val.name === '' ? 'closure()' : `${val.name}fn()`;
+      }
+      return val;
+    };
+
+    afterEach(() => {
+      delete process.env.NODE_ENV;
+      delete process.env.ECL_SYSTEM;
+    });
+
+    it('should have its plugins system publicly accessible', () => {
+      expect(typeof getPlugins).toBe('function');
+    });
+
+    it('should use the specified list of plugins in development', () => {
+      const plugins = getPlugins();
+      expect(plugins.length).toBe(1);
+      expect(JSON.stringify(plugins, replacer)).toEqual(
+        '[{"postcssPlugin":"autoprefixer","prepare":"preparefn()","info":"infofn()","options":{"grid":"no-autoplace"}}]'
+      );
+    });
+
+    it('should use the specified list of plugins in production', () => {
+      process.env.NODE_ENV = 'production';
+      const plugins = getPlugins({ banner: 'build label' });
+      expect(plugins.length).toBe(3);
+      expect(plugins[1].toString().includes('andBanner')).toBe(true);
+
+      expect(JSON.stringify(plugins, replacer)).toEqual(
+        '[{"postcssPlugin":"autoprefixer","prepare":"preparefn()","info":"infofn()","options":{"grid":"no-autoplace"}},"andBannerfn()","closure()"]'
+      );
+    });
+
+    it('should be able to expose getSystem utility in scss source code', async () => {
+      let system = getSystem();
+      const options = {
+        data: `
+            $system: getSystem();
+            .system-specific { content: $system; };
+        `,
+        functions: {
+          'getSystem()': () => new sass.types.String(system || ''),
+        },
+      };
+
+      let sassResult = sass.renderSync(options);
+      let postcssResult = await postcss(getPlugins()).process(sassResult.css);
+      expect(postcssResult.css).toBe('');
+
+      process.env.ECL_SYSTEM = 'ec';
+      system = getSystem();
+      sassResult = sass.renderSync(options);
+      postcssResult = await postcss(getPlugins()).process(sassResult.css);
+      expect(postcssResult.css).toEqual(
+        `.system-specific {
+  content: ec;
+}`
+      );
+
+      process.env.ECL_SYSTEM = 'eu';
+      system = getSystem();
+      sassResult = sass.renderSync(options);
+      postcssResult = await postcss(getPlugins()).process(sassResult.css);
+      expect(postcssResult.css).toEqual(
+        `.system-specific {
+  content: eu;
+}`
+      );
     });
   });
 });

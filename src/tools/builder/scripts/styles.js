@@ -42,6 +42,9 @@ const buildStyles = (entry, dest, options) => {
   const sassResult = sass.renderSync({
     file: entry,
     outFile: dest,
+    functions: {
+      'getSystem()': () => new sass.types.String(getSystem() || ''),
+    },
     sourceMap: options.sourceMap === true,
     sourceMapContents: options.sourceMap === true,
     sourceMapEmbed: options.sourceMap === true,
