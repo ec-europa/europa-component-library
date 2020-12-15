@@ -36,7 +36,7 @@ const getArgTypes = (data) => {
       name: 'label',
       type: { name: 'string', required: true },
       defaultValue: data.link.label,
-      description: 'The main label of the button',
+      description: 'The link label',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
@@ -46,21 +46,8 @@ const getArgTypes = (data) => {
         type: 'text',
       },
     },
-    icon_position: {
-      name: 'icon position',
-      type: { name: 'select', required: false },
-      description: 'Position of the icon (required to show the icon)',
-      table: {
-        type: { summary: 'string' },
-        category: 'Icon',
-      },
-      control: {
-        type: 'select',
-        options: ['before', 'after'],
-      },
-    },
     icon_name: {
-      name: 'icon (sample)',
+      name: 'icon name',
       type: { name: 'select', required: false },
       description: 'Name of the icon',
       table: {
@@ -70,6 +57,20 @@ const getArgTypes = (data) => {
       control: {
         type: 'select',
         options: iconsList,
+      },
+    },
+    icon_position: {
+      name: 'icon position',
+      type: { name: 'inline-radio' },
+      description: 'Icon position inside the link',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'after' },
+        category: 'Icon',
+      },
+      control: {
+        type: 'inline-radio',
+        options: ['before', 'after'],
       },
     },
   };
