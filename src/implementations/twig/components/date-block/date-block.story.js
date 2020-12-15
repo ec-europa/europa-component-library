@@ -1,7 +1,5 @@
-import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
 
 import specs from '@ecl/specs-component-date-block/demo/data';
 import dateBlock from './date-block.html.twig';
@@ -9,47 +7,115 @@ import notes from './README.md';
 
 // Preserve original data.
 const dataDefault = { ...specs };
-const dataOngoing = { ...specs };
-const dataCancelled = { ...specs };
-const dataPast = { ...specs };
+const dataOngoing = { ...specs, variant: 'ongoing' };
+const dataCancelled = { ...specs, variant: 'cancelled' };
+const dataPast = { ...specs, variant: 'past' };
 
-const prepareDateBlock = (data, variant) => {
-  data.variant = select('variant', [variant], variant, tabLabels.required);
-  data.day = text('day', data.day, tabLabels.required);
-  data.year = text('year', data.year, tabLabels.required);
-  data.month = text('month', data.month, tabLabels.required);
-  data.month_full = text('month_full', data.month_full, tabLabels.required);
-  data.date_time = text('date_time', data.date_time, tabLabels.optional);
+const getArgTypes = (data) => {
+  return {
+    day: {
+      name: 'day',
+      type: { name: 'string', required: true },
+      defaultValue: data.day,
+      description: 'The date day',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+      control: {
+        type: 'text',
+      },
+    },
+    month: {
+      name: 'month',
+      type: { name: 'string', required: true },
+      defaultValue: data.month,
+      description: 'The date month (abridged)',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+      control: {
+        type: 'text',
+      },
+    },
+    month_full: {
+      name: 'month full',
+      type: { name: 'string', required: true },
+      defaultValue: data.month_full,
+      description: 'The date month (full); displayed on hover',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+      control: {
+        type: 'text',
+      },
+    },
+    year: {
+      name: 'year',
+      type: { name: 'string', required: true },
+      defaultValue: data.year,
+      description: 'The date year',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+      control: {
+        type: 'text',
+      },
+    },
+  };
+};
 
-  getExtraKnobs(data);
+const prepareData = (data, args) => {
+  data.day = args.day;
+  data.month = args.month;
+  data.month_full = args.month_full;
+  data.year = args.year;
 
   return data;
 };
 
 export default {
   title: 'Components/Date block',
-  decorators: [withKnobs, withNotes, withCode],
+  decorators: [withNotes, withCode],
+  parameters: {
+    knobs: {
+      disable: true,
+    },
+  },
 };
 
-export const Default = () =>
-  dateBlock(prepareDateBlock(dataDefault, 'default'));
+export const Default = (args) => dateBlock(prepareData(dataDefault, args));
 
 Default.storyName = 'default';
-Default.parameters = { notes: { markdown: notes, json: dataDefault } };
+Default.argTypes = getArgTypes(dataDefault);
+Default.parameters = {
+  notes: {
+    markdown: notes,
+    json: dataDefault,
+  },
+};
 
-export const Ongoing = () =>
-  dateBlock(prepareDateBlock(dataOngoing, 'ongoing'));
+export const Ongoing = (args) => dateBlock(prepareData(dataOngoing, args));
 
 Ongoing.storyName = 'ongoing';
+Ongoing.argTypes = getArgTypes(dataOngoing);
 Ongoing.parameters = { notes: { markdown: notes, json: dataOngoing } };
 
-export const Cancelled = () =>
-  dateBlock(prepareDateBlock(dataCancelled, 'canceled'));
+export const Cancelled = (args) => dateBlock(prepareData(dataCancelled, args));
 
 Cancelled.storyName = 'cancelled';
+Cancelled.argTypes = getArgTypes(dataCancelled);
 Cancelled.parameters = { notes: { markdown: notes, json: dataCancelled } };
 
-export const Past = () => dateBlock(prepareDateBlock(dataPast, 'past'));
+export const Past = (args) => dateBlock(prepareData(dataPast, args));
 
 Past.storyName = 'past';
+Past.argTypes = getArgTypes(dataPast);
 Past.parameters = { notes: { markdown: notes, json: dataPast } };

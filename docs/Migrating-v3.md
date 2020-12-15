@@ -108,3 +108,5 @@ Most of the components have been updated without much changes. Altough there are
   - section ids have been updated to be more consistent (no more jumping from section 3 to section 6 for instance)
   - twig parameter "type" has been removed (not used)
   - twig parameters added for each link, to allow content before and after it
+- Date block
+  - css class for variant "cancelled" has been renamed from `.ecl-date-block--canceled` to `.ecl-date-block--cancelled`
