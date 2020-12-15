@@ -24,35 +24,36 @@ const getArgTypes = (data) => {
         type: 'text',
       },
     };
-    argTypes.blockLeft = {
-      name: 'left sidebar block',
-      type: { name: 'boolean' },
-      defaultValue: false,
-      description: 'Inject a test block in the left sidebar',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-        category: 'Test content',
-      },
-      control: {
-        type: 'boolean',
-      },
-    };
-    argTypes.blockMain = {
-      name: 'main content block',
-      type: { name: 'boolean' },
-      defaultValue: false,
-      description: 'Inject a generic block in the main column',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-        category: 'Test content',
-      },
-      control: {
-        type: 'boolean',
-      },
-    };
   });
+
+  argTypes.blockLeft = {
+    name: 'left sidebar block',
+    type: { name: 'boolean' },
+    defaultValue: false,
+    description: 'Inject a test block in the left sidebar',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'Test content',
+    },
+    control: {
+      type: 'boolean',
+    },
+  };
+  argTypes.blockMain = {
+    name: 'main content block',
+    type: { name: 'boolean' },
+    defaultValue: false,
+    description: 'Inject a generic block in the main column',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'Test content',
+    },
+    control: {
+      type: 'boolean',
+    },
+  };
 
   return argTypes;
 };
