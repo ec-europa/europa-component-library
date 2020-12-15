@@ -7,21 +7,8 @@ import notes from './README.md';
 
 const getArgTypes = () => {
   const argTypes = {};
-  argTypes.author = {
-    name: 'Author',
-    type: { name: 'string', required: true },
-    description: 'Author of the citation',
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: '' },
-      category: 'Content',
-    },
-    control: {
-      type: 'text',
-    },
-  };
   argTypes.citation = {
-    name: 'Citation',
+    name: 'citation',
     type: { name: 'string', required: true },
     description: 'Blockquote citation',
     table: {
@@ -33,11 +20,26 @@ const getArgTypes = () => {
       type: 'text',
     },
   };
+  argTypes.author = {
+    name: 'author',
+    type: { name: 'string', required: true },
+    description: 'Author of the citation',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+    control: {
+      type: 'text',
+    },
+  };
+
+  return argTypes;
 };
 
 const prepareData = (data, args) => {
-  data.author = args.author;
   data.citation = args.citation;
+  data.author = args.author;
 
   return data;
 };
@@ -51,11 +53,12 @@ export default {
 export const Default = (args) => blockquote(prepareData(defaultData, args));
 
 Default.args = {
-  author: defaultData.author,
   citation: defaultData.citation,
+  author: defaultData.author,
 };
+
 Default.storyName = 'default';
 Default.parameters = {
   notes: { markdown: notes, json: defaultData },
-  knobs: { disbale: true },
+  knobs: { disable: true },
 };
