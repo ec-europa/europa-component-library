@@ -14,7 +14,7 @@ const getArgTypes = (data) => {
       name: `heading ${i + 1}`,
       type: { name: 'string', required: true },
       defaultValue: item.label,
-      description: `Label of heading  ${i + 1}`,
+      description: `The label for heading  ${i + 1}`,
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
@@ -30,10 +30,8 @@ const getArgTypes = (data) => {
     name: 'left sidebar block',
     type: { name: 'boolean' },
     defaultValue: false,
-    description: 'Inject a test block in the left sidebar',
+    description: 'Inject a test content block in the left sidebar',
     table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
       category: 'Test content',
     },
     control: {
@@ -44,10 +42,8 @@ const getArgTypes = (data) => {
     name: 'main content block',
     type: { name: 'boolean' },
     defaultValue: false,
-    description: 'Inject a generic block in the main column',
+    description: 'Inject a test content block in the main column',
     table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
       category: 'Test content',
     },
     control: {
@@ -61,10 +57,8 @@ const getArgTypes = (data) => {
 // Add generic container in the left or main column.
 const blockHandler = (region, state) => {
   if (state) {
-    return `<div class="ecl-u-mb-m ecl-u-pa-l ecl-u-bg-grey-25">
-              <h4 class="ecl-u-type-heading-4">
-                This is an injected block in the ${region} column
-              </h4>
+    return `<div class="ecl-u-bg-grey-25 ecl-u-mb-m ecl-u-pa-l">
+              <h4 class="ecl-u-type-heading-4">This is an injected block in the ${region} column</h4>
             </div>`;
   }
 
@@ -88,10 +82,11 @@ const prepareContentData = (data, args) => {
 
   data.links.forEach((item, i) => {
     const index = i + 1;
-    html += `<h2 class="ecl-u-type-heading-2" id="inline-nav-${index}">
-    ${
+    html += `<h2 class="ecl-u-type-heading-2" id="inline-nav-${index}">${
       args[`heading${index}`]
-    }</h2><p class="ecl-u-type-paragraph-m">${lorem}</p><p class="ecl-u-type-paragraph-m">${lorem}</p>`;
+    }</h2>`;
+    html += `<p class="ecl-u-type-paragraph-m">${lorem}</p>`;
+    html += `<p class="ecl-u-type-paragraph-m">${lorem}</p>`;
   });
 
   return html;
