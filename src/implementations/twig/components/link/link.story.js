@@ -40,21 +40,7 @@ const getArgTypes = (data) => {
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
-        category: 'Link',
-      },
-      control: {
-        type: 'text',
-      },
-    },
-    aria_label: {
-      name: 'aria label',
-      type: { name: 'string', required: true },
-      defaultValue: data.link.aria_label,
-      description: 'The aria label attribute',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Accessibility',
+        category: 'Content',
       },
       control: {
         type: 'text',
@@ -66,7 +52,7 @@ const getArgTypes = (data) => {
       description: 'Position of the icon (required to show the icon)',
       table: {
         type: { summary: 'string' },
-        category: 'Link',
+        category: 'Icon',
       },
       control: {
         type: 'select',
@@ -89,9 +75,8 @@ const getArgTypes = (data) => {
   };
 };
 
-const applySpecs = (data, args) => {
+const prepareData = (data, args) => {
   data.link.label = args.label;
-  data.link.aria_label = args.aria_label;
   data.link.icon_position = args.icon_position;
   if (args.icon_name) {
     data.icon = {};
@@ -114,7 +99,7 @@ export default {
   },
 };
 
-export const Default = (args) => link(applySpecs(dataDefault, args));
+export const Default = (args) => link(prepareData(dataDefault, args));
 
 Default.storyName = 'default';
 Default.decorators = [withNotes, withCode, withParagraph];
@@ -126,7 +111,7 @@ Default.parameters = {
   },
 };
 
-export const Standalone = (args) => link(applySpecs(dataStandalone, args));
+export const Standalone = (args) => link(prepareData(dataStandalone, args));
 
 Standalone.storyName = 'standalone';
 Standalone.argTypes = getArgTypes(dataStandalone);
@@ -137,7 +122,7 @@ Standalone.parameters = {
   },
 };
 
-export const Cta = (args) => link(applySpecs(dataCta, args));
+export const Cta = (args) => link(prepareData(dataCta, args));
 
 Cta.storyName = 'cta';
 Cta.argTypes = getArgTypes(dataCta);
