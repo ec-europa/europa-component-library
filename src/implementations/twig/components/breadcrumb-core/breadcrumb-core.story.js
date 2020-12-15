@@ -1,7 +1,5 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
-import { withKnobs, text, optionsKnob } from '@storybook/addon-knobs';
 import withCode from '@ecl/storybook-addon-code';
-import { getExtraKnobs, tabLabels, getLinkKnobs } from '@ecl/story-utils';
 
 import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import dataSimple from '@ecl/specs-component-breadcrumb/demo/data--simple';
@@ -10,42 +8,56 @@ import dataLong from '@ecl/specs-component-breadcrumb/demo/data';
 import breadcrumb from './breadcrumb-core.html.twig';
 import notes from './README.md';
 
-const prepareBreadcrumbCore = (data) => {
-  data.icon_file_path = optionsKnob(
-    'icon_file_path',
-    { current: defaultSprite, 'no path': '' },
-    defaultSprite,
-    { display: 'inline-radio' },
-    tabLabels.required
-  );
-  data.navigation_text = text(
-    'navigation_text',
-    data.navigation_text,
-    tabLabels.required
-  );
-  data.ellipsis_label = text(
-    'ellipsis_label',
-    data.ellipsis_label,
-    tabLabels.required
-  );
+const getArgTypes = (data) => {
+  const argTypes = {};
+  data.links.forEach((item, i) => {
+    argTypes[`item${i + 1}`] = {
+      name: `Item ${i + 1}`,
+      type: { name: 'string' },
+      defaultValue: item.label,
+      description: `Label of breadcrumb item ${i + 1}`,
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+      control: {
+        type: 'text',
+      },
+    };
+  });
 
-  getLinkKnobs(data);
-  getExtraKnobs(data);
+  return argTypes;
+};
+
+const prepareData = (data, args) => {
+  data.links.forEach((item, i) => {
+    item.label = args[`item${i + 1}`];
+  });
+  data.icon_file_path = defaultSprite;
 
   return data;
 };
 
 export default {
   title: 'Components/Navigation/Breadcrumbs/Breadcrumb Core',
-  decorators: [withNotes, withCode, withKnobs],
+  decorators: [withNotes, withCode],
 };
 
-export const Simple = () => breadcrumb(prepareBreadcrumbCore(dataSimple));
+export const Simple = (args) => breadcrumb(prepareData(dataSimple, args));
 
+Simple.argTypes = getArgTypes(dataSimple);
 Simple.storyName = 'simple';
-Simple.parameters = { notes: { markdown: notes, json: dataSimple } };
+Simple.parameters = {
+  notes: { markdown: notes, json: dataSimple },
+  knobs: { disable: true },
+};
 
-export const Long = () => breadcrumb(prepareBreadcrumbCore(dataLong));
+export const Long = (args) => breadcrumb(prepareData(dataLong, args));
 
+Long.argTypes = getArgTypes(dataLong);
 Long.storyName = 'long';
-Long.parameters = { notes: { markdown: notes, json: dataLong } };
+Long.parameters = {
+  notes: { markdown: notes, json: dataLong },
+  knobs: { disable: true },
+};
