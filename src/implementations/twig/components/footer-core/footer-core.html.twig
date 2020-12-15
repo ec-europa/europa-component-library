@@ -11,8 +11,9 @@
       - "src_desktop" (string) Path to the desktop logo
     - "title" (predefined structure) see Link component
     - "description" (string) (default: ''),
+    - "content_before" (optional) (string) (default: '')
     - "section_class_name" (string) (default: ''),
-    - "links" (array of objects) (default: []),
+    - "links" (optional) (array of objects) (default: []),
       - "link" (link object)
       - "content_before" (string) Optional text before the link
       - "content_after" (string) Optional text after the link
@@ -95,6 +96,10 @@
         },
         extra_classes: 'ecl-footer-core__logo-link'
       } only %}
+    {% endif %}
+    {# content before #}
+    {% if _section.content_before is defined and _section.content_before is not empty %}
+      <div class="ecl-footer-core__content">{{ _section.content_before|raw }}</div>
     {% endif %}
     {# title #}
     {% if _section.title is defined and _section.title is not empty %}
