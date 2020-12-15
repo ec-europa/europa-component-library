@@ -103,6 +103,7 @@ const prepareData = (data, args) => {
     data.icon = {};
     data.icon.name = args.icon_name;
     data.icon.type = 'ui';
+    data.icon.transform = args.icon_transform;
     data.icon.size = 'fluid';
     data.icon.path = defaultSprite;
   }
