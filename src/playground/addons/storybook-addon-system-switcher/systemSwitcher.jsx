@@ -3,10 +3,12 @@ import { IconButton, Separator } from '@storybook/components';
 
 const Switcher = () => {
   const queryString = window.location.search;
-  let system = window.location.pathname.split('/').filter((p) => p)[1];
-  if (!system) {
-    system = process.env.STORYBOOK_SYSTEM ? 'eu' : 'ec';
-  }
+  const system = (
+    window.location.pathname
+      .split('/')
+      .find((part) => part === 'ec' || part === 'eu') ||
+    process.env.STORYBOOK_SYSTEM
+  ).toLowerCase();
   const isEc = system === 'ec';
   const isEu = system === 'eu';
 

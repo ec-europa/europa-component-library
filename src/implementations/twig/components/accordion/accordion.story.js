@@ -1,6 +1,4 @@
-import { withKnobs, text, select, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
-import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
 import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import demoData from '@ecl/specs-component-accordion/demo/data';
@@ -8,33 +6,48 @@ import demoData from '@ecl/specs-component-accordion/demo/data';
 import accordion from './accordion.html.twig';
 import notes from './README.md';
 
-const prepareAccordion = (data) => {
-  data.items.forEach((item, index) => {
-    const levels = [1, 2, 3, 4, 5, 6];
-    const { id, level, toggle, content } = item;
-    item.id = text(`items[${index}].id`, id, tabLabels.required);
-    item.content = text(`items[${index}].content`, content, tabLabels.required);
-    item.toggle.label = text(
-      `items[${index}].toggle.label`,
-      toggle.label,
-      tabLabels.required
-    );
-    item.toggle.icon.path = optionsKnob(
-      `items[${index}].toggle.icon.path`,
-      { current: defaultSprite, 'no path': '' },
-      defaultSprite,
-      { display: 'inline-radio' },
-      tabLabels.required
-    );
-    item.level = select(
-      `items[${index}].level`,
-      levels,
-      level,
-      tabLabels.optional
-    );
+const getArgTypes = (data) => {
+  const argTypes = {};
+  data.items.forEach((item, i) => {
+    argTypes[`toggle${i + 1}`] = {
+      name: `toggle ${i + 1}`,
+      type: { name: 'string', required: true },
+      defaultValue: item.toggle.label,
+      description: `Text of the accordion toggler`,
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Toggles',
+      },
+      control: {
+        type: 'text',
+      },
+    };
+    argTypes[`content${i + 1}`] = {
+      name: `content ${i + 1}`,
+      type: { name: 'string', required: true },
+      defaultValue: item.content,
+      description: 'Text of the hidden content',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Hidden content',
+      },
+      control: {
+        type: 'text',
+      },
+    };
   });
 
-  getExtraKnobs(data);
+  return argTypes;
+};
+
+const prepareData = (data, args) => {
+  data.items.forEach((item, i) => {
+    item.toggle.icon.path = defaultSprite;
+    item.toggle.label = args[`toggle${i + 1}`];
+    item.content = args[`content${i + 1}`];
+  });
 
   return data;
 };
@@ -43,8 +56,16 @@ export default {
   title: 'Components/Accordion',
 };
 
-export const Default = () => accordion(prepareAccordion(demoData));
-
+export const Default = (args) => accordion(prepareData(demoData, args));
+Default.argTypes = getArgTypes(demoData);
 Default.storyName = 'default';
-Default.parameters = { notes: { markdown: notes, json: demoData } };
-Default.decorators = [withKnobs, withCode, withNotes];
+Default.parameters = {
+  notes: {
+    markdown: notes,
+    json: demoData,
+  },
+  knobs: {
+    disable: true,
+  },
+};
+Default.decorators = [withCode, withNotes];
