@@ -5,24 +5,12 @@ const postcss = require('postcss');
 const cssnano = require('cssnano');
 const autoprefixer = require('autoprefixer');
 const bannerPlugin = require('postcss-banner');
-const postcssEnvFunction = require('postcss-env-function');
 const getSystem = require('../utils/getSystem');
 
 const getPlugins = (options) => {
   const plugins = [];
 
   plugins.push(autoprefixer({ grid: 'no-autoplace' }));
-  plugins.push(
-    postcssEnvFunction({
-      importFrom: [
-        {
-          environmentVariables: {
-            '--ecl-system': getSystem(),
-          },
-        },
-      ],
-    })
-  );
 
   if (process.env.NODE_ENV === 'production') {
     if (options.banner) {

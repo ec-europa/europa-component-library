@@ -2,7 +2,11 @@ const getSystem = () => {
   let system = null;
 
   // The following sources are ordered by priority.
-  if (window && window.location && window.location.pathname) {
+  if (
+    typeof window !== 'undefined' && // important for node/browser compatibility
+    window.location &&
+    window.location.pathname
+  ) {
     system = window.location.pathname
       .split('/')
       .find((part) => part === 'ec' || part === 'eu');

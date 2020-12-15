@@ -21,20 +21,20 @@ describe('ECL Builder', () => {
 
     it('should use the specified list of plugins in development', () => {
       const plugins = getPlugins();
-      expect(plugins.length).toBe(2);
+      expect(plugins.length).toBe(1);
       expect(JSON.stringify(plugins, reviver)).toEqual(
-        '[{"postcssPlugin":"autoprefixer","prepare":"preparefn()","info":"infofn()","options":{"grid":"no-autoplace"}},"closure()"]'
+        '[{"postcssPlugin":"autoprefixer","prepare":"preparefn()","info":"infofn()","options":{"grid":"no-autoplace"}}]'
       );
     });
 
     it('should use the specified list of plugins in production', () => {
       process.env.NODE_ENV = 'production';
       const plugins = getPlugins({ banner: 'build label' });
-      expect(plugins.length).toBe(4);
-      expect(plugins[2].toString().includes('andBanner')).toBe(true);
+      expect(plugins.length).toBe(3);
+      expect(plugins[1].toString().includes('andBanner')).toBe(true);
 
       expect(JSON.stringify(plugins, reviver)).toEqual(
-        '[{"postcssPlugin":"autoprefixer","prepare":"preparefn()","info":"infofn()","options":{"grid":"no-autoplace"}},"closure()","andBannerfn()","closure()"]'
+        '[{"postcssPlugin":"autoprefixer","prepare":"preparefn()","info":"infofn()","options":{"grid":"no-autoplace"}},"andBannerfn()","closure()"]'
       );
     });
   });
