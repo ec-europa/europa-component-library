@@ -1,7 +1,45 @@
 import getSystem from './utils/getSystem';
+import { getPlugins } from './scripts/styles';
+
+// Keeps track of function names for assertions below.
+const reviver = (_, val) => {
+  if (val instanceof Function || typeof val == 'function') {
+    return val.name === '' ? 'closure()' : `${val.name}fn()`;
+  }
+  return val;
+};
 
 describe('ECL Builder', () => {
-  describe('System resolution module', () => {
+  describe('Styles script', () => {
+    afterEach(() => {
+      delete process.env.NODE_ENV;
+    });
+
+    it('should have its plugins system publicly accessible', () => {
+      expect(typeof getPlugins).toBe('function');
+    });
+
+    it('should use the specified list of plugins in development', () => {
+      const plugins = getPlugins();
+      expect(plugins.length).toBe(2);
+      expect(JSON.stringify(plugins, reviver)).toEqual(
+        '[{"postcssPlugin":"autoprefixer","prepare":"preparefn()","info":"infofn()","options":{"grid":"no-autoplace"}},"closure()"]'
+      );
+    });
+
+    it('should use the specified list of plugins in production', () => {
+      process.env.NODE_ENV = 'production';
+      const plugins = getPlugins({ banner: 'build label' });
+      expect(plugins.length).toBe(4);
+      expect(plugins[2].toString().includes('andBanner')).toBe(true);
+
+      expect(JSON.stringify(plugins, reviver)).toEqual(
+        '[{"postcssPlugin":"autoprefixer","prepare":"preparefn()","info":"infofn()","options":{"grid":"no-autoplace"}},"closure()","andBannerfn()","closure()"]'
+      );
+    });
+  });
+
+  describe('System resolution utility', () => {
     let windowSpy;
     beforeEach(() => {
       windowSpy = jest.spyOn(window, 'window', 'get');
