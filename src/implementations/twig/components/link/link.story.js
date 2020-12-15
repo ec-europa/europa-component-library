@@ -59,10 +59,30 @@ const getArgTypes = (data) => {
         options: iconsList,
       },
     },
+    icon_transform: {
+      name: 'icon transform',
+      type: { name: 'select' },
+      description: 'Link icon transform',
+      table: {
+        type: { summary: 'string' },
+        category: 'Icon',
+      },
+      control: {
+        type: 'select',
+        options: [
+          'rotate-90',
+          'rotate-180',
+          'rotate-270',
+          'flip-horizontal',
+          'flip-vertical',
+        ],
+      },
+    },
     icon_position: {
       name: 'icon position',
       type: { name: 'inline-radio' },
       description: 'Icon position inside the link',
+      defaultValue: 'after',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: 'after' },
