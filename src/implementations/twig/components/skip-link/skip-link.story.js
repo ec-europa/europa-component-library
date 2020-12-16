@@ -24,7 +24,7 @@ const getArgTypes = () => {
 
 const btnTabHandler = (state) => {
   if (state) {
-    setTimeout(() => { 
+    setTimeout(() => {
       const skipLinkEl = document.querySelector('.ecl-skip-link');
       skipLinkEl.focus();
     }, 100);
