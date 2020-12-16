@@ -43,7 +43,7 @@ const buildStyles = (entry, dest, options) => {
     file: entry,
     outFile: dest,
     functions: {
-      'getSystem()': () => new sass.types.String(getSystem() || ''),
+      'getsystem()': () => new sass.types.String(getSystem() || ''),
     },
     sourceMap: options.sourceMap === true,
     sourceMapContents: options.sourceMap === true,

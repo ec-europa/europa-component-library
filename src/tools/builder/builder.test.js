@@ -153,7 +153,7 @@ describe('ECL Builder', () => {
       let system = getSystem();
       const options = {
         data: `
-            $system: getSystem();
+            $system: getsystem();
             .system-specific { content: $system; };
         `,
         functions: {
