@@ -10,12 +10,12 @@
   "scripts": {
     "build:copy": "ecl-builder copy",
     "build:scripts": "ecl-builder scripts",
-    "build:styles": "ecl-builder styles",
+    "build:styles": "ECL_SYSTEM=eu ecl-builder styles",
     "build": "rimraf build && run-p build:* -ln",
     "clean": "rimraf build dist",
     "dist": "npm run clean && cross-env NODE_ENV=production run-p build:* -ln",
     "watch:scripts": "chokidar \"../../implementations/vanilla/**/*.js\" \"../**/*.js\" -i \"/node_modules|build|dist|config\\.js/\" -c \"npm run build:scripts\"",
-    "watch:styles": "chokidar \"../../implementations/vanilla/**/*.scss\" \"../../../../themes/**/*.scss\" \"../**/*.scss\" -i \"/node_modules|build|dist/\" -c \"npm run build:styles\"",
+    "watch:styles": "ECL_SYSTEM=eu chokidar \"../../implementations/vanilla/**/*.scss\" \"../../../../themes/**/*.scss\" \"../**/*.scss\" -i \"/node_modules|build|dist/\" -c \"npm run build:styles\"",
     "watch": "npm-run-all --parallel watch:* -ln",
     "prepublish": "npm run dist"
   },
