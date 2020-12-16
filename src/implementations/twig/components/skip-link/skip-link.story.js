@@ -23,14 +23,12 @@ const getArgTypes = () => {
 };
 
 const btnTabHandler = (state) => {
-  if (state) {
-    setTimeout(() => {
-      const skipLinkEl = document.querySelector('.ecl-skip-link');
-      skipLinkEl.focus();
-    }, 100);
+  const skipLinkEl = document.querySelector('.ecl-skip-link');
+  if (state === true) {
+    skipLinkEl.focus();
+  } else {
+    skipLinkEl.blur();
   }
-
-  return false;
 };
 
 export default {
@@ -38,7 +36,9 @@ export default {
 };
 
 export const Default = (args) => {
-  btnTabHandler(args.focus);
+  document.addEventListener('DOMContentLoaded', () => {
+    btnTabHandler(args.focus);
+  });
 
   return skipLink(specs);
 };
