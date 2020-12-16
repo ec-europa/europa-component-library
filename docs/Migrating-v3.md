@@ -116,6 +116,20 @@ Example: `@ecl-twig/ec-component-accordion/ecl-accordion.html.twig` => `@ecl/acc
 
 [ECL Compliance component](https://github.com/ec-europa/ecl-twig/tree/master/src/ec/packages/ec-component-ecl-compliance) has been removed.
 
+## Presets / themes
+
+A new concept of "theme" has been introduced, which complete the presets used in ECL 2. Presets are still used under the hook (one for each theme), but what is exposed to end users is now the following:
+
+- ec-core: contains everything related to EC sites
+- eu-core: contains everything related to EU sites
+
+Some of the old v2 presets have been removed or modified:
+| Modified presets | Status |
+| - | - |
+| ec-preset-full | preset removed (not used anymore) |
+| ec-preset-legacy | preset removed (no legacy content) |
+| ec-preset-legacy-website | preset removed (no legacy content) |
+
 ## Component implementation specifics
 
 Most of the components have been updated without much changes. Although, there are a few exceptions, which may result in breaking changes
