@@ -116,7 +116,7 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('m') {
+@include breakpoints.up('l') {
   .ecl-footer-core__section {
     margin-top: map.get(theme.$spacing, 'xl');
   }
@@ -160,7 +160,7 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('m') {
+@include breakpoints.up('l') {
   /* Grid layout */
   .ecl-footer-core__container {
     column-gap: $_column-gap;
