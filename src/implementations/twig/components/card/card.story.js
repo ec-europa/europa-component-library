@@ -12,7 +12,6 @@ import notes from './README.md';
 const getArgTypes = (data) => {
   const argTypes = {};
   argTypes.title = {
-    name: 'title',
     type: { name: 'string', required: true },
     defaultValue: data.card.title.label,
     description: 'The card title',
@@ -23,8 +22,7 @@ const getArgTypes = (data) => {
     },
   };
   argTypes.description = {
-    name: 'description',
-    type: { name: 'string' },
+    type: 'string',
     defaultValue: data.card.description,
     description: 'The card description',
     table: {
@@ -41,15 +39,14 @@ const getArgTypes = (data) => {
       description: 'The card meta',
       table: {
         type: { summary: 'array' },
-        defaultValue: { summary: [] },
+        defaultValue: { summary: '[]' },
         category: 'Content',
       },
     };
   }
   if (data.card.image) {
     argTypes.image = {
-      name: 'image',
-      type: { name: 'string' },
+      type: 'string',
       defaultValue: data.card.image.src,
       description: 'The url of the card image',
       table: {
@@ -63,12 +60,14 @@ const getArgTypes = (data) => {
     const infos = data.card.infos.map(({ label }) => label);
     argTypes.infos = {
       name: 'infos (comma separated)',
-      type: { name: 'array' },
+      type: 'array',
       defaultValue: infos,
       description: 'Additional elements like a location or a date',
       table: {
-        type: { summary: 'array' },
-        defaultValue: { summary: [] },
+        type: {
+          summary: 'array of objects [{ label: "", path: "", icon: {} }]',
+        },
+        defaultValue: { summary: '[]' },
         category: 'Card footer',
       },
     };
@@ -77,11 +76,12 @@ const getArgTypes = (data) => {
     const tags = data.card.tags.map(({ label }) => label);
     argTypes.tags = {
       name: 'tags (comma separated)',
+      type: 'array',
       defaultValue: tags,
       description: 'Tags to be placed at the bottom of the card.',
       table: {
-        type: { summary: 'array' },
-        defaultValue: { summary: [] },
+        type: { summary: 'array of objects [{ label: "", path: "" }]' },
+        defaultValue: { summary: '[]' },
         category: 'Card footer',
       },
     };
@@ -90,12 +90,14 @@ const getArgTypes = (data) => {
     const links = data.card.links.map(({ label }) => label);
     argTypes.links = {
       name: 'links (comma separated)',
-      type: { name: 'array' },
+      type: 'array',
       defaultValue: links,
       description: 'Links to be placed at the bottom of the card.',
       table: {
-        type: { summary: 'array' },
-        defaultValue: { summary: [] },
+        type: {
+          summary: 'array of objects [{ label: "", path: "", type: "" }]',
+        },
+        defaultValue: { summary: '[]' },
         category: 'Card footer',
       },
     };
