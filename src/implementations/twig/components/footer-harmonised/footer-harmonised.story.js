@@ -8,6 +8,7 @@ import logoEC from '@ecl/resources-ec-logo/logo--en.svg';
 import dataGroup1 from '@ecl/specs-component-footer-harmonised/demo/data--group1';
 import dataGroup2 from '@ecl/specs-component-footer-harmonised/demo/data--group2';
 import dataGroup3 from '@ecl/specs-component-footer-harmonised/demo/data--group3';
+import he from 'he';
 import footerHarmonised from './footer-harmonised.html.twig';
 import notes from './README.md';
 
@@ -144,10 +145,8 @@ const prepareFooterHarmonisedG1 = (data) => {
         };
       }
       if (section.description) {
-        section.description = text(
-          `sections[${i}].description`,
-          section.description,
-          label
+        section.description = he.decode(
+          text(`sections[${i}].description`, section.description, label)
         );
       }
       if (section.content_before) {
