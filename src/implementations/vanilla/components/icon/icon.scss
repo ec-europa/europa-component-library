@@ -5,10 +5,13 @@
 
 @use "sass:map";
 @use '@ecl/theme-dev/theme';
+// $system: getSystem();
 
 .ecl-icon {
+  // content: 'system:' + $system;
   fill: currentColor;
   margin: 0;
+  padding: 17px;
   transform: scaleX(1) scaleY(1) rotateZ(0deg);
   transition: transform 300ms ease-in-out;
 }

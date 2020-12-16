@@ -6,12 +6,17 @@
 @use "sass:map";
 @use '@ecl/theme-dev/theme';
 
+$system: getsystem();
 $_link-color: map.get(theme.$color, 'blue');
+@if $system == 'eu' {
+  $_link-color: map.get(theme.$color, 'red');
+}
 $_link-color-hover: map.get(theme.$color, 'black');
 $_link-color-focus: map.get(theme.$color, 'yellow');
 
 .ecl-link {
   color: $_link-color;
+  content: 'system:' + $system;
   margin: 0;
   text-decoration: underline;
 
