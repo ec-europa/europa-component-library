@@ -9,13 +9,13 @@ import notes from './README.md';
 
 const getArgTypes = (data) => {
   const argTypes = {};
-  const ordinalNum = ['First', 'Second', 'Third', 'Fourth'];
+  const ordinalNum = ['first', 'second', 'third', 'fourth'];
   data.links.forEach((item, i) => {
     argTypes[`heading${i + 1}`] = {
-      name: `heading ${i + 1}`,
+      name: `${ordinalNum[i]} element label`,
       type: { name: 'string', required: true },
       defaultValue: item.label,
-      description: `${ordinalNum[i]} element label`,
+      description: `The heading label for the ${ordinalNum[i]} element`,
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
@@ -28,10 +28,11 @@ const getArgTypes = (data) => {
   });
 
   argTypes.blockLeft = {
-    name: 'left sidebar block',
+    name: 'inject a test content block in the left sidebar',
     type: { name: 'boolean' },
     defaultValue: false,
-    description: 'Inject a test content block in the left sidebar',
+    description:
+      'Inpage navigation recalculates the position of the linked content when something gets added in the dom.',
     table: {
       category: 'Test content',
     },
@@ -40,10 +41,11 @@ const getArgTypes = (data) => {
     },
   };
   argTypes.blockMain = {
-    name: 'main content block',
+    name: 'inject a test content block in the main column',
     type: { name: 'boolean' },
     defaultValue: false,
-    description: 'Inject a test content block in the main column',
+    description:
+      'Inpage navigation recalculates the position of the linked content when something gets added in the dom.',
     table: {
       category: 'Test content',
     },
