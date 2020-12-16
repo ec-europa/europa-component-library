@@ -75,7 +75,7 @@ const prepareData = (data, args) => {
   return data;
 };
 
-// Prepare data for the main content.
+// Prepare Html for the main content.
 const prepareHtmlContent = (data, args) => {
   let html = '';
   const lorem = loremIpsum({ count: 25 });
