@@ -157,7 +157,7 @@ describe('ECL Builder', () => {
             .system-specific { content: $system; };
         `,
         functions: {
-          'getSystem()': () => new sass.types.String(system || ''),
+          'getsystem()': () => new sass.types.String(system || ''),
         },
       };
 
