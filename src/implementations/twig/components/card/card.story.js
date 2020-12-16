@@ -1,15 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
-import {
-  withKnobs,
-  text,
-  array,
-  select,
-  optionsKnob,
-} from '@storybook/addon-knobs';
 import withCode from '@ecl/storybook-addon-code';
-import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
 
-import generalIcons from '@ecl/resources-ec-icons/dist/lists/general.json';
 import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import dataCard from '@ecl/specs-component-card/demo/data--card';
 import dataCardEvent from '@ecl/specs-component-card/demo/data--card-event';
@@ -18,123 +9,185 @@ import dataCardTile from '@ecl/specs-component-card/demo/data--tile';
 import card from './card.html.twig';
 import notes from './README.md';
 
-const iconsList = [];
-generalIcons.forEach((icon) => {
-  iconsList.push(icon);
-});
-
-const prepareCard = (data) => {
-  data.card.title.label = text(
-    'card.title.label',
-    data.card.title.label,
-    tabLabels.required
-  );
-
-  if (data.card.title.type) {
-    data.card.title.type = text(
-      'card.title.type',
-      data.card.title.type,
-      tabLabels.optional
-    );
-  }
-  data.card.description = text(
-    'card.description',
-    data.card.description,
-    tabLabels.optional
-  );
-  data.card.meta = array('card.meta', data.card.meta, '|', tabLabels.optional);
-  if (data.card.tags) {
-    data.card.tags.forEach((tag, i) => {
-      tag.label = text(`card.tags[${i}].label`, tag.label, tabLabels.optional);
-    });
-  }
-  data.icon_path = optionsKnob(
-    'icon_path',
-    { current: defaultSprite, 'no path': '' },
-    defaultSprite,
-    { display: 'inline-radio' },
-    tabLabels.optional
-  );
-  if (data.card.infos) {
-    data.card.infos.forEach((info, i) => {
-      info.label = text(
-        `card.infos[${i}].label`,
-        info.label,
-        tabLabels.optional
-      );
-      info.icon.path = optionsKnob(
-        `infos[${i}].icon.path (not needed if icon_path is set)`,
-        { current: defaultSprite, 'no path': '' },
-        defaultSprite,
-        { display: 'inline-radio' },
-        tabLabels.optional
-      );
-      if (data.card.infos[i].icon.path || data.icon_path) {
-        info.icon.name = select(
-          `infos[${i}].icon.name`,
-          [...iconsList],
-          info.icon.name,
-          tabLabels.optional
-        );
-        info.icon.type = select(
-          `infos[${i}].icon.type`,
-          [info.icon.type],
-          info.icon.type,
-          tabLabels.optional
-        );
-        info.icon.size = select(
-          `infos[${i}].icon.size (the size will not change, this is for demoing that)`,
-          ['xl', 'm', 's', 'xs', '2xs'],
-          info.icon.size,
-          tabLabels.optional
-        );
-      }
-    });
-  }
-  if (data.card.links) {
-    data.card.links.forEach((link, i) => {
-      link.label = text(
-        `card.links[${i}].label`,
-        link.label,
-        tabLabels.optional
-      );
-    });
+const getArgTypes = (data) => {
+  const argTypes = {};
+  argTypes.title = {
+    name: 'title',
+    type: { name: 'string', required: true },
+    defaultValue: data.card.title.label,
+    description: 'The card title',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+  };
+  argTypes.description = {
+    name: 'description',
+    type: { name: 'string' },
+    defaultValue: data.card.description,
+    description: 'The card description',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+  };
+  if (data.card.meta) {
+    argTypes.meta = {
+      name: 'meta (comma separated)',
+      type: { name: 'array' },
+      defaultValue: data.card.meta,
+      description: 'The card meta',
+      table: {
+        type: { summary: 'array' },
+        defaultValue: { summary: [] },
+        category: 'Content',
+      },
+    };
   }
   if (data.card.image) {
-    data.card.image.alt = text(
-      'card.image.alt',
-      data.card.image.alt,
-      tabLabels.optional
-    );
-    data.card.image.src = text(
-      'card.image.src',
-      data.card.image.src,
-      tabLabels.optional
-    );
+    argTypes.image = {
+      name: 'image',
+      type: { name: 'string' },
+      defaultValue: data.card.image.src,
+      description: 'The url of the card image',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+    };
+  }
+  if (data.card.infos) {
+    const infos = data.card.infos.map(({ label }) => label);
+    argTypes.infos = {
+      name: 'infos (comma separated)',
+      type: { name: 'array' },
+      defaultValue: infos,
+      description: 'Additional elements like a location or a date',
+      table: {
+        type: { summary: 'array' },
+        defaultValue: { summary: [] },
+        category: 'Card footer',
+      },
+    };
+  }
+  if (data.card.tags) {
+    const tags = data.card.tags.map(({ label }) => label);
+    argTypes.tags = {
+      name: 'tags (comma separated)',
+      defaultValue: tags,
+      description: 'Tags to be placed at the bottom of the card.',
+      table: {
+        type: { summary: 'array' },
+        defaultValue: { summary: [] },
+        category: 'Card footer',
+      },
+    };
+  }
+  if (data.card.links) {
+    const links = data.card.links.map(({ label }) => label);
+    argTypes.links = {
+      name: 'links (comma separated)',
+      type: { name: 'array' },
+      defaultValue: links,
+      description: 'Links to be placed at the bottom of the card.',
+      table: {
+        type: { summary: 'array' },
+        defaultValue: { summary: [] },
+        category: 'Card footer',
+      },
+    };
   }
 
-  getExtraKnobs(data);
+  return argTypes;
+};
 
-  // Return the full data
+const prepareData = (data, args) => {
+  data.card.title.label = args.title;
+  if (data.card.image) {
+    data.card.image.src = args.image;
+  }
+  if (data.card.meta) {
+    data.card.meta = args.meta;
+  }
+  if (data.card.infos) {
+    data.card.infos = [];
+    if (args.infos[0]) {
+      args.infos.forEach((info, i) => {
+        const addInfo = {
+          label: info,
+          icon: {
+            path: defaultSprite,
+            type: 'general',
+            size: 'xs',
+          },
+        };
+        if (i === 0) {
+          addInfo.icon.name = 'calendar';
+        } else if (i === 1) {
+          addInfo.icon.name = 'location';
+        } else {
+          addInfo.icon.name = 'faq';
+        }
+        data.card.infos.push(addInfo);
+      });
+    }
+  }
+  if (data.card.links) {
+    data.card.links = [];
+    if (args.links[0]) {
+      args.links.forEach((link) => {
+        const addLink = {
+          label: link,
+          path: '/example',
+          type: 'standalone',
+        };
+        data.card.links.push(addLink);
+      });
+    }
+  }
+  if (data.card.tags) {
+    data.card.tags = [];
+    if (args.tags[0]) {
+      args.tags.forEach((tag) => {
+        const addTag = {
+          label: tag,
+          path: '/example',
+        };
+        data.card.tags.push(addTag);
+      });
+    }
+  }
+
   return data;
 };
 
 export default {
   title: 'Components/Card',
-  decorators: [withCode, withNotes, withKnobs],
+  decorators: [withCode, withNotes],
+  parameters: {
+    knobs: {
+      disable: true,
+    },
+  },
 };
 
-export const Card = () => card(prepareCard(dataCard));
+export const Card = (args) => card(prepareData(dataCard, args));
 
 Card.storyName = 'card';
+Card.argTypes = getArgTypes(dataCard);
 Card.parameters = { notes: { markdown: notes, json: dataCard } };
 
-export const Tile = () => card(prepareCard(dataCardTile));
+export const Tile = (args) => card(prepareData(dataCardTile, args));
 
 Tile.storyName = 'tile';
+Tile.argTypes = getArgTypes(dataCardTile);
 Tile.parameters = { notes: { markdown: notes, json: dataCardTile } };
 
-export const Event = () => card(prepareCard(dataCardEvent));
+export const Event = (args) => card(prepareData(dataCardEvent, args));
 
 Event.storyName = 'event';
+Event.argTypes = getArgTypes(dataCardEvent);
 Event.parameters = { notes: { markdown: notes, json: dataCardEvent } };
