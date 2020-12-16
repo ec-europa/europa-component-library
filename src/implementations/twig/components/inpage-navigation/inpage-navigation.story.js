@@ -66,7 +66,7 @@ const blockHandler = (region, state) => {
 };
 
 // Prepare data for the navigation.
-const prepareNavData = (data, args) => {
+const prepareData = (data, args) => {
   data.icon_path = defaultSprite;
   data.links.forEach((item, i) => {
     item.label = args[`heading${i + 1}`];
@@ -76,7 +76,7 @@ const prepareNavData = (data, args) => {
 };
 
 // Prepare data for the main content.
-const prepareContentData = (data, args) => {
+const prepareHtmlContent = (data, args) => {
   let html = '';
   const lorem = loremIpsum({ count: 25 });
 
@@ -102,8 +102,8 @@ export default {
 };
 
 export const Default = (args) => {
-  const navHtml = inpageNavigation(prepareNavData(demoData, args));
-  const contentHtml = prepareContentData(demoData, args);
+  const navHtml = inpageNavigation(prepareData(demoData, args));
+  const contentHtml = prepareHtmlContent(demoData, args);
   const leftBlock = blockHandler('Sidebar', args.blockLeft);
   const mainBlock = blockHandler('Main', args.blockMain);
   const demo = `<div class="ecl-container">
