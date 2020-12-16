@@ -9,12 +9,13 @@ import notes from './README.md';
 
 const getArgTypes = (data) => {
   const argTypes = {};
+  const ordinalNum = ['First', 'Second', 'Third', 'Fourth'];
   data.links.forEach((item, i) => {
     argTypes[`heading${i + 1}`] = {
       name: `heading ${i + 1}`,
       type: { name: 'string', required: true },
       defaultValue: item.label,
-      description: `The label for heading  ${i + 1}`,
+      description: `${ordinalNum[i]} element label`,
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
