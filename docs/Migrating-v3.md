@@ -124,7 +124,7 @@ A new concept of "theme" has been introduced, which complete the presets used in
 - eu-core: contains everything related to EU sites
 
 Some of the old v2 presets have been removed or modified:
-| Modified presets | Status |
+| Preset | Modifications |
 | - | - |
 | ec-preset-full | preset removed (not used anymore) |
 | ec-preset-legacy | preset removed (no legacy content) |
