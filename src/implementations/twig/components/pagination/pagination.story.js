@@ -17,7 +17,7 @@ export default {
   decorators: [withNotes, withCode],
   parameters: {
     knobs: { disable: true },
-    controls: { hideNoControlsWarning: true },
+    controls: { disable: true },
   },
 };
 
