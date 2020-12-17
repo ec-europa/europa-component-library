@@ -1,7 +1,7 @@
+const fs = require('fs');
 const path = require('path');
 const { promisify } = require('util');
 const { ncp } = require('ncp');
-const mkdirp = require('mkdirp');
 const globby = require('globby');
 
 const copy = promisify(ncp);
@@ -14,7 +14,7 @@ module.exports = (patterns, from, to) => {
       const input = path.resolve(from, file);
       const dest = path.resolve(to, file);
 
-      await mkdirp(path.dirname(dest));
+      fs.mkdirSync(path.dirname(dest), { recursive: true });
       await copy(input, dest);
     });
   };

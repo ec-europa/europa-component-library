@@ -151,13 +151,6 @@ module.exports = {
             path: '/example',
             aria_label:
               'Link to Follow the European Commission on social media',
-            icon_position: 'after',
-          },
-          icon: {
-            path: '/icons.svg',
-            type: 'ui',
-            name: 'external',
-            size: 'xs',
           },
         },
         {
