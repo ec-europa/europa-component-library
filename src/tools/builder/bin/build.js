@@ -4,7 +4,7 @@ const path = require('path');
 const program = require('commander');
 const browserslist = require('browserslist');
 const buildScript = require('../scripts/scripts');
-const buildStyles = require('../scripts/styles');
+const { buildStyles } = require('../scripts/styles');
 const copyFiles = require('../scripts/copy');
 const pkg = require('../package.json');
 
