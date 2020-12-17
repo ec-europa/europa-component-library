@@ -118,7 +118,7 @@ Example: `@ecl-twig/ec-component-accordion/ecl-accordion.html.twig` => `@ecl/acc
 
 ## Presets / themes
 
-A new concept of "theme" has been introduced, which complete the presets used in ECL 2. Presets are still used under the hook (one for each theme), but what is exposed to end users is now the following:
+A theme layer has been introduced in ECL v3. It sits on top of the components layer and transforms variables into values targeting specific use cases called presets. Presets are ready-made ECL releases serving for different purposes and target audiences. The following presets are available:
 
 - ec-core: contains everything related to EC sites
 - eu-core: contains everything related to EU sites
