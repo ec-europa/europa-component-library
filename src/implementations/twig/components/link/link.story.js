@@ -97,7 +97,6 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
-  correctSvgPath(data);
   data.link.label = args.label;
   data.link.icon_position = args.icon_position;
   if (args.icon_name) {
@@ -106,7 +105,9 @@ const prepareData = (data, args) => {
     data.icon.type = 'ui';
     data.icon.transform = args.icon_transform;
     data.icon.size = 'fluid';
+    data.icon.path = 'icon.svg';
   }
+  correctSvgPath(data);
 
   return data;
 };

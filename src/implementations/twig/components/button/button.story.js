@@ -100,7 +100,6 @@ const getArgTypes = () => {
 };
 
 const prepareData = (data, args) => {
-  correctSvgPath(data);
   data.label = args.label;
   data.disabled = args.disabled;
   if (args.icon_name != null) {
@@ -108,11 +107,13 @@ const prepareData = (data, args) => {
     data.icon.name = args.icon_name;
     data.icon.type = 'ui';
     data.icon.size = 'xs';
+    data.icon.path = 'icon.svg';
     data.icon.transform = args.icon_transform;
     data.icon_position = args.icon_position;
   } else if (args.icon_name == null && data.icon) {
     delete data.icon;
   }
+  correctSvgPath(data);
 
   return data;
 };
