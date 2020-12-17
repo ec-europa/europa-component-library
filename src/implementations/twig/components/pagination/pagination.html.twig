@@ -56,6 +56,7 @@
           {% endif %}
           {% include '@ecl/link/link.html.twig' with _item.link|merge({
             link: _link|default({}),
+            icon: _link.icon|default({}),
             extra_classes: "ecl-pagination__link",
           }) only %}
         {% else %}
