@@ -1,5 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
+import { correctSvgPath } from '@ecl/story-utils';
 
 // Import data for demos
 import uiIcons from '@ecl/resources-ec-icons/dist/lists/ui.json';
@@ -9,7 +10,6 @@ import dataCall from '@ecl/specs-component-button/demo/data--call';
 import dataGhost from '@ecl/specs-component-button/demo/data--ghost';
 import dataSearch from '@ecl/specs-component-button/demo/data--search';
 
-import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import button from './button.html.twig';
 import notes from './README.md';
 
@@ -107,12 +107,13 @@ const prepareData = (data, args) => {
     data.icon.name = args.icon_name;
     data.icon.type = 'ui';
     data.icon.size = 'xs';
+    data.icon.path = 'icon.svg';
     data.icon.transform = args.icon_transform;
-    data.icon.path = defaultSprite;
     data.icon_position = args.icon_position;
   } else if (args.icon_name == null && data.icon) {
     delete data.icon;
   }
+  correctSvgPath(data);
 
   return data;
 };

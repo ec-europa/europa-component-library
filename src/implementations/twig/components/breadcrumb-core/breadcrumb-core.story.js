@@ -1,7 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
+import { correctSvgPath } from '@ecl/story-utils';
 
-import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import dataSimple from '@ecl/specs-component-breadcrumb/demo/data--simple';
 import dataLong from '@ecl/specs-component-breadcrumb/demo/data';
 
@@ -31,10 +31,10 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
+  correctSvgPath(data);
   data.links.forEach((item, i) => {
     item.label = args[`item${i + 1}`];
   });
-  data.icon_file_path = defaultSprite;
 
   return data;
 };
