@@ -26,18 +26,7 @@ const getArgTypes = (data) => {
 
 const prepareData = (data, args) => {
   data.icon_path = defaultSprite;
-  data.label = args.label;
-  data.autoinit = args.autoinit;
-  data.helper_text = args.helper_text;
-  data.invalid_text = args.invalid_text;
-  data.required_text = args.required_text;
-  data.optional_text = args.optional_text;
-  data.invalid_text = args.invalid_text;
-  data.required = args.required;
-  data.invalid = args.invalid;
-  data.disabled = args.disabled;
-
-  return data;
+  return Object.assign(data, args);
 };
 
 export default {
