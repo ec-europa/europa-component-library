@@ -129,6 +129,9 @@ Some of the old v2 presets have been removed or modified:
 | ec-preset-full | preset removed (not used anymore) |
 | ec-preset-legacy | preset removed (no legacy content) |
 | ec-preset-legacy-website | preset removed (no legacy content) |
+| eu-preset-full | preset removed (not used anymore) |
+| eu-preset-legacy | preset removed (no legacy content) |
+| eu-preset-legacy-website | preset removed (no legacy content) |
 
 ## Component implementation specifics
 
