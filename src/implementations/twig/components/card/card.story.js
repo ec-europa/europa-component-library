@@ -9,6 +9,10 @@ import dataCardTile from '@ecl/specs-component-card/demo/data--tile';
 import card from './card.html.twig';
 import notes from './README.md';
 
+const infosClone = { ...dataCard.card.infos };
+const linkClone = { ...dataCardTile.card.links[0] };
+const tagClone = { ...dataCard.card.tags[0] };
+
 const getArgTypes = (data) => {
   const argTypes = {};
   argTypes.title = {
@@ -33,10 +37,10 @@ const getArgTypes = (data) => {
   };
   if (data.card.meta) {
     argTypes.meta = {
-      name: 'meta (comma separated)',
+      name: 'meta',
       type: { name: 'array' },
       defaultValue: data.card.meta,
-      description: 'The card meta',
+      description: 'The card meta (comma separated)',
       table: {
         type: { summary: 'array' },
         defaultValue: { summary: '[]' },
@@ -59,13 +63,14 @@ const getArgTypes = (data) => {
   if (data.card.infos) {
     const infos = data.card.infos.map(({ label }) => label);
     argTypes.infos = {
-      name: 'infos (comma separated)',
+      name: 'infos',
       type: 'array',
       defaultValue: infos,
-      description: 'Additional elements like a location or a date',
+      description:
+        'Additional elements like a location or a date. (comma separated)',
       table: {
         type: {
-          summary: 'array of objects [{ label: "", path: "", icon: {} }]',
+          summary: 'array of objects',
         },
         defaultValue: { summary: '[]' },
         category: 'Card footer',
@@ -78,9 +83,10 @@ const getArgTypes = (data) => {
       name: 'tags (comma separated)',
       type: 'array',
       defaultValue: tags,
-      description: 'Tags to be placed at the bottom of the card.',
+      description:
+        'Tags to be placed at the bottom of the card. (comma separated)',
       table: {
-        type: { summary: 'array of objects [{ label: "", path: "" }]' },
+        type: { summary: 'array of objects' },
         defaultValue: { summary: '[]' },
         category: 'Card footer',
       },
@@ -89,13 +95,14 @@ const getArgTypes = (data) => {
   if (data.card.links) {
     const links = data.card.links.map(({ label }) => label);
     argTypes.links = {
-      name: 'links (comma separated)',
+      name: 'links',
       type: 'array',
       defaultValue: links,
-      description: 'Links to be placed at the bottom of the card.',
+      description:
+        'Links to be placed at the bottom of the card. (comma separated)',
       table: {
         type: {
-          summary: 'array of objects [{ label: "", path: "", type: "" }]',
+          summary: 'array of objects',
         },
         defaultValue: { summary: '[]' },
         category: 'Card footer',
@@ -121,18 +128,11 @@ const prepareData = (data, args) => {
         const addInfo = {
           label: info,
           icon: {
+            ...infosClone[0].icon,
             path: defaultSprite,
-            type: 'general',
-            size: 'xs',
+            name: infosClone[i] ? infosClone[i].icon.name : 'faq',
           },
         };
-        if (i === 0) {
-          addInfo.icon.name = 'calendar';
-        } else if (i === 1) {
-          addInfo.icon.name = 'location';
-        } else {
-          addInfo.icon.name = 'faq';
-        }
         data.card.infos.push(addInfo);
       });
     }
@@ -141,12 +141,7 @@ const prepareData = (data, args) => {
     data.card.links = [];
     if (args.links[0]) {
       args.links.forEach((link) => {
-        const addLink = {
-          label: link,
-          path: '/example',
-          type: 'standalone',
-        };
-        data.card.links.push(addLink);
+        data.card.links.push({ ...linkClone, label: link });
       });
     }
   }
@@ -154,11 +149,7 @@ const prepareData = (data, args) => {
     data.card.tags = [];
     if (args.tags[0]) {
       args.tags.forEach((tag) => {
-        const addTag = {
-          label: tag,
-          path: '/example',
-        };
-        data.card.tags.push(addTag);
+        data.card.tags.push({ ...tagClone, label: tag });
       });
     }
   }
