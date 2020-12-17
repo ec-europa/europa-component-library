@@ -80,7 +80,7 @@ const getArgTypes = (data) => {
   if (data.card.tags) {
     const tags = data.card.tags.map(({ label }) => label);
     argTypes.tags = {
-      name: 'tags (comma separated)',
+      name: 'tags',
       type: 'array',
       defaultValue: tags,
       description:
