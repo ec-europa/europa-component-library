@@ -7,8 +7,7 @@
   "description": "Storybook EC Twig",
   "scripts": {
     "build": "STORYBOOK_SYSTEM=EC build-storybook -c .storybook -o build",
-    "start": "STORYBOOK_SYSTEM=EC start-storybook -p 6006 -s ../../presets/ec-core/dist -c .storybook",
-    "start:watch": "STORYBOOK_SYSTEM=EC start-storybook -p 6006 -s ../../presets/ec-core/build -c .storybook"
+    "start": "STORYBOOK_SYSTEM=EC start-storybook -p 6006 -s ../../presets/ec-core/build -c .storybook --ci"
   },
   "devDependencies": {
     "@babel/core": "7.12.9",
