@@ -1,7 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
+import { correctSvgPath } from '@ecl/story-utils';
 
-import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import enData from '@ecl/specs-component-menu/demo/data--en';
 import frData from '@ecl/specs-component-menu/demo/data--fr';
 import menu from './menu.html.twig';
@@ -27,7 +27,7 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
-  data.icon_path = defaultSprite;
+  correctSvgPath(data);
   data.site_name = args.site_name;
 
   return data;
