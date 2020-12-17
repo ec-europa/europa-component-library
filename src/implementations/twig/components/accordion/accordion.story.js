@@ -1,8 +1,8 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
-import demoData from '@ecl/specs-component-accordion/demo/data';
+import { correctSvgPath } from '@ecl/story-utils';
 
+import demoData from '@ecl/specs-component-accordion/demo/data';
 import accordion from './accordion.html.twig';
 import notes from './README.md';
 
@@ -43,8 +43,8 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
+  correctSvgPath(data);
   data.items.forEach((item, i) => {
-    item.toggle.icon.path = defaultSprite;
     item.toggle.label = args[`toggle${i + 1}`];
     item.content = args[`content${i + 1}`];
   });
