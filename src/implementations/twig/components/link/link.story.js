@@ -1,8 +1,8 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
+import { correctSvgPath } from '@ecl/story-utils';
 
 // Import data for demos
-import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import uiIcons from '@ecl/resources-ec-icons/dist/lists/ui.json';
 import dataDefault from '@ecl/specs-component-link/demo/data--default';
 import dataCta from '@ecl/specs-component-link/demo/data--cta';
@@ -97,6 +97,7 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
+  correctSvgPath(data);
   data.link.label = args.label;
   data.link.icon_position = args.icon_position;
   if (args.icon_name) {
@@ -105,7 +106,6 @@ const prepareData = (data, args) => {
     data.icon.type = 'ui';
     data.icon.transform = args.icon_transform;
     data.icon.size = 'fluid';
-    data.icon.path = defaultSprite;
   }
 
   return data;
