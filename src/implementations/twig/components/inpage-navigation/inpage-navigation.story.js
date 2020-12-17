@@ -1,11 +1,13 @@
 import { loremIpsum } from 'lorem-ipsum';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
+import { correctSvgPath } from '@ecl/story-utils';
 
 import demoData from '@ecl/specs-component-inpage-navigation/demo/data';
 import inpageNavigation from './inpage-navigation.html.twig';
 import notes from './README.md';
+
+const lorem = loremIpsum({ count: 25 });
 
 const getArgTypes = (data) => {
   const argTypes = {};
@@ -65,12 +67,12 @@ const blockHandler = (region, state) => {
             </div>`;
   }
 
-  return false;
+  return '';
 };
 
 // Prepare data for the navigation.
 const prepareData = (data, args) => {
-  data.icon_path = defaultSprite;
+  correctSvgPath(data);
   data.links.forEach((item, i) => {
     item.label = args[`heading${i + 1}`];
   });
@@ -79,20 +81,14 @@ const prepareData = (data, args) => {
 };
 
 // Prepare Html for the main content.
-const prepareHtmlContent = (data, args) => {
-  let html = '';
-  const lorem = loremIpsum({ count: 25 });
-
-  data.links.forEach((item, i) => {
-    const index = i + 1;
-    html += `<h2 class="ecl-u-type-heading-2" id="inline-nav-${index}">${
-      args[`heading${index}`]
-    }</h2>`;
-    html += `<p class="ecl-u-type-paragraph-m">${lorem}</p>`;
-    html += `<p class="ecl-u-type-paragraph-m">${lorem}</p>`;
+const prepareHtmlContent = (data) => {
+  return data.links.map(({ label }, index) => {
+    return `
+    <h2 class="ecl-u-type-heading-2" id="inline-nav-${index}">${label}</h2>
+    <p class="ecl-u-type-paragraph-m">${lorem}</p>
+    <p class="ecl-u-type-paragraph-m">${lorem}</p>
+    `;
   });
-
-  return html;
 };
 
 export default {
@@ -106,17 +102,17 @@ export default {
 
 export const Default = (args) => {
   const navHtml = inpageNavigation(prepareData(demoData, args));
-  const contentHtml = prepareHtmlContent(demoData, args);
+  const contentHtml = prepareHtmlContent(demoData);
   const leftBlock = blockHandler('Sidebar', args.blockLeft);
   const mainBlock = blockHandler('Main', args.blockMain);
   const demo = `<div class="ecl-container">
                   <div class="ecl-row ecl-u-mt-l" data-ecl-inpage-navigation-container>
                     <div class="ecl-col-l-3">
-                      ${leftBlock || ''}
+                      ${leftBlock}
                       ${navHtml}
                     </div>
                     <div class="ecl-col-l-9">
-                      ${mainBlock || ''}
+                      ${mainBlock}
                       ${contentHtml}
                     </div>
                   </div>
