@@ -1,45 +1,58 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
-import { withKnobs, text, boolean, optionsKnob } from '@storybook/addon-knobs';
 import withCode from '@ecl/storybook-addon-code';
-import { getExtraKnobs, tabLabels, getFormKnobs } from '@ecl/story-utils';
+import { getFormControls } from '@ecl/story-utils';
 
 import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import dataDefault from '@ecl/specs-component-datepicker/demo/data';
 import datepicker from './datepicker.html.twig';
 import notes from './README.md';
 
-const prepareDatePicker = (data) => {
-  getFormKnobs(data);
-  data.autoinit = boolean('autoinit', data.autoinit, tabLabels.states);
-  data.default_value = text(
-    'default_value',
-    data.default_value,
-    tabLabels.optional
-  );
-  data.label = text('label', data.label, tabLabels.required);
-  data.icons_path = optionsKnob(
-    'icons_path',
-    { current: defaultSprite, 'no path': '' },
-    defaultSprite,
-    { display: 'inline-radio' },
-    tabLabels.required
-  );
+const getArgs = (data) => {
+  return {
+    ...getFormControls(data),
+    autoinit: {
+      name: 'autoinit',
+      type: 'boolean',
+      defaultValue: data.autoinit,
+      description: 'Initializes the javascript behaviours.',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+        category: 'States',
+      },
+    },
+  };
+};
 
-  data.placeholder = text('placeholder', data.placeholder, tabLabels.required);
-
-  getExtraKnobs(data);
+const prepareData = (data, args) => {
+  data.icon_path = defaultSprite;
+  data.label = args.label;
+  data.autoinit = args.autoinit;
+  data.helper_text = args.helper_text;
+  data.invalid_text = args.invalid_text;
+  data.required_text = args.required_text;
+  data.optional_text = args.optional_text;
+  data.invalid_text = args.invalid_text;
+  data.required = args.required;
+  data.invalid = args.invalid;
+  data.disabled = args.disabled;
 
   return data;
 };
 
 export default {
   title: 'Components/Forms/Datepicker',
+  parameters: {
+    knobs: {
+      disable: true,
+    },
+  },
 };
 
-export const Default = () => {
-  return datepicker(prepareDatePicker(dataDefault));
-};
+export const Default = (args) => datepicker(prepareData(dataDefault, args));
 
 Default.storyName = 'default';
+Default.argTypes = getArgs(dataDefault);
+console.log(dataDefault);
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
-Default.decorators = [withNotes, withCode, withKnobs];
+Default.decorators = [withNotes, withCode];
