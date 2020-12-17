@@ -7,7 +7,7 @@ import dataDefault from '@ecl/specs-component-datepicker/demo/data';
 import datepicker from './datepicker.html.twig';
 import notes from './README.md';
 
-const getArgs = (data) => {
+const getArgTypes = (data) => {
   return {
     ...getFormControls(data),
     autoinit: {
@@ -52,6 +52,6 @@ export default {
 export const Default = (args) => datepicker(prepareData(dataDefault, args));
 
 Default.storyName = 'default';
-Default.argTypes = getArgs(dataDefault);
+Default.argTypes = getArgTypes(dataDefault);
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 Default.decorators = [withNotes, withCode];
