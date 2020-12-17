@@ -7,8 +7,28 @@ import frData from '@ecl/specs-component-menu/demo/data--fr';
 import menu from './menu.html.twig';
 import notes from './README.md';
 
-const prepareData = (data) => {
+const getArgTypes = (data) => {
+  return {
+    site_name: {
+      name: 'site name',
+      type: { name: 'string' },
+      defaultValue: data.site_name,
+      description: 'The name of the site',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+      control: {
+        type: 'text',
+      },
+    },
+  };
+};
+
+const prepareData = (data, args) => {
   data.icon_path = defaultSprite;
+  data.site_name = args.site_name;
 
   return data;
 };
@@ -18,16 +38,17 @@ export default {
   decorators: [withNotes, withCode],
   parameters: {
     knobs: { disable: true },
-    controls: { hideNoControlsWarning: true },
   },
 };
 
-export const Default = () => menu(prepareData(enData));
+export const Default = (args) => menu(prepareData(enData, args));
 
+Default.argTypes = getArgTypes(enData);
 Default.storyName = 'default';
 Default.parameters = { notes: { markdown: notes, json: enData } };
 
 export const Translated = () => menu(prepareData(frData));
 
+Translated.argTypes = getArgTypes(frData);
 Translated.storyName = 'translated';
 Translated.parameters = { notes: { markdown: notes, json: frData } };
