@@ -61,7 +61,9 @@ import { formatBytes } from '@ecl/dom-utils';
 
 The example holds true for `queryAll()`, `queryOne()` as well.
 
-## SCSS implementation specifics
+## SCSS/CSS implementation specifics
+
+### Removed classes
 
 | Removed CSS classes                                                                                                       | Solution                                                                                                                     |
 | ------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
@@ -80,6 +82,20 @@ Please note that not all changes listed above will be breaking changes for your 
 If you have applied any of these CSS classes manually or programatically in your website, then please pay extra attention.
 
 If the CSS classes are used through ECL twig templates, then changes are already resolved.
+
+### SCSS parsing and rendering
+
+This section is relevant for ECL users who use raw resources and compile/bundle assets on their end. If you are not using the ready-made ECL releases from Github or npm and you are not using `ecl-builder` as your bundler, please read the following paragraphs.
+
+ECL v2 and prior versions have been using `node-sass`, whereas ECL v3 uses [dart-sass](https://sass-lang.com/dart-sass). This migration allows for more efficient SCSS development practices while preserving the quality of the bundled CSS.
+
+Here's a list of changes to apply in your project to follow up with ECL v3 SCSS approach:
+
+- Remove [node-sass](https://www.npmjs.com/package/node-sass) package and install [`sass`](https://www.npmjs.com/package/sass).
+- Convert `import` statements to [`use` statements](https://sass-lang.com/documentation/at-rules/use) in order to benefit from a module system protecting against many scope issues.
+- Remove usages of [`import-once()` mixin](https://github.com/ec-europa/europa-component-library/blob/6068cca85e387741556239826792ca27520fcf69/src/systems/ec/implementations/vanilla/packages/ec-base/mixins/_import-once.scss). This utility is not needed any more because of the module system.
+- ECL global variables are no longer available. Values for `$ecl-color-grey-5` are now accessible through a theming layer. In the most generalized way: import the main theme file `@use '@ecl/theme-dev/theme'` and access values through the corresponding map `map.get(theme.$color, 'grey-5')`.
+- Update input options for sass compiler or rendering function. Pass `getsystem()` function from [`functions`](https://sass-lang.com/documentation/js-api#functions) parameter. Some SCSS files in ECL will depend on this function to get system-specific context. `ecl-builder` uses `@ecl/builder/utils/getSystem`.
 
 ## Layout specifics
 
@@ -102,7 +118,7 @@ Example: `@ecl-twig/ec-component-accordion/ecl-accordion.html.twig` => `@ecl/acc
 
 ## Component implementation specifics
 
-Most of the components have been updated without much changes. Altough there are a few exceptions, which may result in breaking changes
+Most of the components have been updated without much changes. Although, there are a few exceptions, which may result in breaking changes
 
 - Footers
   - section ids have been updated to be more consistent (no more jumping from section 3 to section 6 for instance)

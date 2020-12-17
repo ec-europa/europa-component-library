@@ -1,7 +1,8 @@
 /* eslint-disable no-param-reassign, dot-notation */
 import he from 'he';
 import { text, select, boolean, optionsKnob } from '@storybook/addon-knobs';
-import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
+import iconPath from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
+import iconSocialPath from '@ecl/resources-ec-social-icons/dist/sprites/icons-social.svg';
 import brandedIcons from '@ecl/resources-ec-icons/dist/lists/branded.json';
 
 export const tabLabels = {
@@ -181,8 +182,8 @@ export const getIconKnobs = (
   );
   icon.path = optionsKnob(
     `${pref}icon.path`,
-    { current: defaultSprite, 'no path': '' },
-    defaultSprite,
+    { current: iconPath, 'no path': '' },
+    iconPath,
     { display: 'inline-radio' },
     tabLabels.required
   );
@@ -530,6 +531,19 @@ export const getComplianceKnob = (data) => {
     data['_compliance_'],
     tabLabels.checks
   );
+
+  return data;
+};
+
+export const correctSvgPath = (data) => {
+  Object.keys(data).forEach((prop) => {
+    if (typeof data[prop] === 'string' && data[prop].includes('.svg')) {
+      data[prop] = data[prop].includes('social') ? iconSocialPath : iconPath;
+    }
+    if (data[prop] !== null && typeof data[prop] === 'object') {
+      data[prop] = correctSvgPath(data[prop]);
+    }
+  });
 
   return data;
 };

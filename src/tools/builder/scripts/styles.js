@@ -5,16 +5,12 @@ const postcss = require('postcss');
 const cssnano = require('cssnano');
 const autoprefixer = require('autoprefixer');
 const bannerPlugin = require('postcss-banner');
+const getSystem = require('../utils/getSystem');
 
-module.exports = (entry, dest, options) => {
-  const plugins = [autoprefixer({ grid: 'no-autoplace' })];
+const getPlugins = (options) => {
+  const plugins = [];
 
-  let postcssSourceMap = false;
-  if (options.sourceMap === true) {
-    postcssSourceMap = true; // inline
-  } else if (options.sourceMap === 'file') {
-    postcssSourceMap = { inline: false }; // as a file
-  }
+  plugins.push(autoprefixer({ grid: 'no-autoplace' }));
 
   if (process.env.NODE_ENV === 'production') {
     if (options.banner) {
@@ -30,9 +26,25 @@ module.exports = (entry, dest, options) => {
     plugins.push(cssnano({ safe: true }));
   }
 
+  return plugins;
+};
+
+const buildStyles = (entry, dest, options) => {
+  const plugins = getPlugins(options);
+
+  let postcssSourceMap = false;
+  if (options.sourceMap === true) {
+    postcssSourceMap = true; // inline
+  } else if (options.sourceMap === 'file') {
+    postcssSourceMap = { inline: false }; // as a file
+  }
+
   const sassResult = sass.renderSync({
     file: entry,
     outFile: dest,
+    functions: {
+      'getsystem()': () => new sass.types.String(getSystem() || ''),
+    },
     sourceMap: options.sourceMap === true,
     sourceMapContents: options.sourceMap === true,
     sourceMapEmbed: options.sourceMap === true,
@@ -56,4 +68,9 @@ module.exports = (entry, dest, options) => {
         fs.writeFileSync(`${dest}.map`, postcssResult.map);
       }
     });
+};
+
+module.exports = {
+  getPlugins,
+  buildStyles,
 };

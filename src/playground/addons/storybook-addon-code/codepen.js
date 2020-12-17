@@ -1,9 +1,6 @@
-const system = (
-  window.location.pathname
-    .split('/')
-    .find((part) => part === 'ec' || part === 'eu') ||
-  process.env.STORYBOOK_SYSTEM
-).toLowerCase();
+import getSystem from '@ecl/builder/utils/getSystem';
+
+const system = getSystem();
 
 const baseUrl =
   ['ec.europa.eu', 'localhost'].indexOf(window.location.hostname) !== -1
