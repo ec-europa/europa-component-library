@@ -14,7 +14,7 @@
     "build": "run-p build:*",
     "clean": "rimraf build dist",
     "dist": "cross-env NODE_ENV=production run-p build:*",
-    "watch": "cross-env ECL_SYSTEM=ec node scripts/watch.js",
+    "watch": "cross-env ECL_SYSTEM=ec ecl-builder watch",
     "prepublish": "npm run clean && run-p build dist"
   },
   "devDependencies": {

@@ -1,5 +1,6 @@
 const path = require('path');
 const pkg = require('./package.json');
+const rootPkg = require('../../../package.json');
 
 const isProd = process.env.NODE_ENV === 'production';
 const outputFolder = path.resolve(__dirname, isProd ? './dist' : './build');
@@ -12,6 +13,9 @@ const includePaths = [nodeModules];
 const banner = `${pkg.name} - ${
   pkg.version
 } Built on ${new Date().toISOString()}`;
+
+const { apps } = rootPkg;
+const app = apps['storybook-eu'];
 
 module.exports = {
   scripts: [
@@ -59,4 +63,78 @@ module.exports = {
       to: path.resolve(outputFolder, 'images/logo'),
     },
   ],
+  watch: {
+    init: {
+      proxy: `${app.host}:${app.port}`,
+    },
+    handlers: [
+      {
+        pattern: `${path.resolve(__dirname, '..')}/(dev|eu-core)/src/*.scss`,
+        events: [
+          {
+            on: 'change',
+            name: 'dev/eu-core presets scss changes',
+            command: 'npm run build:styles',
+            message: 'New styles ready',
+            reload: '*.css',
+          },
+        ],
+      },
+      {
+        pattern: `${path.resolve(__dirname, '..')}/(dev|eu-core)/src/*.js`,
+        events: [
+          {
+            on: 'change',
+            name: 'dev/eu-core presets javascript changes',
+            command: 'npm run build:scripts',
+            message: 'New scripts ready',
+          },
+        ],
+      },
+      {
+        pattern: `${path.resolve(
+          __dirname,
+          '../..'
+        )}/implementations/vanilla/**/*.scss`,
+        events: [
+          {
+            on: 'change',
+            name: 'vanilla scss changes',
+            command: 'npm run build:styles',
+            message: 'New styles ready',
+            reload: '*.css',
+          },
+        ],
+      },
+      {
+        pattern: `${path.resolve(
+          __dirname,
+          '../..'
+        )}/implementations/vanilla/**/*.js`,
+        events: [
+          {
+            on: 'change',
+            name: 'vanilla javascript changes',
+            command: 'npm run build:scripts',
+            message: 'New scripts ready',
+          },
+        ],
+      },
+      {
+        pattern: `${path.resolve(
+          __dirname,
+          '../..'
+        )}/themes/(dev|eu-core)/**/*.scss`,
+        events: [
+          {
+            on: 'change',
+            name: 'theme scss changes',
+            command: 'npm run build:styles',
+            message: 'New styles ready',
+            reload: '*.css',
+          },
+        ],
+      },
+    ],
+  },
 };
