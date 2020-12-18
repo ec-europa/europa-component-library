@@ -53,7 +53,6 @@
           {% set _icon = {} %}
           {% if _item.link.icon is defined and _item.link.icon is not empty %}
             {% set _icon = _icon_path is not empty ? _item.link.icon|merge({ path: _icon_path }) : _item.link.icon %}
-            {% set _link = _link|merge({ 'icon': _icon }) %}
           {% endif %}
           {% include '@ecl/link/link.html.twig' with _item.link|merge({
             link: _link|default({}),
