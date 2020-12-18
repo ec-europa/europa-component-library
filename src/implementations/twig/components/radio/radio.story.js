@@ -31,6 +31,6 @@ Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 export const Binary = (args) => radioGroup(prepareData(dataBinary, args));
 
 Binary.storyName = 'binary';
-Default.argTypes = getArgTypes(dataBinary);
+Binary.argTypes = getArgTypes(dataBinary);
 Binary.parameters = { notes: { markdown: notes, json: dataBinary } };
 Default.decorators = [withNotes, withCode];
