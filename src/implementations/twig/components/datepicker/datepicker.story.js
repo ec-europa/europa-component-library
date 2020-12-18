@@ -25,7 +25,9 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
-  data.icon_path = defaultSprite;
+  data.icons_path = defaultSprite;
+  data.width = 'm';
+
   return Object.assign(data, args);
 };
 
