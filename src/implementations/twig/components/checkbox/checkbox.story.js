@@ -1,48 +1,29 @@
-import { withKnobs, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
-import {
-  getExtraKnobs,
-  getFormGroupKnobs,
-  tabLabels,
-  getFormItemKnobs,
-} from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
+import { correctSvgPath, getFormControls } from '@ecl/story-utils';
 
-import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import dataDefault from '@ecl/specs-component-checkbox/demo/data--default';
 
 import checkboxGroup from './checkbox-group.html.twig';
 import notes from './README.md';
 
-const prepareCheckbox = (data) => {
-  getFormGroupKnobs(data);
+const getArgTypes = (data) => getFormControls(data, 'group');
 
-  getFormItemKnobs(data, true);
-
-  data.items.forEach((item, i) => {
-    item.icon_path = select(
-      `items[${i}].icon_path`,
-      [defaultSprite],
-      defaultSprite,
-      tabLabels.required
-    );
-  });
-
-  getExtraKnobs(data, true);
-
-  return data;
+const prepareData = (data, args) => {
+  correctSvgPath(data);
+  return Object.assign(data, args);
 };
 
 export default {
   title: 'Components/Forms/Checkbox',
+  parameters: {
+    knobs: { disable: true },
+  },
 };
 
-export const Default = () => {
-  const data = prepareCheckbox(dataDefault);
+export const Default = (args) => checkboxGroup(prepareData(dataDefault, args));
 
-  return checkboxGroup(data);
-};
-
-Default.storName = 'default';
+Default.storyName = 'default';
+Default.argTypes = getArgTypes(dataDefault);
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
-Default.decorators = [withKnobs, withNotes, withCode];
+Default.decorators = [withNotes, withCode];
