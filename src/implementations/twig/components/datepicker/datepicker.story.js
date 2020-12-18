@@ -1,8 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { getFormControls } from '@ecl/story-utils';
+import { getFormControls, correctSvgPath } from '@ecl/story-utils';
 
-import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import dataDefault from '@ecl/specs-component-datepicker/demo/data';
 import datepicker from './datepicker.html.twig';
 import notes from './README.md';
@@ -25,10 +24,7 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
-  data.icons_path = defaultSprite;
-  data.width = 'm';
-
-  return Object.assign(data, args);
+  return Object.assign(correctSvgPath(data), args);
 };
 
 export default {
