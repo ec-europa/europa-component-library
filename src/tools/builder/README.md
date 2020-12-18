@@ -47,3 +47,39 @@ module.exports = {
   ],
 };
 ```
+
+## Watch mode
+
+ECL builder provides a thin wrapper on top of browsersync for facilitating development workflows with the assets mentioned above.
+
+Example configuration:
+
+```javascript
+{
+    init: {
+      proxy: `${app.host}:${app.port}`,
+    },
+    handlers: [
+      {
+        pattern: `./(dev|ec-core)/src/*.scss`,
+        events: [
+          {
+            on: 'change',
+            name: 'dev/ec-core presets scss changes',
+            command: 'npm run build:styles',
+            message: 'New styles ready',
+            reload: '*.css',
+          },
+        ],
+      },
+    ]
+}
+```
+
+The object passed to `init` is merged with the same [method from browsersync](https://browsersync.io/docs/api#api-init). ECL uses the `proxy` option for it's storybook instances, but this could be any other application such as a Drupal website.
+
+`handlers` define a list of event handlers spawning [`.watch()` tasks](https://browsersync.io/docs/api#api-watch).
+
+The value for `on` property matches the [chokidar's events](https://github.com/paulmillr/chokidar#getting-started).
+
+`reload` is optional. It's useful in handlers related to changes in styles (scss/css) which can be injected on the page without full page reload. Changes in all other file types result in browsersync's default behavior: full page reload.
