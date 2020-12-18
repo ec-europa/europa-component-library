@@ -3,7 +3,7 @@ const { exec } = require('child_process');
 const bs = require('browser-sync').create();
 
 bs.watch(
-  `${path.resolve(__dirname, '../..')}/(dev|ec-core)/src/*.scss`,
+  `${path.resolve(__dirname, '../..')}/(dev|eu-core)/src/*.scss`,
   (event) => {
     if (event === 'change') {
       bs.notify('Change in preset scss files, rebuilding styles ...');
@@ -20,7 +20,7 @@ bs.watch(
 );
 
 bs.watch(
-  `${path.resolve(__dirname, '../..')}/(dev|ec-core)/src/*.js`,
+  `${path.resolve(__dirname, '../..')}/(dev|eu-core)/src/*.js`,
   (event) => {
     if (event === 'change') {
       bs.notify('Change in preset javascript files, rebuilding scripts ...');
@@ -71,7 +71,7 @@ bs.watch(
 );
 
 bs.watch(
-  `${path.resolve(__dirname, '../../..')}/themes/(dev|ec-core)/**/*.scss`,
+  `${path.resolve(__dirname, '../../..')}/themes/(dev|eu-core)/**/*.scss`,
   (event) => {
     if (event === 'change') {
       bs.notify('Change in theme scss files, rebuilding styles ...');
@@ -88,6 +88,6 @@ bs.watch(
 );
 
 bs.init({
-  proxy: 'localhost:6006', // ec storybook
+  proxy: 'localhost:6007', // eu storybook
   open: false,
 });

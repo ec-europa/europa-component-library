@@ -14,9 +14,7 @@
     "build": "run-p build:*",
     "clean": "rimraf build dist",
     "dist": "cross-env NODE_ENV=production run-p build:*",
-    "watch:scripts": "chokidar \"../../implementations/vanilla/**/*.js\" \"../**/*.js\" -i \"/node_modules|build|dist|config\\.js/\" -c \"npm run build:scripts\"",
-    "watch:styles": "cross-env ECL_SYSTEM=eu chokidar \"../../implementations/vanilla/**/*.scss\" \"../../../../themes/**/*.scss\" \"../**/*.scss\" -i \"/node_modules|build|dist/\" -c \"npm run build:styles\"",
-    "watch": "run-p watch:*",
+    "watch": "cross-env ECL_SYSTEM=eu node scripts/watch.js",
     "prepublish": "npm run clean && run-p build dist"
   },
   "devDependencies": {
