@@ -5,10 +5,11 @@ import defaultData from '@ecl/specs-component-blockquote/demo/data';
 import blockquote from './blockquote.html.twig';
 import notes from './README.md';
 
-const getArgTypes = () => {
+const getArgTypes = (data) => {
   const argTypes = {};
   argTypes.citation = {
     name: 'citation',
+    defaultValue: data.citation,
     type: { name: 'string', required: true },
     description: 'Blockquote citation',
     table: {
@@ -22,6 +23,7 @@ const getArgTypes = () => {
   };
   argTypes.author = {
     name: 'author',
+    defaultValue: data.author,
     type: { name: 'string', required: true },
     description: 'Author of the citation',
     table: {
@@ -38,25 +40,17 @@ const getArgTypes = () => {
 };
 
 const prepareData = (data, args) => {
-  data.citation = args.citation;
-  data.author = args.author;
-
-  return data;
+  return Object.assign(data, args);
 };
 
 export default {
   title: 'Components/Blockquote',
-  argTypes: getArgTypes(),
   decorators: [withCode, withNotes],
 };
 
 export const Default = (args) => blockquote(prepareData(defaultData, args));
 
-Default.args = {
-  citation: defaultData.citation,
-  author: defaultData.author,
-};
-
+Default.argTypes = getArgTypes(defaultData);
 Default.storyName = 'default';
 Default.parameters = {
   notes: { markdown: notes, json: defaultData },

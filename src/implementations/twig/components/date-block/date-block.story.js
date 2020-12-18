@@ -73,12 +73,7 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
-  data.day = args.day;
-  data.month = args.month;
-  data.month_full = args.month_full;
-  data.year = args.year;
-
-  return data;
+  return Object.assign(data, args);
 };
 
 export default {
