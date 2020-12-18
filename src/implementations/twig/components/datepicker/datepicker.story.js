@@ -8,7 +8,7 @@ import notes from './README.md';
 
 const getArgTypes = (data) => {
   return {
-    ...getFormControls(data),
+    ...getFormControls(data, 'element'),
     autoinit: {
       name: 'autoinit',
       type: 'boolean',

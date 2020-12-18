@@ -525,99 +525,6 @@ export const getLinkKnobs = (data) => {
   return data;
 };
 
-export const getFormControls = (data) => {
-  return {
-    label: {
-      type: { name: 'string', required: true },
-      defaultValue: data.label,
-      description: 'Label of the form element.',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-    },
-    helper_text: {
-      name: 'Helper text',
-      type: 'string',
-      defaultValue: data.helper_text,
-      description: 'Helper text for the form element.',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-    },
-    invalid_text: {
-      name: 'error message',
-      type: 'string',
-      defaultValue: data.invalid_text,
-      description:
-        'Message to be shown in case of an invalid input by the user.',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-    },
-    optional_text: {
-      name: 'optional text',
-      type: 'string',
-      defaultValue: data.optional_text,
-      description: 'Text to be shown when the form element is optional',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-    },
-    required_text: {
-      name: 'required text',
-      type: 'string',
-      defaultValue: data.required_text,
-      description: 'Text to be shown when the form element is mandatory',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '*' },
-        category: 'Content',
-      },
-    },
-    invalid: {
-      name: 'invalid',
-      type: 'boolean',
-      defaultValue: data.invalid,
-      description: 'Marks the form element as invalid.',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-        category: 'States',
-      },
-    },
-    disabled: {
-      name: 'disabled',
-      type: 'boolean',
-      defaultValue: data.disabled,
-      description: 'Disabled form element.',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-        category: 'States',
-      },
-    },
-    required: {
-      name: 'required',
-      type: 'boolean',
-      defaultValue: data.required,
-      description: 'Sets the required attribute on the form element.',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-        category: 'States',
-      },
-    },
-  };
-};
-
 export const correctSvgPath = (data) => {
   Object.keys(data).forEach((prop) => {
     if (typeof data[prop] === 'string' && data[prop].includes('.svg')) {
@@ -644,7 +551,7 @@ export const getFormControls = (data, type) => {
       },
     },
     helper_text: {
-      name: 'Helper text',
+      name: 'helper text',
       type: 'string',
       defaultValue: data.helper_text,
       description: `Helper text for the form ${type}`,
