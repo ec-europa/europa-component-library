@@ -116,6 +116,23 @@ Example: `@ecl-twig/ec-component-accordion/ecl-accordion.html.twig` => `@ecl/acc
 
 [ECL Compliance component](https://github.com/ec-europa/ecl-twig/tree/master/src/ec/packages/ec-component-ecl-compliance) has been removed.
 
+## Presets / themes
+
+A theme layer has been introduced in ECL v3. It sits on top of the components layer and transforms variables into values targeting specific use cases called presets. Presets are ready-made ECL releases serving for different purposes and target audiences. The following presets are available:
+
+- ec-core: contains everything related to EC sites
+- eu-core: contains everything related to EU sites
+
+Some of the old v2 presets have been removed or modified:
+| Preset | Modifications |
+| - | - |
+| ec-preset-full | preset removed (not used anymore) |
+| ec-preset-legacy | preset removed (no legacy content) |
+| ec-preset-legacy-website | preset removed (no legacy content) |
+| eu-preset-full | preset removed (not used anymore) |
+| eu-preset-legacy | preset removed (no legacy content) |
+| eu-preset-legacy-website | preset removed (no legacy content) |
+
 ## Component implementation specifics
 
 Most of the components have been updated without much changes. Although, there are a few exceptions, which may result in breaking changes
