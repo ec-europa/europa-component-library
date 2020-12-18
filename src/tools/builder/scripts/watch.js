@@ -1,4 +1,4 @@
-const { exec } = require('child_process');
+const { spawn } = require('child_process');
 const browsersync = require('browser-sync');
 
 module.exports = (options) => {
@@ -9,7 +9,9 @@ module.exports = (options) => {
       handler.events.forEach((handlerEvent) => {
         if (handlerEvent.on === event) {
           bs.notify(`${event} ${file}`);
-          const subprocess = exec(handlerEvent.command);
+          const args = handlerEvent.command.split(' ');
+          const command = args.shift();
+          const subprocess = spawn(command, args, { stdio: 'inherit' });
           subprocess.on('error', (err) =>
             bs.notify(
               `An error occured in ${handlerEvent.name}: ${err.message}`
