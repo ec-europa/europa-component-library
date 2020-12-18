@@ -24,5 +24,5 @@ module.exports = (options) => {
     });
   });
 
-  bs.init(...{ open: false }, ...options.init);
+  bs.init({ ...{ open: false, ...options.init } });
 };

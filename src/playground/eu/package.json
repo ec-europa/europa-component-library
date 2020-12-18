@@ -7,7 +7,7 @@
   "description": "Storybook EU Twig",
   "scripts": {
     "build": "STORYBOOK_SYSTEM=EU build-storybook -c .storybook -o build",
-    "start": "STORYBOOK_SYSTEM=EU start-storybook -p 6007 -s ../../presets/eu-core/build -c .storybook --ci"
+    "start": "STORYBOOK_SYSTEM=EU node start.js"
   },
   "devDependencies": {
     "@babel/core": "7.12.9",
