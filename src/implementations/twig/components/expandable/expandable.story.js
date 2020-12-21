@@ -1,47 +1,65 @@
-import { withKnobs, text, select, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
-import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
-import he from 'he';
+import { correctSvgPath } from '@ecl/story-utils';
 
-import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import demoData from '@ecl/specs-component-expandable/demo/data';
-
 import expandable from './expandable.html.twig';
 import notes from './README.md';
 
-const prepareExpandable = (data) => {
-  data.id = select('id', [data.id], data.id, tabLabels.required);
-  data.label_expanded = text(
-    'label_expanded',
-    data.label_expanded,
-    tabLabels.required
-  );
-  data.label_collapsed = text(
-    'label_collapsed',
-    data.label_collapsed,
-    tabLabels.required
-  );
-  data.content = he.decode(text('content', data.content, tabLabels.required));
-  data.button.icon.path = optionsKnob(
-    'button.icon.path',
-    { current: defaultSprite, 'no path': '' },
-    defaultSprite,
-    { display: 'inline-radio' },
-    tabLabels.required
-  );
+const getArgTypes = (data) => {
+  return {
+    label_collapsed: {
+      name: 'label of the button',
+      type: { name: 'string', required: true },
+      defaultValue: data.label_collapsed,
+      description: 'Used when the content is hidden',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Button',
+      },
+    },
+    label_expanded: {
+      name: 'label of the button',
+      type: { name: 'string', required: true },
+      defaultValue: data.label_expanded,
+      description: 'Used when the content is visible',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Button',
+      },
+    },
+    content: {
+      type: { name: 'string', required: true },
+      defaultValue: data.content,
+      description:
+        'Hidden initially, can be revealed by clicking on the button',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+    },
+  };
+};
 
-  getExtraKnobs(data);
-
-  return data;
+const prepareData = (data, args) => {
+  return Object.assign(correctSvgPath(data), args);
 };
 
 export default {
   title: 'Components/Expandables',
+  parameters: {
+    knobs: {
+      disable: true,
+    },
+  },
 };
 
-export const Default = () => expandable(prepareExpandable(demoData));
+export const Default = (args) => expandable(prepareData(demoData, args));
 
 Default.storyName = 'default';
+Default.argTypes = getArgTypes(demoData);
 Default.parameters = { notes: { markdown: notes, json: demoData } };
-Default.decorators = [withKnobs, withCode, withNotes];
+Default.decorators = [withCode, withNotes];
