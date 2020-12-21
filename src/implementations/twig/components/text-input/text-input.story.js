@@ -6,8 +6,6 @@ import dataDefault from '@ecl/specs-component-text-input/demo/data--default';
 import textInput from './text-input.html.twig';
 import notes from './README.md';
 
-const dataInput = { ...dataDefault, width: 'm' };
-
 const getArgTypes = (data) => getFormControls(data, 'element');
 
 const prepareData = (data, args) => {
@@ -23,8 +21,8 @@ export default {
   },
 };
 
-export const Default = (args) => textInput(prepareData(dataInput, args));
+export const Default = (args) => textInput(prepareData(dataDefault, args));
 
 Default.storyName = 'default';
-Default.argTypes = getArgTypes(dataInput);
+Default.argTypes = getArgTypes(dataDefault);
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };

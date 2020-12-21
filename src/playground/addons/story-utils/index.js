@@ -638,7 +638,7 @@ export const getFormControls = (data, type) => {
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: data.width },
-        category: 'Styles',
+        category: 'Size',
       },
       control: {
         type: 'select',
