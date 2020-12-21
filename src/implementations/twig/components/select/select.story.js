@@ -2,14 +2,11 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctSvgPath, getFormControls } from '@ecl/story-utils';
 
-import dataDefaultSingle from '@ecl/specs-component-select/demo/data--single';
-import dataDefaultMultiple from '@ecl/specs-component-select/demo/data--multiple';
+import dataSingle from '@ecl/specs-component-select/demo/data--single';
+import dataMultiple from '@ecl/specs-component-select/demo/data--multiple';
 
 import selectBox from './select.html.twig';
 import notes from './README.md';
-
-const dataSingle = { ...dataDefaultSingle, width: 'm' };
-const dataMultiple = { ...dataDefaultMultiple, width: 'm' };
 
 const getArgTypes = (data) => getFormControls(data, 'element');
 

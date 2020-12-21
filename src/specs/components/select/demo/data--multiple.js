@@ -7,6 +7,7 @@ module.exports = {
   optional_text: ' (optional)',
   icon_path: '/icons.svg',
   required: true,
+  width: 'm',
   options: [
     {
       value: '1',
