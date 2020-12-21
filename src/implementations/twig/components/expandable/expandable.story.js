@@ -12,29 +12,29 @@ const getArgTypes = (data) => {
       name: 'label of the button',
       type: { name: 'string', required: true },
       defaultValue: data.label_collapsed,
-      description: 'Used when the content is hidden.',
+      description: 'Used when the content is hidden',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
-        category: 'Content',
+        category: 'Button',
       },
     },
     label_expanded: {
-      name: 'label of the button.',
+      name: 'label of the button',
       type: { name: 'string', required: true },
       defaultValue: data.label_expanded,
-      description: 'Used when the content is visible.',
+      description: 'Used when the content is visible',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
-        category: 'Content',
+        category: 'Button',
       },
     },
     content: {
       type: { name: 'string', required: true },
       defaultValue: data.content,
       description:
-        'Hidden initially, can be revealed by clicking on the button.',
+        'Hidden initially, can be revealed by clicking on the button',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
