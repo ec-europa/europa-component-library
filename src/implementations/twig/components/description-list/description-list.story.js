@@ -10,10 +10,10 @@ import notes from './README.md';
 const getArgTypes = (data) => {
   return {
     term: {
-      name: 'first item term',
+      name: 'term (first item)',
       type: { name: 'string', required: true },
       defaultValue: data.items[0].term,
-      description: 'Test the content for the first item term',
+      description: 'The heading of the description list item',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
@@ -21,10 +21,10 @@ const getArgTypes = (data) => {
       },
     },
     description: {
-      name: 'first item definition',
+      name: 'definition (first item)',
       type: { name: 'string', required: true },
       defaultValue: data.items[0].definition,
-      description: 'Test the content for the first item definition',
+      description: 'The content of the description list item',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
@@ -35,7 +35,9 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
-  return Object.assign(data, args);
+  data.items[0].term = args.term;
+  data.items[0].definition = args.definition;
+  return data;
 };
 
 export default {
@@ -47,19 +49,19 @@ export default {
 };
 
 export const Vertical = (args) =>
-  descriptionList(dataDescriptionListDefault, args);
+  descriptionList(prepareData(dataDescriptionListDefault, args));
 
 Vertical.storyName = 'vertical';
-Vertical.argTypes = getArgTypes(prepareData(dataDescriptionListDefault));
+Vertical.argTypes = getArgTypes(dataDescriptionListDefault);
 Vertical.parameters = {
   notes: { markdown: notes, json: dataDescriptionListDefault },
 };
 
 export const Horizontal = (args) =>
-  descriptionList(dataDescriptionListHorizontal, args);
+  descriptionList(prepareData(dataDescriptionListHorizontal, args));
 
 Horizontal.storyName = 'horizontal';
-Horizontal.argTypes = getArgTypes(prepareData(dataDescriptionListHorizontal));
+Horizontal.argTypes = getArgTypes(dataDescriptionListHorizontal);
 Horizontal.parameters = {
   notes: { markdown: notes, json: dataDescriptionListHorizontal },
 };
