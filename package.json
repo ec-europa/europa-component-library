@@ -21,13 +21,8 @@
     "pretty-check": "prettier --check \"src/**/*.{md,mdx,html,json,yml,js,jsx,scss}\"",
     "publish": "scripts/publish.sh",
     "serve": "cd src/website && npm run serve",
-    "start:ec": "cd src/playground/ec && npm run start",
-    "start:eu": "cd src/playground/eu && npm run start",
-    "start:dev": " lerna --scope \"@ecl/preset-*-core\" run clean && lerna --scope \"@ecl/preset-*-core\" run build && npm run start:watch",
-    "start:watch": "run-p start:watch:*",
-    "start:watch:presets": "lerna --scope \"@ecl/preset-*-core\" run watch",
-    "start:watch:ec:storybook": "cd src/playground/ec/ && npm run start:watch",
-    "start:watch:eu:storybook": "cd src/playground/eu/ && npm run start:watch",
+    "start:ec": "(cd src/presets/ec-core && npm run watch) & cd src/playground/ec && npm run start",
+    "start:eu": "(cd src/presets/eu-core && npm run watch) & cd src/playground/eu && npm run start",
     "start:website": "cd src/website && npm run start",
     "test": "run-p test:*",
     "test:components": "jest --verbose",
@@ -85,8 +80,8 @@
     "semver": ">=4.3.2"
   },
   "engines": {
-    "node": ">=8.15.1",
-    "yarn": "^1.10.1"
+    "node": ">=12.0.0",
+    "yarn": ">=1.0.0"
   },
   "lint-staged": {
     "*.{md,mdx,html,json,yml}": [
@@ -118,5 +113,17 @@
   },
   "jest": {
     "verbose": true
+  },
+  "apps": {
+    "storybook-ec": {
+      "protocol": "http",
+      "port": 6006,
+      "host": "localhost"
+    },
+    "storybook-eu": {
+      "protocol": "http",
+      "port": 6007,
+      "host": "localhost"
+    }
   }
 }

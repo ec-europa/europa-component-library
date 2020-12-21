@@ -6,6 +6,7 @@ const browserslist = require('browserslist');
 const buildScript = require('../scripts/scripts');
 const { buildStyles } = require('../scripts/styles');
 const copyFiles = require('../scripts/copy');
+const watch = require('../scripts/watch');
 const pkg = require('../package.json');
 
 const loadConfig = (configFile) => {
@@ -63,6 +64,16 @@ program
     config.copy.forEach((conf) =>
       copyFiles(conf.patterns || '**', conf.from, conf.to)
     );
+  });
+
+program
+  .command('watch')
+  .description('execute scripts on changes')
+  .action(() => {
+    const config = loadConfig(program.config);
+    if (config.watch) {
+      watch(config.watch);
+    }
   });
 
 // If no arguments provided, display help menu.

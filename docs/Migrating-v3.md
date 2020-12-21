@@ -2,6 +2,10 @@
 
 The following guidelines aim to facilitate migration between ECL v2 to v3.
 
+## System requirements
+
+ECL has always been using the LTS version of Node.js. Please ensure a match before proceeding with the installation of ECL dependencies or ones in ECL Builder.
+
 ## Deprecated components haven't been migrated
 
 The following have been kept in v2 in order to avoid breaking changes, but will no longer be available in v3:
@@ -143,3 +147,5 @@ Most of the components have been updated without much changes. Although, there a
   - twig parameters added for each link, to allow content before and after it
 - Date block
   - css class for variant "cancelled" has been renamed from `.ecl-date-block--canceled` to `.ecl-date-block--cancelled`
+- Link
+  - twig parameter "icon_path" has been removed (not used)
