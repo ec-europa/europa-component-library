@@ -525,16 +525,6 @@ export const getLinkKnobs = (data) => {
   return data;
 };
 
-export const getComplianceKnob = (data) => {
-  data['_compliance_'] = boolean(
-    '_compliance_',
-    data['_compliance_'],
-    tabLabels.checks
-  );
-
-  return data;
-};
-
 export const correctSvgPath = (data) => {
   Object.keys(data).forEach((prop) => {
     if (typeof data[prop] === 'string' && data[prop].includes('.svg')) {
@@ -561,7 +551,7 @@ export const getFormControls = (data, type) => {
       },
     },
     helper_text: {
-      name: 'Helper text',
+      name: 'helper text',
       type: 'string',
       defaultValue: data.helper_text,
       description: `Helper text for the form ${type}`,
