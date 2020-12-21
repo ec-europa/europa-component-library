@@ -75,7 +75,7 @@ Optional.storyName = 'optional';
 Optional.argTypes = getArgTypes(dataOptional);
 Optional.parameters = { notes: { markdown: notes, json: dataOptional } };
 
-export const Multiple = () => fileUpload(prepareData(dataMulti));
+export const Multiple = (args) => fileUpload(prepareData(dataMulti, args));
 
 Multiple.storyName = 'multiple';
 Multiple.argTypes = getArgTypes(dataMulti);
