@@ -7,19 +7,19 @@ module.exports = (options) => {
   options.handlers.forEach((handler) => {
     bs.watch(handler.pattern, (event, file) => {
       handler.events.forEach((handlerEvent) => {
-        if (handlerEvent.on === event) {
+        const { on, name, command, message, reload } = handlerEvent;
+
+        if (on === event) {
           bs.notify(`${event} ${file}`);
-          const args = handlerEvent.command.split(' ');
-          const command = args.shift();
-          const subprocess = spawn(command, args, { stdio: 'inherit' });
-          subprocess.on('error', (err) =>
-            bs.notify(
-              `An error occured in ${handlerEvent.name}: ${err.message}`
-            )
-          );
+          const args = command.split(' ');
+          const cmd = args.shift();
+          const subprocess = spawn(cmd, args, { stdio: 'inherit' });
+          subprocess.on('error', (err) => bs.notify(`${name}: ${err.message}`));
           subprocess.on('exit', () => {
-            bs.notify(handlerEvent.message);
-            bs.reload(handlerEvent.reload);
+            bs.notify(message);
+            if (reload) {
+              bs.reload(reload);
+            }
           });
         }
       });

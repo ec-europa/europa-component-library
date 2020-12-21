@@ -2,6 +2,10 @@
 
 The following guidelines aim to facilitate migration between ECL v2 to v3.
 
+## System requirements
+
+ECL has always been using the LTS version of Node.js. Please ensure a match before proceeding with the installation of ECL dependencies or ones in ECL Builder.
+
 ## Deprecated components haven't been migrated
 
 The following have been kept in v2 in order to avoid breaking changes, but will no longer be available in v3:

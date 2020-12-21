@@ -82,4 +82,4 @@ The object passed to `init` is merged with the same [method from browsersync](ht
 
 The value for `on` property matches the [chokidar's events](https://github.com/paulmillr/chokidar#getting-started).
 
-`reload` is optional. It's useful in handlers related to changes in styles (scss/css) which can be injected on the page without full page reload. Changes in all other file types result in browsersync's default behavior: full page reload.
+`reload` is the same as [browsersync's `reload()`](https://browsersync.io/docs/api#api-reload). It's optional and could be most useful in handlers related to changes in styles (scss/css) which can be injected on the page without full page reload with `reload("*.css")`. In all other cases, passing the function with empty parameters will cause a full page reload.
