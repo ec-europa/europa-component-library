@@ -1,29 +1,30 @@
-import { withKnobs } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
-import { getExtraKnobs, getFormKnobs } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
+import { correctSvgPath, getFormControls } from '@ecl/story-utils';
 
 import dataDefault from '@ecl/specs-component-text-input/demo/data--default';
 import textInput from './text-input.html.twig';
 import notes from './README.md';
 
-const prepareTextInput = (data) => {
-  getFormKnobs(data);
-  getExtraKnobs(data);
+const dataInput = { ...dataDefault, width: 'm' };
 
-  return data;
+const getArgTypes = (data) => getFormControls(data, 'element');
+
+const prepareData = (data, args) => {
+  correctSvgPath(data);
+  return Object.assign(data, args);
 };
 
 export default {
   title: 'Components/Forms/Text field',
+  decorators: [withCode, withNotes],
+  parameters: {
+    knobs: { disable: true },
+  },
 };
 
-export const Default = () => {
-  const data = prepareTextInput(dataDefault);
-
-  return textInput(data);
-};
+export const Default = (args) => textInput(prepareData(dataInput, args));
 
 Default.storyName = 'default';
+Default.argTypes = getArgTypes(dataInput);
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
-Default.decorators = [withKnobs, withNotes, withCode];
