@@ -1,6 +1,4 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
-import { withKnobs, select, text } from '@storybook/addon-knobs';
-import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
 
 import dataDescriptionListDefault from '@ecl/specs-component-description-list/demo/data--default';
@@ -9,64 +7,23 @@ import dataDescriptionListHorizontal from '@ecl/specs-component-description-list
 import descriptionList from './description-list.html.twig';
 import notes from './README.md';
 
-const prepareList = (data) => {
-  if (data.variant) {
-    data.variant = select(
-      'variant',
-      [data.variant],
-      data.variant,
-      tabLabels.required
-    );
-  }
-  data.items.forEach((item, i) => {
-    if (Array.isArray(item.term)) {
-      item.term.forEach((termItem, j) => {
-        data.items[i].term[j] = text(
-          `items[${i}].term[${j}]`,
-          termItem,
-          tabLabels.required
-        );
-      });
-    } else {
-      item.term = text(`items[${i}].term`, item.term, tabLabels.required);
-    }
-    if (Array.isArray(item.definition)) {
-      item.definition.forEach((definitionItem, k) => {
-        data.items[i].definition[k] = text(
-          `items[${i}].definition[${k}]`,
-          definitionItem,
-          tabLabels.required
-        );
-      });
-    } else {
-      item.definition = text(
-        `items[${i}].definition`,
-        item.definition,
-        tabLabels.required
-      );
-    }
-  });
-
-  getExtraKnobs(data);
-
-  return data;
-};
-
 export default {
   title: 'Components/List/Description list',
-  decorators: [withNotes, withCode, withKnobs],
+  decorators: [withNotes, withCode],
+  parameters: {
+    knobs: { disable: true },
+    controls: { disable: true },
+  },
 };
 
-export const Vertical = () =>
-  descriptionList(prepareList(dataDescriptionListDefault));
+export const Vertical = () => descriptionList(dataDescriptionListDefault);
 
 Vertical.storyName = 'vertical';
 Vertical.parameters = {
   notes: { markdown: notes, json: dataDescriptionListDefault },
 };
 
-export const Horizontal = () =>
-  descriptionList(prepareList(dataDescriptionListHorizontal));
+export const Horizontal = () => descriptionList(dataDescriptionListHorizontal);
 
 Horizontal.storyName = 'horizontal';
 Horizontal.parameters = {
