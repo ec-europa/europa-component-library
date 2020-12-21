@@ -22,37 +22,22 @@
   margin: 0;
   padding: 0;
 
-  > *:not(.ecl-form-label--hidden) + * {
+  > *:not(.ecl-u-sr-only) + * {
     margin-top: map.get(theme.$spacing, 'xs');
   }
 
-  > *:not(.ecl-form-label--hidden) + .ecl-checkbox {
+  > *:not(.ecl-u-sr-only) + .ecl-checkbox,
+  > *:not(.ecl-u-sr-only) + .ecl-file-upload,
+  > *:not(.ecl-u-sr-only) + .ecl-file-upload__button-container,
+  > *:not(.ecl-u-sr-only) + .ecl-radio,
+  > *:not(.ecl-u-sr-only) + .ecl-select__container,
+  > *:not(.ecl-u-sr-only) + .ecl-select__multiple,
+  > *:not(.ecl-u-sr-only) + .ecl-text-input,
+  > *:not(.ecl-u-sr-only) + .ecl-text-area {
     margin-top: map.get(theme.$spacing, 's');
   }
 
-  > *:not(.ecl-form-label--hidden) + .ecl-text-input {
-    margin-top: map.get(theme.$spacing, 's');
-  }
-
-  > *:not(.ecl-form-label--hidden) + .ecl-text-area {
-    margin-top: map.get(theme.$spacing, 's');
-  }
-
-  > *:not(.ecl-form-label--hidden) + .ecl-select__container,
-  > *:not(.ecl-form-label--hidden) + .ecl-select__multiple {
-    margin-top: map.get(theme.$spacing, 's');
-  }
-
-  > *:not(.ecl-form-label--hidden) + .ecl-radio {
-    margin-top: map.get(theme.$spacing, 's');
-  }
-
-  > *:not(.ecl-form-label--hidden) + .ecl-file-upload,
-  > *:not(.ecl-form-label--hidden) + .ecl-file-upload__button-container {
-    margin-top: map.get(theme.$spacing, 's');
-  }
-
-  > *:not(.ecl-form-label--hidden) + .ecl-file-upload__list {
+  > *:not(.ecl-u-sr-only) + .ecl-file-upload__list {
     margin-top: map.get(theme.$spacing, 'm');
   }
 

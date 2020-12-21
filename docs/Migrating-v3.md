@@ -50,6 +50,7 @@ The following packages have been re-organized:
 - `@ecl/polyfills` has been moved to `@ecl/dom-utils/polyfills`
 - `@ecl/(ec|eu)-auto-init` have been moved to `@ecl/dom-utils/autoinit`
 - `@ecl/(ec|eu)-base/helpers` have been moved to `@ecl/dom-utils`
+- all generic form packages (feedback-message, form-group, help-block, form-label) have been merged into `@ecl/vanilla-component-form`
 
 Example from v2:
 
