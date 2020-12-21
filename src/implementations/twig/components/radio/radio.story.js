@@ -1,12 +1,6 @@
-import { withKnobs, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import {
-  getExtraKnobs,
-  getFormGroupKnobs,
-  tabLabels,
-  getFormItemKnobs,
-} from '@ecl/story-utils';
+import { correctSvgPath, getFormControls } from '@ecl/story-utils';
 
 import dataDefault from '@ecl/specs-component-radio/demo/data--default';
 import dataBinary from '@ecl/specs-component-radio/demo/data--binary';
@@ -14,31 +8,29 @@ import dataBinary from '@ecl/specs-component-radio/demo/data--binary';
 import radioGroup from './radio-group.html.twig';
 import notes from './README.md';
 
-const prepareRadio = (data, binary) => {
-  if (binary) {
-    data.binary = boolean('binary', true, tabLabels.required);
-  }
-  // Form group knobs.
-  getFormGroupKnobs(data);
-  // Form item knobs.
-  getFormItemKnobs(data, true);
-  // Extra classes and attributes.
-  getExtraKnobs(data, true);
+const getArgTypes = (data) => getFormControls(data, 'group');
 
-  return data;
+const prepareData = (data, args) => {
+  correctSvgPath(data);
+  return Object.assign(data, args);
 };
 
 export default {
   title: 'Components/Forms/Radio',
-  decorators: [withKnobs, withNotes, withCode],
+  parameters: {
+    knobs: { disable: true },
+  },
 };
 
-export const Default = () => radioGroup(prepareRadio(dataDefault));
+export const Default = (args) => radioGroup(prepareData(dataDefault, args));
 
 Default.storyName = 'default';
+Default.argTypes = getArgTypes(dataDefault);
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 
-export const Binary = () => radioGroup(prepareRadio(dataBinary, true));
+export const Binary = (args) => radioGroup(prepareData(dataBinary, args));
 
 Binary.storyName = 'binary';
+Binary.argTypes = getArgTypes(dataBinary);
 Binary.parameters = { notes: { markdown: notes, json: dataBinary } };
+Default.decorators = [withNotes, withCode];
