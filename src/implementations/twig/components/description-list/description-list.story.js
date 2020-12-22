@@ -20,7 +20,7 @@ const getArgTypes = (data) => {
         category: 'Content',
       },
     },
-    description: {
+    definition: {
       name: 'definition (first item)',
       type: { name: 'string', required: true },
       defaultValue: data.items[0].definition,
