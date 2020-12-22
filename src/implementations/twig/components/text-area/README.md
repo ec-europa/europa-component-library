@@ -16,7 +16,7 @@ npm install --save @ecl/twig-component-text-area
 - **"default_value"** (string) (default: '')
 - **"rows"** (int) (default: 4)
 - **"extra_label_classes"** (string) (default: '') Extra classes for the label (space separated)
-- **"width"** (string) (default: '') Input width size (s, m or l)
+- **"width"** (string) (default: 'm') Input width size (s, m or l)
 - **"extra_group_classes"** (optional) (string) (default: '') Extra classes (space separated) for the text-area group
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
