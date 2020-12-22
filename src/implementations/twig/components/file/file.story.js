@@ -29,7 +29,7 @@ const getArgTypes = (data) => {
     name: 'title',
     type: { name: 'string', required: true },
     defaultValue: data.title,
-    description: 'The heading must describe the downloadable file accurately',
+    description: 'The heading that describes the file',
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
