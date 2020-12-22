@@ -3,9 +3,11 @@ import oauth2 from "./oauth";
 
 exports.handler = () => {
   const authorizationUri = oauth2.authorizationCode.authorizeURL({
-    scope: process.env.SCOPES || "repo,user",
+    scope: process.env.SCOPES || "repo",
     state: randomstring.generate(32),
   });
+
+  console.log("authorizationUri", authorizationUri);
 
   return {
     statusCode: 302,
