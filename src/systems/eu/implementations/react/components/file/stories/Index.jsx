@@ -85,7 +85,7 @@ export const Thumbnail = () => {
   const description = text('Description', demoContentThumbnail.description);
 
   const images = {
-    lanscape:
+    landscape:
       'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
     portrait:
       'https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg',
