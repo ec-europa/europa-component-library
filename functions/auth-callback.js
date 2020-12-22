@@ -6,14 +6,11 @@ exports.handler = async (event) => {
   try {
     const result = await oauth2.authorizationCode.getToken({ code });
     const token = oauth2.accessToken.create(result);
-    console.log("accessToken", token);
 
     const body = `
       <script>
       (function() {
         function recieveMessage(e) {
-          console.log("recieveMessage %o", e)
-          // Send message to the main window.
           window.opener.postMessage(
             'authorization:github:success:${JSON.stringify({
               token: token.token.access_token,
@@ -23,7 +20,6 @@ exports.handler = async (event) => {
           )
         }
         window.addEventListener("message", recieveMessage, false)
-        // Start handshare with parent
         window.opener.postMessage("authorizing:github", "*")
       })()
       </script>`;
