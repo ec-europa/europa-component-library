@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctSvgPath, getOptions } from '@ecl/story-utils';
 
 // Import data for demos
 import uiIcons from '@ecl/resources-ec-icons/dist/lists/ui.json';
@@ -24,11 +24,6 @@ const withParagraph = (story) => {
   const demo = story();
   return typeof demo === 'string' ? storyAsString(demo) : storyAsNode(demo);
 };
-
-const iconsList = uiIcons.reduce((a, b) => {
-  a[b] = b;
-  return a;
-}, {});
 
 const getArgTypes = (data) => {
   return {
@@ -56,7 +51,7 @@ const getArgTypes = (data) => {
       },
       control: {
         type: 'select',
-        options: iconsList,
+        options: getOptions(uiIcons),
       },
     },
     icon_transform: {

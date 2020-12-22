@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctSvgPath, getOptions } from '@ecl/story-utils';
 
 // Import data for demos
 import uiIcons from '@ecl/resources-ec-icons/dist/lists/ui.json';
@@ -12,11 +12,6 @@ import dataSearch from '@ecl/specs-component-button/demo/data--search';
 
 import button from './button.html.twig';
 import notes from './README.md';
-
-const iconsList = {};
-uiIcons.forEach((icon) => {
-  iconsList[icon] = icon;
-});
 
 const getArgTypes = () => {
   const argTypes = {};
@@ -35,7 +30,6 @@ const getArgTypes = () => {
   };
   argTypes.icon_name = {
     name: 'icon name',
-    type: { name: 'select' },
     description: 'Button icon',
     table: {
       type: { summary: 'string' },
@@ -44,7 +38,7 @@ const getArgTypes = () => {
     },
     control: {
       type: 'select',
-      options: iconsList,
+      options: getOptions(uiIcons),
     },
   };
   argTypes.icon_transform = {
