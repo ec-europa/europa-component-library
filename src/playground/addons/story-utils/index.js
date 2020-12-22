@@ -539,95 +539,113 @@ export const correctSvgPath = (data) => {
 };
 
 export const getFormControls = (data, type) => {
-  return {
-    label: {
-      type: { name: 'string', required: true },
-      defaultValue: data.label,
-      description: `Label of the form ${type}`,
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-    },
-    helper_text: {
-      name: 'helper text',
-      type: 'string',
-      defaultValue: data.helper_text,
-      description: `Helper text for the form ${type}`,
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-    },
-    invalid_text: {
-      name: 'error message',
-      type: 'string',
-      defaultValue: data.invalid_text,
-      description:
-        'Message to be shown in case of an invalid input by the user',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-    },
-    optional_text: {
-      name: 'optional text',
-      type: 'string',
-      defaultValue: data.optional_text,
-      description: 'Text to be shown when the form element is optional',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-    },
-    required_text: {
-      name: 'required text',
-      type: 'string',
-      defaultValue: data.required_text,
-      description: 'Text to be shown when the form element is mandatory',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '*' },
-        category: 'Content',
-      },
-    },
-    invalid: {
-      name: 'invalid',
-      type: 'boolean',
-      defaultValue: data.invalid,
-      description: 'Marks the form element as invalid',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-        category: 'States',
-      },
-    },
-    disabled: {
-      name: 'disabled',
-      type: 'boolean',
-      defaultValue: data.disabled,
-      description: 'Disabled form element',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-        category: 'States',
-        disable: type !== 'element',
-      },
-    },
-    required: {
-      name: 'required',
-      type: 'boolean',
-      defaultValue: data.required,
-      description: 'Sets the required attribute on the form element',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-        category: 'States',
-      },
+  const argTypes = {};
+  argTypes.label = {
+    type: { name: 'string', required: true },
+    defaultValue: data.label,
+    description: `Label of the form ${type}`,
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
     },
   };
+  argTypes.helper_text = {
+    name: 'helper text',
+    type: 'string',
+    defaultValue: data.helper_text,
+    description: `Helper text for the form ${type}`,
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+  };
+  argTypes.invalid_text = {
+    name: 'error message',
+    type: 'string',
+    defaultValue: data.invalid_text,
+    description: 'Message to be shown in case of an invalid input by the user',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+  };
+  argTypes.optional_text = {
+    name: 'optional text',
+    type: 'string',
+    defaultValue: data.optional_text,
+    description: `Text to be shown when the form ${type} is optional`,
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+  };
+  argTypes.required_text = {
+    name: 'required text',
+    type: 'string',
+    defaultValue: data.required_text,
+    description: `Text to be shown when the form ${type} is mandatory`,
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '*' },
+      category: 'Content',
+    },
+  };
+  argTypes.invalid = {
+    name: 'invalid',
+    type: 'boolean',
+    defaultValue: data.invalid,
+    description: `Marks the form ${type} as invalid`,
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'States',
+    },
+  };
+  argTypes.disabled = {
+    name: 'disabled',
+    type: 'boolean',
+    defaultValue: data.disabled,
+    description: `Disabled form ${type}`,
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'States',
+      disable: type !== 'element',
+    },
+  };
+  argTypes.required = {
+    name: 'required',
+    type: 'boolean',
+    defaultValue: data.required,
+    description: `Sets the required attribute on the form ${type}`,
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'States',
+    },
+  };
+
+  if (data.width) {
+    argTypes.width = {
+      name: 'width',
+      type: { name: 'select' },
+      defaultValue: data.width,
+      description: `The width of the form ${type} {s: small, m: medium, l: large}`,
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: data.width },
+        category: 'Size',
+      },
+      control: {
+        type: 'select',
+        options: { small: 's', medium: 'm', large: 'l' },
+      },
+    };
+  }
+
+  return argTypes;
 };

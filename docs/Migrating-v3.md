@@ -147,5 +147,6 @@ Most of the components have been updated without much changes. Although, there a
   - twig parameters added for each link, to allow content before and after it
 - Date block
   - css class for variant "cancelled" has been renamed from `.ecl-date-block--canceled` to `.ecl-date-block--cancelled`
+  - new css class `.ecl-date-block__daytime` in place of the `ecl-u-sr-only` utility (components are not supposed to contain utilities)
 - Link
   - twig parameter "icon_path" has been removed (not used)
