@@ -1,8 +1,4 @@
 [build]
+publish = "."
 command = "netlify-lambda build functions"
 functions = ".netlify/functions/"
-
-[[redirects]]
-  from="/proxy/*"
-  to="/.netlify/functions/proxy/:splat"
-  status=200

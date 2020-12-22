@@ -1,0 +1,17 @@
+backend:
+  name: github
+  repo: ec-europa/europa-component-library
+  branch: next-v3
+  base_url: http://e7655602fe74.ngrok.io
+
+media_folder: src/website/public/img
+
+collections:
+  - label: "Components"
+    name: "components"
+    files:
+      - label: "Landing page"
+        name: "index"
+        file: "src/website/src/pages/index.md"
+        fields:
+          - { label: Title, name: title, widget: string }
