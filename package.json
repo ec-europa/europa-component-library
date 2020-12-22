@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "start": "netlify dev",
-    "build": "netlify-lambda build functions",
+    "build": "netlify-lambda build functions --config ./webpack.functions.js",
     "deploy": "netlify deploy",
     "deploy:prod": "netlify deploy --prod"
   },
