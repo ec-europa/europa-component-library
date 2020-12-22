@@ -1,3 +1,5 @@
+import oauth2 from "./oauth";
+
 exports.handler = async (event) => {
   const { code } = event.queryStringParameters;
 
