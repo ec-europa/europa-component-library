@@ -15,5 +15,6 @@ exports.handler = () => {
       Location: authorizationUri,
       "Cache-Control": "no-cache",
     },
+    body: "redirecting to github ...",
   };
 };
