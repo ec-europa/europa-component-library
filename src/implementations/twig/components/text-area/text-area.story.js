@@ -1,4 +1,3 @@
-import { withKnobs } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import { getFormControls } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
@@ -9,25 +8,7 @@ import notes from './README.md';
 
 const getArgTypes = (data) => {
   return {
-    ...getFormControls(data),
-    width: {
-      type: { name: 'select' },
-      description: 'Width of the textarea',
-      defaultValue: 'm',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'm' },
-        category: 'Content',
-      },
-      control: {
-        type: 'select',
-        options: {
-          small: 's',
-          medium: 'm',
-          large: 'l',
-        },
-      },
-    },
+    ...getFormControls(data, 'element'),
     rows: {
       type: { name: 'number' },
       description: 'Number or rows',
@@ -37,22 +18,18 @@ const getArgTypes = (data) => {
         min: 1,
         step: 1,
         defaultValue: { summary: '4' },
-        category: 'Content',
+        category: 'Size',
       },
     },
   };
 };
 
-const prepareData = (data, args) => {
-  return Object.assign(data, args);
-};
+const prepareData = (data, args) => Object.assign(data, args);
 
 export default {
   title: 'Components/Forms/Text area',
   parameters: {
-    knobs: {
-      disable: true,
-    },
+    knobs: { disable: true },
   },
 };
 
@@ -61,4 +38,4 @@ export const Default = (args) => textArea(prepareData(demoData, args));
 Default.storyName = 'default';
 Default.argTypes = getArgTypes(demoData);
 Default.parameters = { notes: { markdown: notes, json: demoData } };
-Default.decorators = [withKnobs, withNotes, withCode];
+Default.decorators = [withNotes, withCode];
