@@ -1,6 +1,4 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
-import { withKnobs, select, text } from '@storybook/addon-knobs';
-import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
 
 import dataDescriptionListDefault from '@ecl/specs-component-description-list/demo/data--default';
@@ -9,66 +7,61 @@ import dataDescriptionListHorizontal from '@ecl/specs-component-description-list
 import descriptionList from './description-list.html.twig';
 import notes from './README.md';
 
-const prepareList = (data) => {
-  if (data.variant) {
-    data.variant = select(
-      'variant',
-      [data.variant],
-      data.variant,
-      tabLabels.required
-    );
-  }
-  data.items.forEach((item, i) => {
-    if (Array.isArray(item.term)) {
-      item.term.forEach((termItem, j) => {
-        data.items[i].term[j] = text(
-          `items[${i}].term[${j}]`,
-          termItem,
-          tabLabels.required
-        );
-      });
-    } else {
-      item.term = text(`items[${i}].term`, item.term, tabLabels.required);
-    }
-    if (Array.isArray(item.definition)) {
-      item.definition.forEach((definitionItem, k) => {
-        data.items[i].definition[k] = text(
-          `items[${i}].definition[${k}]`,
-          definitionItem,
-          tabLabels.required
-        );
-      });
-    } else {
-      item.definition = text(
-        `items[${i}].definition`,
-        item.definition,
-        tabLabels.required
-      );
-    }
-  });
+const getArgTypes = (data) => {
+  return {
+    term: {
+      name: 'term (first item)',
+      type: { name: 'string', required: true },
+      defaultValue: data.items[0].term,
+      description: 'The heading of the description list item',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+    },
+    definition: {
+      name: 'definition (first item)',
+      type: { name: 'string', required: true },
+      defaultValue: data.items[0].definition,
+      description: 'The content of the description list item',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+    },
+  };
+};
 
-  getExtraKnobs(data);
-
+const prepareData = (data, args) => {
+  data.items[0].term = args.term;
+  data.items[0].definition = args.definition;
   return data;
 };
 
 export default {
   title: 'Components/List/Description list',
-  decorators: [withNotes, withCode, withKnobs],
+  decorators: [withNotes, withCode],
+  parameters: {
+    knobs: { disable: true },
+  },
 };
 
-export const Vertical = () =>
-  descriptionList(prepareList(dataDescriptionListDefault));
+export const Vertical = (args) =>
+  descriptionList(prepareData(dataDescriptionListDefault, args));
 
 Vertical.storyName = 'vertical';
+Vertical.argTypes = getArgTypes(dataDescriptionListDefault);
 Vertical.parameters = {
   notes: { markdown: notes, json: dataDescriptionListDefault },
 };
 
-export const Horizontal = () =>
-  descriptionList(prepareList(dataDescriptionListHorizontal));
+export const Horizontal = (args) =>
+  descriptionList(prepareData(dataDescriptionListHorizontal, args));
 
 Horizontal.storyName = 'horizontal';
+Horizontal.argTypes = getArgTypes(dataDescriptionListHorizontal);
 Horizontal.parameters = {
   notes: { markdown: notes, json: dataDescriptionListHorizontal },
 };
