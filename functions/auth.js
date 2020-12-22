@@ -7,8 +7,6 @@ exports.handler = () => {
     state: randomstring.generate(32),
   });
 
-  console.log("authorizationUri", authorizationUri);
-
   return {
     statusCode: 302,
     headers: {
