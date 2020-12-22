@@ -8,24 +8,26 @@ exports.handler = async (event) => {
     const token = oauth2.accessToken.create(result);
 
     const body = `
-      <script>
+      <html><body><script>
       (function() {
-        function recieveMessage(e) {
+        function receiveMessage(e) {
           window.opener.postMessage(
             'authorization:github:success:${JSON.stringify({
               token: token.token.access_token,
               provider: "github",
-            })}',
-            e.origin
-          )
+            })}')
+          window.removeEventListener("message", receiveMessage, false);
         }
-        window.addEventListener("message", recieveMessage, false)
+        window.addEventListener("message", receiveMessage, false)
         window.opener.postMessage("authorizing:github", "*")
       })()
-      </script>`;
+      </script></body></html>`;
 
     return {
       statusCode: 200,
+      headers: {
+        "Content-Type": "text/html",
+      },
       body,
     };
   } catch (error) {
