@@ -642,7 +642,7 @@ export const getFormControls = (data, type) => {
       },
       control: {
         type: 'select',
-        options: ['s', 'm', 'l'],
+        options: { small: 's', medium: 'm', large: 'l' },
       },
     };
   }
