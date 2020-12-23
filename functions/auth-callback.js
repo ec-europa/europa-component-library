@@ -11,12 +11,11 @@ exports.handler = async (event) => {
     <script>
       (function () {
         function receiveMessage(e) {
-          window.opener.postMessage("authorization:github:success:${JSON.stringify(
-            {
+          window.opener.postMessage(
+            'authorization:github:success:${JSON.stringify({
               token: token.token.access_token,
               provider: "github",
-            }
-          )}", e.origin);
+            })}', e.origin);
           window.removeEventListener("message", receiveMessage, false);
         }
         window.addEventListener("message", receiveMessage, false);
