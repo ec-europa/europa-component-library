@@ -1,15 +1,7 @@
-import {
-  withKnobs,
-  text,
-  boolean,
-  select,
-  button,
-} from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
-import { getExtraKnobs, getIconKnobs, tabLabels } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
+import { correctSvgPath } from '@ecl/story-utils';
 
-import uiIcons from '@ecl/resources-ec-icons/dist/lists/ui.json';
 import bannerDataImage from '@ecl/specs-component-hero-banner/demo/data--image-box';
 import bannerDataImageGradient from '@ecl/specs-component-hero-banner/demo/data--image-gradient';
 import bannerDataImageShade from '@ecl/specs-component-hero-banner/demo/data--image-shade';
@@ -19,282 +11,136 @@ import bannerDataSimpleWhite from '@ecl/specs-component-hero-banner/demo/data--s
 import heroBanner from './hero-banner.html.twig';
 import notes from './README.md';
 
-const icons = { none: '' };
-uiIcons.forEach((icon) => {
-  icons[icon] = icon;
-});
-
-// Preserve the adapted specs.
-let simplePrimaryData = { ...bannerDataSimplePrimary };
-let simpleGreyData = { ...bannerDataSimpleGrey };
-let simpleWhiteData = { ...bannerDataSimpleWhite };
-let imageData = { ...bannerDataImage };
-let imageShadeData = { ...bannerDataImageShade };
-let imageGradientData = { ...bannerDataImageGradient };
-
-// Show/hide buttons for optional elements.
-const simplePrimaryDescBtnToggler = () => {
-  if (simplePrimaryData.description) {
-    delete simplePrimaryData.description;
-  } else {
-    simplePrimaryData.description = bannerDataSimplePrimary.description;
-  }
-};
-const simpleGreyDescBtnToggler = () => {
-  if (simpleGreyData.description) {
-    delete simpleGreyData.description;
-  } else {
-    simpleGreyData.description = bannerDataSimpleGrey.description;
-  }
-};
-const simpleWhiteDescBtnToggler = () => {
-  if (simpleWhiteData.description) {
-    delete simpleWhiteData.description;
-  } else {
-    simpleWhiteData.description = bannerDataSimpleWhite.description;
-  }
-};
-const imageDescBtnToggler = () => {
-  if (imageData.description) {
-    delete imageData.description;
-  } else {
-    imageData.description = bannerDataImage.description;
-  }
-};
-const imageGradientDescBtnToggler = () => {
-  if (imageGradientData.description) {
-    delete imageGradientData.description;
-  } else {
-    imageGradientData.description = bannerDataImageGradient.description;
-  }
-};
-const imageShadeDescBtnToggler = () => {
-  if (imageShadeData.description) {
-    delete imageShadeData.description;
-  } else {
-    imageShadeData.description = bannerDataImageShade.description;
-  }
-};
-const simplePrimaryCtaBtnToggler = () => {
-  if (simplePrimaryData.link) {
-    delete simplePrimaryData.link;
-  } else {
-    simplePrimaryData.link = bannerDataSimplePrimary.link;
-  }
-};
-const simpleGreyCtaBtnToggler = () => {
-  if (simpleGreyData.link) {
-    delete simpleGreyData.link;
-  } else {
-    simpleGreyData.link = bannerDataSimpleGrey.link;
-  }
-};
-const simpleWhiteCtaBtnToggler = () => {
-  if (simpleWhiteData.link) {
-    delete simpleWhiteData.link;
-  } else {
-    simpleWhiteData.link = bannerDataSimpleWhite.link;
-  }
-};
-const imageCtaBtnToggler = () => {
-  if (imageData.link) {
-    delete imageData.link;
-  } else {
-    imageData.link = bannerDataImage.link;
-  }
-};
-const imageGradientCtaBtnToggler = () => {
-  if (imageGradientData.link) {
-    delete imageGradientData.link;
-  } else {
-    imageGradientData.link = bannerDataImageGradient.link;
-  }
-};
-const imageShadeCtaBtnToggler = () => {
-  if (imageShadeData.link) {
-    delete imageShadeData.link;
-  } else {
-    imageShadeData.link = bannerDataImage.link;
-  }
-};
-// Reset buttons.
-const simplePrimaryResetBtnToggler = () => {
-  simplePrimaryData = { ...bannerDataSimplePrimary };
-};
-const simpleGreyResetBtnToggler = () => {
-  simpleGreyData = { ...bannerDataSimpleGrey };
-};
-const simpleWhiteResetBtnToggler = () => {
-  simpleWhiteData = { ...bannerDataSimpleWhite };
-};
-const imageResetBtnToggler = () => {
-  imageData = { ...bannerDataImage };
-};
-const imageGradientResetBtnToggler = () => {
-  imageGradientData = { ...bannerDataImageGradient };
-};
-const imageShadeResetBtnToggler = () => {
-  imageShadeData = { ...bannerDataImageShade };
+const getArgTypes = (data) => {
+  return {
+    title: {
+      type: { name: 'string', required: true },
+      defaultValue: data.title,
+      description: 'Heading of the banner',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+    },
+    description: {
+      type: 'string',
+      defaultValue: data.description,
+      description: 'Sub-heading of the banner',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+    },
+    label: {
+      type: 'string',
+      defaultValue: data.link.link.label,
+      description: 'Label of the call to action link',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+    },
+    centered: {
+      type: 'boolean',
+      defaultValue: data.centered,
+      description: 'Whether the content of the banner is centered or not',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: true },
+        category: 'Display',
+      },
+    },
+    full_width: {
+      name: 'full width',
+      control: {
+        type: 'inline-radio',
+        options: ['outside the grid', 'inside the grid'],
+      },
+      defaultValue: 'outside the grid',
+      description: `The banner extends to the whole viewport by default when outside the grid,
+        if it's inside it can still be extended via an additional css class`,
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+        category: 'Display',
+      },
+    },
+  };
 };
 
-const prepareHeroBanner = (data, variant) => {
-  data.centered = boolean('centered', data.centered, tabLabels.states);
-  data.type = select('type', [data.type], data.type, tabLabels.required);
-  data.title = text('title', data.title, tabLabels.required);
-  if (data.description) {
-    data.description = text(
-      'description',
-      data.description,
-      tabLabels.optional
-    );
-  }
-
-  if (variant === 'img') {
-    data.image = text('image', data.image, tabLabels.required);
-  }
-
-  if (data.link) {
-    data.link.link.label = text(
-      'link.link.label',
-      data.link.link.label,
-      tabLabels.optional
-    );
-    data.link.link.path = text(
-      'link.link.path',
-      data.link.link.path,
-      tabLabels.optional
-    );
-    data.link.icon.name = select(
-      'link.icon.name',
-      icons,
-      data.link.icon.name,
-      tabLabels.optional
-    );
-    if (data.link.icon.name) {
-      getIconKnobs(
-        data,
-        data.link.icon.name,
-        'ui',
-        'xs',
-        'default',
-        'rotate-90',
-        true
-      );
-    }
-  }
-
-  getExtraKnobs(data);
+const prepareData = (data, args) => {
+  data.title = args.title;
+  data.description = args.description;
+  data.centered = args.centered;
+  data.full_width = args.full_width === 'inside the grid';
+  data.link.link.label = args.label;
 
   return data;
 };
 
+const renderStory = (data, args) => {
+  let story = heroBanner(prepareData(correctSvgPath(data), args));
+  if (args.full_width === 'inside the grid') {
+    story = `<div class="ecl-container">${story}</div>`;
+  }
+
+  return story;
+};
+
 export default {
   title: 'Components/Banners/Hero Banner',
-  decorators: [withNotes, withCode, withKnobs],
+  decorators: [withNotes, withCode],
+  parameters: {
+    knobs: { disable: true },
+  },
 };
 
-export const Default = () => {
-  button(
-    'With or without description',
-    simplePrimaryDescBtnToggler,
-    tabLabels.cases
-  );
-  button(
-    'With or without call to action',
-    simplePrimaryCtaBtnToggler,
-    tabLabels.cases
-  );
-  button('Reset the layout', simplePrimaryResetBtnToggler, tabLabels.cases);
-
-  return heroBanner(prepareHeroBanner(simplePrimaryData));
-};
+export const Default = (args) => renderStory(bannerDataSimplePrimary, args);
 
 Default.storyName = 'simple - primary';
-Default.parameters = { notes: { markdown: notes, json: simplePrimaryData } };
-
-export const SimpleGrey = () => {
-  button(
-    'With or without description',
-    simpleGreyDescBtnToggler,
-    tabLabels.cases
-  );
-  button(
-    'With or without call to action',
-    simpleGreyCtaBtnToggler,
-    tabLabels.cases
-  );
-  button('Reset the layout', simpleGreyResetBtnToggler, tabLabels.cases);
-
-  return heroBanner(prepareHeroBanner(simpleGreyData));
+Default.argTypes = getArgTypes(bannerDataSimplePrimary);
+Default.parameters = {
+  notes: { markdown: notes, json: bannerDataSimplePrimary },
 };
+
+export const SimpleGrey = (args) => renderStory(bannerDataSimpleGrey, args);
 
 SimpleGrey.storyName = 'simple - grey';
-SimpleGrey.parameters = { notes: { markdown: notes, json: simpleGreyData } };
-
-export const SimpleWhite = () => {
-  button(
-    'With or without description',
-    simpleWhiteDescBtnToggler,
-    tabLabels.cases
-  );
-  button(
-    'With or without call to action',
-    simpleWhiteCtaBtnToggler,
-    tabLabels.cases
-  );
-  button('Reset the layout', simpleWhiteResetBtnToggler, tabLabels.cases);
-
-  return heroBanner(prepareHeroBanner(simpleWhiteData));
+SimpleGrey.argTypes = getArgTypes(bannerDataSimpleGrey);
+SimpleGrey.parameters = {
+  notes: { markdown: notes, json: bannerDataSimpleGrey },
 };
+
+export const SimpleWhite = (args) => renderStory(bannerDataSimpleWhite, args);
 
 SimpleWhite.storyName = 'simple - white';
-SimpleWhite.parameters = { notes: { markdown: notes, json: simpleWhiteData } };
-
-export const Image = () => {
-  button('With or without description', imageDescBtnToggler, tabLabels.cases);
-  button('With or without call to action', imageCtaBtnToggler, tabLabels.cases);
-  button('Reset the layout', imageResetBtnToggler, tabLabels.cases);
-
-  return heroBanner(prepareHeroBanner(imageData, 'img'));
+SimpleWhite.argTypes = getArgTypes(bannerDataSimpleWhite);
+SimpleWhite.parameters = {
+  notes: { markdown: notes, json: bannerDataSimpleWhite },
 };
+
+export const Image = (args) => renderStory(bannerDataImage, args);
 
 Image.storyName = 'image - text-block';
-Image.parameters = { notes: { markdown: notes, json: imageData } };
+Image.argTypes = getArgTypes(bannerDataImage);
+Image.parameters = { notes: { markdown: notes, json: bannerDataImage } };
 
-export const ImageGradient = () => {
-  button(
-    'With or without description',
-    imageGradientDescBtnToggler,
-    tabLabels.cases
-  );
-  button(
-    'With or without call to action',
-    imageGradientCtaBtnToggler,
-    tabLabels.cases
-  );
-  button('Reset the layout', imageGradientResetBtnToggler, tabLabels.cases);
-
-  return heroBanner(prepareHeroBanner(imageGradientData, 'img'));
-};
+export const ImageGradient = (args) =>
+  renderStory(bannerDataImageGradient, args);
 
 ImageGradient.storyName = 'image - gradient';
-ImageGradient.parameters = { notes: { markdown: notes, json: imageData } };
-
-export const ImageShade = () => {
-  button(
-    'With or without description',
-    imageShadeDescBtnToggler,
-    tabLabels.cases
-  );
-  button(
-    'With or without call to action',
-    imageShadeCtaBtnToggler,
-    tabLabels.cases
-  );
-  button('Reset the layout', imageShadeResetBtnToggler, tabLabels.cases);
-
-  return heroBanner(prepareHeroBanner(imageShadeData, 'img'));
+ImageGradient.argTypes = getArgTypes(bannerDataImageGradient);
+ImageGradient.parameters = {
+  notes: { markdown: notes, json: bannerDataImageGradient },
 };
 
+export const ImageShade = (args) => renderStory(bannerDataImageShade, args);
+
 ImageShade.storyName = 'image - shade';
-ImageShade.parameters = { notes: { markdown: notes, json: imageShadeData } };
+ImageShade.argTypes = getArgTypes(bannerDataImageShade);
+ImageShade.parameters = {
+  notes: { markdown: notes, json: bannerDataImageShade },
+};
