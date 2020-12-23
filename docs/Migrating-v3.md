@@ -47,6 +47,7 @@ The following packages have been re-organized:
 - `@ecl/ec-utility-font-size` has been removed
 - `@ecl/ec-utility-ratio` has been removed
 - `@ecl/ec-utility-text` has been removed
+- `@ecl/(ec|eu)-component-form-form-group`, `@ecl/(ec|eu)-component-form-feedback-message`, `@ecl/(ec|eu)-component-form-help-block` and `@ecl/(ec|eu)-component-form-form-label` have been consolidated in `@ecl/vanilla-component-form`
 - `@ecl/polyfills` has been moved to `@ecl/dom-utils/polyfills`
 - `@ecl/(ec|eu)-auto-init` have been moved to `@ecl/dom-utils/autoinit`
 - `@ecl/(ec|eu)-base/helpers` have been moved to `@ecl/dom-utils`
