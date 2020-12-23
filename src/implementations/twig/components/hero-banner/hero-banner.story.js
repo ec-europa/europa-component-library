@@ -12,7 +12,7 @@ import heroBanner from './hero-banner.html.twig';
 import notes from './README.md';
 
 const getArgTypes = (data) => {
-  return {
+  const argTypes = {
     title: {
       type: { name: 'string', required: true },
       defaultValue: data.title,
@@ -69,6 +69,20 @@ const getArgTypes = (data) => {
       },
     },
   };
+  if (data.image) {
+    argTypes.image = {
+      type: 'string',
+      defaultValue: data.image || '',
+      description: 'Path or Url of the background image',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+    };
+  }
+
+  return argTypes;
 };
 
 const prepareData = (data, args) => {
@@ -77,6 +91,9 @@ const prepareData = (data, args) => {
   data.centered = args.centered;
   data.full_width = args.full_width === 'inside the grid';
   data.link.link.label = args.label;
+  if (data.image) {
+    data.image = args.image;
+  }
 
   return data;
 };
