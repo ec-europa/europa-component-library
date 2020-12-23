@@ -1,5 +1,5 @@
 import merge from 'deepmerge';
-import demoContentAudio from '@ecl/specs-component-icon/demo/data--audio';
+import demoContentAudio from '@ecl/specs-component-icon/demo/data--general';
 import template from '@ecl/twig-component-icon/icon.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 
@@ -9,7 +9,8 @@ export const iconDefault = template(dataDefault);
 export const iconPrimary = template(
   merge(dataDefault, { icon: { color: 'primary' } })
 );
-export const iconXs = template(merge(dataDefault, { icon: { size: 'xs' } }));
+export const icon2XS = template(merge(dataDefault, { icon: { size: '2xs' } }));
+export const iconXS = template(merge(dataDefault, { icon: { size: 'xs' } }));
 export const iconS = template(merge(dataDefault, { icon: { size: 's' } }));
 export const iconM = template(merge(dataDefault, { icon: { size: 'm' } }));
 export const iconL = template(merge(dataDefault, { icon: { size: 'l' } }));

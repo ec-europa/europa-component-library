@@ -17,6 +17,7 @@ const prepareData = (data, args) => {
 
 export default {
   title: 'Components/Forms/Radio',
+  decorators: [withNotes, withCode],
   parameters: {
     knobs: { disable: true },
   },
@@ -33,4 +34,3 @@ export const Binary = (args) => radioGroup(prepareData(dataBinary, args));
 Binary.storyName = 'binary';
 Binary.argTypes = getArgTypes(dataBinary);
 Binary.parameters = { notes: { markdown: notes, json: dataBinary } };
-Default.decorators = [withNotes, withCode];

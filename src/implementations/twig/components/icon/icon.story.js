@@ -1,85 +1,61 @@
-import { withKnobs, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
-import { getExtraKnobs, getIconKnobs, tabLabels } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
+import { correctSvgPath, getIconControls } from '@ecl/story-utils';
 
-import brandedIcons from '@ecl/resources-ec-icons/dist/lists/branded.json';
-import generalIcons from '@ecl/resources-ec-icons/dist/lists/general.json';
-import notificationsIcons from '@ecl/resources-ec-icons/dist/lists/notifications.json';
-import uiIcons from '@ecl/resources-ec-icons/dist/lists/ui.json';
 import dataBranded from '@ecl/specs-component-icon/demo/data--branded';
-import dataNotifications from '@ecl/specs-component-icon/demo/data--notifications';
-import dataGeneral from '@ecl/specs-component-icon/demo/data--audio';
-import dataUi from '@ecl/specs-component-icon/demo/data--ui';
+import iconsBranded from '@ecl/resources-ec-icons/dist/lists/branded.json';
+import dataGeneral from '@ecl/specs-component-icon/demo/data--general';
+import iconsGeneral from '@ecl/resources-ec-icons/dist/lists/general.json';
+import dataNotification from '@ecl/specs-component-icon/demo/data--notifications';
+import iconsNotification from '@ecl/resources-ec-icons/dist/lists/notifications.json';
+import dataUI from '@ecl/specs-component-icon/demo/data--ui';
+import iconsUI from '@ecl/resources-ec-icons/dist/lists/ui.json';
 
 import icon from './icon.html.twig';
 import notes from './README.md';
 
-const prepareIcon = (data, name) => {
-  getIconKnobs(data, name, data.icon.type);
-  getExtraKnobs(data);
+const getArgTypes = (data, icons) => getIconControls(data, icons);
 
+const prepareData = (data, args) => {
+  correctSvgPath(data);
+  data.icon.name = args.name;
+  data.icon.size = args.size;
+  data.icon.color = args.color;
+  data.extra_classes = data.icon.color === 'inverted' ? 'ecl-u-bg-grey' : '';
+  data.icon.transform = args.transform;
   return data;
 };
 
 export default {
   title: 'Components/Icon',
-  decorators: [withKnobs, withNotes, withCode],
+  decorators: [withNotes, withCode],
+  parameters: {
+    knobs: { disable: true },
+  },
 };
 
-export const Branded = () => {
-  const iconName = select(
-    'icon.name',
-    brandedIcons,
-    brandedIcons[0],
-    tabLabels.required
-  );
-  const dataStory = prepareIcon(dataBranded, iconName);
-
-  return icon(dataStory);
-};
+export const Branded = (args) => icon(prepareData(dataBranded, args));
 
 Branded.storyName = 'branded';
+Branded.argTypes = getArgTypes(dataBranded, iconsBranded);
 Branded.parameters = { notes: { markdown: notes, json: dataBranded } };
 
-export const General = () => {
-  const iconName = select(
-    'icon.name',
-    generalIcons,
-    generalIcons[0],
-    tabLabels.required
-  );
-  const dataStory = prepareIcon(dataGeneral, iconName);
-
-  return icon(dataStory);
-};
+export const General = (args) => icon(prepareData(dataGeneral, args));
 
 General.storyName = 'general';
+General.argTypes = getArgTypes(dataGeneral, iconsGeneral);
 General.parameters = { notes: { markdown: notes, json: dataGeneral } };
 
-export const Notifications = () => {
-  const iconName = select(
-    'icon.name',
-    notificationsIcons,
-    notificationsIcons[0],
-    tabLabels.required
-  );
-  const dataStory = prepareIcon(dataNotifications, iconName);
+export const Notification = (args) => icon(prepareData(dataNotification, args));
 
-  return icon(dataStory);
+Notification.storyName = 'notification';
+Notification.argTypes = getArgTypes(dataNotification, iconsNotification);
+Notification.parameters = {
+  notes: { markdown: notes, json: dataNotification },
 };
 
-Notifications.storyName = 'notifications';
-Notifications.parameters = {
-  notes: { markdown: notes, json: dataNotifications },
-};
+export const UI = (args) => icon(prepareData(dataUI, args));
 
-export const Ui = () => {
-  const iconName = select('icon.name', uiIcons, uiIcons[0], tabLabels.required);
-  const dataStory = prepareIcon(dataUi, iconName);
-
-  return icon(dataStory);
-};
-
-Ui.storyName = 'ui';
-Ui.parameters = { notes: { markdown: notes, json: dataUi } };
+UI.storyName = 'ui';
+UI.argTypes = getArgTypes(dataUI, iconsUI);
+UI.parameters = { notes: { markdown: notes, json: dataUI } };
