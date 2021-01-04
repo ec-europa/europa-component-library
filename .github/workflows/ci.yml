@@ -27,7 +27,9 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v1
       - name: Workaround for container permissions
-        run: sudo chown -R $USER:$(id -gn $USER) /github
+        run: sudo chown -R $USER:$(id -gn $USER) /github/home
+      - name: Workaround for container folder
+        run: sudo ln -s /home/seluser/.cache /github/home/.cache
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
