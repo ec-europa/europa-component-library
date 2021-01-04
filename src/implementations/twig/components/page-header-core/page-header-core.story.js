@@ -1,9 +1,7 @@
-import { withKnobs, text, boolean, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
+import { correctSvgPath } from '@ecl/story-utils';
 
-import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import demoBackgroundImage from '@ecl/specs-component-page-header-core/demo/data--background-image';
 import demoTitleContent from '@ecl/specs-component-page-header-core/demo/data--title';
 import demoMetaTitleContent from '@ecl/specs-component-page-header-core/demo/data--meta-title';
@@ -13,98 +11,106 @@ import dataBreadcrumbLong from '@ecl/specs-component-breadcrumb/demo/data';
 import pageHeaderCore from './page-header-core.html.twig';
 import notes from './README.md';
 
-const preparePageHeaderCore = (data, desc, meta, img) => {
-  data.breadcrumb = dataBreadcrumbLong;
-  data.title = text('title', data.title, tabLabels.required);
-  if (meta) {
-    data.meta = text('meta', data.meta, tabLabels.optional);
+const getArgTypes = (data) => {
+  const argTypes = {};
+  argTypes.title = {
+    name: 'title',
+    type: { name: 'string', required: true },
+    defaultValue: data.title,
+    description: 'The page title',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+  };
+  if (data.description) {
+    argTypes.description = {
+      name: 'description',
+      type: 'string',
+      defaultValue: data.description,
+      description: 'The page introduction',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+    };
   }
-  if (desc) {
-    data.description = text(
-      'description',
-      data.description,
-      tabLabels.optional
-    );
+  if (data.meta) {
+    argTypes.meta = {
+      name: 'meta',
+      type: 'string',
+      defaultValue: data.meta,
+      description: 'The page metadata',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+    };
   }
-  if (img) {
-    data.background_image = boolean(
-      'background_image',
-      data.background_image,
-      tabLabels.required
-    );
-    data.background_image_url = text(
-      'background_image_url',
-      data.background_image_url,
-      tabLabels.required
-    );
+  if (data.background_image_url) {
+    argTypes.background_image_url = {
+      name: 'background image',
+      type: 'string',
+      defaultValue: data.background_image_url,
+      description: 'The background image url',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+    };
   }
-  data.breadcrumb.icon_file_path = optionsKnob(
-    'breadcrumb.icon_file_path',
-    { current: defaultSprite, 'no path': '' },
-    defaultSprite,
-    { display: 'inline-radio' },
-    tabLabels.required
-  );
-  data.breadcrumb.ellipsis_label = text(
-    'breadcrumb.ellipsis_label',
-    data.breadcrumb.ellipsis_label,
-    tabLabels.required
-  );
-  data.breadcrumb.navigation_text = text(
-    'breadcrumb.navigation_text',
-    data.breadcrumb.navigation_text,
-    tabLabels.required
-  );
-  data.breadcrumb.links.forEach((item, i) => {
-    item.label = text(
-      `data.breadcrumb.links[${i}].label`,
-      item.label,
-      tabLabels.required
-    );
-    item.path = text(
-      `data.breadcrumb.links[${i}].path`,
-      item.path,
-      tabLabels.required
-    );
-  });
-  getExtraKnobs(data);
 
-  return data;
+  return argTypes;
+};
+
+const prepareData = (data, args) => {
+  data.breadcrumb = dataBreadcrumbLong;
+  correctSvgPath(data);
+  return Object.assign(data, args);
 };
 
 export default {
   title: 'Components/Page Headers/Core',
-  decorators: [withNotes, withCode, withKnobs],
+  decorators: [withNotes, withCode],
+  parameters: {
+    knobs: { disable: true },
+  },
 };
 
-export const Title = () =>
-  pageHeaderCore(preparePageHeaderCore(demoTitleContent));
+export const Title = (args) =>
+  pageHeaderCore(prepareData(demoTitleContent, args));
 
 Title.storyName = 'title';
+Title.argTypes = getArgTypes(demoTitleContent);
 Title.parameters = { notes: { markdown: notes, json: demoTitleContent } };
 
-export const MetaTitle = () =>
-  pageHeaderCore(preparePageHeaderCore(demoMetaTitleContent, false, true));
+export const MetaTitle = (args) =>
+  pageHeaderCore(prepareData(demoMetaTitleContent, args));
 
 MetaTitle.storyName = 'meta-title';
+MetaTitle.argTypes = getArgTypes(demoMetaTitleContent);
 MetaTitle.parameters = {
   notes: { markdown: notes, json: demoMetaTitleContent },
 };
 
-export const MetaTitleDescription = () =>
-  pageHeaderCore(
-    preparePageHeaderCore(demoMetaTitleDescriptionContent, true, true)
-  );
+export const MetaTitleDescription = (args) =>
+  pageHeaderCore(prepareData(demoMetaTitleDescriptionContent, args));
 
 MetaTitleDescription.storyName = 'meta-title-description';
+MetaTitleDescription.argTypes = getArgTypes(demoMetaTitleDescriptionContent);
 MetaTitleDescription.parameters = {
   notes: { markdown: notes, json: demoMetaTitleDescriptionContent },
 };
 
-export const BackgroundImage = () =>
-  pageHeaderCore(preparePageHeaderCore(demoBackgroundImage, true, true, true));
+export const BackgroundImage = (args) =>
+  pageHeaderCore(prepareData(demoBackgroundImage, args));
 
 BackgroundImage.storyName = 'background-image';
+BackgroundImage.argTypes = getArgTypes(demoBackgroundImage);
 BackgroundImage.parameters = {
   notes: { markdown: notes, json: demoBackgroundImage },
 };
