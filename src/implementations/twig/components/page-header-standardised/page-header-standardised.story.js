@@ -12,7 +12,6 @@ import notes from './README.md';
 const getArgTypes = (data) => {
   const argTypes = {};
   argTypes.title = {
-    name: 'title',
     type: { name: 'string', required: true },
     defaultValue: data.title,
     description: 'The page title',
@@ -24,7 +23,6 @@ const getArgTypes = (data) => {
   };
   if (data.description) {
     argTypes.description = {
-      name: 'description',
       type: 'string',
       defaultValue: data.description,
       description: 'The page introduction',
@@ -37,7 +35,6 @@ const getArgTypes = (data) => {
   }
   if (data.meta) {
     argTypes.meta = {
-      name: 'meta',
       type: 'string',
       defaultValue: data.meta,
       description: 'The page metadata',
@@ -63,15 +60,15 @@ export default {
   decorators: [withNotes, withCode],
 };
 
-export const Title = () =>
-  pageHeaderStandardised(prepareData(demoTitleContent));
+export const Title = (args) =>
+  pageHeaderStandardised(prepareData(demoTitleContent, args));
 
 Title.storyName = 'title';
 Title.argTypes = getArgTypes(demoTitleContent);
 Title.parameters = { notes: { markdown: notes, json: demoTitleContent } };
 
-export const MetaTitle = () =>
-  pageHeaderStandardised(prepareData(demoMetaTitleContent, false, true));
+export const MetaTitle = (args) =>
+  pageHeaderStandardised(prepareData(demoMetaTitleContent, args));
 
 MetaTitle.storyName = 'meta-title';
 MetaTitle.argTypes = getArgTypes(demoMetaTitleContent);
@@ -79,10 +76,8 @@ MetaTitle.parameters = {
   notes: { markdown: notes, json: demoMetaTitleContent },
 };
 
-export const MetaTitleDescription = () =>
-  pageHeaderStandardised(
-    prepareData(demoMetaTitleDescriptionContent, true, true)
-  );
+export const MetaTitleDescription = (args) =>
+  pageHeaderStandardised(prepareData(demoMetaTitleDescriptionContent, args));
 
 MetaTitleDescription.storyName = 'meta-title-description';
 MetaTitleDescription.argTypes = getArgTypes(demoMetaTitleDescriptionContent);
