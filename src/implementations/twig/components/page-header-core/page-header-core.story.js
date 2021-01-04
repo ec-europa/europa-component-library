@@ -1,15 +1,19 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctSvgPath } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 import demoBackgroundImage from '@ecl/specs-component-page-header-core/demo/data--background-image';
 import demoTitleContent from '@ecl/specs-component-page-header-core/demo/data--title';
 import demoMetaTitleContent from '@ecl/specs-component-page-header-core/demo/data--meta-title';
 import demoMetaTitleDescriptionContent from '@ecl/specs-component-page-header-core/demo/data--meta-title-description';
-import dataBreadcrumbLong from '@ecl/specs-component-breadcrumb/demo/data';
+import dataBreadcrumbLongEC from '@ecl/specs-component-breadcrumb/demo/data--ec';
+import dataBreadcrumbLongEU from '@ecl/specs-component-breadcrumb/demo/data--eu';
 
 import pageHeaderCore from './page-header-core.html.twig';
 import notes from './README.md';
+
+const system = getSystem();
 
 const getArgTypes = (data) => {
   const argTypes = {};
@@ -65,9 +69,10 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
-  data.breadcrumb = dataBreadcrumbLong;
-  correctSvgPath(data);
-  return Object.assign(data, args);
+  data.breadcrumb =
+    system === 'eu' ? dataBreadcrumbLongEU : dataBreadcrumbLongEC;
+
+  return Object.assign(correctSvgPath(data), args);
 };
 
 export default {
