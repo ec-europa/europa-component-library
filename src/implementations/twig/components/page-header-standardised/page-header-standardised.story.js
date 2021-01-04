@@ -5,7 +5,7 @@ import { correctSvgPath } from '@ecl/story-utils';
 import demoTitleContent from '@ecl/specs-component-page-header-standardised/demo/data--title';
 import demoMetaTitleContent from '@ecl/specs-component-page-header-standardised/demo/data--meta-title';
 import demoMetaTitleDescriptionContent from '@ecl/specs-component-page-header-standardised/demo/data--meta-title-description';
-import dataBreadcrumbLong from '@ecl/specs-component-breadcrumb/demo/data';
+import dataBreadcrumbLong from '@ecl/specs-component-breadcrumb/demo/data--ec';
 import pageHeaderStandardised from './page-header-standardised.html.twig';
 import notes from './README.md';
 

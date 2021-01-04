@@ -1,12 +1,19 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctSvgPath } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
-import dataSimple from '@ecl/specs-component-breadcrumb/demo/data--simple';
-import dataLong from '@ecl/specs-component-breadcrumb/demo/data';
+import dataSimpleEU from '@ecl/specs-component-breadcrumb/demo/data-simple--eu';
+import dataSimpleEC from '@ecl/specs-component-breadcrumb/demo/data-simple--ec';
+import dataLongEU from '@ecl/specs-component-breadcrumb/demo/data--eu';
+import dataLongEC from '@ecl/specs-component-breadcrumb/demo/data--ec';
 
 import breadcrumb from './breadcrumb-core.html.twig';
 import notes from './README.md';
+
+const system = getSystem();
+const dataSimple = system === 'eu' ? dataSimpleEU : dataSimpleEC;
+const dataLong = system === 'eu' ? dataLongEU : dataLongEC;
 
 const getArgTypes = (data) => {
   const argTypes = {};
@@ -31,12 +38,11 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
-  correctSvgPath(data);
   data.links.forEach((item, i) => {
     item.label = args[`item${i + 1}`];
   });
 
-  return data;
+  return correctSvgPath(data);
 };
 
 export default {
