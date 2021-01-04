@@ -13,6 +13,7 @@ npm install --save @ecl/twig-component-page-banner
 - **"image"** (string) (default: '') Image for banner (required for image banner type)
 - **"baseline"** (string) (default: '') Baseline of banner
 - **"centered"** (bool) (default: true) Define if banner should be centered
+- **"full_width"** (bools) (default: false) Extends the banner to whole viewport when used inside the grid
 - **"link"** (associative array) (default: predefined structure) predefined structure for the Link component
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
