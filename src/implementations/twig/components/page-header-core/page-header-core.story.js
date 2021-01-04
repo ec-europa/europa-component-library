@@ -14,7 +14,6 @@ import notes from './README.md';
 const getArgTypes = (data) => {
   const argTypes = {};
   argTypes.title = {
-    name: 'title',
     type: { name: 'string', required: true },
     defaultValue: data.title,
     description: 'The page title',
@@ -26,7 +25,6 @@ const getArgTypes = (data) => {
   };
   if (data.description) {
     argTypes.description = {
-      name: 'description',
       type: 'string',
       defaultValue: data.description,
       description: 'The page introduction',
@@ -39,7 +37,6 @@ const getArgTypes = (data) => {
   }
   if (data.meta) {
     argTypes.meta = {
-      name: 'meta',
       type: 'string',
       defaultValue: data.meta,
       description: 'The page metadata',
