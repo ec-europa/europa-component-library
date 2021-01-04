@@ -61,6 +61,7 @@
   {% endif %}
   <div class="ecl-container">
     <div class="ecl-hero-banner__container">
+    {% if _title is not empty or _description is not empty or _link is not empty %}
       <div class="ecl-hero-banner__content">
         <div class="ecl-hero-banner__title">{{ _title }}</div>
         {% if _description is not empty %}
@@ -79,6 +80,7 @@
           }) only %}
         {% endif %}
       </div>
+    {% endif %}
     </div>
   </div>
 </section>
