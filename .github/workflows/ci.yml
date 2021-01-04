@@ -30,15 +30,9 @@ jobs:
         run: sudo chown -R $USER:$(id -gn $USER) /github/home
       - name: Workaround for container folder
         run: sudo ln -s /home/seluser/.cache /github/home/.cache
-      - name: Use Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '12'
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
       - name: Run Sauce Pipeline Test
         run: |
-          yarn vrt
+          saucectl run -c ./.sauce/config.yml
         env:
           BUILD_ID: ${{ github.run_id }}
           BUILD_ENV: GitHub Actions
