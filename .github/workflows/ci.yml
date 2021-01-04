@@ -18,18 +18,21 @@ jobs:
       - uses: actions/checkout@v2
       - name: Test
         run: ./scripts/audit.sh
+  # The config below has been written following https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml
   vrt:
     runs-on: ubuntu-latest
     container:
-      image: saucelabs/stt-puppeteer-jest-node:v0.2.2
-      options: --user 1001
-
+      image: saucelabs/stt-puppeteer-jest-node:latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v1
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Workaround for container permissions
+        run: sudo chown -R $USER:$(id -gn $USER) /github/home
       - name: Run Sauce Pipeline Test
         run: |
-          saucectl run
+          yarn vrt
         env:
           BUILD_ID: ${{ github.run_id }}
           BUILD_ENV: GitHub Actions
