@@ -7,7 +7,7 @@ import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import demoTitleContent from '@ecl/specs-component-page-header-harmonised/demo//data--title';
 import demoMetaTitleContent from '@ecl/specs-component-page-header-harmonised/demo/data--meta-title';
 import demoMetaTitleDescriptionContent from '@ecl/specs-component-page-header-harmonised/demo/data--meta-title-description';
-import dataBreadcrumbLong from '@ecl/specs-component-breadcrumb/demo/data';
+import dataBreadcrumbLong from '@ecl/specs-component-breadcrumb/demo/data--ec';
 import pageHeaderHarmonised from './page-header-harmonised.html.twig';
 import notes from './README.md';
 
