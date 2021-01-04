@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath, getOptions } from '@ecl/story-utils';
+import { correctSvgPath } from '@ecl/story-utils';
 
 // Import data for demos
 import uiIcons from '@ecl/resources-ec-icons/dist/lists/ui.json';
@@ -51,7 +51,7 @@ const getArgTypes = (data) => {
       },
       control: {
         type: 'select',
-        options: getOptions(uiIcons),
+        options: uiIcons,
       },
     },
     icon_transform: {

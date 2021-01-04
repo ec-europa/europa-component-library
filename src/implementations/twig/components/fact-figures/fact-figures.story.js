@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath, getOptions } from '@ecl/story-utils';
+import { correctSvgPath } from '@ecl/story-utils';
 
 import generalIcons from '@ecl/resources-ec-icons/dist/lists/general.json';
 import data3Col from '@ecl/specs-component-fact-figures/demo/data--3-col';
@@ -18,7 +18,7 @@ const getArgTypes = (data) => {
       description: 'Name of the icon',
       control: {
         type: 'select',
-        options: getOptions(generalIcons),
+        options: generalIcons,
       },
       table: {
         type: { summary: 'string' },

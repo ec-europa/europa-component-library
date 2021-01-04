@@ -649,10 +649,3 @@ export const getFormControls = (data, type) => {
 
   return argTypes;
 };
-
-export const getOptions = (data) => {
-  return data.reduce((a, b) => {
-    a[b] = b;
-    return a;
-  }, {});
-};
