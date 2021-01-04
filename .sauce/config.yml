@@ -2,15 +2,15 @@ apiVersion: v1alpha
 metadata:
   name: Feature XYZ
   tags:
-  - e2e
-  - release team
-  - other tag
+    - e2e
+    - release team
+    - other tag
   build: Release $CI_COMMIT_SHORT_SHA
 suites:
-- name: saucy test
-  match: .*.(spec|test).js$
+  - name: saucy test
+    match: .*.(spec|test).js$
 files:
-- tests/example.test.js
+  - tests/example.test.js
 fileTransfer: mount
 image:
   base: saucelabs/stt-puppeteer-jest-node
