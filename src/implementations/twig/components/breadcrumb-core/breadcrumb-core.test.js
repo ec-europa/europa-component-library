@@ -1,7 +1,7 @@
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 
-import dataSimple from '@ecl/specs-component-breadcrumb/demo/data--simple';
-import dataLong from '@ecl/specs-component-breadcrumb/demo/data';
+import dataSimple from '@ecl/specs-component-breadcrumb/demo/data-simple--ec';
+import dataLong from '@ecl/specs-component-breadcrumb/demo/data--ec';
 
 describe('Breadcrumb Core', () => {
   const template = '@ecl/breadcrumb-core/breadcrumb-core.html.twig';
