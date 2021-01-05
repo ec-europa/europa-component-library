@@ -1,71 +1,95 @@
-import he from 'he';
-import { withKnobs, text, select, object } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
 
-// Import data for demos
-import demoImg from '@ecl/specs-component-media-container/demo/data--image';
-import demoVideo from '@ecl/specs-component-media-container/demo/data--video';
-import demoEmbed from '@ecl/specs-component-media-container/demo/data--embed-video';
+import dataImg from '@ecl/specs-component-media-container/demo/data--image';
+import dataVideo from '@ecl/specs-component-media-container/demo/data--video';
+import dataEmbed from '@ecl/specs-component-media-container/demo/data--embed-video';
 import mediaContainer from './media-container.html.twig';
 import notes from './README.md';
 
-const prepareMediaContainer = (data, media) => {
-  if (media === 'video') {
-    data.description = text(
-      'description',
-      demoVideo.description,
-      tabLabels.optional
-    );
-    data.alt = text('alt', demoVideo.alt, tabLabels.required);
-    data.sources = object('sources', demoVideo.sources, tabLabels.required);
-    data.tracks = object('tracks', demoVideo.tracks, tabLabels.required);
-  } else if (media === 'image') {
-    data.description = text(
-      'description',
-      demoImg.description,
-      tabLabels.optional
-    );
-    data.alt = text('alt', demoImg.alt, tabLabels.required);
-    data.image = text('image', demoImg.image, tabLabels.required);
-  } else {
-    const options = ['16-9', '4-3', '3-2', '1-1'];
-    data.embedded_media = he.decode(
-      text('embedded_media', data.embedded_media, tabLabels.required)
-    );
-    data.description = text(
-      'description',
-      demoVideo.description,
-      tabLabels.optional
-    );
-    data.ratio = select('ratio', options, data.ratio, tabLabels.required);
+const getArgTypes = (data) => {
+  const argTypes = {};
+
+  argTypes.description = {
+    name: 'description',
+    type: 'string',
+    defaultValue: data.description,
+    description: 'Media description',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+  };
+
+  if (data.image && !data.sources) {
+    argTypes.image = {
+      name: 'image',
+      type: { name: 'string', required: true },
+      defaultValue: data.image,
+      description: 'Path or Url of the image',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+    };
   }
 
-  getExtraKnobs(data);
+  if (data.ratio) {
+    argTypes.ratio = {
+      name: 'ratio',
+      type: { name: 'select' },
+      defaultValue: data.ratio,
+      description: 'Media ratio',
+      table: {
+        type: { summary: 'string' },
+        category: 'Content',
+      },
+      control: {
+        type: 'select',
+        defaultValue: { summary: '16-9' },
+        options: ['16-9', '4-3', '3-2', '1-1'],
+      },
+    };
+  }
 
-  return data;
+  return argTypes;
+};
+
+const prepareData = (data, args) => {
+  return Object.assign(data, args);
 };
 
 export default {
   title: 'Components/Media container',
-  decorators: [withKnobs, withNotes, withCode],
+  decorators: [withNotes, withCode],
+  parameters: {
+    knobs: { disable: true },
+  },
 };
 
-export const Image = () =>
-  mediaContainer(prepareMediaContainer(demoImg, 'image'));
+export const Image = (args) => mediaContainer(prepareData(dataImg, args));
 
 Image.storyName = 'image';
-Image.parameters = { notes: { markdown: notes, json: demoImg } };
+Image.argTypes = getArgTypes(dataImg);
+Image.parameters = {
+  notes: { markdown: notes, json: dataImg },
+};
 
-export const Video = () =>
-  mediaContainer(prepareMediaContainer(demoVideo, 'video'));
+export const Video = (args) => mediaContainer(prepareData(dataVideo, args));
 
-Video.Name = 'video';
-Video.parameters = { notes: { markdown: notes, json: demoVideo } };
+Video.storyName = 'video';
+Video.argTypes = getArgTypes(dataVideo);
+Video.parameters = {
+  notes: { markdown: notes, json: dataVideo },
+};
 
-export const EmbeddedVideo = () =>
-  mediaContainer(prepareMediaContainer(demoEmbed, 'embed'));
+export const EmbeddedVideo = (args) =>
+  mediaContainer(prepareData(dataEmbed, args));
 
 EmbeddedVideo.storyName = 'embedded video';
-EmbeddedVideo.parameters = { notes: { markdown: notes, json: demoEmbed } };
+EmbeddedVideo.argTypes = getArgTypes(dataEmbed);
+EmbeddedVideo.parameters = {
+  notes: { markdown: notes, json: dataEmbed },
+};
