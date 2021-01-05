@@ -4,9 +4,6 @@ DOCKER_ID=$(docker run -d --rm \
   -v $STORYBOOK_DIR/build:/opt/storybook-static \
   browserless/chrome)
 
-if [[ "$CI" ]]; then
-  DOCKER_HOST_IP=$(/sbin/ip route|awk '/default/ { print $3 }')
-fi
+yarn jest storyshots.test.js --useStderr --update-snapshot
 
-HOST_IP=$DOCKER_HOST_IP yarn jest --silent --useStderr
 docker kill $DOCKER_ID

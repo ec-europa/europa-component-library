@@ -25,9 +25,11 @@
     "start:eu": "(cd src/presets/eu-core && npm run watch) & cd src/playground/eu && npm run start",
     "start:website": "cd src/website && npm run start",
     "test": "run-p test:*",
-    "test:components": "jest --verbose",
-    "test-test": "cd src/playground/ec && npm run compare-references",
+    "test:tools": "jest \"tools/.*.*/.*\\.test\\.js\" --verbose",
+    "test:snapshots": "jest \"src/implementations/twig/.*.*/.*\\.test\\.js\" --verbose",
+    "test:visual-regressions-ec": "cd src/playground/ec && npm run compare-references",
     "test:coding-conventions": "npm run lint && npm run pretty-check",
+    "gen:refs-ec": "cd src/playground/ec && npm run generate-references",
     "update-version": "scripts/update-version.sh"
   },
   "devDependencies": {

@@ -26,23 +26,10 @@ jobs:
         run: yarn build:icons
       - name: Build presets
         run: yarn build:presets
-      - name: Test
-        run: yarn test
-  vrt:
-    name: vrt
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-      - name: Build icons
-        run: yarn build:icons
-      - name: Build presets
-        run: yarn build:presets
       - name: Build storybook apps
         run: yarn dist:storybook
       - name: Test
-        run: yarn test-test
+        run: yarn test
   size:
     name: size
     runs-on: ubuntu-latest
