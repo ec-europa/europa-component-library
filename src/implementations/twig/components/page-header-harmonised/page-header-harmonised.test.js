@@ -3,7 +3,7 @@ import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 import demoTitleContent from '@ecl/specs-component-page-header-harmonised/demo/data--title';
 import demoMetaTitleContent from '@ecl/specs-component-page-header-harmonised/demo/data--meta-title';
 import demoMetaTitleDescriptionContent from '@ecl/specs-component-page-header-harmonised/demo/data--meta-title-description';
-import dataBreadcrumbSimple from '@ecl/specs-component-breadcrumb/demo/data';
+import dataBreadcrumbSimple from '@ecl/specs-component-breadcrumb/demo/data--ec';
 
 demoTitleContent.breadcrumb = dataBreadcrumbSimple;
 demoMetaTitleContent.breadcrumb = dataBreadcrumbSimple;
