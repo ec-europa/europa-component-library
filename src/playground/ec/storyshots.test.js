@@ -5,25 +5,20 @@ import puppeteer from 'puppeteer';
 const { HOST_IP } = process.env;
 let browser;
 
+// @see https://www.npmjs.com/package/@storybook/addon-storyshots-puppeteer
 const testFn = imageSnapshot({
   storybookUrl: 'file:///opt/storybook-static',
   getCustomBrowser: async () => {
     browser = await puppeteer.connect({
-      browserURL: (() => {
-        // For CI env's: If running in docker inside docker, you'll need the IP address of the host
-        if (HOST_IP) {
-          return `http://${HOST_IP}:9222`;
-        }
-        return 'http://localhost:9222';
-      })(),
+      browserURL: HOST_IP ? `http://${HOST_IP}:9222` : 'http://localhost:9222',
     });
     return browser;
   },
-  beforeScreenshot: async (page, { context: { kind, story }, url }) => {
+  beforeScreenshot: async (page) => {
     await page.evaluateHandle('document.fonts.ready');
     await page.setViewport({ deviceScaleFactor: 2, width: 800, height: 600 });
   },
-  getScreenshotOptions: ({ context, url }) => {
+  getScreenshotOptions: () => {
     return {
       encoding: 'base64',
       fullPage: false,
@@ -31,13 +26,14 @@ const testFn = imageSnapshot({
   },
 });
 
-// Override 'afterAll' so jest doesn't hang
+// Make sure that jest process is closed after tests are done.
 testFn.afterAll = () => {
   if (browser) {
     browser.close();
   }
 };
 
+// @see https://www.npmjs.com/package/@storybook/addon-storyshots
 initStoryshots({
   framework: 'html',
   test: testFn,
