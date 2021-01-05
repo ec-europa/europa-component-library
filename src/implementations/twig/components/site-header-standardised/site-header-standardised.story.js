@@ -1,162 +1,103 @@
-import {
-  withKnobs,
-  button,
-  text,
-  boolean,
-  object,
-  optionsKnob,
-} from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
-import {
-  getExtraKnobs,
-  tabLabels,
-  getLogoKnobs,
-  getLoginKnobs,
-  getLanguageSelectorKnobs,
-  getSearchFormKnobs,
-} from '@ecl/story-utils';
+import { correctSvgPath } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 import withCode from '@ecl/storybook-addon-code';
 
-import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import englishBanner from '@ecl/resources-ec-logo/logo--en.svg';
 import frenchBanner from '@ecl/resources-ec-logo/logo--fr.svg';
+import euFrenchMobileBanner from '@ecl/resources-eu-logo/condensed-version/positive/fr.svg';
+import euEnglishMobileBanner from '@ecl/resources-eu-logo/condensed-version/positive/en.svg';
 import englishData from '@ecl/specs-component-site-header-standardised/demo/data';
 import frenchData from '@ecl/specs-component-site-header-standardised/demo/data--fr';
 import siteHeaderStandardised from './site-header-standardised.html.twig';
 import notes from './README.md';
 
+const system = getSystem();
 const enData = { ...englishData };
 const frData = { ...frenchData };
 const loggedInData = { ...enData, logged: true };
+const clonedLoggedInData = { loggedInData };
 
-// Show/hide buttons for the login box.
-const btnLoginLabel = 'With or without the login box';
-const enBtnLoginHandler = () => {
-  if (enData.login_box) {
-    delete enData.login_box;
-  } else {
-    enData.login_box = englishData.login_box;
-  }
-};
-const frBtnLoginHandler = () => {
-  if (frData.login_box) {
-    delete frData.login_box;
-  } else {
-    frData.login_box = frenchData.login_box;
-  }
-};
-// Show/hide button for the language switcher
-const btnLangLabel = 'With or without the language switcher';
-const enBtnLangHandler = () => {
-  if (enData.language_selector) {
-    delete enData.language_selector;
-  } else {
-    enData.language_selector = englishData.language_selector;
-  }
-};
-const frBtnLangHandler = () => {
-  if (frData.language_selector) {
-    delete frData.language_selector;
-  } else {
-    frData.language_selector = frenchData.language_selector;
-  }
-};
-const btnMenuLabel = 'With or without the menu';
-const enBtnMenuHandler = () => {
-  if (enData.menu) {
-    delete enData.menu;
-  } else {
-    enData.menu = englishData.menu;
-  }
-};
-const enBtnMenuLoggedHandler = () => {
-  if (loggedInData.menu) {
-    delete loggedInData.menu;
-  } else {
-    loggedInData.menu = englishData.menu;
-  }
-};
-const frBtnMenuHandler = () => {
-  if (frData.menu) {
-    delete frData.menu;
-  } else {
-    frData.menu = frenchData.menu;
-  }
+const getArgTypes = () => {
+  return {
+    login: {
+      type: { name: 'boolean' },
+      defaultValue: true,
+      description: 'Toggle login box visibility',
+      table: {
+        type: { summary: 'object' },
+        defaultValue: { summary: '{}' },
+      },
+    },
+    menu: {
+      type: { name: 'boolean' },
+      defaultValue: true,
+      description: 'Toggle menu visibility',
+      table: {
+        type: { summary: 'object' },
+        defaultValue: { summary: '{}' },
+      },
+    },
+    language_selector: {
+      name: 'language selector',
+      type: { name: 'boolean' },
+      defaultValue: true,
+      description: 'Toggle language selector visibility',
+      table: {
+        type: { summary: 'object' },
+        defaultValue: { summary: '{}' },
+      },
+    },
+  };
 };
 
-const prepareSiteHeaderStandardised = (data, lang) => {
-  data.site_name = text('site_name', data.site_name, tabLabels.required);
-  data.logged = boolean('logged', data.logged, tabLabels.states);
-  data.banner_top.link.label = text(
-    'banner_top.link.label',
-    data.banner_top.link.label,
-    tabLabels.required
-  );
-  data.banner_top.link.path = text(
-    'banner_top.link.path',
-    data.banner_top.link.path,
-    tabLabels.required
-  );
-  data.icon_file_path = optionsKnob(
-    'icon_file_path',
-    { current: defaultSprite, 'no path': '' },
-    defaultSprite,
-    { display: 'inline-radio' },
-    tabLabels.required
-  );
-  let banner = '';
-  if (lang === 'en') {
-    banner = englishBanner;
+const prepareData = (data, demo, args) => {
+  if (!args.login) {
+    delete data.login_box;
+    delete data.login_toggle;
+  } else if (args.login && !data.login_box) {
+    if (demo === 'logged') {
+      data = clonedLoggedInData;
+    } else {
+      data = demo === 'default' ? enData : frData;
+    }
+  }
+  if (!args.menu) {
+    delete data.menu;
+  } else if (args.menu && !data.menu) {
+    if (demo === 'logged') {
+      data = clonedLoggedInData;
+    } else {
+      data = demo === 'default' ? enData : frData;
+    }
+  }
+  correctSvgPath(data);
+  if (system === 'ec') {
+    if (demo !== 'translated') {
+      data.logo.src_desktop = englishBanner;
+    } else {
+      data.logo.src_desktop = frenchBanner;
+    }
+  } else if (demo !== 'translated') {
+    if (args.menu) {
+      data.menu = dataMenuEn;
+      data.menu.site_name = '';
+    } else if (!args.menu && data.menu) {
+      delete data.menu;
+    }
+
+    data.logo.src_desktop = euEnglishBanner;
+    data.logo.src_mobile = euEnglishMobileBanner;
   } else {
-    banner = frenchBanner;
-  }
-  data.logo.src_desktop = optionsKnob(
-    'logo.src_desktop',
-    { current: banner, 'no path': '' },
-    banner,
-    { display: 'inline-radio' },
-    tabLabels.required
-  );
-  if (data.logo.src) {
-    // Logo knobs
-    getLogoKnobs(data, true);
-  }
-  // Login box and login toggle knobs.
-  getLoginKnobs(data, false);
-  // Search toggle.
-  data.search_toggle.label = text(
-    'search_toggle.label',
-    data.search_toggle.label,
-    tabLabels.required
-  );
-  data.search_toggle.href = text(
-    'search_toggle.href',
-    data.search_toggle.href,
-    tabLabels.required
-  );
-  // Search form.
-  getSearchFormKnobs(data, true);
-  // Language selector knobs.
-  if (data.language_selector) {
-    getLanguageSelectorKnobs(data, false);
-    // Language selector overlay.
-    data.language_selector.overlay = object(
-      'language_selector.overlay',
-      data.language_selector.overlay,
-      tabLabels.required
-    );
-  }
-  // Menu label.
-  data.menu_label = text(
-    'data.menu_label',
-    data.menu_label,
-    tabLabels.optional
-  );
-  // Extra classes and extra attributes.
-  getExtraKnobs(data);
-  // Menu.
-  if (data.menu) {
-    data.menu = object('data.menu', data.menu, tabLabels.optional);
+    if (args.menu) {
+      data.menu = dataMenuFr;
+      data.menu.site_name = '';
+    } else if (!args.menu && data.menu) {
+      delete data.menu;
+    }
+
+    data.logo.src_desktop = euFrenchBanner;
+    data.logo.src_mobile = euFrenchMobileBanner;
   }
 
   return data;
@@ -164,7 +105,7 @@ const prepareSiteHeaderStandardised = (data, lang) => {
 
 export default {
   title: 'Components/Site Headers/Standardised',
-  decorators: [withNotes, withCode, withKnobs],
+  decorators: [withNotes, withCode],
 };
 
 export const Default = () => {
