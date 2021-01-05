@@ -26,12 +26,14 @@
     "start:website": "cd src/website && npm run start",
     "test": "run-p test:*",
     "test:components": "jest --verbose",
+    "test-test": "cd src/playground/ec && npm run compare-references",
     "test:coding-conventions": "npm run lint && npm run pretty-check",
     "update-version": "scripts/update-version.sh"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "7.12.1",
     "@size-limit/preset-big-lib": "4.9.0",
+    "@storybook/html": "6.1.9",
     "babel-eslint": "10.1.0",
     "babel-jest": "26.6.3",
     "classnames": "2.2.6",
