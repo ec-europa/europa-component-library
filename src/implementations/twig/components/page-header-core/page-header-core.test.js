@@ -4,7 +4,7 @@ import demoBackgroundImage from '@ecl/specs-component-page-header-core/demo/data
 import demoTitleContent from '@ecl/specs-component-page-header-core/demo/data--title';
 import demoMetaTitleContent from '@ecl/specs-component-page-header-core/demo/data--meta-title';
 import demoMetaTitleDescriptionContent from '@ecl/specs-component-page-header-core/demo/data--meta-title-description';
-import dataBreadcrumbLong from '@ecl/specs-component-breadcrumb/demo/data';
+import dataBreadcrumbLong from '@ecl/specs-component-breadcrumb/demo/data--ec';
 
 demoTitleContent.breadcrumb = dataBreadcrumbLong;
 demoMetaTitleContent.breadcrumb = dataBreadcrumbLong;
