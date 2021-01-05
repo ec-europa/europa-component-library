@@ -8,7 +8,6 @@
     - "description" (string) (default: '') Description of banner
     - "centered" (bool) (default: true) Define if banner should be centered
     - "full_width": (bool) (default: false) Full width banner (inside the grid)
-    - [DEPRECATED] "button" (associative array) (default: predefined structure) predefined structure for the Button component
     - "link" (associative array) (default: predefined structure) predefined structure for the Link component
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -27,7 +26,6 @@
 {% set _description = description|default('') %}
 {% set _image = image|default('') %}
 {% set _full_width = full_width|default(false) %}
-{% set _button = button|default({}) %}
 {% set _link = link|default({}) %}
 {% set _css_class = ['ecl-hero-banner ecl-hero-banner--' ~ _type]|join(' ') %}
 {% set _extra_attributes = '' %}
@@ -63,6 +61,7 @@
   {% endif %}
   <div class="ecl-container">
     <div class="ecl-hero-banner__container">
+    {% if _title is not empty or _description is not empty or _link is not empty %}
       <div class="ecl-hero-banner__content">
         <div class="ecl-hero-banner__title">{{ _title }}</div>
         {% if _description is not empty %}
@@ -79,12 +78,9 @@
             }),
             extra_classes: _link_extra_classes,
           }) only %}
-        {% elseif _button is not empty %}
-          {% include '@ecl/button/-button.html.twig' with _button|merge({
-            extra_classes: 'ecl-hero-banner__button',
-          }) only %}
         {% endif %}
       </div>
+    {% endif %}
     </div>
   </div>
 </section>

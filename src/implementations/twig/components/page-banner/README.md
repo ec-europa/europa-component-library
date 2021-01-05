@@ -14,7 +14,6 @@ npm install --save @ecl/twig-component-page-banner
 - **"baseline"** (string) (default: '') Baseline of banner
 - **"centered"** (bool) (default: true) Define if banner should be centered
 - **"full_width"** (bools) (default: false) Extends the banner to whole viewport when used inside the grid
-- [DEPRECATED] **"button"** (associative array) (default: predefined structure) predefined structure for the Button component
 - **"link"** (associative array) (default: predefined structure) predefined structure for the Link component
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
@@ -31,7 +30,7 @@ npm install --save @ecl/twig-component-page-banner
   centered: true,  
   type: 'image',  
   image: 'url/path-to-image',  
-  button: {  
+  link: {  
     link: {  
       label: 'Subscribe',  
       icon_position: 'after',  
