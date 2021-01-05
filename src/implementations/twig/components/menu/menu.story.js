@@ -47,7 +47,7 @@ Default.argTypes = getArgTypes(enData);
 Default.storyName = 'default';
 Default.parameters = { notes: { markdown: notes, json: enData } };
 
-export const Translated = () => menu(prepareData(frData));
+export const Translated = (args) => menu(prepareData(frData, args));
 
 Translated.argTypes = getArgTypes(frData);
 Translated.storyName = 'translated';
