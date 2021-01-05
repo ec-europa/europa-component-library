@@ -7,22 +7,22 @@ import dataEmbed from '@ecl/specs-component-media-container/demo/data--embed-vid
 import mediaContainer from './media-container.html.twig';
 import notes from './README.md';
 
-const getArgTypes = (data, media) => {
+const getArgTypes = (data) => {
   const argTypes = {};
 
-  if (media === 'video') {
-    argTypes.description = {
-      name: 'description',
-      type: 'string',
-      defaultValue: data.description,
-      description: 'Media description',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-    };
-  } else if (media === 'image') {
+  argTypes.description = {
+    name: 'description',
+    type: 'string',
+    defaultValue: data.description,
+    description: 'Media description',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+  };
+
+  if (data.image && !data.sources) {
     argTypes.image = {
       name: 'image',
       type: { name: 'string', required: true },
@@ -34,29 +34,9 @@ const getArgTypes = (data, media) => {
         category: 'Content',
       },
     };
-    argTypes.description = {
-      name: 'description',
-      type: 'string',
-      defaultValue: data.description,
-      description: 'Media description',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-    };
-  } else {
-    argTypes.description = {
-      name: 'description',
-      type: 'string',
-      defaultValue: data.description,
-      description: 'Media description',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-    };
+  }
+
+  if (data.ratio) {
     argTypes.ratio = {
       name: 'ratio',
       type: { name: 'select' },
@@ -92,7 +72,7 @@ export default {
 export const Image = (args) => mediaContainer(prepareData(dataImg, args));
 
 Image.storyName = 'image';
-Image.argTypes = getArgTypes(dataImg, 'image');
+Image.argTypes = getArgTypes(dataImg);
 Image.parameters = {
   notes: { markdown: notes, json: dataImg },
 };
@@ -100,7 +80,7 @@ Image.parameters = {
 export const Video = (args) => mediaContainer(prepareData(dataVideo, args));
 
 Video.storyName = 'video';
-Video.argTypes = getArgTypes(dataVideo, 'video');
+Video.argTypes = getArgTypes(dataVideo);
 Video.parameters = {
   notes: { markdown: notes, json: dataVideo },
 };
@@ -109,7 +89,7 @@ export const EmbeddedVideo = (args) =>
   mediaContainer(prepareData(dataEmbed, args));
 
 EmbeddedVideo.storyName = 'embedded video';
-EmbeddedVideo.argTypes = getArgTypes(dataEmbed, 'embed');
+EmbeddedVideo.argTypes = getArgTypes(dataEmbed);
 EmbeddedVideo.parameters = {
   notes: { markdown: notes, json: dataEmbed },
 };
