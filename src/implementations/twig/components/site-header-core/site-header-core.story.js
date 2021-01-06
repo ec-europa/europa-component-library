@@ -1,134 +1,123 @@
-import {
-  withKnobs,
-  button,
-  text,
-  boolean,
-  object,
-  optionsKnob,
-} from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
-import {
-  getExtraKnobs,
-  tabLabels,
-  getLogoKnobs,
-  getLoginKnobs,
-  getLanguageSelectorKnobs,
-  getSearchFormKnobs,
-} from '@ecl/story-utils';
+import { correctSvgPath } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 import withCode from '@ecl/storybook-addon-code';
 
-import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import englishBanner from '@ecl/resources-ec-logo/logo--en.svg';
 import frenchBanner from '@ecl/resources-ec-logo/logo--fr.svg';
+import euEnglishBanner from '@ecl/resources-eu-logo/logo--en.svg';
+import euFrenchBanner from '@ecl/resources-eu-logo/logo--fr.svg';
+import euFrenchMobileBanner from '@ecl/resources-eu-logo/condensed-version/positive/fr.svg';
+import euEnglishMobileBanner from '@ecl/resources-eu-logo/condensed-version/positive/en.svg';
 import englishData from '@ecl/specs-component-site-header-core/demo/data';
 import frenchData from '@ecl/specs-component-site-header-core/demo/data--fr';
+import dataMenuEn from '@ecl/specs-component-menu/demo/data--en';
+import dataMenuFr from '@ecl/specs-component-menu/demo/data--fr';
 import siteHeaderCore from './site-header-core.html.twig';
 import notes from './README.md';
 
+const system = getSystem();
+const loggedInData = { ...englishData, logged: true };
 const enData = { ...englishData };
 const frData = { ...frenchData };
-const loggedInData = { ...enData, logged: true };
+const clonedLoggedInData = { ...loggedInData };
 
-// Show/hide buttons for the language switcher.
-const btnLabel = 'With or without the login box';
-const enBtnHandler = () => {
-  if (enData.login_box) {
-    delete enData.login_box;
-  } else {
-    enData.login_box = englishData.login_box;
+const getArgTypes = () => {
+  const argTypes = {
+    login: {
+      type: { name: 'boolean' },
+      defaultValue: true,
+      description: 'Toggle login box visibility',
+      table: {
+        type: { summary: 'object' },
+        defaultValue: { summary: '{}' },
+      },
+    },
+  };
+
+  if (system === 'eu') {
+    argTypes.menu = {
+      type: { name: 'boolean' },
+      defaultValue: true,
+      description: 'Toggle menu visibility',
+      table: {
+        type: { summary: 'object' },
+        defaultValue: { summary: '{}' },
+      },
+    };
   }
-};
-const frBtnHandler = () => {
-  if (frData.login_box) {
-    delete frData.login_box;
-  } else {
-    frData.login_box = frenchData.login_box;
-  }
+
+  return argTypes;
 };
 
-const prepareSiteHeaderCore = (data, lang) => {
-  data.logged = boolean('logged', data.logged, tabLabels.states);
-  data.icon_file_path = optionsKnob(
-    'icon_file_path',
-    { current: defaultSprite, 'no path': '' },
-    defaultSprite,
-    { display: 'inline-radio' },
-    tabLabels.required
-  );
-  let banner = '';
-  if (lang === 'en') {
-    banner = englishBanner;
+const prepareData = (data, demo, args) => {
+  if (!args.login) {
+    delete data.login_box;
+    delete data.login_toggle;
+  } else if (args.login && !data.login_box) {
+    if (demo === 'logged') {
+      data = clonedLoggedInData;
+    } else {
+      data = demo === 'default' ? enData : frData;
+    }
+  }
+  correctSvgPath(data);
+  if (system === 'ec') {
+    if (demo !== 'translated') {
+      data.logo.src_desktop = englishBanner;
+    } else {
+      data.logo.src_desktop = frenchBanner;
+    }
+  } else if (demo !== 'translated') {
+    if (args.menu) {
+      data.menu = dataMenuEn;
+      data.menu.site_name = '';
+    } else if (!args.menu && data.menu) {
+      delete data.menu;
+    }
+
+    data.logo.src_desktop = euEnglishBanner;
+    data.logo.src_mobile = euEnglishMobileBanner;
   } else {
-    banner = frenchBanner;
+    if (args.menu) {
+      data.menu = dataMenuFr;
+      data.menu.site_name = '';
+    } else if (!args.menu && data.menu) {
+      delete data.menu;
+    }
+
+    data.logo.src_desktop = euFrenchBanner;
+    data.logo.src_mobile = euFrenchMobileBanner;
   }
-  data.logo.src_desktop = optionsKnob(
-    'logo.src_desktop',
-    { current: banner, 'no path': '' },
-    banner,
-    { display: 'inline-radio' },
-    tabLabels.required
-  );
-  if (data.logo.src) {
-    // Logo knobs
-    getLogoKnobs(data, true);
-  }
-  // Login box and login toggle knobs.
-  getLoginKnobs(data, false);
-  // Language selector knobs.
-  getLanguageSelectorKnobs(data, true);
-  // Search toggle.
-  data.search_toggle.label = text(
-    'search_toggle.label',
-    data.search_toggle.label,
-    tabLabels.required
-  );
-  data.search_toggle.href = text(
-    'search_toggle.href',
-    data.search_toggle.href,
-    tabLabels.required
-  );
-  // Search form.
-  getSearchFormKnobs(data, true);
-  // Language selector overlay.
-  data.language_selector.overlay = object(
-    'language_selector.overlay',
-    data.language_selector.overlay,
-    tabLabels.required
-  );
-  // Extra classes and extra attributes.
-  getExtraKnobs(data);
 
   return data;
 };
 
 export default {
   title: 'Components/Site Headers/Core',
-  decorators: [withKnobs, withNotes, withCode],
+  decorators: [withNotes, withCode],
+  parameters: {
+    knobs: { disable: true },
+  },
 };
 
-export const Default = () => {
-  button(btnLabel, enBtnHandler, tabLabels.cases);
-
-  return siteHeaderCore(prepareSiteHeaderCore(enData, 'en'));
-};
+export const Default = (args) =>
+  siteHeaderCore(prepareData(englishData, 'default', args));
 
 Default.storyName = 'default';
-Default.parameters = { notes: { markdown: notes, json: enData } };
+Default.argTypes = getArgTypes();
+Default.parameters = { notes: { markdown: notes, json: englishData } };
 
-export const LoggedIn = () => {
-  button(btnLabel, enBtnHandler, tabLabels.cases);
-
-  return siteHeaderCore(prepareSiteHeaderCore(loggedInData, 'en'));
-};
+export const LoggedIn = (args) =>
+  siteHeaderCore(prepareData(loggedInData, 'logged', args));
 
 LoggedIn.storyName = 'logged in';
+LoggedIn.argTypes = getArgTypes();
 LoggedIn.parameters = { notes: { markdown: notes, json: loggedInData } };
 
-export const Translated = () => {
-  button(btnLabel, frBtnHandler, tabLabels.cases);
-
-  return siteHeaderCore(prepareSiteHeaderCore(frData, 'fr'));
-};
+export const Translated = (args) =>
+  siteHeaderCore(prepareData(frenchData, 'translated', args));
 
 Translated.storyName = 'translated';
-Translated.parameters = { notes: { markdown: notes, json: frData } };
+Translated.argTypes = getArgTypes();
+Translated.parameters = { notes: { markdown: notes, json: frenchData } };
