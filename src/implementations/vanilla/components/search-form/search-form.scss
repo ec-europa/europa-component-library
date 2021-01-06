@@ -41,13 +41,16 @@ $_border-color: map.get(theme.$color, 'grey-50');
 }
 
 .ecl-search-form__text-input {
+  flex-grow: 1;
+  margin-top: 0 !important;
+  width: 100%;
+}
+
+.ecl-search-form__text-input:not(.ecl-text-input--invalid) {
   border-bottom-color: $_border-color;
   border-left-color: $_border-color;
   border-right-width: 0;
   border-top-color: $_border-color;
-  flex-grow: 1;
-  margin-top: 0 !important;
-  width: 100%;
 }
 
 .ecl-search-form__button {

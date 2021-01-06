@@ -8,33 +8,48 @@ import notes from './README.md';
 
 const getArgTypes = (data) => {
   return {
-    input_label: {
-      name: 'label',
+    button_label: {
+      name: 'button label',
       type: { name: 'string', required: true },
-      description: 'The form element label (hidden via css)',
-      defaultValue: data.text_input.label,
+      defaultValue: data.button.label,
+      description: 'Label of the search button',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
         category: 'Content',
       },
     },
-    button_label: {
-      name: 'label of the submit button',
-      type: { name: 'string', required: true },
-      defaultValue: data.button.label,
+    invalid: {
+      name: 'invalid',
+      type: 'boolean',
+      defaultValue: false,
+      description: `Marks the search form as invalid`,
       table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+        category: 'States',
+      },
+    },
+    disabled: {
+      name: 'disabled',
+      type: 'boolean',
+      defaultValue: false,
+      description: `Disabled search form`,
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+        category: 'States',
       },
     },
   };
 };
 
 const prepareData = (data, args) => {
-  data.text_input.label = args.input_label;
+  data.text_input.disabled = args.disabled;
+  data.text_input.invalid = args.invalid;
   data.button.label = args.button_label;
+  data.button.disabled = args.disabled;
+  data.button.invalid = args.invalid;
 
   return correctSvgPath(data);
 };
