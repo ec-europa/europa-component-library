@@ -7,14 +7,14 @@
 @use '@ecl/theme-dev/globals';
 @use '@ecl/theme-dev/theme';
 
-$_border-radius: 0 !default;
-$_border-width: 2px !default;
-$_font-weight: map.get(theme.$font-weight, 'bold') !default;
-$_outline-color: map.get(theme.$color, 'yellow-100') !default;
-$_outline-width: 3px !default;
-$_padding-horizontal: map.get(theme.$spacing, 'm') !default;
-$_padding-vertical: map.get(theme.$spacing, 's') !default;
-$_shadow-hover: none !default;
+$_border-radius: null !default;
+$_border-width: null !default;
+$_font-weight: null !default;
+$_outline-color: null !default;
+$_outline-width: null !default;
+$_padding-horizontal: null !default;
+$_padding-vertical: null !default;
+$_shadow-hover: null !default;
 
 .ecl-button {
   appearance: none;
@@ -85,11 +85,11 @@ $_primary-color: null !default;
 /**
 * Secondary
 */
-$_secondary-background-color: map.get(theme.$color, 'white-100') !default;
-$_secondary-border-color: map.get(theme.$color, 'blue-100') !default;
-$_secondary-border-color-hover: map.get(theme.$color, 'blue-130') !default;
-$_secondary-color: map.get(theme.$color, 'blue-100') !default;
-$_secondary-color-hover: map.get(theme.$color, 'blue-130') !default;
+$_secondary-background-color: null !default;
+$_secondary-border-color: null !default;
+$_secondary-border-color-hover: null !default;
+$_secondary-color: null !default;
+$_secondary-color-hover: null !default;
 .ecl-button--secondary {
   background-color: $_secondary-background-color;
   border: $_border-width solid $_secondary-border-color;
@@ -107,8 +107,8 @@ $_secondary-color-hover: map.get(theme.$color, 'blue-130') !default;
 /**
 * Ghost
 */
-$_ghost-color: map.get(theme.$color, 'blue-100') !default;
-$_ghost-color-hover: map.get(theme.$color, 'blue-130') !default;
+$_ghost-color: null !default;
+$_ghost-color-hover: null !default;
 .ecl-button--ghost {
   color: $_ghost-color;
 
@@ -121,10 +121,10 @@ $_ghost-color-hover: map.get(theme.$color, 'blue-130') !default;
 /**
 * Call to action
 */
-$_cta-background-color: map.get(theme.$color, 'yellow-100') !default;
-$_cta-color: map.get(theme.$color, 'black-100') !default;
-$_cta-border-color-hover: map.get(theme.$color, 'black-100') !default;
-$_cta-outline-color: map.get(theme.$color, 'black-100') !default;
+$_cta-background-color: null !default;
+$_cta-color: null !default;
+$_cta-border-color-hover: null !default;
+$_cta-outline-color: null !default;
 .ecl-button--call {
   background-color: $_cta-background-color;
   color: $_cta-color;
@@ -144,9 +144,9 @@ $_cta-outline-color: map.get(theme.$color, 'black-100') !default;
 /**
 * Search
 */
-$_search-background-color: map.get(theme.$color, 'grey-10') !default;
-$_search-background-color-hover: map.get(theme.$color, 'grey-25') !default;
-$_search-color: map.get(theme.$color, 'blue-100') !default;
+$_search-background-color: null !default;
+$_search-background-color-hover: null !default;
+$_search-color: null !default;
 .ecl-button--search {
   background-color: $_search-background-color;
   border-bottom-left-radius: 0;
