@@ -13,6 +13,7 @@ import siteHeaderHarmonised from './site-header-harmonised.html.twig';
 import notes from './README.md';
 
 // Preserve original data.
+delete dataLoggedIn.banner_top;
 const languageSelector = { ...dataLoggedIn.language_selector };
 const menuEn = { ...dataLoggedIn.menu };
 const loginBox = { ...dataLoggedIn.login_box };
