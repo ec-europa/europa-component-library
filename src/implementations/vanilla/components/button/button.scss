@@ -7,44 +7,59 @@
 @use '@ecl/theme-dev/globals';
 @use '@ecl/theme-dev/theme';
 
+$system: getsystem();
+$_border-radius: 0;
 $_border-width: 2px;
+$_font-weight: map.get(theme.$font-weight, 'bold');
+$_outline-color: map.get(theme.$color, 'yellow-100');
 $_outline-width: 3px;
 $_padding-horizontal: map.get(theme.$spacing, 'm');
 $_padding-vertical: map.get(theme.$spacing, 's');
+$_primary-background-color: map.get(theme.$color, 'blue-100');
+$_primary-background-color-hover: map.get(theme.$color, 'blue-130');
+$_primary-color: map.get(theme.$color, 'white-100');
+$_shadow-hover: none;
+
+@if ($system == 'eu') {
+  $_border-radius: 4px;
+  $_font-weight: map.get(theme.$font-weight, 'regular');
+  $_outline-color: map.get(theme.$color, 'accent-blue-100');
+  $_outline-width: 2px;
+  $_primary-background-color-hover: map.get(theme.$color, 'blue-80');
+  $_shadow-hover: 0 0 4px rgba(9, 49, 142, 0.5);
+}
 
 .ecl-button {
   appearance: none;
   background: none;
-  border-radius: map.get(
-    (
-      no: 0,
-      yes: map.get(theme.$border-radius, 'm'),
-    ),
-    globals.$border-radius
-  );
+  border-radius: $_border-radius;
   border-width: 0;
   box-sizing: border-box;
   display: inline-block;
   font: map.get(theme.$font, 'm');
-  font-weight: map.get(theme.$font-weight, 'bold');
+  font-weight: $_font-weight;
   margin: 0;
   padding: $_padding-vertical $_padding-horizontal;
   text-decoration: none;
 
   &:hover,
-  &:focus,
   &:active {
+    box-shadow: $_shadow-hover;
     text-decoration: none;
   }
 
   &:focus {
-    outline: $_outline-width solid map.get(theme.$color, 'secondary');
-    outline-offset: -($_outline-width);
+    border: $_outline-width solid $_outline-color;
+    outline: none;
+    padding: calc(#{$_padding-vertical} - #{$_outline-width})
+      calc(#{$_padding-horizontal} - #{$_outline-width});
+    text-decoration: none;
   }
 
   &[disabled],
   &[disabled]:hover {
     cursor: not-allowed;
+    opacity: 30%;
     text-decoration: none;
   }
 }
@@ -68,19 +83,12 @@ $_padding-vertical: map.get(theme.$spacing, 's');
 * Primary
 */
 .ecl-button--primary {
-  background-color: map.get(theme.$color, 'blue-100');
-  color: map.get(theme.$color, 'white-100');
+  background-color: $_primary-background-color;
+  color: $_primary-color;
 
   &:hover,
   &:active {
-    background-color: map.get(theme.$color, 'blue-130');
-  }
-
-  &[disabled],
-  &[disabled]:hover {
-    background-color: map.get(theme.$color, 'blue-25');
-    border-color: map.get(theme.$color, 'blue-25');
-    color: map.get(theme.$color, 'white-100');
+    background-color: $_primary-background-color-hover;
   }
 }
 
