@@ -1,17 +1,21 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctSvgPath } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
-import logoPath from '@ecl/resources-ec-logo/logo--mute.svg';
+import logoPathEC from '@ecl/resources-ec-logo/logo--mute.svg';
+import logoPathEU from '@ecl/resources-eu-logo/logo--mute.svg';
 import dataSplash from '@ecl/specs-component-language-list/demo/data--splash';
 import dataOverlay from '@ecl/specs-component-language-list/demo/data--overlay';
 import languageList from './language-list.html.twig';
 import notes from './README.md';
 
+const system = getSystem();
+
 const prepareData = (data) => {
   correctSvgPath(data);
   if (data.logo) {
-    data.logo.path = logoPath;
+    data.logo.path = system === 'eu' ? logoPathEU : logoPathEC;
   }
 
   return data;
