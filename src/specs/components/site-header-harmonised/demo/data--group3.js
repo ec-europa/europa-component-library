@@ -4,11 +4,9 @@ module.exports = {
     alt: 'Site logo',
     href: '/example',
     language: 'en',
-    src: 'https://inno-ecl.s3.amazonaws.com/media/examples/placeholder.svg',
     src_desktop:
       'https://inno-ecl.s3.amazonaws.com/media/examples/placeholder.svg',
   },
-  siteName: 'Site name',
   site_name: 'Site name',
   group: 'group3',
 };
