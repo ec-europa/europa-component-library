@@ -1,9 +1,7 @@
-import { withKnobs, text, select, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
+import { correctSvgPath } from '@ecl/story-utils';
 
-import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import dataLink from '@ecl/specs-component-tag/demo/data--link';
 import dataRemovable from '@ecl/specs-component-tag/demo/data--removable';
 import dataDisplay from '@ecl/specs-component-tag/demo/data--display';
@@ -11,55 +9,49 @@ import dataDisplay from '@ecl/specs-component-tag/demo/data--display';
 import tag from './tag.html.twig';
 import notes from './README.md';
 
-// Preserve the adapted specs.
-const prepareTag = (data, link, aria) => {
-  data.tag.type = select(
-    'tag.type',
-    [data.tag.type],
-    data.tag.type,
-    tabLabels.required
-  );
-  data.tag.label = text('tag.label', data.tag.label, tabLabels.required);
-  if (link) {
-    data.tag.path = text('tag.path', data.tag.path, tabLabels.required);
-  }
-  if (aria) {
-    data.tag.aria_label = text(
-      'tag.aria_label',
-      data.tag.aria_label,
-      tabLabels.required
-    );
+const getArgTypes = (data) => {
+  return {
+    label: {
+      name: 'label',
+      defaultValue: data.tag.label,
+      type: { name: 'string', required: true },
+      description: 'The label of the tag',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+    },
+  };
+};
 
-    data.default_icon_path = optionsKnob(
-      'default_icon_path',
-      { current: defaultSprite, 'no path': '' },
-      defaultSprite,
-      { display: 'inline-radio' },
-      tabLabels.required
-    );
-  }
+const prepareData = (data, args) => {
+  data.tag.label = args.label;
+  correctSvgPath(data);
 
-  getExtraKnobs(data);
-
-  return data;
+  return Object.assign(data, args);
 };
 
 export default {
   title: 'Components/Tag',
-  decorators: [withKnobs, withNotes, withCode],
+  decorators: [withCode, withNotes],
+  knobs: { disable: true },
 };
 
-export const Display = () => tag(prepareTag(dataDisplay));
+export const Display = (args) => tag(prepareData(dataDisplay, args));
 
 Display.storyName = 'display tag';
+Display.argTypes = getArgTypes(dataDisplay);
 Display.parameters = { notes: { markdown: notes, json: dataDisplay } };
 
-export const Link = () => tag(prepareTag(dataLink, true));
+export const Link = (args) => tag(prepareData(dataLink, args));
 
 Link.storyName = 'link tag';
+Link.argTypes = getArgTypes(dataLink);
 Link.parameters = { notes: { markdown: notes, json: dataLink } };
 
-export const Removable = () => tag(prepareTag(dataRemovable, false, true));
+export const Removable = (args) => tag(prepareData(dataRemovable, args));
 
 Removable.storyName = 'removable tag';
+Removable.argTypes = getArgTypes(dataRemovable);
 Removable.parameters = { notes: { markdown: notes, json: dataRemovable } };
