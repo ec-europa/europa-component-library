@@ -34,8 +34,10 @@ const prepareData = (data, args) => {
 
 export default {
   title: 'Components/Tag',
-  decorators: [withCode, withNotes],
-  knobs: { disable: true },
+  decorators: [withNotes, withCode],
+  parameters: {
+    knobs: { disable: true },
+  },
 };
 
 export const Display = (args) => tag(prepareData(dataDisplay, args));
