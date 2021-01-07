@@ -1,0 +1,34 @@
+backend:
+  name: github
+  repo: ec-europa/europa-component-library
+  branch: feat/netlify-cms-demo
+  base_url: https://europa-component-library.netlify.app
+  extension: md
+  squash_merges: true
+  commit_messages:
+    create: 'feat({{collection}}): create {{collection}} “{{slug}}”'
+    update: 'feat({{collection}}): update {{collection}} “{{slug}}”'
+    delete: 'feat({{collection}}): delete {{collection}} “{{slug}}”'
+    uploadMedia: 'Upload “{{path}}”'
+    deleteMedia: 'Delete “{{path}}”'
+
+media_folder: src/website/public/img
+publish_mode: editorial_workflow
+
+collections:
+  - label: 'Docs'
+    name: 'docs'
+    files:
+      - label: 'Landing page'
+        name: 'index'
+        file: 'src/website/src/pages/index.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+  - label: 'Usage pages'
+    name: 'usage_pages'
+    files:
+      - label: 'Accordion'
+        name: 'accordion'
+        file: 'src/website/src/pages/ec/components/accordion/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }

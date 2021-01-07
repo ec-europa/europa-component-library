@@ -3,38 +3,17 @@ title: Usage
 order: 1
 ---
 
-import { Paragraph, Anatomy } from '@ecl/website-components';
-
-<Paragraph size="lead">
-  The accordion is a <strong>progressive disclosure component</strong>. Such
-  components truncate information for the general layout/design and are intended
-  to{' '}
-  <strong>
-    deliver optional additional content depending on users' interest
-  </strong>
-  . They help keep the interface clean and reduce scrolling by saving vertical space.
-</Paragraph>
+The accordion is a <strong>progressive disclosure component</strong>. Such
+components truncate information for the general layout/design and are intended
+to{' '}
+<strong>
+deliver optional additional content depending on users' interest
+</strong>
+. They help keep the interface clean and reduce scrolling by saving vertical space.
 
 **Accordions display easy to scan labels of the relevant information, indicative of the additional content that is available through extra interaction.** For this reason, accordion labels (collapsed state) should be as descriptive and concise as possible, helping users to form a mental model of the information available.
 
 ## Anatomy
-
-<Anatomy
-  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Accordion/Accordion2.jpg"
-  alt="Anatomy of accordion"
-  legend={{
-    items: [
-      {
-        color: '#404040',
-        label: 'mandatory',
-      },
-      {
-        color: '#004494',
-        label: 'optional',
-      },
-    ],
-  }}
-/>
 
 | Elements          | Mandatory | Description                                                                                                                                                                    |
 | ----------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

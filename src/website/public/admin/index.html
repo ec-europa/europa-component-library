@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content Manager</title>
+    <link rel="stylesheet" href="markdown.css" />
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script src="https://unpkg.com/prettier@2.1.1/standalone.js"></script>
+    <script src="https://unpkg.com/prettier@2.1.1/parser-markdown.js"></script>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/2.0.1/remarkable.min.js"></script>
+    <!-- Include the script that builds the page and powers Netlify CMS -->
+    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+    <script>
+      const createTable = (obj) => {
+        const base = '|';
+        let outputString = [];
+        for (let i = 1; i <= obj.columns; i++) {
+          outputString.push(`heading ${i}`);
+        }
+        outputString = base + outputString.join(base) + '|\n';
+        for (let i = 1; i <= obj.columns; i++) {
+          outputString += base + '-----';
+        }
+
+        outputString += base + '\n';
+        if (obj.rows > 0) {
+          for (let j = 1; j <= obj.rows; j++) {
+            for (let i = 1; i <= obj.columns; i++) {
+              outputString += base + `row ${j} cell ${i}`;
+            }
+            outputString += '|\n';
+          }
+        }
+
+        outputString = prettier.format(outputString, {
+          semi: false,
+          parser: 'markdown',
+          plugins: prettierPlugins,
+        });
+
+        return outputString;
+      };
+
+      CMS.registerEditorComponent({
+        id: 'table',
+        label: 'Table',
+        fields: [
+          {
+            name: 'columns',
+            label: 'columns',
+            widget: 'number',
+          },
+          {
+            name: 'rows',
+            label: 'rows',
+            widget: 'number',
+          },
+        ],
+        toBlock: function (obj) {
+          return createTable(obj);
+        },
+        toPreview: function (obj) {
+          return createTable(obj);
+        },
+      });
+
+      CMS.registerPreviewStyle('markdown.css');
+      CMS.registerEventListener({
+        name: 'preSave',
+        handler: ({ entry }) => {
+          const body = prettier.format(entry.getIn(['data', 'body']), {
+            semi: false,
+            parser: 'markdown',
+            plugins: prettierPlugins,
+          });
+          return entry.get('data').set('body', body);
+        },
+      });
+    </script>
+  </body>
+</html>
