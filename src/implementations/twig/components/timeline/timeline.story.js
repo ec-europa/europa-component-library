@@ -1,15 +1,42 @@
-import { withKnobs, number, text, optionsKnob } from '@storybook/addon-knobs';
+import { loremIpsum } from 'lorem-ipsum';
 import { withNotes } from '@ecl/storybook-addon-notes';
-import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
-import he from 'he';
 import withCode from '@ecl/storybook-addon-code';
+import { correctSvgPath } from '@ecl/story-utils';
 
-import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import demoData from '@ecl/specs-component-timeline/demo/data';
 import timeline from './timeline.html.twig';
 import notes from './README.md';
 
-const prepareTimeline = (data) => {
+const getArgTypes = () => {
+  const argTypes = {};
+  argTypes.showDummyContent = {
+    name: 'Add dummy content',
+    type: { name: 'boolean' },
+    defaultValue: false,
+    description: 'Add dummy content at the bottom of the timeline.',
+    table: {
+      category: 'Test content',
+    },
+    control: {
+      type: 'boolean',
+    },
+  };
+
+  return argTypes;
+};
+
+// Prepare dummy Html for the main content.
+const prepareHtmlContent = (state) => {
+  if (state) {
+    return `<p class="ecl-u-type-paragraph-m">${loremIpsum({ count: 25 })}</p>
+            <p class="ecl-u-type-paragraph-m">${loremIpsum({ count: 25 })}</p>`;
+  }
+
+  return '';
+};
+
+// Prepare data for the navigation.
+const prepareData = (data) => {
   const { from, to } = data.hide;
   let hiddenCount = 0;
   if (to > 0) {
@@ -17,48 +44,32 @@ const prepareTimeline = (data) => {
   } else {
     hiddenCount = data.items.length + to - from;
   }
-  data.toggle_collapsed = text(
-    'toggle_collapsed',
-    `Show ${hiddenCount} more items`,
-    tabLabels.required
-  );
-  data.toggle_expanded = text(
-    'toggle_expanded',
-    `Hide ${hiddenCount} items`,
-    tabLabels.required
-  );
-  data.icon_path = optionsKnob(
-    'icon_path',
-    { current: defaultSprite, 'no path': '' },
-    defaultSprite,
-    { display: 'inline-radio' },
-    tabLabels.required
-  );
+  data.toggle_collapsed = `Show ${hiddenCount} more items`;
+  data.toggle_expanded = `Hide ${hiddenCount} items`;
 
-  data.hide.from = number('hide.from', data.hide.from, {}, tabLabels.optional);
-  data.hide.to = number('hide.to', data.hide.to, {}, tabLabels.optional);
-
-  data.items.forEach((item, i) => {
-    const { id, label, title, content } = item;
-    item.label = text(`items[${i}].label`, label, tabLabels.required);
-    item.id = text(`items[${i}].id`, id, tabLabels.optional);
-    item.title = text(`items[${i}].title`, title, tabLabels.optional);
-    item.content = he.decode(
-      text(`items[${i}].content`, content, tabLabels.required)
-    );
-  });
-
-  getExtraKnobs(data);
+  data.icon_path = '/icon.svg';
+  correctSvgPath(data);
 
   return data;
 };
 
 export default {
   title: 'Components/Timeline',
+  parameters: {
+    knobs: {
+      disable: true,
+    },
+  },
 };
 
-export const Default = () => timeline(prepareTimeline(demoData));
+export const Default = (arg) => {
+  const timelineHtml = timeline(prepareData(demoData));
+  const dummyContent = prepareHtmlContent(arg.showDummyContent);
+
+  return `${timelineHtml}${dummyContent}`;
+};
 
 Default.storyName = 'default';
+Default.argTypes = getArgTypes();
 Default.parameters = { notes: { markdown: notes, json: demoData } };
-Default.decorators = [withKnobs, withCode, withNotes];
+Default.decorators = [withCode, withNotes];
