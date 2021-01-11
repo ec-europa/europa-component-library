@@ -11,7 +11,7 @@ to **deliver optional additional content depending on users' interest**. They he
 
 ## Anatomy
 
-![anatomy](/img/accordion2.jpg 'accordion')
+![anatomy](/cms-images/accordion2.jpg 'accordion')
 
 | Elements          | Mandatory | Description                                                                                                                                                                    |
 | ----------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
