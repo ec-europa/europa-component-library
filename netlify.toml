@@ -1,0 +1,14 @@
+[build]
+publish = "."
+command = "netlify-lambda build functions"
+functions = ".netlify/functions/"
+
+[[redirects]]
+  from="/auth"
+  to="/.netlify/functions/auth"
+  status=200
+
+[[redirects]]
+  from="/auth-callback"
+  to="/.netlify/functions/auth-callback"
+  status=200
