@@ -12,10 +12,10 @@ import { Paragraph, Anatomy } from '@ecl/website-components';
 ## Anatomy
 
 <Anatomy
-  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Blockquote/Blockquote%20-%20Desktop.png"
-  srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/Blockquote/Blockquote%20-%20Mobile.png 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/Blockquote/Blockquote%20-%20Desktop.png 1246w"
-  alt="Anatomy of blockquotes"
-  legend={{
+image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Blockquote/Blockquote%20-%20Desktop.png"
+srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/Blockquote/Blockquote%20-%20Mobile.png 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/Blockquote/Blockquote%20-%20Desktop.png 1246w"
+alt="Anatomy of blockquotes"
+legend={{
     items: [
       {
         color: '#404040',
