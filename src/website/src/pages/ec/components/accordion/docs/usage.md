@@ -2,6 +2,7 @@
 title: Usage
 order: 1
 ---
+
 The accordion is a **progressive disclosure component**. Such
 components truncate information for the general layout/design and are intended
 to **deliver optional additional content depending on users' interest**. They help keep the interface clean and reduce scrolling by saving vertical space.
@@ -10,7 +11,7 @@ to **deliver optional additional content depending on users' interest**. They he
 
 ## Anatomy
 
-![anatomy](/src/website/public/img/accordion2.jpg "accordion")
+![anatomy](/img/accordion2.jpg 'accordion')
 
 | Elements          | Mandatory | Description                                                                                                                                                                    |
 | ----------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
