@@ -17,7 +17,7 @@ Components:
 - Menu (legacy)
 - Page header (deprecated since ECL 2.14.0)
 - Site header (deprecated since ECL 2.12.0)
-- Timeline (deprecated since ECL 2.5.0)
+- Timeline (deprecated since ECL 2.5.0; ECL v3 contains a timeline taken from ECL v2 aka timeline2 now named timeline)
 
 Templates:
 
