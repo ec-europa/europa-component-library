@@ -1,8 +1,3 @@
----
-title: Usage
-order: 1
----
-
 The accordion is a <strong>progressive disclosure component</strong>. Such
 components truncate information for the general layout/design and are intended
 to{' '}
