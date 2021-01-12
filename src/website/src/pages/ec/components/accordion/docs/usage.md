@@ -2,18 +2,15 @@
 title: Usage
 order: 1
 ---
-
-The accordion is a <strong>progressive disclosure component</strong>. Such
+The accordion is a **progressive disclosure component**. Such
 components truncate information for the general layout/design and are intended
-to{' '}
-<strong>
-deliver optional additional content depending on users' interest
-</strong>
-. They help keep the interface clean and reduce scrolling by saving vertical space.
+to **deliver optional additional content depending on users' interest**. They help keep the interface clean and reduce scrolling by saving vertical space.
 
 **Accordions display easy to scan labels of the relevant information, indicative of the additional content that is available through extra interaction.** For this reason, accordion labels (collapsed state) should be as descriptive and concise as possible, helping users to form a mental model of the information available.
 
 ## Anatomy
+
+![anatomy](/cms-images/accordion2.jpg "accordion")
 
 | Elements          | Mandatory | Description                                                                                                                                                                    |
 | ----------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
