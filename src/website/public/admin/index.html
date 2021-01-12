@@ -18,29 +18,29 @@
     <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
     <script>
       const createTable = (obj) => {
-        const base = "|";
+        const base = '|';
         let outputString = [];
         for (let i = 1; i <= obj.columns; i++) {
           outputString.push(`heading ${i}`);
         }
-        outputString = base + outputString.join(base) + "|\n";
+        outputString = base + outputString.join(base) + '|\n';
         for (let i = 1; i <= obj.columns; i++) {
-          outputString += base + "-----";
+          outputString += base + '-----';
         }
 
-        outputString += base + "\n";
+        outputString += base + '\n';
         if (obj.rows > 0) {
           for (let j = 1; j <= obj.rows; j++) {
             for (let i = 1; i <= obj.columns; i++) {
               outputString += base + `row ${j} cell ${i}`;
             }
-            outputString += "|\n";
+            outputString += '|\n';
           }
         }
 
         outputString = prettier.format(outputString, {
           semi: false,
-          parser: "markdown",
+          parser: 'markdown',
           plugins: prettierPlugins,
         });
 
@@ -48,18 +48,18 @@
       };
 
       CMS.registerEditorComponent({
-        id: "table",
-        label: "Table",
+        id: 'table',
+        label: 'Table',
         fields: [
           {
-            name: "columns",
-            label: "columns",
-            widget: "number",
+            name: 'columns',
+            label: 'columns',
+            widget: 'number',
           },
           {
-            name: "rows",
-            label: "rows",
-            widget: "number",
+            name: 'rows',
+            label: 'rows',
+            widget: 'number',
           },
         ],
         toBlock: function (obj) {
@@ -70,19 +70,19 @@
         },
       });
 
-      CMS.registerPreviewStyle("markdown.css");
+      CMS.registerPreviewStyle('markdown.css');
       CMS.registerEventListener({
-        name: "preSave",
+        name: 'preSave',
         handler: ({ entry }) => {
-          const body = prettier.format(entry.getIn(["data", "body"]), {
+          const body = prettier.format(entry.getIn(['data', 'body']), {
             semi: false,
-            parser: "markdown",
+            parser: 'markdown',
             singleQuote: false,
             printWidth: 80,
-            proseWrap: "preserve",
+            proseWrap: 'preserve',
             plugins: prettierPlugins,
           });
-          return entry.get("data").set("body", body);
+          return entry.get('data').set('body', body);
         },
       });
     </script>
