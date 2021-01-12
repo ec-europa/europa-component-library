@@ -1,8 +1,9 @@
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 
 // Import data for tests
-import dataDefault from '@ecl/specs-component-checkbox/demo/data--default';
-import dataInvalid from '@ecl/specs-component-checkbox/demo/data--invalid';
+import dataDefault from '@ecl/specs-component-checkbox/demo/data';
+
+const dataInvalid = { ...dataDefault, invalid: true };
 
 describe('Checkbox', () => {
   const template = '@ecl/checkbox/checkbox-group.html.twig';

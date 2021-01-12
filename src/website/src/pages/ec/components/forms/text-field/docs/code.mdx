@@ -7,8 +7,11 @@ import { Playground, Html } from '@ecl/website-components';
 import {
   textInputDefault,
   textInputDisabled,
-  textInputWithError,
+  textInputInvalid,
+  textInputOptional,
 } from '../demo';
+
+## Default text field
 
 <Playground
   system="ec"
@@ -18,22 +21,32 @@ import {
   <Html markup={textInputDefault} />
 </Playground>
 
-## Disabled
+## Disabled text field
 
 <Playground
   system="ec"
   selectedKind="components-forms-text-field"
-  selectedStory="default"
+  selectedStory="disabled"
 >
   <Html markup={textInputDisabled} />
 </Playground>
 
-## With error
+## Invalid text field
 
 <Playground
   system="ec"
   selectedKind="components-forms-text-field"
-  selectedStory="default"
+  selectedStory="invalid"
 >
-  <Html markup={textInputWithError} />
+  <Html markup={textInputInvalid} />
+</Playground>
+
+## Optional text field
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-text-field"
+  selectedStory="optional"
+>
+  <Html markup={textInputOptional} />
 </Playground>
