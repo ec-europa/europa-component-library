@@ -35,6 +35,7 @@
   } else {
     // Manually inject styles
     var head = document.head || document.getElementsByTagName('head')[0];
+    head.appendChild(createLink('./styles/reset.css', 'screen'));
     head.appendChild(createLink('./styles/eu-core.css', 'screen'));
     head.appendChild(createLink('./styles/eu-core-print.css', 'print'));
   }
