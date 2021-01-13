@@ -4,7 +4,6 @@
  */
 
 @use "sass:map";
-@use '@ecl/theme-dev/globals';
 @use '@ecl/theme-dev/theme';
 
 $_border-radius: null !default;
@@ -138,23 +137,5 @@ $_cta-outline-color: null !default;
 
   &:focus {
     border-color: $_cta-outline-color;
-  }
-}
-
-/**
-* Search
-*/
-$_search-background-color: null !default;
-$_search-background-color-hover: null !default;
-$_search-color: null !default;
-.ecl-button--search {
-  background-color: $_search-background-color;
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
-  color: $_search-color;
-
-  &:hover,
-  &:active {
-    background-color: $_search-background-color-hover;
   }
 }

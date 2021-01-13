@@ -8,7 +8,6 @@ import dataPrimary from '@ecl/specs-component-button/demo/data--primary';
 import dataSecondary from '@ecl/specs-component-button/demo/data--secondary';
 import dataCall from '@ecl/specs-component-button/demo/data--call';
 import dataGhost from '@ecl/specs-component-button/demo/data--ghost';
-import dataSearch from '@ecl/specs-component-button/demo/data--search';
 
 import button from './button.html.twig';
 import notes from './README.md';
@@ -171,17 +170,5 @@ Ghost.args = {
 Ghost.storyName = 'text';
 Ghost.parameters = {
   notes: { markdown: notes, json: dataGhost },
-  knobs: { disable: true },
-};
-
-export const Search = (args) => button(prepareData(dataSearch, args));
-
-Search.args = {
-  label: dataSearch.label,
-};
-
-Search.storyName = 'search';
-Search.parameters = {
-  notes: { markdown: notes, json: dataSearch },
   knobs: { disable: true },
 };

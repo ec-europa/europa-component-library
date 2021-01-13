@@ -5,7 +5,6 @@ import dataPrimary from '@ecl/specs-component-button/demo/data--primary';
 import dataSecondary from '@ecl/specs-component-button/demo/data--secondary';
 import dataCall from '@ecl/specs-component-button/demo/data--call';
 import dataGhost from '@ecl/specs-component-button/demo/data--ghost';
-import dataSearch from '@ecl/specs-component-button/demo/data--search';
 
 describe('Button', () => {
   const template = '@ecl/button/button.html.twig';
@@ -45,14 +44,6 @@ describe('Button', () => {
       expect.assertions(1);
 
       return expect(render(dataGhost)).resolves.toMatchSnapshot();
-    });
-  });
-
-  describe('Search', () => {
-    test('renders correctly', () => {
-      expect.assertions(1);
-
-      return expect(render(dataSearch)).resolves.toMatchSnapshot();
     });
   });
 
