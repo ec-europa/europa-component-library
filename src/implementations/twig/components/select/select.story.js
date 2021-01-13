@@ -31,6 +31,6 @@ Single.parameters = { notes: { markdown: notes, json: dataSingle } };
 
 export const Multiple = (args) => selectBox(prepareData(dataMultiple, args));
 
-Multiple.storyName = 'Multiple';
+Multiple.storyName = 'multiple';
 Multiple.argTypes = getArgTypes(dataMultiple);
 Multiple.parameters = { notes: { markdown: notes, json: dataMultiple } };

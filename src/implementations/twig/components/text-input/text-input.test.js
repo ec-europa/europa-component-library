@@ -1,7 +1,8 @@
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
-import dataDefault from '@ecl/specs-component-text-input/demo/data--default';
-import dataDisabled from '@ecl/specs-component-text-input/demo/data--disabled';
-import dataError from '@ecl/specs-component-text-input/demo/data--with-error';
+import dataDefault from '@ecl/specs-component-text-input/demo/data';
+
+const dataInvalid = { ...dataDefault, invalid: true };
+const dataDisabled = { ...dataDefault, disabled: true };
 
 describe('Text field', () => {
   const template = '@ecl/text-input/text-input.html.twig';
@@ -113,16 +114,16 @@ describe('Text field', () => {
     });
   });
 
-  describe('With error', () => {
+  describe('Invalid', () => {
     test('renders correctly', () => {
       expect.assertions(1);
-      return expect(render(dataError)).resolves.toMatchSnapshot();
+      return expect(render(dataInvalid)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra group class names', () => {
       expect.assertions(1);
 
-      const optionsWithExtraGroupClasses = merge(dataError, {
+      const optionsWithExtraGroupClasses = merge(dataInvalid, {
         extra_group_classes: 'custom-group-class custom-group-class--test',
       });
 
@@ -134,7 +135,7 @@ describe('Text field', () => {
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const optionsWithExtraClasses = merge(dataError, {
+      const optionsWithExtraClasses = merge(dataInvalid, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -144,7 +145,7 @@ describe('Text field', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const optionsWithExtraClasses = merge(dataError, {
+      const optionsWithExtraClasses = merge(dataInvalid, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
