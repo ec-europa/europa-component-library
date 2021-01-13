@@ -37,7 +37,6 @@ const getArgTypes = () => {
   };
   argTypes.icon_name = {
     name: 'icon name',
-    type: { name: 'select' },
     description: 'Button icon',
     table: {
       type: { summary: 'string' },
@@ -46,7 +45,7 @@ const getArgTypes = () => {
     },
     control: {
       type: 'select',
-      options: iconsList,
+      options: uiIcons,
     },
   };
   argTypes.icon_transform = {

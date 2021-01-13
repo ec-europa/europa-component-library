@@ -578,14 +578,15 @@ exports[`Checkbox Invalid renders correctly 1`] = `
     <input
       checked=""
       class="ecl-checkbox__input"
-      id="checkbox-invalid-1"
-      name="checkbox-invalid"
+      id="checkbox-default-1"
+      name="checkbox-default"
+      required=""
       type="checkbox"
       value="es"
     />
     <label
       class="ecl-checkbox__label"
-      for="checkbox-invalid-1"
+      for="checkbox-default-1"
     >
       <span
         class="ecl-checkbox__box ecl-checkbox__box--invalid"
@@ -602,20 +603,27 @@ exports[`Checkbox Invalid renders correctly 1`] = `
       </span>
       Spain
     </label>
+    <div
+      class="ecl-checkbox__help"
+      id="helper-default-1"
+    >
+      Help text for option 1
+    </div>
   </div>
   <div
     class="ecl-checkbox ecl-checkbox--invalid"
   >
     <input
       class="ecl-checkbox__input"
-      id="checkbox-invalid-2"
-      name="checkbox-invalid"
+      id="checkbox-default-2"
+      name="checkbox-default"
+      required=""
       type="checkbox"
       value="be"
     />
     <label
       class="ecl-checkbox__label"
-      for="checkbox-invalid-2"
+      for="checkbox-default-2"
     >
       <span
         class="ecl-checkbox__box ecl-checkbox__box--invalid"
@@ -632,6 +640,12 @@ exports[`Checkbox Invalid renders correctly 1`] = `
       </span>
       Belgium
     </label>
+    <div
+      class="ecl-checkbox__help"
+      id="helper-default-2"
+    >
+      Help text for option 2
+    </div>
   </div>
   <div
     class="ecl-checkbox ecl-checkbox--invalid ecl-checkbox--disabled"
@@ -639,14 +653,15 @@ exports[`Checkbox Invalid renders correctly 1`] = `
     <input
       class="ecl-checkbox__input"
       disabled=""
-      id="checkbox-invalid-3"
-      name="checkbox-invalid"
+      id="checkbox-default-3"
+      name="checkbox-default"
+      required=""
       type="checkbox"
       value="fr"
     />
     <label
       class="ecl-checkbox__label"
-      for="checkbox-invalid-3"
+      for="checkbox-default-3"
     >
       <span
         class="ecl-checkbox__box ecl-checkbox__box--invalid ecl-checkbox__box--disabled"
@@ -663,6 +678,12 @@ exports[`Checkbox Invalid renders correctly 1`] = `
       </span>
       France (disabled)
     </label>
+    <div
+      class="ecl-checkbox__help ecl-checkbox__help--disabled"
+      id="helper-default-3"
+    >
+      Help text for option 3
+    </div>
   </div>
 </fieldset>
 `;

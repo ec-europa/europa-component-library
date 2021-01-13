@@ -211,6 +211,17 @@ exports[`Text area Disabled renders correctly 1`] = `
 <div
   class="ecl-form-group"
 >
+  <label
+    class="ecl-form-label ecl-form-label--disabled"
+    for="example-textarea-id-1"
+  >
+    Label
+    <span
+      class="ecl-form-label__required"
+    >
+      *
+    </span>
+  </label>
   <div
     class="ecl-help-block ecl-help-block--disabled"
   >
@@ -219,7 +230,7 @@ exports[`Text area Disabled renders correctly 1`] = `
   <textarea
     class="ecl-text-area ecl-text-area--m"
     disabled=""
-    id="example-textarea-id-2"
+    id="example-textarea-id-1"
     required=""
     rows="4"
   />
@@ -230,6 +241,17 @@ exports[`Text area Disabled renders correctly with extra attributes 1`] = `
 <div
   class="ecl-form-group"
 >
+  <label
+    class="ecl-form-label ecl-form-label--disabled"
+    for="example-textarea-id-1"
+  >
+    Label
+    <span
+      class="ecl-form-label__required"
+    >
+      *
+    </span>
+  </label>
   <div
     class="ecl-help-block ecl-help-block--disabled"
   >
@@ -240,7 +262,7 @@ exports[`Text area Disabled renders correctly with extra attributes 1`] = `
     data-test="data-test-value"
     data-test-1="data-test-value-1"
     disabled=""
-    id="example-textarea-id-2"
+    id="example-textarea-id-1"
     required=""
     rows="4"
   />
@@ -251,6 +273,17 @@ exports[`Text area Disabled renders correctly with extra class names 1`] = `
 <div
   class="ecl-form-group"
 >
+  <label
+    class="ecl-form-label ecl-form-label--disabled"
+    for="example-textarea-id-1"
+  >
+    Label
+    <span
+      class="ecl-form-label__required"
+    >
+      *
+    </span>
+  </label>
   <div
     class="ecl-help-block ecl-help-block--disabled"
   >
@@ -259,7 +292,7 @@ exports[`Text area Disabled renders correctly with extra class names 1`] = `
   <textarea
     class="ecl-text-area ecl-text-area--m custom-class custom-class--test"
     disabled=""
-    id="example-textarea-id-2"
+    id="example-textarea-id-1"
     required=""
     rows="4"
   />
@@ -270,6 +303,17 @@ exports[`Text area Disabled renders correctly with extra group class names 1`] =
 <div
   class="ecl-form-group custom-group-class custom-group-class--test"
 >
+  <label
+    class="ecl-form-label ecl-form-label--disabled"
+    for="example-textarea-id-1"
+  >
+    Label
+    <span
+      class="ecl-form-label__required"
+    >
+      *
+    </span>
+  </label>
   <div
     class="ecl-help-block ecl-help-block--disabled"
   >
@@ -278,17 +322,28 @@ exports[`Text area Disabled renders correctly with extra group class names 1`] =
   <textarea
     class="ecl-text-area ecl-text-area--m"
     disabled=""
-    id="example-textarea-id-2"
+    id="example-textarea-id-1"
     required=""
     rows="4"
   />
 </div>
 `;
 
-exports[`Text area With error renders correctly 1`] = `
+exports[`Text area Invalid renders correctly 1`] = `
 <div
   class="ecl-form-group"
 >
+  <label
+    class="ecl-form-label ecl-form-label--invalid"
+    for="example-textarea-id-1"
+  >
+    Label
+    <span
+      class="ecl-form-label__required"
+    >
+      *
+    </span>
+  </label>
   <div
     class="ecl-help-block"
   >
@@ -301,17 +356,28 @@ exports[`Text area With error renders correctly 1`] = `
   </div>
   <textarea
     class="ecl-text-area ecl-text-area--invalid ecl-text-area--m"
-    id="example-textarea-id-3"
+    id="example-textarea-id-1"
     required=""
     rows="4"
   />
 </div>
 `;
 
-exports[`Text area With error renders correctly with extra attributes 1`] = `
+exports[`Text area Invalid renders correctly with extra attributes 1`] = `
 <div
   class="ecl-form-group"
 >
+  <label
+    class="ecl-form-label ecl-form-label--invalid"
+    for="example-textarea-id-1"
+  >
+    Label
+    <span
+      class="ecl-form-label__required"
+    >
+      *
+    </span>
+  </label>
   <div
     class="ecl-help-block"
   >
@@ -326,17 +392,28 @@ exports[`Text area With error renders correctly with extra attributes 1`] = `
     class="ecl-text-area ecl-text-area--invalid ecl-text-area--m"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
-    id="example-textarea-id-3"
+    id="example-textarea-id-1"
     required=""
     rows="4"
   />
 </div>
 `;
 
-exports[`Text area With error renders correctly with extra class names 1`] = `
+exports[`Text area Invalid renders correctly with extra class names 1`] = `
 <div
   class="ecl-form-group"
 >
+  <label
+    class="ecl-form-label ecl-form-label--invalid"
+    for="example-textarea-id-1"
+  >
+    Label
+    <span
+      class="ecl-form-label__required"
+    >
+      *
+    </span>
+  </label>
   <div
     class="ecl-help-block"
   >
@@ -349,17 +426,28 @@ exports[`Text area With error renders correctly with extra class names 1`] = `
   </div>
   <textarea
     class="ecl-text-area ecl-text-area--invalid ecl-text-area--m custom-class custom-class--test"
-    id="example-textarea-id-3"
+    id="example-textarea-id-1"
     required=""
     rows="4"
   />
 </div>
 `;
 
-exports[`Text area With error renders correctly with extra group class names 1`] = `
+exports[`Text area Invalid renders correctly with extra group class names 1`] = `
 <div
   class="ecl-form-group custom-group-class custom-group-class--test"
 >
+  <label
+    class="ecl-form-label ecl-form-label--invalid"
+    for="example-textarea-id-1"
+  >
+    Label
+    <span
+      class="ecl-form-label__required"
+    >
+      *
+    </span>
+  </label>
   <div
     class="ecl-help-block"
   >
@@ -372,7 +460,7 @@ exports[`Text area With error renders correctly with extra group class names 1`]
   </div>
   <textarea
     class="ecl-text-area ecl-text-area--invalid ecl-text-area--m"
-    id="example-textarea-id-3"
+    id="example-textarea-id-1"
     required=""
     rows="4"
   />
