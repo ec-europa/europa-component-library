@@ -45,7 +45,6 @@ $_shadow-hover: null !default;
   &[disabled],
   &[disabled]:hover {
     cursor: not-allowed;
-    opacity: 0.5;
     text-decoration: none;
   }
 }
@@ -79,6 +78,16 @@ $_primary-color: map.get(theme.$color, 'white-100') !default;
   &:active {
     background-color: $_primary-background-color-hover;
   }
+
+  &[disabled] {
+    background-color: rgba($_primary-background-color, 0.5);
+    color: rgba($_primary-color, 0.5);
+  }
+
+  &[disabled]:hover {
+    background-color: rgba($_primary-background-color-hover, 0.5);
+    color: rgba($_primary-color, 0.5);
+  }
 }
 
 /**
@@ -101,6 +110,17 @@ $_secondary-color-hover: null !default;
     border-color: $_secondary-border-color-hover;
     color: $_secondary-color-hover;
   }
+
+  &[disabled] {
+    background-color: rgba($_secondary-background-color, 0.5);
+    border-color: rgba($_secondary-border-color, 0.5);
+    color: rgba($_secondary-color, 0.5);
+  }
+
+  &[disabled]:hover {
+    border-color: rgba($_secondary-border-color-hover, 0.5);
+    color: rgba($_secondary-color-hover, 0.5);
+  }
 }
 
 /**
@@ -115,14 +135,22 @@ $_ghost-color-hover: null !default;
   &:active {
     color: $_ghost-color-hover;
   }
+
+  &[disabled] {
+    color: rgba($_ghost-color, 0.5);
+  }
+
+  &[disabled]:hover {
+    color: rgba($_ghost-color-hover, 0.5);
+  }
 }
 
 /**
 * Call to action
 */
 $_cta-background-color: map.get(theme.$color, 'yellow-100') !default;
+$_cta-background-color-hover: null !default;
 $_cta-color: map.get(theme.$color, 'black-100') !default;
-$_cta-border-color-hover: null !default;
 $_cta-outline-color: null !default;
 .ecl-button--call {
   background-color: $_cta-background-color;
@@ -130,12 +158,19 @@ $_cta-outline-color: null !default;
 
   &:hover,
   &:active {
-    border: $_border-width solid $_cta-border-color-hover;
-    padding: calc(#{$_padding-vertical} - #{$_border-width})
-      calc(#{$_padding-horizontal} - #{$_border-width});
+    background-color: $_cta-background-color-hover;
   }
 
   &:focus {
     border-color: $_cta-outline-color;
+  }
+
+  &[disabled] {
+    background-color: rgba($_cta-background-color, 0.5);
+    color: rgba($_cta-color, 0.5);
+  }
+
+  &[disabled]:hover {
+    background-color: rgba($_cta-background-color, 0.5);
   }
 }
