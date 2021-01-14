@@ -1,91 +1,95 @@
-import { withKnobs, text, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
+import { correctSvgPath } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
-import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import demoTitleContent from '@ecl/specs-component-page-header-standardised/demo/data--title';
 import demoMetaTitleContent from '@ecl/specs-component-page-header-standardised/demo/data--meta-title';
 import demoMetaTitleDescriptionContent from '@ecl/specs-component-page-header-standardised/demo/data--meta-title-description';
-import dataBreadcrumbLong from '@ecl/specs-component-breadcrumb/demo/data';
+import dataBreadcrumbLongEC from '@ecl/specs-component-breadcrumb/demo/data--ec';
+import dataBreadcrumbLongEU from '@ecl/specs-component-breadcrumb/demo/data--eu';
+
 import pageHeaderStandardised from './page-header-standardised.html.twig';
 import notes from './README.md';
 
-const preparePageHeaderStandardised = (data, desc, meta) => {
-  data.breadcrumb = dataBreadcrumbLong;
-  data.title = text('title', data.title, tabLabels.required);
-  if (meta) {
-    data.meta = text('meta', data.meta, tabLabels.optional);
-  }
-  if (desc) {
-    data.description = text(
-      'description',
-      data.description,
-      tabLabels.optional
-    );
-  }
-  data.breadcrumb.icon_file_path = optionsKnob(
-    'breadcrumb.icon_file_path',
-    { current: defaultSprite, 'no path': '' },
-    defaultSprite,
-    { display: 'inline-radio' },
-    tabLabels.required
-  );
-  data.breadcrumb.ellipsis_label = text(
-    'breadcrumb.ellipsis_label',
-    data.breadcrumb.ellipsis_label,
-    tabLabels.required
-  );
-  data.breadcrumb.navigation_text = text(
-    'breadcrumb.navigation_text',
-    data.breadcrumb.navigation_text,
-    tabLabels.required
-  );
-  data.breadcrumb.links.forEach((item, i) => {
-    item.label = text(
-      `data.breadcrumb.links[${i}].label`,
-      item.label,
-      tabLabels.required
-    );
-    item.path = text(
-      `data.breadcrumb.links[${i}].path`,
-      item.path,
-      tabLabels.required
-    );
-  });
+const system = getSystem();
 
-  getExtraKnobs(data);
+const getArgTypes = (data) => {
+  const argTypes = {};
+  argTypes.title = {
+    type: { name: 'string', required: true },
+    defaultValue: data.title,
+    description: 'The page title',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+  };
+  if (data.description) {
+    argTypes.description = {
+      type: 'string',
+      defaultValue: data.description,
+      description: 'The page introduction',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+    };
+  }
+  if (data.meta) {
+    argTypes.meta = {
+      type: 'string',
+      defaultValue: data.meta,
+      description: 'The page metadata',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+    };
+  }
 
-  return data;
+  return argTypes;
+};
+
+const prepareData = (data, args) => {
+  data.breadcrumb =
+    system === 'eu' ? dataBreadcrumbLongEU : dataBreadcrumbLongEC;
+
+  return Object.assign(correctSvgPath(data), args);
 };
 
 export default {
   title: 'Components/Page Headers/Standardised',
-  decorators: [withNotes, withCode, withKnobs],
+  decorators: [withNotes, withCode],
+  parameters: {
+    knobs: { disable: true },
+  },
 };
 
-export const Title = () =>
-  pageHeaderStandardised(preparePageHeaderStandardised(demoTitleContent));
+export const Title = (args) =>
+  pageHeaderStandardised(prepareData(demoTitleContent, args));
 
 Title.storyName = 'title';
+Title.argTypes = getArgTypes(demoTitleContent);
 Title.parameters = { notes: { markdown: notes, json: demoTitleContent } };
 
-export const MetaTitle = () =>
-  pageHeaderStandardised(
-    preparePageHeaderStandardised(demoMetaTitleContent, false, true)
-  );
+export const MetaTitle = (args) =>
+  pageHeaderStandardised(prepareData(demoMetaTitleContent, args));
 
 MetaTitle.storyName = 'meta-title';
+MetaTitle.argTypes = getArgTypes(demoMetaTitleContent);
 MetaTitle.parameters = {
   notes: { markdown: notes, json: demoMetaTitleContent },
 };
 
-export const MetaTitleDescription = () =>
-  pageHeaderStandardised(
-    preparePageHeaderStandardised(demoMetaTitleDescriptionContent, true, true)
-  );
+export const MetaTitleDescription = (args) =>
+  pageHeaderStandardised(prepareData(demoMetaTitleDescriptionContent, args));
 
 MetaTitleDescription.storyName = 'meta-title-description';
+MetaTitleDescription.argTypes = getArgTypes(demoMetaTitleDescriptionContent);
 MetaTitleDescription.parameters = {
   notes: { markdown: notes, json: demoMetaTitleDescriptionContent },
 };

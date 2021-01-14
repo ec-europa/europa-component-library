@@ -13,7 +13,7 @@ npm install --save @ecl/twig-component-hero-banner
 - **"image"** (string) (default: '') Image for banner (required for image banner type)
 - **"description"** (string) (default: '') Description of banner
 - **"centered"** (bool) (default: true) Define if banner should be centered
-- [DEPRECATED] **"button"** (associative array) (default: predefined structure) predefined structure for the Button component
+- **"full_width"** (bools) (default: false) Extends the banner to whole viewport when used inside the grid
 - **"link"** (associative array) (default: predefined structure) predefined structure for the Link component
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes

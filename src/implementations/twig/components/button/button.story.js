@@ -13,11 +13,6 @@ import dataSearch from '@ecl/specs-component-button/demo/data--search';
 import button from './button.html.twig';
 import notes from './README.md';
 
-const iconsList = {};
-uiIcons.forEach((icon) => {
-  iconsList[icon] = icon;
-});
-
 const getArgTypes = () => {
   const argTypes = {};
   argTypes.label = {
@@ -35,7 +30,6 @@ const getArgTypes = () => {
   };
   argTypes.icon_name = {
     name: 'icon name',
-    type: { name: 'select' },
     description: 'Button icon',
     table: {
       type: { summary: 'string' },
@@ -44,7 +38,7 @@ const getArgTypes = () => {
     },
     control: {
       type: 'select',
-      options: iconsList,
+      options: uiIcons,
     },
   };
   argTypes.icon_transform = {

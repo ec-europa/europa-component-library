@@ -7,7 +7,7 @@
   - "image" (string) (default: '') Image for banner (required for image banner type)
   - "baseline" (string) (default: '') Baseline of banner
   - "centered" (bool) (default: true) Define if banner should be centered
-  - [DEPRECATED] "button" (associative array) (default: predefined structure) predefined structure for the Button component
+  - "full_width": (bool) (default: false) Full width banner (inside the grid)
   - "link" (associative array) (default: predefined structure) predefined structure for the Link component
   - "extra_classes" (optional) (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
@@ -21,10 +21,10 @@
 {% set _extra_attributes = '' %}
 {% set _type = type|default('default') %}
 {% set _centered = centered ?? true %}
+{% set _full_width = full_width|default(false) %}
 {% set _title = title|default('') %}
 {% set _description = baseline|default('') %}
 {% set _image = image|default('') %}
-{% set _button = button|default({}) %}
 {% set _link = link|default({}) %}
 
 {# Internal logic - Process properties #}
@@ -33,6 +33,10 @@
 
 {% if _centered %}
   {% set _css_class = _css_class ~ ' ecl-page-banner--centered' %}
+{% endif %}
+
+{% if _full_width %}
+  {% set _css_class = _css_class ~ ' ecl-page-banner--full-width' %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -57,7 +61,7 @@
 {% endif %}
   <div class="ecl-container">
     <div class="ecl-page-banner__container">
-    {% if _title is not empty or _description is not empty or _link is not empty or _button is not empty %}
+    {% if _title is not empty or _description is not empty or _link is not empty %}
       <div class="ecl-page-banner__content">
         <div class="ecl-page-banner__title">{{ _title }}</div>
         {% if _description is not empty %}
@@ -73,10 +77,6 @@
               type: 'cta',
             }),
             extra_classes: _link_extra_classes,
-          }) only %}
-        {% elseif _button is not empty %}
-          {% include '@ecl/button/button.html.twig' with _button|merge({
-            extra_classes: 'ecl-page-banner__button',
           }) only %}
         {% endif %}
       </div>

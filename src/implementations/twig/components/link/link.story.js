@@ -25,11 +25,6 @@ const withParagraph = (story) => {
   return typeof demo === 'string' ? storyAsString(demo) : storyAsNode(demo);
 };
 
-const iconsList = uiIcons.reduce((a, b) => {
-  a[b] = b;
-  return a;
-}, {});
-
 const getArgTypes = (data) => {
   return {
     label: {
@@ -56,7 +51,7 @@ const getArgTypes = (data) => {
       },
       control: {
         type: 'select',
-        options: iconsList,
+        options: uiIcons,
       },
     },
     icon_transform: {

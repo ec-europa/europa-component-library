@@ -112,16 +112,12 @@ $_image-gradient-border-color: map.get(theme.$color, 'yellow');
   }
 
   .ecl-hero-banner__title {
-    font: map.get(theme.$font-size, '4xl');
+    font: map.get(theme.$font, '4xl');
     font-weight: map.get(theme.$font-weight, 'bold');
   }
 
   .ecl-hero-banner__description {
     font: map.get(theme.$font-prolonged, 'xl');
-  }
-
-  .ecl-hero-banner__button {
-    margin-top: map.get(theme.$spacing, 'l');
   }
 
   .ecl-hero-banner:not(.ecl-hero-banner--full-width) .ecl-container {

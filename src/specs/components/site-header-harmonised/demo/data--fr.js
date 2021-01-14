@@ -1,23 +1,25 @@
 module.exports = {
   logo: {
-    title: 'European Commission',
-    alt: 'European Commission logo',
+    title: 'Union Européenne',
+    alt: 'Logo Union Européenne',
     href: '/example',
-    language: 'en',
-    src_desktop: '/logo--en.svg',
+    language: 'fr',
+    src_mobile: 'static/media/fr.c897b011.svg',
+    src_desktop: 'static/media/logo--fr.ef2ee614.svg',
   },
   menu: {
     title: 'Menu',
-    close: 'Close',
-    back: 'Back',
+    close: 'Fermer',
+    back: 'Retour',
     items: [
       {
-        label: 'Home',
+        label: 'Accueil',
         path: '/example',
       },
       {
         label: 'Item 2',
         path: '/example',
+        submenu_label: 'has submenu',
         is_current: true,
         children: [
           {
@@ -90,6 +92,7 @@ module.exports = {
       {
         label: 'Item 3',
         path: '/example',
+        submenu_label: 'has submenu',
         children: [
           {
             label: 'Item 3.1',
@@ -108,6 +111,7 @@ module.exports = {
       {
         label: 'Item 4',
         path: '/example',
+        submenu_label: 'has submenu',
         children: [
           {
             label: 'Item 4.1',
@@ -118,7 +122,7 @@ module.exports = {
             path: '/example',
           },
           {
-            label: 'Item 4.3 with a very long label going on 2 lines',
+            label: 'Item 4.3 avec un long titre sur plusieurs lignes',
             path: '/example',
           },
           {
@@ -170,6 +174,7 @@ module.exports = {
       {
         label: 'Item 5',
         path: '/example',
+        submenu_label: 'has submenu',
         children: [
           {
             label: 'Item 5.1',
@@ -204,6 +209,7 @@ module.exports = {
       {
         label: 'Item 6',
         path: '/example',
+        submenu_label: 'has submenu',
         children: [
           {
             label: 'Item 6.1',
@@ -238,7 +244,7 @@ module.exports = {
             path: '/example',
           },
           {
-            label: 'Item 6.9 with a very long label',
+            label: 'Item 6.9 avec un long titre',
             path: '/example',
           },
           {
@@ -272,8 +278,9 @@ module.exports = {
         ],
       },
       {
-        label: 'Item 7 with a long label',
+        label: 'Item 7 avec un long titre',
         path: '/example',
+        submenu_label: 'has submenu',
         children: [
           {
             label: 'Item 7.1',
@@ -319,172 +326,213 @@ module.exports = {
       },
     ],
     icon_path: '/icons.svg',
+    site_name: 'Nom du site',
     menu_link: '/example',
   },
-  group: 'group2',
+  login_toggle: {
+    label_not_logged: 'Connexion',
+    href_not_logged: '/example',
+    label_logged: 'Connecté',
+    href_logged: '/example',
+  },
+  login_box: {
+    id: 'login-box-id',
+    description: 'Connecté en temps que <last name>, <first name>',
+    label: 'Déconnexion',
+    href: '/example',
+  },
   language_selector: {
     href: '/example',
-    label: 'English',
-    code: 'en',
+    label: 'Français',
+    code: 'fr',
     overlay: {
-      title: 'Select your language',
+      title: 'Choisissez votre langue',
       items: [
         {
           label: 'български',
           path: '/example',
+          aria_label: '',
           lang: 'bg',
         },
         {
           label: 'español',
           path: '/example',
+          aria_label: '',
           lang: 'es',
         },
         {
           label: 'čeština',
           path: '/example',
+          aria_label: '',
           lang: 'cs',
         },
         {
           label: 'dansk',
           path: '/example',
+          aria_label: '',
           lang: 'da',
         },
         {
           label: 'Deutsch',
           path: '/example',
+          aria_label: '',
           lang: 'de',
         },
         {
           label: 'eesti',
           path: '/example',
+          aria_label: '',
           lang: 'et',
         },
         {
           label: 'ελληνικά',
           path: '/example',
+          aria_label: '',
           lang: 'el',
         },
         {
           label: 'English',
           path: '/example',
-          active: true,
+          aria_label: '',
           lang: 'en',
         },
         {
           label: 'français',
           path: '/example',
+          aria_label: '',
+          active: true,
           lang: 'fr',
         },
         {
           label: 'Gaeilge',
           path: '/example',
+          aria_label: '',
           lang: 'ga',
         },
         {
           label: 'hrvatski',
           path: '/example',
+          aria_label: '',
           lang: 'hr',
         },
         {
           label: 'italiano',
           path: '/example',
+          aria_label: '',
           lang: 'it',
         },
         {
           label: 'latviešu',
           path: '/example',
+          aria_label: '',
           lang: 'lv',
         },
         {
           label: 'lietuvių',
           path: '/example',
+          aria_label: '',
           lang: 'lt',
         },
         {
           label: 'magyar',
           path: '/example',
+          aria_label: '',
           lang: 'hu',
         },
         {
           label: 'Malti',
           path: '/example',
+          aria_label: '',
           lang: 'mt',
         },
         {
           label: 'Nederlands',
           path: '/example',
+          aria_label: '',
           lang: 'nl',
         },
         {
           label: 'polski',
           path: '/example',
+          aria_label: '',
           lang: 'pl',
         },
         {
           label: 'português',
           path: '/example',
+          aria_label: '',
           lang: 'pt',
         },
         {
           label: 'română',
           path: '/example',
+          aria_label: '',
           lang: 'ro',
         },
         {
           label: 'slovenčina',
           path: '/example',
+          aria_label: '',
           lang: 'sk',
         },
         {
           label: 'slovenščina',
           path: '/example',
+          aria_label: '',
           lang: 'sl',
         },
         {
           label: 'suomi',
           path: '/example',
+          aria_label: '',
           lang: 'fi',
         },
         {
           label: 'svenska',
           path: '/example',
+          aria_label: '',
           lang: 'sv',
         },
       ],
-      close_label: 'Close',
+      close_label: 'Fermer',
       non_eu_items: [
         {
           label: '中文',
           path: '/example',
+          aria_label: '',
           lang: 'zh',
         },
         {
           label: 'Türk',
           path: '/example',
+          aria_label: '',
           lang: 'tr',
         },
         {
           label: 'pусский',
           path: '/example',
+          aria_label: '',
           lang: 'ru',
         },
         {
           label: 'Català',
           path: '/example',
+          aria_label: '',
           lang: 'ca',
         },
         {
           label: 'عَرَبِيّ',
           path: '/example',
+          aria_label: '',
           lang: 'ar',
         },
       ],
     },
-    eu_category: 'EU official languages',
-    non_eu_category: 'Non-EU languages',
+    eu_category: 'Langues officielles de l&#39;UE',
+    non_eu_category: 'Langues hors de l&#39;UE',
   },
   search_toggle: {
-    label: 'Search',
+    label: 'Recherche',
     href: '/example',
   },
   search_form: {
@@ -496,13 +544,13 @@ module.exports = {
     ],
     text_input: {
       id: 'search-input-id',
-      name: 'Search',
-      label: 'Search',
+      name: 'Recherche',
+      label: 'Recherche',
     },
     button: {
-      label: 'Search',
+      label: 'Recherche',
     },
   },
-  icon_file_path: '/icons.svg',
+  icon_file_path: 'static/media/icons.3cf410f9.svg',
   menu_label: 'Menu',
 };

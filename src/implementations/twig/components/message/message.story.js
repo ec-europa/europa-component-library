@@ -1,8 +1,7 @@
-import { withKnobs, text, select, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { getExtraKnobs, tabLabels, getIconKnobs } from '@ecl/story-utils';
-import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
+import { correctSvgPath } from '@ecl/story-utils';
+
 // Import data for demos
 import dataInfo from '@ecl/specs-component-message/demo/data--info';
 import dataSuccess from '@ecl/specs-component-message/demo/data--success';
@@ -12,59 +11,66 @@ import dataWarning from '@ecl/specs-component-message/demo/data--warning';
 import message from './message.html.twig';
 import notes from './README.md';
 
-const prepareMessage = (data) => {
-  data.title = text('title', data.title, tabLabels.required);
-  data.description = text('description', data.description, tabLabels.required);
-  data.variant = select(
-    'variant',
-    [data.variant],
-    data.variant,
-    tabLabels.required
-  );
-  const name = select(
-    'icon.name',
-    [data.icon.name],
-    data.icon.name,
-    tabLabels.required
-  );
+const getArgTypes = (data) => {
+  return {
+    title: {
+      name: 'title',
+      defaultValue: data.title,
+      type: { name: 'string', required: true },
+      description: 'The content of the title',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+    },
+    description: {
+      name: 'description',
+      defaultValue: data.description,
+      type: { name: 'string', required: true },
+      description: 'The content of the description message',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+    },
+  };
+};
 
-  getIconKnobs(data, name, 'notifications', 'l', 'primary', 'none');
-
-  data.close.label = text('close.label', data.close.label, tabLabels.required);
-  data.close.icon.path = optionsKnob(
-    'close.icon.path',
-    { current: defaultSprite, 'no path': '' },
-    defaultSprite,
-    { display: 'inline-radio' },
-    tabLabels.required
-  );
-
-  getExtraKnobs(data);
-
-  return data;
+const prepareData = (data, args) => {
+  correctSvgPath(data);
+  return Object.assign(data, args);
 };
 
 export default {
   title: 'Components/Messages',
-  decorators: [withKnobs, withCode, withNotes],
+  decorators: [withCode, withNotes],
+  parameters: {
+    knobs: { disable: true },
+  },
 };
 
-export const Info = () => message(prepareMessage(dataInfo));
+export const Info = (args) => message(prepareData(dataInfo, args));
 
 Info.storyName = 'Info';
+Info.argTypes = getArgTypes(dataInfo);
 Info.parameters = { notes: { markdown: notes, json: dataInfo } };
 
-export const Success = () => message(prepareMessage(dataSuccess));
+export const Success = (args) => message(prepareData(dataSuccess, args));
 
 Success.storyName = 'Success';
+Success.argTypes = getArgTypes(dataSuccess);
 Success.parameters = { notes: { markdown: notes, json: dataSuccess } };
 
-export const Error = () => message(prepareMessage(dataError));
+export const Error = (args) => message(prepareData(dataError, args));
 
 Error.storyName = 'Error';
+Error.argTypes = getArgTypes(dataError);
 Error.parameters = { notes: { markdown: notes, json: dataError } };
 
-export const Warning = () => message(prepareMessage(dataWarning));
+export const Warning = (args) => message(prepareData(dataWarning, args));
 
 Warning.storyName = 'Warning';
+Warning.argTypes = getArgTypes(dataWarning);
 Warning.parameters = { notes: { markdown: notes, json: dataWarning } };
