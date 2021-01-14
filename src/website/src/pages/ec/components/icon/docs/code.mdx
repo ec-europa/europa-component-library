@@ -7,7 +7,8 @@ import { Link, Playground, Html } from '@ecl/website-components';
 import {
   iconDefault,
   iconPrimary,
-  iconXs,
+  icon2XS,
+  iconXS,
   iconS,
   iconM,
   iconL,
@@ -46,6 +47,7 @@ You can use the default, primary or inverted colours:
 
 You can change the size of the icon by applying one of the following classes:
 
+- `ecl-icon--2xs`: 10&times;10
 - `ecl-icon--xs`: 16&times;16
 - `ecl-icon--s`: 20&times;20
 - `ecl-icon--m`: 24&times;24
@@ -55,7 +57,8 @@ You can change the size of the icon by applying one of the following classes:
 - `ecl-icon--fluid`: 1em
 
 <Playground system="ec" selectedKind="components-icon" selectedStory="general">
-  <Html markup={iconXs} />
+  <Html markup={icon2XS} />
+  <Html markup={iconXS} />
   <Html markup={iconS} />
   <Html markup={iconM} />
   <Html markup={iconL} />

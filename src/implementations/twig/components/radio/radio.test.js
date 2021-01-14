@@ -3,9 +3,10 @@ import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 // Import data for tests
 
 import dataDefault from '@ecl/specs-component-radio/demo/data--default';
-import dataInvalid from '@ecl/specs-component-radio/demo/data--invalid';
 import dataBinary from '@ecl/specs-component-radio/demo/data--binary';
-import dataBinaryInvalid from '@ecl/specs-component-radio/demo/data--binary-invalid';
+
+const dataInvalid = { ...dataDefault, invalid: true };
+const dataBinaryInvalid = { ...dataBinary, invalid: true };
 
 describe('Radio', () => {
   const template = '@ecl/radio/radio-group.html.twig';
