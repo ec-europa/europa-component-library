@@ -10,7 +10,7 @@ const cp = spawn(
     `-p`,
     `${app.port}`,
     `-s`,
-    `../../presets/ec-core/build`,
+    `../../presets/ec-core/build,../../presets/reset/build`,
     `-c`,
     `.storybook`,
     `--ci`,
