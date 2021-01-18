@@ -5,7 +5,7 @@ import IconCard from './IconCard';
 import styles from './IconList.scss';
 
 const ecIcons = require.context(
-  '!raw-loader!../../../../resources/icons/dist/svg',
+  '!raw-loader!../../../../resources/icons-ec/dist/svg',
   true,
   /^\.\/.*\.svg$/
 );
