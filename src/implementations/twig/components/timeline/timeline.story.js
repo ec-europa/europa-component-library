@@ -25,16 +25,6 @@ const getArgTypes = () => {
   return argTypes;
 };
 
-// Prepare dummy Html for the main content.
-const prepareHtmlContent = (state) => {
-  if (state) {
-    return `<p class="ecl-u-type-paragraph-m">${loremIpsum({ count: 25 })}</p>
-            <p class="ecl-u-type-paragraph-m">${loremIpsum({ count: 25 })}</p>`;
-  }
-
-  return '';
-};
-
 // Prepare data for the navigation.
 const prepareData = (data) => {
   const { from, to } = data.hide;
@@ -47,10 +37,21 @@ const prepareData = (data) => {
   data.toggle_collapsed = `Show ${hiddenCount} more items`;
   data.toggle_expanded = `Hide ${hiddenCount} items`;
 
-  data.icon_path = '/icon.svg';
   correctSvgPath(data);
 
   return data;
+};
+
+// Prepare dummy Html for the main content.
+const prepareHtmlContent = (state) => {
+  let story = timeline(prepareData(demoData));
+  if (state) {
+    story += `<p class="ecl-u-type-paragraph-m">${loremIpsum({
+      count: 25,
+    })}</p>`;
+  }
+
+  return story;
 };
 
 export default {
@@ -62,12 +63,7 @@ export default {
   },
 };
 
-export const Default = (arg) => {
-  const timelineHtml = timeline(prepareData(demoData));
-  const dummyContent = prepareHtmlContent(arg.showDummyContent);
-
-  return `${timelineHtml}${dummyContent}`;
-};
+export const Default = (arg) => prepareHtmlContent(arg.showDummyContent);
 
 Default.storyName = 'default';
 Default.argTypes = getArgTypes();

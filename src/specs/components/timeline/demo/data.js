@@ -18,6 +18,7 @@ module.exports = {
     variant: 'secondary',
     type: 'button',
   },
+  icon_path: '/icon.svg',
   items: [
     {
       id: '0',
