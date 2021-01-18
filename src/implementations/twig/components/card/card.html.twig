@@ -71,7 +71,7 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
       {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
     {% endif %}
@@ -80,11 +80,11 @@
 
 {# Print the result #}
 
-<article class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<article class="{{ _css_class }}"{{ _extra_attributes }}>
   <header class="ecl-card__header">
     {% if _card.image.src is defined and _card.image.src is not empty %}
       {% set _card_img_aria_label = _card.image.alt is defined and _card.image.alt is not empty ? 'aria-label="' ~ _card.image.alt ~ '"' : '' %}
-      <div class="ecl-card__image" {{ _card_img_aria_label|raw }} role="img" style="background-image:url('{{ _card.image.src }}')"></div>
+      <div class="ecl-card__image" {{ _card_img_aria_label }} role="img" style="background-image:url('{{ _card.image.src }}')"></div>
     {% endif %}
     {% if _card.meta is not empty %}
       <div class="ecl-card__meta">{{ _card.meta|join(" | ") }}</div>
@@ -105,7 +105,7 @@
   <div class="ecl-card__body">
   {% endif %}
   {% if _card.description is not empty %}
-    <div class="ecl-card__description">{{ _card.description|raw }}</div>
+    <div class="ecl-card__description">{{ _card.description }}</div>
   {% endif %}
   {% if _card.links is defined and _card.links is not empty and _card.links is iterable %}
     <ul class="ecl-card__link-container">

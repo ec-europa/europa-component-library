@@ -65,7 +65,7 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
       {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
     {% endif %}
@@ -90,17 +90,17 @@
 {% endif %}
 {% if helper_text is not empty %}
   <div class="{{ _helper_class }}">
-    {{- helper_text|raw -}}
+    {{- helper_text -}}
   </div>
 {% endif %}
 {% if _invalid and _invalid_text is not empty %}
   <div class="ecl-feedback-message">
-    {{- invalid_text|raw -}}
+    {{- invalid_text -}}
   </div>
 {% endif %}
   <div
     class="{{ _css_class }}"
-    {{ _extra_attributes|raw }}
+    {{ _extra_attributes }}
   >
     <input
       data-ecl-datepicker-toggle
@@ -124,7 +124,7 @@
       required
     {% endif %}
     {% if _placeholder is not empty %}
-      placeholder="{{ _placeholder|raw }}"
+      placeholder="{{ _placeholder }}"
     {% endif %}
     {% if _default_value is not empty %}
       value="{{ _default_value }}"

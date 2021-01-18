@@ -70,7 +70,7 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
       {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
     {% endif %}
@@ -79,7 +79,7 @@
 
 {# Print the result #}
 
-<table class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+<table class="{{ _css_class }}" {{ _extra_attributes }}>
   <thead class="{{ _head_css_class }}">
      {% for header in _headers %}
        <tr class="{{ _row_css_class }}">
@@ -92,7 +92,7 @@
               {% set _heading_attribute = 'data-ecl-table-sort-toggle' %}
             {% endif %}
           {% endif %}
-          <th {{ _heading_attribute|raw }} class="{{ _header_css_class }}">{{ cell.label }}</th>
+          <th {{ _heading_attribute }} class="{{ _header_css_class }}">{{ cell.label }}</th>
         {% endfor %}
       </tr>
     {% endfor %}
@@ -115,7 +115,7 @@
             {% endif %}
             {% set _cell_css_class = _cell_css_class ~ ' ' ~ _cell_header_group_class %}
           {% endif %}
-          <td {{ _cell_attribute|raw }} class="{{ _cell_css_class }}" >{{ cell.label|raw }}</td>
+          <td {{ _cell_attribute }} class="{{ _cell_css_class }}" >{{ cell.label }}</td>
         {% endfor %}
       </tr>
     {% endfor %}
