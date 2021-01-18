@@ -4,32 +4,49 @@ order: 2
 ---
 
 import { Playground, Html } from '@ecl/website-components';
-import { textAreaDefault, textAreaDisabled, textAreaWithError } from '../demo';
+import {
+  textAreaDefault,
+  textAreaDisabled,
+  textAreaInvalid,
+  textAreaOptional,
+} from '../demo';
+
+## Default text area
 
 <Playground
   system="ec"
-  selectedKind="components-forms-textarea"
+  selectedKind="components-forms-text-area"
   selectedStory="default"
 >
   <Html markup={textAreaDefault} />
 </Playground>
 
-## Disabled
+## Disabled text area
 
 <Playground
   system="ec"
-  selectedKind="components-forms-textarea"
-  selectedStory="default"
+  selectedKind="components-forms-text-area"
+  selectedStory="disabled"
 >
   <Html markup={textAreaDisabled} />
 </Playground>
 
-## With error
+## Invalid text area
 
 <Playground
   system="ec"
-  selectedKind="components-forms-textarea"
-  selectedStory="default"
+  selectedKind="components-forms-text-area"
+  selectedStory="invalid"
 >
-  <Html markup={textAreaWithError} />
+  <Html markup={textAreaInvalid} />
+</Playground>
+
+## Optional text area
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-text-area"
+  selectedStory="optional"
+>
+  <Html markup={textAreaOptional} />
 </Playground>

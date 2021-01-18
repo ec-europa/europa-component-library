@@ -17,7 +17,7 @@ Components:
 - Menu (legacy)
 - Page header (deprecated since ECL 2.14.0)
 - Site header (deprecated since ECL 2.12.0)
-- Timeline (deprecated since ECL 2.5.0)
+- Timeline (deprecated since ECL 2.5.0; ECL v3 contains a timeline taken from ECL v2 aka timeline2 now named timeline)
 
 Templates:
 
@@ -123,18 +123,23 @@ Example: `@ecl-twig/ec-component-accordion/ecl-accordion.html.twig` => `@ecl/acc
 
 ## Presets / themes
 
-A theme layer has been introduced in ECL v3. It sits on top of the components layer and transforms variables into values targeting specific use cases called presets. Presets are ready-made ECL releases serving for different purposes and target audiences. The following presets are available:
+ECL is made available to end users in the form of ready to use set of css, javascript and resources. Users are free to include one css or another depending on their needs.
+The following packages are available:
 
-- ec-core: contains everything related to EC sites
-- eu-core: contains everything related to EU sites
+- ec: contains everything related to EC sites, plus optional css
+- eu: contains everything related to EU sites, plus optional css
 
-Some of the old v2 presets have been removed or modified:
+Under the hook, a theme layer has been introduced in ECL v3. It sits on top of the components layer and transforms variables into values targeting specific use cases called presets. Presets are ready-made ECL releases serving for different purposes and target audiences.
+
+Most of the old v2 presets have been removed or modified:
 | Preset | Modifications |
 | - | - |
 | ec-preset-full | preset removed (not used anymore) |
+| ec-preset-website | preset removed (replaced by an optional css) |
 | ec-preset-legacy | preset removed (no legacy content) |
 | ec-preset-legacy-website | preset removed (no legacy content) |
 | eu-preset-full | preset removed (not used anymore) |
+| eu-preset-website | preset removed (replaced by an optional css) |
 | eu-preset-legacy | preset removed (no legacy content) |
 | eu-preset-legacy-website | preset removed (no legacy content) |
 
