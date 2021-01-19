@@ -3,11 +3,16 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
 import he from 'he';
 import withCode from '@ecl/storybook-addon-code';
+import getSystem from '@ecl/builder/utils/getSystem';
 
-import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
+import defaultSpriteEc from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
+import defaultSpriteEu from '@ecl/resources-eu-icons/dist/sprites/icons.svg';
 import demoData from '@ecl/specs-component-timeline/demo/data';
 import timeline from './timeline.html.twig';
 import notes from './README.md';
+
+const system = getSystem();
+const defaultSprite = system === 'eu' ? defaultSpriteEu : defaultSpriteEc;
 
 const prepareTimeline = (data) => {
   const { from, to } = data.hide;

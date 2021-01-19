@@ -1,6 +1,14 @@
 /* eslint-disable no-return-assign */
-import iconSvgUiCheck from '@ecl/resources-ec-icons/dist/svg/ui/check.svg';
-import iconSvgUiCornerArrow from '@ecl/resources-ec-icons/dist/svg/ui/corner-arrow.svg';
+import getSystem from '@ecl/builder/utils/getSystem';
+import iconSvgUiCheckEc from '@ecl/resources-ec-icons/dist/svg/ui/check.svg';
+import iconSvgUiCheckEu from '@ecl/resources-eu-icons/dist/svg/ui/check.svg';
+import iconSvgUiCornerArrowEc from '@ecl/resources-ec-icons/dist/svg/ui/corner-arrow.svg';
+import iconSvgUiCornerArrowEu from '@ecl/resources-eu-icons/dist/svg/ui/corner-arrow.svg';
+
+const system = getSystem();
+const iconSvgUiCheck = system === 'eu' ? iconSvgUiCheckEu : iconSvgUiCheckEc;
+const iconSvgUiCornerArrow =
+  system === 'eu' ? iconSvgUiCornerArrowEu : iconSvgUiCornerArrowEc;
 
 /**
  * There are multiple labels contained in this component. You can set them in 2 ways: directly as a string or through data attributes.

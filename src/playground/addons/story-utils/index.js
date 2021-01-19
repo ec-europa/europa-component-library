@@ -1,9 +1,16 @@
 /* eslint-disable no-param-reassign, dot-notation */
 import he from 'he';
 import { text, select, boolean, optionsKnob } from '@storybook/addon-knobs';
-import iconPath from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
+import iconPathEc from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
+import iconPathEu from '@ecl/resources-eu-icons/dist/sprites/icons.svg';
 import iconSocialPath from '@ecl/resources-ec-social-icons/dist/sprites/icons-social.svg';
-import brandedIcons from '@ecl/resources-ec-icons/dist/lists/branded.json';
+import brandedIconsEc from '@ecl/resources-ec-icons/dist/lists/branded.json';
+import brandedIconsEu from '@ecl/resources-eu-icons/dist/lists/branded.json';
+import getSystem from '@ecl/builder/utils/getSystem';
+
+const system = getSystem();
+const iconPath = system === 'eu' ? iconPathEu : iconPathEc;
+const brandedIcons = system === 'eu' ? brandedIconsEu : brandedIconsEc;
 
 export const tabLabels = {
   required: 'Mandatory elements',

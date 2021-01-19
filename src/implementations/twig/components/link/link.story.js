@@ -1,15 +1,20 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctSvgPath } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 // Import data for demos
-import uiIcons from '@ecl/resources-ec-icons/dist/lists/ui.json';
+import uiIconsEc from '@ecl/resources-ec-icons/dist/lists/ui.json';
+import uiIconsEu from '@ecl/resources-eu-icons/dist/lists/ui.json';
 import dataDefault from '@ecl/specs-component-link/demo/data--default';
 import dataCta from '@ecl/specs-component-link/demo/data--cta';
 import dataStandalone from '@ecl/specs-component-link/demo/data--standalone';
 
 import link from './link.html.twig';
 import notes from './README.md';
+
+const system = getSystem();
+const uiIcons = system === 'eu' ? uiIconsEu : uiIconsEc;
 
 const storyAsString = (story) =>
   `<p class="ecl-u-type-paragraph">The European Commission is the executive of ${story} and promotes its general interest.</p>`;

@@ -2,8 +2,10 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import withCode from '@ecl/storybook-addon-code';
 import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
-import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
+import defaultSpriteEc from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
+import defaultSpriteEu from '@ecl/resources-eu-icons/dist/sprites/icons.svg';
 import logoEC from '@ecl/resources-ec-logo/logo--en.svg';
 import dataGroup1 from '@ecl/specs-component-footer-harmonised/demo/data--group1';
 import dataGroup2 from '@ecl/specs-component-footer-harmonised/demo/data--group2';
@@ -11,6 +13,9 @@ import dataGroup3 from '@ecl/specs-component-footer-harmonised/demo/data--group3
 import he from 'he';
 import footerHarmonised from './footer-harmonised.html.twig';
 import notes from './README.md';
+
+const system = getSystem();
+const defaultSprite = system === 'eu' ? defaultSpriteEu : defaultSpriteEc;
 
 // Icons.
 const groups = [dataGroup1, dataGroup2];

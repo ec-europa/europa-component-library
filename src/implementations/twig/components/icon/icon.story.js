@@ -1,18 +1,25 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctSvgPath, getIconControls } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 import dataBranded from '@ecl/specs-component-icon/demo/data--branded';
-import iconsBranded from '@ecl/resources-ec-icons/dist/lists/branded.json';
+import iconsBrandedEc from '@ecl/resources-ec-icons/dist/lists/branded.json';
+import iconsBrandedEu from '@ecl/resources-eu-icons/dist/lists/branded.json';
 import dataGeneral from '@ecl/specs-component-icon/demo/data--general';
-import iconsGeneral from '@ecl/resources-ec-icons/dist/lists/general.json';
+import iconsGeneralEc from '@ecl/resources-ec-icons/dist/lists/general.json';
+import iconsGeneralEu from '@ecl/resources-eu-icons/dist/lists/general.json';
 import dataNotification from '@ecl/specs-component-icon/demo/data--notifications';
-import iconsNotification from '@ecl/resources-ec-icons/dist/lists/notifications.json';
+import iconsNotificationEc from '@ecl/resources-ec-icons/dist/lists/notifications.json';
+import iconsNotificationEu from '@ecl/resources-eu-icons/dist/lists/notifications.json';
 import dataUI from '@ecl/specs-component-icon/demo/data--ui';
-import iconsUI from '@ecl/resources-ec-icons/dist/lists/ui.json';
+import iconsUIEc from '@ecl/resources-ec-icons/dist/lists/ui.json';
+import iconsUIEu from '@ecl/resources-eu-icons/dist/lists/ui.json';
 
 import icon from './icon.html.twig';
 import notes from './README.md';
+
+const system = getSystem();
 
 const getArgTypes = (data, icons) => getIconControls(data, icons);
 
@@ -37,19 +44,28 @@ export default {
 export const Branded = (args) => icon(prepareData(dataBranded, args));
 
 Branded.storyName = 'branded';
-Branded.argTypes = getArgTypes(dataBranded, iconsBranded);
+Branded.argTypes = getArgTypes(
+  dataBranded,
+  system === 'eu' ? iconsBrandedEu : iconsBrandedEc
+);
 Branded.parameters = { notes: { markdown: notes, json: dataBranded } };
 
 export const General = (args) => icon(prepareData(dataGeneral, args));
 
 General.storyName = 'general';
-General.argTypes = getArgTypes(dataGeneral, iconsGeneral);
+General.argTypes = getArgTypes(
+  dataGeneral,
+  system === 'eu' ? iconsGeneralEu : iconsGeneralEc
+);
 General.parameters = { notes: { markdown: notes, json: dataGeneral } };
 
 export const Notification = (args) => icon(prepareData(dataNotification, args));
 
 Notification.storyName = 'notification';
-Notification.argTypes = getArgTypes(dataNotification, iconsNotification);
+Notification.argTypes = getArgTypes(
+  dataNotification,
+  system === 'eu' ? iconsNotificationEu : iconsNotificationEc
+);
 Notification.parameters = {
   notes: { markdown: notes, json: dataNotification },
 };
@@ -57,5 +73,5 @@ Notification.parameters = {
 export const UI = (args) => icon(prepareData(dataUI, args));
 
 UI.storyName = 'ui';
-UI.argTypes = getArgTypes(dataUI, iconsUI);
+UI.argTypes = getArgTypes(dataUI, system === 'eu' ? iconsUIEu : iconsUIEc);
 UI.parameters = { notes: { markdown: notes, json: dataUI } };

@@ -8,13 +8,18 @@ import {
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 import logoPath from '@ecl/resources-ec-logo/logo--mute.svg';
-import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
+import defaultSpriteEc from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
+import defaultSpriteEu from '@ecl/resources-eu-icons/dist/sprites/icons.svg';
 import dataSplash from '@ecl/specs-component-language-list/demo/data--splash';
 import dataOverlay from '@ecl/specs-component-language-list/demo/data--overlay';
 import languageList from './language-list.html.twig';
 import notes from './README.md';
+
+const system = getSystem();
+const defaultSprite = system === 'eu' ? defaultSpriteEu : defaultSpriteEc;
 
 const prepareLanguageList = (data) => {
   const logoImg = logoPath;

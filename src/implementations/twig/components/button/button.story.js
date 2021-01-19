@@ -1,9 +1,11 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctSvgPath } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 // Import data for demos
-import uiIcons from '@ecl/resources-ec-icons/dist/lists/ui.json';
+import uiIconsEc from '@ecl/resources-ec-icons/dist/lists/ui.json';
+import uiIconsEu from '@ecl/resources-eu-icons/dist/lists/ui.json';
 import dataPrimary from '@ecl/specs-component-button/demo/data--primary';
 import dataSecondary from '@ecl/specs-component-button/demo/data--secondary';
 import dataCall from '@ecl/specs-component-button/demo/data--call';
@@ -12,6 +14,9 @@ import dataSearch from '@ecl/specs-component-button/demo/data--search';
 
 import button from './button.html.twig';
 import notes from './README.md';
+
+const system = getSystem();
+const uiIcons = system === 'eu' ? uiIconsEu : uiIconsEc;
 
 const getArgTypes = () => {
   const argTypes = {};

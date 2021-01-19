@@ -1,5 +1,10 @@
 import { queryAll, queryOne } from '@ecl/dom-utils';
-import iconSvgUiArrow from '@ecl/resources-ec-icons/dist/svg/ui/solid-arrow.svg';
+import getSystem from '@ecl/builder/utils/getSystem';
+import iconSvgUiArrowEc from '@ecl/resources-ec-icons/dist/svg/ui/solid-arrow.svg';
+import iconSvgUiArrowEu from '@ecl/resources-eu-icons/dist/svg/ui/solid-arrow.svg';
+
+const system = getSystem();
+const iconSvgUiArrow = system === 'eu' ? iconSvgUiArrowEu : iconSvgUiArrowEc;
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope

@@ -1,14 +1,18 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctSvgPath } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
-import generalIcons from '@ecl/resources-ec-icons/dist/lists/general.json';
+import generalIconsEc from '@ecl/resources-ec-icons/dist/lists/general.json';
+import generalIconsEu from '@ecl/resources-eu-icons/dist/lists/general.json';
 import data3Col from '@ecl/specs-component-fact-figures/demo/data--3-col';
 import data4Col from '@ecl/specs-component-fact-figures/demo/data--4-col';
 
 import factFigures from './fact-figures.html.twig';
 import notes from './README.md';
 
+const system = getSystem();
+const generalIcons = system === 'eu' ? generalIconsEu : generalIconsEc;
 const viewAll = { ...data3Col.view_all };
 
 const getArgTypes = (data) => {
