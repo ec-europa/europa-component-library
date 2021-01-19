@@ -13,6 +13,7 @@ cd ..
 # Copy builds
 rm -rf ./dist/packages
 mkdir -p ./dist/packages
-cp -r ./src/presets/ec-preset-website/dist ./dist/packages/ec-preset-website
-cp -r ./src/presets/ec-core/dist ./dist/packages/ec-core
-cp -r ./src/presets/eu-core/dist ./dist/packages/eu-core
+cp -r ./src/presets/ec-core/dist ./dist/packages/ec
+cp -r ./src/presets/reset/dist/styles ./dist/packages/ec
+cp -r ./src/presets/eu-core/dist ./dist/packages/eu
+cp -r ./src/presets/reset/dist/styles ./dist/packages/eu
