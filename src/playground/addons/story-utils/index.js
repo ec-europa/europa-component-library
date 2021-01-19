@@ -538,6 +538,88 @@ export const correctSvgPath = (data) => {
   return data;
 };
 
+export const getIconControls = (data, icons) => {
+  const argTypes = {};
+  argTypes.name = {
+    type: { name: 'select', required: true },
+    defaultValue: data.icon.name,
+    description: 'Name of the icon',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Icon',
+    },
+    control: {
+      type: 'select',
+      options: icons,
+    },
+  };
+  argTypes.size = {
+    name: 'size',
+    type: { name: 'select', required: true },
+    defaultValue: 'm',
+    description:
+      "The size of the icon (from 2xs to 2xl, or 'fluid' to match parent element font size)",
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'm' },
+      category: 'Icon',
+    },
+    control: {
+      type: 'select',
+      options: {
+        'extra small 2': '2xs',
+        'extra small': 'xs',
+        small: 's',
+        medium: 'm',
+        large: 'l',
+        'extra large': 'xl',
+        'extra large 2': '2xl',
+        fluid: 'fluid',
+      },
+    },
+  };
+  argTypes.color = {
+    name: 'color',
+    type: { name: 'select' },
+    defaultValue: '',
+    description: 'The color of the icon',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Icon',
+    },
+    control: {
+      type: 'select',
+      options: { default: '', inverted: 'inverted', primary: 'primary' },
+    },
+  };
+  argTypes.transform = {
+    name: 'transformation',
+    type: { name: 'select' },
+    defaultValue: '',
+    description: 'A transformation applied to the icon',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Icon',
+    },
+    control: {
+      type: 'select',
+      options: {
+        default: '',
+        '90° rotation': 'rotate-90',
+        '180° rotation': 'rotate-180',
+        '270° rotation': 'rotate-270',
+        'horizontal flip': 'flip-horizontal',
+        'vertical flip': 'flip-vertical',
+      },
+    },
+  };
+
+  return argTypes;
+};
+
 export const getFormControls = (data, type) => {
   const argTypes = {};
   argTypes.label = {

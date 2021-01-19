@@ -18,6 +18,12 @@ addParameters({
       picked: false,
       hideCode: true,
     },
+    {
+      id: 'reset',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/reset.css" />`,
+      picked: true,
+      hideCode: true,
+    },
   ],
   controls: { expanded: true },
   layout: 'fullscreen',
