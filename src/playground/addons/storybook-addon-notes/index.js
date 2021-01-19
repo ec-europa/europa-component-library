@@ -95,6 +95,8 @@ export const withNotes = makeDecorator({
   skipIfNoParametersOrOptions: true,
   allowDeprecatedUsage: true,
   wrapper: (getStory, context, { options, parameters }) => {
+    console.log(parameters);
+    console.log('ciao');
     const channel = addons.getChannel();
     const story = getStory(context);
     const { json } = parameters;

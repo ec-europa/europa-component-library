@@ -1,4 +1,4 @@
-import { withKnobs } from '@storybook/addon-knobs';
+import withCode from '@ecl/storybook-addon-code';
 import { styled } from '@ecl/dom-utils';
 
 const styleContainer = {
@@ -58,7 +58,11 @@ const styleBox5 = {
 
 export default {
   title: 'Utilities/Z-index',
-  decorators: [withKnobs],
+  decorators: [withCode],
+  parameters: {
+    knobs: { disable: true },
+    controls: { disable: true },
+  },
 };
 
 export const Custom = () => {

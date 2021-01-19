@@ -1,4 +1,4 @@
-import { withKnobs } from '@storybook/addon-knobs';
+import withCode from '@ecl/storybook-addon-code';
 import { styled } from '@ecl/dom-utils';
 
 const styleLine = {
@@ -42,9 +42,9 @@ const Spacing = (type, token) => `
 
 export default {
   title: 'Utilities/Spacing',
-  decorators: [withKnobs],
-
+  decorators: [withCode],
   parameters: {
+    knobs: { disable: true },
     viewport: {
       defaultViewport: 'responsive',
     },

@@ -1,4 +1,4 @@
-import { withKnobs } from '@storybook/addon-knobs';
+import withCode from '@ecl/storybook-addon-code';
 import { styled } from '@ecl/dom-utils';
 
 const styleContainer = {
@@ -19,18 +19,19 @@ const styleBox = {
 
 export default {
   title: 'Utilities/Disable scroll',
-  decorators: [withKnobs],
+  decorators: [withCode],
+  parameters: {
+    knobs: { disable: true },
+  },
 };
 
-export const Custom = () => {
-  return `
+export const Custom = () => `
     <h2 class="ecl-u-type-heading-2">Without disable scroll</h2>
     <div style="${styled(styleContainer)}">
       <div style="${styled(styleBox)}">
         Content
       </div>
     </div>
-  
     <h2 class="ecl-u-type-heading-2">With disable scroll</h2>
     <div style="${styled(styleContainer)}" class="ecl-u-disablescroll">
       <div style="${styled(styleBox)}">
@@ -38,6 +39,5 @@ export const Custom = () => {
       </div>
     </div>
   `;
-};
 
 Custom.storyName = 'custom';
