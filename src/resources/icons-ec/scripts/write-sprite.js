@@ -12,19 +12,7 @@ const writeSprite = ({ cwd, files, dest, outputFile }) => {
           const segments = name.split(path.sep);
           const id = segments
             .map((segment) => {
-              let s = segment;
-              if (segment.startsWith('_')) {
-                console.log(
-                  '⚠️ Deprecated icon:',
-                  segment,
-                  'This icon will be removed in ECL v3.'
-                );
-
-                // Remove underscore
-                s = segment.replace('_', '');
-              }
-
-              return s.replace('.svg', ''); // Remove extension
+              return segment.replace('.svg', ''); // Remove extension
             })
             .join('--');
 

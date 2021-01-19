@@ -20,6 +20,11 @@ import icon from './icon.html.twig';
 import notes from './README.md';
 
 const system = getSystem();
+const iconsBranded = system === 'eu' ? iconsBrandedEu : iconsBrandedEc;
+const iconsGeneral = system === 'eu' ? iconsGeneralEu : iconsGeneralEc;
+const iconsNotification =
+  system === 'eu' ? iconsNotificationEu : iconsNotificationEc;
+const iconsUI = system === 'eu' ? iconsUIEu : iconsUIEc;
 
 const getArgTypes = (data, icons) => getIconControls(data, icons);
 
@@ -44,28 +49,19 @@ export default {
 export const Branded = (args) => icon(prepareData(dataBranded, args));
 
 Branded.storyName = 'branded';
-Branded.argTypes = getArgTypes(
-  dataBranded,
-  system === 'eu' ? iconsBrandedEu : iconsBrandedEc
-);
+Branded.argTypes = getArgTypes(dataBranded, iconsBranded);
 Branded.parameters = { notes: { markdown: notes, json: dataBranded } };
 
 export const General = (args) => icon(prepareData(dataGeneral, args));
 
 General.storyName = 'general';
-General.argTypes = getArgTypes(
-  dataGeneral,
-  system === 'eu' ? iconsGeneralEu : iconsGeneralEc
-);
+General.argTypes = getArgTypes(dataGeneral, iconsGeneral);
 General.parameters = { notes: { markdown: notes, json: dataGeneral } };
 
 export const Notification = (args) => icon(prepareData(dataNotification, args));
 
 Notification.storyName = 'notification';
-Notification.argTypes = getArgTypes(
-  dataNotification,
-  system === 'eu' ? iconsNotificationEu : iconsNotificationEc
-);
+Notification.argTypes = getArgTypes(dataNotification, iconsNotification);
 Notification.parameters = {
   notes: { markdown: notes, json: dataNotification },
 };
@@ -73,5 +69,5 @@ Notification.parameters = {
 export const UI = (args) => icon(prepareData(dataUI, args));
 
 UI.storyName = 'ui';
-UI.argTypes = getArgTypes(dataUI, system === 'eu' ? iconsUIEu : iconsUIEc);
+UI.argTypes = getArgTypes(dataUI, iconsUI);
 UI.parameters = { notes: { markdown: notes, json: dataUI } };
