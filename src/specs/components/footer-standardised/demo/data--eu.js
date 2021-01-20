@@ -327,20 +327,6 @@ module.exports = {
             },
           ],
         },
-        {
-          title: 'EU institutions',
-          title_class_name: 'ecl-footer-standardised__title--separator',
-          links: [
-            {
-              content_before: 'Search for ',
-              link: {
-                label: 'EU institutions',
-                aria_label: 'Link to EU institutions',
-                path: '/example',
-              },
-            },
-          ],
-        },
       ],
     ],
   ],
