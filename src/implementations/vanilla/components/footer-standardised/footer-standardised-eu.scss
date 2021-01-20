@@ -30,13 +30,26 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'xl');
 }
 
 .ecl-footer-standardised__row {
-  border-bottom: 1px solid $_separator-color;
-  padding-top: map.get(theme.$spacing, 'l');
-
+  border-bottom: 2px solid $_separator-color;
+  padding-bottom: map.get(theme.$spacing, 'l');
+  padding-top: map.get(theme.$spacing, 'xl');
+  /* stylelint-disable-next-line max-nesting-depth */
+  &:first-child {
+    padding-top: 0;
+  }
   /* stylelint-disable-next-line max-nesting-depth */
   &:last-child {
     border-bottom: 0;
     padding-bottom: 0;
+  }
+}
+
+.ecl-footer-standardised__column {
+  padding-top: map.get(theme.$spacing, 'l');
+
+  /* stylelint-disable-next-line max-nesting-depth */
+  &:first-child {
+    padding-top: 0;
   }
 }
 
@@ -102,21 +115,24 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'xl');
   }
 
   .ecl-footer-standardised__container {
-    padding-bottom: map.get(theme.$spacing, '4xl');
-    padding-top: map.get(theme.$spacing, '4xl');
+    padding: map.get(theme.$spacing, '4xl') map.get(theme.$spacing, 'm');
   }
 
   .ecl-footer-standardised__row {
-    border-bottom-width: 2px;
     column-gap: $_column-gap;
     display: grid;
     grid-gap: 0 $_column-gap;
     grid-template-columns: repeat(3, 1fr);
-    padding-bottom: map.get(theme.$spacing, 'xl');
+    padding-bottom: map.get(theme.$spacing, '3xl');
+    padding-top: map.get(theme.$spacing, '3xl');
+  }
+
+  .ecl-footer-standardised__column {
+    padding-top: 0;
   }
 
   .ecl-footer-standardised__section {
-    padding-top: map.get(theme.$spacing, 'xl');
+    padding-top: map.get(theme.$spacing, 'l');
   }
 
   .ecl-footer-standardised__title,
