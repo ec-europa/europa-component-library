@@ -106,7 +106,7 @@
     {% endif %}
     {# content before #}
     {% if sections.content_before is defined and sections.content_before is not empty %}
-      <div class="ecl-footer-standardised__content">{{ sections.content_before|raw }}</div>
+      <div class="ecl-footer-standardised__content">{{ sections.content_before }}</div>
     {% endif %}
     {# title #}
     {% if sections.title is defined and sections.title is not empty %}
@@ -128,7 +128,7 @@
     {% endif %}
     {# description #}
     {% if sections.description is defined and sections.description is not empty %}
-      <div class="ecl-footer-standardised__description">{{ sections.description|raw }}</div>
+      <div class="ecl-footer-standardised__description">{{ sections.description }}</div>
     {% endif %}
     {# list #}
     {% if sections.links is defined and sections.links is not empty and sections.links is iterable %}
