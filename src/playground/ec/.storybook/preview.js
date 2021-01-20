@@ -4,6 +4,15 @@ import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import './ECL';
 
 addParameters({
+  a11y: {
+    element: '#root',
+    config: {},
+    options: {
+      checks: { 'color-contrast': { options: { noScroll: true } } },
+      restoreScroll: true,
+    },
+    manual: false,
+  },
   cssresources: [
     {
       id: 'ec-core',
