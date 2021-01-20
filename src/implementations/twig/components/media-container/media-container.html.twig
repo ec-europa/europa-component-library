@@ -55,7 +55,7 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
       {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
     {% endif %}
@@ -64,10 +64,10 @@
 
 {# Print the result #}
 
-<figure class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<figure class="{{ _css_class }}"{{ _extra_attributes }}>
 {% if _embedded_media is not empty %}
   <div class="ecl-media-container__media ecl-media-container__media--ratio-{{ _ratio }}">
-    {%- block embedded_media _embedded_media|raw -%}
+    {%- block embedded_media _embedded_media -%}
   </div>
 {% elseif _sources is not empty and _sources is iterable %}
   <video

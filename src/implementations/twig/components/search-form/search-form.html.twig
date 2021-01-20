@@ -32,7 +32,7 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
       {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
     {% endif %}
@@ -41,7 +41,7 @@
 
 {# Print the result #}
 
-<form class="{{ _css_class }}" role="search"{{ _extra_attributes|raw }}>
+<form class="{{ _css_class }}" role="search"{{ _extra_attributes }}>
   {% if _text_input is not empty %}
     {% include '@ecl/text-input/text-input.html.twig' with _text_input|merge({
       type: 'search',
@@ -62,7 +62,7 @@
       extra_attributes: [{name: 'aria-label', value: 'Search'}],
     }) only %}
   {% endif %}
-  {%- block extra_form_elements _extra_form_elements|raw -%}
+  {%- block extra_form_elements _extra_form_elements -%}
 </form>
 
 {% endspaceless %}

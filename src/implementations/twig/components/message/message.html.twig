@@ -38,7 +38,7 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
       {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
     {% endif %}
@@ -47,7 +47,7 @@
 
 {# Print the result #}
 
-<div class="{{ _css_class }}" data-ecl-message role="alert"{{ _extra_attributes|raw }}>
+<div class="{{ _css_class }}" data-ecl-message role="alert"{{ _extra_attributes }}>
   {% include '@ecl/icon/icon.html.twig' with {
     icon: _icon,
     extra_classes: 'ecl-message__icon',

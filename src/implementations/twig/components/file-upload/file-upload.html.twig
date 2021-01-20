@@ -94,7 +94,7 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
       {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
     {% endif %}
@@ -113,7 +113,7 @@
     for="{{ _id }}"
   {% endif %}
   >
-    {%- block label _label|raw -%}
+    {%- block label _label -%}
     {%- if _required and _required_text is not empty -%}
       <span class="{{ _label_base_class }}__required">
         {{- _required_text -}}
@@ -128,13 +128,13 @@
 
 {% if _helper_text is not empty %}
   <div class="{{ _help_classes }}">
-    {%- block helper_text _helper_text|raw -%}
+    {%- block helper_text _helper_text -%}
   </div>
 {% endif %}
 
 {% if _invalid and _invalid_text is not empty %}
   <div class="ecl-feedback-message">
-    {%- block invalid_text _invalid_text|raw -%}
+    {%- block invalid_text _invalid_text -%}
   </div>
 {% endif %}
 
@@ -164,9 +164,9 @@
   <input
     type="file"
     class="{{ _component_class }}"
-    {{- _main_attributes|raw -}}
+    {{- _main_attributes -}}
   {% if _extra_attributes is not empty %}
-    {{- _extra_attributes|raw -}}
+    {{- _extra_attributes -}}
   {% endif %}
   />
 

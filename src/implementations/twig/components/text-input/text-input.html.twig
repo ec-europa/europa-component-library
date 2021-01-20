@@ -65,7 +65,7 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
       {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
     {% endif %}
@@ -95,13 +95,13 @@
 
   {% if _helper_text is not empty %}
     <div class="ecl-help-block{{ _disabled ? ' ecl-help-block--disabled' }}">
-      {%- block helper_text _helper_text|raw -%}
+      {%- block helper_text _helper_text -%}
     </div>
   {% endif %}
 
   {% if _invalid and _invalid_text is not empty %}
     <div class="ecl-feedback-message">
-      {%- block invalid_text _invalid_text|raw -%}
+      {%- block invalid_text _invalid_text -%}
     </div>
   {% endif %}
 
@@ -122,7 +122,7 @@
   {% if _required %}
     required
   {% endif %}
-    {{ _extra_attributes|raw }}
+    {{ _extra_attributes }}
   />
 </div>
 
