@@ -2,7 +2,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { withKnobs, text } from '@storybook/addon-knobs';
-import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
+import { getExtraKnobs, tabLabels, correctSvgPath } from '@ecl/story-utils';
 import he from 'he';
 
 import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
@@ -174,7 +174,7 @@ const formatFooter = (data) => {
   getExtraKnobs(data);
 
   // Return the full specs.
-  return data;
+  return correctSvgPath(data);
 };
 
 export default {
