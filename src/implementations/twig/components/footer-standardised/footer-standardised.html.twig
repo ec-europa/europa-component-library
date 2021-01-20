@@ -43,7 +43,7 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
       {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
     {% endif %}
@@ -51,7 +51,7 @@
 {% endif %}
 
 {# Print the result #}
-<footer class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<footer class="{{ _css_class }}"{{ _extra_attributes }}>
   {# Main container #}
   <div class="ecl-container ecl-footer-standardised__container">
   {{ footer.footer_sections(_sections, 0) }}
