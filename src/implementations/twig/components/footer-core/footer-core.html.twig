@@ -39,7 +39,7 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
       {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
     {% endif %}
@@ -48,7 +48,7 @@
 
 {# Print the result #}
 
-<footer class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<footer class="{{ _css_class }}"{{ _extra_attributes }}>
   <div class="ecl-container ecl-footer-core__container">
 {% if _sections is not empty and _sections is iterable %}
   {% set _section_id = 0 %}
@@ -99,7 +99,7 @@
     {% endif %}
     {# content before #}
     {% if _section.content_before is defined and _section.content_before is not empty %}
-      <div class="ecl-footer-core__content">{{ _section.content_before|raw }}</div>
+      <div class="ecl-footer-core__content">{{ _section.content_before }}</div>
     {% endif %}
     {# title #}
     {% if _section.title is defined and _section.title is not empty %}
@@ -118,7 +118,7 @@
     {% endif %}
     {# description #}
     {% if _section.description is defined and _section.description is not empty %}
-      <div class="ecl-footer-core__description">{{ _section.description|raw }}</div>
+      <div class="ecl-footer-core__description">{{ _section.description }}</div>
     {% endif %}
     {# links #}
     {% if _section.links is defined and _section.links is not empty %}

@@ -85,7 +85,7 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
       {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
     {% endif %}
@@ -97,7 +97,7 @@
 <a
   href="{{ _link.path }}"
   class="{{ _css_class }}"
-  {{ _extra_attributes|raw }}
+  {{ _extra_attributes }}
 >
   {%- if _icons is defined and _link.icon_position == 'before' -%}
     {% for icon in _icons %}

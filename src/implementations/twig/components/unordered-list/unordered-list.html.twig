@@ -44,7 +44,7 @@
   {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
     {% for attr in extra_attributes %}
       {% if attr.value is defined %}
-        {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+        {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
       {% else %}
         {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
       {% endif %}
@@ -53,11 +53,11 @@
 
   {# Print the result #}
   {% if _items is not empty %}
-    <ul class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+    <ul class="{{ _css_class }}"{{ _extra_attributes }}>
       {% for _item in _items %}
         {% if _item is not empty %}
           <li class="ecl-unordered-list__item">
-            {{- _item.label|raw -}}
+            {{- _item.label -}}
             {% if _item.nested is not empty and _item.nested is iterable %}
               {{- list.unordered_list(_item.nested) -}}
             {% endif -%}

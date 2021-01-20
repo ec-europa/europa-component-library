@@ -60,7 +60,7 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
       {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
     {% endif %}
@@ -78,7 +78,7 @@
 
 {# Print the result #}
 
-<div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+<div class="{{ _css_class }}" {{ _extra_attributes }}>
   <div class="ecl-file__container">
   {% if _variant == 'thumbnail' %}
     <div class="ecl-file__detail">
@@ -90,7 +90,7 @@
       {% endif %}
         <div class="ecl-file__title">{{ _title }}</div>
       {% if _description is not empty %}
-        <div class="ecl-file__description">{{ _description|raw }}</div>
+        <div class="ecl-file__description">{{ _description }}</div>
       {% endif %}
       </div>
     {% if _image is not empty and _image.src is defined and _image.src is not empty %}
@@ -216,7 +216,7 @@
           </li>
         {% endfor %}
         <li class="ecl-file__translation-item ecl-file__translation-description">
-          {{- _translation.description|raw -}}
+          {{- _translation.description -}}
         </li>
       </ul>
     </div>

@@ -56,7 +56,7 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
       {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
     {% endif %}
@@ -65,7 +65,7 @@
 
 {# Print the result #}
 
-<div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+<div class="{{ _css_class }}" {{ _extra_attributes }}>
   <input
     name="{{ _name }}"
     class="ecl-checkbox__input"
@@ -111,7 +111,7 @@
         id="{{ _helper_id }}"
       {% endif %}
     >
-      {%- block helper_text _helper_text|raw -%}
+      {%- block helper_text _helper_text -%}
     </div>
   {% endif %}
 </div>

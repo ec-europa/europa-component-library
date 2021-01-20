@@ -55,7 +55,7 @@ Parameters:
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
       {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
     {% endif %}
@@ -63,7 +63,7 @@ Parameters:
 {% endif %}
 
 {# Print the result #}
-<ol class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<ol class="{{ _css_class }}"{{ _extra_attributes }}>
   {% if _items is not empty %}
     {% for _item in _items %}
       {# Decide on per item if it should display. #}
@@ -77,7 +77,7 @@ Parameters:
         {% if _item.title is defined and _item.title is not empty %}
         <div class="ecl-timeline__title">{{ _item.title }}</div>
         {% endif %}
-        <div class="ecl-timeline__content">{{ _item.content|default('')|raw }}</div>
+        <div class="ecl-timeline__content">{{ _item.content|default('') }}</div>
       </li>
       {# Display the show more button if required. #}
       {% if (_hide_amount > 0 and loop.revindex == _bottom_amount + 1) or (_hide_amount > 0 and _hide_to == 0 and loop.revindex == 1) %}
