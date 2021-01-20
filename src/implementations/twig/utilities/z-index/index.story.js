@@ -62,6 +62,7 @@ export default {
   parameters: {
     knobs: { disable: true },
     controls: { disable: true },
+    a11y: { disable: true },
   },
 };
 

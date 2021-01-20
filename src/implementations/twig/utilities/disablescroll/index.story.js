@@ -22,6 +22,7 @@ export default {
   decorators: [withCode],
   parameters: {
     knobs: { disable: true },
+    a11y: { disable: true },
   },
 };
 

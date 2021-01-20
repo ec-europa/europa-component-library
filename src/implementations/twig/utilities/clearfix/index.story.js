@@ -29,6 +29,7 @@ export default {
   title: 'Utilities/Clearfix',
   decorators: [withCode],
   parameters: {
+    a11y: { disable: true },
     knobs: { disable: true },
     controls: { disable: true },
   },
