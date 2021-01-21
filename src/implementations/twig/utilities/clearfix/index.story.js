@@ -1,4 +1,4 @@
-import { withKnobs } from '@storybook/addon-knobs';
+import withCode from '@ecl/storybook-addon-code';
 import { styled } from '@ecl/dom-utils';
 
 const styleContainer = {
@@ -27,7 +27,12 @@ const styleBoxRight = {
 
 export default {
   title: 'Utilities/Clearfix',
-  decorators: [withKnobs],
+  decorators: [withCode],
+  parameters: {
+    a11y: { disable: true },
+    knobs: { disable: true },
+    controls: { disable: true },
+  },
 };
 
 export const Custom = () => {
