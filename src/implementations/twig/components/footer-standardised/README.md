@@ -8,7 +8,7 @@ npm install --save @ecl/twig-component-footer-standardised
 
 ### Parameters
 
-- **"sections"** (array of objects) (default: [])
+- **"rows"** (array of objects) (default: [])
   - "section_id" (integer) (default: '') The id will be used to form the class name
   - "logo" (EU only)
     - "alt" (string) alt attribute for the logo link
@@ -35,73 +35,75 @@ npm install --save @ecl/twig-component-footer-standardised
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/footer-standardised/footer-standardised.html.twig' with { 
-  sections: [ 
-    { 
-      type: 'site_name', 
-      section_id: 1,
-      title: { 
-        link: { 
-          label: "Site name", 
-          path: "/example" 
-        } 
-      }, 
-      description: 
-        'This site is managed by the Directorate-General for "DG identification"', 
-      }, 
-      { 
-        type: 'dg_services_navigation', 
-        section_id: 2, 
-        title: 'Contact us', 
-        title_class_name: 'ecl-footer-standardised__title--separator', 
-        links: [ 
-          { 
+  rows: [ 
+    [ 
+      [ 
+        { 
+          title: { 
             link: { 
-              label: 'Contact information of the DG', 
+              label: 'Site name', 
               path: '/example', 
             }, 
           }, 
-        ], 
-      }, 
-      { 
-        type: 'dg_services_navigation', 
-        section_id: 2, 
-        title: 'Follow us on', 
-        title_class_name: 'ecl-footer-standardised__title--separator', 
-        links: [ 
-          { 
-            link: { 
-              label: 'Facebook', 
-              path: '/example', 
-              icon_position: 'before', 
+          description: 
+            'This site is managed by the Directorate-General for "DG identification"', 
+        }, 
+      ], 
+      [ 
+        { 
+          title: 'Contact us', 
+          links: [ 
+            { 
+              link: { 
+                label: 'Contact information of the DG', 
+                path: '/example', 
+                aria_label: 'Link to Contact information of the DG', 
+              }, 
+            }, 
+          ], 
+          title_class_name: 'ecl-footer-standardised__title--separator', 
+        }, 
+        { 
+          title: 'Follow us on', 
+          links: [ 
+            { 
+              link: { 
+                label: 'Facebook', 
+                path: '/example', 
+                aria_label: 'Link to Facebook', 
+                icon_position: 'before', 
+              }, 
               icon: { 
-                path: '/path-to-the-icon-file', 
+                path: '/icons.svg', 
                 type: 'branded', 
                 name: 'facebook', 
                 size: 'xs', 
               }, 
             }, 
             ... 
-          }, 
-        ], 
-        list_class_name: 'ecl-footer-standardised__list--inline', 
-      }, 
-      { 
-        type: 'class_names', 
-        section_id: 3,
-        content_before: 'More information on:', 
-        links: [ 
-          { 
-            link: { 
-              label: 'Related link 1', 
-              path: '/example', 
+          ], 
+          list_class_name: 'ecl-footer-standardised__list--inline', 
+          title_class_name: 'ecl-footer-standardised__title--separator', 
+        }, 
+      ], 
+      [ 
+        { 
+          title: 'About us', 
+          links: [ 
+            { 
+              link: { 
+                label: 'Information about the DG', 
+                path: '/example', 
+                aria_label: 'Link to Information about the DG', 
+              }, 
             }, 
-            ... 
-          }, 
-        ], 
-        list_class_name: 'ecl-footer-standardised__list--condensed', 
-      }, 
-      ... 
-    ] 
-  } 
+          ], 
+          title_class_name: 'ecl-footer-standardised__title--separator', 
+        }, 
+        ...
+      ],
+    ],
+    ... 
+  ]
 %}
 ```

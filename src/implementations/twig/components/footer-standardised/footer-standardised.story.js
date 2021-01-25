@@ -14,9 +14,9 @@ import notes from './README.md';
 // Prepare the knobs
 const formatFooter = (data) => {
   correctSvgPath(data);
-  if (data.sections[1][0][0].logo.path) {
-    data.sections[1][0][0].logo.src_mobile = logoEuMobile;
-    data.sections[1][0][0].logo.src_desktop = logoEuDesktop;
+  if (data.rows[1][0][0].logo) {
+    data.rows[1][0][0].logo.src_mobile = logoEuMobile;
+    data.rows[1][0][0].logo.src_desktop = logoEuDesktop;
   }
 
   // Return the full specs.

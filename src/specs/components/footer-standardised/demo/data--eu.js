@@ -1,5 +1,5 @@
 module.exports = {
-  sections: [
+  rows: [
     [
       [
         {

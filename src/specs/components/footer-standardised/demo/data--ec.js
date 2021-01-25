@@ -1,5 +1,5 @@
 module.exports = {
-  sections: [
+  rows: [
     [
       [
         {
@@ -11,7 +11,6 @@ module.exports = {
           },
           description:
             'This site is managed by the Directorate-General for "DG identification"',
-          type: 'site_name',
         },
       ],
       [
@@ -26,8 +25,6 @@ module.exports = {
               },
             },
           ],
-          type: 'dg_services_navigation',
-          demo_id: 'contact_us',
           title_class_name: 'ecl-footer-standardised__title--separator',
         },
         {
@@ -76,8 +73,6 @@ module.exports = {
               },
             },
           ],
-          type: 'dg_services_navigation',
-          demo_id: 'follow_us',
           list_class_name: 'ecl-footer-standardised__list--inline',
           title_class_name: 'ecl-footer-standardised__title--separator',
         },
@@ -94,8 +89,6 @@ module.exports = {
               },
             },
           ],
-          demo_id: 'about_us',
-          type: 'dg_related_navigation',
           title_class_name: 'ecl-footer-standardised__title--separator',
         },
         {
@@ -137,8 +130,6 @@ module.exports = {
               },
             },
           ],
-          demo_id: 'related',
-          type: 'dg_related_navigation',
           title_class_name: 'ecl-footer-standardised__title--separator',
         },
       ],
@@ -162,7 +153,6 @@ module.exports = {
               },
             },
           ],
-          type: 'class_names',
           list_class_name: 'ecl-footer-standardised__list--condensed',
           content_before: 'More information on:',
         },
@@ -177,7 +167,6 @@ module.exports = {
               path: 'https://ec.europa.eu/info/index_en',
             },
           },
-          type: 'corporate_name',
         },
       ],
       [
@@ -205,7 +194,6 @@ module.exports = {
               },
             },
           ],
-          type: 'service_navigation',
         },
       ],
       [
@@ -240,7 +228,6 @@ module.exports = {
               },
             },
           ],
-          type: 'legal_navigation',
         },
       ],
     ],
