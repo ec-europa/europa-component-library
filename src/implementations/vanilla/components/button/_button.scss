@@ -54,6 +54,10 @@ $_shadow-hover: null !default;
   display: flex;
 }
 
+.ecl-button__icon {
+  flex-shrink: 0;
+}
+
 .ecl-button__icon--before,
 .ecl-button__icon + .ecl-button__label {
   margin-right: map.get(theme.$spacing, 'xs');
