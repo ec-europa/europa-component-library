@@ -1,0 +1,98 @@
+/**
+ * Button component
+ * @define button
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+
+$_border-radius: null !default;
+$_border-width: 1.5pt !default;
+$_font-weight: null !default;
+$_padding-horizontal: map.get(theme.$spacing-print, 'm');
+$_padding-vertical: map.get(theme.$spacing-print, 's');
+
+.ecl-button {
+  appearance: none;
+  background: none;
+  border-radius: $_border-radius;
+  border-width: 0;
+  box-sizing: border-box;
+  display: inline-block;
+  font: map.get(theme.$font-print, 'm');
+  font-family: map.get(theme.$font-family-print, 'alt');
+  font-weight: $_font-weight;
+  margin: 0;
+  padding: $_padding-vertical $_padding-horizontal;
+  text-decoration: none;
+
+  &[disabled] {
+    opacity: 0.5;
+    text-decoration: none;
+  }
+}
+
+.ecl-button__container {
+  align-items: center;
+  display: flex;
+}
+
+.ecl-button__label {
+  text-align: left;
+}
+
+.ecl-button__icon {
+  flex-shrink: 0;
+}
+
+.ecl-button__icon--before,
+.ecl-button__icon + .ecl-button__label {
+  margin-right: map.get(theme.$spacing-print, 'xs');
+}
+
+.ecl-button__icon--after,
+.ecl-button__label + .ecl-button__icon {
+  margin-left: map.get(theme.$spacing-print, 'xs');
+}
+
+/**
+* Primary
+*/
+$_primary-background-color: map.get(theme.$color, 'blue-100') !default;
+$_primary-color: map.get(theme.$color, 'white-100') !default;
+.ecl-button--primary {
+  background-color: $_primary-background-color;
+  color: $_primary-color;
+}
+
+/**
+* Secondary
+*/
+$_secondary-background-color: map.get(theme.$color, 'white-100') !default;
+$_secondary-border-color: map.get(theme.$color, 'blue-100') !default;
+$_secondary-color: map.get(theme.$color, 'blue-100') !default;
+.ecl-button--secondary {
+  background-color: $_secondary-background-color;
+  border: $_border-width solid $_secondary-border-color;
+  color: $_secondary-color;
+  padding: calc(#{$_padding-vertical} - #{$_border-width})
+    calc(#{$_padding-horizontal} - #{$_border-width});
+}
+
+/**
+* Ghost
+*/
+$_ghost-color: map.get(theme.$color, 'blue-100') !default;
+.ecl-button--ghost {
+  color: $_ghost-color;
+}
+
+/**
+* Call to action
+*/
+$_cta-background-color: map.get(theme.$color, 'yellow-100') !default;
+$_cta-color: map.get(theme.$color, 'black-100') !default;
+.ecl-button--call {
+  background-color: $_cta-background-color;
+  color: $_cta-color;
+}

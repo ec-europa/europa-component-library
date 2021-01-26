@@ -70,7 +70,7 @@
 
 {% for attr in extra_attributes %}
   {% if attr.value is defined %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
   {% else %}
     {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
   {% endif %}
@@ -78,14 +78,14 @@
 
 {# Print the result #}
 
-<nav class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<nav class="{{ _css_class }}"{{ _extra_attributes }}>
   <ol class="ecl-breadcrumb-standardised__container">
     {% for key, link in links %}
       {% set _breadcrumb_segment_attributes = 'data-ecl-breadcrumb-standardised-item="static"' %}
       {# Last item is not a link. #}
       {% if loop.last %}
         {% set _breadcrumb_segment_attributes = _breadcrumb_segment_attributes ~ ' aria-current="page"' %}
-        <li class="{{ _breadcrumb_segment_class ~ ' ecl-breadcrumb-standardised__current-page' }}" {{ _breadcrumb_segment_attributes|raw }}>
+        <li class="{{ _breadcrumb_segment_class ~ ' ecl-breadcrumb-standardised__current-page' }}" {{ _breadcrumb_segment_attributes }}>
           {{- link.label -}}
         </li>
       {% else %}
@@ -111,7 +111,7 @@
           {% endif %}
         {% endif %}
         {# Render all the items with different attributes, aria labels are set via js #}
-        <li class="{{ _breadcrumb_segment_class }}" {{ _breadcrumb_segment_attributes|raw }}>
+        <li class="{{ _breadcrumb_segment_class }}" {{ _breadcrumb_segment_attributes }}>
           {% include '@ecl/link/link.html.twig' with {
             link: link|default({})|merge({
               type: 'standalone'

@@ -43,14 +43,14 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
       {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
     {% endif %}
   {% endfor %}
 {% endif %}
 
-<div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+<div class="{{ _css_class }}" {{ _extra_attributes }}>
 
 {% if items is defined and items is not empty and items is iterable %}
   <div class="ecl-fact-figures__items">
@@ -75,7 +75,7 @@
     {% endif %}
     {% if item.description is defined and item.description is not empty %}
       <div class="ecl-fact-figures__description">
-        {{- item.description|raw -}}
+        {{- item.description -}}
       </div>
     {% endif %}
     </div>

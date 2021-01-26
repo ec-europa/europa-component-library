@@ -2,7 +2,7 @@
 
 {#
   Parameters:
-    - "variant" (string) (default: 'primary'): can be 'primary', 'secondary', 'call', 'ghost', 'search'
+    - "variant" (string) (default: 'primary'): can be 'primary', 'secondary', 'call', 'ghost'
     - "type" (string) (default: 'submit'): can be the same type as HTML button - 'submit', 'reset', 'button'
     - "icon" (associative array) (default: {}): predefined structure for Icon component
     - "disabled" (bool) (default: false): Defined if button should be active or not (HTML disabled attribute)
@@ -40,7 +40,7 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
       {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
     {% endif %}
@@ -55,7 +55,7 @@
 
 {# Print the result #}
 
-<button class="{{ _css_class }}" type="{{ _type }}" {{ _extra_attributes|raw }}>
+<button class="{{ _css_class }}" type="{{ _type }}" {{ _extra_attributes }}>
   {%- if _icon.name is not empty %}
     <span class="ecl-button__container">
       {% if _icon_position == 'before' %}
@@ -67,7 +67,7 @@
           ],
         } only %}
       {% endif %}
-      <span class="ecl-button__label" data-ecl-label="true">{% block label _label|raw %}</span>
+      <span class="ecl-button__label" data-ecl-label="true">{% block label _label %}</span>
       {% if _icon_position == 'after' %}
         {% include '@ecl/icon/icon.html.twig' with {
           icon: _icon,

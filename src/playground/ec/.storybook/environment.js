@@ -14,4 +14,4 @@ if (typeof loader.addPath === 'function') {
   loader.addPath(absPath, 'ecl');
 }
 
-module.exports = new TwingEnvironment(loader);
+module.exports = new TwingEnvironment(loader, { autoescape: false });

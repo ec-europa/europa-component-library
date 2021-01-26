@@ -10,7 +10,6 @@ import dataPrimary from '@ecl/specs-component-button/demo/data--primary';
 import dataSecondary from '@ecl/specs-component-button/demo/data--secondary';
 import dataCall from '@ecl/specs-component-button/demo/data--call';
 import dataGhost from '@ecl/specs-component-button/demo/data--ghost';
-import dataSearch from '@ecl/specs-component-button/demo/data--search';
 
 import button from './button.html.twig';
 import notes from './README.md';
@@ -105,7 +104,7 @@ const prepareData = (data, args) => {
     data.icon = {};
     data.icon.name = args.icon_name;
     data.icon.type = 'ui';
-    data.icon.size = 'xs';
+    data.icon.size = system === 'eu' ? 's' : 'xs';
     data.icon.path = 'icon.svg';
     data.icon.transform = args.icon_transform;
     data.icon_position = args.icon_position;
@@ -170,17 +169,5 @@ Ghost.args = {
 Ghost.storyName = 'text';
 Ghost.parameters = {
   notes: { markdown: notes, json: dataGhost },
-  knobs: { disable: true },
-};
-
-export const Search = (args) => button(prepareData(dataSearch, args));
-
-Search.args = {
-  label: dataSearch.label,
-};
-
-Search.storyName = 'search';
-Search.parameters = {
-  notes: { markdown: notes, json: dataSearch },
   knobs: { disable: true },
 };

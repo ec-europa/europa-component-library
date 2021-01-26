@@ -9,6 +9,9 @@
 
 $_form-width-desktop: 31.25rem;
 $_border-color: map.get(theme.$color, 'grey-50');
+$_button-background-color: null !default;
+$_button-background-color-hover: null !default;
+$_button-color: null !default;
 
 .ecl-search-form {
   display: flex;
@@ -54,11 +57,20 @@ $_border-color: map.get(theme.$color, 'grey-50');
 }
 
 .ecl-search-form__button {
+  background-color: $_button-background-color;
   border-bottom: 1px solid $_border-color;
+  border-bottom-left-radius: 0;
   border-left-width: 0;
   border-right: 1px solid $_border-color;
   border-top: 1px solid $_border-color;
+  border-top-left-radius: 0;
+  color: $_button-color;
   padding: calc(#{map.get(theme.$spacing, 's')} - 1px);
+
+  &:hover,
+  &:active {
+    background-color: $_button-background-color-hover;
+  }
 }
 
 .ecl-search-form__button .ecl-button__label {
