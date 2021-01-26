@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 // Import resources
 import ECLogo from '@ecl/preset-ec-core/dist/images/logo/logo--en.svg';
-import EULogo from '@ecl/preset-eu-core/dist/images/logo/logo--en.svg';
+import EULogo from '@ecl/preset-eu-core/dist/images/logo/standard-version/positive/en.svg';
 import LogoLink from './LogoLink';
 import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
 
