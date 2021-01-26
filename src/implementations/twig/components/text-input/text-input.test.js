@@ -1,10 +1,13 @@
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
-import dataDefault from '@ecl/specs-component-text-input/demo/data';
+import specDefaultEc from '@ecl/specs-component-text-input/demo/data--ec';
+import specDefaultEu from '@ecl/specs-component-text-input/demo/data--eu';
 
-const dataInvalid = { ...dataDefault, invalid: true };
-const dataDisabled = { ...dataDefault, disabled: true };
+const specInvalidEc = { ...specDefaultEc, invalid: true };
+const specDisabledEc = { ...specDefaultEc, disabled: true };
+const specInvalidEu = { ...specDefaultEu, invalid: true };
+const specDisabledEu = { ...specDefaultEu, disabled: true };
 
-describe('Text field', () => {
+const testTextField = (dataDefault, dataInvalid, dataDisabled) => {
   const template = '@ecl/text-input/text-input.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
@@ -155,4 +158,12 @@ describe('Text field', () => {
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
     });
   });
+};
+
+describe('Text field EC', () => {
+  testTextField(specDefaultEc, specInvalidEc, specDisabledEc);
+});
+
+describe('Text field EU', () => {
+  testTextField(specDefaultEu, specInvalidEu, specDisabledEu);
 });
