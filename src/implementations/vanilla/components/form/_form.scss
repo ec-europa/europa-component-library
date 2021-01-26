@@ -5,14 +5,15 @@
 @use "sass:map";
 @use '@ecl/theme-dev/theme';
 
-.ecl-feedback-message {
-  box-sizing: border-box;
-  color: map.get(theme.$color, 'error');
-  display: flex;
-  font: map.get(theme.$font-prolonged, 's');
-  margin: 0;
-  padding: 0;
-}
+$_margin-text-input: null !default;
+$_margin-invalid: null !default;
+$_color-invalid: null !default;
+$_color-label: null !default;
+$_color-help: null !default;
+$_color-required: null !default;
+$_color-optional: null !default;
+$_font-invalid: null !default;
+$_font-help: null !default;
 
 .ecl-form-group {
   align-items: flex-start;
@@ -26,15 +27,22 @@
     margin-top: map.get(theme.$spacing, 'xs');
   }
 
+  > *:not(.ecl-u-sr-only) + .ecl-feedback-message {
+    margin-top: $_margin-invalid;
+  }
+
   > *:not(.ecl-u-sr-only) + .ecl-checkbox,
   > *:not(.ecl-u-sr-only) + .ecl-file-upload,
   > *:not(.ecl-u-sr-only) + .ecl-file-upload__button-container,
   > *:not(.ecl-u-sr-only) + .ecl-radio,
   > *:not(.ecl-u-sr-only) + .ecl-select__container,
   > *:not(.ecl-u-sr-only) + .ecl-select__multiple,
-  > *:not(.ecl-u-sr-only) + .ecl-text-input,
   > *:not(.ecl-u-sr-only) + .ecl-text-area {
     margin-top: map.get(theme.$spacing, 's');
+  }
+
+  > *:not(.ecl-u-sr-only) + .ecl-text-input {
+    margin-top: $_margin-text-input;
   }
 
   > *:not(.ecl-u-sr-only) + .ecl-file-upload__list {
@@ -47,39 +55,47 @@
 }
 
 // stylelint-disable no-descending-specificity
-.ecl-help-block {
+.ecl-feedback-message {
   box-sizing: border-box;
-  color: map.get(theme.$color, 'grey-100');
-  display: block;
-  font: map.get(theme.$font-prolonged, 's');
+  color: $_color-invalid;
+  display: flex;
+  font: $_font-invalid;
   margin: 0;
   padding: 0;
 }
 
-.ecl-help-block--disabled {
-  color: map.get(theme.$color, 'grey-50');
+.ecl-feedback-message__icon {
+  margin-right: map.get(theme.$spacing, 'xs');
+}
+
+.ecl-help-block {
+  box-sizing: border-box;
+  color: $_color-help;
+  display: block;
+  font: $_font-help;
+  margin: 0;
+  padding: 0;
 }
 
 .ecl-form-label {
   box-sizing: border-box;
-  color: map.get(theme.$color, 'text');
+  color: $_color-label;
   font: map.get(theme.$font, 'm');
   font-weight: map.get(theme.$font-weight, 'bold');
   margin: 0;
   padding: 0;
 }
 
-.ecl-form-label--disabled {
-  color: map.get(theme.$color, 'grey-50');
-}
-
 .ecl-form-label__required {
-  color: map.get(theme.$color, 'red');
-  font: map.get(theme.$font, 'xl');
+  color: $_color-required;
+  font: map.get(theme.$font, 'm');
+  font-style: italic;
   font-weight: map.get(theme.$font-weight, 'bold');
 }
 
 .ecl-form-label__optional {
-  font: map.get(theme.$font, 's');
+  color: $_color-optional;
+  font: map.get(theme.$font, 'm');
+  font-style: italic;
   font-weight: map.get(theme.$font-weight, 'regular');
 }

@@ -1,19 +1,21 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
-import { getFormControls } from '@ecl/story-utils';
+import { getFormControls, correctSvgPath } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
 
-import dataDefault from '@ecl/specs-component-text-input/demo/data';
+import specsEc from '@ecl/specs-component-text-input/demo/data--ec';
+import specsEu from '@ecl/specs-component-text-input/demo/data--eu';
 
 import textInput from './text-input.html.twig';
 import notes from './README.md';
 
+const dataDefault = process.env.STORYBOOK_SYSTEM === 'EU' ? specsEu : specsEc;
 const dataInvalid = { ...dataDefault, invalid: true };
 const dataDisabled = { ...dataDefault, disabled: true };
 const dataOptional = { ...dataDefault, required: false };
 
 const getArgTypes = (data) => getFormControls(data, 'element');
 
-const prepareData = (data, args) => Object.assign(data, args);
+const prepareData = (data, args) => Object.assign(correctSvgPath(data), args);
 
 export default {
   title: 'Components/Forms/Text field',

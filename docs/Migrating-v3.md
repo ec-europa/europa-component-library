@@ -156,3 +156,7 @@ Most of the components have been updated without much changes. Although, there a
   - new css class `.ecl-date-block__daytime` in place of the `ecl-u-sr-only` utility (components are not supposed to contain utilities)
 - Link
   - twig parameter "icon_path" has been removed (not used)
+- Test input
+  - twig parameter "invalid_icon" added, to display additional icon when field is invalid
+  - twig parameter "placeholder" added, to manage default content
+  - twig parameter "invalid_icon_label" has been removed (not used)
