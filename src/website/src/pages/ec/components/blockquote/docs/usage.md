@@ -2,7 +2,6 @@
 title: Usage
 order: 1
 ---
-
 import { Paragraph, Anatomy } from '@ecl/website-components';
 
 <Paragraph size="lead">
@@ -16,7 +15,7 @@ image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Blockquote/Blockquote%2
 srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/Blockquote/Blockquote%20-%20Mobile.png 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/Blockquote/Blockquote%20-%20Desktop.png 1246w"
 alt="Anatomy of blockquotes"
 legend={{
-    items: [
+    items: \[
       {
         color: '#404040',
         label: 'mandatory',
