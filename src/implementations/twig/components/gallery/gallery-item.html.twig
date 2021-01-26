@@ -62,7 +62,7 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
       {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
     {% endif %}
@@ -71,11 +71,11 @@
 
 {# Print the result #}
 
-<li class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<li class="{{ _css_class }}"{{ _extra_attributes }}>
   <a
     href="{{ _media_iframe_href ? _media_iframe_href : _media_href }}"
     class="ecl-gallery__item-link"
-    {{ _use_arial|raw }}
+    {{ _use_arial }}
     data-ecl-gallery-item
     {% if _media_share_path is not empty %}
       data-ecl-gallery-item-share="{{ _media_share_path }}"

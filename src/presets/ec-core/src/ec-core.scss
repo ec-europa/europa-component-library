@@ -1,8 +1,16 @@
 @use '@ecl/theme-ec-core';
 @use '@ecl/preset-dev/src/dev';
 
-// Exceptions
+// EC specific
+// Other atoms
+@use '@ecl/vanilla-component-button/button-ec';
+
+// Molecules
+@use '@ecl/vanilla-component-search-form/search-form-ec';
+
+// Organisms
 @use '@ecl/vanilla-component-footer-core/footer-core-ec';
+@use '@ecl/vanilla-component-language-list/language-list-ec';
 @use '@ecl/vanilla-component-footer-standardised/footer-standardised-ec';
 @use '@ecl/vanilla-component-site-header-core/site-header-core-ec';
 @use '@ecl/vanilla-component-site-header-harmonised/site-header-harmonised-ec';

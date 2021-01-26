@@ -1,0 +1,7 @@
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+@use 'search-form' with (
+  $_button-background-color: map.get(theme.$color, 'blue-100'),
+  $_button-background-color-hover: map.get(theme.$color, 'blue-80'),
+  $_button-color: map.get(theme.$color, 'white-100'),
+);

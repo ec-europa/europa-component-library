@@ -29,7 +29,7 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
       {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
     {% endif %}
@@ -38,7 +38,7 @@
 
 {# Print the result #}
 
-<blockquote class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<blockquote class="{{ _css_class }}"{{ _extra_attributes }}>
   <p class="ecl-blockquote__body">{{ _citation }}</p>
   <footer class="ecl-blockquote__attribution"><cite class="ecl-blockquote__author">{{ _author }}</cite></footer>
 </blockquote>

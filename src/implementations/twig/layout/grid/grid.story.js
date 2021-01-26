@@ -1,4 +1,4 @@
-import { withKnobs } from '@storybook/addon-knobs';
+import withCode from '@ecl/storybook-addon-code';
 
 import example234612 from './examples/234612.html';
 import example642 from './examples/642.html';
@@ -9,8 +9,11 @@ import responsive from './examples/responsive.html';
 
 export default {
   title: 'Layout/Grid',
-  decorators: [withKnobs],
+  decorators: [withCode],
   parameters: {
+    knobs: { disable: true },
+    controls: { disable: true },
+    a11y: { disable: true },
     viewport: {
       defaultViewport: 'responsive',
     },

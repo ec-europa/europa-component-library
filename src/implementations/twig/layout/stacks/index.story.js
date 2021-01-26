@@ -1,6 +1,164 @@
 import classnames from 'classnames';
-import { withKnobs, boolean, select, number } from '@storybook/addon-knobs';
+import withCode from '@ecl/storybook-addon-code';
 import { styled } from '@ecl/dom-utils';
+
+const getArgTypes = () => {
+  return {
+    direction: {
+      type: 'select',
+      description: 'Choose different flex-direction values',
+      defaultValue: 'row',
+      control: {
+        type: 'select',
+        options: {
+          Row: 'row',
+          'Row reverse': 'row-reverse',
+          Column: 'column',
+          'Column reverse': 'column-reverse',
+        },
+      },
+      table: {
+        category: 'Container',
+      },
+    },
+    wrap: {
+      description: 'Choose different flex-wrap values',
+      defaultValue: 'wrap',
+      type: 'select',
+      control: {
+        type: 'select',
+        options: {
+          Wrap: 'wrap',
+          'No wrap': 'nowrap',
+          'Wrap reverse': 'wrap-reverse',
+        },
+      },
+      table: {
+        category: 'Container',
+      },
+    },
+    alignItems: {
+      name: 'align items',
+      description: 'Choose different flex-align values',
+      defaultValue: 'start',
+      type: 'select',
+      control: {
+        type: 'select',
+        options: {
+          Start: 'start',
+          End: 'end',
+          Center: 'center',
+          Baseline: 'baseline',
+          Stretch: 'stretch',
+        },
+      },
+      table: {
+        category: 'Container',
+      },
+    },
+    alignContent: {
+      name: 'align content',
+      description: 'Choose different align content values',
+      defaultValue: 'start',
+      type: 'select',
+      control: {
+        type: 'select',
+        options: {
+          Start: 'start',
+          End: 'end',
+          Center: 'center',
+          'Space between': 'between',
+          'Space around': 'around',
+          Stretch: 'stretch',
+        },
+      },
+      table: {
+        category: 'Container',
+      },
+    },
+    justifyContent: {
+      name: 'justify content',
+      description: 'Choose different justify-content values',
+      defaultValue: 'start',
+      type: 'select',
+      control: {
+        type: 'select',
+        options: {
+          Start: 'start',
+          End: 'end',
+          Center: 'center',
+          'Space between': 'between',
+          'Space around': 'around',
+        },
+      },
+      table: {
+        category: 'Container',
+      },
+    },
+    shrink: {
+      type: 'boolean',
+      description: 'Flex-shrink',
+      defaultValue: false,
+      table: {
+        category: 'Items',
+      },
+    },
+    grow: {
+      description: 'Flex-grow',
+      defaultValue: false,
+      type: 'boolean',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        category: 'Items',
+      },
+    },
+    fixedContainer: {
+      name: 'test with a fixed container',
+      description:
+        'Following width and height values will be taken into account if activated',
+      defaultValue: false,
+      type: 'boolean',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        category: 'Fixed container',
+      },
+    },
+    containerWidth: {
+      name: 'container width (rem)',
+      defaultValue: 25,
+      type: 'number',
+      description: 'Fixed container width',
+      control: {
+        type: 'range',
+        min: 15,
+        max: 35,
+        step: 1,
+      },
+      table: {
+        category: 'Fixed container',
+      },
+    },
+    containerHeight: {
+      name: 'container height (rem)',
+      defaultValue: 25,
+      type: 'number',
+      description: 'Fixed container height',
+      control: {
+        type: 'range',
+        min: 15,
+        max: 35,
+        step: 1,
+      },
+      table: {
+        category: 'Fixed container',
+      },
+    },
+  };
+};
 
 const Box = ({ width, shrink, grow, contents }) => `
   <div
@@ -17,7 +175,6 @@ const Box = ({ width, shrink, grow, contents }) => `
       minHeight: width || '2rem',
       width: width || '2rem',
     })}"
-    
   >
     ${contents}
   </div>
@@ -25,125 +182,33 @@ const Box = ({ width, shrink, grow, contents }) => `
 
 export default {
   title: 'Layout/Stacks',
-  decorators: [withKnobs],
-
+  decorators: [withCode],
   parameters: {
+    knobs: { disable: true },
+    a11y: { disable: true },
     viewport: {
       defaultViewport: 'responsive',
     },
   },
 };
 
-export const Custom = () => {
-  const direction = select(
-    'Direction',
-    {
-      Row: 'row',
-      'Row reverse': 'row-reverse',
-      Column: 'column',
-      'Column reverse': 'column-reverse',
-    },
-    'row',
-    'Container'
-  );
-
-  const wrap = select(
-    'Wrap',
-    {
-      Wrap: 'wrap',
-      'No wrap': 'nowrap',
-      'Wrap reverse': 'wrap-reverse',
-    },
-    'wrap',
-    'Container'
-  );
-
-  const alignItems = select(
-    'Align items',
-    {
-      Start: 'start',
-      End: 'end',
-      Center: 'center',
-      Baseline: 'baseline',
-      Stretch: 'stretch',
-    },
-    'start',
-    'Container'
-  );
-
-  const alignContent = select(
-    'Align content',
-    {
-      Start: 'start',
-      End: 'end',
-      Center: 'center',
-      'Space between': 'between',
-      'Space around': 'around',
-      Stretch: 'stretch',
-    },
-    'start',
-    'Container'
-  );
-
-  const justifyContent = select(
-    'Justify content',
-    {
-      Start: 'start',
-      End: 'end',
-      Center: 'center',
-      'Space between': 'between',
-      'Space around': 'around',
-    },
-    'start',
-    'Container'
-  );
-
-  const fixedContainer = boolean('Fixed container', false, 'Container');
-
-  let containerWidth;
-  let containerHeight;
-  if (fixedContainer) {
-    containerWidth = number(
-      'Container width (rem)',
-      25,
-      {
-        range: true,
-        min: 15,
-        max: 35,
-        step: 1,
-      },
-      'Container'
-    );
-
-    containerHeight = number(
-      'Container height (rem)',
-      25,
-      {
-        range: true,
-        min: 15,
-        max: 35,
-        step: 1,
-      },
-      'Container'
-    );
-  }
-
-  const shrink = boolean('Shrink', false, 'Items');
-  const grow = boolean('Grow', false, 'Items');
+export const Custom = (args) => {
+  const { shrink } = args;
+  const { grow } = args;
 
   return `
     <div
       class="${classnames('ecl-u-d-flex', {
-        [`ecl-u-flex-${direction}`]: true,
-        [`ecl-u-flex-${wrap}`]: true,
-        [`ecl-u-align-items-${alignItems}`]: true,
-        [`ecl-u-align-content-${alignContent}`]: true,
-        [`ecl-u-justify-content-${justifyContent}`]: true,
+        [`ecl-u-flex-${args.direction}`]: true,
+        [`ecl-u-flex-${args.wrap}`]: true,
+        [`ecl-u-align-items-${args.alignItems}`]: true,
+        [`ecl-u-align-content-${args.alignContent}`]: true,
+        [`ecl-u-justify-content-${args.justifyContent}`]: true,
       })}"
       style="${styled({
-        ...(fixedContainer && {
-          width: `${containerWidth}rem`,
-          height: `${containerHeight}rem`,
+        ...(args.fixedContainer && {
+          width: `${args.containerWidth}rem`,
+          height: `${args.containerHeight}rem`,
         }),
 
         backgroundColor: '#F2F5F9',
@@ -168,3 +233,4 @@ export const Custom = () => {
 };
 
 Custom.storyName = 'custom';
+Custom.argTypes = getArgTypes();
