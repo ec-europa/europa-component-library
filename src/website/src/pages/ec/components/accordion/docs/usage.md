@@ -6,7 +6,7 @@ to **deliver optional additional content depending on users' interest**. They he
 
 ## Anatomy
 
-![anatomy](/cms-images/accordion2.jpg "accordion")
+![anatomy](/cms-images/accordion-collapsed_test.png "accordion")
 
 | Elements          | Mandatory | Description                                                                                                                                                                    |
 | ----------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
