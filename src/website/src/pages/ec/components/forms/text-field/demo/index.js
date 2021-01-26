@@ -1,4 +1,4 @@
-import demoContentDefault from '@ecl/specs-component-text-input/demo/data';
+import demoContentDefault from '@ecl/specs-component-text-input/demo/data--ec';
 import template from '@ecl/twig-component-text-input/text-input.html.twig';
 
 export const textInputDefault = template(demoContentDefault);
