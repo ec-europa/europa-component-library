@@ -80,6 +80,7 @@ $_font-help: null !default;
 .ecl-form-label {
   box-sizing: border-box;
   color: $_color-label;
+  display: inline-block;
   font: map.get(theme.$font, 'm');
   font-weight: map.get(theme.$font-weight, 'bold');
   margin: 0;

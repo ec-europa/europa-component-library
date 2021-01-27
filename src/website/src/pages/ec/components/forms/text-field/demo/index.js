@@ -10,7 +10,7 @@ export const textInputInvalid = template({
   ...demoContentDefault,
   invalid: true,
 });
-export const textInputOptional = template({
+export const textInputRequired = template({
   ...demoContentDefault,
-  required: false,
+  required: true,
 });

@@ -11,7 +11,7 @@ import notes from './README.md';
 const dataDefault = process.env.STORYBOOK_SYSTEM === 'EU' ? specsEu : specsEc;
 const dataInvalid = { ...dataDefault, invalid: true };
 const dataDisabled = { ...dataDefault, disabled: true };
-const dataOptional = { ...dataDefault, required: false };
+const dataRequired = { ...dataDefault, required: true };
 
 const getArgTypes = (data) => getFormControls(data, 'element');
 
@@ -43,8 +43,8 @@ Invalid.storyName = 'invalid';
 Invalid.argTypes = getArgTypes(dataInvalid);
 Invalid.parameters = { notes: { markdown: notes, json: dataInvalid } };
 
-export const Optional = (args) => textInput(prepareData(dataOptional, args));
+export const Required = (args) => textInput(prepareData(dataRequired, args));
 
-Optional.storyName = 'optional';
-Optional.argTypes = getArgTypes(dataOptional);
-Optional.parameters = { notes: { markdown: notes, json: dataOptional } };
+Required.storyName = 'required';
+Required.argTypes = getArgTypes(dataRequired);
+Required.parameters = { notes: { markdown: notes, json: dataRequired } };

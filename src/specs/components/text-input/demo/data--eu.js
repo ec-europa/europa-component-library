@@ -9,10 +9,10 @@ module.exports = {
     path: '/icons.svg',
     type: 'notifications',
     name: 'warning',
-    size: 'xs',
+    size: 's',
   },
   helper_text: "This is the input's helper text.",
   optional_text: '(optional)',
-  required: true,
+  required: false,
   required_text: '*',
 };
