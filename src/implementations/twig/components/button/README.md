@@ -9,7 +9,7 @@ npm install --save @ecl/twig-component-button
 ### Parameters
 
 - **"label"** (string) (default: '')
-- **"variant"** (string) (default: 'primary'): variant of button (can be 'primary', 'secondary', 'call', 'ghost', 'search')
+- **"variant"** (string) (default: 'primary'): variant of button (can be 'primary', 'secondary', 'call', 'ghost')
 - **"type"** (string) (default: 'submit'): can be the same type as HTML button - 'submit', 'reset', 'button'
 - **"disabled"** (bool) (default: false): define if button should be disabled (HTML disabled attribute)
 - **"icon_position"** (string, optional) (default: after): Define icon position, can be 'before' or 'after'

@@ -1,10 +1,5 @@
+import withCode from '@ecl/storybook-addon-code';
 import classnames from 'classnames';
-import {
-  withKnobs,
-  select,
-  optionsKnob as options,
-  boolean,
-} from '@storybook/addon-knobs';
 import { styled } from '@ecl/dom-utils';
 
 const styleBox = {
@@ -13,63 +8,92 @@ const styleBox = {
   width: '10rem',
 };
 
-export default {
-  title: 'Utilities/Border',
-  decorators: [withKnobs],
+const getArgTypes = () => {
+  return {
+    colour: {
+      name: 'colour (sample)',
+      type: 'select',
+      defaultValue: 'ecl-u-border-color-black',
+      description: 'Apply different colours',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+      },
+      control: {
+        type: 'select',
+        options: {
+          Black: 'ecl-u-border-color-black',
+          Blue: 'ecl-u-border-color-blue',
+          Yellow: 'ecl-u-border-color-yellow',
+          Grey: 'ecl-u-border-color-grey',
+          'Grey 50': 'ecl-u-border-color-grey-50',
+          'Grey 5': 'ecl-u-border-color-grey-5',
+          'Blue N': 'ecl-u-border-color-blue-n',
+          Red: 'ecl-u-border-color-red',
+        },
+      },
+    },
+    width: {
+      type: 'select',
+      description: 'Apply different widths',
+      defaultValue: 'ecl-u-border-width-1',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+      },
+      control: {
+        type: 'select',
+        options: {
+          '1px': 'ecl-u-border-width-1',
+          '2px': 'ecl-u-border-width-2',
+          '4px': 'ecl-u-border-width-4',
+          '8px': 'ecl-u-border-width-8',
+        },
+      },
+    },
+    direction: {
+      type: 'inline-check',
+      defaultValue: [
+        'ecl-u-border-bottom',
+        'ecl-u-border-left',
+        'ecl-u-border-right',
+        'ecl-u-border-top',
+      ],
+      description: 'Select the border to apply the style to',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+      },
+      control: {
+        type: 'inline-check',
+        options: {
+          Bottom: 'ecl-u-border-bottom',
+          Left: 'ecl-u-border-left',
+          Right: 'ecl-u-border-right',
+          Top: 'ecl-u-border-top',
+        },
+      },
+    },
+  };
 };
 
-export const Custom = () => {
-  const color = select(
-    'Colour (sample)',
-    {
-      Black: 'ecl-u-border-color-black',
-      Blue: 'ecl-u-border-color-blue',
-      Yellow: 'ecl-u-border-color-yellow',
-      Grey: 'ecl-u-border-color-grey',
-      'Grey 50': 'ecl-u-border-color-grey-50',
-      'Grey 5': 'ecl-u-border-color-grey-5',
-      'Blue N': 'ecl-u-border-color-blue-n',
-      Red: 'ecl-u-border-color-red',
-    },
-    'ecl-u-border-color-black'
-  );
+export default {
+  title: 'Utilities/Border',
+  parameters: {
+    knobs: { disable: true },
+  },
+  decorators: [withCode],
+};
 
-  const width = select(
-    'Width',
-    {
-      '1px': 'ecl-u-border-width-1',
-      '2px': 'ecl-u-border-width-2',
-      '4px': 'ecl-u-border-width-4',
-      '8px': 'ecl-u-border-width-8',
-    },
-    'ecl-u-border-width-2'
-  );
-
-  const individualBorders = boolean('Control borders individually?', false);
-  let direction = 'ecl-u-border-all';
-  if (individualBorders) {
-    direction = options(
-      'Direction',
-      {
-        Bottom: 'ecl-u-border-bottom',
-        Left: 'ecl-u-border-left',
-        Right: 'ecl-u-border-right',
-        Top: 'ecl-u-border-top',
-      },
-      'ecl-u-border-all',
-      {
-        display: 'multi-select',
-      }
-    );
-  }
-
-  return `
-    <div style="${styled(styleBox)}" class="${classnames(
-    direction,
-    color,
-    width
-  )}" />
-  `;
+export const Custom = (args) => {
+  const direction =
+    args.direction.length === 4 ? 'ecl-u-border-all' : args.direction;
+  return `<div style="${styled(styleBox)}" class="${classnames(
+    args.colour,
+    args.width,
+    direction
+  )}" />`;
 };
 
 Custom.storyName = 'custom';
+Custom.argTypes = getArgTypes();
