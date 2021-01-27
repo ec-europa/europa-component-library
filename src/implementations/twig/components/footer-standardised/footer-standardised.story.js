@@ -8,8 +8,8 @@ import he from 'he';
 import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import specsEc from '@ecl/specs-component-footer-standardised/demo/data--ec';
 import specsEu from '@ecl/specs-component-footer-standardised/demo/data--eu';
-import logoEuMobile from '@ecl/resources-eu-logo/condensed-version/positive/en.svg';
-import logoEuDesktop from '@ecl/resources-eu-logo/standard-version/positive/en.svg';
+import logoEuMobile from '@ecl/resources-eu-logo/condensed-version/positive/logo-eu--en.svg';
+import logoEuDesktop from '@ecl/resources-eu-logo/standard-version/positive/logo-eu--en.svg';
 import footer from './footer-standardised.html.twig';
 import notes from './README.md';
 

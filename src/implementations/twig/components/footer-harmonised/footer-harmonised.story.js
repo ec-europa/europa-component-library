@@ -4,7 +4,7 @@ import withCode from '@ecl/storybook-addon-code';
 import { tabLabels } from '@ecl/story-utils';
 
 import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
-import logoEC from '@ecl/resources-ec-logo/logo--en.svg';
+import logoEC from '@ecl/resources-ec-logo/logo-ec--en.svg';
 import dataGroup1 from '@ecl/specs-component-footer-harmonised/demo/data--group1';
 import dataGroup2 from '@ecl/specs-component-footer-harmonised/demo/data--group2';
 import dataGroup3 from '@ecl/specs-component-footer-harmonised/demo/data--group3';
