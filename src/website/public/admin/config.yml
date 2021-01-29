@@ -24,7 +24,7 @@ collections:
         file: 'src/website/src/pages/index.md'
         fields:
           - { label: Body, name: body, widget: markdown }
-  - label: 'Usage pages'
+  - label: 'Usage pages for components'
     name: 'usage_pages'
     files:
       - label: 'Accordion'
@@ -35,5 +35,171 @@ collections:
       - label: 'Blockquote'
         name: 'blockquote'
         file: 'src/website/src/pages/ec/components/blockquote/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Button'
+        name: 'button'
+        file: 'src/website/src/pages/ec/components/button/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Card'
+        name: 'card'
+        file: 'src/website/src/pages/ec/components/card/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Date block'
+        name: 'date_block'
+        file: 'src/website/src/pages/ec/components/date-block/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Datepicker'
+        name: 'datepicker'
+        file: 'src/website/src/pages/ec/components/forms/datepicker/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Expandable'
+        name: 'expandable'
+        file: 'src/website/src/pages/ec/components/expandable/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Fact & figures'
+        name: 'fact-figures'
+        file: 'src/website/src/pages/ec/components/fact-figures/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Footer Harmonised Group1'
+        name: 'footer_harmonised_g1'
+        file: 'src/website/src/pages/ec/harmonised_template/footer/docs/group1.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Footer Harmonised Group2'
+        name: 'footer_harmonised_g2'
+        file: 'src/website/src/pages/ec/harmonised_template/footer/docs/group2.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Footer Harmonised Group3'
+        name: 'footer_harmonised_g3'
+        file: 'src/website/src/pages/ec/harmonised_template/footer/docs/group3.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'File'
+        name: 'file'
+        file: 'src/website/src/pages/ec/components/file/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'File Upload'
+        name: 'file_upload'
+        file: 'src/website/src/pages/ec/components/forms/file-upload/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Link'
+        name: 'link'
+        file: 'src/website/src/pages/ec/components/navigation/link/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'List'
+        name: 'list'
+        file: 'src/website/src/pages/ec/components/list/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Footer Standardised'
+        name: 'footer_standardised'
+        file: 'src/website/src/pages/ec/standardised_template/footer/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Page Header Core'
+        name: 'page_header_core'
+        file: 'src/website/src/pages/ec/core-template/page-header/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Site Header Core'
+        name: 'site_header_core'
+        file: 'src/website/src/pages/ec/core-template/site-header/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Page Header Standardised'
+        name: 'page_header_standardised'
+        file: 'src/website/src/pages/ec/standardised_template/page-header/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Site Header Standardised'
+        name: 'site_header_standardised'
+        file: 'src/website/src/pages/ec/standardised_template/site-header/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Page Header Harmonised Group1'
+        name: 'page_header_harmonised_g1'
+        file: 'src/website/src/pages/ec/harmonised_template/page-header/docs/group1.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Page Header Harmonised Group2'
+        name: 'page_header_harmonised_g2'
+        file: 'src/website/src/pages/ec/harmonised_template/page-header/docs/group2.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Site Header Harmonised Group1'
+        name: 'site_header_harmonised_g1'
+        file: 'src/website/src/pages/ec/harmonised_template/site-header/docs/group1.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Site Header Harmonised Group2'
+        name: 'site_header_harmonised_g2'
+        file: 'src/website/src/pages/ec/harmonised_template/site-header/docs/group2.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+  - label: 'Usage pages for families template'
+    name: 'usage_pages_templates'
+    files:
+      - label: 'Core template'
+        name: 'core_template'
+        file: 'src/website/src/pages/ec/core-template/index.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Harmonised template Group 1'
+        name: 'harmonised_template_g1'
+        file: 'src/website/src/pages/ec/harmonised-template/docs/group1.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Harmonised template Group 2'
+        name: 'harmonised_template_g2'
+        file: 'src/website/src/pages/ec/harmonised-template/docs/group2.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Harmonised template Group 3'
+        name: 'harmonised_template_g3'
+        file: 'src/website/src/pages/ec/harmonised-template/docs/group3.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Standardised template'
+        name: 'standardised_template'
+        file: 'src/website/src/pages/ec/standardised-template/index.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+  - label: 'Compositions'
+    name: 'compositions'
+    files:
+      - label: 'Content item'
+        name: 'content_item'
+        file: 'src/website/src/pages/ec/compositions/content-item/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Harmonised template Group 1'
+        name: 'harmonised_template_g1'
+        file: 'src/website/src/pages/ec/harmonised-template/docs/group1.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Harmonised template Group 2'
+        name: 'harmonised_template_g2'
+        file: 'src/website/src/pages/ec/harmonised-template/docs/group2.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Harmonised template Group 3'
+        name: 'harmonised_template_g3'
+        file: 'src/website/src/pages/ec/harmonised-template/docs/group3.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Standardised template'
+        name: 'standardised_template'
+        file: 'src/website/src/pages/ec/standardised-template/index.md'
         fields:
           - { label: Body, name: body, widget: markdown }
