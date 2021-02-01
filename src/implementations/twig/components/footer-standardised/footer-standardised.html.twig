@@ -57,7 +57,11 @@
     {% for _columns in _row %}
       <div class="ecl-footer-standardised__column">
       {% for _sections in _columns %}
-        <div class="ecl-footer-standardised__section">
+        {% set _section_class_name = 'ecl-footer-standardised__section' %}
+        {% if _sections.section_class_name is defined and _sections.section_class_name is not empty %}
+          {% set _section_class_name = _section_class_name ~ ' ' ~ _sections.section_class_name %}
+        {% endif %}
+        <div class="{{ _section_class_name }}">
           {# logo (EU) #}
           {% if _sections.logo is defined and _sections.logo is not empty %}
             {% set _label %}
