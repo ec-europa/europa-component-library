@@ -1,3 +1,5 @@
+/* stylelint-disable no-descending-specificity */
+
 /**
  * Footer Standardised component
  * @define footer-standardised
@@ -108,6 +110,20 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
 .ecl-footer-standardised__link:active,
 .ecl-footer-standardised__link:focus {
   color: $_text-color;
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.down('m') {
+  // stylelint-disable max-nesting-depth
+  .ecl-footer-standardised__row:nth-child(3) {
+    .ecl-footer-standardised__column:nth-child(2),
+    .ecl-footer-standardised__column:nth-child(3) {
+      .ecl-footer-standardised__section {
+        padding-top: 0.5rem;
+      }
+    }
+  }
+  // stylelint-enable max-nesting-depth
 }
 
 /* stylelint-disable-next-line order/order */
