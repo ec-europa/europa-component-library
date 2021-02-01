@@ -711,6 +711,20 @@ export const getFormControls = (data, type) => {
     },
   };
 
+  if (data.placeholder) {
+    argTypes.placeholder = {
+      name: 'placeholder text',
+      type: 'string',
+      defaultValue: data.placeholder,
+      description: `Text to be shown when the form ${type} is not filled`,
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+    };
+  }
+
   if (data.width) {
     argTypes.width = {
       name: 'width',
