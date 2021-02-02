@@ -10,13 +10,16 @@ import logoEuDesktop from '@ecl/resources-eu-logo/standard-version/positive/en.s
 import footer from './footer-standardised.html.twig';
 import notes from './README.md';
 
-const getArgTypes = () => {
+const getArgTypes = (system) => {
   const argTypes = {};
   argTypes.hide_contact = {
-    name: 'contact us',
+    name: system === 'EU' ? 'contact site name' : 'contact us',
     type: { name: 'boolean' },
     defaultValue: false,
-    description: 'Hide "Contact us" section',
+    description:
+      system === 'EU'
+        ? 'Hide "Contact site name" section'
+        : 'Hide "Contact us" section',
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: false },
@@ -36,23 +39,28 @@ const getArgTypes = () => {
     },
   };
 
-  argTypes.hide_about = {
-    name: 'about us',
-    type: { name: 'boolean' },
-    defaultValue: false,
-    description: 'Hide "About us" section',
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-      category: 'States',
-    },
-  };
+  if (system !== 'EU') {
+    argTypes.hide_about = {
+      name: 'about us',
+      type: { name: 'boolean' },
+      defaultValue: false,
+      description: 'Hide "About us" section',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+        category: 'States',
+      },
+    };
+  }
 
   argTypes.hide_relate_site = {
-    name: 'related sites',
+    name: system === 'EU' ? 'optional links' : 'related sites',
     type: { name: 'boolean' },
     defaultValue: false,
-    description: 'Hide "Related sites" section',
+    description:
+      system === 'EU'
+        ? 'Hide "Optional links" section'
+        : 'Hide "Related sites" section',
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: false },
@@ -60,22 +68,24 @@ const getArgTypes = () => {
     },
   };
 
-  argTypes.hide_class_name = {
-    name: 'class name',
-    type: { name: 'boolean' },
-    defaultValue: false,
-    description: 'hide "Class name" section',
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-      category: 'States',
-    },
-  };
+  if (system !== 'EU') {
+    argTypes.hide_class_name = {
+      name: 'class name',
+      type: { name: 'boolean' },
+      defaultValue: false,
+      description: 'hide "Class name" section',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+        category: 'States',
+      },
+    };
+  }
 
   return argTypes;
 };
 
-const prepareData = (data, args) => {
+const prepareData = (data, args, system) => {
   correctSvgPath(data);
 
   if (data.rows[1][0][0].logo) {
@@ -102,6 +112,9 @@ const prepareData = (data, args) => {
   if (args.hide_about === true && args.hide_relate_site === true) {
     res.rows[0].splice(2, 1);
   }
+  if (args.hide_relate_site === true && system === 'EU') {
+    res.rows[0].splice(2, 1);
+  }
   if (args.hide_contact === true && args.hide_follow === true) {
     res.rows[0].splice(1, 1);
   }
@@ -117,10 +130,11 @@ export default {
   },
 };
 
-const data = process.env.STORYBOOK_SYSTEM === 'EU' ? specsEu : specsEc;
+const system = process.env.STORYBOOK_SYSTEM;
+const data = system === 'EU' ? specsEu : specsEc;
 
-export const Default = (args) => footer(prepareData(data, args));
+export const Default = (args) => footer(prepareData(data, args, system));
 
 Default.storyName = 'default';
-Default.argTypes = getArgTypes();
+Default.argTypes = getArgTypes(system);
 Default.parameters = { notes: { markdown: notes, json: data } };
