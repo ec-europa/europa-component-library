@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
+import Tag from '@ecl/ec-react-component-tag';
 
 import DescriptionList from './DescriptionList';
 import DescriptionTerm from './DescriptionTerm';
@@ -20,12 +22,36 @@ const DescriptionListWithData = ({ items, className, ...props }) => {
 
         let definitions = '';
         if (Array.isArray(item.definition)) {
-          definitions = item.definition.map((definition) => (
-            <DescriptionDefinition key={definition}>
-              {definition}
-            </DescriptionDefinition>
-          ));
+          if (
+            Object.prototype.toString.call(item.definition[0]) ===
+            '[object Object]'
+          ) {
+            // Array of (tag) objects
+            const definitionTags = item.definition.map((definition) => (
+              <Tag
+                key={definition.label}
+                {...definition}
+                className={classnames(
+                  definition.className,
+                  'ecl-description-list__tag'
+                )}
+              />
+            ));
+            definitions = (
+              <DescriptionDefinition>{definitionTags}</DescriptionDefinition>
+            );
+          } else {
+            // Array of strings
+            definitions = item.definition.map((definition) => {
+              return (
+                <DescriptionDefinition key={definition}>
+                  {definition}
+                </DescriptionDefinition>
+              );
+            });
+          }
         } else {
+          // Single string
           definitions = (
             <DescriptionDefinition>{item.definition}</DescriptionDefinition>
           );
@@ -52,6 +78,7 @@ DescriptionListWithData.propTypes = {
       definition: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.arrayOf(PropTypes.string),
+        PropTypes.arrayOf(PropTypes.shape(Tag.propTypes)),
       ]),
     })
   ),
