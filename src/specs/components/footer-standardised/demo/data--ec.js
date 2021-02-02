@@ -155,6 +155,7 @@ module.exports = {
           ],
           list_class_name: 'ecl-footer-standardised__list--condensed',
           content_before: 'More information on:',
+          section_class_name: 'ecl-footer-standardised__section--small-spacing',
         },
       ],
     ],
@@ -194,6 +195,7 @@ module.exports = {
               },
             },
           ],
+          section_class_name: 'ecl-footer-standardised__section--split-list',
         },
       ],
       [
@@ -228,6 +230,7 @@ module.exports = {
               },
             },
           ],
+          section_class_name: 'ecl-footer-standardised__section--split-list',
         },
       ],
     ],

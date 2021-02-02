@@ -9,7 +9,7 @@ npm install --save @ecl/twig-component-footer-standardised
 ### Parameters
 
 - **"rows"** (array of objects) (default: [])
-  - "section_id" (integer) (default: '') The id will be used to form the class name
+  - "section_class_name" (optional) (string) (default: '')
   - "logo" (EU only)
     - "alt" (string) alt attribute for the logo link
     - "path" (string) logo link path

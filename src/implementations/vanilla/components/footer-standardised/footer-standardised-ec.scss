@@ -40,6 +40,20 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
 
 .ecl-footer-standardised__section {
   padding-top: map.get(theme.$spacing, 'l');
+
+  /* stylelint-disable-next-line max-nesting-depth */
+  > :first-child {
+    margin-top: 0;
+  }
+}
+
+.ecl-footer-standardised__section--small-spacing {
+  margin-bottom: -#{map.get(theme.$spacing, 'xs')};
+  padding-top: map.get(theme.$spacing, 'm');
+}
+
+.ecl-footer-standardised__section--split-list {
+  padding-top: map.get(theme.$spacing, 'm');
 }
 
 .ecl-footer-standardised__title--separator {
@@ -113,20 +127,6 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.down('m') {
-  // stylelint-disable max-nesting-depth
-  .ecl-footer-standardised__row:nth-child(3) {
-    .ecl-footer-standardised__column:nth-child(2),
-    .ecl-footer-standardised__column:nth-child(3) {
-      .ecl-footer-standardised__section {
-        padding-top: 0.5rem;
-      }
-    }
-  }
-  // stylelint-enable max-nesting-depth
-}
-
-/* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-footer-standardised {
     padding-top: 0;
@@ -143,6 +143,11 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
 
   .ecl-footer-standardised__section {
     padding-top: map.get(theme.$spacing, 'xl');
+  }
+
+  .ecl-footer-standardised__section--small-spacing {
+    margin-bottom: -#{map.get(theme.$spacing, 'm')};
+    padding-top: map.get(theme.$spacing, 'm');
   }
 
   .ecl-footer-standardised__title,
