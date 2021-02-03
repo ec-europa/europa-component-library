@@ -10,14 +10,14 @@
       - "src_mobile" (string) Path the mobile logo
       - "src_desktop" (string) Path to the desktop logo
     - "title" (optional) (string) OR (object with Link component in property)
-    - "title_class_name" (optional) (string) (default: '')
+    - "title_with_separator" (optional) (bolean) (default: false)
     - "description" (optional) (string) (default: '')
     - "content_before" (optional) (string) (default: '')
-    - "list_class_name" (optional) (string) (default: '')
     - "links" (optional) (array of objects) (default: []),
       - "link" (link object)
       - "content_before" (string) Optional text before the link
       - "content_after" (string) Optional text after the link
+    - "links_inline" (optional) (bolean) (default: false) Optional inline style for the list
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
     - "name" (string) Attribute name, eg. 'data-test'
@@ -26,12 +26,9 @@
 
 {# Internal properties #}
 
-{% import _self as footer %}
-
 {% set _rows = rows|default([]) %}
 {% set _css_class = 'ecl-footer-standardised' %}
 {% set _extra_attributes = '' %}
-{% set _internal_wrapper = false %}
 
 {# Internal logic - Process properties #}
 
@@ -66,13 +63,13 @@
           {% if _sections.logo is defined and _sections.logo is not empty %}
             {% set _label %}
               <img
-                alt="{{ _sections.logo.alt }}"
+                alt="{{ _sections.logo.alt | e('html_attr') }}"
                 title="{{ _sections.logo.title }}"
                 class="ecl-footer-standardised__logo-image-mobile"
                 src="{{ _sections.logo.src_mobile }}"
               />
               <img
-                alt="{{ _sections.logo.alt }}"
+                alt="{{ _sections.logo.alt | e('html_attr') }}"
                 title="{{ _sections.logo.title }}"
                 class="ecl-footer-standardised__logo-image-desktop"
                 src="{{ _sections.logo.src_desktop }}"
@@ -95,8 +92,8 @@
           {# title #}
           {% if _sections.title is defined and _sections.title is not empty %}
             {% set _title_class_name = 'ecl-footer-standardised__title' %}
-            {% if _sections.title_class_name is defined and _sections.title_class_name is not empty %}
-              {% set _title_class_name = _title_class_name ~ ' ' ~ _sections.title_class_name %}
+            {% if _sections.title_with_separator is defined and _sections.title_with_separator %}
+              {% set _title_class_name = _title_class_name ~ ' ecl-footer-standardised__title--separator' %}
             {% endif %}
             {% if _sections.title.link is defined and _sections.title.link is not empty %}
               {% include '@ecl/link/link.html.twig' with _sections|merge({
@@ -117,8 +114,8 @@
           {# list #}
           {% if _sections.links is defined and _sections.links is not empty and _sections.links is iterable %}
             {% set _list_class_name = 'ecl-footer-standardised__list' %}
-            {% if _sections.list_class_name is defined and _sections.list_class_name is not empty %}
-              {% set _list_class_name = _list_class_name ~ ' ' ~ _sections.list_class_name %}
+            {% if _sections.links_inline is defined and _sections.links_inline %}
+              {% set _list_class_name = _list_class_name ~ ' ecl-footer-standardised__list--inline' %}
             {% endif %}
             <ul class="{{ _list_class_name }}">
               {% for _item in _sections.links %}

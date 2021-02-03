@@ -17,14 +17,14 @@ npm install --save @ecl/twig-component-footer-standardised
     - "src_mobile" (string) Path the mobile logo
     - "src_desktop" (string) Path to the desktop logo
   - "title" (optional) (string) OR (object with Link component in property)
-  - "title_class_name" (optional) (string) (default: '')
+  - "title_with_separator" (optional) (bolean) (default: false)
   - "description" (optional) (string) (default: '')
   - "content_before" (optional) (string) (default: '')
-  - "list_class_name" (optional) (string) (default: '')
   - "links" (optional) (array of objects) (default: []),
     - "link" (link object)
     - "content_before" (string) Optional text before the link
     - "content_after" (string) Optional text after the link
+  - "links_inline" (optional) (bolean) (default: false) Optional inline style for the list
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

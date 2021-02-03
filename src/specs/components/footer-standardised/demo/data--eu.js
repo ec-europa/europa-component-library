@@ -17,7 +17,7 @@ module.exports = {
       [
         {
           title: 'Contact site name',
-          title_class_name: 'ecl-footer-standardised__title--separator',
+          title_with_separator: true,
           links: [
             {
               link: {
@@ -30,7 +30,7 @@ module.exports = {
         },
         {
           title: 'Follow us',
-          title_class_name: 'ecl-footer-standardised__title--separator',
+          title_with_separator: true,
           links: [
             {
               link: {
@@ -59,7 +59,7 @@ module.exports = {
       [
         {
           title: 'Optional links',
-          title_class_name: 'ecl-footer-standardised__title--separator',
+          title_with_separator: true,
           links: [
             {
               link: {
@@ -109,7 +109,7 @@ module.exports = {
       [
         {
           title: 'Contact the EU',
-          title_class_name: 'ecl-footer-standardised__title--separator',
+          title_with_separator: true,
           links: [
             {
               content_before: 'Call us ',
@@ -147,7 +147,7 @@ module.exports = {
         },
         {
           title: 'Social media',
-          title_class_name: 'ecl-footer-standardised__title--separator',
+          title_with_separator: true,
           links: [
             {
               content_before: 'Search for ',
@@ -161,7 +161,7 @@ module.exports = {
         },
         {
           title: 'Legal',
-          title_class_name: 'ecl-footer-standardised__title--separator',
+          title_with_separator: true,
           links: [
             {
               link: {
@@ -204,7 +204,7 @@ module.exports = {
       [
         {
           title: 'EU institutions',
-          title_class_name: 'ecl-footer-standardised__title--separator',
+          title_with_separator: true,
           links: [
             {
               link: {
@@ -330,7 +330,7 @@ module.exports = {
         },
         {
           title: 'EU institutions',
-          title_class_name: 'ecl-footer-standardised__title--separator',
+          title_with_separator: true,
           links: [
             {
               content_before: 'Search for ',

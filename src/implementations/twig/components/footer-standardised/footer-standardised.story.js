@@ -1,7 +1,7 @@
-/* eslint-disable no-undef */
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctSvgPath } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 import specsEc from '@ecl/specs-component-footer-standardised/demo/data--ec';
 import specsEu from '@ecl/specs-component-footer-standardised/demo/data--eu';
@@ -10,32 +10,31 @@ import logoEuDesktop from '@ecl/resources-eu-logo/standard-version/positive/en.s
 import footer from './footer-standardised.html.twig';
 import notes from './README.md';
 
-const getArgTypes = (system) => {
+const system = getSystem();
+const demoData = system === 'EU' ? specsEu : specsEc;
+
+const getArgTypes = () => {
   const argTypes = {};
   argTypes.hide_contact = {
     name: system === 'EU' ? 'contact site name' : 'contact us',
     type: { name: 'boolean' },
-    defaultValue: false,
+    defaultValue: true,
     description:
       system === 'EU'
-        ? 'Hide "Contact site name" section'
-        : 'Hide "Contact us" section',
+        ? 'Show "Contact site name" section'
+        : 'Show "Contact us" section',
     table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-      category: 'States',
+      category: 'Use cases',
     },
   };
 
   argTypes.hide_follow = {
     name: 'follow us',
     type: { name: 'boolean' },
-    defaultValue: false,
-    description: 'Hide "Follow us" section',
+    defaultValue: true,
+    description: 'Show "Follow us" section',
     table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-      category: 'States',
+      category: 'Use cases',
     },
   };
 
@@ -43,12 +42,10 @@ const getArgTypes = (system) => {
     argTypes.hide_about = {
       name: 'about us',
       type: { name: 'boolean' },
-      defaultValue: false,
-      description: 'Hide "About us" section',
+      defaultValue: true,
+      description: 'Show "About us" section',
       table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-        category: 'States',
+        category: 'Use cases',
       },
     };
   }
@@ -56,28 +53,24 @@ const getArgTypes = (system) => {
   argTypes.hide_relate_site = {
     name: system === 'EU' ? 'optional links' : 'related sites',
     type: { name: 'boolean' },
-    defaultValue: false,
+    defaultValue: true,
     description:
       system === 'EU'
-        ? 'Hide "Optional links" section'
-        : 'Hide "Related sites" section',
+        ? 'Show "Optional links" section'
+        : 'Show "Related sites" section',
     table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-      category: 'States',
+      category: 'Use cases',
     },
   };
 
   if (system !== 'EU') {
     argTypes.hide_class_name = {
-      name: 'class name',
+      name: 'class links',
       type: { name: 'boolean' },
-      defaultValue: false,
-      description: 'hide "Class name" section',
+      defaultValue: true,
+      description: 'Show "Class links" section',
       table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-        category: 'States',
+        category: 'Use cases',
       },
     };
   }
@@ -85,7 +78,7 @@ const getArgTypes = (system) => {
   return argTypes;
 };
 
-const prepareData = (data, args, system) => {
+const prepareData = (data, args) => {
   correctSvgPath(data);
 
   if (data.rows[1][0][0].logo) {
@@ -94,28 +87,28 @@ const prepareData = (data, args, system) => {
   }
 
   const res = JSON.parse(JSON.stringify(data));
-  if (args.hide_contact === true) {
+  if (!args.hide_contact) {
     res.rows[0][1].splice(0, 1);
   }
-  if (args.hide_follow === true) {
+  if (!args.hide_follow) {
     res.rows[0][1].splice(1, 1);
   }
-  if (args.hide_about === true) {
+  if (!args.hide_about) {
     res.rows[0][2].splice(0, 1);
   }
-  if (args.hide_relate_site === true) {
+  if (args.hide_relate_site) {
     res.rows[0][2].splice(1, 1);
   }
-  if (args.hide_class_name === true) {
+  if (!args.hide_class_name) {
     res.rows.splice(1, 1);
   }
-  if (args.hide_about === true && args.hide_relate_site === true) {
+  if (!args.hide_about && !args.hide_relate_site) {
     res.rows[0].splice(2, 1);
   }
-  if (args.hide_relate_site === true && system === 'EU') {
+  if (!args.hide_relate_site && system === 'EU') {
     res.rows[0].splice(2, 1);
   }
-  if (args.hide_contact === true && args.hide_follow === true) {
+  if (!args.hide_contact && !args.hide_follow) {
     res.rows[0].splice(1, 1);
   }
 
@@ -130,11 +123,8 @@ export default {
   },
 };
 
-const system = process.env.STORYBOOK_SYSTEM;
-const data = system === 'EU' ? specsEu : specsEc;
-
-export const Default = (args) => footer(prepareData(data, args, system));
+export const Default = (args) => footer(prepareData(demoData, args));
 
 Default.storyName = 'default';
-Default.argTypes = getArgTypes(system);
-Default.parameters = { notes: { markdown: notes, json: data } };
+Default.argTypes = getArgTypes();
+Default.parameters = { notes: { markdown: notes, json: demoData } };

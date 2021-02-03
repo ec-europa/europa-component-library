@@ -45,7 +45,7 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
   }
 }
 
-.ecl-footer-standardised__section--small-spacing {
+.ecl-footer-standardised__section--condensed {
   margin-bottom: -#{map.get(theme.$spacing, 'xs')};
   padding-top: map.get(theme.$spacing, 'm');
 }
@@ -88,10 +88,6 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
 
 .ecl-footer-standardised__list-item {
   margin-top: map.get(theme.$spacing, 'm');
-
-  .ecl-footer-standardised__list--condensed & {
-    margin-top: map.get(theme.$spacing, 'xs');
-  }
 
   &:first-of-type {
     margin-top: 0;
@@ -143,9 +139,13 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
     padding-top: map.get(theme.$spacing, 'xl');
   }
 
-  .ecl-footer-standardised__section--small-spacing {
+  .ecl-footer-standardised__section--condensed {
     margin-bottom: -#{map.get(theme.$spacing, 'm')};
     padding-top: map.get(theme.$spacing, 'm');
+
+    .ecl-footer-standardised__list-item {
+      margin-top: map.get(theme.$spacing, 'xs');
+    }
   }
 
   .ecl-footer-standardised__title,

@@ -16,6 +16,7 @@ module.exports = {
       [
         {
           title: 'Contact us',
+          title_with_separator: true,
           links: [
             {
               link: {
@@ -25,10 +26,10 @@ module.exports = {
               },
             },
           ],
-          title_class_name: 'ecl-footer-standardised__title--separator',
         },
         {
           title: 'Follow us on',
+          title_with_separator: true,
           links: [
             {
               link: {
@@ -73,13 +74,13 @@ module.exports = {
               },
             },
           ],
-          list_class_name: 'ecl-footer-standardised__list--inline',
-          title_class_name: 'ecl-footer-standardised__title--separator',
+          links_inline: true,
         },
       ],
       [
         {
           title: 'About us',
+          title_with_separator: true,
           links: [
             {
               link: {
@@ -89,10 +90,10 @@ module.exports = {
               },
             },
           ],
-          title_class_name: 'ecl-footer-standardised__title--separator',
         },
         {
           title: 'Related sites',
+          title_with_separator: true,
           links: [
             {
               link: {
@@ -130,7 +131,6 @@ module.exports = {
               },
             },
           ],
-          title_class_name: 'ecl-footer-standardised__title--separator',
         },
       ],
     ],
@@ -153,9 +153,7 @@ module.exports = {
               },
             },
           ],
-          list_class_name: 'ecl-footer-standardised__list--condensed',
           content_before: 'More information on:',
-          section_class_name: 'ecl-footer-standardised__section--small-spacing',
         },
       ],
     ],
