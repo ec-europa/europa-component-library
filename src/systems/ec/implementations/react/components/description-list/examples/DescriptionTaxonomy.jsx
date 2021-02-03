@@ -9,10 +9,6 @@ export default () => (
       variant="horizontal"
       {...demoDescriptionHorizontal}
     />
-    <DescriptionListWithData
-      variant="horizontal"
-      className="ecl-description-list--taxonomy"
-      {...demoDescriptionTaxonomy}
-    />
+    <DescriptionListWithData variant="taxonomy" {...demoDescriptionTaxonomy} />
   </>
 );

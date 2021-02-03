@@ -42,57 +42,61 @@
 }
 
 @mixin ecl-description-list-horizontal(
+  $variant: 'horizontal',
   $term-width: 32%,
   $definition-width: 68%
 ) {
-  .ecl-description-list--horizontal {
+  // stylelint-disable plugin/selector-bem-pattern
+  .ecl-description-list--#{$variant} {
     display: flex;
     flex-direction: column;
-  }
 
-  .ecl-description-list--horizontal .ecl-description-list__term {
-    font: $ecl-font-m;
-    font-weight: $ecl-font-weight-bold;
-    margin-top: $ecl-spacing-m;
+    .ecl-description-list__term {
+      font: $ecl-font-m;
+      font-weight: $ecl-font-weight-bold;
+      margin-top: $ecl-spacing-m;
+    }
 
-    &:first-of-type {
+    .ecl-description-list__term:first-of-type {
       margin-top: 0;
     }
-  }
 
-  .ecl-description-list--horizontal .ecl-description-list__definition {
-    font: $ecl-font-m;
-    margin-top: $ecl-spacing-2-xs;
-    padding-left: 0;
+    .ecl-description-list__definition {
+      font: $ecl-font-m;
+      margin-top: $ecl-spacing-2-xs;
+      padding-left: 0;
+    }
   }
 
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up('lg') {
-    .ecl-description-list--horizontal {
+    .ecl-description-list--#{$variant} {
       flex-direction: row;
       flex-wrap: wrap;
       max-width: calc(499px + #{$ecl-spacing-xl});
-    }
 
-    .ecl-description-list--horizontal .ecl-description-list__term {
-      width: $term-width;
-    }
+      .ecl-description-list__term {
+        width: $term-width;
+      }
 
-    .ecl-description-list--horizontal .ecl-description-list__definition {
-      margin-left: $ecl-spacing-xl;
-      margin-top: $ecl-spacing-m;
-      overflow-wrap: break-word;
-      width: calc(#{$definition-width} - #{$ecl-spacing-xl});
-    }
+      .ecl-description-list__definition {
+        margin-left: $ecl-spacing-xl;
+        margin-top: $ecl-spacing-m;
+        overflow-wrap: break-word;
+        width: calc(#{$definition-width} - #{$ecl-spacing-xl});
+      }
 
-    .ecl-description-list--horizontal
       .ecl-description-list__definition:first-of-type {
-      margin-top: 0;
+        margin-top: 0;
+      }
     }
   }
+  // stylelint-enable plugin/selector-bem-pattern
 }
 
 @mixin ecl-description-list-taxonomy() {
+  @include ecl-description-list-horizontal($variant: 'taxonomy');
+
   .ecl-description-list--taxonomy {
     .ecl-description-list__definition {
       margin-bottom: -$ecl-spacing-xs;
@@ -110,6 +114,7 @@
 
   .ecl-description-list + .ecl-description-list--taxonomy {
     border-top: 1px solid $ecl-color-grey-20;
+    margin-top: $ecl-spacing-m;
     padding-top: $ecl-spacing-m;
   }
 

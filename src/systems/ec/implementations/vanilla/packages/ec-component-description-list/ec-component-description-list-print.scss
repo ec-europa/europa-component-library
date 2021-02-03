@@ -63,8 +63,40 @@
   }
 }
 
+@mixin ecl-description-list-taxonomy-print() {
+  .ecl-description-list--taxonomy {
+    .ecl-description-list__definition {
+      margin-bottom: -$ecl-spacing-print-xs;
+    }
+
+    .ecl-description-list__tag {
+      margin-bottom: $ecl-spacing-print-xs;
+      margin-right: $ecl-spacing-print-xs;
+    }
+
+    .ecl-description-list__tag:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  .ecl-description-list + .ecl-description-list--taxonomy {
+    border-top: 1px solid $ecl-color-grey-20;
+    margin-top: $ecl-spacing-print-m;
+    padding-top: $ecl-spacing-print-m;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up('lg') {
+    .ecl-description-list + .ecl-description-list--taxonomy {
+      margin-top: $ecl-spacing-print-l;
+      padding-top: $ecl-spacing-print-l;
+    }
+  }
+}
+
 // Use mixin
 @include exports('ec-component-description-list-print') {
   @include ecl-description-list-print();
   @include ecl-description-list-horizontal-print();
+  @include ecl-description-list-taxonomy-print();
 }

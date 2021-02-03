@@ -7,9 +7,14 @@ import DescriptionList from './DescriptionList';
 import DescriptionTerm from './DescriptionTerm';
 import DescriptionDefinition from './DescriptionDefinition';
 
-const DescriptionListWithData = ({ items, className, ...props }) => {
+const DescriptionListWithData = ({ items, className, variant, ...props }) => {
   return (
-    <DescriptionList {...props} className={className}>
+    <DescriptionList
+      {...props}
+      className={classnames(className, {
+        [`ecl-description-list--${variant}`]: variant,
+      })}
+    >
       {items.map((item) => {
         let terms = '';
         if (Array.isArray(item.term)) {
@@ -82,11 +87,13 @@ DescriptionListWithData.propTypes = {
       ]),
     })
   ),
+  variant: PropTypes.string,
   className: PropTypes.string,
 };
 
 DescriptionListWithData.defaultProps = {
   items: [],
+  variant: '',
   className: '',
 };
 
