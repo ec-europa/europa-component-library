@@ -28,37 +28,73 @@
 }
 
 @mixin ecl-description-list-horizontal-print(
+  $variant: 'horizontal',
   $term-width: 32%,
   $definition-width: 68%
 ) {
-  .ecl-description-list--horizontal {
+  // stylelint-disable plugin/selector-bem-pattern
+  .ecl-description-list--#{$variant} {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     max-width: calc(499px + #{$ecl-spacing-print-xl});
-  }
 
-  .ecl-description-list--horizontal .ecl-description-list__term {
-    font: $ecl-font-print-m;
-    font-weight: $ecl-font-weight-bold;
-    margin-top: $ecl-spacing-print-m;
-    width: $term-width;
+    .ecl-description-list__term {
+      font: $ecl-font-print-m;
+      font-weight: $ecl-font-weight-bold;
+      margin-top: $ecl-spacing-print-m;
+      width: $term-width;
+    }
 
-    &:first-of-type {
+    .ecl-description-list__term:first-of-type {
+      margin-top: 0;
+    }
+
+    .ecl-description-list__definition {
+      font: $ecl-font-print-m;
+      margin-left: $ecl-spacing-print-xl;
+      margin-top: $ecl-spacing-print-m;
+      overflow-wrap: break-word;
+      padding-left: 0;
+      width: calc(#{$definition-width} - #{$ecl-spacing-xl});
+    }
+
+    .ecl-description-list__definition:first-of-type {
       margin-top: 0;
     }
   }
+  // stylelint-enable plugin/selector-bem-pattern
+}
 
-  .ecl-description-list--horizontal .ecl-description-list__definition {
-    font: $ecl-font-print-m;
-    margin-left: $ecl-spacing-print-xl;
+@mixin ecl-description-list-taxonomy-print() {
+  @include ecl-description-list-horizontal-print($variant: 'taxonomy');
+
+  .ecl-description-list--taxonomy {
+    .ecl-description-list__definition {
+      margin-bottom: -$ecl-spacing-print-xs;
+    }
+
+    .ecl-description-list__tag {
+      margin-bottom: $ecl-spacing-print-xs;
+      margin-right: $ecl-spacing-print-xs;
+    }
+
+    .ecl-description-list__tag:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  .ecl-description-list + .ecl-description-list--taxonomy {
+    border-top: 1px solid $ecl-color-grey-20;
     margin-top: $ecl-spacing-print-m;
-    overflow-wrap: break-word;
-    padding-left: 0;
-    width: calc(#{$definition-width} - #{$ecl-spacing-xl});
+    padding-top: $ecl-spacing-print-m;
+  }
 
-    &:first-of-type {
-      margin-top: 0;
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up('lg') {
+    .ecl-description-list + .ecl-description-list--taxonomy {
+      margin-top: $ecl-spacing-print-l;
+      padding-top: $ecl-spacing-print-l;
     }
   }
 }
@@ -67,4 +103,5 @@
 @include exports('eu-component-description-list-print') {
   @include ecl-description-list-print();
   @include ecl-description-list-horizontal-print();
+  @include ecl-description-list-taxonomy-print();
 }

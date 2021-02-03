@@ -118,6 +118,17 @@
     max-width: $image-width;
   }
 
+  .ecl-file__taxonomy {
+    border-bottom: 1px solid $ecl-color-grey-20;
+    margin-bottom: $ecl-spacing-m;
+    padding-bottom: $ecl-spacing-m;
+    width: 100%;
+  }
+
+  .ecl-file__label {
+    margin-bottom: $ecl-spacing-m;
+  }
+
   .ecl-file__translation-language {
     color: $ecl-color-grey;
     font: $ecl-font-s;
@@ -230,6 +241,8 @@
 
     .ecl-file__detail {
       flex-direction: row;
+      margin-bottom: $ecl-spacing-l;
+      padding-bottom: $ecl-spacing-l;
     }
 
     .ecl-file__detail-info {
@@ -240,6 +253,11 @@
       align-self: flex-start;
       margin-left: $ecl-spacing-l;
       margin-top: 0;
+    }
+
+    .ecl-file__taxonomy {
+      margin-bottom: $ecl-spacing-l;
+      padding-bottom: $ecl-spacing-l;
     }
   }
 

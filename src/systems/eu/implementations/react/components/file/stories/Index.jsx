@@ -4,6 +4,7 @@ import StoryWrapper from '@ecl/story-wrapper';
 import demoContent from '@ecl/eu-specs-file/demo/data--without-translation';
 import demoContentTranslation from '@ecl/eu-specs-file/demo/data--with-translation';
 import demoContentThumbnail from '@ecl/eu-specs-file/demo/data--thumbnail';
+import demoContentTaxonomy from '@ecl/eu-specs-file/demo/data--taxonomy';
 
 import { FileDownload } from '../src/FileDownload';
 
@@ -129,3 +130,53 @@ export const Thumbnail = () => {
 };
 
 Thumbnail.storyName = 'with thumbnail';
+
+export const Taxonomy = () => {
+  const meta = Array.isArray(demoContentTaxonomy.detailMeta)
+    ? array('Meta (comma separated)', demoContentTaxonomy.detailMeta)
+    : text('Meta', demoContentTaxonomy.detailMeta);
+  const title = text('File title', demoContentTaxonomy.title);
+  const description = text('Description', demoContentTaxonomy.description);
+
+  const images = {
+    landscape:
+      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+    portrait:
+      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg',
+    square:
+      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg',
+  };
+  const image = {
+    src: select('Image example', images, demoContentTaxonomy.image.src),
+    alt: demoContentTaxonomy.image.alt,
+  };
+
+  const download = {
+    ...demoContentTaxonomy.download,
+    label: text('Download label', demoContentTaxonomy.download.label),
+  };
+
+  const translation = {
+    ...demoContentTaxonomy.translation,
+    toggle: {
+      ...demoContentTaxonomy.translation.toggle,
+      label: text('Toggle label', demoContentTaxonomy.translation.toggle.label),
+    },
+  };
+
+  return (
+    <FileDownload
+      {...demoContentTaxonomy}
+      variant="thumbnail"
+      detailMeta={meta}
+      description={description}
+      title={title}
+      image={image}
+      download={download}
+      translation={translation}
+      data-ecl-auto-init="FileDownload"
+    />
+  );
+};
+
+Taxonomy.storyName = 'with taxonomy';
