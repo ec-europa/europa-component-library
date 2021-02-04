@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
+import { DescriptionListWithData } from '@ecl/ec-react-component-description-list';
 import Icon from '@ecl/ec-react-component-icon';
 import Link from '@ecl/ec-react-component-link';
 import Tag from '@ecl/ec-react-component-tag';
@@ -14,6 +15,7 @@ const Card = ({
   links,
   infos,
   tags,
+  taxonomy,
   className,
   ...props
 }) => {
@@ -102,6 +104,14 @@ const Card = ({
     tagsMarkup = <ul className="ecl-card__tag-container">{tagsArray}</ul>;
   }
 
+  // Taxonomy
+  let taxonomyMarkup = '';
+  if (taxonomy && Object.keys(taxonomy).length > 0) {
+    taxonomyMarkup = (
+      <DescriptionListWithData {...taxonomy} variant="taxonomy" />
+    );
+  }
+
   return (
     <article {...props} className={classNames}>
       <header className="ecl-card__header">
@@ -118,6 +128,7 @@ const Card = ({
       <footer className="ecl-card__footer">
         {infosMarkup}
         {tagsMarkup}
+        {taxonomyMarkup}
       </footer>
     </article>
   );
@@ -153,6 +164,7 @@ Card.propTypes = {
       href: PropTypes.string,
     })
   ),
+  taxonomy: PropTypes.shape(DescriptionListWithData.propTypes),
   className: PropTypes.string,
 };
 
@@ -164,6 +176,7 @@ Card.defaultProps = {
   description: '',
   links: [],
   tags: [],
+  taxonomy: {},
   className: '',
 };
 

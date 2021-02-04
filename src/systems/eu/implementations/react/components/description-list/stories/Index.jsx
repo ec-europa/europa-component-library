@@ -8,8 +8,8 @@ _Description.storyName = 'description';
 
 export const _DescriptionHorizontal = DescriptionHorizontal;
 
-_DescriptionHorizontal.storyName = 'description horizontal';
+_DescriptionHorizontal.storyName = 'description (horizontal)';
 
 export const _DescriptionTaxonomy = DescriptionTaxonomy;
 
-_DescriptionTaxonomy.storyName = 'description taxonomy';
+_DescriptionTaxonomy.storyName = 'description (taxonomy)';
