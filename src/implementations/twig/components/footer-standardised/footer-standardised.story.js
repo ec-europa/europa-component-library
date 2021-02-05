@@ -63,18 +63,6 @@ const getArgTypes = () => {
     },
   };
 
-  if (system !== 'EU') {
-    argTypes.hide_class_name = {
-      name: 'class links',
-      type: { name: 'boolean' },
-      defaultValue: true,
-      description: 'Show "Class links" section',
-      table: {
-        category: 'Use cases',
-      },
-    };
-  }
-
   return argTypes;
 };
 
@@ -98,9 +86,6 @@ const prepareData = (data, args) => {
   }
   if (args.hide_relate_site) {
     res.rows[0][2].splice(1, 1);
-  }
-  if (!args.hide_class_name) {
-    res.rows.splice(1, 1);
   }
   if (!args.hide_about && !args.hide_relate_site) {
     res.rows[0].splice(2, 1);
