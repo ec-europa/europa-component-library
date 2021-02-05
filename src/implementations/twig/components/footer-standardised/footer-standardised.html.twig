@@ -124,14 +124,14 @@
             <ul class="{{ _list_class_name }}">
               {% for _item in _sections.links %}
                 <li class="ecl-footer-standardised__list-item">
-                  {% if _sections.content_before is defined and _sections.content_before is not empty %}
+                  {% if _item.content_before is defined and _item.content_before is not empty %}
                     {{- _item.content_before -}}
                   {% endif %}
                   {% include '@ecl/link/link.html.twig' with _item|merge({
                     link: _item.link|default({})|merge({ type: 'standalone' }),
                     extra_classes: 'ecl-footer-standardised__link',
                   }) only %}
-                  {% if _sections.content_after is defined and _sections.content_after is not empty %}
+                  {% if _item.content_after is defined and _item.content_after is not empty %}
                     {{- _item.content_after -}}
                   {% endif %}
                 </li>

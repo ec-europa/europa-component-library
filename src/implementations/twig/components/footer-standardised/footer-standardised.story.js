@@ -24,7 +24,7 @@ const getArgTypes = () => {
         ? 'Show "Contact site name" section'
         : 'Show "Contact us" section',
     table: {
-      category: 'Use cases',
+      category: 'Optional sections',
     },
   };
 
@@ -34,7 +34,7 @@ const getArgTypes = () => {
     defaultValue: true,
     description: 'Show "Follow us" section',
     table: {
-      category: 'Use cases',
+      category: 'Optional sections',
     },
   };
 
@@ -45,7 +45,7 @@ const getArgTypes = () => {
       defaultValue: true,
       description: 'Show "About us" section',
       table: {
-        category: 'Use cases',
+        category: 'Optional sections',
       },
     };
   }
@@ -59,7 +59,7 @@ const getArgTypes = () => {
         ? 'Show "Optional links" section'
         : 'Show "Related sites" section',
     table: {
-      category: 'Use cases',
+      category: 'Optional sections',
     },
   };
 
