@@ -63,16 +63,20 @@
           {% if _sections.logo is defined and _sections.logo is not empty %}
             {% set _label %}
               <img
-                alt="{{ _sections.logo.alt | e('html_attr') }}"
-                title="{{ _sections.logo.title }}"
+                {% if _sections.logo.alt is defined and _sections.logo.alt is not empty %}
+                alt="{{ _sections.logo.alt|e('html_attr') }}"
+                {% endif %}
+                title="{{ _sections.logo.title|e('html_attr') }}"
                 class="ecl-footer-standardised__logo-image-mobile"
-                src="{{ _sections.logo.src_mobile }}"
+                src="{{ _sections.logo.src_mobile|e('html_attr') }}"
               />
               <img
-                alt="{{ _sections.logo.alt | e('html_attr') }}"
-                title="{{ _sections.logo.title }}"
+                {% if _sections.logo.alt is defined and _sections.logo.alt is not empty %}
+                alt="{{ _sections.logo.alt|e('html_attr') }}"
+                {% endif %}
+                title="{{ _sections.logo.title|e('html_attr') }}"
                 class="ecl-footer-standardised__logo-image-desktop"
-                src="{{ _sections.logo.src_desktop }}"
+                src="{{ _sections.logo.src_desktop|e('html_attr') }}"
               />
             {% endset %}
             {% include '@ecl/link/link.html.twig' with {
@@ -92,7 +96,7 @@
           {# title #}
           {% if _sections.title is defined and _sections.title is not empty %}
             {% set _title_class_name = 'ecl-footer-standardised__title' %}
-            {% if _sections.title_with_separator is defined and _sections.title_with_separator %}
+            {% if _sections.title_with_separator %}
               {% set _title_class_name = _title_class_name ~ ' ecl-footer-standardised__title--separator' %}
             {% endif %}
             {% if _sections.title.link is defined and _sections.title.link is not empty %}
@@ -114,18 +118,22 @@
           {# list #}
           {% if _sections.links is defined and _sections.links is not empty and _sections.links is iterable %}
             {% set _list_class_name = 'ecl-footer-standardised__list' %}
-            {% if _sections.links_inline is defined and _sections.links_inline %}
+            {% if _sections.links_inline %}
               {% set _list_class_name = _list_class_name ~ ' ecl-footer-standardised__list--inline' %}
             {% endif %}
             <ul class="{{ _list_class_name }}">
               {% for _item in _sections.links %}
                 <li class="ecl-footer-standardised__list-item">
-                  {{- _item.content_before -}}
+                  {% if _sections.content_before is defined and _sections.content_before is not empty %}
+                    {{- _item.content_before -}}
+                  {% endif %}
                   {% include '@ecl/link/link.html.twig' with _item|merge({
                     link: _item.link|default({})|merge({ type: 'standalone' }),
                     extra_classes: 'ecl-footer-standardised__link',
                   }) only %}
-                  {{- _item.content_after -}}
+                  {% if _sections.content_after is defined and _sections.content_after is not empty %}
+                    {{- _item.content_after -}}
+                  {% endif %}
                 </li>
               {% endfor %}
             </ul>

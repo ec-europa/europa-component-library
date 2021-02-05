@@ -154,6 +154,7 @@ module.exports = {
             },
           ],
           content_before: 'More information on:',
+          section_class_name: 'ecl-footer-standardised__section--condensed',
         },
       ],
     ],

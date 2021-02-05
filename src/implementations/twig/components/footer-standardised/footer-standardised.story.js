@@ -11,16 +11,16 @@ import footer from './footer-standardised.html.twig';
 import notes from './README.md';
 
 const system = getSystem();
-const demoData = system === 'EU' ? specsEu : specsEc;
+const demoData = system === 'eu' ? specsEu : specsEc;
 
 const getArgTypes = () => {
   const argTypes = {};
   argTypes.hide_contact = {
-    name: system === 'EU' ? 'contact site name' : 'contact us',
+    name: system === 'eu' ? 'contact site name' : 'contact us',
     type: { name: 'boolean' },
     defaultValue: true,
     description:
-      system === 'EU'
+      system === 'eu'
         ? 'Show "Contact site name" section'
         : 'Show "Contact us" section',
     table: {
@@ -38,7 +38,7 @@ const getArgTypes = () => {
     },
   };
 
-  if (system !== 'EU') {
+  if (system !== 'eu') {
     argTypes.hide_about = {
       name: 'about us',
       type: { name: 'boolean' },
@@ -51,11 +51,11 @@ const getArgTypes = () => {
   }
 
   argTypes.hide_relate_site = {
-    name: system === 'EU' ? 'optional links' : 'related sites',
+    name: system === 'eu' ? 'optional links' : 'related sites',
     type: { name: 'boolean' },
     defaultValue: true,
     description:
-      system === 'EU'
+      system === 'eu'
         ? 'Show "Optional links" section'
         : 'Show "Related sites" section',
     table: {
@@ -81,16 +81,15 @@ const prepareData = (data, args) => {
   if (!args.hide_follow) {
     res.rows[0][1].splice(1, 1);
   }
-  if (!args.hide_about) {
+  if (!args.hide_about && system !== 'eu') {
     res.rows[0][2].splice(0, 1);
   }
-  if (args.hide_relate_site) {
+  if (!args.hide_relate_site && system === 'eu') {
+    res.rows[0].splice(2, 1);
+  } else if (!args.hide_relate_site) {
     res.rows[0][2].splice(1, 1);
   }
   if (!args.hide_about && !args.hide_relate_site) {
-    res.rows[0].splice(2, 1);
-  }
-  if (!args.hide_relate_site && system === 'EU') {
     res.rows[0].splice(2, 1);
   }
   if (!args.hide_contact && !args.hide_follow) {
