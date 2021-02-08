@@ -15,6 +15,7 @@ const Card = ({
   links,
   infos,
   tags,
+  list,
   taxonomy,
   className,
   ...props
@@ -104,11 +105,27 @@ const Card = ({
     tagsMarkup = <ul className="ecl-card__tag-container">{tagsArray}</ul>;
   }
 
+  // Additional description list
+  let listMarkup = '';
+  if (list && Object.keys(list).length > 0) {
+    listMarkup = (
+      <DescriptionListWithData
+        {...list}
+        variant="horizontal"
+        className="ecl-card__list"
+      />
+    );
+  }
+
   // Taxonomy
   let taxonomyMarkup = '';
   if (taxonomy && Object.keys(taxonomy).length > 0) {
     taxonomyMarkup = (
-      <DescriptionListWithData {...taxonomy} variant="taxonomy" />
+      <DescriptionListWithData
+        {...taxonomy}
+        variant="taxonomy"
+        className="ecl-card__list"
+      />
     );
   }
 
@@ -128,6 +145,7 @@ const Card = ({
       <footer className="ecl-card__footer">
         {infosMarkup}
         {tagsMarkup}
+        {listMarkup}
         {taxonomyMarkup}
       </footer>
     </article>
@@ -164,6 +182,7 @@ Card.propTypes = {
       href: PropTypes.string,
     })
   ),
+  list: PropTypes.shape(DescriptionListWithData.propTypes),
   taxonomy: PropTypes.shape(DescriptionListWithData.propTypes),
   className: PropTypes.string,
 };
@@ -176,6 +195,7 @@ Card.defaultProps = {
   description: '',
   links: [],
   tags: [],
+  list: {},
   taxonomy: {},
   className: '',
 };
