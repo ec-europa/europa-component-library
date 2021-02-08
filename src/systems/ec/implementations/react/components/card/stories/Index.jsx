@@ -1,5 +1,5 @@
 import React from 'react';
-import { withKnobs, text, array } from '@storybook/addon-knobs';
+import { withKnobs, text, array, boolean } from '@storybook/addon-knobs';
 
 import demoContentCard from '@ecl/ec-specs-card/demo/data--card';
 import demoContentCardTaxonomy from '@ecl/ec-specs-card/demo/data--card-taxonomy';
@@ -99,14 +99,18 @@ export const CardTaxonomy = () => {
       : { shape: 'general--faq', size: 'xs' },
   }));
 
+  const displayList = boolean('Display additional list', true);
+  const displayTaxonomy = boolean('Display taxonomy list', true);
+
   return (
     <Card
-      {...demoContentCardTaxonomy}
       image={image}
       meta={meta}
       title={title}
       description={description}
       infos={infos}
+      list={displayList ? demoContentCardTaxonomy.list : {}}
+      taxonomy={displayTaxonomy ? demoContentCardTaxonomy.taxonomy : {}}
     />
   );
 };
@@ -144,7 +148,15 @@ export const Tile = () => {
 Tile.storyName = 'tile';
 
 export const TileTaxonomy = () => {
-  return <Card {...demoContentTileTaxonomy} />;
+  const displayList = boolean('Display additional list', true);
+  const displayTaxonomy = boolean('Display taxonomy list', true);
+
+  return (
+    <Card
+      list={displayList ? demoContentTileTaxonomy.list : {}}
+      taxonomy={displayTaxonomy ? demoContentTileTaxonomy.taxonomy : {}}
+    />
+  );
 };
 
 TileTaxonomy.storyName = 'tile (taxonomy)';
