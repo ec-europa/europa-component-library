@@ -48,6 +48,10 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
 .ecl-footer-standardised__section--condensed {
   margin-bottom: -#{map.get(theme.$spacing, 'xs')};
   padding-top: map.get(theme.$spacing, 'm');
+
+  .ecl-footer-standardised__list-item {
+    margin-top: map.get(theme.$spacing, 'xs');
+  }
 }
 
 .ecl-footer-standardised__section--split-list {
@@ -142,10 +146,6 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
   .ecl-footer-standardised__section--condensed {
     margin-bottom: -#{map.get(theme.$spacing, 'm')};
     padding-top: map.get(theme.$spacing, 'm');
-
-    .ecl-footer-standardised__list-item {
-      margin-top: map.get(theme.$spacing, 'xs');
-    }
   }
 
   .ecl-footer-standardised__title,

@@ -47,7 +47,7 @@
 {% endif %}
 
 {# Print the result #}
-<footer class="ecl-footer-standardised">
+<footer class="{{ _css_class }}"{{ _extra_attributes }}>
   <div class="ecl-container ecl-footer-standardised__container">
   {% for _row in _rows %}
     <div class="ecl-footer-standardised__row">
