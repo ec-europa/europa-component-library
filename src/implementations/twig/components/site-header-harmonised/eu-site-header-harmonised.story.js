@@ -2,10 +2,10 @@ import { correctSvgPath } from '@ecl/story-utils';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 
-import euEnglishBanner from '@ecl/resources-eu-logo/standard-version/positive/en.svg';
-import euFrenchBanner from '@ecl/resources-eu-logo/standard-version/positive/fr.svg';
-import euFrenchMobileBanner from '@ecl/resources-eu-logo/condensed-version/positive/fr.svg';
-import euEnglishMobileBanner from '@ecl/resources-eu-logo/condensed-version/positive/en.svg';
+import euEnglishBanner from '@ecl/resources-eu-logo/standard-version/positive/logo-eu--en.svg';
+import euFrenchBanner from '@ecl/resources-eu-logo/standard-version/positive/logo-eu--fr.svg';
+import euFrenchMobileBanner from '@ecl/resources-eu-logo/condensed-version/positive/logo-eu--fr.svg';
+import euEnglishMobileBanner from '@ecl/resources-eu-logo/condensed-version/positive/logo-eu--en.svg';
 import dataLoggedIn from '@ecl/specs-component-site-header-harmonised/demo/data--group1';
 import dataFr from '@ecl/specs-component-site-header-harmonised/demo/data--fr';
 

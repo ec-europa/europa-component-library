@@ -19,7 +19,14 @@
   padding: calc(#{map.get(theme.$spacing, 'xl')} - 3px);
 }
 
-.logo-link img {
+.logo-link--ec img {
+  max-height: 5rem;
+  max-width: 20rem;
+  width: 100%;
+}
+
+.logo-link--eu img {
+  max-height: 3rem;
   max-width: 20rem;
   width: 100%;
 }
