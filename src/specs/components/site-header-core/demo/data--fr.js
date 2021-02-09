@@ -4,7 +4,7 @@ module.exports = {
     alt: 'Logo Commmission Européenne',
     path: '/example',
     language: 'fr',
-    src_desktop: '/logo--fr.svg',
+    src_desktop: '/logo-ec--fr.svg',
   },
   login_toggle: {
     label_not_logged: 'Connexion',
