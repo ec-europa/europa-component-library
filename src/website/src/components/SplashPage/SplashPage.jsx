@@ -24,7 +24,7 @@ const SplashPage = React.memo(({ children }) => (
           col="12 m-6"
           className={`${utilities['d-flex']} ${styles['splash-page-actions-col']}`}
         >
-          <LogoLink to="/ec/" aria-label="Open EU system">
+          <LogoLink to="/ec/" aria-label="Open EU system" system="ec">
             <img src={ECLogo} alt="EC Logo" />
           </LogoLink>
         </Col>
@@ -32,7 +32,7 @@ const SplashPage = React.memo(({ children }) => (
           col="12 m-6"
           className={`${utilities['d-flex']} ${styles['splash-page-actions-col']}`}
         >
-          <LogoLink to="/eu/" aria-label="Open EU system">
+          <LogoLink to="/eu/" aria-label="Open EU system" system="eu">
             <img src={EULogo} alt="EU Logo" />
           </LogoLink>
         </Col>
