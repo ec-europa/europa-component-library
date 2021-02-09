@@ -39,7 +39,7 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
     {% else %}
       {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
     {% endif %}
@@ -64,19 +64,19 @@
             {% set _label %}
               <img
                 {% if _sections.logo.alt is defined and _sections.logo.alt is not empty %}
-                alt="{{ _sections.logo.alt|e('html_attr') }}"
+                alt="{{ _sections.logo.alt }}"
                 {% endif %}
-                title="{{ _sections.logo.title|e('html_attr') }}"
+                title="{{ _sections.logo.title }}"
                 class="ecl-footer-standardised__logo-image-mobile"
-                src="{{ _sections.logo.src_mobile|e('html_attr') }}"
+                src="{{ _sections.logo.src_mobile }}"
               />
               <img
                 {% if _sections.logo.alt is defined and _sections.logo.alt is not empty %}
-                alt="{{ _sections.logo.alt|e('html_attr') }}"
+                alt="{{ _sections.logo.alt }}"
                 {% endif %}
-                title="{{ _sections.logo.title|e('html_attr') }}"
+                title="{{ _sections.logo.title }}"
                 class="ecl-footer-standardised__logo-image-desktop"
-                src="{{ _sections.logo.src_desktop|e('html_attr') }}"
+                src="{{ _sections.logo.src_desktop }}"
               />
             {% endset %}
             {% include '@ecl/link/link.html.twig' with {
