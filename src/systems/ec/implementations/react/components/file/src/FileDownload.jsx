@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Button from '@ecl/ec-react-component-button';
 import Icon from '@ecl/ec-react-component-icon';
+import Label from '@ecl/ec-react-component-label';
 import Link from '@ecl/ec-react-component-link';
+import { DescriptionListWithData } from '@ecl/ec-react-component-description-list';
 
 export const FileDownload = ({
   variant,
@@ -17,6 +19,8 @@ export const FileDownload = ({
   description,
   image,
   translation,
+  taxonomy,
+  label,
   className,
   ...props
 }) => {
@@ -29,6 +33,12 @@ export const FileDownload = ({
       <div className="ecl-file__container">
         {variant === 'thumbnail' ? (
           <>
+            {!!(label && Object.keys(label).length > 0) && (
+              <div className="ecl-file__label">
+                <Label {...label} />
+              </div>
+            )}
+
             <div className="ecl-file__detail">
               <div className="ecl-file__detail-info">
                 {detailMeta && (
@@ -63,6 +73,13 @@ export const FileDownload = ({
                 />
               )}
             </div>
+
+            {!!(taxonomy && Object.keys(taxonomy).length > 0) && (
+              <div className="ecl-file__taxonomy">
+                <DescriptionListWithData {...taxonomy} variant="taxonomy" />
+              </div>
+            )}
+
             <div className="ecl-file__info">
               <div className="ecl-file__language">{language}</div>
               <div className="ecl-file__meta">{meta}</div>
@@ -252,6 +269,8 @@ FileDownload.propTypes = {
     src: PropTypes.string,
     alt: PropTypes.string,
   }),
+  taxonomy: PropTypes.shape(DescriptionListWithData.propTypes),
+  label: PropTypes.shape(Label.propTypes),
   translation: PropTypes.shape({
     toggle: PropTypes.shape(Button.propTypes),
     items: PropTypes.arrayOf(
@@ -280,6 +299,8 @@ FileDownload.defaultProps = {
   detailMeta: '',
   description: '',
   image: {},
+  taxonomy: {},
+  label: {},
   translation: {},
   className: '',
 };

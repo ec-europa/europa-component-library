@@ -9,6 +9,7 @@ import FileDownload from '@ecl/ec-react-component-file';
 import demoContent from '@ecl/ec-specs-file/demo/data--without-translation';
 import demoContentTranslation from '@ecl/ec-specs-file/demo/data--with-translation';
 import demoContentThumbnail from '@ecl/ec-specs-file/demo/data--thumbnail';
+import demoContentTaxonomy from '@ecl/ec-specs-file/demo/data--taxonomy';
 
 ## Without translations
 
@@ -41,4 +42,15 @@ import demoContentThumbnail from '@ecl/ec-specs-file/demo/data--thumbnail';
   showFrame
 >
   <FileDownload {...demoContentThumbnail} variant="thumbnail" />
+</Playground>
+
+## With taxonomy
+
+<Playground
+  system="ec"
+  selectedKind="components-file"
+  selectedStory="taxonomy"
+  showFrame
+>
+  <FileDownload {...demoContentTaxonomy} variant="thumbnail" />
 </Playground>

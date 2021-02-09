@@ -6,22 +6,10 @@ order: 2
 import Playground from '@ecl/website-components/Playground';
 import Card from '@ecl/ec-react-component-card';
 
-import demoContentCardEvent from '@ecl/ec-specs-card/demo/data--card-event';
-import demoContentCardTag from '@ecl/ec-specs-card/demo/data--card-tag';
 import demoContentCard from '@ecl/ec-specs-card/demo/data--card';
+import demoContentCardTaxonomy from '@ecl/ec-specs-card/demo/data--card-taxonomy';
 import demoContentTile from '@ecl/ec-specs-card/demo/data--tile';
-
-## Card Event
-
-<Playground system="ec" selectedKind="components-card" selectedStory="card">
-  <Card {...demoContentCardEvent} />
-</Playground>
-
-## Card Tag
-
-<Playground system="ec" selectedKind="components-card" selectedStory="card">
-  <Card {...demoContentCardTag} />
-</Playground>
+import demoContentTileTaxonomy from '@ecl/ec-specs-card/demo/data--tile-taxonomy';
 
 ## Card
 
@@ -29,8 +17,28 @@ import demoContentTile from '@ecl/ec-specs-card/demo/data--tile';
   <Card {...demoContentCard} />
 </Playground>
 
+## Card taxonomy
+
+<Playground
+  system="ec"
+  selectedKind="components-card"
+  selectedStory="card-taxonomy"
+>
+  <Card {...demoContentCardTaxonomy} />
+</Playground>
+
 ## Tile
 
 <Playground system="ec" selectedKind="components-card" selectedStory="tile">
   <Card {...demoContentTile} />
+</Playground>
+
+## Tile taxonomy
+
+<Playground
+  system="ec"
+  selectedKind="components-card"
+  selectedStory="tile-taxonomy"
+>
+  <Card {...demoContentTileTaxonomy} />
 </Playground>

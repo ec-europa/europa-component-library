@@ -1,13 +1,18 @@
 /**
  * Card
- * @define card
+ * @define card; weak
  */
 
 // Import base
 @import '@ecl/ec-base/ec-base';
 
 @include check-imports(
-  ('ec-component-link', 'ec-component-icon', 'ec-component-tag')
+  (
+    'ec-component-description-list',
+    'ec-component-link',
+    'ec-component-icon',
+    'ec-component-tag'
+  )
 );
 
 @mixin ecl-card(
@@ -118,6 +123,31 @@
 
     &:last-child {
       margin-right: 0;
+    }
+  }
+
+  .ecl-card__list {
+    flex-direction: column;
+    margin-top: $ecl-spacing-m;
+    max-width: 100%;
+
+    .ecl-description-list__term {
+      width: auto;
+    }
+
+    .ecl-description-list__definition {
+      margin-left: 0;
+      margin-top: $ecl-spacing-2-xs;
+      width: auto;
+    }
+
+    .ecl-description-list__definition:first-of-type {
+      margin-top: $ecl-spacing-2-xs;
+    }
+
+    + .ecl-card__list {
+      margin-top: $ecl-spacing-m;
+      padding-top: $ecl-spacing-m;
     }
   }
 

@@ -6,6 +6,8 @@
 // Import base
 @import '@ecl/eu-base/eu-base';
 
+@include check-imports(('eu-component-description-list'));
+
 @mixin ecl-card-print() {
   .ecl-card {
     margin: 0;
@@ -112,6 +114,31 @@
     color: $ecl-color-grey;
     font: $ecl-font-print-s;
     font-family: $ecl-font-family-print-alt;
+  }
+
+  .ecl-card__list {
+    flex-direction: column;
+    margin-top: $ecl-spacing-print-m;
+    max-width: 100%;
+
+    .ecl-description-list__term {
+      width: auto;
+    }
+
+    .ecl-description-list__definition {
+      margin-left: 0;
+      margin-top: $ecl-spacing-print-2-xs;
+      width: auto;
+    }
+
+    .ecl-description-list__definition:first-of-type {
+      margin-top: $ecl-spacing-print-2-xs;
+    }
+
+    + .ecl-card__list {
+      margin-top: $ecl-spacing-print-m;
+      padding-top: $ecl-spacing-print-m;
+    }
   }
 
   /*

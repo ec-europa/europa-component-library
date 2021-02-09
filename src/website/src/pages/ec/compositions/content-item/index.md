@@ -4,5 +4,5 @@ defaultTab: usage
 status: ready
 playground:
   system: ec
-  path: /story/templates-compositions--content-items
+  path: /story/templates-compositions-content-items--default
 ---

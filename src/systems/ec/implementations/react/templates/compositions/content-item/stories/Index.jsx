@@ -2,6 +2,7 @@ import React from 'react';
 import { withKnobs } from '@storybook/addon-knobs';
 
 import ContentItemExampleDefault from '../examples/Default';
+import ContentItemExampleTaxonomy from '../examples/Taxonomy';
 import ContentItemExampleSimple from '../examples/Simple';
 import ContentItemExampleImageLeft from '../examples/ImageLeft';
 import ContentItemExampleDate from '../examples/Date';
@@ -15,6 +16,10 @@ export default {
 export const Default = () => <ContentItemExampleDefault />;
 
 Default.storyName = 'default';
+
+export const Taxonomy = () => <ContentItemExampleTaxonomy />;
+
+Taxonomy.storyName = 'taxonomy';
 
 export const Simple = () => <ContentItemExampleSimple />;
 

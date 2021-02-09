@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Button from '@ecl/eu-react-component-button';
 import Icon from '@ecl/eu-react-component-icon';
+import Label from '@ecl/eu-react-component-label';
 import Link from '@ecl/eu-react-component-link';
+import { DescriptionListWithData } from '@ecl/eu-react-component-description-list';
 
 export const FileDownload = ({
   variant,
   title,
+  ariaLabel,
   language,
   meta,
   icon,
@@ -16,6 +19,8 @@ export const FileDownload = ({
   description,
   image,
   translation,
+  taxonomy,
+  label,
   className,
   ...props
 }) => {
@@ -28,6 +33,12 @@ export const FileDownload = ({
       <div className="ecl-file__container">
         {variant === 'thumbnail' ? (
           <>
+            {!!(label && Object.keys(label).length > 0) && (
+              <div className="ecl-file__label">
+                <Label {...label} />
+              </div>
+            )}
+
             <div className="ecl-file__detail">
               <div className="ecl-file__detail-info">
                 {detailMeta && (
@@ -62,6 +73,13 @@ export const FileDownload = ({
                 />
               )}
             </div>
+
+            {!!(taxonomy && Object.keys(taxonomy).length > 0) && (
+              <div className="ecl-file__taxonomy">
+                <DescriptionListWithData {...taxonomy} variant="taxonomy" />
+              </div>
+            )}
+
             <div className="ecl-file__info">
               <div className="ecl-file__language">{language}</div>
               <div className="ecl-file__meta">{meta}</div>
@@ -74,6 +92,7 @@ export const FileDownload = ({
               }}
               variant="standalone"
               className={classnames(download.className, 'ecl-file__download')}
+              {...(ariaLabel && { ariaLabel })}
               download
             />
           </>
@@ -96,6 +115,7 @@ export const FileDownload = ({
               }}
               variant="standalone"
               className={classnames(download.className, 'ecl-file__download')}
+              {...(ariaLabel && { ariaLabel })}
               download
             />
           </>
@@ -163,6 +183,9 @@ export const FileDownload = ({
                       }}
                       href={item.download.href || download.href}
                       label={item.download.label || download.label}
+                      {...(item.download.ariaLabel && {
+                        ariaLabel: item.download.ariaLabel,
+                      })}
                       variant="standalone"
                       className={classnames(
                         item.download.className,
@@ -204,6 +227,9 @@ export const FileDownload = ({
                       }}
                       href={item.download.href || download.href}
                       label={item.download.label || download.label}
+                      {...(item.download.ariaLabel && {
+                        ariaLabel: item.download.ariaLabel,
+                      })}
                       variant="standalone"
                       className={classnames(
                         item.download.className,
@@ -230,6 +256,7 @@ FileDownload.propTypes = {
   variant: PropTypes.string,
   icon: PropTypes.shape(Icon.propTypes),
   title: PropTypes.string,
+  ariaLabel: PropTypes.string,
   language: PropTypes.string,
   meta: PropTypes.string,
   download: PropTypes.shape(Link.propTypes),
@@ -242,6 +269,8 @@ FileDownload.propTypes = {
     src: PropTypes.string,
     alt: PropTypes.string,
   }),
+  taxonomy: PropTypes.shape(DescriptionListWithData.propTypes),
+  label: PropTypes.shape(Label.propTypes),
   translation: PropTypes.shape({
     toggle: PropTypes.shape(Button.propTypes),
     items: PropTypes.arrayOf(
@@ -263,12 +292,15 @@ FileDownload.defaultProps = {
   variant: '',
   icon: Icon.defaultProps,
   title: '',
+  ariaLabel: '',
   language: '',
   meta: '',
   download: {},
   detailMeta: '',
   description: '',
   image: {},
+  taxonomy: {},
+  label: {},
   translation: {},
   className: '',
 };

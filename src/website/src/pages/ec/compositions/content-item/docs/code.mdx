@@ -4,12 +4,25 @@ order: 2
 ---
 
 import Playground from '@ecl/website-components/Playground';
-import ContentItemExample from '@ecl/ec-react-composition-content-item/examples/Default';
+import ContentItemDefault from '@ecl/ec-react-composition-content-item/examples/Default';
+import ContentItemTaxonomy from '@ecl/ec-react-composition-content-item/examples/Taxonomy';
+
+## Default content item
 
 <Playground
   system="ec"
-  selectedKind="templates-compositions"
-  selectedStory="content-items"
+  selectedKind="templates-compositions-content-items"
+  selectedStory="default"
 >
-  <ContentItemExample />
+  <ContentItemDefault />
+</Playground>
+
+## Taxonomy content item
+
+<Playground
+  system="ec"
+  selectedKind="templates-compositions-content-items"
+  selectedStory="taxonomy"
+>
+  <ContentItemTaxonomy />
 </Playground>

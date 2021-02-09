@@ -1,7 +1,9 @@
 import React from 'react';
 
 import demoContentCard from '@ecl/ec-specs-card/demo/data--card';
+import demoContentCardTaxonomy from '@ecl/ec-specs-card/demo/data--card-taxonomy';
 import demoContentTile from '@ecl/ec-specs-card/demo/data--tile';
+import demoContentTileTaxonomy from '@ecl/ec-specs-card/demo/data--tile-taxonomy';
 
 import Card from '../src/Card';
 
@@ -42,18 +44,11 @@ export const Template = () => {
     href: '',
     level: 1,
   };
-  const title6 = {
-    variant: 'standalone',
-    label:
-      'France, Europe and development aid : from the treaties of Rome to the present day',
-    href: '',
-    level: 1,
-  };
 
   return (
     <div className="ecl-container">
-      <ul className="ecl-row" style={{ padding: 0, listStyle: 'none' }}>
-        <li className="ecl-col-md-4" style={{ marginTop: '1rem' }}>
+      <ul className="ecl-row ecl-u-pa-none" style={{ listStyle: 'none' }}>
+        <li className="ecl-col-md-4 ecl-u-mt-m">
           <Card
             image={demoContentCard.image}
             meta={demoContentCard.meta}
@@ -62,7 +57,7 @@ export const Template = () => {
             tags={demoContentCard.tags}
           />
         </li>
-        <li className="ecl-col-md-4" style={{ marginTop: '1rem' }}>
+        <li className="ecl-col-md-4 ecl-u-mt-m">
           <Card
             image={image1}
             meta={demoContentCard.meta}
@@ -71,26 +66,23 @@ export const Template = () => {
             infos={demoContentCard.infos}
           />
         </li>
-        <li className="ecl-col-md-4" style={{ marginTop: '1rem' }}>
+        <li className="ecl-col-md-4 ecl-u-mt-m">
           <Card
             image={image1}
-            meta={demoContentCard.meta}
+            meta={demoContentCardTaxonomy.meta}
             title={title3}
-            description={demoContentCard.description}
+            description={demoContentCardTaxonomy.description}
+            taxonomy={demoContentCardTaxonomy.taxonomy}
           />
         </li>
-        <li className="ecl-col-md-4" style={{ marginTop: '1rem' }}>
+        <li className="ecl-col-md-4 ecl-u-mt-m">
           <Card title={title4} links={demoContentTile.links} />
         </li>
-        <li className="ecl-col-md-4" style={{ marginTop: '1rem' }}>
+        <li className="ecl-col-md-4 ecl-u-mt-m">
           <Card title={title5} description={demoContentTile.description} />
         </li>
-        <li className="ecl-col-md-4" style={{ marginTop: '1rem' }}>
-          <Card
-            title={title6}
-            description={demoContentTile.description}
-            links={demoContentTile.links}
-          />
+        <li className="ecl-col-md-4 ecl-u-mt-m">
+          <Card taxonomy={demoContentTileTaxonomy.taxonomy} />
         </li>
       </ul>
     </div>
