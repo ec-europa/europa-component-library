@@ -1,4 +1,4 @@
-import demoContentDefault from '@ecl/specs-component-text-input/demo/data';
+import demoContentDefault from '@ecl/specs-component-text-input/demo/data--ec';
 import template from '@ecl/twig-component-text-input/text-input.html.twig';
 
 export const textInputDefault = template(demoContentDefault);
@@ -10,7 +10,7 @@ export const textInputInvalid = template({
   ...demoContentDefault,
   invalid: true,
 });
-export const textInputOptional = template({
+export const textInputRequired = template({
   ...demoContentDefault,
-  required: false,
+  required: true,
 });
