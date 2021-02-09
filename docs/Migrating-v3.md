@@ -162,3 +162,6 @@ Most of the components have been updated without much changes. Although, there a
   - twig parameter "invalid_icon" added, to display additional icon when field is invalid
   - twig parameter "placeholder" added, to manage default content
   - twig parameter "invalid_icon_label" has been removed (not used)
+- Text-area
+  - twig parameter "invalid_icon" added, to display additional icon when field is invalid
+  - twig parameter "placeholder" added, to manage default content
