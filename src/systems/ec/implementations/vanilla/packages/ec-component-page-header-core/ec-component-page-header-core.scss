@@ -1,6 +1,6 @@
 /**
  * Page header core
- * @define page-header-core
+ * @define page-header-core; weak
  */
 
 // Import base
@@ -14,14 +14,10 @@
     margin: 0;
     padding-bottom: $ecl-spacing-xl;
 
-    // stylelint-disable max-nesting-depth, plugin/selector-bem-pattern
-    .ecl-container {
-      > :first-child:not(.ecl-page-header-core__breadcrumb) {
-        margin-top: 0;
-        padding-top: $ecl-spacing-xl;
-      }
+    .ecl-container > :first-child:not(.ecl-page-header-core__breadcrumb) {
+      margin-top: 0;
+      padding-top: $ecl-spacing-xl;
     }
-    // stylelint-enable max-nesting-depth, plugin/selector-bem-pattern
   }
 
   .ecl-page-header-core__breadcrumb {
