@@ -12,6 +12,13 @@
   .ecl-page-header-harmonised {
     margin: 0;
     padding-bottom: $ecl-spacing-xl;
+
+    .ecl-container {
+      > :first-child:not(.ecl-page-header-harmonised__breadcrumb) {
+        margin-top: 0;
+        padding-top: $ecl-spacing-xl;
+      }
+    }
   }
 
   .ecl-page-header-harmonised__breadcrumb {
