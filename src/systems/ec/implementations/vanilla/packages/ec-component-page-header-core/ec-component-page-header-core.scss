@@ -16,7 +16,7 @@
 
     // stylelint-disable max-nesting-depth, plugin/selector-bem-pattern
     .ecl-container {
-      > :first-child:not(nav) {
+      > :first-child:not(.ecl-page-header-core__breadcrumb) {
         padding-top: $ecl-spacing-xl;
       }
     }
