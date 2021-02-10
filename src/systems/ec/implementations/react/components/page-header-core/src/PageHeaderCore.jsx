@@ -22,9 +22,10 @@ const PageHeaderCore = ({
       style={image ? { backgroundImage: `url(${image})` } : {}}
     >
       <div className="ecl-container">
-        {React.cloneElement(breadcrumb, {
-          className: 'ecl-page-header-core__breadcrumb',
-        })}
+        {breadcrumb &&
+          React.cloneElement(breadcrumb, {
+            className: 'ecl-page-header-core__breadcrumb',
+          })}
         {meta && <div className="ecl-page-header-core__meta">{meta}</div>}
         {title && <h1 className="ecl-page-header-core__title">{title}</h1>}
         {description && (

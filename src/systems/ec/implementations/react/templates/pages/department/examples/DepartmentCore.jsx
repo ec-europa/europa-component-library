@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 import BreadcrumbCore, {
   BreadcrumbCoreItem,
@@ -37,6 +38,9 @@ class DepartmentCore extends React.Component {
     const optional = this.props;
     const data = getData('core');
     const dataCopy = JSON.parse(JSON.stringify(data));
+    const pageHeaderClassName = classnames({
+      'ecl-u-pt-xl': !optional.pageHeaderBreadcrumb,
+    });
 
     // Optional items
     if (!optional.siteHeaderLogin) {
@@ -52,17 +56,20 @@ class DepartmentCore extends React.Component {
       delete dataCopy.pageHeader.description;
     }
 
-    const breadcrumb = (
-      <BreadcrumbCore
-        {...dataCopy.breadcrumbContent}
-        data-ecl-auto-init="BreadcrumbCore"
-      >
-        {dataCopy.breadcrumbItems.map((item) => (
-          <BreadcrumbCoreItem {...item} key={item.label} />
-        ))}
-      </BreadcrumbCore>
-    );
-    dataCopy.pageHeader.breadcrumb = breadcrumb;
+    if (optional.pageHeaderBreadcrumb) {
+      const breadcrumb = (
+        <BreadcrumbCore
+          {...dataCopy.breadcrumbContent}
+          data-ecl-auto-init="BreadcrumbHarmonised"
+          className="ecl-breadcrumb-harmonised--group1"
+        >
+          {dataCopy.breadcrumbItems.map((item) => (
+            <BreadcrumbCoreItem {...item} key={item.label} />
+          ))}
+        </BreadcrumbCore>
+      );
+      dataCopy.pageHeader.breadcrumb = breadcrumb;
+    }
 
     return (
       <>
@@ -70,7 +77,10 @@ class DepartmentCore extends React.Component {
           {...dataCopy.siteHeader}
           data-ecl-auto-init="SiteHeaderCore"
         />
-        <PageHeaderCore {...dataCopy.pageHeader} />
+        <PageHeaderCore
+          {...dataCopy.pageHeader}
+          className={pageHeaderClassName}
+        />
         <DepartmentPage template="core" />
         <FooterCore {...dataCopy.footer} />
       </>
@@ -82,12 +92,14 @@ DepartmentCore.propTypes = {
   siteHeaderLogin: PropTypes.bool,
   pageHeaderMeta: PropTypes.bool,
   pageHeaderIntro: PropTypes.bool,
+  pageHeaderBreadcrumb: PropTypes.bool,
 };
 
 DepartmentCore.defaultProps = {
   siteHeaderLogin: true,
   pageHeaderMeta: true,
   pageHeaderIntro: true,
+  pageHeaderBreadcrumb: PropTypes.bool,
 };
 
 export default DepartmentCore;

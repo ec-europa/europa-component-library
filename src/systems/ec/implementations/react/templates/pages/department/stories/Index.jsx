@@ -150,6 +150,11 @@ export const Department = () => {
     true,
     'optional (core)'
   );
+  optional.pageHeaderBreadcrumb = boolean(
+    'Page header - Breadcrumb',
+    true,
+    'optional (core)'
+  );
   optional.pageHeaderMeta = boolean(
     'Page header - Meta',
     true,
