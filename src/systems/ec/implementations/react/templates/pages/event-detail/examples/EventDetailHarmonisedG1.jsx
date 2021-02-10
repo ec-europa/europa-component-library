@@ -40,10 +40,7 @@ class EventDetailHarmonisedG1 extends React.Component {
     const data = getData('harmonised-g1');
     const dataCopy = JSON.parse(JSON.stringify(data));
     const pageHeaderClassName = classnames(
-      'ecl-page-header-harmonised--group1',
-      {
-        'ecl-u-pt-xl': !optional.pageHeaderBreadcrumb,
-      }
+      'ecl-page-header-harmonised--group1'
     );
 
     // Optional items

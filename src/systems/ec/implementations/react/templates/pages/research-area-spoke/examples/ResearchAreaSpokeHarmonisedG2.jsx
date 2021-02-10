@@ -39,10 +39,7 @@ class ResearchAreaSpokeHarmonisedG2 extends React.Component {
     const data = getData('harmonised-g2');
     const dataCopy = JSON.parse(JSON.stringify(data));
     const pageHeaderClassName = classnames(
-      'ecl-page-header-harmonised--group2',
-      {
-        'ecl-u-pt-xl': !optional.pageHeaderBreadcrumb,
-      }
+      'ecl-page-header-harmonised--group2'
     );
 
     // Optional items
