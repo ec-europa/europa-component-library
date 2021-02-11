@@ -15,6 +15,7 @@ $_color-optional: null !default;
 $_font-optional: null !default;
 $_font-invalid: null !default;
 $_font-help: null !default;
+$_form-element-top-margin: null !default;
 
 .ecl-form-group {
   align-items: flex-start;
@@ -39,7 +40,7 @@ $_font-help: null !default;
   > *:not(.ecl-u-sr-only) + .ecl-select__container,
   > *:not(.ecl-u-sr-only) + .ecl-select__multiple,
   > *:not(.ecl-u-sr-only) + .ecl-text-area {
-    margin-top: map.get(theme.$spacing, 's');
+    margin-top: $_form-element-top-margin;
   }
 
   > *:not(.ecl-u-sr-only) + .ecl-text-input {
