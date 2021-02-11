@@ -10,7 +10,7 @@ export const textAreaInvalid = template({
   ...demoContentDefault,
   invalid: true,
 });
-export const textAreaOptional = template({
+export const textAreaRequired = template({
   ...demoContentDefault,
-  required: false,
+  required: true,
 });
