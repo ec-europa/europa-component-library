@@ -12,6 +12,7 @@ $_color-label: null !default;
 $_color-help: null !default;
 $_color-required: null !default;
 $_color-optional: null !default;
+$_font-size-optional: null !default;
 $_font-invalid: null !default;
 $_font-help: null !default;
 
@@ -96,7 +97,7 @@ $_font-help: null !default;
 
 .ecl-form-label__optional {
   color: $_color-optional;
-  font: map.get(theme.$font, 'm');
+  font: $_font-size-optional;
   font-style: italic;
   font-weight: map.get(theme.$font-weight, 'regular');
 }
