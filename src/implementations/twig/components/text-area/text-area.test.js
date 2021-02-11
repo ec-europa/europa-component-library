@@ -92,10 +92,10 @@ const testTextArea = (dataDefault, dataInvalid, dataDisabled) => {
   });
 };
 
-describe('Text field EC', () => {
+describe('Text area EC', () => {
   testTextArea(specDefaultEc, specInvalidEc, specDisabledEc);
 });
 
-describe('Text field EU', () => {
+describe('Text area EU', () => {
   testTextArea(specDefaultEu, specInvalidEu, specDisabledEu);
 });
