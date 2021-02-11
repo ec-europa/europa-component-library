@@ -1,5 +1,41 @@
 # Changelog
 
+## 2.36.0 (2021-02-11)
+
+#### :rocket: New Feature
+
+- [#1905](https://github.com/ec-europa/europa-component-library/pull/1905) feat(taxonomy): add taxonomy to several components - FRONT-1721 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#1906](https://github.com/ec-europa/europa-component-library/pull/1906) fix(preset): prevent overflow ([@emeryro](https://github.com/emeryro))
+- [#1850](https://github.com/ec-europa/europa-component-library/pull/1850) fix(file): Correct typo in image knobs option - FRONT-1926 ([@papegaill](https://github.com/papegaill))
+- [#1815](https://github.com/ec-europa/europa-component-library/pull/1815) fix(campaign): Fix hero-banner and media-container video display - FRONT-1842 ([@papegaill](https://github.com/papegaill))
+- [#1807](https://github.com/ec-europa/europa-component-library/pull/1807) fix(grid): Fix grid display example in documentation page - FRONT-1840 ([@papegaill](https://github.com/papegaill))
+
+#### :memo: Documentation
+
+- [#1920](https://github.com/ec-europa/europa-component-library/pull/1920) feat(docs): Update harmonised group 3 index ([@Yaomimi](https://github.com/Yaomimi))
+- [#1919](https://github.com/ec-europa/europa-component-library/pull/1919) feat(docs): Update harmonised group 2 page header usage page ([@Yaomimi](https://github.com/Yaomimi))
+- [#1918](https://github.com/ec-europa/europa-component-library/pull/1918) feat(docs): Update harmonised group 2 site header usage page ([@Yaomimi](https://github.com/Yaomimi))
+- [#1916](https://github.com/ec-europa/europa-component-library/pull/1916) feat(docs): Update harmonised group 1 footer usage page ([@Yaomimi](https://github.com/Yaomimi))
+- [#1915](https://github.com/ec-europa/europa-component-library/pull/1915) feat(docs): Update harmonised group 1 page header usage page ([@Yaomimi](https://github.com/Yaomimi))
+- [#1911](https://github.com/ec-europa/europa-component-library/pull/1911) feat(docs): Update Standardised page header usage page ([@Yaomimi](https://github.com/Yaomimi))
+- [#1912](https://github.com/ec-europa/europa-component-library/pull/1912) feat(docs): Update Standardised footer usage page ([@Yaomimi](https://github.com/Yaomimi))
+- [#1914](https://github.com/ec-europa/europa-component-library/pull/1914) feat(docs): Update harmonised group 1 site header usage page ([@Yaomimi](https://github.com/Yaomimi))
+- [#1917](https://github.com/ec-europa/europa-component-library/pull/1917) feat(docs): Update harmonised group 2 index ([@Yaomimi](https://github.com/Yaomimi))
+- [#1913](https://github.com/ec-europa/europa-component-library/pull/1913) feat(docs): Update harmonised group 1 index ([@Yaomimi](https://github.com/Yaomimi))
+- [#1909](https://github.com/ec-europa/europa-component-library/pull/1909) feat(docs): Update standardised family index ([@Yaomimi](https://github.com/Yaomimi))
+- [#1908](https://github.com/ec-europa/europa-component-library/pull/1908) feat(docs): Update Core site header usage page ([@Yaomimi](https://github.com/Yaomimi))
+- [#1910](https://github.com/ec-europa/europa-component-library/pull/1910) feat(docs): Update Standardise site header usage page ([@Yaomimi](https://github.com/Yaomimi))
+- [#1907](https://github.com/ec-europa/europa-component-library/pull/1907) feat(docs): Update Core family index ([@Yaomimi](https://github.com/Yaomimi))
+
+#### Committers: 3
+
+- Alexis Gaillard ([@papegaill](https://github.com/papegaill))
+- Jean YAO ([@Yaomimi](https://github.com/Yaomimi))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
 ## 2.35.0 (2020-11-26)
 
 #### :bug: Bug Fix
