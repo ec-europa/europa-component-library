@@ -1,6 +1,6 @@
 /**
  * Page header
- * @define page-header
+ * @define page-header; weak
  */
 
 // Import base
@@ -14,6 +14,11 @@
     color: $ecl-color-white-100;
     margin: 0;
     padding-bottom: $ecl-spacing-xl;
+
+    .ecl-container > :first-child:not(.ecl-page-header__breadcrumb) {
+      margin-top: 0;
+      padding-top: $ecl-spacing-xl;
+    }
   }
 
   .ecl-page-header__breadcrumb {
