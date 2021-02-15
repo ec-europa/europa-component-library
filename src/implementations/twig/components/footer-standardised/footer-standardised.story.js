@@ -5,13 +5,14 @@ import getSystem from '@ecl/builder/utils/getSystem';
 
 import specsEc from '@ecl/specs-component-footer-standardised/demo/data--ec';
 import specsEu from '@ecl/specs-component-footer-standardised/demo/data--eu';
-import logoEuMobile from '@ecl/resources-eu-logo/condensed-version/positive/en.svg';
-import logoEuDesktop from '@ecl/resources-eu-logo/standard-version/positive/en.svg';
+import logoEuMobile from '@ecl/resources-eu-logo/condensed-version/positive/logo-eu--en.svg';
+import logoEuDesktop from '@ecl/resources-eu-logo/standard-version/positive/logo-eu--en.svg';
 import footer from './footer-standardised.html.twig';
 import notes from './README.md';
 
 const system = getSystem();
 const demoData = system === 'eu' ? specsEu : specsEc;
+
 
 const getArgTypes = () => {
   const argTypes = {};

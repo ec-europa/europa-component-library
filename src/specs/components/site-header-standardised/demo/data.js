@@ -4,7 +4,7 @@ module.exports = {
     alt: 'European Commission logo',
     path: '/example',
     language: 'en',
-    src_desktop: 'logo--en.svg',
+    src_desktop: 'logo-ec--en.svg',
   },
   menu: {
     title: 'Menu',
