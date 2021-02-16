@@ -92,7 +92,16 @@ $_padding-horizontal: null !default;
   }
 
   &:hover {
-    outline-width: 0;
+    border-color: rgba($_border-color, 0.5);
+    box-shadow: $_shadow;
+  }
+
+  &:focus,
+  &:active {
+    border-color: rgba($_border-color, 0.5);
+    border-width: $_border-width;
+    padding: calc(#{$_padding-vertical} - #{$_border-width})
+      calc(#{$_padding-horizontal} - #{$_border-width});
   }
 }
 
