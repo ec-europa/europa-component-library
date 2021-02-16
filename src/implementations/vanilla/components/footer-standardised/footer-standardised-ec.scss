@@ -71,14 +71,18 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
   padding-bottom: map.get(theme.$spacing, 'xs');
 }
 
-.ecl-footer-standardised__title,
+.ecl-footer-standardised__title {
+  color: $_text-color;
+  font: map.get(theme.$font, 'm');
+  font-weight: map.get(theme.$font-weight, 'bold');
+  margin: 0;
+}
+
 .ecl-footer-standardised__title-link,
 .ecl-footer-standardised__title-link:hover,
 .ecl-footer-standardised__title-link:focus,
 .ecl-footer-standardised__title-link:active {
   color: $_text-color;
-  font: map.get(theme.$font, 'm');
-  font-weight: map.get(theme.$font-weight, 'bold');
 }
 
 .ecl-footer-standardised__description {

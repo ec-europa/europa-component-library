@@ -70,13 +70,17 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'xl');
   padding-top: 0;
 }
 
-.ecl-footer-standardised__title,
+.ecl-footer-standardised__title {
+  color: $_text-color;
+  font: map.get(theme.$font, '2xl');
+  margin: 0;
+}
+
 .ecl-footer-standardised__title-link,
 .ecl-footer-standardised__title-link:hover,
 .ecl-footer-standardised__title-link:focus,
 .ecl-footer-standardised__title-link:visited {
   color: $_text-color;
-  font: map.get(theme.$font, '2xl');
 }
 
 .ecl-footer-standardised__title--separator {
