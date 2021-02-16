@@ -72,9 +72,10 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
 }
 
 .ecl-footer-standardised__title,
-.ecl-footer-standardised__title:hover,
-.ecl-footer-standardised__title:focus,
-.ecl-footer-standardised__title:active {
+.ecl-footer-standardised__title-link,
+.ecl-footer-standardised__title-link:hover,
+.ecl-footer-standardised__title-link:focus,
+.ecl-footer-standardised__title-link:active {
   color: $_text-color;
   font: map.get(theme.$font, 'm');
   font-weight: map.get(theme.$font-weight, 'bold');

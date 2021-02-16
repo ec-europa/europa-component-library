@@ -99,17 +99,17 @@
             {% if _sections.title_with_separator %}
               {% set _title_class_name = _title_class_name ~ ' ecl-footer-standardised__title--separator' %}
             {% endif %}
-            {% if _sections.title.link is defined and _sections.title.link is not empty %}
-              {% include '@ecl/link/link.html.twig' with _sections|merge({
-                link: _sections.title.link|merge({ type: 'standalone'}),
-                extra_classes: _title_class_name,
-                icon: _sections.title.icon|default({}),
-              }) only %}
-            {% else %}
-              <div class="{{ _title_class_name }}">
+            <h2 class="{{ _title_class_name }}">
+              {% if _sections.title.link is defined and _sections.title.link is not empty %}
+                {% include '@ecl/link/link.html.twig' with _sections|merge({
+                  link: _sections.title.link|merge({ type: 'standalone'}),
+                  extra_classes: 'ecl-footer-standardised__title-link',
+                  icon: _sections.title.icon|default({}),
+                }) only %}
+              {% else %}
                 {{- _sections.title -}}
-              </div>
-            {% endif %}
+              {% endif %}
+            </h2>
           {% endif %}
           {# description #}
           {% if _sections.description is defined and _sections.description is not empty %}

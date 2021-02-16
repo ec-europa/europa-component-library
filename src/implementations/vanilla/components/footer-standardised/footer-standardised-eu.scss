@@ -71,9 +71,10 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'xl');
 }
 
 .ecl-footer-standardised__title,
-.ecl-footer-standardised__title:hover,
-.ecl-footer-standardised__title:focus,
-.ecl-footer-standardised__title:visited {
+.ecl-footer-standardised__title-link,
+.ecl-footer-standardised__title-link:hover,
+.ecl-footer-standardised__title-link:focus,
+.ecl-footer-standardised__title-link:visited {
   color: $_text-color;
   font: map.get(theme.$font, '2xl');
 }
