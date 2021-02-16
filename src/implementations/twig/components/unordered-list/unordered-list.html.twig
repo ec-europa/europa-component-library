@@ -53,7 +53,7 @@
 
   {# Print the result #}
   {% if _items is not empty %}
-    <ul class="{{ _css_class }}"{{ _extra_attributes }}>
+    <ul class="{{ _css_class }}"{{ _extra_attributes|raw }}>
       {% for _item in _items %}
         {% if _item is not empty %}
           <li class="ecl-unordered-list__item">

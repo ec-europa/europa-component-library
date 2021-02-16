@@ -57,9 +57,9 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
     {% endif %}
   {% endfor %}
 {% endif %}
@@ -69,7 +69,7 @@
   data-ecl-menu
   data-ecl-auto-init="Menu"
   aria-expanded="false"
-  {{ _extra_attributes }}
+  {{ _extra_attributes|raw }}
 >
   <div class="ecl-menu__overlay" data-ecl-menu-overlay></div>
   <div class="ecl-container ecl-menu__container">

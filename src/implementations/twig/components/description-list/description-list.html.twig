@@ -39,9 +39,9 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
     {% endif %}
   {% endfor %}
 {% endif %}
@@ -49,7 +49,7 @@
 {# Print the result #}
 
 {% if _items is not empty and _items is iterable %}
-  <dl class="{{ _css_class }}"{{ _extra_attributes }}>
+  <dl class="{{ _css_class }}"{{ _extra_attributes|raw }}>
     {% for _item in _items %}
       {% if _item.term is not empty %}
         {% if _item.term is iterable %}

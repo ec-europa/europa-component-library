@@ -52,7 +52,7 @@
       {% set _image_alt = _item.alt %}
     {% endif %}
     {# Use Arial only for image. #}
-    {% set _use_arial = 'aria-label="' ~ _image_alt ~ '"' %}
+    {% set _use_arial = 'aria-label="' ~ _image_alt|e('html_attr') ~ '"' %}
   {% endif %}
   {% if _item.embedded_video is defined and _item.embedded_video is not empty %}
     {% set _media_iframe_href = _item.embedded_video.src %}
@@ -62,20 +62,20 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
     {% endif %}
   {% endfor %}
 {% endif %}
 
 {# Print the result #}
 
-<li class="{{ _css_class }}"{{ _extra_attributes }}>
+<li class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <a
     href="{{ _media_iframe_href ? _media_iframe_href : _media_href }}"
     class="ecl-gallery__item-link"
-    {{ _use_arial }}
+    {{ _use_arial|raw }}
     data-ecl-gallery-item
     {% if _media_share_path is not empty %}
       data-ecl-gallery-item-share="{{ _media_share_path }}"
