@@ -1,7 +1,7 @@
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 
 import englishData from '@ecl/specs-component-site-header-core/demo/data';
-import frenchData from '@ecl/specs-component-site-header-core//demo/data--fr';
+import frenchData from '@ecl/specs-component-site-header-core/demo/data--fr';
 import dataMenuEn from '@ecl/specs-component-menu/demo/data--en';
 import dataMenuFr from '@ecl/specs-component-menu/demo/data--fr';
 

@@ -67,7 +67,7 @@ npm install --save @ecl/twig-component-site-header-harmonised
     title: 'European Commission', 
     alt: 'European Commission logo', 
     href: '/example', 
-    src: 'dist/images/logo--en.svg', 
+    src: 'dist/images/logo-ec--en.svg', 
   }, 
   language_selector: { 
     href: '/example', 

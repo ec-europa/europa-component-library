@@ -1,14 +1,14 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { withKnobs, text } from '@storybook/addon-knobs';
-import { getExtraKnobs, tabLabels } from '@ecl/story-utils';
+import { tabLabels } from '@ecl/story-utils';
 import he from 'he';
 
 import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import specsEc from '@ecl/specs-component-footer-core/demo/data--ec';
 import specsEu from '@ecl/specs-component-footer-core/demo/data--eu';
-import logoEuMobile from '@ecl/resources-eu-logo/condensed-version/positive/en.svg';
-import logoEuDesktop from '@ecl/resources-eu-logo/standard-version/positive/en.svg';
+import logoEuMobile from '@ecl/resources-eu-logo/condensed-version/positive/logo-eu--en.svg';
+import logoEuDesktop from '@ecl/resources-eu-logo/standard-version/positive/logo-eu--en.svg';
 import footer from './footer-core.html.twig';
 import notes from './README.md';
 
@@ -194,8 +194,6 @@ const formatFooter = (data) => {
       });
     }
   });
-
-  getExtraKnobs(data);
 
   return data;
 };
