@@ -13,7 +13,6 @@ import notes from './README.md';
 const system = getSystem();
 const demoData = system === 'eu' ? specsEu : specsEc;
 
-
 const getArgTypes = () => {
   const argTypes = {};
   argTypes.hide_contact = {
