@@ -8,6 +8,7 @@
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 $_form-width-desktop: 31.25rem;
+$_form-width-tablet: 25rem;
 $_button-border-color: null !default;
 $_button-border-width: 1px;
 $_button-background-color: null !default;
@@ -98,9 +99,9 @@ $_button-outline-width: null !default;
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
+@include breakpoints.up('m') {
   .ecl-search-form {
-    max-width: $_form-width-desktop;
+    max-width: $_form-width-tablet;
   }
 
   .ecl-search-form__button {
@@ -127,5 +128,12 @@ $_button-outline-width: null !default;
 
   .ecl-search-form__button .ecl-button__icon {
     display: none;
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('l') {
+  .ecl-search-form {
+    max-width: $_form-width-desktop;
   }
 }
