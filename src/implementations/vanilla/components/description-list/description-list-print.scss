@@ -32,12 +32,12 @@ $_definition-width: 68%;
 
 .ecl-description-list--taxonomy {
   .ecl-description-list__definition {
-    margin-bottom: -#{map.get(theme.$spacing, 'xs')};
+    margin-bottom: -#{map.get(theme.$spacing-print, 'xs')};
   }
 
   .ecl-description-list__tag {
-    margin-bottom: map.get(theme.$spacing, 'xs');
-    margin-right: map.get(theme.$spacing, 'xs');
+    margin-bottom: map.get(theme.$spacing-print, 'xs');
+    margin-right: map.get(theme.$spacing-print, 'xs');
   }
 
   .ecl-description-list__tag:last-of-type {
@@ -69,7 +69,7 @@ $_definition-width: 68%;
     margin-top: map.get(theme.$spacing-print, 'm');
     overflow-wrap: break-word;
     padding-left: 0;
-    width: calc(#{$_definition-width} - #{map.get(theme.$spacing, 'xl')});
+    width: calc(#{$_definition-width} - #{map.get(theme.$spacing-print, 'xl')});
   }
 
   .ecl-description-list__definition:first-of-type {
@@ -79,13 +79,13 @@ $_definition-width: 68%;
 
 .ecl-description-list + .ecl-description-list--taxonomy {
   border-top: 1px solid map.get(theme.$color, 'grey-20');
-  margin-top: map.get(theme.$spacing, 'm');
-  padding-top: map.get(theme.$spacing, 'm');
+  margin-top: map.get(theme.$spacing-print, 'm');
+  padding-top: map.get(theme.$spacing-print, 'm');
 }
 
 @include breakpoints.up('l') {
   .ecl-description-list + .ecl-description-list--taxonomy {
-    margin-top: map.get(theme.$spacing, 'l');
-    padding-top: map.get(theme.$spacing, 'l');
+    margin-top: map.get(theme.$spacing-print, 'l');
+    padding-top: map.get(theme.$spacing-print, 'l');
   }
 }
