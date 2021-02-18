@@ -1,6 +1,7 @@
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 import dataDescriptionListDefault from '@ecl/specs-component-description-list/demo/data--default';
 import dataDescriptionListHorizontal from '@ecl/specs-component-description-list/demo/data--horizontal';
+import dataDescriptionListTaxonomy from '@ecl/specs-component-description-list/demo/data--taxonomy';
 
 describe('Description list', () => {
   const template = '@ecl/description-list/description-list.html.twig';
@@ -23,6 +24,14 @@ describe('Description list', () => {
       });
 
       return expect(render(horizontal)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly in the taxonomy variant', () => {
+      expect.assertions(1);
+
+      return expect(
+        render(dataDescriptionListTaxonomy)
+      ).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
