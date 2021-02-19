@@ -121,11 +121,8 @@ const getArgTypes = (data) => {
       name: 'Display additional list',
       type: 'boolean',
       defaultValue: true,
-      description: 'Show/hide description list in the footer',
+      description: 'Show/hide description list in the card footer',
       table: {
-        type: {
-          summary: '',
-        },
         category: 'Card footer',
       },
     };
@@ -133,11 +130,8 @@ const getArgTypes = (data) => {
       name: 'Display taxonomy list',
       type: 'boolean',
       defaultValue: true,
-      description: 'Show/hide taxonomy list in the footer',
+      description: 'Show/hide taxonomy list in the card footer',
       table: {
-        type: {
-          summary: '',
-        },
         category: 'Card footer',
       },
     };
