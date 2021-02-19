@@ -6,6 +6,7 @@ import demoContentOrdered from '@ecl/specs-component-ordered-list/demo/data';
 
 import demoContentDescriptionDefault from '@ecl/specs-component-description-list/demo/data--default';
 import demoContentDescriptionHorizontal from '@ecl/specs-component-description-list/demo/data--horizontal';
+import demoContentDescriptionTaxonomy from '@ecl/specs-component-description-list/demo/data--taxonomy';
 
 import templateUnordered from '@ecl/twig-component-unordered-list/unordered-list.html.twig';
 import templateOrdered from '@ecl/twig-component-ordered-list/ordered-list.html.twig';
@@ -24,4 +25,7 @@ export const listDescription = templateDescription(
 );
 export const listDescriptionHorizontal = templateDescription(
   demoContentDescriptionHorizontal
+);
+export const listDescriptionTaxonomy = templateDescription(
+  demoContentDescriptionTaxonomy
 );
