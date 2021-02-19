@@ -1,6 +1,7 @@
 // Simple content for demo
 module.exports = {
   card: {
+    type: 'tile',
     lists: [
       {
         variant: 'horizontal',
