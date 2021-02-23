@@ -12,8 +12,10 @@ $_color-label: null !default;
 $_color-help: null !default;
 $_color-required: null !default;
 $_color-optional: null !default;
+$_font-optional: null !default;
 $_font-invalid: null !default;
 $_font-help: null !default;
+$_form-element-top-margin: null !default;
 
 .ecl-form-group {
   align-items: flex-start;
@@ -38,7 +40,7 @@ $_font-help: null !default;
   > *:not(.ecl-u-sr-only) + .ecl-select__container,
   > *:not(.ecl-u-sr-only) + .ecl-select__multiple,
   > *:not(.ecl-u-sr-only) + .ecl-text-area {
-    margin-top: map.get(theme.$spacing, 's');
+    margin-top: $_form-element-top-margin;
   }
 
   > *:not(.ecl-u-sr-only) + .ecl-text-input {
@@ -96,7 +98,7 @@ $_font-help: null !default;
 
 .ecl-form-label__optional {
   color: $_color-optional;
-  font: map.get(theme.$font, 'm');
+  font: $_font-optional;
   font-style: italic;
   font-weight: map.get(theme.$font-weight, 'regular');
 }

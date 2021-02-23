@@ -1,6 +1,6 @@
 /**
  * Page header harmonised
- * @define page-header-harmonised
+ * @define page-header-harmonised; weak
  */
 
 @use "sass:map";
@@ -10,6 +10,11 @@
 .ecl-page-header-harmonised {
   margin: 0;
   padding-bottom: map.get(theme.$spacing, 'xl');
+
+  .ecl-container > :first-child:not(.ecl-page-header-harmonised__breadcrumb) {
+    margin-top: 0;
+    padding-top: map.get(theme.$spacing, 'xl');
+  }
 }
 
 .ecl-page-header-harmonised__breadcrumb {

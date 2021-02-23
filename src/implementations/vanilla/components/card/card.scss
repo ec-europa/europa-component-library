@@ -116,6 +116,33 @@ $_color-info: map.get(theme.$color, 'grey-75');
   }
 }
 
+.ecl-card__list {
+  flex-direction: column;
+  margin-top: map.get(theme.$spacing, 'm');
+  max-width: 100%;
+
+  /* stylelint-disable plugin/selector-bem-pattern */
+  .ecl-description-list__term {
+    width: auto;
+  }
+
+  .ecl-description-list__definition {
+    margin-left: 0;
+    margin-top: map.get(theme.$spacing, '2xs');
+    width: auto;
+  }
+
+  .ecl-description-list__definition:first-of-type {
+    margin-top: map.get(theme.$spacing, '2xs');
+  }
+
+  /* stylelint-enable plugin/selector-bem-pattern */
+  + .ecl-card__list {
+    margin-top: map.get(theme.$spacing, 'm');
+    padding-top: map.get(theme.$spacing, 'm');
+  }
+}
+
 /*
   * Tiles
   */

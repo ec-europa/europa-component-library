@@ -359,7 +359,7 @@ exports[`Card Default renders correctly with extra class names 1`] = `
 </article>
 `;
 
-exports[`Card Events renders correctly 1`] = `
+exports[`Card Default renders correctly with lists 1`] = `
 <article
   class="ecl-card"
 >
@@ -372,6 +372,11 @@ exports[`Card Events renders correctly 1`] = `
       role="img"
       style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
     />
+    <div
+      class="ecl-card__meta"
+    >
+      Meta1 | Meta2
+    </div>
     <h1
       class="ecl-card__title"
     >
@@ -435,168 +440,87 @@ exports[`Card Events renders correctly 1`] = `
         </span>
       </li>
     </ul>
-  </footer>
-</article>
-`;
-
-exports[`Card Events renders correctly with extra attributes 1`] = `
-<article
-  class="ecl-card"
-  data-test="data-test-value"
-  data-test-1="data-test-value-1"
->
-  <header
-    class="ecl-card__header"
-  >
-    <div
-      aria-label="card image"
-      class="ecl-card__image"
-      role="img"
-      style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-    />
-    <h1
-      class="ecl-card__title"
+    <dl
+      class="ecl-description-list ecl-description-list--horizontal ecl-card__list"
     >
-      <a
-        class="ecl-link ecl-link--standalone"
-        href="/example"
+      <dt
+        class="ecl-description-list__term"
       >
-        Better regulation
-      </a>
-    </h1>
-  </header>
-  <div
-    class="ecl-card__body"
-  >
-    <div
-      class="ecl-card__description"
-    >
-      Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
-    </div>
-  </div>
-  <footer
-    class="ecl-card__footer"
-  >
-    <ul
-      class="ecl-card__info-container"
-    >
-      <li
-        class="ecl-card__info-item"
+        EU contribution
+      </dt>
+      <dd
+        class="ecl-description-list__definition"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#general--calendar"
-          />
-        </svg>
+        1.000.000,00 euro (100% of the overall budget)
+      </dd>
+    </dl>
+    <dl
+      class="ecl-description-list ecl-description-list--taxonomy ecl-card__list"
+    >
+      <dt
+        class="ecl-description-list__term"
+      >
+        Science areas
+      </dt>
+      <dd
+        class="ecl-description-list__definition"
+      >
         <span
-          class="ecl-card__info-label"
+          class="ecl-tag ecl-tag--display ecl-description-list__tag"
         >
-          2018/10/22
+          Energy and transport
         </span>
-      </li>
-      <li
-        class="ecl-card__info-item"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#general--location"
-          />
-        </svg>
         <span
-          class="ecl-card__info-label"
+          class="ecl-tag ecl-tag--display ecl-description-list__tag"
         >
-          Luxembourg
+          Standards
         </span>
-      </li>
-    </ul>
-  </footer>
-</article>
-`;
-
-exports[`Card Events renders correctly with extra class names 1`] = `
-<article
-  class="ecl-card custom-class custom-class--test"
->
-  <header
-    class="ecl-card__header"
-  >
-    <div
-      aria-label="card image"
-      class="ecl-card__image"
-      role="img"
-      style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-    />
-    <h1
-      class="ecl-card__title"
-    >
-      <a
-        class="ecl-link ecl-link--standalone"
-        href="/example"
+      </dd>
+      <dt
+        class="ecl-description-list__term"
       >
-        Better regulation
-      </a>
-    </h1>
-  </header>
-  <div
-    class="ecl-card__body"
-  >
-    <div
-      class="ecl-card__description"
-    >
-      Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
-    </div>
-  </div>
-  <footer
-    class="ecl-card__footer"
-  >
-    <ul
-      class="ecl-card__info-container"
-    >
-      <li
-        class="ecl-card__info-item"
+        Keywords
+      </dt>
+      <dd
+        class="ecl-description-list__definition"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#general--calendar"
-          />
-        </svg>
         <span
-          class="ecl-card__info-label"
+          class="ecl-tag ecl-tag--display ecl-description-list__tag"
         >
-          2018/10/22
+          Electricity
         </span>
-      </li>
-      <li
-        class="ecl-card__info-item"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#general--location"
-          />
-        </svg>
         <span
-          class="ecl-card__info-label"
+          class="ecl-tag ecl-tag--display ecl-description-list__tag"
         >
-          Luxembourg
+          Electromobility
         </span>
-      </li>
-    </ul>
+        <span
+          class="ecl-tag ecl-tag--display ecl-description-list__tag"
+        >
+          Energy
+        </span>
+        <span
+          class="ecl-tag ecl-tag--display ecl-description-list__tag"
+        >
+          Energy storage
+        </span>
+        <span
+          class="ecl-tag ecl-tag--display ecl-description-list__tag"
+        >
+          Security
+        </span>
+        <span
+          class="ecl-tag ecl-tag--display ecl-description-list__tag"
+        >
+          Transport
+        </span>
+        <span
+          class="ecl-tag ecl-tag--display ecl-description-list__tag"
+        >
+          Low carbon
+        </span>
+      </dd>
+    </dl>
   </footer>
 </article>
 `;
@@ -786,5 +710,104 @@ exports[`Card Tile renders correctly with extra class names 1`] = `
   <footer
     class="ecl-card__footer"
   />
+</article>
+`;
+
+exports[`Card Tile renders correctly with lists 1`] = `
+<article
+  class="ecl-card ecl-card--tile"
+>
+  <header
+    class="ecl-card__header"
+  >
+    <h1
+      class="ecl-card__title"
+    />
+  </header>
+  <footer
+    class="ecl-card__footer"
+  >
+    <dl
+      class="ecl-description-list ecl-description-list--horizontal ecl-card__list"
+    >
+      <dt
+        class="ecl-description-list__term"
+      >
+        EU contribution
+      </dt>
+      <dd
+        class="ecl-description-list__definition"
+      >
+        1.000.000,00 euro (100% of the overall budget)
+      </dd>
+    </dl>
+    <dl
+      class="ecl-description-list ecl-description-list--taxonomy ecl-card__list"
+    >
+      <dt
+        class="ecl-description-list__term"
+      >
+        Science areas
+      </dt>
+      <dd
+        class="ecl-description-list__definition"
+      >
+        <span
+          class="ecl-tag ecl-tag--display ecl-description-list__tag"
+        >
+          Energy and transport
+        </span>
+        <span
+          class="ecl-tag ecl-tag--display ecl-description-list__tag"
+        >
+          Standards
+        </span>
+      </dd>
+      <dt
+        class="ecl-description-list__term"
+      >
+        Keywords
+      </dt>
+      <dd
+        class="ecl-description-list__definition"
+      >
+        <span
+          class="ecl-tag ecl-tag--display ecl-description-list__tag"
+        >
+          Electricity
+        </span>
+        <span
+          class="ecl-tag ecl-tag--display ecl-description-list__tag"
+        >
+          Electromobility
+        </span>
+        <span
+          class="ecl-tag ecl-tag--display ecl-description-list__tag"
+        >
+          Energy
+        </span>
+        <span
+          class="ecl-tag ecl-tag--display ecl-description-list__tag"
+        >
+          Energy storage
+        </span>
+        <span
+          class="ecl-tag ecl-tag--display ecl-description-list__tag"
+        >
+          Security
+        </span>
+        <span
+          class="ecl-tag ecl-tag--display ecl-description-list__tag"
+        >
+          Transport
+        </span>
+        <span
+          class="ecl-tag ecl-tag--display ecl-description-list__tag"
+        >
+          Low carbon
+        </span>
+      </dd>
+    </dl>
+  </footer>
 </article>
 `;

@@ -89,6 +89,17 @@ $_image-width: 13.125rem;
   max-width: $_image-width;
 }
 
+.ecl-file__taxonomy {
+  border-bottom: 1px solid map.get(theme.$color, 'grey-20');
+  margin-bottom: map.get(theme.$spacing-print, 'm');
+  padding-bottom: map.get(theme.$spacing-print, 'm');
+  width: 100%;
+}
+
+.ecl-file__label {
+  margin-bottom: map.get(theme.$spacing-print, 'm');
+}
+
 .ecl-file__description {
   color: map.get(theme.$color, 'black');
   font: map.get(theme.$font-prolonged-print, 'm');

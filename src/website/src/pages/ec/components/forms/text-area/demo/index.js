@@ -1,4 +1,4 @@
-import demoContentDefault from '@ecl/specs-component-text-area/demo/data';
+import demoContentDefault from '@ecl/specs-component-text-area/demo/data--ec';
 import template from '@ecl/twig-component-text-area/text-area.html.twig';
 
 export const textAreaDefault = template(demoContentDefault);
@@ -10,7 +10,7 @@ export const textAreaInvalid = template({
   ...demoContentDefault,
   invalid: true,
 });
-export const textAreaOptional = template({
+export const textAreaRequired = template({
   ...demoContentDefault,
-  required: false,
+  required: true,
 });
