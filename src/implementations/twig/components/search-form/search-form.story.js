@@ -68,6 +68,9 @@ const prepareData = (data, args) => {
 
 export default {
   title: 'Components/Forms/Search Form',
+  parameters: {
+    knobs: { disable: true },
+  },
 };
 
 export const Default = (args) => searchForm(prepareData(dataDefault, args));
