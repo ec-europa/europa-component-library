@@ -48,7 +48,7 @@ The ECL is bundled in various [presets](docs/06-presets.md) in order to accomoda
 
   ```html
   <script
-    src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.36.0/ec-preset-website/styles/ecl-ec-preset-website.js"
+    src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.36.0/ec-preset-website/scripts/ecl-ec-preset-website.js"
     integrity="sha256-R8N+VBqopN53BNr8sMgmEVoI0G7r2hZYkEJjaLwmXDI= sha384-bh5JrVMOiDx7DvHit0KcTjZ4hq4D+PC8tZjoJNCvc529rikJQqJJUM9BRm0NVI/q sha512-Cg7gWRpGf291Jvh0lyjbLNcIElLjBnkxMm7z4G4Ux+xXyIvK3jOIHJpBaoyFLdTpdS4ej1loKpVKOZbzXJJVCA=="
     crossorigin="anonymous"
   ></script>
