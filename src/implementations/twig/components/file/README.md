@@ -16,6 +16,12 @@ npm install --save @ecl/twig-component-file
 - **"meta"** (string) (default: '')
 - **"detail_meta"** (array) (default: []) Meta element for the thumbnail variant
 - **"download"** (object) (default: {}): object of type Link
+- **"image"** (object) (default: {}): image for the thumbnail variant
+- **"label"** (object) (default: {}) label for the thumbnail variant
+- **"lists"** (array) (default: []) Array of objects of type "description list"
+  - "variant" (optional) (taxonomy or horizontal)
+  - "items" (array)
+    - term (string)
 - **"translation"** (array) (default: []):
   - "toggle" (object) (default: {}): object of type Button
   - "items" (array) (default: []):

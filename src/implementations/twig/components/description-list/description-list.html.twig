@@ -5,11 +5,11 @@
     - "items" (array) (default: []): format: [
         {
           "term" (string or array of string)
-          "definition" (string or array of string)
+          "definition" (string or array of string or array of objects of type tag)
         },
         ...
       ]
-    - "variant" (string) (default: '')
+    - "variant" (string) (default: '') (horizontal, vertical, taxonomy)
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -62,9 +62,22 @@
       {% endif %}
       {% if _item.definition is not empty %}
         {% if _item.definition is iterable %}
+          {% if _item.definition[0].label is defined %}
+            <dd class="ecl-description-list__definition">
+          {% endif %}
           {% for _definition in _item.definition %}
-            <dd class="ecl-description-list__definition">{{ _definition }}</dd>
+            {% if _definition.label is not defined %}
+              <dd class="ecl-description-list__definition">{{ _definition }}</dd>
+            {% else %}
+              {% include '@ecl/tag/tag.html.twig' with {
+                tag: _definition|merge({ type: 'display' }),
+                extra_classes: 'ecl-description-list__tag'
+              } only %}
+            {% endif %}
           {% endfor %}
+          {% if _item.definition[0].label is defined %}
+            </dd>
+          {% endif %}
         {% else %}
           <dd class="ecl-description-list__definition">{{ _item.definition }}</dd>
         {% endif %}
