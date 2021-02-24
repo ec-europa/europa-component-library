@@ -28,7 +28,7 @@ $_menu-link-active-border-color: null !default;
 $_menu-link-border-radius: null !default;
 $_menu-link-border-width: null !default;
 $_menu-link-border-focus-color: null !default;
-$_menu-link-desktop-padding-bottom: null !default;
+$_menu-link-desktop-height: null !default;
 $_menu-link-hover-background: null !default;
 $_menu-link-focus-background: null !default;
 $_menu-link-focus-color: null !default;
@@ -444,16 +444,15 @@ $_mobile-item-hover-background: null !default;
     }
 
     .ecl-menu__link {
+      align-items: baseline;
       background-color: transparent;
       border: $_menu-link-border-width solid transparent;
       border-radius: $_menu-link-border-radius;
       box-sizing: border-box;
       color: map.get(theme.$color, 'white');
       display: inline-flex;
-      height: 100%;
-      padding-bottom: $_menu-link-desktop-padding-bottom;
-      padding-left: map.get(theme.$spacing, 'm');
-      padding-right: map.get(theme.$spacing, 'm');
+      min-height: $_menu-link-desktop-height;
+      padding-bottom: 0;
       padding-top: calc(
         #{map.get(theme.$spacing, 'm')} - #{$_menu-link-border-width}
       );
@@ -470,9 +469,6 @@ $_mobile-item-hover-background: null !default;
     .ecl-menu__item--current .ecl-menu__link {
       background-color: $_menu-link-active-background;
       border-bottom: 4px solid $_menu-link-active-border-color;
-      padding-bottom: calc(
-        #{$_menu-link-desktop-padding-bottom} - (4px - #{$_menu-link-border-width})
-      );
     }
 
     .ecl-menu__link:focus {
@@ -480,7 +476,6 @@ $_mobile-item-hover-background: null !default;
       border: $_menu-link-border-width solid $_menu-link-border-focus-color;
       color: $_menu-link-focus-color;
       outline: none;
-      padding-bottom: $_menu-link-desktop-padding-bottom;
     }
 
     .ecl-menu__item--has-children .ecl-menu__link {
