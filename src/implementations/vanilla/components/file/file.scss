@@ -113,6 +113,17 @@ $_image-width: 13.125rem; // Same as content item
   max-width: $_image-width;
 }
 
+.ecl-file__taxonomy {
+  border-bottom: 1px solid map.get(theme.$color, 'grey-20');
+  margin-bottom: map.get(theme.$spacing, 'm');
+  padding-bottom: map.get(theme.$spacing, 'm');
+  width: 100%;
+}
+
+.ecl-file__label {
+  margin-bottom: map.get(theme.$spacing, 'm');
+}
+
 .ecl-file__translation-language {
   color: map.get(theme.$color, 'grey');
   font: map.get(theme.$font, 's');
@@ -236,6 +247,11 @@ $_image-width: 13.125rem; // Same as content item
     align-self: flex-start;
     margin-left: map.get(theme.$spacing, 'l');
     margin-top: 0;
+  }
+
+  .ecl-file__taxonomy {
+    margin-bottom: map.get(theme.$spacing, 'l');
+    padding-bottom: map.get(theme.$spacing, 'l');
   }
 }
 

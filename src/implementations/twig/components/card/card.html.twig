@@ -23,7 +23,18 @@
               path: (string) (default: ''): Link url (href attribute)
             },
             ...
-          ]
+          ],
+          lists [], (array) (default: []) Array of objects of type "description list". Format: [
+            {
+              - "variant" (optional) (taxonomy or horizontal)
+              - "items" (array) [
+                {
+                  - term (string)
+                  - definition (string, array of strings or array of objects)
+                }
+              ],
+            },
+          ],
         },
     - "icon_path" (string) (default: '') Path to the icons file
     - "extra_classes" (string) (default: '')
@@ -156,6 +167,11 @@
           </li>
         {% endfor %}
       </ul>
+    {% endif %}
+    {% if _card.lists is defined and _card.lists is not empty and _card.lists is iterable %}
+      {% for _list in _card.lists %}
+        {% include '@ecl/description-list/description-list.html.twig' with _list|merge({ extra_classes: 'ecl-card__list'}) only %}
+      {% endfor %}
     {% endif %}
   </footer>
 </article>

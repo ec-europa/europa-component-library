@@ -10,8 +10,8 @@ npm install --save @ecl/twig-component-description-list
 
 - **"items"** (array) (default: [])
   - "term" (string or array of string)
-  - "definition" (string or array of string)
-- **"variant"** (optional) (string) (default: '') Modifier of the component
+  - "definition" (string or array of string or array of objects of type "tag")
+- **"variant"** (optional) (string) (default: '') Modifier of the component (horizontal, vertical, taxonomy)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
