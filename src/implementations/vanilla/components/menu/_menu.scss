@@ -34,7 +34,6 @@ $_menu-link-desktop-height: null !default;
 $_menu-link-hover-background: null !default;
 $_menu-link-focus-background: null !default;
 $_menu-link-focus-color: null !default;
-$_menu-link-hover-color: null !default;
 $_menu-link-mobile-padding: null !default;
 $_menu-link-no-arrow-color: null !default;
 $_menu-link-outline-color: null !default;
@@ -355,21 +354,16 @@ $_mobile-item-hover-background: null !default;
   }
 }
 
+.ecl-menu__item--current .ecl-menu__link,
+.ecl-menu__link:active {
+  background-color: $_menu-mobile-active-background;
+}
+
 .ecl-menu__item--has-children .ecl-menu__link:hover {
   background-color: $_mobile-item-hover-background;
 }
 
 .ecl-menu__item:not(.ecl-menu__item--has-children) {
-  &:hover,
-  &:focus,
-  &:active {
-    color: $_menu-link-hover-color;
-  }
-
-  .ecl-menu__link {
-    background-color: $_menu-mobile-active-background;
-  }
-
   .ecl-menu__link:hover,
   .ecl-menu__link:focus {
     color: $_menu-link-no-arrow-color;
