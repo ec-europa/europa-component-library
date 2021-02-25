@@ -36,6 +36,7 @@ $_menu-link-focus-background: null !default;
 $_menu-link-focus-color: null !default;
 $_menu-link-hover-color: null !default;
 $_menu-link-mobile-padding: null !default;
+$_menu-link-no-arrow-color: null !default;
 $_menu-link-outline-color: null !default;
 $_menu-link-padding-right: null !default;
 $_menu-list-background: null !default;
@@ -66,6 +67,7 @@ $_menu-sublink-outline-offset: null !default;
 $_menu-sublink-active-color: null !default;
 $_menu-sublink-active-weight: null !default;
 $_menu-sublink-active-background: null !default;
+$_menu-sublink-hover-color: null !default;
 $_menu-title-font-weight: null !default;
 $_mobile-item-color: null !default;
 $_mobile-item-hover-background: null !default;
@@ -353,27 +355,30 @@ $_mobile-item-hover-background: null !default;
   }
 }
 
+.ecl-menu__item--has-children .ecl-menu__link:hover {
+  background-color: $_mobile-item-hover-background;
+}
+
 .ecl-menu__item:not(.ecl-menu__item--has-children) {
   &:hover,
   &:focus,
   &:active {
     color: $_menu-link-hover-color;
   }
-}
 
-.ecl-menu__item--has-children .ecl-menu__link:hover {
-  background-color: $_mobile-item-hover-background;
-}
+  .ecl-menu__link {
+    background-color: $_menu-mobile-active-background;
+  }
 
-.ecl-menu__item--current:not(.ecl-menu__item--expanded) .ecl-menu__link {
-  background-color: $_menu-mobile-active-background;
-}
-
-.ecl-menu__item:not(.ecl-menu__item--has-children) .ecl-menu__link:hover {
-  text-decoration: underline;
+  .ecl-menu__link:hover,
+  .ecl-menu__link:focus {
+    color: $_menu-link-no-arrow-color;
+    text-decoration: underline;
+  }
 }
 
 .ecl-menu__link-icon {
+  flex-shrink: 0;
   transition: none;
 }
 
@@ -447,7 +452,6 @@ $_mobile-item-hover-background: null !default;
     }
 
     .ecl-menu__link {
-      align-items: baseline;
       background-color: transparent;
       border: $_menu-link-border-width solid transparent;
       border-radius: $_menu-link-border-radius;
@@ -456,9 +460,8 @@ $_mobile-item-hover-background: null !default;
       display: inline-flex;
       min-height: $_menu-link-desktop-height;
       padding-bottom: 0;
-      padding-top: calc(
-        #{map.get(theme.$spacing, 'm')} - #{$_menu-link-border-width}
-      );
+      padding-top: 0;
+      text-align: center;
       transition-property: background-color, border-bottom-color, color, z-index;
       width: auto;
       z-index: 0;
@@ -567,11 +570,14 @@ $_mobile-item-hover-background: null !default;
   text-decoration: none;
 
   &:hover,
-  &:focus,
+  &:focus {
+    color: $_menu-sublink-hover-color;
+    text-decoration: underline;
+  }
+
   &:active {
     background-color: $_menu-subitem-background;
     color: map.get(theme.$color, 'blue');
-    text-decoration: underline;
   }
 
   &:focus {
