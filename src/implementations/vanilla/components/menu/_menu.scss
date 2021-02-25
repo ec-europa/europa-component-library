@@ -20,6 +20,7 @@ $_menu-header-horizontal-padding: null !default;
 $_menu-item-border: null !default;
 $_menu-item-weight: null !default;
 $_menu-item-hover-background: null !default;
+$_menu-item-hover-border: null !default;
 $_menu-item-hover-color: null !default;
 $_menu-item-icon-margin: null !default;
 $_menu-link-active-background: null !default;
@@ -503,6 +504,11 @@ $_mobile-item-hover-background: null !default;
           z-index;
         z-index: map.get(theme.$z-index, 'dropdown') + 1;
       }
+
+      &:not(.ecl-menu__item--has-children) .ecl-menu__link {
+        border-bottom: $_menu-item-hover-border;
+      }
+
       /* stylelint-disable-next-line selector-max-compound-selectors */
       .ecl-menu__link:not(:focus) .ecl-menu__link-icon {
         transform: rotate(0);
