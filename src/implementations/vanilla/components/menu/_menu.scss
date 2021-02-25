@@ -14,6 +14,7 @@ $_menu-desktop-padding-top: null !default;
 $_menu-desktop-vertical-padding: null !default;
 $_menu-dropdown-background: null !default;
 $_menu-dropdown-border-color: null !default;
+$_menu-dropdown-item-hover-color: null !default;
 $_menu-dropdown-shadow: null !default;
 $_menu-expanded-background: null !default;
 $_menu-header-horizontal-padding: null !default;
@@ -328,14 +329,6 @@ $_mobile-item-hover-background: null !default;
   position: relative;
 }
 
-.ecl-menu__item:not(.ecl-menu__item--has-children) {
-  &:hover,
-  &:focus,
-  &:active {
-    color: $_menu-link-hover-color;
-  }
-}
-
 .ecl-menu__link {
   align-items: center;
   box-sizing: content-box;
@@ -357,6 +350,14 @@ $_mobile-item-hover-background: null !default;
   &:focus {
     outline: 3px solid $_menu-link-outline-color;
     outline-offset: -3px;
+  }
+}
+
+.ecl-menu__item:not(.ecl-menu__item--has-children) {
+  &:hover,
+  &:focus,
+  &:active {
+    color: $_menu-link-hover-color;
   }
 }
 
@@ -695,6 +696,10 @@ $_mobile-item-hover-background: null !default;
 
       &:focus {
         outline-offset: $_menu-sublink-outline-offset;
+      }
+
+      &:hover {
+        color: $_menu-dropdown-item-hover-color;
       }
     }
   }
