@@ -456,20 +456,26 @@ export class Gallery {
     }
 
     // Update download link
-    if (embeddedVideo != null) {
-      this.overlayDownload.hidden = true;
-    } else {
-      this.overlayDownload.href = this.selectedItem.href;
-      this.overlayDownload.hidden = false;
+    if (this.overlayDownload != null) {
+      if (embeddedVideo != null) {
+        this.overlayDownload.hidden = true;
+      } else {
+        this.overlayDownload.href = this.selectedItem.href;
+        this.overlayDownload.hidden = false;
+      }
     }
 
     // Update meta
-    const meta = queryOne(this.metaSelector, selectedItem);
-    this.overlayMeta.innerHTML = meta.innerHTML;
+    if (this.overlayMeta != null) {
+      const meta = queryOne(this.metaSelector, selectedItem);
+      this.overlayMeta.innerHTML = meta.innerHTML;
+    }
 
     // Update description
-    const description = queryOne(this.descriptionSelector, selectedItem);
-    this.overlayDescription.innerHTML = description.innerHTML;
+    if (this.overlayDescription != null) {
+      const description = queryOne(this.descriptionSelector, selectedItem);
+      this.overlayDescription.innerHTML = description.innerHTML;
+    }
 
     // Limit image height (fix for FF and IE)
     const maxHeight =

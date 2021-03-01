@@ -57,34 +57,50 @@ export const GalleryOverlay = ({ overlay, item, className, ...props }) => {
           {overlay.counterSeparator}{' '}
           <span data-ecl-gallery-overlay-counter-max>0</span>
         </div>
-        <div className="ecl-gallery__detail-actions">
-          <Link
-            {...overlay.download}
-            className={classnames(
-              overlay.download.className,
-              'ecl-gallery__download'
+
+        {!!(overlay.download || overlay.share) && (
+          <div className="ecl-gallery__detail-actions">
+            {overlay.download && (
+              <Link
+                {...overlay.download}
+                className={classnames(
+                  overlay.download.className,
+                  'ecl-gallery__download'
+                )}
+                download
+                data-ecl-gallery-overlay-download
+              />
             )}
-            download
-            data-ecl-gallery-overlay-download
-          />
-          <Link
-            {...overlay.share}
-            className={classnames(
-              overlay.share.className,
-              'ecl-gallery__share'
+            {overlay.share && (
+              <Link
+                {...overlay.share}
+                className={classnames(
+                  overlay.share.className,
+                  'ecl-gallery__share'
+                )}
+                data-ecl-gallery-overlay-share
+              />
             )}
-            data-ecl-gallery-overlay-share
-          />
-        </div>
-        <div
-          className="ecl-gallery__detail-description"
-          data-ecl-gallery-overlay-description
-        >
-          {item.description}
-        </div>
-        <div className="ecl-gallery__detail-meta" data-ecl-gallery-overlay-meta>
-          {item.meta}
-        </div>
+          </div>
+        )}
+
+        {item.description && (
+          <div
+            className="ecl-gallery__detail-description"
+            data-ecl-gallery-overlay-description
+          >
+            {item.description}
+          </div>
+        )}
+
+        {item.meta && (
+          <div
+            className="ecl-gallery__detail-meta"
+            data-ecl-gallery-overlay-meta
+          >
+            {item.meta}
+          </div>
+        )}
       </footer>
     </dialog>
   );
