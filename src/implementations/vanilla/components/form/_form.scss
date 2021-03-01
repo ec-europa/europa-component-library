@@ -12,6 +12,7 @@ $_color-label: null !default;
 $_color-help: null !default;
 $_color-required: null !default;
 $_color-optional: null !default;
+$_first-form-element-top-margin: null !default;
 $_font-optional: null !default;
 $_font-invalid: null !default;
 $_font-help: null !default;
@@ -33,7 +34,6 @@ $_form-element-top-margin: null !default;
     margin-top: $_margin-invalid;
   }
 
-  > *:not(.ecl-u-sr-only) + .ecl-checkbox,
   > *:not(.ecl-u-sr-only) + .ecl-file-upload,
   > *:not(.ecl-u-sr-only) + .ecl-file-upload__button-container,
   > *:not(.ecl-u-sr-only) + .ecl-radio,
@@ -41,6 +41,14 @@ $_form-element-top-margin: null !default;
   > *:not(.ecl-u-sr-only) + .ecl-select__multiple,
   > *:not(.ecl-u-sr-only) + .ecl-text-area {
     margin-top: $_form-element-top-margin;
+  }
+
+  > *:not(.ecl-u-sr-only) + .ecl-checkbox {
+    margin-top: $_first-form-element-top-margin;
+    /* stylelint-disable-next-line max-nesting-depth, selector-max-compound-selectors */
+    ~ .ecl-checkbox {
+      margin-top: map.get(theme.$spacing, 'l');
+    }
   }
 
   > *:not(.ecl-u-sr-only) + .ecl-text-input {

@@ -1,14 +1,27 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctSvgPath, getFormControls } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
-import dataDefault from '@ecl/specs-component-checkbox/demo/data';
+import dataEc from '@ecl/specs-component-checkbox/demo/data--ec';
+import dataEu from '@ecl/specs-component-checkbox/demo/data--eu';
 
 import checkboxGroup from './checkbox-group.html.twig';
 import notes from './README.md';
 
-const dataInvalid = { ...dataDefault, invalid: true };
-const dataOptional = { ...dataDefault, required: false };
+const system = getSystem();
+
+let dataDefault = { ...dataEc };
+let dataInvalid = { ...dataDefault, invalid: true };
+let dataOptional = { ...dataDefault, required: false };
+let dataSingle = { ...dataDefault, items: [dataEc.items[0]] };
+
+if (system === 'eu') {
+  dataDefault = { ...dataDefault, invalid_icon: dataEu.invalid_icon };
+  dataInvalid = { ...dataInvalid, invalid_icon: dataEu.invalid_icon };
+  dataOptional = { ...dataOptional, invalid_icon: dataEu.invalid_icon };
+  dataSingle = { ...dataSingle, invalid_icon: dataEu.invalid_icon };
+}
 
 const getArgTypes = (data) => getFormControls(data, 'group');
 
@@ -43,3 +56,9 @@ export const Optional = (args) =>
 Optional.storyName = 'optional';
 Optional.argTypes = getArgTypes(dataOptional);
 Optional.parameters = { notes: { markdown: notes, json: dataOptional } };
+
+export const Single = (args) => checkboxGroup(prepareData(dataSingle, args));
+
+Single.storyName = 'single';
+Single.argTypes = getArgTypes(dataSingle);
+Single.parameters = { notes: { markdown: notes, json: dataSingle } };
