@@ -14,6 +14,7 @@ $_menu-desktop-padding-top: null !default;
 $_menu-desktop-vertical-padding: null !default;
 $_menu-dropdown-background: null !default;
 $_menu-dropdown-border-color: null !default;
+$_menu-drowpdown-border-radius: null !default;
 $_menu-dropdown-item-hover-color: null !default;
 $_menu-dropdown-shadow: null !default;
 $_menu-expanded-background: null !default;
@@ -30,6 +31,7 @@ $_menu-link-active-border-color: null !default;
 $_menu-link-border-radius: null !default;
 $_menu-link-border-width: null !default;
 $_menu-link-border-focus-color: null !default;
+$_menu-link-desktop-align: null !default;
 $_menu-link-desktop-height: null !default;
 $_menu-link-hover-background: null !default;
 $_menu-link-focus-background: null !default;
@@ -194,6 +196,10 @@ $_mobile-item-hover-background: null !default;
 .ecl-menu__open:active,
 .ecl-menu__open:visited {
   color: map.get(theme.$color, 'white');
+  /* stylelint-disable plugin/selector-bem-pattern */
+  &.ecl-link {
+    text-decoration: none;
+  }
 }
 
 /* stylelint-disable-next-line order/order */
@@ -335,7 +341,7 @@ $_mobile-item-hover-background: null !default;
   box-sizing: content-box;
   color: $_mobile-item-color;
   display: inline-flex;
-  font: map.get(theme.$font, 'm');
+  font: map.get(theme.$font-prolonged, 'm');
   font-weight: $_menu-item-weight;
   justify-content: space-between;
   margin-left: -#{map.get(theme.$spacing, 'm')};
@@ -357,6 +363,15 @@ $_mobile-item-hover-background: null !default;
 .ecl-menu__item--current .ecl-menu__link,
 .ecl-menu__link:active {
   background-color: $_menu-mobile-active-background;
+}
+
+.ecl-menu__item--expanded {
+  border-top-width: 0;
+
+  .ecl-menu__link--current,
+  .ecl-menu__link:active {
+    background-color: map-get(theme.$color, 'blue-5');
+  }
 }
 
 .ecl-menu__item--has-children .ecl-menu__link:hover {
@@ -389,19 +404,11 @@ $_mobile-item-hover-background: null !default;
 /* stylelint-disable no-descending-specificity */
 .ecl-menu__inner--expanded .ecl-menu__link {
   color: map.get(theme.$color, 'blue');
-
-  &:active {
-    background-color: map.get(theme.$color, 'blue-25');
-  }
 }
 /* stylelint-enable no-descending-specificity */
 
 .ecl-menu__inner--expanded .ecl-menu__link-icon {
   display: none;
-}
-
-.ecl-menu__item--expanded {
-  border-top-width: 0;
 }
 
 /* stylelint-disable-next-line order/order */
@@ -455,8 +462,7 @@ $_mobile-item-hover-background: null !default;
       min-height: $_menu-link-desktop-height;
       padding-bottom: 0;
       padding-top: 0;
-      text-align: center;
-      transition-property: background-color, border-bottom-color, color, z-index;
+      text-align: $_menu-link-desktop-align;
       width: auto;
       z-index: 0;
     }
@@ -498,8 +504,6 @@ $_mobile-item-hover-background: null !default;
       .ecl-menu__link:focus {
         background-color: $_menu-item-hover-background;
         color: $_menu-item-hover-color;
-        transition-property: background-color, border-bottom-color, color,
-          z-index;
         z-index: map.get(theme.$z-index, 'dropdown') + 1;
       }
 
@@ -569,7 +573,8 @@ $_mobile-item-hover-background: null !default;
     text-decoration: underline;
   }
 
-  &:active {
+  &:active,
+  &:hover {
     background-color: $_menu-subitem-background;
     color: map.get(theme.$color, 'blue');
   }
@@ -592,6 +597,7 @@ $_mobile-item-hover-background: null !default;
     .ecl-menu__mega {
       background-color: $_menu-dropdown-background;
       border-bottom: 3px solid $_menu-dropdown-border-color;
+      border-radius: $_menu-drowpdown-border-radius;
       box-shadow: $_menu-dropdown-shadow;
       display: flex;
       left: 0;

@@ -1,11 +1,17 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctSvgPath } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 import enData from '@ecl/specs-component-menu/demo/data--en';
 import frData from '@ecl/specs-component-menu/demo/data--fr';
 import menu from './menu.html.twig';
 import notes from './README.md';
+
+if (getSystem() === 'eu') {
+  delete enData.site_name;
+  delete frData.site_name;
+}
 
 const getArgTypes = (data) => {
   return {
@@ -28,7 +34,10 @@ const getArgTypes = (data) => {
 
 const prepareData = (data, args) => {
   correctSvgPath(data);
-  data.site_name = args.site_name;
+
+  if (data.site_name) {
+    data.site_name = args.site_name;
+  }
 
   return data;
 };
@@ -43,12 +52,20 @@ export default {
 
 export const Default = (args) => menu(prepareData(enData, args));
 
-Default.argTypes = getArgTypes(enData);
 Default.storyName = 'default';
 Default.parameters = { notes: { markdown: notes, json: enData } };
+if (enData.site_name) {
+  Default.argTypes = getArgTypes(enData);
+} else {
+  Default.parameters.controls = { disable: true };
+}
 
 export const Translated = (args) => menu(prepareData(frData, args));
 
-Translated.argTypes = getArgTypes(frData);
 Translated.storyName = 'translated';
 Translated.parameters = { notes: { markdown: notes, json: frData } };
+if (frData.site_name) {
+  Translated.argTypes = getArgTypes(frData);
+} else {
+  Translated.parameters.controls = { disable: true };
+}
