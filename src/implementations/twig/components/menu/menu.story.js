@@ -9,8 +9,8 @@ import menu from './menu.html.twig';
 import notes from './README.md';
 
 if (getSystem() === 'eu') {
-  delete enData.site_name;
-  delete frData.site_name;
+  enData.site_name = '';
+  frData.site_name = '';
 }
 
 const getArgTypes = (data) => {
@@ -34,10 +34,7 @@ const getArgTypes = (data) => {
 
 const prepareData = (data, args) => {
   correctSvgPath(data);
-
-  if (data.site_name) {
-    data.site_name = args.site_name;
-  }
+  data.site_name = args.site_name;
 
   return data;
 };
@@ -54,18 +51,10 @@ export const Default = (args) => menu(prepareData(enData, args));
 
 Default.storyName = 'default';
 Default.parameters = { notes: { markdown: notes, json: enData } };
-if (enData.site_name) {
-  Default.argTypes = getArgTypes(enData);
-} else {
-  Default.parameters.controls = { disable: true };
-}
+Default.argTypes = getArgTypes(enData);
 
 export const Translated = (args) => menu(prepareData(frData, args));
 
 Translated.storyName = 'translated';
 Translated.parameters = { notes: { markdown: notes, json: frData } };
-if (frData.site_name) {
-  Translated.argTypes = getArgTypes(frData);
-} else {
-  Translated.parameters.controls = { disable: true };
-}
+Translated.argTypes = getArgTypes(frData);
