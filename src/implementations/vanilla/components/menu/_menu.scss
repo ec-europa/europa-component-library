@@ -407,6 +407,7 @@ $_mobile-item-hover-background: null !default;
 
   &:hover,
   &:focus {
+    background-color: transparent;
     color: $_menu-sublink-hover-color;
     text-decoration: underline;
   }
@@ -478,7 +479,8 @@ $_mobile-item-hover-background: null !default;
       text-decoration: underline;
     }
 
-    .ecl-menu__item--current .ecl-menu__link {
+    .ecl-menu__item--current .ecl-menu__link,
+    .ecl-menu__link:active {
       background-color: $_menu-link-active-background;
       border-bottom: 4px solid $_menu-link-active-border-color;
     }
