@@ -4,6 +4,7 @@
   Parameters:
   - "group" (string) (default: 'group1'): 'group1', 'group2' or 'group3'
   - "rows" (array of objects) (default: [])
+    - "section_class_name" (string) (default: '')
     - "logo" (EU only)
       - "alt" (string) alt attribute for the logo link
       - "path" (string) logo link path
@@ -18,12 +19,12 @@
       - "link" (link object)
       - "content_before" (string) Optional text before the link
       - "content_after" (string) Optional text after the link
+    - "links_inline" (optional) (bolean) (default: false) Optional inline style for the list
     - "logos" (optional) (array of images objects) (default: []):
         "title": (string) (default: '') Title attribute
         "alt": (string) (default: '') Alternative text
         "src": (string) (default: '') Url of the image
         "class_name": (string) (default: '') Extra class for the logo
-    - "links_inline" (optional) (bolean) (default: false) Optional inline style for the list
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
     - "name" (string) Attribute name, eg. 'data-test'
