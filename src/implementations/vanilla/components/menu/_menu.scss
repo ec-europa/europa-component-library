@@ -7,23 +7,91 @@
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
+$_main-nav-background: null !default;
+$_main-nav-shadow: null !default;
+$_menu-items-distribution: null !default;
+$_menu-desktop-padding-top: null !default;
+$_menu-desktop-vertical-padding: null !default;
+$_menu-dropdown-background: null !default;
+$_menu-dropdown-border-color: null !default;
+$_menu-drowpdown-border-radius: null !default;
+$_menu-dropdown-item-hover-color: null !default;
+$_menu-dropdown-shadow: null !default;
+$_menu-expanded-background: null !default;
+$_menu-header-horizontal-padding: null !default;
+$_menu-item-border: null !default;
+$_menu-item-weight: null !default;
+$_menu-item-hover-background: null !default;
+$_menu-item-hover-border: null !default;
+$_menu-item-hover-color: null !default;
+$_menu-item-icon-margin: null !default;
+$_menu-link-active-background: null !default;
+$_menu-link-active-border-width: null !default;
+$_menu-link-active-border-color: null !default;
+$_menu-link-border-radius: null !default;
+$_menu-link-border-width: null !default;
+$_menu-link-border-focus-color: null !default;
+$_menu-link-desktop-align: null !default;
+$_menu-link-desktop-height: null !default;
+$_menu-link-hover-background: null !default;
+$_menu-link-focus-background: null !default;
+$_menu-link-focus-color: null !default;
+$_menu-link-mobile-padding: null !default;
+$_menu-link-no-arrow-color: null !default;
+$_menu-link-outline-color: null !default;
+$_menu-link-padding-right: null !default;
+$_menu-list-background: null !default;
+$_menu-mega-padding-top: null !default;
+$_menu-mega-padding-bottom: null !default;
+$_menu-mobile-active-background: null !default;
+$_menu-mobile-background: null !default;
+$_menu-mobile-header-background: null !default;
+$_menu-mobile-header-shadow: null !default;
+$_menu-mobile-shadow: null !default;
+$_menu-mobile-vertical-padding: null !default;
+$_menu-open-button-padding: null !default;
+$_menu-open-button-shadow: null !default;
+$_menu-open-outline-color: null !default;
+$_menu-open-button-radius: null !default;
+$_menu-open-button-border: null !default;
+$_menu-open-focus-border: null !default;
+$_menu-open-vertical-margin: null !default;
+$_menu-overlay-background: null !default;
+$_menu-subitem-border: null !default;
+$_menu-subitem-background: null !default;
+$_menu-subitem-margin-bottom: null !default;
+$_menu-subitem-margin-top: null !default;
+$_menu-sublink-desktop-margin: null !default;
+$_menu-sublink-desktop-padding: null !default;
+$_menu-sublink-mobile-vertical-padding: null !default;
+$_menu-sublink-outline-offset: null !default;
+$_menu-sublink-active-color: null !default;
+$_menu-sublink-active-weight: null !default;
+$_menu-sublink-active-background: null !default;
+$_menu-sublink-hover-color: null !default;
+$_menu-title-font-weight: null !default;
+$_mobile-item-color: null !default;
+$_mobile-item-hover-background: null !default;
+
 /*
 * Menu structure
 */
 .ecl-menu {
-  background-color: map.get(theme.$color, 'blue');
+  background: $_main-nav-background;
+  box-shadow: $_main-nav-shadow;
   margin: 0;
-  padding-bottom: map.get(theme.$spacing, 'm');
-  padding-top: map.get(theme.$spacing, 'm');
+  padding-bottom: $_menu-mobile-vertical-padding;
+  padding-top: $_menu-mobile-vertical-padding;
 }
 
 .ecl-menu__container {
+  display: flex;
   min-height: map.get(theme.$line-height, '2xl');
   position: initial; // Needed for full screen overlay
 }
 
 .ecl-menu__inner {
-  background-color: map.get(theme.$color, 'blue');
+  background-color: $_menu-mobile-background;
   bottom: 0;
   overflow-y: auto;
   position: fixed;
@@ -51,7 +119,7 @@
   }
 
   .ecl-menu__overlay {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: $_menu-overlay-background;
     content: '';
     display: none;
     height: 100%;
@@ -83,6 +151,7 @@
       background-color: transparent;
       display: block;
       overflow-y: visible;
+      padding-top: $_menu-desktop-padding-top;
       position: relative;
       right: 0;
       transition: none;
@@ -100,18 +169,25 @@
   * Menu header
   */
 .ecl-menu__site-name {
+  align-self: center;
   color: map.get(theme.$color, 'white');
   font: map.get(theme.$font, '2xl');
+  order: 1;
 }
 
-.ecl-menu__open {
+.ecl-menu__open,
+.ecl-menu__close {
   align-items: center;
+  border: $_menu-open-button-border;
+  border-radius: $_menu-open-button-radius;
   display: flex;
   flex-direction: column;
-  float: right;
   font: map.get(theme.$font, 'xs');
-  margin-top: -#{map.get(theme.$spacing, 'xs')};
-  padding: map.get(theme.$spacing, 'xs');
+  margin-bottom: $_menu-open-vertical-margin;
+  margin-left: auto;
+  margin-top: $_menu-open-vertical-margin;
+  order: 2;
+  padding: $_menu-open-button-padding;
 }
 
 .ecl-menu__open,
@@ -120,19 +196,19 @@
 .ecl-menu__open:active,
 .ecl-menu__open:visited {
   color: map.get(theme.$color, 'white');
-}
-
-.ecl-menu__open:focus {
-  outline-offset: -3px;
+  /* stylelint-disable plugin/selector-bem-pattern */
+  &.ecl-link {
+    text-decoration: none;
+  }
 }
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
-  .ecl-menu__site-name {
-    font: map.get(theme.$font, '3xl');
-  }
-
   .ecl-menu:not(.ecl-menu--forced-mobile) {
+    .ecl-menu__container {
+      display: block;
+    }
+
     .ecl-menu__site-name {
       margin-bottom: map.get(theme.$spacing, 'l');
       padding-top: map.get(theme.$spacing, 'l');
@@ -149,8 +225,15 @@
   * Inner menu
   */
 .ecl-menu__inner-header {
-  background-color: map.get(theme.$color, 'blue');
-  padding: map.get(theme.$spacing, 'l') map.get(theme.$spacing, 'm');
+  align-items: center;
+  background: $_menu-mobile-header-background;
+  box-shadow: $_menu-mobile-header-shadow;
+  display: flex;
+  flex-flow: row-reverse;
+  padding-bottom: $_menu-mobile-vertical-padding;
+  padding-left: $_menu-header-horizontal-padding;
+  padding-right: $_menu-header-horizontal-padding;
+  padding-top: $_menu-mobile-vertical-padding;
   position: sticky;
   top: 0;
   z-index: map.get(theme.$z-index, 'modal') + 2;
@@ -159,29 +242,33 @@
 .ecl-menu__title {
   color: map.get(theme.$color, 'white');
   font: map.get(theme.$font, 'xl');
+  font-weight: $_menu-title-font-weight;
 }
 
 .ecl-menu__back {
+  border: $_menu-open-button-border;
   color: map.get(theme.$color, 'white');
   display: none;
   font: map.get(theme.$font, 'xl');
+  font-weight: $_menu-title-font-weight;
   margin-bottom: -#{map.get(theme.$spacing, 's')};
   margin-left: -#{map.get(theme.$spacing, 'xs')};
   margin-right: -#{map.get(theme.$spacing, 'xs')};
   margin-top: -#{map.get(theme.$spacing, 's')};
   padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'xs');
+
+  &:focus {
+    padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'xs');
+  }
+}
+
+.ecl-menu__close-container {
+  flex-direction: column;
 }
 
 .ecl-menu__close {
   color: map.get(theme.$color, 'white');
-  font: map.get(theme.$font, 'xs');
-  margin-right: map.get(theme.$spacing, 'm');
-  margin-top: map.get(theme.$spacing, 'xs');
-  padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'xs');
-  position: absolute;
-  right: 0;
-  top: 0;
-
+  order: 0;
   // Would be better to have a variant of button here
   .ecl-button__icon,
   .ecl-button__label {
@@ -189,8 +276,16 @@
   }
 }
 
-.ecl-menu__close-container {
-  flex-direction: column;
+.ecl-menu__open:hover,
+.ecl-menu__close:hover {
+  box-shadow: $_menu-open-button-shadow;
+}
+
+.ecl-menu__open:focus,
+.ecl-menu__close:focus {
+  border-color: $_menu-open-focus-border;
+  outline: none;
+  padding: $_menu-open-button-padding;
 }
 
 // Expanded
@@ -202,6 +297,18 @@
   display: block;
 }
 
+@include breakpoints.up('m') {
+  .ecl-menu,
+  .ecl-menu__inner-header {
+    padding-bottom: $_menu-desktop-vertical-padding;
+    padding-top: $_menu-desktop-vertical-padding;
+  }
+
+  .ecl-menu__site-name {
+    font: map.get(theme.$font, '3xl');
+  }
+}
+
 /*
   * First level
   */
@@ -211,6 +318,7 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  justify-content: $_menu-items-distribution;
   list-style: none;
   list-style-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
   margin-bottom: 0;
@@ -221,7 +329,7 @@
 }
 
 .ecl-menu__item {
-  border-top: 1px solid map.get(theme.$color, 'blue-50');
+  border-top: $_menu-item-border;
   box-sizing: content-box;
   margin-left: map.get(theme.$spacing, 'm');
   margin-right: map.get(theme.$spacing, 'm');
@@ -231,73 +339,90 @@
 .ecl-menu__link {
   align-items: center;
   box-sizing: content-box;
-  color: map.get(theme.$color, 'white');
+  color: $_mobile-item-color;
   display: inline-flex;
-  font: map.get(theme.$font, 'm');
-  font-weight: map.get(theme.$font-weight, 'bold');
+  font: map.get(theme.$font-prolonged, 'm');
+  font-weight: $_menu-item-weight;
   justify-content: space-between;
   margin-left: -#{map.get(theme.$spacing, 'm')};
   margin-right: -#{map.get(theme.$spacing, 'm')};
-  padding-bottom: map.get(theme.$spacing, 'm');
+  padding-bottom: $_menu-link-mobile-padding;
   padding-left: map.get(theme.$spacing, 'm');
   padding-right: map.get(theme.$spacing, 'm');
-  padding-top: map.get(theme.$spacing, 'm');
+  padding-top: $_menu-link-mobile-padding;
   position: relative;
   text-decoration: none;
   width: 100%;
 
-  &:hover,
-  &:focus,
-  &:active {
-    color: map.get(theme.$color, 'white');
-    text-decoration: none;
-  }
-
   &:focus {
-    outline: 3px solid map.get(theme.$color, 'yellow');
+    outline: 3px solid $_menu-link-outline-color;
     outline-offset: -3px;
   }
 }
 
-.ecl-menu__item--current:not(.ecl-menu__item--expanded) .ecl-menu__link {
-  background-color: map.get(theme.$color, 'blue-120');
+.ecl-menu__item--current .ecl-menu__link,
+.ecl-menu__link:active {
+  background-color: $_menu-mobile-active-background;
+}
+
+.ecl-menu__item--expanded {
+  border-top-width: 0;
+
+  .ecl-menu__link--current,
+  .ecl-menu__link:active {
+    background-color: map-get(theme.$color, 'blue-5');
+  }
+}
+
+.ecl-menu__item--has-children .ecl-menu__link:hover {
+  background-color: $_mobile-item-hover-background;
+}
+
+.ecl-menu__item:not(.ecl-menu__item--has-children) {
+  .ecl-menu__link:hover,
+  .ecl-menu__link:focus {
+    color: $_menu-link-no-arrow-color;
+    text-decoration: underline;
+  }
 }
 
 .ecl-menu__link-icon {
+  flex-shrink: 0;
   transition: none;
 }
 
 // Expanded
 .ecl-menu__inner--expanded {
-  background-color: map.get(theme.$color, 'blue-5');
+  background-color: $_menu-expanded-background;
+  box-shadow: $_menu-mobile-shadow;
 }
 
 .ecl-menu__inner--expanded .ecl-menu__item:not(.ecl-menu__item--expanded) {
   display: none;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
+/* stylelint-disable no-descending-specificity */
 .ecl-menu__inner--expanded .ecl-menu__link {
   color: map.get(theme.$color, 'blue');
 
-  &:active {
-    background-color: map.get(theme.$color, 'blue-25');
+  &:hover,
+  &:focus {
+    background-color: transparent;
+    color: $_menu-sublink-hover-color;
+    text-decoration: underline;
   }
 }
+/* stylelint-enable no-descending-specificity */
 
 .ecl-menu__inner--expanded .ecl-menu__link-icon {
   display: none;
-}
-
-.ecl-menu__item--expanded {
-  border-top-width: 0;
 }
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-menu:not(.ecl-menu--forced-mobile) {
     .ecl-menu__list {
-      background-color: map.get(theme.$color, 'blue');
+      background-color: $_menu-list-background;
       flex-direction: row;
     }
 
@@ -312,7 +437,7 @@
     .ecl-menu__link-icon {
       flex-shrink: 0;
       height: map.get(theme.$icon, '2xs');
-      margin-left: map.get(theme.$spacing, 'xs');
+      margin-left: $_menu-item-icon-margin;
       transform: rotate(180deg);
       transition-property: transform;
       width: map.get(theme.$icon, '2xs');
@@ -336,22 +461,39 @@
 
     .ecl-menu__link {
       background-color: transparent;
-      border-bottom: 3px solid transparent;
+      border: $_menu-link-border-width solid transparent;
+      border-radius: $_menu-link-border-radius;
       box-sizing: border-box;
       color: map.get(theme.$color, 'white');
       display: inline-flex;
-      height: 100%;
-      padding-bottom: calc(#{map.get(theme.$spacing, 'm')} - 3px);
-      padding-left: map.get(theme.$spacing, 'm');
-      padding-right: map.get(theme.$spacing, 'm');
-      padding-top: map.get(theme.$spacing, 'm');
-      transition-property: background-color, border-bottom-color, color, z-index;
+      min-height: $_menu-link-desktop-height;
+      padding-bottom: 0;
+      padding-top: 0;
+      text-align: $_menu-link-desktop-align;
       width: auto;
       z-index: 0;
     }
 
-    .ecl-menu__item--current .ecl-menu__link {
-      background-color: map.get(theme.$color, 'blue-120');
+    .ecl-menu__link:hover,
+    .ecl-menu__link:focus {
+      text-decoration: underline;
+    }
+
+    .ecl-menu__item--current .ecl-menu__link,
+    .ecl-menu__link:active {
+      background-color: $_menu-link-active-background;
+      border-bottom: 4px solid $_menu-link-active-border-color;
+    }
+
+    .ecl-menu__link:focus {
+      background-color: $_menu-link-focus-background;
+      border: $_menu-link-border-width solid $_menu-link-border-focus-color;
+      color: $_menu-link-focus-color;
+      outline: none;
+    }
+
+    .ecl-menu__item--has-children .ecl-menu__link {
+      padding-right: $_menu-link-padding-right;
     }
   }
 
@@ -368,22 +510,19 @@
       .ecl-menu__link:hover,
       .ecl-menu__link:active,
       .ecl-menu__link:focus {
-        background-color: map.get(theme.$color, 'blue-5');
-        color: map.get(theme.$color, 'blue');
-        transition-property: background-color, border-bottom-color, color,
-          z-index;
+        background-color: $_menu-item-hover-background;
+        color: $_menu-item-hover-color;
         z-index: map.get(theme.$z-index, 'dropdown') + 1;
       }
 
-      .ecl-menu__link-icon {
+      &:not(.ecl-menu__item--has-children) .ecl-menu__link {
+        border-bottom: $_menu-item-hover-border;
+      }
+
+      /* stylelint-disable-next-line selector-max-compound-selectors */
+      .ecl-menu__link:not(:focus) .ecl-menu__link-icon {
         transform: rotate(0);
         transition-property: transform;
-      }
-    }
-
-    .ecl-menu__item:not(.ecl-menu__item--has-children):hover {
-      .ecl-menu__link {
-        border-bottom-color: map.get(theme.$color, 'blue-25');
       }
     }
   }
@@ -417,59 +556,61 @@
 }
 
 .ecl-menu__subitem {
-  border-top: 1px solid map.get(theme.$color, 'blue-25');
+  border-top: $_menu-subitem-border;
   box-sizing: border-box;
 }
 
 .ecl-menu__sublink {
   color: map.get(theme.$color, 'blue');
   display: block;
-  font: map.get(theme.$font, 'm');
+  font: map.get(theme.$font-prolonged, 'm');
   margin-left: -#{map.get(theme.$spacing, 'm')};
   margin-right: -#{map.get(theme.$spacing, 'm')};
-  padding-bottom: map.get(theme.$spacing, 'm');
+  padding-bottom: $_menu-sublink-mobile-vertical-padding;
   padding-left: calc(
     #{map.get(theme.$spacing, 'm')} + #{map.get(theme.$spacing, 's')}
   );
   padding-right: map.get(theme.$spacing, 'm');
-  padding-top: map.get(theme.$spacing, 'm');
+  padding-top: $_menu-sublink-mobile-vertical_padding;
   position: relative;
   text-decoration: none;
 
-  &:hover,
-  &:focus,
-  &:active {
+  &:active,
+  &:hover {
+    background-color: $_menu-subitem-background;
     color: map.get(theme.$color, 'blue');
+  }
+
+  &:hover,
+  &:focus {
+    color: $_menu-sublink-hover-color;
     text-decoration: underline;
   }
 
   &:focus {
-    outline: 3px solid map.get(theme.$color, 'yellow');
+    outline: 3px solid $_menu-link-outline-color;
     outline-offset: -3px;
-  }
-
-  &:active {
-    background-color: map.get(theme.$color, 'blue-25');
   }
 }
 
 .ecl-menu__subitem--current .ecl-menu__sublink {
-  font-weight: bold;
+  background: $_menu-sublink-active-background;
+  color: $_menu-sublink-active-color;
+  font-weight: $_menu-sublink-active-weight;
 }
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-menu:not(.ecl-menu--forced-mobile):not(.ecl-menu--forced-close) {
     .ecl-menu__mega {
-      background-color: map.get(theme.$color, 'blue-5');
-      border-bottom: 3px solid map.get(theme.$color, 'blue-25');
-      box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
+      background-color: $_menu-dropdown-background;
+      border-bottom: 3px solid $_menu-dropdown-border-color;
+      border-radius: $_menu-drowpdown-border-radius;
+      box-shadow: $_menu-dropdown-shadow;
       display: flex;
       left: 0;
-      padding-bottom: calc(
-        #{map.get(theme.$spacing, 'xl')} - #{map.get(theme.$spacing, 'm')}
-      );
-      padding-top: map.get(theme.$spacing, 'xl');
+      padding-bottom: $_menu-mega-padding-bottom;
+      padding-top: $_menu-mega-padding-top;
       position: absolute;
       transition-property: visibility;
       visibility: hidden;
@@ -543,7 +684,8 @@
       border-top-width: 0;
       box-sizing: border-box;
       display: flex;
-      margin-bottom: map.get(theme.$spacing, 'm');
+      margin-bottom: $_menu-subitem-margin-bottom;
+      margin-top: $_menu-subitem-margin-top;
       width: 13.56rem; // Written in the specs
     }
 
@@ -556,22 +698,23 @@
     }
 
     .ecl-menu__sublink {
-      margin-left: map.get(theme.$spacing, 'm');
-      margin-right: map.get(theme.$spacing, 'm');
-      padding: 0;
+      margin-left: $_menu-sublink-desktop-margin;
+      margin-right: $_menu-sublink-desktop-margin;
+      padding: $_menu-sublink-desktop-padding;
       white-space: normal;
+      width: 100%;
 
       &:active {
         background-color: transparent;
       }
 
       &:focus {
-        outline-offset: 3px;
+        outline-offset: $_menu-sublink-outline-offset;
       }
-    }
 
-    .ecl-menu__sublink--current {
-      font-weight: map.get(theme.$font-weight, 'bold');
+      &:hover {
+        color: $_menu-dropdown-item-hover-color;
+      }
     }
   }
 }
