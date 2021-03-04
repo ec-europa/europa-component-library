@@ -203,6 +203,11 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
       grid-gap: 0 $_column-gap;
       grid-template-columns: repeat(3, 1fr);
       padding-bottom: map.get(theme.$spacing, 'xl');
+
+      /* stylelint-disable-next-line max-nesting-depth */
+      &:last-child {
+        padding-bottom: 0;
+      }
     }
 
     .ecl-footer-harmonised__section {
