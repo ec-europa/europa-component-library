@@ -1,5 +1,27 @@
 # Changelog
 
+## 2.37.0 (2021-03-04)
+
+#### :bug: Bug Fix
+
+- [#1934](https://github.com/ec-europa/europa-component-library/pull/1934) fix(gallery): fix gallery optional elements - FRONT-2060 ([@emeryro](https://github.com/emeryro))
+- [#1925](https://github.com/ec-europa/europa-component-library/pull/1925) fix(page-headers): Update sass to have a padding-top if not breadcrumb - FRONT-1996 ([@papegaill](https://github.com/papegaill))
+
+#### :memo: Documentation
+
+- [#1928](https://github.com/ec-europa/europa-component-library/pull/1928) feat(docs): Update Core page header usage page ([@Yaomimi](https://github.com/Yaomimi))
+
+#### :house: Internal
+
+- [#1942](https://github.com/ec-europa/europa-component-library/pull/1942) chore(deps): Safe updates before 2.37.0 ([@planctus](https://github.com/planctus))
+
+#### Committers: 4
+
+- Alexis Gaillard ([@papegaill](https://github.com/papegaill))
+- Jean YAO ([@Yaomimi](https://github.com/Yaomimi))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 ## 2.36.0 (2021-02-11)
 
 #### :rocket: New Feature
