@@ -8,20 +8,19 @@
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 $_form-width-desktop: 31.25rem;
-$_border-color: map.get(theme.$color, 'grey-50');
+$_form-width-tablet: 25rem;
+$_button-border-color: null !default;
+$_button-border-width: 1px;
 $_button-background-color: null !default;
 $_button-background-color-hover: null !default;
 $_button-color: null !default;
+$_button-outline-width: null !default;
 
 .ecl-search-form {
   display: flex;
   margin: 0;
   position: relative;
   width: 100%;
-}
-
-.ecl-search-form .ecl-text-input__wrapper {
-  flex-grow: 1;
 }
 
 .ecl-search-form .ecl-form-group {
@@ -44,32 +43,48 @@ $_button-color: null !default;
 }
 
 .ecl-search-form__text-input {
+  border-bottom-right-radius: 0;
+  border-right-width: 0;
+  border-top-right-radius: 0;
   flex-grow: 1;
   margin-top: 0 !important;
   width: 100%;
 }
 
-.ecl-search-form__text-input:not(.ecl-text-input--invalid) {
-  border-bottom-color: $_border-color;
-  border-left-color: $_border-color;
-  border-right-width: 0;
-  border-top-color: $_border-color;
-}
-
 .ecl-search-form__button {
   background-color: $_button-background-color;
-  border-bottom: 1px solid $_border-color;
+  border-bottom: $_button-border-width solid $_button-border-color;
   border-bottom-left-radius: 0;
   border-left-width: 0;
-  border-right: 1px solid $_border-color;
-  border-top: 1px solid $_border-color;
+  border-right: $_button-border-width solid $_button-border-color;
+  border-top: $_button-border-width solid $_button-border-color;
   border-top-left-radius: 0;
   color: $_button-color;
-  padding: calc(#{map.get(theme.$spacing, 's')} - 1px);
+  padding: calc(#{map.get(theme.$spacing, 's')} - #{$_button-border-width});
 
   &:hover,
   &:active {
     background-color: $_button-background-color-hover;
+  }
+
+  &:focus {
+    padding-left: calc(
+      #{map.get(theme.$spacing, 's')} - #{$_button-outline-width}
+    );
+    padding-right: calc(
+      #{map.get(theme.$spacing, 's')} - #{$_button-outline-width}
+    );
+  }
+
+  &[disabled] {
+    background-color: rgba($_button-background-color, 0.5);
+    border-color: rgba($_button-border-color, 0.5);
+    color: rgba($_button-color, 0.5);
+  }
+
+  &[disabled]:hover {
+    background-color: rgba($_button-background-color-hover, 0.5);
+    color: rgba($_button-color, 0.5);
   }
 }
 
@@ -84,14 +99,27 @@ $_button-color: null !default;
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
+@include breakpoints.up('m') {
   .ecl-search-form {
-    max-width: $_form-width-desktop;
+    max-width: $_form-width-tablet;
   }
 
   .ecl-search-form__button {
-    padding-left: calc(#{map.get(theme.$spacing, 'm')} - 1px);
-    padding-right: calc(#{map.get(theme.$spacing, 'm')} - 1px);
+    padding-left: calc(
+      #{map.get(theme.$spacing, 'm')} - #{$_button-border-width}
+    );
+    padding-right: calc(
+      #{map.get(theme.$spacing, 'm')} - #{$_button-border-width}
+    );
+  }
+
+  .ecl-search-form__button:focus {
+    padding-left: calc(
+      #{map.get(theme.$spacing, 'm')} - #{$_button-outline-width}
+    );
+    padding-right: calc(
+      #{map.get(theme.$spacing, 'm')} - #{$_button-outline-width}
+    );
   }
 
   .ecl-search-form__button .ecl-button__label {
@@ -100,5 +128,12 @@ $_button-color: null !default;
 
   .ecl-search-form__button .ecl-button__icon {
     display: none;
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('l') {
+  .ecl-search-form {
+    max-width: $_form-width-desktop;
   }
 }

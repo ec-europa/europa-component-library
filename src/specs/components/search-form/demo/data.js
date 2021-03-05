@@ -3,6 +3,7 @@ module.exports = {
   text_input: {
     id: 'search-input',
     label: 'Search',
+    placeholder: 'Placeholder text',
   },
   button: {
     icon: {
