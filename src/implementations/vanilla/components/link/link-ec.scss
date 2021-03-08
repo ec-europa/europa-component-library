@@ -1,0 +1,16 @@
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+@use 'link' with (
+  $_outline-color: map.get(theme.$color, 'yellow-100'),
+  $_outline-width: 3px,
+  $_color-hover: map.get(theme.$color, 'blue-130'),
+  $_cta-color: map.get(theme.$color, 'black-100'),
+  $_cta-border-radius: 0,
+  $_cta-background-color-hover: map.get(theme.$color, 'yellow-120'),
+  $_cta-font-weight: map.get(theme.$font-weight, 'bold'),
+  $_cta-shadow-hover: none,
+  $_cta-outline-color: map.get(theme.$color, 'black-100'),
+  $_negative-color: map.get(theme.$color, 'white-100'),
+  $_negative-color-hover: map.get(theme.$color, 'yellow-25'),
+  $_negative-color-visited: map.get(theme.$color, 'purple-25'),
+);

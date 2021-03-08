@@ -6,18 +6,21 @@
 @use "sass:map";
 @use '@ecl/theme-dev/theme';
 
-$_outline-color: map.get(theme.$color, 'yellow');
-$_outline-width: 3px;
-$_color: map.get(theme.$color, 'blue');
-$_color-hover: map.get(theme.$color, 'black');
-$_color-visited: map.get(theme.$color, 'red');
-$_negative-color: map.get(theme.$color, 'white-100');
-$_negative-color-hover: map.get(theme.$color, 'yellow-25');
-$_negative-color-visited: map.get(theme.$color, 'red');
-$_cta-color: map.get(theme.$color, 'black-100');
+$_outline-color: null !default;
+$_outline-width: null !default;
+$_color: map.get(theme.$color, 'blue-100');
+$_color-hover: null !default;
+$_color-visited: map.get(theme.$color, 'purple-100');
+$_cta-color: null !default;
+$_cta-border-radius: null !default;
 $_cta-background-color: map.get(theme.$color, 'yellow-100');
-$_cta-background-color-hover: map.get(theme.$color, 'yellow-120');
-$_cta-outline-color: map.get(theme.$color, 'black-100');
+$_cta-background-color-hover: null !default;
+$_cta-font-weight: null !default;
+$_cta-shadow-hover: null !default;
+$_cta-outline-color: null !default;
+$_negative-color: null !default;
+$_negative-color-hover: null !default;
+$_negative-color-visited: null !default;
 
 .ecl-link {
   color: $_color;
@@ -112,16 +115,18 @@ $_cta-outline-color: map.get(theme.$color, 'black-100');
 */
 .ecl-link--cta {
   background-color: $_cta-background-color;
+  border-radius: $_cta-border-radius;
   box-sizing: border-box;
   color: $_cta-color;
   display: inline-block;
   font: map.get(theme.$font, 'm');
-  font-weight: map.get(theme.$font-weight, 'bold');
+  font-weight: $_cta-font-weight;
   padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
 
   &:hover,
   &:active {
     background-color: $_cta-background-color-hover;
+    box-shadow: $_cta-shadow-hover;
     color: $_cta-color;
   }
 
@@ -131,5 +136,9 @@ $_cta-outline-color: map.get(theme.$color, 'black-100');
     outline: none;
     padding: calc(#{map.get(theme.$spacing, 's')} - #{$_outline-width})
       calc(#{map.get(theme.$spacing, 'm')} - #{$_outline-width});
+  }
+
+  &:visited {
+    color: $_color-visited;
   }
 }
