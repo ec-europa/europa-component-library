@@ -2,31 +2,32 @@
 
 {#
   Parameters:
-  - "sections" (array objects) (default: [])
+  - "rows" (array of objects) (default: [])
     - "logo" (EU only)
       - "alt" (string) alt attribute for the logo link
       - "path" (string) logo link path
       - "language" (string) Language code
       - "src_mobile" (string) Path the mobile logo
       - "src_desktop" (string) Path to the desktop logo
-    - "title" (predefined structure) see Link component
-    - "description" (string) (default: ''),
+    - "title" (optional) (string) OR (object with Link component in property)
+    - "title_with_separator" (optional) (bolean) (default: false)
+    - "description" (optional) (string) (default: '')
     - "content_before" (optional) (string) (default: '')
-    - "section_class_name" (string) (default: ''),
     - "links" (optional) (array of objects) (default: []),
       - "link" (link object)
       - "content_before" (string) Optional text before the link
       - "content_after" (string) Optional text after the link
-    - "list_class_name" (string) (default: []),
+    - "links_column" (optional) (bolean) (default: false) Optional split display list into 2 columns
+    - "section_with_separator" (optional) (bolean) (default: false) Optinal bottom separator for the section
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
     - "name" (string) Attribute name, eg. 'data-test'
-    - "value" (string) Attribute value, eg: 'data-test-1',
+    - "value" (string) Attribute value, eg: 'data-test-1'
 #}
 
 {# Internal properties #}
 
-{% set _sections = sections|default({}) %}
+{% set _rows = rows|default([]) %}
 {% set _css_class = 'ecl-footer-core' %}
 {% set _extra_attributes = '' %}
 
@@ -47,110 +48,107 @@
 {% endif %}
 
 {# Print the result #}
-
 <footer class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  {# Main container #}
   <div class="ecl-container ecl-footer-core__container">
-{% if _sections is not empty and _sections is iterable %}
-  {% set _section_id = 0 %}
-  {% for _section_group in _sections %}
-    {% set _section_id = _section_id + 1 %}
-    {% set _inner_section = false %}
-    {# A section can be an array or not, so we always make it an array to loop into it #}
-    {% if _section_group[0] is not defined %}
-      {% set _section_group = [_section_group] %}
-    {% else %}
-      {# For the additional inner section elements #}
-      {% set _inner_section = true %}
-    {% endif %}
-    {% set _section_class = 'ecl-footer-core__section ecl-footer-core__section' ~ _section_id %}
-    {% if _section_group[0].section_class_name is defined and _section_group[0].section_class_name is not empty %}
-      {% set _section_class = _section_class ~ ' ' ~ _section_group[0].section_class_name %}
-    {% endif %}
-    <section class="{{ _section_class }}">
-    {% for _section in _section_group %}
-    {% if _inner_section %}
-      <section class="ecl-footer-core__section">
-    {% endif %}
-    {# logo (EU) #}
-    {% if _section.logo is defined and _section.logo is not empty %}
-      {% set _label %}
-        <img
-          alt="{{ _section.logo.alt }}"
-          title="{{ _section.logo.title }}"
-          class="ecl-footer-core__logo-image-mobile"
-          src="{{ _section.logo.src_mobile }}"
-        />
-        <img
-          alt="{{ _section.logo.alt }}"
-          title="{{ _section.logo.title }}"
-          class="ecl-footer-core__logo-image-desktop"
-          src="{{ _section.logo.src_desktop }}"
-        />
-      {% endset %}
-      {% include '@ecl/link/link.html.twig' with {
-        link: {
-          path: _section.logo.path,
-          label: _label,
-          type: 'standalone',
-          aria_label: _section.logo.title
-        },
-        extra_classes: 'ecl-footer-core__logo-link'
-      } only %}
-    {% endif %}
-    {# content before #}
-    {% if _section.content_before is defined and _section.content_before is not empty %}
-      <div class="ecl-footer-core__content">{{ _section.content_before }}</div>
-    {% endif %}
-    {# title #}
-    {% if _section.title is defined and _section.title is not empty %}
-      {% if _section.title.link is defined and _section.title.link is not empty %}
-        {% include '@ecl/link/link.html.twig' with {
-          link: _section.title.link|default({})|merge({
-            type: 'standalone',
-          }),
-          extra_classes: 'ecl-footer-core__title',
-        } only %}
-      {% else %}
-        <div class="ecl-footer-core__title ecl-footer-core__title--separator">
-          {{- _section.title -}}
+  {% for _row in _rows %}
+    <div class="ecl-footer-core__row">
+    {% for _columns in _row %}
+      <div class="ecl-footer-core__column">
+      {% for _sections in _columns %}
+        {% set _section_class_name = 'ecl-footer-core__section' %}
+        {% if _sections.section_class_name is defined and _sections.section_class_name is not empty %}
+          {% set _section_class_name = _section_class_name ~ ' ' ~ _sections.section_class_name %}
+        {% endif %}
+        {% if _sections.section_with_separator %}
+          {% set _section_class_name = _section_class_name ~ ' ecl-footer-core__section--separator' %}
+        {% endif %}
+        <div class="{{ _section_class_name }}">
+          {# logo (EU) #}
+          {% if _sections.logo is defined and _sections.logo is not empty %}
+            {% set _label %}
+              <img
+                {% if _sections.logo.alt is defined and _sections.logo.alt is not empty %}
+                alt="{{ _sections.logo.alt }}"
+                {% endif %}
+                title="{{ _sections.logo.title }}"
+                class="ecl-footer-core__logo-image-mobile"
+                src="{{ _sections.logo.src_mobile }}"
+              />
+              <img
+                {% if _sections.logo.alt is defined and _sections.logo.alt is not empty %}
+                alt="{{ _sections.logo.alt }}"
+                {% endif %}
+                title="{{ _sections.logo.title }}"
+                class="ecl-footer-core__logo-image-desktop"
+                src="{{ _sections.logo.src_desktop }}"
+              />
+            {% endset %}
+            {% include '@ecl/link/link.html.twig' with {
+              link: {
+                path: _sections.logo.path,
+                label: _label,
+                type: 'standalone',
+                aria_label: _sections.logo.title
+              },
+              extra_classes: 'ecl-footer-core__logo-link'
+            } only %}
+          {% endif %}
+          {# content before #}
+          {% if _sections.content_before is defined and _sections.content_before is not empty %}
+            <div class="ecl-footer-core__content">{{ _sections.content_before }}</div>
+          {% endif %}
+          {# title #}
+          {% if _sections.title is defined and _sections.title is not empty %}
+            {% set _title_class_name = 'ecl-footer-core__title' %}
+            {% if _sections.title_with_separator %}
+              {% set _title_class_name = _title_class_name ~ ' ecl-footer-core__title--separator' %}
+            {% endif %}
+            <h2 class="{{ _title_class_name }}">
+              {% if _sections.title.link is defined and _sections.title.link is not empty %}
+                {% include '@ecl/link/link.html.twig' with _sections|merge({
+                  link: _sections.title.link|merge({ type: 'standalone'}),
+                  extra_classes: 'ecl-footer-core__title-link',
+                  icon: _sections.title.icon|default({}),
+                }) only %}
+              {% else %}
+                {{- _sections.title -}}
+              {% endif %}
+            </h2>
+          {% endif %}
+          {# description #}
+          {% if _sections.description is defined and _sections.description is not empty %}
+            <div class="ecl-footer-core__description">{{ _sections.description }}</div>
+          {% endif %}
+          {# list #}
+          {% if _sections.links is defined and _sections.links is not empty and _sections.links is iterable %}
+            {% set _list_class_name = 'ecl-footer-core__list' %}
+            {% if _sections.links_columns %}
+              {% set _list_class_name = _list_class_name ~ ' ecl-footer-core__list--columns' %}
+            {% endif %}
+            <ul class="{{ _list_class_name }}">
+              {% for _item in _sections.links %}
+                <li class="ecl-footer-core__list-item">
+                  {% if _item.content_before is defined and _item.content_before is not empty %}
+                    {{- _item.content_before -}}
+                  {% endif %}
+                  {% include '@ecl/link/link.html.twig' with _item|merge({
+                    link: _item.link|default({})|merge({ type: 'standalone' }),
+                    extra_classes: 'ecl-footer-core__link',
+                  }) only %}
+                  {% if _item.content_after is defined and _item.content_after is not empty %}
+                    {{- _item.content_after -}}
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
         </div>
-      {% endif %}
-    {% endif %}
-    {# description #}
-    {% if _section.description is defined and _section.description is not empty %}
-      <div class="ecl-footer-core__description">{{ _section.description }}</div>
-    {% endif %}
-    {# links #}
-    {% if _section.links is defined and _section.links is not empty %}
-      {% set _list_class = 'ecl-footer-core__list' %}
-      {% if _section.list_class_name is defined and _section.list_class_name is not empty %}
-        {% set _list_class = _list_class ~ ' ' ~ _section.list_class_name %}
-      {% endif %}
-      <ul class="{{ 'ecl-footer-core__list ' ~ _list_class }}">
-      {% for _item in _section.links %}
-        <li class="ecl-footer-core__list-item">
-        {{- _item.content_before -}}
-        {% include '@ecl/link/link.html.twig' with _item|merge({
-          link: _item.link|default({})|merge({
-            type: 'standalone',
-          }),
-          icon: _item.icon|default({})|merge({
-            size: 'xs',
-          }),
-          extra_classes: 'ecl-footer-core__link',
-        }) only %}
-        {{- _item.content_after -}}
-        </li>
       {% endfor %}
-      </ul>
-    {% endif %}
-    {% if _inner_section %}
-      </section>
-    {% endif %}
+      </div>
     {% endfor %}
-    </section>
+    </div>
   {% endfor %}
-{% endif %}
   </div>
 </footer>
 
