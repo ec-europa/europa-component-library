@@ -7,28 +7,39 @@
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-$_border-color: map.get(theme.$color, 'grey-100');
+$_border-radius: null !default;
+$_border-color: null !default;
+$_border-color-hover: null !default;
+$_border-color-focus: null !default;
+$_border-color-invalid: null !default;
+$_border-color-invalid-hover: null !default;
 $_border-width: 1px;
-$_border-color-hover: map.get(theme.$color, 'blue-100');
-$_border-color-focus: map.get(theme.$color, 'yellow-100');
-$_border-width-focus: 3px;
+$_border-width-focus: null !default;
+$_color-input: null !default;
+$_color-placeholder: null !default;
+$_shadow: null !default;
+$_shadow-hover: null !default;
+$_padding-vertical: map.get(theme.$spacing, 's');
+$_padding-horizontal: null !default;
+$_arrow-background-color: null !default;
+$_arrow-background-color-hover: null !default;
+$_arrow-background-color-invalid: null !default;
+$_arrow-background-color-invalid-hover: null !default;
 $_arrow-width: 2.75rem;
 
 .ecl-select {
   appearance: none;
   background-color: transparent;
   border: $_border-width solid $_border-color;
-  border-radius: 0;
-  box-shadow: none;
+  border-radius: $_border-radius;
+  box-shadow: $_shadow;
   box-sizing: border-box;
-  color: map.get(theme.$color, 'text');
+  color: $_color-input;
   display: block;
   font: map.get(theme.$font, 'm');
   margin: 0;
-  padding: calc(#{map.get(theme.$spacing, 's')} - #{$_border-width})
-    calc(#{map.get(theme.$spacing, 's')} + #{$_arrow-width} - #{$_border-width})
-    calc(#{map.get(theme.$spacing, 's')} - #{$_border-width})
-    calc(#{map.get(theme.$spacing, 's')} - #{$_border-width});
+  padding: calc(#{$_padding-vertical} - #{$_border-width})
+    calc(#{$_padding-horizontal} - #{$_border-width});
   width: 100%;
   z-index: 1;
 
@@ -38,11 +49,15 @@ $_arrow-width: 2.75rem;
 
   &:hover {
     border-color: $_border-color-hover;
+    box-shadow: $_shadow-hover;
   }
 
   &:focus {
-    outline: $_border-width-focus solid $_border-color-focus;
-    outline-offset: -3px;
+    border-color: $_border-color-focus;
+    border-width: $_border-width-focus;
+    outline: none;
+    padding: calc(#{$_padding-vertical} - #{$_border-width-focus})
+      calc(#{$_padding-horizontal} - #{$_border-width-focus});
   }
 }
 
@@ -100,7 +115,9 @@ $_arrow-width: 2.75rem;
 
 .ecl-select__icon {
   align-items: center;
-  background-color: $_border-color;
+  background-color: $_arrow-background-color;
+  border-bottom-right-radius: $_border-radius;
+  border-top-right-radius: $_border-radius;
   display: flex;
   height: 100%;
   justify-content: center;
@@ -112,10 +129,7 @@ $_arrow-width: 2.75rem;
 }
 
 .ecl-select:hover + .ecl-select__icon {
-  background-color: $_border-color-hover;
-}
-.ecl-select:focus + .ecl-select__icon {
-  background-color: $_border-color;
+  background-color: $_arrow-background-color-hover;
 }
 
 .ecl-select__icon-shape {
@@ -152,22 +166,29 @@ $_arrow-width: 2.75rem;
 .ecl-select__container--invalid {
   /* stylelint-disable-next-line no-descending-specificity */
   .ecl-select__icon {
-    background-color: map.get(theme.$color, 'error');
+    background-color: $_arrow-background-color-invalid;
   }
 
-  .ecl-select:hover + .ecl-select__icon,
+  .ecl-select:hover + .ecl-select__icon {
+    background-color: $_arrow-background-color-invalid-hover;
+  }
+
   .ecl-select:focus + .ecl-select__icon {
-    background-color: map.get(theme.$color, 'red-130');
+    background-color: $_arrow-background-color-invalid;
   }
 
   .ecl-select {
-    border-color: map.get(theme.$color, 'error');
+    border-color: $_border-color-invalid;
     box-shadow: none;
   }
 
-  .ecl-select:hover,
+  .ecl-select:hover {
+    border-color: $_border-color-invalid-hover;
+    box-shadow: $_shadow-hover;
+  }
+
   .ecl-select:focus {
-    border-color: map.get(theme.$color, 'red-130');
+    border-color: $_border-color-focus;
   }
 }
 
