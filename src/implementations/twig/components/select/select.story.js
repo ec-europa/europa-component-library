@@ -1,12 +1,19 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctSvgPath, getFormControls } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
-import dataSingle from '@ecl/specs-component-select/demo/data--single';
-import dataMultiple from '@ecl/specs-component-select/demo/data--multiple';
+import dataSingleEC from '@ecl/specs-component-select/demo/data-single--ec';
+import dataMultipleEC from '@ecl/specs-component-select/demo/data-multiple--ec';
+import dataSingleEU from '@ecl/specs-component-select/demo/data-single--eu';
+import dataMultipleEU from '@ecl/specs-component-select/demo/data-multiple--eu';
 
 import selectBox from './select.html.twig';
 import notes from './README.md';
+
+const system = getSystem();
+const dataSingle = system === 'eu' ? dataSingleEU : dataSingleEC;
+const dataMultiple = system === 'eu' ? dataMultipleEU : dataMultipleEC;
 
 const getArgTypes = (data) => getFormControls(data, 'element');
 
