@@ -10,7 +10,7 @@ module.exports = {
   items: [
     { label: 'Home', path: '/example' },
     {
-      label: 'Item 2',
+      label: 'Item 2 label',
       path: '/example',
       is_current: true,
       children: [
@@ -33,7 +33,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Item 3',
+      label: 'Item 3 label',
       path: '/example',
       children: [
         { label: 'Item 3.1', path: '/example' },
@@ -42,7 +42,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Item 4',
+      label: 'Item 4 label',
       path: '/example',
       children: [
         { label: 'Item 4.1', path: '/example' },
@@ -65,7 +65,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Item 5',
+      label: 'Item 5 label',
       path: '/example',
       children: [
         { label: 'Item 5.1', path: '/example' },
@@ -78,7 +78,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Item 6',
+      label: 'Item 6 label',
       path: '/example',
       children: [
         { label: 'Item 6.1', path: '/example' },
@@ -100,7 +100,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Item 7 with a long label',
+      label: 'Item 7 with a longer label',
       path: '/example',
       children: [
         { label: 'Item 7.1', path: '/example' },
