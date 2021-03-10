@@ -13,7 +13,6 @@ $_border-color-hover: null !default;
 $_border-color-focus: null !default;
 $_border-color-invalid: null !default;
 $_border-color-invalid-hover: null !default;
-$_background-color-disabled: null !default;
 $_border-color-disabled: null !default;
 $_border-width: 1px;
 $_border-width-focus: null !default;
@@ -143,7 +142,7 @@ $_arrow-width: 2.75rem;
    * Disabled
    */
 .ecl-select__container--disabled {
-  background-color: $_background-color-disabled;
+  background-color: map.get(theme.$color, 'white-100');
 
   /* stylelint-disable-next-line no-descending-specificity */
   .ecl-select__icon,
@@ -211,8 +210,6 @@ $_arrow-width: 2.75rem;
 .ecl-select__multiple {
   position: relative;
   .ecl-select__multiple-toggle[readonly] {
-    border-color: map.get(theme.$color, 'grey');
-    color: map.get(theme.$color, 'grey');
     cursor: default;
   }
 
