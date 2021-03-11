@@ -5,6 +5,21 @@ title: What's new
 
 Detailed release information is available on [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 2.37.0 (2021-03-04)
+
+#### :bug: Bug Fix
+
+- [#1934](https://github.com/ec-europa/europa-component-library/pull/1934) fix(gallery): fix gallery optional elements
+- [#1925](https://github.com/ec-europa/europa-component-library/pull/1925) fix(page-headers): Update sass to have a padding-top if not breadcrumb
+
+#### :memo: Documentation
+
+- [#1928](https://github.com/ec-europa/europa-component-library/pull/1928) feat(docs): Update Core page header usage page
+
+#### :house: Internal
+
+- [#1942](https://github.com/ec-europa/europa-component-library/pull/1942) chore(deps): Safe updates before 2.37.0
+
 ## 2.36.0 (2021-02-11)
 
 #### :rocket: New Feature
