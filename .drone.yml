@@ -70,7 +70,7 @@ pipeline:
         TEST: examples
 
   size:
-    image: buildkite/puppeteer:latest
+    image: buildkite/puppeteer:5.2.1
     commands:
       - yarn clean
       - yarn build:themes
@@ -114,7 +114,7 @@ pipeline:
         TEST: deploy
 
   build-website:
-    image: buildkite/puppeteer:latest
+    image: buildkite/puppeteer:5.2.1
     commands:
       - export PUBLIC_URL="/component-library"
       - node scripts/sri.js
@@ -154,7 +154,7 @@ pipeline:
 
   # Make a second copy of the website for versions archives.
   build-archive:
-    image: buildkite/puppeteer:latest
+    image: buildkite/puppeteer:5.2.1
     commands:
       - rm -rf dist/website
       - export PUBLIC_URL="/component-library/${DRONE_TAG}"
@@ -261,7 +261,7 @@ pipeline:
   # =======================================
 
   deploy-netlify-preview:
-    image: buildkite/puppeteer:latest
+    image: buildkite/puppeteer:5.2.1
     secrets: [gh_token, netlify_auth_token, netlify_site_id]
     commands:
       - yarn clean
