@@ -55,5 +55,6 @@ module.exports = {
   multiple: true,
   multiple_placeholder: 'Placeholder text',
   multiple_search_text: 'Search',
+  multiple_search_no_results_text: 'No results found',
   multiple_all_text: 'Select all',
 };
