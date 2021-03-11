@@ -8,22 +8,24 @@ npm install --save @ecl/twig-component-footer-core
 
 ### Parameters
 
-- **"sections"** (array objects) (default: [])
-  - "title" (link objects) see Link component
-  - "description" (string) (default: ''),
-  - "content_before" (optional) (string) (default: '')
-  - "section_class_name" (string) (default: ''),
-  - "links" (optional) (array of objects) (default: []),
-    - "link" (link object)
-    - "content_before" (string) Optional text before the link
-    - "content_after" (string) Optional text after the link
-  - "list_class_name" (string) (default: []),
+- **"rows"** (array of objects) (default: [])
+  - "section_class_name" (optional) (string) (default: '')
   - "logo" (EU only)
     - "alt" (string) alt attribute for the logo link
     - "path" (string) logo link path
     - "language" (string) Language code
     - "src_mobile" (string) Path the mobile logo
     - "src_desktop" (string) Path to the desktop logo
+  - "title" (optional) (string) OR (object with Link component in property)
+  - "title_with_separator" (optional) (bolean) (default: false)
+  - "description" (optional) (string) (default: '')
+  - "content_before" (optional) (string) (default: '')
+  - "links" (optional) (array of objects) (default: []),
+    - "link" (link object)
+    - "content_before" (string) Optional text before the link
+    - "content_after" (string) Optional text after the link
+  - "links_column" (optional) (bolean) (default: false) Optional split display list into 2 columns
+  - "section_with_separator" (optional) (bolean) (default: false) Optinal bottom separator for the section
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
