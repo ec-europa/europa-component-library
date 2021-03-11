@@ -26,8 +26,17 @@ $_arrow-background-color: null !default;
 $_arrow-background-color-hover: null !default;
 $_arrow-background-color-invalid: null !default;
 $_arrow-background-color-invalid-hover: null !default;
-$_arrow-background-color-disabled: null !default;
 $_arrow-width: 2.75rem;
+$multiple-dropdown-background-color: null !default;
+$multiple-dropdown-border-color: null !default;
+$multiple-dropdown-separator-color: null !default;
+$multiple-dropdown-border-radius: null !default;
+$multiple-dropdown-shadow: null !default;
+$multiple-dropdown-input-border-color: null !default;
+$multiple-dropdown-input-border-radius: null !default;
+$multiple-dropdown-input-border-shadow: null !default;
+$multiple-dropdown-input-margin: null !default;
+$multiple-dropdown-input-width: null !default;
 
 .ecl-select {
   appearance: none;
@@ -40,8 +49,10 @@ $_arrow-width: 2.75rem;
   display: block;
   font: map.get(theme.$font, 'm');
   margin: 0;
-  padding: calc(#{$_padding-vertical} - #{$_border-width})
-    calc(#{$_padding-horizontal} - #{$_border-width});
+  padding: calc(#{map.get(theme.$spacing, 's')} - #{$_border-width})
+    calc(#{map.get(theme.$spacing, 's')} + #{$_arrow-width} - #{$_border-width})
+    calc(#{map.get(theme.$spacing, 's')} - #{$_border-width})
+    calc(#{map.get(theme.$spacing, 's')} - #{$_border-width});
   width: 100%;
   z-index: 1;
 
@@ -148,7 +159,7 @@ $_arrow-width: 2.75rem;
   .ecl-select__icon,
   .ecl-select:hover + .ecl-select__icon,
   .ecl-select:focus + .ecl-select__icon {
-    background-color: $_arrow-background-color-disabled;
+    background-color: rgba($_arrow-background-color, 0.5);;
   }
 
   .ecl-select__icon-shape {
@@ -214,21 +225,38 @@ $_arrow-width: 2.75rem;
   }
 
   .ecl-select__multiple-dropdown {
-    background-color: map.get(theme.$color, 'grey-5');
-    border: 1px solid map.get(theme.$color, 'grey-15');
+    background-color: $multiple-dropdown-background-color;
+    border: 1px solid $multiple-dropdown-border-color;
+    border-radius: $multiple-dropdown-border-radius;
     box-sizing: border-box;
-    margin-top: map.get(theme.$spacing, 'xs');
     position: absolute;
+    box-shadow: $multiple-dropdown-shadow;
     z-index: map.get(theme.$z-index, 'dropdown');
   }
 
   .ecl-text-input {
-    width: 100%;
+    width: $multiple-dropdown-input-width;
+    margin: $multiple-dropdown-input-margin $multiple-dropdown-input-margin 0 $multiple-dropdown-input-margin;
   }
 
   .ecl-select__multiple-all {
-    border-bottom: 1px solid map.get(theme.$color, 'grey-25');
-    margin-bottom: map.get(theme.$spacing, 'xs');
+    border-bottom: 1px solid $multiple-dropdown-separator-color;
+  }
+
+  .ecl-select__multiple-options {
+    max-height: 232px;
+    overflow-y: auto;
+  }
+  
+  .ecl-select__multiple-no-results {
+    align-items: center;
+    color: map.get(theme.$color, 'grey-100');
+    display: flex;
+    font: map.get(theme.$font, 'm');
+    height: 100%;
+    justify-content: center;
+    min-height: 100px;
+    width: 100%;
   }
 
   .ecl-checkbox:last-of-type {
