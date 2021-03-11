@@ -16,6 +16,7 @@ npm install --save @ecl/twig-component-select
   - "disabled" (boolean) (default: false)
 - **"disabled"** (boolean) (default: false)
 - **"invalid"** (boolean) (default: false)
+- **"invalid_icon"** (object of type "icon") (default: {})
 - **"required"** (boolean) (default: false)
 - **"name"** (string) (default: '')
 - **"width"** (string) (default: '') Input width size (s, m or l)
