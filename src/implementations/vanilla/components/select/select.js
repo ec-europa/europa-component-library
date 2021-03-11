@@ -440,7 +440,7 @@ export class Select {
     });
     // Select all checkbox follows along.
     const checked = visible.filter((c) => c.querySelector('input').checked);
-    if (visible.length !== checked.length) {
+    if (visible.length === 0 || visible.length !== checked.length) {
       this.selectAll.querySelector('input').checked = false;
     } else {
       this.selectAll.querySelector('input').checked = true;
