@@ -5,17 +5,16 @@
 @use "sass:map";
 @use '@ecl/theme-dev/theme';
 
-$_margin-text-input: null !default;
-$_margin-invalid: null !default;
+$_color-help: null !default;
 $_color-invalid: null !default;
 $_color-label: null !default;
-$_color-help: null !default;
-$_color-required: null !default;
 $_color-optional: null !default;
-$_font-optional: null !default;
-$_font-invalid: null !default;
+$_color-required: null !default;
 $_font-help: null !default;
-$_form-element-top-margin: null !default;
+$_font-invalid: null !default;
+$_font-optional: null !default;
+$_form-element-margin: null !default;
+$_margin-invalid: null !default;
 
 .ecl-form-group {
   align-items: flex-start;
@@ -26,25 +25,11 @@ $_form-element-top-margin: null !default;
   padding: 0;
 
   > *:not(.ecl-u-sr-only) + * {
-    margin-top: map.get(theme.$spacing, 'xs');
+    margin-top: $_form-element-margin;
   }
 
   > *:not(.ecl-u-sr-only) + .ecl-feedback-message {
     margin-top: $_margin-invalid;
-  }
-
-  > *:not(.ecl-u-sr-only) + .ecl-checkbox,
-  > *:not(.ecl-u-sr-only) + .ecl-file-upload,
-  > *:not(.ecl-u-sr-only) + .ecl-file-upload__button-container,
-  > *:not(.ecl-u-sr-only) + .ecl-radio,
-  > *:not(.ecl-u-sr-only) + .ecl-select__container,
-  > *:not(.ecl-u-sr-only) + .ecl-select__multiple,
-  > *:not(.ecl-u-sr-only) + .ecl-text-area {
-    margin-top: $_form-element-top-margin;
-  }
-
-  > *:not(.ecl-u-sr-only) + .ecl-text-input {
-    margin-top: $_margin-text-input;
   }
 
   > *:not(.ecl-u-sr-only) + .ecl-file-upload__list {
@@ -83,7 +68,7 @@ $_form-element-top-margin: null !default;
   box-sizing: border-box;
   color: $_color-label;
   display: inline-block;
-  font: map.get(theme.$font, 'm');
+  font: map.get(theme.$font-prolonged, 'm');
   font-weight: map.get(theme.$font-weight, 'bold');
   margin: 0;
   padding: 0;
