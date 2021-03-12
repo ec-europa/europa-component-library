@@ -32,6 +32,10 @@ $_margin-invalid: null !default;
     margin-top: $_margin-invalid;
   }
 
+  > *:not(.ecl-u-sr-only) + .ecl-help-block {
+    margin-top: map.get(theme.$spacing, 'xs');
+  }
+
   > *:not(.ecl-u-sr-only) + .ecl-file-upload__list {
     margin-top: map.get(theme.$spacing, 'm');
   }
