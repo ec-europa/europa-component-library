@@ -20,7 +20,7 @@ Links are a navigation component used to direct users to another section, page, 
 
 - stand alone from other text
 - links are not underlined when they are separate from the main text (disconnected from content, not part of a paragraph or other text)
-used for sections of links and navigation sections
+  used for sections of links and navigation sections
 - purpose of the link should be determined based on the text. Screen reader users often read out lists of links in isolation, so make the purpose of the link clear from the link text alone
 - when hovering over the link it becomes underlined
 
@@ -31,7 +31,7 @@ A promotional weblink where users can take action to find more information in th
 ## Do's
 
 - ensure the link is aptly named so the user is correctly guided to the desired information
-- the link text must be concise to describe its purpose and destination. 
+- the link text must be concise to describe its purpose and destination.
 - ample spacing between links is essential for effective use on mobile devices
 
 ## Don'ts
