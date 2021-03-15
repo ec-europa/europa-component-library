@@ -11,7 +11,7 @@ module.exports = {
     path: '/icons.svg',
     type: 'notifications',
     name: 'warning',
-    size: 's',
+    size: 'm',
   },
   items: [
     {
