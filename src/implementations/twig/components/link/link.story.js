@@ -12,18 +12,9 @@ import dataNegative from '@ecl/specs-component-link/demo/data--negative';
 import link from './link.html.twig';
 import notes from './README.md';
 
-const storyAsString = (story) =>
-  `<p class="ecl-u-type-paragraph ecl-u-ma-none">The European Commission is the executive of ${story} and promotes its general interest.</p>`;
-const storyAsNode = (story) => {
-  const wrapper = document.createElement('p');
-  wrapper.className = 'ecl-u-type-paragraph ecl-u-ma-none';
-  wrapper.appendChild(story);
-  return wrapper;
-};
-
 const withParagraph = (story) => {
   const demo = story();
-  return typeof demo === 'string' ? storyAsString(demo) : storyAsNode(demo);
+  return `<p class="ecl-u-type-paragraph ecl-u-ma-none">The European Commission is the executive of ${demo} and promotes its general interest.</p>`;
 };
 
 const withNegative = (story, controls) => {

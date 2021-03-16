@@ -20,6 +20,7 @@ $_text-color: map.get(theme.$color, 'grey-100');
   font-weight: map.get(theme.$font-weight, 'bold');
   margin-top: map.get(theme.$spacing, 'l');
   max-width: calc(80ch - #{map.get(theme.$spacing, '2xl')});
+  overflow-wrap: break-word;
 
   &:first-child {
     margin-top: 0;
