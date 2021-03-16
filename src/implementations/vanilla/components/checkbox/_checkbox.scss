@@ -94,8 +94,7 @@ $_outline-width: null !default;
 }
 // Checked and indeterminate
 // stylelint-disable no-descending-specificity
-.ecl-checkbox__input:checked,
-.ecl-checkbox__input:indeterminate {
+.ecl-checkbox__input:checked {
   + .ecl-checkbox__label .ecl-checkbox__box {
     background: $_box-background-checked;
     border-color: $_box-border-color-checked;
