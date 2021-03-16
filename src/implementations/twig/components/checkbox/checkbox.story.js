@@ -11,17 +11,10 @@ import notes from './README.md';
 
 const system = getSystem();
 
-let dataDefault = { ...dataEc };
-let dataInvalid = { ...dataDefault, invalid: true };
-let dataOptional = { ...dataDefault, required: false };
-let dataSingle = { ...dataDefault, items: [dataEc.items[0]] };
-
-if (system === 'eu') {
-  dataDefault = { ...dataDefault, invalid_icon: dataEu.invalid_icon };
-  dataInvalid = { ...dataInvalid, invalid_icon: dataEu.invalid_icon };
-  dataOptional = { ...dataOptional, invalid_icon: dataEu.invalid_icon };
-  dataSingle = { ...dataSingle, invalid_icon: dataEu.invalid_icon };
-}
+const dataDefault = system === 'eu' ? { ...dataEu } : { ...dataEc };
+const dataInvalid = { ...dataDefault, invalid: true };
+const dataOptional = { ...dataDefault, required: false };
+const dataSingle = { ...dataDefault, items: [dataDefault.items[0]] };
 
 const getArgTypes = (data) => getFormControls(data, 'group');
 
