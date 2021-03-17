@@ -21,6 +21,7 @@ $_cta-outline-color: null !default;
 $_negative-color: null !default;
 $_negative-color-hover: null !default;
 $_negative-color-visited: null !default;
+$_negative-standalone-color-hover: null !default;
 
 .ecl-link {
   color: $_color;
@@ -79,6 +80,11 @@ $_negative-color-visited: null !default;
   &:hover,
   &:focus {
     color: $_negative-color-hover;
+
+    /* stylelint-disable-next-line max-nesting-depth */
+    &.ecl-link--standalone {
+      color: $_negative-standalone-color-hover;
+    }
   }
 
   &:visited {
