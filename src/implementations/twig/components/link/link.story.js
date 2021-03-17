@@ -1,6 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctSvgPath } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 // Import data for demos
 import uiIcons from '@ecl/resources-ec-icons/dist/lists/ui.json';
@@ -11,6 +12,8 @@ import dataNegative from '@ecl/specs-component-link/demo/data--negative';
 
 import link from './link.html.twig';
 import notes from './README.md';
+
+const system = getSystem();
 
 const withParagraph = (story) => {
   const demo = story();
@@ -113,12 +116,21 @@ const prepareData = (data, args) => {
     data.icon.name = args.icon_name;
     data.icon.type = 'ui';
     data.icon.transform = args.icon_transform;
-    data.icon.size = 'fluid';
+    data.icon.size = system === 'eu' ? 'm' : 'xs';
     data.icon.path = 'icon.svg';
   }
   correctSvgPath(data);
 
   return data;
+};
+
+const prepareDataCta = (data, args) => {
+  const dataCustom = prepareData(data, args);
+  if (dataCustom.icon) {
+    data.icon.size = system === 'eu' ? 's' : 'xs';
+  }
+
+  return dataCustom;
 };
 
 export default {
@@ -142,7 +154,7 @@ Standalone.storyName = 'standalone';
 Standalone.argTypes = getArgTypes(dataStandalone);
 Standalone.parameters = { notes: { markdown: notes, json: dataStandalone } };
 
-export const Cta = (args) => link(prepareData(dataCta, args));
+export const Cta = (args) => link(prepareDataCta(dataCta, args));
 
 Cta.storyName = 'cta';
 Cta.argTypes = getArgTypes(dataCta);
