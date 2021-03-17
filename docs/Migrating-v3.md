@@ -125,6 +125,13 @@ Example: `@ecl-twig/ec-component-accordion/ecl-accordion.html.twig` => `@ecl/acc
 
 Most of the components have been updated without much changes. Although, there are a few exceptions, which may result in breaking changes
 
+- Breadcrumb
+  - twig parameter "icon_size" added, to handle the size of the icon between segments
+- Button
+  - variant "search" has been removed (css has been integrated in search form)
+- Date block
+  - css class for variant "cancelled" has been renamed from `.ecl-date-block--canceled` to `.ecl-date-block--cancelled`
+  - new css class `.ecl-date-block__daytime` in place of the `ecl-u-sr-only` utility (components are not supposed to contain utilities
 - Footers
   - components have been completely refactored at markup and specs level
   - section ids have been removed to be more consistent
@@ -133,20 +140,15 @@ Most of the components have been updated without much changes. Although, there a
   - twig parameter "type" has been removed (not used)
   - twig parameter "title_class_name" replaced by boolean "title_with_separator" parameter
   - twig parameter "list_class_name" replaced by boolean "links_inline" parameter
-- Date block
-  - css class for variant "cancelled" has been renamed from `.ecl-date-block--canceled` to `.ecl-date-block--cancelled`
-  - new css class `.ecl-date-block__daytime` in place of the `ecl-u-sr-only` utility (components are not supposed to contain utilities)
 - Link
   - twig parameter "icon_path" has been removed (not used)
-- Button
-  - variant "search" has been removed (css has been integrated in search form)
+- Text area
+  - twig parameter "invalid_icon" added, to display additional icon when field is invalid
+  - twig parameter "placeholder" added, to manage default content
 - Text input
   - twig parameter "invalid_icon" added, to display additional icon when field is invalid
   - twig parameter "placeholder" added, to manage default content
   - twig parameter "invalid_icon_label" has been removed (not used)
-- Text-area
-  - twig parameter "invalid_icon" added, to display additional icon when field is invalid
-  - twig parameter "placeholder" added, to manage default content
 
 ## Resources specifics
 
