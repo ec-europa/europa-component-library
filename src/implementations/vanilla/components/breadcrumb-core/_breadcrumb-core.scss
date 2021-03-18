@@ -16,6 +16,8 @@ $_icon-color: null !default;
 $_background-color: null !default;
 $_ellipsis-background-color: null !default;
 $_ellipsis-background-color-hover: null !default;
+$_ellipsis-padding-horizontal: null !default;
+$_ellispis-outline-width: null !default;
 $_border-color: null !default;
 
 .ecl-breadcrumb-core {
@@ -75,7 +77,8 @@ $_border-color: null !default;
   color: $_link-color;
   font: $_link-font;
   font-weight: map.get(theme.$font-weight, 'bold');
-  padding: 0;
+  margin: 0 -$_ellipsis-padding-horizontal;
+  padding: 0 $_ellipsis-padding-horizontal;
 
   &:hover {
     background-color: $_ellipsis-background-color-hover;
@@ -83,7 +86,10 @@ $_border-color: null !default;
   }
 
   &:focus {
-    padding: 0;
+    margin: calc(
+      -1 * (#{$_ellispis-outline-width} + #{$_ellipsis-padding-horizontal})
+    );
+    padding: 0 $_ellipsis-padding-horizontal;
   }
 }
 
