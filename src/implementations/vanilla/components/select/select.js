@@ -41,7 +41,7 @@ export class Select {
       defaultText = '',
       searchText = '',
       selectAllText = '',
-      noResultText = '',
+      noResultsText = '',
       selectMultipleId = 'select-multiple',
       selectMultipleSelector = '[data-ecl-select-multiple]',
       defaultTextAttribute = 'data-ecl-select-default',
@@ -65,11 +65,11 @@ export class Select {
     this.defaultTextAttribute = defaultTextAttribute;
     this.searchTextAttribute = searchTextAttribute;
     this.selectAllTextAttribute = selectAllTextAttribute;
+    this.noResultsTextAttribute = noResultsTextAttribute;
     this.defaultText = defaultText;
     this.searchText = searchText;
     this.selectAllText = selectAllText;
-    this.noResultText = noResultText;
-    this.noResultsTextAttribute = noResultsTextAttribute;
+    this.noResultsText = noResultsText;
 
     // Private variables
     this.input = null;
@@ -207,7 +207,7 @@ export class Select {
       this.selectAllText ||
       this.element.getAttribute(this.selectAllTextAttribute);
     this.textNoResults =
-      this.noResultText ||
+      this.noResultsText ||
       this.element.getAttribute(this.noResultsTextAttribute);
 
     this.selectMultiple = document.createElement('div');
@@ -458,7 +458,7 @@ export class Select {
       const noResultsContainer = document.createElement('div');
       const noResultsLabel = document.createElement('span');
       noResultsContainer.classList.add('ecl-select__multiple-no-results');
-      noResultsLabel.innerHTML = 'this.textNoResults';
+      noResultsLabel.innerHTML = this.textNoResults;
       noResultsContainer.appendChild(noResultsLabel);
       this.optionsContainer.appendChild(noResultsContainer);
       // Disable select all checkbox.
