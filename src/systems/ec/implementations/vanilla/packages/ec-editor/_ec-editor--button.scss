@@ -12,7 +12,7 @@
   $padding-vertical: $ecl-spacing-m
 ) {
   /* stylelint-disable selector-no-qualifying-type */
-  .ecl-editor button:not(.ecl-file__translation-toggle),
+  .ecl-editor button,
   .ecl-editor input[type='button'],
   .ecl-editor input[type='submit'] {
     appearance: none;
@@ -39,5 +39,17 @@
       outline: $outline-width solid $ecl-color-secondary;
       outline-offset: -($outline-width);
     }
+  }
+}
+
+.ecl-editor .ecl-file__translation-toggle {
+  background-color: transparent;
+  color: $ecl-color-blue-100;
+  font-weight: normal;
+
+  &:hover,
+  &:focus {
+    background-color: transparent;
+    color: $ecl-color-blue-130;
   }
 }
