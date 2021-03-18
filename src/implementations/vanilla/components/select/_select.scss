@@ -20,8 +20,6 @@ $_color-input: null !default;
 $_color-placeholder: null !default;
 $_shadow: null !default;
 $_shadow-hover: null !default;
-$_padding-vertical: map.get(theme.$spacing, 's');
-$_padding-horizontal: null !default;
 $_arrow-background-color: null !default;
 $_arrow-background-color-hover: null !default;
 $_arrow-background-color-invalid: null !default;
@@ -66,8 +64,10 @@ $_multiple-dropdown-input-width: null !default;
     border-color: $_border-color-focus;
     border-width: $_border-width-focus;
     outline: none;
-    padding: calc(#{$_padding-vertical} - #{$_border-width-focus})
-      calc(#{$_padding-horizontal} - #{$_border-width-focus});
+    padding: calc(#{map.get(theme.$spacing, 's')} - #{$_border-width-focus})
+      calc(#{map.get(theme.$spacing, 's')} + #{$_arrow-width} - #{$_border-width-focus})
+      calc(#{map.get(theme.$spacing, 's')} - #{$_border-width-focus})
+      calc(#{map.get(theme.$spacing, 's')} - #{$_border-width-focus});
   }
 }
 
