@@ -65,7 +65,9 @@ $_multiple-dropdown-input-width: null !default;
     border-width: $_border-width-focus;
     outline: none;
     padding: calc(#{map.get(theme.$spacing, 's')} - #{$_border-width-focus})
-      calc(#{map.get(theme.$spacing, 's')} + #{$_arrow-width} - #{$_border-width-focus})
+      calc(
+        #{map.get(theme.$spacing, 's')} + #{$_arrow-width} - #{$_border-width-focus}
+      )
       calc(#{map.get(theme.$spacing, 's')} - #{$_border-width-focus})
       calc(#{map.get(theme.$spacing, 's')} - #{$_border-width-focus});
   }
