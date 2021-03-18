@@ -6,11 +6,19 @@
 @use "sass:map";
 @use '@ecl/theme-dev/theme';
 
-$_background-color: transparent;
-$_background-color-hover: map.get(theme.$color, 'blue-5');
-$_link-color: map.get(theme.$color, 'blue');
-$_last-link-color: map.get(theme.$color, 'grey-75');
-$_border-color: map.get(theme.$color, 'blue-25');
+$_container-padding: null !default;
+$_segment-margin-top: null !default;
+$_link-color: null !default;
+$_link-font: null !default;
+$_link-font-weight: null !default;
+$_last-link-color: null !default;
+$_icon-color: null !default;
+$_background-color: null !default;
+$_ellipsis-background-color: null !default;
+$_ellipsis-background-color-hover: null !default;
+$_ellipsis-padding-horizontal: null !default;
+$_ellispis-outline-width: null !default;
+$_border-color: null !default;
 
 .ecl-breadcrumb-harmonised {
   background-color: $_background-color;
@@ -24,7 +32,7 @@ $_border-color: map.get(theme.$color, 'blue-25');
   flex-wrap: wrap;
   list-style: none;
   margin: 0;
-  padding: 0 0 calc(#{map.get(theme.$spacing, 'm')} - 1px);
+  padding: $_container-padding;
 
   &::after {
     clear: both;
@@ -36,8 +44,7 @@ $_border-color: map.get(theme.$color, 'blue-25');
 .ecl-breadcrumb-harmonised__segment {
   align-items: center;
   display: inline-flex;
-  font: map.get(theme.$font, 's');
-  margin-top: map.get(theme.$spacing, 'm');
+  margin-top: $_segment-margin-top;
   max-width: 100%;
 
   &[aria-hidden='true'] {
@@ -64,41 +71,46 @@ $_border-color: map.get(theme.$color, 'blue-25');
 }
 
 .ecl-breadcrumb-harmonised__ellipsis {
-  background-color: transparent;
+  background-color: $_ellipsis-background-color;
   border-width: 0;
   box-sizing: border-box;
   color: $_link-color;
+  font: $_link-font;
   font-weight: map.get(theme.$font-weight, 'bold');
-  margin: 0;
-  padding: 0;
+  margin: 0 -$_ellipsis-padding-horizontal;
+  padding: 0 $_ellipsis-padding-horizontal;
 
   &:hover {
-    background-color: $_background-color-hover;
+    background-color: $_ellipsis-background-color-hover;
+    color: $_link-color;
   }
 
   &:focus {
-    outline: 3px solid map.get(theme.$color, 'yellow-100');
-    outline-offset: 2px;
+    margin: calc(
+      -1 * (#{$_ellispis-outline-width} + #{$_ellipsis-padding-horizontal})
+    );
+    padding: 0 $_ellipsis-padding-horizontal;
   }
 }
 
 .ecl-breadcrumb-harmonised__link {
   color: $_link-color;
-  font-weight: map.get(theme.$font-weight, 'bold');
+  font: $_link-font;
+  font-weight: $_link-font-weight;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 
   &:hover,
-  &:focus,
   &:active,
+  &:focus,
   &:visited {
     color: $_link-color;
   }
 }
 
 .ecl-breadcrumb-harmonised__icon {
-  fill: $_link-color;
+  fill: $_icon-color;
   flex-shrink: 0;
   margin-left: map.get(theme.$spacing, 'xs');
   margin-right: map.get(theme.$spacing, 'xs');
@@ -107,5 +119,6 @@ $_border-color: map.get(theme.$color, 'blue-25');
 
 .ecl-breadcrumb-harmonised__current-page {
   color: $_last-link-color;
-  font-weight: map.get(theme.$font-weight, 'bold');
+  font: $_link-font;
+  font-weight: $_link-font-weight;
 }

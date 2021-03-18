@@ -101,14 +101,16 @@
             class="{{ _breadcrumb_segment_class ~ ' ecl-breadcrumb-core__segment--ellipsis' }}"
             data-ecl-breadcrumb-core-ellipsis
             >
-              <button
-                type="button"
-                class="ecl-button ecl-button--ghost ecl-breadcrumb-core__ellipsis"
-                aria-label="{{ _ellipsis_label }}"
-                data-ecl-breadcrumb-core-ellipsis-button
-              >
-                {{- _ellipsis_text -}}
-              </button>
+              {% include '@ecl/button/button.html.twig' with {
+                variant: 'ghost',
+                label: _ellipsis_text,
+                type: 'button',
+                extra_classes: 'ecl-breadcrumb-core__ellipsis',
+                extra_attributes: [
+                  { name: 'data-ecl-breadcrumb-core-ellipsis-button' },
+                  { name: 'aria-label', value: _ellipsis_label },
+                ]
+              } only %}
               {% include '@ecl/icon/icon.html.twig' with _breadcrumb_icon only %}
             </li>
           {% endif %}
@@ -117,7 +119,7 @@
         <li class="{{ _breadcrumb_segment_class }}" {{ _breadcrumb_segment_attributes|raw }}>
           {% include '@ecl/link/link.html.twig' with {
             link: link|default({})|merge({
-              type: 'standalone',
+              type: 'standalone'
             }),
             extra_classes: 'ecl-breadcrumb-core__link',
             icon_path: _icon_file_path
