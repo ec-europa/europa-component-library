@@ -19,7 +19,7 @@ $_box-border-color-checked-hover: null !default;
 $_box-border-color-hover: null !default;
 $_help-text-color: null !default;
 $_help-text-font: null !default;
-$_invalid--message-spacing: null !default;
+$_invalid-message-spacing: null !default;
 $_invalid-border-color: null !default;
 $_invalid-border-color-hover: null !default;
 $_label-color: null !default;
@@ -73,8 +73,11 @@ $_outline-width: null !default;
   margin-top: map.get(theme.$spacing, 'xs');
 }
 
-.ecl-checkbox:last-child .ecl-checkbox__help {
-  margin-bottom: 0;
+.ecl-checkbox--single,
+.ecl-checkbox:last-child {
+  .ecl-checkbox__help {
+    margin-bottom: 0;
+  }
 }
 
 .ecl-checkbox__icon {
@@ -117,7 +120,7 @@ $_outline-width: null !default;
 // Invalid
 .ecl-checkbox--invalid {
   @at-root .ecl-form-group & + .ecl-feedback-message {
-    margin-top: $_invalid--message-spacing;
+    margin-top: $_invalid-message-spacing;
   }
 
   .ecl-checkbox__box {
