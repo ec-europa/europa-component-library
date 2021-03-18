@@ -1,0 +1,69 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import {
+  radioGroupDefault,
+  radioGroupInvalid,
+  radioGroupRequired,
+  radioGroupOptional,
+  radioGroupBinary,
+  radioGroupBinaryInvalid,
+} from '../demo';
+
+## Default radio group
+
+<Playground
+  system="eu"
+  selectedKind="components-forms-radio"
+  selectedStory="default"
+  showFrame
+>
+  <Html markup={radioGroupDefault} />
+</Playground>
+
+## Invalid radio group
+
+<Playground
+  system="eu"
+  selectedKind="components-forms-radio"
+  selectedStory="invalid"
+  showFrame
+>
+  <Html markup={radioGroupInvalid} />
+</Playground>
+
+## Optional radio group
+
+<Playground
+  system="eu"
+  selectedKind="components-forms-radio"
+  selectedStory="optional"
+  showFrame
+>
+  <Html markup={radioGroupOptional} />
+</Playground>
+
+## Binary radio group
+
+<Playground
+  system="eu"
+  selectedKind="components-forms-radio"
+  selectedStory="binary"
+  showFrame
+>
+  <Html markup={radioGroupBinary} />
+</Playground>
+
+## Binary invalid radio group
+
+<Playground
+  system="eu"
+  selectedKind="components-forms-radio"
+  selectedStory="binary-invalid"
+  showFrame
+>
+  <Html markup={radioGroupBinaryInvalid} />
+</Playground>

@@ -7,7 +7,7 @@ import PageNotFound from './404';
 import Redirects from './Redirects';
 
 import HomePageEC from '../pages/ec/index.mdx';
-import HomePageEU from '../pages/eu/index.md';
+import HomePageEU from '../pages/eu/index.mdx';
 
 import Skeleton from './Skeleton';
 
