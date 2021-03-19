@@ -28,7 +28,7 @@ $_search-width-xl: 31.5rem;
 }
 
 .ecl-site-header-core__top {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   flex-grow: 1;
   justify-content: space-between;
@@ -36,7 +36,8 @@ $_search-width-xl: 31.5rem;
 
 .ecl-site-header-core__logo-link {
   flex-grow: 1;
-  margin-bottom: calc(#{map.get(theme.$spacing, 'm')} + 1px);
+  margin-bottom: calc(#{map.get(theme.$spacing, 'l')} + 1px);
+  margin-top: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-site-header-core__logo-image-mobile {
@@ -198,7 +199,7 @@ $_search-width-xl: 31.5rem;
   }
 
   .ecl-site-header-core__logo-link {
-    margin-bottom: 0;
+    margin: 0;
   }
 
   .ecl-site-header-core__logo-image-mobile {
