@@ -66,11 +66,12 @@ $_search-width-xl: 31.5rem;
 
   &[aria-expanded='true'] {
     background-color: map.get(theme.$color, 'blue-5');
-    border-color: map.get(theme.$color, 'blue-25');
-    border-width: 1px 1px 0 1px;
-    border-style: solid;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+    border-color: map.get(theme.$color, 'blue-25');
+    border-style: solid;
+    /* stylelint-disable-next-line shorthand-property-no-redundant-values */
+    border-width: 1px 1px 0 1px;
     box-shadow: none !important;
     margin-bottom: 0;
     padding: calc(#{map.get(theme.$spacing, 's')} - 1px)
@@ -239,9 +240,6 @@ $_search-width-xl: 31.5rem;
       margin-right: map.get(theme.$spacing, 'xs');
       width: map.get(theme.$icon, 'm');
     }
-  }
-
-  .ecl-site-header-core__login-toggle {
     .ecl-site-header-core__login-arrow {
       display: block;
       height: map.get(theme.$icon, 'xs');
