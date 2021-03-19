@@ -155,6 +155,6 @@ module.exports = {
   icon_path: '/icons.svg',
   logo: {
     alt: 'European Commission logo',
-    path: '/logo--mute.svg',
+    path: '/logo-ec--mute.svg',
   },
 };

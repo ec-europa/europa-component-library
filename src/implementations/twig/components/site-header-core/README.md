@@ -57,7 +57,7 @@ npm install --save @ecl/twig-component-site-header-core
     title: 'European Commission', 
     alt: 'European Commission logo', 
     href: '/example', 
-    src: '/logo--en.svg', 
+    src: '/logo-ec--en.svg', 
   }, 
   language_selector: { 
     href: '/example', 

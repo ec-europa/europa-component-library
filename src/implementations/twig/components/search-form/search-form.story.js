@@ -19,6 +19,17 @@ const getArgTypes = (data) => {
         category: 'Content',
       },
     },
+    placeholder: {
+      name: 'placeholder',
+      type: { name: 'string', required: true },
+      defaultValue: data.text_input.placeholder,
+      description: 'Label of the placeholder',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+    },
     invalid: {
       name: 'invalid',
       type: 'boolean',
@@ -47,6 +58,7 @@ const getArgTypes = (data) => {
 const prepareData = (data, args) => {
   data.text_input.disabled = args.disabled;
   data.text_input.invalid = args.invalid;
+  data.text_input.placeholder = args.placeholder;
   data.button.label = args.button_label;
   data.button.disabled = args.disabled;
   data.button.invalid = args.invalid;
@@ -56,6 +68,9 @@ const prepareData = (data, args) => {
 
 export default {
   title: 'Components/Forms/Search Form',
+  parameters: {
+    knobs: { disable: true },
+  },
 };
 
 export const Default = (args) => searchForm(prepareData(dataDefault, args));

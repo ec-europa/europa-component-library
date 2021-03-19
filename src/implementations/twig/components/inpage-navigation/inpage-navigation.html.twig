@@ -35,16 +35,16 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
     {% endif %}
   {% endfor %}
 {% endif %}
 
 {# Print the result #}
 
-<nav class="{{ _css_class }}"{{ _extra_attributes }} data-ecl-inpage-navigation="true">
+<nav class="{{ _css_class }}"{{ _extra_attributes|raw }} data-ecl-inpage-navigation="true">
   <div class="ecl-inpage-navigation__title">{{ title }}</div>
   <div class="ecl-inpage-navigation__body">
     <button type="button" class="ecl-inpage-navigation__trigger"

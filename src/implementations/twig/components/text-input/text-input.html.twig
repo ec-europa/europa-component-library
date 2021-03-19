@@ -5,11 +5,12 @@
   - "id" (string) (default: '')
   - "disabled" (boolean) (default: false)
   - "invalid" (boolean) (default: false)
-  - "invalid_icon_label" (string) (default: '')
+  - "invalid_icon" (object of type "icon") (default: {})
   - "required" (boolean) (default: false)
   - "name" (string) (default: '')
   - "type" (string) (default: 'text')
-  - "width" (string) (default: '')
+  - "placeholder" (string) (default: '')
+  - "width" (string) (default: 'm')
   - "extra_group_classes" (optional) (string) (default: '') Extra classes (space separated) for the text-input group
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
@@ -31,9 +32,10 @@
 {% set _required = required|default(false) %}
 {% set _required_text = required_text|default('') %}
 {% set _optional_text = optional_text|default('') %}
-{% set _invalid_icon_label = invalid_icon_label|default('') %}
+{% set _invalid_icon = invalid_icon|default({}) %}
 {% set _name = name|default('') %}
 {% set _type = type|default('text') %}
+{% set _placeholder = placeholder|default('') %}
 {% set _width = width|default('m') %}
 {% set _helper_text = helper_text|default('') %}
 {% set _invalid_text = invalid_text|default('') %}
@@ -65,9 +67,9 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
     {% endif %}
   {% endfor %}
 {% endif %}
@@ -101,6 +103,12 @@
 
   {% if _invalid and _invalid_text is not empty %}
     <div class="ecl-feedback-message">
+      {% if _invalid_icon is not empty %}
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: _invalid_icon,
+        extra_classes: 'ecl-feedback-message__icon',
+      } only %}
+      {% endif %}
       {%- block invalid_text _invalid_text -%}
     </div>
   {% endif %}
@@ -116,13 +124,16 @@
   {% if _type is not empty %}
     type="{{ _type }}"
   {% endif %}
+  {% if _placeholder is not empty %}
+    placeholder="{{ _placeholder }}"
+  {% endif %}
   {% if _disabled %}
     disabled
   {% endif %}
   {% if _required %}
     required
   {% endif %}
-    {{ _extra_attributes }}
+    {{ _extra_attributes|raw }}
   />
 </div>
 

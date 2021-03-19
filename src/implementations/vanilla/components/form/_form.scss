@@ -1,0 +1,93 @@
+/**
+ * Form elements
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+
+$_color-help: null !default;
+$_color-invalid: null !default;
+$_color-label: null !default;
+$_color-optional: null !default;
+$_color-required: null !default;
+$_font-help: null !default;
+$_font-invalid: null !default;
+$_font-optional: null !default;
+$_form-element-margin: null !default;
+$_margin-invalid: null !default;
+
+.ecl-form-group {
+  align-items: flex-start;
+  border-width: 0;
+  box-sizing: border-box;
+  display: block;
+  margin: 0;
+  padding: 0;
+
+  > *:not(.ecl-u-sr-only) + * {
+    margin-top: $_form-element-margin;
+  }
+
+  > *:not(.ecl-u-sr-only) + .ecl-feedback-message {
+    margin-top: $_margin-invalid;
+  }
+
+  > *:not(.ecl-u-sr-only) + .ecl-help-block {
+    margin-top: map.get(theme.$spacing, 'xs');
+  }
+
+  > *:not(.ecl-u-sr-only) + .ecl-file-upload__list {
+    margin-top: map.get(theme.$spacing, 'm');
+  }
+
+  > .ecl-feedback-message + .ecl-help-block {
+    margin-top: 0;
+  }
+}
+
+// stylelint-disable no-descending-specificity
+.ecl-feedback-message {
+  box-sizing: border-box;
+  color: $_color-invalid;
+  display: flex;
+  font: $_font-invalid;
+  margin: 0;
+  padding: 0;
+}
+
+.ecl-feedback-message__icon {
+  margin-right: map.get(theme.$spacing, 'xs');
+}
+
+.ecl-help-block {
+  box-sizing: border-box;
+  color: $_color-help;
+  display: block;
+  font: $_font-help;
+  margin: 0;
+  padding: 0;
+}
+
+.ecl-form-label {
+  box-sizing: border-box;
+  color: $_color-label;
+  display: inline-block;
+  font: map.get(theme.$font-prolonged, 'm');
+  font-weight: map.get(theme.$font-weight, 'bold');
+  margin: 0;
+  padding: 0;
+}
+
+.ecl-form-label__required {
+  color: $_color-required;
+  font: map.get(theme.$font, 'm');
+  font-style: italic;
+  font-weight: map.get(theme.$font-weight, 'bold');
+}
+
+.ecl-form-label__optional {
+  color: $_color-optional;
+  font: $_font-optional;
+  font-style: italic;
+  font-weight: map.get(theme.$font-weight, 'regular');
+}

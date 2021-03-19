@@ -3,12 +3,13 @@ import withCode from '@ecl/storybook-addon-code';
 
 import dataDescriptionListDefault from '@ecl/specs-component-description-list/demo/data--default';
 import dataDescriptionListHorizontal from '@ecl/specs-component-description-list/demo/data--horizontal';
+import dataDescriptionListTaxonomy from '@ecl/specs-component-description-list/demo/data--taxonomy';
 
 import descriptionList from './description-list.html.twig';
 import notes from './README.md';
 
 const getArgTypes = (data) => {
-  return {
+  const argTypes = {
     term: {
       name: 'term (first item)',
       type: { name: 'string', required: true },
@@ -20,7 +21,9 @@ const getArgTypes = (data) => {
         category: 'Content',
       },
     },
-    definition: {
+  };
+  if (!Array.isArray(data.items[0].definition)) {
+    argTypes.definition = {
       name: 'definition (first item)',
       type: { name: 'string', required: true },
       defaultValue: data.items[0].definition,
@@ -30,13 +33,31 @@ const getArgTypes = (data) => {
         defaultValue: { summary: '' },
         category: 'Content',
       },
-    },
-  };
+    };
+  } else {
+    argTypes.label = {
+      name: 'tag label (first item)',
+      type: { name: 'string', required: true },
+      defaultValue: data.items[0].definition[0].label,
+      description: 'The tag label',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+    };
+  }
+
+  return argTypes;
 };
 
 const prepareData = (data, args) => {
   data.items[0].term = args.term;
-  data.items[0].definition = args.definition;
+  if (!Array.isArray(data.items[0].definition)) {
+    data.items[0].definition = args.definition;
+  } else {
+    data.items[0].definition[0].label = args.label;
+  }
   return data;
 };
 
@@ -51,7 +72,7 @@ export default {
 export const Vertical = (args) =>
   descriptionList(prepareData(dataDescriptionListDefault, args));
 
-Vertical.storyName = 'vertical';
+Vertical.storyName = 'description';
 Vertical.argTypes = getArgTypes(dataDescriptionListDefault);
 Vertical.parameters = {
   notes: { markdown: notes, json: dataDescriptionListDefault },
@@ -60,8 +81,17 @@ Vertical.parameters = {
 export const Horizontal = (args) =>
   descriptionList(prepareData(dataDescriptionListHorizontal, args));
 
-Horizontal.storyName = 'horizontal';
+Horizontal.storyName = 'description (horizontal)';
 Horizontal.argTypes = getArgTypes(dataDescriptionListHorizontal);
 Horizontal.parameters = {
   notes: { markdown: notes, json: dataDescriptionListHorizontal },
+};
+
+export const Taxonomy = (args) =>
+  descriptionList(prepareData(dataDescriptionListTaxonomy, args));
+
+Taxonomy.storyName = 'description (taxonomy)';
+Taxonomy.argTypes = getArgTypes(dataDescriptionListTaxonomy);
+Taxonomy.parameters = {
+  notes: { markdown: notes, json: dataDescriptionListTaxonomy },
 };

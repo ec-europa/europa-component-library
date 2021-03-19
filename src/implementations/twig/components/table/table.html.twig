@@ -70,29 +70,29 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
     {% endif %}
   {% endfor %}
 {% endif %}
 
 {# Print the result #}
 
-<table class="{{ _css_class }}" {{ _extra_attributes }}>
+<table class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <thead class="{{ _head_css_class }}">
      {% for header in _headers %}
        <tr class="{{ _row_css_class }}">
         {% for cell in header %}
           {% set _heading_attribute = '' %}
           {% if cell.colspan is not empty %}
-            {% set _heading_attribute = cell.colspan is not empty ? 'colspan="' ~ cell.colspan ~ '"' : '' %}
+            {% set _heading_attribute = cell.colspan is not empty ? 'colspan="' ~ cell.colspan|e('html_attr') ~ '"' : '' %}
           {% else %}
             {% if cell.label is not empty and _sortable %}
               {% set _heading_attribute = 'data-ecl-table-sort-toggle' %}
             {% endif %}
           {% endif %}
-          <th {{ _heading_attribute }} class="{{ _header_css_class }}">{{ cell.label }}</th>
+          <th {{ _heading_attribute|raw }} class="{{ _header_css_class }}">{{ cell.label }}</th>
         {% endfor %}
       </tr>
     {% endfor %}
@@ -108,14 +108,14 @@
       <tr class="{{ _row_css_class }}"{{ _row_extra_attributes }}>
         {% for cell in row %}
           {% set _cell_css_class = 'ecl-table__cell' %}
-          {% set _cell_attribute = cell['data-ecl-table-header'] is not empty ? 'data-ecl-table-header="' ~ cell['data-ecl-table-header'] ~ '"' : '' %}
+          {% set _cell_attribute = cell['data-ecl-table-header'] is not empty ? 'data-ecl-table-header="' ~ cell['data-ecl-table-header']|e('html_attr') ~ '"' : '' %}
           {% if cell.group %}
             {% if cell['data-ecl-table-header-group'] is defined and cell['data-ecl-table-header-group'] is not empty %}
-              {% set _cell_attribute = _cell_attribute ~ ' data-ecl-table-header-group="' ~ cell['data-ecl-table-header-group'] ~ '"' %}
+              {% set _cell_attribute = _cell_attribute ~ ' data-ecl-table-header-group="' ~ cell['data-ecl-table-header-group']|e('html_attr') ~ '"' %}
             {% endif %}
             {% set _cell_css_class = _cell_css_class ~ ' ' ~ _cell_header_group_class %}
           {% endif %}
-          <td {{ _cell_attribute }} class="{{ _cell_css_class }}" >{{ cell.label }}</td>
+          <td {{ _cell_attribute|raw }} class="{{ _cell_css_class }}" >{{ cell.label }}</td>
         {% endfor %}
       </tr>
     {% endfor %}

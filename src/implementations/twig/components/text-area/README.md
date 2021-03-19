@@ -11,11 +11,13 @@ npm install --save @ecl/twig-component-text-area
 - **"id"** (string) (default: '')
 - **"disabled"** (boolean) (default: false)
 - **"invalid"** (boolean) (default: false)
+- **"invalid_icon"** (object of type "icon") (default: {})
 - **"required"** (boolean) (default: false)
 - **"name"** (string) (default: '')
 - **"default_value"** (string) (default: '')
 - **"rows"** (int) (default: 4)
 - **"extra_label_classes"** (string) (default: '') Extra classes for the label (space separated)
+- **"placeholder"** (string) (default: '')
 - **"width"** (string) (default: 'm') Input width size (s, m or l)
 - **"extra_group_classes"** (optional) (string) (default: '') Extra classes (space separated) for the text-area group
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
