@@ -56,15 +56,9 @@ $_search-width-xl: 31.5rem;
 .ecl-site-header-core__login-toggle,
 .ecl-site-header-core__search-toggle {
   align-items: center;
-  border-left: 1px solid map.get(theme.$color, 'white');
-  border-right: 1px solid map.get(theme.$color, 'white');
-  border-top: 1px solid map.get(theme.$color, 'white');
   display: flex;
   flex-direction: column;
   font: map.get(theme.$font, 'xs');
-  margin-bottom: calc(#{map.get(theme.$spacing, 'm')} + 1px);
-  margin-top: -1px;
-  padding: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 'xs') 0;
   position: relative;
   text-align: center;
   z-index: map.get(theme.$z-index, 'modal') + 2;
@@ -72,7 +66,14 @@ $_search-width-xl: 31.5rem;
   &[aria-expanded='true'] {
     background-color: map.get(theme.$color, 'blue-5');
     border-color: map.get(theme.$color, 'blue-25');
+    border-width: 1px 1px 0 1px;
+    border-style: solid;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: none !important;
     margin-bottom: 0;
+    padding: calc(#{map.get(theme.$spacing, 's')} - 1px)
+      calc(#{map.get(theme.$spacing, 'm')} - 1px);
     padding-bottom: calc(#{map.get(theme.$spacing, 'm')} + 1px);
   }
 }
@@ -121,8 +122,6 @@ $_search-width-xl: 31.5rem;
 
 .ecl-site-header-core__language-selector {
   font: map.get(theme.$font, 'xs');
-  margin-bottom: calc(#{map.get(theme.$spacing, 'm')} + 1px);
-  padding: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 'xs') 0;
   text-align: center;
 }
 
@@ -131,19 +130,17 @@ $_search-width-xl: 31.5rem;
   display: flex;
   justify-content: center;
   position: relative;
+
+  .ecl-site-header-core__icon {
+    display: none;
+  }
 }
 
 .ecl-site-header-core__language-code {
-  color: map.get(theme.$color, 'white');
-  font: map.get(theme.$font, '2xs');
-  left: 50%;
-  position: absolute;
+  color: map.get(theme.$color, 'blue_100');
+  font: map.get(theme.$font, 'm');
+  font-weight: map.get(theme.$font-weight, 'bold');
   text-transform: uppercase;
-  // position top and left has to be set like this because IE...
-  // also ugly magic numbers to center the text on the icon
-  top: 50%;
-  transform: translateX(-50%) translateX(-0.01rem) translateY(-50%)
-    translateY(-0.05rem);
 }
 
 .ecl-site-header-core__search--active {
@@ -226,8 +223,6 @@ $_search-width-xl: 31.5rem;
     display: flex;
     flex-direction: row;
     font: map.get(theme.$font, 'm');
-    margin: 0;
-    padding: map.get(theme.$spacing, 's');
   }
 
   .ecl-site-header-core__login-toggle[aria-expanded='true'] {
@@ -237,8 +232,7 @@ $_search-width-xl: 31.5rem;
     );
   }
 
-  .ecl-site-header-core__login-toggle,
-  .ecl-site-header-core__language-icon {
+  .ecl-site-header-core__login-toggle {
     .ecl-site-header-core__icon {
       height: map.get(theme.$icon, 'm');
       margin-right: map.get(theme.$spacing, 'xs');
@@ -262,10 +256,9 @@ $_search-width-xl: 31.5rem;
   }
 
   .ecl-site-header-core__language-code {
-    font: map.get(theme.$font, 'xs');
+    font: map.get(theme.$font, 'm');
+    font-weight: map.get(theme.$font-weight, 'bold');
     margin-right: map.get(theme.$spacing, 'xs');
-    transform: translateX(-50%) translateX(-0.2rem) translateY(-50%)
-      translateY(-0.05rem);
   }
 
   .ecl-site-header-core__search-container {

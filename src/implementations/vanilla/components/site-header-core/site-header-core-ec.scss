@@ -30,7 +30,7 @@ $_search-width-xl: 31.5rem;
 }
 
 .ecl-site-header-core__top {
-  align-items: flex-end;
+  align-items: flex-start;
   display: flex;
   flex-grow: 1;
   justify-content: space-between;
@@ -54,23 +54,21 @@ $_search-width-xl: 31.5rem;
 .ecl-site-header-core__login-toggle,
 .ecl-site-header-core__search-toggle {
   align-items: center;
-  border-left: 1px solid map.get(theme.$color, 'white');
-  border-right: 1px solid map.get(theme.$color, 'white');
-  border-top: 1px solid map.get(theme.$color, 'white');
   display: flex;
   flex-direction: column;
   font: map.get(theme.$font, 'xs');
-  margin-bottom: calc(#{map.get(theme.$spacing, 'm')} + 1px);
-  margin-top: -1px;
-  padding: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 'xs') 0;
   position: relative;
   text-align: center;
-  z-index: map.get(theme.$z-index, 'dropdown') + 1;
+  z-index: map.get(theme.$z-index, 'modal') + 2;
 
   &[aria-expanded='true'] {
     background-color: map.get(theme.$color, 'blue-5');
     border-color: map.get(theme.$color, 'blue-25');
+    border-width: 1px 1px 0 1px;
+    border-style: solid;
     margin-bottom: 0;
+    padding: calc(#{map.get(theme.$spacing, 's')} - 1px)
+      calc(#{map.get(theme.$spacing, 'm')} - 1px);
     padding-bottom: calc(#{map.get(theme.$spacing, 'm')} + 1px);
   }
 }
@@ -97,7 +95,7 @@ $_search-width-xl: 31.5rem;
   width: calc(
     100% - #{map.get(theme.$spacing, 'm')} - #{map.get(theme.$spacing, 'm')}
   );
-  z-index: map.get(theme.$z-index, 'dropdown');
+  z-index: map.get(theme.$z-index, 'modal') + 1;
 }
 
 .ecl-site-header-core__login-box--active {
@@ -119,8 +117,6 @@ $_search-width-xl: 31.5rem;
 
 .ecl-site-header-core__language-selector {
   font: map.get(theme.$font, 'xs');
-  margin-bottom: calc(#{map.get(theme.$spacing, 'm')} + 1px);
-  padding: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 'xs') 0;
   text-align: center;
 }
 
@@ -216,8 +212,6 @@ $_search-width-xl: 31.5rem;
     display: flex;
     flex-direction: row;
     font: map.get(theme.$font, 'm');
-    margin: 0;
-    padding: map.get(theme.$spacing, 's');
   }
 
   .ecl-site-header-core__login-toggle[aria-expanded='true'] {
