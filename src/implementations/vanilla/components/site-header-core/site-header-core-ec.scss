@@ -137,7 +137,7 @@ $_search-width-xl: 31.5rem;
   // position top and left has to be set like this because IE...
   // also ugly magic numbers to center the text on the icon
   top: 50%;
-  transform: translateX(-50%) translateX(-0.01rem) translateY(-50%)
+  transform: translateX(-50%) translateX(0) translateY(-50%)
     translateY(-0.05rem);
 }
 
@@ -249,8 +249,7 @@ $_search-width-xl: 31.5rem;
   .ecl-site-header-core__language-code {
     font: map.get(theme.$font, 'xs');
     margin-right: map.get(theme.$spacing, 'xs');
-    transform: translateX(-50%) translateX(-0.2rem) translateY(-50%)
-      translateY(-0.05rem);
+    transform: translateX(-50%) translateX(-0.22rem) translateY(-50%) translateY(-0.08rem);
   }
 
   .ecl-site-header-core__search-container {
