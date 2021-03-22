@@ -22,8 +22,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-      - name: Install selenium webdriver
-        run: sudo apt-get install python-pip && sudo pip install selenium
       - name: Build icons
         run: yarn build:icons
       - name: Build presets
