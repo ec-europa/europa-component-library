@@ -45,5 +45,8 @@ export const Default = (args) => {
 
 Default.argTypes = getArgTypes();
 Default.storyName = 'default';
-Default.parameters = { notes: { markdown: notes, json: specs } };
+Default.parameters = {
+  notes: { markdown: notes, json: specs },
+  creevey: { skip: 'Element not visible' },
+};
 Default.decorators = [withNotes, withCode];

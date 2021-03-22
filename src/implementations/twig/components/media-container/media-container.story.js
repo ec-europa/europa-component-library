@@ -66,6 +66,7 @@ export default {
   decorators: [withNotes, withCode],
   parameters: {
     knobs: { disable: true },
+    creevey: { delay: 1000 },
   },
 };
 
@@ -83,6 +84,7 @@ Video.storyName = 'video';
 Video.argTypes = getArgTypes(dataVideo);
 Video.parameters = {
   notes: { markdown: notes, json: dataVideo },
+  creevey: { skip: 'Mmhh...' },
 };
 
 export const EmbeddedVideo = (args) =>
@@ -92,4 +94,5 @@ EmbeddedVideo.storyName = 'embedded video';
 EmbeddedVideo.argTypes = getArgTypes(dataEmbed);
 EmbeddedVideo.parameters = {
   notes: { markdown: notes, json: dataEmbed },
+  creevey: { skip: 'Mmhh...' },
 };

@@ -205,6 +205,7 @@ export default {
     knobs: {
       disable: true,
     },
+    creevey: { delay: 5000 },
   },
 };
 

@@ -38,4 +38,7 @@ Splash.parameters = { notes: { markdown: notes, json: dataSplash } };
 export const Overlay = () => languageList(prepareData(dataOverlay));
 
 Overlay.storyName = 'overlay';
-Overlay.parameters = { notes: { markdown: notes, json: dataOverlay } };
+Overlay.parameters = {
+  notes: { markdown: notes, json: dataOverlay },
+  creevey: { captureElement: '.ecl-language-list--overlay' },
+};
