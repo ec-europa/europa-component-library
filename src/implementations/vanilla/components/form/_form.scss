@@ -10,6 +10,7 @@ $_color-invalid: null !default;
 $_color-label: null !default;
 $_color-optional: null !default;
 $_color-required: null !default;
+$_first-element-margin: null !default;
 $_font-help: null !default;
 $_font-invalid: null !default;
 $_font-optional: null !default;
@@ -34,6 +35,14 @@ $_margin-invalid: null !default;
 
   > *:not(.ecl-u-sr-only) + .ecl-help-block {
     margin-top: map.get(theme.$spacing, 'xs');
+  }
+
+  > *:not(.ecl-u-sr-only) + .ecl-checkbox {
+    margin-top: $_first-element-margin;
+    /* stylelint-disable-next-line max-nesting-depth, selector-max-compound-selectors */
+    ~ .ecl-checkbox {
+      margin-top: map.get(theme.$spacing, 'l');
+    }
   }
 
   > *:not(.ecl-u-sr-only) + .ecl-file-upload__list {
