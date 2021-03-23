@@ -1,0 +1,16 @@
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+@use 'checkbox' with (
+  $_border-color: map.get(theme.$color, 'grey-75'),
+  $_border-radius: 0,
+  $_box-background-checked-hover: map.get(theme.$color, 'blue-100'),
+  $_box-border-color-hover: map.get(theme.$color, 'blue-100'),
+  $_box-size: 1.25rem,
+  $_help-text-font: map.get(theme.$font-prolonged, 's'),
+  $_help-text-color: map.get(theme.$color, 'grey'),
+  $_invalid-border-color: map.get(theme.$color, 'red'),
+  $_invalid-border-color-hover: map.get(theme.$color, 'red-130'),
+  $_label-color: map.get(theme.$color, 'grey'),
+  $_outline-color: map.get(theme.$color, 'yellow-100'),
+  $_outline-width: 3px,
+);

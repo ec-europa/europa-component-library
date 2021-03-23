@@ -142,6 +142,7 @@ Most of the components have been updated without much changes. Although, there a
   - twig parameter "list_class_name" replaced by boolean "links_inline" parameter
 - Link
   - twig parameter "icon_path" has been removed (not used)
+  - space between icon and label is now set using css (instead of a forced `&nbsp`)
 - Text area
   - twig parameter "invalid_icon" added, to display additional icon when field is invalid
   - twig parameter "placeholder" added, to manage default content
