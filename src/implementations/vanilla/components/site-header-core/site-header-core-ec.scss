@@ -26,7 +26,7 @@ $_search-width-xl: 31.5rem;
 .ecl-site-header-core__container {
   display: flex;
   flex-direction: column;
-  padding-top: map.get(theme.$spacing, 'm');
+  padding-top: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-site-header-core__top {
@@ -39,6 +39,7 @@ $_search-width-xl: 31.5rem;
 .ecl-site-header-core__logo-link {
   flex-grow: 1;
   margin-bottom: calc(#{map.get(theme.$spacing, 'm')} + 1px);
+  margin-top: map.get(theme.$spacing, 'm');
 }
 
 .ecl-site-header-core__logo-image {
@@ -170,6 +171,12 @@ $_search-width-xl: 31.5rem;
 }
 
 @include breakpoints.up('m') {
+  .ecl-site-header-core__container {
+    padding-top: map.get(theme.$spacing, 'm');
+  }
+  .ecl-site-header-core__logo-link {
+    margin-top: 0;
+  }
   /* stylelint-disable-next-line plugin/selector-bem-pattern */
   .ecl-search-form {
     max-width: 100%;
