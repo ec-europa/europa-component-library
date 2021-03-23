@@ -127,6 +127,7 @@ Most of the components have been updated without much changes. Although, there a
 
 - Breadcrumb
   - twig parameter "icon_size" added, to handle the size of the icon between segments
+  - EC Core breadcrumb is now using the new negative links
 - Button
   - variant "search" has been removed (css has been integrated in search form)
 - Date block
@@ -154,6 +155,7 @@ Most of the components have been updated without much changes. Although, there a
 ## Resources specifics
 
 - logo file names have been homogenized between EC and EU, using the pattern `logo-(ec|eu)--(language).svg`
+- icon size '2xs' has been changed from 10px to 12px
 
 ## Presets / themes
 

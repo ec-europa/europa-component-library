@@ -8,12 +8,12 @@
 
 $_container-padding: null !default;
 $_segment-margin-top: null !default;
-$_link-color: null !default;
 $_link-font: null !default;
 $_link-font-weight: null !default;
 $_last-link-color: null !default;
 $_icon-color: null !default;
 $_background-color: null !default;
+$_ellipsis-color: null !default;
 $_ellipsis-background-color: null !default;
 $_ellipsis-background-color-hover: null !default;
 $_ellipsis-padding-horizontal: null !default;
@@ -74,7 +74,7 @@ $_border-color: null !default;
   background-color: $_ellipsis-background-color;
   border-width: 0;
   box-sizing: border-box;
-  color: $_link-color;
+  color: $_ellipsis-color;
   font: $_link-font;
   font-weight: map.get(theme.$font-weight, 'bold');
   margin: 0 -$_ellipsis-padding-horizontal;
@@ -82,7 +82,7 @@ $_border-color: null !default;
 
   &:hover {
     background-color: $_ellipsis-background-color-hover;
-    color: $_link-color;
+    color: $_ellipsis-color;
   }
 
   &:focus {
@@ -94,19 +94,11 @@ $_border-color: null !default;
 }
 
 .ecl-breadcrumb-core__link {
-  color: $_link-color;
   font: $_link-font;
   font-weight: $_link-font-weight;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-
-  &:hover,
-  &:active,
-  &:focus,
-  &:visited {
-    color: $_link-color;
-  }
 }
 
 .ecl-breadcrumb-core__icon {

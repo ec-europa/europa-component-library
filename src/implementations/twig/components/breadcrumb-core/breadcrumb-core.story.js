@@ -40,6 +40,7 @@ const getArgTypes = (data) => {
 const prepareData = (data, args) => {
   data.links.forEach((item, i) => {
     item.label = args[`item${i + 1}`];
+    item.negative = system === 'ec';
   });
 
   return correctSvgPath(data);
