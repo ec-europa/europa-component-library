@@ -1,0 +1,150 @@
+/**
+* Link component
+* @define link
+*/
+
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+
+$_outline-color: null !default;
+$_outline-width: null !default;
+$_color: map.get(theme.$color, 'blue-100');
+$_color-hover: null !default;
+$_color-visited: map.get(theme.$color, 'purple-100');
+$_cta-color: null !default;
+$_cta-border-radius: null !default;
+$_cta-background-color: map.get(theme.$color, 'yellow-100');
+$_cta-background-color-hover: null !default;
+$_cta-font-weight: null !default;
+$_cta-shadow-hover: null !default;
+$_cta-outline-color: null !default;
+$_negative-color: null !default;
+$_negative-color-hover: null !default;
+$_negative-color-visited: null !default;
+$_negative-standalone-color-hover: null !default;
+
+.ecl-link {
+  color: $_color;
+  margin: 0;
+  text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    color: $_color-hover;
+  }
+
+  &:focus {
+    outline: $_outline-width solid $_outline-color;
+    outline-offset: 2px;
+  }
+
+  &:visited {
+    color: $_color-visited;
+  }
+}
+
+.ecl-link--icon-before,
+.ecl-link--icon-after {
+  display: inline-block;
+}
+
+.ecl-link--icon {
+  text-decoration: none;
+
+  .ecl-link__icon {
+    fill: currentColor;
+    position: relative;
+    top: -1px;
+    vertical-align: middle;
+  }
+
+  &:not(.ecl-link--standalone) .ecl-link__label {
+    text-decoration: underline;
+  }
+}
+
+.ecl-link--icon-before .ecl-link__icon {
+  margin-right: map-get(theme.$spacing, 'xs');
+}
+
+.ecl-link--icon-after .ecl-link__icon {
+  margin-left: map-get(theme.$spacing, 'xs');
+}
+
+/**
+* Negative
+*/
+.ecl-link--negative {
+  color: $_negative-color;
+
+  &:hover,
+  &:focus {
+    color: $_negative-color-hover;
+
+    /* stylelint-disable-next-line max-nesting-depth */
+    &.ecl-link--standalone {
+      color: $_negative-standalone-color-hover;
+    }
+  }
+
+  &:visited {
+    color: $_negative-color-visited;
+  }
+}
+
+/**
+* Standalone
+*/
+.ecl-link--standalone {
+  font-family: #{map.get(theme.$font-family, 'default')};
+  text-decoration: none;
+
+  /* stylelint-disable */
+  &:not(.ecl-link--icon) {
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+
+  &.ecl-link--icon {
+    &:hover .ecl-link__label,
+    &:focus .ecl-link__label {
+      text-decoration: underline;
+    }
+  }
+  /* stylelint-enable */
+}
+
+/**
+* Call to action
+*/
+.ecl-link--cta {
+  background-color: $_cta-background-color;
+  border-radius: $_cta-border-radius;
+  box-sizing: border-box;
+  color: $_cta-color;
+  display: inline-block;
+  font: map.get(theme.$font, 'm');
+  font-weight: $_cta-font-weight;
+  padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
+
+  &:hover,
+  &:active {
+    background-color: $_cta-background-color-hover;
+    box-shadow: $_cta-shadow-hover;
+    color: $_cta-color;
+  }
+
+  &:focus {
+    border: $_outline-width solid $_cta-outline-color;
+    color: $_cta-color;
+    outline: none;
+    padding: calc(#{map.get(theme.$spacing, 's')} - #{$_outline-width})
+      calc(#{map.get(theme.$spacing, 'm')} - #{$_outline-width});
+  }
+
+  &:visited {
+    color: $_color-visited;
+  }
+}

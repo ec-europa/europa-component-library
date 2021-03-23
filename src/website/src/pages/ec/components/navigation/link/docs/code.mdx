@@ -8,8 +8,8 @@ import {
   linkDefault,
   linkStandalone,
   linkCTA,
-  linkCTAIcon,
   linkIcon,
+  linkNegative,
 } from '../demo';
 
 ## Default link
@@ -34,6 +34,8 @@ import {
 
 ## Link with icon
 
+Note: all types of links listed on this page can have icons before or after the label.
+
 <Playground
   system="ec"
   selectedKind="components-navigation-link"
@@ -52,10 +54,12 @@ import {
   <Html markup={linkCTA} />
 </Playground>
 
+## Negative link
+
 <Playground
   system="ec"
   selectedKind="components-navigation-link"
-  selectedStory="cta"
+  selectedStory="negative"
 >
-  <Html markup={linkCTAIcon} />
+  <p className="ecl-u-type-paragraph ecl-u-bg-blue-100 ecl-u-type-color-white-100">The European Commission is the executive of <Html markup={linkNegative} /> and promotes its general interest.</p>
 </Playground>
