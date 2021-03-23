@@ -2,14 +2,6 @@
 import iconPath from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import iconSocialPath from '@ecl/resources-ec-social-icons/dist/sprites/icons-social.svg';
 
-export const tabLabels = {
-  required: 'Mandatory elements',
-  optional: 'Optional elements',
-  states: 'States',
-  cases: 'Use cases',
-  checks: 'Validation',
-};
-
 export const correctSvgPath = (data) => {
   Object.keys(data).forEach((prop) => {
     if (typeof data[prop] === 'string' && data[prop].includes('.svg')) {
