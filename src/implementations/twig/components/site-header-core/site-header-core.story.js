@@ -28,10 +28,6 @@ const getArgTypes = () => {
       type: { name: 'boolean' },
       defaultValue: true,
       description: 'Toggle login box visibility',
-      table: {
-        type: { summary: 'object' },
-        defaultValue: { summary: '{}' },
-      },
     },
   };
 
@@ -39,10 +35,6 @@ const getArgTypes = () => {
     type: { name: 'boolean' },
     defaultValue: true,
     description: 'Toggle menu visibility',
-    table: {
-      type: { summary: 'object' },
-      defaultValue: { summary: '{}' },
-    },
   };
 
   return argTypes;
