@@ -57,7 +57,6 @@ Simple.argTypes = getArgTypes(dataSimple);
 Simple.storyName = 'simple';
 Simple.parameters = {
   notes: { markdown: notes, json: dataSimple },
-  knobs: { disable: true },
 };
 
 export const Long = (args) => breadcrumb(prepareData(dataLong, args));
@@ -66,5 +65,4 @@ Long.argTypes = getArgTypes(dataLong);
 Long.storyName = 'long';
 Long.parameters = {
   notes: { markdown: notes, json: dataLong },
-  knobs: { disable: true },
 };

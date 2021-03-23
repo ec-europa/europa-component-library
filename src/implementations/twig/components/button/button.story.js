@@ -134,7 +134,6 @@ Primary.args = {
 Primary.storyName = 'primary';
 Primary.parameters = {
   notes: { markdown: notes, json: dataPrimary },
-  knobs: { disable: true },
 };
 
 export const Secondary = (args) => button(prepareData(dataSecondary, args));
@@ -146,7 +145,6 @@ Secondary.args = {
 Secondary.storyName = 'secondary';
 Secondary.parameters = {
   notes: { markdown: notes, json: dataSecondary },
-  knobs: { disable: true },
 };
 
 export const CallToAction = (args) => button(prepareData(dataCall, args));
@@ -160,7 +158,6 @@ CallToAction.args = {
 CallToAction.storyName = 'call to action';
 CallToAction.parameters = {
   notes: { markdown: notes, json: dataCall },
-  knobs: { disable: true },
 };
 
 export const Ghost = (args) => button(prepareData(dataGhost, args));
@@ -172,5 +169,4 @@ Ghost.args = {
 Ghost.storyName = 'text';
 Ghost.parameters = {
   notes: { markdown: notes, json: dataGhost },
-  knobs: { disable: true },
 };

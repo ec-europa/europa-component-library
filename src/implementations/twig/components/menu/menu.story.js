@@ -42,9 +42,6 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Navigation/Menu',
   decorators: [withNotes, withCode],
-  parameters: {
-    knobs: { disable: true },
-  },
 };
 
 export const Default = (args) => menu(prepareData(enData, args));

@@ -26,9 +26,6 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Forms/Checkbox',
   decorators: [withCode, withNotes],
-  parameters: {
-    knobs: { disable: true },
-  },
 };
 
 export const Default = (args) => checkboxGroup(prepareData(dataDefault, args));
