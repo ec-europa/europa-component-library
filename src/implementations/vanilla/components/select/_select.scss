@@ -26,12 +26,15 @@ $_arrow-background-color-invalid: null !default;
 $_arrow-background-color-invalid-hover: null !default;
 $_arrow-width: 2.75rem;
 $_multiple-dropdown-background-color: null !default;
-$_multiple-dropdown-border-color: null !default;
+$_multiple-dropdown-border: null !default;
 $_multiple-dropdown-separator-color: null !default;
 $_multiple-dropdown-border-radius: null !default;
 $_multiple-dropdown-shadow: null !default;
 $_multiple-dropdown-input-margin: null !default;
 $_multiple-dropdown-input-width: null !default;
+$_multiple-dropdown-container-max-height: null !default;
+$_multiple-checkbox-background-hover-color: null !default;
+$_multiple-checkbox-label-vertical-padding: null !default;
 
 .ecl-select {
   appearance: none;
@@ -235,7 +238,7 @@ $_multiple-dropdown-input-width: null !default;
 
   .ecl-select__multiple-dropdown {
     background-color: $_multiple-dropdown-background-color;
-    border: 1px solid $_multiple-dropdown-border-color;
+    border: $_multiple-dropdown-border;
     border-radius: $_multiple-dropdown-border-radius;
     box-shadow: $_multiple-dropdown-shadow;
     box-sizing: border-box;
@@ -254,8 +257,9 @@ $_multiple-dropdown-input-width: null !default;
   }
 
   .ecl-select__multiple-options {
-    max-height: 232px;
+    max-height: $_multiple-dropdown-container-max-height;
     overflow-y: auto;
+    padding-bottom: map.get(theme.$spacing, 'xs');
   }
 
   .ecl-select__multiple-no-results {
@@ -269,15 +273,11 @@ $_multiple-dropdown-input-width: null !default;
     width: 100%;
   }
 
-  .ecl-checkbox:last-of-type {
-    margin-bottom: map.get(theme.$spacing, 'xs');
-  }
-
   .ecl-checkbox__label {
-    padding-bottom: map.get(theme.$spacing, 'xs');
+    padding-bottom: $_multiple-checkbox-label-vertical-padding;
     padding-left: map.get(theme.$spacing, 'm');
     padding-right: map.get(theme.$spacing, 'm');
-    padding-top: map.get(theme.$spacing, 'xs');
+    padding-top: $_multiple-checkbox-label-vertical-padding;
     width: calc(
       100% - #{map.get(theme.$spacing, 'm')} - #{map.get(theme.$spacing, 'm')}
     );
@@ -285,7 +285,7 @@ $_multiple-dropdown-input-width: null !default;
 
   .ecl-checkbox__label:hover,
   .ecl-checkbox__label:focus {
-    background-color: map.get(theme.$color, 'grey-15');
+    background-color: $_multiple-checkbox-background-hover-color;
   }
 
   .ecl-select__multiple-all .ecl-checkbox__label {
