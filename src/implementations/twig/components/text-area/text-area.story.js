@@ -1,15 +1,19 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
-import { getFormControls } from '@ecl/story-utils';
+import { getFormControls, correctSvgPath } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
+import getSystem from '@ecl/builder/utils/getSystem';
 
-import dataDefault from '@ecl/specs-component-text-area/demo/data';
+import specsEc from '@ecl/specs-component-text-area/demo/data--ec';
+import specsEu from '@ecl/specs-component-text-area/demo/data--eu';
 
 import textArea from './text-area.html.twig';
 import notes from './README.md';
 
+const system = getSystem();
+const dataDefault = system === 'eu' ? specsEu : specsEc;
 const dataInvalid = { ...dataDefault, invalid: true };
 const dataDisabled = { ...dataDefault, disabled: true };
-const dataOptional = { ...dataDefault, required: false };
+const dataRequired = { ...dataDefault, required: true };
 
 const getArgTypes = (data) => {
   return {
@@ -29,7 +33,7 @@ const getArgTypes = (data) => {
   };
 };
 
-const prepareData = (data, args) => Object.assign(data, args);
+const prepareData = (data, args) => Object.assign(correctSvgPath(data), args);
 
 export default {
   title: 'Components/Forms/Text area',
@@ -57,8 +61,8 @@ Invalid.storyName = 'invalid';
 Invalid.argTypes = getArgTypes(dataInvalid);
 Invalid.parameters = { notes: { markdown: notes, json: dataInvalid } };
 
-export const Optional = (args) => textArea(prepareData(dataOptional, args));
+export const Required = (args) => textArea(prepareData(dataRequired, args));
 
-Optional.storyName = 'optional';
-Optional.argTypes = getArgTypes(dataOptional);
-Optional.parameters = { notes: { markdown: notes, json: dataOptional } };
+Required.storyName = 'required';
+Required.argTypes = getArgTypes(dataRequired);
+Required.parameters = { notes: { markdown: notes, json: dataRequired } };

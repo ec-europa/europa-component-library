@@ -9,6 +9,7 @@ import uiIconsEu from '@ecl/resources-eu-icons/dist/lists/ui.json';
 import dataDefault from '@ecl/specs-component-link/demo/data--default';
 import dataCta from '@ecl/specs-component-link/demo/data--cta';
 import dataStandalone from '@ecl/specs-component-link/demo/data--standalone';
+import dataNegative from '@ecl/specs-component-link/demo/data--negative';
 
 import link from './link.html.twig';
 import notes from './README.md';
@@ -16,18 +17,16 @@ import notes from './README.md';
 const system = getSystem();
 const uiIcons = system === 'eu' ? uiIconsEu : uiIconsEc;
 
-const storyAsString = (story) =>
-  `<p class="ecl-u-type-paragraph">The European Commission is the executive of ${story} and promotes its general interest.</p>`;
-const storyAsNode = (story) => {
-  const wrapper = document.createElement('p');
-  wrapper.className = 'ecl-u-type-paragraph';
-  wrapper.appendChild(story);
-  return wrapper;
-};
-
 const withParagraph = (story) => {
   const demo = story();
-  return typeof demo === 'string' ? storyAsString(demo) : storyAsNode(demo);
+  return `<p class="ecl-u-type-paragraph ecl-u-ma-none">The European Commission is the executive of ${demo} and promotes its general interest.</p>`;
+};
+
+const withNegative = (story, controls) => {
+  const demo = story();
+  return controls.args.negative
+    ? `<div class="ecl-u-bg-blue ecl-u-type-color-white ecl-u-pa-xs">${demo}</div>`
+    : demo;
 };
 
 const getArgTypes = (data) => {
@@ -44,6 +43,20 @@ const getArgTypes = (data) => {
       },
       control: {
         type: 'text',
+      },
+    },
+    negative: {
+      name: 'negative',
+      type: { name: 'boolean' },
+      defaultValue: data.link.negative,
+      description: 'Negative button',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+        category: 'Content',
+      },
+      control: {
+        type: 'boolean',
       },
     },
     icon_name: {
@@ -98,13 +111,14 @@ const getArgTypes = (data) => {
 
 const prepareData = (data, args) => {
   data.link.label = args.label;
+  data.link.negative = args.negative;
   data.link.icon_position = args.icon_position;
   if (args.icon_name) {
     data.icon = {};
     data.icon.name = args.icon_name;
     data.icon.type = 'ui';
     data.icon.transform = args.icon_transform;
-    data.icon.size = 'fluid';
+    data.icon.size = system === 'eu' ? 'm' : 'xs';
     data.icon.path = 'icon.svg';
   }
   correctSvgPath(data);
@@ -112,46 +126,45 @@ const prepareData = (data, args) => {
   return data;
 };
 
+const prepareDataCta = (data, args) => {
+  const dataCustom = prepareData(data, args);
+  if (dataCustom.icon) {
+    data.icon.size = system === 'eu' ? 's' : 'xs';
+  }
+
+  return dataCustom;
+};
+
 export default {
   title: 'Components/Navigation/Link',
-  decorators: [withNotes, withCode],
+  decorators: [withNotes, withCode, withNegative],
   parameters: {
-    knobs: {
-      disable: true,
-    },
+    knobs: { disable: true },
   },
 };
 
 export const Default = (args) => link(prepareData(dataDefault, args));
 
 Default.storyName = 'default';
-Default.decorators = [withNotes, withCode, withParagraph];
+Default.decorators = [withNotes, withCode, withParagraph, withNegative];
 Default.argTypes = getArgTypes(dataDefault);
-Default.parameters = {
-  notes: {
-    markdown: notes,
-    json: dataDefault,
-  },
-};
+Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 
 export const Standalone = (args) => link(prepareData(dataStandalone, args));
 
 Standalone.storyName = 'standalone';
 Standalone.argTypes = getArgTypes(dataStandalone);
-Standalone.parameters = {
-  notes: {
-    markdown: notes,
-    json: dataStandalone,
-  },
-};
+Standalone.parameters = { notes: { markdown: notes, json: dataStandalone } };
 
-export const Cta = (args) => link(prepareData(dataCta, args));
+export const Cta = (args) => link(prepareDataCta(dataCta, args));
 
 Cta.storyName = 'cta';
 Cta.argTypes = getArgTypes(dataCta);
-Cta.parameters = {
-  notes: {
-    markdown: notes,
-    json: dataCta,
-  },
-};
+Cta.parameters = { notes: { markdown: notes, json: dataCta } };
+
+export const Negative = (args) => link(prepareData(dataNegative, args));
+
+Negative.storyName = 'negative';
+Negative.decorators = [withNotes, withCode, withParagraph, withNegative];
+Negative.argTypes = getArgTypes(dataNegative);
+Negative.parameters = { notes: { markdown: notes, json: dataNegative } };

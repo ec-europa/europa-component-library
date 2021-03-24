@@ -187,16 +187,16 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
     {% endif %}
   {% endfor %}
 {% endif %}
 
 {# Print the result #}
 
-<header class="{{ _css_class }}" {{ _extra_attributes }}>
+<header class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <div class="ecl-site-header-harmonised__container ecl-container">
     <div class="ecl-site-header-harmonised__top">
     {% if _logo is not empty %}

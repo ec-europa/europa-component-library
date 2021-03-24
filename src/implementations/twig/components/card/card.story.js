@@ -5,8 +5,9 @@ import getSystem from '@ecl/builder/utils/getSystem';
 import defaultSpriteEc from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import defaultSpriteEu from '@ecl/resources-eu-icons/dist/sprites/icons.svg';
 import dataCard from '@ecl/specs-component-card/demo/data--card';
-import dataCardEvent from '@ecl/specs-component-card/demo/data--card-event';
+import dataCardTaxonomy from '@ecl/specs-component-card/demo/data--card-taxonomy';
 import dataCardTile from '@ecl/specs-component-card/demo/data--tile';
+import dataCardTileTaxonomy from '@ecl/specs-component-card/demo/data--tile-taxonomy';
 
 import card from './card.html.twig';
 import notes from './README.md';
@@ -17,29 +18,35 @@ const defaultSprite = system === 'eu' ? defaultSpriteEu : defaultSpriteEc;
 const infosClone = { ...dataCard.card.infos };
 const linkClone = { ...dataCardTile.card.links[0] };
 const tagClone = { ...dataCard.card.tags[0] };
+const descriptionListClone = { ...dataCardTaxonomy.card.lists[0] };
+const taxonomyListClone = { ...dataCardTaxonomy.card.lists[1] };
 
 const getArgTypes = (data) => {
   const argTypes = {};
-  argTypes.title = {
-    type: { name: 'string', required: true },
-    defaultValue: data.card.title.label,
-    description: 'The card title',
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: '' },
-      category: 'Content',
-    },
-  };
-  argTypes.description = {
-    type: 'string',
-    defaultValue: data.card.description,
-    description: 'The card description',
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: '' },
-      category: 'Content',
-    },
-  };
+  if (data.card.title) {
+    argTypes.title = {
+      type: { name: 'string', required: true },
+      defaultValue: data.card.title.label,
+      description: 'The card title',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+    };
+  }
+  if (data.card.description) {
+    argTypes.description = {
+      type: 'string',
+      defaultValue: data.card.description,
+      description: 'The card description',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+    };
+  }
   if (data.card.meta) {
     argTypes.meta = {
       name: 'meta',
@@ -114,12 +121,34 @@ const getArgTypes = (data) => {
       },
     };
   }
+  if (data.card.lists) {
+    argTypes.list = {
+      name: 'Display additional list',
+      type: 'boolean',
+      defaultValue: true,
+      description: 'Show/hide description list in the card footer',
+      table: {
+        category: 'Card footer',
+      },
+    };
+    argTypes.taxonomy = {
+      name: 'Display taxonomy list',
+      type: 'boolean',
+      defaultValue: true,
+      description: 'Show/hide taxonomy list in the card footer',
+      table: {
+        category: 'Card footer',
+      },
+    };
+  }
 
   return argTypes;
 };
 
 const prepareData = (data, args) => {
-  data.card.title.label = args.title;
+  if (data.card.title) {
+    data.card.title.label = args.title;
+  }
   if (data.card.image) {
     data.card.image.src = args.image;
   }
@@ -158,6 +187,18 @@ const prepareData = (data, args) => {
       });
     }
   }
+  if (data.card.lists) {
+    if (!args.list) {
+      data.card.lists[0] = [];
+    } else {
+      data.card.lists[0] = descriptionListClone;
+    }
+    if (!args.taxonomy) {
+      data.card.lists[1] = [];
+    } else {
+      data.card.lists[1] = taxonomyListClone;
+    }
+  }
 
   return data;
 };
@@ -178,14 +219,25 @@ Card.storyName = 'card';
 Card.argTypes = getArgTypes(dataCard);
 Card.parameters = { notes: { markdown: notes, json: dataCard } };
 
+export const CardTaxonomy = (args) => card(prepareData(dataCardTaxonomy, args));
+
+CardTaxonomy.storyName = 'card (taxonomy)';
+CardTaxonomy.argTypes = getArgTypes(dataCardTaxonomy);
+CardTaxonomy.parameters = {
+  notes: { markdown: notes, json: dataCardTaxonomy },
+};
+
 export const Tile = (args) => card(prepareData(dataCardTile, args));
 
 Tile.storyName = 'tile';
 Tile.argTypes = getArgTypes(dataCardTile);
 Tile.parameters = { notes: { markdown: notes, json: dataCardTile } };
 
-export const Event = (args) => card(prepareData(dataCardEvent, args));
+export const TileTaxonomy = (args) =>
+  card(prepareData(dataCardTileTaxonomy, args));
 
-Event.storyName = 'event';
-Event.argTypes = getArgTypes(dataCardEvent);
-Event.parameters = { notes: { markdown: notes, json: dataCardEvent } };
+TileTaxonomy.storyName = 'tile (taxonomy)';
+TileTaxonomy.argTypes = getArgTypes(dataCardTileTaxonomy);
+TileTaxonomy.parameters = {
+  notes: { markdown: notes, json: dataCardTileTaxonomy },
+};

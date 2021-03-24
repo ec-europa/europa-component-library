@@ -5,7 +5,7 @@ module.exports = {
     href: '/example',
     language: 'fr',
     src_mobile: 'static/media/fr.c897b011.svg',
-    src_desktop: 'static/media/logo--fr.ef2ee614.svg',
+    src_desktop: 'static/media/logo-ec--fr.ef2ee614.svg',
   },
   menu: {
     title: 'Menu',

@@ -1,35 +1,39 @@
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 
 // Import data for tests
-import dataDefault from '@ecl/specs-component-checkbox/demo/data';
+import dataEc from '@ecl/specs-component-checkbox/demo/data--ec';
+import dataEu from '@ecl/specs-component-checkbox/demo/data--eu';
 
-const dataInvalid = { ...dataDefault, invalid: true };
+const dataSingleEc = { ...dataEc, items: [dataEc.items[0]], invalid: true };
+const dataSingleEu = { ...dataEu, items: [dataEu.items[0]], invalid: true };
+const dataInvalidEc = { ...dataEc, invalid: true };
+const dataInvalidEu = { ...dataEu, invalid: true };
 
 describe('Checkbox', () => {
   const template = '@ecl/checkbox/checkbox-group.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
-  describe('Default', () => {
-    test('renders correctly', () => {
+  describe('EC', () => {
+    test('default renders correctly', () => {
       expect.assertions(1);
 
-      return expect(render(dataDefault)).resolves.toMatchSnapshot();
+      return expect(render(dataEc)).resolves.toMatchSnapshot();
     });
 
-    test('renders correctly with extra class names', () => {
+    test('default renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const withExtraClasses = merge(dataDefault, {
+      const withExtraClasses = merge(dataEc, {
         extra_classes: 'custom-class custom-class--test',
       });
 
       return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
     });
 
-    test('renders correctly with extra attributes', () => {
+    test('default renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const withExtraAttributes = merge(dataDefault, {
+      const withExtraAttributes = merge(dataEc, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
@@ -42,19 +46,42 @@ describe('Checkbox', () => {
     test('renders correctly when required', () => {
       expect.assertions(1);
 
-      dataDefault.items.forEach((item) => {
+      dataEc.items.forEach((item) => {
         item.required = true; // eslint-disable-line no-param-reassign
       });
 
-      return expect(render(dataDefault)).resolves.toMatchSnapshot();
+      return expect(render(dataEc)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly when invalid', () => {
+      expect.assertions(1);
+
+      return expect(render(dataInvalidEc)).resolves.toMatchSnapshot();
+    });
+
+    test('single checkbox renders correctly when invalid', () => {
+      expect.assertions(1);
+
+      return expect(render(dataSingleEc)).resolves.toMatchSnapshot();
     });
   });
 
-  describe('Invalid', () => {
-    test('renders correctly', () => {
+  describe('EU', () => {
+    test('default renders correctly', () => {
       expect.assertions(1);
 
-      return expect(render(dataInvalid)).resolves.toMatchSnapshot();
+      return expect(render(dataEu)).resolves.toMatchSnapshot();
+    });
+    test('invalid renders correctly', () => {
+      expect.assertions(1);
+
+      return expect(render(dataInvalidEu)).resolves.toMatchSnapshot();
+    });
+
+    test('single checkbox renders correctly when invalid', () => {
+      expect.assertions(1);
+
+      return expect(render(dataSingleEu)).resolves.toMatchSnapshot();
     });
   });
 });

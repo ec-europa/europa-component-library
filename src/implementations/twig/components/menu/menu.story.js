@@ -1,11 +1,17 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctSvgPath } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 import enData from '@ecl/specs-component-menu/demo/data--en';
 import frData from '@ecl/specs-component-menu/demo/data--fr';
 import menu from './menu.html.twig';
 import notes from './README.md';
+
+if (getSystem() === 'eu') {
+  enData.site_name = '';
+  frData.site_name = '';
+}
 
 const getArgTypes = (data) => {
   return {
@@ -43,12 +49,12 @@ export default {
 
 export const Default = (args) => menu(prepareData(enData, args));
 
-Default.argTypes = getArgTypes(enData);
 Default.storyName = 'default';
 Default.parameters = { notes: { markdown: notes, json: enData } };
+Default.argTypes = getArgTypes(enData);
 
 export const Translated = (args) => menu(prepareData(frData, args));
 
-Translated.argTypes = getArgTypes(frData);
 Translated.storyName = 'translated';
 Translated.parameters = { notes: { markdown: notes, json: frData } };
+Translated.argTypes = getArgTypes(frData);

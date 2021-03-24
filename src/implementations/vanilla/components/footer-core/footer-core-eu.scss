@@ -8,38 +8,79 @@
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 $_bg-color: map.get(theme.$color, 'blue-5');
-$_shadow: 0 0 8px rgba(9, 49, 142, 0.2); // Use a map for shadows?
+$_shadow: 0 0 8px rgba(9, 49, 142, 0.2);
 $_separator-color: map.get(theme.$color, 'blue-20');
 $_text-color: map.get(theme.$color, 'grey-140');
 $_column-gap: map.get(theme.$grid-gutter-width, 'xl');
 
 /*
- * Global rules
- */
+  * Global rules
+  */
 .ecl-footer-core {
   background-color: $_bg-color;
   box-shadow: $_shadow;
   color: $_text-color;
+  display: flex;
   font: map.get(theme.$font-prolonged, 'm');
   margin: 0;
 }
 
 .ecl-footer-core__container {
-  display: flex;
-  flex-direction: column;
   padding: map.get(theme.$spacing, '3xl') map.get(theme.$spacing, 'm');
 }
 
-.ecl-footer-core__section {
-  margin-top: map.get(theme.$spacing, 'l');
-
-  > :first-child {
-    margin-top: 0;
+.ecl-footer-core__row {
+  border-bottom: 2px solid $_separator-color;
+  padding-bottom: map.get(theme.$spacing, 'xl');
+  padding-top: map.get(theme.$spacing, 'xl');
+  /* stylelint-disable-next-line max-nesting-depth */
+  &:first-child {
+    padding-top: 0;
+  }
+  /* stylelint-disable-next-line max-nesting-depth */
+  &:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
   }
 }
 
+.ecl-footer-core__column {
+  padding-top: map.get(theme.$spacing, 'l');
+
+  /* stylelint-disable-next-line max-nesting-depth */
+  &:first-child {
+    padding-top: 0;
+  }
+}
+
+.ecl-footer-core__section {
+  padding-top: map.get(theme.$spacing, 'l');
+
+  /* stylelint-disable-next-line max-nesting-depth */
+  &:first-child {
+    padding-top: 0;
+  }
+}
+
+.ecl-footer-core__section--desktop {
+  display: none;
+}
+
+.ecl-footer-core__section--mobile {
+  padding-top: 0;
+}
+
 .ecl-footer-core__title {
+  color: $_text-color;
   font: map.get(theme.$font, '2xl');
+  margin: 0;
+}
+
+.ecl-footer-core__title-link,
+.ecl-footer-core__title-link:hover,
+.ecl-footer-core__title-link:focus,
+.ecl-footer-core__title-link:visited {
+  color: $_text-color;
 }
 
 .ecl-footer-core__title--separator {
@@ -48,6 +89,7 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'xl');
 }
 
 .ecl-footer-core__description {
+  margin-bottom: map.get(theme.$spacing, 'xs');
   margin-top: map.get(theme.$spacing, 'm');
 }
 
@@ -82,7 +124,44 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'xl');
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
-  .ecl-footer-core__title {
+  .ecl-footer-core {
+    padding-top: 0;
+  }
+
+  .ecl-footer-core__container {
+    padding: map.get(theme.$spacing, '4xl') map.get(theme.$spacing, 'm');
+  }
+
+  .ecl-footer-core__row {
+    column-gap: $_column-gap;
+    display: grid;
+    grid-gap: 0 $_column-gap;
+    grid-template-columns: repeat(3, 1fr);
+    padding-bottom: map.get(theme.$spacing, '3xl');
+    padding-top: map.get(theme.$spacing, '3xl');
+  }
+
+  .ecl-footer-core__column {
+    padding-top: 0;
+  }
+
+  .ecl-footer-core__section {
+    padding-top: map.get(theme.$spacing, 'l');
+  }
+
+  .ecl-footer-core__section--desktop {
+    display: block;
+  }
+
+  .ecl-footer-core__section--mobile {
+    display: none;
+  }
+
+  .ecl-footer-core__title,
+  .ecl-footer-core__title:hover,
+  .ecl-footer-core__title:focus,
+  .ecl-footer-core__title:visited {
+    color: $_text-color;
     font: map.get(theme.$font, '3xl');
   }
 
@@ -93,54 +172,5 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'xl');
   .ecl-footer-core__logo-image-desktop {
     display: block;
     height: 2.75rem;
-  }
-}
-
-/*
-  * Section related rules
-  */
-.ecl-footer-core__section1 {
-  margin-top: 0;
-}
-
-.ecl-footer-core__section2 {
-  margin-top: map.get(theme.$spacing, 'xl');
-}
-
-.ecl-footer-core__section3 {
-  display: none;
-}
-
-/* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
-  /* Grid layout */
-  .ecl-footer-core__container {
-    column-gap: $_column-gap;
-    display: grid;
-    grid-gap: 0 $_column-gap;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, minmax(min-content, max-content));
-    padding-bottom: map.get(theme.$spacing, '4xl');
-    padding-top: map.get(theme.$spacing, '4xl');
-    row-gap: 0;
-  }
-
-  .ecl-footer-core__section1 {
-    grid-area: 1 / 1 / 3 / 2;
-  }
-
-  .ecl-footer-core__section2 {
-    grid-area: 2 / 2 / 3 / 3;
-    margin-top: 0;
-  }
-
-  .ecl-footer-core__section3 {
-    display: block;
-    grid-area: 2 / 3 / 3 / 4;
-    margin-top: 0;
-  }
-
-  .ecl-footer-core__section4 {
-    display: none;
   }
 }

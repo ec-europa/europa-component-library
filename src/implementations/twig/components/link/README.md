@@ -9,7 +9,8 @@ npm install --save @ecl/twig-component-link
 ### Parameters
 
 - **"link"** (associative array) (default: 'predefined structure below')
-  - "type" (string) (default: '') - type of link. Available types are 'default' or standalone
+  - "type" (string) (default: '') - type of link. Available types are '', 'standalone' or 'cta'
+  - "negative" (boolean) (default: false) - Is the link negative (displayed on dark background) or not
   - "label" (string) (default: '') - Content of link
   - "path" (string) (default: '') - Link url (href attribute)
   - "aria_label" (string) Aria label attribute value

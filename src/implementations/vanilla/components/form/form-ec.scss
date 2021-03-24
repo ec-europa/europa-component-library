@@ -1,0 +1,15 @@
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+@use 'form' with (
+  $_color-help: map.get(theme.$color, 'grey-100'),
+  $_color-invalid: map.get(theme.$color, 'red-100'),
+  $_color-label: map.get(theme.$color, 'grey-100'),
+  $_color-optional: map.get(theme.$color, 'grey-100'),
+  $_color-required: map.get(theme.$color, 'red-100'),
+  $_first-element-margin: map.get(theme.$spacing, 's'),
+  $_font-help: map.get(theme.$font-prolonged, 's'),
+  $_font-invalid: map.get(theme.$font-prolonged, 's'),
+  $_font-optional: map.get(theme.$font, 's'),
+  $_form-element-margin: map.get(theme.$spacing, 's'),
+  $_margin-invalid: map.get(theme.$spacing, 'xs'),
+);

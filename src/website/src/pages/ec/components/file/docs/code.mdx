@@ -9,6 +9,7 @@ import {
   fileWithTranslation,
   fileWithoutTranslation,
   fileThumbnail,
+  fileTaxonomy,
 } from '../demo';
 
 ## Without translations
@@ -42,4 +43,15 @@ import {
   showFrame
 >
   <Html markup={fileThumbnail} />
+</Playground>
+
+## With taxonomy
+
+<Playground
+  system="ec"
+  selectedKind="components-file"
+  selectedStory="thumbnail-taxonomy"
+  showFrame
+>
+  <Html markup={fileTaxonomy} />
 </Playground>

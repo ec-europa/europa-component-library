@@ -4,6 +4,7 @@ import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 import dataWithTranslation from '@ecl/specs-component-file/demo/data--with-translation';
 import dataWithoutTranslation from '@ecl/specs-component-file/demo/data--without-translation';
 import dataThumbnail from '@ecl/specs-component-file/demo/data--thumbnail';
+import dataTaxonomy from '@ecl/specs-component-file/demo/data--taxonomy';
 
 describe('File', () => {
   const template = '@ecl/file/file.html.twig';
@@ -76,6 +77,12 @@ describe('File', () => {
       expect.assertions(1);
 
       return expect(render(dataThumbnail)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with taxonomies', () => {
+      expect.assertions(1);
+
+      return expect(render(dataTaxonomy)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly without an image', () => {

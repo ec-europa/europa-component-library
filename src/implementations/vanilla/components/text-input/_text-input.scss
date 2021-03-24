@@ -1,0 +1,130 @@
+/**
+ * Text input component
+ * @define text-input
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+$_border-radius: null !default;
+$_border-color: null !default;
+$_border-color-hover: null !default;
+$_border-color-focus: null !default;
+$_border-color-invalid: null !default;
+$_border-color-invalid-hover: null !default;
+$_border-width: 1px;
+$_border-width-focus: null !default;
+$_color-input: null !default;
+$_color-placeholder: null !default;
+$_shadow: null !default;
+$_shadow-hover: null !default;
+$_padding-vertical: map.get(theme.$spacing, 's');
+$_padding-horizontal: null !default;
+
+.ecl-text-input {
+  appearance: none;
+  background-color: map.get(theme.$color, 'white-100');
+  border: $_border-width solid $_border-color;
+  border-radius: $_border-radius;
+  box-shadow: $_shadow;
+  box-sizing: border-box;
+  color: $_color-input;
+  display: block;
+  font: map.get(theme.$font, 'm');
+  margin: 0;
+  max-width: 100%;
+  padding: calc(#{$_padding-vertical} - #{$_border-width})
+    calc(#{$_padding-horizontal} - #{$_border-width});
+
+  &::placeholder {
+    color: $_color-placeholder;
+    font: map.get(theme.$font, 'm');
+    opacity: 1;
+  }
+
+  &:hover {
+    border-color: $_border-color-hover;
+    box-shadow: $_shadow-hover;
+  }
+
+  &:focus,
+  &:active {
+    border-color: $_border-color-focus;
+    border-width: $_border-width-focus;
+    outline: none;
+    padding: calc(#{$_padding-vertical} - #{$_border-width-focus})
+      calc(#{$_padding-horizontal} - #{$_border-width-focus});
+  }
+}
+
+.ecl-text-input--s {
+  width: 50%;
+
+  @include breakpoints.up('m') {
+    width: 30%;
+  }
+
+  @include breakpoints.up('l') {
+    width: map.get(theme.$form, 's');
+  }
+}
+
+.ecl-text-input--m {
+  width: 100%;
+
+  @include breakpoints.up('m') {
+    width: 50%;
+  }
+
+  @include breakpoints.up('l') {
+    width: map.get(theme.$form, 'm');
+  }
+}
+
+.ecl-text-input--l {
+  width: 100%;
+
+  @include breakpoints.up('l') {
+    width: map.get(theme.$form, 'l');
+  }
+}
+
+.ecl-text-input[disabled],
+.ecl-text-input--disabled,
+.ecl-text-input[readonly],
+.ecl-text-input--readonly {
+  background-color: map.get(theme.$color, 'white-100');
+  border-color: rgba($_border-color, 0.5);
+  cursor: not-allowed;
+
+  &::placeholder {
+    color: rgba($_color-placeholder, 0.5);
+  }
+
+  &:hover {
+    border-color: rgba($_border-color, 0.5);
+    box-shadow: $_shadow;
+  }
+
+  &:focus,
+  &:active {
+    border-color: rgba($_border-color, 0.5);
+    border-width: $_border-width;
+    padding: calc(#{$_padding-vertical} - #{$_border-width})
+      calc(#{$_padding-horizontal} - #{$_border-width});
+  }
+}
+
+.ecl-text-input--invalid {
+  border-color: $_border-color-invalid;
+
+  &:hover {
+    border-color: $_border-color-invalid-hover;
+  }
+
+  &:active,
+  &:focus {
+    border-color: $_border-color-focus;
+  }
+}

@@ -5,9 +5,12 @@ import withCode from '@ecl/storybook-addon-code';
 import dataWithTranslation from '@ecl/specs-component-file/demo/data--with-translation';
 import dataWithoutTranslation from '@ecl/specs-component-file/demo/data--without-translation';
 import dataThumbnail from '@ecl/specs-component-file/demo/data--thumbnail';
+import dataThumbnailTaxonomy from '@ecl/specs-component-file/demo/data--taxonomy';
 
 import file from './file.html.twig';
 import notes from './README.md';
+
+const listsClone = { ...dataThumbnailTaxonomy.lists[0] };
 
 const getArgTypes = (data) => {
   const argTypes = {};
@@ -103,6 +106,18 @@ const getArgTypes = (data) => {
     };
   }
 
+  if (data.lists) {
+    argTypes.lists = {
+      name: 'Show taxonomies',
+      type: 'boolean',
+      defaultValue: true,
+      description: 'Show/hide the list with taxonomies',
+      table: {
+        category: 'Taxonomies',
+      },
+    };
+  }
+
   return argTypes;
 };
 
@@ -117,6 +132,14 @@ const prepareData = (data, args) => {
   }
   if (data.translation) {
     data.translation.toggle.label = args.toggle_label;
+  }
+
+  if (data.lists) {
+    if (!args.lists) {
+      data.lists = [];
+    } else {
+      data.lists = [listsClone];
+    }
   }
 
   return data;
@@ -150,6 +173,15 @@ WithTranslation.parameters = {
 
 export const Thumbnail = (args) => file(prepareData(dataThumbnail, args));
 
-Thumbnail.storyName = 'thumbnail';
+Thumbnail.storyName = 'with thumbnail';
 Thumbnail.argTypes = getArgTypes(dataThumbnail);
 Thumbnail.parameters = { notes: { markdown: notes, json: dataThumbnail } };
+
+export const ThumbnailTaxonomy = (args) =>
+  file(prepareData(dataThumbnailTaxonomy, args));
+
+ThumbnailTaxonomy.storyName = 'with taxonomy';
+ThumbnailTaxonomy.argTypes = getArgTypes(dataThumbnailTaxonomy);
+ThumbnailTaxonomy.parameters = {
+  notes: { markdown: notes, json: dataThumbnailTaxonomy },
+};

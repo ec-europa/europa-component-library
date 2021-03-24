@@ -5,6 +5,7 @@
 
 @use "sass:map";
 @use '@ecl/theme-dev/theme';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 // Vertical description list
 $_text-color: map.get(theme.$color, 'grey-100');
@@ -18,6 +19,7 @@ $_text-color: map.get(theme.$color, 'grey-100');
   font: map.get(theme.$font-prolonged-print, 'xl');
   font-family: #{map.get(theme.$font-family-print, 'alt')};
   font-weight: map.get(theme.$font-weight-print, 'bold');
+  overflow-wrap: break-word;
 }
 
 .ecl-description-list__definition {
@@ -29,33 +31,62 @@ $_text-color: map.get(theme.$color, 'grey-100');
 $_term-width: 32%;
 $_definition-width: 68%;
 
-.ecl-description-list--horizontal {
+.ecl-description-list--taxonomy {
+  .ecl-description-list__definition {
+    margin-bottom: -#{map.get(theme.$spacing-print, 'xs')};
+  }
+
+  .ecl-description-list__tag {
+    margin-bottom: map.get(theme.$spacing-print, 'xs');
+    margin-right: map.get(theme.$spacing-print, 'xs');
+  }
+
+  .ecl-description-list__tag:last-of-type {
+    margin-right: 0;
+  }
+}
+
+.ecl-description-list--horizontal,
+.ecl-description-list--taxonomy {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   max-width: calc(499px + #{map.get(theme.$spacing-print, 'xl')});
-}
 
-.ecl-description-list--horizontal .ecl-description-list__term {
-  font: map.get(theme.$font-print, 'm');
-  font-weight: map.get(theme.$font-weight-print, 'bold');
-  margin-top: map.get(theme.$spacing-print, 'm');
-  width: $_term-width;
+  .ecl-description-list__term {
+    font: map.get(theme.$font-print, 'm');
+    font-weight: map.get(theme.$font-weight-print, 'bold');
+    margin-top: map.get(theme.$spacing-print, 'm');
+    width: $_term-width;
+  }
 
-  &:first-of-type {
+  .ecl-description-list__term:first-of-type {
+    margin-top: 0;
+  }
+
+  .ecl-description-list__definition {
+    font: map.get(theme.$font-print, 'm');
+    margin-left: map.get(theme.$spacing-print, 'xl');
+    margin-top: map.get(theme.$spacing-print, 'm');
+    overflow-wrap: break-word;
+    padding-left: 0;
+    width: calc(#{$_definition-width} - #{map.get(theme.$spacing-print, 'xl')});
+  }
+
+  .ecl-description-list__definition:first-of-type {
     margin-top: 0;
   }
 }
 
-.ecl-description-list--horizontal .ecl-description-list__definition {
-  font: map.get(theme.$font-print, 'm');
-  margin-left: map.get(theme.$spacing-print, 'xl');
+.ecl-description-list + .ecl-description-list--taxonomy {
+  border-top: 1px solid map.get(theme.$color, 'grey-20');
   margin-top: map.get(theme.$spacing-print, 'm');
-  overflow-wrap: break-word;
-  padding-left: 0;
-  width: calc(#{$_definition-width} - #{map.get(theme.$spacing, 'xl')});
+  padding-top: map.get(theme.$spacing-print, 'm');
+}
 
-  &:first-of-type {
-    margin-top: 0;
+@include breakpoints.up('l') {
+  .ecl-description-list + .ecl-description-list--taxonomy {
+    margin-top: map.get(theme.$spacing-print, 'l');
+    padding-top: map.get(theme.$spacing-print, 'l');
   }
 }

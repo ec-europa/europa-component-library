@@ -8,7 +8,6 @@
 @use "@ecl/vanilla-utility-media/media" as uMedia;
 
 .ecl-media-container {
-  background-color: map.get(theme.$color, 'grey-10');
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -23,6 +22,7 @@
 }
 
 .ecl-media-container__caption {
+  background-color: map.get(theme.$color, 'grey-10');
   color: map.get(theme.$color, 'grey');
   font: map.get(theme.$font-prolonged, 'm');
   padding: map.get(theme.$spacing, 's');

@@ -4,7 +4,8 @@
   Parameters:
    - "link" (associative array) (default: predefined structure): format:
       {
-        type: 'default' (can be 'default', 'standalone')
+        type: '' (can be '', 'standalone', 'cta')
+        negative: false (boolean),
         label: '' (string),
         path: '', (string) (Link url)
         aria_label: '' (string) Aria label attribute value
@@ -42,7 +43,7 @@
 {# Internal properties #}
 
 {% set _link = {
-  type: 'default',
+  type: '',
   label: '',
   path: '',
   icon_position: 'after'
@@ -55,6 +56,9 @@
   size: ''
 } %}
 
+{% set _css_class = 'ecl-link' %}
+{% set _extra_attributes = '' %}
+
 {% if link is defined %}
   {% set _link = _link|merge(link) %}
 {% endif %}
@@ -65,14 +69,19 @@
   {% set _icons = icon %}
 {% endif %}
 
-{% set _css_class = ['ecl-link', 'ecl-link--' ~ _link.type]|join(' ') %}
-{% set _extra_attributes = '' %}
+{# Internal logic - Process properties #}
+
+{% if _link.type is defined and _link.type is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _link.type %}
+{% endif %}
+
+{% if _link.negative is defined and _link.negative %}
+  {% set _css_class = _css_class ~ ' ecl-link--negative' %}
+{% endif %}
 
 {% if _icons is defined and _link.icon_position is not empty %}
   {% set _css_class = _css_class ~ ' ecl-link--icon ecl-link--icon-' ~ _link.icon_position %}
 {% endif %}
-
-{# Internal logic - Process properties #}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -85,9 +94,9 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
     {% endif %}
   {% endfor %}
 {% endif %}
@@ -97,7 +106,7 @@
 <a
   href="{{ _link.path }}"
   class="{{ _css_class }}"
-  {{ _extra_attributes }}
+  {{ _extra_attributes|raw }}
 >
   {%- if _icons is defined and _link.icon_position == 'before' -%}
     {% for icon in _icons %}
@@ -112,13 +121,11 @@
         }) only -%}
       {%- endif -%}
     {% endfor %}
-    {{- '&nbsp;' -}}
   {%- endif -%}
   {%- if _icons is defined and _icons is not empty -%}
     <span class="ecl-link__label">{{ _link.label }}</span>
   {%- endif -%}
   {%- if _icons is defined and _link.icon_position == 'after' -%}
-    {{- '&nbsp;' -}}
     {% for icon in _icons %}
       {%- if icon.name is not empty -%}
         {% set _icon_extra_classes = 'ecl-link__icon' %}
