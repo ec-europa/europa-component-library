@@ -147,10 +147,10 @@ Most of the components have been updated without much changes. Although, there a
 - Text area
   - twig parameter "invalid_icon" added, to display additional icon when field is invalid
   - twig parameter "placeholder" added, to manage default content
-  - twig parameter "invalid_icon_label" has been removed (not used)
 - Text input
   - twig parameter "invalid_icon" added, to display additional icon when field is invalid
   - twig parameter "placeholder" added, to manage default content
+  - twig parameter "invalid_icon_label" has been removed (not used)
 
 ## Resources specifics
 
