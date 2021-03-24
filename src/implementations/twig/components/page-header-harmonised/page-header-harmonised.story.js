@@ -57,6 +57,9 @@ const getArgTypes = (data) => {
 const prepareData = (data, args) => {
   data.breadcrumb =
     system === 'eu' ? dataBreadcrumbLongEU : dataBreadcrumbLongEC;
+  data.breadcrumb.links.forEach((item) => {
+    item.negative = false;
+  });
 
   return Object.assign(correctSvgPath(data), args);
 };

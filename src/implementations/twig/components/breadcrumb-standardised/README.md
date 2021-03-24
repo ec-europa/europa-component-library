@@ -10,7 +10,7 @@ npm install --save @ecl/twig-component-breadcrumb-standardised
 
 - **"links"** (array) (default: []): format:
   - "label" (string) (default: '') Label of link
-  - "path" (string) (default: '') Url of link
+  - "path" (string) (default: '') URL of link
 - **"navigation_text"** (string) (default: ''): Text of navigation in breadcrumb
 - **"ellipsis_label"** (string) (default: ''): Label of the ellipsis, e.g. "Click to expand"
 - **"ellipsis_text"** (string) (default: '...'): Text of the ellipsis

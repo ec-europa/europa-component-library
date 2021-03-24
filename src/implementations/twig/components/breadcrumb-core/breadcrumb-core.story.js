@@ -12,8 +12,8 @@ import breadcrumb from './breadcrumb-core.html.twig';
 import notes from './README.md';
 
 const system = getSystem();
-const dataSimple = system === 'eu' ? dataSimpleEU : dataSimpleEC;
-const dataLong = system === 'eu' ? dataLongEU : dataLongEC;
+const dataSimple = system === 'eu' ? { ...dataSimpleEU } : { ...dataSimpleEC };
+const dataLong = system === 'eu' ? { ...dataLongEU } : { ...dataLongEC };
 
 const getArgTypes = (data) => {
   const argTypes = {};
