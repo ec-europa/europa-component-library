@@ -21,7 +21,6 @@ export default {
   title: 'Utilities/Disable scroll',
   decorators: [withCode],
   parameters: {
-    knobs: { disable: true },
     a11y: { disable: true },
   },
 };

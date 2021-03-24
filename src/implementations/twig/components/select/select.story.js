@@ -18,9 +18,6 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Forms/Select',
   decorators: [withCode, withNotes],
-  parameters: {
-    knobs: { disable: true },
-  },
 };
 
 export const Single = (args) => selectBox(prepareData(dataSingle, args));

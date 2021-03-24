@@ -89,9 +89,6 @@ export default {
   title: 'Components/Site Headers/Harmonised',
   decorators: [withNotes, withCode],
   argTypes: getArgTypes(),
-  parameters: {
-    knobs: { disable: true },
-  },
 };
 
 export const Default = (args) =>

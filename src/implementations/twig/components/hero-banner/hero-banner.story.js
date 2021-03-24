@@ -110,9 +110,6 @@ const renderStory = (data, args) => {
 export default {
   title: 'Components/Banners/Hero Banner',
   decorators: [withNotes, withCode],
-  parameters: {
-    knobs: { disable: true },
-  },
 };
 
 export const Default = (args) => renderStory(bannerDataSimplePrimary, args);

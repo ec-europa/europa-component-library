@@ -86,7 +86,4 @@ Default.parameters = {
 export default {
   title: 'Components/Footers/Harmonised',
   decorators: [withCode, withNotes],
-  parameters: {
-    knobs: { disable: true },
-  },
 };

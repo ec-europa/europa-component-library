@@ -29,11 +29,6 @@ const prepareData = (data, args) => {
 
 export default {
   title: 'Components/Forms/Datepicker',
-  parameters: {
-    knobs: {
-      disable: true,
-    },
-  },
 };
 
 export const Default = (args) => datepicker(prepareData(dataDefault, args));

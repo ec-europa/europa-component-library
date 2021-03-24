@@ -46,9 +46,6 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Forms/File Upload',
   decorators: [withNotes, withCode],
-  parameters: {
-    knobs: { disable: true },
-  },
 };
 
 export const Default = (args) => fileUpload(prepareData(dataDefault, args));

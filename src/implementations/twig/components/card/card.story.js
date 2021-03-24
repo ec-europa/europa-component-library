@@ -201,11 +201,6 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Card',
   decorators: [withCode, withNotes],
-  parameters: {
-    knobs: {
-      disable: true,
-    },
-  },
 };
 
 export const Card = (args) => card(prepareData(dataCard, args));

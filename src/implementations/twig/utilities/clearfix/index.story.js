@@ -30,7 +30,6 @@ export default {
   decorators: [withCode],
   parameters: {
     a11y: { disable: true },
-    knobs: { disable: true },
     controls: { disable: true },
   },
 };
@@ -47,7 +46,7 @@ export const Custom = () => {
       </div>
     </div>
     <p class="ecl-u-type-paragraph">Text after</p>
-  
+
     <h2 class="ecl-u-type-heading-2">With clearfix</h2>
     <div style="${styled(styleContainer)}" class="ecl-u-clearfix">
       <div style="${styled(styleBoxLeft)}">

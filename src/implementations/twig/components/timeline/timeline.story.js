@@ -56,11 +56,6 @@ const prepareHtmlContent = (state) => {
 
 export default {
   title: 'Components/Timeline',
-  parameters: {
-    knobs: {
-      disable: true,
-    },
-  },
 };
 
 export const Default = (arg) => prepareHtmlContent(arg.showDummyContent);

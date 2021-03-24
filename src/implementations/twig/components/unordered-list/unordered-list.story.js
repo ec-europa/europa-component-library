@@ -13,7 +13,6 @@ export default {
   title: 'Components/List/Unordered list',
   decorators: [withNotes, withCode],
   parameters: {
-    knobs: { disable: true },
     controls: { disable: true },
   },
 };

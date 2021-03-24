@@ -79,9 +79,6 @@ const getArgTypes = () => {
 
 export default {
   title: 'Utilities/Border',
-  parameters: {
-    knobs: { disable: true },
-  },
   decorators: [withCode],
 };
 

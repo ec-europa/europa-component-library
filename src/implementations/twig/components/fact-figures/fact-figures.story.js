@@ -97,9 +97,6 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Fact figures',
   decorators: [withNotes, withCode],
-  parameters: {
-    knobs: { disable: true },
-  },
 };
 
 export const Columns3 = (args) =>

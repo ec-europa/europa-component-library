@@ -64,8 +64,5 @@ Default.parameters = {
     markdown: notes,
     json: demoData,
   },
-  knobs: {
-    disable: true,
-  },
 };
 Default.decorators = [withCode, withNotes];

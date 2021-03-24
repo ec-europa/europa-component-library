@@ -102,9 +102,6 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Banners/Page Banner',
   decorators: [withNotes, withCode],
-  parameters: {
-    knobs: { disable: true },
-  },
 };
 
 const renderStory = (data, args) => {

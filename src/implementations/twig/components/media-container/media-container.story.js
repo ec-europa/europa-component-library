@@ -64,9 +64,6 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Media container',
   decorators: [withNotes, withCode],
-  parameters: {
-    knobs: { disable: true },
-  },
 };
 
 export const Image = (args) => mediaContainer(prepareData(dataImg, args));
