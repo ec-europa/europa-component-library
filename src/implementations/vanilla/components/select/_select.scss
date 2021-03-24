@@ -51,6 +51,11 @@ $_multiple-dropdown-input-width: null !default;
   width: 100%;
   z-index: 1;
 
+  &::placeholder {
+    color: $_color-placeholder;
+    opacity: 1;
+  }
+
   &::-ms-expand {
     display: none;
   }
@@ -169,6 +174,10 @@ $_multiple-dropdown-input-width: null !default;
     border-color: $_border-color-disabled;
     color: map.get(theme.$color, 'grey-50');
     cursor: not-allowed;
+  }
+
+  .ecl-select::placeholder {
+    color: rgba($_color-placeholder, 0.5);
   }
 
   .ecl-select:hover {
