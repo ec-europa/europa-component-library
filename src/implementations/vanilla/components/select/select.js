@@ -461,13 +461,8 @@ export class Select {
       noResultsLabel.innerHTML = this.textNoResults;
       noResultsContainer.appendChild(noResultsLabel);
       this.optionsContainer.appendChild(noResultsContainer);
-      // Disable select all checkbox.
-      this.selectAll.classList.add('ecl-checkbox--disabled');
-      this.selectAll.querySelector('input').disabled = true;
     } else if (visible.length > 0 && noResultsElement !== null) {
       noResultsElement.parentNode.removeChild(noResultsElement);
-      this.selectAll.classList.remove('ecl-checkbox--disabled');
-      this.selectAll.querySelector('input').disabled = false;
     }
     // reset
     if (keyword.length === 0) {
@@ -475,6 +470,13 @@ export class Select {
         checkbox.setAttribute('data-visible', true);
         checkbox.style.display = 'flex';
       });
+      // Enable select all checkbox.
+      this.selectAll.classList.remove('ecl-checkbox--disabled');
+      this.selectAll.querySelector('input').disabled = false;
+    } else {
+      // Disable select all checkbox.
+      this.selectAll.classList.add('ecl-checkbox--disabled');
+      this.selectAll.querySelector('input').disabled = true;
     }
   }
 
