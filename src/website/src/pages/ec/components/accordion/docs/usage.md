@@ -10,6 +10,8 @@ to **deliver optional additional content depending on users' interest**. They he
 
 ## Anatomy
 
+>
+
 ![anatomy](/cms-images/Accordion2.jpg "accordion")
 
 | Elements          | Mandatory | Description                                                                                                                                                                    |

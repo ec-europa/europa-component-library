@@ -161,3 +161,22 @@ h2 + table {
 
 * + .imgA {
   margin-top: 1rem; }
+
+h2 + blockquote + div {
+  border: 1px solid #e3e3e3;
+  text-align: center;
+}
+
+h2 + blockquote + div:after {
+  background: url('/cms-images/anatomy_legend.png') 2rem center
+      no-repeat, #f5f5f5;
+  background-size: 15rem;
+  content: '';
+  display: block;
+  height: 4rem;
+}
+
+div:first-child p:first-child {
+  font: normal normal 400 1.125rem/1.75rem arial, sans-serif;
+  max-width: 49ch;
+}
