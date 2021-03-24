@@ -192,6 +192,27 @@
   margin-top: map.get(theme.$spacing, 'm');
 }
 
+h2 + p {
+  border: 1px solid map.get(theme.$color, 'grey-15');
+  max-width: 100% !important;
+  text-align: center;
+
+  &:after {
+    background: url('../../public/cms-images/anatomy_legend.png') 2rem center
+        no-repeat,
+      map.get(theme.$color, 'grey-5');
+    background-size: 15rem;
+    content: '';
+    display: block;
+    height: 4rem;
+  }
+}
+
+div:first-child p:first-child {
+  font: map.get(theme.$font-prolonged, 'l');
+  max-width: 49ch;
+}
+
 * + .hr {
   margin-top: map.get(theme.$spacing, 'm');
 }
