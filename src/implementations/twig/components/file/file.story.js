@@ -148,9 +148,6 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/File',
   decorators: [withNotes, withCode],
-  parameters: {
-    knobs: { disable: true },
-  },
 };
 
 export const WithoutTranslation = (args) =>

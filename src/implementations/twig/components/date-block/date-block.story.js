@@ -79,11 +79,6 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Date block',
   decorators: [withNotes, withCode],
-  parameters: {
-    knobs: {
-      disable: true,
-    },
-  },
 };
 
 export const Default = (args) => dateBlock(prepareData(dataDefault, args));

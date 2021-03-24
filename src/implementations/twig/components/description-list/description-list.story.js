@@ -64,9 +64,6 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/List/Description list',
   decorators: [withNotes, withCode],
-  parameters: {
-    knobs: { disable: true },
-  },
 };
 
 export const Vertical = (args) =>

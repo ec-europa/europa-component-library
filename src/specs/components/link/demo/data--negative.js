@@ -4,5 +4,6 @@ module.exports = {
     label: 'The European Union',
     path: '/example',
     aria_label: 'Read more about the European Union',
+    negative: true,
   },
 };

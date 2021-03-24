@@ -6,10 +6,11 @@
 @use "sass:map";
 @use '@ecl/theme-dev/theme';
 
-$_link-color: map.get(theme.$color, 'blue');
+$_color: map.get(theme.$color, 'blue-100');
+$_negative-color: null !default;
 
 .ecl-link {
-  color: $_link-color;
+  color: $_color;
   page-break-inside: avoid;
   text-decoration: none;
 }
@@ -47,4 +48,8 @@ $_link-color: map.get(theme.$color, 'blue');
 
 .ecl-link--cta {
   font-family: map.get(theme.$font-family-print, 'default');
+}
+
+.ecl-link--negative {
+  color: $_negative-color;
 }

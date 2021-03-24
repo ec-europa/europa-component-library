@@ -93,9 +93,6 @@ const getArgTypes = (data, story) => {
 export default {
   title: 'Utilities/Typography',
   decorators: [withCode],
-  parameters: {
-    knobs: { disable: true },
-  },
 };
 
 export const Paragraph = (args) => `

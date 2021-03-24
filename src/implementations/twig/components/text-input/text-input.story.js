@@ -22,9 +22,6 @@ const prepareData = (data, args) => Object.assign(correctSvgPath(data), args);
 export default {
   title: 'Components/Forms/Text field',
   decorators: [withCode, withNotes],
-  parameters: {
-    knobs: { disable: true },
-  },
 };
 
 export const Default = (args) => textInput(prepareData(dataDefault, args));
