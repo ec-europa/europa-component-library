@@ -25,7 +25,6 @@ export default {
   title: 'Components/Language list',
   decorators: [withCode, withNotes],
   parameters: {
-    knobs: { disable: true },
     controls: { disable: true },
   },
 };

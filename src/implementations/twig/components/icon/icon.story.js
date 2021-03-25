@@ -29,9 +29,6 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Icon',
   decorators: [withNotes, withCode],
-  parameters: {
-    knobs: { disable: true },
-  },
 };
 
 export const Branded = (args) => icon(prepareData(dataBranded, args));

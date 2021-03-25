@@ -10,7 +10,6 @@ export default {
   title: 'Components/Gallery',
   decorators: [withNotes, withCode],
   parameters: {
-    knobs: { disable: true },
     controls: { disable: true },
   },
 };

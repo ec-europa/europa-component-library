@@ -33,9 +33,6 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Social Media Follow',
   decorators: [withNotes, withCode],
-  parameters: {
-    knobs: { disable: true },
-  },
 };
 
 export const Horizontal = (args) =>

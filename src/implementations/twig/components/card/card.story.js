@@ -202,9 +202,6 @@ export default {
   title: 'Components/Card',
   decorators: [withCode, withNotes],
   parameters: {
-    knobs: {
-      disable: true,
-    },
     creevey: { delay: 5000 },
   },
 };

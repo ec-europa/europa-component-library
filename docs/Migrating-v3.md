@@ -138,6 +138,7 @@ Most of the components have been updated without much changes. Although, there a
   - new css class `.ecl-date-block__daytime` in place of the `ecl-u-sr-only` utility (components are not supposed to contain utilities)
 - Link
   - twig parameter "icon_path" has been removed (not used)
+  - space between icon and label is now set using css (instead of a forced `&nbsp`)
 - Button
   - variant "search" has been removed (css has been integrated in search form)
 - Text input

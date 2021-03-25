@@ -93,11 +93,6 @@ const prepareHtmlContent = (data) => {
 
 export default {
   title: 'Components/Navigation/Inpage navigation',
-  parameters: {
-    knobs: {
-      disable: true,
-    },
-  },
 };
 
 export const Default = (args) => {

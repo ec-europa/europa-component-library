@@ -27,9 +27,6 @@ const prepareData = (data) => {
 export default {
   title: 'Components/Footers/Core',
   decorators: [withCode, withNotes],
-  parameters: {
-    knobs: { disable: true },
-  },
 };
 
 export const Default = () => footer(prepareData(demoData));

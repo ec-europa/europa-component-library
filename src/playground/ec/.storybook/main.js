@@ -9,7 +9,6 @@ const addons = [
   '@ecl/storybook-addon-code/register',
   '@ecl/storybook-addon-system-switcher/register',
   '@storybook/addon-viewport',
-  '@storybook/addon-knobs',
   '@storybook/addon-controls',
   '@storybook/addon-a11y',
   'creevey',

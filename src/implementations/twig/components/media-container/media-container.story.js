@@ -65,7 +65,6 @@ export default {
   title: 'Components/Media container',
   decorators: [withNotes, withCode],
   parameters: {
-    knobs: { disable: true },
     creevey: { delay: 1000 },
   },
 };
