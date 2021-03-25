@@ -29,15 +29,13 @@
     "test": "run-p test:*",
     "test:components": "jest --verbose",
     "test:coding-conventions": "npm run lint && npm run pretty-check",
-    "test:visual-regressions:ec": "ECL_SYSTEM=ec run-p start:test:ec visual-regression",
-    "test:visual-regressions:eu": "npm-run-all start:eu ECL_SYSTEM=eu visual-regression",
     "update-version": "scripts/update-version.sh",
-    "visual-regressions:ec": "ECL_SYSTEM=ec creevey -p 6666",
+    "visual-regressions:ec": "ECL_SYSTEM=ec creevey",
     "visual-regressions:ec:approve": "ECL_SYSTEM=ec creevey --update",
     "visual-regressions:ec:ui": "ECL_SYSTEM=ec creevey --ui -p 4000",
-    "visual-regressions:eu": "ECL_SYSTEM=eu creevey -p 6667",
+    "visual-regressions:eu": "ECL_SYSTEM=eu creevey",
     "visual-regressions:eu:approve": "ECL_SYSTEM=eu creevey --update",
-    "visual-regressions:eu:ui": "ECL_SYSTEM=ec creevey --ui -p 4001"
+    "visual-regressions:eu:ui": "ECL_SYSTEM=eu creevey --ui -p 4001"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "7.12.1",

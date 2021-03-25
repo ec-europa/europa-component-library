@@ -236,6 +236,7 @@ export default {
   decorators: [withCode],
   parameters: {
     a11y: { disable: true },
+    creevey: { delay: 3000 },
   },
 };
 

@@ -19,5 +19,7 @@ export const Default = () => gallery(correctSvgPath(specs));
 Default.storyName = 'default';
 Default.parameters = {
   notes: { markdown: notes, json: specs },
-  creevey: { delay: 5000 },
+  creevey: {
+    skip: 'unreliable',
+  },
 };

@@ -8,7 +8,7 @@
   "scripts": {
     "build": "STORYBOOK_SYSTEM=EU build-storybook -c .storybook -o build",
     "start": "STORYBOOK_SYSTEM=EU node start.js",
-    "start:test": "STORYBOOK_SYSTEM=EU start-storybook -p 6667 -s '../../presets/eu-core/build,../../presets/reset/build' -c '.storybook' --ci"
+    "start:test": "STORYBOOK_SYSTEM=EU start-storybook -p 6006 -s '../../presets/eu-core/build,../../presets/reset/build' -c '.storybook' --ci"
   },
   "devDependencies": {
     "@babel/core": "7.12.9",
