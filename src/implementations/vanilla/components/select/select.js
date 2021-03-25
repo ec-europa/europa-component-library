@@ -439,6 +439,12 @@ export class Select {
       } else {
         checkbox.setAttribute('data-visible', true);
         checkbox.style.display = 'flex';
+        // Highlight keyword in checkbox label.
+        const checkboxLabel = checkbox.querySelector('.ecl-checkbox__label');
+        checkboxLabel.innerHTML = checkboxLabel.textContent.replace(
+          new RegExp(`${keyword}(?!([^<]+)?<)`, 'gi'),
+          '<b>$&</b>'
+        );
         visible.push(checkbox);
       }
     });
