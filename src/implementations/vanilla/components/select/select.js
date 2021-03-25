@@ -440,11 +440,14 @@ export class Select {
         checkbox.setAttribute('data-visible', true);
         checkbox.style.display = 'flex';
         // Highlight keyword in checkbox label.
+        const checkboxElement = checkbox.querySelector('.ecl-checkbox__box');
         const checkboxLabel = checkbox.querySelector('.ecl-checkbox__label');
-        checkboxLabel.innerHTML = checkboxLabel.textContent.replace(
-          new RegExp(`${keyword}(?!([^<]+)?<)`, 'gi'),
-          '<b>$&</b>'
-        );
+        checkboxLabel.innerHTML =
+          checkboxElement.outerHTML +
+          checkboxLabel.textContent.replace(
+            new RegExp(`${keyword}(?!([^<]+)?<)`, 'gi'),
+            '<b>$&</b>'
+          );
         visible.push(checkbox);
       }
     });
