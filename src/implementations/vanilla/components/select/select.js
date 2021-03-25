@@ -442,12 +442,17 @@ export class Select {
         // Highlight keyword in checkbox label.
         const checkboxElement = checkbox.querySelector('.ecl-checkbox__box');
         const checkboxLabel = checkbox.querySelector('.ecl-checkbox__label');
-        checkboxLabel.innerHTML =
-          checkboxElement.outerHTML +
-          checkboxLabel.textContent.replace(
-            new RegExp(`${keyword}(?!([^<]+)?<)`, 'gi'),
-            '<b>$&</b>'
-          );
+        if (keyword) {
+          checkboxLabel.innerHTML =
+            checkboxElement.outerHTML +
+            checkboxLabel.textContent.replace(
+              new RegExp(`${keyword}(?!([^<]+)?<)`, 'gi'),
+              '<b>$&</b>'
+            );
+        } else {
+          checkboxLabel.innerHTML =
+            checkboxElement.outerHTML + checkboxLabel.textContent;
+        }
         visible.push(checkbox);
       }
     });
