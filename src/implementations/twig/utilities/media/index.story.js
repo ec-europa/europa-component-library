@@ -235,7 +235,6 @@ export default {
   title: 'Utilities/Media',
   decorators: [withCode],
   parameters: {
-    knobs: { disable: true },
     a11y: { disable: true },
   },
 };

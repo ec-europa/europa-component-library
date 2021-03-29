@@ -38,9 +38,6 @@ const prepareData = (data, args) => Object.assign(correctSvgPath(data), args);
 export default {
   title: 'Components/Forms/Text area',
   decorators: [withCode, withNotes],
-  parameters: {
-    knobs: { disable: true },
-  },
 };
 
 export const Default = (args) => textArea(prepareData(dataDefault, args));

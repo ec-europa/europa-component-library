@@ -137,9 +137,6 @@ const prepareDataCta = (data, args) => {
 export default {
   title: 'Components/Navigation/Link',
   decorators: [withNotes, withCode, withNegative],
-  parameters: {
-    knobs: { disable: true },
-  },
 };
 
 export const Default = (args) => link(prepareData(dataDefault, args));

@@ -3,6 +3,12 @@ module.exports = {
   label: 'Select a country',
   helper_text: "This is the input's helper text.",
   invalid_text: 'This is the error message',
+  invalid_icon: {
+    path: '/icons.svg',
+    type: 'notifications',
+    name: 'warning',
+    size: 's',
+  },
   required_text: '*',
   optional_text: ' (optional)',
   icon_path: '/icons.svg',
@@ -53,7 +59,8 @@ module.exports = {
     },
   ],
   multiple: true,
-  multiple_placeholder: 'Placeholder text',
+  multiple_placeholder: 'Select an item',
   multiple_search_text: 'Search',
+  multiple_search_no_results_text: 'No results found',
   multiple_all_text: 'Select all',
 };

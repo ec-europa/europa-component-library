@@ -139,9 +139,6 @@ const prepareData = (data, variant, args) => {
 export default {
   title: 'Components/Site Headers/Harmonised',
   decorators: [withNotes, withCode],
-  parameters: {
-    knobs: { disable: true },
-  },
 };
 
 export const Group1 = (args) =>

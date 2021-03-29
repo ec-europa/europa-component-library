@@ -28,9 +28,6 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Icon',
   decorators: [withNotes, withCode],
-  parameters: {
-    knobs: { disable: true },
-  },
 };
 
 export const All = (args) => icon(prepareData(dataAll, args));

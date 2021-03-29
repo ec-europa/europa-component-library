@@ -3,9 +3,6 @@ import withCode from '@ecl/storybook-addon-code';
 export default {
   title: 'Utilities/Background',
   decorators: [withCode],
-  parameters: {
-    knobs: { disable: true },
-  },
 };
 
 const getArgTypes = () => {

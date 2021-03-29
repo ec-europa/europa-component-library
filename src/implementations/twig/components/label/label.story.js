@@ -48,9 +48,6 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Label',
   decorators: [withNotes, withCode],
-  parameters: {
-    knobs: { disable: true },
-  },
 };
 
 export const Default = (args) => label(prepareData(dataDefault, args));
