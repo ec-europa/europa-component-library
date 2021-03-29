@@ -1,10 +1,10 @@
 import { queryAll, queryOne } from '@ecl/dom-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
-import iconSvgUiArrowEc from '@ecl/resources-ec-icons/dist/svg/ui/solid-arrow.svg';
-import iconSvgUiArrowEu from '@ecl/resources-eu-icons/dist/svg/ui/solid-arrow.svg';
+import iconSvgAllArrowEc from '@ecl/resources-ec-icons/dist/svg/all/solid-arrow.svg';
+import iconSvgAllArrowEu from '@ecl/resources-eu-icons/dist/svg/all/solid-arrow.svg';
 
 const system = getSystem();
-const iconSvgUiArrow = system === 'eu' ? iconSvgUiArrowEu : iconSvgUiArrowEc;
+const iconSvgAllArrow = system === 'eu' ? iconSvgAllArrowEu : iconSvgAllArrowEc;
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -52,7 +52,7 @@ export class Table {
    */
   static createSortIcon(customClass) {
     const tempElement = document.createElement('span');
-    tempElement.innerHTML = iconSvgUiArrow; // avoiding the use of not-so-stable createElementNs
+    tempElement.innerHTML = iconSvgAllArrow; // avoiding the use of not-so-stable createElementNs
     const svg = tempElement.children[0];
     svg.removeAttribute('height');
     svg.removeAttribute('width');
