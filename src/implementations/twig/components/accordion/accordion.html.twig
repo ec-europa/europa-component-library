@@ -8,7 +8,7 @@
         level: (string),
         toggle: (predefined structure): see Button component, format: {
           label: (string),
-          icon: (predefined structure): see Icon component,
+          icon (associative array) (default: {}) A predefined structure compatible with Icon component.
         },
         content: (block),
       },
@@ -65,7 +65,6 @@
               {% include '@ecl/icon/icon.html.twig' with {
                 icon: {
                   path: _item.toggle.icon.path,
-                  type: "ui",
                   name: "plus",
                   size: "m"
                 },

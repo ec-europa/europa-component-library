@@ -23,27 +23,6 @@ glob.sync('**/*.svg', { cwd: src }).forEach((file) => {
     const parser = new xml2js.Parser();
     parser.parseString(data, (parseError, result) => {
       const clone = JSON.parse(JSON.stringify(result));
-
-      // Add viewBox
-      clone.svg.$.viewBox = `0 0 ${result.svg.$.width} ${result.svg.$.height}`;
-
-      // Extract paths from defs
-      if (clone.svg.defs) {
-        if (!clone.svg.path) clone.svg.path = [];
-        clone.svg.path = clone.svg.path.concat(
-          clone.svg.defs.map((def) => def.path[0])
-        );
-
-        delete clone.svg.defs;
-      }
-
-      // Only keep d
-      clone.svg.path = clone.svg.path.map((p) => ({ $: { d: p.$.d } }));
-
-      // Remove use
-      delete clone.svg.use;
-
-      // Rebuild SVG
       const builder = new xml2js.Builder({ headless: true });
       const xml = builder.buildObject(clone);
 

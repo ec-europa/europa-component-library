@@ -13,8 +13,7 @@ npm install --save @ecl/twig-component-accordion
   - "level" (string) (default: 3)
   - "toggle" (predefined structure): see Button component
     - "label" (string) (default: '')
-    - "icon" (associative array) (default: {path: '', "type": 'ui', name: 'plus', size: 'm'}): format:
-      - "path" (string) (default: '')
+    - "icon" (associative array) (default: {}) A predefined structure compatible with Icon component.
   - "content" (string) (default: '')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes

@@ -10,13 +10,7 @@ const writeSprite = ({ cwd, files, dest, outputFile }) => {
       id: {
         generator(name) {
           const segments = name.split(path.sep);
-          const id = segments
-            .map((segment) => {
-              return segment.replace('.svg', ''); // Remove extension
-            })
-            .join('--');
-
-          return id;
+          return segments[1].replace('.svg', '');
         },
       },
       dimension: { attributes: true },

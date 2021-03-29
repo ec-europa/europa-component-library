@@ -45,7 +45,6 @@ npm install --save @ecl/twig-component-file
   meta: '(16.2 MB - PDF)', 
   icon_path: 'path/to/icons.svg', 
   icon: { 
-    type: 'general', 
     name: 'copy', 
     size: '2xl', 
     path: 'path/to/icons.svg', 
@@ -54,7 +53,6 @@ npm install --save @ecl/twig-component-file
     label: 'Download', 
     path: '/example', 
     icon: { 
-      type: 'ui', 
       name: 'download', 
       size: 'fluid', 
       path: 'path/to/icons.svg', 
@@ -64,7 +62,6 @@ npm install --save @ecl/twig-component-file
     toggle: { 
       label: 'Other languages (3)', 
       icon: { 
-        type: 'ui', 
         name: 'corner-arrow', 
         size: 'fluid', 
         transform: 'rotate-180', 

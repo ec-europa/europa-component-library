@@ -5,7 +5,6 @@
     - "icon" (associative array) (default: predefined structure): format:
         {
           path: '/static/media/icons.cbfd6efe.svg',
-          type: '',
           name: '',
           size: 'm' (available options: 'xs','s','m','l','xl','2xl','fluid'),
           transform: 'rotate-0' (available options: 'rotate-0', 'rotate-90', 'rotate-180', 'rotate-270', 'flip-horizontal', 'flip-vertical'),
@@ -35,7 +34,6 @@
 
 {% set _icon = {
   path: '',
-  type: '',
   name: '',
   size: 'm',
   transform: '',
@@ -64,11 +62,6 @@
     {% set _css_class = _css_class ~ ' ecl-icon--' ~ _icon[property] %}
   {% endif %}
 {% endfor %}
-
-{% set _icon_type = '' %}
-{% if _icon.type is not empty %}
-  {% set _icon_type = _icon.type ~ '--' %}
-{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -116,7 +109,7 @@
     {{- _extra_accessibility.description -}}
   </desc>
 {% endif %}
-  <use xlink:href="{{ _icon.path }}#{{ _icon_type }}{{ _icon.name }}"></use>
+  <use xlink:href="{{ _icon.path }}#{{ _icon.name }}"></use>
 </svg>
 
 {% endspaceless %}

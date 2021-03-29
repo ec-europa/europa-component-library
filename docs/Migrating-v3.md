@@ -136,6 +136,8 @@ Most of the components have been updated without much changes. Although, there a
 - Date block
   - css class for variant "cancelled" has been renamed from `.ecl-date-block--canceled` to `.ecl-date-block--cancelled`
   - new css class `.ecl-date-block__daytime` in place of the `ecl-u-sr-only` utility (components are not supposed to contain utilities)
+- Icon
+  - twig parameter "type" has been removed
 - Link
   - twig parameter "icon_path" has been removed (not used)
   - space between icon and label is now set using css (instead of a forced `&nbsp`)
@@ -152,6 +154,7 @@ Most of the components have been updated without much changes. Although, there a
 ## Resources specifics
 
 - logo file names have been homogenized between EC and EU, using the pattern `logo-(ec|eu)--(language).svg`
+- all icons have been grouped in a single cateory, instead of having different ones (branded, general, ...)
 
 ## Presets / themes
 

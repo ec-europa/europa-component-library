@@ -75,7 +75,6 @@ npm install --save @ecl/twig-component-footer-standardised
               }, 
               icon: { 
                 path: '/icons.svg', 
-                type: 'branded', 
                 name: 'facebook', 
                 size: 'xs', 
               }, 
