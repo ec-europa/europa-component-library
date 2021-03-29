@@ -3,7 +3,6 @@ module.exports = {
   variant: 'warning',
   icon: {
     path: '/icons.svg',
-    type: 'notifications',
     name: 'warning',
     size: 'l',
   },
@@ -15,7 +14,6 @@ module.exports = {
     label: 'Close',
     icon: {
       path: '/icons.svg',
-      type: 'ui',
       name: 'close',
       size: 's',
     },

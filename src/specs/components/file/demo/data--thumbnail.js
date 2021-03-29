@@ -13,7 +13,6 @@ module.exports = {
   meta: '(16.2 MB - PDF)',
   icon: {
     name: 'copy',
-    type: 'general',
     size: '2xl',
     path: '/icons.svg',
   },

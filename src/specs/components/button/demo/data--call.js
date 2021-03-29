@@ -4,7 +4,6 @@ module.exports = {
   label: 'Call to action button',
   icon: {
     path: '/icons.svg',
-    type: 'ui',
     name: 'corner-arrow',
     size: 'xs',
     transform: 'rotate-90',

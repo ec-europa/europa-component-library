@@ -10,7 +10,6 @@ module.exports = {
   items: [
     {
       icon: {
-        type: 'general',
         name: 'digital',
         size: 'm',
         path: '/icons.svg',
@@ -22,7 +21,6 @@ module.exports = {
     },
     {
       icon: {
-        type: 'general',
         name: 'digital',
         size: 'm',
         path: '/icons.svg',
@@ -33,7 +31,6 @@ module.exports = {
     },
     {
       icon: {
-        type: 'general',
         name: 'digital',
         size: 'm',
         path: '/icons.svg',
@@ -45,7 +42,6 @@ module.exports = {
     },
     {
       icon: {
-        type: 'general',
         name: 'digital',
         size: 'm',
         path: '/icons.svg',
@@ -57,7 +53,6 @@ module.exports = {
     },
     {
       icon: {
-        type: 'general',
         name: 'digital',
         size: 'm',
         path: '/icons.svg',
@@ -69,7 +64,6 @@ module.exports = {
     },
     {
       icon: {
-        type: 'general',
         name: 'digital',
         size: 'm',
         path: '/icons.svg',

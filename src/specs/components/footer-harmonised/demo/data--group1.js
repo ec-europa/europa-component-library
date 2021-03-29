@@ -40,7 +40,6 @@ module.exports = {
               },
               icon: {
                 path: '/icons.svg',
-                type: 'branded',
                 name: 'facebook',
                 size: 'xs',
               },
@@ -54,7 +53,6 @@ module.exports = {
               },
               icon: {
                 path: '/icons.svg',
-                type: 'branded',
                 name: 'twitter',
                 size: 'xs',
               },
@@ -68,7 +66,6 @@ module.exports = {
               },
               icon: {
                 path: '/icons.svg',
-                type: 'branded',
                 name: 'linkedin',
                 size: 'xs',
               },
