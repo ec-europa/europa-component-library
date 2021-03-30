@@ -80,16 +80,14 @@ When implementing ECL icons, please pay extra attention to image paths with rela
 <svg
   focusable="false"
   aria-hidden="true"
-  data-ecl-accordion2-icon="true"
+  data-ecl-accordion-icon="true"
   class="ecl-accordion2__toggle-icon ecl-icon ecl-icon--m"
 >
-  <use
-    xlink:href="/component-library/dist/media/icons.865a18d2.svg#ui--plus"
-  ></use>
+  <use xlink:href="/component-library/dist/media/icons.865a18d2.svg#plus"></use>
 </svg>
 ```
 
-To have actual plus sign icon rendered correctly, replace the `/component-library/` path to your absolute or relative path where you have hosted ECL resources. Also, the `865a18d2` value can be removed to be `icons.svg#ui--plus`.
+To have actual plus sign icon rendered correctly, replace the `/component-library/` path to your absolute or relative path where you have hosted ECL resources. Also, the `865a18d2` value can be removed to be `icons.svg#plus`.
 
 ## Editing visuals
 

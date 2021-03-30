@@ -1,18 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import icons from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import styles from './IconCard.scss';
 
-const IconCard = ({ name, svg }) => (
+const IconCard = ({ name }) => (
   <li className={styles.card}>
-    <div className={styles.icon} dangerouslySetInnerHTML={{ __html: svg }} />
+    <svg focusable="false" aria-hidden="true" className={styles.icon}>
+      <use xlinkHref={`${icons}#${name}`} />
+    </svg>
     <h3 className={styles.title}>{name}</h3>
   </li>
 );
 
 IconCard.propTypes = {
   name: PropTypes.string.isRequired,
-  svg: PropTypes.string.isRequired,
 };
 
 export default IconCard;

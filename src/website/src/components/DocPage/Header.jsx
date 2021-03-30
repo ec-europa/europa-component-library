@@ -66,7 +66,7 @@ const Header = React.memo(({ component, history, location }) => {
                       aria-hidden="true"
                       className={styles['header__tabs-icon']}
                     >
-                      <use xlinkHref={`${icons}#ui--external`} />
+                      <use xlinkHref={`${icons}#external`} />
                     </svg>
                   </a>
                 </li>
@@ -102,7 +102,7 @@ const Header = React.memo(({ component, history, location }) => {
                   aria-hidden="true"
                   className={styles['select__icon-shape']}
                 >
-                  <use xlinkHref={`${icons}#ui--corner-arrow`} />
+                  <use xlinkHref={`${icons}#corner-arrow`} />
                 </svg>
               </div>
             </div>

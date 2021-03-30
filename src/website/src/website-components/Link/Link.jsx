@@ -33,7 +33,7 @@ const StyledLink = ({
       >
         {label || children}&nbsp;
         <svg focusable="false" aria-hidden="true" className={styles.icon}>
-          <use xlinkHref={`${icons}#ui--external`} />
+          <use xlinkHref={`${icons}#external`} />
         </svg>
       </a>
     );
