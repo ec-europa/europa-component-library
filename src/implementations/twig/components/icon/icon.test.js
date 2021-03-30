@@ -24,9 +24,9 @@ describe('Icon', () => {
   });
 
   describe('Generic tests - Any icon', () => {
-    const options = merge(dataUi, {
+    const options = merge(dataAll, {
       icon: {
-        name: allIcons[0],
+        name: iconsAll[0],
       },
     });
 
