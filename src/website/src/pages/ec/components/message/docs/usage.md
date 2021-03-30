@@ -1,0 +1,62 @@
+---
+title: Usage
+order: 1
+---
+
+import { Paragraph, Anatomy } from '@ecl/website-components';
+
+<Paragraph size="lead">
+  Messages are <strong>meaningful information boxes</strong> used to bring
+  something to the <strong>user's attention</strong> or to{' '}
+  <strong>provide feedback</strong> to the user.
+</Paragraph>
+
+## Anatomy
+
+<Anatomy
+image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Messages/Message2.jpg"
+alt="Anatomy of messages"
+legend={{
+    items: [
+      {
+        color: '#404040',
+        label: 'mandatory',
+      },
+      {
+        color: '#004494',
+        label: 'optional',
+      },
+    ],
+  }}
+/>
+
+| Elements | Mandatory | Description                                                                                                                    |
+| -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| icon     | yes       | the symbol to represent the type of message                                                                                    |
+| heading  | yes       | type of message                                                                                                                |
+| button   | yes       | the button to exit/dismiss the message                                                                                         |
+| message  | yes       | **a descriptive and concise message**, indicative of the **system status** and instructing users **how to proceed or recover** |
+
+## Do's
+
+- **keep the message succinct** and include only valuable and relevant information
+- provide **informative messages** (polite & non-technical) that convey **purpose** and what **actions users need to take** next
+- **use consistent messages** for the same information/success/warning/error throughout your site
+
+## Don'ts
+
+- **don't over use messages** - users may ignore them and they can get in the way of a user completing their task
+- **don't write messages in a way that can appear to blame the user**. For example, instead of _The postal code you entered is invalid_, the message **should say** _Please enter a valid postal code_
+- **don't use all uppercase text**
+
+## When to use
+
+- when there is an **essential piece of information** that needs to be conveyed
+- **information** message: the user needs to know **critical information before continuing** with their task
+- **success** message: the user has performed an **action which was successfully completed**
+- **warning** message: the user needs to know about the **potential dangers of completing their task** (for example: "you are about replace/erase your data")
+- **error** message: the user tried to perform an **action that failed because of a problem** (for example: a file could not be uploaded because it wasn't the correct type of file)
+
+## When not to use
+
+- don't use for basic information which is not critical to the user's task. Include that on the page, not in a message
