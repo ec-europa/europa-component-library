@@ -17,9 +17,9 @@ import { Paragraph, Anatomy, Link } from '@ecl/website-components';
 ## Anatomy
 
 <Anatomy
-  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/StandardisedTemplate/standardised-template.png"
-  alt="Anatomy of the standardised template"
-  legend={{
+image="https://inno-ecl.s3.amazonaws.com/media/images/EC/StandardisedTemplate/standardised-template.png"
+alt="Anatomy of the standardised template"
+legend={{
     items: [
       {
         color: '#404040',
