@@ -44,6 +44,11 @@ $_negative-standalone-color-hover: null !default;
 }
 .ecl-link--no-visited:visited {
   color: $_color;
+
+  &:hover,
+  &:focus {
+    color: $_color-hover;
+  }
 }
 
 .ecl-link--icon-before,
@@ -97,6 +102,12 @@ $_negative-standalone-color-hover: null !default;
   /* stylelint-disable-next-line plugin/selector-bem-pattern */
   &.ecl-link--no-visited:visited {
     color: $_negative-color;
+
+    /* stylelint-disable-next-line */
+    &:hover,
+    &:focus {
+      color: $_negative-color-hover;
+    }
   }
 }
 
@@ -159,5 +170,11 @@ $_negative-standalone-color-hover: null !default;
   /* stylelint-disable-next-line plugin/selector-bem-pattern */
   &.ecl-link--no-visited:visited {
     color: $_cta-color;
+
+    /* stylelint-disable-next-line */
+    &:hover,
+    &:active {
+      color: $_cta-color;
+    }
   }
 }
