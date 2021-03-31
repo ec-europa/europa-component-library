@@ -2,51 +2,21 @@
 title: Usage
 order: 1
 ---
-
-import { Paragraph, Anatomy } from '@ecl/website-components';
-
-<Paragraph size="lead">
-  The Block Quote component is used when citing any source.
-</Paragraph>
-
-## Anatomy
-
-<Anatomy
-image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Blockquote/Blockquote%20-%20Desktop.png"
-srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/Blockquote/Blockquote%20-%20Mobile.png 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/Blockquote/Blockquote%20-%20Desktop.png 1246w"
-alt="Anatomy of blockquotes"
-legend={{
-    items: [
-      {
-        color: '#404040',
-        label: 'mandatory',
-      },
-      {
-        color: '#004494',
-        label: 'optional',
-      },
-    ],
-  }}
-/>
-
-| Elements | Mandatory | Description                  |
-| -------- | --------- | ---------------------------- |
-| quote    | yes       | actual quote                 |
-| source   | yes       | source which is being quoted |
+The blockquotes component is used to capture users' attention of an excerpt, testimonial, or a quote cited from the article or other sources. The design style makes the quoted section more distinguishable than the rest of the content in the web page.
 
 ## Do's
 
-- always name the source
-- limit the quote to one paragraph
+- always name the source of the quoted content
+- limit the quote to no longer than 80 characters
 
 ## Don'ts
 
-- do not add rich text formatting (such as images, videos, etc)
+- do not apply more than 2 blockquotes components in the webpage
 
 ## When to use
 
-- always use when quoting a source
+- quoting something important
 
 ## When not to use
 
-- do not use to simply emphasise text
+- for the purpose of emphasising text style
