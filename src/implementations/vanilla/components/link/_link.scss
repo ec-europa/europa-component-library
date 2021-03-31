@@ -42,6 +42,9 @@ $_negative-standalone-color-hover: null !default;
     color: $_color-visited;
   }
 }
+.ecl-link--no-visited:visited {
+  color: $_color;
+}
 
 .ecl-link--icon-before,
 .ecl-link--icon-after {
@@ -89,6 +92,11 @@ $_negative-standalone-color-hover: null !default;
 
   &:visited {
     color: $_negative-color-visited;
+  }
+
+  /* stylelint-disable-next-line plugin/selector-bem-pattern */
+  &.ecl-link--no-visited:visited {
+    color: $_negative-color;
   }
 }
 
@@ -146,5 +154,10 @@ $_negative-standalone-color-hover: null !default;
 
   &:visited {
     color: $_color-visited;
+  }
+
+  /* stylelint-disable-next-line plugin/selector-bem-pattern */
+  &.ecl-link--no-visited:visited {
+    color: $_cta-color;
   }
 }

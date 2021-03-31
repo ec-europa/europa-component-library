@@ -119,7 +119,8 @@
         <li class="{{ _breadcrumb_segment_class }}" {{ _breadcrumb_segment_attributes|raw }}>
           {% include '@ecl/link/link.html.twig' with {
             link: link|default({})|merge({
-              type: 'standalone'
+              type: 'standalone',
+              no_visited: true,
             }),
             extra_classes: 'ecl-breadcrumb-standardised__link',
             icon_path: _icon_file_path

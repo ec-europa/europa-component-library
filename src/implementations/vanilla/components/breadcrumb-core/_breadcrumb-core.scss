@@ -77,7 +77,7 @@ $_border-color: null !default;
   color: $_ellipsis-color;
   font: $_link-font;
   font-weight: map.get(theme.$font-weight, 'bold');
-  margin: 0 -$_ellipsis-padding-horizontal;
+  margin: 0;
   padding: 0 $_ellipsis-padding-horizontal;
 
   &:hover {
@@ -86,9 +86,7 @@ $_border-color: null !default;
   }
 
   &:focus {
-    margin: calc(
-      -1 * (#{$_ellispis-outline-width} + #{$_ellipsis-padding-horizontal})
-    );
+    margin: -$_ellispis-outline-width;
     padding: 0 $_ellipsis-padding-horizontal;
   }
 }

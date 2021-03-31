@@ -142,6 +142,8 @@ Most of the components have been updated without much changes. Although, there a
   - twig parameter "title_class_name" replaced by boolean "title_with_separator" parameter
   - twig parameter "list_class_name" replaced by boolean "links_inline" parameter
 - Link
+  - twig parameter "negative" added, to display negative (white on dark) links
+  - twig parameter "no_visited" added, to prevent change of color for visited links
   - twig parameter "icon_path" has been removed (not used)
   - space between icon and label is now set using css (instead of a forced `&nbsp`)
 - Text area

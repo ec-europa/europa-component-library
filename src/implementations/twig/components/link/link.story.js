@@ -47,7 +47,21 @@ const getArgTypes = (data) => {
       name: 'negative',
       type: { name: 'boolean' },
       defaultValue: data.link.negative,
-      description: 'Negative button',
+      description: 'Negative link (light on dark)',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+        category: 'Content',
+      },
+      control: {
+        type: 'boolean',
+      },
+    },
+    no_visited: {
+      name: 'no visited',
+      type: { name: 'boolean' },
+      defaultValue: data.link.no_visited,
+      description: 'No change of color for visited link',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },
@@ -110,6 +124,7 @@ const getArgTypes = (data) => {
 const prepareData = (data, args) => {
   data.link.label = args.label;
   data.link.negative = args.negative;
+  data.link.no_visited = args.no_visited;
   data.link.icon_position = args.icon_position;
   if (args.icon_name) {
     data.icon = {};
