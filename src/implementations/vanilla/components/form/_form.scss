@@ -37,12 +37,18 @@ $_margin-invalid: null !default;
     margin-top: map.get(theme.$spacing, 'xs');
   }
 
-  > *:not(.ecl-u-sr-only) + .ecl-checkbox {
+  > *:not(.ecl-u-sr-only) + .ecl-checkbox,
+  > *:not(.ecl-u-sr-only) + .ecl-radio {
     margin-top: $_first-element-margin;
-    /* stylelint-disable-next-line max-nesting-depth, selector-max-compound-selectors */
-    ~ .ecl-checkbox {
+    /* stylelint-disable max-nesting-depth, selector-max-compound-selectors */
+    ~ .ecl-checkbox,
+    ~ .ecl-radio {
       margin-top: map.get(theme.$spacing, 'l');
     }
+    ~ .ecl-radio--binary {
+      margin-top: map.get(theme.$spacing, 'm');
+    }
+    /* stylelint-enable max-nesting-depth, selector-max-compound-selectors */
   }
 
   > *:not(.ecl-u-sr-only) + .ecl-file-upload__list {

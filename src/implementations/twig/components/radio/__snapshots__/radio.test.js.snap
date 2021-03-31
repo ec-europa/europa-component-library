@@ -24,7 +24,16 @@ exports[`Radio Binary invalid renders correctly 1`] = `
   <div
     class="ecl-feedback-message"
   >
-    Error message for the group
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--m ecl-feedback-message__icon"
+      focusable="false"
+    >
+      <use
+        xlink:href="/icons.svg#notifications--warning"
+      />
+    </svg>
+        Error message for the group
   </div>
   <div
     class="ecl-radio ecl-radio--binary"
@@ -43,7 +52,11 @@ exports[`Radio Binary invalid renders correctly 1`] = `
     >
       <span
         class="ecl-radio__box ecl-radio__box--invalid"
-      />
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
       Yes
     </label>
   </div>
@@ -63,7 +76,11 @@ exports[`Radio Binary invalid renders correctly 1`] = `
     >
       <span
         class="ecl-radio__box ecl-radio__box--invalid"
-      />
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
       No
     </label>
   </div>
@@ -108,7 +125,11 @@ exports[`Radio Binary renders correctly 1`] = `
     >
       <span
         class="ecl-radio__box"
-      />
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
       Yes
     </label>
   </div>
@@ -128,7 +149,11 @@ exports[`Radio Binary renders correctly 1`] = `
     >
       <span
         class="ecl-radio__box"
-      />
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
       No
     </label>
   </div>
@@ -174,7 +199,11 @@ exports[`Radio Default renders correctly 1`] = `
     >
       <span
         class="ecl-radio__box"
-      />
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
       Luxembourg
     </label>
     <div
@@ -201,7 +230,11 @@ exports[`Radio Default renders correctly 1`] = `
     >
       <span
         class="ecl-radio__box"
-      />
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
       Belgium
     </label>
     <div
@@ -229,7 +262,11 @@ exports[`Radio Default renders correctly 1`] = `
     >
       <span
         class="ecl-radio__box ecl-radio__box--disabled"
-      />
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
       France (disabled)
     </label>
     <div
@@ -283,7 +320,11 @@ exports[`Radio Default renders correctly with extra attributes 1`] = `
     >
       <span
         class="ecl-radio__box"
-      />
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
       Luxembourg
     </label>
     <div
@@ -310,7 +351,11 @@ exports[`Radio Default renders correctly with extra attributes 1`] = `
     >
       <span
         class="ecl-radio__box"
-      />
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
       Belgium
     </label>
     <div
@@ -338,7 +383,11 @@ exports[`Radio Default renders correctly with extra attributes 1`] = `
     >
       <span
         class="ecl-radio__box ecl-radio__box--disabled"
-      />
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
       France (disabled)
     </label>
     <div
@@ -390,7 +439,11 @@ exports[`Radio Default renders correctly with extra class names 1`] = `
     >
       <span
         class="ecl-radio__box"
-      />
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
       Luxembourg
     </label>
     <div
@@ -417,7 +470,11 @@ exports[`Radio Default renders correctly with extra class names 1`] = `
     >
       <span
         class="ecl-radio__box"
-      />
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
       Belgium
     </label>
     <div
@@ -445,7 +502,11 @@ exports[`Radio Default renders correctly with extra class names 1`] = `
     >
       <span
         class="ecl-radio__box ecl-radio__box--disabled"
-      />
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
       France (disabled)
     </label>
     <div
@@ -482,7 +543,16 @@ exports[`Radio Invalid renders correctly 1`] = `
   <div
     class="ecl-feedback-message"
   >
-    This is the error message
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--m ecl-feedback-message__icon"
+      focusable="false"
+    >
+      <use
+        xlink:href="/icons.svg#notifications--warning"
+      />
+    </svg>
+        This is the error message
   </div>
   <div
     class="ecl-radio"
@@ -502,7 +572,11 @@ exports[`Radio Invalid renders correctly 1`] = `
     >
       <span
         class="ecl-radio__box ecl-radio__box--invalid"
-      />
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
       Luxembourg
     </label>
     <div
@@ -529,7 +603,11 @@ exports[`Radio Invalid renders correctly 1`] = `
     >
       <span
         class="ecl-radio__box ecl-radio__box--invalid"
-      />
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
       Belgium
     </label>
     <div
@@ -557,7 +635,11 @@ exports[`Radio Invalid renders correctly 1`] = `
     >
       <span
         class="ecl-radio__box ecl-radio__box--disabled ecl-radio__box--invalid"
-      />
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
       France (disabled)
     </label>
     <div
