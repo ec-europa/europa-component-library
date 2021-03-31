@@ -107,6 +107,11 @@ $_negative-standalone-color-hover: null !default;
     &:hover,
     &:focus {
       color: $_negative-color-hover;
+
+      /* stylelint-disable-next-line */
+      &.ecl-link--standalone {
+        color: $_negative-standalone-color-hover;
+      }
     }
   }
 }
