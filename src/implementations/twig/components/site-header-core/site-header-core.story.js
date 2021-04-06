@@ -28,24 +28,14 @@ const getArgTypes = () => {
       type: { name: 'boolean' },
       defaultValue: true,
       description: 'Toggle login box visibility',
-      table: {
-        type: { summary: 'object' },
-        defaultValue: { summary: '{}' },
-      },
     },
   };
 
-  if (system === 'eu') {
-    argTypes.menu = {
-      type: { name: 'boolean' },
-      defaultValue: true,
-      description: 'Toggle menu visibility',
-      table: {
-        type: { summary: 'object' },
-        defaultValue: { summary: '{}' },
-      },
-    };
-  }
+  argTypes.menu = {
+    type: { name: 'boolean' },
+    defaultValue: true,
+    description: 'Toggle menu visibility',
+  };
 
   return argTypes;
 };
@@ -62,22 +52,20 @@ const prepareData = (data, demo, args) => {
     }
   }
   correctSvgPath(data);
-  if (system === 'ec') {
-    if (demo !== 'translated') {
-      data.logo.src_desktop = englishBanner;
-    } else {
-      data.logo.src_desktop = frenchBanner;
-    }
-  } else if (demo !== 'translated') {
+
+  if (demo !== 'translated') {
     if (args.menu) {
       data.menu = dataMenuEn;
       data.menu.site_name = '';
     } else if (!args.menu && data.menu) {
       delete data.menu;
     }
-
-    data.logo.src_desktop = euEnglishBanner;
-    data.logo.src_mobile = euEnglishMobileBanner;
+    if (system === 'ec') {
+      data.logo.src_desktop = englishBanner;
+    } else {
+      data.logo.src_desktop = euEnglishBanner;
+      data.logo.src_mobile = euEnglishMobileBanner;
+    }
   } else {
     if (args.menu) {
       data.menu = dataMenuFr;
@@ -85,9 +73,12 @@ const prepareData = (data, demo, args) => {
     } else if (!args.menu && data.menu) {
       delete data.menu;
     }
-
-    data.logo.src_desktop = euFrenchBanner;
-    data.logo.src_mobile = euFrenchMobileBanner;
+    if (system === 'ec') {
+      data.logo.src_desktop = frenchBanner;
+    } else {
+      data.logo.src_desktop = euFrenchBanner;
+      data.logo.src_mobile = euFrenchMobileBanner;
+    }
   }
 
   return data;
