@@ -78,7 +78,8 @@ $_search-width-xl: 31.5rem;
   padding: map.get(theme.$spacing, 'xs');
 
   &:focus {
-    padding: calc(#{map.get(theme.$spacing, 'xs')} - 3px) calc(#{map.get(theme.$spacing, 'xs')} - 3px);
+    padding: calc(#{map.get(theme.$spacing, 'xs')} - 3px)
+      calc(#{map.get(theme.$spacing, 'xs')} - 3px);
   }
 
   &[aria-expanded='true'],
@@ -268,7 +269,8 @@ $_search-width-xl: 31.5rem;
     padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
 
     &:focus {
-      padding: calc(#{map.get(theme.$spacing, 's')} - 3px) calc(#{map.get(theme.$spacing, 'm')} - 3px);
+      padding: calc(#{map.get(theme.$spacing, 's')} - 3px)
+        calc(#{map.get(theme.$spacing, 'm')} - 3px);
     }
 
     &[aria-expanded='true'],
@@ -285,7 +287,8 @@ $_search-width-xl: 31.5rem;
   .ecl-site-header-core__language-code {
     font: map.get(theme.$font, 'xs');
     margin-right: map.get(theme.$spacing, 'xs');
-    transform: translateX(-50%) translateX(-0.22rem) translateY(-50%) translateY(-0.08rem);
+    transform: translateX(-50%) translateX(-0.22rem) translateY(-50%)
+      translateY(-0.08rem);
   }
 
   .ecl-site-header-core__search-container {

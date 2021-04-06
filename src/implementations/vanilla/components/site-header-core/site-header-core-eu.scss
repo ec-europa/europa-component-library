@@ -84,7 +84,8 @@ $_search-width-xl: 31.5rem;
   padding: map.get(theme.$spacing, 'xs');
 
   &:focus {
-    padding: calc(#{map.get(theme.$spacing, 'xs')} - 2px) calc(#{map.get(theme.$spacing, 'xs')} - 2px);
+    padding: calc(#{map.get(theme.$spacing, 'xs')} - 2px)
+      calc(#{map.get(theme.$spacing, 'xs')} - 2px);
   }
 
   &[aria-expanded='true'],
@@ -284,7 +285,8 @@ $_search-width-xl: 31.5rem;
     padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
 
     &:focus {
-      padding: calc(#{map.get(theme.$spacing, 's')} - 2px) calc(#{map.get(theme.$spacing, 'm')} - 2px);
+      padding: calc(#{map.get(theme.$spacing, 's')} - 2px)
+        calc(#{map.get(theme.$spacing, 'm')} - 2px);
     }
 
     &[aria-expanded='true'],
