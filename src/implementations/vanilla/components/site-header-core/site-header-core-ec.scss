@@ -40,6 +40,12 @@ $_search-width-xl: 31.5rem;
   flex-grow: 1;
 }
 
+.ecl-site-header-core__logo-image {
+  display: block;
+  max-height: $_logo-height-xs;
+  max-width: $_logo-height-xs; // hack to allow logo to be resized dynamically
+}
+
 .ecl-site-header-core__action {
   display: flex;
 }
