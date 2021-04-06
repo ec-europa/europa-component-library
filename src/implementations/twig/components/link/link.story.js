@@ -17,6 +17,9 @@ import notes from './README.md';
 const system = getSystem();
 const iconsAll = system === 'eu' ? iconsAllEu : iconsAllEc;
 
+// Create 'none' option.
+iconsAll.unshift('none');
+
 const withParagraph = (story) => {
   const demo = story();
   return `<p class="ecl-u-type-paragraph ecl-u-ma-none">The European Commission is the executive of ${demo} and promotes its general interest.</p>`;
@@ -62,6 +65,7 @@ const getArgTypes = (data) => {
     icon_name: {
       name: 'icon name',
       type: { name: 'select', required: false },
+      defaultValue: 'none',
       description: 'Name of the icon',
       table: {
         type: { summary: 'string' },
@@ -113,12 +117,15 @@ const prepareData = (data, args) => {
   data.link.label = args.label;
   data.link.negative = args.negative;
   data.link.icon_position = args.icon_position;
-  if (args.icon_name) {
+  if (args.icon_name && args.icon_name !== 'none') {
     data.icon = {};
     data.icon.name = args.icon_name;
     data.icon.transform = args.icon_transform;
     data.icon.size = system === 'eu' ? 'm' : 'xs';
     data.icon.path = 'icon.svg';
+  }
+  if (args.icon_name === 'none') {
+    delete data.icon;
   }
   correctSvgPath(data);
 

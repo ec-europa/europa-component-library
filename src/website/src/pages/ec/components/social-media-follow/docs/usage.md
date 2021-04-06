@@ -1,0 +1,70 @@
+---
+title: Usage
+order: 1
+---
+
+import { Paragraph, Anatomy, Link } from '@ecl/website-components';
+
+<Paragraph size="lead">
+  Social Media Follow component allows users to follow/join the social media
+  pages of EU institutions. It showcases the most popular ones, while the rest
+  can be found on the Europa site by clicking the "other social networks" link.
+</Paragraph>
+
+## Anatomy
+
+<Anatomy
+image="https://inno-ecl.s3.amazonaws.com/media/images/EC/SocialMediaFollow/Social%20media%20follow.jpg"
+srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/SocialMediaFollow/Social%20media%20follow%20-%20Mobile.jpg 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/SocialMediaFollow/Social%20media%20follow.jpg 734w"
+alt="Anatomy of social media follow"
+legend={{
+    items: [
+      {
+        color: '#404040',
+        label: 'mandatory',
+      },
+      {
+        color: '#004494',
+        label: 'optional',
+      },
+    ],
+  }}
+/>
+
+| Elements          | Mandatory | Description                                                                                          |
+| ----------------- | --------- | ---------------------------------------------------------------------------------------------------- |
+| heading           | yes       | short explanation of the purpose of the buttons                                                      |
+| icon              | yes       | social media icon                                                                                    |
+| social media name | yes       | name of the social media network                                                                     |
+| link              | no        | when more than 4-6 social networks are used, the link will take users to Europa social networks page |
+
+## Do's
+
+- **maintain the same order** when using native social media buttons
+- **maintain the same colours** for the social logo as the original
+- **always display the icon and the name** of the social media network
+- link directly to the organisation's dedicated page
+- always place the component at the bottom of the page
+
+## Don'ts
+
+- **don't display more than 4-6 social media networks**, use the "_Other social networks_" link to add more
+
+## When to use
+
+- use when you want to **increase visibility** of a campaign
+- when you want to offer your users **access to real-time, more frequently updated content** that may be pushed to social media
+- to **increase traffic** to social media networks
+
+## When not to use
+
+- do not use on navigation pages
+- do not use if your organisation does not have personalised social media accounts
+
+## Related components
+
+- <Link
+    to="/ec/components/social-media-share/usage/"
+    label="Social media share"
+    standalone
+  />
