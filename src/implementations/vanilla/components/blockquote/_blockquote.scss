@@ -7,7 +7,7 @@
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-$_border-width: 8px;
+$_border-width: null !default;
 $_border-radius: null !default;
 $_border-color: null !default;
 $_body-font-mobile: null !default;
@@ -20,13 +20,15 @@ $_author-font-tablet: null !default;
 $_author-font-desktop: null !default;
 $_author-font-weight: null !default;
 $_author-color: null !default;
+$_padding-left-mobile: null !default;
+$_text-max-width: 65ch; // Approximately 80 characters with the current font
 
 .ecl-blockquote {
   border-left: $_border-width solid $_border-color;
   border-radius: $_border-radius;
   margin: 0;
   padding-bottom: map.get(theme.$spacing, 's');
-  padding-left: map.get(theme.$spacing, 'm');
+  padding-left: $_padding-left-mobile;
   padding-top: map.get(theme.$spacing, 's');
 }
 
@@ -35,7 +37,7 @@ $_author-color: null !default;
   font: $_body-font-mobile;
   font-style: italic;
   margin: 0;
-  max-width: 85ch; // Limit to ~85 chars max
+  max-width: $_text-max-width;
   quotes: '\201C''\201D';
 
   &::before {
@@ -49,6 +51,7 @@ $_author-color: null !default;
 
 .ecl-blockquote__attribution {
   margin-top: map.get(theme.$spacing, 'm');
+  max-width: $_text-max-width;
 }
 
 .ecl-blockquote__author {
@@ -71,7 +74,6 @@ $_author-color: null !default;
   }
 
   .ecl-blockquote__attribution {
-    font: map.get(theme.$font-prolonged, 'l');
     margin-top: map.get(theme.$spacing, 'l');
   }
 
