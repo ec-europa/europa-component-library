@@ -9,7 +9,7 @@ Note: all values expressed in pixels are in fact dynamically converted from rem 
 
 ## Typeface
 
-Arial is the standard typeface for the websites under the European Commission domain. The san serif typeface family is versatile and it is universal.
+Arial is the standard typeface for the websites under the European Commission domain. The san serif typeface family is versatile and universal.
 
 ```css
 font-family: Arial, sans-serif;
@@ -25,15 +25,15 @@ We set 16px (1rem) as the base font size for body text to ensure readability. It
 
 ## weight
 
-Font weight is the thickness of a font's stroke, with various weights used to differentiate content hierarchy. The bold style emphasises the importance in comparison with the regular font style in the font family. We use 400 for Regular and 600 for bold. Usually the bold style is assigned to headings. Regular text is used for body text.
+Font weight is the thickness of a font's stroke, with various weights used to differentiate content hierarchy. The bold style emphasises the importance in comparison with the regular font style in the font family. We use 400 for regular and 600 for bold. Usually the bold style is assigned to headings. Regular text is used for body text.
 
 ## Line height
 
-Line-height, relevant to the size of the typeface itself. Ideal line-height for standard copy uses 1:1.5 ratio. The exception to this rule are headings, which need less spacing and therefore have a line-height ratio of 1:1.2. The line-height value is always divisible by 4 in order to support the grid.
+Line-height, relevant to the size of the typeface itself. Ideal line-height for standard copy uses 1:1.5 ratio. The exception to this rule is headings, which needs less spacing and therefore have a line-height ratio of 1:1.2. The line-height value is always divisible by 4 in order to support the grid.
 
 ## Line length
 
-Line-length is the number of characters displayed in a single line. Lines that are too long or too short can distract readers. For readability, limit to no more than 80 characters including spaces for desktop per line. Line length for mobile is recommended to use 40 to 60 characters including space per line.
+Line-length is the number of characters displayed in a single line. Lines that are too long or too short can distract readers. For readability, limit to no more than 80 characters including spaces for desktop. Line length for mobile is recommended to use 40 to 60 characters including space per line.
 
 ## Headings
 
