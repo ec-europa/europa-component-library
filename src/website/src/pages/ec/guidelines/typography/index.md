@@ -2,39 +2,40 @@
 title: Typography
 order: 1
 ---
-
 import Playground from '@ecl/website-components/Playground';
 import { RemToPixels } from '@ecl/website-components';
 
-Disclaimer: all values expressed in pixels are in fact dynamically converted from rem values. The conversion depends on the settings of your browser.
+Note: all values expressed in pixels are in fact dynamically converted from rem values. The conversion depends on the settings of your browser.
 
 ## Typeface
 
-Arial is the standard typeface we use. We chose Arial because it is a system font that is suited for multilingual use.
+Arial is the standard typeface for the websites under the European Commission domain. The san serif typeface family is versatile and it is universal.
 
 ```css
 font-family: Arial, sans-serif;
 ```
 
-## Type scale
+## Modular type scale
 
-Each step on the scale is determined by the previous step on the scale. We use the carbon design formula (X₂=X₁+{INT[(n-2)/4]+1}x2), starting from the font size of 0.75rem (<RemToPixels rem="0.75" />px).
+A modular type scale is a set of type sizes that are proportionally multiplied by the ratio working its way up or down.
+
+The purpose of using the modular type scale is to create a design that is visually pleasing, consistent, and balanced.
+
+We set 16px (1rem) as the base font size for body text to ensure readability. It is the default font size for most browsers.
+
+## weight
+
+Font weight is the thickness of a font's stroke, with various weights used to differentiate content hierarchy. The bold style emphasises the importance in comparison with the regular font style in the font family. We use 400 for Regular and 600 for bold. Usually the bold style is assigned to headings. Regular text is used for body text.
 
 ## Line height
 
-Line-heights are based on the size of the typeface itself. Ideal line-heights for standard copy have a ratio around 1:1.5. The exception to this rule are headings, which need less spacing and therefore have a line-height ratio of 1:1.2. The line-height values need to be always divisible by 4 so they can support a vertical grid. According to the use of text we separate typeface into two categories. Prolonged reading has a bigger ratio (1.5) to match accessibility guidelines and UI standard is for bigger titles and UI elements (buttons etc).
-
-## Font weight
-
-Font weight is an important typographic style that can add emphasis and is used to differentiate content hierarchy. A bold weight will always have more emphasis than a lighter weight font of the same size. However, a lighter weight font can rank hierarchically higher than a bold font if the lighter weight type size is significantly larger than the bold. We use 400 for Regular and 600 for bold. The bold font weight is used to put emphasis on important words and to add visual emphasis on headings.
+Line-height, relevant to the size of the typeface itself. Ideal line-height for standard copy uses 1:1.5 ratio. The exception to this rule are headings, which need less spacing and therefore have a line-height ratio of 1:1.2. The line-height value is always divisible by 4 in order to support the grid.
 
 ## Line length
 
-Line-length, traditionally known as measure, is the number of characters in a single line. It also directly contributes to the readability and pacing of copy. Lines that are too long degrade eye tracking from line to line, making it difficult to gauge which line to read next. In contrast, lines that are too short make it difficult for a reader to maintain a steady reading rhythm. Short lines often create disproportionate ragged edges that negatively affect the design. We use a range of 75-85 characters per line.
+Line-length is the number of characters displayed in a single line. Lines that are too long or too short can distract readers. For readability, limit to no more than 80 characters including spaces for desktop per line. Line length for mobile is recommended to use 40 to 60 characters including space per line.
 
 ## Headings
-
-Headings and subheadings should be organised in a hierarchy, with heading first, followed by subheadings in order.
 
 **Font weight: 600 (bold)**
 
