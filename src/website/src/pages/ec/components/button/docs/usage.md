@@ -2,44 +2,88 @@
 title: Usage
 order: 1
 ---
+Buttons trigger an action in a web page. There are 4 variants of the button component with different levels of importance and usages.
 
-import { Paragraph, Anatomy } from '@ecl/website-components';
+# Primary Button
 
-<Paragraph size="lead">
-  Buttons allow the user to interact with the front or back end of the web page.
-</Paragraph>
+Primary button is designed for user to perform the most important task in a web page. The visual design is more distinguishable from the secondary button.
+
+## Do's
+
+- make sure the button‘smicrocopy represents the action such as “Submit“ or “Register“
+- use an icon only when it is necessary
+
+## Don'ts
+
+- don't assign an action that should be assigned for a CTA or other variations of buttons
+- don't use an icon when it is not relevant or necessary to the action
+
+## When to use
+
+- as a form button such as submit, and save
+- perform a new task
+- move to the next step
+- as a primary action
+
+## When not to use
+
+- do not use for navigation
+- do not use for downloads
+- do not use when the primary action is negative - use secondary
+- do not use when the action can't be undone, as in the case of delete
+
+# Secondary Button
+
+It is used to represent the secondary action in a web page. It is paired with a primary button. The secondary button serves as the negative action of the pair, such as “Delete,” "Cancel" or “Remove”.
+
+## Do's
+
+- ensure the button functions a negative action, such as "Cancel", "Delete," "Remove" or "Replace"as a secondary action next to the primary button - Cancel, Reject
+- follow the order of the button group; right to the primary
+- use an icon only when it is necessary
+
+## Don'ts
+
+- do not use for primary positive actions - Submit, Send, Accept, Apply
+- do not use on its own
+- don't use an icon when it is not relevant or necessary to the action
+
+## When to use
+
+- to indicate a negative action, to pair it with a primary button
+- as a secondary action next to the primary button - Cancel, Reject
+- next to the primary button if it is a yes and no scenario
+
+## When not to use
+
+- do not use for navigation
+- do not place it to the left side of the button group
+
+# Text Button
+
+Text button is used in a web page with less prominent action. It can be grouped with other buttons or placed independently.
+
+## Do's
+
+- make sure the button represents a less important action, such as 'Show more', 'Expand or 'See details'
+
+## Don'ts
+
+- use it when the action has high importance in the hierarchy
+
+## When to use
+
+- use with low emphasis in a button group
+- use on pages/cards when the main focus should be the content and not the button
+- when there is a single action intended
+
+## When not to use
+
+- do not use for navigation purpose
 
 # Call to action (CTA) button
 
-<Paragraph size="lead">
-  CTAs help direct users' attention to the most important action on the page,
-  making it easier to scan content and direct attention towards the intended
-  action.
-</Paragraph>
-
-## Anatomy
-
-<Anatomy
-image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/button-cta-anatomy.png"
-alt="Anatomy of call to action (CTA) button"
-legend={{
-    items: [
-      {
-        color: '#404040',
-        label: 'mandatory',
-      },
-      {
-        color: '#004494',
-        label: 'optional',
-      },
-    ],
-  }}
-/>
-
-| Elements | Mandatory | Description                                                                    |
-| -------- | --------- | ------------------------------------------------------------------------------ |
-| label    | yes       | label of the button                                                            |
-| icon     | no        | affordance or action indicator that compliments the label or adds an indicator |
+Call to action button (CTA) captures users' attention in a web page. To perform an action or to visit another page for more information. The visual style has bright background colour and a high contrast label to indicate the importance of the action.
 
 ## Do's
 
@@ -51,263 +95,8 @@ legend={{
 
 ## When to use
 
-- when you have a main goal you want to direct users to
+- for promoting a message, or highly important content you want to draw users' attention
 
 ## When not to use
 
-- do not use for site navigation
-
-## Notes
-
-### Design
-
-- links can also be styled as CTAs when the goal linked to the main action is navigation
-
-### Positioning
-
-- positioned on the bottom left of the container, following written content principles
-
-# Primary Button
-
-<Paragraph size="lead">
-  Primary buttons are used for main actions. The design uses a high contrast
-  compared to the background, ensuring an easily distinguishable visual
-  hierarchy.
-</Paragraph>
-
-## Anatomy
-
-<Anatomy
-image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/button-primary-anatomy.png"
-alt="Anatomy of primary button"
-legend={{
-    items: [
-      {
-        color: '#404040',
-        label: 'mandatory',
-      },
-      {
-        color: '#004494',
-        label: 'optional',
-      },
-    ],
-  }}
-/>
-
-| Elements | Mandatory | Description                                                                    |
-| -------- | --------- | ------------------------------------------------------------------------------ |
-| label    | yes       | label of the button                                                            |
-| icon     | no        | affordance or action indicator that compliments the label or adds an indicator |
-
-## Do's
-
-- make sure the buttons' microcopy represents the action the system will run, such as 'Submit' or 'Register'
-
-## Don'ts
-
-- don't assign an action that should be assigned for a CTA
-
-## When to use
-
-- when you have one main action or user goal per section of content
-
-## When not to use
-
-- do not use for site navigation
-- do not use for downloads
-- do not use when the primary action is negative - use secondary or ghost buttons instead
-
-## Notes
-
-### Positioning
-
-- position at the bottom right corner - as this is the last place users will look according to normal F-shaped reading patterns
-
-# Secondary Button
-
-<Paragraph size="lead">
-  Ghost buttons should only be used to highlight the priority of an action that
-  should be distinguishable from other buttons. They can either be used to
-  indicate a negative primary action, along with a primary action, or for
-  non-primary actions.
-</Paragraph>
-
-## Anatomy
-
-<Anatomy
-image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/button-secondary-anatomy.png"
-alt="Anatomy of secondary button"
-legend={{
-    items: [
-      {
-        color: '#404040',
-        label: 'mandatory',
-      },
-      {
-        color: '#004494',
-        label: 'optional',
-      },
-    ],
-  }}
-/>
-
-| Elements | Mandatory | Description                                                                    |
-| -------- | --------- | ------------------------------------------------------------------------------ |
-| label    | yes       | label of the button                                                            |
-| icon     | no        | affordance or action indicator that compliments the label or adds an indicator |
-
-## Do's
-
-- make sure the buttons represents the action the system will run, such as 'Cancel', 'Delete', 'Remove' or 'Replace'
-
-## Don'ts
-
-- do not use for primary positive actions
-- do not use on its own
-
-## When to use
-
-- use whenever you have multiple actions per section of content
-- to indicate primary negative action, in conjunction with a primary button
-
-## When not to use
-
-- do not use for navigation
-
-## Notes
-
-### Positioning
-
-- if used with another button, position complementary to the primary button
-
-# Text Button
-
-<Paragraph size="lead">
-  Text buttons are used on a page where content should be the focus.
-</Paragraph>
-
-## Anatomy
-
-<Anatomy
-image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/button-text-anatomy.png"
-alt="Anatomy of text button"
-legend={{
-    items: [
-      {
-        color: '#404040',
-        label: 'mandatory',
-      },
-      {
-        color: '#004494',
-        label: 'optional',
-      },
-    ],
-  }}
-/>
-
-| Elements | Mandatory | Description                                                                    |
-| -------- | --------- | ------------------------------------------------------------------------------ |
-| label    | yes       | label of the button                                                            |
-| icon     | no        | affordance or action indicator that compliments the label or adds an indicator |
-
-## Do's
-
-- use on it's own
-- make sure the button represents the action the system will run, such as 'Show more', 'Expand or 'See details')
-
-## Don'ts
-
-- don't use for primary actions
-
-## When to use
-
-- use it whenever you have multiple actions per section of content as the Text buttons do not create visual distraction
-- use on pages/cards when the main focus should be the content and not the button
-- when there is a single action intended
-
-## When not to use
-
-- do not use for navigation
-
-## Notes
-
-### Design
-
-- don't underline in order to not have them confused with links
-
-### Positioning
-
-- positioned on the bottom left of the container, following written content principles
-
-# Search Button
-
-<Paragraph size="lead">
-  The search button is only used with the search form.
-</Paragraph>
-
-## Anatomy
-
-<Anatomy
-image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/button-search-anatomy-desktop.png"
-srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/button-search-anatomy-mobile.png 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/button-search-anatomy-desktop.png 734w"
-alt="Anatomy of search button"
-legend={{
-    items: [
-      {
-        color: '#404040',
-        label: 'mandatory',
-      },
-      {
-        color: '#004494',
-        label: 'optional',
-      },
-    ],
-  }}
-/>
-
-| Elements | Mandatory | Description                                                |
-| -------- | --------- | ---------------------------------------------------------- |
-| label    | yes       | label of the button                                        |
-| icon     | no        | **icon replacing the word 'search' on the mobile version** |
-
-## Do's
-
-- use exclusively for the search function
-
-## Don'ts
-
-## When to use
-
-- **always when a search form** is used
-
-## When not to use
-
-- do not use for navigation
-- do not use for submitting any forms other than searc
-
-## Notes
-
-### Design
-
-- don't underline
-
-### Positioning
-
-- positioned within the search form container
-
-# Genral Notes
-
-## Accessibility
-
-- ensure buttons are tagged with the `<button>` tag, in accordance with the WCAG2 for easy accessibility
-- ensure the positive selection comes first and the negative second, such as 'Would you like to continue? Yes or No'
-
-## Design
-
-- **positive primary action**
-  - a primary action should be distinguishable from the secondary/ghost button
-    ![positive primary action](https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/buttons-contrast-regular.png)
-
-* **negative primary action**
-  - a negative primary action should be less visually contrasting as it can cause negative consequences when used accidentally - use solid button for Secondary action and ghost button for Primary action
-    ![negative primary action](https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/buttons-contrast-negative.png)
+- do not use for site navigation purpose
