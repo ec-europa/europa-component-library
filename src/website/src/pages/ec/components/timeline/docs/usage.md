@@ -2,59 +2,19 @@
 title: Usage
 order: 1
 ---
-
-import { Paragraph, Anatomy, Link } from '@ecl/website-components';
-
-<Paragraph size="lead">
-  The timeline displays concurrent and/or sequential items visually on a time
-  axis.
-</Paragraph>
-
-## Anatomy
-
-<Anatomy
-image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Timeline/Timeline2.jpg"
-srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/Timeline/Timeline%20-%20Mobile2.jpg 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/Timeline/Timeline2.jpg 734w"
-alt="Anatomy of timeline"
-legend={{
-    items: [
-      {
-        color: '#404040',
-        label: 'mandatory',
-      },
-      {
-        color: '#004494',
-        label: 'optional',
-      },
-    ],
-  }}
-/>
-
-### Default
-
-| Elements  | Mandatory | Description                                                       |
-| --------- | --------- | ----------------------------------------------------------------- |
-| heading   | yes       | heading of the item                                               |
-| timestamp | yes       | timestamp when the item happened (or is scheduled to)             |
-| details   | no        | a more detailed description. Can include text, links, media files |
-
-### Conditional
-
-| elements      | Mandatory | Description                                                                                                                                                          |
-| ------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| expand button | yes       | actionable button to display the full list of items in the timeline - to be used **if** there are over 12 items in the timeline<br/>**Position**: under the 3rd item |
+The timeline displays concurrent and/or sequential items visually on a time axis.
 
 ## Do's
 
-- **label each item** with a short, distinct and indicative heading
-- **order** items sequentially
-- **always** display the **timestamp and heading** for each item
+- label each item with a short, distinct and indicative heading
+- order items sequentially
+- always display the timestamp and heading for each item
 
 ## Don'ts
 
-- don't use when there are **less than 3 items** - use list instead
-- don't use when **all the items start at the same time**
-- don't **place items in an order that isn't sequential**
+- don't use when there are less than 3 items - use list instead
+- don't use when all the items start at the same time
+- don't place items in an order that isn't sequential
 
 ## When to use
 
@@ -62,19 +22,4 @@ legend={{
 
 ## When not to use
 
-- don't use for **actions or to indicate steps** that need to be taken - use <Link to="/ec/components/list/usage/" label="ordered list" /> instead
-
-## Notes
-
-### Design
-
-Make sure the correct **color scheme** is followed:
-
-- **black** for heading, description, timestamp, title and details
-- **blue** with underline for hyperlinks in items' details
-- **yellow** for points on the vertical bar and show all button
-
-## Related components
-
-- <Link to="/ec/components/list/usage/" label="Ordered list" standalone />
-- <Link to="/ec/components/list/usage/" label="Unordered list" standalone />
+- don't use for actions or to indicate steps
