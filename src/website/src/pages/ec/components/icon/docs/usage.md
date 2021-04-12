@@ -2,32 +2,7 @@
 title: Usage
 order: 1
 ---
-
-import { Paragraph, Anatomy, Link } from '@ecl/website-components';
-
-<Paragraph size="lead">
-  Icons are helpful complementary visual cues that communicate meaning through
-  the use of symbolic pictographs.
-</Paragraph>
-
-## Anatomy
-
-<Anatomy
-image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Icons/Icons.png"
-alt="Anatomy of icons"
-legend={{
-    items: [
-      {
-        color: '#404040',
-        label: 'mandatory',
-      },
-      {
-        color: '#004494',
-        label: 'optional',
-      },
-    ],
-  }}
-/>
+Icons are helpful complementary visual cues that communicate meaning through the use of symbolic pictographs.
 
 ## Do's
 
@@ -54,11 +29,3 @@ legend={{
 - don't use icons to replace labels or navigation items
 - don't use when there are many elements on a page for which you want to use icons - leads to visual clutter, impedes scannability
 - if an icon is ambiguous in the context of your page then a text label is better
-
-## Notes
-
-### Accessibility
-
-- icons must be accompanied by labels
-- icons must have an ALT tag
-- icons must have a good contrast ratio to the background color
