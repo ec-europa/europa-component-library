@@ -2,47 +2,7 @@
 title: Usage
 order: 1
 ---
-
-import { Paragraph, Anatomy } from '@ecl/website-components';
-
-<Paragraph size="lead">
-  Labels are used to indicate the different states for items in a list. They
-  bring supplementary meaning by adding an indicative state (label) that is
-  visually distinct (background color) from other elements. Labels can differ
-  from one content type to another (e.g. events labels differ from press
-  releases').
-</Paragraph>
-
-## Anatomy
-
-<Anatomy
-image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Label/Labels%20-%20generic.png"
-alt="Anatomy of labels"
-legend={{
-    items: [
-      {
-        color: '#404040',
-        label: 'mandatory',
-      },
-      {
-        color: '#004494',
-        label: 'optional',
-      },
-    ],
-  }}
-/>
-
-### Default
-
-| Elements | Mandatory | Description                                                                         |
-| -------- | --------- | ----------------------------------------------------------------------------------- |
-| label    | yes       | used to indicate state (e.g. rescheduled - events; featured item - items in a list) |
-
-### Conditional (state)
-
-| Elements         | Mandatory | Description                                                  |
-| ---------------- | --------- | ------------------------------------------------------------ |
-| background color | yes       | varies depending on importance level - see notes for example |
+Labels are used to indicate the different states for items in a list. They bring supplementary meaning by adding an indicative state (label) that is visually distinct (background colour) from other elements.
 
 ## Do's
 
@@ -60,12 +20,3 @@ legend={{
 ## When not to use
 
 - when all items in a list have the same state (e.g. search list items)
-
-## Notes
-
-| Type                    | Desktop/Mobile showcase                                                                                |
-| ----------------------- | ------------------------------------------------------------------------------------------------------ |
-| low-importance/ generic | ![low importance](https://inno-ecl.s3.amazonaws.com/media/images/EC/Label/Label%20-%20Low.jpg)         |
-| medium-importance       | ![medium importance](https://inno-ecl.s3.amazonaws.com/media/images/EC/Label/Label%20-%20Medium.jpg)   |
-| high-importance         | ![high importance](https://inno-ecl.s3.amazonaws.com/media/images/EC/Label/Label%20-%20High.jpg)       |
-| highlighted item        | ![highlighted item](https://inno-ecl.s3.amazonaws.com/media/images/EC/Label/Label%20-%20Highlight.png) |
