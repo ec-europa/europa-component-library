@@ -154,7 +154,7 @@ Most of the components have been updated without much changes. Although, there a
 ## Resources specifics
 
 - logo file names have been homogenized between EC and EU, using the pattern `logo-(ec|eu)--(language).svg`
-- all icons have been grouped in a single cateory, instead of having different ones (branded, general, ...)
+- all icons have been grouped in a single cateory, instead of having different ones (branded, general, ...). So now only the icon name is used.
 
 ## Presets / themes
 

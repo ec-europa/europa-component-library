@@ -23,6 +23,10 @@ glob.sync('**/*.svg', { cwd: src }).forEach((file) => {
     const parser = new xml2js.Parser();
     parser.parseString(data, (parseError, result) => {
       const clone = JSON.parse(JSON.stringify(result));
+
+      // Add viewBox
+      clone.svg.$.viewBox = `0 0 ${result.svg.$.width} ${result.svg.$.height}`;
+
       const builder = new xml2js.Builder({ headless: true });
       const xml = builder.buildObject(clone);
 
