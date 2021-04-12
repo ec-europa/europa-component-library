@@ -2,7 +2,7 @@
 title: Usage
 order: 1
 ---
-The expandable is a progressive disclosure component. Such components truncate information for the general layout/design and are intended to deliver additional content depending on users' interests. They help keep the interface clean and reduce scrolling by saving vertical space, while being indicative of the additional content that is available through extra interaction.
+The expandable component is a progressive disclosure component. Such components truncate information for the general layout/design and are intended to deliver additional content depending on users' interests. They help keep the interface clean and reduce scrolling by saving vertical space, while being indicative of the additional content that is available through extra interaction.
 
 ## Do's
 
