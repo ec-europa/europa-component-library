@@ -2,20 +2,18 @@
 title: Usage
 order: 1
 ---
-
 import { Paragraph, Anatomy, Link } from '@ecl/website-components';
 
-<Paragraph size="lead">
-  The expandable is a <strong>progressive disclosure component</strong>. Such
-  components truncate information for the general layout/design and are intended
-  to <strong>deliver additional content depending on users' interests</strong>.
-  They help keep the interface clean and reduce scrolling by saving vertical
-  space, while being{' '}
-  <strong>
-    indicative of the additional content that is available through extra
-    interaction
-  </strong>
-  .
+The expandable is a <strong>progressive disclosure component</strong>. Such
+components truncate information for the general layout/design and are intended
+to <strong>deliver additional content depending on users' interests</strong>.
+They help keep the interface clean and reduce scrolling by saving vertical
+space, while being{' '}
+<strong>
+indicative of the additional content that is available through extra
+interaction
+</strong>
+.
 </Paragraph>
 
 ## Anatomy
@@ -24,7 +22,7 @@ import { Paragraph, Anatomy, Link } from '@ecl/website-components';
 image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Expandable/Expandable2.jpg"
 alt="Anatomy of the expandable"
 legend={{
-    items: [
+    items: \[
       {
         color: '#404040',
         label: 'mandatory',
