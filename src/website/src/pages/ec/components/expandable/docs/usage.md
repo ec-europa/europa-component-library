@@ -21,11 +21,5 @@ The expandable is a progressive disclosure component. Such components truncate
 ## When not to use
 
 - do not use as a button
-- do not use it consecutively - use [accordions](http://webgate.ec.europa.eu/) or [tabs](http://webgate.ec.europa.eu/) instead
+- do not use it consecutively - use accordions instead
 - don't use when pages are short (reading time: under 3 minutes)
-
-## Notes
-
-### Accessibility
-
-- **progressive disclosure elements** can be helpful accessibility aids as **they give users the choice of revealing content to read or bypass**, making page navigation more efficient for screen-reader users and people using the keyboard or alternative input devices
