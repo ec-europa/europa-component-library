@@ -6,11 +6,11 @@ Buttons trigger an action in a web page. There are 4 variants of the button comp
 
 # Primary Button
 
-Primary button is designed for user to perform the most important task in a web page. The visual design is more distinguishable from the secondary button.
+Primary button is designed for users to perform the most important task in a web page. The visual design is more distinguishable from the secondary button.
 
 ## Do's
 
-- make sure the button‘smicrocopy represents the action such as “Submit“ or “Register“
+- make sure the button‘s microcopy represents the action such as “Submit“ or “Register“
 - use an icon only when it is necessary
 
 ## Don'ts
@@ -20,7 +20,7 @@ Primary button is designed for user to perform the most important task in a web 
 
 ## When to use
 
-- as a form button such as submit, and save
+- as a form button such as submit, or save
 - perform a new task
 - move to the next step
 - as a primary action
@@ -29,8 +29,8 @@ Primary button is designed for user to perform the most important task in a web 
 
 - do not use for navigation
 - do not use for downloads
-- do not use when the primary action is negative - use secondary
-- do not use when the action can't be undone, as in the case of delete
+- do not use when the primary action is negative - use secondary button
+- do not use when the action can't be undone, such as delete
 
 # Secondary Button
 
@@ -38,8 +38,8 @@ It is used to represent the secondary action in a web page. It is paired with a 
 
 ## Do's
 
-- ensure the button functions a negative action, such as "Cancel", "Delete," "Remove" or "Replace"as a secondary action next to the primary button - Cancel, Reject
-- follow the order of the button group; right to the primary
+- ensure the button functions a negative action, such as "Cancel", "Delete," "Remove" or "Replace" as the secondary action next to the primary button
+- follow the order of the button group; right to the primary button
 - use an icon only when it is necessary
 
 ## Don'ts
@@ -51,7 +51,7 @@ It is used to represent the secondary action in a web page. It is paired with a 
 ## When to use
 
 - to indicate a negative action, to pair it with a primary button
-- as a secondary action next to the primary button - Cancel, Reject
+- as a secondary action next to the primary button - such as Cancel, Reject
 - next to the primary button if it is a yes and no scenario
 
 ## When not to use
@@ -65,7 +65,7 @@ Text button is used in a web page with less prominent action. It can be grouped 
 
 ## Do's
 
-- make sure the button represents a less important action, such as 'Show more', 'Expand or 'See details'
+- make sure the button represents a less important action, such as "Show more", "Expand" or "See details"
 
 ## Don'ts
 
