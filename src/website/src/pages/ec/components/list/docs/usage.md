@@ -2,80 +2,82 @@
 title: Usage
 order: 1
 ---
+Used to present chunks of information in a concise and scannable way, lists help to organise content related to a single topic, grouping together a set of items or text options.
 
-import { Paragraph, DoDont, Link } from '@ecl/website-components';
+## Ordered lists
 
-<Paragraph size="lead">
-  Used to present chunks of information in a concise and scannable way, lists
-  help to organize content related to a single topic, grouping together a set of
-  items or text options.
-</Paragraph>
+Ordered lists display a set of items in a sequential and logical order, indicated by a number in front of the label. Common use cases include counting, ranking or sequencing, but can be used in everything that has a hierarchy. Different list styles can be applied to list items, like numbers, roman numerals or letters, which can be used interchangeably when nesting (e.g. nested item 1 & 2 under item 3).
 
-## Anatomy
+## Do's
 
-A list is a series of related items displayed in a single column. The content of each item can be plain text, an external link or a short paragraph. Even if lists can be nested inside of each other (to display sub-sections for example), it's not recommended nesting lists deeper than three levels in order to avoid confusion.
+- make sure the items are placed in hierarchical orderso that the relation, rank or order is obvious to the user
+- indicate the external links, if linking to any pages external to the European Commission
+- for easy to read purpose, try to use labels that are relatively consistent in characters & width
 
-Below we'll cover the three list types: [ordered](#ordered), [unordered](#unordered), [description list](#description-list).
+## Don'ts
 
-<h2 id="ordered">Ordered list</h2>
-
-Ordered lists display a set of items in a specific and logical order.
-They are commonly used in step by step instructions.
-
-Please note that different list styles can be applied to list items, like numbers, roman numerals or letters.
-
-![ordered list](https://inno-ecl.s3.amazonaws.com/media/images/EC/List/ordered-list-desktop.jpg)
-
-<DoDont
-itemDo={{
-    title: 'Do',
-    image:
-      'https://inno-ecl.s3.amazonaws.com/media/images/EC/List/ordered-list-desktop-do.jpg',
-    alt: '',
-    description: 'Show items in the right logical order.',
-  }}
-itemDont={{
-    title: "Don't",
-    image:
-      'https://inno-ecl.s3.amazonaws.com/media/images/EC/List/ordered-list-desktop-dont.jpg',
-    alt: '',
-    description:
-      'Respect the sequential order and do not use unordered or blank lists.',
-  }}
-/>
-
-<h2 id="unordered">Unordered list</h2>
-
-Unordered lists are used to show content with the same importance, so the order of the items doesn't matter.
-
-Please note that different list styles can be applied to bullets, like disc, circle, square or hyphen.
-
-![unordered list](https://inno-ecl.s3.amazonaws.com/media/images/EC/List/unordered-list-desktop.jpg)
-
-#### Guidelines
-
-- be sure to organize the items in a logical way
-- start bullet list items with a lowercase letter and blank list items with capital letters
-- limit the numbers of items between 5 to 9
-
-<h2 id="description-list">Description list</h2>
-
-Description lists are lists of terms with their related definition or description, like a glossary or a list of speakers with relative biography.
-
-![description list](https://inno-ecl.s3.amazonaws.com/media/images/EC/List/description-list-desktop.jpg)
-
-#### Guidelines
-
-- avoid using more than one or two short sentences
-- add a meaningful description or explanation of each term, avoiding active voices
+- **do not nest lists deeper than 3 levels**
 
 ## When to use
 
-- use a bullet list when the order of the items is not relevant and to increase scannability and readability
-- use an ordered list when you need to communicate priorities or to show a specific sequence
-- use a description list when the terms in the list require a specific description or explanation
+- use ordered lists when you need to display items in a specific order or to indicate hierarchy
 
 ## When not to use
 
-- do not use for navigation purpose; use <Link to="/ec/compositions/navigation-lists/usage/">navigation lists</Link> instead
-- do not use to display search results; use <Link to="/ec/utilities/stacks/usage/">stacks</Link> instead
+- do not use it for navigation purpose
+- do not use it when all items have equal value or importance
+- do not use when you have one or more overarching categories that require descriptions
+
+## Unordered list
+
+Unordered lists are used to group related content without any particular order, with bullet points placed in front of the labels. Common use cases are much broader than ordered lists. They are used for a set of items that can be arranged in any specific order. Different bullet list styles are available to unordered list items, such as disc, circle, square or hyphen when nesting (eg. 2 sub-points under point 2).
+
+## Do's
+
+- indicate the external links, if linking to any pages external to the European Commission
+- for easy to read purpose,try to use labels that are relatively consistent in characters & width
+
+## Don'ts
+
+- do not nest lists deeper than 3 levels in order to avoid clutters
+
+## When to use
+
+- use it when you need to display items that do not have a specific order or hierarchy
+
+## When not to use
+
+- do not use it for navigation purpose
+- do not use it when items can be ranked, counted or sequenced
+- do not use when you have one or more overarching categories or terms require descriptions
+
+# Description lists
+
+Description lists are used to display and organise content that belongs to a category with a descriptions. Common use cases include glossary type lists or a list of speakers with their biographies.
+
+## Do's
+
+- label each itemwith a short, distinct and indicative title
+- choose the appropriate category in terms of relevance and added value to the users
+- grouprelated fields according to their type
+- order logically according to their hierarchy, significance and degree of relatedness
+- indicate the external links, if linking to any pages external to the European Commission
+- avoid using more than one or two short sentences
+- try to use labels that are relatively consistent in characters & width, as users get fatigued when scanning unequal lengths of text
+- add a meaningful description or explanation of each term
+
+## Don'ts
+
+- do not use an active voice
+- do not nest description lists
+
+## When to use
+
+- use a description list when the terms in the list require a specific description or explanation
+- on content pages to add additional information(such as latest update on the content of a page) or link to pages of interest
+
+## When not to use
+
+- do not use it for navigation purpose
+- do not use it when items can be ranked, counted or sequenced
+- do not use it when all items have equal value or importance
