@@ -2,7 +2,7 @@ backend:
   name: git-gateway
   repo: ec-europa/europa-component-library
   branch: next-v3
-  base_url: https://next-v3--europa-component-library.netlify.app/
+  base_url: https://v3--europa-component-library.netlify.app/
   extension: md
   squash_merges: true
   commit_messages:
@@ -263,7 +263,7 @@ collections:
         file: 'src/website/src/pages/ec/components/timeline/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
-  - label: 'EC pages for families templates'
+  - label: 'Europa family for EC'
     name: 'ec_usage_pages_templates'
     files:
       - label: 'EC Core template'
@@ -273,45 +273,17 @@ collections:
           - { label: Body, name: body, widget: markdown }
       - label: 'Harmonised template Group 1'
         name: 'ec_harmonised_template_g1'
-        file: 'src/website/src/pages/ec/harmonised-template/docs/group1.md'
+        file: 'src/website/src/pages/ec/harmonised-templates/docs/group1.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Harmonised template Group 2'
         name: 'ec_harmonised_template_g2'
-        file: 'src/website/src/pages/ec/harmonised-template/docs/group2.md'
+        file: 'src/website/src/pages/ec/harmonised-templates/docs/group2.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Harmonised template Group 3'
         name: 'ec_harmonised_template_g3'
-        file: 'src/website/src/pages/ec/harmonised-template/docs/group3.md'
-        fields:
-          - { label: Body, name: body, widget: markdown }
-      - label: 'Standardised template'
-        name: 'ec_standardised_template'
-        file: 'src/website/src/pages/ec/standardised-template/index.md'
-        fields:
-          - { label: Body, name: body, widget: markdown }
-  - label: 'EC Compositions'
-    name: 'ec_compositions'
-    files:
-      - label: 'Content item'
-        name: 'ec_content_item'
-        file: 'src/website/src/pages/ec/compositions/content-item/usage.md'
-        fields:
-          - { label: Body, name: body, widget: markdown }
-      - label: 'Harmonised template Group 1'
-        name: 'ec_harmonised_template_g1'
-        file: 'src/website/src/pages/ec/harmonised-template/docs/group1.md'
-        fields:
-          - { label: Body, name: body, widget: markdown }
-      - label: 'Harmonised template Group 2'
-        name: 'ec_harmonised_template_g2'
-        file: 'src/website/src/pages/ec/harmonised-template/docs/group2.md'
-        fields:
-          - { label: Body, name: body, widget: markdown }
-      - label: 'Harmonised template Group 3'
-        name: 'ec_harmonised_template_g3'
-        file: 'src/website/src/pages/ec/harmonised-template/docs/group3.md'
+        file: 'src/website/src/pages/ec/harmonised-templates/docs/group3.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Standardised template'
@@ -433,7 +405,7 @@ collections:
   - label: 'EC Reources'
     name: 'ec_resources'
     files:
-      - label: 'Eui'
+      - label: 'eUI'
         name: 'ec_resources_eui'
         file: 'src/website/src/pages/ec/resources/eui/index.md'
         fields:

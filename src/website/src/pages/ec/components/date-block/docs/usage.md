@@ -2,37 +2,7 @@
 title: Usage
 order: 1
 ---
-
-import { Link, Anatomy, Paragraph } from '@ecl/website-components';
-
-<Paragraph size="lead">
-  The date block is a visual display to support an event listing. It displays
-  the day, month and year of an event and has a total of 5 states: upcoming,
-  ongoing, cancelled, past and rescheduled. The date blocks cannot be used as a
-  stand-alone component, always being complemented by informative tags, acting
-  as an extra indicator for any given state of the event. Together with the
-  event listing, they form the date block composition.
-</Paragraph>
-
-## Anatomy
-
-<Anatomy
-image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Dateblock/Dateblock%20-%20Desktop.png"
-srcSet="https://inno-ecl.s3.amazonaws.com/media/images/EC/Dateblock/Dateblock%20-%20Mobile.png 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/Dateblock/Dateblock%20-%20Desktop.png 734w"
-alt="Anatomy of dateblocks"
-legend={{
-    items: [
-      {
-        color: '#404040',
-        label: 'mandatory',
-      },
-      {
-        color: '#004494',
-        label: 'optional',
-      },
-    ],
-  }}
-/>
+The date block is a visual display to support an event listing. It displays the day, month and year of an event and has a total of 5 states: upcoming, ongoing, cancelled, past and rescheduled. The date blocks cannot be used as a stand-alone component, always being complemented by informative tags, acting as an extra indicator for any given state of the event. Together with the event listing, they form the date block composition.
 
 ## Do's
 
@@ -45,4 +15,4 @@ legend={{
 
 ## When not to use
 
-- do not use for other occurrences such as historical milestones, achievements, biographies, etc (consider using a <Link to="/ec/components/timeline/usage/">Timeline</Link>)
+- do not use for other occurrences such as historical milestones, achievements, biographies, etc

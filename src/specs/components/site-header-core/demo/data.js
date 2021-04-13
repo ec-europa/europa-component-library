@@ -14,7 +14,7 @@ module.exports = {
   },
   login_box: {
     id: 'login-box-id',
-    description: 'Logged in as "last name", "first name"',
+    description: 'Logged in as "last name" "first name"',
     label: 'Log out',
     href: '/example',
   },
@@ -183,6 +183,7 @@ module.exports = {
     text_input: {
       id: 'search-input-id',
       label: 'Search',
+      placeholder: 'Placeholder text',
     },
     button: {
       label: 'Search',

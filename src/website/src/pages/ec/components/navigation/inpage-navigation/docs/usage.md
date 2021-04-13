@@ -2,68 +2,22 @@
 title: Usage
 order: 1
 ---
-
-import { Paragraph, Anatomy } from '@ecl/website-components';
-
-<Paragraph size="lead">
-  The <strong>in-page navigation</strong> is a vertical menu containing
-  (anchored) links to H2-headings on long content pages. It{' '}
-  <strong>gives the user an overview of the page contents</strong> and has a
-  fixed position (does not move while scrolling) at either the{' '}
-  <strong>left side of a page on desktop or top-bar on mobile</strong>. This
-  component helps users scan of the page quickly contents and may potentially
-  reduce vertical scrolling, allowing users to easily jump straight to the
-  segment of the page.
-</Paragraph>
-
-## Anatomy
-
-<Anatomy
-image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Inpage/In-page%20navigation2.jpg"
-srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/Inpage/In-page%20navigation%20-%20Mobile2.jpg 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/Inpage/In-page%20navigation2.jpg 733w"
-alt="Anatomy of in-page navigation"
-legend={{
-    items: [
-      {
-        color: '#404040',
-        label: 'mandatory',
-      },
-      {
-        color: '#004494',
-        label: 'optional',
-      },
-    ],
-  }}
-/>
-
-| Elements          | Mandatory desktop | Mandatory mobile | Description                                                                                                                          |
-| ----------------- | ----------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| heading           | yes               | no               | the **heading** of the in-page navigation - **Default: PAGE CONTENTS** (all upper case text)                                         |
-| active selection  | yes               | yes              | indicator of the current segment of content                                                                                          |
-| anchor link(s)    | yes               | yes              | **actionable element corresponding to the heading (H2)** of segment of content - **clicking it will jump to the H2**                 |
-| action indicator  | no                | yes              | varies depending on the state (collapsed/expanded). **Indicates what the next action will do - displays content container on click** |
-| content container | no                | yes              | this element displays relevant content in a **container that's initially hidden**                                                    |
+The in-page navigation is a vertical menu containing (anchored) links to H2-headings on long content pages. It gives the user an overview of the page contents and has a fixed position (does not move while scrolling) at either the left side of a page on desktop or top-bar on mobile. This component helps users scan of the page quickly contents and may potentially reduce vertical scrolling, allowing users to easily jump straight to the segment of the page.
 
 ## Do's
 
-- aim for **short, distinct headings (H2)** in order to improve scannability and reduce possible confusion
-- make sure to **order content logically so there is a natural progression when looking at the headings (H2) alone**
+- aim for short, distinct headings (H2) in order to improve readability
+- make sure to order content logically so there is a natural progression when looking at the headings (H2) alone
 
 ## Don'ts
 
-- **don't use long labels that break on the 2nd line** (30 characters) **unless necessary**
+- don't use longlabels that break on the 2nd line (30 characters) unless necessary
 
 ## When to use
 
-- when you have **more than one H2** on a page
+- when you have more than one H2 on a page
 
 ## When not to use
 
 - don't use on a page without much content or a single H2
 - don't use it to navigate beyond the page in question
-
-## Notes
-
-### Design
-
-- **current selection** is indicated by a gray background color and a blue line on the left (border-left)
