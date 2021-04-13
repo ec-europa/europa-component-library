@@ -45,7 +45,7 @@ $_margin-invalid: null !default;
     ~ .ecl-radio {
       margin-top: map.get(theme.$spacing, 'l');
     }
-    ~ .ecl-radio--binary {
+    &.ecl-radio--binary {
       margin-top: map.get(theme.$spacing, 'm');
     }
     /* stylelint-enable max-nesting-depth, selector-max-compound-selectors */
