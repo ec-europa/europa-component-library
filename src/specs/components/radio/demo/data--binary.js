@@ -7,6 +7,12 @@ module.exports = {
   label: 'Do you need help?',
   helper_text: 'Helper text for the group',
   invalid_text: 'Error message for the group',
+  invalid_icon: {
+    path: '/icons.svg',
+    type: 'notifications',
+    name: 'warning',
+    size: 'm',
+  },
   binary: true,
   items: [
     {

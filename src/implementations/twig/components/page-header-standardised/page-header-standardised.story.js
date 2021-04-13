@@ -67,9 +67,6 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Page Headers/Standardised',
   decorators: [withNotes, withCode],
-  parameters: {
-    knobs: { disable: true },
-  },
 };
 
 export const Title = (args) =>

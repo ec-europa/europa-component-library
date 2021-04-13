@@ -14,6 +14,8 @@ import link from './link.html.twig';
 import notes from './README.md';
 
 const system = getSystem();
+// Create 'none' option.
+uiIcons.unshift('none');
 
 const withParagraph = (story) => {
   const demo = story();
@@ -74,6 +76,7 @@ const getArgTypes = (data) => {
     icon_name: {
       name: 'icon name',
       type: { name: 'select', required: false },
+      defaultValue: 'none',
       description: 'Name of the icon',
       table: {
         type: { summary: 'string' },
@@ -126,13 +129,16 @@ const prepareData = (data, args) => {
   data.link.negative = args.negative;
   data.link.no_visited = args.no_visited;
   data.link.icon_position = args.icon_position;
-  if (args.icon_name) {
+  if (args.icon_name && args.icon_name !== 'none') {
     data.icon = {};
     data.icon.name = args.icon_name;
     data.icon.type = 'ui';
     data.icon.transform = args.icon_transform;
     data.icon.size = system === 'eu' ? 'm' : 'xs';
     data.icon.path = 'icon.svg';
+  }
+  if (args.icon_name === 'none') {
+    delete data.icon;
   }
   correctSvgPath(data);
 
@@ -151,9 +157,6 @@ const prepareDataCta = (data, args) => {
 export default {
   title: 'Components/Navigation/Link',
   decorators: [withNotes, withCode, withNegative],
-  parameters: {
-    knobs: { disable: true },
-  },
 };
 
 export const Default = (args) => link(prepareData(dataDefault, args));

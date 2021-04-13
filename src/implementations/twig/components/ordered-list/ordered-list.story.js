@@ -8,7 +8,6 @@ import notes from './README.md';
 export default {
   title: 'Components/List/Ordered list',
   parameters: {
-    knobs: { disable: true },
     controls: { disable: true },
   },
 };

@@ -67,9 +67,6 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Page Headers/Harmonised',
   decorators: [withNotes, withCode],
-  knobs: {
-    disable: true,
-  },
 };
 
 export const Title = (args) =>

@@ -46,9 +46,6 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Messages',
   decorators: [withCode, withNotes],
-  parameters: {
-    knobs: { disable: true },
-  },
 };
 
 export const Info = (args) => message(prepareData(dataInfo, args));

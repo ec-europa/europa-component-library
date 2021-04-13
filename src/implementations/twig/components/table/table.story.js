@@ -14,7 +14,6 @@ export default {
   title: 'Components/Table',
   decorators: [withNotes, withCode],
   parameters: {
-    knobs: { disable: true },
     controls: { disable: true },
   },
 };
