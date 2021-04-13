@@ -83,11 +83,6 @@ collections:
         file: 'src/website/src/pages/ec/components/file/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
-      - label: 'File Upload'
-        name: 'ec_file_upload'
-        file: 'src/website/src/pages/ec/components/forms/file-upload/docs/usage.md'
-        fields:
-          - { label: Body, name: body, widget: markdown }
       - label: 'Footer Core'
         name: 'ec_footer_core'
         file: 'src/website/src/pages/ec/core-template/footer/docs/usage.md'
@@ -201,6 +196,11 @@ collections:
       - label: 'Radio'
         name: 'ec_radio'
         file: 'src/website/src/pages/ec/components/forms/radio/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Search form'
+        name: 'ec_search_form'
+        file: 'src/website/src/pages/ec/components/forms/search-form/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Select'
