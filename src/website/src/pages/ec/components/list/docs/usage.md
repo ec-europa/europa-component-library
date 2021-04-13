@@ -10,7 +10,7 @@ Ordered lists display a set of items in a sequential and logical order, indicate
 
 ## Do's
 
-- make sure the items are placed in hierarchical orderso that the relation, rank or order is obvious to the user
+- make sure the items are placed in hierarchical order so that the relation, rank or order is obvious to the user
 - indicate the external links, if linking to any pages external to the European Commission
 - for easy to read purpose, try to use labels that are relatively consistent in characters & width
 
@@ -35,7 +35,7 @@ Unordered lists are used to group related content without any particular order, 
 ## Do's
 
 - indicate the external links, if linking to any pages external to the European Commission
-- for easy to read purpose,try to use labels that are relatively consistent in characters & width
+- for easy to read purpose, try to use labels that are relatively consistent in characters & width
 
 ## Don'ts
 
@@ -57,9 +57,9 @@ Description lists are used to display and organise content that belongs to a cat
 
 ## Do's
 
-- label each itemwith a short, distinct and indicative title
+- label each item with a short, distinct and indicative title
 - choose the appropriate category in terms of relevance and added value to the users
-- grouprelated fields according to their type
+- group related fields according to their type
 - order logically according to their hierarchy, significance and degree of relatedness
 - indicate the external links, if linking to any pages external to the European Commission
 - avoid using more than one or two short sentences
@@ -74,7 +74,7 @@ Description lists are used to display and organise content that belongs to a cat
 ## When to use
 
 - use a description list when the terms in the list require a specific description or explanation
-- on content pages to add additional information(such as latest update on the content of a page) or link to pages of interest
+- on content pages to add additional information (such as latest update on the content of a page) or link to pages of interest
 
 ## When not to use
 
