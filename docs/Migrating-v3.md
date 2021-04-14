@@ -46,6 +46,11 @@ Change impact have been grouped as :
 
 #### Component updates
 
+**Breadcrumb**
+
+- :warning: EC Core breadcrumb is now using the new negative variant for links
+- :heavy_check_mark: twig parameter `icon_size` added, to handle the size of the icon between segments
+
 **Button**
 
 - :heavy_check_mark: variant "search" has been removed (css has been integrated in search form)
@@ -72,6 +77,8 @@ Change impact have been grouped as :
 **Link**
 
 - :warning: space between icon and label is now set using css (instead of a forced `&nbsp`)
+- :heavy_check_mark: twig parameter `negative` added, to display negative (white on dark) links
+- :heavy_check_mark: twig parameter `no_visited` added, to prevent change of color for visited links
 - :heavy_check_mark: twig parameter `icon_path` has been removed (not used)
 
 **Text area**
@@ -89,6 +96,7 @@ Change impact have been grouped as :
 
 - :warning: logo file names have been homogenized between EC and EU, using the pattern `logo-(ec|eu)--(language).svg`
   Example: `logo-en.svg` => `logo-ec--en.svg`
+- :heavy_check_mark: icon size `2xs` has been changed from 10px to 12px
 
 ### Presets / themes
 

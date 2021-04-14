@@ -6,20 +6,21 @@
 @use "sass:map";
 @use '@ecl/theme-dev/theme';
 
-$_label-color: map.get(theme.$color, 'grey-100');
-$_label-color-disabled: map.get(theme.$color, 'grey-50');
-$_box-size: 1.25rem;
-$_box-border-width: 2px;
-$_box-border-width-checked: 7px;
-$_box-border-color: map.get(theme.$color, 'grey-50');
-$_box-border-color-disabled: map.get(theme.$color, 'grey-50');
-$_box-border-color-checked: map.get(theme.$color, 'blue-100');
-$_box-border-color-hover: map.get(theme.$color, 'blue-100');
 $_box-background: map.get(theme.$color, 'white-100');
-$_box-background-disabled: map.get(theme.$color, 'grey-5');
-$_outline-width: 2px;
-$_outline-color: map.get(theme.$color, 'yellow-100');
-$_invalid-border-color: map.get(theme.$color, 'error');
+$_box-border-color: null !default;
+$_box-border-color-checked: null !default;
+$_box-border-color-hover: null !default;
+$_box-border-width: 2px;
+$_box-border-width-checked: null !default;
+$_box-inner-display: null !default;
+$_box-size: 1.25rem;
+$_help-text-color: null !default;
+$_help-text-font: null !default;
+$_invalid-border-color: null !default;
+$_invalid-border-color-hover: null !default;
+$_label-color: null !default;
+$_outline-width: null !default;
+$_outline-color: null !default;
 
 .ecl-radio {
   align-items: flex-start;
@@ -27,6 +28,11 @@ $_invalid-border-color: map.get(theme.$color, 'error');
   display: flex;
   flex-direction: column;
   margin: 0;
+}
+
+// Disabled
+.ecl-radio--disabled {
+  opacity: 50%;
 }
 
 .ecl-radio__input {
@@ -43,22 +49,25 @@ $_invalid-border-color: map.get(theme.$color, 'error');
 }
 
 .ecl-radio__label {
-  align-items: center;
   color: $_label-color;
   display: inline-flex;
-  font: map.get(theme.$font, 'm');
+  font: map.get(theme.$font-prolonged, 'm');
+}
+
+.ecl-radio--disabled .ecl-radio__label {
+  cursor: not-allowed;
 }
 
 .ecl-radio__box {
   background-color: $_box-background;
   border: $_box-border-width solid $_box-border-color;
   border-radius: 50%;
-  box-sizing: content-box;
+  box-sizing: border-box;
   display: block;
-  height: calc(#{$_box-size} - (#{$_box-border-width} * 2));
-  margin-right: map.get(theme.$spacing, 's');
+  height: $_box-size;
+  margin-right: map.get(theme.$spacing, 'xs');
   position: relative;
-  width: calc(#{$_box-size} - (#{$_box-border-width} * 2));
+  width: $_box-size;
 }
 
 .ecl-radio__label:hover .ecl-radio__box {
@@ -67,14 +76,11 @@ $_invalid-border-color: map.get(theme.$color, 'error');
 
 .ecl-radio__help {
   box-sizing: border-box;
-  color: map.get(theme.$color, 'grey-100');
+  color: $_help-text-color;
   display: block;
-  font: map.get(theme.$font-prolonged, 's');
+  font: $_help-text-font;
+  margin-bottom: -#{map.get(theme.$spacing, 's')};
   margin-top: map.get(theme.$spacing, 'xs');
-}
-
-.ecl-radio__help--disabled {
-  color: map.get(theme.$color, 'grey-50');
 }
 
 // Checked
@@ -82,8 +88,16 @@ $_invalid-border-color: map.get(theme.$color, 'error');
   .ecl-radio__box {
     border-color: $_box-border-color-checked;
     border-width: $_box-border-width-checked;
-    height: calc(#{$_box-size} - (#{$_box-border-width-checked} * 2));
-    width: calc(#{$_box-size} - (#{$_box-border-width-checked} * 2));
+  }
+
+  .ecl-radio__box-inner {
+    background: map.get(theme.$color, 'blue-80');
+    border-radius: 50%;
+    box-sizing: border-box;
+    display: $_box-inner-display;
+    height: 0.75rem;
+    margin: $_box-border-width-checked;
+    width: 0.75rem;
   }
 }
 
@@ -93,27 +107,12 @@ $_invalid-border-color: map.get(theme.$color, 'error');
 }
 
 .ecl-radio__label:hover .ecl-radio__box--invalid {
-  border-color: map.get(theme.$color, 'red-130');
+  border-color: $_invalid-border-color-hover;
 }
 
 .ecl-radio__input:checked + .ecl-radio__label .ecl-radio__box--invalid {
   border-color: $_invalid-border-color;
 }
-
-// Disabled
-.ecl-radio__label--disabled {
-  color: $_label-color-disabled;
-  cursor: not-allowed;
-}
-
-// stylelint-disable no-descending-specificity
-.ecl-radio__box--disabled,
-.ecl-radio__input:checked + .ecl-radio__label .ecl-radio__box--disabled,
-.ecl-radio__label--disabled:hover .ecl-radio__box {
-  background-color: $_box-background-disabled;
-  border-color: $_box-border-color-disabled;
-}
-// stylelint-enable no-descending-specificity
 
 // Focus
 .ecl-radio__input:focus + .ecl-radio__label,

@@ -28,6 +28,7 @@
 {% set _disabled = disabled|default(false) %}
 {% set _invalid = invalid|default(false) %}
 {% set _checked = checked|default(false) %}
+{% set _required = required|default(false) %}
 {% set _helper_id = helper_id|default('') %}
 {% set _helper_text = helper_text|default('') %}
 {% set _label = label|default('') %}
@@ -101,7 +102,9 @@
     for="{{ _id }}"
   {% endif %}
   >
-    <span class="{{ _box_css_class }}"></span>
+    <span class="{{ _box_css_class }}">
+      <span class="ecl-radio__box-inner"></span>
+    </span>
     {%- block label _label -%}
   </label>
 

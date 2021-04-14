@@ -7,6 +7,12 @@ module.exports = {
   label: 'Select your country',
   helper_text: "This is the group's helper text.",
   invalid_text: 'This is the error message',
+  invalid_icon: {
+    path: '/icons.svg',
+    type: 'notifications',
+    name: 'warning',
+    size: 'm',
+  },
   items: [
     {
       id: 'radio-default-1',

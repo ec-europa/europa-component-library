@@ -12,8 +12,8 @@ import breadcrumb from './breadcrumb-core.html.twig';
 import notes from './README.md';
 
 const system = getSystem();
-const dataSimple = system === 'eu' ? dataSimpleEU : dataSimpleEC;
-const dataLong = system === 'eu' ? dataLongEU : dataLongEC;
+const dataSimple = system === 'eu' ? { ...dataSimpleEU } : { ...dataSimpleEC };
+const dataLong = system === 'eu' ? { ...dataLongEU } : { ...dataLongEC };
 
 const getArgTypes = (data) => {
   const argTypes = {};
@@ -40,6 +40,7 @@ const getArgTypes = (data) => {
 const prepareData = (data, args) => {
   data.links.forEach((item, i) => {
     item.label = args[`item${i + 1}`];
+    item.negative = system === 'ec';
   });
 
   return correctSvgPath(data);
