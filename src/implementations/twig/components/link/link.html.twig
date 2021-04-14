@@ -6,6 +6,7 @@
       {
         type: '' (can be '', 'standalone', 'cta')
         negative: false (boolean),
+        no_visited: false (boolean),
         label: '' (string),
         path: '', (string) (Link url)
         aria_label: '' (string) Aria label attribute value
@@ -76,6 +77,10 @@
 
 {% if _link.negative is defined and _link.negative %}
   {% set _css_class = _css_class ~ ' ecl-link--negative' %}
+{% endif %}
+
+{% if _link.no_visited is defined and _link.no_visited %}
+  {% set _css_class = _css_class ~ ' ecl-link--no-visited' %}
 {% endif %}
 
 {% if _icons is defined and _link.icon_position is not empty %}

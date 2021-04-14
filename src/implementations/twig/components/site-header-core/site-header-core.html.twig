@@ -213,7 +213,7 @@
         <div class="ecl-site-header-core__login-container">
         {% if _logged %}
           <a
-            class="ecl-link ecl-link--standalone ecl-site-header-core__login-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__login-toggle"
             href="{{ _login_toggle.href_logged }}"
             aria-controls="{{ _login_box.id }}"
             data-ecl-login-toggle
@@ -256,7 +256,7 @@
           </div>
         {% else %}
           <a
-            class="ecl-link ecl-link--standalone ecl-site-header-core__login-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__login-toggle"
             href="{{ _login_toggle.href_not_logged }}"
           >
             {% include '@ecl/icon/icon.html.twig' with {
@@ -273,7 +273,7 @@
         </div>
       {% endif %}
         <a
-          class="ecl-link ecl-link--standalone ecl-site-header-core__language-selector"
+          class="ecl-button ecl-button--ghost ecl-site-header-core__language-selector"
           href="{{ _language_selector.href }}"
           data-ecl-language-selector
           aria-label="{{ _language_selector.label }}"
@@ -297,7 +297,7 @@
         <div class="ecl-site-header-core__search-container">
         {% if _search_toggle is not empty %}
           <a
-            class="ecl-link ecl-link--standalone ecl-site-header-core__search-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__search-toggle"
             href="{{ _search_toggle.href }}"
             data-ecl-search-toggle="true"
             aria-controls="search-form-id"
