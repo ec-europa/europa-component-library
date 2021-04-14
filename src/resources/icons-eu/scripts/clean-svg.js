@@ -25,7 +25,7 @@ glob.sync('**/*.svg', { cwd: src }).forEach((file) => {
       const clone = JSON.parse(JSON.stringify(result));
 
       // Add viewBox
-      clone.svg.$.viewBox = `0 0 ${result.svg.$.width} ${result.svg.$.height}`;
+      clone.svg.$.viewBox = `0 0 24 24`;
 
       const builder = new xml2js.Builder({ headless: true });
       const xml = builder.buildObject(clone);
