@@ -73,7 +73,7 @@ const Anatomy = ({
                       aria-hidden="true"
                       className={styles.link__icon}
                     >
-                      <use xlinkHref={`${iconSprite}#ui--corner-arrow`} />
+                      <use xlinkHref={`${iconSprite}#corner-arrow`} />
                     </svg>
                   </a>
                 </li>
@@ -94,7 +94,7 @@ const Anatomy = ({
                       aria-hidden="true"
                       className={styles.link__icon}
                     >
-                      <use xlinkHref={`${iconSprite}#ui--corner-arrow`} />
+                      <use xlinkHref={`${iconSprite}#corner-arrow`} />
                     </svg>
                   </Link>
                 </li>

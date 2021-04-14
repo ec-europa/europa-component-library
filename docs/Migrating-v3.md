@@ -141,6 +141,8 @@ Most of the components have been updated without much changes. Although, there a
   - twig parameter "type" has been removed (not used)
   - twig parameter "title_class_name" replaced by boolean "title_with_separator" parameter
   - twig parameter "list_class_name" replaced by boolean "links_inline" parameter
+- Icon
+  - twig parameter "type" has been removed
 - Link
   - twig parameter "negative" added, to display negative (white on dark) links
   - twig parameter "no_visited" added, to prevent change of color for visited links
@@ -157,6 +159,7 @@ Most of the components have been updated without much changes. Although, there a
 ## Resources specifics
 
 - logo file names have been homogenized between EC and EU, using the pattern `logo-(ec|eu)--(language).svg`
+- all icons have been grouped in a single cateory, instead of having different ones (branded, general, ...). So now only the icon name is used.
 - icon size '2xs' has been changed from 10px to 12px
 
 ## Presets / themes

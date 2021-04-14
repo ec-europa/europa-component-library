@@ -9,7 +9,6 @@ module.exports = {
   },
   icon: {
     path: '/icons.svg',
-    type: 'ui',
     name: 'external',
     size: 'fluid',
   },

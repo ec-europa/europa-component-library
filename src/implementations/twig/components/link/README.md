@@ -37,7 +37,6 @@ npm install --save @ecl/twig-component-link
   }, 
   icon: { 
     path: '/path-to-the-icon-file', 
-    type: 'ui', 
     name: 'external', 
     extra_classes: 'my-extra-class-1 my-extra-class-2' 
   }, 

@@ -37,7 +37,6 @@ npm install --save @ecl/twig-component-pagination
         } 
         icon: { 
           path: 'path/to/icons.svg', 
-          type: 'ui', 
           name: 'corner-arrow', 
           size: 'xs', 
           transform: 'rotate-270', 

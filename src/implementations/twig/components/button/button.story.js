@@ -4,7 +4,8 @@ import { correctSvgPath } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
 // Import data for demos
-import uiIcons from '@ecl/resources-ec-icons/dist/lists/ui.json';
+import iconsAllEc from '@ecl/resources-ec-icons/dist/lists/all.json';
+import iconsAllEu from '@ecl/resources-eu-icons/dist/lists/all.json';
 import dataPrimary from '@ecl/specs-component-button/demo/data--primary';
 import dataSecondary from '@ecl/specs-component-button/demo/data--secondary';
 import dataCall from '@ecl/specs-component-button/demo/data--call';
@@ -14,8 +15,10 @@ import button from './button.html.twig';
 import notes from './README.md';
 
 const system = getSystem();
+const iconsAll = system === 'eu' ? iconsAllEu : iconsAllEc;
+
 // Create 'none' option.
-uiIcons.unshift('none');
+iconsAll.unshift('none');
 
 const getArgTypes = () => {
   const argTypes = {};
@@ -43,7 +46,7 @@ const getArgTypes = () => {
     },
     control: {
       type: 'select',
-      options: uiIcons,
+      options: iconsAll,
     },
   };
   argTypes.icon_transform = {
@@ -104,7 +107,6 @@ const prepareData = (data, args) => {
   if (args.icon_name && args.icon_name !== 'none') {
     data.icon = {};
     data.icon.name = args.icon_name;
-    data.icon.type = 'ui';
     data.icon.size = system === 'eu' ? 's' : 'xs';
     data.icon.path = 'icon.svg';
     data.icon.transform = args.icon_transform;

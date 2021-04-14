@@ -9858,9 +9858,7 @@
           const e = n.isoDate.toString();
           return (t) => t && t.toString() === e;
         })()),
-        (n.Date = class extends (
-          r
-        ) {
+        (n.Date = class extends r {
           constructor() {
             super(), (this._type = 'date');
           }
@@ -9974,9 +9972,7 @@
         o = a(23),
         n = a(12),
         s = {};
-      (s.Alternatives = class extends (
-        i
-      ) {
+      (s.Alternatives = class extends i {
         constructor() {
           super(),
             (this._type = 'alternatives'),
@@ -12001,9 +11997,7 @@
             uuidv5: '5',
           },
         };
-      (l.String = class extends (
-        n
-      ) {
+      (l.String = class extends n {
         constructor() {
           super(), (this._type = 'string'), this._invalids.add('');
         }
@@ -12512,9 +12506,7 @@
         i = a(12),
         o = a(9),
         n = { precisionRx: /(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/ };
-      (n.Number = class extends (
-        r
-      ) {
+      (n.Number = class extends r {
         constructor() {
           super(),
             (this._type = 'number'),
@@ -12640,9 +12632,7 @@
       const r = a(11),
         i = a(9),
         o = { Set: a(60) };
-      (o.Boolean = class extends (
-        r
-      ) {
+      (o.Boolean = class extends r {
         constructor() {
           super(),
             (this._type = 'boolean'),
@@ -12725,9 +12715,7 @@
         s = a(23),
         c = a(12),
         u = {};
-      (u.Object = class extends (
-        o
-      ) {
+      (u.Object = class extends o {
         constructor() {
           super(),
             (this._type = 'object'),
@@ -17488,21 +17476,19 @@
       'use strict';
       a.r(t);
       var r = a(106);
-      const i = a
-        .n(r)
-        .a.create({
-          client: {
-            id: process.env.OAUTH_CLIENT_ID,
-            secret: process.env.OAUTH_CLIENT_SECRET,
-          },
-          auth: {
-            tokenHost: process.env.GIT_HOSTNAME || 'https://github.com',
-            tokenPath:
-              process.env.OAUTH_TOKEN_PATH || '/login/oauth/access_token',
-            authorizePath:
-              process.env.OAUTH_AUTHORIZE_PATH || '/login/oauth/authorize',
-          },
-        });
+      const i = a.n(r).a.create({
+        client: {
+          id: process.env.OAUTH_CLIENT_ID,
+          secret: process.env.OAUTH_CLIENT_SECRET,
+        },
+        auth: {
+          tokenHost: process.env.GIT_HOSTNAME || 'https://github.com',
+          tokenPath:
+            process.env.OAUTH_TOKEN_PATH || '/login/oauth/access_token',
+          authorizePath:
+            process.env.OAUTH_AUTHORIZE_PATH || '/login/oauth/authorize',
+        },
+      });
       t.default = i;
     },
     function (e, t, a) {
@@ -18676,9 +18662,7 @@
       const r = a(11),
         i = a(9),
         o = {};
-      (o.Lazy = class extends (
-        r
-      ) {
+      (o.Lazy = class extends r {
         constructor() {
           super(), (this._type = 'lazy');
         }
@@ -18716,9 +18700,7 @@
             --e.length;
           },
         };
-      (s.Array = class extends (
-        r
-      ) {
+      (s.Array = class extends r {
         constructor() {
           super(),
             (this._type = 'array'),
@@ -19233,9 +19215,7 @@
       const r = a(11),
         i = a(9),
         o = {};
-      (o.Binary = class extends (
-        r
-      ) {
+      (o.Binary = class extends r {
         constructor() {
           super(), (this._type = 'binary');
         }

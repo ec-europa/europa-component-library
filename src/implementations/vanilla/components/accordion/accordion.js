@@ -124,9 +124,9 @@ export class Accordion {
         const originalXlinkHref = useNode.getAttribute('xlink:href');
         let newXlinkHref = '';
         if (isExpanded) {
-          newXlinkHref = originalXlinkHref.replace('ui--minus', 'ui--plus');
+          newXlinkHref = originalXlinkHref.replace('minus', 'plus');
         } else {
-          newXlinkHref = originalXlinkHref.replace('ui--plus', 'ui--minus');
+          newXlinkHref = originalXlinkHref.replace('plus', 'minus');
         }
         useNode.setAttribute('xlink:href', newXlinkHref);
       }

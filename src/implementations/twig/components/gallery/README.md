@@ -57,7 +57,6 @@ npm install --save @ecl/twig-component-gallery
       meta: 'Copyright, Author, Licence for image 2', 
       icon: { 
         path: 'path/to/icons.svg', 
-        type: 'general', 
         name: 'audio', 
       }, 
       share_href: '/share#example-image2.jpg', 
@@ -72,7 +71,6 @@ npm install --save @ecl/twig-component-gallery
     }, 
     icon: { 
       path: "/icons.svg", 
-      type: "ui", 
       name: "external", 
       size: "s" 
     } 
@@ -83,7 +81,6 @@ npm install --save @ecl/twig-component-gallery
       label: 'Close', 
       icon: { 
         path: 'path/to/icons.svg', 
-        type: 'ui', 
         name: 'close', 
         size: 's', 
       }, 
@@ -93,7 +90,6 @@ npm install --save @ecl/twig-component-gallery
       label: 'Previous', 
       icon: { 
         path: 'path/to/icons.svg', 
-        type: 'ui', 
         name: 'corner-arrow', 
         transform: 'rotate-270', 
         size: 'l', 
@@ -105,7 +101,6 @@ npm install --save @ecl/twig-component-gallery
       label: 'Next', 
       icon: { 
         path: 'path/to/icons.svg', 
-        type: 'ui', 
         name: 'corner-arrow', 
         transform: 'rotate-90', 
         size: 'l', 
@@ -116,7 +111,6 @@ npm install --save @ecl/twig-component-gallery
       label: 'Download', 
       icon: { 
         path: 'path/to/icons.svg', 
-        type: 'ui', 
         name: 'download', 
         size: 'fluid', 
       }, 
@@ -125,7 +119,6 @@ npm install --save @ecl/twig-component-gallery
       label: 'Share', 
       icon: { 
         path: 'path/to/icons.svg', 
-        type: 'general', 
         name: 'share', 
         size: 'fluid', 
       }, 

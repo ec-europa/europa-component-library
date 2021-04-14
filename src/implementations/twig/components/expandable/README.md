@@ -33,7 +33,6 @@ npm install --save @ecl/twig-component-expandable
     label: 'Collapsed button', 
     variant: 'secondary', 
     icon: { 
-      type: 'ui', 
       name: 'corner-arrow', 
       transform: 'rotate-180', 
       size: 'fluid', 

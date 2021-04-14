@@ -53,7 +53,7 @@
     extra_classes: 'ecl-message__icon',
   } only %}
   {% if _close.icon is defined and _close.icon is not empty %}
-    {% set _icon = _close.icon|merge({ size: 's', name: 'close', type: 'ui' }) %}
+    {% set _icon = _close.icon|merge({ size: 's', name: 'close' }) %}
   {% endif %}
   <div class="ecl-message__content">
     {% include '@ecl/button/button.html.twig' with _close|merge({

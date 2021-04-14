@@ -17,7 +17,7 @@ const Caution = ({ image, alt, title, description }) => (
           aria-hidden="true"
           className={styles.title__icon}
         >
-          <use xlinkHref={`${iconSprite}#notifications--warning`} />
+          <use xlinkHref={`${iconSprite}#warning`} />
         </svg>
         {title}
       </div>

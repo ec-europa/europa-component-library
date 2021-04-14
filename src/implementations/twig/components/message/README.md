@@ -29,7 +29,6 @@ npm install --save @ecl/twig-component-message
   variant: 'info', 
   icon: { 
     path: 'path/to/icons.svg', 
-    type: 'notifications', 
     name: 'info', 
     size: 'l', 
   }, 
@@ -39,7 +38,6 @@ npm install --save @ecl/twig-component-message
     label: 'Close', 
     icon: { 
       path: 'path/to/icons.svg', 
-      type: 'ui', 
       name: 'close', 
       size: 's', 
     }, 
