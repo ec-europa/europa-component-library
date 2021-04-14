@@ -2,78 +2,20 @@
 title: Usage
 order: 1
 ---
+The Breadcrumb informs the users on their current location relative to the homepage of the website and allows them to navigate to higher levels. It is a series links except the last item in the group, which is the current page.
 
-import { Paragraph, Anatomy } from '@ecl/website-components';
+### Dos 
 
-<Paragraph size="lead">
-  The breadcrumb is a trail, informing the users on their current location in the site's structure. This is done relative to the homepage, and allows them to navigate up the site's information architecture.
-</Paragraph>
+- the first element of the breadcrumb must always be labelled "Home" and must link to the homepage of the actual site where the current user page is located
 
-## Anatomy
+### Don'ts
 
-### Core
+- use long labels which creates visual clutter
 
-<Anatomy
-image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb%20-%20desktop.png"
-srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb%20-%20mobile.png 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb%20-%20desktop.png 1246w"
-alt="Anatomy of the core breadcrumb"
-legend={{
-    items: [
-      {
-        color: '#404040',
-        label: 'mandatory',
-      },
-      {
-        color: '#004494',
-        label: 'optional',
-      },
-    ],
-  }}
-/>
+### When to use
 
-### Standardised \(Harmonised\)
+- if your website's navigational structure is a tree of more than 2 levels
 
-<Anatomy
-image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb%20-%20strd%20-%20desktop.png​​​​​​​"
-srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb%20-%20strd%20-%20mobile.png 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb%20-%20strd%20-%20desktop.png 1246w"
-alt="Anatomy of the standardised breadcrumb"
-legend={{
-    items: [
-      {
-        color: '#404040',
-        label: 'mandatory',
-      },
-      {
-        color: '#004494',
-        label: 'optional',
-      },
-    ],
-  }}
-/>
+### When not to use
 
-| Elements         | Mandatory desktop | Mandatory mobile | Description                                                         |
-| ---------------- | ----------------- | ---------------- | ------------------------------------------------------------------- |
-| homepage link    | yes               | yes              | link taking users to the homepage \(this is considered level 0\)    |
-| parent page link | yes               | yes              | link taking users to the parent page \(this is considered level 1\) |
-| child page label | yes               | yes              | label of the current page (this is considered level 2)              |
-
-<Paragraph>
-Note: Showcase images reflect the minimum number of levels (homepage + 2 levels)
-</Paragraph>
-
-## Do's
-
-- always label the the first element 'Home' and link to the homepage of the current site
-
-## Don'ts
-
-- do not add the link to European Commission \(previous iteration\), the redirect now happens from the EC logo
-
-## When to use
-
-- when you site is 2 or more levels deep
-
-## When not to use
-
-- do not use on one-page sites
-- do not use when your site only has childless parent pages \(as indicator of the current page is displayed in the horizontal menu\)
+- if your website's navigational structure has less than 3 levels of depth
