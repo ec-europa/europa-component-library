@@ -3,7 +3,7 @@
 {#
   Parameters:
     - "icon_file_path" (string) (default: ''): URL to icons file
-    - "banner_top" (object): Object of the link (link : { label, path })
+    - "banner_top" (object): Object of type link (link : { label, path })
     - "logged" (boolean): Whether the user is logged in or not
     - "menu" (boolean): Whether the component includes a menu
     - "menu_label" (string) Menu toggler label
@@ -13,8 +13,8 @@
           "title": (string) (default: ''): Logo title attribute.
           "alt": (string) (default: ''): Logo alt attribute.
           "href": (string) (default: ''): Logo URL.
-          "src-desktop": (string) (default: ''): Desktop logo image file path.
-          "src-mobile": (string) (default: ''): Mobile logo image file path for EU only.
+          "src_desktop": (string) (default: ''): Desktop logo image file path
+          "src_mobile": (string) (default: ''): Mobile logo image file path for EU only
         },
     - "language_selector" (associative array) (default: predefined structure): Language switcher settings. format:
         {
@@ -56,7 +56,7 @@
       }
     - "search_form" (associative array) (default: predefined structure): EC Search Form component structure
     - "extra_classes" (string) (default: '')
-    - "extra_attributes" (array) (default: data-ecl-auto-init="SiteHeaderCore"): format: [
+    - "extra_attributes" (array) (default: data-ecl-auto-init="SiteHeaderStandardised"): format: [
         {
           "name" (string) (default: ''),
           "value" (optional) (string)
@@ -192,40 +192,44 @@
   <div class="ecl-site-header-standardised__container ecl-container">
     <div class="ecl-site-header-standardised__top">
     {% if _logo is not empty %}
-    {% set _label %}
-    {% if _logo.src_mobile is defined and _logo.src_mobile is not empty %}
+    {# Logo #}
+      {% set _label %}
+      {% if _logo.src_mobile is defined and _logo.src_mobile is not empty %}
       <img
         alt="{{ _logo.alt }}"
         title="{{ _logo.title }}"
         class="ecl-site-header-standardised__logo-image-mobile"
         src="{{ _logo.src_mobile }}"
       />
-    {% endif %}
-    {% if _logo.src_desktop is defined and _logo.src_desktop is not empty %}
+      {% endif %}
+      {% if _logo.src_desktop is defined and _logo.src_desktop is not empty %}
       <img
         alt="{{ _logo.alt }}"
         title="{{ _logo.title }}"
         class="ecl-site-header-standardised__logo-image ecl-site-header-standardised__logo-image-desktop"
         src="{{ _logo.src_desktop }}"
       />
+      {% endif %}
+      {% endset %}
+      {% include '@ecl/link/link.html.twig' with {
+        link: {
+          path: _logo.path,
+          label: _label,
+          type: 'standalone',
+          aria_label: _logo.title
+        },
+        extra_classes: 'ecl-site-header-standardised__logo-link'
+      } only %}
     {% endif %}
-    {% endset %}
-    {% include '@ecl/link/link.html.twig' with {
-      link: {
-        path: _logo.href,
-        label: _label,
-        type: 'standalone',
-        aria_label: _logo.title
-      },
-      extra_classes: 'ecl-site-header-standardised__logo-link'
-    } only %}
-    {% endif %}
+
+      {# Header actions #}
       <div class="ecl-site-header-standardised__action">
       {% if _login_toggle is not empty and _login_box is not empty %}
+        {# Login #}
         <div class="ecl-site-header-standardised__login-container">
         {% if _logged %}
           <a
-            class="ecl-link ecl-link--standalone ecl-site-header-standardised__login-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-standardised__login-toggle"
             href="{{ _login_toggle.href_logged }}"
             aria-controls="{{ _login_box.id }}"
             data-ecl-login-toggle
@@ -240,7 +244,7 @@
               extra_classes: 'ecl-site-header-standardised__icon',
             } only %}
              {{- login_toggle.label_logged -}}
-            {% include '@ecl/icon/icon.html.twig' with {
+             {% include '@ecl/icon/icon.html.twig' with {
               icon: {
                 path: _icon_file_path,
                 name: 'corner-arrow',
@@ -262,13 +266,13 @@
               link: {
                 label: _login_box.label,
                 path: _login_box.href,
-                type: 'standalone'
-              },
+                type: 'standalone',
+              }
             } only %}
           </div>
         {% else %}
           <a
-            class="ecl-link ecl-link--standalone ecl-site-header-standardised__login-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-standardised__login-toggle"
             href="{{ _login_toggle.href_not_logged }}"
           >
             {% include '@ecl/icon/icon.html.twig' with {
@@ -284,9 +288,11 @@
         {% endif %}
         </div>
       {% endif %}
+
       {% if _language_selector is not empty %}
+      {# Language selector #}
         <a
-          class="ecl-link ecl-link--standalone ecl-site-header-standardised__language-selector"
+          class="ecl-button ecl-button--ghost ecl-site-header-standardised__language-selector"
           href="{{ _language_selector.href }}"
           data-ecl-language-selector
           aria-label="{{ _language_selector.label }}"
@@ -311,7 +317,7 @@
         <div class="ecl-site-header-standardised__search-container">
         {% if _search_toggle is not empty %}
           <a
-            class="ecl-link ecl-link--standalone ecl-site-header-standardised__search-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-standardised__search-toggle"
             href="{{ _search_toggle.href }}"
             data-ecl-search-toggle="true"
             aria-controls="search-form-id"
@@ -335,7 +341,9 @@
       </div>
     </div>
   </div>
+
 {% if banner_top is defined and banner_top is not empty %}
+  {# Banner top #}
   <div class="ecl-site-header-standardised__banner-top">
     <div class="ecl-container">
     {%- if banner_top.link is defined and banner_top.link is not empty %}
@@ -349,16 +357,22 @@
     </div>
   </div>
 {% endif %}
+
+{# Site name (banner) #}
+{% if _site_name is defined and _site_name is not empty %}
+  <div class="ecl-site-header-standardised__banner">
+    <div class="ecl-container">{{ _site_name }}</div>
+  </div>
+{% endif %}
+
+{# Menu #}
 {% if _menu is defined and _menu is not empty %}
   {% include '@ecl/menu/menu.html.twig' with _menu|merge({
     site_name: _site_name,
     icon_path: _icon_file_path,
   }) only %}
-{% else %}
-  <div class="ecl-site-header-standardised__banner">
-    <div class="ecl-container">{{ _site_name }}</div>
-  </div>
 {% endif %}
+
 {% if _has_overlay is defined and _language_selector.overlay is defined and _language_selector.overlay.items is defined %}
   {% set _non_eu_items = [] %}
   {% set _items = _language_selector.overlay.items|default([]) %}
