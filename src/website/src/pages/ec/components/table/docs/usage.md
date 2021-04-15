@@ -2,70 +2,25 @@
 title: Usage
 order: 1
 ---
-
-import { Paragraph, Anatomy, Link } from '@ecl/website-components';
-
-<Paragraph size="lead">
-  Tables are used to structure complex data in a way that makes it easier for
-  users to scan and digest content of interest.
-</Paragraph>
-
-## Anatomy
-
-<Anatomy
-image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Table/table-sort-desktop.png"
-srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/Table/table-mobile.png 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/Table/table-sort-desktop.png 734w"
-alt="Anatomy of table"
-legend={{
-    items: [
-      {
-        color: '#404040',
-        label: 'mandatory',
-      },
-      {
-        color: '#004494',
-        label: 'optional',
-      },
-    ],
-  }}
-/>
-
-### Default
-
-| Elements | Mandatory | Description              |
-| -------- | --------- | ------------------------ |
-| headings | yes       | columns headlines        |
-| cells    | yes       | actual data in the cells |
-
-### Conditional
-
-| Elements         | Mandatory desktop | Mandatory mobile | Description                                                                                                                                                                                                                                                                                             |
-| ---------------- | ----------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Action indicator | no                | no               | <strong>if</strong> sorting is selected <strong>then</strong> users can click the action indicator to have the columns of the table sorted depending on the selection in the following fashion:<br/>- 1st click - ascending order<br/>- 2nd click - descending order<br/>- 3rd click - reset to default |
+Tables are used to structure complex data in an organised way that is more user friendly and discoverable.
 
 ## Do's
 
-- reduce the table width to fit the content
-- <strong>align content left to right within a cell</strong>
-- use a dash ( - ) in null data cells
-- adjusts the styling to render a small/large table
+- Reduce the table width to fit the content
+- Align content left to right within cells
+- Use a dash ( - ) in null data cells
+- Adjusts the styling to render a small/large table
 
 ## Don'ts
 
-- don't spell out numbers
-- don't use colour alone to convey information
+- Don't spell out numbers
+- Don't use colour alone to convey information
 
 ## When to use
 
-- use when you want to store and <strong>show large/small amounts of info, static data</strong>
-- use when you want to <strong>make comparisons</strong>
+- Use when you want to show structured information, or static data
+- Use when you want to help users to compare information
 
 ## When not to use
 
-- when you don't have any relationship among content you want to present
-
-## Notes
-
-### Design
-
-- when including text links, use a different color to highlight this - just bolding or underlining the text doesn’t provide enough of a visual cue
+- When you don't have any relationship among content you want to present
