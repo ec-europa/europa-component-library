@@ -14,6 +14,10 @@ All library elements are accompanied with
 - demo: visual representation of the component
 - code: technologically agnostic HTML/CSS code for implementation
 
+## Requirements
+
+ECL has always been using the LTS version of Node.js. Please ensure a match before proceeding with the installation of ECL dependencies or ones in ECL Builder.
+
 ## Documentation
 
 Read the technical documentation [on GitHub](docs/README.md).
