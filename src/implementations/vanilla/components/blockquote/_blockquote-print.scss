@@ -1,0 +1,52 @@
+/**
+ * Blockquote
+ * @define blockquote
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+
+$_border-width: null !default;
+$_border-radius: null !default;
+$_border-color: null !default;
+$_body-font: null !default;
+$_body-color: null !default;
+$_author-margin-top: null !default;
+$_author-font-weight: null !default;
+$_author-color: null !default;
+
+.ecl-blockquote {
+  border-left: $_border-width solid $_border-color;
+  border-radius: $_border-radius;
+  margin: 0;
+  padding-bottom: map.get(theme.$spacing-print, 'm');
+  padding-left: map.get(theme.$spacing-print, 'l');
+  padding-top: map.get(theme.$spacing-print, 'm');
+}
+
+.ecl-blockquote__body {
+  color: $_body-color;
+  font: $_body-font;
+  font-style: italic;
+  margin: 0;
+  quotes: '\201C''\201D';
+
+  &::before {
+    content: open-quote;
+  }
+
+  &::after {
+    content: close-quote;
+  }
+}
+
+.ecl-blockquote__attribution {
+  font: map.get(theme.$font-prolonged-print, 'l');
+  margin-top: $_author-margin-top;
+}
+
+.ecl-blockquote__author {
+  color: $_author-color;
+  font: map.get(theme.$font-prolonged-print, 'l');
+  font-weight: $_author-font-weight;
+}

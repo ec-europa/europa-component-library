@@ -79,7 +79,6 @@ npm install --save @ecl/twig-component-footer-harmonised
               icon_position: 'before', 
               icon: { 
                 path: '/path-to-the-icon-file', 
-                type: 'branded', 
                 name: 'facebook', 
                 size: 'xs', 
               }, 

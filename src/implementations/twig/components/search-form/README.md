@@ -29,7 +29,6 @@ npm install --save @ecl/twig-component-search-form
   button: { 
     variant: 'search', 
     icon: { 
-      type: 'general', 
       name: 'search', 
       path: '/path-to-the-icon-file', 
     }, 

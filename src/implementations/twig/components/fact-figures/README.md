@@ -35,8 +35,7 @@ npm install --save @ecl/twig-component-fact-figures
   items: [ 
     { 
       icon: { 
-        path: "static/media/icons.1dbe9812.svg", 
-        type: "general", 
+        path: "static/media/icons.1dbe9812.svg",
         name: "digital", 
         size: "m" 
       }, 
@@ -46,8 +45,7 @@ npm install --save @ecl/twig-component-fact-figures
     }, 
     { 
       icon: { 
-        path: "static/media/icons.1dbe9812.svg", 
-        type: "general", 
+        path: "static/media/icons.1dbe9812.svg",
         name: "digital", 
         size: "m" 
       }, 

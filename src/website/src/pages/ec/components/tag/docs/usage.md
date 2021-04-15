@@ -2,147 +2,64 @@
 title: Usage
 order: 1
 ---
+Tags are components that indicate a taxonomy type. They can be found in different variants, offering a different interaction type, based on the use-case.
 
-import { Paragraph, Anatomy } from '@ecl/website-components';
+## Display tag(s)
 
-<Paragraph size="lead">
-  Tags are <strong>components that indicate a taxonomy type</strong>. They can
-  be found in different variants, offering a different interaction type, based
-  on the use-case.
-</Paragraph>
+Display tags only indicate the taxonomy term, users cannot interact with them, as they are used only for display purposes.
 
-<h2 id="display">Display tag(s)</h2>
+## Do's
 
-### Introduction
+- use short, distinct and indicative labels, representative for the taxonomy term
 
-**Display tags only indicate the taxonomy term**, users cannot interact with them, as they are used only for display purposes.
-
-### Anatomy
-
-<Anatomy
-image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Tags/Tags%20-%20Display.png"
-alt="Anatomy of display tags"
-legend={{
-    items: [
-      {
-        color: '#404040',
-        label: 'mandatory',
-      },
-      {
-        color: '#004494',
-        label: 'optional',
-      },
-    ],
-  }}
-/>
-
-| Elements | Mandatory | Description                |
-| -------- | --------- | -------------------------- |
-| label    | yes       | **label** of the component |
-
-### Do's
-
-- use **short, distinct and indicative labels**, representative for the taxonomy term
-
-### Don'ts
+## Don'ts
 
 - don't use abstract or elaborate terms, unless they are contextual to content presented on the page
 
-### When to use
+## When to use
 
-- when tags can **offer complementary information** associated to the page's content
+- when tags can offer complementary information associated to the page's content
 
-### When not to use
+## When not to use
 
-- do not use when you need to link to another page - use [Link tag(s)](#link) instead
-- do not use for search filters that can be removed - use [Removable tag(s)](#removable) instead
+- do not use when you need to link to another page
+- do not use for search filters that can be removed
 
-<h2 id="link">Link tag(s)</h2>
+### Link tag(s)
 
-### Introduction
+Link tags provide users with further navigation, related to the context in which they are used.
 
-**Link tags provide users with further navigation**, related to the context in which they are used.
+## Do's
 
-### Anatomy
+- use **short, distinct and indicative links**, representative for the content you are linking to
 
-<Anatomy
-image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Tags/Tags%20-%20Link.png"
-alt="Anatomy of link tags"
-legend={{
-    items: [
-      {
-        color: '#404040',
-        label: 'mandatory',
-      },
-      {
-        color: '#004494',
-        label: 'optional',
-      },
-    ],
-  }}
-/>
-
-| Elements | Mandatory | Description                         |
-| -------- | --------- | ----------------------------------- |
-| link     | yes       | **link** to internal page or source |
-
-### Do's
-
-- use **short, distinct and indicative links**, representative for the content you are linking to
-
-### Don'ts
+## Don'ts
 
 - do not use unless there is an internal page where further related information is found
 
-### When to use
+## When to use
 
-- **for navigation**, when the tags link to pages relevant to the content presented on the page
+- for navigation, when the tags link to pages relevant to the content presented on the page
 
-### When not to use
+## When not to use
 
-- do not use when the tags are only for display purposes - use [Display tag(s)](#display) instead
-- do not use for search filters that can be removed - use [Removable tag(s)](#removable) instead
+- do not use when the tags are only for display purposes
+- do not use for search filters that can be removed
 
-<h2 id="removable">Removable tag(s)</h2>
+## Removable tag(s)
 
-### Introduction
+Removable tags are used as an indicator for performed searches. When they are removed (via the close button - icon), the taxonomy term used as a filter will be removed as well.
 
-**Removable tags are used as an indicator for performed searches**. When they are removed (via the close button - icon), the taxonomy term used as a filter will be removed as well.
+## Do's
 
-### Anatomy
-
-<Anatomy
-image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Tags/Tags%20-%20Removable.png"
-alt="Anatomy of removable tags"
-legend={{
-    items: [
-      {
-        color: '#404040',
-        label: 'mandatory',
-      },
-      {
-        color: '#004494',
-        label: 'optional',
-      },
-    ],
-  }}
-/>
-
-| Elements | Mandatory | Description                                             |
-| -------- | --------- | ------------------------------------------------------- |
-| label    | yes       | **label** of the component                              |
-| icon     | no        | **affordance or action indicator** for removing the tag |
-
-### Do's
-
-- use **short, distinct and indicative labels**, representative for the content you are linking to
+- use short, distinct and indicative labels, representative for the content you are linking to
 - make sure the tag matches the filter option used in the search query
 
-### When to use
+## When to use
 
-- **use on list/pool pages**, where search queries can be seen through the tags, and removed accordingly
+- use where search queries can be viewed through the tags, and removed as needed
 
-### When not to use
+## When not to use
 
-- do not use when the tags are only for display purposes - use [Display tag(s)](#display) instead
-- do not use when you need to link to another page - use [Link tag(s)](#link) instead
+- do not use when the tags are only for display purposes
+- do not use when you need to link to another page

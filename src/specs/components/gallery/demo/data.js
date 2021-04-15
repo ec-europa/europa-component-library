@@ -28,7 +28,6 @@ module.exports = {
         name: 'video',
         size: 'l',
         path: '/icons.svg',
-        type: 'general',
       },
     },
     {
@@ -101,7 +100,6 @@ module.exports = {
         name: 'video',
         size: 'l',
         path: '/icons.svg',
-        type: 'general',
       },
       share_path: '/share#example-image5.jpg',
     },
@@ -163,7 +161,6 @@ module.exports = {
         name: 'video',
         size: 'l',
         path: '/icons.svg',
-        type: 'general',
       },
       share_path: '/share#example-image8.jpg',
     },
@@ -193,7 +190,6 @@ module.exports = {
       label: 'Close',
       icon: {
         path: 'static/media/icons.3cf410f9.svg',
-        type: 'ui',
         name: 'close',
         size: 's',
       },
@@ -203,7 +199,6 @@ module.exports = {
       label: 'Previous',
       icon: {
         path: 'static/media/icons.3cf410f9.svg',
-        type: 'ui',
         name: 'corner-arrow',
         size: 'l',
         transform: 'rotate-270',
@@ -215,7 +210,6 @@ module.exports = {
       label: 'Next',
       icon: {
         path: 'static/media/icons.3cf410f9.svg',
-        type: 'ui',
         name: 'corner-arrow',
         size: 'l',
         transform: 'rotate-90',
@@ -231,7 +225,6 @@ module.exports = {
         name: 'download',
         size: 'fluid',
         path: '/icons.svg',
-        type: 'ui',
       },
     },
     share: {
@@ -241,7 +234,6 @@ module.exports = {
       },
       icon: {
         name: 'share',
-        type: 'general',
         size: 'fluid',
         path: '/icons.svg',
       },
@@ -256,7 +248,6 @@ module.exports = {
     },
     icon: {
       name: 'external',
-      type: 'ui',
       size: 's',
       path: '/icons.svg',
     },

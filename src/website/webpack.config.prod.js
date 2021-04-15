@@ -352,7 +352,7 @@ module.exports = {
         (sri['eu-core.css'] || []).join(' ') || 'n/a'
       ),
       'process.env.ECL_EU_PRESET_WEBSITE_PRINT_CSS': JSON.stringify(
-        (sri['ec-core.css'] || []).join(' ') || 'n/a'
+        (sri['eu-core-print.css'] || []).join(' ') || 'n/a'
       ),
       'process.env.ECL_EU_PRESET_WEBSITE_JS': JSON.stringify(
         (sri['eu-core.js'] || []).join(' ') || 'n/a'

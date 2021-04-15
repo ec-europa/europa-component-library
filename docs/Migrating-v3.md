@@ -74,6 +74,10 @@ Change impact have been grouped as :
 
 - :warning: css class `.ecl-form-label--hidden` has been removed (it was marked as deprecated already). You can use utility class `.ecl-u-sr-only` to achieve the same result, as it is outside a component
 
+**Icon**
+
+- :warning: twig parameter "type" has been removed
+
 **Link**
 
 - :warning: space between icon and label is now set using css (instead of a forced `&nbsp`)
@@ -96,6 +100,7 @@ Change impact have been grouped as :
 
 - :warning: logo file names have been homogenized between EC and EU, using the pattern `logo-(ec|eu)--(language).svg`
   Example: `logo-en.svg` => `logo-ec--en.svg`
+- :warning: all icons have been grouped in a single cateory, instead of having different ones (branded, general, ...). So now only the icon name is used.
 - :heavy_check_mark: icon size `2xs` has been changed from 10px to 12px
 
 ### Presets / themes
