@@ -73,11 +73,11 @@
   {%- if _tag.type == 'removable' -%}
     <button type="button" {{ _extra_attributes|raw }} class="ecl-tag__icon">
       {% include '@ecl/icon/icon.html.twig' with {
-        icon: { type: 'ui', name: 'close', size: 'xs', path: _default_icon_path },
+        icon: { name: 'close', size: 'xs', path: _default_icon_path },
         extra_classes: 'ecl-tag__icon-close',
       } only %}
       {% include '@ecl/icon/icon.html.twig' with {
-        icon: { type: 'ui', name: 'close-filled', size: 'xs', path: _default_icon_path },
+        icon: { name: 'close-filled', size: 'xs', path: _default_icon_path },
         extra_classes: 'ecl-tag__icon-close-filled',
       } only %}
     </button>

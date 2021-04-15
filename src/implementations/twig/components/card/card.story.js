@@ -1,7 +1,9 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
+import getSystem from '@ecl/builder/utils/getSystem';
 
-import defaultSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
+import defaultSpriteEc from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
+import defaultSpriteEu from '@ecl/resources-eu-icons/dist/sprites/icons.svg';
 import dataCard from '@ecl/specs-component-card/demo/data--card';
 import dataCardTaxonomy from '@ecl/specs-component-card/demo/data--card-taxonomy';
 import dataCardTile from '@ecl/specs-component-card/demo/data--tile';
@@ -9,6 +11,9 @@ import dataCardTileTaxonomy from '@ecl/specs-component-card/demo/data--tile-taxo
 
 import card from './card.html.twig';
 import notes from './README.md';
+
+const system = getSystem();
+const defaultSprite = system === 'eu' ? defaultSpriteEu : defaultSpriteEc;
 
 const infosClone = { ...dataCard.card.infos };
 const linkClone = { ...dataCardTile.card.links[0] };

@@ -2,41 +2,7 @@
 title: Usage
 order: 1
 ---
-
-import { Anatomy, Paragraph } from '@ecl/website-components';
-
-<Paragraph size="lead">
-  The facts and figures component is used to deliver numerical representations
-  of facts that are easier to portray visually through the use of statistics.
-</Paragraph>
-
-## Anatomy
-
-<Anatomy
-image="https://inno-ecl.s3.amazonaws.com/media/images/EC/FactFigure/Facts%20Figures%20-%20Desktop.png"
-srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/FactFigure/Facts%20Figures%20-%20Mobile.png 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/FactFigure/Facts%20Figures%20-%20Desktop.png 734w"
-alt="Anatomy of facts and figures"
-legend={{
-    items: [
-      {
-        color: '#404040',
-        label: 'mandatory',
-      },
-      {
-        color: '#004494',
-        label: 'optional',
-      },
-    ],
-  }}
-/>
-
-| Elements    | Mandatory | Description                                       |
-| ----------- | --------- | ------------------------------------------------- |
-| icon        | no        | representative icon for the item in question      |
-| statistic   | yes       | numerical value associated with the fact or label |
-| label       | yes       | label of the numerical value                      |
-| description | no        | short description of the fact                     |
-| link        | no        | link to further facts (if any)                    |
+The facts and figures component is used to deliver numerical representations of facts that are easier portrayed visually through the use of statistics.
 
 ## Do's
 

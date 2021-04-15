@@ -1,72 +1,18 @@
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 
-import brandedIcons from '@ecl/resources-ec-icons/dist/lists/branded.json';
-import generalIcons from '@ecl/resources-ec-icons/dist/lists/general.json';
-import notificationsIcons from '@ecl/resources-ec-icons/dist/lists/notifications.json';
-import uiIcons from '@ecl/resources-ec-icons/dist/lists/ui.json';
-import dataBranded from '@ecl/specs-component-icon/demo/data--branded';
-import dataNotifications from '@ecl/specs-component-icon/demo/data--notifications';
-import dataUi from '@ecl/specs-component-icon/demo/data--ui';
+import iconsAll from '@ecl/resources-ec-icons/dist/lists/all.json';
+import dataAll from '@ecl/specs-component-icon/demo/data';
 
 describe('Icon', () => {
   const template = '@ecl/icon/icon.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
-  describe('Branded', () => {
-    brandedIcons.forEach((icon) => {
+  describe('All icons', () => {
+    iconsAll.forEach((icon) => {
       test(`- icon ${icon} renders correctly`, () => {
         expect.assertions(1);
 
-        const options = merge(dataBranded, {
-          icon: {
-            name: icon,
-          },
-        });
-
-        return expect(render(options)).resolves.toMatchSnapshot();
-      });
-    });
-  });
-
-  describe('Notifications', () => {
-    notificationsIcons.forEach((icon) => {
-      test(`- icon ${icon} renders correctly`, () => {
-        expect.assertions(1);
-
-        const options = merge(dataNotifications, {
-          icon: {
-            name: icon,
-          },
-        });
-
-        return expect(render(options)).resolves.toMatchSnapshot();
-      });
-    });
-  });
-
-  describe('General', () => {
-    generalIcons.forEach((icon) => {
-      test(`- icon ${icon} renders correctly`, () => {
-        expect.assertions(1);
-
-        const options = merge(dataUi, {
-          icon: {
-            name: icon,
-            type: 'general',
-          },
-        });
-
-        return expect(render(options)).resolves.toMatchSnapshot();
-      });
-    });
-  });
-
-  describe('UI', () => {
-    uiIcons.forEach((icon) => {
-      test(`- icon ${icon} renders correctly`, () => {
-        expect.assertions(1);
-
-        const options = merge(dataUi, {
+        const options = merge(dataAll, {
           icon: {
             name: icon,
           },
@@ -78,10 +24,9 @@ describe('Icon', () => {
   });
 
   describe('Generic tests - Any icon', () => {
-    const options = merge(dataUi, {
+    const options = merge(dataAll, {
       icon: {
-        name: generalIcons[0],
-        type: 'general',
+        name: iconsAll[0],
       },
     });
 

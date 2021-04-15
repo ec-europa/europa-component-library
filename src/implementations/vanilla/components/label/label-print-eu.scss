@@ -1,0 +1,8 @@
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+@use 'label' with (
+  $_border-radius: 4px,
+  $_text-color: map.get(theme.$color, 'grey-140'),
+  $_background-color-low: map.get(theme.$color, 'blue-10'),
+  $_background-color-medium: map.get(theme.$color, 'yellow-10'),
+);

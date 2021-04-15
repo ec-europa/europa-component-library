@@ -31,7 +31,6 @@ describe('Link', () => {
         icon_position: 'after',
       },
       icon: {
-        type: 'ui',
         size: 'fluid',
         path: defaultIconPath,
       },
@@ -52,13 +51,11 @@ describe('Link', () => {
       },
       icon: [
         {
-          type: 'ui',
           name: 'external',
           size: 'fluid',
           path: defaultIconPath,
         },
         {
-          type: 'ui',
           name: 'download',
           size: 'fluid',
           path: defaultIconPath,
@@ -91,13 +88,11 @@ describe('Link', () => {
       },
       icon: [
         {
-          type: 'ui',
           name: 'external',
           size: 'fluid',
           path: defaultIconPath,
         },
         {
-          type: 'ui',
           name: 'download',
           size: 'fluid',
           path: defaultIconPath,
@@ -131,7 +126,6 @@ describe('Link', () => {
           icon_position: 'before',
         },
         icon: {
-          type: 'ui',
           name: 'external',
           size: 'fluid',
           path: defaultIconPath,
@@ -150,7 +144,6 @@ describe('Link', () => {
         icon_position: 'after',
       },
       icon: {
-        type: 'ui',
         name: 'external',
         size: 'fluid',
         path: defaultIconPath,
@@ -194,7 +187,6 @@ describe('Link', () => {
         icon_position: 'after',
       },
       icon: {
-        type: 'ui',
         name: 'corner-arrow',
         size: 'fluid',
         path: defaultIconPath,

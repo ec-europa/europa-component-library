@@ -33,6 +33,11 @@ collections:
         file: 'src/website/src/pages/ec/components/accordion/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
+      - label: 'Breadcrumbs'
+        name: 'ec_breadcrumbs'
+        file: 'src/website/src/pages/ec/components/navigation/breadcrumb/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
       - label: 'Blockquote'
         name: 'ec_blockquote'
         file: 'src/website/src/pages/ec/components/blockquote/docs/usage.md'
@@ -78,34 +83,29 @@ collections:
         file: 'src/website/src/pages/ec/components/file/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
-      - label: 'File Upload'
-        name: 'ec_file_upload'
-        file: 'src/website/src/pages/ec/components/forms/file-upload/docs/usage.md'
-        fields:
-          - { label: Body, name: body, widget: markdown }
       - label: 'Footer Core'
         name: 'ec_footer_core'
-        file: 'src/website/src/pages/ec/core_template/footer/docs/usage.md'
+        file: 'src/website/src/pages/ec/core-template/footer/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Footer Harmonised Group1'
         name: 'ec_footer_harmonised_g1'
-        file: 'src/website/src/pages/ec/harmonised_template/footer/docs/group1.md'
+        file: 'src/website/src/pages/ec/harmonised-templates/footer/docs/group1.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Footer Harmonised Group2'
         name: 'ec_footer_harmonised_g2'
-        file: 'src/website/src/pages/ec/harmonised_template/footer/docs/group2.md'
+        file: 'src/website/src/pages/ec/harmonised-templates/footer/docs/group2.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Footer Harmonised Group3'
         name: 'ec_footer_harmonised_g3'
-        file: 'src/website/src/pages/ec/harmonised_template/footer/docs/group3.md'
+        file: 'src/website/src/pages/ec/harmonised-templates/footer/docs/group3.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Footer Standardised'
         name: 'ec_footer_standardised'
-        file: 'src/website/src/pages/ec/standardised_template/footer/docs/usage.md'
+        file: 'src/website/src/pages/ec/standardised-template/footer/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Gallery'
@@ -185,7 +185,7 @@ collections:
           - { label: Body, name: body, widget: markdown }
       - label: 'Page Header Standardised'
         name: 'ec_page_header_standardised'
-        file: 'src/website/src/pages/ec/standardised_template/page-header/docs/usage.md'
+        file: 'src/website/src/pages/ec/standardised-template/page-header/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Pagination'
@@ -198,6 +198,11 @@ collections:
         file: 'src/website/src/pages/ec/components/forms/radio/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
+      - label: 'Search form'
+        name: 'ec_search_form'
+        file: 'src/website/src/pages/ec/components/forms/search-form/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
       - label: 'Select'
         name: 'ec_select'
         file: 'src/website/src/pages/ec/components/forms/select/docs/usage.md'
@@ -205,22 +210,22 @@ collections:
           - { label: Body, name: body, widget: markdown }
       - label: 'Site Header Core'
         name: 'ec_site_header_core'
-        file: 'src/website/src/pages/ec/core_template/site-header/docs/usage.md'
+        file: 'src/website/src/pages/ec/core-template/site-header/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Site Header Harmonised Group1'
         name: 'ec_site_header_harmonised_g1'
-        file: 'src/website/src/pages/ec/harmonised_template/site-header/docs/group1.md'
+        file: 'src/website/src/pages/ec/harmonised-templates/site-header/docs/group1.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Site Header Harmonised Group2'
         name: 'ec_site_header_harmonised_g2'
-        file: 'src/website/src/pages/ec/harmonised_template/site-header/docs/group2.md'
+        file: 'src/website/src/pages/ec/harmonised-templates/site-header/docs/group2.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Site Header Standardised'
         name: 'ec_site_header_standardised'
-        file: 'src/website/src/pages/ec/standardised_template/site-header/docs/usage.md'
+        file: 'src/website/src/pages/ec/standardised-template/site-header/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Skip link'
@@ -243,9 +248,9 @@ collections:
         file: 'src/website/src/pages/ec/components/forms/table/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
-      - label: 'Tag'
+      - label: 'Tags'
         name: 'ec_tag'
-        file: 'src/website/src/pages/ec/components/forms/tag/docs/usage.md'
+        file: 'src/website/src/pages/ec/components/tag/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Textarea'

@@ -1,6 +1,14 @@
 /* eslint-disable no-return-assign */
-import iconSvgUiCheck from '@ecl/resources-ec-icons/dist/svg/ui/check.svg';
-import iconSvgUiCornerArrow from '@ecl/resources-ec-icons/dist/svg/ui/corner-arrow.svg';
+import getSystem from '@ecl/builder/utils/getSystem';
+import iconSvgAllCheckEc from '@ecl/resources-ec-icons/dist/svg/all/check.svg';
+import iconSvgAllCheckEu from '@ecl/resources-eu-icons/dist/svg/all/check.svg';
+import iconSvgAllCornerArrowEc from '@ecl/resources-ec-icons/dist/svg/all/corner-arrow.svg';
+import iconSvgAllCornerArrowEu from '@ecl/resources-eu-icons/dist/svg/all/corner-arrow.svg';
+
+const system = getSystem();
+const iconSvgAllCheck = system === 'eu' ? iconSvgAllCheckEu : iconSvgAllCheckEc;
+const iconSvgAllCornerArrow =
+  system === 'eu' ? iconSvgAllCornerArrowEu : iconSvgAllCornerArrowEc;
 
 /**
  * There are multiple labels contained in this component. You can set them in 2 ways: directly as a string or through data attributes.
@@ -159,7 +167,7 @@ export class Select {
     box.classList.add('ecl-checkbox__box');
     box.appendChild(
       Select.createSvgIcon(
-        iconSvgUiCheck,
+        iconSvgAllCheck,
         'ecl-icon ecl-icon--s ecl-checkbox__icon'
       )
     );
@@ -176,7 +184,7 @@ export class Select {
     const wrapper = document.createElement('div');
     wrapper.classList.add('ecl-select__icon');
     const icon = Select.createSvgIcon(
-      iconSvgUiCornerArrow,
+      iconSvgAllCornerArrow,
       'ecl-icon ecl-icon--s ecl-select__icon-shape ecl-icon--rotate-180'
     );
     wrapper.appendChild(icon);

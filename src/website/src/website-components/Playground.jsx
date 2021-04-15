@@ -132,7 +132,7 @@ class Playground extends Component {
                 aria-hidden="true"
                 className={styles.link__icon}
               >
-                <use xlinkHref={`${iconSprite}#ui--fullscreen`} />
+                <use xlinkHref={`${iconSprite}#fullscreen`} />
               </svg>
             </a>
           )}
@@ -158,7 +158,7 @@ class Playground extends Component {
                   aria-hidden="true"
                   className={styles.link__icon}
                 >
-                  <use xlinkHref={`${iconSprite}#ui--corner-arrow`} />
+                  <use xlinkHref={`${iconSprite}#corner-arrow`} />
                 </svg>
               </div>
             </button>
@@ -182,7 +182,7 @@ class Playground extends Component {
                 aria-hidden="true"
                 className={styles.link__icon}
               >
-                <use xlinkHref={`${iconSprite}#ui--corner-arrow`} />
+                <use xlinkHref={`${iconSprite}#corner-arrow`} />
               </svg>
             </a>
           </>

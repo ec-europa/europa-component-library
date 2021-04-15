@@ -10,7 +10,6 @@ module.exports = {
     label: 'Show all timeline',
     icon: {
       path: '/icons.svg',
-      type: 'ui',
       name: 'corner-arrow',
       size: 'xs',
       transform: 'rotate-180',

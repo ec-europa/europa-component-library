@@ -2,61 +2,20 @@
 title: Usage
 order: 1
 ---
-
-import { Paragraph, Anatomy } from '@ecl/website-components';
-
-<Paragraph size="lead">
-  When a list of items is presented on multiple pages, the pagination component
-  is used at the bottom of the list to indicate the number of pages, the current
-  page and to allow users to navigate to the different pages.
-</Paragraph>
-
-## Anatomy
-
-<Anatomy
-image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Pager/Pagination2.jpg"
-srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/Pager/Pagination%20-%20Mobile2.jpg 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/Pager/Pagination2.jpg 734w"
-alt="Anatomy of pagination"
-legend={{
-    items: [
-      {
-        color: '#404040',
-        label: 'mandatory',
-      },
-      {
-        color: '#004494',
-        label: 'optional',
-      },
-    ],
-  }}
-/>
-
-| Elements             | Mandatory desktop | Mandatory mobile | Description                                                       |
-| -------------------- | ----------------- | ---------------- | ----------------------------------------------------------------- |
-| links to other pages | yes               | no               | Links leading to pages and their corresponding value              |
-| active selection     | yes               | yes              | Represents the current page the user is on                        |
-| "next" link          | yes               | yes              | Links to the next page; it is not displayed on the last page      |
-| "previous" link      | yes               | yes              | Links to the previous page; it is not displayed on the first page |
+Pagination component is the control to navigate through multiple pages.
 
 ## Do's
 
-- place the **pagination below** the list of items
+- place the pagination below the list of items
 
 ## Don'ts
 
-- **don't replace** this component **with an ‘infinite scrolling’** feature
+- don't replace this component with an "infinite scrolling" feature
 
 ## When to use
 
-- **use to break long lists** that would create too much vertical scrolling in one page
+- to show long lists otherwise redundant scrolling in one page
 
 ## When not to use
 
 - don't use to break unrelated content on different pages
-
-## Notes
-
-### Design
-
-- 3 dots (…) is used to indicate that there are more pages in-between
-- first and last pages are always displayed

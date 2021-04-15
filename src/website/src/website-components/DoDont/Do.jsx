@@ -17,7 +17,7 @@ const Do = ({ image, alt, title, description }) => (
           aria-hidden="true"
           className={styles.title__icon}
         >
-          <use xlinkHref={`${iconSprite}#ui--check-filled`} />
+          <use xlinkHref={`${iconSprite}#check-filled`} />
         </svg>
         {title}
       </div>
