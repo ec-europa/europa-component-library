@@ -51,11 +51,11 @@ module.exports = {
   ],
   copy: [
     {
-      from: path.resolve(nodeModules, '@ecl/resources-ec-icons/dist'),
+      from: path.resolve(nodeModules, '@ecl/resources-eu-icons/dist'),
       to: path.resolve(outputFolder, 'images/icons'),
     },
     {
-      from: path.resolve(nodeModules, '@ecl/resources-ec-social-icons/dist'),
+      from: path.resolve(nodeModules, '@ecl/resources-eu-social-icons/dist'),
       to: path.resolve(outputFolder, 'images/social-icons'),
     },
     {

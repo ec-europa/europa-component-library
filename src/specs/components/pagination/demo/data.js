@@ -12,7 +12,6 @@ module.exports = {
           icon_position: 'before',
         },
         icon: {
-          type: 'ui',
           name: 'corner-arrow',
           size: 'xs',
           transform: 'rotate-270',
@@ -75,7 +74,6 @@ module.exports = {
           icon_position: 'after',
         },
         icon: {
-          type: 'ui',
           name: 'corner-arrow',
           size: 'xs',
           transform: 'rotate-90',

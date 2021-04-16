@@ -11,6 +11,7 @@ npm install --save @ecl/twig-component-link
 - **"link"** (associative array) (default: 'predefined structure below')
   - "type" (string) (default: '') - type of link. Available types are '', 'standalone' or 'cta'
   - "negative" (boolean) (default: false) - Is the link negative (displayed on dark background) or not
+  - "no_visited" (boolean) (default: false) - Prevent color change for visited links
   - "label" (string) (default: '') - Content of link
   - "path" (string) (default: '') - Link url (href attribute)
   - "aria_label" (string) Aria label attribute value
@@ -36,7 +37,6 @@ npm install --save @ecl/twig-component-link
   }, 
   icon: { 
     path: '/path-to-the-icon-file', 
-    type: 'ui', 
     name: 'external', 
     extra_classes: 'my-extra-class-1 my-extra-class-2' 
   }, 

@@ -10,7 +10,6 @@ npm install --save @ecl/twig-component-icon
 
 - **"icon"** (associative array) (default: 'predefined structure below')
   - "path" (string) (default: '') - path/url to general icon file (eg. /path-to-icon/icon.svg)
-  - "type" (string) (default: '') - type of icon. Available types are 'general', 'branded', 'notifications', 'ui'.
   - "name" (string) (default: '') - name of icon, eg. 'facebook', 'twitter'.
   - "size" (string) (default: 'm') size of icon. Available sizes are 'xs','s','m','l','xl','2xl','fluid'
   - "transform" (string) (default: '') Transformation of icon. Available transformations are 'rotate-0', 'rotate-90', 'rotate-180', 'rotate-270', 'flip-horizontal', 'flip-vertical')
@@ -33,7 +32,6 @@ npm install --save @ecl/twig-component-icon
 {% include '@ecl/icon/icon.html.twig' with { 
   icon: { 
     path: '/static/media/icons.svg', 
-    type: 'branded', 
     name: 'facebook', 
     size: 'm', 
     transform: 'rotate-90', 

@@ -5,7 +5,6 @@ module.exports = {
     label: 'Collapsed button',
     variant: 'secondary',
     icon: {
-      type: 'ui',
       name: 'corner-arrow',
       transform: 'rotate-180',
       size: 'fluid',

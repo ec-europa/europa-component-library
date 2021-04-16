@@ -17,7 +17,7 @@ const Dont = ({ image, alt, title, description }) => (
           aria-hidden="true"
           className={styles.title__icon}
         >
-          <use xlinkHref={`${iconSprite}#ui--close-filled`} />
+          <use xlinkHref={`${iconSprite}#close-filled`} />
         </svg>
         {title}
       </div>

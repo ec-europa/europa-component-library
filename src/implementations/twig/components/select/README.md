@@ -16,6 +16,7 @@ npm install --save @ecl/twig-component-select
   - "disabled" (boolean) (default: false)
 - **"disabled"** (boolean) (default: false)
 - **"invalid"** (boolean) (default: false)
+- **"invalid_icon"** (object of type "icon") (default: {})
 - **"required"** (boolean) (default: false)
 - **"name"** (string) (default: '')
 - **"width"** (string) (default: '') Input width size (s, m or l)
@@ -24,6 +25,7 @@ npm install --save @ecl/twig-component-select
 - **"multiple_placeholder"** (string) (default: '') Placeholder for the multiple select
 - **"multiple_all_text"** (string) (default: '') Text for the select all option
 - **"multiple_search_text"** (string) (default: '') Text for the search box inside the multiple select
+- **"multiple_search_no_results_text"** (string) (default: '') Label label when there is no result by searching for an option
 - **"extra_group_classes"** (optional) (string) (default: '') Extra classes (space separated) for the select group
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes

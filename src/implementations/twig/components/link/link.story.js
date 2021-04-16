@@ -4,7 +4,8 @@ import { correctSvgPath } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
 // Import data for demos
-import uiIcons from '@ecl/resources-ec-icons/dist/lists/ui.json';
+import iconsAllEc from '@ecl/resources-ec-icons/dist/lists/all.json';
+import iconsAllEu from '@ecl/resources-eu-icons/dist/lists/all.json';
 import dataDefault from '@ecl/specs-component-link/demo/data--default';
 import dataCta from '@ecl/specs-component-link/demo/data--cta';
 import dataStandalone from '@ecl/specs-component-link/demo/data--standalone';
@@ -14,6 +15,10 @@ import link from './link.html.twig';
 import notes from './README.md';
 
 const system = getSystem();
+const iconsAll = system === 'eu' ? iconsAllEu : iconsAllEc;
+
+// Create 'none' option.
+iconsAll.unshift('none');
 
 const withParagraph = (story) => {
   const demo = story();
@@ -47,7 +52,21 @@ const getArgTypes = (data) => {
       name: 'negative',
       type: { name: 'boolean' },
       defaultValue: data.link.negative,
-      description: 'Negative button',
+      description: 'Negative link (light on dark)',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+        category: 'Content',
+      },
+      control: {
+        type: 'boolean',
+      },
+    },
+    no_visited: {
+      name: 'no visited',
+      type: { name: 'boolean' },
+      defaultValue: data.link.no_visited,
+      description: 'No change of color for visited link',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },
@@ -60,6 +79,7 @@ const getArgTypes = (data) => {
     icon_name: {
       name: 'icon name',
       type: { name: 'select', required: false },
+      defaultValue: 'none',
       description: 'Name of the icon',
       table: {
         type: { summary: 'string' },
@@ -67,7 +87,7 @@ const getArgTypes = (data) => {
       },
       control: {
         type: 'select',
-        options: uiIcons,
+        options: iconsAll,
       },
     },
     icon_transform: {
@@ -110,14 +130,17 @@ const getArgTypes = (data) => {
 const prepareData = (data, args) => {
   data.link.label = args.label;
   data.link.negative = args.negative;
+  data.link.no_visited = args.no_visited;
   data.link.icon_position = args.icon_position;
-  if (args.icon_name) {
+  if (args.icon_name && args.icon_name !== 'none') {
     data.icon = {};
     data.icon.name = args.icon_name;
-    data.icon.type = 'ui';
     data.icon.transform = args.icon_transform;
     data.icon.size = system === 'eu' ? 'm' : 'xs';
     data.icon.path = 'icon.svg';
+  }
+  if (args.icon_name === 'none') {
+    delete data.icon;
   }
   correctSvgPath(data);
 

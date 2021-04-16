@@ -37,7 +37,7 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
           class="ecl-site-header-core__login-container"
         >
           <a
-            class="ecl-link ecl-link--standalone ecl-site-header-core__login-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__login-toggle"
             href="/example"
           >
             <svg
@@ -46,7 +46,7 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--log-in"
+                xlink:href="/icons.svg#log-in"
               />
             </svg>
             Log in
@@ -55,7 +55,7 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
         <a
           aria-controls="language-list-overlay"
           aria-label="English"
-          class="ecl-link ecl-link--standalone ecl-site-header-core__language-selector"
+          class="ecl-button ecl-button--ghost ecl-site-header-core__language-selector"
           data-ecl-language-selector=""
           href="/example"
         >
@@ -68,7 +68,7 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--language"
+                xlink:href="/icons.svg#language"
               />
             </svg>
             <span
@@ -85,7 +85,7 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
           <a
             aria-controls="search-form-id"
             aria-expanded="false"
-            class="ecl-link ecl-link--standalone ecl-site-header-core__search-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__search-toggle"
             data-ecl-search-toggle="true"
             href="/example"
           >
@@ -95,7 +95,7 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--search"
+                xlink:href="/icons.svg#search"
               />
             </svg>
             Search
@@ -118,6 +118,7 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
               <input
                 class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
                 id="search-input-id"
+                placeholder="Placeholder text"
                 type="search"
               />
             </div>
@@ -142,7 +143,7 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#general--search"
+                    xlink:href="/icons.svg#search"
                   />
                 </svg>
               </span>
@@ -176,7 +177,7 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
           focusable="false"
         >
           <use
-            xlink:href="/icons.svg#general--hamburger"
+            xlink:href="/icons.svg#hamburger"
           />
         </svg>
         Menu
@@ -203,7 +204,7 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--close-filled"
+                  xlink:href="/icons.svg#close-filled"
                 />
               </svg>
               <span
@@ -234,7 +235,7 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
               <span
@@ -278,7 +279,7 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -485,7 +486,7 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -549,7 +550,7 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -734,7 +735,7 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -842,7 +843,7 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -1049,7 +1050,7 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -1215,7 +1216,7 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--close"
+                  xlink:href="/icons.svg#close"
                 />
               </svg>
             </span>
@@ -1354,7 +1355,7 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#ui--check"
+                    xlink:href="/icons.svg#check"
                   />
                 </svg>
               </a>
@@ -1712,7 +1713,7 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
           <a
             aria-controls="login-box-id"
             aria-expanded="false"
-            class="ecl-link ecl-link--standalone ecl-site-header-core__login-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__login-toggle"
             data-ecl-login-toggle=""
             href="/example"
           >
@@ -1722,7 +1723,7 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--logged-in"
+                xlink:href="/icons.svg#logged-in"
               />
             </svg>
             Logged in
@@ -1732,7 +1733,7 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#ui--corner-arrow"
+                xlink:href="/icons.svg#corner-arrow"
               />
             </svg>
           </a>
@@ -1744,7 +1745,7 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
             <p
               class="ecl-site-header-core__login-description"
             >
-              Logged in as "last name", "first name"
+              Logged in as "last name" "first name"
             </p>
             <hr
               class="ecl-site-header-core__login-separator"
@@ -1760,7 +1761,7 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
         <a
           aria-controls="language-list-overlay"
           aria-label="English"
-          class="ecl-link ecl-link--standalone ecl-site-header-core__language-selector"
+          class="ecl-button ecl-button--ghost ecl-site-header-core__language-selector"
           data-ecl-language-selector=""
           href="/example"
         >
@@ -1773,7 +1774,7 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--language"
+                xlink:href="/icons.svg#language"
               />
             </svg>
             <span
@@ -1790,7 +1791,7 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
           <a
             aria-controls="search-form-id"
             aria-expanded="false"
-            class="ecl-link ecl-link--standalone ecl-site-header-core__search-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__search-toggle"
             data-ecl-search-toggle="true"
             href="/example"
           >
@@ -1800,7 +1801,7 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--search"
+                xlink:href="/icons.svg#search"
               />
             </svg>
             Search
@@ -1823,6 +1824,7 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
               <input
                 class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
                 id="search-input-id"
+                placeholder="Placeholder text"
                 type="search"
               />
             </div>
@@ -1847,7 +1849,7 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#general--search"
+                    xlink:href="/icons.svg#search"
                   />
                 </svg>
               </span>
@@ -1881,7 +1883,7 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
           focusable="false"
         >
           <use
-            xlink:href="/icons.svg#general--hamburger"
+            xlink:href="/icons.svg#hamburger"
           />
         </svg>
         Menu
@@ -1908,7 +1910,7 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--close-filled"
+                  xlink:href="/icons.svg#close-filled"
                 />
               </svg>
               <span
@@ -1939,7 +1941,7 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
               <span
@@ -1983,7 +1985,7 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -2190,7 +2192,7 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -2254,7 +2256,7 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -2439,7 +2441,7 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -2547,7 +2549,7 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -2754,7 +2756,7 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -2920,7 +2922,7 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--close"
+                  xlink:href="/icons.svg#close"
                 />
               </svg>
             </span>
@@ -3059,7 +3061,7 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#ui--check"
+                    xlink:href="/icons.svg#check"
                   />
                 </svg>
               </a>
@@ -3417,7 +3419,7 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
           class="ecl-site-header-core__login-container"
         >
           <a
-            class="ecl-link ecl-link--standalone ecl-site-header-core__login-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__login-toggle"
             href="/example"
           >
             <svg
@@ -3426,7 +3428,7 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--log-in"
+                xlink:href="/icons.svg#log-in"
               />
             </svg>
             Log in
@@ -3435,7 +3437,7 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
         <a
           aria-controls="language-list-overlay"
           aria-label="English"
-          class="ecl-link ecl-link--standalone ecl-site-header-core__language-selector"
+          class="ecl-button ecl-button--ghost ecl-site-header-core__language-selector"
           data-ecl-language-selector=""
           href="/example"
         >
@@ -3448,7 +3450,7 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--language"
+                xlink:href="/icons.svg#language"
               />
             </svg>
             <span
@@ -3465,7 +3467,7 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
           <a
             aria-controls="search-form-id"
             aria-expanded="false"
-            class="ecl-link ecl-link--standalone ecl-site-header-core__search-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__search-toggle"
             data-ecl-search-toggle="true"
             href="/example"
           >
@@ -3475,7 +3477,7 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--search"
+                xlink:href="/icons.svg#search"
               />
             </svg>
             Search
@@ -3498,6 +3500,7 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
               <input
                 class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
                 id="search-input-id"
+                placeholder="Placeholder text"
                 type="search"
               />
             </div>
@@ -3522,7 +3525,7 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#general--search"
+                    xlink:href="/icons.svg#search"
                   />
                 </svg>
               </span>
@@ -3556,7 +3559,7 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
           focusable="false"
         >
           <use
-            xlink:href="/icons.svg#general--hamburger"
+            xlink:href="/icons.svg#hamburger"
           />
         </svg>
         Menu
@@ -3583,7 +3586,7 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--close-filled"
+                  xlink:href="/icons.svg#close-filled"
                 />
               </svg>
               <span
@@ -3614,7 +3617,7 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
               <span
@@ -3658,7 +3661,7 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -3865,7 +3868,7 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -3929,7 +3932,7 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -4114,7 +4117,7 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -4222,7 +4225,7 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -4429,7 +4432,7 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -4595,7 +4598,7 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--close"
+                  xlink:href="/icons.svg#close"
                 />
               </svg>
             </span>
@@ -4734,7 +4737,7 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#ui--check"
+                    xlink:href="/icons.svg#check"
                   />
                 </svg>
               </a>
@@ -5090,7 +5093,7 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
           class="ecl-site-header-core__login-container"
         >
           <a
-            class="ecl-link ecl-link--standalone ecl-site-header-core__login-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__login-toggle"
             href="/example"
           >
             <svg
@@ -5099,7 +5102,7 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--log-in"
+                xlink:href="/icons.svg#log-in"
               />
             </svg>
             Log in
@@ -5108,7 +5111,7 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
         <a
           aria-controls="language-list-overlay"
           aria-label="English"
-          class="ecl-link ecl-link--standalone ecl-site-header-core__language-selector"
+          class="ecl-button ecl-button--ghost ecl-site-header-core__language-selector"
           data-ecl-language-selector=""
           href="/example"
         >
@@ -5121,7 +5124,7 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--language"
+                xlink:href="/icons.svg#language"
               />
             </svg>
             <span
@@ -5138,7 +5141,7 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
           <a
             aria-controls="search-form-id"
             aria-expanded="false"
-            class="ecl-link ecl-link--standalone ecl-site-header-core__search-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__search-toggle"
             data-ecl-search-toggle="true"
             href="/example"
           >
@@ -5148,7 +5151,7 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--search"
+                xlink:href="/icons.svg#search"
               />
             </svg>
             Search
@@ -5171,6 +5174,7 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
               <input
                 class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
                 id="search-input-id"
+                placeholder="Placeholder text"
                 type="search"
               />
             </div>
@@ -5195,7 +5199,7 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#general--search"
+                    xlink:href="/icons.svg#search"
                   />
                 </svg>
               </span>
@@ -5229,7 +5233,7 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
           focusable="false"
         >
           <use
-            xlink:href="/icons.svg#general--hamburger"
+            xlink:href="/icons.svg#hamburger"
           />
         </svg>
         Menu
@@ -5256,7 +5260,7 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--close-filled"
+                  xlink:href="/icons.svg#close-filled"
                 />
               </svg>
               <span
@@ -5287,7 +5291,7 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
               <span
@@ -5331,7 +5335,7 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -5538,7 +5542,7 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -5602,7 +5606,7 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -5787,7 +5791,7 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -5895,7 +5899,7 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -6102,7 +6106,7 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -6268,7 +6272,7 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--close"
+                  xlink:href="/icons.svg#close"
                 />
               </svg>
             </span>
@@ -6407,7 +6411,7 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#ui--check"
+                    xlink:href="/icons.svg#check"
                   />
                 </svg>
               </a>
@@ -6763,7 +6767,7 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
           class="ecl-site-header-core__login-container"
         >
           <a
-            class="ecl-link ecl-link--standalone ecl-site-header-core__login-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__login-toggle"
             href="/example"
           >
             <svg
@@ -6772,7 +6776,7 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--log-in"
+                xlink:href="/icons.svg#log-in"
               />
             </svg>
             Connexion
@@ -6781,7 +6785,7 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
         <a
           aria-controls="language-list-overlay"
           aria-label="Français"
-          class="ecl-link ecl-link--standalone ecl-site-header-core__language-selector"
+          class="ecl-button ecl-button--ghost ecl-site-header-core__language-selector"
           data-ecl-language-selector=""
           href="/example"
         >
@@ -6794,7 +6798,7 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--language"
+                xlink:href="/icons.svg#language"
               />
             </svg>
             <span
@@ -6811,7 +6815,7 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
           <a
             aria-controls="search-form-id"
             aria-expanded="false"
-            class="ecl-link ecl-link--standalone ecl-site-header-core__search-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__search-toggle"
             data-ecl-search-toggle="true"
             href="/example"
           >
@@ -6821,7 +6825,7 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--search"
+                xlink:href="/icons.svg#search"
               />
             </svg>
             Recherche
@@ -6844,6 +6848,7 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
               <input
                 class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
                 id="search-input-id"
+                placeholder="Placeholder text"
                 type="search"
               />
             </div>
@@ -6868,7 +6873,7 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#general--search"
+                    xlink:href="/icons.svg#search"
                   />
                 </svg>
               </span>
@@ -6902,7 +6907,7 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
           focusable="false"
         >
           <use
-            xlink:href="/icons.svg#general--hamburger"
+            xlink:href="/icons.svg#hamburger"
           />
         </svg>
         Menu
@@ -6929,7 +6934,7 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--close-filled"
+                  xlink:href="/icons.svg#close-filled"
                 />
               </svg>
               <span
@@ -6960,7 +6965,7 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
               <span
@@ -7004,7 +7009,7 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -7211,7 +7216,7 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -7275,7 +7280,7 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -7460,7 +7465,7 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -7568,7 +7573,7 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -7775,7 +7780,7 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -7941,7 +7946,7 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--close"
+                  xlink:href="/icons.svg#close"
                 />
               </svg>
             </span>
@@ -8093,7 +8098,7 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#ui--check"
+                    xlink:href="/icons.svg#check"
                   />
                 </svg>
               </a>
@@ -8438,7 +8443,7 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
           class="ecl-site-header-core__login-container"
         >
           <a
-            class="ecl-link ecl-link--standalone ecl-site-header-core__login-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__login-toggle"
             href="/example"
           >
             <svg
@@ -8447,7 +8452,7 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--log-in"
+                xlink:href="/icons.svg#log-in"
               />
             </svg>
             Connexion
@@ -8456,7 +8461,7 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
         <a
           aria-controls="language-list-overlay"
           aria-label="Français"
-          class="ecl-link ecl-link--standalone ecl-site-header-core__language-selector"
+          class="ecl-button ecl-button--ghost ecl-site-header-core__language-selector"
           data-ecl-language-selector=""
           href="/example"
         >
@@ -8469,7 +8474,7 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--language"
+                xlink:href="/icons.svg#language"
               />
             </svg>
             <span
@@ -8486,7 +8491,7 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
           <a
             aria-controls="search-form-id"
             aria-expanded="false"
-            class="ecl-link ecl-link--standalone ecl-site-header-core__search-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__search-toggle"
             data-ecl-search-toggle="true"
             href="/example"
           >
@@ -8496,7 +8501,7 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--search"
+                xlink:href="/icons.svg#search"
               />
             </svg>
             Recherche
@@ -8519,6 +8524,7 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
               <input
                 class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
                 id="search-input-id"
+                placeholder="Placeholder text"
                 type="search"
               />
             </div>
@@ -8543,7 +8549,7 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#general--search"
+                    xlink:href="/icons.svg#search"
                   />
                 </svg>
               </span>
@@ -8577,7 +8583,7 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
           focusable="false"
         >
           <use
-            xlink:href="/icons.svg#general--hamburger"
+            xlink:href="/icons.svg#hamburger"
           />
         </svg>
         Menu
@@ -8604,7 +8610,7 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--close-filled"
+                  xlink:href="/icons.svg#close-filled"
                 />
               </svg>
               <span
@@ -8635,7 +8641,7 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
               <span
@@ -8679,7 +8685,7 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -8886,7 +8892,7 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -8950,7 +8956,7 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -9135,7 +9141,7 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -9243,7 +9249,7 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -9450,7 +9456,7 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -9616,7 +9622,7 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--close"
+                  xlink:href="/icons.svg#close"
                 />
               </svg>
             </span>
@@ -9768,7 +9774,7 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#ui--check"
+                    xlink:href="/icons.svg#check"
                   />
                 </svg>
               </a>
@@ -10111,7 +10117,7 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
           class="ecl-site-header-core__login-container"
         >
           <a
-            class="ecl-link ecl-link--standalone ecl-site-header-core__login-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__login-toggle"
             href="/example"
           >
             <svg
@@ -10120,7 +10126,7 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--log-in"
+                xlink:href="/icons.svg#log-in"
               />
             </svg>
             Connexion
@@ -10129,7 +10135,7 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
         <a
           aria-controls="language-list-overlay"
           aria-label="Français"
-          class="ecl-link ecl-link--standalone ecl-site-header-core__language-selector"
+          class="ecl-button ecl-button--ghost ecl-site-header-core__language-selector"
           data-ecl-language-selector=""
           href="/example"
         >
@@ -10142,7 +10148,7 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--language"
+                xlink:href="/icons.svg#language"
               />
             </svg>
             <span
@@ -10159,7 +10165,7 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
           <a
             aria-controls="search-form-id"
             aria-expanded="false"
-            class="ecl-link ecl-link--standalone ecl-site-header-core__search-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__search-toggle"
             data-ecl-search-toggle="true"
             href="/example"
           >
@@ -10169,7 +10175,7 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--search"
+                xlink:href="/icons.svg#search"
               />
             </svg>
             Recherche
@@ -10192,6 +10198,7 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
               <input
                 class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
                 id="search-input-id"
+                placeholder="Placeholder text"
                 type="search"
               />
             </div>
@@ -10216,7 +10223,7 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#general--search"
+                    xlink:href="/icons.svg#search"
                   />
                 </svg>
               </span>
@@ -10250,7 +10257,7 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
           focusable="false"
         >
           <use
-            xlink:href="/icons.svg#general--hamburger"
+            xlink:href="/icons.svg#hamburger"
           />
         </svg>
         Menu
@@ -10277,7 +10284,7 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--close-filled"
+                  xlink:href="/icons.svg#close-filled"
                 />
               </svg>
               <span
@@ -10308,7 +10315,7 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
               <span
@@ -10352,7 +10359,7 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -10559,7 +10566,7 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -10623,7 +10630,7 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -10808,7 +10815,7 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -10916,7 +10923,7 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -11123,7 +11130,7 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -11289,7 +11296,7 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--close"
+                  xlink:href="/icons.svg#close"
                 />
               </svg>
             </span>
@@ -11441,7 +11448,7 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#ui--check"
+                    xlink:href="/icons.svg#check"
                   />
                 </svg>
               </a>
@@ -11784,7 +11791,7 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
           class="ecl-site-header-core__login-container"
         >
           <a
-            class="ecl-link ecl-link--standalone ecl-site-header-core__login-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__login-toggle"
             href="/example"
           >
             <svg
@@ -11793,7 +11800,7 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--log-in"
+                xlink:href="/icons.svg#log-in"
               />
             </svg>
             Log in
@@ -11802,7 +11809,7 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
         <a
           aria-controls="language-list-overlay"
           aria-label="English"
-          class="ecl-link ecl-link--standalone ecl-site-header-core__language-selector"
+          class="ecl-button ecl-button--ghost ecl-site-header-core__language-selector"
           data-ecl-language-selector=""
           href="/example"
         >
@@ -11815,7 +11822,7 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--language"
+                xlink:href="/icons.svg#language"
               />
             </svg>
             <span
@@ -11832,7 +11839,7 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
           <a
             aria-controls="search-form-id"
             aria-expanded="false"
-            class="ecl-link ecl-link--standalone ecl-site-header-core__search-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__search-toggle"
             data-ecl-search-toggle="true"
             href="/example"
           >
@@ -11842,7 +11849,7 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--search"
+                xlink:href="/icons.svg#search"
               />
             </svg>
             Search
@@ -11865,6 +11872,7 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
               <input
                 class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
                 id="search-input-id"
+                placeholder="Placeholder text"
                 type="search"
               />
             </div>
@@ -11889,7 +11897,7 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#general--search"
+                    xlink:href="/icons.svg#search"
                   />
                 </svg>
               </span>
@@ -11923,7 +11931,7 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
           focusable="false"
         >
           <use
-            xlink:href="/icons.svg#general--hamburger"
+            xlink:href="/icons.svg#hamburger"
           />
         </svg>
         Menu
@@ -11950,7 +11958,7 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--close-filled"
+                  xlink:href="/icons.svg#close-filled"
                 />
               </svg>
               <span
@@ -11981,7 +11989,7 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
               <span
@@ -12025,7 +12033,7 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -12232,7 +12240,7 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -12296,7 +12304,7 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -12481,7 +12489,7 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -12589,7 +12597,7 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -12796,7 +12804,7 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -12962,7 +12970,7 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--close"
+                  xlink:href="/icons.svg#close"
                 />
               </svg>
             </span>
@@ -13101,7 +13109,7 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#ui--check"
+                    xlink:href="/icons.svg#check"
                   />
                 </svg>
               </a>
@@ -13459,7 +13467,7 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
           <a
             aria-controls="login-box-id"
             aria-expanded="false"
-            class="ecl-link ecl-link--standalone ecl-site-header-core__login-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__login-toggle"
             data-ecl-login-toggle=""
             href="/example"
           >
@@ -13469,7 +13477,7 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--logged-in"
+                xlink:href="/icons.svg#logged-in"
               />
             </svg>
             Logged in
@@ -13479,7 +13487,7 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#ui--corner-arrow"
+                xlink:href="/icons.svg#corner-arrow"
               />
             </svg>
           </a>
@@ -13491,7 +13499,7 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
             <p
               class="ecl-site-header-core__login-description"
             >
-              Logged in as "last name", "first name"
+              Logged in as "last name" "first name"
             </p>
             <hr
               class="ecl-site-header-core__login-separator"
@@ -13507,7 +13515,7 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
         <a
           aria-controls="language-list-overlay"
           aria-label="English"
-          class="ecl-link ecl-link--standalone ecl-site-header-core__language-selector"
+          class="ecl-button ecl-button--ghost ecl-site-header-core__language-selector"
           data-ecl-language-selector=""
           href="/example"
         >
@@ -13520,7 +13528,7 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--language"
+                xlink:href="/icons.svg#language"
               />
             </svg>
             <span
@@ -13537,7 +13545,7 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
           <a
             aria-controls="search-form-id"
             aria-expanded="false"
-            class="ecl-link ecl-link--standalone ecl-site-header-core__search-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__search-toggle"
             data-ecl-search-toggle="true"
             href="/example"
           >
@@ -13547,7 +13555,7 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--search"
+                xlink:href="/icons.svg#search"
               />
             </svg>
             Search
@@ -13570,6 +13578,7 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
               <input
                 class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
                 id="search-input-id"
+                placeholder="Placeholder text"
                 type="search"
               />
             </div>
@@ -13594,7 +13603,7 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#general--search"
+                    xlink:href="/icons.svg#search"
                   />
                 </svg>
               </span>
@@ -13628,7 +13637,7 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
           focusable="false"
         >
           <use
-            xlink:href="/icons.svg#general--hamburger"
+            xlink:href="/icons.svg#hamburger"
           />
         </svg>
         Menu
@@ -13655,7 +13664,7 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--close-filled"
+                  xlink:href="/icons.svg#close-filled"
                 />
               </svg>
               <span
@@ -13686,7 +13695,7 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
               <span
@@ -13730,7 +13739,7 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -13937,7 +13946,7 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -14001,7 +14010,7 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -14186,7 +14195,7 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -14294,7 +14303,7 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -14501,7 +14510,7 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -14667,7 +14676,7 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--close"
+                  xlink:href="/icons.svg#close"
                 />
               </svg>
             </span>
@@ -14806,7 +14815,7 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#ui--check"
+                    xlink:href="/icons.svg#check"
                   />
                 </svg>
               </a>
@@ -15164,7 +15173,7 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
           class="ecl-site-header-core__login-container"
         >
           <a
-            class="ecl-link ecl-link--standalone ecl-site-header-core__login-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__login-toggle"
             href="/example"
           >
             <svg
@@ -15173,7 +15182,7 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--log-in"
+                xlink:href="/icons.svg#log-in"
               />
             </svg>
             Log in
@@ -15182,7 +15191,7 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
         <a
           aria-controls="language-list-overlay"
           aria-label="English"
-          class="ecl-link ecl-link--standalone ecl-site-header-core__language-selector"
+          class="ecl-button ecl-button--ghost ecl-site-header-core__language-selector"
           data-ecl-language-selector=""
           href="/example"
         >
@@ -15195,7 +15204,7 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--language"
+                xlink:href="/icons.svg#language"
               />
             </svg>
             <span
@@ -15212,7 +15221,7 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
           <a
             aria-controls="search-form-id"
             aria-expanded="false"
-            class="ecl-link ecl-link--standalone ecl-site-header-core__search-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__search-toggle"
             data-ecl-search-toggle="true"
             href="/example"
           >
@@ -15222,7 +15231,7 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--search"
+                xlink:href="/icons.svg#search"
               />
             </svg>
             Search
@@ -15245,6 +15254,7 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
               <input
                 class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
                 id="search-input-id"
+                placeholder="Placeholder text"
                 type="search"
               />
             </div>
@@ -15269,7 +15279,7 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#general--search"
+                    xlink:href="/icons.svg#search"
                   />
                 </svg>
               </span>
@@ -15303,7 +15313,7 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
           focusable="false"
         >
           <use
-            xlink:href="/icons.svg#general--hamburger"
+            xlink:href="/icons.svg#hamburger"
           />
         </svg>
         Menu
@@ -15330,7 +15340,7 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--close-filled"
+                  xlink:href="/icons.svg#close-filled"
                 />
               </svg>
               <span
@@ -15361,7 +15371,7 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
               <span
@@ -15405,7 +15415,7 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -15612,7 +15622,7 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -15676,7 +15686,7 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -15861,7 +15871,7 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -15969,7 +15979,7 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -16176,7 +16186,7 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -16342,7 +16352,7 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--close"
+                  xlink:href="/icons.svg#close"
                 />
               </svg>
             </span>
@@ -16481,7 +16491,7 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#ui--check"
+                    xlink:href="/icons.svg#check"
                   />
                 </svg>
               </a>
@@ -16837,7 +16847,7 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
           class="ecl-site-header-core__login-container"
         >
           <a
-            class="ecl-link ecl-link--standalone ecl-site-header-core__login-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__login-toggle"
             href="/example"
           >
             <svg
@@ -16846,7 +16856,7 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--log-in"
+                xlink:href="/icons.svg#log-in"
               />
             </svg>
             Log in
@@ -16855,7 +16865,7 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
         <a
           aria-controls="language-list-overlay"
           aria-label="English"
-          class="ecl-link ecl-link--standalone ecl-site-header-core__language-selector"
+          class="ecl-button ecl-button--ghost ecl-site-header-core__language-selector"
           data-ecl-language-selector=""
           href="/example"
         >
@@ -16868,7 +16878,7 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--language"
+                xlink:href="/icons.svg#language"
               />
             </svg>
             <span
@@ -16885,7 +16895,7 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
           <a
             aria-controls="search-form-id"
             aria-expanded="false"
-            class="ecl-link ecl-link--standalone ecl-site-header-core__search-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__search-toggle"
             data-ecl-search-toggle="true"
             href="/example"
           >
@@ -16895,7 +16905,7 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--search"
+                xlink:href="/icons.svg#search"
               />
             </svg>
             Search
@@ -16918,6 +16928,7 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
               <input
                 class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
                 id="search-input-id"
+                placeholder="Placeholder text"
                 type="search"
               />
             </div>
@@ -16942,7 +16953,7 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#general--search"
+                    xlink:href="/icons.svg#search"
                   />
                 </svg>
               </span>
@@ -16976,7 +16987,7 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
           focusable="false"
         >
           <use
-            xlink:href="/icons.svg#general--hamburger"
+            xlink:href="/icons.svg#hamburger"
           />
         </svg>
         Menu
@@ -17003,7 +17014,7 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--close-filled"
+                  xlink:href="/icons.svg#close-filled"
                 />
               </svg>
               <span
@@ -17034,7 +17045,7 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
               <span
@@ -17078,7 +17089,7 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -17285,7 +17296,7 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -17349,7 +17360,7 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -17534,7 +17545,7 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -17642,7 +17653,7 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -17849,7 +17860,7 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -18015,7 +18026,7 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--close"
+                  xlink:href="/icons.svg#close"
                 />
               </svg>
             </span>
@@ -18154,7 +18165,7 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#ui--check"
+                    xlink:href="/icons.svg#check"
                   />
                 </svg>
               </a>
@@ -18510,7 +18521,7 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
           class="ecl-site-header-core__login-container"
         >
           <a
-            class="ecl-link ecl-link--standalone ecl-site-header-core__login-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__login-toggle"
             href="/example"
           >
             <svg
@@ -18519,7 +18530,7 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--log-in"
+                xlink:href="/icons.svg#log-in"
               />
             </svg>
             Connexion
@@ -18528,7 +18539,7 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
         <a
           aria-controls="language-list-overlay"
           aria-label="Français"
-          class="ecl-link ecl-link--standalone ecl-site-header-core__language-selector"
+          class="ecl-button ecl-button--ghost ecl-site-header-core__language-selector"
           data-ecl-language-selector=""
           href="/example"
         >
@@ -18541,7 +18552,7 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--language"
+                xlink:href="/icons.svg#language"
               />
             </svg>
             <span
@@ -18558,7 +18569,7 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
           <a
             aria-controls="search-form-id"
             aria-expanded="false"
-            class="ecl-link ecl-link--standalone ecl-site-header-core__search-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__search-toggle"
             data-ecl-search-toggle="true"
             href="/example"
           >
@@ -18568,7 +18579,7 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--search"
+                xlink:href="/icons.svg#search"
               />
             </svg>
             Recherche
@@ -18591,6 +18602,7 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
               <input
                 class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
                 id="search-input-id"
+                placeholder="Placeholder text"
                 type="search"
               />
             </div>
@@ -18615,7 +18627,7 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#general--search"
+                    xlink:href="/icons.svg#search"
                   />
                 </svg>
               </span>
@@ -18649,7 +18661,7 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
           focusable="false"
         >
           <use
-            xlink:href="/icons.svg#general--hamburger"
+            xlink:href="/icons.svg#hamburger"
           />
         </svg>
         Menu
@@ -18676,7 +18688,7 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--close-filled"
+                  xlink:href="/icons.svg#close-filled"
                 />
               </svg>
               <span
@@ -18707,7 +18719,7 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
               <span
@@ -18751,7 +18763,7 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -18958,7 +18970,7 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -19022,7 +19034,7 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -19207,7 +19219,7 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -19315,7 +19327,7 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -19522,7 +19534,7 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -19688,7 +19700,7 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--close"
+                  xlink:href="/icons.svg#close"
                 />
               </svg>
             </span>
@@ -19840,7 +19852,7 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#ui--check"
+                    xlink:href="/icons.svg#check"
                   />
                 </svg>
               </a>
@@ -20185,7 +20197,7 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
           class="ecl-site-header-core__login-container"
         >
           <a
-            class="ecl-link ecl-link--standalone ecl-site-header-core__login-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__login-toggle"
             href="/example"
           >
             <svg
@@ -20194,7 +20206,7 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--log-in"
+                xlink:href="/icons.svg#log-in"
               />
             </svg>
             Connexion
@@ -20203,7 +20215,7 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
         <a
           aria-controls="language-list-overlay"
           aria-label="Français"
-          class="ecl-link ecl-link--standalone ecl-site-header-core__language-selector"
+          class="ecl-button ecl-button--ghost ecl-site-header-core__language-selector"
           data-ecl-language-selector=""
           href="/example"
         >
@@ -20216,7 +20228,7 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--language"
+                xlink:href="/icons.svg#language"
               />
             </svg>
             <span
@@ -20233,7 +20245,7 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
           <a
             aria-controls="search-form-id"
             aria-expanded="false"
-            class="ecl-link ecl-link--standalone ecl-site-header-core__search-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__search-toggle"
             data-ecl-search-toggle="true"
             href="/example"
           >
@@ -20243,7 +20255,7 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--search"
+                xlink:href="/icons.svg#search"
               />
             </svg>
             Recherche
@@ -20266,6 +20278,7 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
               <input
                 class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
                 id="search-input-id"
+                placeholder="Placeholder text"
                 type="search"
               />
             </div>
@@ -20290,7 +20303,7 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#general--search"
+                    xlink:href="/icons.svg#search"
                   />
                 </svg>
               </span>
@@ -20324,7 +20337,7 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
           focusable="false"
         >
           <use
-            xlink:href="/icons.svg#general--hamburger"
+            xlink:href="/icons.svg#hamburger"
           />
         </svg>
         Menu
@@ -20351,7 +20364,7 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--close-filled"
+                  xlink:href="/icons.svg#close-filled"
                 />
               </svg>
               <span
@@ -20382,7 +20395,7 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
               <span
@@ -20426,7 +20439,7 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -20633,7 +20646,7 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -20697,7 +20710,7 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -20882,7 +20895,7 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -20990,7 +21003,7 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -21197,7 +21210,7 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -21363,7 +21376,7 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--close"
+                  xlink:href="/icons.svg#close"
                 />
               </svg>
             </span>
@@ -21515,7 +21528,7 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#ui--check"
+                    xlink:href="/icons.svg#check"
                   />
                 </svg>
               </a>
@@ -21858,7 +21871,7 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
           class="ecl-site-header-core__login-container"
         >
           <a
-            class="ecl-link ecl-link--standalone ecl-site-header-core__login-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__login-toggle"
             href="/example"
           >
             <svg
@@ -21867,7 +21880,7 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--log-in"
+                xlink:href="/icons.svg#log-in"
               />
             </svg>
             Connexion
@@ -21876,7 +21889,7 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
         <a
           aria-controls="language-list-overlay"
           aria-label="Français"
-          class="ecl-link ecl-link--standalone ecl-site-header-core__language-selector"
+          class="ecl-button ecl-button--ghost ecl-site-header-core__language-selector"
           data-ecl-language-selector=""
           href="/example"
         >
@@ -21889,7 +21902,7 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--language"
+                xlink:href="/icons.svg#language"
               />
             </svg>
             <span
@@ -21906,7 +21919,7 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
           <a
             aria-controls="search-form-id"
             aria-expanded="false"
-            class="ecl-link ecl-link--standalone ecl-site-header-core__search-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__search-toggle"
             data-ecl-search-toggle="true"
             href="/example"
           >
@@ -21916,7 +21929,7 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#general--search"
+                xlink:href="/icons.svg#search"
               />
             </svg>
             Recherche
@@ -21939,6 +21952,7 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
               <input
                 class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
                 id="search-input-id"
+                placeholder="Placeholder text"
                 type="search"
               />
             </div>
@@ -21963,7 +21977,7 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#general--search"
+                    xlink:href="/icons.svg#search"
                   />
                 </svg>
               </span>
@@ -21997,7 +22011,7 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
           focusable="false"
         >
           <use
-            xlink:href="/icons.svg#general--hamburger"
+            xlink:href="/icons.svg#hamburger"
           />
         </svg>
         Menu
@@ -22024,7 +22038,7 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--close-filled"
+                  xlink:href="/icons.svg#close-filled"
                 />
               </svg>
               <span
@@ -22055,7 +22069,7 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
               <span
@@ -22099,7 +22113,7 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -22306,7 +22320,7 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -22370,7 +22384,7 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -22555,7 +22569,7 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -22663,7 +22677,7 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -22870,7 +22884,7 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--corner-arrow"
+                  xlink:href="/icons.svg#corner-arrow"
                 />
               </svg>
             </a>
@@ -23036,7 +23050,7 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#ui--close"
+                  xlink:href="/icons.svg#close"
                 />
               </svg>
             </span>
@@ -23188,7 +23202,7 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#ui--check"
+                    xlink:href="/icons.svg#check"
                   />
                 </svg>
               </a>

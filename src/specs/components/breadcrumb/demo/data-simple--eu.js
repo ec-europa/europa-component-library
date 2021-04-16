@@ -7,5 +7,6 @@ module.exports = {
   ],
   navigation_text: 'You are here:',
   icon_file_path: '/icons.svg',
+  icon_size: 'xs',
   ellipsis_label: 'Click to expand',
 };

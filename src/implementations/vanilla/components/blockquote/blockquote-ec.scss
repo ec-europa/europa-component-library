@@ -1,0 +1,18 @@
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+@use 'blockquote' with (
+  $_border-width: 10px,
+  $_border-color: map.get(theme.$color, 'yellow-100'),
+  $_border-radius: 0,
+  $_padding-left-mobile: map.get(theme.$spacing, 'l'),
+  $_body-font-mobile: map.get(theme.$font-prolonged, 'm'),
+  $_body-font-tablet: map.get(theme.$font-prolonged, 'm'),
+  $_body-font-desktop: map.get(theme.$font-prolonged, 'l'),
+  $_body-color: map.get(theme.$color, 'grey-100'),
+  $_author-margin-top-desktop: map.get(theme.$spacing, 'xl'),
+  $_author-font-mobile: map.get(theme.$font-prolonged, 'l'),
+  $_author-font-tablet: map.get(theme.$font-prolonged, 'l'),
+  $_author-font-desktop: map.get(theme.$font-prolonged, 'l'),
+  $_author-font-weight: map.get(theme.$font-weight, 'bold'),
+  $_author-color: map.get(theme.$color, 'black-100'),
+);

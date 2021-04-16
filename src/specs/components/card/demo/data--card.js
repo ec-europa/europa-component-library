@@ -22,7 +22,6 @@ module.exports = {
     infos: [
       {
         icon: {
-          type: 'general',
           name: 'calendar',
           size: 'xs',
           path: '/icons.svg',
@@ -31,7 +30,6 @@ module.exports = {
       },
       {
         icon: {
-          type: 'general',
           name: 'location',
           size: 'xs',
           path: '/icons.svg',

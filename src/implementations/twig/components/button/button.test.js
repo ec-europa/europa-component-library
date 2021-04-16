@@ -31,7 +31,6 @@ describe('Button', () => {
       expect.assertions(1);
 
       dataCall.icon.path = 'static/icons.svg';
-      dataCall.icon.type = 'ui';
       dataCall.icon.name = 'corner-arrow';
       dataCall.icon.size = 'fluid';
 
@@ -52,7 +51,6 @@ describe('Button', () => {
       expect.assertions(1);
 
       dataCall.icon.path = 'static/icons.svg';
-      dataCall.icon.type = 'ui';
       dataCall.icon.name = 'corner-arrow';
       dataCall.icon.size = 'fluid';
       dataCall.icon_position = 'before';
@@ -67,7 +65,6 @@ describe('Button', () => {
       variant: 'call',
       icon: {
         path: 'static/icons.svg',
-        type: 'ui',
         name: 'corner-arrow',
         size: 'fluid',
       },
