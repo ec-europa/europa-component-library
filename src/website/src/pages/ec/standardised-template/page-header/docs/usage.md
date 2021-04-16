@@ -6,14 +6,16 @@ The page header component provides users the context of the page.It is always 
 
 ## Anatomy
 
+>
+
 ![](/cms-images/standardised-page-header.png)
 
-| Components                                                                          | Mandatory | Description                                                                                                      |
-| ----------------------------------------------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------- |
-| <Link to="/ec/components/navigation/breadcrumb/usage/" standalone>breadcrumb</Link> | optional  | breadcrumb component provides information on the page and its relationship to the site's hierarchy and structure |
-| meta                                                                                | optional  | metadata related to the content of the page                                                                      |
-| page title                                                                          | yes       | title of the page                                                                                                |
-| introduction                                                                        | optional  | short description of the page                                                                                    |
+|                                                                                     | Components | Mandatory                                                                                                        | Description |
+| ----------------------------------------------------------------------------------- | ---------- | ---------------------------------------------------------------------------------------------------------------- | ----------- |
+| <Link to="/ec/components/navigation/breadcrumb/usage/" standalone>breadcrumb</Link> | optional   | breadcrumb component provides information on the page and its relationship to the site's hierarchy and structure |             |
+| meta                                                                                | optional   | metadata related to the content of the page                                                                      |             |
+| page title                                                                          | yes        | title of the page                                                                                                |             |
+| introduction                                                                        | optional   | short description of the page                                                                                    |             |
 
 ## Do's
 
