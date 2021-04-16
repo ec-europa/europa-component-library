@@ -37,12 +37,12 @@ The page header component provides users the context of the page.It is always 
 
 ## Page header background image without overlay
 
-![](/cms-images/ec_ph_stan_image_l_996px.png)
+![](/cms-images/ec_ph_stan_image_l_734px.png)
 
 ## Page header background image with light overlay
 
-![](/cms-images/ec_ph_stan_light_l_996px.png)
+![](/cms-images/ec_ph_stan_light_l_734px.png)
 
 ## Page header background image with dark overlay
 
-![](/cms-images/ec_ph_stan_dark_l_996px.png)
+![](/cms-images/ec_ph_stan_dark_l_734px.png)
