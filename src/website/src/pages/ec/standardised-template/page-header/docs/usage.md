@@ -6,6 +6,8 @@ The page header component provides users the context of the page.It is always 
 
 ## Anatomy
 
+>
+
 ![](/cms-images/standardised-page-header.png)
 
 | Components                                                                          | Mandatory | Description                                                                                                      |
