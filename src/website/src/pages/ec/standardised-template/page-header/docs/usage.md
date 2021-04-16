@@ -6,8 +6,6 @@ The page header component provides users the context of the page.It is always 
 
 ## Anatomy
 
->
-
 ![](/cms-images/standardised-page-header.png)
 
 | Components                                                                          | Mandatory | Description                                                                                                      |
@@ -35,7 +33,7 @@ The page header component provides users the context of the page.It is always 
 
 ## Page header with thumbnail
 
-![](/cms-images/ec_ph_st_thumb_l_996px.png)
+![](/cms-images/ec_ph_st_thumb_l_734px.png)
 
 ## Page header background image without overlay
 
