@@ -24,57 +24,61 @@ const loggedInData = { ...enData, logged: true };
 const clonedLoggedInData = { ...loggedInData };
 
 const getArgTypes = (data) => {
-  return {
-    login: {
-      type: { name: 'boolean' },
-      defaultValue: true,
-      description: 'Toggle login box visibility',
-      table: {
-        type: { summary: 'object' },
-        defaultValue: { summary: '{}' },
-      },
+  const argTypes = {};
+
+  argTypes.login = {
+    type: 'boolean',
+    defaultValue: true,
+    description: 'Toggle login box visibility',
+    table: {
+      type: { summary: 'object' },
+      defaultValue: { summary: '{}' },
     },
-    menu: {
-      type: { name: 'boolean' },
-      defaultValue: true,
-      description: 'Toggle menu visibility',
-      table: {
-        type: { summary: 'object' },
-        defaultValue: { summary: '{}' },
-      },
+  };
+  argTypes.language_selector = {
+    name: 'language selector',
+    type: 'boolean',
+    defaultValue: true,
+    description: 'Toggle language selector visibility',
+    table: {
+      type: { summary: 'object' },
+      defaultValue: { summary: '{}' },
     },
-    language_selector: {
-      name: 'language selector',
-      type: { name: 'boolean' },
-      defaultValue: true,
-      description: 'Toggle language selector visibility',
-      table: {
-        type: { summary: 'object' },
-        defaultValue: { summary: '{}' },
-      },
-    },
-    banner_top: {
+  };
+  if (system === 'ec') {
+    argTypes.banner_top = {
       name: 'class',
-      type: { name: 'boolean' },
+      type: 'boolean',
       defaultValue: true,
       description: 'Toggle class visibility (EC only)',
       table: {
         type: { summary: 'object' },
         defaultValue: { summary: '{}' },
       },
-    },
-    site_name: {
-      name: 'site name',
-      defaultValue: data.site_name,
-      type: { name: 'string', required: true },
-      description: 'The site name',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
+    };
+  }
+  argTypes.menu = {
+    type: 'boolean',
+    defaultValue: true,
+    description: 'Toggle menu visibility',
+    table: {
+      type: { summary: 'object' },
+      defaultValue: { summary: '{}' },
     },
   };
+  argTypes.site_name = {
+    name: 'site name',
+    defaultValue: data.site_name,
+    type: { name: 'string', required: true },
+    description: 'The site name',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+  };
+
+  return argTypes;
 };
 
 const prepareData = (data, demo, args) => {
