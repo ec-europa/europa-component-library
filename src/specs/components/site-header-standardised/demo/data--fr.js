@@ -199,7 +199,6 @@ module.exports = {
       },
     ],
   },
-  menu_label: 'Menu',
   site_name: 'Nom du site',
   icon_file_path: '/icons.svg',
   banner_top: {
