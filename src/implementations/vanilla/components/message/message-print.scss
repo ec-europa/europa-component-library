@@ -11,8 +11,9 @@ $_border-width: 0.5mm;
 .ecl-message {
   display: inline-flex;
   margin: 0;
-  padding: map.get(theme.$spacing-print, 'l') map.get(theme.$spacing-print, 'm')
-    map.get(theme.$spacing-print, 'l') map.get(theme.$spacing-print, 'l');
+  padding: map.get(theme.$spacing-print, 'l')
+    map.get(theme.$spacing-print, 'xs') map.get(theme.$spacing-print, 'l')
+    map.get(theme.$spacing-print, 'l');
 }
 
 .ecl-message__icon {
