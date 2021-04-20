@@ -15,7 +15,7 @@ module.exports = {
     icon: {
       path: '/icons.svg',
       name: 'close-filled',
-      size: 's',
+      size: 'xs',
     },
   },
 };

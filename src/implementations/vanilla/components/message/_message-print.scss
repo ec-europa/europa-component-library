@@ -1,0 +1,101 @@
+/*
+ * Message
+ * @define message
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+
+$_background-error: none !default;
+$_background-info: none !default;
+$_background-success: none !default;
+$_background-warning: none !default;
+$_border-radius: none !default;
+$_border-width: none !default;
+$_description-color: none !default;
+$_icon-spacing: none !default;
+$_icon-error-fill: none !default;
+$_icon-info-fill: none !default;
+$_icon-warning-fill: none !default;
+$_icon-success-fill: none !default;
+$_title-color: none !default;
+$_title-font: none !default;
+$_title-spacing: none !default;
+
+.ecl-message {
+  border-radius: $_border-radius;
+  border-style: solid;
+  border-width: $_border-width;
+  display: inline-flex;
+  margin: 0;
+  padding: map.get(theme.$spacing-print, 'l')
+    map.get(theme.$spacing-print, 'xs') map.get(theme.$spacing-print, 'l')
+    map.get(theme.$spacing-print, 'l');
+}
+
+.ecl-message__icon {
+  display: block;
+  flex-shrink: 0;
+  margin-right: $_icon-spacing;
+}
+
+.ecl-message__close {
+  display: none;
+}
+
+.ecl-message__title {
+  color: $_title-color;
+  font: $_title-font;
+  font-family: #{map.get(theme.$font-family-print, 'alt')};
+  font-weight: map.get(theme.$font-weight-print, 'bold');
+  margin-bottom: $_title-spacing;
+  max-width: 80ch;
+}
+
+.ecl-message__description {
+  color: $_description-color;
+  font: map.get(theme.$font-prolonged-print, 'm');
+  margin-bottom: 0;
+  margin-top: map.get(theme.$spacing-print, 'xs');
+  max-width: 80ch;
+}
+
+// information
+.ecl-message--info {
+  background: $_background-info;
+  border-color: map.get(theme.$color, 'info');
+
+  .ecl-message__icon {
+    fill: $_icon-info-fill;
+  }
+}
+
+// success
+.ecl-message--success {
+  background: $_background-success;
+  border-color: map.get(theme.$color, 'success');
+
+  .ecl-message__icon {
+    fill: $_icon-success-fill;
+  }
+}
+
+// warning
+.ecl-message--warning {
+  background: $_background-warning;
+  border-color: map.get(theme.$color, 'warning');
+
+  .ecl-message__icon {
+    fill: $_icon-warning-fill;
+  }
+}
+
+// error
+.ecl-message--error {
+  background: $_background-error;
+  border-color: map.get(theme.$color, 'error');
+
+  .ecl-message__icon {
+    fill: $_icon-error-fill;
+  }
+}
