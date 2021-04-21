@@ -50,7 +50,7 @@
 }
 
 .ecl-accordion__toggle-flex {
-  align-items: center;
+  align-items: top;
   display: flex;
   flex-direction: row;
 }
@@ -61,9 +61,7 @@
   margin-right: map.get(theme.$spacing, 'm');
 
   .ecl-accordion__toggle[aria-expanded='true'] & {
-    margin-bottom: calc(
-      #{map.get(theme.$spacing, 'xs')} + #{map.get(theme.$spacing, 'xs')} + 1px
-    );
+    margin-bottom: map.get(theme.$spacing, 's');
   }
 }
 
@@ -72,8 +70,6 @@
 
   .ecl-accordion__toggle[aria-expanded='true'] & {
     border-bottom: 1px solid map.get(theme.$color, 'grey');
-    margin-bottom: map.get(theme.$spacing, 'xs');
-    padding-bottom: map.get(theme.$spacing, 'xs');
   }
 }
 
@@ -81,7 +77,7 @@
   color: map.get(theme.$color, 'grey');
   font: map.get(theme.$font-prolonged, 'm');
   margin-left: 0;
-  padding: 0 map.get(theme.$spacing, 'm') map.get(theme.$spacing, 's');
+  padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
 }
 
 .no-js .ecl-accordion__content {
