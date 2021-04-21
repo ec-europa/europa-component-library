@@ -6,46 +6,37 @@ order: 2
 import { Playground, Html } from '@ecl/website-components';
 
 import {
-  pageHeaderTitle,
-  pageHeaderMetaTitle,
-  pageHeaderMetaTitleDescription,
+  pageHeaderDefault,
+  pageHeaderThumbnail,
   pageHeaderBackgroundImage,
 } from '../demo';
 
-## Title
+## Default
 
 <Playground
   system="ec"
   selectedKind="components-page-headers-core"
-  selectedStory="title"
+  selectedStory="default"
+  selectedArgs="thumbnail:false"
   showFrame
 >
-  <Html markup={pageHeaderTitle} />
+  <Html markup={pageHeaderDefault} />
 </Playground>
 
-## Meta - Title
+## With thumbnail
 
 <Playground
   system="ec"
   selectedKind="components-page-headers-core"
-  selectedStory="meta-title"
+  selectedStory="default"
   showFrame
 >
-  <Html markup={pageHeaderMetaTitle} />
+  <Html markup={pageHeaderThumbnail} />
 </Playground>
 
-## Meta - Title - Description
+## With background image
 
-<Playground
-  system="ec"
-  selectedKind="components-page-headers-core"
-  selectedStory="meta-title-description"
-  showFrame
->
-  <Html markup={pageHeaderMetaTitleDescription} />
-</Playground>
-
-## Background image
+Overlay can be configured (dark, light or none)
 
 <Playground
   system="ec"

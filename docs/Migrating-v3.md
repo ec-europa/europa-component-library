@@ -85,6 +85,13 @@ Change impact have been grouped as :
 - :heavy_check_mark: twig parameter `no_visited` added, to prevent change of color for visited links
 - :heavy_check_mark: twig parameter `icon_path` has been removed (not used)
 
+**Page headers**
+
+- :boom: markup has been revised to handle new specs
+- :warning: twig parameter `meta` is now an array of string
+- :warning: twig parameter `background_image` has been removed (using image url to check if there is a background)
+- :warning: twig parameter `overlay` added, to select optional overlay on top of background image
+
 **Text area**
 
 - :heavy_check_mark: twig parameter `invalid_icon` added, to display additional icon when field is invalid
