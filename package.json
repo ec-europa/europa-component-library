@@ -21,6 +21,7 @@
     "pretty-check": "prettier --check \"src/**/*.{md,mdx,html,json,yml,js,jsx,scss}\"",
     "publish": "scripts/publish.sh",
     "serve": "cd src/website && npm run serve",
+    "size": "npm run dist:presets && size-limit",
     "start:ec": "(cd src/presets/ec-core && npm run watch) & cd src/playground/ec && npm run start",
     "start:eu": "(cd src/presets/eu-core && npm run watch) & cd src/playground/eu && npm run start",
     "start:website": "cd src/website && npm run start",
