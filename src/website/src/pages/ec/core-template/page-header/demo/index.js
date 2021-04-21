@@ -19,6 +19,7 @@ export const pageHeaderDefault = template(correctSvgPath(demoDefault));
 // Thumbnail
 const dataThumbnail = { ...demoDefault };
 dataThumbnail.breadcrumb = dataBreadcrumb;
+dataThumbnail.thumbnail = true;
 export const pageHeaderThumbnail = template(correctSvgPath(dataThumbnail));
 
 // Background image

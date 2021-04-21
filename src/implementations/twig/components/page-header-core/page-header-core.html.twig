@@ -11,7 +11,7 @@
     - "meta" (array) (default: []) Meta of header
     - "breadcrumb" (associative array) (default: '') Predefined structure compatible with EC Breadcrumb
     - "background_image_url (string) (default: '') Background image url
-    - "overlay" (string) (default: '') Optional overlay on top of background image (can be 'light', 'dark')
+    - "overlay" (string) (default: '') Optional overlay on top of background image (can be 'light', 'dark'). Only used on EC
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -34,17 +34,16 @@
 
 {# Internal logic - Process properties #}
 
-{% if extra_classes is defined and extra_classes is not empty %}
-  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
-{% endif %}
-
 {% if _background_image_url and _background_image_url is not empty %}
   {% set _css_class = _css_class ~ ' ecl-page-header-core--image' %}
-  {% set _extra_attributes = 'style="background-image: url(' ~ _background_image_url ~ ')"' %}
 
   {% if _overlay is not empty %}
     {% set _css_class = _css_class ~ ' ecl-page-header-core--overlay-' ~ _overlay %}
   {% endif %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
@@ -58,13 +57,20 @@
 {% endif %}
 
 {# Print the result #}
+
 <div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+{% if _background_image_url and _background_image_url is not empty %}
+  {% set _image_attributes = 'style="background-image: url(' ~ _background_image_url ~ ')"' %}
+  <div class="ecl-page-header-core__background" {{ _image_attributes|raw }} aria-hidden="true"></div>
+{% endif %}
+
   <div class="ecl-container">
   {% if _breadcrumb is not empty %}
     {% include '@ecl/breadcrumb-core/breadcrumb-core.html.twig' with _breadcrumb|merge({
       extra_classes: 'ecl-page-header-core__breadcrumb',
     }) only %}
   {% endif %}
+
   {% if _meta is not empty %}
     <div class="ecl-page-header-core__meta">
       {% for _item in _meta %}
@@ -72,7 +78,9 @@
       {% endfor %}
     </div>
   {% endif %}
+
     <h1 class="ecl-page-header-core__title">{{ _title }}</h1>
+
   {% if _description is not empty %}
     <div class="ecl-page-header-core__description-container">
     {% if _thumbnail is not empty %}
