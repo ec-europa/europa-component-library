@@ -36,7 +36,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Build presets
-        run: yarn build:presets
+        run: yarn dist:presets
       - name: Test
         run: yarn size-limit
   deploy-pull-request-preview:
