@@ -7,18 +7,30 @@
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
+$_background-color: null !default;
 $_text-color: map.get(theme.$color, 'blue-100');
 $_border-color: map.get(theme.$color, 'black-100');
-$_current-text-color: map.get(theme.$color, 'black-100');
+$_border-radius: null !default;
+$_border-width: null !default;
+$_current-text-color: null !default;
 $_current-border-color: map.get(theme.$color, 'black-100');
+$_current-border-width: null !default;
 
 .ecl-pagination {
-  border-top: 2px solid $_border-color;
+  background-color: $_background-color;
+  border-radius: $_border-radius;
+  border-top: $_border-width solid $_border-color;
   color: $_text-color;
-  font: map-get(theme.$font, 'm');
+  font: map-get(theme.$font-prolonged, 'm');
   margin: 0;
-  padding-bottom: map.get(theme.$spacing, 'm');
-  padding-top: map.get(theme.$spacing, 'm');
+  padding-bottom: calc(
+    #{map.get(theme.$spacing, 'm')} - #{map.get(theme.$spacing, '2xs')}
+  );
+  padding-left: map.get(theme.$spacing, 'm');
+  padding-right: map.get(theme.$spacing, 'm');
+  padding-top: calc(
+    #{map.get(theme.$spacing, 'm')} - #{map.get(theme.$spacing, '2xs')}
+  );
 }
 
 .ecl-pagination__list {
@@ -28,6 +40,7 @@ $_current-border-color: map.get(theme.$color, 'black-100');
   list-style: none;
   margin: 0;
   padding-left: 0;
+  position: relative;
 }
 
 .ecl-pagination__item {
@@ -39,7 +52,6 @@ $_current-border-color: map.get(theme.$color, 'black-100');
   display: flex;
   flex-basis: 0;
   flex-grow: 1;
-  font-weight: map-get(theme.$font-weight, 'bold');
 }
 
 .ecl-pagination__item--next {
@@ -49,7 +61,7 @@ $_current-border-color: map.get(theme.$color, 'black-100');
 .ecl-pagination__item--current {
   color: $_current-text-color;
   display: flex;
-  font-weight: bold;
+  font-weight: map-get(theme.$font-weight, 'bold');
 }
 
 .ecl-pagination__text--summary {
@@ -67,6 +79,11 @@ $_current-border-color: map.get(theme.$color, 'black-100');
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
+  .ecl-pagination {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   .ecl-pagination__list {
     justify-content: center;
   }
@@ -74,7 +91,9 @@ $_current-border-color: map.get(theme.$color, 'black-100');
   .ecl-pagination__item {
     display: flex;
     flex-grow: 0;
-    margin-right: map.get(theme.$spacing, 'l');
+    margin-right: calc(
+      #{map.get(theme.$spacing, 'l')} - (2 * #{map.get(theme.$spacing, '2xs')})
+    );
 
     &:last-child {
       margin-right: 0;
@@ -86,11 +105,20 @@ $_current-border-color: map.get(theme.$color, 'black-100');
     flex-basis: auto;
   }
 
-  .ecl-pagination__item--current {
-    border: 2px solid $_current-border-color;
-    border-radius: 10rem; // High value to force circular corners, but not fully circular shape
-    justify-content: center;
-    min-width: 1.75rem;
+  .ecl-pagination__item--current::before {
+    border: $_current-border-width solid $_current-border-color;
+    border-radius: 10rem;
+    content: '';
+    display: block;
+    height: calc(
+      #{map.get(theme.$line-height-prolonged, 'm')} + (2 * #{$_current-border-width})
+    );
+    left: calc(50% - #{$_current-border-width});
+    position: absolute;
+    top: 0;
+    width: calc(
+      #{map.get(theme.$line-height-prolonged, 'm')} + (2 * #{$_current-border-width})
+    );
   }
 
   .ecl-pagination__text--summary {

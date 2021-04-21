@@ -1,0 +1,9 @@
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+@use 'pagination' with (
+  $_background-color: transparent,
+  $_border-radius: 0,
+  $_border-width: 2px,
+  $_current-border-width: 2px,
+  $_current-text-color: map.get(theme.$color, 'black'),
+);
