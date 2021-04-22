@@ -2,7 +2,7 @@
 title: Usage
 order: 1
 ---
-The Core footer is present on every page. It provides supplementary information such as copyright, legal, privacy, social media, contact information and links to other important sites within the European Commission ecosystem, to be placed at the bottom of the page.
+> The Core footer is present on every page. It provides supplementary information such as copyright, legal, privacy, social media, contact information and links to other important sites within the European Commission ecosystem, to be placed at the bottom of the page.
 
 ## Anatomy
 
