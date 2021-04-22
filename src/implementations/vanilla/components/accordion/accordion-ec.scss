@@ -30,7 +30,7 @@
   display: block;
   font: map.get(theme.$font-prolonged, 'm');
   font-weight: map.get(theme.$font-weight, 'bold');
-  padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
+  padding: 0 map.get(theme.$spacing, 'm');
   position: relative;
   text-align: left;
   width: 100%;
@@ -58,15 +58,12 @@
 .ecl-accordion__toggle-icon {
   flex-grow: 0;
   flex-shrink: 0;
-  margin-right: map.get(theme.$spacing, 'm');
-
-  .ecl-accordion__toggle[aria-expanded='true'] & {
-    margin-bottom: map.get(theme.$spacing, 's');
-  }
+  margin: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm') map.get(theme.$spacing, 's') 0;
 }
 
 .ecl-accordion__toggle-title {
   flex-grow: 1;
+  padding: map.get(theme.$spacing, 's') 0;
 
   .ecl-accordion__toggle[aria-expanded='true'] & {
     border-bottom: 1px solid map.get(theme.$color, 'grey');
