@@ -6,8 +6,6 @@ order: 1
 
 ## Anatomy
 
->
-
 ![](/cms-images/core-footer.jpg)
 
 | Component             | Mandatory | Description                                                               |
