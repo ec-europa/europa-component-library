@@ -6,6 +6,8 @@
 @use "sass:map";
 @use '@ecl/theme-dev/theme';
 
+$_expandable-content-color: null !default;
+
 .ecl-expandable {
   margin: 0;
 }
@@ -15,6 +17,7 @@
 }
 
 .ecl-expandable__content {
+  color: $_expandable-content-color;
   font-family: #{map.get(theme.$font-family, 'default')};
 }
 
