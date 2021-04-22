@@ -86,8 +86,8 @@
     {% if _thumbnail is not empty %}
       <img 
         class="ecl-page-header-core__description-thumbnail" 
-        src={{ _thumbnail.src|default('') }} 
-        alt={{ _thumbnail.alt|default('') }}
+        src="{{ _thumbnail.src|default('') }}"
+        alt="{{ _thumbnail.alt|default('') }}"
       />
     {% endif %}
       <p class="ecl-page-header-core__description">{{ _description }}</p>
