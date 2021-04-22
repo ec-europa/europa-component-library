@@ -11,7 +11,7 @@ const dataBreadcrumb = { ...demoBreadcrumbLong };
 const dataDefault = { ...demoDefault };
 dataDefault.breadcrumb = dataBreadcrumb;
 delete dataDefault.thumbnail;
-export const pageHeaderDefault = template(correctSvgPath(demoDefault));
+export const pageHeaderDefault = template(correctSvgPath(dataDefault));
 
 // Thumbnail
 const dataThumbnail = { ...demoDefault };
