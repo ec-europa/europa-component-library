@@ -3,19 +3,49 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctSvgPath } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
-import demoTitleContent from '@ecl/specs-component-page-header-standardised/demo/data--title';
-import demoMetaTitleContent from '@ecl/specs-component-page-header-standardised/demo/data--meta-title';
-import demoMetaTitleDescriptionContent from '@ecl/specs-component-page-header-standardised/demo/data--meta-title-description';
-import dataBreadcrumbLongEC from '@ecl/specs-component-breadcrumb/demo/data--ec';
-import dataBreadcrumbLongEU from '@ecl/specs-component-breadcrumb/demo/data--eu';
+import demoContent from '@ecl/specs-component-page-header-standardised/demo/data--default';
+import demoBackgroundImage from '@ecl/specs-component-page-header-standardised/demo/data--background-image';
+import demoBreadcrumbLongEC from '@ecl/specs-component-breadcrumb/demo/data--ec';
+import demoBreadcrumbLongEU from '@ecl/specs-component-breadcrumb/demo/data--eu';
 
 import pageHeaderStandardised from './page-header-standardised.html.twig';
 import notes from './README.md';
 
 const system = getSystem();
 
+const dataDefault = { ...demoContent };
+const dataBackgroundImage = { ...demoBackgroundImage };
+if (system === 'eu') {
+  delete dataBackgroundImage.overlay;
+}
+
 const getArgTypes = (data) => {
   const argTypes = {};
+
+  argTypes.breadcrumb = {
+    name: 'breadcrumb',
+    type: 'boolean',
+    defaultValue: true,
+    description: 'Toggle breadcrumb visibility',
+    table: {
+      type: { summary: 'object' },
+      defaultValue: { summary: '{}' },
+    },
+  };
+
+  if (data.thumbnail) {
+    argTypes.thumbnail = {
+      name: 'thumbnail',
+      type: 'boolean',
+      defaultValue: false,
+      description: 'Toggle thumbnail visibility',
+      table: {
+        type: { summary: 'object' },
+        defaultValue: { summary: '{}' },
+      },
+    };
+  }
+
   argTypes.title = {
     type: { name: 'string', required: true },
     defaultValue: data.title,
@@ -26,6 +56,7 @@ const getArgTypes = (data) => {
       category: 'Content',
     },
   };
+
   if (data.description) {
     argTypes.description = {
       type: 'string',
@@ -38,30 +69,88 @@ const getArgTypes = (data) => {
       },
     };
   }
+
   if (data.meta) {
     argTypes.meta = {
-      type: 'string',
+      type: 'array',
       defaultValue: data.meta,
-      description: 'The page metadata',
+      description: 'The page meta',
+      table: {
+        type: { summary: 'array' },
+        defaultValue: { summary: '[]' },
+        category: 'Content',
+      },
+    };
+  }
+
+  if (data.background_image_url) {
+    argTypes.background_image_url = {
+      name: 'background image',
+      type: 'string',
+      defaultValue: data.background_image_url,
+      description: 'The background image url',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
         category: 'Content',
       },
     };
+
+    if (system === 'ec') {
+      argTypes.overlay = {
+        name: 'image overlay',
+        type: 'select',
+        defaultValue: data.overlay,
+        description: 'Overlay on top on background image',
+        table: {
+          type: { summary: 'string' },
+          category: 'Content',
+        },
+        control: {
+          type: 'select',
+          options: ['none', 'dark', 'light'],
+        },
+      };
+    }
   }
 
   return argTypes;
 };
 
 const prepareData = (data, args) => {
-  data.breadcrumb =
-    system === 'eu' ? dataBreadcrumbLongEU : dataBreadcrumbLongEC;
-  data.breadcrumb.links.forEach((item) => {
-    item.negative = false;
-  });
+  if (!args.breadcrumb) {
+    delete data.breadcrumb;
+  } else if (args.breadcrumb) {
+    data.breadcrumb =
+      system === 'eu'
+        ? { ...demoBreadcrumbLongEU }
+        : { ...demoBreadcrumbLongEC };
+    data.breadcrumb.links.forEach((item) => {
+      item.negative = false;
+    });
+  }
+  if (!args.thumbnail) {
+    delete data.thumbnail;
+  } else if (args.thumbnail && !data.thumbnail) {
+    data.thumbnail = demoContent.thumbnail;
+  }
 
-  return Object.assign(correctSvgPath(data), args);
+  data.title = args.title;
+  data.description = args.description;
+  data.meta = args.meta;
+  data.background_image_url = args.background_image_url;
+
+  if (system === 'ec') {
+    if (args.overlay === 'none') {
+      delete data.overlay;
+    } else {
+      data.overlay = args.overlay;
+    }
+  }
+
+  correctSvgPath(data);
+
+  return data;
 };
 
 export default {
@@ -69,27 +158,20 @@ export default {
   decorators: [withNotes, withCode],
 };
 
-export const Title = (args) =>
-  pageHeaderStandardised(prepareData(demoTitleContent, args));
+export const Default = (args) =>
+  pageHeaderStandardised(prepareData(dataDefault, args));
 
-Title.storyName = 'title';
-Title.argTypes = getArgTypes(demoTitleContent);
-Title.parameters = { notes: { markdown: notes, json: demoTitleContent } };
-
-export const MetaTitle = (args) =>
-  pageHeaderStandardised(prepareData(demoMetaTitleContent, args));
-
-MetaTitle.storyName = 'meta-title';
-MetaTitle.argTypes = getArgTypes(demoMetaTitleContent);
-MetaTitle.parameters = {
-  notes: { markdown: notes, json: demoMetaTitleContent },
+Default.storyName = 'default';
+Default.argTypes = getArgTypes(dataDefault);
+Default.parameters = {
+  notes: { markdown: notes, json: dataDefault },
 };
 
-export const MetaTitleDescription = (args) =>
-  pageHeaderStandardised(prepareData(demoMetaTitleDescriptionContent, args));
+export const BackgroundImage = (args) =>
+  pageHeaderStandardised(prepareData(dataBackgroundImage, args));
 
-MetaTitleDescription.storyName = 'meta-title-description';
-MetaTitleDescription.argTypes = getArgTypes(demoMetaTitleDescriptionContent);
-MetaTitleDescription.parameters = {
-  notes: { markdown: notes, json: demoMetaTitleDescriptionContent },
+BackgroundImage.storyName = 'background-image';
+BackgroundImage.argTypes = getArgTypes(dataBackgroundImage);
+BackgroundImage.parameters = {
+  notes: { markdown: notes, json: dataBackgroundImage },
 };

@@ -120,9 +120,11 @@ const getArgTypes = (data) => {
 const prepareData = (data, args) => {
   if (!args.breadcrumb) {
     delete data.breadcrumb;
-  } else if (args.breadcrumb && !data.breadcrumb) {
+  } else if (args.breadcrumb) {
     data.breadcrumb =
-      system === 'eu' ? demoBreadcrumbLongEU : demoBreadcrumbLongEC;
+      system === 'eu'
+        ? { ...demoBreadcrumbLongEU }
+        : { ...demoBreadcrumbLongEC };
     data.breadcrumb.links.forEach((item) => {
       item.negative = system === 'ec';
     });

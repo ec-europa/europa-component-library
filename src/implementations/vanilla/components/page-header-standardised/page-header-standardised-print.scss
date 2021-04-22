@@ -12,13 +12,29 @@
 }
 
 .ecl-page-header-standardised__meta {
-  color: map.get(theme.$color, 'grey');
+  color: map.get(theme.$color, 'grey-100');
   font: map.get(theme.$font-print, 'm');
   font-family: map.get(theme.$font-family-print, 'alt');
 }
 
+.ecl-page-header-standardised__meta-item {
+  border-right: 1px solid map.get(theme.$color, 'grey-100');
+  margin-right: map.get(theme.$spacing-print, 'm');
+  padding-right: map.get(theme.$spacing-print, 'm');
+
+  &:first-of-type {
+    text-transform: uppercase;
+  }
+
+  &:last-of-type {
+    border-right-width: 0;
+    margin-right: 0;
+    padding-right: 0;
+  }
+}
+
 .ecl-page-header-standardised__title {
-  color: map.get(theme.$color, 'grey');
+  color: map.get(theme.$color, 'grey-100');
   font: map.get(theme.$font-print, '4xl');
   font-family: map.get(theme.$font-family-print, 'alt');
   font-weight: map.get(theme.$font-weight-print, 'bold');

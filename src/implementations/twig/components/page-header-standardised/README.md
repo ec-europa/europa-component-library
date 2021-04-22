@@ -10,8 +10,13 @@ npm install --save @ecl/twig-component-page-header-standardised
 
 - **"title"** (string) (default: '') Title of header
 - **"description"** (string) (default: '') Description of header
+- **"thumbnail"** (associative array) (default: {}) Thumbnail dipslayed alongside the description
+  - "alt" (string) Alternative text
+  - "src" (string) Image path
 - **"meta"** (string) (default: '') Meta of header
 - **"breadcrumb"** (associative array) (default: '') Predefined structure for the ECL Breadcrumb
+- **"background_image_url"** (string) (default: '') Background image url
+- **"overlay"** (string) (default: '') Optional overlay on top of background image
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
@@ -34,6 +39,6 @@ npm install --save @ecl/twig-component-page-header-standardised
     ],  
     icon_file_path: '/path-to-the-icons-file',  
     navigation_text: 'You are here:',  
-  }  
+  },  
 } %}  
 ```
