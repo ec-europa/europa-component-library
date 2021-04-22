@@ -50,15 +50,20 @@
 }
 
 .ecl-accordion__toggle-flex {
-  align-items: top;
+  align-items: start;
   display: flex;
   flex-direction: row;
 }
 
 .ecl-accordion__toggle-icon {
+  display: flex;
   flex-grow: 0;
   flex-shrink: 0;
   margin: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm') map.get(theme.$spacing, 's') 0;
+}
+
+.ecl-accordion__toggle-label {
+  display: none;
 }
 
 .ecl-accordion__toggle-title {
