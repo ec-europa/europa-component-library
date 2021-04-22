@@ -28,12 +28,12 @@ The standardised footer is present on every page. It provides supplementary info
 
 ## Don'ts
 
-- don't use more than one Footer per page
+- don't use more than one footer per page
 
 ## When to use
 
-- always use a Footer when building your page
+- always use a footer when building your page
 
 ## When not to use
 
-- do not follow these guidelines when you are updating sites that fall under the <Link to="/ec/core-template/">Core</Link> or <Link to="/ec/harmonised-templates/group1/">Harmonised</Link> category
+- do not follow these guidelines when you are updating sites that fall under the core category.
