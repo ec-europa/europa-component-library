@@ -552,5 +552,4 @@ module.exports = {
     },
   },
   icon_file_path: 'static/media/icons.3cf410f9.svg',
-  menu_label: 'Menu',
 };
