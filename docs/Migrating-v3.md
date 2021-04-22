@@ -46,6 +46,10 @@ Change impact have been grouped as :
 
 #### Component updates
 
+**Accordion**
+
+- :heavy_check_mark: twig parameter `label_expanded` & `label_collapsed` added, to add the open/close labels next to the icon in the EU version
+
 **Breadcrumb**
 
 - :warning: EC Core breadcrumb is now using the new negative variant for links

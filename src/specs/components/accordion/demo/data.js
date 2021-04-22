@@ -41,4 +41,6 @@ module.exports = {
         'In the modern global economy trade is essential for growth, jobs and competiveness, and the EU is committed to maintaining an open and rules-based trading system. With the rising threat of protectionism and weakened commitment of large players to global trade governance, the EU must take the lead.',
     },
   ],
+  label_expanded: 'Close',
+  label_collapsed: 'Open',
 };

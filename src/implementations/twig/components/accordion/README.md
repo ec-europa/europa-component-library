@@ -15,6 +15,8 @@ npm install --save @ecl/twig-component-accordion
     - "label" (string) (default: '')
     - "icon" (associative array) (default: {}) A predefined structure compatible with Icon component.
   - "content" (string) (default: '')
+- **"label_expanded"** (string) (default: '')
+- **"label_collapsed"** (string) (default: '')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
