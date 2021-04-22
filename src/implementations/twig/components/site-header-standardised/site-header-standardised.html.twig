@@ -349,7 +349,7 @@
     <div class="ecl-container">
     {%- if banner_top.link is defined and banner_top.link is not empty %}
       {% include '@ecl/link/link.html.twig' with banner_top|merge({
-        link: banner_top.link|merge({ type: 'standalone'}),
+        link: banner_top.link|merge({ type: 'standalone', no_visited: true}),
         icon_path: _icon_file_path
       }) only %}
     {% else %}
