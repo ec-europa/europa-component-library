@@ -6,8 +6,6 @@ The standardised footer is present on every page. It provides supplementary info
 
 ## Anatomy
 
->
-
 ![](/cms-images/standardised-footer.jpg)
 
 | Component                     | Mandatory | Description                                                                                                                                                                                                    |
