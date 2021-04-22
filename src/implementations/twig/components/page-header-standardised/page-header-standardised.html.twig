@@ -11,7 +11,6 @@
     - "meta" (array) (default: []) Meta of header
     - "breadcrumb" (associative array) (default: '') Predefined structure compatible with EC Breadcrumb
     - "background_image_url (string) (default: '') Background image url
-    - "overlay" (string) (default: '') Optional overlay on top of background image (can be 'light', 'dark'). Only used on EC
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -29,17 +28,12 @@
 {% set _breadcrumb = breadcrumb|default({}) %}
 {% set _css_class = 'ecl-page-header-standardised' %}
 {% set _background_image_url = background_image_url|default('') %}
-{% set _overlay = overlay|default('') %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
 
 {% if _background_image_url and _background_image_url is not empty %}
   {% set _css_class = _css_class ~ ' ecl-page-header-standardised--image' %}
-
-  {% if _overlay is not empty %}
-    {% set _css_class = _css_class ~ ' ecl-page-header-standardised--overlay-' ~ _overlay %}
-  {% endif %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}

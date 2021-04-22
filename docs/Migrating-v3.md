@@ -90,7 +90,8 @@ Change impact have been grouped as :
 - :boom: markup has been revised to handle new specs
 - :warning: twig parameter `meta` is now an array of string
 - :warning: twig parameter `background_image` has been removed (using image url to check if there is a background)
-- :warning: twig parameter `overlay` added, to select optional overlay on top of background image
+- :warning: twig parameter `overlay` added to Core page header, to select optional overlay on top of background image
+- :heavy_check_mark: twig parameter `thumbnail` added, to add an optional image
 
 **Text area**
 

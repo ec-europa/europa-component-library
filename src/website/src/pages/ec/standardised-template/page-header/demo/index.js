@@ -6,9 +6,6 @@ import template from '@ecl/twig-component-page-header-standardised/page-header-s
 import { correctSvgPath } from '@ecl/website-utils';
 
 const dataBreadcrumb = { ...demoBreadcrumbLong };
-dataBreadcrumb.links.forEach((item) => {
-  item.negative = true;
-});
 
 // Default
 const dataDefault = { ...demoDefault };
@@ -25,7 +22,6 @@ export const pageHeaderThumbnail = template(correctSvgPath(dataThumbnail));
 // Background image
 const dataBackgroundImage = { ...demoBackgroundImage };
 dataBackgroundImage.breadcrumb = dataBreadcrumb;
-dataBackgroundImage.overlay = 'dark';
 export const pageHeaderBackgroundImage = template(
   correctSvgPath(dataBackgroundImage)
 );
