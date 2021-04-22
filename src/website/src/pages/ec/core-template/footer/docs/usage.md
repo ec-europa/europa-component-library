@@ -32,4 +32,4 @@ The Core footer is present on every page. It provides supplementary information 
 
 ## When not to use
 
-- do not follow these guidelines when you are updating sites that fall under the standardised or harmonised category
+- do not follow these guidelines when you are updating sites that fall under the standardised category
