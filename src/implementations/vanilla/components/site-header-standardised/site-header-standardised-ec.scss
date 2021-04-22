@@ -13,6 +13,8 @@ $_logo-height-sm: 3rem;
 $_logo-width-sm: 12.1rem;
 $_logo-height-lg: 3.75rem;
 $_logo-width-lg: 15.1rem;
+$_logo-height-xl: 4.5rem;
+$_logo-width-xl: 18.1rem;
 $_search-width-l: 25rem;
 $_search-width-xl: 31.5rem;
 
@@ -24,11 +26,12 @@ $_search-width-xl: 31.5rem;
 .ecl-site-header-standardised__container {
   display: flex;
   flex-direction: column;
-  padding-top: map.get(theme.$spacing, 'm');
+  padding-bottom: map.get(theme.$spacing, 'xs');
+  padding-top: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-site-header-standardised__top {
-  align-items: flex-end;
+  align-items: center;
   display: flex;
   flex-grow: 1;
   justify-content: space-between;
@@ -36,7 +39,6 @@ $_search-width-xl: 31.5rem;
 
 .ecl-site-header-standardised__logo-link {
   flex-grow: 1;
-  margin-bottom: calc(#{map.get(theme.$spacing, 'm')} + 1px);
 }
 
 .ecl-site-header-standardised__logo-image {
@@ -52,30 +54,49 @@ $_search-width-xl: 31.5rem;
 .ecl-site-header-standardised__login-toggle,
 .ecl-site-header-standardised__search-toggle {
   align-items: center;
-  border-left: 1px solid map.get(theme.$color, 'white');
-  border-right: 1px solid map.get(theme.$color, 'white');
-  border-top: 1px solid map.get(theme.$color, 'white');
   display: flex;
   flex-direction: column;
   font: map.get(theme.$font, 'xs');
-  margin-bottom: calc(#{map.get(theme.$spacing, 'm')} + 1px);
-  margin-top: -1px;
-  padding: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 'xs') 0;
   position: relative;
   text-align: center;
   z-index: map.get(theme.$z-index, 'modal') + 2;
-
-  &[aria-expanded='true'] {
-    background-color: map.get(theme.$color, 'blue-5');
-    border-color: map.get(theme.$color, 'blue-25');
-    margin-bottom: 0;
-    padding-bottom: calc(#{map.get(theme.$spacing, 'm')} + 1px);
-  }
 }
 
 .ecl-site-header-standardised__login-toggle {
   .ecl-site-header-standardised__login-arrow {
     display: none;
+  }
+}
+
+.ecl-site-header-standardised__language-selector {
+  font: map.get(theme.$font, 'xs');
+  text-align: center;
+}
+
+.ecl-site-header-standardised__login-toggle,
+.ecl-site-header-standardised__language-selector,
+.ecl-site-header-standardised__search-toggle {
+  padding: map.get(theme.$spacing, 'xs');
+
+  &:focus {
+    padding: calc(#{map.get(theme.$spacing, 'xs')} - 3px)
+      calc(#{map.get(theme.$spacing, 'xs')} - 3px);
+  }
+
+  &[aria-expanded='true'],
+  &[aria-expanded='true']:focus {
+    background-color: map.get(theme.$color, 'blue-5');
+    border-color: map.get(theme.$color, 'blue-25');
+    border-style: solid;
+    /* stylelint-disable-next-line shorthand-property-no-redundant-values */
+    border-width: 1px 1px 0 1px;
+    margin-bottom: 0;
+    margin-bottom: -#{map.get(theme.$spacing, 'xs')};
+    padding: calc(#{map.get(theme.$spacing, 'xs')} - 1px)
+      calc(#{map.get(theme.$spacing, 'xs')} - 1px);
+    padding-bottom: calc(
+      #{map.get(theme.$spacing, 's')} + #{map.get(theme.$spacing, 'xs')} - 4px
+    );
   }
 }
 
@@ -89,7 +110,7 @@ $_search-width-xl: 31.5rem;
   display: none;
   font: map.get(theme.$font-prolonged, 's');
   left: 0;
-  margin-top: -1px;
+  margin-top: calc(#{map.get(theme.$spacing, 'xs')} - 1px);
   padding: calc(#{map.get(theme.$spacing, 'm')} - 1px);
   position: absolute;
   width: calc(
@@ -115,13 +136,6 @@ $_search-width-xl: 31.5rem;
   margin-top: map.get(theme.$spacing, 'm');
 }
 
-.ecl-site-header-standardised__language-selector {
-  font: map.get(theme.$font, 'xs');
-  margin-bottom: calc(#{map.get(theme.$spacing, 'm')} + 1px);
-  padding: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 'xs') 0;
-  text-align: center;
-}
-
 .ecl-site-header-standardised__language-icon {
   align-items: center;
   display: flex;
@@ -138,7 +152,7 @@ $_search-width-xl: 31.5rem;
   // position top and left has to be set like this because IE...
   // also ugly magic numbers to center the text on the icon
   top: 50%;
-  transform: translateX(-50%) translateX(-0.01rem) translateY(-50%)
+  transform: translateX(-50%) translateX(0) translateY(-50%)
     translateY(-0.05rem);
 }
 
@@ -148,29 +162,48 @@ $_search-width-xl: 31.5rem;
 
 .ecl-site-header-standardised__banner-top {
   background-color: map.get(theme.$color, 'blue-5');
-  color: map.get(theme.$color, 'blue');
   font: map.get(theme.$font-prolonged, 's');
   padding: map.get(theme.$spacing, 'xs') 0;
 }
 
 .ecl-site-header-standardised__banner {
-  background-color: map.get(theme.$color, 'blue');
-  color: map.get(theme.$color, 'white');
-  font: map.get(theme.$font, '2xl');
-  padding: map.get(theme.$spacing, 'm') 0;
+  display: none;
 }
+
+// stylelint-disable plugin/selector-bem-pattern
+.ecl-search-form__button .ecl-button__label {
+  display: none;
+}
+
+.ecl-search-form__button .ecl-button__icon {
+  display: block;
+}
+// stylelint-enable plugin/selector-bem-pattern
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('s') {
   .ecl-site-header-standardised__logo-link {
     flex-grow: 0;
   }
-
+  .ecl-site-header-standardised__container {
+    padding-bottom: map.get(theme.$spacing, 's');
+    padding-top: map.get(theme.$spacing, 's');
+  }
   .ecl-site-header-standardised__logo-image {
     height: $_logo-height-sm;
     max-height: 100%;
     max-width: 100%;
     width: $_logo-width-sm;
+  }
+}
+
+@include breakpoints.up('m') {
+  .ecl-site-header-standardised__logo-link {
+    margin-top: 0;
+  }
+  /* stylelint-disable-next-line plugin/selector-bem-pattern */
+  .ecl-search-form {
+    max-width: 100%;
   }
 }
 
@@ -180,6 +213,18 @@ $_search-width-xl: 31.5rem;
     flex-direction: row;
     padding-bottom: map.get(theme.$spacing, 'l');
     padding-top: map.get(theme.$spacing, 'l');
+  }
+
+  .ecl-site-header-standardised__banner {
+    background-color: map.get(theme.$color, 'blue-100');
+    color: map.get(theme.$color, 'white-100');
+    display: block;
+    font: map.get(theme.$font, '3xl');
+    padding: map.get(theme.$spacing, 'l') 0;
+  }
+
+  .ecl-site-header-standardised__top {
+    align-items: flex-end;
   }
 
   .ecl-site-header-standardised__action {
@@ -197,7 +242,7 @@ $_search-width-xl: 31.5rem;
 
   .ecl-site-header-standardised__login-box {
     left: auto;
-    margin-top: calc(#{map.get(theme.$spacing, 'xl')} - 1px);
+    margin-top: calc(#{map.get(theme.$spacing, 'l')} - 1px);
     width: auto;
   }
 
@@ -207,15 +252,6 @@ $_search-width-xl: 31.5rem;
     display: flex;
     flex-direction: row;
     font: map.get(theme.$font, 'm');
-    margin: 0;
-    padding: map.get(theme.$spacing, 's');
-  }
-
-  .ecl-site-header-standardised__login-toggle[aria-expanded='true'] {
-    margin-bottom: -#{map.get(theme.$spacing, 'xl')};
-    padding-bottom: calc(
-      #{map.get(theme.$spacing, 's')} + #{map.get(theme.$spacing, 'xl')}
-    );
   }
 
   .ecl-site-header-standardised__login-toggle,
@@ -231,7 +267,7 @@ $_search-width-xl: 31.5rem;
     .ecl-site-header-standardised__login-arrow {
       display: block;
       height: map.get(theme.$icon, 'xs');
-      margin-left: map.get(theme.$icon, 'xs');
+      margin-left: map.get(theme.$spacing, 'xs');
       transform: rotate(0);
       width: map.get(theme.$icon, 'xs');
     }
@@ -242,11 +278,36 @@ $_search-width-xl: 31.5rem;
     }
   }
 
+  .ecl-site-header-standardised__search-toggle {
+    display: none;
+  }
+
+  .ecl-site-header-standardised__login-toggle,
+  .ecl-site-header-standardised__language-selector,
+  .ecl-site-header-standardised__search-toggle {
+    padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
+
+    &:focus {
+      padding: calc(#{map.get(theme.$spacing, 's')} - 3px)
+        calc(#{map.get(theme.$spacing, 'm')} - 3px);
+    }
+
+    &[aria-expanded='true'],
+    &[aria-expanded='true']:focus {
+      margin-bottom: -#{map.get(theme.$spacing, 'l')};
+      padding: calc(#{map.get(theme.$spacing, 's')} - 1px)
+        calc(#{map.get(theme.$spacing, 'm')} - 1px);
+      padding-bottom: calc(
+        #{map.get(theme.$spacing, 's')} + #{map.get(theme.$spacing, 'l')}
+      );
+    }
+  }
+
   .ecl-site-header-standardised__language-code {
     font: map.get(theme.$font, 'xs');
     margin-right: map.get(theme.$spacing, 'xs');
-    transform: translateX(-50%) translateX(-0.2rem) translateY(-50%)
-      translateY(-0.05rem);
+    transform: translateX(-50%) translateX(-0.22rem) translateY(-50%)
+      translateY(-0.08rem);
   }
 
   .ecl-site-header-standardised__search-container {
@@ -254,9 +315,15 @@ $_search-width-xl: 31.5rem;
     margin-left: map.get(theme.$spacing, 's');
   }
 
-  .ecl-site-header-standardised__search-toggle {
+  // stylelint-disable plugin/selector-bem-pattern
+  .ecl-search-form__button .ecl-button__label {
+    display: block;
+  }
+
+  .ecl-search-form__button .ecl-button__icon {
     display: none;
   }
+  // stylelint-enable plugin/selector-bem-pattern
 
   .ecl-site-header-standardised__search {
     background-color: map.get(theme.$color, 'white');
@@ -270,24 +337,17 @@ $_search-width-xl: 31.5rem;
     width: $_search-width-l;
   }
 
-  .ecl-site-header-standardised__banner-top,
-  .ecl-site-header-standardised__banner {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
   .ecl-site-header-standardised__banner-top {
     font: map.get(theme.$font-prolonged, 'm');
-  }
-
-  .ecl-site-header-standardised__banner {
-    font: map.get(theme.$font, '3xl');
-    padding-bottom: map.get(theme.$spacing, 'l');
-    padding-top: map.get(theme.$spacing, 'l');
   }
 }
 
 @include breakpoints.up('xl') {
+  .ecl-site-header-standardised__logo-image {
+    height: $_logo-height-xl;
+    width: $_logo-width-xl;
+  }
+
   .ecl-site-header-standardised__search {
     width: $_search-width-xl;
   }

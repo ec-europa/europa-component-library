@@ -21,7 +21,7 @@ npm install --save @ecl/twig-component-menu
     "label": (string) (default: '')
     "path": (string) (default: '')
     "is_current": (boolean) (optional),
-- **"site_name"** (string) (default: ''): Name of the website
+- **"site_name"** (string) (default: ''): Name of the website (used only on mobile)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated) for the nav element
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes for the nav element
   - "name" (string) Attribute name, eg. 'data-test'
