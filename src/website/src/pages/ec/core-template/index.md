@@ -2,16 +2,8 @@
 order: 4
 title: Core template
 ---
-
-import { Paragraph, Anatomy, Link } from '@ecl/website-components';
-
-<Paragraph size="lead">
-  Core websites aim to minimise the duplication of content across the European
-  Commission Services’ web presence and provide access to information in a
-  user-friendly way. They host general information shared by many different
-  websites or departments and serve as hubs for onward navigation to further
-  thematic content and/or specific services such as web information systems.
-</Paragraph>
+The core website aims to minimise the duplication of content across the European Commission Services’ web presence and provide access to information in a
+user-friendly way. They host general information shared by many different websites or departments and serve as hubs for onward navigation to further thematic content and/or specific services such as web information systems.
 
 ## Anatomy
 
@@ -19,7 +11,7 @@ import { Paragraph, Anatomy, Link } from '@ecl/website-components';
 image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Core/core-template.png"
 alt="Anatomy of core template"
 legend={{
-    items: [
+    items: \[
       {
         color: '#404040',
         label: 'mandatory',
