@@ -7,18 +7,36 @@
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-$_left-spacing: 10rem;
-$_border-width: 0.25rem;
-$_border-color: map.get(theme.$color, 'grey-100');
+$_border-width: null !default;
+$_border-color: null !default;
 $_bullet-fill-color: map.get(theme.$color, 'white-100');
 $_bullet-size: map.get(theme.$spacing, 's');
-$_bullet-border-color: map.get(theme.$color, 'yellow-100');
-$_bullet-border-width: 0.25rem;
-$_toggle-bullet-border-color: map.get(theme.$color, 'grey-25');
+$_bullet-border-color: null !default;
+$_bullet-border-width: null !default;
+$_bullet-shadow: null !default;
+$_bullet-top-position: null !default;
+$_content-big-font: null !default;
+$_content-color: null !default;
+$_content-font: null !default;
+$_first-item-offset: null !default;
+$_toggle-bullet-border-color: null !default;
 $_toggle-bullet-border-width: 0.125rem;
-$_title-color: map.get(theme.$color, 'black-100');
-$_label-color: map.get(theme.$color, 'grey-100');
-$_content-color: map.get(theme.$color, 'grey-75');
+$_label-alignment: null !default;
+$_item-padding-top: null !default;
+$_label-color: null !default;
+$_label-big-font: null !default;
+$_label-font: null !default;
+$_label-font-weight: null !default;
+$_label-margin: null !default;
+$_label-layout: null !default;
+$_last-item-height: null !default;
+$_left-spacing: null !default;
+$_timeline-margin-left: null !default;
+$_title-color: null !default;
+$_title-big-font: null !default;
+$_title-font: null !default;
+$_title-font-weight: null !default;
+$_title-margin: null !default;
 
 // Timeline structure
 .ecl-timeline {
@@ -33,7 +51,7 @@ $_content-color: map.get(theme.$color, 'grey-75');
   padding-bottom: map.get(theme.$spacing, 'l');
   padding-left: map.get(theme.$spacing, 'm') + ($_bullet-size / 2) +
     $_bullet-border-width;
-  padding-top: map.get(theme.$spacing, 'xs');
+  padding-top: $_item-padding-top;
   position: relative;
 
   // Border
@@ -52,12 +70,13 @@ $_content-color: map.get(theme.$color, 'grey-75');
     background-color: $_bullet-fill-color;
     border: $_bullet-border-width solid $_bullet-border-color;
     border-radius: 50%;
+    box-shadow: $_bullet-shadow;
     box-sizing: border-box;
     content: '';
     height: $_bullet-size + ($_bullet-border-width * 2);
     left: -(($_bullet-size / 2) + $_bullet-border-width);
     position: absolute;
-    top: map.get(theme.$spacing, 'xs');
+    top: $_bullet-top-position;
     width: $_bullet-size + ($_bullet-border-width * 2);
   }
 }
@@ -69,14 +88,15 @@ $_content-color: map.get(theme.$color, 'grey-75');
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('s') {
   .ecl-timeline {
-    margin-left: map.get(theme.$spacing, 'xs') + $_left-spacing +
-      map.get(theme.$spacing, 'm');
+    margin-left: $_timeline-margin-left;
     margin-right: map.get(theme.$spacing, 'xs');
   }
 }
 
 // Toggle button
 .ecl-timeline__item--toggle {
+  padding-top: map.get(theme.$spacing, 'xs');
+
   &::before {
     border-left-style: dashed;
   }
@@ -110,45 +130,54 @@ $_content-color: map.get(theme.$color, 'grey-75');
 // Border adjustment
 .ecl-timeline__item:first-child::before {
   height: calc(100% - #{map.get(theme.$spacing, 'xs')});
-  top: map.get(theme.$spacing, 'xs');
+  top: $_first_item_offset;
 }
 
 .ecl-timeline__item:last-child::before {
-  height: map.get(theme.$spacing, 'xs');
+  height: $_last-item-height;
 }
 
 // Timeline data
 .ecl-timeline__title {
   color: $_title-color;
-  font: map.get(theme.$font, 'm');
-  font-weight: map.get(theme.$font-weight, 'bold');
-  margin-bottom: map.get(theme.$spacing, 'xs');
+  font: $_title-font;
+  font-weight: $_title-font-weight;
+  margin-bottom: $_title-margin;
 }
 
 .ecl-timeline__label {
   color: $_label-color;
-  font: map.get(theme.$font, 'm');
+  font: $_label-font;
   margin-bottom: map.get(theme.$spacing, 's');
 }
 
 .ecl-timeline__content {
   color: $_content-color;
-  font: map.get(theme.$font, 'm');
+  font: $_content-font;
 }
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('s') {
   .ecl-timeline__label {
-    font: map.get(theme.$font, 'xs');
-    font-weight: map.get(theme.$font-weight, 'bold');
+    font: $_label-big-font;
+    font-weight: $_label-font-weight;
     left: -($_left-spacing + map.get(theme.$spacing, 'm') + ($_bullet-size / 2) +
           $_bullet-border-width);
     line-height: map.get(theme.$line-height, 'm');
-    margin-bottom: 0;
-    position: absolute;
-    text-align: right;
+    margin-bottom: $_label-margin;
+    position: $_label-layout;
+    text-align: $_label-alignment;
     top: map.get(theme.$spacing, 'xs');
     width: $_left-spacing;
+  }
+
+  .ecl-timeline__title {
+    font: $_title-big-font;
+    font-weight: $_title-font-weight;
+  }
+
+  .ecl-timeline__content {
+    font: $_content-big-font;
   }
 }
 
