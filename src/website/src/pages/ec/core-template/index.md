@@ -7,8 +7,6 @@ user-friendly way. They host general information shared by many different websit
 
 ## Anatomy
 
->
-
 ![](/cms-images/core-template.png)
 
 | Elements                                                                           | Mandatory | Description                                                                                                                                                                                                                                                                                                                                 |
