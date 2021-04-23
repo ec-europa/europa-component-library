@@ -1,6 +1,6 @@
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 
-import demoData from '@ecl/specs-component-timeline/demo/data';
+import demoData from '@ecl/specs-component-timeline/demo/data--ec';
 
 describe('Timeline', () => {
   const template = '@ecl/timeline/timeline.html.twig';
