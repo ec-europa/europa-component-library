@@ -6,6 +6,8 @@ The standardised site header is present on every page. It communicates the Europ
 
 ## Anatomy
 
+>
+
 ![](/cms-images/standardised-site-header.png)
 
 | Component                                                                               | Mandatory | Description                                                                                                                                                           |
