@@ -8,12 +8,12 @@
         level: (string),
         toggle: (predefined structure): see Button component, format: {
           label: (string),
-          icon (associative array) (default: {}) A predefined structure compatible with Icon component.
         },
         content: (block),
       },
       ...
     ]
+    - "icon" (associative array) (default: {}) A predefined structure compatible with Icon component.
     - "label_expanded" (string) (default: '')
     - "label_collapsed" (string) (default: '')
     - "extra_classes" (string) (default: '')
@@ -68,14 +68,15 @@
             aria-controls="{{ _item.id }}-content"
           >
             <span class="ecl-accordion__toggle-flex">
-              <span class="ecl-accordion__toggle-icon">
+              <span class="ecl-accordion__toggle-indicator">
                 <span class="ecl-accordion__toggle-label">{{ _label_collapsed }}</span>
                 {% include '@ecl/icon/icon.html.twig' with {
                   icon: {
-                    path: _item.toggle.icon.path,
-                    name: "plus",
+                    path: icon.path,
+                    name: icon.name,
                     size: "m"
                   },
+                  extra_classes: 'ecl-accordion__toggle-icon',
                   extra_attributes: [{ name: "data-ecl-accordion-icon" }],
                 } only %}
               </span>

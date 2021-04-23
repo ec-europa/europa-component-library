@@ -85,13 +85,20 @@
   outline: 0;
 }
 
+.ecl-accordion__toggle[aria-expanded='true'] {
+  .ecl-accordion__toggle-icon {
+    transform: rotate(0deg);
+    transition-duration: 0s;
+  }
+}
+
 .ecl-accordion__toggle-flex {
   align-items: start;
   display: flex;
   flex-direction: row;
 }
 
-.ecl-accordion__toggle-icon {
+.ecl-accordion__toggle-indicator {
   color: map.get(theme.$color, 'blue');
   display: flex;
   flex-grow: 0;
@@ -99,6 +106,10 @@
   margin-left: map.get(theme.$spacing, 's');
   order: 2;
   padding: 2px 0;
+  .ecl-accordion__toggle-icon {
+    transform: rotate(180deg);
+    transition-duration: 0s;
+  }
 }
 
 .ecl-accordion__toggle-label {

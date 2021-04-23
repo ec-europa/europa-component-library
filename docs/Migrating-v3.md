@@ -48,6 +48,7 @@ Change impact have been grouped as :
 
 **Accordion**
 
+- :heavy_check_mark: the `icon` parameter is no longer defined for each item but only once for the whole accordion. Note that for the EU version you must use the `corner-arrow` icon name.
 - :heavy_check_mark: twig parameter `label_expanded` & `label_collapsed` added, to add the open/close labels next to the icon in the EU version
 
 **Breadcrumb**

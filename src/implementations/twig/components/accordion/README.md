@@ -13,8 +13,8 @@ npm install --save @ecl/twig-component-accordion
   - "level" (string) (default: 3)
   - "toggle" (predefined structure): see Button component
     - "label" (string) (default: '')
-    - "icon" (associative array) (default: {}) A predefined structure compatible with Icon component.
   - "content" (string) (default: '')
+- **"icon"**  (associative array) (default: {}) A predefined structure compatible with Icon component.
 - **"label_expanded"** (string) (default: '')
 - **"label_collapsed"** (string) (default: '')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
@@ -34,14 +34,17 @@ npm install --save @ecl/twig-component-accordion
       toggle: { 
         label: 
           'Delivery of last pending proposals, a common Destiny of unity, the hour of European Democracy', 
-        icon: { 
-          path: 'static/icons.svg', 
-        }, 
       }, 
       content: 
         'The College of Commissioners held today the first weekly meeting of 2019 which was devoted to discussing the challenges of this new year. Commissioners used the opportunity to take stock and discuss the year ahead, including the European elections in May and other important milestones ahead.', 
     }, 
     ... 
-  ] 
+  ], 
+  icon: { 
+    path: 'static/icons.svg', 
+    name: 'plus', 
+  }, 
+  label_expanded: 'Close', 
+  label_collapsed: 'Open' 
 } %} 
 ```
