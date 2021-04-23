@@ -11,7 +11,6 @@ npm install --save @ecl/twig-component-site-header-harmonised
 - **"group"** (string) (default: ''): 'group1', 'group2' or 'group3'
 - **"logged"** (boolean) (default: false): Whether the user is logged in or not
 - **"menu"** (boolean) (default: false): Whether the component includes a menu or not
-- **"menu_label"** (string) (default: false): The menu toggler label
 - **"banner"** (string): The site name
 - **"banner_top"** (string) OR (object with Link component in property): Class name
 - **"icon_file_path"** (string) (default: ''): file containing the svg icons
