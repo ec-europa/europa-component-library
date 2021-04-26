@@ -10,7 +10,6 @@ npm install --save @ecl/twig-component-site-header-standardised
 
 - **"logged"** (boolean) (default: false): Whether the user is logged in or not
 - **"menu"** (boolean) (default: false): Whether the component includes a menu or not
-- **"menu_label"** (string): Menu toggler label
 - **"banner_top"** (string) OR (object with Link component in property): Class name
 - **"icon_file_path"** (string) (default: ''): file containing the svg icons
 - **"site_name"** (string) (default: '') Site name
