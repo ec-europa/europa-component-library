@@ -19,6 +19,8 @@ $_menu-dropdown-item-hover-color: null !default;
 $_menu-dropdown-shadow: null !default;
 $_menu-expanded-background: null !default;
 $_menu-header-horizontal-padding: null !default;
+$_menu-site-name-font: null !default;
+$_menu-site-name-font-weight: null !default;
 $_menu-item-border: null !default;
 $_menu-item-weight: null !default;
 $_menu-item-hover-background: null !default;
@@ -80,8 +82,8 @@ $_mobile-item-hover-background: null !default;
   background: $_main-nav-background;
   box-shadow: $_main-nav-shadow;
   margin: 0;
-  padding-bottom: $_menu-mobile-vertical-padding;
-  padding-top: $_menu-mobile-vertical-padding;
+  padding-bottom: map.get(theme.$spacing, 'xs');
+  padding-top: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-menu__container {
@@ -137,12 +139,15 @@ $_mobile-item-hover-background: null !default;
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
+@include breakpoints.up('m') {
   .ecl-menu {
-    padding-bottom: map.get(theme.$spacing, 'l');
-    padding-top: map.get(theme.$spacing, 'l');
+    padding-bottom: map.get(theme.$spacing, 'm');
+    padding-top: map.get(theme.$spacing, 'm');
   }
+}
 
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('l') {
   .ecl-menu:not(.ecl-menu--forced-mobile) {
     padding-bottom: 0;
     padding-top: 0;
@@ -171,7 +176,8 @@ $_mobile-item-hover-background: null !default;
 .ecl-menu__site-name {
   align-self: center;
   color: map.get(theme.$color, 'white');
-  font: map.get(theme.$font, '2xl');
+  font: $_menu-site-name-font;
+  font-weight: $_menu-site-name-font-weight;
   order: 1;
 }
 
@@ -210,8 +216,7 @@ $_mobile-item-hover-background: null !default;
     }
 
     .ecl-menu__site-name {
-      margin-bottom: map.get(theme.$spacing, 'l');
-      padding-top: map.get(theme.$spacing, 'l');
+      display: none;
     }
 
     .ecl-menu__inner-header,
@@ -298,14 +303,9 @@ $_mobile-item-hover-background: null !default;
 }
 
 @include breakpoints.up('m') {
-  .ecl-menu,
   .ecl-menu__inner-header {
     padding-bottom: $_menu-desktop-vertical-padding;
     padding-top: $_menu-desktop-vertical-padding;
-  }
-
-  .ecl-menu__site-name {
-    font: map.get(theme.$font, '3xl');
   }
 }
 

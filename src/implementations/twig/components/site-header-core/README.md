@@ -38,8 +38,7 @@ npm install --save @ecl/twig-component-site-header-core
       - "label" (string) (default: '') Item language label, eg. 'English', 'Français', etc.
       - "path" (string) (default: '') Item language URL eg. '/example#language_en'.
       - "active" (boolean) (default: false) define if item is the active language.
-  - **"menu"** (boolean): Whether the component includes a menu
-  - **"menu_label"** (string) Menu toggler label
+- **"menu"** (boolean): Whether the component includes a menu
 - **"search_toggle"** (associative array) (default: { label: 'Search', href: '/example' }),
 - **"search_form"** (associative array) (default: predefined structure): ECL Search Form component structure
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)

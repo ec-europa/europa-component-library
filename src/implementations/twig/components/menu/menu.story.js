@@ -19,7 +19,7 @@ const getArgTypes = (data) => {
       name: 'site name',
       type: { name: 'string' },
       defaultValue: data.site_name,
-      description: 'The name of the site',
+      description: 'The name of the site (displayed only on mobile)',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
