@@ -2,7 +2,9 @@
 title: Usage
 order: 1
 ---
-The page header component provides users the context of the page.It is always placed just below the site header. There are five variations of the page header.
+The page header component provides users the context of the page. It is always placed just below the site header. There are five variations of the page header.
+
+Default as in the anatomy image
 
 ## Anatomy
 
@@ -16,6 +18,22 @@ The page header component provides users the context of the page.It is always 
 | meta                                                                                | no        | metadata related to the content of the page                                                                      |
 | page title                                                                          | yes       | title of the page                                                                                                |
 | introduction                                                                        | no        | short description of the page                                                                                    |
+
+Page header with thumbnail
+
+![](/cms-images/ec_ph_c_thumb_l_734px.png)
+
+Page header with background image without overlay
+
+![](/cms-images/ec_ph_c_image_l_734px.png)
+
+Page header background image with light overlay
+
+![](/cms-images/ec_ph_c_light_l_734px.png)
+
+Page header background image with dark overlay
+
+![](/cms-images/ec_ph_c_dark_l_734px.png)
 
 ## Do's
 
