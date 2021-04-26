@@ -7,22 +7,39 @@
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-$_title-color: map.get(theme.$color, 'black-100');
-$_description-color: map.get(theme.$color, 'grey-100');
-$_close-color: map.get(theme.$color, 'black-100');
+$_background-error: none !default;
+$_background-info: none !default;
+$_background-success: none !default;
+$_background-warning: none !default;
+$_border-radius: none !default;
+$_border-width: none !default;
+$_close-color: map.get(theme.$color, 'blue-100');
+$_close-font-weight: none !default;
+$_description-color: none !default;
+$_icon-error-fill: none !default;
+$_icon-info-fill: none !default;
+$_icon-warning-fill: none !default;
+$_icon-success-fill: none !default;
+$_icon-spacing: none !default;
+$_title-color: none !default;
+$_title-font: none !default;
+$_title-spacing: none !default;
 
 .ecl-message {
+  border-radius: $_border-radius;
+  border-style: solid;
+  border-width: $_border-width;
   box-sizing: border-box;
   display: flex;
   margin: 0;
-  padding: map.get(theme.$spacing, 'l') map.get(theme.$spacing, 'm')
-    map.get(theme.$spacing, 'm') map.get(theme.$spacing, 'l');
+  padding: map.get(theme.$spacing, 'l') map.get(theme.$spacing, 'xs')
+    map.get(theme.$spacing, 'l') map.get(theme.$spacing, 'l');
   position: relative;
 }
 
 .ecl-message__icon {
   flex-shrink: 0;
-  margin-right: map.get(theme.$spacing, 'm');
+  margin-right: $_icon-spacing;
 }
 
 .ecl-message__content {
@@ -31,16 +48,16 @@ $_close-color: map.get(theme.$color, 'black-100');
 
 .ecl-message__title {
   color: $_title-color;
-  font: map.get(theme.$font-prolonged, 'm');
+  font: $_title-font;
   font-weight: bold;
-  margin-bottom: map.get(theme.$spacing, 'xs');
+  margin-bottom: $_title-spacing;
   max-width: 80ch;
 }
 
 .ecl-message__description {
   color: $_description-color;
-  font: map.get(theme.$font, 'xs');
-  margin: 0;
+  font: map.get(theme.$font-prolonged, 'm');
+  margin: 0 0 map.get(theme.$spacing, 'xs');
   max-width: 80ch;
   padding-bottom: map.get(theme.$spacing, 'xl'); // Extra spacing for IE
 }
@@ -48,7 +65,8 @@ $_close-color: map.get(theme.$color, 'black-100');
 .ecl-message__close {
   bottom: map.get(theme.$spacing, 'm') - map.get(theme.$spacing, 's');
   color: $_close-color;
-  font: map.get(theme.$font, 's');
+  font: map.get(theme.$font, 'm');
+  font-weight: $_close-font-weight;
   position: absolute;
   right: 0;
 
@@ -86,18 +104,17 @@ $_close-color: map.get(theme.$color, 'black-100');
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
-  .ecl-message {
-    padding-bottom: map.get(theme.$spacing, 'l');
+  .ecl-message__title {
+    margin-bottom: map.get(theme.$spacing, 'xs');
   }
 
   .ecl-message__description {
-    font: map.get(theme.$font-prolonged, 's');
+    margin-bottom: 0;
     padding-bottom: 0;
   }
 
   .ecl-message__close {
     bottom: auto;
-    font: map.get(theme.$font, 'm');
     top: map.get(theme.$spacing, 'l') - map.get(theme.$spacing, 's');
   }
 
@@ -122,36 +139,40 @@ $_close-color: map.get(theme.$color, 'black-100');
 
 // information
 .ecl-message--info {
-  border: 2px solid map.get(theme.$color, 'info');
+  background: $_background-info;
+  border-color: map.get(theme.$color, 'info');
 
   .ecl-message__icon {
-    fill: map.get(theme.$color, 'info');
+    fill: $_icon-info-fill;
   }
 }
 
 // success
 .ecl-message--success {
-  border: 2px solid map.get(theme.$color, 'success');
+  background: $_background-success;
+  border-color: map.get(theme.$color, 'success');
 
   .ecl-message__icon {
-    fill: map.get(theme.$color, 'success');
+    fill: $_icon-success-fill;
   }
 }
 
 // warning
 .ecl-message--warning {
-  border: 2px solid map.get(theme.$color, 'warning');
+  background: $_background-warning;
+  border-color: map.get(theme.$color, 'warning');
 
   .ecl-message__icon {
-    fill: map.get(theme.$color, 'warning');
+    fill: $_icon-warning-fill;
   }
 }
 
 // error
 .ecl-message--error {
-  border: 2px solid map.get(theme.$color, 'error');
+  background: $_background-error;
+  border-color: map.get(theme.$color, 'error');
 
   .ecl-message__icon {
-    fill: map.get(theme.$color, 'error');
+    fill: $_icon-error-fill;
   }
 }
