@@ -90,6 +90,15 @@ Change impact have been grouped as :
 - :heavy_check_mark: twig parameter `no_visited` added, to prevent change of color for visited links
 - :heavy_check_mark: twig parameter `icon_path` has been removed (not used)
 
+**Menu**
+
+- :heavy_check_mark: twig parameter `site_name` is now only used on mobile (other display relies on the already existing parameter in site header)
+
+**Site headers**
+
+- :boom: markup has been revised, using button css where needed, and adding an extra container (needed for styling)
+- :heavy_check_mark: twig parameter `menu_label` has been removed (not used)
+
 **Text area**
 
 - :heavy_check_mark: twig parameter `invalid_icon` added, to display additional icon when field is invalid

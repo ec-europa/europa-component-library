@@ -504,5 +504,4 @@ module.exports = {
     },
   },
   icon_file_path: '/icons.svg',
-  menu_label: 'Menu',
 };
