@@ -85,6 +85,10 @@ Change impact have been grouped as :
 - :heavy_check_mark: twig parameter `no_visited` added, to prevent change of color for visited links
 - :heavy_check_mark: twig parameter `icon_path` has been removed (not used)
 
+**Message**
+
+- :warning: The size of the icon for the close button is no longer defined in the twig template, since it differs in the two system (`xs` for EC, `s` for EU)
+
 **Menu**
 
 - :heavy_check_mark: twig parameter `site_name` is now only used on mobile (other display relies on the already existing parameter in site header)
