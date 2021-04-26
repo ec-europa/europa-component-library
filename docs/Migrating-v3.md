@@ -105,6 +105,10 @@ Change impact have been grouped as :
 - :heavy_check_mark: twig parameter `placeholder` added, to manage default content
 - :heavy_check_mark: twig parameter `invalid_icon_label` has been removed (not used)
 
+**Timeline**
+
+- :warning: Additional markup has been added to handle the EU styles for the timeline items, their content is now wrapped in a `.ecl-timeline__tooltip` element with a `.ecl-timeline__tooltip-arrow` element as its first child
+
 #### Resources updates
 
 - :warning: logo file names have been homogenized between EC and EU, using the pattern `logo-(ec|eu)--(language).svg`
