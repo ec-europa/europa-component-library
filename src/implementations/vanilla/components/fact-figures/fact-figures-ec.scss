@@ -14,20 +14,16 @@
 }
 
 .ecl-fact-figures__items {
-  padding-bottom: map.get(theme.$spacing, 'l');
-  padding-top: map.get(theme.$spacing, 'l');
+  padding-bottom: map.get(theme.$spacing, 'xl');
+  padding-top: 0;
 }
 
 .ecl-fact-figures__item {
   box-sizing: border-box;
   font: map.get(theme.$font, 'm');
-  margin-top: map.get(theme.$spacing, 'xl');
   padding-left: map.get(theme.$spacing, 'm');
   padding-right: map.get(theme.$spacing, 'm');
-
-  &:first-of-type {
-    margin-top: 0;
-  }
+  padding-top: map.get(theme.$spacing, 'xl');
 }
 
 .ecl-fact-figures__icon {
@@ -36,20 +32,24 @@
 }
 
 .ecl-fact-figures__value {
-  color: map.get(theme.$color, 'blue');
-  font: map.get(theme.$font, '3xl');
+  color: map.get(theme.$color, 'black');
+  font: map.get(theme.$font, '4xl');
   font-weight: map.get(theme.$font-weight, 'bold');
 }
 
+.ecl-fact-figures--col-4 .ecl-fact-figures__value {
+  font: map.get(theme.$font, '2xl');
+}
+
 .ecl-fact-figures__title {
-  color: map.get(theme.$color, 'blue');
+  color: map.get(theme.$color, 'black');
   font: map.get(theme.$font-prolonged, 'l');
   font-weight: map.get(theme.$font-weight, 'bold');
   margin-top: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-fact-figures__description {
-  color: map.get(theme.$color, 'blue');
+  color: map.get(theme.$color, 'grey');
   font: map.get(theme.$font-prolonged, 'm');
   margin-top: map.get(theme.$spacing, 's');
 }
@@ -59,30 +59,20 @@
   font: map.get(theme.$font, 'm');
   margin-left: map.get(theme.$spacing, 'm');
   margin-right: map.get(theme.$spacing, 'm');
-  padding-bottom: map.get(theme.$spacing, 'l');
-  padding-top: map.get(theme.$spacing, 'l');
+  padding-bottom: map.get(theme.$spacing, 'xl');
+  padding-top: map.get(theme.$spacing, 'xl');
 }
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
-  .ecl-fact-figures__item {
-    display: inline-flex;
-    flex-direction: column;
-    margin-bottom: 0;
-    margin-top: map.get(theme.$spacing, 'xl');
-    padding-left: map.get(theme.$spacing, 'xl');
-    padding-right: map.get(theme.$spacing, 'xl');
-
-    &:first-of-type {
-      margin-top: map.get(theme.$spacing, 'xl');
-    }
-  }
-
   .ecl-fact-figures__items {
     display: flex;
     flex-wrap: wrap;
-    padding-bottom: map.get(theme.$spacing, 'xl');
-    padding-top: 0;
+  }
+
+  .ecl-fact-figures__item {
+    display: inline-flex;
+    flex-direction: column;
   }
 
   .ecl-fact-figures--col-3 .ecl-fact-figures__item {
@@ -91,15 +81,5 @@
 
   .ecl-fact-figures--col-4 .ecl-fact-figures__item {
     flex-basis: 25%;
-  }
-
-  .ecl-fact-figures__value {
-    font: map.get(theme.$font, '4xl');
-    font-weight: bold;
-  }
-
-  .ecl-fact-figures__view-all {
-    margin-left: map.get(theme.$spacing, 'xl');
-    margin-right: map.get(theme.$spacing, 'xl');
   }
 }

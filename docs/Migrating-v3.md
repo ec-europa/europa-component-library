@@ -60,6 +60,11 @@ Change impact have been grouped as :
 - :warning: css class for variant "cancelled" has been renamed from `.ecl-date-block--canceled` to `.ecl-date-block--cancelled`
 - :warning: new css class `.ecl-date-block__daytime` in place of the `.ecl-u-sr-only` utility (components are not supposed to contain utilities)
 
+**Fact figures**
+
+- :warning: icon size for each items is different between EC and EU version, `m` icon size is used for EC and `l` for EU
+- :warning: icon added to `view_all` link, note that `xs` icon size is used for EC and `m` for EU
+
 **Footers**
 
 - :boom: components have been completely refactored at markup and specs level
@@ -84,6 +89,7 @@ Change impact have been grouped as :
 - :heavy_check_mark: twig parameter `negative` added, to display negative (white on dark) links
 - :heavy_check_mark: twig parameter `no_visited` added, to prevent change of color for visited links
 - :heavy_check_mark: twig parameter `icon_path` has been removed (not used)
+- :warning: use 'xs' icon size for EC and 'm' for EU
 
 **Message**
 
