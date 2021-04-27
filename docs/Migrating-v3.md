@@ -2,9 +2,23 @@
 
 The following guidelines aim to facilitate migration between ECL v2 to v3.
 
+  * [Content modifications](#content-modifications)
+    + [Deprecated elements](#deprecated-elements)
+    + [Elements modified](#elements-modified)
+      - [Layout updates](#layout-updates)
+      - [Component updates](#component-updates)
+      - [Resources updates](#resources-updates)
+    + [Presets and themes](#presets-and-themes)
+  * [System and structure modifications](#system-and-structure-modifications)
+    + [Requirements](#requirements)
+    + [Packages](#packages)
+    + [File structure](#file-structure)
+    + [SCSS parsing and rendering](#scss-parsing-and-rendering)
+  * [Coming soon](#coming-soon)
+
 ## Content modifications
 
-### Deprecated elements haven't been migrated
+### Deprecated elements
 
 The following had been kept in v2 in order to avoid breaking changes, but will no longer be available in v3:
 
@@ -116,7 +130,7 @@ Change impact have been grouped as :
 - :warning: all icons have been grouped in a single cateory, instead of having different ones (branded, general, ...). So now only the icon name is used.
 - :heavy_check_mark: icon size `2xs` has been changed from 10px to 12px
 
-### Presets / themes
+### Presets and themes
 
 ECL v3 is made available to end users in the form of ready to use set of css, javascript and resources. Users are free to include one css or another depending on their needs.
 The following packages are available:
