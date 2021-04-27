@@ -20,7 +20,7 @@ A media gallery is a collection of images, videos or audio files that allows a 
 
 ## When to use
 
-- where there are several media files - if there are under 5 items, use an [unordered list](<* /ec/components/list/usage/>) or a [media container](<* /ec/components/media/media-container/usage/>)
+- where there are several media files - if there are under 5 items, use an [unordered](/ec/components/list/usage/) list or a [media container](/ec/components/media/media-container/usage/)
 - where there is no need to prioritise or highlight specific media files, i.e. files are equally important in terms of content
 
 ## When not to use
