@@ -18,7 +18,7 @@ const viewAll = { ...data3Col.view_all };
 const getArgTypes = (data) => {
   return {
     icon: {
-      defaultValue: system === 'ec' ? 'digital' : data.items[0].icon.name,
+      defaultValue: data.items[0].icon.name,
       description: 'Name of the icon',
       control: {
         type: 'select',
@@ -88,7 +88,6 @@ const getArgTypes = (data) => {
 const prepareData = (data, args) => {
   if (system === 'ec') {
     data.items.forEach((item, i) => {
-      data.items[i].icon.name = 'digital';
       data.items[i].icon.size = 'm';
     });
     data.view_all.icon.size = 'xs';
