@@ -1,1 +1,0 @@
-# ECL - EU Core theme

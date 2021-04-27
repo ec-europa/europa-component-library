@@ -20,8 +20,8 @@ const app = apps['storybook-ec'];
 module.exports = {
   scripts: [
     {
-      entry: path.resolve(__dirname, 'src/ec-core.js'),
-      dest: path.resolve(outputFolder, 'scripts/ec-core.js'),
+      entry: path.resolve(__dirname, 'src/ec.js'),
+      dest: path.resolve(outputFolder, 'scripts/ecl-ec.js'),
       options: {
         banner,
         moduleName: 'ECL',
@@ -31,8 +31,8 @@ module.exports = {
   ],
   styles: [
     {
-      entry: path.resolve(__dirname, 'src/ec-core.scss'),
-      dest: path.resolve(outputFolder, 'styles/ec-core.css'),
+      entry: path.resolve(__dirname, 'src/ec.scss'),
+      dest: path.resolve(outputFolder, 'styles/ecl-ec.css'),
       options: {
         banner,
         includePaths,
@@ -40,8 +40,8 @@ module.exports = {
       },
     },
     {
-      entry: path.resolve(__dirname, 'src/ec-core-print.scss'),
-      dest: path.resolve(outputFolder, 'styles/ec-core-print.css'),
+      entry: path.resolve(__dirname, 'src/ec-print.scss'),
+      dest: path.resolve(outputFolder, 'styles/ecl-ec-print.css'),
       options: {
         banner,
         includePaths,
@@ -69,11 +69,11 @@ module.exports = {
     },
     handlers: [
       {
-        pattern: `${path.resolve(__dirname, '..')}/(dev|ec-core)/src/*.scss`,
+        pattern: `${path.resolve(__dirname, '..')}/(dev|ec)/src/*.scss`,
         events: [
           {
             on: 'change',
-            name: 'dev/ec-core presets scss changes',
+            name: 'dev/ec presets scss changes',
             command: 'npm run build:styles',
             message: 'New styles ready',
             reload: '*.css',
@@ -81,11 +81,11 @@ module.exports = {
         ],
       },
       {
-        pattern: `${path.resolve(__dirname, '..')}/(dev|ec-core)/src/*.js`,
+        pattern: `${path.resolve(__dirname, '..')}/(dev|ec)/src/*.js`,
         events: [
           {
             on: 'change',
-            name: 'dev/ec-core presets javascript changes',
+            name: 'dev/ec presets javascript changes',
             command: 'npm run build:scripts',
             message: 'New scripts ready',
             reload: true,
@@ -126,7 +126,7 @@ module.exports = {
         pattern: `${path.resolve(
           __dirname,
           '../..'
-        )}/themes/(dev|ec-core)/**/*.scss`,
+        )}/themes/(dev|ec)/**/*.scss`,
         events: [
           {
             on: 'change',

@@ -15,20 +15,20 @@ addParameters({
   },
   cssresources: [
     {
-      id: 'ec-core',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/ec-core.css" />`,
+      id: 'ecl-ec',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec.css" />`,
       picked: true,
       hideCode: true,
     },
     {
-      id: 'ec-core-print',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/ec-core-print.css" />`,
+      id: 'ecl-ec-print',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec-print.css" />`,
       picked: false,
       hideCode: true,
     },
     {
-      id: 'reset',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/reset.css" />`,
+      id: 'ecl-reset',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-reset.css" />`,
       picked: true,
       hideCode: true,
     },
