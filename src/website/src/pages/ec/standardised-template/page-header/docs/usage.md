@@ -2,53 +2,47 @@
 title: Usage
 order: 1
 ---
-
-import { Paragraph, Anatomy, Link } from '@ecl/website-components';
-
-<Paragraph size="lead">
-  The Standardised page header gives context and confidence to the users so they
-  understand what the page is about. It is present on every page, to be placed
-  just below the Site header.
-</Paragraph>
+The page header component provides users the context of the page.It is always placed just below the site header. There are five variations of the page header.
 
 ## Anatomy
 
-<Anatomy
-image="https://inno-ecl.s3.amazonaws.com/media/images/EC/StandardisedTemplate/standardised-page-header.png"
-alt="Anatomy of standardised page header"
-legend={{
-    items: [
-      {
-        color: '#404040',
-        label: 'mandatory',
-      },
-      {
-        color: '#004494',
-        label: 'optional',
-      },
-    ],
-  }}
-/>
+![](/cms-images/standardised-page-header.png)
 
-| Components                                                                          | Mandatory | Description                                                                                                      |
-| ----------------------------------------------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------- |
-| <Link to="/ec/components/navigation/breadcrumb/usage/" standalone>breadcrumb</Link> | optional  | breadcrumb component provides information on the page and its relationship to the site's hierarchy and structure |
-| meta                                                                                | optional  | metadata related to the content of the page                                                                      |
-| page title                                                                          | yes       | title of the page                                                                                                |
-| introduction                                                                        | no        | short description of the page                                                                                    |
+|                                                                                     | Components | Mandatory                                                                                                        | Description |
+| ----------------------------------------------------------------------------------- | ---------- | ---------------------------------------------------------------------------------------------------------------- | ----------- |
+| <Link to="/ec/components/navigation/breadcrumb/usage/" standalone>breadcrumb</Link> | optional   | breadcrumb component provides information on the page and its relationship to the site's hierarchy and structure |             |
+| meta                                                                                | optional   | metadata related to the content of the page                                                                      |             |
+| page title                                                                          | yes        | title of the page                                                                                                |             |
+| introduction                                                                        | optional   | short description of the page                                                                                    |             |
 
 ## Do's
 
-- make sure the pages contain all the elements in the anatomy table above
+- ensure the pages contain all the components and elements in the anatomy table above
+- always use a Page header when building your page
+- if choosing a background image, make sure it highlights the main object related to the content, and that it is clearly visible
 
 ## Don'ts
 
-- don't use more than one Page header per page
+- don't use more than one page header per page
+- do not choose a background image unless there is a communication need, as it might be a distraction
 
 ## When to use
 
-- always use a Page header when building your page
+- always use a page header when building your page
+- Page headers can be used on both landing and content pages
 
-## When not to use
+## Page header with thumbnail
 
-- do not follow these guidelines when you are updating sites that fall under the <Link to="/ec/core-template/">Core</Link> or <Link to="/ec/harmonised-templates/group1/">Harmonised</Link> category
+![](/cms-images/ec_ph_st_thumb_l_734px.png)
+
+## Page header background image without overlay
+
+![](/cms-images/ec_ph_stan_image_l_734px.png)
+
+## Page header background image with light overlay
+
+![](/cms-images/ec_ph_stan_light_l_734px.png)
+
+## Page header background image with dark overlay
+
+![](/cms-images/ec_ph_stan_dark_l_734px.png)
