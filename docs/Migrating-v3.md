@@ -110,6 +110,7 @@ Change impact have been grouped as :
 - :warning: logo file names have been homogenized between EC and EU, using the pattern `logo-(ec|eu)--(language).svg`
   Example: `logo-en.svg` => `logo-ec--en.svg`
 - :warning: all icons have been grouped in a single cateory, instead of having different ones (branded, general, ...). So now only the icon name is used.
+- :warning: icon `rounded-arrow` has been removed (arrows are cornered by default on EC, and rounded on EU)
 - :heavy_check_mark: icon size `2xs` has been changed from 10px to 12px
 
 ### Presets / themes
