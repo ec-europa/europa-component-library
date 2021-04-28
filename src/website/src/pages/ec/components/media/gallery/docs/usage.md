@@ -20,7 +20,7 @@ A media gallery is a collection of images, videos or audio files that allows a 
 
 ## When to use
 
-- where there are several media files - if there are under 5 items, use an <Link to="/ec/components/list/usage/">unordered list</Link> or a <Link to="/ec/components/media/media-container/usage/">media container</Link>
+- where there are several media files - if there are under 5 items, use an [unordered](/ec/components/list/usage/) list or a [media container](/ec/components/media/media-container/usage/)
 - where there is no need to prioritise or highlight specific media files, i.e. files are equally important in terms of content
 
 ## When not to use
@@ -33,4 +33,4 @@ A media gallery is a collection of images, videos or audio files that allows a 
 The media gallery overlay component represents the interaction interface. It is complementary to the gallery component. Through the component users can view, download and share items present in the media gallery. All information displayed in this component is pulled directly from the gallery component and
 therefore offers no interaction through the CMS.
 
-Gallery rules apply here for dos, don'ts, what to use and when not to use
+Gallery rules apply here for dos, don'ts, what to use and when not to use.
