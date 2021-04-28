@@ -100,8 +100,8 @@ module.exports = {
           href: '/example',
         },
         {
-          label: 'Court of Justice of the European Commission',
-          ariaLabel: 'Link to Court of Justice of the European Commission',
+          label: 'Court of Justice of the European Union',
+          ariaLabel: 'Link to Court of Justice of the European Union',
           href: '/example',
         },
         {
@@ -122,6 +122,11 @@ module.exports = {
         {
           label: 'European Economic and Social Committee',
           ariaLabel: 'Link to European Economic and social Committee',
+          href: '/example',
+        },
+        {
+          label: 'European Committee of the Region',
+          ariaLabel: 'Link to European Committee of the Region',
           href: '/example',
         },
         {
