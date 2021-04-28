@@ -4,75 +4,81 @@ import { withKnobs, select } from '@storybook/addon-knobs';
 
 const styleContainer = {
   backgroundColor: '#d9d9d9',
-  padding: '0.5rem',
+  border: '2px dashed #404040',
+  height: '10rem',
+  width: '10rem',
 };
 
 const styleBox = {
   backgroundColor: '#ebebeb',
+  boxSizing: 'border-box',
   border: '2px solid #000',
-  height: '5rem',
-  margin: '0.5rem',
-  padding: '0.5rem',
-  width: '5rem',
+  display: 'inline-block',
+};
+
+const styleImage = {
+  width: '12rem',
+  height: '12rem',
 };
 
 export default {
-  title: 'Utilities/Display',
+  title: 'Utilities/Dimension',
   decorators: [withKnobs],
 };
 
 export const Custom = () => {
-  const displayContainer = select(
-    'Display (container)',
+  const width = select(
+    'Width',
     {
-      Block: 'ecl-u-d-block',
-      Inline: 'ecl-u-d-inline',
-      'Inline block': 'ecl-u-d-inline-block',
-      Flex: 'ecl-u-d-flex',
-      'inline-flex': 'ecl-u-d-inline-flex',
-      Table: 'ecl-u-d-table',
-      'Table cell': 'ecl-u-d-table-cell',
-      None: 'ecl-u-d-none',
+      Auto: 'ecl-u-width-auto',
+      '100%': 'ecl-u-width-100',
     },
-    'ecl-u-d-block'
+    'ecl-u-width-auto'
   );
 
-  const displayInner = select(
-    'Display (inner box)',
+  const height = select(
+    'Height',
     {
-      Block: 'ecl-u-d-block',
-      Inline: 'ecl-u-d-inline',
-      'Inline block': 'ecl-u-d-inline-block',
-      Flex: 'ecl-u-d-flex',
-      'inline-flex': 'ecl-u-d-inline-flex',
-      Table: 'ecl-u-d-table',
-      'Table cell': 'ecl-u-d-table-cell',
-      None: 'ecl-u-d-none',
+      Auto: 'ecl-u-height-auto',
+      '100%': 'ecl-u-height-100',
     },
-    'ecl-u-d-block'
+    'ecl-u-height-auto'
   );
 
-  const boxSizing = select(
-    'Box sizing',
+  const maxWidth = select(
+    'Max width',
     {
-      'Content box': 'ecl-u-box-sizing-content',
-      'Border box': 'ecl-u-box-sizing-border',
+      None: 'ecl-u-max-width-none',
+      '100%': 'ecl-u-max-width-100',
     },
-    'ecl-u-box-sizing-content'
+    'ecl-u-max-width-none'
+  );
+
+  const maxHeight = select(
+    'Max height',
+    {
+      None: 'ecl-u-max-height-none',
+      '100%': 'ecl-u-max-height-100',
+    },
+    'ecl-u-max-height-none'
   );
 
   return (
-    <div style={styleContainer} className={displayContainer}>
-      <div style={styleBox} className={classnames(displayInner, boxSizing)}>
-        Box
+    <>
+      <div style={styleContainer}>
+        <div style={styleBox} className={classnames(width, height)}>
+          Content box
+        </div>
       </div>
-      <div style={styleBox} className={classnames(displayInner, boxSizing)}>
-        Box
+      <div style={styleContainer} className="ecl-u-mt-m">
+        <img
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg"
+          alt="example"
+          style={styleImage}
+          className={classnames(maxWidth, maxHeight)}
+        />
       </div>
-      <div style={styleBox} className={classnames(displayInner, boxSizing)}>
-        Box
-      </div>
-    </div>
+    </>
   );
 };
 

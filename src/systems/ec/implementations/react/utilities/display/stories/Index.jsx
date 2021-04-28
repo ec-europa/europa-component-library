@@ -4,45 +4,73 @@ import { withKnobs, select } from '@storybook/addon-knobs';
 
 const styleContainer = {
   backgroundColor: '#d9d9d9',
-  height: '10rem',
-  width: '10rem',
+  padding: '0.5rem',
 };
 
 const styleBox = {
   backgroundColor: '#ebebeb',
-  boxSizing: 'border-box',
   border: '2px solid #000',
-  display: 'inline-block',
+  height: '5rem',
+  margin: '0.5rem',
+  padding: '0.5rem',
+  width: '5rem',
 };
 
 export default {
-  title: 'Utilities/Dimension',
+  title: 'Utilities/Display',
   decorators: [withKnobs],
 };
 
 export const Custom = () => {
-  const width = select(
-    'Width',
+  const displayContainer = select(
+    'Display (container)',
     {
-      Auto: 'ecl-u-width-auto',
-      '100%': 'ecl-u-width-100',
+      Block: 'ecl-u-d-block',
+      Inline: 'ecl-u-d-inline',
+      'Inline block': 'ecl-u-d-inline-block',
+      Flex: 'ecl-u-d-flex',
+      'inline-flex': 'ecl-u-d-inline-flex',
+      Table: 'ecl-u-d-table',
+      'Table cell': 'ecl-u-d-table-cell',
+      None: 'ecl-u-d-none',
     },
-    'ecl-u-width-auto'
+    'ecl-u-d-block'
   );
 
-  const height = select(
-    'Height',
+  const displayInner = select(
+    'Display (inner box)',
     {
-      Auto: 'ecl-u-height-auto',
-      '100%': 'ecl-u-height-100',
+      Block: 'ecl-u-d-block',
+      Inline: 'ecl-u-d-inline',
+      'Inline block': 'ecl-u-d-inline-block',
+      Flex: 'ecl-u-d-flex',
+      'inline-flex': 'ecl-u-d-inline-flex',
+      Table: 'ecl-u-d-table',
+      'Table cell': 'ecl-u-d-table-cell',
+      None: 'ecl-u-d-none',
     },
-    'ecl-u-height-auto'
+    'ecl-u-d-block'
+  );
+
+  const boxSizing = select(
+    'Box sizing',
+    {
+      'Content box': 'ecl-u-box-sizing-content',
+      'Border box': 'ecl-u-box-sizing-border',
+    },
+    'ecl-u-box-sizing-content'
   );
 
   return (
-    <div style={styleContainer}>
-      <div style={styleBox} className={classnames(width, height)}>
-        Content box
+    <div style={styleContainer} className={displayContainer}>
+      <div style={styleBox} className={classnames(displayInner, boxSizing)}>
+        Box
+      </div>
+      <div style={styleBox} className={classnames(displayInner, boxSizing)}>
+        Box
+      </div>
+      <div style={styleBox} className={classnames(displayInner, boxSizing)}>
+        Box
       </div>
     </div>
   );
