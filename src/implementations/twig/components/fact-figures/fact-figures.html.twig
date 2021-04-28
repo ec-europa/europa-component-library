@@ -29,7 +29,6 @@
 {% set _extra_attributes = '' %}
 {% set _columns = column|default(3) %}
 {% set _extra_classes = extra_classes|default('') %}
-{% set _icon = { size: 'm' } %}
 {% set _display_icons = display_icons ?? true %}
 
 {# Internal logic - Process properties #}
@@ -59,7 +58,7 @@
     {% if item.icon is defined and item.icon is not empty and _display_icons %}
       {% set _icon_path = item.icon.path|default('') %}
       {% include '@ecl/icon/icon.html.twig' with {
-        icon: item.icon|merge(_icon),
+        icon: item.icon,
         extra_classes: 'ecl-fact-figures__icon',
       } only %}
     {% endif %}
