@@ -1,0 +1,147 @@
+/* stylelint-disable max-nesting-depth, no-descending-specificity */
+
+/**
+ * Accordion
+ * @define accordion
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+.ecl-accordion {
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(map.get(theme.$color, 'blue'), 0.2);
+  margin: 0;
+}
+
+.ecl-accordion__item {
+  position: relative;
+
+  &:first-child {
+    &::before {
+      background-color: map.get(theme.$color, 'yellow-100');
+      border-bottom-left-radius: 2px;
+      border-bottom-right-radius: 2px;
+      content: '';
+      height: 4px;
+      left: map.get(theme.$spacing, 'l');
+      position: absolute;
+      top: 0;
+      width: 32px;
+    }
+    .ecl-accordion__toggle {
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+  }
+
+  &:last-child {
+    .ecl-accordion__toggle {
+      border-bottom-color: transparent;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+
+      &[aria-expanded='true'] {
+        border-bottom-color: map.get(theme.$color, 'blue-20');
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+    .ecl-accordion__content {
+      border-bottom: 0;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      overflow: hidden;
+    }
+  }
+}
+
+.ecl-accordion__title {
+  margin: 0;
+  padding: 0;
+}
+
+.ecl-accordion__toggle {
+  background-color: transparent;
+  border: 2px solid transparent;
+  border-bottom-color: map.get(theme.$color, 'blue-20');
+  color: map.get(theme.$color, 'grey-140');
+  display: block;
+  font: map.get(theme.$font-prolonged, 'l');
+  padding: map.get(theme.$spacing, 'l');
+  position: relative;
+  text-align: left;
+  width: 100%;
+}
+
+.ecl-accordion__toggle:hover {
+  box-shadow: 0 0 4px rgba(map.get(theme.$color, 'blue'), 0.2);
+}
+
+.ecl-accordion__toggle:focus {
+  border: 2px solid map.get(theme.$color, 'accent-blue-100');
+  border-bottom-color: map.get(theme.$color, 'accent-blue-100') !important;
+  outline: 0;
+}
+
+.ecl-accordion__toggle[aria-expanded='true'] {
+  .ecl-accordion__toggle-icon {
+    transform: rotate(0deg);
+    transition-duration: 0s;
+  }
+}
+
+.ecl-accordion__toggle-flex {
+  align-items: start;
+  display: flex;
+  flex-direction: row;
+}
+
+.ecl-accordion__toggle-indicator {
+  color: map.get(theme.$color, 'blue');
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-left: map.get(theme.$spacing, 's');
+  order: 2;
+  padding: 2px 0;
+  .ecl-accordion__toggle-icon {
+    transform: rotate(180deg);
+    transition-duration: 0s;
+  }
+}
+
+.ecl-accordion__toggle-label {
+  display: none;
+  font: map.get(theme.$font-prolonged, 'm');
+  margin: 0 map.get(theme.$spacing, 'xs') 0 map.get(theme.$spacing, 's');
+}
+
+.ecl-accordion__toggle-title {
+  flex-grow: 1;
+  order: 1;
+}
+
+.ecl-accordion__content {
+  border-bottom: 2px solid map.get(theme.$color, 'blue-20');
+  border-left: 4px solid map.get(theme.$color, 'blue');
+  color: map.get(theme.$color, 'grey-80');
+  font: map.get(theme.$font-prolonged, 'm');
+  margin-left: 0;
+  padding: map.get(theme.$spacing, 'l');
+}
+
+.no-js .ecl-accordion__content {
+  display: block;
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('m') {
+  .ecl-accordion__toggle {
+    font: map.get(theme.$font-prolonged, 'xl');
+  }
+  .ecl-accordion__toggle-label {
+    display: block;
+  }
+}

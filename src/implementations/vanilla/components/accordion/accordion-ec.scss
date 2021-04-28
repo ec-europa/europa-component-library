@@ -30,7 +30,7 @@
   display: block;
   font: map.get(theme.$font-prolonged, 'm');
   font-weight: map.get(theme.$font-weight, 'bold');
-  padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
+  padding: 0 map.get(theme.$spacing, 'm');
   position: relative;
   text-align: left;
   width: 100%;
@@ -50,30 +50,29 @@
 }
 
 .ecl-accordion__toggle-flex {
-  align-items: center;
+  align-items: start;
   display: flex;
   flex-direction: row;
 }
 
-.ecl-accordion__toggle-icon {
+.ecl-accordion__toggle-indicator {
+  display: flex;
   flex-grow: 0;
   flex-shrink: 0;
-  margin-right: map.get(theme.$spacing, 'm');
+  margin: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm')
+    map.get(theme.$spacing, 's') 0;
+}
 
-  .ecl-accordion__toggle[aria-expanded='true'] & {
-    margin-bottom: calc(
-      #{map.get(theme.$spacing, 'xs')} + #{map.get(theme.$spacing, 'xs')} + 1px
-    );
-  }
+.ecl-accordion__toggle-label {
+  display: none;
 }
 
 .ecl-accordion__toggle-title {
   flex-grow: 1;
+  padding: map.get(theme.$spacing, 's') 0;
 
   .ecl-accordion__toggle[aria-expanded='true'] & {
     border-bottom: 1px solid map.get(theme.$color, 'grey');
-    margin-bottom: map.get(theme.$spacing, 'xs');
-    padding-bottom: map.get(theme.$spacing, 'xs');
   }
 }
 
@@ -81,7 +80,7 @@
   color: map.get(theme.$color, 'grey');
   font: map.get(theme.$font-prolonged, 'm');
   margin-left: 0;
-  padding: 0 map.get(theme.$spacing, 'm') map.get(theme.$spacing, 's');
+  padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
 }
 
 .no-js .ecl-accordion__content {
