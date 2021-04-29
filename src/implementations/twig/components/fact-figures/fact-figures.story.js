@@ -86,6 +86,12 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
+  if (system === 'ec') {
+    data.items.forEach((item, i) => {
+      data.items[i].icon.size = 'm';
+    });
+    data.view_all.icon.size = 'xs';
+  }
   data.items[0].value = args.value;
   data.items[0].title = args.title;
   data.items[0].description = args.description;

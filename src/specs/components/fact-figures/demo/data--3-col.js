@@ -5,13 +5,20 @@ module.exports = {
     link: {
       path: '/example',
       label: 'View all metrics',
+      icon_position: 'after',
+    },
+    icon: {
+      path: '/icons.svg',
+      name: 'corner-arrow',
+      size: 'm',
+      transform: 'rotate-90',
     },
   },
   items: [
     {
       icon: {
-        name: 'digital',
-        size: 'm',
+        name: 'infographic',
+        size: 'l',
         path: '/icons.svg',
       },
       value: '00.0 million',
@@ -21,8 +28,8 @@ module.exports = {
     },
     {
       icon: {
-        name: 'digital',
-        size: 'm',
+        name: 'spreadsheet',
+        size: 'l',
         path: '/icons.svg',
       },
       value: '00.0 million',
@@ -31,8 +38,8 @@ module.exports = {
     },
     {
       icon: {
-        name: 'digital',
-        size: 'm',
+        name: 'growth',
+        size: 'l',
         path: '/icons.svg',
       },
       value: '00.0 million',
@@ -43,7 +50,7 @@ module.exports = {
     {
       icon: {
         name: 'digital',
-        size: 'm',
+        size: 'l',
         path: '/icons.svg',
       },
       value: '00.0 million',
@@ -53,8 +60,8 @@ module.exports = {
     },
     {
       icon: {
-        name: 'digital',
-        size: 'm',
+        name: 'regulation',
+        size: 'l',
         path: '/icons.svg',
       },
       value: '00.0 million',
@@ -64,8 +71,8 @@ module.exports = {
     },
     {
       icon: {
-        name: 'digital',
-        size: 'm',
+        name: 'image',
+        size: 'l',
         path: '/icons.svg',
       },
       value: '00.0 million',
