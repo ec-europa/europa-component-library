@@ -17,6 +17,7 @@ const getArgTypes = () => {
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: 'auto' },
+        category: 'width/height',
       },
     },
     height: {
@@ -32,6 +33,7 @@ const getArgTypes = () => {
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: 'auto' },
+        category: 'width/height',
       },
     },
     maxWidth: {
@@ -48,6 +50,7 @@ const getArgTypes = () => {
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: 'none' },
+        category: 'max-width/max-height',
       },
     },
     maxHeight: {
@@ -64,6 +67,7 @@ const getArgTypes = () => {
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: 'none' },
+        category: 'max-width/max-height',
       },
     },
   };
@@ -98,6 +102,7 @@ export default {
 };
 
 export const Custom = (args) => `
+  <h2 class="ecl-u-type-heading-2">Width/height demo</h2>
   <div style="${styled(styleContainer)}">
     <div 
       style="${styled(styleBox)}"
@@ -106,7 +111,8 @@ export const Custom = (args) => `
       Content box
     </div>
   </div>
-  <div style="${styled(styleContainer)}" class="ecl-u-mt-m">
+  <h2 class="ecl-u-type-heading-2">Max-width/max-height demo</h2>
+  <div style="${styled(styleContainer)}">
     <img
       src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg"
       alt="example"
