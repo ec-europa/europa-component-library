@@ -1,36 +1,13 @@
-/**
- * Media container component
- * @define media-container
- */
-
 @use "sass:map";
 @use '@ecl/theme-dev/theme';
-@use "@ecl/vanilla-utility-media/media" as uMedia;
-
-.ecl-media-container {
-  border-radius: 8px;
-  box-shadow: 0 0 6px rgba(map.get(theme.$color, 'blue'), 0.2);
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  overflow: hidden;
-}
-
-.ecl-media-container__media {
-  display: block;
-  height: auto;
-  min-height: 1px; // IE 11 fix
-  object-fit: cover;
-  width: 100%;
-}
+@use 'media-container' with (
+  $_border-radius: 8px,
+  $_shadow: 0 0 6px rgba(map.get(theme.$color, 'blue'), 0.2),
+  $_caption-background-color: map.get(theme.$color, 'white'),
+  $_caption-padding: map.get(theme.$spacing, 'l'),
+);
 
 .ecl-media-container__caption {
-  background-color: map.get(theme.$color, 'white');
-  color: map.get(theme.$color, 'grey');
-  font: map.get(theme.$font-prolonged, 'm');
-  padding: map.get(theme.$spacing, 'l');
-  position: relative;
-
   &::before {
     background-color: map.get(theme.$color, 'yellow-100');
     border-bottom-left-radius: 2px;
@@ -42,21 +19,4 @@
     top: 0;
     width: 32px;
   }
-}
-
-// Ratio
-.ecl-media-container__media--ratio-16-9 {
-  @include uMedia.aspect-ratio(16, 9);
-}
-
-.ecl-media-container__media--ratio-4-3 {
-  @include uMedia.aspect-ratio(4, 3);
-}
-
-.ecl-media-container__media--ratio-3-2 {
-  @include uMedia.aspect-ratio(3, 2);
-}
-
-.ecl-media-container__media--ratio-1-1 {
-  @include uMedia.aspect-ratio(1, 1);
 }
