@@ -3,8 +3,14 @@
   Parameters:
     - "title" (string) (default: '') Title of header
     - "description" (string) (default: '') Description of header
-    - "meta" (string) (default: '') Meta of header
+    - "thumbnail" (associative array) (default: {}) Thumbnail dipslayed alongside the description:
+      {
+        "alt" (string) Alternative text
+        "src" (string) Image path
+      }
+    - "meta" (array) (default: []) Meta of header
     - "breadcrumb" (associative array) (default: '') Predefined structure compatible with EC Breadcrumb
+    - "background_image_url (string) (default: '') Background image url
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -12,19 +18,24 @@
           "value" (optional) (string)
         ...
       ],
-
 #}
 
 {# variables #}
 {% set _title = title|default('') %}
-{% set _meta = meta|default('') %}
+{% set _meta = meta|default([]) %}
 {% set _description = description|default('') %}
-
-{% set _css_class = 'ecl-page-header-standardised' %}
-{% set _extra_attributes = '' %}
+{% set _thumbnail = thumbnail|default({}) %}
 {% set _breadcrumb = breadcrumb|default({}) %}
+{% set _css_class = 'ecl-page-header-standardised' %}
+{% set _background_image_url = background_image_url|default('') %}
+{% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
+
+{% if _background_image_url and _background_image_url is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-page-header-standardised--image' %}
+{% endif %}
+
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
@@ -40,21 +51,41 @@
 {% endif %}
 
 {# Print the result #}
+
 <div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+{% if _background_image_url and _background_image_url is not empty %}
+  {% set _image_attributes = 'style="background-image: url(' ~ _background_image_url ~ ')"' %}
+  <div class="ecl-page-header-standardised__background" {{ _image_attributes|raw }} aria-hidden="true"></div>
+{% endif %}
+
   <div class="ecl-container">
   {% if _breadcrumb is not empty %}
     {% include '@ecl/breadcrumb-standardised/breadcrumb-standardised.html.twig' with _breadcrumb|merge({
       extra_classes: 'ecl-page-header-standardised__breadcrumb',
     }) only %}
   {% endif %}
+
   {% if _meta is not empty %}
     <div class="ecl-page-header-standardised__meta">
-      {{- _meta -}}
+      {% for _item in _meta %}
+      <span class="ecl-page-header-standardised__meta-item">{{- _item -}}</span>
+      {% endfor %}
     </div>
   {% endif %}
+
     <h1 class="ecl-page-header-standardised__title">{{ _title }}</h1>
+
   {% if _description is not empty %}
-    <p class="ecl-page-header-standardised__description">{{ _description }}</p>
+    <div class="ecl-page-header-standardised__description-container">
+    {% if _thumbnail is not empty %}
+      <img 
+        class="ecl-page-header-standardised__description-thumbnail" 
+        src="{{ _thumbnail.src|default('') }}"
+        alt="{{ _thumbnail.alt|default('') }}"
+      />
+    {% endif %}
+      <p class="ecl-page-header-standardised__description">{{ _description }}</p>
+    </div>
   {% endif %}
   </div>
 </div>

@@ -28,8 +28,8 @@ const prefillPen = (code) => {
     title: 'ECL Pen',
     description: "Exported from ECL's playground",
     html: replaceLogo(replaceIcons(code)),
-    css_external: `${baseUrl}/styles/${system}-core.css`,
-    js_external: `https://unpkg.com/svg4everybody@2.1.9/dist/svg4everybody.js;https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js;${baseUrl}/scripts/${system}-core.js`,
+    css_external: `${baseUrl}/styles/ecl-${system}.css`,
+    js_external: `https://unpkg.com/svg4everybody@2.1.9/dist/svg4everybody.js;https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js;${baseUrl}/scripts/ecl-${system}.js`,
     js: 'svg4everybody({ polyfill: true });\nECL.autoInit();',
   });
 };
