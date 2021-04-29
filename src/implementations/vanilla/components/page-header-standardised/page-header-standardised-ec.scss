@@ -1,0 +1,99 @@
+/**
+ * Page header standardised
+ * @define page-header-standardised; weak
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+.ecl-page-header-standardised {
+  background-color: map.get(theme.$color, 'white-100');
+  margin: 0;
+  padding-bottom: map.get(theme.$spacing, 'xl');
+
+  .ecl-container > :first-child:not(.ecl-page-header-standardised__breadcrumb) {
+    margin-top: 0;
+    padding-top: map.get(theme.$spacing, 'xl');
+  }
+}
+
+.ecl-page-header-standardised__breadcrumb {
+  margin-bottom: map.get(theme.$spacing, 'xl');
+}
+
+.ecl-page-header-standardised__meta {
+  color: map.get(theme.$color, 'grey-75');
+  font: map.get(theme.$font, 'm');
+}
+
+.ecl-page-header-standardised__meta-item {
+  border-right: 1px solid map.get(theme.$color, 'grey-75');
+  margin-right: map.get(theme.$spacing, 'm');
+  padding-right: map.get(theme.$spacing, 'm');
+
+  &:first-of-type {
+    text-transform: uppercase;
+  }
+
+  &:last-of-type {
+    border-right-width: 0;
+    margin-right: 0;
+    padding-right: 0;
+  }
+}
+
+.ecl-page-header-standardised__title {
+  color: map.get(theme.$color, 'grey-100');
+  font: map.get(theme.$font, '3xl');
+  font-weight: map.get(theme.$font-weight, 'bold');
+  margin-bottom: 0;
+  margin-top: map.get(theme.$spacing, 'm');
+}
+
+.ecl-page-header-standardised__description-container {
+  align-items: flex-start;
+  display: flex;
+  margin-top: map.get(theme.$spacing, 'm');
+}
+
+.ecl-page-header-standardised__description-thumbnail {
+  border: 1px solid map.get(theme.$color, 'grey-25');
+  margin-right: map.get(theme.$spacing, 'm');
+  max-width: 120px;
+}
+
+.ecl-page-header-standardised__description {
+  color: map.get(theme.$color, 'grey-100');
+  font: map.get(theme.$font-prolonged, 'xl');
+  margin-bottom: 0;
+  margin-top: 0;
+  max-width: 80ch;
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('l') {
+  .ecl-page-header-standardised__title {
+    font: map.get(theme.$font, '4xl');
+    font-weight: map.get(theme.$font-weight, 'bold');
+  }
+}
+
+/*
+ * background image variant
+ */
+.ecl-page-header-standardised--image {
+  position: relative;
+
+  .ecl-page-header-standardised__breadcrumb {
+    background-color: transparent;
+  }
+
+  .ecl-page-header-standardised__background {
+    background-position: 0 0;
+    background-size: cover;
+    display: block;
+    height: 10.875rem;
+    width: 100%;
+  }
+}

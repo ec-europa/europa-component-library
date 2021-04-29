@@ -118,6 +118,14 @@ Change impact have been grouped as :
 
 - :heavy_check_mark: twig parameter `site_name` is now only used on mobile (other display relies on the already existing parameter in site header)
 
+**Page headers**
+
+- :boom: markup has been revised to handle new specs
+- :warning: twig parameter `meta` is now an array of string
+- :warning: twig parameter `background_image` has been removed (using image url to check if there is a background)
+- :warning: twig parameter `overlay` added to Core page header, to select optional overlay on top of background image
+- :heavy_check_mark: twig parameter `thumbnail` added, to add an optional image
+
 **Site headers**
 
 - :boom: markup has been revised, using button css where needed, and adding an extra container (needed for styling)
