@@ -1,1 +1,0 @@
-# ECL - EC Core theme

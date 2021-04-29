@@ -14,8 +14,8 @@ module.exports = {
     label: 'Close',
     icon: {
       path: '/icons.svg',
-      name: 'close',
-      size: 's',
+      name: 'close-filled',
+      size: 'xs',
     },
   },
 };

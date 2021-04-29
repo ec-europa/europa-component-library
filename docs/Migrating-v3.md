@@ -2,9 +2,23 @@
 
 The following guidelines aim to facilitate migration between ECL v2 to v3.
 
+- [Content modifications](#content-modifications)
+  - [Deprecated elements](#deprecated-elements)
+  - [Elements modified](#elements-modified)
+    - [Layout updates](#layout-updates)
+    - [Component updates](#component-updates)
+    - [Resources updates](#resources-updates)
+  - [Presets and themes](#presets-and-themes)
+- [System and structure modifications](#system-and-structure-modifications)
+  - [Requirements](#requirements)
+  - [Packages](#packages)
+  - [File structure](#file-structure)
+  - [SCSS parsing and rendering](#scss-parsing-and-rendering)
+- [Coming soon](#coming-soon)
+
 ## Content modifications
 
-### Deprecated elements haven't been migrated
+### Deprecated elements
 
 The following had been kept in v2 in order to avoid breaking changes, but will no longer be available in v3:
 
@@ -46,6 +60,11 @@ Change impact have been grouped as :
 
 #### Component updates
 
+**Accordion**
+
+- :heavy_check_mark: the `icon` parameter is no longer defined for each item but only once for the whole accordion. Note that for the EU version you must use the `corner-arrow` icon name.
+- :heavy_check_mark: twig parameter `label_expanded` & `label_collapsed` added, to add the open/close labels next to the icon in the EU version
+
 **Breadcrumb**
 
 - :warning: EC Core breadcrumb is now using the new negative variant for links
@@ -59,6 +78,11 @@ Change impact have been grouped as :
 
 - :warning: css class for variant "cancelled" has been renamed from `.ecl-date-block--canceled` to `.ecl-date-block--cancelled`
 - :warning: new css class `.ecl-date-block__daytime` in place of the `.ecl-u-sr-only` utility (components are not supposed to contain utilities)
+
+**Fact figures**
+
+- :warning: icon size for each items is different between EC and EU version, `m` icon size is used for EC and `l` for EU
+- :warning: icon added to `view_all` link, note that `xs` icon size is used for EC and `m` for EU
 
 **Footers**
 
@@ -84,10 +108,23 @@ Change impact have been grouped as :
 - :heavy_check_mark: twig parameter `negative` added, to display negative (white on dark) links
 - :heavy_check_mark: twig parameter `no_visited` added, to prevent change of color for visited links
 - :heavy_check_mark: twig parameter `icon_path` has been removed (not used)
+- :warning: use 'xs' icon size for EC and 'm' for EU
+
+**Message**
+
+- :warning: The size of the icon for the close button is no longer defined in the twig template, since it differs in the two system (`xs` for EC, `s` for EU)
 
 **Menu**
 
 - :heavy_check_mark: twig parameter `site_name` is now only used on mobile (other display relies on the already existing parameter in site header)
+
+**Page headers**
+
+- :boom: markup has been revised to handle new specs
+- :warning: twig parameter `meta` is now an array of string
+- :warning: twig parameter `background_image` has been removed (using image url to check if there is a background)
+- :warning: twig parameter `overlay` added to Core page header, to select optional overlay on top of background image
+- :heavy_check_mark: twig parameter `thumbnail` added, to add an optional image
 
 **Site headers**
 
@@ -113,7 +150,7 @@ Change impact have been grouped as :
 - :warning: icon `rounded-arrow` has been removed (arrows are cornered by default on EC, and rounded on EU)
 - :heavy_check_mark: icon size `2xs` has been changed from 10px to 12px
 
-### Presets / themes
+### Presets and themes
 
 ECL v3 is made available to end users in the form of ready to use set of css, javascript and resources. Users are free to include one css or another depending on their needs.
 The following packages are available:
@@ -202,3 +239,8 @@ Here's a list of changes to apply in your project to follow up with ECL v3 SCSS 
 - Remove usages of [`import-once()` mixin](https://github.com/ec-europa/europa-component-library/blob/6068cca85e387741556239826792ca27520fcf69/src/systems/ec/implementations/vanilla/packages/ec-base/mixins/_import-once.scss). This utility is not needed any more because of the module system.
 - ECL global variables are no longer available. Values for `$ecl-color-grey-5` are now accessible through a theming layer. In the most generalized way: import the main theme file `@use '@ecl/theme-dev/theme'` and access values through the corresponding map `map.get(theme.$color, 'grey-5')`.
 - Update input options for sass compiler or rendering function. Pass `getsystem()` function from [`functions`](https://sass-lang.com/documentation/js-api#functions) parameter. Some SCSS files in ECL will depend on this function to get system-specific context. `ecl-builder` uses `@ecl/builder/utils/getSystem`.
+
+## Coming soon
+
+- styling of some default HTML tags (replacement of ecl-editor)
+- social media icons updates
