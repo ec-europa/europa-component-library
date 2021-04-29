@@ -2,19 +2,19 @@
 
 The following guidelines aim to facilitate migration between ECL v2 to v3.
 
-  * [Content modifications](#content-modifications)
-    + [Deprecated elements](#deprecated-elements)
-    + [Elements modified](#elements-modified)
-      - [Layout updates](#layout-updates)
-      - [Component updates](#component-updates)
-      - [Resources updates](#resources-updates)
-    + [Presets and themes](#presets-and-themes)
-  * [System and structure modifications](#system-and-structure-modifications)
-    + [Requirements](#requirements)
-    + [Packages](#packages)
-    + [File structure](#file-structure)
-    + [SCSS parsing and rendering](#scss-parsing-and-rendering)
-  * [Coming soon](#coming-soon)
+- [Content modifications](#content-modifications)
+  - [Deprecated elements](#deprecated-elements)
+  - [Elements modified](#elements-modified)
+    - [Layout updates](#layout-updates)
+    - [Component updates](#component-updates)
+    - [Resources updates](#resources-updates)
+  - [Presets and themes](#presets-and-themes)
+- [System and structure modifications](#system-and-structure-modifications)
+  - [Requirements](#requirements)
+  - [Packages](#packages)
+  - [File structure](#file-structure)
+  - [SCSS parsing and rendering](#scss-parsing-and-rendering)
+- [Coming soon](#coming-soon)
 
 ## Content modifications
 
@@ -147,6 +147,7 @@ Change impact have been grouped as :
 - :warning: logo file names have been homogenized between EC and EU, using the pattern `logo-(ec|eu)--(language).svg`
   Example: `logo-en.svg` => `logo-ec--en.svg`
 - :warning: all icons have been grouped in a single cateory, instead of having different ones (branded, general, ...). So now only the icon name is used.
+- :warning: icon `rounded-arrow` has been removed (arrows are cornered by default on EC, and rounded on EU)
 - :heavy_check_mark: icon size `2xs` has been changed from 10px to 12px
 
 ### Presets and themes
@@ -242,3 +243,4 @@ Here's a list of changes to apply in your project to follow up with ECL v3 SCSS 
 ## Coming soon
 
 - styling of some default HTML tags (replacement of ecl-editor)
+- social media icons updates
