@@ -60,16 +60,16 @@ const getArgTypes = (data) => {
         if it's inside it can still be extended via an additional css class`,
       table: {
         type: { summary: 'select' },
-        defaultValue: { summary: 'grid container' },
+        defaultValue: { summary: 'full width - outside the grid container' },
         category: 'Display',
       },
       control: {
         type: 'select',
-        defaultValue: { summary: 'container' },
+        defaultValue: { summary: 'outside' },
         options: {
-          'grid container': 'container',
           'full width - outside the grid container': 'outside',
           'full width - inside the grid container': 'inside',
+          'grid container': 'container',
         },
       },
     },
@@ -105,7 +105,7 @@ const prepareData = (data, args) => {
 
 const renderStory = (data, args) => {
   let story = heroBanner(prepareData(correctSvgPath(data), args));
-  if (args.width !== 'outside') {
+  if (args.width === 'container' || args.width === 'inside') {
     story = `<div class="ecl-container">${story}</div>`;
   }
 
