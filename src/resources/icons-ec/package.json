@@ -1,7 +1,7 @@
 {
   "name": "@ecl/resources-ec-icons",
   "author": "European Commission",
-  "license": "EUPL-1.1",
+  "license": "EUPL-1.2",
   "version": "3.0.0",
   "description": "Icons for EC system of ECL",
   "scripts": {
@@ -18,7 +18,9 @@
     "svgo": "1.3.2",
     "xml2js": "0.4.23"
   },
-  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ec-europa/europa-component-library.git"

@@ -1,11 +1,13 @@
 {
   "name": "@ecl/vanilla-layout-grid",
   "author": "European Commission",
-  "license": "EUPL-1.1",
+  "license": "EUPL-1.2",
   "version": "3.0.0",
   "description": "ECL Grid",
   "style": "grid.scss",
-  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@ecl/theme-dev": "^3.0.0"
   },

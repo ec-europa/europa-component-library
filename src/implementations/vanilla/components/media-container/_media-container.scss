@@ -7,10 +7,19 @@
 @use '@ecl/theme-dev/theme';
 @use "@ecl/vanilla-utility-media/media" as uMedia;
 
+$_border-radius: null !default;
+$_shadow: null !default;
+$_caption-background-color: null !default;
+$_caption-padding: null !default;
+$_scrollbar-width: 16px; // average scrollbar width; used in full screen calculus
+
 .ecl-media-container {
+  border-radius: $_border-radius;
+  box-shadow: $_shadow;
   display: flex;
   flex-direction: column;
   margin: 0;
+  overflow: hidden;
   position: relative;
 }
 
@@ -23,10 +32,11 @@
 }
 
 .ecl-media-container__caption {
-  background-color: map.get(theme.$color, 'grey-10');
+  background-color: $_caption-background-color;
   color: map.get(theme.$color, 'grey');
   font: map.get(theme.$font-prolonged, 'm');
-  padding: map.get(theme.$spacing, 's');
+  padding: $_caption-padding;
+  position: relative;
 }
 
 // Ratio
@@ -49,6 +59,6 @@
 // Full width
 .ecl-media-container--full-width {
   left: 50%;
-  margin-left: -50vw;
-  width: 100vw;
+  margin-left: calc(-50vw + (#{$_scrollbar-width} / 2));
+  width: calc(100vw - #{$_scrollbar-width});
 }

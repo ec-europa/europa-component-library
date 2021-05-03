@@ -1,12 +1,14 @@
 {
   "name": "@ecl/preset-ec",
   "author": "European Commission",
-  "license": "EUPL-1.1",
+  "license": "EUPL-1.2",
   "version": "3.0.0",
   "description": "ECL EC preset",
   "main": "dist/scripts/ecl-ec.js",
   "style": "dist/styles/ecl-ec.css",
-  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build:copy": "ecl-builder copy",
     "build:scripts": "ecl-builder scripts",

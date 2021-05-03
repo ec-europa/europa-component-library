@@ -1,12 +1,14 @@
 {
   "name": "@ecl/vanilla-utility-background",
   "author": "European Commission",
-  "license": "EUPL-1.1",
+  "license": "EUPL-1.2",
   "version": "3.0.0",
   "description": "ECL Utility Background",
   "style": "background.scss",
   "sass": "background.scss",
-  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@ecl/theme-dev": "^3.0.0"
   },
