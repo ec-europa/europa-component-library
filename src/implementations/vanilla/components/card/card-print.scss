@@ -25,7 +25,7 @@
 
 .ecl-card__title {
   font: map.get(theme.$font-print, 'm');
-  font-family: map.get(theme.$font-family-print, 'alt');
+  font-family: #{map.get(theme.$font-family-print, 'alt')};
   font-weight: map.get(theme.$font-weight-print, 'bold');
   margin: 0;
 
