@@ -61,7 +61,7 @@ const getArgTypes = (data) => {
       if it's inside it can still be extended via an additional css class`,
     table: {
       type: { summary: 'select' },
-      defaultValue: { summary: 'grid container width' },
+      defaultValue: { summary: 'grid container' },
       category: 'Display',
     },
     control: {
