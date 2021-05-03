@@ -16,5 +16,5 @@
 
 .ecl-media-container__caption {
   color: map.get(theme.$color, 'grey');
-  font: map.get(theme.$font-prolonged-print, 'm');
+  font: #{map.get(theme.$font-prolonged-print, 'm')};
 }
