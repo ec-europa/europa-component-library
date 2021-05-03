@@ -1,7 +1,7 @@
 {
   "name": "@ecl/vanilla-component-accordion",
   "author": "European Commission",
-  "license": "EUPL-1.1",
+  "license": "EUPL-1.2",
   "version": "3.0.0",
   "description": "ECL Accordion",
   "style": "accordion.scss",
@@ -12,7 +12,9 @@
     "@ecl/theme-dev": "^3.0.0",
     "@ecl/dom-utils": "^3.0.0"
   },
-  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ec-europa/europa-component-library.git"

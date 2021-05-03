@@ -1,7 +1,7 @@
 {
   "name": "@ecl/vanilla-component-icon",
   "author": "European Commission",
-  "license": "EUPL-1.1",
+  "license": "EUPL-1.2",
   "version": "3.0.0",
   "description": "ECL Icons",
   "style": "icon.scss",
@@ -12,7 +12,9 @@
   "peerDependencies": {
     "svg4everybody": "^2.1.9"
   },
-  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ec-europa/europa-component-library.git"

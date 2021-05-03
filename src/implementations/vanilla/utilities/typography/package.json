@@ -1,12 +1,14 @@
 {
   "name": "@ecl/vanilla-utility-typography",
   "author": "European Commission",
-  "license": "EUPL-1.1",
+  "license": "EUPL-1.2",
   "version": "3.0.0",
   "description": "ECL EC Typography",
   "style": "typography.scss",
   "sass": "typography.scss",
-  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@ecl/vanilla-layout-grid": "^3.0.0",
     "@ecl/theme-dev": "^3.0.0"
