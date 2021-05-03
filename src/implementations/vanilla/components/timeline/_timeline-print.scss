@@ -6,12 +6,19 @@
 @use "sass:map";
 @use '@ecl/theme-dev/theme';
 
+$_content-color: null !default;
+$_content-font: null !default;
+$_label-color: null !default;
+$_label-font: null !default;
+$_title-color: null !default;
+$_title-font: null !default;
+
 .ecl-timeline {
   color: map.get(theme.$color, 'black');
   font: map.get(theme.$font-print, 'm');
   list-style: disc;
   margin: 0;
-  padding-left: map.get(theme.$spacing-print, 'xl');
+  padding-left: map.get(theme.$spacing-print, 'l');
 }
 
 .ecl-timeline__item {
@@ -23,21 +30,21 @@
 }
 
 .ecl-timeline__label {
-  color: map.get(theme.$color, 'grey');
-  font: map.get(theme.$font-print, 's');
+  color: $_label-color;
+  font: $_label-font;
   font-weight: map.get(theme.$font-weight-print, 'bold');
 }
 
 .ecl-timeline__title {
-  color: map.get(theme.$color, 'black');
-  font: map.get(theme.$font-prolonged-print, 'm');
+  color: $_title-color;
+  font: $_title-font;
   font-weight: map.get(theme.$font-weight-print, 'bold');
   margin-top: map.get(theme.$spacing-print, 'xs');
 }
 
 .ecl-timeline__content {
-  color: map.get(theme.$color, 'grey');
-  font: map.get(theme.$font-prolonged-print, 'm');
+  color: $_content-color;
+  font: $_content-font;
   margin-top: map.get(theme.$spacing-print, 'xs');
 }
 

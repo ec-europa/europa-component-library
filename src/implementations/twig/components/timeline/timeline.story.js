@@ -2,10 +2,15 @@ import { loremIpsum } from 'lorem-ipsum';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctSvgPath } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
-import demoData from '@ecl/specs-component-timeline/demo/data';
+import demoDataEc from '@ecl/specs-component-timeline/demo/data--ec';
+import demoDataEu from '@ecl/specs-component-timeline/demo/data--eu';
 import timeline from './timeline.html.twig';
 import notes from './README.md';
+
+const system = getSystem();
+const demoData = system === 'eu' ? demoDataEu : demoDataEc;
 
 const getArgTypes = () => {
   const argTypes = {};
