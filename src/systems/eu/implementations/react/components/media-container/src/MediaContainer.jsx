@@ -10,10 +10,13 @@ const MediaContainer = ({
   description,
   children,
   iframeRatio,
+  isFullWidth,
   className,
   ...props
 }) => {
-  const classNames = classnames(className, 'ecl-media-container');
+  const classNames = classnames(className, 'ecl-media-container', {
+    [`ecl-media-container--full-width`]: isFullWidth,
+  });
 
   return (
     <figure {...props} className={classNames}>
@@ -77,6 +80,7 @@ MediaContainer.propTypes = {
   ),
   children: PropTypes.node,
   iframeRatio: PropTypes.string,
+  isFullWidth: PropTypes.bool,
   className: PropTypes.string,
 };
 
@@ -89,6 +93,7 @@ MediaContainer.defaultProps = {
   tracks: [],
   children: null,
   iframeRatio: '16-9',
+  isFullWidth: false,
 };
 
 export default MediaContainer;
