@@ -23,7 +23,7 @@
 ## Requirements
 
 - This default styling should be made available as an optional CSS, or in an optional preset
-- The provided solution should be able to handle every HTML tag without having to update the code for each new component/utility
+- The provided solution should be able to handle some HTML tag without having to update the code for each new component/utility
 
 ## Consequences
 
