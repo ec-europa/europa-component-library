@@ -1,12 +1,14 @@
 {
   "name": "@ecl/preset-dev",
   "author": "European Commission",
-  "license": "EUPL-1.1",
+  "license": "EUPL-1.2",
   "version": "3.0.0",
   "description": "ECL Dev preset",
   "main": "src/dev.js",
   "sass": "src/dev.scss",
-  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@ecl/dom-utils": "^3.0.0",
     "@ecl/vanilla-component-accordion": "^3.0.0",

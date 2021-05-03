@@ -1,14 +1,16 @@
 {
   "name": "@ecl/vanilla-component-datepicker",
-  "private": true,
   "author": "European Commission",
-  "license": "EUPL-1.1",
+  "license": "EUPL-1.2",
   "version": "3.0.0",
   "description": "ECL Datepicker",
   "main": "datepicker.js",
   "module": "datepicker.js",
   "style": "datepicker.scss",
   "sass": "datepicker.scss",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@ecl/dom-utils": "^3.0.0",
     "@ecl/theme-dev": "^3.0.0",

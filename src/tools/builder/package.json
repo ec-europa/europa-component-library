@@ -1,10 +1,12 @@
 {
   "name": "@ecl/builder",
   "author": "European Commission",
-  "license": "EUPL-1.1",
+  "license": "EUPL-1.2",
   "version": "3.0.0",
   "description": "Europa Component Library builder",
-  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
   "bin": {
     "ecl-builder": "./bin/build.js"
   },

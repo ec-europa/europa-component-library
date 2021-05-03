@@ -1,7 +1,7 @@
 {
   "name": "@ecl/vanilla-component-table",
   "author": "European Commission",
-  "license": "EUPL-1.1",
+  "license": "EUPL-1.2",
   "version": "3.0.0",
   "description": "ECL Table",
   "style": "table.scss",
@@ -13,7 +13,9 @@
     "@ecl/dom-utils": "^3.0.0",
     "@ecl/vanilla-layout-grid": "^3.0.0"
   },
-  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ec-europa/europa-component-library.git"
