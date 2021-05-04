@@ -8,6 +8,8 @@ Default as in the anatomy image
 
 ## Anatomy
 
+>
+
 ![](/cms-images/standardised-page-header.png)
 
 |                                                                                     | Components | Mandatory                                                                                                        | Description |
