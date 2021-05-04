@@ -1,3 +1,5 @@
+Informations for ECL v3 -> https://github.com/ec-europa/europa-component-library/tree/v3-dev
+
 # ECL v2 - Europa Component Library
 
 [![Build Status](https://drone.fpfis.eu/api/badges/ec-europa/europa-component-library/status.svg)](https://drone.fpfis.eu/ec-europa/europa-component-library)
