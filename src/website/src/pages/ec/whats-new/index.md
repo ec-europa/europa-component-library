@@ -5,6 +5,39 @@ title: What's new
 
 Detailed release information is available on [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 2.38.0 (2021-05-05)
+
+#### :rocket: New Feature
+
+- [#2051](https://github.com/ec-europa/europa-component-library/pull/2051) feat(media-container): add full screen feature
+
+#### :bug: Bug Fix
+
+- [#1973](https://github.com/ec-europa/europa-component-library/pull/1973) fix(preset): add missing css in eu preset
+- [#1959](https://github.com/ec-europa/europa-component-library/pull/1959) fix(print): hiding last element of social media follow only if it doesn't contain an icon
+- [#1957](https://github.com/ec-europa/europa-component-library/pull/1957) fix(ecl-editor): fix button override
+- [#1948](https://github.com/ec-europa/europa-component-library/pull/1948) fix(media-container): fix background (ECL2)
+
+#### :nail_care: Enhancement
+
+- [#2047](https://github.com/ec-europa/europa-component-library/pull/2047) feat(utilities): improve dimension utilities (ECL2)
+- [#1952](https://github.com/ec-europa/europa-component-library/pull/1952) fix(description-list): Preventing text overflow in terms
+- [#1946](https://github.com/ec-europa/europa-component-library/pull/1946) fix(card): Preventing text overflow
+
+#### :memo: Documentation
+
+- [#2049](https://github.com/ec-europa/europa-component-library/pull/2049) docs(footer): update EU footer links
+- [#1969](https://github.com/ec-europa/europa-component-library/pull/1969) feat(docs): Update blockquotes usage page
+- [#1968](https://github.com/ec-europa/europa-component-library/pull/1968) feat(docs): Harmon-g2-index
+- [#1967](https://github.com/ec-europa/europa-component-library/pull/1967) feat(docs): Harmon-g1-index
+- [#1956](https://github.com/ec-europa/europa-component-library/pull/1956) feat(docs): Links usage page update
+- [#1954](https://github.com/ec-europa/europa-component-library/pull/1954) feat(docs): file-downloads-usage-page
+- [#1940](https://github.com/ec-europa/europa-component-library/pull/1940) feat(docs): New-date-picker-usage-page
+
+#### :house: Internal
+
+- [#1960](https://github.com/ec-europa/europa-component-library/pull/1960) chore(deps): fixing audit issues with resolutions
+
 ## 2.37.0 (2021-03-04)
 
 #### :bug: Bug Fix
