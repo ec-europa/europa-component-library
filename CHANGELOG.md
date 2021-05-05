@@ -1,5 +1,44 @@
 # Changelog
 
+## 2.38.0 (2021-05-05)
+
+#### :rocket: New Feature
+
+- [#2051](https://github.com/ec-europa/europa-component-library/pull/2051) feat(media-container): add full screen feature - FRONT-2216 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#1973](https://github.com/ec-europa/europa-component-library/pull/1973) fix(preset): add missing css in eu preset - FRONT-2160 ([@emeryro](https://github.com/emeryro))
+- [#1959](https://github.com/ec-europa/europa-component-library/pull/1959) fix(print): hiding last element of social media follow only if it doesn't contain an icon - FRONT-2098 ([@planctus](https://github.com/planctus))
+- [#1957](https://github.com/ec-europa/europa-component-library/pull/1957) fix(ecl-editor): fix button override ([@emeryro](https://github.com/emeryro))
+- [#1948](https://github.com/ec-europa/europa-component-library/pull/1948) fix(media-container): fix background (ECL2) - FRONT-2023 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#2047](https://github.com/ec-europa/europa-component-library/pull/2047) feat(utilities): improve dimension utilities (ECL2) - FRONT-2196 ([@emeryro](https://github.com/emeryro))
+- [#1952](https://github.com/ec-europa/europa-component-library/pull/1952) fix(description-list): Preventing text overflow in terms - FRONT-2096 ([@planctus](https://github.com/planctus))
+- [#1946](https://github.com/ec-europa/europa-component-library/pull/1946) fix(card): Preventing text overflow - FRONT-2092 ([@planctus](https://github.com/planctus))
+
+#### :memo: Documentation
+
+- [#2049](https://github.com/ec-europa/europa-component-library/pull/2049) docs(footer): update EU footer links - FRONT-2215 ([@emeryro](https://github.com/emeryro))
+- [#1969](https://github.com/ec-europa/europa-component-library/pull/1969) feat(docs): Update blockquotes usage page ([@Yaomimi](https://github.com/Yaomimi))
+- [#1968](https://github.com/ec-europa/europa-component-library/pull/1968) feat(docs): Harmon-g2-index ([@Yaomimi](https://github.com/Yaomimi))
+- [#1967](https://github.com/ec-europa/europa-component-library/pull/1967) feat(docs): Harmon-g1-index ([@Yaomimi](https://github.com/Yaomimi))
+- [#1956](https://github.com/ec-europa/europa-component-library/pull/1956) feat(docs): Links usage page update ([@Yaomimi](https://github.com/Yaomimi))
+- [#1954](https://github.com/ec-europa/europa-component-library/pull/1954) feat(docs): file-downloads-usage-page ([@Yaomimi](https://github.com/Yaomimi))
+- [#1940](https://github.com/ec-europa/europa-component-library/pull/1940) feat(docs): New-date-picker-usage-page ([@Yaomimi](https://github.com/Yaomimi))
+
+#### :house: Internal
+
+- [#1960](https://github.com/ec-europa/europa-component-library/pull/1960) chore(deps): fixing audit issues with resolutions - FRONT-2095 ([@planctus](https://github.com/planctus))
+
+#### Committers: 3
+
+- Jean YAO ([@Yaomimi](https://github.com/Yaomimi))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 ## 2.37 (2021-03-04)
 
 #### :bug: Bug Fix
