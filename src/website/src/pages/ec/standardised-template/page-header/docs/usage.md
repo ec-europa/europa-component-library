@@ -50,19 +50,3 @@ Page header background image with dark overlay
 
 - always use a page header when building your page
 - Page headers can be used on both landing and content pages
-
-## Page header with thumbnail
-
-![](/cms-images/ec_ph_st_thumb_l_734px.png)
-
-## Page header background image without overlay
-
-![](/cms-images/ec_ph_stan_image_l_734px.png)
-
-## Page header background image with light overlay
-
-![](/cms-images/ec_ph_stan_light_l_734px.png)
-
-## Page header background image with dark overlay
-
-![](/cms-images/ec_ph_stan_dark_l_734px.png)

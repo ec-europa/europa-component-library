@@ -17,7 +17,7 @@
     "clean": "rimraf build dist",
     "dist": "cross-env NODE_ENV=production run-p build:*",
     "watch": "cross-env ECL_SYSTEM=ec ecl-builder watch",
-    "prepublish": "npm run clean && run-p build dist"
+    "prepublish": "npm run clean && npm run dist"
   },
   "devDependencies": {
     "@ecl/builder": "^3.0.0-alpha.1",
@@ -37,6 +37,5 @@
   "homepage": "https://github.com/ec-europa/europa-component-library",
   "bugs": {
     "url": "https://github.com/ec-europa/europa-component-library/issues"
-  },
-  "gitHead": "eb91a40064bd58c37bd420fbc6c2f1ff4f3f44b0"
+  }
 }
