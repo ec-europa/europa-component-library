@@ -6,7 +6,7 @@
     - "day" (integer) (default: '')
     - "month" (string) (default: '')
     - "year" (integer) (default: '')
-    - "date_time" (date/time) (default: '')
+    - "date_time" (date/time) (default: ''): the date in a standard format (yyyy-mm-dd)
     - "month_full" (string) (default: '')
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -55,7 +55,7 @@
     {% set _month_markup = '<span class="ecl-date-block__month">' ~ _month ~ '</span>' %}
   {% endif %}
   {% if _date_time is not empty %}
-    {% set _extra_attributes = _extra_attributes ~ 'dateTime="' ~ _date_time ~ '"' %}
+    {% set _extra_attributes = _extra_attributes ~ 'datetime="' ~ _date_time ~ '"' %}
   {% endif %}
 
   <time class="{{ _css_class }}"{{ _extra_attributes|raw }}>

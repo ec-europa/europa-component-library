@@ -1,0 +1,160 @@
+/*
+ * Date block
+ * @define date-block
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+@use "@ecl/vanilla-utility-screen-reader/screen-reader" as uScreenReader;
+
+$_padding-day-mobile: null !default;
+$_padding-day-desktop: null !default;
+$_padding-month-mobile: null !default;
+$_padding-month-desktop: null !default;
+$_padding-year-mobile: null !default;
+$_padding-year-desktop: null !default;
+$_circle-width: 10px;
+$_width-mobile: 5rem;
+$_width-desktop: 6.3rem;
+$_text-color: null !default;
+$_text-color-inverted: map.get(theme.$color, 'white-100');
+$_separator-color: null !default;
+$_separator-color-past: null !default;
+$_border-color-past: null !default;
+$_background-color-default: map.get(theme.$color, 'blue-100');
+$_background-color-ongoing: map.get(theme.$color, 'yellow-100');
+$_background-color-cancelled: null !default;
+$_background-color-past: map.get(theme.$color, 'white-100');
+$_background-color-year: null !default;
+$_shadow: null !default;
+$_border-radius: null !default;
+
+.ecl-date-block {
+  background-color: $_background-color-default;
+  border-radius: 8px;
+  box-shadow: $_shadow;
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-direction: column;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  width: $_width-mobile;
+
+  &::before {
+    background-color: map.get(theme.$color, 'white-100');
+    border-radius: 50%;
+    box-shadow: $_shadow inset;
+    box-sizing: content-box;
+    content: '';
+    display: block;
+    height: $_circle-width;
+    left: map.get(theme.$spacing, 's');
+    position: absolute;
+    top: -#{$_circle-width / 2};
+    width: $_circle-width;
+  }
+
+  &::after {
+    background-color: map.get(theme.$color, 'white-100');
+    border-radius: 50%;
+    box-shadow: $_shadow inset;
+    box-sizing: content-box;
+    content: '';
+    display: block;
+    height: $_circle-width;
+    position: absolute;
+    right: map.get(theme.$spacing, 's');
+    top: -#{$_circle-width / 2};
+    width: $_circle-width;
+  }
+}
+
+.ecl-date-block__day {
+  color: $_text-color-inverted;
+  font: map.get(theme.$font, '2xl');
+  font-weight: map.get(theme.$font-weight, 'bold');
+  padding: $_padding-day-mobile;
+}
+
+.ecl-date-block__month {
+  color: $_text-color-inverted;
+  font: map.get(theme.$font, 'm');
+  padding: $_padding-month-mobile;
+  text-decoration: none !important;
+  text-transform: uppercase;
+}
+
+.ecl-date-block__year {
+  background-color: $_background-color-year;
+  border-top: 1px solid $_separator-color;
+  color: $_text-color;
+  font: map.get(theme.$font, 's');
+  padding: $_padding-year-mobile;
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('l') {
+  .ecl-date-block {
+    width: $_width-desktop;
+  }
+
+  .ecl-date-block__day {
+    padding: $_padding-day-desktop;
+  }
+
+  .ecl-date-block__month {
+    padding: $_padding-month-desktop;
+  }
+
+  .ecl-date-block__year {
+    padding: $_padding-year-desktop;
+  }
+}
+
+.ecl-date-block__daytime {
+  @include uScreenReader.sr-only();
+}
+
+// ongoing
+.ecl-date-block--ongoing {
+  background-color: $_background-color-ongoing;
+
+  .ecl-date-block__day,
+  .ecl-date-block__month {
+    color: $_text-color;
+  }
+}
+
+// cancelled
+.ecl-date-block--cancelled {
+  background-color: $_background-color-cancelled;
+
+  .ecl-date-block__day,
+  .ecl-date-block__month {
+    color: $_text-color;
+  }
+}
+
+// past
+.ecl-date-block--past {
+  background-color: $_background-color-past;
+  outline: 1px solid $_border-color-past;
+  outline-offset: -1px;
+
+  &::before,
+  &::after {
+    border: 1px solid $_border-color-past;
+  }
+
+  .ecl-date-block__day,
+  .ecl-date-block__month {
+    color: $_text-color;
+  }
+
+  .ecl-date-block__year {
+    border-top-color: $_separator-color-past;
+  }
+}

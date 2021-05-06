@@ -78,6 +78,7 @@ Change impact have been grouped as :
 
 - :warning: css class for variant "cancelled" has been renamed from `.ecl-date-block--canceled` to `.ecl-date-block--cancelled`
 - :warning: new css class `.ecl-date-block__daytime` in place of the `.ecl-u-sr-only` utility (components are not supposed to contain utilities)
+- :heavy_check_mark: new variant added: "rescheduled"
 
 **Fact figures**
 
