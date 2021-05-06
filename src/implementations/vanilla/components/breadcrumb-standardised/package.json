@@ -1,18 +1,20 @@
 {
   "name": "@ecl/vanilla-component-breadcrumb-standardised",
-  "version": "3.0.0",
+  "version": "3.0.0-alpha.1",
   "description": "ECL Breadcrumb Standardised",
   "main": "breadcrumb-standardised.js",
   "module": "breadcrumb-standardised.js",
   "style": "breadcrumb-standardised.scss",
   "sass": "breadcrumb-standardised.scss",
   "author": "European Commission",
-  "license": "EUPL-1.1",
+  "license": "EUPL-1.2",
   "dependencies": {
-    "@ecl/theme-dev": "^3.0.0",
-    "@ecl/dom-utils": "^3.0.0"
+    "@ecl/dom-utils": "^3.0.0-alpha.1",
+    "@ecl/theme-dev": "^3.0.0-alpha.1"
   },
-  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ec-europa/europa-component-library.git"

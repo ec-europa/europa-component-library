@@ -1,0 +1,20 @@
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+@use 'message' with (
+  $_background-error: map.get(theme.$color, 'red-5'),
+  $_background-info: map.get(theme.$color, 'blue-5'),
+  $_background-success: map.get(theme.$color, 'green-5'),
+  $_background-warning: map.get(theme.$color, 'orange-5'),
+  $_border-radius: 4px 0 0 4px,
+  $_border-width: 0 0 0 4px,
+  $_close-font-weight: map.get(theme.$font-weight, 'normal'),
+  $_description-color: map.get(theme.$color, 'grey-80'),
+  $_icon-error-fill: map.get(theme.$color, 'red-120'),
+  $_icon-info-fill: map.get(theme.$color, 'blue-100'),
+  $_icon-success-fill: map.get(theme.$color, 'green-130'),
+  $_icon-warning-fill: map.get(theme.$color, 'orange-120'),
+  $_icon-spacing: map.get(theme.$spacing, 'xs'),
+  $_title-color: map.get(theme.$color, 'grey-140'),
+  $_title-font: map.get(theme.$font-prolonged, 'm'),
+  $_title-spacing: map.get(theme.$spacing, 'xs'),
+);

@@ -12,8 +12,8 @@ import breadcrumb from './breadcrumb-standardised.html.twig';
 import notes from './README.md';
 
 const system = getSystem();
-const dataSimple = system === 'eu' ? dataSimpleEU : dataSimpleEC;
-const dataLong = system === 'eu' ? dataLongEU : dataLongEC;
+const dataSimple = system === 'eu' ? { ...dataSimpleEU } : { ...dataSimpleEC };
+const dataLong = system === 'eu' ? { ...dataLongEU } : { ...dataLongEC };
 
 const getArgTypes = (data) => {
   const argTypes = {};
@@ -41,6 +41,7 @@ const prepareData = (data, args) => {
   correctSvgPath(data);
   data.links.forEach((item, i) => {
     item.label = args[`item${i + 1}`];
+    item.negative = false;
   });
 
   return data;
@@ -57,7 +58,6 @@ Simple.argTypes = getArgTypes(dataSimple);
 Simple.storyName = 'simple';
 Simple.parameters = {
   notes: { markdown: notes, json: dataSimple },
-  knobs: { disable: true },
 };
 
 export const Long = (args) => breadcrumb(prepareData(dataLong, args));
@@ -66,5 +66,4 @@ Long.argTypes = getArgTypes(dataLong);
 Long.storyName = 'long';
 Long.parameters = {
   notes: { markdown: notes, json: dataLong },
-  knobs: { disable: true },
 };

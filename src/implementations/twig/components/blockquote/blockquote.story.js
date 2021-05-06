@@ -54,5 +54,4 @@ Default.argTypes = getArgTypes(defaultData);
 Default.storyName = 'default';
 Default.parameters = {
   notes: { markdown: notes, json: defaultData },
-  knobs: { disable: true },
 };

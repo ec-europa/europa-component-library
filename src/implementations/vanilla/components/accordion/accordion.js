@@ -28,6 +28,8 @@ export class Accordion {
     {
       toggleSelector = '[data-ecl-accordion-toggle]',
       iconSelector = '[data-ecl-accordion-icon]',
+      labelExpanded = 'data-ecl-label-expanded',
+      labelCollapsed = 'data-ecl-label-collapsed',
       attachClickListener = true,
     } = {}
   ) {
@@ -44,6 +46,8 @@ export class Accordion {
     this.toggleSelector = toggleSelector;
     this.iconSelector = iconSelector;
     this.attachClickListener = attachClickListener;
+    this.labelExpanded = labelExpanded;
+    this.labelCollapsed = labelCollapsed;
 
     // Private variables
     this.toggles = null;
@@ -124,11 +128,21 @@ export class Accordion {
         const originalXlinkHref = useNode.getAttribute('xlink:href');
         let newXlinkHref = '';
         if (isExpanded) {
-          newXlinkHref = originalXlinkHref.replace('ui--minus', 'ui--plus');
+          newXlinkHref = originalXlinkHref.replace('minus', 'plus');
         } else {
-          newXlinkHref = originalXlinkHref.replace('ui--plus', 'ui--minus');
+          newXlinkHref = originalXlinkHref.replace('plus', 'minus');
         }
         useNode.setAttribute('xlink:href', newXlinkHref);
+      }
+    }
+
+    // Toggle icon label
+    const iconLabelElement = queryOne('.ecl-accordion__toggle-label', toggle);
+    if (iconLabelElement) {
+      if (isExpanded) {
+        iconLabelElement.textContent = toggle.getAttribute(this.labelCollapsed);
+      } else {
+        iconLabelElement.textContent = toggle.getAttribute(this.labelExpanded);
       }
     }
 

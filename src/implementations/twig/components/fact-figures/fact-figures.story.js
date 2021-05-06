@@ -1,14 +1,18 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctSvgPath } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
-import generalIcons from '@ecl/resources-ec-icons/dist/lists/general.json';
+import iconsAllEc from '@ecl/resources-ec-icons/dist/lists/all.json';
+import iconsAllEu from '@ecl/resources-eu-icons/dist/lists/all.json';
 import data3Col from '@ecl/specs-component-fact-figures/demo/data--3-col';
 import data4Col from '@ecl/specs-component-fact-figures/demo/data--4-col';
 
 import factFigures from './fact-figures.html.twig';
 import notes from './README.md';
 
+const system = getSystem();
+const iconsAll = system === 'eu' ? iconsAllEu : iconsAllEc;
 const viewAll = { ...data3Col.view_all };
 
 const getArgTypes = (data) => {
@@ -18,7 +22,7 @@ const getArgTypes = (data) => {
       description: 'Name of the icon',
       control: {
         type: 'select',
-        options: generalIcons,
+        options: iconsAll,
       },
       table: {
         type: { summary: 'string' },
@@ -82,6 +86,12 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
+  if (system === 'ec') {
+    data.items.forEach((item, i) => {
+      data.items[i].icon.size = 'm';
+    });
+    data.view_all.icon.size = 'xs';
+  }
   data.items[0].value = args.value;
   data.items[0].title = args.title;
   data.items[0].description = args.description;
@@ -97,9 +107,6 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Fact figures',
   decorators: [withNotes, withCode],
-  parameters: {
-    knobs: { disable: true },
-  },
 };
 
 export const Columns3 = (args) =>

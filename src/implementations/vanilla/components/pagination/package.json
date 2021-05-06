@@ -1,16 +1,18 @@
 {
   "name": "@ecl/vanilla-component-pagination",
   "author": "European Commission",
-  "license": "EUPL-1.1",
-  "version": "3.0.0",
+  "license": "EUPL-1.2",
+  "version": "3.0.0-alpha.1",
   "description": "ECL Pagination",
   "style": "pagination.scss",
   "sass": "pagination.scss",
   "dependencies": {
-    "@ecl/theme-dev": "^3.0.0",
-    "@ecl/vanilla-layout-grid": "^3.0.0"
+    "@ecl/theme-dev": "^3.0.0-alpha.1",
+    "@ecl/vanilla-layout-grid": "^3.0.0-alpha.1"
   },
-  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ec-europa/europa-component-library.git"

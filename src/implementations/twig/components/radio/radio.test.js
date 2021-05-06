@@ -6,6 +6,7 @@ import dataDefault from '@ecl/specs-component-radio/demo/data--default';
 import dataBinary from '@ecl/specs-component-radio/demo/data--binary';
 
 const dataInvalid = { ...dataDefault, invalid: true };
+const dataOptional = { ...dataDefault, required: false };
 const dataBinaryInvalid = { ...dataBinary, invalid: true };
 
 describe('Radio', () => {
@@ -40,6 +41,14 @@ describe('Radio', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('Optional', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+
+      return expect(render(dataOptional)).resolves.toMatchSnapshot();
     });
   });
 

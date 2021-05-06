@@ -35,12 +35,12 @@
   } else {
     // Manually inject styles
     var head = document.head || document.getElementsByTagName('head')[0];
-    head.appendChild(createLink('./styles/reset.css', 'screen'));
-    head.appendChild(createLink('./styles/eu-core.css', 'screen'));
-    head.appendChild(createLink('./styles/eu-core-print.css', 'print'));
+    head.appendChild(createLink('./styles/ecl-reset.css', 'screen'));
+    head.appendChild(createLink('./styles/ecl-eu.css', 'screen'));
+    head.appendChild(createLink('./styles/ecl-eu-print.css', 'print'));
   }
 </script>
-<script type="text/javascript" src="./scripts/eu-core.js"></script>
+<script type="text/javascript" src="./scripts/ecl-eu.js"></script>
 <script>
   // https://github.com/storybookjs/storybook/issues/6113#issuecomment-473965255
   function runOnPageChange() {

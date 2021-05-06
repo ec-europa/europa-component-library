@@ -70,7 +70,6 @@ npm install --save @ecl/twig-component-footer-core
             }, 
             icon: { 
               path: '/path-to-the-icon-file', 
-              type: 'ui', 
               name: 'external', 
             }, 
           }, 

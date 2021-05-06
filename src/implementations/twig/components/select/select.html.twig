@@ -10,6 +10,7 @@
     - "selected" (boolean) (default: false)
   - "disabled" (boolean) (default: false)
   - "invalid" (boolean) (default: false)
+  - "invalid_icon" (object of type "icon") (default: {})
   - "required" (boolean) (default: false)
   - "name" (string) (default: '')
   - "width" (string) (default: '')
@@ -18,6 +19,7 @@
   - "multiple_placeholder" (string)(default: '') Label for the multiple select placeholder
   - "multiple_all_text" (string)(default: '') Label for the select all option
   - "multiple_search_text" (string)(default: '') Label for the search box inside the multiple select
+  - "multiple_search_no_results_text" (string)(default: '') Label label when there is no result by searching for an option
   - "extra_group_classes" (optional) (string) (default: '') Extra classes (space separated) for the select group
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the select
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for select
@@ -37,6 +39,7 @@
 {% set _options = options|default([]) %}
 {% set _disabled = disabled|default(false) %}
 {% set _invalid = invalid|default(false) %}
+{% set _invalid_icon = invalid_icon|default({}) %}
 {% set _required = required|default(false) %}
 {% set _name = name|default('') %}
 {% set _icon_path = icon_path|default(false) %}
@@ -50,6 +53,7 @@
 {% set _multiple_placeholder = multiple_placeholder|default('') %}
 {% set _multiple_all_text = multiple_all_text|default('') %}
 {% set _multiple_search_text = multiple_search_text|default('') %}
+{% set _multiple_search_no_results_text = multiple_search_no_results_text|default('') %}
 {% set _css_group_class = 'ecl-form-group' %}
 {% set _css_class = ['ecl-select'] %}
 {% set _css_class = _css_class|join(' ') %}
@@ -61,6 +65,7 @@
     { name: 'data-ecl-select-multiple'},
     { name: 'data-ecl-select-default', value: _multiple_placeholder },
     { name: 'data-ecl-select-search', value: _multiple_search_text },
+    { name: 'data-ecl-select-no-results', value: _multiple_search_no_results_text },
     { name: 'data-ecl-select-all', value: _multiple_all_text }
   ]|merge(extra_attributes|default([])) %}
 {% endif %}
@@ -113,6 +118,12 @@
 
   {% if _invalid and _invalid_text is not empty %}
     <div class="ecl-feedback-message">
+      {%- if _invalid_icon is not empty %}
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: _invalid_icon,
+        extra_classes: 'ecl-feedback-message__icon',
+      } only %}
+      {% endif -%}
       {%- block invalid_text _invalid_text -%}
     </div>
   {% endif %}
@@ -157,7 +168,6 @@
       {% include '@ecl/icon/icon.html.twig' with {
         icon: {
           path: _icon_path,
-          type: "ui",
           name: "corner-arrow",
           size: "s",
           transform: "rotate-180"

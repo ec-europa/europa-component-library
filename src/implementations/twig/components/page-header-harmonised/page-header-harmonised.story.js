@@ -57,6 +57,9 @@ const getArgTypes = (data) => {
 const prepareData = (data, args) => {
   data.breadcrumb =
     system === 'eu' ? dataBreadcrumbLongEU : dataBreadcrumbLongEC;
+  data.breadcrumb.links.forEach((item) => {
+    item.negative = false;
+  });
 
   return Object.assign(correctSvgPath(data), args);
 };
@@ -64,9 +67,6 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Page Headers/Harmonised',
   decorators: [withNotes, withCode],
-  knobs: {
-    disable: true,
-  },
 };
 
 export const Title = (args) =>

@@ -89,7 +89,6 @@ export default {
   title: 'Utilities/Display',
   decorators: [withCode],
   parameters: {
-    knobs: { disable: true },
     a11y: { disable: true },
   },
 };

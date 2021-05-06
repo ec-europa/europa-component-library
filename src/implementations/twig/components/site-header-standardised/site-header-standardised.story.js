@@ -11,49 +11,74 @@ import euFrenchMobileBanner from '@ecl/resources-eu-logo/condensed-version/posit
 import euEnglishMobileBanner from '@ecl/resources-eu-logo/condensed-version/positive/logo-eu--en.svg';
 import englishData from '@ecl/specs-component-site-header-standardised/demo/data';
 import frenchData from '@ecl/specs-component-site-header-standardised/demo/data--fr';
+import dataMenuEn from '@ecl/specs-component-menu/demo/data--en';
+import dataMenuFr from '@ecl/specs-component-menu/demo/data--fr';
 import siteHeaderStandardised from './site-header-standardised.html.twig';
 import notes from './README.md';
 
 const system = getSystem();
 const enData = { ...englishData };
 const frData = { ...frenchData };
-const menuEn = { ...enData.menu };
-const menuFr = { ...frData.menu };
 const languageSelector = { ...enData.language_selector };
 const loggedInData = { ...enData, logged: true };
 const clonedLoggedInData = { ...loggedInData };
 
-const getArgTypes = () => {
-  return {
-    login: {
-      type: { name: 'boolean' },
-      defaultValue: true,
-      description: 'Toggle login box visibility',
-      table: {
-        type: { summary: 'object' },
-        defaultValue: { summary: '{}' },
-      },
-    },
-    menu: {
-      type: { name: 'boolean' },
-      defaultValue: true,
-      description: 'Toggle menu visibility',
-      table: {
-        type: { summary: 'object' },
-        defaultValue: { summary: '{}' },
-      },
-    },
-    language_selector: {
-      name: 'language selector',
-      type: { name: 'boolean' },
-      defaultValue: true,
-      description: 'Toggle language selector visibility',
-      table: {
-        type: { summary: 'object' },
-        defaultValue: { summary: '{}' },
-      },
+const getArgTypes = (data) => {
+  const argTypes = {};
+
+  argTypes.login = {
+    type: 'boolean',
+    defaultValue: true,
+    description: 'Toggle login box visibility',
+    table: {
+      type: { summary: 'object' },
+      defaultValue: { summary: '{}' },
     },
   };
+  argTypes.language_selector = {
+    name: 'language selector',
+    type: 'boolean',
+    defaultValue: true,
+    description: 'Toggle language selector visibility',
+    table: {
+      type: { summary: 'object' },
+      defaultValue: { summary: '{}' },
+    },
+  };
+  if (system === 'ec') {
+    argTypes.banner_top = {
+      name: 'class',
+      type: 'boolean',
+      defaultValue: true,
+      description: 'Toggle class visibility (EC only)',
+      table: {
+        type: { summary: 'object' },
+        defaultValue: { summary: '{}' },
+      },
+    };
+  }
+  argTypes.menu = {
+    type: 'boolean',
+    defaultValue: true,
+    description: 'Toggle menu visibility',
+    table: {
+      type: { summary: 'object' },
+      defaultValue: { summary: '{}' },
+    },
+  };
+  argTypes.site_name = {
+    name: 'site name',
+    defaultValue: data.site_name,
+    type: { name: 'string', required: true },
+    description: 'The site name',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+  };
+
+  return argTypes;
 };
 
 const prepareData = (data, demo, args) => {
@@ -71,7 +96,7 @@ const prepareData = (data, demo, args) => {
   if (!args.menu) {
     delete data.menu;
   } else if (args.menu && !data.menu) {
-    data.menu = demo !== 'translated' ? menuEn : menuFr;
+    data.menu = demo !== 'translated' ? dataMenuEn : dataMenuFr;
   }
 
   if (!args.language_selector) {
@@ -85,8 +110,13 @@ const prepareData = (data, demo, args) => {
   if (system === 'ec') {
     if (demo !== 'translated') {
       data.logo.src_desktop = englishBanner;
+      data.banner_top = enData.banner_top;
     } else {
       data.logo.src_desktop = frenchBanner;
+      data.banner_top = frData.banner_top;
+    }
+    if (!args.banner_top) {
+      delete data.banner_top;
     }
   } else if (demo !== 'translated') {
     delete data.banner_top;
@@ -98,34 +128,33 @@ const prepareData = (data, demo, args) => {
     data.logo.src_mobile = euFrenchMobileBanner;
   }
 
+  data.site_name = args.site_name;
+
   return data;
 };
 
 export default {
   title: 'Components/Site Headers/Standardised',
   decorators: [withNotes, withCode],
-  parameters: {
-    knobs: { disable: true },
-  },
 };
 
 export const Default = (args) =>
   siteHeaderStandardised(prepareData(englishData, 'default', args));
 
 Default.storyName = 'default';
-Default.argTypes = getArgTypes();
+Default.argTypes = getArgTypes(englishData);
 Default.parameters = { notes: { markdown: notes, json: englishData } };
 
 export const LoggedIn = (args) =>
   siteHeaderStandardised(prepareData(loggedInData, 'logged', args));
 
 LoggedIn.storyName = 'logged in';
-LoggedIn.argTypes = getArgTypes();
+LoggedIn.argTypes = getArgTypes(loggedInData);
 LoggedIn.parameters = { notes: { markdown: notes, json: loggedInData } };
 
 export const Translated = (args) =>
   siteHeaderStandardised(prepareData(frenchData, 'translated', args));
 
 Translated.storyName = 'translated';
-Translated.argTypes = getArgTypes();
+Translated.argTypes = getArgTypes(frenchData);
 Translated.parameters = { notes: { markdown: notes, json: frenchData } };

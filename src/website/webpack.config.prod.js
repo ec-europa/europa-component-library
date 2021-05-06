@@ -340,22 +340,22 @@ module.exports = {
       'process.env.PUBLIC_URL': JSON.stringify(publicUrl),
       'process.env.ECL_VERSION': JSON.stringify(eclVersion),
       'process.env.ECL_EC_PRESET_WEBSITE_CSS': JSON.stringify(
-        (sri['ec-core.css'] || []).join(' ') || 'n/a'
+        (sri['ecl-ec.css'] || []).join(' ') || 'n/a'
       ),
       'process.env.ECL_EC_PRESET_WEBSITE_PRINT_CSS': JSON.stringify(
-        (sri['ec-core-print.css'] || []).join(' ') || 'n/a'
+        (sri['ecl-ec-print.css'] || []).join(' ') || 'n/a'
       ),
       'process.env.ECL_EC_PRESET_WEBSITE_JS': JSON.stringify(
-        (sri['ec-core.js'] || []).join(' ') || 'n/a'
+        (sri['ecl-ec.js'] || []).join(' ') || 'n/a'
       ),
       'process.env.ECL_EU_PRESET_WEBSITE_CSS': JSON.stringify(
-        (sri['eu-core.css'] || []).join(' ') || 'n/a'
+        (sri['ecl-eu.css'] || []).join(' ') || 'n/a'
       ),
       'process.env.ECL_EU_PRESET_WEBSITE_PRINT_CSS': JSON.stringify(
-        (sri['ec-core.css'] || []).join(' ') || 'n/a'
+        (sri['ecl-eu-print.css'] || []).join(' ') || 'n/a'
       ),
       'process.env.ECL_EU_PRESET_WEBSITE_JS': JSON.stringify(
-        (sri['eu-core.js'] || []).join(' ') || 'n/a'
+        (sri['ecl-eu.js'] || []).join(' ') || 'n/a'
       ),
     }),
     new MiniCssExtractPlugin({

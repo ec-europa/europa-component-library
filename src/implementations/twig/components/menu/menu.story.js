@@ -19,7 +19,7 @@ const getArgTypes = (data) => {
       name: 'site name',
       type: { name: 'string' },
       defaultValue: data.site_name,
-      description: 'The name of the site',
+      description: 'The name of the site (displayed only on mobile)',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
@@ -42,9 +42,6 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Navigation/Menu',
   decorators: [withNotes, withCode],
-  parameters: {
-    knobs: { disable: true },
-  },
 };
 
 export const Default = (args) => menu(prepareData(enData, args));

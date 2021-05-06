@@ -29,7 +29,7 @@
       },
     },
   }],
-  - "site_name": (string) (default: ''): Name of the website
+  - "site_name": (string) (default: ''): Name of the website (used only on mobile)
   - "menu_link": (string) (default: ''): Href attribute of the menu toggler
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the nav element
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for the nav element
@@ -81,7 +81,6 @@
       {% include '@ecl/icon/icon.html.twig' with {
         icon: {
           size: 's',
-          type: 'general',
           name: 'hamburger',
           path: _icon_path
         },
@@ -102,7 +101,6 @@
               icon: {
                 path: icon_path,
                 name: 'close-filled',
-                type: 'ui',
                 size: 's',
               },
               extra_classes: 'ecl-button__icon ecl-button__icon--before',
@@ -126,7 +124,6 @@
               icon: {
                 path: _icon_path,
                 name: 'corner-arrow',
-                type: 'ui',
                 size: 's',
                 transform: 'rotate-270',
               },

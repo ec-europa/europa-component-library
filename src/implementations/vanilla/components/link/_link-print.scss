@@ -1,0 +1,55 @@
+/**
+* Link component
+* @define link
+*/
+
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+
+$_color: map.get(theme.$color, 'blue-100');
+$_negative-color: null !default;
+
+.ecl-link {
+  color: $_color;
+  page-break-inside: avoid;
+  text-decoration: none;
+}
+
+.ecl-link::after {
+  content: '(' attr(href) ')';
+  font-style: italic;
+  margin-left: map.get(theme.$spacing-print, '2xs');
+  text-decoration: underline;
+}
+
+.ecl-link--icon-before,
+.ecl-link--icon-after {
+  display: inline-block;
+}
+
+.ecl-link--icon {
+  text-decoration: none;
+
+  .ecl-link__icon {
+    fill: currentColor;
+    position: relative;
+    top: -1px;
+    vertical-align: middle;
+  }
+
+  &:not(.ecl-link--standalone) .ecl-link__label {
+    text-decoration: underline;
+  }
+}
+
+.ecl-link--standalone {
+  font-family: #{map.get(theme.$font-family-print, 'default')};
+}
+
+.ecl-link--cta {
+  font-family: #{map.get(theme.$font-family-print, 'default')};
+}
+
+.ecl-link--negative {
+  color: $_negative-color;
+}

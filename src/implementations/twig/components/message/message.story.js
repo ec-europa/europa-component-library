@@ -1,6 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctSvgPath } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 // Import data for demos
 import dataInfo from '@ecl/specs-component-message/demo/data--info';
@@ -10,6 +11,19 @@ import dataWarning from '@ecl/specs-component-message/demo/data--warning';
 
 import message from './message.html.twig';
 import notes from './README.md';
+
+const system = getSystem();
+
+if (system === 'eu') {
+  dataInfo.icon.size = 'm';
+  dataSuccess.icon.size = 'm';
+  dataWarning.icon.size = 'm';
+  dataError.icon.size = 'm';
+  dataInfo.close.icon.size = 's';
+  dataError.close.icon.size = 's';
+  dataSuccess.close.icon.size = 's';
+  dataWarning.close.icon.size = 's';
+}
 
 const getArgTypes = (data) => {
   return {
@@ -46,9 +60,6 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Messages',
   decorators: [withCode, withNotes],
-  parameters: {
-    knobs: { disable: true },
-  },
 };
 
 export const Info = (args) => message(prepareData(dataInfo, args));

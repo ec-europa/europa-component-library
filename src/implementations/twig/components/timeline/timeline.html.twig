@@ -73,11 +73,14 @@ Parameters:
         {% if _item.id is defined and _item.id is not empty %}
           id="{{ _item.id }}"
         {% endif %}>
-        <div class="ecl-timeline__label">{{ _item.label }}</div>
-        {% if _item.title is defined and _item.title is not empty %}
-        <div class="ecl-timeline__title">{{ _item.title }}</div>
-        {% endif %}
-        <div class="ecl-timeline__content">{{ _item.content|default('') }}</div>
+        <div class="ecl-timeline__tooltip">
+          <div class="ecl-timeline__tooltip-arrow"></div>
+          <div class="ecl-timeline__label">{{ _item.label }}</div>
+          {% if _item.title is defined and _item.title is not empty %}
+          <div class="ecl-timeline__title">{{ _item.title }}</div>
+          {% endif %}
+          <div class="ecl-timeline__content">{{ _item.content|default('') }}</div>
+        </div>
       </li>
       {# Display the show more button if required. #}
       {% if (_hide_amount > 0 and loop.revindex == _bottom_amount + 1) or (_hide_amount > 0 and _hide_to == 0 and loop.revindex == 1) %}
@@ -89,7 +92,6 @@ Parameters:
             type: 'button',
             icon: {
               path: _icon_path,
-              type: 'ui',
               name: 'corner-arrow',
               size: 'xs',
               transform: 'rotate-180',

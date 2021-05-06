@@ -61,6 +61,7 @@ class Playground extends Component {
       system,
       selectedKind,
       selectedStory,
+      selectedArgs,
       showFrame,
       hideCode,
       disableAutoResize,
@@ -84,20 +85,22 @@ class Playground extends Component {
 
     let playgroundUrl;
 
+    const argsUrl = selectedArgs ? `&args=${selectedArgs}` : '';
+
     if (playgroundLink) {
       playgroundUrl = playgroundLink;
     } else if (system && selectedKind && selectedStory) {
       playgroundUrl = encodeURI(
         `${process.env.PUBLIC_URL}/playground/${system}/${
           process.env.NODE_ENV === 'development' ? 'index.html' : ''
-        }?path=/story/${selectedKind}--${selectedStory}`
+        }?path=/story/${selectedKind}--${selectedStory}${argsUrl}`
       );
     }
 
     const fullFrameUrl =
       system && selectedKind && selectedStory
         ? encodeURI(
-            `${process.env.PUBLIC_URL}/playground/${system}/iframe.html?id=${selectedKind}--${selectedStory}`
+            `${process.env.PUBLIC_URL}/playground/${system}/iframe.html?id=${selectedKind}--${selectedStory}${argsUrl}`
           )
         : '';
 
@@ -132,7 +135,7 @@ class Playground extends Component {
                 aria-hidden="true"
                 className={styles.link__icon}
               >
-                <use xlinkHref={`${iconSprite}#ui--fullscreen`} />
+                <use xlinkHref={`${iconSprite}#fullscreen`} />
               </svg>
             </a>
           )}
@@ -158,7 +161,7 @@ class Playground extends Component {
                   aria-hidden="true"
                   className={styles.link__icon}
                 >
-                  <use xlinkHref={`${iconSprite}#ui--corner-arrow`} />
+                  <use xlinkHref={`${iconSprite}#corner-arrow`} />
                 </svg>
               </div>
             </button>
@@ -182,7 +185,7 @@ class Playground extends Component {
                 aria-hidden="true"
                 className={styles.link__icon}
               >
-                <use xlinkHref={`${iconSprite}#ui--corner-arrow`} />
+                <use xlinkHref={`${iconSprite}#corner-arrow`} />
               </svg>
             </a>
           </>
@@ -205,6 +208,7 @@ Playground.propTypes = {
   system: PropTypes.string,
   selectedKind: PropTypes.string,
   selectedStory: PropTypes.string,
+  selectedArgs: PropTypes.string,
 };
 
 Playground.defaultProps = {
@@ -218,6 +222,7 @@ Playground.defaultProps = {
   system: '',
   selectedKind: '',
   selectedStory: '',
+  selectedArgs: '',
 };
 
 export default Playground;

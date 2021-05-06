@@ -11,7 +11,6 @@ npm install --save @ecl/twig-component-expandable
 - **"id"** (string) (default: '')
 - **"label_expanded"** (string) (default: '')
 - **"label_collapsed"** (string) (default: '')
-- **"label_collapsed"** (string) (default: '')
 - **"button"** (predefined structure) : Button component structure
 - **"extra_dropdown_classes"** (optional) (string) (default: '') Extra dropdown classes (space separated)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
@@ -33,7 +32,6 @@ npm install --save @ecl/twig-component-expandable
     label: 'Collapsed button', 
     variant: 'secondary', 
     icon: { 
-      type: 'ui', 
       name: 'corner-arrow', 
       transform: 'rotate-180', 
       size: 'fluid', 

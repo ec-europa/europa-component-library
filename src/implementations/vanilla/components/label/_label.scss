@@ -1,0 +1,41 @@
+/**
+ * Label
+ * @define label
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+
+$_border-radius: null !default;
+$_text-color: null !default;
+$_background-color-low: null !default;
+$_background-color-medium: null !default;
+$_background-color-high: map.get(theme.$color, 'yellow-100');
+$_background-color-highlight: map.get(theme.$color, 'blue-100');
+
+.ecl-label {
+  border-radius: $_border-radius;
+  color: $_text-color;
+  display: inline-block;
+  font: map.get(theme.$font, 's');
+  margin: 0;
+  padding: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 's');
+  text-transform: uppercase;
+}
+
+.ecl-label--low {
+  background-color: $_background-color-low;
+}
+
+.ecl-label--medium {
+  background-color: $_background-color-medium;
+}
+
+.ecl-label--high {
+  background-color: $_background-color-high;
+}
+
+.ecl-label--highlight {
+  background-color: $_background-color-highlight;
+  color: map.get(theme.$color, 'white-100');
+}

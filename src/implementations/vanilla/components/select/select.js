@@ -1,6 +1,14 @@
 /* eslint-disable no-return-assign */
-import iconSvgUiCheck from '@ecl/resources-ec-icons/dist/svg/ui/check.svg';
-import iconSvgUiCornerArrow from '@ecl/resources-ec-icons/dist/svg/ui/corner-arrow.svg';
+import getSystem from '@ecl/builder/utils/getSystem';
+import iconSvgAllCheckEc from '@ecl/resources-ec-icons/dist/svg/all/check.svg';
+import iconSvgAllCheckEu from '@ecl/resources-eu-icons/dist/svg/all/check.svg';
+import iconSvgAllCornerArrowEc from '@ecl/resources-ec-icons/dist/svg/all/corner-arrow.svg';
+import iconSvgAllCornerArrowEu from '@ecl/resources-eu-icons/dist/svg/all/corner-arrow.svg';
+
+const system = getSystem();
+const iconSvgAllCheck = system === 'eu' ? iconSvgAllCheckEu : iconSvgAllCheckEc;
+const iconSvgAllCornerArrow =
+  system === 'eu' ? iconSvgAllCornerArrowEu : iconSvgAllCornerArrowEc;
 
 /**
  * There are multiple labels contained in this component. You can set them in 2 ways: directly as a string or through data attributes.
@@ -16,6 +24,7 @@ import iconSvgUiCornerArrow from '@ecl/resources-ec-icons/dist/svg/ui/corner-arr
  * @param {String} options.defaultTextAttribute The data attribute for the default placeholder text
  * @param {String} options.searchTextAttribute The data attribute for the default search text
  * @param {String} options.selectAllTextAttribute The data attribute for the select all text
+ * @param {String} options.noResultsTextAttribute The data attribute for the no results options text
  */
 export class Select {
   /**
@@ -40,11 +49,13 @@ export class Select {
       defaultText = '',
       searchText = '',
       selectAllText = '',
+      noResultsText = '',
       selectMultipleId = 'select-multiple',
       selectMultipleSelector = '[data-ecl-select-multiple]',
       defaultTextAttribute = 'data-ecl-select-default',
       searchTextAttribute = 'data-ecl-select-search',
       selectAllTextAttribute = 'data-ecl-select-all',
+      noResultsTextAttribute = 'data-ecl-select-no-results',
     } = {}
   ) {
     // Check element
@@ -62,9 +73,11 @@ export class Select {
     this.defaultTextAttribute = defaultTextAttribute;
     this.searchTextAttribute = searchTextAttribute;
     this.selectAllTextAttribute = selectAllTextAttribute;
+    this.noResultsTextAttribute = noResultsTextAttribute;
     this.defaultText = defaultText;
     this.searchText = searchText;
     this.selectAllText = selectAllText;
+    this.noResultsText = noResultsText;
 
     // Private variables
     this.input = null;
@@ -76,8 +89,10 @@ export class Select {
     this.textDefault = null;
     this.textSearch = null;
     this.textSelectAll = null;
+    this.textNoResults = null;
     this.selectMultiple = null;
     this.inputContainer = null;
+    this.optionsContainer = null;
     this.searchContainer = null;
 
     // Bind `this` for use in callbacks
@@ -152,7 +167,7 @@ export class Select {
     box.classList.add('ecl-checkbox__box');
     box.appendChild(
       Select.createSvgIcon(
-        iconSvgUiCheck,
+        iconSvgAllCheck,
         'ecl-icon ecl-icon--s ecl-checkbox__icon'
       )
     );
@@ -169,7 +184,7 @@ export class Select {
     const wrapper = document.createElement('div');
     wrapper.classList.add('ecl-select__icon');
     const icon = Select.createSvgIcon(
-      iconSvgUiCornerArrow,
+      iconSvgAllCornerArrow,
       'ecl-icon ecl-icon--s ecl-select__icon-shape ecl-icon--rotate-180'
     );
     wrapper.appendChild(icon);
@@ -199,6 +214,9 @@ export class Select {
     this.textSelectAll =
       this.selectAllText ||
       this.element.getAttribute(this.selectAllTextAttribute);
+    this.textNoResults =
+      this.noResultsText ||
+      this.element.getAttribute(this.noResultsTextAttribute);
 
     this.selectMultiple = document.createElement('div');
     this.selectMultiple.classList.add('ecl-select__multiple');
@@ -234,9 +252,10 @@ export class Select {
 
     this.search = document.createElement('input');
     this.search.classList.add('ecl-text-input');
-    this.search.setAttribute('type', 'text');
+    this.search.setAttribute('type', 'search');
     this.search.setAttribute('placeholder', this.textSearch || '');
     this.search.addEventListener('keyup', this.handleSearch);
+    this.search.addEventListener('search', this.handleSearch);
     this.searchContainer.appendChild(this.search);
 
     if (this.textSelectAll) {
@@ -250,8 +269,13 @@ export class Select {
       );
       this.selectAll.addEventListener('click', this.handleClickSelectAll);
       this.selectAll.addEventListener('keypress', this.handleClickSelectAll);
+      this.selectAll.addEventListener('change', this.handleClickSelectAll);
       this.searchContainer.appendChild(this.selectAll);
     }
+
+    this.optionsContainer = document.createElement('div');
+    this.optionsContainer.classList.add('ecl-select__multiple-options');
+    this.searchContainer.appendChild(this.optionsContainer);
 
     if (this.select.options && this.select.options.length > 0) {
       this.checkboxes = Array.from(this.select.options).map((option) => {
@@ -270,7 +294,7 @@ export class Select {
           checkbox.addEventListener('click', this.handleClickOption);
           checkbox.addEventListener('keypress', this.handleClickOption);
         }
-        this.searchContainer.appendChild(checkbox);
+        this.optionsContainer.appendChild(checkbox);
         return checkbox;
       });
     }
@@ -361,6 +385,10 @@ export class Select {
    */
   handleClickSelectAll(e) {
     e.preventDefault();
+    // Early returns.
+    if (this.selectAll.querySelector('input').disabled) {
+      return;
+    }
     const checked = Select.checkCheckbox(e);
     const options = Array.from(this.select.options).filter((o) => !o.disabled);
     const checkboxes = Array.from(
@@ -419,15 +447,44 @@ export class Select {
       } else {
         checkbox.setAttribute('data-visible', true);
         checkbox.style.display = 'flex';
+        // Highlight keyword in checkbox label.
+        const checkboxElement = checkbox.querySelector('.ecl-checkbox__box');
+        const checkboxLabel = checkbox.querySelector('.ecl-checkbox__label');
+        if (keyword) {
+          checkboxLabel.innerHTML =
+            checkboxElement.outerHTML +
+            checkboxLabel.textContent.replace(
+              new RegExp(`${keyword}(?!([^<]+)?<)`, 'gi'),
+              '<b>$&</b>'
+            );
+        } else {
+          checkboxLabel.innerHTML =
+            checkboxElement.outerHTML + checkboxLabel.textContent;
+        }
         visible.push(checkbox);
       }
     });
     // Select all checkbox follows along.
     const checked = visible.filter((c) => c.querySelector('input').checked);
-    if (visible.length !== checked.length) {
+    if (visible.length === 0 || visible.length !== checked.length) {
       this.selectAll.querySelector('input').checked = false;
     } else {
       this.selectAll.querySelector('input').checked = true;
+    }
+    // Display no-results message.
+    const noResultsElement = this.searchContainer.querySelector(
+      '.ecl-select__multiple-no-results'
+    );
+    if (visible.length === 0 && !noResultsElement) {
+      // Create no-results element.
+      const noResultsContainer = document.createElement('div');
+      const noResultsLabel = document.createElement('span');
+      noResultsContainer.classList.add('ecl-select__multiple-no-results');
+      noResultsLabel.innerHTML = this.textNoResults;
+      noResultsContainer.appendChild(noResultsLabel);
+      this.optionsContainer.appendChild(noResultsContainer);
+    } else if (visible.length > 0 && noResultsElement !== null) {
+      noResultsElement.parentNode.removeChild(noResultsElement);
     }
     // reset
     if (keyword.length === 0) {
@@ -435,6 +492,13 @@ export class Select {
         checkbox.setAttribute('data-visible', true);
         checkbox.style.display = 'flex';
       });
+      // Enable select all checkbox.
+      this.selectAll.classList.remove('ecl-checkbox--disabled');
+      this.selectAll.querySelector('input').disabled = false;
+    } else {
+      // Disable select all checkbox.
+      this.selectAll.classList.add('ecl-checkbox--disabled');
+      this.selectAll.querySelector('input').disabled = true;
     }
   }
 

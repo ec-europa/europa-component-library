@@ -7,7 +7,6 @@
     - "banner_top" (string) OR (object with Link component in property): Class name
     - "logged" (boolean): Whether the user is logged in or not
     - "menu" (boolean): Whether the component includes a menu
-    - "menu_label" (string): The menu toggler label
     - "site_name" (string): The site name (used in group3 and group1 without menu)
     - "logo" (associative array) (default: predefined structure): Logo image settings. format:
         {
@@ -158,7 +157,6 @@
       label: _search_button_label,
       variant: 'search',
       icon: {
-        type: 'general',
         path: _icon_file_path,
         size: 'fluid',
       },
@@ -246,7 +244,6 @@
             {% include '@ecl/icon/icon.html.twig' with {
               icon: {
                 path: _icon_file_path,
-                type: 'general',
                 name: 'logged-in',
                 size: 's'
               },
@@ -256,7 +253,6 @@
             {% include '@ecl/icon/icon.html.twig' with {
               icon: {
                 path: _icon_file_path,
-                type: 'ui',
                 name: 'corner-arrow',
                 size: 'xs'
               },
@@ -288,7 +284,6 @@
             {% include '@ecl/icon/icon.html.twig' with {
               icon: {
                 path: _icon_file_path,
-                type: 'general',
                 name: 'log-in',
                 size: 's'
               },
@@ -313,7 +308,6 @@
           {% include '@ecl/icon/icon.html.twig' with {
             icon: {
               path: _icon_file_path,
-              type: 'general',
               name: 'language',
               size: 's'
             },
@@ -338,7 +332,6 @@
               icon: {
                 name: 'search',
                 path: _icon_file_path,
-                type: 'general',
                 size: 's',
                 extra_attributes: [
                 { name: 'aria-hidden', value: true }

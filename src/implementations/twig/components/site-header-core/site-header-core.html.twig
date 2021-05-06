@@ -32,7 +32,6 @@
             },
         },
     - "menu" (boolean): Whether the component includes a menu
-    - "menu_label" (string) Menu toggler label
     - "search_toggle" (associate array) (default: {})
     - "login_box" (associate array) (default: {}) format:
         {
@@ -146,7 +145,6 @@
     label: _search_button_label,
     variant: 'search',
     icon: {
-      type: 'general',
       name: 'search',
       path: _icon_file_path,
       size: 'fluid',
@@ -214,7 +212,7 @@
         <div class="ecl-site-header-core__login-container">
         {% if _logged %}
           <a
-            class="ecl-link ecl-link--standalone ecl-site-header-core__login-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__login-toggle"
             href="{{ _login_toggle.href_logged }}"
             aria-controls="{{ _login_box.id }}"
             data-ecl-login-toggle
@@ -223,7 +221,6 @@
             {% include '@ecl/icon/icon.html.twig' with {
               icon: {
                 path: _icon_file_path,
-                type: 'general',
                 name: 'logged-in',
                 size: 's'
               },
@@ -233,7 +230,6 @@
              {% include '@ecl/icon/icon.html.twig' with {
               icon: {
                 path: _icon_file_path,
-                type: 'ui',
                 name: 'corner-arrow',
                 size: 'xs'
               },
@@ -259,13 +255,12 @@
           </div>
         {% else %}
           <a
-            class="ecl-link ecl-link--standalone ecl-site-header-core__login-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__login-toggle"
             href="{{ _login_toggle.href_not_logged }}"
           >
             {% include '@ecl/icon/icon.html.twig' with {
               icon: {
                 path: _icon_file_path,
-                type: 'general',
                 name: 'log-in',
                 size: 's'
               },
@@ -277,7 +272,7 @@
         </div>
       {% endif %}
         <a
-          class="ecl-link ecl-link--standalone ecl-site-header-core__language-selector"
+          class="ecl-button ecl-button--ghost ecl-site-header-core__language-selector"
           href="{{ _language_selector.href }}"
           data-ecl-language-selector
           aria-label="{{ _language_selector.label }}"
@@ -289,7 +284,6 @@
             {% include '@ecl/icon/icon.html.twig' with {
               icon: {
                 path: _icon_file_path,
-                type: 'general',
                 name: 'language',
                 size: 's'
               },
@@ -302,7 +296,7 @@
         <div class="ecl-site-header-core__search-container">
         {% if _search_toggle is not empty %}
           <a
-            class="ecl-link ecl-link--standalone ecl-site-header-core__search-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-core__search-toggle"
             href="{{ _search_toggle.href }}"
             data-ecl-search-toggle="true"
             aria-controls="search-form-id"
@@ -312,7 +306,6 @@
             icon: {
               name: 'search',
               path: _icon_file_path,
-              type: 'general',
               size: 's',
               extra_attributes: [
                { name: 'aria-hidden', value: true }
