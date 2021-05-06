@@ -3,6 +3,6 @@ title: Display
 defaultTab: usage
 status: ready
 playground:
-  system: eu
+  system: ec
   path: /story/utilities-display--custom
 ---

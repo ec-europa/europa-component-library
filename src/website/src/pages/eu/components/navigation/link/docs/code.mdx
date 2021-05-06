@@ -8,14 +8,14 @@ import {
   linkDefault,
   linkStandalone,
   linkCTA,
-  linkCTAIcon,
   linkIcon,
+  linkNegative,
 } from '../demo';
 
 ## Default link
 
 <Playground
-  system="eu"
+  system="ec"
   selectedKind="components-navigation-link"
   selectedStory="default"
 >
@@ -28,7 +28,7 @@ import {
 ## Standalone link
 
 <Playground
-  system="eu"
+  system="ec"
   selectedKind="components-navigation-link"
   selectedStory="standalone"
 >
@@ -37,8 +37,10 @@ import {
 
 ## Link with icon
 
+Note: all types of links listed on this page can have icons before or after the label.
+
 <Playground
-  system="eu"
+  system="ec"
   selectedKind="components-navigation-link"
   selectedStory="default"
 >
@@ -51,17 +53,22 @@ import {
 ## Call-to-action link
 
 <Playground
-  system="eu"
+  system="ec"
   selectedKind="components-navigation-link"
   selectedStory="cta"
 >
   <Html markup={linkCTA} />
 </Playground>
 
+## Negative link
+
 <Playground
-  system="eu"
+  system="ec"
   selectedKind="components-navigation-link"
-  selectedStory="cta"
+  selectedStory="negative"
 >
-  <Html markup={linkCTAIcon} />
+  <p className="ecl-u-type-paragraph ecl-u-bg-blue-100 ecl-u-type-color-white-100">
+    The European Commission is the executive of <Html markup={linkNegative} />{' '}
+    and promotes its general interest.
+  </p>
 </Playground>

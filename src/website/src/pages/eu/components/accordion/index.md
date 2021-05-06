@@ -3,6 +3,6 @@ title: Accordion
 defaultTab: usage
 status: ready
 playground:
-  system: eu
+  system: ec
   path: /story/components-accordion--default
 ---

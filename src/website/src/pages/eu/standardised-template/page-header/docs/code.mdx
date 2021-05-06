@@ -6,40 +6,41 @@ order: 2
 import { Playground, Html } from '@ecl/website-components';
 
 import {
-  pageHeaderTitle,
-  pageHeaderMetaTitle,
-  pageHeaderMetaTitleDescription,
+  pageHeaderDefault,
+  pageHeaderThumbnail,
+  pageHeaderBackgroundImage,
 } from '../demo';
 
-## Title
+## Default
 
 <Playground
-  system="eu"
+  system="ec"
   selectedKind="components-page-headers-standardised"
-  selectedStory="title"
+  selectedStory="default"
   showFrame
 >
-  <Html markup={pageHeaderTitle} />
+  <Html markup={pageHeaderDefault} />
 </Playground>
 
-## Meta - Title
+## With thumbnail
 
 <Playground
-  system="eu"
+  system="ec"
   selectedKind="components-page-headers-standardised"
-  selectedStory="meta-title"
+  selectedStory="default"
+  selectedArgs="thumbnail:true"
   showFrame
 >
-  <Html markup={pageHeaderMetaTitle} />
+  <Html markup={pageHeaderThumbnail} />
 </Playground>
 
-## Meta - Title - Description
+## With background image
 
 <Playground
-  system="eu"
+  system="ec"
   selectedKind="components-page-headers-standardised"
-  selectedStory="meta-title-description"
+  selectedStory="background-image"
   showFrame
 >
-  <Html markup={pageHeaderMetaTitleDescription} />
+  <Html markup={pageHeaderBackgroundImage} />
 </Playground>

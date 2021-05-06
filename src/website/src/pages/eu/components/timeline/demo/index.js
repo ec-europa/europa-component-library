@@ -1,4 +1,4 @@
-import data from '@ecl/specs-component-timeline/demo/data';
+import data from '@ecl/specs-component-timeline/demo/data--ec';
 import template from '@ecl/twig-component-timeline/timeline.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 

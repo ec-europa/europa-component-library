@@ -24,13 +24,11 @@ import {
   iconImage,
 } from '../demo';
 
-<Playground system="eu" selectedKind="components-icon" selectedStory="general">
+<Playground system="ec" selectedKind="components-icon" selectedStory="all">
   <Html markup={iconDefault} />
 </Playground>
 
 You can pick an icon from <Link to="/ec/guidelines/iconography/">the library we provide</Link>.
-
-The ID of the icon is prefixed with its set: for example, the ID of the "audio" icon from the "general" set is `general--audio`.
 
 Note: display of icons on Internet Explorer is made possible by the use of [svg4everybody](https://github.com/jonathantneal/svg4everybody)
 
@@ -38,7 +36,7 @@ Note: display of icons on Internet Explorer is made possible by the use of [svg4
 
 You can use the default, primary or inverted colours:
 
-<Playground system="eu" selectedKind="components-icon" selectedStory="general">
+<Playground system="ec" selectedKind="components-icon" selectedStory="all">
   <Html markup={iconDefault} />
   <Html markup={iconPrimary} />
 </Playground>
@@ -56,7 +54,7 @@ You can change the size of the icon by applying one of the following classes:
 - `ecl-icon--2xl`: 48&times;48
 - `ecl-icon--fluid`: 1em
 
-<Playground system="eu" selectedKind="components-icon" selectedStory="general">
+<Playground system="ec" selectedKind="components-icon" selectedStory="all">
   <Html markup={icon2XS} />
   <Html markup={iconXS} />
   <Html markup={iconS} />
@@ -76,7 +74,7 @@ You can rotate icons by adding one of the following classes:
 - `ecl-icon--rotate-180`: 180 degrees
 - `ecl-icon--rotate-270`: 270 degrees
 
-<Playground system="eu" selectedKind="components-icon" selectedStory="general">
+<Playground system="ec" selectedKind="components-icon" selectedStory="all">
   <Html markup={iconRotate0} />
   <Html markup={iconRotate90} />
   <Html markup={iconRotate180} />
@@ -87,7 +85,7 @@ You can rotate icons by adding one of the following classes:
 
 You can flip icons by adding the classes `ecl-icon--flip-horizontal` or `ecl-icon--flip-vertical`.
 
-<Playground system="eu" selectedKind="components-icon" selectedStory="general">
+<Playground system="ec" selectedKind="components-icon" selectedStory="all">
   <Html markup={iconFlipHorizontal} />
   <Html markup={iconFlipVertical} />
 </Playground>
@@ -98,6 +96,6 @@ If your icon is only used as a decorative element, you don't have to add any spe
 
 On the other hand, if it's used as an image, you might want to add a couple of extra markup:
 
-<Playground system="eu" selectedKind="components-icon" selectedStory="general">
+<Playground system="ec" selectedKind="components-icon" selectedStory="all">
   <Html markup={iconImage} />
 </Playground>

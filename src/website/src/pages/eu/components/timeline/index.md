@@ -3,6 +3,6 @@ title: Timeline
 defaultTab: usage
 status: ready
 playground:
-  system: eu
+  system: ec
   path: /story/components-timeline--default
 ---
