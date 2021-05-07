@@ -7,16 +7,16 @@ user-friendly way. They host general information shared by many different websit
 
 ## Anatomy
 
-![](/cms-images/core-template.png)
+>
 
-| Elements                                                           | Mandatory | Description                                                             |
-| ------------------------------------------------------------------ | --------- | ----------------------------------------------------------------------- |
-| <Link to="/ec/utilities/grid/" standalone>grid</Link>              | yes       | enhance visual consistency                                              |
-| <Link to="/ec/guidelines/colours/" standalone>colours</Link>       | yes       | use only European Commission colour specifications available in the ECL |
-| <Link to="/ec/guidelines/typography/" standalone>typography</Link> | yes       | apply the typographic guidelines available in the ECL                   |
-| <Link to="/ec/guidelines/spacing/" standalone>spacing</Link>       | yes       | apply spacing rules explained in the ECL                                |
-| <Link to="/ec/guidelines/iconography/" standalone>icons</Link>     | optional  | where icons feature, use commonly-used icons from the ECL               |
-| <Link to="/ec/guidelines/images/" standalone>images</Link>         | optional  | see image guidelines in ECL                                             |
+![anatomy](/cms-images/core-template.png "Core website")
+
+| Elements                                                         | Mandatory | Description                                                                                                                                                                                                                                                                                                                                                                   |
+| ---------------------------------------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| global banner                                                    | yes       | the global banner is the official EU stamp that gives a visual indicator and easy access to EU institutions and bodies sites, guaranteeing the user visits an official EU website                                                                                                                                                                                             |
+| [core site header](/ec/core-template/site-header/usage/)         | yes       | <p>the core site header is present on every page. It communicates the European Commission brand and provides basic structure and guidance. The site header is composed of several mandatory and optional elements such as:</p><ul><li>European Commission logo</li><li>Language select</li><li>Europa search form</li><li>Class name</li><li>Site name</li><li>Menu</li></ul> |
+| [core page header](/ec/standardised-template/page-header/usage/) | yes       | <p>the core page header gives context and information to the user on what the page is about. It is present on every page, just below the site header, except for the homepage. The page header is composed of mandatory and optional elements such as:</p><ul><li>Breadcrumb</li><li>Meta</li><li>Page Title</li><li>Introduction</li></ul>                                   |
+| [core footer](/ec/core-template/footer/usage/)                   | yes       | <p>the core footer is present on every page. It provides supplementary information such as copyright, legal, privacy, social media, contact information and links to other important sections within the European Commission ecosystem.</p>                                                                                                                                   |
 
 **NOTE**: On the Page body section, when components are available, use components from ECL.
 
