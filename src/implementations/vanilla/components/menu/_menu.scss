@@ -139,14 +139,6 @@ $_mobile-item-hover-background: null !default;
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('m') {
-  .ecl-menu {
-    padding-bottom: map.get(theme.$spacing, 'm');
-    padding-top: map.get(theme.$spacing, 'm');
-  }
-}
-
-/* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-menu:not(.ecl-menu--forced-mobile) {
     padding-bottom: 0;
