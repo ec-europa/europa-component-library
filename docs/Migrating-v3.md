@@ -85,6 +85,10 @@ Change impact have been grouped as :
 - :warning: icon size for each items is different between EC and EU version, `m` icon size is used for EC and `l` for EU
 - :warning: icon added to `view_all` link, note that `xs` icon size is used for EC and `m` for EU
 
+**File**
+
+- :warning: File icon is different between EC and EU version, `2xl` icon size is used for EC and `m` for EU
+
 **Footers**
 
 - :boom: components have been completely refactored at markup and specs level
