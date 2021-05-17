@@ -35,6 +35,16 @@ collections:
         file: 'src/website/src/pages/eu/index.md'
         fields:
           - { label: Body, name: body, widget: markdown }
+      - label: 'Getting started EC'
+        name: 'ec_getting_started'
+        file: 'src/website/src/pages/ec/getting-started/index.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Getting started EU'
+        name: 'eu_getting_started'
+        file: 'src/website/src/pages/eu/getting-started/index.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
   - label: 'EC Usage pages for components'
     name: 'ec_usage_pages'
     files:
@@ -392,6 +402,11 @@ collections:
   - label: 'EC Guidelines'
     name: 'ec_guidelines'
     files:
+      - label: 'Index'
+        name: 'ec_guidelines_index'
+        file: 'src/website/src/pages/ec/guidelines/index.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
       - label: 'Colours'
         name: 'ec_guidelines_colours'
         file: 'src/website/src/pages/ec/guidelines/colours/index.md'
@@ -420,6 +435,11 @@ collections:
   - label: 'EC Reources'
     name: 'ec_resources'
     files:
+      - label: 'Index'
+        name: 'ec_resources_index'
+        file: 'src/website/src/pages/ec/resources/index.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
       - label: 'eUI'
         name: 'ec_resources_eui'
         file: 'src/website/src/pages/ec/resources/eui/index.md'
@@ -742,6 +762,11 @@ collections:
   - label: 'EU Guidelines'
     name: 'eu_guidelines'
     files:
+      - label: 'Index'
+        name: 'eu_guidelines_index'
+        file: 'src/website/src/pages/eu/guidelines/index.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
       - label: 'Colours'
         name: 'eu_guidelines_colours'
         file: 'src/website/src/pages/eu/guidelines/colours/index.md'
@@ -770,6 +795,11 @@ collections:
   - label: 'EU Reources'
     name: 'eu_resources'
     files:
+      - label: 'Index'
+        name: 'eu_resources_index'
+        file: 'src/website/src/pages/eu/resources/index.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
       - label: 'eUI'
         name: 'eu_resources_eui'
         file: 'src/website/src/pages/eu/resources/eui/index.md'
