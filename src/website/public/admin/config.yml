@@ -25,6 +25,16 @@ collections:
         file: 'src/website/src/pages/index.md'
         fields:
           - { label: Body, name: body, widget: markdown }
+      - label: 'EC Landing page'
+        name: 'ec_index'
+        file: 'src/website/src/pages/ec/index.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'EU Landing page'
+        name: 'eu_index'
+        file: 'src/website/src/pages/eu/index.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
   - label: 'EC Usage pages for components'
     name: 'ec_usage_pages'
     files:
