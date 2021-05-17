@@ -6,8 +6,8 @@ import Example from './Example';
 import PageNotFound from './404';
 import Redirects from './Redirects';
 
-import HomePageEC from '../pages/ec/index.mdx';
-import HomePageEU from '../pages/eu/index.mdx';
+import HomePageEC from '../pages/ec/index.md';
+import HomePageEU from '../pages/eu/index.md';
 
 import Skeleton from './Skeleton';
 
