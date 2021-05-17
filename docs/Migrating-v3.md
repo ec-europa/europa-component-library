@@ -87,6 +87,7 @@ Change impact have been grouped as :
 
 **File**
 
+- :boom: markup has been revised, `.ecl-file__label` is now placed in the sub `.ecl-file__detail-info` container
 - :warning: File icon is different between EC and EU version, `2xl` icon size is used for EC and `m` for EU
 
 **Footers**
