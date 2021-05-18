@@ -8,6 +8,8 @@
 
 $_background-color: null !default;
 $_background-color-hover: null !default;
+$_link-text-color: null !default;
+$_link-text-color-hover: null !default;
 $_link-text-decoration: null !default;
 $_link-text-decoration-hover: null !default;
 $_border-color-focus: null !default;
@@ -21,7 +23,7 @@ $_border-size-focus: null !default;
     ) / 2;
   border-width: 0;
   box-sizing: border-box;
-  color: map.get(theme.$color, 'white');
+  color: $_link-text-color;
   display: inline-flex;
   font: map.get(theme.$font, 's');
   padding: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 's');
@@ -30,6 +32,7 @@ $_border-size-focus: null !default;
 
   &:hover {
     background-color: $_background-color-hover;
+    color: $_link-text-color-hover;
     text-decoration: $_link-text-decoration-hover;
   }
 
@@ -46,15 +49,18 @@ $_border-size-focus: null !default;
 }
 
 .ecl-tag--display {
+  color: map.get(theme.$color, 'white');
   text-decoration: none;
 
   &:hover {
     background-color: $_background-color;
+    color: map.get(theme.$color, 'white');
     text-decoration: none;
   }
 }
 
 .ecl-tag--removable {
+  color: map.get(theme.$color, 'white');
   pointer-events: none;
   text-decoration: none;
 
