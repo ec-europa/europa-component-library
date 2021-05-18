@@ -132,6 +132,10 @@ Change impact have been grouped as :
 - :boom: markup has been revised, using button css where needed, and adding an extra container (needed for styling)
 - :heavy_check_mark: twig parameter `menu_label` has been removed (not used)
 
+**Tag**
+
+- :boom: svg icon `.ecl-tag__icon-close` removed from component markup
+
 **Text area**
 
 - :heavy_check_mark: twig parameter `invalid_icon` added, to display additional icon when field is invalid
