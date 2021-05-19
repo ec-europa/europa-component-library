@@ -3,9 +3,10 @@
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 /*
-   * Headings
-   */
-.ecl-u-type-heading-1 {
+* Headings
+*/
+.ecl-u-type-heading-1,
+%ecl-heading1 {
   font: map.get(theme.$font, '3xl') !important;
   font-weight: map.get(theme.$font-weight, 'bold') !important;
 
@@ -15,7 +16,8 @@
   }
 }
 
-.ecl-u-type-heading-2 {
+.ecl-u-type-heading-2,
+%ecl-heading2 {
   font: map.get(theme.$font, '2xl') !important;
   font-weight: map.get(theme.$font-weight, 'bold') !important;
 
@@ -25,7 +27,8 @@
   }
 }
 
-.ecl-u-type-heading-3 {
+.ecl-u-type-heading-3,
+%ecl-heading3 {
   font: map.get(theme.$font, 'xl') !important;
   font-weight: map.get(theme.$font-weight, 'bold') !important;
 
@@ -35,7 +38,8 @@
   }
 }
 
-.ecl-u-type-heading-4 {
+.ecl-u-type-heading-4,
+%ecl-heading4 {
   font: map.get(theme.$font-prolonged, 'l') !important;
   font-weight: map.get(theme.$font-weight, 'bold') !important;
 
@@ -45,16 +49,18 @@
   }
 }
 
-.ecl-u-type-heading-5 {
+.ecl-u-type-heading-5,
+%ecl-heading5 {
   font: map.get(theme.$font-prolonged, 'm') !important;
   font-weight: map.get(theme.$font-weight, 'bold') !important;
 }
 
 /*
-   * Paragraph
-   */
+* Paragraph
+*/
 .ecl-u-type-paragraph,
-.ecl-u-type-paragraph-m {
+.ecl-u-type-paragraph-m,
+%ecl-paragraph {
   font: map.get(theme.$font-prolonged, 'm') !important;
   max-width: 80ch !important;
 }
@@ -79,8 +85,8 @@
 }
 
 /*
-   * Font size
-   */
+* Font size
+*/
 .ecl-u-type-xs {
   font: map.get(theme.$font, 'xs') !important;
 }
@@ -128,8 +134,8 @@
 }
 
 /*
-   * Font colour
-   */
+* Font colour
+*/
 @each $key, $value in theme.$color {
   // Filter out yellow colours (text should not be yellow)
   @if not str-index($key, 'yellow-') {
@@ -140,8 +146,8 @@
 }
 
 /*
-   * Font style
-   */
+* Font style
+*/
 .ecl-u-type-regular {
   font-weight: map.get(theme.$font-weight, 'regular') !important;
 }
