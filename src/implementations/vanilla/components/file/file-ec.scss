@@ -17,6 +17,7 @@ $_image-width: 13.125rem; // Same as content item
 .ecl-file {
   margin: 0;
   max-width: $_max-width;
+  overflow: hidden;
 }
 
 .ecl-file__container {
@@ -58,12 +59,6 @@ $_image-width: 13.125rem; // Same as content item
   color: $_info-color;
   font: map.get(theme.$font, 's');
   margin-top: map.get(theme.$spacing, '2xs');
-}
-
-.ecl-file__download {
-  font: map.get(theme.$font, 'm');
-  margin-top: map.get(theme.$spacing, 'l');
-  width: 100%;
 }
 
 .ecl-file__detail {
@@ -192,9 +187,11 @@ $_image-width: 13.125rem; // Same as content item
   margin-top: map.get(theme.$spacing, '2xs');
 }
 
+.ecl-file__download,
 .ecl-file__translation-download {
   font: map.get(theme.$font, 'm');
-  margin-top: map.get(theme.$spacing, 'xs');
+  margin-top: map.get(theme.$spacing, 'm');
+  width: 100%;
 }
 
 .ecl-file__translation-description {
@@ -215,12 +212,15 @@ $_image-width: 13.125rem; // Same as content item
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('m') {
-  .ecl-file__download {
+@include breakpoints.up('s') {
+  .ecl-file__download,
+  .ecl-file__translation-download {
     margin-top: 0;
     width: auto;
   }
-
+}
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('m') {
   .ecl-file__translation-container {
     padding-left: map.get(theme.$spacing, 'l') + map.get(theme.$icon, '2xl') +
       map.get(theme.$spacing, 'm');
@@ -229,10 +229,6 @@ $_image-width: 13.125rem; // Same as content item
   .ecl-file__translation-item {
     flex-direction: row;
     max-width: 100%;
-  }
-
-  .ecl-file__translation-download {
-    margin-top: 0;
   }
 
   .ecl-file__detail {
@@ -277,12 +273,6 @@ $_image-width: 13.125rem; // Same as content item
     margin-top: 0;
   }
 
-  .ecl-file__download {
-    float: right;
-    margin-top: 0;
-    width: auto;
-  }
-
   .ecl-file__translation-item {
     flex-direction: row;
     flex-wrap: wrap;
@@ -311,11 +301,6 @@ $_image-width: 13.125rem; // Same as content item
 
   .ecl-file__translation-meta {
     margin-left: map.get(theme.$spacing, '2xs');
-    margin-top: 0;
-  }
-
-  .ecl-file__translation-download {
-    float: right;
     margin-top: 0;
   }
 }
