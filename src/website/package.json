@@ -3,7 +3,7 @@
   "name": "@ecl/website",
   "version": "3.0.0-alpha.1",
   "scripts": {
-    "clean": "rimraf build src/pages/ec/_jsdoc",
+    "clean": "rimraf build src/pages/ec/_jsdoc src/pages/eu/_jsdoc",
     "start": "webpack-dev-server --config webpack.config.dev.js",
     "postinstall": "npm run clean && ./scripts/docs.js",
     "prebuild": "npm run clean && ./scripts/docs.js",

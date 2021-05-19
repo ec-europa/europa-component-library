@@ -1,0 +1,52 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import {
+  textInputDefault,
+  textInputDisabled,
+  textInputInvalid,
+  textInputRequired,
+} from '../demo';
+
+## Default text field
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-text-field"
+  selectedStory="default"
+>
+  <Html markup={textInputDefault} />
+</Playground>
+
+## Disabled text field
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-text-field"
+  selectedStory="disabled"
+>
+  <Html markup={textInputDisabled} />
+</Playground>
+
+## Invalid text field
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-text-field"
+  selectedStory="invalid"
+>
+  <Html markup={textInputInvalid} />
+</Playground>
+
+## Required text field
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-text-field"
+  selectedStory="required"
+>
+  <Html markup={textInputRequired} />
+</Playground>

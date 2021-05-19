@@ -1,0 +1,88 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Html, Playground } from '@ecl/website-components';
+import {
+  pageBannerImageBox,
+  pageBannerImageShade,
+  pageBannerImageGradient,
+  pageBannerSimplePrimary,
+} from '../demo';
+
+## Image banners
+
+### Text box image banner
+
+<Playground
+  system="ec"
+  selectedKind="components-banners-page-banner"
+  selectedStory="image"
+  showFrame
+>
+  <Html markup={pageBannerImageBox} />
+</Playground>
+
+### Shaded image banner
+
+<Playground
+  system="ec"
+  selectedKind="components-banners-page-banner"
+  selectedStory="image-shade"
+  showFrame
+>
+  <Html markup={pageBannerImageShade} />
+</Playground>
+
+### Gradient image banner
+
+<Playground
+  system="ec"
+  selectedKind="components-banners-page-banner"
+  selectedStory="image-gradient"
+  showFrame
+>
+  <Html markup={pageBannerImageGradient} />
+</Playground>
+
+## Simple banners
+
+<Playground
+  system="ec"
+  selectedKind="components-banners-page-banner"
+  selectedStory="default"
+  showFrame
+>
+  <Html markup={pageBannerSimplePrimary} />
+</Playground>
+
+### Simple banners colour
+
+Simple banners can be displayed with several background colours by using one css class or another.
+Here are the possibilities
+
+| variant | colour     | css class                   |
+| ------- | ---------- | --------------------------- |
+| primary | blue       | `.ecl-hero-banner--primary` |
+| grey    | light grey | `.ecl-hero-banner--grey`    |
+| white   | white      | `.ecl-hero-banner--white`   |
+
+## Other variants
+
+Note: Variants below can be applied to all kind of banners.  
+Check usage guidelines for more information.
+
+### Left aligned content
+
+Removing class `.ecl-hero-banner--center` will put the text back on left in the banner.
+
+### Banner width
+
+Banners placed inside a grid container (`.ecl-container`) will expand to this container width.
+
+To have a full width banner, the recommanded way is to place it outside of the grid container.
+
+However, if there is a need to have a full width banner inside the container, the css class `.ecl-page-banner--fullwidth` can be used (just put it at the same level as `.ecl-page-banner`).
+
+**Caution**: if you plan to use full width banner inside a container, we recommend to use the "website" preset, as some global rules here would improve the display.
