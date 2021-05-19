@@ -14,6 +14,7 @@ The following guidelines aim to facilitate migration between ECL v2 to v3.
   - [Packages](#packages)
   - [File structure](#file-structure)
   - [SCSS parsing and rendering](#scss-parsing-and-rendering)
+- [Js bundle](#js-bundle)
 - [Coming soon](#coming-soon)
 
 ## Content modifications
@@ -244,6 +245,14 @@ Here's a list of changes to apply in your project to follow up with ECL v3 SCSS 
 - Remove usages of [`import-once()` mixin](https://github.com/ec-europa/europa-component-library/blob/6068cca85e387741556239826792ca27520fcf69/src/systems/ec/implementations/vanilla/packages/ec-base/mixins/_import-once.scss). This utility is not needed any more because of the module system.
 - ECL global variables are no longer available. Values for `$ecl-color-grey-5` are now accessible through a theming layer. In the most generalized way: import the main theme file `@use '@ecl/theme-dev/theme'` and access values through the corresponding map `map.get(theme.$color, 'grey-5')`.
 - Update input options for sass compiler or rendering function. Pass `getsystem()` function from [`functions`](https://sass-lang.com/documentation/js-api#functions) parameter. Some SCSS files in ECL will depend on this function to get system-specific context. `ecl-builder` uses `@ecl/builder/utils/getSystem`.
+
+## Js bundle
+
+- ECL uses Pikaday for the datepicker component. Pikaday dynamically requires moment.js which messes up JS bundling.
+- ECL does not want to include moment.js in its release in order to reduce the final bundle size.
+- Instruct minifier to preserve the UMD locally scoped 'moment' (default Pikaday module) variable in Pikaday in order to correctly reference the global 'moment' included separately from the ECL library bundle.
+- When Pikaday really removes moment from its dependencies and does not load it dynamically, bundlers such as rollup will be able to handle this more gracefully.
+- @see https://github.com/Pikaday/Pikaday/issues/815
 
 ## Coming soon
 

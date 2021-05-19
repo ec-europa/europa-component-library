@@ -1,0 +1,36 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import { tableDefault, tableMulti, tableSortable, tableZebra } from '../demo';
+
+## Default table
+
+<Playground system="ec" selectedKind="components-table" selectedStory="default">
+  <Html markup={tableDefault} />
+</Playground>
+
+## Zebra table
+
+<Playground system="ec" selectedKind="components-table" selectedStory="zebra">
+  <Html markup={tableZebra} />
+</Playground>
+
+## Multi header table
+
+<Playground system="ec" selectedKind="components-table" selectedStory="multi">
+  <Html markup={tableMulti} />
+</Playground>
+
+## Sort table
+
+<Playground
+  system="ec"
+  selectedKind="components-table"
+  selectedStory="sortable"
+  showFrame
+>
+  <Html markup={tableSortable} />
+</Playground>

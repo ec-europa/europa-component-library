@@ -1,0 +1,101 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Link, Playground, Html } from '@ecl/website-components';
+import {
+  iconDefault,
+  iconPrimary,
+  icon2XS,
+  iconXS,
+  iconS,
+  iconM,
+  iconL,
+  iconXL,
+  icon2XL,
+  iconFluid,
+  iconRotate0,
+  iconRotate90,
+  iconRotate180,
+  iconRotate270,
+  iconFlipHorizontal,
+  iconFlipVertical,
+  iconImage,
+} from '../demo';
+
+<Playground system="ec" selectedKind="components-icon" selectedStory="all">
+  <Html markup={iconDefault} />
+</Playground>
+
+You can pick an icon from <Link to="/ec/guidelines/iconography/">the library we provide</Link>.
+
+Note: display of icons on Internet Explorer is made possible by the use of [svg4everybody](https://github.com/jonathantneal/svg4everybody)
+
+## Color
+
+You can use the default, primary or inverted colours:
+
+<Playground system="ec" selectedKind="components-icon" selectedStory="all">
+  <Html markup={iconDefault} />
+  <Html markup={iconPrimary} />
+</Playground>
+
+## Size
+
+You can change the size of the icon by applying one of the following classes:
+
+- `ecl-icon--2xs`: 10&times;10
+- `ecl-icon--xs`: 16&times;16
+- `ecl-icon--s`: 20&times;20
+- `ecl-icon--m`: 24&times;24
+- `ecl-icon--l`: 32&times;32
+- `ecl-icon--xl`: 40&times;40
+- `ecl-icon--2xl`: 48&times;48
+- `ecl-icon--fluid`: 1em
+
+<Playground system="ec" selectedKind="components-icon" selectedStory="all">
+  <Html markup={icon2XS} />
+  <Html markup={iconXS} />
+  <Html markup={iconS} />
+  <Html markup={iconM} />
+  <Html markup={iconL} />
+  <Html markup={iconXL} />
+  <Html markup={icon2XL} />
+  <Html markup={iconFluid} />
+</Playground>
+
+## Rotate icons
+
+You can rotate icons by adding one of the following classes:
+
+- `ecl-icon--rotate-0`: 0 degree
+- `ecl-icon--rotate-90`: 90 degrees
+- `ecl-icon--rotate-180`: 180 degrees
+- `ecl-icon--rotate-270`: 270 degrees
+
+<Playground system="ec" selectedKind="components-icon" selectedStory="all">
+  <Html markup={iconRotate0} />
+  <Html markup={iconRotate90} />
+  <Html markup={iconRotate180} />
+  <Html markup={iconRotate270} />
+</Playground>
+
+## Flip icons
+
+You can flip icons by adding the classes `ecl-icon--flip-horizontal` or `ecl-icon--flip-vertical`.
+
+<Playground system="ec" selectedKind="components-icon" selectedStory="all">
+  <Html markup={iconFlipHorizontal} />
+  <Html markup={iconFlipVertical} />
+</Playground>
+
+## Accessibility
+
+If your icon is only used as a decorative element, you don't have to add any special markup.
+
+On the other hand, if it's used as an image, you might want to add a couple of extra markup:
+
+<Playground system="ec" selectedKind="components-icon" selectedStory="all">
+  <Html markup={iconImage} />
+</Playground>

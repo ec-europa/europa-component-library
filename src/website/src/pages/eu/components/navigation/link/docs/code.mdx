@@ -1,0 +1,74 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import {
+  linkDefault,
+  linkStandalone,
+  linkCTA,
+  linkIcon,
+  linkNegative,
+} from '../demo';
+
+## Default link
+
+<Playground
+  system="ec"
+  selectedKind="components-navigation-link"
+  selectedStory="default"
+>
+  <p className="ecl-u-type-paragraph">
+    The European Commission is the executive of <Html markup={linkDefault} />{' '}
+    and promotes its general interest.
+  </p>
+</Playground>
+
+## Standalone link
+
+<Playground
+  system="ec"
+  selectedKind="components-navigation-link"
+  selectedStory="standalone"
+>
+  <Html markup={linkStandalone} />
+</Playground>
+
+## Link with icon
+
+Note: all types of links listed on this page can have icons before or after the label.
+
+<Playground
+  system="ec"
+  selectedKind="components-navigation-link"
+  selectedStory="default"
+>
+  <p className="ecl-u-type-paragraph">
+    The European Commission is the executive of <Html markup={linkIcon} /> and
+    promotes its general interest.
+  </p>
+</Playground>
+
+## Call-to-action link
+
+<Playground
+  system="ec"
+  selectedKind="components-navigation-link"
+  selectedStory="cta"
+>
+  <Html markup={linkCTA} />
+</Playground>
+
+## Negative link
+
+<Playground
+  system="ec"
+  selectedKind="components-navigation-link"
+  selectedStory="negative"
+>
+  <p className="ecl-u-type-paragraph ecl-u-bg-blue-100 ecl-u-type-color-white-100">
+    The European Commission is the executive of <Html markup={linkNegative} />{' '}
+    and promotes its general interest.
+  </p>
+</Playground>
