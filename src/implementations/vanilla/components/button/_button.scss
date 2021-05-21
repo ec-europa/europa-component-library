@@ -15,7 +15,6 @@ $_padding-horizontal: map.get(theme.$spacing, 'm') !default;
 $_padding-vertical: map.get(theme.$spacing, 's') !default;
 $_shadow-hover: null !default;
 
-// stylelint-disable plugin/selector-bem-pattern
 .ecl-button,
 %ecl-button {
   appearance: none;
@@ -50,7 +49,6 @@ $_shadow-hover: null !default;
     text-decoration: none;
   }
 }
-// stylelint-enable plugin/selector-bem-pattern
 
 .ecl-button__container {
   align-items: center;

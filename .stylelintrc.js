@@ -19,7 +19,7 @@ module.exports = {
     'plugin/selector-bem-pattern': {
       componentName: /^[a-z][-a-zA-Z0-9]+$/,
       componentSelectors: bemSelector,
-      ignoreSelectors: /^\.no-js$/,
+      ignoreSelectors: /^(%|\.no-js$)/,
     },
     // Allow underscores in class names (BEM)
     'selector-class-pattern': null,
