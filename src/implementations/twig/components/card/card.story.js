@@ -165,6 +165,7 @@ const prepareData = (data, args) => {
             ...infosClone[0].icon,
             path: defaultSprite,
             name: infosClone[i] ? infosClone[i].icon.name : 'faq',
+            size: system === 'eu' ? 'm' : 'xs',
           },
         };
         data.card.infos.push(addInfo);
