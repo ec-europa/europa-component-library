@@ -6,6 +6,8 @@ The core website minimises the duplication of content across the European Commis
 
 ## Anatomy
 
+>
+
 ![anatomy](/cms-images/core-template.png "Core website")
 
 | Elements                                                         | Mandatory | Description                                                                                                                                                                                                                                                         |
