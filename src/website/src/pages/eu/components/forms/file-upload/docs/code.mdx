@@ -1,0 +1,67 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Link, Playground, Html } from '@ecl/website-components';
+
+import {
+  fileUpload,
+  fileUploadMultiple,
+  fileUploadDisabled,
+  fileUploadOptional,
+  fileUploadInvalid,
+} from '../demo';
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-file-upload"
+  selectedStory="default"
+  showFrame
+>
+  <Html markup={fileUpload} />
+</Playground>
+
+## Multiple uploads
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-file-upload"
+  selectedStory="multiple"
+  showFrame
+>
+  <Html markup={fileUploadMultiple} />
+</Playground>
+
+## Disabled
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-file-upload"
+  selectedStory="disabled"
+  showFrame
+>
+  <Html markup={fileUploadDisabled} />
+</Playground>
+
+## With error
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-file-upload"
+  selectedStory="invalid"
+  showFrame
+>
+  <Html markup={fileUploadInvalid} />
+</Playground>
+
+## Optional
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-file-upload"
+  selectedStory="optional"
+  showFrame
+>
+  <Html markup={fileUploadOptional} />
+</Playground>

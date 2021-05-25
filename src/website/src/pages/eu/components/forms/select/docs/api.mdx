@@ -1,0 +1,41 @@
+---
+title: API
+order: 3
+---
+
+import SelectJSDoc from '../../../../_jsdoc/select.md';
+
+## API
+
+<SelectJSDoc />
+
+## Setup
+
+There are 2 ways to initialise the select multiple component.
+
+### Automatic
+
+Add `data-ecl-auto-init="Select"` attribute to component's markup:
+
+Use the `ECL` library's `autoInit()` (`ECL.autoInit()`) when your page is ready or other custom event you want to hook onto.
+
+### Manual
+
+Get target element, create an instance and invoke `init()`.
+
+Given you have 1 element with an attribute `data-ecl-select-multiple` on the page:
+
+```js
+var elt = document.querySelector('[data-ecl-select-multiple]');
+var select = new ECL.Select(elt);
+select.init();
+```
+
+It's also possible to use the `Select`'s `autoInit` method and pass specific labels for the element:
+
+```js
+var select = ECL.Select.autoInit(
+  document.querySelector('[data-ecl-select-multiple]'),
+  { defaultText: 'string', searchText: 'string', selectAllText: 'string' }
+);
+```

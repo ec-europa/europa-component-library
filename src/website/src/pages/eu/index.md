@@ -4,10 +4,14 @@ title: Europa Component Library
 
 # Europa Component Library
 
-## europa.eu
+## ec.europa.eu
 
-This library will contain all available components that you can use to build your own website under the EU emblem (top level site of the `europa.eu` domain).
+This library contains all available components that you can use to build your own website.
 
-The design of the components for the EU branded sites are currently work in progress.
+All library elements are accompanied by
 
-Should you need to revamp or create a site communicating under the EU emblem (`https://europa.eu/sitename`), please contact [COMM Europa Management](mailto:Europamanagement@ec.europa.eu) (CEM) for support in building an EU branded website using the ECL.
+- documentation explaining what a component is and how it should be used
+- a visual demonstration
+- HTML/CSS code for implementation
+
+For support in building a European Commission website using the ECL, please contact [COMM Europa Management](mailto:Europamanagement@ec.europa.eu) (CEM).
