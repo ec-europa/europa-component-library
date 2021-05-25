@@ -70,6 +70,7 @@ Change impact have been grouped as :
 
 - :warning: variant `grey` has been renamed `secondary`
 - :warning: twig parameter `type` has been renamed `variant`
+- :warning: twig parameter `baseline` has been renamed `description`
 
 **Breadcrumb**
 

@@ -26,7 +26,7 @@ const getArgTypes = (data) => {
     },
     description: {
       type: 'string',
-      defaultValue: data.baseline,
+      defaultValue: data.description,
       description: 'Sub-heading of the banner',
       table: {
         type: { summary: 'string' },
@@ -106,7 +106,7 @@ const getArgTypes = (data) => {
 
 const prepareData = (data, args) => {
   data.title = args.title;
-  data.baseline = args.description;
+  data.description = args.description;
   data.centered = args.centered;
   data.full_width = args.width === 'inside';
   data.link.link.label = args.label;
@@ -115,11 +115,6 @@ const prepareData = (data, args) => {
   }
 
   return data;
-};
-
-export default {
-  title: 'Components/Banners/Page Banner',
-  decorators: [withNotes, withCode],
 };
 
 const renderStory = (data, args) => {
@@ -133,6 +128,11 @@ const renderStory = (data, args) => {
   }
 
   return story;
+};
+
+export default {
+  title: 'Components/Banners/Page Banner',
+  decorators: [withNotes, withCode],
 };
 
 export const Primary = (args) => renderStory(bannerDataSimplePrimary, args);
