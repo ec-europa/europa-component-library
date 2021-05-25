@@ -86,7 +86,8 @@ $_sort-arrow-margin-top: null !default;
   .ecl-table__cell {
     border-width: 0;
     display: table-cell;
-    padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'xl') map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
+    padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'xl')
+      map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
 
     &::before {
       display: none;
