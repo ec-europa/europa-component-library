@@ -17,12 +17,12 @@
 }
 
 .ecl-table__head,
-%ecl-table-head {
+%ecl-table__head {
   display: none;
 }
 
 .ecl-table__cell,
-%ecl-table-cell {
+%ecl-table__cell {
   border-top: 1px solid map.get(theme.$color, 'grey-25');
   display: flex;
   padding: map.get(theme.$spacing, 's');
@@ -55,13 +55,13 @@
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-table__head,
-  %ecl-table-head {
+  %ecl-table__head {
     background-color: map.get(theme.$color, 'blue-5');
     display: table-header-group;
   }
 
   .ecl-table__header,
-  %ecl-table-header {
+  %ecl-table__header {
     font-weight: map.get(theme.$font-weight, 'bold');
     padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
     text-align: left;
@@ -69,7 +69,7 @@
   }
 
   .ecl-table__row,
-  %ecl-table-row {
+  %ecl-table__row {
     border-bottom: 1px solid map.get(theme.$color, 'grey-25');
     border-top-width: 0;
   }
@@ -79,7 +79,7 @@
   }
 
   .ecl-table__cell,
-  %ecl-table-cell {
+  %ecl-table__cell {
     border-width: 0;
     display: table-cell;
     padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');

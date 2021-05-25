@@ -60,12 +60,12 @@
 
 .ecl ul ul:not([class*='ecl-']),
 .ecl ul ul:is([class*='ecl-u-']) {
-  @extend %ecl-unordered-list-nested;
+  @extend %ecl-unordered-list--nested;
 }
 
 .ecl ul li:not([class*='ecl-']),
 .ecl ul li:is([class*='ecl-u-']) {
-  @extend %ecl-unordered-list-item;
+  @extend %ecl-unordered-list__item;
 }
 
 .ecl ol:not([class*='ecl-']),
@@ -75,12 +75,12 @@
 
 .ecl ol ol:not([class*='ecl-']),
 .ecl ol ol:is([class*='ecl-u-']) {
-  @extend %ecl-ordered-list-nested;
+  @extend %ecl-ordered-list--nested;
 }
 
 .ecl ol li:not([class*='ecl-']),
 .ecl ol li:is([class*='ecl-u-']) {
-  @extend %ecl-ordered-list-item;
+  @extend %ecl-ordered-list__item;
 }
 
 .ecl dl:not([class*='ecl-']),
@@ -90,12 +90,12 @@
 
 .ecl dt:not([class*='ecl-']),
 .ecl dt:is([class*='ecl-u-']) {
-  @extend %ecl-description-list-term;
+  @extend %ecl-description-list__term;
 }
 
 .ecl dd:not([class*='ecl-']),
 .ecl dd:is([class*='ecl-u-']) {
-  @extend %ecl-description-list-definition;
+  @extend %ecl-description-list__definition;
 }
 
 .ecl table:not([class*='ecl-']),
@@ -105,22 +105,22 @@
 
 .ecl thead:not([class*='ecl-']),
 .ecl thead:is([class*='ecl-u-']) {
-  @extend %ecl-table-head;
+  @extend %ecl-table__head;
 }
 
 .ecl th:not([class*='ecl-']),
 .ecl th:is([class*='ecl-u-']) {
-  @extend %ecl-table-header;
+  @extend %ecl-table__header;
 }
 
 .ecl tr:not([class*='ecl-']),
 .ecl tr:is([class*='ecl-u-']) {
-  @extend %ecl-table-row;
+  @extend %ecl-table__row;
 }
 
 .ecl td:not([class*='ecl-']),
 .ecl td:is([class*='ecl-u-']) {
-  @extend %ecl-table-cell;
+  @extend %ecl-table__cell;
 }
 
 .ecl blockquote:not([class*='ecl-']),
@@ -135,7 +135,7 @@
 
 .ecl blockquote cite:not([class*='ecl-']),
 .ecl blockquote cite:is([class*='ecl-u-']) {
-  @extend %ecl-blockquote-author;
+  @extend %ecl-blockquote__author;
 
   display: block;
 }

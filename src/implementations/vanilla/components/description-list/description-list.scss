@@ -55,7 +55,7 @@ $_definition-width: 68%;
   flex-direction: column;
 
   .ecl-description-list__term,
-  %ecl-description-list-term {
+  %ecl-description-list__term {
     font: map.get(theme.$font, 'm');
     font-weight: map.get(theme.$font-weight, 'bold');
     margin-top: map.get(theme.$spacing, 'm');
@@ -67,7 +67,7 @@ $_definition-width: 68%;
   }
 
   .ecl-description-list__definition,
-  %ecl-description-list-definition {
+  %ecl-description-list__definition {
     font: map.get(theme.$font, 'm');
     margin-top: map.get(theme.$spacing, '2xs');
     padding-left: 0;
@@ -83,12 +83,12 @@ $_definition-width: 68%;
     max-width: calc(499px + #{map.get(theme.$spacing, 'xl')});
 
     .ecl-description-list__term,
-    %ecl-description-list-term {
+    %ecl-description-list__term {
       width: $_term-width;
     }
 
     .ecl-description-list__definition,
-    %ecl-description-list-definition {
+    %ecl-description-list__definition {
       margin-left: map.get(theme.$spacing, 'xl');
       margin-top: map.get(theme.$spacing, 'm');
       overflow-wrap: break-word;

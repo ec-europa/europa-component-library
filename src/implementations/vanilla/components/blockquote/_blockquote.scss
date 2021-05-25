@@ -52,13 +52,13 @@ $_text-max-width: 65ch; // Approximately 80 characters with the current font
 }
 
 .ecl-blockquote__attribution,
-%ecl-blockquote-author {
+%ecl-blockquote__author {
   margin-top: map.get(theme.$spacing, 'm');
   max-width: $_text-max-width;
 }
 
 .ecl-blockquote__author,
-%ecl-blockquote-author {
+%ecl-blockquote__author {
   color: $_author-color;
   font: $_author-font-mobile;
   font-weight: $_author-font-weight;
@@ -80,12 +80,12 @@ $_text-max-width: 65ch; // Approximately 80 characters with the current font
   }
 
   .ecl-blockquote__attribution,
-  %ecl-blockquote-author {
+  %ecl-blockquote__author {
     margin-top: map.get(theme.$spacing, 'l');
   }
 
   .ecl-blockquote__author,
-  %ecl-blockquote-author {
+  %ecl-blockquote__author {
     font: $_author-font-tablet;
     font-weight: $_author-font-weight;
   }
@@ -100,12 +100,12 @@ $_text-max-width: 65ch; // Approximately 80 characters with the current font
   }
 
   .ecl-blockquote__attribution,
-  %ecl-blockquote-author {
+  %ecl-blockquote__author {
     margin-top: $_author-margin-top-desktop;
   }
 
   .ecl-blockquote__author,
-  %ecl-blockquote-author {
+  %ecl-blockquote__author {
     font: $_author-font-desktop;
     font-weight: $_author-font-weight;
   }
