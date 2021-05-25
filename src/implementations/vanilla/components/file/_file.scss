@@ -20,6 +20,7 @@ $_file-detail-flex-direction: null !default;
 $_file-description-color: null !default;
 $_file-spacing: null !default;
 $_file-spacing-last-child: null !default;
+$_file-download-self-align: null !default;
 $_file-translation-toggle-margin: null !default;
 $_file-translation-container-border: null !default;
 $_file-translation-container-padding-left: null !default;
@@ -225,8 +226,8 @@ $_image-width: null !default;
 
 .ecl-file__download,
 .ecl-file__translation-download {
+  align-self: $_file-download-self-align;
   font: map.get(theme.$font, 'm');
-  margin-top: $_file-spacing;
   width: 100%;
 }
 
