@@ -1,6 +1,7 @@
 @use "sass:map";
 @use '@ecl/theme-dev/theme';
 @use 'file' with (
+  $_border-radius: 4px,
   $_border-color: map.get(theme.$color, 'blue-20'),
   $_file-icon-margin-top: -#{map.get(theme.$spacing, '2xs')},
   $_file-icon-align-self: flex-start,
