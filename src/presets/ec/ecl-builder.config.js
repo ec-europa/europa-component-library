@@ -48,6 +48,15 @@ module.exports = {
         sourceMap: isProd ? 'file' : true,
       },
     },
+    {
+      entry: path.resolve(__dirname, 'src/ec-default.scss'),
+      dest: path.resolve(outputFolder, 'styles/optional/ecl-ec-default.css'),
+      options: {
+        banner,
+        includePaths,
+        sourceMap: false,
+      },
+    },
   ],
   copy: [
     {

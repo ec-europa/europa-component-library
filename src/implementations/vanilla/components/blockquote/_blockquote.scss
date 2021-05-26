@@ -23,7 +23,8 @@ $_author-color: null !default;
 $_padding-left-mobile: null !default;
 $_text-max-width: 65ch; // Approximately 80 characters with the current font
 
-.ecl-blockquote {
+.ecl-blockquote,
+%ecl-blockquote {
   border-left: $_border-width solid $_border-color;
   border-radius: $_border-radius;
   margin: 0;
@@ -32,7 +33,8 @@ $_text-max-width: 65ch; // Approximately 80 characters with the current font
   padding-top: map.get(theme.$spacing, 's');
 }
 
-.ecl-blockquote__body {
+.ecl-blockquote__body,
+%ecl-blockquote {
   color: $_body-color;
   font: $_body-font-mobile;
   font-style: italic;
@@ -49,12 +51,14 @@ $_text-max-width: 65ch; // Approximately 80 characters with the current font
   }
 }
 
-.ecl-blockquote__attribution {
+.ecl-blockquote__attribution,
+%ecl-blockquote__author {
   margin-top: map.get(theme.$spacing, 'm');
   max-width: $_text-max-width;
 }
 
-.ecl-blockquote__author {
+.ecl-blockquote__author,
+%ecl-blockquote__author {
   color: $_author-color;
   font: $_author-font-mobile;
   font-weight: $_author-font-weight;
@@ -62,22 +66,26 @@ $_text-max-width: 65ch; // Approximately 80 characters with the current font
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('s') {
-  .ecl-blockquote {
+  .ecl-blockquote,
+  %ecl-blockquote {
     padding-bottom: map.get(theme.$spacing, 'm');
     padding-left: map.get(theme.$spacing, 'l');
     padding-top: map.get(theme.$spacing, 'm');
   }
 
-  .ecl-blockquote__body {
+  .ecl-blockquote__body,
+  %ecl-blockquote {
     font: $_body-font-tablet;
     font-style: italic;
   }
 
-  .ecl-blockquote__attribution {
+  .ecl-blockquote__attribution,
+  %ecl-blockquote__author {
     margin-top: map.get(theme.$spacing, 'l');
   }
 
-  .ecl-blockquote__author {
+  .ecl-blockquote__author,
+  %ecl-blockquote__author {
     font: $_author-font-tablet;
     font-weight: $_author-font-weight;
   }
@@ -85,16 +93,19 @@ $_text-max-width: 65ch; // Approximately 80 characters with the current font
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
-  .ecl-blockquote__body {
+  .ecl-blockquote__body,
+  %ecl-blockquote {
     font: $_body-font-desktop;
     font-style: italic;
   }
 
-  .ecl-blockquote__attribution {
+  .ecl-blockquote__attribution,
+  %ecl-blockquote__author {
     margin-top: $_author-margin-top-desktop;
   }
 
-  .ecl-blockquote__author {
+  .ecl-blockquote__author,
+  %ecl-blockquote__author {
     font: $_author-font-desktop;
     font-weight: $_author-font-weight;
   }

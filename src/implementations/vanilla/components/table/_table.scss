@@ -14,7 +14,8 @@ $_sort-icon-color: null !default;
 $_sort-icon-color-active: null !default;
 $_sort-arrow-margin-top: null !default;
 
-.ecl-table {
+.ecl-table,
+%ecl-table {
   border-collapse: collapse;
   color: $_table-color;
   font: map.get(theme.$font, 'm');
@@ -22,11 +23,13 @@ $_sort-arrow-margin-top: null !default;
   width: 100%;
 }
 
-.ecl-table__head {
+.ecl-table__head,
+%ecl-table__head {
   display: none;
 }
 
-.ecl-table__cell {
+.ecl-table__cell,
+%ecl-table__cell {
   border-top: 1px solid $_row-border-color;
   display: flex;
   padding: map.get(theme.$spacing, 's');
@@ -58,19 +61,22 @@ $_sort-arrow-margin-top: null !default;
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
-  .ecl-table__head {
+  .ecl-table__head,
+  %ecl-table__head {
     background-color: map.get(theme.$color, 'blue-5');
     display: table-header-group;
   }
 
-  .ecl-table__header {
+  .ecl-table__header,
+  %ecl-table__header {
     font-weight: map.get(theme.$font-weight, 'bold');
     padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
     text-align: left;
     vertical-align: bottom;
   }
 
-  .ecl-table__row {
+  .ecl-table__row,
+  %ecl-table__row {
     border-bottom: 1px solid $_row-border-color;
     border-top-width: 0;
   }
@@ -83,7 +89,8 @@ $_sort-arrow-margin-top: null !default;
     }
   }
 
-  .ecl-table__cell {
+  .ecl-table__cell,
+  %ecl-table__cell {
     border-width: 0;
     display: table-cell;
     padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'xl')

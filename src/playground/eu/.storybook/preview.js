@@ -29,8 +29,14 @@ addParameters({
     },
     {
       id: 'reset',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-reset.css" />`,
+      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-reset.css" />`,
       picked: true,
+      hideCode: true,
+    },
+    {
+      id: 'ecl-eu-default',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-eu-default.css" />`,
+      picked: false,
       hideCode: true,
     },
   ],
