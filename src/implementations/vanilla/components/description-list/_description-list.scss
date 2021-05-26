@@ -8,17 +8,22 @@
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 // Vertical description list
-$_text-color: map.get(theme.$color, 'grey-100');
+$_term-color: null !default;
+$_term-font: null !default;
+$_definition-color: null !default;
+$_term-margin-top: null !default;
+$_term-term-margin-top: null !default;
+$_definition-margin-top: null !default;
 
 .ecl-description-list {
   margin: 0;
 }
 
 .ecl-description-list__term {
-  color: $_text-color;
-  font: map.get(theme.$font-prolonged, 'xl');
+  color: $_term-color;
+  font: $_term-font;
   font-weight: map.get(theme.$font-weight, 'bold');
-  margin-top: map.get(theme.$spacing, 'l');
+  margin-top: $_term-margin-top;
   max-width: calc(80ch - #{map.get(theme.$spacing, '2xl')});
   overflow-wrap: break-word;
 
@@ -28,14 +33,14 @@ $_text-color: map.get(theme.$color, 'grey-100');
 }
 
 .ecl-description-list__term + .ecl-description-list__term {
-  margin-top: map.get(theme.$spacing, '2xs');
+  margin-top: $_term-term-margin-top;
 }
 
 .ecl-description-list__definition {
-  color: $_text-color;
+  color: $_definition-color;
   font: map.get(theme.$font-prolonged, 'm');
   margin-left: 0;
-  margin-top: map.get(theme.$spacing, 'm');
+  margin-top: $_definition-margin-top;
   max-width: calc(80ch - #{map.get(theme.$spacing, '2xl')});
   padding-left: map.get(theme.$spacing, 's');
 }
@@ -47,6 +52,9 @@ $_text-color: map.get(theme.$color, 'grey-100');
 // Horizontal and taxonomy description lists
 $_term-width: 32%;
 $_definition-width: 68%;
+$_term-horizontal-font: null !default;
+$_horizontal-item-margin-top: null !default;
+$_divider-color: null !default;
 
 .ecl-description-list--horizontal,
 .ecl-description-list--taxonomy {
@@ -54,14 +62,14 @@ $_definition-width: 68%;
   flex-direction: column;
 
   .ecl-description-list__term {
-    font: map.get(theme.$font, 'm');
+    font: $_term-font;
     font-weight: map.get(theme.$font-weight, 'bold');
-    margin-top: map.get(theme.$spacing, 'm');
+    margin-top: $_horizontal-item-margin-top;
   }
 
   .ecl-description-list__definition {
     font: map.get(theme.$font, 'm');
-    margin-top: map.get(theme.$spacing, '2xs');
+    margin-top: $_horizontal-item-margin-top;
     padding-left: 0;
   }
 
@@ -83,7 +91,6 @@ $_definition-width: 68%;
 
     .ecl-description-list__definition {
       margin-left: map.get(theme.$spacing, 'xl');
-      margin-top: map.get(theme.$spacing, 'm');
       overflow-wrap: break-word;
       width: calc(#{$_definition-width} - #{map.get(theme.$spacing, 'xl')});
     }
@@ -110,7 +117,7 @@ $_definition-width: 68%;
 }
 
 .ecl-description-list + .ecl-description-list--taxonomy {
-  border-top: 1px solid map.get(theme.$color, 'grey-20');
+  border-top: 1px solid $_divider-color;
   margin-top: map.get(theme.$spacing, 'm');
   padding-top: map.get(theme.$spacing, 'm');
 }
