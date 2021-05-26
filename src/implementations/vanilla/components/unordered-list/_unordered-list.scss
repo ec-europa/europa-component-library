@@ -6,8 +6,8 @@
 @use "sass:map";
 @use '@ecl/theme-dev/theme';
 
-$_text-color: map.get(theme.$color, 'grey-100');
-$_divider-color: map.get(theme.$color, 'grey-15');
+$_text-color: null !default;
+$_divider-color: null !default;
 
 .ecl-unordered-list {
   color: $_text-color;
