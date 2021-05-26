@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import icons from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
+import iconsEC from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
+import iconsEU from '@ecl/resources-eu-icons/dist/sprites/icons.svg';
 import iconsFlag from '@ecl/resources-flag-icons/dist/sprites/icons-flag.svg';
 import styles from './IconCard.scss';
 
-const IconCard = ({ name, set }) => {
-  const iconSet = set === 'flag' ? iconsFlag : icons;
+const IconCard = ({ system, name, set }) => {
+  const iconSystem = system === 'eu' ? iconsEU : iconsEC;
+  const iconSet = set === 'flag' ? iconsFlag : iconSystem;
   return (
     <li className={styles.card}>
       <svg focusable="false" aria-hidden="true" className={styles.icon}>
@@ -18,11 +20,13 @@ const IconCard = ({ name, set }) => {
 };
 
 IconCard.propTypes = {
+  system: PropTypes.string,
   name: PropTypes.string.isRequired,
   set: PropTypes.string,
 };
 
 IconCard.defaultProps = {
+  system: 'ec',
   set: 'standard',
 };
 
