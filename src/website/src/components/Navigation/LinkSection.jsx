@@ -72,7 +72,7 @@ class LinkSection extends Component {
                 [styles['icon-rotate-180']]: isOpen,
               })}
             >
-              <use xlinkHref={`${icons}#rounded-arrow`} />
+              <use xlinkHref={`${icons}#corner-arrow`} />
             </svg>
           </button>
         </span>

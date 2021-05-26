@@ -5,7 +5,7 @@ on:
     types: [opened, synchronize]
   push:
     branches:
-      - next-v3
+      - v3-dev
 
 jobs:
   audit:
@@ -61,9 +61,9 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
   deploy-v3-branch:
-    name: deploy next-v3 branch
+    name: deploy v3-dev branch
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && github.ref == 'refs/heads/next-v3'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/v3-dev'
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies

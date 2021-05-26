@@ -1,0 +1,32 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Link, Playground, Html } from '@ecl/website-components';
+
+import { labelLow, labelMedium, labelHigh, labelHighlight } from '../demo';
+
+## Low importance
+
+<Playground system="ec" selectedKind="components-label" selectedStory="default">
+  <Html markup={labelLow} />
+</Playground>
+
+## Medium importance
+
+<Playground system="ec" selectedKind="components-label" selectedStory="default">
+  <Html markup={labelMedium} />
+</Playground>
+
+## High importance
+
+<Playground system="ec" selectedKind="components-label" selectedStory="default">
+  <Html markup={labelHigh} />
+</Playground>
+
+## Highlight
+
+<Playground system="ec" selectedKind="components-label" selectedStory="default">
+  <Html markup={labelHighlight} />
+</Playground>

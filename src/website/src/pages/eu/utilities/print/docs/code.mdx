@@ -1,0 +1,78 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground } from '@ecl/website-components';
+
+## Display
+
+<Playground system="ec" selectedKind="utilities-print" selectedStory="display">
+  <p className="ecl-u-type-paragraph">
+    <strong>Screen and print</strong>
+    <br />
+    This paragraph is displayed on both screen and print
+  </p>
+  <p className="ecl-u-type-paragraph ecl-u-screen-only">
+    <strong>Screen (.ecl-u-screen-only)</strong>
+    <br />
+    This paragraph is displayed only on screen
+  </p>
+  <p className="ecl-u-type-paragraph ecl-u-print-only">
+    <strong>Print (.ecl-u-print-only)</strong>
+    <br />
+    This paragraph is displayed only on print
+  </p>
+</Playground>
+
+## Page break
+
+Note: in order to see the page breaks, you should open the demo in full screen, and open
+the print preview in your brower.
+
+<Playground
+  system="ec"
+  selectedKind="utilities-print"
+  selectedStory="page-break"
+>
+  <p className="ecl-u-type-paragraph">
+    <strong>A paragraph with no page break specified:</strong>
+    <br />
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus facilisis
+    urna vitae justo semper, eget lacinia elit luctus. Donec euismod tincidunt
+    ornare.
+  </p>
+  <p className="ecl-u-type-paragraph ecl-u-break-before-page">
+    <strong>
+      A paragraph with a forced page break before (.ecl-u-break-before-page):
+    </strong>
+    <br />
+    Nam tempor ex turpis, at convallis justo bibendum id. Vivamus convallis
+    lacus vel magna consectetur, id congue felis ultrices. Aenean vitae ligula
+    vel justo sagittis venenatis.
+  </p>
+  <p className="ecl-u-type-paragraph ecl-u-break-after-page">
+    <strong>
+      A paragraph with a forced page break after (.ecl-u-break-before-after):
+    </strong>
+    <br />
+    Nunc quis rhoncus urna. Donec nec commodo dolor. Vestibulum sed luctus erat.
+    Etiam consectetur consequat sem eu finibus.
+  </p>
+  <p className="ecl-u-type-paragraph">
+    <strong>A paragraph with no page break specified:</strong>
+    <br />
+    Proin egestas facilisis leo, a consequat lectus congue vel. Vestibulum
+    placerat leo id urna commodo finibus. Integer consectetur pulvinar libero
+    quis luctus.
+  </p>
+  <p className="ecl-u-type-paragraph">
+    <strong>
+      A paragraph with no page break inside (.ecl-u-break-inside-avoid):
+    </strong>
+    <br />
+    Nullam in convallis massa. Nullam non lacus id ipsum congue vestibulum.
+    Praesent sit amet nisl at nisi rutrum rutrum. Nullam imperdiet nisl vel
+    lacus laoreet sodales.
+  </p>
+</Playground>

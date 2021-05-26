@@ -10,6 +10,7 @@ const dataDefault = { ...specs };
 const dataOngoing = { ...specs, variant: 'ongoing' };
 const dataCancelled = { ...specs, variant: 'cancelled' };
 const dataPast = { ...specs, variant: 'past' };
+const dataRescheduled = { ...specs, variant: 'rescheduled' };
 
 const getArgTypes = (data) => {
   return {
@@ -109,3 +110,10 @@ export const Past = (args) => dateBlock(prepareData(dataPast, args));
 Past.storyName = 'past';
 Past.argTypes = getArgTypes(dataPast);
 Past.parameters = { notes: { markdown: notes, json: dataPast } };
+
+export const Rescheduled = (args) =>
+  dateBlock(prepareData(dataRescheduled, args));
+
+Rescheduled.storyName = 'rescheduled';
+Rescheduled.argTypes = getArgTypes(dataRescheduled);
+Rescheduled.parameters = { notes: { markdown: notes, json: dataRescheduled } };
