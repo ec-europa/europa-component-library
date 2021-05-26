@@ -5,7 +5,7 @@ order: 1
 
 <p>
   ECL provides an easy way to style some default HTML tags (like links or paragraphs).<br />
-  Note that this approach comes with limitations (no possible variant for elements, limited number of HTML tags, ...), and should be considered as an edge case. The recommanded way to use ECL is still to apply the corresponding CSS classes where needed.
+  Note that this approach comes with limitations (no possible variant for elements, limited number of HTML tags, ...), and should be considered as an edge case. The recommended way to use ECL is still to apply the corresponding CSS classes where needed.
 </p>
 
 ## Styled tags
