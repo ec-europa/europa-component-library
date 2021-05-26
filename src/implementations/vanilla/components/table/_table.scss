@@ -7,9 +7,16 @@
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
+$_table-color: null !default;
+$_header-border-color: null !default;
+$_row-border-color: null !default;
+$_sort-icon-color: null !default;
+$_sort-icon-color-active: null !default;
+$_sort-arrow-margin-top: null !default;
+
 .ecl-table {
   border-collapse: collapse;
-  color: map.get(theme.$color, 'grey-100');
+  color: $_table-color;
   font: map.get(theme.$font, 'm');
   margin: 0;
   width: 100%;
@@ -20,13 +27,13 @@
 }
 
 .ecl-table__cell {
-  border-top: 1px solid map.get(theme.$color, 'grey-25');
+  border-top: 1px solid $_row-border-color;
   display: flex;
   padding: map.get(theme.$spacing, 's');
 
   &::before {
     background-color: map.get(theme.$color, 'blue-5');
-    border-right: 2px solid map.get(theme.$color, 'grey-50');
+    border-right: 2px solid $_header-border-color;
     content: attr(data-ecl-table-header);
     display: block;
     flex-basis: 10rem;
@@ -44,7 +51,7 @@
   }
 
   &:last-of-type {
-    border-bottom: 1px solid map.get(theme.$color, 'grey-25');
+    border-bottom: 1px solid $_row-border-color;
     margin-bottom: map.get(theme.$spacing, 'l');
   }
 }
@@ -64,18 +71,23 @@
   }
 
   .ecl-table__row {
-    border-bottom: 1px solid map.get(theme.$color, 'grey-25');
+    border-bottom: 1px solid $_row-border-color;
     border-top-width: 0;
   }
 
   .ecl-table__head .ecl-table__row:first-child {
-    border-bottom: 2px solid map.get(theme.$color, 'grey-50');
+    border-bottom: 2px solid $_header-border-color;
+
+    .ecl-table__header {
+      padding-top: map.get(theme.$spacing, 'l');
+    }
   }
 
   .ecl-table__cell {
     border-width: 0;
     display: table-cell;
-    padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
+    padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'xl')
+      map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
 
     &::before {
       display: none;
@@ -116,7 +128,7 @@
 
   &::after {
     background-color: map.get(theme.$color, 'blue-5');
-    border-bottom: 1px solid map.get(theme.$color, 'grey-25');
+    border-bottom: 1px solid $_row-border-color;
     content: attr(data-ecl-table-header-group);
     display: block;
     font-weight: map.get(theme.$font-weight, 'bold');
@@ -179,7 +191,8 @@
 }
 
 .ecl-table__arrow {
-  left: map.get(theme.$spacing, 'm');
+  left: map.get(theme.$spacing, '2xs');
+  margin-top: $_sort-arrow-margin-top;
   position: absolute;
 }
 
@@ -189,24 +202,24 @@
 }
 
 .ecl-table__icon-up {
-  fill: map.get(theme.$color, 'grey-50');
+  fill: $_sort-icon-color;
   top: 0;
 }
 
 .ecl-table__icon-down {
-  fill: map.get(theme.$color, 'grey-50');
+  fill: $_sort-icon-color;
   top: map.get(theme.$icon, '2xs');
   transform: rotate(180deg);
 }
 
 .ecl-table__header[aria-sort='ascending'] {
   .ecl-table__icon-down {
-    fill: map.get(theme.$color, 'grey-100');
+    fill: $_sort-icon-color-active;
   }
 }
 
 .ecl-table__header[aria-sort='descending'] {
   .ecl-table__icon-up {
-    fill: map.get(theme.$color, 'grey-100');
+    fill: $_sort-icon-color-active;
   }
 }
