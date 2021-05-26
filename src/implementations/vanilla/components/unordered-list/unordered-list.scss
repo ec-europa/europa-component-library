@@ -9,7 +9,8 @@
 $_text-color: map.get(theme.$color, 'grey-100');
 $_divider-color: map.get(theme.$color, 'grey-15');
 
-.ecl-unordered-list {
+.ecl-unordered-list,
+%ecl-unordered-list {
   color: $_text-color;
   font: map.get(theme.$font-prolonged, 'm');
   list-style-position: outside;
@@ -17,11 +18,13 @@ $_divider-color: map.get(theme.$color, 'grey-15');
   padding-left: map.get(theme.$spacing, '2xl');
 }
 
-.ecl-unordered-list .ecl-unordered-list {
+.ecl-unordered-list .ecl-unordered-list,
+%ecl-unordered-list--nested {
   margin-top: map.get(theme.$spacing, 'xs');
 }
 
-.ecl-unordered-list__item {
+.ecl-unordered-list__item,
+%ecl-unordered-list__item {
   margin-top: map.get(theme.$spacing, 'xs');
   max-width: calc(80ch - #{map.get(theme.$spacing, '2xl')});
 

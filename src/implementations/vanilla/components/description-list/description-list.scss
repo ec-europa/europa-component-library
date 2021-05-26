@@ -49,47 +49,54 @@ $_term-width: 32%;
 $_definition-width: 68%;
 
 .ecl-description-list--horizontal,
+%ecl-description-list,
 .ecl-description-list--taxonomy {
   display: flex;
   flex-direction: column;
 
-  .ecl-description-list__term {
+  .ecl-description-list__term,
+  %ecl-description-list__term {
     font: map.get(theme.$font, 'm');
     font-weight: map.get(theme.$font-weight, 'bold');
     margin-top: map.get(theme.$spacing, 'm');
+
+    // stylelint-disable-next-line max-nesting-depth
+    &:first-of-type {
+      margin-top: 0;
+    }
   }
 
-  .ecl-description-list__definition {
+  .ecl-description-list__definition,
+  %ecl-description-list__definition {
     font: map.get(theme.$font, 'm');
     margin-top: map.get(theme.$spacing, '2xs');
     padding-left: 0;
-  }
-
-  .ecl-description-list__term:first-of-type {
-    margin-top: 0;
   }
 }
 
 @include breakpoints.up('l') {
   .ecl-description-list--horizontal,
+  %ecl-description-list,
   .ecl-description-list--taxonomy {
     flex-direction: row;
     flex-wrap: wrap;
     max-width: calc(499px + #{map.get(theme.$spacing, 'xl')});
 
-    .ecl-description-list__term {
+    .ecl-description-list__term,
+    %ecl-description-list__term {
       width: $_term-width;
     }
 
-    .ecl-description-list__definition {
+    .ecl-description-list__definition,
+    %ecl-description-list__definition {
       margin-left: map.get(theme.$spacing, 'xl');
       margin-top: map.get(theme.$spacing, 'm');
       overflow-wrap: break-word;
       width: calc(#{$_definition-width} - #{map.get(theme.$spacing, 'xl')});
-    }
 
-    .ecl-description-list__definition:first-of-type {
-      margin-top: 0;
+      &:first-of-type {
+        margin-top: 0;
+      }
     }
   }
 }
