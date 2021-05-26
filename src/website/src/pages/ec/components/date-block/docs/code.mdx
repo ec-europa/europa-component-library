@@ -9,6 +9,7 @@ import {
   dateBlockCancelled,
   dateBlockOngoing,
   dateBlockPast,
+  dateBlockRescheduled,
 } from '../demo';
 
 ## Default
@@ -49,4 +50,14 @@ import {
   selectedStory="past"
 >
   <Html markup={dateBlockPast} />
+</Playground>
+
+## Rescheduled
+
+<Playground
+  system="ec"
+  selectedKind="components-date-block"
+  selectedStory="rescheduled"
+>
+  <Html markup={dateBlockRescheduled} />
 </Playground>

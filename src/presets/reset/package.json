@@ -16,7 +16,7 @@
     "clean": "rimraf build dist",
     "dist": "cross-env NODE_ENV=production run-p build:*",
     "watch": "ecl-builder watch",
-    "prepublish": "npm run clean && npm run dist"
+    "prepublish": "npm run clean && run-p build dist"
   },
   "devDependencies": {
     "@ecl/builder": "^3.0.0-alpha.1",
