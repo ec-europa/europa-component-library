@@ -5,6 +5,10 @@ order: 5
 
 import { IconList } from '@ecl/website-components';
 
-Here are the icons available on ECL
+## Standard ECL icons
 
-<IconList set="all" />
+<IconList set="standard" />
+
+## Flag icons
+
+<IconList set="flag" />
