@@ -54,24 +54,19 @@ const getArgTypes = (data) => {
         category: 'Display',
       },
     },
-    width: {
-      name: 'width',
+    full_width: {
+      name: 'full width',
+      control: {
+        type: 'inline-radio',
+        options: ['outside the grid', 'inside the grid'],
+      },
       defaultValue: 'outside the grid',
       description: `The banner extends to the whole viewport by default when outside the grid,
         if it's inside it can still be extended via an additional css class`,
       table: {
-        type: { summary: 'select' },
-        defaultValue: { summary: 'full width - outside the grid container' },
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
         category: 'Display',
-      },
-      control: {
-        type: 'select',
-        defaultValue: { summary: 'outside' },
-        options: {
-          'full width - outside the grid container': 'outside',
-          'full width - inside the grid container': 'inside',
-          'grid container': 'container',
-        },
       },
     },
   };
@@ -95,7 +90,7 @@ const prepareData = (data, args) => {
   data.title = args.title;
   data.baseline = args.description;
   data.centered = args.centered;
-  data.full_width = args.width === 'inside';
+  data.full_width = args.full_width === 'inside the grid';
   data.link.link.label = args.label;
   if (data.image) {
     data.image = args.image;
@@ -111,7 +106,7 @@ export default {
 
 const renderStory = (data, args) => {
   let story = pageBanner(prepareData(correctSvgPath(data), args));
-  if (args.width === 'container' || args.width === 'inside') {
+  if (args.full_width === 'inside the grid') {
     story = `<div class="ecl-container">${story}</div>`;
   }
 
