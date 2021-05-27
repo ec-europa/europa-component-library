@@ -1,4 +1,4 @@
-@use '@ecl/theme-dev/maps/color' with (
+@forward '@ecl/theme-dev/maps/color' with (
   $color: (
     // temporary copy of ec colours, until components are updated
     'black': #000,
@@ -111,11 +111,11 @@
     'yellow-140': #b38f00,
   )
 );
-@use '@ecl/theme-dev/maps/icon';
-@use '@ecl/theme-dev/maps/form';
-@use '@ecl/theme-dev/maps/layout';
-@use '@ecl/theme-dev/maps/media';
-@use '@ecl/theme-dev/maps/shape';
-@use '@ecl/theme-dev/maps/spacing';
-@use '@ecl/theme-dev/maps/typography';
-@use '@ecl/theme-dev/maps/z-index';
+@forward '@ecl/theme-dev/maps/icon';
+@forward '@ecl/theme-dev/maps/form';
+@forward '@ecl/theme-dev/maps/layout';
+@forward '@ecl/theme-dev/maps/media';
+@forward '@ecl/theme-dev/maps/shape';
+@forward '@ecl/theme-dev/maps/spacing';
+@forward '@ecl/theme-dev/maps/typography';
+@forward '@ecl/theme-dev/maps/z-index';

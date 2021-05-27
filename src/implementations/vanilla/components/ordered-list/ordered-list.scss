@@ -8,7 +8,8 @@
 
 $_text-color: map.get(theme.$color, 'grey-100');
 
-.ecl-ordered-list {
+.ecl-ordered-list,
+%ecl-ordered-list {
   color: $_text-color;
   font: map.get(theme.$font-prolonged, 'm');
   list-style-position: outside;
@@ -16,11 +17,13 @@ $_text-color: map.get(theme.$color, 'grey-100');
   padding-left: map.get(theme.$spacing, '2xl');
 }
 
-.ecl-ordered-list .ecl-ordered-list {
+.ecl-ordered-list .ecl-ordered-list,
+%ecl-ordered-list--nested {
   margin-top: map.get(theme.$spacing, 'xs');
 }
 
-.ecl-ordered-list__item {
+.ecl-ordered-list__item,
+%ecl-ordered-list__item {
   margin-top: map.get(theme.$spacing, 'xs');
   max-width: calc(80ch - #{map.get(theme.$spacing, '2xl')});
 
