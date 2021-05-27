@@ -7,6 +7,9 @@
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
+$_border-radius: null !default;
+$_outline-width: 3px;
+
 $_inpage-link-border: map.get(theme.$spacing, '2xs');
 $_toggle-width: calc(
   #{map.get(theme.$spacing, 'm')} + #{map.get(theme.$icon, 's')} + #{map.get(
@@ -33,12 +36,13 @@ $_toggle-width: calc(
   background: linear-gradient(
     to left,
     map.get(theme.$color, 'blue-120') $_toggle-width,
-    map.get(theme.$color, 'primary') $_toggle-width
+    map.get(theme.$color, 'blue-100') $_toggle-width
   );
-  border: 0;
+  border: $_outline-width solid transparent;
   color: map.get(theme.$color, 'white-100');
   display: none;
-  padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
+  padding: calc(#{map.get(theme.$spacing, 's')} - #{$_outline-width})
+    calc(#{map.get(theme.$spacing, 'm')} - #{$_outline-width});
   position: relative;
   text-align: left;
   width: 100%;
@@ -49,6 +53,7 @@ $_toggle-width: calc(
   }
 
   &:focus {
+    border-color: map.get(theme.$color, 'yellow-100');
     outline: none;
   }
 }
@@ -90,9 +95,8 @@ $_toggle-width: calc(
 .ecl-inpage-navigation__title {
   color: map.get(theme.$color, 'grey-100');
   display: none;
-  font: map.get(theme.$font, 'm');
-  padding: map.get(theme.$spacing, 'xs')
-    calc(#{map.get(theme.$spacing, 's')} + #{$_inpage-link-border});
+  font: map.get(theme.$font-prolonged, 'm');
+  padding: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 's');
   text-transform: uppercase;
 
   /* stylelint-disable-next-line order/order */
@@ -124,18 +128,21 @@ $_toggle-width: calc(
 }
 
 .ecl-inpage-navigation__link {
-  font: map.get(theme.$font-prolonged, 'm');
-  padding: map.get(theme.$spacing, 's');
+  font: map.get(theme.$font, 'm');
+  padding: map.get(theme.$spacing, 's')
+    calc(#{map.get(theme.$spacing, 'xl')} - #{map.get(theme.$spacing, 'm')});
 
   /* stylelint-disable-next-line order/order */
   @include breakpoints.up('l') {
     background-color: transparent;
     border: 0;
     border-left: $_inpage-link-border solid transparent;
-    color: map.get(theme.$color, 'primary');
+    color: map.get(theme.$color, 'blue-100');
     display: block;
+    font: map.get(theme.$font-prolonged, 'm');
     font-weight: map.get(theme.$font-weight, 'bold');
-    padding: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 's');
+    padding: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 's')
+      map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 'xs');
   }
 
   &:hover {
@@ -146,17 +153,11 @@ $_toggle-width: calc(
   }
 
   &:focus {
-    outline-offset: -2px;
-
-    /* stylelint-disable-next-line order/order */
-    @include breakpoints.up('l') {
-      background-color: map.get(theme.$color, 'yellow-100');
-      outline: none;
-      text-decoration: underline;
-    }
+    outline-offset: -3px;
   }
 
-  .ecl-inpage-navigation--visible & {
+  .ecl-inpage-navigation--visible &,
+  .ecl-inpage-navigation--visible &:hover {
     border-top: 1px solid map.get(theme.$color, 'blue-75');
     color: map.get(theme.$color, 'white-100');
     display: block;
@@ -164,15 +165,17 @@ $_toggle-width: calc(
     /* stylelint-disable-next-line order/order */
     @include breakpoints.up('l') {
       border-top-width: 0;
-      color: map.get(theme.$color, 'primary');
+      color: map.get(theme.$color, 'blue-100');
     }
   }
 
-  .ecl-inpage-navigation__item--active & {
+  /* stylelint-disable-next-line no-descending-specificity */
+  .ecl-inpage-navigation__item--active &,
+  .ecl-inpage-navigation__item--active &:hover {
     /* stylelint-disable-next-line order/order */
     @include breakpoints.up('l') {
-      background-color: map.get(theme.$color, 'grey-5');
-      border-left-color: map.get(theme.$color, 'primary');
+      background-color: map.get(theme.$color, 'grey-10');
+      border-left-color: map.get(theme.$color, 'blue-100');
       color: map.get(theme.$color, 'grey-100');
     }
   }
@@ -185,8 +188,8 @@ $_toggle-width: calc(
 .ecl-inpage-navigation__link--is-active {
   /* stylelint-disable-next-line order/order */
   @include breakpoints.up('l') {
-    background-color: map.get(theme.$color, 'grey-5');
-    border-left-color: map.get(theme.$color, 'primary');
+    background-color: map.get(theme.$color, 'grey-10');
+    border-left-color: map.get(theme.$color, 'blue-100');
     color: map.get(theme.$color, 'grey-100');
   }
 }
