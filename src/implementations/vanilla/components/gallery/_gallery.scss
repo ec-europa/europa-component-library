@@ -10,11 +10,11 @@
 
 $_description-background: null !default;
 $_description-color: map.get(theme.$color, 'white-100');
-$_description-icon-small: null !default;
+$_description-icon: null !default;
+$_description-icon-mobile: null !default;
 $_gallery-info-color: null !default;
 $_gallery-info-font: null !default;
 $_image-height: 185px;
-$_icon-small: null !default;
 
 .ecl-gallery {
   margin: 0;
@@ -94,8 +94,8 @@ $_icon-small: null !default;
 
 .ecl-gallery__description-icon {
   flex-shrink: 0;
-  height: $_description-icon-small;
-  width: $_description-icon-small;
+  height: $_description-icon-mobile;
+  width: $_description-icon-mobile;
 }
 
 .ecl-gallery__meta {
@@ -172,8 +172,8 @@ $_icon-small: null !default;
   }
 
   .ecl-gallery__description-icon {
-    height: $_icon-small;
-    width: $_icon-small;
+    height: $_description-icon;
+    width: $_description-icon;
   }
 
   .ecl-gallery__item:hover {
