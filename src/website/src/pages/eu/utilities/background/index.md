@@ -3,6 +3,6 @@ title: Background
 defaultTab: usage
 status: ready
 playground:
-  system: ec
+  system: eu
   path: /story/utilities-background--custom
 ---

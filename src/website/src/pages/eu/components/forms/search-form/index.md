@@ -3,6 +3,6 @@ title: Search form
 defaultTab: usage
 status: ready
 playground:
-  system: ec
+  system: eu
   path: /story/components-forms-search-form--default
 ---
