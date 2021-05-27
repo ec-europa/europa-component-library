@@ -100,6 +100,13 @@ Change impact have been grouped as :
 
 - :warning: css class `.ecl-form-label--hidden` has been removed (it was marked as deprecated already). You can use utility class `.ecl-u-sr-only` to achieve the same result, as it is outside a component
 
+**Gallery**
+
+- :warning: A css class has been added to the button for viewing all the items in a gallery: `ecl-gallery__view-all`
+- :warning: The icon for the close button of the overlay is now `closed-filled` and not `close` anymore
+- :warning: The share and download button in the overlay are now implementations of the `standalone` link component
+- :warning: The next and previous icons in the overlay have now the size `s` instead of `l`
+
 **Icon**
 
 - :warning: twig parameter "type" has been removed
