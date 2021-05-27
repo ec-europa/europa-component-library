@@ -106,9 +106,7 @@
         {{- _item.description -}}
         {% if _has_icon %}
           {%- include '@ecl/icon/icon.html.twig' with {
-            icon: _item.icon|merge({
-              size: "l",
-            }),
+            icon: _item.icon,
             extra_classes: 'ecl-gallery__description-icon',
           } only %}
         {% endif %}
