@@ -36,7 +36,7 @@ const buildStyles = (entry, dest, options) => {
   if (options.sourceMap === true) {
     postcssSourceMap = true; // inline
   } else if (options.sourceMap === 'file') {
-    postcssSourceMap = { inline: false }; // as a file
+    postcssSourceMap = options.sourceMap; // as a file
   }
 
   const sassResult = sass.renderSync({
@@ -45,7 +45,7 @@ const buildStyles = (entry, dest, options) => {
     functions: {
       'getsystem()': () => new sass.types.String(getSystem() || ''),
     },
-    sourceMap: options.sourceMap === true,
+    sourceMap: options.sourceMap !== false,
     sourceMapContents: options.sourceMap === true,
     sourceMapEmbed: options.sourceMap === true,
     includePaths: [
@@ -56,7 +56,10 @@ const buildStyles = (entry, dest, options) => {
 
   postcss(plugins)
     .process(sassResult.css, {
-      map: postcssSourceMap,
+      map:
+        postcssSourceMap === 'file'
+          ? { inline: false, prev: sassResult.map.toString() }
+          : postcssSourceMap,
       from: entry,
       to: dest,
     })
