@@ -15,6 +15,8 @@ $_description-icon-mobile: null !default;
 $_gallery-info-color: null !default;
 $_gallery-info-font: null !default;
 $_image-height: 185px;
+$_item-outline: null !default;
+$_item-outline-offset: null !default;
 
 .ecl-gallery {
   margin: 0;
@@ -52,8 +54,8 @@ $_image-height: 185px;
   outline: none;
 
   .ecl-gallery__image-container {
-    outline: 3px solid map.get(theme.$color, 'yellow-100');
-    outline-offset: -3px;
+    outline: $_item-outline;
+    outline-offset: $_item-outline-offset;
   }
 }
 
@@ -217,6 +219,7 @@ $_overlay-links-hover-color: null !default;
   height: 100%;
   left: 0;
   margin: 0;
+  max-height: 100%;
   max-width: 100%;
   padding: 0;
   position: fixed;
