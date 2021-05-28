@@ -3,6 +3,6 @@ title: Social media share
 defaultTab: usage
 status: ready
 playground:
-  system: ec
+  system: eu
   path: /story/components-social-media-share--default
 ---

@@ -3,6 +3,6 @@ title: Float
 defaultTab: usage
 status: ready
 playground:
-  system: ec
+  system: eu
   path: /story/utilities-float--custom
 ---

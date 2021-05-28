@@ -3,6 +3,6 @@ title: Gallery
 defaultTab: usage
 status: ready
 playground:
-  system: ec
+  system: eu
   path: /story/components-gallery--default
 ---
