@@ -77,7 +77,6 @@ export const Default = (args) => footer(prepareDataG1(specsEu, args));
 Default.storyName = 'default';
 Default.argTypes = getArgTypes();
 Default.parameters = {
-  layout: 'fullscreen',
   notes: {
     markdown: notes,
     json: { specsEu },
@@ -87,4 +86,5 @@ Default.parameters = {
 export default {
   title: 'Components/Footers/Harmonised',
   decorators: [withCode, withNotes],
+  parameters: { layout: 'fullscreen' },
 };

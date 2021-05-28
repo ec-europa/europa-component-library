@@ -11,13 +11,11 @@ export default {
   decorators: [withNotes, withCode],
   parameters: {
     controls: { disable: true },
+    parameters: { layout: 'fullscreen' },
   },
 };
 
 export const Default = () => pagination(correctSvgPath(specs));
 
 Default.storyName = 'default';
-Default.parameters = {
-  layout: 'fullscreen',
-  notes: { markdown: notes, json: specs },
-};
+Default.parameters = { notes: { markdown: notes, json: specs } };

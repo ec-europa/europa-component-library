@@ -93,6 +93,7 @@ const prepareHtmlContent = (data) => {
 
 export default {
   title: 'Components/Navigation/Inpage navigation',
+  parameters: { layout: 'fullscreen' },
 };
 
 export const Default = (args) => {
@@ -117,5 +118,5 @@ export const Default = (args) => {
 
 Default.argTypes = getArgTypes(demoData);
 Default.storyName = 'default';
-Default.parameters = { layout: 'fullscreen', notes: { markdown: notes } };
+Default.parameters = { notes: { markdown: notes } };
 Default.decorators = [withNotes, withCode];

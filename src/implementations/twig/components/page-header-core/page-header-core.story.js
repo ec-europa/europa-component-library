@@ -156,6 +156,7 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Page Headers/Core',
   decorators: [withNotes, withCode],
+  parameters: { layout: 'fullscreen' },
 };
 
 export const Default = (args) => pageHeaderCore(prepareData(dataDefault, args));
@@ -163,7 +164,6 @@ export const Default = (args) => pageHeaderCore(prepareData(dataDefault, args));
 Default.storyName = 'default';
 Default.argTypes = getArgTypes(dataDefault);
 Default.parameters = {
-  layout: 'fullscreen',
   notes: { markdown: notes, json: dataDefault },
 };
 
@@ -173,6 +173,5 @@ export const BackgroundImage = (args) =>
 BackgroundImage.storyName = 'background-image';
 BackgroundImage.argTypes = getArgTypes(dataBackgroundImage);
 BackgroundImage.parameters = {
-  layout: 'fullscreen',
   notes: { markdown: notes, json: dataBackgroundImage },
 };

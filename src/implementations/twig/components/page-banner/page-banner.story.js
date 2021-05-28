@@ -102,6 +102,7 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Banners/Page Banner',
   decorators: [withNotes, withCode],
+  parameters: { layout: 'fullscreen' },
 };
 
 const renderStory = (data, args) => {
@@ -118,7 +119,6 @@ export const Default = (args) => renderStory(bannerDataSimplePrimary, args);
 Default.storyName = 'simple - primary';
 Default.argTypes = getArgTypes(bannerDataSimplePrimary);
 Default.parameters = {
-  layout: 'fullscreen',
   notes: { markdown: notes, json: bannerDataSimplePrimary },
 };
 
@@ -127,7 +127,6 @@ export const SimpleGrey = (args) => renderStory(bannerDataSimpleGrey, args);
 SimpleGrey.storyName = 'simple - grey';
 SimpleGrey.argTypes = getArgTypes(bannerDataSimpleGrey);
 SimpleGrey.parameters = {
-  layout: 'fullscreen',
   notes: { markdown: notes, json: bannerDataSimpleGrey },
 };
 
@@ -136,7 +135,6 @@ export const SimpleWhite = (args) => renderStory(bannerDataSimpleWhite, args);
 SimpleWhite.storyName = 'simple - white';
 SimpleWhite.argTypes = getArgTypes(bannerDataSimpleWhite);
 SimpleWhite.parameters = {
-  layout: 'fullscreen',
   notes: { markdown: notes, json: bannerDataSimpleWhite },
 };
 
@@ -152,7 +150,6 @@ export const ImageGradient = (args) =>
 ImageGradient.storyName = 'image - gradient';
 ImageGradient.argTypes = getArgTypes(bannerDataImageGradient);
 ImageGradient.parameters = {
-  layout: 'fullscreen',
   notes: { markdown: notes, json: bannerDataImageGradient },
 };
 
@@ -161,6 +158,5 @@ export const ImageShade = (args) => renderStory(bannerDataImageShade, args);
 ImageShade.storyName = 'image - shade';
 ImageShade.argTypes = getArgTypes(bannerDataImageShade);
 ImageShade.parameters = {
-  layout: 'fullscreen',
   notes: { markdown: notes, json: bannerDataImageShade },
 };

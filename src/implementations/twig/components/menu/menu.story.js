@@ -42,22 +42,17 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Navigation/Menu',
   decorators: [withNotes, withCode],
+  parameters: { layout: 'fullscreen' },
 };
 
 export const Default = (args) => menu(prepareData(enData, args));
 
 Default.storyName = 'default';
-Default.parameters = {
-  layout: 'fullscreen',
-  notes: { markdown: notes, json: enData },
-};
+Default.parameters = { notes: { markdown: notes, json: enData } };
 Default.argTypes = getArgTypes(enData);
 
 export const Translated = (args) => menu(prepareData(frData, args));
 
 Translated.storyName = 'translated';
-Translated.parameters = {
-  layout: 'fullscreen',
-  notes: { markdown: notes, json: frData },
-};
+Translated.parameters = { notes: { markdown: notes, json: frData } };
 Translated.argTypes = getArgTypes(frData);

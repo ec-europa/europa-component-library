@@ -67,6 +67,7 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Page Headers/Harmonised',
   decorators: [withNotes, withCode],
+  parameters: { layout: 'fullscreen' },
 };
 
 export const Title = (args) =>
@@ -74,10 +75,7 @@ export const Title = (args) =>
 
 Title.storyName = 'title';
 Title.argTypes = getArgTypes(demoTitleContent);
-Title.parameters = {
-  layout: 'fullscreen',
-  notes: { markdown: notes, json: demoTitleContent },
-};
+Title.parameters = { notes: { markdown: notes, json: demoTitleContent } };
 
 export const MetaTitle = (args) =>
   pageHeaderHarmonised(prepareData(demoMetaTitleContent, args));
@@ -85,7 +83,6 @@ export const MetaTitle = (args) =>
 MetaTitle.storyName = 'meta-title';
 MetaTitle.argTypes = getArgTypes(demoMetaTitleContent);
 MetaTitle.parameters = {
-  layout: 'fullscreen',
   notes: { markdown: notes, json: demoMetaTitleContent },
 };
 
@@ -95,6 +92,5 @@ export const MetaTitleDescription = (args) =>
 MetaTitleDescription.storyName = 'meta-title-description';
 MetaTitleDescription.argTypes = getArgTypes(demoMetaTitleDescriptionContent);
 MetaTitleDescription.parameters = {
-  layout: 'fullscreen',
   notes: { markdown: notes, json: demoMetaTitleDescriptionContent },
 };

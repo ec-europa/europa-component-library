@@ -26,21 +26,16 @@ export default {
   decorators: [withCode, withNotes],
   parameters: {
     controls: { disable: true },
+    layout: 'fullscreen',
   },
 };
 
 export const Splash = () => languageList(prepareData(dataSplash));
 
 Splash.storyName = 'splash';
-Splash.parameters = {
-  layout: 'fullscreen',
-  notes: { markdown: notes, json: dataSplash },
-};
+Splash.parameters = { notes: { markdown: notes, json: dataSplash } };
 
 export const Overlay = () => languageList(prepareData(dataOverlay));
 
 Overlay.storyName = 'overlay';
-Overlay.parameters = {
-  layout: 'fullscreen',
-  notes: { markdown: notes, json: dataOverlay },
-};
+Overlay.parameters = { notes: { markdown: notes, json: dataOverlay } };

@@ -49,6 +49,7 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Navigation/Breadcrumbs/Breadcrumb Core',
   decorators: [withNotes, withCode],
+  parameters: { layout: 'fullscreen' },
 };
 
 export const Simple = (args) => breadcrumb(prepareData(dataSimple, args));
@@ -56,8 +57,7 @@ export const Simple = (args) => breadcrumb(prepareData(dataSimple, args));
 Simple.argTypes = getArgTypes(dataSimple);
 Simple.storyName = 'simple';
 Simple.parameters = {
-  layout: 'fullscreen',
-  notes: { markdown: notes, json: dataSimple },
+  notes: { layout: 'fullscreen', markdown: notes, json: dataSimple },
 };
 
 export const Long = (args) => breadcrumb(prepareData(dataLong, args));
@@ -65,6 +65,5 @@ export const Long = (args) => breadcrumb(prepareData(dataLong, args));
 Long.argTypes = getArgTypes(dataLong);
 Long.storyName = 'long';
 Long.parameters = {
-  layout: 'fullscreen',
   notes: { markdown: notes, json: dataLong },
 };
