@@ -108,4 +108,7 @@ export const Default = (args) => footer(prepareData(demoData, args));
 
 Default.storyName = 'default';
 Default.argTypes = getArgTypes();
-Default.parameters = { notes: { markdown: notes, json: demoData } };
+Default.parameters = {
+  layout: 'fullscreen',
+  notes: { markdown: notes, json: demoData },
+};

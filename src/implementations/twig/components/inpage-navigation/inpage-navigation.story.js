@@ -117,5 +117,5 @@ export const Default = (args) => {
 
 Default.argTypes = getArgTypes(demoData);
 Default.storyName = 'default';
-Default.parameters = { notes: { markdown: notes } };
+Default.parameters = { layout: 'fullscreen', notes: { markdown: notes } };
 Default.decorators = [withNotes, withCode];

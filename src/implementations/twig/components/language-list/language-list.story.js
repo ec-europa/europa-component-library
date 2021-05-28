@@ -32,9 +32,15 @@ export default {
 export const Splash = () => languageList(prepareData(dataSplash));
 
 Splash.storyName = 'splash';
-Splash.parameters = { notes: { markdown: notes, json: dataSplash } };
+Splash.parameters = {
+  layout: 'fullscreen',
+  notes: { markdown: notes, json: dataSplash },
+};
 
 export const Overlay = () => languageList(prepareData(dataOverlay));
 
 Overlay.storyName = 'overlay';
-Overlay.parameters = { notes: { markdown: notes, json: dataOverlay } };
+Overlay.parameters = {
+  layout: 'fullscreen',
+  notes: { markdown: notes, json: dataOverlay },
+};

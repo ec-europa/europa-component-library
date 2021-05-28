@@ -17,4 +17,7 @@ export default {
 export const Default = () => pagination(correctSvgPath(specs));
 
 Default.storyName = 'default';
-Default.parameters = { notes: { markdown: notes, json: specs } };
+Default.parameters = {
+  layout: 'fullscreen',
+  notes: { markdown: notes, json: specs },
+};

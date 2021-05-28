@@ -32,4 +32,7 @@ export default {
 export const Default = () => footer(prepareData(demoData));
 
 Default.storyName = 'default';
-Default.parameters = { notes: { markdown: notes, json: demoData } };
+Default.parameters = {
+  layout: 'fullscreen',
+  notes: { markdown: notes, json: demoData },
+};

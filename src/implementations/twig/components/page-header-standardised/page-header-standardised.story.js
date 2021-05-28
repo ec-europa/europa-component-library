@@ -139,6 +139,7 @@ export const Default = (args) =>
 Default.storyName = 'default';
 Default.argTypes = getArgTypes(dataDefault);
 Default.parameters = {
+  layout: 'fullscreen',
   notes: { markdown: notes, json: dataDefault },
 };
 
@@ -148,5 +149,6 @@ export const BackgroundImage = (args) =>
 BackgroundImage.storyName = 'background-image';
 BackgroundImage.argTypes = getArgTypes(dataBackgroundImage);
 BackgroundImage.parameters = {
+  layout: 'fullscreen',
   notes: { markdown: notes, json: dataBackgroundImage },
 };

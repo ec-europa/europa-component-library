@@ -94,6 +94,7 @@ export const Group1 = (args) => footer(prepareDataG1(dataGroup1, args));
 Group1.storyName = 'group 1';
 Group1.argTypes = getArgTypes();
 Group1.parameters = {
+  layout: 'fullscreen',
   notes: {
     markdown: notes,
     json: { dataGroup1 },
@@ -104,6 +105,7 @@ export const Group2 = () => footer(dataGroup2);
 
 Group2.storyName = 'group 2';
 Group2.parameters = {
+  layout: 'fullscreen',
   notes: {
     markdown: notes,
     json: { dataGroup2 },
@@ -115,6 +117,7 @@ export const Group3 = () => footer(prepareDataG3(dataGroup3));
 
 Group3.storyName = 'group 3';
 Group3.parameters = {
+  layout: 'fullscreen',
   notes: {
     markdown: notes,
     json: { dataGroup3 },

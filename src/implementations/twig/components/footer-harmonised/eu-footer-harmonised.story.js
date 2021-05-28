@@ -77,6 +77,7 @@ export const Default = (args) => footer(prepareDataG1(specsEu, args));
 Default.storyName = 'default';
 Default.argTypes = getArgTypes();
 Default.parameters = {
+  layout: 'fullscreen',
   notes: {
     markdown: notes,
     json: { specsEu },

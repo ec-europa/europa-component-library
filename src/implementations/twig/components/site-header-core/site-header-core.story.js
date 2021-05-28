@@ -94,18 +94,27 @@ export const Default = (args) =>
 
 Default.storyName = 'default';
 Default.argTypes = getArgTypes();
-Default.parameters = { notes: { markdown: notes, json: englishData } };
+Default.parameters = {
+  layout: 'fullscreen',
+  notes: { markdown: notes, json: englishData },
+};
 
 export const LoggedIn = (args) =>
   siteHeaderCore(prepareData(loggedInData, 'logged', args));
 
 LoggedIn.storyName = 'logged in';
 LoggedIn.argTypes = getArgTypes();
-LoggedIn.parameters = { notes: { markdown: notes, json: loggedInData } };
+LoggedIn.parameters = {
+  layout: 'fullscreen',
+  notes: { markdown: notes, json: loggedInData },
+};
 
 export const Translated = (args) =>
   siteHeaderCore(prepareData(frenchData, 'translated', args));
 
 Translated.storyName = 'translated';
 Translated.argTypes = getArgTypes();
-Translated.parameters = { notes: { markdown: notes, json: frenchData } };
+Translated.parameters = {
+  layout: 'fullscreen',
+  notes: { markdown: notes, json: frenchData },
+};

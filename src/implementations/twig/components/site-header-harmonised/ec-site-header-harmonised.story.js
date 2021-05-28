@@ -146,18 +146,27 @@ export const Group1 = (args) =>
 
 Group1.storyName = 'group 1';
 Group1.argTypes = getArgTypes('group1');
-Group1.parameters = { notes: { markdown: notes, json: dataGroup1 } };
+Group1.parameters = {
+  layout: 'fullscreen',
+  notes: { markdown: notes, json: dataGroup1 },
+};
 
 export const Group2 = (args) =>
   siteHeaderHarmonised(prepareData(dataGroup2, 'group2', args));
 
 Group2.storyName = 'group 2';
 Group2.argTypes = getArgTypes('group2');
-Group2.parameters = { notes: { markdown: notes, json: dataGroup2 } };
+Group2.parameters = {
+  layout: 'fullscreen',
+  notes: { markdown: notes, json: dataGroup2 },
+};
 
 export const Group3 = (args) =>
   siteHeaderHarmonised(prepareData(dataGroup3, 'group3', args));
 
 Group3.storyName = 'group 3';
 Group3.argTypes = getArgTypes('group3');
-Group3.parameters = { notes: { markdown: notes, json: dataGroup3 } };
+Group3.parameters = {
+  layout: 'fullscreen',
+  notes: { markdown: notes, json: dataGroup3 },
+};
