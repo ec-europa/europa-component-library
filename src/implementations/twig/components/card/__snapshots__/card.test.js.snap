@@ -4,15 +4,15 @@ exports[`Card Default renders correctly 1`] = `
 <article
   class="ecl-card"
 >
-  <header
-    class="ecl-card__header"
+  <div
+    aria-label="card image"
+    class="ecl-card__image"
+    role="img"
+    style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
+  />
+  <div
+    class="ecl-card__body"
   >
-    <div
-      aria-label="card image"
-      class="ecl-card__image"
-      role="img"
-      style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-    />
     <div
       class="ecl-card__meta"
     >
@@ -28,19 +28,11 @@ exports[`Card Default renders correctly 1`] = `
         Better regulation
       </a>
     </h1>
-  </header>
-  <div
-    class="ecl-card__body"
-  >
     <div
       class="ecl-card__description"
     >
       Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
     </div>
-  </div>
-  <footer
-    class="ecl-card__footer"
-  >
     <ul
       class="ecl-card__info-container"
     >
@@ -115,7 +107,7 @@ exports[`Card Default renders correctly 1`] = `
         </a>
       </li>
     </ul>
-  </footer>
+  </div>
 </article>
 `;
 
@@ -125,15 +117,15 @@ exports[`Card Default renders correctly with extra attributes 1`] = `
   data-test="data-test-value"
   data-test-1="data-test-value-1"
 >
-  <header
-    class="ecl-card__header"
+  <div
+    aria-label="card image"
+    class="ecl-card__image"
+    role="img"
+    style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
+  />
+  <div
+    class="ecl-card__body"
   >
-    <div
-      aria-label="card image"
-      class="ecl-card__image"
-      role="img"
-      style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-    />
     <div
       class="ecl-card__meta"
     >
@@ -149,19 +141,11 @@ exports[`Card Default renders correctly with extra attributes 1`] = `
         Better regulation
       </a>
     </h1>
-  </header>
-  <div
-    class="ecl-card__body"
-  >
     <div
       class="ecl-card__description"
     >
       Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
     </div>
-  </div>
-  <footer
-    class="ecl-card__footer"
-  >
     <ul
       class="ecl-card__info-container"
     >
@@ -236,7 +220,7 @@ exports[`Card Default renders correctly with extra attributes 1`] = `
         </a>
       </li>
     </ul>
-  </footer>
+  </div>
 </article>
 `;
 
@@ -244,15 +228,15 @@ exports[`Card Default renders correctly with extra class names 1`] = `
 <article
   class="ecl-card custom-class custom-class--test"
 >
-  <header
-    class="ecl-card__header"
+  <div
+    aria-label="card image"
+    class="ecl-card__image"
+    role="img"
+    style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
+  />
+  <div
+    class="ecl-card__body"
   >
-    <div
-      aria-label="card image"
-      class="ecl-card__image"
-      role="img"
-      style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-    />
     <div
       class="ecl-card__meta"
     >
@@ -268,19 +252,11 @@ exports[`Card Default renders correctly with extra class names 1`] = `
         Better regulation
       </a>
     </h1>
-  </header>
-  <div
-    class="ecl-card__body"
-  >
     <div
       class="ecl-card__description"
     >
       Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
     </div>
-  </div>
-  <footer
-    class="ecl-card__footer"
-  >
     <ul
       class="ecl-card__info-container"
     >
@@ -355,7 +331,7 @@ exports[`Card Default renders correctly with extra class names 1`] = `
         </a>
       </li>
     </ul>
-  </footer>
+  </div>
 </article>
 `;
 
@@ -363,15 +339,15 @@ exports[`Card Default renders correctly with lists 1`] = `
 <article
   class="ecl-card"
 >
-  <header
-    class="ecl-card__header"
+  <div
+    aria-label="card image"
+    class="ecl-card__image"
+    role="img"
+    style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
+  />
+  <div
+    class="ecl-card__body"
   >
-    <div
-      aria-label="card image"
-      class="ecl-card__image"
-      role="img"
-      style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-    />
     <div
       class="ecl-card__meta"
     >
@@ -387,19 +363,11 @@ exports[`Card Default renders correctly with lists 1`] = `
         Better regulation
       </a>
     </h1>
-  </header>
-  <div
-    class="ecl-card__body"
-  >
     <div
       class="ecl-card__description"
     >
       Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
     </div>
-  </div>
-  <footer
-    class="ecl-card__footer"
-  >
     <ul
       class="ecl-card__info-container"
     >
@@ -521,7 +489,7 @@ exports[`Card Default renders correctly with lists 1`] = `
         </span>
       </dd>
     </dl>
-  </footer>
+  </div>
 </article>
 `;
 
@@ -529,18 +497,14 @@ exports[`Card Tile renders correctly 1`] = `
 <article
   class="ecl-card ecl-card--tile"
 >
-  <header
-    class="ecl-card__header"
+  <div
+    class="ecl-card__body"
   >
     <h1
       class="ecl-card__title"
     >
       Better regulation
     </h1>
-  </header>
-  <div
-    class="ecl-card__body"
-  >
     <div
       class="ecl-card__description"
     >
@@ -581,9 +545,6 @@ exports[`Card Tile renders correctly 1`] = `
       </li>
     </ul>
   </div>
-  <footer
-    class="ecl-card__footer"
-  />
 </article>
 `;
 
@@ -593,18 +554,14 @@ exports[`Card Tile renders correctly with extra attributes 1`] = `
   data-test="data-test-value"
   data-test-1="data-test-value-1"
 >
-  <header
-    class="ecl-card__header"
+  <div
+    class="ecl-card__body"
   >
     <h1
       class="ecl-card__title"
     >
       Better regulation
     </h1>
-  </header>
-  <div
-    class="ecl-card__body"
-  >
     <div
       class="ecl-card__description"
     >
@@ -645,9 +602,6 @@ exports[`Card Tile renders correctly with extra attributes 1`] = `
       </li>
     </ul>
   </div>
-  <footer
-    class="ecl-card__footer"
-  />
 </article>
 `;
 
@@ -655,18 +609,14 @@ exports[`Card Tile renders correctly with extra class names 1`] = `
 <article
   class="ecl-card ecl-card--tile custom-class custom-class--test"
 >
-  <header
-    class="ecl-card__header"
+  <div
+    class="ecl-card__body"
   >
     <h1
       class="ecl-card__title"
     >
       Better regulation
     </h1>
-  </header>
-  <div
-    class="ecl-card__body"
-  >
     <div
       class="ecl-card__description"
     >
@@ -707,9 +657,6 @@ exports[`Card Tile renders correctly with extra class names 1`] = `
       </li>
     </ul>
   </div>
-  <footer
-    class="ecl-card__footer"
-  />
 </article>
 `;
 
@@ -717,15 +664,8 @@ exports[`Card Tile renders correctly with lists 1`] = `
 <article
   class="ecl-card ecl-card--tile"
 >
-  <header
-    class="ecl-card__header"
-  >
-    <h1
-      class="ecl-card__title"
-    />
-  </header>
-  <footer
-    class="ecl-card__footer"
+  <div
+    class="ecl-card__body"
   >
     <dl
       class="ecl-description-list ecl-description-list--horizontal ecl-card__list"
@@ -808,6 +748,6 @@ exports[`Card Tile renders correctly with lists 1`] = `
         </span>
       </dd>
     </dl>
-  </footer>
+  </div>
 </article>
 `;

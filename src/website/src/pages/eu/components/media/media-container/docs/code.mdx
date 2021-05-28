@@ -13,7 +13,7 @@ import {
 ## Image
 
 <Playground
-  system="ec"
+  system="eu"
   selectedKind="components-media-container"
   selectedStory="image"
 >
@@ -23,7 +23,7 @@ import {
 ## Video (using &lt;video&gt; tag)
 
 <Playground
-  system="ec"
+  system="eu"
   selectedKind="components-media-container"
   selectedStory="video"
 >
@@ -36,9 +36,19 @@ Note: for embedded videos, a ratio has to be specified in order to display the i
 Possible ratios are: '16-9', '4-3', '3-2' and '1-1'. Most common ratio is 16-9.
 
 <Playground
-  system="ec"
+  system="eu"
   selectedKind="components-media-container"
   selectedStory="embed"
 >
   <Html markup={mediaContainerEmbed} />
 </Playground>
+
+### Media container width
+
+Media containers placed inside a grid container (`.ecl-container`) will expand to this container width; this is the case regardless of the content (image, video, embedded video).
+
+To have a full width media container, the recommended way is to place it outside of the grid container.
+
+However, if there is a need to have a full width media container inside the grid container, the css class `.ecl-media-container--fullwidth` can be used (just put it at the same level as `.ecl-media-container`).
+
+**Caution**: if you plan to use full width media container using this fullwidth css class, we recommend to use the "website" preset, as some global rules here would improve the display (`overflow-x: hidden`).

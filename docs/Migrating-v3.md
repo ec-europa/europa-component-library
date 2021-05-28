@@ -75,6 +75,11 @@ Change impact have been grouped as :
 
 - :heavy_check_mark: variant "search" has been removed (css has been integrated in search form)
 
+**Card**
+
+- :boom: components have been completely refactored at markup
+- :warning: icon size for each info items is different between EC and EU version, `xs` icon size is used for EC and `m` for EU
+
 **Date block**
 
 - :warning: css class for variant "cancelled" has been renamed from `.ecl-date-block--canceled` to `.ecl-date-block--cancelled`
@@ -85,6 +90,11 @@ Change impact have been grouped as :
 
 - :warning: icon size for each items is different between EC and EU version, `m` icon size is used for EC and `l` for EU
 - :warning: icon added to `view_all` link, note that `xs` icon size is used for EC and `m` for EU
+
+**File**
+
+- :boom: markup has been revised, `.ecl-file__label` is now placed in the sub `.ecl-file__detail-info` container
+- :warning: File icon is different between EC and EU version, `2xl` icon size is used for EC and `m` for EU
 
 **Footers**
 
