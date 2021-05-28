@@ -3,6 +3,6 @@ title: Pagination
 defaultTab: usage
 status: ready
 playground:
-  system: ec
+  system: eu
   path: /story/components-navigation-pagination--default
 ---

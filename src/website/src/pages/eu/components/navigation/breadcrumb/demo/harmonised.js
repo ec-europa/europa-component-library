@@ -1,5 +1,5 @@
-import dataSimple from '@ecl/specs-component-breadcrumb/demo/data-simple--ec';
-import dataLong from '@ecl/specs-component-breadcrumb/demo/data--ec';
+import dataSimple from '@ecl/specs-component-breadcrumb/demo/data-simple--eu';
+import dataLong from '@ecl/specs-component-breadcrumb/demo/data--eu';
 import template from '@ecl/twig-component-breadcrumb-harmonised/breadcrumb-harmonised.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 

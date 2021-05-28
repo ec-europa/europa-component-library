@@ -3,6 +3,6 @@ title: Inpage navigation
 defaultTab: usage
 status: ready
 playground:
-  system: ec
+  system: eu
   path: /story/components-navigation-inpage-navigation--default
 ---
