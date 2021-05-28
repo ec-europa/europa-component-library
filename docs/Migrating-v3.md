@@ -178,10 +178,16 @@ Most of the old v2 presets have been removed or modified:
 | ec-preset-website | preset removed (replaced by an optional "reset" css) |
 | ec-preset-legacy | preset removed (no legacy content) |
 | ec-preset-legacy-website | preset removed (no legacy content) |
+| ec-editor | preset removed (replaced by an optional "default" css) |
 | eu-preset-full | preset removed (not used anymore) |
 | eu-preset-website | preset removed (replaced by an optional "reset" css) |
 | eu-preset-legacy | preset removed (no legacy content) |
 | eu-preset-legacy-website | preset removed (no legacy content) |
+| eu-editor | preset removed (replaced by an optional "default" css) |
+
+### HTML tag styling
+
+An optional CSS has been added to allow basic styling of some HTML tags. Please refer to the corresponding documentation (docs/decisions/006-html-tag-style) and website page (utilities/HTML tag styling) for more information
 
 ## System and structure modifications
 
@@ -261,5 +267,4 @@ Here's a list of changes to apply in your project to follow up with ECL v3 SCSS 
 
 ## Coming soon
 
-- styling of some default HTML tags (replacement of ecl-editor)
 - social media icons updates

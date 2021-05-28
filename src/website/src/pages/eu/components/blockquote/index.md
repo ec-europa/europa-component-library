@@ -3,6 +3,6 @@ title: Blockquotes
 defaultTab: usage
 status: ready
 playground:
-  system: ec
+  system: eu
   path: /story/components-blockquote--default
 ---
