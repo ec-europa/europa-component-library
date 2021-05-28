@@ -7,6 +7,12 @@
 /* stylelint-disable-next-line scss/at-import-partial-extension-blacklist */
 @import 'pikaday/scss/pikaday.scss';
 
+$_input-hover-shadow: null !default;
+$_picker-background-color: null !default;
+$_picker-border-radius: null !default;
+$_picker-margin-top: null !default;
+$_picker-button-disable-color: null !default;
+
 .ecl-datepicker {
   margin: 0;
   position: relative;
@@ -22,8 +28,13 @@
 }
 
 .ecl-datepicker__field.ecl-text-input {
+  box-shadow: none;
   padding-right: map.get(theme.$spacing, 'xl');
   width: 100%;
+
+  &:hover {
+    box-shadow: $_input-hover-shadow;
+  }
 }
 
 .ecl-datepicker__icon {
@@ -64,9 +75,12 @@
    * pikaday styling
    */
 .ecl-datepicker-theme {
+  border-radius: $_picker-border-radius;
   border-width: 0;
   color: map.get(theme.$color, 'grey');
   font: map.get(theme.$font, 'm');
+  margin-top: $_picker-margin-top;
+  overflow: hidden;
   width: 100%;
 
   &.is-bound {
@@ -81,12 +95,13 @@
 
   .pika-title {
     background-color: map.get(theme.$color, 'white');
+    padding-bottom: map.get(theme.$spacing, 'xs');
     display: flex;
   }
 
   .pika-label {
     align-items: center;
-    background-color: map.get(theme.$color, 'grey-10');
+    background-color: $_picker-background-color;
     color: map.get(theme.$color, 'grey');
     display: flex;
     flex-grow: 1;
@@ -144,7 +159,7 @@
     text-align: center;
 
     &:hover {
-      background-color: map.get(theme.$color, 'grey-10');
+      background-color: $_picker-background-color;
       border-radius: 0;
     }
   }
@@ -162,7 +177,7 @@
   }
 
   .is-outside-current-month .pika-button {
-    background-color: map.get(theme.$color, 'grey-10');
+    background-color: $_picker-button-disable-color;
     color: map.get(theme.$color, 'grey');
     opacity: 1;
   }
