@@ -65,7 +65,7 @@
         variant: _button_variant,
         icon_position: 'before',
         icon: _overlay.previous.icon|merge({
-          size: 'l',
+          size: 's',
           transform: 'rotate-270',
           name: 'corner-arrow',
         }),
@@ -81,7 +81,7 @@
         type: _button_type,
         variant: _button_variant,
         icon: _overlay.next.icon|merge({
-          size: 'l',
+          size: 's',
           transform: 'rotate-90',
           name: 'corner-arrow',
         }),
@@ -105,7 +105,8 @@
       (_overlay.download.link is defined and _overlay.download.link is not empty) %}
       {% include '@ecl/link/link.html.twig' with _overlay.download|merge({
         link: _overlay.download.link|merge({
-          icon_position: 'after'
+          icon_position: 'after',
+          type: 'standalone',
         }),
         icon: _overlay.download.icon|merge({
           name: 'download',
@@ -122,7 +123,8 @@
       (_overlay.share.link is defined and _overlay.share.link is not empty) %}
       {% include '@ecl/link/link.html.twig' with _overlay.share|merge({
         link: _overlay.share.link|merge({
-          icon_position: 'after'
+          icon_position: 'after',
+          type: 'standalone',
         }),
         icon: _overlay.share.icon|merge({
           name: 'share',
