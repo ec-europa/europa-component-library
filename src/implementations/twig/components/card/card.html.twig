@@ -92,54 +92,48 @@
 {# Print the result #}
 
 <article class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  <header class="ecl-card__header">
-    {% if _card.image.src is defined and _card.image.src is not empty %}
-      {% set _card_img_aria_label = _card.image.alt is defined and _card.image.alt is not empty ? 'aria-label="' ~ _card.image.alt|e('html_attr') ~ '"' : '' %}
-      <div class="ecl-card__image" {{ _card_img_aria_label|raw }} role="img" style="background-image:url('{{ _card.image.src }}')"></div>
-    {% endif %}
+  {% if _card.image.src is defined and _card.image.src is not empty %}
+    {% set _card_img_aria_label = _card.image.alt is defined and _card.image.alt is not empty ? 'aria-label="' ~ _card.image.alt|e('html_attr') ~ '"' : '' %}
+    <div class="ecl-card__image" {{ _card_img_aria_label|raw }} role="img" style="background-image:url('{{ _card.image.src }}')"></div>
+  {% endif %}
+
+  <div class="ecl-card__body">
     {% if _card.meta is not empty %}
       <div class="ecl-card__meta">{{ _card.meta|join(" | ") }}</div>
     {% endif %}
-    <h1 class="ecl-card__title">
-      {%- if _card.title.path %}
-        {% include '@ecl/link/link.html.twig' with {
-          link: _card.title,
-          icon_path: _icon_path
-        } only %}
-      {% else %}
-        {{- _card.title.label }}
-      {%- endif -%}
-    </h1>
-  </header>
-
-  {% if _card.description is not empty or _card.links is not empty %}
-  <div class="ecl-card__body">
-  {% endif %}
-  {% if _card.description is not empty %}
-    <div class="ecl-card__description">{{ _card.description }}</div>
-  {% endif %}
-  {% if _card.links is defined and _card.links is not empty and _card.links is iterable %}
-    <ul class="ecl-card__link-container">
-      {% for link in _card.links %}
-        <li class="ecl-card__link-item">
+    {% if _card.title is not empty %}
+      <h1 class="ecl-card__title">
+        {%- if _card.title.path %}
           {% include '@ecl/link/link.html.twig' with {
-            link: link|merge({ type: 'standalone' }),
-            extra_classes: 'ecl-card__link',
+            link: _card.title,
             icon_path: _icon_path
           } only %}
-        </li>
-      {% endfor %}
-    </ul>
-  {% endif %}
-  {% if _card.description is not empty or _card.links is not empty %}
-  </div>
-  {% endif %}
-  <footer class="ecl-card__footer">
+        {% else %}
+          {{- _card.title.label }}
+        {%- endif -%}
+      </h1>
+    {% endif %}
+    {% if _card.description is not empty %}
+      <div class="ecl-card__description">{{ _card.description }}</div>
+    {% endif %}
+    {% if _card.links is defined and _card.links is not empty and _card.links is iterable %}
+      <ul class="ecl-card__link-container">
+        {% for link in _card.links %}
+          <li class="ecl-card__link-item">
+            {% include '@ecl/link/link.html.twig' with {
+              link: link|merge({ type: 'standalone' }),
+              extra_classes: 'ecl-card__link',
+              icon_path: _icon_path
+            } only %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
     {% if _card.infos is defined and _card.infos is not empty and _card.infos is iterable %}
       <ul class="ecl-card__info-container">
         {% for info in _card.infos %}
           {% if info.icon is defined and info.icon is not empty %}
-            {% set _icon = info.icon|merge({ size: 'xs' }) %}
+            {% set _icon = info.icon %}
             {% if _icon_path is not empty %}
               {% set _icon = _icon|merge({ path: _icon_path }) %}
             {% else %}
@@ -173,7 +167,7 @@
         {% include '@ecl/description-list/description-list.html.twig' with _list|merge({ extra_classes: 'ecl-card__list'}) only %}
       {% endfor %}
     {% endif %}
-  </footer>
+  </div>
 </article>
 
 {% endspaceless %}
