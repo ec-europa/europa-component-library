@@ -88,13 +88,13 @@
 <div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <div class="ecl-file__container">
   {% if _variant == 'thumbnail' %}
-    {% if _label is not empty %}
-      <div class="ecl-file__label">
-        {% include '@ecl/label/label.html.twig' with _label only %}
-      </div>
-    {% endif %}
     <div class="ecl-file__detail">
       <div class="ecl-file__detail-info">
+      {% if _label is not empty %}
+        <div class="ecl-file__label">
+          {% include '@ecl/label/label.html.twig' with _label only %}
+        </div>
+      {% endif %}
       {% if _meta_detail_string is not empty %}
         <div class="ecl-file__detail-meta">
           {{- _meta_detail_string -}}
