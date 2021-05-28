@@ -89,31 +89,23 @@ export default {
   title: 'Components/Site Headers/Harmonised',
   decorators: [withNotes, withCode],
   argTypes: getArgTypes(),
+  parameters: { layout: 'fullscreen' },
 };
 
 export const Default = (args) =>
   siteHeaderHarmonised(prepareData(dataEn, 'default', args));
 
 Default.storyName = 'default';
-Default.parameters = {
-  layout: 'fullscreen',
-  notes: { markdown: notes, json: dataEn },
-};
+Default.parameters = { notes: { markdown: notes, json: dataEn } };
 
 export const LoggedIn = (args) =>
   siteHeaderHarmonised(prepareData(dataLoggedIn, 'logged', args));
 
 LoggedIn.storyName = 'logged in';
-LoggedIn.parameters = {
-  layout: 'fullscreen',
-  notes: { markdown: notes, json: dataLoggedIn },
-};
+LoggedIn.parameters = { notes: { markdown: notes, json: dataLoggedIn } };
 
 export const Translated = (args) =>
   siteHeaderHarmonised(prepareData(dataFr, 'translated', args));
 
 Translated.storyName = 'translated';
-Translated.parameters = {
-  layout: 'fullscreen',
-  notes: { markdown: notes, json: dataFr },
-};
+Translated.parameters = { notes: { markdown: notes, json: dataFr } };

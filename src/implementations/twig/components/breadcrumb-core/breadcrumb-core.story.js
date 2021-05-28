@@ -57,7 +57,7 @@ export const Simple = (args) => breadcrumb(prepareData(dataSimple, args));
 Simple.argTypes = getArgTypes(dataSimple);
 Simple.storyName = 'simple';
 Simple.parameters = {
-  notes: { layout: 'fullscreen', markdown: notes, json: dataSimple },
+  notes: { markdown: notes, json: dataSimple },
 };
 
 export const Long = (args) => breadcrumb(prepareData(dataLong, args));
