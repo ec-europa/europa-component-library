@@ -9,6 +9,10 @@ import { IconList } from '@ecl/website-components';
 
 <IconList system="eu" set="standard" />
 
+## Social media icons
+
+<IconList set="social-media" />
+
 ## Flag icons
 
 <IconList set="flag" />

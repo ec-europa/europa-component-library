@@ -4,13 +4,16 @@ import PropTypes from 'prop-types';
 import iconsEC from '@ecl/resources-ec-icons/dist/lists/all.json';
 import iconsEU from '@ecl/resources-eu-icons/dist/lists/all.json';
 import iconsFlag from '@ecl/resources-flag-icons/dist/lists/flag.json';
+import iconsSocialMedia from '@ecl/resources-social-media-icons/dist/lists/social-media.json';
 
 import IconCard from './IconCard';
 import styles from './IconList.scss';
 
 const IconList = ({ system, set }) => {
-  const iconSystem = system === 'eu' ? iconsEU : iconsEC;
-  const iconSet = set === 'flag' ? iconsFlag : iconSystem;
+  let iconSet = system === 'eu' ? iconsEU : iconsEC;
+  if (set === 'flag') iconSet = iconsFlag;
+  if (set === 'social-media') iconSet = iconsSocialMedia;
+
   return (
     <ul className={styles.icons}>
       {iconSet.map((icon) => (
