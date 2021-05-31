@@ -8,17 +8,18 @@
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 $_border-radius: null !default;
-$_outline-width: 3px;
+$_shadow: null !default;
+$_active-link-border-width: null !default;
+$_outline-width: null !default;
+$_padding-list: null !default;
 
-$_inpage-link-border: map.get(theme.$spacing, '2xs');
-$_toggle-width: calc(
-  #{map.get(theme.$spacing, 'm')} + #{map.get(theme.$icon, 's')} + #{map.get(
-      theme.$spacing,
-      'm'
-    )}
-);
+$_title: null !default;
+$_item: null !default;
+$_trigger: null !default;
 
 .ecl-inpage-navigation {
+  border-radius: $_border-radius;
+  box-shadow: $_shadow;
   display: none;
   margin: 0;
   position: relative;
@@ -33,16 +34,11 @@ $_toggle-width: calc(
 }
 
 .ecl-inpage-navigation__trigger {
-  background: linear-gradient(
-    to left,
-    map.get(theme.$color, 'blue-120') $_toggle-width,
-    map.get(theme.$color, 'blue-100') $_toggle-width
-  );
+  background: map.get($_trigger, 'background');
   border: $_outline-width solid transparent;
   color: map.get(theme.$color, 'white-100');
   display: none;
-  padding: calc(#{map.get(theme.$spacing, 's')} - #{$_outline-width})
-    calc(#{map.get(theme.$spacing, 'm')} - #{$_outline-width});
+  padding: map.get($_trigger, 'padding');
   position: relative;
   text-align: left;
   width: 100%;
@@ -62,11 +58,16 @@ $_toggle-width: calc(
   display: block;
 
   .ecl-inpage-navigation__trigger {
+    border-radius: 0 0 $_border-radius $_border-radius;
     display: block;
     overflow-x: hidden;
-    padding-right: calc(#{$_toggle-width} + #{map.get(theme.$spacing, 'm')});
     text-overflow: ellipsis;
     white-space: nowrap;
+
+    /* stylelint-disable-next-line max-nesting-depth */
+    &[aria-expanded='true'] {
+      border-radius: 0;
+    }
 
     /* stylelint-disable-next-line order/order */
     @include breakpoints.up('l') {
@@ -93,26 +94,27 @@ $_toggle-width: calc(
 }
 
 .ecl-inpage-navigation__title {
-  color: map.get(theme.$color, 'grey-100');
   display: none;
-  font: map.get(theme.$font-prolonged, 'm');
-  padding: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 's');
-  text-transform: uppercase;
 
   /* stylelint-disable-next-line order/order */
   @include breakpoints.up('l') {
-    color: map.get(theme.$color, 'grey-100');
+    background-color: map.get($_title, 'background');
+    border-radius: $_border-radius $_border-radius 0 0;
+    color: map.get($_title, 'color');
     display: block;
+    font: map.get(theme.$font-prolonged, 'm');
+    padding: map.get($_title, 'padding');
+    text-transform: map.get($_title, 'text-transform');
   }
 }
 
 .ecl-inpage-navigation__list {
-  border-top: 1px solid map.get(theme.$color, 'blue-120');
+  border-top: map.get($_trigger, 'separator');
   display: none;
   list-style-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
   list-style-type: none;
   margin: 0;
-  padding: 0 map.get(theme.$spacing, 'm');
+  padding: $_padding-list;
 
   /* stylelint-disable-next-line order/order */
   @include breakpoints.up('l') {
@@ -128,61 +130,59 @@ $_toggle-width: calc(
 }
 
 .ecl-inpage-navigation__link {
+  background-color: map.get($_item, 'background', 's');
+  border-top: map.get($_item, 'separator', 's');
+  color: map.get($_item, 'color', 's');
+  display: block;
   font: map.get(theme.$font, 'm');
-  padding: map.get(theme.$spacing, 's')
-    calc(#{map.get(theme.$spacing, 'xl')} - #{map.get(theme.$spacing, 'm')});
+  font-weight: map.get($_item, 'font-weight', 's');
+  padding: map.get($_item, 'padding', 's');
 
   /* stylelint-disable-next-line order/order */
   @include breakpoints.up('l') {
-    background-color: transparent;
-    border: 0;
-    border-left: $_inpage-link-border solid transparent;
-    color: map.get(theme.$color, 'blue-100');
-    display: block;
+    background-color: map.get($_item, 'background', 'l');
+    border-left: $_active-link-border-width solid transparent;
+    border-top: map.get($_item, 'separator', 'l');
+    color: map.get($_item, 'color', 'l');
     font: map.get(theme.$font-prolonged, 'm');
-    font-weight: map.get(theme.$font-weight, 'bold');
-    padding: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 's')
-      map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 'xs');
+    font-weight: map.get($_item, 'font-weight', 'l');
+    padding: map.get($_item, 'padding', 'l');
   }
 
   &:hover {
+    background-color: map.get($_item, 'background-hover', 's');
+
     /* stylelint-disable-next-line order/order */
     @include breakpoints.up('l') {
-      text-decoration: underline;
+      background-color: map.get($_item, 'background-hover', 'l');
     }
   }
 
   &:focus {
-    outline-offset: -3px;
-  }
-
-  .ecl-inpage-navigation--visible &,
-  .ecl-inpage-navigation--visible &:hover {
-    border-top: 1px solid map.get(theme.$color, 'blue-75');
-    color: map.get(theme.$color, 'white-100');
-    display: block;
-
-    /* stylelint-disable-next-line order/order */
-    @include breakpoints.up('l') {
-      border-top-width: 0;
-      color: map.get(theme.$color, 'blue-100');
-    }
+    outline-offset: -$_outline-width;
   }
 
   /* stylelint-disable-next-line no-descending-specificity */
   .ecl-inpage-navigation__item--active &,
   .ecl-inpage-navigation__item--active &:hover {
+    background-color: map.get($_item, 'background-active', 's');
+    color: map.get($_item, 'color-active', 's');
+
     /* stylelint-disable-next-line order/order */
     @include breakpoints.up('l') {
-      background-color: map.get(theme.$color, 'grey-10');
+      background-color: map.get($_item, 'background-active', 'l');
       border-left-color: map.get(theme.$color, 'blue-100');
-      color: map.get(theme.$color, 'grey-100');
+      color: map.get($_item, 'color-active', 'l');
     }
   }
 }
 
 .ecl-inpage-navigation__item:first-of-type .ecl-inpage-navigation__link {
   border-top-width: 0;
+}
+
+.ecl-inpage-navigation__item:last-of-type .ecl-inpage-navigation__link {
+  border-radius: 0 0 $_border-radius $_border-radius;
 }
 
 .ecl-inpage-navigation__link--is-active {
@@ -196,7 +196,8 @@ $_toggle-width: calc(
 
 .ecl-inpage-navigation__body {
   .ecl-inpage-navigation--visible & {
-    background-color: map.get(theme.$color, 'blue-110');
+    border-radius: 0 0 $_border-radius $_border-radius;
+    box-shadow: $_shadow;
     left: 0;
     position: fixed;
     right: 0;
@@ -204,7 +205,7 @@ $_toggle-width: calc(
 
     /* stylelint-disable-next-line order/order */
     @include breakpoints.up('l') {
-      background: transparent;
+      box-shadow: none;
       position: static;
     }
   }
