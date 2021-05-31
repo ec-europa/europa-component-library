@@ -61,7 +61,6 @@ $_border-size-focus: null !default;
 
 .ecl-tag--removable {
   color: map.get(theme.$color, 'white');
-  pointer-events: none;
   text-decoration: none;
 
   &:hover,
@@ -75,6 +74,7 @@ $_border-size-focus: null !default;
   appearance: none;
   background: none;
   border-width: 0;
+  color: transparent;
   height: map.get(theme.$icon, 'xs');
   margin-left: map.get(theme.$spacing, 'xs');
   padding: 0;

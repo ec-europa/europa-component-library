@@ -134,6 +134,7 @@ Change impact have been grouped as :
 
 **Tag**
 
+- :boom: markup has been revised for the removable tag, no longer a button but a full link
 - :boom: svg icon `.ecl-tag__icon-close` removed from component markup
 
 **Text area**

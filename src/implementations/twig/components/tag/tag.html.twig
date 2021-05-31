@@ -68,17 +68,17 @@
     {{- _tag.label -}}
   </a>
 {% else %}
-  <span class="{{ _css_class }}">
+  <a href="#" class="{{ _css_class }}" {{ _extra_attributes|raw }}>
     {{- _tag.label -}}
   {%- if _tag.type == 'removable' -%}
-    <button type="button" {{ _extra_attributes|raw }} class="ecl-tag__icon">
+    <span class="ecl-tag__icon">
       {% include '@ecl/icon/icon.html.twig' with {
         icon: { name: 'close-filled', size: 'xs', path: _default_icon_path },
         extra_classes: 'ecl-tag__icon-close-filled',
       } only %}
-    </button>
+    </span>
   {%- endif -%}
-  </span>
+  </a>
 {% endif %}
 
 {% endspaceless %}
