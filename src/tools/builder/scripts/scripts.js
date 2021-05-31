@@ -1,10 +1,12 @@
 const babelPresetEnv = require('@babel/preset-env');
 const rollup = require('rollup');
 const babel = require('rollup-plugin-babel');
+const replace = require('@rollup/plugin-replace');
 const resolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
 const { uglify } = require('rollup-plugin-uglify');
 const svg = require('rollup-plugin-svg');
+const getSystem = require('../utils/getSystem');
 
 module.exports = (input, dest, options) => {
   const uglifyCode =
@@ -26,6 +28,11 @@ module.exports = (input, dest, options) => {
     input,
     external: options.external || [],
     plugins: [
+      replace({
+        'getSystem()': JSON.stringify(getSystem()),
+        delimiters: ['', ''],
+        preventAssignment: true,
+      }),
       resolve(),
       commonjs(),
       babel({
