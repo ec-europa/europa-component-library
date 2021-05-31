@@ -153,6 +153,7 @@ $_outline: null !default;
 
   &:hover {
     background-color: map.get($_item, 'background-hover', 's');
+    color: map.get($_item, 'color', 's');
 
     /* stylelint-disable-next-line order/order */
     @include breakpoints.up('l') {
