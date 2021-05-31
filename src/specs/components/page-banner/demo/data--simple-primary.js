@@ -1,6 +1,6 @@
 module.exports = {
   title: 'EU Budget for the future',
-  baseline: 'Innovation, economy, environment and geopolitics',
+  description: 'Innovation, economy, environment and geopolitics',
   link: {
     link: {
       label: 'Subscribe',
@@ -15,6 +15,6 @@ module.exports = {
       transform: 'rotate-90',
     },
   },
-  type: 'primary',
+  variant: 'primary',
   centered: true,
 };
