@@ -1,0 +1,89 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import { breadcrumbSimpleCore, breadcrumbLongCore } from '../demo/core';
+import {
+  breadcrumbSimpleStandardised,
+  breadcrumbLongStandardised,
+} from '../demo/standardised';
+import {
+  breadcrumbSimpleHarmonised,
+  breadcrumbLongHarmonised,
+} from '../demo/harmonised';
+
+## Simple breadcrumb
+
+### Core
+
+<Playground
+  system="eu"
+  selectedKind="components-navigation-breadcrumbs-breadcrumb-core"
+  selectedStory="simple"
+  showFrame
+>
+  <Html markup={breadcrumbSimpleCore} />
+</Playground>
+
+### Standardised
+
+<Playground
+  system="eu"
+  selectedKind="components-navigation-breadcrumbs-breadcrumb-standardised"
+  selectedStory="simple"
+  showFrame
+>
+  <Html markup={breadcrumbSimpleStandardised} />
+</Playground>
+
+### Harmonised
+
+<Playground
+  system="eu"
+  selectedKind="components-navigation-breadcrumbs-breadcrumb-harmonised"
+  selectedStory="simple"
+  showFrame
+>
+  <Html markup={breadcrumbSimpleHarmonised} />
+</Playground>
+
+## Long breadcrumb
+
+When there are more than 3 items, the breadcrumb should be collapsed by default and items should be displayed if there's enough space.
+
+The first item and the last 2 items should always be visible.
+
+### Core
+
+<Playground
+  system="eu"
+  selectedKind="components-navigation-breadcrumbs-breadcrumb-core"
+  selectedStory="long"
+  showFrame
+>
+  <Html markup={breadcrumbLongCore} />
+</Playground>
+
+### Standardised
+
+<Playground
+  system="eu"
+  selectedKind="components-navigation-breadcrumbs-breadcrumb-standardised"
+  selectedStory="long"
+  showFrame
+>
+  <Html markup={breadcrumbLongStandardised} />
+</Playground>
+
+### Harmonised
+
+<Playground
+  system="eu"
+  selectedKind="components-navigation-breadcrumbs-breadcrumb-harmonised"
+  selectedStory="long"
+  showFrame
+>
+  <Html markup={breadcrumbLongHarmonised} />
+</Playground>

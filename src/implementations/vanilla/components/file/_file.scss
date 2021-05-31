@@ -1,0 +1,355 @@
+/*
+ * File
+ * @define file; weak
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+$_border-radius: null !default;
+$_border-color: null !default;
+$_file-icon-margin-top: null !default;
+$_file-icon-align-self: null !default;
+$_file-info-margin-left: null !default;
+$_file-color: null !default;
+$_file-elements-margin: null !default;
+$_file-detail-padding-bottom: null !default;
+$_file-detail-meta-color: null !default;
+$_file-detail-flex-direction: null !default;
+$_file-description-color: null !default;
+$_file-spacing: null !default;
+$_file-spacing-last-child: null !default;
+$_file-download-self-align: null !default;
+$_file-translation-toggle-margin: null !default;
+$_file-translation-container-border: null !default;
+$_file-translation-container-padding-left: null !default;
+$_file-translation-detail-margin-bottom: null !default;
+$_file-translation-title-margin-bottom: null !default;
+$_file-translation-toggle-border: null !default;
+$_file-translation-padding: null !default;
+$_file-translation-border-top-first-child: null !default;
+$_file-taxonomy-spacing: null !default;
+$_file-container-padding-bottom: null !default;
+$_file-image-margin-left: null !default;
+$_file-image-margin-right: null !default;
+$_container-background: null !default;
+$_icon-color: null !default;
+$_translation-border-color: null !default;
+$_image-width: null !default;
+
+.ecl-file {
+  border-radius: $_border-radius;
+  margin: 0;
+  max-width: 823px;
+  overflow: hidden;
+}
+
+.ecl-file__container {
+  align-items: center;
+  background-color: $_container-background;
+  display: flex;
+  flex-wrap: wrap;
+  padding: map.get(theme.$spacing, 'l');
+}
+
+.ecl-file__icon {
+  align-self: $_file-icon-align-self;
+  fill: $_icon-color;
+  margin-top: $_file-icon-margin-top;
+}
+
+.ecl-file__info {
+  display: flex;
+  flex-basis: 50%;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  margin-left: $_file-info-margin-left;
+}
+
+.ecl-file__title {
+  color: $_file-color;
+  font: map.get(theme.$font, 'm');
+  font-weight: map.get(theme.$font-weight, 'bold');
+  width: 100%;
+}
+
+.ecl-file__language {
+  color: $_file-color;
+  font: map.get(theme.$font, 's');
+  font-weight: map.get(theme.$font-weight, 'bold');
+  margin-right: map.get(theme.$spacing, '2xs');
+  margin-top: $_file-elements-margin;
+}
+
+.ecl-file__meta {
+  color: $_file-color;
+  font: map.get(theme.$font, 's');
+  margin-top: $_file-elements-margin;
+}
+
+.ecl-file__detail {
+  border-bottom: 1px solid $_border-color;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: map.get(theme.$spacing, 'l');
+  padding-bottom: $_file-detail-padding-bottom;
+  width: 100%;
+}
+
+.ecl-file__detail-meta {
+  color: $_file-detail-meta-color;
+  font: map.get(theme.$font, 's');
+  margin-bottom: map.get(theme.$spacing, 'xs');
+}
+
+.ecl-file__detail-meta-item {
+  margin-left: map.get(theme.$spacing, 'xs');
+
+  &::before {
+    content: '|';
+    margin-right: map.get(theme.$spacing, 'xs');
+  }
+}
+
+.ecl-file__detail-meta-item:first-of-type {
+  margin-left: 0;
+  text-transform: uppercase;
+
+  &::before {
+    display: none;
+  }
+}
+
+.ecl-file__description {
+  color: $_file-description-color;
+  font: map.get(theme.$font-prolonged, 'm');
+  margin-top: map.get(theme.$spacing, 'xs');
+  max-width: 80ch;
+}
+
+.ecl-file__image {
+  display: block;
+  margin-top: map.get(theme.$spacing, 'm');
+  max-width: $_image-width;
+}
+
+.ecl-file__taxonomy {
+  border-bottom: 1px solid $_border-color;
+  margin-bottom: $_file-spacing;
+  padding-bottom: $_file-spacing;
+  width: 100%;
+}
+
+.ecl-file__label {
+  margin-bottom: map.get(theme.$spacing, 'm');
+}
+
+.ecl-file__translation-language {
+  color: $_file-description-color;
+  font: map.get(theme.$font, 's');
+  font-weight: map.get(theme.$font-weight, 'bold');
+}
+
+.ecl-file__translation-container {
+  border: $_file-translation-container-border;
+  border-bottom-left-radius: $_border-radius;
+  border-bottom-right-radius: $_border-radius;
+  border-top: 0;
+  display: flex;
+  flex-direction: column;
+  padding-left: map.get(theme.$spacing, 'l');
+  padding-right: map.get(theme.$spacing, 'l');
+}
+
+.ecl-file__translation-toggle {
+  align-self: flex-end;
+  border: $_file-translation-toggle-border;
+  font: map.get(theme.$font, 'm');
+  font-weight: map.get(theme.$font-weight, 'regular');
+  margin-bottom: $_file-translation-toggle-margin;
+  margin-right: -#{map.get(theme.$spacing, 'm')};
+  margin-top: $_file-translation-toggle-margin;
+  padding: $_file-translation-padding;
+
+  .no-js & {
+    display: none;
+  }
+}
+
+.ecl-file__translation-list {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+
+  .no-js & {
+    display: block;
+  }
+}
+
+.ecl-file__translation-item {
+  border-top: 1px solid $_translation-border-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: $_file-spacing;
+  padding-top: $_file-spacing;
+
+  &:last-child {
+    padding-bottom: $_file-spacing-last-child;
+  }
+
+  &:first-child {
+    border-top: $_file-translation-border-top-first-child;
+  }
+}
+
+.ecl-file__translation-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-wrap: wrap;
+}
+
+.ecl-file__translation-title {
+  color: $_file-color;
+  font: map.get(theme.$font, 'm');
+  font-weight: map.get(theme.$font-weight, 'bold');
+}
+
+.ecl-file__translation-meta {
+  color: $_file-color;
+  font: map.get(theme.$font, 's');
+  margin-top: $_file-elements-margin;
+}
+
+.ecl-file__download,
+.ecl-file__translation-download {
+  align-self: $_file-download-self-align;
+  font: map.get(theme.$font, 'm');
+  width: 100%;
+}
+
+.ecl-file__translation-description {
+  color: $_file-color;
+  display: block;
+  font: map.get(theme.$font, 'm');
+  max-width: 80ch;
+}
+
+.ecl-file__translation-container[aria-expanded='true'] {
+  .ecl-file__translation-list {
+    display: block;
+  }
+
+  .ecl-file__translation-toggle .ecl-button__icon {
+    transform: rotate(0);
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('s') {
+  .ecl-file__download,
+  .ecl-file__translation-download {
+    width: auto;
+  }
+}
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('m') {
+  .ecl-file__translation-container {
+    padding-left: $_file-translation-container-padding-left;
+  }
+
+  .ecl-file__translation-item {
+    flex-direction: row;
+    max-width: 100%;
+  }
+
+  .ecl-file__detail {
+    flex-direction: $_file-detail-flex-direction;
+  }
+
+  .ecl-file__detail-info {
+    flex-grow: 1;
+  }
+
+  .ecl-file__image {
+    align-self: flex-start;
+    margin-left: $_file-image-margin-left;
+    margin-right: $_file-image-margin-right;
+    margin-top: 0;
+  }
+
+  .ecl-file__taxonomy {
+    margin-bottom: $_file-taxonomy-spacing;
+    padding-bottom: $_file-taxonomy-spacing;
+  }
+}
+
+/*
+* thumbnail variant
+*/
+.ecl-file--thumbnail {
+  .ecl-file__container {
+    padding-bottom: $_file-container-padding-bottom;
+  }
+
+  .ecl-file__info {
+    margin-left: 0;
+  }
+
+  .ecl-file__title {
+    font: map.get(theme.$font-prolonged, 'm');
+    font-weight: map.get(theme.$font-weight, 'bold');
+  }
+
+  .ecl-file__language,
+  .ecl-file__meta {
+    margin-top: 0;
+  }
+
+  .ecl-file__translation-item {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .ecl-file__translation-item:first-of-type {
+    border-top-width: 0;
+    padding-top: 0;
+  }
+
+  .ecl-file__translation-detail {
+    flex-basis: 100%;
+    margin-bottom: $_file-translation-detail-margin-bottom;
+  }
+
+  .ecl-file__translation-info {
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .ecl-file__translation-title {
+    font: map.get(theme.$font-prolonged, 'm');
+    font-weight: map.get(theme.$font-weight, 'bold');
+    margin-bottom: $_file-translation-title-margin-bottom;
+  }
+
+  .ecl-file__translation-meta {
+    margin-left: map.get(theme.$spacing, '2xs');
+    margin-top: 0;
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('m') {
+  .ecl-file--thumbnail {
+    .ecl-file__container {
+      padding-bottom: map.get(theme.$spacing, 'l');
+    }
+
+    .ecl-file__translation-container {
+      padding-left: map.get(theme.$spacing, 'l');
+    }
+  }
+}

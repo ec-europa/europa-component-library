@@ -14,6 +14,7 @@ The following guidelines aim to facilitate migration between ECL v2 to v3.
   - [Packages](#packages)
   - [File structure](#file-structure)
   - [SCSS parsing and rendering](#scss-parsing-and-rendering)
+- [Js bundle](#js-bundle)
 - [Coming soon](#coming-soon)
 
 ## Content modifications
@@ -74,6 +75,11 @@ Change impact have been grouped as :
 
 - :heavy_check_mark: variant "search" has been removed (css has been integrated in search form)
 
+**Card**
+
+- :boom: components have been completely refactored at markup
+- :warning: icon size for each info items is different between EC and EU version, `xs` icon size is used for EC and `m` for EU
+
 **Date block**
 
 - :warning: css class for variant "cancelled" has been renamed from `.ecl-date-block--canceled` to `.ecl-date-block--cancelled`
@@ -84,6 +90,11 @@ Change impact have been grouped as :
 
 - :warning: icon size for each items is different between EC and EU version, `m` icon size is used for EC and `l` for EU
 - :warning: icon added to `view_all` link, note that `xs` icon size is used for EC and `m` for EU
+
+**File**
+
+- :boom: markup has been revised, `.ecl-file__label` is now placed in the sub `.ecl-file__detail-info` container
+- :warning: File icon is different between EC and EU version, `2xl` icon size is used for EC and `m` for EU
 
 **Footers**
 
@@ -98,6 +109,13 @@ Change impact have been grouped as :
 **Forms**
 
 - :warning: css class `.ecl-form-label--hidden` has been removed (it was marked as deprecated already). You can use utility class `.ecl-u-sr-only` to achieve the same result, as it is outside a component
+
+**Gallery**
+
+- :warning: A css class has been added to the button for viewing all the items in a gallery: `ecl-gallery__view-all`
+- :warning: The icon for the close button of the overlay is now `closed-filled` and not `close` anymore
+- :warning: The share and download button in the overlay are now implementations of the `standalone` link component
+- :warning: The next and previous icons in the overlay have now the size `s` instead of `l`
 
 **Icon**
 
@@ -177,10 +195,16 @@ Most of the old v2 presets have been removed or modified:
 | ec-preset-website | preset removed (replaced by an optional "reset" css) |
 | ec-preset-legacy | preset removed (no legacy content) |
 | ec-preset-legacy-website | preset removed (no legacy content) |
+| ec-editor | preset removed (replaced by an optional "default" css) |
 | eu-preset-full | preset removed (not used anymore) |
 | eu-preset-website | preset removed (replaced by an optional "reset" css) |
 | eu-preset-legacy | preset removed (no legacy content) |
 | eu-preset-legacy-website | preset removed (no legacy content) |
+| eu-editor | preset removed (replaced by an optional "default" css) |
+
+### HTML tag styling
+
+An optional CSS has been added to allow basic styling of some HTML tags. Please refer to the corresponding documentation (docs/decisions/006-html-tag-style) and website page (utilities/HTML tag styling) for more information
 
 ## System and structure modifications
 
@@ -250,7 +274,14 @@ Here's a list of changes to apply in your project to follow up with ECL v3 SCSS 
 - ECL global variables are no longer available. Values for `$ecl-color-grey-5` are now accessible through a theming layer. In the most generalized way: import the main theme file `@use '@ecl/theme-dev/theme'` and access values through the corresponding map `map.get(theme.$color, 'grey-5')`.
 - Update input options for sass compiler or rendering function. Pass `getsystem()` function from [`functions`](https://sass-lang.com/documentation/js-api#functions) parameter. Some SCSS files in ECL will depend on this function to get system-specific context. `ecl-builder` uses `@ecl/builder/utils/getSystem`.
 
+## Js bundle
+
+- ECL uses Pikaday for the datepicker component. Pikaday dynamically requires moment.js which messes up JS bundling.
+- ECL does not want to include moment.js in its release in order to reduce the final bundle size.
+- Instruct minifier to preserve the UMD locally scoped 'moment' (default Pikaday module) variable in Pikaday in order to correctly reference the global 'moment' included separately from the ECL library bundle.
+- When Pikaday really removes moment from its dependencies and does not load it dynamically, bundlers such as rollup will be able to handle this more gracefully.
+- @see https://github.com/Pikaday/Pikaday/issues/815
+
 ## Coming soon
 
-- styling of some default HTML tags (replacement of ecl-editor)
 - social media icons updates

@@ -1,0 +1,85 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import {
+  listOrdered,
+  listUnordered,
+  listUnorderedNoBullet,
+  listUnorderedWithDivider,
+  listDescription,
+  listDescriptionHorizontal,
+  listDescriptionTaxonomy,
+} from '../demo';
+
+## Ordered list
+
+<Playground
+  system="eu"
+  selectedKind="components-list-ordered-list"
+  selectedStory="default"
+>
+  <Html markup={listOrdered} />
+</Playground>
+
+## Unordered list
+
+<Playground
+  system="eu"
+  selectedKind="components-list-unordered-list"
+  selectedStory="text"
+>
+  <Html markup={listUnordered} />
+</Playground>
+
+### Without bullet
+
+<Playground
+  system="eu"
+  selectedKind="components-list-unordered-list"
+  selectedStory="no-bullet"
+>
+  <Html markup={listUnorderedNoBullet} />
+</Playground>
+
+### With dividers
+
+<Playground
+  system="eu"
+  selectedKind="components-list-unordered-list"
+  selectedStory="divider"
+>
+  <Html markup={listUnorderedWithDivider} />
+</Playground>
+
+## Description list
+
+<Playground
+  system="eu"
+  selectedKind="components-list-description-list"
+  selectedStory="vertical"
+>
+  <Html markup={listDescription} />
+</Playground>
+
+## Description list (horizontal)
+
+<Playground
+  system="eu"
+  selectedKind="components-list-description-list"
+  selectedStory="horizontal"
+>
+  <Html markup={listDescriptionHorizontal} />
+</Playground>
+
+## Description list (taxonomy)
+
+<Playground
+  system="eu"
+  selectedKind="components-list-description-list"
+  selectedStory="taxonomy"
+>
+  <Html markup={listDescriptionTaxonomy} />
+</Playground>

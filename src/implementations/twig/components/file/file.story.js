@@ -1,6 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import { correctSvgPath } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 import dataWithTranslation from '@ecl/specs-component-file/demo/data--with-translation';
 import dataWithoutTranslation from '@ecl/specs-component-file/demo/data--without-translation';
@@ -123,6 +124,10 @@ const getArgTypes = (data) => {
 
 const prepareData = (data, args) => {
   correctSvgPath(data);
+  const system = getSystem();
+  if (system === 'eu') {
+    data.icon.size = 'm';
+  }
   data.detail_meta = args.detail_meta;
   data.title = args.title;
   data.description = args.description;

@@ -3,6 +3,7 @@
   Parameters:
   - "alt" (string) (default: ''),
   - "image" (string) (default: ''),
+  - "full_width": (bool) (default: false) Full width media container (inside the grid container)
   - "extra_classes" (string) (default: ''),
   - "sources" (array) (default: []): format: [
       {
@@ -38,6 +39,7 @@
 
 {% set _css_class = 'ecl-media-container' %}
 {% set _image = image|default('') %}
+{% set _full_width = full_width|default(false) %}
 {% set _description = description|default('') %}
 {% set _alt = alt|default('') %}
 {% set _extra_attributes = '' %}
@@ -47,6 +49,10 @@
 {% set _tracks = tracks|default({}) %}
 
 {# Internal logic - Process properties #}
+
+{% if _full_width %}
+  {% set _css_class = _css_class ~ ' ecl-media-container--full-width' %}
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}

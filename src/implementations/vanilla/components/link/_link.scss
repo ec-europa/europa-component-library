@@ -23,7 +23,8 @@ $_negative-color-hover: null !default;
 $_negative-color-visited: null !default;
 $_negative-standalone-color-hover: null !default;
 
-.ecl-link {
+.ecl-link,
+%ecl-link {
   color: $_color;
   margin: 0;
   text-decoration: underline;
@@ -42,6 +43,7 @@ $_negative-standalone-color-hover: null !default;
     color: $_color-visited;
   }
 }
+
 .ecl-link--no-visited:visited {
   color: $_color;
 

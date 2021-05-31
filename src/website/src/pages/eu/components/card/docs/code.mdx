@@ -1,0 +1,39 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import { card, tile, cardTaxonomy, tileTaxonomy } from '../demo';
+
+## Card
+
+<Playground system="eu" selectedKind="components-card" selectedStory="card">
+  <Html markup={card} />
+</Playground>
+
+## Card taxonomy
+
+<Playground
+  system="eu"
+  selectedKind="components-card"
+  selectedStory="card-taxonomy"
+>
+  <Html markup={cardTaxonomy} />
+</Playground>
+
+## Tile
+
+<Playground system="eu" selectedKind="components-card" selectedStory="tile">
+  <Html markup={tile} />
+</Playground>
+
+## Tile taxonomy
+
+<Playground
+  system="eu"
+  selectedKind="components-card"
+  selectedStory="tile-taxonomy"
+>
+  <Html markup={tileTaxonomy} />
+</Playground>

@@ -1,0 +1,13 @@
+---
+title: Usage
+order: 1
+---
+
+import { Link, Paragraph } from '@ecl/website-components';
+
+<Paragraph size="lead">
+  Clearfix utilities is a simple helper to clear any floating content within a
+  container
+</Paragraph>
+
+To fix floating content, just add class `ecl-u-clearfix` to the parent element.
