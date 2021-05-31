@@ -11,11 +11,10 @@ $_border-radius: null !default;
 $_shadow: null !default;
 $_active-link-border-width: null !default;
 $_outline-width: null !default;
-$_padding-list: null !default;
-
 $_title: null !default;
 $_item: null !default;
 $_trigger: null !default;
+$_list: null !default;
 
 .ecl-inpage-navigation {
   border-radius: $_border-radius;
@@ -35,6 +34,7 @@ $_trigger: null !default;
 
 .ecl-inpage-navigation__trigger {
   background: map.get($_trigger, 'background');
+  background-origin: border-box;
   border: $_outline-width solid transparent;
   color: map.get(theme.$color, 'white-100');
   display: none;
@@ -86,7 +86,7 @@ $_trigger: null !default;
 
 .ecl-inpage-navigation__trigger-icon {
   position: absolute;
-  right: map.get(theme.$spacing, 'm');
+  right: calc(#{map.get(theme.$spacing, 's')} - #{$_outline-width});
 
   .ecl-inpage-navigation__trigger[aria-expanded='true'] & {
     transform: rotate(0deg);
@@ -109,15 +109,17 @@ $_trigger: null !default;
 }
 
 .ecl-inpage-navigation__list {
+  background-color: map.get($_list, 'background', 's');
   border-top: map.get($_trigger, 'separator');
   display: none;
   list-style-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
   list-style-type: none;
   margin: 0;
-  padding: $_padding-list;
+  padding: map.get($_list, 'padding');
 
   /* stylelint-disable-next-line order/order */
   @include breakpoints.up('l') {
+    background-color: map.get($_list, 'background', 'l');
     border-top-width: 0;
     display: block;
     padding: 0;
@@ -160,6 +162,15 @@ $_trigger: null !default;
 
   &:focus {
     outline-offset: -$_outline-width;
+  }
+
+  &:visited {
+    color: map.get($_item, 'color', 's');
+
+    /* stylelint-disable-next-line order/order */
+    @include breakpoints.up('l') {
+      color: map.get($_item, 'color', 'l');
+    }
   }
 
   /* stylelint-disable-next-line no-descending-specificity */

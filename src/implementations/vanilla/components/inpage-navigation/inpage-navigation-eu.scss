@@ -15,7 +15,6 @@ $toggle-width: calc(
   $_shadow: 0 0 6px rgba(map.get(theme.$color, 'blue-100'), 0.2),
   $_active-link-border-width: 0,
   $_outline-width: $outline-width,
-  $_padding-list: 0,
   $_title: (
     'background': map.get(theme.$color, 'blue-100'),
     'color': map.get(theme.$color, 'white-100'),
@@ -72,5 +71,12 @@ $toggle-width: calc(
       calc(#{map.get(theme.$spacing, 's')} - #{$outline-width})
       calc(#{map.get(theme.$spacing, 's')} - #{$outline-width}),
     'separator': none,
-  )
+  ),
+  $_list: (
+    'padding': 0,
+    'background': (
+      's': transparent,
+      'l': transparent,
+    ),
+  ),
 );

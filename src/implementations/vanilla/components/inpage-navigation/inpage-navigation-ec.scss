@@ -15,7 +15,6 @@ $toggle-width: calc(
   $_shadow: none,
   $_active-link-border-width: map.get(theme.$spacing, '2xs'),
   $_outline-width: $outline-width,
-  $_padding-list: 0 map.get(theme.$spacing, 'm'),
   $_title: (
     'background': transparent,
     'color': map.get(theme.$color, 'grey-100'),
@@ -65,8 +64,8 @@ $toggle-width: calc(
   $_trigger: (
     'background': linear-gradient(
       to left,
-      map.get(theme.$color, 'blue-120') $_toggle-width,
-      map.get(theme.$color, 'blue-100') $_toggle-width
+      map.get(theme.$color, 'blue-120') $toggle-width,
+      map.get(theme.$color, 'blue-100') $toggle-width
     ),
     'padding':
       calc(#{map.get(theme.$spacing, 's')} - #{$outline-width})
@@ -74,5 +73,12 @@ $toggle-width: calc(
       calc(#{map.get(theme.$spacing, 's')} - #{$outline-width})
       calc(#{map.get(theme.$spacing, 'm')} - #{$outline-width}),
     'separator': 1px solid map.get(theme.$color, 'blue-120'),
-  )
+  ),
+  $_list: (
+    'padding': 0 map.get(theme.$spacing, 'm'),
+    'background': (
+      's': map.get(theme.$color, 'blue-110'),
+      'l': transparent,
+    ),
+  ),
 );
