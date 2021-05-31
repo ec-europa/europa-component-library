@@ -9,7 +9,7 @@ A Hero banner displays the main message of the page, along with additional infor
 - always use a short, distinct and indicative heading
 - select anappropriate image, that is of high quality, suggestive, complementary and relevant for the related content
 - keep in mind the font-to-background contrast ratio, this improves a page's readability (e.g. dark backgrounds - white text / light backgrounds - black text)
-- if using an image banner, make sure the highlight or main object within the image is visible (text alignment & variants, see <Link to="/playground/ec/?path=/story/components-banners-hero-banner--image-box">playground</Link>)
+- if using an image banner, make sure the highlight or main object within the image is visible (text alignment & variants, see <Link to="/playground/eu/?path=/story/components-banners-hero-banner--image-box">playground</Link>)
 
 ## Don'ts
 
