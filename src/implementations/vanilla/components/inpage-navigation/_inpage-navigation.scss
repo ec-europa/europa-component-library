@@ -139,6 +139,7 @@ $_outline: null !default;
   font: map.get(theme.$font, 'm');
   font-weight: map.get($_item, 'font-weight', 's');
   padding: map.get($_item, 'padding', 's');
+  text-decoration: none;
 
   /* stylelint-disable-next-line order/order */
   @include breakpoints.up('l') {
@@ -154,6 +155,7 @@ $_outline: null !default;
   &:hover {
     background-color: map.get($_item, 'background-hover', 's');
     color: map.get($_item, 'color', 's');
+    text-decoration: map.get($_item, 'text-decoration-hover');
 
     /* stylelint-disable-next-line order/order */
     @include breakpoints.up('l') {
