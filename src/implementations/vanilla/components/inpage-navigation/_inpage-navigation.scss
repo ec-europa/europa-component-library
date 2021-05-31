@@ -10,11 +10,11 @@
 $_border-radius: null !default;
 $_shadow: null !default;
 $_active-link-border-width: null !default;
-$_outline-width: null !default;
 $_title: null !default;
 $_item: null !default;
 $_trigger: null !default;
 $_list: null !default;
+$_outline: null !default;
 
 .ecl-inpage-navigation {
   border-radius: $_border-radius;
@@ -35,7 +35,7 @@ $_list: null !default;
 .ecl-inpage-navigation__trigger {
   background: map.get($_trigger, 'background');
   background-origin: border-box;
-  border: $_outline-width solid transparent;
+  border: map.get($_outline, 'width') solid transparent;
   color: map.get(theme.$color, 'white-100');
   display: none;
   padding: map.get($_trigger, 'padding');
@@ -49,7 +49,7 @@ $_list: null !default;
   }
 
   &:focus {
-    border-color: map.get(theme.$color, 'yellow-100');
+    border-color: map.get($_outline, 'color');
     outline: none;
   }
 }
@@ -86,7 +86,7 @@ $_list: null !default;
 
 .ecl-inpage-navigation__trigger-icon {
   position: absolute;
-  right: calc(#{map.get(theme.$spacing, 's')} - #{$_outline-width});
+  right: calc(#{map.get(theme.$spacing, 's')} - #{map.get($_outline, 'width')});
 
   .ecl-inpage-navigation__trigger[aria-expanded='true'] & {
     transform: rotate(0deg);
@@ -161,7 +161,7 @@ $_list: null !default;
   }
 
   &:focus {
-    outline-offset: -$_outline-width;
+    outline-offset: -(map.get($_outline, 'width'));
   }
 
   &:visited {
