@@ -11,7 +11,7 @@
   },
   "scripts": {
     "build:copy": "ecl-builder copy",
-    "build:scripts": "ecl-builder scripts",
+    "build:scripts": "cross-env ECL_SYSTEM=eu ecl-builder scripts",
     "build:styles": "cross-env ECL_SYSTEM=eu ecl-builder styles",
     "build": "run-p build:*",
     "clean": "rimraf build dist",
