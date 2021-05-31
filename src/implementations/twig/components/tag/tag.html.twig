@@ -72,6 +72,10 @@
     {{- _tag.label -}}
     <span class="ecl-tag__icon">
       {% include '@ecl/icon/icon.html.twig' with {
+        icon: { name: 'close', size: 'xs', path: _default_icon_path },
+        extra_classes: 'ecl-tag__icon-close',
+      } only %}
+      {% include '@ecl/icon/icon.html.twig' with {
         icon: { name: 'close-filled', size: 'xs', path: _default_icon_path },
         extra_classes: 'ecl-tag__icon-close-filled',
       } only %}
