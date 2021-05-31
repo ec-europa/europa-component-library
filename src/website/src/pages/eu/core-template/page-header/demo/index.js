@@ -1,6 +1,6 @@
 import demoDefault from '@ecl/specs-component-page-header-core/demo/data--default';
 import demoBackgroundImage from '@ecl/specs-component-page-header-core/demo/data--background-image';
-import demoBreadcrumbLong from '@ecl/specs-component-breadcrumb/demo/data--ec';
+import demoBreadcrumbLong from '@ecl/specs-component-breadcrumb/demo/data--eu';
 
 import template from '@ecl/twig-component-page-header-core/page-header-core.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';

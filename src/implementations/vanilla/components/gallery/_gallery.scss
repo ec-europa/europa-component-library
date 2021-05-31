@@ -8,9 +8,15 @@
 @use "@ecl/vanilla-layout-grid/mixins/breakpoints";
 @use "@ecl/vanilla-utility-media/media" as uMedia;
 
-$_image-height: 185px;
-$_description-background: map.get(theme.$color, 'grey-100');
+$_description-background: null !default;
 $_description-color: map.get(theme.$color, 'white-100');
+$_description-icon: null !default;
+$_description-icon-mobile: null !default;
+$_gallery-info-color: null !default;
+$_gallery-info-font: null !default;
+$_image-height: 185px;
+$_item-outline: null !default;
+$_item-outline-offset: null !default;
 
 .ecl-gallery {
   margin: 0;
@@ -19,7 +25,7 @@ $_description-color: map.get(theme.$color, 'white-100');
 .ecl-gallery__list {
   display: block;
   list-style: none;
-  margin-bottom: map.get(theme.$spacing, 'm');
+  margin-bottom: 0;
   margin-top: -#{map.get(theme.$spacing, 'xs')};
   padding-left: 0;
 }
@@ -48,8 +54,8 @@ $_description-color: map.get(theme.$color, 'white-100');
   outline: none;
 
   .ecl-gallery__image-container {
-    outline: 3px solid map.get(theme.$color, 'yellow-100');
-    outline-offset: -3px;
+    outline: $_item-outline;
+    outline-offset: $_item-outline-offset;
   }
 }
 
@@ -77,10 +83,11 @@ $_description-color: map.get(theme.$color, 'white-100');
 }
 
 .ecl-gallery__description {
+  align-items: center;
   background-color: $_description-background;
   color: $_description-color;
   display: flex;
-  font: map.get(theme.$font, 'm');
+  font: map.get(theme.$font, 's');
   justify-content: space-between;
   padding: map.get(theme.$spacing, 's');
   text-decoration: none;
@@ -89,6 +96,8 @@ $_description-color: map.get(theme.$color, 'white-100');
 
 .ecl-gallery__description-icon {
   flex-shrink: 0;
+  height: $_description-icon-mobile;
+  width: $_description-icon-mobile;
 }
 
 .ecl-gallery__meta {
@@ -101,15 +110,18 @@ $_description-color: map.get(theme.$color, 'white-100');
 }
 
 .ecl-gallery__info {
-  background-color: map.get(theme.$color, 'grey-10');
+  color: $_gallery-info-color;
   float: right;
-  font: map.get(theme.$font, 'xs');
-  padding: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 's');
+  font: $_gallery-info-font;
+  padding: map.get(theme.$spacing, 'm') map.get(theme.$spacing, 's');
+}
+
+.ecl-gallery__view-all {
+  margin: map.get(theme.$spacing, '2xs');
 }
 
 .ecl-gallery__footer {
   border-top: 1px solid map.get(theme.$color, 'grey-10');
-  margin-top: map.get(theme.$spacing, 'xs');
   padding-top: map.get(theme.$spacing, 'm');
 }
 
@@ -162,8 +174,8 @@ $_description-color: map.get(theme.$color, 'white-100');
   }
 
   .ecl-gallery__description-icon {
-    height: map-get(theme.$icon, 'm');
-    width: map-get(theme.$icon, 'm');
+    height: $_description-icon;
+    width: $_description-icon;
   }
 
   .ecl-gallery__item:hover {
@@ -180,19 +192,35 @@ $_description-color: map.get(theme.$color, 'white-100');
 /*
  * Overlay
 */
+$_actions-margin: null !default;
+$_actions-margin-desktop: null !default;
+$_arrow-margin: null !default;
+$_arrow-margins: null !default;
+$_close-button-color: null !default;
+$_description-margin-desktop: null !default;
 $_overlay-background: map.get(theme.$color, 'black-100');
+$_overlay-description-color: null !default;
+$_overlay-radius: null !default;
+$_overlay-shadow: null !default;
 $_overlay-z-index: map.get(theme.$z-index, 'overlay');
-$_detail-background: map.get(theme.$color, 'grey-100');
-$_detail-color: map.get(theme.$color, 'white-100');
+$_detail-background: null !default;
+$_detail-color: null !default;
+$_gallery-meta-color: null !default;
+$_overlay-links-color: null !default;
+$_overlay-links-hover-color: null !default;
 
 .ecl-gallery__overlay {
   background-color: $_overlay-background;
+  border-radius: $_overlay-radius;
   border-width: 0;
+  box-shadow: $_overlay-shadow;
   display: none;
   flex-direction: column;
   height: 100%;
   left: 0;
   margin: 0;
+  max-height: 100%;
+  max-width: 100%;
   padding: 0;
   position: fixed;
   top: 0;
@@ -213,12 +241,13 @@ $_detail-color: map.get(theme.$color, 'white-100');
 }
 
 .ecl-gallery__close-button {
-  color: $_detail-color;
+  color: $_close-button-color;
   font-weight: map.get(theme.$font-weight, 'regular');
+  margin: map.get(theme.$spacing, '2xs');
 
   &:hover,
   &:focus {
-    color: $_detail-color;
+    color: $_overlay-links-hover-color;
   }
 }
 
@@ -258,54 +287,56 @@ $_detail-color: map.get(theme.$color, 'white-100');
 
 .ecl-gallery__slider-previous {
   align-self: flex-start;
-  color: $_detail-color;
+  color: map.get(theme.$color, 'white');
   flex-shrink: 0;
+  margin: $_arrow-margins;
 
   &:hover,
   &:focus {
-    color: $_detail-color;
+    color: map.get(theme.$color, 'yellow-25');
   }
 }
 
 .ecl-gallery__slider-next {
   align-self: flex-end;
   bottom: 0;
-  color: $_detail-color;
+  color: map.get(theme.$color, 'white');
   flex-shrink: 0;
+  margin: $_arrow-margins;
   position: absolute;
   right: 0;
 
   &:hover,
   &:focus {
-    color: $_detail-color;
+    color: map.get(theme.$color, 'yellow-25');
   }
 }
 
 .ecl-gallery__detail {
   background-color: $_detail-background;
-  color: $_detail-color;
+  color: $_detail_color;
   flex-shrink: 0;
   padding: map.get(theme.$spacing, 'm');
 }
 
 .ecl-gallery__detail-counter {
-  font: map.get(theme.$font, 's');
+  font: map.get(theme.$font, 'm');
+  font-weight: map.get(theme.$font-weight, 'bold');
 }
 
 .ecl-gallery__detail-actions {
-  font: map.get(theme.$font, 's');
-  margin-top: map.get(theme.$spacing, 'm');
+  margin-top: $_actions-margin;
 }
 .ecl-gallery__share {
   margin-left: map.get(theme.$spacing, 's');
 }
 .ecl-gallery__download,
 .ecl-gallery__share {
-  color: $_detail-color;
+  color: $_overlay-links-color;
 
   &:hover,
   &:focus {
-    color: $_detail-color;
+    color: $_overlay-links-hover-color;
   }
 
   &[hidden] {
@@ -314,20 +345,30 @@ $_detail-color: map.get(theme.$color, 'white-100');
 }
 
 .ecl-gallery__detail-description {
-  font: map.get(theme.$font, 'm');
+  font: map.get(theme.$font-prolonged, 'm');
   margin-top: map.get(theme.$spacing, 's');
+  min-height: 5rem;
 }
 .ecl-gallery__overlay .ecl-gallery__description-icon {
   display: none;
 }
 
 .ecl-gallery__detail-meta {
-  font: map.get(theme.$font, 's');
+  color: $_gallery-meta-color;
+  font: map.get(theme.$font, 'm');
   margin-top: map.get(theme.$spacing, 'm');
 }
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
+  .ecl-gallery__detail {
+    padding: map.get(theme.$spacing, 'l') map.get(theme.$spacing, 'xl');
+  }
+  .ecl-gallery__detail-description {
+    margin-top: $_description-margin-desktop;
+    min-height: 0;
+  }
+
   .ecl-gallery__slider {
     flex-direction: row;
     justify-content: space-between;
@@ -335,27 +376,25 @@ $_detail-color: map.get(theme.$color, 'white-100');
 
   .ecl-gallery__slider-previous {
     align-self: initial;
-    margin-left: map.get(theme.$spacing, 'xl') - map.get(theme.$spacing, 's');
+    margin-bottom: 0;
+    margin-left: $_arrow-margin;
+    margin-right: map.get(theme.$spacing, '2xs');
+    margin-top: 0;
     order: -1;
-  }
-  .ecl-gallery__slider-previous .ecl-button__label {
-    display: none;
-  }
-  .ecl-gallery__slider-previous .ecl-button__icon {
-    margin-right: 0;
   }
 
   .ecl-gallery__slider-next {
     align-self: initial;
     bottom: auto;
-    margin-right: map.get(theme.$spacing, 'xl') - map.get(theme.$spacing, 's');
+    margin-bottom: 0;
+    margin-left: map.get(theme.$spacing, '2xs');
+    margin-right: $_arrow-margin;
+    margin-top: 0;
     position: relative;
     right: auto;
   }
-  .ecl-gallery__slider-next .ecl-button__label {
-    display: none;
-  }
-  .ecl-gallery__slider-next .ecl-button__icon {
-    margin-left: 0;
+
+  .ecl-gallery__detail-actions {
+    margin-top: $_actions-margin-desktop;
   }
 }

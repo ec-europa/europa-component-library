@@ -190,7 +190,7 @@ module.exports = {
       label: 'Close',
       icon: {
         path: 'static/media/icons.3cf410f9.svg',
-        name: 'close',
+        name: 'close-filled',
         size: 's',
       },
     },
@@ -200,7 +200,7 @@ module.exports = {
       icon: {
         path: 'static/media/icons.3cf410f9.svg',
         name: 'corner-arrow',
-        size: 'l',
+        size: 's',
         transform: 'rotate-270',
       },
       icon_position: 'before',
@@ -211,7 +211,7 @@ module.exports = {
       icon: {
         path: 'static/media/icons.3cf410f9.svg',
         name: 'corner-arrow',
-        size: 'l',
+        size: 's',
         transform: 'rotate-90',
       },
     },
