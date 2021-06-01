@@ -1,0 +1,86 @@
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+
+// some variable declaration have to be done before
+$outline-width: 2px;
+$toggle-width: calc(
+  #{map.get(theme.$spacing, 's')} + #{map.get(theme.$icon, 's')} + #{map.get(
+      theme.$spacing,
+      's'
+    )}
+);
+
+@use 'inpage-navigation' with (
+  $_border-radius: 8px,
+  $_shadow: 0 0 6px rgba(map.get(theme.$color, 'blue-100'), 0.2),
+  $_active-link-border-width: 0,
+  $_title: (
+    'background': map.get(theme.$color, 'blue-100'),
+    'color': map.get(theme.$color, 'white-100'),
+    'padding': map.get(theme.$spacing, 's'),
+    'text-transform': none,
+  ),
+  $_item: (
+    'background': (
+      's': map.get(theme.$color, 'blue-5'),
+      'l': map.get(theme.$color, 'blue-5'),
+    ),
+    'background-hover': (
+      's': map.get(theme.$color, 'white-100'),
+      'l': map.get(theme.$color, 'white-100'),
+    ),
+    'background-active': (
+      's': map.get(theme.$color, 'white-100'),
+      'l': map.get(theme.$color, 'white-100'),
+    ),
+    'padding': (
+      's': 
+        map.get(theme.$spacing, 's')
+        $toggle-width
+        map.get(theme.$spacing, 's')
+        map.get(theme.$spacing, 'm'),
+      'l': 
+        map.get(theme.$spacing, 's')
+        map.get(theme.$spacing, 's')
+        map.get(theme.$spacing, 's')
+        map.get(theme.$spacing, 'm'),
+    ),
+    'separator': (
+      's': 1px solid map.get(theme.$color, 'white-100'),
+      'l': 1px solid map.get(theme.$color, 'white-100'),
+    ),
+    'font-weight': (
+      's': map.get(theme.$font-weight, 'regular'),
+      'l': map.get(theme.$font-weight, 'regular'),
+    ),
+    'color': (
+      's': map.get(theme.$color, 'blue-100'),
+      'l': map.get(theme.$color, 'blue-100'),
+    ),
+    'color-active': (
+      's': map.get(theme.$color, 'grey-80'),
+      'l': map.get(theme.$color, 'grey-80'),
+    ),
+    'text-decoration-hover': none,
+  ),
+  $_trigger: (
+    'background': map.get(theme.$color, 'blue-100'),
+    'padding':
+      calc(#{map.get(theme.$spacing, 's')} - #{$outline-width})
+      calc(#{$toggle-width} - #{$outline-width})
+      calc(#{map.get(theme.$spacing, 's')} - #{$outline-width})
+      calc(#{map.get(theme.$spacing, 's')} - #{$outline-width}),
+    'separator': none,
+  ),
+  $_list: (
+    'padding': 0,
+    'background': (
+      's': transparent,
+      'l': transparent,
+    ),
+  ),
+  $_outline: (
+    'width': $outline-width,
+    'color': map.get(theme.$color, 'accent-blue-100'),
+  ),
+);

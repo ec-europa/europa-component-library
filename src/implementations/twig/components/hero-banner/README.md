@@ -8,7 +8,7 @@ npm install --save @ecl/twig-component-hero-banner
 
 ### Parameters
 
-- **"type"** (string) (default: 'default') Type of banner (can be 'default', 'white', 'grey', 'image', 'image-gradient', 'primary', 'image-shade')
+- **"variant"** (string) (default: 'primary') Variant of banner (can be 'primary', 'seconary, 'white', image','image-shade','image-gradient')
 - **"title"** (string) (default: '') Title of banner
 - **"image"** (string) (default: '') Image for banner (required for image banner type)
 - **"description"** (string) (default: '') Description of banner
@@ -18,7 +18,7 @@ npm install --save @ecl/twig-component-hero-banner
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
-  - "value" (string) Attribute value, eg: 'data-test-1',
+  - "value" (string) Attribute value, eg: 'data-test-1'
 
 ### Example:
 
@@ -28,7 +28,7 @@ npm install --save @ecl/twig-component-hero-banner
   title: 'EU Budget for the future',  
   description: 'The European Commission has put forward ambitious yet realistic proposals for a modern EU budget. It is time for an EU budget that reflects rapid developments in innovation, the economy, the environment and geopolitics, amongst others.',  
   centered: true,  
-  type: 'image',  
+  variant: 'image',  
   image: 'url/path-to-image',  
   link: {  
     link: {  
