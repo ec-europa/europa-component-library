@@ -89,6 +89,7 @@ export default {
   title: 'Components/Site Headers/Harmonised',
   decorators: [withNotes, withCode],
   argTypes: getArgTypes(),
+  parameters: { layout: 'fullscreen' },
 };
 
 export const Default = (args) =>

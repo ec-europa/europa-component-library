@@ -40,7 +40,7 @@ addParameters({
     },
   ],
   controls: { expanded: true },
-  layout: 'fullscreen',
+  layout: 'padded',
   viewport: {
     defaultViewport: 'responsive',
     viewports: {
