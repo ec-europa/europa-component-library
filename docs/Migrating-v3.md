@@ -152,7 +152,7 @@ Change impact have been grouped as :
 
 **Tag**
 
-- :boom: the removable tag is no longer a button but a full link, therefore the `path` parameter must be added to the tag object
+- :boom: markup has been revised for the removable tag
 
 **Text area**
 

@@ -54,10 +54,10 @@ exports[`Tag Link renders correctly with extra class names 1`] = `
 `;
 
 exports[`Tag Removable renders correctly 1`] = `
-<a
+<button
   aria-label="Dismiss"
   class="ecl-tag ecl-tag--removable"
-  href="/example"
+  type="button"
 >
   Removable tag
   <span
@@ -82,16 +82,16 @@ exports[`Tag Removable renders correctly 1`] = `
       />
     </svg>
   </span>
-</a>
+</button>
 `;
 
 exports[`Tag Removable renders correctly with extra attributes 1`] = `
-<a
+<button
   aria-label="Dismiss"
   class="ecl-tag ecl-tag--removable"
   data-test="data-test-value"
   data-test-1="data-test-value-1"
-  href="/example"
+  type="button"
 >
   Removable tag
   <span
@@ -116,14 +116,14 @@ exports[`Tag Removable renders correctly with extra attributes 1`] = `
       />
     </svg>
   </span>
-</a>
+</button>
 `;
 
 exports[`Tag Removable renders correctly with extra class names 1`] = `
-<a
+<button
   aria-label="Dismiss"
   class="ecl-tag ecl-tag--removable custom-class custom-class--test"
-  href="/example"
+  type="button"
 >
   Removable tag
   <span
@@ -148,5 +148,5 @@ exports[`Tag Removable renders correctly with extra class names 1`] = `
       />
     </svg>
   </span>
-</a>
+</button>
 `;
