@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 
 import demoDefault from '@ecl/specs-component-page-header-core/demo/data--default';

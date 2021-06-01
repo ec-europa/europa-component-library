@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 import specs from '@ecl/specs-component-skip-link/demo/data';
 

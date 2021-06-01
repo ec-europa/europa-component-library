@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 import specDefaultEc from '@ecl/specs-component-text-area/demo/data--ec';
 import specDefaultEu from '@ecl/specs-component-text-area/demo/data--eu';

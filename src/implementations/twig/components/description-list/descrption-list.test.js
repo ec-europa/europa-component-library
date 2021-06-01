@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 import dataDescriptionListDefault from '@ecl/specs-component-description-list/demo/data--default';
 import dataDescriptionListHorizontal from '@ecl/specs-component-description-list/demo/data--horizontal';

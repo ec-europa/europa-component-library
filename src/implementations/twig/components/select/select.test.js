@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 
 import dataSingle from '@ecl/specs-component-select/demo/data-single--ec';

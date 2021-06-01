@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 import dataUnorderedListText from '@ecl/specs-component-unordered-list/demo/data--text';
 import dataUnorderedListDivider from '@ecl/specs-component-unordered-list/demo/data--with-divider';

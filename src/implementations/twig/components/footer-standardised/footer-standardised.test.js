@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 
 import sectionsEc from '@ecl/specs-component-footer-standardised/demo/data--ec';

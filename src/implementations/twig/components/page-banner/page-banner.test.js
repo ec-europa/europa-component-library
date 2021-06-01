@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 
 import bannerDataSimplePrimary from '@ecl/specs-component-page-banner/demo/data--simple-primary';

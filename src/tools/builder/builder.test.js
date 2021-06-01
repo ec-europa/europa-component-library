@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import sass from 'sass';
 import postcss from 'postcss';
 

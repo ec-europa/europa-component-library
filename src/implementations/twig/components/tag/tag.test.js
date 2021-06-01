@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 import dataLink from '@ecl/specs-component-tag/demo/data--link';
 import dataRemovable from '@ecl/specs-component-tag/demo/data--removable';

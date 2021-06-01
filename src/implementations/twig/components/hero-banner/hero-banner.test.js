@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 
 import bannerDataImage from '@ecl/specs-component-hero-banner/demo/data--image-box';

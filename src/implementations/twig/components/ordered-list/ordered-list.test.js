@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 import dataOrderedList from '@ecl/specs-component-ordered-list/demo/data';
 

@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 
 import dataGroup1 from '@ecl/specs-component-site-header-harmonised/demo/data--group1';

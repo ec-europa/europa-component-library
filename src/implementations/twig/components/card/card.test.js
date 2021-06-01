@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 import dataCard from '@ecl/specs-component-card/demo/data--card';
 import dataCardTaxonomy from '@ecl/specs-component-card/demo/data--card-taxonomy';
