@@ -2,39 +2,40 @@ const fs = require('fs');
 const mkdirp = require('mkdirp');
 const glob = require('glob');
 const path = require('path');
-const SVGO = require('svgo');
 const xml2js = require('xml2js');
-const svgoConfig = require('./config/svgo');
-
-const svgo = new SVGO(svgoConfig);
+const { loadConfig } = require('svgo');
+const { optimize } = require('svgo');
 
 const src = path.resolve(__dirname, '../src');
 const out = path.resolve(__dirname, '../dist/svg');
 
-glob.sync('**/*.svg', { cwd: src }).forEach((file) => {
-  const filepath = path.resolve(src, file);
-  const outputPath = path.resolve(out, file);
+(async () => {
+  const config = await loadConfig('config/svgo', process.cwd());
 
-  fs.readFile(filepath, 'utf8', (err, data) => {
-    if (err) {
-      throw err;
-    }
+  glob.sync('**/*.svg', { cwd: src }).forEach((file) => {
+    const filepath = path.resolve(src, file);
+    const outputPath = path.resolve(out, file);
 
-    const parser = new xml2js.Parser();
-    parser.parseString(data, (parseError, result) => {
-      const clone = JSON.parse(JSON.stringify(result));
+    fs.readFile(filepath, 'utf8', (err, data) => {
+      if (err) {
+        throw err;
+      }
 
-      // Add viewBox
-      clone.svg.$.viewBox = `0 0 48 48`;
+      const parser = new xml2js.Parser();
+      parser.parseString(data, (parseError, result) => {
+        const clone = JSON.parse(JSON.stringify(result));
 
-      const builder = new xml2js.Builder({ headless: true });
-      const xml = builder.buildObject(clone);
+        // Add viewBox
+        clone.svg.$.viewBox = `0 0 48 48`;
 
-      // Clean SVG
-      svgo.optimize(xml, { path: filepath }).then((svgoResult) => {
+        const builder = new xml2js.Builder({ headless: true });
+        const xml = builder.buildObject(clone);
+
+        // Clean SVG
+        const newSvg = optimize(xml, { ...config, path: filepath });
         mkdirp.sync(path.dirname(outputPath));
-        fs.writeFileSync(outputPath, svgoResult.data, 'utf8');
+        fs.writeFileSync(outputPath, newSvg.data, 'utf8');
       });
     });
   });
-});
+})();
