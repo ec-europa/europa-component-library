@@ -152,8 +152,7 @@ Change impact have been grouped as :
 
 **Tag**
 
-- :boom: markup has been revised for the removable tag, no longer a button but a full link
-- :boom: svg icon `.ecl-tag__icon-close` removed from component markup
+- :boom: the removable tag is no longer a button but a full link, therefore the `path` parameter must be added to the tag object
 
 **Text area**
 

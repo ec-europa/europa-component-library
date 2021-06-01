@@ -68,7 +68,7 @@
     {{- _tag.label -}}
   </a>
 {% elseif _tag.type == 'removable' %}
-  <a href="#" class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+  <a href="{{ _tag.path }}" class="{{ _css_class }}" {{ _extra_attributes|raw }}>
     {{- _tag.label -}}
     <span class="ecl-tag__icon">
       {% include '@ecl/icon/icon.html.twig' with {
@@ -80,7 +80,7 @@
         extra_classes: 'ecl-tag__icon-close-filled',
       } only %}
     </span>
-  </a>
+  </a>  ;   
 {% else %}
   <span class="{{ _css_class }}">
     {{- _tag.label -}}
