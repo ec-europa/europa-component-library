@@ -127,6 +127,10 @@ Change impact have been grouped as :
 
 - :warning: twig parameter "type" has been removed
 
+**Language list**
+
+- :heavy_check_mark: `title` parameter for the overlay is now an object containing the label and the title icon
+
 **Link**
 
 - :warning: space between icon and label is now set using css (instead of a forced `&nbsp`)

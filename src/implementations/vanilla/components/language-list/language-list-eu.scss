@@ -1,8 +1,13 @@
 @use "sass:map";
 @use '@ecl/theme-dev/theme';
 @use 'language-list' with (
-  $_background-container: map.get(theme.$color, 'grey-15'),
-  $_color-title: map.get(theme.$color, 'grey-100'),
-  $_logo-width-desktop: 11.25rem,
-  $_logo-width-mobile: 7.5rem
+  $_background-container: map.get(theme.$color, 'white'),
+  $_border-radius-link: 4px,
+  $_border-link: 2px solid map.get(theme.$color, 'blue'),
+  $_border-link-active: 2px solid map.get(theme.$color, 'yellow'),
+  $_border-link-focus: 2px solid map.get(theme.$color, 'accent-blue-100'),
+  $_color-link-active: map.get(theme.$color, 'grey-140'),
+  $_color-title: map.get(theme.$color, 'blue'),
+  $_logo-width-desktop: 5.625rem,
+  $_logo-height-desktop: 3.75rem,
 );
