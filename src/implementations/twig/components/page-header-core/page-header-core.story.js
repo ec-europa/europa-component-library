@@ -156,6 +156,7 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Page Headers/Core',
   decorators: [withNotes, withCode],
+  parameters: { layout: 'fullscreen' },
 };
 
 export const Default = (args) => pageHeaderCore(prepareData(dataDefault, args));

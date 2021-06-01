@@ -93,6 +93,7 @@ const prepareHtmlContent = (data) => {
 
 export default {
   title: 'Components/Navigation/Inpage navigation',
+  parameters: { layout: 'fullscreen' },
 };
 
 export const Default = (args) => {
