@@ -12,14 +12,16 @@ const Media = ({ type, token }) => (
         className={`ecl-u-media-${type}-${token}`}
       />
       <span className={styles.text}>
-        ecl-u-media-{type}-{token}
+        ecl-u-media-
+        {type}-{token}
       </span>
     </div>
 
     <div className="demo-media-container-right">
       <div className={`demo-media-content ecl-u-media-${type}-${token}`} />
       <span className={styles.text}>
-        ecl-u-media-{type}-{token}
+        ecl-u-media-
+        {type}-{token}
       </span>
     </div>
   </div>
