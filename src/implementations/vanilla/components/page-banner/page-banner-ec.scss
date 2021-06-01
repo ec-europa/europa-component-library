@@ -1,0 +1,55 @@
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+//stylelint-disable length-zero-no-unit
+@use 'page-banner' with (
+  $_border-radius: (
+    'banner': 0,
+    'content': 0,
+  ),
+  $_box-shadow: none,
+  $_padding-horizontal: (
+    's': map.get(theme.$spacing, 'xl'),
+    'xl': map.get(theme.$spacing, '4xl'),
+  ),
+  $_padding-vertical: map.get(theme.$spacing, 'xl'),
+  $_margin-top: (
+    'description': map.get(theme.$spacing, 'xs'),
+    'button': map.get(theme.$spacing, 'l'),
+  ),
+  $_border-width: (
+    'left': 0px, // unit has to be set, to be used in calc
+    'bottom': 4px,
+  ),
+  $_background: (
+    'primary': map.get(theme.$color, 'blue-100'),
+    'secondary': map.get(theme.$color, 'grey-5'),
+    'white': map.get(theme.$color, 'white-100'),
+    'image-box': map.get(theme.$color, 'white-100'),
+    'image-shade': map.get(theme.$color, 'blue-120'),
+    'image-gradient': map.get(theme.$color, 'blue-120'),
+  ),
+  $_overlay: (
+    'image-shade': rgba(0, 0, 0, 0.5),
+    'image-gradient': linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+  ),
+  $_text-color: (
+    'dark':  map.get(theme.$color, 'grey-100'),
+    'light':  map.get(theme.$color, 'grey-100'),
+    'inverted':  map.get(theme.$color, 'white-100'),
+  ),
+  $_font: (
+    'title': (
+      's': map.get(theme.$font, '3xl'),
+      'xl': map.get(theme.$font, '4xl'),
+    ),
+    'description': map.get(theme.$font-prolonged, 'xl'),
+  ),
+  $_font-weight: (
+    'title': map.get(theme.$font-weight, 'bold'),
+    'description': map.get(theme.$font-weight, 'regular'),
+  ),
+);
