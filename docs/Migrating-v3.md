@@ -66,6 +66,12 @@ Change impact have been grouped as :
 - :heavy_check_mark: the `icon` parameter is no longer defined for each item but only once for the whole accordion. Note that for the EU version you must use the `corner-arrow` icon name.
 - :heavy_check_mark: twig parameter `label_expanded` & `label_collapsed` added, to add the open/close labels next to the icon in the EU version
 
+**Banners**
+
+- :warning: variant `grey` has been renamed `secondary`
+- :warning: twig parameter `type` has been renamed `variant`
+- :warning: twig parameter `baseline` has been renamed `description`
+
 **Breadcrumb**
 
 - :warning: EC Core breadcrumb is now using the new negative variant for links
@@ -74,6 +80,11 @@ Change impact have been grouped as :
 **Button**
 
 - :heavy_check_mark: variant "search" has been removed (css has been integrated in search form)
+
+**Card**
+
+- :boom: components have been completely refactored at markup
+- :warning: icon size for each info items is different between EC and EU version, `xs` icon size is used for EC and `m` for EU
 
 **Date block**
 
@@ -85,6 +96,11 @@ Change impact have been grouped as :
 
 - :warning: icon size for each items is different between EC and EU version, `m` icon size is used for EC and `l` for EU
 - :warning: icon added to `view_all` link, note that `xs` icon size is used for EC and `m` for EU
+
+**File**
+
+- :boom: markup has been revised, `.ecl-file__label` is now placed in the sub `.ecl-file__detail-info` container
+- :warning: File icon is different between EC and EU version, `2xl` icon size is used for EC and `m` for EU
 
 **Footers**
 
@@ -99,6 +115,13 @@ Change impact have been grouped as :
 **Forms**
 
 - :warning: css class `.ecl-form-label--hidden` has been removed (it was marked as deprecated already). You can use utility class `.ecl-u-sr-only` to achieve the same result, as it is outside a component
+
+**Gallery**
+
+- :warning: A css class has been added to the button for viewing all the items in a gallery: `ecl-gallery__view-all`
+- :warning: The icon for the close button of the overlay is now `closed-filled` and not `close` anymore
+- :warning: The share and download button in the overlay are now implementations of the `standalone` link component
+- :warning: The next and previous icons in the overlay have now the size `s` instead of `l`
 
 **Icon**
 

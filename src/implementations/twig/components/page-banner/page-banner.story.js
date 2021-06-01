@@ -4,7 +4,7 @@ import { correctSvgPath } from '@ecl/story-utils';
 
 // Import data for demos
 import bannerDataSimplePrimary from '@ecl/specs-component-page-banner/demo/data--simple-primary';
-import bannerDataSimpleGrey from '@ecl/specs-component-page-banner/demo/data--simple-grey';
+import bannerDataSimpleSecondary from '@ecl/specs-component-page-banner/demo/data--simple-secondary';
 import bannerDataSimpleWhite from '@ecl/specs-component-page-banner/demo/data--simple-white';
 import bannerDataImage from '@ecl/specs-component-page-banner/demo/data--image-box';
 import bannerDataImageShade from '@ecl/specs-component-page-banner/demo/data--image-shade';
@@ -26,7 +26,7 @@ const getArgTypes = (data) => {
     },
     description: {
       type: 'string',
-      defaultValue: data.baseline,
+      defaultValue: data.description,
       description: 'Sub-heading of the banner',
       table: {
         type: { summary: 'string' },
@@ -54,19 +54,36 @@ const getArgTypes = (data) => {
         category: 'Display',
       },
     },
-    full_width: {
-      name: 'full width',
-      control: {
-        type: 'inline-radio',
-        options: ['outside the grid', 'inside the grid'],
-      },
-      defaultValue: 'outside the grid',
-      description: `The banner extends to the whole viewport by default when outside the grid,
-        if it's inside it can still be extended via an additional css class`,
+    width: {
+      name: 'width',
+      defaultValue: 'outside',
+      description: `The media container extends to the whole viewport by default when outside the grid,
+        if it's inside it can still be extended by adding class .ecl-page-banner--full-width`,
       table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
+        type: { summary: 'radio' },
+        defaultValue: { summary: 'outside the grid container' },
         category: 'Display',
+      },
+      control: {
+        type: 'radio',
+        options: {
+          'outside the grid container': 'outside',
+          'inside the grid container': 'container',
+          'inside the grid container, with fullwidth class': 'inside',
+        },
+      },
+    },
+    gridContent: {
+      name: 'demo grid content',
+      type: { name: 'boolean' },
+      defaultValue: false,
+      description:
+        'Inject a test content block displayed on the grid, to see the alignment',
+      table: {
+        category: 'Test content',
+      },
+      control: {
+        type: 'boolean',
       },
     },
   };
@@ -88,9 +105,9 @@ const getArgTypes = (data) => {
 
 const prepareData = (data, args) => {
   data.title = args.title;
-  data.baseline = args.description;
+  data.description = args.description;
   data.centered = args.centered;
-  data.full_width = args.full_width === 'inside the grid';
+  data.full_width = args.width === 'inside';
   data.link.link.label = args.label;
   if (data.image) {
     data.image = args.image;
@@ -99,35 +116,39 @@ const prepareData = (data, args) => {
   return data;
 };
 
+const renderStory = (data, args) => {
+  let story = pageBanner(prepareData(correctSvgPath(data), args));
+  if (args.width === 'container' || args.width === 'inside') {
+    story = `<div class="ecl-container">${story}</div>`;
+  }
+  if (args.gridContent) {
+    story +=
+      '<div class="ecl-container"><p class="ecl-u-type-paragraph">Content inside the grid</p></div>';
+  }
+
+  return story;
+};
+
 export default {
   title: 'Components/Banners/Page Banner',
   decorators: [withNotes, withCode],
   parameters: { layout: 'fullscreen' },
 };
 
-const renderStory = (data, args) => {
-  let story = pageBanner(prepareData(correctSvgPath(data), args));
-  if (args.full_width === 'inside the grid') {
-    story = `<div class="ecl-container">${story}</div>`;
-  }
+export const Primary = (args) => renderStory(bannerDataSimplePrimary, args);
 
-  return story;
-};
-
-export const Default = (args) => renderStory(bannerDataSimplePrimary, args);
-
-Default.storyName = 'simple - primary';
-Default.argTypes = getArgTypes(bannerDataSimplePrimary);
-Default.parameters = {
+Primary.storyName = 'simple - primary';
+Primary.argTypes = getArgTypes(bannerDataSimplePrimary);
+Primary.parameters = {
   notes: { markdown: notes, json: bannerDataSimplePrimary },
 };
 
-export const SimpleGrey = (args) => renderStory(bannerDataSimpleGrey, args);
+export const Secondary = (args) => renderStory(bannerDataSimpleSecondary, args);
 
-SimpleGrey.storyName = 'simple - grey';
-SimpleGrey.argTypes = getArgTypes(bannerDataSimpleGrey);
-SimpleGrey.parameters = {
-  notes: { markdown: notes, json: bannerDataSimpleGrey },
+Secondary.storyName = 'simple - secondary';
+Secondary.argTypes = getArgTypes(bannerDataSimpleSecondary);
+Secondary.parameters = {
+  notes: { markdown: notes, json: bannerDataSimpleSecondary },
 };
 
 export const SimpleWhite = (args) => renderStory(bannerDataSimpleWhite, args);

@@ -1,4 +1,4 @@
-import demoContentDefault from '@ecl/specs-component-text-area/demo/data--ec';
+import demoContentDefault from '@ecl/specs-component-text-area/demo/data--eu';
 import template from '@ecl/twig-component-text-area/text-area.html.twig';
 
 export const textAreaDefault = template(demoContentDefault);
