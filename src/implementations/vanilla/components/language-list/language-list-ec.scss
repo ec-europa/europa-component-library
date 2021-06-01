@@ -3,9 +3,10 @@
 @use 'language-list' with (
   $_background-container: map.get(theme.$color, 'blue-100'),
   $_border-radius-link: 0,
-  $_border-link: 2px solid map.get(theme.$color, 'white-100'),
-  $_border-link-active: 2px solid map.get(theme.$color, 'yellow'),
-  $_border-link-focus: 2px solid map.get(theme.$color, 'yellow'),
+  $_border-link: 0,
+  $_border-link-active: 0,
+  $_border-link-focus: 0,
+  $_outline-link-focus: 3px solid map.get(theme.$color, 'yellow'),
   $_color-link-active: map.get(theme.$color, 'black-100'),
   $_color-title: map.get(theme.$color, 'white-100'),
   $_logo-width-desktop: 8.25rem,

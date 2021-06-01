@@ -16,6 +16,7 @@ $_border-radius-link: null !default;
 $_border-link: null !default;
 $_border-link-active: null !default;
 $_border-link-focus: null !default;
+$_outline-link-focus: null !default;
 $_color-link-active: null !default;
 $_color-title: null !default;
 $_logo-height-desktop: null !default;
@@ -96,7 +97,8 @@ $_padding-list-splash-desktop: null !default;
 
   &:focus {
     border: $_border-link-focus;
-    outline: 0;
+    outline: $_outline-link-focus;
+    outline-offset: -3px;
   }
 
   .ecl-link__icon {
