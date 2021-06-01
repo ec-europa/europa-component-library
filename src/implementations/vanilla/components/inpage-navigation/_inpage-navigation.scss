@@ -160,6 +160,7 @@ $_outline: null !default;
     /* stylelint-disable-next-line order/order */
     @include breakpoints.up('l') {
       background-color: map.get($_item, 'background-hover', 'l');
+      color: map.get($_item, 'color', 'l');
     }
   }
 
