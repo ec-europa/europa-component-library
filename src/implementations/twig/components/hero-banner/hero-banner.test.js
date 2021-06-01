@@ -4,7 +4,7 @@ import bannerDataImage from '@ecl/specs-component-hero-banner/demo/data--image-b
 import bannerDataImageGradient from '@ecl/specs-component-hero-banner/demo/data--image-gradient';
 import bannerDataImageShade from '@ecl/specs-component-hero-banner/demo/data--image-shade';
 import bannerDataSimplePrimary from '@ecl/specs-component-hero-banner/demo/data--simple-primary';
-import bannerDataSimpleGrey from '@ecl/specs-component-hero-banner/demo/data--simple-grey';
+import bannerDataSimpleSecondary from '@ecl/specs-component-hero-banner/demo/data--simple-secondary';
 import bannerDataSimpleWhite from '@ecl/specs-component-hero-banner/demo/data--simple-white';
 
 describe('Hero Banner', () => {
@@ -18,10 +18,12 @@ describe('Hero Banner', () => {
       return expect(render(bannerDataSimplePrimary)).resolves.toMatchSnapshot();
     });
 
-    test(`- grey renders correctly`, () => {
+    test(`- secondary renders correctly`, () => {
       expect.assertions(1);
 
-      return expect(render(bannerDataSimpleGrey)).resolves.toMatchSnapshot();
+      return expect(
+        render(bannerDataSimpleSecondary)
+      ).resolves.toMatchSnapshot();
     });
 
     test(`- white renders correctly`, () => {

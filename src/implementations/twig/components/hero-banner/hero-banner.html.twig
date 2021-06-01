@@ -2,35 +2,34 @@
 
 {#
   Parameters:
-    - "type" (string) (default: 'default') Type of banner (can be 'default', 'white', 'grey', 'image', 'image-gradient', 'primary', 'image-shade')
-    - "title" (string) (default: '') Title of banner
-    - "image" (string) (default: '') Image for banner (required for image banner type)
-    - "description" (string) (default: '') Description of banner
-    - "centered" (bool) (default: true) Define if banner should be centered
-    - "full_width": (bool) (default: false) Full width banner (inside the grid)
-    - "link" (associative array) (default: predefined structure) predefined structure for the Link component
-    - "extra_classes" (string) (default: '')
-    - "extra_attributes" (array) (default: []): format: [
-        {
-          "name" (string) (default: ''),
-          "value" (optional) (string)
-        ...
-      ],
+  - "variant" (string) (default: 'default') Variant of banner (can be 'primary', 'secondary', 'white', 'image', 'image-shade', 'image-gradient')
+  - "title" (string) (default: '') Title of banner
+  - "image" (string) (default: '') Image for banner (required for image banner variant)
+  - "description" (string) (default: '') Description of banner
+  - "centered" (bool) (default: true) Define if banner should be centered
+  - "full_width": (bool) (default: false) Full width banner (inside the grid)
+  - "link" (associative array) (default: predefined structure) predefined structure for the Link component
+  - "extra_classes" (optional) (string) (default: '')
+  - "extra_attributes" (optional) (array) (default: [])
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
 #}
 
 {# Internal properties #}
 
-{% set _type = type|default('default') %}
+{% set _css_class = 'ecl-hero-banner' %}
+{% set _extra_attributes = '' %}
+{% set _variant = variant|default('primary') %}
 {% set _centered = centered ?? true %}
+{% set _full_width = full_width|default(false) %}
 {% set _title = title|default('') %}
 {% set _description = description|default('') %}
 {% set _image = image|default('') %}
-{% set _full_width = full_width|default(false) %}
 {% set _link = link|default({}) %}
-{% set _css_class = ['ecl-hero-banner ecl-hero-banner--' ~ _type]|join(' ') %}
-{% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
+
+{% set _css_class = _css_class ~ ' ecl-hero-banner--' ~ _variant %}
 
 {% if _centered %}
   {% set _css_class = _css_class ~ ' ecl-hero-banner--centered' %}
@@ -55,10 +54,11 @@
 {% endif %}
 
 {# Print the result #}
+
 <section class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  {% if _image is not empty and _type in ['image', 'image-shade', 'image-gradient'] %}
-    <div class="ecl-hero-banner__image" style="background-image:url({{ _image }})"></div>
-  {% endif %}
+{% if _image is not empty and _variant in ['image', 'image-shade', 'image-gradient'] %}
+  <div class="ecl-hero-banner__image" style="background-image:url({{ _image }})"></div>
+{% endif %}
   <div class="ecl-container">
     <div class="ecl-hero-banner__container">
     {% if _title is not empty or _description is not empty or _link is not empty %}

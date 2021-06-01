@@ -1,7 +1,7 @@
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 
 import bannerDataSimplePrimary from '@ecl/specs-component-page-banner/demo/data--simple-primary';
-import bannerDataSimpleGrey from '@ecl/specs-component-page-banner/demo/data--simple-grey';
+import bannerDataSimpleSecondary from '@ecl/specs-component-page-banner/demo/data--simple-secondary';
 import bannerDataSimpleWhite from '@ecl/specs-component-page-banner/demo/data--simple-white';
 import bannerDataImage from '@ecl/specs-component-page-banner/demo/data--image-box';
 import bannerDataImageShade from '@ecl/specs-component-page-banner/demo/data--image-shade';
@@ -20,10 +20,12 @@ describe('Page Banner', () => {
       return expect(render(data)).resolves.toMatchSnapshot();
     });
 
-    test(`- grey renders correctly`, () => {
+    test(`- secondary renders correctly`, () => {
       expect.assertions(1);
 
-      return expect(render(bannerDataSimpleGrey)).resolves.toMatchSnapshot();
+      return expect(
+        render(bannerDataSimpleSecondary)
+      ).resolves.toMatchSnapshot();
     });
 
     test(`- white renders correctly`, () => {
