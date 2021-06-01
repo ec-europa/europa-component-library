@@ -22,6 +22,7 @@ $_logo-height-desktop: null !default;
 $_logo-width-desktop: null !default;
 $_logo-height-mobile: 3.75rem;
 $_logo-width-mobile: 5.625rem;
+$_padding-list-splash-desktop: null !default;
 
 .ecl-language-list {
   background-color: $_background-container;
@@ -150,7 +151,7 @@ $_logo-width-mobile: 5.625rem;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-language-list--splash {
-    padding: map.get(theme.$spacing, 'l') 0;
+    padding: $_padding-list-splash-desktop;
   }
 
   .ecl-language-list__container {
