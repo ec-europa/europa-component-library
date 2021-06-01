@@ -1,7 +1,7 @@
 module.exports = {
   parser: 'babel-eslint',
-  extends: ['airbnb', 'plugin:prettier/recommended', 'prettier/react'],
-  plugins: ['react', 'jsx-a11y'],
+  extends: ['airbnb', 'plugin:prettier/recommended'],
+  plugins: ['react', 'jsx-a11y', 'prettier'],
   env: {
     browser: true,
     node: true,
@@ -12,6 +12,7 @@ module.exports = {
     },
   },
   rules: {
+    'prettier/prettier': 'error',
     'import/no-extraneous-dependencies': 'off',
     'no-param-reassign': 'off',
     'react/forbid-prop-types': 'off',
