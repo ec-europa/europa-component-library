@@ -1,0 +1,12 @@
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+@use 'tag' with (
+  $_background-color: map.get(theme.$color, 'grey-75'),
+  $_background-color-hover: map.get(theme.$color, 'grey-100'),
+  $_link-text-color: map.get(theme.$color, 'white'),
+  $_link-text-color-hover: map.get(theme.$color, 'white'),
+  $_link-text-decoration: underline,
+  $_link-text-decoration-hover: underline,
+  $_border-color-focus: map.get(theme.$color, 'yellow'),
+  $_border-size-focus: 3px
+);
