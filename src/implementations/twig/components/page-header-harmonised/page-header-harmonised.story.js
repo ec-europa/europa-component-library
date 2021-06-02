@@ -67,6 +67,7 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Page Headers/Harmonised',
   decorators: [withNotes, withCode],
+  parameters: { layout: 'fullscreen' },
 };
 
 export const Title = (args) =>
