@@ -131,6 +131,7 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Page Headers/Standardised',
   decorators: [withNotes, withCode],
+  parameters: { layout: 'fullscreen' },
 };
 
 export const Default = (args) =>

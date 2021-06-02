@@ -66,6 +66,12 @@ Change impact have been grouped as :
 - :heavy_check_mark: the `icon` parameter is no longer defined for each item but only once for the whole accordion. Note that for the EU version you must use the `corner-arrow` icon name.
 - :heavy_check_mark: twig parameter `label_expanded` & `label_collapsed` added, to add the open/close labels next to the icon in the EU version
 
+**Banners**
+
+- :warning: variant `grey` has been renamed `secondary`
+- :warning: twig parameter `type` has been renamed `variant`
+- :warning: twig parameter `baseline` has been renamed `description`
+
 **Breadcrumb**
 
 - :warning: EC Core breadcrumb is now using the new negative variant for links
@@ -149,6 +155,10 @@ Change impact have been grouped as :
 
 - :boom: markup has been revised, using button css where needed, and adding an extra container (needed for styling)
 - :heavy_check_mark: twig parameter `menu_label` has been removed (not used)
+
+**Tag**
+
+- :boom: markup has been revised for the removable tag
 
 **Text area**
 

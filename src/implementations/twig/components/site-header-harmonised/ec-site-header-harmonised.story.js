@@ -139,6 +139,7 @@ const prepareData = (data, variant, args) => {
 export default {
   title: 'Components/Site Headers/Harmonised',
   decorators: [withNotes, withCode],
+  parameters: { layout: 'fullscreen' },
 };
 
 export const Group1 = (args) =>

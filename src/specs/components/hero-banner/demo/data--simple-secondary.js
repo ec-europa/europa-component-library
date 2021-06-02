@@ -14,6 +14,6 @@ module.exports = {
       transform: 'rotate-90',
     },
   },
-  type: 'grey',
+  variant: 'grey',
   centered: true,
 };

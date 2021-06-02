@@ -102,6 +102,7 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Footers/Standardised',
   decorators: [withCode, withNotes],
+  parameters: { layout: 'fullscreen' },
 };
 
 export const Default = (args) => footer(prepareData(demoData, args));
