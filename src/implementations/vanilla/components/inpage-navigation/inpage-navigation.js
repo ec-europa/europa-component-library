@@ -186,11 +186,9 @@ export class InpageNavigation {
    */
   deactivateScrollSpy() {
     const navigationTitle = queryOne(this.spyTrigger);
-    const togglerElement = queryOne(this.toggleSelector, this.element);
 
     this.element.classList.remove(this.spyActiveContainer);
     navigationTitle.innerHTML = '';
-    togglerElement.setAttribute('aria-expanded', 'false');
   }
 
   /**
