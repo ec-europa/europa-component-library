@@ -67,9 +67,9 @@ const buildStyles = (entry, dest, options) => {
       fs.mkdirSync(path.dirname(dest), { recursive: true });
       fs.writeFileSync(dest, postcssResult.css);
 
-      /*if (postcssResult.map) {
+      if (postcssResult.map) {
         fs.writeFileSync(`${dest}.map`, postcssResult.map);
-      }*/
+      }
     });
 };
 
