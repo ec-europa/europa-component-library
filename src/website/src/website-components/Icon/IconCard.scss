@@ -1,20 +1,27 @@
 @use "sass:map";
 @use '@ecl/theme-dev/theme';
 
-.card {
+%card {
   align-items: center;
-  border: 1px solid map.get(theme.$color, 'grey-15');
+  border: 2px solid transparent;
   box-sizing: border-box;
-  color: map.get(theme.$color, 'grey-100');
   display: flex;
-  flex-basis: 9rem;
+  flex-basis: 8rem;
   flex-direction: column;
   flex-grow: 1;
   flex-shrink: 1;
   justify-content: center;
   margin: map.get(theme.$spacing, 's') map.get(theme.$spacing, 's') 0 0;
-  max-width: 9rem;
+  max-width: 8rem;
   padding: map.get(theme.$spacing, 's');
+}
+
+.card {
+  // stylelint-disable-next-line at-rule-no-unknown
+  @extend %card;
+
+  border-color: map.get(theme.$color, 'grey-15');
+  color: map.get(theme.$color, 'grey-100');
 
   &:hover {
     background-color: map.get(theme.$color, 'grey-100');
@@ -23,10 +30,36 @@
   }
 }
 
+.card--negative {
+  // stylelint-disable-next-line at-rule-no-unknown
+  @extend %card;
+
+  background-color: map.get(theme.$color, 'grey-100');
+  border-color: map.get(theme.$color, 'grey-15');
+  color: map.get(theme.$color, 'white-100');
+
+  &:hover {
+    border-color: map.get(theme.$color, 'black-100');
+  }
+}
+
+.card--light {
+  // stylelint-disable-next-line at-rule-no-unknown
+  @extend %card;
+
+  border-color: map.get(theme.$color, 'grey-15');
+  color: map.get(theme.$color, 'grey-100');
+
+  &:hover {
+    border-color: map.get(theme.$color, 'black-100');
+  }
+}
+
 .title {
   font: map.get(theme.$font, 's');
   font-weight: map.get(theme.$font-weight, 'bold');
   margin: map.get(theme.$spacing, 's') 0 0;
+  text-align: center;
 }
 
 .icon {

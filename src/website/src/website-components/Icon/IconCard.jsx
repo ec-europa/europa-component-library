@@ -8,12 +8,18 @@ import iconsSocialMedia from '@ecl/resources-social-media-icons/dist/sprites/ico
 import styles from './IconCard.scss';
 
 const IconCard = ({ system, name, set }) => {
+  let cardClass = styles.card;
   let iconSet = system === 'eu' ? iconsEU : iconsEC;
   if (set === 'flag') iconSet = iconsFlag;
-  if (set === 'social-media') iconSet = iconsSocialMedia;
+  if (set === 'social-media') {
+    iconSet = iconsSocialMedia;
+    cardClass = name.includes('-negative')
+      ? styles['card--negative']
+      : styles['card--light'];
+  }
 
   return (
-    <li className={styles.card}>
+    <li className={cardClass}>
       <svg focusable="false" aria-hidden="true" className={styles.icon}>
         <use xlinkHref={`${iconSet}#${name}`} />
       </svg>
