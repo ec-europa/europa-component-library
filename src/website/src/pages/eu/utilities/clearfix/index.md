@@ -3,6 +3,6 @@ title: Clearfix
 defaultTab: usage
 status: ready
 playground:
-  system: ec
+  system: eu
   path: /story/utilities-clearfix--custom
 ---

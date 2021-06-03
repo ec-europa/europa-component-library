@@ -5,6 +5,7 @@ import iconSvgAllArrowEu from '@ecl/resources-eu-icons/dist/svg/all/solid-arrow.
 
 const system = getSystem();
 const iconSvgAllArrow = system === 'eu' ? iconSvgAllArrowEu : iconSvgAllArrowEc;
+const iconSvgAllArrowSize = system === 'eu' ? 'm' : 'l';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -61,7 +62,7 @@ export class Table {
     // The following element is <path> which does not support classList API as others.
     svg.setAttribute(
       'class',
-      `ecl-table__icon ecl-icon ecl-icon--2xs ${customClass}`
+      `ecl-table__icon ecl-icon ecl-icon--${iconSvgAllArrowSize} ${customClass}`
     );
     return svg;
   }

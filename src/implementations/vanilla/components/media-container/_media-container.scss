@@ -11,6 +11,7 @@ $_border-radius: null !default;
 $_shadow: null !default;
 $_caption-background-color: null !default;
 $_caption-padding: null !default;
+$_scrollbar-width: 16px; // average scrollbar width; used in full screen calculus
 
 .ecl-media-container {
   border-radius: $_border-radius;
@@ -19,6 +20,7 @@ $_caption-padding: null !default;
   flex-direction: column;
   margin: 0;
   overflow: hidden;
+  position: relative;
 }
 
 .ecl-media-container__media {
@@ -52,4 +54,12 @@ $_caption-padding: null !default;
 
 .ecl-media-container__media--ratio-1-1 {
   @include uMedia.aspect-ratio(1, 1);
+}
+
+// Full width
+// We have to substract the scrollbar width, as it is not handled well by vw unit)
+.ecl-media-container--full-width {
+  left: 50%;
+  margin-left: calc(-50vw + (#{$_scrollbar-width} / 2));
+  width: calc(100vw - #{$_scrollbar-width});
 }

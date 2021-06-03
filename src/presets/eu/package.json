@@ -11,13 +11,13 @@
   },
   "scripts": {
     "build:copy": "ecl-builder copy",
-    "build:scripts": "ecl-builder scripts",
+    "build:scripts": "cross-env ECL_SYSTEM=eu ecl-builder scripts",
     "build:styles": "cross-env ECL_SYSTEM=eu ecl-builder styles",
     "build": "run-p build:*",
     "clean": "rimraf build dist",
     "dist": "cross-env NODE_ENV=production run-p build:*",
     "watch": "cross-env ECL_SYSTEM=eu ecl-builder watch",
-    "prepublish": "npm run clean && run-p build dist"
+    "prepublish": "npm run clean && npm run build && npm run dist"
   },
   "devDependencies": {
     "@ecl/builder": "^3.0.0-alpha.1",

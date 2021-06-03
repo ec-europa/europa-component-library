@@ -1,0 +1,25 @@
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+@use 'gallery' with (
+  $_actions-margin: map.get(theme.$spacing, 'xs'),
+  $_actions-margin-desktop: map.get(theme.$spacing, 'm'),
+  $_arrow-margin: map.get(theme.$spacing, 'm'),
+  $_arrow-margins: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, '2xs'),
+  $_close-button-color: map.get(theme.$color, 'white-100'),
+  $_description-background: map.get(theme.$color, 'grey-100'),
+  $_description-icon: map.get(theme.$icon, 'xs'),
+  $_description-icon-mobile: map.get(theme.$icon, 'xs'),
+  $_description-margin-desktop: map.get(theme.$spacing, 'm'),
+  $_detail-background: map.get(theme.$color, 'grey-100'),
+  $_detail-color: map.get(theme.$color, 'white-100'),
+  $_gallery-info-color: map.get(theme.$color, 'grey'),
+  $_gallery-info-font: map.get(theme.$font, 'xs'),
+  $_gallery-meta-color: map.get(theme.$color, 'white-100'),
+  $_item-outline: 3px solid map.get(theme.$color, 'yellow-100'),
+  $_item-outline-offset: -3px,
+  $_overlay-description-color: map.get(theme.$color, 'white-100'),
+  $_overlay-links-color: map.get(theme.$color, 'white-100'),
+  $_overlay-links-hover-color: map.get(theme.$color, 'yellow-25'),
+  $_overlay-radius: 0,
+  $_overlay-shadow: none,
+);

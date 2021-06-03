@@ -2,10 +2,10 @@
 
 {#
   Parameters:
-  - "type" (string) (default: 'default') Type of banner (can be 'white', 'grey', image','image-shade','image-gradient')
+  - "variant" (string) (default: 'default') Variant of banner (can be 'primary', 'secondary', 'white', 'image', 'image-shade', 'image-gradient')
   - "title" (string) (default: '') Title of banner
-  - "image" (string) (default: '') Image for banner (required for image banner type)
-  - "baseline" (string) (default: '') Baseline of banner
+  - "image" (string) (default: '') Image for banner (required for image banner variant)
+  - "description" (string) (default: '') Description of banner
   - "centered" (bool) (default: true) Define if banner should be centered
   - "full_width": (bool) (default: false) Full width banner (inside the grid)
   - "link" (associative array) (default: predefined structure) predefined structure for the Link component
@@ -19,17 +19,17 @@
 
 {% set _css_class = 'ecl-page-banner' %}
 {% set _extra_attributes = '' %}
-{% set _type = type|default('default') %}
+{% set _variant = variant|default('primary') %}
 {% set _centered = centered ?? true %}
 {% set _full_width = full_width|default(false) %}
 {% set _title = title|default('') %}
-{% set _description = baseline|default('') %}
+{% set _description = description|default('') %}
 {% set _image = image|default('') %}
 {% set _link = link|default({}) %}
 
 {# Internal logic - Process properties #}
 
-{% set _css_class = _css_class ~ ' ecl-page-banner--' ~ _type %}
+{% set _css_class = _css_class ~ ' ecl-page-banner--' ~ _variant %}
 
 {% if _centered %}
   {% set _css_class = _css_class ~ ' ecl-page-banner--centered' %}
@@ -56,7 +56,7 @@
 {# Print the result #}
 
 <section class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-{% if _image is not empty and _type in ['image', 'image-shade', 'image-gradient'] %}
+{% if _image is not empty and _variant in ['image', 'image-shade', 'image-gradient'] %}
   <div class="ecl-page-banner__image" style="background-image:url({{ _image }})"></div>
 {% endif %}
   <div class="ecl-container">
