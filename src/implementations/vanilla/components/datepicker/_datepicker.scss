@@ -7,6 +7,17 @@
 /* stylelint-disable-next-line scss/at-import-partial-extension-blacklist */
 @import 'pikaday/scss/pikaday.scss';
 
+$_input-hover-shadow: null !default;
+$_picker-background-color: null !default;
+$_picker-table-background-color: null !default;
+$_picker-border-radius: null !default;
+$_picker-margin-top: null !default;
+$_picker-day-color: map.get(theme.$color, 'grey-50');
+$_picker-day-disable-color: null !default;
+$_picker-day-today-box-shadow: null !default;
+$_picker-day-selected-background: null !default;
+$_picker-theme-color: null !default;
+
 .ecl-datepicker {
   margin: 0;
   position: relative;
@@ -22,8 +33,13 @@
 }
 
 .ecl-datepicker__field.ecl-text-input {
+  box-shadow: none;
   padding-right: map.get(theme.$spacing, 'xl');
   width: 100%;
+
+  &:hover {
+    box-shadow: $_input-hover-shadow;
+  }
 }
 
 .ecl-datepicker__icon {
@@ -34,6 +50,10 @@
   position: absolute;
   right: 0;
   top: 0;
+}
+
+.ecl-datepicker__field[disabled] {
+  color: $_picker-day-disable-color;
 }
 
 .ecl-datepicker--invalid .ecl-datepicker__icon {
@@ -61,12 +81,15 @@
 }
 
 /*
-   * pikaday styling
-   */
+  * pikaday styling
+  */
 .ecl-datepicker-theme {
+  border-radius: $_picker-border-radius;
   border-width: 0;
-  color: map.get(theme.$color, 'grey');
+  color: $_picker-theme-color;
   font: map.get(theme.$font, 'm');
+  margin-top: $_picker-margin-top;
+  overflow: hidden;
   width: 100%;
 
   &.is-bound {
@@ -74,7 +97,7 @@
   }
 
   .pika-lendar {
-    background-color: map.get(theme.$color, 'grey-5');
+    background-color: $_picker-background-color;
     margin: 0;
     width: 100%;
   }
@@ -82,12 +105,13 @@
   .pika-title {
     background-color: map.get(theme.$color, 'white');
     display: flex;
+    padding-bottom: map.get(theme.$spacing, 'xs');
   }
 
   .pika-label {
     align-items: center;
-    background-color: map.get(theme.$color, 'grey-10');
-    color: map.get(theme.$color, 'grey');
+    background-color: $_picker-background-color;
+    color: $_picker-theme-color;
     display: flex;
     flex-grow: 1;
     font: map.get(theme.$font, 'm');
@@ -122,11 +146,12 @@
   }
 
   .pika-table {
+    background-color: $_picker-table-background-color;
     border-collapse: initial;
     border-spacing: map.get(theme.$spacing, '2xs');
 
     th {
-      color: map.get(theme.$color, 'grey');
+      color: $_picker-theme-color;
       font: map.get(theme.$font, 'm');
       padding: map.get(theme.$spacing, 'xs') 0;
     }
@@ -138,24 +163,25 @@
 
   .pika-button {
     background-color: map.get(theme.$color, 'white');
-    color: map.get(theme.$color, 'grey');
+    border-radius: $_picker-border-radius;
+    color: $_picker-day-color;
     font: map.get(theme.$font, 'm');
     padding: map.get(theme.$spacing, 's');
     text-align: center;
 
     &:hover {
-      background-color: map.get(theme.$color, 'grey-10');
-      border-radius: 0;
+      border-radius: $_picker-border-radius;
+      box-shadow: $_picker-day-today-box-shadow;
     }
   }
 
   .is-today .pika-button {
-    box-shadow: inset 0 0 0 3px map.get(theme.$color, 'blue-25');
+    box-shadow: $_picker-day-today-box-shadow;
   }
 
   .is-selected .pika-button {
-    background-color: map.get(theme.$color, 'blue');
-    border-radius: 0;
+    background-color: $_picker-day-selected-background;
+    border-radius: $_picker-border-radius;
     box-shadow: none;
     color: map.get(theme.$color, 'white');
     font-weight: map.get(theme.$font-weight, 'bold');
@@ -163,7 +189,7 @@
 
   .is-outside-current-month .pika-button {
     background-color: map.get(theme.$color, 'grey-10');
-    color: map.get(theme.$color, 'grey');
+    color: $_picker-day-disable-color;
     opacity: 1;
   }
 }
