@@ -18,6 +18,7 @@ $_border-link-active: null !default;
 $_border-link-focus: null !default;
 $_outline-link-focus: null !default;
 $_color-link-active: null !default;
+$_color-link-hover: null !default;
 $_color-title: null !default;
 $_logo-height-desktop: null !default;
 $_logo-width-desktop: null !default;
@@ -90,9 +91,7 @@ $_padding-list-splash-desktop: null !default;
   padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
 
   &:hover {
-    background-color: $_background-link-hover;
-    border: $_border-link-active;
-    color: $_color-link-active;
+    color: $_color-link-hover;
   }
 
   &:focus {
