@@ -498,7 +498,7 @@ export class Gallery {
     if (embeddedVideo) embeddedVideo.remove();
 
     // Stop video
-    const video = queryOne('video', this.selectedItem);
+    const video = queryOne('video', this.overlayMedia);
     if (video) video.pause();
 
     // Untrap focus
