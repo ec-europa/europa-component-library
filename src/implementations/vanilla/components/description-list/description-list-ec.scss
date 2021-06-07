@@ -1,0 +1,13 @@
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+@use 'description-list' with (
+  $_term-color: map.get(theme.$color, 'grey-100'),
+  $_term-font: map.get(theme.$font-prolonged, 'xl'),
+  $_term-horizontal-font: map.get(theme.$font-prolonged, 'm'),
+  $_definition-color: map.get(theme.$color, 'grey-100'),
+  $_term-margin-top: map.get(theme.$spacing, 'xl'),
+  $_term-term-margin-top: map.get(theme.$spacing, '2xs'),
+  $_definition-margin-top: map.get(theme.$spacing, 'm'),
+  $_horizontal-item-margin-top: map.get(theme.$spacing, 'm'),
+  $_divider-color: map.get(theme.$color, 'grey-20'),
+);
