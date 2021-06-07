@@ -7,7 +7,7 @@
   - "eu_category" (string) (default: '');
   - "non_eu_category" (string) (default: '')
   - "close_label (string) (default: ''): label of close button
-  - "title" (object) (default: {}): title of the page and icon
+  - "title" (string) (default: ''): title of the page
   - "items" (array) (default: [])
     - "lang" (string) (default: '')
     - "label" (string) (default: '')
@@ -88,20 +88,20 @@
           extra_attributes: [{ name: 'data-ecl-language-list-close' }],
         } only %}
       </div>
-      {% if _title.label is defined %}
       <div
         class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
         id="ecl-language-list__title"
       >
-        {% if _title.icon is defined %}
         {% include '@ecl/icon/icon.html.twig' with {
-          icon: _title.icon,
-          extra_classes: 'ecl-language-list__title-icon'
+          icon: {
+            name: 'generic-lang',
+            path: _icon_path,
+            size: 'm',
+          },
+          extra_classes: 'ecl-language-list__title-icon',
           } only %}
-        {% endif %}
-        {{- _title.label -}}
+        {{- _title -}}
       </div>
-      {% endif %}
     </div>
 {% else %}
   <header class="ecl-language-list__header">

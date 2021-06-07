@@ -129,7 +129,7 @@ Change impact have been grouped as :
 
 **Language list**
 
-- :heavy_check_mark: `title` parameter for the overlay is now an object containing the label and the title icon
+- :boom: markup has been revised, icon `generic-lang` added next to the title for the overlay variant
 
 **Link**
 

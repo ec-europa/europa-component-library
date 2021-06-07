@@ -1,12 +1,5 @@
 module.exports = {
-  title: {
-    icon: {
-      path: '/icons.svg',
-      name: 'generic-lang',
-      size: 'm',
-    },
-    label: 'Select your language',
-  },
+  title: 'Select your language',
   items: [
     {
       label: 'български',
