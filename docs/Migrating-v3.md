@@ -127,6 +127,10 @@ Change impact have been grouped as :
 
 - :warning: twig parameter "type" has been removed
 
+**Language list**
+
+- :boom: markup has been revised, icon `generic-lang` added next to the title for the overlay variant
+
 **Link**
 
 - :warning: space between icon and label is now set using css (instead of a forced `&nbsp`)
