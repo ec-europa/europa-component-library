@@ -49,6 +49,7 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Navigation/Breadcrumbs/Breadcrumb Core',
   decorators: [withNotes, withCode],
+  parameters: { layout: 'fullscreen' },
 };
 
 export const Simple = (args) => breadcrumb(prepareData(dataSimple, args));

@@ -132,6 +132,7 @@ const renderStory = (data, args) => {
 export default {
   title: 'Components/Banners/Page Banner',
   decorators: [withNotes, withCode],
+  parameters: { layout: 'fullscreen' },
 };
 
 export const Primary = (args) => renderStory(bannerDataSimplePrimary, args);
