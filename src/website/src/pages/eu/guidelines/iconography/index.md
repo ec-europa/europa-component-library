@@ -5,6 +5,14 @@ order: 5
 
 import { IconList } from '@ecl/website-components';
 
-Here are the icons available on ECL
+## ECL EU icons
 
-<IconList set="all" />
+<IconList system="eu" set="standard" />
+
+## Social media icons
+
+<IconList set="social-media" />
+
+## Flag icons
+
+<IconList set="flag" />

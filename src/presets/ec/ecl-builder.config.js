@@ -64,6 +64,14 @@ module.exports = {
       to: path.resolve(outputFolder, 'images/icons'),
     },
     {
+      from: path.resolve(nodeModules, '@ecl/resources-social-media-icons/dist'),
+      to: path.resolve(outputFolder, 'images/icons-social-media'),
+    },
+    {
+      from: path.resolve(nodeModules, '@ecl/resources-flag-icons/dist'),
+      to: path.resolve(outputFolder, 'images/icons-flag'),
+    },
+    {
       from: path.resolve(nodeModules, '@ecl/resources-ec-social-icons/dist'),
       to: path.resolve(outputFolder, 'images/social-icons'),
     },
