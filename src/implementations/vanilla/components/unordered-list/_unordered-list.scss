@@ -6,21 +6,22 @@
 @use "sass:map";
 @use '@ecl/theme-dev/theme';
 
-$_text-color: map.get(theme.$color, 'grey-100');
-$_divider-color: map.get(theme.$color, 'grey-15');
+$_text-color: null !default;
+$_divider-color: null !default;
 
 .ecl-unordered-list,
 %ecl-unordered-list {
   color: $_text-color;
   font: map.get(theme.$font-prolonged, 'm');
-  list-style-position: outside;
+  list-style-position: inside;
   margin: 0;
-  padding-left: map.get(theme.$spacing, '2xl');
+  padding-left: map.get(theme.$spacing, 's');
 }
 
 .ecl-unordered-list .ecl-unordered-list,
 %ecl-unordered-list--nested {
   margin-top: map.get(theme.$spacing, 'xs');
+  padding-left: map.get(theme.$spacing, 'xl');
 }
 
 .ecl-unordered-list__item,
@@ -37,6 +38,10 @@ $_divider-color: map.get(theme.$color, 'grey-15');
 .ecl-unordered-list--no-bullet {
   list-style: none;
   padding-left: 0;
+
+  .ecl-unordered-list {
+    padding-left: map.get(theme.$spacing, 'm');
+  }
 }
 
 // Dividers
@@ -52,5 +57,9 @@ $_divider-color: map.get(theme.$color, 'grey-15');
 
   > .ecl-unordered-list__item:last-child {
     margin-bottom: 0;
+  }
+
+  .ecl-unordered-list {
+    padding-left: map.get(theme.$spacing, 'm');
   }
 }

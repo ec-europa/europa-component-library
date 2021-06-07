@@ -1,0 +1,6 @@
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+@use 'unordered-list' with (
+  $_text-color: map.get(theme.$color, 'grey-100'),
+  $_divider-color: map.get(theme.$color, 'grey-15'),
+);
