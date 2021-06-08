@@ -1,5 +1,54 @@
 # Changelog
 
+## 3.0.0-beta.1 (2021-06-08)
+
+#### :rocket: New Feature
+
+- [#2089](https://github.com/ec-europa/europa-component-library/pull/2089) feat(language-list): Revamping EC and EU - FRONT-2250 ([@papegaill](https://github.com/papegaill))
+- [#2080](https://github.com/ec-europa/europa-component-library/pull/2080) feat(icons): add flag and social icons - FRONT-2251 ([@emeryro](https://github.com/emeryro))
+- [#2081](https://github.com/ec-europa/europa-component-library/pull/2081) feat(lists): Adding EU styles, revamping EC - FRONT-2253 ([@papegaill](https://github.com/papegaill))
+- [#2085](https://github.com/ec-europa/europa-component-library/pull/2085) feat(datepicker): Adding EU styles, revamping EC - FRONT-2249 ([@papegaill](https://github.com/papegaill))
+- [#2084](https://github.com/ec-europa/europa-component-library/pull/2084) feat(stories): Set padding by default for all stories and make some fullscreen - FRONT-2211 ([@papegaill](https://github.com/papegaill))
+- [#2071](https://github.com/ec-europa/europa-component-library/pull/2071) feat(tags): Adding EU styles, revamping EC - FRONT-2124 ([@papegaill](https://github.com/papegaill))
+- [#2086](https://github.com/ec-europa/europa-component-library/pull/2086) feat(inpage-nav): update EC and add EU - FRONT-2203 ([@emeryro](https://github.com/emeryro))
+- [#2077](https://github.com/ec-europa/europa-component-library/pull/2077) feat(banners): update EC banners and add EU ([@emeryro](https://github.com/emeryro))
+- [#2082](https://github.com/ec-europa/europa-component-library/pull/2082) feat(gallery): Adding EU styles, revamping EC - front-2255 ([@planctus](https://github.com/planctus))
+- [#2065](https://github.com/ec-europa/europa-component-library/pull/2065) feat(file): Adding EU styles, revamping EC - FRONT-2178 ([@papegaill](https://github.com/papegaill))
+- [#2076](https://github.com/ec-europa/europa-component-library/pull/2076) feat(card): Adding EU styles, revamping EC - FRONT-2202 ([@papegaill](https://github.com/papegaill))
+- [#2055](https://github.com/ec-europa/europa-component-library/pull/2055) feat(media-container): add full width - FRONT-2224 ([@emeryro](https://github.com/emeryro))
+- [#2072](https://github.com/ec-europa/europa-component-library/pull/2072) feat(html tags): add default styling - FRONT-2213 ([@emeryro](https://github.com/emeryro))
+- [#2079](https://github.com/ec-europa/europa-component-library/pull/2079) feat(table): Adding EU styles, revamping EC - FRONT-2247 ([@papegaill](https://github.com/papegaill))
+- [#1963](https://github.com/ec-europa/europa-component-library/pull/1963) feat(website): Adding EU structure - FRONT-2100 ([@planctus](https://github.com/planctus))
+- [#2060](https://github.com/ec-europa/europa-component-library/pull/2060) feat(date-block): update EC date block and add EU - FRONT-2209 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#2093](https://github.com/ec-europa/europa-component-library/pull/2093) fix(gallery): Pause video on overlay closing - FRONT-2273 ([@papegaill](https://github.com/papegaill))
+- [#2064](https://github.com/ec-europa/europa-component-library/pull/2064) fix(menu): Review menu spacings - FRONT-2156 ([@papegaill](https://github.com/papegaill))
+- [#2067](https://github.com/ec-europa/europa-component-library/pull/2067) fix(gallery): update gallery z-index (ECL3) - FRONT-2230 ([@emeryro](https://github.com/emeryro))
+- [#2061](https://github.com/ec-europa/europa-component-library/pull/2061) fix(website): fix icon - FRONT-2227 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#2087](https://github.com/ec-europa/europa-component-library/pull/2087) fix(icons/toolchain): Fixing svg icons, setting right system in Js via rollup - front-2187 ([@planctus](https://github.com/planctus))
+
+#### :memo: Documentation
+
+- [#2069](https://github.com/ec-europa/europa-component-library/pull/2069) chore(docs): Adding Js bundle section in migration docs ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#2090](https://github.com/ec-europa/europa-component-library/pull/2090) chore(deps): Safe updates ([@planctus](https://github.com/planctus))
+- [#2073](https://github.com/ec-europa/europa-component-library/pull/2073) fix(toolchain): npm publish and sources for map files - FRONT-2238 ([@planctus](https://github.com/planctus))
+- [#2063](https://github.com/ec-europa/europa-component-library/pull/2063) chore: audit issues, May 07 21 ([@planctus](https://github.com/planctus))
+- [#2062](https://github.com/ec-europa/europa-component-library/pull/2062) chore(deps): Some updates, fixing audit issues ([@planctus](https://github.com/planctus))
+
+#### Committers: 3
+
+- Alexis Gaillard ([@papegaill](https://github.com/papegaill))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 ## 3.0.0-alpha.1 (2021-05-03)
 
 #### :rocket: New Feature
