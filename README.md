@@ -141,6 +141,8 @@
 @ecl/resources-ec-logo
 @ecl/resources-eu-logo
 @ecl/resources-ec-social-icons
+@ecl/resources-flag-icons
+@ecl/resources-social-media-icons
 
 ### Themes
 
