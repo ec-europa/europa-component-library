@@ -1,0 +1,48 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import {
+  buttonPrimary,
+  buttonSecondary,
+  buttonCall,
+  buttonGhost,
+} from '../demo';
+
+## Primary
+
+<Playground
+  system="eu"
+  selectedKind="components-button"
+  selectedStory="primary"
+>
+  <Html markup={buttonPrimary} />
+</Playground>
+
+## Secondary
+
+<Playground
+  system="eu"
+  selectedKind="components-button"
+  selectedStory="secondary"
+>
+  <Html markup={buttonSecondary} />
+</Playground>
+
+## Call to action with icon
+
+<Playground
+  system="eu"
+  selectedKind="components-button"
+  selectedStory="call-to-action"
+>
+  <Html markup={buttonCall} />
+</Playground>
+
+## Text
+
+<Playground system="eu" selectedKind="components-button" selectedStory="ghost">
+  <Html markup={buttonGhost} />
+</Playground>

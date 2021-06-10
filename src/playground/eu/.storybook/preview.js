@@ -16,26 +16,32 @@ addParameters({
   },
   cssresources: [
     {
-      id: 'eu-core',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/eu-core.css" />`,
+      id: 'ecl-eu',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-eu.css" />`,
       picked: true,
       hideCode: true,
     },
     {
-      id: 'eu-core-print',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/eu-core-print.css" />`,
+      id: 'ecl-eu-print',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-eu-print.css" />`,
       picked: false,
       hideCode: true,
     },
     {
       id: 'reset',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/reset.css" />`,
+      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-reset.css" />`,
       picked: true,
+      hideCode: true,
+    },
+    {
+      id: 'ecl-eu-default',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-eu-default.css" />`,
+      picked: false,
       hideCode: true,
     },
   ],
   controls: { expanded: true },
-  layout: 'fullscreen',
+  layout: 'padded',
   viewport: {
     defaultViewport: 'responsive',
     viewports: {

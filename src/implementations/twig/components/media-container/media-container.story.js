@@ -54,11 +54,42 @@ const getArgTypes = (data) => {
     };
   }
 
+  argTypes.width = {
+    name: 'width',
+    defaultValue: 'outside',
+    description: `The media container extends to the whole viewport by default when outside the grid,
+      if it's inside it can still be extended by adding class .ecl-media-container--full-width`,
+    table: {
+      type: { summary: 'radio' },
+      defaultValue: { summary: 'outside the grid container' },
+      category: 'Display',
+    },
+    control: {
+      type: 'radio',
+      options: {
+        'outside the grid container': 'outside',
+        'inside the grid container': 'container',
+        'inside the grid container, with fullwidth class': 'inside',
+      },
+    },
+  };
+
   return argTypes;
 };
 
 const prepareData = (data, args) => {
+  data.full_width = args.width === 'inside';
+
   return Object.assign(data, args);
+};
+
+const renderStory = (data, args) => {
+  let story = mediaContainer(prepareData(data, args));
+  if (args.width === 'container' || args.width === 'inside') {
+    story = `<div class="ecl-container">${story}</div>`;
+  }
+
+  return story;
 };
 
 export default {
@@ -69,7 +100,7 @@ export default {
   },
 };
 
-export const Image = (args) => mediaContainer(prepareData(dataImg, args));
+export const Image = (args) => renderStory(dataImg, args);
 
 Image.storyName = 'image';
 Image.argTypes = getArgTypes(dataImg);
@@ -77,7 +108,7 @@ Image.parameters = {
   notes: { markdown: notes, json: dataImg },
 };
 
-export const Video = (args) => mediaContainer(prepareData(dataVideo, args));
+export const Video = (args) => renderStory(dataVideo, args);
 
 Video.storyName = 'video';
 Video.argTypes = getArgTypes(dataVideo);
@@ -86,8 +117,7 @@ Video.parameters = {
   creevey: { skip: 'Mmhh...' },
 };
 
-export const EmbeddedVideo = (args) =>
-  mediaContainer(prepareData(dataEmbed, args));
+export const EmbeddedVideo = (args) => renderStory(dataEmbed, args);
 
 EmbeddedVideo.storyName = 'embedded video';
 EmbeddedVideo.argTypes = getArgTypes(dataEmbed);

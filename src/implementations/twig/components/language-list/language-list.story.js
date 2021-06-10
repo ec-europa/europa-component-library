@@ -26,6 +26,7 @@ export default {
   decorators: [withCode, withNotes],
   parameters: {
     controls: { disable: true },
+    layout: 'fullscreen',
   },
 };
 

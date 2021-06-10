@@ -18,7 +18,7 @@ module.exports = {
   styles: [
     {
       entry: path.resolve(__dirname, 'src/reset.scss'),
-      dest: path.resolve(outputFolder, 'styles/reset.css'),
+      dest: path.resolve(outputFolder, 'styles/optional/ecl-reset.css'),
       options: {
         banner,
         includePaths,

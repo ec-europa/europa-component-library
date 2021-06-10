@@ -1,0 +1,191 @@
+/**
+ * Timeline
+ * @define timeline; weak
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+$_border-width: null !default;
+$_border-color: null !default;
+$_bullet-fill-color: map.get(theme.$color, 'white-100');
+$_bullet-size: map.get(theme.$spacing, 's');
+$_bullet-border-color: null !default;
+$_bullet-border-width: null !default;
+$_bullet-shadow: null !default;
+$_bullet-top-position: null !default;
+$_content-big-font: null !default;
+$_content-color: null !default;
+$_content-font: null !default;
+$_first-item-offset: null !default;
+$_toggle-bullet-border-color: null !default;
+$_toggle-bullet-border-width: 0.125rem;
+$_label-alignment: null !default;
+$_item-padding-top: null !default;
+$_label-color: null !default;
+$_label-big-font: null !default;
+$_label-font: null !default;
+$_label-font-weight: null !default;
+$_label-margin: null !default;
+$_label-layout: null !default;
+$_last-item-height: null !default;
+$_left-spacing: null !default;
+$_timeline-margin-left: null !default;
+$_title-color: null !default;
+$_title-big-font: null !default;
+$_title-font: null !default;
+$_title-font-weight: null !default;
+$_title-margin: null !default;
+
+// Timeline structure
+.ecl-timeline {
+  list-style: none;
+  margin: 0 map.get(theme.$spacing, 'l') 0
+    (map.get(theme.$spacing, 'l') + ($_bullet-size / 2) + $_bullet-border-width);
+  max-width: 633px;
+  padding-left: 0;
+}
+
+.ecl-timeline__item {
+  padding-bottom: map.get(theme.$spacing, 'l');
+  padding-left: map.get(theme.$spacing, 'm') + ($_bullet-size / 2) +
+    $_bullet-border-width;
+  padding-top: $_item-padding-top;
+  position: relative;
+
+  // Border
+  &::before {
+    border-left: $_border-width solid $_border-color;
+    content: '';
+    height: 100%;
+    left: -($_border-width / 2);
+    position: absolute;
+    top: 0;
+    width: 0;
+  }
+
+  // Bullet
+  &::after {
+    background-color: $_bullet-fill-color;
+    border: $_bullet-border-width solid $_bullet-border-color;
+    border-radius: 50%;
+    box-shadow: $_bullet-shadow;
+    box-sizing: border-box;
+    content: '';
+    height: $_bullet-size + ($_bullet-border-width * 2);
+    left: -(($_bullet-size / 2) + $_bullet-border-width);
+    position: absolute;
+    top: $_bullet-top-position;
+    width: $_bullet-size + ($_bullet-border-width * 2);
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('s') {
+  .ecl-timeline {
+    margin-left: $_timeline-margin-left;
+    margin-right: map.get(theme.$spacing, 'xs');
+  }
+}
+
+// Toggle button
+.ecl-timeline__item--toggle {
+  padding-top: map.get(theme.$spacing, 'xs');
+
+  &::before {
+    border-left-style: dashed;
+  }
+
+  &::after {
+    border: $_toggle-bullet-border-width solid $_toggle-bullet-border-color;
+    box-sizing: border-box;
+    height: $_bullet-size + ($_bullet-border-width * 2);
+    top: map.get(theme.$spacing, 'xs') + map.get(theme.$spacing, 's');
+    width: $_bullet-size + ($_bullet-border-width * 2);
+  }
+
+  .no-js & {
+    display: none;
+  }
+}
+
+.ecl-timeline[data-ecl-timeline-expanded] .ecl-timeline__item--toggle {
+  padding-bottom: map.get(theme.$spacing, 'xs');
+  padding-top: map.get(theme.$spacing, 'l');
+
+  &::after {
+    top: map.get(theme.$spacing, 'l') + map.get(theme.$spacing, 's');
+  }
+}
+
+.ecl-timeline__toggle[aria-expanded='true'] .ecl-icon {
+  transform: rotate(0deg);
+}
+
+// Border adjustment
+.ecl-timeline__item:first-child::before {
+  height: calc(100% - #{map.get(theme.$spacing, 'xs')});
+  top: $_first_item_offset;
+}
+
+.ecl-timeline__item:last-child::before {
+  height: $_last-item-height;
+}
+
+// Timeline data
+.ecl-timeline__title {
+  color: $_title-color;
+  font: $_title-font;
+  font-weight: $_title-font-weight;
+  margin-bottom: $_title-margin;
+}
+
+.ecl-timeline__label {
+  color: $_label-color;
+  font: $_label-font;
+  margin-bottom: map.get(theme.$spacing, 's');
+}
+
+.ecl-timeline__content {
+  color: $_content-color;
+  font: $_content-font;
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('s') {
+  .ecl-timeline__label {
+    font: $_label-big-font;
+    font-weight: $_label-font-weight;
+    left: -($_left-spacing + map.get(theme.$spacing, 'm') + ($_bullet-size / 2) +
+          $_bullet-border-width);
+    line-height: map.get(theme.$line-height, 'm');
+    margin-bottom: $_label-margin;
+    position: $_label-layout;
+    text-align: $_label-alignment;
+    top: map.get(theme.$spacing, 'xs');
+    width: $_left-spacing;
+  }
+
+  .ecl-timeline__title {
+    font: $_title-big-font;
+    font-weight: $_title-font-weight;
+  }
+
+  .ecl-timeline__content {
+    font: $_content-big-font;
+  }
+}
+
+// Collapsible items
+.ecl-timeline__item--collapsed {
+  display: none;
+
+  .no-js & {
+    display: block;
+  }
+}
+
+.ecl-timeline[data-ecl-timeline-expanded] .ecl-timeline__item--collapsed {
+  display: block;
+}

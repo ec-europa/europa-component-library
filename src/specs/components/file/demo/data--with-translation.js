@@ -4,7 +4,7 @@ module.exports = {
   language: 'English',
   meta: '(16.2 MB - PDF)',
   icon: {
-    name: 'copy',
+    name: 'file',
     size: '2xl',
     path: '/icons.svg',
   },
@@ -25,7 +25,7 @@ module.exports = {
       },
     },
     description:
-      'Looking for another language which is not on the list? Find out why.',
+      'Looking for another language which is not on the list? <a href="#" class="ecl-link">Find out why</a>.',
     items: [
       {
         title: 'български',

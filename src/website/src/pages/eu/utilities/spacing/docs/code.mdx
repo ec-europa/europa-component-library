@@ -1,0 +1,94 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground } from '@ecl/website-components';
+import Spacing from '@ecl/website-components/Spacing/Spacing';
+
+Use following classes to add extra spacing.
+
+Examples display outside spacing (margin) on the left and
+inside spacing (padding) on the right.
+
+## All around spacing
+
+<Playground
+  system="eu"
+  selectedKind="utilities-spacing"
+  selectedStory="default"
+>
+  <Spacing type="a" token="2xs" />
+  <Spacing type="a" token="xs" />
+  <Spacing type="a" token="s" />
+  <Spacing type="a" token="m" />
+  <Spacing type="a" token="l" />
+  <Spacing type="a" token="xl" />
+  <Spacing type="a" token="2xl" />
+  <Spacing type="a" token="3xl" />
+  <Spacing type="a" token="4xl" />
+</Playground>
+
+## Vertical spacing
+
+<Playground
+  system="eu"
+  selectedKind="utilities-spacing"
+  selectedStory="default"
+>
+  <Spacing type="v" token="2xs" />
+  <Spacing type="v" token="xs" />
+  <Spacing type="v" token="s" />
+  <Spacing type="v" token="m" />
+  <Spacing type="v" token="l" />
+  <Spacing type="v" token="xl" />
+  <Spacing type="v" token="2xl" />
+  <Spacing type="v" token="3xl" />
+  <Spacing type="v" token="4xl" />
+</Playground>
+
+### Directional vertical spacing
+
+- use classes `ecl-u-mt-*` or `ecl-u-pt-*` to add spacing only on top
+- use classes `ecl-u-mb-*` or `ecl-u-pb-*` to add spacing below.
+
+## Horizontal spacing
+
+<Playground
+  system="eu"
+  selectedKind="utilities-spacing"
+  selectedStory="default"
+>
+  <Spacing type="h" token="2xs" />
+  <Spacing type="h" token="xs" />
+  <Spacing type="h" token="s" />
+  <Spacing type="h" token="m" />
+  <Spacing type="h" token="l" />
+  <Spacing type="h" token="xl" />
+  <Spacing type="h" token="2xl" />
+  <Spacing type="h" token="3xl" />
+  <Spacing type="h" token="4xl" />
+</Playground>
+
+### Directional horizontal spacing
+
+- use classes `ecl-u-ml-*` or `ecl-u-pl-*` to add spacing only on the left
+- use classes `ecl-u-mr-*` or `ecl-u-pr-*` to add spacing on the right.
+
+## Other spacing
+
+- use classes `ecl-u-m*-auto` to set margin auto (horizontal, vertical or any direction)
+- use classes `ecl-u-m*-none` or `ecl-u-p*-none` to set margin or padding to zero.
+
+## Responsive spacing
+
+Add the breakpoint before spacing size to display it only with corresponding screen size (works for all kind of spacing ahead).
+
+Examples:
+
+- spacing `l` on screen size >= breakpoint `md`
+  <Spacing type="a-md" token="l" />
+- horizontal spacing `2xl` on screen size >= breakpoint `lg`
+  <Spacing type="h-lg" token="2xl" />
+- no left spacing on screen size >= breakpoint `sm`
+  <Spacing type="l-sm" token="none" />

@@ -15,7 +15,8 @@ $_padding-horizontal: map.get(theme.$spacing, 'm') !default;
 $_padding-vertical: map.get(theme.$spacing, 's') !default;
 $_shadow-hover: null !default;
 
-.ecl-button {
+.ecl-button,
+%ecl-button {
   appearance: none;
   background: none;
   border-radius: $_border-radius;
@@ -102,7 +103,10 @@ $_secondary-border-color: map.get(theme.$color, 'blue-100') !default;
 $_secondary-border-color-hover: null !default;
 $_secondary-color: map.get(theme.$color, 'blue-100') !default;
 $_secondary-color-hover: null !default;
-.ecl-button--secondary {
+
+// stylelint-disable plugin/selector-bem-pattern
+.ecl-button--secondary,
+%ecl-button {
   background-color: $_secondary-background-color;
   border: $_border-width solid $_secondary-border-color;
   color: $_secondary-color;
@@ -126,6 +130,7 @@ $_secondary-color-hover: null !default;
     color: rgba($_secondary-color-hover, 0.5);
   }
 }
+// stylelint-enable plugin/selector-bem-pattern
 
 /**
 * Ghost

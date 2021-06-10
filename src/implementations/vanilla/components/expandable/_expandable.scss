@@ -1,0 +1,26 @@
+/**
+ * Expandable
+ * @define expandable; weak
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+
+$_expandable-content-color: null !default;
+
+.ecl-expandable {
+  margin: 0;
+}
+
+.ecl-expandable__toggle[aria-expanded='true'] .ecl-icon {
+  transform: rotate(0deg);
+}
+
+.ecl-expandable__content {
+  color: $_expandable-content-color;
+  font-family: #{map.get(theme.$font-family, 'default')};
+}
+
+.no-js .ecl-expandable__content {
+  display: block;
+}

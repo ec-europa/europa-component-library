@@ -7,7 +7,7 @@ import meta from '../preval/get-meta-ec';
 import sortPages from '../utils/nav-sort';
 
 // Static routes
-import HomePage from '../pages/ec/index.mdx';
+import HomePage from '../pages/ec/index.md';
 
 import DocPage from '../components/DocPage/DocPage';
 

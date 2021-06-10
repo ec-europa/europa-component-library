@@ -2,330 +2,9 @@ module.exports = {
   logo: {
     title: 'Commmission Européenne',
     alt: 'Logo Commmission Européenne',
-    href: '/example',
+    path: '/example',
     language: 'fr',
-    src_desktop: '/logo.svg',
-  },
-  menu: {
-    title: 'Menu',
-    close: 'Fermer',
-    back: 'Retour',
-    items: [
-      {
-        label: 'Accueil',
-        path: '/example',
-      },
-      {
-        label: 'Item 2',
-        path: '/example',
-        is_current: true,
-        children: [
-          {
-            label: 'Item 2.1',
-            path: '/example',
-          },
-          {
-            label: 'Item 2.2',
-            path: '/example',
-          },
-          {
-            label: 'Item 2.3',
-            path: '/example',
-            is_current: true,
-          },
-          {
-            label: 'Item 2.4',
-            path: '/example',
-          },
-          {
-            label: 'Item 2.5',
-            path: '/example',
-          },
-          {
-            label: 'Item 2.6',
-            path: '/example',
-          },
-          {
-            label: 'Item 2.7',
-            path: '/example',
-          },
-          {
-            label: 'Item 2.8',
-            path: '/example',
-          },
-          {
-            label: 'Item 2.9',
-            path: '/example',
-          },
-          {
-            label: 'Item 2.10',
-            path: '/example',
-          },
-          {
-            label: 'Item 2.11',
-            path: '/example',
-          },
-          {
-            label: 'Item 2.12',
-            path: '/example',
-          },
-          {
-            label: 'Item 2.13',
-            path: '/example',
-          },
-          {
-            label: 'Item 2.14',
-            path: '/example',
-          },
-          {
-            label: 'Item 2.15',
-            path: '/example',
-          },
-          {
-            label: 'Item 2.16',
-            path: '/example',
-          },
-        ],
-      },
-      {
-        label: 'Item 3',
-        path: '/example',
-        children: [
-          {
-            label: 'Item 3.1',
-            path: '/example',
-          },
-          {
-            label: 'Item 3.2',
-            path: '/example',
-          },
-          {
-            label: 'Item 3.3',
-            path: '/example',
-          },
-        ],
-      },
-      {
-        label: 'Item 4',
-        path: '/example',
-        children: [
-          {
-            label: 'Item 4.1',
-            path: '/example',
-          },
-          {
-            label: 'Item 4.2',
-            path: '/example',
-          },
-          {
-            label: 'Item 4.3 avec un long titre sur plusieurs lignes',
-            path: '/example',
-          },
-          {
-            label: 'Item 4.4',
-            path: '/example',
-          },
-          {
-            label: 'Item 4.5',
-            path: '/example',
-          },
-          {
-            label: 'Item 4.6',
-            path: '/example',
-          },
-          {
-            label: 'Item 4.7',
-            path: '/example',
-          },
-          {
-            label: 'Item 4.8',
-            path: '/example',
-          },
-          {
-            label: 'Item 4.9',
-            path: '/example',
-          },
-          {
-            label: 'Item 4.10',
-            path: '/example',
-          },
-          {
-            label: 'Item 4.11',
-            path: '/example',
-          },
-          {
-            label: 'Item 4.12',
-            path: '/example',
-          },
-          {
-            label: 'Item 4.13',
-            path: '/example',
-          },
-          {
-            label: 'Item 4.14',
-            path: '/example',
-          },
-        ],
-      },
-      {
-        label: 'Item 5',
-        path: '/example',
-        children: [
-          {
-            label: 'Item 5.1',
-            path: '/example',
-          },
-          {
-            label: 'Item 5.2',
-            path: '/example',
-          },
-          {
-            label: 'Item 5.3',
-            path: '/example',
-          },
-          {
-            label: 'Item 5.4',
-            path: '/example',
-          },
-          {
-            label: 'Item 5.5',
-            path: '/example',
-          },
-          {
-            label: 'Item 5.6',
-            path: '/example',
-          },
-          {
-            label: 'Item 5.7',
-            path: '/example',
-          },
-        ],
-      },
-      {
-        label: 'Item 6',
-        path: '/example',
-        children: [
-          {
-            label: 'Item 6.1',
-            path: '/example',
-          },
-          {
-            label: 'Item 6.2',
-            path: '/example',
-          },
-          {
-            label: 'Item 6.3',
-            path: '/example',
-          },
-          {
-            label: 'Item 6.4',
-            path: '/example',
-          },
-          {
-            label: 'Item 6.5',
-            path: '/example',
-          },
-          {
-            label: 'Item 6.6',
-            path: '/example',
-          },
-          {
-            label: 'Item 6.7',
-            path: '/example',
-          },
-          {
-            label: 'Item 6.8',
-            path: '/example',
-          },
-          {
-            label: 'Item 6.9 avec un long titre',
-            path: '/example',
-          },
-          {
-            label: 'Item 6.10',
-            path: '/example',
-          },
-          {
-            label: 'Item 6.11',
-            path: '/example',
-          },
-          {
-            label: 'Item 6.12',
-            path: '/example',
-          },
-          {
-            label: 'Item 6.13',
-            path: '/example',
-          },
-          {
-            label: 'Item 6.14',
-            path: '/example',
-          },
-          {
-            label: 'Item 6.15',
-            path: '/example',
-          },
-          {
-            label: 'Item 6.16',
-            path: '/example',
-          },
-        ],
-      },
-      {
-        label: 'Item 7 avec un long titre',
-        path: '/example',
-        children: [
-          {
-            label: 'Item 7.1',
-            path: '/example',
-          },
-          {
-            label: 'Item 7.2',
-            path: '/example',
-          },
-          {
-            label: 'Item 7.3',
-            path: '/example',
-          },
-          {
-            label: 'Item 7.4',
-            path: '/example',
-          },
-          {
-            label: 'Item 7.5',
-            path: '/example',
-          },
-          {
-            label: 'Item 7.6',
-            path: '/example',
-          },
-          {
-            label: 'Item 7.7',
-            path: '/example',
-          },
-          {
-            label: 'Item 7.8',
-            path: '/example',
-          },
-          {
-            label: 'Item 7.9',
-            path: '/example',
-          },
-          {
-            label: 'Item 7.10',
-            path: '/example',
-          },
-        ],
-      },
-    ],
-    icon_path: '/icons.svg',
-    menu_link: '/example',
-  },
-  banner_top: {
-    link: {
-      label: 'Nom de la classe',
-      path: '/example',
-    },
+    src_desktop: '/logo-ec--fr.svg',
   },
   login_toggle: {
     label_not_logged: 'Connexion',
@@ -335,7 +14,7 @@ module.exports = {
   },
   login_box: {
     id: 'login-box-id',
-    description: 'Connecté en temps que "last name", "first name"',
+    description: 'Connecté en temps que "last name" "first name"',
     label: 'Déconnexion',
     href: '/example',
   },
@@ -508,6 +187,7 @@ module.exports = {
     text_input: {
       id: 'search-input-id',
       label: 'Recherche',
+      placeholder: 'Placeholder text',
     },
     button: {
       label: 'Recherche',
@@ -519,7 +199,12 @@ module.exports = {
       },
     ],
   },
-  menu_label: 'Menu',
-  site_name: 'Site name',
+  site_name: 'Nom du site',
   icon_file_path: '/icons.svg',
+  banner_top: {
+    link: {
+      label: 'Classe',
+      path: '/example',
+    },
+  },
 };

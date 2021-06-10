@@ -525,6 +525,5 @@ module.exports = {
     },
   },
   icon_file_path: '/icons.svg',
-  menu_label: 'Menu',
   site_name: 'Site name',
 };

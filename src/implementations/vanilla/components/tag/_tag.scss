@@ -1,0 +1,115 @@
+/**
+ * Tags
+ * @define tag
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+
+$_background-color: null !default;
+$_background-color-hover: null !default;
+$_link-text-color: null !default;
+$_link-text-color-hover: null !default;
+$_link-text-decoration: null !default;
+$_link-text-decoration-hover: null !default;
+$_border-color-focus: null !default;
+$_border-size-focus: null !default;
+
+.ecl-tag {
+  align-items: center;
+  background-color: $_background-color;
+  border-radius: (
+      2 * map.get(theme.$spacing, 'xs') + map.get(theme.$line-height, 's')
+    ) / 2;
+  border-width: 0;
+  box-sizing: border-box;
+  color: $_link-text-color;
+  display: inline-flex;
+  font: map.get(theme.$font, 's');
+  padding: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 's');
+  text-decoration: $_link-text-decoration;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: $_background-color-hover;
+    color: $_link-text-color-hover;
+    text-decoration: $_link-text-decoration-hover;
+  }
+
+  &:active {
+    text-decoration: $_link-text-decoration-hover;
+  }
+
+  &:focus {
+    background-color: $_background-color;
+    box-shadow: inset 0 0 0 $_border-size-focus $_border-color-focus;
+    outline: none;
+    text-decoration: $_link-text-decoration-hover;
+  }
+}
+
+.ecl-tag--display {
+  color: map.get(theme.$color, 'white');
+  text-decoration: none;
+
+  &:hover {
+    background-color: $_background-color;
+    color: map.get(theme.$color, 'white');
+    text-decoration: none;
+  }
+}
+
+.ecl-tag--removable {
+  color: map.get(theme.$color, 'white');
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: map.get(theme.$color, 'white');
+    text-decoration: none;
+  }
+}
+
+.ecl-tag__icon {
+  appearance: none;
+  background: none;
+  border-width: 0;
+  color: transparent;
+  height: map.get(theme.$icon, 'xs');
+  margin-left: map.get(theme.$spacing, 'xs');
+  padding: 0;
+  pointer-events: auto;
+  position: relative;
+  width: map.get(theme.$icon, 'xs');
+
+  &:focus {
+    outline: $_border-size-focus solid $_border-color-focus;
+  }
+}
+
+.ecl-tag__icon-close {
+  fill: map.get(theme.$color, 'white');
+  left: 0;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+}
+
+.ecl-tag__icon-close-filled {
+  fill: map.get(theme.$color, 'white');
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+}
+
+.ecl-tag:hover,
+.ecl-tag:focus {
+  .ecl-tag__icon-close {
+    opacity: 0;
+  }
+
+  .ecl-tag__icon-close-filled {
+    opacity: 1;
+  }
+}

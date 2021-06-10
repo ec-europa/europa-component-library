@@ -1,19 +1,21 @@
 {
   "name": "@ecl/vanilla-component-file",
   "author": "European Commission",
-  "license": "EUPL-1.1",
-  "version": "3.0.0",
+  "license": "EUPL-1.2",
+  "version": "3.0.0-beta.1",
   "description": "ECL File",
   "style": "file.scss",
   "sass": "file.scss",
   "module": "file.js",
   "main": "file.js",
   "dependencies": {
-    "@ecl/theme-dev": "^3.0.0",
-    "@ecl/dom-utils": "^3.0.0",
-    "@ecl/vanilla-layout-grid": "^3.0.0"
+    "@ecl/dom-utils": "^3.0.0-beta.1",
+    "@ecl/theme-dev": "^3.0.0-beta.1",
+    "@ecl/vanilla-layout-grid": "^3.0.0-beta.1"
   },
-  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ec-europa/europa-component-library.git"

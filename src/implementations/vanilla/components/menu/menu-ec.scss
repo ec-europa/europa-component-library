@@ -3,7 +3,7 @@
 @use 'menu' with (
   $_main-nav-background: map.get(theme.$color, 'blue'),
   $_main-nav-shadow: none,
-  $_menu-desktop-padding-top: map.get(theme.$spacing, '2xs'),
+  $_menu-desktop-padding-top: 0,
   $_menu-desktop-vertical-padding: map.get(theme.$spacing, 'l'),
   $_menu-expanded-background: map.get(theme.$color, 'blue-5'),
   $_menu-items-distribution: normal,
@@ -15,6 +15,8 @@
   $_menu-dropdown-item-hover-color: map.get(theme.$color, 'blue-130'),
   $_menu-dropdown-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2),
   $_menu-header-horizontal-padding: map.get(theme.$spacing, 'm'),
+  $_menu-site-name-font: map.get(theme.$font, '2xl'),
+  $_menu-site-name-font-weight: map.get(theme.$font-weight, 'regular'),
   $_menu-item-border: 1px solid map.get(theme.$color, 'blue-50'),
   $_menu-item-icon-margin: map.get(theme.$spacing, 'xs'),
   $_menu-item-weight: map.get(theme.$font-weight, 'bold'),

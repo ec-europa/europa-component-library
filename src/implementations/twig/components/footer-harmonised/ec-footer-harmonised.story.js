@@ -126,4 +126,5 @@ Group3.parameters = {
 export default {
   title: 'Components/Footers/Harmonised',
   decorators: [withCode, withNotes],
+  parameters: { layout: 'fullscreen' },
 };

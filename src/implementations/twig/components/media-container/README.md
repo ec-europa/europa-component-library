@@ -10,6 +10,7 @@ npm install --save @ecl/twig-component-media-container
 
 - **"description"** (string) (default: '') - A caption to be shown under the media,
 - **"image"** (string) (default: '') The path to the image,
+- **"full_width"**: (bool) (default: false) Full width media container (inside the grid container)
 - **"sources"** (array) (default: []) Array of Video sources with this structure:
   - "src" (string) (default: ''),
   - "type" (string) (default: ''),

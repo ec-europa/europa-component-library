@@ -1,0 +1,65 @@
+/**
+ * Media container component
+ * @define media-container
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+@use "@ecl/vanilla-utility-media/media" as uMedia;
+
+$_border-radius: null !default;
+$_shadow: null !default;
+$_caption-background-color: null !default;
+$_caption-padding: null !default;
+$_scrollbar-width: 16px; // average scrollbar width; used in full screen calculus
+
+.ecl-media-container {
+  border-radius: $_border-radius;
+  box-shadow: $_shadow;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.ecl-media-container__media {
+  display: block;
+  height: auto;
+  min-height: 1px; // IE 11 fix
+  object-fit: cover;
+  width: 100%;
+}
+
+.ecl-media-container__caption {
+  background-color: $_caption-background-color;
+  color: map.get(theme.$color, 'grey');
+  font: map.get(theme.$font-prolonged, 'm');
+  padding: $_caption-padding;
+  position: relative;
+}
+
+// Ratio
+.ecl-media-container__media--ratio-16-9 {
+  @include uMedia.aspect-ratio(16, 9);
+}
+
+.ecl-media-container__media--ratio-4-3 {
+  @include uMedia.aspect-ratio(4, 3);
+}
+
+.ecl-media-container__media--ratio-3-2 {
+  @include uMedia.aspect-ratio(3, 2);
+}
+
+.ecl-media-container__media--ratio-1-1 {
+  @include uMedia.aspect-ratio(1, 1);
+}
+
+// Full width
+// We have to substract the scrollbar width, as it is not handled well by vw unit)
+.ecl-media-container--full-width {
+  left: 50%;
+  margin-left: calc(-50vw + (#{$_scrollbar-width} / 2));
+  width: calc(100vw - #{$_scrollbar-width});
+}

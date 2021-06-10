@@ -41,7 +41,7 @@
 {% set _close_label = close_label|default('') %}
 {% set _eu_category = eu_category|default('') %}
 {% set _non_eu_category = non_eu_category|default('') %}
-{% set _title = title|default('') %}
+{% set _title = title|default({}) %}
 {% set _extra_attributes = '' %}
 {% set _data_lang_overlay = data_lang_overlay|default('') %}
 
@@ -92,6 +92,14 @@
         class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
         id="ecl-language-list__title"
       >
+        {% include '@ecl/icon/icon.html.twig' with {
+          icon: {
+            name: 'generic-lang',
+            path: _icon_path,
+            size: 'm',
+          },
+          extra_classes: 'ecl-language-list__title-icon',
+          } only %}
         {{- _title -}}
       </div>
     </div>

@@ -4,7 +4,7 @@ module.exports = {
   language: 'English',
   meta: '(16.2 MB - PDF)',
   icon: {
-    name: 'copy',
+    name: 'file',
     size: '2xl',
     path: '/icons.svg',
   },

@@ -1,0 +1,30 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import { languageListOverlay, languageListSplash } from '../demo/';
+
+## Splash
+
+<Playground
+  system="eu"
+  selectedKind="components-language-list"
+  selectedStory="splash"
+  showFrame
+>
+  <Html markup={languageListSplash} />
+</Playground>
+
+## Overlay
+
+<Playground
+  system="eu"
+  selectedKind="components-language-list"
+  selectedStory="overlay"
+  frameHeight="400"
+  showFrame
+>
+  <Html markup={languageListOverlay} />
+</Playground>

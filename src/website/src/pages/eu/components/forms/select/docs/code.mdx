@@ -1,0 +1,28 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import { selectSingle, selectMultiple } from '../demo';
+
+## Default select list
+
+<Playground
+  system="eu"
+  selectedKind="components-forms-select"
+  selectedStory="single"
+>
+  <Html markup={selectSingle} />
+</Playground>
+
+## Multiple select list
+
+<Playground
+  system="eu"
+  selectedKind="components-forms-select"
+  selectedStory="multiple"
+  showFrame
+>
+  <Html markup={selectMultiple} />
+</Playground>
