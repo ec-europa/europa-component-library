@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import iconPathEc from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import iconPathEu from '@ecl/resources-eu-icons/dist/sprites/icons.svg';
-import iconSocialPath from '@ecl/resources-ec-social-icons/dist/sprites/icons-social.svg';
+import iconMediaSocialPath from '@ecl/resources-social-media-icons/dist/sprites/icons-social-media.svg';
 import getSystem from '@ecl/builder/utils/getSystem';
 
 const system = getSystem();
@@ -10,7 +10,9 @@ const iconPath = system === 'eu' ? iconPathEu : iconPathEc;
 export const correctSvgPath = (data) => {
   Object.keys(data).forEach((prop) => {
     if (typeof data[prop] === 'string' && data[prop].includes('.svg')) {
-      data[prop] = data[prop].includes('social') ? iconSocialPath : iconPath;
+      data[prop] = data[prop].includes('social')
+        ? iconMediaSocialPath
+        : iconPath;
     }
     if (data[prop] !== null && typeof data[prop] === 'object') {
       data[prop] = correctSvgPath(data[prop]);
