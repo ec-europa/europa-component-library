@@ -39,8 +39,8 @@ module.exports = {
                 icon_position: 'before',
               },
               icon: {
-                path: '/icons.svg',
-                name: 'facebook',
+                path: '/icon-social-media.svg',
+                name: 'facebook-negative',
                 size: 'xs',
               },
             },
@@ -52,8 +52,8 @@ module.exports = {
                 icon_position: 'before',
               },
               icon: {
-                path: '/icons.svg',
-                name: 'twitter',
+                path: '/icon-social-media.svg',
+                name: 'twitter-negative',
                 size: 'xs',
               },
             },
@@ -65,8 +65,8 @@ module.exports = {
                 icon_position: 'before',
               },
               icon: {
-                path: '/icons.svg',
-                name: 'linkedin',
+                path: '/icon-social-media.svg',
+                name: 'linkedin-negative',
                 size: 'xs',
               },
             },
