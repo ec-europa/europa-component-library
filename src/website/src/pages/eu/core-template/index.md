@@ -6,6 +6,8 @@ The core website is europa.eu
 
 ## Anatomy
 
+>
+
 ![](/cms-images/eu_core_1140.png)
 
 | Elements                                                                                                                                                                                                                                        | Mandatory | Optional |
