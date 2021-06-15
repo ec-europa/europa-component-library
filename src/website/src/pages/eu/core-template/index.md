@@ -2,7 +2,7 @@
 order: 4
 title: Core template
 ---
-The core website is europa.eu
+The core website is europa.eu (work in progress)
 
 ## Anatomy
 
