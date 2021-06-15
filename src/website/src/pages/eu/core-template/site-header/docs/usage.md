@@ -2,19 +2,18 @@
 title: Usage
 order: 1
 ---
-The core site header is present on every page. It communicates the European Commission brand and provides basic structure and guidance, to be placed at the top of the page.
+(work in progress) The core site header is displayed at the top of every page in the europa.eu website. It communicates basic structure and guidance under the EU emblem.
 
 ## Anatomy
 
->
+![](/cms-images/eu_core_site_header.png)
 
-![](/cms-images/core-site-header.png)
-
-|                          | Mandatory | Description                                                                                  |
-| ------------------------ | --------- | -------------------------------------------------------------------------------------------- |
-| European Commission logo | yes       | logo of the European Commission                                                              |
-| language select          | yes       | language select component through which users can select their desired language              |
-| Europa search form       | yes       | enables the user to search and retrieve related information from the database using keywords |
+| **Components**      | **Mandatory** | **Option** |
+| ------------------- | ------------- | ---------- |
+| **EU emblem**       | yes           | no         |
+| **Language select** | yes           | no         |
+| **Europa search**   | yes           | no         |
+| **Menu**            | yes           | no         |
 
 ## Do's
 
@@ -30,4 +29,4 @@ The core site header is present on every page. It communicates the European Comm
 
 ## When not to use
 
-- do not follow these guidelines when you are updating sites that fall under the standardised category
+- do not follow these guidelines when you are updating sites that fall under another category
