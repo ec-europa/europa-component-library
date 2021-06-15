@@ -8,7 +8,7 @@ Work in progress
 
 ![](/cms-images/eu_standardised_1140.png)
 
-| Elements                                                                                                                | Mandatory | Option                                                |
+| Components                                                                                                              | Mandatory | Option                                                |
 | ----------------------------------------------------------------------------------------------------------------------- | --------- | ----------------------------------------------------- |
 | **Global banner**</br>The global banner is the official EU stamp; the content on Europa comes genuinely from the EU     | no        | yes                                                   |
 | **Site header**                                                                                                         | yes       | See standardised site header for detailed information |
