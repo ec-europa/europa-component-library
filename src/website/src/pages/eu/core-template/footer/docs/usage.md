@@ -2,21 +2,17 @@
 title: Usage
 order: 1
 ---
-The core footer is present on every page. It provides supplementary information such as copyright, legal, privacy, social media, contact information and links to other important sites within the European Commission ecosystem, to be placed at the bottom of the page.
+The core footer is present is displayed at the bottom of every page in the europa.eu website. Links provide information such as contact information, disclaimers, legal content, social media and the list of EC institutions under the EU emblem.
 
 ## Anatomy
 
->
+![](/cms-images/eu_core_footer.png)
 
-![](/cms-images/core-footer.jpg)
-
-| Component             | Mandatory | Description                                                               |
-| --------------------- | --------- | ------------------------------------------------------------------------- |
-| site name             | yes       | site's name                                                               |
-| content owner details | yes       | indicates ownership over the site's content                               |
-| class navigation      | yes       | provides the user with navigation through class names                     |
-| service navigation    | yes       | contains services links - consistent throughout the family sites          |
-| legal navigation      | yes       | contains legal information links - consistent throughout the family sites |
+| Component                                                             | Mandatory | Option |
+| --------------------------------------------------------------------- | --------- | ------ |
+| **Site name**<br/>Site name and content owner details                 | yes       | no     |
+| **EU institutions**<br/>Provide the users the list of EU institutions | yes       | no     |
+| Contact, social media and legal navigation                            | yes       | no     |
 
 ## Do's
 
@@ -32,4 +28,4 @@ The core footer is present on every page. It provides supplementary information 
 
 ## When not to use
 
-- do not follow these guidelines when you are updating sites that fall under the standardised category
+- do not follow these guidelines when you are updating sites that fall under a different category
