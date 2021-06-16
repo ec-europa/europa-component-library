@@ -10,7 +10,7 @@ The core website is europa.eu (work in progress)
 
 ![](/cms-images/eu_core_1140.png)
 
-| Elements                                                                                                                                                                                                                                        | Mandatory | Optional |
+| Components                                                                                                                                                                                                                                      | Mandatory | Optional |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | -------- |
 | **Global banner**<br />The global banner is the official EU stamp; the content on Europa comes genuinely from the EU                                                                                                                            | yes       | no       |
 | **Site header**<br />The core site header is present on every page. It contains the branding of europa.eu                                                                                                                                       | yes       | no       |
