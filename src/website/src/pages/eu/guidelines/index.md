@@ -2,8 +2,7 @@
 title: Guidelines
 order: 3
 ---
-
-The ECL v2 is the Commission's design system, created with a set of guiding principles that followed throughout the process.
+The ECL v3 is the Commission's design system, created with a set of guiding principles that followed throughout the process.
 
 By following a user-centred design approach, the ECL is the result of in-depth research into the users' needs and goals, offering solutions that are assessed, tested and revised continuously.
 
