@@ -129,10 +129,12 @@ pipeline:
 
   # Package release build
   package-release:
-    image: alpine:3.10
+    image: ralexsander/alpine-zip
     commands:
-      - tar -czC dist/website -f ${DRONE_REPO_NAME}-${DRONE_TAG}.tar.gz .
-      - cp dist/packages/${DRONE_REPO_NAME}-${DRONE_TAG}-sri.json .
+      - cd dist/website
+      - zip -r ${DRONE_REPO_NAME}-${DRONE_TAG}.zip .
+      - mv ${DRONE_REPO_NAME}-${DRONE_TAG}.zip ../../
+      - cp packages/${DRONE_REPO_NAME}-${DRONE_TAG}-sri.json ../../
     when:
       event: [tag]
       matrix:
@@ -167,9 +169,11 @@ pipeline:
         TEST: deploy
 
   package-archive:
-    image: alpine:3.10
+    image: ralexsander/alpine-zip
     commands:
-      - tar -czC dist/website -f ${DRONE_REPO_NAME}-${DRONE_TAG}-archive.tar.gz .
+      - cd dist/website
+      - zip -r ${DRONE_REPO_NAME}-${DRONE_TAG}-archive.zip .
+      - mv ${DRONE_REPO_NAME}-${DRONE_TAG}-archive.zip ../../
     when:
       event: [tag]
       matrix:
@@ -184,75 +188,6 @@ pipeline:
     secrets: [GITHUB_RELEASE_API_KEY]
     when:
       event: [tag]
-      matrix:
-        TEST: deploy
-
-  # Trigger deploy event on Github
-  create-deploy-production:
-    image: fpfis/drone-plugin-github-deploy
-    state: create
-    deploy_environment: production
-    secrets: [github_api_token]
-    automerge: false
-    when:
-      event: [tag]
-      matrix:
-        TEST: deploy
-
-  # Download release from github and extract into build folder
-  download-github-release:
-    image: instrumentisto/rsync-ssh
-    commands:
-      - wget https://github.com/${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}/releases/download/${DRONE_TAG}/${DRONE_REPO_NAME}-${DRONE_TAG}.tar.gz
-      - wget https://github.com/${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}/releases/download/${DRONE_TAG}/${DRONE_REPO_NAME}-${DRONE_TAG}-archive.tar.gz
-      - wget https://github.com/${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}/releases/download/${DRONE_TAG}/${DRONE_REPO_NAME}-${DRONE_TAG}-sri.json
-      - wget https://github.com/${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}/releases/download/${DRONE_TAG}/sha1sum.txt
-      - sha1sum -c sha1sum.txt
-      - mkdir build archive
-      - tar zxvf ${DRONE_REPO_NAME}-${DRONE_TAG}.tar.gz -C build
-      - tar zxvf ${DRONE_REPO_NAME}-${DRONE_TAG}-archive.tar.gz -C archive
-      - echo $(date +%s) > build/.timestamp
-    when:
-      event: deployment
-      matrix:
-        TEST: deploy
-
-  # Deploy build folder into production
-  deploy-to-production:
-    image: drillster/drone-rsync
-    secrets: [rsync_key, MGMT_IP]
-    hosts: [$MGMT_IP]
-    user: fpfis
-    source: ./build/
-    target: /ec/local/home/fpfis/reference/php-clusters/multisite/production/cluster00/sources/static/europa-component-library/
-    script:
-      - export GIT_FPFIS_AUTHOR="Drone ec.deploy.fpfis.eu"
-      - cd /ec/local/home/fpfis/reference/php-clusters/multisite/production/cluster00/sources/static/europa-component-library
-      - git add -A .
-      - git commit -m "Deployed ${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}@${DRONE_TAG} from drone build ${DRONE_BUILD_NUMBER}." .
-      - git push 'nas-reference' 'master'
-    when:
-      event: deployment
-      matrix:
-        TEST: deploy
-
-  # The archive of the build is mostly the same but with paths respecting the current tag.
-  # The archive is saved for future references for the specific ECL version.
-  deploy-archive:
-    image: drillster/drone-rsync
-    secrets: [rsync_key, MGMT_IP]
-    hosts: [$MGMT_IP]
-    user: fpfis
-    source: ./archive/
-    target: '/ec/local/home/fpfis/reference/php-clusters/multisite/production/cluster00/sources/static/europa-component-library/${DRONE_TAG}'
-    script:
-      - export GIT_FPFIS_AUTHOR="Drone ec.deploy.fpfis.eu"
-      - cd /ec/local/home/fpfis/reference/php-clusters/multisite/production/cluster00/sources/static/europa-component-library
-      - git add -A .
-      - git commit -m "Deployed ${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}@${DRONE_TAG} archive from drone build ${DRONE_BUILD_NUMBER}." .
-      - git push 'nas-reference' 'master'
-    when:
-      event: deployment
       matrix:
         TEST: deploy
 
