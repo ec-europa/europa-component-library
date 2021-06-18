@@ -3,8 +3,7 @@ module.exports = {
     {
       // Image
       image: {
-        src:
-          'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
         alt: 'Image 1',
       },
       description:
@@ -15,8 +14,7 @@ module.exports = {
     {
       // Embedded video
       image: {
-        src:
-          'https://inno-ecl.s3.amazonaws.com/media/examples/example-external-video.jpg',
+        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-external-video.jpg',
         alt: 'New digital strategy',
       },
       embeddedVideo: {
@@ -32,8 +30,7 @@ module.exports = {
     {
       // Image
       image: {
-        src:
-          'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg',
+        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg',
         alt: 'Image 2',
       },
       description:
@@ -42,8 +39,7 @@ module.exports = {
       shareHref: '/share#example-image2.jpg',
     },
     {
-      src:
-        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg',
+      src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg',
       alt: 'Image 3',
       description: 'Living, working, travelling in the EU',
       meta: 'Copyright, Author, Licence for image 3',
@@ -52,8 +48,7 @@ module.exports = {
     {
       // Image
       image: {
-        src:
-          'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',
+        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',
         alt: 'Image 4',
       },
       description:
@@ -68,13 +63,11 @@ module.exports = {
           'https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg',
         sources: [
           {
-            src:
-              'https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.mp4',
+            src: 'https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.mp4',
             type: 'video/mp4',
           },
           {
-            src:
-              'https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.webm',
+            src: 'https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.webm',
             type: 'video/webm',
           },
         ],
@@ -104,8 +97,7 @@ module.exports = {
     {
       // Image
       image: {
-        src:
-          'https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg',
+        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg',
         alt: 'Image 6',
       },
       description:
@@ -114,8 +106,7 @@ module.exports = {
       shareHref: '/share#example-image6.jpg',
     },
     {
-      src:
-        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg',
+      src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg',
       alt: 'Image 7',
       description: 'Teaching material about the EU, including books and maps',
       meta: 'Copyright, Author, Licence for image 7',
@@ -128,13 +119,11 @@ module.exports = {
           'https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg',
         sources: [
           {
-            src:
-              'https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.mp4',
+            src: 'https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.mp4',
             type: 'video/mp4',
           },
           {
-            src:
-              'https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.webm',
+            src: 'https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.webm',
             type: 'video/webm',
           },
         ],
@@ -164,8 +153,7 @@ module.exports = {
     {
       // Image
       image: {
-        src:
-          'https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg',
+        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg',
         alt: 'Image 9',
       },
       description: 'About the EU',
@@ -173,8 +161,7 @@ module.exports = {
       shareHref: '/share#example-imag9e.jpg',
     },
     {
-      src:
-        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg',
+      src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg',
       alt: 'Image 10',
       description: 'EU by topic',
       meta: 'Copyright, Author, Licence for image 10',

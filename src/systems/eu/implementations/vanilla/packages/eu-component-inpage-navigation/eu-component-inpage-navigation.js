@@ -246,9 +246,10 @@ export class InpageNavigation {
                   const addedNodeIndex = H2s.findIndex(
                     (H2) => H2.id === addedNode.id
                   );
-                  const element = currentInpage.childNodes[
-                    addedNodeIndex - 1
-                  ].cloneNode(true);
+                  const element =
+                    currentInpage.childNodes[addedNodeIndex - 1].cloneNode(
+                      true
+                    );
                   element.childNodes[0].textContent = addedNode.textContent;
                   element.childNodes[0].href = `#${addedNode.id}`;
                   currentInpage.childNodes[addedNodeIndex - 1].after(element);

@@ -133,9 +133,8 @@ export class Gallery {
     this.handleClickOnViewAll = this.handleClickOnViewAll.bind(this);
     this.handleClickOnItem = this.handleClickOnItem.bind(this);
     this.handleKeyPressOnItem = this.handleKeyPressOnItem.bind(this);
-    this.handleClickOnPreviousButton = this.handleClickOnPreviousButton.bind(
-      this
-    );
+    this.handleClickOnPreviousButton =
+      this.handleClickOnPreviousButton.bind(this);
     this.handleClickOnNextButton = this.handleClickOnNextButton.bind(this);
     this.handleKeyboard = this.handleKeyboard.bind(this);
     this.handleResize = this.handleResize.bind(this);

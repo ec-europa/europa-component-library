@@ -10,16 +10,14 @@ module.exports = {
         logo: {
           title: 'Partnership 1',
           alt: 'Partnership 1 logo',
-          src:
-            'https://inno-ecl.s3.amazonaws.com/media/examples/placeholder.svg',
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/placeholder.svg',
         },
       },
       {
         logo: {
           title: 'Partnership 2',
           alt: 'Partnership 2 logo',
-          src:
-            'https://inno-ecl.s3.amazonaws.com/media/examples/placeholder.svg',
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/placeholder.svg',
         },
       },
     ],

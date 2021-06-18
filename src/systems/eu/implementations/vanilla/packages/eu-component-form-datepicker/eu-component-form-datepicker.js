@@ -46,7 +46,8 @@ export class Datepicker {
     this.theme = theme;
     this.yearRange = yearRange;
     this.showDaysInNextAndPreviousMonths = showDaysInNextAndPreviousMonths;
-    this.enableSelectionDaysInNextAndPreviousMonths = enableSelectionDaysInNextAndPreviousMonths;
+    this.enableSelectionDaysInNextAndPreviousMonths =
+      enableSelectionDaysInNextAndPreviousMonths;
     this.reposition = reposition;
   }
 
@@ -61,8 +62,8 @@ export class Datepicker {
       theme: this.theme,
       reposition: this.reposition,
       showDaysInNextAndPreviousMonths: this.showDaysInNextAndPreviousMonths,
-      enableSelectionDaysInNextAndPreviousMonths: this
-        .enableSelectionDaysInNextAndPreviousMonths,
+      enableSelectionDaysInNextAndPreviousMonths:
+        this.enableSelectionDaysInNextAndPreviousMonths,
     });
 
     return picker;
