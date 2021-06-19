@@ -120,6 +120,7 @@ Group3.parameters = {
     json: { dataGroup3 },
   },
   controls: { disable: true },
+  creevey: { delay: 2000 },
 };
 
 export default {

@@ -207,6 +207,9 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Card',
   decorators: [withCode, withNotes],
+  parameters: {
+    creevey: { delay: 5000 },
+  },
 };
 
 export const Card = (args) => card(prepareData(dataCard, args));

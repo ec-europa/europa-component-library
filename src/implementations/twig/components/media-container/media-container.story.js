@@ -95,6 +95,9 @@ const renderStory = (data, args) => {
 export default {
   title: 'Components/Media container',
   decorators: [withNotes, withCode],
+  parameters: {
+    creevey: { delay: 1000 },
+  },
 };
 
 export const Image = (args) => renderStory(dataImg, args);
@@ -111,6 +114,7 @@ Video.storyName = 'video';
 Video.argTypes = getArgTypes(dataVideo);
 Video.parameters = {
   notes: { markdown: notes, json: dataVideo },
+  creevey: { skip: 'Mmhh...' },
 };
 
 export const EmbeddedVideo = (args) => renderStory(dataEmbed, args);
@@ -119,4 +123,5 @@ EmbeddedVideo.storyName = 'embedded video';
 EmbeddedVideo.argTypes = getArgTypes(dataEmbed);
 EmbeddedVideo.parameters = {
   notes: { markdown: notes, json: dataEmbed },
+  creevey: { skip: 'Mmhh...' },
 };

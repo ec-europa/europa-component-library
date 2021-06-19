@@ -11,6 +11,7 @@ const addons = [
   '@storybook/addon-viewport',
   '@storybook/addon-controls',
   '@storybook/addon-a11y',
+  'creevey',
 ];
 
 const webpackFinal = (config) => {

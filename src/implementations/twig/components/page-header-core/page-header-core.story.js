@@ -174,4 +174,5 @@ BackgroundImage.storyName = 'background-image';
 BackgroundImage.argTypes = getArgTypes(dataBackgroundImage);
 BackgroundImage.parameters = {
   notes: { markdown: notes, json: dataBackgroundImage },
+  creevey: { delay: 3000 },
 };
