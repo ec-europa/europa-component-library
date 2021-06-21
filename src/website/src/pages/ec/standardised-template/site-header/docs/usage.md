@@ -6,18 +6,16 @@ The standardised site header is present on every page. It communicates the Europ
 
 ## Anatomy
 
->
-
 ![](/cms-images/standardised-site-header.png)
 
-| Components                                                                                                                                                                               | Mandatory | Optional |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | -------- |
-| **European Commission logo**                                                                                                                                                             | yes       | no       |
-| **Language select**language select component through which users can select their desired language<br />\* use a Language select component if your website supports multilingual content | no        | yes      |
-| **Europa search form**<br />Enables the user to search and retrieve related information from the database using keywords                                                                 | no        | yes      |
-| **Class name**<br />Indicating the parent class under which the site falls                                                                                                               | yes       | no       |
-| **Site name**                                                                                                                                                                            | yes       | no       |
-| **Menu**                                                                                                                                                                                 | no        | yes      |
+| Components                                                                                                                                                                                     | Mandatory | Optional |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | -------- |
+| **European Commission logo**                                                                                                                                                                   | yes       | no       |
+| **Language select**<br />Language select component through which users can select their desired language<br />\* use a Language select component if your website supports multilingual content | no        | yes      |
+| **Europa search form**<br />Enables the user to search and retrieve related information from the database using keywords                                                                       | no        | yes      |
+| **Class name**<br />Indicating the parent class under which the site falls                                                                                                                     | yes       | no       |
+| **Site name**                                                                                                                                                                                  | yes       | no       |
+| **Menu**                                                                                                                                                                                       | no        | yes      |
 
 ## Do's
 
