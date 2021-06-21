@@ -2,22 +2,16 @@
 title: Usage
 order: 1
 ---
-The standardised footer is present on every page. It provides supplementary information such as copyright, legal, privacy, social media, contact information and links to other important sections within the EC ecosystem, to be placed at the bottom of the page.
+The standardised footer is displayed at the bottom of every page in the website within the EC ecosystem. Corporate footer section is mandatory.
 
 ## Anatomy
 
-![](/cms-images/standardised-footer.jpg)
+![](/cms-images/standardised-footer.png)
 
-| Component                     | Mandatory | Description                                                                                                                                                                                                    |
-| ----------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| site name                     | yes       | name of the site                                                                                                                                                                                               |
-| content owner details         | yes       | indicates ownership over the site's content                                                                                                                                                                    |
-| DG-related service navigation | optional  | links to the services the DG provides<br/>\* use a DG-related service navigation if there are any services that need extra exposure in the footer                                                              |
-| other DG-related navigation   | optional  | provides the user with extra navigation related to the DG, link dependent on DG requirements<br/>\* use a Other DG-related navigation to list other pages that might benefit from extra exposure in the footer |
-| class names                   | yes       | parent classes under which the DG falls                                                                                                                                                                        |
-| corporate name                | yes       | European Commission - parent owner of the site                                                                                                                                                                 |
-| service navigation            | yes       | contains services links - consistent throughout the family sites                                                                                                                                               |
-| legal navigation              | yes       | contains legal information links - consistent throughout the family sites                                                                                                                                      |
+| Components            | Mandatory | Optional |
+| --------------------- | --------- | -------- |
+| **Customised footer** | no        | no       |
+| **Corporate footer**  | yes       | no       |
 
 ## Do's
 
@@ -34,4 +28,4 @@ The standardised footer is present on every page. It provides supplementary info
 
 ## When not to use
 
-- do not follow these guidelines when you are updating sites that fall under the core category
+- do not follow these guidelines when you are updating sites that fall under a different category of the Europa family
