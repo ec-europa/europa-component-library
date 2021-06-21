@@ -2,21 +2,19 @@
 title: Usage
 order: 1
 ---
-The core footer is present on every page. It provides supplementary information such as copyright, legal, privacy, social media, contact information and links to other important sites within the European Commission ecosystem, to be placed at the bottom of the page.
+The core footer provides supplementary information such as copyright, legal, privacy, social media, contact information and links to other important sites within the European Commission ecosystem. It is always placed at the bottom of every page.
 
 ## Anatomy
 
->
+![](/cms-images/core-footer.png)
 
-![](/cms-images/core-footer.jpg)
-
-| Component             | Mandatory | Description                                                               |
-| --------------------- | --------- | ------------------------------------------------------------------------- |
-| site name             | yes       | site's name                                                               |
-| content owner details | yes       | indicates ownership over the site's content                               |
-| class navigation      | yes       | provides the user with navigation through class names                     |
-| service navigation    | yes       | contains services links - consistent throughout the family sites          |
-| legal navigation      | yes       | contains legal information links - consistent throughout the family sites |
+| Components                                                   | Mandatory | Optional |
+| ------------------------------------------------------------ | --------- | -------- |
+| **Site name**                                                | yes       | no       |
+| **Content owner details**<br />Ownership of the site content | yes       | no       |
+| **Class navigation**<br />Navigation through class names     | yes       | no       |
+| **Service navigation**<br />Provide service links            | yes       | no       |
+| **Legal navigation**                                         | yes       | no       |
 
 ## Do's
 
@@ -32,4 +30,4 @@ The core footer is present on every page. It provides supplementary information 
 
 ## When not to use
 
-- do not follow these guidelines when you are updating sites that fall under the standardised category
+- do not follow these guidelines when you are updating sites that fall under a different category of the Europa family
