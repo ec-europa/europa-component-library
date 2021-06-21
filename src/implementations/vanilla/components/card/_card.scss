@@ -3,6 +3,7 @@
  * @define card; weak
  */
 
+@use "sass:math";
 @use "sass:map";
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
@@ -61,7 +62,7 @@ $_list-padding: null !default;
   &::before {
     content: '';
     display: block;
-    padding-top: (2 / 3) * 100%;
+    padding-top: math.div(2, 3) * 100%;
     width: 100%;
   }
 }

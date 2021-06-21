@@ -30,8 +30,7 @@ browserUpdate({
     s: -2,
   },
   text: {
-    msg:
-      'This websites uses <a href="http://storybook.js.org" title="storybook ui">storybook<a> which doesn\'t fully support <b>{brow_name}</b>.',
+    msg: 'This websites uses <a href="http://storybook.js.org" title="storybook ui">storybook<a> which doesn\'t fully support <b>{brow_name}</b>.',
     msgmore:
       '(supported browsers are: chrome latest 5, firefox latest 5, safari latest 3, Edge latest 5)',
   },
@@ -40,8 +39,7 @@ browserUpdate({
     msgmore: '',
   },
   text_for_e: {
-    msg:
-      'Sorry, Microsoft Edge is only supported starting from version 79 on this website.',
+    msg: 'Sorry, Microsoft Edge is only supported starting from version 79 on this website.',
     msgmore: '',
   },
   noclose: false,

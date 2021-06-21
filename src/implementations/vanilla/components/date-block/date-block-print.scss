@@ -28,7 +28,7 @@ $_circle-width: 0.6rem;
     height: $_circle-width;
     left: map.get(theme.$spacing, 's');
     position: absolute;
-    top: -#{$_circle-width / 2};
+    top: -#{$_circle-width * 0.5};
     width: $_circle-width;
   }
 
@@ -42,7 +42,7 @@ $_circle-width: 0.6rem;
     height: $_circle-width;
     position: absolute;
     right: map.get(theme.$spacing, 's');
-    top: -#{$_circle-width / 2};
+    top: -#{$_circle-width * 0.5};
     width: $_circle-width;
   }
 }
