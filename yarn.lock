@@ -8711,7 +8711,7 @@ cssmin@^0.4.3:
   resolved "https://registry.yarnpkg.com/cssmin/-/cssmin-0.4.3.tgz#c9194077e0ebdacd691d5f59015b9d819f38d015"
   integrity sha1-yRlAd+Dr2s1pHV9ZAVudgZ840BU=
 
-cssnano-preset-default@^4.0.8:
+cssnano-preset-default@^4.0.7, cssnano-preset-default@^4.0.8:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/cssnano-preset-default/-/cssnano-preset-default-4.0.8.tgz#920622b1fc1e95a34e8838203f1397a504f2d3ff"
   integrity sha512-LdAyHuq+VRyeVREFmuxUZR1TXjQm8QQU/ktoo/x7bz+SdOge1YKc5eMN6pRW7YWBmyq59CqYba1dJ5cUukEjLQ==
@@ -8809,14 +8809,15 @@ cssnano-utils@^2.0.1:
   resolved "https://registry.yarnpkg.com/cssnano-utils/-/cssnano-utils-2.0.1.tgz#8660aa2b37ed869d2e2f22918196a9a8b6498ce2"
   integrity sha512-i8vLRZTnEH9ubIyfdZCAdIdgnHAUeQeByEeQ2I7oTilvP9oHO6RScpeq3GsFUVqeB8uZgOQ9pw8utofNn32hhQ==
 
-cssnano@5.0.6, cssnano@^5.0.2:
-  version "5.0.6"
-  resolved "https://registry.yarnpkg.com/cssnano/-/cssnano-5.0.6.tgz#2a91ad34c6521ae31eab3da9c90108ea3093535d"
-  integrity sha512-NiaLH/7yqGksFGsFNvSRe2IV/qmEBAeDE64dYeD8OBrgp6lE8YoMeQJMtsv5ijo6MPyhuoOvFhI94reahBRDkw==
+cssnano@4.1.10:
+  version "4.1.10"
+  resolved "https://registry.yarnpkg.com/cssnano/-/cssnano-4.1.10.tgz#0ac41f0b13d13d465487e111b778d42da631b8b2"
+  integrity sha512-5wny+F6H4/8RgNlaqab4ktc3e0/blKutmq8yNlBFXA//nSFFAqAngjNVRzUvCgYROULmZZUoosL/KSoZo5aUaQ==
   dependencies:
-    cosmiconfig "^7.0.0"
-    cssnano-preset-default "^5.1.3"
-    is-resolvable "^1.1.0"
+    cosmiconfig "^5.0.0"
+    cssnano-preset-default "^4.0.7"
+    is-resolvable "^1.0.0"
+    postcss "^7.0.0"
 
 cssnano@^4.1.10:
   version "4.1.11"
@@ -8827,6 +8828,15 @@ cssnano@^4.1.10:
     cssnano-preset-default "^4.0.8"
     is-resolvable "^1.0.0"
     postcss "^7.0.0"
+
+cssnano@^5.0.2:
+  version "5.0.6"
+  resolved "https://registry.yarnpkg.com/cssnano/-/cssnano-5.0.6.tgz#2a91ad34c6521ae31eab3da9c90108ea3093535d"
+  integrity sha512-NiaLH/7yqGksFGsFNvSRe2IV/qmEBAeDE64dYeD8OBrgp6lE8YoMeQJMtsv5ijo6MPyhuoOvFhI94reahBRDkw==
+  dependencies:
+    cosmiconfig "^7.0.0"
+    cssnano-preset-default "^5.1.3"
+    is-resolvable "^1.1.0"
 
 csso@^4.0.2, csso@^4.2.0:
   version "4.2.0"
@@ -18125,12 +18135,12 @@ posix-character-classes@^0.1.0:
   resolved "https://registry.yarnpkg.com/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
   integrity sha1-AerA/jta9xoqbAL+q7jB/vfgDqs=
 
-postcss-banner@4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/postcss-banner/-/postcss-banner-4.0.1.tgz#672b632457fdaa1664fc2172daa47e0be4f93db2"
-  integrity sha512-vpxkcADfBp28r50HH3HPVBoQxE2u0IF5WG9qTQMdYJWqk7VsFBWPAnVkDMGZwvBiJFU7B9HYos6o/fz++PVTgQ==
+postcss-banner@3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/postcss-banner/-/postcss-banner-3.0.2.tgz#09264628cd012f6d55900401b0dcecbb9f3190b2"
+  integrity sha512-g4K2yyHmCncpYBVrut+gn4tn+LZyrImwrpuWFvXyfmDbW6l+/2cyLF/tYMtravwQkLD/Gsm2m2ke++c/exBNfA==
   dependencies:
-    postcss "^8.2.2"
+    postcss "^7.0.14"
 
 postcss-bem-linter@^3.0.0:
   version "3.3.0"
@@ -18813,7 +18823,7 @@ postcss-values-parser@^2.0.1:
     indexes-of "^1.0.1"
     uniq "^1.0.1"
 
-postcss@8.3.5, postcss@^8.1.0, postcss@^8.1.10, postcss@^8.1.7, postcss@^8.2.1, postcss@^8.2.10, postcss@^8.2.15, postcss@^8.2.2:
+postcss@8.3.5, postcss@^8.1.0, postcss@^8.1.10, postcss@^8.1.7, postcss@^8.2.1, postcss@^8.2.10, postcss@^8.2.15:
   version "8.3.5"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.3.5.tgz#982216b113412bc20a86289e91eb994952a5b709"
   integrity sha512-NxTuJocUhYGsMiMFHDUkmjSKT3EdH4/WbGF6GCi1NDGk+vbcUTun4fpbOqaPtD8IIsztA2ilZm2DhYCuyN58gA==
@@ -20620,11 +20630,6 @@ sass-loader@10.1.0:
     neo-async "^2.6.2"
     schema-utils "^3.0.0"
     semver "^7.3.2"
-
-sass-migrator@1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/sass-migrator/-/sass-migrator-1.5.0.tgz#92b34a6d4eae9f69b16185a2f549626585d2db44"
-  integrity sha512-QASf3OUQhjxbbXOjC4CnKtkwJ8YcCNd7DBBhoo7/ouRUjWlBQsiGfmG8ntxDxYLW0Zj6942RdGK67IR9sFm3QQ==
 
 sass@1.35.1:
   version "1.35.1"
