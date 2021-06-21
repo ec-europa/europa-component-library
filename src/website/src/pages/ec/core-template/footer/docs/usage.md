@@ -6,7 +6,7 @@ The core footer provides supplementary information such as copyright, legal, pri
 
 ## Anatomy
 
-![](/cms-images/core-footer.jpg)
+![](/cms-images/core-footer.png)
 
 | Components                                                   | Mandatory | Optional |
 | ------------------------------------------------------------ | --------- | -------- |
