@@ -142,14 +142,14 @@ $_nav-toggle-bar-spacing-between: 0.375rem;
 }
 
 .hamburger-box {
-  left: ($_nav-toggle-size - $_nav-toggle-bar-width) / 2;
+  left: ($_nav-toggle-size - $_nav-toggle-bar-width) * 0.5;
   position: absolute;
   top: 50%;
 }
 
 .hamburger-inner {
   display: block;
-  margin-top: -($_nav-toggle-bar-height / 2);
+  margin-top: -($_nav-toggle-bar-height * 0.5);
 }
 
 .hamburger-inner,
