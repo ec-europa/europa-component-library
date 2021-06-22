@@ -1,0 +1,85 @@
+{% spaceless %}
+
+{% set _message = message|default({}) %}
+{% set _expandable = expandable|default({}) %}
+{% set _languages = languages|default([]) %}
+
+<script defer src="https://europa.eu/webtools/load.js" type="text/javascript"></script>
+
+<div class="ecl-u-bg-grey-5 ecl-u-pv-m">
+  <div class="ecl-container">
+    {% include '@ecl/message/message.html.twig' with _message only %}
+    
+    {# With language list #}
+    {% if _expandable is defined and _expandable is not empty %}
+    <div data-ecl-expandable="true" data-ecl-auto-init="Expandable" class="ecl-u-mt-m">
+      <div class="ecl-u-d-inline-flex ecl-u-align-items-center">
+        {% include '@ecl/button/button.html.twig' with _expandable.button|merge({
+          extra_classes: 'ecl-expandable__toggle ecl-u-mr-s',
+          extra_attributes: [
+            { name: 'aria-controls', value: _expandable.id ~ '-content'|default('') },
+            { name: 'data-ecl-expandable-toggle' },
+            { name: 'data-ecl-label-expanded', value: _expandable.label_expanded|default('') },
+            { name: 'data-ecl-label-collapsed', value: _expandable.label_collapsed|default('') },
+            { name: 'aria-expanded', value: 'false' }
+          ]
+        }) only %}
+        <script type="application/json">
+          {
+            "service": "etrans",
+            "renderAs": {
+              "icon": false,
+              "button": false,
+              "link": true
+            }
+          }
+        </script>
+      </div>
+      <div
+        id="{{ _expandable.id ~ '-content' }}"
+        class="ecl-expandable__content"
+        hidden
+      >
+        <ul 
+          style="grid-auto-flow: column; grid-template-rows: repeat(4, 1fr)"
+          class="ecl-u-d-block ecl-u-d-m-grid ecl-unordered-list ecl-unordered-list--no-bullet ecl-u-mt-xs ecl-u-type-m"
+        >
+        {% for language in _languages %}
+          <li class="ecl-unordered-list__item ecl-u-mt-none">
+            {% set link_classes = language == 'English' ? 'ecl-u-bg-blue-60 ecl-u-type-color-white ecl-u-type-bold' : '' %}
+            {% include '@ecl/link/link.html.twig' with {
+              link: {
+                label: language,
+                type: 'standalone',
+                no_visited: true,
+              },
+              extra_classes: 'ecl-u-pv-s ecl-u-ph-m ecl-u-d-block ' ~ link_classes,
+            } only %}
+          </li>
+        {% endfor %}
+        </ul>
+        <div class="ecl-u-type-prolonged-m ecl-u-type-align-right ecl-u-mt-xs">
+          <em>For more information, see our <a href="#" class="ecl-link">language policy</a></em>
+        </div>
+      </div>
+    </div>
+
+    {# Without language list #}
+    {% else %}
+      <div class="ecl-u-mt-m">
+        <script type="application/json">
+          {
+            "service": "etrans",
+            "renderAs": {
+              "icon": true,
+              "button": false,
+              "link": true
+            }
+          }
+        </script>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% endspaceless %}

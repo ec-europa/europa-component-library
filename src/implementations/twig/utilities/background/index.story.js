@@ -24,6 +24,7 @@ const getArgTypes = () => {
           Yellow: 'ecl-u-bg-yellow',
           Grey: 'ecl-u-bg-grey ecl-u-type-color-white',
           'Grey-25': 'ecl-u-bg-grey-25',
+          Transparent: 'ecl-u-bg-transparent',
         },
       },
     },

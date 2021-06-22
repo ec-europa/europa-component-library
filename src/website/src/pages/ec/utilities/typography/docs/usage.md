@@ -43,6 +43,15 @@ When changing text colour, make sure to always keep a high enough contrast ratio
 
 There are several online tools to check the contrast, for instance [Color Contrast Checker](https://webaim.org/resources/contrastchecker/)
 
+## Text alignment
+
+By using classes `ecl-u-type-align-*` you can set the alignment of the text.
+Available values are:
+
+- `ecl-u-type-align-left`
+- `ecl-u-type-align-right`
+- `ecl-u-type-align-center`
+
 ## Text styles
 
 Several classes are available to alter text display (uppercase, underline, strike, ...).  

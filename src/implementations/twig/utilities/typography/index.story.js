@@ -85,6 +85,25 @@ const getArgTypes = (data, story) => {
         category: 'Styles',
       },
     };
+    argTypes.alignment = {
+      name: 'Text alignment',
+      description: 'Choose different text alignments',
+      type: 'select',
+      defaultValue: 'ecl-u-type-align-left',
+      control: {
+        type: 'select',
+        options: {
+          Left: 'ecl-u-type-align-left',
+          Right: 'ecl-u-type-align-right',
+          Center: 'ecl-u-type-align-center',
+        },
+      },
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Styles',
+      },
+    };
   }
 
   return argTypes;
@@ -131,9 +150,14 @@ TextColour.argTypes = getArgTypes(demoContentParagraph, 'text-colour');
 
 export const TextStyle = (args) => `
       <p
-        class="${classnames('ecl-u-type-paragraph-m', args.style, {
-          [`ecl-u-type-bold`]: args.bold,
-        })}"
+        class="${classnames(
+          'ecl-u-type-paragraph-m',
+          args.style,
+          args.alignment,
+          {
+            [`ecl-u-type-bold`]: args.bold,
+          }
+        )}"
       >
         ${args.content}
       </p>
