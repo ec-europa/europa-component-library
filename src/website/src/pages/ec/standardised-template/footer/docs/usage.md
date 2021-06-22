@@ -10,7 +10,7 @@ The standardised footer is displayed at the bottom of every page in the website
 
 | Components            | Mandatory | Optional |
 | --------------------- | --------- | -------- |
-| **Customised footer** | no        | no       |
+| **Customised footer** | no        | yes      |
 | **Corporate footer**  | yes       | no       |
 
 ## Do's
