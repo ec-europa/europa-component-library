@@ -25,7 +25,7 @@ const webpackFinal = (defaultConfig, mode) => {
   defaultConfig.module.rules[0].exclude = /node_modules/;
 
   // Change media dist folder
-  defaultConfig.module.rules[5].query.name =
+  defaultConfig.module.rules[5].options.name =
     'dist/images/[name].[hash:8].[ext]';
 
   if (mode === 'PRODUCTION') {

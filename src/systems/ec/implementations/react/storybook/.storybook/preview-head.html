@@ -4,22 +4,6 @@
   }
 </style>
 <script>
-  document.addEventListener(
-    'DOMContentLoaded',
-    function () {
-      var select = document.getElementById('select-multiple');
-      console.log(select);
-      select.addEventListener(
-        'change',
-        () => {
-          alert('change!');
-        },
-        false
-      );
-    },
-    false
-  );
-
   function inIframe() {
     try {
       return window.self !== window.top;

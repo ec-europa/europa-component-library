@@ -59,13 +59,11 @@ const MainPolicyResourcesPage = () => (
             position: 'right',
             mobile: {
               alt: 'Example image',
-              src:
-                'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+              src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
             },
             desktop: {
               alt: 'Example image',
-              src:
-                'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+              src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
             },
           }}
         />
