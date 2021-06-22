@@ -4,42 +4,38 @@ order: 1
 ---
 The page header component provides users the context of the page. It is always placed just below the site header. There are five variations of the page header.
 
-Default as in the anatomy image
+The anatomy image is the default page header
 
 ## Anatomy
 
->
-
 ![](/cms-images/standardised-page-header.png)
 
-|                                                                                     | Components | Mandatory                                                                                                        | Description |
-| ----------------------------------------------------------------------------------- | ---------- | ---------------------------------------------------------------------------------------------------------------- | ----------- |
-| <Link to="/ec/components/navigation/breadcrumb/usage/" standalone>breadcrumb</Link> | optional   | breadcrumb component provides information on the page and its relationship to the site's hierarchy and structure |             |
-| meta                                                                                | optional   | metadata related to the content of the page                                                                      |             |
-| page title                                                                          | yes        | title of the page                                                                                                |             |
-| introduction                                                                        | optional   | short description of the page                                                                                    |             |
+| Components                                                                                                                                                                                                                 | Mandatory | Optional |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | -------- |
+| **Breadcrumb**<br />Breadcrumb component provides information on the page and its relationship to the site's hierarchy and structure.<br />It is optional if your website's navigational structure has less than 3 levels. | no        | yes      |
+| **Meta**                                                                                                                                                                                                                   | no        | yes      |
+| **Page title**                                                                                                                                                                                                             | yes       | no       |
+| **Introduction**                                                                                                                                                                                                           | no        | yes      |
 
-Page header with thumbnail
+## Page header with thumbnail
 
 ![](/cms-images/ec_ph_st_thumb_l_734px.png)
 
-Page header with background image without overlay
+## Page header with background image without overlay
 
 ![](/cms-images/ec_ph_stan_image_l_734px.png)
 
-Page header background image with light overlay
+## Page header background image with light overlay
 
 ![](/cms-images/ec_ph_stan_light_l_734px.png)
 
-Page header background image with dark overlay
+## Page header background image with dark overlay
 
 ![](/cms-images/ec_ph_stan_dark_l_734px.png)
 
 ## Do's
 
-- ensure the pages contain all the components and elements in the anatomy table above
-- always use a Page header when building your page
-- if choosing a background image, make sure it highlights the main object related to the content, and that it is clearly visible
+- if choosing a background image, make sure it highlights the main object related to the content, and it is clearly visible
 
 ## Don'ts
 
@@ -48,5 +44,9 @@ Page header background image with dark overlay
 
 ## When to use
 
-- always use a page header when building your page
-- Page headers can be used on both landing and content pages
+- page header can be used on both landing and content pages
+- to highlight the page topic, or to show important information about the page
+
+## When not to use
+
+- page header is not used for homepage of the website
