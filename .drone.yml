@@ -22,7 +22,6 @@ matrix:
   TEST:
     - audit
     - conventions
-    - examples
     - size
     - deploy
 
@@ -55,19 +54,6 @@ pipeline:
       event: [push, pull_request, tag]
       matrix:
         TEST: conventions
-
-  examples:
-    image: node:erbium
-    commands:
-      - yarn build:icons
-      - yarn build:themes
-      - yarn build:presets
-      - cd examples/webpack4 && yarn build --display=errors-only
-      - cd ../webpack4-eu && yarn build --display=errors-only
-    when:
-      event: [push, pull_request, tag]
-      matrix:
-        TEST: examples
 
   size:
     image: buildkite/puppeteer:5.2.1
@@ -134,7 +120,7 @@ pipeline:
       - cd dist/website
       - zip -r ${DRONE_REPO_NAME}-${DRONE_TAG}.zip .
       - mv ${DRONE_REPO_NAME}-${DRONE_TAG}.zip ../../
-      - cp packages/${DRONE_REPO_NAME}-${DRONE_TAG}-sri.json ../../
+      - cp ../packages/${DRONE_REPO_NAME}-${DRONE_TAG}-sri.json ../../
     when:
       event: [tag]
       matrix:
@@ -144,7 +130,7 @@ pipeline:
   push-github-release:
     image: plugins/github-release
     files:
-      - ${DRONE_REPO_NAME}-${DRONE_TAG}.tar.gz
+      - ${DRONE_REPO_NAME}-${DRONE_TAG}.zip
       - ${DRONE_REPO_NAME}-${DRONE_TAG}-sri.json
     checksum:
       - sha1
@@ -182,7 +168,7 @@ pipeline:
   upload-archive:
     image: plugins/github-release
     files:
-      - ${DRONE_REPO_NAME}-${DRONE_TAG}-archive.tar.gz
+      - ${DRONE_REPO_NAME}-${DRONE_TAG}-archive.zip
     checksum:
       - sha1
     secrets: [GITHUB_RELEASE_API_KEY]
