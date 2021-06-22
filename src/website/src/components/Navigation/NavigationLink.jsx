@@ -33,14 +33,8 @@ class NavigationLink extends Component {
 
   render() {
     // Exclude some properties not needed by NavLink
-    const {
-      history,
-      location,
-      match,
-      meta,
-      staticContext,
-      ...props
-    } = this.props;
+    const { history, location, match, meta, staticContext, ...props } =
+      this.props;
 
     return <NavLink strict to={this.to} isActive={this.isActive} {...props} />;
   }

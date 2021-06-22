@@ -20,7 +20,7 @@ $_border-size-focus: null !default;
   background-color: $_background-color;
   border-radius: (
       2 * map.get(theme.$spacing, 'xs') + map.get(theme.$line-height, 's')
-    ) / 2;
+    ) * 0.5;
   border-width: 0;
   box-sizing: border-box;
   color: $_link-text-color;

@@ -2,22 +2,18 @@
 order: 4
 title: Core template
 ---
-The core website is europa.eu
+The core website is europa.eu (work in progress)
 
 ## Anatomy
 
->
-
 ![](/cms-images/eu_core_1140.png)
 
-| Elements                                            | Mandatory | Description                                                                                                                                                                                                                     |
-| --------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| global banner                                       | yes       | The global banner is the official EU stamp; the content on Europa comes genuinely from the EU.                                                                                                                                  |
-| [site header](/eu/core-template/site-header/usage/) | yes       | The core site header is present on every page. It contains the branding of europa.eu.                                                                                                                                           |
-| [page header](/eu/core-template/page-header/usage/) | yes       | The page header is composed of several mandatory and optional elements. See core page header page for detailed information.                                                                                                     |
-| [footer](/eu/core-template/footer/usage/)           | yes       | The core footer is present on every page. It provides supplementary information such as copyright, legal, privacy, social media, contact information and links to other inter-institutions within the European Union ecosystem. |
-
-**NOTE**: On the Page body section, when components are available, use components from ECL.
+| Components                                                                                                                                                                                                                                      | Mandatory | Optional |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | -------- |
+| **Global banner**<br />The global banner is the official EU stamp; the content on Europa comes genuinely from the EU                                                                                                                            | yes       | no       |
+| **Site header**<br />The core site header is present on every page. It contains the branding of europa.eu                                                                                                                                       | yes       | no       |
+| **Page header**<br />The page header is composed of several mandatory and optional elements. See core page header page for detailed information                                                                                                 | yes       | no       |
+| **Footer**<br />The core footer is present on every page. It provides supplementary information such as copyright, legal, privacy, social media, contact information and links to other inter-institutions within the European Union ecosystem. | yes       | no       |
 
 ## Do's
 

@@ -6,18 +6,14 @@ The core website minimises the duplication of content across the European Commis
 
 ## Anatomy
 
->
-
 ![anatomy](/cms-images/core-template.png "Core website")
 
-| Elements                                                         | Mandatory | Description                                                                                                                                                                                                                                                         |
-| ---------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| global banner                                                    | yes       | The global banner is the official EU stamp; visitors can trust that the content on Europa comes genuinely from the EU.                                                                                                                                              |
-| [core site header](/ec/core-template/site-header/usage/)         | yes       | The core site header is present on every page. It communicates the European Commission brand and provides basic structure and guidance. The site header is composed of several mandatory and optional elements. See core site header page for detailed information. |
-| [core page header](/ec/standardised-template/page-header/usage/) | yes       | The core page header provides context and information to the users on what the page is about. It is positioned below the site header. The page header is composed of several mandatory and optional elements. See core page header page for detailed information.   |
-| [core footer](/ec/core-template/footer/usage/)                   | yes       | The core footer is present on every page. It provides supplementary information such as copyright, legal, privacy, social media, contact information and links to other important sections within the European Commission ecosystem.                                |
-
-**NOTE**: On the Page body section, when components are available, use components from ECL.
+| Components                                                                                                                                                                                                                                           | Mandatory | Optional                                            |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | --------------------------------------------------- |
+| **Global banner**<br />The global banner is the official EU stamp; the content on Europa comes genuinely from the EU                                                                                                                                 | yes       | no                                                  |
+| **Site header**<br /> The core site header is present on every page. It communicates the European Commission brand and provides basic structure and guidance.                                                                                        | yes       | no                                                  |
+| **Page header**<br />The page header is composed of several mandatory and optional elements. See core page header page for detailed information                                                                                                      | yes       | See core page header page for detailed information. |
+| **Footer**<br />The core footer is present on every page. It provides supplementary information such as copyright, legal, privacy, social media, contact information and links to other important sections within the European Commission ecosystem. | yes       | no                                                  |
 
 ## Do's
 
