@@ -53,8 +53,8 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Build themes
         run: yarn build:themes
-      - name: Build presets
-        run: yarn build:presets
+      - name: Dist presets
+        run: yarn dist:presets
       - name: Test
         run: yarn size-limit
   deploy:

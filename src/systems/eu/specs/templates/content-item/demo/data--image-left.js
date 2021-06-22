@@ -11,8 +11,7 @@ module.exports = {
     position: 'left',
     desktop: {
       alt: 'Example image',
-      src:
-        'https://inno-ecl.s3.amazonaws.com/media/examples/example-person.png',
+      src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-person.png',
     },
   },
 };
