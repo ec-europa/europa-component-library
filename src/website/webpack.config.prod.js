@@ -14,7 +14,7 @@ const autoprefixer = require('autoprefixer');
 const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
 const selectorPrefixer = require('postcss-prefix-selector');
 const frontmatter = require('remark-frontmatter');
-
+const ReplaceInFileWebpackPlugin = require('replace-in-file-webpack-plugin');
 const babelConfig = require('./config/babel.config');
 const lernaJson = require('../../lerna.json');
 
@@ -335,6 +335,18 @@ module.exports = {
     new InterpolateHtmlPlugin(HtmlWebPackPlugin, {
       PUBLIC_URL: publicUrl,
     }),
+    new ReplaceInFileWebpackPlugin([
+      {
+        dir: 'build/dist',
+        test: /\.js$/,
+        rules: [
+          {
+            search: '/cms-images',
+            replace: `${publicPath}cms-images`,
+          },
+        ],
+      },
+    ]),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
       'process.env.PUBLIC_URL': JSON.stringify(publicUrl),
