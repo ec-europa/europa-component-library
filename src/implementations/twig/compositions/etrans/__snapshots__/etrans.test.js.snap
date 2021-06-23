@@ -1,0 +1,941 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`eTrans EC renders correctly with languages list 1`] = `
+<jest>
+  <script
+    defer=""
+    src="https://europa.eu/webtools/load.js"
+    type="text/javascript"
+  />
+  <div
+    class="ecl-u-bg-grey-5 ecl-u-pv-m"
+  >
+    <div
+      class="ecl-container"
+    >
+      <div
+        class="ecl-message ecl-message--warning ecl-u-bg-transparent"
+        data-ecl-auto-init="Message"
+        data-ecl-message=""
+        role="alert"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--l ecl-message__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#warning"
+          />
+        </svg>
+        <div
+          class="ecl-message__content"
+        >
+          <button
+            class="ecl-button ecl-button--ghost ecl-message__close"
+            data-ecl-message-close=""
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <span
+                class="ecl-button__label"
+                data-ecl-label="true"
+              >
+                Close
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#close-filled"
+                />
+              </svg>
+            </span>
+          </button>
+          <div
+            class="ecl-message__title"
+          >
+            Page language unavailable
+          </div>
+          <p
+            class="ecl-message__description"
+          />
+        </div>
+      </div>
+      <div
+        class="ecl-u-mt-m"
+        data-ecl-auto-init="Expandable"
+        data-ecl-expandable="true"
+      >
+        <div
+          class="ecl-u-d-inline-flex ecl-u-align-items-center"
+        >
+          <button
+            aria-controls="available-languages-content"
+            aria-expanded="false"
+            class="ecl-button ecl-button--secondary ecl-expandable__toggle ecl-u-mr-s ecl-u-bg-transparent"
+            data-ecl-expandable-toggle=""
+            data-ecl-label-collapsed="Choose another language"
+            data-ecl-label-expanded="Choose another language"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <span
+                class="ecl-button__label"
+                data-ecl-label="true"
+              >
+                Choose another language
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+            </span>
+          </button>
+          <script
+            type="application/json"
+          >
+            
+          {
+            "service": "etrans",
+            "renderAs": {
+              "icon": false,
+              "button": false,
+              "link": true
+            }
+          }
+        
+          </script>
+        </div>
+        <div
+          class="ecl-expandable__content"
+          hidden=""
+          id="available-languages-content"
+        >
+          <ul
+            class="ecl-u-d-block ecl-u-d-m-grid ecl-unordered-list ecl-unordered-list--no-bullet ecl-u-mt-xs ecl-u-type-m"
+            style="grid-auto-flow: column; grid-template-rows: repeat(4, 1fr)"
+          >
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                български
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                čeština
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                dansk
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                Deutsch
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                eesti
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                ελληνικά
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block ecl-u-bg-blue-50 ecl-u-type-color-white ecl-u-type-bold"
+                href=""
+              >
+                English
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                français
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                Gaeilge
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                hrvatski
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                italiano
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                latviešu
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                lietuvių
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                magyar
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                Malti
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                Nederlands
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                polski
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                português
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                română
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                slovenčina
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                slovenščina
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                suomi
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                svenska
+              </a>
+            </li>
+          </ul>
+          <div
+            class="ecl-u-type-prolonged-m ecl-u-type-align-right ecl-u-mt-xs"
+          >
+            <em>
+              For more information, see our 
+              <a
+                class="ecl-link"
+                href="#"
+              >
+                language policy
+              </a>
+            </em>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`eTrans EC renders correctly without languages list 1`] = `
+<jest>
+  <script
+    defer=""
+    src="https://europa.eu/webtools/load.js"
+    type="text/javascript"
+  />
+  <div
+    class="ecl-u-bg-grey-5 ecl-u-pv-m"
+  >
+    <div
+      class="ecl-container"
+    >
+      <div
+        class="ecl-message ecl-message--warning ecl-u-bg-transparent"
+        data-ecl-auto-init="Message"
+        data-ecl-message=""
+        role="alert"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--l ecl-message__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#warning"
+          />
+        </svg>
+        <div
+          class="ecl-message__content"
+        >
+          <button
+            class="ecl-button ecl-button--ghost ecl-message__close"
+            data-ecl-message-close=""
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <span
+                class="ecl-button__label"
+                data-ecl-label="true"
+              >
+                Close
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#close-filled"
+                />
+              </svg>
+            </span>
+          </button>
+          <div
+            class="ecl-message__title"
+          >
+            Page language unavailable
+          </div>
+          <p
+            class="ecl-message__description"
+          />
+        </div>
+      </div>
+      <div
+        class="ecl-u-mt-m"
+      >
+        <script
+          type="application/json"
+        >
+          
+          {
+            "service": "etrans",
+            "renderAs": {
+              "icon": true,
+              "button": false,
+              "link": true
+            }
+          }
+        
+        </script>
+      </div>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`eTrans EU renders correctly with languages list 1`] = `
+<jest>
+  <script
+    defer=""
+    src="https://europa.eu/webtools/load.js"
+    type="text/javascript"
+  />
+  <div
+    class="ecl-u-bg-grey-5 ecl-u-pv-m"
+  >
+    <div
+      class="ecl-container"
+    >
+      <div
+        class="ecl-message ecl-message--warning"
+        data-ecl-auto-init="Message"
+        data-ecl-message=""
+        role="alert"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--l ecl-message__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#warning"
+          />
+        </svg>
+        <div
+          class="ecl-message__content"
+        >
+          <button
+            class="ecl-button ecl-button--ghost ecl-message__close"
+            data-ecl-message-close=""
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <span
+                class="ecl-button__label"
+                data-ecl-label="true"
+              >
+                Close
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#close-filled"
+                />
+              </svg>
+            </span>
+          </button>
+          <div
+            class="ecl-message__title"
+          >
+            Page language unavailable
+          </div>
+          <p
+            class="ecl-message__description"
+          />
+        </div>
+      </div>
+      <div
+        class="ecl-u-mt-m"
+        data-ecl-auto-init="Expandable"
+        data-ecl-expandable="true"
+      >
+        <div
+          class="ecl-u-d-inline-flex ecl-u-align-items-center"
+        >
+          <button
+            aria-controls="available-languages-content"
+            aria-expanded="false"
+            class="ecl-button ecl-button--secondary ecl-expandable__toggle ecl-u-mr-s"
+            data-ecl-expandable-toggle=""
+            data-ecl-label-collapsed="Choose another language"
+            data-ecl-label-expanded="Choose another language"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <span
+                class="ecl-button__label"
+                data-ecl-label="true"
+              >
+                Choose another language
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+            </span>
+          </button>
+          <script
+            type="application/json"
+          >
+            
+          {
+            "service": "etrans",
+            "renderAs": {
+              "icon": false,
+              "button": false,
+              "link": true
+            }
+          }
+        
+          </script>
+        </div>
+        <div
+          class="ecl-expandable__content"
+          hidden=""
+          id="available-languages-content"
+        >
+          <ul
+            class="ecl-u-d-block ecl-u-d-m-grid ecl-unordered-list ecl-unordered-list--no-bullet ecl-u-mt-xs ecl-u-type-m"
+            style="grid-auto-flow: column; grid-template-rows: repeat(4, 1fr)"
+          >
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                български
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                čeština
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                dansk
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                Deutsch
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                eesti
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                ελληνικά
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block ecl-u-bg-blue-60 ecl-u-type-color-white ecl-u-type-bold"
+                href=""
+              >
+                English
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                français
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                Gaeilge
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                hrvatski
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                italiano
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                latviešu
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                lietuvių
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                magyar
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                Malti
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                Nederlands
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                polski
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                português
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                română
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                slovenčina
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                slovenščina
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                suomi
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-mt-none"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                svenska
+              </a>
+            </li>
+          </ul>
+          <div
+            class="ecl-u-type-prolonged-m ecl-u-type-align-right ecl-u-mt-xs"
+          >
+            <em>
+              For more information, see our 
+              <a
+                class="ecl-link"
+                href="#"
+              >
+                language policy
+              </a>
+            </em>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`eTrans EU renders correctly without languages list 1`] = `
+<jest>
+  <script
+    defer=""
+    src="https://europa.eu/webtools/load.js"
+    type="text/javascript"
+  />
+  <div
+    class="ecl-u-bg-grey-5 ecl-u-pv-m"
+  >
+    <div
+      class="ecl-container"
+    >
+      <div
+        class="ecl-message ecl-message--warning"
+        data-ecl-auto-init="Message"
+        data-ecl-message=""
+        role="alert"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--l ecl-message__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#warning"
+          />
+        </svg>
+        <div
+          class="ecl-message__content"
+        >
+          <button
+            class="ecl-button ecl-button--ghost ecl-message__close"
+            data-ecl-message-close=""
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <span
+                class="ecl-button__label"
+                data-ecl-label="true"
+              >
+                Close
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#close-filled"
+                />
+              </svg>
+            </span>
+          </button>
+          <div
+            class="ecl-message__title"
+          >
+            Page language unavailable
+          </div>
+          <p
+            class="ecl-message__description"
+          />
+        </div>
+      </div>
+      <div
+        class="ecl-u-mt-m"
+      >
+        <script
+          type="application/json"
+        >
+          
+          {
+            "service": "etrans",
+            "renderAs": {
+              "icon": true,
+              "button": false,
+              "link": true
+            }
+          }
+        
+        </script>
+      </div>
+    </div>
+  </div>
+</jest>
+`;

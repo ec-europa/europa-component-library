@@ -1,27 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Label renders correctly 1`] = `
-<span
-  class="ecl-label ecl-label--low"
->
-  Label
-</span>
+<jest>
+  <span
+    class="ecl-label ecl-label--low"
+  >
+    Label
+  </span>
+</jest>
 `;
 
 exports[`Label renders correctly with extra attributes 1`] = `
-<span
-  class="ecl-label ecl-label--low"
-  data-test="data-test-value"
-  data-test-1="data-test-value-1"
->
-  Label
-</span>
+<jest>
+  <span
+    class="ecl-label ecl-label--low"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
+  >
+    Label
+  </span>
+</jest>
 `;
 
 exports[`Label renders correctly with extra class names 1`] = `
-<span
-  class="ecl-label ecl-label--low custom-class custom-class--test"
->
-  Label
-</span>
+<jest>
+  <span
+    class="ecl-label ecl-label--low custom-class custom-class--test"
+  >
+    Label
+  </span>
+</jest>
 `;

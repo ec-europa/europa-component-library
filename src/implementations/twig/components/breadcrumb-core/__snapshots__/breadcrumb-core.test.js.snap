@@ -1,575 +1,587 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Breadcrumb Core Long renders correctly 1`] = `
-<nav
-  aria-label="You are here:"
-  class="ecl-breadcrumb-core"
-  data-ecl-auto-init="BreadcrumbCore"
-  data-ecl-breadcrumb-core="true"
->
-  <ol
-    class="ecl-breadcrumb-core__container"
+<jest>
+  <nav
+    aria-label="You are here:"
+    class="ecl-breadcrumb-core"
+    data-ecl-auto-init="BreadcrumbCore"
+    data-ecl-breadcrumb-core="true"
   >
-    <li
-      class="ecl-breadcrumb-core__segment"
-      data-ecl-breadcrumb-core-item="static"
+    <ol
+      class="ecl-breadcrumb-core__container"
     >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
-        href="/example"
+      <li
+        class="ecl-breadcrumb-core__segment"
+        data-ecl-breadcrumb-core-item="static"
       >
-        Home
-      </a>
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
-        focusable="false"
-        role="presentation"
+        <a
+          class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
+          href="/example"
+        >
+          Home
+        </a>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+          focusable="false"
+          role="presentation"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+      </li>
+      <li
+        class="ecl-breadcrumb-core__segment ecl-breadcrumb-core__segment--ellipsis"
+        data-ecl-breadcrumb-core-ellipsis=""
       >
-        <use
-          xlink:href="/icons.svg#corner-arrow"
-        />
-      </svg>
-    </li>
-    <li
-      class="ecl-breadcrumb-core__segment ecl-breadcrumb-core__segment--ellipsis"
-      data-ecl-breadcrumb-core-ellipsis=""
-    >
-      <button
-        aria-label="Click to expand"
-        class="ecl-button ecl-button--ghost ecl-breadcrumb-core__ellipsis"
-        data-ecl-breadcrumb-core-ellipsis-button=""
-        type="button"
+        <button
+          aria-label="Click to expand"
+          class="ecl-button ecl-button--ghost ecl-breadcrumb-core__ellipsis"
+          data-ecl-breadcrumb-core-ellipsis-button=""
+          type="button"
+        >
+          …
+        </button>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+          focusable="false"
+          role="presentation"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+      </li>
+      <li
+        class="ecl-breadcrumb-core__segment"
+        data-ecl-breadcrumb-core-item="expandable"
       >
-        …
-      </button>
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
-        focusable="false"
-        role="presentation"
+        <a
+          class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
+          href="/example"
+        >
+          About the European Commission
+        </a>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+          focusable="false"
+          role="presentation"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+      </li>
+      <li
+        class="ecl-breadcrumb-core__segment"
+        data-ecl-breadcrumb-core-item="expandable"
       >
-        <use
-          xlink:href="/icons.svg#corner-arrow"
-        />
-      </svg>
-    </li>
-    <li
-      class="ecl-breadcrumb-core__segment"
-      data-ecl-breadcrumb-core-item="expandable"
-    >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
-        href="/example"
+        <a
+          class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
+          href="/example"
+        >
+          Organisational structure
+        </a>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+          focusable="false"
+          role="presentation"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+      </li>
+      <li
+        class="ecl-breadcrumb-core__segment"
+        data-ecl-breadcrumb-core-item="static"
       >
-        About the European Commission
-      </a>
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
-        focusable="false"
-        role="presentation"
+        <a
+          class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
+          href="/example"
+        >
+          How the Commission is organised
+        </a>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+          focusable="false"
+          role="presentation"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+      </li>
+      <li
+        aria-current="page"
+        class="ecl-breadcrumb-core__segment ecl-breadcrumb-core__current-page"
+        data-ecl-breadcrumb-core-item="static"
       >
-        <use
-          xlink:href="/icons.svg#corner-arrow"
-        />
-      </svg>
-    </li>
-    <li
-      class="ecl-breadcrumb-core__segment"
-      data-ecl-breadcrumb-core-item="expandable"
-    >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
-        href="/example"
-      >
-        Organisational structure
-      </a>
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
-        focusable="false"
-        role="presentation"
-      >
-        <use
-          xlink:href="/icons.svg#corner-arrow"
-        />
-      </svg>
-    </li>
-    <li
-      class="ecl-breadcrumb-core__segment"
-      data-ecl-breadcrumb-core-item="static"
-    >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
-        href="/example"
-      >
-        How the Commission is organised
-      </a>
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
-        focusable="false"
-        role="presentation"
-      >
-        <use
-          xlink:href="/icons.svg#corner-arrow"
-        />
-      </svg>
-    </li>
-    <li
-      aria-current="page"
-      class="ecl-breadcrumb-core__segment ecl-breadcrumb-core__current-page"
-      data-ecl-breadcrumb-core-item="static"
-    >
-      News
-    </li>
-  </ol>
-</nav>
+        News
+      </li>
+    </ol>
+  </nav>
+</jest>
 `;
 
 exports[`Breadcrumb Core Long renders correctly with extra attributes 1`] = `
-<nav
-  aria-label="You are here:"
-  class="ecl-breadcrumb-core"
-  data-ecl-auto-init="BreadcrumbCore"
-  data-ecl-breadcrumb-core="true"
-  data-test="data-test-value"
-  data-test-1="data-test-value-1"
->
-  <ol
-    class="ecl-breadcrumb-core__container"
+<jest>
+  <nav
+    aria-label="You are here:"
+    class="ecl-breadcrumb-core"
+    data-ecl-auto-init="BreadcrumbCore"
+    data-ecl-breadcrumb-core="true"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
   >
-    <li
-      class="ecl-breadcrumb-core__segment"
-      data-ecl-breadcrumb-core-item="static"
+    <ol
+      class="ecl-breadcrumb-core__container"
     >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
-        href="/example"
+      <li
+        class="ecl-breadcrumb-core__segment"
+        data-ecl-breadcrumb-core-item="static"
       >
-        Home
-      </a>
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
-        focusable="false"
-        role="presentation"
+        <a
+          class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
+          href="/example"
+        >
+          Home
+        </a>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+          focusable="false"
+          role="presentation"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+      </li>
+      <li
+        class="ecl-breadcrumb-core__segment ecl-breadcrumb-core__segment--ellipsis"
+        data-ecl-breadcrumb-core-ellipsis=""
       >
-        <use
-          xlink:href="/icons.svg#corner-arrow"
-        />
-      </svg>
-    </li>
-    <li
-      class="ecl-breadcrumb-core__segment ecl-breadcrumb-core__segment--ellipsis"
-      data-ecl-breadcrumb-core-ellipsis=""
-    >
-      <button
-        aria-label="Click to expand"
-        class="ecl-button ecl-button--ghost ecl-breadcrumb-core__ellipsis"
-        data-ecl-breadcrumb-core-ellipsis-button=""
-        type="button"
+        <button
+          aria-label="Click to expand"
+          class="ecl-button ecl-button--ghost ecl-breadcrumb-core__ellipsis"
+          data-ecl-breadcrumb-core-ellipsis-button=""
+          type="button"
+        >
+          …
+        </button>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+          focusable="false"
+          role="presentation"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+      </li>
+      <li
+        class="ecl-breadcrumb-core__segment"
+        data-ecl-breadcrumb-core-item="expandable"
       >
-        …
-      </button>
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
-        focusable="false"
-        role="presentation"
+        <a
+          class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
+          href="/example"
+        >
+          About the European Commission
+        </a>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+          focusable="false"
+          role="presentation"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+      </li>
+      <li
+        class="ecl-breadcrumb-core__segment"
+        data-ecl-breadcrumb-core-item="expandable"
       >
-        <use
-          xlink:href="/icons.svg#corner-arrow"
-        />
-      </svg>
-    </li>
-    <li
-      class="ecl-breadcrumb-core__segment"
-      data-ecl-breadcrumb-core-item="expandable"
-    >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
-        href="/example"
+        <a
+          class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
+          href="/example"
+        >
+          Organisational structure
+        </a>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+          focusable="false"
+          role="presentation"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+      </li>
+      <li
+        class="ecl-breadcrumb-core__segment"
+        data-ecl-breadcrumb-core-item="static"
       >
-        About the European Commission
-      </a>
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
-        focusable="false"
-        role="presentation"
+        <a
+          class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
+          href="/example"
+        >
+          How the Commission is organised
+        </a>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+          focusable="false"
+          role="presentation"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+      </li>
+      <li
+        aria-current="page"
+        class="ecl-breadcrumb-core__segment ecl-breadcrumb-core__current-page"
+        data-ecl-breadcrumb-core-item="static"
       >
-        <use
-          xlink:href="/icons.svg#corner-arrow"
-        />
-      </svg>
-    </li>
-    <li
-      class="ecl-breadcrumb-core__segment"
-      data-ecl-breadcrumb-core-item="expandable"
-    >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
-        href="/example"
-      >
-        Organisational structure
-      </a>
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
-        focusable="false"
-        role="presentation"
-      >
-        <use
-          xlink:href="/icons.svg#corner-arrow"
-        />
-      </svg>
-    </li>
-    <li
-      class="ecl-breadcrumb-core__segment"
-      data-ecl-breadcrumb-core-item="static"
-    >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
-        href="/example"
-      >
-        How the Commission is organised
-      </a>
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
-        focusable="false"
-        role="presentation"
-      >
-        <use
-          xlink:href="/icons.svg#corner-arrow"
-        />
-      </svg>
-    </li>
-    <li
-      aria-current="page"
-      class="ecl-breadcrumb-core__segment ecl-breadcrumb-core__current-page"
-      data-ecl-breadcrumb-core-item="static"
-    >
-      News
-    </li>
-  </ol>
-</nav>
+        News
+      </li>
+    </ol>
+  </nav>
+</jest>
 `;
 
 exports[`Breadcrumb Core Long renders correctly with extra class names 1`] = `
-<nav
-  aria-label="You are here:"
-  class="ecl-breadcrumb-core custom-class custom-class--test"
-  data-ecl-auto-init="BreadcrumbCore"
-  data-ecl-breadcrumb-core="true"
->
-  <ol
-    class="ecl-breadcrumb-core__container"
+<jest>
+  <nav
+    aria-label="You are here:"
+    class="ecl-breadcrumb-core custom-class custom-class--test"
+    data-ecl-auto-init="BreadcrumbCore"
+    data-ecl-breadcrumb-core="true"
   >
-    <li
-      class="ecl-breadcrumb-core__segment"
-      data-ecl-breadcrumb-core-item="static"
+    <ol
+      class="ecl-breadcrumb-core__container"
     >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
-        href="/example"
+      <li
+        class="ecl-breadcrumb-core__segment"
+        data-ecl-breadcrumb-core-item="static"
       >
-        Home
-      </a>
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
-        focusable="false"
-        role="presentation"
+        <a
+          class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
+          href="/example"
+        >
+          Home
+        </a>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+          focusable="false"
+          role="presentation"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+      </li>
+      <li
+        class="ecl-breadcrumb-core__segment ecl-breadcrumb-core__segment--ellipsis"
+        data-ecl-breadcrumb-core-ellipsis=""
       >
-        <use
-          xlink:href="/icons.svg#corner-arrow"
-        />
-      </svg>
-    </li>
-    <li
-      class="ecl-breadcrumb-core__segment ecl-breadcrumb-core__segment--ellipsis"
-      data-ecl-breadcrumb-core-ellipsis=""
-    >
-      <button
-        aria-label="Click to expand"
-        class="ecl-button ecl-button--ghost ecl-breadcrumb-core__ellipsis"
-        data-ecl-breadcrumb-core-ellipsis-button=""
-        type="button"
+        <button
+          aria-label="Click to expand"
+          class="ecl-button ecl-button--ghost ecl-breadcrumb-core__ellipsis"
+          data-ecl-breadcrumb-core-ellipsis-button=""
+          type="button"
+        >
+          …
+        </button>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+          focusable="false"
+          role="presentation"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+      </li>
+      <li
+        class="ecl-breadcrumb-core__segment"
+        data-ecl-breadcrumb-core-item="expandable"
       >
-        …
-      </button>
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
-        focusable="false"
-        role="presentation"
+        <a
+          class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
+          href="/example"
+        >
+          About the European Commission
+        </a>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+          focusable="false"
+          role="presentation"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+      </li>
+      <li
+        class="ecl-breadcrumb-core__segment"
+        data-ecl-breadcrumb-core-item="expandable"
       >
-        <use
-          xlink:href="/icons.svg#corner-arrow"
-        />
-      </svg>
-    </li>
-    <li
-      class="ecl-breadcrumb-core__segment"
-      data-ecl-breadcrumb-core-item="expandable"
-    >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
-        href="/example"
+        <a
+          class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
+          href="/example"
+        >
+          Organisational structure
+        </a>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+          focusable="false"
+          role="presentation"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+      </li>
+      <li
+        class="ecl-breadcrumb-core__segment"
+        data-ecl-breadcrumb-core-item="static"
       >
-        About the European Commission
-      </a>
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
-        focusable="false"
-        role="presentation"
+        <a
+          class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
+          href="/example"
+        >
+          How the Commission is organised
+        </a>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+          focusable="false"
+          role="presentation"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+      </li>
+      <li
+        aria-current="page"
+        class="ecl-breadcrumb-core__segment ecl-breadcrumb-core__current-page"
+        data-ecl-breadcrumb-core-item="static"
       >
-        <use
-          xlink:href="/icons.svg#corner-arrow"
-        />
-      </svg>
-    </li>
-    <li
-      class="ecl-breadcrumb-core__segment"
-      data-ecl-breadcrumb-core-item="expandable"
-    >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
-        href="/example"
-      >
-        Organisational structure
-      </a>
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
-        focusable="false"
-        role="presentation"
-      >
-        <use
-          xlink:href="/icons.svg#corner-arrow"
-        />
-      </svg>
-    </li>
-    <li
-      class="ecl-breadcrumb-core__segment"
-      data-ecl-breadcrumb-core-item="static"
-    >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
-        href="/example"
-      >
-        How the Commission is organised
-      </a>
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
-        focusable="false"
-        role="presentation"
-      >
-        <use
-          xlink:href="/icons.svg#corner-arrow"
-        />
-      </svg>
-    </li>
-    <li
-      aria-current="page"
-      class="ecl-breadcrumb-core__segment ecl-breadcrumb-core__current-page"
-      data-ecl-breadcrumb-core-item="static"
-    >
-      News
-    </li>
-  </ol>
-</nav>
+        News
+      </li>
+    </ol>
+  </nav>
+</jest>
 `;
 
 exports[`Breadcrumb Core Simple renders correctly 1`] = `
-<nav
-  aria-label="You are here:"
-  class="ecl-breadcrumb-core"
-  data-ecl-breadcrumb-core="true"
->
-  <ol
-    class="ecl-breadcrumb-core__container"
+<jest>
+  <nav
+    aria-label="You are here:"
+    class="ecl-breadcrumb-core"
+    data-ecl-breadcrumb-core="true"
   >
-    <li
-      class="ecl-breadcrumb-core__segment"
-      data-ecl-breadcrumb-core-item="static"
+    <ol
+      class="ecl-breadcrumb-core__container"
     >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
-        href="/example"
+      <li
+        class="ecl-breadcrumb-core__segment"
+        data-ecl-breadcrumb-core-item="static"
       >
-        Home
-      </a>
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
-        focusable="false"
-        role="presentation"
+        <a
+          class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
+          href="/example"
+        >
+          Home
+        </a>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+          focusable="false"
+          role="presentation"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+      </li>
+      <li
+        class="ecl-breadcrumb-core__segment"
+        data-ecl-breadcrumb-core-item="static"
       >
-        <use
-          xlink:href="/icons.svg#corner-arrow"
-        />
-      </svg>
-    </li>
-    <li
-      class="ecl-breadcrumb-core__segment"
-      data-ecl-breadcrumb-core-item="static"
-    >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
-        href="/example"
+        <a
+          class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
+          href="/example"
+        >
+          About the European Commission
+        </a>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+          focusable="false"
+          role="presentation"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+      </li>
+      <li
+        aria-current="page"
+        class="ecl-breadcrumb-core__segment ecl-breadcrumb-core__current-page"
+        data-ecl-breadcrumb-core-item="static"
       >
-        About the European Commission
-      </a>
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
-        focusable="false"
-        role="presentation"
-      >
-        <use
-          xlink:href="/icons.svg#corner-arrow"
-        />
-      </svg>
-    </li>
-    <li
-      aria-current="page"
-      class="ecl-breadcrumb-core__segment ecl-breadcrumb-core__current-page"
-      data-ecl-breadcrumb-core-item="static"
-    >
-      News
-    </li>
-  </ol>
-</nav>
+        News
+      </li>
+    </ol>
+  </nav>
+</jest>
 `;
 
 exports[`Breadcrumb Core Simple renders correctly with extra attributes 1`] = `
-<nav
-  aria-label="You are here:"
-  class="ecl-breadcrumb-core"
-  data-ecl-breadcrumb-core="true"
-  data-test="data-test-value"
-  data-test-1="data-test-value-1"
->
-  <ol
-    class="ecl-breadcrumb-core__container"
+<jest>
+  <nav
+    aria-label="You are here:"
+    class="ecl-breadcrumb-core"
+    data-ecl-breadcrumb-core="true"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
   >
-    <li
-      class="ecl-breadcrumb-core__segment"
-      data-ecl-breadcrumb-core-item="static"
+    <ol
+      class="ecl-breadcrumb-core__container"
     >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
-        href="/example"
+      <li
+        class="ecl-breadcrumb-core__segment"
+        data-ecl-breadcrumb-core-item="static"
       >
-        Home
-      </a>
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
-        focusable="false"
-        role="presentation"
+        <a
+          class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
+          href="/example"
+        >
+          Home
+        </a>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+          focusable="false"
+          role="presentation"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+      </li>
+      <li
+        class="ecl-breadcrumb-core__segment"
+        data-ecl-breadcrumb-core-item="static"
       >
-        <use
-          xlink:href="/icons.svg#corner-arrow"
-        />
-      </svg>
-    </li>
-    <li
-      class="ecl-breadcrumb-core__segment"
-      data-ecl-breadcrumb-core-item="static"
-    >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
-        href="/example"
+        <a
+          class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
+          href="/example"
+        >
+          About the European Commission
+        </a>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+          focusable="false"
+          role="presentation"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+      </li>
+      <li
+        aria-current="page"
+        class="ecl-breadcrumb-core__segment ecl-breadcrumb-core__current-page"
+        data-ecl-breadcrumb-core-item="static"
       >
-        About the European Commission
-      </a>
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
-        focusable="false"
-        role="presentation"
-      >
-        <use
-          xlink:href="/icons.svg#corner-arrow"
-        />
-      </svg>
-    </li>
-    <li
-      aria-current="page"
-      class="ecl-breadcrumb-core__segment ecl-breadcrumb-core__current-page"
-      data-ecl-breadcrumb-core-item="static"
-    >
-      News
-    </li>
-  </ol>
-</nav>
+        News
+      </li>
+    </ol>
+  </nav>
+</jest>
 `;
 
 exports[`Breadcrumb Core Simple renders correctly with extra class names 1`] = `
-<nav
-  aria-label="You are here:"
-  class="ecl-breadcrumb-core custom-class custom-class--test"
-  data-ecl-breadcrumb-core="true"
->
-  <ol
-    class="ecl-breadcrumb-core__container"
+<jest>
+  <nav
+    aria-label="You are here:"
+    class="ecl-breadcrumb-core custom-class custom-class--test"
+    data-ecl-breadcrumb-core="true"
   >
-    <li
-      class="ecl-breadcrumb-core__segment"
-      data-ecl-breadcrumb-core-item="static"
+    <ol
+      class="ecl-breadcrumb-core__container"
     >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
-        href="/example"
+      <li
+        class="ecl-breadcrumb-core__segment"
+        data-ecl-breadcrumb-core-item="static"
       >
-        Home
-      </a>
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
-        focusable="false"
-        role="presentation"
+        <a
+          class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
+          href="/example"
+        >
+          Home
+        </a>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+          focusable="false"
+          role="presentation"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+      </li>
+      <li
+        class="ecl-breadcrumb-core__segment"
+        data-ecl-breadcrumb-core-item="static"
       >
-        <use
-          xlink:href="/icons.svg#corner-arrow"
-        />
-      </svg>
-    </li>
-    <li
-      class="ecl-breadcrumb-core__segment"
-      data-ecl-breadcrumb-core-item="static"
-    >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
-        href="/example"
+        <a
+          class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb-core__link"
+          href="/example"
+        >
+          About the European Commission
+        </a>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+          focusable="false"
+          role="presentation"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+      </li>
+      <li
+        aria-current="page"
+        class="ecl-breadcrumb-core__segment ecl-breadcrumb-core__current-page"
+        data-ecl-breadcrumb-core-item="static"
       >
-        About the European Commission
-      </a>
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
-        focusable="false"
-        role="presentation"
-      >
-        <use
-          xlink:href="/icons.svg#corner-arrow"
-        />
-      </svg>
-    </li>
-    <li
-      aria-current="page"
-      class="ecl-breadcrumb-core__segment ecl-breadcrumb-core__current-page"
-      data-ecl-breadcrumb-core-item="static"
-    >
-      News
-    </li>
-  </ol>
-</nav>
+        News
+      </li>
+    </ol>
+  </nav>
+</jest>
 `;

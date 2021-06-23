@@ -1,366 +1,372 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Pagination Default renders correctly 1`] = `
-<nav
-  aria-label="Pagination"
-  class="ecl-pagination"
->
-  <ul
-    class="ecl-pagination__list"
+<jest>
+  <nav
+    aria-label="Pagination"
+    class="ecl-pagination"
   >
-    <li
-      class="ecl-pagination__item ecl-pagination__item--previous"
+    <ul
+      class="ecl-pagination__list"
     >
-      <a
-        aria-label="Go to previous page"
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-pagination__link"
-        href="/example"
+      <li
+        class="ecl-pagination__item ecl-pagination__item--previous"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs ecl-icon--rotate-270 ecl-link__icon"
-          focusable="false"
+        <a
+          aria-label="Go to previous page"
+          class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-pagination__link"
+          href="/example"
         >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
-        <span
-          class="ecl-link__label"
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs ecl-icon--rotate-270 ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
+          <span
+            class="ecl-link__label"
+          >
+            Previous
+          </span>
+        </a>
+      </li>
+      <li
+        class="ecl-pagination__item"
+      >
+        <a
+          aria-label="Go to page 24"
+          class="ecl-link ecl-link--standalone ecl-pagination__link"
+          href="/example"
         >
-          Previous
-        </span>
-      </a>
-    </li>
-    <li
-      class="ecl-pagination__item"
-    >
-      <a
-        aria-label="Go to page 24"
-        class="ecl-link ecl-link--standalone ecl-pagination__link"
-        href="/example"
+          24
+        </a>
+      </li>
+      <li
+        class="ecl-pagination__item"
       >
-        24
-      </a>
-    </li>
-    <li
-      class="ecl-pagination__item"
-    >
-      <a
-        aria-label="Go to page 25"
-        class="ecl-link ecl-link--standalone ecl-pagination__link"
-        href="/example"
-      >
-        25
-      </a>
-    </li>
-    <li
-      class="ecl-pagination__item ecl-pagination__item--current"
-    >
-      <span
-        aria-current="true"
-        aria-label="Page 26"
-        class="ecl-pagination__text ecl-pagination__text--summary"
-      >
-        26
-      </span>
-      <span
-        aria-current="true"
-        class="ecl-pagination__text ecl-pagination__text--full"
-      >
-        Page 26
-      </span>
-    </li>
-    <li
-      class="ecl-pagination__item"
-    >
-      <a
-        aria-label="Go to page 27"
-        class="ecl-link ecl-link--standalone ecl-pagination__link"
-        href="/example"
-      >
-        27
-      </a>
-    </li>
-    <li
-      class="ecl-pagination__item"
-    >
-      <a
-        aria-label="Go to page 28"
-        class="ecl-link ecl-link--standalone ecl-pagination__link"
-        href="/example"
-      >
-        28
-      </a>
-    </li>
-    <li
-      class="ecl-pagination__item ecl-pagination__item--next"
-    >
-      <a
-        aria-label="Go to next page"
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-pagination__link"
-        href="/example"
+        <a
+          aria-label="Go to page 25"
+          class="ecl-link ecl-link--standalone ecl-pagination__link"
+          href="/example"
+        >
+          25
+        </a>
+      </li>
+      <li
+        class="ecl-pagination__item ecl-pagination__item--current"
       >
         <span
-          class="ecl-link__label"
+          aria-current="true"
+          aria-label="Page 26"
+          class="ecl-pagination__text ecl-pagination__text--summary"
         >
-          Next
+          26
         </span>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-link__icon"
-          focusable="false"
+        <span
+          aria-current="true"
+          class="ecl-pagination__text ecl-pagination__text--full"
         >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
-      </a>
-    </li>
-  </ul>
-</nav>
+          Page 26
+        </span>
+      </li>
+      <li
+        class="ecl-pagination__item"
+      >
+        <a
+          aria-label="Go to page 27"
+          class="ecl-link ecl-link--standalone ecl-pagination__link"
+          href="/example"
+        >
+          27
+        </a>
+      </li>
+      <li
+        class="ecl-pagination__item"
+      >
+        <a
+          aria-label="Go to page 28"
+          class="ecl-link ecl-link--standalone ecl-pagination__link"
+          href="/example"
+        >
+          28
+        </a>
+      </li>
+      <li
+        class="ecl-pagination__item ecl-pagination__item--next"
+      >
+        <a
+          aria-label="Go to next page"
+          class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-pagination__link"
+          href="/example"
+        >
+          <span
+            class="ecl-link__label"
+          >
+            Next
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</jest>
 `;
 
 exports[`Pagination Default renders correctly with extra attributes 1`] = `
-<nav
-  aria-label="Pagination"
-  class="ecl-pagination"
-  data-test="data-test-value"
-  data-test-1="data-test-value-1"
->
-  <ul
-    class="ecl-pagination__list"
+<jest>
+  <nav
+    aria-label="Pagination"
+    class="ecl-pagination"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
   >
-    <li
-      class="ecl-pagination__item ecl-pagination__item--previous"
+    <ul
+      class="ecl-pagination__list"
     >
-      <a
-        aria-label="Go to previous page"
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-pagination__link"
-        href="/example"
+      <li
+        class="ecl-pagination__item ecl-pagination__item--previous"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs ecl-icon--rotate-270 ecl-link__icon"
-          focusable="false"
+        <a
+          aria-label="Go to previous page"
+          class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-pagination__link"
+          href="/example"
         >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
-        <span
-          class="ecl-link__label"
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs ecl-icon--rotate-270 ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
+          <span
+            class="ecl-link__label"
+          >
+            Previous
+          </span>
+        </a>
+      </li>
+      <li
+        class="ecl-pagination__item"
+      >
+        <a
+          aria-label="Go to page 24"
+          class="ecl-link ecl-link--standalone ecl-pagination__link"
+          href="/example"
         >
-          Previous
-        </span>
-      </a>
-    </li>
-    <li
-      class="ecl-pagination__item"
-    >
-      <a
-        aria-label="Go to page 24"
-        class="ecl-link ecl-link--standalone ecl-pagination__link"
-        href="/example"
+          24
+        </a>
+      </li>
+      <li
+        class="ecl-pagination__item"
       >
-        24
-      </a>
-    </li>
-    <li
-      class="ecl-pagination__item"
-    >
-      <a
-        aria-label="Go to page 25"
-        class="ecl-link ecl-link--standalone ecl-pagination__link"
-        href="/example"
-      >
-        25
-      </a>
-    </li>
-    <li
-      class="ecl-pagination__item ecl-pagination__item--current"
-    >
-      <span
-        aria-current="true"
-        aria-label="Page 26"
-        class="ecl-pagination__text ecl-pagination__text--summary"
-      >
-        26
-      </span>
-      <span
-        aria-current="true"
-        class="ecl-pagination__text ecl-pagination__text--full"
-      >
-        Page 26
-      </span>
-    </li>
-    <li
-      class="ecl-pagination__item"
-    >
-      <a
-        aria-label="Go to page 27"
-        class="ecl-link ecl-link--standalone ecl-pagination__link"
-        href="/example"
-      >
-        27
-      </a>
-    </li>
-    <li
-      class="ecl-pagination__item"
-    >
-      <a
-        aria-label="Go to page 28"
-        class="ecl-link ecl-link--standalone ecl-pagination__link"
-        href="/example"
-      >
-        28
-      </a>
-    </li>
-    <li
-      class="ecl-pagination__item ecl-pagination__item--next"
-    >
-      <a
-        aria-label="Go to next page"
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-pagination__link"
-        href="/example"
+        <a
+          aria-label="Go to page 25"
+          class="ecl-link ecl-link--standalone ecl-pagination__link"
+          href="/example"
+        >
+          25
+        </a>
+      </li>
+      <li
+        class="ecl-pagination__item ecl-pagination__item--current"
       >
         <span
-          class="ecl-link__label"
+          aria-current="true"
+          aria-label="Page 26"
+          class="ecl-pagination__text ecl-pagination__text--summary"
         >
-          Next
+          26
         </span>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-link__icon"
-          focusable="false"
+        <span
+          aria-current="true"
+          class="ecl-pagination__text ecl-pagination__text--full"
         >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
-      </a>
-    </li>
-  </ul>
-</nav>
+          Page 26
+        </span>
+      </li>
+      <li
+        class="ecl-pagination__item"
+      >
+        <a
+          aria-label="Go to page 27"
+          class="ecl-link ecl-link--standalone ecl-pagination__link"
+          href="/example"
+        >
+          27
+        </a>
+      </li>
+      <li
+        class="ecl-pagination__item"
+      >
+        <a
+          aria-label="Go to page 28"
+          class="ecl-link ecl-link--standalone ecl-pagination__link"
+          href="/example"
+        >
+          28
+        </a>
+      </li>
+      <li
+        class="ecl-pagination__item ecl-pagination__item--next"
+      >
+        <a
+          aria-label="Go to next page"
+          class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-pagination__link"
+          href="/example"
+        >
+          <span
+            class="ecl-link__label"
+          >
+            Next
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</jest>
 `;
 
 exports[`Pagination Default renders correctly with extra class names 1`] = `
-<nav
-  aria-label="Pagination"
-  class="ecl-pagination custom-class custom-class--test"
->
-  <ul
-    class="ecl-pagination__list"
+<jest>
+  <nav
+    aria-label="Pagination"
+    class="ecl-pagination custom-class custom-class--test"
   >
-    <li
-      class="ecl-pagination__item ecl-pagination__item--previous"
+    <ul
+      class="ecl-pagination__list"
     >
-      <a
-        aria-label="Go to previous page"
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-pagination__link"
-        href="/example"
+      <li
+        class="ecl-pagination__item ecl-pagination__item--previous"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs ecl-icon--rotate-270 ecl-link__icon"
-          focusable="false"
+        <a
+          aria-label="Go to previous page"
+          class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-pagination__link"
+          href="/example"
         >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
-        <span
-          class="ecl-link__label"
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs ecl-icon--rotate-270 ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
+          <span
+            class="ecl-link__label"
+          >
+            Previous
+          </span>
+        </a>
+      </li>
+      <li
+        class="ecl-pagination__item"
+      >
+        <a
+          aria-label="Go to page 24"
+          class="ecl-link ecl-link--standalone ecl-pagination__link"
+          href="/example"
         >
-          Previous
-        </span>
-      </a>
-    </li>
-    <li
-      class="ecl-pagination__item"
-    >
-      <a
-        aria-label="Go to page 24"
-        class="ecl-link ecl-link--standalone ecl-pagination__link"
-        href="/example"
+          24
+        </a>
+      </li>
+      <li
+        class="ecl-pagination__item"
       >
-        24
-      </a>
-    </li>
-    <li
-      class="ecl-pagination__item"
-    >
-      <a
-        aria-label="Go to page 25"
-        class="ecl-link ecl-link--standalone ecl-pagination__link"
-        href="/example"
-      >
-        25
-      </a>
-    </li>
-    <li
-      class="ecl-pagination__item ecl-pagination__item--current"
-    >
-      <span
-        aria-current="true"
-        aria-label="Page 26"
-        class="ecl-pagination__text ecl-pagination__text--summary"
-      >
-        26
-      </span>
-      <span
-        aria-current="true"
-        class="ecl-pagination__text ecl-pagination__text--full"
-      >
-        Page 26
-      </span>
-    </li>
-    <li
-      class="ecl-pagination__item"
-    >
-      <a
-        aria-label="Go to page 27"
-        class="ecl-link ecl-link--standalone ecl-pagination__link"
-        href="/example"
-      >
-        27
-      </a>
-    </li>
-    <li
-      class="ecl-pagination__item"
-    >
-      <a
-        aria-label="Go to page 28"
-        class="ecl-link ecl-link--standalone ecl-pagination__link"
-        href="/example"
-      >
-        28
-      </a>
-    </li>
-    <li
-      class="ecl-pagination__item ecl-pagination__item--next"
-    >
-      <a
-        aria-label="Go to next page"
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-pagination__link"
-        href="/example"
+        <a
+          aria-label="Go to page 25"
+          class="ecl-link ecl-link--standalone ecl-pagination__link"
+          href="/example"
+        >
+          25
+        </a>
+      </li>
+      <li
+        class="ecl-pagination__item ecl-pagination__item--current"
       >
         <span
-          class="ecl-link__label"
+          aria-current="true"
+          aria-label="Page 26"
+          class="ecl-pagination__text ecl-pagination__text--summary"
         >
-          Next
+          26
         </span>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-link__icon"
-          focusable="false"
+        <span
+          aria-current="true"
+          class="ecl-pagination__text ecl-pagination__text--full"
         >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
-      </a>
-    </li>
-  </ul>
-</nav>
+          Page 26
+        </span>
+      </li>
+      <li
+        class="ecl-pagination__item"
+      >
+        <a
+          aria-label="Go to page 27"
+          class="ecl-link ecl-link--standalone ecl-pagination__link"
+          href="/example"
+        >
+          27
+        </a>
+      </li>
+      <li
+        class="ecl-pagination__item"
+      >
+        <a
+          aria-label="Go to page 28"
+          class="ecl-link ecl-link--standalone ecl-pagination__link"
+          href="/example"
+        >
+          28
+        </a>
+      </li>
+      <li
+        class="ecl-pagination__item ecl-pagination__item--next"
+      >
+        <a
+          aria-label="Go to next page"
+          class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-pagination__link"
+          href="/example"
+        >
+          <span
+            class="ecl-link__label"
+          >
+            Next
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</jest>
 `;
