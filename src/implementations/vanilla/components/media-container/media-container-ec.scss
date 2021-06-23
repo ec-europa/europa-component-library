@@ -3,6 +3,8 @@
 @use 'media-container' with (
   $_border-radius: 0,
   $_shadow: none,
-  $_caption-background-color: map.get(theme.$color, 'grey-10'),
+  $_caption-background-color: map.get(theme.$color, 'grey-5'),
+  $_caption-border-width: 1px,
+  $_caption-border-color: map.get(theme.$color, 'grey-25'),
   $_caption-padding: map.get(theme.$spacing, 's'),
 );

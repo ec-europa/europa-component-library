@@ -10,6 +10,8 @@
 $_border-radius: null !default;
 $_shadow: null !default;
 $_caption-background-color: null !default;
+$_caption-border-width: null !default;
+$_caption-border-color: null !default;
 $_caption-padding: null !default;
 $_scrollbar-width: 16px; // average scrollbar width; used in full screen calculus
 
@@ -33,9 +35,10 @@ $_scrollbar-width: 16px; // average scrollbar width; used in full screen calculu
 
 .ecl-media-container__caption {
   background-color: $_caption-background-color;
+  border: $_caption-border-width solid $_caption-border-color;
   color: map.get(theme.$color, 'grey');
   font: map.get(theme.$font-prolonged, 'm');
-  padding: $_caption-padding;
+  padding: calc(#{$_caption-padding} - #{$_caption-border-width});
   position: relative;
 }
 
