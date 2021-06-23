@@ -1,12 +1,10 @@
 @use "sass:map";
 @use '@ecl/theme-dev/theme';
-//stylelint-disable length-zero-no-unit
 @use 'media-container' with (
   $_border-radius: 8px,
   $_shadow: 0 0 6px rgba(map.get(theme.$color, 'blue'), 0.2),
   $_caption-background-color: map.get(theme.$color, 'white'),
-  $_caption-border-width: 0px, // unit has to be set, to be used in calc
-  $_caption-border-color: transparent,
+  $_caption-border: none,
   $_caption-padding: map.get(theme.$spacing, 'l'),
 );
 
