@@ -14,14 +14,18 @@ const autoprefixer = require('autoprefixer');
 const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
 const selectorPrefixer = require('postcss-prefix-selector');
 const frontmatter = require('remark-frontmatter');
-
 const babelConfig = require('./config/babel.config');
 const lernaJson = require('../../lerna.json');
 
-const includePaths = [path.resolve(__dirname, '../../node_modules')];
-const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 const publicUrl = process.env.PUBLIC_URL || '';
 const publicPath = `${publicUrl}/`;
+const correctCmsImagesPath = require('./src/utils/correctCmsImagesPath')({
+  search: /\/cms-images/,
+  replace: `${publicPath}cms-images`,
+});
+
+const includePaths = [path.resolve(__dirname, '../../node_modules')];
+const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 
 const environmentModulePath = require.resolve(
   '@ecl/twig-ec-storybook/.storybook/environment.js'
@@ -225,11 +229,10 @@ module.exports = {
                 loader: '@mdx-js/loader',
                 options: {
                   remarkPlugins: [
-                    [
-                      // Removes front-matter from Markdown output
-                      frontmatter,
-                      { type: 'yaml', marker: '-', fence: '---' },
-                    ],
+                    // Removes front-matter from Markdown output
+                    frontmatter,
+                    { type: 'yaml', marker: '-', fence: '---' },
+                    correctCmsImagesPath,
                   ],
                 },
               },
