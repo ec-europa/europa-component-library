@@ -230,10 +230,10 @@ module.exports = {
                 options: {
                   remarkPlugins: [
                     [
-                      correctCmsImagesPath,
                       // Removes front-matter from Markdown output
                       frontmatter,
                       { type: 'yaml', marker: '-', fence: '---' },
+                      correctCmsImagesPath,
                     ],
                   ],
                 },
