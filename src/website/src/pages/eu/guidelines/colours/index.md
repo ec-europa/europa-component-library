@@ -26,15 +26,29 @@ The **primary colour palette** is comprised of blues, yellows and greys. These c
   <ColorPalette tokens={tokens} category="color.variations.3" />
 </ColorLayout>
 
-## Notification colours
+## Secondary colours
 
 The secondary colour palette is mainly used for notification colours. The secondary colours should make up 20% or less of the colour in the layout and should be used sparingly to highlight important information and calls to action.
 
+<ColorLayout>
+  <ColorCard tokens={tokens} name="COLOR_ACCENT_BLUE_100" />
+  <ColorCard tokens={tokens} name="COLOR_ACCENT_BLUE_30" />
+</ColorLayout>
+
 <ColorLayout cols="12 m-3">
-  <ColorCard tokens={tokens} name="COLOR_INFO" />
-  <ColorCard tokens={tokens} name="COLOR_WARNING" />
-  <ColorCard tokens={tokens} name="COLOR_SUCCESS" />
-  <ColorCard tokens={tokens} name="COLOR_ERROR" />
+  <ColorCard tokens={tokens} name="COLOR_RED" />
+  <ColorCard tokens={tokens} name="COLOR_ORANGE" />
+  <ColorCard tokens={tokens} name="COLOR_GREEN" />
+  <ColorCard tokens={tokens} name="COLOR_PURPLE" />
+</ColorLayout>
+
+### Variations
+
+<ColorLayout cols="12 m-3">
+  <ColorPalette tokens={tokens} category="color.variations.5" />
+  <ColorPalette tokens={tokens} category="color.variations.6" />
+  <ColorPalette tokens={tokens} category="color.variations.7" />
+  <ColorPalette tokens={tokens} category="color.variations.8" />
 </ColorLayout>
 
 ## Background colour
