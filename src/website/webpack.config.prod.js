@@ -229,12 +229,10 @@ module.exports = {
                 loader: '@mdx-js/loader',
                 options: {
                   remarkPlugins: [
-                    [
-                      // Removes front-matter from Markdown output
-                      frontmatter,
-                      { type: 'yaml', marker: '-', fence: '---' },
-                      correctCmsImagesPath,
-                    ],
+                    // Removes front-matter from Markdown output
+                    frontmatter,
+                    { type: 'yaml', marker: '-', fence: '---' },
+                    correctCmsImagesPath,
                   ],
                 },
               },
