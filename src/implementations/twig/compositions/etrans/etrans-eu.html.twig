@@ -45,7 +45,7 @@
           class="ecl-u-d-block ecl-u-d-m-grid ecl-unordered-list ecl-unordered-list--no-bullet ecl-u-mt-xs ecl-u-type-m"
         >
         {% for language in _languages %}
-          <li class="ecl-unordered-list__item ecl-u-mt-none">
+          <li class="ecl-unordered-list__item ecl-u-ma-2xs">
             {% set link_classes = language == 'English' ? 'ecl-u-bg-blue-60 ecl-u-type-color-white ecl-u-type-bold' : '' %}
             {% include '@ecl/link/link.html.twig' with {
               link: {
