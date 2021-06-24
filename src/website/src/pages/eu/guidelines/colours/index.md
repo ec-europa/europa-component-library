@@ -18,7 +18,7 @@ The **primary colour palette** is comprised of blues, yellows and greys. These c
   <ColorCard tokens={tokens} name="COLOR_TEXT" />
 </ColorLayout>
 
-### Variations
+### Tint and shade
 
 <ColorLayout>
   <ColorPalette tokens={tokens} category="color.variations.1" />
@@ -42,7 +42,7 @@ The secondary colour palette is mainly used for notification colours. The second
   <ColorCard tokens={tokens} name="COLOR_PURPLE" />
 </ColorLayout>
 
-### Variations
+### Tint and shade
 
 <ColorLayout cols="12 m-3">
   <ColorPalette tokens={tokens} category="color.variations.5" />
@@ -57,4 +57,5 @@ White is the background colour of the EC-website.
 
 <ColorLayout>
   <ColorCard tokens={tokens} name="COLOR_WHITE_100" />
+  <ColorCard tokens={tokens} name="COLOR_BLUE_5" />
 </ColorLayout>
