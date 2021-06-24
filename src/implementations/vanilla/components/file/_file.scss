@@ -28,12 +28,12 @@ $_file-translation-detail-margin-bottom: null !default;
 $_file-translation-title-margin-bottom: null !default;
 $_file-translation-toggle-border: null !default;
 $_file-translation-padding: null !default;
-$_file-translation-border-top-first-child: null !default;
 $_file-taxonomy-spacing: null !default;
 $_file-container-padding-bottom: null !default;
 $_file-image-margin-left: null !default;
 $_file-image-margin-right: null !default;
 $_container-background: null !default;
+$_container-border: null !default;
 $_icon-color: null !default;
 $_translation-border-color: null !default;
 $_image-width: null !default;
@@ -48,6 +48,7 @@ $_image-width: null !default;
 .ecl-file__container {
   align-items: center;
   background-color: $_container-background;
+  border: $_container-border;
   display: flex;
   flex-wrap: wrap;
   padding: map.get(theme.$spacing, 'l');
@@ -201,7 +202,7 @@ $_image-width: null !default;
   }
 
   &:first-child {
-    border-top: $_file-translation-border-top-first-child;
+    border-top-width: 0;
   }
 }
 

@@ -8,10 +8,9 @@
 
 $_border-radius: null !default;
 $_text-color: null !default;
-$_background-color-low: null !default;
-$_background-color-medium: null !default;
-$_background-color-high: map.get(theme.$color, 'yellow-100');
-$_background-color-highlight: map.get(theme.$color, 'blue-100');
+$_border-width: null !default;
+$_border-color: null !default;
+$_background-color: null !default;
 
 .ecl-label {
   border-radius: $_border-radius;
@@ -20,24 +19,67 @@ $_background-color-highlight: map.get(theme.$color, 'blue-100');
   font: map.get(theme.$font-print, 'xs');
   font-family: #{map.get(theme.$font-family-print, 'alt')};
   margin: 0;
-  padding: map.get(theme.$spacing-print, 'xs')
-    map.get(theme.$spacing-print, 's');
   text-transform: uppercase;
 }
 
 .ecl-label--low {
-  background-color: $_background-color-low;
+  background-color: map.get($_background-color, 'low');
+  border: map.get($_border-width, 'low') solid map.get($_border-color, 'low');
+  padding: calc(
+      #{map.get(theme.$spacing-print, 'xs')} - #{map.get($_border-width, 'low')}
+    )
+    calc(
+      #{map.get(theme.$spacing-print, 's')} - #{map.get($_border-width, 'low')}
+    );
 }
 
 .ecl-label--medium {
-  background-color: $_background-color-medium;
+  background-color: map.get($_background-color, 'medium');
+  border: map.get($_border-width, 'medium') solid
+    map.get($_border-color, 'medium');
+  padding: calc(
+      #{map.get(theme.$spacing-print, 'xs')} - #{map.get(
+          $_border-width,
+          'medium'
+        )}
+    )
+    calc(
+      #{map.get(theme.$spacing-print, 's')} - #{map.get(
+          $_border-width,
+          'medium'
+        )}
+    );
 }
 
 .ecl-label--high {
-  background-color: $_background-color-high;
+  background-color: map.get($_background-color, 'high');
+  border: map.get($_border-width, 'high') solid map.get($_border-color, 'high');
+  padding: calc(
+      #{map.get(theme.$spacing-print, 'xs')} - #{map.get(
+          $_border-width,
+          'high'
+        )}
+    )
+    calc(
+      #{map.get(theme.$spacing-print, 's')} - #{map.get($_border-width, 'high')}
+    );
 }
 
 .ecl-label--highlight {
-  background-color: $_background-color-highlight;
+  background-color: map.get($_background-color, 'highlight');
+  border: map.get($_border-width, 'highlight') solid
+    map.get($_border-color, 'highlight');
   color: map.get(theme.$color, 'white-100');
+  padding: calc(
+      #{map.get(theme.$spacing-print, 'xs')} - #{map.get(
+          $_border-width,
+          'highlight'
+        )}
+    )
+    calc(
+      #{map.get(theme.$spacing-print, 's')} - #{map.get(
+          $_border-width,
+          'highlight'
+        )}
+    );
 }
