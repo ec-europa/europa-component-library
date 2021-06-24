@@ -316,6 +316,8 @@ export class Select {
       .filter((option) => option.selected) // do not rely on getAttribute as it does not work in all cases
       .map((option) => option.text)
       .join(', ');
+    // Dispatch a change event once the value of the select has changed.
+    this.select.dispatchEvent(new window.Event('change', { bubbles: true }));
   }
 
   /**
