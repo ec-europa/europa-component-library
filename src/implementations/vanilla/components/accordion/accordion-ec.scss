@@ -12,6 +12,7 @@
 
 .ecl-accordion__item {
   background-color: map.get(theme.$color, 'grey-5');
+  border: 1px solid map.get(theme.$color, 'grey-25');
 }
 
 .ecl-accordion__item + .ecl-accordion__item {
@@ -37,12 +38,12 @@
 }
 
 .ecl-accordion__toggle:hover {
-  background-color: map.get(theme.$color, 'grey-20');
+  background-color: map.get(theme.$color, 'grey-25');
 }
 
 .ecl-accordion__toggle:focus {
-  outline: 3px solid map.get(theme.$color, 'yellow');
-  outline-offset: -3px;
+  outline: 2px solid map.get(theme.$color, 'yellow-100');
+  outline-offset: -2px;
 }
 
 .ecl-accordion__toggle[aria-expanded='true'] {

@@ -38,7 +38,8 @@
   width: 100%;
 }
 
-.ecl-accordion__content {
+.ecl-accordion__content,
+.ecl-accordion__content[hidden] {
   color: map.get(theme.$color, 'grey');
   display: block;
   font: map.get(theme.$font-prolonged-print, 'm');
