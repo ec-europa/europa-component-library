@@ -208,6 +208,10 @@ h2 + blockquote + p {
   }
 }
 
+img[alt='anatomy'] {
+  border: 1px solid map.get(theme.$color, 'grey-15');
+}
+
 div:first-child p:first-child {
   font: map.get(theme.$font-prolonged, 'l');
   max-width: 49ch;
