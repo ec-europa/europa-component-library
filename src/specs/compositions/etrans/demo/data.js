@@ -1,0 +1,62 @@
+// Simple content for demo
+module.exports = {
+  message: {
+    variant: 'warning',
+    icon: {
+      path: '/icons.svg',
+      name: 'warning',
+      size: 'l',
+    },
+    title: 'Page language unavailable',
+    close: {
+      variant: 'ghost',
+      label: 'Close',
+      icon: {
+        path: '/icons.svg',
+        name: 'close-filled',
+        size: 'xs',
+      },
+    },
+  },
+  expandable: {
+    id: 'available-languages',
+    button: {
+      type: 'button',
+      label: 'Choose another language',
+      variant: 'secondary',
+      icon: {
+        name: 'corner-arrow',
+        transform: 'rotate-180',
+        size: 'fluid',
+        path: '/icons.svg',
+      },
+    },
+    label_expanded: 'Choose another language',
+    label_collapsed: 'Choose another language',
+  },
+  languages: [
+    'български',
+    'čeština',
+    'dansk',
+    'Deutsch',
+    'eesti',
+    'ελληνικά',
+    'English',
+    'français',
+    'Gaeilge',
+    'hrvatski',
+    'italiano',
+    'latviešu',
+    'lietuvių',
+    'magyar',
+    'Malti',
+    'Nederlands',
+    'polski',
+    'português',
+    'română',
+    'slovenčina',
+    'slovenščina',
+    'suomi',
+    'svenska',
+  ],
+};
