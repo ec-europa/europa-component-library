@@ -9,12 +9,12 @@
 <div class="ecl-u-bg-grey-5 ecl-u-pv-m">
   <div class="ecl-container">
     {% include '@ecl/message/message.html.twig' with _message|merge({
-      extra_classes: 'ecl-u-bg-transparent',
+      extra_classes: 'ecl-u-bg-transparent ecl-u-mb-m',
     }) only %}
     
     {# With language list #}
     {% if _expandable is defined and _expandable is not empty %}
-    <div data-ecl-expandable="true" data-ecl-auto-init="Expandable" class="ecl-u-mt-m">
+    <div data-ecl-expandable="true" data-ecl-auto-init="Expandable">
       <div class="ecl-u-d-inline-flex ecl-u-align-items-center">
         {% include '@ecl/button/button.html.twig' with _expandable.button|merge({
           extra_classes: 'ecl-expandable__toggle ecl-u-mr-s ecl-u-bg-transparent',
@@ -68,18 +68,16 @@
 
     {# Without language list #}
     {% else %}
-      <div class="ecl-u-mt-m">
-        <script type="application/json">
-          {
-            "service": "etrans",
-            "renderAs": {
-              "icon": true,
-              "button": false,
-              "link": true
-            }
+      <script type="application/json">
+        {
+          "service": "etrans",
+          "renderAs": {
+            "icon": true,
+            "button": false,
+            "link": true
           }
-        </script>
-      </div>
+        }
+      </script>
     {% endif %}
   </div>
 </div>
