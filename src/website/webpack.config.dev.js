@@ -7,7 +7,7 @@ const autoprefixer = require('autoprefixer');
 const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
 const selectorPrefixer = require('postcss-prefix-selector');
 const frontmatter = require('remark-frontmatter');
-
+const unwrapImages = require('remark-unwrap-images');
 const babelConfig = require('./config/babel.config');
 const lernaJson = require('../../lerna.json');
 
@@ -192,6 +192,7 @@ module.exports = {
                 options: {
                   remarkPlugins: [
                     [
+                      unwrapImages,
                       // Removes front-matter from Markdown output
                       frontmatter,
                       { type: 'yaml', marker: '-', fence: '---' },

@@ -14,6 +14,7 @@ const autoprefixer = require('autoprefixer');
 const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
 const selectorPrefixer = require('postcss-prefix-selector');
 const frontmatter = require('remark-frontmatter');
+const unwrapImages = require('remark-unwrap-images');
 const babelConfig = require('./config/babel.config');
 const lernaJson = require('../../lerna.json');
 
@@ -233,6 +234,7 @@ module.exports = {
                     frontmatter,
                     { type: 'yaml', marker: '-', fence: '---' },
                     correctCmsImagesPath,
+                    unwrapImages,
                   ],
                 },
               },
