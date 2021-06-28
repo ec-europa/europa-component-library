@@ -1,8 +1,25 @@
 @use "sass:map";
 @use '@ecl/theme-dev/theme';
+//stylelint-disable length-zero-no-unit
 @use 'label' with (
   $_border-radius: 4px,
   $_text-color: map.get(theme.$color, 'grey-140'),
-  $_background-color-low: map.get(theme.$color, 'blue-10'),
-  $_background-color-medium: map.get(theme.$color, 'yellow-10'),
+  $_border-width: (
+    'low': 0px,
+    'medium': 0px, // unit has to be set, to be used in calc
+    'high': 0px,
+    'highlight': 0px,
+  ),
+  $_border-color: (
+    'low': transparent,
+    'medium': transparent,
+    'high': transparent,
+    'highlight': transparent,
+  ),
+  $_background-color: (
+    'low': map.get(theme.$color, 'blue-10'),
+    'medium': map.get(theme.$color, 'yellow-10'),
+    'high': map.get(theme.$color, 'yellow-100'),
+    'highlight': map.get(theme.$color, 'blue-100'),
+  ),
 );
