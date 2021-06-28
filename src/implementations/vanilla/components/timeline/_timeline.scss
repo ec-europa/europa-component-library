@@ -4,6 +4,7 @@
  */
 
 @use "sass:map";
+@use "sass:math";
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
@@ -42,7 +43,10 @@ $_title-margin: null !default;
 .ecl-timeline {
   list-style: none;
   margin: 0 map.get(theme.$spacing, 'l') 0
-    (map.get(theme.$spacing, 'l') + ($_bullet-size / 2) + $_bullet-border-width);
+    (
+      map.get(theme.$spacing, 'l') + math.div($_bullet-size, 2) +
+        $_bullet-border-width
+    );
   max-width: 633px;
   padding-left: 0;
 }
@@ -74,7 +78,7 @@ $_title-margin: null !default;
     box-sizing: border-box;
     content: '';
     height: $_bullet-size + ($_bullet-border-width * 2);
-    left: -(($_bullet-size / 2) + $_bullet-border-width);
+    left: -(math.div($_bullet-size, 2) + $_bullet-border-width);
     position: absolute;
     top: $_bullet-top-position;
     width: $_bullet-size + ($_bullet-border-width * 2);
@@ -157,8 +161,8 @@ $_title-margin: null !default;
   .ecl-timeline__label {
     font: $_label-big-font;
     font-weight: $_label-font-weight;
-    left: -($_left-spacing + map.get(theme.$spacing, 'm') + ($_bullet-size / 2) +
-          $_bullet-border-width);
+    left: -($_left-spacing + map.get(theme.$spacing, 'm') +
+          math.div($_bullet-size, 2) + $_bullet-border-width);
     line-height: map.get(theme.$line-height, 'm');
     margin-bottom: $_label-margin;
     position: $_label-layout;
