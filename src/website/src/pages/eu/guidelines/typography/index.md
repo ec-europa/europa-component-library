@@ -10,7 +10,7 @@ Note: all values expressed in pixels are in fact dynamically converted from rem 
 
 ## Typeface
 
-Arial is the standard typeface for the websites under the European Commission domain. The san serif typeface family is versatile and universal.
+Arial is the standard typeface for the websites under the Europa.eu domain. The sans serif typeface family is versatile and universal.
 
 ```css
 font-family: Arial, sans-serif;
@@ -18,13 +18,29 @@ font-family: Arial, sans-serif;
 
 ## Modular type scale
 
-A modular type scale is a set of type sizes that are proportionally multiplied by the ratio working its way up or down.
+A modular type scale is a set of type sizes that are proportionally multiplied by the ratio working its way up or down.
 
 The purpose of using the modular type scale is to create a design that is visually pleasing, consistent, and balanced.
 
 We set 16px (1rem) as the base font size for body text to ensure readability. It is the default font size for most browsers.
 
-## weight
+**Type Scale**
+
+Font Size x Type Scale Ratio = Next Font Size
+
+**Line Height**
+
+Font Size x Line Height Ratio = Line Height
+
+**Paragraph**
+
+Line Height x Paragraph Ratio = Paragraph Spacing
+
+**Line-height rounding**
+
+Multiple of four
+
+## Weight
 
 Font weight is the thickness of a font's stroke, with various weights used to differentiate content hierarchy. The bold style emphasises the importance in comparison with the regular font style in the font family. We use 400 for regular and 600 for bold. Usually the bold style is assigned to headings. Regular text is used for body text.
 
@@ -34,7 +50,7 @@ Line-height, relevant to the size of the typeface itself. Ideal line-height for 
 
 ## Line length
 
-Line-length is the number of characters displayed in a single line. Lines that are too long or too short can distract readers. For readability, limit to no more than 80 characters including spaces for desktop. Line length for mobile is recommended to use 40 to 60 characters including space per line.
+Line-height, relevant to the size of the typeface itself. Ideal line-height for standard copy uses 1:1.5 ratio. The exception to this rule are headings, which need less spacing and therefore have a line-height ratio of 1:1.2. The line-height value is always divisible by 4 in order to support the grid.
 
 ## Headings
 
@@ -44,37 +60,37 @@ Line-length is the number of characters displayed in a single line. Lines that a
 
 <Playground hideCode>
   <div className="ecl-u-ph-m ecl-u-pv-xl">
-    <div className="ecl-u-type-3xl ecl-u-type-bold">
+    <div className="ecl-u-type-5xl ecl-u-type-bold">
       The quick brown fox jumps over the lazy dog
     </div>
-    <div className="ecl-u-type-4xl ecl-u-type-bold ecl-u-mt-m">
+    <div className="ecl-u-type-6xl ecl-u-type-bold ecl-u-mt-m">
       The quick brown fox jumps over the lazy dog
     </div>
   </div>
 </Playground>
 
-|         | Font size                                    | Line height                                   |
-| ------- | -------------------------------------------- | --------------------------------------------- |
-| mobile  | 3XL - 1.75rem - <RemToPixels rem="1.75" />px | 3XL UI - 2rem - <RemToPixels rem="2" />px     |
-| desktop | 4XL - 2rem - <RemToPixels rem="2" />px       | 4XL UI - 2.5rem - <RemToPixels rem="2.5" />px |
+|         | Font size                                      | Line height                                  |
+| ------- | ---------------------------------------------- | -------------------------------------------- |
+| mobile  | 5XL - 2.25rem - <RemToPixels rem="2.25" />px   | 5XL - 2.75rem - <RemToPixels rem="2.75" />px |
+| desktop | 6XL - 2.625rem - <RemToPixels rem="2.625" />px | 6XL - 3.25rem - <RemToPixels rem="3.25" />px |
 
 ### Heading 2
 
 <Playground hideCode>
   <div className="ecl-u-ph-m ecl-u-pv-xl">
-    <div className="ecl-u-type-2xl ecl-u-type-bold">
+    <div className="ecl-u-type-4xl ecl-u-type-bold">
       The quick brown fox jumps over the lazy dog
     </div>
-    <div className="ecl-u-type-3xl ecl-u-type-bold ecl-u-mt-m">
+    <div className="ecl-u-type-5xl ecl-u-type-bold ecl-u-mt-m">
       The quick brown fox jumps over the lazy dog
     </div>
   </div>
 </Playground>
 
-|         | Font size                                    | Line height                                     |
-| ------- | -------------------------------------------- | ----------------------------------------------- |
-| mobile  | 2XL - 1.5rem - <RemToPixels rem="1.5" />px   | 2XL UI - 1.75rem - <RemToPixels rem="1.75" />px |
-| desktop | 3XL - 1.75rem - <RemToPixels rem="1.75" />px | 3XL UI - 2rem - <RemToPixels rem="2" />px       |
+|         | Font size                                    | Line height                                    |
+| ------- | -------------------------------------------- | ---------------------------------------------- |
+| mobile  | 4XL - 2rem - <RemToPixels rem="2" />px       | 4XL - 2.5rem - <RemToPixels rem="2.5" />px     |
+| desktop | 5XL - 2.25rem - <RemToPixels rem="2.25" />px | 7XL - 3.059rem - <RemToPixels rem="3.059" />px |
 
 ### Heading 3
 
