@@ -13,31 +13,37 @@ $_heading6: null !default;
 * Headings
 */
 .ecl-u-type-heading-1 {
-  font: map.get(theme.$font-print, '4xl') !important;
+  font: $_heading1 !important;
   font-family: #{map.get(theme.$font-family-print, 'alt')} !important;
   font-weight: map.get(theme.$font-weight, 'bold') !important;
 }
 
 .ecl-u-type-heading-2 {
-  font: map.get(theme.$font-print, '3xl') !important;
+  font: $_heading2 !important;
   font-family: #{map.get(theme.$font-family-print, 'alt')} !important;
   font-weight: map.get(theme.$font-weight-print, 'bold') !important;
 }
 
 .ecl-u-type-heading-3 {
-  font: map.get(theme.$font-print, '2xl') !important;
+  font: $_heading3 !important;
   font-family: #{map.get(theme.$font-family-print, 'alt')} !important;
   font-weight: map.get(theme.$font-weight-print, 'bold') !important;
 }
 
 .ecl-u-type-heading-4 {
-  font: map.get(theme.$font-print, 'xl') !important;
+  font: $_heading4 !important;
   font-family: #{map.get(theme.$font-family-print, 'alt')} !important;
   font-weight: map.get(theme.$font-weight-print, 'bold') !important;
 }
 
 .ecl-u-type-heading-5 {
-  font: map.get(theme.$font-print, 'm') !important;
+  font: $_heading5 !important;
+  font-family: #{map.get(theme.$font-family-print, 'alt')} !important;
+  font-weight: map.get(theme.$font-weight-print, 'bold') !important;
+}
+
+.ecl-u-type-heading-6 {
+  font: $_heading6 !important;
   font-family: #{map.get(theme.$font-family-print, 'alt')} !important;
   font-weight: map.get(theme.$font-weight-print, 'bold') !important;
 }
