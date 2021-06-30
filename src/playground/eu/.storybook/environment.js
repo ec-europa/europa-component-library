@@ -1,17 +1,23 @@
 const path = require('path');
 const { TwingEnvironment, TwingLoaderFilesystem } = require('twing');
 
-const absPath = path.resolve(
+const componentAbsPath = path.resolve(
   __dirname,
   '../../../implementations/twig/components'
 );
-const loader = new TwingLoaderFilesystem(absPath);
+const compositionsAbsPath = path.resolve(
+  __dirname,
+  '../../../implementations/twig/compositions'
+);
+
+const loader = new TwingLoaderFilesystem(componentAbsPath);
 
 // In storybook we get this returned as an instance of
 // TWigLoaderNull, we need to avoid processing this.
 if (typeof loader.addPath === 'function') {
   // Add namespace.
-  loader.addPath(absPath, 'ecl');
+  loader.addPath(componentAbsPath, 'ecl');
+  loader.addPath(compositionsAbsPath, 'ecl');
 }
 
 module.exports = new TwingEnvironment(loader, { autoescape: false });

@@ -3,8 +3,8 @@
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 /*
-   * Headings
-   */
+* Headings
+*/
 .ecl-u-type-heading-1 {
   font: map.get(theme.$font-print, '4xl') !important;
   font-family: #{map.get(theme.$font-family-print, 'alt')} !important;
@@ -36,8 +36,8 @@
 }
 
 /*
-   * Paragraph
-   */
+* Paragraph
+*/
 .ecl-u-type-paragraph,
 .ecl-u-type-paragraph-m {
   font: map.get(theme.$font-prolonged-print, 'm') !important;
@@ -56,8 +56,8 @@
 }
 
 /*
-   * Font size
-   */
+* Font size
+*/
 .ecl-u-type-xs {
   font: map.get(theme.$font-print, 'xs') !important;
 }
@@ -105,8 +105,8 @@
 }
 
 /*
-   * Font colour
-   */
+* Font colour
+*/
 @each $key, $value in theme.$color {
   // Filter out yellow colours (text should not be yellow)
   @if not str-index($key, 'yellow-') {
@@ -117,8 +117,8 @@
 }
 
 /*
-   * Font style
-   */
+* Font style
+*/
 .ecl-u-type-regular {
   font-weight: map.get(theme.$font-weight-print, 'regular') !important;
 }
@@ -148,12 +148,24 @@
 }
 
 /*
-   * Font family
-   */
+* Font family
+*/
 .ecl-u-type-family {
   font-family: #{map.get(theme.$font-family-print, 'default')} !important;
 }
-
 .ecl-u-type-family-alt {
   font-family: #{map.get(theme.$font-family-print, 'alt')} !important;
+}
+
+/*
+* Text align
+*/
+.ecl-u-type-align-left {
+  text-align: left !important;
+}
+.ecl-u-type-align-right {
+  text-align: right !important;
+}
+.ecl-u-type-align-center {
+  text-align: center !important;
 }

@@ -16,7 +16,7 @@ Cards component is used as an entry point to more detailed information. The comp
 - overuse cards
 - limit the amount of cards to small groups of items
 - limit to 3-4 cards within a row
-- display too many links on a cards, the main and ideally only action on card should remain to navigate to the content it represent.
+- display too many links on a cards, the main and ideally only action on card should remain to navigate to the content it represent
 
 ## When to use
 
@@ -35,5 +35,5 @@ Cards component is used as an entry point to more detailed information. The comp
 
 ## When not to use
 
-- searching for information (as opposed to browsing).
-- on small screen display avoid using too many cards as they force users to scroll down and rely on their short-term memory. This creates a cognitive overload, a negative user experience.
+- searching for information (as opposed to browsing)
+- on small screen display avoid using too many cards as they force users to scroll down and rely on their short-term memory. This creates a cognitive overload, a negative user experience

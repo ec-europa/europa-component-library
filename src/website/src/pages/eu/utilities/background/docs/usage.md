@@ -16,6 +16,7 @@ Available colours are:
 
 - primary colours (blue, yellow, grey)
 - black and white
+- transparent
 - the <Link to="/ec/guidelines/colours/">blue palette</Link>
 - the <Link to="/ec/guidelines/colours/">yellow palette</Link>
 - the <Link to="/ec/guidelines/colours/">grey palette</Link>

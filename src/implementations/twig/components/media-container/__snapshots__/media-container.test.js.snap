@@ -1,117 +1,127 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Media Container Media Container generic tests Media container renders correctly with extra attributes 1`] = `
-<figure
-  class="ecl-media-container"
-  data-test="data-test-value"
-  data-test-1="data-test-value-1"
->
-  <img
-    alt="Jean Monnet banner"
-    class="ecl-media-container__media"
-    src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-  />
-  <figcaption
-    class="ecl-media-container__caption"
+<jest>
+  <figure
+    class="ecl-media-container"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
   >
-    The European Commission has put forward ambitious yet realistic proposals for a modern EU budget. It is time for an EU budget that reflects rapid developments in innovation, the economy, the environment and geopolitics, amongst others.
-  </figcaption>
-</figure>
+    <img
+      alt="Jean Monnet banner"
+      class="ecl-media-container__media"
+      src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+    />
+    <figcaption
+      class="ecl-media-container__caption"
+    >
+      The European Commission has put forward ambitious yet realistic proposals for a modern EU budget. It is time for an EU budget that reflects rapid developments in innovation, the economy, the environment and geopolitics, amongst others.
+    </figcaption>
+  </figure>
+</jest>
 `;
 
 exports[`Media Container Media Container generic tests renders correctly with extra class names 1`] = `
-<figure
-  class="ecl-media-container custom-class custom-class--test"
->
-  <img
-    alt="Jean Monnet banner"
-    class="ecl-media-container__media"
-    src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-  />
-  <figcaption
-    class="ecl-media-container__caption"
+<jest>
+  <figure
+    class="ecl-media-container custom-class custom-class--test"
   >
-    The European Commission has put forward ambitious yet realistic proposals for a modern EU budget. It is time for an EU budget that reflects rapid developments in innovation, the economy, the environment and geopolitics, amongst others.
-  </figcaption>
-</figure>
+    <img
+      alt="Jean Monnet banner"
+      class="ecl-media-container__media"
+      src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+    />
+    <figcaption
+      class="ecl-media-container__caption"
+    >
+      The European Commission has put forward ambitious yet realistic proposals for a modern EU budget. It is time for an EU budget that reflects rapid developments in innovation, the economy, the environment and geopolitics, amongst others.
+    </figcaption>
+  </figure>
+</jest>
 `;
 
 exports[`Media Container Media container image Media container image renders correctly 1`] = `
-<figure
-  class="ecl-media-container"
->
-  <img
-    alt="Jean Monnet banner"
-    class="ecl-media-container__media"
-    src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-  />
-  <figcaption
-    class="ecl-media-container__caption"
+<jest>
+  <figure
+    class="ecl-media-container"
   >
-    The European Commission has put forward ambitious yet realistic proposals for a modern EU budget. It is time for an EU budget that reflects rapid developments in innovation, the economy, the environment and geopolitics, amongst others.
-  </figcaption>
-</figure>
+    <img
+      alt="Jean Monnet banner"
+      class="ecl-media-container__media"
+      src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+    />
+    <figcaption
+      class="ecl-media-container__caption"
+    >
+      The European Commission has put forward ambitious yet realistic proposals for a modern EU budget. It is time for an EU budget that reflects rapid developments in innovation, the economy, the environment and geopolitics, amongst others.
+    </figcaption>
+  </figure>
+</jest>
 `;
 
 exports[`Media Container Media container video renders correctly 1`] = `
-<figure
-  class="ecl-media-container"
->
-  <video
-    class="ecl-media-container__media"
-    controls=""
-    poster="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+<jest>
+  <figure
+    class="ecl-media-container"
   >
-    <source
-      src="https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.mp4"
-      type="video/mp4"
-    />
-    <source
-      src="https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.webm"
-      type="video/webm"
-    />
-    <track
-      kind="captions"
-      label="English"
-      src="/captions/bunny-en.vtt"
-      srclang="en"
-    />
-    <track
-      kind="captions"
-      label="français"
-      src="/captions/bunny-fr.vtt"
-      srclang="fr"
-    />
-  </video>
-  <figcaption
-    class="ecl-media-container__caption"
-  >
-    The European Commission has put forward ambitious yet realistic proposals for a modern EU budget. It is time for an EU budget that reflects rapid developments in innovation, the economy, the environment and geopolitics, amongst others.
-  </figcaption>
-</figure>
+    <video
+      class="ecl-media-container__media"
+      controls=""
+      poster="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+    >
+      <source
+        src="https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.mp4"
+        type="video/mp4"
+      />
+      <source
+        src="https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.webm"
+        type="video/webm"
+      />
+      <track
+        kind="captions"
+        label="English"
+        src="/captions/bunny-en.vtt"
+        srclang="en"
+      />
+      <track
+        kind="captions"
+        label="français"
+        src="/captions/bunny-fr.vtt"
+        srclang="fr"
+      />
+    </video>
+    <figcaption
+      class="ecl-media-container__caption"
+    >
+      The European Commission has put forward ambitious yet realistic proposals for a modern EU budget. It is time for an EU budget that reflects rapid developments in innovation, the economy, the environment and geopolitics, amongst others.
+    </figcaption>
+  </figure>
+</jest>
 `;
 
 exports[`Media Container Media container video with embedded media renders correctly 1`] = `
-<figure
-  class="ecl-media-container"
->
-  <div
-    class="ecl-media-container__media ecl-media-container__media--ratio-16-9"
+<jest>
+  <figure
+    class="ecl-media-container"
   >
-    <iframe
-      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen=""
-      frameborder="0"
-      height="197"
-      src="https://www.youtube.com/embed/fgi-GSCB6ho"
-      title="New digital strategy"
-      width="350"
-    />
-  </div>
-  <figcaption
-    class="ecl-media-container__caption"
-  >
-    The European Commission has put forward ambitious yet realistic proposals for a modern EU budget. It is time for an EU budget that reflects rapid developments in innovation, the economy, the environment and geopolitics, amongst others.
-  </figcaption>
-</figure>
+    <div
+      class="ecl-media-container__media ecl-media-container__media--ratio-16-9"
+    >
+      <iframe
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen=""
+        frameborder="0"
+        height="197"
+        src="https://www.youtube.com/embed/fgi-GSCB6ho"
+        title="New digital strategy"
+        width="350"
+      />
+    </div>
+    <figcaption
+      class="ecl-media-container__caption"
+    >
+      The European Commission has put forward ambitious yet realistic proposals for a modern EU budget. It is time for an EU budget that reflects rapid developments in innovation, the economy, the environment and geopolitics, amongst others.
+    </figcaption>
+  </figure>
+</jest>
 `;
