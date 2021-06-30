@@ -87,12 +87,48 @@ Line-height, relevant to the size of the typeface itself. Ideal line-height for 
   </div>
 </Playground>
 
-|         | Font size                                    | Line height                                    |
-| ------- | -------------------------------------------- | ---------------------------------------------- |
-| mobile  | 4XL - 2rem - <RemToPixels rem="2" />px       | 4XL - 2.5rem - <RemToPixels rem="2.5" />px     |
-| desktop | 5XL - 2.25rem - <RemToPixels rem="2.25" />px | 7XL - 3.059rem - <RemToPixels rem="3.059" />px |
+|         | Font size                                    | Line height                                  |
+| ------- | -------------------------------------------- | -------------------------------------------- |
+| mobile  | 4XL - 2rem - <RemToPixels rem="2" />px       | 4XL - 2.5rem - <RemToPixels rem="2.5" />px   |
+| desktop | 5XL - 2.25rem - <RemToPixels rem="2.25" />px | 5XL - 2.75rem - <RemToPixels rem="2.75" />px |
 
 ### Heading 3
+
+<Playground hideCode>
+  <div className="ecl-u-ph-m ecl-u-pv-xl">
+    <div className="ecl-u-type-3xl ecl-u-type-bold">
+      The quick brown fox jumps over the lazy dog
+    </div>
+    <div className="ecl-u-type-4xl ecl-u-type-bold ecl-u-mt-m">
+      The quick brown fox jumps over the lazy dog
+    </div>
+  </div>
+</Playground>
+
+|         | Font size                                    | Line height                                |
+| ------- | -------------------------------------------- | ------------------------------------------ |
+| mobile  | 3XL - 1.75rem - <RemToPixels rem="1.75" />px | 3XL - 2rem - <RemToPixels rem="2" />px     |
+| desktop | 4XL - 2rem - <RemToPixels rem="2" />px       | 4XL - 2.5rem - <RemToPixels rem="2.5" />px |
+
+### Heading 4
+
+<Playground hideCode>
+  <div className="ecl-u-ph-m ecl-u-pv-xl">
+    <div className="ecl-u-type-2xl ecl-u-type-bold">
+      The quick brown fox jumps over the lazy dog
+    </div>
+    <div className="ecl-u-type-3xl ecl-u-type-bold ecl-u-mt-m">
+      The quick brown fox jumps over the lazy dog
+    </div>
+  </div>
+</Playground>
+
+|         | Font size                                    | Line height                                  |
+| ------- | -------------------------------------------- | -------------------------------------------- |
+| mobile  | 2XL - 1.5rem - <RemToPixels rem="1.5" />px   | 2XL - 1.75rem - <RemToPixels rem="1.75" />px |
+| desktop | 3XL - 1.75rem - <RemToPixels rem="1.75" />px | 3XL - 2rem - <RemToPixels rem="2" />px       |
+
+### Heading 5
 
 <Playground hideCode>
   <div className="ecl-u-ph-m ecl-u-pv-xl">
@@ -105,12 +141,12 @@ Line-height, relevant to the size of the typeface itself. Ideal line-height for 
   </div>
 </Playground>
 
-|         | Font size                                   | Line height                                     |
-| ------- | ------------------------------------------- | ----------------------------------------------- |
-| mobile  | XL - 1.25rem - <RemToPixels rem="1.25" />px | XL UI - 1.5rem - <RemToPixels rem="1.5" />px    |
-| desktop | 2XL - 1.5rem - <RemToPixels rem="1.5" />px  | 2XL UI - 1.75rem - <RemToPixels rem="1.75" />px |
+|         | Font size                                   | Line height                                  |
+| ------- | ------------------------------------------- | -------------------------------------------- |
+| mobile  | XL - 1.25rem - <RemToPixels rem="1.25" />px | XL - 1.5rem - <RemToPixels rem="1.5" />px    |
+| desktop | 2XL - 1.5rem - <RemToPixels rem="1.5" />px  | 2XL - 1.75rem - <RemToPixels rem="1.75" />px |
 
-### Heading 4
+### Heading 6
 
 <Playground hideCode>
   <div className="ecl-u-ph-m ecl-u-pv-xl">
@@ -123,24 +159,10 @@ Line-height, relevant to the size of the typeface itself. Ideal line-height for 
   </div>
 </Playground>
 
-|         | Font size                                    | Line height                                           |
-| ------- | -------------------------------------------- | ----------------------------------------------------- |
-| mobile  | L - 1.125rem - <RemToPixels rem="1.125" />px | L Prolonged - 1.75rem - <RemToPixels rem="1.75" />px  |
-| desktop | XL - 1.25rem - <RemToPixels rem="1.25" />px  | XL Prolonged - 1.75rem - <RemToPixels rem="1.75" />px |
-
-### Heading 5
-
-<Playground hideCode>
-  <div className="ecl-u-ph-m ecl-u-pv-xl">
-    <div className="ecl-u-type-prolonged-m ecl-u-type-bold">
-      The quick brown fox jumps over the lazy dog
-    </div>
-  </div>
-</Playground>
-
-|                  | Font size                            | Line height                                        |
-| ---------------- | ------------------------------------ | -------------------------------------------------- |
-| mobile & desktop | M - 1rem - <RemToPixels rem="1" />px | M Prolonged - 1.5rem - <RemToPixels rem="1.5" />px |
+|         | Font size                                    | Line height                                          |
+| ------- | -------------------------------------------- | ---------------------------------------------------- |
+| mobile  | L - 1.125rem - <RemToPixels rem="1.125" />px | L Prolonged - 1.75rem - <RemToPixels rem="1.75" />px |
+| desktop | XL - 1.25rem - <RemToPixels rem="1.25" />px  | XL Prolonged- 1.75rem - <RemToPixels rem="1.75" />px |
 
 ## Paragraphs
 
