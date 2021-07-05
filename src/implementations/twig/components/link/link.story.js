@@ -8,6 +8,8 @@ import iconsAllEc from '@ecl/resources-ec-icons/dist/lists/all.json';
 import iconsAllEu from '@ecl/resources-eu-icons/dist/lists/all.json';
 import dataDefault from '@ecl/specs-component-link/demo/data--default';
 import dataCta from '@ecl/specs-component-link/demo/data--cta';
+import dataPrimary from '@ecl/specs-component-link/demo/data--primary';
+import dataSecondary from '@ecl/specs-component-link/demo/data--secondary';
 import dataStandalone from '@ecl/specs-component-link/demo/data--standalone';
 import dataNegative from '@ecl/specs-component-link/demo/data--negative';
 
@@ -147,7 +149,7 @@ const prepareData = (data, args) => {
   return data;
 };
 
-const prepareDataCta = (data, args) => {
+const prepareDataButtonLink = (data, args) => {
   const dataCustom = prepareData(data, args);
   if (dataCustom.icon) {
     data.icon.size = system === 'eu' ? 's' : 'xs';
@@ -174,11 +176,24 @@ Standalone.storyName = 'standalone';
 Standalone.argTypes = getArgTypes(dataStandalone);
 Standalone.parameters = { notes: { markdown: notes, json: dataStandalone } };
 
-export const Cta = (args) => link(prepareDataCta(dataCta, args));
+export const Cta = (args) => link(prepareDataButtonLink(dataCta, args));
 
-Cta.storyName = 'cta';
+Cta.storyName = 'call to action';
 Cta.argTypes = getArgTypes(dataCta);
 Cta.parameters = { notes: { markdown: notes, json: dataCta } };
+
+export const Primary = (args) => link(prepareDataButtonLink(dataPrimary, args));
+
+Primary.storyName = 'primary';
+Primary.argTypes = getArgTypes(dataPrimary);
+Primary.parameters = { notes: { markdown: notes, json: dataPrimary } };
+
+export const Secondary = (args) =>
+  link(prepareDataButtonLink(dataSecondary, args));
+
+Secondary.storyName = 'secondary';
+Secondary.argTypes = getArgTypes(dataSecondary);
+Secondary.parameters = { notes: { markdown: notes, json: dataSecondary } };
 
 export const Negative = (args) => link(prepareData(dataNegative, args));
 
