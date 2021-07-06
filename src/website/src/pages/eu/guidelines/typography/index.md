@@ -50,7 +50,7 @@ Line-height, relevant to the size of the typeface itself. Ideal line-height for 
 
 ## Line length
 
-Line-height, relevant to the size of the typeface itself. Ideal line-height for standard copy uses 1:1.5 ratio. The exception to this rule are headings, which need less spacing and therefore have a line-height ratio of 1:1.2. The line-height value is always divisible by 4 in order to support the grid.
+Line-length is the number of characters displayed in a single line. Lines that are too long or too short can distract readers. For readability, limit to no more than 80 characters including spaces for desktop per line. Line length for mobile is recommended to use 40 to 60 characters including space per line.
 
 ## Headings
 
