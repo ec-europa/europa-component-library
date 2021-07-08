@@ -39,10 +39,10 @@ Available colours are:
 
 - primary colours (blue, yellow, grey)
 - black and white
-- the <Link to="/ec/guidelines/colours/">grey palette</Link>
-- the <Link to="/ec/guidelines/colours/">blue palette</Link>
-- the <Link to="/ec/guidelines/colours/">yellow palette</Link>
-- the <Link to="/ec/guidelines/colours/">notification palette</Link>
+- the <Link to="/eu/guidelines/colours/">grey palette</Link>
+- the <Link to="/eu/guidelines/colours/">blue palette</Link>
+- the <Link to="/eu/guidelines/colours/">yellow palette</Link>
+- the <Link to="/eu/guidelines/colours/">notification palette</Link>
 
 ## Border style
 
