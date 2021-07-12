@@ -66,16 +66,7 @@ Here is an example of default HTML file using ECL:
 
 ### Update file path and name
 
-- If you wish to use **ECL EU** instead of ECL EC, just use the corresponding css and js files, for instance:
-```html
-<link
-  rel="stylesheet"
-  href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/[ECL_VERSION]/eu/styles/ecl-eu.css"
-  integrity="[sri hash of ecl-eu.css]"
-  crossorigin="anonymous"
-  media="screen"
-/>
-```
+- If you wish to use ECL EC instead of ECL EU, you can find information here <Link to="/ec/getting-started/" label="Getting started EC" />
 
 - Replace <code>[ECL_VERSION]</code> by <code>v{process.env.ECL_VERSION}</code> to use the latest version
 
@@ -83,9 +74,6 @@ Here is an example of default HTML file using ECL:
 <details>
   <summary>SRI hashes (click to expand)</summary>
   
-  - for `ecl-ec.css`: <code>{process.env.ECL_EC_CSS}</code>
-  - for `ecl-ec-print.css`: <code>{process.env.ECL_EC_PRINT_CSS}</code>
-  - for `ecl-ec.js`: <code>{process.env.ECL_EC_JS}</code>
   - for `ecl-eu.css`: <code>{process.env.ECL_EU_CSS}</code>
   - for `ecl-eu-print.css`: <code>{process.env.ECL_EU_PRINT_CSS}</code>
   - for `ecl-eu.js`: <code>{process.env.ECL_EU_JS}</code>
@@ -96,13 +84,12 @@ Here is an example of default HTML file using ECL:
 There are several optional files, which can be included in your site on not, depending on the needs: 
 
 - `ecl-reset.css`: contains some css reset rules, mostly based on normalize.css, with a few custom additions
-- `ecl-[ec|eu]-default.css`: apply ECL styling to some default HTML tags (links, buttons, table, ...). Note that this file is meant to be used in specific cases, the recommanded way to use ECL is still to add corresponding classes to HTML elements
+- `ecl-eu-default.css`: apply ECL styling to some default HTML tags (links, buttons, table, ...). Note that this file is meant to be used in specific cases, the recommanded way to use ECL is still to add corresponding classes to HTML elements
 
 <details>
   <summary>SRI hashes for optional files (click to expand)</summary>
   
   - for `ecl-reset.css`: <code>{process.env.ECL_RESET_CSS}</code>
-  - for `ecl-ec-default.css`: <code>{process.env.ECL_EC_DEFAULT_CSS}</code>
   - for `ecl-eu-default.css`: <code>{process.env.ECL_EU_DEFAULT_CSS}</code>
 </details>
 
@@ -148,8 +135,8 @@ Then, in the footer of the document (or whenever the document is ready), call `E
 
 Additional ready-to-use resources:
 
-- <Link to="/ec/guidelines/typography/" label="Typography" />
-- <Link to="/ec/guidelines/colours/" label="Colours" />
-- <Link to="/ec/guidelines/images/" label="Images" />
-- <Link to="/ec/guidelines/iconography/" label="Iconography" />
-- <Link to="/ec/guidelines/spacing/" label="Spacing" />
+- <Link to="/eu/guidelines/typography/" label="Typography" />
+- <Link to="/eu/guidelines/colours/" label="Colours" />
+- <Link to="/eu/guidelines/images/" label="Images" />
+- <Link to="/eu/guidelines/iconography/" label="Iconography" />
+- <Link to="/eu/guidelines/spacing/" label="Spacing" />
