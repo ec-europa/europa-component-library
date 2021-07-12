@@ -71,12 +71,15 @@ Here is an example of default HTML file using ECL:
 - Replace <code>[ECL_VERSION]</code> by <code>v{process.env.ECL_VERSION}</code> to use the latest version
 
 - For more security, use the SRI hashes corresponding to the files. They all can be found in the [release page](https://github.com/ec-europa/europa-component-library/releases), in a json file, but here are the most common ones:
+
 <details>
   <summary>SRI hashes (click to expand)</summary>
   
-  - for `ecl-eu.css`: <code>{process.env.ECL_EU_CSS}</code>
-  - for `ecl-eu-print.css`: <code>{process.env.ECL_EU_PRINT_CSS}</code>
-  - for `ecl-eu.js`: <code>{process.env.ECL_EU_JS}</code>
+  <ul>
+    <li>for `ecl-eu.css`: <code>{process.env.ECL_EU_CSS}</code></li>
+    <li>for `ecl-eu-print.css`: <code>{process.env.ECL_EU_PRINT_CSS}</code></li>
+    <li> for `ecl-eu.js`: <code>{process.env.ECL_EU_JS}</code></li>
+  </ul>
 </details>
 
 ### Optional files
@@ -89,8 +92,10 @@ There are several optional files, which can be included in your site on not, dep
 <details>
   <summary>SRI hashes for optional files (click to expand)</summary>
   
-  - for `ecl-reset.css`: <code>{process.env.ECL_RESET_CSS}</code>
-  - for `ecl-eu-default.css`: <code>{process.env.ECL_EU_DEFAULT_CSS}</code>
+  <ul>
+    <li>for `ecl-reset.css`: <code>{process.env.ECL_RESET_CSS}</code></li>
+    <li>for `ecl-eu-default.css`: <code>{process.env.ECL_EU_DEFAULT_CSS}</code></li>
+  </ul>
 </details>
 
 ### Additional information

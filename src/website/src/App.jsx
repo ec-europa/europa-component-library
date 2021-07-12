@@ -41,6 +41,11 @@ const customComponents = {
       {children}
     </p>
   ),
+  details: ({ children, className, ...props }) => (
+    <details className={className || styles.details} {...props}>
+      {children}
+    </details>
+  ),
   ul: ({ children, className, ...props }) => (
     <ul className={className || styles.ul} {...props}>
       {children}
