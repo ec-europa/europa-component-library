@@ -46,6 +46,11 @@ const customComponents = {
       {children}
     </details>
   ),
+  summary: ({ children, className, ...props }) => (
+    <summary className={className || styles.summary} {...props}>
+      {children}
+    </summary>
+  ),
   ul: ({ children, className, ...props }) => (
     <ul className={className || styles.ul} {...props}>
       {children}

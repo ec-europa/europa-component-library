@@ -67,9 +67,7 @@ Here is an example of default HTML file using ECL:
 ### Update file path and name
 
 - If you wish to use ECL EU instead of ECL EC, you can find information here <Link to="/eu/getting-started/" label="Getting started EU" />
-
 - Replace <code>[ECL_VERSION]</code> by <code>v{process.env.ECL_VERSION}</code> to use the latest version
-
 - For more security, use the SRI hashes corresponding to the files. They all can be found in the [release page](https://github.com/ec-europa/europa-component-library/releases), in a json file, but here are the most common ones:
 
 <details>
