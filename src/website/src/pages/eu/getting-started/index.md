@@ -17,9 +17,9 @@ All library elements are accompanied by:
 
 New components are continuously being added to the library. The team is also constantly updating visual guidelines for designers in the Guidelines section, where we provide detailed information about design principles and resources.
 
-## How to use templates
+## How to use ECL
 
-- Create an `index.html` file as follows:
+Here is an example of default HTML file using ECL:
 
 ```html
 <html lang="en" class="no-js">
@@ -35,24 +35,26 @@ New components are continuously being added to the library. The team is also con
     </script>
     <link
       rel="stylesheet"
-      href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/[ECL_VERSION]/ec-preset-website/styles/ecl-ec-preset-website.css"
-      integrity="[sri hash of ecl-ec-preset-website.css]"
+      href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/[ECL_VERSION]/ec/styles/ecl-ec.css"
+      integrity="[sri hash of ecl-ec.css]"
       crossorigin="anonymous"
       media="screen"
     />
     <link
       rel="stylesheet"
-      href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/[ECL_VERSION]/ec-preset-website/styles/ecl-ec-preset-website-print.css"
-      integrity="[sri hash of ecl-ec-preset-website-print.css]"
+      href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/[ECL_VERSION]/ec/styles/ecl-ec-print.css"
+      integrity="[sri hash of ecl-ec-print.css]"
       crossorigin="anonymous"
       media="print"
     />
   </head>
   <body>
-    <!-- paste the markup from the template here -->
+
+    <!-- content of your page here -->
+
     <script
-      src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/[ECL_VERSION]/ec-preset-website/scripts/ecl-ec-preset-website.js"
-      integrity="[sri hash of ecl-ec-preset-website.js]"
+      src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/[ECL_VERSION]/ec/scripts/ecl-ec.js"
+      integrity="[sri hash of ecl-ec.js]"
       crossorigin="anonymous"
     ></script>
     <script>
@@ -62,39 +64,54 @@ New components are continuously being added to the library. The team is also con
 </html>
 ```
 
-First:
+### Update file path and name
 
-<ul>
-  <li>
-    Replace <code>[ECL_VERSION]</code> by{' '}
-    <code>v{process.env.ECL_VERSION}</code> to use the latest version
-  </li>
-  <li>
-    For more security, use these SRI hashes:
-    <ul>
-      <li>
-        for ecl-ec-preset-website.css:{' '}
-        <code>{process.env.ECL_EC_PRESET_WEBSITE_CSS}</code>
-      </li>
-      <li>
-        for ecl-ec-preset-website-print.css:{' '}
-        <code>{process.env.ECL_EC_PRESET_WEBSITE_PRINT_CSS}</code>
-      </li>
-      <li>
-        for ecl-ec-preset-website.js:{' '}
-        <code>{process.env.ECL_EC_PRESET_WEBSITE_JS}</code>
-      </li>
-    </ul>
-  </li>
-</ul>
+- If you wish to use **ECL EU** instead of ECL EC, just use the corresponding css and js files, for instance:
+```html
+<link
+  rel="stylesheet"
+  href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/[ECL_VERSION]/eu/styles/ecl-eu.css"
+  integrity="[sri hash of ecl-eu.css]"
+  crossorigin="anonymous"
+  media="screen"
+/>
+```
 
-Then:
+- Replace <code>[ECL_VERSION]</code> by <code>v{process.env.ECL_VERSION}</code> to use the latest version
 
-- copy the markup from the template you want and paste it in the `<body>`.
+- For more security, use the SRI hashes corresponding to the files. They all can be found in the [release page](https://github.com/ec-europa/europa-component-library/releases), in a json file, but here are the most common ones:
+<details>
+  <summary>SRI hashes (click to expand)</summary>
+  
+  - for `ecl-ec.css`: <code>{process.env.ECL_EC_CSS}</code>
+  - for `ecl-ec-print.css`: <code>{process.env.ECL_EC_PRINT_CSS}</code>
+  - for `ecl-ec.js`: <code>{process.env.ECL_EC_JS}</code>
+  - for `ecl-eu.css`: <code>{process.env.ECL_EU_CSS}</code>
+  - for `ecl-eu-print.css`: <code>{process.env.ECL_EU_PRINT_CSS}</code>
+  - for `ecl-eu.js`: <code>{process.env.ECL_EU_JS}</code>
+</details>
+
+### Optional files
+
+There are several optional files, which can be included in your site on not, depending on the needs: 
+
+- `ecl-reset.css`: contains some css reset rules, mostly based on normalize.css, with a few custom additions
+- `ecl-[ec|eu]-default.css`: apply ECL styling to some default HTML tags (links, buttons, table, ...). Note that this file is meant to be used in specific cases, the recommanded way to use ECL is still to add corresponding classes to HTML elements
+
+<details>
+  <summary>SRI hashes for optional files (click to expand)</summary>
+  
+  - for `ecl-reset.css`: <code>{process.env.ECL_RESET_CSS}</code>
+  - for `ecl-ec-default.css`: <code>{process.env.ECL_EC_DEFAULT_CSS}</code>
+  - for `ecl-eu-default.css`: <code>{process.env.ECL_EU_DEFAULT_CSS}</code>
+</details>
+
+### Additional information
+
+- to integrate ECL components, copy the markup from the template you want and paste it in the `<body>`.
 - make sure that you are correctly loading the icons and the logo by using the right paths. You will usually find these assets under the `/images` folder of the preset you're using. We advise you to host the SVG sprites on the same domain as your website in order to avoid the `Unsafe attempt to load URL` kind of errors. If you still want to use the SVG sprite from the CDN, you can use [svg4everybody](https://github.com/jonathantneal/svg4everybody) and itinitialize it with: `svg4everybody({ polyfill: true });`.
 - before going live, make sure to embed the [Cookie Consent Kit](https://webgate.ec.europa.eu/fpfis/wikis/display/webtools/Cookie%20Consent%20Kit%20-%20Technical%20details).
-
-Note: if you want to use another ECL preset or another version, you will find all the useful information on https://github.com/ec-europa/europa-component-library/releases.
+- all useful information concerning releases content can be found on the [release page](https://github.com/ec-europa/europa-component-library/releases)
 
 ## JavaScript
 
@@ -108,7 +125,7 @@ For example, if you want to auto initialize a `Message`:
 <div
   role="alert"
   class="ecl-message ecl-message--info"
-  data-ecl-message="true"
+  data-ecl-message
   data-ecl-auto-init="Message"
 >
   ... Message component ...
