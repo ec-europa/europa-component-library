@@ -12,7 +12,7 @@ import { Paragraph, Link } from '@ecl/website-components';
 
 ## Margin
 
-Different clases can be used to set the margin around an element. All spacing tokens are listed on <Link to="/ec/guidelines/spacing/">guidelines</Link>.
+Different clases can be used to set the margin around an element. All spacing tokens are listed on <Link to="/eu/guidelines/spacing/">guidelines</Link>.
 
 Available values are:
 
@@ -37,7 +37,7 @@ For instance:
 
 ## Padding
 
-Different clases can be used to set the padding inside an element. All spacing tokens are listed on <Link to="/ec/guidelines/spacing/">guidelines</Link>.
+Different clases can be used to set the padding inside an element. All spacing tokens are listed on <Link to="/eu/guidelines/spacing/">guidelines</Link>.
 
 Available values are:
 

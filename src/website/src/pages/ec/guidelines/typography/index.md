@@ -30,7 +30,7 @@ Font weight is the thickness of a font's stroke, with various weights used to di
 
 ## Line height
 
-Line-height, relevant to the size of the typeface itself. Ideal line-height for standard copy uses 1:1.5 ratio. The exception to this rule is headings, which needs less spacing and therefore have a line-height ratio of 1:1.2. The line-height value is always divisible by 4 in order to support the grid.
+Line-height, relevant to the size of the typeface itself. Ideal line-height for standard copy uses 1:1.5 ratio. The exception to this rule are headings, which needs less spacing and therefore have a line-height ratio of 1:1.2. The line-height value is always divisible by 4 in order to support the grid.
 
 ## Line length
 
