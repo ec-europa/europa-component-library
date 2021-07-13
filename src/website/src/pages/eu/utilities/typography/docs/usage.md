@@ -15,14 +15,14 @@ import { Link, Paragraph } from '@ecl/website-components';
 
 Use classes `ecl-u-type-heading-1` to `ecl-u-type-heading-5` to apply headings styles.
 
-See <Link to="/ec/guidelines/typography/">typography guidelines</Link> for more information.
+See <Link to="/eu/guidelines/typography/">typography guidelines</Link> for more information.
 
 ## Paragraph
 
 Use class `ecl-u-type-paragraph` on a `<p>` element to apply related styles.  
 Several type of paragraphs are availables, depending on your needs.
 
-See <Link to="/ec/guidelines/typography/">typography guidelines</Link> for more information.
+See <Link to="/eu/guidelines/typography/">typography guidelines</Link> for more information.
 
 ## Text colour
 
@@ -31,9 +31,9 @@ Available colours are:
 
 - primary colours (blue, yellow, grey)
 - black and white
-- the <Link to="/ec/guidelines/colours/">grey palette</Link>
-- the <Link to="/ec/guidelines/colours/">blue palette</Link>
-- the <Link to="/ec/guidelines/colours/">notification palette</Link>
+- the <Link to="/eu/guidelines/colours/">grey palette</Link>
+- the <Link to="/eu/guidelines/colours/">blue palette</Link>
+- the <Link to="/eu/guidelines/colours/">notification palette</Link>
 
 Note that the yellow palette is not available for text colour; text should not be displayed in yellow.
 
