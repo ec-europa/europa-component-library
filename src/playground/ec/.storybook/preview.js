@@ -4,6 +4,11 @@ import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import './ECL';
 
 addParameters({
+  previewTabs: {
+    'storybook/docs/panel': {
+      hidden: true,
+    },
+  },
   a11y: {
     element: '#root',
     config: {},
