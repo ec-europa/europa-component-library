@@ -2,57 +2,80 @@
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
+$_heading1: null !default;
+$_heading2: null !default;
+$_heading3: null !default;
+$_heading4: null !default;
+$_heading5: null !default;
+$_heading6: null !default;
+
 /*
 * Headings
 */
 .ecl-u-type-heading-1,
 %ecl-heading-1 {
-  font: map.get(theme.$font, '3xl') !important;
+  font: map.get($_heading1, 'mobile') !important;
   font-weight: map.get(theme.$font-weight, 'bold') !important;
 
   @include breakpoints.up('m') {
-    font: map.get(theme.$font, '4xl') !important;
+    font: map.get($_heading1, 'desktop') !important;
     font-weight: map.get(theme.$font-weight, 'bold') !important;
   }
 }
 
 .ecl-u-type-heading-2,
 %ecl-heading-2 {
-  font: map.get(theme.$font, '2xl') !important;
+  font: map.get($_heading2, 'mobile') !important;
   font-weight: map.get(theme.$font-weight, 'bold') !important;
 
   @include breakpoints.up('m') {
-    font: map.get(theme.$font, '3xl') !important;
+    font: map.get($_heading2, 'desktop') !important;
     font-weight: map.get(theme.$font-weight, 'bold') !important;
   }
 }
 
 .ecl-u-type-heading-3,
 %ecl-heading-3 {
-  font: map.get(theme.$font, 'xl') !important;
+  font: map.get($_heading3, 'mobile') !important;
   font-weight: map.get(theme.$font-weight, 'bold') !important;
 
   @include breakpoints.up('m') {
-    font: map.get(theme.$font, '2xl') !important;
+    font: map.get($_heading3, 'desktop') !important;
     font-weight: map.get(theme.$font-weight, 'bold') !important;
   }
 }
 
 .ecl-u-type-heading-4,
 %ecl-heading-4 {
-  font: map.get(theme.$font-prolonged, 'l') !important;
+  font: map.get($_heading4, 'mobile') !important;
   font-weight: map.get(theme.$font-weight, 'bold') !important;
 
   @include breakpoints.up('m') {
-    font: map.get(theme.$font-prolonged, 'xl') !important;
+    font: map.get($_heading4, 'desktop') !important;
     font-weight: map.get(theme.$font-weight, 'bold') !important;
   }
 }
 
 .ecl-u-type-heading-5,
 %ecl-heading-5 {
-  font: map.get(theme.$font-prolonged, 'm') !important;
+  font: map.get($_heading5, 'mobile') !important;
   font-weight: map.get(theme.$font-weight, 'bold') !important;
+
+  @include breakpoints.up('m') {
+    font: map.get($_heading5, 'desktop') !important;
+    font-weight: map.get(theme.$font-weight, 'bold') !important;
+  }
+}
+
+.ecl-u-type-heading-6,
+%ecl-heading-6 {
+  font: map.get($_heading6, 'mobile') !important;
+  font-weight: map.get(theme.$font-weight, 'bold') !important;
+
+  @include breakpoints.up('m') {
+    font: map.get($_heading6, 'desktop') !important;
+    font-weight: map.get(theme.$font-weight, 'bold') !important;
+  }
 }
 
 /*
@@ -103,7 +126,7 @@
   font: map.get(theme.$font, 'xl') !important;
 }
 .ecl-u-type-2xl {
-  font: map.get(theme.$font, '4xl') !important;
+  font: map.get(theme.$font, '2xl') !important;
 }
 .ecl-u-type-3xl {
   font: map.get(theme.$font, '3xl') !important;
