@@ -1,9 +1,7 @@
 import { renderTwigFileAsNode } from '@ecl/test-utils';
 
-import dataDefault from '@ecl/specs-composition-etrans/demo/data';
-
-const dataNoLanguage = { ...dataDefault };
-delete dataNoLanguage.expandable;
+import dataDefault from '@ecl/specs-composition-etrans/demo/data--default';
+import dataNoLanguage from '@ecl/specs-composition-etrans/demo/data--no-languages';
 
 describe('eTrans EC', () => {
   const template = '@ecl/etrans/etrans-ec.html.twig';
