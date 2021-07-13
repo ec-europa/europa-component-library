@@ -11,17 +11,11 @@ $_outline-width: null !default;
 $_color: map.get(theme.$color, 'blue-100');
 $_color-hover: null !default;
 $_color-visited: map.get(theme.$color, 'purple-100');
-$_cta-color: null !default;
-$_cta-border-radius: null !default;
-$_cta-background-color: map.get(theme.$color, 'yellow-100');
-$_cta-background-color-hover: null !default;
-$_cta-font-weight: null !default;
-$_cta-shadow-hover: null !default;
-$_cta-outline-color: null !default;
-$_negative-color: null !default;
-$_negative-color-hover: null !default;
-$_negative-color-visited: null !default;
-$_negative-standalone-color-hover: null !default;
+$_button-link: null !default;
+$_cta: null !default;
+$_primary: null !default;
+$_secondary: null !default;
+$_negative: null !default;
 
 .ecl-link,
 %ecl-link {
@@ -85,34 +79,34 @@ $_negative-standalone-color-hover: null !default;
 * Negative
 */
 .ecl-link--negative {
-  color: $_negative-color;
+  color: map.get($_negative, 'color');
 
   &:hover,
   &:focus {
-    color: $_negative-color-hover;
+    color: map.get($_negative, 'color-hover');
 
     /* stylelint-disable-next-line max-nesting-depth */
     &.ecl-link--standalone {
-      color: $_negative-standalone-color-hover;
+      color: map.get($_negative, 'standalone-color-hover');
     }
   }
 
   &:visited {
-    color: $_negative-color-visited;
+    color: map.get($_negative, 'color-visited');
   }
 
   /* stylelint-disable-next-line plugin/selector-bem-pattern */
   &.ecl-link--no-visited:visited {
-    color: $_negative-color;
+    color: map.get($_negative, 'color');
 
     /* stylelint-disable-next-line */
     &:hover,
     &:focus {
-      color: $_negative-color-hover;
+      color: map.get($_negative, 'color-hover');
 
       /* stylelint-disable-next-line */
       &.ecl-link--standalone {
-        color: $_negative-standalone-color-hover;
+        color: map.get($_negative, 'standalone-color-hover');
       }
     }
   }
@@ -142,46 +136,140 @@ $_negative-standalone-color-hover: null !default;
   /* stylelint-enable */
 }
 
-/**
-* Call to action
-*/
-.ecl-link--cta {
-  background-color: $_cta-background-color;
-  border-radius: $_cta-border-radius;
+// stylelint-disable plugin/selector-bem-pattern
+%button-link {
+  border-radius: map.get($_button-link, 'border-radius');
   box-sizing: border-box;
-  color: $_cta-color;
-  display: inline-block;
   font: map.get(theme.$font, 'm');
-  font-weight: $_cta-font-weight;
+  font-weight: map.get($_button-link, 'font-weight');
   padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
 
   &:hover,
   &:active {
-    background-color: $_cta-background-color-hover;
-    box-shadow: $_cta-shadow-hover;
-    color: $_cta-color;
+    box-shadow: map.get($_button-link, 'shadow-hover');
+    text-decoration: underline;
   }
 
   &:focus {
-    border: $_outline-width solid $_cta-outline-color;
-    color: $_cta-color;
+    border: $_outline-width solid $_outline-color;
     outline: none;
     padding: calc(#{map.get(theme.$spacing, 's')} - #{$_outline-width})
       calc(#{map.get(theme.$spacing, 'm')} - #{$_outline-width});
+    text-decoration: underline;
+  }
+}
+// stylelint-enable plugin/selector-bem-pattern
+
+/**
+* Call to action
+*/
+.ecl-link--cta {
+  @extend %button-link;
+
+  background-color: map.get($_cta, 'background-color');
+  color: map.get($_cta, 'color');
+
+  &:hover,
+  &:active {
+    background-color: map.get($_cta, 'background-color-hover');
+    color: map.get($_cta, 'color');
+  }
+
+  &:focus {
+    border-color: map.get($_cta, 'outline-color');
+    color: map.get($_cta, 'color');
   }
 
   &:visited {
     color: $_color-visited;
   }
 
-  /* stylelint-disable-next-line plugin/selector-bem-pattern */
+  // stylelint-disable-next-line plugin/selector-bem-pattern
   &.ecl-link--no-visited:visited {
-    color: $_cta-color;
+    color: map.get($_cta, 'color');
 
-    /* stylelint-disable-next-line */
+    // stylelint-disable-next-line
     &:hover,
     &:active {
-      color: $_cta-color;
+      color: map.get($_cta, 'color');
+    }
+  }
+}
+
+/**
+* Primary
+*/
+.ecl-link--primary {
+  @extend %button-link;
+
+  background-color: map.get($_primary, 'background-color');
+  color: map.get($_primary, 'color');
+
+  &:hover,
+  &:active {
+    background-color: map.get($_primary, 'background-color-hover');
+    color: map.get($_primary, 'color');
+  }
+
+  &:focus {
+    color: map.get($_primary, 'color');
+  }
+
+  &:visited {
+    color: map.get($_primary, 'color-visited');
+  }
+
+  // stylelint-disable-next-line plugin/selector-bem-pattern
+  &.ecl-link--no-visited:visited {
+    color: map.get($_primary, 'color');
+
+    // stylelint-disable-next-line
+    &:hover,
+    &:active {
+      color: map.get($_primary, 'color');
+    }
+  }
+}
+
+/**
+* Secondary
+*/
+.ecl-link--secondary {
+  @extend %button-link;
+
+  background-color: map.get($_secondary, 'background-color');
+  border: map.get($_secondary, 'border-width') solid
+    map.get($_secondary, 'border-color');
+  color: map.get($_secondary, 'color');
+  padding: calc(
+      #{map.get(theme.$spacing, 's')} - #{map.get($_secondary, 'border-width')}
+    )
+    calc(
+      #{map.get(theme.$spacing, 'm')} - #{map.get($_secondary, 'border-width')}
+    );
+
+  &:hover,
+  &:active {
+    border-color: map.get($_secondary, 'border-color-hover');
+    color: map.get($_secondary, 'color');
+  }
+
+  &:focus {
+    color: map.get($_secondary, 'color');
+  }
+
+  &:visited {
+    color: $_color-visited;
+  }
+
+  // stylelint-disable-next-line plugin/selector-bem-pattern
+  &.ecl-link--no-visited:visited {
+    color: map.get($_secondary, 'color');
+
+    // stylelint-disable-next-line
+    &:hover,
+    &:active {
+      color: map.get($_secondary, 'color');
     }
   }
 }
