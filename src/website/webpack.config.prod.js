@@ -344,23 +344,32 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify('production'),
       'process.env.PUBLIC_URL': JSON.stringify(publicUrl),
       'process.env.ECL_VERSION': JSON.stringify(eclVersion),
-      'process.env.ECL_EC_PRESET_WEBSITE_CSS': JSON.stringify(
+      'process.env.ECL_EC_CSS': JSON.stringify(
         (sri['ecl-ec.css'] || []).join(' ') || 'n/a'
       ),
-      'process.env.ECL_EC_PRESET_WEBSITE_PRINT_CSS': JSON.stringify(
+      'process.env.ECL_EC_PRINT_CSS': JSON.stringify(
         (sri['ecl-ec-print.css'] || []).join(' ') || 'n/a'
       ),
-      'process.env.ECL_EC_PRESET_WEBSITE_JS': JSON.stringify(
+      'process.env.ECL_EC_DEFAULT_CSS': JSON.stringify(
+        (sri['ecl-ec-default.css'] || []).join(' ') || 'n/a'
+      ),
+      'process.env.ECL_EC_JS': JSON.stringify(
         (sri['ecl-ec.js'] || []).join(' ') || 'n/a'
       ),
-      'process.env.ECL_EU_PRESET_WEBSITE_CSS': JSON.stringify(
+      'process.env.ECL_EU_CSS': JSON.stringify(
         (sri['ecl-eu.css'] || []).join(' ') || 'n/a'
       ),
-      'process.env.ECL_EU_PRESET_WEBSITE_PRINT_CSS': JSON.stringify(
+      'process.env.ECL_EU_PRINT_CSS': JSON.stringify(
         (sri['ecl-eu-print.css'] || []).join(' ') || 'n/a'
       ),
-      'process.env.ECL_EU_PRESET_WEBSITE_JS': JSON.stringify(
+      'process.env.ECL_EU_DEFAULT_CSS': JSON.stringify(
+        (sri['ecl-eu-default.css'] || []).join(' ') || 'n/a'
+      ),
+      'process.env.ECL_EU_JS': JSON.stringify(
         (sri['ecl-eu.js'] || []).join(' ') || 'n/a'
+      ),
+      'process.env.ECL_RESET_CSS': JSON.stringify(
+        (sri['ecl-reset.css'] || []).join(' ') || 'n/a'
       ),
     }),
     new MiniCssExtractPlugin({
