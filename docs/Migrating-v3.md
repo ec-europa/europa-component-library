@@ -137,7 +137,6 @@ Change impact have been grouped as :
 - :heavy_check_mark: twig parameter `negative` added, to display negative (white on dark) links
 - :heavy_check_mark: twig parameter `no_visited` added, to prevent change of color for visited links
 - :heavy_check_mark: twig parameter `icon_path` has been removed (not used)
-- :warning: use 'xs' icon size for EC and 'm' for EU
 
 **Message**
 

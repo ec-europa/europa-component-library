@@ -151,7 +151,7 @@ module.exports = {
     },
   ],
   eu_category: 'EU official languages',
-  non_eu_category: 'Non-EU languages',
+  non_eu_category: 'Other languages',
   icon_path: '/icons.svg',
   logo: {
     alt: 'European Commission logo',
