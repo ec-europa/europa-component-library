@@ -3,7 +3,8 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctSvgPath } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
-import dataDefault from '@ecl/specs-composition-etrans/demo/data';
+import dataDefault from '@ecl/specs-composition-etrans/demo/data--default';
+import dataNoLanguage from '@ecl/specs-composition-etrans/demo/data--no-languages';
 
 import etransEc from './etrans-ec.html.twig';
 import etransEu from './etrans-eu.html.twig';
@@ -11,8 +12,6 @@ import notes from './README.md';
 
 const system = getSystem();
 const etrans = system === 'eu' ? etransEu : etransEc;
-const dataNoLanguage = { ...dataDefault };
-delete dataNoLanguage.expandable;
 
 const prepareData = (data, args) => {
   correctSvgPath(data);

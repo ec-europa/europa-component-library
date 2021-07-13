@@ -7,7 +7,7 @@ module.exports = {
       name: 'warning',
       size: 'l',
     },
-    title: 'Page language unavailable',
+    title: 'This page is not available in [language]',
     close: {
       variant: 'ghost',
       label: 'Close',
