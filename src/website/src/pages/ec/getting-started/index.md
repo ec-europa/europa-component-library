@@ -80,9 +80,9 @@ Here is an example of default HTML file using ECL:
   </ul>
 </details>
 
-### Optional files
+### Optional styles
 
-There are several optional files, which can be included in your site on not, depending on the needs: 
+There are several optional CSS files, located in `ec/styles/optional`, which can be included in your site on not, depending on the needs: 
 
 - `ecl-reset.css`: contains some css reset rules, mostly based on normalize.css, with a few custom additions
 - `ecl-ec-default.css`: apply ECL styling to some default HTML tags (links, buttons, table, ...). Note that this file is meant to be used in specific cases, the recommanded way to use ECL is still to add corresponding classes to HTML elements
@@ -98,7 +98,8 @@ There are several optional files, which can be included in your site on not, dep
 
 ### Additional information
 
-- to integrate ECL components, copy the markup from the template you want and paste it in the `<body>`.
+- to integrate ECL components, copy the markup from the component you want and paste it in the `<body>`. This markup can be found on this website and on <Link to="/playground/ec/" label="the playground" />.
+TWIG templates are also [provided on npm](https://www.npmjs.com/org/ecl) for easy integration.
 - make sure that you are correctly loading the icons and the logo by using the right paths. You will usually find these assets under the `/images` folder of the preset you're using. We advise you to host the SVG sprites on the same domain as your website in order to avoid the `Unsafe attempt to load URL` kind of errors. If you still want to use the SVG sprite from the CDN, you can use [svg4everybody](https://github.com/jonathantneal/svg4everybody) and itinitialize it with: `svg4everybody({ polyfill: true });`.
 - before going live, make sure to embed the [Cookie Consent Kit](https://webgate.ec.europa.eu/fpfis/wikis/display/webtools/Cookie%20Consent%20Kit%20-%20Technical%20details).
 - all useful information concerning releases content can be found on the [release page](https://github.com/ec-europa/europa-component-library/releases)
