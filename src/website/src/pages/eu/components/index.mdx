@@ -7,43 +7,45 @@ import { Thumbnail } from '@ecl/website-components';
 import Col from '../../../components/Grid/Col';
 import Row from '../../../components/Grid/Row';
 
-import AccordionThumbnail from './accordion/ec_comp_accordion.svg';
-import BlockquoteThumbnail from './blockquote/ec-comp-blockquotes.svg';
-import ButtonThumbnail from './button/ec_comp_buttons.svg';
-import CardThumbnail from './card/ec_comp_cards.svg';
-import DateBlockThumbnail from './date-block/ec_comp_date_blocks.svg';
-import ExpandableThumbnail from './expandable/ec_comp_expandables.svg';
-import FactFiguresThumbnail from './fact-figures/ec_comp_facts_and_figures.svg';
-import FileThumbnail from './file/ec_comp_file.svg';
-import IconThumbnail from './icon/ec_comp_icons.svg';
-import LanguageListThumbnail from './language-list/ec_comp_language_list.svg';
-import ListThumbnail from './list/ec_comp_lists.svg';
-import MessageThumbnail from './message/ec_comp_messages.svg';
-import SMFThumbnail from './social-media-follow/ec_comp_social_follow.svg';
-import SMSThumbnail from './social-media-share/ec_comp_social_share.svg';
-import TableThumbnail from './table/ec_comp_table.svg';
-import TagThumbnail from './tag/ec_comp_tags.svg';
-import TimelineThumbnail from './timeline/ec_comp_timeline.svg';
+import AccordionThumbnail from './accordion/eu_comp_accordion.svg';
+import BlockquoteThumbnail from './blockquote/eu_comp_blockquotes.svg';
+import ButtonThumbnail from './button/eu_comp_buttons.svg';
+import CardThumbnail from './card/eu_comp_cards.svg';
+import DateBlockThumbnail from './date-block/eu_comp_date_blocks.svg';
+import ExpandableThumbnail from './expandable/eu_comp_expandables.svg';
+import FactFiguresThumbnail from './fact-figures/eu_comp_facts_and_figures.svg';
+import FileThumbnail from './file/eu_comp_file.svg';
+import IconThumbnail from './icon/eu_comp_icons.svg';
+import LabelThumbnail from './label/eu_comp_label.svg';
+import LanguageListThumbnail from './language-list/eu_comp_language_list.svg';
+import ListThumbnail from './list/eu_comp_lists.svg';
+import MessageThumbnail from './message/eu_comp_messages.svg';
+import SMFThumbnail from './social-media-follow/eu_comp_social_media_follow.svg';
+import SMSThumbnail from './social-media-share/eu_comp_social_media_share.svg';
+import TableThumbnail from './table/eu_comp_table.svg';
+import TagThumbnail from './tag/eu_comp_tags.svg';
+import TimelineThumbnail from './timeline/eu_comp_timeline.svg';
 
-import HeroBannerThumbnail from './banners/hero-banner/ec_comp_hero_banner.svg';
-import PageBannerThumbnail from './banners/page-banner/ec_comp_page_banner.svg';
+import HeroBannerThumbnail from './banners/hero-banner/eu_comp_hero_banner.svg';
+import PageBannerThumbnail from './banners/page-banner/eu_comp_page_banner.svg';
 
-import CheckboxThumbnail from './forms/checkbox/ec_comp_checkbox.svg';
-import FileUploadThumbnail from './forms/file-upload/ec_comp_file_upload.svg';
-import RadioThumbnail from './forms/radio/ec_comp_radio.svg';
-import SearchFormThumbnail from './forms/search-form/ec_comp_search.svg';
-import SelectThumbnail from './forms/select/ec_comp_select.svg';
-import TextAreaThumbnail from './forms/text-area/ec_comp_text_area.svg';
-import TextFieldThumbnail from './forms/text-field/ec_comp_text_field.svg';
+import CheckboxThumbnail from './forms/checkbox/eu_comp_checkbox.svg';
+import DatepickerThumbnail from './forms/datepicker/eu_comp_date_picker.svg';
+import FileUploadThumbnail from './forms/file-upload/eu_comp_file_upload.svg';
+import RadioThumbnail from './forms/radio/eu_comp_radio.svg';
+import SearchFormThumbnail from './forms/search-form/eu_comp_search.svg';
+import SelectThumbnail from './forms/select/eu_comp_select.svg';
+import TextAreaThumbnail from './forms/text-area/eu_comp_text_area.svg';
+import TextFieldThumbnail from './forms/text-field/eu_comp_text_field.svg';
 
-import GalleryThumbnail from './media/gallery/ec_comp_gallery.svg';
-import MediaContainerThumbnail from './media/media-container/ec_comp_media_container.svg';
+import GalleryThumbnail from './media/gallery/eu_comp_gallery.svg';
+import MediaContainerThumbnail from './media/media-container/eu_comp_media_container.svg';
 
-import BreadcrumbThumbnail from './navigation/breadcrumb/ec_comp_breadcrumb.svg';
-import InpageNavigationThumbnail from './navigation/inpage-navigation/ec_comp_inpage-navigation.svg';
-import LinkThumbnail from './navigation/link/ec_comp_links.svg';
-import MenuThumbnail from './navigation/menu/ec_comp_menu.svg';
-import PaginationThumbnail from './navigation/pagination/ec_comp_pagination.svg';
+import BreadcrumbThumbnail from './navigation/breadcrumb/eu_comp_breadcrumb.svg';
+import InpageNavigationThumbnail from './navigation/inpage-navigation/eu_comp_inpage_navigation.svg';
+import LinkThumbnail from './navigation/link/eu_comp_links.svg';
+import MenuThumbnail from './navigation/menu/eu_comp_menu.svg';
+import PaginationThumbnail from './navigation/pagination/eu_comp_pagination.svg';
 
 Being the building blocks of the design system, components represent simple groupings of user interface elements (such as a label, an input field and a button to form a search field) through which we inform users of the expected interaction steps in order to help them achieve their goal.
 
@@ -96,6 +98,9 @@ Every component is coded to serve a function and designed to solve a specific us
   </Col>
   <Col col="12 s-6 l-4" spacing="pv-m">
     <Thumbnail image={IconThumbnail} link="./icon/usage/" title="Icons" />
+  </Col>
+  <Col col="12 s-6 l-4" spacing="pv-m">
+    <Thumbnail image={LabelThumbnail} link="./label/usage/" title="Labels" />
   </Col>
   <Col col="12 s-6 l-4" spacing="pv-m">
     <Thumbnail
@@ -170,6 +175,13 @@ Every component is coded to serve a function and designed to solve a specific us
       image={CheckboxThumbnail}
       link="./forms/checkbox/usage/"
       title="Checkbox"
+    />
+  </Col>
+  <Col col="12 s-6 l-4" spacing="pv-m">
+    <Thumbnail
+      image={DatepickerThumbnail}
+      link="./forms/datepicker/usage/"
+      title="Datepicker"
     />
   </Col>
   <Col col="12 s-6 l-4" spacing="pv-m">

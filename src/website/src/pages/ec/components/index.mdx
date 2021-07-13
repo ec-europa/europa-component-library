@@ -8,7 +8,7 @@ import Col from '../../../components/Grid/Col';
 import Row from '../../../components/Grid/Row';
 
 import AccordionThumbnail from './accordion/ec_comp_accordion.svg';
-import BlockquoteThumbnail from './blockquote/ec-comp-blockquotes.svg';
+import BlockquoteThumbnail from './blockquote/ec_comp_blockquotes.svg';
 import ButtonThumbnail from './button/ec_comp_buttons.svg';
 import CardThumbnail from './card/ec_comp_cards.svg';
 import DateBlockThumbnail from './date-block/ec_comp_date_blocks.svg';
@@ -16,11 +16,12 @@ import ExpandableThumbnail from './expandable/ec_comp_expandables.svg';
 import FactFiguresThumbnail from './fact-figures/ec_comp_facts_and_figures.svg';
 import FileThumbnail from './file/ec_comp_file.svg';
 import IconThumbnail from './icon/ec_comp_icons.svg';
+import LabelThumbnail from './label/ec_comp_label.svg';
 import LanguageListThumbnail from './language-list/ec_comp_language_list.svg';
 import ListThumbnail from './list/ec_comp_lists.svg';
 import MessageThumbnail from './message/ec_comp_messages.svg';
-import SMFThumbnail from './social-media-follow/ec_comp_social_follow.svg';
-import SMSThumbnail from './social-media-share/ec_comp_social_share.svg';
+import SMFThumbnail from './social-media-follow/ec_comp_social_media_follow.svg';
+import SMSThumbnail from './social-media-share/ec_comp_social_media_share.svg';
 import TableThumbnail from './table/ec_comp_table.svg';
 import TagThumbnail from './tag/ec_comp_tags.svg';
 import TimelineThumbnail from './timeline/ec_comp_timeline.svg';
@@ -29,6 +30,7 @@ import HeroBannerThumbnail from './banners/hero-banner/ec_comp_hero_banner.svg';
 import PageBannerThumbnail from './banners/page-banner/ec_comp_page_banner.svg';
 
 import CheckboxThumbnail from './forms/checkbox/ec_comp_checkbox.svg';
+import DatepickerThumbnail from './forms/datepicker/ec_comp_date_picker.svg';
 import FileUploadThumbnail from './forms/file-upload/ec_comp_file_upload.svg';
 import RadioThumbnail from './forms/radio/ec_comp_radio.svg';
 import SearchFormThumbnail from './forms/search-form/ec_comp_search.svg';
@@ -40,7 +42,7 @@ import GalleryThumbnail from './media/gallery/ec_comp_gallery.svg';
 import MediaContainerThumbnail from './media/media-container/ec_comp_media_container.svg';
 
 import BreadcrumbThumbnail from './navigation/breadcrumb/ec_comp_breadcrumb.svg';
-import InpageNavigationThumbnail from './navigation/inpage-navigation/ec_comp_inpage-navigation.svg';
+import InpageNavigationThumbnail from './navigation/inpage-navigation/ec_comp_inpage_navigation.svg';
 import LinkThumbnail from './navigation/link/ec_comp_links.svg';
 import MenuThumbnail from './navigation/menu/ec_comp_menu.svg';
 import PaginationThumbnail from './navigation/pagination/ec_comp_pagination.svg';
@@ -88,6 +90,9 @@ Every component is coded to serve a function and designed to solve a specific us
   </Col>
   <Col col="12 s-6 l-4" spacing="pv-m">
     <Thumbnail image={IconThumbnail} link="./icon/usage/" title="Icons" />
+  </Col>
+  <Col col="12 s-6 l-4" spacing="pv-m">
+    <Thumbnail image={LabelThumbnail} link="./label/usage/" title="Labels" />
   </Col>
   <Col col="12 s-6 l-4" spacing="pv-m">
     <Thumbnail image={LanguageListThumbnail} link="./language-list/usage/" title="Language list" />
@@ -158,6 +163,13 @@ Every component is coded to serve a function and designed to solve a specific us
       image={CheckboxThumbnail}
       link="./forms/checkbox/usage/"
       title="Checkbox"
+    />
+  </Col>
+  <Col col="12 s-6 l-4" spacing="pv-m">
+    <Thumbnail
+      image={DatepickerThumbnail}
+      link="./forms/datepicker/usage/"
+      title="Datepicker"
     />
   </Col>
   <Col col="12 s-6 l-4" spacing="pv-m">
