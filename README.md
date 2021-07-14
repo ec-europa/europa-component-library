@@ -8,6 +8,8 @@
 
 ### Twig templates
 
+#### components
+
 @ecl/twig-component-accordion
 @ecl/twig-component-blockquote
 @ecl/twig-component-breadcrumb-core
@@ -57,6 +59,10 @@
 @ecl/twig-component-text-input
 @ecl/twig-component-timeline
 @ecl/twig-component-unordered-list
+
+#### compositions
+
+@ecl/twig-composition-etrans
 
 ### Vanilla components (sass and js)
 
