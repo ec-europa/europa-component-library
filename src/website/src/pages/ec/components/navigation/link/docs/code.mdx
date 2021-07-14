@@ -8,6 +8,8 @@ import {
   linkDefault,
   linkStandalone,
   linkCTA,
+  linkPrimary,
+  linkSecondary,
   linkIcon,
   linkNegative,
 } from '../demo';
@@ -52,6 +54,26 @@ Note: all types of links listed on this page can have icons before or after the 
   selectedStory="cta"
 >
   <Html markup={linkCTA} />
+</Playground>
+
+## Primary link
+
+<Playground
+  system="ec"
+  selectedKind="components-navigation-link"
+  selectedStory="primary"
+>
+  <Html markup={linkPrimary} />
+</Playground>
+
+## Secondary link
+
+<Playground
+  system="ec"
+  selectedKind="components-navigation-link"
+  selectedStory="secondary"
+>
+  <Html markup={linkSecondary} />
 </Playground>
 
 ## Negative link

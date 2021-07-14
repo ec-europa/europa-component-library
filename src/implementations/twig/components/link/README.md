@@ -9,7 +9,7 @@ npm install --save @ecl/twig-component-link
 ### Parameters
 
 - **"link"** (associative array) (default: 'predefined structure below')
-  - "type" (string) (default: '') - type of link. Available types are '', 'standalone' or 'cta'
+  - "type" (string) (default: '') - type of link. Available types are '', 'standalone', 'cta', 'primary', 'secondary'
   - "negative" (boolean) (default: false) - Is the link negative (displayed on dark background) or not
   - "no_visited" (boolean) (default: false) - Prevent color change for visited links
   - "label" (string) (default: '') - Content of link
