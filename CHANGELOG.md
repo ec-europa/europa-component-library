@@ -1,5 +1,42 @@
 # Changelog
 
+## 3.0.0-beta.2 (2021-07-14)
+
+#### :rocket: New Feature
+
+* [#2141](https://github.com/ec-europa/europa-component-library/pull/2141) feat(link): add primary and secondary links - FRONT-2341 ([@emeryro](https://github.com/emeryro))
+* [#2128](https://github.com/ec-europa/europa-component-library/pull/2128) feat(etrans): add etrans composition - FRONT-2336 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+* [#2149](https://github.com/ec-europa/europa-component-library/pull/2149) feat(icons): add icons - FRONT-2435 ([@emeryro](https://github.com/emeryro))
+* [#2146](https://github.com/ec-europa/europa-component-library/pull/2146) feat(website): update components thumbnails - FRONT-2413 ([@emeryro](https://github.com/emeryro))
+* [#2143](https://github.com/ec-europa/europa-component-library/pull/2143) fix(various): small improvements - FRONT-2427 ([@emeryro](https://github.com/emeryro))
+* [#2142](https://github.com/ec-europa/europa-component-library/pull/2142) fix(icons): fix flag icons and add rss - FRONT-2416 ([@emeryro](https://github.com/emeryro))
+* [#2148](https://github.com/ec-europa/europa-component-library/pull/2148) fix(docs-tab): Hidden docs tab - FRONT-2365 ([@tibi2303](https://github.com/tibi2303))
+* [#2139](https://github.com/ec-europa/europa-component-library/pull/2139) feat(typography): update EU typography ([@emeryro](https://github.com/emeryro))
+* [#2135](https://github.com/ec-europa/europa-component-library/pull/2135) fix(timeline): fix deprecated css - FRONT-2355 ([@emeryro](https://github.com/emeryro))
+* [#2130](https://github.com/ec-europa/europa-component-library/pull/2130) feat(style): update background and border - FRONT-2338 ([@emeryro](https://github.com/emeryro))
+* [#2129](https://github.com/ec-europa/europa-component-library/pull/2129) fix(accordion): fix print css conflict - FRONT-2325 ([@emeryro](https://github.com/emeryro))
+
+#### :memo: Documentation
+
+* [#2147](https://github.com/ec-europa/europa-component-library/pull/2147) docs(website): updated ECL documentation - FRONT-2424 ([@emeryro](https://github.com/emeryro))
+* [#2131](https://github.com/ec-europa/europa-component-library/pull/2131) docs(eu-colors) - changed doc of eu colors - FRONT-2257 ([@tibi2303](https://github.com/tibi2303))
+
+#### :house: Internal
+
+* [#2150](https://github.com/ec-europa/europa-component-library/pull/2150) chore(deps): updating storybook and a few other deps ([@planctus](https://github.com/planctus))
+* [#2144](https://github.com/ec-europa/europa-component-library/pull/2144) chore(updates): Safe updates ([@planctus](https://github.com/planctus))
+* [#2140](https://github.com/ec-europa/europa-component-library/pull/2140) chore(deps): green updates, fixing audit ([@planctus](https://github.com/planctus))
+* [#2136](https://github.com/ec-europa/europa-component-library/pull/2136) chore(website): Anatomy images full width ([@planctus](https://github.com/planctus))
+* [#2132](https://github.com/ec-europa/europa-component-library/pull/2132) chore(deps): Storybook 6.3 and other updates ([@planctus](https://github.com/planctus))
+
+#### Committers: 3
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+- [@tibi2303](https://github.com/tibi2303)
+
 ## 3.0.0-beta.1 (2021-06-08)
 
 #### :rocket: New Feature
