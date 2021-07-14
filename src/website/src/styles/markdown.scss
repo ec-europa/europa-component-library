@@ -73,6 +73,17 @@
   }
 }
 
+.details {
+  color: map.get(theme.$color, 'grey-100');
+  font: map.get(theme.$font-prolonged, 'm');
+  margin: 0;
+  padding: 0;
+}
+
+.summary {
+  cursor: pointer;
+}
+
 .img {
   max-width: 100%;
   margin: 0;
@@ -169,6 +180,7 @@
 }
 
 * + .p,
+* + .details,
 * + .img,
 * + .ul,
 * + .ol,
@@ -177,6 +189,7 @@
 }
 
 .h1 + .p,
+.h1 + .details,
 .h1 + .img,
 .h1 + .ul,
 .h1 + .ol,
@@ -185,6 +198,7 @@
 }
 
 .h2 + .p,
+.h2 + .details,
 .h2 + .img,
 .h2 + .ul,
 .h2 + .ol,
