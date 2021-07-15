@@ -8,12 +8,12 @@ The core website minimises the duplication of content across the European Commis
 
 ![anatomy](/cms-images/core-template.png "Core website")
 
-| Components                                                                                                                                                                                                                                          | Mandatory | Optional                                                                                    |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------- |
-| **[Global banner](https://webgate.ec.europa.eu/fpfis/wikis/pages/viewpage.action?spaceKey=webtools&title=Global+banner)**<br />The global banner is the official EU stamp; the content on Europa comes genuinely from the EU                        | yes       | no                                                                                          |
-| **Site header**<br /> The core site header is present on every page. It communicates the European Commission brand and provides basic structure and guidance                                                                                        | yes       | no                                                                                          |
-| **Page header**<br />The page header is composed of several mandatory and optional elements. See core page header page for detailed information                                                                                                     | no        | See [core page header ](/ec/core-template/page-header/usage/)page for detailed information. |
-| **Footer**<br />The core footer is present on every page. It provides supplementary information such as copyright, legal, privacy, social media, contact information and links to other important sections within the European Commission ecosystem | yes       | no                                                                                          |
+| Components                                                                                                                                                                                                                                                                             | Mandatory | Optional |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | -------- |
+| **[Global banner](https://webgate.ec.europa.eu/fpfis/wikis/pages/viewpage.action?spaceKey=webtools&title=Global+banner)**<br />The global banner is the official EU stamp; the content on Europa comes genuinely from the EU                                                           | yes       | no       |
+| **[Site header](/ec/core-template/site-header/usage/)**<br /> The core site header is present on every page. It communicates the European Commission brand and provides basic structure and guidance                                                                                   | yes       | no       |
+| **[Page header](/ec/core-template/page-header/usage/)**<br />The page header is composed of several mandatory and optional elements. See core page header for detailed information                                                                                                     | no        | yes      |
+| **[Footer](/ec/core-template/footer/usage/)**<br />The core footer is present on every page. It provides supplementary information such as copyright, legal, privacy, social media, contact information and links to other important sections within the European Commission ecosystem | yes       | no       |
 
 ## Do's
 
@@ -21,7 +21,7 @@ The core website minimises the duplication of content across the European Commis
 
 ## Don'ts
 
-- do not replace pages only on existing websites as this will create visual inconsistencies, this must be done at a site level
+- do not replace pages within the existing website as this will create visual inconsistencies, this must be done at a site level
 
 ## When to use
 
