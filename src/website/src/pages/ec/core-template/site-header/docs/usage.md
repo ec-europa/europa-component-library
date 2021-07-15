@@ -2,17 +2,17 @@
 title: Usage
 order: 1
 ---
-The core site header communicates the European Commission brand and provides basic structure and guidance. It is placed at the top of every page.
+The core site header communicates the European Commission brand and provides the basic structure and guidance. It is placed at the top of every page.
 
 ## Anatomy
 
 ![](/cms-images/core-site-header.png)
 
-| Components                   | Mandatory | Optional |
-| ---------------------------- | --------- | -------- |
-| **European Commission logo** | yes       | no       |
-| **Language select**          | yes       | no       |
-| **Europa search form**       | yes       | no       |
+| **Components**               | **Mandatory** | **Optional** |
+| ---------------------------- | ------------- | ------------ |
+| **European Commission logo** | yes           | no           |
+| **Language select**          | yes           | no           |
+| **Europa search form**       | yes           | no           |
 
 ## Do's
 
