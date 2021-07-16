@@ -35,17 +35,18 @@ The anatomy image is the default page header
 
 ## Do's
 
-- if choosing a background image, make sure it highlights the main object related to the content, and it is clearly visible
+- ensure the pages contain all the components and elements in the anatomy table above
+- always use a page header when building your internal pages
+- when choosing a background image, make sure it highlights the main object related to the content, and that it is meaningful
 
 ## Don'ts
 
 - don't use more than one page header per page
-- do not choose a background image unless there is a communication need, as it might be a distraction
+- do not use a background image unless there is a communication need, as it might be a distraction
 
 ## When to use
 
-- page header can be used on both landing and content pages
-- to highlight the page topic, or to show important information about the page
+- to highlight the topic of the page, or to show important information about the page
 
 ## When not to use
 
