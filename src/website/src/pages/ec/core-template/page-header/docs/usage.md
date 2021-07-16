@@ -10,12 +10,12 @@ The anatomy image is the default page header
 
 ![](/cms-images/core-page-header.png)
 
-| Components                                                                                                                                                                                                                 | Mandatory | Optional |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | -------- |
-| **Breadcrumb**<br />Breadcrumb component provides information on the page and its relationship to the site's hierarchy and structure.<br />It is optional if your website's navigational structure has less than 3 levels. | no        | yes      |
-| **Meta**                                                                                                                                                                                                                   | no        | yes      |
-| **Page title**                                                                                                                                                                                                             | yes       | no       |
-| **Introduction**                                                                                                                                                                                                           | no        | yes      |
+| **Components**                                                                                                                                                                                                             | **Mandatory** | **Optional** |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ------------ |
+| **Breadcrumb**<br />Breadcrumb component provides information on the page and its relationship to the site's hierarchy and structure.<br />It is optional if your website's navigational structure has less than 3 levels. | no            | yes          |
+| **Meta**                                                                                                                                                                                                                   | no            | yes          |
+| **Page title**                                                                                                                                                                                                             | yes           | no           |
+| **Introduction**                                                                                                                                                                                                           | no            | yes          |
 
 ## Page header with thumbnail
 
@@ -36,18 +36,17 @@ The anatomy image is the default page header
 ## Do's
 
 - ensure the pages contain all the components and elements in the anatomy table above
-- always use a page header when building your page
-- if choosing a background image, make sure it highlights the main object related to the content, and that it is clearly visible
+- always use a page header when building your internal pages
+- when choosing a background image, make sure it highlights the main object related to the content, and that it is meaningful
 
 ## Don'ts
 
 - don't use more than one page header per page
-- do not choose a background image unless there is a communication need, as it might be a distraction
+- do not use a background image unless there is a communication need, as it might be a distraction
 
 ## When to use
 
-- always use a page header when building your page
-- Page header can be used on both landing and content pages
+- always use a page header when building your internal pages
 
 ## When not to use
 
