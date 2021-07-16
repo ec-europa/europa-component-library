@@ -37,7 +37,7 @@ The anatomy image is the default page header
 
 - ensure the pages contain all the components and elements in the anatomy table above
 - always use a page header when building your internal pages
-- when choosing a background image, make sure it highlights the main object related to the content, and that it is meaningful
+- when choosing a background image, make sure it highlights the main object related to the content, and it is meaningful
 
 ## Don'ts
 
@@ -46,8 +46,8 @@ The anatomy image is the default page header
 
 ## When to use
 
-- always use a page header when building your internal pages
+- to highlight the topic of the page, or to show important information about the page
 
 ## When not to use
 
-- do not follow these guidelines when you are updating sites that fall under a different category of the Europa family
+- page header is not used for homepage of the website
