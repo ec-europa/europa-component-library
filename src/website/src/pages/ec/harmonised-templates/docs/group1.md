@@ -29,7 +29,7 @@ content that answers a particular communication purpose, in particular:
 image="https://inno-ecl.s3.amazonaws.com/media/images/EC/HarmonisedTemplate/harmonised-1-template.png"
 alt="Anatomy of the harmonised template - group 1"
 legend={{
-    items: \[
+    items: [
       {
         color: '#404040',
         label: 'mandatory',
