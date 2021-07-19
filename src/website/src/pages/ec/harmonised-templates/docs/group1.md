@@ -2,33 +2,26 @@
 title: Group 1
 order: 1
 ---
-
 import { Paragraph, List, Anatomy, Link } from '@ecl/website-components';
 
 <Paragraph size="lead">
-  On this page you will find information related to the European Commission
-  branded <strong>Harmonised group 1 websites</strong> that host specific
-  content that answers a particular communication purpose, in particular:
+
+**To use the harmonised templates, please see [EC Europa family standardised](/ec/standardised-template/) section for details.**
+
+On this page you will find information related to the European Commission
+branded Harmonised group 1 websites that host specific
+content that answers a particular communication purpose, in particular:
 </Paragraph>
 
-<List size="lead">
-  <li>
-    <strong>Web information systems</strong> - Providing a user-friendly
-    interface to generate, disclose and/or filter large, detailed amounts of
-    data stored in different systems
-  </li>
-  <li>
-    <strong>Network websites</strong> - Websites or platforms set up and managed
-    by the European Commission (as a service provider) to encourage and
-    facilitate interaction among a specific, non European Commission target
-    audience
-  </li>
-  <li>
-    <strong>Internal policy websites</strong> - Providing information on
-    internal working methods of the EU institutions, standards and guidelines.
-    Resources for institutions’ employees, partners and service providers
-  </li>
-</List>
+- **Web information systems** : Providing a user-friendly
+  interface to generate, disclose and/or filter large, detailed amounts of data stored in different systems
+- **Network websites** : Websites or platforms set up and managed
+  by the European Commission (as a service provider) to encourage and
+  facilitate interaction among a specific, non European Commission target
+  audience
+- **Internal policy websites** : Providing information on
+  internal working methods of the EU institutions, standards and guidelines.
+  Resources for institutions’ employees, partners and service providers
 
 ## Anatomy
 
@@ -36,7 +29,7 @@ import { Paragraph, List, Anatomy, Link } from '@ecl/website-components';
 image="https://inno-ecl.s3.amazonaws.com/media/images/EC/HarmonisedTemplate/harmonised-1-template.png"
 alt="Anatomy of the harmonised template - group 1"
 legend={{
-    items: [
+    items: \[
       {
         color: '#404040',
         label: 'mandatory',
