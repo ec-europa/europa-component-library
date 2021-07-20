@@ -51,9 +51,22 @@ Change impact have been grouped as :
 :warning: major change (potentially breaking), generally affecting the markup
 :heavy_check_mark: minor change
 
-#### Layout updates
+#### Naming updates
 
-:boom: Grid utility classes have been updated, to preserve consistency across the project:
+:boom: All utility classes based on breakpoints have been updated, to preserve consistency across the project:
+
+- `sm` has become `s`
+- `md` has become `m`
+- `lg` has become `l`
+
+Examples:
+
+- `.ecl-u-d-md-none` => `.ecl-u-d-m-none` (display utilities)
+- `.ecl-u-mt-sm-xl` => `.ecl-u-mt-s-xl` (spacing utilities)
+- `.ecl-u-border-lg-bottom` => `.ecl-u-border-l-bottom` (border utilities)
+- ...
+
+This is also true for the grid classes:
 
 - `.ecl-col-sm` => `.ecl-col-s`
 - `.ecl-col-md` => `.ecl-col-m`
