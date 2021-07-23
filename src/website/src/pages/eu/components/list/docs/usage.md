@@ -53,17 +53,18 @@ Unordered lists are used to group related content without any particular order, 
 
 # Description lists
 
-Description lists are used to display and organise content that belongs to a category with a descriptions. Common use cases include glossary type lists or a list of speakers with their biographies.
+Description lists are used to display and organise content with a descriptions. Common use cases include glossary, or a list of speakers with their biographies. There are 3 types of description lists depending on user's need. See [playground](/playground/eu/?path=/story/components-list-description-list--vertical) for the examples.
+
+1. label with description below it
+2. label with description aligned to the right of the label instead of below the label; horizontal layout
+3. label with taxonomy
 
 ## Do's
 
-- label each item with a short, distinct and indicative title
-- choose the appropriate category in terms of relevance and added value to the users
-- group related fields according to their type
+- keep label short and meaningful
 - order logically according to their hierarchy, significance and degree of relatedness
-- indicate the external links, if linking to any pages external to the European Commission
-- avoid using more than one or two short sentences
-- try to use labels that are relatively consistent in characters & width, as users get fatigued when scanning unequal lengths of text
+- avoid using long sentences
+- try to use labels that are relatively consistent in characters & width
 - add a meaningful description or explanation of each term
 
 ## Don'ts
@@ -74,10 +75,9 @@ Description lists are used to display and organise content that belongs to a cat
 ## When to use
 
 - use a description list when the terms in the list require a specific description or explanation
-- on content pages to add additional information (such as latest update on the content of a page) or link to pages of interest
+- on content pages to add additional information(such as latest update on the content of a page) or link to pages of interest
 
 ## When not to use
 
 - do not use it for navigation purpose
 - do not use it when items can be ranked, counted or sequenced
-- do not use it when all items have equal value or importance
