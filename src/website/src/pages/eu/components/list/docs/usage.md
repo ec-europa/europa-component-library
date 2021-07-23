@@ -53,7 +53,7 @@ Unordered lists are used to group related content without any particular order, 
 
 # Description lists
 
-Description lists are used to display and organise content with a descriptions. Common use cases include glossary, or a list of speakers with their biographies. There are 3 types of description lists depending on user's need. See [playground](/eu/?path=/story/components-list-description-list--horizontal) for the examples.
+Description lists are used to display and organise content with a descriptions. Common use cases include glossary, or a list of speakers with their biographies. There are 3 types of description lists depending on user's need. See [playground](/playground/eu/?path=/story/components-list-description-list--vertical) for the examples.
 
 1. label with description below it
 2. label with description aligned to the right of the label instead of below the label; horizontal layout
