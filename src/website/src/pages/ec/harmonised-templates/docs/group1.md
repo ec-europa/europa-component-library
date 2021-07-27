@@ -2,6 +2,7 @@
 title: Group 1
 order: 1
 ---
+
 import { Paragraph, List, Anatomy, Link } from '@ecl/website-components';
 
 <Paragraph size="lead">
