@@ -62,6 +62,7 @@ $_current-border-width: null !default;
   color: $_current-text-color;
   display: flex;
   font-weight: map-get(theme.$font-weight, 'bold');
+  position: relative;
 }
 
 .ecl-pagination__text--summary {
@@ -113,9 +114,10 @@ $_current-border-width: null !default;
     height: calc(
       #{map.get(theme.$line-height-prolonged, 'm')} + (2 * #{$_current-border-width})
     );
-    left: calc(50% - #{$_current-border-width});
+    left: 50%;
     position: absolute;
-    top: 0;
+    top: 50%;
+    transform: translate(-50%, -50%);
     width: calc(
       #{map.get(theme.$line-height-prolonged, 'm')} + (2 * #{$_current-border-width})
     );
