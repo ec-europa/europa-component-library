@@ -63,6 +63,9 @@
       const observer = new MutationObserver(callback);
       const config = { childList: true, subtree: false };
       observer.observe(document.getElementById('root'), config);
+
+      // Add ecl class to body, to ensure that default css is working well
+      document.body.classList.add('ecl');
     },
     false
   );
