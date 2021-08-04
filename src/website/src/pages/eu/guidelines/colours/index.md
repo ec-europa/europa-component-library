@@ -26,20 +26,24 @@ The **primary colour palette** is comprised of blues, yellows and greys. These c
   <ColorPalette tokens={tokens} category="color.variations.3" />
 </ColorLayout>
 
-## Secondary colours
+## Notification colours
 
 The secondary colour palette is mainly used for notification colours. The secondary colours should make up 20% or less of the colour in the layout and should be used sparingly to highlight important information and calls to action.
+
+<ColorLayout cols="12 m-3">
+  <ColorCard tokens={tokens} name="COLOR_BLUE" />
+  <ColorCard tokens={tokens} name="COLOR_ORANGE" />
+  <ColorCard tokens={tokens} name="COLOR_GREEN" />
+  <ColorCard tokens={tokens} name="COLOR_RED" />
+</ColorLayout>
+
+## Secondary colours
+
+### Accent colours
 
 <ColorLayout>
   <ColorCard tokens={tokens} name="COLOR_ACCENT_BLUE_100" />
   <ColorCard tokens={tokens} name="COLOR_ACCENT_BLUE_30" />
-</ColorLayout>
-
-<ColorLayout cols="12 m-3">
-  <ColorCard tokens={tokens} name="COLOR_RED" />
-  <ColorCard tokens={tokens} name="COLOR_ORANGE" />
-  <ColorCard tokens={tokens} name="COLOR_GREEN" />
-  <ColorCard tokens={tokens} name="COLOR_PURPLE" />
 </ColorLayout>
 
 ### Tint and shade
@@ -53,7 +57,7 @@ The secondary colour palette is mainly used for notification colours. The second
 
 ## Background colour
 
-White is the background colour of the EC-website.
+White is the background colour of the EU-website.
 
 <ColorLayout>
   <ColorCard tokens={tokens} name="COLOR_WHITE_100" />
