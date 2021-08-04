@@ -36,6 +36,7 @@
     // Manually inject styles
     var head = document.head || document.getElementsByTagName('head')[0];
     head.appendChild(createLink('./styles/ecl-reset.css', 'screen'));
+    head.appendChild(createLink('./styles/ecl-ec-default.css', 'screen'));
     head.appendChild(createLink('./styles/ecl-ec.css', 'screen'));
     head.appendChild(createLink('./styles/ecl-ec-print.css', 'print'));
   }
