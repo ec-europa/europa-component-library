@@ -21,18 +21,6 @@ addParameters({
   },
   cssresources: [
     {
-      id: 'ecl-eu',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-eu.css" />`,
-      picked: true,
-      hideCode: true,
-    },
-    {
-      id: 'ecl-eu-print',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-eu-print.css" />`,
-      picked: false,
-      hideCode: true,
-    },
-    {
       id: 'reset',
       code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-reset.css" />`,
       picked: true,
@@ -41,6 +29,18 @@ addParameters({
     {
       id: 'ecl-eu-default',
       code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-eu-default.css" />`,
+      picked: true,
+      hideCode: true,
+    },
+    {
+      id: 'ecl-eu',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-eu.css" />`,
+      picked: true,
+      hideCode: true,
+    },
+    {
+      id: 'ecl-eu-print',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-eu-print.css" />`,
       picked: false,
       hideCode: true,
     },

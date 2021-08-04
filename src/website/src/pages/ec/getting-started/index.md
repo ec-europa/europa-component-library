@@ -82,7 +82,8 @@ Here is an example of default HTML file using ECL:
 
 ### Optional styles
 
-There are several optional CSS files, located in `ec/styles/optional`, which can be included in your site on not, depending on the needs: 
+There are several optional CSS files, located in `ec/styles/optional`, which can be included in your site on not, depending on the needs.  
+**These optional CSS have to be called before the main ECL CSS**
 
 - `ecl-reset.css`: contains some css reset rules, mostly based on normalize.css, with a few custom additions
 - `ecl-ec-default.css`: apply ECL styling to some default HTML tags (links, buttons, table, ...). Note that this file is meant to be used in specific cases, the recommanded way to use ECL is still to add corresponding classes to HTML elements
