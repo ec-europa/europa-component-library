@@ -1,12 +1,13 @@
 @use "sass:map";
 @use '@ecl/theme-dev/theme';
+//stylelint-disable length-zero-no-unit
 @use 'card' with (
   $_border-radius: 8px,
   $_shadow: 0 0 6px rgba(9, 49, 142, 0.2),
   $_card-background: map.get(theme.$color, 'white'),
   $_card-border: 0,
   $_general-spacing: map.get(theme.$spacing, 'l'),
-  $_image-margin: 0,
+  $_image-margin: 0px, // unit has to be set, to be used in calc
   $_body-padding-top: map.get(theme.$spacing, 'l'),
   $_body-padding-bottom: map.get(theme.$spacing, 'l'),
   $_meta-color: map.get(theme.$color, 'grey-140'),
