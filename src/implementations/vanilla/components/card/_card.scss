@@ -56,7 +56,7 @@ $_list-padding: null !default;
   margin-left: $_image-margin;
   margin-right: $_image-margin;
   margin-top: $_image-margin;
-  width: 100%;
+  width: calc(100% - (2 * #{$_image-margin}));
 
   // manage ratio 3:2
   &::before {
