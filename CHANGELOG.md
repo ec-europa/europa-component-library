@@ -1,5 +1,21 @@
 # Changelog
 
+## 2.39.0 (2021-08-12)
+
+#### :nail_care: Enhancement
+
+- [#2121](https://github.com/ec-europa/europa-component-library/pull/2121) feat(select-multiple): ECL v2 - dispatching change event on user selection - FRONT-2268 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#2145](https://github.com/ec-europa/europa-component-library/pull/2145) chore(deps): Safe updates - v2 ([@planctus](https://github.com/planctus))
+- [#2133](https://github.com/ec-europa/europa-component-library/pull/2133) chore(deps): Storybook 6.3, other updates ([@planctus](https://github.com/planctus))
+- [#2112](https://github.com/ec-europa/europa-component-library/pull/2112) chore(ci): Updating pipeline, publishing zip files, removing deployment ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
 ## 2.38.0 (2021-05-05)
 
 #### :rocket: New Feature
