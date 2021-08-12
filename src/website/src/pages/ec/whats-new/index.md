@@ -7,6 +7,11 @@ Detailed release information is available on [Github](https://github.com/ec-euro
 
 ## 2.39.0 (2021-08-12)
 
+#### :bug: Bug Fix
+
+- [#2066](https://github.com/ec-europa/europa-component-library/pull/2066) fix(gallery): update gallery z-index (ECL2) - FRONT-2230
+- [#2092](https://github.com/ec-europa/europa-component-library/pull/2092) fix(gallery): Pause video on overlay closing - FRONT-2273
+
 #### :nail_care: Enhancement
 
 - [#2121](https://github.com/ec-europa/europa-component-library/pull/2121) feat(select-multiple): ECL v2 - dispatching change event on user selection - FRONT-2268 ([@planctus](https://github.com/planctus))
