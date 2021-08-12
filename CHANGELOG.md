@@ -1,5 +1,28 @@
 # Changelog
 
+## 3.0.0 (2021-08-12)
+
+#### :bug: Bug Fix
+
+* [#2172](https://github.com/ec-europa/europa-component-library/pull/2172) fix(cards): fix center display - FRONT-2708 ([@emeryro](https://github.com/emeryro))
+* [#2170](https://github.com/ec-europa/europa-component-library/pull/2170) fix(storybook): fixed css order - FRONT-2710 ([@emeryro](https://github.com/emeryro))
+* [#2167](https://github.com/ec-europa/europa-component-library/pull/2167) fix(pagination): fixed pagination current selection- FRONT-2698 ([@emeryro](https://github.com/emeryro))
+
+#### :memo: Documentation
+
+* [#2168](https://github.com/ec-europa/europa-component-library/pull/2168) docs(colours): udpate EU colours doc - FRONT-2464 ([@emeryro](https://github.com/emeryro))
+* [#2159](https://github.com/ec-europa/europa-component-library/pull/2159) docs(migration): update ECL3 documentation - FRONT-2425 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+* [#2171](https://github.com/ec-europa/europa-component-library/pull/2171) chore(deps): Fixing audit issue ([@planctus](https://github.com/planctus))
+* [#2169](https://github.com/ec-europa/europa-component-library/pull/2169) chore(deps):  Updates 02-08-21 ([@planctus](https://github.com/planctus))
+
+#### Committers: 3
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
+
 ## 3.0.0-beta.2 (2021-07-14)
 
 #### :rocket: New Feature
