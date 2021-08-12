@@ -5,6 +5,23 @@ title: What's new
 
 Detailed release information is available on [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 2.39.0 (2021-08-12)
+
+#### :bug: Bug Fix
+
+- [#2066](https://github.com/ec-europa/europa-component-library/pull/2066) fix(gallery): update gallery z-index (ECL2) - FRONT-2230
+- [#2092](https://github.com/ec-europa/europa-component-library/pull/2092) fix(gallery): Pause video on overlay closing - FRONT-2273
+
+#### :nail_care: Enhancement
+
+- [#2121](https://github.com/ec-europa/europa-component-library/pull/2121) feat(select-multiple): ECL v2 - dispatching change event on user selection - FRONT-2268 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#2145](https://github.com/ec-europa/europa-component-library/pull/2145) chore(deps): Safe updates - v2 ([@planctus](https://github.com/planctus))
+- [#2133](https://github.com/ec-europa/europa-component-library/pull/2133) chore(deps): Storybook 6.3, other updates ([@planctus](https://github.com/planctus))
+- [#2112](https://github.com/ec-europa/europa-component-library/pull/2112) chore(ci): Updating pipeline, publishing zip files, removing deployment ([@planctus](https://github.com/planctus))
+
 ## 2.38.0 (2021-05-05)
 
 #### :rocket: New Feature
