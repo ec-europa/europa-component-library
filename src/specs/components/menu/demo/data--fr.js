@@ -20,19 +20,10 @@ module.exports = {
         { label: 'Item 2.5', path: '/example' },
         { label: 'Item 2.6', path: '/example' },
         { label: 'Item 2.7', path: '/example' },
-        { label: 'Item 2.8', path: '/example' },
-        { label: 'Item 2.9', path: '/example' },
-        { label: 'Item 2.10', path: '/example' },
-        { label: 'Item 2.11', path: '/example' },
-        { label: 'Item 2.12', path: '/example' },
-        { label: 'Item 2.13', path: '/example' },
-        { label: 'Item 2.14', path: '/example' },
-        { label: 'Item 2.15', path: '/example' },
-        { label: 'Item 2.16', path: '/example' },
       ],
     },
     {
-      label: 'Item 3 titre',
+      label: 'Item 3 avec un très long titre',
       path: '/example',
       children: [
         { label: 'Item 3.1', path: '/example' },
@@ -71,9 +62,6 @@ module.exports = {
         { label: 'Item 5.2', path: '/example' },
         { label: 'Item 5.3', path: '/example' },
         { label: 'Item 5.4', path: '/example' },
-        { label: 'Item 5.5', path: '/example' },
-        { label: 'Item 5.6', path: '/example' },
-        { label: 'Item 5.7', path: '/example' },
       ],
     },
     {
@@ -99,7 +87,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Item 7 avec un long titre',
+      label: 'Item 7 titre',
       path: '/example',
       children: [
         { label: 'Item 7.1', path: '/example' },
