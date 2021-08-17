@@ -3,6 +3,9 @@ import { IconButton, Separator } from '@storybook/components';
 import getSystem from '@ecl/builder/utils/getSystem';
 
 const Switcher = () => {
+  const fullUrl = window.location.href.split('?')[0];
+  const playgroundPos = fullUrl.indexOf('/playground');
+  const beforePlayground = fullUrl.substring(0, playgroundPos);
   const queryString = window.location.search;
   const system = getSystem();
   const isEc = system === 'ec';
@@ -24,7 +27,7 @@ const Switcher = () => {
               fontWeight: 'bold',
               textDecoration: 'none',
             }}
-            href={`/playground/ec${queryString}`}
+            href={`${beforePlayground}/playground/ec${queryString}`}
           >
             <span>EC</span>
           </a>
@@ -45,7 +48,7 @@ const Switcher = () => {
               fontWeight: 'bold',
               textDecoration: 'none',
             }}
-            href={`/playground/eu${queryString}`}
+            href={`${beforePlayground}/playground/eu${queryString}`}
           >
             <span>EU</span>
           </a>
