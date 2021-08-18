@@ -9,4 +9,5 @@ module.exports = {
   },
   background_image_url:
     'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+  overlay: 'none',
 };
