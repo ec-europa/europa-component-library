@@ -1,6 +1,5 @@
 import React from 'react';
 import classnames from 'classnames';
-import { storiesOf } from '@storybook/react';
 import { withKnobs, select } from '@storybook/addon-knobs';
 
 const styleLine = {
@@ -96,95 +95,100 @@ const MediaBg = (bgPosition, bgOrigin, bgRepeat, bgSize) => (
   />
 );
 
-storiesOf('Utilities/Media', module)
-  .addDecorator(withKnobs)
-  .add('custom', () => {
-    const direction = select(
-      'Size direction',
-      {
-        All: 'a',
-        Horizontal: 'h',
-        Vertical: 'v',
-      },
-      'a'
-    );
+export default {
+  title: 'Utilities/Media',
+  decorators: [withKnobs],
+};
 
-    const size = select(
-      'Size',
-      {
-        S: 's',
-        M: 'm',
-      },
-      'm'
-    );
+export const Custom = () => {
+  const direction = select(
+    'Size direction',
+    {
+      All: 'a',
+      Horizontal: 'h',
+      Vertical: 'v',
+    },
+    'a'
+  );
 
-    const ratio = select(
-      'Ratio',
-      {
-        '16-9': '16-9',
-        '4-3': '4-3',
-        '3-2': '3-2',
-        '1-1': '1-1',
-      },
-      '16-9'
-    );
+  const size = select(
+    'Size',
+    {
+      S: 's',
+      M: 'm',
+    },
+    'm'
+  );
 
-    const bgPosition = select(
-      'Background position',
-      {
-        Initial: 'ecl-u-media-bg-position-initial',
-        Top: 'ecl-u-media-bg-position-top',
-        Bottom: 'ecl-u-media-bg-position-bottom',
-        Left: 'ecl-u-media-bg-position-left',
-        Right: 'ecl-u-media-bg-position-right',
-        Center: 'ecl-u-media-bg-position-center',
-      },
-      'ecl-u-media-bg-position-initial'
-    );
+  const ratio = select(
+    'Ratio',
+    {
+      '16-9': '16-9',
+      '4-3': '4-3',
+      '3-2': '3-2',
+      '1-1': '1-1',
+    },
+    '16-9'
+  );
 
-    const bgOrigin = select(
-      'Background origin',
-      {
-        Padding: 'ecl-u-media-bg-origin-padding',
-        Border: 'ecl-u-media-bg-origin-border',
-        Content: 'ecl-u-media-bg-origin-content',
-      },
-      'ecl-u-media-bg-origin-padding'
-    );
+  const bgPosition = select(
+    'Background position',
+    {
+      Initial: 'ecl-u-media-bg-position-initial',
+      Top: 'ecl-u-media-bg-position-top',
+      Bottom: 'ecl-u-media-bg-position-bottom',
+      Left: 'ecl-u-media-bg-position-left',
+      Right: 'ecl-u-media-bg-position-right',
+      Center: 'ecl-u-media-bg-position-center',
+    },
+    'ecl-u-media-bg-position-initial'
+  );
 
-    const bgRepeat = select(
-      'Background repeat',
-      {
-        'No repeat': 'ecl-u-media-bg-repeat-none',
-        Repeat: 'ecl-u-media-bg-repeat-all',
-        'Repeat-x': 'ecl-u-media-bg-repeat-x',
-        'Repeat-y': 'ecl-u-media-bg-repeat-y',
-      },
-      'ecl-u-media-bg-repeat-none'
-    );
+  const bgOrigin = select(
+    'Background origin',
+    {
+      Padding: 'ecl-u-media-bg-origin-padding',
+      Border: 'ecl-u-media-bg-origin-border',
+      Content: 'ecl-u-media-bg-origin-content',
+    },
+    'ecl-u-media-bg-origin-padding'
+  );
 
-    const bgSize = select(
-      'Background size',
-      {
-        Contain: 'ecl-u-media-bg-size-contain',
-        Cover: 'ecl-u-media-bg-size-cover',
-        Auto: 'ecl-u-media-bg-size-auto',
-      },
-      'ecl-u-media-bg-size-contain'
-    );
+  const bgRepeat = select(
+    'Background repeat',
+    {
+      'No repeat': 'ecl-u-media-bg-repeat-none',
+      Repeat: 'ecl-u-media-bg-repeat-all',
+      'Repeat-x': 'ecl-u-media-bg-repeat-x',
+      'Repeat-y': 'ecl-u-media-bg-repeat-y',
+    },
+    'ecl-u-media-bg-repeat-none'
+  );
 
-    return (
-      <>
-        <h2 className="ecl-u-type-heading-2">Media sizes</h2>
-        {Media(direction, size)}
+  const bgSize = select(
+    'Background size',
+    {
+      Contain: 'ecl-u-media-bg-size-contain',
+      Cover: 'ecl-u-media-bg-size-cover',
+      Auto: 'ecl-u-media-bg-size-auto',
+    },
+    'ecl-u-media-bg-size-contain'
+  );
 
-        <h2 className="ecl-u-type-heading-2">
-          Media ratio (only with horizontal size)
-        </h2>
-        {MediaRatio('h', size, ratio)}
+  return (
+    <>
+      <h2 className="ecl-u-type-heading-2">Media sizes</h2>
+      {Media(direction, size)}
 
-        <h2 className="ecl-u-type-heading-2">Background media</h2>
-        {MediaBg(bgPosition, bgOrigin, bgRepeat, bgSize)}
-      </>
-    );
-  });
+      <h2 className="ecl-u-type-heading-2">
+        Media ratio (only with horizontal size)
+      </h2>
+      {MediaRatio('h', size, ratio)}
+
+      <h2 className="ecl-u-type-heading-2">Background media</h2>
+      {MediaBg(bgPosition, bgOrigin, bgRepeat, bgSize)}
+    </>
+  );
+};
+
+Custom.storyName = 'custom';

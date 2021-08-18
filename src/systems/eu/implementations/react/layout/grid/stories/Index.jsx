@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 
 import Example234612 from '../examples/234612';
@@ -54,58 +53,79 @@ const Background = () => (
   </div>
 );
 
-storiesOf('Layout/Grid', module)
-  .addParameters({
+export default {
+  title: 'Layout/Grid',
+  decorators: [withKnobs],
+
+  parameters: {
     viewport: {
       defaultViewport: 'responsive',
     },
-  })
-  .addDecorator(withKnobs)
-  .add('2-3-4-6-12', () => {
-    return (
-      <Demo>
-        <Background />
-        <Example234612 />
-      </Demo>
-    );
-  })
-  .add('6-4-2', () => {
-    return (
-      <Demo>
-        <Background />
-        <Example642 />
-      </Demo>
-    );
-  })
-  .add('2-8-2', () => {
-    return (
-      <Demo>
-        <Background />
-        <Example282 />
-      </Demo>
-    );
-  })
-  .add('3-3-6', () => {
-    return (
-      <Demo>
-        <Background />
-        <Example336 />
-      </Demo>
-    );
-  })
-  .add('offset', () => {
-    return (
-      <Demo>
-        <Background />
-        <Offset />
-      </Demo>
-    );
-  })
-  .add('responsive', () => {
-    return (
-      <Demo>
-        <Background />
-        <Responsive />
-      </Demo>
-    );
-  });
+  },
+};
+
+export const _234612 = () => {
+  return (
+    <Demo>
+      <Background />
+      <Example234612 />
+    </Demo>
+  );
+};
+
+_234612.storyName = '2-3-4-6-12';
+
+export const _642 = () => {
+  return (
+    <Demo>
+      <Background />
+      <Example642 />
+    </Demo>
+  );
+};
+
+_642.storyName = '6-4-2';
+
+export const _282 = () => {
+  return (
+    <Demo>
+      <Background />
+      <Example282 />
+    </Demo>
+  );
+};
+
+_282.storyName = '2-8-2';
+
+export const _336 = () => {
+  return (
+    <Demo>
+      <Background />
+      <Example336 />
+    </Demo>
+  );
+};
+
+_336.storyName = '3-3-6';
+
+export const _Offset = () => {
+  return (
+    <Demo>
+      <Background />
+      <Offset />
+    </Demo>
+  );
+};
+
+_Offset.storyName = 'offset';
+
+export const _Responsive = () => {
+  return (
+    <Demo>
+      <Background />
+      <Responsive />
+    </Demo>
+  );
+};
+
+_Responsive.storyName = 'responsive';
