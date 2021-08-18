@@ -1,25 +1,30 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import StoryWrapper from '@ecl/story-wrapper';
 
 import EventAgendaPageExample from '../examples/Default';
 
-storiesOf('Templates/Pages', module)
-  .addDecorator((story) => (
-    <StoryWrapper
-      afterMount={() => {
-        if (!window.ECL) return {};
+export default {
+  title: 'Templates/Pages/Event agenda',
+  decorators: [
+    (story) => (
+      <StoryWrapper
+        afterMount={() => {
+          if (!window.ECL) return {};
 
-        const components = window.ECL.autoInit();
-        return { components };
-      }}
-      beforeUnmount={(context) => {
-        if (context.components) {
-          context.components.forEach((c) => c.destroy());
-        }
-      }}
-    >
-      {story()}
-    </StoryWrapper>
-  ))
-  .add('Event agenda', EventAgendaPageExample);
+          const autoinit = window.ECL.autoInit();
+          return { components: autoinit.components };
+        }}
+        beforeUnmount={(context) => {
+          if (context.components) {
+            context.components.forEach((c) => c.destroy());
+          }
+        }}
+      >
+        {story()}
+      </StoryWrapper>
+    ),
+  ],
+};
+
+export const EventAgenda = () => <EventAgendaPageExample />;
+EventAgenda.storyName = 'Event agenda';
