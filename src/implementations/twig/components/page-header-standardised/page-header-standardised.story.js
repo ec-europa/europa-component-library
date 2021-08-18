@@ -96,10 +96,11 @@ const getArgTypes = (data) => {
     argTypes.overlay = {
       name: 'image overlay',
       type: 'select',
-      defaultValue: data.overlay,
+      defaultValue: 'none',
       description: 'Overlay on top on background image',
       table: {
         type: { summary: 'string' },
+        defaultValue: { summary: '' },
         category: 'Content',
       },
       control: {

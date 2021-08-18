@@ -100,6 +100,7 @@ const getArgTypes = (data) => {
       description: 'Overlay on top on background image',
       table: {
         type: { summary: 'string' },
+        defaultValue: { summary: '' },
         category: 'Content',
       },
       control: {
