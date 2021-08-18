@@ -14,7 +14,7 @@ import demoEventsDescriptionContent from '@ecl/eu-specs-page-header/demo/data--e
 import PageHeader from '../src/PageHeader';
 
 export default {
-  title: 'Page Structure/PageHeader',
+  title: 'Page Structure/Page header',
   decorators: [withKnobs],
 };
 
