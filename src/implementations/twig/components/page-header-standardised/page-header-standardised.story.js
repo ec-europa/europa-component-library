@@ -15,9 +15,6 @@ const system = getSystem();
 
 const dataDefault = { ...demoContent };
 const dataBackgroundImage = { ...demoBackgroundImage };
-if (system === 'eu') {
-  delete dataBackgroundImage.overlay;
-}
 
 const getArgTypes = (data) => {
   const argTypes = {};
@@ -95,6 +92,22 @@ const getArgTypes = (data) => {
         category: 'Content',
       },
     };
+
+    argTypes.overlay = {
+      name: 'image overlay',
+      type: 'select',
+      defaultValue: 'none',
+      description: 'Overlay on top on background image',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+      control: {
+        type: 'select',
+        options: ['none', 'dark', 'light'],
+      },
+    };
   }
 
   return argTypes;
@@ -122,6 +135,12 @@ const prepareData = (data, args) => {
   data.description = args.description;
   data.meta = args.meta;
   data.background_image_url = args.background_image_url;
+
+  if (args.overlay === 'none') {
+    delete data.overlay;
+  } else {
+    data.overlay = args.overlay;
+  }
 
   correctSvgPath(data);
 
