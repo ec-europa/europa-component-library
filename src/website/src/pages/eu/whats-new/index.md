@@ -5,6 +5,21 @@ title: What's new
 
 Detailed release information is available on [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 3.0.1 (2021-08-20)
+
+#### :bug: Bug Fix
+
+* [#2175](https://github.com/ec-europa/europa-component-library/pull/2175) fix(playground): Fixing optional css loading in EC and EU - FRONT-2792
+* [#2176](https://github.com/ec-europa/europa-component-library/pull/2176) fix(storybook): Fixing switcher link urls to work also in production - FRONT-2791
+
+#### :nail_care: Enhancement
+
+* [#2180](https://github.com/ec-europa/europa-component-library/pull/2180) feat(page-header): add overlay for background image - FRONT-2886
+
+#### :house: Internal
+
+* [#2178](https://github.com/ec-europa/europa-component-library/pull/2178) chore(deps): Updates 17-08-21
+
 ## 3.0.0 (2021-08-12)
 
 #### Full new branding look & feel for EU site. ECL components now have a specific EU look & feel version:
