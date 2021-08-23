@@ -2,6 +2,7 @@
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
+$_text-color: null !default;
 $_heading1: null !default;
 $_heading2: null !default;
 $_heading3: null !default;
@@ -14,67 +15,73 @@ $_heading6: null !default;
 */
 .ecl-u-type-heading-1,
 %ecl-heading-1 {
+  color: $_text-color;
   font: map.get($_heading1, 'mobile') !important;
-  font-weight: map.get(theme.$font-weight, 'bold') !important;
+  font-weight: map.get($_heading1, 'font-weight') !important;
 
   @include breakpoints.up('m') {
     font: map.get($_heading1, 'desktop') !important;
-    font-weight: map.get(theme.$font-weight, 'bold') !important;
+    font-weight: map.get($_heading1, 'font-weight') !important;
   }
 }
 
 .ecl-u-type-heading-2,
 %ecl-heading-2 {
+  color: $_text-color;
   font: map.get($_heading2, 'mobile') !important;
-  font-weight: map.get(theme.$font-weight, 'bold') !important;
+  font-weight: map.get($_heading2, 'font-weight') !important;
 
   @include breakpoints.up('m') {
     font: map.get($_heading2, 'desktop') !important;
-    font-weight: map.get(theme.$font-weight, 'bold') !important;
+    font-weight: map.get($_heading2, 'font-weight') !important;
   }
 }
 
 .ecl-u-type-heading-3,
 %ecl-heading-3 {
+  color: $_text-color;
   font: map.get($_heading3, 'mobile') !important;
-  font-weight: map.get(theme.$font-weight, 'bold') !important;
+  font-weight: map.get($_heading3, 'font-weight') !important;
 
   @include breakpoints.up('m') {
     font: map.get($_heading3, 'desktop') !important;
-    font-weight: map.get(theme.$font-weight, 'bold') !important;
+    font-weight: map.get($_heading3, 'font-weight') !important;
   }
 }
 
 .ecl-u-type-heading-4,
 %ecl-heading-4 {
+  color: $_text-color;
   font: map.get($_heading4, 'mobile') !important;
-  font-weight: map.get(theme.$font-weight, 'bold') !important;
+  font-weight: map.get($_heading4, 'font-weight') !important;
 
   @include breakpoints.up('m') {
     font: map.get($_heading4, 'desktop') !important;
-    font-weight: map.get(theme.$font-weight, 'bold') !important;
+    font-weight: map.get($_heading4, 'font-weight') !important;
   }
 }
 
 .ecl-u-type-heading-5,
 %ecl-heading-5 {
+  color: $_text-color;
   font: map.get($_heading5, 'mobile') !important;
-  font-weight: map.get(theme.$font-weight, 'bold') !important;
+  font-weight: map.get($_heading5, 'font-weight') !important;
 
   @include breakpoints.up('m') {
     font: map.get($_heading5, 'desktop') !important;
-    font-weight: map.get(theme.$font-weight, 'bold') !important;
+    font-weight: map.get($_heading5, 'font-weight') !important;
   }
 }
 
 .ecl-u-type-heading-6,
 %ecl-heading-6 {
+  color: $_text-color;
   font: map.get($_heading6, 'mobile') !important;
-  font-weight: map.get(theme.$font-weight, 'bold') !important;
+  font-weight: map.get($_heading6, 'font-weight') !important;
 
   @include breakpoints.up('m') {
     font: map.get($_heading6, 'desktop') !important;
-    font-weight: map.get(theme.$font-weight, 'bold') !important;
+    font-weight: map.get($_heading6, 'font-weight') !important;
   }
 }
 
@@ -84,11 +91,13 @@ $_heading6: null !default;
 .ecl-u-type-paragraph,
 .ecl-u-type-paragraph-m,
 %ecl-paragraph {
+  color: $_text-color;
   font: map.get(theme.$font-prolonged, 'm') !important;
   max-width: 80ch !important;
 }
 
 .ecl-u-type-paragraph-lead {
+  color: $_text-color;
   font: map.get(theme.$font-prolonged, 'l') !important;
   max-width: 80ch !important;
 
@@ -98,11 +107,13 @@ $_heading6: null !default;
 }
 
 .ecl-u-type-paragraph-s {
+  color: $_text-color;
   font: map.get(theme.$font-prolonged, 's') !important;
   max-width: 80ch !important;
 }
 
 .ecl-u-type-paragraph-xs {
+  color: $_text-color;
   font: map.get(theme.$font-prolonged, 'xs') !important;
   max-width: 80ch !important;
 }

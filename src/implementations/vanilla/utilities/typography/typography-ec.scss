@@ -1,28 +1,35 @@
 @use "sass:map";
 @use '@ecl/theme-dev/theme';
 @use 'typography' with (
+  $_text-color: map.get(theme.$color, 'grey-100'),
   $_heading1: (
     'mobile': map.get(theme.$font, '3xl'),
     'desktop': map.get(theme.$font, '4xl'),
+    'font-weight': map.get(theme.$font-weight, 'bold'),
   ),
   $_heading2: (
     'mobile': map.get(theme.$font, '2xl'),
     'desktop': map.get(theme.$font, '3xl'),
+    'font-weight': map.get(theme.$font-weight, 'bold'),
   ),
   $_heading3: (
     'mobile': map.get(theme.$font, 'xl'),
     'desktop': map.get(theme.$font, '2xl'),
+    'font-weight': map.get(theme.$font-weight, 'bold'),
   ),
   $_heading4: (
     'mobile': map.get(theme.$font-prolonged, 'l'),
     'desktop': map.get(theme.$font-prolonged, 'xl'),
+    'font-weight': map.get(theme.$font-weight, 'bold'),
   ),
   $_heading5: (
     'mobile': map.get(theme.$font-prolonged, 'm'),
     'desktop': map.get(theme.$font-prolonged, 'm'),
+    'font-weight': map.get(theme.$font-weight, 'bold'),
   ),
   $_heading6: (
     'mobile': map.get(theme.$font-prolonged, 'm'),
     'desktop': map.get(theme.$font-prolonged, 'm'),
+    'font-weight': map.get(theme.$font-weight, 'bold'),
   ),
 );
