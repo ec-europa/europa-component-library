@@ -78,10 +78,6 @@
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
-  .ecl-page-header-standardised {
-    padding-bottom: map.get(theme.$spacing, '4xl');
-  }
-
   .ecl-page-header-standardised__breadcrumb {
     margin-bottom: map.get(theme.$spacing, 'l');
   }
