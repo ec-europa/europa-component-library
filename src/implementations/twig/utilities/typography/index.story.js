@@ -134,7 +134,7 @@ export const Heading = (args) => `
     <h3 class="ecl-u-type-heading-3">H3. ${args.content}</h3>
     <h4 class="ecl-u-type-heading-4">H4. ${args.content}</h4>
     <h5 class="ecl-u-type-heading-5">H5. ${args.content}</h5>
-    <h5 class="ecl-u-type-heading-6">H6. ${args.content}</h5>
+    <h6 class="ecl-u-type-heading-6">H6. ${args.content}</h6>
   `;
 
 Heading.storyName = 'heading';

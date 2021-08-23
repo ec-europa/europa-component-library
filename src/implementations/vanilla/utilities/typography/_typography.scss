@@ -2,6 +2,7 @@
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
+$_heading-color: null !default;
 $_text-color: null !default;
 $_heading1: null !default;
 $_heading2: null !default;
@@ -15,7 +16,7 @@ $_heading6: null !default;
 */
 .ecl-u-type-heading-1,
 %ecl-heading-1 {
-  color: $_text-color;
+  color: $_heading-color;
   font: map.get($_heading1, 'mobile') !important;
   font-weight: map.get($_heading1, 'font-weight') !important;
 
@@ -27,7 +28,7 @@ $_heading6: null !default;
 
 .ecl-u-type-heading-2,
 %ecl-heading-2 {
-  color: $_text-color;
+  color: $_heading-color;
   font: map.get($_heading2, 'mobile') !important;
   font-weight: map.get($_heading2, 'font-weight') !important;
 
@@ -39,7 +40,7 @@ $_heading6: null !default;
 
 .ecl-u-type-heading-3,
 %ecl-heading-3 {
-  color: $_text-color;
+  color: $_heading-color;
   font: map.get($_heading3, 'mobile') !important;
   font-weight: map.get($_heading3, 'font-weight') !important;
 
@@ -51,7 +52,7 @@ $_heading6: null !default;
 
 .ecl-u-type-heading-4,
 %ecl-heading-4 {
-  color: $_text-color;
+  color: $_heading-color;
   font: map.get($_heading4, 'mobile') !important;
   font-weight: map.get($_heading4, 'font-weight') !important;
 
@@ -63,7 +64,7 @@ $_heading6: null !default;
 
 .ecl-u-type-heading-5,
 %ecl-heading-5 {
-  color: $_text-color;
+  color: $_heading-color;
   font: map.get($_heading5, 'mobile') !important;
   font-weight: map.get($_heading5, 'font-weight') !important;
 
@@ -75,7 +76,7 @@ $_heading6: null !default;
 
 .ecl-u-type-heading-6,
 %ecl-heading-6 {
-  color: $_text-color;
+  color: $_heading-color;
   font: map.get($_heading6, 'mobile') !important;
   font-weight: map.get($_heading6, 'font-weight') !important;
 
