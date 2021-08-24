@@ -31,6 +31,7 @@ $_font-weight: null !default;
   margin-bottom: 0;
   margin-right: 0;
   margin-top: 0;
+  overflow: hidden;
   position: relative;
 }
 
@@ -56,8 +57,6 @@ $_font-weight: null !default;
 
 .ecl-page-banner__image {
   background-size: cover;
-  border-radius: map.get($_border-radius, 'banner')
-    map.get($_border-radius, 'banner') 0 0;
   position: relative;
   width: 100%;
 }
@@ -95,10 +94,6 @@ $_font-weight: null !default;
 
   .ecl-page-banner__content {
     max-width: $_content-width;
-  }
-
-  .ecl-page-banner__image {
-    border-radius: map.get($_border-radius, 'banner');
   }
 }
 
@@ -139,10 +134,6 @@ $_font-weight: null !default;
   left: 50%;
   margin-left: -50vw;
   width: 100vw;
-
-  .ecl-page-banner__image {
-    border-radius: 0;
-  }
 }
 
 /*

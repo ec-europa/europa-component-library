@@ -74,6 +74,25 @@ const getArgTypes = () => {
         },
       },
     },
+    radius: {
+      type: 'select',
+      description: 'Apply different border radius',
+      defaultValue: 'ecl-u-border-radius-0',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+      },
+      control: {
+        type: 'select',
+        options: {
+          '0px': 'ecl-u-border-radius-1',
+          '1px': 'ecl-u-border-radius-1',
+          '2px': 'ecl-u-border-radius-2',
+          '4px': 'ecl-u-border-radius-4',
+          '8px': 'ecl-u-border-radius-8',
+        },
+      },
+    },
   };
 };
 

@@ -67,5 +67,26 @@
     .ecl-u-border-style#{$infix}-dotted {
       border-style: dotted !important;
     }
+
+    // Border radius
+    .ecl-u-border-radius#{$infix}-0 {
+      border-radius: 0 !important;
+    }
+
+    .ecl-u-border-radius#{$infix}-1 {
+      border-radius: 0.0625rem !important; // 1px
+    }
+
+    .ecl-u-border-radius#{$infix}-2 {
+      border-radius: 0.125rem !important; // 2px
+    }
+
+    .ecl-u-border-radius#{$infix}-4 {
+      border-radius: 0.25rem !important; // 4px
+    }
+
+    .ecl-u-border-radius#{$infix}-8 {
+      border-radius: 0.5rem !important; // 8px
+    }
   }
 }

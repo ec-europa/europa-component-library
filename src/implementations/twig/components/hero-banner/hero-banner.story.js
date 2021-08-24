@@ -112,6 +112,9 @@ const prepareData = (data, args) => {
   if (data.image) {
     data.image = args.image;
   }
+  if (args.width === 'outside') {
+    data.extra_classes = 'ecl-u-border-radius-0';
+  }
 
   return data;
 };
