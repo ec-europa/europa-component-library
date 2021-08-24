@@ -32,6 +32,7 @@ $_font-weight: null !default;
   margin-bottom: 0;
   margin-right: 0;
   margin-top: 0;
+  overflow: hidden;
   position: relative;
 }
 
@@ -57,8 +58,6 @@ $_font-weight: null !default;
 
 .ecl-hero-banner__image {
   background-size: cover;
-  border-radius: map.get($_border-radius, 'banner')
-    map.get($_border-radius, 'banner') 0 0;
   position: relative;
   width: 100%;
 }
@@ -97,10 +96,6 @@ $_font-weight: null !default;
   .ecl-hero-banner__content {
     max-width: $_content-width;
   }
-
-  .ecl-hero-banner__image {
-    border-radius: map.get($_border-radius, 'banner');
-  }
 }
 
 /* stylelint-disable-next-line order/order */
@@ -136,6 +131,7 @@ $_font-weight: null !default;
   * full width
   */
 .ecl-hero-banner--full-width {
+  border-radius: 0;
   left: 50%;
   margin-left: -50vw;
   width: 100vw;
