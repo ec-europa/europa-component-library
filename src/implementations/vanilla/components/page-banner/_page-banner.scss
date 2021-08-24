@@ -135,9 +135,14 @@ $_font-weight: null !default;
   * full width
   */
 .ecl-page-banner--full-width {
+  border-radius: 0;
   left: 50%;
   margin-left: -50vw;
   width: 100vw;
+
+  .ecl-page-banner__image {
+    border-radius: 0;
+  }
 }
 
 /*
