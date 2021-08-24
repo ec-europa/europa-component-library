@@ -5,6 +5,14 @@ title: What's new
 
 Detailed release information is available on [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 3.0.2 (2021-08-24)
+
+#### :nail_care: Enhancement
+* [#2187](https://github.com/ec-europa/europa-component-library/pull/2187) fix(banners): remove border radius when full width - FRONT-2966 ([@emeryro](https://github.com/emeryro))
+* [#2186](https://github.com/ec-europa/europa-component-library/pull/2186) fix(typography): update headings and paragraphs - FRONT-2965 ([@emeryro](https://github.com/emeryro))
+* [#2185](https://github.com/ec-europa/europa-component-library/pull/2185) fix(page-header): fix padding and optional item - FRONT-2964 ([@emeryro](https://github.com/emeryro))
+* [#2184](https://github.com/ec-europa/europa-component-library/pull/2184) fix(page-header): center image - FRONT-2963 ([@emeryro](https://github.com/emeryro))
+
 ## 3.0.1 (2021-08-20)
 
 #### :bug: Bug Fix
