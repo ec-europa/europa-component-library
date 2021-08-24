@@ -11,7 +11,7 @@
     - "meta" (array) (default: []) Meta of header
     - "breadcrumb" (associative array) (default: '') Predefined structure compatible with EC Breadcrumb
     - "background_image_url (string) (default: '') Background image url
-    - "overlay" (string) (default: '') Optional overlay on top of background image (can be 'light', 'dark'). Only used on EC
+    - "overlay" (string) (default: '') Optional overlay on top of background image (can be 'light', 'dark')
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -81,7 +81,7 @@
 
     <h1 class="ecl-page-header-core__title">{{ _title }}</h1>
 
-  {% if _description is not empty %}
+  {% if _description is not empty or _thumbnail is not empty %}
     <div class="ecl-page-header-core__description-container">
     {% if _thumbnail is not empty %}
       <img 
@@ -90,8 +90,10 @@
         alt="{{ _thumbnail.alt|default('') }}"
       />
     {% endif %}
+    {% if _description is not empty %}
       <p class="ecl-page-header-core__description">{{ _description }}</p>
     </div>
+    {% endif %}
   {% endif %}
   </div>
 </div>

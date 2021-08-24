@@ -1,61 +1,82 @@
 # Changelog
 
+## 3.0.1 (2021-08-20)
+
+#### :bug: Bug Fix
+
+- [#2175](https://github.com/ec-europa/europa-component-library/pull/2175) fix(playground): Fixing optional css loading in EC and EU - FRONT-2792 ([@planctus](https://github.com/planctus))
+- [#2176](https://github.com/ec-europa/europa-component-library/pull/2176) fix(storybook): Fixing switcher link urls to work also in production - FRONT-2791 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#2180](https://github.com/ec-europa/europa-component-library/pull/2180) feat(page-header): add overlay for background image - FRONT-2886 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#2178](https://github.com/ec-europa/europa-component-library/pull/2178) chore(deps): Updates 17-08-21 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 ## 3.0.0 (2021-08-12)
 
 #### :bug: Bug Fix
 
-* [#2172](https://github.com/ec-europa/europa-component-library/pull/2172) fix(cards): fix center display - FRONT-2708 ([@emeryro](https://github.com/emeryro))
-* [#2170](https://github.com/ec-europa/europa-component-library/pull/2170) fix(storybook): fixed css order - FRONT-2710 ([@emeryro](https://github.com/emeryro))
-* [#2167](https://github.com/ec-europa/europa-component-library/pull/2167) fix(pagination): fixed pagination current selection- FRONT-2698 ([@emeryro](https://github.com/emeryro))
+- [#2172](https://github.com/ec-europa/europa-component-library/pull/2172) fix(cards): fix center display - FRONT-2708 ([@emeryro](https://github.com/emeryro))
+- [#2170](https://github.com/ec-europa/europa-component-library/pull/2170) fix(storybook): fixed css order - FRONT-2710 ([@emeryro](https://github.com/emeryro))
+- [#2167](https://github.com/ec-europa/europa-component-library/pull/2167) fix(pagination): fixed pagination current selection- FRONT-2698 ([@emeryro](https://github.com/emeryro))
 
 #### :memo: Documentation
 
-* [#2168](https://github.com/ec-europa/europa-component-library/pull/2168) docs(colours): udpate EU colours doc - FRONT-2464 ([@emeryro](https://github.com/emeryro))
-* [#2159](https://github.com/ec-europa/europa-component-library/pull/2159) docs(migration): update ECL3 documentation - FRONT-2425 ([@emeryro](https://github.com/emeryro))
+- [#2168](https://github.com/ec-europa/europa-component-library/pull/2168) docs(colours): udpate EU colours doc - FRONT-2464 ([@emeryro](https://github.com/emeryro))
+- [#2159](https://github.com/ec-europa/europa-component-library/pull/2159) docs(migration): update ECL3 documentation - FRONT-2425 ([@emeryro](https://github.com/emeryro))
 
 #### :house: Internal
 
-* [#2171](https://github.com/ec-europa/europa-component-library/pull/2171) chore(deps): Fixing audit issue ([@planctus](https://github.com/planctus))
-* [#2169](https://github.com/ec-europa/europa-component-library/pull/2169) chore(deps):  Updates 02-08-21 ([@planctus](https://github.com/planctus))
+- [#2171](https://github.com/ec-europa/europa-component-library/pull/2171) chore(deps): Fixing audit issue ([@planctus](https://github.com/planctus))
+- [#2169](https://github.com/ec-europa/europa-component-library/pull/2169) chore(deps): Updates 02-08-21 ([@planctus](https://github.com/planctus))
 
 #### Committers: 3
+
 - Romain Emery ([@emeryro](https://github.com/emeryro))
 - [@planctus](https://github.com/planctus)
-
 
 ## 3.0.0-beta.2 (2021-07-14)
 
 #### :rocket: New Feature
 
-* [#2141](https://github.com/ec-europa/europa-component-library/pull/2141) feat(link): add primary and secondary links - FRONT-2341 ([@emeryro](https://github.com/emeryro))
-* [#2128](https://github.com/ec-europa/europa-component-library/pull/2128) feat(etrans): add etrans composition - FRONT-2336 ([@emeryro](https://github.com/emeryro))
+- [#2141](https://github.com/ec-europa/europa-component-library/pull/2141) feat(link): add primary and secondary links - FRONT-2341 ([@emeryro](https://github.com/emeryro))
+- [#2128](https://github.com/ec-europa/europa-component-library/pull/2128) feat(etrans): add etrans composition - FRONT-2336 ([@emeryro](https://github.com/emeryro))
 
 #### :nail_care: Enhancement
 
-* [#2149](https://github.com/ec-europa/europa-component-library/pull/2149) feat(icons): add icons - FRONT-2435 ([@emeryro](https://github.com/emeryro))
-* [#2146](https://github.com/ec-europa/europa-component-library/pull/2146) feat(website): update components thumbnails - FRONT-2413 ([@emeryro](https://github.com/emeryro))
-* [#2143](https://github.com/ec-europa/europa-component-library/pull/2143) fix(various): small improvements - FRONT-2427 ([@emeryro](https://github.com/emeryro))
-* [#2142](https://github.com/ec-europa/europa-component-library/pull/2142) fix(icons): fix flag icons and add rss - FRONT-2416 ([@emeryro](https://github.com/emeryro))
-* [#2148](https://github.com/ec-europa/europa-component-library/pull/2148) fix(docs-tab): Hidden docs tab - FRONT-2365 ([@tibi2303](https://github.com/tibi2303))
-* [#2139](https://github.com/ec-europa/europa-component-library/pull/2139) feat(typography): update EU typography ([@emeryro](https://github.com/emeryro))
-* [#2135](https://github.com/ec-europa/europa-component-library/pull/2135) fix(timeline): fix deprecated css - FRONT-2355 ([@emeryro](https://github.com/emeryro))
-* [#2130](https://github.com/ec-europa/europa-component-library/pull/2130) feat(style): update background and border - FRONT-2338 ([@emeryro](https://github.com/emeryro))
-* [#2129](https://github.com/ec-europa/europa-component-library/pull/2129) fix(accordion): fix print css conflict - FRONT-2325 ([@emeryro](https://github.com/emeryro))
+- [#2149](https://github.com/ec-europa/europa-component-library/pull/2149) feat(icons): add icons - FRONT-2435 ([@emeryro](https://github.com/emeryro))
+- [#2146](https://github.com/ec-europa/europa-component-library/pull/2146) feat(website): update components thumbnails - FRONT-2413 ([@emeryro](https://github.com/emeryro))
+- [#2143](https://github.com/ec-europa/europa-component-library/pull/2143) fix(various): small improvements - FRONT-2427 ([@emeryro](https://github.com/emeryro))
+- [#2142](https://github.com/ec-europa/europa-component-library/pull/2142) fix(icons): fix flag icons and add rss - FRONT-2416 ([@emeryro](https://github.com/emeryro))
+- [#2148](https://github.com/ec-europa/europa-component-library/pull/2148) fix(docs-tab): Hidden docs tab - FRONT-2365 ([@tibi2303](https://github.com/tibi2303))
+- [#2139](https://github.com/ec-europa/europa-component-library/pull/2139) feat(typography): update EU typography ([@emeryro](https://github.com/emeryro))
+- [#2135](https://github.com/ec-europa/europa-component-library/pull/2135) fix(timeline): fix deprecated css - FRONT-2355 ([@emeryro](https://github.com/emeryro))
+- [#2130](https://github.com/ec-europa/europa-component-library/pull/2130) feat(style): update background and border - FRONT-2338 ([@emeryro](https://github.com/emeryro))
+- [#2129](https://github.com/ec-europa/europa-component-library/pull/2129) fix(accordion): fix print css conflict - FRONT-2325 ([@emeryro](https://github.com/emeryro))
 
 #### :memo: Documentation
 
-* [#2147](https://github.com/ec-europa/europa-component-library/pull/2147) docs(website): updated ECL documentation - FRONT-2424 ([@emeryro](https://github.com/emeryro))
-* [#2131](https://github.com/ec-europa/europa-component-library/pull/2131) docs(eu-colors) - changed doc of eu colors - FRONT-2257 ([@tibi2303](https://github.com/tibi2303))
+- [#2147](https://github.com/ec-europa/europa-component-library/pull/2147) docs(website): updated ECL documentation - FRONT-2424 ([@emeryro](https://github.com/emeryro))
+- [#2131](https://github.com/ec-europa/europa-component-library/pull/2131) docs(eu-colors) - changed doc of eu colors - FRONT-2257 ([@tibi2303](https://github.com/tibi2303))
 
 #### :house: Internal
 
-* [#2150](https://github.com/ec-europa/europa-component-library/pull/2150) chore(deps): updating storybook and a few other deps ([@planctus](https://github.com/planctus))
-* [#2144](https://github.com/ec-europa/europa-component-library/pull/2144) chore(updates): Safe updates ([@planctus](https://github.com/planctus))
-* [#2140](https://github.com/ec-europa/europa-component-library/pull/2140) chore(deps): green updates, fixing audit ([@planctus](https://github.com/planctus))
-* [#2136](https://github.com/ec-europa/europa-component-library/pull/2136) chore(website): Anatomy images full width ([@planctus](https://github.com/planctus))
-* [#2132](https://github.com/ec-europa/europa-component-library/pull/2132) chore(deps): Storybook 6.3 and other updates ([@planctus](https://github.com/planctus))
+- [#2150](https://github.com/ec-europa/europa-component-library/pull/2150) chore(deps): updating storybook and a few other deps ([@planctus](https://github.com/planctus))
+- [#2144](https://github.com/ec-europa/europa-component-library/pull/2144) chore(updates): Safe updates ([@planctus](https://github.com/planctus))
+- [#2140](https://github.com/ec-europa/europa-component-library/pull/2140) chore(deps): green updates, fixing audit ([@planctus](https://github.com/planctus))
+- [#2136](https://github.com/ec-europa/europa-component-library/pull/2136) chore(website): Anatomy images full width ([@planctus](https://github.com/planctus))
+- [#2132](https://github.com/ec-europa/europa-component-library/pull/2132) chore(deps): Storybook 6.3 and other updates ([@planctus](https://github.com/planctus))
 
 #### Committers: 3
+
 - Romain Emery ([@emeryro](https://github.com/emeryro))
 - [@planctus](https://github.com/planctus)
 - [@tibi2303](https://github.com/tibi2303)

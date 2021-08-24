@@ -10,7 +10,7 @@
 .ecl-page-header-core {
   background-color: map.get(theme.$color, 'white-100');
   margin: 0;
-  padding-bottom: map.get(theme.$spacing, '3xl');
+  padding-bottom: map.get(theme.$spacing, 'xl');
 
   .ecl-container > :first-child:not(.ecl-page-header-core__breadcrumb) {
     margin-top: 0;
@@ -78,10 +78,6 @@
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
-  .ecl-page-header-core {
-    padding-bottom: map.get(theme.$spacing, '4xl');
-  }
-
   .ecl-page-header-core__breadcrumb {
     margin-bottom: map.get(theme.$spacing, 'l');
   }
@@ -98,10 +94,11 @@
   position: relative;
 
   .ecl-page-header-core__background {
-    background-position: 0 0;
+    background-position: 50% 0;
     background-size: cover;
     display: block;
     height: 10.875rem;
+    position: relative;
     width: 100%;
   }
 
@@ -126,5 +123,25 @@
 
   .ecl-breadcrumb-core__segment {
     margin-top: map.get(theme.$spacing, 'xs');
+  }
+}
+
+.ecl-page-header-core--overlay-dark {
+  .ecl-page-header-core__background::before {
+    background-color: rgba(0, 0, 0, 0.5);
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+}
+
+.ecl-page-header-core--overlay-light {
+  .ecl-page-header-core__background::before {
+    background-color: rgba(0, 0, 0, 0.3);
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 100%;
   }
 }

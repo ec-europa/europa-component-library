@@ -52,3 +52,14 @@ Available styles are:
 - solid
 - dashed
 - dotted
+
+## Border radius
+
+By using classes `ecl-u-border-radius-*` you can change the corner radius.
+Available width are (in px):
+
+- 1
+- 2
+- 4
+- 8
+- 0
