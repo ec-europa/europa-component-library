@@ -83,7 +83,7 @@ $_picker-theme-color: null !default;
 /*
   * pikaday styling
   */
-.ecl-datepicker-theme {
+.ecl-datepicker-theme.pika-single {
   border-radius: $_picker-border-radius;
   border-width: 0;
   color: $_picker-theme-color;
@@ -154,6 +154,12 @@ $_picker-theme-color: null !default;
       color: $_picker-theme-color;
       font: map.get(theme.$font, 'm');
       padding: map.get(theme.$spacing, 'xs') 0;
+      text-align: center;
+    }
+
+    td {
+      border-width: 0;
+      padding: 0;
     }
 
     abbr {
@@ -164,6 +170,7 @@ $_picker-theme-color: null !default;
   .pika-button {
     background-color: map.get(theme.$color, 'white');
     border-radius: $_picker-border-radius;
+    border-width: 0;
     color: $_picker-day-color;
     font: map.get(theme.$font, 'm');
     padding: map.get(theme.$spacing, 's');
@@ -196,7 +203,7 @@ $_picker-theme-color: null !default;
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
-  .ecl-datepicker-theme {
+  .ecl-datepicker-theme.pika-single {
     width: auto;
 
     .pika-lendar {
