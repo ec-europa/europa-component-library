@@ -21,6 +21,7 @@ export const Default = () => {
     <h3>Heading 3</h3>
     <h4>Heading 4</h4>
     <h5>Heading 5</h5>
+    <h6>Heading 6</h6>
     <p>Paragraph: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur vulputate venenatis. Proin tempus viverra felis, a sollicitudin lorem rutrum sit amet. Phasellus mattis fringilla iaculis.</p>
     <ul>
       <li>Unordered list</li>
@@ -39,7 +40,7 @@ export const Default = () => {
           <li>Nested ordered list</li>
         </ol>
       </li>
-    </ol><br />
+    </ol>
     <dl>
       <dt>Description term</dt>
       <dd>Description definition</dd>
