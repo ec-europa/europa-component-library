@@ -1,3 +1,6 @@
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   rows: [
     [
@@ -17,14 +20,14 @@ module.exports = {
             {
               link: {
                 label: 'Contact the European Commission',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Contact the European Commission',
               },
             },
             {
               link: {
                 label: 'Follow the European Commission on social media',
-                path: '/example',
+                path: exampleLink,
                 aria_label:
                   'Link to Follow the European Commission on social media',
               },
@@ -32,7 +35,7 @@ module.exports = {
             {
               link: {
                 label: 'Resources for partners',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Resources for partners',
               },
             },
@@ -45,28 +48,28 @@ module.exports = {
             {
               link: {
                 label: 'Language policy',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Language policy',
               },
             },
             {
               link: {
                 label: 'Cookies',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Cookies',
               },
             },
             {
               link: {
                 label: 'Privacy policy',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Privacy policy',
               },
             },
             {
               link: {
                 label: 'Legal notice',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Legal notice',
               },
             },

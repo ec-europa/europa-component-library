@@ -1,3 +1,6 @@
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   label: 'Pagination',
   items: [
@@ -7,7 +10,7 @@ module.exports = {
       link: {
         link: {
           variant: 'standalone',
-          path: '/example',
+          path: exampleLink,
           label: 'Previous',
           icon_position: 'before',
         },
@@ -23,7 +26,7 @@ module.exports = {
       link: {
         link: {
           variant: 'standalone',
-          path: '/example',
+          path: exampleLink,
           label: '24',
         },
       },
@@ -33,7 +36,7 @@ module.exports = {
       link: {
         link: {
           variant: 'standalone',
-          path: '/example',
+          path: exampleLink,
           label: '25',
         },
       },
@@ -48,7 +51,7 @@ module.exports = {
       link: {
         link: {
           variant: 'standalone',
-          path: '/example',
+          path: exampleLink,
           label: '27',
         },
       },
@@ -58,7 +61,7 @@ module.exports = {
       link: {
         link: {
           variant: 'standalone',
-          path: '/example',
+          path: exampleLink,
           label: '28',
         },
       },
@@ -69,7 +72,7 @@ module.exports = {
       link: {
         link: {
           variant: 'standalone',
-          path: '/example',
+          path: exampleLink,
           label: 'Next',
           icon_position: 'after',
         },

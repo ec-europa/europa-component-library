@@ -1,9 +1,12 @@
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   column: 3,
   display_icons: true,
   view_all: {
     link: {
-      path: '/example',
+      path: exampleLink,
       label: 'View all metrics',
       icon_position: 'after',
     },

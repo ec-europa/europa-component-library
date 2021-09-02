@@ -1,3 +1,6 @@
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   rows: [
     [
@@ -6,7 +9,7 @@ module.exports = {
           title: {
             link: {
               label: 'Site name',
-              path: '/example',
+              path: exampleLink,
             },
           },
           description:
@@ -21,7 +24,7 @@ module.exports = {
             {
               link: {
                 label: 'Contact information of the DG',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Contact information of the DG',
               },
             },
@@ -34,7 +37,7 @@ module.exports = {
             {
               link: {
                 label: 'Facebook',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Facebook',
                 icon_position: 'before',
               },
@@ -47,7 +50,7 @@ module.exports = {
             {
               link: {
                 label: 'Twitter',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Twitter',
                 icon_position: 'before',
               },
@@ -60,7 +63,7 @@ module.exports = {
             {
               link: {
                 label: 'Linkedin',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Linkedin',
                 icon_position: 'before',
               },
@@ -82,7 +85,7 @@ module.exports = {
             {
               link: {
                 label: 'Information about the DG',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Information about the DG',
               },
             },
@@ -95,35 +98,35 @@ module.exports = {
             {
               link: {
                 label: 'Related link 1',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Related link 1',
               },
             },
             {
               link: {
                 label: 'Related link 2',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Related link 2',
               },
             },
             {
               link: {
                 label: 'Related link 3',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Related link 3',
               },
             },
             {
               link: {
                 label: 'Related link 4',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Related link 4',
               },
             },
             {
               link: {
                 label: 'Related link 5',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Related link 5',
               },
             },
@@ -138,14 +141,14 @@ module.exports = {
             {
               link: {
                 label: 'Class name 1',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Class name 1',
               },
             },
             {
               link: {
                 label: 'Class name 2',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Class name 2',
               },
             },
@@ -172,14 +175,14 @@ module.exports = {
             {
               link: {
                 label: 'Contact the European Commission',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Contact the European Commission',
               },
             },
             {
               link: {
                 label: 'Follow the European Commission on social media',
-                path: '/example',
+                path: exampleLink,
                 aria_label:
                   'Link to Follow the European Commission on social media',
               },
@@ -187,7 +190,7 @@ module.exports = {
             {
               link: {
                 label: 'Resources for partners',
-                path: '/example',
+                path: exampleLink,
               },
             },
           ],
@@ -200,28 +203,28 @@ module.exports = {
             {
               link: {
                 label: 'Language policy',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Language policy',
               },
             },
             {
               link: {
                 label: 'Cookies',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Cookies',
               },
             },
             {
               link: {
                 label: 'Privacy policy',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Privacy policy',
               },
             },
             {
               link: {
                 label: 'Legal notice',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Legal notice',
               },
             },
