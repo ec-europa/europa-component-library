@@ -1,6 +1,9 @@
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   title: {
-    href: '/example',
+    href: exampleLink,
     label: 'Article title',
   },
   description: {

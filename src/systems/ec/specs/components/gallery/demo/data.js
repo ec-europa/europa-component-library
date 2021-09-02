@@ -1,3 +1,6 @@
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   items: [
     {
@@ -216,7 +219,7 @@ module.exports = {
   viewAllLabel: 'View all',
 
   footerLink: {
-    href: '/example',
+    href: exampleLink,
     ariaLabel: 'View all link aria-label value',
     label: 'Link to further media items',
     icon: {

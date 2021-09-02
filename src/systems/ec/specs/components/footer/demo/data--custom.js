@@ -1,4 +1,7 @@
 // Simple content for demo
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   backToTop: {
     variant: 'standalone',
@@ -18,7 +21,7 @@ module.exports = {
           variant: 'standalone',
           label: 'Facebook',
           ariaLabel: 'Link to Facebook',
-          href: '/example',
+          href: exampleLink,
           iconPosition: 'before',
           icon: {
             shape: 'branded--facebook',
@@ -29,7 +32,7 @@ module.exports = {
           variant: 'standalone',
           ariaLabel: 'Link to Twitter',
           label: 'Twitter',
-          href: '/example',
+          href: exampleLink,
           iconPosition: 'before',
           icon: {
             shape: 'branded--twitter',
@@ -40,7 +43,7 @@ module.exports = {
           variant: 'standalone',
           label: 'Other social networks',
           ariaLabel: 'Link to Other social networks',
-          href: '/example',
+          href: exampleLink,
           iconPosition: 'after',
           icon: {
             shape: 'ui--external',
@@ -54,25 +57,25 @@ module.exports = {
         variant: 'standalone',
         label: 'Contact',
         ariaLabel: 'Link to Contact',
-        href: '/example',
+        href: exampleLink,
       },
       {
         variant: 'standalone',
         label: 'Sitemap',
         ariaLabel: 'Link to Sitemap',
-        href: '/example',
+        href: exampleLink,
       },
       {
         variant: 'standalone',
         label: 'Lorem ipsum',
         ariaLabel: 'Link to Lorem ipsum',
-        href: '/example',
+        href: exampleLink,
       },
       {
         variant: 'standalone',
         label: 'Lorem ipsum dolor sit',
         ariaLabel: 'Link to Lorem ipsum dolor sit',
-        href: '/example',
+        href: exampleLink,
       },
     ],
   },
@@ -84,7 +87,7 @@ module.exports = {
           variant: 'standalone',
           label: 'European Commission website',
           ariaLabel: 'Link to European Commission website',
-          href: '/example',
+          href: exampleLink,
         },
       ],
     },
@@ -95,7 +98,7 @@ module.exports = {
           variant: 'standalone',
           label: 'Facebook',
           ariaLabel: 'Link to Facebook',
-          href: '/example',
+          href: exampleLink,
           iconPosition: 'before',
           icon: {
             shape: 'branded--facebook',
@@ -106,7 +109,7 @@ module.exports = {
           variant: 'standalone',
           label: 'Twitter',
           ariaLabel: 'Link to Twitter',
-          href: '/example',
+          href: exampleLink,
           iconPosition: 'before',
           icon: {
             shape: 'branded--twitter',
@@ -117,7 +120,7 @@ module.exports = {
           variant: 'standalone',
           label: 'Other social networks',
           ariaLabel: 'Link to Other social networks',
-          href: '/example',
+          href: exampleLink,
           iconPosition: 'after',
           icon: {
             shape: 'ui--external',
@@ -133,7 +136,7 @@ module.exports = {
           variant: 'standalone',
           label: 'European Union',
           ariaLabel: 'Link to European Union',
-          href: '/example',
+          href: exampleLink,
           iconPosition: 'after',
           icon: {
             shape: 'ui--external',
@@ -144,7 +147,7 @@ module.exports = {
           variant: 'standalone',
           label: 'EU institutions',
           ariaLabel: 'Link to EU institutions',
-          href: '/example',
+          href: exampleLink,
           iconPosition: 'after',
           icon: {
             shape: 'ui--external',
@@ -159,11 +162,11 @@ module.exports = {
       variant: 'standalone',
       label: "About the Commission's new web presence",
       ariaLabel: 'Link to About the Commission new we presence',
-      href: '/example',
+      href: exampleLink,
     },
     {
       variant: 'standalone',
-      href: '/example',
+      href: exampleLink,
       ariaLabel: 'Link to Language policy',
       label: 'Language policy',
     },
@@ -171,31 +174,31 @@ module.exports = {
       variant: 'standalone',
       label: 'Resources for partners',
       ariaLabel: 'Link to Resources for partners',
-      href: '/example',
+      href: exampleLink,
     },
     {
       variant: 'standalone',
       label: 'Cookies',
       ariaLabel: 'Link to Cookies',
-      href: '/example',
+      href: exampleLink,
     },
     {
       variant: 'standalone',
       label: 'Privacy policy',
       ariaLabel: 'Link to Privacy policy',
-      href: '/example',
+      href: exampleLink,
     },
     {
       variant: 'standalone',
       label: 'Legal notice',
       ariaLabel: 'Link to Legal notice',
-      href: '/example',
+      href: exampleLink,
     },
     {
       variant: 'standalone',
       label: 'Contact',
       ariaLabel: 'Link to Contact',
-      href: '/example',
+      href: exampleLink,
     },
   ],
 };

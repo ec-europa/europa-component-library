@@ -1,4 +1,7 @@
 const path = require('path');
+const webpack = require('webpack');
+
+const publicUrl = process.env.PUBLIC_URL || '';
 
 const stories = [
   '../../templates/**/*/stories/*.jsx',
@@ -27,6 +30,12 @@ const webpackFinal = (defaultConfig, mode) => {
   // Change media dist folder
   defaultConfig.module.rules[5].options.name =
     'dist/images/[name].[hash:8].[ext]';
+
+  config.plugins.unshift(
+    new webpack.DefinePlugin({
+      'process.env.PUBLIC_URL': JSON.stringify(`${publicUrl}`),
+    })
+  );
 
   if (mode === 'PRODUCTION') {
     const processPluginIndex = defaultConfig.plugins.findIndex(

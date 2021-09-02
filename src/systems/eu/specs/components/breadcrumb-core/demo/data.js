@@ -1,10 +1,13 @@
 // Simple content for demo
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   items: [
-    { label: 'Home', href: '/example' },
-    { label: 'About the European Union', href: '/example' },
-    { label: 'Organisational structure', href: '/example' },
-    { label: 'How the Union is organised', href: '/example' },
+    { label: 'Home', href: exampleLink },
+    { label: 'About the European Union', href: exampleLink },
+    { label: 'Organisational structure', href: exampleLink },
+    { label: 'How the Union is organised', href: exampleLink },
     { label: 'News' },
   ],
   label: 'You are here:',

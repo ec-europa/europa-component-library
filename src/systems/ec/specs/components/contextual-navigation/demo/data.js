@@ -1,35 +1,38 @@
 // Simple content for demo
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   label: 'Label for contextual navigation',
   items: [
     {
       label: 'Item 1',
-      href: '/example',
+      href: exampleLink,
       variant: 'standalone',
     },
     {
       label: 'Item 2',
-      href: '/example',
+      href: exampleLink,
       variant: 'standalone',
     },
     {
       label: 'Item 3',
-      href: '/example',
+      href: exampleLink,
       variant: 'standalone',
     },
     {
       label: 'Item 4',
-      href: '/example',
+      href: exampleLink,
       variant: 'standalone',
     },
     {
       label: 'Item 5',
-      href: '/example',
+      href: exampleLink,
       variant: 'standalone',
     },
     {
       label: 'Item 6',
-      href: '/example',
+      href: exampleLink,
       variant: 'standalone',
     },
   ],

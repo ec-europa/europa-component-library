@@ -1,3 +1,6 @@
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   sections: {
     corporateName: {
@@ -14,12 +17,12 @@ module.exports = {
         {
           label: 'Contact the European Commission',
           ariaLabel: 'Link to Contact the European Commission',
-          href: '/example',
+          href: exampleLink,
         },
         {
           label: 'Follow the European Commission on social media',
           ariaLabel: 'Link to Follow the European Commission on social media',
-          href: '/example',
+          href: exampleLink,
           iconPosition: 'after',
           icon: {
             shape: 'ui--external',
@@ -29,7 +32,7 @@ module.exports = {
         {
           label: 'Resources for partners',
           ariaLabel: 'Link to Resources for partners',
-          href: '/example',
+          href: exampleLink,
         },
       ],
     },
@@ -39,22 +42,22 @@ module.exports = {
         {
           label: 'Language policy',
           ariaLabel: 'Link to Language policy',
-          href: '/example',
+          href: exampleLink,
         },
         {
           label: 'Cookies',
           ariaLabel: 'Link to Cookies',
-          href: '/example',
+          href: exampleLink,
         },
         {
           label: 'Privacy policy',
           ariaLabel: 'Link to Privacy policy',
-          href: '/example',
+          href: exampleLink,
         },
         {
           label: 'Legal notice',
           ariaLabel: 'Link to Legal notice',
-          href: '/example',
+          href: exampleLink,
         },
       ],
     },

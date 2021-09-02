@@ -1,3 +1,6 @@
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   title: 'State of the Union 2018 brochure',
   language: 'English',
@@ -8,6 +11,6 @@ module.exports = {
   },
   download: {
     label: 'Download',
-    href: '/example',
+    href: exampleLink,
   },
 };

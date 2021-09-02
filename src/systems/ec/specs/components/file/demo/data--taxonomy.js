@@ -1,3 +1,6 @@
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   detailMeta: ['Resource type', 'Publication date'],
   title: 'State of the Union 2018 brochure',
@@ -16,7 +19,7 @@ module.exports = {
   },
   download: {
     label: 'Download',
-    href: '/example',
+    href: exampleLink,
   },
   label: {
     variant: 'highlight',

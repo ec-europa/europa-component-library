@@ -1,4 +1,7 @@
 // Simple content for demo
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   label: 'Pagination',
   items: [
@@ -7,7 +10,7 @@ module.exports = {
       ariaLabel: 'Go to previous page',
       link: {
         variant: 'standalone',
-        href: '/example',
+        href: exampleLink,
         label: 'Previous',
         iconPosition: 'before',
         icon: {
@@ -21,7 +24,7 @@ module.exports = {
       ariaLabel: 'Go to page 24',
       link: {
         variant: 'standalone',
-        href: '/example',
+        href: exampleLink,
         label: '24',
       },
     },
@@ -29,7 +32,7 @@ module.exports = {
       ariaLabel: 'Go to page 25',
       link: {
         variant: 'standalone',
-        href: '/example',
+        href: exampleLink,
         label: '25',
       },
     },
@@ -42,7 +45,7 @@ module.exports = {
       ariaLabel: 'Go to page 27',
       link: {
         variant: 'standalone',
-        href: '/example',
+        href: exampleLink,
         label: '27',
       },
     },
@@ -50,7 +53,7 @@ module.exports = {
       ariaLabel: 'Go to page 28',
       link: {
         variant: 'standalone',
-        href: '/example',
+        href: exampleLink,
         label: '28',
       },
     },
@@ -59,7 +62,7 @@ module.exports = {
       ariaLabel: 'Go to next page',
       link: {
         variant: 'standalone',
-        href: '/example',
+        href: exampleLink,
         label: 'Next',
         iconPosition: 'after',
         icon: {

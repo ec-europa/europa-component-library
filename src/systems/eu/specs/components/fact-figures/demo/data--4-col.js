@@ -1,7 +1,10 @@
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   column: 4,
   viewAll: {
-    href: '/example',
+    href: exampleLink,
     label: 'View all metrics',
   },
   items: [
