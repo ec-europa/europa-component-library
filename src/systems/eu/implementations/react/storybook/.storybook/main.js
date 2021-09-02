@@ -31,7 +31,7 @@ const webpackFinal = (defaultConfig, mode) => {
   defaultConfig.module.rules[5].options.name =
     'dist/images/[name].[hash:8].[ext]';
 
-  config.plugins.unshift(
+  defaultConfig.plugins.unshift(
     new webpack.DefinePlugin({
       'process.env.PUBLIC_URL': JSON.stringify(`${publicUrl}`),
     })
