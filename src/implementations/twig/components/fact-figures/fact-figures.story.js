@@ -15,10 +15,20 @@ const system = getSystem();
 const iconsAll = system === 'eu' ? iconsAllEu : iconsAllEc;
 const viewAll = { ...data3Col.view_all };
 
-const getArgTypes = (data) => {
+const getArgs = (data) => {
+  return {
+    icon: data.items[0].icon.name,
+    value: data.items[0].value,
+    title: data.items[0].title,
+    description: data.items[0].description,
+    viewAll: true,
+    displayIcons: true,
+  };
+};
+
+const getArgTypes = () => {
   return {
     icon: {
-      defaultValue: data.items[0].icon.name,
       description: 'Name of the icon',
       control: {
         type: 'select',
@@ -32,7 +42,6 @@ const getArgTypes = (data) => {
     },
     value: {
       type: { name: 'string', required: true },
-      defaultValue: data.items[0].value,
       description: 'Main heading',
       table: {
         type: { summary: 'string' },
@@ -42,7 +51,6 @@ const getArgTypes = (data) => {
     },
     title: {
       type: { name: 'string', required: true },
-      defaultValue: data.items[0].title,
       description: 'Sub heading',
       table: {
         type: { summary: 'string' },
@@ -52,7 +60,6 @@ const getArgTypes = (data) => {
     },
     description: {
       type: { name: 'string' },
-      defaultValue: data.items[0].description,
       description: 'Description',
       table: {
         type: { summary: 'string' },
@@ -63,7 +70,6 @@ const getArgTypes = (data) => {
     viewAll: {
       name: 'view all link',
       type: { name: 'boolean' },
-      defaultValue: true,
       description: 'Link in the component footer',
       table: {
         type: { summary: 'object' },
@@ -74,7 +80,6 @@ const getArgTypes = (data) => {
     displayIcons: {
       name: 'icons visibility',
       type: { name: 'boolean' },
-      defaultValue: true,
       description: 'Toggle visibility of the icons',
       table: {
         type: { summary: 'boolean' },
@@ -113,12 +118,14 @@ export const Columns3 = (args) =>
   factFigures(prepareData(correctSvgPath(data3Col), args));
 
 Columns3.storyName = '3 Columns';
-Columns3.argTypes = getArgTypes(data3Col);
+Columns3.args = getArgs(data3Col);
+Columns3.argTypes = getArgTypes();
 Columns3.parameters = { notes: { markdown: notes, json: data3Col } };
 
 export const Columns4 = (args) =>
   factFigures(prepareData(correctSvgPath(data4Col), args));
 
 Columns4.storyName = '4 Columns';
-Columns4.argTypes = getArgTypes(data4Col);
+Columns4.args = getArgs(data4Col);
+Columns4.argTypes = getArgTypes();
 Columns4.parameters = { notes: { markdown: notes, json: data4Col } };

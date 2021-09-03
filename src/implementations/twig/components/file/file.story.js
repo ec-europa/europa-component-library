@@ -13,6 +13,30 @@ import notes from './README.md';
 
 const listsClone = { ...dataThumbnailTaxonomy.lists[0] };
 
+const getArgs = (data) => {
+  const args = {
+    title: data.title,
+    download_label: data.download.link.label,
+  };
+  if (data.detail_meta) {
+    args.detail_meta = data.detail_meta;
+  }
+  if (data.description) {
+    args.description = data.description;
+  }
+  if (data.image) {
+    args.image = data.image.src;
+  }
+  if (data.translation) {
+    args.toggle_label = data.translation.toggle.label;
+  }
+  if (data.lists) {
+    args.lists = true;
+  }
+
+  return args;
+};
+
 const getArgTypes = (data) => {
   const argTypes = {};
   if (data.detail_meta) {
@@ -45,7 +69,6 @@ const getArgTypes = (data) => {
     argTypes.description = {
       name: 'description',
       type: 'string',
-      defaultValue: data.description,
       description: 'A summary that describes the content of the file',
       table: {
         type: { summary: 'string' },
@@ -58,7 +81,6 @@ const getArgTypes = (data) => {
   argTypes.download_label = {
     name: 'download label',
     type: { name: 'string', required: true },
-    defaultValue: data.download.link.label,
     description: 'The label of the link to download the file',
     table: {
       type: { summary: 'string' },
@@ -71,23 +93,19 @@ const getArgTypes = (data) => {
     argTypes.image = {
       name: 'image example',
       type: 'select',
-      defaultValue: data.image.src,
       description: 'Select different image variant to test thumbnail size',
+      options: {
+        landscape:
+          'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+        portrait:
+          'https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg',
+        square:
+          'https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg',
+      },
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
         category: 'Content',
-      },
-      control: {
-        type: 'select',
-        options: {
-          landscape:
-            'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
-          portrait:
-            'https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg',
-          square:
-            'https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg',
-        },
       },
     };
   }
@@ -96,7 +114,6 @@ const getArgTypes = (data) => {
     argTypes.toggle_label = {
       name: 'toggle label',
       type: 'string',
-      defaultValue: data.translation.toggle.label,
       description:
         'The label of the button to display the file in different languages available',
       table: {
@@ -111,7 +128,6 @@ const getArgTypes = (data) => {
     argTypes.lists = {
       name: 'Show taxonomies',
       type: 'boolean',
-      defaultValue: true,
       description: 'Show/hide the list with taxonomies',
       table: {
         category: 'Taxonomies',
@@ -159,6 +175,7 @@ export const WithoutTranslation = (args) =>
   file(prepareData(dataWithoutTranslation, args));
 
 WithoutTranslation.storyName = 'without translation';
+WithoutTranslation.args = getArgs(dataWithoutTranslation);
 WithoutTranslation.argTypes = getArgTypes(dataWithoutTranslation);
 WithoutTranslation.parameters = {
   notes: { markdown: notes, json: dataWithoutTranslation },
@@ -168,6 +185,7 @@ export const WithTranslation = (args) =>
   file(prepareData(dataWithTranslation, args));
 
 WithTranslation.storyName = 'with translation';
+WithTranslation.args = getArgs(dataWithTranslation);
 WithTranslation.argTypes = getArgTypes(dataWithTranslation);
 WithTranslation.parameters = {
   notes: { markdown: notes, json: dataWithTranslation },
@@ -176,6 +194,7 @@ WithTranslation.parameters = {
 export const Thumbnail = (args) => file(prepareData(dataThumbnail, args));
 
 Thumbnail.storyName = 'with thumbnail';
+Thumbnail.args = getArgs(dataThumbnail);
 Thumbnail.argTypes = getArgTypes(dataThumbnail);
 Thumbnail.parameters = { notes: { markdown: notes, json: dataThumbnail } };
 
@@ -183,6 +202,7 @@ export const ThumbnailTaxonomy = (args) =>
   file(prepareData(dataThumbnailTaxonomy, args));
 
 ThumbnailTaxonomy.storyName = 'with taxonomy';
+ThumbnailTaxonomy.args = getArgs(dataThumbnailTaxonomy);
 ThumbnailTaxonomy.argTypes = getArgTypes(dataThumbnailTaxonomy);
 ThumbnailTaxonomy.parameters = {
   notes: { markdown: notes, json: dataThumbnailTaxonomy },

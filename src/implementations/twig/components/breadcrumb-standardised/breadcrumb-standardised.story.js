@@ -15,13 +15,21 @@ const system = getSystem();
 const dataSimple = system === 'eu' ? { ...dataSimpleEU } : { ...dataSimpleEC };
 const dataLong = system === 'eu' ? { ...dataLongEU } : { ...dataLongEC };
 
+const getArgs = (data) => {
+  const args = {};
+  data.links.forEach((item, i) => {
+    args[`item${i + 1}`] = item.label;
+  });
+
+  return args;
+};
+
 const getArgTypes = (data) => {
   const argTypes = {};
   data.links.forEach((item, i) => {
     argTypes[`item${i + 1}`] = {
       name: `Item ${i + 1}`,
       type: { name: 'string' },
-      defaultValue: item.label,
       description: `Label of breadcrumb item ${i + 1}`,
       table: {
         type: { summary: 'string' },
@@ -55,6 +63,7 @@ export default {
 
 export const Simple = (args) => breadcrumb(prepareData(dataSimple, args));
 
+Simple.args = getArgs(dataSimple);
 Simple.argTypes = getArgTypes(dataSimple);
 Simple.storyName = 'simple';
 Simple.parameters = {
@@ -63,6 +72,7 @@ Simple.parameters = {
 
 export const Long = (args) => breadcrumb(prepareData(dataLong, args));
 
+Long.args = getArgs(dataLong);
 Long.argTypes = getArgTypes(dataLong);
 Long.storyName = 'long';
 Long.parameters = {
