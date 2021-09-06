@@ -1,4 +1,7 @@
 // Simple content for demo
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   image: {
     alt: 'card image',
@@ -7,7 +10,7 @@ module.exports = {
   title: {
     variant: 'standalone',
     label: 'Better regulation',
-    href: '/example',
+    href: exampleLink,
     level: 1,
   },
   description:

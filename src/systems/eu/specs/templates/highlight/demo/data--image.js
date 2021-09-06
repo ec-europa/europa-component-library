@@ -1,3 +1,6 @@
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   heading: {
     label: 'News, Events and Publications',
@@ -9,7 +12,7 @@ module.exports = {
       },
       title: {
         label: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-        href: '/example',
+        href: exampleLink,
       },
       images: {
         position: 'right',
@@ -30,7 +33,7 @@ module.exports = {
       title: {
         label:
           'Vivamus aliquet tellus sodales lectus vulputate, vitae ullamcorper magna vehicula. Aenean interdum ornare risus non ornare. Mauris a sagittis mi',
-        href: '/example',
+        href: exampleLink,
       },
       images: {
         position: 'right',
@@ -51,7 +54,7 @@ module.exports = {
       title: {
         label:
           'Morbi nisl sem, imperdiet a sapien condimentum, ultricies mollis libero. Curabitur pharetra condimentum tellus',
-        href: '/example',
+        href: exampleLink,
       },
       images: {
         position: 'right',
@@ -68,7 +71,7 @@ module.exports = {
   ],
   link: {
     label: 'All news',
-    href: '/example',
+    href: exampleLink,
     icon: {
       shape: 'ui--corner-arrow',
       transform: 'rotate-90',
@@ -79,7 +82,7 @@ module.exports = {
     {
       title: {
         label: 'Events',
-        href: '/example',
+        href: exampleLink,
         variant: 'standalone',
       },
       description: 'Upcoming events organized by the European Commission',
@@ -87,7 +90,7 @@ module.exports = {
     {
       title: {
         label: 'Publications',
-        href: '/example',
+        href: exampleLink,
         variant: 'standalone',
       },
       description:

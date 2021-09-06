@@ -1,9 +1,12 @@
 // Simple content for demo
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   description: 'Share this page',
   links: [
     {
-      href: '/example',
+      href: exampleLink,
       label: 'Twitter',
       className: 'ecl-social-media-share__link--twitter',
       variant: 'standalone',
@@ -22,7 +25,7 @@ module.exports = {
       ],
     },
     {
-      href: '/example',
+      href: exampleLink,
       label: 'Facebook',
       className: 'ecl-social-media-share__link--facebook',
       variant: 'standalone',
@@ -41,7 +44,7 @@ module.exports = {
       ],
     },
     {
-      href: '/example',
+      href: exampleLink,
       label: 'Instagram',
       className: 'ecl-social-media-share__link--instagram',
       variant: 'standalone',
@@ -60,7 +63,7 @@ module.exports = {
       ],
     },
     {
-      href: '/example',
+      href: exampleLink,
       label: 'Linkedin',
       className: 'ecl-social-media-share__link--linkedin',
       variant: 'standalone',
@@ -79,7 +82,7 @@ module.exports = {
       ],
     },
     {
-      href: '/example',
+      href: exampleLink,
       label: 'E-mail',
       className: 'ecl-social-media-share__link--email',
       variant: 'standalone',
@@ -98,7 +101,7 @@ module.exports = {
       ],
     },
     {
-      href: '/example',
+      href: exampleLink,
       label: 'Other social networks',
       variant: 'standalone',
     },

@@ -1,3 +1,6 @@
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   title: 'State of the Union 2018 brochure',
   ariaLabel: 'Download file State of the Union 2018 brochure',
@@ -9,6 +12,6 @@ module.exports = {
   },
   download: {
     label: 'Download',
-    href: '/example',
+    href: exampleLink,
   },
 };

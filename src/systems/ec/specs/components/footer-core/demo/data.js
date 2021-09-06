@@ -1,10 +1,13 @@
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   sections: {
     siteName: {
       // Mandatory
       title: {
         label: 'European Commission website',
-        href: '/example',
+        href: exampleLink,
       },
       description:
         'This site is managed by the Directorate-General for Communication',
@@ -16,87 +19,87 @@ module.exports = {
         {
           label: 'Strategy',
           ariaLabel: 'Link to Strategy',
-          href: '/example',
+          href: exampleLink,
         },
         {
           label: 'About the European Commission',
           ariaLabel: 'Link About the European Commission',
-          href: '/example',
+          href: exampleLink,
         },
         {
           label: 'Business, Economy, Euro',
           ariaLabel: 'Link to Business, Economy, Euro',
-          href: '/example',
+          href: exampleLink,
         },
         {
           label: 'Live, work, travel in the EU',
           ariaLabel: 'Link work, travel in the EU',
-          href: '/example',
+          href: exampleLink,
         },
         {
           label: 'Law',
-          href: '/example',
+          href: exampleLink,
           ariaLabel: 'Link to Law',
         },
         {
           label: 'Funding, Tenders',
           ariaLabel: 'Link to Funding, Tenders',
-          href: '/example',
+          href: exampleLink,
         },
         {
           label: 'Research and innovation',
           ariaLabel: 'Link to Research and innovation',
-          href: '/example',
+          href: exampleLink,
         },
         {
           label: 'Energy, Climate change, Environment',
           ariaLabel: 'Link to Climate change, Environment',
-          href: '/example',
+          href: exampleLink,
         },
         {
           label: 'Education',
           ariaLabel: 'Link to Education',
-          href: '/example',
+          href: exampleLink,
         },
         {
           label: 'Aid, Development cooperation, Fundamental rights',
           ariaLabel: 'Link to Aid, Development cooperation, Fundamental rights',
-          href: '/example',
+          href: exampleLink,
         },
         {
           label: 'Food, Farming, Fisheries',
           ariaLabel: 'Link to Food, Farming, Fisheries',
-          href: '/example',
+          href: exampleLink,
         },
         {
           label: 'EU regional and urban development',
           ariaLabel: 'Link to EU regionaland urban development',
-          href: '/example',
+          href: exampleLink,
         },
         {
           label: 'Jobs at the European Commission',
           ariaLabel: 'Link to Jobs at the European Commission',
-          href: '/example',
+          href: exampleLink,
         },
         {
           label: 'Statistics',
           ariaLabel: 'Link to Statistics',
-          href: '/example',
+          href: exampleLink,
         },
         {
           label: 'News',
           ariaLabel: 'Link to News',
-          href: '/example',
+          href: exampleLink,
         },
         {
           label: 'Events',
           ariaLabel: 'Link to Events',
-          href: '/example',
+          href: exampleLink,
         },
         {
           label: 'Publications',
           ariaLabel: 'Link to Publications',
-          href: '/example',
+          href: exampleLink,
         },
       ],
       listClassName: 'ecl-footer-core__list--columns',
@@ -107,12 +110,12 @@ module.exports = {
         {
           label: 'Contact the European Commission',
           ariaLabel: 'Link to Contact the European Commission',
-          href: '/example',
+          href: exampleLink,
         },
         {
           label: 'Follow the European Commission on social media',
           ariaLabel: 'Link to Follow the European Commission on social media',
-          href: '/example',
+          href: exampleLink,
           iconPosition: 'after',
           icon: {
             shape: 'ui--external',
@@ -122,7 +125,7 @@ module.exports = {
         {
           label: 'Resources for partners',
           ariaLabel: 'Link to Resources for partners',
-          href: '/example',
+          href: exampleLink,
         },
       ],
     },
@@ -132,22 +135,22 @@ module.exports = {
         {
           label: 'Language policy',
           ariaLabel: 'Link to Language policy',
-          href: '/example',
+          href: exampleLink,
         },
         {
           label: 'Cookies',
           ariaLabel: 'Link to Cookies',
-          href: '/example',
+          href: exampleLink,
         },
         {
           label: 'Privacy policy',
           ariaLabel: 'Link to Privacy policy',
-          href: '/example',
+          href: exampleLink,
         },
         {
           label: 'Legal notice',
           ariaLabel: 'Link to Legal notice',
-          href: '/example',
+          href: exampleLink,
         },
       ],
     },

@@ -8,15 +8,18 @@ const footerHarmonisedGroup1Content = require('@ecl/ec-specs-footer-harmonised/d
 const footerHarmonisedGroup2Content = require('@ecl/ec-specs-footer-harmonised/demo/data--group2');
 const footerStandardisedContent = require('@ecl/ec-specs-footer-standardised/demo/data');
 
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 const breadcrumbContent = {
   label: 'You are here:',
 };
 const breadcrumbItems = [
-  { label: 'Home', href: '/example' },
-  { label: 'Events', href: '/example' },
+  { label: 'Home', href: exampleLink },
+  { label: 'Events', href: exampleLink },
   {
     label: 'Fair of European Innovators in Cultural heritage',
-    href: '/example',
+    href: exampleLink,
   },
   { label: 'Programme' },
 ];
@@ -31,7 +34,7 @@ const pageBannerContent = {
   title: 'Fair of European Innovators in Cultural Heritage',
   link: {
     label: 'Register',
-    href: '/example',
+    href: exampleLink,
   },
 };
 

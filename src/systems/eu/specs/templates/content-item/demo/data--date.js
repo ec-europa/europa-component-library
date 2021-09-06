@@ -1,9 +1,12 @@
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   meta: {
     label: "<span class='ecl-u-type-uppercase'>Event</span>",
   },
   title: {
-    href: '/example',
+    href: exampleLink,
     label: 'Name',
   },
   description: {

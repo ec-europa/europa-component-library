@@ -1,3 +1,6 @@
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   media: {
     alt: 'Jean Monnet banner',
@@ -9,7 +12,7 @@ module.exports = {
   title: 'Title',
   link: {
     variant: 'cta',
-    href: '/example',
+    href: exampleLink,
     label: 'Call to action link',
     icon: {
       shape: 'ui--corner-arrow',
