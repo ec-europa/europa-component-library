@@ -1,4 +1,5 @@
 import withCode from '@ecl/storybook-addon-code';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 export default {
   title: 'Utilities/HTML tag styling',
@@ -10,6 +11,7 @@ export default {
 };
 
 export const Default = () => {
+  const h6 = getSystem() === 'eu' ? '<h6>Heading 6</h6>' : '';
   return `
   <h2 class="ecl-u-type-heading-2">HTML tag styling</h2>
   <p class="ecl-u-type-paragraph">To see the following HTML tags styled with ECL, just activate the optional "ecl-default" css file in the "CSS resources" tab.</p>
@@ -21,7 +23,7 @@ export const Default = () => {
     <h3>Heading 3</h3>
     <h4>Heading 4</h4>
     <h5>Heading 5</h5>
-    <h6>Heading 6</h6>
+    ${h6}
     <p>Paragraph: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur vulputate venenatis. Proin tempus viverra felis, a sollicitudin lorem rutrum sit amet. Phasellus mattis fringilla iaculis.</p>
     <ul>
       <li>Unordered list</li>

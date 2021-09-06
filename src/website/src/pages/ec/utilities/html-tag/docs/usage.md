@@ -13,7 +13,7 @@ order: 1
 Here is the list of HTML tags available for automatic styling:
 - &lt;a&gt;
 - &lt;button&gt;
-- &lt;h1&gt; to &lt;h6&gt;
+- &lt;h1&gt; to &lt;h5&gt;
 - &lt;p&gt;
 - &lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;
 - &lt;dl&gt;, &lt;dt&gt;, &lt;dd&gt;
