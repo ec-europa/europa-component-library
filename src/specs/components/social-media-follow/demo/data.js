@@ -1,9 +1,12 @@
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   description:
     'Follow the latest progress and learn more about getting involved.',
   links: [
     {
-      path: '/example',
+      path: exampleLink,
       label: 'Twitter',
       variant: 'standalone',
       icon_position: 'before',
@@ -23,7 +26,7 @@ module.exports = {
       ],
     },
     {
-      path: '/example',
+      path: exampleLink,
       label: 'Facebook',
       variant: 'standalone',
       icon_position: 'before',
@@ -43,7 +46,7 @@ module.exports = {
       ],
     },
     {
-      path: '/example',
+      path: exampleLink,
       label: 'Instagram',
       variant: 'standalone',
       icon_position: 'before',
@@ -63,7 +66,7 @@ module.exports = {
       ],
     },
     {
-      path: '/example',
+      path: exampleLink,
       label: 'Linkedin',
       variant: 'standalone',
       icon_position: 'before',
@@ -83,7 +86,7 @@ module.exports = {
       ],
     },
     {
-      path: '/example',
+      path: exampleLink,
       label: 'Other social networks',
       variant: 'standalone',
     },
