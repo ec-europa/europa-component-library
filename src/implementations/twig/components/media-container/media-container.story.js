@@ -7,13 +7,27 @@ import dataEmbed from '@ecl/specs-component-media-container/demo/data--embed-vid
 import mediaContainer from './media-container.html.twig';
 import notes from './README.md';
 
+const getArgs = (data) => {
+  const args = {
+    description: data.description,
+    width: 'outside',
+  };
+  if (data.image && !data.sources) {
+    args.image = data.image;
+  }
+  if (data.ratio) {
+    args.ratio = data.ratio;
+  }
+
+  return args;
+};
+
 const getArgTypes = (data) => {
   const argTypes = {};
 
   argTypes.description = {
     name: 'description',
     type: 'string',
-    defaultValue: data.description,
     description: 'Media description',
     table: {
       type: { summary: 'string' },
@@ -26,7 +40,6 @@ const getArgTypes = (data) => {
     argTypes.image = {
       name: 'image',
       type: { name: 'string', required: true },
-      defaultValue: data.image,
       description: 'Path or Url of the image',
       table: {
         type: { summary: 'string' },
@@ -40,7 +53,6 @@ const getArgTypes = (data) => {
     argTypes.ratio = {
       name: 'ratio',
       type: { name: 'select' },
-      defaultValue: data.ratio,
       description: 'Media ratio',
       table: {
         type: { summary: 'string' },
@@ -56,7 +68,6 @@ const getArgTypes = (data) => {
 
   argTypes.width = {
     name: 'width',
-    defaultValue: 'outside',
     description: `The media container extends to the whole viewport by default when outside the grid,
       if it's inside it can still be extended by adding class .ecl-media-container--full-width`,
     table: {
@@ -100,6 +111,7 @@ export default {
 export const Image = (args) => renderStory(dataImg, args);
 
 Image.storyName = 'image';
+Image.args = getArgs(dataImg);
 Image.argTypes = getArgTypes(dataImg);
 Image.parameters = {
   notes: { markdown: notes, json: dataImg },
@@ -108,6 +120,7 @@ Image.parameters = {
 export const Video = (args) => renderStory(dataVideo, args);
 
 Video.storyName = 'video';
+Video.args = getArgs(dataVideo);
 Video.argTypes = getArgTypes(dataVideo);
 Video.parameters = {
   notes: { markdown: notes, json: dataVideo },
@@ -116,6 +129,7 @@ Video.parameters = {
 export const EmbeddedVideo = (args) => renderStory(dataEmbed, args);
 
 EmbeddedVideo.storyName = 'embedded video';
+EmbeddedVideo.args = getArgs(dataEmbed);
 EmbeddedVideo.argTypes = getArgTypes(dataEmbed);
 EmbeddedVideo.parameters = {
   notes: { markdown: notes, json: dataEmbed },

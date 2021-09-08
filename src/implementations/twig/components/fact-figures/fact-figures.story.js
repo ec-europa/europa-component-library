@@ -30,10 +30,8 @@ const getArgTypes = () => {
   return {
     icon: {
       description: 'Name of the icon',
-      control: {
-        type: 'select',
-        options: iconsAll,
-      },
+      type: 'select',
+      options: iconsAll,
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },

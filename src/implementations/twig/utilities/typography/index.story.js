@@ -4,11 +4,26 @@ import withCode from '@ecl/storybook-addon-code';
 import demoContentHeading from '@ecl/specs-utils-typography/demo/data--heading';
 import demoContentParagraph from '@ecl/specs-utils-typography/demo/data--paragraph';
 
-const getArgTypes = (data, story) => {
+const getArgs = (data, story) => {
+  const args = {
+    content: data.content,
+  };
+  if (story === 'text-colour') {
+    args.colour = 'ecl-u-type-color-black';
+  }
+  if (story === 'text-style') {
+    args.bold = false;
+    args.style = 'ecl-u-type-none';
+    args.alignment = 'ecl-u-type-align-left';
+  }
+
+  return args;
+};
+
+const getArgTypes = (story) => {
   const argTypes = {
     content: {
       description: `Content`,
-      defaultValue: data.content,
       type: 'string',
       control: {
         type: 'text',
@@ -26,19 +41,29 @@ const getArgTypes = (data, story) => {
       name: 'Text colour (sample)',
       description: 'Choose different colours',
       type: 'select',
-      defaultValue: 'ecl-u-type-color-black',
+      options: [
+        'ecl-u-type-color-black',
+        'ecl-u-type-color-white ecl-u-bg-grey',
+        'ecl-u-type-color-grey',
+        'ecl-u-type-color-blue-120',
+        'ecl-u-type-color-grey-50',
+        'ecl-u-type-color-blue-n',
+        'ecl-u-type-color-red',
+        'ecl-u-type-color-orange',
+        'ecl-u-type-color-green',
+      ],
       control: {
         type: 'select',
-        options: {
-          Black: 'ecl-u-type-color-black',
-          White: 'ecl-u-type-color-white ecl-u-bg-grey',
-          Grey: 'ecl-u-type-color-grey',
-          'Blue 120': 'ecl-u-type-color-blue-120',
-          'Grey 50': 'ecl-u-type-color-grey-50',
-          'Blue N': 'ecl-u-type-color-blue-n',
-          Red: 'ecl-u-type-color-red',
-          Orange: 'ecl-u-type-color-orange',
-          Green: 'ecl-u-type-color-green',
+        labels: {
+          'ecl-u-type-color-black': 'Black',
+          'ecl-u-type-color-white ecl-u-bg-grey': 'White',
+          'ecl-u-type-color-grey': 'Grey',
+          'ecl-u-type-color-blue-120': 'Blue 120',
+          'ecl-u-type-color-grey-50': 'Grey 50',
+          'ecl-u-type-color-blue-n': 'Blue N',
+          'ecl-u-type-color-red': 'Red',
+          'ecl-u-type-color-orange': 'Orange',
+          'ecl-u-type-color-green': 'Green',
         },
       },
       table: {
@@ -52,10 +77,6 @@ const getArgTypes = (data, story) => {
       name: 'Bold text',
       description: 'Set the text size to bold',
       type: 'boolean',
-      defaultValue: false,
-      control: {
-        type: 'boolean',
-      },
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
@@ -66,17 +87,24 @@ const getArgTypes = (data, story) => {
       name: 'Text style',
       description: 'Choose different text styles',
       type: 'select',
-      defaultValue: 'ecl-u-type-none',
+      options: [
+        'ecl-u-type-none',
+        'ecl-u-type-lowercase',
+        'ecl-u-type-uppercase',
+        'ecl-u-type-capitalize',
+        'ecl-u-type-overline',
+        'ecl-u-type-underline',
+        'ecl-u-type-strike',
+      ],
       control: {
-        type: 'select',
-        options: {
-          Default: 'ecl-u-type-none',
-          Lowercase: 'ecl-u-type-lowercase',
-          Uppercase: 'ecl-u-type-uppercase',
-          Capitalize: 'ecl-u-type-capitalize',
-          Overline: 'ecl-u-type-overline',
-          Underline: 'ecl-u-type-underline',
-          Strike: 'ecl-u-type-strike',
+        labels: {
+          'ecl-u-type-none': 'Default',
+          'ecl-u-type-lowercase': 'Lowercase',
+          'ecl-u-type-uppercase': 'Uppercase',
+          'ecl-u-type-capitalize': 'Capitalize',
+          'ecl-u-type-overline': 'Overline',
+          'ecl-u-type-underline': 'Underline',
+          'ecl-u-type-strike': 'Strike',
         },
       },
       table: {
@@ -89,13 +117,17 @@ const getArgTypes = (data, story) => {
       name: 'Text alignment',
       description: 'Choose different text alignments',
       type: 'select',
-      defaultValue: 'ecl-u-type-align-left',
+      options: [
+        'ecl-u-type-align-left',
+        'ecl-u-type-align-right',
+        'ecl-u-type-align-center',
+      ],
       control: {
         type: 'select',
-        options: {
-          Left: 'ecl-u-type-align-left',
-          Right: 'ecl-u-type-align-right',
-          Center: 'ecl-u-type-align-center',
+        labels: {
+          'ecl-u-type-align-left': 'Left',
+          'ecl-u-type-align-right': 'Right',
+          'ecl-u-type-align-center': 'Center',
         },
       },
       table: {
@@ -126,7 +158,8 @@ export const Paragraph = (args) => `
   `;
 
 Paragraph.storyName = 'paragraph';
-Paragraph.argTypes = getArgTypes(demoContentParagraph, 'paragraph');
+Paragraph.args = getArgs(demoContentParagraph, 'paragraph');
+Paragraph.argTypes = getArgTypes('paragraph');
 
 export const Heading = (args) => `
     <h1 class="ecl-u-type-heading-1">H1. ${args.content}</h1>
@@ -138,7 +171,8 @@ export const Heading = (args) => `
   `;
 
 Heading.storyName = 'heading';
-Heading.argTypes = getArgTypes(demoContentHeading, 'heading');
+Heading.args = getArgs(demoContentHeading, 'heading');
+Heading.argTypes = getArgTypes('heading');
 
 export const TextColour = (args) => `
     <p class="${classnames('ecl-u-type-paragraph-m', args.colour)}">
@@ -147,7 +181,8 @@ export const TextColour = (args) => `
   `;
 
 TextColour.storyName = 'text colour';
-TextColour.argTypes = getArgTypes(demoContentParagraph, 'text-colour');
+TextColour.args = getArgs(demoContentParagraph, 'text-colour');
+TextColour.argTypes = getArgTypes('text-colour');
 
 export const TextStyle = (args) => `
       <p
@@ -165,4 +200,5 @@ export const TextStyle = (args) => `
   `;
 
 TextStyle.storyName = 'text style';
-TextStyle.argTypes = getArgTypes(demoContentParagraph, 'text-style');
+TextStyle.args = getArgs(demoContentParagraph, 'text-style');
+TextStyle.argTypes = getArgTypes('text-style');

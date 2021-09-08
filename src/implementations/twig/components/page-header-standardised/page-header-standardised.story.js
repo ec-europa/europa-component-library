@@ -16,13 +16,34 @@ const system = getSystem();
 const dataDefault = { ...demoContent };
 const dataBackgroundImage = { ...demoBackgroundImage };
 
+const getArgs = (data) => {
+  const args = {
+    breadcrumb: true,
+    title: data.title,
+    overlay: data.overlay || 'none',
+  };
+  if (data.thumbnail) {
+    args.thumbnail = data.thumbnail;
+  }
+  if (data.description) {
+    args.description = data.description;
+  }
+  if (data.meta) {
+    args.meta = data.meta;
+  }
+  if (data.background_image_url) {
+    args.background_image_url = data.background_image_url;
+  }
+
+  return args;
+};
+
 const getArgTypes = (data) => {
   const argTypes = {};
 
   argTypes.breadcrumb = {
     name: 'breadcrumb',
     type: 'boolean',
-    defaultValue: true,
     description: 'Toggle breadcrumb visibility',
     table: {
       type: { summary: 'object' },
@@ -34,7 +55,6 @@ const getArgTypes = (data) => {
     argTypes.thumbnail = {
       name: 'thumbnail',
       type: 'boolean',
-      defaultValue: false,
       description: 'Toggle thumbnail visibility',
       table: {
         type: { summary: 'object' },
@@ -45,7 +65,6 @@ const getArgTypes = (data) => {
 
   argTypes.title = {
     type: { name: 'string', required: true },
-    defaultValue: data.title,
     description: 'The page title',
     table: {
       type: { summary: 'string' },
@@ -57,7 +76,6 @@ const getArgTypes = (data) => {
   if (data.description) {
     argTypes.description = {
       type: 'string',
-      defaultValue: data.description,
       description: 'The page introduction',
       table: {
         type: { summary: 'string' },
@@ -70,7 +88,6 @@ const getArgTypes = (data) => {
   if (data.meta) {
     argTypes.meta = {
       type: 'array',
-      defaultValue: data.meta,
       description: 'The page meta',
       table: {
         type: { summary: 'array' },
@@ -84,7 +101,6 @@ const getArgTypes = (data) => {
     argTypes.background_image_url = {
       name: 'background image',
       type: 'string',
-      defaultValue: data.background_image_url,
       description: 'The background image url',
       table: {
         type: { summary: 'string' },
@@ -96,16 +112,12 @@ const getArgTypes = (data) => {
     argTypes.overlay = {
       name: 'image overlay',
       type: 'select',
-      defaultValue: 'none',
       description: 'Overlay on top on background image',
+      options: ['none', 'dark', 'light'],
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
         category: 'Content',
-      },
-      control: {
-        type: 'select',
-        options: ['none', 'dark', 'light'],
       },
     };
   }
@@ -157,6 +169,7 @@ export const Default = (args) =>
   pageHeaderStandardised(prepareData(dataDefault, args));
 
 Default.storyName = 'default';
+Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes(dataDefault);
 Default.parameters = {
   notes: { markdown: notes, json: dataDefault },
@@ -166,6 +179,7 @@ export const BackgroundImage = (args) =>
   pageHeaderStandardised(prepareData(dataBackgroundImage, args));
 
 BackgroundImage.storyName = 'background-image';
+BackgroundImage.args = getArgs(dataBackgroundImage);
 BackgroundImage.argTypes = getArgTypes(dataBackgroundImage);
 BackgroundImage.parameters = {
   notes: { markdown: notes, json: dataBackgroundImage },

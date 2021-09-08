@@ -14,11 +14,24 @@ import notes from './README.md';
 
 const system = getSystem();
 
+const getArgs = (data) => {
+  const args = {
+    title: data.title,
+  };
+  if (data.description) {
+    args.description = data.description;
+  }
+  if (data.meta) {
+    args.meta = data.meta;
+  }
+
+  return args;
+};
+
 const getArgTypes = (data) => {
   const argTypes = {};
   argTypes.title = {
     type: { name: 'string', required: true },
-    defaultValue: data.title,
     description: 'The page title',
     table: {
       type: { summary: 'string' },
@@ -29,7 +42,6 @@ const getArgTypes = (data) => {
   if (data.description) {
     argTypes.description = {
       type: 'string',
-      defaultValue: data.description,
       description: 'The page introduction',
       table: {
         type: { summary: 'string' },
@@ -41,7 +53,6 @@ const getArgTypes = (data) => {
   if (data.meta) {
     argTypes.meta = {
       type: 'string',
-      defaultValue: data.meta,
       description: 'The page metadata',
       table: {
         type: { summary: 'string' },
@@ -74,6 +85,7 @@ export const Title = (args) =>
   pageHeaderHarmonised(prepareData(demoTitleContent, args));
 
 Title.storyName = 'title';
+Title.args = getArgs(demoTitleContent);
 Title.argTypes = getArgTypes(demoTitleContent);
 Title.parameters = { notes: { markdown: notes, json: demoTitleContent } };
 
@@ -81,6 +93,7 @@ export const MetaTitle = (args) =>
   pageHeaderHarmonised(prepareData(demoMetaTitleContent, args));
 
 MetaTitle.storyName = 'meta-title';
+MetaTitle.args = getArgs(demoMetaTitleContent);
 MetaTitle.argTypes = getArgTypes(demoMetaTitleContent);
 MetaTitle.parameters = {
   notes: { markdown: notes, json: demoMetaTitleContent },
@@ -90,6 +103,7 @@ export const MetaTitleDescription = (args) =>
   pageHeaderHarmonised(prepareData(demoMetaTitleDescriptionContent, args));
 
 MetaTitleDescription.storyName = 'meta-title-description';
+MetaTitleDescription.args = getArgs(demoMetaTitleDescriptionContent);
 MetaTitleDescription.argTypes = getArgTypes(demoMetaTitleDescriptionContent);
 MetaTitleDescription.parameters = {
   notes: { markdown: notes, json: demoMetaTitleDescriptionContent },

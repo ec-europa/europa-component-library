@@ -12,6 +12,18 @@ const dataInvalid = { ...dataDefault, invalid: true };
 const dataOptional = { ...dataDefault, required: false };
 const dataBinaryInvalid = { ...dataBinary, invalid: true };
 
+const getArgs = (data) => {
+  return {
+    label: data.label || '',
+    helper_text: data.helper_text,
+    invalid_text: data.invalid_text,
+    optional_text: data.optional_text,
+    required_text: data.required_text,
+    invalid: data.invalid || false,
+    required: data.required,
+  };
+};
+
 const getArgTypes = (data) => getFormControls(data, 'group');
 
 const prepareData = (data, args) => {
@@ -27,24 +39,28 @@ export default {
 export const Default = (args) => radioGroup(prepareData(dataDefault, args));
 
 Default.storyName = 'default';
+Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes(dataDefault);
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 
 export const Invalid = (args) => radioGroup(prepareData(dataInvalid, args));
 
 Invalid.storyName = 'invalid';
+Invalid.args = getArgs(dataInvalid);
 Invalid.argTypes = getArgTypes(dataInvalid);
 Invalid.parameters = { notes: { markdown: notes, json: dataInvalid } };
 
 export const Optional = (args) => radioGroup(prepareData(dataOptional, args));
 
 Optional.storyName = 'optional';
+Optional.args = getArgs(dataOptional);
 Optional.argTypes = getArgTypes(dataOptional);
 Optional.parameters = { notes: { markdown: notes, json: dataOptional } };
 
 export const Binary = (args) => radioGroup(prepareData(dataBinary, args));
 
 Binary.storyName = 'binary';
+Binary.args = getArgs(dataBinary);
 Binary.argTypes = getArgTypes(dataBinary);
 Binary.parameters = { notes: { markdown: notes, json: dataBinary } };
 
@@ -52,6 +68,7 @@ export const BinaryInvalid = (args) =>
   radioGroup(prepareData(dataBinaryInvalid, args));
 
 BinaryInvalid.storyName = 'binary invalid';
+BinaryInvalid.args = getArgs(dataBinaryInvalid);
 BinaryInvalid.argTypes = getArgTypes(dataBinaryInvalid);
 BinaryInvalid.parameters = {
   notes: { markdown: notes, json: dataBinaryInvalid },

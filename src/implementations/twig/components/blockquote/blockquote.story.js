@@ -12,11 +12,10 @@ const getArgs = (data) => {
   };
 };
 
-const getArgTypes = (data) => {
+const getArgTypes = () => {
   return {
     citation: {
       name: 'citation',
-      defaultValue: data.citation,
       type: { name: 'string', required: true },
       description: 'Blockquote citation',
       table: {
@@ -30,7 +29,6 @@ const getArgTypes = (data) => {
     },
     author: {
       name: 'author',
-      defaultValue: data.author,
       type: { name: 'string', required: true },
       description: 'Author of the citation',
       table: {
@@ -57,7 +55,7 @@ export default {
 export const Default = (args) => blockquote(prepareData(defaultData, args));
 
 Default.args = getArgs(defaultData);
-Default.argTypes = getArgTypes(defaultData);
+Default.argTypes = getArgTypes();
 Default.storyName = 'default';
 Default.parameters = {
   notes: { markdown: notes, json: defaultData },

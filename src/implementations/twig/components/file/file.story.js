@@ -43,7 +43,6 @@ const getArgTypes = (data) => {
     argTypes.detail_meta = {
       name: 'Meta',
       type: 'array',
-      defaultValue: data.detail_meta,
       description: 'File metadatas (comma separated)',
       table: {
         type: { summary: 'array' },
@@ -56,7 +55,6 @@ const getArgTypes = (data) => {
   argTypes.title = {
     name: 'title',
     type: { name: 'string', required: true },
-    defaultValue: data.title,
     description: 'The heading that describes the file',
     table: {
       type: { summary: 'string' },

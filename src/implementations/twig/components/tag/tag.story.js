@@ -9,11 +9,16 @@ import dataDisplay from '@ecl/specs-component-tag/demo/data--display';
 import tag from './tag.html.twig';
 import notes from './README.md';
 
-const getArgTypes = (data) => {
+const getArgs = (data) => {
+  return {
+    label: data.tag.label,
+  };
+};
+
+const getArgTypes = () => {
   return {
     label: {
       name: 'label',
-      defaultValue: data.tag.label,
       type: { name: 'string', required: true },
       description: 'The label of the tag',
       table: {
@@ -40,17 +45,20 @@ export default {
 export const Display = (args) => tag(prepareData(dataDisplay, args));
 
 Display.storyName = 'display tag';
-Display.argTypes = getArgTypes(dataDisplay);
+Display.args = getArgs(dataDisplay);
+Display.argTypes = getArgTypes();
 Display.parameters = { notes: { markdown: notes, json: dataDisplay } };
 
 export const Link = (args) => tag(prepareData(dataLink, args));
 
 Link.storyName = 'link tag';
-Link.argTypes = getArgTypes(dataLink);
+Link.args = getArgs(dataLink);
+Link.argTypes = getArgTypes();
 Link.parameters = { notes: { markdown: notes, json: dataLink } };
 
 export const Removable = (args) => tag(prepareData(dataRemovable, args));
 
 Removable.storyName = 'removable tag';
-Removable.argTypes = getArgTypes(dataRemovable);
+Removable.args = getArgs(dataRemovable);
+Removable.argTypes = getArgTypes();
 Removable.parameters = { notes: { markdown: notes, json: dataRemovable } };

@@ -26,7 +26,6 @@ const getArgTypes = (data) => {
     term: {
       name: 'term (first item)',
       type: { name: 'string', required: true },
-      defaultValue: data.items[0].term,
       description: 'The heading of the description list item',
       table: {
         type: { summary: 'string' },

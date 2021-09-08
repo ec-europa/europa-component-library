@@ -24,7 +24,6 @@ const getArgTypes = () => {
   return {
     login: {
       type: { name: 'boolean' },
-      defaultValue: true,
       description: 'Toggle login box visibility',
       table: {
         type: { summary: 'object' },
@@ -34,7 +33,6 @@ const getArgTypes = () => {
     languageSelector: {
       name: 'language selector',
       type: { name: 'boolean' },
-      defaultValue: true,
       description: 'Toggle language selector visibility',
       table: {
         type: { summary: 'object' },
@@ -43,7 +41,6 @@ const getArgTypes = () => {
     },
     menu: {
       type: { name: 'boolean' },
-      defaultValue: true,
       description: 'Toggle menu visibility',
       table: {
         type: { summary: 'object' },
