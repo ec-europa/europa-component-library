@@ -144,3 +144,8 @@
 
   display: block;
 }
+
+.ecl blockquote img:not([class*='ecl-']),
+.ecl blockquote img:is([class*='ecl-u-']) {
+  @extend %ecl-blockquote__image;
+}

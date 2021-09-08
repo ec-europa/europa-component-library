@@ -35,6 +35,17 @@ const getArgTypes = (data) => {
       type: 'text',
     },
   };
+  argTypes.image = {
+    name: 'image',
+    type: { name: 'object' },
+    defaultValue: data.image,
+    description: 'Blockquote image',
+    table: {
+      type: { summary: 'object' },
+      defaultValue: { summary: '{}' },
+      category: 'Content',
+    },
+  };
 
   return argTypes;
 };

@@ -21,6 +21,9 @@ npm install --save @ecl/twig-component-blockquote
 ```twig
 {% include '@ecl/blockquote/blockquote.html.twig' with { 
   citation: 'Twenty years from now you will be more disappointed by the things that you didn’t do than by the ones you did do.', 
-  author: 'Mark Twain' 
+  author: 'Mark Twain',
+  image: {
+    path: "https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg",
+  },
 } %}
 ```

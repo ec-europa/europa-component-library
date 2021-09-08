@@ -5,6 +5,10 @@
     - "citation" (string) (default: '')
     - "author" (string) (default: '')
     - "extra_classes" (string) (default: '')
+    - "image" (object) (default: {}): format: {
+        "path" (string) (default: '')
+        "alt" (string) (default: '')
+    }
     - "extra_attributes" (array) (default: []): format: [
         {
           "name" (string) (default: ''),
@@ -19,6 +23,7 @@
 {% set _extra_attributes = '' %}
 {% set _citation = citation|default('') %}
 {% set _author = author|default('') %}
+{% set _image = image|default({}) %}
 
 {# Internal logic - Process properties #}
 
@@ -39,8 +44,23 @@
 {# Print the result #}
 
 <blockquote class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  <p class="ecl-blockquote__body">{{ _citation }}</p>
-  <footer class="ecl-blockquote__attribution"><cite class="ecl-blockquote__author">{{ _author }}</cite></footer>
+  <div class="ecl-blockquote__inner">
+    <p class="ecl-blockquote__body">{{ _citation }}</p>
+    <footer class="ecl-blockquote__attribution"><cite class="ecl-blockquote__author">{{ _author }}</cite></footer>
+  </div>
+  {% if image is defined and image is not empty %}
+    <img
+      {% if image.path is not empty %}
+        src="{{ image.path }}"
+      {% endif %}
+      {% if image.alt is not empty %}
+        alt="{{ image.alt }}"
+      {% endif %}
+        class="ecl-blockquote__image"
+        width="120"
+        height="120"
+    />
+  {% endif %}
 </blockquote>
 
 {% endspaceless %}

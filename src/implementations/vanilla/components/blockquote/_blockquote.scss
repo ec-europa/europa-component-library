@@ -64,6 +64,12 @@ $_text-max-width: 65ch; // Approximately 80 characters with the current font
   font-weight: $_author-font-weight;
 }
 
+.ecl-blockquote__image,
+%ecl-blockquote__image {
+  margin-bottom: map.get(theme.$spacing, 'm');
+  margin-top: map.get(theme.$spacing, 's');
+}
+
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('s') {
   .ecl-blockquote,
@@ -93,6 +99,22 @@ $_text-max-width: 65ch; // Approximately 80 characters with the current font
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
+  .ecl-blockquote,
+  %ecl-blockquote {
+    border-left: 0;
+    padding: 0;
+  }
+
+  .ecl-blockquote__inner,
+  %ecl-blockquote {
+    border-left: $_border-width solid $_border-color;
+    border-radius: $_border-radius;
+    display: inline-block;
+    padding-bottom: map.get(theme.$spacing, 'm');
+    padding-left: map.get(theme.$spacing, 'l');
+    padding-top: map.get(theme.$spacing, 'm');
+  }
+
   .ecl-blockquote__body,
   %ecl-blockquote {
     font: $_body-font-desktop;
@@ -108,5 +130,13 @@ $_text-max-width: 65ch; // Approximately 80 characters with the current font
   %ecl-blockquote__author {
     font: $_author-font-desktop;
     font-weight: $_author-font-weight;
+  }
+
+  .ecl-blockquote__image,
+  %ecl-blockquote__image {
+    float: left;
+    margin-bottom: 0;
+    margin-right: map.get(theme.$spacing, 'l');
+    margin-top: 0;
   }
 }
