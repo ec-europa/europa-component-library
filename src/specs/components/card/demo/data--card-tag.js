@@ -1,4 +1,7 @@
 // Simple content for demo
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   card: {
     description:
@@ -7,7 +10,7 @@ module.exports = {
     title: {
       type: 'standalone',
       label: 'Better regulation',
-      path: '/example',
+      path: exampleLink,
       level: 1,
     },
     image: {
@@ -15,9 +18,9 @@ module.exports = {
       src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
     },
     tags: [
-      { label: 'tag 1', path: '/example' },
-      { label: 'tag 2', path: '/example' },
-      { label: 'tag 3', path: '/example' },
+      { label: 'tag 1', path: exampleLink },
+      { label: 'tag 2', path: exampleLink },
+      { label: 'tag 3', path: exampleLink },
     ],
   },
 };
