@@ -4,6 +4,12 @@ module.exports = {
   close: 'Fermer',
   back: 'Retour',
   site_name: 'Nom du site',
+  cta_link: {
+    link: {
+      label: 'lien CTA',
+      href: '/example',
+    },
+  },
   menu_link: '/example',
   icon_path: '/icons.svg',
   items: [

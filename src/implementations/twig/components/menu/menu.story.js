@@ -3,10 +3,13 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctSvgPath } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
-import enData from '@ecl/specs-component-menu/demo/data--en';
-import frData from '@ecl/specs-component-menu/demo/data--fr';
+import enSpecs from '@ecl/specs-component-menu/demo/data--en';
+import frSpecs from '@ecl/specs-component-menu/demo/data--fr';
 import menu from './menu.html.twig';
 import notes from './README.md';
+
+const enData = { ...enSpecs };
+const frData = { ...frSpecs };
 
 if (getSystem() === 'eu') {
   enData.site_name = '';
@@ -29,12 +32,29 @@ const getArgTypes = (data) => {
         type: 'text',
       },
     },
+    cta_link: {
+      name: 'call to action',
+      type: { name: 'boolean' },
+      defaultValue: false,
+      description: 'Call to action link (optional)',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+        category: 'Content',
+      },
+      control: {
+        type: 'boolean',
+      },
+    },
   };
 };
 
 const prepareData = (data, args) => {
   correctSvgPath(data);
   data.site_name = args.site_name;
+  if (!args.cta_link) {
+    data.cta_link = {};
+  }
 
   return data;
 };

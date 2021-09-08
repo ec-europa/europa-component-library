@@ -359,10 +359,13 @@
   </div>
 {% endif %}
 
-{# Site name (banner) #}
+{# Site name and call to action (banner) #}
 {% if _site_name is defined and _site_name is not empty %}
   <div class="ecl-site-header-standardised__banner">
-    <div class="ecl-container">{{ _site_name }}</div>
+    <div class="ecl-container">
+      <div class="ecl-site-header-standardised__site-name">{{ _site_name }}</div>
+      <button class="ecl-site-header-standardised__cta">test</button>
+    </div>
   </div>
 {% endif %}
 
