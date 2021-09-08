@@ -20,17 +20,18 @@ const getArgs = (data) => {
   const args = {
     breadcrumb: true,
     title: data.title,
-    overlay: data.overlay || 'none',
+    thumbnail: false,
+    meta: data.meta,
   };
-  if (data.thumbnail) {
-    args.thumbnail = data.thumbnail;
+
+  if (data.background_image_url) {
+    args.overlay = 'none';
   }
+
   if (data.description) {
     args.description = data.description;
   }
-  if (data.meta) {
-    args.meta = data.meta;
-  }
+
   if (data.background_image_url) {
     args.background_image_url = data.background_image_url;
   }
@@ -51,17 +52,15 @@ const getArgTypes = (data) => {
     },
   };
 
-  if (data.thumbnail) {
-    argTypes.thumbnail = {
-      name: 'thumbnail',
-      type: 'boolean',
-      description: 'Toggle thumbnail visibility',
-      table: {
-        type: { summary: 'object' },
-        defaultValue: { summary: '{}' },
-      },
-    };
-  }
+  argTypes.thumbnail = {
+    name: 'thumbnail',
+    type: 'boolean',
+    description: 'Toggle thumbnail visibility',
+    table: {
+      type: { summary: 'object' },
+      defaultValue: { summary: '{}' },
+    },
+  };
 
   argTypes.title = {
     type: { name: 'string', required: true },
@@ -108,7 +107,9 @@ const getArgTypes = (data) => {
         category: 'Content',
       },
     };
+  }
 
+  if (data.background_image_url) {
     argTypes.overlay = {
       name: 'image overlay',
       type: 'select',

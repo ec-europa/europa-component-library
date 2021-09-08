@@ -72,9 +72,9 @@ export const getIconControls = (data, icons) => {
       defaultValue: { summary: '' },
       category: 'Icon',
     },
+    options: ['', 'inverted', 'primary'],
     control: {
-      type: 'select',
-      options: { default: '', inverted: 'inverted', primary: 'primary' },
+      labels: { '': 'default', inverted: 'inverted', primary: 'primary' },
     },
   };
   argTypes.transform = {

@@ -88,7 +88,7 @@ const getArgTypes = () => {
     icon_name: {
       name: 'icon name',
       type: { name: 'select', required: false },
-      options: iconsAll,
+      options: [...iconsAll],
       description: 'Name of the icon',
       table: {
         type: { summary: 'string' },

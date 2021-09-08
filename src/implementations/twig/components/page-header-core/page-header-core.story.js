@@ -20,17 +20,18 @@ const getArgs = (data) => {
   const args = {
     breadcrumb: true,
     title: data.title,
-    overlay: data.overlay || 'none',
+    meta: data.meta,
+    thumbnail: false,
   };
-  if (data.thumbnail) {
-    args.thumbnail = false;
+
+  if (data.overlay) {
+    args.overlay = data.overlay;
   }
+
   if (data.description) {
     args.description = data.description;
   }
-  if (data.meta) {
-    args.meta = data.meta;
-  }
+
   if (data.background_image_url) {
     args.background_image_url = data.background_image_url;
   }
@@ -85,17 +86,15 @@ const getArgTypes = (data) => {
     };
   }
 
-  if (data.meta) {
-    argTypes.meta = {
-      type: 'array',
-      description: 'The page meta',
-      table: {
-        type: { summary: 'array' },
-        defaultValue: { summary: '[]' },
-        category: 'Content',
-      },
-    };
-  }
+  argTypes.meta = {
+    type: 'array',
+    description: 'The page meta',
+    table: {
+      type: { summary: 'array' },
+      defaultValue: { summary: '[]' },
+      category: 'Content',
+    },
+  };
 
   if (data.background_image_url) {
     argTypes.background_image_url = {
