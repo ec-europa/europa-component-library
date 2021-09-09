@@ -1,3 +1,6 @@
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   rows: [
     [
@@ -6,7 +9,7 @@ module.exports = {
           title: {
             link: {
               label: 'European Commission website',
-              path: '/example',
+              path: exampleLink,
             },
           },
           description:
@@ -19,70 +22,70 @@ module.exports = {
             {
               link: {
                 label: 'Strategy',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Strategy',
               },
             },
             {
               link: {
                 label: 'About the European Commission',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link About the European Commission',
               },
             },
             {
               link: {
                 label: 'Business, Economy, Euro',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Business, Economy, Euro',
               },
             },
             {
               link: {
                 label: 'Live, work, travel in the EU',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link work, travel in the EU',
               },
             },
             {
               link: {
                 label: 'Law',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Law',
               },
             },
             {
               link: {
                 label: 'Funding, Tenders',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Funding, Tenders',
               },
             },
             {
               link: {
                 label: 'Research and innovation',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Research and innovation',
               },
             },
             {
               link: {
                 label: 'Energy, Climate change, Environment',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Climate change, Environment',
               },
             },
             {
               link: {
                 label: 'Education',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Education',
               },
             },
             {
               link: {
                 label: 'Aid, Development cooperation, Fundamental rights',
-                path: '/example',
+                path: exampleLink,
                 aria_label:
                   'Link to Aid, Development cooperation, Fundamental rights',
               },
@@ -90,49 +93,49 @@ module.exports = {
             {
               link: {
                 label: 'Food, Farming, Fisheries',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Food, Farming, Fisheries',
               },
             },
             {
               link: {
                 label: 'EU regional and urban development',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to EU regionaland urban development',
               },
             },
             {
               link: {
                 label: 'Jobs at the European Commission',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Jobs at the European Commission',
               },
             },
             {
               link: {
                 label: 'Statistics',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Statistics',
               },
             },
             {
               link: {
                 label: 'News',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to News',
               },
             },
             {
               link: {
                 label: 'Events',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Events',
               },
             },
             {
               link: {
                 label: 'Publications',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Publications',
               },
             },
@@ -145,14 +148,14 @@ module.exports = {
             {
               link: {
                 label: 'Contact the European Commission',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Contact the European Commission',
               },
             },
             {
               link: {
                 label: 'Follow the European Commission on social media',
-                path: '/example',
+                path: exampleLink,
                 aria_label:
                   'Link to Follow the European Commission on social media',
               },
@@ -160,7 +163,7 @@ module.exports = {
             {
               link: {
                 label: 'Resources for partners',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Resources for partners',
               },
             },
@@ -171,28 +174,28 @@ module.exports = {
             {
               link: {
                 label: 'Language policy',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Language policy',
               },
             },
             {
               link: {
                 label: 'Cookies',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Cookies',
               },
             },
             {
               link: {
                 label: 'Privacy policy',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Privacy policy',
               },
             },
             {
               link: {
                 label: 'Legal notice',
-                path: '/example',
+                path: exampleLink,
                 aria_label: 'Link to Legal notice',
               },
             },

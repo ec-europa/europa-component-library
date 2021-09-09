@@ -9,7 +9,6 @@
 
 $_main-nav-background: null !default;
 $_main-nav-shadow: null !default;
-$_menu-items-distribution: null !default;
 $_menu-desktop-padding-top: null !default;
 $_menu-desktop-vertical-padding: null !default;
 $_menu-dropdown-background: null !default;
@@ -310,7 +309,7 @@ $_mobile-item-hover-background: null !default;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  justify-content: $_menu-items-distribution;
+  justify-content: flex-start;
   list-style: none;
   list-style-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
   margin-bottom: 0;
@@ -601,6 +600,7 @@ $_mobile-item-hover-background: null !default;
       box-shadow: $_menu-dropdown-shadow;
       display: flex;
       left: 0;
+      min-width: 100%;
       padding-bottom: $_menu-mega-padding-bottom;
       padding-top: $_menu-mega-padding-top;
       position: absolute;
@@ -648,7 +648,6 @@ $_mobile-item-hover-background: null !default;
 
     .ecl-menu__sublist {
       display: grid;
-      grid-auto-columns: max-content;
       grid-auto-flow: column;
       grid-template-rows: auto auto auto auto;
     }
@@ -678,7 +677,7 @@ $_mobile-item-hover-background: null !default;
       display: flex;
       margin-bottom: $_menu-subitem-margin-bottom;
       margin-top: $_menu-subitem-margin-top;
-      width: 13.56rem; // Written in the specs
+      min-width: 13.56rem; // Written in the specs
     }
 
     .ecl-menu__subitem--extra {

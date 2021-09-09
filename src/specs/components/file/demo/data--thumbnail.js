@@ -1,3 +1,6 @@
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   detail_meta: ['Resource type', 'Publication date'],
   variant: 'thumbnail',
@@ -19,7 +22,7 @@ module.exports = {
   download: {
     link: {
       label: 'Download',
-      path: '/example',
+      path: exampleLink,
     },
     icon: {
       path: '/icons.svg',
