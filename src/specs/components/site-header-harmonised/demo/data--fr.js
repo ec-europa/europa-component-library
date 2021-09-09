@@ -1,8 +1,11 @@
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   logo: {
     title: 'Union Européenne',
     alt: 'Logo Union Européenne',
-    href: '/example',
+    href: exampleLink,
     language: 'fr',
     src_mobile: 'static/media/fr.c897b011.svg',
     src_desktop: 'static/media/logo-ec--fr.ef2ee614.svg',
@@ -14,335 +17,335 @@ module.exports = {
     items: [
       {
         label: 'Accueil',
-        path: '/example',
+        path: exampleLink,
       },
       {
         label: 'Item 2',
-        path: '/example',
+        path: exampleLink,
         submenu_label: 'has submenu',
         is_current: true,
         children: [
           {
             label: 'Item 2.1',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 2.2',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 2.3',
-            path: '/example',
+            path: exampleLink,
             is_current: true,
           },
           {
             label: 'Item 2.4',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 2.5',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 2.6',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 2.7',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 2.8',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 2.9',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 2.10',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 2.11',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 2.12',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 2.13',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 2.14',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 2.15',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 2.16',
-            path: '/example',
+            path: exampleLink,
           },
         ],
       },
       {
         label: 'Item 3',
-        path: '/example',
+        path: exampleLink,
         submenu_label: 'has submenu',
         children: [
           {
             label: 'Item 3.1',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 3.2',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 3.3',
-            path: '/example',
+            path: exampleLink,
           },
         ],
       },
       {
         label: 'Item 4',
-        path: '/example',
+        path: exampleLink,
         submenu_label: 'has submenu',
         children: [
           {
             label: 'Item 4.1',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 4.2',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 4.3 avec un long titre sur plusieurs lignes',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 4.4',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 4.5',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 4.6',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 4.7',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 4.8',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 4.9',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 4.10',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 4.11',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 4.12',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 4.13',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 4.14',
-            path: '/example',
+            path: exampleLink,
           },
         ],
       },
       {
         label: 'Item 5',
-        path: '/example',
+        path: exampleLink,
         submenu_label: 'has submenu',
         children: [
           {
             label: 'Item 5.1',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 5.2',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 5.3',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 5.4',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 5.5',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 5.6',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 5.7',
-            path: '/example',
+            path: exampleLink,
           },
         ],
       },
       {
         label: 'Item 6',
-        path: '/example',
+        path: exampleLink,
         submenu_label: 'has submenu',
         children: [
           {
             label: 'Item 6.1',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 6.2',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 6.3',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 6.4',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 6.5',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 6.6',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 6.7',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 6.8',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 6.9 avec un long titre',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 6.10',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 6.11',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 6.12',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 6.13',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 6.14',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 6.15',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 6.16',
-            path: '/example',
+            path: exampleLink,
           },
         ],
       },
       {
         label: 'Item 7 avec un long titre',
-        path: '/example',
+        path: exampleLink,
         submenu_label: 'has submenu',
         children: [
           {
             label: 'Item 7.1',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 7.2',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 7.3',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 7.4',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 7.5',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 7.6',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 7.7',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 7.8',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 7.9',
-            path: '/example',
+            path: exampleLink,
           },
           {
             label: 'Item 7.10',
-            path: '/example',
+            path: exampleLink,
           },
         ],
       },
     ],
     icon_path: '/icons.svg',
     site_name: 'Nom du site',
-    menu_link: '/example',
+    menu_link: exampleLink,
   },
   login_toggle: {
     label_not_logged: 'Connexion',
-    href_not_logged: '/example',
+    href_not_logged: exampleLink,
     label_logged: 'Connecté',
-    href_logged: '/example',
+    href_logged: exampleLink,
   },
   login_box: {
     id: 'login-box-id',
     description: 'Connecté en temps que <last name>, <first name>',
     label: 'Déconnexion',
-    href: '/example',
+    href: exampleLink,
   },
   language_selector: {
-    href: '/example',
+    href: exampleLink,
     label: 'Français',
     code: 'fr',
     overlay: {
@@ -350,146 +353,146 @@ module.exports = {
       items: [
         {
           label: 'български',
-          path: '/example',
+          path: exampleLink,
           aria_label: '',
           lang: 'bg',
         },
         {
           label: 'español',
-          path: '/example',
+          path: exampleLink,
           aria_label: '',
           lang: 'es',
         },
         {
           label: 'čeština',
-          path: '/example',
+          path: exampleLink,
           aria_label: '',
           lang: 'cs',
         },
         {
           label: 'dansk',
-          path: '/example',
+          path: exampleLink,
           aria_label: '',
           lang: 'da',
         },
         {
           label: 'Deutsch',
-          path: '/example',
+          path: exampleLink,
           aria_label: '',
           lang: 'de',
         },
         {
           label: 'eesti',
-          path: '/example',
+          path: exampleLink,
           aria_label: '',
           lang: 'et',
         },
         {
           label: 'ελληνικά',
-          path: '/example',
+          path: exampleLink,
           aria_label: '',
           lang: 'el',
         },
         {
           label: 'English',
-          path: '/example',
+          path: exampleLink,
           aria_label: '',
           lang: 'en',
         },
         {
           label: 'français',
-          path: '/example',
+          path: exampleLink,
           aria_label: '',
           active: true,
           lang: 'fr',
         },
         {
           label: 'Gaeilge',
-          path: '/example',
+          path: exampleLink,
           aria_label: '',
           lang: 'ga',
         },
         {
           label: 'hrvatski',
-          path: '/example',
+          path: exampleLink,
           aria_label: '',
           lang: 'hr',
         },
         {
           label: 'italiano',
-          path: '/example',
+          path: exampleLink,
           aria_label: '',
           lang: 'it',
         },
         {
           label: 'latviešu',
-          path: '/example',
+          path: exampleLink,
           aria_label: '',
           lang: 'lv',
         },
         {
           label: 'lietuvių',
-          path: '/example',
+          path: exampleLink,
           aria_label: '',
           lang: 'lt',
         },
         {
           label: 'magyar',
-          path: '/example',
+          path: exampleLink,
           aria_label: '',
           lang: 'hu',
         },
         {
           label: 'Malti',
-          path: '/example',
+          path: exampleLink,
           aria_label: '',
           lang: 'mt',
         },
         {
           label: 'Nederlands',
-          path: '/example',
+          path: exampleLink,
           aria_label: '',
           lang: 'nl',
         },
         {
           label: 'polski',
-          path: '/example',
+          path: exampleLink,
           aria_label: '',
           lang: 'pl',
         },
         {
           label: 'português',
-          path: '/example',
+          path: exampleLink,
           aria_label: '',
           lang: 'pt',
         },
         {
           label: 'română',
-          path: '/example',
+          path: exampleLink,
           aria_label: '',
           lang: 'ro',
         },
         {
           label: 'slovenčina',
-          path: '/example',
+          path: exampleLink,
           aria_label: '',
           lang: 'sk',
         },
         {
           label: 'slovenščina',
-          path: '/example',
+          path: exampleLink,
           aria_label: '',
           lang: 'sl',
         },
         {
           label: 'suomi',
-          path: '/example',
+          path: exampleLink,
           aria_label: '',
           lang: 'fi',
         },
         {
           label: 'svenska',
-          path: '/example',
+          path: exampleLink,
           aria_label: '',
           lang: 'sv',
         },
@@ -498,31 +501,31 @@ module.exports = {
       non_eu_items: [
         {
           label: '中文',
-          path: '/example',
+          path: exampleLink,
           aria_label: '',
           lang: 'zh',
         },
         {
           label: 'Türk',
-          path: '/example',
+          path: exampleLink,
           aria_label: '',
           lang: 'tr',
         },
         {
           label: 'pусский',
-          path: '/example',
+          path: exampleLink,
           aria_label: '',
           lang: 'ru',
         },
         {
           label: 'Català',
-          path: '/example',
+          path: exampleLink,
           aria_label: '',
           lang: 'ca',
         },
         {
           label: 'عَرَبِيّ',
-          path: '/example',
+          path: exampleLink,
           aria_label: '',
           lang: 'ar',
         },
@@ -533,7 +536,7 @@ module.exports = {
   },
   search_toggle: {
     label: 'Recherche',
-    href: '/example',
+    href: exampleLink,
   },
   search_form: {
     extra_attributes: [

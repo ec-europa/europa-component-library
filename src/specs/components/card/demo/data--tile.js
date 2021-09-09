@@ -1,4 +1,7 @@
 // Simple content for demo
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   card: {
     type: 'tile',
@@ -8,9 +11,9 @@ module.exports = {
       label: 'Better regulation',
     },
     links: [
-      { label: 'link 1', path: '/example', type: 'standalone' },
-      { label: 'link 2', path: '/example', type: 'standalone' },
-      { label: 'link 3', path: '/example', type: 'standalone' },
+      { label: 'link 1', path: exampleLink, type: 'standalone' },
+      { label: 'link 2', path: exampleLink, type: 'standalone' },
+      { label: 'link 3', path: exampleLink, type: 'standalone' },
     ],
   },
 };

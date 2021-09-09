@@ -1,6 +1,8 @@
 const path = require('path');
+const webpack = require('webpack');
 
-const stories = ['../../../implementations/twig/**/!(ec*).story.js'];
+const publicUrl = process.env.PUBLIC_URL || '';
+const stories = ['../../../implementations/twig/**/!(eu*).story.js'];
 
 const addons = [
   '@storybook/addon-docs',
@@ -23,6 +25,13 @@ const webpackFinal = (config) => {
       environmentModulePath: path.resolve(`${__dirname}/environment.js`),
     },
   });
+
+  config.plugins.unshift(
+    new webpack.DefinePlugin({
+      'process.env.PUBLIC_URL': JSON.stringify(`${publicUrl}`),
+    })
+  );
+
   config.plugins.forEach((plugin, i) => {
     if (plugin.constructor.name === 'ProgressPlugin') {
       config.plugins.splice(i, 1);

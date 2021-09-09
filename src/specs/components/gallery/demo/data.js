@@ -1,3 +1,6 @@
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   items: [
     {
@@ -206,7 +209,7 @@ module.exports = {
     download: {
       link: {
         label: 'Download',
-        path: '/example',
+        path: exampleLink,
       },
       icon: {
         name: 'download',
@@ -217,7 +220,7 @@ module.exports = {
     share: {
       link: {
         label: 'Share',
-        path: '/example',
+        path: exampleLink,
       },
       icon: {
         name: 'share',
@@ -229,7 +232,7 @@ module.exports = {
   view_all_label: 'View all',
   footer: {
     link: {
-      path: '/example',
+      path: exampleLink,
       aria_label: 'View all link aria-label value',
       label: 'Link to further media items',
     },

@@ -64,6 +64,7 @@ $_divider-color: null !default;
 
   .ecl-description-list__term,
   %ecl-description-list__term {
+    color: $_term-color;
     font: $_term-horizontal-font;
     font-weight: map.get(theme.$font-weight, 'bold');
     margin-top: $_horizontal-item-margin-top;
@@ -71,6 +72,7 @@ $_divider-color: null !default;
 
   .ecl-description-list__definition,
   %ecl-description-list__definition {
+    color: $_definition-color;
     font: map.get(theme.$font, 'm');
     margin-top: $_horizontal-item-margin-top;
     padding-left: 0;
