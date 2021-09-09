@@ -12,6 +12,7 @@ npm install --save @ecl/twig-component-news-ticker
 - **"items"** (array) (default: []) slide items
   - "content" (string)
   - "link" (string) (optional)
+- **"counter_label"** (string) (default: 'of')
 - **"icon_path"** (string) (default: ''): path to the icons svg
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
