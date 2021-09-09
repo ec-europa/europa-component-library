@@ -150,6 +150,10 @@ $_picker-theme-color: null !default;
     border-collapse: initial;
     border-spacing: map.get(theme.$spacing, '2xs');
 
+    thead {
+      background-color: transparent;
+    }
+
     th {
       color: $_picker-theme-color;
       font: map.get(theme.$font, 'm');
