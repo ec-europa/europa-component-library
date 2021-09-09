@@ -102,9 +102,7 @@ export class NewsTicker {
     this.slidesContainer.appendChild(cloneFirst);
     this.slidesContainer.insertBefore(cloneLast, firstSlide);
 
-    setTimeout(() => {
-      this.moveSlides(false);
-    }, 300);
+    this.moveSlides(false);
 
     // Activate autoPlay only if toggle is visible (desktop)
     if (!(window.getComputedStyle(this.toggle).display === 'none')) {
