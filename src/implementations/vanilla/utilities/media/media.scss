@@ -26,8 +26,9 @@
   /* stylelint-disable-next-line */
   > iframe {
     bottom: 0;
-    height: 100%;
     left: 0;
+    // Avoid video flickering in chrome
+    min-height: 100%;
     position: absolute;
     right: 0;
     top: 0;
