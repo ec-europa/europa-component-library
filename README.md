@@ -38,6 +38,7 @@
 @ecl/twig-component-media-container
 @ecl/twig-component-menu
 @ecl/twig-component-message
+@ecl/twig-component-news-ticker
 @ecl/twig-component-ordered-list
 @ecl/twig-component-page-banner
 @ecl/twig-component-page-header-core
@@ -95,6 +96,7 @@
 @ecl/vanilla-component-media-container
 @ecl/vanilla-component-menu
 @ecl/vanilla-component-message
+@ecl/vanilla-component-news-ticker
 @ecl/vanilla-component-ordered-list
 @ecl/vanilla-component-page-banner
 @ecl/vanilla-component-page-header-core

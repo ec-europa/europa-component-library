@@ -1,0 +1,567 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`News ticker Default renders correctly 1`] = `
+<jest>
+  <div
+    class="ecl-news-ticker"
+    data-ecl-auto-init="NewsTicker"
+    data-ecl-news-ticker="true"
+  >
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--m ecl-news-ticker__icon"
+      focusable="false"
+    >
+      <use
+        xlink:href="/icons.svg#information"
+      />
+    </svg>
+    <div
+      class="ecl-news-ticker__content"
+    >
+      <ul
+        class="ecl-news-ticker__slides"
+        id="news-ticker-example-content"
+      >
+        <li
+          aria-hidden="true"
+          class="ecl-news-ticker__slide"
+          tabindex="-1"
+        >
+          <a
+            class="ecl-link ecl-news-ticker__slide-text"
+            href="https://www.ema.europa.eu/en/news/ema-starts-rolling-review-covid-19-vaccine-vidprevtyn"
+          >
+            EMA starts rolling review of COVID-19 vaccine Vidprevtyn
+          </a>
+        </li>
+        <li
+          aria-hidden="true"
+          class="ecl-news-ticker__slide"
+          tabindex="-1"
+        >
+          <a
+            class="ecl-link ecl-news-ticker__slide-text"
+            href="https://ec.europa.eu/commission/presscorner/detail/en/ip_21_4362"
+          >
+            President von der Leyen announced that the EU has achieved its goal of fully vaccinating 70% of its adult population on 31 August
+          </a>
+        </li>
+        <li
+          aria-hidden="true"
+          class="ecl-news-ticker__slide"
+          tabindex="-1"
+        >
+          <a
+            class="ecl-link ecl-news-ticker__slide-text"
+            href="https://ec.europa.eu/commission/presscorner/detail/en/ip_21_4561"
+          >
+            The EU and AstraZeneca agree on COVID-19 vaccine supply and on ending litigation
+          </a>
+        </li>
+        <li
+          aria-hidden="true"
+          class="ecl-news-ticker__slide"
+          tabindex="-1"
+        >
+          <a
+            class="ecl-link ecl-news-ticker__slide-text"
+            href="https://ec.europa.eu/commission/presscorner/detail/en/ip_21_4061"
+          >
+            Commission approves new contract for a potential COVID-19 vaccine with Novavax
+          </a>
+        </li>
+        <li
+          aria-hidden="true"
+          class="ecl-news-ticker__slide"
+          tabindex="-1"
+        >
+          <a
+            class="ecl-link ecl-news-ticker__slide-text"
+            href="https://ec.europa.eu/commission/presscorner/detail/en/ip_21_4281"
+          >
+            EU makes available additional humanitarian funding of €41 million to fight the pandemic
+          </a>
+        </li>
+        <li
+          class="ecl-news-ticker__slide"
+        >
+          President von der Leyen announced that the EU has achieved its goal of fully vaccinating 70% of its adult population on 31 August
+        </li>
+      </ul>
+    </div>
+    <div
+      class="ecl-news-ticker__counter"
+    >
+      <span
+        class="ecl-news-ticker__counter--current"
+      >
+        1
+      </span>
+       of 6
+  
+    </div>
+    <div
+      class="ecl-news-ticker__controls"
+    >
+      <button
+        aria-controls="news-ticker-example-content"
+        class="ecl-button ecl-button--primary ecl-news-ticker__prev"
+        data-controls="prev"
+        data-ecl-news-ticker-prev=""
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          />
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--after"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
+        </span>
+      </button>
+      <button
+        class="ecl-button ecl-button--primary ecl-news-ticker__toggle"
+        data-action="stop"
+        data-ecl-news-ticker-toggle=""
+        type="button"
+      >
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          />
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon ecl-button__icon--after"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#video-play"
+            />
+          </svg>
+        </span>
+      </button>
+      <button
+        aria-controls="news-ticker-example-content"
+        class="ecl-button ecl-button--primary ecl-news-ticker__next"
+        data-controls="next"
+        data-ecl-news-ticker-next=""
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          />
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--after"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`News ticker Default renders correctly with extra attributes 1`] = `
+<jest>
+  <div
+    class="ecl-news-ticker"
+    data-ecl-auto-init="NewsTicker"
+    data-ecl-news-ticker="true"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
+  >
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--m ecl-news-ticker__icon"
+      focusable="false"
+    >
+      <use
+        xlink:href="/icons.svg#information"
+      />
+    </svg>
+    <div
+      class="ecl-news-ticker__content"
+    >
+      <ul
+        class="ecl-news-ticker__slides"
+        id="news-ticker-example-content"
+      >
+        <li
+          aria-hidden="true"
+          class="ecl-news-ticker__slide"
+          tabindex="-1"
+        >
+          <a
+            class="ecl-link ecl-news-ticker__slide-text"
+            href="https://www.ema.europa.eu/en/news/ema-starts-rolling-review-covid-19-vaccine-vidprevtyn"
+          >
+            EMA starts rolling review of COVID-19 vaccine Vidprevtyn
+          </a>
+        </li>
+        <li
+          aria-hidden="true"
+          class="ecl-news-ticker__slide"
+          tabindex="-1"
+        >
+          <a
+            class="ecl-link ecl-news-ticker__slide-text"
+            href="https://ec.europa.eu/commission/presscorner/detail/en/ip_21_4362"
+          >
+            President von der Leyen announced that the EU has achieved its goal of fully vaccinating 70% of its adult population on 31 August
+          </a>
+        </li>
+        <li
+          aria-hidden="true"
+          class="ecl-news-ticker__slide"
+          tabindex="-1"
+        >
+          <a
+            class="ecl-link ecl-news-ticker__slide-text"
+            href="https://ec.europa.eu/commission/presscorner/detail/en/ip_21_4561"
+          >
+            The EU and AstraZeneca agree on COVID-19 vaccine supply and on ending litigation
+          </a>
+        </li>
+        <li
+          aria-hidden="true"
+          class="ecl-news-ticker__slide"
+          tabindex="-1"
+        >
+          <a
+            class="ecl-link ecl-news-ticker__slide-text"
+            href="https://ec.europa.eu/commission/presscorner/detail/en/ip_21_4061"
+          >
+            Commission approves new contract for a potential COVID-19 vaccine with Novavax
+          </a>
+        </li>
+        <li
+          aria-hidden="true"
+          class="ecl-news-ticker__slide"
+          tabindex="-1"
+        >
+          <a
+            class="ecl-link ecl-news-ticker__slide-text"
+            href="https://ec.europa.eu/commission/presscorner/detail/en/ip_21_4281"
+          >
+            EU makes available additional humanitarian funding of €41 million to fight the pandemic
+          </a>
+        </li>
+        <li
+          class="ecl-news-ticker__slide"
+        >
+          President von der Leyen announced that the EU has achieved its goal of fully vaccinating 70% of its adult population on 31 August
+        </li>
+      </ul>
+    </div>
+    <div
+      class="ecl-news-ticker__counter"
+    >
+      <span
+        class="ecl-news-ticker__counter--current"
+      >
+        1
+      </span>
+       of 6
+  
+    </div>
+    <div
+      class="ecl-news-ticker__controls"
+    >
+      <button
+        aria-controls="news-ticker-example-content"
+        class="ecl-button ecl-button--primary ecl-news-ticker__prev"
+        data-controls="prev"
+        data-ecl-news-ticker-prev=""
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          />
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--after"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
+        </span>
+      </button>
+      <button
+        class="ecl-button ecl-button--primary ecl-news-ticker__toggle"
+        data-action="stop"
+        data-ecl-news-ticker-toggle=""
+        type="button"
+      >
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          />
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon ecl-button__icon--after"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#video-play"
+            />
+          </svg>
+        </span>
+      </button>
+      <button
+        aria-controls="news-ticker-example-content"
+        class="ecl-button ecl-button--primary ecl-news-ticker__next"
+        data-controls="next"
+        data-ecl-news-ticker-next=""
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          />
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--after"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`News ticker Default renders correctly with extra class names 1`] = `
+<jest>
+  <div
+    class="ecl-news-ticker custom-class custom-class--test"
+    data-ecl-auto-init="NewsTicker"
+    data-ecl-news-ticker="true"
+  >
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--m ecl-news-ticker__icon"
+      focusable="false"
+    >
+      <use
+        xlink:href="/icons.svg#information"
+      />
+    </svg>
+    <div
+      class="ecl-news-ticker__content"
+    >
+      <ul
+        class="ecl-news-ticker__slides"
+        id="news-ticker-example-content"
+      >
+        <li
+          aria-hidden="true"
+          class="ecl-news-ticker__slide"
+          tabindex="-1"
+        >
+          <a
+            class="ecl-link ecl-news-ticker__slide-text"
+            href="https://www.ema.europa.eu/en/news/ema-starts-rolling-review-covid-19-vaccine-vidprevtyn"
+          >
+            EMA starts rolling review of COVID-19 vaccine Vidprevtyn
+          </a>
+        </li>
+        <li
+          aria-hidden="true"
+          class="ecl-news-ticker__slide"
+          tabindex="-1"
+        >
+          <a
+            class="ecl-link ecl-news-ticker__slide-text"
+            href="https://ec.europa.eu/commission/presscorner/detail/en/ip_21_4362"
+          >
+            President von der Leyen announced that the EU has achieved its goal of fully vaccinating 70% of its adult population on 31 August
+          </a>
+        </li>
+        <li
+          aria-hidden="true"
+          class="ecl-news-ticker__slide"
+          tabindex="-1"
+        >
+          <a
+            class="ecl-link ecl-news-ticker__slide-text"
+            href="https://ec.europa.eu/commission/presscorner/detail/en/ip_21_4561"
+          >
+            The EU and AstraZeneca agree on COVID-19 vaccine supply and on ending litigation
+          </a>
+        </li>
+        <li
+          aria-hidden="true"
+          class="ecl-news-ticker__slide"
+          tabindex="-1"
+        >
+          <a
+            class="ecl-link ecl-news-ticker__slide-text"
+            href="https://ec.europa.eu/commission/presscorner/detail/en/ip_21_4061"
+          >
+            Commission approves new contract for a potential COVID-19 vaccine with Novavax
+          </a>
+        </li>
+        <li
+          aria-hidden="true"
+          class="ecl-news-ticker__slide"
+          tabindex="-1"
+        >
+          <a
+            class="ecl-link ecl-news-ticker__slide-text"
+            href="https://ec.europa.eu/commission/presscorner/detail/en/ip_21_4281"
+          >
+            EU makes available additional humanitarian funding of €41 million to fight the pandemic
+          </a>
+        </li>
+        <li
+          class="ecl-news-ticker__slide"
+        >
+          President von der Leyen announced that the EU has achieved its goal of fully vaccinating 70% of its adult population on 31 August
+        </li>
+      </ul>
+    </div>
+    <div
+      class="ecl-news-ticker__counter"
+    >
+      <span
+        class="ecl-news-ticker__counter--current"
+      >
+        1
+      </span>
+       of 6
+  
+    </div>
+    <div
+      class="ecl-news-ticker__controls"
+    >
+      <button
+        aria-controls="news-ticker-example-content"
+        class="ecl-button ecl-button--primary ecl-news-ticker__prev"
+        data-controls="prev"
+        data-ecl-news-ticker-prev=""
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          />
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--after"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
+        </span>
+      </button>
+      <button
+        class="ecl-button ecl-button--primary ecl-news-ticker__toggle"
+        data-action="stop"
+        data-ecl-news-ticker-toggle=""
+        type="button"
+      >
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          />
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon ecl-button__icon--after"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#video-play"
+            />
+          </svg>
+        </span>
+      </button>
+      <button
+        aria-controls="news-ticker-example-content"
+        class="ecl-button ecl-button--primary ecl-news-ticker__next"
+        data-controls="next"
+        data-ecl-news-ticker-next=""
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          />
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--after"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>
+</jest>
+`;
