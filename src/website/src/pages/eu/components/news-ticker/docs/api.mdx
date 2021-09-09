@@ -1,0 +1,43 @@
+---
+title: API
+order: 3
+---
+
+import NewsTickerJSDoc from '../../../_jsdoc/news-ticker.md';
+
+## API
+
+<NewsTickerJSDoc />
+
+## Setup
+
+There are 2 ways to initialise the component.
+
+### Automatic
+
+Add `data-ecl-auto-init="NewsTicker"` attribute to component's markup:
+
+```html
+
+<div 
+  class="ecl-news-ticker"
+  data-ecl-news-ticker
+  data-ecl-auto-init="NewsTicker"
+>
+  ...
+</div>
+```
+
+Use the `ECL` library's `autoInit()` (`ECL.autoInit()`) when your page is ready or other custom event you want to hook onto.
+
+### Manual
+
+Get target element, create an instance and invoke `init()`.
+
+Given you have 1 element with an attribute `data-ecl-news-ticker` on the page:
+
+```js
+var elt = document.querySelector('[data-ecl-news-ticker]');
+var newsTicker = new ECL.NewsTicker(elt);
+newsTicker.init();
+```
