@@ -21,12 +21,45 @@ const tagClone = { ...dataCard.card.tags[0] };
 const descriptionListClone = { ...dataCardTaxonomy.card.lists[0] };
 const taxonomyListClone = { ...dataCardTaxonomy.card.lists[1] };
 
+const getArgs = (data) => {
+  const args = {};
+  if (data.card.title) {
+    args.title = data.card.title.label;
+  }
+  if (data.card.description) {
+    args.description = data.card.description;
+  }
+  if (data.card.meta) {
+    args.meta = data.card.meta;
+  }
+  if (data.card.image) {
+    args.image = data.card.image.src;
+  }
+  if (data.card.infos) {
+    const infos = data.card.infos.map(({ label }) => label);
+    args.infos = infos;
+  }
+  if (data.card.tags) {
+    const tags = data.card.tags.map(({ label }) => label);
+    args.tags = tags;
+  }
+  if (data.card.links) {
+    const links = data.card.links.map(({ label }) => label);
+    args.links = links;
+  }
+  if (data.card.lists) {
+    args.lists = true;
+    args.taxonomy = true;
+  }
+
+  return args;
+};
+
 const getArgTypes = (data) => {
   const argTypes = {};
   if (data.card.title) {
     argTypes.title = {
       type: { name: 'string', required: true },
-      defaultValue: data.card.title.label,
       description: 'The card title',
       table: {
         type: { summary: 'string' },
@@ -38,7 +71,6 @@ const getArgTypes = (data) => {
   if (data.card.description) {
     argTypes.description = {
       type: 'string',
-      defaultValue: data.card.description,
       description: 'The card description',
       table: {
         type: { summary: 'string' },
@@ -51,7 +83,6 @@ const getArgTypes = (data) => {
     argTypes.meta = {
       name: 'meta',
       type: { name: 'array' },
-      defaultValue: data.card.meta,
       description: 'The card meta (comma separated)',
       table: {
         type: { summary: 'array' },
@@ -63,7 +94,6 @@ const getArgTypes = (data) => {
   if (data.card.image) {
     argTypes.image = {
       type: 'string',
-      defaultValue: data.card.image.src,
       description: 'The url of the card image',
       table: {
         type: { summary: 'string' },
@@ -73,11 +103,9 @@ const getArgTypes = (data) => {
     };
   }
   if (data.card.infos) {
-    const infos = data.card.infos.map(({ label }) => label);
     argTypes.infos = {
       name: 'infos',
       type: 'array',
-      defaultValue: infos,
       description:
         'Additional elements like a location or a date. (comma separated)',
       table: {
@@ -90,11 +118,9 @@ const getArgTypes = (data) => {
     };
   }
   if (data.card.tags) {
-    const tags = data.card.tags.map(({ label }) => label);
     argTypes.tags = {
       name: 'tags',
       type: 'array',
-      defaultValue: tags,
       description:
         'Tags to be placed at the bottom of the card. (comma separated)',
       table: {
@@ -105,11 +131,9 @@ const getArgTypes = (data) => {
     };
   }
   if (data.card.links) {
-    const links = data.card.links.map(({ label }) => label);
     argTypes.links = {
       name: 'links',
       type: 'array',
-      defaultValue: links,
       description:
         'Links to be placed at the bottom of the card. (comma separated)',
       table: {
@@ -125,7 +149,6 @@ const getArgTypes = (data) => {
     argTypes.list = {
       name: 'Display additional list',
       type: 'boolean',
-      defaultValue: true,
       description: 'Show/hide description list in the card footer',
       table: {
         category: 'Card footer',
@@ -134,7 +157,6 @@ const getArgTypes = (data) => {
     argTypes.taxonomy = {
       name: 'Display taxonomy list',
       type: 'boolean',
-      defaultValue: true,
       description: 'Show/hide taxonomy list in the card footer',
       table: {
         category: 'Card footer',
@@ -212,12 +234,14 @@ export default {
 export const Card = (args) => card(prepareData(dataCard, args));
 
 Card.storyName = 'card';
+Card.args = getArgs(dataCard);
 Card.argTypes = getArgTypes(dataCard);
 Card.parameters = { notes: { markdown: notes, json: dataCard } };
 
 export const CardTaxonomy = (args) => card(prepareData(dataCardTaxonomy, args));
 
 CardTaxonomy.storyName = 'card (taxonomy)';
+CardTaxonomy.args = getArgs(dataCardTaxonomy);
 CardTaxonomy.argTypes = getArgTypes(dataCardTaxonomy);
 CardTaxonomy.parameters = {
   notes: { markdown: notes, json: dataCardTaxonomy },
@@ -226,6 +250,7 @@ CardTaxonomy.parameters = {
 export const Tile = (args) => card(prepareData(dataCardTile, args));
 
 Tile.storyName = 'tile';
+Tile.args = getArgs(dataCardTile);
 Tile.argTypes = getArgTypes(dataCardTile);
 Tile.parameters = { notes: { markdown: notes, json: dataCardTile } };
 
@@ -233,6 +258,7 @@ export const TileTaxonomy = (args) =>
   card(prepareData(dataCardTileTaxonomy, args));
 
 TileTaxonomy.storyName = 'tile (taxonomy)';
+TileTaxonomy.args = getArgs(dataCardTileTaxonomy);
 TileTaxonomy.argTypes = getArgTypes(dataCardTileTaxonomy);
 TileTaxonomy.parameters = {
   notes: { markdown: notes, json: dataCardTileTaxonomy },

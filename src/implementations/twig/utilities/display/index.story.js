@@ -2,24 +2,41 @@ import classnames from 'classnames';
 import withCode from '@ecl/storybook-addon-code';
 import { styled } from '@ecl/dom-utils';
 
+const getArgs = () => {
+  return {
+    displayContainer: 'ecl-u-d-block',
+    displayInner: 'ecl-u-d-block',
+    boxSizing: 'ecl-u-box-sizing-content',
+  };
+};
+
 const getArgTypes = () => {
   return {
     displayContainer: {
       name: 'display (container)',
       type: 'select',
       description: 'Choose different display values',
-      defaultValue: 'ecl-u-d-block',
+      options: [
+        'ecl-u-d-block',
+        'ecl-u-d-inline',
+        'ecl-u-d-inline-block',
+        'ecl-u-d-flex',
+        'ecl-u-d-inline-flex',
+        'ecl-u-d-table',
+        'ecl-u-d-table-cell',
+        'ecl-u-d-none',
+      ],
       control: {
         type: 'select',
-        options: {
-          Block: 'ecl-u-d-block',
-          Inline: 'ecl-u-d-inline',
-          'Inline block': 'ecl-u-d-inline-block',
-          Flex: 'ecl-u-d-flex',
-          'inline-flex': 'ecl-u-d-inline-flex',
-          Table: 'ecl-u-d-table',
-          'Table cell': 'ecl-u-d-table-cell',
-          None: 'ecl-u-d-none',
+        labels: {
+          'ecl-u-d-block': 'Block',
+          'ecl-u-d-inline': 'Inline',
+          'ecl-u-d-inline-block': 'Inline block',
+          'ecl-u-d-flex': 'Flex',
+          'ecl-u-d-inline-flex': 'inline-flex',
+          'ecl-u-d-table': 'Table',
+          'ecl-u-d-table-cell': 'Table cell',
+          'ecl-u-d-none': 'None',
         },
       },
       table: {
@@ -31,18 +48,26 @@ const getArgTypes = () => {
       name: 'display (inner box)',
       description: 'Choose different display values',
       type: 'select',
-      defaultValue: 'ecl-u-d-block',
+      options: [
+        'ecl-u-d-block',
+        'ecl-u-d-inline',
+        'ecl-u-d-inline-block',
+        'ecl-u-d-flex',
+        'ecl-u-d-inline-flex',
+        'ecl-u-d-table',
+        'ecl-u-d-table-cell',
+        'ecl-u-d-none',
+      ],
       control: {
-        type: 'select',
-        options: {
-          Block: 'ecl-u-d-block',
-          Inline: 'ecl-u-d-inline',
-          'Inline block': 'ecl-u-d-inline-block',
-          Flex: 'ecl-u-d-flex',
-          'inline-flex': 'ecl-u-d-inline-flex',
-          Table: 'ecl-u-d-table',
-          'Table cell': 'ecl-u-d-table-cell',
-          None: 'ecl-u-d-none',
+        labels: {
+          'ecl-u-d-block': ' Block',
+          'ecl-u-d-inline': 'Inline',
+          'ecl-u-d-inline-block': 'Inline block',
+          'ecl-u-d-flex': 'Flex',
+          'ecl-u-d-inline-flex': 'inline-flex',
+          'ecl-u-d-table': 'Table',
+          'ecl-u-d-table-cell': 'Table cell',
+          'ecl-u-d-none': 'None',
         },
       },
       table: {
@@ -54,12 +79,11 @@ const getArgTypes = () => {
       name: 'box sizing',
       type: 'select',
       description: 'Choose different box-sizing values',
-      defaultValue: 'ecl-u-box-sizing-content',
+      options: ['ecl-u-box-sizing-content', 'ecl-u-box-sizing-border'],
       control: {
-        type: 'select',
-        options: {
-          'Content box': 'ecl-u-box-sizing-content',
-          'Border box': 'ecl-u-box-sizing-border',
+        labels: {
+          'ecl-u-box-sizing-content': 'Content box',
+          'ecl-u-box-sizing-border': 'Border box',
         },
       },
       table: {
@@ -117,4 +141,5 @@ export const Custom = (args) => `
   `;
 
 Custom.storyName = 'custom';
+Custom.args = getArgs();
 Custom.argTypes = getArgTypes();

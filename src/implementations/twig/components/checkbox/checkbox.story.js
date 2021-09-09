@@ -16,6 +16,19 @@ const dataInvalid = { ...dataDefault, invalid: true };
 const dataOptional = { ...dataDefault, required: false };
 const dataSingle = { ...dataDefault, items: [dataDefault.items[0]] };
 
+const getArgs = (data) => {
+  return {
+    label: data.label || '',
+    helper_text: data.helper_text,
+    invalid_text: data.invalid_text,
+    optional_text: data.optional_text,
+    required_text: data.required_text,
+    invalid: data.invalid || false,
+    disabled: data.disabled,
+    required: data.required || true,
+  };
+};
+
 const getArgTypes = (data) => getFormControls(data, 'group');
 
 const prepareData = (data, args) => {
@@ -31,12 +44,14 @@ export default {
 export const Default = (args) => checkboxGroup(prepareData(dataDefault, args));
 
 Default.storyName = 'default';
+Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes(dataDefault);
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 
 export const Invalid = (args) => checkboxGroup(prepareData(dataInvalid, args));
 
 Invalid.storyName = 'invalid';
+Invalid.args = getArgs(dataInvalid);
 Invalid.argTypes = getArgTypes(dataInvalid);
 Invalid.parameters = { notes: { markdown: notes, json: dataInvalid } };
 
@@ -44,11 +59,13 @@ export const Optional = (args) =>
   checkboxGroup(prepareData(dataOptional, args));
 
 Optional.storyName = 'optional';
+Optional.args = getArgs(dataOptional);
 Optional.argTypes = getArgTypes(dataOptional);
 Optional.parameters = { notes: { markdown: notes, json: dataOptional } };
 
 export const Single = (args) => checkboxGroup(prepareData(dataSingle, args));
 
 Single.storyName = 'single';
+Single.args = getArgs(dataSingle);
 Single.argTypes = getArgTypes(dataSingle);
 Single.parameters = { notes: { markdown: notes, json: dataSingle } };

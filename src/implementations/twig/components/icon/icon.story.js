@@ -13,6 +13,15 @@ import notes from './README.md';
 const system = getSystem();
 const iconsAll = system === 'eu' ? iconsAllEu : iconsAllEc;
 
+const getArgs = (data) => {
+  return {
+    name: data.icon.name,
+    size: 'm',
+    color: '',
+    transform: '',
+  };
+};
+
 const getArgTypes = (data, icons) => getIconControls(data, icons);
 
 const prepareData = (data, args) => {
@@ -33,5 +42,6 @@ export default {
 export const All = (args) => icon(prepareData(dataAll, args));
 
 All.storyName = 'all icons';
+All.args = getArgs(dataAll);
 All.argTypes = getArgTypes(dataAll, iconsAll);
 All.parameters = { notes: { markdown: notes, json: dataAll } };

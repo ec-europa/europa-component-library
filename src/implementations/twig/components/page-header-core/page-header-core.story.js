@@ -16,13 +16,35 @@ const system = getSystem();
 const dataDefault = { ...demoContent };
 const dataBackgroundImage = { ...demoBackgroundImage };
 
+const getArgs = (data) => {
+  const args = {
+    breadcrumb: true,
+    title: data.title,
+    meta: data.meta,
+    thumbnail: false,
+  };
+
+  if (data.overlay) {
+    args.overlay = data.overlay;
+  }
+
+  if (data.description) {
+    args.description = data.description;
+  }
+
+  if (data.background_image_url) {
+    args.background_image_url = data.background_image_url;
+  }
+
+  return args;
+};
+
 const getArgTypes = (data) => {
   const argTypes = {};
 
   argTypes.breadcrumb = {
     name: 'breadcrumb',
     type: 'boolean',
-    defaultValue: true,
     description: 'Toggle breadcrumb visibility',
     table: {
       type: { summary: 'object' },
@@ -34,7 +56,6 @@ const getArgTypes = (data) => {
     argTypes.thumbnail = {
       name: 'thumbnail',
       type: 'boolean',
-      defaultValue: false,
       description: 'Toggle thumbnail visibility',
       table: {
         type: { summary: 'object' },
@@ -45,7 +66,6 @@ const getArgTypes = (data) => {
 
   argTypes.title = {
     type: { name: 'string', required: true },
-    defaultValue: data.title,
     description: 'The page title',
     table: {
       type: { summary: 'string' },
@@ -57,7 +77,6 @@ const getArgTypes = (data) => {
   if (data.description) {
     argTypes.description = {
       type: 'string',
-      defaultValue: data.description,
       description: 'The page introduction',
       table: {
         type: { summary: 'string' },
@@ -67,24 +86,20 @@ const getArgTypes = (data) => {
     };
   }
 
-  if (data.meta) {
-    argTypes.meta = {
-      type: 'array',
-      defaultValue: data.meta,
-      description: 'The page meta',
-      table: {
-        type: { summary: 'array' },
-        defaultValue: { summary: '[]' },
-        category: 'Content',
-      },
-    };
-  }
+  argTypes.meta = {
+    type: 'array',
+    description: 'The page meta',
+    table: {
+      type: { summary: 'array' },
+      defaultValue: { summary: '[]' },
+      category: 'Content',
+    },
+  };
 
   if (data.background_image_url) {
     argTypes.background_image_url = {
       name: 'background image',
       type: 'string',
-      defaultValue: data.background_image_url,
       description: 'The background image url',
       table: {
         type: { summary: 'string' },
@@ -96,16 +111,12 @@ const getArgTypes = (data) => {
     argTypes.overlay = {
       name: 'image overlay',
       type: 'select',
-      defaultValue: data.overlay,
       description: 'Overlay on top on background image',
+      options: ['none', 'dark', 'light'],
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
         category: 'Content',
-      },
-      control: {
-        type: 'select',
-        options: ['none', 'dark', 'light'],
       },
     };
   }
@@ -156,6 +167,7 @@ export default {
 export const Default = (args) => pageHeaderCore(prepareData(dataDefault, args));
 
 Default.storyName = 'default';
+Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes(dataDefault);
 Default.parameters = {
   notes: { markdown: notes, json: dataDefault },
@@ -165,6 +177,7 @@ export const BackgroundImage = (args) =>
   pageHeaderCore(prepareData(dataBackgroundImage, args));
 
 BackgroundImage.storyName = 'background-image';
+BackgroundImage.args = getArgs(dataBackgroundImage);
 BackgroundImage.argTypes = getArgTypes(dataBackgroundImage);
 BackgroundImage.parameters = {
   notes: { markdown: notes, json: dataBackgroundImage },

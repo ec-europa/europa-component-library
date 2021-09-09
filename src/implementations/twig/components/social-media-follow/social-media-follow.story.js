@@ -10,12 +10,17 @@ import notes from './README.md';
 const dataHorizontal = { ...specs };
 const dataVertical = { ...specs, variant: 'vertical' };
 
-const getArgTypes = (data) => {
+const getArgs = (data) => {
+  return {
+    description: data.description,
+  };
+};
+
+const getArgTypes = () => {
   return {
     description: {
       name: 'description',
       type: { name: 'string', required: true },
-      defaultValue: data.description,
       description: 'The description of the elements',
       table: {
         type: { summary: 'string' },
@@ -39,7 +44,8 @@ export const Horizontal = (args) =>
   SocialMediaFollow(prepareData(dataHorizontal, args));
 
 Horizontal.storyName = 'horizontal';
-Horizontal.argTypes = getArgTypes(dataHorizontal);
+Horizontal.args = getArgs(dataHorizontal);
+Horizontal.argTypes = getArgTypes();
 Horizontal.parameters = {
   notes: { markdown: notes, json: dataHorizontal },
 };
@@ -48,7 +54,8 @@ export const Vertical = (args) =>
   SocialMediaFollow(prepareData(dataVertical, args));
 
 Vertical.storyName = 'vertical';
-Vertical.argTypes = getArgTypes(dataVertical);
+Vertical.args = getArgs(dataVertical);
+Vertical.argTypes = getArgTypes();
 Vertical.parameters = {
   notes: { markdown: notes, json: dataVertical },
 };

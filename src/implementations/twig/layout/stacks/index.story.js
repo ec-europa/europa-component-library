@@ -2,37 +2,35 @@ import classnames from 'classnames';
 import withCode from '@ecl/storybook-addon-code';
 import { styled } from '@ecl/dom-utils';
 
+const getArgs = () => {
+  return {
+    direction: 'row',
+    wrap: 'wrap',
+    alignItems: 'start',
+    alignContent: 'start',
+    justifyContent: 'start',
+    shrink: false,
+    grow: false,
+    fixedContainer: false,
+    containerWidth: 25,
+    containerHeight: 25,
+  };
+};
+
 const getArgTypes = () => {
   return {
     direction: {
       type: 'select',
       description: 'Choose different flex-direction values',
-      defaultValue: 'row',
-      control: {
-        type: 'select',
-        options: {
-          Row: 'row',
-          'Row reverse': 'row-reverse',
-          Column: 'column',
-          'Column reverse': 'column-reverse',
-        },
-      },
+      options: ['row', 'row-reverse', 'column', 'column-reverse'],
       table: {
         category: 'Container',
       },
     },
     wrap: {
       description: 'Choose different flex-wrap values',
-      defaultValue: 'wrap',
       type: 'select',
-      control: {
-        type: 'select',
-        options: {
-          Wrap: 'wrap',
-          'No wrap': 'nowrap',
-          'Wrap reverse': 'wrap-reverse',
-        },
-      },
+      options: ['wrap', 'nowrap', 'wrap-reverse'],
       table: {
         category: 'Container',
       },
@@ -40,18 +38,8 @@ const getArgTypes = () => {
     alignItems: {
       name: 'align items',
       description: 'Choose different flex-align values',
-      defaultValue: 'start',
       type: 'select',
-      control: {
-        type: 'select',
-        options: {
-          Start: 'start',
-          End: 'end',
-          Center: 'center',
-          Baseline: 'baseline',
-          Stretch: 'stretch',
-        },
-      },
+      options: ['start', 'end', 'center', 'baseline', 'stretch'],
       table: {
         category: 'Container',
       },
@@ -59,17 +47,16 @@ const getArgTypes = () => {
     alignContent: {
       name: 'align content',
       description: 'Choose different align content values',
-      defaultValue: 'start',
       type: 'select',
+      options: ['start', 'end', 'center', 'between', 'around', 'stretch'],
       control: {
-        type: 'select',
-        options: {
-          Start: 'start',
-          End: 'end',
-          Center: 'center',
-          'Space between': 'between',
-          'Space around': 'around',
-          Stretch: 'stretch',
+        labels: {
+          start: 'Start',
+          end: 'End',
+          center: 'Center',
+          between: 'Space between',
+          around: 'Space around',
+          stretch: 'Stretch',
         },
       },
       table: {
@@ -79,16 +66,15 @@ const getArgTypes = () => {
     justifyContent: {
       name: 'justify content',
       description: 'Choose different justify-content values',
-      defaultValue: 'start',
       type: 'select',
+      options: ['start', 'end', 'center', 'between', 'around'],
       control: {
-        type: 'select',
-        options: {
-          Start: 'start',
-          End: 'end',
-          Center: 'center',
-          'Space between': 'between',
-          'Space around': 'around',
+        labels: {
+          start: 'Start',
+          end: 'End',
+          center: 'Center',
+          between: 'Space between',
+          around: 'Space around',
         },
       },
       table: {
@@ -98,14 +84,12 @@ const getArgTypes = () => {
     shrink: {
       type: 'boolean',
       description: 'Flex-shrink',
-      defaultValue: false,
       table: {
         category: 'Items',
       },
     },
     grow: {
       description: 'Flex-grow',
-      defaultValue: false,
       type: 'boolean',
       control: {
         type: 'boolean',
@@ -118,7 +102,6 @@ const getArgTypes = () => {
       name: 'test with a fixed container',
       description:
         'Following width and height values will be taken into account if activated',
-      defaultValue: false,
       type: 'boolean',
       control: {
         type: 'boolean',
@@ -129,8 +112,6 @@ const getArgTypes = () => {
     },
     containerWidth: {
       name: 'container width (rem)',
-      defaultValue: 25,
-      type: 'number',
       description: 'Fixed container width',
       control: {
         type: 'range',
@@ -144,8 +125,6 @@ const getArgTypes = () => {
     },
     containerHeight: {
       name: 'container height (rem)',
-      defaultValue: 25,
-      type: 'number',
       description: 'Fixed container height',
       control: {
         type: 'range',
@@ -232,4 +211,5 @@ export const Custom = (args) => {
 };
 
 Custom.storyName = 'custom';
+Custom.args = getArgs();
 Custom.argTypes = getArgTypes();

@@ -2,16 +2,24 @@ import classnames from 'classnames';
 import withCode from '@ecl/storybook-addon-code';
 import { styled } from '@ecl/dom-utils';
 
+const getArgs = () => {
+  return {
+    width: 'ecl-u-width-auto',
+    height: 'ecl-u-height-auto',
+    maxWidth: 'ecl-u-max-width-none',
+    maxHeight: 'ecl-u-max-height-none',
+  };
+};
+
 const getArgTypes = () => {
   return {
     width: {
       type: 'select',
-      defaultValue: 'ecl-u-width-auto',
+      options: ['ecl-u-width-auto', 'ecl-u-width-100'],
       control: {
-        type: 'select',
-        options: {
-          Auto: 'ecl-u-width-auto',
-          '100%': 'ecl-u-width-100',
+        labels: {
+          'ecl-u-width-auto': 'Auto',
+          'ecl-u-width-100': '100%',
         },
       },
       table: {
@@ -22,12 +30,11 @@ const getArgTypes = () => {
     },
     height: {
       type: 'select',
-      defaultValue: 'ecl-u-height-auto',
+      options: ['ecl-u-height-auto', 'ecl-u-height-100'],
       control: {
-        type: 'select',
-        options: {
-          Auto: 'ecl-u-height-auto',
-          '100%': 'ecl-u-height-100',
+        labels: {
+          'ecl-u-height-auto': 'Auto',
+          'ecl-u-height-100': '100%',
         },
       },
       table: {
@@ -39,12 +46,11 @@ const getArgTypes = () => {
     maxWidth: {
       name: 'max width',
       type: 'select',
-      defaultValue: 'ecl-u-max-width-none',
+      options: ['ecl-u-max-width-none', 'ecl-u-max-width-100'],
       control: {
-        type: 'select',
-        options: {
-          None: 'ecl-u-max-width-none',
-          '100%': 'ecl-u-max-width-100',
+        labels: {
+          'ecl-u-max-width-none': 'None',
+          'ecl-u-max-width-100': '100%',
         },
       },
       table: {
@@ -56,12 +62,11 @@ const getArgTypes = () => {
     maxHeight: {
       name: 'max height',
       type: 'select',
-      defaultValue: 'ecl-u-max-height-none',
+      options: ['ecl-u-max-height-none', 'ecl-u-max-height-100'],
       control: {
-        type: 'select',
-        options: {
-          None: 'ecl-u-max-height-none',
-          '100%': 'ecl-u-max-height-100',
+        labels: {
+          'ecl-u-max-height-none': 'None',
+          'ecl-u-max-height-100': '100%',
         },
       },
       table: {
@@ -104,7 +109,7 @@ export default {
 export const Custom = (args) => `
   <h2 class="ecl-u-type-heading-2">Width/height demo</h2>
   <div style="${styled(styleContainer)}">
-    <div 
+    <div
       style="${styled(styleBox)}"
       class="${classnames(args.height, args.width)}"
     >
@@ -123,4 +128,5 @@ export const Custom = (args) => `
 `;
 
 Custom.storyName = 'custom';
+Custom.args = getArgs();
 Custom.argTypes = getArgTypes();

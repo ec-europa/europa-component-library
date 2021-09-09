@@ -9,6 +9,18 @@ import notes from './README.md';
 
 const lorem = loremIpsum({ count: 25 });
 
+const getArgs = (data) => {
+  const args = {
+    blockLeft: false,
+    blockMain: false,
+  };
+  data.links.forEach((item, i) => {
+    args[`heading${i + 1}`] = item.label;
+  });
+
+  return args;
+};
+
 const getArgTypes = (data) => {
   const argTypes = {};
   const ordinalNum = ['first', 'second', 'third', 'fourth'];
@@ -16,7 +28,6 @@ const getArgTypes = (data) => {
     argTypes[`heading${i + 1}`] = {
       name: `${ordinalNum[i]} element label`,
       type: { name: 'string', required: true },
-      defaultValue: item.label,
       description: `The heading label for the ${ordinalNum[i]} element`,
       table: {
         type: { summary: 'string' },
@@ -32,7 +43,6 @@ const getArgTypes = (data) => {
   argTypes.blockLeft = {
     name: 'inject a test content block in the left sidebar',
     type: { name: 'boolean' },
-    defaultValue: false,
     description:
       'Inpage navigation recalculates the position of the linked content when something gets added in the dom.',
     table: {
@@ -45,7 +55,6 @@ const getArgTypes = (data) => {
   argTypes.blockMain = {
     name: 'inject a test content block in the main column',
     type: { name: 'boolean' },
-    defaultValue: false,
     description:
       'Inpage navigation recalculates the position of the linked content when something gets added in the dom.',
     table: {
@@ -116,6 +125,7 @@ export const Default = (args) => {
   return demo;
 };
 
+Default.args = getArgs(demoData);
 Default.argTypes = getArgTypes(demoData);
 Default.storyName = 'default';
 Default.parameters = { notes: { markdown: notes } };
