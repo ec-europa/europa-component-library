@@ -33,7 +33,7 @@ $_text-max-width: 65ch; // Approximately 80 characters with the current font
   padding-top: map.get(theme.$spacing, 's');
 }
 
-.ecl-blockquote__body,
+.ecl-blockquote__citation,
 %ecl-blockquote {
   color: $_body-color;
   font: $_body-font-mobile;
@@ -49,6 +49,10 @@ $_text-max-width: 65ch; // Approximately 80 characters with the current font
   &::after {
     content: close-quote;
   }
+}
+
+.ecl-blockquote__quote {
+  margin: 0;
 }
 
 .ecl-blockquote__attribution,
@@ -81,7 +85,7 @@ $_text-max-width: 65ch; // Approximately 80 characters with the current font
     padding-top: map.get(theme.$spacing, 'm');
   }
 
-  .ecl-blockquote__body,
+  .ecl-blockquote__citation,
   %ecl-blockquote {
     font: $_body-font-tablet;
     font-style: italic;
@@ -110,7 +114,7 @@ $_text-max-width: 65ch; // Approximately 80 characters with the current font
     padding: 0;
   }
 
-  .ecl-blockquote__inner,
+  .ecl-blockquote__body,
   %ecl-blockquote {
     border-left: $_border-width solid $_border-color;
     border-radius: $_border-radius;
@@ -120,7 +124,7 @@ $_text-max-width: 65ch; // Approximately 80 characters with the current font
     padding-top: map.get(theme.$spacing, 'm');
   }
 
-  .ecl-blockquote__body,
+  .ecl-blockquote__citation,
   %ecl-blockquote {
     font: $_body-font-desktop;
     font-style: italic;

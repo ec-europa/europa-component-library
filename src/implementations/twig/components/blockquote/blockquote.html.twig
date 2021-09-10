@@ -43,9 +43,9 @@
 
 {# Print the result #}
 
-<blockquote class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  <div class="ecl-blockquote__inner">
-    <p class="ecl-blockquote__body">{{ _citation }}</p>
+<figure class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <div class="ecl-blockquote__body">
+    <blockquote class="ecl-blockquote__quote"><p class="ecl-blockquote__citation">{{ _citation }}</p></blockquote>
     <footer class="ecl-blockquote__attribution"><cite class="ecl-blockquote__author">{{ _author }}</cite></footer>
   </div>
   {% if image is defined and image is not empty %}
@@ -57,10 +57,8 @@
         alt="{{ image.alt }}"
       {% endif %}
         class="ecl-blockquote__image"
-        width="120"
-        height="120"
     />
   {% endif %}
-</blockquote>
+</figure>
 
 {% endspaceless %}
