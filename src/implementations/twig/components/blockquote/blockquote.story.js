@@ -35,13 +35,13 @@ const getArgTypes = (data) => {
       type: 'text',
     },
   };
-  argTypes.image = {
-    name: 'image',
-    type: { name: 'object' },
-    defaultValue: data.image,
-    description: 'Blockquote image',
+  argTypes.show_image = {
+    name: 'show_image',
+    type: { name: 'boolean' },
+    defaultValue: false,
+    description: 'Show image',
     table: {
-      type: { summary: 'object' },
+      type: { summary: 'boolean' },
       defaultValue: { summary: '{}' },
       category: 'Content',
     },
@@ -51,6 +51,13 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
+  if (args.show_image) {
+    data.image = {
+      path: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg',
+    };
+  } else {
+    data.image = null;
+  }
   return Object.assign(data, args);
 };
 

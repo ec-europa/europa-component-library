@@ -11,12 +11,12 @@ npm install --save @ecl/twig-component-blockquote
 - **"citation"** (string) (default: '')
 - **"author"** (string) (default: '')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
+- **"image"** (optional) (object) (default: {}) Blockquote image
+  - "path" (string) Image src, eg. 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg'
+  - "alt" (string) Image alt, eg: 'blockquote-image'
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
-- **"image"** (optional) (object) (default: {}) Blockquote image
-  - "path" (string) Attribute name, eg. 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg'
-  - "alt" (string) Attribute value, eg: 'blockquote-image'
 
 ## Example:
 

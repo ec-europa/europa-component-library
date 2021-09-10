@@ -66,8 +66,10 @@ $_text-max-width: 65ch; // Approximately 80 characters with the current font
 
 .ecl-blockquote__image,
 %ecl-blockquote__image {
+  height: 120px;
   margin-bottom: map.get(theme.$spacing, 'm');
   margin-top: map.get(theme.$spacing, 's');
+  width: 120px;
 }
 
 /* stylelint-disable-next-line order/order */
@@ -102,6 +104,9 @@ $_text-max-width: 65ch; // Approximately 80 characters with the current font
   .ecl-blockquote,
   %ecl-blockquote {
     border-left: 0;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: left;
     padding: 0;
   }
 
@@ -134,7 +139,6 @@ $_text-max-width: 65ch; // Approximately 80 characters with the current font
 
   .ecl-blockquote__image,
   %ecl-blockquote__image {
-    float: left;
     margin-bottom: 0;
     margin-right: map.get(theme.$spacing, 'l');
     margin-top: 0;

@@ -23,12 +23,6 @@ exports[`Blockquote Default renders correctly 1`] = `
         </cite>
       </footer>
     </div>
-    <img
-      class="ecl-blockquote__image"
-      height="120"
-      src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
-      width="120"
-    />
   </blockquote>
 </jest>
 `;
@@ -58,12 +52,6 @@ exports[`Blockquote Default renders correctly with extra attributes 1`] = `
         </cite>
       </footer>
     </div>
-    <img
-      class="ecl-blockquote__image"
-      height="120"
-      src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
-      width="120"
-    />
   </blockquote>
 </jest>
 `;
@@ -91,10 +79,38 @@ exports[`Blockquote Default renders correctly with extra class names 1`] = `
         </cite>
       </footer>
     </div>
+  </blockquote>
+</jest>
+`;
+
+exports[`Blockquote Default renders correctly with image 1`] = `
+<jest>
+  <blockquote
+    class="ecl-blockquote"
+  >
+    <div
+      class="ecl-blockquote__inner"
+    >
+      <p
+        class="ecl-blockquote__body"
+      >
+        An interconnected grid will help deliver the ultimate goal of the Energy Union, to make sure affordable, secure and sustainable energy, and also growth across the EU.
+      </p>
+      <footer
+        class="ecl-blockquote__attribution"
+      >
+        <cite
+          class="ecl-blockquote__author"
+        >
+          President Juncker
+        </cite>
+      </footer>
+    </div>
     <img
+      alt="image"
       class="ecl-blockquote__image"
       height="120"
-      src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
+      src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg"
       width="120"
     />
   </blockquote>
