@@ -8,88 +8,119 @@ const styleBox = {
   width: '10rem',
 };
 
+const getArgs = () => {
+  return {
+    colour: 'ecl-u-border-color-black',
+    width: 'ecl-u-border-width-1',
+    direction: [
+      'ecl-u-border-bottom',
+      'ecl-u-border-left',
+      'ecl-u-border-right',
+      'ecl-u-border-top',
+    ],
+    radius: '',
+  };
+};
+
 const getArgTypes = () => {
   return {
     colour: {
       name: 'colour (sample)',
       type: 'select',
-      defaultValue: 'ecl-u-border-color-black',
       description: 'Apply different colours',
+      options: [
+        'ecl-u-border-color-black',
+        'ecl-u-border-color-blue',
+        'ecl-u-border-color-yellow',
+        'ecl-u-border-color-grey',
+        'ecl-u-border-color-grey-50',
+        'ecl-u-border-color-grey-5',
+        'ecl-u-border-color-blue-n',
+        'ecl-u-border-color-red',
+      ],
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
       },
       control: {
-        type: 'select',
-        options: {
-          Black: 'ecl-u-border-color-black',
-          Blue: 'ecl-u-border-color-blue',
-          Yellow: 'ecl-u-border-color-yellow',
-          Grey: 'ecl-u-border-color-grey',
-          'Grey 50': 'ecl-u-border-color-grey-50',
-          'Grey 5': 'ecl-u-border-color-grey-5',
-          'Blue N': 'ecl-u-border-color-blue-n',
-          Red: 'ecl-u-border-color-red',
+        labels: {
+          'ecl-u-border-color-black': 'Black',
+          'ecl-u-border-color-blue': 'Blue',
+          'ecl-u-border-color-yellow': 'Yellow',
+          'ecl-u-border-color-grey': 'Grey',
+          'ecl-u-border-color-grey-50': 'Grey 50',
+          'ecl-u-border-color-grey-5': 'Grey 5',
+          'ecl-u-border-color-blue-n': 'Blue N',
+          'ecl-u-border-color-red': 'Red',
         },
       },
     },
     width: {
       type: 'select',
       description: 'Apply different widths',
-      defaultValue: 'ecl-u-border-width-1',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
       },
+      options: [
+        'ecl-u-border-width-1',
+        'ecl-u-border-width-2',
+        'ecl-u-border-width-4',
+        'ecl-u-border-width-8',
+      ],
       control: {
-        type: 'select',
-        options: {
-          '1px': 'ecl-u-border-width-1',
-          '2px': 'ecl-u-border-width-2',
-          '4px': 'ecl-u-border-width-4',
-          '8px': 'ecl-u-border-width-8',
+        labels: {
+          'ecl-u-border-width-1': '1px',
+          'ecl-u-border-width-2': '2px',
+          'ecl-u-border-width-4': '4px',
+          'ecl-u-border-width-8': '8px',
         },
       },
     },
     direction: {
-      type: 'inline-check',
-      defaultValue: [
-        'ecl-u-border-bottom',
-        'ecl-u-border-left',
-        'ecl-u-border-right',
-        'ecl-u-border-top',
-      ],
       description: 'Select the border to apply the style to',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
       },
+      options: [
+        'ecl-u-border-bottom',
+        'ecl-u-border-left',
+        'ecl-u-border-right',
+        'ecl-u-border-top',
+      ],
       control: {
         type: 'inline-check',
-        options: {
-          Bottom: 'ecl-u-border-bottom',
-          Left: 'ecl-u-border-left',
-          Right: 'ecl-u-border-right',
-          Top: 'ecl-u-border-top',
+        labels: {
+          'ecl-u-border-bottom': 'Bottom',
+          'ecl-u-border-left': 'Left',
+          'ecl-u-border-right': 'Right',
+          'ecl-u-border-top': 'Top',
         },
       },
     },
     radius: {
       type: 'select',
       description: 'Apply different border radius',
-      defaultValue: 'ecl-u-border-radius-0',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
       },
+      options: [
+        '',
+        'ecl-u-border-radius-1',
+        'ecl-u-border-radius-2',
+        'ecl-u-border-radius-4',
+        'ecl-u-border-radius-8',
+      ],
       control: {
         type: 'select',
-        options: {
-          '0px': 'ecl-u-border-radius-1',
-          '1px': 'ecl-u-border-radius-1',
-          '2px': 'ecl-u-border-radius-2',
-          '4px': 'ecl-u-border-radius-4',
-          '8px': 'ecl-u-border-radius-8',
+        labels: {
+          '': '0px',
+          'ecl-u-border-radius-1': '1px',
+          'ecl-u-border-radius-2': '2px',
+          'ecl-u-border-radius-4': '4px',
+          'ecl-u-border-radius-8': '8px',
         },
       },
     },
@@ -107,9 +138,11 @@ export const Custom = (args) => {
   return `<div style="${styled(styleBox)}" class="${classnames(
     args.colour,
     args.width,
+    args.radius,
     direction
   )}" />`;
 };
 
 Custom.storyName = 'custom';
+Custom.args = getArgs();
 Custom.argTypes = getArgTypes();

@@ -20,6 +20,14 @@ const iconsAll = system === 'eu' ? iconsAllEu : iconsAllEc;
 // Create 'none' option.
 iconsAll.unshift('none');
 
+const getArgs = () => {
+  return {
+    icon_name: 'none',
+    icon_position: 'after',
+    disabled: false,
+  };
+};
+
 const getArgTypes = () => {
   const argTypes = {};
   argTypes.label = {
@@ -38,55 +46,45 @@ const getArgTypes = () => {
   argTypes.icon_name = {
     name: 'icon name',
     description: 'Button icon',
-    defaultValue: 'none',
+    type: { name: 'select' },
+    options: iconsAll,
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
       category: 'Icon',
-    },
-    control: {
-      type: 'select',
-      options: iconsAll,
     },
   };
   argTypes.icon_transform = {
     name: 'icon transform',
     type: { name: 'select' },
     description: 'Button icon transform',
+    options: [
+      'rotate-90',
+      'rotate-180',
+      'rotate-270',
+      'flip-horizontal',
+      'flip-vertical',
+    ],
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
       category: 'Icon',
-    },
-    control: {
-      type: 'select',
-      options: [
-        'rotate-90',
-        'rotate-180',
-        'rotate-270',
-        'flip-horizontal',
-        'flip-vertical',
-      ],
     },
   };
   argTypes.icon_position = {
     name: 'icon position',
     type: { name: 'inline-radio' },
     description: 'Icon position inside the button',
+    options: ['before', 'after'],
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'after' },
       category: 'Icon',
     },
-    control: {
-      type: 'inline-radio',
-      options: ['before', 'after'],
-    },
   };
   argTypes.disabled = {
     name: 'disabled',
     type: { name: 'boolean' },
-    defaultValue: false,
     description: 'Disabled button',
     table: {
       type: { summary: 'boolean' },
@@ -123,6 +121,7 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Button',
   argTypes: getArgTypes(),
+  args: getArgs(),
   decorators: [withCode, withNotes],
 };
 
@@ -131,7 +130,6 @@ export const Primary = (args) => button(prepareData(dataPrimary, args));
 Primary.args = {
   label: dataPrimary.label,
 };
-
 Primary.storyName = 'primary';
 Primary.parameters = {
   notes: { markdown: notes, json: dataPrimary },
@@ -142,7 +140,6 @@ export const Secondary = (args) => button(prepareData(dataSecondary, args));
 Secondary.args = {
   label: dataSecondary.label,
 };
-
 Secondary.storyName = 'secondary';
 Secondary.parameters = {
   notes: { markdown: notes, json: dataSecondary },
@@ -155,7 +152,6 @@ CallToAction.args = {
   icon_name: 'corner-arrow',
   icon_transform: 'rotate-90',
 };
-
 CallToAction.storyName = 'call to action';
 CallToAction.parameters = {
   notes: { markdown: notes, json: dataCall },
@@ -166,7 +162,6 @@ export const Ghost = (args) => button(prepareData(dataGhost, args));
 Ghost.args = {
   label: dataGhost.label,
 };
-
 Ghost.storyName = 'text';
 Ghost.parameters = {
   notes: { markdown: notes, json: dataGhost },

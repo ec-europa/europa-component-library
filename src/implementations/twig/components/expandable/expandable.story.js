@@ -6,12 +6,19 @@ import demoData from '@ecl/specs-component-expandable/demo/data';
 import expandable from './expandable.html.twig';
 import notes from './README.md';
 
-const getArgTypes = (data) => {
+const getArgs = (data) => {
+  return {
+    label_collapsed: data.label_collapsed,
+    label_expanded: data.label_expanded,
+    content: data.content,
+  };
+};
+
+const getArgTypes = () => {
   return {
     label_collapsed: {
       name: 'label of the button',
       type: { name: 'string', required: true },
-      defaultValue: data.label_collapsed,
       description: 'Used when the content is hidden',
       table: {
         type: { summary: 'string' },
@@ -22,7 +29,6 @@ const getArgTypes = (data) => {
     label_expanded: {
       name: 'label of the button',
       type: { name: 'string', required: true },
-      defaultValue: data.label_expanded,
       description: 'Used when the content is visible',
       table: {
         type: { summary: 'string' },
@@ -32,7 +38,6 @@ const getArgTypes = (data) => {
     },
     content: {
       type: { name: 'string', required: true },
-      defaultValue: data.content,
       description:
         'Hidden initially, can be revealed by clicking on the button',
       table: {
@@ -55,6 +60,7 @@ export default {
 export const Default = (args) => expandable(prepareData(demoData, args));
 
 Default.storyName = 'default';
-Default.argTypes = getArgTypes(demoData);
+Default.args = getArgs(demoData);
+Default.argTypes = getArgTypes();
 Default.parameters = { notes: { markdown: notes, json: demoData } };
 Default.decorators = [withCode, withNotes];

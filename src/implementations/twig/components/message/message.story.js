@@ -25,11 +25,17 @@ if (system === 'eu') {
   dataWarning.close.icon.size = 's';
 }
 
-const getArgTypes = (data) => {
+const getArgs = (data) => {
+  return {
+    title: data.title,
+    description: data.description,
+  };
+};
+
+const getArgTypes = () => {
   return {
     title: {
       name: 'title',
-      defaultValue: data.title,
       type: { name: 'string', required: true },
       description: 'The content of the title',
       table: {
@@ -40,7 +46,6 @@ const getArgTypes = (data) => {
     },
     description: {
       name: 'description',
-      defaultValue: data.description,
       type: { name: 'string', required: true },
       description: 'The content of the description message',
       table: {
@@ -65,23 +70,27 @@ export default {
 export const Info = (args) => message(prepareData(dataInfo, args));
 
 Info.storyName = 'Info';
-Info.argTypes = getArgTypes(dataInfo);
+Info.args = getArgs(dataInfo);
+Info.argTypes = getArgTypes();
 Info.parameters = { notes: { markdown: notes, json: dataInfo } };
 
 export const Success = (args) => message(prepareData(dataSuccess, args));
 
 Success.storyName = 'Success';
-Success.argTypes = getArgTypes(dataSuccess);
+Success.args = getArgs(dataSuccess);
+Success.argTypes = getArgTypes();
 Success.parameters = { notes: { markdown: notes, json: dataSuccess } };
 
 export const Error = (args) => message(prepareData(dataError, args));
 
 Error.storyName = 'Error';
-Error.argTypes = getArgTypes(dataError);
+Error.args = getArgs(dataError);
+Error.argTypes = getArgTypes();
 Error.parameters = { notes: { markdown: notes, json: dataError } };
 
 export const Warning = (args) => message(prepareData(dataWarning, args));
 
 Warning.storyName = 'Warning';
-Warning.argTypes = getArgTypes(dataWarning);
+Warning.args = getArgs(dataWarning);
+Warning.argTypes = getArgTypes();
 Warning.parameters = { notes: { markdown: notes, json: dataWarning } };

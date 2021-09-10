@@ -5,12 +5,17 @@ import specs from '@ecl/specs-component-skip-link/demo/data';
 import skipLink from './skip-link.html.twig';
 import notes from './README.md';
 
+const getArgs = () => {
+  return {
+    focus: false,
+  };
+};
+
 const getArgTypes = () => {
   return {
     focus: {
       name: 'focus',
       type: { name: 'boolean' },
-      defaultValue: false,
       description: 'Making the link visible by receiving keyboard focus',
       table: {
         category: 'State',
@@ -43,6 +48,7 @@ export const Default = (args) => {
   return skipLink(specs);
 };
 
+Default.args = getArgs();
 Default.argTypes = getArgTypes();
 Default.storyName = 'default';
 Default.parameters = { notes: { markdown: notes, json: specs } };

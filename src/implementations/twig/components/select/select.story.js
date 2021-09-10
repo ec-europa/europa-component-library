@@ -15,6 +15,20 @@ const system = getSystem();
 const dataSingle = system === 'eu' ? dataSingleEU : dataSingleEC;
 const dataMultiple = system === 'eu' ? dataMultipleEU : dataMultipleEC;
 
+const getArgs = (data) => {
+  return {
+    label: data.label || '',
+    helper_text: data.helper_text,
+    invalid_text: data.invalid_text,
+    optional_text: data.optional_text,
+    required_text: data.required_text,
+    invalid: data.invalid || false,
+    disabled: data.disabled || false,
+    required: data.required,
+    width: data.width,
+  };
+};
+
 const getArgTypes = (data) => getFormControls(data, 'element');
 
 const prepareData = (data, args) => {
@@ -30,11 +44,13 @@ export default {
 export const Single = (args) => selectBox(prepareData(dataSingle, args));
 
 Single.storyName = 'default';
+Single.args = getArgs(dataSingle);
 Single.argTypes = getArgTypes(dataSingle);
 Single.parameters = { notes: { markdown: notes, json: dataSingle } };
 
 export const Multiple = (args) => selectBox(prepareData(dataMultiple, args));
 
 Multiple.storyName = 'multiple';
+Multiple.args = getArgs(dataMultiple);
 Multiple.argTypes = getArgTypes(dataMultiple);
 Multiple.parameters = { notes: { markdown: notes, json: dataMultiple } };
