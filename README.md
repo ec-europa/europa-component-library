@@ -12,7 +12,7 @@ All library elements are accompanied with
 
 - documentation: what the component is intended for and recommendations regarding its usage
 - demo: visual representation of the component
-- code: technologically agnostic HTML/CSS code for implementation
+- code: technologically agnostic HTML/CSS code and twig implementation
 
 ## Requirements
 
