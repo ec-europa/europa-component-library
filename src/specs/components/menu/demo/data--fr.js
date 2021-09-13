@@ -9,8 +9,14 @@ module.exports = {
   site_name: 'Nom du site',
   cta_link: {
     link: {
-      label: 'lien CTA',
+      label: 'Lien CTA',
       href: exampleLink,
+    },
+    icon: {
+      path: '/icons.svg',
+      name: 'corner-arrow',
+      size: 'fluid',
+      transform: 'rotate-90',
     },
   },
   menu_link: exampleLink,

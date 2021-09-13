@@ -94,7 +94,7 @@
       {% if _site_name is not empty %}
       <div class="ecl-menu__site-name">{{ _site_name }}</div>
       {% endif %}
-      {% if _cta_link is not empty %}
+      {% if _cta_link is not empty and _cta_link.link is not empty %}
       {% include '@ecl/link/link.html.twig' with _cta_link|merge({
         link: _cta_link.link|merge({
           type: 'cta',
