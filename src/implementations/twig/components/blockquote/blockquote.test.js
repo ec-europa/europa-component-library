@@ -28,7 +28,7 @@ describe('Blockquote', () => {
 
       const withImage = merge(data, {
         image: {
-          path: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg',
+          path: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg',
           alt: 'image',
         },
       });

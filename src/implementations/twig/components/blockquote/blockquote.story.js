@@ -58,7 +58,7 @@ const getArgTypes = () => {
 const prepareData = (data, args) => {
   if (args.show_image) {
     data.image = {
-      path: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg',
+      path: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg',
     };
   } else {
     data.image = null;
