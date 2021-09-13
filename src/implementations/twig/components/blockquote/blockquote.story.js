@@ -42,9 +42,9 @@ const getArgTypes = () => {
       },
     },
     show_image: {
-      name: 'show_image',
+      name: 'show image',
       type: { name: 'boolean' },
-      description: 'Show image',
+      description: 'Toggle image visibility',
       table: {
         type: { summary: 'boolean' },
         category: 'Content',
