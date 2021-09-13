@@ -13,12 +13,24 @@ import notes from './README.md';
 const system = getSystem();
 const demoData = system === 'eu' ? specsEu : specsEc;
 
+const getArgs = () => {
+  const args = {
+    hide_contact: true,
+    hide_follow: true,
+    hide_relate_site: true,
+  };
+  if (system !== 'eu') {
+    args.hide_about = true;
+  }
+
+  return args;
+};
+
 const getArgTypes = () => {
   const argTypes = {};
   argTypes.hide_contact = {
     name: system === 'eu' ? 'contact site name' : 'contact us',
     type: { name: 'boolean' },
-    defaultValue: true,
     description:
       system === 'eu'
         ? 'Show "Contact site name" section'
@@ -31,7 +43,6 @@ const getArgTypes = () => {
   argTypes.hide_follow = {
     name: 'follow us',
     type: { name: 'boolean' },
-    defaultValue: true,
     description: 'Show "Follow us" section',
     table: {
       category: 'Optional sections',
@@ -42,7 +53,6 @@ const getArgTypes = () => {
     argTypes.hide_about = {
       name: 'about us',
       type: { name: 'boolean' },
-      defaultValue: true,
       description: 'Show "About us" section',
       table: {
         category: 'Optional sections',
@@ -53,7 +63,6 @@ const getArgTypes = () => {
   argTypes.hide_relate_site = {
     name: system === 'eu' ? 'optional links' : 'related sites',
     type: { name: 'boolean' },
-    defaultValue: true,
     description:
       system === 'eu'
         ? 'Show "Optional links" section'
@@ -108,5 +117,6 @@ export default {
 export const Default = (args) => footer(prepareData(demoData, args));
 
 Default.storyName = 'default';
+Default.args = getArgs();
 Default.argTypes = getArgTypes();
 Default.parameters = { notes: { markdown: notes, json: demoData } };

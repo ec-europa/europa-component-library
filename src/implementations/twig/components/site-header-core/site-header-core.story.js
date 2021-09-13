@@ -22,18 +22,23 @@ const enData = { ...englishData };
 const frData = { ...frenchData };
 const clonedLoggedInData = { ...loggedInData };
 
+const getArgs = () => {
+  return {
+    login: true,
+    menu: true,
+  };
+};
+
 const getArgTypes = () => {
   const argTypes = {
     login: {
       type: { name: 'boolean' },
-      defaultValue: true,
       description: 'Toggle login box visibility',
     },
   };
 
   argTypes.menu = {
     type: { name: 'boolean' },
-    defaultValue: true,
     description: 'Toggle menu visibility',
   };
 
@@ -94,6 +99,7 @@ export const Default = (args) =>
   siteHeaderCore(prepareData(englishData, 'default', args));
 
 Default.storyName = 'default';
+Default.args = getArgs();
 Default.argTypes = getArgTypes();
 Default.parameters = { notes: { markdown: notes, json: englishData } };
 
@@ -101,6 +107,7 @@ export const LoggedIn = (args) =>
   siteHeaderCore(prepareData(loggedInData, 'logged', args));
 
 LoggedIn.storyName = 'logged in';
+LoggedIn.args = getArgs();
 LoggedIn.argTypes = getArgTypes();
 LoggedIn.parameters = { notes: { markdown: notes, json: loggedInData } };
 
@@ -108,5 +115,6 @@ export const Translated = (args) =>
   siteHeaderCore(prepareData(frenchData, 'translated', args));
 
 Translated.storyName = 'translated';
+Translated.args = getArgs();
 Translated.argTypes = getArgTypes();
 Translated.parameters = { notes: { markdown: notes, json: frenchData } };

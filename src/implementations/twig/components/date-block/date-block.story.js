@@ -12,12 +12,20 @@ const dataCancelled = { ...specs, variant: 'cancelled' };
 const dataPast = { ...specs, variant: 'past' };
 const dataRescheduled = { ...specs, variant: 'rescheduled' };
 
-const getArgTypes = (data) => {
+const getArgs = (data) => {
+  return {
+    day: data.day,
+    month: data.month,
+    month_full: data.month_full,
+    year: data.year,
+  };
+};
+
+const getArgTypes = () => {
   return {
     day: {
       name: 'day',
       type: { name: 'string', required: true },
-      defaultValue: data.day,
       description: 'The date day',
       table: {
         type: { summary: 'string' },
@@ -31,7 +39,6 @@ const getArgTypes = (data) => {
     month: {
       name: 'month',
       type: { name: 'string', required: true },
-      defaultValue: data.month,
       description: 'The date month (abridged)',
       table: {
         type: { summary: 'string' },
@@ -45,7 +52,6 @@ const getArgTypes = (data) => {
     month_full: {
       name: 'month full',
       type: { name: 'string', required: true },
-      defaultValue: data.month_full,
       description: 'The date month (full); displayed on hover',
       table: {
         type: { summary: 'string' },
@@ -59,7 +65,6 @@ const getArgTypes = (data) => {
     year: {
       name: 'year',
       type: { name: 'string', required: true },
-      defaultValue: data.year,
       description: 'The date year',
       table: {
         type: { summary: 'string' },
@@ -85,7 +90,8 @@ export default {
 export const Default = (args) => dateBlock(prepareData(dataDefault, args));
 
 Default.storyName = 'default';
-Default.argTypes = getArgTypes(dataDefault);
+Default.args = getArgs(dataDefault);
+Default.argTypes = getArgTypes();
 Default.parameters = {
   notes: {
     markdown: notes,
@@ -96,24 +102,28 @@ Default.parameters = {
 export const Ongoing = (args) => dateBlock(prepareData(dataOngoing, args));
 
 Ongoing.storyName = 'ongoing';
+Ongoing.args = getArgs(dataOngoing);
 Ongoing.argTypes = getArgTypes(dataOngoing);
 Ongoing.parameters = { notes: { markdown: notes, json: dataOngoing } };
 
 export const Cancelled = (args) => dateBlock(prepareData(dataCancelled, args));
 
 Cancelled.storyName = 'cancelled';
-Cancelled.argTypes = getArgTypes(dataCancelled);
+Cancelled.args = getArgs(dataCancelled);
+Cancelled.argTypes = getArgTypes();
 Cancelled.parameters = { notes: { markdown: notes, json: dataCancelled } };
 
 export const Past = (args) => dateBlock(prepareData(dataPast, args));
 
 Past.storyName = 'past';
-Past.argTypes = getArgTypes(dataPast);
+Past.args = getArgs(dataPast);
+Past.argTypes = getArgTypes();
 Past.parameters = { notes: { markdown: notes, json: dataPast } };
 
 export const Rescheduled = (args) =>
   dateBlock(prepareData(dataRescheduled, args));
 
 Rescheduled.storyName = 'rescheduled';
-Rescheduled.argTypes = getArgTypes(dataRescheduled);
+Rescheduled.args = getArgs(dataRescheduled);
+Rescheduled.argTypes = getArgTypes();
 Rescheduled.parameters = { notes: { markdown: notes, json: dataRescheduled } };

@@ -15,13 +15,28 @@ const dataInvalid = { ...dataDefault, invalid: true };
 const dataDisabled = { ...dataDefault, disabled: true };
 const dataRequired = { ...dataDefault, required: true };
 
+const getArgs = (data) => {
+  return {
+    label: data.label || '',
+    helper_text: data.helper_text,
+    invalid_text: data.invalid_text,
+    optional_text: data.optional_text,
+    required_text: data.required_text,
+    invalid: data.invalid || false,
+    disabled: data.disabled || false,
+    required: data.required,
+    width: data.width,
+    placeholder: data.placeholder,
+    rows: 4,
+  };
+};
+
 const getArgTypes = (data) => {
   return {
     ...getFormControls(data, 'element'),
     rows: {
       type: { name: 'number' },
       description: 'Number or rows',
-      defaultValue: 4,
       table: {
         type: { summary: 'integer' },
         min: 1,
@@ -43,23 +58,27 @@ export default {
 export const Default = (args) => textArea(prepareData(dataDefault, args));
 
 Default.storyName = 'default';
+Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes(dataDefault);
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 
 export const Disabled = (args) => textArea(prepareData(dataDisabled, args));
 
 Disabled.storyName = 'disabled';
+Disabled.args = getArgs(dataDisabled);
 Disabled.argTypes = getArgTypes(dataDisabled);
 Disabled.parameters = { notes: { markdown: notes, json: dataDisabled } };
 
 export const Invalid = (args) => textArea(prepareData(dataInvalid, args));
 
 Invalid.storyName = 'invalid';
+Invalid.args = getArgs(dataInvalid);
 Invalid.argTypes = getArgTypes(dataInvalid);
 Invalid.parameters = { notes: { markdown: notes, json: dataInvalid } };
 
 export const Required = (args) => textArea(prepareData(dataRequired, args));
 
 Required.storyName = 'required';
+Required.args = getArgs(dataRequired);
 Required.argTypes = getArgTypes(dataRequired);
 Required.parameters = { notes: { markdown: notes, json: dataRequired } };

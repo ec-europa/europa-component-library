@@ -21,12 +21,29 @@ const logo = { ...dataGroup3.logo };
 const partnership =
   'https://inno-ecl.s3.amazonaws.com/media/examples/placeholder.svg';
 
+const getArgs = (variant) => {
+  const args = {};
+
+  if (variant === 'group1') {
+    args.login = true;
+    args.className = true;
+  }
+  if (variant === 'group3') {
+    args.partnership = true;
+  } else {
+    args.languageSelector = true;
+    args.search = true;
+    args.menu = true;
+  }
+
+  return args;
+};
+
 const getArgTypes = (variant) => {
   const argTypes = {};
   if (variant === 'group1') {
     argTypes.login = {
       type: { name: 'boolean' },
-      defaultValue: true,
       description: 'Toggle login box visibility',
       table: {
         type: { summary: 'object' },
@@ -36,7 +53,6 @@ const getArgTypes = (variant) => {
     argTypes.className = {
       name: 'class name',
       type: { name: 'boolean' },
-      defaultValue: true,
       description: 'Toggle Class name visibility',
       table: {
         type: { summary: 'object' },
@@ -47,7 +63,6 @@ const getArgTypes = (variant) => {
   if (variant === 'group3') {
     argTypes.partnership = {
       type: { name: 'boolean' },
-      defaultValue: true,
       description: 'Toggle partnership logo visibility',
       table: {
         type: { summary: 'object' },
@@ -58,7 +73,6 @@ const getArgTypes = (variant) => {
     argTypes.languageSelector = {
       name: 'language selector',
       type: { name: 'boolean' },
-      defaultValue: true,
       description: 'Toggle language selector visibility',
       table: {
         type: { summary: 'object' },
@@ -67,7 +81,6 @@ const getArgTypes = (variant) => {
     };
     argTypes.search = {
       type: { name: 'boolean' },
-      defaultValue: true,
       description: 'Toggle search form visibility',
       table: {
         type: { summary: 'object' },
@@ -76,7 +89,6 @@ const getArgTypes = (variant) => {
     };
     argTypes.menu = {
       type: { name: 'boolean' },
-      defaultValue: true,
       description: 'Toggle menu visibility',
       table: {
         type: { summary: 'object' },
@@ -146,6 +158,7 @@ export const Group1 = (args) =>
   siteHeaderHarmonised(prepareData(dataGroup1, 'group1', args));
 
 Group1.storyName = 'group 1';
+Group1.args = getArgs('group1');
 Group1.argTypes = getArgTypes('group1');
 Group1.parameters = { notes: { markdown: notes, json: dataGroup1 } };
 
@@ -153,6 +166,7 @@ export const Group2 = (args) =>
   siteHeaderHarmonised(prepareData(dataGroup2, 'group2', args));
 
 Group2.storyName = 'group 2';
+Group2.args = getArgs('group2');
 Group2.argTypes = getArgTypes('group2');
 Group2.parameters = { notes: { markdown: notes, json: dataGroup2 } };
 
@@ -160,5 +174,6 @@ export const Group3 = (args) =>
   siteHeaderHarmonised(prepareData(dataGroup3, 'group3', args));
 
 Group3.storyName = 'group 3';
+Group3.args = getArgs('group3');
 Group3.argTypes = getArgTypes('group3');
 Group3.parameters = { notes: { markdown: notes, json: dataGroup3 } };

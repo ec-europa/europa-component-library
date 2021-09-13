@@ -34,12 +34,21 @@ const withNegative = (story, controls) => {
     : demo;
 };
 
-const getArgTypes = (data) => {
+const getArgs = (data) => {
+  return {
+    label: data.link.label,
+    negative: data.link.negative || false,
+    no_visited: data.link.no_visited || false,
+    icon_name: 'none',
+    icon_position: 'after',
+  };
+};
+
+const getArgTypes = () => {
   return {
     label: {
       name: 'label',
       type: { name: 'string', required: true },
-      defaultValue: data.link.label,
       description: 'The link label',
       table: {
         type: { summary: 'string' },
@@ -53,7 +62,6 @@ const getArgTypes = (data) => {
     negative: {
       name: 'negative',
       type: { name: 'boolean' },
-      defaultValue: data.link.negative,
       description: 'Negative link (light on dark)',
       table: {
         type: { summary: 'boolean' },
@@ -67,7 +75,6 @@ const getArgTypes = (data) => {
     no_visited: {
       name: 'no visited',
       type: { name: 'boolean' },
-      defaultValue: data.link.no_visited,
       description: 'No change of color for visited link',
       table: {
         type: { summary: 'boolean' },
@@ -81,49 +88,38 @@ const getArgTypes = (data) => {
     icon_name: {
       name: 'icon name',
       type: { name: 'select', required: false },
-      defaultValue: 'none',
+      options: [...iconsAll],
       description: 'Name of the icon',
       table: {
         type: { summary: 'string' },
         category: 'Icon',
-      },
-      control: {
-        type: 'select',
-        options: iconsAll,
       },
     },
     icon_transform: {
       name: 'icon transform',
       type: { name: 'select' },
       description: 'Link icon transform',
+      options: [
+        'rotate-90',
+        'rotate-180',
+        'rotate-270',
+        'flip-horizontal',
+        'flip-vertical',
+      ],
       table: {
         type: { summary: 'string' },
         category: 'Icon',
-      },
-      control: {
-        type: 'select',
-        options: [
-          'rotate-90',
-          'rotate-180',
-          'rotate-270',
-          'flip-horizontal',
-          'flip-vertical',
-        ],
       },
     },
     icon_position: {
       name: 'icon position',
       type: { name: 'inline-radio' },
       description: 'Icon position inside the link',
-      defaultValue: 'after',
+      options: ['before', 'after'],
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: 'after' },
         category: 'Icon',
-      },
-      control: {
-        type: 'inline-radio',
-        options: ['before', 'after'],
       },
     },
   };
@@ -167,37 +163,43 @@ export const Default = (args) => link(prepareData(dataDefault, args));
 
 Default.storyName = 'default';
 Default.decorators = [withNotes, withCode, withParagraph, withNegative];
-Default.argTypes = getArgTypes(dataDefault);
+Default.args = getArgs(dataDefault);
+Default.argTypes = getArgTypes();
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 
 export const Standalone = (args) => link(prepareData(dataStandalone, args));
 
 Standalone.storyName = 'standalone';
-Standalone.argTypes = getArgTypes(dataStandalone);
+Standalone.args = getArgs(dataStandalone);
+Standalone.argTypes = getArgTypes();
 Standalone.parameters = { notes: { markdown: notes, json: dataStandalone } };
 
 export const Cta = (args) => link(prepareDataButtonLink(dataCta, args));
 
 Cta.storyName = 'call to action';
-Cta.argTypes = getArgTypes(dataCta);
+Cta.args = getArgs(dataCta);
+Cta.argTypes = getArgTypes();
 Cta.parameters = { notes: { markdown: notes, json: dataCta } };
 
 export const Primary = (args) => link(prepareDataButtonLink(dataPrimary, args));
 
 Primary.storyName = 'primary';
-Primary.argTypes = getArgTypes(dataPrimary);
+Primary.args = getArgs(dataPrimary);
+Primary.argTypes = getArgTypes();
 Primary.parameters = { notes: { markdown: notes, json: dataPrimary } };
 
 export const Secondary = (args) =>
   link(prepareDataButtonLink(dataSecondary, args));
 
 Secondary.storyName = 'secondary';
-Secondary.argTypes = getArgTypes(dataSecondary);
+Secondary.args = getArgs(dataSecondary);
+Secondary.argTypes = getArgTypes();
 Secondary.parameters = { notes: { markdown: notes, json: dataSecondary } };
 
 export const Negative = (args) => link(prepareData(dataNegative, args));
 
 Negative.storyName = 'negative';
 Negative.decorators = [withNotes, withCode, withParagraph, withNegative];
-Negative.argTypes = getArgTypes(dataNegative);
+Negative.args = getArgs(dataNegative);
+Negative.argTypes = getArgTypes();
 Negative.parameters = { notes: { markdown: notes, json: dataNegative } };

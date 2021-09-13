@@ -1,125 +1,128 @@
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   title: 'Select your language',
   items: [
     {
       label: 'български',
-      path: '/example',
+      path: exampleLink,
       lang: 'bg',
     },
     {
       label: 'español',
-      path: '/example',
+      path: exampleLink,
       lang: 'es',
     },
     {
       label: 'čeština',
-      path: '/example',
+      path: exampleLink,
       lang: 'cs',
     },
     {
       label: 'dansk',
-      path: '/example',
+      path: exampleLink,
       lang: 'da',
     },
     {
       label: 'Deutsch',
-      path: '/example',
+      path: exampleLink,
       lang: 'de',
     },
     {
       label: 'eesti',
-      path: '/example',
+      path: exampleLink,
       lang: 'et',
     },
     {
       label: 'ελληνικά',
-      path: '/example',
+      path: exampleLink,
       lang: 'el',
     },
     {
       label: 'English',
-      path: '/example',
+      path: exampleLink,
       active: true,
       lang: 'en',
     },
     {
       label: 'français',
-      path: '/example',
+      path: exampleLink,
       lang: 'fr',
     },
     {
       label: 'Gaeilge',
-      path: '/example',
+      path: exampleLink,
       lang: 'ga',
     },
     {
       label: 'hrvatski',
-      path: '/example',
+      path: exampleLink,
       lang: 'hr',
     },
     {
       label: 'italiano',
-      path: '/example',
+      path: exampleLink,
       lang: 'it',
     },
     {
       label: 'latviešu',
-      path: '/example',
+      path: exampleLink,
       lang: 'lv',
     },
     {
       label: 'lietuvių',
-      path: '/example',
+      path: exampleLink,
       lang: 'lt',
     },
     {
       label: 'magyar',
-      path: '/example',
+      path: exampleLink,
       lang: 'hu',
     },
     {
       label: 'Malti',
-      path: '/example',
+      path: exampleLink,
       lang: 'mt',
     },
     {
       label: 'Nederlands',
-      path: '/example',
+      path: exampleLink,
       lang: 'nl',
     },
     {
       label: 'polski',
-      path: '/example',
+      path: exampleLink,
       lang: 'pl',
     },
     {
       label: 'português',
-      path: '/example',
+      path: exampleLink,
       lang: 'pt',
     },
     {
       label: 'română',
-      path: '/example',
+      path: exampleLink,
       lang: 'ro',
     },
     {
       label: 'slovenčina',
-      path: '/example',
+      path: exampleLink,
       lang: 'sk',
     },
     {
       label: 'slovenščina',
-      path: '/example',
+      path: exampleLink,
       lang: 'sl',
     },
     {
       label: 'suomi',
-      path: '/example',
+      path: exampleLink,
       lang: 'fi',
     },
     {
       label: 'svenska',
-      path: '/example',
+      path: exampleLink,
       lang: 'sv',
     },
   ],
@@ -127,27 +130,27 @@ module.exports = {
   non_eu_items: [
     {
       label: '中文',
-      path: '/example',
+      path: exampleLink,
       lang: 'zh',
     },
     {
       label: 'Türk',
-      path: '/example',
+      path: exampleLink,
       lang: 'tr',
     },
     {
       label: 'pусский',
-      path: '/example',
+      path: exampleLink,
       lang: 'ru',
     },
     {
       label: 'Català',
-      path: '/example',
+      path: exampleLink,
       lang: 'ca',
     },
     {
       label: 'عَرَبِيّ',
-      path: '/example',
+      path: exampleLink,
       lang: 'ar',
     },
   ],

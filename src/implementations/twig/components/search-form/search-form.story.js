@@ -6,12 +6,20 @@ import dataDefault from '@ecl/specs-component-search-form/demo/data';
 import searchForm from './search-form.html.twig';
 import notes from './README.md';
 
-const getArgTypes = (data) => {
+const getArgs = (data) => {
+  return {
+    button_label: data.button.label || '',
+    placeholder: data.text_input.placeholder,
+    invalid: false,
+    disabled: false,
+  };
+};
+
+const getArgTypes = () => {
   return {
     button_label: {
       name: 'button label',
       type: { name: 'string', required: true },
-      defaultValue: data.button.label,
       description: 'Label of the search button',
       table: {
         type: { summary: 'string' },
@@ -22,7 +30,6 @@ const getArgTypes = (data) => {
     placeholder: {
       name: 'placeholder',
       type: { name: 'string', required: true },
-      defaultValue: data.text_input.placeholder,
       description: 'Label of the placeholder',
       table: {
         type: { summary: 'string' },
@@ -33,7 +40,6 @@ const getArgTypes = (data) => {
     invalid: {
       name: 'invalid',
       type: 'boolean',
-      defaultValue: false,
       description: `Marks the search form as invalid`,
       table: {
         type: { summary: 'boolean' },
@@ -44,7 +50,6 @@ const getArgTypes = (data) => {
     disabled: {
       name: 'disabled',
       type: 'boolean',
-      defaultValue: false,
       description: `Disabled search form`,
       table: {
         type: { summary: 'boolean' },
@@ -73,6 +78,7 @@ export default {
 export const Default = (args) => searchForm(prepareData(dataDefault, args));
 
 Default.storyName = 'default';
-Default.argTypes = getArgTypes(dataDefault);
+Default.args = getArgs(dataDefault);
+Default.argTypes = getArgTypes();
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 Default.decorators = [withNotes, withCode];

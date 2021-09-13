@@ -23,12 +23,25 @@ const languageSelector = { ...enData.language_selector };
 const loggedInData = { ...enData, logged: true };
 const clonedLoggedInData = { ...loggedInData };
 
-const getArgTypes = (data) => {
+const getArgs = (data) => {
+  const args = {
+    login: true,
+    language_selector: true,
+    menu: true,
+    site_name: data.site_name || '',
+  };
+  if (system === 'ec') {
+    args.banner_top = true;
+  }
+
+  return args;
+};
+
+const getArgTypes = () => {
   const argTypes = {};
 
   argTypes.login = {
     type: 'boolean',
-    defaultValue: true,
     description: 'Toggle login box visibility',
     table: {
       type: { summary: 'object' },
@@ -38,7 +51,6 @@ const getArgTypes = (data) => {
   argTypes.language_selector = {
     name: 'language selector',
     type: 'boolean',
-    defaultValue: true,
     description: 'Toggle language selector visibility',
     table: {
       type: { summary: 'object' },
@@ -49,7 +61,6 @@ const getArgTypes = (data) => {
     argTypes.banner_top = {
       name: 'class',
       type: 'boolean',
-      defaultValue: true,
       description: 'Toggle class visibility (EC only)',
       table: {
         type: { summary: 'object' },
@@ -59,7 +70,6 @@ const getArgTypes = (data) => {
   }
   argTypes.menu = {
     type: 'boolean',
-    defaultValue: true,
     description: 'Toggle menu visibility',
     table: {
       type: { summary: 'object' },
@@ -68,7 +78,6 @@ const getArgTypes = (data) => {
   };
   argTypes.site_name = {
     name: 'site name',
-    defaultValue: data.site_name,
     type: { name: 'string', required: true },
     description: 'The site name',
     table: {
@@ -143,19 +152,22 @@ export const Default = (args) =>
   siteHeaderStandardised(prepareData(englishData, 'default', args));
 
 Default.storyName = 'default';
-Default.argTypes = getArgTypes(englishData);
+Default.args = getArgs(englishData);
+Default.argTypes = getArgTypes();
 Default.parameters = { notes: { markdown: notes, json: englishData } };
 
 export const LoggedIn = (args) =>
   siteHeaderStandardised(prepareData(loggedInData, 'logged', args));
 
 LoggedIn.storyName = 'logged in';
-LoggedIn.argTypes = getArgTypes(loggedInData);
+LoggedIn.args = getArgs(loggedInData);
+LoggedIn.argTypes = getArgTypes();
 LoggedIn.parameters = { notes: { markdown: notes, json: loggedInData } };
 
 export const Translated = (args) =>
   siteHeaderStandardised(prepareData(frenchData, 'translated', args));
 
 Translated.storyName = 'translated';
-Translated.argTypes = getArgTypes(frenchData);
+Translated.args = getArgs(frenchData);
+Translated.argTypes = getArgTypes();
 Translated.parameters = { notes: { markdown: notes, json: frenchData } };

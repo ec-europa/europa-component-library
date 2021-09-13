@@ -6,12 +6,17 @@ import dataDefault from '@ecl/specs-component-social-media-share/demo/data';
 import SocialMediaShare from './social-media-share.html.twig';
 import notes from './README.md';
 
-const getArgTypes = (data) => {
+const getArgs = (data) => {
+  return {
+    description: data.description,
+  };
+};
+
+const getArgTypes = () => {
   return {
     description: {
       name: 'description',
       type: { name: 'string', required: true },
-      defaultValue: data.description,
       description: 'The description of the section',
       table: {
         type: { summary: 'string' },
@@ -35,7 +40,8 @@ export const Default = (args) =>
   SocialMediaShare(prepareData(dataDefault, args));
 
 Default.storyName = 'default';
-Default.argTypes = getArgTypes(dataDefault);
+Default.args = getArgs(dataDefault);
+Default.argTypes = getArgTypes();
 Default.parameters = {
   notes: { markdown: notes, json: dataDefault },
 };

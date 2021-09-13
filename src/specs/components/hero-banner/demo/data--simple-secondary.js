@@ -1,10 +1,13 @@
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   title: 'EU Budget for the future',
   description: 'Innovation, economy, environment and geopolitics',
   link: {
     link: {
       label: 'Subscribe',
-      path: '/example',
+      path: exampleLink,
       icon_position: 'after',
     },
     icon: {
@@ -14,6 +17,6 @@ module.exports = {
       transform: 'rotate-90',
     },
   },
-  variant: 'grey',
+  variant: 'secondary',
   centered: true,
 };

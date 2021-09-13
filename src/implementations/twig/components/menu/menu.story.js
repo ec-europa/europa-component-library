@@ -16,12 +16,17 @@ if (getSystem() === 'eu') {
   frData.site_name = '';
 }
 
-const getArgTypes = (data) => {
+const getArgs = (data) => {
+  return {
+    site_name: data.site_name,
+  };
+};
+
+const getArgTypes = () => {
   return {
     site_name: {
       name: 'site name',
       type: { name: 'string' },
-      defaultValue: data.site_name,
       description: 'The name of the site (displayed only on mobile)',
       table: {
         type: { summary: 'string' },
@@ -69,10 +74,12 @@ export const Default = (args) => menu(prepareData(enData, args));
 
 Default.storyName = 'default';
 Default.parameters = { notes: { markdown: notes, json: enData } };
-Default.argTypes = getArgTypes(enData);
+Default.args = getArgs(enData);
+Default.argTypes = getArgTypes();
 
 export const Translated = (args) => menu(prepareData(frData, args));
 
 Translated.storyName = 'translated';
 Translated.parameters = { notes: { markdown: notes, json: frData } };
-Translated.argTypes = getArgTypes(frData);
+Translated.args = getArgs(frData);
+Translated.argTypes = getArgTypes();

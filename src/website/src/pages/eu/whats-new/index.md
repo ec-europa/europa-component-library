@@ -5,6 +5,28 @@ title: What's new
 
 Detailed release information is available on [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 3.0.3 (2021-09-10)
+
+#### :bug: Bug Fix
+
+* [#2200](https://github.com/ec-europa/europa-component-library/pull/2200) fix(media-container): Fixing video flickering issue - FRONT-3081
+* [#2189](https://github.com/ec-europa/europa-component-library/pull/2189) fix(datepicker): fix css conflict - FRONT-3022
+* [#2193](https://github.com/ec-europa/europa-component-library/pull/2193) fix(default-styles): fix h6 and list styles - FRONT-2976
+* [#2194](https://github.com/ec-europa/europa-component-library/pull/2194) fix(website): Make example link work in production - FRONT-2811
+
+#### :nail_care: Enhancement
+
+* [#2203](https://github.com/ec-europa/europa-component-library/pull/2203) feat(page-header): Adding spacing under the EC page header core - FRONT-3146
+* [#2190](https://github.com/ec-europa/europa-component-library/pull/2190) feat(social-icons): update negative social icons - FRONT-2975
+* [#2177](https://github.com/ec-europa/europa-component-library/pull/2177) feat(menu): improve menu display - FRONT-2807
+
+#### :house: Internal
+
+* [#2202](https://github.com/ec-europa/europa-component-library/pull/2202) fix(specs): Fix secondary variant value for hero-banner
+* [#2198](https://github.com/ec-europa/europa-component-library/pull/2198) feat(storybook): Refactoring stories (select options and defaultValue) - FRONT-2722 ([@planctus](https://github.com/planctus))
+* [#2201](https://github.com/ec-europa/europa-component-library/pull/2201) chore(deps):  updates 9-9-2021
+* [#2191](https://github.com/ec-europa/europa-component-library/pull/2191) chore(deps): Updates
+
 ## 3.0.2 (2021-08-24)
 
 #### :nail_care: Enhancement
