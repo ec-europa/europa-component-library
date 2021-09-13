@@ -6,7 +6,7 @@ Components do not depend on jQuery and provide consistent APIs which can be mana
 
 ## How to use
 
-First, you need to include the JavaScript file of `ECL.js` provided in the [latest release package](https://github.com/ec-europa/europa-component-library/releases). This file contains a JavaScript module called `ECL` which is an [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) built by the [`ecl-builder` utility](https://www.npmjs.com/package/@ecl/builder).
+First, you need to include the JavaScript file of `ecl-ec.js` or `ecl-eu.js` provided in the [latest release package](https://github.com/ec-europa/europa-component-library/releases). This file contains a JavaScript module called `ECL` which is an [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) built by the [`ecl-builder` utility](https://www.npmjs.com/package/@ecl/builder).
 
 This means that when you include the `ECL` library in your pages, you will have a global called `ECL` which contains the components' factory functions.
 
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 ```
 
-For more details regarding ECL's autoInit method, follow the [package's README.md file](https://github.com/ec-europa/europa-component-library/blob/v2-dev/src/systems/ec/implementations/vanilla/packages/ec-auto-init/README.md).
+For more details regarding ECL's autoInit method, follow the [package's README.md file](https://github.com/ec-europa/europa-component-library/blob/v3-dev/src/tools/dom-utils/auto-init/README.md).
 
 ## Settings
 
