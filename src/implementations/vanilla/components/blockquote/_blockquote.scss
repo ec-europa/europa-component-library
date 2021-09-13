@@ -71,7 +71,6 @@ $_text-max-width: 65ch; // Approximately 80 characters with the current font
 .ecl-blockquote__image,
 %ecl-blockquote__image {
   height: 120px;
-  margin-bottom: map.get(theme.$spacing, 'm');
   margin-top: map.get(theme.$spacing, 's');
   width: 120px;
 }
@@ -143,7 +142,6 @@ $_text-max-width: 65ch; // Approximately 80 characters with the current font
 
   .ecl-blockquote__image,
   %ecl-blockquote__image {
-    margin-bottom: 0;
     margin-right: map.get(theme.$spacing, 'l');
     margin-top: 0;
   }

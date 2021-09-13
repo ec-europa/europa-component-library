@@ -44,25 +44,19 @@ const getArgTypes = () => {
     show_image: {
       name: 'show_image',
       type: { name: 'boolean' },
-      defaultValue: false,
       description: 'Show image',
       table: {
         type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
         category: 'Content',
       },
     },
   };
 };
 
+const demoImage = defaultData.image;
+
 const prepareData = (data, args) => {
-  if (args.show_image) {
-    data.image = {
-      path: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg',
-    };
-  } else {
-    data.image = null;
-  }
+  data.image = args.show_image ? demoImage : null;
   return Object.assign(data, args);
 };
 

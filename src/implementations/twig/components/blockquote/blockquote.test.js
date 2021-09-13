@@ -23,19 +23,6 @@ describe('Blockquote', () => {
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
     });
 
-    test('renders correctly with image', () => {
-      expect.assertions(1);
-
-      const withImage = merge(data, {
-        image: {
-          path: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg',
-          alt: 'image',
-        },
-      });
-
-      return expect(render(withImage)).resolves.toMatchSnapshot();
-    });
-
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
