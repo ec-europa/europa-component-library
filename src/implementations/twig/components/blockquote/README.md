@@ -12,7 +12,7 @@ npm install --save @ecl/twig-component-blockquote
 - **"author"** (string) (default: '')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"image"** (optional) (object) (default: {}) Blockquote image
-  - "path" (string) Image src, eg. 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg'
+  - "path" (string) Image src, eg. 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg'
   - "alt" (string) Image alt, eg: 'blockquote-image'
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
@@ -26,7 +26,7 @@ npm install --save @ecl/twig-component-blockquote
   citation: 'Twenty years from now you will be more disappointed by the things that you didn’t do than by the ones you did do.', 
   author: 'Mark Twain',
   image: {
-    path: "https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg",
+    path: "https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg",
   },
 } %}
 ```
