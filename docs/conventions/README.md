@@ -7,7 +7,7 @@ When working with ECL source code, the following tools are used to enforce stand
 Details are available in the following sections:
 
 - [Git commits](./git.md)
-- [Linting]('./linting.md)
+- [Linting](./linting.md)
 - [Components](./components.md)
 - [SCSS](./scss.md)
 - [JavaScript](./javascript.md)
