@@ -210,11 +210,12 @@ export class NewsTicker {
    * Toggles play/pause slides.
    */
   handleClickOnToggle() {
-    const toggleIcon = queryOne(
+    const useNode = queryOne(
       `${this.toggleSelector} .ecl-icon use`,
       this.element
     );
-    const toggleIconHref = toggleIcon.href.baseVal;
+    const originalXlinkHref = useNode.getAttribute('xlink:href');
+    let newXlinkHref = '';
 
     if (!this.autoPlay) {
       this.autoPlayInterval = setInterval(() => {
@@ -222,21 +223,14 @@ export class NewsTicker {
       }, 5000);
       this.autoPlay = true;
 
-      // Update icon
-      toggleIcon.setAttribute(
-        'href',
-        toggleIconHref.replace('video-play', 'close')
-      );
+      newXlinkHref = originalXlinkHref.replace('play', 'pause');
     } else {
       clearInterval(this.autoPlayInterval);
       this.autoPlay = false;
 
-      // Update icon
-      toggleIcon.setAttribute(
-        'href',
-        toggleIconHref.replace('close', 'video-play')
-      );
+      newXlinkHref = originalXlinkHref.replace('pause', 'play');
     }
+    useNode.setAttribute('xlink:href', newXlinkHref);
   }
 
   /**
