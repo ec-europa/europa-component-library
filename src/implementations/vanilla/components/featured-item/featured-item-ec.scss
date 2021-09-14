@@ -1,0 +1,19 @@
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+@use 'featured-item' with (
+  $_text-color: map.get(theme.$color, 'black'),
+  $_heading-mobile-font: map.get(theme.$font, '3xl'),
+  $_heading-font: map.get(theme.$font, '4xl'),
+  $_heading-mobile-margin-bottom: map.get(theme.$spacing, 's'),
+  $_title-margin-bottom: map.get(theme.$spacing, 'xs'),
+  $_description-mobile-margin-bottom: map.get(theme.$spacing, 's'),
+  $_description-margin-bottom: map.get(theme.$spacing, 's'),
+  $_extended-border-color: map.get(theme.$color, 'yellow'),
+  $_extended-mobile-border-size: 8px,
+  $_extended-border-size: 10px,
+  $_extended-border-radius: 0,
+  $_extended-background: map.get(theme.$color, 'grey-10'),
+  $_extended-padding-left: map.get(theme.$spacing, 'm'),
+  $_extended-padding-top: map.get(theme.$spacing, 's'),
+  $_extended-padding-bottom: map.get(theme.$spacing, 's'),
+);

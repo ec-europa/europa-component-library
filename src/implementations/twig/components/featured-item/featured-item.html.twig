@@ -1,0 +1,82 @@
+{% spaceless %}
+{#
+  Parameters:
+  - "type" (optional) (can be 'extended'),
+  - "heading" (optional) (string) (default: ''),
+  - "title" (string) (default: ''),
+  - "description" (string) (default: ''),
+  - "link" (object) (default: ''): object of type Link
+  - "media_container" (object) (default: ''): object of type Media container
+  - "extra_classes" (string) (default: ''),
+  - "extra_attributes" (array) (default: []): format: [
+      {
+        "name" (string) (default: ''),
+        "value" (string) (default: '')
+      },
+      ...
+    ]
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-featured-item' %}
+{% set _type = type|default('') %}
+{% set _heading = heading|default('') %}
+{% set _title = title|default(false) %}
+{% set _description = description|default('') %}
+{% set _link = link|default({}) %}
+{% set _media_container = media_container|default({}) %}
+{% set _extra_attributes = '' %}
+
+{# Set class for featured item different than default #}
+
+{% if _type is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-featured-item--' ~ _type %}
+{% endif %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  {% if _heading is defined and _heading is not empty %}
+    <div class="ecl-featured-item__heading">{{ _heading }}</div>
+  {% endif %}
+  <article class="ecl-featured-item__container">
+    <div class="ecl-featured-item__col-2">
+      <div class="ecl-featured-item__item">
+      {% include '@ecl/media-container/media-container.html.twig' with _media_container|merge({
+        extra_classes: 'ecl-featured-item__media_container',
+      }) only %}
+      </div>
+      <div class="ecl-featured-item__item">
+      {% if _title is defined and _title is not empty %}
+        <div class="ecl-featured-item__title">{{ _title }}</div>
+      {% endif %}
+      {% if _description is defined and _description is not empty %}
+        <div class="ecl-featured-item__description">{{ _description }}</div>
+      {% endif %}
+      {% if _link is defined and _link is not empty %}
+        {% include '@ecl/link/link.html.twig' with _link|merge({
+          extra_classes: 'ecl-featured-item__link',
+        }) only %}
+      {% endif %}
+      </div>
+    </div>
+  </article>
+</div>
+{% endspaceless %}

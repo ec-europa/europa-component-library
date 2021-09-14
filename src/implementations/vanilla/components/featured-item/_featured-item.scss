@@ -1,0 +1,134 @@
+/**
+ * Featured item component
+ * @define featured-item
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+$_text-color: null !default;
+$_heading-mobile-font: null !default;
+$_heading-font: null !default;
+$_heading-mobile-margin-bottom: null !default;
+$_title-margin-bottom: null !default;
+$_description-mobile-margin-bottom: null !default;
+$_description-margin-bottom: null !default;
+$_extended-border-color: null !default;
+$_extended-mobile-border-size: null !default;
+$_extended-border-size: null !default;
+$_extended-border-radius: null !default;
+$_extended-background: null !default;
+$_extended-padding-left: null !default;
+$_extended-padding-top: null !default;
+$_extended-padding-bottom: null !default;
+
+.ecl-featured-item__heading {
+  color: $_text-color;
+  font: $_heading-mobile-font;
+  font-weight: map.get(theme.$font-weight, 'bold');
+  margin-bottom: $_heading-mobile-margin-bottom;
+  margin-top: 0;
+}
+
+.ecl-featured-item__col-2 {
+  padding: 0;
+}
+
+.ecl-featured-item__item {
+  box-sizing: border-box;
+  flex-basis: 50%;
+
+  &:first-child {
+    padding-bottom: map.get(theme.$spacing, 'm');
+  }
+}
+
+.ecl-featured-item__title {
+  color: $_text-color;
+  font: map.get(theme.$font-prolonged, 'l');
+  font-weight: map.get(theme.$font-weight, 'bold');
+  margin-bottom: $_title-margin-bottom;
+  margin-top: 0;
+}
+
+.ecl-featured-item__description {
+  color: $_text-color;
+  font: map.get(theme.$font-prolonged, 'm');
+  font-weight: map.get(theme.$font-weight, 'bold');
+  margin-bottom: $_title-margin-bottom;
+  margin-top: 0;
+}
+
+.ecl-featured-item__link {
+  margin-bottom: map.get(theme.$spacing, 'm');
+}
+
+/**
+* Extended
+*/
+.ecl-featured-item--extended {
+  .ecl-featured-item__container {
+    background-color: $_extended-background;
+    border-left: $_extended-mobile-border-size solid $_extended-border-color;
+    border-radius: $_extended-border-radius;
+    overflow: hidden;
+    padding-bottom: map.get(theme.$spacing, 'm');
+    padding-left: map.get(theme.$spacing, 'xs');
+    padding-right: map.get(theme.$spacing, 'm');
+    padding-top: map.get(theme.$spacing, 'm');
+  }
+
+  .ecl-featured-item__heading {
+    padding-left: calc(
+      #{map.get(theme.$spacing, 'xs')} + #{$_extended-mobile-border-size}
+    );
+    padding-right: map.get(theme.$spacing, 'm');
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('s') {
+  .ecl-featured-item__heading {
+    font: $_heading_font;
+    font-weight: map.get(theme.$font-weight, 'bold');
+    margin-bottom: map.get(theme.$spacing, 'm');
+  }
+
+  .ecl-featured-item__col-2 {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .ecl-featured-item__item {
+    box-sizing: border-box;
+    flex-basis: 50%;
+
+    &:first-child {
+      padding-bottom: 0;
+      padding-right: map.get(theme.$spacing, 'm');
+    }
+  }
+
+  .ecl-featured-item__link {
+    margin-bottom: 0;
+  }
+
+  /**
+  * Extended
+  */
+  .ecl-featured-item--extended {
+    .ecl-featured-item__container {
+      padding-bottom: $_extended-padding-bottom;
+      padding-left: $_extended-padding-left;
+      padding-right: map.get(theme.$spacing, 'm');
+      padding-top: $_extended-padding-top;
+    }
+    .ecl-featured-item__heading {
+      padding-left: calc(
+        #{$_extended-padding-left} + #{$_extended-border-size}
+      );
+      padding-right: map.get(theme.$spacing, 'm');
+    }
+  }
+}
