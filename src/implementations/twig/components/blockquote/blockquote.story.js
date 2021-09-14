@@ -9,6 +9,7 @@ const getArgs = (data) => {
   return {
     citation: data.citation,
     author: data.author,
+    show_image: false,
   };
 };
 
@@ -40,10 +41,22 @@ const getArgTypes = () => {
         type: 'text',
       },
     },
+    show_image: {
+      name: 'show image',
+      type: { name: 'boolean' },
+      description: 'Toggle image visibility',
+      table: {
+        type: { summary: 'boolean' },
+        category: 'Content',
+      },
+    },
   };
 };
 
+const demoImage = defaultData.image;
+
 const prepareData = (data, args) => {
+  data.image = args.show_image ? demoImage : null;
   return Object.assign(data, args);
 };
 

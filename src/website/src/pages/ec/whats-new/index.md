@@ -5,13 +5,35 @@ title: What's new
 
 Detailed release information is available on [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 3.0.3 (2021-09-10)
+
+#### :bug: Bug Fix
+
+* [#2200](https://github.com/ec-europa/europa-component-library/pull/2200) fix(media-container): Fixing video flickering issue - FRONT-3081
+* [#2189](https://github.com/ec-europa/europa-component-library/pull/2189) fix(datepicker): fix css conflict - FRONT-3022
+* [#2193](https://github.com/ec-europa/europa-component-library/pull/2193) fix(default-styles): fix h6 and list styles - FRONT-2976
+* [#2194](https://github.com/ec-europa/europa-component-library/pull/2194) fix(website): Make example link work in production - FRONT-2811
+
+#### :nail_care: Enhancement
+
+* [#2203](https://github.com/ec-europa/europa-component-library/pull/2203) feat(page-header): Adding spacing under the EC page header core - FRONT-3146
+* [#2190](https://github.com/ec-europa/europa-component-library/pull/2190) feat(social-icons): update negative social icons - FRONT-2975
+* [#2177](https://github.com/ec-europa/europa-component-library/pull/2177) feat(menu): improve menu display - FRONT-2807
+
+#### :house: Internal
+
+* [#2202](https://github.com/ec-europa/europa-component-library/pull/2202) fix(specs): Fix secondary variant value for hero-banner
+* [#2198](https://github.com/ec-europa/europa-component-library/pull/2198) feat(storybook): Refactoring stories (select options and defaultValue) - FRONT-2722 ([@planctus](https://github.com/planctus))
+* [#2201](https://github.com/ec-europa/europa-component-library/pull/2201) chore(deps):  updates 9-9-2021
+* [#2191](https://github.com/ec-europa/europa-component-library/pull/2191) chore(deps): Updates
+
 ## 3.0.2 (2021-08-24)
 
 #### :nail_care: Enhancement
-* [#2187](https://github.com/ec-europa/europa-component-library/pull/2187) fix(banners): remove border radius when full width - FRONT-2966 ([@emeryro](https://github.com/emeryro))
-* [#2186](https://github.com/ec-europa/europa-component-library/pull/2186) fix(typography): update headings and paragraphs - FRONT-2965 ([@emeryro](https://github.com/emeryro))
-* [#2185](https://github.com/ec-europa/europa-component-library/pull/2185) fix(page-header): fix padding and optional item - FRONT-2964 ([@emeryro](https://github.com/emeryro))
-* [#2184](https://github.com/ec-europa/europa-component-library/pull/2184) fix(page-header): center image - FRONT-2963 ([@emeryro](https://github.com/emeryro))
+* [#2187](https://github.com/ec-europa/europa-component-library/pull/2187) fix(banners): remove border radius when full width - FRONT-2966
+* [#2186](https://github.com/ec-europa/europa-component-library/pull/2186) fix(typography): update headings and paragraphs - FRONT-2965
+* [#2185](https://github.com/ec-europa/europa-component-library/pull/2185) fix(page-header): fix padding and optional item - FRONT-2964
+* [#2184](https://github.com/ec-europa/europa-component-library/pull/2184) fix(page-header): center image - FRONT-2963
 
 ## 3.0.1 (2021-08-20)
 
