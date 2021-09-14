@@ -7,8 +7,8 @@ import { queryOne, queryAll } from '@ecl/dom-utils';
  * @param {String} options.toggleSelector Selector for toggling element
  * @param {String} options.prevSelector Selector for prev element
  * @param {String} options.nextSelector Selector for next element
- * @param {String} options.contentContainer Selector for the content container
- * @param {String} options.slidesContainer Selector for the slides container
+ * @param {String} options.contentClass Selector for the content container
+ * @param {String} options.slidesClass Selector for the slides container
  * @param {String} options.slideClass Selector for the slide items
  * @param {String} options.currentSlideClass Selector for the counter current slide number
  */
@@ -34,8 +34,9 @@ export class NewsTicker {
       toggleSelector = '[data-ecl-news-ticker-toggle]',
       prevSelector = '[data-ecl-news-ticker-prev]',
       nextSelector = '[data-ecl-news-ticker-next]',
-      contentContainer = '.ecl-news-ticker__content',
-      slidesContainer = '.ecl-news-ticker__slides',
+      containerClass = '.ecl-news-ticker__container',
+      contentClass = '.ecl-news-ticker__content',
+      slidesClass = '.ecl-news-ticker__slides',
       slideClass = '.ecl-news-ticker__slide',
       currentSlideClass = '.ecl-news-ticker__counter--current',
       attachClickListener = true,
@@ -55,8 +56,9 @@ export class NewsTicker {
     this.toggleSelector = toggleSelector;
     this.prevSelector = prevSelector;
     this.nextSelector = nextSelector;
-    this.contentContainer = contentContainer;
-    this.slidesContainer = slidesContainer;
+    this.containerClass = containerClass;
+    this.contentClass = contentClass;
+    this.slidesClass = slidesClass;
     this.slideClass = slideClass;
     this.currentSlideClass = currentSlideClass;
     this.attachClickListener = attachClickListener;
@@ -64,6 +66,9 @@ export class NewsTicker {
 
     // Private variables
     this.toggle = null;
+    this.container = null;
+    this.content = null;
+    this.slides = null;
     this.btnPrev = null;
     this.btnNext = null;
     this.index = 1;
@@ -78,6 +83,7 @@ export class NewsTicker {
     this.shiftSlide = this.shiftSlide.bind(this);
     this.checkIndex = this.checkIndex.bind(this);
     this.moveSlides = this.moveSlides.bind(this);
+    this.resizeTicker = this.resizeTicker.bind(this);
     this.handleResize = this.handleResize.bind(this);
   }
 
@@ -88,13 +94,15 @@ export class NewsTicker {
     this.toggle = queryOne(this.toggleSelector, this.element);
     this.btnPrev = queryOne(this.prevSelector, this.element);
     this.btnNext = queryOne(this.nextSelector, this.element);
-    this.slidesContainer = queryOne(this.slidesContainer, this.element);
+    this.slidesContainer = queryOne(this.slidesClass, this.element);
+    this.container = queryOne(this.containerClass, this.element);
+    this.content = queryOne(this.contentClass, this.element);
 
-    const slides = queryAll(this.slideClass, this.element);
-    this.total = slides.length;
+    const slidesOrigin = queryAll(this.slideClass, this.element);
+    this.total = slidesOrigin.length;
 
-    const firstSlide = slides[0];
-    const lastSlide = slides[slides.length - 1];
+    const firstSlide = slidesOrigin[0];
+    const lastSlide = slidesOrigin[slidesOrigin.length - 1];
     const cloneFirst = firstSlide.cloneNode(true);
     const cloneLast = lastSlide.cloneNode(true);
 
@@ -102,7 +110,9 @@ export class NewsTicker {
     this.slidesContainer.appendChild(cloneFirst);
     this.slidesContainer.insertBefore(cloneLast, firstSlide);
 
+    this.slides = queryAll(this.slideClass, this.element);
     this.moveSlides(false);
+    this.resizeTicker();
 
     // Activate autoPlay only if toggle is visible (desktop)
     if (!(window.getComputedStyle(this.toggle).display === 'none')) {
@@ -179,11 +189,9 @@ export class NewsTicker {
    * @param {Boolean} transition
    */
   moveSlides(transition) {
-    const content = queryOne(this.contentContainer, this.element);
-    const slides = queryAll(this.slideClass, this.element);
-    const newOffset = slides[this.index].offsetTop;
-    const newHeight = slides[this.index].offsetHeight;
-    content.style.height = `${newHeight}px`;
+    const newOffset = this.slides[this.index].offsetTop;
+    const newHeight = this.slides[this.index].offsetHeight;
+    this.content.style.height = `${newHeight}px`;
     this.slidesContainer.style.transitionDuration = transition ? '0.4s' : '0s';
     this.slidesContainer.style.transform = `translate3d(0px, -${newOffset}px, 0px)`;
   }
@@ -234,6 +242,18 @@ export class NewsTicker {
   }
 
   /**
+   * Resize Slides container at the height of the highest slide.
+   */
+  resizeTicker() {
+    let highestSlide = 0;
+    this.slides.forEach((slide) => {
+      const slideHeight = slide.offsetHeight;
+      highestSlide = highestSlide < slideHeight ? slideHeight : highestSlide;
+    });
+    this.container.style.height = `${highestSlide + 10}px`;
+  }
+
+  /**
    * Trigger events on resize
    * Uses a debounce, for performance
    */
@@ -241,6 +261,7 @@ export class NewsTicker {
     clearTimeout(this.resizeTimer);
     this.resizeTimer = setTimeout(() => {
       this.moveSlides(false);
+      this.resizeTicker();
     }, 100);
 
     if (this.autoPlay) {

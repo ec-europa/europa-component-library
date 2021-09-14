@@ -34,6 +34,12 @@ $_btn-padding-horizontal: map.get(theme.$spacing, 's') !default;
   margin: map.get(theme.$spacing, 's');
 }
 
+.ecl-news-ticker__container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
 .ecl-news-ticker__content {
   height: 0;
   margin: map.get(theme.$spacing, 'xs') 0 map.get(theme.$spacing, 'xs') -5px;

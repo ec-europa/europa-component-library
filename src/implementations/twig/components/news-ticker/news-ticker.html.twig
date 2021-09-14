@@ -67,24 +67,26 @@
     extra_classes: 'ecl-news-ticker__icon',
   } only %}
   {% if _items is not empty and _items is iterable %}
-  <div class="ecl-news-ticker__content">
-    <ul class="ecl-news-ticker__slides" id="{{ _aria_controls }}">
-    {% for _item in _items %}
-      {% if _item.link is not empty %}
-        <li class="ecl-news-ticker__slide" aria-hidden="true" tabindex="-1">
-        {% include '@ecl/link/link.html.twig' with{
-          link: {
-            label: _item.content,
-            path: _item.link,
-          },
-          extra_classes: 'ecl-news-ticker__slide-text',
-        } only %}
-        </li>
-      {% else %}
-        <li class="ecl-news-ticker__slide">{{ _item.content }}</li>
-      {% endif %}
-    {% endfor %}
-    </ul>
+  <div class="ecl-news-ticker__container">
+    <div class="ecl-news-ticker__content">
+      <ul class="ecl-news-ticker__slides" id="{{ _aria_controls }}">
+      {% for _item in _items %}
+        {% if _item.link is not empty %}
+          <li class="ecl-news-ticker__slide" aria-hidden="true" tabindex="-1">
+          {% include '@ecl/link/link.html.twig' with{
+            link: {
+              label: _item.content,
+              path: _item.link,
+            },
+            extra_classes: 'ecl-news-ticker__slide-text',
+          } only %}
+          </li>
+        {% else %}
+          <li class="ecl-news-ticker__slide">{{ _item.content }}</li>
+        {% endif %}
+      {% endfor %}
+      </ul>
+    </div>
   </div>
   {% endif %}
   <div class="ecl-news-ticker__counter">
