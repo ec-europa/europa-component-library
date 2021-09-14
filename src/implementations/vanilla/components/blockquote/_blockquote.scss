@@ -33,7 +33,7 @@ $_text-max-width: 65ch; // Approximately 80 characters with the current font
   padding-top: map.get(theme.$spacing, 's');
 }
 
-.ecl-blockquote__body,
+.ecl-blockquote__citation,
 %ecl-blockquote {
   color: $_body-color;
   font: $_body-font-mobile;
@@ -51,6 +51,10 @@ $_text-max-width: 65ch; // Approximately 80 characters with the current font
   }
 }
 
+.ecl-blockquote__quote {
+  margin: 0;
+}
+
 .ecl-blockquote__attribution,
 %ecl-blockquote__author {
   margin-top: map.get(theme.$spacing, 'm');
@@ -64,6 +68,13 @@ $_text-max-width: 65ch; // Approximately 80 characters with the current font
   font-weight: $_author-font-weight;
 }
 
+.ecl-blockquote__image,
+%ecl-blockquote__image {
+  height: 120px;
+  margin-top: map.get(theme.$spacing, 's');
+  width: 120px;
+}
+
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('s') {
   .ecl-blockquote,
@@ -73,7 +84,7 @@ $_text-max-width: 65ch; // Approximately 80 characters with the current font
     padding-top: map.get(theme.$spacing, 'm');
   }
 
-  .ecl-blockquote__body,
+  .ecl-blockquote__citation,
   %ecl-blockquote {
     font: $_body-font-tablet;
     font-style: italic;
@@ -93,7 +104,26 @@ $_text-max-width: 65ch; // Approximately 80 characters with the current font
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
+  .ecl-blockquote,
+  %ecl-blockquote {
+    border-left: 0;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: left;
+    padding: 0;
+  }
+
   .ecl-blockquote__body,
+  %ecl-blockquote {
+    border-left: $_border-width solid $_border-color;
+    border-radius: $_border-radius;
+    display: inline-block;
+    padding-bottom: map.get(theme.$spacing, 'm');
+    padding-left: map.get(theme.$spacing, 'l');
+    padding-top: map.get(theme.$spacing, 'm');
+  }
+
+  .ecl-blockquote__citation,
   %ecl-blockquote {
     font: $_body-font-desktop;
     font-style: italic;
@@ -108,5 +138,11 @@ $_text-max-width: 65ch; // Approximately 80 characters with the current font
   %ecl-blockquote__author {
     font: $_author-font-desktop;
     font-weight: $_author-font-weight;
+  }
+
+  .ecl-blockquote__image,
+  %ecl-blockquote__image {
+    margin-right: map.get(theme.$spacing, 'l');
+    margin-top: 0;
   }
 }
