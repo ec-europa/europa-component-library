@@ -12,11 +12,26 @@ import bannerDataImageGradient from '@ecl/specs-component-hero-banner/demo/data-
 import heroBanner from './hero-banner.html.twig';
 import notes from './README.md';
 
+const getArgs = (data) => {
+  const args = {
+    title: data.title,
+    description: data.description,
+    label: data.link.link.label,
+    centered: data.centered,
+    width: 'outside',
+    gridContent: false,
+  };
+  if (data.image) {
+    args.image = data.image || '';
+  }
+
+  return args;
+};
+
 const getArgTypes = (data) => {
   const argTypes = {
     title: {
       type: { name: 'string', required: true },
-      defaultValue: data.title,
       description: 'Heading of the banner',
       table: {
         type: { summary: 'string' },
@@ -26,7 +41,6 @@ const getArgTypes = (data) => {
     },
     description: {
       type: 'string',
-      defaultValue: data.description,
       description: 'Sub-heading of the banner',
       table: {
         type: { summary: 'string' },
@@ -36,7 +50,6 @@ const getArgTypes = (data) => {
     },
     label: {
       type: 'string',
-      defaultValue: data.link.link.label,
       description: 'Label of the call to action link',
       table: {
         type: { summary: 'string' },
@@ -46,7 +59,6 @@ const getArgTypes = (data) => {
     },
     centered: {
       type: 'boolean',
-      defaultValue: data.centered,
       description: 'Whether the content of the banner is centered or not',
       table: {
         type: { summary: 'boolean' },
@@ -56,7 +68,12 @@ const getArgTypes = (data) => {
     },
     width: {
       name: 'width',
-      defaultValue: 'outside',
+      type: 'radio',
+      options: {
+        'outside the grid container': 'outside',
+        'inside the grid container': 'container',
+        'inside the grid container, with fullwidth class': 'inside',
+      },
       description: `The media container extends to the whole viewport by default when outside the grid,
         if it's inside it can still be extended by adding class .ecl-hero-banner--full-width`,
       table: {
@@ -64,19 +81,10 @@ const getArgTypes = (data) => {
         defaultValue: { summary: 'outside the grid container' },
         category: 'Display',
       },
-      control: {
-        type: 'radio',
-        options: {
-          'outside the grid container': 'outside',
-          'inside the grid container': 'container',
-          'inside the grid container, with fullwidth class': 'inside',
-        },
-      },
     },
     gridContent: {
       name: 'demo grid content',
       type: { name: 'boolean' },
-      defaultValue: false,
       description:
         'Inject a test content block displayed on the grid, to see the alignment',
       table: {
@@ -90,7 +98,6 @@ const getArgTypes = (data) => {
   if (data.image) {
     argTypes.image = {
       type: 'string',
-      defaultValue: data.image || '',
       description: 'Path or Url of the background image',
       table: {
         type: { summary: 'string' },
@@ -138,6 +145,7 @@ export default {
 export const Primary = (args) => renderStory(bannerDataSimplePrimary, args);
 
 Primary.storyName = 'simple - primary';
+Primary.args = getArgs(bannerDataSimplePrimary);
 Primary.argTypes = getArgTypes(bannerDataSimplePrimary);
 Primary.parameters = {
   notes: { markdown: notes, json: bannerDataSimplePrimary },
@@ -146,6 +154,7 @@ Primary.parameters = {
 export const Secondary = (args) => renderStory(bannerDataSimpleSecondary, args);
 
 Secondary.storyName = 'simple - secondary';
+Secondary.args = getArgs(bannerDataSimpleSecondary);
 Secondary.argTypes = getArgTypes(bannerDataSimpleSecondary);
 Secondary.parameters = {
   notes: { markdown: notes, json: bannerDataSimpleSecondary },
@@ -154,6 +163,7 @@ Secondary.parameters = {
 export const SimpleWhite = (args) => renderStory(bannerDataSimpleWhite, args);
 
 SimpleWhite.storyName = 'simple - white';
+SimpleWhite.args = getArgs(bannerDataSimpleWhite);
 SimpleWhite.argTypes = getArgTypes(bannerDataSimpleWhite);
 SimpleWhite.parameters = {
   notes: { markdown: notes, json: bannerDataSimpleWhite },
@@ -162,6 +172,7 @@ SimpleWhite.parameters = {
 export const Image = (args) => renderStory(bannerDataImage, args);
 
 Image.storyName = 'image - text-block';
+Image.args = getArgs(bannerDataImage);
 Image.argTypes = getArgTypes(bannerDataImage);
 Image.parameters = { notes: { markdown: notes, json: bannerDataImage } };
 
@@ -169,6 +180,7 @@ export const ImageGradient = (args) =>
   renderStory(bannerDataImageGradient, args);
 
 ImageGradient.storyName = 'image - gradient';
+ImageGradient.args = getArgs(bannerDataImageGradient);
 ImageGradient.argTypes = getArgTypes(bannerDataImageGradient);
 ImageGradient.parameters = {
   notes: { markdown: notes, json: bannerDataImageGradient },
@@ -177,6 +189,7 @@ ImageGradient.parameters = {
 export const ImageShade = (args) => renderStory(bannerDataImageShade, args);
 
 ImageShade.storyName = 'image - shade';
+ImageShade.args = getArgs(bannerDataImageShade);
 ImageShade.argTypes = getArgTypes(bannerDataImageShade);
 ImageShade.parameters = {
   notes: { markdown: notes, json: bannerDataImageShade },

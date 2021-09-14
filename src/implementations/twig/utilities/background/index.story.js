@@ -5,26 +5,38 @@ export default {
   decorators: [withCode],
 };
 
+const getArgs = () => {
+  return {
+    background: 'ecl-u-bg-white',
+  };
+};
+
 const getArgTypes = () => {
   return {
     background: {
       name: 'background colour (sample)',
       type: 'select',
-      defaultValue: 'ecl-u-bg-white',
+      options: [
+        'ecl-u-bg-white',
+        'ecl-u-bg-blue ecl-u-type-color-white',
+        'ecl-u-bg-yellow',
+        'ecl-u-bg-grey ecl-u-type-color-white',
+        'ecl-u-bg-grey-25',
+        'ecl-u-bg-transparent',
+      ],
       description: 'Select different background colours',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
       },
       control: {
-        type: 'select',
-        options: {
-          White: 'ecl-u-bg-white',
-          Blue: 'ecl-u-bg-blue ecl-u-type-color-white',
-          Yellow: 'ecl-u-bg-yellow',
-          Grey: 'ecl-u-bg-grey ecl-u-type-color-white',
-          'Grey-25': 'ecl-u-bg-grey-25',
-          Transparent: 'ecl-u-bg-transparent',
+        labels: {
+          'ecl-u-bg-white': 'White',
+          'ecl-u-bg-blue ecl-u-type-color-white': 'Blue',
+          'ecl-u-bg-yellow': 'Yellow',
+          'ecl-u-bg-grey ecl-u-type-color-white': 'Grey',
+          'ecl-u-bg-grey-25': 'Grey-25',
+          'ecl-u-bg-transparent': 'Transparent',
         },
       },
     },
@@ -42,4 +54,5 @@ export const Custom = (args) => {
 };
 
 Custom.storyName = 'custom';
+Custom.args = getArgs();
 Custom.argTypes = getArgTypes();

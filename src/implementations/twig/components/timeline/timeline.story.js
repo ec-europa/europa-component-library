@@ -12,22 +12,26 @@ import notes from './README.md';
 const system = getSystem();
 const demoData = system === 'eu' ? demoDataEu : demoDataEc;
 
+const getArgs = () => {
+  return {
+    showDummyContent: false,
+  };
+};
+
 const getArgTypes = () => {
-  const argTypes = {};
-  argTypes.showDummyContent = {
-    name: 'Add dummy content',
-    type: { name: 'boolean' },
-    defaultValue: false,
-    description: 'Add dummy content at the bottom of the timeline.',
-    table: {
-      category: 'Test content',
-    },
-    control: {
-      type: 'boolean',
+  return {
+    showDummyContent: {
+      name: 'Add dummy content',
+      type: { name: 'boolean' },
+      description: 'Add dummy content at the bottom of the timeline.',
+      table: {
+        category: 'Test content',
+      },
+      control: {
+        type: 'boolean',
+      },
     },
   };
-
-  return argTypes;
 };
 
 // Prepare data for the navigation.
@@ -66,6 +70,7 @@ export default {
 export const Default = (arg) => prepareHtmlContent(arg.showDummyContent);
 
 Default.storyName = 'default';
+Default.args = getArgs();
 Default.argTypes = getArgTypes();
 Default.parameters = { notes: { markdown: notes, json: demoData } };
 Default.decorators = [withCode, withNotes];

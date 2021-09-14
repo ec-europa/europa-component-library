@@ -2,22 +2,40 @@ import withCode from '@ecl/storybook-addon-code';
 import classnames from 'classnames';
 import { styled } from '@ecl/dom-utils';
 
+const getArgs = () => {
+  return {
+    bgPosition: 'ecl-u-media-bg-position-initial',
+    bgOrigin: 'ecl-u-media-bg-origin-padding',
+    bgRepeat: 'ecl-u-media-bg-repeat-none',
+    bgSize: 'ecl-u-media-bg-size-contain',
+    ratio: '16-9',
+    direction: 'a',
+    size: 'm',
+  };
+};
+
 const getArgTypes = () => {
   return {
     bgPosition: {
       name: 'background position',
       description: 'Choose different background position values',
       type: 'select',
-      defaultValue: 'ecl-u-media-bg-position-initial',
+      options: [
+        'ecl-u-media-bg-position-initial',
+        'ecl-u-media-bg-position-top',
+        'ecl-u-media-bg-position-bottom',
+        'ecl-u-media-bg-position-left',
+        'ecl-u-media-bg-position-right',
+        'ecl-u-media-bg-position-center',
+      ],
       control: {
-        type: 'select',
-        options: {
-          Initial: 'ecl-u-media-bg-position-initial',
-          Top: 'ecl-u-media-bg-position-top',
-          Bottom: 'ecl-u-media-bg-position-bottom',
-          Left: 'ecl-u-media-bg-position-left',
-          Right: 'ecl-u-media-bg-position-right',
-          Center: 'ecl-u-media-bg-position-center',
+        labels: {
+          'ecl-u-media-bg-position-initial': 'Initial',
+          'ecl-u-media-bg-position-top': 'Top',
+          'ecl-u-media-bg-position-bottom': 'Bottom',
+          'ecl-u-media-bg-position-left': 'Left',
+          'ecl-u-media-bg-position-right': 'Right',
+          'ecl-u-media-bg-position-center': 'Center',
         },
       },
       table: {
@@ -29,13 +47,16 @@ const getArgTypes = () => {
       name: 'background origin',
       description: 'Choose different background origin values',
       type: 'select',
-      defaultValue: 'ecl-u-media-bg-origin-padding',
+      options: [
+        'ecl-u-media-bg-origin-padding',
+        'ecl-u-media-bg-origin-border',
+        'ecl-u-media-bg-origin-content',
+      ],
       control: {
-        type: 'select',
-        options: {
-          Padding: 'ecl-u-media-bg-origin-padding',
-          Border: 'ecl-u-media-bg-origin-border',
-          Content: 'ecl-u-media-bg-origin-content',
+        labels: {
+          'ecl-u-media-bg-origin-padding': 'Padding',
+          'ecl-u-media-bg-origin-border': 'Border',
+          'ecl-u-media-bg-origin-content': 'Content',
         },
       },
       table: {
@@ -46,15 +67,20 @@ const getArgTypes = () => {
     bgRepeat: {
       name: 'background repeat',
       type: 'select',
-      defaultValue: 'ecl-u-media-bg-repeat-none',
       description: 'Choose different bacground-repeat values',
+      options: [
+        'ecl-u-media-bg-repeat-none',
+        'ecl-u-media-bg-repeat-all',
+        'ecl-u-media-bg-repeat-x',
+        'ecl-u-media-bg-repeat-y',
+      ],
       control: {
         type: 'select',
-        options: {
-          'No repeat': 'ecl-u-media-bg-repeat-none',
-          Repeat: 'ecl-u-media-bg-repeat-all',
-          'Repeat-x': 'ecl-u-media-bg-repeat-x',
-          'Repeat-y': 'ecl-u-media-bg-repeat-y',
+        labels: {
+          'ecl-u-media-bg-repeat-none': 'No repeat',
+          'ecl-u-media-bg-repeat-all': 'Repeat',
+          'ecl-u-media-bg-repeat-x': 'Repeat-x',
+          'ecl-u-media-bg-repeat-y': 'Repeat-y',
         },
       },
       table: {
@@ -64,14 +90,18 @@ const getArgTypes = () => {
     },
     bgSize: {
       name: 'background size',
+      type: 'select',
       description: 'Choose different background-size values',
-      defaultValue: 'ecl-u-media-bg-size-contain',
+      options: [
+        'ecl-u-media-bg-size-contain',
+        'ecl-u-media-bg-size-cover',
+        'ecl-u-media-bg-size-auto',
+      ],
       control: {
-        type: 'select',
-        options: {
-          Contain: 'ecl-u-media-bg-size-contain',
-          Cover: 'ecl-u-media-bg-size-cover',
-          Auto: 'ecl-u-media-bg-size-auto',
+        labels: {
+          'ecl-u-media-bg-size-contain': 'Contain',
+          'ecl-u-media-bg-size-cover': 'Cover',
+          'ecl-u-media-bg-size-auto': 'Auto',
         },
       },
       table: {
@@ -83,16 +113,7 @@ const getArgTypes = () => {
       name: 'ratio',
       description: 'Choose different Ratio for the media',
       type: 'select',
-      defaultValue: '16-9',
-      control: {
-        type: 'select',
-        options: {
-          '16-9': '16-9',
-          '4-3': '4-3',
-          '3-2': '3-2',
-          '1-1': '1-1',
-        },
-      },
+      options: ['16-9', '4-3', '3-2', '1-1'],
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
@@ -102,13 +123,12 @@ const getArgTypes = () => {
       name: 'size direction',
       type: 'select',
       description: 'Choose different size directions',
-      defaultValue: 'a',
+      options: ['a', 'h', 'v'],
       control: {
-        type: 'select',
-        options: {
-          All: 'a',
-          Horizontal: 'h',
-          Vertical: 'v',
+        labels: {
+          a: 'All',
+          h: 'Horizontal',
+          v: 'Vertical',
         },
       },
       table: {
@@ -119,14 +139,7 @@ const getArgTypes = () => {
     size: {
       type: 'select',
       description: 'Choose different sizes',
-      defaultValue: 'm',
-      control: {
-        type: 'select',
-        options: {
-          S: 's',
-          M: 'm',
-        },
-      },
+      options: ['s', 'm'],
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
@@ -253,4 +266,5 @@ export const Custom = (args) => `
   `;
 
 Custom.storyName = 'custom';
+Custom.args = getArgs();
 Custom.argTypes = getArgTypes();

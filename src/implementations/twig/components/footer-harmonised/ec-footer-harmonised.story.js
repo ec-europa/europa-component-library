@@ -10,12 +10,20 @@ import dataGroup3 from '@ecl/specs-component-footer-harmonised/demo/data--group3
 import footer from './footer-harmonised.html.twig';
 import notes from './README.md';
 
+const getArgs = () => {
+  return {
+    hide_contact: true,
+    hide_relate_site: true,
+    hide_about: true,
+    hide_follow: true,
+  };
+};
+
 const getArgTypes = () => {
   const argTypes = {};
   argTypes.hide_contact = {
     name: 'contact us',
     type: { name: 'boolean' },
-    defaultValue: true,
     description: 'Show "Contact us" section',
     table: {
       category: 'Optional sections',
@@ -25,7 +33,6 @@ const getArgTypes = () => {
   argTypes.hide_about = {
     name: 'about us',
     type: { name: 'boolean' },
-    defaultValue: true,
     description: 'Show "About us" section',
     table: {
       category: 'Optional sections',
@@ -35,7 +42,6 @@ const getArgTypes = () => {
   argTypes.hide_follow = {
     name: 'follow us',
     type: { name: 'boolean' },
-    defaultValue: true,
     description: 'Show "Follow us" section',
     table: {
       category: 'Optional sections',
@@ -45,7 +51,6 @@ const getArgTypes = () => {
   argTypes.hide_relate_site = {
     name: 'related sites',
     type: { name: 'boolean' },
-    defaultValue: true,
     description: 'Show "Related sites" section',
     table: {
       category: 'Optional sections',
@@ -93,6 +98,7 @@ export const Group1 = (args) => footer(prepareDataG1(dataGroup1, args));
 
 Group1.storyName = 'group 1';
 Group1.argTypes = getArgTypes();
+Group1.args = getArgs();
 Group1.parameters = {
   notes: {
     markdown: notes,

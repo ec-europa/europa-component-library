@@ -9,39 +9,41 @@ import specsEu from '@ecl/specs-component-footer-harmonised/demo/data--eu';
 import footer from './footer-harmonised.html.twig';
 import notes from './README.md';
 
+const getArgs = () => {
+  return {
+    hide_contact: true,
+    hide_follow: true,
+    hide_relate_site: true,
+  };
+};
+
 const getArgTypes = () => {
-  const argTypes = {};
-  argTypes.hide_contact = {
-    name: 'contact site name',
-    type: { name: 'boolean' },
-    defaultValue: true,
-    description: 'Show "Contact site name" section',
-    table: {
-      category: 'Optional sections',
+  return {
+    hide_contact: {
+      name: 'contact site name',
+      type: { name: 'boolean' },
+      description: 'Show "Contact site name" section',
+      table: {
+        category: 'Optional sections',
+      },
+    },
+    hide_follow: {
+      name: 'follow us',
+      type: { name: 'boolean' },
+      description: 'Show "Follow us" section',
+      table: {
+        category: 'Optional sections',
+      },
+    },
+    hide_relate_site: {
+      name: 'optional links',
+      type: { name: 'boolean' },
+      description: 'Show "Optional links" section',
+      table: {
+        category: 'Optional sections',
+      },
     },
   };
-
-  argTypes.hide_follow = {
-    name: 'follow us',
-    type: { name: 'boolean' },
-    defaultValue: true,
-    description: 'Show "Follow us" section',
-    table: {
-      category: 'Optional sections',
-    },
-  };
-
-  argTypes.hide_relate_site = {
-    name: 'optional links',
-    type: { name: 'boolean' },
-    defaultValue: true,
-    description: 'Show "Optional links" section',
-    table: {
-      category: 'Optional sections',
-    },
-  };
-
-  return argTypes;
 };
 
 const prepareDataG1 = (data, args) => {
@@ -72,19 +74,20 @@ const prepareDataG1 = (data, args) => {
   return res;
 };
 
+export default {
+  title: 'Components/Footers/Harmonised',
+  decorators: [withCode, withNotes],
+  parameters: { layout: 'fullscreen' },
+};
+
 export const Default = (args) => footer(prepareDataG1(specsEu, args));
 
 Default.storyName = 'default';
+Default.args = getArgs();
 Default.argTypes = getArgTypes();
 Default.parameters = {
   notes: {
     markdown: notes,
     json: { specsEu },
   },
-};
-
-export default {
-  title: 'Components/Footers/Harmonised',
-  decorators: [withCode, withNotes],
-  parameters: { layout: 'fullscreen' },
 };
