@@ -1,36 +1,39 @@
 // Simple content for demo
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   id: 'news-ticker-example',
   icon_path: '/icons.svg',
   counter_label: 'of',
   items: [
     {
-      content: 'EMA starts rolling review of COVID-19 vaccine Vidprevtyn',
-      link: 'https://www.ema.europa.eu/en/news/ema-starts-rolling-review-covid-19-vaccine-vidprevtyn',
+      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+      link: exampleLink,
     },
     {
       content:
-        'President von der Leyen announced that the EU has achieved its goal of fully vaccinating 70% of its adult population on 31 August',
-      link: 'https://ec.europa.eu/commission/presscorner/detail/en/ip_21_4362',
+        'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
+      link: exampleLink,
     },
     {
       content:
-        'The EU and AstraZeneca agree on COVID-19 vaccine supply and on ending litigation',
-      link: 'https://ec.europa.eu/commission/presscorner/detail/en/ip_21_4561',
+        'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
+      link: exampleLink,
     },
     {
       content:
-        'Commission approves new contract for a potential COVID-19 vaccine with Novavax',
-      link: 'https://ec.europa.eu/commission/presscorner/detail/en/ip_21_4061',
+        'Excepteur sint occaecat cupidatat officia deserunt mollit anim id est laborum',
+      link: exampleLink,
     },
     {
       content:
-        'EU makes available additional humanitarian funding of €41 million to fight the pandemic',
-      link: 'https://ec.europa.eu/commission/presscorner/detail/en/ip_21_4281',
+        'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium',
+      link: exampleLink,
     },
     {
       content:
-        'President von der Leyen announced that the EU has achieved its goal of fully vaccinating 70% of its adult population on 31 August',
+        'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores',
     },
   ],
 };
