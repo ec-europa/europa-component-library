@@ -98,11 +98,11 @@ export class NewsTicker {
     this.container = queryOne(this.containerClass, this.element);
     this.content = queryOne(this.contentClass, this.element);
 
-    const slidesOrigin = queryAll(this.slideClass, this.element);
-    this.total = slidesOrigin.length;
+    this.slides = queryAll(this.slideClass, this.element);
+    this.total = this.slides.length;
 
-    const firstSlide = slidesOrigin[0];
-    const lastSlide = slidesOrigin[slidesOrigin.length - 1];
+    const firstSlide = this.slides[0];
+    const lastSlide = this.slides[this.slides.length - 1];
     const cloneFirst = firstSlide.cloneNode(true);
     const cloneLast = lastSlide.cloneNode(true);
 
@@ -110,7 +110,10 @@ export class NewsTicker {
     this.slidesContainer.appendChild(cloneFirst);
     this.slidesContainer.insertBefore(cloneLast, firstSlide);
 
+    // Refresh the slides variable after adding new cloned slides.
     this.slides = queryAll(this.slideClass, this.element);
+
+    //  Initialize position of slides and size of the ticker.
     this.moveSlides(false);
     this.resizeTicker();
 
