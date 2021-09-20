@@ -1,10 +1,11 @@
-@use "sass:map";
+@use 'sass:map';
 @use '@ecl/theme-dev/theme';
-@use 'timeline-print' with (
-  $_content-color: map.get(theme.$color, 'grey-75'),
-  $_content-font: map.get(theme.$font-prolonged-print, 'm'),
-  $_label-color: map.get(theme.$color, 'grey-140'),
-  $_label-font: map.get(theme.$font-prolonged-print, 'm'),
-  $_title-color: map.get(theme.$color, 'grey-140'),
-  $_title-font: map.get(theme.$font-prolonged-print, 'm'),
-);
+@use 'timeline-print' with
+  (
+    $_content-color: map.get(theme.$color, 'grey-75'),
+    $_content-font: map.get(theme.$font-prolonged-print, 'm'),
+    $_label-color: map.get(theme.$color, 'grey-140'),
+    $_label-font: map.get(theme.$font-prolonged-print, 'm'),
+    $_title-color: map.get(theme.$color, 'grey-140'),
+    $_title-font: map.get(theme.$font-prolonged-print, 'm')
+  );

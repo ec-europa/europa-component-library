@@ -1,16 +1,17 @@
-@use "sass:map";
+@use 'sass:map';
 @use '@ecl/theme-dev/theme';
-@use 'radio' with (
-  $_box-border-color-checked: map.get(theme.$color, 'blue-80'),
-  $_box-border-color: map.get(theme.$color, 'grey-80'),
-  $_box-border-color-hover: map.get(theme.$color, 'blue-80'),
-  $_box-border-width-checked: 2px,
-  $_box-inner-display: flex,
-  $_help-text-color: map.get(theme.$color, 'grey-80'),
-  $_help-text-font: map.get(theme.$font-prolonged, 'm'),
-  $_invalid-border-color: map.get(theme.$color, 'red-120'),
-  $_invalid-border-color-hover: map.get(theme.$color, 'red-100'),
-  $_label-color: map.get(theme.$color, 'grey-140'),
-  $_outline_color: map.get(theme.$color, 'accent-blue-100'),
-  $_outline-width: 2px,
-);
+@use 'radio' with
+  (
+    $_box-border-color-checked: map.get(theme.$color, 'blue-80'),
+    $_box-border-color: map.get(theme.$color, 'grey-80'),
+    $_box-border-color-hover: map.get(theme.$color, 'blue-80'),
+    $_box-border-width-checked: 2px,
+    $_box-inner-display: flex,
+    $_help-text-color: map.get(theme.$color, 'grey-80'),
+    $_help-text-font: map.get(theme.$font-prolonged, 'm'),
+    $_invalid-border-color: map.get(theme.$color, 'red-120'),
+    $_invalid-border-color-hover: map.get(theme.$color, 'red-100'),
+    $_label-color: map.get(theme.$color, 'grey-140'),
+    $_outline_color: map.get(theme.$color, 'accent-blue-100'),
+    $_outline-width: 2px
+  );
