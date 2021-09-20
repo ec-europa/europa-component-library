@@ -1,12 +1,19 @@
 @use "sass:map";
 @use '@ecl/theme-dev/theme';
 @use 'datepicker' with (
-  $_input-hover-shadow: 0 0 4px rgb(9 49 142 / 20%),
+  $_input-hover-shadow: 0 0 4px rgb(14 71 203 / 50%),
+  $_input-icon-color: map.get(theme.$color, 'grey-80'),
+  $_input-icon-hover-color: map.get(theme.$color, 'blue-140'),
+  $_input-icon-focus-color: map.get(theme.$color, 'grey-80'),
+  $_input-icon-invalid-color: map.get(theme.$color, 'red-120'),
+  $_input-icon-invalid-hover-color: map.get(theme.$color, 'red'),
+  $_input-placeholder-color: map.get(theme.$color, 'grey-40'),
   $_picker-background-color: map.get(theme.$color, 'blue-10'),
   $_picker-table-background-color: map.get(theme.$color, 'blue-10'),
   $_picker-border-radius: 4px,
   $_picker-margin-top: map.get(theme.$spacing, 'm'),
-  $_picker-day-disable-color: map.get(theme.$color, 'grey-50'),
+  $_picker-day-color: map.get(theme.$color, 'grey-80'),
+  $_picker-day-disable-color: map.get(theme.$color, 'grey-100'),
   $_picker-day-today-box-shadow: inset 0 0 0 2px map.get(theme.$color, 'blue-60'),
   $_picker-day-selected-background: map.get(theme.$color, 'blue-100'),
   $_picker-theme-color: map.get(theme.$color, 'grey-140'),

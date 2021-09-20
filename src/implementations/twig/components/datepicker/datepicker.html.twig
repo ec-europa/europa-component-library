@@ -12,6 +12,7 @@
     - "disabled" (boolean) (default: false)
     - "invalid" (boolean) (default: false)
     - "invalid_text" (string) (default: '')
+    - "invalid_icon" (object of type "icon") (default: {})
     - "type" (string) (default: 'text')
     - "optional_text" (string) (default: '')
     - "icons_path" (string) (default: '')
@@ -41,6 +42,7 @@
 {% set _icons_path = icons_path|default('') %}
 {% set _invalid = invalid|default(false) %}
 {% set _invalid_text = invalid_text|default('') %}
+{% set _invalid_icon = invalid_icon|default({}) %}
 {% set _disabled = disabled|default(false) %}
 {% set _required = required|default(false) %}
 {% set _required_text = required_text|default('') %}
@@ -81,11 +83,11 @@
   {% endif %}
   >
   {{- _label -}}
-  {% if _required and _required_text is not empty %}
+  {%- if _required and _required_text is not empty -%}
     <span class="ecl-form-label__required">{{ required_text }}</span>
-  {% elseif not _required and _optional_text is not empty %}
+  {%- elseif not _required and _optional_text is not empty -%}
     <span class="ecl-form-label__optional">{{ optional_text }}</span>
-  {% endif %}
+  {%- endif -%}
   </label>
 {% endif %}
 {% if helper_text is not empty %}
@@ -95,6 +97,12 @@
 {% endif %}
 {% if _invalid and _invalid_text is not empty %}
   <div class="ecl-feedback-message">
+    {% if _invalid_icon is not empty %}
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: _invalid_icon,
+        extra_classes: 'ecl-feedback-message__icon',
+      } only %}
+    {% endif %}
     {{- invalid_text -}}
   </div>
 {% endif %}
