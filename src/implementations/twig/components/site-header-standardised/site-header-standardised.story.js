@@ -94,7 +94,6 @@ const getArgTypes = () => {
   argTypes.cta_link = {
     name: 'call to action',
     type: { name: 'boolean' },
-    defaultValue: false,
     description: 'Call to action link (optional)',
     table: {
       type: { summary: 'boolean' },
