@@ -3,10 +3,10 @@
  * @define gallery; weak
 */
 
-@use "sass:map";
+@use 'sass:map';
 @use '@ecl/theme-dev/theme';
-@use "@ecl/vanilla-layout-grid/mixins/breakpoints";
-@use "@ecl/vanilla-utility-media/media" as uMedia;
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+@use '@ecl/vanilla-utility-media/media' as uMedia;
 
 $_description-background: null !default;
 $_description-color: map.get(theme.$color, 'white-100');

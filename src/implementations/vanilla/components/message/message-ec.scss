@@ -1,20 +1,21 @@
-@use "sass:map";
+@use 'sass:map';
 @use '@ecl/theme-dev/theme';
-@use 'message' with (
-  $_background-error: map.get(theme.$color, 'white'),
-  $_background-info: map.get(theme.$color, 'white'),
-  $_background-success: map.get(theme.$color, 'white'),
-  $_background-warning: map.get(theme.$color, 'white'),
-  $_border-radius: 0,
-  $_border-width: 2px,
-  $_close-font-weight: map.get(theme.$font-weight, 'bold'),
-  $_description-color: map.get(theme.$color, 'grey-100'),
-  $_icon-error-fill: map.get(theme.$color, 'error'),
-  $_icon-info-fill: map.get(theme.$color, 'info'),
-  $_icon-success-fill: map.get(theme.$color, 'success'),
-  $_icon-warning-fill: map.get(theme.$color, 'warning'),
-  $_icon-spacing: map.get(theme.$spacing, 'm'),
-  $_title_color: map.get(theme.$color, 'black-100'),
-  $_title-font: map.get(theme.$font, 'm'),
-  $_title-spacing: map.get(theme.$spacing, 's'),
-);
+@use 'message' with
+  (
+    $_background-error: map.get(theme.$color, 'white'),
+    $_background-info: map.get(theme.$color, 'white'),
+    $_background-success: map.get(theme.$color, 'white'),
+    $_background-warning: map.get(theme.$color, 'white'),
+    $_border-radius: 0,
+    $_border-width: 2px,
+    $_close-font-weight: map.get(theme.$font-weight, 'bold'),
+    $_description-color: map.get(theme.$color, 'grey-100'),
+    $_icon-error-fill: map.get(theme.$color, 'error'),
+    $_icon-info-fill: map.get(theme.$color, 'info'),
+    $_icon-success-fill: map.get(theme.$color, 'success'),
+    $_icon-warning-fill: map.get(theme.$color, 'warning'),
+    $_icon-spacing: map.get(theme.$spacing, 'm'),
+    $_title_color: map.get(theme.$color, 'black-100'),
+    $_title-font: map.get(theme.$font, 'm'),
+    $_title-spacing: map.get(theme.$spacing, 's')
+  );

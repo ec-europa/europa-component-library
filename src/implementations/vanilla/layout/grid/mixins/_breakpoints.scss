@@ -1,5 +1,5 @@
-@use "sass:list";
-@use "sass:map";
+@use 'sass:list';
+@use 'sass:map';
 @use '@ecl/theme-dev/theme';
 
 // Breakpoint viewport sizes and media queries.
@@ -34,9 +34,9 @@
 
 // Minimum breakpoint width. Null for the smallest (first) breakpoint.
 //
-//    >> min(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    >> ecl-min(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
 //    576px
-@function min($name, $breakpoints: theme.$breakpoint) {
+@function ecl-min($name, $breakpoints: theme.$breakpoint) {
   $min: map.get($breakpoints, $name);
 
   @return if($min != 0, $min, null);
@@ -45,12 +45,12 @@
 // Maximum breakpoint width. Null for the largest (last) breakpoint.
 // The maximum value is calculated as the minimum of the next one less 0.1.
 //
-//    >> max(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    >> ecl-max(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
 //    767px
-@function max($name, $breakpoints: theme.$breakpoint) {
+@function ecl-max($name, $breakpoints: theme.$breakpoint) {
   $next: next($name, $breakpoints);
 
-  @return if($next, min($next, $breakpoints) - 1px, null);
+  @return if($next, ecl-min($next, $breakpoints) - 1px, null);
 }
 
 // Returns a blank string if smallest breakpoint, otherwise returns the name with a dash infront.
@@ -61,14 +61,14 @@
 //    >> infix(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
 //    '-sm'
 @function infix($name, $breakpoints: theme.$breakpoint) {
-  @return if(min($name, $breakpoints) == null, '', '-#{$name}');
+  @return if(ecl-min($name, $breakpoints) == null, '', '-#{$name}');
 }
 
 // Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
 // Makes the @content apply to the given breakpoint and wider.
 @mixin up($name, $breakpoints: theme.$breakpoint) {
   @if map_has_key($breakpoints, $name) {
-    $min: min($name, $breakpoints);
+    $min: ecl-min($name, $breakpoints);
 
     @if $min {
       @media (min-width: $min) {
@@ -86,7 +86,7 @@
 // Makes the @content apply to the given breakpoint and narrower.
 @mixin down($name, $breakpoints: theme.$breakpoint) {
   @if map_has_key($breakpoints, $name) {
-    $max: max($name, $breakpoints);
+    $max: ecl-max($name, $breakpoints);
 
     @if $max {
       @media (max-width: $max) {
