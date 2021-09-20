@@ -1,0 +1,14 @@
+/**
+ * Display List component
+ * @define display-list
+ */
+
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+$_text-color: map.get(theme.$color, 'grey-100');
+
+.ecl-display-list {
+  margin: 0;
+}

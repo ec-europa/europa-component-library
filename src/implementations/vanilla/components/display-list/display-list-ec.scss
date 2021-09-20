@@ -1,0 +1,5 @@
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+@use 'display-list' with (
+  $_term-color: map.get(theme.$color, 'grey-100'),
+);
