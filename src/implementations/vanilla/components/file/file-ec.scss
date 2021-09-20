@@ -1,34 +1,38 @@
-@use "sass:map";
+@use 'sass:map';
 @use '@ecl/theme-dev/theme';
-@use 'file' with (
-  $_border-radius: 0,
-  $_border-color: map.get(theme.$color, 'grey-20'),
-  $_file-icon-margin-top: 0,
-  $_file-icon-align-self: center,
-  $_file-info-margin-left: map.get(theme.$spacing, 'm'),
-  $_file-color: map.get(theme.$color, 'grey-100'),
-  $_file-elements-margin: map.get(theme.$spacing, '2xs'),
-  $_file-detail-padding-bottom: map.get(theme.$spacing, 'm'),
-  $_file-detail-meta-color: map.get(theme.$color, 'grey-75'),
-  $_file-detail-flex-direction: row,
-  $_file-description-color: map.get(theme.$color, 'grey'),
-  $_file-spacing: map.get(theme.$spacing, 'm'),
-  $_file-spacing-last-child: 0,
-  $_file-download-self-align: center,
-  $_file-translation-toggle-margin: map.get(theme.$spacing, 'm') - map.get(theme.$spacing, 's'),
-  $_file-translation-container-border: 0,
-  $_file-translation-container-padding-left: map.get(theme.$spacing, 'l') + map.get(theme.$icon, '2xl') + map.get(theme.$spacing, 'm'),
-  $_file-translation-detail-margin-bottom: map.get(theme.$spacing, 'xs'),
-  $_file-translation-title-margin-bottom: map.get(theme.$spacing, 'xs'),
-  $_file-translation-toggle-border: 0,
-  $_file-translation-padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm'),
-  $_file-taxonomy-spacing: map.get(theme.$spacing, 'l'),
-  $_file-container-padding-bottom: map.get(theme.$spacing, 'm'),
-  $_file-image-margin-left: map.get(theme.$spacing, 'l'),
-  $_file-image-margin-right: 0,
-  $_container-background: map.get(theme.$color, 'grey-5'),
-  $_container-border: 1px solid map.get(theme.$color, 'grey-25'),
-  $_icon-color: map.get(theme.$color, 'grey-50'),
-  $_translation-border-color: map.get(theme.$color, 'grey-20'),
-  $_image-width: 13.125rem
-);
+@use 'file' with
+  (
+    $_border-radius: 0,
+    $_border-color: map.get(theme.$color, 'grey-20'),
+    $_file-icon-margin-top: 0,
+    $_file-icon-align-self: center,
+    $_file-info-margin-left: map.get(theme.$spacing, 'm'),
+    $_file-color: map.get(theme.$color, 'grey-100'),
+    $_file-elements-margin: map.get(theme.$spacing, '2xs'),
+    $_file-detail-padding-bottom: map.get(theme.$spacing, 'm'),
+    $_file-detail-meta-color: map.get(theme.$color, 'grey-75'),
+    $_file-detail-flex-direction: row,
+    $_file-description-color: map.get(theme.$color, 'grey'),
+    $_file-spacing: map.get(theme.$spacing, 'm'),
+    $_file-spacing-last-child: 0,
+    $_file-download-self-align: center,
+    $_file-translation-toggle-margin: map.get(theme.$spacing, 'm') -
+      map.get(theme.$spacing, 's'),
+    $_file-translation-container-border: 0,
+    $_file-translation-container-padding-left: map.get(theme.$spacing, 'l') +
+      map.get(theme.$icon, '2xl') + map.get(theme.$spacing, 'm'),
+    $_file-translation-detail-margin-bottom: map.get(theme.$spacing, 'xs'),
+    $_file-translation-title-margin-bottom: map.get(theme.$spacing, 'xs'),
+    $_file-translation-toggle-border: 0,
+    $_file-translation-padding: map.get(theme.$spacing, 's')
+      map.get(theme.$spacing, 'm'),
+    $_file-taxonomy-spacing: map.get(theme.$spacing, 'l'),
+    $_file-container-padding-bottom: map.get(theme.$spacing, 'm'),
+    $_file-image-margin-left: map.get(theme.$spacing, 'l'),
+    $_file-image-margin-right: 0,
+    $_container-background: map.get(theme.$color, 'grey-5'),
+    $_container-border: 1px solid map.get(theme.$color, 'grey-25'),
+    $_icon-color: map.get(theme.$color, 'grey-50'),
+    $_translation-border-color: map.get(theme.$color, 'grey-20'),
+    $_image-width: 13.125rem
+  );

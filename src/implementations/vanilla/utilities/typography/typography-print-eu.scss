@@ -1,10 +1,11 @@
-@use "sass:map";
+@use 'sass:map';
 @use '@ecl/theme-dev/theme';
-@use 'typography-print' with (
-  $_heading1: map.get(theme.$font-print, '6xl'),
-  $_heading2: map.get(theme.$font-print, '5xl'),
-  $_heading3: map.get(theme.$font-print, '4xl'),
-  $_heading4: map.get(theme.$font-print, '3xl'),
-  $_heading5: map.get(theme.$font-print, '2xl'),
-  $_heading6: map.get(theme.$font-prolonged-print, 'xl'),
-);
+@use 'typography-print' with
+  (
+    $_heading1: map.get(theme.$font-print, '6xl'),
+    $_heading2: map.get(theme.$font-print, '5xl'),
+    $_heading3: map.get(theme.$font-print, '4xl'),
+    $_heading4: map.get(theme.$font-print, '3xl'),
+    $_heading5: map.get(theme.$font-print, '2xl'),
+    $_heading6: map.get(theme.$font-prolonged-print, 'xl')
+  );
