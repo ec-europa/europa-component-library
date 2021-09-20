@@ -34,6 +34,16 @@ export default {
   decorators: [withNotes, withCode],
 };
 
+export const Horizontal = (args) =>
+  displayList(prepareData(dataDisplayListDefault, args));
+
+Horizontal.storyName = 'horizontal';
+Horizontal.args = getArgs(dataDisplayListDefault);
+Horizontal.argTypes = getArgTypes(dataDisplayListDefault);
+Horizontal.parameters = {
+  notes: { markdown: notes, json: dataDisplayListDefault },
+};
+
 export const Vertical = (args) =>
   displayList(prepareData(dataDisplayListDefault, args));
 
