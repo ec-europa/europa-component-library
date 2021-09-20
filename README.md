@@ -1,215 +1,89 @@
-# ECL v3
+# ECL v3 - Europa Component Library
 
-## Changelog, Migration from v2 to V3
+[![Build Status](https://drone.fpfis.eu/api/badges/ec-europa/europa-component-library/status.svg)](https://drone.fpfis.eu/ec-europa/europa-component-library)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
 
-- [Migration docs](docs/Migrating-v3.md)
+The Europa Component Library (ECL) is a library of components applicable to all European Commission and European Union websites. The library contains all available components which you can use to build your website.
 
-## NPM packages
+All library elements are accompanied with
 
-### Twig templates
+- documentation: what the component is intended for and recommendations regarding its usage
+- demo: visual representation of the component
+- code: technologically agnostic HTML/CSS code and twig implementation
 
-#### components
+## Requirements
 
-@ecl/twig-component-accordion
-@ecl/twig-component-blockquote
-@ecl/twig-component-breadcrumb-core
-@ecl/twig-component-breadcrumb-harmonised
-@ecl/twig-component-breadcrumb-standardised
-@ecl/twig-component-button
-@ecl/twig-component-card
-@ecl/twig-component-checkbox
-@ecl/twig-component-date-block
-@ecl/twig-component-datepicker
-@ecl/twig-component-description-list
-@ecl/twig-component-expandable
-@ecl/twig-component-fact-figures
-@ecl/twig-component-file-upload
-@ecl/twig-component-file
-@ecl/twig-component-footer-core
-@ecl/twig-component-footer-harmonised
-@ecl/twig-component-footer-standardised
-@ecl/twig-component-gallery
-@ecl/twig-component-hero-banner
-@ecl/twig-component-icon
-@ecl/twig-component-inpage-navigation
-@ecl/twig-component-label
-@ecl/twig-component-language-list
-@ecl/twig-component-link
-@ecl/twig-component-media-container
-@ecl/twig-component-menu
-@ecl/twig-component-message
-@ecl/twig-component-news-ticker
-@ecl/twig-component-ordered-list
-@ecl/twig-component-page-banner
-@ecl/twig-component-page-header-core
-@ecl/twig-component-page-header-harmonised
-@ecl/twig-component-page-header-standardised
-@ecl/twig-component-pagination
-@ecl/twig-component-radio
-@ecl/twig-component-search-form
-@ecl/twig-component-select
-@ecl/twig-component-site-header-core
-@ecl/twig-component-site-header-harmonised
-@ecl/twig-component-site-header-standardised
-@ecl/twig-component-skip-link
-@ecl/twig-component-social-media-follow
-@ecl/twig-component-social-media-share
-@ecl/twig-component-table
-@ecl/twig-component-tag
-@ecl/twig-component-text-area
-@ecl/twig-component-text-input
-@ecl/twig-component-timeline
-@ecl/twig-component-unordered-list
+ECL is using Erbium, node v12.22.2. Please ensure a match before proceeding with the installation of ECL dependencies or ones in ECL Builder.
 
-#### compositions
+## Documentation
 
-@ecl/twig-composition-etrans
+Read the technical documentation [on GitHub](docs/README.md).
 
-### Vanilla components (sass and js)
+## Migrate from v2
 
-@ecl/vanilla-component-accordion
-@ecl/vanilla-component-blockquote
-@ecl/vanilla-component-breadcrumb-core
-@ecl/vanilla-component-breadcrumb-harmonised
-@ecl/vanilla-component-breadcrumb-standardised
-@ecl/vanilla-component-button
-@ecl/vanilla-component-card
-@ecl/vanilla-component-checkbox
-@ecl/vanilla-component-date-block
-@ecl/vanilla-component-datepicker
-@ecl/vanilla-component-description-list
-@ecl/vanilla-component-expandable
-@ecl/vanilla-component-fact-figures
-@ecl/vanilla-component-file-upload
-@ecl/vanilla-component-file
-@ecl/vanilla-component-footer-core
-@ecl/vanilla-component-footer-harmonised
-@ecl/vanilla-component-footer-standardised
-@ecl/vanilla-component-form
-@ecl/vanilla-component-gallery
-@ecl/vanilla-component-hero-banner
-@ecl/vanilla-component-icon
-@ecl/vanilla-component-inpage-navigation
-@ecl/vanilla-component-label
-@ecl/vanilla-component-language-list
-@ecl/vanilla-component-link
-@ecl/vanilla-component-media-container
-@ecl/vanilla-component-menu
-@ecl/vanilla-component-message
-@ecl/vanilla-component-news-ticker
-@ecl/vanilla-component-ordered-list
-@ecl/vanilla-component-page-banner
-@ecl/vanilla-component-page-header-core
-@ecl/vanilla-component-page-header-harmonised
-@ecl/vanilla-component-page-header-standardised
-@ecl/vanilla-component-pagination
-@ecl/vanilla-component-radio
-@ecl/vanilla-component-search-form
-@ecl/vanilla-component-select
-@ecl/vanilla-component-site-header-core
-@ecl/vanilla-component-site-header-harmonised
-@ecl/vanilla-component-site-header-standardised
-@ecl/vanilla-component-skip-link
-@ecl/vanilla-component-social-media-follow
-@ecl/vanilla-component-social-media-share
-@ecl/vanilla-component-table
-@ecl/vanilla-component-tag
-@ecl/vanilla-component-text-area
-@ecl/vanilla-component-text-input
-@ecl/vanilla-component-timeline
-@ecl/vanilla-component-unordered-list
-@ecl/vanilla-layout-grid
-@ecl/vanilla-utility-background
-@ecl/vanilla-utility-border
-@ecl/vanilla-utility-clearfix
-@ecl/vanilla-utility-dimension
-@ecl/vanilla-utility-disablescroll
-@ecl/vanilla-utility-display
-@ecl/vanilla-utility-flex
-@ecl/vanilla-utility-float
-@ecl/vanilla-utility-media
-@ecl/vanilla-utility-print
-@ecl/vanilla-utility-screen-reader
-@ecl/vanilla-utility-spacing
-@ecl/vanilla-utility-typography
-@ecl/vanilla-utility-z-index
+Read the technical documentation [on GitHub](docs/Migrating-v3.md).
 
-### Presets (dist folder contains css and js)
+## Quick start
 
-@ecl/preset-dev
-@ecl/preset-ec
-@ecl/preset-eu
-@ecl/preset-reset
+The ECL is bundled in various [presets](docs/presets.md) in order to accomodate the different needs of everyone. Once you know which preset you want to use, you can:
 
-### Resources (icons and logos)
+- download [the latest release](https://github.com/ec-europa/europa-component-library/releases/latest) of the preset of your choice
+- install the preset with npm or yarn, e.g. `npm install @ecl/preset-ec` or `yarn add @ecl/preset-ec`
+- use the CDN, https://cdn{1,2,3 or 4}.fpfis.tech.ec.europa.eu/ecl/{tag}/{system}/{path/to/the/asset}. Here's an example:
 
-@ecl/resources-ec-favicons
-@ecl/resources-ec-icons
-@ecl/resources-eu-icons
-@ecl/resources-ec-logo
-@ecl/resources-eu-logo
-@ecl/resources-ec-social-icons
-@ecl/resources-flag-icons
-@ecl/resources-social-media-icons
+  ```html
+  <link rel="stylesheet"
+  href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v3.0.0/ec/styles/ecl-ec-default.css"
+  integrity="sha256-pnOxgj2hnvojwPeJ5+wcWXo+IkRdTIxLRjRAph/y4u4=",
+  "sha384-9nzE/tUsJ0sSYLvk3Y9tqGwU0qeq8UpAkz5IG/t8mNLHXx8i39UI+gTAc8+MnDNG",
+  "sha512-wY2uk3YgdvDAUs1as8vvVg+bOSXOSFs89Ur624OVuGs+Ssf+y4vXAI3EENSaa4cYBzhDlmXIYnAnFM1c/Zm0hw=="
+  crossorigin="anonymous" media="screen" />
+  ```
 
-### Themes
+  ```html
+  <link rel="stylesheet"
+  href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v3.0.0/ec/styles/ecl-reset.css"
+  integrity="sha256-EbSTOBDo886kjmZbEcCiGQMVFVl182+UGO7Tzfj55tY=",
+  "sha384-SjdjgeZM1R7hy9RT+fhMm1oQzf0RcpfuGh5DAiTDHbmlgC6qVKODn68gAzY2nvZE",
+  "sha512-4lDZ4K6RLw9QSGX45OjljpDLiG7x4HjTgoLbsm67eNLokjXfY5GCRvFIrCkSff8yUcLP6ot4zssXpGJqM3QhFQ=="
+  crossorigin="anonymous" media="screen" />
+  ```
 
-@ecl/theme-dev
-@ecl/theme-ec
-@ecl/theme-eu
+  ```html
+  <link rel="stylesheet"
+  href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v3.0.0/ec/styles/ecl-ec.css"
+  integrity="sha256-jUlRDyQeZ8nA1keLwppSnaKmL1m4rFDmlgyOk09lsxM=",
+  "sha384-hxp+Isd4ZVf3KcNhfJTjprfeQzCFMFQRTJuEc6wvTA/qOeJSi9iYzwUD5E75TQUG",
+  "sha512-Q1xwDut1tnJWlZWKZw9TMOl2Fp6VZfeNIB4lbl1aswwbepOYg9N1EHPTrM+E1hGvdbIXjYRvfV2VZhONazq/vg=="
+  crossorigin="anonymous" media="screen" />
+  ```
 
-### Tools
+  ```html
+  <link rel="stylesheet"
+  href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v3.0.0/ec/styles/ecl-ec-print.css"
+  integrity="sha256-l8JCwCj+ILIn36+T8ZiYSqfPZGo6V3ldlJi/uYnPmvQ=",
+  "sha384-hBtBuCk++gO9DS9IzKpHWuzR9UHCvGEzqCsjMSr6Th+Jw7rHgbZica5QvqWv2CGL",
+  "sha512-T8lm/y47aDvCG0WMXObaKW+APgIw47zbPJAsyQc/cBnE+E7t1In4r5vN4qyXgTWDNyPYfzK7F2jrv9d7sAxqNQ=="
+  crossorigin="anonymous" media="print" />
+  ```
 
-@ecl/builder
-@ecl/dom-utils
+  ```html
+  <script
+    src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v3.0.0/ec/scripts/ecl-ec.js"
+    integrity="sha256-o7G7gHMzFqOTnXEujA1W8zbhel8riwoYyrAaAI1wwNw=",
+    "sha384-bpL6SfeiEj3xUySJP0mI8pw4U1hqWGRzt5/TK5sH0IOFweBAZC7pbIY+m3/4Fu7b",
+    "sha512-WjrWqaIoCBRM9BSgNj1m7ZeyKeXa3IIZmwQHltgRCfcXwAE95BDlJULc4AZ1jD9ZAqGiQdVkgP8lyNoyUl2uAA=="
+    crossorigin="anonymous"
+  ></script>
+  ```
 
-### Specs packages (data used in the ECL demo)
+## Need help?
 
-@ecl/specs-component-accordion
-@ecl/specs-component-blockquote
-@ecl/specs-component-breadcrumb
-@ecl/specs-component-button
-@ecl/specs-component-card
-@ecl/specs-component-checkbox
-@ecl/specs-component-date-block
-@ecl/specs-component-datepicker
-@ecl/specs-component-description-list
-@ecl/specs-component-expandable
-@ecl/specs-component-fact-figures
-@ecl/specs-component-file-upload
-@ecl/specs-component-file
-@ecl/specs-component-footer-core
-@ecl/specs-component-footer-harmonised
-@ecl/specs-component-footer-standardised
-@ecl/specs-component-gallery
-@ecl/specs-component-hero-banner
-@ecl/specs-component-icon
-@ecl/specs-component-inpage-navigation
-@ecl/specs-component-label
-@ecl/specs-component-language-list
-@ecl/specs-component-link
-@ecl/specs-component-media-container
-@ecl/specs-component-menu
-@ecl/specs-component-message
-@ecl/specs-component-ordered-list
-@ecl/specs-component-page-banner
-@ecl/specs-component-page-header-core
-@ecl/specs-component-page-header-harmonised
-@ecl/specs-component-page-header-standardised
-@ecl/specs-component-pagination
-@ecl/specs-component-radio
-@ecl/specs-component-search-form
-@ecl/specs-component-select
-@ecl/specs-component-site-header-core
-@ecl/specs-component-site-header-harmonised
-@ecl/specs-component-site-header-standardised
-@ecl/specs-component-skip-link
-@ecl/specs-component-social-media-follow
-@ecl/specs-component-social-media-share
-@ecl/specs-component-table
-@ecl/specs-component-tag
-@ecl/specs-component-text-area
-@ecl/specs-component-text-input
-@ecl/specs-component-timeline
-@ecl/specs-component-unordered-list
-@ecl/specs-utils-typography
+Please contact [COMM Europa Management](mailto:Europamanagement@ec.europa.eu) for support on using this resource for a European Commission website.
+
+## Previous major versions
+
+- v2.39.0: [sources](https://github.com/ec-europa/europa-component-library/tree/v2) - [release](https://github.com/ec-europa/europa-component-library/releases/tag/v2.39.0) - [website](https://ec.europa.eu/component-library/v2.39.0/)
+- v1.15.0: [sources](https://github.com/ec-europa/europa-component-library/tree/v1) - [release](https://github.com/ec-europa/europa-component-library/releases/tag/v1.15.0) - [website](https://ec.europa.eu/component-library/v1.15.0/)
+- v0.24.3: [sources](https://github.com/ec-europa/europa-component-library/tree/v0) - [release](https://github.com/ec-europa/europa-component-library/releases/tag/v0.24.3) - [website](https://ec.europa.eu/component-library/v0.24.3/)
