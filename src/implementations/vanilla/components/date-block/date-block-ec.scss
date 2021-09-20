@@ -1,18 +1,24 @@
-@use "sass:map";
+@use 'sass:map';
 @use '@ecl/theme-dev/theme';
-@use 'date-block' with (
-  $_padding-day-mobile: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, '2xs') 0 map.get(theme.$spacing, 'xs'),
-  $_padding-day-desktop: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, '2xs') 0 map.get(theme.$spacing, '2xs'),
-  $_padding-month-mobile: 0 map.get(theme.$spacing, '2xs') map.get(theme.$spacing, '2xs') map.get(theme.$spacing, '2xs'),
-  $_padding-month-desktop: 0 map.get(theme.$spacing, '2xs') map.get(theme.$spacing, 'xs') map.get(theme.$spacing, '2xs'),
-  $_padding-year-mobile: map.get(theme.$spacing, '2xs'),
-  $_padding-year-desktop: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, '2xs'),
-  $_text-color: map.get(theme.$color, 'grey-100'),
-  $_separator-color: map.get(theme.$color, 'grey-25'),
-  $_separator-color-past: map.get(theme.$color, 'grey-10'),
-  $_border-color-past: map.get(theme.$color, 'grey-10'),
-  $_background-color-cancelled: map.get(theme.$color, 'grey-10'),
-  $_background-color-year: map.get(theme.$color, 'grey-10'),
-  $_shadow: none,
-  $_border-radius: 0,
-);
+@use 'date-block' with
+  (
+    $_padding-day-mobile: map.get(theme.$spacing, 'xs')
+      map.get(theme.$spacing, '2xs') 0 map.get(theme.$spacing, 'xs'),
+    $_padding-day-desktop: map.get(theme.$spacing, 'xs')
+      map.get(theme.$spacing, '2xs') 0 map.get(theme.$spacing, '2xs'),
+    $_padding-month-mobile: 0 map.get(theme.$spacing, '2xs')
+      map.get(theme.$spacing, '2xs') map.get(theme.$spacing, '2xs'),
+    $_padding-month-desktop: 0 map.get(theme.$spacing, '2xs')
+      map.get(theme.$spacing, 'xs') map.get(theme.$spacing, '2xs'),
+    $_padding-year-mobile: map.get(theme.$spacing, '2xs'),
+    $_padding-year-desktop: map.get(theme.$spacing, 'xs')
+      map.get(theme.$spacing, '2xs'),
+    $_text-color: map.get(theme.$color, 'grey-100'),
+    $_separator-color: map.get(theme.$color, 'grey-25'),
+    $_separator-color-past: map.get(theme.$color, 'grey-10'),
+    $_border-color-past: map.get(theme.$color, 'grey-10'),
+    $_background-color-cancelled: map.get(theme.$color, 'grey-10'),
+    $_background-color-year: map.get(theme.$color, 'grey-10'),
+    $_shadow: none,
+    $_border-radius: 0
+  );

@@ -3,13 +3,13 @@
  * @define page-header-core; weak
  */
 
-@use "sass:map";
+@use 'sass:map';
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 .ecl-page-header-core {
   background-color: map.get(theme.$color, 'blue-100');
-  margin: 0;
+  margin: 0 0 map.get(theme.$spacing, 'xl');
   padding-bottom: map.get(theme.$spacing, 'xl');
 
   .ecl-container > :first-child:not(.ecl-page-header-core__breadcrumb) {

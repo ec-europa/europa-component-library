@@ -1,25 +1,27 @@
-@use "sass:map";
+@use 'sass:map';
 @use '@ecl/theme-dev/theme';
 //stylelint-disable length-zero-no-unit
-@use 'label' with (
-  $_border-radius: 0,
-  $_text-color: map.get(theme.$color, 'grey-100'),
-  $_border-width: (
-    'low': 1px,
-    'medium': 0px, // unit has to be set, to be used in calc
-    'high': 0px,
-    'highlight': 0px,
-  ),
-  $_border-color: (
-    'low': map.get(theme.$color, 'grey-25'),
-    'medium': transparent,
-    'high': transparent,
-    'highlight': transparent,
-  ),
-  $_background-color: (
-    'low': map.get(theme.$color, 'grey-5'),
-    'medium': map.get(theme.$color, 'yellow-25'),
-    'high': map.get(theme.$color, 'yellow-100'),
-    'highlight': map.get(theme.$color, 'blue-100'),
-  ),
-);
+@use 'label' with
+  (
+    $_border-radius: 0,
+    $_text-color: map.get(theme.$color, 'grey-100'),
+    $_border-width: (
+      'low': 1px,
+      'medium': 0px,
+      // unit has to be set, to be used in calc
+      'high': 0px,
+      'highlight': 0px,
+    ),
+    $_border-color: (
+      'low': map.get(theme.$color, 'grey-25'),
+      'medium': transparent,
+      'high': transparent,
+      'highlight': transparent,
+    ),
+    $_background-color: (
+      'low': map.get(theme.$color, 'grey-5'),
+      'medium': map.get(theme.$color, 'yellow-25'),
+      'high': map.get(theme.$color, 'yellow-100'),
+      'highlight': map.get(theme.$color, 'blue-100'),
+    )
+  );
