@@ -1,10 +1,11 @@
-@use "sass:map";
+@use 'sass:map';
 @use '@ecl/theme-dev/theme';
-@use 'table' with (
-  $_table-color: map.get(theme.$color, 'grey-100'),
-  $_header-border-color: map.get(theme.$color, 'grey-50'),
-  $_row-border-color: map.get(theme.$color, 'grey-25'),
-  $_sort-icon-color: map.get(theme.$color, 'grey-75'),
-  $_sort-icon-color-active: map.get(theme.$color, 'grey-100'),
-  $_sort-arrow-margin-top: -#{map.get(theme.$spacing, 's')},
-);
+@use 'table' with
+  (
+    $_table-color: map.get(theme.$color, 'grey-100'),
+    $_header-border-color: map.get(theme.$color, 'grey-50'),
+    $_row-border-color: map.get(theme.$color, 'grey-25'),
+    $_sort-icon-color: map.get(theme.$color, 'grey-75'),
+    $_sort-icon-color-active: map.get(theme.$color, 'grey-100'),
+    $_sort-arrow-margin-top: -#{map.get(theme.$spacing, 's')}
+  );

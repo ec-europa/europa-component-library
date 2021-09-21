@@ -20,6 +20,10 @@ const system = getSystem();
 const loggedInData = { ...englishData, logged: true };
 const enData = { ...englishData };
 const frData = { ...frenchData };
+const enMenu = { ...dataMenuEn };
+const frMenu = { ...dataMenuFr };
+delete enMenu.cta_link;
+delete frMenu.cta_link;
 const clonedLoggedInData = { ...loggedInData };
 
 const getArgs = () => {
@@ -60,7 +64,7 @@ const prepareData = (data, demo, args) => {
 
   if (demo !== 'translated') {
     if (args.menu) {
-      data.menu = dataMenuEn;
+      data.menu = enMenu;
       data.menu.site_name = '';
     } else if (!args.menu && data.menu) {
       delete data.menu;
@@ -73,7 +77,7 @@ const prepareData = (data, demo, args) => {
     }
   } else {
     if (args.menu) {
-      data.menu = dataMenuFr;
+      data.menu = frMenu;
       data.menu.site_name = '';
     } else if (!args.menu && data.menu) {
       delete data.menu;

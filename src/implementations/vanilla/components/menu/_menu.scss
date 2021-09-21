@@ -3,7 +3,7 @@
  * @define menu; weak
  */
 
-@use "sass:map";
+@use 'sass:map';
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
@@ -164,17 +164,23 @@ $_mobile-item-hover-background: null !default;
 /*
   * Menu header
   */
+.ecl-menu__banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  order: 1;
+}
+
 .ecl-menu__site-name {
-  align-self: center;
   color: map.get(theme.$color, 'white');
   font: $_menu-site-name-font;
   font-weight: $_menu-site-name-font-weight;
-  order: 1;
 }
 
 .ecl-menu__open,
 .ecl-menu__close {
   align-items: center;
+  align-self: flex-end;
   border: $_menu-open-button-border;
   border-radius: $_menu-open-button-radius;
   display: flex;
@@ -199,6 +205,10 @@ $_mobile-item-hover-background: null !default;
   }
 }
 
+.ecl-menu__cta {
+  margin-top: map.get(theme.$spacing, 's');
+}
+
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-menu:not(.ecl-menu--forced-mobile) {
@@ -212,6 +222,10 @@ $_mobile-item-hover-background: null !default;
 
     .ecl-menu__inner-header,
     .ecl-menu__open {
+      display: none;
+    }
+
+    .ecl-menu__cta {
       display: none;
     }
   }

@@ -7,6 +7,18 @@ module.exports = {
   close: 'Close',
   back: 'Back',
   site_name: 'Site name',
+  cta_link: {
+    link: {
+      label: 'CTA link',
+      href: exampleLink,
+    },
+    icon: {
+      path: '/icons.svg',
+      name: 'corner-arrow',
+      size: 'fluid',
+      transform: 'rotate-90',
+    },
+  },
   menu_link: exampleLink,
   icon_path: '/icons.svg',
   items: [

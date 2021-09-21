@@ -3,7 +3,7 @@
  * @define site-header-standardised; weak
  */
 
-@use "sass:map";
+@use 'sass:map';
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
@@ -221,6 +221,15 @@ $_search-width-xl: 31.5rem;
     display: block;
     font: map.get(theme.$font, '3xl');
     padding: map.get(theme.$spacing, 'l') 0;
+
+    .ecl-container {
+      display: flex;
+    }
+  }
+
+  .ecl-site-header-standardised__site-name {
+    align-self: center;
+    flex-grow: 1;
   }
 
   .ecl-site-header-standardised__top {
