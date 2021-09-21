@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Datepicker renders correctly 1`] = `
+exports[`Date picker EC Disabled renders correctly 1`] = `
 <jest>
   <div
     class="ecl-form-group"
@@ -9,7 +9,113 @@ exports[`Datepicker renders correctly 1`] = `
       class="ecl-form-label"
       for="example-input-id-1"
     >
-      Label    
+      Label
+      <span
+        class="ecl-form-label__required"
+      >
+        *
+      </span>
+    </label>
+    <div
+      class="ecl-help-block ecl-help-block--disabled"
+    >
+      This is the input's helper text.
+    </div>
+    <div
+      class="ecl-datepicker"
+    >
+      <input
+        class="ecl-datepicker__field ecl-text-input ecl-text-input--s"
+        data-ecl-auto-init="Datepicker"
+        data-ecl-datepicker-toggle=""
+        disabled=""
+        id="example-input-id-1"
+        name="example-input-id-1"
+        placeholder="DD-MM-YYYY"
+        required=""
+        type="text"
+        value="01-10-2020"
+      />
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--s ecl-datepicker__icon"
+        focusable="false"
+      >
+        <use
+          xlink:href="/icons.svg#calendar"
+        />
+      </svg>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`Date picker EC Invalid renders correctly 1`] = `
+<jest>
+  <div
+    class="ecl-form-group"
+  >
+    <label
+      class="ecl-form-label"
+      ecl-form-label--invalid=""
+      for="example-input-id-1"
+    >
+      Label
+      <span
+        class="ecl-form-label__required"
+      >
+        *
+      </span>
+    </label>
+    <div
+      class="ecl-help-block"
+    >
+      This is the input's helper text.
+    </div>
+    <div
+      class="ecl-feedback-message"
+    >
+      
+    This is the error message
+    </div>
+    <div
+      class="ecl-datepicker ecl-datepicker--invalid"
+    >
+      <input
+        class="ecl-datepicker__field ecl-text-input ecl-text-input--s ecl-text-input--invalid"
+        data-ecl-auto-init="Datepicker"
+        data-ecl-datepicker-toggle=""
+        id="example-input-id-1"
+        name="example-input-id-1"
+        placeholder="DD-MM-YYYY"
+        required=""
+        type="text"
+        value="01-10-2020"
+      />
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--s ecl-datepicker__icon"
+        focusable="false"
+      >
+        <use
+          xlink:href="/icons.svg#calendar"
+        />
+      </svg>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`Date picker EC Optional renders correctly 1`] = `
+<jest>
+  <div
+    class="ecl-form-group"
+  >
+    <label
+      class="ecl-form-label"
+      for="example-input-id-1"
+    >
+      Label
       <span
         class="ecl-form-label__required"
       >
@@ -49,7 +155,7 @@ exports[`Datepicker renders correctly 1`] = `
 </jest>
 `;
 
-exports[`Datepicker renders correctly with extra attributes 1`] = `
+exports[`Date picker EC Optional renders correctly with extra attributes 1`] = `
 <jest>
   <div
     class="ecl-form-group"
@@ -58,7 +164,7 @@ exports[`Datepicker renders correctly with extra attributes 1`] = `
       class="ecl-form-label"
       for="example-input-id-1"
     >
-      Label    
+      Label
       <span
         class="ecl-form-label__required"
       >
@@ -101,7 +207,7 @@ exports[`Datepicker renders correctly with extra attributes 1`] = `
 </jest>
 `;
 
-exports[`Datepicker renders correctly with extra class names 1`] = `
+exports[`Date picker EC Optional renders correctly with extra class names 1`] = `
 <jest>
   <div
     class="ecl-form-group"
@@ -110,7 +216,7 @@ exports[`Datepicker renders correctly with extra class names 1`] = `
       class="ecl-form-label"
       for="example-input-id-1"
     >
-      Label    
+      Label
       <span
         class="ecl-form-label__required"
       >
@@ -124,6 +230,564 @@ exports[`Datepicker renders correctly with extra class names 1`] = `
     </div>
     <div
       class="ecl-datepicker custom-class custom-class--test"
+    >
+      <input
+        class="ecl-datepicker__field ecl-text-input ecl-text-input--s"
+        data-ecl-auto-init="Datepicker"
+        data-ecl-datepicker-toggle=""
+        id="example-input-id-1"
+        name="example-input-id-1"
+        placeholder="DD-MM-YYYY"
+        required=""
+        type="text"
+        value="01-10-2020"
+      />
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--s ecl-datepicker__icon"
+        focusable="false"
+      >
+        <use
+          xlink:href="/icons.svg#calendar"
+        />
+      </svg>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`Date picker EC Optional renders correctly with extra group class names 1`] = `
+<jest>
+  <div
+    class="ecl-form-group"
+  >
+    <label
+      class="ecl-form-label"
+      for="example-input-id-1"
+    >
+      Label
+      <span
+        class="ecl-form-label__required"
+      >
+        *
+      </span>
+    </label>
+    <div
+      class="ecl-help-block"
+    >
+      This is the input's helper text.
+    </div>
+    <div
+      class="ecl-datepicker"
+    >
+      <input
+        class="ecl-datepicker__field ecl-text-input ecl-text-input--s"
+        data-ecl-auto-init="Datepicker"
+        data-ecl-datepicker-toggle=""
+        id="example-input-id-1"
+        name="example-input-id-1"
+        placeholder="DD-MM-YYYY"
+        required=""
+        type="text"
+        value="01-10-2020"
+      />
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--s ecl-datepicker__icon"
+        focusable="false"
+      >
+        <use
+          xlink:href="/icons.svg#calendar"
+        />
+      </svg>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`Date picker EC Optional renders correctly with extra label class names 1`] = `
+<jest>
+  <div
+    class="ecl-form-group"
+  >
+    <label
+      class="ecl-form-label"
+      for="example-input-id-1"
+    >
+      Label
+      <span
+        class="ecl-form-label__required"
+      >
+        *
+      </span>
+    </label>
+    <div
+      class="ecl-help-block"
+    >
+      This is the input's helper text.
+    </div>
+    <div
+      class="ecl-datepicker"
+    >
+      <input
+        class="ecl-datepicker__field ecl-text-input ecl-text-input--s"
+        data-ecl-auto-init="Datepicker"
+        data-ecl-datepicker-toggle=""
+        id="example-input-id-1"
+        name="example-input-id-1"
+        placeholder="DD-MM-YYYY"
+        required=""
+        type="text"
+        value="01-10-2020"
+      />
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--s ecl-datepicker__icon"
+        focusable="false"
+      >
+        <use
+          xlink:href="/icons.svg#calendar"
+        />
+      </svg>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`Date picker EC Required renders correctly 1`] = `
+<jest>
+  <div
+    class="ecl-form-group"
+  >
+    <label
+      class="ecl-form-label"
+      for="example-input-id-1"
+    >
+      Label
+      <span
+        class="ecl-form-label__required"
+      >
+        *
+      </span>
+    </label>
+    <div
+      class="ecl-help-block"
+    >
+      This is the input's helper text.
+    </div>
+    <div
+      class="ecl-datepicker"
+    >
+      <input
+        class="ecl-datepicker__field ecl-text-input ecl-text-input--s"
+        data-ecl-auto-init="Datepicker"
+        data-ecl-datepicker-toggle=""
+        id="example-input-id-1"
+        name="example-input-id-1"
+        placeholder="DD-MM-YYYY"
+        required=""
+        type="text"
+        value="01-10-2020"
+      />
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--s ecl-datepicker__icon"
+        focusable="false"
+      >
+        <use
+          xlink:href="/icons.svg#calendar"
+        />
+      </svg>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`Date picker EU Disabled renders correctly 1`] = `
+<jest>
+  <div
+    class="ecl-form-group"
+  >
+    <label
+      class="ecl-form-label"
+      for="example-input-id-1"
+    >
+      Label
+      <span
+        class="ecl-form-label__required"
+      >
+        *
+      </span>
+    </label>
+    <div
+      class="ecl-help-block ecl-help-block--disabled"
+    >
+      This is the input's helper text.
+    </div>
+    <div
+      class="ecl-datepicker"
+    >
+      <input
+        class="ecl-datepicker__field ecl-text-input ecl-text-input--s"
+        data-ecl-auto-init="Datepicker"
+        data-ecl-datepicker-toggle=""
+        disabled=""
+        id="example-input-id-1"
+        name="example-input-id-1"
+        placeholder="DD-MM-YYYY"
+        required=""
+        type="text"
+        value="01-10-2020"
+      />
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--s ecl-datepicker__icon"
+        focusable="false"
+      >
+        <use
+          xlink:href="/icons.svg#calendar"
+        />
+      </svg>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`Date picker EU Invalid renders correctly 1`] = `
+<jest>
+  <div
+    class="ecl-form-group"
+  >
+    <label
+      class="ecl-form-label"
+      ecl-form-label--invalid=""
+      for="example-input-id-1"
+    >
+      Label
+      <span
+        class="ecl-form-label__required"
+      >
+        *
+      </span>
+    </label>
+    <div
+      class="ecl-help-block"
+    >
+      This is the input's helper text.
+    </div>
+    <div
+      class="ecl-feedback-message"
+    >
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--m ecl-feedback-message__icon"
+        focusable="false"
+      >
+        <use
+          xlink:href="/icons.svg#warning"
+        />
+      </svg>
+          This is the error message
+    </div>
+    <div
+      class="ecl-datepicker ecl-datepicker--invalid"
+    >
+      <input
+        class="ecl-datepicker__field ecl-text-input ecl-text-input--s ecl-text-input--invalid"
+        data-ecl-auto-init="Datepicker"
+        data-ecl-datepicker-toggle=""
+        id="example-input-id-1"
+        name="example-input-id-1"
+        placeholder="DD-MM-YYYY"
+        required=""
+        type="text"
+        value="01-10-2020"
+      />
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--s ecl-datepicker__icon"
+        focusable="false"
+      >
+        <use
+          xlink:href="/icons.svg#calendar"
+        />
+      </svg>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`Date picker EU Optional renders correctly 1`] = `
+<jest>
+  <div
+    class="ecl-form-group"
+  >
+    <label
+      class="ecl-form-label"
+      for="example-input-id-1"
+    >
+      Label
+      <span
+        class="ecl-form-label__required"
+      >
+        *
+      </span>
+    </label>
+    <div
+      class="ecl-help-block"
+    >
+      This is the input's helper text.
+    </div>
+    <div
+      class="ecl-datepicker"
+    >
+      <input
+        class="ecl-datepicker__field ecl-text-input ecl-text-input--s"
+        data-ecl-auto-init="Datepicker"
+        data-ecl-datepicker-toggle=""
+        id="example-input-id-1"
+        name="example-input-id-1"
+        placeholder="DD-MM-YYYY"
+        required=""
+        type="text"
+        value="01-10-2020"
+      />
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--s ecl-datepicker__icon"
+        focusable="false"
+      >
+        <use
+          xlink:href="/icons.svg#calendar"
+        />
+      </svg>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`Date picker EU Optional renders correctly with extra attributes 1`] = `
+<jest>
+  <div
+    class="ecl-form-group"
+  >
+    <label
+      class="ecl-form-label"
+      for="example-input-id-1"
+    >
+      Label
+      <span
+        class="ecl-form-label__required"
+      >
+        *
+      </span>
+    </label>
+    <div
+      class="ecl-help-block"
+    >
+      This is the input's helper text.
+    </div>
+    <div
+      class="ecl-datepicker"
+      data-test="data-test-value"
+      data-test-1="data-test-value-1"
+      null=""
+    >
+      <input
+        class="ecl-datepicker__field ecl-text-input ecl-text-input--s"
+        data-ecl-auto-init="Datepicker"
+        data-ecl-datepicker-toggle=""
+        id="example-input-id-1"
+        name="example-input-id-1"
+        placeholder="DD-MM-YYYY"
+        required=""
+        type="text"
+        value="01-10-2020"
+      />
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--s ecl-datepicker__icon"
+        focusable="false"
+      >
+        <use
+          xlink:href="/icons.svg#calendar"
+        />
+      </svg>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`Date picker EU Optional renders correctly with extra class names 1`] = `
+<jest>
+  <div
+    class="ecl-form-group"
+  >
+    <label
+      class="ecl-form-label"
+      for="example-input-id-1"
+    >
+      Label
+      <span
+        class="ecl-form-label__required"
+      >
+        *
+      </span>
+    </label>
+    <div
+      class="ecl-help-block"
+    >
+      This is the input's helper text.
+    </div>
+    <div
+      class="ecl-datepicker custom-class custom-class--test"
+    >
+      <input
+        class="ecl-datepicker__field ecl-text-input ecl-text-input--s"
+        data-ecl-auto-init="Datepicker"
+        data-ecl-datepicker-toggle=""
+        id="example-input-id-1"
+        name="example-input-id-1"
+        placeholder="DD-MM-YYYY"
+        required=""
+        type="text"
+        value="01-10-2020"
+      />
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--s ecl-datepicker__icon"
+        focusable="false"
+      >
+        <use
+          xlink:href="/icons.svg#calendar"
+        />
+      </svg>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`Date picker EU Optional renders correctly with extra group class names 1`] = `
+<jest>
+  <div
+    class="ecl-form-group"
+  >
+    <label
+      class="ecl-form-label"
+      for="example-input-id-1"
+    >
+      Label
+      <span
+        class="ecl-form-label__required"
+      >
+        *
+      </span>
+    </label>
+    <div
+      class="ecl-help-block"
+    >
+      This is the input's helper text.
+    </div>
+    <div
+      class="ecl-datepicker"
+    >
+      <input
+        class="ecl-datepicker__field ecl-text-input ecl-text-input--s"
+        data-ecl-auto-init="Datepicker"
+        data-ecl-datepicker-toggle=""
+        id="example-input-id-1"
+        name="example-input-id-1"
+        placeholder="DD-MM-YYYY"
+        required=""
+        type="text"
+        value="01-10-2020"
+      />
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--s ecl-datepicker__icon"
+        focusable="false"
+      >
+        <use
+          xlink:href="/icons.svg#calendar"
+        />
+      </svg>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`Date picker EU Optional renders correctly with extra label class names 1`] = `
+<jest>
+  <div
+    class="ecl-form-group"
+  >
+    <label
+      class="ecl-form-label"
+      for="example-input-id-1"
+    >
+      Label
+      <span
+        class="ecl-form-label__required"
+      >
+        *
+      </span>
+    </label>
+    <div
+      class="ecl-help-block"
+    >
+      This is the input's helper text.
+    </div>
+    <div
+      class="ecl-datepicker"
+    >
+      <input
+        class="ecl-datepicker__field ecl-text-input ecl-text-input--s"
+        data-ecl-auto-init="Datepicker"
+        data-ecl-datepicker-toggle=""
+        id="example-input-id-1"
+        name="example-input-id-1"
+        placeholder="DD-MM-YYYY"
+        required=""
+        type="text"
+        value="01-10-2020"
+      />
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--s ecl-datepicker__icon"
+        focusable="false"
+      >
+        <use
+          xlink:href="/icons.svg#calendar"
+        />
+      </svg>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`Date picker EU Required renders correctly 1`] = `
+<jest>
+  <div
+    class="ecl-form-group"
+  >
+    <label
+      class="ecl-form-label"
+      for="example-input-id-1"
+    >
+      Label
+      <span
+        class="ecl-form-label__required"
+      >
+        *
+      </span>
+    </label>
+    <div
+      class="ecl-help-block"
+    >
+      This is the input's helper text.
+    </div>
+    <div
+      class="ecl-datepicker"
     >
       <input
         class="ecl-datepicker__field ecl-text-input ecl-text-input--s"
