@@ -203,6 +203,18 @@ module.exports = {
     ],
   },
   site_name: 'Nom du site',
+  cta_link: {
+    link: {
+      label: 'Lien CTA',
+      href: exampleLink,
+    },
+    icon: {
+      path: '/icons.svg',
+      name: 'corner-arrow',
+      size: 'fluid',
+      transform: 'rotate-90',
+    },
+  },
   icon_file_path: '/icons.svg',
   banner_top: {
     link: {

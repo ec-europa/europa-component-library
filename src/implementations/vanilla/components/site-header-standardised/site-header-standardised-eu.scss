@@ -219,6 +219,15 @@ $_search-width-xl: 31.5rem;
     font: map.get(theme.$font-prolonged, 'xl');
     font-weight: map.get(theme.$font-weight, 'bold');
     padding: map.get(theme.$spacing, 'm') 0;
+
+    .ecl-container {
+      display: flex;
+    }
+  }
+
+  .ecl-site-header-standardised__site-name {
+    align-self: center;
+    flex-grow: 1;
   }
 
   .ecl-site-header-standardised__container {
