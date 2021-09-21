@@ -44,7 +44,21 @@
 {# Print the result #}
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  display list item
+  {% if _image is not empty and _image.src is defined and _image.src is not empty %}
+    <img
+      class="ecl-display-list__image"
+      src="{{ _image.src }}"
+      alt="{{ _image.alt }}"
+    />
+  {% endif %}
+  <div class="ecl-display-list__detail">
+  {% if _title is not empty %}
+    <div class="ecl-display-list__title">{{ _title }}</div>
+  {% endif %}
+  {% if _description is not empty %}
+    <div class="ecl-display-list__description">{{ _description }}</div>
+  {% endif %}
+  </div>
 </div>
 
 {% endspaceless %}
