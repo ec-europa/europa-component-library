@@ -11,124 +11,124 @@
 @use '@ecl/vanilla-utility-typography/typography-eu';
 
 // stylelint-disable no-descending-specificity
-.ecl button:not([class*='ecl-']):not([class*='wt-']),
+.ecl button:not([class*='ecl-'], [class*='wt-']),
 .ecl button:is([class*='ecl-u-']) {
   @extend %ecl-button;
 }
 
-.ecl a:not([class*='ecl-']):not([class*='wt-']),
+.ecl a:not([class*='ecl-'], [class*='wt-']),
 .ecl a:is([class*='ecl-u-']) {
   @extend %ecl-link;
 
   font-family: #{map.get(theme.$font-family, 'default')};
 }
 
-.ecl h1:not([class*='ecl-']):not([class*='wt-']),
+.ecl h1:not([class*='ecl-'], [class*='wt-']),
 .ecl h1:is([class*='ecl-u-']) {
   @extend %ecl-heading-1;
 }
 
-.ecl h2:not([class*='ecl-']):not([class*='wt-']),
+.ecl h2:not([class*='ecl-'], [class*='wt-']),
 .ecl h2:is([class*='ecl-u-']) {
   @extend %ecl-heading-2;
 }
 
-.ecl h3:not([class*='ecl-']):not([class*='wt-']),
+.ecl h3:not([class*='ecl-'], [class*='wt-']),
 .ecl h3:is([class*='ecl-u-']) {
   @extend %ecl-heading-3;
 }
 
-.ecl h4:not([class*='ecl-']):not([class*='wt-']),
+.ecl h4:not([class*='ecl-'], [class*='wt-']),
 .ecl h4:is([class*='ecl-u-']) {
   @extend %ecl-heading-4;
 }
 
-.ecl h5:not([class*='ecl-']):not([class*='wt-']),
+.ecl h5:not([class*='ecl-'], [class*='wt-']),
 .ecl h5:is([class*='ecl-u-']) {
   @extend %ecl-heading-5;
 }
 
-.ecl h6:not([class*='ecl-']):not([class*='wt-']),
+.ecl h6:not([class*='ecl-'], [class*='wt-']),
 .ecl h6:is([class*='ecl-u-']) {
   @extend %ecl-heading-6;
 }
 
-.ecl p:not([class*='ecl-']):not([class*='wt-']),
+.ecl p:not([class*='ecl-'], [class*='wt-']),
 .ecl p:is([class*='ecl-u-']) {
   @extend %ecl-paragraph;
 }
 
-.ecl ul:not([class*='ecl-']):not([class*='wt-']),
+.ecl ul:not([class*='ecl-'], [class*='wt-']),
 .ecl ul:is([class*='ecl-u-']) {
   @extend %ecl-unordered-list;
 }
 
-.ecl ul ul:not([class*='ecl-']):not([class*='wt-']),
+.ecl ul ul:not([class*='ecl-'], [class*='wt-']),
 .ecl ul ul:is([class*='ecl-u-']) {
   @extend %ecl-unordered-list--nested;
 }
 
-.ecl ul li:not([class*='ecl-']):not([class*='wt-']),
+.ecl ul li:not([class*='ecl-'], [class*='wt-']),
 .ecl ul li:is([class*='ecl-u-']) {
   @extend %ecl-unordered-list__item;
 }
 
-.ecl ol:not([class*='ecl-']):not([class*='wt-']),
+.ecl ol:not([class*='ecl-'], [class*='wt-']),
 .ecl ol:is([class*='ecl-u-']) {
   @extend %ecl-ordered-list;
 }
 
-.ecl ol ol:not([class*='ecl-']):not([class*='wt-']),
+.ecl ol ol:not([class*='ecl-'], [class*='wt-']),
 .ecl ol ol:is([class*='ecl-u-']) {
   @extend %ecl-ordered-list--nested;
 }
 
-.ecl ol li:not([class*='ecl-']):not([class*='wt-']),
+.ecl ol li:not([class*='ecl-'], [class*='wt-']),
 .ecl ol li:is([class*='ecl-u-']) {
   @extend %ecl-ordered-list__item;
 }
 
-.ecl dl:not([class*='ecl-']):not([class*='wt-']),
+.ecl dl:not([class*='ecl-'], [class*='wt-']),
 .ecl dl:is([class*='ecl-u-']) {
   @extend %ecl-description-list;
 }
 
-.ecl dt:not([class*='ecl-']):not([class*='wt-']),
+.ecl dt:not([class*='ecl-'], [class*='wt-']),
 .ecl dt:is([class*='ecl-u-']) {
   @extend %ecl-description-list__term;
 }
 
-.ecl dd:not([class*='ecl-']):not([class*='wt-']),
+.ecl dd:not([class*='ecl-'], [class*='wt-']),
 .ecl dd:is([class*='ecl-u-']) {
   @extend %ecl-description-list__definition;
 }
 
-.ecl table:not([class*='ecl-']):not([class*='wt-']),
+.ecl table:not([class*='ecl-'], [class*='wt-']),
 .ecl table:is([class*='ecl-u-']) {
   @extend %ecl-table;
 }
 
-.ecl thead:not([class*='ecl-']):not([class*='wt-']),
+.ecl thead:not([class*='ecl-'], [class*='wt-']),
 .ecl thead:is([class*='ecl-u-']) {
   @extend %ecl-table__head;
 }
 
-.ecl th:not([class*='ecl-']):not([class*='wt-']),
+.ecl th:not([class*='ecl-'], [class*='wt-']),
 .ecl th:is([class*='ecl-u-']) {
   @extend %ecl-table__header;
 }
 
-.ecl tr:not([class*='ecl-']):not([class*='wt-']),
+.ecl tr:not([class*='ecl-'], [class*='wt-']),
 .ecl tr:is([class*='ecl-u-']) {
   @extend %ecl-table__row;
 }
 
-.ecl td:not([class*='ecl-']):not([class*='wt-']),
+.ecl td:not([class*='ecl-'], [class*='wt-']),
 .ecl td:is([class*='ecl-u-']) {
   @extend %ecl-table__cell;
 }
 
-.ecl blockquote:not([class*='ecl-']):not([class*='wt-']),
+.ecl blockquote:not([class*='ecl-'], [class*='wt-']),
 .ecl blockquote:is([class*='ecl-u-']) {
   @extend %ecl-blockquote;
 
@@ -138,14 +138,14 @@
   }
 }
 
-.ecl blockquote cite:not([class*='ecl-']):not([class*='wt-']),
+.ecl blockquote cite:not([class*='ecl-'], [class*='wt-']),
 .ecl blockquote cite:is([class*='ecl-u-']) {
   @extend %ecl-blockquote__author;
 
   display: block;
 }
 
-.ecl blockquote img:not([class*='ecl-']):not([class*='wt-']),
+.ecl blockquote img:not([class*='ecl-'], [class*='wt-']),
 .ecl blockquote img:is([class*='ecl-u-']) {
   @extend %ecl-blockquote__image;
 }
