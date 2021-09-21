@@ -1,20 +1,21 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
-@use 'datepicker' with (
-  $_input-hover-shadow: none,
-  $_input-icon-color: map.get(theme.$color, 'grey-75'),
-  $_input-icon-hover-color: map.get(theme.$color, 'blue'),
-  $_input-icon-focus-color: map.get(theme.$color, 'blue'),
-  $_input-icon-invalid-color: map.get(theme.$color, 'red-100'),
-  $_input-icon-invalid-hover-color: map.get(theme.$color, 'red-130'),
-  $_input-placeholder-color: map.get(theme.$color, 'grey-50'),
-  $_picker-background-color: map.get(theme.$color, 'grey-10'),
-  $_picker-table-background-color: map.get(theme.$color, 'grey-5'),
-  $_picker-border-radius: 0,
-  $_picker-margin-top: map.get(theme.$spacing, 's'),
-  $_picker-day-color: map.get(theme.$color, 'grey'),
-  $_picker-day-disable-color: map.get(theme.$color, 'grey'),
-  $_picker-day-today-box-shadow: inset 0 0 0 3px map.get(theme.$color, 'blue-25'),
-  $_picker-day-selected-background: map.get(theme.$color, 'blue'),
-  $_picker-theme-color: map.get(theme.$color, 'grey'),
-);
+@use 'datepicker' with
+  (
+    $_input-hover-shadow: none,
+    $_input-icon-color: map.get(theme.$color, 'grey-75'),
+    $_input-icon-hover-color: map.get(theme.$color, 'blue'),
+    $_input-icon-focus-color: map.get(theme.$color, 'blue'),
+    $_input-icon-invalid-color: map.get(theme.$color, 'red-100'),
+    $_input-icon-invalid-hover-color: map.get(theme.$color, 'red-130'),
+    $_input-placeholder-color: map.get(theme.$color, 'grey-50'),
+    $_picker-background-color: map.get(theme.$color, 'grey-10'),
+    $_picker-table-background-color: map.get(theme.$color, 'grey-5'),
+    $_picker-border-radius: 0,
+    $_picker-margin-top: map.get(theme.$spacing, 's'),
+    $_picker-day-color: map.get(theme.$color, 'grey'),
+    $_picker-day-disable-color: map.get(theme.$color, 'grey'),
+    $_picker-day-today-box-shadow: inset 0 0 0 3px map.get(theme.$color, 'blue-25'),
+    $_picker-day-selected-background: map.get(theme.$color, 'blue'),
+    $_picker-theme-color: map.get(theme.$color, 'grey'),
+  );
