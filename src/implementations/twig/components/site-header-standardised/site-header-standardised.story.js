@@ -19,9 +19,13 @@ import notes from './README.md';
 const system = getSystem();
 const enData = { ...englishData };
 const frData = { ...frenchData };
+const enMenu = { ...dataMenuEn };
+const frMenu = { ...dataMenuFr };
 const languageSelector = { ...enData.language_selector };
 const loggedInData = { ...enData, logged: true };
 const clonedLoggedInData = { ...loggedInData };
+const enCtaLinkClone = { ...enData.cta_link };
+const frCtaLinkClone = { ...frData.cta_link };
 
 const getArgs = (data) => {
   const args = {
@@ -29,6 +33,7 @@ const getArgs = (data) => {
     language_selector: true,
     menu: true,
     site_name: data.site_name || '',
+    cta_link: false,
   };
   if (system === 'ec') {
     args.banner_top = true;
@@ -86,6 +91,19 @@ const getArgTypes = () => {
       category: 'Content',
     },
   };
+  argTypes.cta_link = {
+    name: 'call to action',
+    type: { name: 'boolean' },
+    description: 'Call to action link (optional)',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'Content',
+    },
+    control: {
+      type: 'boolean',
+    },
+  };
 
   return argTypes;
 };
@@ -105,13 +123,22 @@ const prepareData = (data, demo, args) => {
   if (!args.menu) {
     delete data.menu;
   } else if (args.menu && !data.menu) {
-    data.menu = demo !== 'translated' ? dataMenuEn : dataMenuFr;
+    data.menu = demo !== 'translated' ? enMenu : frMenu;
   }
 
   if (!args.language_selector) {
     delete data.language_selector;
   } else if (args.language_selector && !data.language_selector) {
     data.language_selector = languageSelector;
+  }
+
+  if (!args.cta_link) {
+    delete data.cta_link;
+    delete data.menu.cta_link;
+  } else {
+    data.cta_link = demo !== 'translated' ? enCtaLinkClone : frCtaLinkClone;
+    data.menu.cta_link =
+      demo !== 'translated' ? enCtaLinkClone : frCtaLinkClone;
   }
 
   correctSvgPath(data);
