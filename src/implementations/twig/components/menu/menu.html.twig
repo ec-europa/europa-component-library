@@ -2,9 +2,9 @@
 
 {#
   Parameters:
-  - title: (string) (default: ''): Title
-  - close: (string) (default: ''): Close button label
-  - back: (string): (default: ''): Back button label
+  - "title": (string) (default: ''): Title
+  - "close": (string) (default: ''): Close button label
+  - "back": (string): (default: ''): Back button label
   - "group": (string) (default: 'group1'): 'group1' or 'group2'
   - "icon_path": (string) (default: ''): Path to the icon sprite
   - "items": (associative array) (default: {}): The menu items - format: [
@@ -30,6 +30,7 @@
     },
   }],
   - "site_name": (string) (default: ''): Name of the website (used only on mobile)
+  - "cta_link": (optional) (default: {}): Call to action link compatible with ECL Link component structure (used only on mobile)
   - "menu_link": (string) (default: ''): Href attribute of the menu toggler
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the nav element
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for the nav element
@@ -48,6 +49,7 @@
 {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _group %}
 {% set _extra_attributes = '' %}
 {% set _site_name = site_name|default('') %}
+{% set _cta_link = cta_link|default({}) %}
 {% set _icon_path = icon_path|default('') %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -87,8 +89,20 @@
       } only %}
       {{- _title -}}
     </a>
-    {% if _site_name is not empty %}
-    <div class="ecl-menu__site-name">{{ _site_name }}</div>
+    {% if _site_name is not empty or _cta_link is not empty %}
+    <div class="ecl-menu__banner">
+      {% if _site_name is not empty %}
+      <div class="ecl-menu__site-name">{{ _site_name }}</div>
+      {% endif %}
+      {% if _cta_link is not empty and _cta_link.link is not empty %}
+      {% include '@ecl/link/link.html.twig' with _cta_link|merge({
+        link: _cta_link.link|merge({
+          type: 'cta',
+        }),
+        extra_classes: 'ecl-menu__cta',
+      }) only %}
+      {% endif %}
+    </div>
     {% endif %}
     <section class="ecl-menu__inner" data-ecl-menu-inner>
       <header class="ecl-menu__inner-header">
