@@ -1,12 +1,13 @@
-@use "sass:map";
+@use 'sass:map';
 @use '@ecl/theme-dev/theme';
-@use 'blockquote-print' with (
-  $_border-width: 10px,
-  $_border-color: map.get(theme.$color, 'yellow-100'),
-  $_border-radius: 0,
-  $_body-font: map.get(theme.$font-prolonged-print, 'l'),
-  $_body-color: map.get(theme.$color, 'grey-100'),
-  $_author-margin-top: map.get(theme.$spacing-print, 'xl'),
-  $_author-font-weight: map.get(theme.$font-weight, 'bold'),
-  $_author-color: map.get(theme.$color, 'black-100'),
-);
+@use 'blockquote-print' with
+  (
+    $_border-width: 10px,
+    $_border-color: map.get(theme.$color, 'yellow-100'),
+    $_border-radius: 0,
+    $_body-font: map.get(theme.$font-prolonged-print, 'l'),
+    $_body-color: map.get(theme.$color, 'grey-100'),
+    $_author-margin-top: map.get(theme.$spacing-print, 'xl'),
+    $_author-font-weight: map.get(theme.$font-weight, 'bold'),
+    $_author-color: map.get(theme.$color, 'black-100')
+  );
