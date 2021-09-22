@@ -8,7 +8,8 @@ module.exports = {
   helper_text: "This is the input's helper text.",
   invalid_icon: {
     path: '/icons.svg',
-    name: 'warning',
+    type: 'notifications',
+    name: 'error',
     size: 'm',
   },
   invalid_text: 'This is the error message',

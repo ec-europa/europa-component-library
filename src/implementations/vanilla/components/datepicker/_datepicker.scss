@@ -61,6 +61,10 @@ $_picker-theme-color: null !default;
 .ecl-datepicker__field[disabled] {
   color: rgba($_input-placeholder-color, 0.5);
 
+  &:hover {
+    box-shadow: none;
+  }
+
   &::placeholder {
     color: rgba($_input-placeholder-color, 0.5);
   }
@@ -87,12 +91,9 @@ $_picker-theme-color: null !default;
   color: $_input-icon-invalid-hover-color;
 }
 
-.ecl-datepicker__field:disabled + .ecl-datepicker__icon {
-  color: rgba($_input-icon-color, 0.5);
-}
-
+.ecl-datepicker__field:disabled + .ecl-datepicker__icon,
 .ecl-datepicker__field:disabled:hover + .ecl-datepicker__icon {
-  color: map.get(theme.$color, 'grey-50');
+  color: rgba($_input-icon-color, 0.5);
 }
 
 /*
@@ -222,7 +223,7 @@ $_picker-theme-color: null !default;
   }
 
   .is-outside-current-month .pika-button {
-    background-color: map.get(theme.$color, 'grey-5');
+    background-color: map.get(theme.$color, 'grey-10');
     color: $_picker-day-disable-color;
     opacity: 1;
   }

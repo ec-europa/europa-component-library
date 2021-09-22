@@ -10,7 +10,7 @@ module.exports = {
   invalid_icon: {
     path: '/icons.svg',
     type: 'notifications',
-    name: 'warning',
+    name: 'error',
     size: 'm',
   },
   items: [
