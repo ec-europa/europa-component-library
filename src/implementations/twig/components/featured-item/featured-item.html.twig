@@ -57,25 +57,23 @@
     <div class="ecl-featured-item__heading">{{ _heading }}</div>
   {% endif %}
   <article class="ecl-featured-item__container">
-    <div class="ecl-featured-item__col-2">
-      <div class="ecl-featured-item__item">
-      {% include '@ecl/media-container/media-container.html.twig' with _media_container|merge({
-        extra_classes: 'ecl-featured-item__media_container',
+    <div class="ecl-featured-item__item">
+    {% include '@ecl/media-container/media-container.html.twig' with _media_container|merge({
+      extra_classes: 'ecl-featured-item__media_container',
+    }) only %}
+    </div>
+    <div class="ecl-featured-item__item">
+    {% if _title is defined and _title is not empty %}
+      <div class="ecl-featured-item__title">{{ _title }}</div>
+    {% endif %}
+    {% if _description is defined and _description is not empty %}
+      <div class="ecl-featured-item__description">{{ _description }}</div>
+    {% endif %}
+    {% if _link is defined and _link is not empty %}
+      {% include '@ecl/link/link.html.twig' with _link|merge({
+        extra_classes: 'ecl-featured-item__link',
       }) only %}
-      </div>
-      <div class="ecl-featured-item__item">
-      {% if _title is defined and _title is not empty %}
-        <div class="ecl-featured-item__title">{{ _title }}</div>
-      {% endif %}
-      {% if _description is defined and _description is not empty %}
-        <div class="ecl-featured-item__description">{{ _description }}</div>
-      {% endif %}
-      {% if _link is defined and _link is not empty %}
-        {% include '@ecl/link/link.html.twig' with _link|merge({
-          extra_classes: 'ecl-featured-item__link',
-        }) only %}
-      {% endif %}
-      </div>
+    {% endif %}
     </div>
   </article>
 </div>

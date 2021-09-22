@@ -3,7 +3,7 @@
  * @define featured-item
  */
 
-@use "sass:map";
+@use 'sass:map';
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
@@ -31,7 +31,7 @@ $_extended-padding-bottom: null !default;
   margin-top: 0;
 }
 
-.ecl-featured-item__col-2 {
+.ecl-featured-item__container {
   padding: 0;
 }
 
@@ -95,7 +95,7 @@ $_extended-padding-bottom: null !default;
     margin-bottom: map.get(theme.$spacing, 'm');
   }
 
-  .ecl-featured-item__col-2 {
+  .ecl-featured-item__container {
     display: flex;
     flex-wrap: wrap;
   }
