@@ -3,6 +3,7 @@ import iconPathEc from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import iconPathEu from '@ecl/resources-eu-icons/dist/sprites/icons.svg';
 import iconSocialPath from '@ecl/resources-ec-social-icons/dist/sprites/icons-social.svg';
 import iconMediaSocialPath from '@ecl/resources-social-media-icons/dist/sprites/icons-social-media.svg';
+import iconFlagPath from '@ecl/resources-flag-icons/dist/sprites/icons-flag.svg';
 import getSystem from '@ecl/builder/utils/getSystem';
 
 const system = getSystem();
@@ -15,6 +16,8 @@ export const correctSvgPath = (data) => {
         data[prop] = iconMediaSocialPath;
       } else if (data[prop].includes('social')) {
         data[prop] = iconSocialPath;
+      } else if (data[prop].includes('flag')) {
+        data[prop] = iconFlagPath;
       } else {
         data[prop] = iconPath;
       }

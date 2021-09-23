@@ -5,9 +5,11 @@
     - "title" (string) (default: '')
     - "description" (string) (default: '')
     - "image" (associative array) (default: {}): format: {
-      "alt": alternative text for the image
-      "src": image url
+      "alt" (string) (default: ''): alternative text for the image
+      "src" (string) (default: ''): image url
+      "square" (boolean) (default: false): true if the image is squared, otherwise ratio is 3:2
     }
+    - "icon" (associative array) (default: {}): predefined structure for Icon component
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -22,6 +24,7 @@
 {% set _title = title|default('') %}
 {% set _description = description|default('') %}
 {% set _image = image|default({}) %}
+{% set _icon = icon|default({}) %}
 {% set _css_class = 'ecl-display-list__item' %}
 {% set _extra_attributes = '' %}
 
@@ -45,15 +48,22 @@
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {% if _image is not empty and _image.src is defined and _image.src is not empty %}
-    <img
-      class="ecl-display-list__image"
-      src="{{ _image.src }}"
-      alt="{{ _image.alt }}"
-    />
+    {% set _image_class = _image.squared ? "ecl-display-list__image ecl-display-list__image--square" : "ecl-display-list__image" %}
+    <div class="{{ _image_class }}" aria-label="{{ _image.alt }}" role="img" style="background-image:url('{{ _image.src }}')"></div>
   {% endif %}
   <div class="ecl-display-list__detail">
-  {% if _title is not empty %}
-    <div class="ecl-display-list__title">{{ _title }}</div>
+  {% if _title is not empty or _icon is not empty %}
+    <div class="ecl-display-list__title-container">
+    {% if _icon is not empty %}
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: _icon,
+        extra_classes: 'ecl-display-list__icon',
+      } only %}
+    {% endif %}
+    {% if _title is not empty %}
+      <div class="ecl-display-list__title">{{ _title }}</div>
+    {% endif %}
+    </div>
   {% endif %}
   {% if _description is not empty %}
     <div class="ecl-display-list__description">{{ _description }}</div>

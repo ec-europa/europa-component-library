@@ -3,7 +3,8 @@
  * @define display-list
  */
 
-@use "sass:map";
+@use 'sass:math';
+@use 'sass:map';
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
@@ -11,4 +12,53 @@ $_term-color: null !default;
 
 .ecl-display-list {
   margin: 0;
+}
+
+.ecl-display-list__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.ecl-display-list__image {
+  background-position: center;
+  background-size: cover;
+  display: block;
+  height: auto;
+
+  // manage ratio 16:9
+  &::before {
+    content: '';
+    display: block;
+    padding-top: math.div(9, 16) * 100%;
+    width: 100%;
+  }
+}
+
+// manage ratio 1:1
+.ecl-display-list__image--square {
+  height: 100px;
+  width: 100px;
+
+  &::before {
+    padding-top: 100%;
+  }
+}
+
+.ecl-display-list__title-container {
+  align-items: center;
+  color: map.get(theme.$color, 'grey-100');
+  display: flex;
+  flex-direction: row;
+  font: map.get(theme.$font-prolonged, 'xl');
+  margin-top: map.get(theme.$spacing, 'm');
+}
+
+.ecl-display-list__description {
+  color: map.get(theme.$color, 'grey-100');
+  font: map.get(theme.$font-prolonged, 'm');
+  margin-top: map.get(theme.$spacing, 'xs');
+}
+
+.ecl-display-list__icon {
+  margin-right: map.get(theme.$spacing, 's');
 }
