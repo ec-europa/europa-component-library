@@ -7,6 +7,7 @@
     - "logged" (boolean): Whether the user is logged in or not
     - "menu" (boolean): Whether the component includes a menu
     - "site_name" (string) Site name
+    - "cta_link": (optional) (default: {}): Call to action link compatible with ECL Link component structure
     - "logo" (associative array) (default: predefined structure): Logo image settings. format:
         {
           "title": (string) (default: ''): Logo title attribute.
@@ -74,6 +75,7 @@
 {% set _icon_file_path = icon_file_path|default('') %}
 {% set _menu = menu|default(false) %}
 {% set _site_name = site_name|default('') %}
+{% set _cta_link = cta_link|default({}) %}
 {% set _extra_attributes = '' %}
 {% set _css_class = 'ecl-site-header-standardised' %}
 {% set _search_form_extra_attributes = [{ name: 'data-ecl-search-form' }] %}
@@ -359,10 +361,22 @@
   </div>
 {% endif %}
 
-{# Site name (banner) #}
-{% if _site_name is defined and _site_name is not empty %}
+{# Site name and call to action (banner) #}
+{% if _site_name is not empty or _cta_link is not empty %}
   <div class="ecl-site-header-standardised__banner">
-    <div class="ecl-container">{{ _site_name }}</div>
+    <div class="ecl-container">
+      {% if _site_name is not empty %}
+      <div class="ecl-site-header-standardised__site-name">{{ _site_name }}</div>
+      {% endif %}
+      {% if _cta_link is not empty and _cta_link.link is not empty %}
+      {% include '@ecl/link/link.html.twig' with _cta_link|merge({
+        link: _cta_link.link|merge({
+          type: 'cta',
+        }),
+        extra_classes: 'ecl-standardised-menu__cta',
+      }) only %}
+      {% endif %}
+    </div>
   </div>
 {% endif %}
 
