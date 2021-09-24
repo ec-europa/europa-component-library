@@ -13,7 +13,6 @@ $_input-icon-hover-color: null !default;
 $_input-icon-focus-color: null !default;
 $_input-icon-invalid-color: null !default;
 $_input-icon-invalid-hover-color: null !default;
-$_input-icon-invalid-focus-color: null !default;
 $_input-placeholder-color: null !default;
 $_picker-background-color: null !default;
 $_picker-table-background-color: null !default;
@@ -84,10 +83,7 @@ $_picker-theme-color: null !default;
   color: $_input-icon-invalid-color;
 }
 
-.ecl-datepicker--invalid .ecl-datepicker__field:focus + .ecl-datepicker__icon {
-  color: $_input-icon-invalid-focus-color;
-}
-
+.ecl-datepicker--invalid .ecl-datepicker__field:focus + .ecl-datepicker__icon,
 .ecl-datepicker--invalid .ecl-datepicker__field:hover + .ecl-datepicker__icon {
   color: $_input-icon-invalid-hover-color;
 }
