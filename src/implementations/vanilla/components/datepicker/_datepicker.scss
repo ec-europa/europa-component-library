@@ -13,6 +13,7 @@ $_input-icon-hover-color: null !default;
 $_input-icon-focus-color: null !default;
 $_input-icon-invalid-color: null !default;
 $_input-icon-invalid-hover-color: null !default;
+$_input-icon-invalid-focus-color: null !default;
 $_input-placeholder-color: null !default;
 $_picker-background-color: null !default;
 $_picker-table-background-color: null !default;
@@ -58,7 +59,7 @@ $_picker-theme-color: null !default;
   top: 0;
 }
 
-.ecl-datepicker__field[disabled] {
+.ecl-datepicker__field.ecl-text-input[disabled] {
   color: rgba($_input-placeholder-color, 0.5);
 
   &:hover {
@@ -84,7 +85,7 @@ $_picker-theme-color: null !default;
 }
 
 .ecl-datepicker--invalid .ecl-datepicker__field:focus + .ecl-datepicker__icon {
-  color: map.get(theme.$color, 'red');
+  color: $_input-icon-invalid-focus-color;
 }
 
 .ecl-datepicker--invalid .ecl-datepicker__field:hover + .ecl-datepicker__icon {
