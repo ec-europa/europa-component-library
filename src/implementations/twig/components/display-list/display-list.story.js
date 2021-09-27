@@ -13,6 +13,15 @@ import displayList from './display-list.html.twig';
 import displayListItem from './display-list-item.html.twig';
 import notes from './README.md';
 
+const dataDisplayListImageVertical = {
+  ...dataDisplayListImage,
+  variant: 'vertical',
+};
+const dataDisplayListIconVertical = {
+  ...dataDisplayListIcon,
+  variant: 'vertical',
+};
+
 const system = getSystem();
 const iconsAll = system === 'eu' ? iconsAllEu : iconsAllEc;
 
@@ -34,23 +43,38 @@ const getArgs = (data) => {
   if (data.items[0].icon) {
     args.icon = data.items[0].icon.name;
   }
+  args.zebra = true;
 
   return args;
 };
 
-const getArgTypes = (data) => {
+const getArgTypes = (data, variant) => {
   const argTypes = {};
-  argTypes.column = {
-    name: 'number of columns',
-    type: { name: 'number' },
-    description:
-      'The number of column for horizontal list (between 1 and 4). This is using the standard grid, not part of the component itself',
-    table: {
-      type: { summary: 'number' },
-      defaultValue: { summary: 2 },
-      category: 'Layout',
-    },
-  };
+  if (variant === 'horizontal') {
+    argTypes.column = {
+      name: 'number of columns',
+      type: { name: 'number' },
+      description:
+        'The number of column for horizontal list (between 1 and 4). This is using the standard grid, not part of the component itself',
+      table: {
+        type: { summary: 'number' },
+        defaultValue: { summary: 2 },
+        category: 'Layout',
+      },
+    };
+  } else {
+    argTypes.zebra = {
+      name: 'zebra',
+      type: { name: 'boolean' },
+      description: 'Differentiate lines using zebra display',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: true },
+        category: 'Layout',
+      },
+    };
+  }
+
   argTypes.title = {
     name: 'title',
     type: { name: 'string', required: true },
@@ -123,15 +147,6 @@ const getArgTypes = (data) => {
   return argTypes;
 };
 
-const prepareDataList = (data) => {
-  /* data.items[0].title = args.title;
-  data.items[0].description = args.description;
-  data.items[0].image.src = args.image;
-  data.items[0].image.squared = args.imageSquared; */
-
-  return data;
-};
-
 const prepareDataItem = (data, args) => {
   data.title = args.title;
   data.description = args.description;
@@ -154,6 +169,20 @@ const prepareDataItem = (data, args) => {
   if (args.icon === 'none') {
     delete data.icon;
   }
+
+  correctSvgPath(data);
+
+  return data;
+};
+
+const prepareDataList = (data, args) => {
+  data.items[0] = prepareDataItem(data.items[0], args);
+  for (let i = 1; i < data.items.length; i += 1) {
+    if (args.image) {
+      data.items[i].image.squared = args.image_squared;
+    }
+  }
+  data.zebra = args.zebra;
 
   correctSvgPath(data);
 
@@ -188,7 +217,7 @@ export const HorizontalImage = (args) =>
 
 HorizontalImage.storyName = 'horizontal (images)';
 HorizontalImage.args = getArgs(dataDisplayListImage);
-HorizontalImage.argTypes = getArgTypes(dataDisplayListImage);
+HorizontalImage.argTypes = getArgTypes(dataDisplayListImage, 'horizontal');
 HorizontalImage.parameters = {
   notes: { markdown: notes, json: dataDisplayListImage },
 };
@@ -198,17 +227,27 @@ export const HorizontalIcon = (args) =>
 
 HorizontalIcon.storyName = 'horizontal (icons)';
 HorizontalIcon.args = getArgs(dataDisplayListIcon);
-HorizontalIcon.argTypes = getArgTypes(dataDisplayListIcon);
+HorizontalIcon.argTypes = getArgTypes(dataDisplayListIcon, 'horizontal');
 HorizontalIcon.parameters = {
   notes: { markdown: notes, json: dataDisplayListIcon },
 };
 
-export const Vertical = (args) =>
-  displayList(prepareDataList(dataDisplayListImage, args));
+export const VerticalImage = (args) =>
+  renderStory(dataDisplayListImageVertical, args, 'vertical');
 
-Vertical.storyName = 'vertical';
-Vertical.args = getArgs(dataDisplayListImage);
-Vertical.argTypes = getArgTypes(dataDisplayListImage);
-Vertical.parameters = {
+VerticalImage.storyName = 'vertical (images)';
+VerticalImage.args = getArgs(dataDisplayListImage);
+VerticalImage.argTypes = getArgTypes(dataDisplayListImage, 'vertical');
+VerticalImage.parameters = {
   notes: { markdown: notes, json: dataDisplayListImage },
+};
+
+export const VerticalIcon = (args) =>
+  renderStory(dataDisplayListIconVertical, args, 'vertical');
+
+VerticalIcon.storyName = 'vertical (icons)';
+VerticalIcon.args = getArgs(dataDisplayListIcon);
+VerticalIcon.argTypes = getArgTypes(dataDisplayListIcon, 'vertical');
+VerticalIcon.parameters = {
+  notes: { markdown: notes, json: dataDisplayListIcon },
 };

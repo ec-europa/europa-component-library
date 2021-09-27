@@ -1,0 +1,72 @@
+/**
+ * Display List component
+ * @define display-list
+ */
+
+@use 'sass:math';
+@use 'sass:map';
+@use '@ecl/theme-dev/theme';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+$_title-color: null !default;
+$_description-color: null !default;
+$_background-color: null !default;
+
+.ecl-display-list {
+  margin: 0;
+}
+
+.ecl-display-list__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.ecl-display-list__image {
+  display: none;
+}
+
+.ecl-display-list__title-container {
+  align-items: center;
+  color: $_title-color;
+  display: flex;
+  flex-direction: row;
+  font: map.get(theme.$font-prolonged-print, 'xl');
+  margin-top: map.get(theme.$spacing-print, 'm');
+}
+
+.ecl-display-list__description {
+  color: $_description-color;
+  font: map.get(theme.$font-prolonged-print, 'm');
+  margin-top: map.get(theme.$spacing-print, 'xs');
+}
+
+.ecl-display-list__icon {
+  margin-right: map.get(theme.$spacing-print, 's');
+}
+
+// Vertical list
+.ecl-display-list--vertical {
+  .ecl-display-list__item {
+    flex-direction: row;
+    padding: map.get(theme.$spacing-print, 'm');
+  }
+
+  .ecl-display-list__icon {
+    margin-right: map.get(theme.$spacing-print, 'xl');
+  }
+
+  .ecl-display-list__title-container {
+    margin-top: 0;
+  }
+
+  .ecl-display-list__description {
+    margin-top: map.get(theme.$spacing-print, 's');
+  }
+}
+
+// Zebra
+.ecl-display-list--zebra {
+  .ecl-display-list__item:nth-child(even) {
+    background-color: $_background-color;
+  }
+}

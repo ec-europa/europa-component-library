@@ -8,7 +8,9 @@
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-$_term-color: null !default;
+$_title-color: null !default;
+$_description-color: null !default;
+$_background-color: null !default;
 
 .ecl-display-list {
   margin: 0;
@@ -20,22 +22,25 @@ $_term-color: null !default;
 }
 
 .ecl-display-list__image {
-  background-position: center;
-  background-size: cover;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: contain;
   display: block;
   height: auto;
 
-  // manage ratio 16:9
+  // manage ratio 3:2
   &::before {
     content: '';
     display: block;
-    padding-top: math.div(9, 16) * 100%;
+    padding-top: math.div(2, 3) * 100%;
     width: 100%;
   }
 }
 
 // manage ratio 1:1
 .ecl-display-list__image--square {
+  background-position: center;
+  background-size: cover;
   height: 100px;
   width: 100px;
 
@@ -46,7 +51,7 @@ $_term-color: null !default;
 
 .ecl-display-list__title-container {
   align-items: center;
-  color: map.get(theme.$color, 'grey-100');
+  color: $_title-color;
   display: flex;
   flex-direction: row;
   font: map.get(theme.$font-prolonged, 'xl');
@@ -54,11 +59,48 @@ $_term-color: null !default;
 }
 
 .ecl-display-list__description {
-  color: map.get(theme.$color, 'grey-100');
+  color: $_description-color;
   font: map.get(theme.$font-prolonged, 'm');
   margin-top: map.get(theme.$spacing, 'xs');
+  max-width: 80ch;
 }
 
 .ecl-display-list__icon {
   margin-right: map.get(theme.$spacing, 's');
+}
+
+// Vertical list
+.ecl-display-list--vertical {
+  .ecl-display-list__item {
+    flex-direction: row;
+    padding: map.get(theme.$spacing, 'm');
+  }
+
+  .ecl-display-list__image {
+    flex-shrink: 0;
+    margin-right: map.get(theme.$spacing, 'xl');
+  }
+
+  .ecl-display-list__image:not(.ecl-display-list__image--square) {
+    width: 15.875rem;
+  }
+
+  .ecl-display-list__icon {
+    margin-right: map.get(theme.$spacing, 'xl');
+  }
+
+  .ecl-display-list__title-container {
+    margin-top: 0;
+  }
+
+  .ecl-display-list__description {
+    margin-top: map.get(theme.$spacing, 's');
+  }
+}
+
+// Zebra
+.ecl-display-list--zebra {
+  .ecl-display-list__item:nth-child(even) {
+    background-color: $_background-color;
+  }
 }

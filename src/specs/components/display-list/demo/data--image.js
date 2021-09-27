@@ -1,4 +1,5 @@
 module.exports = {
+  zebra: true,
   items: [
     {
       title: 'Display list item 1',
