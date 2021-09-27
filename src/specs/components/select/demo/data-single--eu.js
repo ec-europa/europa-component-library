@@ -5,7 +5,6 @@ module.exports = {
   invalid_text: 'This is the error message',
   invalid_icon: {
     path: '/icons.svg',
-    type: 'notifications',
     name: 'error',
     size: 'm',
   },

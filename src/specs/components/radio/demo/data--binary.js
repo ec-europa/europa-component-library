@@ -9,7 +9,6 @@ module.exports = {
   invalid_text: 'Error message for the group',
   invalid_icon: {
     path: '/icons.svg',
-    type: 'notifications',
     name: 'error',
     size: 'm',
   },

@@ -9,7 +9,6 @@ module.exports = {
   name: 'checkbox-default',
   invalid_icon: {
     path: '/icons.svg',
-    type: 'notifications',
     name: 'error',
     size: 'm',
   },
