@@ -59,6 +59,7 @@ export class Datepicker {
       field: this.element,
       format: this.format,
       yearRange: this.yearRange,
+      firstDay: 1,
       theme: this.theme,
       reposition: this.reposition,
       showDaysInNextAndPreviousMonths: this.showDaysInNextAndPreviousMonths,
