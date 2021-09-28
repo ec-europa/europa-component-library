@@ -308,6 +308,11 @@ $_font-weight: null !default;
       height: 100%;
       padding-top: 0;
     }
+
+    .ecl-hero-banner__title,
+    .ecl-hero-banner__description {
+      text-shadow: 0 0 4px map.get(theme.$color, 'black-100');
+    }
   }
 }
 
@@ -361,6 +366,23 @@ $_font-weight: null !default;
       border-radius: map.get($_border-radius, 'banner');
       height: 100%;
       padding-top: 0;
+    }
+
+    .ecl-hero-banner__content {
+      align-items: center;
+      display: inline-flex;
+      flex-direction: column;
+    }
+
+    .ecl-hero-banner__title,
+    .ecl-hero-banner__description {
+      backdrop-filter: blur(8px);
+      background: rgba(0, 0, 0, 0.35);
+      padding: 4px 12px;
+    }
+
+    .ecl-hero-banner__description {
+      margin-top: 4px;
     }
   }
 }
