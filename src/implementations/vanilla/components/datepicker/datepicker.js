@@ -59,11 +59,25 @@ export class Datepicker {
       field: this.element,
       format: this.format,
       yearRange: this.yearRange,
+      firstDay: 1,
       theme: this.theme,
       reposition: this.reposition,
       showDaysInNextAndPreviousMonths: this.showDaysInNextAndPreviousMonths,
       enableSelectionDaysInNextAndPreviousMonths:
         this.enableSelectionDaysInNextAndPreviousMonths,
+      onOpen() {
+        // Fix picker size that exceeds vw on mobile
+        const vw = Math.max(
+          document.documentElement.clientWidth || 0,
+          window.innerWidth || 0
+        );
+        const elRect = this.el.getBoundingClientRect();
+
+        if (elRect.width >= vw) {
+          this.el.style.width = 'auto';
+          this.el.style.right = `${elRect.left}px`;
+        }
+      },
     });
 
     return picker;

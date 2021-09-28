@@ -1,0 +1,27 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import { featuredItem, featuredItemExtended } from '../demo';
+
+## Default
+
+<Playground
+  system="ec"
+  selectedKind="components-featured-item"
+  selectedStory="default"
+>
+  <Html markup={featuredItem} />
+</Playground>
+
+## Extended
+
+<Playground
+  system="ec"
+  selectedKind="components-featured-item"
+  selectedStory="extended"
+>
+  <Html markup={featuredItemExtended} />
+</Playground>
