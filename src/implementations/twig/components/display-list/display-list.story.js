@@ -208,7 +208,7 @@ const renderStory = (data, args, variant) => {
 };
 
 export default {
-  title: 'Components/List/Display list',
+  title: 'Components/Display list',
   decorators: [withNotes, withCode],
 };
 

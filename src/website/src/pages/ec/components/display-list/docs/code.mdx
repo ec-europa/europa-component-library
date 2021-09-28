@@ -1,0 +1,52 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import {
+  displayListWithImage,
+  displayListWithIcon,
+  displayListItemWithImage,
+  displayListItemWithIcon,
+} from '../demo';
+
+## Vertical display list with images
+
+<Playground
+  system="ec"
+  selectedKind="components-display-list"
+  selectedStory="vertical-image"
+>
+  <Html markup={displayListWithImage} />
+</Playground>
+
+## Vertical display list with icons
+
+<Playground
+  system="ec"
+  selectedKind="components-display-list"
+  selectedStory="vertical-icon"
+>
+  <Html markup={displayListWithIcon} />
+</Playground>
+
+## Horizontal display list with images
+
+<Playground
+  system="ec"
+  selectedKind="components-display-list"
+  selectedStory="horizontal-image"
+>
+  <Html markup={displayListItemWithImage} />
+</Playground>
+
+## Horizontal display list with icons
+
+<Playground
+  system="ec"
+  selectedKind="components-display-list"
+  selectedStory="horizontal-icon"
+>
+  <Html markup={displayListItemWithIcon} />
+</Playground>

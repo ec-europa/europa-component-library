@@ -9,9 +9,15 @@ npm install --save @ecl/twig-component-display-list
 ### Parameters
 
 - **"items"** (array) (default: [])
-  - "term" (string or array of string)
-  - "definition" (string or array of string or array of objects of type "tag")
-- **"variant"** (optional) (string) (default: '') Modifier of the component (horizontal, vertical, taxonomy)
+  - "title" (string) (default: '')
+  - "description" (string) (default: '')
+  - "image" (associative array) (default: {})
+    - "alt" (string) (default: ''): alternative text for the image
+    - "src" (string) (default: ''): image url
+    - "square" (boolean) (default: false): true if the image is squared, otherwise ratio is 3:2
+  - "icon" (associative array) (default: {}): predefined structure for Icon component
+- **"variant"** (optional) (string) (default: '') (horizontal, vertical)
+- **"zebra"** (optional) (boolean) (default: '') use alternate background display for vertical list
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
@@ -22,25 +28,45 @@ npm install --save @ecl/twig-component-display-list
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/description-list/description-list.html.twig' with { 
-  variant: 'horizontal',
+  variant: 'vertical',
+  zebra: true,
   items: [
-    { 
-      term: 'European Commission', 
-      definition: 
-        'The executive body of the European Union formed in 1967, which initiates action in the EU and mediates between member governments. Former name (until 1993): Commission of the European Communities' 
-    }, 
-    { 
-      term: ['European Union', 'EU'], 
-      definition: 
-        'An association of European nations formed in 1993 for the purpose of achieving political and economic integration.' 
-    }, 
-    { 
-      term: 'Citizen', 
-      definition: [ 
-        'A native or naturalized member of a state or nation who owes allegiance to its government and is entitled to its protection', 
-        'An inhabitant of a city or town, especially one entitled to its privileges or franchises.' 
-      ] 
-    } 
-  ] 
+    {
+      title: 'Display list item 1',
+      image: {
+        alt: 'alt text for image',
+        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+      },
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend quam leo, at malesuada ex viverra vitae. Nullam id felis eu lorem condimentum rutrum vitae ut felis. Nam ultricies, metus vel aliquam euismod, lacus dolor sodales neque, in laoreet tellus erat posuere purus. Fusce sit amet sem dui. In nec lacinia eros.',
+    },
+    {
+      title: 'Display list item 2',
+      image: {
+        alt: 'alt text for image',
+        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+      },
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend quam leo, at malesuada ex viverra vitae. Nullam id felis eu lorem condimentum rutrum vitae ut felis. Nam ultricies, metus vel aliquam euismod, lacus dolor sodales neque, in laoreet tellus erat posuere purus. Fusce sit amet sem dui. In nec lacinia eros.',
+    },
+    {
+      title: 'Display list item 3',
+      image: {
+        alt: 'alt text for image',
+        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+      },
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend quam leo, at malesuada ex viverra vitae. Nullam id felis eu lorem condimentum rutrum vitae ut felis. Nam ultricies, metus vel aliquam euismod, lacus dolor sodales neque, in laoreet tellus erat posuere purus. Fusce sit amet sem dui. In nec lacinia eros.',
+    },
+    {
+      title: 'Display list item 4',
+      image: {
+        alt: 'alt text for image',
+        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+      },
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend quam leo, at malesuada ex viverra vitae. Nullam id felis eu lorem condimentum rutrum vitae ut felis. Nam ultricies, metus vel aliquam euismod, lacus dolor sodales neque, in laoreet tellus erat posuere purus. Fusce sit amet sem dui. In nec lacinia eros.',
+    },
+  ],
 } %}
 ```
