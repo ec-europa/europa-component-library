@@ -6,12 +6,16 @@ order: 2
 import { Playground, Html } from '@ecl/website-components';
 import {
   displayListWithImage,
+  displayListWithImageSquare,
   displayListWithIcon,
   displayListItemWithImage,
+  displayListItemWithImageSquare,
   displayListItemWithIcon,
 } from '../demo';
 
-## Vertical display list with images
+## Vertical display list
+
+### With images (large)
 
 <Playground
   system="ec"
@@ -21,7 +25,18 @@ import {
   <Html markup={displayListWithImage} />
 </Playground>
 
-## Vertical display list with icons
+### With images (square)
+
+<Playground
+  system="ec"
+  selectedKind="components-display-list"
+  selectedStory="vertical-image"
+  selectedArgs="image_squared:true"
+>
+  <Html markup={displayListWithImageSquare} />
+</Playground>
+
+### With icons
 
 <Playground
   system="ec"
@@ -31,7 +46,9 @@ import {
   <Html markup={displayListWithIcon} />
 </Playground>
 
-## Horizontal display list with images
+## Horizontal display list
+
+### With images (large)
 
 <Playground
   system="ec"
@@ -41,7 +58,18 @@ import {
   <Html markup={displayListItemWithImage} />
 </Playground>
 
-## Horizontal display list with icons
+### With images (square)
+
+<Playground
+  system="ec"
+  selectedKind="components-display-list"
+  selectedStory="horizontal-image"
+  selectedArgs="image_squared:true"
+>
+  <Html markup={displayListItemWithImageSquare} />
+</Playground>
+
+### With icons
 
 <Playground
   system="ec"

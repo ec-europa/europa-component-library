@@ -110,7 +110,7 @@ const getArgTypes = (data, variant) => {
     argTypes.image_squared = {
       name: 'image squared',
       type: { name: 'boolean' },
-      description: 'Is the image squared or with 3:2 ratio?',
+      description: 'Is the image squared? (default ratio is 3:2)',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },
