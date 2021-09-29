@@ -17,7 +17,7 @@ npm install --save @ecl/twig-component-display-list
     - "square" (boolean) (default: false): true if the image is squared, otherwise ratio is 3:2
   - "icon" (associative array) (default: {}): predefined structure for Icon component
 - **"variant"** (optional) (string) (default: '') (horizontal, vertical)
-- **"zebra"** (optional) (boolean) (default: '') use alternate background display for vertical list
+- **"zebra"** (optional) (boolean) (default: false) use alternate background display for vertical list
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
