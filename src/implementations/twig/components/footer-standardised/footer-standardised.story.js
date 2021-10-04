@@ -5,6 +5,7 @@ import getSystem from '@ecl/builder/utils/getSystem';
 
 import specsEc from '@ecl/specs-component-footer-standardised/demo/data--ec';
 import specsEu from '@ecl/specs-component-footer-standardised/demo/data--eu';
+import logoEcDesktop from '@ecl/resources-ec-logo/logo-ec--en.svg';
 import logoEuMobile from '@ecl/resources-eu-logo/condensed-version/positive/logo-eu--en.svg';
 import logoEuDesktop from '@ecl/resources-eu-logo/standard-version/positive/logo-eu--en.svg';
 import footer from './footer-standardised.html.twig';
@@ -81,6 +82,9 @@ const prepareData = (data, args) => {
   if (data.rows[1][0][0].logo) {
     data.rows[1][0][0].logo.src_mobile = logoEuMobile;
     data.rows[1][0][0].logo.src_desktop = logoEuDesktop;
+  }
+  if (data.rows[2][0][0].logo) {
+    data.rows[2][0][0].logo.src_desktop = logoEcDesktop;
   }
 
   const res = JSON.parse(JSON.stringify(data));

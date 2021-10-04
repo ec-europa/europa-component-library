@@ -100,6 +100,11 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
   font: map.get(theme.$font, 's');
 }
 
+.ecl-footer-harmonised__logo-link {
+  display: block;
+  margin-bottom: map.get(theme.$spacing, 'm');
+}
+
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-footer-harmonised {

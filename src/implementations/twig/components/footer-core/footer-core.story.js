@@ -5,6 +5,7 @@ import getSystem from '@ecl/builder/utils/getSystem';
 
 import specsEc from '@ecl/specs-component-footer-core/demo/data--ec';
 import specsEu from '@ecl/specs-component-footer-core/demo/data--eu';
+import logoEcDesktop from '@ecl/resources-ec-logo/logo-ec--en.svg';
 import logoEuMobile from '@ecl/resources-eu-logo/condensed-version/positive/logo-eu--en.svg';
 import logoEuDesktop from '@ecl/resources-eu-logo/standard-version/positive/logo-eu--en.svg';
 import footer from './footer-core.html.twig';
@@ -15,10 +16,11 @@ const demoData = system === 'eu' ? specsEu : specsEc;
 
 const prepareData = (data) => {
   correctSvgPath(data);
-
-  if (data.rows[0][0][0].logo) {
+  if (system === 'eu') {
     data.rows[0][0][0].logo.src_mobile = logoEuMobile;
     data.rows[0][0][0].logo.src_desktop = logoEuDesktop;
+  } else {
+    data.rows[0][0][0].logo.src_desktop = logoEcDesktop;
   }
 
   return data;

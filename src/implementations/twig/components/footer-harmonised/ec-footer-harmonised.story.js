@@ -62,7 +62,9 @@ const getArgTypes = () => {
 
 const prepareDataG1 = (data, args) => {
   correctSvgPath(data);
-
+  if (data.rows[2][0][0].logo) {
+    data.rows[2][0][0].logo.src_desktop = logoEC;
+  }
   const res = JSON.parse(JSON.stringify(data));
   if (!args.hide_contact) {
     res.rows[0][1].splice(0, 1);
@@ -105,6 +107,8 @@ Group1.parameters = {
     json: { dataGroup1 },
   },
 };
+
+dataGroup2.rows[0][0][0].logo.src_desktop = logoEC;
 
 export const Group2 = () => footer(dataGroup2);
 
