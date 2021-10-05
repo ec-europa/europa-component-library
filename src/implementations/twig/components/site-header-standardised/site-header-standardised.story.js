@@ -132,13 +132,17 @@ const prepareData = (data, demo, args) => {
     data.language_selector = languageSelector;
   }
 
-  if (!args.cta_link) {
-    delete data.cta_link;
-    delete data.menu.cta_link;
-  } else {
+  if (args.cta_link) {
     data.cta_link = demo !== 'translated' ? enCtaLinkClone : frCtaLinkClone;
-    data.menu.cta_link =
-      demo !== 'translated' ? enCtaLinkClone : frCtaLinkClone;
+    if (data.menu) {
+      data.menu.cta_link =
+        demo !== 'translated' ? enCtaLinkClone : frCtaLinkClone;
+    }
+  } else {
+    delete data.cta_link;
+    if (data.menu) {
+      delete data.menu.cta_link;
+    }
   }
 
   correctSvgPath(data);
