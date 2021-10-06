@@ -1,0 +1,150 @@
+{% spaceless %}
+
+{#
+  Parameters:
+    - "id" (string) (default: '')
+    - "items" (array) (default: []): format: [
+        {
+          "content" (string)
+          "link" (string)
+        },
+        ...
+      ]
+    - "counter_label" (string) (default: 'of')
+    - "icon_path" (string) (default: '') Path to the icons file
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        },
+        ...
+      ],
+#}
+
+{# Internal properties #}
+
+{% set _id = id|default('') %}
+{% set _icon_path = icon_path|default('') %}
+{% set _counter_label = counter_label|default('of') %}
+{% set _items = items|default([]) %}
+{% set _aria_controls = _id ~ '-content' %}
+{% set _css_class = 'ecl-news-ticker' %}
+{% set _extra_attributes = [
+  'data-ecl-news-ticker="true"',
+  'data-ecl-auto-init="NewsTicker"']|join(' ')
+%}
+
+{# Internal logic - Process properties #}
+
+{% if extra_dropdown_classes is defined and extra_dropdown_classes is not empty %}
+  {% set _css_dropdown_class = _css_dropdown_class ~ ' ' ~ extra_dropdown_classes %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  {% include '@ecl/icon/icon.html.twig' with {
+    icon: {
+      path: _icon_path,
+      name: 'information',
+      size: 'm',
+    },
+    extra_classes: 'ecl-news-ticker__icon',
+  } only %}
+  {% if _items is not empty and _items is iterable %}
+  <div class="ecl-news-ticker__container">
+    <div class="ecl-news-ticker__content">
+      <ul class="ecl-news-ticker__slides" id="{{ _aria_controls }}">
+      {% for _item in _items %}
+        {% if _item.link is not empty %}
+          <li class="ecl-news-ticker__slide" aria-hidden="true" tabindex="-1">
+          {% include '@ecl/link/link.html.twig' with{
+            link: {
+              label: _item.content,
+              path: _item.link,
+            },
+            extra_classes: 'ecl-news-ticker__slide-text',
+          } only %}
+          </li>
+        {% else %}
+          <li class="ecl-news-ticker__slide">{{ _item.content }}</li>
+        {% endif %}
+      {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% endif %}
+  <div class="ecl-news-ticker__counter">
+    <span class="ecl-news-ticker__counter--current">1</span> {{ _counter_label }} {{_items|length}}
+  </div>
+  <div class="ecl-news-ticker__controls">
+    {% include '@ecl/button/button.html.twig' with {
+      type: 'button',
+      variant: 'primary',
+      icon: {
+        path: _icon_path,
+        name: 'corner-arrow',
+        size: 'm',
+        transform: 'rotate-270',
+      },
+      extra_classes: 'ecl-news-ticker__prev',
+      extra_attributes: [
+        {name: 'data-ecl-news-ticker-prev'},
+        {name: 'aria-controls', value: _aria_controls},
+        {name: 'tabindex', value: '-1'},
+        {name: 'data-controls', value: 'prev'},
+      ],
+    } only %}
+
+    {% include '@ecl/button/button.html.twig' with {
+      type: 'button',
+      variant: 'primary',
+      icon: {
+        path: _icon_path,
+        name: 'play',
+        size: 'm',
+      },
+      extra_classes: 'ecl-news-ticker__toggle',
+      extra_attributes: [
+        {name: 'data-ecl-news-ticker-toggle'},
+        {name: 'data-action', value: 'stop'},
+      ],
+    } only %}
+
+    {% include '@ecl/button/button.html.twig' with {
+    type: 'button',
+    variant: 'primary',
+    icon: {
+      path: _icon_path,
+      name: 'corner-arrow',
+      size: 'm',
+      transform: 'rotate-90',
+    },
+    extra_classes: 'ecl-news-ticker__next',
+    extra_attributes: [
+      {name: 'data-ecl-news-ticker-next'},
+      {name: 'aria-controls', value: _aria_controls},
+      {name: 'tabindex', value: '-1'},
+      {name: 'data-controls', value: 'next'},
+    ],
+  } only %}
+
+  </div>
+</div>
+
+{% endspaceless %}

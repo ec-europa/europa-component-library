@@ -50,9 +50,8 @@
     ECL.autoInit();
   }
 
-  document.addEventListener(
-    'DOMContentLoaded',
-    function () {
+  document.onreadystatechange = () => {
+    if (document.readyState === 'complete') {
       runOnPageChange();
       const callback = function (mutationsList) {
         for (let i = 0, len = mutationsList.length; i < len; i++) {
@@ -68,7 +67,6 @@
 
       // Add ecl class to body, to ensure that default css is working well
       document.body.classList.add('ecl');
-    },
-    false
-  );
+    }
+  };
 </script>
