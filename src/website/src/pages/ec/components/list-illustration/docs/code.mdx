@@ -1,0 +1,78 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import {
+  listIllustrationVerticalWithImage,
+  listIllustrationVerticalWithImageSquare,
+  listIllustrationHorizontalWithIcon,
+  listIllustrationHorizontalWithIconSquare,
+} from '../demo';
+
+## Vertical list with illustrations
+
+### With images (large)
+
+<Playground
+  system="ec"
+  selectedKind="components-list-illustration"
+  selectedStory="vertical-image"
+>
+  <Html markup={listIllustrationVerticalWithImage} />
+</Playground>
+
+### With images (square)
+
+<Playground
+  system="ec"
+  selectedKind="components-list-illustration"
+  selectedStory="vertical-image"
+  selectedArgs="image_squared:true"
+>
+  <Html markup={listIllustrationVerticalWithImageSquare} />
+</Playground>
+
+### With icons
+
+<Playground
+  system="ec"
+  selectedKind="components-list-illustration"
+  selectedStory="vertical-icon"
+>
+  <Html markup={listIllustrationVerticalWithIcon} />
+</Playground>
+
+## Horizontal list with illustrations
+
+### With images (large)
+
+<Playground
+  system="ec"
+  selectedKind="components-list-illustration"
+  selectedStory="horizontal-image"
+>
+  <Html markup={listIllustrationHorizontalWithImage} />
+</Playground>
+
+### With images (square)
+
+<Playground
+  system="ec"
+  selectedKind="components-list-illustration"
+  selectedStory="horizontal-image"
+  selectedArgs="image_squared:true"
+>
+  <Html markup={listIllustrationHorizontalWithImageSquare} />
+</Playground>
+
+### With icons
+
+<Playground
+  system="ec"
+  selectedKind="components-list-illustration"
+  selectedStory="horizontal-icon"
+>
+  <Html markup={listIllustrationHorizontalWithIcon} />
+</Playground>

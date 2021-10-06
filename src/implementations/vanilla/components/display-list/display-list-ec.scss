@@ -1,8 +1,0 @@
-@use 'sass:map';
-@use '@ecl/theme-dev/theme';
-@use 'display-list' with
-  (
-    $_title-color: map.get(theme.$color, 'grey-100'),
-    $_description-color: map.get(theme.$color, 'grey-100'),
-    $_background-color: map.get(theme.$color, 'grey-5')
-  );
