@@ -2,7 +2,8 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctSvgPath } from '@ecl/story-utils';
 
-import logoEC from '@ecl/resources-ec-logo/logo-ec--en.svg';
+import logoEcG1 from '@ecl/resources-ec-logo/negative/logo-ec--en.svg';
+import logoEc from '@ecl/resources-ec-logo/logo-ec--en.svg';
 import dataGroup1 from '@ecl/specs-component-footer-harmonised/demo/data--group1';
 import dataGroup2 from '@ecl/specs-component-footer-harmonised/demo/data--group2';
 import dataGroup3 from '@ecl/specs-component-footer-harmonised/demo/data--group3';
@@ -63,7 +64,7 @@ const getArgTypes = () => {
 const prepareDataG1 = (data, args) => {
   correctSvgPath(data);
   if (data.rows[2][0][0].logo) {
-    data.rows[2][0][0].logo.src_desktop = logoEC;
+    data.rows[2][0][0].logo.src_desktop = logoEcG1;
   }
   const res = JSON.parse(JSON.stringify(data));
   if (!args.hide_contact) {
@@ -91,7 +92,7 @@ const prepareDataG1 = (data, args) => {
 };
 
 const prepareDataG3 = (data) => {
-  data.rows[0][0][1].logos[2].logo.src = logoEC;
+  data.rows[0][0][1].logos[2].logo.src = logoEc;
 
   return data;
 };
@@ -108,7 +109,7 @@ Group1.parameters = {
   },
 };
 
-dataGroup2.rows[0][0][0].logo.src_desktop = logoEC;
+dataGroup2.rows[0][0][0].logo.src_desktop = logoEc;
 
 export const Group2 = () => footer(dataGroup2);
 
