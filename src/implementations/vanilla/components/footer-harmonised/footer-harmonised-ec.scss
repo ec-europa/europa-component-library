@@ -11,7 +11,6 @@
 
 $_separator-color: map.get(theme.$color, 'blue-50');
 $_column-gap: map.get(theme.$grid-gutter-width, 'm');
-$_logo-height: 3.5rem;
 
 /*
  * Global rules
@@ -104,10 +103,6 @@ $_logo-height: 3.5rem;
 .ecl-footer-harmonised__logo-link {
   display: block;
   margin-bottom: map.get(theme.$spacing, 'm');
-}
-
-.ecl-footer-harmonised__logo-image-desktop {
-  height: $_logo-height;
 }
 
 /* stylelint-disable-next-line order/order */
@@ -251,6 +246,7 @@ $_separator-color: map.get(theme.$color, 'blue');
 $_text-color: map.get(theme.$color, 'blue');
 $_description-color: map.get(theme.$color, 'blue');
 $_column-gap: map.get(theme.$grid-gutter-width, 'm');
+$_logo-height: 3.5rem;
 
 /*
  * Global rules
@@ -294,6 +290,10 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
   .ecl-footer-harmonised__link:focus,
   .ecl-footer-harmonised__link:visited {
     color: $_text-color;
+  }
+
+  .ecl-footer-harmonised__logo-image-desktop {
+    height: $_logo-height;
   }
 
   /* stylelint-disable-next-line order/order */
