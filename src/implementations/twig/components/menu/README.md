@@ -21,7 +21,6 @@ npm install --save @ecl/twig-component-menu
     "label": (string) (default: '')
     "path": (string) (default: '')
     "is_current": (boolean) (optional),
-- **"site_name"** (string) (default: ''): Name of the website (used only on mobile)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated) for the nav element
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes for the nav element
   - "name" (string) Attribute name, eg. 'data-test'
@@ -31,36 +30,36 @@ npm install --save @ecl/twig-component-menu
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl/menu/menu.html.twig' with { 
-  title: 'Menu', 
-  close: 'Close', 
-  back: 'Back', 
-  icon_path: '/icons.svg', 
-  site_name: 'Site name', 
-  menu_link: './example.com', 
-  items: [ 
-    { 
-      label: "Menu item", 
-      path: "example", 
-      is_current: false, 
-      children: [ 
+{% include '@ecl/menu/menu.html.twig' with {
+  title: 'Menu',
+  close: 'Close',
+  back: 'Back',
+  icon_path: '/icons.svg',
+  site_name: 'Site name',
+  menu_link: './example.com',
+  items: [
+    {
+      label: "Menu item",
+      path: "example",
+      is_current: false,
+      children: [
         {
           label: "Item 1.1",
           path: "/example"
         },
         ...
-        ] 
-      } 
-      ... 
-      ], 
-    } 
-  ], 
-  extra_classes: "ecl-menu-extra-class, 
-  extra_attributes: [ 
-    { 
-      name:"data-ecl-menu", 
-    }, 
-    ... 
-    ] 
-} %} 
+        ]
+      }
+      ...
+      ],
+    }
+  ],
+  extra_classes: "ecl-menu-extra-class,
+  extra_attributes: [
+    {
+      name:"data-ecl-menu",
+    },
+    ...
+    ]
+} %}
 ```

@@ -18,8 +18,6 @@ $_menu-dropdown-item-hover-color: null !default;
 $_menu-dropdown-shadow: null !default;
 $_menu-expanded-background: null !default;
 $_menu-header-horizontal-padding: null !default;
-$_menu-site-name-font: null !default;
-$_menu-site-name-font-weight: null !default;
 $_menu-item-border: null !default;
 $_menu-item-weight: null !default;
 $_menu-item-hover-background: null !default;
@@ -169,12 +167,6 @@ $_mobile-item-hover-background: null !default;
   flex-direction: column;
   justify-content: center;
   order: 1;
-}
-
-.ecl-menu__site-name {
-  color: map.get(theme.$color, 'white');
-  font: $_menu-site-name-font;
-  font-weight: $_menu-site-name-font-weight;
 }
 
 .ecl-menu__open,

@@ -21,8 +21,22 @@ $_logo-width-lg: 15.1rem;
 .ecl-site-header-harmonised {
   background-color: map.get(theme.$color, 'white-100');
   margin: 0;
-}
+  position: relative;
+  /* stylelint-disable plugin/selector-bem-pattern */
+  .ecl-menu {
+    background: transparent;
+    bottom: 0;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+  }
 
+  .ecl-menu__open,
+  .ecl-menu__closed {
+    margin-bottom: 3px;
+  }
+}
+/* stylelint-enable plugin/selector-bem-pattern */
 .ecl-site-header-harmonised__container {
   display: flex;
   flex-direction: column;
@@ -159,6 +173,7 @@ $_logo-width-lg: 15.1rem;
   background-color: map.get(theme.$color, 'blue');
   color: map.get(theme.$color, 'white');
   font: map.get(theme.$font, '2xl');
+  min-height: 1.75rem;
   padding: map.get(theme.$spacing, 'm') 0;
 }
 
@@ -178,6 +193,14 @@ $_logo-width-lg: 15.1rem;
 }
 
 @include breakpoints.up('l') {
+  .ecl-site-header-harmonised {
+    /* stylelint-disable-next-line plugin/selector-bem-pattern */
+    .ecl-menu {
+      background-color: map.get(theme.$color, 'blue-100');
+      position: static;
+    }
+  }
+
   .ecl-site-header-harmonised__container {
     align-items: flex-end;
     flex-direction: row;
@@ -285,8 +308,12 @@ $_logo-width-lg: 15.1rem;
 
   .ecl-site-header-harmonised__banner {
     font: map.get(theme.$font, '3xl');
-    padding-bottom: map.get(theme.$spacing, 'l');
-    padding-top: map.get(theme.$spacing, 'l');
+    min-height: 0;
+    padding: 0;
+  }
+
+  .ecl-site-header-harmonised__site-name {
+    padding: map.get(theme.$spacing, 'l') 0;
   }
 }
 

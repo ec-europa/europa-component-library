@@ -33,10 +33,10 @@ const getArgs = (data) => {
     language_selector: true,
     menu: true,
     site_name: data.site_name || '',
-    cta_link: false,
   };
   if (system === 'ec') {
     args.banner_top = true;
+    args.cta_link = false;
   }
 
   return args;
@@ -44,7 +44,15 @@ const getArgs = (data) => {
 
 const getArgTypes = () => {
   const argTypes = {};
-
+  argTypes.site_name = {
+    name: 'site name',
+    type: { name: 'string', required: true },
+    description: 'The site name',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+    },
+  };
   argTypes.login = {
     type: 'boolean',
     description: 'Toggle login box visibility',
@@ -72,6 +80,18 @@ const getArgTypes = () => {
         defaultValue: { summary: '{}' },
       },
     };
+    argTypes.cta_link = {
+      name: 'call to action',
+      type: { name: 'boolean' },
+      description: 'Call to action link (optional)',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+      control: {
+        type: 'boolean',
+      },
+    };
   }
   argTypes.menu = {
     type: 'boolean',
@@ -79,29 +99,6 @@ const getArgTypes = () => {
     table: {
       type: { summary: 'object' },
       defaultValue: { summary: '{}' },
-    },
-  };
-  argTypes.site_name = {
-    name: 'site name',
-    type: { name: 'string', required: true },
-    description: 'The site name',
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: '' },
-      category: 'Content',
-    },
-  };
-  argTypes.cta_link = {
-    name: 'call to action',
-    type: { name: 'boolean' },
-    description: 'Call to action link (optional)',
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-      category: 'Content',
-    },
-    control: {
-      type: 'boolean',
     },
   };
 

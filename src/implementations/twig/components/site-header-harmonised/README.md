@@ -14,7 +14,7 @@ npm install --save @ecl/twig-component-site-header-harmonised
 - **"banner"** (string): The site name
 - **"banner_top"** (string) OR (object with Link component in property): Class name
 - **"icon_file_path"** (string) (default: ''): file containing the svg icons
-- **"site_name"** (string) (default: ''): Site name (used in group3 and group1 without menu)
+- **"site_name"** (string) (default: ''): Site name (used in group3 and group1)
 - **"logo"** (associative array) (default: predefined structure): Logo image settings. format:
   - "title" (string) (default: ''): Logo title attribute.
   - "alt" (string) (default: ''): Logo alt attribute.
@@ -56,62 +56,62 @@ npm install --save @ecl/twig-component-site-header-harmonised
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl/site-header-harmonised/site-header-harmonised.html.twig' with { 
-  group: 'group1', 
-  banner_top: 'Class name', 
-  banner: 'Site name', 
-  menu: true, 
-  icon_file_path: '/path-to-the-icons-file', 
-  logo: { 
-    title: 'European Commission', 
-    alt: 'European Commission logo', 
-    href: '/example', 
-    src: 'dist/images/logo-ec--en.svg', 
-  }, 
-  language_selector: { 
-    href: '/example', 
-    name: 'English', 
-    code: 'en', 
-    overlay: { 
-      close_label: 'Close', 
-      title: 'Select your language', 
-      items: [ 
-        { lang: 'bg', label: 'български', path: '/example#language_bg' }, 
-        { lang: 'es', label: 'español', path: '/example#language_es', active: true }, 
-        ... 
-      ], 
-    }, 
-  }, 
-  login_toggle: { 
-    label_not_logged: 'Log in', 
-    href_not_logged: '/example', 
-    label_logged: 'Logged in', 
-    href_logged: '/example', 
-  }, 
-  login_box: { 
-    id: 'login-box-id', 
-    description: 'Logged in as <last name>, <first name>', 
-    label: 'Log out', 
-    href: '/example', 
-  }, 
-  search_toggle: { 
-    label: 'Search', 
-    href: '#', 
-  }, 
-  search_form: { 
-    text_input: { 
-      id: 'input-search', 
-      name: 'search', 
-    }, 
-    button: { 
-      label: 'Search', 
-    }, 
-  }, 
-  extra_classes: 'my-extra-class-1 my-extra-class-2', 
-  extra_attributes: [ 
-    { name: 'data-test', value: 'data-test-value' }, 
-    { name: 'data-test-1', value: 'data-test-value-1' }, 
-    ... 
-  ], 
-} %} 
+{% include '@ecl/site-header-harmonised/site-header-harmonised.html.twig' with {
+  group: 'group1',
+  banner_top: 'Class name',
+  banner: 'Site name',
+  menu: true,
+  icon_file_path: '/path-to-the-icons-file',
+  logo: {
+    title: 'European Commission',
+    alt: 'European Commission logo',
+    href: '/example',
+    src: 'dist/images/logo-ec--en.svg',
+  },
+  language_selector: {
+    href: '/example',
+    name: 'English',
+    code: 'en',
+    overlay: {
+      close_label: 'Close',
+      title: 'Select your language',
+      items: [
+        { lang: 'bg', label: 'български', path: '/example#language_bg' },
+        { lang: 'es', label: 'español', path: '/example#language_es', active: true },
+        ...
+      ],
+    },
+  },
+  login_toggle: {
+    label_not_logged: 'Log in',
+    href_not_logged: '/example',
+    label_logged: 'Logged in',
+    href_logged: '/example',
+  },
+  login_box: {
+    id: 'login-box-id',
+    description: 'Logged in as <last name>, <first name>',
+    label: 'Log out',
+    href: '/example',
+  },
+  search_toggle: {
+    label: 'Search',
+    href: '#',
+  },
+  search_form: {
+    text_input: {
+      id: 'input-search',
+      name: 'search',
+    },
+    button: {
+      label: 'Search',
+    },
+  },
+  extra_classes: 'my-extra-class-1 my-extra-class-2',
+  extra_attributes: [
+    { name: 'data-test', value: 'data-test-value' },
+    { name: 'data-test-1', value: 'data-test-value-1' },
+    ...
+  ],
+} %}
 ```

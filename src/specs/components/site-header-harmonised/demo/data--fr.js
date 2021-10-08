@@ -2,6 +2,7 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
+  site_name: 'Nom du site',
   logo: {
     title: 'Union Européenne',
     alt: 'Logo Union Européenne',
