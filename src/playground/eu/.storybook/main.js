@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 const publicUrl = process.env.PUBLIC_URL || '';
-const stories = ['../../../implementations/twig/**/!(eu*).story.js'];
+const stories = ['../../../implementations/twig/**/!(ec*).story.js'];
 
 const addons = [
   '@storybook/addon-docs',

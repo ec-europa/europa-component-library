@@ -6,6 +6,13 @@ module.exports = {
     [
       [
         {
+          logo: {
+            title: 'European Commission',
+            alt: 'European Commission logo',
+            language: 'en',
+            path: exampleLink,
+            src_desktop: '/logo-ec.svg',
+          },
           title: {
             link: {
               label: 'European Commission',
