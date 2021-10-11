@@ -100,7 +100,8 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
   color: $_text-color;
 }
 /* stylelint-disable-next-line plugin/selector-bem-pattern */
-.ecl-footer-core__logo-image-desktop {
+.ecl-footer-core__logo-link {
+  display: inline-block;
   margin-bottom: map.get(theme.$spacing, 'm');
 }
 
@@ -168,13 +169,13 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
     font: map.get(theme.$font-prolonged, 's');
   }
 
-  .ecl-footer-core__logo-image-desktop {
+  .ecl-footer-core__logo-link {
     margin-bottom: map.get(theme.$spacing, 'xl');
   }
 }
 
 @include breakpoints.up('xl') {
-  .ecl-footer-core__logo-image-desktop {
+  .ecl-footer-core__logo-link {
     margin-bottom: map.get(theme.$spacing, 'l');
   }
 }
