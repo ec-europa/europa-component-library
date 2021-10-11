@@ -35,7 +35,6 @@ npm install --save @ecl/twig-component-menu
   close: 'Close',
   back: 'Back',
   icon_path: '/icons.svg',
-  site_name: 'Site name',
   menu_link: './example.com',
   items: [
     {
