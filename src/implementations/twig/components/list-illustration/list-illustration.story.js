@@ -116,7 +116,7 @@ const getArgTypes = (data, variant) => {
   if (data.items[0].icon) {
     argTypes.icon = {
       name: 'icon (generic)',
-      description: 'The generic icon used in the list item',
+      description: 'The generic icon used in the list item (first item)',
       type: { name: 'select' },
       options: iconsAll,
       table: {
@@ -127,7 +127,7 @@ const getArgTypes = (data, variant) => {
     };
     argTypes.icon_flag = {
       name: 'icon (flag)',
-      description: 'The flag icon used in the list item',
+      description: 'The flag icon used in the list item (first item)',
       type: { name: 'select' },
       options: iconsFlag,
       table: {
