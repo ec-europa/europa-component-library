@@ -20,11 +20,11 @@ export const listIllustrationVerticalWithIcon = template(
 );
 
 export const listIllustrationHorizontalWithImage = template(
-  correctSvgPath({ ...dataImage, column: 3 })
+  correctSvgPath({ ...dataImage, column: 3, zebra: false })
 );
 export const listIllustrationHorizontalWithImageSquare = template(
-  correctSvgPath({ ...dataImageSquare, column: 3 })
+  correctSvgPath({ ...dataImageSquare, column: 3, zebra: false })
 );
 export const listIllustrationHorizontalWithIcon = template(
-  correctSvgPath({ ...dataIcon, column: 3 })
+  correctSvgPath({ ...dataIcon, column: 3, zebra: false })
 );

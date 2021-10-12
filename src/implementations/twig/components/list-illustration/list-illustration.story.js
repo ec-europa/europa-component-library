@@ -72,7 +72,7 @@ const getArgTypes = (data, variant) => {
   argTypes.title = {
     name: 'title',
     type: { name: 'string', required: true },
-    description: 'The title of the list item',
+    description: 'The title of the list item (first item)',
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
@@ -82,7 +82,7 @@ const getArgTypes = (data, variant) => {
   argTypes.description = {
     name: 'description',
     type: { name: 'string' },
-    description: 'The description of the list item',
+    description: 'The description of the list item (first item)',
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
@@ -94,7 +94,7 @@ const getArgTypes = (data, variant) => {
     argTypes.image = {
       name: 'image',
       type: { name: 'string' },
-      description: 'The url of the of the list item image',
+      description: 'The url of the of the list item image (first item)',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
