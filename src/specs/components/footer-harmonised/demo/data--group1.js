@@ -167,6 +167,13 @@ module.exports = {
               path: 'https://ec.europa.eu/info/index_en',
             },
           },
+          logo: {
+            title: 'European Commission',
+            alt: 'European Commission logo',
+            language: 'en',
+            path: exampleLink,
+            src_desktop: '/logo-ec.svg',
+          },
         },
       ],
       [

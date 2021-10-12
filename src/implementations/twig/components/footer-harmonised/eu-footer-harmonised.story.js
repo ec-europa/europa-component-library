@@ -14,11 +14,20 @@ const getArgs = () => {
     hide_contact: true,
     hide_follow: true,
     hide_relate_site: true,
+    hide_logo: true,
   };
 };
 
 const getArgTypes = () => {
   return {
+    hide_logo: {
+      name: 'logo',
+      type: { name: 'boolean' },
+      description: 'Show logo',
+      table: {
+        category: 'Optional sections',
+      },
+    },
     hide_contact: {
       name: 'contact site name',
       type: { name: 'boolean' },
@@ -49,12 +58,13 @@ const getArgTypes = () => {
 const prepareDataG1 = (data, args) => {
   correctSvgPath(data);
 
-  if (data.rows[1][0][0].logo) {
-    data.rows[1][0][0].logo.src_mobile = logoEuMobile;
-    data.rows[1][0][0].logo.src_desktop = logoEuDesktop;
-  }
-
   const res = JSON.parse(JSON.stringify(data));
+  if (args.hide_logo) {
+    res.rows[1][0][0].logo.src_mobile = logoEuMobile;
+    res.rows[1][0][0].logo.src_desktop = logoEuDesktop;
+  } else {
+    delete res.rows[1][0][0].logo;
+  }
   if (!args.hide_contact) {
     res.rows[0][1].splice(0, 1);
   }

@@ -106,6 +106,8 @@ module.exports = {
             alt: 'European Union logo',
             language: 'en',
             path: exampleLink,
+            src_desktop: '/logo-eu.svg',
+            src_mobile: '/logo-mobile-eu.svg',
           },
         },
       ],
