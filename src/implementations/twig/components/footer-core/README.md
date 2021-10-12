@@ -10,7 +10,7 @@ npm install --save @ecl/twig-component-footer-core
 
 - **"rows"** (array of objects) (default: [])
   - "section_class_name" (optional) (string) (default: '')
-  - "logo" (EU only)
+  - "logo"
     - "alt" (string) alt attribute for the logo link
     - "path" (string) logo link path
     - "language" (string) Language code
@@ -35,59 +35,59 @@ npm install --save @ecl/twig-component-footer-core
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl/footer-core/footer-core.html.twig' with { 
-  sections: [ 
-    { 
-      title: { 
-        link: { 
-          label: 'European Commission website', 
-          path: '#', 
-        }, 
-      }, 
-      description: 
-        'This site is managed by the Directorate-General for Communication', 
-    }, 
-    { 
-      section_class_name: 'ecl-footer-core__section--separator', 
-      links: [ 
-        { 
-          link: { 
-            label: 'Standalone link', 
-            path: 'http://google.com', 
-          }, 
-        }, 
-        ... 
-      ], 
-      list_class_name: 'ecl-footer-core__list--columns', 
-    }, 
+{% include '@ecl/footer-core/footer-core.html.twig' with {
+  sections: [
+    {
+      title: {
+        link: {
+          label: 'European Commission website',
+          path: '#',
+        },
+      },
+      description:
+        'This site is managed by the Directorate-General for Communication',
+    },
+    {
+      section_class_name: 'ecl-footer-core__section--separator',
+      links: [
+        {
+          link: {
+            label: 'Standalone link',
+            path: 'http://google.com',
+          },
+        },
+        ...
+      ],
+      list_class_name: 'ecl-footer-core__list--columns',
+    },
     {  
-      links: [ 
-        { 
-          link: { 
-            label: 'Follow the European Commission on social media', 
-            path: '/example', 
-            icon_position: 'after', 
-            }, 
-            icon: { 
-              path: '/path-to-the-icon-file', 
-              name: 'external', 
-            }, 
-          }, 
-        }, 
-        ... 
-      ], 
-    }, 
-    { 
-      links: [ 
-        { 
-          link: { 
-            label: 'Language policy', 
-            path: '/example', 
-          }, 
-        }, 
-        ... 
-      ], 
-    }, 
-  ], 
+      links: [
+        {
+          link: {
+            label: 'Follow the European Commission on social media',
+            path: '/example',
+            icon_position: 'after',
+            },
+            icon: {
+              path: '/path-to-the-icon-file',
+              name: 'external',
+            },
+          },
+        },
+        ...
+      ],
+    },
+    {
+      links: [
+        {
+          link: {
+            label: 'Language policy',
+            path: '/example',
+          },
+        },
+        ...
+      ],
+    },
+  ],
 } %}
 ```

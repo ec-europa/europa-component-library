@@ -3,11 +3,11 @@
 {#
   Parameters:
   - "rows" (array of objects) (default: [])
-    - "logo" (EU only)
+    - "logo"
       - "alt" (string) alt attribute for the logo link
       - "path" (string) logo link path
       - "language" (string) Language code
-      - "src_mobile" (string) Path the mobile logo
+      - "src_mobile" (string) Path the mobile logo (only for EU)
       - "src_desktop" (string) Path to the desktop logo
     - "title" (optional) (string) OR (object with Link component in property)
     - "title_with_separator" (optional) (bolean) (default: false)
@@ -67,6 +67,7 @@
           {# logo (EU) #}
           {% if _sections.logo is defined and _sections.logo is not empty %}
             {% set _label %}
+            {% if _sections.logo.src_mobile is defined and _sections.logo.src_mobile is not empty %}
               <img
                 {% if _sections.logo.alt is defined and _sections.logo.alt is not empty %}
                 alt="{{ _sections.logo.alt }}"
@@ -75,6 +76,7 @@
                 class="ecl-footer-core__logo-image-mobile"
                 src="{{ _sections.logo.src_mobile }}"
               />
+            {% endif %}
               <img
                 {% if _sections.logo.alt is defined and _sections.logo.alt is not empty %}
                 alt="{{ _sections.logo.alt }}"

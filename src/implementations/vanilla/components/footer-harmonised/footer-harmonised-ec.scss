@@ -100,6 +100,11 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
   font: map.get(theme.$font, 's');
 }
 
+.ecl-footer-harmonised__logo-link {
+  display: inline-block;
+  margin-bottom: map.get(theme.$spacing, 'm');
+}
+
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-footer-harmonised {
@@ -241,6 +246,7 @@ $_separator-color: map.get(theme.$color, 'blue');
 $_text-color: map.get(theme.$color, 'blue');
 $_description-color: map.get(theme.$color, 'blue');
 $_column-gap: map.get(theme.$grid-gutter-width, 'm');
+$_logo-height: 3.5rem;
 
 /*
  * Global rules
@@ -286,6 +292,10 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
     color: $_text-color;
   }
 
+  .ecl-footer-harmonised__logo-image-desktop {
+    height: $_logo-height;
+  }
+
   /* stylelint-disable-next-line order/order */
   @include breakpoints.up('l') {
     padding-top: 0;
@@ -306,8 +316,8 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
 /* Group 3 */
 $_bg-color: map.get(theme.$color, 'grey-5');
 $_text-color: map.get(theme.$color, 'grey-75');
-$_logo-height-xs: 2rem;
-$_logo-height-lg: 2.5rem;
+$_logo-g3-height-xs: 2rem;
+$_logo-g3-height-lg: 2.5rem;
 
 /*
  * Global rules
@@ -357,7 +367,7 @@ $_logo-height-lg: 2.5rem;
   }
 
   .ecl-footer-harmonised__logo {
-    height: $_logo-height-xs;
+    height: $_logo-g3-height-xs;
     vertical-align: bottom;
   }
 
@@ -400,7 +410,7 @@ $_logo-height-lg: 2.5rem;
     }
 
     .ecl-footer-harmonised__logo {
-      height: $_logo-height-lg;
+      height: $_logo-g3-height-lg;
     }
   }
 }

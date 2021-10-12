@@ -5,6 +5,7 @@ import getSystem from '@ecl/builder/utils/getSystem';
 
 import specsEc from '@ecl/specs-component-footer-standardised/demo/data--ec';
 import specsEu from '@ecl/specs-component-footer-standardised/demo/data--eu';
+import logoEc from '@ecl/resources-ec-logo/negative/logo-ec--en.svg';
 import logoEuMobile from '@ecl/resources-eu-logo/condensed-version/positive/logo-eu--en.svg';
 import logoEuDesktop from '@ecl/resources-eu-logo/standard-version/positive/logo-eu--en.svg';
 import footer from './footer-standardised.html.twig';
@@ -18,6 +19,7 @@ const getArgs = () => {
     hide_contact: true,
     hide_follow: true,
     hide_relate_site: true,
+    hide_logo: true,
   };
   if (system !== 'eu') {
     args.hide_about = true;
@@ -35,6 +37,15 @@ const getArgTypes = () => {
       system === 'eu'
         ? 'Show "Contact site name" section'
         : 'Show "Contact us" section',
+    table: {
+      category: 'Optional sections',
+    },
+  };
+
+  argTypes.hide_logo = {
+    name: 'logo',
+    type: { name: 'boolean' },
+    description: 'Show logo',
     table: {
       category: 'Optional sections',
     },
@@ -78,12 +89,19 @@ const getArgTypes = () => {
 const prepareData = (data, args) => {
   correctSvgPath(data);
 
-  if (data.rows[1][0][0].logo) {
-    data.rows[1][0][0].logo.src_mobile = logoEuMobile;
-    data.rows[1][0][0].logo.src_desktop = logoEuDesktop;
-  }
-
   const res = JSON.parse(JSON.stringify(data));
+  if (system === 'eu') {
+    res.rows[1][0][0].logo.src_mobile = logoEuMobile;
+    res.rows[1][0][0].logo.src_desktop = logoEuDesktop;
+  } else {
+    res.rows[2][0][0].logo.src_desktop = logoEc;
+  }
+  if (!args.hide_logo && res.rows[1][0][0].logo) {
+    delete res.rows[1][0][0].logo;
+  }
+  if (!args.hide_logo && res.rows[2]) {
+    delete res.rows[2][0][0].logo;
+  }
   if (!args.hide_contact) {
     res.rows[0][1].splice(0, 1);
   }

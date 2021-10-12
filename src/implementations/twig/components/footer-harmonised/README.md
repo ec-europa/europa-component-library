@@ -24,7 +24,7 @@ npm install --save @ecl/twig-component-footer-harmonised
     "title": (string) (default: '') Title attribute
     "alt": (string) (default: '') Alternative text
     "src": (string) (default: '') Url of the image
-  - "logo" (EU only)
+  - "logo"
     - "alt" (string) alt attribute for the logo link
     - "path" (string) logo link path
     - "language" (string) Language code
@@ -39,71 +39,71 @@ npm install --save @ecl/twig-component-footer-harmonised
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl/footer-harmonised/footer-harmonised.html.twig' with { 
-  group: 'group1', 
-  sections: [ 
-    { 
-      type: 'site_name', 
+{% include '@ecl/footer-harmonised/footer-harmonised.html.twig' with {
+  group: 'group1',
+  sections: [
+    {
+      type: 'site_name',
       section_id: 1,
-      title: { 
-        link: { 
-          label: "Site name", 
-          path: "/example" 
-        } 
-      }, 
-      description: 
-        'This site is managed by the Directorate-General for "DG identification"', 
-      }, 
-      { 
-        section_id: 2, 
-        title: 'Contact us', 
-        title_class_name: 'ecl-footer-harmonised__title--separator', 
-        links: [ 
-          { 
-            link: { 
-              label: 'Contact information of the DG', 
-              path: '/example', 
-            }, 
-          }, 
-        ], 
-      }, 
-      { 
-        section_id: 2, 
-        title: 'Follow us on', 
-        title_class_name: 'ecl-footer-harmonised__title--separator', 
-        links: [ 
-          { 
-            link: { 
-              label: 'Facebook', 
-              path: '/example', 
-              icon_position: 'before', 
-              icon: { 
-                path: '/path-to-the-icon-file', 
-                name: 'facebook', 
-                size: 'xs', 
-              }, 
-            }, 
-            ... 
-          }, 
-        ], 
-        list_class_name: 'ecl-footer-harmonised__list--inline', 
-      }, 
-      { 
+      title: {
+        link: {
+          label: "Site name",
+          path: "/example"
+        }
+      },
+      description:
+        'This site is managed by the Directorate-General for "DG identification"',
+      },
+      {
+        section_id: 2,
+        title: 'Contact us',
+        title_class_name: 'ecl-footer-harmonised__title--separator',
+        links: [
+          {
+            link: {
+              label: 'Contact information of the DG',
+              path: '/example',
+            },
+          },
+        ],
+      },
+      {
+        section_id: 2,
+        title: 'Follow us on',
+        title_class_name: 'ecl-footer-harmonised__title--separator',
+        links: [
+          {
+            link: {
+              label: 'Facebook',
+              path: '/example',
+              icon_position: 'before',
+              icon: {
+                path: '/path-to-the-icon-file',
+                name: 'facebook',
+                size: 'xs',
+              },
+            },
+            ...
+          },
+        ],
+        list_class_name: 'ecl-footer-harmonised__list--inline',
+      },
+      {
         section_id: 3,
-        content_before: 'More information on:', 
-        links: [ 
-          { 
-            link: { 
-              label: 'Related link 1', 
-              path: '/example', 
-            }, 
-            ... 
-          }, 
-        ], 
-        list_class_name: 'ecl-footer-harmonised__list--condensed', 
-      }, 
-      ... 
-    ] 
-  } 
+        content_before: 'More information on:',
+        links: [
+          {
+            link: {
+              label: 'Related link 1',
+              path: '/example',
+            },
+            ...
+          },
+        ],
+        list_class_name: 'ecl-footer-harmonised__list--condensed',
+      },
+      ...
+    ]
+  }
 %}
 ```
