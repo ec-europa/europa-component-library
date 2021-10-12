@@ -10,7 +10,7 @@ npm install --save @ecl/twig-component-footer-standardised
 
 - **"rows"** (array of objects) (default: [])
   - "section_class_name" (optional) (string) (default: '')
-  - "logo" (EU only)
+  - "logo"
     - "alt" (string) alt attribute for the logo link
     - "path" (string) logo link path
     - "language" (string) Language code
@@ -34,75 +34,75 @@ npm install --save @ecl/twig-component-footer-standardised
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl/footer-standardised/footer-standardised.html.twig' with { 
-  rows: [ 
-    [ 
-      [ 
-        { 
-          title: { 
-            link: { 
-              label: 'Site name', 
-              path: '/example', 
-            }, 
-          }, 
-          description: 
-            'This site is managed by the Directorate-General for "DG identification"', 
-        }, 
-      ], 
-      [ 
-        { 
-          title: 'Contact us', 
-          links: [ 
-            { 
-              link: { 
-                label: 'Contact information of the DG', 
-                path: '/example', 
-                aria_label: 'Link to Contact information of the DG', 
-              }, 
-            }, 
-          ], 
-          title_class_name: 'ecl-footer-standardised__title--separator', 
-        }, 
-        { 
-          title: 'Follow us on', 
-          links: [ 
-            { 
-              link: { 
-                label: 'Facebook', 
-                path: '/example', 
-                aria_label: 'Link to Facebook', 
-                icon_position: 'before', 
-              }, 
-              icon: { 
-                path: '/icons.svg', 
-                name: 'facebook', 
-                size: 'xs', 
-              }, 
-            }, 
-            ... 
-          ], 
-          list_class_name: 'ecl-footer-standardised__list--inline', 
-          title_class_name: 'ecl-footer-standardised__title--separator', 
-        }, 
-      ], 
-      [ 
-        { 
-          title: 'About us', 
-          links: [ 
-            { 
-              link: { 
-                label: 'Information about the DG', 
-                path: '/example', 
-                aria_label: 'Link to Information about the DG', 
-              }, 
-            }, 
-          ], 
-          title_class_name: 'ecl-footer-standardised__title--separator', 
-        }, 
+{% include '@ecl/footer-standardised/footer-standardised.html.twig' with {
+  rows: [
+    [
+      [
+        {
+          title: {
+            link: {
+              label: 'Site name',
+              path: '/example',
+            },
+          },
+          description:
+            'This site is managed by the Directorate-General for "DG identification"',
+        },
+      ],
+      [
+        {
+          title: 'Contact us',
+          links: [
+            {
+              link: {
+                label: 'Contact information of the DG',
+                path: '/example',
+                aria_label: 'Link to Contact information of the DG',
+              },
+            },
+          ],
+          title_class_name: 'ecl-footer-standardised__title--separator',
+        },
+        {
+          title: 'Follow us on',
+          links: [
+            {
+              link: {
+                label: 'Facebook',
+                path: '/example',
+                aria_label: 'Link to Facebook',
+                icon_position: 'before',
+              },
+              icon: {
+                path: '/icons.svg',
+                name: 'facebook',
+                size: 'xs',
+              },
+            },
+            ...
+          ],
+          list_class_name: 'ecl-footer-standardised__list--inline',
+          title_class_name: 'ecl-footer-standardised__title--separator',
+        },
+      ],
+      [
+        {
+          title: 'About us',
+          links: [
+            {
+              link: {
+                label: 'Information about the DG',
+                path: '/example',
+                aria_label: 'Link to Information about the DG',
+              },
+            },
+          ],
+          title_class_name: 'ecl-footer-standardised__title--separator',
+        },
         ...
       ],
     ],
-    ... 
+    ...
   ]
 %}
 ```
