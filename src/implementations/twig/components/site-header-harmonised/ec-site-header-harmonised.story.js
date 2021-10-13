@@ -21,12 +21,13 @@ const logo = { ...dataGroup3.logo };
 const partnership =
   'https://inno-ecl.s3.amazonaws.com/media/examples/placeholder.svg';
 
-const getArgs = (variant) => {
+const getArgs = (data, variant) => {
   const args = {};
 
   if (variant === 'group1') {
     args.login = true;
     args.className = true;
+    args.site_name = data.site_name;
   }
   if (variant === 'group3') {
     args.partnership = true;
@@ -42,6 +43,15 @@ const getArgs = (variant) => {
 const getArgTypes = (variant) => {
   const argTypes = {};
   if (variant === 'group1') {
+    argTypes.site_name = {
+      name: 'site name',
+      type: { name: 'string', required: true },
+      description: 'The site name',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+      },
+    };
     argTypes.login = {
       type: { name: 'boolean' },
       description: 'Toggle login box visibility',
@@ -101,6 +111,10 @@ const getArgTypes = (variant) => {
 };
 
 const prepareData = (data, variant, args) => {
+  if (variant === 'group1') {
+    data.site_name = args.site_name;
+  }
+
   if (!args.login && variant === 'group1') {
     delete data.login_box;
   } else if (args.login && !data.login_box) {
@@ -158,7 +172,7 @@ export const Group1 = (args) =>
   siteHeaderHarmonised(prepareData(dataGroup1, 'group1', args));
 
 Group1.storyName = 'group 1';
-Group1.args = getArgs('group1');
+Group1.args = getArgs(dataGroup1, 'group1');
 Group1.argTypes = getArgTypes('group1');
 Group1.parameters = { notes: { markdown: notes, json: dataGroup1 } };
 
@@ -166,7 +180,7 @@ export const Group2 = (args) =>
   siteHeaderHarmonised(prepareData(dataGroup2, 'group2', args));
 
 Group2.storyName = 'group 2';
-Group2.args = getArgs('group2');
+Group2.args = getArgs(dataGroup2, 'group2');
 Group2.argTypes = getArgTypes('group2');
 Group2.parameters = { notes: { markdown: notes, json: dataGroup2 } };
 
@@ -174,6 +188,6 @@ export const Group3 = (args) =>
   siteHeaderHarmonised(prepareData(dataGroup3, 'group3', args));
 
 Group3.storyName = 'group 3';
-Group3.args = getArgs('group3');
+Group3.args = getArgs(dataGroup3, 'group3');
 Group3.argTypes = getArgTypes('group3');
 Group3.parameters = { notes: { markdown: notes, json: dataGroup3 } };

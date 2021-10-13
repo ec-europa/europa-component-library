@@ -21,6 +21,25 @@ $_search-width-xl: 31.5rem;
 .ecl-site-header-standardised {
   background-color: map.get(theme.$color, 'white-100');
   margin: 0;
+  position: relative;
+
+  .ecl-menu {
+    background: transparent;
+    bottom: 0;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  .ecl-menu__open,
+  .ecl-menu__closed {
+    margin-bottom: 3px;
+  }
+
+  .ecl-link--cta {
+    margin-top: map.get(theme.$spacing, 's');
+    width: max-content;
+  }
 }
 
 .ecl-site-header-standardised__container {
@@ -167,7 +186,17 @@ $_search-width-xl: 31.5rem;
 }
 
 .ecl-site-header-standardised__banner {
-  display: none;
+  background-color: map.get(theme.$color, 'blue-100');
+  color: map.get(theme.$color, 'white-100');
+  display: block;
+  font: map.get(theme.$font, '2xl');
+  min-height: 1.75rem;
+  padding: map.get(theme.$spacing, 'm') 0;
+
+  .ecl-container {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 // stylelint-disable plugin/selector-bem-pattern
@@ -208,6 +237,18 @@ $_search-width-xl: 31.5rem;
 }
 
 @include breakpoints.up('l') {
+  .ecl-site-header-standardised {
+    .ecl-link--cta {
+      align-self: start;
+      margin: map.get(theme.$spacing, 'l') 0;
+    }
+
+    .ecl-menu {
+      background-color: map.get(theme.$color, 'blue-100');
+      position: static;
+    }
+  }
+
   .ecl-site-header-standardised__container {
     align-items: flex-end;
     flex-direction: row;
@@ -215,21 +256,10 @@ $_search-width-xl: 31.5rem;
     padding-top: map.get(theme.$spacing, 'l');
   }
 
-  .ecl-site-header-standardised__banner {
-    background-color: map.get(theme.$color, 'blue-100');
-    color: map.get(theme.$color, 'white-100');
-    display: block;
-    font: map.get(theme.$font, '3xl');
-    padding: map.get(theme.$spacing, 'l') 0;
-
-    .ecl-container {
-      display: flex;
-    }
-  }
-
   .ecl-site-header-standardised__site-name {
     align-self: center;
     flex-grow: 1;
+    padding: map.get(theme.$spacing, 'l') 0;
   }
 
   .ecl-site-header-standardised__top {
@@ -348,6 +378,16 @@ $_search-width-xl: 31.5rem;
 
   .ecl-site-header-standardised__banner-top {
     font: map.get(theme.$font-prolonged, 'm');
+  }
+
+  .ecl-site-header-standardised__banner {
+    font: map.get(theme.$font, '3xl');
+    min-height: 0;
+    padding: 0;
+
+    .ecl-container {
+      flex-direction: row;
+    }
   }
 }
 
