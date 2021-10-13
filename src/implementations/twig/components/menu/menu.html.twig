@@ -89,21 +89,6 @@
       } only %}
       {{- _title -}}
     </a>
-    {% if _site_name is not empty or _cta_link is not empty %}
-    <div class="ecl-menu__banner">
-      {% if _site_name is not empty %}
-      <div class="ecl-menu__site-name">{{ _site_name }}</div>
-      {% endif %}
-      {% if _cta_link is not empty and _cta_link.link is not empty %}
-      {% include '@ecl/link/link.html.twig' with _cta_link|merge({
-        link: _cta_link.link|merge({
-          type: 'cta',
-        }),
-        extra_classes: 'ecl-menu__cta',
-      }) only %}
-      {% endif %}
-    </div>
-    {% endif %}
     <section class="ecl-menu__inner" data-ecl-menu-inner>
       <header class="ecl-menu__inner-header">
         <button

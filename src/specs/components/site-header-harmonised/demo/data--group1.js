@@ -2,6 +2,7 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
+  site_name: 'Site name',
   logo: {
     title: 'European Commission',
     alt: 'European Commission logo',
@@ -324,7 +325,6 @@ module.exports = {
     ],
     group1: true,
     icon_path: '/icons.svg',
-    site_name: 'Site name',
     menu_link: exampleLink,
   },
   logged: true,
@@ -528,5 +528,4 @@ module.exports = {
     },
   },
   icon_file_path: '/icons.svg',
-  site_name: 'Site name',
 };
