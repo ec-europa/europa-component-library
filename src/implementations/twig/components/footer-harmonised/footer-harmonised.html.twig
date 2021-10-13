@@ -1,11 +1,11 @@
 {% spaceless %}
 
-{# 
+{#
   Parameters:
   - "group" (string) (default: 'group1'): 'group1', 'group2' or 'group3'
   - "rows" (array of objects) (default: [])
     - "section_class_name" (string) (default: '')
-    - "logo" (EU only)
+    - "logo"
       - "alt" (string) alt attribute for the logo link
       - "path" (string) logo link path
       - "language" (string) Language code
@@ -72,9 +72,10 @@
           {% set _section_class_name = _section_class_name ~ ' ' ~ _sections.section_class_name %}
         {% endif %}
         <div class="{{ _section_class_name }}">
-          {# logo (EU) #}
+          {# logo #}
           {% if _sections.logo is defined and _sections.logo is not empty %}
             {% set _label %}
+              {% if _sections.logo.src_mobile is defined and _sections.logo.src_mobile is not empty %}
               <img
                 {% if _sections.logo.alt is defined and _sections.logo.alt is not empty %}
                 alt="{{ _sections.logo.alt }}"
@@ -83,6 +84,7 @@
                 class="ecl-footer-harmonised__logo-image-mobile"
                 src="{{ _sections.logo.src_mobile }}"
               />
+              {% endif %}
               <img
                 {% if _sections.logo.alt is defined and _sections.logo.alt is not empty %}
                 alt="{{ _sections.logo.alt }}"
