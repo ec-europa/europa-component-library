@@ -2,7 +2,6 @@ import Stickyfill from 'stickyfilljs';
 import { queryOne, queryAll } from '@ecl/dom-utils';
 
 import isMobile from 'mobile-device-detect';
-import SwipeListener from 'swipe-listener';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -17,7 +16,6 @@ import SwipeListener from 'swipe-listener';
  * @param {String} options.megaSelector Selector for the mega menu
  * @param {String} options.subItemSelector Selector for the menu sub items
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
- * @param {Boolean} options.attachSwipeListener Whether or not to bind swipe events
  * @param {Boolean} options.attachResizeListener Whether or not to bind resize events
  */
 export class Menu {
@@ -49,7 +47,6 @@ export class Menu {
       megaSelector = '[data-ecl-menu-mega]',
       subItemSelector = '[data-ecl-menu-subitem]',
       attachClickListener = true,
-      attachSwipeListener = true,
       attachResizeListener = true,
     } = {}
   ) {
@@ -73,7 +70,6 @@ export class Menu {
     this.megaSelector = megaSelector;
     this.subItemSelector = subItemSelector;
     this.attachClickListener = attachClickListener;
-    this.attachSwipeListener = attachSwipeListener;
     this.attachResizeListener = attachResizeListener;
 
     // Private variables
@@ -92,7 +88,6 @@ export class Menu {
     this.handleClickOnClose = this.handleClickOnClose.bind(this);
     this.handleClickOnBack = this.handleClickOnBack.bind(this);
     this.handleClickOnLink = this.handleClickOnLink.bind(this);
-    this.handleSwipe = this.handleSwipe.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.useDesktopDisplay = this.useDesktopDisplay.bind(this);
   }
@@ -142,12 +137,6 @@ export class Menu {
       });
     }
 
-    // Bind swipe events
-    this.swipeInstance = SwipeListener(document);
-    if (this.attachSwipeListener) {
-      document.addEventListener('swipe', this.handleSwipe);
-    }
-
     // Bind resize events
     if (this.attachResizeListener) {
       window.addEventListener('resize', this.handleResize);
@@ -195,10 +184,6 @@ export class Menu {
           link.removeEventListener('click', this.handleClickOnLink);
         }
       });
-    }
-
-    if (this.attachSwipeListener) {
-      document.removeEventListener('swipe', this.handleSwipe);
     }
 
     if (this.attachResizeListener) {
@@ -252,24 +237,6 @@ export class Menu {
       // Bring transition back
       this.element.classList.add('ecl-menu--transition');
     }, 200);
-
-    return this;
-  }
-
-  /**
-   * Open/close menu on swipe
-   * @param {Event} e
-   */
-  handleSwipe(e) {
-    const { directions } = e.detail;
-
-    if (directions.left) {
-      this.handleClickOnOpen(e);
-    }
-
-    if (directions.right) {
-      this.handleClickOnClose(e);
-    }
 
     return this;
   }
