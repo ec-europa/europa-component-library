@@ -94,6 +94,24 @@ $_list-padding: null !default;
   margin-top: $_description-margin-top;
 }
 
+.ecl-card__label-container {
+  display: inline-flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0 -#{$_general-spacing} 0 -#{$_general-spacing};
+  padding: 0 $_general-spacing 0 $_general-spacing;
+  width: 100%;
+}
+
+.ecl-card__label-item {
+  margin-bottom: map.get(theme.$spacing, 'xs');
+  margin-right: map.get(theme.$spacing, 'xs');
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
 .ecl-card__info-container {
   list-style: none;
   margin-bottom: 0;

@@ -20,4 +20,8 @@ module.exports = {
       path: '/icons.svg',
     },
   },
+  label: {
+    variant: 'highlight',
+    label: 'highlighted',
+  },
 };

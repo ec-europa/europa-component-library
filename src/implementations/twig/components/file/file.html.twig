@@ -128,7 +128,12 @@
   {% endif %}
   {% if _title is not empty or language is not empty or meta is not empty %}
     <div class="ecl-file__info">
-    {% if _title is not empty and _variant != 'thumbnail' %}
+    {% if _label is not empty %}
+      <div class="ecl-file__label">
+        {% include '@ecl/label/label.html.twig' with _label only %}
+      </div>
+    {% endif %}
+    {% if _title is not empty %}
       <div class="ecl-file__title">{{ _title }}</div>
     {% endif %}
     {% if _language is not empty %}

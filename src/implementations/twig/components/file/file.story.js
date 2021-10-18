@@ -24,6 +24,9 @@ const getArgs = (data) => {
   if (data.description) {
     args.description = data.description;
   }
+  if (data.label) {
+    args.label = data.label;
+  }
   if (data.image) {
     args.image = data.image.src;
   }
@@ -56,6 +59,17 @@ const getArgTypes = (data) => {
     name: 'title',
     type: { name: 'string', required: true },
     description: 'The heading that describes the file',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+  };
+
+  argTypes.label = {
+    name: 'label',
+    type: { name: 'string' },
+    description: 'The optional label element',
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
@@ -144,6 +158,7 @@ const prepareData = (data, args) => {
   }
   data.detail_meta = args.detail_meta;
   data.title = args.title;
+  data.label = args.label;
   data.description = args.description;
   data.download.link.label = args.download_label;
   if (data.image) {
