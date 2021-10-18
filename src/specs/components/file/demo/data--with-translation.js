@@ -20,10 +20,6 @@ module.exports = {
       path: '/icons.svg',
     },
   },
-  label: {
-    variant: 'highlight',
-    label: 'highlighted',
-  },
   translation: {
     toggle: {
       label: 'Other languages (3)',
