@@ -2,7 +2,6 @@
 title: Typography
 order: 1
 ---
-
 import Playground from '@ecl/website-components/Playground';
 import { RemToPixels } from '@ecl/website-components';
 
@@ -24,7 +23,7 @@ The purpose of using the modular type scale is to create a design that is visual
 
 We set 16px (1rem) as the base font size for body text to ensure readability. It is the default font size for most browsers.
 
-## weight
+## Weight
 
 Font weight is the thickness of a font's stroke, with various weights used to differentiate content hierarchy. The bold style emphasises the importance in comparison with the regular font style in the font family. We use 400 for regular and 600 for bold. Usually the bold style is assigned to headings. Regular text is used for body text.
 
