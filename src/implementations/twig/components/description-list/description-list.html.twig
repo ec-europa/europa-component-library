@@ -5,7 +5,7 @@
     - "items" (array) (default: []): format: [
         {
           "term" (string or array of string)
-          "definition" (string or array of string or array of objects of type tag)
+          "definition" (block or array of string or array of objects of type tag)
         },
         ...
       ]
@@ -79,7 +79,7 @@
             </dd>
           {% endif %}
         {% else %}
-          <dd class="ecl-description-list__definition">{{ _item.definition }}</dd>
+          <dd class="ecl-description-list__definition">{%- block definition _item.definition -%}</dd>
         {% endif %}
       {% endif %}
     {% endfor %}
