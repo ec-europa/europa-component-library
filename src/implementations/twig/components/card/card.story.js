@@ -88,7 +88,7 @@ const getArgTypes = (data) => {
     argTypes.meta = {
       name: 'meta',
       type: { name: 'array' },
-      description: 'The card meta (comma separated)',
+      description: 'The card meta',
       table: {
         type: { summary: 'array' },
         defaultValue: { summary: '[]' },
@@ -194,7 +194,7 @@ const prepareData = (data, args) => {
   }
   if (data.card.infos) {
     data.card.infos = [];
-    if (args.infos[0]) {
+    if (args.infos && args.infos[0]) {
       args.infos.forEach((info, i) => {
         const addInfo = {
           label: info,
@@ -211,7 +211,7 @@ const prepareData = (data, args) => {
   }
   if (data.card.links) {
     data.card.links = [];
-    if (args.links[0]) {
+    if (args.links && args.links[0]) {
       args.links.forEach((link) => {
         data.card.links.push({ ...linkClone, label: link });
       });
@@ -219,7 +219,7 @@ const prepareData = (data, args) => {
   }
   if (data.card.tags) {
     data.card.tags = [];
-    if (args.tags[0]) {
+    if (args.tags && args.tags[0]) {
       args.tags.forEach((tag) => {
         data.card.tags.push({ ...tagClone, label: tag });
       });
@@ -227,7 +227,7 @@ const prepareData = (data, args) => {
   }
   if (data.card.labels) {
     data.card.labels = [];
-    if (args.labels[0]) {
+    if (args.labels && args.labels[0]) {
       args.labels.forEach((label) => {
         data.card.labels.push({ ...labelClone, label });
       });
