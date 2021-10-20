@@ -125,26 +125,10 @@ export class Datepicker {
    * @param {Event} e
    */
   handleKeyDown(e) {
-    // Limit input value to 10 char
+    // Allow digits from 0 to 9 and limit input value to 10 char
+    const { key } = e;
     const inputValue = e.target.value.trim();
-    if (inputValue.length >= 10) {
-      e.preventDefault();
-      return false;
-    }
-
-    // Allow digits 0 - 9 (they can come from either
-    // the numeric keys or the numpad)
-    const filter = [];
-    const key = e.keyCode || e.which;
-    const keypadZero = 48;
-    const numpadZero = 96;
-
-    for (let i = 0; i <= 9; i += 1) {
-      filter.push(i + keypadZero);
-      filter.push(i + numpadZero);
-    }
-
-    if (filter.indexOf(key) < 0) {
+    if (inputValue.length >= 10 || '0123456789'.indexOf(key) < 0) {
       e.preventDefault();
       return false;
     }
