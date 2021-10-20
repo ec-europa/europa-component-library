@@ -22,6 +22,10 @@ module.exports = {
       { label: 'tag 2', path: exampleLink },
       { label: 'tag 3', path: exampleLink },
     ],
+    labels: [
+      { label: 'highlighted', variant: 'highlight' },
+      { label: 'call status: upcoming', variant: 'medium' },
+    ],
     infos: [
       {
         icon: {

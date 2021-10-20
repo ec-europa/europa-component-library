@@ -19,6 +19,10 @@ module.exports = {
     size: '2xl',
     path: '/icons.svg',
   },
+  label: {
+    variant: 'highlight',
+    label: 'highlighted',
+  },
   download: {
     link: {
       label: 'Download',
