@@ -19,6 +19,20 @@ $_search-width-xl: 31.5rem;
 .ecl-site-header-standardised {
   background-color: map.get(theme.$color, 'white-100');
   margin: 0;
+  position: relative;
+
+  .ecl-menu {
+    background: transparent;
+    bottom: 0;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  .ecl-menu__open,
+  .ecl-menu__closed {
+    margin-bottom: 5px;
+  }
 
   &:not([data-ecl-has-menu='true']) {
     box-shadow: 0 0 6px 0 rgba(9, 49, 142, 0.2);
@@ -168,7 +182,19 @@ $_search-width-xl: 31.5rem;
 }
 
 .ecl-site-header-standardised__banner {
-  display: none;
+  background: linear-gradient(
+    90deg,
+    map.get(theme.$color, 'blue-140'),
+    map.get(theme.$color, 'blue-100')
+  );
+  min-height: 1.75rem;
+}
+
+.ecl-site-header-standardised__site-name {
+  color: map.get(theme.$color, 'white');
+  font: map.get(theme.$font-prolonged, 'xl');
+  font-weight: map.get(theme.$font-weight, 'bold');
+  padding: map.get(theme.$spacing, 'm') 0;
 }
 
 // stylelint-disable plugin/selector-bem-pattern
@@ -209,16 +235,26 @@ $_search-width-xl: 31.5rem;
 }
 
 @include breakpoints.up('l') {
+  .ecl-site-header-standardised {
+    .ecl-menu {
+      background: linear-gradient(
+        90deg,
+        map.get(theme.$color, 'blue-140'),
+        map.get(theme.$color, 'blue-100')
+      );
+      position: static;
+    }
+  }
+
   .ecl-site-header-standardised__header {
     box-shadow: 0 0 6px rgba(9, 49, 142, 0.2);
   }
 
   .ecl-site-header-standardised__banner {
-    color: map.get(theme.$color, 'grey-80');
+    background: transparent;
     display: block;
-    font: map.get(theme.$font-prolonged, 'xl');
-    font-weight: map.get(theme.$font-weight, 'bold');
-    padding: map.get(theme.$spacing, 'm') 0;
+    min-height: 0;
+    padding: 0;
 
     .ecl-container {
       display: flex;
@@ -227,6 +263,7 @@ $_search-width-xl: 31.5rem;
 
   .ecl-site-header-standardised__site-name {
     align-self: center;
+    color: map.get(theme.$color, 'grey-80');
     flex-grow: 1;
   }
 

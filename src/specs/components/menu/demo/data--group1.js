@@ -7,7 +7,6 @@ module.exports = {
   title: 'Menu',
   close: 'Close',
   back: 'Back',
-  site_name: 'Site name',
   menu_link: exampleLink,
   icon_path: '/icons.svg',
   items: [
