@@ -35,6 +35,10 @@ module.exports = {
         label: 'Luxembourg',
       },
     ],
+    labels: [
+      { label: 'highlighted', variant: 'highlight' },
+      { label: 'call status: upcoming', variant: 'medium' },
+    ],
     lists: [
       {
         variant: 'horizontal',

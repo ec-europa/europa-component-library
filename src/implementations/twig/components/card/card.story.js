@@ -18,6 +18,7 @@ const defaultSprite = system === 'eu' ? defaultSpriteEu : defaultSpriteEc;
 const infosClone = { ...dataCard.card.infos };
 const linkClone = { ...dataCardTile.card.links[0] };
 const tagClone = { ...dataCard.card.tags[0] };
+const labelClone = { ...dataCard.card.labels[0] };
 const descriptionListClone = { ...dataCardTaxonomy.card.lists[0] };
 const taxonomyListClone = { ...dataCardTaxonomy.card.lists[1] };
 
@@ -42,6 +43,10 @@ const getArgs = (data) => {
   if (data.card.tags) {
     const tags = data.card.tags.map(({ label }) => label);
     args.tags = tags;
+  }
+  if (data.card.labels) {
+    const labels = data.card.labels.map(({ label }) => label);
+    args.labels = labels;
   }
   if (data.card.links) {
     const links = data.card.links.map(({ label }) => label);
@@ -83,7 +88,7 @@ const getArgTypes = (data) => {
     argTypes.meta = {
       name: 'meta',
       type: { name: 'array' },
-      description: 'The card meta (comma separated)',
+      description: 'The card meta',
       table: {
         type: { summary: 'array' },
         defaultValue: { summary: '[]' },
@@ -102,12 +107,23 @@ const getArgTypes = (data) => {
       },
     };
   }
+  if (data.card.labels) {
+    argTypes.labels = {
+      name: 'labels',
+      type: 'array',
+      description: 'Labels to be placed at the top of the card',
+      table: {
+        type: { summary: 'array of objects' },
+        defaultValue: { summary: '[]' },
+        category: 'Content',
+      },
+    };
+  }
   if (data.card.infos) {
     argTypes.infos = {
       name: 'infos',
       type: 'array',
-      description:
-        'Additional elements like a location or a date. (comma separated)',
+      description: 'Additional elements like a location or a date',
       table: {
         type: {
           summary: 'array of objects',
@@ -121,8 +137,7 @@ const getArgTypes = (data) => {
     argTypes.tags = {
       name: 'tags',
       type: 'array',
-      description:
-        'Tags to be placed at the bottom of the card. (comma separated)',
+      description: 'Tags to be placed at the bottom of the card',
       table: {
         type: { summary: 'array of objects' },
         defaultValue: { summary: '[]' },
@@ -179,7 +194,7 @@ const prepareData = (data, args) => {
   }
   if (data.card.infos) {
     data.card.infos = [];
-    if (args.infos[0]) {
+    if (args.infos && args.infos[0]) {
       args.infos.forEach((info, i) => {
         const addInfo = {
           label: info,
@@ -196,7 +211,7 @@ const prepareData = (data, args) => {
   }
   if (data.card.links) {
     data.card.links = [];
-    if (args.links[0]) {
+    if (args.links && args.links[0]) {
       args.links.forEach((link) => {
         data.card.links.push({ ...linkClone, label: link });
       });
@@ -204,9 +219,17 @@ const prepareData = (data, args) => {
   }
   if (data.card.tags) {
     data.card.tags = [];
-    if (args.tags[0]) {
+    if (args.tags && args.tags[0]) {
       args.tags.forEach((tag) => {
         data.card.tags.push({ ...tagClone, label: tag });
+      });
+    }
+  }
+  if (data.card.labels) {
+    data.card.labels = [];
+    if (args.labels && args.labels[0]) {
+      args.labels.forEach((label) => {
+        data.card.labels.push({ ...labelClone, label });
       });
     }
   }

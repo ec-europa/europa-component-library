@@ -24,6 +24,9 @@ const getArgs = (data) => {
   if (data.description) {
     args.description = data.description;
   }
+  if (data.label) {
+    args.label = data.label.label;
+  }
   if (data.image) {
     args.image = data.image.src;
   }
@@ -62,6 +65,19 @@ const getArgTypes = (data) => {
       category: 'Content',
     },
   };
+
+  if (data.label) {
+    argTypes.label = {
+      name: 'label',
+      type: { name: 'string' },
+      description: 'The optional label element',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+    };
+  }
 
   if (data.description) {
     argTypes.description = {
@@ -144,6 +160,12 @@ const prepareData = (data, args) => {
   }
   data.detail_meta = args.detail_meta;
   data.title = args.title;
+  if (data.label) {
+    data.label = {
+      label: args.label,
+      variant: data.label.variant,
+    };
+  }
   data.description = args.description;
   data.download.link.label = args.download_label;
   if (data.image) {
