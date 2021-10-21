@@ -12,7 +12,6 @@ $_text-color: null !default;
 %ecl-ordered-list {
   color: $_text-color;
   font: map.get(theme.$font-prolonged, 'm');
-  list-style-position: inside;
   margin: 0;
   padding: 0;
 }
@@ -20,18 +19,15 @@ $_text-color: null !default;
 .ecl-ordered-list .ecl-ordered-list,
 %ecl-ordered-list--nested {
   margin-top: map.get(theme.$spacing, 'xs');
-  padding-left: map.get(theme.$spacing, 'l');
+  padding-left: map.get(theme.$spacing, '2xs');
 }
 
 .ecl-ordered-list__item,
 %ecl-ordered-list__item {
+  margin-left: map.get(theme.$spacing, 'm');
   margin-top: map.get(theme.$spacing, 'xs');
   max-width: calc(80ch - #{map.get(theme.$spacing, '2xl')});
-
-  &::before {
-    content: '';
-    padding-left: map.get(theme.$spacing, '2xs');
-  }
+  padding-left: map.get(theme.$spacing, '2xs');
 
   &:first-child {
     margin-top: 0;

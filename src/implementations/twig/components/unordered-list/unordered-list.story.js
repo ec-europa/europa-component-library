@@ -9,38 +9,73 @@ import dataUnorderedListNoBullet from '@ecl/specs-component-unordered-list/demo/
 import unorderedList from './unordered-list.html.twig';
 import notes from './README.md';
 
+const getArgs = (data) => {
+  return {
+    label: data.items[0].label,
+  };
+};
+
+const getArgTypes = () => {
+  return {
+    label: {
+      name: 'list item (first item)',
+      type: { name: 'string', required: true },
+      description: 'The content of the first list item',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+    },
+  };
+};
+
+const prepareData = (data, args) => {
+  data.items[0].label = args.label;
+  return data;
+};
+
 export default {
   title: 'Components/List/Unordered list',
   decorators: [withNotes, withCode],
-  parameters: {
-    controls: { disable: true },
-  },
 };
 
-export const Text = () => unorderedList(dataUnorderedListText);
+export const Text = (args) =>
+  unorderedList(prepareData(dataUnorderedListText, args));
 
 Text.storyName = 'text';
+Text.args = getArgs(dataUnorderedListText);
+Text.argTypes = getArgTypes(dataUnorderedListText);
 Text.parameters = {
   notes: { markdown: notes, json: dataUnorderedListText },
 };
 
-export const Link = () => unorderedList(dataUnorderedListLink);
+export const Link = (args) =>
+  unorderedList(prepareData(dataUnorderedListLink, args));
 
 Link.storyName = 'links';
+Link.args = getArgs(dataUnorderedListLink);
+Link.argTypes = getArgTypes(dataUnorderedListLink);
 Link.parameters = {
   notes: { markdown: notes, json: dataUnorderedListLink },
 };
 
-export const Divider = () => unorderedList(dataUnorderedListDivider);
+export const Divider = (args) =>
+  unorderedList(prepareData(dataUnorderedListDivider, args));
 
 Divider.storyName = 'with divider';
+Divider.args = getArgs(dataUnorderedListDivider);
+Divider.argTypes = getArgTypes(dataUnorderedListDivider);
 Divider.parameters = {
   notes: { markdown: notes, json: dataUnorderedListDivider },
 };
 
-export const NoBullet = () => unorderedList(dataUnorderedListNoBullet);
+export const NoBullet = (args) =>
+  unorderedList(prepareData(dataUnorderedListNoBullet, args));
 
 NoBullet.storyName = 'no bullet';
+NoBullet.args = getArgs(dataUnorderedListNoBullet);
+NoBullet.argTypes = getArgTypes(dataUnorderedListNoBullet);
 NoBullet.parameters = {
   notes: { markdown: notes, json: dataUnorderedListNoBullet },
 };
