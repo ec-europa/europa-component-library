@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.1.1 (2021-10-22)
+
+#### :bug: Bug Fix
+* [#2244](https://github.com/ec-europa/europa-component-library/pull/2244) fix(table): Removing alien markup in the table.html.twig file - FRONT-3315 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+- [@planctus](https://github.com/planctus)
+
 ## 3.1.0 (2021-10-21)
 
 #### :rocket: New Feature
