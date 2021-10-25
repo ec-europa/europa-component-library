@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.1.2 (2021-10-25)
+
+#### :bug: Bug Fix
+* [#2246](https://github.com/ec-europa/europa-component-library/pull/2246) feat(datepicker): Remove DD-MM-YYYY auto-formatting on input - FRONT-3319 ([@papegaill](https://github.com/papegaill))
+
+#### Committers: 1
+- Alexis Gaillard ([@papegaill](https://github.com/papegaill))
+
 ## 3.1.1 (2021-10-22)
 
 #### :bug: Bug Fix

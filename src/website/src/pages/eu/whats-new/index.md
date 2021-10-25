@@ -5,6 +5,11 @@ title: What's new
 
 Detailed release information is available on [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 3.1.2 (2021-10-25)
+
+#### :bug: Bug Fix
+* [#2246](https://github.com/ec-europa/europa-component-library/pull/2246) feat(datepicker): Remove DD-MM-YYYY auto-formatting on input - FRONT-3319 ([@papegaill](https://github.com/papegaill))
+
 ## 3.1.0 (2021-10-21)
 
 #### :rocket: New Feature
