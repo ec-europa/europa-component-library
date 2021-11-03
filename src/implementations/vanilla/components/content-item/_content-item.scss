@@ -1,0 +1,66 @@
+/**
+ * Content item
+ * @define content-item; weak
+ */
+
+@use 'sass:math';
+@use 'sass:map';
+@use '@ecl/theme-dev/theme';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+$_border-radius: null !default;
+
+.ecl-content-item {
+  margin: 0;
+}
+
+.ecl-content-item__container {
+  border-bottom: map.get(theme.$color, 'grey-15') 1px solid;
+  padding-bottom: map.get(theme.$spacing, 'm');
+}
+
+.ecl-content-item__image {
+  background-position: center;
+  background-size: cover;
+  display: block;
+  height: auto;
+  margin-bottom: map.get(theme.$spacing, 'm');
+  width: 100%;
+
+  // perpare ratio
+  &::before {
+    content: '';
+    display: block;
+    width: 100%;
+  }
+}
+
+.ecl-content-item__image--s {
+  width: 150px;
+
+  // manage ratio 1:1
+  &::before {
+    padding-top: 100%;
+  }
+}
+
+.ecl-content-item__image--l {
+  // manage ratio 3:2
+  &::before {
+    padding-top: math.div(2, 3) * 100%;
+  }
+}
+
+.ecl-content-item__card {
+  background-color: map.get(theme.$color, 'white-100');
+  border-width: 0;
+  padding: 0;
+
+  .ecl-card__body {
+    padding: 0;
+  }
+}
+
+.ecl-content-item__taxonomy {
+  margin-top: map.get(theme.$spacing, 'm');
+}
