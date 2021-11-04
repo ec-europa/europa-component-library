@@ -16,6 +16,8 @@ $_border-radius: null !default;
 
 .ecl-content-item__container {
   border-bottom: map.get(theme.$color, 'grey-15') 1px solid;
+  display: flex;
+  flex-direction: column;
   padding-bottom: map.get(theme.$spacing, 'm');
 }
 
@@ -63,4 +65,49 @@ $_border-radius: null !default;
 
 .ecl-content-item__taxonomy {
   margin-top: map.get(theme.$spacing, 'm');
+}
+
+// stylelint-disable-next-line order/order
+@include breakpoints.up('m') {
+  .ecl-content-item__container {
+    align-items: flex-start;
+    flex-direction: row;
+  }
+
+  .ecl-content-item__image {
+    flex-shrink: 0;
+    margin-bottom: 0;
+    margin-right: map.get(theme.$spacing, 'xl');
+  }
+
+  .ecl-content-item__image--l {
+    width: 210px;
+  }
+}
+
+// Align right (image only)
+// stylelint-disable-next-line order/order
+@include breakpoints.up('m') {
+  .ecl-content-item--image-right {
+    .ecl-content-item__container {
+      flex-direction: row-reverse;
+    }
+
+    .ecl-content-item__image {
+      margin-left: map.get(theme.$spacing, 'xl');
+      margin-right: 0;
+    }
+  }
+}
+
+// Event
+.ecl-content-item--event {
+  .ecl-content-item__container {
+    align-items: flex-start;
+    flex-direction: row;
+  }
+}
+
+.ecl-content-item__date {
+  margin-right: map.get(theme.$spacing, 'm');
 }

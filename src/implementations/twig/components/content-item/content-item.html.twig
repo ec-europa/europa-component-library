@@ -2,9 +2,11 @@
 
 {#
   Parameters:
+    - "variant" (string) (default: ''): Variant of the content item (can be 'image-right' or 'event')
     - "image" (associative array) (default: {}): 
       - "src" (string) (default: ''): Path to the image
       - "size" (string) (default: 'm'): Size of the image (can be 's' or 'l')
+    - "date" (associative array) (default: {}): Predefined structure compatible with Date block component
     - "labels" (array) (default: []): List of labels compatible with EC Label component structure
     - "meta" (array) (default: []): Meta's for the Content item
     - "title" (associative array) (default: {}): Predefined structure compatible with Link component
@@ -28,10 +30,12 @@
 
 {# Internal properties #}
 
+{% set _variant = variant|default('') %}
 {% set _image = image|default({
   src: '',
   size: 'l'
 }) %}
+{% set _date = date|default({}) %}
 {% set _labels = labels|default([]) %}
 {% set _meta = meta|default([]) %}
 {% set _title = title|default({}) %}
@@ -52,6 +56,10 @@
     infos: _infos,
   },
 } %}
+
+{% if _variant is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-content-item--' ~ _variant %}
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -74,6 +82,11 @@
     {% if _image is defined and _image.src is not empty %}
       {% set _image_class = _image.size is not empty ? 'ecl-content-item__image' ~ ' ecl-content-item__image--' ~ _image.size : 'ecl-content-item__image' %}
       <div class="{{_image_class}}" style="background-image:url({{ _image.src }})"></div>
+    {% endif %}
+    {% if _date is not empty %}
+      {% include '@ecl/date-block/date-block.html.twig' with _date|merge({
+        extra_classes: 'ecl-content-item__date'
+      }) only %}
     {% endif %}
     {% include '@ecl/card/card.html.twig' with _card|merge({
       extra_classes: 'ecl-content-item__card'
