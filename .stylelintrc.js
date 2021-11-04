@@ -22,6 +22,8 @@ module.exports = {
       componentSelectors: bemSelector,
       ignoreSelectors: /^\.no-js$/,
     },
+    // Prevent percentages, they break in cssnano
+    'alpha-value-notation': 'number',
     // Allow underscores in class names (BEM)
     'selector-class-pattern': null,
     // Allow underscores in placeholders (BEM)
