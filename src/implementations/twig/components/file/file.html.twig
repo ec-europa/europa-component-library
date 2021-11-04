@@ -87,10 +87,10 @@
 
 <div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <div class="ecl-file__container">
-  {% if _variant == 'thumbnail' %}
+  {% if _variant == 'thumbnail' or _label is not empty %}
     <div class="ecl-file__detail">
       <div class="ecl-file__detail-info">
-      {% if _label is not empty and _label.label is not empty%}
+      {% if _label is not empty and _label.label is not empty %}
         <div class="ecl-file__label">
           {% include '@ecl/label/label.html.twig' with _label only %}
         </div>
@@ -100,10 +100,12 @@
           {{- _meta_detail_string -}}
         </div>
       {% endif %}
+    {% if _variant == 'thumbnail' %}
         <div class="ecl-file__title">{{ _title }}</div>
       {% if _description is not empty %}
         <div class="ecl-file__description">{{ _description }}</div>
       {% endif %}
+    {% endif %}
       </div>
     {% if _image is not empty and _image.src is defined and _image.src is not empty %}
       <img
@@ -120,7 +122,8 @@
       {% endfor %}
     </div>
     {% endif %}
-  {% else %}
+  {% endif %}
+  {% if _variant != 'thumbnail' %}
     {% include '@ecl/icon/icon.html.twig' with {
       icon: _icon,
       extra_classes: 'ecl-file__icon',
