@@ -1,28 +1,21 @@
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
-import dataCard from '@ecl/specs-component-card/demo/data--card';
-import dataCardTaxonomy from '@ecl/specs-component-card/demo/data--card-taxonomy';
-import dataTile from '@ecl/specs-component-card/demo/data--tile';
-import dataTileTaxonomy from '@ecl/specs-component-card/demo/data--tile-taxonomy';
+import dataImage from '@ecl/specs-component-content-item/demo/data--image';
+import dataEvent from '@ecl/specs-component-content-item/demo/data--event';
 
 describe('Content item', () => {
-  const template = '@ecl/card/card.html.twig';
+  const template = '@ecl/content-item/content-item.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
-  describe('Default', () => {
+  describe('Image', () => {
     test('renders correctly', () => {
       expect.assertions(1);
-      return expect(render(dataCard)).resolves.toMatchSnapshot();
-    });
-
-    test('renders correctly with lists', () => {
-      expect.assertions(1);
-      return expect(render(dataCardTaxonomy)).resolves.toMatchSnapshot();
+      return expect(render(dataImage)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const withExtraClasses = merge(dataCard, {
+      const withExtraClasses = merge(dataImage, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -32,7 +25,7 @@ describe('Content item', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const withExtraAttributes = merge(dataCard, {
+      const withExtraAttributes = merge(dataImage, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
@@ -43,38 +36,10 @@ describe('Content item', () => {
     });
   });
 
-  describe('Tile', () => {
+  describe('Event', () => {
     test('renders correctly', () => {
       expect.assertions(1);
-      return expect(render(dataTile)).resolves.toMatchSnapshot();
-    });
-
-    test('renders correctly with lists', () => {
-      expect.assertions(1);
-      return expect(render(dataTileTaxonomy)).resolves.toMatchSnapshot();
-    });
-
-    test('renders correctly with extra class names', () => {
-      expect.assertions(1);
-
-      const withExtraClasses = merge(dataTile, {
-        extra_classes: 'custom-class custom-class--test',
-      });
-
-      return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
-    });
-
-    test('renders correctly with extra attributes', () => {
-      expect.assertions(1);
-
-      const withExtraAttributes = merge(dataTile, {
-        extra_attributes: [
-          { name: 'data-test', value: 'data-test-value' },
-          { name: 'data-test-1', value: 'data-test-value-1' },
-        ],
-      });
-
-      return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+      return expect(render(dataEvent)).resolves.toMatchSnapshot();
     });
   });
 });

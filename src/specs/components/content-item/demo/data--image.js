@@ -5,7 +5,7 @@ const exampleLink = `${publicUrl}/example`;
 module.exports = {
   image: {
     src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
-    size: 'm',
+    size: 'l',
   },
   labels: [
     { label: 'highlight', variant: 'highlight' },
