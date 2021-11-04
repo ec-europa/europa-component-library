@@ -1759,6 +1759,85 @@ exports[`File Without translation renders correctly 1`] = `
 </jest>
 `;
 
+exports[`File Without translation renders correctly with a single label 1`] = `
+<jest>
+  <div
+    class="ecl-file"
+    data-ecl-file=""
+  >
+    <div
+      class="ecl-file__container"
+    >
+      <div
+        class="ecl-file__detail"
+      >
+        <div
+          class="ecl-file__detail-info"
+        >
+          <div
+            class="ecl-file__label"
+          >
+            <span
+              class="ecl-label ecl-label--highlight"
+            >
+              highlight
+            </span>
+          </div>
+        </div>
+      </div>
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--2xl ecl-file__icon"
+        focusable="false"
+      >
+        <use
+          xlink:href="/icons.svg#file"
+        />
+      </svg>
+      <div
+        class="ecl-file__info"
+      >
+        <div
+          class="ecl-file__title"
+        >
+          State of the Union 2018 brochure
+        </div>
+        <div
+          class="ecl-file__language"
+        >
+          English
+        </div>
+        <div
+          class="ecl-file__meta"
+        >
+          (16.2 MB - PDF)
+        </div>
+      </div>
+      <a
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__download"
+        download=""
+        href="/example"
+      >
+        <span
+          class="ecl-link__label"
+        >
+          Download
+        </span>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--fluid ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#download"
+          />
+        </svg>
+      </a>
+    </div>
+  </div>
+</jest>
+`;
+
 exports[`File Without translation renders correctly with extra attributes 1`] = `
 <jest>
   <div
@@ -1832,6 +1911,94 @@ exports[`File Without translation renders correctly with extra class names 1`] =
     <div
       class="ecl-file__container"
     >
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--2xl ecl-file__icon"
+        focusable="false"
+      >
+        <use
+          xlink:href="/icons.svg#file"
+        />
+      </svg>
+      <div
+        class="ecl-file__info"
+      >
+        <div
+          class="ecl-file__title"
+        >
+          State of the Union 2018 brochure
+        </div>
+        <div
+          class="ecl-file__language"
+        >
+          English
+        </div>
+        <div
+          class="ecl-file__meta"
+        >
+          (16.2 MB - PDF)
+        </div>
+      </div>
+      <a
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__download"
+        download=""
+        href="/example"
+      >
+        <span
+          class="ecl-link__label"
+        >
+          Download
+        </span>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--fluid ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#download"
+          />
+        </svg>
+      </a>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`File Without translation renders correctly with multiple labels 1`] = `
+<jest>
+  <div
+    class="ecl-file"
+    data-ecl-file=""
+  >
+    <div
+      class="ecl-file__container"
+    >
+      <div
+        class="ecl-file__detail"
+      >
+        <div
+          class="ecl-file__detail-info"
+        >
+          <div
+            class="ecl-file__label"
+          >
+            <span
+              class="ecl-label ecl-label--highlight"
+            >
+              highlight
+            </span>
+          </div>
+          <div
+            class="ecl-file__label"
+          >
+            <span
+              class="ecl-label ecl-label--low"
+            >
+              important
+            </span>
+          </div>
+        </div>
+      </div>
       <svg
         aria-hidden="true"
         class="ecl-icon ecl-icon--2xl ecl-file__icon"

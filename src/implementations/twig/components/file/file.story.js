@@ -158,14 +158,7 @@ const prepareData = (data, args) => {
   }
   data.detail_meta = args.detail_meta;
   data.title = args.title;
-  if (args.label) {
-    data.label = {
-      label: args.label,
-      variant: data.label ? data.label.variant : 'highlight',
-    };
-  } else {
-    delete data.label;
-  }
+
   data.description = args.description;
   data.download.link.label = args.download_label;
   if (data.image) {

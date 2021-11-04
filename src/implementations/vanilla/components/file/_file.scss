@@ -147,7 +147,9 @@ $_image-width: null !default;
 }
 
 .ecl-file__label {
+  display: inline-flex;
   margin-bottom: map.get(theme.$spacing, 'xs');
+  margin-right: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-file__translation-language {

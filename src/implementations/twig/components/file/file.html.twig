@@ -11,7 +11,8 @@
   - "detail_meta" (array) (default: []) Meta element(s) for the thumbnail variant
   - "download" (object) (default: {}): object of type Link
   - "image" (object) (default: {}): image for the thumbnail variant
-  - "label" (object) (default: {}) Object of type label
+  - "label" (array) (default: {}) array of objects of type
+  ** still supported as an object with a single label **
   - "lists" (array) (default: []) Array of objects of type "description list".
   - "variant" (optional) (taxonomy or horizontal)
   - "items" (array)
@@ -51,6 +52,12 @@
 {% set _description = description|default('') %}
 {% set _extra_attributes = 'data-ecl-file' %}
 
+{% if _label.label is defined %}
+  {% set _labels = [_label] %}
+{% elseif _label[0] is defined %}
+  {% set _labels = _label %}
+{% endif %}
+
 {% if _translation is not empty and _translation.items is not empty and _translation.items is iterable %}
   {% set _extra_attributes = _extra_attributes ~ ' ' ~ 'data-ecl-auto-init="FileDownload"' %}
 {% endif %}
@@ -87,13 +94,15 @@
 
 <div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <div class="ecl-file__container">
-  {% if _variant == 'thumbnail' or _label is not empty %}
+  {% if _variant == 'thumbnail' or _labels is not empty %}
     <div class="ecl-file__detail">
       <div class="ecl-file__detail-info">
-      {% if _label is not empty and _label.label is not empty %}
+      {% if _labels is defined and _labels is iterable %}
+        {% for _label in _labels %}
         <div class="ecl-file__label">
           {% include '@ecl/label/label.html.twig' with _label only %}
         </div>
+        {% endfor %}
       {% endif %}
       {% if _meta_detail_string is not empty %}
         <div class="ecl-file__detail-meta">
