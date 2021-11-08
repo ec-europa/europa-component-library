@@ -659,7 +659,8 @@ $_mobile-item-hover-background: null !default;
     }
 
     .ecl-menu__item--full .ecl-menu__sublist {
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+      column-count: 4;
+      display: block;
     }
 
     // Special hack for IE
@@ -686,10 +687,6 @@ $_mobile-item-hover-background: null !default;
       min-width: 13.56rem; // Written in the specs
     }
 
-    .ecl-menu__subitem--extra {
-      display: none;
-    }
-
     .ecl-menu__item--full .ecl-menu__subitem {
       width: 100%;
     }
@@ -712,6 +709,10 @@ $_mobile-item-hover-background: null !default;
       &:hover {
         color: $_menu-dropdown-item-hover-color;
       }
+    }
+
+    .ecl-menu__item--full .ecl-menu__sublink {
+      break-inside: avoid-column;
     }
   }
 }

@@ -255,15 +255,6 @@ export class Menu {
       if (subItems.length > 12) {
         menuItem.classList.add('ecl-menu__item--full');
 
-        // Check if there are more than 16 items
-        // If so, hide them on desktop
-        if (subItems.length > 16) {
-          subItems
-            .slice(16)
-            .forEach((subItem) =>
-              subItem.classList.add('ecl-menu__subitem--extra')
-            );
-        }
         return;
       }
 
