@@ -688,6 +688,11 @@ $_mobile-item-hover-background: null !default;
     }
 
     .ecl-menu__item--full .ecl-menu__subitem {
+      display: inline-flex;
+      margin-bottom: calc(
+        #{$_menu-subitem-margin-bottom} - 4 * #{$_menu-sublink-outline-offset}
+      );
+      padding: $_menu-sublink-outline-offset 0;
       width: 100%;
     }
 
@@ -713,6 +718,8 @@ $_mobile-item-hover-background: null !default;
 
     .ecl-menu__item--full .ecl-menu__sublink {
       break-inside: avoid-column;
+      margin-bottom: $_menu-sublink-outline-offset;
+      margin-top: $_menu-sublink-outline-offset;
     }
   }
 }
