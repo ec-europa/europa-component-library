@@ -48,10 +48,10 @@ module.exports = {
               },
             },
             {
-              content_before: 'Meet us at a ',
+              content_before: 'Meet us at one of the ',
               link: {
-                label: 'local EU office',
-                aria_label: 'Link to local EU offices',
+                label: 'EU centres',
+                aria_label: 'Link to local EU centres',
                 path: exampleLink,
               },
             },
@@ -77,8 +77,8 @@ module.exports = {
           links: [
             {
               link: {
-                label: 'Language policy',
-                aria_label: 'Link to language policy',
+                label: 'Languages on our websites',
+                aria_label: 'Languages on our websites',
                 path: exampleLink,
               },
             },
@@ -98,8 +98,8 @@ module.exports = {
             },
             {
               link: {
-                label: 'Web accessibility',
-                aria_label: 'Link to Web accessibility',
+                label: 'Accessibility',
+                aria_label: 'Link to Accessibility',
                 path: exampleLink,
               },
             },

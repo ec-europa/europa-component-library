@@ -66,8 +66,8 @@ module.exports = {
           links: [
             {
               link: {
-                label: 'Link 1',
-                aria_label: 'Link to link 1',
+                label: 'Accessibility',
+                aria_label: 'Link to Accessibility',
                 path: exampleLink,
               },
             },
@@ -141,10 +141,10 @@ module.exports = {
               },
             },
             {
-              content_before: 'Meet us at a ',
+              content_before: 'Meet us at of the ',
               link: {
-                label: 'local EU office',
-                aria_label: 'Link to local EU offices',
+                label: 'EU centres',
+                aria_label: 'Link to EU centres',
                 path: exampleLink,
               },
             },
@@ -170,8 +170,8 @@ module.exports = {
           links: [
             {
               link: {
-                label: 'Language policy',
-                aria_label: 'Link to language policy',
+                label: 'Languages on our websites',
+                aria_label: 'Link to Languages on our websites',
                 path: exampleLink,
               },
             },
@@ -186,13 +186,6 @@ module.exports = {
               link: {
                 label: 'Legal notice',
                 aria_label: 'Link to Legal notice',
-                path: exampleLink,
-              },
-            },
-            {
-              link: {
-                label: 'Web accessibility',
-                aria_label: 'Link to Web accessibility',
                 path: exampleLink,
               },
             },
