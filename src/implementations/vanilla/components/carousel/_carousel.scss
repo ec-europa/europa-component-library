@@ -42,14 +42,13 @@ $_outline-width: null !default;
     }
 
     .ecl-page-banner__content {
-      margin-right: map.get(theme.$spacing, 'l');
-      transition: all 0.2s;
+      padding-right: map.get(theme.$spacing, 'l');
     }
 
     &.tns-slide-active {
       .ecl-page-banner__content {
-        margin-left: map.get(theme.$spacing, 'l');
-        margin-right: 0;
+        padding-left: map.get(theme.$spacing, 'l');
+        padding-right: 0;
       }
     }
   }
