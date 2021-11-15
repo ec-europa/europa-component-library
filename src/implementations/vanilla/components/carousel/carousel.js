@@ -112,6 +112,8 @@ export class Carousel {
       autoplayTimeout: 7000,
       autoplayButtonOutput: false,
       arrowKeys: true,
+      slideBy: 'page',
+      swipeAngle: false,
     });
 
     // Bind events
