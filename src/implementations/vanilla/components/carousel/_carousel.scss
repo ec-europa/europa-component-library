@@ -1,0 +1,172 @@
+/* stylelint-disable max-nesting-depth, no-descending-specificity */
+
+@use 'sass:map';
+@use '@ecl/theme-dev/theme';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+/* stylelint-disable-next-line scss/at-import-partial-extension-blacklist, no-invalid-position-at-import-rule */
+@import 'tiny-slider/dist/tiny-slider';
+
+$_button-arrows-background: null !default;
+$_controls-background: null !default;
+$_outline-color: null !default;
+$_outline-width: null !default;
+
+.ecl-carousel {
+  overflow: hidden;
+  position: relative;
+
+  .ecl-page-banner,
+  .ecl-page-banner__image::before {
+    border-radius: 0;
+    box-shadow: none;
+    padding-right: map.get(theme.$spacing, 'l');
+  }
+}
+
+.ecl-carousel__slider {
+  display: flex;
+  position: relative;
+
+  .tns-item {
+    position: relative;
+    &::before {
+      background: map.get(theme.$color, 'white-100');
+      content: '';
+      display: block;
+      height: 100%;
+      left: -#{map.get(theme.$spacing, '2xs')};
+      position: absolute;
+      top: 0;
+      width: map.get(theme.$spacing, '2xs');
+    }
+
+    &.tns-slide-active {
+      margin-right: -#{map.get(theme.$spacing, 'l')};
+    }
+
+    .ecl-page-banner {
+      box-shadow: inset -10px 0 0 -6px map.get(theme.$color, 'white-100');
+    }
+  }
+}
+
+.ecl-carousel__controls {
+  background-color: $_controls-background;
+  padding: map.get(theme.$spacing, 's') 0;
+
+  .ecl-container {
+    display: flex;
+  }
+}
+
+.ecl-carousel__prev,
+.ecl-carousel__next {
+  background: $_button-arrows-background;
+  border: 0;
+  cursor: pointer;
+  display: none;
+  padding: map.get(theme.$spacing, 's');
+  position: absolute;
+  top: calc(50% - 22px);
+  transform: translateY(-50%);
+  &:focus {
+    outline: $_outline-width solid $_outline-color;
+  }
+
+  li:hover {
+    cursor: pointer;
+  }
+}
+
+.ecl-carousel__prev {
+  left: 0;
+  &:focus {
+    margin-left: $_outline-width;
+    padding-left: calc(#{map.get(theme.$spacing, 's')} - #{$_outline-width});
+  }
+}
+
+.ecl-carousel__next {
+  right: 0;
+  &:focus {
+    margin-right: $_outline-width;
+    padding-right: calc(#{map.get(theme.$spacing, 's')} - #{$_outline-width});
+  }
+}
+
+.ecl-carousel__autoplay {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  margin-right: map.get(theme.$spacing, 'l');
+  padding: 0;
+
+  &:focus {
+    outline: $_outline-width solid $_outline-color;
+  }
+}
+
+.ecl-carousel__pagination {
+  align-items: center;
+  color: map.get(theme.$color, 'white-100');
+  display: flex;
+  font: map.get(theme.$font, 'm');
+  font-weight: map.get(theme.$font-weight, 'bold');
+  margin-right: map.get(theme.$spacing, 'l');
+}
+
+.ecl-carousel__navigation {
+  align-items: center;
+  display: flex;
+}
+
+.ecl-carousel__pagination--item {
+  background-color: transparent;
+  border: 2px solid map.get(theme.$color, 'white-100');
+  border-radius: 50%;
+  cursor: pointer;
+  height: 1rem;
+  margin-right: map.get(theme.$spacing, 'xs');
+  width: 1rem;
+
+  &:focus {
+    outline: $_outline-width solid $_outline-color;
+  }
+
+  &.tns-nav-active {
+    background-color: map.get(theme.$color, 'white-100');
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('l') {
+  .ecl-carousel {
+    .ecl-page-banner,
+    .ecl-page-banner__image::before {
+      padding-right: 0;
+    }
+  }
+
+  .ecl-carousel__slider {
+    .tns-item {
+      &::before {
+        content: none;
+      }
+      &.tns-slide-active {
+        margin: 0;
+      }
+      .ecl-page-banner {
+        box-shadow: none;
+      }
+    }
+  }
+
+  .ecl-carousel__prev,
+  .ecl-carousel__next {
+    display: block;
+  }
+}

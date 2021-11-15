@@ -1,0 +1,95 @@
+{% spaceless %}
+
+{#
+  Parameters:
+    - "items" (array) (default: []): List of page-banner compatible with EC page-banner component structure
+    - "counter_label" (string) (default: 'of')
+    - "icon_path" (string) (default: '') Path to the icons file
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        ...
+      ]
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-carousel' %}
+{% set _extra_attributes = 'data-ecl-auto-init="Carousel"' %}
+{% set _items = items|default('') %}
+{% set _counter_label = counter_label|default('of') %}
+{% set _icon_path = icon_path|default('') %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+{% if _items is not empty and _items is iterable %}
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <div class="ecl-carousel__slider">
+  {% for item in _items %}
+    <div>
+      {% include '@ecl/page-banner/page-banner.html.twig' with item only %}
+    </div>
+  {% endfor %}
+  </div>
+  <div class="ecl-carousel__controls">
+    <button class="ecl-carousel__prev">
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: {
+          path: _icon_path,
+          name: 'corner-arrow',
+          size: 'm',
+          transform: 'rotate-270',
+          color: 'inverted',
+        },
+        extra_classes: 'ecl-u-d-block',
+      } only %}
+    </button>
+    <button class="ecl-carousel__next">
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: {
+          path: _icon_path,
+          name: 'corner-arrow',
+          size: 'm',
+          transform: 'rotate-90',
+          color: 'inverted',
+        },
+        extra_classes: 'ecl-u-d-block',
+      } only %}
+    </button>
+    <div class="ecl-container">
+      <button class="ecl-carousel__autoplay">
+        {% include '@ecl/icon/icon.html.twig' with {
+        icon: {
+          path: _icon_path,
+          name: 'pause',
+          size: 'm',
+          color: 'inverted',
+        },
+      } only %}
+      </button>
+      <div class="ecl-carousel__pagination">
+        <span class="ecl-carousel__current">1</span>&nbsp;{{ _counter_label }} {{_items|length}}
+      </div>
+      <div class="ecl-carousel__navigation"></div>
+    </div>
+  </div>
+</div>
+{% endif %}
+{% endspaceless %}
