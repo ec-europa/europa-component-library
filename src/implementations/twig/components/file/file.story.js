@@ -109,6 +109,7 @@ const getArgTypes = (data) => {
       type: 'select',
       description: 'Select different image variant to test thumbnail size',
       options: {
+        none: '',
         landscape:
           'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
         portrait:
