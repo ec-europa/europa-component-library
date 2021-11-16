@@ -15,6 +15,7 @@ npm install --save @ecl/twig-component-spinner
 - **"text"** (string) (default: '')
 - **"visible"** (boolean) (default: false)
 - **"centered"** (boolean) (default: true))
+- **"overlay"** (boolean) (default: false))
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

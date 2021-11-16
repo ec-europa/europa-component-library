@@ -24,7 +24,7 @@ $_spinner-sizes: (
   z-index: #{map.get(theme.$z-index, 'modal') + 1};
 }
 
-.ecl-spinner--active {
+.ecl-spinner--visible {
   display: inline-flex;
 }
 
@@ -78,8 +78,8 @@ $_spinner-sizes: (
     margin-top: 0;
   }
 }
-// stylelint-disable-next-line plugin/selector-bem-pattern
-.path {
+
+.ecl-spinner__circle {
   animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
   stroke-dasharray: 1, 200;
   stroke-dashoffset: 0;
@@ -96,7 +96,7 @@ $_spinner-sizes: (
   z-index: map.get(theme.$z-index, 'modal');
 }
 
-.ecl-spinner__overlay--active {
+.ecl-spinner__overlay--visible {
   display: block;
 }
 

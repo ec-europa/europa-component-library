@@ -18,7 +18,7 @@ const getArgs = (data, variant) => {
   };
 };
 
-const getArgTypes = () => {
+const getArgTypes = (variant) => {
   return {
     text: {
       type: { name: 'string' },
@@ -31,7 +31,7 @@ const getArgTypes = () => {
     },
     variant: {
       type: { name: 'select' },
-      options: ['primary', 'negative'],
+      options: [variant],
       description: 'Style of the loading indicator',
       table: {
         type: { summary: 'string' },
@@ -71,6 +71,7 @@ const getArgTypes = () => {
       type: { name: 'boolean' },
       description: 'Toggle overlay',
       table: {
+        disable: variant === 'primary',
         type: { summary: 'boolean' },
         defaultValue: { summary: 'false' },
         category: 'Overlay',
@@ -102,13 +103,13 @@ export const Default = (args) => spinner(prepareData(dataDefault, args));
 
 Default.storyName = 'primary';
 Default.args = getArgs(dataDefault, 'primary');
-Default.argTypes = getArgTypes();
+Default.argTypes = getArgTypes('primary');
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 
 export const Negative = (args) => spinner(prepareData(dataNegative, args));
 
 Negative.storyName = 'negative';
 Negative.args = getArgs(dataNegative, 'negative');
-Negative.argTypes = getArgTypes();
+Negative.argTypes = getArgTypes('negative');
 Negative.parameters = { notes: { markdown: notes, json: dataNegative } };
 Negative.decorators = [withNotes, withCode, withNegative];

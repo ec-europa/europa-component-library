@@ -6,7 +6,9 @@
   - "size" (string) options:
     [ small, medium, large ]
   - "text" (string) (default: '')
+    "centered" (boolean) (default: false)
   - "visible" (boolean) (default false)
+    "overlay" (boolean) (default: false)
   - "extra_classes" (string) (default: '')
   - "extra_attributes" (array) (default: []): format: [
       {
@@ -36,9 +38,9 @@
 {% endif %}
 
 {% if _visible %}
- {% set _css_classes = _css_classes ~ ' ecl-spinner--active' %}
+ {% set _css_classes = _css_classes ~ ' ecl-spinner--visible' %}
  {% if _overlay %}
-   {% set _overlay_classes = _overlay_classes ~ ' ecl-spinner__overlay--active' %}
+   {% set _overlay_classes = _overlay_classes ~ ' ecl-spinner__overlay--visible' %}
  {% endif %}
 {% endif %}
 
@@ -59,7 +61,7 @@
 <div class="{{ _css_classes }}" {{ _extra_attributes|raw }}>
   <svg class="ecl-spinner__loader" viewBox="25 25 50 50">
     <circle
-      class="path"
+      class="ecl-spinner__circle"
       cx="50"
       cy="50"
       r="20"
