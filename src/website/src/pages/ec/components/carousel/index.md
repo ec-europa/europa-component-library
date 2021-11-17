@@ -1,5 +1,5 @@
 ---
-title: News ticker
+title: Carousel
 defaultTab: usage
 status: ready
 ---
