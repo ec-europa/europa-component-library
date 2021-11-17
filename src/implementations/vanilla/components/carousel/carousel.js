@@ -353,7 +353,7 @@ export class Carousel {
   }
 
   /**
-   * Resize Slides container at the height of the highest slide.
+   * Resize the slides across the width of the container.
    */
   resizeTicker() {
     const containerWidth = this.container.offsetWidth;
@@ -372,7 +372,7 @@ export class Carousel {
   }
 
   /**
-   * Trigger events on resize
+   * Trigger events on resize.
    */
   handleResize() {
     this.resizeTicker();

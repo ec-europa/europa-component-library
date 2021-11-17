@@ -10,6 +10,7 @@ npm install --save @ecl/twig-component-carousel
 
 - **"items"** (array) (default: []): List of page-banner compatible with EC page-banner component structure
 - **"counter_label"** (string) (default: '')
+- **"full_width"** (bools) (default: false) Extends the banner to whole viewport when used inside the grid
 - **"icon_path"** (string) ) (default: '')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes

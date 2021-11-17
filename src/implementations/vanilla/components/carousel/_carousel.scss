@@ -152,6 +152,24 @@ $_outline-width: null !default;
   }
 }
 
+/*
+ * full width
+ */
+.ecl-carousel--full-width {
+  left: 50%;
+  margin-left: -50vw;
+  width: 100vw;
+}
+
+// stylelint-disable-next-line plugin/selector-bem-pattern, selector-max-compound-selectors
+.ecl-container
+  .ecl-carousel--full-width
+  .ecl-page-banner:not(.ecl-page-banner--full-width)
+  .ecl-container {
+  padding-left: map.get(theme.$spacing, 'm');
+  padding-right: map.get(theme.$spacing, 'm');
+}
+
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-carousel__container {

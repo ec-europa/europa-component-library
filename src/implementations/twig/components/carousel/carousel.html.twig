@@ -4,6 +4,7 @@
   Parameters:
     - "items" (array) (default: []): List of page-banner compatible with EC page-banner component structure
     - "counter_label" (string) (default: 'of')
+    - "full_width": (bool) (default: false) Full width banner (inside the grid)
     - "icon_path" (string) (default: '') Path to the icons file
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -20,9 +21,14 @@
 {% set _extra_attributes = 'data-ecl-auto-init="Carousel"' %}
 {% set _items = items|default('') %}
 {% set _counter_label = counter_label|default('of') %}
+{% set _full_width = full_width|default(false) %}
 {% set _icon_path = icon_path|default('') %}
 
 {# Internal logic - Process properties #}
+
+{% if _full_width %}
+  {% set _css_class = _css_class ~ ' ecl-carousel--full-width' %}
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
