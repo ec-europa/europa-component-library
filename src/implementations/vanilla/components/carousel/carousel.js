@@ -19,7 +19,7 @@ export class Carousel {
    *
    * @param {HTMLElement} root DOM element for component instantiation and scope
    *
-   * @return {NewsTicker} An instance of Expandable.
+   * @return {Carousel} An instance of Carousel.
    */
   static autoInit(root, { CAROUSEL: defaultOptions = {} } = {}) {
     const carousel = new Carousel(root, defaultOptions);
