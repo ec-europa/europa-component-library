@@ -64,6 +64,8 @@ $_menu-sublink-desktop-margin: null !default;
 $_menu-sublink-desktop-padding: null !default;
 $_menu-sublink-mobile-vertical-padding: null !default;
 $_menu-sublink-outline-offset: null !default;
+$_menu-sublink-padding-offset: null !default;
+$_menu-sublink-margin-offset: null !default;
 $_menu-sublink-active-color: null !default;
 $_menu-sublink-active-weight: null !default;
 $_menu-sublink-active-background: null !default;
@@ -482,6 +484,10 @@ $_mobile-item-hover-background: null !default;
       border-bottom: 4px solid $_menu-link-active-border-color;
     }
 
+    .ecl-menu__item--has-children .ecl-menu__link {
+      padding-right: $_menu-link-padding-right;
+    }
+
     .ecl-menu__link:focus {
       background-color: $_menu-link-focus-background;
       border: $_menu-link-border-width solid $_menu-link-border-focus-color;
@@ -489,20 +495,14 @@ $_mobile-item-hover-background: null !default;
       outline: none;
     }
 
-    .ecl-menu__item--has-children .ecl-menu__link {
-      padding-right: $_menu-link-padding-right;
+    .ecl-menu__item--current .ecl-menu__link:focus {
+      padding-bottom: calc(4px - #{$_menu-link-border-width});
     }
   }
 
   .ecl-menu:not(.ecl-menu--forced-mobile):not(.ecl-menu--forced-close) {
-    .ecl-menu__item[aria-expanded='true'] {
-      .ecl-menu__link {
-        background-color: map.get(theme.$color, 'blue-5');
-        color: map.get(theme.$color, 'blue');
-      }
-    }
-
-    .ecl-menu__item:hover {
+    .ecl-menu__item:hover,
+    .ecl-menu__item:focus-within {
       .ecl-menu__link,
       .ecl-menu__link:hover,
       .ecl-menu__link:active,
@@ -636,7 +636,8 @@ $_mobile-item-hover-background: null !default;
       right: 0;
     }
 
-    .ecl-menu__item:hover .ecl-menu__mega {
+    .ecl-menu__item:hover .ecl-menu__mega,
+    .ecl-menu__item:focus-within .ecl-menu__mega {
       transition-property: visibility;
       visibility: visible;
     }
@@ -652,15 +653,25 @@ $_mobile-item-hover-background: null !default;
       ); // hack for box-shadow
     }
 
+    // Manage column display
     .ecl-menu__sublist {
-      display: grid;
-      grid-auto-flow: column;
-      grid-template-rows: auto auto auto auto;
+      display: block;
+    }
+
+    .ecl-menu__item--col1 .ecl-menu__sublist {
+      column-count: 1;
+    }
+
+    .ecl-menu__item--col2 .ecl-menu__sublist {
+      column-count: 2;
+    }
+
+    .ecl-menu__item--col3 .ecl-menu__sublist {
+      column-count: 3;
     }
 
     .ecl-menu__item--full .ecl-menu__sublist {
       column-count: 4;
-      display: block;
     }
 
     // Special hack for IE
@@ -681,24 +692,23 @@ $_mobile-item-hover-background: null !default;
       align-items: center;
       border-top-width: 0;
       box-sizing: border-box;
-      display: flex;
-      margin-bottom: $_menu-subitem-margin-bottom;
+      display: inline-flex;
+      // Margin and padding to fix overlap on focus
+      margin-bottom: calc(
+        #{$_menu-subitem-margin-bottom} - 4 * #{$_menu-sublink-margin-offset}
+      );
       margin-top: $_menu-subitem-margin-top;
       min-width: 13.56rem; // Written in the specs
-    }
-
-    .ecl-menu__item--full .ecl-menu__subitem {
-      display: inline-flex;
-      margin-bottom: calc(
-        #{$_menu-subitem-margin-bottom} - 4 * #{$_menu-sublink-outline-offset}
-      );
-      padding: $_menu-sublink-outline-offset 0;
+      padding: $_menu-sublink-padding-offset 0;
       width: 100%;
     }
 
     .ecl-menu__sublink {
+      break-inside: avoid-column;
+      margin-bottom: $_menu-sublink-outline-offset;
       margin-left: $_menu-sublink-desktop-margin;
       margin-right: $_menu-sublink-desktop-margin;
+      margin-top: $_menu-sublink-outline-offset;
       padding: $_menu-sublink-desktop-padding;
       white-space: normal;
       width: 100%;
@@ -714,12 +724,6 @@ $_mobile-item-hover-background: null !default;
       &:hover {
         color: $_menu-dropdown-item-hover-color;
       }
-    }
-
-    .ecl-menu__item--full .ecl-menu__sublink {
-      break-inside: avoid-column;
-      margin-bottom: $_menu-sublink-outline-offset;
-      margin-top: $_menu-sublink-outline-offset;
     }
   }
 }
