@@ -93,6 +93,7 @@ export class Menu {
     this.handleClickOnBack = this.handleClickOnBack.bind(this);
     this.handleClickOnLink = this.handleClickOnLink.bind(this);
     this.handleHoverOnItem = this.handleHoverOnItem.bind(this);
+    this.handleHoverOffItem = this.handleHoverOffItem.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.useDesktopDisplay = this.useDesktopDisplay.bind(this);
   }
@@ -157,9 +158,11 @@ export class Menu {
           // Bind hover and focus events on menu items
           if (this.attachHoverListener) {
             item.addEventListener('mouseover', this.handleHoverOnItem);
+            item.addEventListener('mouseout', this.handleHoverOffItem);
           }
           if (this.attachFocusListener) {
             item.addEventListener('focusin', this.handleHoverOnItem);
+            item.addEventListener('focusout', this.handleHoverOffItem);
           }
         }
       });
@@ -198,10 +201,12 @@ export class Menu {
       this.items.forEach((item) => {
         if (item.hasAttribute('data-ecl-has-children')) {
           if (this.attachHoverListener) {
-            item.removeEventListener('hover', this.handleHoverOnItem);
+            item.removeEventListener('mouseover', this.handleHoverOnItem);
+            item.removeEventListener('mouseout', this.handleHoverOffItem);
           }
           if (this.attachFocusListener) {
             item.removeEventListener('focusin', this.handleHoverOnItem);
+            item.removeEventListener('focusout', this.handleHoverOffItem);
           }
         }
       });
@@ -399,7 +404,7 @@ export class Menu {
    * @param {Event} e
    */
   handleHoverOnItem(e) {
-    // Add css attribute to current item, and remove it from others
+    // Add attribute to current item, and remove it from others
     const menuItem = e.target.closest('[data-ecl-menu-item]');
     this.items.forEach((item) => {
       if (item === menuItem) {
@@ -408,6 +413,18 @@ export class Menu {
         item.setAttribute('aria-expanded', 'false');
       }
     });
+
+    return this;
+  }
+
+  /**
+   * Deselect a menu item
+   * @param {Event} e
+   */
+  handleHoverOffItem(e) {
+    // Remove attribute to current item
+    const menuItem = e.target.closest('[data-ecl-menu-item]');
+    menuItem.setAttribute('aria-expanded', 'false');
 
     return this;
   }
