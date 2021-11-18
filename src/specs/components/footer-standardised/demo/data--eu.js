@@ -141,7 +141,7 @@ module.exports = {
               },
             },
             {
-              content_before: 'Meet us at of the ',
+              content_before: 'Meet us at one of the ',
               link: {
                 label: 'EU centres',
                 aria_label: 'Link to EU centres',

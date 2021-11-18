@@ -51,7 +51,7 @@ module.exports = {
               content_before: 'Meet us at one of the ',
               link: {
                 label: 'EU centres',
-                aria_label: 'Link to local EU centres',
+                aria_label: 'Link to EU centres',
                 path: exampleLink,
               },
             },
