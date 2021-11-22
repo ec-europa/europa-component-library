@@ -94,7 +94,7 @@
 
 <div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <div class="ecl-file__container">
-  {% if _variant == 'thumbnail' or _labels is not empty %}
+  {% if _variant == 'thumbnail'%}
     <div class="ecl-file__detail">
       <div class="ecl-file__detail-info">
       {% if _labels is defined and _labels is iterable %}
@@ -140,6 +140,13 @@
   {% endif %}
   {% if _title is not empty or language is not empty or meta is not empty %}
     <div class="ecl-file__info">
+    {% if _variant != 'thumbnail' and _labels is defined and _labels is iterable %}
+      {% for _label in _labels %}
+      <div class="ecl-file__label">
+        {% include '@ecl/label/label.html.twig' with _label only %}
+      </div>
+      {% endfor %}
+    {% endif %}
     {% if _title is not empty and _variant != 'thumbnail' %}
       <div class="ecl-file__title">{{ _title }}</div>
     {% endif %}
