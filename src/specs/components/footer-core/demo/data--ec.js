@@ -161,6 +161,13 @@ module.exports = {
             },
             {
               link: {
+                label: 'Accessibility',
+                path: exampleLink,
+                aria_label: 'Link to the accessibility report',
+              },
+            },
+            {
+              link: {
                 label: 'Follow the European Commission on social media',
                 path: exampleLink,
                 aria_label:
@@ -180,9 +187,9 @@ module.exports = {
           links: [
             {
               link: {
-                label: 'Language policy',
+                label: 'Languages on our websites',
                 path: exampleLink,
-                aria_label: 'Link to Language policy',
+                aria_label: 'Link to Languages on our websites',
               },
             },
             {
