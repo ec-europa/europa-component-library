@@ -18,6 +18,14 @@ $_outline-width: null !default;
     border-radius: 0;
     box-shadow: none;
   }
+
+  .ecl-page-banner {
+    height: 100%;
+
+    .ecl-container {
+      height: 100%;
+    }
+  }
 }
 
 .ecl-carousel__container {
@@ -172,6 +180,15 @@ $_outline-width: null !default;
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
+  .ecl-carousel {
+    .ecl-page-banner {
+      height: initial;
+
+      .ecl-container {
+        height: initial;
+      }
+    }
+  }
   .ecl-carousel__container {
     width: 100%;
   }

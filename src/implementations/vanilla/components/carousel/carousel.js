@@ -128,13 +128,8 @@ export class Carousel {
     });
     this.resizeTicker();
 
-    // Activate autoPlay only if toggle is visible (desktop)
-    if (
-      this.toggle &&
-      !(window.getComputedStyle(this.toggle).display === 'none')
-    ) {
-      this.handleClickOnToggle();
-    }
+    // Activate autoPlay
+    this.handleClickOnToggle();
 
     // Bind events
     if (this.navigationItems) {
@@ -309,6 +304,17 @@ export class Carousel {
     // Update pagination
     if (this.currentSlide) {
       this.currentSlide.textContent = this.index;
+    }
+
+    // Update slides
+    if (this.slides) {
+      this.slides.forEach((slide, index) => {
+        if (this.index === index) {
+          slide.removeAttribute('aria-hidden', 'true');
+        } else {
+          slide.setAttribute('aria-hidden', 'true');
+        }
+      });
     }
 
     // Update navigation

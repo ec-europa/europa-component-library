@@ -4,8 +4,9 @@ const exampleLink = `${publicUrl}/example`;
 module.exports = {
   items: [
     {
-      title: 'EU Budget for the future',
-      description: 'Innovation, economy, environment and geopolitics',
+      title: 'Lorem ipsum dolor sit amet',
+      description:
+        'Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur',
       link: {
         link: {
           label: 'Subscribe',
@@ -26,8 +27,9 @@ module.exports = {
       centered: false,
     },
     {
-      title: 'EU Budget for the future',
-      description: 'Innovation, economy, environment and geopolitics',
+      title: 'Duis vitae pulvinar turpis',
+      description:
+        'Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur',
       link: {
         link: {
           label: 'Subscribe',
@@ -48,8 +50,9 @@ module.exports = {
       centered: false,
     },
     {
-      title: 'EU Budget for the future',
-      description: 'Innovation, economy, environment and geopolitics',
+      title: 'Donec maximus pharetra ex a ultricies',
+      description:
+        'Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies',
       link: {
         link: {
           label: 'Subscribe',

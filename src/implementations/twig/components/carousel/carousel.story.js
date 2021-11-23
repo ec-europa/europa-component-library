@@ -19,7 +19,7 @@ const getArgTypes = () => {
   const argTypes = {
     width: {
       name: 'width',
-      type: 'radio',
+      type: 'select',
       description: `The media container extends to the whole viewport by default when outside the grid,
         if it's inside it can still be extended by adding class .ecl-page-banner--full-width`,
       options: {

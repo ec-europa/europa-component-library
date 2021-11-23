@@ -9,7 +9,11 @@ npm install --save @ecl/twig-component-carousel
 ### Parameters
 
 - **"items"** (array) (default: []): List of page-banner compatible with EC page-banner component structure
-- **"counter_label"** (string) (default: '')
+- **"counter_label"** (string) (default: 'of')
+- **"sr_previous"** (string) (default: 'Previous slides') screen reader label for previous button
+- **"sr_next"** (string) (default: 'Next slides') screen reader label for next button
+- **"sr_navigation"** (string) (default: 'Go to slide %d') screen reader label for navigation buttons
+- **"sr_autoplay"** (string) (default: 'Carousel auto play') screen reader label for autoplay button
 - **"full_width"** (bools) (default: false) Extends the banner to whole viewport when used inside the grid
 - **"icon_path"** (string) ) (default: '')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
