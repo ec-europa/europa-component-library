@@ -28,7 +28,8 @@ $_search-width-xl: 31.5rem;
     bottom: 0;
     padding: 0;
     position: absolute;
-    width: 100%;
+    right: 0;
+    width: 50%;
   }
 
   .ecl-menu__open,
@@ -36,7 +37,7 @@ $_search-width-xl: 31.5rem;
     margin-bottom: 3px;
   }
 
-  .ecl-link--cta {
+  .ecl-standardised-menu__cta {
     margin-top: map.get(theme.$spacing, 's');
     width: max-content;
   }
@@ -238,7 +239,7 @@ $_search-width-xl: 31.5rem;
 
 @include breakpoints.up('l') {
   .ecl-site-header-standardised {
-    .ecl-link--cta {
+    .ecl-standardised-menu__cta {
       align-self: start;
       margin: map.get(theme.$spacing, 'l') 0;
     }
@@ -246,6 +247,7 @@ $_search-width-xl: 31.5rem;
     .ecl-menu {
       background-color: map.get(theme.$color, 'blue-100');
       position: static;
+      width: 100%;
     }
   }
 
