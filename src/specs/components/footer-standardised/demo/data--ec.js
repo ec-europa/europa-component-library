@@ -28,6 +28,13 @@ module.exports = {
                 aria_label: 'Link to Contact information of the DG',
               },
             },
+            {
+              link: {
+                label: 'Accessibility',
+                path: exampleLink,
+                aria_label: 'Link to Accessibility',
+              },
+            },
           ],
         },
         {
@@ -209,9 +216,9 @@ module.exports = {
           links: [
             {
               link: {
-                label: 'Language policy',
+                label: 'Languages on our websites',
                 path: exampleLink,
-                aria_label: 'Link to Language policy',
+                aria_label: 'Link to Languages on our websites',
               },
             },
             {
