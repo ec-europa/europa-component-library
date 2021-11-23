@@ -17,7 +17,8 @@ npm install --save @ecl/twig-component-file
 - **"detail_meta"** (array) (default: []) Meta element for the thumbnail variant
 - **"download"** (object) (default: {}): object of type Link
 - **"image"** (object) (default: {}): image for the thumbnail variant
-- **"label"** (object) (default: {}) label for the thumbnail variant
+- **"label"** (array of objects of type Label) (default: []) labels
+  ** also supported as an object with a single label **
 - **"lists"** (array) (default: []) Array of objects of type "description list"
   - "variant" (optional) (taxonomy or horizontal)
   - "items" (array)
@@ -39,43 +40,43 @@ npm install --save @ecl/twig-component-file
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl/file/file.html.twig' with { 
-  title: 'State of the Union 2018 brochure', 
-  language: 'English', 
-  meta: '(16.2 MB - PDF)', 
-  icon_path: 'path/to/icons.svg', 
-  icon: { 
-    name: 'copy', 
-    size: '2xl', 
-    path: 'path/to/icons.svg', 
-  }, 
-  download: { 
-    label: 'Download', 
-    path: '/example', 
-    icon: { 
-      name: 'download', 
-      size: 'fluid', 
-      path: 'path/to/icons.svg', 
-    }, 
-  }, 
-  translation: { 
-    toggle: { 
-      label: 'Other languages (3)', 
-      icon: { 
-        name: 'corner-arrow', 
-        size: 'fluid', 
-        transform: 'rotate-180', 
-      }, 
-    }, 
-    description: 'Looking for another language which is not on the list? Find out why.', 
-    items: [ 
-      { 
-        title: 'български', 
-        meta: '(15.7 MB - PDF)', 
-        lang: 'bg', 
-      }, 
-      ... 
-    ], 
-  }, 
+{% include '@ecl/file/file.html.twig' with {
+  title: 'State of the Union 2018 brochure',
+  language: 'English',
+  meta: '(16.2 MB - PDF)',
+  icon_path: 'path/to/icons.svg',
+  icon: {
+    name: 'copy',
+    size: '2xl',
+    path: 'path/to/icons.svg',
+  },
+  download: {
+    label: 'Download',
+    path: '/example',
+    icon: {
+      name: 'download',
+      size: 'fluid',
+      path: 'path/to/icons.svg',
+    },
+  },
+  translation: {
+    toggle: {
+      label: 'Other languages (3)',
+      icon: {
+        name: 'corner-arrow',
+        size: 'fluid',
+        transform: 'rotate-180',
+      },
+    },
+    description: 'Looking for another language which is not on the list? Find out why.',
+    items: [
+      {
+        title: 'български',
+        meta: '(15.7 MB - PDF)',
+        lang: 'bg',
+      },
+      ...
+    ],
+  },
 } %}
 ```

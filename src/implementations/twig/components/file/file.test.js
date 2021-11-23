@@ -48,6 +48,29 @@ describe('File', () => {
       return expect(render(dataWithoutTranslation)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with a single label', () => {
+      expect.assertions(1);
+
+      const singleLabel = {
+        ...dataWithoutTranslation,
+        label: { label: 'highlight', variant: 'highlight' },
+      };
+      return expect(render(singleLabel)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with multiple labels', () => {
+      expect.assertions(1);
+
+      const multipleLabels = {
+        ...dataWithoutTranslation,
+        label: [
+          { label: 'highlight', variant: 'highlight' },
+          { label: 'important', variant: 'low' },
+        ],
+      };
+      return expect(render(multipleLabels)).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
