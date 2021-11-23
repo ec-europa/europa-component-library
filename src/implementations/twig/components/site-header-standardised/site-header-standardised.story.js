@@ -36,8 +36,8 @@ const getArgs = (data) => {
   };
   if (system === 'ec') {
     args.banner_top = true;
-    args.cta_link = false;
   }
+  args.cta_link = false;
 
   return args;
 };
@@ -80,19 +80,19 @@ const getArgTypes = () => {
         defaultValue: { summary: '{}' },
       },
     };
-    argTypes.cta_link = {
-      name: 'call to action',
-      type: { name: 'boolean' },
-      description: 'Call to action link (optional)',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-      },
-      control: {
-        type: 'boolean',
-      },
-    };
   }
+  argTypes.cta_link = {
+    name: 'call to action',
+    type: { name: 'boolean' },
+    description: 'Call to action link (optional)',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+    },
+    control: {
+      type: 'boolean',
+    },
+  };
   argTypes.menu = {
     type: 'boolean',
     description: 'Toggle menu visibility',
