@@ -52,6 +52,7 @@ $_padding-horizontal: null !default;
   &:active {
     border-color: $_border-color-focus;
     border-width: $_border-width-focus;
+    box-shadow: $_shadow-hover;
     outline: none;
     padding: calc(#{$_padding-vertical} - #{$_border-width-focus})
       calc(#{$_padding-horizontal} - #{$_border-width-focus});
