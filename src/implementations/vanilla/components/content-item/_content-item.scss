@@ -86,6 +86,20 @@ $_border-radius: null !default;
   }
 }
 
+// stylelint-disable-next-line order/order
+@include breakpoints.up('l') {
+  .ecl-content-item {
+    max-width: 713px; // 9 columns
+  }
+}
+
+// stylelint-disable-next-line order/order
+@include breakpoints.up('xl') {
+  .ecl-content-item {
+    max-width: 821px; // 9 columns
+  }
+}
+
 // Align right (image only)
 // stylelint-disable-next-line order/order
 @include breakpoints.up('m') {
