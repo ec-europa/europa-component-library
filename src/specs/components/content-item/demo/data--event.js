@@ -15,7 +15,7 @@ module.exports = {
     { label: 'highlight', variant: 'highlight' },
     { label: 'high importance', variant: 'high' },
   ],
-  meta: ['Primary meta', 'DD Month Year'],
+  meta: ['PRIMARY META', 'DD Month Year'],
   title: {
     type: 'standalone',
     label: 'Title',
