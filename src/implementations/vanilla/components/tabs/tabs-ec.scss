@@ -1,0 +1,17 @@
+@use 'sass:map';
+@use '@ecl/theme-dev/theme';
+@use 'tabs' with
+  (
+    $_tabs-font-color: map.get(theme.$color, 'grey-75'),
+    $_tabs-active-font-color: map.get(theme.$color, 'blue'),
+    $_tabs-border-radius: none,
+    $_tabs-border-color: map.get(theme.$color, 'grey-25'),
+    $_tabs-active-border-top-color: map.get(theme.$color, 'blue'),
+    $_dropdown-top-margin: -1px,
+    $_dropdown-border: 1px solid map.get(theme.$color, 'grey-25'),
+    $_dropdown-border-radius: 0,
+    $_dropdown-shadow: none,
+    $_dropdown-link-active-color: map.get(theme.$color, 'blue'),
+    $_dropdown-link-active-background: transparent,
+    $_dropdown-link-hover-color: map.get(theme.$color, 'blue-130')
+  );
