@@ -126,3 +126,10 @@ $_border-radius: null !default;
 .ecl-content-item__date {
   margin-right: map.get(theme.$spacing, 'm');
 }
+
+// stylelint-disable-next-line order/order
+@include breakpoints.up('l') {
+  .ecl-content-item__date {
+    margin-right: map.get(theme.$spacing, 'xl');
+  }
+}
