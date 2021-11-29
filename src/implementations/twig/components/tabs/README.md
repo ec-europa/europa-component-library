@@ -24,24 +24,21 @@ npm install --save @ecl/twig-component-tabs
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/tabs/tabs.html.twig' with { 
-  id: 'news-ticker-example', 
   icon_path: '/icons.svg', 
-  counter_label: 'of', 
   items: [ 
     { 
-      content: 'EMA starts rolling review of COVID-19 vaccine Vidprevtyn', 
-      link: 'https://www.ema.europa.eu/en/news/ema-starts-rolling-review-covid-19-vaccine-vidprevtyn', 
-    }, 
-    {
-      content:
-        'President von der Leyen announced that the EU has achieved its goal of fully vaccinating 70% of its adult population on 31 August',
-      link: 'https://ec.europa.eu/commission/presscorner/detail/en/ip_21_4362',
+      label: 'Item 1 label', 
+      path: exampleLink }, 
+    { 
+      label: 'Item 2 label', 
+      path: exampleLink, 
     }, 
     { 
-      content:
-        'President von der Leyen announced that the EU has achieved its goal of fully vaccinating 70% of its adult population on 31 August', 
+      label: 'Item 3 label', 
+      path: exampleLink, 
+      is_current: true, 
     }, 
-    ...
+    ... 
   ], 
 } %}
 ```
