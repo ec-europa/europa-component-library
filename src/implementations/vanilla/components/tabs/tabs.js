@@ -168,7 +168,7 @@ export class Tabs {
       }
     });
 
-    // Add active class to more button if it contains an active element
+    // Add active class to the more button if it contains an active element
     if (this.moreButtonActive) {
       this.moreButton.classList.add('ecl-tabs__toggle--active');
     } else {
