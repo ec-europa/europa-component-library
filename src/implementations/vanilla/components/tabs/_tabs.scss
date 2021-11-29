@@ -19,6 +19,7 @@ $_dropdown-shadow: none !default;
 $_dropdown-link-active-color: none !default;
 $_dropdown-link-active-background: none !default;
 $_dropdown-link-hover-color: none !default;
+$_more-active-border-radius: none !default;
 
 .ecl-tabs {
   margin: 0;
@@ -81,6 +82,7 @@ $_dropdown-link-hover-color: none !default;
 
   &::before {
     background-color: $_tabs-active-border-top-color;
+    border-radius: $_more-active-border-radius;
     content: '';
     display: block;
     height: 4px;
@@ -160,7 +162,7 @@ $_dropdown-link-hover-color: none !default;
 @include breakpoints.up('s') {
   .ecl-tabs__dropdown {
     grid-auto-flow: column;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: auto auto auto auto;
     height: auto;
     overflow-y: none;
     width: auto;

@@ -7,6 +7,7 @@ import { queryOne, queryAll } from '@ecl/dom-utils';
  * @param {String} options.listItemsSelector Selector for tabs element
  * @param {String} options.moreLabelSelector Selector for more list item element
  * @param {String} options.moreButtonSelector Selector for more button element
+ * @param {String} options.moreLabelSelector Selector for more button label element
  * @param {Boolean} options.attachClickListener
  * @param {Boolean} options.attachResizeListener
  */
@@ -33,6 +34,7 @@ export class Tabs {
       listItemsSelector = '.ecl-tabs__item:not(.ecl-tabs__item--more)',
       moreItemSelector = '.ecl-tabs__item--more',
       moreButtonSelector = '.ecl-tabs__toggle',
+      moreLabelSelector = '.ecl-tabs__toggle .ecl-button__label',
       attachClickListener = true,
       attachResizeListener = true,
     } = {}
@@ -51,6 +53,7 @@ export class Tabs {
     this.listItemsSelector = listItemsSelector;
     this.moreItemSelector = moreItemSelector;
     this.moreButtonSelector = moreButtonSelector;
+    this.moreLabelSelector = moreLabelSelector;
     this.attachClickListener = attachClickListener;
     this.attachResizeListener = attachResizeListener;
 
@@ -60,6 +63,8 @@ export class Tabs {
     this.moreItem = null;
     this.moreButton = null;
     this.moreButtonActive = false;
+    this.moreLabel = null;
+    this.moreLabelValue = null;
     this.dropdown = null;
     this.dropdownItems = null;
 
@@ -77,6 +82,8 @@ export class Tabs {
     this.listItems = queryAll(this.listItemsSelector, this.element);
     this.moreItem = queryOne(this.moreItemSelector, this.element);
     this.moreButton = queryOne(this.moreButtonSelector, this.element);
+    this.moreLabel = queryOne(this.moreLabelSelector, this.element);
+    this.moreLabelValue = this.moreLabel.innerText;
 
     if (!this.moreItem || !this.moreButton) {
       return;
@@ -173,6 +180,10 @@ export class Tabs {
       this.moreItem.classList.add('ecl-tabs__item--hidden');
     } else {
       this.moreItem.classList.remove('ecl-tabs__item--hidden');
+      this.moreLabel.textContent = this.moreLabelValue.replace(
+        '%d',
+        hiddenItems.length
+      );
       this.dropdownItems.forEach((item, i) => {
         if (!hiddenItems.includes(i)) {
           item.classList.add('ecl-tabs__item--hidden');

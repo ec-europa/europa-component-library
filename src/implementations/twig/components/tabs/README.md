@@ -12,7 +12,7 @@ npm install --save @ecl/twig-component-tabs
   "label": (string) (default: '')
   "path": (string) (default: '')
   "is_current": (boolean) (optional)
-- **"more_label"** (string) (default: 'More')
+- **"more_label"** (string) (default: 'More (%d)')
 - **"icon_path"** (string) (default: ''): path to the icons svg
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes

@@ -3,7 +3,6 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
-  more_label: 'More',
   icon_path: '/icons.svg',
   items: [
     { label: 'Item 1 label', path: exampleLink },

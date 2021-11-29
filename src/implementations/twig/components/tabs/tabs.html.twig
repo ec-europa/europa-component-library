@@ -13,7 +13,7 @@
         "path": "/example"
       },
     }],
-    - "more_label" (string) (default: '') Label for the more button (responsive)
+    - "more_label" (string) (default: 'More (%d)') Label for the more button (responsive)
     - "icon_path" (string) (default: '') Path to the icons file
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -28,7 +28,7 @@
 {# Internal properties #}
 
 {% set _icon_path = icon_path|default('') %}
-{% set _more_label = more_label|default('More') %}
+{% set _more_label = more_label|default('More (%d)') %}
 {% set _items = items|default([]) %}
 {% set _css_class = 'ecl-tabs' %}
 {% set _extra_attributes = [
