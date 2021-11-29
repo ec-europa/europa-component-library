@@ -1,0 +1,44 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+
+import {
+  siteHeaderHarmonised,
+  siteHeaderHarmonisedTranslated,
+  siteHeaderHarmonisedLoggedIn,
+} from '../demo';
+
+<Playground
+  system="eu"
+  selectedKind="components-site-headers-standardised"
+  selectedStory="default"
+  showFrame
+>
+  <Html markup={siteHeaderHarmonised} />
+</Playground>
+
+## Logged in
+
+<Playground
+  system="eu"
+  selectedKind="components-site-headers-standardised"
+  selectedStory="logged-in"
+  showFrame
+  frameHeight="220"
+>
+  <Html markup={siteHeaderHarmonisedLoggedIn} />
+</Playground>
+
+## Translated
+
+<Playground
+  system="eu"
+  selectedKind="components-site-headers-standardised"
+  selectedStory="translated"
+  showFrame
+>
+  <Html markup={siteHeaderHarmonisedTranslated} />
+</Playground>
