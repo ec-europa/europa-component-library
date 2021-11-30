@@ -17,7 +17,7 @@ class Iframe extends PureComponent {
       const options = {
         autoResize: true,
         minHeight: defaultHeight,
-        heightCalculationMethod: 'lowestElement',
+        heightCalculationMethod: 'max',
         ...iframeOptions,
       };
       this.iframeResizer = iframeResizer(options, this.frameRef.current);
