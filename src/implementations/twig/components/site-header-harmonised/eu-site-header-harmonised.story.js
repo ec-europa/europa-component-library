@@ -10,7 +10,7 @@ import englishData from '@ecl/specs-component-site-header-standardised/demo/data
 import frenchData from '@ecl/specs-component-site-header-standardised/demo/data--fr';
 import dataMenuEn from '@ecl/specs-component-menu/demo/data--en';
 import dataMenuFr from '@ecl/specs-component-menu/demo/data--fr';
-import siteHeaderStandardised from '@ecl/twig-component-site-header-standardised/site-header-standardised.html.twig';
+import siteHeaderHarmonised from '@ecl/twig-component-site-header-standardised/site-header-standardised.html.twig';
 import notes from './README-EU.md';
 
 const enData = { ...englishData };
@@ -148,7 +148,7 @@ export default {
 };
 
 export const Default = (args) =>
-  siteHeaderStandardised(prepareData(englishData, 'default', args));
+  siteHeaderHarmonised(prepareData(englishData, 'default', args));
 
 Default.storyName = 'default';
 Default.args = getArgs(englishData);
@@ -156,7 +156,7 @@ Default.argTypes = getArgTypes();
 Default.parameters = { notes: { markdown: notes, json: englishData } };
 
 export const LoggedIn = (args) =>
-  siteHeaderStandardised(prepareData(loggedInData, 'logged', args));
+  siteHeaderHarmonised(prepareData(loggedInData, 'logged', args));
 
 LoggedIn.storyName = 'logged in';
 LoggedIn.args = getArgs(loggedInData);
@@ -164,7 +164,7 @@ LoggedIn.argTypes = getArgTypes();
 LoggedIn.parameters = { notes: { markdown: notes, json: loggedInData } };
 
 export const Translated = (args) =>
-  siteHeaderStandardised(prepareData(frenchData, 'translated', args));
+  siteHeaderHarmonised(prepareData(frenchData, 'translated', args));
 
 Translated.storyName = 'translated';
 Translated.args = getArgs(frenchData);
