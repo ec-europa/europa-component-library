@@ -1,17 +1,13 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctSvgPath } from '@ecl/story-utils';
-import getSystem from '@ecl/builder/utils/getSystem';
 
 import demoContent from '@ecl/specs-component-page-header-standardised/demo/data--default';
 import demoBackgroundImage from '@ecl/specs-component-page-header-standardised/demo/data--background-image';
-import demoBreadcrumbLongEC from '@ecl/specs-component-breadcrumb/demo/data--ec';
 import demoBreadcrumbLongEU from '@ecl/specs-component-breadcrumb/demo/data--eu';
 
-import pageHeaderStandardised from './page-header-standardised.html.twig';
-import notes from './README.md';
-
-const system = getSystem();
+import pageHeaderHarmonised from '@ecl/twig-component-page-header-standardised/page-header-standardised.html.twig';
+import notes from './README-EU.md';
 
 const dataDefault = { ...demoContent };
 const dataBackgroundImage = { ...demoBackgroundImage };
@@ -130,10 +126,7 @@ const prepareData = (data, args) => {
   if (!args.breadcrumb) {
     delete data.breadcrumb;
   } else if (args.breadcrumb) {
-    data.breadcrumb =
-      system === 'eu'
-        ? { ...demoBreadcrumbLongEU }
-        : { ...demoBreadcrumbLongEC };
+    data.breadcrumb = { ...demoBreadcrumbLongEU };
     data.breadcrumb.links.forEach((item) => {
       item.negative = false;
     });
@@ -161,13 +154,13 @@ const prepareData = (data, args) => {
 };
 
 export default {
-  title: 'Components/Page Headers/Standardised',
+  title: 'Components/Page Headers/Harmonised',
   decorators: [withNotes, withCode],
   parameters: { layout: 'fullscreen' },
 };
 
 export const Default = (args) =>
-  pageHeaderStandardised(prepareData(dataDefault, args));
+  pageHeaderHarmonised(prepareData(dataDefault, args));
 
 Default.storyName = 'default';
 Default.args = getArgs(dataDefault);
@@ -177,7 +170,7 @@ Default.parameters = {
 };
 
 export const BackgroundImage = (args) =>
-  pageHeaderStandardised(prepareData(dataBackgroundImage, args));
+  pageHeaderHarmonised(prepareData(dataBackgroundImage, args));
 
 BackgroundImage.storyName = 'background-image';
 BackgroundImage.args = getArgs(dataBackgroundImage);

@@ -1,6 +1,6 @@
 ---
 order: 5
-title: Standardised template
+title: Harmonised template
 ---
 Work in progress
 
