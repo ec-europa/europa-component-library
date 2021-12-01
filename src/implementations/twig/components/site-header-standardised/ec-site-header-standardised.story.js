@@ -1,14 +1,9 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import { correctSvgPath } from '@ecl/story-utils';
-import getSystem from '@ecl/builder/utils/getSystem';
 import withCode from '@ecl/storybook-addon-code';
 
 import englishBanner from '@ecl/resources-ec-logo/logo-ec--en.svg';
 import frenchBanner from '@ecl/resources-ec-logo/logo-ec--fr.svg';
-import euEnglishBanner from '@ecl/resources-eu-logo/standard-version/positive/logo-eu--en.svg';
-import euFrenchBanner from '@ecl/resources-eu-logo/standard-version/positive/logo-eu--fr.svg';
-import euFrenchMobileBanner from '@ecl/resources-eu-logo/condensed-version/positive/logo-eu--fr.svg';
-import euEnglishMobileBanner from '@ecl/resources-eu-logo/condensed-version/positive/logo-eu--en.svg';
 import englishData from '@ecl/specs-component-site-header-standardised/demo/data';
 import frenchData from '@ecl/specs-component-site-header-standardised/demo/data--fr';
 import dataMenuEn from '@ecl/specs-component-menu/demo/data--en';
@@ -16,7 +11,6 @@ import dataMenuFr from '@ecl/specs-component-menu/demo/data--fr';
 import siteHeaderStandardised from './site-header-standardised.html.twig';
 import notes from './README.md';
 
-const system = getSystem();
 const enData = { ...englishData };
 const frData = { ...frenchData };
 const enMenu = { ...dataMenuEn };
@@ -28,18 +22,14 @@ const enCtaLinkClone = { ...enData.cta_link };
 const frCtaLinkClone = { ...frData.cta_link };
 
 const getArgs = (data) => {
-  const args = {
+  return {
     login: true,
     language_selector: true,
     menu: true,
     site_name: data.site_name || '',
+    banner_top: true,
+    cta_link: false,
   };
-  if (system === 'ec') {
-    args.banner_top = true;
-  }
-  args.cta_link = false;
-
-  return args;
 };
 
 const getArgTypes = () => {
@@ -70,17 +60,15 @@ const getArgTypes = () => {
       defaultValue: { summary: '{}' },
     },
   };
-  if (system === 'ec') {
-    argTypes.banner_top = {
-      name: 'class',
-      type: 'boolean',
-      description: 'Toggle class visibility (EC only)',
-      table: {
-        type: { summary: 'object' },
-        defaultValue: { summary: '{}' },
-      },
-    };
-  }
+  argTypes.banner_top = {
+    name: 'class',
+    type: 'boolean',
+    description: 'Toggle class visibility (EC only)',
+    table: {
+      type: { summary: 'object' },
+      defaultValue: { summary: '{}' },
+    },
+  };
   argTypes.cta_link = {
     name: 'call to action',
     type: { name: 'boolean' },
@@ -144,25 +132,15 @@ const prepareData = (data, demo, args) => {
 
   correctSvgPath(data);
 
-  if (system === 'ec') {
-    if (demo !== 'translated') {
-      data.logo.src_desktop = englishBanner;
-      data.banner_top = enData.banner_top;
-    } else {
-      data.logo.src_desktop = frenchBanner;
-      data.banner_top = frData.banner_top;
-    }
-    if (!args.banner_top) {
-      delete data.banner_top;
-    }
-  } else if (demo !== 'translated') {
-    delete data.banner_top;
-    data.logo.src_desktop = euEnglishBanner;
-    data.logo.src_mobile = euEnglishMobileBanner;
+  if (demo !== 'translated') {
+    data.logo.src_desktop = englishBanner;
+    data.banner_top = enData.banner_top;
   } else {
+    data.logo.src_desktop = frenchBanner;
+    data.banner_top = frData.banner_top;
+  }
+  if (!args.banner_top) {
     delete data.banner_top;
-    data.logo.src_desktop = euFrenchBanner;
-    data.logo.src_mobile = euFrenchMobileBanner;
   }
 
   data.site_name = args.site_name;
