@@ -22,14 +22,17 @@ $_search-width-xl: 31.5rem;
   position: relative;
 
   .ecl-menu {
-    height: 0;
+    background: transparent;
+    bottom: 0;
     padding: 0;
-    width: 100%;
+    position: absolute;
+    right: 0;
+    width: 50%;
   }
 
   .ecl-menu__open,
   .ecl-menu__closed {
-    transform: translateY(calc(-100% - 5px));
+    margin-bottom: 5px;
   }
 
   &:not([data-ecl-has-menu='true']) {
@@ -250,7 +253,8 @@ $_search-width-xl: 31.5rem;
         map.get(theme.$color, 'blue-140'),
         map.get(theme.$color, 'blue-100')
       );
-      height: auto;
+      position: static;
+      width: 100%;
     }
   }
 
