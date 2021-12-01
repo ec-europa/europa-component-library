@@ -2,7 +2,7 @@
 title: Usage
 order: 1
 ---
-(Work in progress) The standardised site header is present on every page. It represents websites branded under the EU emblem.
+(Work in progress) The harmonised site header is present on every page. It represents websites branded under the EU emblem.
 
 ## Anatomy
 
