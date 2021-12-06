@@ -1,0 +1,122 @@
+/**
+ * Spinner component
+ * @define spinner
+ */
+
+@use 'sass:map';
+@use '@ecl/theme-dev/theme';
+
+$_stroke-color: null !default;
+$_stroke-linecap: null !default;
+$_text-color: null !default;
+$_spinner-sizes: (
+  'small': 1.5rem,
+  'medium': 2rem,
+  'large': 3rem,
+);
+
+.ecl-spinner {
+  align-items: center;
+  display: none;
+  flex-direction: column;
+  margin: 0 map.get(theme.$spacing, 'xs');
+  position: relative;
+  z-index: #{map.get(theme.$z-index, 'modal') + 1};
+}
+
+.ecl-spinner--visible {
+  display: inline-flex;
+}
+
+.ecl-spinner--centered {
+  left: 50%;
+  position: absolute;
+  top: map.get(theme.$spacing, '2xl');
+}
+
+.ecl-spinner__loader {
+  animation: rotate 2s linear infinite;
+  height: map.get($_spinner-sizes, 'medium');
+  stroke: $_stroke-color;
+  stroke-linecap: $_stroke_linecap;
+  transform-origin: center center;
+  width: map.get($_spinner-sizes, 'medium');
+}
+
+.ecl-spinner__text {
+  color: $_text-color;
+  font: map.get(theme.$font, 'm');
+  margin-top: map.get(theme.$spacing, 'xs');
+}
+
+.ecl-spinner--negative {
+  .ecl-spinner__loader {
+    stroke: map.get(theme.$color, 'white');
+  }
+
+  .ecl-spinner__text {
+    color: map.get(theme.$color, 'white');
+  }
+}
+
+.ecl-spinner--large .ecl-spinner__loader {
+  height: map.get($_spinner-sizes, 'large');
+  width: map.get($_spinner-sizes, 'large');
+}
+
+.ecl-spinner--small {
+  flex-direction: row;
+  justify-content: center;
+
+  .ecl-spinner__loader {
+    height: map.get($_spinner-sizes, 'small');
+    width: map.get($_spinner-sizes, 'small');
+  }
+
+  .ecl-spinner__text {
+    margin-left: map.get(theme.$spacing, 'xs');
+    margin-top: 0;
+  }
+}
+
+.ecl-spinner__circle {
+  animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+}
+
+.ecl-spinner__overlay {
+  background-color: rgba(255, 255, 255, 0.9);
+  display: none;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: map.get(theme.$z-index, 'modal');
+}
+
+.ecl-spinner__overlay--visible {
+  display: block;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}
