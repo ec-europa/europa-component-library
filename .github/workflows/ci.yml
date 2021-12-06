@@ -13,6 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '12'
       - name: Test
         run: ./scripts/audit.sh
   tests:
@@ -20,6 +23,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '12'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Build icons
@@ -33,6 +39,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '12'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Build presets
@@ -45,6 +54,9 @@ jobs:
     if: github.event_name == 'pull_request'
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '12'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Build icons
@@ -66,6 +78,9 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/v3-dev'
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '12'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Build icons
