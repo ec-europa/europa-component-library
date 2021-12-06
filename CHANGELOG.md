@@ -3,22 +3,26 @@
 ## 3.1.3 (2021-12-01)
 
 #### :bug: Bug Fix
-* [#2261](https://github.com/ec-europa/europa-component-library/pull/2261) fix(input-fields): EU input fields shadows clean up - FRONT-3304 ([@papegaill](https://github.com/papegaill))
-* [#2262](https://github.com/ec-europa/europa-component-library/pull/2262) fix(site-header): fix call to action link on EU - FRONT-3414 ([@emeryro](https://github.com/emeryro))
-* [#2251](https://github.com/ec-europa/europa-component-library/pull/2251) fix(radio): Fixing opacity due to cssnano bug - FRONT-3345 ([@planctus](https://github.com/planctus))
+
+- [#2261](https://github.com/ec-europa/europa-component-library/pull/2261) fix(input-fields): EU input fields shadows clean up - FRONT-3304 ([@papegaill](https://github.com/papegaill))
+- [#2262](https://github.com/ec-europa/europa-component-library/pull/2262) fix(site-header): fix call to action link on EU - FRONT-3414 ([@emeryro](https://github.com/emeryro))
+- [#2251](https://github.com/ec-europa/europa-component-library/pull/2251) fix(radio): Fixing opacity due to cssnano bug - FRONT-3345 ([@planctus](https://github.com/planctus))
 
 #### :nail_care: Enhancement
-* [#2252](https://github.com/ec-europa/europa-component-library/pull/2252) feat(file): label(s) also in the default variant - FRONT-3350 ([@planctus](https://github.com/planctus))
-* [#2254](https://github.com/ec-europa/europa-component-library/pull/2254) feat(footers):  Updating some link - FRONT-3225 ([@planctus](https://github.com/planctus))
-* [#2243](https://github.com/ec-europa/europa-component-library/pull/2243) feat(list): change list indent - FRONT-3282 ([@emeryro](https://github.com/emeryro))
-* [#2247](https://github.com/ec-europa/europa-component-library/pull/2247) feat(file): add control option - FRONT-3305 ([@emeryro](https://github.com/emeryro))
+
+- [#2252](https://github.com/ec-europa/europa-component-library/pull/2252) feat(file): label(s) also in the default variant - FRONT-3350 ([@planctus](https://github.com/planctus))
+- [#2254](https://github.com/ec-europa/europa-component-library/pull/2254) feat(footers): Updating some link - FRONT-3225 ([@planctus](https://github.com/planctus))
+- [#2243](https://github.com/ec-europa/europa-component-library/pull/2243) feat(list): change list indent - FRONT-3282 ([@emeryro](https://github.com/emeryro))
+- [#2247](https://github.com/ec-europa/europa-component-library/pull/2247) feat(file): add control option - FRONT-3305 ([@emeryro](https://github.com/emeryro))
 
 #### :house: Internal
-* [#2270](https://github.com/ec-europa/europa-component-library/pull/2270) chore(website): Renaming standardised in harmonised for EU ([@planctus](https://github.com/planctus))
-* [#2268](https://github.com/ec-europa/europa-component-library/pull/2268) chore(deps): updates - 29-11-2021 ([@planctus](https://github.com/planctus))
-* [#2257](https://github.com/ec-europa/europa-component-library/pull/2257) chore(deps): Updates 16-11-21 ([@planctus](https://github.com/planctus))
+
+- [#2270](https://github.com/ec-europa/europa-component-library/pull/2270) chore(website): Renaming standardised in harmonised for EU ([@planctus](https://github.com/planctus))
+- [#2268](https://github.com/ec-europa/europa-component-library/pull/2268) chore(deps): updates - 29-11-2021 ([@planctus](https://github.com/planctus))
+- [#2257](https://github.com/ec-europa/europa-component-library/pull/2257) chore(deps): Updates 16-11-21 ([@planctus](https://github.com/planctus))
 
 #### Committers: 3
+
 - Alexis Gaillard ([@papegaill](https://github.com/papegaill))
 - Romain Emery ([@emeryro](https://github.com/emeryro))
 - [@planctus](https://github.com/planctus)
@@ -26,55 +30,65 @@
 ## 3.1.2 (2021-10-25)
 
 #### :bug: Bug Fix
-* [#2246](https://github.com/ec-europa/europa-component-library/pull/2246) feat(datepicker): Remove DD-MM-YYYY auto-formatting on input - FRONT-3319 ([@papegaill](https://github.com/papegaill))
+
+- [#2246](https://github.com/ec-europa/europa-component-library/pull/2246) feat(datepicker): Remove DD-MM-YYYY auto-formatting on input - FRONT-3319 ([@papegaill](https://github.com/papegaill))
 
 #### Committers: 1
+
 - Alexis Gaillard ([@papegaill](https://github.com/papegaill))
 
 ## 3.1.1 (2021-10-22)
 
 #### :bug: Bug Fix
-* [#2244](https://github.com/ec-europa/europa-component-library/pull/2244) fix(table): Removing alien markup in the table.html.twig file - FRONT-3315 ([@planctus](https://github.com/planctus))
+
+- [#2244](https://github.com/ec-europa/europa-component-library/pull/2244) fix(table): Removing alien markup in the table.html.twig file - FRONT-3315 ([@planctus](https://github.com/planctus))
 
 #### Committers: 1
+
 - [@planctus](https://github.com/planctus)
 
 ## 3.1.0 (2021-10-21)
 
 #### :rocket: New Feature
-* [#2232](https://github.com/ec-europa/europa-component-library/pull/2232) feat(card, file): add highlight label - FRONT-3276 ([@emeryro](https://github.com/emeryro))
-* [#2214](https://github.com/ec-europa/europa-component-library/pull/2214) feat(display-list): add display list component - FRONT-2342 ([@emeryro](https://github.com/emeryro))
-* [#2199](https://github.com/ec-europa/europa-component-library/pull/2199) feat(news-ticker): Add component - FRONT-2515 ([@papegaill](https://github.com/papegaill))
-* [#2206](https://github.com/ec-europa/europa-component-library/pull/2206) feat(featured-item): Add component - FRONT-2339 ([@papegaill](https://github.com/papegaill))
-* [#2196](https://github.com/ec-europa/europa-component-library/pull/2196) feat(site-header): add optional CTA - FRONT-2514 ([@emeryro](https://github.com/emeryro))
+
+- [#2232](https://github.com/ec-europa/europa-component-library/pull/2232) feat(card, file): add highlight label - FRONT-3276 ([@emeryro](https://github.com/emeryro))
+- [#2214](https://github.com/ec-europa/europa-component-library/pull/2214) feat(display-list): add display list component - FRONT-2342 ([@emeryro](https://github.com/emeryro))
+- [#2199](https://github.com/ec-europa/europa-component-library/pull/2199) feat(news-ticker): Add component - FRONT-2515 ([@papegaill](https://github.com/papegaill))
+- [#2206](https://github.com/ec-europa/europa-component-library/pull/2206) feat(featured-item): Add component - FRONT-2339 ([@papegaill](https://github.com/papegaill))
+- [#2196](https://github.com/ec-europa/europa-component-library/pull/2196) feat(site-header): add optional CTA - FRONT-2514 ([@emeryro](https://github.com/emeryro))
 
 #### :bug: Bug Fix
-* [#2227](https://github.com/ec-europa/europa-component-library/pull/2227) fix(banners): Correct centred text alignment for page & hero banners - FRONT-3240 ([@papegaill](https://github.com/papegaill))
-* [#2223](https://github.com/ec-europa/europa-component-library/pull/2223) fix(file-upload): replacing forEach on a FileList - FRONT-3230 ([@planctus](https://github.com/planctus))
-* [#2221](https://github.com/ec-europa/europa-component-library/pull/2221) fix(site-header): Fixing error when hiding menu - FRONT-3228 ([@planctus](https://github.com/planctus))
-* [#2217](https://github.com/ec-europa/europa-component-library/pull/2217) fix(checkbox & radio): Fix white space for inline elements in label - FRONT-3190 ([@papegaill](https://github.com/papegaill))
-* [#2209](https://github.com/ec-europa/europa-component-library/pull/2209) fix(datepicker): Fix display issues on mobile - FRONT-3174 ([@papegaill](https://github.com/papegaill))
-* [#2210](https://github.com/ec-europa/europa-component-library/pull/2210) fix(default-css): fix conflict with webtools - FRONT-3171 ([@emeryro](https://github.com/emeryro))
+
+- [#2227](https://github.com/ec-europa/europa-component-library/pull/2227) fix(banners): Correct centred text alignment for page & hero banners - FRONT-3240 ([@papegaill](https://github.com/papegaill))
+- [#2223](https://github.com/ec-europa/europa-component-library/pull/2223) fix(file-upload): replacing forEach on a FileList - FRONT-3230 ([@planctus](https://github.com/planctus))
+- [#2221](https://github.com/ec-europa/europa-component-library/pull/2221) fix(site-header): Fixing error when hiding menu - FRONT-3228 ([@planctus](https://github.com/planctus))
+- [#2217](https://github.com/ec-europa/europa-component-library/pull/2217) fix(checkbox & radio): Fix white space for inline elements in label - FRONT-3190 ([@papegaill](https://github.com/papegaill))
+- [#2209](https://github.com/ec-europa/europa-component-library/pull/2209) fix(datepicker): Fix display issues on mobile - FRONT-3174 ([@papegaill](https://github.com/papegaill))
+- [#2210](https://github.com/ec-europa/europa-component-library/pull/2210) fix(default-css): fix conflict with webtools - FRONT-3171 ([@emeryro](https://github.com/emeryro))
 
 #### :nail_care: Enhancement
-* [#2229](https://github.com/ec-europa/europa-component-library/pull/2229) feat(date-picker): Add auto-formatting to datepicker input - FRONT-3253 ([@papegaill](https://github.com/papegaill))
-* [#2231](https://github.com/ec-europa/europa-component-library/pull/2231) feat(description-list): add block for definition - FRONT-3204 ([@emeryro](https://github.com/emeryro))
-* [#2226](https://github.com/ec-europa/europa-component-library/pull/2226) fix(site-headers): Using only one site_name in site-headers - FRONT-3227 ([@planctus](https://github.com/planctus))
-* [#2230](https://github.com/ec-europa/europa-component-library/pull/2230) fix(menu): remove swipe events - FRONT-3075 ([@emeryro](https://github.com/emeryro))
-* [#2222](https://github.com/ec-europa/europa-component-library/pull/2222) feat(footers): Adding EC logo to all the footers - FRONT-3224 ([@planctus](https://github.com/planctus))
-* [#2216](https://github.com/ec-europa/europa-component-library/pull/2216) fix(banners): Text styling for page & hero banners - FRONT-3150 ([@papegaill](https://github.com/papegaill))
-* [#2211](https://github.com/ec-europa/europa-component-library/pull/2211) fix(date-picker): Styling and JS adaptations - FRONT-3183 ([@papegaill](https://github.com/papegaill))
-* [#2197](https://github.com/ec-europa/europa-component-library/pull/2197) feat(quote-image): added image in blockquote - FRONT-2463 ([@tibi2303](https://github.com/tibi2303))
+
+- [#2229](https://github.com/ec-europa/europa-component-library/pull/2229) feat(date-picker): Add auto-formatting to datepicker input - FRONT-3253 ([@papegaill](https://github.com/papegaill))
+- [#2231](https://github.com/ec-europa/europa-component-library/pull/2231) feat(description-list): add block for definition - FRONT-3204 ([@emeryro](https://github.com/emeryro))
+- [#2226](https://github.com/ec-europa/europa-component-library/pull/2226) fix(site-headers): Using only one site_name in site-headers - FRONT-3227 ([@planctus](https://github.com/planctus))
+- [#2230](https://github.com/ec-europa/europa-component-library/pull/2230) fix(menu): remove swipe events - FRONT-3075 ([@emeryro](https://github.com/emeryro))
+- [#2222](https://github.com/ec-europa/europa-component-library/pull/2222) feat(footers): Adding EC logo to all the footers - FRONT-3224 ([@planctus](https://github.com/planctus))
+- [#2216](https://github.com/ec-europa/europa-component-library/pull/2216) fix(banners): Text styling for page & hero banners - FRONT-3150 ([@papegaill](https://github.com/papegaill))
+- [#2211](https://github.com/ec-europa/europa-component-library/pull/2211) fix(date-picker): Styling and JS adaptations - FRONT-3183 ([@papegaill](https://github.com/papegaill))
+- [#2197](https://github.com/ec-europa/europa-component-library/pull/2197) feat(quote-image): added image in blockquote - FRONT-2463 ([@tibi2303](https://github.com/tibi2303))
 
 #### :memo: Documentation
-* [#2205](https://github.com/ec-europa/europa-component-library/pull/2205) chore(docs): Adding docs for v3, updating main README file - front-3155 ([@planctus](https://github.com/planctus))
+
+- [#2205](https://github.com/ec-europa/europa-component-library/pull/2205) chore(docs): Adding docs for v3, updating main README file - front-3155 ([@planctus](https://github.com/planctus))
 
 #### :house: Internal
-* [#2225](https://github.com/ec-europa/europa-component-library/pull/2225) chore(deps): Updates 08-10-21 ([@planctus](https://github.com/planctus))
-* [#2218](https://github.com/ec-europa/europa-component-library/pull/2218) chore(deps): Updates - 28/09/21 ([@planctus](https://github.com/planctus))
-* [#2207](https://github.com/ec-europa/europa-component-library/pull/2207) chore(deps): Updates, using ecl min and max functions for sass ([@planctus](https://github.com/planctus))
+
+- [#2225](https://github.com/ec-europa/europa-component-library/pull/2225) chore(deps): Updates 08-10-21 ([@planctus](https://github.com/planctus))
+- [#2218](https://github.com/ec-europa/europa-component-library/pull/2218) chore(deps): Updates - 28/09/21 ([@planctus](https://github.com/planctus))
+- [#2207](https://github.com/ec-europa/europa-component-library/pull/2207) chore(deps): Updates, using ecl min and max functions for sass ([@planctus](https://github.com/planctus))
 
 #### Committers: 5
+
 - Alexis Gaillard ([@papegaill](https://github.com/papegaill))
 - HAL Patch INNO ([@HAL-Patch-INNO](https://github.com/HAL-Patch-INNO))
 - Romain Emery ([@emeryro](https://github.com/emeryro))
