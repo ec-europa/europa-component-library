@@ -1,0 +1,84 @@
+{% spaceless %}
+{#
+  Parameters:
+  - "variant" (string) options:
+    [ primary, negative ] (default: primary)
+  - "size" (string) options:
+    [ small, medium, large ]
+  - "text" (string) (default: '')
+    "centered" (boolean) (default: false)
+  - "visible" (boolean) (default false)
+    "overlay" (boolean) (default: false)
+  - "extra_classes" (string) (default: '')
+  - "extra_attributes" (array) (default: []): format: [
+      {
+        "name" (string) (default: ''),
+        "value" (optional) (string)
+      },
+      ...
+    ],
+#}
+
+{# Internal properties #}
+
+{% set _css_classes = 'ecl-spinner' %}
+{% set _variant = variant|default('primary') %}
+{% set _size = size|default('medium') %}
+{% set _centered = centered|default(false) %}
+{% set _text = text|default('') %}
+{% set _overlay = overlay|default(false) %}
+{% set _overlay_classes = 'ecl-spinner__overlay' %}
+{% set _visible = visible|default(false) %}
+{% set _extra_attributes = '' %}
+
+{% set _css_classes = _css_classes ~ ' ' ~ 'ecl-spinner--' ~ _variant  ~ ' ecl-spinner--' ~ _size %}
+
+{% if _centered %}
+  {% set _css_classes = _css_classes ~ ' ' ~ 'ecl-spinner--centered' %}
+{% endif %}
+
+{% if _visible %}
+ {% set _css_classes = _css_classes ~ ' ecl-spinner--visible' %}
+ {% if _overlay %}
+   {% set _overlay_classes = _overlay_classes ~ ' ecl-spinner__overlay--visible' %}
+ {% endif %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+<div class="{{ _css_classes }}" {{ _extra_attributes|raw }}>
+  <svg class="ecl-spinner__loader" viewBox="25 25 50 50">
+    <circle
+      class="ecl-spinner__circle"
+      cx="50"
+      cy="50"
+      r="20"
+      fill="none"
+      stroke-width="4px"
+      stroke-miterlimit="10"
+      vector-effect="non-scaling-stroke"
+    />
+  </svg>
+{% if _text is not empty %}
+  <div class="ecl-spinner__text">
+    {{- _text -}}
+  </div>
+{% endif %}
+</div>
+{% if _overlay %}
+<div class="{{ _overlay_classes }}"></div>
+{% endif %}
+
+{% endspaceless %}
