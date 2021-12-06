@@ -1,18 +1,14 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctSvgPath } from '@ecl/story-utils';
-import getSystem from '@ecl/builder/utils/getSystem';
 
 import demoTitleContent from '@ecl/specs-component-page-header-harmonised/demo//data--title';
 import demoMetaTitleContent from '@ecl/specs-component-page-header-harmonised/demo/data--meta-title';
 import demoMetaTitleDescriptionContent from '@ecl/specs-component-page-header-harmonised/demo/data--meta-title-description';
 import dataBreadcrumbLongEC from '@ecl/specs-component-breadcrumb/demo/data--ec';
-import dataBreadcrumbLongEU from '@ecl/specs-component-breadcrumb/demo/data--eu';
 
 import pageHeaderHarmonised from './page-header-harmonised.html.twig';
 import notes from './README.md';
-
-const system = getSystem();
 
 const getArgs = (data) => {
   const args = {
@@ -66,8 +62,7 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
-  data.breadcrumb =
-    system === 'eu' ? dataBreadcrumbLongEU : dataBreadcrumbLongEC;
+  data.breadcrumb = dataBreadcrumbLongEC;
   data.breadcrumb.links.forEach((item) => {
     item.negative = false;
   });
