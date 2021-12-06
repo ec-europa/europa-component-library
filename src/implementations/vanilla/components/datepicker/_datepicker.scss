@@ -7,7 +7,6 @@
 /* stylelint-disable-next-line scss/at-import-partial-extension-blacklist, no-invalid-position-at-import-rule */
 @import 'pikaday/scss/pikaday.scss';
 
-$_input-hover-shadow: null !default;
 $_input-icon-color: null !default;
 $_input-icon-hover-color: null !default;
 $_input-icon-focus-color: null !default;
@@ -39,13 +38,8 @@ $_picker-theme-color: null !default;
 }
 
 .ecl-datepicker__field.ecl-text-input {
-  box-shadow: none;
   padding-right: map.get(theme.$spacing, 'xl');
   width: 100%;
-
-  &:hover {
-    box-shadow: $_input-hover-shadow;
-  }
 }
 
 .ecl-datepicker__icon {
@@ -60,10 +54,6 @@ $_picker-theme-color: null !default;
 
 .ecl-datepicker__field.ecl-text-input[disabled] {
   color: rgba($_input-placeholder-color, 0.5);
-
-  &:hover {
-    box-shadow: none;
-  }
 
   &::placeholder {
     color: rgba($_input-placeholder-color, 0.5);

@@ -28,6 +28,7 @@ $_search-width-xl: 31.5rem;
     bottom: 0;
     padding: 0;
     position: absolute;
+    right: 0;
     width: 100%;
   }
 
@@ -36,9 +37,11 @@ $_search-width-xl: 31.5rem;
     margin-bottom: 3px;
   }
 
-  .ecl-link--cta {
+  .ecl-standardised-menu__cta {
     margin-top: map.get(theme.$spacing, 's');
+    position: relative;
     width: max-content;
+    z-index: 1;
   }
 }
 
@@ -238,14 +241,15 @@ $_search-width-xl: 31.5rem;
 
 @include breakpoints.up('l') {
   .ecl-site-header-standardised {
-    .ecl-link--cta {
+    .ecl-standardised-menu__cta {
       align-self: start;
-      margin: map.get(theme.$spacing, 'l') 0;
+      margin: map.get(theme.$spacing, 'm') 0;
     }
 
     .ecl-menu {
       background-color: map.get(theme.$color, 'blue-100');
       position: static;
+      width: 100%;
     }
   }
 

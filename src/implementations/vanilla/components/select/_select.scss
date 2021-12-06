@@ -71,6 +71,7 @@ $_multiple-checkbox-label-vertical-padding: null !default;
   &:focus {
     border-color: $_border-color-focus;
     border-width: $_border-width-focus;
+    box-shadow: $_shadow-hover;
     outline: none;
     padding: calc(#{map.get(theme.$spacing, 's')} - #{$_border-width-focus})
       calc(
@@ -185,7 +186,7 @@ $_multiple-checkbox-label-vertical-padding: null !default;
 
   .ecl-select:hover {
     border-color: $_border-color-disabled;
-    box-shadow: none;
+    box-shadow: $_shadow;
   }
 }
 
@@ -209,12 +210,10 @@ $_multiple-checkbox-label-vertical-padding: null !default;
   /* stylelint-disable-next-line no-descending-specificity */
   .ecl-select {
     border-color: $_border-color-invalid;
-    box-shadow: none;
   }
 
   .ecl-select:hover {
     border-color: $_border-color-invalid-hover;
-    box-shadow: $_shadow-hover;
   }
 
   .ecl-select:focus {

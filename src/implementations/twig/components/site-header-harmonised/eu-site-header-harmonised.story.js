@@ -1,10 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import { correctSvgPath } from '@ecl/story-utils';
-import getSystem from '@ecl/builder/utils/getSystem';
 import withCode from '@ecl/storybook-addon-code';
 
-import englishBanner from '@ecl/resources-ec-logo/logo-ec--en.svg';
-import frenchBanner from '@ecl/resources-ec-logo/logo-ec--fr.svg';
 import euEnglishBanner from '@ecl/resources-eu-logo/standard-version/positive/logo-eu--en.svg';
 import euFrenchBanner from '@ecl/resources-eu-logo/standard-version/positive/logo-eu--fr.svg';
 import euFrenchMobileBanner from '@ecl/resources-eu-logo/condensed-version/positive/logo-eu--fr.svg';
@@ -13,10 +10,9 @@ import englishData from '@ecl/specs-component-site-header-standardised/demo/data
 import frenchData from '@ecl/specs-component-site-header-standardised/demo/data--fr';
 import dataMenuEn from '@ecl/specs-component-menu/demo/data--en';
 import dataMenuFr from '@ecl/specs-component-menu/demo/data--fr';
-import siteHeaderStandardised from './site-header-standardised.html.twig';
-import notes from './README.md';
+import siteHeaderHarmonised from '@ecl/twig-component-site-header-standardised/site-header-standardised.html.twig';
+import notes from './README-EU.md';
 
-const system = getSystem();
 const enData = { ...englishData };
 const frData = { ...frenchData };
 const enMenu = { ...dataMenuEn };
@@ -34,10 +30,7 @@ const getArgs = (data) => {
     menu: true,
     site_name: data.site_name || '',
   };
-  if (system === 'ec') {
-    args.banner_top = true;
-    args.cta_link = false;
-  }
+  args.cta_link = false;
 
   return args;
 };
@@ -70,29 +63,18 @@ const getArgTypes = () => {
       defaultValue: { summary: '{}' },
     },
   };
-  if (system === 'ec') {
-    argTypes.banner_top = {
-      name: 'class',
+  argTypes.cta_link = {
+    name: 'call to action',
+    type: { name: 'boolean' },
+    description: 'Call to action link (optional)',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+    },
+    control: {
       type: 'boolean',
-      description: 'Toggle class visibility (EC only)',
-      table: {
-        type: { summary: 'object' },
-        defaultValue: { summary: '{}' },
-      },
-    };
-    argTypes.cta_link = {
-      name: 'call to action',
-      type: { name: 'boolean' },
-      description: 'Call to action link (optional)',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-      },
-      control: {
-        type: 'boolean',
-      },
-    };
-  }
+    },
+  };
   argTypes.menu = {
     type: 'boolean',
     description: 'Toggle menu visibility',
@@ -144,18 +126,7 @@ const prepareData = (data, demo, args) => {
 
   correctSvgPath(data);
 
-  if (system === 'ec') {
-    if (demo !== 'translated') {
-      data.logo.src_desktop = englishBanner;
-      data.banner_top = enData.banner_top;
-    } else {
-      data.logo.src_desktop = frenchBanner;
-      data.banner_top = frData.banner_top;
-    }
-    if (!args.banner_top) {
-      delete data.banner_top;
-    }
-  } else if (demo !== 'translated') {
+  if (demo !== 'translated') {
     delete data.banner_top;
     data.logo.src_desktop = euEnglishBanner;
     data.logo.src_mobile = euEnglishMobileBanner;
@@ -171,13 +142,13 @@ const prepareData = (data, demo, args) => {
 };
 
 export default {
-  title: 'Components/Site Headers/Standardised',
+  title: 'Components/Site Headers/Harmonised',
   decorators: [withNotes, withCode],
   parameters: { layout: 'fullscreen' },
 };
 
 export const Default = (args) =>
-  siteHeaderStandardised(prepareData(englishData, 'default', args));
+  siteHeaderHarmonised(prepareData(englishData, 'default', args));
 
 Default.storyName = 'default';
 Default.args = getArgs(englishData);
@@ -185,7 +156,7 @@ Default.argTypes = getArgTypes();
 Default.parameters = { notes: { markdown: notes, json: englishData } };
 
 export const LoggedIn = (args) =>
-  siteHeaderStandardised(prepareData(loggedInData, 'logged', args));
+  siteHeaderHarmonised(prepareData(loggedInData, 'logged', args));
 
 LoggedIn.storyName = 'logged in';
 LoggedIn.args = getArgs(loggedInData);
@@ -193,7 +164,7 @@ LoggedIn.argTypes = getArgTypes();
 LoggedIn.parameters = { notes: { markdown: notes, json: loggedInData } };
 
 export const Translated = (args) =>
-  siteHeaderStandardised(prepareData(frenchData, 'translated', args));
+  siteHeaderHarmonised(prepareData(frenchData, 'translated', args));
 
 Translated.storyName = 'translated';
 Translated.args = getArgs(frenchData);
