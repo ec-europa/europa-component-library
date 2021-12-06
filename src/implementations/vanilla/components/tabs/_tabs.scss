@@ -20,11 +20,18 @@ $_dropdown-link-active-color: none !default;
 $_dropdown-link-active-background: none !default;
 $_dropdown-link-hover-color: none !default;
 $_more-active-border-radius: none !default;
+$_button-arrows-background: null !default;
+$_outline-color: null !default;
+$_outline-width: null !default;
 
 .ecl-tabs {
   margin: 0;
   padding: 0;
   position: relative;
+}
+
+.ecl-tabs__container {
+  overflow-x: hidden;
 }
 
 .ecl-tabs__list {
@@ -158,8 +165,43 @@ $_more-active-border-radius: none !default;
   margin-top: $_dropdown-top-margin;
 }
 
+.ecl-tabs__prev,
+.ecl-tabs__next {
+  background: $_button-arrows-background;
+  border: 0;
+  cursor: pointer;
+  padding: map.get(theme.$spacing, 's');
+  position: absolute;
+  top: calc(50% + 2px);
+  transform: translateY(-50%);
+  &:focus {
+    outline: $_outline-width solid $_outline-color;
+  }
+}
+
+.ecl-tabs__prev {
+  display: none;
+  left: 0;
+  &:focus {
+    margin-left: $_outline-width;
+    padding-left: calc(#{map.get(theme.$spacing, 's')} - #{$_outline-width});
+  }
+}
+
+.ecl-tabs__next {
+  display: none;
+  right: 0;
+  &:focus {
+    margin-right: $_outline-width;
+    padding-right: calc(#{map.get(theme.$spacing, 's')} - #{$_outline-width});
+  }
+}
+
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('s') {
+  .ecl-tabs__container {
+    overflow-x: visible;
+  }
   .ecl-tabs__dropdown {
     grid-auto-flow: column;
     grid-template-rows: auto auto auto auto;

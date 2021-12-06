@@ -60,40 +60,70 @@
 
 {% if _items is not empty and _items is iterable %}
 <nav class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  <ul class="ecl-tabs__list">
-  {% for _item in _items %}
-    {% if _item.path is not empty %}
-      <li class="ecl-tabs__item">
-      {% set _item_extra_classes = 'ecl-tabs__link' %}
-      {% if _item.is_current is defined and _item.is_current is not empty %}
-        {% set _item_extra_classes = _item_extra_classes ~ ' ecl-tabs__link--active' %}
+  <div class="ecl-tabs__container">
+    <ul class="ecl-tabs__list">
+    {% for _item in _items %}
+      {% if _item.path is not empty %}
+        <li class="ecl-tabs__item">
+        {% set _item_extra_classes = 'ecl-tabs__link' %}
+        {% if _item.is_current is defined and _item.is_current is not empty %}
+          {% set _item_extra_classes = _item_extra_classes ~ ' ecl-tabs__link--active' %}
+        {% endif %}
+        {% include '@ecl/link/link.html.twig' with {
+          link: {
+            label: _item.label,
+            path: _item.path,
+          },
+          extra_classes: _item_extra_classes,
+        } only %}
+        </li>
       {% endif %}
-      {% include '@ecl/link/link.html.twig' with {
-        link: {
-          label: _item.label,
-          path: _item.path,
-        },
-        extra_classes: _item_extra_classes,
-      } only %}
+    {% endfor %}
+    <li class="ecl-tabs__item ecl-tabs__item--more">
+        {% include '@ecl/button/button.html.twig' with {
+          label: _more_label,
+          variant: 'secondary',
+          type: 'button',
+          icon_position: "after",
+          icon: {
+            path: _icon_path,
+            name: 'corner-arrow',
+            size: 'fluid',
+            transform: 'rotate-180'
+          },
+          extra_classes: 'ecl-tabs__toggle',
+        } only %}
       </li>
-    {% endif %}
-  {% endfor %}
-   <li class="ecl-tabs__item ecl-tabs__item--more">
-      {% include '@ecl/button/button.html.twig' with {
-        label: _more_label,
-        variant: 'secondary',
-        type: 'button',
-        icon_position: "after",
+    </ul>
+  </div>
+  <div class="ecl-tabs__controls">
+    <button class="ecl-tabs__prev" aria-hidden="true">
+      {% include '@ecl/icon/icon.html.twig' with {
         icon: {
           path: _icon_path,
           name: 'corner-arrow',
-          size: 'fluid',
-          transform: 'rotate-180'
+          size: 'm',
+          transform: 'rotate-270',
+          color: 'inverted',
         },
-        extra_classes: 'ecl-tabs__toggle',
+        extra_classes: 'ecl-u-d-block',
       } only %}
-    </li>
-  </ul>
+      <span class="ecl-u-sr-only">{{ _sr_previous }}</span>
+    </button>
+    <button class="ecl-tabs__next" aria-hidden="true">
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: {
+          path: _icon_path,
+          name: 'corner-arrow',
+          size: 'm',
+          transform: 'rotate-90',
+          color: 'inverted',
+        },
+        extra_classes: 'ecl-u-d-block',
+      } only %}
+      <span class="ecl-u-sr-only">{{ _sr_next }}</span>
+    </button>
+  </div>
 </nav>
 {% endif %}
 
