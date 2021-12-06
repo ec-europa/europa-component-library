@@ -1,5 +1,28 @@
 # Changelog
 
+## 3.1.3 (2021-12-01)
+
+#### :bug: Bug Fix
+* [#2261](https://github.com/ec-europa/europa-component-library/pull/2261) fix(input-fields): EU input fields shadows clean up - FRONT-3304 ([@papegaill](https://github.com/papegaill))
+* [#2262](https://github.com/ec-europa/europa-component-library/pull/2262) fix(site-header): fix call to action link on EU - FRONT-3414 ([@emeryro](https://github.com/emeryro))
+* [#2251](https://github.com/ec-europa/europa-component-library/pull/2251) fix(radio): Fixing opacity due to cssnano bug - FRONT-3345 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+* [#2252](https://github.com/ec-europa/europa-component-library/pull/2252) feat(file): label(s) also in the default variant - FRONT-3350 ([@planctus](https://github.com/planctus))
+* [#2254](https://github.com/ec-europa/europa-component-library/pull/2254) feat(footers):  Updating some link - FRONT-3225 ([@planctus](https://github.com/planctus))
+* [#2243](https://github.com/ec-europa/europa-component-library/pull/2243) feat(list): change list indent - FRONT-3282 ([@emeryro](https://github.com/emeryro))
+* [#2247](https://github.com/ec-europa/europa-component-library/pull/2247) feat(file): add control option - FRONT-3305 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+* [#2270](https://github.com/ec-europa/europa-component-library/pull/2270) chore(website): Renaming standardised in harmonised for EU ([@planctus](https://github.com/planctus))
+* [#2268](https://github.com/ec-europa/europa-component-library/pull/2268) chore(deps): updates - 29-11-2021 ([@planctus](https://github.com/planctus))
+* [#2257](https://github.com/ec-europa/europa-component-library/pull/2257) chore(deps): Updates 16-11-21 ([@planctus](https://github.com/planctus))
+
+#### Committers: 3
+- Alexis Gaillard ([@papegaill](https://github.com/papegaill))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 ## 3.1.2 (2021-10-25)
 
 #### :bug: Bug Fix

@@ -2,7 +2,7 @@
 title: Usage
 order: 1
 ---
-(work in progress) The standardised footer is displayed at the bottom of every page in the website under the EU emblem. Corporate footer section is mandatory.
+(work in progress) The harmonised footer is displayed at the bottom of every page in the website under the EU emblem. Corporate footer section is mandatory.
 
 ## Anatomy
 

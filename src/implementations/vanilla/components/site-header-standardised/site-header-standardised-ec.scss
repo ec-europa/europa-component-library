@@ -29,7 +29,7 @@ $_search-width-xl: 31.5rem;
     padding: 0;
     position: absolute;
     right: 0;
-    width: 50%;
+    width: 100%;
   }
 
   .ecl-menu__open,
@@ -39,7 +39,9 @@ $_search-width-xl: 31.5rem;
 
   .ecl-standardised-menu__cta {
     margin-top: map.get(theme.$spacing, 's');
+    position: relative;
     width: max-content;
+    z-index: 1;
   }
 }
 
