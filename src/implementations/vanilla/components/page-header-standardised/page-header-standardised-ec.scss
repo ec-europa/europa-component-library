@@ -29,8 +29,8 @@
 
 .ecl-page-header-standardised__meta-item {
   border-right: 1px solid map.get(theme.$color, 'grey-75');
-  margin-right: map.get(theme.$spacing, 'm');
-  padding-right: map.get(theme.$spacing, 'm');
+  margin-right: map.get(theme.$spacing, 'xs');
+  padding-right: map.get(theme.$spacing, 'xs');
 
   &:first-of-type {
     text-transform: uppercase;
@@ -85,10 +85,6 @@
 .ecl-page-header-standardised--image {
   position: relative;
 
-  .ecl-page-header-standardised__breadcrumb {
-    background-color: transparent;
-  }
-
   .ecl-page-header-standardised__background {
     background-position: 50% 0;
     background-size: cover;
@@ -96,6 +92,23 @@
     height: 10.875rem;
     position: relative;
     width: 100%;
+  }
+
+  .ecl-breadcrumb-standardised__container {
+    background-color: map.get(theme.$color, 'white-100');
+    display: inline-flex;
+    padding-left: map.get(theme.$spacing, 'l');
+    padding-right: map.get(theme.$spacing, 'l');
+  }
+
+  .ecl-page-header-standardised__breadcrumb {
+    background-color: transparent;
+    margin-top: calc(
+      -1 * (#{map.get(theme.$spacing, 'm')} + #{map.get(
+              theme.$line-height-prolonged,
+              'm'
+            )})
+    );
   }
 }
 
