@@ -1,90 +1,91 @@
-The Loading indicator is an infinite looped animation that provides **visual feedback about the system status.**
+# ECL v3 - Europa Component Library
 
-|     |       |     |     |                                         |
-| --- | ----- | --- | --- | --------------------------------------- |
-| 1   | Label | yes | yes | Label indicating loading is in progress |
+[![Build Status](https://drone.fpfis.eu/api/badges/ec-europa/europa-component-library/status.svg)](https://drone.fpfis.eu/ec-europa/europa-component-library)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
 
-## Do's
+The Europa Component Library (ECL) is a library of components applicable to all European Commission and European Union websites. The library contains all available components which you can use to build your website.
 
-- make sure you have a message along with the loading indicator, such as "Loading"
+All library elements are accompanied with
 
-## Don'ts 
+- documentation: what the component is intended for and recommendations regarding its usage
+- demo: visual representation of the component
+- code: technologically agnostic HTML/CSS code and twig implementation
 
-- don't state the processing time if it cannot be reliably estimated
+## Requirements
 
-## When to use
+ECL is using Erbium, node v12.22.2. Please ensure a match before proceeding with the installation of ECL dependencies or ones in ECL Builder.
 
-- the page/results will take **more than 1 second** to load
-- when an action is performed by the user, to show an indication that their request is being handled
+## Documentation
 
-## When not to use
+Read the technical documentation [on GitHub](docs/README.md).
 
-- don't use if the delay is less than 1 second
+## Migrate from v2
 
-# Large Loading Indicator
+Read the technical documentation [on GitHub](docs/Migrating-v3.md).
 
-The large loading indicator, is designed to indicate if a page or bigger section of a page is loading.
+## Quick start
 
-## Dos 
+The ECL is bundled in various [presets](docs/presets.md) in order to accomodate the different needs of everyone. Once you know which preset you want to use, you can:
 
-- make sure you have a message along with the loading indicator, such as "Loading"
+- download [the latest release](https://github.com/ec-europa/europa-component-library/releases/latest) of the preset of your choice
+- install the preset with npm or yarn, e.g. `npm install @ecl/preset-ec` or `yarn add @ecl/preset-ec`
+- use the CDN, https://cdn{1,2,3 or 4}.fpfis.tech.ec.europa.eu/ecl/{tag}/{system}/{path/to/the/asset}. Here's an example:
 
-## Don'ts
+  ```html
+  <link
+    rel="stylesheet"
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v3.1.3/ec/styles/optional/ecl-ec-default.css"
+    integrity="sha256-onZoGLSQ0JkKPi2l0KVH8i/u2oz4meM7VZLLCGJRgWA= sha384-ezqdeKUOB0/DjLrBL2DcC9eY3FsNFnq9SXnEkCi6aIpOdJXwE3MWMXMid9tTZpy5 sha512-U/9MdqL6tXdzJxbVrvL5CjCySy1qxuVFnrnN396YdeSiHCk2MHCAnDa/pvmiEoCzpr7sEAohY1VNq3Q0fOT4Uw=="
+    crossorigin="anonymous"
+    media="screen"
+  />
+  ```
 
-- do not use more than once per page
-- don't state the processing time if it cannot be reliably estimated
+  ```html
+  <link
+    rel="stylesheet"
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v3.1.3/ec/styles/optional/ecl-reset.css"
+    integrity="sha256-9H81eFo5J9LJ01ify5LLqOyahBIrxrh83bw0BhKWc7g= sha384-uy7T70y5Eofm3jcXfw9c1qGAIX0/J0QVGeGzd5lfN8+YYN5ZG8R8XM/BUX4dHX+C sha512-FolETLaI6cYw5u+w/g+pHrg0BiPx3rTOaCwc4MDBJJpf0/OtJbqUn7+gR8geCenLzZLXrjaXA8lpVrPazvmerQ=="
+    crossorigin="anonymous"
+    media="screen"
+  />
+  ```
 
-## When to use
+  ```html
+  <link
+    rel="stylesheet"
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v3.1.3/ec/styles/ecl-ec.css"
+    integrity="sha256-vHMAyhgLn9xSY0/4LGcrhhc6LZzk6YVQ5jktqrvs31U= sha384-8HadT45LPf7AsHUlOALMtG6rjOhQ4gJiMnwJ3s2/EilVB/244DIbBGRaZfj80Ixt sha512-nl3Oscwy2WObPB+NQ2qf23nkNNwm+OpX5o8z9T2KDOw304/XDL2e3Vzt3olaWhjb0m/91IzUQ1fM50X3j7cxlg=="
+    crossorigin="anonymous"
+    media="screen"
+  />
+  ```
 
-- when an action is performed by the user, to show an indication that their request is being handled
-- to indicate the progression of the loading status for an entire page or a bigger section of a page (e.g. filter/pool pages)
+  ```html
+  <link
+    rel="stylesheet"
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v3.1.3/ec/styles/ecl-ec-print.css"
+    integrity="sha256-BA1Prqrlh4Cc8DQbBOgBVqBfNQlXtseTFuwx0hJsFDg= sha384-bWhRusbUnfJglB7HIAzV9bV3dpy9ZIqOpNh8Spj6b37akSUynJj3RcCQGbTgMebF sha512-BhJHlFyrpEHBtJZldnb1Fhbkw7omuGODT9+s92C+/+cEm1laJDI3bSmk3/bhQVvaHv6ciFfAxniGf1szEXzqZQ=="
+    crossorigin="anonymous"
+    media="print"
+  />
+  ```
 
-## When not to use
+  ```html
+  <script
+    src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v3.1.3/ec/scripts/ecl-ec.js"
+    integrity="sha256-vHMAyhgLn9xSY0/4LGcrhhc6LZzk6YVQ5jktqrvs31U= sha384-8HadT45LPf7AsHUlOALMtG6rjOhQ4gJiMnwJ3s2/EilVB/244DIbBGRaZfj80Ixt sha512-nl3Oscwy2WObPB+NQ2qf23nkNNwm+OpX5o8z9T2KDOw304/XDL2e3Vzt3olaWhjb0m/91IzUQ1fM50X3j7cxlg=="
+    crossorigin="anonymous"
+  ></script>
+  ```
 
-- don't use them at a grouping of components (e.g. forms) or large component (e.g. Media container buffering) level  - use Medium indicators instead
-- don't use them at components level (e.g. images, buttons, etc) - use Small indicators instead
+## Need help?
 
-# Medium Loading Indicator
+Please contact [COMM Europa Management](mailto:Europamanagement@ec.europa.eu) for support on using this resource for a European Commission website.
 
-The medium loading indicator, is designed to indicate if a grouping or large component is loading.
+## Previous major versions
 
-## Dos 
-
-- indicate the progression of the loading status in a grouping of components (e.g. forms) or large component (e.g. Media container buffering)
-
-## Don'ts
-
-- do not use more than once per page
-- don't state the processing time if it cannot be reliably estimated
-
-## When to use
-
-- when an action is performed by the user, to show an indication that their request is being handled
-- when you have multiple components that are coupled together by an action (e.g. submitting a form)
-
-## When not to use
-
-- do not use this version for loading a page or bigger section of a page - use the Large indicator instead
-- don't use them at components level (e.g. buttons, file download, etc.) - use Small indicators instead
-
-# Small Loading Indicator
-
-The small loading indicator, is designed to used as feedback for smaller components when an action is preformed
-
-## Dos 
-
-- indicate the progression of the loading status in smaller components
-
-## Don'ts
-
-- don't state the processing time if it cannot be reliably estimated
-
-## When to use
-
-- when an action is preformed by the user, to show an indication that their request is being handled
-- when the action takes longer than 1 second to load for smaller components
-
-## When not to use
-
-- do not use this version for loading a page or bigger section of a page - use the Large indicator instead
-- don't use them at a grouping of components (e.g. forms) level  - use Medium indicators instead
+- v2.39.0: [sources](https://github.com/ec-europa/europa-component-library/tree/v2) - [release](https://github.com/ec-europa/europa-component-library/releases/tag/v2.39.0) - [website](https://ec.europa.eu/component-library/v2.39.0/)
+- v1.15.0: [sources](https://github.com/ec-europa/europa-component-library/tree/v1) - [release](https://github.com/ec-europa/europa-component-library/releases/tag/v1.15.0) - [website](https://ec.europa.eu/component-library/v1.15.0/)
+- v0.24.3: [sources](https://github.com/ec-europa/europa-component-library/tree/v0) - [release](https://github.com/ec-europa/europa-component-library/releases/tag/v0.24.3) - [website](https://ec.europa.eu/component-library/v0.24.3/)
