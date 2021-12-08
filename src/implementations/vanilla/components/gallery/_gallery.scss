@@ -334,6 +334,10 @@ $_overlay-links-hover-color: null !default;
 .ecl-gallery__share {
   color: $_overlay-links-color;
 
+  &:visited {
+    color: $_overlay-links-color;
+  }
+
   &:hover,
   &:focus {
     color: $_overlay-links-hover-color;
