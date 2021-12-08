@@ -17,14 +17,20 @@ const getArgs = (data) => {
   return {
     name: data.icon.name,
     size: 'm',
-    color: '',
-    transform: '',
+    color: 'default',
+    transform: 'none',
   };
 };
 
 const getArgTypes = (data, icons) => getIconControls(data, icons);
 
 const prepareData = (data, args) => {
+  if (args.color === 'default') {
+    args.color = '';
+  }
+  if (args.transformation === 'none') {
+    args.transformation = '';
+  }
   correctSvgPath(data);
   data.icon.name = args.name;
   data.icon.size = args.size;
