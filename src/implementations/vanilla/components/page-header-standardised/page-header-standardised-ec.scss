@@ -97,14 +97,14 @@
   .ecl-breadcrumb-standardised__container {
     background-color: map.get(theme.$color, 'white-100');
     display: inline-flex;
-    padding-left: map.get(theme.$spacing, 'l');
-    padding-right: map.get(theme.$spacing, 'l');
+    padding-left: map.get(theme.$spacing, 'm');
+    padding-right: map.get(theme.$spacing, 'm');
   }
 
   .ecl-page-header-standardised__breadcrumb {
     background-color: transparent;
     margin-top: calc(
-      -1 * (#{map.get(theme.$spacing, 'm')} + #{map.get(
+      -1 * (#{map.get(theme.$spacing, 'xs')} + #{map.get(
               theme.$line-height-prolonged,
               'm'
             )})
