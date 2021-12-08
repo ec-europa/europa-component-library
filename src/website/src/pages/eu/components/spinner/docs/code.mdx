@@ -1,0 +1,27 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import { spinnerDefault, spinnerNegative } from '../demo';
+
+## Primary spinner
+
+<Playground
+  system="eu"
+  selectedKind="components-spinner"
+  selectedStory="default"
+>
+  <Html markup={spinnerDefault} />
+</Playground>
+
+## Negative spinner
+
+<Playground
+  system="eu"
+  selectedKind="components-spinner"
+  selectedStory="negative"
+>
+  <Html markup={spinnerNegative} />
+</Playground>

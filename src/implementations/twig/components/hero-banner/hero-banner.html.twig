@@ -72,12 +72,14 @@
           {% if _link.extra_classes is defined and _link.extra_classes is not empty %}
             {% set _link_extra_classes = _link_extra_classes ~ ' ' ~ _link.extra_classes %}
           {% endif %}
+          <div class="ecl-hero-banner__cta">
           {% include '@ecl/link/link.html.twig' with _link|merge({
             link: _link.link|merge({
               type: 'cta',
             }),
             extra_classes: _link_extra_classes,
           }) only %}
+          </div>
         {% endif %}
       </div>
     {% endif %}
