@@ -44,6 +44,7 @@ $_ellispis-outline-width: null !default;
   display: inline-flex;
   margin-top: $_segment-margin-top;
   max-width: 100%;
+  overflow: hidden;
 
   &[aria-hidden='true'] {
     position: absolute;
@@ -92,6 +93,9 @@ $_ellispis-outline-width: null !default;
 .ecl-breadcrumb-standardised__link {
   font: $_link-font;
   font-weight: $_link-font-weight;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .ecl-breadcrumb-standardised__icon {
