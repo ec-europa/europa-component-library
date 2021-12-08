@@ -25,7 +25,7 @@
 {% endif %}
 
 {% if item.children is defined and item.children is not empty and item.children is iterable %}
-  {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' data-ecl-has-children' %}
+  {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' data-ecl-has-children aria-haspopup aria-expanded="false"' %}
   {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-menu__item--has-children' %}
 {% endif %}
 

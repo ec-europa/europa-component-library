@@ -47,6 +47,8 @@ export class Menu {
       megaSelector = '[data-ecl-menu-mega]',
       subItemSelector = '[data-ecl-menu-subitem]',
       attachClickListener = true,
+      attachHoverListener = true,
+      attachFocusListener = true,
       attachResizeListener = true,
     } = {}
   ) {
@@ -70,6 +72,8 @@ export class Menu {
     this.megaSelector = megaSelector;
     this.subItemSelector = subItemSelector;
     this.attachClickListener = attachClickListener;
+    this.attachHoverListener = attachHoverListener;
+    this.attachFocusListener = attachFocusListener;
     this.attachResizeListener = attachResizeListener;
 
     // Private variables
@@ -88,6 +92,8 @@ export class Menu {
     this.handleClickOnClose = this.handleClickOnClose.bind(this);
     this.handleClickOnBack = this.handleClickOnBack.bind(this);
     this.handleClickOnLink = this.handleClickOnLink.bind(this);
+    this.handleHoverOnItem = this.handleHoverOnItem.bind(this);
+    this.handleHoverOffItem = this.handleHoverOffItem.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.useDesktopDisplay = this.useDesktopDisplay.bind(this);
   }
@@ -142,10 +148,23 @@ export class Menu {
       window.addEventListener('resize', this.handleResize);
     }
 
-    // Check mega menu display (right to left, full width, ...)
+    // Browse first level items
     if (this.items && !isMobile.isMobile) {
       this.items.forEach((item) => {
+        // Check mega menu display (right to left, full width, ...)
         this.checkMenuItem(item);
+
+        if (item.hasAttribute('data-ecl-has-children')) {
+          // Bind hover and focus events on menu items
+          if (this.attachHoverListener) {
+            item.addEventListener('mouseover', this.handleHoverOnItem);
+            item.addEventListener('mouseout', this.handleHoverOffItem);
+          }
+          if (this.attachFocusListener) {
+            item.addEventListener('focusin', this.handleHoverOnItem);
+            item.addEventListener('focusout', this.handleHoverOffItem);
+          }
+        }
       });
     }
 
@@ -176,6 +195,21 @@ export class Menu {
 
     if (this.attachClickListener && this.overlay) {
       this.overlay.removeEventListener('click', this.handleClickOnClose);
+    }
+
+    if (this.items && !isMobile.isMobile) {
+      this.items.forEach((item) => {
+        if (item.hasAttribute('data-ecl-has-children')) {
+          if (this.attachHoverListener) {
+            item.removeEventListener('mouseover', this.handleHoverOnItem);
+            item.removeEventListener('mouseout', this.handleHoverOffItem);
+          }
+          if (this.attachFocusListener) {
+            item.removeEventListener('focusin', this.handleHoverOnItem);
+            item.removeEventListener('focusout', this.handleHoverOffItem);
+          }
+        }
+      });
     }
 
     if (this.attachClickListener && this.links) {
@@ -249,21 +283,17 @@ export class Menu {
     const menuMega = queryOne(this.megaSelector, menuItem);
 
     if (menuMega) {
-      // Check if there are 4 columns of items
+      // Check number of items and put them in column
       const subItems = queryAll(this.subItemSelector, menuMega);
 
-      if (subItems.length > 12) {
+      if (subItems.length < 5) {
+        menuItem.classList.add('ecl-menu__item--col1');
+      } else if (subItems.length < 9) {
+        menuItem.classList.add('ecl-menu__item--col2');
+      } else if (subItems.length < 13) {
+        menuItem.classList.add('ecl-menu__item--col3');
+      } else {
         menuItem.classList.add('ecl-menu__item--full');
-
-        // Check if there are more than 16 items
-        // If so, hide them on desktop
-        if (subItems.length > 16) {
-          subItems
-            .slice(16)
-            .forEach((subItem) =>
-              subItem.classList.add('ecl-menu__subitem--extra')
-            );
-        }
         return;
       }
 
@@ -365,6 +395,36 @@ export class Menu {
         item.setAttribute('aria-expanded', 'false');
       }
     });
+
+    return this;
+  }
+
+  /**
+   * Hover on a menu item
+   * @param {Event} e
+   */
+  handleHoverOnItem(e) {
+    // Add attribute to current item, and remove it from others
+    const menuItem = e.target.closest('[data-ecl-menu-item]');
+    this.items.forEach((item) => {
+      if (item === menuItem) {
+        item.setAttribute('aria-expanded', 'true');
+      } else {
+        item.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    return this;
+  }
+
+  /**
+   * Deselect a menu item
+   * @param {Event} e
+   */
+  handleHoverOffItem(e) {
+    // Remove attribute to current item
+    const menuItem = e.target.closest('[data-ecl-menu-item]');
+    menuItem.setAttribute('aria-expanded', 'false');
 
     return this;
   }
