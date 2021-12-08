@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
+//stylelint-disable length-zero-no-unit
 @use 'menu' with
   (
     $_main-nav-background:
@@ -68,6 +69,8 @@
       map.get(theme.$spacing, 'm'),
     $_menu-sublink-mobile-vertical-padding: map.get(theme.$spacing, 's'),
     $_menu-sublink-outline-offset: -3px,
+    $_menu-sublink-padding-offset: 3px,
+    $_menu-sublink-margin-offset: 0px,
     $_menu-sublink-active-color: map.get(theme.$color, 'blue-100'),
     $_menu-sublink-active-weight: map.get(theme.$font-weight, 'normal'),
     $_menu-sublink-active-background: map.get(theme.$color, 'blue-5'),
