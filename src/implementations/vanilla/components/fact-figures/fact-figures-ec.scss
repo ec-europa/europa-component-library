@@ -1,20 +1,19 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
-@use 'fact-figures' with
-  (
-    $_border: 1px solid map.get(theme.$color, 'blue-25'),
-    $_border-radius: 0,
-    $_items-padding-horizontal-mobile: 0,
-    $_items-padding-horizontal-desktop: 0,
-    $_item-icon-margin-bottom: map.get(theme.$spacing, 's'),
-    $_item-value-color: map.get(theme.$color, 'black'),
-    $_item-value-font: map.get(theme.$font, '4xl'),
-    $_item-value-font-4-col: map.get(theme.$font, '2xl'),
-    $_item-value-font-weight: map.get(theme.$font-weight, 'bold'),
-    $_item-title-color: map.get(theme.$color, 'black'),
-    $_item-title-margin-bottom: map.get(theme.$spacing, 'xs'),
-    $_item-description-color: map.get(theme.$color, 'grey'),
-    $_view-all-border-color: map.get(theme.$color, 'blue-25'),
-    $_view-all-margin-horizontal: map.get(theme.$spacing, 'm'),
-    $_view-all-padding-vertical: map.get(theme.$spacing, 'xl')
-  );
+@use 'fact-figures' with (
+  $_border: 1px solid map.get(theme.$color, 'blue-25'),
+  $_border-radius: 0,
+  $_items-padding-horizontal-mobile: 0,
+  $_items-padding-horizontal-desktop: 0,
+  $_item-icon-margin-bottom: map.get(theme.$spacing, 's'),
+  $_item-value-color: map.get(theme.$color, 'black'),
+  $_item-value-font: map.get(theme.$font, '4xl'),
+  $_item-value-font-4-col: map.get(theme.$font, '2xl'),
+  $_item-value-font-weight: map.get(theme.$font-weight, 'bold'),
+  $_item-title-color: map.get(theme.$color, 'black'),
+  $_item-title-margin-bottom: map.get(theme.$spacing, 'xs'),
+  $_item-description-color: map.get(theme.$color, 'grey'),
+  $_view-all-border-color: map.get(theme.$color, 'blue-25'),
+  $_view-all-margin-horizontal: map.get(theme.$spacing, 'm'),
+  $_view-all-padding-vertical: map.get(theme.$spacing, 'xl')
+);

@@ -1,38 +1,35 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
-@use 'timeline' with
-  (
-    $_border-color: map.get(theme.$color, 'blue-100'),
-    $_border-width: 0.125rem,
-    $_bullet-border-color: map.get(theme.$color, 'blue-100'),
-    $_bullet-border-width: 0.125rem,
-    $_bullet-shadow: 0 0 0 2px map.get(theme.$color, 'white'),
-    $_bullet-top-position: 8%,
-    $_content-color: map.get(theme.$color, 'grey-80'),
-    $_content-big-font: map.get(theme.$font-prolonged, 'm'),
-    $_content-font: map.get(theme.$font-prolonged, 'm'),
-    $_first-item-offset: 2rem,
-    $_item-padding-top: 0,
-    $_label-alignment: left,
-    $_label-color: map.get(theme.$color, 'grey-140'),
-    $_label-big-font: map.get(theme.$font, '3xl'),
-    $_label-font: map.get(theme.$font, '2xl'),
-    $_label-font-weight: map.get(theme.$font-weight, 'normal'),
-    $_label-layout: static,
-    $_label-margin: map.get(theme.$spacing, 's'),
-    $_last-item-height: 1.5rem,
-    $_left-spacing: 0,
-    $_timeline-margin-left:
-      calc(
-        #{map.get(theme.$spacing, 'xs')} + #{map.get(theme.$spacing, 's')}/ 2
-      ),
-    $_title-color: map.get(theme.$color, 'grey-140'),
-    $_title-font: map.get(theme.$font-prolonged, 'm'),
-    $_title-font-weight: map.get(theme.$font-weight, 'bold'),
-    $_title-big-font: map.get(theme.$font-prolonged, 'l'),
-    $_title-margin: map.get(theme.$spacing, 's'),
-    $_toggle-bullet-border-color: map.get(theme.$color, 'blue-20')
-  );
+@use 'timeline' with (
+  $_border-color: map.get(theme.$color, 'blue-100'),
+  $_border-width: 0.125rem,
+  $_bullet-border-color: map.get(theme.$color, 'blue-100'),
+  $_bullet-border-width: 0.125rem,
+  $_bullet-shadow: 0 0 0 2px map.get(theme.$color, 'white'),
+  $_bullet-top-position: 8%,
+  $_content-color: map.get(theme.$color, 'grey-80'),
+  $_content-big-font: map.get(theme.$font-prolonged, 'm'),
+  $_content-font: map.get(theme.$font-prolonged, 'm'),
+  $_first-item-offset: 2rem,
+  $_item-padding-top: 0,
+  $_label-alignment: left,
+  $_label-color: map.get(theme.$color, 'grey-140'),
+  $_label-big-font: map.get(theme.$font, '3xl'),
+  $_label-font: map.get(theme.$font, '2xl'),
+  $_label-font-weight: map.get(theme.$font-weight, 'normal'),
+  $_label-layout: static,
+  $_label-margin: map.get(theme.$spacing, 's'),
+  $_last-item-height: 1.5rem,
+  $_left-spacing: 0,
+  $_timeline-margin-left:
+    calc(#{map.get(theme.$spacing, 'xs')} + #{map.get(theme.$spacing, 's')}/ 2),
+  $_title-color: map.get(theme.$color, 'grey-140'),
+  $_title-font: map.get(theme.$font-prolonged, 'm'),
+  $_title-font-weight: map.get(theme.$font-weight, 'bold'),
+  $_title-big-font: map.get(theme.$font-prolonged, 'l'),
+  $_title-margin: map.get(theme.$spacing, 's'),
+  $_toggle-bullet-border-color: map.get(theme.$color, 'blue-20')
+);
 
 .ecl-timeline__label {
   width: auto;
