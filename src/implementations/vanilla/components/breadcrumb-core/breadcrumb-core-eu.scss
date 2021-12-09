@@ -1,19 +1,18 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
-@use 'breadcrumb-core' with
-  (
-    $_container-padding: map.get(theme.$spacing, 's') 0
-      calc(#{map.get(theme.$spacing, 'l')} - 1px),
-    $_segment-margin-top: map.get(theme.$spacing, 's'),
-    $_link-font: map.get(theme.$font-prolonged, 'm'),
-    $_link-font-weight: map.get(theme.$font-weight, 'normal'),
-    $_last-link-color: map.get(theme.$color, 'grey-80'),
-    $_icon-color: map.get(theme.$color, 'grey-80'),
-    $_background-color: map.get(theme.$color, 'white-100'),
-    $_ellipsis-color: map.get(theme.$color, 'blue-100'),
-    $_ellipsis-background-color: map.get(theme.$color, 'blue-5'),
-    $_ellipsis-background-color-hover: map.get(theme.$color, 'blue-10'),
-    $_ellipsis-padding-horizontal: map.get(theme.$spacing, '2xs'),
-    $_ellispis-outline-width: 2px,
-    $_border-color: transparent
-  );
+@use 'breadcrumb-core' with (
+  $_container-padding: map.get(theme.$spacing, 's') 0
+    calc(#{map.get(theme.$spacing, 'l')} - 1px),
+  $_segment-margin-top: map.get(theme.$spacing, 's'),
+  $_link-font: map.get(theme.$font-prolonged, 'm'),
+  $_link-font-weight: map.get(theme.$font-weight, 'normal'),
+  $_last-link-color: map.get(theme.$color, 'grey-80'),
+  $_icon-color: map.get(theme.$color, 'grey-80'),
+  $_background-color: map.get(theme.$color, 'white-100'),
+  $_ellipsis-color: map.get(theme.$color, 'blue-100'),
+  $_ellipsis-background-color: map.get(theme.$color, 'blue-5'),
+  $_ellipsis-background-color-hover: map.get(theme.$color, 'blue-10'),
+  $_ellipsis-padding-horizontal: map.get(theme.$spacing, '2xs'),
+  $_ellispis-outline-width: 2px,
+  $_border-color: transparent
+);

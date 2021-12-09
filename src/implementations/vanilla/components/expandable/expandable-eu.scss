@@ -1,4 +1,5 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
-@use 'expandable' with
-  ($_expandable-content-color: map.get(theme.$color, 'grey-80'));
+@use 'expandable' with (
+  $_expandable-content-color: map.get(theme.$color, 'grey-80')
+);
