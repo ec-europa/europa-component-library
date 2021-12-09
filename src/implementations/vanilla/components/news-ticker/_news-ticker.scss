@@ -22,7 +22,9 @@ $_btn-padding-horizontal: map.get(theme.$spacing, 's') !default;
   border-style: solid;
   border-width: $_border-width;
   box-sizing: border-box;
-  display: none;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
   margin: 0;
   padding: 0;
   position: relative;
@@ -42,7 +44,8 @@ $_btn-padding-horizontal: map.get(theme.$spacing, 's') !default;
 
 .ecl-news-ticker__content {
   height: 0;
-  margin: map.get(theme.$spacing, 'xs') 0 map.get(theme.$spacing, 'xs') -5px;
+  margin: map.get(theme.$spacing, 's');
+  margin-left: calc(#{map.get(theme.$spacing, 's')} - 5px);
   overflow: hidden;
   transition-duration: 0.3s;
   width: 100%;
@@ -66,23 +69,21 @@ $_btn-padding-horizontal: map.get(theme.$spacing, 's') !default;
 
 .ecl-news-ticker__counter {
   color: $_counter-color;
-  flex-shrink: 0;
+  flex-grow: 1;
   font: map.get(theme.$font, 'm');
   font-weight: bold;
   margin-left: map.get(theme.$spacing, 'l');
   margin-right: map.get(theme.$spacing, 'xs');
+  text-align: right;
 }
 
 .ecl-news-ticker__controls {
   align-self: stretch;
   background-color: map.get(theme.$color, 'blue-100');
+  border-radius: $_border-radius 0 0 0;
   display: flex;
-  flex: 1;
-  padding: 5px 5px 5px 8px;
-}
-
-.ecl-news-ticker__toggle {
-  display: none;
+  flex-grow: 0;
+  padding: 1px 5px 0 7px;
 }
 
 .ecl-news-ticker__prev,
@@ -97,15 +98,31 @@ $_btn-padding-horizontal: map.get(theme.$spacing, 's') !default;
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('s') {
-  .ecl-news-ticker {
-    display: flex;
-  }
-}
-
-/* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
-  .ecl-news-ticker__toggle {
-    display: block;
+  .ecl-news-ticker {
+    flex-flow: initial;
+    justify-content: initial;
+  }
+  .ecl-news-ticker__icon {
+    order: 1;
+  }
+  .ecl-news-ticker__container {
+    order: 2;
+  }
+  .ecl-news-ticker__content {
+    margin: map.get(theme.$spacing, 'xs') 0 map.get(theme.$spacing, 'xs') -5px;
+    padding: 5px 5px 5px 0;
+  }
+  .ecl-news-ticker__controls {
+    align-items: center;
+    border-radius: 0;
+    flex-grow: initial;
+    order: 4;
+    padding: 0 5px 0 7px;
+  }
+  .ecl-news-ticker__counter {
+    flex-shrink: 0;
+    order: 3;
+    text-align: initial;
   }
 }

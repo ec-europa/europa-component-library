@@ -58,14 +58,6 @@
 {# Print the result #}
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  {% include '@ecl/icon/icon.html.twig' with {
-    icon: {
-      path: _icon_path,
-      name: 'information',
-      size: 'm',
-    },
-    extra_classes: 'ecl-news-ticker__icon',
-  } only %}
   {% if _items is not empty and _items is iterable %}
   <div class="ecl-news-ticker__container">
     <div class="ecl-news-ticker__content">
@@ -89,6 +81,14 @@
     </div>
   </div>
   {% endif %}
+  {% include '@ecl/icon/icon.html.twig' with {
+    icon: {
+      path: _icon_path,
+      name: 'information',
+      size: 'm',
+    },
+    extra_classes: 'ecl-news-ticker__icon',
+  } only %}
   <div class="ecl-news-ticker__counter">
     <span class="ecl-news-ticker__counter--current">1</span> {{ _counter_label }} {{_items|length}}
   </div>
