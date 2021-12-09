@@ -15,19 +15,21 @@ const dataBackgroundImage = { ...demoBackgroundImage };
 const getArgs = (data) => {
   const args = {
     breadcrumb: true,
-    title: data.title,
     thumbnail: false,
-    meta: data.meta,
   };
 
+  if (data.title) {
+    args.title = data.title;
+  }
+  if (data.meta) {
+    args.meta = data.meta;
+  }
   if (data.background_image_url) {
     args.overlay = 'none';
   }
-
   if (data.description) {
     args.description = data.description;
   }
-
   if (data.background_image_url) {
     args.background_image_url = data.background_image_url;
   }

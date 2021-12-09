@@ -1,0 +1,120 @@
+{% spaceless %}
+
+{#
+  Parameters:
+    - "items" (array) (default: []): List of page-banner compatible with EC page-banner component structure
+    - "counter_label" (string) (default: 'of')
+    - "sr_previous" (string) (default: 'Previous slides') screen reader label for previous button
+    - "sr_next" (string) (default: 'Next slides') screen reader label for next button
+    - "sr_navigation" (string) (default: 'Go to slide %d') screen reader label for navigation buttons
+    - "sr_autoplay" (string) (default: 'Carousel auto play') screen reader label for autoplay button
+    - "full_width": (bool) (default: false) Full width banner (inside the grid)
+    - "icon_path" (string) (default: '') Path to the icons file
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        ...
+      ]
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-carousel' %}
+{% set _extra_attributes = 'data-ecl-auto-init="Carousel"' %}
+{% set _items = items|default('') %}
+{% set _sr_previous = sr_previous|default('Previous slides') %}
+{% set _sr_next = sr_next|default('Next slides') %}
+{% set _sr_navigation = sr_navigation|default('Go to slide %d') %}
+{% set _sr_autoplay = sr_autoplay|default('Carousel auto play') %}
+{% set _counter_label = counter_label|default('of') %}
+{% set _full_width = full_width|default(false) %}
+{% set _icon_path = icon_path|default('') %}
+
+{# Internal logic - Process properties #}
+
+{% if _full_width %}
+  {% set _css_class = _css_class ~ ' ecl-carousel--full-width' %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+{% if _items is not empty and _items is iterable %}
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <div class="ecl-carousel__container">
+    <div class="ecl-carousel__slides" id="ecl-carousel-slider">
+    {% for item in _items %}
+      <div class="ecl-carousel__slide" role="group" aria-label="slide {{ loop.index }} {{ _counter_label }} {{ _items|length }}">
+        {% include '@ecl/page-banner/page-banner.html.twig' with item only %}
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+  <div class="ecl-carousel__controls">
+    <button class="ecl-carousel__prev" aria-hidden="true">
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: {
+          path: _icon_path,
+          name: 'corner-arrow',
+          size: 'm',
+          transform: 'rotate-270',
+          color: 'inverted',
+        },
+        extra_classes: 'ecl-u-d-block',
+      } only %}
+      <span class="ecl-u-sr-only">{{ _sr_previous }}</span>
+    </button>
+    <button class="ecl-carousel__next" aria-hidden="true">
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: {
+          path: _icon_path,
+          name: 'corner-arrow',
+          size: 'm',
+          transform: 'rotate-90',
+          color: 'inverted',
+        },
+        extra_classes: 'ecl-u-d-block',
+      } only %}
+      <span class="ecl-u-sr-only">{{ _sr_next }}</span>
+    </button>
+    <div class="ecl-container">
+      <button class="ecl-carousel__toggle" aria-hidden="true">
+        {% include '@ecl/icon/icon.html.twig' with {
+          icon: {
+            path: _icon_path,
+            name: 'pause',
+            size: 'l',
+            color: 'inverted',
+          },
+        } only %}
+        <span class="ecl-u-sr-only">{{ _sr_autoplay }}</span>
+      </button>
+      <div class="ecl-carousel__pagination">
+        <span class="ecl-carousel__current">1</span>&nbsp;{{ _counter_label }} {{_items|length}}
+      </div>
+      <div class="ecl-carousel__navigation">
+        {% for item in _items %}
+          <button class="ecl-carousel__navigation-item">
+            <span class="ecl-u-sr-only">{{ _sr_navigation|replace({'%d': loop.index}) }}</span>
+          </button>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+{% endspaceless %}

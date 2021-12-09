@@ -3,7 +3,7 @@
 @use 'breadcrumb-harmonised' with
   (
     $_container-padding: map.get(theme.$spacing, 's') 0
-      calc(#{map.get(theme.$spacing, 'l')} - 1px),
+      map.get(theme.$spacing, 'l'),
     $_segment-margin-top: map.get(theme.$spacing, 's'),
     $_background-color: map.get(theme.$color, 'white-100'),
     $_link-font: map.get(theme.$font-prolonged, 'm'),
@@ -14,6 +14,5 @@
     $_ellipsis-background-color: map.get(theme.$color, 'blue-5'),
     $_ellipsis-background-color-hover: map.get(theme.$color, 'blue-10'),
     $_ellipsis-padding-horizontal: map.get(theme.$spacing, '2xs'),
-    $_ellispis-outline-width: 2px,
-    $_border-color: transparent
+    $_ellispis-outline-width: 2px
   );
