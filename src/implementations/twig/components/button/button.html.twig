@@ -67,7 +67,9 @@
           ],
         } only %}
       {% endif %}
-      <span class="ecl-button__label" data-ecl-label="true">{% block label _label %}</span>
+      {% if _label %}
+        <span class="ecl-button__label" data-ecl-label="true">{% block label _label %}</span>
+      {% endif %}
       {% if _icon_position == 'after' %}
         {% include '@ecl/icon/icon.html.twig' with {
           icon: _icon,
