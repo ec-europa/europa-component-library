@@ -91,10 +91,12 @@
       extra_classes: 'ecl-content-item__card'
     }) only %}
   </div>
+  {% if _lists is not empty %}
   <div class="ecl-content-item__taxonomy">
     {% for _list in _lists %}
       {% include '@ecl/description-list/description-list.html.twig' with _list only %}
     {% endfor %}
+  {% endif %}
   </div>
 </div>
 

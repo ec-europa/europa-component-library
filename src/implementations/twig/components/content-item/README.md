@@ -8,79 +8,120 @@ npm install --save @ecl/twig-component-content-item
 
 ### Parameters
 
-- **"card"** (associative array) (default: predefined structure below)
-  - "type" (string) (default: '') - Card type ('tile')
-  - "description" (string) (default: '') - Description of card
-  - "meta" (array) (default: []) - Meta's for the Card
-  - "title" (associative array) (default: {}) - Predefined structure compatible with Link component. If Card type is a 'tile', only label property is required.
-  - "image" (associative array) (default: ''): - Url/path and alternate text of the background image (non required if Card type is a 'tile')
-  - "tags" (array) (default: []): List of tags compatible with EC Tag component structure
-  - "labels" (array) (default: []): List of labels compatible with EC Label component structure
-  - "infos" (array) (default: []): List of infos. The format of each element in the array:
-    - "label" (string) (default: ''): Label of info
-    - "icon" (associative array) (default: {}): Predefined structure compatible with EC Icon
-  - "links" (array) (default: []): List of links (required if Card type is a 'tile'). The format of each element in the array
-    - "label" (string) (default: ''): Label of link
-    - "path" (string) (default: ''): Link url (href attribute)
-  - "lists" (array) (default: []) Array of objects of type "description list"
-    - "variant" (optional) (taxonomy or horizontal)
-    - "items" (array)
-      - term (string)
-      - definition (string, array of strings or array of objects of type tag)
-- **"icon_path"** (string) (default: '') Path to icons file
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
-  - "name" (string) Attribute name, eg. 'data-test'
-  - "value" (string) Attribute value, eg: 'data-test-1'
+- **"variant"** (string) (default: ''): Variant of the content item (can be 'image-right' or 'event')
+- **"image"** (associative array) (default: {}):
+  - "src" (string) (default: ''): Path to the image
+  - "size" (string) (default: 'm'): Size of the image (can be 's' or 'l')
+- **"date"** (associative array) (default: {}): Predefined structure compatible with Date block component
+- **"labels"** (array) (default: []): List of labels compatible with EC Label component structure
+- **"meta"** (array) (default: []): Meta's for the Content item
+- **"title"** (associative array) (default: {}): Predefined structure compatible with Link component
+- **"description"** (string) (default: ''): Description of the Content item
+- **"infos"** (array) (default: []): format: [
+  {
+  "label" (string) (default: ''): Label of info item
+  "icon" (associative array) (default: {}) A predefined structure compatible with Icon component
+  },
+  ...
+  ]
+- **"lists"** (array) (default: []) Array of objects of type "description list". Used for taxonomy
+- **"extra_classes"** (string) (default: '')
+- **"extra_attributes"** (array) (default: []): format: [
+  {
+  "name" (string) (default: ''),
+  "value" (optional) (string)
+  ...
+  ],
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl/card/card.html.twig' with { 
-  card: { 
-    type: 'tile', 
-    description: 'Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.', 
-    image: { 
-      src: 'https://v2--europa-component-library.netlify.com/example-image.jpg', 
-      alt: 'Better regulation', 
-    }, 
-    title: { 
-      type: 'standalone', 
-      path: '/example', 
-      label: 'Better regulation', 
-    }, 
-    meta: [ 'Meta 1', 'Meta 2', 'Meta 3' ], 
-    infos: [ 
-      { 
-        label: '2018/10/22', 
-        icon: { 
-          type: 'general', 
-          name: 'calendar', 
-          path: '/path-to-the-icon-file', 
-        }, 
-      }, 
-      { 
-        label: 'Luxembourg', 
-        icon: { 
-          type: 'general', 
-          name: 'location', 
-          path: '/path-to-the-icon-file', 
-        }, 
-      }, 
-    ], 
-    tags: [ 
-      { 
-        label: 'Tag 1', 
-        path: '/example-1', 
-      }, 
-      { 
-        label: 'Tag 2', 
-        path: '/example-2', 
-      }, 
-      { 
-        label: 'Tag 3', 
-        path: '/example-3', 
-      }, 
-    ], 
-  } 
+{% include '@ecl/content-item/content-item.html.twig' with { 
+  image: {
+    src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+    size: 'l',
+  },
+  labels: [
+    { label: 'highlight', variant: 'highlight' },
+    { label: 'high importance', variant: 'high' },
+  ],
+  meta: ['PRIMARY META', 'DD Month Year'],
+  title: {
+    type: 'standalone',
+    label: 'Title',
+    path: exampleLink,
+  },
+  description:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus',
+  infos: [
+    {
+      icon: {
+        name: 'calendar',
+        size: 'xs',
+        path: '/icons.svg',
+      },
+      label: '2018/10/22',
+    },
+    {
+      icon: {
+        name: 'location',
+        size: 'xs',
+        path: '/icons.svg',
+      },
+      label: 'Luxembourg',
+    },
+  ],
+  lists: [
+    {
+      items: [
+        {
+          term: 'Science areas',
+          definition: [
+            {
+              label: 'Energy and transport',
+              variant: 'display',
+            },
+            {
+              label: 'Standards',
+              variant: 'display',
+            },
+          ],
+        },
+        {
+          term: 'Keywords',
+          definition: [
+            {
+              label: 'Electricity',
+              variant: 'display',
+            },
+            {
+              label: 'Electromobility',
+              variant: 'display',
+            },
+            {
+              label: 'Energy',
+              variant: 'display',
+            },
+            {
+              label: 'Energy storage',
+              variant: 'display',
+            },
+            {
+              label: 'Security',
+              variant: 'display',
+            },
+            {
+              label: 'Transport',
+              variant: 'display',
+            },
+            {
+              label: 'Low carbon',
+              variant: 'display',
+            },
+          ],
+        },
+      ],
+      variant: 'taxonomy',
+    },
+  ],
 } %}
 ```
