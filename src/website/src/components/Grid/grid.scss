@@ -1,18 +1,17 @@
-@use '@ecl/theme-dev/maps/layout' with
-  (
-    $breakpoint: (
-      'xs': 0,
-      's': 480px,
-      'm': 768px,
-      'l': 1140px,
-      'xl': 1500px,
-    ),
-    $container: (
-      's': 480px,
-      'm': 768px,
-      'l': 768px,
-      'xl': 1140px,
-    )
-  );
+@use '@ecl/theme-dev/maps/layout' with (
+  $breakpoint: (
+    'xs': 0,
+    's': 480px,
+    'm': 768px,
+    'l': 1140px,
+    'xl': 1500px,
+  ),
+  $container: (
+    's': 480px,
+    'm': 768px,
+    'l': 768px,
+    'xl': 1140px,
+  )
+);
 
 @use '@ecl/vanilla-layout-grid/grid';

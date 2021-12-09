@@ -1,8 +1,7 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
-@use 'spinner' with
-  (
-    $_stroke-color: map.get(theme.$color, 'blue-80'),
-    $_stroke-linecap: round,
-    $_text-color: map.get(theme.$color, 'dark-100')
-  );
+@use 'spinner' with (
+  $_stroke-color: map.get(theme.$color, 'blue-80'),
+  $_stroke-linecap: round,
+  $_text-color: map.get(theme.$color, 'dark-100')
+);

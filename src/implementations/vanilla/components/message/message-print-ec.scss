@@ -1,20 +1,19 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
-@use 'message-print' with
-  (
-    $_background-error: map.get(theme.$color, 'white'),
-    $_background-info: map.get(theme.$color, 'white'),
-    $_background-success: map.get(theme.$color, 'white'),
-    $_background-warning: map.get(theme.$color, 'white'),
-    $_border-radius: 0,
-    $_border-width: 0.5mm,
-    $_description-color: map.get(theme.$color, 'grey-100'),
-    $_icon-spacing: map.get(theme.$spacing-print, 'm'),
-    $_icon-error-fill: map.get(theme.$color, 'error'),
-    $_icon-info-fill: map.get(theme.$color, 'info'),
-    $_icon-success-fill: map.get(theme.$color, 'success'),
-    $_icon-warning-fill: map.get(theme.$color, 'warning'),
-    $_title-color: map.get(theme.$color, 'black-100'),
-    $_title-font: map.get(theme.$font-print, 'm'),
-    $_title-spacing: map.get(theme.$spacing-print, 's')
-  );
+@use 'message-print' with (
+  $_background-error: map.get(theme.$color, 'white'),
+  $_background-info: map.get(theme.$color, 'white'),
+  $_background-success: map.get(theme.$color, 'white'),
+  $_background-warning: map.get(theme.$color, 'white'),
+  $_border-radius: 0,
+  $_border-width: 0.5mm,
+  $_description-color: map.get(theme.$color, 'grey-100'),
+  $_icon-spacing: map.get(theme.$spacing-print, 'm'),
+  $_icon-error-fill: map.get(theme.$color, 'error'),
+  $_icon-info-fill: map.get(theme.$color, 'info'),
+  $_icon-success-fill: map.get(theme.$color, 'success'),
+  $_icon-warning-fill: map.get(theme.$color, 'warning'),
+  $_title-color: map.get(theme.$color, 'black-100'),
+  $_title-font: map.get(theme.$font-print, 'm'),
+  $_title-spacing: map.get(theme.$spacing-print, 's')
+);

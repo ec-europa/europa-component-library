@@ -1,3 +1,5 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
-@use 'link-print' with ($_negative-color: map.get(theme.$color, 'white-100'));
+@use 'link-print' with (
+  $_negative-color: map.get(theme.$color, 'white-100')
+);

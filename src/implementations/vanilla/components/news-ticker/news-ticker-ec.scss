@@ -1,9 +1,8 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
-@use 'news-ticker' with
-  (
-    $_border-radius: 0,
-    $_border-width: 2px,
-    $_btn-outline-width: 3px,
-    $_counter-color: map.get(theme.$color, 'grey')
-  );
+@use 'news-ticker' with (
+  $_border-radius: 0,
+  $_border-width: 2px,
+  $_btn-outline-width: 3px,
+  $_counter-color: map.get(theme.$color, 'grey')
+);
