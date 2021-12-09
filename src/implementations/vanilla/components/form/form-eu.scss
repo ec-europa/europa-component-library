@@ -1,16 +1,15 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
-@use 'form' with
-  (
-    $_color-help: map.get(theme.$color, 'grey-80'),
-    $_color-invalid: map.get(theme.$color, 'red-120'),
-    $_color-label: map.get(theme.$color, 'grey-140'),
-    $_color-optional: map.get(theme.$color, 'grey-80'),
-    $_color-required: map.get(theme.$color, 'red-120'),
-    $_first-element-margin: map.get(theme.$spacing, 'm'),
-    $_font-help: map.get(theme.$font-prolonged, 'm'),
-    $_font-invalid: map.get(theme.$font-prolonged, 'm'),
-    $_font-optional: map.get(theme.$font, 'm'),
-    $_form-element-margin: map.get(theme.$spacing, 'xs'),
-    $_margin-invalid: map.get(theme.$spacing, '2xs')
-  );
+@use 'form' with (
+  $_color-help: map.get(theme.$color, 'grey-80'),
+  $_color-invalid: map.get(theme.$color, 'red-120'),
+  $_color-label: map.get(theme.$color, 'grey-140'),
+  $_color-optional: map.get(theme.$color, 'grey-80'),
+  $_color-required: map.get(theme.$color, 'red-120'),
+  $_first-element-margin: map.get(theme.$spacing, 'm'),
+  $_font-help: map.get(theme.$font-prolonged, 'm'),
+  $_font-invalid: map.get(theme.$font-prolonged, 'm'),
+  $_font-optional: map.get(theme.$font, 'm'),
+  $_form-element-margin: map.get(theme.$spacing, 'xs'),
+  $_margin-invalid: map.get(theme.$spacing, '2xs')
+);
