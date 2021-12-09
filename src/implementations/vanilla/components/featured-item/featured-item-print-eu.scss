@@ -1,20 +1,19 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
-@use 'featured-item-print' with
-  (
-    $_text-color: map.get(theme.$color, 'grey-140'),
-    $_heading-mobile-font: map.get(theme.$font-print, '3xl'),
-    $_heading-font: map.get(theme.$font-print, '2xl'),
-    $_heading-mobile-margin-bottom: map.get(theme.$spacing, 'm'),
-    $_title-margin-bottom: map.get(theme.$spacing, 's'),
-    $_description-mobile-margin-bottom: map.get(theme.$spacing, 's'),
-    $_description-margin-bottom: map.get(theme.$spacing, 'm'),
-    $_extended-border-color: map.get(theme.$color, 'blue-100'),
-    $_extended-mobile-border-size: 8px,
-    $_extended-border-size: 8px,
-    $_extended-border-radius: 4px,
-    $_extended-background: map.get(theme.$color, 'blue-10'),
-    $_extended-padding-left: map.get(theme.$spacing, 'l'),
-    $_extended-padding-top: map.get(theme.$spacing, 'm'),
-    $_extended-padding-bottom: map.get(theme.$spacing, 'm')
-  );
+@use 'featured-item-print' with (
+  $_text-color: map.get(theme.$color, 'grey-140'),
+  $_heading-mobile-font: map.get(theme.$font-print, '3xl'),
+  $_heading-font: map.get(theme.$font-print, '2xl'),
+  $_heading-mobile-margin-bottom: map.get(theme.$spacing, 'm'),
+  $_title-margin-bottom: map.get(theme.$spacing, 's'),
+  $_description-mobile-margin-bottom: map.get(theme.$spacing, 's'),
+  $_description-margin-bottom: map.get(theme.$spacing, 'm'),
+  $_extended-border-color: map.get(theme.$color, 'blue-100'),
+  $_extended-mobile-border-size: 8px,
+  $_extended-border-size: 8px,
+  $_extended-border-radius: 4px,
+  $_extended-background: map.get(theme.$color, 'blue-10'),
+  $_extended-padding-left: map.get(theme.$spacing, 'l'),
+  $_extended-padding-top: map.get(theme.$spacing, 'm'),
+  $_extended-padding-bottom: map.get(theme.$spacing, 'm')
+);

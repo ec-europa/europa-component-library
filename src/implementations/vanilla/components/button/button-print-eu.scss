@@ -1,7 +1,6 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
-@use 'button-print' with
-  (
-    $_border-radius: 4px,
-    $_font-weight: map.get(theme.$font-weight-print, 'regular')
-  );
+@use 'button-print' with (
+  $_border-radius: 4px,
+  $_font-weight: map.get(theme.$font-weight-print, 'regular')
+);

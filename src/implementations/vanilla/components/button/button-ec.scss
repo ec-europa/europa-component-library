@@ -1,21 +1,20 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
-@use 'button' with
-  (
-    $_border-radius: 0,
-    $_font-weight: map.get(theme.$font-weight, 'bold'),
-    $_outline-color: map.get(theme.$color, 'yellow-100'),
-    $_outline-width: 3px,
-    $_shadow-hover: none,
-    // Primary
-    $_primary-background-color-hover: map.get(theme.$color, 'blue-130'),
-    // Secondary
-    $_secondary-border-color-hover: map.get(theme.$color, 'blue-130'),
-    $_secondary-color-hover: map.get(theme.$color, 'blue-130'),
-    // Ghost
-    $_ghost-color-hover: map.get(theme.$color, 'blue-130'),
-    // Call to action
-    $_cta-color: map.get(theme.$color, 'black-100'),
-    $_cta-background-color-hover: map.get(theme.$color, 'yellow-120'),
-    $_cta-outline-color: map.get(theme.$color, 'black-100')
-  );
+@use 'button' with (
+  $_border-radius: 0,
+  $_font-weight: map.get(theme.$font-weight, 'bold'),
+  $_outline-color: map.get(theme.$color, 'yellow-100'),
+  $_outline-width: 3px,
+  $_shadow-hover: none,
+  // Primary
+  $_primary-background-color-hover: map.get(theme.$color, 'blue-130'),
+  // Secondary
+  $_secondary-border-color-hover: map.get(theme.$color, 'blue-130'),
+  $_secondary-color-hover: map.get(theme.$color, 'blue-130'),
+  // Ghost
+  $_ghost-color-hover: map.get(theme.$color, 'blue-130'),
+  // Call to action
+  $_cta-color: map.get(theme.$color, 'black-100'),
+  $_cta-background-color-hover: map.get(theme.$color, 'yellow-120'),
+  $_cta-outline-color: map.get(theme.$color, 'black-100')
+);
