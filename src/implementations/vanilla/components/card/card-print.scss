@@ -46,6 +46,22 @@
   margin-top: map.get(theme.$spacing-print, 'm');
 }
 
+.ecl-card__label-container {
+  display: inline-flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding-left: 0;
+  width: 100%;
+}
+
+.ecl-card__label-item {
+  margin-right: map.get(theme.$spacing-print, 'xs');
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
 .ecl-card__info-container {
   list-style: none;
   margin-bottom: 0;
