@@ -1,73 +1,68 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
 //stylelint-disable length-zero-no-unit
-@use 'hero-banner' with
-  (
-    $_border-radius: (
-      'banner': 8px,
-      'content': 4px,
-    ),
-    $_box-shadow: 0 0 6px rgba(9, 49, 142, 0.2),
-    $_padding-horizontal: (
-      's': map.get(theme.$spacing, 'l'),
-      'xl': map.get(theme.$spacing, 'l'),
-    ),
-    $_padding-vertical: map.get(theme.$spacing, 'l'),
-    $_margin-top: (
-      'description': map.get(theme.$spacing, 's'),
-      'button': map.get(theme.$spacing, 'l'),
-    ),
-    $_border-width: (
-      'left': 8px,
-      'bottom': 0px,
-      // unit has to be set, to be used in calc
-    ),
-    $_background: (
-      'primary':
-        linear-gradient(
-          to right,
-          map.get(theme.$color, 'blue-140') 0%,
-          map.get(theme.$color, 'blue-100') 100%
-        ),
-      'secondary': map.get(theme.$color, 'blue-5'),
-      'white': map.get(theme.$color, 'white-100'),
-      'image-box': rgba(255, 255, 255, 0.9),
-      'image-shade':
-        linear-gradient(
-          to right,
-          map.get(theme.$color, 'blue-140') 0%,
-          map.get(theme.$color, 'blue-100') 100%
-        ),
-      'image-gradient':
-        linear-gradient(
-          to right,
-          map.get(theme.$color, 'blue-140') 0%,
-          map.get(theme.$color, 'blue-100') 100%
-        ),
-    ),
-    $_overlay: (
-      'image-shade': rgba(0, 0, 0, 0.4),
-      'image-gradient':
-        linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 0.7) 0%,
-          rgba(0, 0, 0, 0.2) 100%
-        ),
-    ),
-    $_text-color: (
-      'dark': map.get(theme.$color, 'grey-140'),
-      'light': map.get(theme.$color, 'grey-80'),
-      'inverted': map.get(theme.$color, 'white-100'),
-    ),
-    $_font: (
-      'title': (
-        's': map.get(theme.$font, '5xl'),
-        'xl': map.get(theme.$font, '6xl'),
+@use 'hero-banner' with (
+  $_border-radius: (
+    'banner': 8px,
+    'content': 4px,
+  ),
+  $_box-shadow: 0 0 6px rgba(9, 49, 142, 0.2),
+  $_padding-horizontal: (
+    's': map.get(theme.$spacing, 'l'),
+    'xl': map.get(theme.$spacing, 'l'),
+  ),
+  $_padding-vertical: map.get(theme.$spacing, 'l'),
+  $_margin-top: (
+    'description': map.get(theme.$spacing, 's'),
+    'button': map.get(theme.$spacing, 'l'),
+  ),
+  $_border-width: (
+    'left': 8px,
+    'bottom': 0px,
+    // unit has to be set, to be used in calc
+  ),
+  $_background: (
+    'primary':
+      linear-gradient(
+        to right,
+        map.get(theme.$color, 'blue-140') 0%,
+        map.get(theme.$color, 'blue-100') 100%
       ),
-      'description': map.get(theme.$font-prolonged, 'l'),
+    'secondary': map.get(theme.$color, 'blue-5'),
+    'white': map.get(theme.$color, 'white-100'),
+    'image-box': rgba(255, 255, 255, 0.9),
+    'image-shade':
+      linear-gradient(
+        to right,
+        map.get(theme.$color, 'blue-140') 0%,
+        map.get(theme.$color, 'blue-100') 100%
+      ),
+    'image-gradient':
+      linear-gradient(
+        to right,
+        map.get(theme.$color, 'blue-140') 0%,
+        map.get(theme.$color, 'blue-100') 100%
+      ),
+  ),
+  $_overlay: (
+    'image-shade': rgba(0, 0, 0, 0.4),
+    'image-gradient':
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 100%),
+  ),
+  $_text-color: (
+    'dark': map.get(theme.$color, 'grey-140'),
+    'light': map.get(theme.$color, 'grey-80'),
+    'inverted': map.get(theme.$color, 'white-100'),
+  ),
+  $_font: (
+    'title': (
+      's': map.get(theme.$font, '5xl'),
+      'xl': map.get(theme.$font, '6xl'),
     ),
-    $_font-weight: (
-      'title': map.get(theme.$font-weight, 'regular'),
-      'description': map.get(theme.$font-weight, 'regular'),
-    )
-  );
+    'description': map.get(theme.$font-prolonged, 'l'),
+  ),
+  $_font-weight: (
+    'title': map.get(theme.$font-weight, 'regular'),
+    'description': map.get(theme.$font-weight, 'regular'),
+  )
+);

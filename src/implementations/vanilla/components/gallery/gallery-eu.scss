@@ -1,26 +1,25 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
-@use 'gallery' with
-  (
-    $_actions-margin: map.get(theme.$spacing, 's'),
-    $_actions-margin-desktop: map.get(theme.$spacing, 's'),
-    $_arrow-margin: map.get(theme.$spacing, 'xs'),
-    $_arrow-margins: map.get(theme.$spacing, '2xs'),
-    $_close-button-color: map.get(theme.$color, 'blue'),
-    $_description-background: map.get(theme.$color, 'blue'),
-    $_description-icon: map.get(theme.$icon, 's'),
-    $_description-icon-mobile: map.get(theme.$icon, 'm'),
-    $_description-margin-desktop: map.get(theme.$spacing, 'm'),
-    $_detail-background: map.get(theme.$color, 'white'),
-    $_detail-color: map.get(theme.$color, 'grey-140'),
-    $_gallery-info-color: map.get(theme.$color, 'grey-140'),
-    $_gallery-info-font: map.get(theme.$font, 's'),
-    $_gallery-meta-color: map.get(theme.$color, 'grey-60'),
-    $_item-outline: 2px solid map.get(theme.$color, 'blue'),
-    $_item-outline-offset: -2px,
-    $_overlay-description-color: map.get(theme.$color, 'black'),
-    $_overlay_links_color: map.get(theme.$color, 'blue'),
-    $_overlay-links-hover-color: map.get(theme.$color, 'blue-140'),
-    $_overlay-radius: 8px,
-    $_overlay-shadow: 0 0 6px rgba(9, 49, 142, 0.2)
-  );
+@use 'gallery' with (
+  $_actions-margin: map.get(theme.$spacing, 's'),
+  $_actions-margin-desktop: map.get(theme.$spacing, 's'),
+  $_arrow-margin: map.get(theme.$spacing, 'xs'),
+  $_arrow-margins: map.get(theme.$spacing, '2xs'),
+  $_close-button-color: map.get(theme.$color, 'blue'),
+  $_description-background: map.get(theme.$color, 'blue'),
+  $_description-icon: map.get(theme.$icon, 's'),
+  $_description-icon-mobile: map.get(theme.$icon, 'm'),
+  $_description-margin-desktop: map.get(theme.$spacing, 'm'),
+  $_detail-background: map.get(theme.$color, 'white'),
+  $_detail-color: map.get(theme.$color, 'grey-140'),
+  $_gallery-info-color: map.get(theme.$color, 'grey-140'),
+  $_gallery-info-font: map.get(theme.$font, 's'),
+  $_gallery-meta-color: map.get(theme.$color, 'grey-60'),
+  $_item-outline: 2px solid map.get(theme.$color, 'blue'),
+  $_item-outline-offset: -2px,
+  $_overlay-description-color: map.get(theme.$color, 'black'),
+  $_overlay_links_color: map.get(theme.$color, 'blue'),
+  $_overlay-links-hover-color: map.get(theme.$color, 'blue-140'),
+  $_overlay-radius: 8px,
+  $_overlay-shadow: 0 0 6px rgba(9, 49, 142, 0.2)
+);

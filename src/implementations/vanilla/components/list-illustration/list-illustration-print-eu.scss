@@ -1,8 +1,7 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
-@use 'list-illustration-print' with
-  (
-    $_title-color: map.get(theme.$color, 'grey-140'),
-    $_description-color: map.get(theme.$color, 'grey-80'),
-    $_background-color: map.get(theme.$color, 'blue-5')
-  );
+@use 'list-illustration-print' with (
+  $_title-color: map.get(theme.$color, 'grey-140'),
+  $_description-color: map.get(theme.$color, 'grey-80'),
+  $_background-color: map.get(theme.$color, 'blue-5')
+);
