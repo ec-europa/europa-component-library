@@ -17,21 +17,8 @@ $_image-margin: null !default;
 $_body-padding-top: null !default;
 $_body-padding-bottom: null !default;
 $_meta-color: null !default;
-$_meta-font: null !default;
-$_title-color: null !default;
-$_title-font: null !default;
-$_title-font-mobile: null !default;
-$_title-font-weight: null !default;
-$_description-margin-top: null !default;
-$_description-color: null !default;
-$_info-margin-top: null !default;
-$_info-font: null !default;
-$_info-color: null !default;
-$_info-color-icon: null !default;
-$_info-items-margin-top: null !default;
-$_info-label-margin-left: null !default;
-$_tag-container-border-top: null !default;
-$_list-definition-margin-top: null !default;
+$_text-color: null !default;
+$_taxonomy-container-border-top: null !default;
 $_list-margin: null !default;
 $_list-padding: null !default;
 
@@ -77,21 +64,22 @@ $_list-padding: null !default;
 
 .ecl-card__meta {
   color: $_meta-color;
-  font: $_meta-font;
+  font: map.get(theme.$font, 's');
+  margin-bottom: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-card__title {
-  color: $_title-color;
-  font: $_title-font-mobile;
-  font-weight: $_title-font-weight;
+  color: $_text-color;
+  font: map.get(theme.$font-prolonged, 'm');
+  font-weight: map.get(theme.$font-weight, 'bold');
   margin-bottom: 0;
-  margin-top: map.get(theme.$spacing, 'm');
+  margin-top: 0;
 }
 
 .ecl-card__description {
-  color: $_description-color;
-  font: map.get(theme.$font, 'm');
-  margin-top: $_description-margin-top;
+  color: $_text-color;
+  font: map.get(theme.$font-prolonged, 'm');
+  margin-top: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-card__label-container {
@@ -104,7 +92,7 @@ $_list-padding: null !default;
 }
 
 .ecl-card__label-item {
-  margin-bottom: map.get(theme.$spacing, 'xs');
+  margin-bottom: map.get(theme.$spacing, 'm');
   margin-right: map.get(theme.$spacing, 'xs');
 
   &:last-child {
@@ -115,20 +103,16 @@ $_list-padding: null !default;
 .ecl-card__info-container {
   list-style: none;
   margin-bottom: 0;
-  margin-top: $_info_margin-top;
+  margin-top: map.get(theme.$spacing, 'm');
   padding: 0;
 }
 
 .ecl-card__info-item {
   align-content: center;
-  color: $_info-color;
+  color: $_meta-color;
   display: flex;
-  font: $_info-font;
-  margin-top: $_info-items-margin-top;
-
-  .ecl-icon {
-    color: $_info-color-icon;
-  }
+  font: map.get(theme.$font, 's');
+  margin-top: map.get(theme.$spacing, 'xs');
 
   &:first-child {
     margin-top: 0;
@@ -136,7 +120,7 @@ $_list-padding: null !default;
 }
 
 .ecl-card__info-label {
-  margin-left: $_info-label-margin-left;
+  margin-left: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-card__link-container {
@@ -161,12 +145,11 @@ $_list-padding: null !default;
 }
 
 .ecl-card__tag-container {
-  border-top: $_tag-container-border-top;
   display: inline-flex;
   flex-wrap: wrap;
   list-style: none;
-  margin: $_general-spacing -#{$_general-spacing} 0 -#{$_general-spacing};
-  padding: $_general-spacing $_general-spacing 0 $_general-spacing;
+  margin-top: map.get(theme.$spacing, 'm');
+  padding-left: 0;
   width: 100%;
 }
 
@@ -179,13 +162,15 @@ $_list-padding: null !default;
 }
 
 .ecl-card__list {
+  border-top: $_taxonomy-container-border-top;
   flex-direction: column;
   margin-left: $_list-margin;
   margin-right: $_list-margin;
-  margin-top: $_general-spacing;
+  margin-top: map.get(theme.$spacing, 'm');
   max-width: 100%;
   padding-left: $_list-padding;
   padding-right: $_list-padding;
+  padding-top: map.get(theme.$spacing, 'm');
 
   /* stylelint-disable plugin/selector-bem-pattern */
   .ecl-description-list__term {
@@ -194,18 +179,18 @@ $_list-padding: null !default;
 
   .ecl-description-list__definition {
     margin-left: 0;
-    margin-top: $_list-definition-margin-top;
+    margin-top: map.get(theme.$spacing, 'xs');
     width: auto;
   }
 
   .ecl-description-list__definition:first-of-type {
-    margin-top: $_list-definition-margin-top;
+    margin-top: map.get(theme.$spacing, 'xs');
   }
 
   /* stylelint-enable plugin/selector-bem-pattern */
   + .ecl-card__list {
-    margin-top: $_general-spacing;
-    padding-top: $_general-spacing;
+    margin-top: map.get(theme.$spacing, 's');
+    padding-top: 0;
   }
 }
 
@@ -218,9 +203,9 @@ $_list-padding: null !default;
   // stylelint-disable max-nesting-depth
   .ecl-description-list--horizontal {
     .ecl-description-list__term {
-      color: $_title-color;
-      font: $_title-font-mobile;
-      font-weight: $_title-font-weight;
+      color: $_text-color;
+      font: map.get(theme.$font-prolonged, 'm');
+      font-weight: map.get(theme.$font-weight, 'bold');
     }
   }
   // stylelint-enable max-nesting-depth
@@ -235,12 +220,4 @@ $_list-padding: null !default;
 
 .ecl-card__body > :last-child {
   margin-bottom: 0;
-}
-
-/* stylelint-disable-next-line order/order */
-@include breakpoints.up('m') {
-  .ecl-card__title {
-    font: $_title-font;
-    font-weight: $_title-font-weight;
-  }
 }
