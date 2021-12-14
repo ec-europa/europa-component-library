@@ -43,6 +43,9 @@ $_search-width-xl: 31.5rem;
     width: max-content;
     z-index: 1;
   }
+  .ecl-standardised-menu__cta:only-child {
+    margin-top: 0;
+  }
 }
 
 .ecl-site-header-standardised__container {
@@ -244,6 +247,10 @@ $_search-width-xl: 31.5rem;
     .ecl-standardised-menu__cta {
       align-self: start;
       margin: map.get(theme.$spacing, 'm') 0;
+
+      &:only-child {
+        margin-top: map.get(theme.$spacing, 'm');
+      }
     }
 
     .ecl-menu {

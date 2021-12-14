@@ -363,11 +363,13 @@
     </div>
   </div>
 {% endif %}
-{% if _group == 'group1' and  _site_name %}
+{% if _group != 'group3' and _menu is not empty or _site_name is not empty %}
   <div class="ecl-site-header-harmonised__banner">
+  {% if _group == 'group1' and  _site_name %}
     <div class="ecl-container">
       <div class="ecl-site-header-harmonised__site-name">{{ _site_name }}</div>
     </div>
+  {% endif %}
   </div>
 {% endif %}
 {% if _menu is not empty %}
