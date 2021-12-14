@@ -235,7 +235,7 @@
         <div class="ecl-site-header-harmonised__login-container">
         {% if _logged %}
           <a
-            class="ecl-link ecl-link--standalone ecl-site-header-harmonised__login-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-harmonised__login-toggle"
             href="{{ _login_toggle.href_logged }}"
             aria-controls="{{ _login_box.id }}"
             data-ecl-login-toggle
@@ -272,14 +272,14 @@
               link: {
                 label: _login_box.label,
                 path: _login_box.href,
-                type: "standalone"
-              },
+                type: 'standalone',
+              }
             } only %}
           </div>
         {% else %}
           <a
-            class="ecl-link ecl-link--standalone ecl-site-header-harmonised__login-toggle"
-            href="{{ _login_box.href_not_logged }}"
+            class="ecl-button ecl-button--ghost ecl-site-header-harmonised__login-toggle"
+            href="{{ _login_toggle.href_not_logged }}"
           >
             {% include '@ecl/icon/icon.html.twig' with {
               icon: {
@@ -287,7 +287,7 @@
                 name: 'log-in',
                 size: 's'
               },
-                extra_classes: 'ecl-site-header-harmonised__icon',
+              extra_classes: 'ecl-site-header-harmonised__icon',
             } only %}
             {{- login_toggle.label_not_logged -}}
           </a>
@@ -295,8 +295,9 @@
         </div>
       {% endif %}
       {% if _language_selector is not empty %}
+      {# Language selector #}
         <a
-          class="ecl-link ecl-link--standalone ecl-site-header-harmonised__language-selector"
+          class="ecl-button ecl-button--ghost ecl-site-header-harmonised__language-selector"
           href="{{ _language_selector.href }}"
           data-ecl-language-selector
           aria-label="{{ _language_selector.label }}"
@@ -305,40 +306,40 @@
         {% endif %}
         >
           <span class="ecl-site-header-harmonised__language-icon">
-          {% include '@ecl/icon/icon.html.twig' with {
-            icon: {
-              path: _icon_file_path,
-              name: 'language',
-              size: 's'
-            },
-            extra_classes: 'ecl-site-header-harmonised__icon',
-          } only %}
+            {% include '@ecl/icon/icon.html.twig' with {
+              icon: {
+                path: _icon_file_path,
+                name: 'language',
+                size: 's'
+              },
+              extra_classes: 'ecl-site-header-harmonised__icon',
+            } only %}
             <span class="ecl-site-header-harmonised__language-code">{{ _language_selector.code }}</span>
           </span>
-            {{- _language_selector.label -}}
+          {{- _language_selector.label -}}
         </a>
         {% endif %}
       {% if _search_form is defined %}
         <div class="ecl-site-header-harmonised__search-container">
         {% if _search_toggle is not empty %}
           <a
-            class="ecl-link ecl-link--standalone ecl-site-header-harmonised__search-toggle"
+            class="ecl-button ecl-button--ghost ecl-site-header-harmonised__search-toggle"
             href="{{ _search_toggle.href }}"
             data-ecl-search-toggle="true"
             aria-controls="search-form-id"
             aria-expanded="false"
           >
-            {%- include '@ecl/icon/icon.html.twig' with {
-              icon: {
-                name: 'search',
-                path: _icon_file_path,
-                size: 's',
-                extra_attributes: [
-                { name: 'aria-hidden', value: true }
-                ],
-              }
-            } only -%}
-            {{- _search_toggle.label -}}
+          {%- include '@ecl/icon/icon.html.twig' with {
+            icon: {
+              name: 'search',
+              path: _icon_file_path,
+              size: 's',
+              extra_attributes: [
+              { name: 'aria-hidden', value: true }
+              ],
+            }
+          } only -%}
+          {{- _search_toggle.label -}}
           </a>
         {% endif %}
           {% include '@ecl/search-form/search-form.html.twig' with _search_form only %}
