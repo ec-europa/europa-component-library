@@ -1,0 +1,5 @@
+@use 'sass:map';
+@use '@ecl/theme-dev/theme';
+@use 'icon' with (
+  $_primary-color: map.get(theme.$color, 'primary'),
+);
