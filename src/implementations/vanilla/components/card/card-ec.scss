@@ -1,31 +1,17 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
-@use 'card' with
-  (
-    $_border-radius: 0,
-    $_shadow: none,
-    $_card-background: map.get(theme.$color, 'grey-5'),
-    $_card-border: 1px solid map.get(theme.$color, 'grey-25'),
-    $_general-spacing: map.get(theme.$spacing, 's'),
-    $_image-margin: map.get(theme.$spacing, 's'),
-    $_body-padding-top: map.get(theme.$spacing, 'xs'),
-    $_body-padding-bottom: map.get(theme.$spacing, 'm'),
-    $_meta-color: map.get(theme.$color, 'grey-75'),
-    $_meta-font: map.get(theme.$font, 'xs'),
-    $_title-color: map.get(theme.$color, 'grey'),
-    $_title-font: map.get(theme.$font, 'm'),
-    $_title-font-mobile: map.get(theme.$font, 'm'),
-    $_title-font-weight: map.get(theme.$font-weight, 'bold'),
-    $_description-margin-top: map.get(theme.$spacing, 'xs'),
-    $_description-color: map.get(theme.$color, 'grey'),
-    $_info-margin-top: map.get(theme.$spacing, 'm'),
-    $_info-font: map.get(theme.$font, 's'),
-    $_info-color: map.get(theme.$color, 'grey-75'),
-    $_info-color-icon: map.get(theme.$color, 'grey-75'),
-    $_info-items-margin-top: map.get(theme.$spacing, 's'),
-    $_info-label-margin-left: map.get(theme.$spacing, 's'),
-    $_tag-container-border-top: 0,
-    $_list-definition-margin-top: map.get(theme.$spacing, '2xs'),
-    $_list-padding: 0,
-    $_list-margin: 0
-  );
+@use 'card' with (
+  $_border-radius: 0,
+  $_shadow: none,
+  $_card-background: map.get(theme.$color, 'grey-5'),
+  $_card-border: 1px solid map.get(theme.$color, 'grey-25'),
+  $_general-spacing: map.get(theme.$spacing, 's'),
+  $_image-margin: map.get(theme.$spacing, 's'),
+  $_body-padding-top: map.get(theme.$spacing, 'xs'),
+  $_body-padding-bottom: map.get(theme.$spacing, 'm'),
+  $_meta-color: map.get(theme.$color, 'grey-75'),
+  $_text-color: map.get(theme.$color, 'grey-100'),
+  $_taxonomy-container-border-top: 0,
+  $_list-padding: 0,
+  $_list-margin: 0
+);

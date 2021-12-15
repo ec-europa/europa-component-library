@@ -75,10 +75,7 @@ export const getIconControls = (data, icons) => {
       defaultValue: { summary: '' },
       category: 'Icon',
     },
-    options: ['', 'inverted', 'primary'],
-    control: {
-      labels: { '': 'default', inverted: 'inverted', primary: 'primary' },
-    },
+    options: ['default', 'inverted', 'primary'],
   };
   argTypes.transform = {
     name: 'transformation',
@@ -90,7 +87,7 @@ export const getIconControls = (data, icons) => {
       category: 'Icon',
     },
     options: [
-      '',
+      'none',
       'rotate-90',
       'rotate-180',
       'rotate-270',
@@ -99,7 +96,7 @@ export const getIconControls = (data, icons) => {
     ],
     control: {
       labels: {
-        '': 'default',
+        none: 'none',
         'rotate-90': '90° rotation',
         'rotate-180': '180° rotation',
         'rotate-270': '270° rotation',

@@ -19,7 +19,7 @@ export class NewsTicker {
    *
    * @param {HTMLElement} root DOM element for component instantiation and scope
    *
-   * @return {NewsTicker} An instance of Expandable.
+   * @return {NewsTicker} An instance of News ticker.
    */
   static autoInit(root, { NEWS_TICKER: defaultOptions = {} } = {}) {
     const newsTicker = new NewsTicker(root, defaultOptions);
@@ -110,15 +110,14 @@ export class NewsTicker {
     this.slidesContainer.appendChild(cloneFirst);
     this.slidesContainer.insertBefore(cloneLast, firstSlide);
 
-    // Refresh the slides variable after adding new cloned slides.
+    // Refresh the slides variable after adding new cloned slides
     this.slides = queryAll(this.slideClass, this.element);
 
-    //  Initialize position of slides and size of the ticker.
+    // Initialize position of slides and size of the ticker
     this.moveSlides(false);
     this.resizeTicker();
 
-    // Activate autoPlay only if toggle is visible (desktop)
-    if (!(window.getComputedStyle(this.toggle).display === 'none')) {
+    if (this.toggle) {
       this.handleClickOnToggle();
     }
 
@@ -258,14 +257,10 @@ export class NewsTicker {
 
   /**
    * Trigger events on resize
-   * Uses a debounce, for performance
    */
   handleResize() {
-    clearTimeout(this.resizeTimer);
-    this.resizeTimer = setTimeout(() => {
-      this.moveSlides(false);
-      this.resizeTicker();
-    }, 100);
+    this.moveSlides(false);
+    this.resizeTicker();
 
     if (this.autoPlay) {
       this.handleClickOnToggle();

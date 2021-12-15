@@ -64,6 +64,7 @@ class Playground extends Component {
       selectedArgs,
       showFrame,
       hideCode,
+      heightCalculation,
       disableAutoResize,
       iframeOptions,
       hideDemo,
@@ -115,6 +116,7 @@ class Playground extends Component {
                   defaultHeight={frameHeight}
                   iframeOptions={iframeOptions}
                   disableAutoResize={disableAutoResize}
+                  heightCalculation={heightCalculation}
                 />
               ) : (
                 <div className={styles.showcase__content}>{children}</div>
@@ -204,6 +206,7 @@ Playground.propTypes = {
   // iframeOptions: https://github.com/davidjbradshaw/iframe-resizer#options
   iframeOptions: PropTypes.shape(),
   hideDemo: PropTypes.bool,
+  heightCalculation: PropTypes.string,
   disableAutoResize: PropTypes.bool,
   system: PropTypes.string,
   selectedKind: PropTypes.string,
@@ -218,6 +221,7 @@ Playground.defaultProps = {
   hideCode: false,
   iframeOptions: {},
   hideDemo: false,
+  heightCalculation: 'lowestElement',
   disableAutoResize: false,
   system: '',
   selectedKind: '',

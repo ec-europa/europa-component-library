@@ -1,17 +1,16 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
-@use 'language-list' with
-  (
-    $_background-container: map.get(theme.$color, 'blue-100'),
-    $_border-radius-link: 0,
-    $_border-link: 0,
-    $_border-link-active: 0,
-    $_border-link-focus: 0,
-    $_outline-link-focus: 3px solid map.get(theme.$color, 'yellow'),
-    $_color-link-active: map.get(theme.$color, 'black-100'),
-    $_color-link-hover: map.get(theme.$color, 'blue-130'),
-    $_color-title: map.get(theme.$color, 'white-100'),
-    $_logo-width-desktop: 8.25rem,
-    $_logo-height-desktop: 5.5rem,
-    $_padding-list-splash-desktop: 0
-  );
+@use 'language-list' with (
+  $_background-container: map.get(theme.$color, 'blue-100'),
+  $_border-radius-link: 0,
+  $_border-link: 0,
+  $_border-link-active: 0,
+  $_border-link-focus: 0,
+  $_outline-link-focus: 3px solid map.get(theme.$color, 'yellow'),
+  $_color-link-active: map.get(theme.$color, 'black-100'),
+  $_color-link-hover: map.get(theme.$color, 'blue-130'),
+  $_color-title: map.get(theme.$color, 'white-100'),
+  $_logo-width-desktop: 8.25rem,
+  $_logo-height-desktop: 5.5rem,
+  $_padding-list-splash-desktop: 0
+);

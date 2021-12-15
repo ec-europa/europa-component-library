@@ -6,7 +6,7 @@ module.exports = {
   card: {
     description:
       'Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.',
-    meta: ['Meta1', 'Meta2'],
+    meta: ['META1', 'Meta2'],
     title: {
       type: 'standalone',
       label: 'Better regulation',
