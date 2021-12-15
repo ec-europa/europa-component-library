@@ -7,109 +7,151 @@ exports[`Tabs Default renders correctly 1`] = `
     data-ecl-auto-init="Tabs"
     data-ecl-tabs="true"
   >
-    <ul
-      class="ecl-tabs__list"
+    <div
+      class="ecl-tabs__container"
     >
-      <li
-        class="ecl-tabs__item"
+      <ul
+        class="ecl-tabs__list"
       >
-        <a
-          class="ecl-link ecl-tabs__link"
-          href="/example"
+        <li
+          class="ecl-tabs__item"
         >
-          Item 1 label
-        </a>
-      </li>
-      <li
-        class="ecl-tabs__item"
-      >
-        <a
-          class="ecl-link ecl-tabs__link"
-          href="/example"
+          <a
+            class="ecl-link ecl-tabs__link"
+            href="/example"
+          >
+            Item 1 label
+          </a>
+        </li>
+        <li
+          class="ecl-tabs__item"
         >
-          Item 2 label
-        </a>
-      </li>
-      <li
-        class="ecl-tabs__item"
-      >
-        <a
-          class="ecl-link ecl-tabs__link"
-          href="/example"
+          <a
+            class="ecl-link ecl-tabs__link"
+            href="/example"
+          >
+            Item 2 label
+          </a>
+        </li>
+        <li
+          class="ecl-tabs__item"
         >
-          Item 3 with a very long label
-        </a>
-      </li>
-      <li
-        class="ecl-tabs__item"
-      >
-        <a
-          class="ecl-link ecl-tabs__link ecl-tabs__link--active"
-          href="/example"
+          <a
+            class="ecl-link ecl-tabs__link"
+            href="/example"
+          >
+            Item 3 with a very long label
+          </a>
+        </li>
+        <li
+          class="ecl-tabs__item"
         >
-          Item 4 label
-        </a>
-      </li>
-      <li
-        class="ecl-tabs__item"
-      >
-        <a
-          class="ecl-link ecl-tabs__link"
-          href="/example"
+          <a
+            class="ecl-link ecl-tabs__link ecl-tabs__link--active"
+            href="/example"
+          >
+            Item 4 label
+          </a>
+        </li>
+        <li
+          class="ecl-tabs__item"
         >
-          Item 5 label
-        </a>
-      </li>
-      <li
-        class="ecl-tabs__item"
-      >
-        <a
-          class="ecl-link ecl-tabs__link"
-          href="/example"
+          <a
+            class="ecl-link ecl-tabs__link"
+            href="/example"
+          >
+            Item 5 label
+          </a>
+        </li>
+        <li
+          class="ecl-tabs__item"
         >
-          Item 6 label
-        </a>
-      </li>
-      <li
-        class="ecl-tabs__item"
-      >
-        <a
-          class="ecl-link ecl-tabs__link"
-          href="/example"
+          <a
+            class="ecl-link ecl-tabs__link"
+            href="/example"
+          >
+            Item 6 label
+          </a>
+        </li>
+        <li
+          class="ecl-tabs__item"
         >
-          Item 7 label
-        </a>
-      </li>
-      <li
-        class="ecl-tabs__item ecl-tabs__item--more"
-      >
-        <button
-          class="ecl-button ecl-button--secondary ecl-tabs__toggle"
-          type="button"
+          <a
+            class="ecl-link ecl-tabs__link"
+            href="/example"
+          >
+            Item 7 label
+          </a>
+        </li>
+        <li
+          class="ecl-tabs__item ecl-tabs__item--more"
         >
-          <span
-            class="ecl-button__container"
+          <button
+            class="ecl-button ecl-button--secondary ecl-tabs__toggle"
+            type="button"
           >
             <span
-              class="ecl-button__label"
-              data-ecl-label="true"
+              class="ecl-button__container"
             >
-              More (%d)
+              <span
+                class="ecl-button__label"
+                data-ecl-label="true"
+              >
+                More (%d)
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
             </span>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
-              data-ecl-icon=""
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#corner-arrow"
-              />
-            </svg>
-          </span>
-        </button>
-      </li>
-    </ul>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div
+      class="ecl-tabs__controls"
+    >
+      <button
+        aria-hidden="true"
+        class="ecl-tabs__prev"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-icon--inverted ecl-u-d-block"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+        <span
+          class="ecl-u-sr-only"
+        />
+      </button>
+      <button
+        aria-hidden="true"
+        class="ecl-tabs__next"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-icon--inverted ecl-u-d-block"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+        <span
+          class="ecl-u-sr-only"
+        />
+      </button>
+    </div>
   </nav>
 </jest>
 `;
@@ -123,109 +165,151 @@ exports[`Tabs Default renders correctly with extra attributes 1`] = `
     data-test="data-test-value"
     data-test-1="data-test-value-1"
   >
-    <ul
-      class="ecl-tabs__list"
+    <div
+      class="ecl-tabs__container"
     >
-      <li
-        class="ecl-tabs__item"
+      <ul
+        class="ecl-tabs__list"
       >
-        <a
-          class="ecl-link ecl-tabs__link"
-          href="/example"
+        <li
+          class="ecl-tabs__item"
         >
-          Item 1 label
-        </a>
-      </li>
-      <li
-        class="ecl-tabs__item"
-      >
-        <a
-          class="ecl-link ecl-tabs__link"
-          href="/example"
+          <a
+            class="ecl-link ecl-tabs__link"
+            href="/example"
+          >
+            Item 1 label
+          </a>
+        </li>
+        <li
+          class="ecl-tabs__item"
         >
-          Item 2 label
-        </a>
-      </li>
-      <li
-        class="ecl-tabs__item"
-      >
-        <a
-          class="ecl-link ecl-tabs__link"
-          href="/example"
+          <a
+            class="ecl-link ecl-tabs__link"
+            href="/example"
+          >
+            Item 2 label
+          </a>
+        </li>
+        <li
+          class="ecl-tabs__item"
         >
-          Item 3 with a very long label
-        </a>
-      </li>
-      <li
-        class="ecl-tabs__item"
-      >
-        <a
-          class="ecl-link ecl-tabs__link ecl-tabs__link--active"
-          href="/example"
+          <a
+            class="ecl-link ecl-tabs__link"
+            href="/example"
+          >
+            Item 3 with a very long label
+          </a>
+        </li>
+        <li
+          class="ecl-tabs__item"
         >
-          Item 4 label
-        </a>
-      </li>
-      <li
-        class="ecl-tabs__item"
-      >
-        <a
-          class="ecl-link ecl-tabs__link"
-          href="/example"
+          <a
+            class="ecl-link ecl-tabs__link ecl-tabs__link--active"
+            href="/example"
+          >
+            Item 4 label
+          </a>
+        </li>
+        <li
+          class="ecl-tabs__item"
         >
-          Item 5 label
-        </a>
-      </li>
-      <li
-        class="ecl-tabs__item"
-      >
-        <a
-          class="ecl-link ecl-tabs__link"
-          href="/example"
+          <a
+            class="ecl-link ecl-tabs__link"
+            href="/example"
+          >
+            Item 5 label
+          </a>
+        </li>
+        <li
+          class="ecl-tabs__item"
         >
-          Item 6 label
-        </a>
-      </li>
-      <li
-        class="ecl-tabs__item"
-      >
-        <a
-          class="ecl-link ecl-tabs__link"
-          href="/example"
+          <a
+            class="ecl-link ecl-tabs__link"
+            href="/example"
+          >
+            Item 6 label
+          </a>
+        </li>
+        <li
+          class="ecl-tabs__item"
         >
-          Item 7 label
-        </a>
-      </li>
-      <li
-        class="ecl-tabs__item ecl-tabs__item--more"
-      >
-        <button
-          class="ecl-button ecl-button--secondary ecl-tabs__toggle"
-          type="button"
+          <a
+            class="ecl-link ecl-tabs__link"
+            href="/example"
+          >
+            Item 7 label
+          </a>
+        </li>
+        <li
+          class="ecl-tabs__item ecl-tabs__item--more"
         >
-          <span
-            class="ecl-button__container"
+          <button
+            class="ecl-button ecl-button--secondary ecl-tabs__toggle"
+            type="button"
           >
             <span
-              class="ecl-button__label"
-              data-ecl-label="true"
+              class="ecl-button__container"
             >
-              More (%d)
+              <span
+                class="ecl-button__label"
+                data-ecl-label="true"
+              >
+                More (%d)
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
             </span>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
-              data-ecl-icon=""
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#corner-arrow"
-              />
-            </svg>
-          </span>
-        </button>
-      </li>
-    </ul>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div
+      class="ecl-tabs__controls"
+    >
+      <button
+        aria-hidden="true"
+        class="ecl-tabs__prev"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-icon--inverted ecl-u-d-block"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+        <span
+          class="ecl-u-sr-only"
+        />
+      </button>
+      <button
+        aria-hidden="true"
+        class="ecl-tabs__next"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-icon--inverted ecl-u-d-block"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+        <span
+          class="ecl-u-sr-only"
+        />
+      </button>
+    </div>
   </nav>
 </jest>
 `;
@@ -237,109 +321,151 @@ exports[`Tabs Default renders correctly with extra class names 1`] = `
     data-ecl-auto-init="Tabs"
     data-ecl-tabs="true"
   >
-    <ul
-      class="ecl-tabs__list"
+    <div
+      class="ecl-tabs__container"
     >
-      <li
-        class="ecl-tabs__item"
+      <ul
+        class="ecl-tabs__list"
       >
-        <a
-          class="ecl-link ecl-tabs__link"
-          href="/example"
+        <li
+          class="ecl-tabs__item"
         >
-          Item 1 label
-        </a>
-      </li>
-      <li
-        class="ecl-tabs__item"
-      >
-        <a
-          class="ecl-link ecl-tabs__link"
-          href="/example"
+          <a
+            class="ecl-link ecl-tabs__link"
+            href="/example"
+          >
+            Item 1 label
+          </a>
+        </li>
+        <li
+          class="ecl-tabs__item"
         >
-          Item 2 label
-        </a>
-      </li>
-      <li
-        class="ecl-tabs__item"
-      >
-        <a
-          class="ecl-link ecl-tabs__link"
-          href="/example"
+          <a
+            class="ecl-link ecl-tabs__link"
+            href="/example"
+          >
+            Item 2 label
+          </a>
+        </li>
+        <li
+          class="ecl-tabs__item"
         >
-          Item 3 with a very long label
-        </a>
-      </li>
-      <li
-        class="ecl-tabs__item"
-      >
-        <a
-          class="ecl-link ecl-tabs__link ecl-tabs__link--active"
-          href="/example"
+          <a
+            class="ecl-link ecl-tabs__link"
+            href="/example"
+          >
+            Item 3 with a very long label
+          </a>
+        </li>
+        <li
+          class="ecl-tabs__item"
         >
-          Item 4 label
-        </a>
-      </li>
-      <li
-        class="ecl-tabs__item"
-      >
-        <a
-          class="ecl-link ecl-tabs__link"
-          href="/example"
+          <a
+            class="ecl-link ecl-tabs__link ecl-tabs__link--active"
+            href="/example"
+          >
+            Item 4 label
+          </a>
+        </li>
+        <li
+          class="ecl-tabs__item"
         >
-          Item 5 label
-        </a>
-      </li>
-      <li
-        class="ecl-tabs__item"
-      >
-        <a
-          class="ecl-link ecl-tabs__link"
-          href="/example"
+          <a
+            class="ecl-link ecl-tabs__link"
+            href="/example"
+          >
+            Item 5 label
+          </a>
+        </li>
+        <li
+          class="ecl-tabs__item"
         >
-          Item 6 label
-        </a>
-      </li>
-      <li
-        class="ecl-tabs__item"
-      >
-        <a
-          class="ecl-link ecl-tabs__link"
-          href="/example"
+          <a
+            class="ecl-link ecl-tabs__link"
+            href="/example"
+          >
+            Item 6 label
+          </a>
+        </li>
+        <li
+          class="ecl-tabs__item"
         >
-          Item 7 label
-        </a>
-      </li>
-      <li
-        class="ecl-tabs__item ecl-tabs__item--more"
-      >
-        <button
-          class="ecl-button ecl-button--secondary ecl-tabs__toggle"
-          type="button"
+          <a
+            class="ecl-link ecl-tabs__link"
+            href="/example"
+          >
+            Item 7 label
+          </a>
+        </li>
+        <li
+          class="ecl-tabs__item ecl-tabs__item--more"
         >
-          <span
-            class="ecl-button__container"
+          <button
+            class="ecl-button ecl-button--secondary ecl-tabs__toggle"
+            type="button"
           >
             <span
-              class="ecl-button__label"
-              data-ecl-label="true"
+              class="ecl-button__container"
             >
-              More (%d)
+              <span
+                class="ecl-button__label"
+                data-ecl-label="true"
+              >
+                More (%d)
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
             </span>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
-              data-ecl-icon=""
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#corner-arrow"
-              />
-            </svg>
-          </span>
-        </button>
-      </li>
-    </ul>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div
+      class="ecl-tabs__controls"
+    >
+      <button
+        aria-hidden="true"
+        class="ecl-tabs__prev"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-icon--inverted ecl-u-d-block"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+        <span
+          class="ecl-u-sr-only"
+        />
+      </button>
+      <button
+        aria-hidden="true"
+        class="ecl-tabs__next"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-icon--inverted ecl-u-d-block"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+        <span
+          class="ecl-u-sr-only"
+        />
+      </button>
+    </div>
   </nav>
 </jest>
 `;
