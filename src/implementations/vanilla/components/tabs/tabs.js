@@ -166,26 +166,27 @@ export class Tabs {
   }
 
   /**
-   * Action to shift next or previous tabs.
+   * Action to shift next or previous tabs on mobile format.
    * @param {int|string} dir
    */
   shiftTabs(dir) {
     this.index = dir === 'next' ? this.index + 1 : this.index - 1;
-    console.log(`${this.index} - ${this.total}`);
-    console.log(this.listItems[this.index].offsetLeft);
-    console.log(this.element.offsetWidth);
-    console.log(this.listItems[this.index].offsetWidth);
-    const newOffset =
-      this.listItems[this.index].offsetLeft -
-      (this.element.offsetWidth - this.listItems[this.index].offsetWidth) / 2;
+    const leftMargin = this.index === 0 ? 0 : this.btnNext.offsetWidth + 14;
+    let newOffset = this.listItems[this.index].offsetLeft - leftMargin;
+    const maxScroll = this.list.offsetWidth - this.element.offsetWidth;
+    if (newOffset > maxScroll) {
+      newOffset = maxScroll;
+    }
     this.list.style.transitionDuration = '0.4s';
     this.list.style.transform = `translate3d(-${newOffset}px, 0px, 0px)`;
-    if (this.index > 0) {
+    console.log(this.index);
+    // Show or hide prev or next button based on tab index
+    if (this.index >= 1) {
       this.btnPrev.style.display = 'block';
     } else {
       this.btnPrev.style.display = 'none';
     }
-    if (this.index >= this.total - 1) {
+    if (this.index >= this.total - 1 || newOffset === maxScroll) {
       this.btnNext.style.display = 'none';
     } else {
       this.btnNext.style.display = 'block';
@@ -208,13 +209,18 @@ export class Tabs {
    */
   handleResize() {
     this.closeMoreDropdown(this);
+    this.list.style.transform = `translate3d(0px, 0px, 0px)`;
 
     const vw = Math.max(
       document.documentElement.clientWidth || 0,
       window.innerWidth || 0
     );
 
+    // Behaviors for mobile format
     if (vw <= 480) {
+      this.index = 1;
+      this.list.style.transitionDuration = '0.4s';
+      this.shiftTabs(this.index);
       if (this.moreItem) {
         this.moreItem.classList.add('ecl-tabs__item--hidden');
       }
@@ -229,10 +235,11 @@ export class Tabs {
       return;
     }
 
+    // Behaviors for Tablet and desktop format (More button)
     this.btnNext.style.display = 'none';
     this.btnPrev.style.display = 'none';
-    this.list.style.transform = `translate3d(0px, 0px, 0px)`;
     this.list.style.width = 'auto';
+
     // Hide items that won't fit in the list
     let stopWidth = this.moreButton.offsetWidth + 25;
     const hiddenItems = [];

@@ -12,6 +12,7 @@ $_tabs-active-font-color: none !default;
 $_tabs-border-radius: none !default;
 $_tabs-border-color: none !default;
 $_tabs-active-border-top-color: none !default;
+$_tabs-inactive-mobile-color: none !default;
 $_dropdown-top-margin: none !default;
 $_dropdown-border: none !default;
 $_dropdown-border-radius: none !default;
@@ -20,9 +21,9 @@ $_dropdown-link-active-color: none !default;
 $_dropdown-link-active-background: none !default;
 $_dropdown-link-hover-color: none !default;
 $_more-active-border-radius: none !default;
-$_button-arrows-background: null !default;
-$_outline-color: null !default;
-$_outline-width: null !default;
+$_button-arrows-border-radius: none !default;
+$_outline-color: none !default;
+$_outline-width: none !default;
 
 .ecl-tabs {
   margin: 0;
@@ -44,6 +45,7 @@ $_outline-width: null !default;
 }
 
 .ecl-tabs__link {
+  background-color: $_tabs-inactive-mobile-color;
   border-bottom: 1px solid $_tabs-border-color;
   border-radius: $_tabs-border-radius;
   color: $_tabs-font-color;
@@ -62,10 +64,29 @@ $_outline-width: null !default;
   }
 }
 
+.ecl-tabs__link--active {
+  background-color: map.get(theme.$color, 'white');
+  border-bottom: 1px solid map.get(theme.$color, 'white');
+  border-left: 1px solid $_tabs-border-color;
+  border-right: 1px solid $_tabs-border-color;
+  border-top: 4px solid $_tabs-active-border-top-color;
+  color: $_tabs-active-font-color;
+  font-weight: map.get(theme.$font-weight, 'bold');
+  padding-top: calc(#{map.get(theme.$spacing, 'm')} - 4px);
+
+  &:visited {
+    color: $_tabs-active-font-color;
+  }
+}
+
 .ecl-tabs__item--more {
   align-self: center;
   flex-grow: 1;
   text-align: right;
+}
+
+.ecl-tabs__item--hidden {
+  display: none;
 }
 
 .ecl-tabs__toggle {
@@ -101,24 +122,6 @@ $_outline-width: null !default;
 
   &:focus::before {
     content: none;
-  }
-}
-
-.ecl-tabs__item--hidden {
-  display: none;
-}
-
-.ecl-tabs__link--active {
-  border-bottom: 1px solid map.get(theme.$color, 'white');
-  border-left: 1px solid $_tabs-border-color;
-  border-right: 1px solid $_tabs-border-color;
-  border-top: 4px solid $_tabs-active-border-top-color;
-  color: $_tabs-active-font-color;
-  font-weight: map.get(theme.$font-weight, 'bold');
-  padding-top: calc(#{map.get(theme.$spacing, 'm')} - 4px);
-
-  &:visited {
-    color: $_tabs-active-font-color;
   }
 }
 
@@ -167,12 +170,13 @@ $_outline-width: null !default;
 
 .ecl-tabs__prev,
 .ecl-tabs__next {
-  background: $_button-arrows-background;
+  background: map.get(theme.$color, 'blue-100');
   border: 0;
+  border-radius: $_button-arrows-border-radius;
   cursor: pointer;
-  padding: map.get(theme.$spacing, 's');
+  padding: calc(#{map.get(theme.$spacing, 'm')} - 1px);
   position: absolute;
-  top: calc(50% + 2px);
+  top: 50%;
   transform: translateY(-50%);
   &:focus {
     outline: $_outline-width solid $_outline-color;
@@ -182,19 +186,11 @@ $_outline-width: null !default;
 .ecl-tabs__prev {
   display: none;
   left: 0;
-  &:focus {
-    margin-left: $_outline-width;
-    padding-left: calc(#{map.get(theme.$spacing, 's')} - #{$_outline-width});
-  }
 }
 
 .ecl-tabs__next {
   display: none;
   right: 0;
-  &:focus {
-    margin-right: $_outline-width;
-    padding-right: calc(#{map.get(theme.$spacing, 's')} - #{$_outline-width});
-  }
 }
 
 /* stylelint-disable-next-line order/order */
