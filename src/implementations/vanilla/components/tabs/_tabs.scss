@@ -168,6 +168,16 @@ $_outline-width: none !default;
   margin-top: $_dropdown-top-margin;
 }
 
+.ecl-tabs__next {
+  display: none;
+  right: 0;
+}
+
+.ecl-tabs__prev {
+  display: none;
+  left: 0;
+}
+
 .ecl-tabs__prev,
 .ecl-tabs__next {
   background: map.get(theme.$color, 'blue-100');
@@ -181,16 +191,6 @@ $_outline-width: none !default;
   &:focus {
     outline: $_outline-width solid $_outline-color;
   }
-}
-
-.ecl-tabs__prev {
-  display: none;
-  left: 0;
-}
-
-.ecl-tabs__next {
-  display: none;
-  right: 0;
 }
 
 /* stylelint-disable-next-line order/order */
