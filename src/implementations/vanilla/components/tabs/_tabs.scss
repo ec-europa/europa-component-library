@@ -13,7 +13,6 @@ $_tabs-border-radius: none !default;
 $_tabs-border-color: none !default;
 $_tabs-active-border-top-color: none !default;
 $_tabs-inactive-mobile-color: none !default;
-$_dropdown-top-margin: none !default;
 $_dropdown-border: none !default;
 $_dropdown-border-radius: none !default;
 $_dropdown-shadow: none !default;
@@ -165,7 +164,7 @@ $_outline-width: none !default;
 
 .ecl-tabs__dropdown--show {
   display: grid;
-  margin-top: $_dropdown-top-margin;
+  margin-top: 0;
 }
 
 .ecl-tabs__next {

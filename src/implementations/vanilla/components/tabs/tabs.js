@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { queryOne, queryAll } from '@ecl/dom-utils';
 
 /**
@@ -117,7 +116,7 @@ export class Tabs {
     }
 
     if (this.btnNext) {
-      this.buttonNextSize = this.btnNext.offsetWidth;
+      this.buttonNextSize = this.btnNext.getBoundingClientRect().width;
     }
 
     // Bind events
@@ -171,26 +170,33 @@ export class Tabs {
    */
   shiftTabs(dir) {
     this.index = dir === 'next' ? this.index + 1 : this.index - 1;
-    const leftMargin = this.index === 0 ? 0 : this.btnNext.offsetWidth + 14;
-    let newOffset = this.listItems[this.index].offsetLeft - leftMargin;
-    const maxScroll = this.list.offsetWidth - this.element.offsetWidth;
-    if (newOffset > maxScroll) {
-      newOffset = maxScroll;
-    }
-    this.list.style.transitionDuration = '0.4s';
-    this.list.style.transform = `translate3d(-${newOffset}px, 0px, 0px)`;
-    console.log(this.index);
     // Show or hide prev or next button based on tab index
     if (this.index >= 1) {
       this.btnPrev.style.display = 'block';
     } else {
       this.btnPrev.style.display = 'none';
     }
-    if (this.index >= this.total - 1 || newOffset === maxScroll) {
+    if (this.index >= this.total - 1) {
       this.btnNext.style.display = 'none';
     } else {
       this.btnNext.style.display = 'block';
     }
+    // Slide tabs
+    const leftMargin =
+      this.index === 0 ? 0 : this.btnPrev.getBoundingClientRect().width + 13;
+    let newOffset = Math.ceil(
+      this.listItems[this.index].offsetLeft - leftMargin
+    );
+    const maxScroll = Math.ceil(
+      this.list.getBoundingClientRect().width -
+        this.element.getBoundingClientRect().width
+    );
+    if (newOffset > maxScroll) {
+      this.btnNext.style.display = 'none';
+      newOffset = maxScroll;
+    }
+    this.list.style.transitionDuration = '0.4s';
+    this.list.style.transform = `translate3d(-${newOffset}px, 0px, 0px)`;
   }
 
   /**
@@ -211,12 +217,12 @@ export class Tabs {
     this.closeMoreDropdown(this);
     this.list.style.transform = `translate3d(0px, 0px, 0px)`;
 
+    // Behaviors for mobile format
     const vw = Math.max(
       document.documentElement.clientWidth || 0,
       window.innerWidth || 0
     );
 
-    // Behaviors for mobile format
     if (vw <= 480) {
       this.index = 1;
       this.list.style.transitionDuration = '0.4s';
@@ -227,7 +233,7 @@ export class Tabs {
       let listWidth = 0;
       this.listItems.forEach((item) => {
         item.classList.remove('ecl-tabs__item--hidden');
-        listWidth += item.offsetWidth;
+        listWidth += Math.ceil(item.getBoundingClientRect().width);
       });
       this.list.style.width = `${listWidth}px`;
       this.btnNext.style.display = 'block';
@@ -241,17 +247,17 @@ export class Tabs {
     this.list.style.width = 'auto';
 
     // Hide items that won't fit in the list
-    let stopWidth = this.moreButton.offsetWidth + 25;
+    let stopWidth = this.moreButton.getBoundingClientRect().width + 25;
     const hiddenItems = [];
-    const listWidth = this.list.offsetWidth;
+    const listWidth = this.list.getBoundingClientRect().width;
     this.moreButtonActive = false;
     this.listItems.forEach((item, i) => {
       item.classList.remove('ecl-tabs__item--hidden');
       if (
-        listWidth >= stopWidth + item.offsetWidth &&
+        listWidth >= stopWidth + item.getBoundingClientRect().width &&
         !hiddenItems.includes(i - 1)
       ) {
-        stopWidth += item.offsetWidth;
+        stopWidth += item.getBoundingClientRect().width;
       } else {
         item.classList.add('ecl-tabs__item--hidden');
         if (item.childNodes[0].classList.contains('ecl-tabs__link--active')) {
