@@ -198,6 +198,9 @@ $_outline-width: none !default;
   .ecl-tabs__container {
     overflow-x: visible;
   }
+  .ecl-tabs__link {
+    background-color: map.get(theme.$color, 'white');
+  }
   .ecl-tabs__dropdown {
     grid-auto-flow: column;
     grid-template-rows: auto auto auto auto;
