@@ -171,16 +171,10 @@ export class Tabs {
   shiftTabs(dir) {
     this.index = dir === 'next' ? this.index + 1 : this.index - 1;
     // Show or hide prev or next button based on tab index
-    if (this.index >= 1) {
-      this.btnPrev.style.display = 'block';
-    } else {
-      this.btnPrev.style.display = 'none';
-    }
-    if (this.index >= this.total - 1) {
-      this.btnNext.style.display = 'none';
-    } else {
-      this.btnNext.style.display = 'block';
-    }
+    this.btnPrev.style.display = this.index >= 1 ? 'block' : 'none';
+    this.btnNext.style.display =
+      this.index >= this.total - 1 ? 'none' : 'block';
+
     // Slide tabs
     const leftMargin =
       this.index === 0 ? 0 : this.btnPrev.getBoundingClientRect().width + 13;
@@ -211,7 +205,7 @@ export class Tabs {
   }
 
   /**
-   * Trigger events on resize
+   * Trigger events on resize.
    */
   handleResize() {
     this.closeMoreDropdown(this);
@@ -294,7 +288,7 @@ export class Tabs {
   }
 
   /**
-   * Close the dropdown
+   * Close the dropdown.
    */
   closeMoreDropdown(e) {
     let el = e.target;
