@@ -31,7 +31,8 @@ const getArgs = (data) => {
 const getArgTypes = (data) => getFormControls(data, 'element');
 
 const prepareData = (data, args) => {
-  Object.assign(correctSvgPath(data), args);
+  Object.assign(data, args);
+  correctSvgPath(data);
 
   if (!args.show_label) {
     data.label = '';
