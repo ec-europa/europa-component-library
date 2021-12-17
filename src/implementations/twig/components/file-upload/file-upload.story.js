@@ -17,8 +17,6 @@ const getArgs = (data) => {
     required: data.required,
     label: data.label || '',
     helper_text: data.helper_text,
-    invalid_text: data.invalid_text,
-    optional_text: data.optional_text,
     required_text: data.required_text,
     button_choose_label: data.button_choose_label,
     button_replace_label: data.button_replace_label,
