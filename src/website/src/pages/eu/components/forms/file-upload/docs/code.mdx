@@ -38,7 +38,7 @@ import {
 <Playground
   system="eu"
   selectedKind="components-forms-file-upload"
-  selectedStory="disabled"
+  selectedStory="default"
   showFrame
 >
   <Html markup={fileUploadDisabled} />
@@ -49,7 +49,8 @@ import {
 <Playground
   system="eu"
   selectedKind="components-forms-file-upload"
-  selectedStory="invalid"
+  selectedStory="default"
+  selectedArgs="invalid:true"
   showFrame
 >
   <Html markup={fileUploadInvalid} />
@@ -60,7 +61,8 @@ import {
 <Playground
   system="eu"
   selectedKind="components-forms-file-upload"
-  selectedStory="optional"
+  selectedStory="default"
+  selectedArgs="required:false"
   showFrame
 >
   <Html markup={fileUploadOptional} />
