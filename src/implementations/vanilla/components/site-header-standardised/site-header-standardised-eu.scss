@@ -39,13 +39,13 @@ $_search-width-xl: 31.5rem;
     box-shadow: 0 0 6px 0 rgba(9, 49, 142, 0.2);
   }
 
-  .ecl-standardised-cta {
+  .ecl-standardised__cta {
     margin-top: map.get(theme.$spacing, 'm');
     position: relative;
     width: max-content;
     z-index: 1;
   }
-  .ecl-standardised-cta:only-child {
+  .ecl-standardised__cta:only-child {
     margin-top: 0;
   }
 }
@@ -248,7 +248,7 @@ $_search-width-xl: 31.5rem;
 
 @include breakpoints.up('l') {
   .ecl-site-header-standardised {
-    .ecl-standardised-cta {
+    .ecl-standardised__cta {
       align-self: start;
       margin: map.get(theme.$spacing, 'xs') 0;
 
