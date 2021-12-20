@@ -11,20 +11,18 @@ import notes from './README.md';
 
 const system = getSystem();
 const dataDefault = system === 'eu' ? specsEu : specsEc;
-const dataInvalid = { ...dataDefault, invalid: true };
-const dataDisabled = { ...dataDefault, disabled: true };
-const dataRequired = { ...dataDefault, required: true };
 
 const getArgs = (data) => {
   return {
-    label: data.label || '',
-    helper_text: data.helper_text,
-    invalid_text: data.invalid_text,
-    optional_text: data.optional_text,
-    required_text: data.required_text,
+    show_label: true,
+    show_helper: true,
+    show_error: true,
     invalid: data.invalid || false,
     disabled: data.disabled || false,
     required: data.required,
+    label: data.label || '',
+    helper_text: data.helper_text,
+    invalid_text: data.invalid_text,
     width: data.width,
     placeholder: data.placeholder,
     rows: 4,
@@ -48,7 +46,22 @@ const getArgTypes = (data) => {
   };
 };
 
-const prepareData = (data, args) => Object.assign(correctSvgPath(data), args);
+const prepareData = (data, args) => {
+  Object.assign(data, args);
+  correctSvgPath(data);
+
+  if (!args.show_label) {
+    data.label = '';
+  }
+  if (!args.show_error) {
+    data.invalid_text = '';
+  }
+  if (!args.show_helper) {
+    data.helper_text = '';
+  }
+
+  return data;
+};
 
 export default {
   title: 'Components/Forms/Text area',
@@ -61,24 +74,3 @@ Default.storyName = 'default';
 Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes(dataDefault);
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
-
-export const Disabled = (args) => textArea(prepareData(dataDisabled, args));
-
-Disabled.storyName = 'disabled';
-Disabled.args = getArgs(dataDisabled);
-Disabled.argTypes = getArgTypes(dataDisabled);
-Disabled.parameters = { notes: { markdown: notes, json: dataDisabled } };
-
-export const Invalid = (args) => textArea(prepareData(dataInvalid, args));
-
-Invalid.storyName = 'invalid';
-Invalid.args = getArgs(dataInvalid);
-Invalid.argTypes = getArgTypes(dataInvalid);
-Invalid.parameters = { notes: { markdown: notes, json: dataInvalid } };
-
-export const Required = (args) => textArea(prepareData(dataRequired, args));
-
-Required.storyName = 'required';
-Required.args = getArgs(dataRequired);
-Required.argTypes = getArgTypes(dataRequired);
-Required.parameters = { notes: { markdown: notes, json: dataRequired } };

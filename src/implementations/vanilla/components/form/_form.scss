@@ -45,10 +45,23 @@ $_margin-invalid: null !default;
     ~ .ecl-radio {
       margin-top: map.get(theme.$spacing, 'l');
     }
-    &.ecl-radio--binary {
+  }
+
+  > *:not(.ecl-u-sr-only) + .ecl-radio--binary {
+    margin-top: map.get(theme.$spacing, 'm');
+
+    ~ .ecl-radio--binary {
       margin-top: map.get(theme.$spacing, 'm');
     }
-    /* stylelint-enable max-nesting-depth, selector-max-compound-selectors */
+  }
+  /* stylelint-enable max-nesting-depth, selector-max-compound-selectors */
+  > .ecl-checkbox:first-child + .ecl-checkbox,
+  > .ecl-radio:first-child + .ecl-radio:not(.ecl-radio--binary) {
+    margin-top: map.get(theme.$spacing, 'l');
+  }
+
+  > .ecl-radio--binary:first-child + .ecl-radio--binary {
+    margin-top: 0;
   }
 
   > *:not(.ecl-u-sr-only) + .ecl-file-upload__list {
