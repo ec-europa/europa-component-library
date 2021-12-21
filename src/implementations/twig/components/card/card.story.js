@@ -18,21 +18,21 @@ const taxonomyListClone = { ...dataCardTaxonomy.card.lists[1] };
 
 const getArgs = (data, variant) => {
   const args = {};
-  args.show_description = !data.card.description;
+  args.show_description = true;
   if (variant === 'card') {
     args.show_image = true;
     args.image = (data.card && data.card.image && data.card.image.src) || '';
   }
-  args.show_infos = !data.card.infos;
-  args.show_tags = !data.card.tags;
-  args.show_meta = !data.card.meta;
-  args.show_labels = !data.card.labels;
+  args.show_infos = !!data.card.infos;
+  args.show_tags = !!data.card.tags;
+  args.show_meta = !!data.card.meta;
+  args.show_labels = !!data.card.labels;
 
   if (variant === 'tile') {
-    args.show_links = !data.card.links;
+    args.show_links = !!data.card.links;
   }
-  args.show_lists = !data.card.lists;
-  args.show_taxonomy = !data.card.taxonomy;
+  args.show_lists = false;
+  args.show_taxonomy = false;
   args.title = (data.card.title && data.card.title.label) || '';
   args.description = (data.card && data.card.description) || '';
 
