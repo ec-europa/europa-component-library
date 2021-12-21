@@ -87,9 +87,11 @@ $_image-width: null !default;
 }
 
 .ecl-file__detail {
+  border-bottom: 1px solid $_border-color;
   display: flex;
   flex-direction: column;
   margin-bottom: map.get(theme.$spacing, 'm');
+  padding-bottom: map.get(theme.$spacing, 'm');
   width: 100%;
 }
 
@@ -135,12 +137,6 @@ $_image-width: null !default;
   margin-bottom: $_file-spacing;
   padding-bottom: $_file-spacing;
   width: 100%;
-
-  .ecl-file__detail {
-    border-bottom: 1px solid $_border-color;
-    margin-bottom: map.get(theme.$spacing, 'l');
-    padding-bottom: $_file-detail-padding-bottom;
-  }
 }
 
 .ecl-file__label {
@@ -232,7 +228,7 @@ $_image-width: null !default;
 .ecl-file__translation-download {
   align-self: $_file-download-self-align;
   font: map.get(theme.$font, 'm');
-  margin-top: $_file-spacing;
+  margin-top: map.get(theme.$spacing, 'l');
   width: 100%;
 }
 
@@ -261,6 +257,9 @@ $_image-width: null !default;
   }
   .ecl-file__info {
     margin-right: map.get(theme.$spacing, 'm');
+  }
+  .ecl-file__download {
+    margin-top: 0;
   }
 }
 /* stylelint-disable-next-line order/order */
@@ -295,8 +294,8 @@ $_image-width: null !default;
   }
 
   .ecl-file__taxonomy {
-    margin-bottom: $_file-taxonomy-spacing;
-    padding-bottom: $_file-taxonomy-spacing;
+    margin-bottom: map.get(theme.$spacing, 'm');
+    padding-bottom: map.get(theme.$spacing, 'm');
   }
 }
 
@@ -310,7 +309,6 @@ $_image-width: null !default;
 
   .ecl-file__info {
     margin-left: 0;
-    margin-top: map.get(theme.$spacing, 'm');
   }
 
   .ecl-file__title {
