@@ -8,10 +8,10 @@ import notes from './README.md';
 
 const getArgs = (data) => {
   return {
-    button_label: data.button.label || '',
-    placeholder: data.text_input.placeholder,
     invalid: false,
     disabled: false,
+    button_label: data.button.label || '',
+    placeholder: data.text_input.placeholder,
   };
 };
 

@@ -8,27 +8,73 @@ import dataBinary from '@ecl/specs-component-radio/demo/data--binary';
 import radioGroup from './radio-group.html.twig';
 import notes from './README.md';
 
-const dataInvalid = { ...dataDefault, invalid: true };
-const dataOptional = { ...dataDefault, required: false };
-const dataBinaryInvalid = { ...dataBinary, invalid: true };
+const itemClone = { ...dataDefault.items[0] };
 
 const getArgs = (data) => {
-  return {
+  const args = {
+    show_label: true,
+    show_helper: true,
+    show_error: true,
     label: data.label || '',
     helper_text: data.helper_text,
     invalid_text: data.invalid_text,
-    optional_text: data.optional_text,
-    required_text: data.required_text,
     invalid: data.invalid || false,
     required: data.required,
   };
+
+  if (!data.binary) {
+    args.show_item_helper = true;
+  }
+
+  return args;
 };
 
-const getArgTypes = (data) => getFormControls(data, 'group');
+const getArgTypes = (data) => {
+  const argTypes = getFormControls(data, 'group');
+
+  if (!data.binary) {
+    argTypes.show_item_helper = {
+      name: 'radio helper text',
+      type: 'boolean',
+      description: 'Show radio helper text',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: true },
+        category: 'Optional',
+      },
+    };
+  }
+
+  return argTypes;
+};
 
 const prepareData = (data, args) => {
+  Object.assign(data, args);
   correctSvgPath(data);
-  return Object.assign(data, args);
+
+  const txt = args.show_item_helper ? itemClone.helper_text : '';
+
+  if (!args.show_label) {
+    data.label = '';
+  }
+  if (!args.show_error) {
+    data.invalid_text = '';
+  }
+  if (!args.show_helper) {
+    data.helper_text = '';
+  }
+  if (!data.binary) {
+    data.items.forEach((item) => {
+      item.helper_text = txt;
+    });
+  }
+
+  delete data.show_label;
+  delete data.show_helper;
+  delete data.show_error;
+  delete data.show_item_helper;
+
+  return data;
 };
 
 export default {
@@ -43,33 +89,9 @@ Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes(dataDefault);
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 
-export const Invalid = (args) => radioGroup(prepareData(dataInvalid, args));
-
-Invalid.storyName = 'invalid';
-Invalid.args = getArgs(dataInvalid);
-Invalid.argTypes = getArgTypes(dataInvalid);
-Invalid.parameters = { notes: { markdown: notes, json: dataInvalid } };
-
-export const Optional = (args) => radioGroup(prepareData(dataOptional, args));
-
-Optional.storyName = 'optional';
-Optional.args = getArgs(dataOptional);
-Optional.argTypes = getArgTypes(dataOptional);
-Optional.parameters = { notes: { markdown: notes, json: dataOptional } };
-
 export const Binary = (args) => radioGroup(prepareData(dataBinary, args));
 
 Binary.storyName = 'binary';
 Binary.args = getArgs(dataBinary);
 Binary.argTypes = getArgTypes(dataBinary);
 Binary.parameters = { notes: { markdown: notes, json: dataBinary } };
-
-export const BinaryInvalid = (args) =>
-  radioGroup(prepareData(dataBinaryInvalid, args));
-
-BinaryInvalid.storyName = 'binary invalid';
-BinaryInvalid.args = getArgs(dataBinaryInvalid);
-BinaryInvalid.argTypes = getArgTypes(dataBinaryInvalid);
-BinaryInvalid.parameters = {
-  notes: { markdown: notes, json: dataBinaryInvalid },
-};

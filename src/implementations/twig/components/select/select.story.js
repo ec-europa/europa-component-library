@@ -17,14 +17,15 @@ const dataMultiple = system === 'eu' ? dataMultipleEU : dataMultipleEC;
 
 const getArgs = (data) => {
   return {
-    label: data.label || '',
-    helper_text: data.helper_text,
-    invalid_text: data.invalid_text,
-    optional_text: data.optional_text,
-    required_text: data.required_text,
+    show_label: true,
+    show_helper: true,
+    show_error: true,
     invalid: data.invalid || false,
     disabled: data.disabled || false,
     required: data.required,
+    label: data.label || '',
+    helper_text: data.helper_text,
+    invalid_text: data.invalid_text,
     width: data.width,
   };
 };
@@ -32,8 +33,24 @@ const getArgs = (data) => {
 const getArgTypes = (data) => getFormControls(data, 'element');
 
 const prepareData = (data, args) => {
+  Object.assign(data, args);
   correctSvgPath(data);
-  return Object.assign(data, args);
+
+  if (!args.show_label) {
+    data.label = '';
+  }
+  if (!args.show_error) {
+    data.invalid_text = '';
+  }
+  if (!args.show_helper) {
+    data.helper_text = '';
+  }
+
+  delete data.show_label;
+  delete data.show_helper;
+  delete data.show_error;
+
+  return data;
 };
 
 export default {
