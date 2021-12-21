@@ -36,7 +36,7 @@ $_search-width-xl: 31.5rem;
   .ecl-menu__closed {
     margin-bottom: 3px;
   }
-
+  
   .ecl-standardised__cta {
     margin-top: map.get(theme.$spacing, 's');
     position: relative;
@@ -44,6 +44,17 @@ $_search-width-xl: 31.5rem;
     z-index: 1;
   }
   .ecl-standardised__cta:only-child {
+    margin-top: 0;
+  }
+  // Deprecated
+  .ecl-standardised__menu-cta {
+    margin-top: map.get(theme.$spacing, 's');
+    position: relative;
+    width: max-content;
+    z-index: 1;
+  }
+  // Deprecated
+  .ecl-standardised__menu-cta:only-child {
     margin-top: 0;
   }
 }
@@ -245,6 +256,15 @@ $_search-width-xl: 31.5rem;
 @include breakpoints.up('l') {
   .ecl-site-header-standardised {
     .ecl-standardised__cta {
+      align-self: start;
+      margin: map.get(theme.$spacing, 'm') 0;
+
+      &:only-child {
+        margin-top: map.get(theme.$spacing, 'm');
+      }
+    }
+    // Deprecated
+    .ecl-standardised__menu-cta {
       align-self: start;
       margin: map.get(theme.$spacing, 'm') 0;
 
