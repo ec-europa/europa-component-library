@@ -7,9 +7,9 @@ import notes from './README.md';
 
 const getArgs = (data) => {
   return {
-    citation: data.citation,
-    author: data.author,
     show_image: false,
+    show_citation: true,
+    show_author: true,
   };
 };
 

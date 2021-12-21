@@ -13,11 +13,12 @@ const dataDefault = system === 'eu' ? specsEu : specsEc;
 
 const getArgs = (data) => {
   return {
+    show_label: true,
+    show_helper: true,
+    show_error: true,
     label: data.label || '',
     helper_text: data.helper_text,
     invalid_text: data.invalid_text,
-    optional_text: data.optional_text,
-    required_text: data.required_text,
     invalid: data.invalid || false,
     disabled: data.disabled || false,
     required: data.required,
@@ -43,7 +44,25 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
-  return Object.assign(correctSvgPath(data), args);
+  Object.assign(data, args);
+
+  if (!args.show_label) {
+    data.label = '';
+  }
+  if (!args.show_error) {
+    data.invalid_text = '';
+  }
+  if (!args.show_helper) {
+    data.helper_text = '';
+  }
+
+  delete data.show_label;
+  delete data.show_helper;
+  delete data.show_error;
+
+  correctSvgPath(data);
+
+  return data;
 };
 
 export default {
