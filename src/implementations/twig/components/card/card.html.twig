@@ -114,7 +114,7 @@
     {% if _card.meta is not empty %}
       <div class="ecl-card__meta">{{ _card.meta|join(" | ") }}</div>
     {% endif %}
-    {% if _card.title is not empty %}
+    {% if _card.title is not empty and _card.title.label is not empty %}
       <h1 class="ecl-card__title">
         {%- if _card.title.path %}
           {% include '@ecl/link/link.html.twig' with {
