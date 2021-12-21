@@ -6,6 +6,8 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
 
+$_primary-color: null !default;
+
 .ecl-icon {
   fill: currentColor;
   margin: 0;
@@ -54,7 +56,7 @@
 }
 
 .ecl-icon--primary {
-  fill: map.get(theme.$color, 'primary');
+  fill: $_primary-color;
 }
 
 .ecl-icon--inverted {
