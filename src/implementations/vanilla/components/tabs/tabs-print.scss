@@ -3,6 +3,17 @@
  * @define tabs
  */
 
+@use 'sass:map';
+@use '@ecl/theme-dev/theme';
+
+.ecl-tabs__item--more {
+  display: none;
+}
+
 .ecl-tabs__dropdown {
   display: none;
+}
+
+.ecl-tabs__link {
+  font: map.get(theme.$font, 'm');
 }
