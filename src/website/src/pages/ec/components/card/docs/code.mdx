@@ -17,7 +17,8 @@ import { card, tile, cardTaxonomy, tileTaxonomy } from '../demo';
 <Playground
   system="ec"
   selectedKind="components-card"
-  selectedStory="card-taxonomy"
+  selectedStory="card"
+  selectedArgs="show_tags:false;show_lists:true;show_taxonomy:true"
 >
   <Html markup={cardTaxonomy} />
 </Playground>
@@ -33,7 +34,8 @@ import { card, tile, cardTaxonomy, tileTaxonomy } from '../demo';
 <Playground
   system="ec"
   selectedKind="components-card"
-  selectedStory="tile-taxonomy"
+  selectedStory="tile"
+  selectedArgs="show_description:false;show_links:false;show_lists:true;show_taxonomy:true;title:"
 >
   <Html markup={tileTaxonomy} />
 </Playground>

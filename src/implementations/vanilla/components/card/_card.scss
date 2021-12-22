@@ -190,7 +190,7 @@ $_list-padding: null !default;
   /* stylelint-enable plugin/selector-bem-pattern */
   + .ecl-card__list {
     margin-top: map.get(theme.$spacing, 's');
-    padding-top: 0;
+    padding-top: map.get(theme.$spacing, 's');
   }
 }
 
@@ -216,6 +216,7 @@ $_list-padding: null !default;
  */
 .ecl-card__body > :first-child {
   margin-top: 0;
+  padding-top: 0;
 }
 
 .ecl-card__body > :last-child {
