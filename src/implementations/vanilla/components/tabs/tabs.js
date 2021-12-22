@@ -123,9 +123,6 @@ export class Tabs {
     if (this.attachClickListener && this.moreButton) {
       this.moreButton.addEventListener('click', this.handleClickOnToggle);
     }
-    if (this.attachClickListener && document && this.moreButton) {
-      document.addEventListener('click', this.closeMoreDropdown);
-    }
     if (this.attachClickListener && this.btnNext) {
       this.btnNext.addEventListener(
         'click',
@@ -149,9 +146,6 @@ export class Tabs {
   destroy() {
     if (this.attachClickListener && this.moreButton) {
       this.moreButton.removeEventListener('click', this.handleClickOnToggle);
-    }
-    if (this.attachClickListener && document && this.moreButton) {
-      document.removeEventListener('click', this.closeMoreDropdown);
     }
     if (this.attachClickListener && this.btnNext) {
       this.btnNext.removeEventListener('click', this.shiftTabs);
