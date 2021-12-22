@@ -7,7 +7,7 @@ import Tabs from './tabs.html.twig';
 import notes from './README.md';
 
 export default {
-  title: 'Components/Tabs',
+  title: 'Components/Navigation/Tabs',
   decorators: [withNotes, withCode],
   parameters: {
     controls: { disable: true },
