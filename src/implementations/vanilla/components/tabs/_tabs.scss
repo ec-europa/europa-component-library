@@ -84,8 +84,10 @@ $_outline-width: none !default;
   text-align: right;
 }
 
-.ecl-tabs__item--hidden {
-  display: none;
+.ecl-tabs__item {
+  &[aria-hidden='true'] {
+    display: none;
+  }
 }
 
 .ecl-tabs__toggle {

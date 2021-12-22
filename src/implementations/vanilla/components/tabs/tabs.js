@@ -222,11 +222,11 @@ export class Tabs {
       this.list.style.transitionDuration = '0.4s';
       this.shiftTabs(this.index);
       if (this.moreItem) {
-        this.moreItem.classList.add('ecl-tabs__item--hidden');
+        this.moreItem.setAttribute('aria-hidden', 'true');
       }
       let listWidth = 0;
       this.listItems.forEach((item) => {
-        item.classList.remove('ecl-tabs__item--hidden');
+        item.setAttribute('aria-hidden', 'false');
         listWidth += Math.ceil(item.getBoundingClientRect().width);
       });
       this.list.style.width = `${listWidth}px`;
@@ -246,14 +246,14 @@ export class Tabs {
     const listWidth = this.list.getBoundingClientRect().width;
     this.moreButtonActive = false;
     this.listItems.forEach((item, i) => {
-      item.classList.remove('ecl-tabs__item--hidden');
+      item.setAttribute('aria-hidden', 'false');
       if (
         listWidth >= stopWidth + item.getBoundingClientRect().width &&
         !hiddenItems.includes(i - 1)
       ) {
         stopWidth += item.getBoundingClientRect().width;
       } else {
-        item.classList.add('ecl-tabs__item--hidden');
+        item.setAttribute('aria-hidden', 'true');
         if (item.childNodes[0].classList.contains('ecl-tabs__link--active')) {
           this.moreButtonActive = true;
         }
@@ -270,18 +270,18 @@ export class Tabs {
 
     // Toggle the visibility of More button and items in dropdown
     if (!hiddenItems.length) {
-      this.moreItem.classList.add('ecl-tabs__item--hidden');
+      this.moreItem.setAttribute('aria-hidden', 'true');
     } else {
-      this.moreItem.classList.remove('ecl-tabs__item--hidden');
+      this.moreItem.setAttribute('aria-hidden', 'false');
       this.moreLabel.textContent = this.moreLabelValue.replace(
         '%d',
         hiddenItems.length
       );
       this.dropdownItems.forEach((item, i) => {
         if (!hiddenItems.includes(i)) {
-          item.classList.add('ecl-tabs__item--hidden');
+          item.setAttribute('aria-hidden', 'true');
         } else {
-          item.classList.remove('ecl-tabs__item--hidden');
+          item.setAttribute('aria-hidden', 'false');
         }
       });
     }
