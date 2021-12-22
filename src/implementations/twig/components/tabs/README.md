@@ -8,7 +8,7 @@ npm install --save @ecl/twig-component-tabs
 
 ### Parameters:
 
-- **"items"** (associative array) (default: {}): The menu items - format:
+- **"items"** (associative array) (default: {}): The tabs items - format:
   "label": (string) (default: '')
   "path": (string) (default: '')
   "is_current": (boolean) (optional)
