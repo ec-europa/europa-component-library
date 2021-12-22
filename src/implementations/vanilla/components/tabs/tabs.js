@@ -123,6 +123,9 @@ export class Tabs {
     if (this.attachClickListener && this.moreButton) {
       this.moreButton.addEventListener('click', this.handleClickOnToggle);
     }
+    if (this.attachClickListener && document && this.moreButton) {
+      document.addEventListener('click', this.closeMoreDropdown);
+    }
     if (this.attachClickListener && this.btnNext) {
       this.btnNext.addEventListener(
         'click',
@@ -146,6 +149,9 @@ export class Tabs {
   destroy() {
     if (this.attachClickListener && this.moreButton) {
       this.moreButton.removeEventListener('click', this.handleClickOnToggle);
+    }
+    if (this.attachClickListener && document && this.moreButton) {
+      document.removeEventListener('click', this.closeMoreDropdown);
     }
     if (this.attachClickListener && this.btnNext) {
       this.btnNext.removeEventListener('click', this.shiftTabs);
@@ -202,7 +208,11 @@ export class Tabs {
    * Trigger events on resize.
    */
   handleResize() {
-    this.closeMoreDropdown(this);
+    // Close dropdown if more button is not displayed
+    if (window.getComputedStyle(this.moreButton).display === 'none') {
+      this.closeMoreDropdown(this);
+    }
+
     this.list.style.transform = `translate3d(0px, 0px, 0px)`;
 
     // Behaviors for mobile format
