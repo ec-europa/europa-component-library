@@ -9,6 +9,7 @@ import notes from './README.md';
 
 const getArgs = (data) => {
   const args = {
+    show_description: true,
     description: data.description,
     width: 'outside',
   };
@@ -23,16 +24,24 @@ const getArgs = (data) => {
 };
 
 const getArgTypes = (data) => {
-  const argTypes = {};
-
-  argTypes.description = {
-    name: 'description',
-    type: 'string',
-    description: 'Media description',
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: '' },
-      category: 'Content',
+  const argTypes = {
+    show_description: {
+      name: 'description',
+      type: { name: 'boolean' },
+      description: 'Show the description',
+      table: {
+        category: 'Optional',
+      },
+    },
+    description: {
+      name: 'description',
+      type: 'string',
+      description: 'Media description',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
     },
   };
 
@@ -90,6 +99,10 @@ const getArgTypes = (data) => {
 
 const prepareData = (data, args) => {
   data.full_width = args.width === 'inside';
+
+  if (!args.show_description) {
+    args.description = '';
+  }
 
   return Object.assign(data, args);
 };

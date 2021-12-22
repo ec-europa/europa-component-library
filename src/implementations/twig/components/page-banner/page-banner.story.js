@@ -12,8 +12,11 @@ import bannerDataImageGradient from '@ecl/specs-component-page-banner/demo/data-
 import pageBanner from './page-banner.html.twig';
 import notes from './README.md';
 
+const cta = { ...bannerDataSimplePrimary.link };
 const getArgs = (data) => {
   const args = {
+    show_description: true,
+    show_button: true,
     title: data.title,
     description: data.description,
     label: data.link.link.label,
@@ -30,6 +33,22 @@ const getArgs = (data) => {
 
 const getArgTypes = (data) => {
   const argTypes = {
+    show_description: {
+      name: 'description',
+      type: { name: 'boolean' },
+      description: 'Show the description',
+      table: {
+        category: 'Optional',
+      },
+    },
+    show_button: {
+      name: 'button',
+      type: { name: 'boolean' },
+      description: 'Show the cta button',
+      table: {
+        category: 'Optional',
+      },
+    },
     title: {
       type: { name: 'string', required: true },
       description: 'Heading of the banner',
@@ -115,9 +134,18 @@ const prepareData = (data, args) => {
   data.description = args.description;
   data.centered = args.centered;
   data.full_width = args.width === 'inside';
-  data.link.link.label = args.label;
+
   if (data.image) {
     data.image = args.image;
+  }
+  if (!args.show_description) {
+    data.description = '';
+  }
+  if (!args.show_button) {
+    data.link = false;
+  } else {
+    data.link = cta;
+    data.link.link.label = args.label;
   }
 
   return data;
