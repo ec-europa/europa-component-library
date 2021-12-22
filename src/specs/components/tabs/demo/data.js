@@ -11,7 +11,7 @@ module.exports = {
       path: exampleLink,
     },
     {
-      label: 'Item 3 with a very long label',
+      label: 'Item 3 label',
       path: exampleLink,
     },
     {
@@ -24,7 +24,7 @@ module.exports = {
       path: exampleLink,
     },
     {
-      label: 'Item 6 label',
+      label: 'Item 6 with a very long label',
       path: exampleLink,
     },
     {
