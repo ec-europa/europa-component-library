@@ -5,11 +5,13 @@ import defaultData from '@ecl/specs-component-blockquote/demo/data';
 import blockquote from './blockquote.html.twig';
 import notes from './README.md';
 
+const demoImage = { ...defaultData.image };
+
 const getArgs = (data) => {
   return {
     show_image: false,
-    show_citation: true,
-    show_author: true,
+    citation: data.citation,
+    author: data.author,
   };
 };
 
@@ -47,13 +49,11 @@ const getArgTypes = () => {
       description: 'Toggle image visibility',
       table: {
         type: { summary: 'boolean' },
-        category: 'Content',
+        category: 'Optional',
       },
     },
   };
 };
-
-const demoImage = defaultData.image;
 
 const prepareData = (data, args) => {
   data.image = args.show_image ? demoImage : null;

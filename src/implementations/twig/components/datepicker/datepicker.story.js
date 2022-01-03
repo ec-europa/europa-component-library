@@ -22,7 +22,6 @@ const getArgs = (data) => {
     invalid: data.invalid || false,
     disabled: data.disabled || false,
     required: data.required,
-    autoinit: data.autoinit,
     placeholder: data.placeholder,
   };
 };
@@ -30,16 +29,6 @@ const getArgs = (data) => {
 const getArgTypes = (data) => {
   return {
     ...getFormControls(data, 'element'),
-    autoinit: {
-      name: 'autoinit',
-      type: 'boolean',
-      description: 'Initializes the javascript behaviours.',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-        category: 'States',
-      },
-    },
   };
 };
 

@@ -8,7 +8,6 @@ import notes from './README.md';
 const getArgs = (data) => {
   return {
     label: data.label,
-    variant: 'low',
   };
 };
 
@@ -24,22 +23,6 @@ const getArgTypes = () => {
         category: 'Content',
       },
     },
-    variant: {
-      name: 'variant',
-      type: { name: 'select' },
-      description: 'The variant / importance of the label',
-      options: {
-        'low importance': 'low',
-        'medium importance': 'medium',
-        'high importance': 'high',
-        highlight: 'highlight',
-      },
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'low' },
-        category: 'Content',
-      },
-    },
   };
 };
 
@@ -52,11 +35,42 @@ export default {
   decorators: [withNotes, withCode],
 };
 
-export const Default = (args) => label(prepareData(dataDefault, args));
+export const Low = (args) =>
+  label(prepareData({ ...dataDefault, variant: 'low' }, args));
 
-Default.storyName = 'default';
-Default.args = getArgs(dataDefault);
-Default.argTypes = getArgTypes();
-Default.parameters = {
-  notes: { markdown: notes, json: dataDefault },
+Low.storyName = 'low importance';
+Low.args = getArgs(dataDefault);
+Low.argTypes = getArgTypes();
+Low.parameters = {
+  notes: { markdown: notes, json: { ...dataDefault, variant: 'low' } },
+};
+
+export const Medium = (args) =>
+  label(prepareData({ ...dataDefault, variant: 'medium' }, args));
+
+Medium.storyName = 'medium importance';
+Medium.args = getArgs(dataDefault);
+Medium.argTypes = getArgTypes();
+Medium.parameters = {
+  notes: { markdown: notes, json: { ...dataDefault, variant: 'medium' } },
+};
+
+export const High = (args) =>
+  label(prepareData({ ...dataDefault, variant: 'high' }, args));
+
+High.storyName = 'high importance';
+High.args = getArgs(dataDefault);
+High.argTypes = getArgTypes();
+High.parameters = {
+  notes: { markdown: notes, json: { ...dataDefault, variant: 'high' } },
+};
+
+export const Highlight = (args) =>
+  label(prepareData({ ...dataDefault, variant: 'highlight' }, args));
+
+Highlight.storyName = 'highlight';
+Highlight.args = getArgs(dataDefault);
+Highlight.argTypes = getArgTypes();
+Highlight.parameters = {
+  notes: { markdown: notes, json: { ...dataDefault, variant: 'highlight' } },
 };

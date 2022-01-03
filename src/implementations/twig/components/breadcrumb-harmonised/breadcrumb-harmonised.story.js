@@ -10,7 +10,8 @@ import breadcrumb from './breadcrumb-harmonised.html.twig';
 import notes from './README.md';
 
 const system = getSystem();
-const dataDefault = system === 'eu' ? { ...dataDefaultEU } : { ...dataDefaultEC };
+const dataDefault =
+  system === 'eu' ? { ...dataDefaultEU } : { ...dataDefaultEC };
 
 const getArgs = (data) => {
   const args = {};

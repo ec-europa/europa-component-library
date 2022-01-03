@@ -39,7 +39,7 @@ const getArgTypes = () => {
       },
     },
     displayIcons: {
-      name: 'icons visibility',
+      name: 'icons',
       type: { name: 'boolean' },
       description: 'Toggle visibility of the icons',
       table: {
