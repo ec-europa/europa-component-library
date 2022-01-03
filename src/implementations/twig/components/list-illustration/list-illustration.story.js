@@ -14,18 +14,26 @@ import notes from './README.md';
 
 const system = getSystem();
 const iconsAll = system === 'eu' ? iconsAllEu : iconsAllEc;
-
+const imgDefault = dataListIllustrationImage.items[0].image;
+const iconDefault = dataListIllustrationIcon.items[0].icon;
+const descDefault = dataListIllustrationIcon.items[0].description;
 // Create 'none' option.
 iconsAll.unshift('none');
 
 const getArgs = (data, variant) => {
-  const args = {};
+  const args = {
+    show_description: true,
+  };
+  if (variant.includes('image')) {
+    args.show_image = true;
+  }
+  if (variant.includes('icon')) {
+    args.show_icon = true;
+  }
   if (data.items[0].title) {
     args.title = data.items[0].title;
   }
-  if (data.items[0].description) {
-    args.description = data.items[0].description;
-  }
+  args.description = data.items[0].description;
   if (data.items[0].image && data.items[0].image.src) {
     args.image = data.items[0].image.src;
     args.image_squared = false;
@@ -34,7 +42,7 @@ const getArgs = (data, variant) => {
     args.icon = data.items[0].icon.name;
   }
 
-  if (variant === 'horizontal') {
+  if (variant.includes('horizontal')) {
     args.column = 2;
   } else {
     args.zebra = true;
@@ -44,8 +52,38 @@ const getArgs = (data, variant) => {
 };
 
 const getArgTypes = (data, variant) => {
-  const argTypes = {};
-  if (variant === 'horizontal') {
+  const argTypes = {
+    show_description: {
+      name: 'description',
+      type: { name: 'boolean' },
+      description: 'Show the description',
+      table: {
+        category: 'Optional',
+      },
+    },
+  };
+  if (variant.includes('image')) {
+    argTypes.show_image = {
+      name: 'image',
+      type: { name: 'boolean' },
+      description: 'Show image',
+      table: {
+        category: 'Optional',
+      },
+    };
+  }
+  if (variant.includes('icon')) {
+    argTypes.show_icon = {
+      name: 'icon',
+      type: { name: 'boolean' },
+      description: 'Show icon',
+      table: {
+        category: 'Optional',
+      },
+    };
+  }
+
+  if (variant.includes('horizontal')) {
     argTypes.column = {
       name: 'number of columns',
       control: { type: 'range', min: 2, max: 4, step: 1 },
@@ -76,7 +114,7 @@ const getArgTypes = (data, variant) => {
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
-      category: 'Content',
+      category: 'Content (first-item)',
     },
   };
   argTypes.description = {
@@ -86,7 +124,7 @@ const getArgTypes = (data, variant) => {
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
-      category: 'Content',
+      category: 'Content (first-item)',
     },
   };
 
@@ -122,7 +160,7 @@ const getArgTypes = (data, variant) => {
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
-        category: 'Icon',
+        category: 'Icon (first item)',
       },
     };
     argTypes.icon_flag = {
@@ -133,7 +171,7 @@ const getArgTypes = (data, variant) => {
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
-        category: 'Icon',
+        category: 'Icon (first item)',
       },
     };
   }
@@ -143,25 +181,34 @@ const getArgTypes = (data, variant) => {
 
 const prepareDataItem = (data, args) => {
   data.title = args.title;
-  data.description = args.description;
-  if (args.image) {
+  if (!args.show_description) {
+    data.description = '';
+  } else {
+    data.description = args.description;
+  }
+  if (!args.show_image) {
+    data.image = {};
+  } else {
     data.image.src = args.image;
     data.image.squared = args.image_squared;
   }
-  if (args.icon && args.icon !== 'none') {
+  if (!args.show_icon) {
+    delete data.icon;
+  } else {
     data.icon = {};
     data.icon.name = args.icon;
     data.icon.size = 'l';
     data.icon.path = 'icon.svg';
+    if (args.icon_flag && args.icon_flag !== 'none') {
+      data.icon.name = args.icon_flag;
+      data.icon.path = 'icon-flag.svg';
+    }
+    if (args.icon === 'none') {
+      delete data.icon;
+    }
   }
-  if (args.icon_flag && args.icon_flag !== 'none') {
-    data.icon = {};
-    data.icon.name = args.icon_flag;
-    data.icon.size = 'l';
-    data.icon.path = 'icon-flag.svg';
-  }
-  if (args.icon === 'none') {
-    delete data.icon;
+  if (!args.show_description) {
+    data.description = '';
   }
 
   correctSvgPath(data);
@@ -171,9 +218,32 @@ const prepareDataItem = (data, args) => {
 
 const prepareDataList = (data, args) => {
   data.items[0] = prepareDataItem(data.items[0], args);
-  for (let i = 1; i < data.items.length; i += 1) {
-    if (args.image) {
+  if (args.show_image) {
+    for (let i = 1; i < data.items.length; i += 1) {
+      data.items[i].image = imgDefault;
       data.items[i].image.squared = args.image_squared;
+    }
+  } else {
+    for (let i = 1; i < data.items.length; i += 1) {
+      data.items[i].image = {};
+    }
+  }
+  if (args.show_icon) {
+    for (let i = 1; i < data.items.length; i += 1) {
+      data.items[i].icon = iconDefault;
+    }
+  } else {
+    for (let i = 1; i < data.items.length; i += 1) {
+      data.items[i].icon = {};
+    }
+  }
+  if (args.show_description) {
+    for (let i = 1; i < data.items.length; i += 1) {
+      data.items[i].description = descDefault;
+    }
+  } else {
+    for (let i = 1; i < data.items.length; i += 1) {
+      data.items[i].description = '';
     }
   }
 
@@ -194,8 +264,11 @@ export const HorizontalImage = (args) =>
   listIllustration(prepareDataList(dataListIllustrationImage, args));
 
 HorizontalImage.storyName = 'horizontal (images)';
-HorizontalImage.args = getArgs(dataListIllustrationImage, 'horizontal');
-HorizontalImage.argTypes = getArgTypes(dataListIllustrationImage, 'horizontal');
+HorizontalImage.args = getArgs(dataListIllustrationImage, 'horizontal-image');
+HorizontalImage.argTypes = getArgTypes(
+  dataListIllustrationImage,
+  'horizontal-image'
+);
 HorizontalImage.parameters = {
   notes: { markdown: notes, json: dataListIllustrationImage },
 };
@@ -204,8 +277,11 @@ export const HorizontalIcon = (args) =>
   listIllustration(prepareDataList(dataListIllustrationIcon, args));
 
 HorizontalIcon.storyName = 'horizontal (icons)';
-HorizontalIcon.args = getArgs(dataListIllustrationIcon, 'horizontal');
-HorizontalIcon.argTypes = getArgTypes(dataListIllustrationIcon, 'horizontal');
+HorizontalIcon.args = getArgs(dataListIllustrationIcon, 'horizontal-icon');
+HorizontalIcon.argTypes = getArgTypes(
+  dataListIllustrationIcon,
+  'horizontal-icon'
+);
 HorizontalIcon.parameters = {
   notes: { markdown: notes, json: dataListIllustrationIcon },
 };
@@ -214,8 +290,11 @@ export const VerticalImage = (args) =>
   listIllustration(prepareDataList(dataListIllustrationImage, args));
 
 VerticalImage.storyName = 'vertical (images)';
-VerticalImage.args = getArgs(dataListIllustrationImage, 'vertical');
-VerticalImage.argTypes = getArgTypes(dataListIllustrationImage, 'vertical');
+VerticalImage.args = getArgs(dataListIllustrationImage, 'vertical-image');
+VerticalImage.argTypes = getArgTypes(
+  dataListIllustrationImage,
+  'vertical-image'
+);
 VerticalImage.parameters = {
   notes: { markdown: notes, json: dataListIllustrationImage },
 };
@@ -224,8 +303,8 @@ export const VerticalIcon = (args) =>
   listIllustration(prepareDataList(dataListIllustrationIcon, args));
 
 VerticalIcon.storyName = 'vertical (icons)';
-VerticalIcon.args = getArgs(dataListIllustrationIcon, 'vertical');
-VerticalIcon.argTypes = getArgTypes(dataListIllustrationIcon, 'vertical');
+VerticalIcon.args = getArgs(dataListIllustrationIcon, 'vertical-icon');
+VerticalIcon.argTypes = getArgTypes(dataListIllustrationIcon, 'vertical-icon');
 VerticalIcon.parameters = {
   notes: { markdown: notes, json: dataListIllustrationIcon },
 };

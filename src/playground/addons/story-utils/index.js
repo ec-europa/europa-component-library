@@ -111,52 +111,43 @@ export const getIconControls = (data, icons) => {
 
 export const getFormControls = (data, type) => {
   const argTypes = {};
-  argTypes.label = {
-    type: { name: 'string', required: true },
-    description: `Label of the form ${type}`,
+  argTypes.show_label = {
+    name: 'label',
+    type: 'boolean',
+    description: `Show ${type} label`,
     table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: '' },
-      category: 'Content',
+      type: { summary: 'boolean' },
+      defaultValue: { summary: true },
+      category: 'Optional',
     },
   };
-  argTypes.helper_text = {
+  argTypes.show_helper = {
     name: 'helper text',
-    type: 'string',
-    description: `Helper text for the form ${type}`,
+    type: 'boolean',
+    description: `Show ${type} helper text`,
     table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: '' },
-      category: 'Content',
+      type: { summary: 'boolean' },
+      defaultValue: { summary: true },
+      category: 'Optional',
+    },
+  };
+  argTypes.show_error = {
+    name: 'error message',
+    type: 'boolean',
+    description: `Show ${type} error message`,
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: true },
+      category: 'Optional',
     },
   };
   argTypes.invalid_text = {
     name: 'error message',
     type: 'string',
-    description: 'Message to be shown in case of an invalid input by the user',
+    description: `Message to be shown in case of an invalid ${type}`,
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
-      category: 'Content',
-    },
-  };
-  argTypes.optional_text = {
-    name: 'optional text',
-    type: 'string',
-    description: `Text to be shown when the form ${type} is optional`,
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: '' },
-      category: 'Content',
-    },
-  };
-  argTypes.required_text = {
-    name: 'required text',
-    type: 'string',
-    description: `Text to be shown when the form ${type} is mandatory`,
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: '*' },
       category: 'Content',
     },
   };
@@ -181,6 +172,25 @@ export const getFormControls = (data, type) => {
       disable: type !== 'element',
     },
   };
+  argTypes.label = {
+    type: { name: 'string' },
+    description: `Label of the form ${type}`,
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+  };
+  argTypes.helper_text = {
+    name: 'helper text',
+    type: 'string',
+    description: `Helper text for the form ${type}`,
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+  };
   argTypes.required = {
     name: 'required',
     type: 'boolean',
@@ -191,7 +201,6 @@ export const getFormControls = (data, type) => {
       category: 'States',
     },
   };
-
   if (data.placeholder) {
     argTypes.placeholder = {
       name: 'placeholder text',

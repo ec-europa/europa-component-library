@@ -1,102 +1,71 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import getSystem from '@ecl/builder/utils/getSystem';
+import { correctSvgPath } from '@ecl/story-utils';
 
-import defaultSpriteEc from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
-import defaultSpriteEu from '@ecl/resources-eu-icons/dist/sprites/icons.svg';
 import dataCard from '@ecl/specs-component-card/demo/data--card';
 import dataCardTaxonomy from '@ecl/specs-component-card/demo/data--card-taxonomy';
 import dataCardTile from '@ecl/specs-component-card/demo/data--tile';
-import dataCardTileTaxonomy from '@ecl/specs-component-card/demo/data--tile-taxonomy';
-
 import card from './card.html.twig';
 import notes from './README.md';
 
-const system = getSystem();
-const defaultSprite = system === 'eu' ? defaultSpriteEu : defaultSpriteEc;
-
-const infosClone = { ...dataCard.card.infos };
-const linkClone = { ...dataCardTile.card.links[0] };
-const tagClone = { ...dataCard.card.tags[0] };
-const labelClone = { ...dataCard.card.labels[0] };
+const metaClone = [...dataCard.card.meta];
+const infosClone = [...dataCard.card.infos];
+const linkClone = [...dataCardTile.card.links];
+const tagClone = [...dataCard.card.tags];
+const labelClone = [...dataCard.card.labels];
 const descriptionListClone = { ...dataCardTaxonomy.card.lists[0] };
 const taxonomyListClone = { ...dataCardTaxonomy.card.lists[1] };
 
-const getArgs = (data) => {
+const getArgs = (data, variant) => {
   const args = {};
-  if (data.card.title) {
-    args.title = data.card.title.label;
+  args.show_description = true;
+  if (variant === 'card') {
+    args.show_image = true;
+    args.image = (data.card && data.card.image && data.card.image.src) || '';
   }
-  if (data.card.description) {
-    args.description = data.card.description;
+  args.show_infos = !!data.card.infos;
+  args.show_tags = !!data.card.tags;
+  args.show_meta = !!data.card.meta;
+  args.show_labels = !!data.card.labels;
+
+  if (variant === 'tile') {
+    args.show_links = !!data.card.links;
   }
-  if (data.card.meta) {
-    args.meta = data.card.meta;
-  }
-  if (data.card.image) {
-    args.image = data.card.image.src;
-  }
-  if (data.card.infos) {
-    const infos = data.card.infos.map(({ label }) => label);
-    args.infos = infos;
-  }
-  if (data.card.tags) {
-    const tags = data.card.tags.map(({ label }) => label);
-    args.tags = tags;
-  }
-  if (data.card.labels) {
-    const labels = data.card.labels.map(({ label }) => label);
-    args.labels = labels;
-  }
-  if (data.card.links) {
-    const links = data.card.links.map(({ label }) => label);
-    args.links = links;
-  }
-  if (data.card.lists) {
-    args.lists = true;
-    args.taxonomy = true;
-  }
+  args.show_lists = false;
+  args.show_taxonomy = false;
+  args.title = (data.card.title && data.card.title.label) || '';
+  args.description = (data.card && data.card.description) || '';
 
   return args;
 };
 
-const getArgTypes = (data) => {
+const getArgTypes = (data, variant) => {
   const argTypes = {};
-  if (data.card.title) {
-    argTypes.title = {
-      type: { name: 'string', required: true },
-      description: 'The card title',
+  argTypes.show_description = {
+    name: 'description',
+    type: { name: 'boolean' },
+    description: 'Show the description',
+    table: {
+      category: 'Optional',
+    },
+  };
+  argTypes.show_meta = {
+    name: 'meta',
+    type: { name: 'boolean' },
+    description: 'Show meta',
+    table: {
+      category: 'Optional',
+    },
+  };
+  if (variant === 'card') {
+    argTypes.show_image = {
+      name: 'image',
+      type: { name: 'boolean' },
+      description: 'Show image',
       table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
+        category: 'Optional',
       },
     };
-  }
-  if (data.card.description) {
-    argTypes.description = {
-      type: 'string',
-      description: 'The card description',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-    };
-  }
-  if (data.card.meta) {
-    argTypes.meta = {
-      name: 'meta',
-      type: { name: 'array' },
-      description: 'The card meta',
-      table: {
-        type: { summary: 'array' },
-        defaultValue: { summary: '[]' },
-        category: 'Content',
-      },
-    };
-  }
-  if (data.card.image) {
     argTypes.image = {
       type: 'string',
       description: 'The url of the card image',
@@ -107,144 +76,107 @@ const getArgTypes = (data) => {
       },
     };
   }
-  if (data.card.labels) {
-    argTypes.labels = {
-      name: 'labels',
-      type: 'array',
-      description: 'Labels to be placed at the top of the card',
-      table: {
-        type: { summary: 'array of objects' },
-        defaultValue: { summary: '[]' },
-        category: 'Content',
-      },
-    };
-  }
-  if (data.card.infos) {
-    argTypes.infos = {
-      name: 'infos',
-      type: 'array',
-      description: 'Additional elements like a location or a date',
-      table: {
-        type: {
-          summary: 'array of objects',
-        },
-        defaultValue: { summary: '[]' },
-        category: 'Card footer',
-      },
-    };
-  }
-  if (data.card.tags) {
-    argTypes.tags = {
-      name: 'tags',
-      type: 'array',
-      description: 'Tags to be placed at the bottom of the card',
-      table: {
-        type: { summary: 'array of objects' },
-        defaultValue: { summary: '[]' },
-        category: 'Card footer',
-      },
-    };
-  }
-  if (data.card.links) {
-    argTypes.links = {
+  argTypes.show_labels = {
+    name: 'labels',
+    type: 'boolean',
+    description: 'Labels to be placed at the top of the card',
+    table: {
+      category: 'Optional',
+    },
+  };
+  argTypes.show_infos = {
+    name: 'infos',
+    type: 'boolean',
+    description: 'Show infos',
+    table: {
+      category: 'Optional',
+    },
+  };
+  argTypes.show_tags = {
+    name: 'tags',
+    type: 'boolean',
+    description: 'Show tags',
+    table: {
+      category: 'Optional',
+    },
+  };
+  if (variant === 'tile') {
+    argTypes.show_links = {
       name: 'links',
-      type: 'array',
-      description:
-        'Links to be placed at the bottom of the card. (comma separated)',
+      type: 'boolean',
+      description: 'Show links',
       table: {
-        type: {
-          summary: 'array of objects',
-        },
-        defaultValue: { summary: '[]' },
-        category: 'Card footer',
+        category: 'Optional',
       },
     };
   }
-  if (data.card.lists) {
-    argTypes.list = {
-      name: 'Display additional list',
-      type: 'boolean',
-      description: 'Show/hide description list in the card footer',
-      table: {
-        category: 'Card footer',
-      },
-    };
-    argTypes.taxonomy = {
-      name: 'Display taxonomy list',
-      type: 'boolean',
-      description: 'Show/hide taxonomy list in the card footer',
-      table: {
-        category: 'Card footer',
-      },
-    };
-  }
+  argTypes.show_lists = {
+    name: 'description list',
+    type: 'boolean',
+    description: 'Show description list',
+    table: {
+      category: 'Optional',
+    },
+  };
+  argTypes.show_taxonomy = {
+    name: 'taxonomy list',
+    type: 'boolean',
+    description: 'Show taxonomy list',
+    table: {
+      category: 'Optional',
+    },
+  };
+  argTypes.title = {
+    type: { name: 'string', required: true },
+    description: 'The card title',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+  };
+  argTypes.description = {
+    type: 'string',
+    description: 'The card description',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+  };
 
   return argTypes;
 };
 
 const prepareData = (data, args) => {
-  if (data.card.title) {
-    data.card.title.label = args.title;
+  const lists = [];
+
+  if (args.show_lists) {
+    lists.push(descriptionListClone);
   }
+  if (args.show_taxonomy) {
+    lists.push(taxonomyListClone);
+  }
+
   if (data.card.image) {
     data.card.image.src = args.image;
   }
-  if (data.card.meta) {
-    data.card.meta = args.meta;
+
+  data.card.description = args.show_description ? args.description : '';
+
+  if (data.card.image) {
+    data.card.image.src = args.show_image ? args.image : '';
   }
-  if (data.card.infos) {
-    data.card.infos = [];
-    if (args.infos && args.infos[0]) {
-      args.infos.forEach((info, i) => {
-        const addInfo = {
-          label: info,
-          icon: {
-            ...infosClone[0].icon,
-            path: defaultSprite,
-            name: infosClone[i] ? infosClone[i].icon.name : 'faq',
-            size: system === 'eu' ? 'm' : 'xs',
-          },
-        };
-        data.card.infos.push(addInfo);
-      });
-    }
-  }
-  if (data.card.links) {
-    data.card.links = [];
-    if (args.links && args.links[0]) {
-      args.links.forEach((link) => {
-        data.card.links.push({ ...linkClone, label: link });
-      });
-    }
-  }
-  if (data.card.tags) {
-    data.card.tags = [];
-    if (args.tags && args.tags[0]) {
-      args.tags.forEach((tag) => {
-        data.card.tags.push({ ...tagClone, label: tag });
-      });
-    }
-  }
-  if (data.card.labels) {
-    data.card.labels = [];
-    if (args.labels && args.labels[0]) {
-      args.labels.forEach((label) => {
-        data.card.labels.push({ ...labelClone, label });
-      });
-    }
-  }
-  if (data.card.lists) {
-    if (!args.list) {
-      data.card.lists[0] = [];
-    } else {
-      data.card.lists[0] = descriptionListClone;
-    }
-    if (!args.taxonomy) {
-      data.card.lists[1] = [];
-    } else {
-      data.card.lists[1] = taxonomyListClone;
-    }
-  }
+
+  data.card.title.label = args.title;
+  data.card.tags = args.show_tags ? tagClone : [];
+  data.card.meta = args.show_meta ? metaClone : [];
+  data.card.links = args.show_links ? linkClone : [];
+  data.card.infos = args.show_infos ? infosClone : [];
+  data.card.labels = args.show_labels ? labelClone : [];
+  data.card.lists = lists;
+
+  correctSvgPath(data);
 
   return data;
 };
@@ -256,33 +188,14 @@ export default {
 
 export const Card = (args) => card(prepareData(dataCard, args));
 
-Card.storyName = 'card';
-Card.args = getArgs(dataCard);
-Card.argTypes = getArgTypes(dataCard);
+Card.storyName = 'default';
+Card.args = getArgs(dataCard, 'card');
+Card.argTypes = getArgTypes(dataCard, 'card');
 Card.parameters = { notes: { markdown: notes, json: dataCard } };
-
-export const CardTaxonomy = (args) => card(prepareData(dataCardTaxonomy, args));
-
-CardTaxonomy.storyName = 'card (taxonomy)';
-CardTaxonomy.args = getArgs(dataCardTaxonomy);
-CardTaxonomy.argTypes = getArgTypes(dataCardTaxonomy);
-CardTaxonomy.parameters = {
-  notes: { markdown: notes, json: dataCardTaxonomy },
-};
 
 export const Tile = (args) => card(prepareData(dataCardTile, args));
 
 Tile.storyName = 'tile';
-Tile.args = getArgs(dataCardTile);
-Tile.argTypes = getArgTypes(dataCardTile);
+Tile.args = getArgs(dataCardTile, 'tile');
+Tile.argTypes = getArgTypes(dataCardTile, 'tile');
 Tile.parameters = { notes: { markdown: notes, json: dataCardTile } };
-
-export const TileTaxonomy = (args) =>
-  card(prepareData(dataCardTileTaxonomy, args));
-
-TileTaxonomy.storyName = 'tile (taxonomy)';
-TileTaxonomy.args = getArgs(dataCardTileTaxonomy);
-TileTaxonomy.argTypes = getArgTypes(dataCardTileTaxonomy);
-TileTaxonomy.parameters = {
-  notes: { markdown: notes, json: dataCardTileTaxonomy },
-};
