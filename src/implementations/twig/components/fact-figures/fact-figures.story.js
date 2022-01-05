@@ -102,7 +102,9 @@ const prepareData = (data, args) => {
     data.items.forEach((item, i) => {
       data.items[i].icon.size = 'm';
     });
-    data.view_all.icon.size = 'xs';
+    if (data.viewAll) {
+      data.view_all.icon.size = 'xs';
+    }
   }
   data.items[0].value = args.value;
   data.items[0].title = args.title;
