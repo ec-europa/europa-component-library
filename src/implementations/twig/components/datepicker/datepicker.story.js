@@ -11,26 +11,22 @@ import notes from './README.md';
 const system = getSystem();
 const dataDefault = system === 'eu' ? specsEu : specsEc;
 
-const getArgs = (data) => {
-  return {
-    show_label: true,
-    show_helper: true,
-    show_error: true,
-    label: data.label || '',
-    helper_text: data.helper_text,
-    invalid_text: data.invalid_text,
-    invalid: data.invalid || false,
-    disabled: data.disabled || false,
-    required: data.required,
-    placeholder: data.placeholder,
-  };
-};
+const getArgs = (data) => ({
+  show_label: true,
+  show_helper: true,
+  show_error: true,
+  label: data.label || '',
+  helper_text: data.helper_text,
+  invalid_text: data.invalid_text,
+  invalid: data.invalid || false,
+  disabled: data.disabled || false,
+  required: data.required,
+  placeholder: data.placeholder,
+});
 
-const getArgTypes = (data) => {
-  return {
-    ...getFormControls(data, 'element'),
-  };
-};
+const getArgTypes = (data) => ({
+  ...getFormControls(data, 'element'),
+});
 
 const prepareData = (data, args) => {
   Object.assign(data, args);

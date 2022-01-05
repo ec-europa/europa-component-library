@@ -2,142 +2,138 @@ import classnames from 'classnames';
 import withCode from '@ecl/storybook-addon-code';
 import { styled } from '@ecl/dom-utils';
 
-const getArgs = () => {
-  return {
-    direction: 'row',
-    wrap: 'wrap',
-    alignItems: 'start',
-    alignContent: 'start',
-    justifyContent: 'start',
-    shrink: false,
-    grow: false,
-    fixedContainer: false,
-    containerWidth: 25,
-    containerHeight: 25,
-  };
-};
+const getArgs = () => ({
+  direction: 'row',
+  wrap: 'wrap',
+  alignItems: 'start',
+  alignContent: 'start',
+  justifyContent: 'start',
+  shrink: false,
+  grow: false,
+  fixedContainer: false,
+  containerWidth: 25,
+  containerHeight: 25,
+});
 
-const getArgTypes = () => {
-  return {
-    direction: {
-      type: 'select',
-      description: 'Choose different flex-direction values',
-      options: ['row', 'row-reverse', 'column', 'column-reverse'],
-      table: {
-        category: 'Container',
+const getArgTypes = () => ({
+  direction: {
+    type: 'select',
+    description: 'Choose different flex-direction values',
+    options: ['row', 'row-reverse', 'column', 'column-reverse'],
+    table: {
+      category: 'Container',
+    },
+  },
+  wrap: {
+    description: 'Choose different flex-wrap values',
+    type: 'select',
+    options: ['wrap', 'nowrap', 'wrap-reverse'],
+    table: {
+      category: 'Container',
+    },
+  },
+  alignItems: {
+    name: 'align items',
+    description: 'Choose different flex-align values',
+    type: 'select',
+    options: ['start', 'end', 'center', 'baseline', 'stretch'],
+    table: {
+      category: 'Container',
+    },
+  },
+  alignContent: {
+    name: 'align content',
+    description: 'Choose different align content values',
+    type: 'select',
+    options: ['start', 'end', 'center', 'between', 'around', 'stretch'],
+    control: {
+      labels: {
+        start: 'Start',
+        end: 'End',
+        center: 'Center',
+        between: 'Space between',
+        around: 'Space around',
+        stretch: 'Stretch',
       },
     },
-    wrap: {
-      description: 'Choose different flex-wrap values',
-      type: 'select',
-      options: ['wrap', 'nowrap', 'wrap-reverse'],
-      table: {
-        category: 'Container',
+    table: {
+      category: 'Container',
+    },
+  },
+  justifyContent: {
+    name: 'justify content',
+    description: 'Choose different justify-content values',
+    type: 'select',
+    options: ['start', 'end', 'center', 'between', 'around'],
+    control: {
+      labels: {
+        start: 'Start',
+        end: 'End',
+        center: 'Center',
+        between: 'Space between',
+        around: 'Space around',
       },
     },
-    alignItems: {
-      name: 'align items',
-      description: 'Choose different flex-align values',
-      type: 'select',
-      options: ['start', 'end', 'center', 'baseline', 'stretch'],
-      table: {
-        category: 'Container',
-      },
+    table: {
+      category: 'Container',
     },
-    alignContent: {
-      name: 'align content',
-      description: 'Choose different align content values',
-      type: 'select',
-      options: ['start', 'end', 'center', 'between', 'around', 'stretch'],
-      control: {
-        labels: {
-          start: 'Start',
-          end: 'End',
-          center: 'Center',
-          between: 'Space between',
-          around: 'Space around',
-          stretch: 'Stretch',
-        },
-      },
-      table: {
-        category: 'Container',
-      },
+  },
+  shrink: {
+    type: 'boolean',
+    description: 'Flex-shrink',
+    table: {
+      category: 'Items',
     },
-    justifyContent: {
-      name: 'justify content',
-      description: 'Choose different justify-content values',
-      type: 'select',
-      options: ['start', 'end', 'center', 'between', 'around'],
-      control: {
-        labels: {
-          start: 'Start',
-          end: 'End',
-          center: 'Center',
-          between: 'Space between',
-          around: 'Space around',
-        },
-      },
-      table: {
-        category: 'Container',
-      },
-    },
-    shrink: {
+  },
+  grow: {
+    description: 'Flex-grow',
+    type: 'boolean',
+    control: {
       type: 'boolean',
-      description: 'Flex-shrink',
-      table: {
-        category: 'Items',
-      },
     },
-    grow: {
-      description: 'Flex-grow',
+    table: {
+      category: 'Items',
+    },
+  },
+  fixedContainer: {
+    name: 'test with a fixed container',
+    description:
+      'Following width and height values will be taken into account if activated',
+    type: 'boolean',
+    control: {
       type: 'boolean',
-      control: {
-        type: 'boolean',
-      },
-      table: {
-        category: 'Items',
-      },
     },
-    fixedContainer: {
-      name: 'test with a fixed container',
-      description:
-        'Following width and height values will be taken into account if activated',
-      type: 'boolean',
-      control: {
-        type: 'boolean',
-      },
-      table: {
-        category: 'Fixed container',
-      },
+    table: {
+      category: 'Fixed container',
     },
-    containerWidth: {
-      name: 'container width (rem)',
-      description: 'Fixed container width',
-      control: {
-        type: 'range',
-        min: 15,
-        max: 35,
-        step: 1,
-      },
-      table: {
-        category: 'Fixed container',
-      },
+  },
+  containerWidth: {
+    name: 'container width (rem)',
+    description: 'Fixed container width',
+    control: {
+      type: 'range',
+      min: 15,
+      max: 35,
+      step: 1,
     },
-    containerHeight: {
-      name: 'container height (rem)',
-      description: 'Fixed container height',
-      control: {
-        type: 'range',
-        min: 15,
-        max: 35,
-        step: 1,
-      },
-      table: {
-        category: 'Fixed container',
-      },
+    table: {
+      category: 'Fixed container',
     },
-  };
-};
+  },
+  containerHeight: {
+    name: 'container height (rem)',
+    description: 'Fixed container height',
+    control: {
+      type: 'range',
+      min: 15,
+      max: 35,
+      step: 1,
+    },
+    table: {
+      category: 'Fixed container',
+    },
+  },
+});
 
 const Box = ({ width, shrink, grow, contents }) => `
   <div

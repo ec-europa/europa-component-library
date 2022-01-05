@@ -7,53 +7,46 @@ import notes from './README.md';
 
 const demoImage = { ...defaultData.image };
 
-const getArgs = (data) => {
-  return {
-    show_image: false,
-    citation: data.citation,
-    author: data.author,
-  };
-};
+const getArgs = (data) => ({
+  show_image: false,
+  citation: data.citation,
+  author: data.author,
+});
 
-const getArgTypes = () => {
-  return {
-    citation: {
-      name: 'citation',
-      type: { name: 'string', required: true },
-      description: 'Blockquote citation',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-      control: {
-        type: 'text',
-      },
+const getArgTypes = () => ({
+  show_image: {
+    name: 'show image',
+    type: { name: 'boolean' },
+    description: 'Toggle image visibility',
+    table: {
+      type: { summary: 'boolean' },
+      category: 'Optional',
     },
-    author: {
-      name: 'author',
-      type: { name: 'string', required: true },
-      description: 'Author of the citation',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-      control: {
-        type: 'text',
-      },
+  },
+  citation: {
+    name: 'citation',
+    type: { name: 'string', required: true },
+    description: 'Blockquote citation',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
     },
-    show_image: {
-      name: 'show image',
-      type: { name: 'boolean' },
-      description: 'Toggle image visibility',
-      table: {
-        type: { summary: 'boolean' },
-        category: 'Optional',
-      },
+  },
+  author: {
+    name: 'author',
+    type: { name: 'string', required: true },
+    description: 'Author of the citation',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
     },
-  };
-};
+    control: {
+      type: 'text',
+    },
+  },
+});
 
 const prepareData = (data, args) => {
   data.image = args.show_image ? demoImage : null;

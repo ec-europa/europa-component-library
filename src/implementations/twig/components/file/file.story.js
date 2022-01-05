@@ -137,8 +137,8 @@ const getArgTypes = (data) => {
         'https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg',
       ],
       control: {
-        type: 'select',
         labels: {
+          none: 'none',
           'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg':
             'landscape',
           'https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg':

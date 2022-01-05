@@ -55,10 +55,8 @@ $_list-padding: null !default;
 }
 
 .ecl-card__body {
-  padding-bottom: $_body-padding-bottom;
-  padding-left: $_general-spacing;
-  padding-right: $_general-spacing;
-  padding-top: $_body-padding-top;
+  padding: $_body-padding-top $_general-spacing $_body-padding-bottom
+    $_general-spacing;
   position: relative;
 }
 

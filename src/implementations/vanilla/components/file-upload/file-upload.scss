@@ -107,11 +107,11 @@
  */
 // stylelint-disable-next-line no-descending-specificity
 .ecl-file-upload::-webkit-file-upload-button {
-  @include browse-button();
+  @include browse-button;
 }
 
 .ecl-file-upload::-ms-browse {
-  @include browse-button();
+  @include browse-button;
 }
 
 .ecl-file-upload[disabled] {
@@ -119,12 +119,12 @@
 
   &::-webkit-file-upload-button,
   &::-webkit-file-upload-button:hover {
-    @include browse-button-disabled();
+    @include browse-button-disabled;
   }
 
   &::-ms-browse,
   &::-ms-browse:hover {
-    @include browse-button-disabled();
+    @include browse-button-disabled;
   }
 }
 

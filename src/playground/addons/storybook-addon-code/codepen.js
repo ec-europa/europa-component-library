@@ -23,8 +23,8 @@ const replaceIcons = (code) =>
     )
     .replace(/([^:]\/)\/+/g, '$1'); // remove double forward slashes;
 
-const prefillPen = (code) => {
-  return JSON.stringify({
+const prefillPen = (code) =>
+  JSON.stringify({
     title: 'ECL Pen',
     description: "Exported from ECL's playground",
     html: replaceLogo(replaceIcons(code)),
@@ -32,6 +32,5 @@ const prefillPen = (code) => {
     js_external: `https://unpkg.com/svg4everybody@2.1.9/dist/svg4everybody.js;https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js;${baseUrl}/scripts/ecl-${system}.js`,
     js: 'svg4everybody({ polyfill: true });\nECL.autoInit();',
   });
-};
 
 export default prefillPen;

@@ -6,52 +6,45 @@ import demoData from '@ecl/specs-component-expandable/demo/data';
 import expandable from './expandable.html.twig';
 import notes from './README.md';
 
-const getArgs = (data) => {
-  return {
-    label_collapsed: data.label_collapsed,
-    label_expanded: data.label_expanded,
-    content: data.content,
-  };
-};
+const getArgs = (data) => ({
+  label_collapsed: data.label_collapsed,
+  label_expanded: data.label_expanded,
+  content: data.content,
+});
 
-const getArgTypes = () => {
-  return {
-    label_collapsed: {
-      name: 'label of the button',
-      type: { name: 'string', required: true },
-      description: 'Used when the content is hidden',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Button',
-      },
+const getArgTypes = () => ({
+  label_collapsed: {
+    name: 'label of the button',
+    type: { name: 'string', required: true },
+    description: 'Used when the content is hidden',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Button',
     },
-    label_expanded: {
-      name: 'label of the button',
-      type: { name: 'string', required: true },
-      description: 'Used when the content is visible',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Button',
-      },
+  },
+  label_expanded: {
+    name: 'label of the button',
+    type: { name: 'string', required: true },
+    description: 'Used when the content is visible',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Button',
     },
-    content: {
-      type: { name: 'string', required: true },
-      description:
-        'Hidden initially, can be revealed by clicking on the button',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
+  },
+  content: {
+    type: { name: 'string', required: true },
+    description: 'Hidden initially, can be revealed by clicking on the button',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
     },
-  };
-};
+  },
+});
 
-const prepareData = (data, args) => {
-  return Object.assign(correctSvgPath(data), args);
-};
+const prepareData = (data, args) => Object.assign(correctSvgPath(data), args);
 
 export default {
   title: 'Components/Expandables',

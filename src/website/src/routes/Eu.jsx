@@ -63,15 +63,17 @@ const pagesToRoutes = (pages) =>
 
 const routes = pagesToRoutes(sortedPages);
 
-const EURoutes = () => (
-  <Skeleton
-    HomePage={HomePage}
-    prefix="/eu"
-    title="EU Homepage"
-    system="eu"
-    pages={sortedPages[0].children}
-    routes={routes}
-  />
-);
+function EURoutes() {
+  return (
+    <Skeleton
+      HomePage={HomePage}
+      prefix="/eu"
+      title="EU Homepage"
+      system="eu"
+      pages={sortedPages[0].children}
+      routes={routes}
+    />
+  );
+}
 
 export default EURoutes;

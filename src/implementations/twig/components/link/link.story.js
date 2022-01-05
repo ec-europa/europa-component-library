@@ -34,96 +34,92 @@ const withNegative = (story, controls) => {
     : demo;
 };
 
-const getArgs = (data) => {
-  return {
-    label: data.link.label,
-    negative: data.link.negative || false,
-    no_visited: data.link.no_visited || false,
-    icon_name: 'none',
-    icon_position: 'after',
-  };
-};
+const getArgs = (data) => ({
+  label: data.link.label,
+  negative: data.link.negative || false,
+  no_visited: data.link.no_visited || false,
+  icon_name: 'none',
+  icon_position: 'after',
+});
 
-const getArgTypes = () => {
-  return {
-    label: {
-      name: 'label',
-      type: { name: 'string', required: true },
-      description: 'The link label',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-      control: {
-        type: 'text',
-      },
+const getArgTypes = () => ({
+  label: {
+    name: 'label',
+    type: { name: 'string', required: true },
+    description: 'The link label',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
     },
-    negative: {
-      name: 'negative',
-      type: { name: 'boolean' },
-      description: 'Negative link (light on dark)',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-        category: 'Content',
-      },
-      control: {
-        type: 'boolean',
-      },
+    control: {
+      type: 'text',
     },
-    no_visited: {
-      name: 'no visited',
-      type: { name: 'boolean' },
-      description: 'No change of color for visited link',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-        category: 'Content',
-      },
-      control: {
-        type: 'boolean',
-      },
+  },
+  negative: {
+    name: 'negative',
+    type: { name: 'boolean' },
+    description: 'Negative link (light on dark)',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'Content',
     },
-    icon_name: {
-      name: 'icon name',
-      type: { name: 'select', required: false },
-      options: [...iconsAll],
-      description: 'Name of the icon',
-      table: {
-        type: { summary: 'string' },
-        category: 'Icon',
-      },
+    control: {
+      type: 'boolean',
     },
-    icon_transform: {
-      name: 'icon transform',
-      type: { name: 'select' },
-      description: 'Link icon transform',
-      options: [
-        'rotate-90',
-        'rotate-180',
-        'rotate-270',
-        'flip-horizontal',
-        'flip-vertical',
-      ],
-      table: {
-        type: { summary: 'string' },
-        category: 'Icon',
-      },
+  },
+  no_visited: {
+    name: 'no visited',
+    type: { name: 'boolean' },
+    description: 'No change of color for visited link',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'Content',
     },
-    icon_position: {
-      name: 'icon position',
-      type: { name: 'inline-radio' },
-      description: 'Icon position inside the link',
-      options: ['before', 'after'],
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'after' },
-        category: 'Icon',
-      },
+    control: {
+      type: 'boolean',
     },
-  };
-};
+  },
+  icon_name: {
+    name: 'icon name',
+    type: { name: 'select', required: false },
+    options: [...iconsAll],
+    description: 'Name of the icon',
+    table: {
+      type: { summary: 'string' },
+      category: 'Icon',
+    },
+  },
+  icon_transform: {
+    name: 'icon transform',
+    type: { name: 'select' },
+    description: 'Link icon transform',
+    options: [
+      'rotate-90',
+      'rotate-180',
+      'rotate-270',
+      'flip-horizontal',
+      'flip-vertical',
+    ],
+    table: {
+      type: { summary: 'string' },
+      category: 'Icon',
+    },
+  },
+  icon_position: {
+    name: 'icon position',
+    type: { name: 'inline-radio' },
+    description: 'Icon position inside the link',
+    options: ['before', 'after'],
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'after' },
+      category: 'Icon',
+    },
+  },
+});
 
 const prepareData = (data, args) => {
   data.link.label = args.label;

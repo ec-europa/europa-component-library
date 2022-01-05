@@ -273,6 +273,7 @@ $_mobile-item-hover-background: null !default;
 .ecl-menu__close {
   color: map.get(theme.$color, 'white');
   order: 0;
+
   // Would be better to have a variant of button here
   .ecl-button__icon,
   .ecl-button__label {
@@ -369,7 +370,7 @@ $_mobile-item-hover-background: null !default;
 
   .ecl-menu__link--current,
   .ecl-menu__link:active {
-    background-color: map-get(theme.$color, 'blue-5');
+    background-color: map.get(theme.$color, 'blue-5');
   }
 }
 
@@ -693,6 +694,7 @@ $_mobile-item-hover-background: null !default;
       border-top-width: 0;
       box-sizing: border-box;
       display: inline-flex;
+
       // Margin and padding to fix overlap on focus
       margin-bottom: calc(
         #{$_menu-subitem-margin-bottom} - 4 * #{$_menu-sublink-margin-offset}

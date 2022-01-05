@@ -25,37 +25,33 @@ if (system === 'eu') {
   dataWarning.close.icon.size = 's';
 }
 
-const getArgs = (data) => {
-  return {
-    title: data.title,
-    description: data.description,
-  };
-};
+const getArgs = (data) => ({
+  title: data.title,
+  description: data.description,
+});
 
-const getArgTypes = () => {
-  return {
-    title: {
-      name: 'title',
-      type: { name: 'string', required: true },
-      description: 'The content of the title',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
+const getArgTypes = () => ({
+  title: {
+    name: 'title',
+    type: { name: 'string', required: true },
+    description: 'The content of the title',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
     },
-    description: {
-      name: 'description',
-      type: { name: 'string', required: true },
-      description: 'The content of the description message',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
+  },
+  description: {
+    name: 'description',
+    type: { name: 'string', required: true },
+    description: 'The content of the description message',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
     },
-  };
-};
+  },
+});
 
 const prepareData = (data, args) => {
   correctSvgPath(data);

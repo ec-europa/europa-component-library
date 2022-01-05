@@ -2,81 +2,77 @@ import classnames from 'classnames';
 import withCode from '@ecl/storybook-addon-code';
 import { styled } from '@ecl/dom-utils';
 
-const getArgs = () => {
-  return {
-    width: 'ecl-u-width-auto',
-    height: 'ecl-u-height-auto',
-    maxWidth: 'ecl-u-max-width-none',
-    maxHeight: 'ecl-u-max-height-none',
-  };
-};
+const getArgs = () => ({
+  width: 'ecl-u-width-auto',
+  height: 'ecl-u-height-auto',
+  maxWidth: 'ecl-u-max-width-none',
+  maxHeight: 'ecl-u-max-height-none',
+});
 
-const getArgTypes = () => {
-  return {
-    width: {
-      type: 'select',
-      options: ['ecl-u-width-auto', 'ecl-u-width-100'],
-      control: {
-        labels: {
-          'ecl-u-width-auto': 'Auto',
-          'ecl-u-width-100': '100%',
-        },
-      },
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'auto' },
-        category: 'width/height',
+const getArgTypes = () => ({
+  width: {
+    type: 'select',
+    options: ['ecl-u-width-auto', 'ecl-u-width-100'],
+    control: {
+      labels: {
+        'ecl-u-width-auto': 'Auto',
+        'ecl-u-width-100': '100%',
       },
     },
-    height: {
-      type: 'select',
-      options: ['ecl-u-height-auto', 'ecl-u-height-100'],
-      control: {
-        labels: {
-          'ecl-u-height-auto': 'Auto',
-          'ecl-u-height-100': '100%',
-        },
-      },
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'auto' },
-        category: 'width/height',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'auto' },
+      category: 'width/height',
+    },
+  },
+  height: {
+    type: 'select',
+    options: ['ecl-u-height-auto', 'ecl-u-height-100'],
+    control: {
+      labels: {
+        'ecl-u-height-auto': 'Auto',
+        'ecl-u-height-100': '100%',
       },
     },
-    maxWidth: {
-      name: 'max width',
-      type: 'select',
-      options: ['ecl-u-max-width-none', 'ecl-u-max-width-100'],
-      control: {
-        labels: {
-          'ecl-u-max-width-none': 'None',
-          'ecl-u-max-width-100': '100%',
-        },
-      },
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'none' },
-        category: 'max-width/max-height',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'auto' },
+      category: 'width/height',
+    },
+  },
+  maxWidth: {
+    name: 'max width',
+    type: 'select',
+    options: ['ecl-u-max-width-none', 'ecl-u-max-width-100'],
+    control: {
+      labels: {
+        'ecl-u-max-width-none': 'None',
+        'ecl-u-max-width-100': '100%',
       },
     },
-    maxHeight: {
-      name: 'max height',
-      type: 'select',
-      options: ['ecl-u-max-height-none', 'ecl-u-max-height-100'],
-      control: {
-        labels: {
-          'ecl-u-max-height-none': 'None',
-          'ecl-u-max-height-100': '100%',
-        },
-      },
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'none' },
-        category: 'max-width/max-height',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'none' },
+      category: 'max-width/max-height',
+    },
+  },
+  maxHeight: {
+    name: 'max height',
+    type: 'select',
+    options: ['ecl-u-max-height-none', 'ecl-u-max-height-100'],
+    control: {
+      labels: {
+        'ecl-u-max-height-none': 'None',
+        'ecl-u-max-height-100': '100%',
       },
     },
-  };
-};
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'none' },
+      category: 'max-width/max-height',
+    },
+  },
+});
 
 const styleContainer = {
   backgroundColor: '#d9d9d9',

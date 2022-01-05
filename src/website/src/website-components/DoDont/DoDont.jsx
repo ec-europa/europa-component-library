@@ -5,12 +5,14 @@ import Do from './Do';
 import Dont from './Dont';
 import styles from './DoDont.scss';
 
-const DoDont = ({ itemDo, itemDont }) => (
-  <div className={styles.dodont}>
-    <Do {...itemDo} />
-    <Dont {...itemDont} />
-  </div>
-);
+function DoDont({ itemDo, itemDont }) {
+  return (
+    <div className={styles.dodont}>
+      <Do {...itemDo} />
+      <Dont {...itemDont} />
+    </div>
+  );
+}
 
 DoDont.propTypes = {
   itemDo: PropTypes.shape({

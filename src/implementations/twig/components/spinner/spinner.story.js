@@ -7,68 +7,64 @@ import notes from './README.md';
 
 const dataNegative = { ...dataDefault, variant: 'negative' };
 
-const getArgs = (data) => {
-  return {
-    show_text: true,
-    text: data.text,
-    size: data.size || 'medium',
-    centered: true,
-    overlay: false,
-  };
-};
+const getArgs = (data) => ({
+  show_text: true,
+  text: data.text,
+  size: data.size || 'medium',
+  centered: true,
+  overlay: false,
+});
 
-const getArgTypes = (variant) => {
-  return {
-    show_text: {
-      name: 'text',
-      type: { name: 'boolean' },
-      description: 'Show the additional text',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: '' },
-        category: 'Optional',
-      },
+const getArgTypes = (variant) => ({
+  show_text: {
+    name: 'text',
+    type: { name: 'boolean' },
+    description: 'Show the additional text',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: '' },
+      category: 'Optional',
     },
-    overlay: {
-      type: { name: 'boolean' },
-      description: 'Show in an overlay',
-      table: {
-        disable: variant === 'primary',
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
-        category: 'Optional',
-      },
+  },
+  overlay: {
+    type: { name: 'boolean' },
+    description: 'Show in an overlay',
+    table: {
+      disable: variant === 'primary',
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'false' },
+      category: 'Optional',
     },
-    text: {
-      type: { name: 'string' },
-      description: 'Text below the loading indicator',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
+  },
+  text: {
+    type: { name: 'string' },
+    description: 'Text below the loading indicator',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
     },
-    size: {
-      type: { name: 'select' },
-      options: ['small', 'medium', 'large'],
-      description: 'Variant of the component',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'medium' },
-        category: 'Style',
-      },
+  },
+  size: {
+    type: { name: 'select' },
+    options: ['small', 'medium', 'large'],
+    description: 'Variant of the component',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'medium' },
+      category: 'Style',
     },
-    centered: {
-      type: { name: 'boolean' },
-      description: 'Center the element in a container',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
-        category: 'Style',
-      },
+  },
+  centered: {
+    type: { name: 'boolean' },
+    description: 'Center the element in a container',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'false' },
+      category: 'Style',
     },
-  };
-};
+  },
+});
 
 const withNegative = (story) => {
   const demo = story();

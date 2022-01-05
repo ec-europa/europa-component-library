@@ -9,7 +9,7 @@ import iconsSocialMedia from '@ecl/resources-social-media-icons/dist/lists/socia
 import IconCard from './IconCard';
 import styles from './IconList.scss';
 
-const IconList = ({ system, set }) => {
+function IconList({ system, set }) {
   let iconSet = system === 'eu' ? iconsEU : iconsEC;
   if (set === 'flag') iconSet = iconsFlag;
   if (set === 'social-media') iconSet = iconsSocialMedia;
@@ -21,7 +21,7 @@ const IconList = ({ system, set }) => {
       ))}
     </ul>
   );
-};
+}
 
 IconList.propTypes = {
   system: PropTypes.string,
