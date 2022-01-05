@@ -9,26 +9,22 @@ import dataUnorderedListNoBullet from '@ecl/specs-component-unordered-list/demo/
 import unorderedList from './unordered-list.html.twig';
 import notes from './README.md';
 
-const getArgs = (data) => {
-  return {
-    label: data.items[0].label,
-  };
-};
+const getArgs = (data) => ({
+  label: data.items[0].label,
+});
 
-const getArgTypes = () => {
-  return {
-    label: {
-      name: 'list item (first item)',
-      type: { name: 'string', required: true },
-      description: 'The content of the first list item',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
+const getArgTypes = () => ({
+  label: {
+    name: 'list item (first item)',
+    type: { name: 'string', required: true },
+    description: 'The content of the first list item',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
     },
-  };
-};
+  },
+});
 
 const prepareData = (data, args) => {
   data.items[0].label = args.label;

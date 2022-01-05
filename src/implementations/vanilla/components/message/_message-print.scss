@@ -46,7 +46,7 @@ $_title-spacing: none !default;
 .ecl-message__title {
   color: $_title-color;
   font: $_title-font;
-  font-family: #{map.get(theme.$font-family-print, 'alt')};
+  font-family: "#{map.get(theme.$font-family-print, 'alt')}";
   font-weight: map.get(theme.$font-weight-print, 'bold');
   margin-bottom: $_title-spacing;
   max-width: 80ch;

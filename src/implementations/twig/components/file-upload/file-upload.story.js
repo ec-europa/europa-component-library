@@ -7,47 +7,43 @@ import dataMulti from '@ecl/specs-component-file-upload/demo/data--multiple';
 import fileUpload from './file-upload.html.twig';
 import notes from './README.md';
 
-const getArgs = (data) => {
-  return {
-    show_label: true,
-    show_helper: true,
-    show_error: true,
-    invalid: data.invalid || false,
-    disabled: data.disabled || false,
-    required: data.required,
-    label: data.label || '',
-    helper_text: data.helper_text,
-    required_text: data.required_text,
-    button_choose_label: data.button_choose_label,
-    button_replace_label: data.button_replace_label,
-  };
-};
+const getArgs = (data) => ({
+  show_label: true,
+  show_helper: true,
+  show_error: true,
+  invalid: data.invalid || false,
+  disabled: data.disabled || false,
+  required: data.required,
+  label: data.label || '',
+  helper_text: data.helper_text,
+  required_text: data.required_text,
+  button_choose_label: data.button_choose_label,
+  button_replace_label: data.button_replace_label,
+});
 
-const getArgTypes = (data) => {
-  return {
-    ...getFormControls(data, 'element'),
-    button_choose_label: {
-      name: 'button choose label',
-      type: { name: 'string', required: true },
-      description: 'Label for the upload button',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
+const getArgTypes = (data) => ({
+  ...getFormControls(data, 'element'),
+  button_choose_label: {
+    name: 'button choose label',
+    type: { name: 'string', required: true },
+    description: 'Label for the upload button',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
     },
-    button_replace_label: {
-      name: 'button replace label',
-      type: { name: 'string', required: true },
-      description: 'Label for the buttonto replace a selected file',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
+  },
+  button_replace_label: {
+    name: 'button replace label',
+    type: { name: 'string', required: true },
+    description: 'Label for the buttonto replace a selected file',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
     },
-  };
-};
+  },
+});
 
 const prepareData = (data, args) => {
   Object.assign(data, args);

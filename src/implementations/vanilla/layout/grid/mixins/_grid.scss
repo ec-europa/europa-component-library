@@ -4,7 +4,7 @@
 @use '@ecl/theme-dev/theme';
 
 /// Grid system
-//
+
 // Generate semantic grid columns with these mixins.
 
 @mixin ecl-make-container($gutters: theme.$grid-gutter-width) {
@@ -67,6 +67,7 @@
   box-sizing: border-box;
   min-height: 1px; // Prevent collapsing
   position: relative;
+
   // Prevent columns from becoming too narrow when at smaller grid tiers by
   // always setting `width: 100%;`. This works because we use `flex` values
   // later on to override this initial width.
@@ -84,6 +85,7 @@
 
 @mixin make-col($size, $columns: map.get($grid, 'columns')) {
   flex: 0 0 math.percentage(math.div($size, $columns));
+
   // width: percentage($size / $columns);
   // Add a `max-width` to make sure content within each column does not blow out
   // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari

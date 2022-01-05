@@ -20,7 +20,7 @@ $_padding-vertical: map.get(theme.$spacing-print, 's');
   box-sizing: border-box;
   display: inline-block;
   font: map.get(theme.$font-print, 'm');
-  font-family: #{map.get(theme.$font-family-print, 'alt')};
+  font-family: "#{map.get(theme.$font-family-print, 'alt')}";
   font-weight: $_font-weight;
   margin: 0;
   padding: $_padding-vertical $_padding-horizontal;
@@ -60,6 +60,7 @@ $_padding-vertical: map.get(theme.$spacing-print, 's');
 */
 $_primary-background-color: map.get(theme.$color, 'blue-100') !default;
 $_primary-color: map.get(theme.$color, 'white-100') !default;
+
 .ecl-button--primary {
   background-color: $_primary-background-color;
   color: $_primary-color;
@@ -71,6 +72,7 @@ $_primary-color: map.get(theme.$color, 'white-100') !default;
 $_secondary-background-color: map.get(theme.$color, 'white-100') !default;
 $_secondary-border-color: map.get(theme.$color, 'blue-100') !default;
 $_secondary-color: map.get(theme.$color, 'blue-100') !default;
+
 .ecl-button--secondary {
   background-color: $_secondary-background-color;
   border: $_border-width solid $_secondary-border-color;
@@ -83,6 +85,7 @@ $_secondary-color: map.get(theme.$color, 'blue-100') !default;
 * Ghost
 */
 $_ghost-color: map.get(theme.$color, 'blue-100') !default;
+
 .ecl-button--ghost {
   color: $_ghost-color;
 }
@@ -92,6 +95,7 @@ $_ghost-color: map.get(theme.$color, 'blue-100') !default;
 */
 $_cta-background-color: map.get(theme.$color, 'yellow-100') !default;
 $_cta-color: map.get(theme.$color, 'black-100') !default;
+
 .ecl-button--call {
   background-color: $_cta-background-color;
   color: $_cta-color;

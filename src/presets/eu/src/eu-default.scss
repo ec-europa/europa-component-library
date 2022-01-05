@@ -20,7 +20,7 @@
 .ecl a:is([class*='ecl-u-']) {
   @extend %ecl-link;
 
-  font-family: #{map.get(theme.$font-family, 'default')};
+  font-family: "#{map.get(theme.$font-family, 'default')}";
 }
 
 .ecl h1:not([class*='ecl-'], [class*='wt-']),

@@ -5,8 +5,8 @@ module.exports = (
     search: /^/,
     replace: '/uploads',
   }
-) => {
-  return function image() {
+) =>
+  function image() {
     return function transformer(tree) {
       // eslint-disable-next-line no-use-before-define
       visit(tree, 'image', onImage);
@@ -16,4 +16,3 @@ module.exports = (
       }
     };
   };
-};

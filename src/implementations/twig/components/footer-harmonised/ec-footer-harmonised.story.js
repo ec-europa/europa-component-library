@@ -97,8 +97,6 @@ const prepareDataG1 = (data, args) => {
   }
   if (!args.hide_relate_site) {
     res.rows[0].splice(2, 1);
-  } else if (!args.hide_relate_site) {
-    res.rows[0][2].splice(1, 1);
   }
   if (!args.hide_about && !args.hide_relate_site) {
     res.rows[0].splice(2, 1);

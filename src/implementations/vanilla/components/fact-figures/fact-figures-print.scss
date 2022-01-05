@@ -34,14 +34,14 @@
 
 .ecl-fact-figures__value {
   font: map.get(theme.$font-print, '4xl');
-  font-family: #{map.get(theme.$font-family-print, 'alt')};
+  font-family: "#{map.get(theme.$font-family-print, 'alt')}";
   font-weight: map.get(theme.$font-weight, 'bold');
 }
 
 .ecl-fact-figures__title {
   clear: left;
   font: map.get(theme.$font-prolonged-print, 'l');
-  font-family: #{map.get(theme.$font-family-print, 'alt')};
+  font-family: "#{map.get(theme.$font-family-print, 'alt')}";
   font-weight: map.get(theme.$font-weight, 'bold');
   margin-left: calc(
     #{map.get(theme.$icon-print, 'm')} + #{map.get(theme.$spacing-print, 'm')}

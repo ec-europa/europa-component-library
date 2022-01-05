@@ -14,37 +14,37 @@ $_heading6: null !default;
 */
 .ecl-u-type-heading-1 {
   font: $_heading1 !important;
-  font-family: #{map.get(theme.$font-family-print, 'alt')} !important;
+  font-family: "#{map.get(theme.$font-family-print, 'alt')}" !important;
   font-weight: map.get(theme.$font-weight, 'bold') !important;
 }
 
 .ecl-u-type-heading-2 {
   font: $_heading2 !important;
-  font-family: #{map.get(theme.$font-family-print, 'alt')} !important;
+  font-family: "#{map.get(theme.$font-family-print, 'alt')}" !important;
   font-weight: map.get(theme.$font-weight-print, 'bold') !important;
 }
 
 .ecl-u-type-heading-3 {
   font: $_heading3 !important;
-  font-family: #{map.get(theme.$font-family-print, 'alt')} !important;
+  font-family: "#{map.get(theme.$font-family-print, 'alt')}" !important;
   font-weight: map.get(theme.$font-weight-print, 'bold') !important;
 }
 
 .ecl-u-type-heading-4 {
   font: $_heading4 !important;
-  font-family: #{map.get(theme.$font-family-print, 'alt')} !important;
+  font-family: "#{map.get(theme.$font-family-print, 'alt')}" !important;
   font-weight: map.get(theme.$font-weight-print, 'bold') !important;
 }
 
 .ecl-u-type-heading-5 {
   font: $_heading5 !important;
-  font-family: #{map.get(theme.$font-family-print, 'alt')} !important;
+  font-family: "#{map.get(theme.$font-family-print, 'alt')}" !important;
   font-weight: map.get(theme.$font-weight-print, 'bold') !important;
 }
 
 .ecl-u-type-heading-6 {
   font: $_heading6 !important;
-  font-family: #{map.get(theme.$font-family-print, 'alt')} !important;
+  font-family: "#{map.get(theme.$font-family-print, 'alt')}" !important;
   font-weight: map.get(theme.$font-weight-print, 'bold') !important;
 }
 
@@ -74,45 +74,59 @@ $_heading6: null !default;
 .ecl-u-type-xs {
   font: map.get(theme.$font-print, 'xs') !important;
 }
+
 .ecl-u-type-s {
   font: map.get(theme.$font-print, 's') !important;
 }
+
 .ecl-u-type-m {
   font: map.get(theme.$font-print, 'm') !important;
 }
+
 .ecl-u-type-l {
   font: map.get(theme.$font-print, 'l') !important;
 }
+
 .ecl-u-type-xl {
   font: map.get(theme.$font-print, 'xl') !important;
 }
+
 .ecl-u-type-2xl {
   font: map.get(theme.$font-print, '2xl') !important;
 }
+
 .ecl-u-type-3xl {
   font: map.get(theme.$font-print, '3xl') !important;
 }
+
 .ecl-u-type-4xl {
   font: map.get(theme.$font-print, '4xl') !important;
 }
+
 .ecl-u-type-5xl {
   font: map.get(theme.$font-print, '5xl') !important;
 }
+
 .ecl-u-type-6xl {
   font: map.get(theme.$font-print, '6xl') !important;
 }
+
 .ecl-u-type-prolonged-xs {
   font: map.get(theme.$font-prolonged-print, 'xs') !important;
 }
+
 .ecl-u-type-prolonged-s {
   font: map.get(theme.$font-prolonged-print, 's') !important;
 }
+
 .ecl-u-type-prolonged-m {
   font: map.get(theme.$font-prolonged-print, 'm') !important;
 }
+
 .ecl-u-type-prolonged-l {
   font: map.get(theme.$font-prolonged-print, 'l') !important;
 }
+
 .ecl-u-type-prolonged-xl {
   font: map.get(theme.$font-prolonged-print, 'xl') !important;
 }
@@ -135,27 +149,35 @@ $_heading6: null !default;
 .ecl-u-type-regular {
   font-weight: map.get(theme.$font-weight-print, 'regular') !important;
 }
+
 .ecl-u-type-bold {
   font-weight: map.get(theme.$font-weight-print, 'bold') !important;
 }
+
 .ecl-u-type-capitalize {
   text-transform: capitalize !important;
 }
+
 .ecl-u-type-lowercase {
   text-transform: lowercase !important;
 }
+
 .ecl-u-type-uppercase {
   text-transform: uppercase !important;
 }
+
 .ecl-u-type-overline {
   text-decoration: overline !important;
 }
+
 .ecl-u-type-underline {
   text-decoration: underline !important;
 }
+
 .ecl-u-type-strike {
   text-decoration: line-through !important;
 }
+
 .ecl-u-type-none {
   text-decoration: none !important;
 }
@@ -164,10 +186,11 @@ $_heading6: null !default;
 * Font family
 */
 .ecl-u-type-family {
-  font-family: #{map.get(theme.$font-family-print, 'default')} !important;
+  font-family: "#{map.get(theme.$font-family-print, 'default')}" !important;
 }
+
 .ecl-u-type-family-alt {
-  font-family: #{map.get(theme.$font-family-print, 'alt')} !important;
+  font-family: "#{map.get(theme.$font-family-print, 'alt')}" !important;
 }
 
 /*
@@ -176,9 +199,11 @@ $_heading6: null !default;
 .ecl-u-type-align-left {
   text-align: left !important;
 }
+
 .ecl-u-type-align-right {
   text-align: right !important;
 }
+
 .ecl-u-type-align-center {
   text-align: center !important;
 }

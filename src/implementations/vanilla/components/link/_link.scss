@@ -68,11 +68,11 @@ $_negative: null !default;
 }
 
 .ecl-link--icon-before .ecl-link__icon {
-  margin-right: map-get(theme.$spacing, 'xs');
+  margin-right: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-link--icon-after .ecl-link__icon {
-  margin-left: map-get(theme.$spacing, 'xs');
+  margin-left: map.get(theme.$spacing, 'xs');
 }
 
 /**
@@ -116,7 +116,7 @@ $_negative: null !default;
 * Standalone
 */
 .ecl-link--standalone {
-  font-family: #{map.get(theme.$font-family, 'default')};
+  font-family: "#{map.get(theme.$font-family, 'default')}";
   text-decoration: none;
 
   /* stylelint-disable */

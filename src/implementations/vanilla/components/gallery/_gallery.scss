@@ -327,9 +327,11 @@ $_overlay-links-hover-color: null !default;
 .ecl-gallery__detail-actions {
   margin-top: $_actions-margin;
 }
+
 .ecl-gallery__share {
   margin-left: map.get(theme.$spacing, 's');
 }
+
 .ecl-gallery__download,
 .ecl-gallery__share {
   color: $_overlay-links-color;
@@ -353,6 +355,7 @@ $_overlay-links-hover-color: null !default;
   margin-top: map.get(theme.$spacing, 's');
   min-height: 5rem;
 }
+
 .ecl-gallery__overlay .ecl-gallery__description-icon {
   display: none;
 }
@@ -368,6 +371,7 @@ $_overlay-links-hover-color: null !default;
   .ecl-gallery__detail {
     padding: map.get(theme.$spacing, 'l') map.get(theme.$spacing, 'xl');
   }
+
   .ecl-gallery__detail-description {
     margin-top: $_description-margin-desktop;
     min-height: 0;

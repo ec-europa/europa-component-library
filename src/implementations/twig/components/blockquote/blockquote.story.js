@@ -5,53 +5,49 @@ import defaultData from '@ecl/specs-component-blockquote/demo/data';
 import blockquote from './blockquote.html.twig';
 import notes from './README.md';
 
-const getArgs = (data) => {
-  return {
-    citation: data.citation,
-    author: data.author,
-    show_image: false,
-  };
-};
+const getArgs = (data) => ({
+  citation: data.citation,
+  author: data.author,
+  show_image: false,
+});
 
-const getArgTypes = () => {
-  return {
-    citation: {
-      name: 'citation',
-      type: { name: 'string', required: true },
-      description: 'Blockquote citation',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-      control: {
-        type: 'text',
-      },
+const getArgTypes = () => ({
+  citation: {
+    name: 'citation',
+    type: { name: 'string', required: true },
+    description: 'Blockquote citation',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
     },
-    author: {
-      name: 'author',
-      type: { name: 'string', required: true },
-      description: 'Author of the citation',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-      control: {
-        type: 'text',
-      },
+    control: {
+      type: 'text',
     },
-    show_image: {
-      name: 'show image',
-      type: { name: 'boolean' },
-      description: 'Toggle image visibility',
-      table: {
-        type: { summary: 'boolean' },
-        category: 'Content',
-      },
+  },
+  author: {
+    name: 'author',
+    type: { name: 'string', required: true },
+    description: 'Author of the citation',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
     },
-  };
-};
+    control: {
+      type: 'text',
+    },
+  },
+  show_image: {
+    name: 'show image',
+    type: { name: 'boolean' },
+    description: 'Toggle image visibility',
+    table: {
+      type: { summary: 'boolean' },
+      category: 'Content',
+    },
+  },
+});
 
 const demoImage = defaultData.image;
 

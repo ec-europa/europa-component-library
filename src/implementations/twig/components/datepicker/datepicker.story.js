@@ -11,40 +11,34 @@ import notes from './README.md';
 const system = getSystem();
 const dataDefault = system === 'eu' ? specsEu : specsEc;
 
-const getArgs = (data) => {
-  return {
-    label: data.label || '',
-    helper_text: data.helper_text,
-    invalid_text: data.invalid_text,
-    optional_text: data.optional_text,
-    required_text: data.required_text,
-    invalid: data.invalid || false,
-    disabled: data.disabled || false,
-    required: data.required,
-    autoinit: data.autoinit,
-    placeholder: data.placeholder,
-  };
-};
+const getArgs = (data) => ({
+  label: data.label || '',
+  helper_text: data.helper_text,
+  invalid_text: data.invalid_text,
+  optional_text: data.optional_text,
+  required_text: data.required_text,
+  invalid: data.invalid || false,
+  disabled: data.disabled || false,
+  required: data.required,
+  autoinit: data.autoinit,
+  placeholder: data.placeholder,
+});
 
-const getArgTypes = (data) => {
-  return {
-    ...getFormControls(data, 'element'),
-    autoinit: {
-      name: 'autoinit',
-      type: 'boolean',
-      description: 'Initializes the javascript behaviours.',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-        category: 'States',
-      },
+const getArgTypes = (data) => ({
+  ...getFormControls(data, 'element'),
+  autoinit: {
+    name: 'autoinit',
+    type: 'boolean',
+    description: 'Initializes the javascript behaviours.',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'States',
     },
-  };
-};
+  },
+});
 
-const prepareData = (data, args) => {
-  return Object.assign(correctSvgPath(data), args);
-};
+const prepareData = (data, args) => Object.assign(correctSvgPath(data), args);
 
 export default {
   title: 'Components/Forms/Datepicker',

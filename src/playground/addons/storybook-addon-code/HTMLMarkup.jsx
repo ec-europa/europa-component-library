@@ -24,7 +24,7 @@ const StyledSyntaxHighlighter = styled(SyntaxHighlighter)(({ theme }) => ({
   flexShrink: '1',
 }));
 
-const HTMLMarkup = ({ active, channel }) => {
+function HTMLMarkup({ active, channel }) {
   const [code, setCode] = useState('');
   useEffect(() => {
     channel.on(ADD_CODE, (html) => setCode(html));
@@ -72,7 +72,7 @@ const HTMLMarkup = ({ active, channel }) => {
       </StyledSyntaxHighlighter>
     </DocumentWrapper>
   ) : null;
-};
+}
 
 HTMLMarkup.propTypes = {
   active: PropTypes.bool.isRequired,
