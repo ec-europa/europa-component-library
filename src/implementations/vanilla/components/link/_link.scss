@@ -116,7 +116,7 @@ $_negative: null !default;
 * Standalone
 */
 .ecl-link--standalone {
-  font-family: "#{map.get(theme.$font-family, 'default')}";
+  font-family: #{map.get(theme.$font-family, 'default')};
   text-decoration: none;
 
   /* stylelint-disable */

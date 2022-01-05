@@ -17,6 +17,8 @@ module.exports = {
     'scss/percent-placeholder-pattern': null,
     // Allow use of variables for font family
     'font-family-no-missing-generic-family-keyword': null,
+    // We store font families names in maps.
+    'font-family-name-quotes': null,
     // Avoid issues related to +
     'scss/operator-no-newline-after': null,
     // Might be re-enabled once the current issues are fixed

@@ -17,7 +17,7 @@ $_text-color: map.get(theme.$color, 'grey-100');
 .ecl-description-list__term {
   color: $_text-color;
   font: map.get(theme.$font-prolonged-print, 'xl');
-  font-family: "#{map.get(theme.$font-family-print, 'alt')}";
+  font-family: #{map.get(theme.$font-family-print, 'alt')};
   font-weight: map.get(theme.$font-weight-print, 'bold');
   overflow-wrap: break-word;
 }

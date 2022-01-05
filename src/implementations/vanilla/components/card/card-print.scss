@@ -18,14 +18,14 @@
 .ecl-card__meta {
   color: map.get(theme.$color, 'grey');
   font: map.get(theme.$font-print, 's');
-  font-family: "#{map.get(theme.$font-family-print, 'alt')}";
+  font-family: #{map.get(theme.$font-family-print, 'alt')};
   margin-bottom: map.get(theme.$spacing, 'xs');
   text-transform: uppercase;
 }
 
 .ecl-card__title {
   font: map.get(theme.$font-print, 'm');
-  font-family: "#{map.get(theme.$font-family-print, 'alt')}";
+  font-family: #{map.get(theme.$font-family-print, 'alt')};
   font-weight: map.get(theme.$font-weight-print, 'bold');
   margin: 0;
 
@@ -37,7 +37,7 @@
 }
 
 .ecl-card__title .ecl-link {
-  font-family: "#{map.get(theme.$font-family-print, 'alt')}";
+  font-family: #{map.get(theme.$font-family-print, 'alt')};
 }
 
 .ecl-card__description {
@@ -73,7 +73,7 @@
   color: map.get(theme.$color, 'grey');
   display: flex;
   font: map.get(theme.$font-print, 's');
-  font-family: "#{map.get(theme.$font-family-print, 'alt')}";
+  font-family: #{map.get(theme.$font-family-print, 'alt')};
   margin-top: map.get(theme.$spacing-print, 'xs');
 
   &:first-child {
@@ -127,7 +127,7 @@
 .ecl-card__tag {
   color: map.get(theme.$color, 'grey');
   font: map.get(theme.$font-print, 's');
-  font-family: "#{map.get(theme.$font-family-print, 'alt')}";
+  font-family: #{map.get(theme.$font-family-print, 'alt')};
 }
 
 .ecl-card__list {
