@@ -26,12 +26,10 @@ delete enMenu.cta_link;
 delete frMenu.cta_link;
 const clonedLoggedInData = { ...loggedInData };
 
-const getArgs = () => {
-  return {
-    login: true,
-    menu: true,
-  };
-};
+const getArgs = () => ({
+  login: true,
+  menu: true,
+});
 
 const getArgTypes = () => {
   const argTypes = {

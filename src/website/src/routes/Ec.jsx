@@ -63,15 +63,17 @@ const pagesToRoutes = (pages) =>
 
 const routes = pagesToRoutes(sortedPages);
 
-const ECRoutes = () => (
-  <Skeleton
-    HomePage={HomePage}
-    prefix="/ec"
-    title="EC Homepage"
-    system="ec"
-    pages={sortedPages[0].children}
-    routes={routes}
-  />
-);
+function ECRoutes() {
+  return (
+    <Skeleton
+      HomePage={HomePage}
+      prefix="/ec"
+      title="EC Homepage"
+      system="ec"
+      pages={sortedPages[0].children}
+      routes={routes}
+    />
+  );
+}
 
 export default ECRoutes;

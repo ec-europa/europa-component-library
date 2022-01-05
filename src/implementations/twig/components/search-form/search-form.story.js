@@ -6,59 +6,55 @@ import dataDefault from '@ecl/specs-component-search-form/demo/data';
 import searchForm from './search-form.html.twig';
 import notes from './README.md';
 
-const getArgs = (data) => {
-  return {
-    invalid: false,
-    disabled: false,
-    button_label: data.button.label || '',
-    placeholder: data.text_input.placeholder,
-  };
-};
+const getArgs = (data) => ({
+  invalid: false,
+  disabled: false,
+  button_label: data.button.label || '',
+  placeholder: data.text_input.placeholder,
+});
 
-const getArgTypes = () => {
-  return {
-    button_label: {
-      name: 'button label',
-      type: { name: 'string', required: true },
-      description: 'Label of the search button',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
+const getArgTypes = () => ({
+  button_label: {
+    name: 'button label',
+    type: { name: 'string', required: true },
+    description: 'Label of the search button',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
     },
-    placeholder: {
-      name: 'placeholder',
-      type: { name: 'string', required: true },
-      description: 'Label of the placeholder',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
+  },
+  placeholder: {
+    name: 'placeholder',
+    type: { name: 'string', required: true },
+    description: 'Label of the placeholder',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
     },
-    invalid: {
-      name: 'invalid',
-      type: 'boolean',
-      description: `Marks the search form as invalid`,
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-        category: 'States',
-      },
+  },
+  invalid: {
+    name: 'invalid',
+    type: 'boolean',
+    description: `Marks the search form as invalid`,
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'States',
     },
-    disabled: {
-      name: 'disabled',
-      type: 'boolean',
-      description: `Disabled search form`,
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-        category: 'States',
-      },
+  },
+  disabled: {
+    name: 'disabled',
+    type: 'boolean',
+    description: `Disabled search form`,
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'States',
     },
-  };
-};
+  },
+});
 
 const prepareData = (data, args) => {
   data.text_input.disabled = args.disabled;

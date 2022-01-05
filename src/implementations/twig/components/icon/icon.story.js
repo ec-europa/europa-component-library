@@ -13,14 +13,12 @@ import notes from './README.md';
 const system = getSystem();
 const iconsAll = system === 'eu' ? iconsAllEu : iconsAllEc;
 
-const getArgs = (data) => {
-  return {
-    name: data.icon.name,
-    size: 'm',
-    color: 'default',
-    transform: 'none',
-  };
-};
+const getArgs = (data) => ({
+  name: data.icon.name,
+  size: 'm',
+  color: 'default',
+  transform: 'none',
+});
 
 const getArgTypes = (data, icons) => getIconControls(data, icons);
 

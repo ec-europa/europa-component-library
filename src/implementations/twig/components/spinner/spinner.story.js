@@ -7,78 +7,74 @@ import notes from './README.md';
 
 const dataNegative = { ...dataDefault, variant: 'negative' };
 
-const getArgs = (data, variant) => {
-  return {
-    text: data.text,
-    size: data.size || 'medium',
-    variant,
-    visible: true,
-    centered: true,
-    overlay: false,
-  };
-};
+const getArgs = (data, variant) => ({
+  text: data.text,
+  size: data.size || 'medium',
+  variant,
+  visible: true,
+  centered: true,
+  overlay: false,
+});
 
-const getArgTypes = (variant) => {
-  return {
-    text: {
-      type: { name: 'string' },
-      description: 'Text below the loading indicator',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
+const getArgTypes = (variant) => ({
+  text: {
+    type: { name: 'string' },
+    description: 'Text below the loading indicator',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
     },
-    variant: {
-      type: { name: 'select' },
-      options: [variant],
-      description: 'Style of the loading indicator',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'primary' },
-        category: 'Style',
-      },
+  },
+  variant: {
+    type: { name: 'select' },
+    options: [variant],
+    description: 'Style of the loading indicator',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'primary' },
+      category: 'Style',
     },
-    size: {
-      type: { name: 'select' },
-      options: ['small', 'medium', 'large'],
-      description: 'Variant of the component',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'medium' },
-        category: 'Style',
-      },
+  },
+  size: {
+    type: { name: 'select' },
+    options: ['small', 'medium', 'large'],
+    description: 'Variant of the component',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'medium' },
+      category: 'Style',
     },
-    visible: {
-      type: { name: 'boolean' },
-      description: 'Visibility of the element',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
-        category: 'Style',
-      },
+  },
+  visible: {
+    type: { name: 'boolean' },
+    description: 'Visibility of the element',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'false' },
+      category: 'Style',
     },
-    centered: {
-      type: { name: 'boolean' },
-      description: 'Center the element in a container',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
-        category: 'Style',
-      },
+  },
+  centered: {
+    type: { name: 'boolean' },
+    description: 'Center the element in a container',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'false' },
+      category: 'Style',
     },
-    overlay: {
-      type: { name: 'boolean' },
-      description: 'Toggle overlay',
-      table: {
-        disable: variant === 'primary',
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
-        category: 'Overlay',
-      },
+  },
+  overlay: {
+    type: { name: 'boolean' },
+    description: 'Toggle overlay',
+    table: {
+      disable: variant === 'primary',
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'false' },
+      category: 'Overlay',
     },
-  };
-};
+  },
+});
 
 const withNegative = (story) => {
   const demo = story();

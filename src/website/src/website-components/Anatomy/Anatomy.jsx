@@ -8,7 +8,7 @@ import Col from '../../components/Grid/Col';
 import Row from '../../components/Grid/Row';
 import styles from './Anatomy.scss';
 
-const Anatomy = ({
+function Anatomy({
   vertical,
   image,
   srcset,
@@ -18,7 +18,7 @@ const Anatomy = ({
   selectedKind,
   selectedStory,
   additionalLink,
-}) => {
+}) {
   const playgroundUrl =
     system && selectedKind && selectedStory
       ? encodeURI(
@@ -110,7 +110,7 @@ const Anatomy = ({
       </Row>
     </div>
   );
-};
+}
 
 Anatomy.propTypes = {
   vertical: PropTypes.bool,

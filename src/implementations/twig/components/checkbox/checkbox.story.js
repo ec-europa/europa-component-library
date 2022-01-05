@@ -14,36 +14,32 @@ const system = getSystem();
 const dataDefault = system === 'eu' ? { ...dataEu } : { ...dataEc };
 const itemClone = { ...dataDefault.items[0] };
 
-const getArgs = (data) => {
-  return {
-    show_label: true,
-    show_helper: true,
-    show_error: true,
-    show_item_helper: true,
-    invalid: data.invalid || false,
-    disabled: data.disabled || false,
-    required: data.required || true,
-    label: data.label || '',
-    helper_text: data.helper_text,
-    invalid_text: data.invalid_text,
-  };
-};
+const getArgs = (data) => ({
+  show_label: true,
+  show_helper: true,
+  show_error: true,
+  show_item_helper: true,
+  invalid: data.invalid || false,
+  disabled: data.disabled || false,
+  required: data.required || true,
+  label: data.label || '',
+  helper_text: data.helper_text,
+  invalid_text: data.invalid_text,
+});
 
-const getArgTypes = (data) => {
-  return {
-    ...getFormControls(data, 'group'),
-    show_item_helper: {
-      name: 'checkbox helper text',
-      type: 'boolean',
-      description: 'Show checkbox helper text',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: true },
-        category: 'Optional',
-      },
+const getArgTypes = (data) => ({
+  ...getFormControls(data, 'group'),
+  show_item_helper: {
+    name: 'checkbox helper text',
+    type: 'boolean',
+    description: 'Show checkbox helper text',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: true },
+      category: 'Optional',
     },
-  };
-};
+  },
+});
 
 const prepareData = (data, args) => {
   Object.assign(data, args);

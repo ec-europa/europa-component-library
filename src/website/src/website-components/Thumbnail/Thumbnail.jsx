@@ -4,20 +4,22 @@ import PropTypes from 'prop-types';
 import Link from '../Link/Link';
 import styles from './Thumbnail.scss';
 
-const Thumbnail = ({ image, link, title }) => (
-  <Link className={styles.thumbnail} to={link}>
-    <span className={styles.title}>{title}</span>
-    <div className={styles.imageContainer}>
-      <div className={styles.flexboxCentering}>
-        <img
-          src={image}
-          alt={`Thumbnail of ${title}`}
-          className={styles.image}
-        />
+function Thumbnail({ image, link, title }) {
+  return (
+    <Link className={styles.thumbnail} to={link}>
+      <span className={styles.title}>{title}</span>
+      <div className={styles.imageContainer}>
+        <div className={styles.flexboxCentering}>
+          <img
+            src={image}
+            alt={`Thumbnail of ${title}`}
+            className={styles.image}
+          />
+        </div>
       </div>
-    </div>
-  </Link>
-);
+    </Link>
+  );
+}
 
 Thumbnail.propTypes = {
   image: PropTypes.string.isRequired,
