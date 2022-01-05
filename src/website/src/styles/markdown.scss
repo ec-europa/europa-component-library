@@ -59,7 +59,7 @@
 
 .a {
   color: map.get(theme.$color, 'primary');
-  font-family: '#{map.get(theme.$font-family, 'default')}';
+  font-family: #{map.get(theme.$font-family, 'default')};
   text-decoration: underline;
 
   &:hover,
