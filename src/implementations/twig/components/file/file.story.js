@@ -12,6 +12,7 @@ import file from './file.html.twig';
 import notes from './README.md';
 
 const listsClone = { ...dataThumbnailTaxonomy.lists[0] };
+const system = getSystem();
 
 const getArgs = (data) => {
   const args = {
@@ -106,14 +107,17 @@ const getArgTypes = (data) => {
       name: 'image example',
       type: 'select',
       description: 'Select different image variant to test thumbnail size',
-      options: {
-        none: '',
-        landscape:
-          'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
-        portrait:
-          'https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg',
-        square:
-          'https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg',
+      options: ['none', 'landscape', 'portrait', 'square'],
+      control: {
+        labels: {
+          none: 'none',
+          'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg':
+            'landscape',
+          'https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg':
+            'portrait',
+          'https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg':
+            'square',
+        },
       },
       table: {
         type: { summary: 'string' },
@@ -153,7 +157,7 @@ const getArgTypes = (data) => {
 
 const prepareData = (data, args) => {
   correctSvgPath(data);
-  const system = getSystem();
+
   if (system === 'eu') {
     data.icon.size = 'm';
   }
@@ -169,8 +173,10 @@ const prepareData = (data, args) => {
   }
   data.description = args.description;
   data.download.link.label = args.download_label;
-  if (data.image) {
+  if (data.image && args.image !== 'none') {
     data.image.src = args.image;
+  } else if (args.image === 'none') {
+    data.image.src = '';
   }
   if (data.translation) {
     data.translation.toggle.label = args.toggle_label;

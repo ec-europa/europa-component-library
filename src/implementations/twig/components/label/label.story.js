@@ -25,11 +25,14 @@ const getArgTypes = () => ({
     name: 'variant',
     type: { name: 'select' },
     description: 'The variant / importance of the label',
-    options: {
-      'low importance': 'low',
-      'medium importance': 'medium',
-      'high importance': 'high',
-      highlight: 'highlight',
+    options: ['low', 'medium', 'high', 'highlight'],
+    control: {
+      labels: {
+        low: 'low importance',
+        medium: 'medium importance',
+        high: 'high importance',
+        highlight: 'highlight',
+      },
     },
     table: {
       type: { summary: 'string' },

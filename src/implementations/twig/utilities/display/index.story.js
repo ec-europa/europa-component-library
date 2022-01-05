@@ -24,7 +24,6 @@ const getArgTypes = () => ({
       'ecl-u-d-none',
     ],
     control: {
-      type: 'select',
       labels: {
         'ecl-u-d-block': 'Block',
         'ecl-u-d-inline': 'Inline',
@@ -57,7 +56,7 @@ const getArgTypes = () => ({
     ],
     control: {
       labels: {
-        'ecl-u-d-block': ' Block',
+        'ecl-u-d-block': 'Block',
         'ecl-u-d-inline': 'Inline',
         'ecl-u-d-inline-block': 'Inline block',
         'ecl-u-d-flex': 'Flex',

@@ -104,7 +104,7 @@ const getArgTypes = () => ({
       defaultValue: { summary: '' },
     },
     options: [
-      '',
+      'none',
       'ecl-u-border-radius-1',
       'ecl-u-border-radius-2',
       'ecl-u-border-radius-4',
@@ -113,7 +113,7 @@ const getArgTypes = () => ({
     control: {
       type: 'select',
       labels: {
-        '': '0px',
+        none: '0px',
         'ecl-u-border-radius-1': '1px',
         'ecl-u-border-radius-2': '2px',
         'ecl-u-border-radius-4': '4px',
@@ -129,6 +129,9 @@ export default {
 };
 
 export const Custom = (args) => {
+  if (args.radius === 'none') {
+    args.radius = '';
+  }
   const direction =
     args.direction.length === 4 ? 'ecl-u-border-all' : args.direction;
   return `<div style="${styled(styleBox)}" class="${classnames(
