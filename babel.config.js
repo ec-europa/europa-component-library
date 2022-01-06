@@ -9,6 +9,9 @@ module.exports = {
     ],
     '@babel/preset-react',
   ],
-  plugins: ['@babel/plugin-transform-runtime', '@babel/plugin-proposal-export-default-from'],
+  plugins: [
+    '@babel/plugin-transform-runtime',
+    '@babel/plugin-proposal-export-default-from',
+  ],
   sourceType: 'unambiguous',
 };

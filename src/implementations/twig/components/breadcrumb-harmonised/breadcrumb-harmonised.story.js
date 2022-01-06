@@ -3,17 +3,15 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctSvgPath } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
-import dataSimpleEU from '@ecl/specs-component-breadcrumb/demo/data-simple--eu';
-import dataSimpleEC from '@ecl/specs-component-breadcrumb/demo/data-simple--ec';
-import dataLongEU from '@ecl/specs-component-breadcrumb/demo/data--eu';
-import dataLongEC from '@ecl/specs-component-breadcrumb/demo/data--ec';
+import dataDefaultEU from '@ecl/specs-component-breadcrumb/demo/data--eu';
+import dataDefaultEC from '@ecl/specs-component-breadcrumb/demo/data--ec';
 
 import breadcrumb from './breadcrumb-harmonised.html.twig';
 import notes from './README.md';
 
 const system = getSystem();
-const dataSimple = system === 'eu' ? { ...dataSimpleEU } : { ...dataSimpleEC };
-const dataLong = system === 'eu' ? { ...dataLongEU } : { ...dataLongEC };
+const dataDefault =
+  system === 'eu' ? { ...dataDefaultEU } : { ...dataDefaultEC };
 
 const getArgs = (data) => {
   const args = {};
@@ -61,20 +59,10 @@ export default {
   parameters: { layout: 'fullscreen' },
 };
 
-export const Simple = (args) => breadcrumb(prepareData(dataSimple, args));
+export const Default = (args) => breadcrumb(prepareData(dataDefault, args));
 
-Simple.args = getArgs(dataSimple);
-Simple.argTypes = getArgTypes(dataSimple);
-Simple.storyName = 'simple';
-Simple.parameters = {
-  notes: { markdown: notes, json: dataSimple },
-};
-
-export const Long = (args) => breadcrumb(prepareData(dataLong, args));
-
-Long.args = getArgs(dataLong);
-Long.argTypes = getArgTypes(dataLong);
-Long.storyName = 'long';
-Long.parameters = {
-  notes: { markdown: notes, json: dataLong },
+Default.args = getArgs(dataDefault);
+Default.argTypes = getArgTypes(dataDefault);
+Default.parameters = {
+  notes: { markdown: notes, json: dataDefault },
 };
