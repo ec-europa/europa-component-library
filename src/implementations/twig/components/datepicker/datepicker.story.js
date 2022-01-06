@@ -12,33 +12,43 @@ const system = getSystem();
 const dataDefault = system === 'eu' ? specsEu : specsEc;
 
 const getArgs = (data) => ({
+  show_label: true,
+  show_helper: true,
+  show_error: true,
   label: data.label || '',
   helper_text: data.helper_text,
   invalid_text: data.invalid_text,
-  optional_text: data.optional_text,
-  required_text: data.required_text,
   invalid: data.invalid || false,
   disabled: data.disabled || false,
   required: data.required,
-  autoinit: data.autoinit,
   placeholder: data.placeholder,
 });
 
 const getArgTypes = (data) => ({
   ...getFormControls(data, 'element'),
-  autoinit: {
-    name: 'autoinit',
-    type: 'boolean',
-    description: 'Initializes the javascript behaviours.',
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-      category: 'States',
-    },
-  },
 });
 
-const prepareData = (data, args) => Object.assign(correctSvgPath(data), args);
+const prepareData = (data, args) => {
+  Object.assign(data, args);
+
+  if (!args.show_label) {
+    data.label = '';
+  }
+  if (!args.show_error) {
+    data.invalid_text = '';
+  }
+  if (!args.show_helper) {
+    data.helper_text = '';
+  }
+
+  delete data.show_label;
+  delete data.show_helper;
+  delete data.show_error;
+
+  correctSvgPath(data);
+
+  return data;
+};
 
 export default {
   title: 'Components/Forms/Datepicker',

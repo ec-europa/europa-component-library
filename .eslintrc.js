@@ -1,5 +1,5 @@
 module.exports = {
-  parser: "@babel/eslint-parser",
+  parser: '@babel/eslint-parser',
   root: true,
   extends: ['airbnb-base', 'prettier'],
   env: {
