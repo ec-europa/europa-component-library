@@ -20,13 +20,11 @@ const iconsAll = system === 'eu' ? iconsAllEu : iconsAllEc;
 // Create 'none' option.
 iconsAll.unshift('none');
 
-const getArgs = () => {
-  return {
-    icon_name: 'none',
-    icon_position: 'after',
-    disabled: false,
-  };
-};
+const getArgs = () => ({
+  icon_name: 'none',
+  icon_position: 'after',
+  disabled: false,
+});
 
 const getArgTypes = () => {
   const argTypes = {};

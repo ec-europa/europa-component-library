@@ -6,30 +6,24 @@ import dataDefault from '@ecl/specs-component-social-media-share/demo/data';
 import SocialMediaShare from './social-media-share.html.twig';
 import notes from './README.md';
 
-const getArgs = (data) => {
-  return {
-    description: data.description,
-  };
-};
+const getArgs = (data) => ({
+  description: data.description,
+});
 
-const getArgTypes = () => {
-  return {
-    description: {
-      name: 'description',
-      type: { name: 'string', required: true },
-      description: 'The description of the section',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
+const getArgTypes = () => ({
+  description: {
+    name: 'description',
+    type: { name: 'string', required: true },
+    description: 'The description of the section',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
     },
-  };
-};
+  },
+});
 
-const prepareData = (data, args) => {
-  return Object.assign(correctSvgPath(data), args);
-};
+const prepareData = (data, args) => Object.assign(correctSvgPath(data), args);
 
 export default {
   title: 'Components/Social Media Share',

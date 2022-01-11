@@ -4,7 +4,6 @@
 $font-family: (
   'default': 'arial, sans-serif',
 ) !default;
-
 $font-size: (
   '2xs': 0.625rem,
   'xs': 0.75rem,
@@ -18,7 +17,6 @@ $font-size: (
   '5xl': 2.25rem,
   '6xl': 2.625rem,
 ) !default;
-
 $line-height: (
   '2xs': 1rem,
   'xs': 1rem,
@@ -32,7 +30,6 @@ $line-height: (
   '5xl': 2.75rem,
   '6xl': 3.25rem,
 ) !default;
-
 $line-height-prolonged: (
   'xs': 1.25rem,
   's': 1.25rem,
@@ -40,12 +37,10 @@ $line-height-prolonged: (
   'l': 1.75rem,
   'xl': 1.75rem,
 ) !default;
-
 $font-weight: (
   'regular': 400,
   'bold': 700,
 ) !default;
-
 $font: (
   '2xs': normal normal map.get($font-weight, 'regular') #{map.get(
       $font-size,
@@ -86,7 +81,6 @@ $font: (
       '6xl'
     ) + '/' + map.get($line-height, '6xl')} #{map.get($font-family, 'default')},
 ) !default;
-
 $font-prolonged: (
   'xs': normal normal map.get($font-weight, 'regular') #{map.get(
       $font-size,
@@ -124,7 +118,6 @@ $font-family-print: (
   'default': 'verdana, sans-serif',
   'alt': 'arial, sans-serif',
 ) !default;
-
 $font-size-print: (
   '2xs': 6pt,
   'xs': 7.5pt,
@@ -138,7 +131,6 @@ $font-size-print: (
   '5xl': 24pt,
   '6xl': 27pt,
 ) !default;
-
 $line-height-print: (
   '2xs': 10pt,
   'xs': 12pt,
@@ -152,7 +144,6 @@ $line-height-print: (
   '5xl': 30pt,
   '6xl': 33pt,
 ) !default;
-
 $line-height-prolonged-print: (
   'xs': 15pt,
   's': 15pt,
@@ -160,12 +151,10 @@ $line-height-prolonged-print: (
   'l': 18pt,
   'xl': 21pt,
 ) !default;
-
 $font-weight-print: (
   'regular': 400,
   'bold': 600,
 ) !default;
-
 $font-print: (
   '2xs': normal normal map.get($font-weight-print, 'regular') #{map.get(
       $font-size-print,
@@ -245,7 +234,6 @@ $font-print: (
       'default'
     )},
 ) !default;
-
 $font-prolonged-print: (
   'xs': normal normal map.get($font-weight-print, 'regular') #{map.get(
       $font-size-print,

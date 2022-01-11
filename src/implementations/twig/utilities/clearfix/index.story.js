@@ -34,8 +34,7 @@ export default {
   },
 };
 
-export const Custom = () => {
-  return `
+export const Custom = () => `
     <h2 class="ecl-u-type-heading-2">Without clearfix</h2>
     <div style="${styled(styleContainer)}">
       <div style="${styled(styleBoxLeft)}">
@@ -58,6 +57,5 @@ export const Custom = () => {
     </div>
     <p class="ecl-u-type-paragraph">Text after</p>
   `;
-};
 
 Custom.storyName = 'custom';

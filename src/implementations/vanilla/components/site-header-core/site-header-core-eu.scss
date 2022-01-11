@@ -20,7 +20,7 @@ $_search-width-xl: 31.5rem;
   background-color: map.get(theme.$color, 'white-100');
 
   &:not([data-ecl-has-menu='true']) {
-    box-shadow: 0 0 6px 0 rgba(9, 49, 142, 0.2);
+    box-shadow: 0 0 6px 0 rgb(9 49 142 / 0.2);
   }
 }
 
@@ -112,7 +112,7 @@ $_search-width-xl: 31.5rem;
 .ecl-site-header-core__search {
   background-color: map.get(theme.$color, 'blue-5');
   border: 1px solid map.get(theme.$color, 'blue-5');
-  box-shadow: 0 0 6px 0 rgba(9, 49, 142, 0.2);
+  box-shadow: 0 0 6px 0 rgb(9 49 142 / 0.2);
   box-sizing: content-box;
   color: map.get(theme.$color, 'grey');
   display: none;
@@ -181,10 +181,12 @@ $_search-width-xl: 31.5rem;
   .ecl-site-header-core__logo-link {
     flex-grow: 0;
   }
+
   .ecl-site-header-core__container {
     padding-bottom: map.get(theme.$spacing, 's');
     padding-top: map.get(theme.$spacing, 's');
   }
+
   .ecl-site-header-core__logo-image-mobile {
     height: $_logo-height-sm;
     max-height: 100%;
@@ -268,6 +270,7 @@ $_search-width-xl: 31.5rem;
       transform: rotate(0);
       width: map.get(theme.$icon, 'xs');
     }
+
     &[aria-expanded='false'] {
       .ecl-site-header-core__login-arrow {
         transform: rotate(180deg);

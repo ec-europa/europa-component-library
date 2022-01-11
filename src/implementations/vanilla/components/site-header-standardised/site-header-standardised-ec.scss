@@ -43,9 +43,11 @@ $_search-width-xl: 31.5rem;
     width: max-content;
     z-index: 1;
   }
+
   .ecl-standardised__cta:only-child {
     margin-top: 0;
   }
+
   // Deprecated
   .ecl-standardised__menu-cta {
     margin-top: map.get(theme.$spacing, 's');
@@ -53,6 +55,7 @@ $_search-width-xl: 31.5rem;
     width: max-content;
     z-index: 1;
   }
+
   // Deprecated
   .ecl-standardised__menu-cta:only-child {
     margin-top: 0;
@@ -140,7 +143,7 @@ $_search-width-xl: 31.5rem;
 .ecl-site-header-standardised__search {
   background-color: map.get(theme.$color, 'blue-5');
   border: 1px solid map.get(theme.$color, 'blue-25');
-  box-shadow: 0 2px 5px 0 rgba(0, 47, 103, 0.2);
+  box-shadow: 0 2px 5px 0 rgb(0 47 103 / 0.2);
   box-sizing: content-box;
   color: map.get(theme.$color, 'grey');
   display: none;
@@ -185,6 +188,7 @@ $_search-width-xl: 31.5rem;
   left: 50%;
   position: absolute;
   text-transform: uppercase;
+
   // position top and left has to be set like this because IE...
   // also ugly magic numbers to center the text on the icon
   top: 50%;
@@ -231,10 +235,12 @@ $_search-width-xl: 31.5rem;
   .ecl-site-header-standardised__logo-link {
     flex-grow: 0;
   }
+
   .ecl-site-header-standardised__container {
     padding-bottom: map.get(theme.$spacing, 's');
     padding-top: map.get(theme.$spacing, 's');
   }
+
   .ecl-site-header-standardised__logo-image {
     height: $_logo-height-sm;
     max-height: 100%;
@@ -263,6 +269,7 @@ $_search-width-xl: 31.5rem;
         margin-top: map.get(theme.$spacing, 'm');
       }
     }
+
     // Deprecated
     .ecl-standardised__menu-cta {
       align-self: start;
@@ -341,6 +348,7 @@ $_search-width-xl: 31.5rem;
       transform: rotate(0);
       width: map.get(theme.$icon, 'xs');
     }
+
     &[aria-expanded='false'] {
       .ecl-site-header-standardised__login-arrow {
         transform: rotate(180deg);

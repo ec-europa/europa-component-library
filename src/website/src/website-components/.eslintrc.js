@@ -1,6 +1,6 @@
 module.exports = {
-  parser: 'babel-eslint',
-  extends: ['airbnb', 'plugin:prettier/recommended', 'prettier/react'],
+  parser: '@babel/eslint-parser',
+  extends: ['airbnb', 'prettier'],
   plugins: ['react', 'jsx-a11y'],
   env: {
     browser: true,
@@ -13,5 +13,7 @@ module.exports = {
   },
   rules: {
     'react/jsx-props-no-spreading': 'off',
+    'react/jsx-no-useless-fragment': 'off',
+    'react/no-unused-class-component-methods': 'off',
   },
 };

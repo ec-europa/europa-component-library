@@ -21,16 +21,14 @@ const clonedLoggedInData = { ...loggedInData };
 const enCtaLinkClone = { ...enData.cta_link };
 const frCtaLinkClone = { ...frData.cta_link };
 
-const getArgs = (data) => {
-  return {
-    login: true,
-    language_selector: true,
-    menu: true,
-    site_name: data.site_name || '',
-    banner_top: true,
-    cta_link: false,
-  };
-};
+const getArgs = (data) => ({
+  login: true,
+  language_selector: true,
+  menu: true,
+  site_name: data.site_name || '',
+  banner_top: true,
+  cta_link: false,
+});
 
 const getArgTypes = () => {
   const argTypes = {};

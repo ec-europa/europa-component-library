@@ -128,7 +128,7 @@
 
 .ecl-page-header-core--overlay-dark {
   .ecl-page-header-core__background::before {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(map.get(theme.$color, 'black'), 0.5);
     content: '';
     height: 100%;
     position: absolute;
@@ -138,7 +138,7 @@
 
 .ecl-page-header-core--overlay-light {
   .ecl-page-header-core__background::before {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(map.get(theme.$color, 'black'), 0.3);
     content: '';
     height: 100%;
     position: absolute;

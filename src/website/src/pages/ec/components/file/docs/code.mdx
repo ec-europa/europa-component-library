@@ -17,7 +17,7 @@ import {
 <Playground
   system="ec"
   selectedKind="components-file"
-  selectedStory="without-translation"
+  selectedStory="default"
   showFrame
 >
   <Html markup={fileWithoutTranslation} />
@@ -28,8 +28,9 @@ import {
 <Playground
   system="ec"
   selectedKind="components-file"
-  selectedStory="with-translation"
+  selectedStory="default"
   showFrame
+  selectedArgs="show_translations:true"
 >
   <Html markup={fileWithTranslation} />
 </Playground>
@@ -50,8 +51,9 @@ import {
 <Playground
   system="ec"
   selectedKind="components-file"
-  selectedStory="thumbnail-taxonomy"
+  selectedStory="thumbnail"
   showFrame
+  selectedArgs="show_taxonomy:true"
 >
   <Html markup={fileTaxonomy} />
 </Playground>
