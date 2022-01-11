@@ -90,10 +90,15 @@ $_heading6: null !default;
 * Paragraph
 */
 .ecl-u-type-paragraph,
-.ecl-u-type-paragraph-m,
+.ecl-u-type-paragraph-m {
+  color: $_text-color !important;
+  font: map.get(theme.$font-prolonged, 'm') !important;
+  max-width: 80ch !important;
+}
+
 %ecl-paragraph {
   color: $_text-color;
-  font: map.get(theme.$font-prolonged, 'm') !important;
+  font: map.get(theme.$font-prolonged, 'm');
   max-width: 80ch !important;
 }
 
