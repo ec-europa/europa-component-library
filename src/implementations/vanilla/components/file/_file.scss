@@ -12,7 +12,6 @@ $_border-color: null !default;
 $_file-icon-align-self: null !default;
 $_file-info-margin-left: null !default;
 $_file-color: null !default;
-$_file-elements-margin: null !default;
 $_file-detail-padding-bottom: null !default;
 $_file-detail-meta-color: null !default;
 $_file-detail-flex-direction: null !default;
@@ -77,20 +76,22 @@ $_image-width: null !default;
   color: $_file-color;
   font: map.get(theme.$font, 's');
   font-weight: map.get(theme.$font-weight, 'bold');
-  margin-right: map.get(theme.$spacing, '2xs');
-  margin-top: $_file-elements-margin;
+  margin-right: map.get(theme.$spacing, 'xs');
+  margin-top: map.get(theme.$spacing, '2xs');
 }
 
 .ecl-file__meta {
   color: $_file-color;
   font: map.get(theme.$font, 's');
-  margin-top: $_file-elements-margin;
+  margin-top: map.get(theme.$spacing, '2xs');
 }
 
 .ecl-file__detail {
+  border-bottom: 1px solid $_border-color;
   display: flex;
   flex-direction: column;
-  margin-bottom: map.get(theme.$spacing, 's');
+  margin-bottom: map.get(theme.$spacing, 'm');
+  padding-bottom: map.get(theme.$spacing, 'm');
   width: 100%;
 }
 
@@ -136,12 +137,6 @@ $_image-width: null !default;
   margin-bottom: $_file-spacing;
   padding-bottom: $_file-spacing;
   width: 100%;
-
-  .ecl-file__detail {
-    border-bottom: 1px solid $_border-color;
-    margin-bottom: map.get(theme.$spacing, 'l');
-    padding-bottom: $_file-detail-padding-bottom;
-  }
 }
 
 .ecl-file__label {
@@ -226,14 +221,14 @@ $_image-width: null !default;
 .ecl-file__translation-meta {
   color: $_file-color;
   font: map.get(theme.$font, 's');
-  margin-top: $_file-elements-margin;
+  margin-top: map.get(theme.$spacing, '2xs');
 }
 
 .ecl-file__download,
 .ecl-file__translation-download {
-  align-self: $_file-download-self-align;
+  align-self: center;
   font: map.get(theme.$font, 'm');
-  margin-top: map.get(theme.$spacing, 'm');
+  margin-top: map.get(theme.$spacing, 'l');
   width: 100%;
 }
 
@@ -258,18 +253,21 @@ $_image-width: null !default;
 @include breakpoints.up('s') {
   .ecl-file__download,
   .ecl-file__translation-download {
+    margin-top: 0;
     width: auto;
+  }
+  .ecl-file__info {
+    margin-right: map.get(theme.$spacing, 'm');
+  }
+  .ecl-file__translation-item {
+    flex-direction: row;
+    max-width: 100%;
   }
 }
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
   .ecl-file__translation-container {
     padding-left: $_file-translation-container-padding-left;
-  }
-
-  .ecl-file__translation-item {
-    flex-direction: row;
-    max-width: 100%;
   }
 
   .ecl-file__detail {
@@ -281,6 +279,7 @@ $_image-width: null !default;
   }
 
   .ecl-file__download {
+    align-self: center;
     margin-top: 0;
   }
 
@@ -292,8 +291,8 @@ $_image-width: null !default;
   }
 
   .ecl-file__taxonomy {
-    margin-bottom: $_file-taxonomy-spacing;
-    padding-bottom: $_file-taxonomy-spacing;
+    margin-bottom: map.get(theme.$spacing, 'm');
+    padding-bottom: map.get(theme.$spacing, 'm');
   }
 }
 
@@ -317,6 +316,10 @@ $_image-width: null !default;
   .ecl-file__language,
   .ecl-file__meta {
     margin-top: 0;
+  }
+
+  .ecl-file__translation-container {
+    padding-left: map.get(theme.$spacing, 'l');
   }
 
   .ecl-file__translation-item {
@@ -348,18 +351,5 @@ $_image-width: null !default;
   .ecl-file__translation-meta {
     margin-left: map.get(theme.$spacing, '2xs');
     margin-top: 0;
-  }
-}
-
-/* stylelint-disable-next-line order/order */
-@include breakpoints.up('m') {
-  .ecl-file--thumbnail {
-    .ecl-file__container {
-      padding-bottom: map.get(theme.$spacing, 'l');
-    }
-
-    .ecl-file__translation-container {
-      padding-left: map.get(theme.$spacing, 'l');
-    }
   }
 }
