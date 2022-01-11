@@ -7,78 +7,64 @@ import notes from './README.md';
 
 const dataNegative = { ...dataDefault, variant: 'negative' };
 
-const getArgs = (data, variant) => {
-  return {
-    text: data.text,
-    size: data.size || 'medium',
-    variant,
-    visible: true,
-    centered: true,
-    overlay: false,
-  };
-};
+const getArgs = (data) => ({
+  show_text: true,
+  text: data.text,
+  size: data.size || 'medium',
+  centered: true,
+  overlay: false,
+});
 
-const getArgTypes = (variant) => {
-  return {
-    text: {
-      type: { name: 'string' },
-      description: 'Text below the loading indicator',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
+const getArgTypes = (variant) => ({
+  show_text: {
+    name: 'text',
+    type: { name: 'boolean' },
+    description: 'Show the additional text',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: '' },
+      category: 'Optional',
     },
-    variant: {
-      type: { name: 'select' },
-      options: [variant],
-      description: 'Style of the loading indicator',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'primary' },
-        category: 'Style',
-      },
+  },
+  overlay: {
+    type: { name: 'boolean' },
+    description: 'Show in an overlay',
+    table: {
+      disable: variant === 'primary',
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'false' },
+      category: 'Optional',
     },
-    size: {
-      type: { name: 'select' },
-      options: ['small', 'medium', 'large'],
-      description: 'Variant of the component',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'medium' },
-        category: 'Style',
-      },
+  },
+  text: {
+    type: { name: 'string' },
+    description: 'Text below the loading indicator',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
     },
-    visible: {
-      type: { name: 'boolean' },
-      description: 'Visibility of the element',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
-        category: 'Style',
-      },
+  },
+  size: {
+    type: { name: 'select' },
+    options: ['small', 'medium', 'large'],
+    description: 'Variant of the component',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'medium' },
+      category: 'Style',
     },
-    centered: {
-      type: { name: 'boolean' },
-      description: 'Center the element in a container',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
-        category: 'Style',
-      },
+  },
+  centered: {
+    type: { name: 'boolean' },
+    description: 'Center the element in a container',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'false' },
+      category: 'Style',
     },
-    overlay: {
-      type: { name: 'boolean' },
-      description: 'Toggle overlay',
-      table: {
-        disable: variant === 'primary',
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
-        category: 'Overlay',
-      },
-    },
-  };
-};
+  },
+});
 
 const withNegative = (story) => {
   const demo = story();
@@ -86,12 +72,20 @@ const withNegative = (story) => {
   return `<div class="ecl-u-bg-blue ecl-u-pa-xs ecl-u-width-100 ecl-u-height-100" style="position: absolute;">${demo}</div>`;
 };
 
-const prepareData = (data, args) => {
+const prepareData = (data, args, story) => {
   if (args.overlay) {
-    args.variant = 'primary';
+    data.variant = 'primary';
+  } else if (!args.overlay && story === 'negative') {
+    data.variant = 'negative';
   }
 
-  return Object.assign(data, args);
+  Object.assign(data, args);
+
+  if (!args.show_text) {
+    data.text = '';
+  }
+
+  return data;
 };
 
 export default {
@@ -106,7 +100,8 @@ Default.args = getArgs(dataDefault, 'primary');
 Default.argTypes = getArgTypes('primary');
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 
-export const Negative = (args) => spinner(prepareData(dataNegative, args));
+export const Negative = (args) =>
+  spinner(prepareData(dataNegative, args, 'negative'));
 
 Negative.storyName = 'negative';
 Negative.args = getArgs(dataNegative, 'negative');

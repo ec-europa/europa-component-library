@@ -12,39 +12,35 @@ import notes from './README.md';
 const system = getSystem();
 const dataDefault = system === 'eu' ? specsEu : specsEc;
 
-const getArgs = (data) => {
-  return {
-    show_label: true,
-    show_helper: true,
-    show_error: true,
-    invalid: data.invalid || false,
-    disabled: data.disabled || false,
-    required: data.required,
-    label: data.label || '',
-    helper_text: data.helper_text,
-    invalid_text: data.invalid_text,
-    width: data.width,
-    placeholder: data.placeholder,
-    rows: 4,
-  };
-};
+const getArgs = (data) => ({
+  show_label: true,
+  show_helper: true,
+  show_error: true,
+  invalid: data.invalid || false,
+  disabled: data.disabled || false,
+  required: data.required,
+  label: data.label || '',
+  helper_text: data.helper_text,
+  invalid_text: data.invalid_text,
+  width: data.width,
+  placeholder: data.placeholder,
+  rows: 4,
+});
 
-const getArgTypes = (data) => {
-  return {
-    ...getFormControls(data, 'element'),
-    rows: {
-      type: { name: 'number' },
-      description: 'Number or rows',
-      table: {
-        type: { summary: 'integer' },
-        min: 1,
-        step: 1,
-        defaultValue: { summary: '4' },
-        category: 'Size',
-      },
+const getArgTypes = (data) => ({
+  ...getFormControls(data, 'element'),
+  rows: {
+    type: { name: 'number' },
+    description: 'Number or rows',
+    table: {
+      type: { summary: 'integer' },
+      min: 1,
+      step: 1,
+      defaultValue: { summary: '4' },
+      category: 'Size',
     },
-  };
-};
+  },
+});
 
 const prepareData = (data, args) => {
   Object.assign(data, args);

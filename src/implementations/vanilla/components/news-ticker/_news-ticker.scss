@@ -103,16 +103,20 @@ $_btn-padding-horizontal: map.get(theme.$spacing, 's') !default;
     flex-flow: initial;
     justify-content: initial;
   }
+
   .ecl-news-ticker__icon {
     order: 1;
   }
+
   .ecl-news-ticker__container {
     order: 2;
   }
+
   .ecl-news-ticker__content {
     margin: map.get(theme.$spacing, 'xs') 0 map.get(theme.$spacing, 'xs') -5px;
     padding: 5px 5px 5px 0;
   }
+
   .ecl-news-ticker__controls {
     align-items: center;
     border-radius: 0;
@@ -120,6 +124,7 @@ $_btn-padding-horizontal: map.get(theme.$spacing, 's') !default;
     order: 4;
     padding: 0 5px 0 7px;
   }
+
   .ecl-news-ticker__counter {
     flex-shrink: 0;
     order: 3;

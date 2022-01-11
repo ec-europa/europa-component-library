@@ -87,7 +87,7 @@ $_search-width-xl: 31.5rem;
 .ecl-site-header-harmonised__search {
   background-color: map.get(theme.$color, 'blue-5');
   border: 1px solid map.get(theme.$color, 'blue-25');
-  box-shadow: 0 2px 5px 0 rgba(0, 47, 103, 0.2);
+  box-shadow: 0 2px 5px 0 rgb(0 47 103 / 0.2);
   box-sizing: content-box;
   color: map.get(theme.$color, 'grey');
   display: none;
@@ -139,6 +139,7 @@ $_search-width-xl: 31.5rem;
   left: 50%;
   position: absolute;
   text-transform: uppercase;
+
   // position top and left has to be set like this because IE...
   // also ugly magic numbers to center the text on the icon
   top: 50%;
@@ -237,6 +238,7 @@ $_search-width-xl: 31.5rem;
       transform: rotate(0);
       width: map.get(theme.$icon, 'xs');
     }
+
     &[aria-expanded='false'] {
       .ecl-site-header-harmonised__login-arrow {
         transform: rotate(180deg);

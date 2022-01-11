@@ -15,20 +15,18 @@ const system = getSystem();
 const dataSingle = system === 'eu' ? dataSingleEU : dataSingleEC;
 const dataMultiple = system === 'eu' ? dataMultipleEU : dataMultipleEC;
 
-const getArgs = (data) => {
-  return {
-    show_label: true,
-    show_helper: true,
-    show_error: true,
-    invalid: data.invalid || false,
-    disabled: data.disabled || false,
-    required: data.required,
-    label: data.label || '',
-    helper_text: data.helper_text,
-    invalid_text: data.invalid_text,
-    width: data.width,
-  };
-};
+const getArgs = (data) => ({
+  show_label: true,
+  show_helper: true,
+  show_error: true,
+  invalid: data.invalid || false,
+  disabled: data.disabled || false,
+  required: data.required,
+  label: data.label || '',
+  helper_text: data.helper_text,
+  invalid_text: data.invalid_text,
+  width: data.width,
+});
 
 const getArgTypes = (data) => getFormControls(data, 'element');
 

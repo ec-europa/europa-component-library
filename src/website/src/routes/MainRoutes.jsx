@@ -18,47 +18,53 @@ const EURoutes = lazy(() =>
   import(/* webpackChunkName: "eu", webpackPrefetch: true */ './Eu')
 );
 
-const WaitingEC = (props) => (
-  <Suspense
-    fallback={
-      <Skeleton
-        HomePage={HomePageEC}
-        prefix="/ec"
-        system="ec"
-        title="EC Homepage"
-        isLoading
-      />
-    }
-  >
-    <ECRoutes {...props} />
-  </Suspense>
-);
+function WaitingEC(props) {
+  return (
+    <Suspense
+      fallback={
+        <Skeleton
+          HomePage={HomePageEC}
+          prefix="/ec"
+          system="ec"
+          title="EC Homepage"
+          isLoading
+        />
+      }
+    >
+      <ECRoutes {...props} />
+    </Suspense>
+  );
+}
 
-const WaitingEU = (props) => (
-  <Suspense
-    fallback={
-      <Skeleton
-        HomePage={HomePageEU}
-        prefix="/eu"
-        system="eu"
-        title="EU Homepage"
-        isLoading
-      />
-    }
-  >
-    <EURoutes {...props} />
-  </Suspense>
-);
+function WaitingEU(props) {
+  return (
+    <Suspense
+      fallback={
+        <Skeleton
+          HomePage={HomePageEU}
+          prefix="/eu"
+          system="eu"
+          title="EU Homepage"
+          isLoading
+        />
+      }
+    >
+      <EURoutes {...props} />
+    </Suspense>
+  );
+}
 
-const MainRoutes = () => (
-  <Switch>
-    <Route exact strict path="/" component={HomePage} />
-    <Route strict path="/example" component={Example} />
-    <Route path="/ec/" strict component={WaitingEC} />
-    <Route path="/eu/" strict component={WaitingEU} />
-    <Redirects />
-    <Route component={PageNotFound} />
-  </Switch>
-);
+function MainRoutes() {
+  return (
+    <Switch>
+      <Route exact strict path="/" component={HomePage} />
+      <Route strict path="/example" component={Example} />
+      <Route path="/ec/" strict component={WaitingEC} />
+      <Route path="/eu/" strict component={WaitingEU} />
+      <Redirects />
+      <Route component={PageNotFound} />
+    </Switch>
+  );
+}
 
 export default MainRoutes;

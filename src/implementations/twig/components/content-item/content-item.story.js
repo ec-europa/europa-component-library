@@ -137,9 +137,12 @@ const getArgTypes = (data) => {
       name: 'image size',
       type: 'select',
       description: "Possible image sizes ('s' or 'l')",
-      options: {
-        'small (square)': 's',
-        'large (landscape)': 'l',
+      options: ['s', 'l'],
+      control: {
+        labels: {
+          s: 'small (square)',
+          l: 'large (landscape)',
+        },
       },
       table: {
         type: 'string',
@@ -151,10 +154,7 @@ const getArgTypes = (data) => {
       name: 'image position',
       type: 'select',
       description: "Possible image position ('left' or 'right')",
-      options: {
-        left: 'left',
-        right: 'right',
-      },
+      options: ['left', 'right'],
       table: {
         type: 'string',
         defaultValue: { summary: '' },

@@ -9,26 +9,22 @@ import dataDisplay from '@ecl/specs-component-tag/demo/data--display';
 import tag from './tag.html.twig';
 import notes from './README.md';
 
-const getArgs = (data) => {
-  return {
-    label: data.tag.label,
-  };
-};
+const getArgs = (data) => ({
+  label: data.tag.label,
+});
 
-const getArgTypes = () => {
-  return {
-    label: {
-      name: 'label',
-      type: { name: 'string', required: true },
-      description: 'The label of the tag',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
+const getArgTypes = () => ({
+  label: {
+    name: 'label',
+    type: { name: 'string', required: true },
+    description: 'The label of the tag',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
     },
-  };
-};
+  },
+});
 
 const prepareData = (data, args) => {
   data.tag.label = args.label;

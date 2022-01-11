@@ -373,7 +373,7 @@ $_font-weight: null !default;
     .ecl-page-banner__title,
     .ecl-page-banner__description {
       backdrop-filter: blur(8px);
-      background: rgba(0, 0, 0, 0.35);
+      background: rgba(map.get(theme.$color, 'black'), 0.35);
       padding: 4px 12px;
     }
 

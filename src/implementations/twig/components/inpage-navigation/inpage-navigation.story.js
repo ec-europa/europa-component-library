@@ -90,15 +90,14 @@ const prepareData = (data, args) => {
 };
 
 // Prepare Html for the main content.
-const prepareHtmlContent = (data) => {
-  return data.links.map(({ label }, index) => {
-    return `
+const prepareHtmlContent = (data) =>
+  data.links.map(
+    ({ label }, index) => `
     <h2 class="ecl-u-type-heading-2" id="inline-nav-${index + 1}">${label}</h2>
     <p class="ecl-u-type-paragraph-m">${lorem}</p>
     <p class="ecl-u-type-paragraph-m">${lorem}</p>
-    `;
-  });
-};
+    `
+  );
 
 export default {
   title: 'Components/Navigation/Inpage navigation',

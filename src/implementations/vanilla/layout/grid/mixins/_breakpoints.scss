@@ -2,22 +2,23 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
 
-// Breakpoint viewport sizes and media queries.
-//
-// Breakpoints are defined as a map of (name: minimum width), order from small to large:
-//
-//    (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px)
-//
-// The map defined in the `$breakpoint` global variable is used as the `$breakpoints` argument by default.
+/* Breakpoint viewport sizes and media queries.
 
-// Name of the next breakpoint, or null for the last breakpoint.
-//
-//    >> breakpoint-next(sm)
-//    md
-//    >> breakpoint-next(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
-//    md
-//    >> breakpoint-next(sm, $breakpoint-names: (xs sm md lg xl))
-//    md
+Breakpoints are defined as a map of (name: minimum width), order from small to large:
+   (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px)
+
+ The map defined in the `$breakpoint` global variable is used as the `$breakpoints` argument by default.
+
+ Name of the next breakpoint, or null for the last breakpoint.
+
+  >> breakpoint-next(sm)
+   md
+  >> breakpoint-next(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+   md
+  >> breakpoint-next(sm, $breakpoint-names: (xs sm md lg xl))
+   md
+*/
+
 @function next(
   $name,
   $breakpoints: theme.$breakpoint,
@@ -32,34 +33,36 @@
   );
 }
 
-// Minimum breakpoint width. Null for the smallest (first) breakpoint.
-//
-//    >> ecl-min(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
-//    576px
+/* Minimum breakpoint width. Null for the smallest (first) breakpoint.
+    >> ecl-min(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+    576px
+*/
 @function ecl-min($name, $breakpoints: theme.$breakpoint) {
   $min: map.get($breakpoints, $name);
 
   @return if($min != 0, $min, null);
 }
 
-// Maximum breakpoint width. Null for the largest (last) breakpoint.
-// The maximum value is calculated as the minimum of the next one less 0.1.
-//
-//    >> ecl-max(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
-//    767px
+/* Maximum breakpoint width. Null for the largest (last) breakpoint.
+   The maximum value is calculated as the minimum of the next one less 0.1.
+
+   >> ecl-max(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+   767px
+*/
 @function ecl-max($name, $breakpoints: theme.$breakpoint) {
   $next: next($name, $breakpoints);
 
   @return if($next, ecl-min($next, $breakpoints) - 1px, null);
 }
 
-// Returns a blank string if smallest breakpoint, otherwise returns the name with a dash infront.
-// Useful for making responsive utilities.
-//
-//    >> infix(xs, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
-//    ''  (Returns a blank string)
-//    >> infix(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
-//    '-sm'
+/* Returns a blank string if smallest breakpoint, otherwise returns the name with a dash infront.
+    Useful for making responsive utilities.
+
+    >> infix(xs, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+    ""  (Returns a blank string)
+    >> infix(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+    "-sm"
+*/
 @function infix($name, $breakpoints: theme.$breakpoint) {
   @return if(ecl-min($name, $breakpoints) == null, '', '-#{$name}');
 }
@@ -110,7 +113,7 @@
   }
 }
 
-// Media between the breakpoint's minimum and maximum widths.
+// Media between the breakpoint"s minimum and maximum widths.
 // No minimum for the smallest breakpoint, and no maximum for the largest one.
 // Makes the @content apply only to the given breakpoint, not viewports any wider or narrower.
 @mixin only($name, $breakpoints: theme.$breakpoint) {
