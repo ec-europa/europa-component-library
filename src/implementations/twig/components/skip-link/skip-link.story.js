@@ -5,27 +5,23 @@ import specs from '@ecl/specs-component-skip-link/demo/data';
 import skipLink from './skip-link.html.twig';
 import notes from './README.md';
 
-const getArgs = () => {
-  return {
-    focus: false,
-  };
-};
+const getArgs = () => ({
+  focus: false,
+});
 
-const getArgTypes = () => {
-  return {
-    focus: {
-      name: 'focus',
-      type: { name: 'boolean' },
-      description: 'Making the link visible by receiving keyboard focus',
-      table: {
-        category: 'State',
-      },
-      control: {
-        type: 'boolean',
-      },
+const getArgTypes = () => ({
+  focus: {
+    name: 'focus',
+    type: { name: 'boolean' },
+    description: 'Making the link visible by receiving keyboard focus',
+    table: {
+      category: 'State',
     },
-  };
-};
+    control: {
+      type: 'boolean',
+    },
+  },
+});
 
 const btnTabHandler = (state) => {
   const skipLinkEl = document.querySelector('.ecl-skip-link');

@@ -12,75 +12,69 @@ const dataCancelled = { ...specs, variant: 'cancelled' };
 const dataPast = { ...specs, variant: 'past' };
 const dataRescheduled = { ...specs, variant: 'rescheduled' };
 
-const getArgs = (data) => {
-  return {
-    day: data.day,
-    month: data.month,
-    month_full: data.month_full,
-    year: data.year,
-  };
-};
+const getArgs = (data) => ({
+  day: data.day,
+  month: data.month,
+  month_full: data.month_full,
+  year: data.year,
+});
 
-const getArgTypes = () => {
-  return {
-    day: {
-      name: 'day',
-      type: { name: 'string', required: true },
-      description: 'The date day',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-      control: {
-        type: 'text',
-      },
+const getArgTypes = () => ({
+  day: {
+    name: 'day',
+    type: { name: 'string', required: true },
+    description: 'The date day',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
     },
-    month: {
-      name: 'month',
-      type: { name: 'string', required: true },
-      description: 'The date month (abridged)',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-      control: {
-        type: 'text',
-      },
+    control: {
+      type: 'text',
     },
-    month_full: {
-      name: 'month full',
-      type: { name: 'string', required: true },
-      description: 'The date month (full); displayed on hover',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-      control: {
-        type: 'text',
-      },
+  },
+  month: {
+    name: 'month',
+    type: { name: 'string', required: true },
+    description: 'The date month (abridged)',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
     },
-    year: {
-      name: 'year',
-      type: { name: 'string', required: true },
-      description: 'The date year',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-      control: {
-        type: 'text',
-      },
+    control: {
+      type: 'text',
     },
-  };
-};
+  },
+  month_full: {
+    name: 'month full',
+    type: { name: 'string', required: true },
+    description: 'The date month (full); displayed on hover',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+    control: {
+      type: 'text',
+    },
+  },
+  year: {
+    name: 'year',
+    type: { name: 'string', required: true },
+    description: 'The date year',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+    control: {
+      type: 'text',
+    },
+  },
+});
 
-const prepareData = (data, args) => {
-  return Object.assign(data, args);
-};
+const prepareData = (data, args) => Object.assign(data, args);
 
 export default {
   title: 'Components/Date block',

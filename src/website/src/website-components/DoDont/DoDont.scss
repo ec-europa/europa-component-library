@@ -46,6 +46,7 @@
   flex-basis: auto;
   flex-grow: 0;
   flex-shrink: 0;
+
   // end of: IE fix
   height: auto;
   max-width: 100%;
@@ -82,12 +83,15 @@
   font: map.get(theme.$font-prolonged, 'm');
   font-weight: map.get(theme.$font-weight, 'bold');
 }
+
 .do .title {
   color: map.get(theme.$color, 'success');
 }
+
 .dont .title {
   color: map.get(theme.$color, 'error');
 }
+
 .caution .title {
   color: map.get(theme.$color, 'warning');
 }

@@ -67,11 +67,7 @@ const getArgTypes = (data) => {
         type: { summary: 'string' },
         category: 'Content',
       },
-      control: {
-        type: 'select',
-        defaultValue: { summary: '16-9' },
-        options: ['16-9', '4-3', '3-2', '1-1'],
-      },
+      options: ['16-9', '4-3', '3-2', '1-1'],
     };
   }
 
@@ -86,10 +82,13 @@ const getArgTypes = (data) => {
     },
     control: {
       type: 'radio',
-      options: {
-        'outside the grid container': 'outside',
-        'inside the grid container': 'container',
-        'inside the grid container, with fullwidth class': 'inside',
+      options: ['outside', 'container', 'inside'],
+      control: {
+        labels: {
+          outside: 'large (landscape)',
+          container: 'inside the grid container',
+          inside: 'inside the grid container, with fullwidth class',
+        },
       },
     },
   };

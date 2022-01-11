@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const RemToPixels = ({ rem }) => (
-  <>{rem * parseFloat(getComputedStyle(document.documentElement).fontSize)}</>
-);
+function RemToPixels({ rem }) {
+  return (
+    <>{rem * parseFloat(getComputedStyle(document.documentElement).fontSize)}</>
+  );
+}
 
 RemToPixels.propTypes = {
   rem: PropTypes.string.isRequired,

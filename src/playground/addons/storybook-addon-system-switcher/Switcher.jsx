@@ -2,7 +2,7 @@ import React from 'react';
 import { IconButton, Separator } from '@storybook/components';
 import getSystem from '@ecl/builder/utils/getSystem';
 
-const Switcher = () => {
+function Switcher() {
   const fullUrl = window.location.href.split('?')[0];
   const playgroundPos = fullUrl.indexOf('/playground');
   const beforePlayground = fullUrl.substring(0, playgroundPos);
@@ -58,6 +58,6 @@ const Switcher = () => {
       </IconButton>
     </>
   );
-};
+}
 
 export default Switcher;

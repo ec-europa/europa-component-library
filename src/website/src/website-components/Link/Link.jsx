@@ -6,14 +6,7 @@ import icons from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 
 import styles from './Link.scss';
 
-const StyledLink = ({
-  className,
-  standalone,
-  to,
-  label,
-  children,
-  ...props
-}) => {
+function StyledLink({ className, standalone, to, label, children, ...props }) {
   const cls = classnames(className, styles.link, {
     [styles.standalone]: standalone,
   });
@@ -44,7 +37,7 @@ const StyledLink = ({
       {label || children}
     </Link>
   );
-};
+}
 
 StyledLink.propTypes = {
   className: PropTypes.string,

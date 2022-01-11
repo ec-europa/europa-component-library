@@ -16,9 +16,11 @@ addons.setConfig({
     brandUrl: 'https://github.com/ec-europa/europa-component-library',
     brandImage: undefined,
   }),
-  selectedPanel: 'notes',
+  selectedPanel: 'controls',
   initialActive: 'sidebar',
-  showRoots: false,
+  sidebar: {
+    showRoots: false,
+  },
 });
 
 browserUpdate({

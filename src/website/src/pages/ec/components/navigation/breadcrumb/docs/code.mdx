@@ -4,50 +4,9 @@ order: 2
 ---
 
 import { Playground, Html } from '@ecl/website-components';
-import { breadcrumbSimpleCore, breadcrumbLongCore } from '../demo/core';
-import {
-  breadcrumbSimpleStandardised,
-  breadcrumbLongStandardised,
-} from '../demo/standardised';
-import {
-  breadcrumbSimpleHarmonised,
-  breadcrumbLongHarmonised,
-} from '../demo/harmonised';
-
-## Simple breadcrumb
-
-### Core
-
-<Playground
-  system="ec"
-  selectedKind="components-navigation-breadcrumbs-breadcrumb-core"
-  selectedStory="simple"
-  showFrame
->
-  <Html markup={breadcrumbSimpleCore} />
-</Playground>
-
-### Standardised
-
-<Playground
-  system="ec"
-  selectedKind="components-navigation-breadcrumbs-breadcrumb-standardised"
-  selectedStory="simple"
-  showFrame
->
-  <Html markup={breadcrumbSimpleStandardised} />
-</Playground>
-
-### Harmonised
-
-<Playground
-  system="ec"
-  selectedKind="components-navigation-breadcrumbs-breadcrumb-harmonised"
-  selectedStory="simple"
-  showFrame
->
-  <Html markup={breadcrumbSimpleHarmonised} />
-</Playground>
+import { breadcrumbLongCore } from '../demo/core';
+import { breadcrumbLongStandardised } from '../demo/standardised';
+import { breadcrumbLongHarmonised } from '../demo/harmonised';
 
 ## Long breadcrumb
 
@@ -60,7 +19,7 @@ The first item and the last 2 items should always be visible.
 <Playground
   system="ec"
   selectedKind="components-navigation-breadcrumbs-breadcrumb-core"
-  selectedStory="long"
+  selectedStory="default"
   showFrame
 >
   <Html markup={breadcrumbLongCore} />
@@ -71,7 +30,7 @@ The first item and the last 2 items should always be visible.
 <Playground
   system="ec"
   selectedKind="components-navigation-breadcrumbs-breadcrumb-standardised"
-  selectedStory="long"
+  selectedStory="default"
   showFrame
 >
   <Html markup={breadcrumbLongStandardised} />
@@ -82,7 +41,7 @@ The first item and the last 2 items should always be visible.
 <Playground
   system="ec"
   selectedKind="components-navigation-breadcrumbs-breadcrumb-harmonised"
-  selectedStory="long"
+  selectedStory="default"
   showFrame
 >
   <Html markup={breadcrumbLongHarmonised} />

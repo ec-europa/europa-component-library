@@ -7,7 +7,7 @@ import iconsFlag from '@ecl/resources-flag-icons/dist/sprites/icons-flag.svg';
 import iconsSocialMedia from '@ecl/resources-social-media-icons/dist/sprites/icons-social-media.svg';
 import styles from './IconCard.scss';
 
-const IconCard = ({ system, name, set }) => {
+function IconCard({ system, name, set }) {
   let cardClass = styles.card;
   let iconSet = system === 'eu' ? iconsEU : iconsEC;
   if (set === 'flag') iconSet = iconsFlag;
@@ -26,7 +26,7 @@ const IconCard = ({ system, name, set }) => {
       <h3 className={styles.title}>{name}</h3>
     </li>
   );
-};
+}
 
 IconCard.propTypes = {
   system: PropTypes.string,

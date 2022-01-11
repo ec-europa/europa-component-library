@@ -86,7 +86,7 @@ $_spinner-sizes: (
 }
 
 .ecl-spinner__overlay {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgb(255 255 255 / 0.9);
   display: none;
   height: 100%;
   left: 0;
@@ -111,10 +111,12 @@ $_spinner-sizes: (
     stroke-dasharray: 1, 200;
     stroke-dashoffset: 0;
   }
+
   50% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -35px;
   }
+
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -124px;
