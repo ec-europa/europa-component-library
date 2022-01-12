@@ -43,6 +43,11 @@ $_divider-color: null !default;
   .ecl-unordered-list {
     padding-left: map.get(theme.$spacing, 'm');
   }
+
+  > .ecl-unordered-list__item {
+    margin-left: 0;
+    padding-left: 0;
+  }
 }
 
 // Dividers
@@ -53,7 +58,9 @@ $_divider-color: null !default;
   > .ecl-unordered-list__item {
     border-bottom: 1px solid $_divider-color;
     margin-bottom: map.get(theme.$spacing, 'm');
+    margin-left: 0;
     padding-bottom: map.get(theme.$spacing, 'm');
+    padding-left: 0;
   }
 
   > .ecl-unordered-list__item:last-child {
