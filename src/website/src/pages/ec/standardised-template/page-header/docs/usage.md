@@ -8,7 +8,7 @@ The anatomy image is the default page header
 
 ## Anatomy
 
-![](/cms-images/standardised-page-header.png)
+![](/cms-images/standardised-page-header-1b.png)
 
 | Components                                                                                                                                                                                                                 | Mandatory | Optional |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | -------- |
