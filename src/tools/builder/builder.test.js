@@ -142,7 +142,8 @@ describe('ECL Builder', () => {
       process.env.NODE_ENV = 'production';
       const plugins = getPlugins({ banner: 'build label' });
       expect(plugins.length).toBe(3);
-      expect(plugins[1].toString().includes('andBanner')).toBe(true);
+
+      expect(plugins[1].postcssPlugin).toBe('postcss-banner');
 
       expect(JSON.stringify(plugins, replacer))
         .toString()
