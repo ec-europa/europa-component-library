@@ -144,9 +144,11 @@ describe('ECL Builder', () => {
       expect(plugins.length).toBe(3);
       expect(plugins[1].toString().includes('andBanner')).toBe(true);
 
-      expect(JSON.stringify(plugins, replacer)).toEqual(
-        '[{"postcssPlugin":"autoprefixer","prepare":"preparefn()","info":"infofn()","options":{"grid":"no-autoplace"}},"andBannerfn()","closure()"]'
-      );
+      expect(JSON.stringify(plugins, replacer))
+        .toString()
+        .includes(
+          '[{"postcssPlugin":"autoprefixer","prepare":"preparefn()","info":"infofn()","options":{"grid":"no-autoplace"}},"andBannerfn()","closure()"]'
+        );
     });
 
     it('should be able to expose getSystem utility in scss source code', async () => {
