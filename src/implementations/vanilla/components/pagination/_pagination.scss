@@ -21,7 +21,7 @@ $_current-border-width: null !default;
   border-radius: $_border-radius;
   border-top: $_border-width solid $_border-color;
   color: $_text-color;
-  font: map-get(theme.$font-prolonged, 'm');
+  font: map.get(theme.$font-prolonged, 'm');
   margin: 0;
   padding-bottom: calc(
     #{map.get(theme.$spacing, 'm')} - #{map.get(theme.$spacing, '2xs')}
@@ -61,7 +61,7 @@ $_current-border-width: null !default;
 .ecl-pagination__item--current {
   color: $_current-text-color;
   display: flex;
-  font-weight: map-get(theme.$font-weight, 'bold');
+  font-weight: map.get(theme.$font-weight, 'bold');
   position: relative;
 }
 

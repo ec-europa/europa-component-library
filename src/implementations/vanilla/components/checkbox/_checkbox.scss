@@ -84,10 +84,12 @@ $_outline-width: null !default;
   fill: map.get(theme.$color, 'white-100');
   visibility: hidden;
 }
+
 // Disabled.
 .ecl-checkbox--disabled {
   opacity: 0.5;
 }
+
 // Required
 .ecl-checkbox__required {
   color: map.get(theme.$color, 'error');
@@ -95,6 +97,7 @@ $_outline-width: null !default;
   font-weight: map.get(theme.$font-weight, 'bold');
   padding-left: map.get(theme.$spacing, '2xs');
 }
+
 // Checked and indeterminate
 // stylelint-disable no-descending-specificity
 .ecl-checkbox__input:checked {
@@ -117,6 +120,7 @@ $_outline-width: null !default;
     visibility: visible;
   }
 }
+
 // Invalid
 .ecl-checkbox--invalid {
   @at-root .ecl-form-group & + .ecl-feedback-message {
@@ -146,12 +150,14 @@ $_outline-width: null !default;
   .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
   background: map.get(theme.$color, 'red-130');
 }
+
 // Hover state
 .ecl-checkbox__label:hover {
   .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
     border-color: $_box-border-color-hover;
   }
 }
+
 // Focus, active state
 .ecl-checkbox__input:focus,
 .ecl-checkbox__input:active {

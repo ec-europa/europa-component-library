@@ -34,7 +34,6 @@ class Notes extends React.Component {
       this.stopListeningOnStory();
     }
 
-    this.unmounted = true;
     const { channel } = this.props;
     channel.removeListener('ecl/notes/add_notes', this.onAddNotes);
   }

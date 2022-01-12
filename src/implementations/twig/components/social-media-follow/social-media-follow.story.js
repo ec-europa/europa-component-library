@@ -10,30 +10,24 @@ import notes from './README.md';
 const dataHorizontal = { ...specs };
 const dataVertical = { ...specs, variant: 'vertical' };
 
-const getArgs = (data) => {
-  return {
-    description: data.description,
-  };
-};
+const getArgs = (data) => ({
+  description: data.description,
+});
 
-const getArgTypes = () => {
-  return {
-    description: {
-      name: 'description',
-      type: { name: 'string', required: true },
-      description: 'The description of the elements',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
+const getArgTypes = () => ({
+  description: {
+    name: 'description',
+    type: { name: 'string', required: true },
+    description: 'The description of the elements',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
     },
-  };
-};
+  },
+});
 
-const prepareData = (data, args) => {
-  return Object.assign(correctSvgPath(data), args);
-};
+const prepareData = (data, args) => Object.assign(correctSvgPath(data), args);
 
 export default {
   title: 'Components/Social Media Follow',

@@ -65,8 +65,7 @@ export default {
   },
 };
 
-export const Custom = () => {
-  return `
+export const Custom = () => `
     <div style="${styled(styleContainer)}">
       Normal content
       <div style="${styled(styleBox1)}" class="ecl-u-z-highlight">
@@ -86,6 +85,5 @@ export const Custom = () => {
       </div>
     </div>
   `;
-};
 
 Custom.storyName = 'custom';

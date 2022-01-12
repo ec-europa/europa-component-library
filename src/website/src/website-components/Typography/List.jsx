@@ -4,15 +4,17 @@ import PropTypes from 'prop-types';
 
 import styles from './List.scss';
 
-const List = ({ size, children }) => (
-  <ul
-    className={classnames(styles.list, {
-      [styles[`list--${size}`]]: size,
-    })}
-  >
-    {children}
-  </ul>
-);
+function List({ size, children }) {
+  return (
+    <ul
+      className={classnames(styles.list, {
+        [styles[`list--${size}`]]: size,
+      })}
+    >
+      {children}
+    </ul>
+  );
+}
 
 List.propTypes = {
   size: PropTypes.string,

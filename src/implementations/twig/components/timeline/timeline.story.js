@@ -12,27 +12,23 @@ import notes from './README.md';
 const system = getSystem();
 const demoData = system === 'eu' ? demoDataEu : demoDataEc;
 
-const getArgs = () => {
-  return {
-    showDummyContent: false,
-  };
-};
+const getArgs = () => ({
+  showDummyContent: false,
+});
 
-const getArgTypes = () => {
-  return {
-    showDummyContent: {
-      name: 'Add dummy content',
-      type: { name: 'boolean' },
-      description: 'Add dummy content at the bottom of the timeline.',
-      table: {
-        category: 'Test content',
-      },
-      control: {
-        type: 'boolean',
-      },
+const getArgTypes = () => ({
+  showDummyContent: {
+    name: 'Add dummy content',
+    type: { name: 'boolean' },
+    description: 'Add dummy content at the bottom of the timeline.',
+    table: {
+      category: 'Test content',
     },
-  };
-};
+    control: {
+      type: 'boolean',
+    },
+  },
+});
 
 // Prepare data for the navigation.
 const prepareData = (data) => {

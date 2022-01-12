@@ -22,10 +22,13 @@ const getArgTypes = () => {
       type: 'select',
       description: `The media container extends to the whole viewport by default when outside the grid,
         if it's inside it can still be extended by adding class .ecl-page-banner--full-width`,
-      options: {
-        'outside the grid container': 'outside',
-        'inside the grid container': 'container',
-        'inside the grid container, with fullwidth class': 'inside',
+      options: ['outside', 'container', 'inside'],
+      control: {
+        labels: {
+          outside: 'outside the grid container',
+          container: 'inside the grid container',
+          inside: 'inside the grid container, with fullwidth class',
+        },
       },
       table: {
         type: { summary: 'radio' },
