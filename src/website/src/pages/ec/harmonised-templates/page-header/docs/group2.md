@@ -2,7 +2,6 @@
 title: Group 2
 order: 1
 ---
-
 import { Paragraph, Anatomy, Link } from '@ecl/website-components';
 
 <Paragraph size="lead">
@@ -13,25 +12,7 @@ import { Paragraph, Anatomy, Link } from '@ecl/website-components';
 
 ## Anatomy
 
-<Anatomy
-image="https://inno-ecl.s3.amazonaws.com/media/images/EC/HarmonisedTemplate/harmonised-2-page-header.png"
-alt="Anatomy of harmonised group 2 page header"
-legend={{
-    items: [
-      {
-        color: '#404040',
-        label: 'mandatory',
-      },
-      {
-        color: '#004494',
-        label: 'optional',
-      },
-    ],
-  }}
-system="ec"
-selectedKind="components-page-headers-harmonised"
-selectedStory="meta-title-description"
-/>
+![](/cms-images/harmonised-1-page-header1b.png)
 
 | Component                                                                           | Mandatory | Description                                                                                                      |
 | ----------------------------------------------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------- |
