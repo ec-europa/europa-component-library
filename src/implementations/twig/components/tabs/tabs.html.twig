@@ -1,0 +1,130 @@
+{% spaceless %}
+
+{#
+  Parameters:
+    - "items": (associative array) (default: {}): The tabs items - format: [
+      {
+        "label": "Home",
+        "path": "/example",
+        "is_current": true
+      },
+      {
+        "label": "Item 1",
+        "path": "/example"
+      },
+    }],
+    - "more_label" (string) (default: 'More (%d)') Label for the more button (responsive)
+    - "icon_path" (string) (default: '') Path to the icons file
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        },
+        ...
+      ],
+#}
+
+{# Internal properties #}
+
+{% set _icon_path = icon_path|default('') %}
+{% set _more_label = more_label|default('More (%d)') %}
+{% set _items = items|default([]) %}
+{% set _css_class = 'ecl-tabs' %}
+{% set _extra_attributes = [
+  'data-ecl-tabs="true"',
+  'data-ecl-auto-init="Tabs"']|join(' ')
+%}
+
+{# Internal logic - Process properties #}
+
+{% if extra_dropdown_classes is defined and extra_dropdown_classes is not empty %}
+  {% set _css_dropdown_class = _css_dropdown_class ~ ' ' ~ extra_dropdown_classes %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+{% if _items is not empty and _items is iterable %}
+<nav class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <div class="ecl-tabs__container">
+    <ul class="ecl-tabs__list">
+    {% for _item in _items %}
+      {% if _item.path is not empty %}
+        <li class="ecl-tabs__item">
+        {% set _item_extra_classes = 'ecl-tabs__link' %}
+        {% if _item.is_current is defined and _item.is_current is not empty %}
+          {% set _item_extra_classes = _item_extra_classes ~ ' ecl-tabs__link--active' %}
+        {% endif %}
+        {% include '@ecl/link/link.html.twig' with {
+          link: {
+            label: _item.label,
+            path: _item.path,
+          },
+          extra_classes: _item_extra_classes,
+        } only %}
+        </li>
+      {% endif %}
+    {% endfor %}
+    <li class="ecl-tabs__item ecl-tabs__item--more">
+        {% include '@ecl/button/button.html.twig' with {
+          label: _more_label,
+          variant: 'secondary',
+          type: 'button',
+          icon_position: "after",
+          icon: {
+            path: _icon_path,
+            name: 'corner-arrow',
+            size: 'fluid',
+            transform: 'rotate-180'
+          },
+          extra_classes: 'ecl-tabs__toggle',
+        } only %}
+      </li>
+    </ul>
+  </div>
+  <div class="ecl-tabs__controls">
+    <button class="ecl-tabs__prev" aria-hidden="true">
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: {
+          path: _icon_path,
+          name: 'corner-arrow',
+          size: 'm',
+          transform: 'rotate-270',
+          color: 'inverted',
+        },
+        extra_classes: 'ecl-u-d-block',
+      } only %}
+      <span class="ecl-u-sr-only">{{ _sr_previous }}</span>
+    </button>
+    <button class="ecl-tabs__next" aria-hidden="true">
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: {
+          path: _icon_path,
+          name: 'corner-arrow',
+          size: 'm',
+          transform: 'rotate-90',
+          color: 'inverted',
+        },
+        extra_classes: 'ecl-u-d-block',
+      } only %}
+      <span class="ecl-u-sr-only">{{ _sr_next }}</span>
+    </button>
+  </div>
+</nav>
+{% endif %}
+
+{% endspaceless %}
