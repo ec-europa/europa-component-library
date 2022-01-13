@@ -22,6 +22,8 @@ const getArgs = (data) => {
     show_label: !!data.label,
     title: data.title,
     download_label: data.download.link.label,
+    show_translations: true,
+    toggle_label: translationsClone.toggle.label,
   };
   if (data.description) {
     args.show_description = !!data.description;
@@ -30,10 +32,7 @@ const getArgs = (data) => {
   if (data.detail_meta) {
     args.show_meta = true;
   }
-  if (!data.image) {
-    args.toggle_label = translationsClone.toggle.label;
-    args.show_translations = false;
-  } else {
+  if (data.image) {
     args.show_image = !!data.image;
     args.show_taxonomy = false;
     args.image =
@@ -161,26 +160,25 @@ const getArgTypes = (data) => {
         category: 'Optional',
       },
     };
-  } else {
-    argTypes.show_translations = {
-      name: 'translations',
-      type: 'boolean',
-      description: 'Show translations',
-      table: {
-        category: 'Optional',
-      },
-    };
-    argTypes.toggle_label = {
-      name: 'toggle label',
-      type: { name: 'string' },
-      description: 'The label of the toggler',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-    };
   }
+  argTypes.toggle_label = {
+    name: 'toggle label',
+    type: { name: 'string' },
+    description: 'The label of the toggler',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+  };
+  argTypes.show_translations = {
+    name: 'translations',
+    type: 'boolean',
+    description: 'Show translations',
+    table: {
+      category: 'Optional',
+    },
+  };
 
   return argTypes;
 };
