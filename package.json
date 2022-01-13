@@ -61,10 +61,10 @@
     "eslint-plugin-react": "7.28.0",
     "eslint-plugin-react-hooks": "4.3.0",
     "glob": "7.2.0",
-    "husky": "4.2.5",
+    "husky": "7.0.4",
     "lerna": "4.0.0",
-    "lerna-changelog": "1.0.1",
-    "lint-staged": "10.5.4",
+    "lerna-changelog": "2.2.0",
+    "lint-staged": "12.1.7",
     "netlify-cli": "3.38.10",
     "node-fetch": "2.6.1",
     "npm-run-all": "4.1.5",
@@ -87,26 +87,21 @@
     "svg4everybody": "2.1.9"
   },
   "resolutions": {
-    "bl": "^4.0.3",
-    "dot-prop": "^5.1.1",
-    "elliptic": "^6.5.4",
-    "ini": "^1.3.6",
-    "lodash": "^4.17.19",
     "node-fetch": "^2.6.1",
     "serialize-javascript": "^3.1.0",
-    "y18n": "^5.0.5",
-    "ssri": "^6.0.2",
     "trim-newlines": ">=3.0.1 <4.0.0",
-    "css-what": ">=5.0.1",
     "normalize-url": ">=4.5.1 <5.0.0",
     "glob-parent": ">=5.1.2",
     "trim": ">=0.0.3",
     "browserslist": ">=4.16.5",
-    "hosted-git-info": ">=2.8.9 <3.0.0 || >=3.0.8",
     "handlebars": ">=4.7.7",
     "ws": ">=5.2.3 <6.0.0 || >=6.2.2 <7.0.0 || >=7.4.6 ",
     "prismjs": ">=1.24.0",
-    "tar": ">=3.2.3 <4.0.0 || >=4.4.15  <5.0.0 || >=5.0.7 <6.0.0 ||  >=6.1.2"
+    "tar": ">=3.2.3 <4.0.0 || >=4.4.15  <5.0.0 || >=5.0.7 <6.0.0 ||  >=6.1.2",
+    "ansi-regex": "5.0.1",
+    "follow-redirects": ">=1.14.7",
+    "json-schema": ">=0.4.0",
+    "nth-check": ">=2.0.1"
   },
   "engines": {
     "node": ">=8.15.1",
@@ -153,10 +148,5 @@
     "src/tools/*",
     "src/website",
     "src/polyfills"
-  ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  }
+  ]
 }
