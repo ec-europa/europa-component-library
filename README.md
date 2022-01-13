@@ -14,7 +14,7 @@ All library elements are accompanied with
 
 ## Requirements
 
-ECL is using Erbium, node v12.22.2. Please ensure a match before proceeding with the installation of ECL dependencies or ones in ECL Builder.
+ECL is using Fermium, node v14 but it keeps compatibility with Erbium, node v12. Please ensure a match before proceeding with the installation of ECL dependencies or ones in ECL Builder.
 
 ## Documentation
 
