@@ -1,40 +1,42 @@
 /* eslint-disable no-param-reassign */
 import addons, { makeDecorator } from '@storybook/addons';
-import marked from 'marked';
+import { marked } from 'marked';
 import Prism from 'prismjs';
 import he from 'he';
 
 // Manually import extra languages
+import 'prismjs/components/prism-markup-templating';
 import 'prismjs/components/prism-bash';
 import 'prismjs/components/prism-twig';
 
 // Create custom marked renderer
-const renderer = new marked.Renderer();
-renderer.code = function customCode(code, infostring, escaped) {
-  const lang = (infostring || '').match(/\S*/)[0];
+const renderer = {
+  code(code, infostring, escaped) {
+    const lang = (infostring || '').match(/\S*/)[0];
 
-  if (!lang) {
-    return `<pre><code>${escaped ? code : escape(code, true)}</code></pre>`;
-  }
+    if (!lang) {
+      return `<pre><code>${escaped ? code : escape(code, true)}</code></pre>`;
+    }
 
-  const highlightedCode = Prism.highlight(code, Prism.languages[lang], lang);
-  if (highlightedCode !== undefined && highlightedCode !== code) {
-    escaped = true;
-    code = highlightedCode;
-  }
+    const highlightedCode = Prism.highlight(code, Prism.languages[lang], lang);
+    if (highlightedCode !== undefined && highlightedCode !== code) {
+      escaped = true;
+      code = highlightedCode;
+    }
 
-  const htmlLang = this.options.langPrefix + escape(lang, true);
-  // Due to the format produced by JSON.stringify.
-  if (infostring === 'twig') {
-    code = code.replace(
-      /(<span class="token punctuation")>\.(<\/span>)/g,
-      '$1 style="visibility:hidden">.$2'
-    );
-  }
+    const htmlLang = this.options.langPrefix + escape(lang, true);
+    // Due to the format produced by JSON.stringify.
+    if (infostring === 'twig') {
+      code = code.replace(
+        /(<span class="token punctuation")>\.(<\/span>)/g,
+        '$1 style="visibility:hidden">.$2'
+      );
+    }
 
-  return `<pre class="${htmlLang}"><code class="${htmlLang}">${
-    escaped ? code : escape(code, true)
-  }</code></pre>\n`;
+    return `<pre class="${htmlLang}"><code class="${htmlLang}">${
+      escaped ? code : escape(code, true)
+    }</code></pre>\n`;
+  },
 };
 
 function renderMarkdown(text, options, json) {
@@ -85,8 +87,9 @@ function renderMarkdown(text, options, json) {
     // eslint-disable-next-line prefer-template
     text = preTwig + "twig' with \n" + specs + postTwig + ' %}\n```';
   }
+  marked.use({ renderer });
 
-  return marked(text, { ...marked.defaults, renderer, ...options });
+  return marked.parse(text);
 }
 
 export const withNotes = makeDecorator({
