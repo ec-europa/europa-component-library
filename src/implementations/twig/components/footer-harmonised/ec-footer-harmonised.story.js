@@ -3,7 +3,7 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctSvgPath } from '@ecl/story-utils';
 
 import logoEcG1 from '@ecl/resources-ec-logo/negative/logo-ec--en.svg';
-import logoEc from '@ecl/resources-ec-logo/logo-ec--en.svg';
+import logoEc from '@ecl/resources-ec-logo/positive/logo-ec--en.svg';
 import dataGroup1 from '@ecl/specs-component-footer-harmonised/demo/data--group1';
 import dataGroup2 from '@ecl/specs-component-footer-harmonised/demo/data--group2';
 import dataGroup3 from '@ecl/specs-component-footer-harmonised/demo/data--group3';
