@@ -3,7 +3,7 @@ title: Iconography
 order: 5
 ---
 
-import { IconList, LogoList } from '@ecl/website-components';
+import { IconList } from '@ecl/website-components';
 
 ## ECL EC icons
 
@@ -16,13 +16,3 @@ import { IconList, LogoList } from '@ecl/website-components';
 ## Flag icons
 
 <IconList set="flag" />
-
-## EC logo
-
-### Positive
-
-<LogoList system="ec" color="positive" />
-
-### Negative
-
-<LogoList system="ec" color="negative" />
