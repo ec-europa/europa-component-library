@@ -10,12 +10,14 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Default = () => (
-  <SearchForm
-    textInputId={demoContent.textInputId}
-    inputLabel={text('Input label', demoContent.inputLabel)}
-    buttonLabel={text('Button label', demoContent.buttonLabel)}
-  />
-);
+export function Default() {
+  return (
+    <SearchForm
+      textInputId={demoContent.textInputId}
+      inputLabel={text('Input label', demoContent.inputLabel)}
+      buttonLabel={text('Button label', demoContent.buttonLabel)}
+    />
+  );
+}
 
 Default.storyName = 'default';

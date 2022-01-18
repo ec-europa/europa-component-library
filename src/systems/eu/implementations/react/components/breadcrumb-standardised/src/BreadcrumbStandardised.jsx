@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import { BreadcrumbStandardisedEllipsis } from './BreadcrumbStandardisedEllipsis';
 
-export const BreadcrumbStandardised = ({
+export function BreadcrumbStandardised({
   label,
   className,
   ellipsisLabel,
@@ -12,7 +12,7 @@ export const BreadcrumbStandardised = ({
   minItemsLeft,
   minItemsRight,
   ...props
-}) => {
+}) {
   if (!children) return null;
 
   const childrenArray = React.Children.toArray(children);
@@ -94,7 +94,7 @@ export const BreadcrumbStandardised = ({
       <ol className="ecl-breadcrumb-standardised__container">{items}</ol>
     </nav>
   );
-};
+}
 
 BreadcrumbStandardised.propTypes = {
   label: PropTypes.string.isRequired,

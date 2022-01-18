@@ -34,6 +34,7 @@
       height: auto;
       left: $ecl-spacing-l;
       overflow: visible;
+
       // position: static;
       position: fixed;
       top: $ecl-spacing-l;
@@ -44,5 +45,5 @@
 
 // Use mixin
 @include exports('eu-component-skip-link') {
-  @include ecl-skip-link();
+  @include ecl-skip-link;
 }

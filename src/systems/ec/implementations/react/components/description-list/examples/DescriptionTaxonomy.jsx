@@ -3,12 +3,17 @@ import demoDescriptionHorizontal from '@ecl/ec-specs-description-list/demo/data-
 import demoDescriptionTaxonomy from '@ecl/ec-specs-description-list/demo/data--taxonomy';
 import DescriptionListWithData from '../src/DescriptionListWithData';
 
-export default () => (
-  <>
-    <DescriptionListWithData
-      variant="horizontal"
-      {...demoDescriptionHorizontal}
-    />
-    <DescriptionListWithData variant="taxonomy" {...demoDescriptionTaxonomy} />
-  </>
-);
+export default function () {
+  return (
+    <>
+      <DescriptionListWithData
+        variant="horizontal"
+        {...demoDescriptionHorizontal}
+      />
+      <DescriptionListWithData
+        variant="taxonomy"
+        {...demoDescriptionTaxonomy}
+      />
+    </>
+  );
+}

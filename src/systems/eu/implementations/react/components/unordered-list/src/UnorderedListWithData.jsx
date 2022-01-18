@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import UnorderedList from './UnorderedList';
 import UnorderedListItem from './UnorderedListItem';
 
-const UnorderedListWithData = ({ variant, items, className, ...props }) => {
+function UnorderedListWithData({ variant, items, className, ...props }) {
   return (
     <UnorderedList {...props} className={className}>
       {items.map((item) => (
@@ -15,7 +15,7 @@ const UnorderedListWithData = ({ variant, items, className, ...props }) => {
       ))}
     </UnorderedList>
   );
-};
+}
 
 UnorderedListWithData.propTypes = {
   variant: PropTypes.string,

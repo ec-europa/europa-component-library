@@ -12,27 +12,31 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Display = () => (
-  <Tag label={text('Label', demoDataDisplay.label)} variant="display" />
-);
+export function Display() {
+  return <Tag label={text('Label', demoDataDisplay.label)} variant="display" />;
+}
 
 Display.storyName = 'display tag';
 
-export const Link = () => (
-  <Tag
-    label={text('Label', demoDataLink.label)}
-    href={text('Link', demoDataLink.href)}
-  />
-);
+export function Link() {
+  return (
+    <Tag
+      label={text('Label', demoDataLink.label)}
+      href={text('Link', demoDataLink.href)}
+    />
+  );
+}
 
 Link.storyName = 'link tag';
 
-export const Removable = () => (
-  <Tag
-    label={text('Label', demoDataRemovable.label)}
-    variant="removable"
-    dismissButtonLabel={demoDataRemovable.dismissButtonLabel}
-  />
-);
+export function Removable() {
+  return (
+    <Tag
+      label={text('Label', demoDataRemovable.label)}
+      variant="removable"
+      dismissButtonLabel={demoDataRemovable.dismissButtonLabel}
+    />
+  );
+}
 
 Removable.storyName = 'removable tag';

@@ -5,7 +5,7 @@ import classnames from 'classnames';
 
 import Icon from '@ecl/ec-react-component-icon';
 
-const Select = ({
+function Select({
   disabled,
   groupClassName,
   helperText,
@@ -26,7 +26,7 @@ const Select = ({
   multipleAllText,
   className,
   ...props
-}) => {
+}) {
   const classNames = classnames(className, 'ecl-select');
 
   return (
@@ -113,7 +113,7 @@ const Select = ({
       </div>
     </div>
   );
-};
+}
 
 Select.propTypes = {
   disabled: PropTypes.bool,

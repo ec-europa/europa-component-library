@@ -10,7 +10,7 @@ import footerContent from '@ecl/eu-specs-footer/demo/data--corporate';
 import Breadcrumb, { BreadcrumbItem } from '@ecl/eu-react-component-breadcrumb';
 import StandardPage from '../src/StandardPage';
 
-export default () => {
+export default function () {
   const { items, ...breadcrumbProps } = breadcrumbContent;
   const breadcrumb = (
     <Breadcrumb {...breadcrumbProps}>
@@ -30,4 +30,4 @@ export default () => {
       mediaContainer={mediaContainerContent}
     />
   );
-};
+}

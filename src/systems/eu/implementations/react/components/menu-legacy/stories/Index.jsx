@@ -66,8 +66,8 @@ export default {
   },
 };
 
-export const Default = () => (
-  <MenuLegacy {...demoContent} data-ecl-auto-init="MenuLegacy" />
-);
+export function Default() {
+  return <MenuLegacy {...demoContent} data-ecl-auto-init="MenuLegacy" />;
+}
 
 Default.storyName = 'default';

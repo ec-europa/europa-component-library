@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import { FooterCoreSection } from './FooterCoreSection';
 
-export const FooterCore = ({ logo, sections, className, ...props }) => {
+export function FooterCore({ logo, sections, className, ...props }) {
   // Logo props
   const {
     className: logoClassName,
@@ -95,7 +95,7 @@ export const FooterCore = ({ logo, sections, className, ...props }) => {
       </div>
     </footer>
   );
-};
+}
 
 FooterCore.propTypes = {
   logo: PropTypes.shape({

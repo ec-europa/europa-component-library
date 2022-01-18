@@ -13,7 +13,7 @@ const adaptCellProps = ({ colspan, ...otherProps }) => ({
   ...otherProps,
 });
 
-export default () => {
+export default function () {
   return (
     <Table data-ecl-auto-init="Table" data-ecl-table>
       <TableHead>
@@ -50,4 +50,4 @@ export default () => {
       </TableBody>
     </Table>
   );
-};
+}

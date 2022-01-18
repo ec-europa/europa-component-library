@@ -338,6 +338,7 @@
     .ecl-footer-harmonised__section1 {
       margin-top: $ecl-spacing-l;
     }
+
     .ecl-footer-harmonised__section2,
     .ecl-footer-harmonised__section3 {
       margin-top: $ecl-spacing-m;
@@ -383,6 +384,7 @@
   .ecl-footer-harmonised--group3 {
     background-color: $bg-color;
     color: $text-color;
+
     // padding to handle margin below title
     padding-bottom: calc(#{$ecl-spacing-m} - #{$ecl-spacing-xs});
     padding-top: $ecl-spacing-m;
@@ -477,8 +479,8 @@
 
 // Use mixin
 @include exports('ec-component-footer-harmonised') {
-  @include ecl-footer-harmonised();
-  @include ecl-footer-harmonised-group1();
-  @include ecl-footer-harmonised-group2();
-  @include ecl-footer-harmonised-group3();
+  @include ecl-footer-harmonised;
+  @include ecl-footer-harmonised-group1;
+  @include ecl-footer-harmonised-group2;
+  @include ecl-footer-harmonised-group3;
 }

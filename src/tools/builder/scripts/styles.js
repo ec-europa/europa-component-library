@@ -57,7 +57,7 @@ module.exports = (entry, dest, options) => {
         fs.writeFileSync(dest, postcssResult.css);
 
         if (postcssResult.map) {
-          fs.writeFileSync(`${dest}.map`, postcssResult.map);
+          fs.writeFileSync(`${dest}.map`, postcssResult.map.toString());
         }
       };
 

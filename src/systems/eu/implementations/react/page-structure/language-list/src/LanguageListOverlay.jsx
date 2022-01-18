@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import Button from '@ecl/eu-react-component-button';
 import LanguageList from './LanguageList';
 
-const LanguageListOverlay = ({
+function LanguageListOverlay({
   closeLabel,
   title,
   categoryEu,
@@ -14,7 +14,7 @@ const LanguageListOverlay = ({
   itemsNonEu,
   className,
   ...props
-}) => {
+}) {
   const classNames = classnames(
     className,
     'ecl-language-list',
@@ -57,7 +57,7 @@ const LanguageListOverlay = ({
       </div>
     </div>
   );
-};
+}
 
 LanguageListOverlay.propTypes = {
   closeLabel: PropTypes.string,

@@ -88,7 +88,7 @@
   .ecl-site-header-harmonised__search {
     background-color: $ecl-color-blue-5;
     border: 1px solid $ecl-color-blue-25;
-    box-shadow: 0 2px 5px 0 rgba(0, 47, 103, 0.2);
+    box-shadow: 0 2px 5px 0 rgba(0, 47, 103, 20%);
     box-sizing: content-box;
     color: $ecl-color-grey;
     display: none;
@@ -138,6 +138,7 @@
     left: 50%;
     position: absolute;
     text-transform: uppercase;
+
     // position top and left has to be set like this because IE...
     // also ugly magic numbers to center the text on the icon
     top: 50%;
@@ -237,6 +238,7 @@
         transform: rotate(0);
         width: $ecl-icon-xs;
       }
+
       &[aria-expanded='false'] {
         .ecl-site-header-harmonised__login-arrow {
           transform: rotate(180deg);
@@ -300,7 +302,7 @@
    */
   .ecl-site-header-harmonised--group2 {
     &:not([data-ecl-has-menu='true']) {
-      box-shadow: 0 2px 5px 0 rgba(0, 47, 103, 0.2);
+      box-shadow: 0 2px 5px 0 rgba(0, 47, 103, 20%);
     }
 
     .ecl-site-header-harmonised__logo-image {
@@ -335,7 +337,7 @@
    * Group 3
    */
   .ecl-site-header-harmonised--group3 {
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 44, 0.2);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 44, 20%);
 
     .ecl-site-header-harmonised__container {
       padding-bottom: calc(#{$ecl-spacing-m} - #{$ecl-spacing-xs});
@@ -405,5 +407,5 @@
 
 // Use mixin
 @include exports('ec-component-site-header-harmonised') {
-  @include ecl-site-header-harmonised();
+  @include ecl-site-header-harmonised;
 }

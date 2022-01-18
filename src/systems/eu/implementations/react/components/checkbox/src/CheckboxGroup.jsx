@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import Checkbox from './Checkbox';
 
-const CheckboxGroup = ({
+function CheckboxGroup({
   className,
   helperId,
   helperText,
@@ -19,7 +19,7 @@ const CheckboxGroup = ({
   required,
   requiredText,
   ...props
-}) => {
+}) {
   const classNames = classnames(className, 'ecl-form-group');
 
   return (
@@ -67,7 +67,7 @@ const CheckboxGroup = ({
       ))}
     </fieldset>
   );
-};
+}
 
 CheckboxGroup.propTypes = {
   className: PropTypes.string,

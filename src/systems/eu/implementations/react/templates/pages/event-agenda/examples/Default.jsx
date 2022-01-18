@@ -12,7 +12,7 @@ import { Timeline2, Timeline2Item } from '@ecl/eu-react-component-timeline2';
 import footerContent from '@ecl/eu-specs-footer/demo/data--corporate';
 import siteHeaderContent from '@ecl/eu-specs-site-header/demo/data--en';
 
-export default () => {
+export default function () {
   const breadcrumb = (
     <Breadcrumb className="ecl-page-header__breadcrumb">
       <BreadcrumbItem label="Home" href="/example" />
@@ -552,4 +552,4 @@ export default () => {
       <Footer {...footerContent} />
     </>
   );
-};
+}

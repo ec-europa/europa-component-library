@@ -30,7 +30,7 @@ export default {
   ],
 };
 
-export const Default = () => {
+export function Default() {
   // Optional elements
   const optional = {};
   optional.siteHeaderLogin = boolean('Login', true, 'optional');
@@ -43,11 +43,11 @@ export const Default = () => {
   }
 
   return <SiteHeaderCore {...dataCopy} data-ecl-auto-init="SiteHeaderCore" />;
-};
+}
 
 Default.storyName = 'default';
 
-export const LoggedIn = () => {
+export function LoggedIn() {
   // Optional elements
   const optional = {};
   optional.siteHeaderLogin = boolean('Login', true, 'optional');
@@ -62,11 +62,11 @@ export const LoggedIn = () => {
   return (
     <SiteHeaderCore {...dataCopy} data-ecl-auto-init="SiteHeaderCore" logged />
   );
-};
+}
 
 LoggedIn.storyName = 'logged in';
 
-export const Translated = () => {
+export function Translated() {
   // Optional elements
   const optional = {};
   optional.siteHeaderLogin = boolean('Login', true, 'optional');
@@ -79,6 +79,6 @@ export const Translated = () => {
   }
 
   return <SiteHeaderCore {...dataCopy} data-ecl-auto-init="SiteHeaderCore" />;
-};
+}
 
 Translated.storyName = 'translated';

@@ -14,6 +14,8 @@ function formatData(data) {
   return formattedData;
 }
 
-export default () => (
-  <Timeline2 {...formatData(demoContent)} data-ecl-auto-init="Timeline2" />
-);
+export default function () {
+  return (
+    <Timeline2 {...formatData(demoContent)} data-ecl-auto-init="Timeline2" />
+  );
+}

@@ -32,7 +32,7 @@ export default {
   ],
 };
 
-export const Simple = () => {
+export function Simple() {
   const items = simpleContent.items.map((item, index) => ({
     label: text(`Item ${index}`, item.label),
     href: item.href,
@@ -48,11 +48,11 @@ export const Simple = () => {
       ))}
     </BreadcrumbHarmonised>
   );
-};
+}
 
 Simple.storyName = 'simple';
 
-export const Long = () => {
+export function Long() {
   const items = demoContent.items.map((item, index) => ({
     label: text(`Item ${index}`, item.label),
     href: item.href,
@@ -69,6 +69,6 @@ export const Long = () => {
       ))}
     </BreadcrumbHarmonised>
   );
-};
+}
 
 Long.storyName = 'long';

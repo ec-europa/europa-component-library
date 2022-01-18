@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import logoSvg from '@ecl/eu-resources-logo/logo--mute.svg';
 import LanguageList from './LanguageList';
 
-const LanguageListSplash = ({
+function LanguageListSplash({
   logoAlt,
   categoryEu,
   items,
@@ -13,7 +13,7 @@ const LanguageListSplash = ({
   itemsNonEu,
   className,
   ...props
-}) => {
+}) {
   const classNames = classnames(
     className,
     'ecl-language-list',
@@ -35,7 +35,7 @@ const LanguageListSplash = ({
       </div>
     </div>
   );
-};
+}
 
 LanguageListSplash.propTypes = {
   logoAlt: PropTypes.string,

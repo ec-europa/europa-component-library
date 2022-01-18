@@ -27,11 +27,11 @@ const btnAddContent = () => {
   }
 };
 
-export const DeprecatedEcl250 = () => {
+export function DeprecatedEcl250() {
   button('Add dummy content', btnAddContent, 'buttons');
 
   return <TimelineExample />;
-};
+}
 
 DeprecatedEcl250.decorators = [
   withKnobs,

@@ -19,7 +19,7 @@
   .ecl-dropdown-legacy__content {
     background-color: $ecl-color-grey-5;
     border: 1px solid $ecl-color-grey-25;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 17%);
     position: absolute;
 
     .ecl-dropdown-legacy--padded & {
@@ -34,5 +34,5 @@
 
 // Use mixin
 @include exports('eu-component-dropdown-legacy') {
-  @include ecl-dropdown-legacy();
+  @include ecl-dropdown-legacy;
 }

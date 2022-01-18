@@ -12,15 +12,15 @@
   //
   // Set the container width, and override it for fixed navbars in media queries.
   .ecl-container {
-    @include ecl-make-container();
-    @include ecl-make-container-max-widths();
+    @include ecl-make-container;
+    @include ecl-make-container-max-widths;
   }
 
   // Row
   //
   // Rows contain and clear the floats of your columns.
   .ecl-row {
-    @include ecl-make-row();
+    @include ecl-make-row;
   }
 
   // Remove the negative margin from default .row, then the horizontal padding
@@ -44,5 +44,5 @@
 
 // Use mixin
 @include exports('ec-layout-grid') {
-  @include ecl-grid();
+  @include ecl-grid;
 }

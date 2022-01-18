@@ -1,6 +1,11 @@
 module.exports = {
-  parser: 'babel-eslint',
-  extends: ['airbnb', 'plugin:prettier/recommended', 'prettier/react'],
+  parser: '@babel/eslint-parser',
+  extends: [
+    'airbnb',
+    'prettier',
+    'plugin:react/jsx-runtime',
+    'plugin:react/recommended',
+  ],
   plugins: ['react', 'jsx-a11y'],
   env: {
     browser: true,
@@ -17,6 +22,11 @@ module.exports = {
     'jsx-a11y/role-supports-aria-props': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/no-array-index-key': 'off',
+    'no-restricted-exports': 'off',
+    'react/display-name': 'off',
+    'func-names': 'off',
+    'react/jsx-no-useless-fragment': 'off',
+    'react/jsx-key': 'off',
   },
   overrides: [
     {

@@ -11,7 +11,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const EventSpeaker = () => {
+export function EventSpeaker() {
   const template = radios(
     'Template',
     {
@@ -161,4 +161,4 @@ export const EventSpeaker = () => {
     'optional (core)'
   );
   return <EventSpeakerCore {...optional} />;
-};
+}

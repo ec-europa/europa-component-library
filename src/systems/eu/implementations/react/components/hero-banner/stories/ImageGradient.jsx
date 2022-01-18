@@ -5,7 +5,7 @@ import demoContentImageGradient from '@ecl/eu-specs-hero-banner/demo/data--image
 
 import HeroBanner from '../src/HeroBanner';
 
-export const ImageGradient = () => {
+export function ImageGradient() {
   // Banner content
   const title = text('Title', demoContentImageGradient.title, 'Banner content');
   const description = text(
@@ -53,6 +53,6 @@ export const ImageGradient = () => {
   ) : (
     <div className="ecl-container">{heroBanner}</div>
   );
-};
+}
 
 ImageGradient.storyName = 'image - gradient';

@@ -11,7 +11,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const ResearchAreaSpoke = () => {
+export function ResearchAreaSpoke() {
   const template = radios(
     'Template',
     {
@@ -161,4 +161,4 @@ export const ResearchAreaSpoke = () => {
     'optional (core)'
   );
   return <ResearchAreaSpokeCore {...optional} />;
-};
+}

@@ -51,10 +51,10 @@ export default {
   ],
 };
 
-export const Default = () => {
+export function Default() {
   button('Add dummy content', btnAddContent, 'buttons');
 
   return <Timeline2Example />;
-};
+}
 
 Default.storyName = 'default';

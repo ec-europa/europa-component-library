@@ -25,12 +25,14 @@ const cssLoader = ({ fixCode = true, prefix } = {}) => [
   {
     loader: 'postcss-loader',
     options: {
-      plugins: () => [
-        ...(prefix ? [selectorPrefixer({ prefix })] : []),
-        ...(fixCode
-          ? [postcssFlexbugFixes, autoprefixer({ flexbox: 'no-2009' })]
-          : []),
-      ],
+      postcssOptions: {
+        plugins: [
+          ...(prefix ? [selectorPrefixer({ prefix })] : []),
+          ...(fixCode
+            ? [postcssFlexbugFixes, autoprefixer({ flexbox: 'no-2009' })]
+            : []),
+        ],
+      },
     },
   },
 ];
@@ -120,13 +122,15 @@ module.exports = {
               {
                 loader: require.resolve('postcss-loader'),
                 options: {
-                  ident: 'postcss',
-                  plugins: () => [
-                    postcssFlexbugFixes,
-                    autoprefixer({
-                      flexbox: 'no-2009',
-                    }),
-                  ],
+                  postcssOptions: {
+                    ident: 'postcss',
+                    plugins: [
+                      postcssFlexbugFixes,
+                      autoprefixer({
+                        flexbox: 'no-2009',
+                      }),
+                    ],
+                  },
                 },
               },
               {

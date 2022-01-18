@@ -10,53 +10,61 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Default = () => (
-  <DateBlock
-    dateTime={demoContent.dateTime}
-    day={text('Day', demoContent.day)}
-    month={text('Month', demoContent.month)}
-    monthFull={text('Month (full)', demoContent.monthFull)}
-    year={text('Year', demoContent.year)}
-  />
-);
+export function Default() {
+  return (
+    <DateBlock
+      dateTime={demoContent.dateTime}
+      day={text('Day', demoContent.day)}
+      month={text('Month', demoContent.month)}
+      monthFull={text('Month (full)', demoContent.monthFull)}
+      year={text('Year', demoContent.year)}
+    />
+  );
+}
 
 Default.storyName = 'default';
 
-export const Ongoing = () => (
-  <DateBlock
-    variant="ongoing"
-    dateTime={demoContent.dateTime}
-    day={text('Day', demoContent.day)}
-    month={text('Month', demoContent.month)}
-    monthFull={text('Month (full)', demoContent.monthFull)}
-    year={text('Year', demoContent.year)}
-  />
-);
+export function Ongoing() {
+  return (
+    <DateBlock
+      variant="ongoing"
+      dateTime={demoContent.dateTime}
+      day={text('Day', demoContent.day)}
+      month={text('Month', demoContent.month)}
+      monthFull={text('Month (full)', demoContent.monthFull)}
+      year={text('Year', demoContent.year)}
+    />
+  );
+}
 
 Ongoing.storyName = 'ongoing';
 
-export const Cancelled = () => (
-  <DateBlock
-    variant="canceled"
-    dateTime={demoContent.dateTime}
-    day={text('Day', demoContent.day)}
-    month={text('Month', demoContent.month)}
-    monthFull={text('Month (full)', demoContent.monthFull)}
-    year={text('Year', demoContent.year)}
-  />
-);
+export function Cancelled() {
+  return (
+    <DateBlock
+      variant="canceled"
+      dateTime={demoContent.dateTime}
+      day={text('Day', demoContent.day)}
+      month={text('Month', demoContent.month)}
+      monthFull={text('Month (full)', demoContent.monthFull)}
+      year={text('Year', demoContent.year)}
+    />
+  );
+}
 
 Cancelled.storyName = 'cancelled';
 
-export const Past = () => (
-  <DateBlock
-    variant="past"
-    dateTime={demoContent.dateTime}
-    day={text('Day', demoContent.day)}
-    month={text('Month', demoContent.month)}
-    monthFull={text('Month (full)', demoContent.monthFull)}
-    year={text('Year', demoContent.year)}
-  />
-);
+export function Past() {
+  return (
+    <DateBlock
+      variant="past"
+      dateTime={demoContent.dateTime}
+      day={text('Day', demoContent.day)}
+      month={text('Month', demoContent.month)}
+      monthFull={text('Month (full)', demoContent.monthFull)}
+      year={text('Year', demoContent.year)}
+    />
+  );
+}
 
 Past.storyName = 'past';

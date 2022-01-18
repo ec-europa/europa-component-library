@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import Icon from '@ecl/ec-react-component-icon';
 
-const Datepicker = ({
+function Datepicker({
   id,
   disabled,
   groupClassName,
@@ -21,7 +21,7 @@ const Datepicker = ({
   type,
   className,
   ...props
-}) => {
+}) {
   return (
     <div className={classnames(groupClassName, 'ecl-form-group')}>
       {label && (
@@ -89,7 +89,7 @@ const Datepicker = ({
       </div>
     </div>
   );
-};
+}
 
 Datepicker.propTypes = {
   id: PropTypes.string.isRequired,

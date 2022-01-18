@@ -25,4 +25,6 @@ export default {
   ],
 };
 
-export const Standard = () => <StandardPageExample />;
+export function Standard() {
+  return <StandardPageExample />;
+}

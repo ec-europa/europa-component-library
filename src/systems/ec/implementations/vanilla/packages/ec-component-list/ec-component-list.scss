@@ -121,7 +121,7 @@
 
 // Use mixin
 @include exports('ec-component-list') {
-  @include ecl-ordered-list();
-  @include ecl-unordered-list();
-  @include ecl-description-list();
+  @include ecl-ordered-list;
+  @include ecl-unordered-list;
+  @include ecl-description-list;
 }

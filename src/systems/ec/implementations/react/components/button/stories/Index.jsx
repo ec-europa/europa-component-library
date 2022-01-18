@@ -25,7 +25,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Primary = () => {
+export function Primary() {
   const buttonIcon = {
     shape: select('Icon (sample)', icons, ''),
     size: 'xs',
@@ -41,11 +41,11 @@ export const Primary = () => {
       disabled={boolean('Disabled', false)}
     />
   );
-};
+}
 
 Primary.storyName = 'primary';
 
-export const Secondary = () => {
+export function Secondary() {
   const buttonIcon = {
     shape: select('Icon (sample)', icons, ''),
     size: 'xs',
@@ -61,11 +61,11 @@ export const Secondary = () => {
       disabled={boolean('Disabled', false)}
     />
   );
-};
+}
 
 Secondary.storyName = 'secondary';
 
-export const CallToAction = () => {
+export function CallToAction() {
   const buttonIcon = {
     shape: select('Icon (sample)', icons, ''),
     size: 'xs',
@@ -81,11 +81,11 @@ export const CallToAction = () => {
       disabled={boolean('Disabled', false)}
     />
   );
-};
+}
 
 CallToAction.storyName = 'call to action';
 
-export const Text = () => {
+export function Text() {
   const buttonIcon = {
     shape: select('Icon (sample)', icons, ''),
     size: 'xs',
@@ -101,11 +101,11 @@ export const Text = () => {
       disabled={boolean('Disabled', false)}
     />
   );
-};
+}
 
 Text.storyName = 'text';
 
-export const Search = () => {
+export function Search() {
   const buttonIcon = {
     shape: select('Icon (sample)', icons, ''),
     size: 'xs',
@@ -121,6 +121,6 @@ export const Search = () => {
       disabled={boolean('Disabled', false)}
     />
   );
-};
+}
 
 Search.storyName = 'search';

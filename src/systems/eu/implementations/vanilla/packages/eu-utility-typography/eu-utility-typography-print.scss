@@ -88,45 +88,59 @@
   .ecl-u-type-xs {
     font: $ecl-font-xs !important;
   }
+
   .ecl-u-type-s {
     font: $ecl-font-s !important;
   }
+
   .ecl-u-type-m {
     font: $ecl-font-m !important;
   }
+
   .ecl-u-type-l {
     font: $ecl-font-l !important;
   }
+
   .ecl-u-type-xl {
     font: $ecl-font-xl !important;
   }
+
   .ecl-u-type-2xl {
     font: $ecl-font-2-xl !important;
   }
+
   .ecl-u-type-3xl {
     font: $ecl-font-3-xl !important;
   }
+
   .ecl-u-type-4xl {
     font: $ecl-font-4-xl !important;
   }
+
   .ecl-u-type-5xl {
     font: $ecl-font-5-xl !important;
   }
+
   .ecl-u-type-6xl {
     font: $ecl-font-6-xl !important;
   }
+
   .ecl-u-type-prolonged-xs {
     font: $ecl-font-prolonged-xs !important;
   }
+
   .ecl-u-type-prolonged-s {
     font: $ecl-font-prolonged-s !important;
   }
+
   .ecl-u-type-prolonged-m {
     font: $ecl-font-prolonged-m !important;
   }
+
   .ecl-u-type-prolonged-l {
     font: $ecl-font-prolonged-l !important;
   }
+
   .ecl-u-type-prolonged-xl {
     font: $ecl-font-prolonged-xl !important;
   }
@@ -149,27 +163,35 @@
   .ecl-u-type-regular {
     font-weight: $ecl-font-weight-regular !important;
   }
+
   .ecl-u-type-bold {
     font-weight: $ecl-font-weight-bold !important;
   }
+
   .ecl-u-type-capitalize {
     text-transform: capitalize !important;
   }
+
   .ecl-u-type-lowercase {
     text-transform: lowercase !important;
   }
+
   .ecl-u-type-uppercase {
     text-transform: uppercase !important;
   }
+
   .ecl-u-type-overline {
     text-decoration: overline !important;
   }
+
   .ecl-u-type-underline {
     text-decoration: underline !important;
   }
+
   .ecl-u-type-strike {
     text-decoration: line-through !important;
   }
+
   .ecl-u-type-none {
     text-decoration: none !important;
   }
@@ -177,5 +199,5 @@
 
 // Use mixin
 @include exports('eu-utility-typography-print') {
-  @include ecl-utility-typography-print();
+  @include ecl-utility-typography-print;
 }

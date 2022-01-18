@@ -11,7 +11,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const MainPolicyResources = () => {
+export function MainPolicyResources() {
   const template = radios(
     'Template',
     {
@@ -161,4 +161,4 @@ export const MainPolicyResources = () => {
     'optional (core)'
   );
   return <MainPolicyResourcesCore {...optional} />;
-};
+}

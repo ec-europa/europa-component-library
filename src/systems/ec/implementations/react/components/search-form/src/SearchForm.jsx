@@ -5,13 +5,13 @@ import classnames from 'classnames';
 import Button from '@ecl/ec-react-component-button';
 import TextInput from '@ecl/ec-react-component-text-input';
 
-const SearchForm = ({
+function SearchForm({
   textInputId,
   inputLabel,
   buttonLabel,
   className,
   ...props
-}) => {
+}) {
   const classNames = classnames(className, 'ecl-search-form');
 
   return (
@@ -35,7 +35,7 @@ const SearchForm = ({
       />
     </form>
   );
-};
+}
 
 SearchForm.propTypes = {
   textInputId: PropTypes.string,

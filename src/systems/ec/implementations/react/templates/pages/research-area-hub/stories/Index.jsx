@@ -11,7 +11,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const ResearchAreaHub = () => {
+export function ResearchAreaHub() {
   const template = radios(
     'Template',
     {
@@ -161,4 +161,4 @@ export const ResearchAreaHub = () => {
     'optional (core)'
   );
   return <ResearchAreaHubCore {...optional} />;
-};
+}

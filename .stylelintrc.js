@@ -1,27 +1,20 @@
-// Check selectors against BEM syntax
-function bemSelector(block) {
-  const ns = 'ecl-';
-  const WORD = '[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*';
-  const element = `(?:__${WORD})?`;
-  const modifier = `(?:--${WORD}){0,2}`;
-  const attribute = '(?:\\[.+\\])?';
-  return new RegExp(`^\\.${ns}${block}${element}${modifier}${attribute}$`);
-}
-
 module.exports = {
   extends: [
     'stylelint-config-standard',
-    'stylelint-config-sass-guidelines',
+    'stylelint-config-standard-scss',
     'stylelint-config-prettier',
   ],
-  plugins: ['stylelint-selector-bem-pattern'],
   rules: {
-    'plugin/selector-bem-pattern': {
-      componentName: /^[a-z][-a-zA-Z0-9]+$/,
-      componentSelectors: bemSelector,
-      ignoreSelectors: /^\.no-js$/,
-    },
     // Allow underscores in class names (BEM)
     'selector-class-pattern': null,
+    // Disable checks because automated fixes would be breaking
+    'color-function-notation': null,
+    // Not a real issue.
+    'scss/comment-no-empty': null,
+    // Problematic rule.
+    'scss/operator-no-newline-after': null,
+    'selector-pseudo-class-no-unknown': null,
+    'declaration-block-no-redundant-longhand-properties': null,
+    'scss/no-global-function-names': null,
   },
 };

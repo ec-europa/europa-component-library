@@ -33,46 +33,54 @@ export default {
   ],
 };
 
-export const Info = () => (
-  <Message
-    {...demoContentInfo}
-    title={text('Title', demoContentInfo.title)}
-    description={text('Description', demoContentInfo.description)}
-    data-ecl-auto-init="Message"
-  />
-);
+export function Info() {
+  return (
+    <Message
+      {...demoContentInfo}
+      title={text('Title', demoContentInfo.title)}
+      description={text('Description', demoContentInfo.description)}
+      data-ecl-auto-init="Message"
+    />
+  );
+}
 
 Info.storyName = 'info';
 
-export const Success = () => (
-  <Message
-    {...demoContentSuccess}
-    title={text('Title', demoContentSuccess.title)}
-    description={text('Description', demoContentSuccess.description)}
-    data-ecl-auto-init="Message"
-  />
-);
+export function Success() {
+  return (
+    <Message
+      {...demoContentSuccess}
+      title={text('Title', demoContentSuccess.title)}
+      description={text('Description', demoContentSuccess.description)}
+      data-ecl-auto-init="Message"
+    />
+  );
+}
 
 Success.storyName = 'success';
 
-export const Warning = () => (
-  <Message
-    {...demoContentWarning}
-    title={text('Title', demoContentWarning.title)}
-    description={text('Description', demoContentWarning.description)}
-    data-ecl-auto-init="Message"
-  />
-);
+export function Warning() {
+  return (
+    <Message
+      {...demoContentWarning}
+      title={text('Title', demoContentWarning.title)}
+      description={text('Description', demoContentWarning.description)}
+      data-ecl-auto-init="Message"
+    />
+  );
+}
 
 Warning.storyName = 'warning';
 
-export const Error = () => (
-  <Message
-    {...demoContentError}
-    title={text('Title', demoContentError.title)}
-    description={text('Description', demoContentError.description)}
-    data-ecl-auto-init="Message"
-  />
-);
+export function Error() {
+  return (
+    <Message
+      {...demoContentError}
+      title={text('Title', demoContentError.title)}
+      description={text('Description', demoContentError.description)}
+      data-ecl-auto-init="Message"
+    />
+  );
+}
 
 Error.storyName = 'error';

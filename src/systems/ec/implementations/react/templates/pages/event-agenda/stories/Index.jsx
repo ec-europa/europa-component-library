@@ -11,7 +11,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const EventAgenda = () => {
+export function EventAgenda() {
   const template = radios(
     'Template',
     {
@@ -161,4 +161,4 @@ export const EventAgenda = () => {
     'optional (core)'
   );
   return <EventAgendaCore {...optional} />;
-};
+}

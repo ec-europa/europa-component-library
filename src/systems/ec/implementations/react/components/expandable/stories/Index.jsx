@@ -30,16 +30,18 @@ export default {
   ],
 };
 
-export const Default = () => (
-  <Expandable
-    button={demoContent.button}
-    labelExpanded={demoContent.labelExpanded}
-    labelCollapsed={demoContent.labelCollapsed}
-    id={demoContent.id}
-    data-ecl-auto-init="Expandable"
-  >
-    <p className="ecl-u-type-paragraph-m">{demoContent.content}</p>
-  </Expandable>
-);
+export function Default() {
+  return (
+    <Expandable
+      button={demoContent.button}
+      labelExpanded={demoContent.labelExpanded}
+      labelCollapsed={demoContent.labelCollapsed}
+      id={demoContent.id}
+      data-ecl-auto-init="Expandable"
+    >
+      <p className="ecl-u-type-paragraph-m">{demoContent.content}</p>
+    </Expandable>
+  );
+}
 
 Default.storyName = 'default';

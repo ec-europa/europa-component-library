@@ -5,7 +5,7 @@ import demoContentImageShade from '@ecl/eu-specs-page-banner/demo/data--image-sh
 
 import PageBanner from '../src/PageBanner';
 
-export const ImageShade = () => {
+export function ImageShade() {
   // Banner content
   const title = text('Title', demoContentImageShade.title, 'Banner content');
   const description = text(
@@ -53,6 +53,6 @@ export const ImageShade = () => {
   ) : (
     <div className="ecl-container">{pageBanner}</div>
   );
-};
+}
 
 ImageShade.storyName = 'image - shade';

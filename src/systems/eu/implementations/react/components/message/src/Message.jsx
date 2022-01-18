@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import Button from '@ecl/eu-react-component-button';
 import Icon from '@ecl/eu-react-component-icon';
 
-export const Message = ({
+export function Message({
   variant,
   icon,
   title,
@@ -13,7 +13,7 @@ export const Message = ({
   onClose,
   className,
   ...props
-}) => {
+}) {
   const classNames = classnames(className, 'ecl-message', {
     [`ecl-message--${variant}`]: variant,
   });
@@ -37,7 +37,7 @@ export const Message = ({
       </div>
     </div>
   );
-};
+}
 
 Message.propTypes = {
   variant: PropTypes.string,

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import OrderedList from './OrderedList';
 import OrderedListItem from './OrderedListItem';
 
-const OrderedListWithData = ({ items, className, ...props }) => {
+function OrderedListWithData({ items, className, ...props }) {
   return (
     <OrderedList {...props} className={className}>
       {items.map((item) => (
@@ -15,7 +15,7 @@ const OrderedListWithData = ({ items, className, ...props }) => {
       ))}
     </OrderedList>
   );
-};
+}
 
 OrderedListWithData.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape(OrderedListItem.propTypes)),

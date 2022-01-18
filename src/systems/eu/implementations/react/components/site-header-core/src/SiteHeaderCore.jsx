@@ -8,7 +8,7 @@ import Menu from '@ecl/eu-react-component-menu';
 import SearchForm from '@ecl/eu-react-component-search-form';
 import { LanguageListOverlay } from '@ecl/eu-react-component-language-list';
 
-const SiteHeaderCore = ({
+function SiteHeaderCore({
   logo,
   logged,
   loginToggle,
@@ -20,7 +20,7 @@ const SiteHeaderCore = ({
   menu,
   className,
   ...props
-}) => {
+}) {
   const classNames = classnames(className, 'ecl-site-header-core');
 
   // Logo props
@@ -207,7 +207,7 @@ const SiteHeaderCore = ({
       )}
     </header>
   );
-};
+}
 
 SiteHeaderCore.propTypes = {
   logo: PropTypes.shape({

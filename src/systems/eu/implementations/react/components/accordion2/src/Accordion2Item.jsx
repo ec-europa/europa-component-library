@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Icon from '@ecl/eu-react-component-icon';
 
-export const Accordion2Item = ({ id, toggle, level, children }) => {
+export function Accordion2Item({ id, toggle, level, children }) {
   const HeadingTag = `h${level || 3}`;
 
   return (
@@ -41,7 +41,7 @@ export const Accordion2Item = ({ id, toggle, level, children }) => {
       </div>
     </div>
   );
-};
+}
 
 Accordion2Item.propTypes = {
   id: PropTypes.string,

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-export const Accordion2 = ({ children, className, ...props }) => {
+export function Accordion2({ children, className, ...props }) {
   return (
     <div
       {...props}
@@ -12,7 +12,7 @@ export const Accordion2 = ({ children, className, ...props }) => {
       {children}
     </div>
   );
-};
+}
 
 Accordion2.propTypes = {
   children: PropTypes.node,

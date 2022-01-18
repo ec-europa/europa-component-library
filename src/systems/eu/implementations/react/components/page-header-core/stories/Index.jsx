@@ -52,50 +52,58 @@ export default {
   ],
 };
 
-export const Title = () => (
-  <PageHeaderCore
-    breadcrumb={breadcrumb}
-    title={text('Title', demoTitleContent.title)}
-  />
-);
+export function Title() {
+  return (
+    <PageHeaderCore
+      breadcrumb={breadcrumb}
+      title={text('Title', demoTitleContent.title)}
+    />
+  );
+}
 
 Title.storyName = 'title';
 
-export const MetaTitle = () => (
-  <PageHeaderCore
-    breadcrumb={breadcrumb}
-    title={text('Title', demoMetaTitleContent.title)}
-    meta={parse(text('Meta', demoMetaTitleContent.meta))}
-  />
-);
+export function MetaTitle() {
+  return (
+    <PageHeaderCore
+      breadcrumb={breadcrumb}
+      title={text('Title', demoMetaTitleContent.title)}
+      meta={parse(text('Meta', demoMetaTitleContent.meta))}
+    />
+  );
+}
 
 MetaTitle.storyName = 'meta-title';
 MetaTitle.parameters = { knobs: { escapeHTML: false } };
 
-export const MetaTitleDescription = () => (
-  <PageHeaderCore
-    breadcrumb={breadcrumb}
-    title={text('Title', demoMetaTitleDescriptionContent.title)}
-    description={text(
-      'Description',
-      demoMetaTitleDescriptionContent.description
-    )}
-    meta={parse(text('Meta', demoMetaTitleDescriptionContent.meta))}
-  />
-);
+export function MetaTitleDescription() {
+  return (
+    <PageHeaderCore
+      breadcrumb={breadcrumb}
+      title={text('Title', demoMetaTitleDescriptionContent.title)}
+      description={text(
+        'Description',
+        demoMetaTitleDescriptionContent.description
+      )}
+      meta={parse(text('Meta', demoMetaTitleDescriptionContent.meta))}
+    />
+  );
+}
 
 MetaTitleDescription.storyName = 'meta-title-description';
 MetaTitleDescription.parameters = { knobs: { escapeHTML: false } };
 
-export const BackgroundImage = () => (
-  <PageHeaderCore
-    image={text('Background image URL', demoBackgroundImage.image)}
-    breadcrumb={breadcrumb}
-    title={text('Title', demoBackgroundImage.title)}
-    description={text('Description', demoBackgroundImage.description)}
-    meta={parse(text('Meta', demoBackgroundImage.meta))}
-  />
-);
+export function BackgroundImage() {
+  return (
+    <PageHeaderCore
+      image={text('Background image URL', demoBackgroundImage.image)}
+      breadcrumb={breadcrumb}
+      title={text('Title', demoBackgroundImage.title)}
+      description={text('Description', demoBackgroundImage.description)}
+      meta={parse(text('Meta', demoBackgroundImage.meta))}
+    />
+  );
+}
 
 BackgroundImage.storyName = 'background image';
 BackgroundImage.parameters = { knobs: { escapeHTML: false } };

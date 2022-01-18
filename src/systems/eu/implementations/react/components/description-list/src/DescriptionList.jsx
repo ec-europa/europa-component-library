@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-const DescriptionList = ({ variant, className, ...props }) => {
+function DescriptionList({ variant, className, ...props }) {
   const classNames = classnames(className, 'ecl-description-list', {
     [`ecl-description-list--${variant}`]: variant,
   });
 
   return <dl {...props} className={classNames} />;
-};
+}
 
 DescriptionList.propTypes = {
   variant: PropTypes.string,

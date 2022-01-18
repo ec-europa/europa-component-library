@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import { BreadcrumbHarmonisedEllipsis } from './BreadcrumbHarmonisedEllipsis';
 
-export const BreadcrumbHarmonised = ({
+export function BreadcrumbHarmonised({
   label,
   className,
   ellipsisLabel,
@@ -12,7 +12,7 @@ export const BreadcrumbHarmonised = ({
   minItemsLeft,
   minItemsRight,
   ...props
-}) => {
+}) {
   if (!children) return null;
 
   const childrenArray = React.Children.toArray(children);
@@ -94,7 +94,7 @@ export const BreadcrumbHarmonised = ({
       <ol className="ecl-breadcrumb-harmonised__container">{items}</ol>
     </nav>
   );
-};
+}
 
 BreadcrumbHarmonised.propTypes = {
   label: PropTypes.string.isRequired,

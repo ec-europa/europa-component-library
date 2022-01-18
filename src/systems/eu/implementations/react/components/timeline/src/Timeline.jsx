@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import Button from '@ecl/eu-react-component-button';
 import { TimelineItem } from './TimelineItem';
 
-export const Timeline = ({ items, button, className, ...props }) => {
+export function Timeline({ items, button, className, ...props }) {
   const classNames = classnames(className, 'ecl-timeline');
 
   const showAllButton = (
@@ -34,7 +34,7 @@ export const Timeline = ({ items, button, className, ...props }) => {
       ))}
     </ol>
   );
-};
+}
 
 Timeline.propTypes = {
   items: PropTypes.arrayOf(

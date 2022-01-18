@@ -17,8 +17,12 @@ export default {
   },
 };
 
-export const Corporate = () => <Footer {...demoContentCorporate} />;
+export function Corporate() {
+  return <Footer {...demoContentCorporate} />;
+}
 Corporate.storyName = 'corporate';
 
-export const Custom = () => <Footer {...demoContentCustom} />;
+export function Custom() {
+  return <Footer {...demoContentCustom} />;
+}
 Custom.storyName = 'custom';

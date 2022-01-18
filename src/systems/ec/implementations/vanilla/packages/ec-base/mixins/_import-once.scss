@@ -1,4 +1,5 @@
 // Original: https://github.com/wilsonpage/sass-import-once
+// stylelint-disable scss/at-if-no-null, scss/at-rule-conditional-no-parentheses
 
 $ecl-import-once-warn: false !default;
 $ecl-check-imports-warn: false !default;
@@ -11,7 +12,7 @@ $imported-modules: () !default;
 /// @param {Bool} $warn [true] - Warn when module has been already imported
 /// @require $imported-modules
 @mixin exports($name, $warn: $ecl-import-once-warn) {
-  @if (index($imported-modules, $name) == null) {
+  @if index($imported-modules, $name) == null {
     $imported-modules: append($imported-modules, $name) !global;
     @content;
   } @else if $warn == true {
@@ -23,8 +24,7 @@ $imported-modules: () !default;
 @mixin check-imports($dependencies, $warn: $ecl-check-imports-warn) {
   @if $warn == true {
     @each $dep in $dependencies {
-      /* stylelint-disable-next-line */
-      @if (index($imported-modules, $dep) == null) {
+      @if index($imported-modules, $dep) == null {
         @warn 'Module `#{$dep}` has not been imported yet.';
       }
     }

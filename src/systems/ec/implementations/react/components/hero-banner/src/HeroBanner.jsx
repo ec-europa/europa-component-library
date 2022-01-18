@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import Link from '@ecl/ec-react-component-link';
 
-const HeroBanner = ({
+function HeroBanner({
   variant,
   title,
   description,
@@ -14,7 +14,7 @@ const HeroBanner = ({
   link,
   className,
   ...props
-}) => {
+}) {
   const classNames = classnames(className, 'ecl-hero-banner', {
     [`ecl-hero-banner--${variant}`]: variant,
     [`ecl-hero-banner--centered`]: isCentered,
@@ -48,7 +48,7 @@ const HeroBanner = ({
       </div>
     </section>
   );
-};
+}
 
 HeroBanner.propTypes = {
   variant: PropTypes.string,

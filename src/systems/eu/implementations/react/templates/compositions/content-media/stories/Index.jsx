@@ -11,18 +11,26 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Left = () => <ContentMediaExampleLeft />;
+export function Left() {
+  return <ContentMediaExampleLeft />;
+}
 
 Left.storyName = 'left';
 
-export const LeftCta = () => <ContentMediaExampleLeftCta />;
+export function LeftCta() {
+  return <ContentMediaExampleLeftCta />;
+}
 
 LeftCta.storyName = 'left, call to action';
 
-export const Right = () => <ContentMediaExampleRight />;
+export function Right() {
+  return <ContentMediaExampleRight />;
+}
 
 Right.storyName = 'right';
 
-export const RightCta = () => <ContentMediaExampleRightCta />;
+export function RightCta() {
+  return <ContentMediaExampleRightCta />;
+}
 
 RightCta.storyName = 'right, call to action';

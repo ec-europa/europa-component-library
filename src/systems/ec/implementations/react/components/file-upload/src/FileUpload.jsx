@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-const FileUpload = ({
+function FileUpload({
   id,
   disabled,
   groupClassName,
@@ -19,7 +19,7 @@ const FileUpload = ({
   buttonReplaceLabel,
   className,
   ...props
-}) => {
+}) {
   const classNames = classnames(className, 'ecl-file-upload', {
     'ecl-file-upload--invalid': invalid,
   });
@@ -94,7 +94,7 @@ const FileUpload = ({
       <ul className="ecl-file-upload__list" data-ecl-file-upload-list />
     </div>
   );
-};
+}
 
 FileUpload.propTypes = {
   id: PropTypes.string.isRequired,

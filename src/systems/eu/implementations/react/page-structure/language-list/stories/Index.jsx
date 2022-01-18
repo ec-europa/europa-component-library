@@ -10,10 +10,14 @@ export default {
   title: 'Page structure/Language list',
 };
 
-export const Splash = () => <LanguageListSplash {...demoContentSplash} />;
+export function Splash() {
+  return <LanguageListSplash {...demoContentSplash} />;
+}
 
 Splash.storyName = 'splash';
 
-export const Overlay = () => <LanguageListOverlay {...demoContentOverlay} />;
+export function Overlay() {
+  return <LanguageListOverlay {...demoContentOverlay} />;
+}
 
 Overlay.storyName = 'overlay';

@@ -3,25 +3,27 @@ import PropTypes from 'prop-types';
 
 import Link from '@ecl/eu-react-component-link';
 
-const LanguageListItem = ({ label, lang, href, isActive, isOverlay }) => (
-  <Link
-    label={label}
-    href={href}
-    variant="standalone"
-    className="ecl-language-list__link"
-    {...(isActive && {
-      icon: {
-        shape: 'ui--check',
-        size: 'xs',
-      },
-    })}
-    {...(lang && {
-      lang,
-      hrefLang: lang,
-      ...(isOverlay ? { rel: 'alternate' } : {}),
-    })}
-  />
-);
+function LanguageListItem({ label, lang, href, isActive, isOverlay }) {
+  return (
+    <Link
+      label={label}
+      href={href}
+      variant="standalone"
+      className="ecl-language-list__link"
+      {...(isActive && {
+        icon: {
+          shape: 'ui--check',
+          size: 'xs',
+        },
+      })}
+      {...(lang && {
+        lang,
+        hrefLang: lang,
+        ...(isOverlay ? { rel: 'alternate' } : {}),
+      })}
+    />
+  );
+}
 
 LanguageListItem.propTypes = {
   label: PropTypes.string,

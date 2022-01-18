@@ -10,7 +10,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Default = () => {
+export function Default() {
   // Optional section
   const sectionContact = boolean('Contact us', true);
   const sectionFollow = boolean('Follow us', true);
@@ -40,6 +40,6 @@ export const Default = () => {
   }
 
   return <FooterStandardised {...dataCopy} />;
-};
+}
 
 Default.storyName = 'default';

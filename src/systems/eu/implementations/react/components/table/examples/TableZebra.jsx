@@ -9,7 +9,7 @@ import TableHeader from '../src/TableHeader';
 import TableBody from '../src/TableBody';
 import TableCell from '../src/TableCell';
 
-export default () => {
+export default function () {
   return (
     <Table zebra>
       <TableHead>
@@ -42,4 +42,4 @@ export default () => {
       </TableBody>
     </Table>
   );
-};
+}

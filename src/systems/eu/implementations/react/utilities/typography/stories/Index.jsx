@@ -10,7 +10,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Paragraph = () => {
+export function Paragraph() {
   const content = text('Content', demoContentParagraph.content);
 
   return (
@@ -28,11 +28,11 @@ export const Paragraph = () => {
       <p className="ecl-u-type-paragraph-xs">{content}</p>
     </>
   );
-};
+}
 
 Paragraph.storyName = 'paragraph';
 
-export const Heading = () => {
+export function Heading() {
   const content = text('Content', demoContentHeading.content);
 
   return (
@@ -44,11 +44,11 @@ export const Heading = () => {
       <h5 className="ecl-u-type-heading-5">H5. {content}</h5>
     </>
   );
-};
+}
 
 Heading.storyName = 'heading';
 
-export const TextColour = () => {
+export function TextColour() {
   const colour = select(
     'Text colour (sample)',
     {
@@ -66,17 +66,15 @@ export const TextColour = () => {
   );
 
   return (
-    <>
-      <p className={classnames('ecl-u-type-paragraph-m', colour)}>
-        {demoContentParagraph.content}
-      </p>
-    </>
+    <p className={classnames('ecl-u-type-paragraph-m', colour)}>
+      {demoContentParagraph.content}
+    </p>
   );
-};
+}
 
 TextColour.storyName = 'text colour';
 
-export const TextStyle = () => {
+export function TextStyle() {
   const bold = boolean('Bold text', false);
   const style = select(
     'Text style',
@@ -93,16 +91,14 @@ export const TextStyle = () => {
   );
 
   return (
-    <>
-      <p
-        className={classnames('ecl-u-type-paragraph-m', style, {
-          [`ecl-u-type-bold`]: bold,
-        })}
-      >
-        {demoContentParagraph.content}
-      </p>
-    </>
+    <p
+      className={classnames('ecl-u-type-paragraph-m', style, {
+        [`ecl-u-type-bold`]: bold,
+      })}
+    >
+      {demoContentParagraph.content}
+    </p>
   );
-};
+}
 
 TextStyle.storyName = 'text style';

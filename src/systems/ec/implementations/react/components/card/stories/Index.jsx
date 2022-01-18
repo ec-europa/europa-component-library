@@ -15,7 +15,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const CardDefault = () => {
+export function CardDefault() {
   const image = {
     alt: demoContentCard.image.alt,
     src: text('Image path', demoContentCard.image.src),
@@ -66,11 +66,11 @@ export const CardDefault = () => {
       tags={tags}
     />
   );
-};
+}
 
 CardDefault.storyName = 'card';
 
-export const CardTaxonomy = () => {
+export function CardTaxonomy() {
   const image = {
     alt: demoContentCardTaxonomy.image.alt,
     src: text('Image path', demoContentCardTaxonomy.image.src),
@@ -113,11 +113,11 @@ export const CardTaxonomy = () => {
       taxonomy={displayTaxonomy ? demoContentCardTaxonomy.taxonomy : {}}
     />
   );
-};
+}
 
 CardTaxonomy.storyName = 'card (taxonomy)';
 
-export const Tile = () => {
+export function Tile() {
   const title = {
     variant: demoContentTile.title.variant,
     label: text('Title', demoContentTile.title.label),
@@ -143,11 +143,11 @@ export const Tile = () => {
   }));
 
   return <Card title={title} description={description} links={links} />;
-};
+}
 
 Tile.storyName = 'tile';
 
-export const TileTaxonomy = () => {
+export function TileTaxonomy() {
   const displayList = boolean('Display additional list', true);
   const displayTaxonomy = boolean('Display taxonomy list', true);
 
@@ -157,7 +157,7 @@ export const TileTaxonomy = () => {
       taxonomy={displayTaxonomy ? demoContentTileTaxonomy.taxonomy : {}}
     />
   );
-};
+}
 
 TileTaxonomy.storyName = 'tile (taxonomy)';
 

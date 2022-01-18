@@ -11,7 +11,7 @@ import footerContent from '@ecl/ec-specs-footer/demo/data--corporate';
 import Breadcrumb, { BreadcrumbItem } from '@ecl/ec-react-component-breadcrumb';
 import StandardPage from '../src/StandardPage';
 
-export default () => {
+export default function () {
   const { items, ...breadcrumbProps } = breadcrumbContent;
   const breadcrumb = (
     <Breadcrumb {...breadcrumbProps}>
@@ -32,4 +32,4 @@ export default () => {
       mediaContainer={mediaContainerContent}
     />
   );
-};
+}

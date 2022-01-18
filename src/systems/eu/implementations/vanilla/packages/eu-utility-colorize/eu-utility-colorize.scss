@@ -30,30 +30,37 @@
     color: $ecl-color-primary;
     fill: $ecl-color-primary;
   }
+
   .ecl-u-color-secondary {
     color: $ecl-color-secondary;
     fill: $ecl-color-secondary;
   }
+
   .ecl-u-color-shade {
     color: $ecl-color-text;
     fill: $ecl-color-text;
   }
+
   .ecl-u-color-info {
     color: $ecl-color-info;
     fill: $ecl-color-info;
   }
+
   .ecl-u-color-warning {
     color: $ecl-color-warning;
     fill: $ecl-color-warning;
   }
+
   .ecl-u-color-success {
     color: $ecl-color-success;
     fill: $ecl-color-success;
   }
+
   .ecl-u-color-error {
     color: $ecl-color-error;
     fill: $ecl-color-error;
   }
+
   .ecl-u-color-white {
     color: #fff;
     fill: #fff;
@@ -62,5 +69,5 @@
 
 // Use mixin
 @include exports('eu-utility-colorize') {
-  @include ecl-utility-colorize();
+  @include ecl-utility-colorize;
 }

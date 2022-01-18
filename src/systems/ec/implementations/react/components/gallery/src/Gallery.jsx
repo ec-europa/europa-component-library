@@ -8,7 +8,7 @@ import Link from '@ecl/ec-react-component-link';
 import { GalleryItem } from './GalleryItem';
 import { GalleryOverlay } from './GalleryOverlay';
 
-export const Gallery = ({
+export function Gallery({
   overlay,
   items,
   viewAllLabel,
@@ -17,7 +17,7 @@ export const Gallery = ({
   selectedItemId,
   className,
   ...props
-}) => {
+}) {
   const classNames = classnames(className, 'ecl-gallery');
 
   return (
@@ -44,7 +44,7 @@ export const Gallery = ({
       />
     </section>
   );
-};
+}
 
 Gallery.propTypes = {
   overlay: PropTypes.shape(GalleryOverlay.propTypes),

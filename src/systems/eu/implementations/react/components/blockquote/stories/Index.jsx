@@ -9,11 +9,13 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Default = () => (
-  <Blockquote
-    author={text('Author', demoContent.author)}
-    citation={text('Citation', demoContent.citation)}
-  />
-);
+export function Default() {
+  return (
+    <Blockquote
+      author={text('Author', demoContent.author)}
+      citation={text('Citation', demoContent.citation)}
+    />
+  );
+}
 
 Default.storyName = 'default';

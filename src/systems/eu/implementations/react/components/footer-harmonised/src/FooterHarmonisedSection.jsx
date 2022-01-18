@@ -5,86 +5,88 @@ import classnames from 'classnames';
 
 import Link from '@ecl/eu-react-component-link';
 
-export const FooterHarmonisedSection = ({ section }) => (
-  <>
-    {/* Title */}
-    {!!(section && section.title && typeof section.title === 'object') && (
-      <Link
-        {...section.title}
-        variant="standalone"
-        className={classnames(
-          section.titleClassName,
-          'ecl-footer-harmonised__title'
-        )}
-      />
-    )}
-    {!!(section && section.title && typeof section.title === 'string') && (
-      <div
-        className={classnames(
-          'ecl-footer-harmonised__title',
-          section.titleClassName
-        )}
-      >
-        {section.title}
-      </div>
-    )}
-    {/* Description */}
-    {!!(section && section.description) && (
-      <div
-        className={classnames(
-          'ecl-footer-harmonised__description',
-          section.descriptionClassName
-        )}
-      >
-        {parse(section.description)}
-      </div>
-    )}
-    {/* Content before links list */}
-    {!!(section && section.contentBefore) && (
-      <div
-        className={classnames(
-          'ecl-footer-harmonised__content',
-          section.contentBeforeClassName
-        )}
-      >
-        {section.contentBefore}
-      </div>
-    )}
-    {/* Links list */}
-    {!!(section && section.links) && (
-      <ul
-        className={classnames(
-          'ecl-footer-harmonised__list',
-          section.listClassName
-        )}
-      >
-        {section.links.map((link) => (
-          <li className="ecl-footer-harmonised__list-item" key={link.label}>
-            <Link
-              {...link}
-              variant="standalone"
-              className={classnames(
-                link.className,
-                'ecl-footer-harmonised__link'
-              )}
-            />
-          </li>
-        ))}
-      </ul>
-    )}
-    {/* Content after links list */}
-    {!!(section && section.contentAfter) && (
-      <div
-        className={classnames(
-          'ecl-footer-harmonised__content',
-          section.contentAfterClassName
-        )}
-      >
-        {section.contentAfter}
-      </div>
-    )}
-  </>
-);
+export function FooterHarmonisedSection({ section }) {
+  return (
+    <>
+      {/* Title */}
+      {!!(section && section.title && typeof section.title === 'object') && (
+        <Link
+          {...section.title}
+          variant="standalone"
+          className={classnames(
+            section.titleClassName,
+            'ecl-footer-harmonised__title'
+          )}
+        />
+      )}
+      {!!(section && section.title && typeof section.title === 'string') && (
+        <div
+          className={classnames(
+            'ecl-footer-harmonised__title',
+            section.titleClassName
+          )}
+        >
+          {section.title}
+        </div>
+      )}
+      {/* Description */}
+      {!!(section && section.description) && (
+        <div
+          className={classnames(
+            'ecl-footer-harmonised__description',
+            section.descriptionClassName
+          )}
+        >
+          {parse(section.description)}
+        </div>
+      )}
+      {/* Content before links list */}
+      {!!(section && section.contentBefore) && (
+        <div
+          className={classnames(
+            'ecl-footer-harmonised__content',
+            section.contentBeforeClassName
+          )}
+        >
+          {section.contentBefore}
+        </div>
+      )}
+      {/* Links list */}
+      {!!(section && section.links) && (
+        <ul
+          className={classnames(
+            'ecl-footer-harmonised__list',
+            section.listClassName
+          )}
+        >
+          {section.links.map((link) => (
+            <li className="ecl-footer-harmonised__list-item" key={link.label}>
+              <Link
+                {...link}
+                variant="standalone"
+                className={classnames(
+                  link.className,
+                  'ecl-footer-harmonised__link'
+                )}
+              />
+            </li>
+          ))}
+        </ul>
+      )}
+      {/* Content after links list */}
+      {!!(section && section.contentAfter) && (
+        <div
+          className={classnames(
+            'ecl-footer-harmonised__content',
+            section.contentAfterClassName
+          )}
+        >
+          {section.contentAfter}
+        </div>
+      )}
+    </>
+  );
+}
 
 FooterHarmonisedSection.propTypes = {
   section: PropTypes.shape({

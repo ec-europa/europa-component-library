@@ -10,6 +10,8 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Default = () => <Pagination {...demoContent} />;
+export function Default() {
+  return <Pagination {...demoContent} />;
+}
 
 Default.storyName = 'default';

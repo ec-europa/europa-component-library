@@ -22,8 +22,10 @@ const listContent = (items) =>
     );
   });
 
-export default () => (
-  <UnorderedList variant="no-bullet">
-    {listContent(demoLink.items)}
-  </UnorderedList>
-);
+export default function () {
+  return (
+    <UnorderedList variant="no-bullet">
+      {listContent(demoLink.items)}
+    </UnorderedList>
+  );
+}

@@ -6,7 +6,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Sample = () => {
+export function Sample() {
   // Manually inject styles
   function createLink(href, media) {
     const link = document.createElement('link');
@@ -91,6 +91,6 @@ export const Sample = () => {
       </blockquote>
     </div>
   );
-};
+}
 
 Sample.storyName = 'sample';

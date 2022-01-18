@@ -17,8 +17,8 @@ const replaceIcons = (code) =>
     `${baseUrl}images/icons/sprites/icons.svg`
   );
 
-const prefillPen = (code) => {
-  return JSON.stringify({
+const prefillPen = (code) =>
+  JSON.stringify({
     title: 'ECL Pen',
     description: "Exported from ECL's playground",
     html: replaceLogo(replaceIcons(code)),
@@ -26,6 +26,5 @@ const prefillPen = (code) => {
     js_external: `https://unpkg.com/svg4everybody@2.1.9/dist/svg4everybody.js;${baseUrl}scripts/ecl-ec-preset-legacy-website.js`,
     js: 'svg4everybody({ polyfill: true });\nECL.autoInit();',
   });
-};
 
 export default prefillPen;

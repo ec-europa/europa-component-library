@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Icon from '@ecl/ec-react-component-icon';
 
-const PageHeader = ({
+function PageHeader({
   backgroundImage,
   breadcrumb,
   title,
@@ -12,7 +12,7 @@ const PageHeader = ({
   infos,
   className,
   ...props
-}) => {
+}) {
   const classNames = classnames(className, 'ecl-page-header', {
     [`ecl-page-header--background-image`]: backgroundImage,
   });
@@ -57,7 +57,7 @@ const PageHeader = ({
       </div>
     </div>
   );
-};
+}
 
 PageHeader.propTypes = {
   backgroundImage: PropTypes.string,

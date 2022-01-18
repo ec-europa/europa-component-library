@@ -97,8 +97,8 @@
     &::before {
       background: linear-gradient(
         to bottom,
-        rgba(0, 0, 0, 0.4) 0%,
-        rgba(0, 0, 0, 0) 100%
+        rgba(0, 0, 0, 40%) 0%,
+        rgba(0, 0, 0, 0%) 100%
       );
       content: '';
       display: block;
@@ -115,5 +115,5 @@
 
 // Use mixin
 @include exports('ec-component-page-header') {
-  @include ecl-page-header();
+  @include ecl-page-header;
 }

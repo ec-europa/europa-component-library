@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Button from '@ecl/eu-react-component-button';
 
-export const DropdownLegacy = ({
+export function DropdownLegacy({
   id,
   button,
   variant,
   children,
   className,
   ...props
-}) => {
+}) {
   const classNames = classnames(className, 'ecl-dropdown-legacy', {
     [`ecl-dropdown-legacy--${variant}`]: variant,
   });
@@ -35,7 +35,7 @@ export const DropdownLegacy = ({
       </div>
     </div>
   );
-};
+}
 
 DropdownLegacy.propTypes = {
   id: PropTypes.string,

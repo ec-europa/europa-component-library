@@ -11,7 +11,7 @@ import inpageContent from '@ecl/ec-specs-inpage-navigation/demo/data';
 import Breadcrumb, { BreadcrumbItem } from '@ecl/ec-react-component-breadcrumb';
 import ContentPage from '../src/ContentPage';
 
-export default () => {
+export default function () {
   const { items, ...breadcrumbProps } = breadcrumbContent;
   const breadcrumb = (
     <Breadcrumb {...breadcrumbProps}>
@@ -32,4 +32,4 @@ export default () => {
       inpageNavigation={inpageContent}
     />
   );
-};
+}

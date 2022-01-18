@@ -28,8 +28,8 @@ export default {
   ],
 };
 
-export const Default = () => (
-  <Menu {...demoContent} data-ecl-auto-init="Menu" />
-);
+export function Default() {
+  return <Menu {...demoContent} data-ecl-auto-init="Menu" />;
+}
 
 Default.storyName = 'default';

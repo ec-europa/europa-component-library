@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 import LanguageListItem from './LanguageListItem';
 
-const LanguageList = ({
+function LanguageList({
   categoryEu,
   items,
   categoryNonEu,
   itemsNonEu,
   isOverlay,
-}) => {
+}) {
   const column1Eu = items.slice(0, Math.ceil(items.length / 2));
   const column2Eu = items.slice(Math.ceil(items.length / 2));
 
@@ -99,7 +99,7 @@ const LanguageList = ({
       )}
     </>
   );
-};
+}
 
 LanguageList.propTypes = {
   categoryEu: PropTypes.string,

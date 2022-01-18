@@ -7,4 +7,6 @@ import ContentItem from '../src/ContentItem';
 // Format data
 demoContentDefault.meta.label = parse(demoContentDefault.meta.label);
 
-export default () => <ContentItem {...demoContentDefault} />;
+export default function () {
+  return <ContentItem {...demoContentDefault} />;
+}

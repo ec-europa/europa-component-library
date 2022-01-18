@@ -6,14 +6,14 @@ import ContentItem from '@ecl/ec-react-composition-content-item';
 import Card from '@ecl/ec-react-component-card';
 import Link from '@ecl/ec-react-component-link';
 
-const Highlight = ({
+function Highlight({
   heading,
   contentItems,
   link,
   cards,
   className,
   ...props
-}) => {
+}) {
   const Heading = heading ? `h${heading.level || 2}` : '';
 
   return (
@@ -70,7 +70,7 @@ const Highlight = ({
       </section>
     </div>
   );
-};
+}
 
 Highlight.propTypes = {
   heading: PropTypes.shape({

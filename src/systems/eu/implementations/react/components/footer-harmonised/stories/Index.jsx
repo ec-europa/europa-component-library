@@ -10,6 +10,8 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Default = () => <FooterHarmonised {...demoContent} />;
+export function Default() {
+  return <FooterHarmonised {...demoContent} />;
+}
 
 Default.storyName = 'default';

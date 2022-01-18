@@ -11,7 +11,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const MainPolicyEvaluation = () => {
+export function MainPolicyEvaluation() {
   const template = radios(
     'Template',
     {
@@ -161,4 +161,4 @@ export const MainPolicyEvaluation = () => {
     'optional (core)'
   );
   return <MainPolicyEvaluationCore {...optional} />;
-};
+}

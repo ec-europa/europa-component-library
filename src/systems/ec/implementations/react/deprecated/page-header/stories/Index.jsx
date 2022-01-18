@@ -27,86 +27,103 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Title = () => (
-  <PageHeader
-    breadcrumb={breadcrumb}
-    title={text('Title', demoTitleContent.title)}
-  />
-);
+export function Title() {
+  return (
+    <PageHeader
+      breadcrumb={breadcrumb}
+      title={text('Title', demoTitleContent.title)}
+    />
+  );
+}
 
 Title.storyName = 'title';
 
-export const MetaTitle = () => (
-  <PageHeader
-    breadcrumb={breadcrumb}
-    title={text('Title', demoMetaTitleContent.title)}
-    meta={text('Meta', demoMetaTitleContent.meta)}
-  />
-);
+export function MetaTitle() {
+  return (
+    <PageHeader
+      breadcrumb={breadcrumb}
+      title={text('Title', demoMetaTitleContent.title)}
+      meta={text('Meta', demoMetaTitleContent.meta)}
+    />
+  );
+}
 
 MetaTitle.storyName = 'meta-title';
 
-export const MetaTitleDescription = () => (
-  <PageHeader
-    breadcrumb={breadcrumb}
-    title={text('Title', demoMetaTitleDescriptionContent.title)}
-    description={text(
-      'Description',
-      demoMetaTitleDescriptionContent.description
-    )}
-    meta={text('Meta', demoMetaTitleDescriptionContent.meta)}
-  />
-);
+export function MetaTitleDescription() {
+  return (
+    <PageHeader
+      breadcrumb={breadcrumb}
+      title={text('Title', demoMetaTitleDescriptionContent.title)}
+      description={text(
+        'Description',
+        demoMetaTitleDescriptionContent.description
+      )}
+      meta={text('Meta', demoMetaTitleDescriptionContent.meta)}
+    />
+  );
+}
 
 MetaTitleDescription.storyName = 'meta-title-description';
 
-export const TitleDescription = () => (
-  <PageHeader
-    breadcrumb={breadcrumb}
-    title={text('Title', demoTitleDescriptionContent.title)}
-    description={text('Description', demoTitleDescriptionContent.description)}
-  />
-);
+export function TitleDescription() {
+  return (
+    <PageHeader
+      breadcrumb={breadcrumb}
+      title={text('Title', demoTitleDescriptionContent.title)}
+      description={text('Description', demoTitleDescriptionContent.description)}
+    />
+  );
+}
 
 TitleDescription.storyName = 'title-description';
 
-export const Events = () => (
-  <PageHeader
-    breadcrumb={breadcrumb}
-    title={text('Title', demoEventsContent.title)}
-    meta={text('Meta', demoEventsContent.meta)}
-    infos={demoEventsContent.infos.map((info, index) => ({
-      icon: info.icon,
-      text: text(`Info ${index} text`, info.text),
-    }))}
-  />
-);
+export function Events() {
+  return (
+    <PageHeader
+      breadcrumb={breadcrumb}
+      title={text('Title', demoEventsContent.title)}
+      meta={text('Meta', demoEventsContent.meta)}
+      infos={demoEventsContent.infos.map((info, index) => ({
+        icon: info.icon,
+        text: text(`Info ${index} text`, info.text),
+      }))}
+    />
+  );
+}
 
 Events.storyName = 'events';
 
-export const EventsDescription = () => (
-  <PageHeader
-    breadcrumb={breadcrumb}
-    title={text('Title', demoEventsDescriptionContent.title)}
-    description={text('Description', demoEventsDescriptionContent.description)}
-    meta={text('Meta', demoEventsDescriptionContent.meta)}
-    infos={demoEventsDescriptionContent.infos.map((info, index) => ({
-      icon: info.icon,
-      text: text(`Info ${index} text`, info.text),
-    }))}
-  />
-);
+export function EventsDescription() {
+  return (
+    <PageHeader
+      breadcrumb={breadcrumb}
+      title={text('Title', demoEventsDescriptionContent.title)}
+      description={text(
+        'Description',
+        demoEventsDescriptionContent.description
+      )}
+      meta={text('Meta', demoEventsDescriptionContent.meta)}
+      infos={demoEventsDescriptionContent.infos.map((info, index) => ({
+        icon: info.icon,
+        text: text(`Info ${index} text`, info.text),
+      }))}
+    />
+  );
+}
 
 EventsDescription.storyName = 'events-description';
 
-export const BackgroundImage = () => (
-  <PageHeader
-    breadcrumb={breadcrumb}
-    title={text('Title', demoBackgroundImage.title)}
-    description={text('Description', demoBackgroundImage.description)}
-    meta={text('Meta', demoBackgroundImage.meta)}
-    backgroundImage={demoBackgroundImage.backgroundImage}
-  />
-);
+export function BackgroundImage() {
+  return (
+    <PageHeader
+      breadcrumb={breadcrumb}
+      title={text('Title', demoBackgroundImage.title)}
+      description={text('Description', demoBackgroundImage.description)}
+      meta={text('Meta', demoBackgroundImage.meta)}
+      backgroundImage={demoBackgroundImage.backgroundImage}
+    />
+  );
+}
 
 BackgroundImage.storyName = 'background-image';

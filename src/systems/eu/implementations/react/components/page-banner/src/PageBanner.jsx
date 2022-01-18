@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import Link from '@ecl/eu-react-component-link';
 
-const PageBanner = ({
+function PageBanner({
   variant,
   title,
   description,
@@ -14,7 +14,7 @@ const PageBanner = ({
   link,
   className,
   ...props
-}) => {
+}) {
   const classNames = classnames(className, 'ecl-page-banner', {
     [`ecl-page-banner--${variant}`]: variant,
     [`ecl-page-banner--centered`]: isCentered,
@@ -48,7 +48,7 @@ const PageBanner = ({
       </div>
     </section>
   );
-};
+}
 
 PageBanner.propTypes = {
   variant: PropTypes.string,

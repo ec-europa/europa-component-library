@@ -11,7 +11,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const PersonList = () => {
+export function PersonList() {
   const template = radios(
     'Template',
     {
@@ -161,4 +161,4 @@ export const PersonList = () => {
     'optional (core)'
   );
   return <PersonListCore {...optional} />;
-};
+}

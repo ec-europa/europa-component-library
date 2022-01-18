@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Icon from '@ecl/eu-react-component-icon';
 
-const Button = ({
+function Button({
   variant,
   type,
   disabled,
@@ -13,7 +13,7 @@ const Button = ({
   className,
   containerClassName,
   ...props
-}) => {
+}) {
   const classNames = classnames(className, 'ecl-button', {
     [`ecl-button--${variant}`]: variant,
   });
@@ -50,7 +50,7 @@ const Button = ({
       )}
     </button>
   );
-};
+}
 
 Button.propTypes = {
   variant: PropTypes.string,

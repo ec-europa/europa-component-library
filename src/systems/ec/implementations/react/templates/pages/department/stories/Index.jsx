@@ -11,7 +11,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Department = () => {
+export function Department() {
   const template = radios(
     'Template',
     {
@@ -161,4 +161,4 @@ export const Department = () => {
     'optional (core)'
   );
   return <DepartmentCore {...optional} />;
-};
+}

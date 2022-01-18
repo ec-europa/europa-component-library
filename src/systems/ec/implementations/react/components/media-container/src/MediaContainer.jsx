@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-const MediaContainer = ({
+function MediaContainer({
   image,
   alt,
   sources,
@@ -13,7 +13,7 @@ const MediaContainer = ({
   isFullWidth,
   className,
   ...props
-}) => {
+}) {
   const classNames = classnames(className, 'ecl-media-container', {
     [`ecl-media-container--full-width`]: isFullWidth,
   });
@@ -58,7 +58,7 @@ const MediaContainer = ({
       )}
     </figure>
   );
-};
+}
 
 MediaContainer.propTypes = {
   alt: PropTypes.string,

@@ -51,12 +51,12 @@ export default {
   ],
 };
 
-export const Default = () => {
+export function Default() {
   button('Add dummy content', btnAddContent, 'buttons');
 
   return <TimelineExample />;
-};
+}
 
 Default.storyName = 'default';
 
-export * from '../../timeline/stories/Index';
+export * from '@ecl/eu-react-component-timeline/stories/Index';

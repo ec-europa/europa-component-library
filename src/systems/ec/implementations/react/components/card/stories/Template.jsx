@@ -7,7 +7,7 @@ import demoContentTileTaxonomy from '@ecl/ec-specs-card/demo/data--tile-taxonomy
 
 import Card from '../src/Card';
 
-export const Template = () => {
+export function Template() {
   const image1 = {
     alt: demoContentCard.image.alt,
     src: demoContentCard.image.src,
@@ -87,4 +87,4 @@ export const Template = () => {
       </ul>
     </div>
   );
-};
+}

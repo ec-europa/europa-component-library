@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-const DateBlock = ({
+function DateBlock({
   variant, // ongoing, canceled, past
   dateTime,
   day,
@@ -11,7 +11,7 @@ const DateBlock = ({
   year,
   className,
   ...props
-}) => {
+}) {
   const classNames = classnames(className, 'ecl-date-block', {
     [`ecl-date-block--${variant}`]: variant,
   });
@@ -43,7 +43,7 @@ const DateBlock = ({
       </span>
     </time>
   );
-};
+}
 
 DateBlock.propTypes = {
   variant: PropTypes.string,

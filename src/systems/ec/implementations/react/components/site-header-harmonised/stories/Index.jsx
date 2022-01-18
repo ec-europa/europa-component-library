@@ -38,7 +38,7 @@ export default {
   ],
 };
 
-export const Group1 = () => {
+export function Group1() {
   // Optional elements
   const optional = {};
   optional.siteHeaderLogin = boolean('Login', true, 'optional');
@@ -85,11 +85,11 @@ export const Group1 = () => {
       className="ecl-site-header-harmonised--group1"
     />
   );
-};
+}
 
 Group1.storyName = 'group 1';
 
-export const Group2 = () => {
+export function Group2() {
   // Optional elements
   const optional = {};
   optional.siteHeaderLangSelect = boolean(
@@ -125,11 +125,11 @@ export const Group2 = () => {
       className="ecl-site-header-harmonised--group2"
     />
   );
-};
+}
 
 Group2.storyName = 'group 2';
 
-export const Group3 = () => {
+export function Group3() {
   // Optional elements
   const optional = {};
   optional.siteHeaderPartnership = boolean('Partnership', true, 'optional');
@@ -146,6 +146,6 @@ export const Group3 = () => {
       className="ecl-site-header-harmonised--group3"
     />
   );
-};
+}
 
 Group3.storyName = 'group 3';

@@ -11,7 +11,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const MainPolicyBackground = () => {
+export function MainPolicyBackground() {
   const template = radios(
     'Template',
     {
@@ -161,4 +161,4 @@ export const MainPolicyBackground = () => {
     'optional (core)'
   );
   return <MainPolicyBackgroundCore {...optional} />;
-};
+}

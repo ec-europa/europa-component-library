@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-const PageHeaderCore = ({
+function PageHeaderCore({
   breadcrumb,
   meta,
   title,
@@ -10,7 +10,7 @@ const PageHeaderCore = ({
   image,
   className,
   ...props
-}) => {
+}) {
   const classNames = classnames(className, 'ecl-page-header-core', {
     [`ecl-page-header-core--image`]: image,
   });
@@ -33,7 +33,7 @@ const PageHeaderCore = ({
       </div>
     </div>
   );
-};
+}
 
 PageHeaderCore.propTypes = {
   breadcrumb: PropTypes.node,
