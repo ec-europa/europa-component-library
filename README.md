@@ -1,4 +1,4 @@
-1Informations for ECL v3 -> https://github.com/ec-europa/europa-component-library/tree/v3-dev
+Informations for ECL v3 -> https://github.com/ec-europa/europa-component-library/tree/v3-dev
 
 # ECL v2 - Europa Component Library
 
