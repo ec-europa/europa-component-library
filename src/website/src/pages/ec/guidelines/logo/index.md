@@ -11,7 +11,7 @@ import { LogoList } from '@ecl/website-components';
 
 ## EC logo standard
 
-### EC Official languages
+### EU Official languages
 
 #### Positive
 
