@@ -5,12 +5,28 @@ order: 6
 
 import { LogoList } from '@ecl/website-components';
 
-## EC logo
+## Muted logo
 
-### Positive
+<LogoList system="ec" set="muted" language="muted" />
 
-<LogoList system="ec" color="positive" />
+## EC logo standard
 
-### Negative
+### EC Official languages
 
-<LogoList system="ec" color="negative" />
+#### Positive
+
+<LogoList system="ec" set="standard" color="positive" language="official" />
+
+#### Negative
+
+<LogoList system="ec" set="standard" color="negative" language="official" />
+
+### Other languages
+
+#### Positive
+
+<LogoList system="ec" set="standard" color="positive" language="other" />
+
+#### Negative
+
+<LogoList system="ec" set="standard" color="negative" language="other" />
