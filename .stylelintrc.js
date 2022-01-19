@@ -16,5 +16,6 @@ module.exports = {
     'selector-pseudo-class-no-unknown': null,
     'declaration-block-no-redundant-longhand-properties': null,
     'scss/no-global-function-names': null,
+    'alpha-value-notation': null,
   },
 };
