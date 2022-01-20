@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-const Label = ({ variant, label, className, ...props }) => {
+function Label({ variant, label, className, ...props }) {
   const classNames = classnames(className, 'ecl-label', {
     [`ecl-label--${variant}`]: variant,
   });
@@ -12,7 +12,7 @@ const Label = ({ variant, label, className, ...props }) => {
       {label}
     </span>
   );
-};
+}
 
 Label.propTypes = {
   variant: PropTypes.string,

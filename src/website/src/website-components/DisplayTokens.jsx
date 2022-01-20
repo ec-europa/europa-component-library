@@ -18,7 +18,7 @@ class DisplayTokens extends PureComponent {
           )
           .map((key) => (
             <li key={key}>
-              {key}: {tokens.props[key].value}
+              {key}:{tokens.props[key].value}
             </li>
           ))}
       </ul>

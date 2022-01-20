@@ -43,7 +43,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Branded = () => {
+export function Branded() {
   const shape = select('Icon', brandedIcons, brandedIcons[0]);
   const size = select('Size', sizes, defaultSize);
   const color = select('Color', colors, defaultColor);
@@ -57,11 +57,11 @@ export const Branded = () => {
       transform={transform}
     />
   );
-};
+}
 
 Branded.storyName = 'branded';
 
-export const General = () => {
+export function General() {
   const shape = select('Icon', generalIcons, generalIcons[0]);
   const size = select('Size', sizes, defaultSize);
   const color = select('Color', colors, defaultColor);
@@ -75,11 +75,11 @@ export const General = () => {
       transform={transform}
     />
   );
-};
+}
 
 General.storyName = 'general';
 
-export const Notifications = () => {
+export function Notifications() {
   const shape = select('Icon', notificationsIcons, notificationsIcons[0]);
   const size = select('Size', sizes, defaultSize);
   const color = select('Color', colors, defaultColor);
@@ -93,11 +93,11 @@ export const Notifications = () => {
       transform={transform}
     />
   );
-};
+}
 
 Notifications.storyName = 'notifications';
 
-export const Ui = () => {
+export function Ui() {
   const shape = select('Icon', uiIcons, uiIcons[0]);
   const size = select('Size', sizes, defaultSize);
   const color = select('Color', colors, defaultColor);
@@ -111,6 +111,6 @@ export const Ui = () => {
       transform={transform}
     />
   );
-};
+}
 
 Ui.storyName = 'ui';

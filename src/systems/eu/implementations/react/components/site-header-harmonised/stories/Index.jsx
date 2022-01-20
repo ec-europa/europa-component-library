@@ -35,7 +35,7 @@ export default {
   ],
 };
 
-export const Default = () => {
+export function Default() {
   // Optional elements
   const optional = {};
   optional.siteHeaderLogin = boolean('Login', true, 'optional');
@@ -71,11 +71,11 @@ export const Default = () => {
       data-ecl-auto-init="SiteHeaderHarmonised"
     />
   );
-};
+}
 
 Default.storyName = 'default';
 
-export const LoggedIn = () => {
+export function LoggedIn() {
   // Optional elements
   const optional = {};
   optional.siteHeaderLogin = boolean('Login', true, 'optional');
@@ -112,11 +112,11 @@ export const LoggedIn = () => {
       logged
     />
   );
-};
+}
 
 LoggedIn.storyName = 'logged in';
 
-export const Translated = () => {
+export function Translated() {
   // Optional elements
   const optional = {};
   optional.siteHeaderLogin = boolean('Login', true, 'optional');
@@ -152,6 +152,6 @@ export const Translated = () => {
       data-ecl-auto-init="SiteHeaderHarmonised"
     />
   );
-};
+}
 
 Translated.storyName = 'translated';

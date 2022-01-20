@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Button from '@ecl/ec-react-component-button';
 
-export const AccordionItem = ({ id, toggle, level, children }) => {
+export function AccordionItem({ id, toggle, level, children }) {
   const HeadingTag = `h${level || 3}`;
 
   return (
@@ -33,7 +33,7 @@ export const AccordionItem = ({ id, toggle, level, children }) => {
       </div>
     </>
   );
-};
+}
 
 AccordionItem.propTypes = {
   id: PropTypes.string,

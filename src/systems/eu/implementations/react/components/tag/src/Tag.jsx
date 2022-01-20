@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Icon from '@ecl/eu-react-component-icon';
 
-const Tag = ({
+function Tag({
   label,
   variant,
   href,
   dismissButtonLabel,
   className,
   ...props
-}) => {
+}) {
   if (!label) return null;
 
   const classNames = classnames(className, 'ecl-tag', {
@@ -52,7 +52,7 @@ const Tag = ({
       )}
     </TagName>
   );
-};
+}
 
 Tag.propTypes = {
   label: PropTypes.string,

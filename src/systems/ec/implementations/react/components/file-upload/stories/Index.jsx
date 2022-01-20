@@ -33,29 +33,31 @@ export default {
   ],
 };
 
-export const Default = () => (
-  <FileUpload
-    {...demoContentDefault}
-    data-ecl-auto-init="FileUpload"
-    id="example-file-upload-default"
-    label={text('Label', demoContentDefault.label)}
-    helperText={parse(text('Helper text', demoContentDefault.helperText))}
-    invalid={boolean('Invalid', false)}
-    invalidText={text('Invalid text', demoContentDefault.invalidText)}
-    disabled={boolean('Disabled', false)}
-    required={boolean('Required', true)}
-    requiredText={text('Required text', demoContentDefault.requiredText)}
-    optionalText={text('Optional text', demoContentDefault.optionalText)}
-    buttonChooseLabel={text(
-      'Button choose label',
-      demoContentDefault.buttonChooseLabel
-    )}
-    buttonReplaceLabel={text(
-      'Button replace label',
-      demoContentDefault.buttonReplaceLabel
-    )}
-  />
-);
+export function Default() {
+  return (
+    <FileUpload
+      {...demoContentDefault}
+      data-ecl-auto-init="FileUpload"
+      id="example-file-upload-default"
+      label={text('Label', demoContentDefault.label)}
+      helperText={parse(text('Helper text', demoContentDefault.helperText))}
+      invalid={boolean('Invalid', false)}
+      invalidText={text('Invalid text', demoContentDefault.invalidText)}
+      disabled={boolean('Disabled', false)}
+      required={boolean('Required', true)}
+      requiredText={text('Required text', demoContentDefault.requiredText)}
+      optionalText={text('Optional text', demoContentDefault.optionalText)}
+      buttonChooseLabel={text(
+        'Button choose label',
+        demoContentDefault.buttonChooseLabel
+      )}
+      buttonReplaceLabel={text(
+        'Button replace label',
+        demoContentDefault.buttonReplaceLabel
+      )}
+    />
+  );
+}
 
 Default.storyName = 'default';
 
@@ -65,30 +67,32 @@ Default.parameters = {
   },
 };
 
-export const Multiple = () => (
-  <FileUpload
-    {...demoContentMultiple}
-    data-ecl-auto-init="FileUpload"
-    id="example-file-upload-multiple"
-    label={text('Label', demoContentMultiple.label)}
-    helperText={parse(text('Helper text', demoContentMultiple.helperText))}
-    invalid={boolean('Invalid', false)}
-    invalidText={text('Invalid text', demoContentMultiple.invalidText)}
-    disabled={boolean('Disabled', false)}
-    required={boolean('Required', true)}
-    requiredText={text('Required text', demoContentMultiple.requiredText)}
-    optionalText={text('Optional text', demoContentMultiple.optionalText)}
-    buttonChooseLabel={text(
-      'Button choose label',
-      demoContentMultiple.buttonChooseLabel
-    )}
-    buttonReplaceLabel={text(
-      'Button replace label',
-      demoContentMultiple.buttonReplaceLabel
-    )}
-    multiple
-  />
-);
+export function Multiple() {
+  return (
+    <FileUpload
+      {...demoContentMultiple}
+      data-ecl-auto-init="FileUpload"
+      id="example-file-upload-multiple"
+      label={text('Label', demoContentMultiple.label)}
+      helperText={parse(text('Helper text', demoContentMultiple.helperText))}
+      invalid={boolean('Invalid', false)}
+      invalidText={text('Invalid text', demoContentMultiple.invalidText)}
+      disabled={boolean('Disabled', false)}
+      required={boolean('Required', true)}
+      requiredText={text('Required text', demoContentMultiple.requiredText)}
+      optionalText={text('Optional text', demoContentMultiple.optionalText)}
+      buttonChooseLabel={text(
+        'Button choose label',
+        demoContentMultiple.buttonChooseLabel
+      )}
+      buttonReplaceLabel={text(
+        'Button replace label',
+        demoContentMultiple.buttonReplaceLabel
+      )}
+      multiple
+    />
+  );
+}
 
 Multiple.storyName = 'multiple';
 
@@ -98,29 +102,31 @@ Multiple.parameters = {
   },
 };
 
-export const Disabled = () => (
-  <FileUpload
-    {...demoContentDefault}
-    data-ecl-auto-init="FileUpload"
-    id="example-file-upload-disable"
-    label={text('Label', demoContentDefault.label)}
-    helperText={parse(text('Helper text', demoContentDefault.helperText))}
-    invalid={boolean('Invalid', false)}
-    invalidText={text('Invalid text', demoContentDefault.invalidText)}
-    disabled={boolean('Disabled', true)}
-    required={boolean('Required', true)}
-    requiredText={text('Required text', demoContentDefault.requiredText)}
-    optionalText={text('Optional text', demoContentDefault.optionalText)}
-    buttonChooseLabel={text(
-      'Button choose label',
-      demoContentDefault.buttonChooseLabel
-    )}
-    buttonReplaceLabel={text(
-      'Button replace label',
-      demoContentDefault.buttonReplaceLabel
-    )}
-  />
-);
+export function Disabled() {
+  return (
+    <FileUpload
+      {...demoContentDefault}
+      data-ecl-auto-init="FileUpload"
+      id="example-file-upload-disable"
+      label={text('Label', demoContentDefault.label)}
+      helperText={parse(text('Helper text', demoContentDefault.helperText))}
+      invalid={boolean('Invalid', false)}
+      invalidText={text('Invalid text', demoContentDefault.invalidText)}
+      disabled={boolean('Disabled', true)}
+      required={boolean('Required', true)}
+      requiredText={text('Required text', demoContentDefault.requiredText)}
+      optionalText={text('Optional text', demoContentDefault.optionalText)}
+      buttonChooseLabel={text(
+        'Button choose label',
+        demoContentDefault.buttonChooseLabel
+      )}
+      buttonReplaceLabel={text(
+        'Button replace label',
+        demoContentDefault.buttonReplaceLabel
+      )}
+    />
+  );
+}
 
 Disabled.storyName = 'disabled';
 
@@ -130,29 +136,31 @@ Disabled.parameters = {
   },
 };
 
-export const Invalid = () => (
-  <FileUpload
-    {...demoContentDefault}
-    data-ecl-auto-init="FileUpload"
-    id="example-file-upload-invalid"
-    label={text('Label', demoContentDefault.label)}
-    helperText={parse(text('Helper text', demoContentDefault.helperText))}
-    invalid={boolean('Invalid', true)}
-    invalidText={text('Invalid text', demoContentDefault.invalidText)}
-    disabled={boolean('Disabled', false)}
-    required={boolean('Required', true)}
-    requiredText={text('Required text', demoContentDefault.requiredText)}
-    optionalText={text('Optional text', demoContentDefault.optionalText)}
-    buttonChooseLabel={text(
-      'Button choose label',
-      demoContentDefault.buttonChooseLabel
-    )}
-    buttonReplaceLabel={text(
-      'Button replace label',
-      demoContentDefault.buttonReplaceLabel
-    )}
-  />
-);
+export function Invalid() {
+  return (
+    <FileUpload
+      {...demoContentDefault}
+      data-ecl-auto-init="FileUpload"
+      id="example-file-upload-invalid"
+      label={text('Label', demoContentDefault.label)}
+      helperText={parse(text('Helper text', demoContentDefault.helperText))}
+      invalid={boolean('Invalid', true)}
+      invalidText={text('Invalid text', demoContentDefault.invalidText)}
+      disabled={boolean('Disabled', false)}
+      required={boolean('Required', true)}
+      requiredText={text('Required text', demoContentDefault.requiredText)}
+      optionalText={text('Optional text', demoContentDefault.optionalText)}
+      buttonChooseLabel={text(
+        'Button choose label',
+        demoContentDefault.buttonChooseLabel
+      )}
+      buttonReplaceLabel={text(
+        'Button replace label',
+        demoContentDefault.buttonReplaceLabel
+      )}
+    />
+  );
+}
 
 Invalid.storyName = 'invalid';
 
@@ -162,29 +170,31 @@ Invalid.parameters = {
   },
 };
 
-export const Optional = () => (
-  <FileUpload
-    {...demoContentDefault}
-    data-ecl-auto-init="FileUpload"
-    id="example-file-upload-invalid"
-    label={text('Label', demoContentDefault.label)}
-    helperText={parse(text('Helper text', demoContentDefault.helperText))}
-    invalid={boolean('Invalid', false)}
-    invalidText={text('Invalid text', demoContentDefault.invalidText)}
-    disabled={boolean('Disabled', false)}
-    required={boolean('Required', false)}
-    requiredText={text('Required text', demoContentDefault.requiredText)}
-    optionalText={text('Optional text', demoContentDefault.optionalText)}
-    buttonChooseLabel={text(
-      'Button choose label',
-      demoContentDefault.buttonChooseLabel
-    )}
-    buttonReplaceLabel={text(
-      'Button replace label',
-      demoContentDefault.buttonReplaceLabel
-    )}
-  />
-);
+export function Optional() {
+  return (
+    <FileUpload
+      {...demoContentDefault}
+      data-ecl-auto-init="FileUpload"
+      id="example-file-upload-invalid"
+      label={text('Label', demoContentDefault.label)}
+      helperText={parse(text('Helper text', demoContentDefault.helperText))}
+      invalid={boolean('Invalid', false)}
+      invalidText={text('Invalid text', demoContentDefault.invalidText)}
+      disabled={boolean('Disabled', false)}
+      required={boolean('Required', false)}
+      requiredText={text('Required text', demoContentDefault.requiredText)}
+      optionalText={text('Optional text', demoContentDefault.optionalText)}
+      buttonChooseLabel={text(
+        'Button choose label',
+        demoContentDefault.buttonChooseLabel
+      )}
+      buttonReplaceLabel={text(
+        'Button replace label',
+        demoContentDefault.buttonReplaceLabel
+      )}
+    />
+  );
+}
 
 Optional.storyName = 'optional';
 

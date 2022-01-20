@@ -9,17 +9,19 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Default = () => (
-  <CheckboxGroup
-    {...demoContentDefault}
-    helperText={text('Helper text', demoContentDefault.helperText)}
-    invalid={boolean('Invalid', false)}
-    invalidText={text('Error message', demoContentDefault.invalidText)}
-    legend={text('Legend', demoContentDefault.legend)}
-    optionalText={text('Optional text', ' (optional)')}
-    required={boolean('Required', false)}
-    requiredText={text('Required text', '*')}
-  />
-);
+export function Default() {
+  return (
+    <CheckboxGroup
+      {...demoContentDefault}
+      helperText={text('Helper text', demoContentDefault.helperText)}
+      invalid={boolean('Invalid', false)}
+      invalidText={text('Error message', demoContentDefault.invalidText)}
+      legend={text('Legend', demoContentDefault.legend)}
+      optionalText={text('Optional text', ' (optional)')}
+      required={boolean('Required', false)}
+      requiredText={text('Required text', '*')}
+    />
+  );
+}
 
 Default.storyName = 'default';

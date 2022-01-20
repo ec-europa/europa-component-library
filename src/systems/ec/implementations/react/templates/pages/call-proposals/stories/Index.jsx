@@ -11,7 +11,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const CallForProposals = () => {
+export function CallForProposals() {
   const template = radios(
     'Template',
     {
@@ -161,4 +161,4 @@ export const CallForProposals = () => {
     'optional (core)'
   );
   return <CallProposalsCore {...optional} />;
-};
+}

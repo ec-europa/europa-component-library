@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-const RadioButton = ({
+function RadioButton({
   id,
   label,
   labelClassName,
@@ -15,7 +15,7 @@ const RadioButton = ({
   value,
   className,
   ...props
-}) => {
+}) {
   const classNames = classnames(className, 'ecl-radio', {
     'ecl-radio--disabled': disabled,
   });
@@ -58,7 +58,7 @@ const RadioButton = ({
       )}
     </div>
   );
-};
+}
 
 RadioButton.propTypes = {
   id: PropTypes.string.isRequired,

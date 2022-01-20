@@ -105,7 +105,7 @@ export class FileUpload {
     let fileList = '';
 
     // Get file names
-    Array.prototype.forEach.call(e.target.files, function (file) {
+    Array.prototype.forEach.call(e.target.files, (file) => {
       const fileSize = formatBytes(file.size, 1);
       const fileExtension = file.name.split('.').pop();
       fileList += `<li class="ecl-file-upload__item">

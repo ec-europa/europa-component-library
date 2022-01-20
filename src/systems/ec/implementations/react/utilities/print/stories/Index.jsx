@@ -6,7 +6,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Display = () => {
+export function Display() {
   return (
     <>
       <div className="ecl-u-type-m">
@@ -33,11 +33,11 @@ export const Display = () => {
       </p>
     </>
   );
-};
+}
 
 Display.storyName = 'display';
 
-export const PageBreak = () => {
+export function PageBreak() {
   return (
     <>
       <div className="ecl-u-type-m">
@@ -128,6 +128,6 @@ export const PageBreak = () => {
       </p>
     </>
   );
-};
+}
 
 PageBreak.storyName = 'page break';

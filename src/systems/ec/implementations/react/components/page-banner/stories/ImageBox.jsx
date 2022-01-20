@@ -5,7 +5,7 @@ import demoContentImage from '@ecl/ec-specs-page-banner/demo/data--image';
 
 import PageBanner from '../src/PageBanner';
 
-export const ImageBox = () => {
+export function ImageBox() {
   // Banner content
   const title = text('Title', demoContentImage.title, 'Banner content');
   const description = text(
@@ -50,6 +50,6 @@ export const ImageBox = () => {
   ) : (
     <div className="ecl-container">{pageBanner}</div>
   );
-};
+}
 
 ImageBox.storyName = 'image - text box';

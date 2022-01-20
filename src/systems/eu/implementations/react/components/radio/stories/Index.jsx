@@ -11,20 +11,22 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Default = () => (
-  <RadioGroup
-    {...demoContentDefault}
-    name="radio-group-1"
-    helperId="helper-id-1"
-    legend={text('Label', demoContentDefault.legend)}
-    helperText={text('Helper text', demoContentDefault.helperText)}
-    invalid={boolean('Invalid', false)}
-    invalidText={text('Invalid text', demoContentDefault.invalidText)}
-    required={boolean('Required', true)}
-    requiredText={text('Required text', '*')}
-    optionalText={text('Optional text', ' (optional)')}
-  />
-);
+export function Default() {
+  return (
+    <RadioGroup
+      {...demoContentDefault}
+      name="radio-group-1"
+      helperId="helper-id-1"
+      legend={text('Label', demoContentDefault.legend)}
+      helperText={text('Helper text', demoContentDefault.helperText)}
+      invalid={boolean('Invalid', false)}
+      invalidText={text('Invalid text', demoContentDefault.invalidText)}
+      required={boolean('Required', true)}
+      requiredText={text('Required text', '*')}
+      optionalText={text('Optional text', ' (optional)')}
+    />
+  );
+}
 
 Default.storyName = 'default';
 
@@ -34,20 +36,22 @@ Default.parameters = {
   },
 };
 
-export const Binary = () => (
-  <RadioGroup
-    {...demoContentBinary}
-    name="radio-group-1"
-    helperId="helper-id-1"
-    legend={text('Label', demoContentBinary.legend)}
-    helperText={text('Helper text', demoContentBinary.helperText)}
-    invalid={boolean('Invalid', false)}
-    invalidText={text('Invalid text', demoContentBinary.invalidText)}
-    required={boolean('Required', true)}
-    requiredText={text('Required text', '*')}
-    optionalText={text('Optional text', ' (optional)')}
-  />
-);
+export function Binary() {
+  return (
+    <RadioGroup
+      {...demoContentBinary}
+      name="radio-group-1"
+      helperId="helper-id-1"
+      legend={text('Label', demoContentBinary.legend)}
+      helperText={text('Helper text', demoContentBinary.helperText)}
+      invalid={boolean('Invalid', false)}
+      invalidText={text('Invalid text', demoContentBinary.invalidText)}
+      required={boolean('Required', true)}
+      requiredText={text('Required text', '*')}
+      optionalText={text('Optional text', ' (optional)')}
+    />
+  );
+}
 
 Binary.storyName = 'binary';
 

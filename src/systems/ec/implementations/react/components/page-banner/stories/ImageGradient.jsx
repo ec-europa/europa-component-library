@@ -5,7 +5,7 @@ import demoContentImageGradient from '@ecl/ec-specs-page-banner/demo/data--image
 
 import PageBanner from '../src/PageBanner';
 
-export const ImageGradient = () => {
+export function ImageGradient() {
   // Banner content
   const title = text('Title', demoContentImageGradient.title, 'Banner content');
   const description = text(
@@ -53,6 +53,6 @@ export const ImageGradient = () => {
   ) : (
     <div className="ecl-container">{pageBanner}</div>
   );
-};
+}
 
 ImageGradient.storyName = 'image - gradient';

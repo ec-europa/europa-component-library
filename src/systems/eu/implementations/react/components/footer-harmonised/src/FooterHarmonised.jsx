@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import { FooterHarmonisedSection } from './FooterHarmonisedSection';
 
-export const FooterHarmonised = ({ logo, sections, className, ...props }) => {
+export function FooterHarmonised({ logo, sections, className, ...props }) {
   // Logo props
   const {
     className: logoClassName,
@@ -132,7 +132,7 @@ export const FooterHarmonised = ({ logo, sections, className, ...props }) => {
       </div>
     </footer>
   );
-};
+}
 
 FooterHarmonised.propTypes = {
   logo: PropTypes.shape({

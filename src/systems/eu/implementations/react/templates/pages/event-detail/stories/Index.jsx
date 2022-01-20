@@ -26,5 +26,7 @@ export default {
   ],
 };
 
-export const EventDetail = () => <EventDetailPageExample />;
+export function EventDetail() {
+  return <EventDetailPageExample />;
+}
 EventDetail.storyName = 'Event detail';

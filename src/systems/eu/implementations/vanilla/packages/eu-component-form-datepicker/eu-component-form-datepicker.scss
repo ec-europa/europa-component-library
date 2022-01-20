@@ -7,7 +7,7 @@
 // Import base
 @import '@ecl/eu-base/eu-base';
 
-/* stylelint-disable-next-line scss/at-import-partial-extension-blacklist */
+/* stylelint-disable-next-line scss/at-import-partial-extension */
 @import 'pikaday/scss/pikaday.scss';
 
 @mixin ecl-datepicker() {
@@ -190,5 +190,5 @@
 
 // Use mixin
 @include exports('eu-component-form-datepicker') {
-  @include ecl-datepicker();
+  @include ecl-datepicker;
 }

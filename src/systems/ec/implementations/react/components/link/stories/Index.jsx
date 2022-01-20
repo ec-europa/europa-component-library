@@ -28,7 +28,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Default = () => {
+export function Default() {
   const linkIcon = {
     shape: select('Icon (sample)', icons, ''),
     size: 'fluid',
@@ -44,11 +44,11 @@ export const Default = () => {
       iconPosition={select('Icon position', iconPosition, 'after')}
     />
   );
-};
+}
 
 Default.storyName = 'default';
 
-export const Standalone = () => {
+export function Standalone() {
   const linkIcon = {
     shape: select('Icon (sample)', icons, ''),
     size: 'fluid',
@@ -64,11 +64,11 @@ export const Standalone = () => {
       iconPosition={select('Icon position', iconPosition, 'after')}
     />
   );
-};
+}
 
 Standalone.storyName = 'standalone';
 
-export const CallToAction = () => {
+export function CallToAction() {
   const linkIcon = {
     shape: select('Icon (sample)', icons, ''),
     size: 'fluid',
@@ -84,6 +84,6 @@ export const CallToAction = () => {
       iconPosition={select('Icon position', iconPosition, 'after')}
     />
   );
-};
+}
 
 CallToAction.storyName = 'call-to-action';

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { MenuLegacyItem } from './MenuLegacyItem';
 
-export const MenuLegacy = ({ label, items, className, ...props }) => {
+export function MenuLegacy({ label, items, className, ...props }) {
   const classNames = classnames(className, 'ecl-menu-legacy');
 
   return (
@@ -36,7 +36,7 @@ export const MenuLegacy = ({ label, items, className, ...props }) => {
       </div>
     </nav>
   );
-};
+}
 
 export default MenuLegacy;
 

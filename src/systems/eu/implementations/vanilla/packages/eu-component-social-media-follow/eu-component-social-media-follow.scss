@@ -64,6 +64,7 @@
   .ecl-social-media-follow__icon {
     display: block;
   }
+
   .ecl-social-media-follow__icon-hover {
     display: none;
   }
@@ -112,5 +113,5 @@
 
 // Use mixin
 @include exports('eu-component-social-media-follow') {
-  @include ecl-social-media-follow();
+  @include ecl-social-media-follow;
 }

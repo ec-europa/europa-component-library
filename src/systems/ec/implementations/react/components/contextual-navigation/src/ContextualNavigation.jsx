@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import Button from '@ecl/ec-react-component-button';
 import Link from '@ecl/ec-react-component-link';
 
-const ContextualNavigation = ({
+function ContextualNavigation({
   label,
   itemMore,
   itemsLimit,
@@ -13,7 +13,7 @@ const ContextualNavigation = ({
   onMore,
   className,
   ...props
-}) => {
+}) {
   const classNames = classnames(className, 'ecl-contextual-navigation');
 
   const itemMoreMarkup = (
@@ -63,7 +63,7 @@ const ContextualNavigation = ({
       </ul>
     </nav>
   );
-};
+}
 
 ContextualNavigation.propTypes = {
   label: PropTypes.string,

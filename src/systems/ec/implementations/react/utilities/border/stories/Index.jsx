@@ -18,7 +18,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Custom = () => {
+export function Custom() {
   const color = select(
     'Colour (sample)',
     {
@@ -66,6 +66,6 @@ export const Custom = () => {
   return (
     <div style={styleBox} className={classnames(direction, color, width)} />
   );
-};
+}
 
 Custom.storyName = 'custom';

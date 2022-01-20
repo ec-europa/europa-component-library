@@ -31,7 +31,7 @@ export default {
   ],
 };
 
-export const Default = () => {
+export function Default() {
   const toggle1 = {
     ...demoContent.items[0].toggle,
     label: text('Toggle 1', demoContent.items[0].toggle.label),
@@ -72,6 +72,6 @@ export const Default = () => {
       </Accordion2Item>
     </Accordion2>
   );
-};
+}
 
 Default.storyName = 'default';

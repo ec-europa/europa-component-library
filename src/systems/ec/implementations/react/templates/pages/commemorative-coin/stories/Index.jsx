@@ -11,7 +11,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const CommemorativeCoin = () => {
+export function CommemorativeCoin() {
   const template = radios(
     'Template',
     {
@@ -161,4 +161,4 @@ export const CommemorativeCoin = () => {
     'optional (core)'
   );
   return <CommemorativeCoinCore {...optional} />;
-};
+}

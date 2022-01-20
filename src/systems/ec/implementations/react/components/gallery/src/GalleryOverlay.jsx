@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import Button from '@ecl/ec-react-component-button';
 import Link from '@ecl/ec-react-component-link';
 
-export const GalleryOverlay = ({ overlay, item, className, ...props }) => {
+export function GalleryOverlay({ overlay, item, className, ...props }) {
   if (item == null) return null;
 
   return (
@@ -104,7 +104,7 @@ export const GalleryOverlay = ({ overlay, item, className, ...props }) => {
       </footer>
     </dialog>
   );
-};
+}
 
 GalleryOverlay.propTypes = {
   overlay: PropTypes.shape({

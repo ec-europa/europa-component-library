@@ -10,11 +10,13 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Default = () => (
-  <SocialMediaShare
-    {...demoContent}
-    description={text('Description', demoContent.description)}
-  />
-);
+export function Default() {
+  return (
+    <SocialMediaShare
+      {...demoContent}
+      description={text('Description', demoContent.description)}
+    />
+  );
+}
 
 Default.storyName = 'default';

@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import Link from '@ecl/ec-react-component-link';
 
-const Pagination = ({ label, items, className, ...props }) => {
+function Pagination({ label, items, className, ...props }) {
   const classNames = classnames(className, 'ecl-pagination');
 
   return (
@@ -47,7 +47,7 @@ const Pagination = ({ label, items, className, ...props }) => {
       </ul>
     </nav>
   );
-};
+}
 
 Pagination.propTypes = {
   label: PropTypes.string,

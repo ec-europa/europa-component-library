@@ -16,11 +16,13 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Default = () => (
-  <Label
-    variant={select('Importance', variant, 'low')}
-    label={text('Label', demoContent.label)}
-  />
-);
+export function Default() {
+  return (
+    <Label
+      variant={select('Importance', variant, 'low')}
+      label={text('Label', demoContent.label)}
+    />
+  );
+}
 
 Default.storyName = 'default';

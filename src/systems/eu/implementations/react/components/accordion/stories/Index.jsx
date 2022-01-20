@@ -7,7 +7,7 @@ import demoContent from '@ecl/eu-specs-accordion/demo/data';
 import { Accordion } from '../src/Accordion';
 import { AccordionItem } from '../src/AccordionItem';
 
-export const DeprecatedEcl260 = () => {
+export function DeprecatedEcl260() {
   const toggle1 = {
     ...demoContent.items[0].toggle,
     label: text('Toggle 1', demoContent.items[0].toggle.label),
@@ -48,7 +48,7 @@ export const DeprecatedEcl260 = () => {
       </AccordionItem>
     </Accordion>
   );
-};
+}
 
 DeprecatedEcl260.decorators = [
   withKnobs,

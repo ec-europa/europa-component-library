@@ -33,7 +33,7 @@ export default {
   ],
 };
 
-export const WithoutTranslation = () => {
+export function WithoutTranslation() {
   const title = text('File title', demoContent.title);
 
   const download = {
@@ -42,11 +42,11 @@ export const WithoutTranslation = () => {
   };
 
   return <FileDownload {...demoContent} title={title} download={download} />;
-};
+}
 
 WithoutTranslation.storyName = 'without translation';
 
-export const WithTranslation = () => {
+export function WithTranslation() {
   const title = text('File title', demoContentTranslation.title);
 
   const download = {
@@ -74,11 +74,11 @@ export const WithTranslation = () => {
       data-ecl-auto-init="FileDownload"
     />
   );
-};
+}
 
 WithTranslation.storyName = 'with translation';
 
-export const Thumbnail = () => {
+export function Thumbnail() {
   const meta = Array.isArray(demoContentThumbnail.detailMeta)
     ? array('Meta (comma separated)', demoContentThumbnail.detailMeta)
     : text('Meta', demoContentThumbnail.detailMeta);
@@ -127,11 +127,11 @@ export const Thumbnail = () => {
       data-ecl-auto-init="FileDownload"
     />
   );
-};
+}
 
 Thumbnail.storyName = 'with thumbnail';
 
-export const Taxonomy = () => {
+export function Taxonomy() {
   const meta = Array.isArray(demoContentTaxonomy.detailMeta)
     ? array('Meta (comma separated)', demoContentTaxonomy.detailMeta)
     : text('Meta', demoContentTaxonomy.detailMeta);
@@ -177,6 +177,6 @@ export const Taxonomy = () => {
       data-ecl-auto-init="FileDownload"
     />
   );
-};
+}
 
 Taxonomy.storyName = 'with taxonomy';

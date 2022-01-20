@@ -164,6 +164,7 @@
     .ecl-footer__section-item {
       margin-right: $ecl-spacing-xl;
     }
+
     .ecl-footer__section-item:last-child {
       margin-right: 0;
     }
@@ -215,5 +216,5 @@
 
 // Use mixin
 @include exports('ec-component-footer') {
-  @include ecl-footer();
+  @include ecl-footer;
 }

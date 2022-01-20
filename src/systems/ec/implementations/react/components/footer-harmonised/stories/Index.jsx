@@ -14,7 +14,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Group1 = () => {
+export function Group1() {
   // Optional section
   const sectionContact = boolean('Contact us', true);
   const sectionFollow = boolean('Follow us', true);
@@ -48,15 +48,17 @@ export const Group1 = () => {
   }
 
   return <FooterHarmonisedG1 {...dataCopy} />;
-};
+}
 
 Group1.storyName = 'group 1';
 
-export const Group2 = () => <FooterHarmonisedG2 {...demoContentGroup2} />;
+export function Group2() {
+  return <FooterHarmonisedG2 {...demoContentGroup2} />;
+}
 
 Group2.storyName = 'group 2';
 
-export const Group3 = () => {
+export function Group3() {
   // Optional section
   const sectionPartnershipLogo = boolean('Partnership logo', true);
 
@@ -68,6 +70,6 @@ export const Group3 = () => {
   }
 
   return <FooterHarmonisedG3 {...dataCopy} />;
-};
+}
 
 Group3.storyName = 'group 3';

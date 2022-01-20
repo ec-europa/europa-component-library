@@ -29,12 +29,12 @@ export default {
   ],
 };
 
-export const Default = () => (
-  <SiteHeader {...demoContentEn} data-ecl-auto-init="SiteHeader" />
-);
+export function Default() {
+  return <SiteHeader {...demoContentEn} data-ecl-auto-init="SiteHeader" />;
+}
 Default.storyName = 'default';
 
-export const Translated = () => (
-  <SiteHeader {...demoContentFr} data-ecl-auto-init="SiteHeader" />
-);
+export function Translated() {
+  return <SiteHeader {...demoContentFr} data-ecl-auto-init="SiteHeader" />;
+}
 Translated.storyName = 'translated';

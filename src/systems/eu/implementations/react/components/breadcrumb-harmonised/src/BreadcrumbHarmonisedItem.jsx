@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import Icon from '@ecl/eu-react-component-icon';
 import Link from '@ecl/eu-react-component-link';
 
-export const BreadcrumbHarmonisedItem = ({
+export function BreadcrumbHarmonisedItem({
   href,
   label,
   isLastItem,
@@ -13,39 +13,43 @@ export const BreadcrumbHarmonisedItem = ({
   className,
   children,
   ...props
-}) => (
-  <li
-    {...props}
-    className={classnames(className, 'ecl-breadcrumb-harmonised__segment', {
-      'ecl-breadcrumb-harmonised__current-page': isLastItem,
-    })}
-    {...(isLastItem && { 'aria-current': 'page' })}
-    data-ecl-breadcrumb-harmonised-item={isExpandable ? 'expandable' : 'static'}
-    aria-hidden={!isVisible}
-  >
-    {!isLastItem ? (
-      <>
-        <Link
-          href={href}
-          label={label}
-          variant="standalone"
-          {...(isLastItem && { 'aria-current': 'page' })}
-          className="ecl-breadcrumb-harmonised__link"
-        />
-        <Icon
-          className="ecl-breadcrumb-harmonised__icon"
-          shape="ui--corner-arrow"
-          transform="rotate-90"
-          size="2xs"
-          role="presentation"
-          aria-hidden
-        />
-      </>
-    ) : (
-      <>{label}</>
-    )}
-  </li>
-);
+}) {
+  return (
+    <li
+      {...props}
+      className={classnames(className, 'ecl-breadcrumb-harmonised__segment', {
+        'ecl-breadcrumb-harmonised__current-page': isLastItem,
+      })}
+      {...(isLastItem && { 'aria-current': 'page' })}
+      data-ecl-breadcrumb-harmonised-item={
+        isExpandable ? 'expandable' : 'static'
+      }
+      aria-hidden={!isVisible}
+    >
+      {!isLastItem ? (
+        <>
+          <Link
+            href={href}
+            label={label}
+            variant="standalone"
+            {...(isLastItem && { 'aria-current': 'page' })}
+            className="ecl-breadcrumb-harmonised__link"
+          />
+          <Icon
+            className="ecl-breadcrumb-harmonised__icon"
+            shape="ui--corner-arrow"
+            transform="rotate-90"
+            size="2xs"
+            role="presentation"
+            aria-hidden
+          />
+        </>
+      ) : (
+        <>{label}</>
+      )}
+    </li>
+  );
+}
 
 BreadcrumbHarmonisedItem.propTypes = {
   label: PropTypes.string.isRequired,

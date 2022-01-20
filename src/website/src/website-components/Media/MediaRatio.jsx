@@ -15,7 +15,10 @@ const MediaRatio = ({ type, token, ratio }) => (
           className="ecl-u-media-content"
         />
       </div>
-      <span className={styles.text}>ecl-u-media-ratio-{ratio}</span>
+      <span className={styles.text}>
+        ecl-u-media-ratio-
+        {ratio}
+      </span>
     </div>
 
     <div className="demo-media-container-right">
@@ -24,7 +27,10 @@ const MediaRatio = ({ type, token, ratio }) => (
       >
         <div className="demo-media-content ecl-u-media-content" />
       </div>
-      <span className={styles.text}>ecl-u-media-ratio-{ratio}</span>
+      <span className={styles.text}>
+        ecl-u-media-ratio-
+        {ratio}
+      </span>
     </div>
   </div>
 );

@@ -5,7 +5,7 @@ import socialSprite from '@ecl/eu-resources-social-icons/dist/sprites/icons-soci
 
 import Link from '@ecl/eu-react-component-link';
 
-const SocialMediaShare = ({ description, links, className, ...props }) => {
+function SocialMediaShare({ description, links, className, ...props }) {
   const classNames = classnames(className, 'ecl-social-media-share');
 
   return (
@@ -38,7 +38,7 @@ const SocialMediaShare = ({ description, links, className, ...props }) => {
       </ul>
     </div>
   );
-};
+}
 
 SocialMediaShare.propTypes = {
   description: PropTypes.string,

@@ -38,69 +38,75 @@ const styleBg = {
   padding: '1rem',
 };
 
-const Media = (type, token) => (
-  <div style={styleLine}>
-    <div style={styleContainerLeft}>
-      <img
-        src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
-        alt="example"
-        className={`ecl-u-media-${type}-${token}`}
-      />
-      ecl-u-media-{type}-{token}
-    </div>
-
-    <div style={styleContainerRight}>
-      <div style={styleContent} className={`ecl-u-media-${type}-${token}`} />
-      ecl-u-media-{type}-{token}
-    </div>
-  </div>
-);
-
-const MediaRatio = (type, token, ratio) => (
-  <div style={styleLine}>
-    <div style={styleContainerLeft}>
-      <div
-        className={`ecl-u-media-ratio-${ratio} ecl-u-media-${type}-${token}`}
-      >
+function Media(type, token) {
+  return (
+    <div style={styleLine}>
+      <div style={styleContainerLeft}>
         <img
           src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
           alt="example"
-          className="ecl-u-media-content"
+          className={`ecl-u-media-${type}-${token}`}
         />
+        ecl-u-media-{type}-{token}
       </div>
-      ecl-u-media-ratio-{ratio}
-    </div>
 
-    <div style={styleContainerRight}>
-      <div
-        className={`ecl-u-media-ratio-${ratio} ecl-u-media-${type}-${token}`}
-      >
-        <div style={styleContent} className="ecl-u-media-content" />
+      <div style={styleContainerRight}>
+        <div style={styleContent} className={`ecl-u-media-${type}-${token}`} />
+        ecl-u-media-{type}-{token}
       </div>
-      ecl-u-media-ratio-{ratio}
     </div>
-  </div>
-);
+  );
+}
 
-const MediaBg = (bgPosition, bgOrigin, bgRepeat, bgSize) => (
-  <div
-    style={styleBg}
-    className={classnames(
-      'ecl-u-media-a-m',
-      bgPosition,
-      bgOrigin,
-      bgRepeat,
-      bgSize
-    )}
-  />
-);
+function MediaRatio(type, token, ratio) {
+  return (
+    <div style={styleLine}>
+      <div style={styleContainerLeft}>
+        <div
+          className={`ecl-u-media-ratio-${ratio} ecl-u-media-${type}-${token}`}
+        >
+          <img
+            src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
+            alt="example"
+            className="ecl-u-media-content"
+          />
+        </div>
+        ecl-u-media-ratio-{ratio}
+      </div>
+
+      <div style={styleContainerRight}>
+        <div
+          className={`ecl-u-media-ratio-${ratio} ecl-u-media-${type}-${token}`}
+        >
+          <div style={styleContent} className="ecl-u-media-content" />
+        </div>
+        ecl-u-media-ratio-{ratio}
+      </div>
+    </div>
+  );
+}
+
+function MediaBg(bgPosition, bgOrigin, bgRepeat, bgSize) {
+  return (
+    <div
+      style={styleBg}
+      className={classnames(
+        'ecl-u-media-a-m',
+        bgPosition,
+        bgOrigin,
+        bgRepeat,
+        bgSize
+      )}
+    />
+  );
+}
 
 export default {
   title: 'Utilities/Media',
   decorators: [withKnobs],
 };
 
-export const Custom = () => {
+export function Custom() {
   const direction = select(
     'Size direction',
     {
@@ -189,6 +195,6 @@ export const Custom = () => {
       {MediaBg(bgPosition, bgOrigin, bgRepeat, bgSize)}
     </>
   );
-};
+}
 
 Custom.storyName = 'custom';

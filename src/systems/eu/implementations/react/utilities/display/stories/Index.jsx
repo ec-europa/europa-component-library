@@ -21,7 +21,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Custom = () => {
+export function Custom() {
   const displayContainer = select(
     'Display (container)',
     {
@@ -74,6 +74,6 @@ export const Custom = () => {
       </div>
     </div>
   );
-};
+}
 
 Custom.storyName = 'custom';

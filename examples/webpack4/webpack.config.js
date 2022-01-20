@@ -1,11 +1,36 @@
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // SCSS includePaths
 const includePaths = [path.resolve(__dirname, '../../node_modules')];
+
+const cssLoader = () => [
+  {
+    loader: MiniCssExtractPlugin.loader,
+    options: { esModule: false },
+  },
+  {
+    loader: 'css-loader',
+    options: {
+      importLoaders: 1,
+      esModule: false,
+    },
+  },
+  {
+    loader: 'postcss-loader',
+    options: {
+      plugins: () => [
+        cssnano({
+          safe: true,
+        }),
+        autoprefixer(),
+      ],
+    },
+  },
+];
 
 module.exports = {
   entry: ['./src/index.js'],
@@ -45,52 +70,53 @@ module.exports = {
         },
       },
       {
+        test: /\.css$/,
+        use: cssLoader(),
+      },
+      {
         test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                importLoaders: 3,
-              },
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 2,
+              modules: true,
             },
-            {
-              loader: 'postcss-loader',
-              options: {
-                plugins: () => [
-                  cssnano({
-                    safe: true,
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                ident: 'postcss',
+                plugins: [
+                  autoprefixer({
+                    flexbox: 'no-2009',
                   }),
-                  autoprefixer(),
                 ],
               },
             },
-            {
-              loader: 'resolve-url-loader',
-              options: {
-                keepQuery: true,
+          },
+          {
+            loader: 'resolve-url-loader',
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sassOptions: {
+                includePaths,
               },
             },
-            {
-              loader: 'sass-loader',
-              options: {
-                sourceMap: true,
-                sassOptions: {
-                  includePaths,
-                },
-              },
-            },
-          ],
-        }),
+          },
+        ],
       },
     ],
   },
   plugins: [
-    new ExtractTextPlugin({
-      // define where to save the file
+    new MiniCssExtractPlugin({
       filename: 'bundle.css',
-      allChunks: true,
     }),
     new HtmlWebpackPlugin({
       template: 'src/index.html',

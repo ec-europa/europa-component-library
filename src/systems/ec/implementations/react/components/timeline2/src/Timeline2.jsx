@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import Button from '@ecl/ec-react-component-button';
 import { Timeline2Item } from './Timeline2Item';
 
-export const Timeline2 = ({
+export function Timeline2({
   items,
   toggleCollapsed,
   toggleExpanded,
@@ -12,7 +12,7 @@ export const Timeline2 = ({
   children,
   className,
   ...props
-}) => {
+}) {
   const classNames = classnames(className, 'ecl-timeline2');
 
   // Calculate collapse threshold
@@ -65,7 +65,7 @@ export const Timeline2 = ({
       {children && children}
     </ol>
   );
-};
+}
 
 Timeline2.propTypes = {
   items: PropTypes.arrayOf(

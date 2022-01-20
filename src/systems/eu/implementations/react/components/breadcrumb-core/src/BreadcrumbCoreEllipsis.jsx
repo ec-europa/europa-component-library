@@ -2,30 +2,32 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from '@ecl/eu-react-component-icon';
 
-export const BreadcrumbCoreEllipsis = ({ label, isVisible }) => (
-  <li
-    className="ecl-breadcrumb-core__segment ecl-breadcrumb-core__segment--ellipsis"
-    aria-hidden={!isVisible}
-    data-ecl-breadcrumb-core-ellipsis
-  >
-    <button
-      type="button"
-      className="ecl-breadcrumb-core__ellipsis"
-      aria-label={label}
-      data-ecl-breadcrumb-core-ellipsis-button
+export function BreadcrumbCoreEllipsis({ label, isVisible }) {
+  return (
+    <li
+      className="ecl-breadcrumb-core__segment ecl-breadcrumb-core__segment--ellipsis"
+      aria-hidden={!isVisible}
+      data-ecl-breadcrumb-core-ellipsis
     >
-      …
-    </button>
-    <Icon
-      className="ecl-breadcrumb-core__icon"
-      shape="ui--corner-arrow"
-      transform="rotate-90"
-      size="2xs"
-      role="presentation"
-      aria-hidden
-    />
-  </li>
-);
+      <button
+        type="button"
+        className="ecl-breadcrumb-core__ellipsis"
+        aria-label={label}
+        data-ecl-breadcrumb-core-ellipsis-button
+      >
+        …
+      </button>
+      <Icon
+        className="ecl-breadcrumb-core__icon"
+        shape="ui--corner-arrow"
+        transform="rotate-90"
+        size="2xs"
+        role="presentation"
+        aria-hidden
+      />
+    </li>
+  );
+}
 
 BreadcrumbCoreEllipsis.propTypes = {
   label: PropTypes.string,

@@ -9,10 +9,14 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Default = () => <HighlightExampleDefault />;
+export function Default() {
+  return <HighlightExampleDefault />;
+}
 
 Default.storyName = 'default';
 
-export const Image = () => <HighlightExampleImage />;
+export function Image() {
+  return <HighlightExampleImage />;
+}
 
 Image.storyName = 'with image';

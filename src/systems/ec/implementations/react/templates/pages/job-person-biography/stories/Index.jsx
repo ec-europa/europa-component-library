@@ -11,7 +11,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const PersonBiography = () => {
+export function PersonBiography() {
   const template = radios(
     'Template',
     {
@@ -161,4 +161,4 @@ export const PersonBiography = () => {
     'optional (core)'
   );
   return <PersonCore {...optional} />;
-};
+}

@@ -7,7 +7,7 @@ import Label from '@ecl/eu-react-component-label';
 import Link from '@ecl/eu-react-component-link';
 import { DescriptionListWithData } from '@ecl/eu-react-component-description-list';
 
-export const FileDownload = ({
+export function FileDownload({
   variant,
   title,
   ariaLabel,
@@ -23,7 +23,7 @@ export const FileDownload = ({
   label,
   className,
   ...props
-}) => {
+}) {
   const classNames = classnames(className, 'ecl-file', {
     [`ecl-file--${variant}`]: variant,
   });
@@ -250,7 +250,7 @@ export const FileDownload = ({
       )}
     </div>
   );
-};
+}
 
 FileDownload.propTypes = {
   variant: PropTypes.string,

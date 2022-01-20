@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import { BreadcrumbCoreEllipsis } from './BreadcrumbCoreEllipsis';
 
-export const BreadcrumbCore = ({
+export function BreadcrumbCore({
   label,
   className,
   ellipsisLabel,
@@ -12,7 +12,7 @@ export const BreadcrumbCore = ({
   minItemsLeft,
   minItemsRight,
   ...props
-}) => {
+}) {
   if (!children) return null;
 
   const childrenArray = React.Children.toArray(children);
@@ -94,7 +94,7 @@ export const BreadcrumbCore = ({
       <ol className="ecl-breadcrumb-core__container">{items}</ol>
     </nav>
   );
-};
+}
 
 BreadcrumbCore.propTypes = {
   label: PropTypes.string.isRequired,

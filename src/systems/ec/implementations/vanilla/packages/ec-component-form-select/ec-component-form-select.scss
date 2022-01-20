@@ -114,6 +114,7 @@
   .ecl-select:hover + .ecl-select__icon {
     background-color: $border-color-hover;
   }
+
   .ecl-select:focus + .ecl-select__icon {
     background-color: $border-color;
   }
@@ -209,6 +210,7 @@
 
   .ecl-select__multiple {
     position: relative;
+
     .ecl-select__multiple-toggle[readonly] {
       border-color: $ecl-color-grey;
       color: $ecl-color-grey;
@@ -262,5 +264,5 @@
 
 // Use mixin
 @include exports('ec-component-form-select') {
-  @include ecl-select();
+  @include ecl-select;
 }

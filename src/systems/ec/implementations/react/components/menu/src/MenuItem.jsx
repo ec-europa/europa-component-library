@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Icon from '@ecl/ec-react-component-icon';
 
-export const MenuItem = ({
+export function MenuItem({
   label,
   href,
   isCurrent,
   hasSubmenuLabel,
   subItems,
-}) => {
+}) {
   const hasSubItems = subItems && subItems.length > 0;
 
   let hasSubmenuLabelMarkup = '';
@@ -75,7 +75,7 @@ export const MenuItem = ({
       )}
     </li>
   );
-};
+}
 
 MenuItem.propTypes = {
   label: PropTypes.string,

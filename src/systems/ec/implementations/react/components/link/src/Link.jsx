@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import Icon from '@ecl/ec-react-component-icon';
 
-const Link = ({
+function Link({
   variant,
   href,
   label,
@@ -13,7 +13,7 @@ const Link = ({
   iconPosition,
   className,
   ...props
-}) => {
+}) {
   let iconMarkup = '';
   if (Array.isArray(icon)) {
     if (icon.length > 0) {
@@ -75,7 +75,7 @@ const Link = ({
       {label}
     </a>
   );
-};
+}
 
 Link.propTypes = {
   variant: PropTypes.string,

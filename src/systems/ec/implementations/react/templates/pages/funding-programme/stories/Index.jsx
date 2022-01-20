@@ -11,7 +11,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const FundingProgramme = () => {
+export function FundingProgramme() {
   const template = radios(
     'Template',
     {
@@ -161,4 +161,4 @@ export const FundingProgramme = () => {
     'optional (core)'
   );
   return <FundingProgrammeCore {...optional} />;
-};
+}

@@ -10,7 +10,7 @@ import {
   UnorderedListItem,
 } from '@ecl/eu-react-component-unordered-list';
 
-const ContentItem = ({
+function ContentItem({
   hasBorder,
   meta,
   title,
@@ -21,7 +21,7 @@ const ContentItem = ({
   children,
   className,
   ...props
-}) => {
+}) {
   return (
     <article
       {...props}
@@ -187,7 +187,7 @@ const ContentItem = ({
       )}
     </article>
   );
-};
+}
 
 ContentItem.propTypes = {
   hasBorder: PropTypes.bool,

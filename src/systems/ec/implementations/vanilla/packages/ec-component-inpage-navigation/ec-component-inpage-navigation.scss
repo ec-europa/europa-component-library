@@ -3,10 +3,10 @@
  * @define inpage-navigation
  */
 
-@include check-imports(('ec-component-link', 'ec-component-icon'));
-
 // Import base
 @import '@ecl/ec-base/ec-base';
+
+@include check-imports(('ec-component-link', 'ec-component-icon'));
 
 @mixin ecl-inpage-navigation(
   $inpage-link-border: $ecl-spacing-2-xs,
@@ -213,5 +213,5 @@
 
 // Use mixin
 @include exports('ec-component-inpage-navigation') {
-  @include ecl-inpage-navigation();
+  @include ecl-inpage-navigation;
 }

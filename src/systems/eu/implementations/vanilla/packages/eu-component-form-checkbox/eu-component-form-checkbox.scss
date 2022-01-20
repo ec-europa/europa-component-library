@@ -77,6 +77,7 @@
     fill: $ecl-color-white-100;
     visibility: hidden;
   }
+
   // Disabled.
   .ecl-checkbox--disabled {
     .ecl-checkbox__label {
@@ -89,6 +90,7 @@
       border-color: $box-border-color-disabled;
     }
   }
+
   // Invalid
   .ecl-checkbox--invalid .ecl-checkbox__box {
     border-color: $invalid-border-color;
@@ -112,6 +114,7 @@
     font-weight: $ecl-font-weight-bold;
     padding-left: $ecl-spacing-2-xs;
   }
+
   // Checked
   // stylelint-disable no-descending-specificity
   .ecl-checkbox__input:checked {
@@ -129,12 +132,14 @@
       visibility: visible;
     }
   }
+
   // Hover state
   .ecl-checkbox__label:hover {
     .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
       border-color: $box-border-color-hover;
     }
   }
+
   // Focus, active state
   .ecl-checkbox__input:focus,
   .ecl-checkbox__input:active {
@@ -148,5 +153,5 @@
 
 // Use mixin.
 @include exports('eu-component-form-checkbox') {
-  @include ecl-checkbox();
+  @include ecl-checkbox;
 }

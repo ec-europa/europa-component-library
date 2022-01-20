@@ -11,7 +11,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Search = () => {
+export function Search() {
   const template = radios(
     'Template',
     {
@@ -161,4 +161,4 @@ export const Search = () => {
     'optional (core)'
   );
   return <SearchCore {...optional} />;
-};
+}

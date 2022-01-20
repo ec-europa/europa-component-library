@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import Link from '@ecl/eu-react-component-link';
 import MediaContainer from '@ecl/eu-react-component-media-container';
 
-const ContentMedia = ({
+function ContentMedia({
   media,
   mediaPosition,
   title,
@@ -13,7 +13,7 @@ const ContentMedia = ({
   children,
   className,
   ...props
-}) => {
+}) {
   return (
     <article {...props} className={classnames(className)}>
       <div className="ecl-row">
@@ -49,7 +49,7 @@ const ContentMedia = ({
       </div>
     </article>
   );
-};
+}
 
 ContentMedia.propTypes = {
   media: PropTypes.shape(MediaContainer.propTypes).isRequired,

@@ -15,7 +15,7 @@ const adaptCellProps = ({ colspan, ...otherProps }) => ({
   ...otherProps,
 });
 
-export default () => {
+export default function () {
   return (
     <Table>
       <TableHead>
@@ -48,4 +48,4 @@ export default () => {
       </TableBody>
     </Table>
   );
-};
+}

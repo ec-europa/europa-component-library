@@ -11,7 +11,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const EventDetail = () => {
+export function EventDetail() {
   const template = radios(
     'Template',
     {
@@ -161,4 +161,4 @@ export const EventDetail = () => {
     'optional (core)'
   );
   return <EventDetailCore {...optional} />;
-};
+}

@@ -5,7 +5,7 @@ import demoContentImageShade from '@ecl/ec-specs-hero-banner/demo/data--image-sh
 
 import HeroBanner from '../src/HeroBanner';
 
-export const ImageShade = () => {
+export function ImageShade() {
   // Banner content
   const title = text('Title', demoContentImageShade.title, 'Banner content');
   const description = text(
@@ -53,6 +53,6 @@ export const ImageShade = () => {
   ) : (
     <div className="ecl-container">{heroBanner}</div>
   );
-};
+}
 
 ImageShade.storyName = 'image - shade';

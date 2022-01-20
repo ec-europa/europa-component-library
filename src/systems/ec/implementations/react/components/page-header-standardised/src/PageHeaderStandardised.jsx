@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-const PageHeaderStandardised = ({
+function PageHeaderStandardised({
   breadcrumb,
   meta,
   title,
   description,
   className,
   ...props
-}) => {
+}) {
   const classNames = classnames(className, 'ecl-page-header-standardised');
 
   return (
@@ -33,7 +33,7 @@ const PageHeaderStandardised = ({
       </div>
     </div>
   );
-};
+}
 
 PageHeaderStandardised.propTypes = {
   breadcrumb: PropTypes.node,

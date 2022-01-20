@@ -64,12 +64,14 @@ export default {
   },
 };
 
-export const Default = () => (
-  <>
-    <p>Content before</p>
-    <DropdownExample />
-    <p>Content after</p>
-  </>
-);
+export function Default() {
+  return (
+    <>
+      <p>Content before</p>
+      <DropdownExample />
+      <p>Content after</p>
+    </>
+  );
+}
 
 Default.storyName = 'default';

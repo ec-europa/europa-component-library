@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
-const Icon = ({
+function Icon({
   className,
   color,
   desc,
@@ -15,7 +15,7 @@ const Icon = ({
   titleId,
   transform,
   ...props
-}) => {
+}) {
   const classNames = classnames(className, 'ecl-icon', {
     [`ecl-icon--${size}`]: size,
     [`ecl-icon--${color}`]: color,
@@ -40,7 +40,7 @@ const Icon = ({
       <use xlinkHref={`${iconPath}#${shape}`} />
     </svg>
   );
-};
+}
 
 Icon.propTypes = {
   className: PropTypes.string,

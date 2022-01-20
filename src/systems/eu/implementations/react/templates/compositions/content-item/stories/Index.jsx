@@ -13,26 +13,38 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Default = () => <ContentItemExampleDefault />;
+export function Default() {
+  return <ContentItemExampleDefault />;
+}
 
 Default.storyName = 'default';
 
-export const Taxonomy = () => <ContentItemExampleTaxonomy />;
+export function Taxonomy() {
+  return <ContentItemExampleTaxonomy />;
+}
 
 Taxonomy.storyName = 'taxonomy';
 
-export const Simple = () => <ContentItemExampleSimple />;
+export function Simple() {
+  return <ContentItemExampleSimple />;
+}
 
 Simple.storyName = 'simple';
 
-export const ImageOnLeft = () => <ContentItemExampleImageLeft />;
+export function ImageOnLeft() {
+  return <ContentItemExampleImageLeft />;
+}
 
 ImageOnLeft.storyName = 'image on left';
 
-export const WithDate = () => <ContentItemExampleDate />;
+export function WithDate() {
+  return <ContentItemExampleDate />;
+}
 
 WithDate.storyName = 'with date';
 
-export const CustomContent = () => <ContentItemExampleCustom />;
+export function CustomContent() {
+  return <ContentItemExampleCustom />;
+}
 
 CustomContent.storyName = 'custom content';

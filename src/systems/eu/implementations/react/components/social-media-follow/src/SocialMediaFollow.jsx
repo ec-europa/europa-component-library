@@ -5,13 +5,13 @@ import socialSprite from '@ecl/eu-resources-social-icons/dist/sprites/icons-soci
 
 import Link from '@ecl/eu-react-component-link';
 
-const SocialMediaFollow = ({
+function SocialMediaFollow({
   description,
   links,
   className,
   variant,
   ...props
-}) => {
+}) {
   const classNames = classnames(className, 'ecl-social-media-follow', {
     [`ecl-social-media-follow--${variant}`]: variant,
   });
@@ -48,7 +48,7 @@ const SocialMediaFollow = ({
       </ul>
     </div>
   );
-};
+}
 
 SocialMediaFollow.propTypes = {
   description: PropTypes.string,

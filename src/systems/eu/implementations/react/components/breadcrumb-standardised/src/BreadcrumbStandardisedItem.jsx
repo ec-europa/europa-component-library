@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import Icon from '@ecl/eu-react-component-icon';
 import Link from '@ecl/eu-react-component-link';
 
-export const BreadcrumbStandardisedItem = ({
+export function BreadcrumbStandardisedItem({
   href,
   label,
   isLastItem,
@@ -13,41 +13,43 @@ export const BreadcrumbStandardisedItem = ({
   className,
   children,
   ...props
-}) => (
-  <li
-    {...props}
-    className={classnames(className, 'ecl-breadcrumb-standardised__segment', {
-      'ecl-breadcrumb-standardised__current-page': isLastItem,
-    })}
-    {...(isLastItem && { 'aria-current': 'page' })}
-    data-ecl-breadcrumb-standardised-item={
-      isExpandable ? 'expandable' : 'static'
-    }
-    aria-hidden={!isVisible}
-  >
-    {!isLastItem ? (
-      <>
-        <Link
-          href={href}
-          label={label}
-          variant="standalone"
-          {...(isLastItem && { 'aria-current': 'page' })}
-          className="ecl-breadcrumb-standardised__link"
-        />
-        <Icon
-          className="ecl-breadcrumb-standardised__icon"
-          shape="ui--corner-arrow"
-          transform="rotate-90"
-          size="2xs"
-          role="presentation"
-          aria-hidden
-        />
-      </>
-    ) : (
-      <>{label}</>
-    )}
-  </li>
-);
+}) {
+  return (
+    <li
+      {...props}
+      className={classnames(className, 'ecl-breadcrumb-standardised__segment', {
+        'ecl-breadcrumb-standardised__current-page': isLastItem,
+      })}
+      {...(isLastItem && { 'aria-current': 'page' })}
+      data-ecl-breadcrumb-standardised-item={
+        isExpandable ? 'expandable' : 'static'
+      }
+      aria-hidden={!isVisible}
+    >
+      {!isLastItem ? (
+        <>
+          <Link
+            href={href}
+            label={label}
+            variant="standalone"
+            {...(isLastItem && { 'aria-current': 'page' })}
+            className="ecl-breadcrumb-standardised__link"
+          />
+          <Icon
+            className="ecl-breadcrumb-standardised__icon"
+            shape="ui--corner-arrow"
+            transform="rotate-90"
+            size="2xs"
+            role="presentation"
+            aria-hidden
+          />
+        </>
+      ) : (
+        <>{label}</>
+      )}
+    </li>
+  );
+}
 
 BreadcrumbStandardisedItem.propTypes = {
   label: PropTypes.string.isRequired,

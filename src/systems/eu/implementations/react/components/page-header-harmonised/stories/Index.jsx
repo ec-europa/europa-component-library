@@ -51,37 +51,43 @@ export default {
   ],
 };
 
-export const Title = () => (
-  <PageHeaderHarmonised
-    breadcrumb={breadcrumb}
-    title={text('Title', demoTitleContent.title)}
-  />
-);
+export function Title() {
+  return (
+    <PageHeaderHarmonised
+      breadcrumb={breadcrumb}
+      title={text('Title', demoTitleContent.title)}
+    />
+  );
+}
 
 Title.storyName = 'title';
 
-export const MetaTitle = () => (
-  <PageHeaderHarmonised
-    breadcrumb={breadcrumb}
-    title={text('Title', demoMetaTitleContent.title)}
-    meta={parse(text('Meta', demoMetaTitleContent.meta))}
-  />
-);
+export function MetaTitle() {
+  return (
+    <PageHeaderHarmonised
+      breadcrumb={breadcrumb}
+      title={text('Title', demoMetaTitleContent.title)}
+      meta={parse(text('Meta', demoMetaTitleContent.meta))}
+    />
+  );
+}
 
 MetaTitle.storyName = 'meta-title';
 MetaTitle.parameters = { knobs: { escapeHTML: false } };
 
-export const MetaTitleDescription = () => (
-  <PageHeaderHarmonised
-    breadcrumb={breadcrumb}
-    title={text('Title', demoMetaTitleDescriptionContent.title)}
-    description={text(
-      'Description',
-      demoMetaTitleDescriptionContent.description
-    )}
-    meta={parse(text('Meta', demoMetaTitleDescriptionContent.meta))}
-  />
-);
+export function MetaTitleDescription() {
+  return (
+    <PageHeaderHarmonised
+      breadcrumb={breadcrumb}
+      title={text('Title', demoMetaTitleDescriptionContent.title)}
+      description={text(
+        'Description',
+        demoMetaTitleDescriptionContent.description
+      )}
+      meta={parse(text('Meta', demoMetaTitleDescriptionContent.meta))}
+    />
+  );
+}
 
 MetaTitleDescription.storyName = 'meta-title-description';
 MetaTitleDescription.parameters = { knobs: { escapeHTML: false } };

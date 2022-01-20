@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import Link from '@ecl/ec-react-component-link';
 
-const SiteSwitcher = ({ info, political, className, variant, ...props }) => {
+function SiteSwitcher({ info, political, className, variant, ...props }) {
   const classNames = classnames(className, 'ecl-site-switcher', {
     [`ecl-site-switcher--${variant}`]: variant,
   });
@@ -34,7 +34,7 @@ const SiteSwitcher = ({ info, political, className, variant, ...props }) => {
       </div>
     </div>
   );
-};
+}
 
 const item = PropTypes.shape({
   label: PropTypes.string,

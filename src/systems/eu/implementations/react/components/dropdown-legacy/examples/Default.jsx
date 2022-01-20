@@ -25,15 +25,17 @@ const listContent = (items) =>
     );
   });
 
-export default () => (
-  <DropdownLegacy
-    button={demoContent.button}
-    id={demoContent.id}
-    data-ecl-auto-init="DropdownLegacy"
-    variant="padded"
-  >
-    <UnorderedList variant="no-bullet">
-      {listContent(demoContent.list.items)}
-    </UnorderedList>
-  </DropdownLegacy>
-);
+export default function () {
+  return (
+    <DropdownLegacy
+      button={demoContent.button}
+      id={demoContent.id}
+      data-ecl-auto-init="DropdownLegacy"
+      variant="padded"
+    >
+      <UnorderedList variant="no-bullet">
+        {listContent(demoContent.list.items)}
+      </UnorderedList>
+    </DropdownLegacy>
+  );
+}

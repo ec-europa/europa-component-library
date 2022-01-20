@@ -26,7 +26,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Custom = () => {
+export function Custom() {
   const width = select(
     'Width',
     {
@@ -80,6 +80,6 @@ export const Custom = () => {
       </div>
     </>
   );
-};
+}
 
 Custom.storyName = 'custom';

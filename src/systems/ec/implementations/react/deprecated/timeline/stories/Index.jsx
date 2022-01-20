@@ -86,10 +86,10 @@ export default {
   },
 };
 
-export const Default = () => {
+export function Default() {
   button('Add dummy content', btnAddContent, 'buttons');
 
   return <TimelineExample />;
-};
+}
 
 Default.storyName = 'default';

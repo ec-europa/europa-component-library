@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import { FooterStandardisedSection } from './FooterStandardisedSection';
 
-export const FooterStandardised = ({ logo, sections, className, ...props }) => {
+export function FooterStandardised({ logo, sections, className, ...props }) {
   // Logo props
   const {
     className: logoClassName,
@@ -135,7 +135,7 @@ export const FooterStandardised = ({ logo, sections, className, ...props }) => {
       </div>
     </footer>
   );
-};
+}
 
 FooterStandardised.propTypes = {
   logo: PropTypes.shape({

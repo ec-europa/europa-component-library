@@ -9,4 +9,6 @@ demoContentImageLeft.description.label = parse(
   demoContentImageLeft.description.label
 );
 
-export default () => <ContentItem {...demoContentImageLeft} />;
+export default function () {
+  return <ContentItem {...demoContentImageLeft} />;
+}

@@ -65,45 +65,59 @@
   .ecl-u-type-xs {
     font: $ecl-font-print-xs !important;
   }
+
   .ecl-u-type-s {
     font: $ecl-font-print-s !important;
   }
+
   .ecl-u-type-m {
     font: $ecl-font-print-m !important;
   }
+
   .ecl-u-type-l {
     font: $ecl-font-print-l !important;
   }
+
   .ecl-u-type-xl {
     font: $ecl-font-print-xl !important;
   }
+
   .ecl-u-type-2xl {
     font: $ecl-font-print-2-xl !important;
   }
+
   .ecl-u-type-3xl {
     font: $ecl-font-print-3-xl !important;
   }
+
   .ecl-u-type-4xl {
     font: $ecl-font-print-4-xl !important;
   }
+
   .ecl-u-type-5xl {
     font: $ecl-font-print-5-xl !important;
   }
+
   .ecl-u-type-6xl {
     font: $ecl-font-print-6-xl !important;
   }
+
   .ecl-u-type-prolonged-xs {
     font: $ecl-font-prolonged-print-xs !important;
   }
+
   .ecl-u-type-prolonged-s {
     font: $ecl-font-prolonged-print-s !important;
   }
+
   .ecl-u-type-prolonged-m {
     font: $ecl-font-prolonged-print-m !important;
   }
+
   .ecl-u-type-prolonged-l {
     font: $ecl-font-prolonged-print-l !important;
   }
+
   .ecl-u-type-prolonged-xl {
     font: $ecl-font-prolonged-print-xl !important;
   }
@@ -126,27 +140,35 @@
   .ecl-u-type-regular {
     font-weight: $ecl-font-weight-print-regular !important;
   }
+
   .ecl-u-type-bold {
     font-weight: $ecl-font-weight-print-bold !important;
   }
+
   .ecl-u-type-capitalize {
     text-transform: capitalize !important;
   }
+
   .ecl-u-type-lowercase {
     text-transform: lowercase !important;
   }
+
   .ecl-u-type-uppercase {
     text-transform: uppercase !important;
   }
+
   .ecl-u-type-overline {
     text-decoration: overline !important;
   }
+
   .ecl-u-type-underline {
     text-decoration: underline !important;
   }
+
   .ecl-u-type-strike {
     text-decoration: line-through !important;
   }
+
   .ecl-u-type-none {
     text-decoration: none !important;
   }
@@ -165,5 +187,5 @@
 
 // Use mixin
 @include exports('ec-utility-typography-print') {
-  @include ecl-utility-typography-print();
+  @include ecl-utility-typography-print;
 }

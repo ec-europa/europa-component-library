@@ -37,7 +37,7 @@ export default {
   ],
 };
 
-export const Default = () => {
+export function Default() {
   const demoText = loremIpsum({ count: 25 });
   const cssText =
     'height: 200px; margin: 0 0 1em; background: #ececec; display:flex; padding: 1em; align-items: center; justify-content: center;';
@@ -143,6 +143,6 @@ export const Default = () => {
       </div>
     </div>
   );
-};
+}
 
 Default.storyName = 'default';

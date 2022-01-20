@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-const Blockquote = ({ author, citation, className, ...props }) => {
+function Blockquote({ author, citation, className, ...props }) {
   if (!citation) return null;
 
   const classNames = classnames(className, 'ecl-blockquote');
@@ -17,7 +17,7 @@ const Blockquote = ({ author, citation, className, ...props }) => {
       )}
     </blockquote>
   );
-};
+}
 
 Blockquote.propTypes = {
   author: PropTypes.string,

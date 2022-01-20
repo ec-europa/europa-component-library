@@ -7,7 +7,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Custom = () => {
+export function Custom() {
   const background = select(
     'Background colour (sample)',
     {
@@ -27,6 +27,6 @@ export const Custom = () => {
       <strong>Sample text bold</strong>
     </p>
   );
-};
+}
 
 Custom.storyName = 'custom';

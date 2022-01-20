@@ -3,24 +3,26 @@ import classnames from 'classnames';
 import { withKnobs, boolean, select, number } from '@storybook/addon-knobs';
 
 /* eslint-disable-next-line react/prop-types */
-const Box = ({ width, shrink, grow, ...props }) => (
-  <div
-    className={classnames('ecl-u-bg-primary ecl-u-color-white', {
-      [`ecl-u-flex-shrink-${shrink ? '1' : '0'}`]: true,
-      [`ecl-u-flex-grow-${grow ? '1' : '0'}`]: true,
-    })}
-    style={{
-      boxSizing: 'border-box',
-      border: '1px solid #9F9F9F',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      minHeight: width || '2rem',
-      width: width || '2rem',
-    }}
-    {...props}
-  />
-);
+function Box({ width, shrink, grow, ...props }) {
+  return (
+    <div
+      className={classnames('ecl-u-bg-primary ecl-u-color-white', {
+        [`ecl-u-flex-shrink-${shrink ? '1' : '0'}`]: true,
+        [`ecl-u-flex-grow-${grow ? '1' : '0'}`]: true,
+      })}
+      style={{
+        boxSizing: 'border-box',
+        border: '1px solid #9F9F9F',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: width || '2rem',
+        width: width || '2rem',
+      }}
+      {...props}
+    />
+  );
+}
 
 export default {
   title: 'Layout/Stacks',
@@ -33,7 +35,7 @@ export default {
   },
 };
 
-export const Custom = () => {
+export function Custom() {
   const direction = select(
     'Direction',
     {
@@ -188,6 +190,6 @@ export const Custom = () => {
       </Box>
     </div>
   );
-};
+}
 
 Custom.storyName = 'custom';

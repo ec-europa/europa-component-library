@@ -24,21 +24,23 @@ const styleItem = {
   width: '7rem',
 };
 
-const Spacing = (type, token) => (
-  <div style={styleLine}>
-    <div style={styleContainer}>
-      <div style={styleContent} className={`ecl-u-m${type}-${token}`}>
-        <span style={styleItem}>{`ecl-u-m${type}-${token}`}</span>
+function Spacing(type, token) {
+  return (
+    <div style={styleLine}>
+      <div style={styleContainer}>
+        <div style={styleContent} className={`ecl-u-m${type}-${token}`}>
+          <span style={styleItem}>{`ecl-u-m${type}-${token}`}</span>
+        </div>
       </div>
-    </div>
 
-    <div style={styleContainer}>
-      <div style={styleContent} className={`ecl-u-p${type}-${token}`}>
-        <span style={styleItem}>{`ecl-u-p${type}-${token}`}</span>
+      <div style={styleContainer}>
+        <div style={styleContent} className={`ecl-u-p${type}-${token}`}>
+          <span style={styleItem}>{`ecl-u-p${type}-${token}`}</span>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+}
 
 export default {
   title: 'Utilities/Spacing',
@@ -51,41 +53,43 @@ export default {
   },
 };
 
-export const Default = () => (
-  <>
-    <h2 className="ecl-u-type-heading-2">All around spacing</h2>
-    {Spacing('a', '2xs')}
-    {Spacing('a', 'xs')}
-    {Spacing('a', 's')}
-    {Spacing('a', 'm')}
-    {Spacing('a', 'l')}
-    {Spacing('a', 'xl')}
-    {Spacing('a', '2xl')}
-    {Spacing('a', '3xl')}
-    {Spacing('a', '4xl')}
+export function Default() {
+  return (
+    <>
+      <h2 className="ecl-u-type-heading-2">All around spacing</h2>
+      {Spacing('a', '2xs')}
+      {Spacing('a', 'xs')}
+      {Spacing('a', 's')}
+      {Spacing('a', 'm')}
+      {Spacing('a', 'l')}
+      {Spacing('a', 'xl')}
+      {Spacing('a', '2xl')}
+      {Spacing('a', '3xl')}
+      {Spacing('a', '4xl')}
 
-    <h2 className="ecl-u-type-heading-2">Vertical spacing</h2>
-    {Spacing('v', '2xs')}
-    {Spacing('v', 'xs')}
-    {Spacing('v', 's')}
-    {Spacing('v', 'm')}
-    {Spacing('v', 'l')}
-    {Spacing('v', 'xl')}
-    {Spacing('v', '2xl')}
-    {Spacing('v', '3xl')}
-    {Spacing('v', '4xl')}
+      <h2 className="ecl-u-type-heading-2">Vertical spacing</h2>
+      {Spacing('v', '2xs')}
+      {Spacing('v', 'xs')}
+      {Spacing('v', 's')}
+      {Spacing('v', 'm')}
+      {Spacing('v', 'l')}
+      {Spacing('v', 'xl')}
+      {Spacing('v', '2xl')}
+      {Spacing('v', '3xl')}
+      {Spacing('v', '4xl')}
 
-    <h2 className="ecl-u-type-heading-2">Horizontal spacing</h2>
-    {Spacing('h', '2xs')}
-    {Spacing('h', 'xs')}
-    {Spacing('h', 's')}
-    {Spacing('h', 'm')}
-    {Spacing('h', 'l')}
-    {Spacing('h', 'xl')}
-    {Spacing('h', '2xl')}
-    {Spacing('h', '3xl')}
-    {Spacing('h', '4xl')}
-  </>
-);
+      <h2 className="ecl-u-type-heading-2">Horizontal spacing</h2>
+      {Spacing('h', '2xs')}
+      {Spacing('h', 'xs')}
+      {Spacing('h', 's')}
+      {Spacing('h', 'm')}
+      {Spacing('h', 'l')}
+      {Spacing('h', 'xl')}
+      {Spacing('h', '2xl')}
+      {Spacing('h', '3xl')}
+      {Spacing('h', '4xl')}
+    </>
+  );
+}
 
 Default.storyName = 'default';

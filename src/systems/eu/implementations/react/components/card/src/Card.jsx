@@ -7,7 +7,7 @@ import Icon from '@ecl/eu-react-component-icon';
 import Link from '@ecl/eu-react-component-link';
 import Tag from '@ecl/eu-react-component-tag';
 
-const Card = ({
+function Card({
   image,
   meta,
   title,
@@ -19,7 +19,7 @@ const Card = ({
   taxonomy,
   className,
   ...props
-}) => {
+}) {
   const classNames = classnames(className, 'ecl-card', {
     'ecl-card--tile': !(image && image.src),
   });
@@ -150,7 +150,7 @@ const Card = ({
       </footer>
     </article>
   );
-};
+}
 
 Card.propTypes = {
   image: PropTypes.shape({

@@ -7,7 +7,7 @@ import DescriptionList from './DescriptionList';
 import DescriptionTerm from './DescriptionTerm';
 import DescriptionDefinition from './DescriptionDefinition';
 
-const DescriptionListWithData = ({ items, className, variant, ...props }) => {
+function DescriptionListWithData({ items, className, variant, ...props }) {
   return (
     <DescriptionList
       {...props}
@@ -47,13 +47,11 @@ const DescriptionListWithData = ({ items, className, variant, ...props }) => {
             );
           } else {
             // Array of strings
-            definitions = item.definition.map((definition) => {
-              return (
-                <DescriptionDefinition key={definition}>
-                  {definition}
-                </DescriptionDefinition>
-              );
-            });
+            definitions = item.definition.map((definition) => (
+              <DescriptionDefinition key={definition}>
+                {definition}
+              </DescriptionDefinition>
+            ));
           }
         } else {
           // Single string
@@ -71,7 +69,7 @@ const DescriptionListWithData = ({ items, className, variant, ...props }) => {
       })}
     </DescriptionList>
   );
-};
+}
 
 DescriptionListWithData.propTypes = {
   items: PropTypes.arrayOf(

@@ -5,7 +5,7 @@ import demoContentSimple from '@ecl/ec-specs-hero-banner/demo/data--simple';
 
 import HeroBanner from '../src/HeroBanner';
 
-export const SimplePrimary = () => {
+export function SimplePrimary() {
   // Banner content
   const title = text('Title', demoContentSimple.title, 'Banner content');
   const description = text(
@@ -47,6 +47,6 @@ export const SimplePrimary = () => {
   ) : (
     <div className="ecl-container">{heroBanner}</div>
   );
-};
+}
 
 SimplePrimary.storyName = 'simple - primary';

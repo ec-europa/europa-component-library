@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import Icon from '@ecl/eu-react-component-icon';
 
-const Checkbox = ({
+function Checkbox({
   className,
   defaultChecked,
   disabled,
@@ -17,7 +17,7 @@ const Checkbox = ({
   name,
   value,
   ...props
-}) => {
+}) {
   const classNames = classnames(className, 'ecl-checkbox', {
     'ecl-checkbox--invalid': invalid,
     'ecl-checkbox--disabled': disabled,
@@ -62,7 +62,7 @@ const Checkbox = ({
       )}
     </div>
   );
-};
+}
 
 Checkbox.propTypes = {
   className: PropTypes.string,

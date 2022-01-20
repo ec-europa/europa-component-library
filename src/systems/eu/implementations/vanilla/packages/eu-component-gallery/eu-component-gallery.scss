@@ -298,9 +298,11 @@
     font: $ecl-font-s;
     margin-top: $ecl-spacing-m;
   }
+
   .ecl-gallery__share {
     margin-left: $ecl-spacing-s;
   }
+
   .ecl-gallery__download,
   .ecl-gallery__share {
     color: $detail-color;
@@ -319,6 +321,7 @@
     font: $ecl-font-m;
     margin-top: $ecl-spacing-s;
   }
+
   .ecl-gallery__overlay .ecl-gallery__description-icon {
     display: none;
   }
@@ -345,9 +348,11 @@
       margin-left: $ecl-spacing-xl - $ecl-spacing-s;
       order: -1;
     }
+
     .ecl-gallery__slider-previous .ecl-button__label {
       display: none;
     }
+
     .ecl-gallery__slider-previous .ecl-button__icon {
       margin-right: 0;
     }
@@ -359,9 +364,11 @@
       position: relative;
       right: auto;
     }
+
     .ecl-gallery__slider-next .ecl-button__label {
       display: none;
     }
+
     .ecl-gallery__slider-next .ecl-button__icon {
       margin-left: 0;
     }
@@ -370,6 +377,6 @@
 
 // Use mixin
 @include exports('eu-component-gallery') {
-  @include ecl-gallery();
-  @include ecl-gallery-overlay();
+  @include ecl-gallery;
+  @include ecl-gallery-overlay;
 }

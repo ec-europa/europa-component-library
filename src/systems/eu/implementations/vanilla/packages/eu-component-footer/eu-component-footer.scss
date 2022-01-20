@@ -149,6 +149,7 @@
   .ecl-footer__section-list--short {
     display: block;
   }
+
   .ecl-footer__section-list--long {
     display: none;
   }
@@ -187,6 +188,7 @@
     .ecl-footer__section-list--short {
       display: none;
     }
+
     .ecl-footer__section-list--long {
       display: block;
       margin-top: -($ecl-spacing-m);
@@ -241,5 +243,5 @@
 
 // Use mixin
 @include exports('eu-component-footer') {
-  @include ecl-footer();
+  @include ecl-footer;
 }

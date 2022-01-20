@@ -11,7 +11,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const _3Columns = () => {
+export function _3Columns() {
   const demoContentCopy = { ...demoContent3Col };
   const hasViewAll = boolean('View all link', true);
   demoContentCopy.viewAll = hasViewAll ? demoContent3Col.viewAll : {};
@@ -28,11 +28,11 @@ export const _3Columns = () => {
   }
 
   return <FactFigures {...demoContentCopy} />;
-};
+}
 
 _3Columns.storyName = '3 columns';
 
-export const _4Columns = () => {
+export function _4Columns() {
   const demoContentCopy = { ...demoContent4Col };
   const hasViewAll = boolean('View all link', true);
   demoContentCopy.viewAll = hasViewAll ? demoContent4Col.viewAll : {};
@@ -49,6 +49,6 @@ export const _4Columns = () => {
   }
 
   return <FactFigures {...demoContentCopy} />;
-};
+}
 
 _4Columns.storyName = '4 columns';

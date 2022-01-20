@@ -22,6 +22,10 @@ const listContent = (items) =>
     );
   });
 
-export default () => (
-  <UnorderedList variant="divider">{listContent(demoLink.items)}</UnorderedList>
-);
+export default function () {
+  return (
+    <UnorderedList variant="divider">
+      {listContent(demoLink.items)}
+    </UnorderedList>
+  );
+}

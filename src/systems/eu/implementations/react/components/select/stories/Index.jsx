@@ -11,30 +11,32 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Default = () => (
-  <Select
-    {...demoContentSingle}
-    id="select-default"
-    options={demoContentSingle.options}
-    label={text('Label', demoContentSingle.label)}
-    helperText={text('Helper text', demoContentSingle.helperText)}
-    invalid={boolean('Invalid', false)}
-    invalidText={text('Invalid text', demoContentSingle.invalidText)}
-    disabled={boolean('Disabled', false)}
-    required={boolean('Required', true)}
-    requiredText={text('Required text', demoContentSingle.requiredText)}
-    optionalText={text('Optional text', demoContentSingle.optionalText)}
-    width={select(
-      'Width',
-      {
-        small: 's',
-        medium: 'm',
-        large: 'l',
-      },
-      'm'
-    )}
-  />
-);
+export function Default() {
+  return (
+    <Select
+      {...demoContentSingle}
+      id="select-default"
+      options={demoContentSingle.options}
+      label={text('Label', demoContentSingle.label)}
+      helperText={text('Helper text', demoContentSingle.helperText)}
+      invalid={boolean('Invalid', false)}
+      invalidText={text('Invalid text', demoContentSingle.invalidText)}
+      disabled={boolean('Disabled', false)}
+      required={boolean('Required', true)}
+      requiredText={text('Required text', demoContentSingle.requiredText)}
+      optionalText={text('Optional text', demoContentSingle.optionalText)}
+      width={select(
+        'Width',
+        {
+          small: 's',
+          medium: 'm',
+          large: 'l',
+        },
+        'm'
+      )}
+    />
+  );
+}
 
 Default.storyName = 'default';
 
@@ -44,7 +46,7 @@ Default.parameters = {
   },
 };
 
-export const Multiple = () => {
+export function Multiple() {
   const defaultText = text(
     'Placeholder (multiple)',
     demoContentMultiple.multiplePlaceholder
@@ -110,7 +112,7 @@ export const Multiple = () => {
       data-ecl-auto-init="Select"
     />
   );
-};
+}
 
 Multiple.storyName = 'multiple';
 

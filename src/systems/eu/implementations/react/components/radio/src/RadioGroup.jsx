@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import RadioButton from './RadioButton';
 
-const RadioGroup = ({
+function RadioGroup({
   binary,
   helperId,
   helperText,
@@ -19,7 +19,7 @@ const RadioGroup = ({
   requiredText,
   className,
   ...props
-}) => {
+}) {
   const classNames = classnames(className, 'ecl-form-group');
 
   return (
@@ -74,7 +74,7 @@ const RadioGroup = ({
       ))}
     </fieldset>
   );
-};
+}
 
 RadioGroup.propTypes = {
   binary: PropTypes.bool,

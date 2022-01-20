@@ -26,5 +26,7 @@ export default {
   ],
 };
 
-export const Campaign = () => <CampaignPageExample />;
+export function Campaign() {
+  return <CampaignPageExample />;
+}
 Campaign.storyName = 'Campaign';

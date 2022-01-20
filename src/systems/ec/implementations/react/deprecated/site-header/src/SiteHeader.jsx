@@ -6,13 +6,13 @@ import Icon from '@ecl/ec-react-component-icon';
 import SearchForm from '@ecl/ec-react-component-search-form';
 import { LanguageListOverlay } from '@ecl/ec-react-component-language-list';
 
-const SiteHeader = ({
+function SiteHeader({
   logo,
   languageSelector,
   searchForm,
   className,
   ...props
-}) => {
+}) {
   const classNames = classnames(className, 'ecl-site-header');
 
   // Logo props
@@ -74,7 +74,7 @@ const SiteHeader = ({
       </div>
     </header>
   );
-};
+}
 
 SiteHeader.propTypes = {
   logo: PropTypes.shape({

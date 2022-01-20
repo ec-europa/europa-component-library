@@ -26,5 +26,7 @@ export default {
   ],
 };
 
-export const EventSpeaker = () => <EventSpeakerPageExample />;
+export function EventSpeaker() {
+  return <EventSpeakerPageExample />;
+}
 EventSpeaker.storyName = 'Event speaker';

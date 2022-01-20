@@ -7,7 +7,7 @@ import Icon from '@ecl/ec-react-component-icon';
 
 import { MenuItem } from './MenuItem';
 
-export const Menu = ({
+export function Menu({
   siteName,
   menuLink,
   close,
@@ -16,7 +16,7 @@ export const Menu = ({
   items,
   className,
   ...props
-}) => {
+}) {
   const classNames = classnames(className, 'ecl-menu');
 
   return (
@@ -75,7 +75,7 @@ export const Menu = ({
       </div>
     </nav>
   );
-};
+}
 
 export default Menu;
 

@@ -66,7 +66,7 @@ html {
   },
 };
 
-export const Campaign = () => {
+export function Campaign() {
   const {
     siteHeader: siteHeaderData,
     heroBanner: heroBannerData,
@@ -106,4 +106,4 @@ export const Campaign = () => {
       heroBanner={heroBanner}
     />
   );
-};
+}

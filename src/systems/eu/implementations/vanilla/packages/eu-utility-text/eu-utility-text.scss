@@ -11,21 +11,27 @@
   .ecl-u-text-capitalize {
     text-transform: capitalize;
   }
+
   .ecl-u-text-lowercase {
     text-transform: lowercase;
   }
+
   .ecl-u-text-uppercase {
     text-transform: uppercase;
   }
+
   .ecl-u-text-overline {
     text-decoration: overline;
   }
+
   .ecl-u-text-underline {
     text-decoration: underline;
   }
+
   .ecl-u-text-strike {
     text-decoration: line-through;
   }
+
   .ecl-u-text-none {
     text-decoration: none;
   }
@@ -33,5 +39,5 @@
 
 // Use mixin
 @include exports('eu-utility-text') {
-  @include ecl-utility-text();
+  @include ecl-utility-text;
 }

@@ -11,7 +11,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const CallForTenders = () => {
+export function CallForTenders() {
   const template = radios(
     'Template',
     {
@@ -161,4 +161,4 @@ export const CallForTenders = () => {
     'optional (core)'
   );
   return <CallTendersCore {...optional} />;
-};
+}

@@ -67,7 +67,7 @@ export default {
   },
 };
 
-export const DefaultEcl260 = () => {
+export function DefaultEcl260() {
   const toggle1 = {
     ...demoContent.items[0].toggle,
     label: text('Toggle 1', demoContent.items[0].toggle.label),
@@ -108,6 +108,6 @@ export const DefaultEcl260 = () => {
       </AccordionItem>
     </Accordion>
   );
-};
+}
 
 DefaultEcl260.storyName = 'default (ECL <2.6.0)';

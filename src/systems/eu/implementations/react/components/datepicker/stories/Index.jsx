@@ -31,22 +31,24 @@ export default {
   ],
 };
 
-export const Default = () => (
-  <Datepicker
-    {...demoContent}
-    data-ecl-auto-init="Datepicker"
-    id={demoContent.id}
-    name={demoContent.name}
-    label={text('Label', demoContent.label)}
-    helperText={text('Helper text', demoContent.helperText)}
-    invalid={boolean('Invalid', false)}
-    invalidText={text('Invalid text', demoContent.invalidText)}
-    disabled={boolean('Disabled', false)}
-    required={boolean('Required', true)}
-    requiredText={text('Required text', demoContent.requiredText)}
-    optionalText={text('Optional text', demoContent.optionalText)}
-  />
-);
+export function Default() {
+  return (
+    <Datepicker
+      {...demoContent}
+      data-ecl-auto-init="Datepicker"
+      id={demoContent.id}
+      name={demoContent.name}
+      label={text('Label', demoContent.label)}
+      helperText={text('Helper text', demoContent.helperText)}
+      invalid={boolean('Invalid', false)}
+      invalidText={text('Invalid text', demoContent.invalidText)}
+      disabled={boolean('Disabled', false)}
+      required={boolean('Required', true)}
+      requiredText={text('Required text', demoContent.requiredText)}
+      optionalText={text('Optional text', demoContent.optionalText)}
+    />
+  );
+}
 
 Default.storyName = 'default';
 

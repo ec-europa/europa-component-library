@@ -18,7 +18,7 @@ All library elements are accompanied with
 
 ## Requirements
 
-ECL has always been using the LTS version of Node.js. Please ensure a match before proceeding with the installation of ECL dependencies or ones in ECL Builder.
+ECL is currently using Fermium, node 14 but it's still fully working with node 12. Please ensure a match before proceeding with the installation of ECL dependencies or ones in ECL Builder.
 
 ## Documentation
 

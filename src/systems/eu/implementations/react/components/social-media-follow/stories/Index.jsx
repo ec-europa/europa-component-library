@@ -10,21 +10,25 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Horizontal = () => (
-  <SocialMediaFollow
-    {...demoContent}
-    description={text('Description', demoContent.description)}
-  />
-);
+export function Horizontal() {
+  return (
+    <SocialMediaFollow
+      {...demoContent}
+      description={text('Description', demoContent.description)}
+    />
+  );
+}
 
 Horizontal.storyName = 'horizontal';
 
-export const Vertical = () => (
-  <SocialMediaFollow
-    {...demoContent}
-    variant="vertical"
-    description={text('Description', demoContent.description)}
-  />
-);
+export function Vertical() {
+  return (
+    <SocialMediaFollow
+      {...demoContent}
+      variant="vertical"
+      description={text('Description', demoContent.description)}
+    />
+  );
+}
 
 Vertical.storyName = 'vertical';

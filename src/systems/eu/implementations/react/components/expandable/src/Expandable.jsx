@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Button from '@ecl/eu-react-component-button';
 
-export const Expandable = ({
+export function Expandable({
   id,
   button,
   labelCollapsed,
@@ -11,7 +11,7 @@ export const Expandable = ({
   children,
   className,
   ...props
-}) => {
+}) {
   const classNames = classnames(className, 'ecl-expandable');
 
   return (
@@ -34,7 +34,7 @@ export const Expandable = ({
       </div>
     </div>
   );
-};
+}
 
 Expandable.propTypes = {
   id: PropTypes.string,

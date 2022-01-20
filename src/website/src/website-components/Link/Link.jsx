@@ -31,7 +31,8 @@ const StyledLink = ({
         target="_blank"
         rel="noopener noreferrer"
       >
-        {label || children}&nbsp;
+        {label || children}
+        &nbsp;
         <svg focusable="false" aria-hidden="true" className={styles.icon}>
           <use xlinkHref={`${icons}#ui--external`} />
         </svg>

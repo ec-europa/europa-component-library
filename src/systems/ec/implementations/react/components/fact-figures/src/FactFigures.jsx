@@ -4,13 +4,7 @@ import classnames from 'classnames';
 import Link from '@ecl/ec-react-component-link';
 import { FactFiguresItem } from './FactFiguresItem';
 
-export const FactFigures = ({
-  column,
-  items,
-  viewAll,
-  className,
-  ...props
-}) => {
+export function FactFigures({ column, items, viewAll, className, ...props }) {
   return (
     <div
       {...props}
@@ -37,7 +31,7 @@ export const FactFigures = ({
       )}
     </div>
   );
-};
+}
 
 FactFigures.propTypes = {
   column: PropTypes.number,

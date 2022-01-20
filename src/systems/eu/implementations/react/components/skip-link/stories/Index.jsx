@@ -44,13 +44,13 @@ export default {
   },
 };
 
-export const Default = () => {
+export function Default() {
   return (
     <>
       <SkipLink href={demoData.href} label={text('Label', demoData.label)} />
       <div id={demoData.href.replace('#', '')} />
     </>
   );
-};
+}
 
 Default.storyName = 'default';

@@ -26,5 +26,7 @@ export default {
   ],
 };
 
-export const EventAgenda = () => <EventAgendaPageExample />;
+export function EventAgenda() {
+  return <EventAgendaPageExample />;
+}
 EventAgenda.storyName = 'Event agenda';
