@@ -11,10 +11,15 @@ import dataMenuFr from '@ecl/specs-component-menu/demo/data--fr';
 import siteHeaderStandardised from './site-header-standardised.html.twig';
 import notes from './README.md';
 
+// Preserve original data.
 const enData = { ...englishData };
 const frData = { ...frenchData };
 const enMenu = { ...dataMenuEn };
 const frMenu = { ...dataMenuFr };
+const enSearchForm = { ...englishData.search_form };
+const enSearchToggle = { ...englishData.search_toggle };
+const frSearchForm = { ...frenchData.search_form };
+const frSearchToggle = { ...frenchData.search_toggle };
 const languageSelector = { ...enData.language_selector };
 const loggedInData = { ...enData, logged: true };
 const clonedLoggedInData = { ...loggedInData };
@@ -28,6 +33,7 @@ const getArgs = (data) => ({
   site_name: data.site_name || '',
   banner_top: true,
   cta_link: false,
+  search: true,
 });
 
 const getArgTypes = () => {
@@ -53,6 +59,14 @@ const getArgTypes = () => {
     name: 'language selector',
     type: 'boolean',
     description: 'Toggle language selector visibility',
+    table: {
+      type: { summary: 'object' },
+      defaultValue: { summary: '{}' },
+    },
+  };
+  argTypes.search = {
+    type: { name: 'boolean' },
+    description: 'Toggle search form visibility',
     table: {
       type: { summary: 'object' },
       defaultValue: { summary: '{}' },
@@ -113,6 +127,19 @@ const prepareData = (data, demo, args) => {
     delete data.language_selector;
   } else if (args.language_selector && !data.language_selector) {
     data.language_selector = languageSelector;
+  }
+
+  if (!args.search) {
+    delete data.search_form;
+    delete data.search_toggle;
+  } else if (args.search && !data.search_form) {
+    if (demo === 'translated') {
+      data.search_form = frSearchForm;
+      data.search_toggle = frSearchToggle;
+    } else {
+      data.search_form = enSearchForm;
+      data.search_toggle = enSearchToggle;
+    }
   }
 
   if (args.cta_link) {
