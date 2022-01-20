@@ -1,5 +1,5 @@
 ---
-title: Logo
+title: Logos
 order: 6
 ---
 
