@@ -18,6 +18,7 @@ export * from '@ecl/vanilla-component-news-ticker';
 export * from '@ecl/vanilla-component-select';
 export * from '@ecl/vanilla-component-site-header-core';
 export * from '@ecl/vanilla-component-site-header-harmonised';
+export * from '@ecl/vanilla-component-site-header';
 export * from '@ecl/vanilla-component-site-header-standardised';
 export * from '@ecl/vanilla-component-table';
 export * from '@ecl/vanilla-component-tabs';
