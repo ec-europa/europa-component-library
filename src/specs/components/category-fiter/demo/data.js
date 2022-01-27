@@ -51,10 +51,9 @@ module.exports = {
             {
               label: 'Item 3.1.2',
               path: exampleLink,
-              is_current: true,
               children: [
                 { label: 'Item 3.1.2 a', path: exampleLink },
-                { label: 'Item 3.1.2 b', path: exampleLink, is_current: true },
+                { label: 'Item 3.1.2 b', path: exampleLink },
                 { label: 'Item 3.1.2 c', path: exampleLink },
               ],
             },
