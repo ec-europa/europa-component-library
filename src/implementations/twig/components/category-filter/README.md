@@ -8,10 +8,6 @@ npm install --save @ecl/twig-component-category-filter
 
 ### Parameters
 
-- **title:** (string) (default: ''): Title
-- **close:** (string) (default: ''): Close button label
-- **back:** (string): (default: ''): Back button label
-- **menu_link:** (string): (default: ''): Href attribute of the menu toggler
 - **"icon_path"** (string) (default: ''): Path to the icon sprite
 - **"items"** (associative array) (default: {}): The menu items - format:
   "label": (string) (default: '')
@@ -31,11 +27,7 @@ npm install --save @ecl/twig-component-category-filter
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/category-filter/category-filter.html.twig' with {
-  title: 'Menu',
-  close: 'Close',
-  back: 'Back',
   icon_path: '/icons.svg',
-  menu_link: './example.com',
   items: [
     {
       label: "Menu item",

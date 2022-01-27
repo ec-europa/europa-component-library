@@ -51,29 +51,10 @@
   {% endfor %}
 {% endif %}
 
-{% macro sub_filter(links) %}
-  {% import _self as macros %}
-  {% for link in links %}
-  {% if item is defined and item is not empty %}
-    <li>
-      <a href="{{ link.path }}">{{ link.label }}</a>
-      {% if link.children %}
-        <ul class="ecl-category-filter__sublist">
-          {{ macros.menu_links(link.children) }}
-        </ul>
-      {% endif %}
-    </li>
-  {% endif %}
-  {% endfor %}
-{% endmacro %}
-
-{% import _self as macros %}
-
 <div
   class="{{ _css_class }}"
   data-ecl-category-filter
   data-ecl-auto-init="CategoryFilter"
-  aria-expanded="false"
   {{ _extra_attributes|raw }}
 >
   <ul class="ecl-category-filter__list">
