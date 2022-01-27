@@ -1,24 +1,19 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import { correctSvgPath } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
-import getSystem from '@ecl/builder/utils/getSystem';
 
 // Get data
 import dataFullEC from '@ecl/specs-component-site-header/demo/data--ec';
-import dataFullEU from '@ecl/specs-component-site-header/demo/data--eu';
 import enLogoEC from '@ecl/resources-ec-logo/logo-ec--en.svg';
-import enLogoEU from '@ecl/resources-eu-logo/standard-version/positive/logo-eu--en.svg';
 import enDataMenu from '@ecl/specs-component-menu/demo/data--en';
 import siteHeader from './site-header.html.twig';
 import notes from './README.md';
 
-const system = getSystem();
-
 // Preserve original data.
-const dataFull = system === 'eu' ? { ...dataFullEU } : { ...dataFullEC };
+const dataFull = { ...dataFullEC };
 const clonedDataFull = { ...dataFull };
 const enMenu = { ...enDataMenu };
-const enLogo = system === 'eu' ? enLogoEU : enLogoEC;
+const enLogo = enLogoEC;
 
 // Core
 const dataCore = JSON.parse(JSON.stringify(dataFull));
@@ -214,12 +209,8 @@ Core.args = getArgs(dataCore);
 Core.argTypes = getArgTypes(dataCore);
 Core.parameters = { notes: { markdown: notes, json: dataCore } };
 
-export const Standardised = (args) => {
-  if (system !== 'ec') {
-    return '<p>Standardised site header is not available for EU</p>';
-  }
-  return siteHeader(prepareData(dataStandardised, args));
-};
+export const Standardised = (args) =>
+  siteHeader(prepareData(dataStandardised, args));
 
 Standardised.storyName = 'standardised';
 Standardised.args = getArgs(dataStandardised);

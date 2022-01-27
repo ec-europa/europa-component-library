@@ -216,10 +216,4 @@ module.exports = {
     },
   },
   icon_file_path: '/icons.svg',
-  banner_top: {
-    link: {
-      label: 'Class name',
-      path: exampleLink,
-    },
-  },
 };
