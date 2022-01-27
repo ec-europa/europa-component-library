@@ -112,7 +112,8 @@ $_outline-width: 3px !default;
 }
 
 .ecl-category-filter__list-item[aria-expanded='true'],
-.ecl-category-filter__list-item:hover {
+.ecl-category-filter__list-item:hover,
+.ecl-category-filter__item--current {
   background-color: $_item_hover_background_color;
 
   &::before {
@@ -126,6 +127,10 @@ $_outline-width: 3px !default;
     width: 4px;
     z-index: 1;
   }
+}
+
+.ecl-category-filter__item--current {
+  font-weight: map.get(theme.$font-weight, 'bold');
 }
 
 .ecl-category-filter

@@ -14,14 +14,16 @@ module.exports = {
         {
           label: 'Item 2.1',
           path: exampleLink,
+          is_current: true,
           children: [
             { label: 'Item 2.1.1', path: exampleLink },
             {
               label: 'Item 2.1.2',
               path: exampleLink,
+              is_current: true,
               children: [
                 { label: 'Item 2.1.2 a', path: exampleLink },
-                { label: 'Item 2.1.2 b', path: exampleLink },
+                { label: 'Item 2.1.2 b', path: exampleLink, is_current: true },
                 { label: 'Item 2.1.2 c', path: exampleLink },
               ],
             },
@@ -30,7 +32,7 @@ module.exports = {
           ],
         },
         { label: 'Item 2.2', path: exampleLink },
-        { label: 'Item 2.3', path: exampleLink, is_current: true },
+        { label: 'Item 2.3', path: exampleLink },
         { label: 'Item 2.4', path: exampleLink },
         { label: 'Item 2.5', path: exampleLink },
         { label: 'Item 2.6', path: exampleLink },
