@@ -30,7 +30,7 @@ npm install --save @ecl/twig-component-category-filter
   icon_path: '/icons.svg',
   items: [
     {
-      label: "Menu item",
+      label: "Item 1",
       path: "example",
       is_current: false,
       children: [
@@ -45,10 +45,10 @@ npm install --save @ecl/twig-component-category-filter
       ],
     }
   ],
-  extra_classes: "ecl-menu-extra-class,
+  extra_classes: "ecl-category-filter-extra-class,
   extra_attributes: [
     {
-      name:"data-ecl-menu",
+      name:"data-ecl-category-filter",
     },
     ...
     ]
