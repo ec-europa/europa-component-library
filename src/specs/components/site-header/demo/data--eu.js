@@ -8,6 +8,7 @@ module.exports = {
     path: exampleLink,
     language: 'en',
     src_desktop: '/standard-version/positive/logo-eu--en.svg',
+    src_mobile: '/condensed-version/positive/logo-eu--en.svg',
   },
   login_toggle: {
     label_not_logged: 'Log in',

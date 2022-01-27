@@ -13,7 +13,6 @@ import notes from './README.md';
 const dataFull = { ...dataFullEC };
 const clonedDataFull = { ...dataFull };
 const enMenu = { ...enDataMenu };
-const enLogo = enLogoEC;
 
 // Core
 const dataCore = JSON.parse(JSON.stringify(dataFull));
@@ -191,7 +190,7 @@ const prepareData = (data, args) => {
 
   correctSvgPath(data);
 
-  data.logo.src_desktop = enLogo;
+  data.logo.src_desktop = enLogoEC;
 
   return data;
 };

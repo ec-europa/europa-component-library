@@ -4,7 +4,8 @@ import withCode from '@ecl/storybook-addon-code';
 
 // Get data
 import dataFullEU from '@ecl/specs-component-site-header/demo/data--eu';
-import enLogoEU from '@ecl/resources-eu-logo/standard-version/positive/logo-eu--en.svg';
+import enLogoDesktopEU from '@ecl/resources-eu-logo/standard-version/positive/logo-eu--en.svg';
+import enLogoMobileEU from '@ecl/resources-eu-logo/condensed-version/positive/logo-eu--en.svg';
 import enDataMenu from '@ecl/specs-component-menu/demo/data--en';
 import siteHeader from './site-header.html.twig';
 import notes from './README.md';
@@ -13,7 +14,6 @@ import notes from './README.md';
 const dataFull = { ...dataFullEU };
 const clonedDataFull = { ...dataFull };
 const enMenu = { ...enDataMenu };
-const enLogo = enLogoEU;
 
 // Core
 const dataCore = JSON.parse(JSON.stringify(dataFull));
@@ -168,7 +168,8 @@ const prepareData = (data, args) => {
 
   correctSvgPath(data);
 
-  data.logo.src_desktop = enLogo;
+  data.logo.src_desktop = enLogoDesktopEU;
+  data.logo.src_mobile = enLogoMobileEU;
 
   return data;
 };
