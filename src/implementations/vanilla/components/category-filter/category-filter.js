@@ -84,6 +84,8 @@ export class CategoryFilter {
 
     const treeItem = e.target.closest('.ecl-category-filter__item');
 
+    treeItem.blur();
+
     if (treeItem.classList.contains('ecl-category-filter__item--level-1')) {
       this.items.forEach((item) => {
         if (item !== treeItem) {
