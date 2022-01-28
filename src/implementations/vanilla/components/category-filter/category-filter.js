@@ -96,15 +96,15 @@ export class CategoryFilter {
         treeItem.classList.remove('ecl-category-filter__item--current');
         return;
       }
-    } else {
-      this.items.forEach((item) => {
-        if (item === treeItem) {
-          item.classList.add('ecl-category-filter__item--current');
-        } else {
-          item.classList.remove('ecl-category-filter__item--current');
-        }
-      });
     }
+
+    this.items.forEach((item) => {
+      if (item === treeItem) {
+        item.classList.add('ecl-category-filter__item--current');
+      } else {
+        item.classList.remove('ecl-category-filter__item--current');
+      }
+    });
 
     const ariaExpanded = treeItem.parentElement.getAttribute('aria-expanded');
     treeItem.parentElement.setAttribute(
