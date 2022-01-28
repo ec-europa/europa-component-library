@@ -83,6 +83,12 @@ $_outline-width: 3px !default;
   }
 }
 
+.ecl-category-filter__list-item:last-child {
+  .ecl-category-filter__item {
+    border-bottom: 0;
+  }
+}
+
 .ecl-category-filter__list-item[aria-expanded='false'] {
   .ecl-category-filter__list {
     display: none;
@@ -92,10 +98,6 @@ $_outline-width: 3px !default;
 .ecl-category-filter__list-item[aria-expanded='true'] {
   .ecl-category-filter__item {
     border-bottom: 0;
-  }
-
-  > .ecl-category-filter__item {
-    font-weight: map.get(theme.$font-weight, 'bold');
   }
 
   > .ecl-category-filter__item .ecl-category-filter__item-icon {
@@ -131,6 +133,10 @@ $_outline-width: 3px !default;
 
 .ecl-category-filter__item--current {
   font-weight: map.get(theme.$font-weight, 'bold');
+
+  &:focus {
+    box-shadow: none;
+  }
 }
 
 .ecl-category-filter

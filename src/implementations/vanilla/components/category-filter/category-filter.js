@@ -90,14 +90,27 @@ export class CategoryFilter {
           item.parentElement.setAttribute('aria-expanded', 'false');
         }
       });
+
+      if (treeItem.parentElement.getAttribute('aria-expanded') === 'true') {
+        treeItem.parentElement.setAttribute('aria-expanded', 'false');
+        treeItem.classList.remove('ecl-category-filter__item--current');
+        return;
+      }
+    } else {
+      this.items.forEach((item) => {
+        if (item === treeItem) {
+          item.classList.add('ecl-category-filter__item--current');
+        } else {
+          item.classList.remove('ecl-category-filter__item--current');
+        }
+      });
     }
+
     const ariaExpanded = treeItem.parentElement.getAttribute('aria-expanded');
     treeItem.parentElement.setAttribute(
       'aria-expanded',
       ariaExpanded === 'false' ? 'true' : 'false'
     );
-
-    return this;
   }
 }
 

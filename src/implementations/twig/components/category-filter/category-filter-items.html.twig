@@ -7,7 +7,6 @@
     {
       "label": "Item 1",
       "path": "/example",
-      "is_current": true
       "children": [
         {
           "label": "Item 1.1",
@@ -36,9 +35,6 @@
     {% set _sub_list_attributes = ' aria-expanded="false"' %}
     {% set _sub_list_item_class = _sub_list_item_class ~ ' ecl-category-filter__item--has-children' %}
     {% set _has_children = true %}
-  {% endif %}
-  {% if item.is_current is defined %}
-    {% set _sub_list_item_class = _sub_list_item_class ~ ' ecl-category-filter__item--current' %}
   {% endif %}
   <li class="ecl-category-filter__list-item"{{ _sub_list_attributes }}>
     <a href="{{ item.path }}" class="{{ _sub_list_item_class }}">

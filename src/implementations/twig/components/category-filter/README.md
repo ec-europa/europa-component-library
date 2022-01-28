@@ -32,7 +32,6 @@ npm install --save @ecl/twig-component-category-filter
     {
       label: "Item 1",
       path: "example",
-      is_current: false,
       children: [
         {
           label: "Item 1.1",

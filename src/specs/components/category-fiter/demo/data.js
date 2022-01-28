@@ -9,18 +9,15 @@ module.exports = {
     {
       label: 'Item 2 label',
       path: exampleLink,
-      is_current: true,
       children: [
         {
           label: 'Item 2.1',
           path: exampleLink,
-          is_current: true,
           children: [
             { label: 'Item 2.1.1', path: exampleLink },
             {
               label: 'Item 2.1.2',
               path: exampleLink,
-              is_current: true,
               children: [
                 { label: 'Item 2.1.2 a', path: exampleLink },
                 { label: 'Item 2.1.2 b', path: exampleLink, is_current: true },
