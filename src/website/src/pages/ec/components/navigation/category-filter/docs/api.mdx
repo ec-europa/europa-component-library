@@ -1,0 +1,42 @@
+---
+title: API
+order: 3
+---
+
+import CategoryFilterJSDoc from '../../../../_jsdoc/categoryFilter.md';
+
+## API
+
+<CategoryFilterJSDoc />
+
+## Setup
+
+There are 2 ways to initialise the component.
+
+### Automatic
+
+Add `data-ecl-auto-init="CategoryFilter"` attribute to component's markup:
+
+```html
+<div
+  class="ecl-category-filter"
+  data-ecl-category-filter
+  data-ecl-auto-init="CategoryFilter"
+>
+  ...
+</div>
+```
+
+Use the `ECL` library's `autoInit()` (`ECL.autoInit()`) when your page is ready or other custom event you want to hook onto.
+
+### Manual
+
+Get target element, create an instance and invoke `init()`.
+
+Given you have 1 element with an attribute `data-ecl-category-filter` on the page:
+
+```js
+var elt = document.querySelector('[data-ecl-category-filter]');
+var categoryFilter = new ECL.CategoryFilter(elt);
+categoryFilter.init();
+```
