@@ -1,11 +1,125 @@
 /*
- * Menu component
- * @define menu
+ * Category filter component
+ * @define category-filter; weak
  */
 
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
 
 .ecl-category-filter {
+  max-width: 18rem;
+}
+
+.ecl-category-filter__list-item {
+  position: relative;
+}
+
+.ecl-category-filter__item-icon {
+  color: map.get(theme.$color, 'blue-100');
+  margin: -3px 0;
+}
+
+.ecl-category-filter__item {
+  border-bottom: 1px solid map.get(theme.$color, 'grey-15');
+  color: map.get(theme.$color, 'grey-100');
+  display: flex;
+  font: map.get(theme.$font-prolonged, 's');
+  justify-content: space-between;
+  padding: map.get(theme.$spacing, 's');
+  text-decoration: none;
+
+  &.ecl-category-filter__item--level-1 {
+    .ecl-category-filter__item-icon {
+      margin: 0 0 0 map.get(theme.$spacing, 'xs');
+    }
+  }
+
+  &.ecl-category-filter__item--level-2 {
+    justify-content: initial;
+    padding-left: map.get(theme.$spacing, 'xl');
+
+    &.ecl-category-filter__item--has-children {
+      padding-left: map.get(theme.$spacing, 'xs');
+    }
+  }
+
+  &.ecl-category-filter__item--level-3 {
+    justify-content: initial;
+    padding-left: map.get(theme.$spacing, '3xl');
+
+    &.ecl-category-filter__item--has-children {
+      padding-left: map.get(theme.$spacing, 'l');
+    }
+  }
+
+  &.ecl-category-filter__item--level-4 {
+    justify-content: initial;
+    padding-left: map.get(theme.$spacing, '4xl');
+  }
+}
+
+.ecl-category-filter__list {
+  list-style: none;
   margin: 0;
+  padding: 0;
+
+  .ecl-category-filter__list .ecl-category-filter__item {
+    border-bottom: 0;
+  }
+}
+
+.ecl-category-filter__list-item:last-child {
+  .ecl-category-filter__item {
+    border-bottom: 0;
+  }
+}
+
+.ecl-category-filter__list-item[aria-expanded='false'] {
+  .ecl-category-filter__list {
+    display: none;
+  }
+}
+
+.ecl-category-filter__list-item[aria-expanded='true'] {
+  .ecl-category-filter__item {
+    border-bottom: 0;
+  }
+
+  > .ecl-category-filter__item .ecl-category-filter__item-icon {
+    transform: rotate(180deg);
+  }
+
+  .ecl-category-filter__item--level-1 .ecl-category-filter__item-icon {
+    transform: rotate(0deg);
+  }
+
+  > .ecl-category-filter__list {
+    display: block;
+  }
+}
+
+.ecl-category-filter__list-item[aria-expanded='true'],
+.ecl-category-filter__list-item:hover,
+.ecl-category-filter__item--current {
+  &::before {
+    background-color: map.get(theme.$color, 'blue-100');
+    content: '';
+    display: inline-block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 4px;
+    z-index: 1;
+  }
+}
+
+.ecl-category-filter__item--current {
+  font-weight: map.get(theme.$font-weight, 'bold');
+}
+
+.ecl-category-filter
+  > .ecl-category-filter__list
+  > .ecl-category-filter__list-item[aria-expanded='true'] {
+  border-bottom: 1px solid map.get(theme.$color, 'grey-15');
 }

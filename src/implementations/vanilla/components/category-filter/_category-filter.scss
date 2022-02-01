@@ -140,3 +140,13 @@ $_outline-width: 3px !default;
   > .ecl-category-filter__list-item[aria-expanded='true'] {
   border-bottom: 1px solid $_item_separator_border_color;
 }
+
+.no-js .ecl-category-filter__list-item {
+  .ecl-category-filter__item {
+    border-bottom: 0;
+  }
+
+  .ecl-category-filter__list {
+    display: block;
+  }
+}
