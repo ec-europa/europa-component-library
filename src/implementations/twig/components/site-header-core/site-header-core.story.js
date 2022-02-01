@@ -3,8 +3,8 @@ import { correctSvgPath } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 import withCode from '@ecl/storybook-addon-code';
 
-import englishBanner from '@ecl/resources-ec-logo/logo-ec--en.svg';
-import frenchBanner from '@ecl/resources-ec-logo/logo-ec--fr.svg';
+import englishBanner from '@ecl/resources-ec-logo/positive/logo-ec--en.svg';
+import frenchBanner from '@ecl/resources-ec-logo/positive/logo-ec--fr.svg';
 import euEnglishBanner from '@ecl/resources-eu-logo/standard-version/positive/logo-eu--en.svg';
 import euFrenchBanner from '@ecl/resources-eu-logo/standard-version/positive/logo-eu--fr.svg';
 import euFrenchMobileBanner from '@ecl/resources-eu-logo/condensed-version/positive/logo-eu--fr.svg';
