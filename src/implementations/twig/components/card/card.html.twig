@@ -18,12 +18,15 @@
             },
             ...
           ]
-          links: [], (array) (default: []): List of links (required if Card type is a 'tile'). Format: [
+          links: [], (array) (default: []): Array or multi array of links (required if Card type is a 'tile'). Format: [
             {
               label: (string) (default: ''): Label of link
               path: (string) (default: ''): Link url (href attribute)
             },
             ...
+          ] OR [
+            [ { label, path }, { label, path }, ... ],
+            [ { label, path }, { label, path }, ... ],
           ],
           lists [], (array) (default: []) Array of objects of type "description list". Format: [
             {
@@ -111,9 +114,11 @@
         {% endfor %}
       </ul>
     {% endif %}
+
     {% if _card.meta is not empty %}
       <div class="ecl-card__meta">{{ _card.meta|join(" | ") }}</div>
     {% endif %}
+
     {% if _card.title is not empty and _card.title.label is not empty %}
       <h1 class="ecl-card__title">
         {%- if _card.title.path %}
@@ -126,22 +131,41 @@
         {%- endif -%}
       </h1>
     {% endif %}
+
     {% if _card.description is not empty %}
       <div class="ecl-card__description">{{ _card.description }}</div>
     {% endif %}
+
     {% if _card.links is defined and _card.links is not empty and _card.links is iterable %}
-      <ul class="ecl-card__link-container">
-        {% for link in _card.links %}
-          <li class="ecl-card__link-item">
-            {% include '@ecl/link/link.html.twig' with {
-              link: link|merge({ type: 'standalone' }),
-              extra_classes: 'ecl-card__link',
-              icon_path: _icon_path
-            } only %}
-          </li>
+      {% if _card.links[0][0] is defined %}
+        {% for _section in _card.links %}
+          <ul class="ecl-card__link-container">
+            {% for link in _section %}
+              <li class="ecl-card__link-item">
+                {% include '@ecl/link/link.html.twig' with {
+                  link: link|merge({ type: 'standalone' }),
+                  extra_classes: 'ecl-card__link',
+                  icon_path: _icon_path
+                } only %}
+              </li>
+            {% endfor %}
+          </ul>
         {% endfor %}
-      </ul>
+      {% else %}
+        <ul class="ecl-card__link-container">
+          {% for link in _card.links %}
+            <li class="ecl-card__link-item">
+              {% include '@ecl/link/link.html.twig' with {
+                link: link|merge({ type: 'standalone' }),
+                extra_classes: 'ecl-card__link',
+                icon_path: _icon_path
+              } only %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
     {% endif %}
+
     {% if _card.infos is defined and _card.infos is not empty and _card.infos is iterable %}
       <ul class="ecl-card__info-container">
         {% for info in _card.infos %}
@@ -162,6 +186,7 @@
         {% endfor %}
       </ul>
     {% endif %}
+
     {% if _card.tags is defined and _card.tags is not empty and _card.tags is iterable %}
       <ul class="ecl-card__tag-container">
         {% for tag in _card.tags %}
@@ -175,6 +200,7 @@
         {% endfor %}
       </ul>
     {% endif %}
+
     {% if _card.lists is defined and _card.lists is not empty and _card.lists is iterable %}
       {% for _list in _card.lists %}
         {% include '@ecl/description-list/description-list.html.twig' with _list|merge({ extra_classes: 'ecl-card__list'}) only %}

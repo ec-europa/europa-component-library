@@ -4,38 +4,12 @@ order: 2
 ---
 
 import { Playground, Html } from '@ecl/website-components';
-import {
-  contentItemImage,
-  contentItemImageRight,
-  contentItemEvent,
-} from '../demo';
-
-## Content item with image (left)
+import { navigationList } from '../demo';
 
 <Playground
-  system="ec"
-  selectedKind="components-content-item"
-  selectedStory="image"
+  system="eu"
+  selectedKind="components-navigation-navigation-list"
+  selectedStory="default"
 >
-  <Html markup={contentItemImage} />
-</Playground>
-
-## Content item with image (right)
-
-<Playground
-  system="ec"
-  selectedKind="components-content-item"
-  selectedStory="image"
->
-  <Html markup={contentItemImageRight} />
-</Playground>
-
-## Event content item
-
-<Playground
-  system="ec"
-  selectedKind="components-content-item"
-  selectedStory="event"
->
-  <Html markup={contentItemEvent} />
+  <Html markup={navigationList} />
 </Playground>

@@ -128,6 +128,11 @@ $_list-padding: null !default;
   padding: 0;
 }
 
+.ecl-card__link-container + .ecl-card__link-container {
+  border-top: $_card-border;
+  padding-top: map.get(theme.$spacing, 'm');
+}
+
 .ecl-card__link-item {
   margin-top: map.get(theme.$spacing, 'xs');
 

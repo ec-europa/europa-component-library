@@ -1,6 +1,6 @@
 /**
  * Navigation list
- * @define content-item; weak
+ * @define navigation-list; weak
  */
 
 @use 'sass:math';
@@ -10,126 +10,56 @@
 
 $_border-radius: null !default;
 
-.ecl-content-item {
+// Navigation list
+
+.ecl-navigation-list {
   margin: 0;
 }
 
-.ecl-content-item__container {
-  border-bottom: map.get(theme.$color, 'grey-15') 1px solid;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: map.get(theme.$spacing, 'm');
-}
-
-.ecl-content-item__image {
-  background-position: center;
-  background-size: cover;
-  display: block;
-  height: auto;
-  margin-bottom: map.get(theme.$spacing, 'm');
+.ecl-navigation-list--col-2,
+.ecl-navigation-list--col-3 {
+  display: grid;
+  grid-auto-rows: auto;
+  grid-column-gap: map.get(theme.$grid, 'gutter');
+  grid-row-gap: map.get(theme.$spacing, 'xl');
   width: 100%;
+}
 
-  // manage ratio 3:2
-  &::before {
-    content: '';
-    display: block;
-    padding-top: math.div(2, 3) * 100%;
-    width: 100%;
+.ecl-navigation-list--col-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.ecl-navigation-list--col-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+// Navigation list items
+
+.ecl-navigation-list__item {
+  margin: 0;
+
+  .ecl-card {
+    background-color: transparent;
+  }
+
+  .ecl-card__image {
+    margin: 0;
+  }
+
+  .ecl-card__image::before {
+    padding-top: math.div(9, 21) * 100%;
   }
 }
 
-.ecl-content-item__image--s {
-  width: 150px;
+// No border
 
-  // manage ratio 1:1
-  &::before {
-    padding-top: 100%;
+.ecl-navigation-list__item--no-border {
+  .ecl-card {
+    border-width: 0;
   }
-}
-
-.ecl-content-item__card {
-  background-color: map.get(theme.$color, 'white-100');
-  border-radius: 0;
-  border-width: 0;
-  box-shadow: none;
-  overflow: visible;
-  padding: 0;
 
   .ecl-card__body {
-    padding: 0;
-  }
-
-  .ecl-card__body::before {
-    display: none;
-  }
-}
-
-.ecl-content-item__taxonomy {
-  margin-top: map.get(theme.$spacing, 'm');
-}
-
-// stylelint-disable-next-line order/order
-@include breakpoints.up('m') {
-  .ecl-content-item__container {
-    align-items: flex-start;
-    flex-direction: row;
-  }
-
-  .ecl-content-item__image {
-    flex-shrink: 0;
-    margin-bottom: 0;
-    margin-right: map.get(theme.$spacing, 'xl');
-  }
-
-  .ecl-content-item__image--l {
-    width: 210px;
-  }
-}
-
-// stylelint-disable-next-line order/order
-@include breakpoints.up('l') {
-  .ecl-content-item {
-    max-width: 713px; // 9 columns
-  }
-}
-
-// stylelint-disable-next-line order/order
-@include breakpoints.up('xl') {
-  .ecl-content-item {
-    max-width: 821px; // 9 columns
-  }
-}
-
-// Align right (image only)
-// stylelint-disable-next-line order/order
-@include breakpoints.up('m') {
-  .ecl-content-item--image-right {
-    .ecl-content-item__container {
-      flex-direction: row-reverse;
-    }
-
-    .ecl-content-item__image {
-      margin-left: map.get(theme.$spacing, 'xl');
-      margin-right: 0;
-    }
-  }
-}
-
-// Event
-.ecl-content-item--event {
-  .ecl-content-item__container {
-    align-items: flex-start;
-    flex-direction: row;
-  }
-}
-
-.ecl-content-item__date {
-  margin-right: map.get(theme.$spacing, 'm');
-}
-
-// stylelint-disable-next-line order/order
-@include breakpoints.up('l') {
-  .ecl-content-item__date {
-    margin-right: map.get(theme.$spacing, 'xl');
+    padding-left: 0;
+    padding-right: 0;
   }
 }
