@@ -11,6 +11,8 @@ export Dont from './DoDont/Dont';
 export IconCard from './Icon/IconCard';
 export IconList from './Icon/IconList';
 export Link from './Link/Link';
+export LogoCard from './Logo/LogoCard';
+export LogoList from './Logo/LogoList';
 export List from './Typography/List';
 export Paragraph from './Typography/Paragraph';
 export Playground from './Playground';

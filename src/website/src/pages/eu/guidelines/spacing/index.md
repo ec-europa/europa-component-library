@@ -1,6 +1,6 @@
 ---
 title: Spacing
-order: 6
+order: 7
 ---
 
 import { Paragraph, RemToPixels } from '@ecl/website-components';

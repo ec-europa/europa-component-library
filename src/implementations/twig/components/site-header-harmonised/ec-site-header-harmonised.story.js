@@ -2,7 +2,7 @@ import { correctSvgPath } from '@ecl/story-utils';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 
-import logoEC from '@ecl/resources-ec-logo/logo-ec--en.svg';
+import logoEC from '@ecl/resources-ec-logo/positive/logo-ec--en.svg';
 import dataGroup1 from '@ecl/specs-component-site-header-harmonised/demo/data--group1';
 import dataGroup2 from '@ecl/specs-component-site-header-harmonised/demo/data--group2';
 import dataGroup3 from '@ecl/specs-component-site-header-harmonised/demo/data--group3';
