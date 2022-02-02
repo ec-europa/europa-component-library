@@ -68,6 +68,8 @@
  * Extra fields for js version
  */
 .ecl-file-upload__button-container {
+  display: block;
+
   .no-js & {
     display: none;
   }
@@ -131,4 +133,38 @@
 .ecl-file-upload::-ms-value {
   background-color: map.get(theme.$color, 'grey-5');
   border-width: 0;
+}
+
+/* 
+ * Dynamic file upload list example
+ */
+.ecl-file-upload__item--dynamic {
+  .ecl-file-upload__item {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+  }
+
+  .ecl-file-upload__item-info {
+    flex: 1;
+    padding-right: map.get(theme.$spacing, 'm');
+  }
+
+  .ecl-file-upload__item-action {
+    align-self: center;
+  }
+
+  .ecl-file-upload__item--error {
+    .ecl-file-upload__item-name,
+    .ecl-file-upload__item-error-text {
+      color: map.get(theme.$color, 'error');
+      padding-top: map.get(theme.$spacing, '2xs');
+    }
+  }
+
+  .ecl-file-upload__item-uploading {
+    align-self: center;
+    color: map.get(theme.$color, 'grey-50');
+    display: flex;
+  }
 }
