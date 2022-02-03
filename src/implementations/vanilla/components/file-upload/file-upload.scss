@@ -154,11 +154,15 @@
     align-self: center;
   }
 
+  .ecl-file-upload__item-error-text {
+    display: block;
+    padding-top: map.get(theme.$spacing, '2xs');
+  }
+
   .ecl-file-upload__item--error {
     .ecl-file-upload__item-name,
     .ecl-file-upload__item-error-text {
       color: map.get(theme.$color, 'error');
-      padding-top: map.get(theme.$spacing, '2xs');
     }
   }
 
