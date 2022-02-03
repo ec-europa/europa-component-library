@@ -146,4 +146,7 @@ Multiple.parameters = { notes: { markdown: notes, json: dataMulti } };
 export const FileUploadList = () => renderFilesList(correctSvgPath(dataFiles));
 
 FileUploadList.storyName = 'file upload list';
-FileUploadList.parameters = { notes: { disable: true } };
+FileUploadList.parameters = {
+  notes: { disable: true },
+  controls: { disable: true },
+};
