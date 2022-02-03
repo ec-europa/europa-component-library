@@ -3,6 +3,7 @@
 {#
   Parameters:
     - "items" (array) (default: []): array of list_illustration_item
+    - "sorting" (string) (default: row) (options: [ row, column ])
     - "column" (number) (default: 1): number of columns (1 column means vertical display)
     - "zebra" (boolean) (default: true): use alternate background display for vertical list
     - "extra_classes" (string) (default: '')
@@ -20,12 +21,17 @@
 {% set _zebra = zebra|default(false) %}
 {% set _column = column|default(1) %}
 {% set _css_class = 'ecl-list-illustration' %}
+{% set _sorting = sorting|default('row') %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
 
 {% if _zebra %}
   {% set _css_class = _css_class ~ ' ' ~ 'ecl-list-illustration--zebra' %}
+{% endif %}
+
+{% if _sorting != 'row' %}
+ {% set _css_class = _css_class ~ ' ' ~ 'ecl-list-illustration--sorted' %}
 {% endif %}
 
 {% if _column and _column > 1 and _column < 5 %}

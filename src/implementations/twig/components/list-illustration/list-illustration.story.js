@@ -44,6 +44,7 @@ const getArgs = (data, variant) => {
 
   if (variant.includes('horizontal')) {
     args.column = 2;
+    args.sorting = 'row';
   } else {
     args.zebra = true;
   }
@@ -92,6 +93,17 @@ const getArgTypes = (data, variant) => {
         type: { summary: 'number' },
         defaultValue: { summary: 2 },
         category: 'Layout',
+      },
+    };
+    argTypes.sorting = {
+      name: 'Type of sorting',
+      control: { type: 'select' },
+      options: ['row', 'column'],
+      description: 'Order items per column or row',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'row' },
+        category: 'sorting',
       },
     };
   } else {
@@ -249,6 +261,7 @@ const prepareDataList = (data, args) => {
 
   data.zebra = args.zebra;
   data.column = args.column;
+  data.sorting = args.sorting;
 
   correctSvgPath(data);
 
