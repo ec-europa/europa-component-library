@@ -1,0 +1,83 @@
+<ul class="ecl-file-upload__list ecl-file-upload__item--dynamic" data-ecl-file-upload-list>
+  <li class="ecl-file-upload__item">
+    <div class="ecl-file-upload__item-info">
+      <span class="ecl-file-upload__item-name">File_3.jpg</span>
+      <span class="ecl-file-upload__item-meta">(58.6 kB - jpg)</span>
+    </div>
+    <div class="ecl-file-upload__item-action">
+      <div class="ecl-file-upload__item-uploading">
+        Uploading... 
+        {% include '@ecl/spinner/spinner.html.twig' with {
+          visible: true,
+          centered: false,
+          show_text: false,
+          size: "small",
+          overlay: false
+        } %}
+      </div>
+    </div>
+  </li>
+  <li class="ecl-file-upload__item ecl-file-upload__item--error">
+    <div class="ecl-file-upload__item-info">
+      <span class="ecl-file-upload__item-name">File_2.pdf</span>
+      <span class="ecl-file-upload__item-meta">(65 kB - pdf)</span>
+      <span class="ecl-file-upload__item-error-text">Error text</span>
+    </div>
+    <div class="ecl-file-upload__item-action">
+      {% include '@ecl/link/link.html.twig' with {
+        link: {
+          type: 'standalone',
+          icon_position: 'after',
+          label: 'Delete',
+          aria_label: 'Delete',
+          path: '#'
+        },
+        icon: {
+          name: 'trash',
+          size: 'xs',
+          path: icon_path
+        },
+      } only %}
+    </div>
+  </li>
+  <li class="ecl-file-upload__item">
+    <div class="ecl-file-upload__item-info">
+      <span class="ecl-file-upload__item-name">File_1.docx</span>
+      <span class="ecl-file-upload__item-meta">(44.7 kB - docx)</span>
+    </div>
+    <div class="ecl-file-upload__item-action">
+      {% include '@ecl/link/link.html.twig' with {
+        link: {
+          type: 'standalone',
+          icon_position: 'after',
+          label: 'Delete',
+          aria_label: 'Delete',
+          path: '#'
+        },
+        icon: {
+          name: 'trash',
+          size: 'xs',
+          path: icon_path
+        },
+      } only %}
+    </div>
+  </li>
+  <li class="ecl-file-upload__item">
+    <div class="ecl-file-upload__item-action">
+      {% include '@ecl/link/link.html.twig' with {
+        link: {
+          type: 'standalone',
+          icon_position: 'after',
+          label: 'Delete all',
+          aria_label: 'Delete all',
+          path: '#'
+        },
+        icon: {
+          name: 'trash',
+          size: 'xs',
+          path: icon_path
+        },
+      } only %}
+    </div>
+  </li>
+</ul>
