@@ -87,6 +87,12 @@ collections:
         name: 'ec_carousel'
         file: 'src/website/src/pages/ec/components/carousel/docs/usage.md'
         fields:
+          - { label: Body, name: body, widget: ma
+                rkdown }
+      - label: 'Category filter'
+        name: 'ec_category-filter'
+        file: 'src/website/src/pages/ec/components/navigation/category-filter/docs/usage.md'
+        fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Checkbox'
         name: 'ec_checkbox'
@@ -536,6 +542,11 @@ collections:
       - label: 'Carousel'
         name: 'eu_carousel'
         file: 'src/website/src/pages/eu/components/carousel/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Category filter'
+        name: 'eu_category-filter'
+        file: 'src/website/src/pages/eu/components/navigation/category-filter/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Checkbox'
