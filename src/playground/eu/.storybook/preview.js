@@ -39,6 +39,12 @@ addParameters({
       hideCode: true,
     },
     {
+      id: 'rtl',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-rtl.css" />`,
+      picked: false,
+      hideCode: true,
+    },
+    {
       id: 'ecl-eu-print',
       code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-eu-print.css" />`,
       picked: false,
