@@ -18,6 +18,7 @@ $_body-padding-top: null !default;
 $_body-padding-bottom: null !default;
 $_meta-color: null !default;
 $_text-color: null !default;
+$_separator-color: null !default;
 $_taxonomy-container-border-top: null !default;
 $_list-margin: null !default;
 $_list-padding: null !default;
@@ -129,7 +130,7 @@ $_list-padding: null !default;
 }
 
 .ecl-card__link-container + .ecl-card__link-container {
-  border-top: $_card-border;
+  border-top: 1px solid $_separator-color;
   padding-top: map.get(theme.$spacing, 'm');
 }
 
