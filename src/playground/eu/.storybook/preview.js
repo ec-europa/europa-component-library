@@ -21,7 +21,7 @@ addParameters({
   },
   cssresources: [
     {
-      id: 'reset',
+      id: 'ecl-reset',
       code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-reset.css" />`,
       picked: true,
       hideCode: true,
@@ -39,7 +39,7 @@ addParameters({
       hideCode: true,
     },
     {
-      id: 'rtl',
+      id: 'ecl-rtl',
       code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-rtl.css" />`,
       picked: false,
       hideCode: true,
