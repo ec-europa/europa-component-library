@@ -1,0 +1,68 @@
+{% spaceless %}
+
+{#
+  Parameters:
+  - "icon_path": (string) (default: ''): Path to the icon sprite
+  - "items": (associative array) (default: {}): The menu items - format: [
+    {
+      "label": "Home",
+      "path": "/example",
+    },
+    {
+      "label": "Item 1",
+      "path": "/example",
+      "children": [
+        {
+          "label": "Item 1.1",
+          "path": "/example"
+        },
+        {
+          "label": "Item 1.2",
+          "path": "/example"
+        },
+      },
+    },
+  }],
+  - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the nav element
+  - "extra_attributes" (optional) (array) (default: []) Extra attributes for the nav element
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-category-filter' %}
+{% set _extra_attributes = '' %}
+{% set _icon_path = icon_path|default('') %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+<nav
+  class="{{ _css_class }}"
+  data-ecl-category-filter
+  data-ecl-auto-init="CategoryFilter"
+  {{ _extra_attributes|raw }}
+>
+  <ul class="ecl-category-filter__list">
+  {% if items is defined and items is not empty and items is iterable %}
+    {% include '@ecl/category-filter/category-filter-items.html.twig' with {
+      items: items,
+      icon_path: _icon_path,
+    } only %}
+  {% endif %}
+  </ul>
+</nav>
+
+{% endspaceless %}

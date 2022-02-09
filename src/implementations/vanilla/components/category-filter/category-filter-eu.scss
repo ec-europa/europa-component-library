@@ -1,0 +1,7 @@
+@use 'sass:map';
+@use '@ecl/theme-dev/theme';
+@use 'category-filter' with (
+  $_item_separator_border_color: map.get(theme.$color, 'blue-20'),
+  $_item_hover_background_color: map.get(theme.$color, 'blue-5'),
+  $_outline-color: map.get(theme.$color, 'accent-blue-100')
+);
