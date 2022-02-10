@@ -2,7 +2,7 @@ import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 
 import dataCoreEC from '@ecl/specs-component-site-footer/demo/data-core--ec';
 import dataStandardisedEC from '@ecl/specs-component-site-footer/demo/data-standardised--ec';
-import dataHarmonisedEC from '@ecl/specs-component-site-footer/demo/data-harmonised-group1--ec';
+import dataHarmonisedEC from '@ecl/specs-component-site-footer/demo/data-harmonised--ec';
 import dataCoreEU from '@ecl/specs-component-site-footer/demo/data-core--eu';
 
 describe('Site Footer Core EC', () => {
