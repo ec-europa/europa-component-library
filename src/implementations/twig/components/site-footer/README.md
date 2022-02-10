@@ -36,74 +36,164 @@ npm install --save @ecl/twig-component-site-footer
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/site-footer/site-footer.html.twig' with {
-  rows: [
-    [
-      [
-        {
-          title: {
-            link: {
-              label: 'Site name',
-              path: '/example',
-            },
-          },
-          description:
-            'This site is managed by the Directorate-General for "DG identification"',
-        },
-      ],
-      [
-        {
-          title: 'Contact us',
-          links: [
-            {
-              link: {
-                label: 'Contact information of the DG',
-                path: '/example',
-                aria_label: 'Link to Contact information of the DG',
-              },
-            },
-          ],
-          title_class_name: 'ecl-footer-standardised__title--separator',
-        },
-        {
-          title: 'Follow us on',
-          links: [
-            {
-              link: {
-                label: 'Facebook',
-                path: '/example',
-                aria_label: 'Link to Facebook',
-                icon_position: 'before',
-              },
-              icon: {
-                path: '/icons.svg',
-                name: 'facebook',
-                size: 'xs',
-              },
-            },
-            ...
-          ],
-          list_class_name: 'ecl-footer-standardised__list--inline',
-          title_class_name: 'ecl-footer-standardised__title--separator',
-        },
-      ],
-      [
-        {
-          title: 'About us',
-          links: [
-            {
-              link: {
-                label: 'Information about the DG',
-                path: '/example',
-                aria_label: 'Link to Information about the DG',
-              },
-            },
-          ],
-          title_class_name: 'ecl-footer-standardised__title--separator',
-        },
-        ...
-      ],
-    ],
-    ...
-  ]
-%}
+  variant: 'standardised', 
+  rows: [ 
+    [ 
+      [ 
+        { 
+          title: { 
+            link: { 
+              label: 'Site name', 
+              path: exampleLink, 
+            }, 
+          }, 
+          description: 
+            'This site is managed by the Directorate-General for "DG identification"', 
+        }, 
+      ], 
+      [ 
+        { 
+          title: 'Contact us', 
+          title_with_separator: true, 
+          links: [ 
+            { 
+              link: { 
+                label: 'Contact information of the DG', 
+                path: exampleLink, 
+                aria_label: 'Link to Contact information of the DG', 
+              }, 
+            }, 
+            { 
+              link: { 
+                label: 'Accessibility', 
+                path: exampleLink, 
+                aria_label: 'Link to Accessibility', 
+              }, 
+            }, 
+          ], 
+        }, 
+        { 
+          title: 'Follow us on', 
+          title_with_separator: true, 
+          links: [ 
+            { 
+              link: { 
+                label: 'Facebook', 
+                path: exampleLink, 
+                aria_label: 'Link to Facebook', 
+                icon_position: 'before', 
+              }, 
+              icon: { 
+                path: '/icon-social-media.svg', 
+            }, 
+            ... 
+          ], 
+          links_inline: true, 
+        }, 
+      ], 
+      [ 
+        { 
+          title: 'About us', 
+          title_with_separator: true, 
+          links: [ 
+            { 
+              link: { 
+                label: 'Information about the DG', 
+                path: exampleLink, 
+                aria_label: 'Link to Information about the DG', 
+              }, 
+            }, 
+          ], 
+        }, 
+        { 
+          title: 'Related sites', 
+          title_with_separator: true, 
+          links: [ 
+            { 
+              link: { 
+                label: 'Related link 1', 
+                path: exampleLink, 
+                aria_label: 'Link to Related link 1', 
+              }, 
+            }, 
+            ... 
+          ], 
+        }, 
+      ], 
+    ], 
+    [ 
+      [ 
+        { 
+          links: [ 
+            { 
+              link: { 
+                label: 'Class name 1', 
+                path: exampleLink, 
+                aria_label: 'Link to Class name 1', 
+              }, 
+            }, 
+            { 
+              link: { 
+                label: 'Class name 2', 
+                path: exampleLink, 
+                aria_label: 'Link to Class name 2', 
+              }, 
+            }, 
+          ], 
+          content_before: 'More information on:', 
+          section_class_name: 'ecl-site-footer__section--condensed', 
+        }, 
+      ], 
+    ], 
+    [ 
+      [ 
+        { 
+          title: { 
+            link: { 
+              label: 'European Commission', 
+              path: 'https://ec.europa.eu/info/index_en', 
+            }, 
+          }, 
+          logo: { 
+            title: 'European Commission', 
+            alt: 'European Commission logo', 
+            language: 'en', 
+            path: exampleLink, 
+            src_desktop: '/logo-ec.svg', 
+          }, 
+        }, 
+      ], 
+      [ 
+        { 
+          links: [ 
+            { 
+              link: { 
+                label: 'Contact the European Commission', 
+                path: exampleLink, 
+                aria_label: 'Link to Contact the European Commission', 
+              }, 
+            }, 
+            ... 
+          ], 
+          section_class_name: 'ecl-footer-standardised__section--split-list', 
+        }, 
+      ], 
+      [ 
+        { 
+          links: [ 
+            { 
+              link: { 
+                label: 'Languages on our websites', 
+                path: exampleLink, 
+                aria_label: 'Link to Languages on our websites', 
+              }, 
+            }, 
+            ... 
+          ], 
+          section_class_name: 'ecl-footer-standardised__section--split-list', 
+        }, 
+      ], 
+    ], 
+  ], 
+%} 
 ```
