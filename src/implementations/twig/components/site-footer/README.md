@@ -8,6 +8,7 @@ npm install --save @ecl/twig-component-site-footer
 
 ### Parameters
 
+- **"variant"** (optional) (string) (default: '') core, standardised or harmonised
 - **"rows"** (array of objects) (default: [])
   - "section_class_name" (optional) (string) (default: '')
   - "logo"
