@@ -175,7 +175,7 @@ npm install --save @ecl/twig-component-site-footer
             }, 
             ... 
           ], 
-          section_class_name: 'ecl-footer-standardised__section--split-list', 
+          section_class_name: 'ecl-site-footer__section--split-list', 
         }, 
       ], 
       [ 
@@ -190,7 +190,7 @@ npm install --save @ecl/twig-component-site-footer
             }, 
             ... 
           ], 
-          section_class_name: 'ecl-footer-standardised__section--split-list', 
+          section_class_name: 'ecl-site-footer__section--split-list', 
         }, 
       ], 
     ], 
