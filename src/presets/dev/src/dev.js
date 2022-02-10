@@ -3,6 +3,7 @@ import '@ecl/dom-utils/polyfills';
 export * from '@ecl/dom-utils/autoinit';
 export * from '@ecl/vanilla-component-accordion';
 export * from '@ecl/vanilla-component-carousel';
+export * from '@ecl/vanilla-component-category-filter';
 export * from '@ecl/vanilla-component-datepicker';
 export * from '@ecl/vanilla-component-breadcrumb-core';
 export * from '@ecl/vanilla-component-breadcrumb-standardised';

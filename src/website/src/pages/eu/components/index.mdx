@@ -10,8 +10,9 @@ import Row from '../../../components/Grid/Row';
 import AccordionThumbnail from './accordion/eu_comp_accordion.svg';
 import BlockquoteThumbnail from './blockquote/eu_comp_blockquotes.svg';
 import ButtonThumbnail from './button/eu_comp_buttons.svg';
-import ContentItemThumbnail from './content-item/eu_comp_content_items.svg';
 import CardThumbnail from './card/eu_comp_cards.svg';
+import CategoryFilterThumbnail from './category-filter/eu_comp_category_filter.svg';
+import ContentItemThumbnail from './content-item/eu_comp_content_items.svg';
 import DateBlockThumbnail from './date-block/eu_comp_date_blocks.svg';
 import ExpandableThumbnail from './expandable/eu_comp_expandables.svg';
 import FactFiguresThumbnail from './fact-figures/eu_comp_facts_and_figures.svg';
@@ -79,14 +80,21 @@ Every component is coded to serve a function and designed to solve a specific us
     <Thumbnail image={ButtonThumbnail} link="./button/usage/" title="Buttons" />
   </Col>
   <Col col="12 s-6 l-4" spacing="pv-m">
+    <Thumbnail image={CardThumbnail} link="./card/usage/" title="Cards" />
+  </Col>
+  <Col col="12 s-6 l-4" spacing="pv-m">
+    <Thumbnail
+      image={CategoryFilterThumbnail}
+      link="./category-filter/usage/"
+      title="Category filter"
+    />
+  </Col>
+  <Col col="12 s-6 l-4" spacing="pv-m">
     <Thumbnail
       image={ContentItemThumbnail}
       link="./content-item/usage/"
       title="Content items"
     />
-  </Col>
-  <Col col="12 s-6 l-4" spacing="pv-m">
-    <Thumbnail image={CardThumbnail} link="./card/usage/" title="Cards" />
   </Col>
   <Col col="12 s-6 l-4" spacing="pv-m">
     <Thumbnail
