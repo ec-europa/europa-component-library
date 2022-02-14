@@ -11,6 +11,8 @@ const getArgs = () => {
   const args = {};
 
   args.show_border = true;
+  args.show_image = true;
+  args.show_description = true;
   args.column = 2;
 
   return args;
@@ -24,6 +26,26 @@ const getArgTypes = () => {
     name: 'border',
     type: 'boolean',
     description: 'Show border',
+    table: {
+      type: 'boolean',
+      defaultValue: { summary: true },
+      category: 'Optional',
+    },
+  };
+  argTypes.show_image = {
+    name: 'image',
+    type: 'boolean',
+    description: 'Show image',
+    table: {
+      type: 'boolean',
+      defaultValue: { summary: true },
+      category: 'Optional',
+    },
+  };
+  argTypes.show_description = {
+    name: 'description',
+    type: 'boolean',
+    description: 'Show description',
     table: {
       type: 'boolean',
       defaultValue: { summary: true },
@@ -48,16 +70,23 @@ const getArgTypes = () => {
 
 const prepareData = (data, args) => {
   correctSvgPath(data);
+  const clone = JSON.parse(JSON.stringify(data));
 
   // Optional elements
-  for (let i = 0; i < data.items.length; i += 1) {
-    data.items[i].border = args.show_border;
+  for (let i = 0; i < clone.items.length; i += 1) {
+    clone.items[i].border = args.show_border;
+    if (!args.show_image) {
+      delete clone.items[i].image;
+    }
+    if (!args.show_description) {
+      delete clone.items[i].description;
+    }
   }
 
   // Other controls
-  data.column = args.column;
+  clone.column = args.column;
 
-  return data;
+  return clone;
 };
 
 export default {
