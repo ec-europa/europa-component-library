@@ -64,50 +64,50 @@ exports[`eTrans EC renders correctly with languages list 1`] = `
           </div>
           <div
             class="ecl-message__description"
+          />
+        </div>
+      </div>
+      <div
+        data-ecl-auto-init="Expandable"
+        data-ecl-expandable="true"
+      >
+        <div
+          class="ecl-u-d-inline-flex ecl-u-align-items-center"
+        >
+          <button
+            aria-controls="available-languages-content"
+            aria-expanded="false"
+            class="ecl-button ecl-button--secondary ecl-expandable__toggle ecl-u-mr-s ecl-u-bg-transparent"
+            data-ecl-expandable-toggle=""
+            data-ecl-label-collapsed="Choose another language"
+            data-ecl-label-expanded="Choose another language"
+            type="button"
           >
-            <div />
-          </div>
-          <div
-            data-ecl-auto-init="Expandable"
-            data-ecl-expandable="true"
-          >
-            <div
-              class="ecl-u-d-inline-flex ecl-u-align-items-center"
+            <span
+              class="ecl-button__container"
             >
-              <button
-                aria-controls="available-languages-content"
-                aria-expanded="false"
-                class="ecl-button ecl-button--secondary ecl-expandable__toggle ecl-u-mr-s ecl-u-bg-transparent"
-                data-ecl-expandable-toggle=""
-                data-ecl-label-collapsed="Choose another language"
-                data-ecl-label-expanded="Choose another language"
-                type="button"
+              <span
+                class="ecl-button__label"
+                data-ecl-label="true"
               >
-                <span
-                  class="ecl-button__container"
-                >
-                  <span
-                    class="ecl-button__label"
-                    data-ecl-label="true"
-                  >
-                    Choose another language
-                  </span>
-                  <svg
-                    aria-hidden="true"
-                    class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
-                    data-ecl-icon=""
-                    focusable="false"
-                  >
-                    <use
-                      xlink:href="/icons.svg#corner-arrow"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <script
-                type="application/json"
+                Choose another language
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
+                data-ecl-icon=""
+                focusable="false"
               >
-                
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+            </span>
+          </button>
+          <script
+            type="application/json"
+          >
+            
           {
             "service": "etrans",
             "renderAs": {
@@ -117,262 +117,260 @@ exports[`eTrans EC renders correctly with languages list 1`] = `
             }
           }
         
-              </script>
-            </div>
-            <div
-              class="ecl-expandable__content"
-              hidden=""
-              id="available-languages-content"
+          </script>
+        </div>
+        <div
+          class="ecl-expandable__content"
+          hidden=""
+          id="available-languages-content"
+        >
+          <ul
+            class="ecl-u-d-block ecl-u-d-m-grid ecl-unordered-list ecl-unordered-list--no-bullet ecl-u-mt-xs ecl-u-type-m"
+            style="grid-auto-flow: column; grid-template-rows: repeat(4, 1fr)"
+          >
+            <li
+              class="ecl-unordered-list__item ecl-u-ma-2xs"
             >
-              <ul
-                class="ecl-u-d-block ecl-u-d-m-grid ecl-unordered-list ecl-unordered-list--no-bullet ecl-u-mt-xs ecl-u-type-m"
-                style="grid-auto-flow: column; grid-template-rows: repeat(4, 1fr)"
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
               >
-                <li
-                  class="ecl-unordered-list__item ecl-u-ma-2xs"
-                >
-                  <a
-                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                    href=""
-                  >
-                    български
-                  </a>
-                </li>
-                <li
-                  class="ecl-unordered-list__item ecl-u-ma-2xs"
-                >
-                  <a
-                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                    href=""
-                  >
-                    čeština
-                  </a>
-                </li>
-                <li
-                  class="ecl-unordered-list__item ecl-u-ma-2xs"
-                >
-                  <a
-                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                    href=""
-                  >
-                    dansk
-                  </a>
-                </li>
-                <li
-                  class="ecl-unordered-list__item ecl-u-ma-2xs"
-                >
-                  <a
-                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                    href=""
-                  >
-                    Deutsch
-                  </a>
-                </li>
-                <li
-                  class="ecl-unordered-list__item ecl-u-ma-2xs"
-                >
-                  <a
-                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                    href=""
-                  >
-                    eesti
-                  </a>
-                </li>
-                <li
-                  class="ecl-unordered-list__item ecl-u-ma-2xs"
-                >
-                  <a
-                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                    href=""
-                  >
-                    ελληνικά
-                  </a>
-                </li>
-                <li
-                  class="ecl-unordered-list__item ecl-u-ma-2xs"
-                >
-                  <a
-                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block ecl-u-bg-blue-50 ecl-u-type-color-white ecl-u-type-bold"
-                    href=""
-                  >
-                    English
-                  </a>
-                </li>
-                <li
-                  class="ecl-unordered-list__item ecl-u-ma-2xs"
-                >
-                  <a
-                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                    href=""
-                  >
-                    français
-                  </a>
-                </li>
-                <li
-                  class="ecl-unordered-list__item ecl-u-ma-2xs"
-                >
-                  <a
-                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                    href=""
-                  >
-                    Gaeilge
-                  </a>
-                </li>
-                <li
-                  class="ecl-unordered-list__item ecl-u-ma-2xs"
-                >
-                  <a
-                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                    href=""
-                  >
-                    hrvatski
-                  </a>
-                </li>
-                <li
-                  class="ecl-unordered-list__item ecl-u-ma-2xs"
-                >
-                  <a
-                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                    href=""
-                  >
-                    italiano
-                  </a>
-                </li>
-                <li
-                  class="ecl-unordered-list__item ecl-u-ma-2xs"
-                >
-                  <a
-                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                    href=""
-                  >
-                    latviešu
-                  </a>
-                </li>
-                <li
-                  class="ecl-unordered-list__item ecl-u-ma-2xs"
-                >
-                  <a
-                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                    href=""
-                  >
-                    lietuvių
-                  </a>
-                </li>
-                <li
-                  class="ecl-unordered-list__item ecl-u-ma-2xs"
-                >
-                  <a
-                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                    href=""
-                  >
-                    magyar
-                  </a>
-                </li>
-                <li
-                  class="ecl-unordered-list__item ecl-u-ma-2xs"
-                >
-                  <a
-                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                    href=""
-                  >
-                    Malti
-                  </a>
-                </li>
-                <li
-                  class="ecl-unordered-list__item ecl-u-ma-2xs"
-                >
-                  <a
-                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                    href=""
-                  >
-                    Nederlands
-                  </a>
-                </li>
-                <li
-                  class="ecl-unordered-list__item ecl-u-ma-2xs"
-                >
-                  <a
-                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                    href=""
-                  >
-                    polski
-                  </a>
-                </li>
-                <li
-                  class="ecl-unordered-list__item ecl-u-ma-2xs"
-                >
-                  <a
-                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                    href=""
-                  >
-                    português
-                  </a>
-                </li>
-                <li
-                  class="ecl-unordered-list__item ecl-u-ma-2xs"
-                >
-                  <a
-                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                    href=""
-                  >
-                    română
-                  </a>
-                </li>
-                <li
-                  class="ecl-unordered-list__item ecl-u-ma-2xs"
-                >
-                  <a
-                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                    href=""
-                  >
-                    slovenčina
-                  </a>
-                </li>
-                <li
-                  class="ecl-unordered-list__item ecl-u-ma-2xs"
-                >
-                  <a
-                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                    href=""
-                  >
-                    slovenščina
-                  </a>
-                </li>
-                <li
-                  class="ecl-unordered-list__item ecl-u-ma-2xs"
-                >
-                  <a
-                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                    href=""
-                  >
-                    suomi
-                  </a>
-                </li>
-                <li
-                  class="ecl-unordered-list__item ecl-u-ma-2xs"
-                >
-                  <a
-                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                    href=""
-                  >
-                    svenska
-                  </a>
-                </li>
-              </ul>
-              <div
-                class="ecl-u-type-prolonged-m ecl-u-type-align-right ecl-u-mt-xs"
+                български
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-ma-2xs"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
               >
-                <em>
-                  For more information, see our 
-                  <a
-                    class="ecl-link"
-                    href="#"
-                  >
-                    language policy
-                  </a>
-                </em>
-              </div>
-            </div>
+                čeština
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-ma-2xs"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                dansk
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-ma-2xs"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                Deutsch
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-ma-2xs"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                eesti
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-ma-2xs"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                ελληνικά
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-ma-2xs"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block ecl-u-bg-blue-50 ecl-u-type-color-white ecl-u-type-bold"
+                href=""
+              >
+                English
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-ma-2xs"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                français
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-ma-2xs"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                Gaeilge
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-ma-2xs"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                hrvatski
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-ma-2xs"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                italiano
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-ma-2xs"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                latviešu
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-ma-2xs"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                lietuvių
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-ma-2xs"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                magyar
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-ma-2xs"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                Malti
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-ma-2xs"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                Nederlands
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-ma-2xs"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                polski
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-ma-2xs"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                português
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-ma-2xs"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                română
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-ma-2xs"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                slovenčina
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-ma-2xs"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                slovenščina
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-ma-2xs"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                suomi
+              </a>
+            </li>
+            <li
+              class="ecl-unordered-list__item ecl-u-ma-2xs"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+                href=""
+              >
+                svenska
+              </a>
+            </li>
+          </ul>
+          <div
+            class="ecl-u-type-prolonged-m ecl-u-type-align-right ecl-u-mt-xs"
+          >
+            <em>
+              For more information, see our 
+              <a
+                class="ecl-link"
+                href="#"
+              >
+                language policy
+              </a>
+            </em>
           </div>
         </div>
       </div>
@@ -445,13 +443,13 @@ exports[`eTrans EC renders correctly without languages list 1`] = `
           </div>
           <div
             class="ecl-message__description"
-          >
-            <div />
-          </div>
-          <script
-            type="application/json"
-          >
-            
+          />
+        </div>
+      </div>
+      <script
+        type="application/json"
+      >
+        
         {
           "service": "etrans",
           "renderAs": {
@@ -461,9 +459,7 @@ exports[`eTrans EC renders correctly without languages list 1`] = `
           }
         }
       
-          </script>
-        </div>
-      </div>
+      </script>
     </div>
   </div>
 </jest>
@@ -533,49 +529,49 @@ exports[`eTrans EU renders correctly with languages list 1`] = `
           </div>
           <div
             class="ecl-message__description"
+          />
+        </div>
+      </div>
+      <div
+        <div=""
+        class="ecl-u-d-inline-flex ecl-u-align-items-center"
+        data-ecl-auto-init="Expandable"
+        data-ecl-expandable="true"
+      >
+        <button
+          aria-controls="available-languages-content"
+          aria-expanded="false"
+          class="ecl-button ecl-button--secondary ecl-expandable__toggle ecl-u-mr-s"
+          data-ecl-expandable-toggle=""
+          data-ecl-label-collapsed="Choose another language"
+          data-ecl-label-expanded="Choose another language"
+          type="button"
+        >
+          <span
+            class="ecl-button__container"
           >
-            <div />
-          </div>
-          <div
-            <div=""
-            class="ecl-u-d-inline-flex ecl-u-align-items-center"
-            data-ecl-auto-init="Expandable"
-            data-ecl-expandable="true"
-          >
-            <button
-              aria-controls="available-languages-content"
-              aria-expanded="false"
-              class="ecl-button ecl-button--secondary ecl-expandable__toggle ecl-u-mr-s"
-              data-ecl-expandable-toggle=""
-              data-ecl-label-collapsed="Choose another language"
-              data-ecl-label-expanded="Choose another language"
-              type="button"
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
             >
-              <span
-                class="ecl-button__container"
-              >
-                <span
-                  class="ecl-button__label"
-                  data-ecl-label="true"
-                >
-                  Choose another language
-                </span>
-                <svg
-                  aria-hidden="true"
-                  class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
-                  data-ecl-icon=""
-                  focusable="false"
-                >
-                  <use
-                    xlink:href="/icons.svg#corner-arrow"
-                  />
-                </svg>
-              </span>
-            </button>
-            <script
-              type="application/json"
+              Choose another language
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
+              data-ecl-icon=""
+              focusable="false"
             >
-              
+              <use
+                xlink:href="/icons.svg#corner-arrow"
+              />
+            </svg>
+          </span>
+        </button>
+        <script
+          type="application/json"
+        >
+          
           {
             "service": "etrans",
             "renderAs": {
@@ -585,262 +581,260 @@ exports[`eTrans EU renders correctly with languages list 1`] = `
             }
           }
         
-            </script>
-          </div>
-          <div
-            class="ecl-expandable__content"
-            hidden=""
-            id="available-languages-content"
+        </script>
+      </div>
+      <div
+        class="ecl-expandable__content"
+        hidden=""
+        id="available-languages-content"
+      >
+        <ul
+          class="ecl-u-d-block ecl-u-d-m-grid ecl-unordered-list ecl-unordered-list--no-bullet ecl-u-mt-xs ecl-u-type-m"
+          style="grid-auto-flow: column; grid-template-rows: repeat(4, 1fr)"
+        >
+          <li
+            class="ecl-unordered-list__item ecl-u-ma-2xs"
           >
-            <ul
-              class="ecl-u-d-block ecl-u-d-m-grid ecl-unordered-list ecl-unordered-list--no-bullet ecl-u-mt-xs ecl-u-type-m"
-              style="grid-auto-flow: column; grid-template-rows: repeat(4, 1fr)"
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+              href=""
             >
-              <li
-                class="ecl-unordered-list__item ecl-u-ma-2xs"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                  href=""
-                >
-                  български
-                </a>
-              </li>
-              <li
-                class="ecl-unordered-list__item ecl-u-ma-2xs"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                  href=""
-                >
-                  čeština
-                </a>
-              </li>
-              <li
-                class="ecl-unordered-list__item ecl-u-ma-2xs"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                  href=""
-                >
-                  dansk
-                </a>
-              </li>
-              <li
-                class="ecl-unordered-list__item ecl-u-ma-2xs"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                  href=""
-                >
-                  Deutsch
-                </a>
-              </li>
-              <li
-                class="ecl-unordered-list__item ecl-u-ma-2xs"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                  href=""
-                >
-                  eesti
-                </a>
-              </li>
-              <li
-                class="ecl-unordered-list__item ecl-u-ma-2xs"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                  href=""
-                >
-                  ελληνικά
-                </a>
-              </li>
-              <li
-                class="ecl-unordered-list__item ecl-u-ma-2xs"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block ecl-u-bg-blue-60 ecl-u-type-color-white ecl-u-type-bold"
-                  href=""
-                >
-                  English
-                </a>
-              </li>
-              <li
-                class="ecl-unordered-list__item ecl-u-ma-2xs"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                  href=""
-                >
-                  français
-                </a>
-              </li>
-              <li
-                class="ecl-unordered-list__item ecl-u-ma-2xs"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                  href=""
-                >
-                  Gaeilge
-                </a>
-              </li>
-              <li
-                class="ecl-unordered-list__item ecl-u-ma-2xs"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                  href=""
-                >
-                  hrvatski
-                </a>
-              </li>
-              <li
-                class="ecl-unordered-list__item ecl-u-ma-2xs"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                  href=""
-                >
-                  italiano
-                </a>
-              </li>
-              <li
-                class="ecl-unordered-list__item ecl-u-ma-2xs"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                  href=""
-                >
-                  latviešu
-                </a>
-              </li>
-              <li
-                class="ecl-unordered-list__item ecl-u-ma-2xs"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                  href=""
-                >
-                  lietuvių
-                </a>
-              </li>
-              <li
-                class="ecl-unordered-list__item ecl-u-ma-2xs"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                  href=""
-                >
-                  magyar
-                </a>
-              </li>
-              <li
-                class="ecl-unordered-list__item ecl-u-ma-2xs"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                  href=""
-                >
-                  Malti
-                </a>
-              </li>
-              <li
-                class="ecl-unordered-list__item ecl-u-ma-2xs"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                  href=""
-                >
-                  Nederlands
-                </a>
-              </li>
-              <li
-                class="ecl-unordered-list__item ecl-u-ma-2xs"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                  href=""
-                >
-                  polski
-                </a>
-              </li>
-              <li
-                class="ecl-unordered-list__item ecl-u-ma-2xs"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                  href=""
-                >
-                  português
-                </a>
-              </li>
-              <li
-                class="ecl-unordered-list__item ecl-u-ma-2xs"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                  href=""
-                >
-                  română
-                </a>
-              </li>
-              <li
-                class="ecl-unordered-list__item ecl-u-ma-2xs"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                  href=""
-                >
-                  slovenčina
-                </a>
-              </li>
-              <li
-                class="ecl-unordered-list__item ecl-u-ma-2xs"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                  href=""
-                >
-                  slovenščina
-                </a>
-              </li>
-              <li
-                class="ecl-unordered-list__item ecl-u-ma-2xs"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                  href=""
-                >
-                  suomi
-                </a>
-              </li>
-              <li
-                class="ecl-unordered-list__item ecl-u-ma-2xs"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
-                  href=""
-                >
-                  svenska
-                </a>
-              </li>
-            </ul>
-            <div
-              class="ecl-u-type-prolonged-m ecl-u-type-align-right ecl-u-mt-xs"
+              български
+            </a>
+          </li>
+          <li
+            class="ecl-unordered-list__item ecl-u-ma-2xs"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+              href=""
             >
-              <em>
-                For more information, see our 
-                <a
-                  class="ecl-link"
-                  href="#"
-                >
-                  language policy
-                </a>
-              </em>
-            </div>
-          </div>
+              čeština
+            </a>
+          </li>
+          <li
+            class="ecl-unordered-list__item ecl-u-ma-2xs"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+              href=""
+            >
+              dansk
+            </a>
+          </li>
+          <li
+            class="ecl-unordered-list__item ecl-u-ma-2xs"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+              href=""
+            >
+              Deutsch
+            </a>
+          </li>
+          <li
+            class="ecl-unordered-list__item ecl-u-ma-2xs"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+              href=""
+            >
+              eesti
+            </a>
+          </li>
+          <li
+            class="ecl-unordered-list__item ecl-u-ma-2xs"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+              href=""
+            >
+              ελληνικά
+            </a>
+          </li>
+          <li
+            class="ecl-unordered-list__item ecl-u-ma-2xs"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block ecl-u-bg-blue-60 ecl-u-type-color-white ecl-u-type-bold"
+              href=""
+            >
+              English
+            </a>
+          </li>
+          <li
+            class="ecl-unordered-list__item ecl-u-ma-2xs"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+              href=""
+            >
+              français
+            </a>
+          </li>
+          <li
+            class="ecl-unordered-list__item ecl-u-ma-2xs"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+              href=""
+            >
+              Gaeilge
+            </a>
+          </li>
+          <li
+            class="ecl-unordered-list__item ecl-u-ma-2xs"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+              href=""
+            >
+              hrvatski
+            </a>
+          </li>
+          <li
+            class="ecl-unordered-list__item ecl-u-ma-2xs"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+              href=""
+            >
+              italiano
+            </a>
+          </li>
+          <li
+            class="ecl-unordered-list__item ecl-u-ma-2xs"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+              href=""
+            >
+              latviešu
+            </a>
+          </li>
+          <li
+            class="ecl-unordered-list__item ecl-u-ma-2xs"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+              href=""
+            >
+              lietuvių
+            </a>
+          </li>
+          <li
+            class="ecl-unordered-list__item ecl-u-ma-2xs"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+              href=""
+            >
+              magyar
+            </a>
+          </li>
+          <li
+            class="ecl-unordered-list__item ecl-u-ma-2xs"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+              href=""
+            >
+              Malti
+            </a>
+          </li>
+          <li
+            class="ecl-unordered-list__item ecl-u-ma-2xs"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+              href=""
+            >
+              Nederlands
+            </a>
+          </li>
+          <li
+            class="ecl-unordered-list__item ecl-u-ma-2xs"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+              href=""
+            >
+              polski
+            </a>
+          </li>
+          <li
+            class="ecl-unordered-list__item ecl-u-ma-2xs"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+              href=""
+            >
+              português
+            </a>
+          </li>
+          <li
+            class="ecl-unordered-list__item ecl-u-ma-2xs"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+              href=""
+            >
+              română
+            </a>
+          </li>
+          <li
+            class="ecl-unordered-list__item ecl-u-ma-2xs"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+              href=""
+            >
+              slovenčina
+            </a>
+          </li>
+          <li
+            class="ecl-unordered-list__item ecl-u-ma-2xs"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+              href=""
+            >
+              slovenščina
+            </a>
+          </li>
+          <li
+            class="ecl-unordered-list__item ecl-u-ma-2xs"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+              href=""
+            >
+              suomi
+            </a>
+          </li>
+          <li
+            class="ecl-unordered-list__item ecl-u-ma-2xs"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-u-pv-s ecl-u-ph-m ecl-u-d-block "
+              href=""
+            >
+              svenska
+            </a>
+          </li>
+        </ul>
+        <div
+          class="ecl-u-type-prolonged-m ecl-u-type-align-right ecl-u-mt-xs"
+        >
+          <em>
+            For more information, see our 
+            <a
+              class="ecl-link"
+              href="#"
+            >
+              language policy
+            </a>
+          </em>
         </div>
       </div>
     </div>
@@ -912,13 +906,13 @@ exports[`eTrans EU renders correctly without languages list 1`] = `
           </div>
           <div
             class="ecl-message__description"
-          >
-            <div />
-          </div>
-          <script
-            type="application/json"
-          >
-            
+          />
+        </div>
+      </div>
+      <script
+        type="application/json"
+      >
+        
         {
           "service": "etrans",
           "renderAs": {
@@ -928,9 +922,7 @@ exports[`eTrans EU renders correctly without languages list 1`] = `
           }
         }
       
-          </script>
-        </div>
-      </div>
+      </script>
     </div>
   </div>
 </jest>
