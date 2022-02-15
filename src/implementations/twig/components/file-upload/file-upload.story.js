@@ -1,16 +1,11 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { getFormControls, correctSvgPath } from '@ecl/story-utils';
+import getFormControls from '@ecl/story-utils';
 
 import dataDefault from '@ecl/specs-component-file-upload/demo/data';
 import dataMulti from '@ecl/specs-component-file-upload/demo/data--multiple';
-import fileUploadList from '@ecl/specs-component-file-upload/demo/file-upload-list.html.twig';
 import fileUpload from './file-upload.html.twig';
 import notes from './README.md';
-
-const dataFiles = {
-  icon_path: '/icons.svg',
-};
 
 const getArgs = (data) => ({
   show_label: true,
@@ -84,8 +79,3 @@ Multiple.storyName = 'multiple';
 Multiple.args = getArgs(dataMulti);
 Multiple.argTypes = getArgTypes(dataMulti);
 Multiple.parameters = { notes: { markdown: notes, json: dataMulti } };
-
-export const FileUploadList = () => fileUploadList(correctSvgPath(dataFiles));
-
-FileUploadList.storyName = 'file upload list';
-FileUploadList.parameters = { controls: { disable: true } };
