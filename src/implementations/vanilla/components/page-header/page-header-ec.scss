@@ -1,0 +1,181 @@
+/**
+ * Page header
+ * @define page-header; weak
+ */
+
+@use 'sass:map';
+@use '@ecl/theme-dev/theme';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+$_core-background-color: map.get(theme.$color, 'blue-100');
+
+.ecl-page-header {
+  background-color: map.get(theme.$color, 'white-100');
+  margin: 0;
+  padding-bottom: map.get(theme.$spacing, 'xl');
+
+  .ecl-container > :first-child:not(.ecl-page-header__breadcrumb) {
+    margin-top: 0;
+    padding-top: map.get(theme.$spacing, 'xl');
+  }
+}
+
+.ecl-page-header__breadcrumb {
+  margin-bottom: map.get(theme.$spacing, 'xl');
+}
+
+.ecl-page-header__meta {
+  color: map.get(theme.$color, 'grey-75');
+  font: map.get(theme.$font, 'm');
+}
+
+.ecl-page-header__meta-item {
+  border-right: 1px solid map.get(theme.$color, 'grey-75');
+  margin-right: map.get(theme.$spacing, 'xs');
+  padding-right: map.get(theme.$spacing, 'xs');
+
+  &:first-of-type {
+    text-transform: uppercase;
+  }
+
+  &:last-of-type {
+    border-right-width: 0;
+    margin-right: 0;
+    padding-right: 0;
+  }
+}
+
+.ecl-page-header__title {
+  color: map.get(theme.$color, 'grey-100');
+  font: map.get(theme.$font, '3xl');
+  font-weight: map.get(theme.$font-weight, 'bold');
+  margin-bottom: 0;
+  margin-top: map.get(theme.$spacing, 'm');
+}
+
+.ecl-page-header__description-container {
+  align-items: flex-start;
+  display: flex;
+  margin-top: map.get(theme.$spacing, 'm');
+}
+
+.ecl-page-header__description-thumbnail {
+  border: 1px solid map.get(theme.$color, 'grey-25');
+  margin-right: map.get(theme.$spacing, 'm');
+  max-width: 120px;
+}
+
+.ecl-page-header__description {
+  color: map.get(theme.$color, 'grey-100');
+  font: map.get(theme.$font-prolonged, 'xl');
+  margin-bottom: 0;
+  margin-top: 0;
+  max-width: 80ch;
+}
+
+/*
+ * Core - Negative Variant
+ */
+.ecl-page-header--core {
+  background-color: map.get(theme.$color, 'blue-100');
+
+  .ecl-page-header__meta {
+    color: map.get(theme.$color, 'white-100');
+  }
+
+  .ecl-page-header__meta-item {
+    border-right: 1px solid map.get(theme.$color, 'white-100');
+
+    &:last-of-type {
+      border-right-width: 0;
+    }
+  }
+
+  .ecl-page-header__title {
+    color: map.get(theme.$color, 'white-100');
+  }
+
+  .ecl-page-header__description-thumbnail {
+    border: 1px solid map.get(theme.$color, 'blue-5');
+  }
+
+  .ecl-page-header__description {
+    color: map.get(theme.$color, 'white-100');
+  }
+
+  .ecl-breadcrumb-core__container {
+    border-bottom: 0;
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('l') {
+  .ecl-page-header__title {
+    font: map.get(theme.$font, '4xl');
+    font-weight: map.get(theme.$font-weight, 'bold');
+  }
+}
+
+/*
+ * background image variant
+ */
+.ecl-page-header--image {
+  position: relative;
+
+  .ecl-page-header__background {
+    background-position: 50% 0;
+    background-size: cover;
+    display: block;
+    height: 10.875rem;
+    position: relative;
+    width: 100%;
+  }
+
+  .ecl-breadcrumb-core__container,
+  .ecl-breadcrumb-standardised__container {
+    background-color: map.get(theme.$color, 'white-100');
+    display: inline-flex;
+    max-width: 100%;
+    padding-left: map.get(theme.$spacing, 'm');
+    padding-right: map.get(theme.$spacing, 'm');
+  }
+
+  .ecl-breadcrumb-core__container {
+    background-color: $_core-background-color;
+    border-bottom: 0;
+  }
+
+  .ecl-breadcrumb-standardised__container {
+    background-color: map.get(theme.$color, 'white-100');
+  }
+
+  .ecl-page-header__breadcrumb {
+    background-color: transparent;
+    margin-top: calc(
+      -1 * (#{map.get(theme.$spacing, 'xs')} + #{map.get(
+              theme.$line-height-prolonged,
+              'm'
+            )})
+    );
+  }
+}
+
+.ecl-page-header--overlay-dark {
+  .ecl-page-header__background::before {
+    background-color: rgba(map.get(theme.$color, 'black'), 0.5);
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+}
+
+.ecl-page-header--overlay-light {
+  .ecl-page-header__background::before {
+    background-color: rgba(map.get(theme.$color, 'black'), 0.3);
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+}
