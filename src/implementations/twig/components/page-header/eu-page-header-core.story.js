@@ -157,7 +157,7 @@ const prepareData = (data, args) => {
 };
 
 export default {
-  title: 'Components/Site-wide/Page Headers',
+  title: 'Components/Site-wide/Page Headers/Core',
   decorators: [withNotes, withCode],
   parameters: { layout: 'fullscreen' },
 };

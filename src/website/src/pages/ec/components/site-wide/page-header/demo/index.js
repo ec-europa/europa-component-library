@@ -1,3 +1,5 @@
+import { correctSvgPath } from '@ecl/website-utils';
+
 import demoDefault from '@ecl/specs-component-page-header/demo/data--default';
 import demoBackgroundImage from '@ecl/specs-component-page-header/demo/data--background-image';
 import demoBreadcrumbLong from '@ecl/specs-component-breadcrumb/demo/data--ec';
@@ -7,7 +9,6 @@ import demoMetaTitleContent from '@ecl/specs-component-page-header/demo/data--me
 import demoMetaTitleDescriptionContent from '@ecl/specs-component-page-header/demo/data--meta-title-description';
 
 import template from '@ecl/twig-component-page-header/page-header.html.twig';
-import { correctSvgPath } from '@ecl/website-utils';
 
 const dataBreadcrumb = { ...demoBreadcrumbLong };
 
@@ -30,6 +31,7 @@ const prepareCoreData = (data) => {
   data.breadcrumb.links.forEach((item) => {
     item.negative = true;
   });
+  return data;
 };
 
 export const pageHeaderCoreDefault = template(
@@ -45,6 +47,7 @@ export const pageHeaderCoreBackgroundImage = template(
 // Harmonised
 const prepareHarmonisedData = (data) => {
   data.variant = 'harmonised';
+  return data;
 };
 export const pageHeaderHarmonisedTitle = template(
   correctSvgPath(prepareHarmonisedData(demoTitleContent))
@@ -59,6 +62,7 @@ export const pageHeaderHarmonisedMetaTitleDescritption = template(
 // Standardised
 const prepareStandardisedData = (data) => {
   data.variant = 'standardised';
+  return data;
 };
 export const pageHeaderStandardisedDefault = template(
   correctSvgPath(prepareStandardisedData(dataDefault))
