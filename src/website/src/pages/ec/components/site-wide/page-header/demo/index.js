@@ -55,7 +55,7 @@ export const pageHeaderHarmonisedTitle = template(
 export const pageHeaderHarmonisedMetaTitle = template(
   correctSvgPath(prepareHarmonisedData(demoMetaTitleContent))
 );
-export const pageHeaderHarmonisedMetaTitleDescritption = template(
+export const pageHeaderHarmonisedMetaTitleDescription = template(
   correctSvgPath(prepareHarmonisedData(demoMetaTitleDescriptionContent))
 );
 
