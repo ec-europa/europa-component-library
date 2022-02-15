@@ -17,11 +17,19 @@ import { LogoList } from '@ecl/website-components';
 
 <LogoList system="eu" set="standard" color="positive" language="official" />
 
+#### Negative
+
+<LogoList system="eu" set="standard" color="negative" language="official" />
+
 ### Other languages
 
 #### Positive
 
 <LogoList system="eu" set="standard" color="positive" language="other" />
+
+#### Negative
+
+<LogoList system="eu" set="standard" color="negative" language="other" />
 
 ## EU logo condensed
 
@@ -31,8 +39,16 @@ import { LogoList } from '@ecl/website-components';
 
 <LogoList system="eu" set="condensed" color="positive" language="official" />
 
+#### Negative
+
+<LogoList system="eu" set="condensed" color="negative" language="official" />
+
 ### Other languages
 
 #### Positive
 
 <LogoList system="eu" set="standard" color="positive" language="other" />
+
+#### Negative
+
+<LogoList system="eu" set="standard" color="negative" language="other" />

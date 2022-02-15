@@ -67,12 +67,28 @@ function LogoList({ system, set, color, language }) {
       false,
       /\.svg$/
     );
+    const logosEUStandardNegative = require.context(
+      '@ecl/preset-eu/dist/images/logo/standard-version/negative',
+      false,
+      /\.svg$/
+    );
+    const logosEUCondensedNegative = require.context(
+      '@ecl/preset-eu/dist/images/logo/condensed-version/negative',
+      false,
+      /\.svg$/
+    );
 
     // Check logo set
     const mapSet = (s) =>
       ({
-        condensed: logosEUCondensedPositive,
-        standard: logosEUStandardPositive,
+        condensed:
+          color === 'positive'
+            ? logosEUCondensedPositive
+            : logosEUCondensedNegative,
+        standard:
+          color === 'positive'
+            ? logosEUStandardPositive
+            : logosEUStandardNegative,
         muted: logosEUMuted,
       }[s]);
     logosSet = mapSet(set);
