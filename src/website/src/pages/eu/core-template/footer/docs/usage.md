@@ -11,7 +11,7 @@ The core footer is present is displayed at the bottom of every page in the europ
 | Component                                                             | Mandatory | Option |
 | --------------------------------------------------------------------- | --------- | ------ |
 | **Site name**<br/>Site name and content owner details                 | yes       | no     |
-| **EU institutions**<b r/>Provide the users the list of EU institutions | yes       | no     |
+| **EU institutions**<br/>Provide the users the list of EU institutions | yes       | no     |
 | **Contact, social media and legal navigation**                        | yes       | no     |
 
 ## Do's

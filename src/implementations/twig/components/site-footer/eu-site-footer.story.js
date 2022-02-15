@@ -27,7 +27,7 @@ export default {
   },
 };
 
-export const Default = () => footer(prepareData(dataCore));
+export const Core = () => footer(prepareData(dataCore));
 
-Default.storyName = 'core';
-Default.parameters = { notes: { markdown: notes, json: dataCore } };
+Core.storyName = 'core';
+Core.parameters = { notes: { markdown: notes, json: dataCore } };

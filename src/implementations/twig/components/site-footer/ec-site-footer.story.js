@@ -114,10 +114,10 @@ export default {
   parameters: { layout: 'fullscreen' },
 };
 
-export const Default = (args) => footer(prepareData(dataCore, args));
+export const Core = (args) => footer(prepareData(dataCore, args));
 
-Default.storyName = 'core';
-Default.parameters = {
+Core.storyName = 'core';
+Core.parameters = {
   controls: { disable: true },
   notes: { markdown: notes, json: dataCore },
 };
