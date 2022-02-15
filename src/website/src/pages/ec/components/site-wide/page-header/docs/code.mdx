@@ -1,0 +1,142 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+
+import {
+  pageHeaderCoreDefault,
+  pageHeaderCoreThumbnail,
+  pageHeaderCoreBackgroundImage,
+  pageHeaderHarmonisedTitle,
+  pageHeaderHarmonisedMetaTitle,
+  pageHeaderHarmonisedMetaTitleDescritption
+  pageHeaderStandardisedDefault,
+  pageHeaderStandardisedThumbnail,
+  pageHeaderStandardisedBackgroundImage,
+} from '../demo';
+
+## Core site footer
+
+<Playground
+  system="ec"
+  selectedKind="components-page-headers-core"
+  selectedStory="default"
+  showFrame
+>
+  <Html markup={pageHeaderCoreDefault} />
+</Playground>
+
+## Core site footer with thumbnail
+
+<Playground
+  system="ec"
+  selectedKind="components-page-headers-core"
+  selectedStory="default"
+  selectedArgs="thumbnail:true"
+  showFrame
+>
+  <Html markup={pageHeaderCoreThumbnail} />
+</Playground>
+
+## Core site footer with background image
+
+<Playground
+  system="ec"
+  selectedKind="components-page-headers-core"
+  selectedStory="background-image"
+  showFrame
+>
+  <Html markup={pageHeaderCoreBackgroundImage} />
+</Playground>
+
+## Harmoniosed site footer
+
+<Playground
+  system="ec"
+  selectedKind="components-page-headers-harmonised"
+  selectedStory="title"
+  showFrame
+>
+  <Html markup={pageHeaderHarmonisedTitle} />
+</Playground>
+
+## Harmoniosed site footer with meta
+
+<Playground
+  system="ec"
+  selectedKind="components-page-headers-harmonised"
+  selectedStory="meta-title"
+  showFrame
+>
+  <Html markup={pageHeaderHarmonisedMetaTitle} />
+</Playground>
+
+## Harmoniosed site footer with meta and description
+
+<Playground
+  system="ec"
+  selectedKind="components-page-headers-harmonised"
+  selectedStory="meta-title-description"
+  showFrame
+>
+  <Html markup={pageHeaderHarmonisedMetaTitleDescription} />
+</Playground>
+
+## Core site footer with thumbnail
+
+<Playground
+  system="ec"
+  selectedKind="components-page-headers-core"
+  selectedStory="default"
+  selectedArgs="thumbnail:true"
+  showFrame
+>
+  <Html markup={pageHeaderCoreThumbnail} />
+</Playground>
+
+## Core site footer with background image
+
+<Playground
+  system="ec"
+  selectedKind="components-page-headers-core"
+  selectedStory="background-image"
+  showFrame
+>
+  <Html markup={pageHeaderCoreBackgroundImage} />
+</Playground>
+
+## Standardised site footer
+
+<Playground
+  system="ec"
+  selectedKind="components-page-headers-standardised"
+  selectedStory="default"
+  showFrame
+>
+  <Html markup={pageHeaderStandardisedDefault} />
+</Playground>
+
+## Standardised site footer with thumbnail
+
+<Playground
+  system="ec"
+  selectedKind="components-page-headers-standardised"
+  selectedStory="default"
+  selectedArgs="thumbnail:true"
+  showFrame
+>
+  <Html markup={pageHeaderStandardisedThumbnail} />
+</Playground>
+
+## Standardised site footer with background image
+
+<Playground
+  system="ec"
+  selectedKind="components-page-headers-standardised"
+  selectedStory="background-image"
+  showFrame
+>
+  <Html markup={pageHeaderStandardisedBackgroundImage} />
+</Playground>
