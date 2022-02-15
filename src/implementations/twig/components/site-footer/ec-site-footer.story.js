@@ -134,7 +134,7 @@ Standardised.parameters = {
 
 export const Harmonised = (args) => footer(prepareData(dataHarmonised, args));
 
-Harmonised.storyName = 'Harmonised';
+Harmonised.storyName = 'harmonised';
 Harmonised.args = getArgs();
 Harmonised.argTypes = getArgTypes();
 Harmonised.parameters = { notes: { markdown: notes, json: dataHarmonised } };
