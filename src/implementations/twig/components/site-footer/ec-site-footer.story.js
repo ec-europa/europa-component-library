@@ -11,19 +11,20 @@ import notes from './README.md';
 
 const getArgs = () => {
   const args = {
-    hide_contact: true,
-    hide_follow: true,
-    hide_relate_site: true,
-    hide_logo: true,
+    show_contact: true,
+    show_follow: true,
+    show_relate_site: true,
+    show_logo: true,
+    show_about: true,
+    show_class_names: true,
   };
-  args.hide_about = true;
 
   return args;
 };
 
 const getArgTypes = () => {
   const argTypes = {};
-  argTypes.hide_contact = {
+  argTypes.show_contact = {
     name: 'contact us',
     type: { name: 'boolean' },
     description: 'Show "Contact us" section',
@@ -32,7 +33,7 @@ const getArgTypes = () => {
     },
   };
 
-  argTypes.hide_logo = {
+  argTypes.show_logo = {
     name: 'logo',
     type: { name: 'boolean' },
     description: 'Show logo',
@@ -41,7 +42,7 @@ const getArgTypes = () => {
     },
   };
 
-  argTypes.hide_follow = {
+  argTypes.show_follow = {
     name: 'follow us',
     type: { name: 'boolean' },
     description: 'Show "Follow us" section',
@@ -50,7 +51,7 @@ const getArgTypes = () => {
     },
   };
 
-  argTypes.hide_about = {
+  argTypes.show_about = {
     name: 'about us',
     type: { name: 'boolean' },
     description: 'Show "About us" section',
@@ -59,10 +60,19 @@ const getArgTypes = () => {
     },
   };
 
-  argTypes.hide_relate_site = {
+  argTypes.show_relate_site = {
     name: 'related sites',
     type: { name: 'boolean' },
     description: 'Show "Related sites" section',
+    table: {
+      category: 'Optional sections',
+    },
+  };
+
+  argTypes.show_class_names = {
+    name: 'class names',
+    type: { name: 'boolean' },
+    description: 'Show "Class names" section',
     table: {
       category: 'Optional sections',
     },
@@ -74,34 +84,37 @@ const getArgTypes = () => {
 const prepareData = (data, args) => {
   correctSvgPath(data);
   const res = JSON.parse(JSON.stringify(data));
-  if (res.variant === 'core') {
+  if (res.split_columns) {
     res.rows[0][0][0].logo.src_desktop = logoEc;
     return res;
   }
 
   res.rows[2][0][0].logo.src_desktop = logoEc;
-  if (!args.hide_logo && res.rows[1][0][0].logo) {
+  if (!args.show_logo && res.rows[1][0][0].logo) {
     delete res.rows[1][0][0].logo;
   }
-  if (!args.hide_logo && res.rows[2]) {
+  if (!args.show_logo && res.rows[2]) {
     delete res.rows[2][0][0].logo;
   }
-  if (!args.hide_contact) {
+  if (!args.show_contact) {
     res.rows[0][1].splice(0, 1);
   }
-  if (!args.hide_follow) {
+  if (!args.show_follow) {
     res.rows[0][1].splice(1, 1);
   }
-  if (!args.hide_relate_site) {
+  if (!args.show_relate_site) {
     res.rows[0][2].splice(1, 1);
   }
-  if (!args.hide_about) {
+  if (!args.show_about) {
     res.rows[0][2].splice(0, 1);
   }
-  if (!args.hide_about && !args.hide_relate_site) {
+  if (!args.show_class_names) {
+    res.rows.splice(1, 1);
+  }
+  if (!args.show_about && !args.show_relate_site) {
     res.rows[0].splice(2, 1);
   }
-  if (!args.hide_contact && !args.hide_follow) {
+  if (!args.show_contact && !args.show_follow) {
     res.rows[0].splice(1, 1);
   }
 

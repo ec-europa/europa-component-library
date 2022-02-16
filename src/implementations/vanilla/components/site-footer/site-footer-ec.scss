@@ -160,7 +160,7 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
     padding-top: map.get(theme.$spacing, 'xl');
   }
 
-  .ecl-site-footer--core .ecl-site-footer__column {
+  .ecl-site-footer--split-columns .ecl-site-footer__column {
     &:last-child {
       display: grid;
       grid-column-end: 4;
@@ -197,7 +197,7 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
     border-bottom-width: 2px;
   }
 
-  .ecl-site-footer--core .ecl-site-footer__section--separator {
+  .ecl-site-footer--split-columns .ecl-site-footer__section--separator {
     border-bottom-width: 2px;
     padding-bottom: map.get(theme.$spacing, 'xl');
   }

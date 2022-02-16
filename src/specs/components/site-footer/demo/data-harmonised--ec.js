@@ -2,7 +2,6 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
-  variant: 'harmonised',
   rows: [
     [
       [
@@ -242,5 +241,4 @@ module.exports = {
       ],
     ],
   ],
-  group: 'group1',
 };

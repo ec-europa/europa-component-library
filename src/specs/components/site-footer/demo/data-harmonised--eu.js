@@ -6,6 +6,101 @@ module.exports = {
     [
       [
         {
+          title: {
+            link: {
+              label: 'Site name',
+              aria_label: 'Link to site name',
+              path: exampleLink,
+            },
+          },
+          description:
+            'This site is managed by <a href="/example" class="ecl-link ecl-link--standalone">site owner name</a> and is an official website of the European Union',
+        },
+      ],
+      [
+        {
+          title: 'Contact site name',
+          title_with_separator: true,
+          links: [
+            {
+              link: {
+                label: 'Link',
+                aria_label: 'Link to contact site name',
+                path: exampleLink,
+              },
+            },
+          ],
+        },
+        {
+          title: 'Follow us',
+          title_with_separator: true,
+          links: [
+            {
+              link: {
+                label: 'Social 1',
+                aria_label: 'Link to social 1',
+                path: exampleLink,
+              },
+            },
+            {
+              link: {
+                label: 'Social 2',
+                aria_label: 'Link to social 2',
+                path: exampleLink,
+              },
+            },
+            {
+              link: {
+                label: 'Social 3',
+                aria_label: 'Link to social 3',
+                path: exampleLink,
+              },
+            },
+          ],
+        },
+      ],
+      [
+        {
+          title: 'Optional links',
+          title_with_separator: true,
+          links: [
+            {
+              link: {
+                label: 'Accessibility',
+                aria_label: 'Link to Accessibility',
+                path: exampleLink,
+              },
+            },
+            {
+              link: {
+                label: 'Link 2',
+                aria_label: 'Link to link 2',
+                path: exampleLink,
+              },
+            },
+            {
+              link: {
+                label: 'Link 3',
+                aria_label: 'Link to link 3',
+                path: exampleLink,
+              },
+            },
+            {
+              link: {
+                label: 'Link 4',
+                aria_label: 'Link to link 4',
+                path: exampleLink,
+              },
+            },
+          ],
+        },
+      ],
+    ],
+    [
+      [
+        {
+          description:
+            'Discover more on <a href="/example" class="ecl-link ecl-link--standalone">europa.eu</a>',
           logo: {
             title: 'European Union',
             alt: 'European Union logo',
@@ -14,8 +109,6 @@ module.exports = {
             src_desktop: '/logo-eu.svg',
             src_mobile: '/logo-mobile-eu.svg',
           },
-          description:
-            'This site is managed by the European Commission, Directorate-General for Communication (<a href="/example" class="ecl-link ecl-link--standalone">DG COMM</a>)',
         },
       ],
       [
@@ -78,7 +171,7 @@ module.exports = {
             {
               link: {
                 label: 'Languages on our websites',
-                aria_label: 'Languages on our websites',
+                aria_label: 'Link to Languages on our websites',
                 path: exampleLink,
               },
             },
@@ -93,13 +186,6 @@ module.exports = {
               link: {
                 label: 'Legal notice',
                 aria_label: 'Link to Legal notice',
-                path: exampleLink,
-              },
-            },
-            {
-              link: {
-                label: 'Accessibility',
-                aria_label: 'Link to Accessibility',
                 path: exampleLink,
               },
             },

@@ -2,7 +2,6 @@
 
 {#
   Parameters:
-  - "variant" (string) (default: '') core, standardised or harmonised
   - "rows" (array of objects) (default: [])
     - "section_class_name" (string) (default: '')
     - "logo" (EU only)
@@ -20,6 +19,7 @@
       - "content_before" (string) Optional text before the link
       - "content_after" (string) Optional text after the link
     - "links_inline" (optional) (bolean) (default: false) Optional inline style for the list
+  - "split_columns" (boolean) (optional) (default: false) Split columns in the footer, used for Core EC version
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
     - "name" (string) Attribute name, eg. 'data-test'
@@ -28,15 +28,15 @@
 
 {# Internal properties #}
 
-{% set _variant = variant|default('') %}
+{% set _split_columns = split_columns|default(false) %}
 {% set _rows = rows|default([]) %}
 {% set _css_class = 'ecl-site-footer' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
 
-{% if _variant is not empty %}
-  {% set _css_class = _css_class ~ ' ecl-site-footer--' ~ _variant %}
+{% if _split_columns %}
+  {% set _css_class = _css_class ~ ' ecl-site-footer--split-columns' %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
