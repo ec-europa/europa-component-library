@@ -8,7 +8,6 @@ npm install --save @ecl/twig-component-site-footer
 
 ### Parameters
 
-- **"variant"** (optional) (string) (default: '') core, standardised or harmonised
 - **"rows"** (array of objects) (default: [])
   - "section_class_name" (optional) (string) (default: '')
   - "logo"
@@ -26,6 +25,7 @@ npm install --save @ecl/twig-component-site-footer
     - "content_before" (string) Optional text before the link
     - "content_after" (string) Optional text after the link
   - "links_inline" (optional) (bolean) (default: false) Optional inline style for the list
+- **"split_columns"** (boolean) (optional) (default: false) Split columns in the footer, used for Core EC version
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
