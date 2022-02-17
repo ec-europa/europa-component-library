@@ -15,6 +15,14 @@ describe('Fact and figures', () => {
       return expect(render(data3Col)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with column based flow', () => {
+      expect.assertions(1);
+
+      return expect(
+        render({ ...data3Col, sorting: 'column' })
+      ).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
@@ -44,6 +52,14 @@ describe('Fact and figures', () => {
       expect.assertions(1);
 
       return expect(render(data4Col)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with column based flow', () => {
+      expect.assertions(1);
+
+      return expect(
+        render({ ...data4Col, sorting: 'column' })
+      ).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {

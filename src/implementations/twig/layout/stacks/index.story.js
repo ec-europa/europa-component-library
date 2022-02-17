@@ -2,15 +2,15 @@ import classnames from 'classnames';
 import withCode from '@ecl/storybook-addon-code';
 import { styled } from '@ecl/dom-utils';
 
-const getArgs = () => ({
-  direction: 'row',
+const getArgs = (fixed) => ({
+  direction: fixed ? 'column' : 'row',
   wrap: 'wrap',
   alignItems: 'start',
   alignContent: 'start',
   justifyContent: 'start',
   shrink: false,
   grow: false,
-  fixedContainer: false,
+  fixedContainer: !!fixed,
   containerWidth: 25,
   containerHeight: 25,
 });
@@ -135,7 +135,7 @@ const getArgTypes = () => ({
   },
 });
 
-const Box = ({ width, shrink, grow, contents }) => `
+const Box = ({ align, width, shrink, grow, contents }) => `
   <div
     class="${classnames('ecl-u-bg-primary ecl-u-color-white', {
       [`ecl-u-flex-shrink-${shrink ? '1' : '0'}`]: true,
@@ -145,10 +145,10 @@ const Box = ({ width, shrink, grow, contents }) => `
       boxSizing: 'border-box',
       border: '1px solid #9F9F9F',
       display: 'flex',
-      justifyContent: 'center',
+      justifyContent: align || 'center',
       alignItems: 'center',
       minHeight: width || '2rem',
-      width: width || '2rem',
+      width: width || 'auto',
     })}"
   >
     ${contents}
@@ -164,6 +164,52 @@ export default {
       defaultViewport: 'responsive',
     },
   },
+};
+
+export const Column = (args) => {
+  const { shrink } = args;
+  const { grow } = args;
+
+  return `
+    <div
+      class="${classnames(
+        'ecl-u-d-flex',
+        `ecl-u-flex-column`,
+        `ecl-u-flex-wrap`,
+        {
+          [`ecl-u-align-items-${args.alignItems}`]: true,
+          [`ecl-u-align-content-${args.alignContent}`]: true,
+          [`ecl-u-justify-content-${args.justifyContent}`]: true,
+        }
+      )}"
+      style="${styled({
+        maxWidth: `${args.containerWidth}rem`,
+        maxHeight: `${args.containerHeight}rem`,
+        backgroundColor: '#F2F5F9',
+        border: '2px solid #404040',
+        boxSizing: 'border-box',
+        color: 'white',
+      })}"
+    >
+      ${Box({ align: 'start', shrink, grow, contents: 'Aaaaaaaaaaaa' })}
+      ${Box({ align: 'start', shrink, grow, contents: 'Bbbbbbbbbbb' })}
+      ${Box({ align: 'start', shrink, grow, contents: 'Cccc' })}
+      ${Box({ align: 'start', shrink, grow, contents: 'Dddddddd ddddd' })}
+      ${Box({ align: 'start', shrink, grow, contents: 'Eeeeee' })}
+      ${Box({ align: 'start', shrink, grow, contents: 'Ffff fff' })}
+      ${Box({ align: 'start', shrink, grow, contents: 'Ggggggggggggggg' })}
+      ${Box({ align: 'start', shrink, grow, contents: 'Hhhhh' })}
+      ${Box({ align: 'start', shrink, grow, contents: 'Ii' })}
+      ${Box({ align: 'start', shrink, grow, contents: 'Lllllllll' })}
+      ${Box({ align: 'start', shrink, grow, contents: 'Mmmmmm mmmmm' })}
+      ${Box({ align: 'start', shrink, grow, contents: 'Nnnnnnnnnn' })}
+      ${Box({ align: 'start', shrink, grow, contents: 'Ooooo ooo' })}
+      ${Box({ align: 'start', shrink, grow, contents: 'Ppppppppp ppppppp' })}
+      ${Box({ align: 'start', shrink, grow, contents: 'Qqqqq qq' })}
+      ${Box({ align: 'start', shrink, grow, contents: 'Rrrrr rrrrrrrr' })}
+      ${Box({ align: 'start', shrink, grow, contents: 'Sss sss' })}
+    </div>
+  `;
 };
 
 export const Custom = (args) => {
@@ -190,18 +236,18 @@ export const Custom = (args) => {
         boxSizing: 'border-box',
       })}"
     >
-      ${Box({ width: '5rem', shrink, grow, contents: '1' })}
-      ${Box({ width: '3rem', shrink, grow, contents: '2' })}
-      ${Box({ width: '3rem', shrink, grow, contents: '3' })}
-      ${Box({ width: '5rem', shrink, grow, contents: '4' })}
-      ${Box({ width: '4rem', shrink, grow, contents: '5' })}
-      ${Box({ width: '5rem', shrink, grow, contents: '6' })}
-      ${Box({ width: '4rem', shrink, grow, contents: '7' })}
-      ${Box({ width: '5rem', shrink, grow, contents: '8' })}
-      ${Box({ width: '6rem', shrink, grow, contents: '9' })}
-      ${Box({ width: '4rem', shrink, grow, contents: '10' })}
-      ${Box({ width: '17rem', shrink, grow, contents: '11' })}
-      ${Box({ width: '4rem', shrink, grow, contents: '12' })}
+      ${Box({ align: 'center', width: '5rem', shrink, grow, contents: '1' })}
+      ${Box({ align: 'center', width: '3rem', shrink, grow, contents: '2' })}
+      ${Box({ align: 'center', width: '3rem', shrink, grow, contents: '3' })}
+      ${Box({ align: 'center', width: '5rem', shrink, grow, contents: '4' })}
+      ${Box({ align: 'center', width: '4rem', shrink, grow, contents: '5' })}
+      ${Box({ align: 'center', width: '5rem', shrink, grow, contents: '6' })}
+      ${Box({ align: 'center', width: '4rem', shrink, grow, contents: '7' })}
+      ${Box({ align: 'center', width: '5rem', shrink, grow, contents: '8' })}
+      ${Box({ align: 'center', width: '6rem', shrink, grow, contents: '9' })}
+      ${Box({ align: 'center', width: '4rem', shrink, grow, contents: '10' })}
+      ${Box({ walign: 'center', width: '17rem', shrink, grow, contents: '11' })}
+      ${Box({ align: 'center', width: '4rem', shrink, grow, contents: '12' })}
     </div>
   `;
 };
@@ -209,3 +255,7 @@ export const Custom = (args) => {
 Custom.storyName = 'custom';
 Custom.args = getArgs();
 Custom.argTypes = getArgTypes();
+
+Column.storyName = 'sorting by column';
+Column.args = getArgs('fixed');
+Column.argTypes = getArgTypes();

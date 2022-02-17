@@ -18,6 +18,7 @@ const getArgs = (data) => ({
   viewAll: true,
   displayIcons: true,
   column: 3,
+  sorting: 'row',
   icon: data.items[0].icon.name,
   value: data.items[0].value,
   title: data.items[0].title,
@@ -51,6 +52,17 @@ const getArgTypes = () => ({
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '3' },
+      category: 'Layout',
+    },
+  },
+  sorting: {
+    name: 'items flow',
+    control: { type: 'select' },
+    options: ['row', 'column'],
+    description: 'Sort the items by row or column',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'row' },
       category: 'Layout',
     },
   },
@@ -111,6 +123,7 @@ const prepareData = (data, args) => {
   data.view_all = args.viewAll ? viewAll : {};
   data.display_icons = args.displayIcons;
   data.column = args.column;
+  data.sorting = args.sorting;
 
   return data;
 };

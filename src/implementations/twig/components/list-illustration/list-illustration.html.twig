@@ -4,6 +4,7 @@
   Parameters:
     - "items" (array) (default: []): array of list_illustration_item
     - "column" (number) (default: 1): number of columns (1 column means vertical display)
+    - "sorting": (string) (default: row)
     - "zebra" (boolean) (default: true): use alternate background display for vertical list
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -19,6 +20,7 @@
 {% set _items = items|default([]) %}
 {% set _zebra = zebra|default(false) %}
 {% set _column = column|default(1) %}
+{% set _sorting = sorting|default('row') %}
 {% set _css_class = 'ecl-list-illustration' %}
 {% set _extra_attributes = '' %}
 
@@ -30,6 +32,10 @@
 
 {% if _column and _column > 1 and _column < 5 %}
   {% set _css_class = _css_class ~ ' ' ~ 'ecl-list-illustration--col-' ~ _column %}
+  {% if _sorting == 'column' and _items is not empty %}
+    {% set _rows = (_items|length / _column)|round(ceil) %}
+    {% set _css_class = _css_class ~ ' ' ~ 'ecl-list-illustration--row-' ~ _rows %}
+  {% endif %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}

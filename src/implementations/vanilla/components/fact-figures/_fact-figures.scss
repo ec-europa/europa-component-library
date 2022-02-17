@@ -6,6 +6,7 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+@use '@ecl/vanilla-layout-grid/mixins/flow';
 
 $_border: null !default;
 $_border-radius: null !default;
@@ -86,22 +87,18 @@ $_view-all-padding-vertical: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-fact-figures__items {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
     padding-left: $_items-padding-horizontal-desktop;
     padding-right: $_items-padding-horizontal-desktop;
   }
 
-  .ecl-fact-figures__item {
-    display: inline-flex;
-    flex-direction: column;
+  .ecl-fact-figures--col-3 .ecl-fact-figures__items {
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  .ecl-fact-figures--col-3 .ecl-fact-figures__item {
-    flex-basis: 33%;
+  .ecl-fact-figures--col-4 .ecl-fact-figures__items {
+    grid-template-columns: repeat(4, 1fr);
   }
 
-  .ecl-fact-figures--col-4 .ecl-fact-figures__item {
-    flex-basis: 25%;
-  }
+  @include flow.vertical('fact-figures', true);
 }

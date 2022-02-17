@@ -15,6 +15,14 @@ describe('List with illustration', () => {
       ).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with vertical flow', () => {
+      expect.assertions(1);
+
+      return expect(
+        render({ ...dataListIllustrationImage, column: 2, sorting: 'column' })
+      ).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 

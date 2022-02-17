@@ -3,6 +3,7 @@
 {#
   Parameters:
   - "column" (integer) (default: 3): Number of columns to divide the items with
+  - "sorting": (string) (default: row)
   - "items" (array) (default: []):
     - "icon" (associate array) (default: { size: 'm' })
     - "value" (string) (default: '')
@@ -27,6 +28,7 @@
 
 {% set _css_class = 'ecl-fact-figures' %}
 {% set _extra_attributes = '' %}
+{% set _sorting = sorting|default('row') %}
 {% set _columns = column|default(3) %}
 {% set _extra_classes = extra_classes|default('') %}
 {% set _display_icons = display_icons ?? true %}
@@ -34,6 +36,10 @@
 {# Internal logic - Process properties #}
 
 {% set _css_class = _css_class ~ ' ecl-fact-figures--col-' ~ _columns %}
+{% if _sorting == 'column' and items is not empty %}
+  {% set _rows = (items|length / _columns)|round(ceil) %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-fact-figures--row-' ~ _rows %}
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
