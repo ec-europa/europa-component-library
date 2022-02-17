@@ -8,7 +8,7 @@ import demoBreadcrumbLongEC from '@ecl/specs-component-breadcrumb/demo/data--ec'
 import pageHeader from './page-header.html.twig';
 import notes from './README.md';
 
-const dataCore = { ...demoContent, negative: true };
+const dataCore = { ...demoContent, variant: 'negative' };
 
 const dataHarmonised = { ...demoContent };
 delete dataHarmonised.thumbnails;

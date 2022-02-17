@@ -8,6 +8,7 @@ npm install --save @ecl/twig-component-page-header
 
 ### Parameters
 
+- **"variant"** (string) (default: '') options: [ negative ] Negative style with a darker background (only for EC)
 - **"title"** (string) (default: '') Title of header
 - **"description"** (string) (default: '') Description of header
 - **"thumbnail"** (associative array) (default: {}) Thumbnail dipslayed alongside the description
@@ -16,7 +17,6 @@ npm install --save @ecl/twig-component-page-header
 - **"meta"** (array) (default: []) Meta of header
 - **"breadcrumb"** (associative array) (default: '') Predefined structure for the ECL Breadcrumb
 - **"background_image_url"** (string) (default: '') Background image url
-- **"negative"** (optional) (boolean) (default: false) apply negative style with a darker background (only for EC)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

@@ -10,31 +10,14 @@ const dataBreadcrumb = { ...demoBreadcrumbLong };
 // Default
 const dataDefault = { ...demoDefault };
 dataDefault.breadcrumb = dataBreadcrumb;
-delete dataDefault.background_image_url;
-
-// Background image
-const dataBackgroundImage = { ...demoDefault };
-dataBackgroundImage.breadcrumb = dataBreadcrumb;
 
 // Core
-const prepareCoreData = (data) => {
-  data.negative = true;
-  data.breadcrumb.links.forEach((item) => {
-    item.negative = true;
-  });
-  return data;
-};
-
 export const pageHeaderCoreDefault = template(
-  correctSvgPath(prepareCoreData(dataDefault))
-);
-export const pageHeaderCoreBackgroundImage = template(
-  correctSvgPath(prepareCoreData(dataBackgroundImage))
+  correctSvgPath({
+    ...dataDefault,
+    variant: 'negative',
+  })
 );
 
 // Standardised & Harmonised
 export const pageHeaderDefault = template(correctSvgPath(dataDefault));
-
-export const pageHeaderBackgroundImage = template(
-  correctSvgPath(dataBackgroundImage)
-);

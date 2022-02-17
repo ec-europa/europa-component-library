@@ -9,19 +9,4 @@ const dataBreadcrumb = { ...demoBreadcrumbLong };
 // Default
 const dataDefault = { ...demoDefault };
 dataDefault.breadcrumb = dataBreadcrumb;
-delete dataDefault.thumbnail;
-delete dataDefault.background_image_url;
 export const pageHeaderDefault = template(correctSvgPath(dataDefault));
-
-// Thumbnail
-const dataThumbnail = { ...demoDefault };
-dataThumbnail.breadcrumb = dataBreadcrumb;
-export const pageHeaderThumbnail = template(correctSvgPath(dataThumbnail));
-
-// Background image
-const dataBackgroundImage = { ...demoDefault };
-dataBackgroundImage.breadcrumb = dataBreadcrumb;
-dataBackgroundImage.overlay = 'dark';
-export const pageHeaderBackgroundImage = template(
-  correctSvgPath(dataBackgroundImage)
-);

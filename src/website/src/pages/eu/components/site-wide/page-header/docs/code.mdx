@@ -5,11 +5,7 @@ order: 2
 
 import { Playground, Html } from '@ecl/website-components';
 
-import {
-  pageHeaderDefault,
-  pageHeaderThumbnail,
-  pageHeaderBackgroundImage,
-} from '../demo';
+import { pageHeaderDefault } from '../demo';
 
 ## Core page header
 
@@ -17,6 +13,7 @@ import {
   system="eu"
   selectedKind="components-site-wide-page-headers"
   selectedStory="core"
+  selectedArgs="show_thumbnail:false;background_image_url:"
   showFrame
 >
   <Html markup={pageHeaderDefault} />
@@ -28,10 +25,10 @@ import {
   system="eu"
   selectedKind="components-site-wide-page-headers"
   selectedStory="core"
-  selectedArgs="show_thumbnail:true"
+  selectedArgs="show_thumbnail:true;background_image_url:"
   showFrame
 >
-  <Html markup={pageHeaderThumbnail} />
+  <Html markup={pageHeaderDefault} />
 </Playground>
 
 ## Core page header with background image
@@ -42,10 +39,9 @@ Overlay can be configured (dark, light or none)
   system="eu"
   selectedKind="components-site-wide-page-headers"
   selectedStory="core"
-  selectedArgs="show_background:true"
   showFrame
 >
-  <Html markup={pageHeaderBackgroundImage} />
+  <Html markup={pageHeaderDefault} />
 </Playground>
 
 ## Harmonised page header
@@ -54,6 +50,7 @@ Overlay can be configured (dark, light or none)
   system="eu"
   selectedKind="components-site-wide-page-headers"
   selectedStory="harmonised"
+  selectedArgs="show_thumbnail:false;background_image_url:"
   showFrame
 >
   <Html markup={pageHeaderDefault} />
@@ -65,10 +62,10 @@ Overlay can be configured (dark, light or none)
   system="eu"
   selectedKind="components-site-wide-page-headers"
   selectedStory="harmonised"
-  selectedArgs="show_thumbnail:true"
+  selectedArgs="show_thumbnail:true;background_image_url:"
   showFrame
 >
-  <Html markup={pageHeaderThumbnail} />
+  <Html markup={pageHeaderDefault} />
 </Playground>
 
 ## Harmonised page header with background image
@@ -79,8 +76,7 @@ Overlay can be configured (dark, light or none)
   system="eu"
   selectedKind="components-site-wide-page-headers"
   selectedStory="harmonised"
-  selectedArgs="show_background:true"
   showFrame
 >
-  <Html markup={pageHeaderBackgroundImage} />
+  <Html markup={pageHeaderDefault} />
 </Playground>
