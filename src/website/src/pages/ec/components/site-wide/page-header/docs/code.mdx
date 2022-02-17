@@ -6,13 +6,10 @@ order: 2
 import { Playground, Html } from '@ecl/website-components';
 
 import {
+  pageHeaderDefault,
+  pageHeaderBackgroundImage,
   pageHeaderCoreDefault,
-  pageHeaderCoreThumbnail,
   pageHeaderCoreBackgroundImage,
-  pageHeaderHarmonisedDefault,
-  pageHeaderStandardisedDefault,
-  pageHeaderStandardisedThumbnail,
-  pageHeaderStandardisedBackgroundImage,
 } from '../demo';
 
 ## Core site footer
@@ -21,6 +18,7 @@ import {
   system="ec"
   selectedKind="components-site-wide-page-headers"
   selectedStory="core"
+  selectedArgs="show_thumbnail:false"
   showFrame
 >
   <Html markup={pageHeaderCoreDefault} />
@@ -35,7 +33,7 @@ import {
   selectedArgs="show_thumbnail:true"
   showFrame
 >
-  <Html markup={pageHeaderCoreThumbnail} />
+  <Html markup={pageHeaderCoreDefault} />
 </Playground>
 
 ## Core site footer with background image
@@ -58,9 +56,10 @@ Overlay can be configured (dark, light or none)
   system="ec"
   selectedKind="components-site-wide-page-headers"
   selectedStory="harmonised"
+  selectedArgs="show_thumbnail:false"
   showFrame
 >
-  <Html markup={pageHeaderHarmonisedDefault} />
+  <Html markup={pageHeaderDefault} />
 </Playground>
 
 ## Standardised site footer
@@ -69,9 +68,10 @@ Overlay can be configured (dark, light or none)
   system="ec"
   selectedKind="components-site-wide-page-headers"
   selectedStory="standardised"
+  selectedArgs="show_thumbnail:false"
   showFrame
 >
-  <Html markup={pageHeaderStandardisedDefault} />
+  <Html markup={pageHeaderDefault} />
 </Playground>
 
 ## Standardised site footer with thumbnail
@@ -83,7 +83,7 @@ Overlay can be configured (dark, light or none)
   selectedArgs="show_thumbnail:true"
   showFrame
 >
-  <Html markup={pageHeaderStandardisedThumbnail} />
+  <Html markup={pageHeaderDefault} />
 </Playground>
 
 ## Standardised site footer with background image
@@ -97,5 +97,5 @@ Overlay can be configured (dark, light or none)
   selectedArgs="show_background:true"
   showFrame
 >
-  <Html markup={pageHeaderStandardisedBackgroundImage} />
+  <Html markup={pageHeaderCoreBackgroundImage} />
 </Playground>

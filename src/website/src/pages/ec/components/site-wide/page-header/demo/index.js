@@ -10,12 +10,7 @@ const dataBreadcrumb = { ...demoBreadcrumbLong };
 // Default
 const dataDefault = { ...demoDefault };
 dataDefault.breadcrumb = dataBreadcrumb;
-delete dataDefault.thumbnail;
 delete dataDefault.background_image_url;
-
-// Thumbnail
-const dataThumbnail = { ...demoDefault };
-dataThumbnail.breadcrumb = dataBreadcrumb;
 
 // Background image
 const dataBackgroundImage = { ...demoDefault };
@@ -33,25 +28,13 @@ const prepareCoreData = (data) => {
 export const pageHeaderCoreDefault = template(
   correctSvgPath(prepareCoreData(dataDefault))
 );
-export const pageHeaderCoreThumbnail = template(
-  correctSvgPath(prepareCoreData(dataThumbnail))
-);
 export const pageHeaderCoreBackgroundImage = template(
   correctSvgPath(prepareCoreData(dataBackgroundImage))
 );
 
-// Harmonised
-export const pageHeaderHarmonisedDefault = template(
-  correctSvgPath(dataDefault)
-);
+// Standardised & Harmonised
+export const pageHeaderDefault = template(correctSvgPath(dataDefault));
 
-// Standardised
-export const pageHeaderStandardisedDefault = template(
-  correctSvgPath(dataDefault)
-);
-export const pageHeaderStandardisedThumbnail = template(
-  correctSvgPath(dataThumbnail)
-);
-export const pageHeaderStandardisedBackgroundImage = template(
+export const pageHeaderBackgroundImage = template(
   correctSvgPath(dataBackgroundImage)
 );
