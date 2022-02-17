@@ -2,20 +2,16 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctSvgPath } from '@ecl/story-utils';
 
-import demoContent from '@ecl/specs-component-page-header/demo/data--default';
-import demoBackgroundImage from '@ecl/specs-component-page-header/demo/data--background-image';
+import demoContent from '@ecl/specs-component-page-header/demo/data';
 import demoBreadcrumbLongEC from '@ecl/specs-component-breadcrumb/demo/data--ec';
 
 import pageHeader from './page-header.html.twig';
 import notes from './README.md';
 
-const dataDefault = { ...demoContent };
-const dataBackgroundImage = { ...demoBackgroundImage };
-
 const getArgs = (data) => {
   const args = {
-    breadcrumb: true,
-    thumbnail: false,
+    show_breadcrumb: true,
+    show_thumbnail: false,
   };
 
   if (data.title) {
@@ -40,7 +36,7 @@ const getArgs = (data) => {
 const getArgTypes = (data) => {
   const argTypes = {};
 
-  argTypes.breadcrumb = {
+  argTypes.show_breadcrumb = {
     name: 'breadcrumb',
     type: 'boolean',
     description: 'Toggle breadcrumb visibility',
@@ -50,7 +46,7 @@ const getArgTypes = (data) => {
     },
   };
 
-  argTypes.thumbnail = {
+  argTypes.show_thumbnail = {
     name: 'thumbnail',
     type: 'boolean',
     description: 'Toggle thumbnail visibility',
@@ -125,18 +121,17 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
-  data.variant = 'core';
-  if (!args.breadcrumb) {
+  if (!args.show_breadcrumb) {
     delete data.breadcrumb;
-  } else if (args.breadcrumb) {
+  } else if (args.show_breadcrumb) {
     data.breadcrumb = { ...demoBreadcrumbLongEC };
     data.breadcrumb.links.forEach((item) => {
-      item.negative = true;
+      item.negative = false;
     });
   }
-  if (!args.thumbnail) {
+  if (!args.show_thumbnail) {
     delete data.thumbnail;
-  } else if (args.thumbnail && !data.thumbnail) {
+  } else if (args.show_thumbnail && !data.show_thumbnail) {
     data.thumbnail = demoContent.thumbnail;
   }
 
@@ -157,26 +152,25 @@ const prepareData = (data, args) => {
 };
 
 export default {
-  title: 'Components/Site-wide/Page Headers/Core',
+  title: 'Components/Site-wide/Page Headers',
   decorators: [withNotes, withCode],
   parameters: { layout: 'fullscreen' },
 };
 
-export const Default = (args) => pageHeader(prepareData(dataDefault, args));
+export const Core = (args) => pageHeader(prepareData(demoContent, args));
 
-Default.storyName = 'default';
-Default.args = getArgs(dataDefault);
-Default.argTypes = getArgTypes(dataDefault);
-Default.parameters = {
-  notes: { markdown: notes, json: dataDefault },
+Core.storyName = 'core';
+Core.args = getArgs(demoContent);
+Core.argTypes = getArgTypes(demoContent);
+Core.parameters = {
+  notes: { markdown: notes, json: demoContent },
 };
 
-export const BackgroundImage = (args) =>
-  pageHeader(prepareData(dataBackgroundImage, args));
+export const Harmonised = (args) => pageHeader(prepareData(demoContent, args));
 
-BackgroundImage.storyName = 'background-image';
-BackgroundImage.args = getArgs(dataBackgroundImage);
-BackgroundImage.argTypes = getArgTypes(dataBackgroundImage);
-BackgroundImage.parameters = {
-  notes: { markdown: notes, json: dataBackgroundImage },
+Harmonised.storyName = 'Harmonised';
+Harmonised.args = getArgs(demoContent);
+Harmonised.argTypes = getArgTypes(demoContent);
+Harmonised.parameters = {
+  notes: { markdown: notes, json: demoContent },
 };

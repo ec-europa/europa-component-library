@@ -2,20 +2,24 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctSvgPath } from '@ecl/story-utils';
 
-import demoContent from '@ecl/specs-component-page-header/demo/data--default';
-import demoBackgroundImage from '@ecl/specs-component-page-header/demo/data--background-image';
+import demoContent from '@ecl/specs-component-page-header/demo/data';
 import demoBreadcrumbLongEC from '@ecl/specs-component-breadcrumb/demo/data--ec';
 
 import pageHeader from './page-header.html.twig';
 import notes from './README.md';
 
-const dataDefault = { ...demoContent };
-const dataBackgroundImage = { ...demoBackgroundImage };
+const dataCore = { ...demoContent, negative: true };
+
+const dataHarmonised = { ...demoContent };
+delete dataHarmonised.thumbnails;
+delete dataHarmonised.background_image_url;
+
+const dataStandardised = { ...demoContent };
 
 const getArgs = (data) => {
   const args = {
-    breadcrumb: true,
-    thumbnail: false,
+    show_breadcrumb: true,
+    show_thumbnail: false,
   };
 
   if (data.title) {
@@ -40,20 +44,20 @@ const getArgs = (data) => {
 const getArgTypes = (data) => {
   const argTypes = {};
 
-  argTypes.breadcrumb = {
+  argTypes.show_breadcrumb = {
     name: 'breadcrumb',
     type: 'boolean',
-    description: 'Toggle breadcrumb visibility',
+    description: 'Show breadcrumb',
     table: {
       type: { summary: 'object' },
       defaultValue: { summary: '{}' },
     },
   };
 
-  argTypes.thumbnail = {
+  argTypes.show_thumbnail = {
     name: 'thumbnail',
     type: 'boolean',
-    description: 'Toggle thumbnail visibility',
+    description: 'Show thumbnail',
     table: {
       type: { summary: 'object' },
       defaultValue: { summary: '{}' },
@@ -125,18 +129,17 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
-  data.variant = 'core';
-  if (!args.breadcrumb) {
+  if (!args.show_breadcrumb) {
     delete data.breadcrumb;
-  } else if (args.breadcrumb) {
+  } else if (args.show_breadcrumb) {
     data.breadcrumb = { ...demoBreadcrumbLongEC };
     data.breadcrumb.links.forEach((item) => {
-      item.negative = false;
+      item.negative = data.negative;
     });
   }
-  if (!args.thumbnail) {
+  if (!args.show_thumbnail) {
     delete data.thumbnail;
-  } else if (args.thumbnail && !data.thumbnail) {
+  } else if (args.show_thumbnail && !data.show_thumbnail) {
     data.thumbnail = demoContent.thumbnail;
   }
 
@@ -157,26 +160,36 @@ const prepareData = (data, args) => {
 };
 
 export default {
-  title: 'Components/Site-wide/Page Headers/Core',
+  title: 'Components/Site-wide/Page Headers',
   decorators: [withNotes, withCode],
   parameters: { layout: 'fullscreen' },
 };
 
-export const Default = (args) => pageHeader(prepareData(dataDefault, args));
+export const Core = (args) => pageHeader(prepareData(dataCore, args));
 
-Default.storyName = 'Default';
-Default.args = getArgs(dataDefault);
-Default.argTypes = getArgTypes(dataDefault);
-Default.parameters = {
-  notes: { markdown: notes, json: dataDefault },
+Core.storyName = 'core';
+Core.args = getArgs(dataCore);
+Core.argTypes = getArgTypes(dataCore);
+Core.parameters = {
+  notes: { markdown: notes, json: dataCore },
 };
 
-export const BackgroundImage = (args) =>
-  pageHeader(prepareData(dataBackgroundImage, args));
+export const Harmonised = (args) =>
+  pageHeader(prepareData(dataHarmonised, args));
 
-BackgroundImage.storyName = 'background-image';
-BackgroundImage.args = getArgs(dataBackgroundImage);
-BackgroundImage.argTypes = getArgTypes(dataBackgroundImage);
-BackgroundImage.parameters = {
-  notes: { markdown: notes, json: dataBackgroundImage },
+Harmonised.storyName = 'harmonised';
+Harmonised.args = getArgs(dataHarmonised);
+Harmonised.argTypes = getArgTypes(dataHarmonised);
+Harmonised.parameters = {
+  notes: { markdown: notes, json: dataHarmonised },
+};
+
+export const Standardised = (args) =>
+  pageHeader(prepareData(dataStandardised, args));
+
+Standardised.storyName = 'standardised';
+Standardised.args = getArgs(dataStandardised);
+Standardised.argTypes = getArgTypes(dataStandardised);
+Standardised.parameters = {
+  notes: { markdown: notes, json: dataStandardised },
 };

@@ -7,8 +7,6 @@
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-$_core-background-color: map.get(theme.$color, 'blue-100');
-
 .ecl-page-header {
   background-color: map.get(theme.$color, 'white-100');
   margin: 0;
@@ -74,9 +72,9 @@ $_core-background-color: map.get(theme.$color, 'blue-100');
 }
 
 /*
- * Core - Negative Variant
+ * Negative Variant (Core)
  */
-.ecl-page-header--core {
+.ecl-page-header--negative {
   background-color: map.get(theme.$color, 'blue-100');
 
   .ecl-page-header__meta {
@@ -141,7 +139,7 @@ $_core-background-color: map.get(theme.$color, 'blue-100');
   }
 
   .ecl-breadcrumb-core__container {
-    background-color: $_core-background-color;
+    background-color: map.get(theme.$color, 'blue-100');
     border-bottom: 0;
   }
 

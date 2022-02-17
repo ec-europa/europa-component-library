@@ -9,9 +9,7 @@ import {
   pageHeaderCoreDefault,
   pageHeaderCoreThumbnail,
   pageHeaderCoreBackgroundImage,
-  pageHeaderHarmonisedTitle,
-  pageHeaderHarmonisedMetaTitle,
-  pageHeaderHarmonisedMetaTitleDescription,
+  pageHeaderHarmonisedDefault,
   pageHeaderStandardisedDefault,
   pageHeaderStandardisedThumbnail,
   pageHeaderStandardisedBackgroundImage,
@@ -21,8 +19,8 @@ import {
 
 <Playground
   system="ec"
-  selectedKind="components-site-wide-page-headers-core"
-  selectedStory="default"
+  selectedKind="components-site-wide-page-headers"
+  selectedStory="core"
   showFrame
 >
   <Html markup={pageHeaderCoreDefault} />
@@ -32,9 +30,9 @@ import {
 
 <Playground
   system="ec"
-  selectedKind="components-site-wide-page-headers-core"
-  selectedStory="default"
-  selectedArgs="thumbnail:true"
+  selectedKind="components-site-wide-page-headers"
+  selectedStory="core"
+  selectedArgs="show_thumbnail:true"
   showFrame
 >
   <Html markup={pageHeaderCoreThumbnail} />
@@ -46,52 +44,31 @@ Overlay can be configured (dark, light or none)
 
 <Playground
   system="ec"
-  selectedKind="components-site-wide-page-headers-core"
-  selectedStory="background-image"
+  selectedKind="components-site-wide-page-headers"
+  selectedStory="core"
+  selectedArgs="show_background:true"
   showFrame
 >
   <Html markup={pageHeaderCoreBackgroundImage} />
 </Playground>
 
-## Harmoniosed site footer
+## Harmonised site footer
 
 <Playground
   system="ec"
-  selectedKind="components-site-wide-page-headers-harmonised"
-  selectedStory="title"
+  selectedKind="components-site-wide-page-headers"
+  selectedStory="harmonised"
   showFrame
 >
-  <Html markup={pageHeaderHarmonisedTitle} />
-</Playground>
-
-## Harmoniosed site footer with meta
-
-<Playground
-  system="ec"
-  selectedKind="components-site-wide-page-headers-harmonised"
-  selectedStory="meta-title"
-  showFrame
->
-  <Html markup={pageHeaderHarmonisedMetaTitle} />
-</Playground>
-
-## Harmoniosed site footer with meta and description
-
-<Playground
-  system="ec"
-  selectedKind="components-site-wide-page-headers-harmonised"
-  selectedStory="meta-title-description"
-  showFrame
->
-  <Html markup={pageHeaderHarmonisedMetaTitleDescription} />
+  <Html markup={pageHeaderHarmonisedDefault} />
 </Playground>
 
 ## Standardised site footer
 
 <Playground
   system="ec"
-  selectedKind="components-site-wide-page-headers-standardised"
-  selectedStory="default"
+  selectedKind="components-site-wide-page-headers"
+  selectedStory="standardised"
   showFrame
 >
   <Html markup={pageHeaderStandardisedDefault} />
@@ -101,9 +78,9 @@ Overlay can be configured (dark, light or none)
 
 <Playground
   system="ec"
-  selectedKind="components-site-wide-page-headers-standardised"
-  selectedStory="default"
-  selectedArgs="thumbnail:true"
+  selectedKind="components-site-wide-page-headers"
+  selectedStory="standardised"
+  selectedArgs="show_thumbnail:true"
   showFrame
 >
   <Html markup={pageHeaderStandardisedThumbnail} />
@@ -115,8 +92,9 @@ Overlay can be configured (dark, light or none)
 
 <Playground
   system="ec"
-  selectedKind="components-site-wide-page-headers-standardised"
-  selectedStory="background-image"
+  selectedKind="components-site-wide-page-headers"
+  selectedStory="standardised"
+  selectedArgs="show_background:true"
   showFrame
 >
   <Html markup={pageHeaderStandardisedBackgroundImage} />

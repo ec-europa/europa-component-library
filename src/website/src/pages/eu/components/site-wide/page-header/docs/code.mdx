@@ -16,7 +16,7 @@ import {
 <Playground
   system="eu"
   selectedKind="components-site-wide-page-headers-core"
-  selectedStory="default"
+  selectedStory="core"
   showFrame
 >
   <Html markup={pageHeaderDefault} />
@@ -26,9 +26,9 @@ import {
 
 <Playground
   system="eu"
-  selectedKind="components-site-wide-page-headers-core"
-  selectedStory="default"
-  selectedArgs="thumbnail:true"
+  selectedKind="components-site-wide-page-headers"
+  selectedStory="core"
+  selectedArgs="show_thumbnail:true"
   showFrame
 >
   <Html markup={pageHeaderThumbnail} />
@@ -41,7 +41,45 @@ Overlay can be configured (dark, light or none)
 <Playground
   system="eu"
   selectedKind="components-site-wide-page-headers-core"
-  selectedStory="background-image"
+  selectedStory="core"
+  selectedArgs="show_background:true"
+  showFrame
+>
+  <Html markup={pageHeaderBackgroundImage} />
+</Playground>
+
+## Harmonised page header
+
+<Playground
+  system="eu"
+  selectedKind="components-site-wide-page-headers-core"
+  selectedStory="harmonised"
+  showFrame
+>
+  <Html markup={pageHeaderDefault} />
+</Playground>
+
+## Harmonised page header with thumbnail
+
+<Playground
+  system="eu"
+  selectedKind="components-site-wide-page-headers"
+  selectedStory="harmonised"
+  selectedArgs="show_thumbnail:true"
+  showFrame
+>
+  <Html markup={pageHeaderThumbnail} />
+</Playground>
+
+## Harmonised page header with background image
+
+Overlay can be configured (dark, light or none)
+
+<Playground
+  system="eu"
+  selectedKind="components-site-wide-page-headers"
+  selectedStory="harmonised"
+  selectedArgs="show_background:true"
   showFrame
 >
   <Html markup={pageHeaderBackgroundImage} />

@@ -1,7 +1,6 @@
 {% spaceless %}
 {#
   Parameters:
-    - "variant" (string) (default: '') core, standardised or harmonised
     - "title" (string) (default: '') Title of header
     - "description" (string) (default: '') Description of header
     - "thumbnail" (associative array) (default: {}) Thumbnail dipslayed alongside the description:
@@ -13,6 +12,7 @@
     - "breadcrumb" (associative array) (default: '') Predefined structure compatible with EC Breadcrumb
     - "background_image_url (string) (default: '') Background image url
     - "overlay" (string) (default: '') Optional overlay on top of background image (can be 'light', 'dark')
+    - "negative" (boolean) (default: false) apply negative style with a darker background (only for EC)
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -23,7 +23,6 @@
 #}
 
 {# variables #}
-{% set _variant = variant|default('') %}
 {% set _title = title|default('') %}
 {% set _meta = meta|default([]) %}
 {% set _description = description|default('') %}
@@ -32,12 +31,13 @@
 {% set _css_class = 'ecl-page-header' %}
 {% set _background_image_url = background_image_url|default('') %}
 {% set _overlay = overlay|default('') %}
+{% set _negative = negative|default(false) %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
 
-{% if _variant is not empty %}
-  {% set _css_class = _css_class ~ ' ecl-page-header--' ~ _variant %}
+{% if _negative %}
+  {% set _css_class = _css_class ~ ' ecl-page-header--negative' %}
 {% endif %}
 
 {% if _background_image_url and _background_image_url is not empty %}
@@ -72,12 +72,8 @@
 
   <div class="ecl-container">
   {% if _breadcrumb is not empty %}
-    {%- if _variant == 'core' -%}
+    {%- if _negative -%}
       {%- include '@ecl/breadcrumb-core/breadcrumb-core.html.twig' with _breadcrumb|merge({
-        extra_classes: 'ecl-page-header__breadcrumb',
-      }) only -%}
-    {%- elseif _variant == 'harmonised' -%}
-      {%- include '@ecl/breadcrumb-harmonised/breadcrumb-harmonised.html.twig' with _breadcrumb|merge({
         extra_classes: 'ecl-page-header__breadcrumb',
       }) only -%}
     {%- else -%}
