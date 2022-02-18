@@ -12,11 +12,16 @@ const dataDefault = { ...demoDefault };
 dataDefault.breadcrumb = dataBreadcrumb;
 
 // Core
+const prepareCoreData = (data) => {
+  data.variant = 'negative';
+  data.breadcrumb.links.forEach((item) => {
+    item.negative = true;
+  });
+  return data;
+};
+
 export const pageHeaderCoreDefault = template(
-  correctSvgPath({
-    ...dataDefault,
-    variant: 'negative',
-  })
+  correctSvgPath(prepareCoreData(dataDefault))
 );
 
 // Standardised & Harmonised
