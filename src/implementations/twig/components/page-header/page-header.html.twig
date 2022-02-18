@@ -73,7 +73,7 @@
 
   <div class="ecl-container">
   {% if _breadcrumb is not empty %}
-    {%- if _negative -%}
+    {% if _variant is not empty and _variant == 'negative' %}
       {%- include '@ecl/breadcrumb-core/breadcrumb-core.html.twig' with _breadcrumb|merge({
         extra_classes: 'ecl-page-header__breadcrumb',
       }) only -%}
