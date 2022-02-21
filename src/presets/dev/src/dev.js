@@ -5,6 +5,7 @@ export * from '@ecl/vanilla-component-accordion';
 export * from '@ecl/vanilla-component-carousel';
 export * from '@ecl/vanilla-component-category-filter';
 export * from '@ecl/vanilla-component-datepicker';
+export * from '@ecl/vanilla-component-breadcrumb';
 export * from '@ecl/vanilla-component-breadcrumb-core';
 export * from '@ecl/vanilla-component-breadcrumb-standardised';
 export * from '@ecl/vanilla-component-breadcrumb-harmonised';
