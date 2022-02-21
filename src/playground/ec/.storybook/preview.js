@@ -38,6 +38,12 @@ addParameters({
       hideCode: true,
     },
     {
+      id: 'ecl-ec-rtl',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec.rtl.css" />`,
+      picked: false,
+      hideCode: true,
+    },
+    {
       id: 'ecl-ec-print',
       code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec-print.css" />`,
       picked: false,
