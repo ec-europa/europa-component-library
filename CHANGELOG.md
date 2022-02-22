@@ -1,5 +1,33 @@
 # Changelog
 
+## 3.2.3 (2022-02-16)
+
+#### :rocket: New Feature
+
+- [#2319](https://github.com/ec-europa/europa-component-library/pull/2319) feat(logos): Adding negative versions of EU logos - FRONT-3526 ([@planctus](https://github.com/planctus))
+- [#2323](https://github.com/ec-europa/europa-component-library/pull/2323) feat(category-filter): Add component - FRONT-3531 ([@papegaill](https://github.com/papegaill))
+- [#2311](https://github.com/ec-europa/europa-component-library/pull/2311) feat(website): add logo showcase - FRONT-3524 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#2339](https://github.com/ec-europa/europa-component-library/pull/2339) chore(svg): Fixing svg optimization scripts - FRONT-3556 ([@planctus](https://github.com/planctus))
+- [#2325](https://github.com/ec-europa/europa-component-library/pull/2325) fix(illustration-list): Styles adaptations for mobile - FRONT-3537 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#2338](https://github.com/ec-europa/europa-component-library/pull/2338) fix(message): Changing description tag to div - FRONT-3551 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#2332](https://github.com/ec-europa/europa-component-library/pull/2332) chore(deps): Updates 10-02-22 ([@planctus](https://github.com/planctus))
+- [#2329](https://github.com/ec-europa/europa-component-library/pull/2329) chore: Updates 03-02-22 ([@planctus](https://github.com/planctus))
+
+#### Committers: 3
+
+- Alexis Gaillard ([@papegaill](https://github.com/papegaill))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 ## 3.2.2 (2022-01-27)
 
 #### :bug: Bug Fix
