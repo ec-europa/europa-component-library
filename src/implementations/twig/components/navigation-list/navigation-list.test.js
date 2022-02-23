@@ -1,21 +1,20 @@
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
-import dataImage from '@ecl/specs-component-navigation-list/demo/data--image';
-import dataEvent from '@ecl/specs-component-navigation-list/demo/data--event';
+import dataDefault from '@ecl/specs-component-navigation-list/demo/data';
 
 describe('Navigation list', () => {
   const template = '@ecl/navigation-list/navigation-list.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
-  describe('Image', () => {
+  describe('Default', () => {
     test('renders correctly', () => {
       expect.assertions(1);
-      return expect(render(dataImage)).resolves.toMatchSnapshot();
+      return expect(render(dataDefault)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const withExtraClasses = merge(dataImage, {
+      const withExtraClasses = merge(dataDefault, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -25,7 +24,7 @@ describe('Navigation list', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const withExtraAttributes = merge(dataImage, {
+      const withExtraAttributes = merge(dataDefault, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
@@ -33,13 +32,6 @@ describe('Navigation list', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
-    });
-  });
-
-  describe('Event', () => {
-    test('renders correctly', () => {
-      expect.assertions(1);
-      return expect(render(dataEvent)).resolves.toMatchSnapshot();
     });
   });
 });
