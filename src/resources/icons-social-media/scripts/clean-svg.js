@@ -11,7 +11,7 @@ const out = path.resolve(__dirname, '../dist/svg');
 glob.sync('**/*.svg', { cwd: src }).forEach(async (file) => {
   const filepath = path.resolve(src, file);
   const outputPath = path.resolve(out, file);
-  await loadConfig('./scripts/config/svgo');
+  const config = await loadConfig('./scripts/config/svgo');
 
   fs.readFile(filepath, 'utf8', (err, data) => {
     if (err) {
@@ -29,7 +29,7 @@ glob.sync('**/*.svg', { cwd: src }).forEach(async (file) => {
       const xml = builder.buildObject(clone);
 
       // Clean SVG
-      const svg = optimize(xml, { path: filepath });
+      const svg = optimize(xml, { ...config, path: filepath });
       const optimizedSvgString = svg.data;
       mkdirp.sync(path.dirname(outputPath));
       fs.writeFileSync(outputPath, optimizedSvgString, 'utf8');

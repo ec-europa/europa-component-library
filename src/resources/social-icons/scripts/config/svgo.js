@@ -1,3 +1,7 @@
 module.exports = {
-  // use the default config
+  plugins: [
+    {
+      name: 'preset-default',
+    },
+  ],
 };
