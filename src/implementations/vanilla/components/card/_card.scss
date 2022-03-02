@@ -70,15 +70,10 @@ $_list-padding: null !default;
 
 .ecl-card__title {
   color: $_text-color;
-  font: map.get($_title, 'mobile');
-  font-weight: map.get($_title, 'font-weight');
+  font: $_title;
+  font-weight: map.get(theme.$font-weight, 'bold');
   margin-bottom: 0;
   margin-top: 0;
-
-  @include breakpoints.up('m') {
-    font: map.get($_title, 'desktop');
-    font-weight: map.get($_title, 'font-weight');
-  }
 }
 
 .ecl-card__description {
