@@ -49,10 +49,11 @@ $_outline-color: null !default;
 }
 
 .ecl-radio__label {
+  align-items: center;
   color: $_label-color;
   display: inline-flex;
   font: map.get(theme.$font-prolonged, 'm');
-  white-space: pre;
+  white-space: pre-wrap;
 }
 
 .ecl-radio--disabled .ecl-radio__label {
@@ -65,6 +66,7 @@ $_outline-color: null !default;
   border-radius: 50%;
   box-sizing: border-box;
   display: block;
+  flex-shrink: 0;
   height: $_box-size;
   margin-right: map.get(theme.$spacing, 'xs');
   position: relative;

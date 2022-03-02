@@ -100,7 +100,11 @@
         extra_classes: 'ecl-checkbox__icon',
       } only %}
     </span>
-    {%- block label _label -%}
+    {% if _label is not empty %}
+    <div class="ecl-checkbox__text">
+      {%- block label _label -%}
+    </div>
+    {% endif %}
   </label>
 
   {% if _helper_text is not empty %}
