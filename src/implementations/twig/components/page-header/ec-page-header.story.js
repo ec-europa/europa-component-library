@@ -136,7 +136,7 @@ const prepareData = (data, args) => {
   } else if (args.show_breadcrumb) {
     data.breadcrumb = { ...demoBreadcrumbLongEC };
     data.breadcrumb.links.forEach((item) => {
-      item.negative = true;
+      item.negative = data.variant === 'negative';
     });
   }
   if (!args.show_thumbnail) {
