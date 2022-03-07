@@ -68,6 +68,22 @@ $_list-padding: null !default;
   margin-bottom: map.get(theme.$spacing, 'xs');
 }
 
+.ecl-card__meta-item {
+  border-right: 1px solid $_meta-color;
+  margin-right: map.get(theme.$spacing, 'xs');
+  padding-right: map.get(theme.$spacing, 'xs');
+
+  &:first-of-type {
+    text-transform: uppercase;
+  }
+
+  &:last-of-type {
+    border-right-width: 0;
+    margin-right: 0;
+    padding-right: 0;
+  }
+}
+
 .ecl-card__title {
   color: $_text-color;
   font: $_title;

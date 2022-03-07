@@ -115,8 +115,12 @@
       </ul>
     {% endif %}
 
-    {% if _card.meta is not empty %}
-      <div class="ecl-card__meta">{{ _card.meta|join(" | ") }}</div>
+    {% if _card.meta is not empty and _card.meta is iterable %}
+      <div class="ecl-card__meta">
+        {% for _item in _card.meta %}
+        <span class="ecl-card__meta-item">{{- _item -}}</span>
+        {% endfor %}
+      </div>
     {% endif %}
 
     {% if _card.title is not empty and _card.title.label is not empty %}
