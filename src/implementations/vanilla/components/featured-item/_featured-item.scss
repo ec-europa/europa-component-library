@@ -7,6 +7,8 @@
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
+$_heading-color: null !default;
+$_title-color: null !default;
 $_text-color: null !default;
 $_heading-mobile-font: null !default;
 $_heading-font: null !default;
@@ -24,7 +26,7 @@ $_extended-padding-top: null !default;
 $_extended-padding-bottom: null !default;
 
 .ecl-featured-item__heading {
-  color: $_text-color;
+  color: $_heading-color;
   font: $_heading-mobile-font;
   font-weight: map.get(theme.$font-weight, 'bold');
   margin-bottom: $_heading-mobile-margin-bottom;
@@ -45,7 +47,7 @@ $_extended-padding-bottom: null !default;
 }
 
 .ecl-featured-item__title {
-  color: $_text-color;
+  color: $_title-color;
   font: map.get(theme.$font-prolonged, 'l');
   font-weight: map.get(theme.$font-weight, 'bold');
   margin-bottom: $_title-margin-bottom;
@@ -55,7 +57,6 @@ $_extended-padding-bottom: null !default;
 .ecl-featured-item__description {
   color: $_text-color;
   font: map.get(theme.$font-prolonged, 'm');
-  font-weight: map.get(theme.$font-weight, 'bold');
   margin-bottom: $_title-margin-bottom;
   margin-top: 0;
 }
