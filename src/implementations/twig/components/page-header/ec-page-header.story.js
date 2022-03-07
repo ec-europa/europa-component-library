@@ -47,20 +47,22 @@ const getArgTypes = (data) => {
   argTypes.show_breadcrumb = {
     name: 'breadcrumb',
     type: 'boolean',
-    description: 'Show breadcrumb',
+    description: 'Toggle breadcrumb visibility',
     table: {
       type: { summary: 'object' },
       defaultValue: { summary: '{}' },
+      category: 'Optional',
     },
   };
 
   argTypes.show_thumbnail = {
     name: 'thumbnail',
     type: 'boolean',
-    description: 'Show thumbnail',
+    description: 'Toggle thumbnail visibility',
     table: {
       type: { summary: 'object' },
       defaultValue: { summary: '{}' },
+      category: 'Optional',
     },
   };
 
@@ -134,7 +136,7 @@ const prepareData = (data, args) => {
   } else if (args.show_breadcrumb) {
     data.breadcrumb = { ...demoBreadcrumbLongEC };
     data.breadcrumb.links.forEach((item) => {
-      item.negative = data.negative;
+      item.negative = true;
     });
   }
   if (!args.show_thumbnail) {

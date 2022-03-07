@@ -43,6 +43,7 @@ const getArgTypes = (data) => {
     table: {
       type: { summary: 'object' },
       defaultValue: { summary: '{}' },
+      category: 'Optional',
     },
   };
 
@@ -53,6 +54,7 @@ const getArgTypes = (data) => {
     table: {
       type: { summary: 'object' },
       defaultValue: { summary: '{}' },
+      category: 'Optional',
     },
   };
 
