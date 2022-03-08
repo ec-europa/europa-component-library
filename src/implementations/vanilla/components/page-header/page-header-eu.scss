@@ -19,7 +19,7 @@
 }
 
 .ecl-page-header__breadcrumb {
-  margin-bottom: map.get(theme.$spacing, 's');
+  margin-bottom: map.get(theme.$spacing, '3xl');
 }
 
 .ecl-page-header__meta {
@@ -29,8 +29,8 @@
 
 .ecl-page-header__meta-item {
   border-right: 1px solid map.get(theme.$color, 'grey-80');
-  margin-right: map.get(theme.$spacing, 'm');
-  padding-right: map.get(theme.$spacing, 'm');
+  margin-right: map.get(theme.$spacing, 'xs');
+  padding-right: map.get(theme.$spacing, 'xs');
 
   &:first-of-type {
     text-transform: uppercase;
@@ -78,10 +78,6 @@
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
-  .ecl-page-header__breadcrumb {
-    margin-bottom: map.get(theme.$spacing, 'l');
-  }
-
   .ecl-page-header__title {
     font: map.get(theme.$font, '6xl');
   }

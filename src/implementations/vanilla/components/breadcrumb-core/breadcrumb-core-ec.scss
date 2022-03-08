@@ -2,7 +2,7 @@
 @use '@ecl/theme-dev/theme';
 
 @use 'breadcrumb-core' with (
-  $_container-padding: 0 0 calc(#{map.get(theme.$spacing, 'm')} - 1px),
+  $_container-padding: 0 0 map.get(theme.$spacing, 'm'),
   $_segment-margin-top: map.get(theme.$spacing, 'm'),
   $_link-font: map.get(theme.$font, 's'),
   $_link-font-weight: map.get(theme.$font-weight, 'bold'),
@@ -13,6 +13,5 @@
   $_ellipsis-background-color: transparent,
   $_ellipsis-background-color-hover: map.get(theme.$color, 'blue-120'),
   $_ellipsis-padding-horizontal: 0,
-  $_ellispis-outline-width: 3px,
-  $_border-color: map.get(theme.$color, 'white-100')
+  $_ellispis-outline-width: 3px
 );

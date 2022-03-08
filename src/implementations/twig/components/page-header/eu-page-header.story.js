@@ -8,6 +8,8 @@ import demoBreadcrumbLongEC from '@ecl/specs-component-breadcrumb/demo/data--ec'
 import pageHeader from './page-header.html.twig';
 import notes from './README.md';
 
+const dataDefault = { ...demoContent };
+
 const getArgs = (data) => {
   const args = {
     show_breadcrumb: true,
@@ -127,9 +129,6 @@ const prepareData = (data, args) => {
     delete data.breadcrumb;
   } else if (args.show_breadcrumb) {
     data.breadcrumb = { ...demoBreadcrumbLongEC };
-    data.breadcrumb.links.forEach((item) => {
-      item.negative = false;
-    });
   }
   if (!args.show_thumbnail) {
     delete data.thumbnail;
@@ -159,20 +158,20 @@ export default {
   parameters: { layout: 'fullscreen' },
 };
 
-export const Core = (args) => pageHeader(prepareData(demoContent, args));
+export const Core = (args) => pageHeader(prepareData(dataDefault, args));
 
 Core.storyName = 'core';
-Core.args = getArgs(demoContent);
-Core.argTypes = getArgTypes(demoContent);
+Core.args = getArgs(dataDefault);
+Core.argTypes = getArgTypes(dataDefault);
 Core.parameters = {
-  notes: { markdown: notes, json: demoContent },
+  notes: { markdown: notes, json: dataDefault },
 };
 
-export const Harmonised = (args) => pageHeader(prepareData(demoContent, args));
+export const Harmonised = (args) => pageHeader(prepareData(dataDefault, args));
 
 Harmonised.storyName = 'Harmonised';
-Harmonised.args = getArgs(demoContent);
-Harmonised.argTypes = getArgTypes(demoContent);
+Harmonised.args = getArgs(dataDefault);
+Harmonised.argTypes = getArgTypes(dataDefault);
 Harmonised.parameters = {
-  notes: { markdown: notes, json: demoContent },
+  notes: { markdown: notes, json: dataDefault },
 };
