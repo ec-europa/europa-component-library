@@ -10,6 +10,7 @@ $_border-width: 2px;
 $_border-color: null !default;
 $_border-radius: null !default;
 $_box-size: null !default;
+$_box-margin-top: null !default;
 $_box-background-disabled: map.get(theme.$color, 'grey-5');
 $_box-background-checked: map.get(theme.$color, 'blue-100');
 $_box-background-checked-hover: null !default;
@@ -59,7 +60,7 @@ $_outline-width: null !default;
   height: $_box-size;
   justify-content: center;
   margin-right: map.get(theme.$spacing, 'xs');
-  margin-top: 0.125rem; // align box with text
+  margin-top: $_box-margin-top;
   user-select: none;
   width: $_box-size;
 }

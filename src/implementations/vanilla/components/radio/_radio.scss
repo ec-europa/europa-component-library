@@ -14,6 +14,7 @@ $_box-border-width: 2px;
 $_box-border-width-checked: null !default;
 $_box-inner-display: null !default;
 $_box-size: 1.25rem;
+$_box-margin-top: null !default;
 $_help-text-color: null !default;
 $_help-text-font: null !default;
 $_invalid-border-color: null !default;
@@ -68,7 +69,7 @@ $_outline-color: null !default;
   flex-shrink: 0;
   height: $_box-size;
   margin-right: map.get(theme.$spacing, 'xs');
-  margin-top: 0.125rem; // align box with text
+  margin-top: $_box-margin-top;
   position: relative;
   width: $_box-size;
 }
