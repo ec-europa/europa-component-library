@@ -36,5 +36,13 @@ module.exports = {
       helper_text: 'Help text for an option',
       disabled: true,
     },
+    {
+      id: 'radio-default-4',
+      value: 'lorem',
+      label:
+        'Lorem ipsum dolor sit amet, <a href="#">consectetur adipiscing elit</a>. Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.',
+      helper_id: 'helper-4',
+      helper_text: 'Help text for an option',
+    },
   ],
 };

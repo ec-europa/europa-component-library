@@ -105,7 +105,11 @@
     <span class="{{ _box_css_class }}">
       <span class="ecl-radio__box-inner"></span>
     </span>
-    {%- block label _label -%}
+    {% if _label is not empty %}
+    <span class="ecl-radio__text">
+      {%- block label _label -%}
+    </span>
+    {% endif %}
   </label>
 
   {% if _helper_text is not empty %}
