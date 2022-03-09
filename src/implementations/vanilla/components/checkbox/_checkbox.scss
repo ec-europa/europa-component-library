@@ -43,7 +43,6 @@ $_outline-width: null !default;
 }
 
 .ecl-checkbox__label {
-  align-items: center;
   color: $_label-color;
   display: inline-flex;
   font: map.get(theme.$font-prolonged, 'm');
@@ -60,6 +59,7 @@ $_outline-width: null !default;
   height: $_box-size;
   justify-content: center;
   margin-right: map.get(theme.$spacing, 'xs');
+  margin-top: 0.125rem; // align box with text
   user-select: none;
   width: $_box-size;
 }
