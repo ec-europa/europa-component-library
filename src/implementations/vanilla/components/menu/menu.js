@@ -49,6 +49,7 @@ export class Menu {
       attachClickListener = true,
       attachHoverListener = true,
       attachFocusListener = true,
+      attachKeyListener = true,
       attachResizeListener = true,
     } = {}
   ) {
@@ -74,6 +75,7 @@ export class Menu {
     this.attachClickListener = attachClickListener;
     this.attachHoverListener = attachHoverListener;
     this.attachFocusListener = attachFocusListener;
+    this.attachKeyListener = attachKeyListener;
     this.attachResizeListener = attachResizeListener;
 
     // Private variables
@@ -94,6 +96,7 @@ export class Menu {
     this.handleClickOnLink = this.handleClickOnLink.bind(this);
     this.handleHoverOnItem = this.handleHoverOnItem.bind(this);
     this.handleHoverOffItem = this.handleHoverOffItem.bind(this);
+    this.handleKeyboard = this.handleKeyboard.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.useDesktopDisplay = this.useDesktopDisplay.bind(this);
   }
@@ -139,6 +142,10 @@ export class Menu {
       this.links.forEach((link) => {
         if (link.parentElement.hasAttribute('data-ecl-has-children')) {
           link.addEventListener('click', this.handleClickOnLink);
+
+          if (this.attachKeyListener) {
+            link.addEventListener('keyup', this.handleKeyboard);
+          }
         }
       });
     }
@@ -163,6 +170,9 @@ export class Menu {
           if (this.attachFocusListener) {
             item.addEventListener('focusin', this.handleHoverOnItem);
             item.addEventListener('focusout', this.handleHoverOffItem);
+          }
+          if (this.attachKeyListener) {
+            item.addEventListener('keyup', this.handleKeyboard);
           }
         }
       });
@@ -208,6 +218,9 @@ export class Menu {
             item.removeEventListener('focusin', this.handleHoverOnItem);
             item.removeEventListener('focusout', this.handleHoverOffItem);
           }
+          if (this.attachKeyListener) {
+            item.removeEventListener('keyup', this.handleKeyboard);
+          }
         }
       });
     }
@@ -216,6 +229,10 @@ export class Menu {
       this.links.forEach((link) => {
         if (link.parentElement.hasAttribute('data-ecl-has-children')) {
           link.removeEventListener('click', this.handleClickOnLink);
+
+          if (this.attachKeyListener) {
+            link.removeEventListener('keyup', this.handleKeyboard);
+          }
         }
       });
     }
@@ -312,6 +329,21 @@ export class Menu {
         menuMega.classList.remove('ecl-menu__mega--rtl');
       }
     }
+  }
+
+  /**
+   * Handles keyboard events such as Escape and navigation.
+   *
+   * @param {Event} e
+   */
+  handleKeyboard(e) {
+    // Detect press on Escape
+    if (e.key === 'Escape' || e.key === 'Esc') {
+      const menuItem = e.target;
+      menuItem.blur();
+    }
+
+    return this;
   }
 
   /**
