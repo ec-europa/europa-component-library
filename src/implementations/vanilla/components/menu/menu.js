@@ -340,7 +340,9 @@ export class Menu {
     // Detect press on Escape
     if (e.key === 'Escape' || e.key === 'Esc') {
       const menuItem = e.target;
-      menuItem.blur();
+      if (document.activeElement === menuItem) {
+        menuItem.blur();
+      }
     }
 
     return this;
