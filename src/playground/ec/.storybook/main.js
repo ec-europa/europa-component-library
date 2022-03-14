@@ -45,4 +45,7 @@ module.exports = {
   stories,
   addons,
   webpackFinal,
+  features: {
+    postcss: false,
+  },
 };
