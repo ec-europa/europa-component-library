@@ -2,12 +2,7 @@
 title: Usage
 order: 1
 ---
-
 The Loading indicator is an infinite looped animation that provides **visual feedback about the system status.**
-
-|     |       |     |     |                                         |
-| --- | ----- | --- | --- | --------------------------------------- |
-| 1   | Label | yes | yes | Label indicating loading is in progress |
 
 ## Do's
 

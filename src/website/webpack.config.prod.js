@@ -371,6 +371,9 @@ module.exports = {
       'process.env.ECL_RESET_CSS': JSON.stringify(
         (sri['ecl-reset.css'] || []).join(' ') || 'n/a'
       ),
+      'process.env.ECL_RTL_CSS': JSON.stringify(
+        (sri['ecl-rtl.css'] || []).join(' ') || 'n/a'
+      ),
     }),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
