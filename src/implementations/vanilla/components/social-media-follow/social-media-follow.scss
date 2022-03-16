@@ -29,15 +29,15 @@
   list-style: none;
   margin-bottom: 0;
   margin-top: -#{map.get(theme.$spacing, 's')};
-  padding-left: 0;
+  padding-inline-start: 0;
 }
 
 .ecl-social-media-follow__item {
-  margin-right: map.get(theme.$spacing, 'l');
+  margin-inline-end: map.get(theme.$spacing, 'l');
   margin-top: map.get(theme.$spacing, 's');
 
   &:last-child {
-    margin-right: 0;
+    margin-inline-end: 0;
   }
 }
 
@@ -52,7 +52,7 @@
 .ecl-social-media-follow__icon,
 .ecl-social-media-follow__icon-hover {
   flex-shrink: 0;
-  margin-right: map.get(theme.$spacing, 'm');
+  margin-inline-end: map.get(theme.$spacing, 'm');
   top: 0 !important;
 }
 
@@ -82,14 +82,14 @@
   }
 
   .ecl-social-media-follow__item {
-    margin-right: 0;
+    margin-inline-end: 0;
 
     &:first-child {
       margin-top: 0;
     }
 
     &:last-child {
-      margin-right: 0;
+      margin-inline-end: 0;
       margin-top: map.get(theme.$spacing, 'm');
     }
   }
