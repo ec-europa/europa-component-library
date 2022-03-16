@@ -190,7 +190,7 @@ export class Tabs {
       newOffset = maxScroll;
     }
     this.list.style.transitionDuration = '0.4s';
-    this.list.style.transform = `translate3d(${newOffset}px, 0px, 0px)`;
+    this.list.style.transform = `translate3d(-${newOffset}px, 0px, 0px)`;
   }
 
   /**
