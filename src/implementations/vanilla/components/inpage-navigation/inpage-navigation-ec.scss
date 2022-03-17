@@ -65,7 +65,9 @@ $toggle-width: calc(
         map.get(theme.$color, 'blue-100') $toggle-width
       ),
     'padding': calc(#{map.get(theme.$spacing, 's')} - #{$outline-width})
-      calc(#{$toggle-width} - #{$outline-width})
+      calc(
+        #{$toggle-width} + #{map.get(theme.$spacing, 'm')} - #{$outline-width}
+      )
       calc(#{map.get(theme.$spacing, 's')} - #{$outline-width})
       calc(#{map.get(theme.$spacing, 'm')} - #{$outline-width}),
     'separator': 1px solid map.get(theme.$color, 'blue-120'),
