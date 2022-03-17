@@ -69,7 +69,7 @@ $_background-color: null !default;
 
 .ecl-list-illustration__icon {
   flex-shrink: 0;
-  margin-right: map.get(theme.$spacing, 's');
+  margin-inline-end: map.get(theme.$spacing, 's');
 }
 
 // Zebra
@@ -97,7 +97,7 @@ $_background-color: null !default;
 
   .ecl-list-illustration__image {
     margin-bottom: 0;
-    margin-right: map.get(theme.$spacing, 'xl');
+    margin-inline-end: map.get(theme.$spacing, 'xl');
 
     &:not(.ecl-list-illustration__image--square) {
       width: 15.875rem;
@@ -120,7 +120,7 @@ $_background-color: null !default;
     }
 
     .ecl-list-illustration__image {
-      margin-right: 0;
+      margin-inline-end: 0;
       margin-bottom: map.get(theme.$spacing, 'm');
     }
 

@@ -1,3 +1,30 @@
 html {
   direction: rtl;
 }
+
+// Menu
+.ecl-menu__link-icon {
+  transform: rotate(-90deg);
+}
+
+.ecl-menu__back .ecl-icon {
+  transform: rotate(90deg);
+}
+
+// Tabs
+.ecl-tabs__dropdown {
+  left: 0;
+  right: auto;
+}
+
+.ecl-tabs__next {
+  left: 0;
+  right: auto;
+  transform: rotate(180deg) translateY(50%);
+}
+
+.ecl-tabs__prev {
+  left: auto;
+  right: 0;
+  transform: rotate(180deg) translateY(50%);
+}
