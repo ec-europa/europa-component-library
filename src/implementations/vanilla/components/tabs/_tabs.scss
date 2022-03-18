@@ -40,7 +40,7 @@ $_outline-width: none !default;
   flex-wrap: wrap;
   list-style: none;
   margin: 0;
-  padding-left: 0;
+  padding-inline-start: 0;
 }
 
 .ecl-tabs__link {
@@ -66,8 +66,8 @@ $_outline-width: none !default;
 .ecl-tabs__link--active {
   background-color: map.get(theme.$color, 'white');
   border-bottom: 1px solid map.get(theme.$color, 'white');
-  border-left: 1px solid $_tabs-border-color;
-  border-right: 1px solid $_tabs-border-color;
+  border-inline-start: 1px solid $_tabs-border-color;
+  border-inline-end: 1px solid $_tabs-border-color;
   border-top: 4px solid $_tabs-active-border-top-color;
   color: $_tabs-active-font-color;
   font-weight: map.get(theme.$font-weight, 'bold');
@@ -81,7 +81,7 @@ $_outline-width: none !default;
 .ecl-tabs__item--more {
   align-self: center;
   flex-grow: 1;
-  text-align: right;
+  text-align: end;
 }
 
 .ecl-tabs__item {
@@ -140,7 +140,7 @@ $_outline-width: none !default;
   padding: 0;
   position: absolute;
   right: 0;
-  text-align: left;
+  text-align: start;
   top: 100%;
   width: 100%;
 

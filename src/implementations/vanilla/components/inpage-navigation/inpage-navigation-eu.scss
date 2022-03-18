@@ -60,7 +60,9 @@ $toggle-width: calc(
   $_trigger: (
     'background': map.get(theme.$color, 'blue-100'),
     'padding': calc(#{map.get(theme.$spacing, 's')} - #{$outline-width})
-      calc(#{$toggle-width} - #{$outline-width})
+      calc(
+        #{$toggle-width} + #{map.get(theme.$spacing, 'm')} - #{$outline-width}
+      )
       calc(#{map.get(theme.$spacing, 's')} - #{$outline-width})
       calc(#{map.get(theme.$spacing, 's')} - #{$outline-width}),
     'separator': none,
