@@ -29,6 +29,34 @@ export class Datepicker {
       theme = 'ecl-datepicker-theme',
       yearRange = 40,
       reposition = false,
+      i18n = {
+        previousMonth: 'Previous Month',
+        nextMonth: 'Next Month',
+        months: [
+          'January',
+          'February',
+          'March',
+          'April',
+          'May',
+          'June',
+          'July',
+          'August',
+          'September',
+          'October',
+          'November',
+          'December',
+        ],
+        weekdays: [
+          'Sunday',
+          'Monday',
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday',
+          'Saturday',
+        ],
+        weekdaysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+      },
       showDaysInNextAndPreviousMonths = true,
       enableSelectionDaysInNextAndPreviousMonths = true,
     } = {}
@@ -46,6 +74,7 @@ export class Datepicker {
     this.format = format;
     this.theme = theme;
     this.yearRange = yearRange;
+    this.i18n = i18n;
     this.showDaysInNextAndPreviousMonths = showDaysInNextAndPreviousMonths;
     this.enableSelectionDaysInNextAndPreviousMonths =
       enableSelectionDaysInNextAndPreviousMonths;
@@ -61,6 +90,7 @@ export class Datepicker {
       format: this.format,
       yearRange: this.yearRange,
       firstDay: 1,
+      i18n: this.i18n,
       theme: this.theme,
       reposition: this.reposition,
       showDaysInNextAndPreviousMonths: this.showDaysInNextAndPreviousMonths,
