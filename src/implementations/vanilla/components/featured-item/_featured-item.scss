@@ -71,20 +71,21 @@ $_extended-padding-bottom: null !default;
 .ecl-featured-item--extended {
   .ecl-featured-item__container {
     background-color: $_extended-background;
-    border-left: $_extended-mobile-border-size solid $_extended-border-color;
+    border-inline-start: $_extended-mobile-border-size solid
+      $_extended-border-color;
     border-radius: $_extended-border-radius;
     overflow: hidden;
     padding-bottom: map.get(theme.$spacing, 'm');
-    padding-left: map.get(theme.$spacing, 'xs');
-    padding-right: map.get(theme.$spacing, 'm');
+    padding-inline-start: map.get(theme.$spacing, 'xs');
+    padding-inline-end: map.get(theme.$spacing, 'm');
     padding-top: map.get(theme.$spacing, 'm');
   }
 
   .ecl-featured-item__heading {
-    padding-left: calc(
+    padding-inline-start: calc(
       #{map.get(theme.$spacing, 'xs')} + #{$_extended-mobile-border-size}
     );
-    padding-right: map.get(theme.$spacing, 'm');
+    padding-inline-end: map.get(theme.$spacing, 'm');
   }
 }
 
@@ -107,7 +108,7 @@ $_extended-padding-bottom: null !default;
 
     &:first-child {
       padding-bottom: 0;
-      padding-right: map.get(theme.$spacing, 'm');
+      padding-inline-end: map.get(theme.$spacing, 'm');
     }
   }
 
@@ -121,16 +122,16 @@ $_extended-padding-bottom: null !default;
   .ecl-featured-item--extended {
     .ecl-featured-item__container {
       padding-bottom: $_extended-padding-bottom;
-      padding-left: $_extended-padding-left;
-      padding-right: map.get(theme.$spacing, 'm');
+      padding-inline-start: $_extended-padding-left;
+      padding-inline-end: map.get(theme.$spacing, 'm');
       padding-top: $_extended-padding-top;
     }
 
     .ecl-featured-item__heading {
-      padding-left: calc(
+      padding-inline-start: calc(
         #{$_extended-padding-left} + #{$_extended-border-size}
       );
-      padding-right: map.get(theme.$spacing, 'm');
+      padding-inline-end: map.get(theme.$spacing, 'm');
     }
   }
 }

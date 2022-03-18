@@ -78,7 +78,7 @@ $_border-radius: null !default;
   .ecl-content-item__image {
     flex-shrink: 0;
     margin-bottom: 0;
-    margin-right: map.get(theme.$spacing, 'xl');
+    margin-inline-end: map.get(theme.$spacing, 'xl');
   }
 
   .ecl-content-item__image--l {
@@ -109,8 +109,8 @@ $_border-radius: null !default;
     }
 
     .ecl-content-item__image {
-      margin-left: map.get(theme.$spacing, 'xl');
-      margin-right: 0;
+      margin-inline-start: map.get(theme.$spacing, 'xl');
+      margin-inline-end: 0;
     }
   }
 }
@@ -124,12 +124,12 @@ $_border-radius: null !default;
 }
 
 .ecl-content-item__date {
-  margin-right: map.get(theme.$spacing, 'm');
+  margin-inline-end: map.get(theme.$spacing, 'm');
 }
 
 // stylelint-disable-next-line order/order
 @include breakpoints.up('l') {
   .ecl-content-item__date {
-    margin-right: map.get(theme.$spacing, 'xl');
+    margin-inline-end: map.get(theme.$spacing, 'xl');
   }
 }

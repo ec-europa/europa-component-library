@@ -30,7 +30,7 @@ $_font-weight: null !default;
   flex-direction: column;
   justify-content: center;
   margin-bottom: 0;
-  margin-right: 0;
+  margin-inline-end: 0;
   margin-top: 0;
   overflow: hidden;
   position: relative;
@@ -40,8 +40,8 @@ $_font-weight: null !default;
 .ecl-container
   .ecl-hero-banner:not(.ecl-hero-banner--full-width)
   .ecl-container {
-  padding-left: map.get($_padding-horizontal, 's');
-  padding-right: map.get($_padding-horizontal, 's');
+  padding-inline-start: map.get($_padding-horizontal, 's');
+  padding-inline-end: map.get($_padding-horizontal, 's');
 }
 
 .ecl-hero-banner__container {
@@ -120,8 +120,8 @@ $_font-weight: null !default;
   .ecl-container
     .ecl-hero-banner:not(.ecl-hero-banner--full-width)
     .ecl-container {
-    padding-left: map.get($_padding-horizontal, 'xl');
-    padding-right: map.get($_padding-horizontal, 'xl');
+    padding-inline-start: map.get($_padding-horizontal, 'xl');
+    padding-inline-end: map.get($_padding-horizontal, 'xl');
   }
 
   .ecl-hero-banner__title {
@@ -136,7 +136,7 @@ $_font-weight: null !default;
 .ecl-hero-banner--full-width {
   border-radius: 0;
   left: 50%;
-  margin-left: -50vw;
+  margin-inline-start: -50vw;
   width: 100vw;
 }
 
@@ -241,7 +241,7 @@ $_font-weight: null !default;
     .ecl-hero-banner__content {
       background: map.get($_background, 'image-box');
       border-bottom: map.get($_border-width, 'bottom') solid $_border-color;
-      border-left: map.get($_border-width, 'left') solid $_border-color;
+      border-inline-start: map.get($_border-width, 'left') solid $_border-color;
       border-radius: map.get($_border-radius, 'content');
       padding: $_padding-vertical map.get($_padding-horizontal, 's')
         calc(#{$_padding-vertical} - #{map.get($_border-width, 'bottom')})

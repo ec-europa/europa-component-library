@@ -34,7 +34,7 @@
   flex-wrap: wrap;
   list-style: none;
   margin-bottom: 0;
-  padding-left: 0;
+  padding-inline-start: 0;
 }
 
 .ecl-social-media-share__item {
@@ -46,7 +46,7 @@
 
   &:not(:last-child) .ecl-link {
     color: map.get(theme.$color, 'white');
-    padding-right: map.get(theme.$spacing, 'xs');
+    padding-inline-end: map.get(theme.$spacing, 'xs');
     width: 8.125rem;
   }
 }
@@ -66,7 +66,7 @@
 .ecl-social-media-share__icon,
 .ecl-social-media-share__icon-hover {
   flex-shrink: 0;
-  margin-right: map.get(theme.$spacing, 'xs');
+  margin-inline-end: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-social-media-share__icon {
