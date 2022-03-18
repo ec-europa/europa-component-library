@@ -27,7 +27,7 @@ $_item-outline-offset: null !default;
   list-style: none;
   margin-bottom: 0;
   margin-top: -#{map.get(theme.$spacing, 'xs')};
-  padding-left: 0;
+  padding-inline-start: 0;
 }
 
 .ecl-gallery__item {
@@ -111,7 +111,7 @@ $_item-outline-offset: null !default;
 
 .ecl-gallery__info {
   color: $_gallery-info-color;
-  float: right;
+  float: end;
   font: $_gallery-info-font;
   padding: map.get(theme.$spacing, 'm') map.get(theme.$spacing, 's');
 }
@@ -131,13 +131,13 @@ $_item-outline-offset: null !default;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-left: -#{map.get(theme.$spacing, 'xs')};
+    margin-inline-start: -#{map.get(theme.$spacing, 'xs')};
   }
 
   .ecl-gallery__item {
     flex-grow: 1;
     height: $_image-height;
-    margin-left: map.get(theme.$spacing, 'xs');
+    margin-inline-start: map.get(theme.$spacing, 'xs');
     min-width: $_image-height;
     position: relative;
   }
@@ -304,7 +304,6 @@ $_overlay-links-hover-color: null !default;
   flex-shrink: 0;
   margin: $_arrow-margins;
   position: absolute;
-  right: 0;
 
   &:hover,
   &:focus {
@@ -320,8 +319,10 @@ $_overlay-links-hover-color: null !default;
 }
 
 .ecl-gallery__detail-counter {
+  display: inline-flex;
   font: map.get(theme.$font, 'm');
   font-weight: map.get(theme.$font-weight, 'bold');
+  white-space: pre-wrap;
 }
 
 .ecl-gallery__detail-actions {
@@ -329,7 +330,7 @@ $_overlay-links-hover-color: null !default;
 }
 
 .ecl-gallery__share {
-  margin-left: map.get(theme.$spacing, 's');
+  margin-inline-start: map.get(theme.$spacing, 's');
 }
 
 .ecl-gallery__download,
@@ -385,8 +386,8 @@ $_overlay-links-hover-color: null !default;
   .ecl-gallery__slider-previous {
     align-self: initial;
     margin-bottom: 0;
-    margin-left: $_arrow-margin;
-    margin-right: map.get(theme.$spacing, '2xs');
+    margin-inline-start: $_arrow-margin;
+    margin-inline-end: map.get(theme.$spacing, '2xs');
     margin-top: 0;
     order: -1;
   }
@@ -395,8 +396,8 @@ $_overlay-links-hover-color: null !default;
     align-self: initial;
     bottom: auto;
     margin-bottom: 0;
-    margin-left: map.get(theme.$spacing, '2xs');
-    margin-right: $_arrow-margin;
+    margin-inline-start: map.get(theme.$spacing, '2xs');
+    margin-inline-end: $_arrow-margin;
     margin-top: 0;
     position: relative;
     right: auto;

@@ -63,6 +63,6 @@ $_scrollbar-width: 16px; // average scrollbar width; used in full screen calculu
 // We have to substract the scrollbar width, as it is not handled well by vw unit)
 .ecl-media-container--full-width {
   left: 50%;
-  margin-left: calc(-50vw + (#{$_scrollbar-width} / 2));
+  margin-inline-start: calc(-50vw + (#{$_scrollbar-width} / 2));
   width: calc(100vw - #{$_scrollbar-width});
 }
