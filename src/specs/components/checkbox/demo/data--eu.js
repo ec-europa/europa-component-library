@@ -39,5 +39,14 @@ module.exports = {
       value: 'fr',
       icon_path: '/icons.svg',
     },
+    {
+      helper_id: 'helper-default-4',
+      id: 'checkbox-default-4',
+      label:
+        'Lorem ipsum dolor sit amet, <a href="#">consectetur adipiscing elit</a>. Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.',
+      value: 'lorem',
+      helper_text: 'Helper text for an option',
+      icon_path: '/icons.svg',
+    },
   ],
 };

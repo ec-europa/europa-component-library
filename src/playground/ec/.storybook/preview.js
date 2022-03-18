@@ -1,6 +1,7 @@
 import { addParameters } from '@storybook/html';
 import { withCssResources } from '@storybook/addon-cssresources';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+
 import './ECL';
 
 addParameters({
@@ -35,6 +36,12 @@ addParameters({
       id: 'ecl-ec',
       code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec.css" />`,
       picked: true,
+      hideCode: true,
+    },
+    {
+      id: 'ecl-rtl',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-rtl.css" />`,
+      picked: false,
       hideCode: true,
     },
     {

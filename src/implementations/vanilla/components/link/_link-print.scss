@@ -18,7 +18,7 @@ $_negative-color: null !default;
 .ecl-link::after {
   content: '(' attr(href) ')';
   font-style: italic;
-  margin-left: map.get(theme.$spacing-print, '2xs');
+  margin-inline-start: map.get(theme.$spacing-print, '2xs');
   text-decoration: underline;
 }
 

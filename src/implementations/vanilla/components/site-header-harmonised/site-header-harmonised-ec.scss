@@ -186,6 +186,10 @@ $_logo-width-lg: 15.1rem;
   padding: map.get(theme.$spacing, 'm') 0;
 }
 
+.ecl-site-header-harmonised__site-name {
+  margin-right: map.get(theme.$spacing, '3xl');
+}
+
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('s') {
   .ecl-site-header-harmonised__logo-link {
@@ -329,6 +333,7 @@ $_logo-width-lg: 15.1rem;
 
   .ecl-site-header-harmonised__site-name {
     padding: map.get(theme.$spacing, 'l') 0;
+    margin-right: 0;
   }
 }
 

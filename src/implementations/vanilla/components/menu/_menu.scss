@@ -181,7 +181,7 @@ $_mobile-item-hover-background: null !default;
   flex-direction: column;
   font: map.get(theme.$font, 'xs');
   margin-bottom: $_menu-open-vertical-margin;
-  margin-left: auto;
+  margin-inline-start: auto;
   margin-top: $_menu-open-vertical-margin;
   order: 2;
   padding: $_menu-open-button-padding;
@@ -235,8 +235,8 @@ $_mobile-item-hover-background: null !default;
   display: flex;
   flex-flow: row-reverse;
   padding-bottom: $_menu-mobile-vertical-padding;
-  padding-left: $_menu-header-horizontal-padding;
-  padding-right: $_menu-header-horizontal-padding;
+  padding-inline-start: $_menu-header-horizontal-padding;
+  padding-inline-end: $_menu-header-horizontal-padding;
   padding-top: $_menu-mobile-vertical-padding;
   position: sticky;
   top: 0;
@@ -256,8 +256,8 @@ $_mobile-item-hover-background: null !default;
   font: map.get(theme.$font, 'xl');
   font-weight: $_menu-title-font-weight;
   margin-bottom: -#{map.get(theme.$spacing, 's')};
-  margin-left: -#{map.get(theme.$spacing, 'xs')};
-  margin-right: -#{map.get(theme.$spacing, 'xs')};
+  margin-inline-start: -#{map.get(theme.$spacing, 'xs')};
+  margin-inline-end: -#{map.get(theme.$spacing, 'xs')};
   margin-top: -#{map.get(theme.$spacing, 's')};
   padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'xs');
 
@@ -277,7 +277,7 @@ $_mobile-item-hover-background: null !default;
   // Would be better to have a variant of button here
   .ecl-button__icon,
   .ecl-button__label {
-    margin-right: 0;
+    margin-inline-end: 0;
   }
 }
 
@@ -323,7 +323,7 @@ $_mobile-item-hover-background: null !default;
   list-style-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
   margin-bottom: 0;
   margin-top: 0;
-  padding-left: 0;
+  padding-inline-start: 0;
   position: relative;
   z-index: map.get(theme.$z-index, 'modal') + 1;
 }
@@ -331,8 +331,8 @@ $_mobile-item-hover-background: null !default;
 .ecl-menu__item {
   border-top: $_menu-item-border;
   box-sizing: content-box;
-  margin-left: map.get(theme.$spacing, 'm');
-  margin-right: map.get(theme.$spacing, 'm');
+  margin-inline-start: map.get(theme.$spacing, 'm');
+  margin-inline-end: map.get(theme.$spacing, 'm');
   position: relative;
 }
 
@@ -344,11 +344,11 @@ $_mobile-item-hover-background: null !default;
   font: map.get(theme.$font-prolonged, 'm');
   font-weight: $_menu-item-weight;
   justify-content: space-between;
-  margin-left: -#{map.get(theme.$spacing, 'm')};
-  margin-right: -#{map.get(theme.$spacing, 'm')};
+  margin-inline-start: -#{map.get(theme.$spacing, 'm')};
+  margin-inline-end: -#{map.get(theme.$spacing, 'm')};
   padding-bottom: $_menu-link-mobile-padding;
-  padding-left: map.get(theme.$spacing, 'm');
-  padding-right: map.get(theme.$spacing, 'm');
+  padding-inline-start: map.get(theme.$spacing, 'm');
+  padding-inline-end: map.get(theme.$spacing, 'm');
   padding-top: $_menu-link-mobile-padding;
   position: relative;
   text-decoration: none;
@@ -428,16 +428,16 @@ $_mobile-item-hover-background: null !default;
 
     .ecl-menu__item {
       border-top-width: 0;
-      margin-left: 0;
-      margin-right: 0;
-      padding-left: map.get(theme.$spacing, 'm');
-      padding-right: map.get(theme.$spacing, 'm');
+      margin-inline-start: 0;
+      margin-inline-end: 0;
+      padding-inline-start: map.get(theme.$spacing, 'm');
+      padding-inline-end: map.get(theme.$spacing, 'm');
     }
 
     .ecl-menu__link-icon {
       flex-shrink: 0;
       height: map.get(theme.$icon, '2xs');
-      margin-left: $_menu-item-icon-margin;
+      margin-inline-start: $_menu-item-icon-margin;
       transform: rotate(180deg);
       transition-property: transform;
       width: map.get(theme.$icon, '2xs');
@@ -486,7 +486,7 @@ $_mobile-item-hover-background: null !default;
     }
 
     .ecl-menu__item--has-children .ecl-menu__link {
-      padding-right: $_menu-link-padding-right;
+      padding-inline-end: $_menu-link-padding-right;
     }
 
     .ecl-menu__link:focus {
@@ -562,13 +562,13 @@ $_mobile-item-hover-background: null !default;
   color: map.get(theme.$color, 'blue');
   display: block;
   font: map.get(theme.$font-prolonged, 'm');
-  margin-left: -#{map.get(theme.$spacing, 'm')};
-  margin-right: -#{map.get(theme.$spacing, 'm')};
+  margin-inline-start: -#{map.get(theme.$spacing, 'm')};
+  margin-inline-end: -#{map.get(theme.$spacing, 'm')};
   padding-bottom: $_menu-sublink-mobile-vertical-padding;
-  padding-left: calc(
+  padding-inline-start: calc(
     #{map.get(theme.$spacing, 'm')} + #{map.get(theme.$spacing, 's')}
   );
-  padding-right: map.get(theme.$spacing, 'm');
+  padding-inline-end: map.get(theme.$spacing, 'm');
   padding-top: $_menu-sublink-mobile-vertical_padding;
   position: relative;
   text-decoration: none;
@@ -708,8 +708,8 @@ $_mobile-item-hover-background: null !default;
     .ecl-menu__sublink {
       break-inside: avoid-column;
       margin-bottom: $_menu-sublink-outline-offset;
-      margin-left: $_menu-sublink-desktop-margin;
-      margin-right: $_menu-sublink-desktop-margin;
+      margin-inline-start: $_menu-sublink-desktop-margin;
+      margin-inline-end: $_menu-sublink-desktop-margin;
       margin-top: $_menu-sublink-outline-offset;
       padding: $_menu-sublink-desktop-padding;
       white-space: normal;

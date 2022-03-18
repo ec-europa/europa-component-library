@@ -15,5 +15,7 @@ rm -rf ./dist/packages
 mkdir -p ./dist/packages
 cp -r ./src/presets/ec/dist ./dist/packages/ec
 cp -r ./src/presets/reset/dist/styles ./dist/packages/ec
+cp -r ./src/presets/rtl/dist/styles ./dist/packages/ec
 cp -r ./src/presets/eu/dist ./dist/packages/eu
 cp -r ./src/presets/reset/dist/styles ./dist/packages/eu
+cp -r ./src/presets/rtl/dist/styles ./dist/packages/eu
