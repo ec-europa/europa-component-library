@@ -71,6 +71,7 @@ $_border-radius: null !default;
 
 .ecl-navigation-list__item--no-border {
   .ecl-card {
+    border-radius: 0;
     border-width: 0;
     box-shadow: none;
   }
@@ -78,5 +79,9 @@ $_border-radius: null !default;
   .ecl-card__body {
     padding-left: 0;
     padding-right: 0;
+  }
+
+  .ecl-card__body::before {
+    display: none;
   }
 }
