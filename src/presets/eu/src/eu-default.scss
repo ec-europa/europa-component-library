@@ -128,6 +128,10 @@
   @extend %ecl-table__cell;
 }
 
+.ecl td:not([data-ecl-table-header]) {
+  @extend %ecl-table__cell-no-data;
+}
+
 .ecl blockquote:not([class*='ecl-'], [class*='wt-']),
 .ecl blockquote:is([class*='ecl-u-']) {
   @extend %ecl-blockquote;
