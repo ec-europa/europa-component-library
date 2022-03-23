@@ -4,3 +4,78 @@ body {
   margin: 0;
   overflow-x: hidden;
 }
+
+html {
+  direction: rtl;
+}
+
+// Carousel
+.ecl-carousel__next {
+  left: 0;
+  right: auto;
+}
+
+.ecl-carousel__prev {
+  left: auto;
+  right: 0;
+}
+
+// Gallery
+.ecl-gallery__image-icon {
+  left: 0;
+  right: auto;
+}
+
+// Hero banner
+.ecl-hero-banner--full-width {
+  left: auto;
+  right: 50%;
+}
+
+// Icons
+.ecl-icon--rotate-90 {
+  transform: rotate(270deg);
+}
+
+.ecl-icon--rotate-270 {
+  transform: rotate(90deg);
+}
+
+// Media container
+.ecl-media-container--full-width {
+  left: auto;
+  right: 50%;
+}
+
+// Menu
+.ecl-menu__link-icon {
+  transform: rotate(-90deg);
+}
+
+.ecl-menu__back .ecl-icon {
+  transform: rotate(90deg);
+}
+
+// Page banner
+.ecl-page-banner--full-width {
+  left: auto;
+  right: 50%;
+}
+
+// Tabs
+.ecl-tabs__dropdown {
+  left: 0;
+  right: auto;
+}
+
+.ecl-tabs__next {
+  left: 0;
+  right: auto;
+  transform: rotate(180deg) translateY(50%);
+}
+
+.ecl-tabs__prev {
+  left: auto;
+  right: 0;
+  transform: rotate(180deg) translateY(50%);
+}

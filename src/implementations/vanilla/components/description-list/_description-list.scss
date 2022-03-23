@@ -39,10 +39,10 @@ $_definition-margin-top: null !default;
 .ecl-description-list__definition {
   color: $_definition-color;
   font: map.get(theme.$font-prolonged, 'm');
-  margin-left: 0;
+  margin-inline-start: 0;
   margin-top: $_definition-margin-top;
   max-width: calc(80ch - #{map.get(theme.$spacing, '2xl')});
-  padding-left: map.get(theme.$spacing, 's');
+  padding-inline-start: map.get(theme.$spacing, 's');
 }
 
 .ecl-description-list__definition + .ecl-description-list__definition {
@@ -75,7 +75,7 @@ $_divider-color: null !default;
     color: $_definition-color;
     font: map.get(theme.$font, 'm');
     margin-top: $_horizontal-item-margin-top;
-    padding-left: 0;
+    padding-inline-start: 0;
   }
 
   .ecl-description-list__term:first-of-type {
@@ -98,7 +98,7 @@ $_divider-color: null !default;
 
     .ecl-description-list__definition,
     %ecl-description-list__definition {
-      margin-left: map.get(theme.$spacing, 'xl');
+      margin-inline-start: map.get(theme.$spacing, 'xl');
       overflow-wrap: break-word;
       width: calc(#{$_definition-width} - #{map.get(theme.$spacing, 'xl')});
     }
@@ -116,11 +116,11 @@ $_divider-color: null !default;
 
   .ecl-description-list__tag {
     margin-bottom: map.get(theme.$spacing, 'xs');
-    margin-right: map.get(theme.$spacing, 'xs');
+    margin-inline-end: map.get(theme.$spacing, 'xs');
   }
 
   .ecl-description-list__tag:last-of-type {
-    margin-right: 0;
+    margin-inline-end: 0;
   }
 }
 
