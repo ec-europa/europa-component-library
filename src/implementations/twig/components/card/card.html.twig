@@ -18,12 +18,15 @@
             },
             ...
           ]
-          links: [], (array) (default: []): List of links (required if Card type is a 'tile'). Format: [
+          links: [], (array) (default: []): Array or multi array of links (required if Card type is a 'tile'). Format: [
             {
               label: (string) (default: ''): Label of link
               path: (string) (default: ''): Link url (href attribute)
             },
             ...
+          ] OR [
+            [ { label, path }, { label, path }, ... ],
+            [ { label, path }, { label, path }, ... ],
           ],
           lists [], (array) (default: []) Array of objects of type "description list". Format: [
             {
@@ -138,17 +141,33 @@
     {% endif %}
 
     {% if _card.links is defined and _card.links is not empty and _card.links is iterable %}
-      <ul class="ecl-card__link-container">
-        {% for link in _card.links %}
-          <li class="ecl-card__link-item">
-            {% include '@ecl/link/link.html.twig' with {
-              link: link|merge({ type: 'standalone' }),
-              extra_classes: 'ecl-card__link',
-              icon_path: _icon_path
-            } only %}
-          </li>
+      {% if _card.links[0][0] is defined %}
+        {% for _section in _card.links %}
+          <ul class="ecl-card__link-container">
+            {% for link in _section %}
+              <li class="ecl-card__link-item">
+                {% include '@ecl/link/link.html.twig' with {
+                  link: link|merge({ type: 'standalone' }),
+                  extra_classes: 'ecl-card__link',
+                  icon_path: _icon_path
+                } only %}
+              </li>
+            {% endfor %}
+          </ul>
         {% endfor %}
-      </ul>
+      {% else %}
+        <ul class="ecl-card__link-container">
+          {% for link in _card.links %}
+            <li class="ecl-card__link-item">
+              {% include '@ecl/link/link.html.twig' with {
+                link: link|merge({ type: 'standalone' }),
+                extra_classes: 'ecl-card__link',
+                icon_path: _icon_path
+              } only %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
     {% endif %}
 
     {% if _card.infos is defined and _card.infos is not empty and _card.infos is iterable %}

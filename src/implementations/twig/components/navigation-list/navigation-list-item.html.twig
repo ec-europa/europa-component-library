@@ -1,0 +1,83 @@
+{% spaceless %}
+
+{#
+  Parameters:
+    - "border" (boolean) (default: false): Is there an extra border and padding?
+    - "image" (associative array) (default: {}): 
+      - "src" (string) (default: ''): Path to the image
+      - "size" (string) (default: 'm'): Size of the image (can be 's' or 'l')
+    - "title" (associative array) (default: {}): Predefined structure compatible with Link component
+    - "description" (string) (default: ''): Description of the navigation list
+    - "links": [], (array) (default: []): Array or multi array of links. Format: 
+      [
+        {
+          label: (string) (default: ''): Label of link
+          path: (string) (default: ''): Link url (href attribute)
+        },
+        ...
+      ]
+      OR
+      [
+        [ { label, path }, { label, path }, ... ],
+        [ { label, path }, { label, path }, ... ],
+      ],
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        ...
+      ],
+#}
+
+{# Internal properties #}
+
+{% set _border = border|default(false) %}
+{% set _image = image|default({
+  src: '',
+  size: 'l'
+}) %}
+{% set _title = title|default({}) %}
+{% set _description = description|default('') %}
+{% set _links = links|default([]) %}
+{% set _css_class = 'ecl-navigation-list__item' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% set _card = {
+  card: {
+    image: _image,
+    title: _title,
+    description: _description,
+    links: _links,
+    type: "tile",
+  },
+} %}
+
+{% if not _border %}
+  {% set _css_class = _css_class ~ ' ecl-navigation-list__item--no-border' %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  {% include '@ecl/card/card.html.twig' with _card|merge({
+    extra_classes: 'ecl-navigation-list__card'
+  }) only %}
+</div>
+
+{% endspaceless %}
