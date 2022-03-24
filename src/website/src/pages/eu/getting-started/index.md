@@ -63,6 +63,10 @@ Here is an example of default HTML file using ECL:
   </body>
 </html>
 ```
+### moment.js
+
+As explained in a more technical language in the [datepicker api page](/eu/components/forms/datepicker/api/) ECL uses [Pikaday](https://github.com/Pikaday/Pikaday) which requires [moment.js](https://momentjs.com/) and this library is not bundled by ECL.
+Therefore **moment.js needs to be loaded or bundled by the application or website using ECL**, depending on the needs.
 
 ### Update file path and name
 
