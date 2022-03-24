@@ -5,11 +5,39 @@ import getSystem from '@ecl/builder/utils/getSystem';
 
 import specsEc from '@ecl/specs-component-datepicker/demo/data--ec';
 import specsEu from '@ecl/specs-component-datepicker/demo/data--eu';
+
 import datepicker from './datepicker.html.twig';
 import notes from './README.md';
 
 const system = getSystem();
 const dataDefault = system === 'eu' ? specsEu : specsEc;
+
+const dataTranslated = {
+  ...dataDefault,
+  autoinit: false,
+  helper_text: "Ceci est le texte d'aide de l'entrée",
+  invalid_text: "Ceci est le message d'erreur",
+};
+
+const withInit = (story) => {
+  const demo = story();
+  return `
+  <script>
+    var elt = document.querySelector('[data-ecl-datepicker-toggle]');
+    var datepicker = new ECL.Datepicker(elt, {
+      format: 'DD/MMM/YYYY',
+      i18n: {
+        previousMonth : 'Mois précédent',
+        nextMonth     : 'Mois prochain',
+        months        : ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
+        weekdays      : ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'],
+        weekdaysShort : ['Dim','Lun','Mar','Mer','Jeu','Ven','Sam']
+      }
+    });
+    datepicker.init();
+  </script>
+  ${demo}`;
+};
 
 const getArgs = (data) => ({
   show_label: true,
@@ -61,3 +89,12 @@ Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes(dataDefault);
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 Default.decorators = [withNotes, withCode];
+
+export const Translated = (args) =>
+  datepicker(prepareData(dataTranslated, args));
+
+Translated.storyName = 'translated';
+Translated.args = getArgs(dataTranslated);
+Translated.argTypes = getArgTypes(dataTranslated);
+Translated.parameters = { notes: { markdown: notes, json: dataTranslated } };
+Translated.decorators = [withNotes, withInit, withCode];

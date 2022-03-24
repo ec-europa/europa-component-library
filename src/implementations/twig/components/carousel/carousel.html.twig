@@ -104,7 +104,9 @@
         <span class="ecl-u-sr-only">{{ _sr_autoplay }}</span>
       </button>
       <div class="ecl-carousel__pagination">
-        <span class="ecl-carousel__current">1</span>&nbsp;{{ _counter_label }} {{_items|length}}
+        <span class="ecl-carousel__current">1</span>{{- ' ' -}}
+          {{- _counter_label }}{{- ' ' -}}
+        <span class="ecl-carousel__max">{{_items|length}}</span>
       </div>
       <div class="ecl-carousel__navigation">
         {% for item in _items %}

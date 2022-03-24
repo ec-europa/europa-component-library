@@ -82,6 +82,11 @@ The ECL is bundled in various [presets](docs/presets.md) in order to accomodate 
   ></script>
   ```
 
+### :warning: moment.js
+
+ECL uses [Pikaday](https://github.com/Pikaday/Pikaday) which requires [moment.js](https://momentjs.com/) and this library is not bundled by ECL.
+Therefore **moment.js needs to be loaded or bundled by the application or website using ECL**, depending on the needs.
+
 ## Need help?
 
 Please contact [COMM Europa Management](mailto:Europamanagement@ec.europa.eu) for support on using this resource for a European Commission website.

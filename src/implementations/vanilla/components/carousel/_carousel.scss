@@ -95,8 +95,10 @@ $_outline-width: null !default;
   left: 0;
 
   &:focus {
-    margin-left: $_outline-width;
-    padding-left: calc(#{map.get(theme.$spacing, 's')} - #{$_outline-width});
+    margin-inline-start: $_outline-width;
+    padding-inline-start: calc(
+      #{map.get(theme.$spacing, 's')} - #{$_outline-width}
+    );
   }
 }
 
@@ -104,8 +106,10 @@ $_outline-width: null !default;
   right: 0;
 
   &:focus {
-    margin-right: $_outline-width;
-    padding-right: calc(#{map.get(theme.$spacing, 's')} - #{$_outline-width});
+    margin-inline-end: $_outline-width;
+    padding-inline-end: calc(
+      #{map.get(theme.$spacing, 's')} - #{$_outline-width}
+    );
   }
 }
 
@@ -116,7 +120,7 @@ $_outline-width: null !default;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
-  margin-right: map.get(theme.$spacing, 'l');
+  margin-inline-end: map.get(theme.$spacing, 'l');
   padding: 0;
 
   &:focus {
@@ -130,8 +134,9 @@ $_outline-width: null !default;
   display: flex;
   font: map.get(theme.$font, 'm');
   font-weight: map.get(theme.$font-weight, 'bold');
-  margin-right: map.get(theme.$spacing, 'l');
+  margin-inline-end: map.get(theme.$spacing, 'l');
   padding-top: 2px;
+  white-space: pre-wrap;
 }
 
 .ecl-carousel__navigation {
@@ -145,7 +150,7 @@ $_outline-width: null !default;
   border-radius: 50%;
   cursor: pointer;
   height: 1rem;
-  margin-right: map.get(theme.$spacing, 'xs');
+  margin-inline-end: map.get(theme.$spacing, 'xs');
   width: 1rem;
 
   &:focus {
@@ -159,7 +164,7 @@ $_outline-width: null !default;
 
 .ecl-carousel-container--padded .ecl-page-banner {
   .ecl-container {
-    margin-left: 100px;
+    margin-inline-start: 100px;
     transition: all 0.2s;
   }
 }
@@ -169,7 +174,7 @@ $_outline-width: null !default;
  */
 .ecl-carousel--full-width {
   left: 50%;
-  margin-left: -50vw;
+  margin-inline-start: -50vw;
   width: 100vw;
 }
 
@@ -179,7 +184,7 @@ $_outline-width: null !default;
   .ecl-page-banner:not(.ecl-page-banner--full-width)
   .ecl-container {
   padding-left: map.get(theme.$spacing, 'm');
-  padding-right: map.get(theme.$spacing, 'm');
+  padding-inline-end: map.get(theme.$spacing, 'm');
 }
 
 /* stylelint-disable-next-line order/order */
