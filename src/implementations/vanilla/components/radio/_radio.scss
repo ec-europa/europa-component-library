@@ -68,7 +68,7 @@ $_outline-color: null !default;
   display: block;
   flex-shrink: 0;
   height: $_box-size;
-  margin-right: map.get(theme.$spacing, 'xs');
+  margin-inline-end: map.get(theme.$spacing, 'xs');
   margin-top: $_box-margin-top;
   position: relative;
   width: $_box-size;
@@ -146,10 +146,10 @@ $_outline-color: null !default;
 // Binary radio
 .ecl-radio--binary {
   display: inline-flex;
-  margin-right: map.get(theme.$spacing, 'm');
+  margin-inline-end: map.get(theme.$spacing, 'm');
   vertical-align: top;
 }
 
 .ecl-radio--binary:last-child {
-  margin-right: 0;
+  margin-inline-end: 0;
 }
