@@ -47,10 +47,14 @@ $_multiple-checkbox-label-vertical-padding: null !default;
   display: block;
   font: map.get(theme.$font, 'm');
   margin: 0;
-  padding: calc(#{map.get(theme.$spacing, 's')} - #{$_border-width})
-    calc(#{map.get(theme.$spacing, 's')} + #{$_arrow-width} - #{$_border-width})
-    calc(#{map.get(theme.$spacing, 's')} - #{$_border-width})
-    calc(#{map.get(theme.$spacing, 's')} - #{$_border-width});
+  padding-bottom: calc(#{map.get(theme.$spacing, 's')} - #{$_border-width});
+  padding-inline-end: calc(
+    #{map.get(theme.$spacing, 's')} + #{$_arrow-width} - #{$_border-width}
+  );
+  padding-inline-start: calc(
+    #{map.get(theme.$spacing, 's')} - #{$_border-width}
+  );
+  padding-top: calc(#{map.get(theme.$spacing, 's')} - #{$_border-width});
   width: 100%;
   z-index: 1;
 
@@ -73,12 +77,18 @@ $_multiple-checkbox-label-vertical-padding: null !default;
     border-width: $_border-width-focus;
     box-shadow: $_shadow-hover;
     outline: none;
-    padding: calc(#{map.get(theme.$spacing, 's')} - #{$_border-width-focus})
-      calc(
-        #{map.get(theme.$spacing, 's')} + #{$_arrow-width} - #{$_border-width-focus}
-      )
-      calc(#{map.get(theme.$spacing, 's')} - #{$_border-width-focus})
-      calc(#{map.get(theme.$spacing, 's')} - #{$_border-width-focus});
+    padding-bottom: calc(
+      #{map.get(theme.$spacing, 's')} - #{$_border-width-focus}
+    );
+    padding-inline-end: calc(
+      #{map.get(theme.$spacing, 's')} + #{$_arrow-width} - #{$_border-width-focus}
+    );
+    padding-inline-start: calc(
+      #{map.get(theme.$spacing, 's')} - #{$_border-width-focus}
+    );
+    padding-top: calc(
+      #{map.get(theme.$spacing, 's')} - #{$_border-width-focus}
+    );
   }
 }
 
@@ -137,8 +147,8 @@ $_multiple-checkbox-label-vertical-padding: null !default;
 .ecl-select__icon {
   align-items: center;
   background-color: $_arrow-background-color;
-  border-bottom-right-radius: $_border-radius;
-  border-top-right-radius: $_border-radius;
+  border-end-end-radius: $_border-radius;
+  border-start-end-radius: $_border-radius;
   display: flex;
   height: 100%;
   justify-content: center;
@@ -275,8 +285,8 @@ $_multiple-checkbox-label-vertical-padding: null !default;
 
   .ecl-checkbox__label {
     padding-bottom: $_multiple-checkbox-label-vertical-padding;
-    padding-left: map.get(theme.$spacing, 'm');
-    padding-right: map.get(theme.$spacing, 'm');
+    padding-inline-start: map.get(theme.$spacing, 'm');
+    padding-inline-end: map.get(theme.$spacing, 'm');
     padding-top: $_multiple-checkbox-label-vertical-padding;
     width: calc(
       100% - #{map.get(theme.$spacing, 'm')} - #{map.get(theme.$spacing, 'm')}
