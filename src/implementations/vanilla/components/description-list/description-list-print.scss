@@ -38,11 +38,11 @@ $_definition-width: 68%;
 
   .ecl-description-list__tag {
     margin-bottom: map.get(theme.$spacing-print, 'xs');
-    margin-right: map.get(theme.$spacing-print, 'xs');
+    margin-inline-end: map.get(theme.$spacing-print, 'xs');
   }
 
   .ecl-description-list__tag:last-of-type {
-    margin-right: 0;
+    margin-inline-end: 0;
   }
 }
 
@@ -66,10 +66,10 @@ $_definition-width: 68%;
 
   .ecl-description-list__definition {
     font: map.get(theme.$font-print, 'm');
-    margin-left: map.get(theme.$spacing-print, 'xl');
+    margin-inline-start: map.get(theme.$spacing-print, 'xl');
     margin-top: map.get(theme.$spacing-print, 'm');
     overflow-wrap: break-word;
-    padding-left: 0;
+    padding-inline-start: 0;
     width: calc(#{$_definition-width} - #{map.get(theme.$spacing-print, 'xl')});
   }
 

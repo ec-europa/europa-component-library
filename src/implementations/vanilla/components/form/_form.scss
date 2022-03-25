@@ -84,7 +84,7 @@ $_margin-invalid: null !default;
 }
 
 .ecl-feedback-message__icon {
-  margin-right: map.get(theme.$spacing, 'xs');
+  margin-inline-start: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-help-block {
@@ -99,18 +99,19 @@ $_margin-invalid: null !default;
 .ecl-form-label {
   box-sizing: border-box;
   color: $_color-label;
-  display: inline-block;
+  display: inline-flex;
   font: map.get(theme.$font-prolonged, 'm');
   font-weight: map.get(theme.$font-weight, 'bold');
   margin: 0;
   padding: 0;
+  white-space: pre-wrap;
 }
 
 .ecl-form-label__required {
   color: $_color-required;
   font: map.get(theme.$font, 'm');
-  font-style: italic;
   font-weight: map.get(theme.$font-weight, 'bold');
+  margin-inline-start: map.get(theme.$spacing, '2xs');
 }
 
 .ecl-form-label__optional {
