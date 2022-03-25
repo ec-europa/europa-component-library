@@ -59,7 +59,7 @@ $_outline-width: null !default;
   flex-shrink: 0;
   height: $_box-size;
   justify-content: center;
-  margin-right: map.get(theme.$spacing, 'xs');
+  margin-inline-end: map.get(theme.$spacing, 'xs');
   margin-top: $_box-margin-top;
   user-select: none;
   width: $_box-size;
@@ -96,7 +96,7 @@ $_outline-width: null !default;
   color: map.get(theme.$color, 'error');
   font: map.get(theme.$font, 'xl');
   font-weight: map.get(theme.$font-weight, 'bold');
-  padding-left: map.get(theme.$spacing, '2xs');
+  padding-inline-start: map.get(theme.$spacing, '2xs');
 }
 
 // Checked and indeterminate

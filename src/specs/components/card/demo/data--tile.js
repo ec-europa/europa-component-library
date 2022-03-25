@@ -11,9 +11,9 @@ module.exports = {
       label: 'Better regulation',
     },
     links: [
-      { label: 'link 1', path: exampleLink, type: 'standalone' },
-      { label: 'link 2', path: exampleLink, type: 'standalone' },
-      { label: 'link 3', path: exampleLink, type: 'standalone' },
+      { label: 'link 1', path: exampleLink },
+      { label: 'link 2', path: exampleLink },
+      { label: 'link 3', path: exampleLink },
     ],
   },
 };

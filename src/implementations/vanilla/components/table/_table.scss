@@ -36,7 +36,7 @@ $_sort-arrow-margin-top: null !default;
 
   &::before {
     background-color: map.get(theme.$color, 'blue-5');
-    border-right: 2px solid $_header-border-color;
+    border-inline-end: 2px solid $_header-border-color;
     content: attr(data-ecl-table-header);
     display: block;
     flex-basis: 10rem;
@@ -44,12 +44,12 @@ $_sort-arrow-margin-top: null !default;
     flex-shrink: 0;
     font-weight: map.get(theme.$font-weight, 'bold');
     margin-bottom: -#{map.get(theme.$spacing, 's')};
-    margin-left: -#{map.get(theme.$spacing, 's')};
-    margin-right: map.get(theme.$spacing, 's');
+    margin-inline-start: -#{map.get(theme.$spacing, 's')};
+    margin-inline-end: map.get(theme.$spacing, 's');
     margin-top: -#{map.get(theme.$spacing, 's')};
     padding-bottom: map.get(theme.$spacing, 's');
-    padding-left: map.get(theme.$spacing, 's');
-    padding-right: map.get(theme.$spacing, 'm');
+    padding-inline-start: map.get(theme.$spacing, 's');
+    padding-inline-end: map.get(theme.$spacing, 'm');
     padding-top: map.get(theme.$spacing, 's');
   }
 
@@ -78,7 +78,7 @@ $_sort-arrow-margin-top: null !default;
   %ecl-table__header {
     font-weight: map.get(theme.$font-weight, 'bold');
     padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
-    text-align: left;
+    text-align: start;
     vertical-align: bottom;
   }
 
@@ -148,7 +148,7 @@ $_sort-arrow-margin-top: null !default;
     font-weight: map.get(theme.$font-weight, 'bold');
     left: 0;
     padding-bottom: map.get(theme.$spacing, 's');
-    padding-left: map.get(theme.$spacing, 's');
+    padding-inline-start: map.get(theme.$spacing, 's');
     padding-top: map.get(theme.$spacing, 's');
     position: absolute;
     top: 0;
@@ -159,10 +159,10 @@ $_sort-arrow-margin-top: null !default;
 .ecl-table__cell--group {
   &::before {
     background-color: map.get(theme.$color, 'white-100');
-    border-right-color: map.get(theme.$color, 'white-100');
-    margin-left: -#{map.get(theme.$spacing, 's')};
-    margin-right: 0;
-    padding-left: map.get(theme.$spacing, 'l');
+    border-inline-end-color: map.get(theme.$color, 'white-100');
+    margin-inline-start: -#{map.get(theme.$spacing, 's')};
+    margin-inline-end: 0;
+    padding-inline-start: map.get(theme.$spacing, 'l');
   }
 }
 
@@ -184,7 +184,7 @@ $_sort-arrow-margin-top: null !default;
   }
 
   .ecl-table__cell--group {
-    padding-left: map.get(theme.$spacing, 's');
+    padding-inline-start: map.get(theme.$spacing, 's');
   }
 
   .ecl-table__cell[data-ecl-table-header-group] {
@@ -195,7 +195,7 @@ $_sort-arrow-margin-top: null !default;
 // SortTable
 .ecl-table__header[data-ecl-table-sort-toggle] {
   cursor: pointer;
-  padding-left: calc(
+  padding-inline-start: calc(
     #{map.get(theme.$spacing, 'm')} + #{map.get(theme.$icon, '2xs')} + #{map.get(
         theme.$spacing,
         'xs'

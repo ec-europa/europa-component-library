@@ -19,9 +19,19 @@ npm install --save @ecl/twig-component-card
   - "infos" (array) (default: []): List of infos. The format of each element in the array:
     - "label" (string) (default: ''): Label of info
     - "icon" (associative array) (default: {}): Predefined structure compatible with EC Icon
-  - "links" (array) (default: []): List of links (required if Card type is a 'tile'). The format of each element in the array
-    - "label" (string) (default: ''): Label of link
-    - "path" (string) (default: ''): Link url (href attribute)
+    - "links" (array) (default: []): Array or multi array of links (required if Card type is a 'tile')
+      [
+      {
+      label: (string) (default: ''): Label of link
+      path: (string) (default: ''): Link url (href attribute)
+      },
+      ...
+      ]
+      OR
+      [
+      [ { label, path }, { label, path }, ... ],
+      [ { label, path }, { label, path }, ... ],
+      ],
   - "lists" (array) (default: []) Array of objects of type "description list"
     - "variant" (optional) (taxonomy or horizontal)
     - "items" (array)
