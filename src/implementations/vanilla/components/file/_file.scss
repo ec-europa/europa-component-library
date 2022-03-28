@@ -62,7 +62,7 @@ $_image-width: null !default;
   flex-basis: 50%;
   flex-grow: 1;
   flex-wrap: wrap;
-  margin-left: $_file-info-margin-left;
+  margin-inline-start: $_file-info-margin-left;
 }
 
 .ecl-file__title {
@@ -76,7 +76,7 @@ $_image-width: null !default;
   color: $_file-color;
   font: map.get(theme.$font, 's');
   font-weight: map.get(theme.$font-weight, 'bold');
-  margin-right: map.get(theme.$spacing, 'xs');
+  margin-inline-end: map.get(theme.$spacing, 'xs');
   margin-top: map.get(theme.$spacing, '2xs');
 }
 
@@ -97,21 +97,22 @@ $_image-width: null !default;
 
 .ecl-file__detail-meta {
   color: $_file-detail-meta-color;
+  display: flex;
   font: map.get(theme.$font, 's');
   margin-bottom: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-file__detail-meta-item {
-  margin-left: map.get(theme.$spacing, 'xs');
+  margin-inline-start: map.get(theme.$spacing, 'xs');
 
   &::before {
     content: '|';
-    margin-right: map.get(theme.$spacing, 'xs');
+    margin-inline-end: map.get(theme.$spacing, 'xs');
   }
 }
 
 .ecl-file__detail-meta-item:first-of-type {
-  margin-left: 0;
+  margin-inline-start: 0;
   text-transform: uppercase;
 
   &::before {
@@ -121,9 +122,11 @@ $_image-width: null !default;
 
 .ecl-file__description {
   color: $_file-description-color;
+  display: inline-flex;
   font: map.get(theme.$font-prolonged, 'm');
   margin-top: map.get(theme.$spacing, 'xs');
   max-width: 80ch;
+  white-space: pre-wrap;
 }
 
 .ecl-file__image {
@@ -142,7 +145,7 @@ $_image-width: null !default;
 .ecl-file__label {
   display: inline-flex;
   margin-bottom: map.get(theme.$spacing, 'm');
-  margin-right: map.get(theme.$spacing, 'xs');
+  margin-inline-end: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-file__translation-language {
@@ -153,13 +156,13 @@ $_image-width: null !default;
 
 .ecl-file__translation-container {
   border: $_file-translation-container-border;
-  border-bottom-left-radius: $_border-radius;
-  border-bottom-right-radius: $_border-radius;
+  border-end-start-radius: $_border-radius;
+  border-end-end-radius: $_border-radius;
   border-top: 0;
   display: flex;
   flex-direction: column;
-  padding-left: map.get(theme.$spacing, 'l');
-  padding-right: map.get(theme.$spacing, 'l');
+  padding-inline-start: map.get(theme.$spacing, 'l');
+  padding-inline-end: map.get(theme.$spacing, 'l');
 }
 
 .ecl-file__translation-toggle {
@@ -168,7 +171,7 @@ $_image-width: null !default;
   font: map.get(theme.$font, 'm');
   font-weight: map.get(theme.$font-weight, 'regular');
   margin-bottom: $_file-translation-toggle-margin;
-  margin-right: -#{map.get(theme.$spacing, 'm')};
+  margin-inline-end: -#{map.get(theme.$spacing, 'm')};
   margin-top: $_file-translation-toggle-margin;
   padding: $_file-translation-padding;
 
@@ -181,7 +184,7 @@ $_image-width: null !default;
   display: none;
   list-style: none;
   margin: 0;
-  padding-left: 0;
+  padding-inline-start: 0;
 
   .no-js & {
     display: block;
@@ -258,7 +261,7 @@ $_image-width: null !default;
   }
 
   .ecl-file__info {
-    margin-right: map.get(theme.$spacing, 'm');
+    margin-inline-end: map.get(theme.$spacing, 'm');
   }
 
   .ecl-file__translation-item {
@@ -269,7 +272,7 @@ $_image-width: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
   .ecl-file__translation-container {
-    padding-left: $_file-translation-container-padding-left;
+    padding-inline-start: $_file-translation-container-padding-left;
   }
 
   .ecl-file__detail {
@@ -287,8 +290,8 @@ $_image-width: null !default;
 
   .ecl-file__image {
     align-self: flex-start;
-    margin-left: $_file-image-margin-left;
-    margin-right: $_file-image-margin-right;
+    margin-inline-start: $_file-image-margin-left;
+    margin-inline-end: $_file-image-margin-right;
     margin-top: 0;
   }
 
@@ -307,7 +310,7 @@ $_image-width: null !default;
   }
 
   .ecl-file__info {
-    margin-left: 0;
+    margin-inline-start: 0;
   }
 
   .ecl-file__title {
@@ -321,7 +324,7 @@ $_image-width: null !default;
   }
 
   .ecl-file__translation-container {
-    padding-left: map.get(theme.$spacing, 'l');
+    padding-inline-start: map.get(theme.$spacing, 'l');
   }
 
   .ecl-file__translation-item {
@@ -351,7 +354,7 @@ $_image-width: null !default;
   }
 
   .ecl-file__translation-meta {
-    margin-left: map.get(theme.$spacing, '2xs');
+    margin-inline-start: map.get(theme.$spacing, '2xs');
     margin-top: 0;
   }
 }
