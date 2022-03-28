@@ -299,6 +299,8 @@ export class Select {
       });
     }
 
+    this.select.options_init = this.select.options;
+
     this.select.parentNode.parentNode.insertBefore(
       this.selectMultiple,
       this.select.parentNode.nextSibling
@@ -515,6 +517,27 @@ export class Select {
       this.searchContainer.style.display === 'block'
     ) {
       this.searchContainer.style.display = 'none';
+    }
+
+    // Correctly reset the multiselect when resetting the form.
+    if (e.target && e.target.getAttribute('type') === 'reset') {
+      // Slight timeout necessary to execute the function just after the original reset of the form.
+      setTimeout(() => {
+        Array.from(this.select.options).forEach((option) => {
+          const checkbox = this.selectMultiple.querySelector(
+            `[data-select-multiple-value="${option.text}"]`
+          );
+          const input = checkbox.querySelector('.ecl-checkbox__input');
+          if (input.checked) {
+            option.setAttribute('selected', 'selected');
+            option.selected = true;
+          } else {
+            option.removeAttribute('selected', 'selected');
+            option.selected = false;
+          }
+        });
+        this.updateCurrentValue();
+      }, 10);
     }
   }
 }
