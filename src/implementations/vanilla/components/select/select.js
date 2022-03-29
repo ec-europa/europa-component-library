@@ -526,7 +526,7 @@ export class Select {
         const multiSelects = form.querySelectorAll('.ecl-select__multiple');
         let multiSelectInForm = false;
 
-        if (e.target.closest('form') && multiSelects.length > 0) {
+        if (multiSelects.length > 0) {
           Array.from(multiSelects).forEach((multiSelect) => {
             if (multiSelect === this.selectMultiple) {
               multiSelectInForm = true;
