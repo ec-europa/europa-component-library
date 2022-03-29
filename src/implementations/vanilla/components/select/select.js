@@ -299,8 +299,6 @@ export class Select {
       });
     }
 
-    this.select.options_init = this.select.options;
-
     this.select.parentNode.parentNode.insertBefore(
       this.selectMultiple,
       this.select.parentNode.nextSibling
