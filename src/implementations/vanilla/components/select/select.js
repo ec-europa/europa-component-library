@@ -299,8 +299,6 @@ export class Select {
       });
     }
 
-    this.select.options_init = this.select.options;
-
     this.select.parentNode.parentNode.insertBefore(
       this.selectMultiple,
       this.select.parentNode.nextSibling
@@ -528,40 +526,36 @@ export class Select {
         const multiSelects = form.querySelectorAll('.ecl-select__multiple');
         let multiSelectInForm = false;
 
-        if (e.target.closest('form') && multiSelects.length > 0) {
+        if (multiSelects.length > 0) {
           Array.from(multiSelects).forEach((multiSelect) => {
             if (multiSelect === this.selectMultiple) {
               multiSelectInForm = true;
             }
           });
 
-          if (!multiSelectInForm) {
-            return false;
+          // If the current multi-select matches the one of the form, we can reset it.
+          if (multiSelectInForm) {
+            // A slight timeout is necessary to execute the function just after the original reset of the form.
+            setTimeout(() => {
+              Array.from(this.select.options).forEach((option) => {
+                const checkbox = this.selectMultiple.querySelector(
+                  `[data-select-multiple-value="${option.text}"]`
+                );
+                const input = checkbox.querySelector('.ecl-checkbox__input');
+                if (input.checked) {
+                  option.setAttribute('selected', 'selected');
+                  option.selected = true;
+                } else {
+                  option.removeAttribute('selected', 'selected');
+                  option.selected = false;
+                }
+              });
+              this.updateCurrentValue();
+            }, 10);
           }
         }
       }
-
-      // If the current multi-select matches the one of the form, we can reset it,
-      // a slight timeout is necessary to execute the function just after the original reset of the form.
-      setTimeout(() => {
-        Array.from(this.select.options).forEach((option) => {
-          const checkbox = this.selectMultiple.querySelector(
-            `[data-select-multiple-value="${option.text}"]`
-          );
-          const input = checkbox.querySelector('.ecl-checkbox__input');
-          if (input.checked) {
-            option.setAttribute('selected', 'selected');
-            option.selected = true;
-          } else {
-            option.removeAttribute('selected', 'selected');
-            option.selected = false;
-          }
-        });
-        this.updateCurrentValue();
-      }, 10);
     }
-
-    return this;
   }
 }
 
