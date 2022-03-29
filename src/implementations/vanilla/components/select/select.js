@@ -519,9 +519,30 @@ export class Select {
       this.searchContainer.style.display = 'none';
     }
 
-    // Correctly reset the multiselect when resetting the form.
+    // Correctly reset the multi-select when resetting a form.
     if (e.target && e.target.getAttribute('type') === 'reset') {
-      // Slight timeout necessary to execute the function just after the original reset of the form.
+      // Check if multi-select exist in the current form.
+      const form = e.target.closest('form');
+
+      if (form) {
+        const multiSelects = form.querySelectorAll('.ecl-select__multiple');
+        let multiSelectInForm = false;
+
+        if (e.target.closest('form') && multiSelects.length > 0) {
+          Array.from(multiSelects).forEach((multiSelect) => {
+            if (multiSelect === this.selectMultiple) {
+              multiSelectInForm = true;
+            }
+          });
+
+          if (!multiSelectInForm) {
+            return false;
+          }
+        }
+      }
+
+      // If the current multi-select matches the one of the form, we can reset it,
+      // a slight timeout is necessary to execute the function just after the original reset of the form.
       setTimeout(() => {
         Array.from(this.select.options).forEach((option) => {
           const checkbox = this.selectMultiple.querySelector(
@@ -539,6 +560,8 @@ export class Select {
         this.updateCurrentValue();
       }, 10);
     }
+
+    return this;
   }
 }
 

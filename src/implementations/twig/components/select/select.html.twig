@@ -35,6 +35,13 @@
 
 {# Internal properties #}
 
+<form action="/action_page.php">
+  <label for="email">Enter your email:</label>
+  <input type="email" id="email" name="email"><br><br>
+
+  <label for="pin">Enter a PIN:</label>
+  <input type="text" id="pin" name="pin" maxlength="4"><br><br>
+
 {% set _id = id|default('') %}
 {% set _options = options|default([]) %}
 {% set _disabled = disabled|default(false) %}
@@ -179,3 +186,21 @@
 </div>
 
 {% endspaceless %}
+
+  <input type="reset" value="Reset">
+  <input type="submit" value="Submit">
+</form>
+
+
+<form action="/action_page.php">
+  <label for="email">Enter your email:</label>
+  <input type="email" id="email" name="email"><br><br>
+
+  <label for="pin">Enter a PIN:</label>
+  <input type="text" id="pin" name="pin" maxlength="4"><br><br>
+
+  <input type="reset" value="Reset">
+  <input type="submit" value="Submit">
+</form>
+
+<input type="reset" value="Reset">
