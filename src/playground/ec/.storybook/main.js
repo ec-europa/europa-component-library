@@ -15,6 +15,12 @@ const addons = [
   '@storybook/addon-a11y',
 ];
 
+const staticDirs = [
+  path.resolve(`${__dirname}/../../../presets/ec/build`),
+  path.resolve(`${__dirname}/../../../presets/reset/build`),
+  path.resolve(`${__dirname}/../../../presets/rtl/build`),
+];
+
 const webpackFinal = (config) => {
   // Trick "babel-loader", force it to transpile @ecl addons
   config.module.rules[0].exclude = /node_modules\/(?!@ecl\/).*/;
@@ -45,6 +51,7 @@ module.exports = {
   stories,
   addons,
   webpackFinal,
+  staticDirs,
   features: {
     postcss: false,
   },
