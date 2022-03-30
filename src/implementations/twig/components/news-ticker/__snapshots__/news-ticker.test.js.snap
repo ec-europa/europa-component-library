@@ -20,11 +20,11 @@ exports[`News ticker Default renders correctly 1`] = `
           <li
             aria-hidden="true"
             class="ecl-news-ticker__slide"
-            tabindex="-1"
           >
             <a
               class="ecl-link ecl-news-ticker__slide-text"
               href="/example"
+              tabindex="-1"
             >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit
             </a>
@@ -32,11 +32,11 @@ exports[`News ticker Default renders correctly 1`] = `
           <li
             aria-hidden="true"
             class="ecl-news-ticker__slide"
-            tabindex="-1"
           >
             <a
               class="ecl-link ecl-news-ticker__slide-text"
               href="/example"
+              tabindex="-1"
             >
               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
             </a>
@@ -44,11 +44,11 @@ exports[`News ticker Default renders correctly 1`] = `
           <li
             aria-hidden="true"
             class="ecl-news-ticker__slide"
-            tabindex="-1"
           >
             <a
               class="ecl-link ecl-news-ticker__slide-text"
               href="/example"
+              tabindex="-1"
             >
               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
             </a>
@@ -56,11 +56,11 @@ exports[`News ticker Default renders correctly 1`] = `
           <li
             aria-hidden="true"
             class="ecl-news-ticker__slide"
-            tabindex="-1"
           >
             <a
               class="ecl-link ecl-news-ticker__slide-text"
               href="/example"
+              tabindex="-1"
             >
               Excepteur sint occaecat cupidatat officia deserunt mollit anim id est laborum
             </a>
@@ -68,11 +68,11 @@ exports[`News ticker Default renders correctly 1`] = `
           <li
             aria-hidden="true"
             class="ecl-news-ticker__slide"
-            tabindex="-1"
           >
             <a
               class="ecl-link ecl-news-ticker__slide-text"
               href="/example"
+              tabindex="-1"
             >
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
             </a>
@@ -111,18 +111,14 @@ exports[`News ticker Default renders correctly 1`] = `
       <button
         aria-controls="news-ticker-example-content"
         class="ecl-button ecl-button--primary ecl-news-ticker__prev"
-        data-controls="prev"
         data-ecl-news-ticker-prev=""
-        tabindex="-1"
-        type="button"
       >
         <span
           class="ecl-button__container"
         >
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--after"
-            data-ecl-icon=""
+            class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-icon--inverted"
             focusable="false"
           >
             <use
@@ -130,20 +126,22 @@ exports[`News ticker Default renders correctly 1`] = `
             />
           </svg>
         </span>
+        <span
+          class="ecl-u-sr-only"
+        >
+          Previous news
+        </span>
       </button>
       <button
         class="ecl-button ecl-button--primary ecl-news-ticker__toggle"
-        data-action="stop"
         data-ecl-news-ticker-toggle=""
-        type="button"
       >
         <span
           class="ecl-button__container"
         >
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-button__icon ecl-button__icon--after"
-            data-ecl-icon=""
+            class="ecl-icon ecl-icon--m ecl-icon--inverted"
             focusable="false"
           >
             <use
@@ -151,28 +149,34 @@ exports[`News ticker Default renders correctly 1`] = `
             />
           </svg>
         </span>
+        <span
+          class="ecl-u-sr-only"
+        >
+          News ticker auto play
+        </span>
       </button>
       <button
         aria-controls="news-ticker-example-content"
-        class="ecl-button ecl-button--primary ecl-news-ticker__next"
-        data-controls="next"
+        class="ecl-button ecl-button--primary ecl-news-ticker__prev"
         data-ecl-news-ticker-next=""
-        tabindex="-1"
-        type="button"
       >
         <span
           class="ecl-button__container"
         >
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--after"
-            data-ecl-icon=""
+            class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-icon--inverted"
             focusable="false"
           >
             <use
               xlink:href="/icons.svg#corner-arrow"
             />
           </svg>
+        </span>
+        <span
+          class="ecl-u-sr-only"
+        >
+          Next news
         </span>
       </button>
     </div>
@@ -202,11 +206,11 @@ exports[`News ticker Default renders correctly with extra attributes 1`] = `
           <li
             aria-hidden="true"
             class="ecl-news-ticker__slide"
-            tabindex="-1"
           >
             <a
               class="ecl-link ecl-news-ticker__slide-text"
               href="/example"
+              tabindex="-1"
             >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit
             </a>
@@ -214,11 +218,11 @@ exports[`News ticker Default renders correctly with extra attributes 1`] = `
           <li
             aria-hidden="true"
             class="ecl-news-ticker__slide"
-            tabindex="-1"
           >
             <a
               class="ecl-link ecl-news-ticker__slide-text"
               href="/example"
+              tabindex="-1"
             >
               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
             </a>
@@ -226,11 +230,11 @@ exports[`News ticker Default renders correctly with extra attributes 1`] = `
           <li
             aria-hidden="true"
             class="ecl-news-ticker__slide"
-            tabindex="-1"
           >
             <a
               class="ecl-link ecl-news-ticker__slide-text"
               href="/example"
+              tabindex="-1"
             >
               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
             </a>
@@ -238,11 +242,11 @@ exports[`News ticker Default renders correctly with extra attributes 1`] = `
           <li
             aria-hidden="true"
             class="ecl-news-ticker__slide"
-            tabindex="-1"
           >
             <a
               class="ecl-link ecl-news-ticker__slide-text"
               href="/example"
+              tabindex="-1"
             >
               Excepteur sint occaecat cupidatat officia deserunt mollit anim id est laborum
             </a>
@@ -250,11 +254,11 @@ exports[`News ticker Default renders correctly with extra attributes 1`] = `
           <li
             aria-hidden="true"
             class="ecl-news-ticker__slide"
-            tabindex="-1"
           >
             <a
               class="ecl-link ecl-news-ticker__slide-text"
               href="/example"
+              tabindex="-1"
             >
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
             </a>
@@ -293,18 +297,14 @@ exports[`News ticker Default renders correctly with extra attributes 1`] = `
       <button
         aria-controls="news-ticker-example-content"
         class="ecl-button ecl-button--primary ecl-news-ticker__prev"
-        data-controls="prev"
         data-ecl-news-ticker-prev=""
-        tabindex="-1"
-        type="button"
       >
         <span
           class="ecl-button__container"
         >
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--after"
-            data-ecl-icon=""
+            class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-icon--inverted"
             focusable="false"
           >
             <use
@@ -312,20 +312,22 @@ exports[`News ticker Default renders correctly with extra attributes 1`] = `
             />
           </svg>
         </span>
+        <span
+          class="ecl-u-sr-only"
+        >
+          Previous news
+        </span>
       </button>
       <button
         class="ecl-button ecl-button--primary ecl-news-ticker__toggle"
-        data-action="stop"
         data-ecl-news-ticker-toggle=""
-        type="button"
       >
         <span
           class="ecl-button__container"
         >
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-button__icon ecl-button__icon--after"
-            data-ecl-icon=""
+            class="ecl-icon ecl-icon--m ecl-icon--inverted"
             focusable="false"
           >
             <use
@@ -333,28 +335,34 @@ exports[`News ticker Default renders correctly with extra attributes 1`] = `
             />
           </svg>
         </span>
+        <span
+          class="ecl-u-sr-only"
+        >
+          News ticker auto play
+        </span>
       </button>
       <button
         aria-controls="news-ticker-example-content"
-        class="ecl-button ecl-button--primary ecl-news-ticker__next"
-        data-controls="next"
+        class="ecl-button ecl-button--primary ecl-news-ticker__prev"
         data-ecl-news-ticker-next=""
-        tabindex="-1"
-        type="button"
       >
         <span
           class="ecl-button__container"
         >
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--after"
-            data-ecl-icon=""
+            class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-icon--inverted"
             focusable="false"
           >
             <use
               xlink:href="/icons.svg#corner-arrow"
             />
           </svg>
+        </span>
+        <span
+          class="ecl-u-sr-only"
+        >
+          Next news
         </span>
       </button>
     </div>
@@ -382,11 +390,11 @@ exports[`News ticker Default renders correctly with extra class names 1`] = `
           <li
             aria-hidden="true"
             class="ecl-news-ticker__slide"
-            tabindex="-1"
           >
             <a
               class="ecl-link ecl-news-ticker__slide-text"
               href="/example"
+              tabindex="-1"
             >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit
             </a>
@@ -394,11 +402,11 @@ exports[`News ticker Default renders correctly with extra class names 1`] = `
           <li
             aria-hidden="true"
             class="ecl-news-ticker__slide"
-            tabindex="-1"
           >
             <a
               class="ecl-link ecl-news-ticker__slide-text"
               href="/example"
+              tabindex="-1"
             >
               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
             </a>
@@ -406,11 +414,11 @@ exports[`News ticker Default renders correctly with extra class names 1`] = `
           <li
             aria-hidden="true"
             class="ecl-news-ticker__slide"
-            tabindex="-1"
           >
             <a
               class="ecl-link ecl-news-ticker__slide-text"
               href="/example"
+              tabindex="-1"
             >
               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
             </a>
@@ -418,11 +426,11 @@ exports[`News ticker Default renders correctly with extra class names 1`] = `
           <li
             aria-hidden="true"
             class="ecl-news-ticker__slide"
-            tabindex="-1"
           >
             <a
               class="ecl-link ecl-news-ticker__slide-text"
               href="/example"
+              tabindex="-1"
             >
               Excepteur sint occaecat cupidatat officia deserunt mollit anim id est laborum
             </a>
@@ -430,11 +438,11 @@ exports[`News ticker Default renders correctly with extra class names 1`] = `
           <li
             aria-hidden="true"
             class="ecl-news-ticker__slide"
-            tabindex="-1"
           >
             <a
               class="ecl-link ecl-news-ticker__slide-text"
               href="/example"
+              tabindex="-1"
             >
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
             </a>
@@ -473,18 +481,14 @@ exports[`News ticker Default renders correctly with extra class names 1`] = `
       <button
         aria-controls="news-ticker-example-content"
         class="ecl-button ecl-button--primary ecl-news-ticker__prev"
-        data-controls="prev"
         data-ecl-news-ticker-prev=""
-        tabindex="-1"
-        type="button"
       >
         <span
           class="ecl-button__container"
         >
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--after"
-            data-ecl-icon=""
+            class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-icon--inverted"
             focusable="false"
           >
             <use
@@ -492,20 +496,22 @@ exports[`News ticker Default renders correctly with extra class names 1`] = `
             />
           </svg>
         </span>
+        <span
+          class="ecl-u-sr-only"
+        >
+          Previous news
+        </span>
       </button>
       <button
         class="ecl-button ecl-button--primary ecl-news-ticker__toggle"
-        data-action="stop"
         data-ecl-news-ticker-toggle=""
-        type="button"
       >
         <span
           class="ecl-button__container"
         >
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-button__icon ecl-button__icon--after"
-            data-ecl-icon=""
+            class="ecl-icon ecl-icon--m ecl-icon--inverted"
             focusable="false"
           >
             <use
@@ -513,28 +519,34 @@ exports[`News ticker Default renders correctly with extra class names 1`] = `
             />
           </svg>
         </span>
+        <span
+          class="ecl-u-sr-only"
+        >
+          News ticker auto play
+        </span>
       </button>
       <button
         aria-controls="news-ticker-example-content"
-        class="ecl-button ecl-button--primary ecl-news-ticker__next"
-        data-controls="next"
+        class="ecl-button ecl-button--primary ecl-news-ticker__prev"
         data-ecl-news-ticker-next=""
-        tabindex="-1"
-        type="button"
       >
         <span
           class="ecl-button__container"
         >
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--after"
-            data-ecl-icon=""
+            class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-icon--inverted"
             focusable="false"
           >
             <use
               xlink:href="/icons.svg#corner-arrow"
             />
           </svg>
+        </span>
+        <span
+          class="ecl-u-sr-only"
+        >
+          Next news
         </span>
       </button>
     </div>
