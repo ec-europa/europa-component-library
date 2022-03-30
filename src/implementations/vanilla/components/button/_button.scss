@@ -61,12 +61,12 @@ $_shadow-hover: null !default;
 
 .ecl-button__icon--before,
 .ecl-button__icon + .ecl-button__label {
-  margin-right: map.get(theme.$spacing, 'xs');
+  margin-inline-end: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-button__icon--after,
 .ecl-button__label + .ecl-button__icon {
-  margin-left: map.get(theme.$spacing, 'xs');
+  margin-inline-start: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-button__icon:only-child {
