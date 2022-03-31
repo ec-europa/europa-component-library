@@ -49,4 +49,11 @@ const webpackFinal = (defaultConfig, mode) => {
   return defaultConfig;
 };
 
-module.exports = { stories, addons, webpackFinal };
+module.exports = {
+  stories,
+  addons,
+  webpackFinal,
+  features: {
+    postcss: false,
+  },
+};
