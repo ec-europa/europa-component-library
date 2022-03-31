@@ -77,6 +77,7 @@ export class Tabs {
     this.buttonNextSize = 0;
     this.index = 0;
     this.total = 0;
+    this.direction = 'ltr';
 
     // Bind `this` for use in callbacks
     this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
@@ -178,19 +179,37 @@ export class Tabs {
     // Slide tabs
     const leftMargin =
       this.index === 0 ? 0 : this.btnPrev.getBoundingClientRect().width + 13;
-    let newOffset = Math.ceil(
-      this.listItems[this.index].offsetLeft - leftMargin
-    );
+
+    let newOffset = 0;
+    this.direction = getComputedStyle(this.element).direction;
+    if (this.direction === 'rtl') {
+      newOffset = Math.ceil(
+        this.list.offsetWidth -
+          this.listItems[this.index].offsetLeft -
+          this.listItems[this.index].offsetWidth -
+          leftMargin
+      );
+    } else {
+      newOffset = Math.ceil(this.listItems[this.index].offsetLeft - leftMargin);
+    }
+
     const maxScroll = Math.ceil(
       this.list.getBoundingClientRect().width -
         this.element.getBoundingClientRect().width
     );
+
     if (newOffset > maxScroll) {
       this.btnNext.style.display = 'none';
       newOffset = maxScroll;
     }
+
     this.list.style.transitionDuration = '0.4s';
-    this.list.style.transform = `translate3d(-${newOffset}px, 0px, 0px)`;
+
+    if (this.direction === 'rtl') {
+      this.list.style.transform = `translate3d(${newOffset}px, 0px, 0px)`;
+    } else {
+      this.list.style.transform = `translate3d(-${newOffset}px, 0px, 0px)`;
+    }
   }
 
   /**
