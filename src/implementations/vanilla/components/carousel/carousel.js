@@ -82,6 +82,7 @@ export class Carousel {
     this.posFinal = 0;
     this.threshold = 80;
     this.navigationItems = null;
+    this.direction = 'rtl';
 
     // Bind `this` for use in callbacks
     this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
@@ -285,7 +286,12 @@ export class Carousel {
   moveSlides(transition) {
     const newOffset = this.container.offsetWidth * this.index;
     this.slidesContainer.style.transitionDuration = transition ? '0.4s' : '0s';
-    this.slidesContainer.style.left = `-${newOffset}px`;
+    this.direction = getComputedStyle(this.element).direction;
+    if (this.direction === 'rtl') {
+      this.slidesContainer.style.right = `-${newOffset}px`;
+    } else {
+      this.slidesContainer.style.left = `-${newOffset}px`;
+    }
   }
 
   /**
