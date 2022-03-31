@@ -82,7 +82,7 @@ export class Carousel {
     this.posFinal = 0;
     this.threshold = 80;
     this.navigationItems = null;
-    this.direction = 'rtl';
+    this.direction = 'ltr';
 
     // Bind `this` for use in callbacks
     this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
