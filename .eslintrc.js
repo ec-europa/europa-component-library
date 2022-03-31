@@ -1,6 +1,7 @@
 module.exports = {
   parser: '@babel/eslint-parser',
   root: true,
+  plugins: ['jest'],
   extends: ['airbnb-base', 'prettier'],
   env: {
     node: true,
