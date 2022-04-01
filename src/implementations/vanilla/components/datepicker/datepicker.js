@@ -79,12 +79,15 @@ export class Datepicker {
     this.enableSelectionDaysInNextAndPreviousMonths =
       enableSelectionDaysInNextAndPreviousMonths;
     this.reposition = reposition;
+    this.direction = 'ltr';
   }
 
   /**
    * Initialise component.
    */
   init() {
+    this.direction = getComputedStyle(this.element).direction;
+
     const picker = new Pikaday({
       field: this.element,
       format: this.format,
@@ -93,20 +96,27 @@ export class Datepicker {
       i18n: this.i18n,
       theme: this.theme,
       reposition: this.reposition,
+      isRTL: this.direction === 'rtl',
+      position: this.direction === 'rtl' ? 'bottom right' : 'bottom left',
       showDaysInNextAndPreviousMonths: this.showDaysInNextAndPreviousMonths,
       enableSelectionDaysInNextAndPreviousMonths:
         this.enableSelectionDaysInNextAndPreviousMonths,
       onOpen() {
-        // Fix picker size that exceeds vw on mobile
+        this.direction = getComputedStyle(this.el).direction;
+
+        // Extend picker size on mobile
         const vw = Math.max(
           document.documentElement.clientWidth || 0,
           window.innerWidth || 0
         );
         const elRect = this.el.getBoundingClientRect();
+        const pickerMargin =
+          this.direction === 'rtl' ? vw - elRect.right : elRect.left;
 
-        if (elRect.width >= vw) {
+        if (vw < 768) {
           this.el.style.width = 'auto';
-          this.el.style.right = `${elRect.left}px`;
+          this.el.style.left = `${pickerMargin}px`;
+          this.el.style.right = `${pickerMargin}px`;
         }
       },
     });
