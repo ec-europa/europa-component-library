@@ -45,6 +45,8 @@
 </script>
 <script type="text/javascript" src="./scripts/ecl-ec.js"></script>
 <script>
+  let isRTL = false;
+
   // https://github.com/storybookjs/storybook/issues/6113#issuecomment-473965255
   function runOnPageChange() {
     ECL.autoInit();
@@ -55,6 +57,27 @@
       runOnPageChange();
       const callback = function (mutationsList) {
         for (let i = 0, len = mutationsList.length; i < len; i++) {
+          // Check if mutation has added nodes for RTL changes (only)
+          if (mutationsList[i].addedNodes.length > 0 && !isRTL) {
+            const newNodes = mutationsList[i].addedNodes;
+            for (let j = 0; j < newNodes.length; j++) {
+              const node = newNodes[j];
+              if (
+                node.getAttribute('id') === 'storybook-addon-resource_ecl-rtl'
+              ) {
+                // Add a new mutation observe to check attributes changes on ecl-rtl.css resource node
+                new MutationObserver(() => {
+                  runOnPageChange();
+                }).observe(document.getElementById('ecl-rtl-css'), {
+                  attributes: true,
+                });
+
+                isRTL = true;
+                break;
+              }
+            }
+          }
+
           if (mutationsList[i].type == 'childList') {
             runOnPageChange();
             break;
@@ -62,8 +85,8 @@
         }
       };
       const observer = new MutationObserver(callback);
-      const config = { childList: true, subtree: false };
-      observer.observe(document.getElementById('root'), config);
+      const config = { childList: true, subtree: true };
+      observer.observe(document.body, config);
 
       // Add ecl class to body, to ensure that default css is working well
       document.body.classList.add('ecl');

@@ -85,6 +85,8 @@ export class Datepicker {
    * Initialise component.
    */
   init() {
+    // eslint-disable-next-line no-console
+    console.log('aaaaaaaa');
     const picker = new Pikaday({
       field: this.element,
       format: this.format,
