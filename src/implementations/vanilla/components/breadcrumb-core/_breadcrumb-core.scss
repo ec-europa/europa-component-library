@@ -102,8 +102,8 @@ $_border-color: null !default;
 .ecl-breadcrumb-core__icon {
   fill: $_icon-color;
   flex-shrink: 0;
-  margin-left: map.get(theme.$spacing, 'xs');
-  margin-right: map.get(theme.$spacing, 'xs');
+  margin-inline-start: map.get(theme.$spacing, 'xs');
+  margin-inline-end: map.get(theme.$spacing, 'xs');
   vertical-align: text-bottom;
 }
 
