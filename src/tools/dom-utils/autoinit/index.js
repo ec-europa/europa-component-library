@@ -8,7 +8,24 @@ export const autoInit = ({ root = document, ...options } = {}) => {
   const components = [];
   const nodes = queryAll('[data-ecl-auto-init]', root);
 
+  // Destroy should not throw, in order to be non-blocking.
+  const destroy = () => {
+    nodes
+      .filter(
+        (node) => node.getAttribute('data-ecl-auto-initialized') === 'true'
+      )
+      .forEach((node) => {
+        const componentType = node.getAttribute('data-ecl-auto-init');
+
+        if (componentType && ECL[componentType] && ECL[componentType].destroy) {
+          ECL[componentType].destroy();
+          node.removeAttribute('data-ecl-auto-initialized');
+        }
+      });
+  };
+
   const init = () => {
+    destroy();
     nodes
       .filter(
         (node) => node.getAttribute('data-ecl-auto-initialized') !== 'true'
@@ -40,22 +57,6 @@ export const autoInit = ({ root = document, ...options } = {}) => {
         components.push(component);
 
         node.setAttribute('data-ecl-auto-initialized', 'true');
-      });
-  };
-
-  // Destroy should not throw, in order to be non-blocking.
-  const destroy = () => {
-    nodes
-      .filter(
-        (node) => node.getAttribute('data-ecl-auto-initialized') === 'true'
-      )
-      .forEach((node) => {
-        const componentType = node.getAttribute('data-ecl-auto-init');
-
-        if (componentType && ECL[componentType] && ECL[componentType].destroy) {
-          ECL[componentType].destroy();
-          node.removeAttribute('data-ecl-auto-initialized');
-        }
       });
   };
 

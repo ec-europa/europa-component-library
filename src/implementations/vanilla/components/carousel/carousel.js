@@ -106,7 +106,7 @@ export class Carousel {
     this.container = queryOne(this.containerClass, this.element);
     this.navigationItems = queryAll(this.navigationItemsClass, this.element);
     this.currentSlide = queryOne(this.currentSlideClass, this.element);
-
+    this.direction = getComputedStyle(this.element).direction;
     this.slides = queryAll(this.slideClass, this.element);
     this.total = this.slides.length;
 
@@ -173,7 +173,7 @@ export class Carousel {
   /**
    * Destroy component.
    */
-  destroy() {
+  static destroy() {
     if (this.attachClickListener && this.toggle) {
       this.toggle.removeEventListener('click', this.handleClickOnToggle);
     }
@@ -285,7 +285,12 @@ export class Carousel {
   moveSlides(transition) {
     const newOffset = this.container.offsetWidth * this.index;
     this.slidesContainer.style.transitionDuration = transition ? '0.4s' : '0s';
-    this.slidesContainer.style.left = `-${newOffset}px`;
+
+    if (this.direction === 'rtl') {
+      this.slidesContainer.style.right = `-${newOffset}px`;
+    } else {
+      this.slidesContainer.style.left = `-${newOffset}px`;
+    }
   }
 
   /**
