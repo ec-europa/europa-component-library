@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { queryOne, queryAll } from '@ecl/dom-utils';
 
 /**
@@ -177,7 +178,7 @@ export class Carousel {
   /**
    * Destroy component.
    */
-  destroy() {
+  static destroy() {
     if (this.cloneFirstSLide && this.cloneLastSLide) {
       this.cloneFirstSLide.remove();
       this.cloneLastSLide.remove();
