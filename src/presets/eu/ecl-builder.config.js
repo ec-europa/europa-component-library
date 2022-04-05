@@ -86,7 +86,10 @@ module.exports = {
     },
     handlers: [
       {
-        pattern: `${path.resolve(__dirname, '..')}/(dev|eu)/src/*.scss`,
+        pattern: `${path.resolve(
+          __dirname,
+          '..'
+        )}/(dev|eu|reset|rtl)/src/*.scss`,
         events: [
           {
             on: 'change',
