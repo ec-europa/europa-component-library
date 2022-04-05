@@ -147,7 +147,7 @@ export class Tabs {
   /**
    * Destroy component.
    */
-  destroy() {
+  static destroy() {
     if (this.attachClickListener && this.moreButton) {
       this.moreButton.removeEventListener('click', this.handleClickOnToggle);
     }
