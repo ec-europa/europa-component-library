@@ -78,7 +78,7 @@ export class Timeline {
   /**
    * Destroy component.
    */
-  destroy() {
+  static destroy() {
     if (this.attachClickListener && this.button) {
       this.button.removeEventListener('click', this.handleClickOnButton);
     }
