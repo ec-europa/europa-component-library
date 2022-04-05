@@ -25,7 +25,6 @@ export const autoInit = ({ root = document, ...options } = {}) => {
   };
 
   const init = () => {
-    destroy();
     nodes
       .filter(
         (node) => node.getAttribute('data-ecl-auto-initialized') !== 'true'
