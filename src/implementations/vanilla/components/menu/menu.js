@@ -190,7 +190,7 @@ export class Menu {
   /**
    * Destroy component.
    */
-  destroy() {
+  static destroy() {
     if (this.attachClickListener && this.open) {
       this.open.removeEventListener('click', this.handleClickOnOpen);
     }
