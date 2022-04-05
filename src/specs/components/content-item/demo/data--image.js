@@ -16,6 +16,8 @@ module.exports = {
     type: 'standalone',
     label: 'Title',
     path: exampleLink,
+    icon_path: 'icons.svg',
+    external: true,
   },
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus',
