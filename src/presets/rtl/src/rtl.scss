@@ -5,6 +5,12 @@ html {
   direction: rtl;
 }
 
+// Accordion
+.ecl-accordion__item:first-child::before {
+  left: auto;
+  right: map.get(theme.$spacing, 'l');
+}
+
 // Carousel
 .ecl-carousel__next {
   left: 0;
@@ -14,6 +20,16 @@ html {
 .ecl-carousel__prev {
   left: auto;
   right: 0;
+}
+
+// Category filter
+.ecl-category-filter__list-item[aria-expanded='true'],
+.ecl-category-filter__list-item:hover,
+.ecl-category-filter__item--current {
+  &::before {
+    left: auto;
+    right: 0;
+  }
 }
 
 // Datepicker
@@ -97,4 +113,13 @@ html {
   left: auto;
   right: 0;
   transform: rotate(180deg) translateY(50%);
+}
+
+// Timeline
+.ecl-timeline__item {
+  transform: scaleX(-1);
+}
+
+.ecl-timeline__tooltip {
+  transform: scaleX(-1);
 }

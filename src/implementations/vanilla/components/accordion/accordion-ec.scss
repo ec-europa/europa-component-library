@@ -33,7 +33,7 @@
   font-weight: map.get(theme.$font-weight, 'bold');
   padding: 0 map.get(theme.$spacing, 'm');
   position: relative;
-  text-align: left;
+  text-align: start;
   width: 100%;
 }
 
@@ -80,7 +80,7 @@
 .ecl-accordion__content {
   color: map.get(theme.$color, 'grey');
   font: map.get(theme.$font-prolonged, 'm');
-  margin-left: 0;
+  margin-inline-start: 0;
   padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
 }
 

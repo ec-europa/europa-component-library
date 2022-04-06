@@ -45,7 +45,7 @@ $_btn-padding-horizontal: map.get(theme.$spacing, 's') !default;
 .ecl-news-ticker__content {
   height: 0;
   margin: map.get(theme.$spacing, 's');
-  margin-left: calc(#{map.get(theme.$spacing, 's')} - 5px);
+  margin-inline-start: calc(#{map.get(theme.$spacing, 's')} - 5px);
   overflow: hidden;
   transition-duration: 0.3s;
   width: 100%;
@@ -69,12 +69,14 @@ $_btn-padding-horizontal: map.get(theme.$spacing, 's') !default;
 
 .ecl-news-ticker__counter {
   color: $_counter-color;
+  display: inline-flex;
   flex-grow: 1;
   font: map.get(theme.$font, 'm');
   font-weight: bold;
-  margin-left: map.get(theme.$spacing, 'l');
-  margin-right: map.get(theme.$spacing, 'xs');
-  text-align: right;
+  margin-inline-start: map.get(theme.$spacing, 'l');
+  margin-inline-end: map.get(theme.$spacing, 'xs');
+  text-align: end;
+  white-space: pre-wrap;
 }
 
 .ecl-news-ticker__controls {
