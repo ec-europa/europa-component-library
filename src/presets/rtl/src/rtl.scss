@@ -116,10 +116,20 @@ html {
 }
 
 // Timeline
-.ecl-timeline__item {
+.ecl-timeline,
+.ecl-timeline__label,
+.ecl-timeline__title,
+.ecl-timeline__content,
+.ecl-timeline__toggle {
   transform: scaleX(-1);
 }
 
 .ecl-timeline__tooltip {
-  transform: scaleX(-1);
+  padding-inline-end: 1.5rem;
+}
+
+.ecl-timeline__item--toggle {
+  display: flex;
+  justify-content: end;
+  padding-inline-end: 1.5rem;
 }
