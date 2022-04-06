@@ -62,6 +62,9 @@
         data-ecl-menu-subitem
       >
         {% set _sublink_class = 'ecl-menu__sublink' ~ (child.is_current is defined ? ' ecl-menu__sublink--current' : '') %}
+          {% if child.external %}
+            {% set _sublink_class = _sublink_class ~ ' ecl-link--icon-after' %}
+          {% endif %}
         <a
           href="{{ child.path }}"
           class="{{ _sublink_class }}"
@@ -74,7 +77,7 @@
                 name: 'external',
                 size: '2xs',
               },
-              extra_classes: 'ecl-menu__sublink-icon',
+              extra_classes: 'ecl-menu__sublink-icon ecl-link__icon',
             } %}
           {%- endif -%}
         </a>
