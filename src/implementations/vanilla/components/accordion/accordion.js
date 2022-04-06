@@ -82,7 +82,7 @@ export class Accordion {
   /**
    * Destroy component.
    */
-  destroy() {
+  static destroy() {
     if (this.attachClickListener && this.toggles) {
       this.toggles.forEach((toggle) => {
         toggle.removeEventListener('click', this.handleClickOnToggle);

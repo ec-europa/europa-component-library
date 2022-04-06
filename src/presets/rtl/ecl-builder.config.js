@@ -14,7 +14,6 @@ const banner = `${pkg.name} - ${
 } Built on ${new Date().toISOString()}`;
 
 module.exports = {
-  scripts: [],
   styles: [
     {
       entry: path.resolve(__dirname, 'src/rtl.scss'),
@@ -26,5 +25,4 @@ module.exports = {
       },
     },
   ],
-  copy: [],
 };

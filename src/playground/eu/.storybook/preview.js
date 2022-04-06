@@ -40,7 +40,7 @@ addParameters({
     },
     {
       id: 'ecl-rtl',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-rtl.css" />`,
+      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-rtl.css" onload="ECL.autoInit().destroy(); ECL.autoInit();/>`,
       picked: false,
       hideCode: true,
     },
