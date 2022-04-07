@@ -5,7 +5,7 @@ import { correctSvgPath } from '@ecl/story-utils';
 import dataCore from '@ecl/specs-component-site-footer/demo/data-core--ec';
 import dataStandardised from '@ecl/specs-component-site-footer/demo/data-standardised--ec';
 import dataHarmonised from '@ecl/specs-component-site-footer/demo/data-harmonised--ec';
-import logoEc from '@ecl/resources-ec-logo/negative/logo-ec--en.svg';
+import logoEc from '@ecl/resources-ec-logo/dist/negative/logo-ec--en.svg';
 import footer from './site-footer.html.twig';
 import notes from './README.md';
 

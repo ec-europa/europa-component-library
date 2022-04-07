@@ -4,8 +4,8 @@ import { correctSvgPath } from '@ecl/story-utils';
 
 import dataCore from '@ecl/specs-component-site-footer/demo/data-core--eu';
 import dataHarmonised from '@ecl/specs-component-site-footer/demo/data-harmonised--eu';
-import logoEuMobile from '@ecl/resources-eu-logo/condensed-version/positive/logo-eu--en.svg';
-import logoEuDesktop from '@ecl/resources-eu-logo/standard-version/positive/logo-eu--en.svg';
+import logoEuMobile from '@ecl/resources-eu-logo/dist/condensed-version/positive/logo-eu--en.svg';
+import logoEuDesktop from '@ecl/resources-eu-logo/dist/standard-version/positive/logo-eu--en.svg';
 import footer from './site-footer.html.twig';
 import notes from './README.md';
 
