@@ -36,6 +36,7 @@ module.exports = {
     {
       label: 'Item 4 label',
       path: exampleLink,
+      external: true,
       children: [
         { label: 'Item 4.1', path: exampleLink },
         { label: 'Item 4.2', path: exampleLink },

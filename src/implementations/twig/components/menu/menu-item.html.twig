@@ -34,15 +34,15 @@
 <li class="{{ _menu_list_item_class }}" {{ _menu_list_item_attributes }}>
   <a href="{{ item.path }}" class="{{ _menu_item_class }}" {{ _menu_item_attributes }}>
     {{- item.label -}}
-    {%- if item.children is defined and item.children is not empty and item.children is iterable -%}
+    {%- if (item.children is defined and item.children is not empty and item.children is iterable) or item.external -%}
       {% include '@ecl/icon/icon.html.twig' with {
         icon: {
           path: icon_path,
-          name: 'corner-arrow',
+          name: item.external ? 'external' : 'corner-arrow',
           size: 'xs',
-          transform: 'rotate-90'
+          transform: item.external ? '' : 'rotate-90',
         },
-        extra_classes: 'ecl-menu__link-icon',
+        extra_classes: item.external ? 'ecl-menu__link-icon--external ecl-menu__link-icon' : 'ecl-menu__link-icon',
       } %}
     {% endif %}
   </a>
