@@ -86,6 +86,13 @@ html {
   right: auto;
 }
 
+// Skip link
+.ecl-skip-link:active,
+.ecl-skip-link:focus {
+  left: auto;
+  right: map.get(theme.$spacing, 'l');
+}
+
 // Table
 .ecl-table__arrow {
   left: auto;

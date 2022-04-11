@@ -7,7 +7,12 @@
   $_background-warning: map.get(theme.$color, 'white'),
   $_border-radius-top-left: 0,
   $_border-radius-bottom-left: 0,
-  $_border-width: 2px,
+  $_border-width: (
+    'top': 2px,
+    'right': 2px,
+    'bottom': 2px,
+    'left': 2px,
+  ),
   $_close-font-weight: map.get(theme.$font-weight, 'bold'),
   $_description-color: map.get(theme.$color, 'grey-100'),
   $_icon-error-fill: map.get(theme.$color, 'error'),

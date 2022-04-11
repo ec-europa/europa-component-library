@@ -60,8 +60,10 @@
   display: flex;
   flex-grow: 0;
   flex-shrink: 0;
-  margin: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm')
-    map.get(theme.$spacing, 's') 0;
+  margin-bottom: map.get(theme.$spacing, 's');
+  margin-inline-start: 0;
+  margin-inline-end: map.get(theme.$spacing, 'm');
+  margin-top: map.get(theme.$spacing, 's');
 }
 
 .ecl-accordion__toggle-label {
@@ -81,7 +83,10 @@
   color: map.get(theme.$color, 'grey');
   font: map.get(theme.$font-prolonged, 'm');
   margin-inline-start: 0;
-  padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
+  padding-bottom: map.get(theme.$spacing, 's');
+  padding-inline-end: map.get(theme.$spacing, 'm');
+  padding-inline-start: map.get(theme.$spacing, 'm');
+  padding-top: map.get(theme.$spacing, 's');
 }
 
 .no-js .ecl-accordion__content {

@@ -27,9 +27,13 @@ $_title-font: none !default;
 $_title-spacing: none !default;
 
 .ecl-message {
-  border-inline-start: $_border-width solid;
+  border-bottom-width: map.get($_border-width, 'bottom');
   border-end-start-radius: $_border-radius-bottom-left;
+  border-inline-end-width: map.get($_border-width, 'right');
+  border-inline-start-width: map.get($_border-width, 'left');
   border-start-start-radius: $_border-radius-top-left;
+  border-style: solid;
+  border-top-width: map.get($_border-width, 'top');
   box-sizing: border-box;
   display: flex;
   margin: 0;

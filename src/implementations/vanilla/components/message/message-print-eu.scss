@@ -7,7 +7,12 @@
   $_background-warning: map.get(theme.$color, 'orange-5'),
   $_border-radius-top-left: 1mm,
   $_border-radius-bottom-left: 1mm,
-  $_border-width: 1mm,
+  $_border-width: (
+    'top': 0,
+    'right': 0,
+    'bottom': 0,
+    'left': 1mm,
+  ),
   $_description-color: map.get(theme.$color, 'grey-80'),
   $_icon-spacing: map.get(theme.$spacing-print, 'xs'),
   $_icon-error-fill: map.get(theme.$color, 'red-120'),
