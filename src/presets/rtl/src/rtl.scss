@@ -131,12 +131,21 @@ html {
   transform: scaleX(-1);
 }
 
-.ecl-timeline__tooltip {
-  padding-inline-end: 1.5rem;
+.ecl-timeline__tooltip,
+.ecl-timeline__item {
+  padding-inline-end: map.get(theme.$spacing, 'l');
 }
 
 .ecl-timeline__item--toggle {
   display: flex;
   justify-content: end;
-  padding-inline-end: 1.5rem;
+  padding-inline-end: map.get(theme.$spacing, 'l');
+}
+
+.ecl-timeline__label {
+  text-align: start;
+}
+
+.ecl-timeline__tooltip::before {
+  right: map.get(theme.$spacing, 'l');
 }
