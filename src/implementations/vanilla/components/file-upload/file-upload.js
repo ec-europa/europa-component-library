@@ -82,7 +82,7 @@ export class FileUpload {
   /**
    * Destroy component.
    */
-  static destroy() {
+  destroy() {
     if (this.attachChangeListener && this.fileUploadInput) {
       this.fileUploadInput.removeEventListener('change', this.handleChange);
     }

@@ -353,7 +353,7 @@ export class InpageNavigation {
   /**
    * Destroy component instance.
    */
-  static destroy() {
+  destroy() {
     if (this.attachClickListener && this.toggleElement) {
       this.toggleElement.removeEventListener(
         'click',

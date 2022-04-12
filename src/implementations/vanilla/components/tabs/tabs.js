@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { queryOne, queryAll } from '@ecl/dom-utils';
 
 /**
@@ -147,7 +148,8 @@ export class Tabs {
   /**
    * Destroy component.
    */
-  static destroy() {
+  destroy() {
+    console.log(this.moreButton);
     if (this.attachClickListener && this.moreButton) {
       this.moreButton.removeEventListener('click', this.handleClickOnToggle);
     }
@@ -163,6 +165,7 @@ export class Tabs {
     if (this.attachResizeListener) {
       window.removeEventListener('resize', this.handleResize);
     }
+    this.element.removeAttribute('data-ecl-auto-initialized');
   }
 
   /**

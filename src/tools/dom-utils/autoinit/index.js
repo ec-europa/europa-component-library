@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { queryAll } from '..';
 
 export const autoInit = ({ root = document, ...options } = {}) => {
@@ -6,6 +7,11 @@ export const autoInit = ({ root = document, ...options } = {}) => {
   }
 
   const components = [];
+
+  if (!ECL.initialisedComponents) {
+    ECL.initialisedComponents = [];
+  }
+
   const nodes = queryAll('[data-ecl-auto-init]', root);
 
   const init = () => {
@@ -37,6 +43,7 @@ export const autoInit = ({ root = document, ...options } = {}) => {
 
         const component = ctor.autoInit(node, options);
 
+        ECL.initialisedComponents.push(component);
         components.push(component);
 
         node.setAttribute('data-ecl-auto-initialized', 'true');
@@ -45,18 +52,11 @@ export const autoInit = ({ root = document, ...options } = {}) => {
 
   // Destroy should not throw, in order to be non-blocking.
   const destroy = () => {
-    nodes
-      .filter(
-        (node) => node.getAttribute('data-ecl-auto-initialized') === 'true'
-      )
-      .forEach((node) => {
-        const componentType = node.getAttribute('data-ecl-auto-init');
-
-        if (componentType && ECL[componentType] && ECL[componentType].destroy) {
-          ECL[componentType].destroy();
-          node.removeAttribute('data-ecl-auto-initialized');
-        }
-      });
+    ECL.initialisedComponents.forEach((component) => {
+      if (component.destroy) {
+        component.destroy();
+      }
+    });
   };
 
   const update = () => init();

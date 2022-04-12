@@ -71,7 +71,7 @@ export class BreadcrumbStandardised {
     this.check();
   }
 
-  static destroy() {
+  destroy() {
     if (this.attachClickListener && this.ellipsisButton) {
       this.ellipsisButton.removeEventListener(
         'click',

@@ -315,7 +315,7 @@ export class Select {
   /**
    * Destroy component.
    */
-  static destroy() {
+  destroy() {
     this.selectMultiple.removeEventListener('focusout', this.handleFocusout);
     this.input.removeEventListener('keypress', this.handleToggle);
     this.input.removeEventListener('click', this.handleToggle);

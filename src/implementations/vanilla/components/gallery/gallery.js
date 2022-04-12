@@ -244,7 +244,7 @@ export class Gallery {
   /**
    * Destroy component.
    */
-  static destroy() {
+  destroy() {
     if (this.attachClickListener && this.closeButton) {
       this.closeButton.removeEventListener(
         'click',

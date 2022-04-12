@@ -178,7 +178,7 @@ export class Carousel {
   /**
    * Destroy component.
    */
-  static destroy() {
+  destroy() {
     if (this.cloneFirstSLide && this.cloneLastSLide) {
       this.cloneFirstSLide.remove();
       this.cloneLastSLide.remove();
