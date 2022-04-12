@@ -11,7 +11,8 @@ $_background-error: none !default;
 $_background-info: none !default;
 $_background-success: none !default;
 $_background-warning: none !default;
-$_border-radius: none !default;
+$_border-radius-top-left: none !default;
+$_border-radius-bottom-left: none !default;
 $_border-width: none !default;
 $_close-color: map.get(theme.$color, 'blue-100');
 $_close-font-weight: none !default;
@@ -26,20 +27,26 @@ $_title-font: none !default;
 $_title-spacing: none !default;
 
 .ecl-message {
-  border-radius: $_border-radius;
+  border-bottom-width: map.get($_border-width, 'bottom');
+  border-end-start-radius: $_border-radius-bottom-left;
+  border-inline-end-width: map.get($_border-width, 'right');
+  border-inline-start-width: map.get($_border-width, 'left');
+  border-start-start-radius: $_border-radius-top-left;
   border-style: solid;
-  border-width: $_border-width;
+  border-top-width: map.get($_border-width, 'top');
   box-sizing: border-box;
   display: flex;
   margin: 0;
-  padding: map.get(theme.$spacing, 'l') map.get(theme.$spacing, 'xs')
-    map.get(theme.$spacing, 'l') map.get(theme.$spacing, 'l');
+  padding-bottom: map.get(theme.$spacing, 'l');
+  padding-inline-end: map.get(theme.$spacing, 'xs');
+  padding-inline-start: map.get(theme.$spacing, 'l');
+  padding-top: map.get(theme.$spacing, 'l');
   position: relative;
 }
 
 .ecl-message__icon {
   flex-shrink: 0;
-  margin-right: $_icon-spacing;
+  margin-inline-end: $_icon-spacing;
 }
 
 .ecl-message__content {
