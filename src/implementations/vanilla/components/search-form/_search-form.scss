@@ -43,9 +43,9 @@ $_button-outline-width: null !default;
 }
 
 .ecl-search-form__text-input {
-  border-bottom-right-radius: 0;
-  border-right-width: 0;
-  border-top-right-radius: 0;
+  border-end-end-radius: 0;
+  border-inline-end-width: 0;
+  border-start-end-radius: 0;
   flex-grow: 1;
   margin-top: 0 !important;
   width: 100%;
@@ -54,11 +54,11 @@ $_button-outline-width: null !default;
 .ecl-search-form__button {
   background-color: $_button-background-color;
   border-bottom: $_button-border-width solid $_button-border-color;
-  border-bottom-left-radius: 0;
-  border-left-width: 0;
-  border-right: $_button-border-width solid $_button-border-color;
+  border-end-start-radius: 0;
+  border-inline-start-width: 0;
+  border-inline-end: $_button-border-width solid $_button-border-color;
   border-top: $_button-border-width solid $_button-border-color;
-  border-top-left-radius: 0;
+  border-start-start-radius: 0;
   color: $_button-color;
   padding: calc(#{map.get(theme.$spacing, 's')} - #{$_button-border-width});
 
@@ -68,10 +68,10 @@ $_button-outline-width: null !default;
   }
 
   &:focus {
-    padding-left: calc(
+    padding-inline-start: calc(
       #{map.get(theme.$spacing, 's')} - #{$_button-outline-width}
     );
-    padding-right: calc(
+    padding-inline-end: calc(
       #{map.get(theme.$spacing, 's')} - #{$_button-outline-width}
     );
   }
@@ -105,19 +105,19 @@ $_button-outline-width: null !default;
   }
 
   .ecl-search-form__button {
-    padding-left: calc(
+    padding-inline-start: calc(
       #{map.get(theme.$spacing, 'm')} - #{$_button-border-width}
     );
-    padding-right: calc(
+    padding-inline-end: calc(
       #{map.get(theme.$spacing, 'm')} - #{$_button-border-width}
     );
   }
 
   .ecl-search-form__button:focus {
-    padding-left: calc(
+    padding-inline-start: calc(
       #{map.get(theme.$spacing, 'm')} - #{$_button-outline-width}
     );
-    padding-right: calc(
+    padding-inline-end: calc(
       #{map.get(theme.$spacing, 'm')} - #{$_button-outline-width}
     );
   }

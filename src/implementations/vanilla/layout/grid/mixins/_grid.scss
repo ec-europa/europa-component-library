@@ -9,8 +9,8 @@
 
 @mixin ecl-make-container($gutters: theme.$grid-gutter-width) {
   box-sizing: border-box;
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
   position: relative;
   width: 100%;
 
@@ -18,8 +18,8 @@
     @include breakpoints.up($breakpoint) {
       $gutter: map.get($gutters, $breakpoint);
 
-      padding-left: ($gutter * 0.5);
-      padding-right: ($gutter * 0.5);
+      padding-inline-start: ($gutter * 0.5);
+      padding-inline-end: ($gutter * 0.5);
     }
   }
 }
@@ -42,8 +42,8 @@
     @include breakpoints.up($breakpoint) {
       $gutter: map.get($gutters, $breakpoint);
 
-      padding-left: ($gutter * 0.5);
-      padding-right: ($gutter * 0.5);
+      padding-inline-start: ($gutter * 0.5);
+      padding-inline-end: ($gutter * 0.5);
     }
   }
 }
@@ -57,8 +57,8 @@
     @include breakpoints.up($breakpoint) {
       $gutter: map.get($gutters, $breakpoint);
 
-      margin-left: math.div($gutter, -2);
-      margin-right: math.div($gutter, -2);
+      margin-inline-start: math.div($gutter, -2);
+      margin-inline-end: math.div($gutter, -2);
     }
   }
 }
@@ -77,8 +77,8 @@
     @include breakpoints.up($breakpoint) {
       $gutter: map.get($gutters, $breakpoint);
 
-      padding-left: ($gutter * 0.5);
-      padding-right: ($gutter * 0.5);
+      padding-inline-start: ($gutter * 0.5);
+      padding-inline-end: ($gutter * 0.5);
     }
   }
 }
@@ -94,7 +94,7 @@
 }
 
 @mixin make-col-offset($size, $columns: map.get($grid, 'columns')) {
-  margin-left: math.percentage(math.div($size, $columns));
+  margin-inline-start: math.percentage(math.div($size, $columns));
 }
 
 @mixin make-col-push($size, $columns: map.get($grid, 'columns')) {

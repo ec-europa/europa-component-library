@@ -34,7 +34,7 @@ $_image-width: 13.125rem;
   color: map.get(theme.$color, 'black-100');
   font: map.get(theme.$font-print, 's');
   font-weight: map.get(theme.$font-weight-print, 'bold');
-  margin-right: map.get(theme.$spacing-print, '2xs');
+  margin-inline-end: map.get(theme.$spacing-print, '2xs');
 }
 
 .ecl-file__meta {
@@ -44,7 +44,7 @@ $_image-width: 13.125rem;
 
 .ecl-file__download {
   border-width: 0;
-  clear: left;
+  clear: start;
   font: map.get(theme.$font-print, 's');
   font-weight: map.get(theme.$font-weight-print, 'regular');
 }
@@ -59,21 +59,22 @@ $_image-width: 13.125rem;
 
 .ecl-file__detail-meta {
   color: map.get(theme.$color, 'grey-75');
+  display: flex;
   font: map.get(theme.$font-print, 's');
   margin-bottom: map.get(theme.$spacing-print, 'xs');
 }
 
 .ecl-file__detail-meta-item {
-  margin-left: map.get(theme.$spacing-print, 'xs');
+  margin-inline-start: map.get(theme.$spacing-print, 'xs');
 
   &::before {
     content: '|';
-    margin-right: map.get(theme.$spacing-print, 'xs');
+    margin-inline-end: map.get(theme.$spacing-print, 'xs');
   }
 }
 
 .ecl-file__detail-meta-item:first-of-type {
-  margin-left: 0;
+  margin-inline-start: 0;
   text-transform: uppercase;
 
   &::before {
@@ -84,7 +85,7 @@ $_image-width: 13.125rem;
 .ecl-file__image {
   align-self: flex-start;
   display: block;
-  margin-left: map.get(theme.$spacing, 'l');
+  margin-inline-start: map.get(theme.$spacing, 'l');
   margin-top: 0;
   max-width: $_image-width;
 }
@@ -102,8 +103,10 @@ $_image-width: 13.125rem;
 
 .ecl-file__description {
   color: map.get(theme.$color, 'black');
+  display: inline-flex;
   font: map.get(theme.$font-prolonged-print, 'm');
   margin-top: map.get(theme.$spacing-print, 'xs');
+  white-space: pre-wrap;
 }
 
 .ecl-file__translation-toggle {
@@ -114,7 +117,7 @@ $_image-width: 13.125rem;
   display: block;
   list-style: none;
   margin: 0;
-  padding-left: 0;
+  padding-inline-start: 0;
 }
 
 .ecl-file__translation-item {
@@ -129,7 +132,7 @@ $_image-width: 13.125rem;
   color: map.get(theme.$color, 'black-100');
   font: map.get(theme.$font-print, 's');
   font-weight: map.get(theme.$font-weight-print, 'bold');
-  margin-right: map.get(theme.$spacing-print, '2xs');
+  margin-inline-end: map.get(theme.$spacing-print, '2xs');
 }
 
 .ecl-file__translation-meta {

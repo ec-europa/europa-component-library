@@ -120,7 +120,7 @@ export class SiteHeaderStandardised {
   /**
    * Destroy component.
    */
-  destroy() {
+  static destroy() {
     if (this.languageSelector) {
       this.languageSelector.removeEventListener('click', this.toggleOverlay);
     }
