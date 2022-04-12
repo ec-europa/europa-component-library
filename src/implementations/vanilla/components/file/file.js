@@ -78,7 +78,7 @@ export class FileDownload {
   /**
    * Destroy component.
    */
-  static destroy() {
+  destroy() {
     if (this.attachClickListener && this.translationToggle) {
       this.translationToggle.removeEventListener(
         'click',

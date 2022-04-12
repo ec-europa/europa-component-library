@@ -117,7 +117,7 @@ export class SiteHeaderHarmonised {
   /**
    * Destroy component.
    */
-  static destroy() {
+  destroy() {
     if (this.languageSelector) {
       this.languageSelector.removeEventListener('click', this.toggleOverlay);
     }

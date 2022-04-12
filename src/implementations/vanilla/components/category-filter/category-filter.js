@@ -67,7 +67,7 @@ export class CategoryFilter {
   /**
    * Destroy component.
    */
-  static destroy() {
+  destroy() {
     if (this.attachClickListener && this.items) {
       this.items.forEach((item) => {
         item.removeEventListener('click', this.handleClickExpand, false);

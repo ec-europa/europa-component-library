@@ -64,7 +64,7 @@ export class Message {
   /**
    * Destroy component.
    */
-  static destroy() {
+  destroy() {
     if (this.attachClickListener && this.close) {
       this.close.removeEventListener('click', this.handleClickOnClose);
     }

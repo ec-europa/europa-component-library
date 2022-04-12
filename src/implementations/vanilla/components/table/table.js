@@ -94,7 +94,7 @@ export class Table {
   /**
    * Destroy component.
    */
-  static destroy() {
+  destroy() {
     if (this.sortHeadings) {
       this.sortHeadings.forEach((tr) => {
         tr.removeEventListener('click', this.handleClickOnSort);
