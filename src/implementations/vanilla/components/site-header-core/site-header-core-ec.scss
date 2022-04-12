@@ -242,7 +242,7 @@ $_search-width-xl: 31.5rem;
   .ecl-site-header-core__language-icon {
     .ecl-site-header-core__icon {
       height: map.get(theme.$icon, 'm');
-      margin-right: map.get(theme.$spacing, 'xs');
+      margin-inline-end: map.get(theme.$spacing, 'xs');
       width: map.get(theme.$icon, 'm');
     }
   }
@@ -251,7 +251,7 @@ $_search-width-xl: 31.5rem;
     .ecl-site-header-core__login-arrow {
       display: block;
       height: map.get(theme.$icon, 'xs');
-      margin-left: map.get(theme.$spacing, 'xs');
+      margin-inline-start: map.get(theme.$spacing, 'xs');
       transform: rotate(0);
       width: map.get(theme.$icon, 'xs');
     }
@@ -290,14 +290,14 @@ $_search-width-xl: 31.5rem;
 
   .ecl-site-header-core__language-code {
     font: map.get(theme.$font, 'xs');
-    margin-right: map.get(theme.$spacing, 'xs');
+    margin-inline-end: map.get(theme.$spacing, 'xs');
     transform: translateX(-50%) translateX(-0.22rem) translateY(-50%)
       translateY(-0.08rem);
   }
 
   .ecl-site-header-core__search-container {
     flex-grow: 1;
-    margin-left: map.get(theme.$spacing, 's');
+    margin-inline-start: map.get(theme.$spacing, 's');
   }
 
   // stylelint-disable plugin/selector-bem-pattern
