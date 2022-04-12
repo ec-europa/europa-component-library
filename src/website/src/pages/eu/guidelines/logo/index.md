@@ -47,8 +47,8 @@ import { LogoList } from '@ecl/website-components';
 
 #### Positive
 
-<LogoList system="eu" set="standard" color="positive" language="other" />
+<LogoList system="eu" set="condensed" color="positive" language="other" />
 
 #### Negative
 
-<LogoList system="eu" set="standard" color="negative" language="other" />
+<LogoList system="eu" set="condensed" color="negative" language="other" />

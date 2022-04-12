@@ -31,7 +31,9 @@ import TableThumbnail from './table/ec_comp_table.svg';
 import TagThumbnail from './tag/ec_comp_tags.svg';
 import TimelineThumbnail from './timeline/ec_comp_timeline.svg';
 
-import SiteWideBreadcrumbThumbnail from './site-wide/navigation/breadcrumb/ec_comp_breadcrumb.svg';
+
+import SiteBreadcrumbThumbnail from './site-wide/navigation/breadcrumb/ec_comp_breadcrumb.svg';
+import SiteHeaderThumbnail from './site-wide/site-header/ec_comp_site-header.svg';
 import SiteFooterThumbnail from './site-wide/site-footer/ec_comp_site-footer.svg';
 
 import HeroBannerThumbnail from './banners/hero-banner/ec_comp_hero_banner.svg';
@@ -55,6 +57,7 @@ import BreadcrumbThumbnail from './navigation/breadcrumb/ec_comp_breadcrumb.svg'
 import InpageNavigationThumbnail from './navigation/inpage-navigation/ec_comp_inpage_navigation.svg';
 import LinkThumbnail from './navigation/link/ec_comp_links.svg';
 import MenuThumbnail from './navigation/menu/ec_comp_menu.svg';
+import NavigationListThumbnail from './navigation/navigation-list/ec_comp_navigation_list.svg';
 import PaginationThumbnail from './navigation/pagination/ec_comp_pagination.svg';
 import TabsThumbnail from './navigation/tabs/ec_comp_tabs.svg';
 
@@ -171,7 +174,14 @@ Every component is coded to serve a function and designed to solve a specific us
 <Row spacing="pv-m">
   <Col col="12 s-6 l-4" spacing="pv-m">
     <Thumbnail
-      image={SiteWideBreadcrumbThumbnail}
+      image={SiteHeaderThumbnail}
+      link="./site-wide/site-header/usage/"
+      title="Site header"
+    />
+  </Col>
+  <Col col="12 s-6 l-4" spacing="pv-m">
+    <Thumbnail
+      image={SiteBreadcrumbThumbnail}
       link="./site-wide/navigation/breadcrumb/usage/"
       title="Breadcrumb"
     />
@@ -327,6 +337,13 @@ Every component is coded to serve a function and designed to solve a specific us
       image={MenuThumbnail}
       link="./navigation/menu/usage/"
       title="Menu"
+    />
+  </Col>
+  <Col col="12 s-6 l-4" spacing="pv-m">
+    <Thumbnail
+      image={NavigationListThumbnail}
+      link="./navigation-list/usage/"
+      title="Navigation list"
     />
   </Col>
   <Col col="12 s-6 l-4" spacing="pv-m">

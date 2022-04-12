@@ -14,21 +14,21 @@ $_divider-color: null !default;
   color: $_text-color;
   font: map.get(theme.$font-prolonged, 'm');
   margin: 0;
-  padding-left: map.get(theme.$spacing, 's');
+  padding-inline-start: map.get(theme.$spacing, 's');
 }
 
 .ecl-unordered-list .ecl-unordered-list,
 %ecl-unordered-list--nested {
   margin-top: map.get(theme.$spacing, 'xs');
-  padding-left: map.get(theme.$spacing, 's');
+  padding-inline-start: map.get(theme.$spacing, 's');
 }
 
 .ecl-unordered-list__item,
 %ecl-unordered-list__item {
-  margin-left: map.get(theme.$spacing, 'm');
+  margin-inline-start: map.get(theme.$spacing, 'm');
   margin-top: map.get(theme.$spacing, 'xs');
   max-width: calc(80ch - #{map.get(theme.$spacing, '2xl')});
-  padding-left: map.get(theme.$spacing, '2xs');
+  padding-inline-start: map.get(theme.$spacing, '2xs');
 
   &:first-child {
     margin-top: 0;
@@ -38,29 +38,29 @@ $_divider-color: null !default;
 // No bullet
 .ecl-unordered-list--no-bullet {
   list-style: none;
-  padding-left: 0;
+  padding-inline-start: 0;
 
   .ecl-unordered-list {
-    padding-left: map.get(theme.$spacing, 'm');
+    padding-inline-start: map.get(theme.$spacing, 'm');
   }
 
   > .ecl-unordered-list__item {
-    margin-left: 0;
-    padding-left: 0;
+    margin-inline-start: 0;
+    padding-inline-start: 0;
   }
 }
 
 // Dividers
 .ecl-unordered-list--divider {
   list-style: none;
-  padding-left: 0;
+  padding-inline-start: 0;
 
   > .ecl-unordered-list__item {
     border-bottom: 1px solid $_divider-color;
     margin-bottom: map.get(theme.$spacing, 'm');
-    margin-left: 0;
+    margin-inline-start: 0;
     padding-bottom: map.get(theme.$spacing, 'm');
-    padding-left: 0;
+    padding-inline-start: 0;
   }
 
   > .ecl-unordered-list__item:last-child {
@@ -68,6 +68,6 @@ $_divider-color: null !default;
   }
 
   .ecl-unordered-list {
-    padding-left: map.get(theme.$spacing, 'm');
+    padding-inline-start: map.get(theme.$spacing, 'm');
   }
 }

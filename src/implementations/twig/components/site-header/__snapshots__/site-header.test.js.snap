@@ -1,0 +1,3542 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Site Header EC renders correctly 1`] = `
+<jest>
+  <header
+    class="ecl-site-header"
+    data-ecl-auto-init="SiteHeader"
+  >
+    <div
+      class="ecl-site-header__header"
+    >
+      <div
+        class="ecl-site-header__container ecl-container"
+      >
+        <div
+          class="ecl-site-header__top"
+        >
+          <a
+            aria-label="European Commission"
+            class="ecl-link ecl-link--standalone ecl-site-header__logo-link"
+            href="/example"
+          >
+            <img
+              alt="European Commission logo"
+              class="ecl-site-header__logo-image ecl-site-header__logo-image-desktop"
+              src="/logo-ec--en.svg"
+              title="European Commission"
+            />
+          </a>
+          <div
+            class="ecl-site-header__action"
+          >
+            <div
+              class="ecl-site-header__login-container"
+            >
+              <a
+                class="ecl-button ecl-button--ghost ecl-site-header__login-toggle"
+                href="/example"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-site-header__icon"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#log-in"
+                  />
+                </svg>
+                Log in
+              </a>
+            </div>
+            <a
+              aria-controls="language-list-overlay"
+              aria-label="English"
+              class="ecl-button ecl-button--ghost ecl-site-header__language-selector"
+              data-ecl-language-selector=""
+              href="/example"
+            >
+              <span
+                class="ecl-site-header__language-icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-site-header__icon"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#language"
+                  />
+                </svg>
+                <span
+                  class="ecl-site-header__language-code"
+                >
+                  en
+                </span>
+              </span>
+              English
+            </a>
+            <div
+              class="ecl-site-header__search-container"
+            >
+              <a
+                aria-controls="search-form-id"
+                aria-expanded="false"
+                class="ecl-button ecl-button--ghost ecl-site-header__search-toggle"
+                data-ecl-search-toggle="true"
+                href="/example"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#search"
+                  />
+                </svg>
+                Search
+              </a>
+              <form
+                class="ecl-search-form ecl-site-header__search"
+                data-ecl-search-form=""
+                id="search-form-id"
+                role="search"
+              >
+                <div
+                  class="ecl-form-group"
+                >
+                  <label
+                    class="ecl-form-label ecl-search-form__label"
+                    for="search-input-id"
+                  >
+                    Search
+                  </label>
+                  <input
+                    class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
+                    id="search-input-id"
+                    placeholder="Placeholder text"
+                    type="search"
+                  />
+                </div>
+                <button
+                  aria-label="Search"
+                  class="ecl-button ecl-button--search ecl-search-form__button"
+                  type="submit"
+                >
+                  <span
+                    class="ecl-button__container"
+                  >
+                    <span
+                      class="ecl-button__label"
+                      data-ecl-label="true"
+                    >
+                      Search
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
+                      data-ecl-icon=""
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#search"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ecl-site-header__banner-top"
+    >
+      <div
+        class="ecl-container"
+      >
+        <a
+          class="ecl-link ecl-link--standalone ecl-link--no-visited"
+          href="/example"
+        >
+          Class name
+        </a>
+      </div>
+    </div>
+    <div
+      class="ecl-site-header__banner"
+    >
+      <div
+        class="ecl-container"
+      >
+        <div
+          class="ecl-site-header__site-name"
+        >
+          Site name
+        </div>
+        <a
+          class="ecl-link ecl-link--cta ecl-link--icon ecl-link--icon-after ecl-site-header__cta"
+          href=""
+        >
+          <span
+            class="ecl-link__label"
+          >
+            CTA link
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--fluid ecl-icon--rotate-90 ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div
+      aria-labelledby="ecl-language-list__title"
+      class="ecl-language-list ecl-language-list--overlay"
+      data-ecl-language-list-overlay=""
+      hidden=""
+      id="language-list-overlay"
+      role="dialog"
+    >
+      <div
+        class="ecl-language-list__container ecl-container"
+      >
+        <div
+          class="ecl-row"
+        >
+          <div
+            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          >
+            <button
+              class="ecl-button ecl-button--ghost ecl-language-list__close-button"
+              data-ecl-language-list-close=""
+              type="submit"
+            >
+              <span
+                class="ecl-button__container"
+              >
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  Close
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-button__icon ecl-button__icon--after"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#close"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div
+            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            id="ecl-language-list__title"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--m ecl-language-list__title-icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#generic-lang"
+              />
+            </svg>
+            Select your language
+          </div>
+        </div>
+        <div
+          class="ecl-row ecl-language-list__eu"
+        >
+          <div
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          >
+            EU official languages
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="bg"
+                  lang="bg"
+                  rel="alternate"
+                >
+                  български
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="es"
+                  lang="es"
+                  rel="alternate"
+                >
+                  español
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="cs"
+                  lang="cs"
+                  rel="alternate"
+                >
+                  čeština
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="da"
+                  lang="da"
+                  rel="alternate"
+                >
+                  dansk
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="de"
+                  lang="de"
+                  rel="alternate"
+                >
+                  Deutsch
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="et"
+                  lang="et"
+                  rel="alternate"
+                >
+                  eesti
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="el"
+                  lang="el"
+                  rel="alternate"
+                >
+                  ελληνικά
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item ecl-language-list__item--is-active"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-language-list__link"
+                  href="/example"
+                  hreflang="en"
+                  lang="en"
+                  rel="alternate"
+                >
+                  <span
+                    class="ecl-link__label"
+                  >
+                    English
+                  </span>
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--xs ecl-link__icon"
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#check"
+                    />
+                  </svg>
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="fr"
+                  lang="fr"
+                  rel="alternate"
+                >
+                  français
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ga"
+                  lang="ga"
+                  rel="alternate"
+                >
+                  Gaeilge
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="hr"
+                  lang="hr"
+                  rel="alternate"
+                >
+                  hrvatski
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="it"
+                  lang="it"
+                  rel="alternate"
+                >
+                  italiano
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="lv"
+                  lang="lv"
+                  rel="alternate"
+                >
+                  latviešu
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="lt"
+                  lang="lt"
+                  rel="alternate"
+                >
+                  lietuvių
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="hu"
+                  lang="hu"
+                  rel="alternate"
+                >
+                  magyar
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="mt"
+                  lang="mt"
+                  rel="alternate"
+                >
+                  Malti
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="nl"
+                  lang="nl"
+                  rel="alternate"
+                >
+                  Nederlands
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="pl"
+                  lang="pl"
+                  rel="alternate"
+                >
+                  polski
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="pt"
+                  lang="pt"
+                  rel="alternate"
+                >
+                  português
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ro"
+                  lang="ro"
+                  rel="alternate"
+                >
+                  română
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="sk"
+                  lang="sk"
+                  rel="alternate"
+                >
+                  slovenčina
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="sl"
+                  lang="sl"
+                  rel="alternate"
+                >
+                  slovenščina
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="fi"
+                  lang="fi"
+                  rel="alternate"
+                >
+                  suomi
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="sv"
+                  lang="sv"
+                  rel="alternate"
+                >
+                  svenska
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="ecl-row ecl-language-list__non-eu"
+        >
+          <div
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          >
+            Non-EU languages
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="zh"
+                  lang="zh"
+                  rel="alternate"
+                >
+                  中文
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="tr"
+                  lang="tr"
+                  rel="alternate"
+                >
+                  Türk
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ru"
+                  lang="ru"
+                  rel="alternate"
+                >
+                  pусский
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ca"
+                  lang="ca"
+                  rel="alternate"
+                >
+                  Català
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ar"
+                  lang="ar"
+                  rel="alternate"
+                >
+                  عَرَبِيّ
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</jest>
+`;
+
+exports[`Site Header EC renders correctly when logged in 1`] = `
+<jest>
+  <header
+    class="ecl-site-header"
+    data-ecl-auto-init="SiteHeader"
+  >
+    <div
+      class="ecl-site-header__header"
+    >
+      <div
+        class="ecl-site-header__container ecl-container"
+      >
+        <div
+          class="ecl-site-header__top"
+        >
+          <a
+            aria-label="European Commission"
+            class="ecl-link ecl-link--standalone ecl-site-header__logo-link"
+            href="/example"
+          >
+            <img
+              alt="European Commission logo"
+              class="ecl-site-header__logo-image ecl-site-header__logo-image-desktop"
+              src="/logo-ec--en.svg"
+              title="European Commission"
+            />
+          </a>
+          <div
+            class="ecl-site-header__action"
+          >
+            <div
+              class="ecl-site-header__login-container"
+            >
+              <a
+                aria-controls="login-box-id"
+                aria-expanded="false"
+                class="ecl-button ecl-button--ghost ecl-site-header__login-toggle"
+                data-ecl-login-toggle=""
+                href="/example"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-site-header__icon"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#logged-in"
+                  />
+                </svg>
+                Logged in
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs ecl-site-header__login-arrow"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+              </a>
+              <div
+                class="ecl-site-header__login-box"
+                data-ecl-login-box=""
+                id="login-box-id"
+              >
+                <p
+                  class="ecl-site-header__login-description"
+                >
+                  Logged in as "last name" "first name"
+                </p>
+                <hr
+                  class="ecl-site-header__login-separator"
+                />
+                <a
+                  class="ecl-link ecl-link--standalone"
+                  href="/example"
+                >
+                  Log out
+                </a>
+              </div>
+            </div>
+            <a
+              aria-controls="language-list-overlay"
+              aria-label="English"
+              class="ecl-button ecl-button--ghost ecl-site-header__language-selector"
+              data-ecl-language-selector=""
+              href="/example"
+            >
+              <span
+                class="ecl-site-header__language-icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-site-header__icon"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#language"
+                  />
+                </svg>
+                <span
+                  class="ecl-site-header__language-code"
+                >
+                  en
+                </span>
+              </span>
+              English
+            </a>
+            <div
+              class="ecl-site-header__search-container"
+            >
+              <a
+                aria-controls="search-form-id"
+                aria-expanded="false"
+                class="ecl-button ecl-button--ghost ecl-site-header__search-toggle"
+                data-ecl-search-toggle="true"
+                href="/example"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#search"
+                  />
+                </svg>
+                Search
+              </a>
+              <form
+                class="ecl-search-form ecl-site-header__search"
+                data-ecl-search-form=""
+                id="search-form-id"
+                role="search"
+              >
+                <div
+                  class="ecl-form-group"
+                >
+                  <label
+                    class="ecl-form-label ecl-search-form__label"
+                    for="search-input-id"
+                  >
+                    Search
+                  </label>
+                  <input
+                    class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
+                    id="search-input-id"
+                    placeholder="Placeholder text"
+                    type="search"
+                  />
+                </div>
+                <button
+                  aria-label="Search"
+                  class="ecl-button ecl-button--search ecl-search-form__button"
+                  type="submit"
+                >
+                  <span
+                    class="ecl-button__container"
+                  >
+                    <span
+                      class="ecl-button__label"
+                      data-ecl-label="true"
+                    >
+                      Search
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
+                      data-ecl-icon=""
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#search"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ecl-site-header__banner-top"
+    >
+      <div
+        class="ecl-container"
+      >
+        <a
+          class="ecl-link ecl-link--standalone ecl-link--no-visited"
+          href="/example"
+        >
+          Class name
+        </a>
+      </div>
+    </div>
+    <div
+      class="ecl-site-header__banner"
+    >
+      <div
+        class="ecl-container"
+      >
+        <div
+          class="ecl-site-header__site-name"
+        >
+          Site name
+        </div>
+        <a
+          class="ecl-link ecl-link--cta ecl-link--icon ecl-link--icon-after ecl-site-header__cta"
+          href=""
+        >
+          <span
+            class="ecl-link__label"
+          >
+            CTA link
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--fluid ecl-icon--rotate-90 ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div
+      aria-labelledby="ecl-language-list__title"
+      class="ecl-language-list ecl-language-list--overlay"
+      data-ecl-language-list-overlay=""
+      hidden=""
+      id="language-list-overlay"
+      role="dialog"
+    >
+      <div
+        class="ecl-language-list__container ecl-container"
+      >
+        <div
+          class="ecl-row"
+        >
+          <div
+            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          >
+            <button
+              class="ecl-button ecl-button--ghost ecl-language-list__close-button"
+              data-ecl-language-list-close=""
+              type="submit"
+            >
+              <span
+                class="ecl-button__container"
+              >
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  Close
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-button__icon ecl-button__icon--after"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#close"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div
+            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            id="ecl-language-list__title"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--m ecl-language-list__title-icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#generic-lang"
+              />
+            </svg>
+            Select your language
+          </div>
+        </div>
+        <div
+          class="ecl-row ecl-language-list__eu"
+        >
+          <div
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          >
+            EU official languages
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="bg"
+                  lang="bg"
+                  rel="alternate"
+                >
+                  български
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="es"
+                  lang="es"
+                  rel="alternate"
+                >
+                  español
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="cs"
+                  lang="cs"
+                  rel="alternate"
+                >
+                  čeština
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="da"
+                  lang="da"
+                  rel="alternate"
+                >
+                  dansk
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="de"
+                  lang="de"
+                  rel="alternate"
+                >
+                  Deutsch
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="et"
+                  lang="et"
+                  rel="alternate"
+                >
+                  eesti
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="el"
+                  lang="el"
+                  rel="alternate"
+                >
+                  ελληνικά
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item ecl-language-list__item--is-active"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-language-list__link"
+                  href="/example"
+                  hreflang="en"
+                  lang="en"
+                  rel="alternate"
+                >
+                  <span
+                    class="ecl-link__label"
+                  >
+                    English
+                  </span>
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--xs ecl-link__icon"
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#check"
+                    />
+                  </svg>
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="fr"
+                  lang="fr"
+                  rel="alternate"
+                >
+                  français
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ga"
+                  lang="ga"
+                  rel="alternate"
+                >
+                  Gaeilge
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="hr"
+                  lang="hr"
+                  rel="alternate"
+                >
+                  hrvatski
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="it"
+                  lang="it"
+                  rel="alternate"
+                >
+                  italiano
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="lv"
+                  lang="lv"
+                  rel="alternate"
+                >
+                  latviešu
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="lt"
+                  lang="lt"
+                  rel="alternate"
+                >
+                  lietuvių
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="hu"
+                  lang="hu"
+                  rel="alternate"
+                >
+                  magyar
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="mt"
+                  lang="mt"
+                  rel="alternate"
+                >
+                  Malti
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="nl"
+                  lang="nl"
+                  rel="alternate"
+                >
+                  Nederlands
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="pl"
+                  lang="pl"
+                  rel="alternate"
+                >
+                  polski
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="pt"
+                  lang="pt"
+                  rel="alternate"
+                >
+                  português
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ro"
+                  lang="ro"
+                  rel="alternate"
+                >
+                  română
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="sk"
+                  lang="sk"
+                  rel="alternate"
+                >
+                  slovenčina
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="sl"
+                  lang="sl"
+                  rel="alternate"
+                >
+                  slovenščina
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="fi"
+                  lang="fi"
+                  rel="alternate"
+                >
+                  suomi
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="sv"
+                  lang="sv"
+                  rel="alternate"
+                >
+                  svenska
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="ecl-row ecl-language-list__non-eu"
+        >
+          <div
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          >
+            Non-EU languages
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="zh"
+                  lang="zh"
+                  rel="alternate"
+                >
+                  中文
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="tr"
+                  lang="tr"
+                  rel="alternate"
+                >
+                  Türk
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ru"
+                  lang="ru"
+                  rel="alternate"
+                >
+                  pусский
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ca"
+                  lang="ca"
+                  rel="alternate"
+                >
+                  Català
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ar"
+                  lang="ar"
+                  rel="alternate"
+                >
+                  عَرَبِيّ
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</jest>
+`;
+
+exports[`Site Header EC renders correctly with extra attributes 1`] = `
+<jest>
+  <header
+    class="ecl-site-header"
+    data-ecl-auto-init="SiteHeader"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
+  >
+    <div
+      class="ecl-site-header__header"
+    >
+      <div
+        class="ecl-site-header__container ecl-container"
+      >
+        <div
+          class="ecl-site-header__top"
+        >
+          <a
+            aria-label="European Commission"
+            class="ecl-link ecl-link--standalone ecl-site-header__logo-link"
+            href="/example"
+          >
+            <img
+              alt="European Commission logo"
+              class="ecl-site-header__logo-image ecl-site-header__logo-image-desktop"
+              src="/logo-ec--en.svg"
+              title="European Commission"
+            />
+          </a>
+          <div
+            class="ecl-site-header__action"
+          >
+            <div
+              class="ecl-site-header__login-container"
+            >
+              <a
+                class="ecl-button ecl-button--ghost ecl-site-header__login-toggle"
+                href="/example"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-site-header__icon"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#log-in"
+                  />
+                </svg>
+                Log in
+              </a>
+            </div>
+            <a
+              aria-controls="language-list-overlay"
+              aria-label="English"
+              class="ecl-button ecl-button--ghost ecl-site-header__language-selector"
+              data-ecl-language-selector=""
+              href="/example"
+            >
+              <span
+                class="ecl-site-header__language-icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-site-header__icon"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#language"
+                  />
+                </svg>
+                <span
+                  class="ecl-site-header__language-code"
+                >
+                  en
+                </span>
+              </span>
+              English
+            </a>
+            <div
+              class="ecl-site-header__search-container"
+            >
+              <a
+                aria-controls="search-form-id"
+                aria-expanded="false"
+                class="ecl-button ecl-button--ghost ecl-site-header__search-toggle"
+                data-ecl-search-toggle="true"
+                href="/example"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#search"
+                  />
+                </svg>
+                Search
+              </a>
+              <form
+                class="ecl-search-form ecl-site-header__search"
+                data-ecl-search-form=""
+                id="search-form-id"
+                role="search"
+              >
+                <div
+                  class="ecl-form-group"
+                >
+                  <label
+                    class="ecl-form-label ecl-search-form__label"
+                    for="search-input-id"
+                  >
+                    Search
+                  </label>
+                  <input
+                    class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
+                    id="search-input-id"
+                    placeholder="Placeholder text"
+                    type="search"
+                  />
+                </div>
+                <button
+                  aria-label="Search"
+                  class="ecl-button ecl-button--search ecl-search-form__button"
+                  type="submit"
+                >
+                  <span
+                    class="ecl-button__container"
+                  >
+                    <span
+                      class="ecl-button__label"
+                      data-ecl-label="true"
+                    >
+                      Search
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
+                      data-ecl-icon=""
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#search"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ecl-site-header__banner-top"
+    >
+      <div
+        class="ecl-container"
+      >
+        <a
+          class="ecl-link ecl-link--standalone ecl-link--no-visited"
+          href="/example"
+        >
+          Class name
+        </a>
+      </div>
+    </div>
+    <div
+      class="ecl-site-header__banner"
+    >
+      <div
+        class="ecl-container"
+      >
+        <div
+          class="ecl-site-header__site-name"
+        >
+          Site name
+        </div>
+        <a
+          class="ecl-link ecl-link--cta ecl-link--icon ecl-link--icon-after ecl-site-header__cta"
+          href=""
+        >
+          <span
+            class="ecl-link__label"
+          >
+            CTA link
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--fluid ecl-icon--rotate-90 ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div
+      aria-labelledby="ecl-language-list__title"
+      class="ecl-language-list ecl-language-list--overlay"
+      data-ecl-language-list-overlay=""
+      hidden=""
+      id="language-list-overlay"
+      role="dialog"
+    >
+      <div
+        class="ecl-language-list__container ecl-container"
+      >
+        <div
+          class="ecl-row"
+        >
+          <div
+            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          >
+            <button
+              class="ecl-button ecl-button--ghost ecl-language-list__close-button"
+              data-ecl-language-list-close=""
+              type="submit"
+            >
+              <span
+                class="ecl-button__container"
+              >
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  Close
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-button__icon ecl-button__icon--after"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#close"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div
+            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            id="ecl-language-list__title"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--m ecl-language-list__title-icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#generic-lang"
+              />
+            </svg>
+            Select your language
+          </div>
+        </div>
+        <div
+          class="ecl-row ecl-language-list__eu"
+        >
+          <div
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          >
+            EU official languages
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="bg"
+                  lang="bg"
+                  rel="alternate"
+                >
+                  български
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="es"
+                  lang="es"
+                  rel="alternate"
+                >
+                  español
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="cs"
+                  lang="cs"
+                  rel="alternate"
+                >
+                  čeština
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="da"
+                  lang="da"
+                  rel="alternate"
+                >
+                  dansk
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="de"
+                  lang="de"
+                  rel="alternate"
+                >
+                  Deutsch
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="et"
+                  lang="et"
+                  rel="alternate"
+                >
+                  eesti
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="el"
+                  lang="el"
+                  rel="alternate"
+                >
+                  ελληνικά
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item ecl-language-list__item--is-active"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-language-list__link"
+                  href="/example"
+                  hreflang="en"
+                  lang="en"
+                  rel="alternate"
+                >
+                  <span
+                    class="ecl-link__label"
+                  >
+                    English
+                  </span>
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--xs ecl-link__icon"
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#check"
+                    />
+                  </svg>
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="fr"
+                  lang="fr"
+                  rel="alternate"
+                >
+                  français
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ga"
+                  lang="ga"
+                  rel="alternate"
+                >
+                  Gaeilge
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="hr"
+                  lang="hr"
+                  rel="alternate"
+                >
+                  hrvatski
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="it"
+                  lang="it"
+                  rel="alternate"
+                >
+                  italiano
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="lv"
+                  lang="lv"
+                  rel="alternate"
+                >
+                  latviešu
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="lt"
+                  lang="lt"
+                  rel="alternate"
+                >
+                  lietuvių
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="hu"
+                  lang="hu"
+                  rel="alternate"
+                >
+                  magyar
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="mt"
+                  lang="mt"
+                  rel="alternate"
+                >
+                  Malti
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="nl"
+                  lang="nl"
+                  rel="alternate"
+                >
+                  Nederlands
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="pl"
+                  lang="pl"
+                  rel="alternate"
+                >
+                  polski
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="pt"
+                  lang="pt"
+                  rel="alternate"
+                >
+                  português
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ro"
+                  lang="ro"
+                  rel="alternate"
+                >
+                  română
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="sk"
+                  lang="sk"
+                  rel="alternate"
+                >
+                  slovenčina
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="sl"
+                  lang="sl"
+                  rel="alternate"
+                >
+                  slovenščina
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="fi"
+                  lang="fi"
+                  rel="alternate"
+                >
+                  suomi
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="sv"
+                  lang="sv"
+                  rel="alternate"
+                >
+                  svenska
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="ecl-row ecl-language-list__non-eu"
+        >
+          <div
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          >
+            Non-EU languages
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="zh"
+                  lang="zh"
+                  rel="alternate"
+                >
+                  中文
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="tr"
+                  lang="tr"
+                  rel="alternate"
+                >
+                  Türk
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ru"
+                  lang="ru"
+                  rel="alternate"
+                >
+                  pусский
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ca"
+                  lang="ca"
+                  rel="alternate"
+                >
+                  Català
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ar"
+                  lang="ar"
+                  rel="alternate"
+                >
+                  عَرَبِيّ
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</jest>
+`;
+
+exports[`Site Header EC renders correctly with extra class names 1`] = `
+<jest>
+  <header
+    class="ecl-site-header custom-class custom-class--test"
+    data-ecl-auto-init="SiteHeader"
+  >
+    <div
+      class="ecl-site-header__header"
+    >
+      <div
+        class="ecl-site-header__container ecl-container"
+      >
+        <div
+          class="ecl-site-header__top"
+        >
+          <a
+            aria-label="European Commission"
+            class="ecl-link ecl-link--standalone ecl-site-header__logo-link"
+            href="/example"
+          >
+            <img
+              alt="European Commission logo"
+              class="ecl-site-header__logo-image ecl-site-header__logo-image-desktop"
+              src="/logo-ec--en.svg"
+              title="European Commission"
+            />
+          </a>
+          <div
+            class="ecl-site-header__action"
+          >
+            <div
+              class="ecl-site-header__login-container"
+            >
+              <a
+                class="ecl-button ecl-button--ghost ecl-site-header__login-toggle"
+                href="/example"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-site-header__icon"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#log-in"
+                  />
+                </svg>
+                Log in
+              </a>
+            </div>
+            <a
+              aria-controls="language-list-overlay"
+              aria-label="English"
+              class="ecl-button ecl-button--ghost ecl-site-header__language-selector"
+              data-ecl-language-selector=""
+              href="/example"
+            >
+              <span
+                class="ecl-site-header__language-icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-site-header__icon"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#language"
+                  />
+                </svg>
+                <span
+                  class="ecl-site-header__language-code"
+                >
+                  en
+                </span>
+              </span>
+              English
+            </a>
+            <div
+              class="ecl-site-header__search-container"
+            >
+              <a
+                aria-controls="search-form-id"
+                aria-expanded="false"
+                class="ecl-button ecl-button--ghost ecl-site-header__search-toggle"
+                data-ecl-search-toggle="true"
+                href="/example"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#search"
+                  />
+                </svg>
+                Search
+              </a>
+              <form
+                class="ecl-search-form ecl-site-header__search"
+                data-ecl-search-form=""
+                id="search-form-id"
+                role="search"
+              >
+                <div
+                  class="ecl-form-group"
+                >
+                  <label
+                    class="ecl-form-label ecl-search-form__label"
+                    for="search-input-id"
+                  >
+                    Search
+                  </label>
+                  <input
+                    class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
+                    id="search-input-id"
+                    placeholder="Placeholder text"
+                    type="search"
+                  />
+                </div>
+                <button
+                  aria-label="Search"
+                  class="ecl-button ecl-button--search ecl-search-form__button"
+                  type="submit"
+                >
+                  <span
+                    class="ecl-button__container"
+                  >
+                    <span
+                      class="ecl-button__label"
+                      data-ecl-label="true"
+                    >
+                      Search
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
+                      data-ecl-icon=""
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#search"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ecl-site-header__banner-top"
+    >
+      <div
+        class="ecl-container"
+      >
+        <a
+          class="ecl-link ecl-link--standalone ecl-link--no-visited"
+          href="/example"
+        >
+          Class name
+        </a>
+      </div>
+    </div>
+    <div
+      class="ecl-site-header__banner"
+    >
+      <div
+        class="ecl-container"
+      >
+        <div
+          class="ecl-site-header__site-name"
+        >
+          Site name
+        </div>
+        <a
+          class="ecl-link ecl-link--cta ecl-link--icon ecl-link--icon-after ecl-site-header__cta"
+          href=""
+        >
+          <span
+            class="ecl-link__label"
+          >
+            CTA link
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--fluid ecl-icon--rotate-90 ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div
+      aria-labelledby="ecl-language-list__title"
+      class="ecl-language-list ecl-language-list--overlay"
+      data-ecl-language-list-overlay=""
+      hidden=""
+      id="language-list-overlay"
+      role="dialog"
+    >
+      <div
+        class="ecl-language-list__container ecl-container"
+      >
+        <div
+          class="ecl-row"
+        >
+          <div
+            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          >
+            <button
+              class="ecl-button ecl-button--ghost ecl-language-list__close-button"
+              data-ecl-language-list-close=""
+              type="submit"
+            >
+              <span
+                class="ecl-button__container"
+              >
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  Close
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-button__icon ecl-button__icon--after"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#close"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div
+            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            id="ecl-language-list__title"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--m ecl-language-list__title-icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#generic-lang"
+              />
+            </svg>
+            Select your language
+          </div>
+        </div>
+        <div
+          class="ecl-row ecl-language-list__eu"
+        >
+          <div
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          >
+            EU official languages
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="bg"
+                  lang="bg"
+                  rel="alternate"
+                >
+                  български
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="es"
+                  lang="es"
+                  rel="alternate"
+                >
+                  español
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="cs"
+                  lang="cs"
+                  rel="alternate"
+                >
+                  čeština
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="da"
+                  lang="da"
+                  rel="alternate"
+                >
+                  dansk
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="de"
+                  lang="de"
+                  rel="alternate"
+                >
+                  Deutsch
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="et"
+                  lang="et"
+                  rel="alternate"
+                >
+                  eesti
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="el"
+                  lang="el"
+                  rel="alternate"
+                >
+                  ελληνικά
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item ecl-language-list__item--is-active"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-language-list__link"
+                  href="/example"
+                  hreflang="en"
+                  lang="en"
+                  rel="alternate"
+                >
+                  <span
+                    class="ecl-link__label"
+                  >
+                    English
+                  </span>
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--xs ecl-link__icon"
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#check"
+                    />
+                  </svg>
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="fr"
+                  lang="fr"
+                  rel="alternate"
+                >
+                  français
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ga"
+                  lang="ga"
+                  rel="alternate"
+                >
+                  Gaeilge
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="hr"
+                  lang="hr"
+                  rel="alternate"
+                >
+                  hrvatski
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="it"
+                  lang="it"
+                  rel="alternate"
+                >
+                  italiano
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="lv"
+                  lang="lv"
+                  rel="alternate"
+                >
+                  latviešu
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="lt"
+                  lang="lt"
+                  rel="alternate"
+                >
+                  lietuvių
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="hu"
+                  lang="hu"
+                  rel="alternate"
+                >
+                  magyar
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="mt"
+                  lang="mt"
+                  rel="alternate"
+                >
+                  Malti
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="nl"
+                  lang="nl"
+                  rel="alternate"
+                >
+                  Nederlands
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="pl"
+                  lang="pl"
+                  rel="alternate"
+                >
+                  polski
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="pt"
+                  lang="pt"
+                  rel="alternate"
+                >
+                  português
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ro"
+                  lang="ro"
+                  rel="alternate"
+                >
+                  română
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="sk"
+                  lang="sk"
+                  rel="alternate"
+                >
+                  slovenčina
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="sl"
+                  lang="sl"
+                  rel="alternate"
+                >
+                  slovenščina
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="fi"
+                  lang="fi"
+                  rel="alternate"
+                >
+                  suomi
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="sv"
+                  lang="sv"
+                  rel="alternate"
+                >
+                  svenska
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="ecl-row ecl-language-list__non-eu"
+        >
+          <div
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          >
+            Non-EU languages
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="zh"
+                  lang="zh"
+                  rel="alternate"
+                >
+                  中文
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="tr"
+                  lang="tr"
+                  rel="alternate"
+                >
+                  Türk
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ru"
+                  lang="ru"
+                  rel="alternate"
+                >
+                  pусский
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ca"
+                  lang="ca"
+                  rel="alternate"
+                >
+                  Català
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ar"
+                  lang="ar"
+                  rel="alternate"
+                >
+                  عَرَبِيّ
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</jest>
+`;
+
+exports[`Site Header EU renders correctly 1`] = `
+<jest>
+  <header
+    class="ecl-site-header"
+    data-ecl-auto-init="SiteHeader"
+  >
+    <div
+      class="ecl-site-header__header"
+    >
+      <div
+        class="ecl-site-header__container ecl-container"
+      >
+        <div
+          class="ecl-site-header__top"
+        >
+          <a
+            aria-label="European Union"
+            class="ecl-link ecl-link--standalone ecl-site-header__logo-link"
+            href="/example"
+          >
+            <img
+              alt="European Union flag"
+              class="ecl-site-header__logo-image ecl-site-header__logo-image-mobile"
+              src="/condensed-version/positive/logo-eu--en.svg"
+              title="European Union"
+            />
+            <img
+              alt="European Union flag"
+              class="ecl-site-header__logo-image ecl-site-header__logo-image-desktop"
+              src="/standard-version/positive/logo-eu--en.svg"
+              title="European Union"
+            />
+          </a>
+          <div
+            class="ecl-site-header__action"
+          >
+            <div
+              class="ecl-site-header__login-container"
+            >
+              <a
+                class="ecl-button ecl-button--ghost ecl-site-header__login-toggle"
+                href="/example"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-site-header__icon"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#log-in"
+                  />
+                </svg>
+                Log in
+              </a>
+            </div>
+            <a
+              aria-controls="language-list-overlay"
+              aria-label="English"
+              class="ecl-button ecl-button--ghost ecl-site-header__language-selector"
+              data-ecl-language-selector=""
+              href="/example"
+            >
+              <span
+                class="ecl-site-header__language-icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-site-header__icon"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#language"
+                  />
+                </svg>
+                <span
+                  class="ecl-site-header__language-code"
+                >
+                  en
+                </span>
+              </span>
+              English
+            </a>
+            <div
+              class="ecl-site-header__search-container"
+            >
+              <a
+                aria-controls="search-form-id"
+                aria-expanded="false"
+                class="ecl-button ecl-button--ghost ecl-site-header__search-toggle"
+                data-ecl-search-toggle="true"
+                href="/example"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#search"
+                  />
+                </svg>
+                Search
+              </a>
+              <form
+                class="ecl-search-form ecl-site-header__search"
+                data-ecl-search-form=""
+                id="search-form-id"
+                role="search"
+              >
+                <div
+                  class="ecl-form-group"
+                >
+                  <label
+                    class="ecl-form-label ecl-search-form__label"
+                    for="search-input-id"
+                  >
+                    Search
+                  </label>
+                  <input
+                    class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
+                    id="search-input-id"
+                    placeholder="Placeholder text"
+                    type="search"
+                  />
+                </div>
+                <button
+                  aria-label="Search"
+                  class="ecl-button ecl-button--search ecl-search-form__button"
+                  type="submit"
+                >
+                  <span
+                    class="ecl-button__container"
+                  >
+                    <span
+                      class="ecl-button__label"
+                      data-ecl-label="true"
+                    >
+                      Search
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
+                      data-ecl-icon=""
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#search"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ecl-site-header__banner"
+    >
+      <div
+        class="ecl-container"
+      >
+        <div
+          class="ecl-site-header__site-name"
+        >
+          Site name
+        </div>
+        <a
+          class="ecl-link ecl-link--cta ecl-link--icon ecl-link--icon-after ecl-site-header__cta"
+          href=""
+        >
+          <span
+            class="ecl-link__label"
+          >
+            CTA link
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--fluid ecl-icon--rotate-90 ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div
+      aria-labelledby="ecl-language-list__title"
+      class="ecl-language-list ecl-language-list--overlay"
+      data-ecl-language-list-overlay=""
+      hidden=""
+      id="language-list-overlay"
+      role="dialog"
+    >
+      <div
+        class="ecl-language-list__container ecl-container"
+      >
+        <div
+          class="ecl-row"
+        >
+          <div
+            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          >
+            <button
+              class="ecl-button ecl-button--ghost ecl-language-list__close-button"
+              data-ecl-language-list-close=""
+              type="submit"
+            >
+              <span
+                class="ecl-button__container"
+              >
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  Close
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-button__icon ecl-button__icon--after"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#close"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div
+            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            id="ecl-language-list__title"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--m ecl-language-list__title-icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#generic-lang"
+              />
+            </svg>
+            Select your language
+          </div>
+        </div>
+        <div
+          class="ecl-row ecl-language-list__eu"
+        >
+          <div
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          >
+            EU official languages
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="bg"
+                  lang="bg"
+                  rel="alternate"
+                >
+                  български
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="es"
+                  lang="es"
+                  rel="alternate"
+                >
+                  español
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="cs"
+                  lang="cs"
+                  rel="alternate"
+                >
+                  čeština
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="da"
+                  lang="da"
+                  rel="alternate"
+                >
+                  dansk
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="de"
+                  lang="de"
+                  rel="alternate"
+                >
+                  Deutsch
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="et"
+                  lang="et"
+                  rel="alternate"
+                >
+                  eesti
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="el"
+                  lang="el"
+                  rel="alternate"
+                >
+                  ελληνικά
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item ecl-language-list__item--is-active"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-language-list__link"
+                  href="/example"
+                  hreflang="en"
+                  lang="en"
+                  rel="alternate"
+                >
+                  <span
+                    class="ecl-link__label"
+                  >
+                    English
+                  </span>
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--xs ecl-link__icon"
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#check"
+                    />
+                  </svg>
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="fr"
+                  lang="fr"
+                  rel="alternate"
+                >
+                  français
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ga"
+                  lang="ga"
+                  rel="alternate"
+                >
+                  Gaeilge
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="hr"
+                  lang="hr"
+                  rel="alternate"
+                >
+                  hrvatski
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="it"
+                  lang="it"
+                  rel="alternate"
+                >
+                  italiano
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="lv"
+                  lang="lv"
+                  rel="alternate"
+                >
+                  latviešu
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="lt"
+                  lang="lt"
+                  rel="alternate"
+                >
+                  lietuvių
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="hu"
+                  lang="hu"
+                  rel="alternate"
+                >
+                  magyar
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="mt"
+                  lang="mt"
+                  rel="alternate"
+                >
+                  Malti
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="nl"
+                  lang="nl"
+                  rel="alternate"
+                >
+                  Nederlands
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="pl"
+                  lang="pl"
+                  rel="alternate"
+                >
+                  polski
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="pt"
+                  lang="pt"
+                  rel="alternate"
+                >
+                  português
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ro"
+                  lang="ro"
+                  rel="alternate"
+                >
+                  română
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="sk"
+                  lang="sk"
+                  rel="alternate"
+                >
+                  slovenčina
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="sl"
+                  lang="sl"
+                  rel="alternate"
+                >
+                  slovenščina
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="fi"
+                  lang="fi"
+                  rel="alternate"
+                >
+                  suomi
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="sv"
+                  lang="sv"
+                  rel="alternate"
+                >
+                  svenska
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="ecl-row ecl-language-list__non-eu"
+        >
+          <div
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          >
+            Non-EU languages
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="zh"
+                  lang="zh"
+                  rel="alternate"
+                >
+                  中文
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="tr"
+                  lang="tr"
+                  rel="alternate"
+                >
+                  Türk
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ru"
+                  lang="ru"
+                  rel="alternate"
+                >
+                  pусский
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ca"
+                  lang="ca"
+                  rel="alternate"
+                >
+                  Català
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ar"
+                  lang="ar"
+                  rel="alternate"
+                >
+                  عَرَبِيّ
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</jest>
+`;

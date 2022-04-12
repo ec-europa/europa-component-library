@@ -5,9 +5,9 @@ import getSystem from '@ecl/builder/utils/getSystem';
 
 import specsEc from '@ecl/specs-component-footer-core/demo/data--ec';
 import specsEu from '@ecl/specs-component-footer-core/demo/data--eu';
-import logoEc from '@ecl/resources-ec-logo/negative/logo-ec--en.svg';
-import logoEuMobile from '@ecl/resources-eu-logo/condensed-version/positive/logo-eu--en.svg';
-import logoEuDesktop from '@ecl/resources-eu-logo/standard-version/positive/logo-eu--en.svg';
+import logoEc from '@ecl/resources-ec-logo/dist/negative/logo-ec--en.svg';
+import logoEuMobile from '@ecl/resources-eu-logo/dist/condensed-version/positive/logo-eu--en.svg';
+import logoEuDesktop from '@ecl/resources-eu-logo/dist/standard-version/positive/logo-eu--en.svg';
 import footer from './footer-core.html.twig';
 import notes from './README.md';
 
