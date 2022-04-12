@@ -52,11 +52,14 @@ export const autoInit = ({ root = document, ...options } = {}) => {
 
   // Destroy should not throw, in order to be non-blocking.
   const destroy = () => {
-    ECL.initialisedComponents.forEach((component) => {
-      if (component.destroy) {
-        component.destroy();
-      }
-    });
+    if (ECL.initialisedComponents) {
+      ECL.initialisedComponents.forEach((component, index, object) => {
+        if (component.destroy) {
+          component.destroy();
+          object.splice(index, 1);
+        }
+      });
+    }
   };
 
   const update = () => init();
