@@ -18,18 +18,18 @@
 }
 
 .ecl-page-header__meta-item {
-  border-right: 1px solid map.get(theme.$color, 'grey-100');
-  margin-right: map.get(theme.$spacing-print, 'm');
-  padding-right: map.get(theme.$spacing-print, 'm');
+  border-inline-end: 1px solid map.get(theme.$color, 'grey-100');
+  margin-inline-end: map.get(theme.$spacing-print, 'm');
+  padding-inline-end: map.get(theme.$spacing-print, 'm');
 
   &:first-of-type {
     text-transform: uppercase;
   }
 
   &:last-of-type {
-    border-right-width: 0;
-    margin-right: 0;
-    padding-right: 0;
+    border-inline-end-width: 0;
+    margin-inline-end: 0;
+    padding-inline-end: 0;
   }
 }
 
