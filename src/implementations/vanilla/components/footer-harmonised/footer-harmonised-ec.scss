@@ -78,7 +78,7 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
   list-style: none;
   margin-bottom: 0;
   margin-top: map.get(theme.$spacing, 'xs');
-  padding-left: 0;
+  padding-inline-start: 0;
 }
 
 .ecl-footer-harmonised__list--inline {
@@ -86,12 +86,12 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
   flex-wrap: wrap;
 
   .ecl-footer-harmonised__list-item {
-    margin-right: map.get(theme.$spacing, 'l');
+    margin-inline-end: map.get(theme.$spacing, 'l');
     margin-top: 0;
 
     /* stylelint-disable-next-line max-nesting-depth */
     &:last-of-type {
-      margin-right: 0;
+      margin-inline-end: 0;
     }
   }
 }
@@ -354,16 +354,16 @@ $_logo-g3-height-lg: 2.5rem;
     flex-wrap: wrap;
     list-style: none;
     margin: 0;
-    padding-left: 0;
+    padding-inline-start: 0;
   }
 
   .ecl-footer-harmonised__logo-item {
     margin-bottom: map.get(theme.$spacing, 'm');
-    margin-right: map.get(theme.$spacing, 's');
+    margin-inline-end: map.get(theme.$spacing, 's');
   }
 
   .ecl-footer-harmonised__logo-item:last-of-type {
-    margin-right: 0;
+    margin-inline-end: 0;
   }
 
   .ecl-footer-harmonised__logo {
@@ -388,7 +388,7 @@ $_logo-g3-height-lg: 2.5rem;
     }
 
     .ecl-footer-harmonised__logo-list {
-      margin-left: map.get(theme.$spacing, 'xl');
+      margin-inline-start: map.get(theme.$spacing, 'xl');
       margin-top: 0;
     }
 
@@ -406,7 +406,7 @@ $_logo-g3-height-lg: 2.5rem;
     }
 
     .ecl-footer-harmonised__logo-item {
-      margin-right: map.get(theme.$spacing, 'l');
+      margin-inline-end: map.get(theme.$spacing, 'l');
     }
 
     .ecl-footer-harmonised__logo {
