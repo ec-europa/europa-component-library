@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 ```
 
-For more details regarding ECL's autoInit method, follow the [package's README.md file](https://github.com/ec-europa/europa-component-library/blob/v3-dev/src/tools/dom-utils/auto-init/README.md).
+For more details regarding ECL's autoInit method, follow the [package's README.md file](https://github.com/ec-europa/europa-component-library/blob/v3-dev/src/tools/dom-utils/autoinit/README.md).
 
 ## Settings
 

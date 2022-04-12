@@ -4,8 +4,8 @@ import withCode from '@ecl/storybook-addon-code';
 
 // Get data
 import dataFullEU from '@ecl/specs-component-site-header/demo/data--eu';
-import enLogoDesktopEU from '@ecl/resources-eu-logo/standard-version/positive/logo-eu--en.svg';
-import enLogoMobileEU from '@ecl/resources-eu-logo/condensed-version/positive/logo-eu--en.svg';
+import enLogoDesktopEU from '@ecl/resources-eu-logo/dist/standard-version/positive/logo-eu--en.svg';
+import enLogoMobileEU from '@ecl/resources-eu-logo/dist/condensed-version/positive/logo-eu--en.svg';
 import enDataMenu from '@ecl/specs-component-menu/demo/data--en';
 import siteHeader from './site-header.html.twig';
 import notes from './README.md';
