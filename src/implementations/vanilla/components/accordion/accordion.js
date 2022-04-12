@@ -77,6 +77,9 @@ export class Accordion {
         );
       });
     }
+
+    // Set ecl initialized attribute
+    this.element.setAttribute('data-ecl-auto-initialized', 'true');
   }
 
   /**

@@ -8,8 +8,8 @@ export const autoInit = ({ root = document, ...options } = {}) => {
 
   const components = [];
 
-  if (!ECL.initialisedComponents) {
-    ECL.initialisedComponents = [];
+  if (!ECL.components) {
+    ECL.components = [];
   }
 
   const nodes = queryAll('[data-ecl-auto-init]', root);
@@ -43,17 +43,15 @@ export const autoInit = ({ root = document, ...options } = {}) => {
 
         const component = ctor.autoInit(node, options);
 
-        ECL.initialisedComponents.push(component);
+        ECL.components.push(component);
         components.push(component);
-
-        node.setAttribute('data-ecl-auto-initialized', 'true');
       });
   };
 
   // Destroy should not throw, in order to be non-blocking.
   const destroy = () => {
-    if (ECL.initialisedComponents) {
-      ECL.initialisedComponents.forEach((component, index, object) => {
+    if (ECL.components) {
+      ECL.components.forEach((component, index, object) => {
         if (component.destroy) {
           component.destroy();
           object.splice(index, 1);

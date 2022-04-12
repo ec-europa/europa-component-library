@@ -112,6 +112,9 @@ export class SiteHeader {
     if (this.loginToggle) {
       this.loginToggle.addEventListener('click', this.toggleLogin);
     }
+
+    // Set ecl initialized attribute
+    this.element.setAttribute('data-ecl-auto-initialized', 'true');
   }
 
   /**
@@ -135,6 +138,9 @@ export class SiteHeader {
 
     if (this.loginToggle) {
       this.loginToggle.removeEventListener('click', this.toggleLogin);
+    }
+    if (this.element) {
+      this.element.removeAttribute('data-ecl-auto-initialized');
     }
   }
 

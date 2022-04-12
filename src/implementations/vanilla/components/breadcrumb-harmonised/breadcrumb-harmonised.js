@@ -66,6 +66,9 @@ export class BreadcrumbHarmonised {
     );
 
     this.check();
+
+    // Set ecl initialized attribute
+    this.element.setAttribute('data-ecl-auto-initialized', 'true');
   }
 
   destroy() {
@@ -74,6 +77,9 @@ export class BreadcrumbHarmonised {
         'click',
         this.handleClickOnEllipsis
       );
+    }
+    if (this.element) {
+      this.element.removeAttribute('data-ecl-auto-initialized');
     }
   }
 
