@@ -151,17 +151,17 @@ export class Tabs {
    * Destroy component.
    */
   destroy() {
-    if (this.attachClickListener && this.moreButton) {
-      this.moreButton.removeEventListener('click', this.handleClickOnToggle);
+    if (this.moreButton) {
+      this.moreButton.replaceWith(this.moreButton.cloneNode(true));
+    }
+    if (this.btnNext) {
+      this.btnNext.replaceWith(this.btnNext.cloneNode(true));
+    }
+    if (this.btnPrev) {
+      this.btnPrev.replaceWith(this.btnPrev.cloneNode(true));
     }
     if (this.attachClickListener && document && this.moreButton) {
       document.removeEventListener('click', this.closeMoreDropdown);
-    }
-    if (this.attachClickListener && this.btnNext) {
-      this.btnNext.removeEventListener('click', this.shiftTabs);
-    }
-    if (this.attachClickListener && this.btnPrev) {
-      this.btnPrev.removeEventListener('click', this.shiftTabs);
     }
     if (this.attachResizeListener) {
       window.removeEventListener('resize', this.handleResize);
