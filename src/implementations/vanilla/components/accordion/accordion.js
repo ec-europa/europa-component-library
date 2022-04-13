@@ -88,7 +88,7 @@ export class Accordion {
   destroy() {
     if (this.attachClickListener && this.toggles) {
       this.toggles.forEach((toggle) => {
-        toggle.removeEventListener('click', this.handleClickOnToggle);
+        toggle.replaceWith(toggle.cloneNode(true));
       });
     }
     if (this.element) {
