@@ -71,6 +71,7 @@ export class Datepicker {
     this.element = element;
 
     // Options
+    this.picker = null;
     this.format = format;
     this.theme = theme;
     this.yearRange = yearRange;
@@ -88,7 +89,7 @@ export class Datepicker {
   init() {
     this.direction = getComputedStyle(this.element).direction;
 
-    const picker = new Pikaday({
+    this.picker = new Pikaday({
       field: this.element,
       format: this.format,
       yearRange: this.yearRange,
@@ -124,7 +125,20 @@ export class Datepicker {
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
 
-    return picker;
+    return this.picker;
+  }
+
+  /**
+   * Destroy component.
+   */
+  destroy() {
+    if (this.picker) {
+      this.picker.destroy();
+      this.picker = null;
+    }
+    if (this.element) {
+      this.element.removeAttribute('data-ecl-auto-initialized');
+    }
   }
 }
 
