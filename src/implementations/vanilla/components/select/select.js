@@ -310,12 +310,15 @@ export class Select {
 
     // Respect default selected options.
     this.updateCurrentValue();
+
+    // Set ecl initialized attribute
+    this.element.setAttribute('data-ecl-auto-initialized', 'true');
   }
 
   /**
    * Destroy component.
    */
-  static destroy() {
+  destroy() {
     this.selectMultiple.removeEventListener('focusout', this.handleFocusout);
     this.input.removeEventListener('keypress', this.handleToggle);
     this.input.removeEventListener('click', this.handleToggle);
@@ -333,6 +336,10 @@ export class Select {
     }
 
     this.select.parentNode.classList.remove('ecl-select__container--hidden');
+
+    if (this.element) {
+      this.element.removeAttribute('data-ecl-auto-initialized');
+    }
   }
 
   updateCurrentValue() {

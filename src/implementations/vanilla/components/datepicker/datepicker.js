@@ -111,6 +111,9 @@ export class Datepicker {
       },
     });
 
+    // Set ecl initialized attribute
+    this.element.setAttribute('data-ecl-auto-initialized', 'true');
+
     return picker;
   }
 }

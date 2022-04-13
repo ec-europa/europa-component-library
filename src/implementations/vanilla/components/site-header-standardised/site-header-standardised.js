@@ -115,12 +115,15 @@ export class SiteHeaderStandardised {
     if (this.loginToggle) {
       this.loginToggle.addEventListener('click', this.toggleLogin);
     }
+
+    // Set ecl initialized attribute
+    this.element.setAttribute('data-ecl-auto-initialized', 'true');
   }
 
   /**
    * Destroy component.
    */
-  static destroy() {
+  destroy() {
     if (this.languageSelector) {
       this.languageSelector.removeEventListener('click', this.toggleOverlay);
     }
@@ -138,6 +141,10 @@ export class SiteHeaderStandardised {
 
     if (this.loginToggle) {
       this.loginToggle.removeEventListener('click', this.toggleLogin);
+    }
+
+    if (this.element) {
+      this.element.removeAttribute('data-ecl-auto-initialized');
     }
   }
 

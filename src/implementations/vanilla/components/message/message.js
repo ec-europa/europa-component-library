@@ -59,14 +59,20 @@ export class Message {
     if (this.attachClickListener && this.close) {
       this.close.addEventListener('click', this.handleClickOnClose);
     }
+
+    // Set ecl initialized attribute
+    this.element.setAttribute('data-ecl-auto-initialized', 'true');
   }
 
   /**
    * Destroy component.
    */
-  static destroy() {
+  destroy() {
     if (this.attachClickListener && this.close) {
       this.close.removeEventListener('click', this.handleClickOnClose);
+    }
+    if (this.element) {
+      this.element.removeAttribute('data-ecl-auto-initialized');
     }
   }
 
