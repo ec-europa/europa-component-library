@@ -89,16 +89,22 @@ export class Table {
     [...queryAll('tr', tbody)].forEach((tr, index) => {
       tr.setAttribute('data-ecl-table-order', index);
     });
+
+    // Set ecl initialized attribute
+    this.element.setAttribute('data-ecl-auto-initialized', 'true');
   }
 
   /**
    * Destroy component.
    */
-  static destroy() {
+  destroy() {
     if (this.sortHeadings) {
       this.sortHeadings.forEach((tr) => {
         tr.removeEventListener('click', this.handleClickOnSort);
       });
+    }
+    if (this.element) {
+      this.element.removeAttribute('data-ecl-auto-initialized');
     }
   }
 

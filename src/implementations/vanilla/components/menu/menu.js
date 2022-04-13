@@ -185,12 +185,15 @@ export class Menu {
     setTimeout(() => {
       this.element.classList.add('ecl-menu--transition');
     }, 500);
+
+    // Set ecl initialized attribute
+    this.element.setAttribute('data-ecl-auto-initialized', 'true');
   }
 
   /**
    * Destroy component.
    */
-  static destroy() {
+  destroy() {
     if (this.attachClickListener && this.open) {
       this.open.removeEventListener('click', this.handleClickOnOpen);
     }
@@ -239,6 +242,9 @@ export class Menu {
 
     if (this.attachResizeListener) {
       window.removeEventListener('resize', this.handleResize);
+    }
+    if (this.element) {
+      this.element.removeAttribute('data-ecl-auto-initialized');
     }
   }
 
