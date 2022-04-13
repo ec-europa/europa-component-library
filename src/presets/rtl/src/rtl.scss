@@ -5,6 +5,12 @@ html {
   direction: rtl;
 }
 
+// Accordion
+.ecl-accordion__item:first-child::before {
+  left: auto;
+  right: map.get(theme.$spacing, 'l');
+}
+
 // Carousel
 .ecl-carousel__next {
   left: 0;
@@ -14,6 +20,16 @@ html {
 .ecl-carousel__prev {
   left: auto;
   right: 0;
+}
+
+// Category filter
+.ecl-category-filter__list-item[aria-expanded='true'],
+.ecl-category-filter__list-item:hover,
+.ecl-category-filter__item--current {
+  &::before {
+    left: auto;
+    right: 0;
+  }
 }
 
 // Datepicker
@@ -70,6 +86,13 @@ html {
   right: auto;
 }
 
+// Skip link
+.ecl-skip-link:active,
+.ecl-skip-link:focus {
+  left: auto;
+  right: map.get(theme.$spacing, 'l');
+}
+
 // Table
 .ecl-table__arrow {
   left: auto;
@@ -97,4 +120,32 @@ html {
   left: auto;
   right: 0;
   transform: translateY(-50%);
+}
+
+// Timeline
+.ecl-timeline,
+.ecl-timeline__label,
+.ecl-timeline__title,
+.ecl-timeline__content,
+.ecl-timeline__toggle {
+  transform: scaleX(-1);
+}
+
+.ecl-timeline__tooltip,
+.ecl-timeline__item {
+  padding-inline-end: map.get(theme.$spacing, 'l');
+}
+
+.ecl-timeline__item--toggle {
+  display: flex;
+  justify-content: end;
+  padding-inline-end: map.get(theme.$spacing, 'l');
+}
+
+.ecl-timeline__label {
+  text-align: start;
+}
+
+.ecl-timeline__tooltip::before {
+  left: map.get(theme.$spacing, 'l');
 }

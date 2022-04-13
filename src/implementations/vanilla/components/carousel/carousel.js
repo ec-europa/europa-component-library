@@ -173,12 +173,15 @@ export class Carousel {
     if (this.attachResizeListener) {
       window.addEventListener('resize', this.handleResize);
     }
+
+    // Set ecl initialized attribute
+    this.element.setAttribute('data-ecl-auto-initialized', 'true');
   }
 
   /**
    * Destroy component.
    */
-  static destroy() {
+  destroy() {
     if (this.cloneFirstSLide && this.cloneLastSLide) {
       this.cloneFirstSLide.remove();
       this.cloneLastSLide.remove();
@@ -208,6 +211,9 @@ export class Carousel {
     }
     if (this.attachResizeListener) {
       window.removeEventListener('resize', this.handleResize);
+    }
+    if (this.element) {
+      this.element.removeAttribute('data-ecl-auto-initialized');
     }
   }
 
