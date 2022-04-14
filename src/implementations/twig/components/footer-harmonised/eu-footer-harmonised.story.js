@@ -3,8 +3,8 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctSvgPath } from '@ecl/story-utils';
 
 import specsEu from '@ecl/specs-component-footer-standardised/demo/data--eu';
-import logoEuMobile from '@ecl/resources-eu-logo/condensed-version/positive/logo-eu--en.svg';
-import logoEuDesktop from '@ecl/resources-eu-logo/standard-version/positive/logo-eu--en.svg';
+import logoEuMobile from '@ecl/resources-eu-logo/dist/condensed-version/positive/logo-eu--en.svg';
+import logoEuDesktop from '@ecl/resources-eu-logo/dist/standard-version/positive/logo-eu--en.svg';
 import footer from '@ecl/twig-component-footer-standardised/footer-standardised.html.twig';
 import notes from './README-EU.md';
 

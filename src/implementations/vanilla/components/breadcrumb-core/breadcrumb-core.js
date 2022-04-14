@@ -89,6 +89,9 @@ export class BreadcrumbCore {
     );
 
     this.check();
+
+    // Set ecl initialized attribute
+    this.element.setAttribute('data-ecl-auto-initialized', 'true');
   }
 
   /**
@@ -100,6 +103,9 @@ export class BreadcrumbCore {
         'click',
         this.handleClickOnEllipsis
       );
+    }
+    if (this.element) {
+      this.element.removeAttribute('data-ecl-auto-initialized');
     }
   }
 

@@ -77,6 +77,9 @@ export class Accordion {
         );
       });
     }
+
+    // Set ecl initialized attribute
+    this.element.setAttribute('data-ecl-auto-initialized', 'true');
   }
 
   /**
@@ -87,6 +90,9 @@ export class Accordion {
       this.toggles.forEach((toggle) => {
         toggle.removeEventListener('click', this.handleClickOnToggle);
       });
+    }
+    if (this.element) {
+      this.element.removeAttribute('data-ecl-auto-initialized');
     }
   }
 

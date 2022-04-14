@@ -62,6 +62,9 @@ export class CategoryFilter {
         item.addEventListener('click', this.handleClickExpand)
       );
     }
+
+    // Set ecl initialized attribute
+    this.element.setAttribute('data-ecl-auto-initialized', 'true');
   }
 
   /**
@@ -72,6 +75,9 @@ export class CategoryFilter {
       this.items.forEach((item) => {
         item.removeEventListener('click', this.handleClickExpand, false);
       });
+    }
+    if (this.element) {
+      this.element.removeAttribute('data-ecl-auto-initialized');
     }
   }
 

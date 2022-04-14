@@ -99,7 +99,9 @@
     extra_classes: 'ecl-news-ticker__icon',
   } only %}
   <div class="ecl-news-ticker__counter">
-    <span class="ecl-news-ticker__counter--current">1</span> {{ _counter_label }} {{_items|length}}
+    <span class="ecl-news-ticker__counter--current">1</span>
+    {{- ' ' -}}{{- _counter_label }}{{- ' ' -}}
+    <span class="ecl-news-ticker__counter--max">{{_items|length}}</span>
   </div>
   <div class="ecl-news-ticker__controls">
     <button 
