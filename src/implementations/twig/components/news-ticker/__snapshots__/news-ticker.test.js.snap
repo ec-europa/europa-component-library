@@ -116,13 +116,21 @@ exports[`News ticker Default renders correctly 1`] = `
         aria-controls="news-ticker-example-content"
         class="ecl-button ecl-button--primary ecl-news-ticker__prev"
         data-ecl-news-ticker-prev=""
+        type="button"
       >
         <span
           class="ecl-button__container"
         >
+          <span
+            class="ecl-u-sr-only"
+            data-ecl-label="true"
+          >
+            Previous news
+          </span>
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-icon--inverted"
+            class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--after"
+            data-ecl-icon=""
             focusable="false"
           >
             <use
@@ -130,22 +138,26 @@ exports[`News ticker Default renders correctly 1`] = `
             />
           </svg>
         </span>
-        <span
-          class="ecl-u-sr-only"
-        >
-          Previous news
-        </span>
       </button>
       <button
         class="ecl-button ecl-button--primary ecl-news-ticker__toggle"
+        data-action="stop"
         data-ecl-news-ticker-toggle=""
+        type="button"
       >
         <span
           class="ecl-button__container"
         >
+          <span
+            class="ecl-u-sr-only"
+            data-ecl-label="true"
+          >
+            News ticker auto play
+          </span>
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-icon--inverted"
+            class="ecl-icon ecl-icon--m ecl-button__icon ecl-button__icon--after"
+            data-ecl-icon=""
             focusable="false"
           >
             <use
@@ -153,34 +165,32 @@ exports[`News ticker Default renders correctly 1`] = `
             />
           </svg>
         </span>
-        <span
-          class="ecl-u-sr-only"
-        >
-          News ticker auto play
-        </span>
       </button>
       <button
         aria-controls="news-ticker-example-content"
-        class="ecl-button ecl-button--primary ecl-news-ticker__prev"
+        class="ecl-button ecl-button--primary ecl-news-ticker__next"
         data-ecl-news-ticker-next=""
+        type="button"
       >
         <span
           class="ecl-button__container"
         >
+          <span
+            class="ecl-u-sr-only"
+            data-ecl-label="true"
+          >
+            Next news
+          </span>
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-icon--inverted"
+            class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--after"
+            data-ecl-icon=""
             focusable="false"
           >
             <use
               xlink:href="/icons.svg#corner-arrow"
             />
           </svg>
-        </span>
-        <span
-          class="ecl-u-sr-only"
-        >
-          Next news
         </span>
       </button>
     </div>
@@ -306,13 +316,21 @@ exports[`News ticker Default renders correctly with extra attributes 1`] = `
         aria-controls="news-ticker-example-content"
         class="ecl-button ecl-button--primary ecl-news-ticker__prev"
         data-ecl-news-ticker-prev=""
+        type="button"
       >
         <span
           class="ecl-button__container"
         >
+          <span
+            class="ecl-u-sr-only"
+            data-ecl-label="true"
+          >
+            Previous news
+          </span>
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-icon--inverted"
+            class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--after"
+            data-ecl-icon=""
             focusable="false"
           >
             <use
@@ -320,22 +338,26 @@ exports[`News ticker Default renders correctly with extra attributes 1`] = `
             />
           </svg>
         </span>
-        <span
-          class="ecl-u-sr-only"
-        >
-          Previous news
-        </span>
       </button>
       <button
         class="ecl-button ecl-button--primary ecl-news-ticker__toggle"
+        data-action="stop"
         data-ecl-news-ticker-toggle=""
+        type="button"
       >
         <span
           class="ecl-button__container"
         >
+          <span
+            class="ecl-u-sr-only"
+            data-ecl-label="true"
+          >
+            News ticker auto play
+          </span>
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-icon--inverted"
+            class="ecl-icon ecl-icon--m ecl-button__icon ecl-button__icon--after"
+            data-ecl-icon=""
             focusable="false"
           >
             <use
@@ -343,34 +365,32 @@ exports[`News ticker Default renders correctly with extra attributes 1`] = `
             />
           </svg>
         </span>
-        <span
-          class="ecl-u-sr-only"
-        >
-          News ticker auto play
-        </span>
       </button>
       <button
         aria-controls="news-ticker-example-content"
-        class="ecl-button ecl-button--primary ecl-news-ticker__prev"
+        class="ecl-button ecl-button--primary ecl-news-ticker__next"
         data-ecl-news-ticker-next=""
+        type="button"
       >
         <span
           class="ecl-button__container"
         >
+          <span
+            class="ecl-u-sr-only"
+            data-ecl-label="true"
+          >
+            Next news
+          </span>
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-icon--inverted"
+            class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--after"
+            data-ecl-icon=""
             focusable="false"
           >
             <use
               xlink:href="/icons.svg#corner-arrow"
             />
           </svg>
-        </span>
-        <span
-          class="ecl-u-sr-only"
-        >
-          Next news
         </span>
       </button>
     </div>
@@ -494,13 +514,21 @@ exports[`News ticker Default renders correctly with extra class names 1`] = `
         aria-controls="news-ticker-example-content"
         class="ecl-button ecl-button--primary ecl-news-ticker__prev"
         data-ecl-news-ticker-prev=""
+        type="button"
       >
         <span
           class="ecl-button__container"
         >
+          <span
+            class="ecl-u-sr-only"
+            data-ecl-label="true"
+          >
+            Previous news
+          </span>
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-icon--inverted"
+            class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--after"
+            data-ecl-icon=""
             focusable="false"
           >
             <use
@@ -508,22 +536,26 @@ exports[`News ticker Default renders correctly with extra class names 1`] = `
             />
           </svg>
         </span>
-        <span
-          class="ecl-u-sr-only"
-        >
-          Previous news
-        </span>
       </button>
       <button
         class="ecl-button ecl-button--primary ecl-news-ticker__toggle"
+        data-action="stop"
         data-ecl-news-ticker-toggle=""
+        type="button"
       >
         <span
           class="ecl-button__container"
         >
+          <span
+            class="ecl-u-sr-only"
+            data-ecl-label="true"
+          >
+            News ticker auto play
+          </span>
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-icon--inverted"
+            class="ecl-icon ecl-icon--m ecl-button__icon ecl-button__icon--after"
+            data-ecl-icon=""
             focusable="false"
           >
             <use
@@ -531,34 +563,32 @@ exports[`News ticker Default renders correctly with extra class names 1`] = `
             />
           </svg>
         </span>
-        <span
-          class="ecl-u-sr-only"
-        >
-          News ticker auto play
-        </span>
       </button>
       <button
         aria-controls="news-ticker-example-content"
-        class="ecl-button ecl-button--primary ecl-news-ticker__prev"
+        class="ecl-button ecl-button--primary ecl-news-ticker__next"
         data-ecl-news-ticker-next=""
+        type="button"
       >
         <span
           class="ecl-button__container"
         >
+          <span
+            class="ecl-u-sr-only"
+            data-ecl-label="true"
+          >
+            Next news
+          </span>
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-icon--inverted"
+            class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--after"
+            data-ecl-icon=""
             focusable="false"
           >
             <use
               xlink:href="/icons.svg#corner-arrow"
             />
           </svg>
-        </span>
-        <span
-          class="ecl-u-sr-only"
-        >
-          Next news
         </span>
       </button>
     </div>

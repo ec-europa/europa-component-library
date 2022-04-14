@@ -2,11 +2,13 @@
 
 {#
   Parameters:
+    - "label" (string) (default: '')
     - "variant" (string) (default: 'primary'): can be 'primary', 'secondary', 'call', 'ghost'
     - "type" (string) (default: 'submit'): can be the same type as HTML button - 'submit', 'reset', 'button'
     - "icon" (associative array) (default: {}): predefined structure for Icon component
-    - "disabled" (bool) (default: false): Defined if button should be active or not (HTML disabled attribute)
-    - "icon_position" (string) (default: after): Define icon position, can be 'before' or 'after'
+    - "disabled" (bool) (default: false): defined if button should be active or not (HTML disabled attribute)
+    - "hide_label" (bool) (default: false): hide button label, for screen reader only
+    - "icon_position" (string) (default: after): define icon position, can be 'before' or 'after'
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -28,6 +30,7 @@
 {% set _icon = icon|default({}) %}
 {% set _icon_position = icon_position|default('after') %}
 {% set _disabled = disabled|default(false) %}
+{% set _hide_label = hide_label|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -46,6 +49,8 @@
     {% endif %}
   {% endfor %}
 {% endif %}
+
+{% set _label_css_class = _hide_label ? 'ecl-u-sr-only' : 'ecl-button__label' %}
 
 {# Add disabled option if defined #}
 
@@ -68,7 +73,7 @@
         } only %}
       {% endif %}
       {% if _label %}
-        <span class="ecl-button__label" data-ecl-label="true">{% block label _label %}</span>
+          <span class="{{ _label_css_class }}" data-ecl-label="true">{% block label _label %}</span>
       {% endif %}
       {% if _icon_position == 'after' %}
         {% include '@ecl/icon/icon.html.twig' with {

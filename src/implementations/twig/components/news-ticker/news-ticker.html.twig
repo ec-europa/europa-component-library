@@ -12,7 +12,7 @@
       ]
     - "counter_label" (string) (default: 'of')
     - "sr_previous" (string) (default: 'Previous news') screen reader label for previous button
-    - "sr_next" (string) (default: 'Next ,ews') screen reader label for next button
+    - "sr_next" (string) (default: 'Next news') screen reader label for next button
     - "sr_autoplay" (string) (default: 'News ticker auto play') screen reader label for autoplay button
     - "icon_path" (string) (default: '') Path to the icons file
     - "extra_classes" (string) (default: '')
@@ -104,60 +104,58 @@
     <span class="ecl-news-ticker__counter--max">{{_items|length}}</span>
   </div>
   <div class="ecl-news-ticker__controls">
-    <button 
-      class="ecl-button ecl-button--primary ecl-news-ticker__prev"
-      data-ecl-news-ticker-prev
-      aria-controls="{{ _aria_controls }}"
-    >
-      <span class="ecl-button__container">
-        {%- include '@ecl/icon/icon.html.twig' with {
-          icon: {
-            path: _icon_path,
-            name: 'corner-arrow',
-            size: 'm',
-            transform: 'rotate-270',
-            color: 'inverted',
-          },
-        } only -%}
-      </span>
-      <span class="ecl-u-sr-only">{{ _sr_previous }}</span>
-    </button>
+    {% include '@ecl/button/button.html.twig' with {
+      type: 'button',
+      variant: 'primary',
+      icon: {
+        path: _icon_path,
+        name: 'corner-arrow',
+        size: 'm',
+        transform: 'rotate-270',
+      },
+      label: _sr_previous,
+      hide_label: true,
+      extra_classes: 'ecl-news-ticker__prev',
+      extra_attributes: [
+        {name: 'data-ecl-news-ticker-prev'},
+        {name: 'aria-controls', value: _aria_controls},
+      ],
+    } only %}
 
-    <button 
-      class="ecl-button ecl-button--primary ecl-news-ticker__toggle"
-      data-ecl-news-ticker-toggle
-    >
-      <span class="ecl-button__container">
-        {%- include '@ecl/icon/icon.html.twig' with {
-          icon: {
-            path: _icon_path,
-            name: 'play',
-            size: 'm',
-            color: 'inverted',
-          },
-        } only -%}
-      </span>
-      <span class="ecl-u-sr-only">{{ _sr_autoplay }}</span>
-    </button>
+    {% include '@ecl/button/button.html.twig' with {
+      type: 'button',
+      variant: 'primary',
+      icon: {
+        path: _icon_path,
+        name: 'play',
+        size: 'm',
+      },
+      label: _sr_autoplay,
+      hide_label: true,
+      extra_classes: 'ecl-news-ticker__toggle',
+      extra_attributes: [
+        {name: 'data-ecl-news-ticker-toggle'},
+        {name: 'data-action', value: 'stop'},
+      ],
+    } only %}
 
-    <button 
-      class="ecl-button ecl-button--primary ecl-news-ticker__prev"
-      data-ecl-news-ticker-next
-      aria-controls="{{ _aria_controls }}"
-    >
-      <span class="ecl-button__container">
-        {%- include '@ecl/icon/icon.html.twig' with {
-          icon: {
-            path: _icon_path,
-            name: 'corner-arrow',
-            size: 'm',
-            transform: 'rotate-90',
-            color: 'inverted',
-          },
-        } only -%}
-      </span>
-      <span class="ecl-u-sr-only">{{ _sr_next }}</span>
-    </button>
+    {% include '@ecl/button/button.html.twig' with {
+      type: 'button',
+      variant: 'primary',
+      icon: {
+        path: _icon_path,
+        name: 'corner-arrow',
+        size: 'm',
+        transform: 'rotate-90',
+      },
+      label: _sr_next,
+      hide_label: true,
+      extra_classes: 'ecl-news-ticker__next',
+      extra_attributes: [
+        {name: 'data-ecl-news-ticker-next'},
+        {name: 'aria-controls', value: _aria_controls},
+      ],
+    } only %}
 
   </div>
 </div>
