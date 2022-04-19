@@ -77,14 +77,20 @@ export class FileUpload {
     if (this.attachChangeListener && this.fileUploadInput) {
       this.fileUploadInput.addEventListener('change', this.handleChange);
     }
+
+    // Set ecl initialized attribute
+    this.element.setAttribute('data-ecl-auto-initialized', 'true');
   }
 
   /**
    * Destroy component.
    */
-  static destroy() {
+  destroy() {
     if (this.attachChangeListener && this.fileUploadInput) {
       this.fileUploadInput.removeEventListener('change', this.handleChange);
+    }
+    if (this.element) {
+      this.element.removeAttribute('data-ecl-auto-initialized');
     }
   }
 
