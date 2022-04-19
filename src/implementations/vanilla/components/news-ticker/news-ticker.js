@@ -219,6 +219,17 @@ export class NewsTicker {
     const currentSlide = queryOne(this.currentSlideClass, this.element);
     currentSlide.textContent = this.index;
 
+    // Update slides
+    if (this.slides) {
+      this.slides.forEach((slide, index) => {
+        if (this.index === index) {
+          slide.removeAttribute('aria-hidden', 'true');
+        } else {
+          slide.setAttribute('aria-hidden', 'true');
+        }
+      });
+    }
+
     this.allowShift = true;
   }
 
