@@ -145,4 +145,9 @@ EmbeddedVideo.args = getArgs(dataEmbed);
 EmbeddedVideo.argTypes = getArgTypes(dataEmbed);
 EmbeddedVideo.parameters = {
   notes: { markdown: notes, json: dataEmbed },
+  a11y: {
+    config: {
+      rules: [{ id: 'frame-tested', enabled: false }],
+    },
+  },
 };
