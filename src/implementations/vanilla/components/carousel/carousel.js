@@ -186,14 +186,14 @@ export class Carousel {
       this.cloneFirstSLide.remove();
       this.cloneLastSLide.remove();
     }
-    if (this.attachClickListener && this.toggle) {
-      this.toggle.removeEventListener('click', this.handleClickOnToggle);
+    if (this.toggle) {
+      this.toggle.replaceWith(this.toggle.cloneNode(true));
     }
-    if (this.attachClickListener && this.btnNext) {
-      this.btnNext.removeEventListener('click', this.shiftSlide);
+    if (this.btnNext) {
+      this.btnNext.replaceWith(this.btnNext.cloneNode(true));
     }
-    if (this.attachClickListener && this.btnPrev) {
-      this.btnPrev.removeEventListener('click', this.shiftSlide);
+    if (this.btnPrev) {
+      this.btnPrev.replaceWith(this.btnPrev.cloneNode(true));
     }
     if (this.slidesContainer) {
       this.slidesContainer.removeEventListener('touchstart', this.dragStart);
@@ -206,7 +206,7 @@ export class Carousel {
     }
     if (this.navigationItems) {
       this.navigationItems.forEach((nav) => {
-        nav.removeEventListener('click', this.shiftSlide);
+        nav.replaceWith(nav.cloneNode(true));
       });
     }
     if (this.attachResizeListener) {
