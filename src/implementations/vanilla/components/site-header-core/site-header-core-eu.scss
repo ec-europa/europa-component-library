@@ -18,6 +18,7 @@ $_search-width-xl: 31.5rem;
 
 .ecl-site-header-core {
   background-color: map.get(theme.$color, 'white-100');
+  z-index: 1;
 
   &:not([data-ecl-has-menu='true']) {
     box-shadow: 0 0 6px 0 rgb(9 49 142 / 0.2);
