@@ -43,6 +43,7 @@
 
   {% if _item.video is defined and _item.video is not empty %}
     {% set _media_href = _item.video.sources[0].src %}
+    {% set _image_alt = _item.alt %}
   {% else %}
     {% if _item.image is defined and _item.image is not empty %}
       {% set _media_href = _item.image.src %}
@@ -51,9 +52,8 @@
       {% set _media_href = _item.path %}
       {% set _image_alt = _item.alt %}
     {% endif %}
-    {# Use Arial only for image. #}
-    {% set _use_arial = 'aria-label="' ~ _image_alt|e('html_attr') ~ '"' %}
   {% endif %}
+  {% set _use_arial = 'aria-label="' ~ _image_alt|e('html_attr') ~ '"' %}
   {% if _item.embedded_video is defined and _item.embedded_video is not empty %}
     {% set _media_iframe_href = _item.embedded_video.src %}
   {% endif %}
