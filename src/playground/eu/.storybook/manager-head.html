@@ -28,20 +28,26 @@
   }
 
   // Re-initialize component in the preview frame when changing #ecl-rtl CSS resource checkbox.
-  window.onload = function (event) {
-    var inputRtlCss = document.getElementById('ecl-rtl');
-    inputRtlCss.addEventListener('change', (event) => {
+  window.addEventListener(
+    'load',
+    () => {
       setTimeout(() => {
-        const iframePreview = document.getElementById(
-          'storybook-preview-iframe'
-        ).contentWindow;
-        if (iframePreview) {
-          iframePreview.ECL.autoInit().destroy();
-          iframePreview.ECL.autoInit();
-        }
-      }, 100);
-    });
-  };
+        var inputRtlCss = document.getElementById('ecl-rtl');
+        inputRtlCss.addEventListener('change', () => {
+          setTimeout(() => {
+            const iframePreview = document.getElementById(
+              'storybook-preview-iframe'
+            ).contentWindow;
+            if (iframePreview) {
+              iframePreview.ECL.autoInit().destroy();
+              iframePreview.ECL.autoInit();
+            }
+          }, 100);
+        });
+      }, 500);
+    },
+    false
+  );
 </script>
 <script
   src="https://ec.europa.eu/wel/cookie-consent/consent.js"
