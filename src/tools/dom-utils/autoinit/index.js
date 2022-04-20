@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { queryAll } from '..';
 
 export const autoInit = ({ root = document, ...options } = {}) => {
