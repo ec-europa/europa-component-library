@@ -1,0 +1,14 @@
+@use 'sass:map';
+@use '@ecl/theme-dev/theme';
+@use 'content-block' with (
+  $_primary-meta-color: map.get(theme.$color, 'grey-140'),
+  $_title-font: (
+    'mobile': map.get(theme.$font-prolonged, '2xl'),
+    'desktop': map.get(theme.$font, '3xl'),
+  ),
+  $_description-color: map.get(theme.$color, 'grey-140'),
+  $_secondary-meta-color: map.get(theme.$color, 'grey-80'),
+  $_secondary-meta-font: map.get(theme.$font-prolonged, 's'),
+  $_secondary-meta-icon-color: map.get(theme.$color, 'blue-50'),
+  $_link-separator-color: map.get(theme.$color, 'blue-20')
+);

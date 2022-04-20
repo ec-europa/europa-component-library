@@ -1,0 +1,167 @@
+{% spaceless %}
+
+{#
+  Parameters:
+    - "labels" (array) (default: []): Array of ECL Labels
+    - "primary_meta" (array of strings) (default: []): Primary meta of the content block
+    - "title" (array) (default: {}): Title of the content block, following ECL Link structure
+    - "description" (string) (default: ''): Description of the content block
+    - "secondary_meta" (array) (default: []): format: [
+        {
+          "label" (string) (default: ''): Label of secondary meta item
+          "icon" (array) (default: {}) Icon of the secondary meta, following ECL Icon structure
+        },
+        ...
+      ]
+    - "tags" (array) (default: []): Array of ECL Tags
+    - "links" (array) (default: []): Array or multi array of ECL Links
+    - "lists" (array) (default: []): Array of ECL Description list
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        ...
+      ],
+#}
+
+{# Internal properties #}
+
+{% set _labels = labels|default([]) %}
+{% set _primary_meta = primary_meta|default([]) %}
+{% set _title = title|default({}) %}
+{% set _description = description|default('') %}
+{% set _secondary_meta = secondary_meta|default([]) %}
+{% set _tags = tags|default([]) %}
+{% set _links = links|default([]) %}
+{% set _lists = lists|default([]) %}
+{% set _css_class = 'ecl-content-block' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  {% if _labels is defined and _labels is not empty and _labels is iterable %}
+    <ul class="ecl-content-block__label-container">
+      {% for _label in _labels %}
+        <li class="ecl-content-block__label-item">
+          {% include '@ecl/label/label.html.twig' with _label only %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if _primary_meta is not empty and _primary_meta is iterable %}
+    <ul class="ecl-content-block__primary-meta-container">
+      {% for _meta in _primary_meta %}
+        <li class="ecl-content-block__primary-meta-item">
+          {{- _meta -}}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if _title is not empty and _title.label is not empty %}
+    <h1 class="ecl-content-block__title">
+      {% include '@ecl/link/link.html.twig' with {
+        link: _title|merge({
+          type: 'standalone',
+        }),
+      } only %}
+    </h1>
+  {% endif %}
+
+  {% if _description is not empty %}
+    <div class="ecl-content-block__description">{{ _description }}</div>
+  {% endif %}
+
+  {% if _secondary_meta is not empty and _secondary_meta is iterable %}
+    <ul class="ecl-content-block__secondary-meta-container">
+      {% for _meta in _secondary_meta %}
+        <li class="ecl-content-block__secondary-meta-item">
+          {% if _meta.icon is not empty %}
+            {% include '@ecl/icon/icon.html.twig' with {
+              icon: _meta.icon|merge({
+                size: 's',
+              }),
+              extra_classes: 'ecl-content-block__secondary-meta-icon'
+            } only %}
+          {% endif %}          
+          <span class="ecl-content-block__secondary-meta-label">{{ _meta.label }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if _tags is not empty and _tags is iterable %}
+    <ul class="ecl-content-block__tag-container">
+      {% for _tag in _tags %}
+        <li class="ecl-content-block__tag-item">
+          {% include '@ecl/tag/tag.html.twig' with _tag only %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if _links is not empty and _links is iterable %}
+    <div class="ecl-content-block__link-container">
+      {% if _links[0][0] is defined %}
+        {% for _link_section in _links %}
+          <ul class="ecl-content-block__link-list">
+            {% for _link in _link_section %}
+              <li class="ecl-content-block__link-item">
+                {% include '@ecl/link/link.html.twig' with {
+                  link: _link.link|merge({ 
+                    type: 'standalone' 
+                  }),
+                  icon: _link.icon|default({})
+                } only %}
+              </li>
+            {% endfor %}
+          </ul>
+        {% endfor %}
+      {% else %}
+        <ul class="ecl-content-block__link-list">
+          {% for _link in _links %}
+            <li class="ecl-content-block__link-item">
+              {% include '@ecl/link/link.html.twig' with {
+                link: _link.link|merge(
+                  { type: 'standalone' }
+                ),
+                icon: _link.icon|default({})
+              } only %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  {% if _lists is defined and _lists is not empty and _lists is iterable %}
+    <div class="ecl-content-block__list-container">
+      {% for _list in _lists %}
+        {% include '@ecl/description-list/description-list.html.twig' with _list|merge({
+          extra_classes: 'ecl-content-block__list'
+        }) only %}
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
+
+{% endspaceless %}

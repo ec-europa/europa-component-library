@@ -1,0 +1,32 @@
+/**
+ * Content block
+ * @define content-block; weak
+ */
+
+@use 'sass:map';
+@use '@ecl/theme-dev/theme';
+
+.ecl-content-block {
+  margin: 0;
+}
+
+.ecl-content-block__container {
+  align-items: flex-start;
+  border-bottom: map.get(theme.$color, 'grey-15') 1px solid;
+  display: flex;
+  flex-direction: row;
+  padding-bottom: map.get(theme.$spacing-print, 'm');
+}
+
+.ecl-content-block__image,
+.ecl-content-block__date {
+  margin-inline-end: map.get(theme.$spacing-print, 'xl');
+}
+
+.ecl-content-block .ecl-card__label-container {
+  margin-top: 0;
+}
+
+.ecl-content-block__taxonomy {
+  margin-top: map.get(theme.$spacing-print, 'm');
+}
