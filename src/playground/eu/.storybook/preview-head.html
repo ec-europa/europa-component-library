@@ -47,6 +47,7 @@
 <script>
   // https://github.com/storybookjs/storybook/issues/6113#issuecomment-473965255
   function runOnPageChange() {
+    ECL.autoInit().destroy();
     ECL.autoInit();
   }
 
