@@ -305,16 +305,7 @@ exports[`Menu Default renders correctly 1`] = `
               data-ecl-menu-link=""
               href="/example"
             >
-              Item 4 label
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--xs ecl-menu__link-icon--external ecl-menu__link-icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#external"
-                />
-              </svg>
+              Item 4 label  
             </a>
           </li>
           <li
@@ -1192,16 +1183,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
               data-ecl-menu-link=""
               href="/example"
             >
-              Item 4 label
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--xs ecl-menu__link-icon--external ecl-menu__link-icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#external"
-                />
-              </svg>
+              Item 4 label  
             </a>
           </li>
           <li
@@ -2077,16 +2059,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
               data-ecl-menu-link=""
               href="/example"
             >
-              Item 4 label
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--xs ecl-menu__link-icon--external ecl-menu__link-icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#external"
-                />
-              </svg>
+              Item 4 label  
             </a>
           </li>
           <li
@@ -2836,10 +2809,19 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-menu__sublink ecl-link--icon-after"
                     href="/example"
                   >
                     Item 2.4
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#external"
+                      />
+                    </svg>
                   </a>
                 </li>
                 <li

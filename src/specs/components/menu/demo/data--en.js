@@ -36,7 +36,6 @@ module.exports = {
     {
       label: 'Item 4 label',
       path: exampleLink,
-      external: true,
     },
     {
       label: 'Item 5 label',

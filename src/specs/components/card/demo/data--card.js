@@ -12,8 +12,6 @@ module.exports = {
       label: 'Better regulation',
       path: exampleLink,
       level: 1,
-      external: true,
-      icon_path: 'icons.svg',
     },
     image: {
       alt: 'card image',
