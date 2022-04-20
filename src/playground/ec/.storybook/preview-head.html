@@ -71,6 +71,7 @@
 
       // Re-initialize component from the parent frame when changing #ecl-rtl CSS resource checkbox.
       if (window.parent) {
+        window.parent.document.body.classList.add('ecl-rtl-test');
         window.parent.document.addEventListener('click', (e) => {
           if (e.target && e.target.getAttribute('id') === 'ecl-rtl') {
             setTimeout(() => {
