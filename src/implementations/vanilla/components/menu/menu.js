@@ -194,6 +194,9 @@ export class Menu {
    * Destroy component.
    */
   destroy() {
+    if (this.stickyInstance) {
+      this.stickyInstance.remove();
+    }
     if (this.attachClickListener && this.open) {
       this.open.removeEventListener('click', this.handleClickOnOpen);
     }
