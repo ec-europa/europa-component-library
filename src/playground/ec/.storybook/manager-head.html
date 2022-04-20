@@ -27,9 +27,8 @@
     }
   }
 
-  console.log(document);
+  // Re-initialize component in the preview frame when changing #ecl-rtl CSS resource checkbox.
   document.addEventListener('click', (e) => {
-    console.log(e.target);
     if (e.target && e.target.getAttribute('id') === 'ecl-rtl') {
       setTimeout(() => {
         const iframePreview = document.getElementById(

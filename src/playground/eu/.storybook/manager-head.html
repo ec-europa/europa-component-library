@@ -8,6 +8,7 @@
   type="text/css"
   href="https://unpkg.com/prismjs@1.15.0/plugins/line-numbers/prism-line-numbers.css"
 />
+
 <script>
   if (window.localStorage) {
     if (!window.localStorage.getItem('@storybook/ui/store')) {
@@ -28,20 +29,18 @@
   }
 
   // Re-initialize component in the preview frame when changing #ecl-rtl CSS resource checkbox.
-  window.addEventListener('load', () => {
-    document.addEventListener('click', (e) => {
-      if (e.target && e.target.getAttribute('id') === 'ecl-rtl') {
-        setTimeout(() => {
-          const iframePreview = document.getElementById(
-            'storybook-preview-iframe'
-          ).contentWindow;
-          if (iframePreview) {
-            iframePreview.ECL.autoInit().destroy();
-            iframePreview.ECL.autoInit();
-          }
-        }, 100);
-      }
-    });
+  document.addEventListener('click', (e) => {
+    if (e.target && e.target.getAttribute('id') === 'ecl-rtl') {
+      setTimeout(() => {
+        const iframePreview = document.getElementById(
+          'storybook-preview-iframe'
+        ).contentWindow;
+        if (iframePreview) {
+          iframePreview.ECL.autoInit().destroy();
+          iframePreview.ECL.autoInit();
+        }
+      }, 100);
+    }
   });
 </script>
 <script
