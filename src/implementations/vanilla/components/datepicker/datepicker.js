@@ -88,6 +88,7 @@ export class Datepicker {
    */
   init() {
     this.direction = getComputedStyle(this.element).direction;
+    window.parent.document.body.classList.add(this.direction);
 
     this.picker = new Pikaday({
       field: this.element,
