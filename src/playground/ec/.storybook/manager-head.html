@@ -27,21 +27,20 @@
     }
   }
 
-  // Re-initialize component in the preview frame when changing #ecl-rtl CSS resource checkbox.
-  window.addEventListener('load', () => {
-    document.addEventListener('click', (e) => {
-      if (e.target && e.target.getAttribute('id') === 'ecl-rtl') {
-        setTimeout(() => {
-          const iframePreview = document.getElementById(
-            'storybook-preview-iframe'
-          ).contentWindow;
-          if (iframePreview) {
-            iframePreview.ECL.autoInit().destroy();
-            iframePreview.ECL.autoInit();
-          }
-        }, 100);
-      }
-    });
+  console.log(document);
+  document.addEventListener('click', (e) => {
+    console.log(e.target);
+    if (e.target && e.target.getAttribute('id') === 'ecl-rtl') {
+      setTimeout(() => {
+        const iframePreview = document.getElementById(
+          'storybook-preview-iframe'
+        ).contentWindow;
+        if (iframePreview) {
+          iframePreview.ECL.autoInit().destroy();
+          iframePreview.ECL.autoInit();
+        }
+      }, 100);
+    }
   });
 </script>
 <script
