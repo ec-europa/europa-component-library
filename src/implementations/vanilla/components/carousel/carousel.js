@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { queryOne, queryAll } from '@ecl/dom-utils';
 
 /**
@@ -103,7 +102,6 @@ export class Carousel {
    * Initialise component.
    */
   init() {
-    console.log('init');
     this.toggle = queryOne(this.toggleSelector, this.element);
     this.btnPrev = queryOne(this.prevSelector, this.element);
     this.btnNext = queryOne(this.nextSelector, this.element);
@@ -112,7 +110,6 @@ export class Carousel {
     this.navigationItems = queryAll(this.navigationItemsClass, this.element);
     this.currentSlide = queryOne(this.currentSlideClass, this.element);
     this.direction = getComputedStyle(this.element).direction;
-    console.log(this.direction);
 
     this.slides = queryAll(this.slideClass, this.element);
     this.total = this.slides.length;
@@ -184,7 +181,6 @@ export class Carousel {
    * Destroy component.
    */
   destroy() {
-    console.log('destroy');
     if (this.cloneFirstSLide && this.cloneLastSLide) {
       this.cloneFirstSLide.remove();
       this.cloneLastSLide.remove();

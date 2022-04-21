@@ -32,6 +32,15 @@
     window.frameElement.id === 'storybook-preview-iframe'
   ) {
     // Let CSS Resources inject the styles
+
+    // Re-initialize component from the parent frame when changing #ecl-rtl CSS resource checkbox
+    window.parent.document.addEventListener('click', (e) => {
+      if (e.target && e.target.getAttribute('id') === 'ecl-rtl') {
+        const dir = e.target.checked ? 'rtl' : 'ltr';
+        document.body.setAttribute('dir', dir);
+        runOnPageChange();
+      }
+    });
   } else {
     // Manually inject styles
     var head = document.head || document.getElementsByTagName('head')[0];
@@ -70,15 +79,4 @@
       document.body.classList.add('ecl');
     }
   };
-
-  // Re-initialize component from the parent frame when changing #ecl-rtl CSS resource checkbox.
-  if (window.parent) {
-    window.parent.document.addEventListener('click', (e) => {
-      if (e.target && e.target.getAttribute('id') === 'ecl-rtl') {
-        setTimeout(() => {
-          runOnPageChange();
-        }, 100);
-      }
-    });
-  }
 </script>

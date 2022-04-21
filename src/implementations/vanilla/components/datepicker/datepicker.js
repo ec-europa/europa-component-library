@@ -89,7 +89,6 @@ export class Datepicker {
    */
   init() {
     this.direction = getComputedStyle(this.element).direction;
-    window.parent.document.body.classList.add(this.direction);
 
     this.picker = new Pikaday({
       field: this.element,
@@ -134,7 +133,6 @@ export class Datepicker {
    * Destroy component.
    */
   destroy() {
-    window.parent.document.body.classList.add('destroy');
     if (this.picker) {
       this.picker.destroy();
       this.picker = null;

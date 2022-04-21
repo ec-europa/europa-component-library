@@ -31,10 +31,10 @@
     // Re-initialize component from the parent frame when changing #ecl-rtl CSS resource checkbox
     window.parent.document.addEventListener('click', (e) => {
       if (e.target && e.target.getAttribute('id') === 'ecl-rtl') {
+        console.log(e.target.checked);
+        const dir = e.target.checked ? 'rtl' : 'ltr';
+        document.body.setAttribute('dir', dir);
         runOnPageChange();
-        setTimeout(() => {
-          runOnPageChange();
-        }, 100);
       }
     });
   } else {
