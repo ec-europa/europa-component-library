@@ -100,9 +100,6 @@ export class Tabs {
     this.btnNext = queryOne(this.nextSelector, this.element);
     this.total = this.listItems.length;
 
-    // eslint-disable-next-line no-console
-    console.log(this.moreLabelValue);
-
     if (this.moreButton) {
       // Create the "more" dropdown and clone existing list items
       this.dropdown = document.createElement('ul');
