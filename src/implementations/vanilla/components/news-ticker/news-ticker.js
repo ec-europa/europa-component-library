@@ -152,14 +152,14 @@ export class NewsTicker {
    * Destroy component.
    */
   destroy() {
-    if (this.attachClickListener && this.toggle) {
-      this.toggle.removeEventListener('click', this.handleClickOnToggle);
+    if (this.toggle) {
+      this.toggle.replaceWith(this.toggle.cloneNode(true));
     }
-    if (this.attachClickListener && this.btnNext) {
-      this.btnNext.removeEventListener('click', this.shiftSlide);
+    if (this.btnNext) {
+      this.btnNext.replaceWith(this.btnNext.cloneNode(true));
     }
-    if (this.attachClickListener && this.btnPrev) {
-      this.btnPrev.removeEventListener('click', this.shiftSlide);
+    if (this.btnPrev) {
+      this.btnPrev.replaceWith(this.btnPrev.cloneNode(true));
     }
     if (this.slidesContainer) {
       this.slidesContainer.removeEventListener(
@@ -218,6 +218,17 @@ export class NewsTicker {
     }
     const currentSlide = queryOne(this.currentSlideClass, this.element);
     currentSlide.textContent = this.index;
+
+    // Update slides
+    if (this.slides) {
+      this.slides.forEach((slide, index) => {
+        if (this.index === index) {
+          slide.removeAttribute('aria-hidden', 'true');
+        } else {
+          slide.setAttribute('aria-hidden', 'true');
+        }
+      });
+    }
 
     this.allowShift = true;
   }
