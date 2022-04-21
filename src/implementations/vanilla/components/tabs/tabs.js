@@ -151,6 +151,9 @@ export class Tabs {
    * Destroy component.
    */
   destroy() {
+    if (this.dropdown) {
+      this.dropdown.remove();
+    }
     if (this.moreButton) {
       this.moreButton.replaceWith(this.moreButton.cloneNode(true));
     }
