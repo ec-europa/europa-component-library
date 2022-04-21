@@ -29,11 +29,11 @@
     // Let CSS Resources inject the styles
 
     // Re-initialize component from the parent frame when changing #ecl-rtl CSS resource checkbox
-    window.parent.document.body.classList.add('ready');
     window.parent.document.addEventListener('click', (e) => {
       if (e.target && e.target.getAttribute('id') === 'ecl-rtl') {
+        ECL.autoInit().destroy();
         setTimeout(() => {
-          runOnPageChange();
+          ECL.autoInit();
         }, 100);
       }
     });
@@ -57,10 +57,6 @@
 <script>
   // https://github.com/storybookjs/storybook/issues/6113#issuecomment-473965255
   function runOnPageChange() {
-    window.parent.document.body.classList.add(
-      'runOnPageChange' + Math.random()
-    );
-    ECL.autoInit().destroy();
     ECL.autoInit();
   }
 
