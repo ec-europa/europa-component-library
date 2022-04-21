@@ -3,6 +3,11 @@
     display: none;
   }
 </style>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+  integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+  crossorigin="anonymous"
+></script>
 <script>
   function inIframe() {
     try {
@@ -31,7 +36,6 @@
     // Re-initialize component from the parent frame when changing #ecl-rtl CSS resource checkbox
     window.parent.document.addEventListener('click', (e) => {
       if (e.target && e.target.getAttribute('id') === 'ecl-rtl') {
-        console.log(e.target.checked);
         const dir = e.target.checked ? 'rtl' : 'ltr';
         document.body.setAttribute('dir', dir);
         runOnPageChange();
@@ -48,11 +52,6 @@
     head.appendChild(createLink('./styles/ecl-ec-print.css', 'print'));
   }
 </script>
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
-  integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
-  crossorigin="anonymous"
-></script>
 <script type="text/javascript" src="./scripts/ecl-ec.js"></script>
 <script>
   // https://github.com/storybookjs/storybook/issues/6113#issuecomment-473965255
