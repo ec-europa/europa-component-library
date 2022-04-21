@@ -25,10 +25,12 @@ const getArgTypes = () => ({
 
 const btnTabHandler = (state) => {
   const skipLinkEl = document.querySelector('.ecl-skip-link');
-  if (state === true) {
-    skipLinkEl.focus();
-  } else {
-    skipLinkEl.blur();
+  if (skipLinkEl) {
+    if (state === true) {
+      skipLinkEl.focus();
+    } else {
+      skipLinkEl.blur();
+    }
   }
 };
 
