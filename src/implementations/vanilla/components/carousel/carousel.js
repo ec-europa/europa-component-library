@@ -103,6 +103,7 @@ export class Carousel {
    * Initialise component.
    */
   init() {
+    console.log('init');
     this.toggle = queryOne(this.toggleSelector, this.element);
     this.btnPrev = queryOne(this.prevSelector, this.element);
     this.btnNext = queryOne(this.nextSelector, this.element);
@@ -182,6 +183,7 @@ export class Carousel {
    * Destroy component.
    */
   destroy() {
+    console.log('destroy');
     if (this.cloneFirstSLide && this.cloneLastSLide) {
       this.cloneFirstSLide.remove();
       this.cloneLastSLide.remove();

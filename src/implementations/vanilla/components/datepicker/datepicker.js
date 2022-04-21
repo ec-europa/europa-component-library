@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable class-methods-use-this */
 import Pikaday from 'pikaday';
 
@@ -133,6 +134,7 @@ export class Datepicker {
    * Destroy component.
    */
   destroy() {
+    window.parent.document.body.classList.add('destroy');
     if (this.picker) {
       this.picker.destroy();
       this.picker = null;

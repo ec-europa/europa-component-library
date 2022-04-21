@@ -33,6 +33,7 @@
       if (e.target && e.target.getAttribute('id') === 'ecl-rtl') {
         ECL.autoInit().destroy();
         setTimeout(() => {
+          ECL.autoInit().destroy();
           ECL.autoInit();
         }, 100);
       }

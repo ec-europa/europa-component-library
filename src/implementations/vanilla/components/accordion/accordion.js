@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { queryAll, queryOne } from '@ecl/dom-utils';
 
 /**
@@ -63,6 +64,7 @@ export class Accordion {
    * Initialise component.
    */
   init() {
+    console.log('init');
     this.toggles = queryAll(this.toggleSelector, this.element);
 
     // Get label, if any
@@ -86,6 +88,7 @@ export class Accordion {
    * Destroy component.
    */
   destroy() {
+    console.log('destroy');
     if (this.attachClickListener && this.toggles) {
       this.toggles.forEach((toggle) => {
         toggle.replaceWith(toggle.cloneNode(true));
