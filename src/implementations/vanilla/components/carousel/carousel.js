@@ -112,6 +112,7 @@ export class Carousel {
     this.navigationItems = queryAll(this.navigationItemsClass, this.element);
     this.currentSlide = queryOne(this.currentSlideClass, this.element);
     this.direction = getComputedStyle(this.element).direction;
+    console.log(this.direction);
 
     this.slides = queryAll(this.slideClass, this.element);
     this.total = this.slides.length;
