@@ -1,5 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
+import { correctSvgPath } from '@ecl/story-utils';
 
 import dataDescriptionListDefault from '@ecl/specs-component-description-list/demo/data--default';
 import dataDescriptionListHorizontal from '@ecl/specs-component-description-list/demo/data--horizontal';
@@ -68,6 +69,8 @@ const prepareData = (data, args) => {
   } else {
     data.items[0].definition[0].label = args.label;
   }
+
+  correctSvgPath(data);
   return data;
 };
 

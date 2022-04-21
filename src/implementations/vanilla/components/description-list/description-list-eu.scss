@@ -3,11 +3,6 @@
 @use 'description-list' with (
   $_term-color: map.get(theme.$color, 'grey-140'),
   $_term-font: map.get(theme.$font-prolonged, 'l'),
-  $_term-horizontal-font: map.get(theme.$font-prolonged, 'l'),
-  $_definition-color: map.get(theme.$color, 'grey-80'),
-  $_term-margin-top: map.get(theme.$spacing, 'm'),
-  $_term-term-margin-top: map.get(theme.$spacing, 'xs'),
-  $_definition-margin-top: map.get(theme.$spacing, 'xs'),
-  $_horizontal-item-margin-top: map.get(theme.$spacing, 's'),
-  $_divider-color: map.get(theme.$color, 'blue-20')
+  $_definition-color: map.get(theme.$color, 'grey-140'),
+  $_taxonomy-color: map.get(theme.$color, 'grey-80')
 );
