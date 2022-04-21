@@ -65,7 +65,7 @@
     </div>
   </div>
   <div class="ecl-carousel__controls">
-    <button class="ecl-carousel__prev" aria-hidden="true">
+    <button class="ecl-carousel__prev">
       {% include '@ecl/icon/icon.html.twig' with {
         icon: {
           path: _icon_path,
@@ -78,7 +78,7 @@
       } only %}
       <span class="ecl-u-sr-only">{{ _sr_previous }}</span>
     </button>
-    <button class="ecl-carousel__next" aria-hidden="true">
+    <button class="ecl-carousel__next">
       {% include '@ecl/icon/icon.html.twig' with {
         icon: {
           path: _icon_path,
@@ -92,7 +92,7 @@
       <span class="ecl-u-sr-only">{{ _sr_next }}</span>
     </button>
     <div class="ecl-container">
-      <button class="ecl-carousel__toggle" aria-hidden="true">
+      <button class="ecl-carousel__toggle">
         {% include '@ecl/icon/icon.html.twig' with {
           icon: {
             path: _icon_path,
