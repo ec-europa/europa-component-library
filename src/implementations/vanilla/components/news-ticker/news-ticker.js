@@ -77,6 +77,8 @@ export class NewsTicker {
     this.autoPlay = false;
     this.autoPlayInterval = null;
     this.resizeTimer = null;
+    this.cloneFirstSLide = null;
+    this.cloneLastSLide = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
@@ -103,12 +105,12 @@ export class NewsTicker {
 
     const firstSlide = this.slides[0];
     const lastSlide = this.slides[this.slides.length - 1];
-    const cloneFirst = firstSlide.cloneNode(true);
-    const cloneLast = lastSlide.cloneNode(true);
+    this.cloneFirstSLide = firstSlide.cloneNode(true);
+    this.cloneLastSLide = lastSlide.cloneNode(true);
 
     // Clone first and last slide
-    this.slidesContainer.appendChild(cloneFirst);
-    this.slidesContainer.insertBefore(cloneLast, firstSlide);
+    this.slidesContainer.appendChild(this.cloneFirstSLide);
+    this.slidesContainer.insertBefore(this.cloneLastSLide, firstSlide);
 
     // Refresh the slides variable after adding new cloned slides
     this.slides = queryAll(this.slideClass, this.element);
@@ -152,6 +154,10 @@ export class NewsTicker {
    * Destroy component.
    */
   destroy() {
+    if (this.cloneFirstSLide && this.cloneLastSLide) {
+      this.cloneFirstSLide.remove();
+      this.cloneLastSLide.remove();
+    }
     if (this.toggle) {
       this.toggle.replaceWith(this.toggle.cloneNode(true));
     }
