@@ -41,6 +41,26 @@ exports[`Tag Link renders correctly 1`] = `
 </jest>
 `;
 
+exports[`Tag Link renders correctly with an external link 1`] = `
+<jest>
+  <a
+    class="ecl-tag"
+    href="/example"
+  >
+    Link tag
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--2xs ecl-tag__icon ecl-tag__icon--external"
+      focusable="false"
+    >
+      <use
+        xlink:href="/icons.svg#external"
+      />
+    </svg>
+  </a>
+</jest>
+`;
+
 exports[`Tag Link renders correctly with extra attributes 1`] = `
 <jest>
   <a
