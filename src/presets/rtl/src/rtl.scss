@@ -149,21 +149,3 @@ html {
 .ecl-timeline__tooltip::before {
   left: map.get(theme.$spacing, 'l');
 }
-
-// Page headers
-.ecl-page-header__meta-item,
-.ecl-page-header-core__meta-item,
-.ecl-page-header-harmonised__meta-item,
-.ecl-page-header-standardised__meta-item {
-  &:last-of-type {
-    border-inline-end-width: 1px;
-    margin-inline-end: map.get(theme.$spacing, 'm');
-    padding-inline-end: map.get(theme.$spacing, 'm');
-  }
-
-  &:first-of-type {
-    border-inline-end-width: 0;
-    margin-inline-end: 0;
-    padding-inline-end: 0;
-  }
-}
