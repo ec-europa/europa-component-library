@@ -77,6 +77,8 @@ export class NewsTicker {
     this.autoPlay = false;
     this.autoPlayInterval = null;
     this.resizeTimer = null;
+    this.cloneFirstSLide = null;
+    this.cloneLastSLide = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
@@ -103,12 +105,12 @@ export class NewsTicker {
 
     const firstSlide = this.slides[0];
     const lastSlide = this.slides[this.slides.length - 1];
-    const cloneFirst = firstSlide.cloneNode(true);
-    const cloneLast = lastSlide.cloneNode(true);
+    this.cloneFirstSLide = firstSlide.cloneNode(true);
+    this.cloneLastSLide = lastSlide.cloneNode(true);
 
     // Clone first and last slide
-    this.slidesContainer.appendChild(cloneFirst);
-    this.slidesContainer.insertBefore(cloneLast, firstSlide);
+    this.slidesContainer.appendChild(this.cloneFirstSLide);
+    this.slidesContainer.insertBefore(this.cloneLastSLide, firstSlide);
 
     // Refresh the slides variable after adding new cloned slides
     this.slides = queryAll(this.slideClass, this.element);
@@ -152,14 +154,18 @@ export class NewsTicker {
    * Destroy component.
    */
   destroy() {
-    if (this.attachClickListener && this.toggle) {
-      this.toggle.removeEventListener('click', this.handleClickOnToggle);
+    if (this.cloneFirstSLide && this.cloneLastSLide) {
+      this.cloneFirstSLide.remove();
+      this.cloneLastSLide.remove();
     }
-    if (this.attachClickListener && this.btnNext) {
-      this.btnNext.removeEventListener('click', this.shiftSlide);
+    if (this.toggle) {
+      this.toggle.replaceWith(this.toggle.cloneNode(true));
     }
-    if (this.attachClickListener && this.btnPrev) {
-      this.btnPrev.removeEventListener('click', this.shiftSlide);
+    if (this.btnNext) {
+      this.btnNext.replaceWith(this.btnNext.cloneNode(true));
+    }
+    if (this.btnPrev) {
+      this.btnPrev.replaceWith(this.btnPrev.cloneNode(true));
     }
     if (this.slidesContainer) {
       this.slidesContainer.removeEventListener(
