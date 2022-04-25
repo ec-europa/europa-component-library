@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { queryAll } from '..';
 
 export const autoInit = ({ root = document, ...options } = {}) => {
@@ -51,12 +50,12 @@ export const autoInit = ({ root = document, ...options } = {}) => {
   // Destroy should not throw, in order to be non-blocking.
   const destroy = () => {
     if (ECL.components) {
-      ECL.components.forEach((component, index, object) => {
-        if (component.destroy) {
-          component.destroy();
-          object.splice(index, 1);
+      for (let i = ECL.components.length - 1; i >= 0; i -= 1) {
+        if (ECL.components[i].destroy) {
+          ECL.components[i].destroy();
+          ECL.components.splice(i, 1);
         }
-      });
+      }
     }
   };
 
