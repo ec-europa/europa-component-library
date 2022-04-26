@@ -10,19 +10,11 @@ import notes from './README.md';
 const getArgs = (data) => {
   const args = {};
 
-  if (data.image) {
-    args.show_image = true;
-    args.image_size = 'l';
-    args.image_position = 'left';
-  }
-  if (data.date) {
-    args.show_date = true;
-  }
   if (data.labels) {
     args.show_labels = true;
   }
-  if (data.meta) {
-    args.show_meta = true;
+  if (data.primary_meta) {
+    args.show_primary_meta = true;
   }
   if (data.title) {
     args.title = data.title.label;
@@ -31,11 +23,17 @@ const getArgs = (data) => {
     args.show_description = true;
     args.description = data.description;
   }
-  if (data.infos) {
-    args.show_infos = true;
+  if (data.secondary_meta) {
+    args.show_secondary_meta = true;
+  }
+  if (data.tags) {
+    args.show_tags = true;
+  }
+  if (data.links) {
+    args.show_links = true;
   }
   if (data.lists) {
-    args.show_taxonomy = true;
+    args.show_lists = true;
   }
 
   return args;
@@ -45,30 +43,6 @@ const getArgTypes = (data) => {
   const argTypes = {};
 
   // Optional elements
-  if (data.image) {
-    argTypes.show_image = {
-      name: 'image',
-      type: 'boolean',
-      description: 'Show image',
-      table: {
-        type: 'boolean',
-        defaultValue: { summary: true },
-        category: 'Optional',
-      },
-    };
-  }
-  if (data.date) {
-    argTypes.show_date = {
-      name: 'date',
-      type: 'boolean',
-      description: 'Show date',
-      table: {
-        type: 'boolean',
-        defaultValue: { summary: true },
-        category: 'Optional',
-      },
-    };
-  }
   if (data.labels) {
     argTypes.show_labels = {
       name: 'labels',
@@ -81,11 +55,11 @@ const getArgTypes = (data) => {
       },
     };
   }
-  if (data.meta) {
-    argTypes.show_meta = {
-      name: 'meta',
+  if (data.primary_meta) {
+    argTypes.show_primary_meta = {
+      name: 'primary meta',
       type: 'boolean',
-      description: 'Show meta',
+      description: 'Show primary meta',
       table: {
         type: 'boolean',
         defaultValue: { summary: true },
@@ -105,11 +79,35 @@ const getArgTypes = (data) => {
       },
     };
   }
-  if (data.infos) {
-    argTypes.show_infos = {
-      name: 'infos',
+  if (data.secondary_meta) {
+    argTypes.show_secondary_meta = {
+      name: 'secondary meta',
       type: 'boolean',
-      description: 'Show infos',
+      description: 'Show secondary meta',
+      table: {
+        type: 'boolean',
+        defaultValue: { summary: true },
+        category: 'Optional',
+      },
+    };
+  }
+  if (data.tags) {
+    argTypes.show_tags = {
+      name: 'tags',
+      type: 'boolean',
+      description: 'Show tags',
+      table: {
+        type: 'boolean',
+        defaultValue: { summary: true },
+        category: 'Optional',
+      },
+    };
+  }
+  if (data.links) {
+    argTypes.show_links = {
+      name: 'links',
+      type: 'boolean',
+      description: 'Show links',
       table: {
         type: 'boolean',
         defaultValue: { summary: true },
@@ -118,10 +116,10 @@ const getArgTypes = (data) => {
     };
   }
   if (data.lists) {
-    argTypes.show_taxonomy = {
-      name: 'taxonomy',
+    argTypes.show_lists = {
+      name: 'lists',
       type: 'boolean',
-      description: 'Show taxonomy',
+      description: 'Show lists',
       table: {
         type: 'boolean',
         defaultValue: { summary: true },
@@ -131,36 +129,6 @@ const getArgTypes = (data) => {
   }
 
   // Other controls
-  if (data.image) {
-    argTypes.image_size = {
-      name: 'image size',
-      type: 'select',
-      description: "Possible image sizes ('s' or 'l')",
-      options: ['s', 'l'],
-      control: {
-        labels: {
-          s: 'small (square)',
-          l: 'large (landscape)',
-        },
-      },
-      table: {
-        type: 'string',
-        defaultValue: { summary: '' },
-        category: 'Display',
-      },
-    };
-    argTypes.image_position = {
-      name: 'image position',
-      type: 'select',
-      description: "Possible image position ('left' or 'right')",
-      options: ['left', 'right'],
-      table: {
-        type: 'string',
-        defaultValue: { summary: '' },
-        category: 'Display',
-      },
-    };
-  }
   if (data.title) {
     argTypes.title = {
       name: 'title',
@@ -194,35 +162,29 @@ const prepareData = (data, args) => {
   const clone = JSON.parse(JSON.stringify(data));
 
   // Optional elements
-  if (!args.show_image) {
-    delete clone.image;
-  }
-  if (!args.show_date) {
-    delete clone.date;
-  }
   if (!args.show_labels) {
     delete clone.labels;
   }
-  if (!args.show_meta) {
-    delete clone.meta;
+  if (!args.show_primary_meta) {
+    delete clone.primary_meta;
   }
   if (!args.show_description) {
     delete clone.description;
   }
-  if (!args.show_infos) {
-    delete clone.infos;
+  if (!args.show_secondary_meta) {
+    delete clone.secondary_meta;
   }
-  if (!args.show_taxonomy) {
+  if (!args.show_tags) {
+    delete clone.tags;
+  }
+  if (!args.show_links) {
+    delete clone.links;
+  }
+  if (!args.show_lists) {
     delete clone.lists;
   }
 
   // Other controls
-  if (clone.image) {
-    clone.image.size = args.image_size;
-    if (args.image_position === 'right') {
-      clone.variant = 'image-right';
-    }
-  }
   if (clone.title) {
     clone.title.label = args.title;
   }

@@ -2,6 +2,7 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctSvgPath } from '@ecl/story-utils';
 
+import dataDefault from '@ecl/specs-component-content-item/demo/data--default';
 import dataImage from '@ecl/specs-component-content-item/demo/data--image';
 import dataEvent from '@ecl/specs-component-content-item/demo/data--event';
 
@@ -13,7 +14,7 @@ const getArgs = (data) => {
 
   if (data.image) {
     args.show_image = true;
-    args.image_size = 'l';
+    args.image_size = 'large';
     args.image_position = 'left';
   }
   if (data.date) {
@@ -22,8 +23,8 @@ const getArgs = (data) => {
   if (data.labels) {
     args.show_labels = true;
   }
-  if (data.meta) {
-    args.show_meta = true;
+  if (data.primary_meta) {
+    args.show_primary_meta = true;
   }
   if (data.title) {
     args.title = data.title.label;
@@ -32,12 +33,13 @@ const getArgs = (data) => {
     args.show_description = true;
     args.description = data.description;
   }
-  if (data.infos) {
-    args.show_infos = true;
+  if (data.secondary_meta) {
+    args.show_secondary_meta = true;
   }
   if (data.lists) {
-    args.show_taxonomy = true;
+    args.show_lists = true;
   }
+  args.show_divider = false;
 
   return args;
 };
@@ -82,11 +84,11 @@ const getArgTypes = (data) => {
       },
     };
   }
-  if (data.meta) {
-    argTypes.show_meta = {
-      name: 'meta',
+  if (data.primary_meta) {
+    argTypes.show_primary_meta = {
+      name: 'primary meta',
       type: 'boolean',
-      description: 'Show meta',
+      description: 'Show primary meta',
       table: {
         type: 'boolean',
         defaultValue: { summary: true },
@@ -106,11 +108,11 @@ const getArgTypes = (data) => {
       },
     };
   }
-  if (data.infos) {
-    argTypes.show_infos = {
-      name: 'infos',
+  if (data.secondary_meta) {
+    argTypes.show_secondary_meta = {
+      name: 'secondary meta',
       type: 'boolean',
-      description: 'Show infos',
+      description: 'Show secondary meta',
       table: {
         type: 'boolean',
         defaultValue: { summary: true },
@@ -119,10 +121,10 @@ const getArgTypes = (data) => {
     };
   }
   if (data.lists) {
-    argTypes.show_taxonomy = {
-      name: 'taxonomy',
+    argTypes.show_lists = {
+      name: 'lists',
       type: 'boolean',
-      description: 'Show taxonomy',
+      description: 'Show lists',
       table: {
         type: 'boolean',
         defaultValue: { summary: true },
@@ -130,18 +132,28 @@ const getArgTypes = (data) => {
       },
     };
   }
+  argTypes.show_divider = {
+    name: 'divider',
+    type: 'boolean',
+    description: 'Show divider',
+    table: {
+      type: 'boolean',
+      defaultValue: { summary: false },
+      category: 'Optional',
+    },
+  };
 
   // Other controls
   if (data.image) {
     argTypes.image_size = {
       name: 'image size',
       type: 'select',
-      description: "Possible image sizes ('s' or 'l')",
-      options: ['s', 'l'],
+      description: "Possible image sizes ('small' or 'large')",
+      options: ['small', 'large'],
       control: {
         labels: {
-          s: 'small (square)',
-          l: 'large (landscape)',
+          small: 'small (square)',
+          large: 'large (landscape)',
         },
       },
       table: {
@@ -204,25 +216,28 @@ const prepareData = (data, args) => {
   if (!args.show_labels) {
     delete clone.labels;
   }
-  if (!args.show_meta) {
-    delete clone.meta;
+  if (!args.show_primary_meta) {
+    delete clone.primary_meta;
   }
   if (!args.show_description) {
     delete clone.description;
   }
-  if (!args.show_infos) {
-    delete clone.infos;
+  if (!args.show_secondary_meta) {
+    delete clone.secondary_meta;
   }
-  if (!args.show_taxonomy) {
+  if (!args.show_lists) {
     delete clone.lists;
   }
+  clone.divider = args.show_divider;
 
   // Other controls
   if (clone.image) {
     clone.image.size = args.image_size;
-    if (args.image_position === 'right') {
-      clone.variant = 'image-right';
+    if (args.image_size === 'small') {
+      clone.image.src =
+        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg';
     }
+    clone.image.position = args.image_position;
   }
   if (clone.title) {
     clone.title.label = args.title;
@@ -238,6 +253,13 @@ export default {
   title: 'Components/Content item',
   decorators: [withCode, withNotes],
 };
+
+export const Default = (args) => contentItem(prepareData(dataDefault, args));
+
+Default.storyName = 'default';
+Default.args = getArgs(dataDefault);
+Default.argTypes = getArgTypes(dataDefault);
+Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 
 export const Image = (args) => contentItem(prepareData(dataImage, args));
 

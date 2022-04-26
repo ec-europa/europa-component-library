@@ -8,51 +8,44 @@ npm install --save @ecl/twig-component-content-block
 
 ### Parameters
 
-- **"variant"** (string) (default: ''): Variant of the content item (can be 'image-right' or 'event')
-- **"image"** (associative array) (default: {}):
-  - "src" (string) (default: ''): Path to the image
-  - "size" (string) (default: 'm'): Size of the image (can be 's' or 'l')
-- **"date"** (associative array) (default: {}): Predefined structure compatible with Date block component
-- **"labels"** (array) (default: []): List of labels compatible with EC Label component structure
-- **"meta"** (array) (default: []): Meta's for the Content item
-- **"title"** (associative array) (default: {}): Predefined structure compatible with Link component
-- **"description"** (string) (default: ''): Description of the Content item
-- **"infos"** (array) (default: []): format: [
+- **labels** (array) (default: []): Array of ECL Labels
+- **primary_meta** (array of strings) (default: []): Primary meta of the content block
+- **title** (associative array) (default: {}): Title of the content block, following ECL Link structure
+- **description** (string) (default: ''): Description of the content block
+- **secondary_meta** (array) (default: []): format: [
   {
-  "label" (string) (default: ''): Label of info item
-  "icon" (associative array) (default: {}) A predefined structure compatible with Icon component
+  "label" (string) (default: ''): Label of secondary meta item
+  "icon" (array) (default: {}) Icon of the secondary meta, following ECL Icon structure
   },
   ...
   ]
-- **"lists"** (array) (default: []) Array of objects of type "description list". Used for taxonomy
+- **tags** (array) (default: []): Array of ECL Tags
+- **links** (array) (default: []): Array or multi array of ECL Links
+- **lists** (array) (default: []): Array of ECL Description list
 - **"extra_classes"** (string) (default: '')
 - **"extra_attributes"** (array) (default: []): format: [
   {
   "name" (string) (default: ''),
   "value" (optional) (string)
+  },
   ...
   ],
 
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/content-block/content-block.html.twig' with { 
-  image: {
-    src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
-    size: 'l',
-  },
   labels: [
     { label: 'highlight', variant: 'highlight' },
     { label: 'high importance', variant: 'high' },
   ],
-  meta: ['PRIMARY META', 'DD Month Year'],
+  primary_meta: ['PRIMARY META', 'DD Month Year'],
   title: {
-    type: 'standalone',
     label: 'Title',
     path: exampleLink,
   },
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus',
-  infos: [
+  secondary_meta: [
     {
       icon: {
         name: 'calendar',
@@ -70,7 +63,79 @@ npm install --save @ecl/twig-component-content-block
       label: 'Luxembourg',
     },
   ],
+  tags: [
+    {
+      tag: { label: 'tag 1', path: exampleLink },
+    },
+    {
+      tag: { label: 'tag 2', path: exampleLink },
+    },
+    {
+      tag: { label: 'tag 3', path: exampleLink },
+    },
+  ],
+  links: [
+    [
+      {
+        link: {
+          label: 'Primary link 1',
+          path: exampleLink,
+        },
+      },
+      {
+        link: {
+          label: 'Primary link 2',
+          path: exampleLink,
+        },
+      },
+      {
+        link: {
+          label: 'Primary link 3',
+          path: exampleLink,
+        },
+      },
+      {
+        link: {
+          label: 'Primary link 4',
+          path: exampleLink,
+        },
+      },
+    ],
+    [
+      {
+        link: {
+          label: 'Secondary link 1',
+          path: exampleLink,
+        },
+      },
+      {
+        link: {
+          label: 'Secondary link 2',
+          path: exampleLink,
+        },
+      },
+    ],
+  ],
   lists: [
+    {
+      items: [
+        {
+          term: 'European Commission',
+          definition:
+            'The executive body of the European Union formed in 1967, which initiates action in the EU and mediates between member governments. Former name (until 1993): Commission of the European Communities',
+        },
+        {
+          term: 'European Union',
+          definition:
+            'An association of European nations formed in 1993 for the purpose of achieving political and economic integration.',
+        },
+        {
+          term: 'Citizen',
+          definition:
+            'A native or naturalized member of a state or nation who owes allegiance to its government and is entitled to its protection',
+        },
+      ],
+    },
     {
       items: [
         {
@@ -120,7 +185,6 @@ npm install --save @ecl/twig-component-content-block
           ],
         },
       ],
-      variant: 'taxonomy',
     },
   ],
 } %}

@@ -1,48 +1,9 @@
-# ECL Content item component
+// Simple content for demo
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
 
-npm package: `@ecl/twig-component-content-item`
-
-```shell
-npm install --save @ecl/twig-component-content-item
-```
-
-### Parameters
-
-- **image** (associative array) (default: {}):
-  - **src** (string) (default: ''): Path to the image
-  - **size** (string) (default: 'l'): Size of the image (can be 's' or 'l'). Small images should be square
-  - **alt** (string) (default: ''): Alt text of the image
-- **date** (associative array) (default: {}): Predefined structure compatible with ECL Date block component
-- **labels** (array) (default: []): Array of ECL Labels
-- **primary_meta** (array of strings) (default: []): Primary meta of the content item
-- **title** (associative array) (default: {}): Title of the content item, following ECL Link structure
-- **description** (string) (default: ''): Description of the content item
-- **secondary_meta** (array) (default: []): format: [
-  {
-  **label** (string) (default: ''): Label of secondary meta item
-  **icon** (array) (default: {}) Icon of the secondary meta, following ECL Icon structure
-  },
-  ...
-  ]
-- **divider** (boolean) (default: false): Optional divider below the content item
-- **lists** (array) (default: []): Array of ECL Description list
-- **extra_classes** (string) (default: '')
-- **extra_attributes** (array) (default: []): format: [
-  {
-  **name** (string) (default: ''),
-  **value** (optional) (string)
-  ...
-  ],
-
-<!-- prettier-ignore -->
-```twig
-{% include '@ecl/content-item/content-item.html.twig' with { 
-  divider: true,
-  image: {
-    src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
-    size: 'l',
-    alt: 'Alt text of the image',
-  },
+module.exports = {
+  divider: false,
   labels: [
     { label: 'highlight', variant: 'highlight' },
     { label: 'high importance', variant: 'high' },
@@ -137,5 +98,4 @@ npm install --save @ecl/twig-component-content-item
       ],
     },
   ],
-} %}
-```
+};

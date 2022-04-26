@@ -89,69 +89,62 @@ module.exports = {
     {
       items: [
         {
-          term: 'European Commission',
+          term: 'Standard text',
           definition:
-            'The executive body of the European Union formed in 1967, which initiates action in the EU and mediates between member governments. Former name (until 1993): Commission of the European Communities',
+            'Lorem ipsum dolor sit amet, <a href="#" class="ecl-link">consectetur adipiscing elit</a>. Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis',
         },
         {
-          term: 'European Union',
-          definition:
-            'An association of European nations formed in 1993 for the purpose of achieving political and economic integration.',
-        },
-        {
-          term: 'Citizen',
-          definition:
-            'A native or naturalized member of a state or nation who owes allegiance to its government and is entitled to its protection',
-        },
-      ],
-    },
-    {
-      items: [
-        {
-          term: 'Science areas',
+          term: 'Standalone links',
+          type: 'link',
           definition: [
             {
-              label: 'Energy and transport',
-              variant: 'display',
+              link: {
+                label: 'Lorem ipsum dolor sit amet',
+                path: exampleLink,
+                icon_position: 'before',
+              },
+              icon: {
+                name: 'copy',
+                path: '/icons.svg',
+                size: 's',
+              },
             },
             {
-              label: 'Standards',
-              variant: 'display',
+              link: {
+                label: 'Lorem ipsum dolor sit amet',
+                path: exampleLink,
+                icon_position: 'before',
+              },
+              icon: {
+                name: 'download',
+                path: '/icons.svg',
+                size: 's',
+              },
             },
           ],
         },
         {
-          term: 'Keywords',
+          term: 'Links inline',
+          type: 'link-inline',
           definition: [
             {
-              label: 'Electricity',
-              variant: 'display',
+              link: {
+                label: 'Lorem ipsum dolor sit amet',
+                path: exampleLink,
+              },
             },
             {
-              label: 'Electromobility',
-              variant: 'display',
-            },
-            {
-              label: 'Energy',
-              variant: 'display',
-            },
-            {
-              label: 'Energy storage',
-              variant: 'display',
-            },
-            {
-              label: 'Security',
-              variant: 'display',
-            },
-            {
-              label: 'Transport',
-              variant: 'display',
-            },
-            {
-              label: 'Low carbon',
-              variant: 'display',
+              link: {
+                label: 'Lorem ipsum dolor sit amet',
+                path: exampleLink,
+              },
             },
           ],
+        },
+        {
+          term: 'Taxonomy list',
+          type: 'taxonomy',
+          definition: ['Taxonomy item 1', 'Taxonomy item 2', 'Taxonomy item 3'],
         },
       ],
     },
