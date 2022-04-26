@@ -1,212 +1,915 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Content item Default renders correctly 1`] = `
+<jest>
+  <div
+    class="ecl-content-item"
+  >
+    <div
+      class="ecl-content-block ecl-content-item__content-block"
+    >
+      <ul
+        class="ecl-content-block__label-container"
+      >
+        <li
+          class="ecl-content-block__label-item"
+        >
+          <span
+            class="ecl-label ecl-label--highlight"
+          >
+            highlight
+          </span>
+        </li>
+        <li
+          class="ecl-content-block__label-item"
+        >
+          <span
+            class="ecl-label ecl-label--high"
+          >
+            high importance
+          </span>
+        </li>
+      </ul>
+      <ul
+        class="ecl-content-block__primary-meta-container"
+      >
+        <li
+          class="ecl-content-block__primary-meta-item"
+        >
+          PRIMARY META
+        </li>
+        <li
+          class="ecl-content-block__primary-meta-item"
+        >
+          DD Month Year
+        </li>
+      </ul>
+      <h1
+        class="ecl-content-block__title"
+      >
+        <a
+          class="ecl-link ecl-link--standalone"
+          href="/example"
+        >
+          Title
+        </a>
+      </h1>
+      <div
+        class="ecl-content-block__description"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus
+      </div>
+      <ul
+        class="ecl-content-block__secondary-meta-container"
+      >
+        <li
+          class="ecl-content-block__secondary-meta-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-content-block__secondary-meta-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#calendar"
+            />
+          </svg>
+          <span
+            class="ecl-content-block__secondary-meta-label"
+          >
+            2018/10/22
+          </span>
+        </li>
+        <li
+          class="ecl-content-block__secondary-meta-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-content-block__secondary-meta-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#location"
+            />
+          </svg>
+          <span
+            class="ecl-content-block__secondary-meta-label"
+          >
+            Luxembourg
+          </span>
+        </li>
+      </ul>
+      <div
+        class="ecl-content-block__list-container"
+      >
+        <dl
+          class="ecl-description-list ecl-content-block__list"
+        >
+          <dt
+            class="ecl-description-list__term"
+          >
+            Standard text
+          </dt>
+          <dd
+            class="ecl-description-list__definition"
+          >
+            Lorem ipsum dolor sit amet, 
+            <a
+              class="ecl-link"
+              href="#"
+            >
+              consectetur adipiscing elit
+            </a>
+            . Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis
+          </dd>
+          <dt
+            class="ecl-description-list__term"
+          >
+            Standalone links
+          </dt>
+          <dd
+            class="ecl-description-list__definition ecl-description-list__definition--link"
+          >
+            <a
+              class="ecl-link ecl-link--icon ecl-link--icon-before ecl-description-list__definition-item"
+              href="/example"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#copy"
+                />
+              </svg>
+              <span
+                class="ecl-link__label"
+              >
+                Lorem ipsum dolor sit amet
+              </span>
+            </a>
+            <a
+              class="ecl-link ecl-link--icon ecl-link--icon-before ecl-description-list__definition-item"
+              href="/example"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#download"
+                />
+              </svg>
+              <span
+                class="ecl-link__label"
+              >
+                Lorem ipsum dolor sit amet
+              </span>
+            </a>
+          </dd>
+          <dt
+            class="ecl-description-list__term"
+          >
+            Links inline
+          </dt>
+          <dd
+            class="ecl-description-list__definition ecl-description-list__definition--inline"
+          >
+            <a
+              class="ecl-link ecl-description-list__definition-item"
+              href="/example"
+            >
+              Lorem ipsum dolor sit amet
+            </a>
+            <a
+              class="ecl-link ecl-description-list__definition-item"
+              href="/example"
+            >
+              Lorem ipsum dolor sit amet
+            </a>
+          </dd>
+          <dt
+            class="ecl-description-list__term"
+          >
+            Taxonomy list
+          </dt>
+          <dd
+            class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
+          >
+            <span
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 1
+            </span>
+            <span
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 2
+            </span>
+            <span
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 3
+            </span>
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`Content item Default renders correctly with extra attributes 1`] = `
+<jest>
+  <div
+    class="ecl-content-item"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
+  >
+    <div
+      class="ecl-content-block ecl-content-item__content-block"
+    >
+      <ul
+        class="ecl-content-block__label-container"
+      >
+        <li
+          class="ecl-content-block__label-item"
+        >
+          <span
+            class="ecl-label ecl-label--highlight"
+          >
+            highlight
+          </span>
+        </li>
+        <li
+          class="ecl-content-block__label-item"
+        >
+          <span
+            class="ecl-label ecl-label--high"
+          >
+            high importance
+          </span>
+        </li>
+      </ul>
+      <ul
+        class="ecl-content-block__primary-meta-container"
+      >
+        <li
+          class="ecl-content-block__primary-meta-item"
+        >
+          PRIMARY META
+        </li>
+        <li
+          class="ecl-content-block__primary-meta-item"
+        >
+          DD Month Year
+        </li>
+      </ul>
+      <h1
+        class="ecl-content-block__title"
+      >
+        <a
+          class="ecl-link ecl-link--standalone"
+          href="/example"
+        >
+          Title
+        </a>
+      </h1>
+      <div
+        class="ecl-content-block__description"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus
+      </div>
+      <ul
+        class="ecl-content-block__secondary-meta-container"
+      >
+        <li
+          class="ecl-content-block__secondary-meta-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-content-block__secondary-meta-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#calendar"
+            />
+          </svg>
+          <span
+            class="ecl-content-block__secondary-meta-label"
+          >
+            2018/10/22
+          </span>
+        </li>
+        <li
+          class="ecl-content-block__secondary-meta-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-content-block__secondary-meta-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#location"
+            />
+          </svg>
+          <span
+            class="ecl-content-block__secondary-meta-label"
+          >
+            Luxembourg
+          </span>
+        </li>
+      </ul>
+      <div
+        class="ecl-content-block__list-container"
+      >
+        <dl
+          class="ecl-description-list ecl-content-block__list"
+        >
+          <dt
+            class="ecl-description-list__term"
+          >
+            Standard text
+          </dt>
+          <dd
+            class="ecl-description-list__definition"
+          >
+            Lorem ipsum dolor sit amet, 
+            <a
+              class="ecl-link"
+              href="#"
+            >
+              consectetur adipiscing elit
+            </a>
+            . Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis
+          </dd>
+          <dt
+            class="ecl-description-list__term"
+          >
+            Standalone links
+          </dt>
+          <dd
+            class="ecl-description-list__definition ecl-description-list__definition--link"
+          >
+            <a
+              class="ecl-link ecl-link--icon ecl-link--icon-before ecl-description-list__definition-item"
+              href="/example"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#copy"
+                />
+              </svg>
+              <span
+                class="ecl-link__label"
+              >
+                Lorem ipsum dolor sit amet
+              </span>
+            </a>
+            <a
+              class="ecl-link ecl-link--icon ecl-link--icon-before ecl-description-list__definition-item"
+              href="/example"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#download"
+                />
+              </svg>
+              <span
+                class="ecl-link__label"
+              >
+                Lorem ipsum dolor sit amet
+              </span>
+            </a>
+          </dd>
+          <dt
+            class="ecl-description-list__term"
+          >
+            Links inline
+          </dt>
+          <dd
+            class="ecl-description-list__definition ecl-description-list__definition--inline"
+          >
+            <a
+              class="ecl-link ecl-description-list__definition-item"
+              href="/example"
+            >
+              Lorem ipsum dolor sit amet
+            </a>
+            <a
+              class="ecl-link ecl-description-list__definition-item"
+              href="/example"
+            >
+              Lorem ipsum dolor sit amet
+            </a>
+          </dd>
+          <dt
+            class="ecl-description-list__term"
+          >
+            Taxonomy list
+          </dt>
+          <dd
+            class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
+          >
+            <span
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 1
+            </span>
+            <span
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 2
+            </span>
+            <span
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 3
+            </span>
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`Content item Default renders correctly with extra class names 1`] = `
+<jest>
+  <div
+    class="ecl-content-item custom-class custom-class--test"
+  >
+    <div
+      class="ecl-content-block ecl-content-item__content-block"
+    >
+      <ul
+        class="ecl-content-block__label-container"
+      >
+        <li
+          class="ecl-content-block__label-item"
+        >
+          <span
+            class="ecl-label ecl-label--highlight"
+          >
+            highlight
+          </span>
+        </li>
+        <li
+          class="ecl-content-block__label-item"
+        >
+          <span
+            class="ecl-label ecl-label--high"
+          >
+            high importance
+          </span>
+        </li>
+      </ul>
+      <ul
+        class="ecl-content-block__primary-meta-container"
+      >
+        <li
+          class="ecl-content-block__primary-meta-item"
+        >
+          PRIMARY META
+        </li>
+        <li
+          class="ecl-content-block__primary-meta-item"
+        >
+          DD Month Year
+        </li>
+      </ul>
+      <h1
+        class="ecl-content-block__title"
+      >
+        <a
+          class="ecl-link ecl-link--standalone"
+          href="/example"
+        >
+          Title
+        </a>
+      </h1>
+      <div
+        class="ecl-content-block__description"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus
+      </div>
+      <ul
+        class="ecl-content-block__secondary-meta-container"
+      >
+        <li
+          class="ecl-content-block__secondary-meta-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-content-block__secondary-meta-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#calendar"
+            />
+          </svg>
+          <span
+            class="ecl-content-block__secondary-meta-label"
+          >
+            2018/10/22
+          </span>
+        </li>
+        <li
+          class="ecl-content-block__secondary-meta-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-content-block__secondary-meta-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#location"
+            />
+          </svg>
+          <span
+            class="ecl-content-block__secondary-meta-label"
+          >
+            Luxembourg
+          </span>
+        </li>
+      </ul>
+      <div
+        class="ecl-content-block__list-container"
+      >
+        <dl
+          class="ecl-description-list ecl-content-block__list"
+        >
+          <dt
+            class="ecl-description-list__term"
+          >
+            Standard text
+          </dt>
+          <dd
+            class="ecl-description-list__definition"
+          >
+            Lorem ipsum dolor sit amet, 
+            <a
+              class="ecl-link"
+              href="#"
+            >
+              consectetur adipiscing elit
+            </a>
+            . Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis
+          </dd>
+          <dt
+            class="ecl-description-list__term"
+          >
+            Standalone links
+          </dt>
+          <dd
+            class="ecl-description-list__definition ecl-description-list__definition--link"
+          >
+            <a
+              class="ecl-link ecl-link--icon ecl-link--icon-before ecl-description-list__definition-item"
+              href="/example"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#copy"
+                />
+              </svg>
+              <span
+                class="ecl-link__label"
+              >
+                Lorem ipsum dolor sit amet
+              </span>
+            </a>
+            <a
+              class="ecl-link ecl-link--icon ecl-link--icon-before ecl-description-list__definition-item"
+              href="/example"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#download"
+                />
+              </svg>
+              <span
+                class="ecl-link__label"
+              >
+                Lorem ipsum dolor sit amet
+              </span>
+            </a>
+          </dd>
+          <dt
+            class="ecl-description-list__term"
+          >
+            Links inline
+          </dt>
+          <dd
+            class="ecl-description-list__definition ecl-description-list__definition--inline"
+          >
+            <a
+              class="ecl-link ecl-description-list__definition-item"
+              href="/example"
+            >
+              Lorem ipsum dolor sit amet
+            </a>
+            <a
+              class="ecl-link ecl-description-list__definition-item"
+              href="/example"
+            >
+              Lorem ipsum dolor sit amet
+            </a>
+          </dd>
+          <dt
+            class="ecl-description-list__term"
+          >
+            Taxonomy list
+          </dt>
+          <dd
+            class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
+          >
+            <span
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 1
+            </span>
+            <span
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 2
+            </span>
+            <span
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 3
+            </span>
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</jest>
+`;
+
 exports[`Content item Event renders correctly 1`] = `
 <jest>
   <div
-    class="ecl-content-item ecl-content-item--event"
+    class="ecl-content-item"
   >
-    <div
-      class="ecl-content-item__container"
+    <time
+      class="ecl-date-block ecl-content-item__date"
+      datetime="2019-09-26"
     >
-      <time
-        class="ecl-date-block ecl-content-item__date"
-        datetime="2019-09-26"
+      <span
+        class="ecl-date-block__daytime"
       >
-        <span
-          class="ecl-date-block__daytime"
-        >
-          2019-09-26
-        </span>
-        <span
-          aria-hidden="true"
-          class="ecl-date-block__day"
-        >
-          26
-        </span>
-        <abbr
-          aria-hidden="true"
-          class="ecl-date-block__month"
-          title="September"
-        >
-          Sep
-        </abbr>
-        <span
-          aria-hidden="true"
-          class="ecl-date-block__year"
-        >
-          2019
-        </span>
-      </time>
-      <article
-        class="ecl-card ecl-content-item__card"
+        2019-09-26
+      </span>
+      <span
+        aria-hidden="true"
+        class="ecl-date-block__day"
       >
-        <div
-          class="ecl-card__body"
+        26
+      </span>
+      <abbr
+        aria-hidden="true"
+        class="ecl-date-block__month"
+        title="September"
+      >
+        Sep
+      </abbr>
+      <span
+        aria-hidden="true"
+        class="ecl-date-block__year"
+      >
+        2019
+      </span>
+    </time>
+    <div
+      class="ecl-content-block ecl-content-item__content-block"
+    >
+      <ul
+        class="ecl-content-block__label-container"
+      >
+        <li
+          class="ecl-content-block__label-item"
         >
-          <ul
-            class="ecl-card__label-container"
+          <span
+            class="ecl-label ecl-label--highlight"
           >
-            <li
-              class="ecl-card__label-item"
-            >
-              <span
-                class="ecl-label ecl-label--highlight ecl-card__label"
-              >
-                highlight
-              </span>
-            </li>
-            <li
-              class="ecl-card__label-item"
-            >
-              <span
-                class="ecl-label ecl-label--high ecl-card__label"
-              >
-                high importance
-              </span>
-            </li>
-          </ul>
-          <div
-            class="ecl-card__meta"
+            highlight
+          </span>
+        </li>
+        <li
+          class="ecl-content-block__label-item"
+        >
+          <span
+            class="ecl-label ecl-label--high"
           >
-            <span
-              class="ecl-card__meta-item"
+            high importance
+          </span>
+        </li>
+      </ul>
+      <ul
+        class="ecl-content-block__primary-meta-container"
+      >
+        <li
+          class="ecl-content-block__primary-meta-item"
+        >
+          PRIMARY META
+        </li>
+        <li
+          class="ecl-content-block__primary-meta-item"
+        >
+          DD Month Year
+        </li>
+      </ul>
+      <h1
+        class="ecl-content-block__title"
+      >
+        <a
+          class="ecl-link ecl-link--standalone"
+          href="/example"
+        >
+          Title
+        </a>
+      </h1>
+      <div
+        class="ecl-content-block__description"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus
+      </div>
+      <ul
+        class="ecl-content-block__secondary-meta-container"
+      >
+        <li
+          class="ecl-content-block__secondary-meta-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-content-block__secondary-meta-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#calendar"
+            />
+          </svg>
+          <span
+            class="ecl-content-block__secondary-meta-label"
+          >
+            2018/10/22
+          </span>
+        </li>
+        <li
+          class="ecl-content-block__secondary-meta-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-content-block__secondary-meta-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#location"
+            />
+          </svg>
+          <span
+            class="ecl-content-block__secondary-meta-label"
+          >
+            Luxembourg
+          </span>
+        </li>
+      </ul>
+      <div
+        class="ecl-content-block__list-container"
+      >
+        <dl
+          class="ecl-description-list ecl-content-block__list"
+        >
+          <dt
+            class="ecl-description-list__term"
+          >
+            Standard text
+          </dt>
+          <dd
+            class="ecl-description-list__definition"
+          >
+            Lorem ipsum dolor sit amet, 
+            <a
+              class="ecl-link"
+              href="#"
             >
-              PRIMARY META
-            </span>
-            <span
-              class="ecl-card__meta-item"
-            >
-              DD Month Year
-            </span>
-          </div>
-          <h1
-            class="ecl-card__title"
+              consectetur adipiscing elit
+            </a>
+            . Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis
+          </dd>
+          <dt
+            class="ecl-description-list__term"
+          >
+            Standalone links
+          </dt>
+          <dd
+            class="ecl-description-list__definition ecl-description-list__definition--link"
           >
             <a
-              class="ecl-link ecl-link--standalone"
+              class="ecl-link ecl-link--icon ecl-link--icon-before ecl-description-list__definition-item"
               href="/example"
             >
-              Title
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#copy"
+                />
+              </svg>
+              <span
+                class="ecl-link__label"
+              >
+                Lorem ipsum dolor sit amet
+              </span>
             </a>
-          </h1>
-          <div
-            class="ecl-card__description"
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus
-          </div>
-          <ul
-            class="ecl-card__info-container"
-          >
-            <li
-              class="ecl-card__info-item"
+            <a
+              class="ecl-link ecl-link--icon ecl-link--icon-before ecl-description-list__definition-item"
+              href="/example"
             >
               <svg
                 aria-hidden="true"
-                class="ecl-icon ecl-icon--xs"
+                class="ecl-icon ecl-icon--s ecl-link__icon"
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#calendar"
+                  xlink:href="/icons.svg#download"
                 />
               </svg>
               <span
-                class="ecl-card__info-label"
+                class="ecl-link__label"
               >
-                2018/10/22
+                Lorem ipsum dolor sit amet
               </span>
-            </li>
-            <li
-              class="ecl-card__info-item"
+            </a>
+          </dd>
+          <dt
+            class="ecl-description-list__term"
+          >
+            Links inline
+          </dt>
+          <dd
+            class="ecl-description-list__definition ecl-description-list__definition--inline"
+          >
+            <a
+              class="ecl-link ecl-description-list__definition-item"
+              href="/example"
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--xs"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#location"
-                />
-              </svg>
-              <span
-                class="ecl-card__info-label"
-              >
-                Luxembourg
-              </span>
-            </li>
-          </ul>
-        </div>
-      </article>
-    </div>
-    <div
-      class="ecl-content-item__taxonomy"
-    >
-      <dl
-        class="ecl-description-list ecl-description-list--taxonomy"
-      >
-        <dt
-          class="ecl-description-list__term"
-        >
-          Science areas
-        </dt>
-        <dd
-          class="ecl-description-list__definition"
-        >
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
+              Lorem ipsum dolor sit amet
+            </a>
+            <a
+              class="ecl-link ecl-description-list__definition-item"
+              href="/example"
+            >
+              Lorem ipsum dolor sit amet
+            </a>
+          </dd>
+          <dt
+            class="ecl-description-list__term"
           >
-            Energy and transport
-          </span>
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
+            Taxonomy list
+          </dt>
+          <dd
+            class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
           >
-            Standards
-          </span>
-        </dd>
-        <dt
-          class="ecl-description-list__term"
-        >
-          Keywords
-        </dt>
-        <dd
-          class="ecl-description-list__definition"
-        >
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Electricity
-          </span>
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Electromobility
-          </span>
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Energy
-          </span>
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Energy storage
-          </span>
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Security
-          </span>
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Transport
-          </span>
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Low carbon
-          </span>
-        </dd>
-      </dl>
+            <span
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 1
+            </span>
+            <span
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 2
+            </span>
+            <span
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 3
+            </span>
+          </dd>
+        </dl>
+      </div>
     </div>
   </div>
 </jest>
@@ -217,559 +920,222 @@ exports[`Content item Image renders correctly 1`] = `
   <div
     class="ecl-content-item"
   >
+    <img
+      alt="Alt text of the image"
+      class="ecl-content-item__image ecl-content-item__image--large ecl-content-item__image--left"
+      src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+    />
     <div
-      class="ecl-content-item__container"
+      class="ecl-content-block ecl-content-item__content-block"
     >
-      <div
-        class="ecl-content-item__image ecl-content-item__image--l"
-        style="background-image:url(https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg)"
-      />
-      <article
-        class="ecl-card ecl-content-item__card"
+      <ul
+        class="ecl-content-block__label-container"
       >
-        <div
-          class="ecl-card__body"
+        <li
+          class="ecl-content-block__label-item"
         >
-          <ul
-            class="ecl-card__label-container"
+          <span
+            class="ecl-label ecl-label--highlight"
           >
-            <li
-              class="ecl-card__label-item"
-            >
-              <span
-                class="ecl-label ecl-label--highlight ecl-card__label"
-              >
-                highlight
-              </span>
-            </li>
-            <li
-              class="ecl-card__label-item"
-            >
-              <span
-                class="ecl-label ecl-label--high ecl-card__label"
-              >
-                high importance
-              </span>
-            </li>
-          </ul>
-          <div
-            class="ecl-card__meta"
+            highlight
+          </span>
+        </li>
+        <li
+          class="ecl-content-block__label-item"
+        >
+          <span
+            class="ecl-label ecl-label--high"
           >
-            <span
-              class="ecl-card__meta-item"
+            high importance
+          </span>
+        </li>
+      </ul>
+      <ul
+        class="ecl-content-block__primary-meta-container"
+      >
+        <li
+          class="ecl-content-block__primary-meta-item"
+        >
+          PRIMARY META
+        </li>
+        <li
+          class="ecl-content-block__primary-meta-item"
+        >
+          DD Month Year
+        </li>
+      </ul>
+      <h1
+        class="ecl-content-block__title"
+      >
+        <a
+          class="ecl-link ecl-link--standalone"
+          href="/example"
+        >
+          Title
+        </a>
+      </h1>
+      <div
+        class="ecl-content-block__description"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus
+      </div>
+      <ul
+        class="ecl-content-block__secondary-meta-container"
+      >
+        <li
+          class="ecl-content-block__secondary-meta-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-content-block__secondary-meta-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#calendar"
+            />
+          </svg>
+          <span
+            class="ecl-content-block__secondary-meta-label"
+          >
+            2018/10/22
+          </span>
+        </li>
+        <li
+          class="ecl-content-block__secondary-meta-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-content-block__secondary-meta-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#location"
+            />
+          </svg>
+          <span
+            class="ecl-content-block__secondary-meta-label"
+          >
+            Luxembourg
+          </span>
+        </li>
+      </ul>
+      <div
+        class="ecl-content-block__list-container"
+      >
+        <dl
+          class="ecl-description-list ecl-content-block__list"
+        >
+          <dt
+            class="ecl-description-list__term"
+          >
+            Standard text
+          </dt>
+          <dd
+            class="ecl-description-list__definition"
+          >
+            Lorem ipsum dolor sit amet, 
+            <a
+              class="ecl-link"
+              href="#"
             >
-              PRIMARY META
-            </span>
-            <span
-              class="ecl-card__meta-item"
-            >
-              DD Month Year
-            </span>
-          </div>
-          <h1
-            class="ecl-card__title"
+              consectetur adipiscing elit
+            </a>
+            . Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis
+          </dd>
+          <dt
+            class="ecl-description-list__term"
+          >
+            Standalone links
+          </dt>
+          <dd
+            class="ecl-description-list__definition ecl-description-list__definition--link"
           >
             <a
-              class="ecl-link ecl-link--standalone"
+              class="ecl-link ecl-link--icon ecl-link--icon-before ecl-description-list__definition-item"
               href="/example"
             >
-              Title
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#copy"
+                />
+              </svg>
+              <span
+                class="ecl-link__label"
+              >
+                Lorem ipsum dolor sit amet
+              </span>
             </a>
-          </h1>
-          <div
-            class="ecl-card__description"
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus
-          </div>
-          <ul
-            class="ecl-card__info-container"
-          >
-            <li
-              class="ecl-card__info-item"
+            <a
+              class="ecl-link ecl-link--icon ecl-link--icon-before ecl-description-list__definition-item"
+              href="/example"
             >
               <svg
                 aria-hidden="true"
-                class="ecl-icon ecl-icon--xs"
+                class="ecl-icon ecl-icon--s ecl-link__icon"
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#calendar"
+                  xlink:href="/icons.svg#download"
                 />
               </svg>
               <span
-                class="ecl-card__info-label"
+                class="ecl-link__label"
               >
-                2018/10/22
+                Lorem ipsum dolor sit amet
               </span>
-            </li>
-            <li
-              class="ecl-card__info-item"
-            >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--xs"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#location"
-                />
-              </svg>
-              <span
-                class="ecl-card__info-label"
-              >
-                Luxembourg
-              </span>
-            </li>
-          </ul>
-        </div>
-      </article>
-    </div>
-    <div
-      class="ecl-content-item__taxonomy"
-    >
-      <dl
-        class="ecl-description-list ecl-description-list--taxonomy"
-      >
-        <dt
-          class="ecl-description-list__term"
-        >
-          Science areas
-        </dt>
-        <dd
-          class="ecl-description-list__definition"
-        >
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
+            </a>
+          </dd>
+          <dt
+            class="ecl-description-list__term"
           >
-            Energy and transport
-          </span>
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Standards
-          </span>
-        </dd>
-        <dt
-          class="ecl-description-list__term"
-        >
-          Keywords
-        </dt>
-        <dd
-          class="ecl-description-list__definition"
-        >
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Electricity
-          </span>
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Electromobility
-          </span>
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Energy
-          </span>
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Energy storage
-          </span>
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Security
-          </span>
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Transport
-          </span>
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Low carbon
-          </span>
-        </dd>
-      </dl>
-    </div>
-  </div>
-</jest>
-`;
-
-exports[`Content item Image renders correctly with extra attributes 1`] = `
-<jest>
-  <div
-    class="ecl-content-item"
-    data-test="data-test-value"
-    data-test-1="data-test-value-1"
-  >
-    <div
-      class="ecl-content-item__container"
-    >
-      <div
-        class="ecl-content-item__image ecl-content-item__image--l"
-        style="background-image:url(https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg)"
-      />
-      <article
-        class="ecl-card ecl-content-item__card"
-      >
-        <div
-          class="ecl-card__body"
-        >
-          <ul
-            class="ecl-card__label-container"
-          >
-            <li
-              class="ecl-card__label-item"
-            >
-              <span
-                class="ecl-label ecl-label--highlight ecl-card__label"
-              >
-                highlight
-              </span>
-            </li>
-            <li
-              class="ecl-card__label-item"
-            >
-              <span
-                class="ecl-label ecl-label--high ecl-card__label"
-              >
-                high importance
-              </span>
-            </li>
-          </ul>
-          <div
-            class="ecl-card__meta"
-          >
-            <span
-              class="ecl-card__meta-item"
-            >
-              PRIMARY META
-            </span>
-            <span
-              class="ecl-card__meta-item"
-            >
-              DD Month Year
-            </span>
-          </div>
-          <h1
-            class="ecl-card__title"
+            Links inline
+          </dt>
+          <dd
+            class="ecl-description-list__definition ecl-description-list__definition--inline"
           >
             <a
-              class="ecl-link ecl-link--standalone"
+              class="ecl-link ecl-description-list__definition-item"
               href="/example"
             >
-              Title
+              Lorem ipsum dolor sit amet
             </a>
-          </h1>
-          <div
-            class="ecl-card__description"
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus
-          </div>
-          <ul
-            class="ecl-card__info-container"
-          >
-            <li
-              class="ecl-card__info-item"
-            >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--xs"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#calendar"
-                />
-              </svg>
-              <span
-                class="ecl-card__info-label"
-              >
-                2018/10/22
-              </span>
-            </li>
-            <li
-              class="ecl-card__info-item"
-            >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--xs"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#location"
-                />
-              </svg>
-              <span
-                class="ecl-card__info-label"
-              >
-                Luxembourg
-              </span>
-            </li>
-          </ul>
-        </div>
-      </article>
-    </div>
-    <div
-      class="ecl-content-item__taxonomy"
-    >
-      <dl
-        class="ecl-description-list ecl-description-list--taxonomy"
-      >
-        <dt
-          class="ecl-description-list__term"
-        >
-          Science areas
-        </dt>
-        <dd
-          class="ecl-description-list__definition"
-        >
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Energy and transport
-          </span>
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Standards
-          </span>
-        </dd>
-        <dt
-          class="ecl-description-list__term"
-        >
-          Keywords
-        </dt>
-        <dd
-          class="ecl-description-list__definition"
-        >
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Electricity
-          </span>
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Electromobility
-          </span>
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Energy
-          </span>
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Energy storage
-          </span>
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Security
-          </span>
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Transport
-          </span>
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Low carbon
-          </span>
-        </dd>
-      </dl>
-    </div>
-  </div>
-</jest>
-`;
-
-exports[`Content item Image renders correctly with extra class names 1`] = `
-<jest>
-  <div
-    class="ecl-content-item custom-class custom-class--test"
-  >
-    <div
-      class="ecl-content-item__container"
-    >
-      <div
-        class="ecl-content-item__image ecl-content-item__image--l"
-        style="background-image:url(https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg)"
-      />
-      <article
-        class="ecl-card ecl-content-item__card"
-      >
-        <div
-          class="ecl-card__body"
-        >
-          <ul
-            class="ecl-card__label-container"
-          >
-            <li
-              class="ecl-card__label-item"
-            >
-              <span
-                class="ecl-label ecl-label--highlight ecl-card__label"
-              >
-                highlight
-              </span>
-            </li>
-            <li
-              class="ecl-card__label-item"
-            >
-              <span
-                class="ecl-label ecl-label--high ecl-card__label"
-              >
-                high importance
-              </span>
-            </li>
-          </ul>
-          <div
-            class="ecl-card__meta"
-          >
-            <span
-              class="ecl-card__meta-item"
-            >
-              PRIMARY META
-            </span>
-            <span
-              class="ecl-card__meta-item"
-            >
-              DD Month Year
-            </span>
-          </div>
-          <h1
-            class="ecl-card__title"
-          >
             <a
-              class="ecl-link ecl-link--standalone"
+              class="ecl-link ecl-description-list__definition-item"
               href="/example"
             >
-              Title
+              Lorem ipsum dolor sit amet
             </a>
-          </h1>
-          <div
-            class="ecl-card__description"
+          </dd>
+          <dt
+            class="ecl-description-list__term"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus
-          </div>
-          <ul
-            class="ecl-card__info-container"
+            Taxonomy list
+          </dt>
+          <dd
+            class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
           >
-            <li
-              class="ecl-card__info-item"
+            <span
+              class="ecl-description-list__definition-item"
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--xs"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#calendar"
-                />
-              </svg>
-              <span
-                class="ecl-card__info-label"
-              >
-                2018/10/22
-              </span>
-            </li>
-            <li
-              class="ecl-card__info-item"
+              Taxonomy item 1
+            </span>
+            <span
+              class="ecl-description-list__definition-item"
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--xs"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#location"
-                />
-              </svg>
-              <span
-                class="ecl-card__info-label"
-              >
-                Luxembourg
-              </span>
-            </li>
-          </ul>
-        </div>
-      </article>
-    </div>
-    <div
-      class="ecl-content-item__taxonomy"
-    >
-      <dl
-        class="ecl-description-list ecl-description-list--taxonomy"
-      >
-        <dt
-          class="ecl-description-list__term"
-        >
-          Science areas
-        </dt>
-        <dd
-          class="ecl-description-list__definition"
-        >
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Energy and transport
-          </span>
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Standards
-          </span>
-        </dd>
-        <dt
-          class="ecl-description-list__term"
-        >
-          Keywords
-        </dt>
-        <dd
-          class="ecl-description-list__definition"
-        >
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Electricity
-          </span>
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Electromobility
-          </span>
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Energy
-          </span>
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Energy storage
-          </span>
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Security
-          </span>
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Transport
-          </span>
-          <span
-            class="ecl-tag ecl-tag--display ecl-description-list__tag"
-          >
-            Low carbon
-          </span>
-        </dd>
-      </dl>
+              Taxonomy item 2
+            </span>
+            <span
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 3
+            </span>
+          </dd>
+        </dl>
+      </div>
     </div>
   </div>
 </jest>
