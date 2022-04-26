@@ -14,8 +14,10 @@ npm install --save @ecl/twig-component-link
   - "no_visited" (boolean) (default: false) - Prevent color change for visited links
   - "label" (string) (default: '') - Content of link
   - "path" (string) (default: '') - Link url (href attribute)
+  - "external" (boolean) (default: false) Activates the external link icon
   - "aria_label" (string) Aria label attribute value
   - "icon_position" (string) (default: 'after') - Position of link icon (can be 'before' or 'after') if icon is available
+  - "icon_path" (string) (default: '') - Path to the icon sprite in case of external links
 - **"icon"** (optional) (associative array) OR (array) of associate arrays - Default structure of the icon component, but extra_classes is an internal key.
   The name has to be non empty for the icon to be printed.
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)

@@ -13,6 +13,19 @@ describe('Tag', () => {
       return expect(render(dataLink)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with an external link', () => {
+      expect.assertions(1);
+
+      const withExternal = { ...dataLink.tag, external: true };
+      const optionsWithExternal = {
+        ...dataLink,
+        default_icon_path: '/icons.svg',
+        tag: withExternal,
+      };
+
+      return expect(render(optionsWithExternal)).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 

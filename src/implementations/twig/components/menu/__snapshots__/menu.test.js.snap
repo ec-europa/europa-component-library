@@ -179,10 +179,19 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-menu__sublink ecl-link--icon-after"
                     href="/example"
                   >
                     Item 2.4
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#external"
+                      />
+                    </svg>
                   </a>
                 </li>
                 <li
@@ -288,10 +297,7 @@ exports[`Menu Default renders correctly 1`] = `
             </div>
           </li>
           <li
-            aria-expanded="false"
-            aria-haspopup=""
-            class="ecl-menu__item ecl-menu__item--has-children"
-            data-ecl-has-children=""
+            class="ecl-menu__item"
             data-ecl-menu-item=""
           >
             <a
@@ -299,180 +305,8 @@ exports[`Menu Default renders correctly 1`] = `
               data-ecl-menu-link=""
               href="/example"
             >
-              Item 4 label
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-menu__link-icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
+              Item 4 label  
             </a>
-            <div
-              class="ecl-menu__mega"
-              data-ecl-menu-mega=""
-            >
-              <ul
-                class="ecl-menu__sublist"
-              >
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.1
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.2
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.3 with a very long label going on 2 lines
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.4
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.5
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.6
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.7
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.8
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.9
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.10
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.11
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.12
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.13
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.14
-                  </a>
-                </li>
-              </ul>
-            </div>
           </li>
           <li
             aria-expanded="false"
@@ -1223,10 +1057,19 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-menu__sublink ecl-link--icon-after"
                     href="/example"
                   >
                     Item 2.4
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#external"
+                      />
+                    </svg>
                   </a>
                 </li>
                 <li
@@ -1332,10 +1175,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
             </div>
           </li>
           <li
-            aria-expanded="false"
-            aria-haspopup=""
-            class="ecl-menu__item ecl-menu__item--has-children"
-            data-ecl-has-children=""
+            class="ecl-menu__item"
             data-ecl-menu-item=""
           >
             <a
@@ -1343,180 +1183,8 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
               data-ecl-menu-link=""
               href="/example"
             >
-              Item 4 label
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-menu__link-icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
+              Item 4 label  
             </a>
-            <div
-              class="ecl-menu__mega"
-              data-ecl-menu-mega=""
-            >
-              <ul
-                class="ecl-menu__sublist"
-              >
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.1
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.2
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.3 with a very long label going on 2 lines
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.4
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.5
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.6
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.7
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.8
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.9
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.10
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.11
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.12
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.13
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.14
-                  </a>
-                </li>
-              </ul>
-            </div>
           </li>
           <li
             aria-expanded="false"
@@ -2265,10 +1933,19 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-menu__sublink ecl-link--icon-after"
                     href="/example"
                   >
                     Item 2.4
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#external"
+                      />
+                    </svg>
                   </a>
                 </li>
                 <li
@@ -2374,10 +2051,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
             </div>
           </li>
           <li
-            aria-expanded="false"
-            aria-haspopup=""
-            class="ecl-menu__item ecl-menu__item--has-children"
-            data-ecl-has-children=""
+            class="ecl-menu__item"
             data-ecl-menu-item=""
           >
             <a
@@ -2385,180 +2059,8 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
               data-ecl-menu-link=""
               href="/example"
             >
-              Item 4 label
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-menu__link-icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
+              Item 4 label  
             </a>
-            <div
-              class="ecl-menu__mega"
-              data-ecl-menu-mega=""
-            >
-              <ul
-                class="ecl-menu__sublist"
-              >
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.1
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.2
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.3 with a very long label going on 2 lines
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.4
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.5
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.6
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.7
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.8
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.9
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.10
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.11
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.12
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.13
-                  </a>
-                </li>
-                <li
-                  class="ecl-menu__subitem"
-                  data-ecl-menu-subitem=""
-                >
-                  <a
-                    class="ecl-menu__sublink"
-                    href="/example"
-                  >
-                    Item 4.14
-                  </a>
-                </li>
-              </ul>
-            </div>
           </li>
           <li
             aria-expanded="false"
@@ -3307,10 +2809,19 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-menu__sublink ecl-link--icon-after"
                     href="/example"
                   >
                     Item 2.4
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#external"
+                      />
+                    </svg>
                   </a>
                 </li>
                 <li
