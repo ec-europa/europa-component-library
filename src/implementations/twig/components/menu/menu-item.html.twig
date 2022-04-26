@@ -7,6 +7,7 @@
     - "label" (string) Label of the menu link
     - "icon_path" (string) Path to the icon sprite
     - "children" (array of object) Array of sub-items
+      - "external": (boolean) External link
       - "is_current" (boolean) Whether the sub-item is currently selected
       - "path" (string) Href of the sub-item link
       - "label" (string) Label of the sub-item link
@@ -18,6 +19,7 @@
 {% set _menu_list_item_attributes = 'data-ecl-menu-item' %}
 {% set _menu_list_item_class = 'ecl-menu__item' %}
 {% set _icon_path = icon_path|default('') %}
+{% set _external = external|default(false) %}
 
 {% if _item.is_current is defined %}
   {% set _menu_item_class = _menu_item_class ~ ' ecl-menu__link--current' %}
@@ -32,15 +34,15 @@
 <li class="{{ _menu_list_item_class }}" {{ _menu_list_item_attributes }}>
   <a href="{{ item.path }}" class="{{ _menu_item_class }}" {{ _menu_item_attributes }}>
     {{- item.label -}}
-    {%- if item.children is defined and item.children is not empty and item.children is iterable -%}
+    {%- if (item.children is defined and item.children is not empty and item.children is iterable) or item.external -%}
       {% include '@ecl/icon/icon.html.twig' with {
         icon: {
           path: icon_path,
-          name: 'corner-arrow',
+          name: item.external ? 'external' : 'corner-arrow',
           size: 'xs',
-          transform: 'rotate-90'
+          transform: item.external ? '' : 'rotate-90',
         },
-        extra_classes: 'ecl-menu__link-icon',
+        extra_classes: item.external ? 'ecl-menu__link-icon--external ecl-menu__link-icon' : 'ecl-menu__link-icon',
       } %}
     {% endif %}
   </a>
@@ -60,11 +62,24 @@
         data-ecl-menu-subitem
       >
         {% set _sublink_class = 'ecl-menu__sublink' ~ (child.is_current is defined ? ' ecl-menu__sublink--current' : '') %}
+          {% if child.external %}
+            {% set _sublink_class = _sublink_class ~ ' ecl-link--icon-after' %}
+          {% endif %}
         <a
           href="{{ child.path }}"
           class="{{ _sublink_class }}"
         >
           {{- child.label -}}
+          {%- if child.external -%}
+            {% include '@ecl/icon/icon.html.twig' with {
+              icon: {
+                path: icon_path,
+                name: 'external',
+                size: '2xs',
+              },
+              extra_classes: 'ecl-menu__sublink-icon ecl-link__icon',
+            } %}
+          {%- endif -%}
         </a>
       </li>
     {% endfor %}

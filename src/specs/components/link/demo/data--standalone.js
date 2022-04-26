@@ -8,5 +8,6 @@ module.exports = {
     label: 'Standalone link',
     path: exampleLink,
     aria_label: 'Read more about the Standalone link',
+    icon_position: 'after',
   },
 };
