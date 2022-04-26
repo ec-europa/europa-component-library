@@ -187,7 +187,7 @@ $_logo-width-lg: 15.1rem;
 }
 
 .ecl-site-header-harmonised__site-name {
-  margin-right: map.get(theme.$spacing, '3xl');
+  margin-inline-end: map.get(theme.$spacing, '3xl');
 }
 
 /* stylelint-disable-next-line order/order */
@@ -244,7 +244,7 @@ $_logo-width-lg: 15.1rem;
   .ecl-site-header-harmonised__language-icon {
     .ecl-site-header-harmonised__icon {
       height: map.get(theme.$icon, 'm');
-      margin-right: map.get(theme.$spacing, 'xs');
+      margin-inline-end: map.get(theme.$spacing, 'xs');
       width: map.get(theme.$icon, 'm');
     }
   }
@@ -253,7 +253,7 @@ $_logo-width-lg: 15.1rem;
     .ecl-site-header-harmonised__login-arrow {
       display: block;
       height: map.get(theme.$icon, 'xs');
-      margin-left: map.get(theme.$spacing, 'xs');
+      margin-inline-start: map.get(theme.$spacing, 'xs');
       transform: rotate(0);
       width: map.get(theme.$icon, 'xs');
     }
@@ -289,14 +289,14 @@ $_logo-width-lg: 15.1rem;
 
   .ecl-site-header-harmonised__language-code {
     font: map.get(theme.$font, 'xs');
-    margin-right: map.get(theme.$spacing, 'xs');
+    margin-inline-end: map.get(theme.$spacing, 'xs');
     transform: translateX(-50%) translateX(-0.2rem) translateY(-50%)
       translateY(-0.05rem);
   }
 
   .ecl-site-header-harmonised__search-container {
     flex-grow: 1;
-    margin-left: map.get(theme.$spacing, 's');
+    margin-inline-start: map.get(theme.$spacing, 's');
   }
 
   .ecl-site-header-harmonised__search-toggle {
@@ -317,8 +317,8 @@ $_logo-width-lg: 15.1rem;
 
   .ecl-site-header-harmonised__banner-top,
   .ecl-site-header-harmonised__banner {
-    margin-left: 0;
-    margin-right: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
   }
 
   .ecl-site-header-harmonised__banner-top {
@@ -333,7 +333,7 @@ $_logo-width-lg: 15.1rem;
 
   .ecl-site-header-harmonised__site-name {
     padding: map.get(theme.$spacing, 'l') 0;
-    margin-right: 0;
+    margin-inline-end: 0;
   }
 }
 
@@ -400,7 +400,7 @@ $_logo-width-lg: 15.1rem;
   .ecl-site-header-harmonised__logo-link {
     flex-grow: 0;
     margin-bottom: map.get(theme.$spacing, 'xs');
-    margin-right: map.get(theme.$spacing, 'xs');
+    margin-inline-end: map.get(theme.$spacing, 'xs');
   }
 
   .ecl-site-header-harmonised__logo-image {
@@ -437,7 +437,7 @@ $_logo-width-lg: 15.1rem;
 
     .ecl-site-header-harmonised__logo-link {
       margin-bottom: 0;
-      margin-right: map.get(theme.$spacing, 'm');
+      margin-inline-end: map.get(theme.$spacing, 'm');
     }
 
     .ecl-site-header-harmonised__logo-image {

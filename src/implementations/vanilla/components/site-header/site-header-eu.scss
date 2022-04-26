@@ -119,8 +119,8 @@ $_search-width-xl: 31.5rem;
   &[aria-expanded='true'],
   &[aria-expanded='true']:focus {
     background-color: map.get(theme.$color, 'blue-5');
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    border-end-start-radius: 0;
+    border-end-end-radius: 0;
     border-color: map.get(theme.$color, 'blue-5');
     border-style: solid;
     /* stylelint-disable-next-line shorthand-property-no-redundant-values */
@@ -208,7 +208,7 @@ $_search-width-xl: 31.5rem;
   color: map.get(theme.$color, 'white');
   font: map.get(theme.$font-prolonged, 'xl');
   font-weight: map.get(theme.$font-weight, 'bold');
-  margin-right: map.get(theme.$spacing, '3xl');
+  margin-inline-end: map.get(theme.$spacing, '3xl');
   padding: 0;
 }
 
@@ -292,7 +292,7 @@ $_search-width-xl: 31.5rem;
     align-self: center;
     color: map.get(theme.$color, 'grey-80');
     flex-grow: 1;
-    margin-right: 0;
+    margin-inline-end: 0;
     padding: map.get(theme.$spacing, 'm') 0;
   }
 
@@ -345,18 +345,18 @@ $_search-width-xl: 31.5rem;
   .ecl-site-header__language-icon {
     .ecl-site-header__icon {
       height: map.get(theme.$icon, 'm');
-      margin-right: map.get(theme.$spacing, 'xs');
+      margin-inline-end: map.get(theme.$spacing, 'xs');
       width: map.get(theme.$icon, 'm');
     }
   }
 
   .ecl-site-header__login-toggle {
-    margin-right: map.get(theme.$spacing, 'xs');
+    margin-inline-end: map.get(theme.$spacing, 'xs');
 
     .ecl-site-header__login-arrow {
       display: block;
       height: map.get(theme.$icon, 'xs');
-      margin-left: map.get(theme.$spacing, 'xs');
+      margin-inline-start: map.get(theme.$spacing, 'xs');
       transform: rotate(0);
       width: map.get(theme.$icon, 'xs');
     }
@@ -396,12 +396,12 @@ $_search-width-xl: 31.5rem;
   .ecl-site-header__language-code {
     font: map.get(theme.$font, 'm');
     font-weight: map.get(theme.$font-weight, 'bold');
-    margin-right: map.get(theme.$spacing, 'xs');
+    margin-inline-end: map.get(theme.$spacing, 'xs');
   }
 
   .ecl-site-header__search-container {
     flex-grow: 1;
-    margin-left: map.get(theme.$spacing, 's');
+    margin-inline-start: map.get(theme.$spacing, 's');
   }
 
   // stylelint-disable plugin/selector-bem-pattern
