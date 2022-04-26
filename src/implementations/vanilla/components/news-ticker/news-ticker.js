@@ -77,6 +77,8 @@ export class NewsTicker {
     this.autoPlay = false;
     this.autoPlayInterval = null;
     this.resizeTimer = null;
+    this.cloneFirstSLide = null;
+    this.cloneLastSLide = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
@@ -103,12 +105,12 @@ export class NewsTicker {
 
     const firstSlide = this.slides[0];
     const lastSlide = this.slides[this.slides.length - 1];
-    const cloneFirst = firstSlide.cloneNode(true);
-    const cloneLast = lastSlide.cloneNode(true);
+    this.cloneFirstSLide = firstSlide.cloneNode(true);
+    this.cloneLastSLide = lastSlide.cloneNode(true);
 
     // Clone first and last slide
-    this.slidesContainer.appendChild(cloneFirst);
-    this.slidesContainer.insertBefore(cloneLast, firstSlide);
+    this.slidesContainer.appendChild(this.cloneFirstSLide);
+    this.slidesContainer.insertBefore(this.cloneLastSLide, firstSlide);
 
     // Refresh the slides variable after adding new cloned slides
     this.slides = queryAll(this.slideClass, this.element);
@@ -143,20 +145,27 @@ export class NewsTicker {
     if (this.attachResizeListener) {
       window.addEventListener('resize', this.handleResize);
     }
+
+    // Set ecl initialized attribute
+    this.element.setAttribute('data-ecl-auto-initialized', 'true');
   }
 
   /**
    * Destroy component.
    */
-  static destroy() {
-    if (this.attachClickListener && this.toggle) {
-      this.toggle.removeEventListener('click', this.handleClickOnToggle);
+  destroy() {
+    if (this.cloneFirstSLide && this.cloneLastSLide) {
+      this.cloneFirstSLide.remove();
+      this.cloneLastSLide.remove();
     }
-    if (this.attachClickListener && this.btnNext) {
-      this.btnNext.removeEventListener('click', this.shiftSlide);
+    if (this.toggle) {
+      this.toggle.replaceWith(this.toggle.cloneNode(true));
     }
-    if (this.attachClickListener && this.btnPrev) {
-      this.btnPrev.removeEventListener('click', this.shiftSlide);
+    if (this.btnNext) {
+      this.btnNext.replaceWith(this.btnNext.cloneNode(true));
+    }
+    if (this.btnPrev) {
+      this.btnPrev.replaceWith(this.btnPrev.cloneNode(true));
     }
     if (this.slidesContainer) {
       this.slidesContainer.removeEventListener(
@@ -166,6 +175,9 @@ export class NewsTicker {
     }
     if (this.attachResizeListener) {
       window.removeEventListener('resize', this.handleResize);
+    }
+    if (this.element) {
+      this.element.removeAttribute('data-ecl-auto-initialized');
     }
   }
 
@@ -212,6 +224,17 @@ export class NewsTicker {
     }
     const currentSlide = queryOne(this.currentSlideClass, this.element);
     currentSlide.textContent = this.index;
+
+    // Update slides
+    if (this.slides) {
+      this.slides.forEach((slide, index) => {
+        if (this.index === index) {
+          slide.removeAttribute('aria-hidden', 'true');
+        } else {
+          slide.setAttribute('aria-hidden', 'true');
+        }
+      });
+    }
 
     this.allowShift = true;
   }

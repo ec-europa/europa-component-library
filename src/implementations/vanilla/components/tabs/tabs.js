@@ -77,6 +77,7 @@ export class Tabs {
     this.buttonNextSize = 0;
     this.index = 0;
     this.total = 0;
+    this.direction = 'ltr';
 
     // Bind `this` for use in callbacks
     this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
@@ -141,26 +142,36 @@ export class Tabs {
     if (this.attachResizeListener) {
       window.addEventListener('resize', this.handleResize);
     }
+
+    // Set ecl initialized attribute
+    this.element.setAttribute('data-ecl-auto-initialized', 'true');
   }
 
   /**
    * Destroy component.
    */
-  static destroy() {
-    if (this.attachClickListener && this.moreButton) {
-      this.moreButton.removeEventListener('click', this.handleClickOnToggle);
+  destroy() {
+    if (this.dropdown) {
+      this.dropdown.remove();
+    }
+    if (this.moreButton) {
+      this.moreLabel.textContent = this.moreLabelValue;
+      this.moreButton.replaceWith(this.moreButton.cloneNode(true));
+    }
+    if (this.btnNext) {
+      this.btnNext.replaceWith(this.btnNext.cloneNode(true));
+    }
+    if (this.btnPrev) {
+      this.btnPrev.replaceWith(this.btnPrev.cloneNode(true));
     }
     if (this.attachClickListener && document && this.moreButton) {
       document.removeEventListener('click', this.closeMoreDropdown);
     }
-    if (this.attachClickListener && this.btnNext) {
-      this.btnNext.removeEventListener('click', this.shiftTabs);
-    }
-    if (this.attachClickListener && this.btnPrev) {
-      this.btnPrev.removeEventListener('click', this.shiftTabs);
-    }
     if (this.attachResizeListener) {
       window.removeEventListener('resize', this.handleResize);
+    }
+    if (this.element) {
+      this.element.removeAttribute('data-ecl-auto-initialized');
     }
   }
 
@@ -178,19 +189,37 @@ export class Tabs {
     // Slide tabs
     const leftMargin =
       this.index === 0 ? 0 : this.btnPrev.getBoundingClientRect().width + 13;
-    let newOffset = Math.ceil(
-      this.listItems[this.index].offsetLeft - leftMargin
-    );
+
+    let newOffset = 0;
+    this.direction = getComputedStyle(this.element).direction;
+    if (this.direction === 'rtl') {
+      newOffset = Math.ceil(
+        this.list.offsetWidth -
+          this.listItems[this.index].offsetLeft -
+          this.listItems[this.index].offsetWidth -
+          leftMargin
+      );
+    } else {
+      newOffset = Math.ceil(this.listItems[this.index].offsetLeft - leftMargin);
+    }
+
     const maxScroll = Math.ceil(
       this.list.getBoundingClientRect().width -
         this.element.getBoundingClientRect().width
     );
+
     if (newOffset > maxScroll) {
       this.btnNext.style.display = 'none';
       newOffset = maxScroll;
     }
+
     this.list.style.transitionDuration = '0.4s';
-    this.list.style.transform = `translate3d(-${newOffset}px, 0px, 0px)`;
+
+    if (this.direction === 'rtl') {
+      this.list.style.transform = `translate3d(${newOffset}px, 0px, 0px)`;
+    } else {
+      this.list.style.transform = `translate3d(-${newOffset}px, 0px, 0px)`;
+    }
   }
 
   /**

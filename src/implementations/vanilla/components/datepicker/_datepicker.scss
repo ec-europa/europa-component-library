@@ -93,7 +93,7 @@ $_picker-theme-color: null !default;
   font: map.get(theme.$font, 'm');
   margin-top: $_picker-margin-top;
   overflow: hidden;
-  width: 100%;
+  width: auto;
 
   &.is-bound {
     box-shadow: none;
@@ -219,8 +219,6 @@ $_picker-theme-color: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
   .ecl-datepicker-theme.pika-single {
-    width: auto;
-
     .pika-lendar {
       width: 20rem;
     }
