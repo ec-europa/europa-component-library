@@ -42,25 +42,27 @@ $_title-margin: null !default;
 // Timeline structure
 .ecl-timeline {
   list-style: none;
-  margin: 0 map.get(theme.$spacing, 'l') 0
-    (
-      map.get(theme.$spacing, 'l') + math.div($_bullet-size, 2) +
-        $_bullet-border-width
-    );
+  margin-bottom: 0;
+  margin-inline-end: map.get(theme.$spacing, 'l');
+  margin-inline-start: (
+    map.get(theme.$spacing, 'l') + math.div($_bullet-size, 2) +
+      $_bullet-border-width
+  );
+  margin-top: 0;
   max-width: 633px;
-  padding-left: 0;
+  padding-inline-start: 0;
 }
 
 .ecl-timeline__item {
   padding-bottom: map.get(theme.$spacing, 'l');
-  padding-left: map.get(theme.$spacing, 'm') + ($_bullet-size * 0.5) +
+  padding-inline-start: map.get(theme.$spacing, 'm') + ($_bullet-size * 0.5) +
     $_bullet-border-width;
   padding-top: $_item-padding-top;
   position: relative;
 
   // Border
   &::before {
-    border-left: $_border-width solid $_border-color;
+    border-inline-start: $_border-width solid $_border-color;
     content: '';
     height: 100%;
     left: -($_border-width * 0.5);
@@ -88,8 +90,8 @@ $_title-margin: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('s') {
   .ecl-timeline {
-    margin-left: $_timeline-margin-left;
-    margin-right: map.get(theme.$spacing, 'xs');
+    margin-inline-start: $_timeline-margin-left;
+    margin-inline-end: map.get(theme.$spacing, 'xs');
   }
 }
 
@@ -98,7 +100,7 @@ $_title-margin: null !default;
   padding-top: map.get(theme.$spacing, 'xs');
 
   &::before {
-    border-left-style: dashed;
+    border-inline-start-style: dashed;
   }
 
   &::after {

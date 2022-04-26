@@ -76,7 +76,7 @@ module.exports = {
       to: path.resolve(outputFolder, 'images/social-icons'),
     },
     {
-      from: path.resolve(nodeModules, '@ecl/resources-ec-logo'),
+      from: path.resolve(nodeModules, '@ecl/resources-ec-logo/dist'),
       to: path.resolve(outputFolder, 'images/logo'),
     },
   ],
@@ -86,7 +86,10 @@ module.exports = {
     },
     handlers: [
       {
-        pattern: `${path.resolve(__dirname, '..')}/(dev|ec)/src/*.scss`,
+        pattern: `${path.resolve(
+          __dirname,
+          '..'
+        )}/(dev|ec|reset|rtl)/src/*.scss`,
         events: [
           {
             on: 'change',

@@ -11,6 +11,8 @@
         path: '', (string) (Link url)
         aria_label: '' (string) Aria label attribute value
         icon_position: 'after' (string) (Can be 'before' or 'after'. Is required only if Icon is specified)
+        icon_path: (string) (default: '')
+        external: (boolean) (default: false)
       }
     - "icon" (associative array) OR (array) of associative arrays : format
       {
@@ -47,7 +49,9 @@
   type: '',
   label: '',
   path: '',
-  icon_position: 'after'
+  icon_position: 'after',
+  external: false,
+  icon_path: '',
 } %}
 
 {% set _icon = {
@@ -63,10 +67,20 @@
   {% set _link = _link|merge(link) %}
 {% endif %}
 
-{% if icon.name is defined and icon.name is not empty %}
-  {% set _icons = [icon] %}
-{% elseif icon[1] is defined and icon[1] is not empty %}
-  {% set _icons = icon %}
+{% if _link.external and _link.icon_path is not empty %}
+  {% set _icons = [_icon|merge({
+    name: 'external',
+    path: _link.icon_path,
+    size: '2xs',
+  })] %}
+
+  {% set _link = _link|merge({ icon_position: 'after' }) %}
+{% else %}
+  {% if icon.name is defined and icon.name is not empty %}
+    {% set _icons = [icon] %}
+  {% elseif icon[1] is defined and icon[1] is not empty %}
+    {% set _icons = icon %}
+  {% endif %}
 {% endif %}
 
 {# Internal logic - Process properties #}
@@ -83,7 +97,7 @@
   {% set _css_class = _css_class ~ ' ecl-link--no-visited' %}
 {% endif %}
 
-{% if _icons is defined and _link.icon_position is not empty %}
+{% if _icons is defined %}
   {% set _css_class = _css_class ~ ' ecl-link--icon ecl-link--icon-' ~ _link.icon_position %}
 {% endif %}
 
@@ -126,10 +140,10 @@
       {%- endif -%}
     {% endfor %}
   {%- endif -%}
-  {%- if _icons is defined and _icons is not empty -%}
+  {%- if (_icons is defined and _icons is not empty) -%}
     <span class="ecl-link__label">{{ _link.label }}</span>
   {%- endif -%}
-  {%- if _icons is defined and _link.icon_position == 'after' -%}
+  {%- if (_icons is defined and _link.icon_position == 'after') or _link.external -%}
     {% for icon in _icons %}
       {%- if icon.name is not empty -%}
         {% set _icon_extra_classes = 'ecl-link__icon' %}

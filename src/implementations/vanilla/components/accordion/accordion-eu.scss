@@ -21,8 +21,8 @@
   &:first-child {
     &::before {
       background-color: map.get(theme.$color, 'yellow-100');
-      border-bottom-left-radius: 2px;
-      border-bottom-right-radius: 2px;
+      border-end-start-radius: 2px;
+      border-end-end-radius: 2px;
       content: '';
       height: 4px;
       left: map.get(theme.$spacing, 'l');
@@ -32,28 +32,28 @@
     }
 
     .ecl-accordion__toggle {
-      border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
+      border-start-start-radius: 8px;
+      border-start-end-radius: 8px;
     }
   }
 
   &:last-child {
     .ecl-accordion__toggle {
       border-bottom-color: transparent;
-      border-bottom-left-radius: 8px;
-      border-bottom-right-radius: 8px;
+      border-end-start-radius: 8px;
+      border-end-end-radius: 8px;
 
       &[aria-expanded='true'] {
         border-bottom-color: map.get(theme.$color, 'blue-20');
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
+        border-end-start-radius: 0;
+        border-end-end-radius: 0;
       }
     }
 
     .ecl-accordion__content {
       border-bottom: 0;
-      border-bottom-left-radius: 8px;
-      border-bottom-right-radius: 8px;
+      border-end-start-radius: 8px;
+      border-end-end-radius: 8px;
       overflow: hidden;
     }
   }
@@ -73,7 +73,7 @@
   font: map.get(theme.$font-prolonged, 'l');
   padding: map.get(theme.$spacing, 'l');
   position: relative;
-  text-align: left;
+  text-align: start;
   width: 100%;
 }
 
@@ -105,7 +105,7 @@
   display: flex;
   flex-grow: 0;
   flex-shrink: 0;
-  margin-left: map.get(theme.$spacing, 's');
+  margin-inline-start: map.get(theme.$spacing, 's');
   order: 2;
   padding: 2px 0;
 
@@ -128,10 +128,10 @@
 
 .ecl-accordion__content {
   border-bottom: 2px solid map.get(theme.$color, 'blue-20');
-  border-left: 4px solid map.get(theme.$color, 'blue');
+  border-inline-start: 4px solid map.get(theme.$color, 'blue');
   color: map.get(theme.$color, 'grey-80');
   font: map.get(theme.$font-prolonged, 'm');
-  margin-left: 0;
+  margin-inline-start: 0;
   padding: map.get(theme.$spacing, 'l');
 }
 

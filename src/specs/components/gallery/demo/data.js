@@ -90,6 +90,7 @@ module.exports = {
           },
         ],
       },
+      alt: 'Image 5',
       description: 'EU law',
       meta: 'Copyright, Author, Licence for image 5',
       icon: {
@@ -147,6 +148,7 @@ module.exports = {
           },
         ],
       },
+      alt: 'Image 8',
       description: "Kids' Corner",
       meta: 'Copyright, Author, Licence for image 8',
       icon: {

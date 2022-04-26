@@ -1,0 +1,48 @@
+/**
+ * Site Header
+ * @define site-header; weak
+ */
+
+@use 'sass:map';
+@use '@ecl/theme-dev/theme';
+
+.ecl-site-header__logo-image {
+  height: 1.9cm;
+  margin-bottom: map.get(theme.$spacing-print, '4xl');
+  margin-top: map.get(theme.$spacing-print, '4xl');
+  padding-bottom: map.get(theme.$spacing-print, 'xl');
+  padding-top: map.get(theme.$spacing-print, 'xl');
+  width: 7.2cm;
+}
+
+.ecl-site-header__action {
+  display: none;
+}
+
+.ecl-site-header__banner-top {
+  color: map.get(theme.$color, 'grey');
+  font: map.get(theme.$font-prolonged-print, 'm');
+
+  .ecl-link {
+    color: map.get(theme.$color, 'grey');
+  }
+
+  .ecl-link::after {
+    display: none;
+  }
+}
+
+.ecl-site-header__banner {
+  font: map.get(theme.$font-print, '3xl');
+  font-family: #{map.get(theme.$font-family-print, 'alt')};
+  font-weight: map.get(theme.$font-weight-print, 'bold');
+  margin-top: map.get(theme.$spacing-print, 'xs');
+}
+
+.ecl-site-header__logo-link::after {
+  display: none;
+}
+
+.ecl-site-header-core__logo-image-mobile {
+  display: none;
+}

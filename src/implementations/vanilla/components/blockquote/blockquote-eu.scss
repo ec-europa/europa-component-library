@@ -3,7 +3,8 @@
 @use 'blockquote' with (
   $_border-width: 8px,
   $_border-color: map.get(theme.$color, 'blue-100'),
-  $_border-radius: 4px 0 0 4px,
+  $_border-radius-top-left: 4px,
+  $_border-radius-bottom-left: 4px,
   $_padding-left-mobile: map.get(theme.$spacing, 'm'),
   $_body-font-mobile: map.get(theme.$font-prolonged, 'l'),
   $_body-font-tablet: map.get(theme.$font, '2xl'),

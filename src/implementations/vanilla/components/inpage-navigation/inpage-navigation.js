@@ -307,6 +307,9 @@ export class InpageNavigation {
       );
       toggleElement.addEventListener('click', this.handleClickOnToggler);
     }
+
+    // Set ecl initialized attribute
+    this.element.setAttribute('data-ecl-auto-initialized', 'true');
   }
 
   /**
@@ -368,6 +371,10 @@ export class InpageNavigation {
     this.destroyScrollSpy();
     this.destroySticky();
     this.destroyObserver();
+
+    if (this.element) {
+      this.element.removeAttribute('data-ecl-auto-initialized');
+    }
   }
 }
 

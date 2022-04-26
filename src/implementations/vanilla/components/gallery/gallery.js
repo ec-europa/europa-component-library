@@ -239,6 +239,9 @@ export class Gallery {
     if (this.count) {
       this.count.innerHTML = this.galleryItems.length;
     }
+
+    // Set ecl initialized attribute
+    this.element.setAttribute('data-ecl-auto-initialized', 'true');
   }
 
   /**
@@ -285,6 +288,10 @@ export class Gallery {
 
     if (this.attachResizeListener) {
       window.removeEventListener('resize', this.handleResize);
+    }
+
+    if (this.element) {
+      this.element.removeAttribute('data-ecl-auto-initialized');
     }
   }
 
