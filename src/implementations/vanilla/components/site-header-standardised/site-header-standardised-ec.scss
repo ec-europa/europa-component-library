@@ -221,7 +221,7 @@ $_search-width-xl: 31.5rem;
 }
 
 .ecl-site-header-standardised__site-name {
-  margin-right: map.get(theme.$spacing, '3xl');
+  margin-inline-end: map.get(theme.$spacing, '3xl');
 }
 
 // stylelint-disable plugin/selector-bem-pattern
@@ -301,7 +301,7 @@ $_search-width-xl: 31.5rem;
   .ecl-site-header-standardised__site-name {
     align-self: center;
     flex-grow: 1;
-    margin-right: 0;
+    margin-inline-end: 0;
     padding: map.get(theme.$spacing, 'l') 0;
   }
 
@@ -340,7 +340,7 @@ $_search-width-xl: 31.5rem;
   .ecl-site-header-standardised__language-icon {
     .ecl-site-header-standardised__icon {
       height: map.get(theme.$icon, 'm');
-      margin-right: map.get(theme.$spacing, 'xs');
+      margin-inline-end: map.get(theme.$spacing, 'xs');
       width: map.get(theme.$icon, 'm');
     }
   }
@@ -349,7 +349,7 @@ $_search-width-xl: 31.5rem;
     .ecl-site-header-standardised__login-arrow {
       display: block;
       height: map.get(theme.$icon, 'xs');
-      margin-left: map.get(theme.$spacing, 'xs');
+      margin-inline-start: map.get(theme.$spacing, 'xs');
       transform: rotate(0);
       width: map.get(theme.$icon, 'xs');
     }
@@ -388,14 +388,14 @@ $_search-width-xl: 31.5rem;
 
   .ecl-site-header-standardised__language-code {
     font: map.get(theme.$font, 'xs');
-    margin-right: map.get(theme.$spacing, 'xs');
+    margin-inline-end: map.get(theme.$spacing, 'xs');
     transform: translateX(-50%) translateX(-0.22rem) translateY(-50%)
       translateY(-0.08rem);
   }
 
   .ecl-site-header-standardised__search-container {
     flex-grow: 1;
-    margin-left: map.get(theme.$spacing, 's');
+    margin-inline-start: map.get(theme.$spacing, 's');
   }
 
   // stylelint-disable plugin/selector-bem-pattern

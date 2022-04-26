@@ -170,6 +170,8 @@ module.exports = {
               link: {
                 label: 'Follow the European Commission on social media',
                 path: exampleLink,
+                external: true,
+                icon_path: 'icons.svg',
                 aria_label:
                   'Link to Follow the European Commission on social media',
               },
