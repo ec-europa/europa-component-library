@@ -12,9 +12,6 @@ module.exports = {
     },
     icon: {
       path: '/icons.svg',
-      name: 'corner-arrow',
-      size: 'm',
-      transform: 'rotate-90',
     },
   },
   items: [

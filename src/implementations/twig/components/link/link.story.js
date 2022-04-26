@@ -40,6 +40,7 @@ const getArgs = (data) => ({
   no_visited: data.link.no_visited || false,
   icon_name: 'none',
   icon_position: 'after',
+  external: false,
 });
 
 const getArgTypes = () => ({
@@ -60,6 +61,18 @@ const getArgTypes = () => ({
     name: 'negative',
     type: { name: 'boolean' },
     description: 'Negative link (light on dark)',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'Content',
+    },
+    control: {
+      type: 'boolean',
+    },
+  },
+  external: {
+    type: { name: 'boolean' },
+    description: 'External link',
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: false },
@@ -126,16 +139,21 @@ const prepareData = (data, args) => {
   data.link.negative = args.negative;
   data.link.no_visited = args.no_visited;
   data.link.icon_position = args.icon_position;
+  data.link.external = args.external;
   if (args.icon_name && args.icon_name !== 'none') {
     data.icon = {};
     data.icon.name = args.icon_name;
     data.icon.transform = args.icon_transform;
     data.icon.size = 'xs';
-    data.icon.path = 'icon.svg';
+    data.icon.path = 'icons.svg';
   }
   if (args.icon_name === 'none') {
     delete data.icon;
   }
+  if (args.external) {
+    data.link.icon_path = 'icons.svg';
+  }
+
   correctSvgPath(data);
 
   return data;

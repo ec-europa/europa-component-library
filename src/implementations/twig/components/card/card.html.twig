@@ -128,7 +128,6 @@
         {%- if _card.title.path %}
           {% include '@ecl/link/link.html.twig' with {
             link: _card.title,
-            icon_path: _icon_path
           } only %}
         {% else %}
           {{- _card.title.label }}

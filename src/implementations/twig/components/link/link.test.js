@@ -42,6 +42,26 @@ describe('Link', () => {
     });
   });
 
+  describe('External', () => {
+    const options = merge(dataStandalone, {
+      link: {
+        external: true,
+        icon_path: defaultIconPath,
+        icon_position: 'before',
+      },
+      icon: {
+        size: 'fluid',
+        path: defaultIconPath,
+        name: 'test',
+      },
+    });
+
+    test('renders correctly', () => {
+      expect.assertions(1);
+      return expect(render(options)).resolves.toMatchSnapshot();
+    });
+  });
+
   describe('With two icons after', () => {
     const options = merge(dataStandalone, {
       link: {
