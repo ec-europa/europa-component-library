@@ -4,7 +4,7 @@ import demoEvent from '@ecl/specs-component-content-item/demo/data--event';
 import template from '@ecl/twig-component-content-item/content-item.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 
-const dataImageRight = { ...demoImage };
+const dataImageRight = JSON.parse(JSON.stringify(demoImage));
 dataImageRight.picture.position = 'right';
 
 export const contentItemImage = template(correctSvgPath(demoImage));
