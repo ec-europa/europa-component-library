@@ -12,7 +12,7 @@ import notes from './README.md';
 const getArgs = (data) => {
   const args = {};
 
-  if (data.image) {
+  if (data.picture) {
     args.show_image = true;
     args.image_size = 'large';
     args.image_position = 'left';
@@ -48,7 +48,7 @@ const getArgTypes = (data) => {
   const argTypes = {};
 
   // Optional elements
-  if (data.image) {
+  if (data.picture) {
     argTypes.show_image = {
       name: 'image',
       type: 'boolean',
@@ -144,7 +144,7 @@ const getArgTypes = (data) => {
   };
 
   // Other controls
-  if (data.image) {
+  if (data.picture) {
     argTypes.image_size = {
       name: 'image size',
       type: 'select',
@@ -208,7 +208,7 @@ const prepareData = (data, args) => {
 
   // Optional elements
   if (!args.show_image) {
-    delete clone.image;
+    delete clone.picture;
   }
   if (!args.show_date) {
     delete clone.date;
@@ -231,13 +231,13 @@ const prepareData = (data, args) => {
   clone.divider = args.show_divider;
 
   // Other controls
-  if (clone.image) {
-    clone.image.size = args.image_size;
+  if (clone.picture) {
+    clone.picture.size = args.image_size;
     if (args.image_size === 'small') {
-      clone.image.src =
+      clone.picture.img.src =
         'https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg';
     }
-    clone.image.position = args.image_position;
+    clone.picture.position = args.image_position;
   }
   if (clone.title) {
     clone.title.label = args.title;

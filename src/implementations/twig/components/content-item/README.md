@@ -8,10 +8,20 @@ npm install --save @ecl/twig-component-content-item
 
 ### Parameters
 
-- **image** (associative array) (default: {}):
-  - **src** (string) (default: ''): Path to the image
-  - **size** (string) (default: 'l'): Size of the image (can be 's' or 'l'). Small images should be square
-  - **alt** (string) (default: ''): Alt text of the image
+- **picture** (associative array) (default: {}):
+  - **size** (string) (default: 'large'): Size of the picture (can be 'small' or 'large'). Small pictures should be square
+  - **position** (string) (default: 'left'): Position of the picture (can be 'left' or 'right')
+  - **img** (associative array) (default: {}):
+    - **src** (string) (default: ''): Path to the default image
+    - **alt** (string) (default: ''): Alt text of the default image
+  - **sources** (array) (default: []): format: [
+    {
+    **src** (string) (default: ''): Path to the source image
+    **media** (string) (default: ''): Media condition to use this source
+    **type** (string) (default: ''): Type of this source
+    },
+    ...
+    ]
 - **date** (associative array) (default: {}): Predefined structure compatible with ECL Date block component
 - **labels** (array) (default: []): Array of ECL Labels
 - **primary_meta** (array of strings) (default: []): Primary meta of the content item
@@ -38,10 +48,13 @@ npm install --save @ecl/twig-component-content-item
 ```twig
 {% include '@ecl/content-item/content-item.html.twig' with { 
   divider: true,
-  image: {
-    src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
-    size: 'l',
-    alt: 'Alt text of the image',
+  picture: {
+    position: 'left',
+    size: 'large',
+    img: {
+      src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+      alt: 'Alt text of the image',
+    },
   },
   labels: [
     { label: 'highlight', variant: 'highlight' },

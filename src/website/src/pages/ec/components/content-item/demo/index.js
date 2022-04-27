@@ -5,7 +5,7 @@ import template from '@ecl/twig-component-content-item/content-item.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 
 const dataImageRight = { ...demoImage };
-dataImageRight.variant = 'image-right';
+dataImageRight.image.position = 'right';
 
 export const contentItemImage = template(correctSvgPath(demoImage));
 export const contentItemImageRight = template(correctSvgPath(dataImageRight));

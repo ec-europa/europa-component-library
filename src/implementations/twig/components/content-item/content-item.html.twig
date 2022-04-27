@@ -2,11 +2,20 @@
 
 {#
   Parameters:
-    - "image" (associative array) (default: {}): 
-      - "src" (string) (default: ''): Path to the image
-      - "size" (string) (default: 'large'): Size of the image (can be 'small' or 'large'). Small images should be square
-      - "alt" (string) (default: ''): Alt text of the image
-      - "position" (string) (default: 'left'): Position of the image (can be 'left' or 'right')
+    - "picture" (associative array) (default: {}): 
+      - "size" (string) (default: 'large'): Size of the picture (can be 'small' or 'large'). Small pictures should be square
+      - "position" (string) (default: 'left'): Position of the picture (can be 'left' or 'right')
+      - "img" (associative array) (default: {}):
+        - "src" (string) (default: ''): Path to the default image
+        - "alt" (string) (default: ''): Alt text of the default image
+      - "sources" (array) (default: []): format: [
+        {
+          "src" (string) (default: ''): Path to the source image
+          "media" (string) (default: ''): Media condition to use this source
+          "type" (string) (default: ''): Type of this source
+        },
+        ...
+      ]
     - "date" (associative array) (default: {}): Predefined structure compatible with ECL Date block component
     - "labels" (array) (default: []): Array of ECL Labels
     - "primary_meta" (array of strings) (default: []): Primary meta of the content item
@@ -34,15 +43,21 @@
 
 {% set _meta = meta|default([]) %}
 {% set _infos = infos|default([]) %}
+{% set _image = image|default({
+  src: '',
+  size: 'large',
+}) %}
 
 {# Internal properties #}
 
 {% set _divider = divider|default(false) %}
-{% set _image = image|default({
-  src: '',
-  size: 'large',
-  alt: '',
+{% set _picture = picture|default({
   position: 'left',
+  size: _image.size,
+  img: {
+    src: _image.src,
+  },
+  sources: [],
 }) %}
 {% set _date = date|default({}) %}
 {% set _labels = labels|default([]) %}
@@ -77,15 +92,22 @@
 {# Print the result #}
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  {% if _image is defined and _image.src is not empty %}
-    {% set _image_class = 'ecl-content-item__image' %}
-    {% if _image.size is not empty %}
-      {% set _image_class = _image_class ~ ' ecl-content-item__image--' ~ _image.size %}
+  {% if _picture is not empty and _picture.img is not empty and _picture.img.src is not empty %}
+    {% set _picture_class = 'ecl-content-item__picture' %}
+    {% if _picture.size is not empty %}
+      {% set _picture_class = _picture_class ~ ' ecl-content-item__picture--' ~ _picture.size %}
     {% endif %}
-    {% if _image.position is not empty %}
-      {% set _image_class = _image_class ~ ' ecl-content-item__image--' ~ _image.position %}
-    {% endif %}    
-    <img class="{{ _image_class }}" src="{{ _image.src }}" alt="{{ _image.alt|default('') }}" />
+    {% if _picture.position is not empty %}
+      {% set _picture_class = _picture_class ~ ' ecl-content-item__picture--' ~ _picture.position %}
+    {% endif %}
+    <picture class="{{ _picture_class }}">
+      {% if _picture.sources is not empty and _picture.sources is iterable %}
+        {% for _source in _picture.sources %}
+          <source srcset="{{ _source.src }}" media="{{ _source.media|default('') }}" type="{{ _source.type|default('') }}">
+        {% endfor %}
+      {% endif %}
+      <img class="ecl-content-item__image" src="{{ _picture.img.src }}" alt="{{ _picture.img.alt|default('') }}" />
+    </picture>
   {% endif %}
   {% if _date is not empty %}
     {% include '@ecl/date-block/date-block.html.twig' with _date|merge({

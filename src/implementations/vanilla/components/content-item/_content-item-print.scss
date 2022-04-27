@@ -1,12 +1,13 @@
 /**
  * Content item
- * @define content-item; weak
+ * @define content-item
  */
 
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
 
 $_divider-color: null !default;
+$_image-border-color: null !default;
 
 .ecl-content-item {
   align-items: flex-start;
@@ -29,18 +30,23 @@ $_divider-color: null !default;
   margin-inline-end: map.get(theme.$spacing-print, 'm');
 }
 
-.ecl-content-item__image {
+.ecl-content-item__picture {
   flex-shrink: 0;
   margin-inline-end: map.get(theme.$spacing-print, 'm');
   max-width: 210px;
 }
 
-.ecl-content-item__image--small {
+.ecl-content-item__picture--small {
   height: 140px;
   width: 140px;
 }
 
-.ecl-content-item__image--right {
+.ecl-content-item__image {
+  border: 1px solid $_image-border-color;
+  width: 100%;
+}
+
+.ecl-content-item__picture--right {
   margin-inline-end: 0;
   margin-inline-start: map.get(theme.$spacing-print, 'm');
   order: 1;

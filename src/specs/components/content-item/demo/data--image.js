@@ -4,11 +4,20 @@ const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
   divider: false,
-  image: {
-    src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
-    size: 'large',
-    alt: 'Alt text of the image',
+  picture: {
     position: 'left',
+    size: 'large',
+    img: {
+      src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg',
+      alt: 'Alt text of the image',
+    },
+    sources: [
+      {
+        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+        media: '(min-width: 480px)',
+        type: 'image/jpg',
+      },
+    ],
   },
   labels: [
     { label: 'highlight', variant: 'highlight' },
