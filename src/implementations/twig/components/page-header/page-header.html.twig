@@ -3,6 +3,7 @@
   Parameters:
     - "variant" (string) options:[ negative ] (default: '') Negative style with a darker background (only for EC)
     - "title" (string) (default: '') Title of header
+    - "hide_title" (boolean) (default: false) Hide the h1 title, for screen reader only
     - "description" (string) (default: '') Description of header
     - "thumbnail" (associative array) (default: {}) Thumbnail dipslayed alongside the description:
       {
@@ -26,6 +27,7 @@
 {# variables #}
 {% set _variant = variant|default('') %}
 {% set _title = title|default('') %}
+{% set _hide_title = hide_title|default(false) %}
 {% set _meta = meta|default([]) %}
 {% set _description = description|default('') %}
 {% set _thumbnail = thumbnail|default({}) %}
@@ -92,7 +94,13 @@
     </div>
   {% endif %}
 
-    <h1 class="ecl-page-header__title">{{ _title }}</h1>
+  {% if _hide_title %}
+    <h1 class="ecl-page-header__title ecl-u-sr-only">{{ _title }}</h1>
+  {% else %}
+    <div class="ecl-page-header__title-container">
+      <h1 class="ecl-page-header__title">{{ _title }}</h1>
+    </div>
+  {% endif %}
 
   {% if _description is not empty or _thumbnail is not empty %}
     <div class="ecl-page-header__description-container">

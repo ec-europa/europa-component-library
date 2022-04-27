@@ -20,6 +20,7 @@ const getArgs = (data) => {
   const args = {
     show_breadcrumb: true,
     show_thumbnail: false,
+    hide_title: false,
   };
 
   if (data.title) {
@@ -73,6 +74,17 @@ const getArgTypes = (data) => {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
       category: 'Content',
+    },
+  };
+
+  argTypes.hide_title = {
+    name: 'hide title',
+    type: 'boolean',
+    description: 'Toggle title visibility, for screen reader only',
+    table: {
+      type: { summary: 'object' },
+      defaultValue: { summary: '{}' },
+      category: 'Optional',
     },
   };
 
@@ -146,6 +158,7 @@ const prepareData = (data, args) => {
   }
 
   data.title = args.title;
+  data.hide_title = args.hide_title;
   data.description = args.description;
   data.meta = args.meta;
   data.background_image_url = args.background_image_url;
@@ -162,7 +175,7 @@ const prepareData = (data, args) => {
 };
 
 export default {
-  title: 'Components/Site-wide/Page Headers',
+  title: 'Components/Site-wide/Page headers',
   decorators: [withNotes, withCode],
   parameters: { layout: 'fullscreen' },
 };
