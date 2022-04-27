@@ -370,29 +370,31 @@ exports[`File Thumbnail renders correctly with taxonomies 1`] = `
         class="ecl-file__taxonomy"
       >
         <dl
-          class="ecl-description-list ecl-description-list--taxonomy"
+          class="ecl-description-list ecl-description-list--horizontal"
         >
           <dt
             class="ecl-description-list__term"
           >
-            Science areas
+            Taxonomy list
           </dt>
           <dd
-            class="ecl-description-list__definition"
+            class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
           >
-            
-            [object Object][object Object]            
-          </dd>
-          <dt
-            class="ecl-description-list__term"
-          >
-            Keywords
-          </dt>
-          <dd
-            class="ecl-description-list__definition"
-          >
-            
-            [object Object][object Object][object Object][object Object][object Object][object Object][object Object]            
+            <span
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 1
+            </span>
+            <span
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 2
+            </span>
+            <span
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 3
+            </span>
           </dd>
         </dl>
       </div>
