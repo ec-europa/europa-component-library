@@ -36,7 +36,7 @@ $_font-weight: null !default;
 }
 
 .ecl-page-banner__copyright {
-  background: map.get($_background, 'image-shade');
+  background: rgba(map.get(theme.$color, 'black'), 0.35);
   color: map.get(theme.$color, 'white-100');
   font: map.get(theme.$font, 's');
   padding: map.get(theme.$spacing, '2xs') map.get(theme.$spacing, 's');
