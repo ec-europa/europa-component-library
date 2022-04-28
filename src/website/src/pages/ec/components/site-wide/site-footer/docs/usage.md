@@ -43,7 +43,7 @@ The site footer is present on every page. It provides supplementary information 
 
 ### Anatomy image
 
-![Site footer - Core config.](/cms-images/ec-page-footer-standardised.png "Anatomy image")
+![Site footer - Standardised config.](/cms-images/ec-page-footer-standardised.png "Anatomy image")
 
 ### Anatomy table
 
@@ -63,7 +63,7 @@ The site footer is present on every page. It provides supplementary information 
 
 ### Anatomy image
 
-![Site footer - Core config.](/cms-images/ec-page-footer-harmonised.png "Anatomy image")
+![Site footer - Harmonised config.](/cms-images/ec-page-footer-harmonised.png "Anatomy image")
 
 ### Anatomy table
 
