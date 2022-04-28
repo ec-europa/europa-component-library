@@ -11,6 +11,7 @@ npm install --save @ecl/twig-component-hero-banner
 - **"variant"** (string) (default: 'primary') Variant of banner (can be 'primary', 'seconary, 'white', image','image-shade','image-gradient')
 - **"title"** (string) (default: '') Title of banner
 - **"image"** (string) (default: '') Image for banner (required for image banner type)
+- **copyright** (string) (default: '') Copyright for the image
 - **"description"** (string) (default: '') Description of banner
 - **"centered"** (bool) (default: true) Define if banner should be centered
 - **"full_width"** (bools) (default: false) Extends the banner to whole viewport when used inside the grid
@@ -30,6 +31,7 @@ npm install --save @ecl/twig-component-hero-banner
   centered: true,  
   variant: 'image',  
   image: 'url/path-to-image',  
+  copyright: 'Copyright',
   link: {  
     link: {  
       label: 'Subscribe',  

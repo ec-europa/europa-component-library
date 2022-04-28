@@ -1,3 +1,7 @@
+/**
+ * Carousel component
+ * @define carousel; weak
+ */
 /* stylelint-disable max-nesting-depth, no-descending-specificity */
 
 @use 'sass:map';
@@ -56,6 +60,10 @@ $_outline-width: null !default;
     top: 0;
     width: map.get(theme.$spacing, '2xs');
   }
+}
+
+.ecl-carousel__slide .ecl-page-banner__copyright {
+  margin-inline-end: map.get(theme.$spacing, '2xs');
 }
 
 .ecl-carousel__controls {
@@ -209,6 +217,10 @@ $_outline-width: null !default;
     &::before {
       content: none;
     }
+  }
+
+  .ecl-carousel__slide .ecl-page-banner__copyright {
+    margin-inline-end: 0;
   }
 
   .ecl-carousel__prev,

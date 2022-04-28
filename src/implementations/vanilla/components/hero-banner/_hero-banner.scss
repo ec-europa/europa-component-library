@@ -36,6 +36,23 @@ $_font-weight: null !default;
   position: relative;
 }
 
+.ecl-hero-banner__copyright {
+  background: map.get($_background, 'image-shade');
+  color: map.get(theme.$color, 'white-100');
+  font: map.get(theme.$font, 's');
+  padding: map.get(theme.$spacing, '2xs') map.get(theme.$spacing, 's');
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+
+  &::before {
+    content: '©';
+    display: inline-block;
+    margin-inline-end: map.get(theme.$spacing, 'xs');
+  }
+}
+
 // stylelint-disable-next-line plugin/selector-bem-pattern
 .ecl-container
   .ecl-hero-banner:not(.ecl-hero-banner--full-width)

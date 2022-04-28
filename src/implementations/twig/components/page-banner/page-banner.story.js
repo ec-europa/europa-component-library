@@ -27,6 +27,10 @@ const getArgs = (data) => {
   if (data.image) {
     args.image = data.image || '';
   }
+  if (data.copyright) {
+    args.show_copyright = true;
+    args.copyright = data.copyright || '';
+  }
 
   return args;
 };
@@ -49,6 +53,7 @@ const getArgTypes = (data) => {
         category: 'Optional',
       },
     },
+
     title: {
       type: { name: 'string', required: true },
       description: 'Heading of the banner',
@@ -117,10 +122,28 @@ const getArgTypes = (data) => {
       },
     },
   };
+
   if (data.image) {
+    argTypes.show_copyright = {
+      name: 'copyright',
+      type: { name: 'boolean' },
+      description: 'Show the copyright',
+      table: {
+        category: 'Optional',
+      },
+    };
     argTypes.image = {
       type: 'string',
       description: 'Path or Url of the background image',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+    };
+    argTypes.copyright = {
+      type: 'string',
+      description: 'Copyright of the image',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
@@ -140,6 +163,7 @@ const prepareData = (data, args) => {
 
   if (data.image) {
     data.image = args.image;
+    data.copyright = args.copyright;
   }
   if (!args.show_description) {
     data.description = '';

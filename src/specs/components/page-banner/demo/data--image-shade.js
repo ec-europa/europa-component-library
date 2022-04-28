@@ -19,6 +19,7 @@ module.exports = {
     },
   },
   image: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+  copyright: 'Copyright',
   variant: 'image-shade',
   centered: true,
 };

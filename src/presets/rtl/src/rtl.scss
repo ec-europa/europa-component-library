@@ -22,6 +22,11 @@ html {
   right: 0;
 }
 
+.ecl-carousel__slide::before {
+  left: auto;
+  right: -#{map.get(theme.$spacing, '2xs')};
+}
+
 // Category filter
 .ecl-category-filter__list-item[aria-expanded='true'],
 .ecl-category-filter__list-item:hover,
@@ -48,6 +53,11 @@ html {
 .ecl-hero-banner--full-width {
   left: auto;
   right: 50%;
+}
+
+.ecl-hero-banner__copyright {
+  left: 0;
+  right: auto;
 }
 
 // Icons
@@ -78,6 +88,11 @@ html {
 .ecl-page-banner--full-width {
   left: auto;
   right: 50%;
+}
+
+.ecl-page-banner__copyright {
+  left: 0;
+  right: auto;
 }
 
 // Select
