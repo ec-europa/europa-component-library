@@ -12,16 +12,17 @@ The site footer is present on every page. It provides supplementary information 
 
 ### Anatomy table
 
-| **Element/component**                     | **Core**  | **Standardised** | **Harmonised** | **Description**                                                                |
-| ----------------------------------------- | --------- | ---------------- | -------------- | ------------------------------------------------------------------------------ |
-| Site name                                 | mandatory | mandatory        | mandatory      | Name of the site                                                               |
-| Content owner details                     | mandatory | mandatory        | mandatory      | Indicates **ownership over the site's content**                                |
-| Sitemap navigation/ DG-related navigation | mandatory | optional         | optional       | Links to the main content pages                                                |
-| DG-related Service navigation             | optional  | optional         | optional       | Links to the associated **services available** through the DG-site             |
-| Class names                               | optional  | optional         | optional       | **Parent classes** under which the DG falls in relation to the info-site       |
-| Logo                                      | optional  | mandatory        | mandatory      | Logo of the European Commission                                                |
-| Service navigation                        | mandatory | optional         | optional       | Contains legal information links **\- consistent throughout the family sites** |
-| Legal navigation                          | mandatory | mandatory        | mandatory      | Contains legal information links **\- consistent throughout the family sites** |
+|     | **Element/component**         | **Core**  | **Standardised** | **Harmonised** | **Description**                                                                |
+| --- | ----------------------------- | --------- | ---------------- | -------------- | ------------------------------------------------------------------------------ |
+| 1   | Site name                     | mandatory | mandatory        | mandatory      | Name of the site                                                               |
+| 2   | Content owner details         | mandatory | mandatory        | mandatory      | Indicates **ownership over the site's content**                                |
+| 3   | Sitemap navigation            | mandatory | optional         | optional       | Links to the main content pages                                                |
+| 4   | DG-related Service navigation | optional  | optional         | optional       | Links to the associated **services available** through the DG-site             |
+| 5   | DG-related navigation         | optional  | optional         | optional       | Links to the main content pages of the DG                                      |
+| 6   | Class names                   | optional  | optional         | optional       | **Parent classes** under which the DG falls in relation to the info-site       |
+| 7   | Logo                          | optional  | mandatory        | mandatory      | Logo of the European Commission                                                |
+| 8   | Service navigation            | mandatory | optional         | optional       | Contains legal information links **\- consistent throughout the family sites** |
+| 9   | Legal navigation              | mandatory | mandatory        | mandatory      | Contains legal information links **\- consistent throughout the family sites** |
 
 ## Core config.
 
