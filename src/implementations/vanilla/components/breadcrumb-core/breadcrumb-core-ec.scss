@@ -2,8 +2,6 @@
 @use '@ecl/theme-dev/theme';
 
 @use 'breadcrumb-core' with (
-  $_container-padding: 0 0 map.get(theme.$spacing, 'm'),
-  $_segment-margin-top: map.get(theme.$spacing, 'm'),
   $_link-font: map.get(theme.$font, 's'),
   $_link-font-weight: map.get(theme.$font-weight, 'bold'),
   $_last-link-color: map.get(theme.$color, 'blue-25'),

@@ -182,7 +182,7 @@ Core.parameters = {
 
 export const Harmonised = (args) => pageHeader(prepareData(dataDefault, args));
 
-Harmonised.storyName = 'Harmonised';
+Harmonised.storyName = 'harmonised';
 Harmonised.args = getArgs(dataDefault);
 Harmonised.argTypes = getArgTypes(dataDefault);
 Harmonised.parameters = {

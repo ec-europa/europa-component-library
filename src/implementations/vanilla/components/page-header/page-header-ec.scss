@@ -23,10 +23,6 @@
   }
 }
 
-.ecl-page-header__breadcrumb {
-  position: absolute;
-}
-
 .ecl-page-header__meta {
   color: map.get(theme.$color, 'grey-75');
   font: map.get(theme.$font, 'm');
@@ -55,6 +51,15 @@
   font-weight: map.get(theme.$font-weight, 'bold');
   margin-bottom: 0;
   margin-top: map.get(theme.$spacing, 'm');
+}
+
+.ecl-page-header__title-container {
+  margin-bottom: 0;
+  margin-top: map.get(theme.$spacing, 'm');
+
+  .ecl-page-header__title {
+    margin-top: 0;
+  }
 }
 
 .ecl-page-header__description-container {
@@ -154,6 +159,7 @@
   }
 
   .ecl-page-header__breadcrumb {
+    position: absolute;
     background-color: transparent;
     transform: translateY(-100%);
   }

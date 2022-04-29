@@ -94,12 +94,14 @@
     </div>
   {% endif %}
 
-  {% if _hide_title %}
-    <h1 class="ecl-page-header__title ecl-u-sr-only">{{ _title }}</h1>
-  {% else %}
-    <div class="ecl-page-header__title-container">
-      <h1 class="ecl-page-header__title">{{ _title }}</h1>
-    </div>
+  {% if _title is not empty %}
+    {% if _hide_title %}
+      <h1 class="ecl-page-header__title ecl-u-sr-only">{{ _title }}</h1>
+    {% else %}
+      <div class="ecl-page-header__title-container">
+        <h1 class="ecl-page-header__title">{{ _title }}</h1>
+      </div>
+    {% endif %}
   {% endif %}
 
   {% if _description is not empty or _thumbnail is not empty %}

@@ -6,8 +6,8 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
 
-$_container-padding: null !default;
-$_segment-margin-top: null !default;
+$_container-padding: 0 0 map.get(theme.$spacing, 'm') !default;
+$_segment-margin-top: map.get(theme.$spacing, 'm') !default;
 $_link-font: null !default;
 $_link-font-weight: null !default;
 $_last-link-color: null !default;
