@@ -111,12 +111,10 @@
 
   .ecl-page-header__breadcrumb {
     background-color: transparent;
-    left: 0;
-    padding-inline-start: map.get(theme.$spacing, 'm');
-    padding-inline-end: map.get(theme.$spacing, 'm');
-    position: absolute;
-    top: 0;
-    transform: translateY(-100%);
+    margin-top: -#{map.get(theme.$spacing, '3xl') + map.get(
+        theme.$spacing,
+        'xs'
+      )};
   }
 
   .ecl-breadcrumb-standardised__container {
