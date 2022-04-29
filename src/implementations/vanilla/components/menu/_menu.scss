@@ -438,9 +438,12 @@ $_mobile-item-hover-background: null !default;
       flex-shrink: 0;
       height: map.get(theme.$icon, '2xs');
       margin-inline-start: $_menu-item-icon-margin;
-      transform: rotate(180deg);
-      transition-property: transform;
       width: map.get(theme.$icon, '2xs');
+
+      &:not(.ecl-menu__link-icon--external) {
+        transform: rotate(180deg);
+        transition-property: transform;
+      }
     }
 
     .ecl-menu__inner--expanded .ecl-menu__item,

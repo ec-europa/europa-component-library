@@ -62,9 +62,6 @@
         {% else %}
           <span
             class="ecl-pagination__text ecl-pagination__text--summary"
-          {% if _item.aria_label is defined and _item.aria_label is not empty %}
-            aria-label="{{ _item.aria_label }}"
-          {% endif %}
           {% if _item.type == 'current' %}
             aria-current="true"
           {% endif %}

@@ -82,6 +82,9 @@ export class Carousel {
     this.posFinal = 0;
     this.threshold = 80;
     this.navigationItems = null;
+    this.direction = 'ltr';
+    this.cloneFirstSLide = null;
+    this.cloneLastSLide = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
@@ -106,18 +109,19 @@ export class Carousel {
     this.container = queryOne(this.containerClass, this.element);
     this.navigationItems = queryAll(this.navigationItemsClass, this.element);
     this.currentSlide = queryOne(this.currentSlideClass, this.element);
+    this.direction = getComputedStyle(this.element).direction;
 
     this.slides = queryAll(this.slideClass, this.element);
     this.total = this.slides.length;
 
     const firstSlide = this.slides[0];
     const lastSlide = this.slides[this.slides.length - 1];
-    const cloneFirst = firstSlide.cloneNode(true);
-    const cloneLast = lastSlide.cloneNode(true);
+    this.cloneFirstSLide = firstSlide.cloneNode(true);
+    this.cloneLastSLide = lastSlide.cloneNode(true);
 
     // Clone first and last slide
-    this.slidesContainer.appendChild(cloneFirst);
-    this.slidesContainer.insertBefore(cloneLast, firstSlide);
+    this.slidesContainer.appendChild(this.cloneFirstSLide);
+    this.slidesContainer.insertBefore(this.cloneLastSLide, firstSlide);
 
     // Refresh the slides variable after adding new cloned slides
     this.slides = queryAll(this.slideClass, this.element);
@@ -168,20 +172,27 @@ export class Carousel {
     if (this.attachResizeListener) {
       window.addEventListener('resize', this.handleResize);
     }
+
+    // Set ecl initialized attribute
+    this.element.setAttribute('data-ecl-auto-initialized', 'true');
   }
 
   /**
    * Destroy component.
    */
   destroy() {
-    if (this.attachClickListener && this.toggle) {
-      this.toggle.removeEventListener('click', this.handleClickOnToggle);
+    if (this.cloneFirstSLide && this.cloneLastSLide) {
+      this.cloneFirstSLide.remove();
+      this.cloneLastSLide.remove();
     }
-    if (this.attachClickListener && this.btnNext) {
-      this.btnNext.removeEventListener('click', this.shiftSlide);
+    if (this.toggle) {
+      this.toggle.replaceWith(this.toggle.cloneNode(true));
     }
-    if (this.attachClickListener && this.btnPrev) {
-      this.btnPrev.removeEventListener('click', this.shiftSlide);
+    if (this.btnNext) {
+      this.btnNext.replaceWith(this.btnNext.cloneNode(true));
+    }
+    if (this.btnPrev) {
+      this.btnPrev.replaceWith(this.btnPrev.cloneNode(true));
     }
     if (this.slidesContainer) {
       this.slidesContainer.removeEventListener('touchstart', this.dragStart);
@@ -194,11 +205,14 @@ export class Carousel {
     }
     if (this.navigationItems) {
       this.navigationItems.forEach((nav) => {
-        nav.removeEventListener('click', this.shiftSlide);
+        nav.replaceWith(nav.cloneNode(true));
       });
     }
     if (this.attachResizeListener) {
       window.removeEventListener('resize', this.handleResize);
+    }
+    if (this.element) {
+      this.element.removeAttribute('data-ecl-auto-initialized');
     }
   }
 
@@ -285,7 +299,11 @@ export class Carousel {
   moveSlides(transition) {
     const newOffset = this.container.offsetWidth * this.index;
     this.slidesContainer.style.transitionDuration = transition ? '0.4s' : '0s';
-    this.slidesContainer.style.left = `-${newOffset}px`;
+    if (this.direction === 'rtl') {
+      this.slidesContainer.style.right = `-${newOffset}px`;
+    } else {
+      this.slidesContainer.style.left = `-${newOffset}px`;
+    }
   }
 
   /**

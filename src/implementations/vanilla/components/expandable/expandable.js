@@ -86,6 +86,9 @@ export class Expandable {
     if (this.attachClickListener && this.toggle) {
       this.toggle.addEventListener('click', this.handleClickOnToggle);
     }
+
+    // Set ecl initialized attribute
+    this.element.setAttribute('data-ecl-auto-initialized', 'true');
   }
 
   /**
@@ -94,6 +97,9 @@ export class Expandable {
   destroy() {
     if (this.attachClickListener && this.toggle) {
       this.toggle.removeEventListener('click', this.handleClickOnToggle);
+    }
+    if (this.element) {
+      this.element.removeAttribute('data-ecl-auto-initialized');
     }
   }
 

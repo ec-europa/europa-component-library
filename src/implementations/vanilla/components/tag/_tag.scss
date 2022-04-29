@@ -73,6 +73,13 @@ $_border-size-focus: null !default;
   &:focus {
     outline: $_border-size-focus solid $_border-color-focus;
   }
+
+  &.ecl-tag__icon--external {
+    color: map.get(theme.$color, 'white');
+    height: map.get(theme.$icon, '2xs');
+    width: map.get(theme.$icon, '2xs');
+    top: 1px;
+  }
 }
 
 .ecl-tag__icon-close {

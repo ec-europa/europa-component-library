@@ -2,27 +2,23 @@
   "name": "@ecl/preset-rtl",
   "author": "European Commission",
   "license": "EUPL-1.2",
-  "version": "3.2.2",
+  "version": "3.2.3",
   "description": "ECL RTL preset",
   "style": "dist/styles/ecl-rtl.css",
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "build:copy": "ecl-builder copy",
-    "build:scripts": "ecl-builder scripts",
     "build:styles": "ecl-builder styles",
     "build": "run-p build:*",
     "clean": "rimraf build dist",
     "dist": "cross-env NODE_ENV=production run-p build:*",
-    "watch": "ecl-builder watch",
     "prepublish": "npm run clean && npm run build && npm run dist"
   },
   "devDependencies": {
-    "@ecl/builder": "^3.2.2",
-    "chokidar-cli": "2.1.0",
+    "@ecl/builder": "^3.2.3",
+    "@ecl/theme-dev": "^3.2.3",
     "cross-env": "7.0.3",
-    "normalize.css": "8.0.1",
     "npm-run-all": "4.1.5",
     "rimraf": "3.0.2"
   },

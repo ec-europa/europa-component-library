@@ -101,7 +101,7 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
   list-style: none;
   margin-bottom: 0;
   margin-top: map.get(theme.$spacing, 'xs');
-  padding-left: 0;
+  padding-inline-start: 0;
 }
 
 .ecl-footer-standardised__list--inline {
@@ -109,12 +109,12 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
   flex-wrap: wrap;
 
   .ecl-footer-standardised__list-item {
-    margin-right: map.get(theme.$spacing, 'l');
+    margin-inline-end: map.get(theme.$spacing, 'l');
     margin-top: 0;
 
     /* stylelint-disable-next-line max-nesting-depth */
     &:last-of-type {
-      margin-right: 0;
+      margin-inline-end: 0;
     }
   }
 }

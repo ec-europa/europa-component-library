@@ -1,5 +1,15 @@
 # Changelog
 
+## 3.2.4 (2022-04-26)
+
+#### :rocket: New Feature
+
+- [#2384](https://github.com/ec-europa/europa-component-library/pull/2384) feat(ext-links): Adding external icon to links based on a parameter - FRONT-3601 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
 ## 3.2.3 (2022-02-16)
 
 #### :rocket: New Feature

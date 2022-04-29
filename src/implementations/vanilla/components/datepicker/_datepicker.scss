@@ -38,13 +38,13 @@ $_picker-theme-color: null !default;
 }
 
 .ecl-datepicker__field.ecl-text-input {
-  padding-right: map.get(theme.$spacing, 'xl');
+  padding-inline-end: map.get(theme.$spacing, 'xl');
   width: 100%;
 }
 
 .ecl-datepicker__icon {
   color: $_input-icon-color;
-  margin-right: calc(#{map.get(theme.$spacing, 's')} - 1px);
+  margin-inline-end: calc(#{map.get(theme.$spacing, 's')} - 1px);
   margin-top: calc(#{map.get(theme.$spacing, 's')} - 1px);
   pointer-events: none;
   position: absolute;
@@ -93,7 +93,7 @@ $_picker-theme-color: null !default;
   font: map.get(theme.$font, 'm');
   margin-top: $_picker-margin-top;
   overflow: hidden;
-  width: 100%;
+  width: auto;
 
   &.is-bound {
     box-shadow: none;
@@ -119,12 +119,12 @@ $_picker-theme-color: null !default;
     flex-grow: 1;
     font: map.get(theme.$font, 'm');
     justify-content: space-between;
-    margin-right: map.get(theme.$spacing, '2xs');
+    margin-inline-end: map.get(theme.$spacing, '2xs');
     padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
     width: 50%;
 
     &:last-of-type {
-      margin-right: 0;
+      margin-inline-end: 0;
     }
   }
 
@@ -219,8 +219,6 @@ $_picker-theme-color: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
   .ecl-datepicker-theme.pika-single {
-    width: auto;
-
     .pika-lendar {
       width: 20rem;
     }

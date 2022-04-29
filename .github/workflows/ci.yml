@@ -8,6 +8,13 @@ on:
       - v3-dev
 
 jobs:
+  semantic:
+    name: Validate PR title
+    runs-on: ubuntu-latest
+    steps:
+      - uses: amannn/action-semantic-pull-request@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   audit:
     name: audit
     runs-on: ubuntu-latest

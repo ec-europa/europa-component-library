@@ -73,6 +73,9 @@ export class FileDownload {
         this.handleClickOnToggle
       );
     }
+
+    // Set ecl initialized attribute
+    this.element.setAttribute('data-ecl-auto-initialized', 'true');
   }
 
   /**
@@ -84,6 +87,9 @@ export class FileDownload {
         'click',
         this.handleClickOnToggle
       );
+    }
+    if (this.element) {
+      this.element.removeAttribute('data-ecl-auto-initialized');
     }
   }
 

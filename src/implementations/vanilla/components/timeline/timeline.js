@@ -73,6 +73,9 @@ export class Timeline {
     if (this.attachClickListener && this.button) {
       this.button.addEventListener('click', this.handleClickOnButton);
     }
+
+    // Set ecl initialized attribute
+    this.element.setAttribute('data-ecl-auto-initialized', 'true');
   }
 
   /**
@@ -81,6 +84,9 @@ export class Timeline {
   destroy() {
     if (this.attachClickListener && this.button) {
       this.button.removeEventListener('click', this.handleClickOnButton);
+    }
+    if (this.element) {
+      this.element.removeAttribute('data-ecl-auto-initialized');
     }
   }
 

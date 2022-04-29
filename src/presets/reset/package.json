@@ -2,7 +2,7 @@
   "name": "@ecl/preset-reset",
   "author": "European Commission",
   "license": "EUPL-1.2",
-  "version": "3.2.3",
+  "version": "3.2.4",
   "description": "ECL Reset preset",
   "style": "dist/styles/ecl-reset.css",
   "publishConfig": {
@@ -10,7 +10,6 @@
   },
   "scripts": {
     "build:copy": "ecl-builder copy",
-    "build:scripts": "ecl-builder scripts",
     "build:styles": "ecl-builder styles",
     "build": "run-p build:*",
     "clean": "rimraf build dist",
@@ -19,8 +18,7 @@
     "prepublish": "npm run clean && npm run build && npm run dist"
   },
   "devDependencies": {
-    "@ecl/builder": "^3.2.3",
-    "chokidar-cli": "2.1.0",
+    "@ecl/builder": "^3.2.4",
     "cross-env": "7.0.3",
     "normalize.css": "8.0.1",
     "npm-run-all": "4.1.5",

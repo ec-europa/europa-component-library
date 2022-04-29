@@ -33,16 +33,16 @@ $_view-all-padding-vertical: null !default;
 
 .ecl-fact-figures__items {
   padding-bottom: map.get(theme.$spacing, 'xl');
-  padding-left: $_items-padding-horizontal-mobile;
-  padding-right: $_items-padding-horizontal-mobile;
+  padding-inline-start: $_items-padding-horizontal-mobile;
+  padding-inline-end: $_items-padding-horizontal-mobile;
   padding-top: 0;
 }
 
 .ecl-fact-figures__item {
   box-sizing: border-box;
   font: map.get(theme.$font, 'm');
-  padding-left: map.get(theme.$spacing, 'm');
-  padding-right: map.get(theme.$spacing, 'm');
+  padding-inline-start: map.get(theme.$spacing, 'm');
+  padding-inline-end: map.get(theme.$spacing, 'm');
   padding-top: map.get(theme.$spacing, 'xl');
 }
 
@@ -78,8 +78,8 @@ $_view-all-padding-vertical: null !default;
 .ecl-fact-figures__view-all {
   border-top: 1px solid $_view-all-border-color;
   font: map.get(theme.$font, 'm');
-  margin-left: $_view-all-margin-horizontal;
-  margin-right: $_view-all-margin-horizontal;
+  margin-inline-start: $_view-all-margin-horizontal;
+  margin-inline-end: $_view-all-margin-horizontal;
   padding-bottom: $_view-all-padding-vertical;
   padding-top: $_view-all-padding-vertical;
 }
@@ -88,8 +88,8 @@ $_view-all-padding-vertical: null !default;
 @include breakpoints.up('l') {
   .ecl-fact-figures__items {
     display: grid;
-    padding-left: $_items-padding-horizontal-desktop;
-    padding-right: $_items-padding-horizontal-desktop;
+    padding-inline-start: $_items-padding-horizontal-desktop;
+    padding-inline-end: $_items-padding-horizontal-desktop;
   }
 
   .ecl-fact-figures--col-3 .ecl-fact-figures__items {

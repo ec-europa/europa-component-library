@@ -94,8 +94,11 @@
       link: view_all.link|merge({
         type: 'standalone',
       }),
+      icon: view_all.link.external ? {} : view_all.icon|default({})|merge({
+        name: 'corner-arrow',
+        transform: 'rotate-90',
+      }),
       extra_classes: 'ecl-fact-figures__view-all-link',
-      icon_path: _icon_path|default('')
     }) only %}
   </div>
 {% endif %}

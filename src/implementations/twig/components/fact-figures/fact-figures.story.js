@@ -106,14 +106,6 @@ const getArgTypes = () => ({
 });
 
 const prepareData = (data, args) => {
-  if (system === 'ec' && args.displayIcons) {
-    data.items.forEach((item, i) => {
-      data.items[i].icon.size = 'm';
-    });
-    if (data.viewAll) {
-      data.view_all.icon.size = 'xs';
-    }
-  }
   data.items[0].value = args.value;
   data.items[0].title = args.title;
   data.items[0].description = args.description;
@@ -124,6 +116,15 @@ const prepareData = (data, args) => {
   data.display_icons = args.displayIcons;
   data.column = args.column;
   data.sorting = args.sorting;
+
+  if (system === 'ec' && args.displayIcons) {
+    data.items.forEach((item, i) => {
+      data.items[i].icon.size = 'm';
+    });
+    if (args.viewAll) {
+      data.view_all.icon.size = 'xs';
+    }
+  }
 
   return data;
 };

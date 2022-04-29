@@ -6,15 +6,7 @@ const app = apps['storybook-ec'];
 
 const cp = spawn(
   'start-storybook',
-  [
-    `-p`,
-    `${app.port}`,
-    `-s`,
-    `../../presets/ec/build,../../presets/reset/build`,
-    `-c`,
-    `.storybook`,
-    `--ci`,
-  ],
+  [`-p`, `${app.port}`, `-c`, `.storybook`, `--ci`],
   { stdio: 'inherit' }
 );
 
