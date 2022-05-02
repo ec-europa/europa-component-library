@@ -44,7 +44,6 @@ $_ellispis-outline-width: null !default;
   display: inline-flex;
   margin-top: $_segment-margin-top;
   max-width: 100%;
-  overflow: hidden;
 
   &[aria-hidden='true'] {
     position: absolute;
@@ -117,12 +116,20 @@ $_ellispis-outline-width: null !default;
  */
 .ecl-breadcrumb--negative {
   background-color: map.get(theme.$color, 'blue-100');
-}
 
-.ecl-breadcrumb--negative .ecl-breadcrumb__icon {
-  fill: map.get(theme.$color, 'white-100');
-}
+  .ecl-breadcrumb__ellipsis {
+    color: map.get(theme.$color, 'white-100');
 
-.ecl-breadcrumb--negative .ecl-breadcrumb__current-page {
-  color: map.get(theme.$color, 'blue-25');
+    &:hover {
+      background-color: map.get(theme.$color, 'blue-120');
+    }
+  }
+
+  .ecl-breadcrumb__icon {
+    fill: map.get(theme.$color, 'white-100');
+  }
+
+  .ecl-breadcrumb__current-page {
+    color: map.get(theme.$color, 'blue-25');
+  }
 }
