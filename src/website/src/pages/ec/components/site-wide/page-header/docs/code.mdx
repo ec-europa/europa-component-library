@@ -1,0 +1,94 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+
+import { pageHeaderDefault, pageHeaderCoreDefault } from '../demo';
+
+## Core page header
+
+<Playground
+  system="ec"
+  selectedKind="components-site-wide-page-headers"
+  selectedStory="core"
+  selectedArgs="show_thumbnail:false;background_image_url:"
+  showFrame
+>
+  <Html markup={pageHeaderCoreDefault} />
+</Playground>
+
+## Core page header with thumbnail
+
+<Playground
+  system="ec"
+  selectedKind="components-site-wide-page-headers"
+  selectedStory="core"
+  selectedArgs="show_thumbnail:true;background_image_url:"
+  showFrame
+>
+  <Html markup={pageHeaderCoreDefault} />
+</Playground>
+
+## Core page header with background image
+
+Overlay can be configured (dark, light or none)
+
+<Playground
+  system="ec"
+  selectedKind="components-site-wide-page-headers"
+  selectedStory="core"
+  showFrame
+>
+  <Html markup={pageHeaderCoreDefault} />
+</Playground>
+
+## Harmonised page header
+
+<Playground
+  system="ec"
+  selectedKind="components-site-wide-page-headers"
+  selectedStory="harmonised"
+  selectedArgs="show_thumbnail:false"
+  showFrame
+>
+  <Html markup={pageHeaderDefault} />
+</Playground>
+
+## Standardised page header
+
+<Playground
+  system="ec"
+  selectedKind="components-site-wide-page-headers"
+  selectedStory="standardised"
+  selectedArgs="show_thumbnail:false;background_image_url:"
+  showFrame
+>
+  <Html markup={pageHeaderDefault} />
+</Playground>
+
+## Standardised page header with thumbnail
+
+<Playground
+  system="ec"
+  selectedKind="components-site-wide-page-headers"
+  selectedStory="standardised"
+  selectedArgs="show_thumbnail:true;background_image_url:"
+  showFrame
+>
+  <Html markup={pageHeaderDefault} />
+</Playground>
+
+## Standardised page header with background image
+
+Overlay can be configured (dark, light or none)
+
+<Playground
+  system="ec"
+  selectedKind="components-site-wide-page-headers"
+  selectedStory="standardised"
+  showFrame
+>
+  <Html markup={pageHeaderDefault} />
+</Playground>
