@@ -91,7 +91,7 @@
 
 {# Print the result #}
 
-<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<article class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {% if _picture is not empty and _picture.img is not empty and _picture.img.src is not empty %}
     {% set _picture_class = 'ecl-content-item__picture' %}
     {% if _picture.size is not empty %}
@@ -126,6 +126,6 @@
   {% include '@ecl/content-block/content-block.html.twig' with _content_block|merge({
     extra_classes: 'ecl-content-item__content-block'
   }) only %}
-</div>
+</article>
 
 {% endspaceless %}
