@@ -104,7 +104,7 @@ export class Select {
     this.handleFocusout = this.handleFocusout.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
-    this.resetForm = this.resetFrom.bind(this);
+    this.resetForm = this.resetForm.bind(this);
   }
 
   /**
@@ -535,7 +535,7 @@ export class Select {
   /**
    * Reset Multiselect.
    */
-  resetFrom() {
+  resetForm() {
     // A slight timeout is necessary to execute the function just after the original reset of the form.
     setTimeout(() => {
       Array.from(this.select.options).forEach((option) => {
