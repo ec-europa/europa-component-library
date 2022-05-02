@@ -70,7 +70,9 @@
       <div class="ecl-page-banner__content">
         <div class="ecl-page-banner__title">{{ _title }}</div>
         {% if _description is not empty %}
-          <p class="ecl-page-banner__description">{{ _description }}</p>
+          <p class="ecl-page-banner__description">
+            <span class="ecl-page-banner__description-text">{{ _description }}</span>
+          </p>
         {% endif %}
         {% if _link is not empty %}
           {% set _link_extra_classes = 'ecl-page-banner__link-cta' %}

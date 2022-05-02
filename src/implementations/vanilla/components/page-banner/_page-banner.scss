@@ -36,7 +36,7 @@ $_font-weight: null !default;
 }
 
 .ecl-page-banner__copyright {
-  background: rgba(map.get(theme.$color, 'black'), 0.35);
+  background: rgba(map.get(theme.$color, 'black'), 0.54);
   color: map.get(theme.$color, 'white-100');
   font: map.get(theme.$font, 's');
   padding: map.get(theme.$spacing, '2xs') map.get(theme.$spacing, 's');
@@ -352,7 +352,6 @@ $_font-weight: null !default;
 
   // manage ratio 4:1
   .ecl-page-banner__image::before {
-    background-image: map.get($_overlay, 'image-gradient');
     border-radius: map.get($_border-radius, 'banner')
       map.get($_border-radius, 'banner') 0 0;
     content: '';
@@ -387,15 +386,21 @@ $_font-weight: null !default;
       padding-top: 0;
     }
 
-    .ecl-page-banner__title,
-    .ecl-page-banner__description {
+    .ecl-page-banner__title {
       backdrop-filter: blur(8px);
-      background: rgba(map.get(theme.$color, 'black'), 0.35);
-      padding: 4px 12px;
+      background: rgba(map.get(theme.$color, 'black'), 0.54);
+      padding: map.get(theme.$spacing, '2xs') map.get(theme.$spacing, 's');
     }
 
     .ecl-page-banner__description {
-      margin-top: 4px;
+      margin-top: map.get(theme.$spacing, '2xs');
+    }
+
+    .ecl-page-banner__description-text {
+      box-decoration-break: clone;
+      background: rgba(map.get(theme.$color, 'black'), 0.54);
+      line-height: 1.75;
+      padding: map.get(theme.$spacing, '2xs') map.get(theme.$spacing, 's');
     }
   }
 }

@@ -165,6 +165,9 @@ const prepareData = (data, args) => {
     data.image = args.image;
     data.copyright = args.copyright;
   }
+  if (!args.show_copyright) {
+    data.copyright = '';
+  }
   if (!args.show_description) {
     data.description = '';
   }
