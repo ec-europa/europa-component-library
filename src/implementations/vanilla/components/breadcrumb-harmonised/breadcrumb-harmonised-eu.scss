@@ -1,9 +1,6 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
 @use 'breadcrumb-harmonised' with (
-  $_container-padding: map.get(theme.$spacing, 's') 0
-    map.get(theme.$spacing, 'l'),
-  $_segment-margin-top: map.get(theme.$spacing, 's'),
   $_background-color: map.get(theme.$color, 'white-100'),
   $_link-font: map.get(theme.$font-prolonged, 'm'),
   $_link-font-weight: map.get(theme.$font-weight, 'normal'),
