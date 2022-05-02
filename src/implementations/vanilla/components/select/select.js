@@ -94,6 +94,7 @@ export class Select {
     this.inputContainer = null;
     this.optionsContainer = null;
     this.searchContainer = null;
+    this.form = null;
 
     // Bind `this` for use in callbacks
     this.updateCurrentValue = this.updateCurrentValue.bind(this);
@@ -103,6 +104,7 @@ export class Select {
     this.handleFocusout = this.handleFocusout.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
+    this.resetForm = this.resetFrom.bind(this);
   }
 
   /**
@@ -310,6 +312,11 @@ export class Select {
 
     // Respect default selected options.
     this.updateCurrentValue();
+
+    this.form = this.element.closest('form');
+    if (this.form) {
+      this.form.addEventListener('reset', this.resetForm);
+    }
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
@@ -523,46 +530,29 @@ export class Select {
     ) {
       this.searchContainer.style.display = 'none';
     }
+  }
 
-    // Correctly reset the multi-select when resetting a form.
-    if (e.target && e.target.getAttribute('type') === 'reset') {
-      // Check if multi-select exist in the current form.
-      const form = e.target.closest('form');
-
-      if (form) {
-        const multiSelects = form.querySelectorAll('.ecl-select__multiple');
-        let multiSelectInForm = false;
-
-        if (multiSelects.length > 0) {
-          Array.from(multiSelects).forEach((multiSelect) => {
-            if (multiSelect === this.selectMultiple) {
-              multiSelectInForm = true;
-            }
-          });
-
-          // If the current multi-select matches the one of the form, we can reset it.
-          if (multiSelectInForm) {
-            // A slight timeout is necessary to execute the function just after the original reset of the form.
-            setTimeout(() => {
-              Array.from(this.select.options).forEach((option) => {
-                const checkbox = this.selectMultiple.querySelector(
-                  `[data-select-multiple-value="${option.text}"]`
-                );
-                const input = checkbox.querySelector('.ecl-checkbox__input');
-                if (input.checked) {
-                  option.setAttribute('selected', 'selected');
-                  option.selected = true;
-                } else {
-                  option.removeAttribute('selected', 'selected');
-                  option.selected = false;
-                }
-              });
-              this.updateCurrentValue();
-            }, 10);
-          }
+  /**
+   * Reset Multiselect.
+   */
+  resetFrom() {
+    // A slight timeout is necessary to execute the function just after the original reset of the form.
+    setTimeout(() => {
+      Array.from(this.select.options).forEach((option) => {
+        const checkbox = this.selectMultiple.querySelector(
+          `[data-select-multiple-value="${option.text}"]`
+        );
+        const input = checkbox.querySelector('.ecl-checkbox__input');
+        if (input.checked) {
+          option.setAttribute('selected', 'selected');
+          option.selected = true;
+        } else {
+          option.removeAttribute('selected', 'selected');
+          option.selected = false;
         }
-      }
-    }
+      });
+      this.updateCurrentValue();
+    }, 10);
   }
 }
 
