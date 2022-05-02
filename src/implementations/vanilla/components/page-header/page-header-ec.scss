@@ -112,7 +112,7 @@
     color: map.get(theme.$color, 'white-100');
   }
 
-  .ecl-breadcrumb-core__container {
+  .ecl-breadcrumb__container {
     border-bottom: 0;
   }
 }
@@ -140,8 +140,7 @@
     width: 100%;
   }
 
-  .ecl-breadcrumb-core__container,
-  .ecl-breadcrumb-standardised__container {
+  .ecl-breadcrumb__container {
     background-color: map.get(theme.$color, 'white-100');
     display: inline-flex;
     max-width: 100%;
@@ -149,13 +148,9 @@
     padding-inline-end: map.get(theme.$spacing, 'm');
   }
 
-  .ecl-breadcrumb-core__container {
+  .ecl-breadcrumb--negative .ecl-breadcrumb__container {
     background-color: map.get(theme.$color, 'blue-100');
     border-bottom: 0;
-  }
-
-  .ecl-breadcrumb-standardised__container {
-    background-color: map.get(theme.$color, 'white-100');
   }
 
   .ecl-page-header__breadcrumb {
