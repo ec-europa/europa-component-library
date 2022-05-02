@@ -1,0 +1,185 @@
+/**
+ * Page header
+ * @define page-header; weak
+ */
+
+@use 'sass:map';
+@use '@ecl/theme-dev/theme';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+.ecl-page-header {
+  background-color: map.get(theme.$color, 'white-100');
+  margin: 0;
+
+  .ecl-container > div:first-of-type,
+  .ecl-container > :first-child:not(.ecl-page-header__breadcrumb) {
+    margin-top: 0;
+    padding-top: map.get(theme.$spacing, 'xl');
+  }
+
+  .ecl-container > div:last-of-type {
+    margin-bottom: 0;
+    padding-bottom: map.get(theme.$spacing, 'xl');
+  }
+}
+
+.ecl-page-header__meta {
+  color: map.get(theme.$color, 'grey-75');
+  font: map.get(theme.$font, 'm');
+}
+
+.ecl-page-header__meta-item {
+  border-inline-end: 1px solid map.get(theme.$color, 'grey-75');
+  display: inline;
+  margin-inline-end: map.get(theme.$spacing, 'm');
+  padding-inline-end: map.get(theme.$spacing, 'm');
+
+  &:first-of-type {
+    text-transform: uppercase;
+  }
+
+  &:last-of-type {
+    border-inline-end-width: 0;
+    margin-inline-end: 0;
+    padding-inline-end: 0;
+  }
+}
+
+.ecl-page-header__title {
+  color: map.get(theme.$color, 'grey-100');
+  font: map.get(theme.$font, '3xl');
+  font-weight: map.get(theme.$font-weight, 'bold');
+  margin-bottom: 0;
+  margin-top: map.get(theme.$spacing, 'm');
+}
+
+.ecl-page-header__title-container {
+  margin-bottom: 0;
+  margin-top: map.get(theme.$spacing, 'm');
+
+  .ecl-page-header__title {
+    margin-top: 0;
+  }
+}
+
+.ecl-page-header__description-container {
+  align-items: flex-start;
+  display: flex;
+  margin-top: map.get(theme.$spacing, 'm');
+}
+
+.ecl-page-header__description-thumbnail {
+  border: 1px solid map.get(theme.$color, 'grey-25');
+  margin-inline-end: map.get(theme.$spacing, 'm');
+  max-width: 120px;
+}
+
+.ecl-page-header__description {
+  color: map.get(theme.$color, 'grey-100');
+  font: map.get(theme.$font-prolonged, 'xl');
+  margin-bottom: 0;
+  margin-top: 0;
+  max-width: 80ch;
+}
+
+/*
+ * Negative Variant (Core)
+ */
+.ecl-page-header--negative {
+  background-color: map.get(theme.$color, 'blue-100');
+
+  .ecl-page-header__meta {
+    color: map.get(theme.$color, 'white-100');
+  }
+
+  .ecl-page-header__meta-item {
+    border-inline-end: 1px solid map.get(theme.$color, 'white-100');
+
+    &:last-of-type {
+      border-inline-end-width: 0;
+    }
+  }
+
+  .ecl-page-header__title {
+    color: map.get(theme.$color, 'white-100');
+  }
+
+  .ecl-page-header__description-thumbnail {
+    border: 1px solid map.get(theme.$color, 'blue-5');
+  }
+
+  .ecl-page-header__description {
+    color: map.get(theme.$color, 'white-100');
+  }
+
+  .ecl-breadcrumb-core__container {
+    border-bottom: 0;
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('l') {
+  .ecl-page-header__title {
+    font: map.get(theme.$font, '4xl');
+    font-weight: map.get(theme.$font-weight, 'bold');
+  }
+}
+
+/*
+ * background image variant
+ */
+.ecl-page-header--image {
+  position: relative;
+
+  .ecl-page-header__background {
+    background-position: 50% 0;
+    background-size: cover;
+    display: block;
+    height: 10.875rem;
+    position: relative;
+    width: 100%;
+  }
+
+  .ecl-breadcrumb-core__container,
+  .ecl-breadcrumb-standardised__container {
+    background-color: map.get(theme.$color, 'white-100');
+    display: inline-flex;
+    max-width: 100%;
+    padding-inline-start: map.get(theme.$spacing, 'm');
+    padding-inline-end: map.get(theme.$spacing, 'm');
+  }
+
+  .ecl-breadcrumb-core__container {
+    background-color: map.get(theme.$color, 'blue-100');
+    border-bottom: 0;
+  }
+
+  .ecl-breadcrumb-standardised__container {
+    background-color: map.get(theme.$color, 'white-100');
+  }
+
+  .ecl-page-header__breadcrumb {
+    background-color: transparent;
+    margin-top: -#{map.get(theme.$spacing, '3xl')};
+  }
+}
+
+.ecl-page-header--overlay-dark {
+  .ecl-page-header__background::before {
+    background-color: rgba(map.get(theme.$color, 'black'), 0.5);
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+}
+
+.ecl-page-header--overlay-light {
+  .ecl-page-header__background::before {
+    background-color: rgba(map.get(theme.$color, 'black'), 0.3);
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+}
