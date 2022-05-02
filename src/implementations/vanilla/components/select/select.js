@@ -342,6 +342,10 @@ export class Select {
       this.selectMultiple.remove();
     }
 
+    if (this.form) {
+      this.form.removeEventListener('reset', this.resetForm);
+    }
+
     this.select.parentNode.classList.remove('ecl-select__container--hidden');
 
     if (this.element) {
