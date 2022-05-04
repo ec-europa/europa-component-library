@@ -2,8 +2,6 @@
 order: 5
 title: Harmonised template
 ---
-Work in progress
-
 ## Anatomy
 
 ![](/cms-images/eu_standardised_1140.png)
