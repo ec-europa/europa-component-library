@@ -17,6 +17,10 @@ $_image-border-color: null !default;
   margin: 0;
 }
 
+.ecl-content-item--date {
+  flex-direction: row;
+}
+
 .ecl-content-item--divider {
   border-bottom: 1px solid $_divider-color;
   padding-bottom: map.get(theme.$spacing, 'l');
