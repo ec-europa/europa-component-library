@@ -4,7 +4,7 @@ order: 1
 ---
 Tags are components that indicate a taxonomy type. They can be found in different variants, offering a different interaction type, based on the use-case.
 
-## Display tag(s)
+# Display tag(s)
 
 Display tags only indicate the taxonomy term, users cannot interact with them, as they are used only for display purposes.
 
@@ -25,7 +25,9 @@ Display tags only indicate the taxonomy term, users cannot interact with them, a
 - do not use when you need to link to another page
 - do not use for search filters that can be removed
 
-### Link tag(s)
+</br>
+
+# Link tag(s)
 
 Link tags provide users with further navigation, related to the context in which they are used.
 
@@ -46,7 +48,9 @@ Link tags provide users with further navigation, related to the context in which
 - do not use when the tags are only for display purposes
 - do not use for search filters that can be removed
 
-## Removable tag(s)
+</br>
+
+# Removable tag(s)
 
 Removable tags are used as an indicator for performed searches. When they are removed (via the close button - icon), the taxonomy term used as a filter will be removed as well.
 
