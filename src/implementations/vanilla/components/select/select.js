@@ -94,6 +94,7 @@ export class Select {
     this.inputContainer = null;
     this.optionsContainer = null;
     this.searchContainer = null;
+    this.form = null;
 
     // Bind `this` for use in callbacks
     this.updateCurrentValue = this.updateCurrentValue.bind(this);
@@ -103,6 +104,7 @@ export class Select {
     this.handleFocusout = this.handleFocusout.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
+    this.resetForm = this.resetForm.bind(this);
   }
 
   /**
@@ -311,6 +313,11 @@ export class Select {
     // Respect default selected options.
     this.updateCurrentValue();
 
+    this.form = this.element.closest('form');
+    if (this.form) {
+      this.form.addEventListener('reset', this.resetForm);
+    }
+
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
   }
@@ -333,6 +340,10 @@ export class Select {
 
     if (this.selectMultiple) {
       this.selectMultiple.remove();
+    }
+
+    if (this.form) {
+      this.form.removeEventListener('reset', this.resetForm);
     }
 
     this.select.parentNode.classList.remove('ecl-select__container--hidden');
@@ -523,6 +534,29 @@ export class Select {
     ) {
       this.searchContainer.style.display = 'none';
     }
+  }
+
+  /**
+   * Reset Multiselect.
+   */
+  resetForm() {
+    // A slight timeout is necessary to execute the function just after the original reset of the form.
+    setTimeout(() => {
+      Array.from(this.select.options).forEach((option) => {
+        const checkbox = this.selectMultiple.querySelector(
+          `[data-select-multiple-value="${option.text}"]`
+        );
+        const input = checkbox.querySelector('.ecl-checkbox__input');
+        if (input.checked) {
+          option.setAttribute('selected', 'selected');
+          option.selected = true;
+        } else {
+          option.removeAttribute('selected', 'selected');
+          option.selected = false;
+        }
+      });
+      this.updateCurrentValue();
+    }, 10);
   }
 }
 
