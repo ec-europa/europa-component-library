@@ -69,15 +69,15 @@ $_taxonomy-color: null !default;
 // stylelint-disable-next-line no-descending-specificity
 .ecl-description-list__definition--inline
   .ecl-description-list__definition-item {
-  border-inline-start: 1px solid $_definition-color;
-  margin-inline-start: map.get(theme.$spacing, 'xs');
+  border-inline-end: 1px solid $_definition-color;
+  margin-inline-end: map.get(theme.$spacing, 'xs');
   margin-bottom: map.get(theme.$spacing, 'xs');
-  padding-inline-start: map.get(theme.$spacing, 'xs');
+  padding-inline-end: map.get(theme.$spacing, 'xs');
 
-  &:first-child {
-    border-inline-start-width: 0;
-    margin-inline-start: 0;
-    padding-inline-start: 0;
+  &:last-child {
+    border-inline-end-width: 0;
+    margin-inline-end: 0;
+    padding-inline-end: 0;
   }
 }
 
@@ -91,7 +91,7 @@ $_taxonomy-color: null !default;
 // stylelint-disable-next-line no-descending-specificity
 .ecl-description-list__definition--taxonomy
   .ecl-description-list__definition-item {
-  margin-inline-start: map.get(theme.$spacing, 'm');
+  margin-inline-end: map.get(theme.$spacing, 'm');
   margin-bottom: map.get(theme.$spacing, 'xs');
   padding-inline-start: map.get(theme.$spacing, 'm');
   position: relative;
@@ -109,12 +109,15 @@ $_taxonomy-color: null !default;
   }
 
   &:first-child {
-    margin-inline-start: 0;
     padding-inline-start: 0;
   }
 
   &:first-child::before {
     display: none;
+  }
+
+  &:last-child {
+    margin-inline-start: 0;
   }
 }
 
