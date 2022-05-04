@@ -2,8 +2,6 @@
 title: Usage
 order: 1
 ---
-## Introduction
-
 The News ticker component allows for the display of bite-sized pieces of information. As the name suggests, it is used to highlight the crucial and potentially urgent news, in a cycling way.
 
 ## Do's
