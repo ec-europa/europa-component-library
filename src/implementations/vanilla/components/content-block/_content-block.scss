@@ -40,8 +40,7 @@ $_link-separator-color: null !default;
 
 .ecl-content-block__primary-meta-container {
   color: $_primary_meta-color;
-  display: inline-flex;
-  flex-wrap: wrap;
+  display: inline-block;
   font: map.get(theme.$font, 's');
   list-style: none;
   margin: map.get(theme.$spacing, 'xs') 0 -#{map.get(theme.$spacing, 'xs')};
@@ -51,9 +50,11 @@ $_link-separator-color: null !default;
 
 .ecl-content-block__primary-meta-item {
   border-inline-end: 1px solid map.get(theme.$color, 'blue-100');
+  display: inline;
   margin-bottom: map.get(theme.$spacing, 'xs');
   margin-inline-end: map.get(theme.$spacing, 'm');
   padding-inline-end: map.get(theme.$spacing, 'm');
+  unicode-bidi: isolate;
 
   &:first-of-type {
     text-transform: uppercase;
@@ -139,6 +140,7 @@ $_link-separator-color: null !default;
 }
 
 .ecl-content-block__link-item {
+  line-height: map.get(theme.$line-height, 'm');
   margin-top: map.get(theme.$spacing, 'xs');
 
   &:first-child {
@@ -148,6 +150,10 @@ $_link-separator-color: null !default;
 
 .ecl-content-block__list-container {
   margin-top: map.get(theme.$spacing, 'l');
+}
+
+.ecl-content-block__title + .ecl-content-block__list-container {
+  margin-top: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-content-block__list {
