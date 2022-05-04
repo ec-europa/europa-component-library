@@ -52,12 +52,12 @@ The call to action is a link, it navigates users to another page or another sect
 - don't use link descriptions such as "More", "Further Information", "Visit", "Watch Now", "Download" or "Click Here" or any phrasing that uses the word "link"
 - don't make the active link area a large empty area around the link text
 
-### When to use
+## When to use
 
 - to provide the user direct access to relevant information without adding clutter to the page
 - if possible, place links at the end of a sentence, paragraph or section, so users take action after they've learned context and purpose
 - use links when necessary and avoid duplicating the same links within a section or page
 
-### When not to use
+## When not to use
 
 - to submit or confirm an action; use a button instead
