@@ -2,8 +2,6 @@
 title: Usage
 order: 1
 ---
-## Introduction
-
 The list with illustrations component is used for illustrative purposes only, allowing a multi-column layout display of content with an image, illustration or icon.
 
 The one-column layout also offers an optional zebra pattern, allowing users to easily scan through long lists.
