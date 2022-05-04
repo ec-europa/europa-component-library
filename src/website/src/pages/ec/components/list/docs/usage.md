@@ -6,7 +6,7 @@ Used to present chunks of information in a concise and scannable way, lists help
 
 # Ordered lists
 
-Ordered lists display a set of items in a sequential and logical order, indicated by a number in front of the label. Common use cases include counting, ranking or sequencing, but can be used in everything that has a hierarchy. Different list styles can be applied to list items, like numbers, roman numerals or letters, which can be used interchangeably when nesting (e.g. nested item 1 & 2 under item 3).
+Ordered lists display a set of items in a sequential and logical order, indicated by a number in front of the label. Common use cases include counting, ranking or sequencing, but can be used in everything that has a hierarchy.
 
 ## Do's
 
@@ -16,19 +16,19 @@ Ordered lists display a set of items in a sequential and logical order, indicate
 
 ## Don'ts
 
-- **do not nest lists deeper than 3 levels**
+- do not nest lists deeper than 3 levels
 
 ## When to use
 
 - use ordered lists when you need to display items in a specific order or to indicate hierarchy
-
-  </br>
 
 ## When not to use
 
 - do not use it for navigation purpose
 - do not use it when all items have equal value or importance
 - do not use when you have one or more overarching categories that require descriptions
+
+</br>
 
 # Unordered list
 
