@@ -236,6 +236,7 @@ const prepareData = (data, args) => {
     if (args.image_size === 'small') {
       clone.picture.img.src =
         'https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg';
+      clone.picture.sources[0].src = clone.picture.img.src;
     }
     clone.picture.position = args.image_position;
   }
