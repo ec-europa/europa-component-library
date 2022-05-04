@@ -2,8 +2,6 @@
 title: Usage
 order: 1
 ---
-## Introduction
-
 Featured item is a component that makes use of the Media container to add visual support to a piece of content.
 
 Optionally, it can be used as an entry point for other pages (through its CTA), or to highlight and further differentiate from other articles on the page (through its highlight stylisation).
