@@ -17,7 +17,7 @@ $_image-border-color: null !default;
   margin: 0;
 }
 
-.ecl-content-item--date {
+.ecl-content-item--inline {
   flex-direction: row;
 }
 
@@ -27,6 +27,7 @@ $_image-border-color: null !default;
 }
 
 .ecl-content-item__content-block {
+  font: map.get(theme.$font, 'm');
   max-width: 80ch;
 }
 

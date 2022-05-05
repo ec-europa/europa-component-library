@@ -61,8 +61,7 @@ $_taxonomy-color: null !default;
 }
 
 .ecl-description-list__definition--inline {
-  display: inline-flex;
-  flex-wrap: wrap;
+  display: inline-block;
   margin-bottom: -#{map.get(theme.$spacing, 'xs')};
 }
 
@@ -70,9 +69,11 @@ $_taxonomy-color: null !default;
 .ecl-description-list__definition--inline
   .ecl-description-list__definition-item {
   border-inline-end: 1px solid $_definition-color;
+  display: inline;
   margin-inline-end: map.get(theme.$spacing, 'xs');
   margin-bottom: map.get(theme.$spacing, 'xs');
   padding-inline-end: map.get(theme.$spacing, 'xs');
+  unicode-bidi: isolate;
 
   &:last-child {
     border-inline-end-width: 0;
@@ -83,14 +84,14 @@ $_taxonomy-color: null !default;
 
 .ecl-description-list__definition--taxonomy {
   color: $_taxonomy-color;
-  display: inline-flex;
-  flex-wrap: wrap;
+  display: inline-block;
   margin-bottom: -#{map.get(theme.$spacing, 'xs')};
 }
 
 // stylelint-disable-next-line no-descending-specificity
 .ecl-description-list__definition--taxonomy
   .ecl-description-list__definition-item {
+  display: inline;
   margin-inline-end: map.get(theme.$spacing, 'm');
   margin-bottom: map.get(theme.$spacing, 'xs');
   padding-inline-start: map.get(theme.$spacing, 'm');
@@ -104,7 +105,7 @@ $_taxonomy-color: null !default;
     height: 4px;
     left: -2px;
     position: absolute;
-    top: calc(50% - 2px);
+    top: 8px;
     width: 4px;
   }
 
