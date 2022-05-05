@@ -4,9 +4,9 @@ order: 1
 ---
 Search field enables users to input a search query into a search text field for search result. It features auto-completion of queries.
 
-## Dos 
+## Dos 
 
-- always include a search button
+- always include a search button
 
 ## Don'ts
 

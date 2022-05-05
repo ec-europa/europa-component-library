@@ -2,7 +2,7 @@
 title: Usage
 order: 1
 ---
-Tags are components that indicate a taxonomy type. They can be found in different variants, offering a different interaction type, based on the use-case.
+Tags are components that indicate a taxonomy type. They can be found in different variants, offering a different interaction type, based on the use-case.
 
 # Display tag(s)
 
@@ -10,7 +10,7 @@ Display tags only indicate the taxonomy term, users cannot interact with them, a
 
 ## Do's
 
-- use short, distinct and indicative labels, representative for the taxonomy term
+- use short, distinct and indicative labels, representative for the taxonomy term
 
 ## Don'ts
 
@@ -18,14 +18,14 @@ Display tags only indicate the taxonomy term, users cannot interact with them, a
 
 ## When to use
 
-- when tags can offer complementary information associated to the page's content
+- when tags can offer complementary information associated to the page's content
 
 ## When not to use
 
 - do not use when you need to link to another page
 - do not use for search filters that can be removed
 
-</br>
+  
 
 # Link tag(s)
 
@@ -33,7 +33,7 @@ Link tags provide users with further navigation, related to the context in which
 
 ## Do's
 
-- use **short, distinct and indicative links**, representative for the content you are linking to
+- use **short, distinct and indicative links**, representative for the content you are linking to
 
 ## Don'ts
 
@@ -48,7 +48,7 @@ Link tags provide users with further navigation, related to the context in which
 - do not use when the tags are only for display purposes
 - do not use for search filters that can be removed
 
-</br>
+  
 
 # Removable tag(s)
 
@@ -56,7 +56,7 @@ Removable tags are used as an indicator for performed searches. When they are re
 
 ## Do's
 
-- use short, distinct and indicative labels, representative for the content you are linking to
+- use short, distinct and indicative labels, representative for the content you are linking to
 - make sure the tag matches the filter option used in the search query
 
 ## When to use

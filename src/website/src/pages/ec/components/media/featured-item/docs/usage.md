@@ -2,11 +2,11 @@
 title: Usage
 order: 1
 ---
-Featured item is a component that makes use of the [Media container ](https://ec.europa.eu/component-library/ec/components/media/media-container/code/)to add visual support to a piece of content. Optionally, it can be used as an entry point for other pages (through its CTA), or to highlight and further differentiate from other articles on the page (through its highlight stylisation).
+Featured item is a component that makes use of the [Media container ](https://ec.europa.eu/component-library/ec/components/media/media-container/code/)to add visual support to a piece of content. Optionally, it can be used as an entry point for other pages (through its CTA), or to highlight and further differentiate from other articles on the page (through its highlight stylisation).
 
 ## Do's
 
-- select an appropriate image or video thumbnail, that is suggestive, complementary and relevant for the related content
+- select an appropriate image or video thumbnail, that is suggestive, complementary and relevant for the related content
 - use a CTA only if you need to link to another page
 
 ## Don'ts

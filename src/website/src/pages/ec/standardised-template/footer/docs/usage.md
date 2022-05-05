@@ -2,7 +2,7 @@
 title: Usage
 order: 1
 ---
-The standardised footer is displayed at the bottom of every page in the website within the EC ecosystem. Corporate footer section is mandatory.
+The standardised footer is displayed at the bottom of every page in the website within the EC ecosystem. Corporate footer section is mandatory.
 
 ## Anatomy
 

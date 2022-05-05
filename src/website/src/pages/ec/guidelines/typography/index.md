@@ -9,7 +9,7 @@ Note: all values expressed in pixels are in fact dynamically converted from rem 
 
 ## Typeface
 
-Arial is the standard typeface for the websites under the European Commission domain. The san serif typeface family is versatile and universal.
+Arial is the standard typeface for the websites under the European Commission domain. The san serif typeface family is versatile and universal.
 
 ```css
 font-family: Arial, sans-serif;
@@ -17,7 +17,7 @@ font-family: Arial, sans-serif;
 
 ## Modular type scale
 
-A modular type scale is a set of type sizes that are proportionally multiplied by the ratio working its way up or down.
+A modular type scale is a set of type sizes that are proportionally multiplied by the ratio working its way up or down.
 
 The purpose of using the modular type scale is to create a design that is visually pleasing, consistent, and balanced.
 
