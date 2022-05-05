@@ -5,7 +5,7 @@
   - "variant" (string) (default: 'default') Variant of banner (can be 'primary', 'secondary', 'white', 'image', 'image-shade', 'image-gradient')
   - "title" (string) (default: '') Title of banner
   - "image" (string) (default: '') Image for banner (required for image banner variant)
-  - "copyright" (string) (default: '') Copyright for the image
+  - "credit" (string) (default: '') Credit for the image
   - "description" (string) (default: '') Description of banner
   - "centered" (bool) (default: true) Define if banner should be centered
   - "full_width": (bool) (default: false) Full width banner (inside the grid)
@@ -26,7 +26,7 @@
 {% set _title = title|default('') %}
 {% set _description = description|default('') %}
 {% set _image = image|default('') %}
-{% set _copyright = copyright|default('') %}
+{% set _credit = credit|default('') %}
 {% set _link = link|default({}) %}
 
 {# Internal logic - Process properties #}
@@ -61,8 +61,8 @@
 {% if _image is not empty and _variant in ['image', 'image-shade', 'image-gradient'] %}
   <div class="ecl-hero-banner__image" style="background-image:url({{ _image }})"></div>
 {% endif %}
-{% if _copyright is not empty and _variant in ['image', 'image-shade', 'image-gradient'] %}
-  <div class="ecl-hero-banner__copyright">{{ _copyright }}</div>
+{% if _credit is not empty and _variant in ['image', 'image-shade', 'image-gradient'] %}
+  <div class="ecl-hero-banner__credit">{{ _credit }}</div>
 {% endif %}
   <div class="ecl-container">
     <div class="ecl-hero-banner__container">
