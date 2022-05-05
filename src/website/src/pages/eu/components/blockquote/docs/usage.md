@@ -2,12 +2,12 @@
 title: Usage
 order: 1
 ---
-The blockquotes component is used to capture users' attention of an excerpt, testimonial, or a quote cited from the article or other sources. The design style makes the quoted section more distinguishable than the rest of the content in the web page.
+The blockquotes component is used to capture users' attention of an excerpt, testimonial, or a quote cited from the article or other sources. The design style makes the quoted section more distinguishable than the rest of the content in the web page.
 
 ## Do's
 
 - always name the source of the quoted content
-- limit the quote to no longer than 80 characters
+- limit the quote to no longer than 80 characters
 - use the image variant to add a portrait of the quoted person
 
 ## Don'ts

@@ -2,7 +2,7 @@
 title: Usage
 order: 1
 ---
-A media gallery is a collection of images, videos or audio files that allows a user to browse media related to the page content. The media gallery can include multiple formats.
+A media gallery is a collection of images, videos or audio files that allows a user to browse media related to the page content. The media gallery can include multiple formats.
 
 ## Do's
 
