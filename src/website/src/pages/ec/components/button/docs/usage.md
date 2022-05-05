@@ -32,6 +32,8 @@ Primary button is designed for users to perform the most important task in a web
 - do not use when the primary action is negative - use secondary button
 - do not use when the action can't be undone, such as delete
 
+</br>
+
 # Secondary Button
 
 It is used to represent the secondary action in a web page. It is paired with a primary button. The secondary button serves as the negative action of the pair, such as “Delete,” "Cancel" or “Remove”.
@@ -59,6 +61,8 @@ It is used to represent the secondary action in a web page. It is paired with a 
 - do not use for navigation
 - do not place it to the left side of the button group
 
+</br>
+
 # Text Button
 
 Text button is used in a web page with less prominent action. It can be grouped with other buttons or placed independently.
@@ -80,6 +84,8 @@ Text button is used in a web page with less prominent action. It can be grouped 
 ## When not to use
 
 - do not use for navigation purpose
+
+</br>
 
 # Call to action (CTA) button
 
