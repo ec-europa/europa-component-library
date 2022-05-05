@@ -2,7 +2,11 @@
 title: Usage
 order: 1
 ---
-The News ticker component allows for the display of bite-sized pieces of information. As the name suggests, it is used to highlight the crucial and potentially urgent news, in a cycling way.
+## Introduction
+
+The News ticker component allows for the display of bite-sized pieces of information.
+
+As the name suggests, it is used to highlight the crucial and potentially urgent news, in a cycling way.
 
 ## Dos 
 
@@ -21,5 +25,5 @@ The News ticker component allows for the display of bite-sized pieces of informa
 
 ## When not to use
 
-- when there is a [Carousel component](https://ec.europa.eu/component-library/eu/components/carousel/code/) present, as they both contain moving elements which will compete for users' attention
+- when there is a [Carousel component](http://citnet.tech.ec.europa.eu/) present, as they both contain moving elements which will compete for users' attention
 - do not use it for trivial or outdated information
