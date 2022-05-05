@@ -2,8 +2,6 @@
 title: Usage
 order: 1
 ---
-## Introduction
-
 The list with illustrations component is used for illustrative purposes only, allowing a multi-column layout display of content with an image, illustration or icon.
 
 The one-column layout also offers an optional zebra pattern, allowing users to easily scan through long lists.
@@ -26,4 +24,4 @@ The one-column layout also offers an optional zebra pattern, allowing users to e
 
 ## When not to use
 
-- do not use when the primary scope is navigation - use [](http://citnet.tech.ec.europa.eu/)Content item or [](http://citnet.tech.ec.europa.eu/)[Cards](https://ec.europa.eu/component-library/ec/components/card/usage/) instead
+- do not use when the primary scope is navigation - use [](http://citnet.tech.ec.europa.eu/)[Content item](https://ec.europa.eu/component-library/ec/components/card/code/) or [](http://citnet.tech.ec.europa.eu/)[Cards](https://ec.europa.eu/component-library/ec/components/card/usage/) component instead
