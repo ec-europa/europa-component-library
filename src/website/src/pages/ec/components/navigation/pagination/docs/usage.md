@@ -6,11 +6,11 @@ Pagination component is the control to navigate through multiple pages.
 
 ## Do's
 
-- place the pagination below the list of items
+- place the pagination below the list of items
 
 ## Don'ts
 
-- don't replace this component with an "infinite scrolling" feature
+- don't replace this component with an "infinite scrolling" feature
 
 ## When to use
 

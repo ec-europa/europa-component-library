@@ -2,7 +2,7 @@
 title: Usage
 order: 1
 ---
-The core footer is present is displayed at the bottom of every page in the europa.eu website. Links provide information such as contact information, disclaimers, legal content, social media and the list of EC institutions under the EU emblem.
+The core footer is present is displayed at the bottom of every page in the europa.eu website. Links provide information such as contact information, disclaimers, legal content, social media and the list of EC institutions under the EU emblem.
 
 ## Anatomy
 
