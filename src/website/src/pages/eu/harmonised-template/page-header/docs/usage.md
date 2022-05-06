@@ -2,7 +2,7 @@
 title: Usage
 order: 1
 ---
-The page header component provides users the context of the page. It is always placed just below the site header. There are five variations of the page header. There are five variations of the page header.
+The page header component provides users the context of the page. It is always placed just below the site header. There are five variations of the page header. There are five variations of the page header.
 
 Default as in the anatomy image
 
@@ -35,16 +35,16 @@ Default as in the anatomy image
 
 ## Do's
 
-- if choosing a background image, make sure it highlights the main object related to the content, and it is clearly visible
+- if choosing a background image, make sure it highlights the main object related to the content, and it is clearly visible
 
 ## Don'ts
 
-- don't use more than one page header per page
-- do not choose a background image unless there is a communication need, as it might be a distraction
+- don't use more than one page header per page
+- do not choose a background image unless there is a communication need, as it might be a distraction
 
 ## When to use
 
-- page header can be used on both landing and content pages
+- page header can be used on both landing and content pages
 - to highlight the page topic, or to show important information about the page
 
 ## When not to use

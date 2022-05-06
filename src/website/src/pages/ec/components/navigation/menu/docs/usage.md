@@ -9,7 +9,7 @@ See "[playground](/playground/ec/?path=/story/components-navigation-menu--defaul
 ## Do's
 
 - keep first level items (parent pages) labels short, distinct and use maximum 16 characters including spaces, otherwise they will be hidden under a hamburger menu (☰) (for ENG labels, keep in mind a 20% buffer for other languages)
-- keep second level items (child pages) labels short, distinct and use maximum 32 characters (for ENG labels, keep in mind a 20% buffer for other languages)
+- keep second level items (child pages) labels short, distinct and use maximum 32 characters (for ENG labels, keep in mind a 20% buffer for other languages)
 
 ## Don'ts
 
