@@ -2,7 +2,7 @@
 title: Usage
 order: 1
 ---
-The timeline displays concurrent and/or sequential items visually on a time axis.
+The timeline displays concurrent and/or sequential items visually on a time axis.
 
 ## Do's
 

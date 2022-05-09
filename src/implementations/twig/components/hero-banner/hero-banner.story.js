@@ -27,6 +27,10 @@ const getArgs = (data) => {
   if (data.image) {
     args.image = data.image || '';
   }
+  if (data.credit) {
+    args.show_credit = true;
+    args.credit = data.credit || '';
+  }
 
   return args;
 };
@@ -49,6 +53,7 @@ const getArgTypes = (data) => {
         category: 'Optional',
       },
     },
+
     title: {
       type: { name: 'string', required: true },
       description: 'Heading of the banner',
@@ -117,10 +122,28 @@ const getArgTypes = (data) => {
       },
     },
   };
+
   if (data.image) {
+    argTypes.show_credit = {
+      name: 'credit',
+      type: { name: 'boolean' },
+      description: 'Show the credit',
+      table: {
+        category: 'Optional',
+      },
+    };
     argTypes.image = {
       type: 'string',
       description: 'Path or Url of the background image',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+    };
+    argTypes.credit = {
+      type: 'string',
+      description: 'Credit of the image',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
@@ -140,6 +163,10 @@ const prepareData = (data, args) => {
 
   if (data.image) {
     data.image = args.image;
+    data.credit = args.credit;
+  }
+  if (!args.show_credit) {
+    data.credit = '';
   }
   if (!args.show_description) {
     data.description = '';

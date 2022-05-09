@@ -10,7 +10,7 @@ Note: all values expressed in pixels are in fact dynamically converted from rem 
 
 ## Typeface
 
-Arial is the standard typeface for the websites under the Europa.eu domain. The sans serif typeface family is versatile and universal.
+Arial is the standard typeface for the websites under the Europa.eu domain. The sans serif typeface family is versatile and universal.
 
 ```css
 font-family: Arial, sans-serif;

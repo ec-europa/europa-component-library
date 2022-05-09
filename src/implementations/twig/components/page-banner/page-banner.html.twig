@@ -5,6 +5,7 @@
   - "variant" (string) (default: 'default') Variant of banner (can be 'primary', 'secondary', 'white', 'image', 'image-shade', 'image-gradient')
   - "title" (string) (default: '') Title of banner
   - "image" (string) (default: '') Image for banner (required for image banner variant)
+  - "credit" (string) (default: '') Credit for the image
   - "description" (string) (default: '') Description of banner
   - "centered" (bool) (default: true) Define if banner should be centered
   - "full_width": (bool) (default: false) Full width banner (inside the grid)
@@ -25,6 +26,7 @@
 {% set _title = title|default('') %}
 {% set _description = description|default('') %}
 {% set _image = image|default('') %}
+{% set _credit = credit|default('') %}
 {% set _link = link|default({}) %}
 
 {# Internal logic - Process properties #}
@@ -59,13 +61,18 @@
 {% if _image is not empty and _variant in ['image', 'image-shade', 'image-gradient'] %}
   <div class="ecl-page-banner__image" style="background-image:url({{ _image }})"></div>
 {% endif %}
+{% if _credit is not empty and _variant in ['image', 'image-shade', 'image-gradient'] %}
+  <div class="ecl-page-banner__credit">{{ _credit }}</div>
+{% endif %}
   <div class="ecl-container">
     <div class="ecl-page-banner__container">
     {% if _title is not empty or _description is not empty or _link is not empty %}
       <div class="ecl-page-banner__content">
         <div class="ecl-page-banner__title">{{ _title }}</div>
         {% if _description is not empty %}
-          <p class="ecl-page-banner__description">{{ _description }}</p>
+          <p class="ecl-page-banner__description">
+            <span class="ecl-page-banner__description-text">{{ _description }}</span>
+          </p>
         {% endif %}
         {% if _link is not empty %}
           {% set _link_extra_classes = 'ecl-page-banner__link-cta' %}

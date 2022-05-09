@@ -36,6 +36,17 @@ $_font-weight: null !default;
   position: relative;
 }
 
+.ecl-hero-banner__credit {
+  background: rgba(map.get(theme.$color, 'black'), 0.54);
+  color: map.get(theme.$color, 'white-100');
+  font: map.get(theme.$font, 's');
+  padding: map.get(theme.$spacing, '2xs') map.get(theme.$spacing, 's');
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+
 // stylelint-disable-next-line plugin/selector-bem-pattern
 .ecl-container
   .ecl-hero-banner:not(.ecl-hero-banner--full-width)
@@ -336,7 +347,6 @@ $_font-weight: null !default;
 
   // manage ratio 3:1
   .ecl-hero-banner__image::before {
-    background-image: map.get($_overlay, 'image-gradient');
     border-radius: map.get($_border-radius, 'banner')
       map.get($_border-radius, 'banner') 0 0;
     content: '';
@@ -371,15 +381,21 @@ $_font-weight: null !default;
       padding-top: 0;
     }
 
-    .ecl-hero-banner__title,
-    .ecl-hero-banner__description {
+    .ecl-hero-banner__title {
       backdrop-filter: blur(8px);
-      background: rgba(map.get(theme.$color, 'black'), 0.35);
-      padding: 4px 12px;
+      background: rgba(map.get(theme.$color, 'black'), 0.54);
+      padding: map.get(theme.$spacing, '2xs') map.get(theme.$spacing, 's');
     }
 
     .ecl-hero-banner__description {
-      margin-top: 4px;
+      margin-top: map.get(theme.$spacing, '2xs');
+    }
+
+    .ecl-hero-banner__description-text {
+      box-decoration-break: clone;
+      background: rgba(map.get(theme.$color, 'black'), 0.54);
+      line-height: 1.75;
+      padding: map.get(theme.$spacing, '2xs') map.get(theme.$spacing, 's');
     }
   }
 }

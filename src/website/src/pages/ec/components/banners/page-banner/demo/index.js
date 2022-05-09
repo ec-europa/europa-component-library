@@ -6,9 +6,7 @@ import demoContentSimplePrimary from '@ecl/specs-component-page-banner/demo/data
 import template from '@ecl/twig-component-page-banner/page-banner.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 
-export const pageBannerImageBox = template(
-  correctSvgPath(correctSvgPath(demoContentImageBox))
-);
+export const pageBannerImageBox = template(correctSvgPath(demoContentImageBox));
 export const pageBannerImageShade = template(
   correctSvgPath(demoContentImageShade)
 );
