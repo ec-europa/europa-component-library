@@ -5,7 +5,7 @@ order: 1
 The Social Media Share component allows users to add a personalised message to a link before sharing a specific page through their preferred social media
 network. It showcases the most popular ones, while the rest can be found in an overlay, by clicking the "other social networks" button.
 
-functionality provided by [WebTools](https://webgate.ec.europa.eu/fpfis/wikis/display/webtools/Social+Media+Kit)
+functionality provided by [WebTools](https://webgate.ec.europa.eu/fpfis/wikis/display/webtools/Social+Media+Kit)
 
 ## Do's
 

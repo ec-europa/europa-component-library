@@ -2,7 +2,7 @@
 title: Usage
 order: 1
 ---
-The facts and figures component is used to deliver numerical representations of facts that are easier portrayed visually through the use of statistics.
+The facts and figures component is used to deliver numerical representations of facts that are easier portrayed visually through the use of statistics.
 
 ## Do's
 

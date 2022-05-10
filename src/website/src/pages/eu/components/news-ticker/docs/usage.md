@@ -25,5 +25,5 @@ As the name suggests, it is used to highlight the crucial and potentially urgent
 
 ## When not to use
 
-- when there is a [Carousel component](http://citnet.tech.ec.europa.eu/) present, as they both contain moving elements which will compete for users' attention
+- when there is a [Carousel component](https://v3--europa-component-library.netlify.app/eu/components/carousel/code/) present, as they both contain moving elements which will compete for users' attention
 - do not use it for trivial or outdated information
