@@ -140,7 +140,8 @@ $_link-separator-color: null !default;
 }
 
 .ecl-content-block__link-item {
-  line-height: map.get(theme.$line-height, 'm');
+  font: map.get(theme.$font-prolonged, 's');
+  line-height: map.get(theme.$line-height-prolonged, 's');
   margin-top: map.get(theme.$spacing, 'xs');
 
   &:first-child {
