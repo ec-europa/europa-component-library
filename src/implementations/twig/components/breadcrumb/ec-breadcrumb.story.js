@@ -59,7 +59,7 @@ const prepareData = (data, args) => {
 };
 
 export default {
-  title: 'Components/Site-wide/Navigation/Breadcrumb',
+  title: 'Components/Navigation/Breadcrumb',
   decorators: [withNotes, withCode],
   parameters: { layout: 'fullscreen' },
 };

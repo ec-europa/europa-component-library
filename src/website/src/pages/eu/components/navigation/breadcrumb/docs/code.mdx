@@ -5,7 +5,6 @@ order: 2
 
 import { Playground, Html } from '@ecl/website-components';
 import { breadcrumbLongCore } from '../demo/core';
-import { breadcrumbLongStandardised } from '../demo/standardised';
 import { breadcrumbLongHarmonised } from '../demo/harmonised';
 
 When there are more than 3 items, the breadcrumb should be collapsed by default and items should be displayed if there's enough space.
@@ -16,30 +15,19 @@ The first item and the last 2 items should always be visible.
 
 <Playground
   system="eu"
-  selectedKind="components-navigation-breadcrumbs-breadcrumb-core"
-  selectedStory="default"
+  selectedKind="components-navigation-breadcrumbs-breadcrumb"
+  selectedStory="core"
   showFrame
 >
   <Html markup={breadcrumbLongCore} />
-</Playground>
-
-### Standardised
-
-<Playground
-  system="eu"
-  selectedKind="components-navigation-breadcrumbs-breadcrumb-standardised"
-  selectedStory="default"
-  showFrame
->
-  <Html markup={breadcrumbLongStandardised} />
 </Playground>
 
 ### Harmonised
 
 <Playground
   system="eu"
-  selectedKind="components-navigation-breadcrumbs-breadcrumb-harmonised"
-  selectedStory="default"
+  selectedKind="components-navigation-breadcrumbs-breadcrumb"
+  selectedStory="harmonised"
   showFrame
 >
   <Html markup={breadcrumbLongHarmonised} />
