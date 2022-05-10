@@ -12,7 +12,6 @@ $_primary-meta-color: null !default;
 $_title-font: null !default;
 $_description-color: null !default;
 $_secondary-meta-color: null !default;
-$_secondary-meta-font: null !default;
 $_secondary-meta-icon-color: null !default;
 $_link-separator-color: null !default;
 
@@ -41,7 +40,7 @@ $_link-separator-color: null !default;
 .ecl-content-block__primary-meta-container {
   color: $_primary_meta-color;
   display: inline-block;
-  font: map.get(theme.$font, 's');
+  font: map.get(theme.$font-prolonged, 's');
   list-style: none;
   margin: map.get(theme.$spacing, 'xs') 0 -#{map.get(theme.$spacing, 'xs')};
   padding: 0;
@@ -85,7 +84,7 @@ $_link-separator-color: null !default;
   color: $_secondary-meta-color;
   display: flex;
   flex-direction: column;
-  font: $_secondary-meta-font;
+  font: map.get(theme.$font-prolonged, 's');
   list-style: none;
   margin: map.get(theme.$spacing, 'm') 0 0;
   padding: 0;
@@ -140,7 +139,7 @@ $_link-separator-color: null !default;
 }
 
 .ecl-content-block__link-item {
-  font: map.get(theme.$font-prolonged, 's');
+  line-height: map.get(theme.$line-height, 'm');
   margin-top: map.get(theme.$spacing, 'xs');
 
   &:first-child {
