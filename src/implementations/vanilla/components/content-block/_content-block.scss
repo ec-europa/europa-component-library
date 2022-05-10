@@ -165,6 +165,10 @@ $_link-separator-color: null !default;
   }
 }
 
+.ecl-content-block__list + .ecl-content-block__list {
+  margin-top: map.get(theme.$spacing, 'l');
+}
+
 .ecl-content-block > *:first-child {
   margin-top: 0;
 }
