@@ -75,15 +75,10 @@
 
   <div class="ecl-container">
   {% if _breadcrumb is not empty %}
-    {% if _variant is not empty and _variant == 'negative' %}
-      {%- include '@ecl/breadcrumb-core/breadcrumb-core.html.twig' with _breadcrumb|merge({
-        extra_classes: 'ecl-page-header__breadcrumb',
-      }) only -%}
-    {%- else -%}
-      {%- include '@ecl/breadcrumb-standardised/breadcrumb-standardised.html.twig' with _breadcrumb|merge({
-        extra_classes: 'ecl-page-header__breadcrumb',
-      }) only -%}
-    {%- endif -%}
+    {%- include '@ecl/breadcrumb/breadcrumb.html.twig' with _breadcrumb|merge({
+      variant: _variant,
+      extra_classes: 'ecl-page-header__breadcrumb',
+    }) only -%}
   {% endif %}
 
   {% if _meta is not empty %}
