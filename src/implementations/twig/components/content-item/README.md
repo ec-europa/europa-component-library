@@ -8,43 +8,59 @@ npm install --save @ecl/twig-component-content-item
 
 ### Parameters
 
-- **"variant"** (string) (default: ''): Variant of the content item (can be 'image-right' or 'event')
-- **"image"** (associative array) (default: {}):
-  - "src" (string) (default: ''): Path to the image
-  - "size" (string) (default: 'm'): Size of the image (can be 's' or 'l')
-- **"date"** (associative array) (default: {}): Predefined structure compatible with Date block component
-- **"labels"** (array) (default: []): List of labels compatible with EC Label component structure
-- **"meta"** (array) (default: []): Meta's for the Content item
-- **"title"** (associative array) (default: {}): Predefined structure compatible with Link component
-- **"description"** (string) (default: ''): Description of the Content item
-- **"infos"** (array) (default: []): format: [
+- **picture** (associative array) (default: {}):
+  - **size** (string) (default: 'large'): Size of the picture (can be 'small' or 'large'). Small pictures should be square
+  - **position** (string) (default: 'left'): Position of the picture (can be 'left' or 'right')
+  - **img** (associative array) (default: {}):
+    - **src** (string) (default: ''): Path to the default image
+    - **alt** (string) (default: ''): Alt text of the default image
+  - **sources** (array) (default: []): format: [
+    {
+    **src** (string) (default: ''): Path to the source image
+    **media** (string) (default: ''): Media condition to use this source
+    **type** (string) (default: ''): Type of this source
+    },
+    ...
+    ]
+- **date** (associative array) (default: {}): Predefined structure compatible with ECL Date block component
+- **labels** (array) (default: []): Array of ECL Labels
+- **primary_meta** (array of strings) (default: []): Primary meta of the content item
+- **title** (associative array) (default: {}): Title of the content item, following ECL Link structure
+- **description** (string) (default: ''): Description of the content item
+- **secondary_meta** (array) (default: []): format: [
   {
-  "label" (string) (default: ''): Label of info item
-  "icon" (associative array) (default: {}) A predefined structure compatible with Icon component
+  **label** (string) (default: ''): Label of secondary meta item
+  **icon** (array) (default: {}) Icon of the secondary meta, following ECL Icon structure
   },
   ...
   ]
-- **"lists"** (array) (default: []) Array of objects of type "description list". Used for taxonomy
-- **"extra_classes"** (string) (default: '')
-- **"extra_attributes"** (array) (default: []): format: [
+- **divider** (boolean) (default: false): Optional divider below the content item
+- **lists** (array) (default: []): Array of ECL Description list
+- **extra_classes** (string) (default: '')
+- **extra_attributes** (array) (default: []): format: [
   {
-  "name" (string) (default: ''),
-  "value" (optional) (string)
+  **name** (string) (default: ''),
+  **value** (optional) (string)
   ...
   ],
 
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/content-item/content-item.html.twig' with { 
-  image: {
-    src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
-    size: 'l',
+  divider: true,
+  picture: {
+    position: 'left',
+    size: 'large',
+    img: {
+      src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+      alt: 'Alt text of the image',
+    },
   },
   labels: [
     { label: 'highlight', variant: 'highlight' },
     { label: 'high importance', variant: 'high' },
   ],
-  meta: ['PRIMARY META', 'DD Month Year'],
+  primary_meta: ['PRIMARY META', 'DD Month Year'],
   title: {
     type: 'standalone',
     label: 'Title',
@@ -52,7 +68,7 @@ npm install --save @ecl/twig-component-content-item
   },
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus',
-  infos: [
+  secondary_meta: [
     {
       icon: {
         name: 'calendar',
@@ -74,53 +90,64 @@ npm install --save @ecl/twig-component-content-item
     {
       items: [
         {
-          term: 'Science areas',
+          term: 'Standard text',
+          definition:
+            'Lorem ipsum dolor sit amet, <a href="#" class="ecl-link">consectetur adipiscing elit</a>. Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis',
+        },
+        {
+          term: 'Standalone links',
+          type: 'link',
           definition: [
             {
-              label: 'Energy and transport',
-              variant: 'display',
+              link: {
+                label: 'Lorem ipsum dolor sit amet',
+                path: exampleLink,
+                icon_position: 'before',
+              },
+              icon: {
+                name: 'copy',
+                path: '/icons.svg',
+                size: 's',
+              },
             },
             {
-              label: 'Standards',
-              variant: 'display',
+              link: {
+                label: 'Lorem ipsum dolor sit amet',
+                path: exampleLink,
+                icon_position: 'before',
+              },
+              icon: {
+                name: 'download',
+                path: '/icons.svg',
+                size: 's',
+              },
             },
           ],
         },
         {
-          term: 'Keywords',
+          term: 'Links inline',
+          type: 'link-inline',
           definition: [
             {
-              label: 'Electricity',
-              variant: 'display',
+              link: {
+                label: 'Lorem ipsum dolor sit amet',
+                path: exampleLink,
+              },
             },
             {
-              label: 'Electromobility',
-              variant: 'display',
-            },
-            {
-              label: 'Energy',
-              variant: 'display',
-            },
-            {
-              label: 'Energy storage',
-              variant: 'display',
-            },
-            {
-              label: 'Security',
-              variant: 'display',
-            },
-            {
-              label: 'Transport',
-              variant: 'display',
-            },
-            {
-              label: 'Low carbon',
-              variant: 'display',
+              link: {
+                label: 'Lorem ipsum dolor sit amet',
+                path: exampleLink,
+              },
             },
           ],
         },
+        {
+          term: 'Taxonomy list',
+          type: 'taxonomy',
+          definition: ['Taxonomy item 1', 'Taxonomy item 2', 'Taxonomy item 3'],
+        },
       ],
-      variant: 'taxonomy',
     },
   ],
 } %}

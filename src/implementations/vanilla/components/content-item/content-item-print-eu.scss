@@ -1,0 +1,6 @@
+@use 'sass:map';
+@use '@ecl/theme-dev/theme';
+@use 'content-item-print' with (
+  $_divider-color: map.get(theme.$color, 'blue-20'),
+  $_image-border-color: map.get(theme.$color, 'blue-20')
+);
