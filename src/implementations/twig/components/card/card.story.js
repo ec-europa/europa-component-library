@@ -4,22 +4,16 @@ import { correctSvgPath } from '@ecl/story-utils';
 
 import dataCard from '@ecl/specs-component-card/demo/data--card';
 import dataCardTaxonomy from '@ecl/specs-component-card/demo/data--card-taxonomy';
-import dataCardTile from '@ecl/specs-component-card/demo/data--tile';
 import card from './card.html.twig';
 import notes from './README.md';
 
-const metaClone = [...dataCard.card.meta];
-const infosClone = [...dataCard.card.infos];
-const linkClone = [...dataCardTile.card.links];
-const tagClone = [...dataCard.card.tags];
-const labelClone = [...dataCard.card.labels];
 const descriptionListClone = { ...dataCardTaxonomy.card.lists[0] };
 const taxonomyListClone = { ...dataCardTaxonomy.card.lists[1] };
 
-const getArgs = (data, variant) => {
+const getArgs = (data) => {
   const args = {};
   args.show_description = true;
-  if (variant === 'card') {
+  if (data.card.image) {
     args.show_image = true;
     args.image = (data.card && data.card.image && data.card.image.src) || '';
   }
@@ -28,8 +22,8 @@ const getArgs = (data, variant) => {
   args.show_meta = !!data.card.meta;
   args.show_labels = !!data.card.labels;
 
-  if (variant === 'tile') {
-    args.show_links = !!data.card.links;
+  if (data.card.links) {
+    args.show_links = true;
   }
   args.show_lists = false;
   args.show_taxonomy = false;
@@ -39,7 +33,7 @@ const getArgs = (data, variant) => {
   return args;
 };
 
-const getArgTypes = (data, variant) => {
+const getArgTypes = (data) => {
   const argTypes = {};
   argTypes.show_description = {
     name: 'description',
@@ -57,7 +51,7 @@ const getArgTypes = (data, variant) => {
       category: 'Optional',
     },
   };
-  if (variant === 'card') {
+  if (data.card.image) {
     argTypes.show_image = {
       name: 'image',
       type: { name: 'boolean' },
@@ -100,7 +94,7 @@ const getArgTypes = (data, variant) => {
       category: 'Optional',
     },
   };
-  if (variant === 'tile') {
+  if (data.card.links) {
     argTypes.show_links = {
       name: 'links',
       type: 'boolean',
@@ -149,36 +143,49 @@ const getArgTypes = (data, variant) => {
 };
 
 const prepareData = (data, args) => {
+  correctSvgPath(data);
+  const clone = JSON.parse(JSON.stringify(data));
   const lists = [];
 
+  // Optional elements
   if (args.show_lists) {
     lists.push(descriptionListClone);
   }
   if (args.show_taxonomy) {
     lists.push(taxonomyListClone);
   }
-
-  if (data.card.image) {
-    data.card.image.src = args.image;
+  if (!args.show_description) {
+    delete clone.card.description;
+  }
+  if (!args.show_image) {
+    delete clone.card.image;
+  }
+  if (!args.show_meta) {
+    delete clone.card.meta;
+  }
+  if (!args.show_labels) {
+    delete clone.card.labels;
+  }
+  if (!args.show_infos) {
+    delete clone.card.infos;
+  }
+  if (!args.show_tags) {
+    delete clone.card.tags;
   }
 
-  data.card.description = args.show_description ? args.description : '';
-
-  if (data.card.image) {
-    data.card.image.src = args.show_image ? args.image : '';
+  // Other controls
+  if (clone.card.image) {
+    clone.card.image.src = args.image;
   }
+  if (clone.card.description) {
+    clone.card.description = args.description;
+  }
+  if (clone.card.title) {
+    clone.card.title.label = args.title;
+  }
+  clone.card.lists = lists;
 
-  data.card.title.label = args.title;
-  data.card.tags = args.show_tags ? tagClone : [];
-  data.card.meta = args.show_meta ? metaClone : [];
-  data.card.links = args.show_links ? linkClone : [];
-  data.card.infos = args.show_infos ? infosClone : [];
-  data.card.labels = args.show_labels ? labelClone : [];
-  data.card.lists = lists;
-
-  correctSvgPath(data);
-
-  return data;
+  return clone;
 };
 
 export default {
@@ -189,13 +196,6 @@ export default {
 export const Card = (args) => card(prepareData(dataCard, args));
 
 Card.storyName = 'default';
-Card.args = getArgs(dataCard, 'card');
-Card.argTypes = getArgTypes(dataCard, 'card');
+Card.args = getArgs(dataCard);
+Card.argTypes = getArgTypes(dataCard);
 Card.parameters = { notes: { markdown: notes, json: dataCard } };
-
-export const Tile = (args) => card(prepareData(dataCardTile, args));
-
-Tile.storyName = 'tile';
-Tile.args = getArgs(dataCardTile, 'tile');
-Tile.argTypes = getArgTypes(dataCardTile, 'tile');
-Tile.parameters = { notes: { markdown: notes, json: dataCardTile } };

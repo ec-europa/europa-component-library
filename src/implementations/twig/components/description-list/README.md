@@ -8,10 +8,15 @@ npm install --save @ecl/twig-component-description-list
 
 ### Parameters
 
-- **"items"** (array) (default: [])
-  - "term" (string or array of string)
-  - "definition" (block or array of string or array of objects of type "tag")
-- **"variant"** (optional) (string) (default: '') Modifier of the component (horizontal, vertical, taxonomy)
+- **items** (array) (default: []): format: [
+  {
+  "term" (string or array of string)
+  "definition" (block or array of string or array of ECL Link or array of ECL Tag)
+  "type" (string): type of data (text, link, taxonomy)
+  },
+  ...
+  ]
+- **variant** (string) (default: ''): global variant of the list (horizontal, vertical)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
@@ -24,23 +29,64 @@ npm install --save @ecl/twig-component-description-list
 {% include '@ecl/description-list/description-list.html.twig' with { 
   variant: 'horizontal',
   items: [
-    { 
-      term: 'European Commission', 
-      definition: 
-        'The executive body of the European Union formed in 1967, which initiates action in the EU and mediates between member governments. Former name (until 1993): Commission of the European Communities' 
-    }, 
-    { 
-      term: ['European Union', 'EU'], 
-      definition: 
-        'An association of European nations formed in 1993 for the purpose of achieving political and economic integration.' 
-    }, 
-    { 
-      term: 'Citizen', 
-      definition: [ 
-        'A native or naturalized member of a state or nation who owes allegiance to its government and is entitled to its protection', 
-        'An inhabitant of a city or town, especially one entitled to its privileges or franchises.' 
-      ] 
-    } 
-  ] 
+    {
+      term: 'Standard text',
+      definition:
+        'Lorem ipsum dolor sit amet, <a href="#" class="ecl-link">consectetur adipiscing elit</a>. Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis',
+    },
+    {
+      term: 'Standalone links',
+      type: 'link',
+      definition: [
+        {
+          link: {
+            label: 'Lorem ipsum dolor sit amet',
+            path: exampleLink,
+            icon_position: 'before',
+          },
+          icon: {
+            name: 'copy',
+            path: '/icons.svg',
+            size: 's',
+          },
+        },
+        {
+          link: {
+            label: 'Lorem ipsum dolor sit amet',
+            path: exampleLink,
+            icon_position: 'before',
+          },
+          icon: {
+            name: 'download',
+            path: '/icons.svg',
+            size: 's',
+          },
+        },
+      ],
+    },
+    {
+      term: 'Links inline',
+      type: 'link-inline',
+      definition: [
+        {
+          link: {
+            label: 'Lorem ipsum dolor sit amet',
+            path: exampleLink,
+          },
+        },
+        {
+          link: {
+            label: 'Lorem ipsum dolor sit amet',
+            path: exampleLink,
+          },
+        },
+      ],
+    },
+    {
+      term: 'Taxonomy list',
+      type: 'taxonomy',
+      definition: ['Taxonomy item 1', 'Taxonomy item 2', 'Taxonomy item 3'],
+    },
+  ],
 } %}
 ```
