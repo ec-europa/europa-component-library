@@ -193,22 +193,6 @@ $_list-padding: null !default;
   padding-inline-end: $_list-padding;
   padding-top: map.get(theme.$spacing, 'm');
 
-  /* stylelint-disable plugin/selector-bem-pattern */
-  .ecl-description-list__term {
-    width: auto;
-  }
-
-  .ecl-description-list__definition {
-    margin-inline-start: 0;
-    margin-top: map.get(theme.$spacing, 'xs');
-    width: auto;
-  }
-
-  .ecl-description-list__definition:first-of-type {
-    margin-top: map.get(theme.$spacing, 'xs');
-  }
-
-  /* stylelint-enable plugin/selector-bem-pattern */
   + .ecl-card__list {
     margin-top: map.get(theme.$spacing, 's');
     padding-top: map.get(theme.$spacing, 's');

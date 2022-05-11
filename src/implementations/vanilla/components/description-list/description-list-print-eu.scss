@@ -1,0 +1,8 @@
+@use 'sass:map';
+@use '@ecl/theme-dev/theme';
+@use 'description-list-print' with (
+  $_term-color: map.get(theme.$color, 'grey-140'),
+  $_term-font: map.get(theme.$font-prolonged-print, 'l'),
+  $_definition-color: map.get(theme.$color, 'grey-140'),
+  $_taxonomy-color: map.get(theme.$color, 'grey-80')
+);

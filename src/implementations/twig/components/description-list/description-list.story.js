@@ -1,9 +1,9 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
+import { correctSvgPath } from '@ecl/story-utils';
 
 import dataDescriptionListDefault from '@ecl/specs-component-description-list/demo/data--default';
 import dataDescriptionListHorizontal from '@ecl/specs-component-description-list/demo/data--horizontal';
-import dataDescriptionListTaxonomy from '@ecl/specs-component-description-list/demo/data--taxonomy';
 
 import descriptionList from './description-list.html.twig';
 import notes from './README.md';
@@ -68,6 +68,8 @@ const prepareData = (data, args) => {
   } else {
     data.items[0].definition[0].label = args.label;
   }
+
+  correctSvgPath(data);
   return data;
 };
 
@@ -94,14 +96,4 @@ Horizontal.args = getArgs(dataDescriptionListHorizontal);
 Horizontal.argTypes = getArgTypes(dataDescriptionListHorizontal);
 Horizontal.parameters = {
   notes: { markdown: notes, json: dataDescriptionListHorizontal },
-};
-
-export const Taxonomy = (args) =>
-  descriptionList(prepareData(dataDescriptionListTaxonomy, args));
-
-Taxonomy.storyName = 'description (taxonomy)';
-Taxonomy.args = getArgs(dataDescriptionListTaxonomy);
-Taxonomy.argTypes = getArgTypes(dataDescriptionListTaxonomy);
-Taxonomy.parameters = {
-  notes: { markdown: notes, json: dataDescriptionListTaxonomy },
 };
