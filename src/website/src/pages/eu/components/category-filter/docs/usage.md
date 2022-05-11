@@ -1,3 +1,8 @@
+---
+title: Usage
+order: 1
+---
+
 The category filter is a component that allows users to recognise the hierarchy of a set of items that can be filtered, and narrow down results as they select categories up to 4 levels.
 
 ## Do's
