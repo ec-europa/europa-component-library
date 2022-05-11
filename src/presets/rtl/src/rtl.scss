@@ -43,6 +43,13 @@ html {
   left: 0;
 }
 
+// Description list
+.ecl-description-list__definition--taxonomy::before
+  .ecl-description-list__definition-item::before {
+  left: auto;
+  right: -2px;
+}
+
 // Gallery
 .ecl-gallery__image-icon {
   left: 0;

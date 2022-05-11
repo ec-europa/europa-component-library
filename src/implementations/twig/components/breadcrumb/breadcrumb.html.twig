@@ -1,0 +1,145 @@
+{% spaceless %}
+
+{#
+  Parameters:
+    - "variant" (string) options:[ negative ] (default: '') Negative style with a darker background (only for EC)
+    - "links" (array) (default: []): format: [
+      {
+        "label" (string) (default: '') Label of link
+        "path" (string) (default: '') Url of link
+      },
+      ...
+    ],
+    - "navigation_text" (string) (default: ''): Text of navigation in breadcrumb
+    - "ellipsis_label" (string) (default: ''): Label of the ellipsis, e.g. "Click to expand"
+    - "ellipsis_text" (string) (default: '...'): Text of the ellipsis
+    - "icon_file_path" (string) (default: ''): URL to icons file
+    - "icon_size" (string) (default: '2xs'): Size of the icon between segments
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        ...
+      ]
+#}
+
+{# Internal properties #}
+
+{% set _variant = variant|default('') %}
+{% set _breadcrumb_size = links|length %}
+{% set _links = links|default([]) %}
+{% set _icon_file_path = icon_file_path|default('') %}
+{% set _icon_size = icon_size|default('2xs') %}
+{% set _navigation_text = navigation_text|default('') %}
+{% set _ellipsis_label = ellipsis_label|default('') %}
+{% set _ellipsis_text = ellipsis_text|default('…') %}
+{% set _extra_attributes = '' %}
+{% set _breadcrumb_segment_class = 'ecl-breadcrumb__segment' %}
+{% set _min_items_left = min_items_left|default(1) %}
+{% set _min_items_right = min_items_right|default(2) %}
+{% set _nav_attributes = [
+  { name: 'aria-label', value: _navigation_text },
+  { name: 'data-ecl-breadcrumb', value: 'true' }]
+%}
+{% set _breadcrumb_icon = {
+  icon: {
+    name: 'corner-arrow',
+    size: _icon_size,
+    transform: 'rotate-90',
+    path: _icon_file_path,
+  },
+  extra_classes: 'ecl-breadcrumb__icon',
+  extra_attributes: [{ name: 'role', value: 'presentation' }]
+} %}
+
+{% set _css_class = 'ecl-breadcrumb' %}
+
+{# Internal logic - Process properties #}
+
+{% if _variant is not empty and _variant == 'negative' %}
+  {% set _css_class = _css_class ~ ' ecl-breadcrumb--negative' %}
+{% endif %}
+
+{% if _breadcrumb_size > (_min_items_left + _min_items_right) %}
+  {% set _nav_attributes = _nav_attributes|merge([{ name: 'data-ecl-auto-init', value: 'Breadcrumb' }]) %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% set extra_attributes = extra_attributes|merge(_nav_attributes) %}
+{% else %}
+  {% set extra_attributes = _nav_attributes %}
+{% endif %}
+
+{% for attr in extra_attributes %}
+  {% if attr.value is defined %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+  {% else %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+  {% endif %}
+{% endfor %}
+
+{# Print the result #}
+
+<nav class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <ol class="ecl-breadcrumb__container">
+  {% if _links is not empty %}
+    {% for key, link in _links %}
+      {% set _breadcrumb_segment_attributes = 'data-ecl-breadcrumb-item="static"' %}
+      {# Last item is not a link. #}
+      {% if loop.last %}
+        {% set _breadcrumb_segment_attributes = _breadcrumb_segment_attributes ~ ' aria-current="page"' %}
+        <li class="{{ _breadcrumb_segment_class ~ ' ecl-breadcrumb__current-page' }}" {{ _breadcrumb_segment_attributes|raw }}>
+          {{- link.label -}}
+        </li>
+      {% else %}
+        {# The logic is based on mandatory elements to be shown left side and right side.
+        If the number of items is bigger than the sum of these two an "ellipsis" item is added and the element are marked as "expandable" #}
+        {% if _breadcrumb_size > (_min_items_left + _min_items_right) and key > 0 and key < (_breadcrumb_size - _min_items_right) %}
+          {% set _breadcrumb_segment_attributes = 'data-ecl-breadcrumb-item="expandable"' %}
+          {% if key == _min_items_left %}
+            <li
+            class="{{ _breadcrumb_segment_class ~ ' ecl-breadcrumb__segment--ellipsis' }}"
+            data-ecl-breadcrumb-ellipsis
+            >
+              {% include '@ecl/button/button.html.twig' with {
+                variant: 'ghost',
+                label: _ellipsis_text,
+                type: 'button',
+                extra_classes: 'ecl-breadcrumb__ellipsis',
+                extra_attributes: [
+                  { name: 'data-ecl-breadcrumb-ellipsis-button' },
+                  { name: 'aria-label', value: _ellipsis_label },
+                ]
+              } only %}
+              {% include '@ecl/icon/icon.html.twig' with _breadcrumb_icon only %}
+            </li>
+          {% endif %}
+        {% endif %}
+        {# Render all the items with different attributes, aria labels are set via js #}
+        <li class="{{ _breadcrumb_segment_class }}" {{ _breadcrumb_segment_attributes|raw }}>
+          {% set _link_extra_class = 'ecl-breadcrumb__link' %}
+          {% if _variant is not empty and _variant == 'negative' %}
+            {% set _link_extra_class = _link_extra_class ~ ' ecl-link--negative' %}
+          {% endif %}
+          {% include '@ecl/link/link.html.twig' with {
+            link: link|default({})|merge({
+              type: 'standalone',
+              no_visited: true,
+            }),
+            extra_classes: _link_extra_class,
+            icon_path: _icon_file_path
+          } only %}
+          {% include '@ecl/icon/icon.html.twig' with _breadcrumb_icon only %}
+        </li>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+  </ol>
+</nav>
+
+{% endspaceless %}
