@@ -9,7 +9,6 @@ npm install --save @ecl/twig-component-card
 ### Parameters
 
 - **"card"** (associative array) (default: predefined structure below)
-  - "type" (string) (default: '') - Card type ('tile')
   - "description" (string) (default: '') - Description of card
   - "meta" (array) (default: []) - Meta's for the Card
   - "title" (associative array) (default: {}) - Predefined structure compatible with Link component. If Card type is a 'tile', only label property is required.
@@ -43,11 +42,14 @@ npm install --save @ecl/twig-component-card
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 
+### Deprecated:
+
+- card.type: '', (can be 'tile'): Card type
+
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/card/card.html.twig' with { 
   card: { 
-    type: 'tile', 
     description: 'Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.', 
     image: { 
       src: 'https://v2--europa-component-library.netlify.com/example-image.jpg', 

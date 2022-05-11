@@ -199,23 +199,6 @@ $_list-padding: null !default;
   }
 }
 
-.ecl-card--tile {
-  .ecl-card__body {
-    padding-bottom: $_body-padding-bottom;
-    padding-top: $_body-padding-bottom;
-  }
-
-  // stylelint-disable max-nesting-depth
-  .ecl-description-list--horizontal {
-    .ecl-description-list__term {
-      color: $_text-color;
-      font: map.get(theme.$font-prolonged, 'm');
-      font-weight: map.get(theme.$font-weight, 'bold');
-    }
-  }
-  // stylelint-enable max-nesting-depth
-}
-
 /*
  * Spacing adjustment
  */

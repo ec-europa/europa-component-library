@@ -4,7 +4,6 @@
   Parameters:
     - "card" (associative array) (default: predefined structure): format:
         {
-          type: '', (can be 'tile'): Card type
           description: '', (string) (default: ''): Description of card
           meta: [], (array) (default: []): Meta's for the Card
           title: {}, (associative array) (default: {}): Predefined structure compatible with Link component. If Card type is a 'tile', only label property is required.
@@ -48,12 +47,14 @@
           "value" (optional) (string)
         ...
       ],
+
+  Deprecated:
+    card.type: '', (can be 'tile'): Card type
 #}
 
 {# Internal properties #}
 
 {% set _card = {
-  type: '',
   description: '',
   meta: [],
   title: {},
@@ -72,10 +73,12 @@
 {% set _extra_attributes = '' %}
 {% set _icon_path = icon_path|default('') %}
 
-{# Set class for card different than default #}
+{# Backward compatibility #}
 
-{% if _card.type is not empty %}
-  {% set _css_class = _css_class ~ ' ecl-card--' ~ _card.type %}
+{% set _type = card.type|default('') %}
+
+{% if _type is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-card--' ~ _type %}
 {% endif %}
 
 {# Internal logic - Process properties #}

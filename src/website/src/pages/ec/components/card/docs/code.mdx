@@ -4,7 +4,7 @@ order: 2
 ---
 
 import { Playground, Html } from '@ecl/website-components';
-import { card, tile, cardTaxonomy, tileTaxonomy } from '../demo';
+import { card, cardTaxonomy } from '../demo';
 
 ## Card
 
@@ -21,21 +21,4 @@ import { card, tile, cardTaxonomy, tileTaxonomy } from '../demo';
   selectedArgs="show_tags:false;show_lists:true;show_taxonomy:true"
 >
   <Html markup={cardTaxonomy} />
-</Playground>
-
-## Tile
-
-<Playground system="ec" selectedKind="components-card" selectedStory="tile">
-  <Html markup={tile} />
-</Playground>
-
-## Tile taxonomy
-
-<Playground
-  system="ec"
-  selectedKind="components-card"
-  selectedStory="tile"
-  selectedArgs="show_description:false;show_links:false;show_lists:true;show_taxonomy:true;title:"
->
-  <Html markup={tileTaxonomy} />
 </Playground>
