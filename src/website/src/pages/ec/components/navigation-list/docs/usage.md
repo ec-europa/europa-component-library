@@ -3,7 +3,6 @@ Navigation lists provide users with a quick way to scan through items and access
 ## Do's
 
 - use labels that are short, distinct and indicative of the parent page
-- when adding a parent page with no children pages, a summary should always be used in the absence of links
 
 ## Don'ts
 
