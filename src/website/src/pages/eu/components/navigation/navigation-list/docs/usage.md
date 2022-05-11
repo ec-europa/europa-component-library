@@ -1,3 +1,8 @@
+---
+title: Usage
+order: 1
+---
+
 Navigation lists provide users with a quick way to scan through items and access the information they are looking for, supporting the information architecture. It can offer a quick description of the parent page and/or display child pages that belong to it.
 
 ## Do's
