@@ -1,0 +1,135 @@
+/*
+ * Breadcrumbs
+ * @define breadcrumb
+ */
+
+@use 'sass:map';
+@use '@ecl/theme-dev/theme';
+
+$_container-padding: 0 0 map.get(theme.$spacing, 'm') !default;
+$_segment-margin-top: map.get(theme.$spacing, 'm') !default;
+$_link-font: null !default;
+$_link-font-weight: null !default;
+$_last-link-color: null !default;
+$_icon-color: null !default;
+$_background-color: null !default;
+$_ellipsis-color: null !default;
+$_ellipsis-background-color: null !default;
+$_ellipsis-background-color-hover: null !default;
+$_ellipsis-padding-horizontal: null !default;
+$_ellispis-outline-width: null !default;
+
+.ecl-breadcrumb {
+  background-color: $_background-color;
+  margin: 0;
+}
+
+.ecl-breadcrumb__container {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: $_container-padding;
+
+  &::after {
+    clear: both;
+    content: '';
+    display: block;
+  }
+}
+
+.ecl-breadcrumb__segment {
+  align-items: center;
+  display: inline-flex;
+  margin-top: $_segment-margin-top;
+  max-width: 100%;
+
+  &[aria-hidden='true'] {
+    position: absolute;
+    visibility: hidden;
+
+    /* Force display if JS is disabled */
+    /* stylelint-disable-next-line max-nesting-depth */
+    .no-js & {
+      position: static;
+      visibility: visible;
+    }
+  }
+}
+
+.ecl-breadcrumb__segment--ellipsis {
+  &[aria-hidden='false'] {
+    /* Force hide if JS is disabled */
+    /* stylelint-disable-next-line max-nesting-depth */
+    .no-js & {
+      display: none;
+    }
+  }
+}
+
+.ecl-breadcrumb__ellipsis {
+  background-color: $_ellipsis-background-color;
+  border-width: 0;
+  box-sizing: border-box;
+  color: $_ellipsis-color;
+  font: $_link-font;
+  font-weight: map.get(theme.$font-weight, 'bold');
+  margin: 0;
+  padding: 0 $_ellipsis-padding-horizontal;
+
+  &:hover {
+    background-color: $_ellipsis-background-color-hover;
+    color: $_ellipsis-color;
+  }
+
+  &:focus {
+    margin: -$_ellispis-outline-width;
+    padding: 0 $_ellipsis-padding-horizontal;
+  }
+}
+
+.ecl-breadcrumb__link {
+  font: $_link-font;
+  font-weight: $_link-font-weight;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ecl-breadcrumb__icon {
+  fill: $_icon-color;
+  flex-shrink: 0;
+  margin-inline-start: map.get(theme.$spacing, 'xs');
+  margin-inline-end: map.get(theme.$spacing, 'xs');
+  vertical-align: text-bottom;
+}
+
+.ecl-breadcrumb__current-page {
+  color: $_last-link-color;
+  font: $_link-font;
+  font-weight: $_link-font-weight;
+}
+
+/*
+ * Negative variant - Core EC
+ */
+.ecl-breadcrumb--negative {
+  background-color: map.get(theme.$color, 'blue-100');
+
+  .ecl-breadcrumb__ellipsis {
+    color: map.get(theme.$color, 'white-100');
+
+    &:hover {
+      background-color: map.get(theme.$color, 'blue-120');
+    }
+  }
+
+  .ecl-breadcrumb__icon {
+    fill: map.get(theme.$color, 'white-100');
+  }
+
+  .ecl-breadcrumb__current-page {
+    color: map.get(theme.$color, 'blue-25');
+  }
+}
