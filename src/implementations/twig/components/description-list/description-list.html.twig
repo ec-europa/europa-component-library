@@ -5,11 +5,12 @@
     - "items" (array) (default: []): format: [
         {
           "term" (string or array of string)
-          "definition" (block or array of string or array of objects of type tag)
+          "definition" (block or array of string or array of ECL Link or array of ECL Tag)
+          "type" (string): type of data (text, link, taxonomy)
         },
         ...
       ]
-    - "variant" (string) (default: '') (horizontal, vertical, taxonomy)
+    - "variant" (string) (default: ''): global variant of the list (horizontal, vertical)
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -60,24 +61,48 @@
           <dt class="ecl-description-list__term">{{ _item.term }}</dt>
         {% endif %}
       {% endif %}
+
       {% if _item.definition is not empty %}
         {% if _item.definition is iterable %}
-          {% if _item.definition[0].label is defined %}
+
+          {# taxonomy #}
+          {% if _item.type is not empty and _item.type == 'taxonomy' %}
+            <dd class="ecl-description-list__definition ecl-description-list__definition--taxonomy">
+            {% for _definition in _item.definition %}
+              <span class="ecl-description-list__definition-item">{{- _definition -}}</span>
+            {% endfor %}
+            </dd>
+
+          {# links #}
+          {% elseif _item.type is not empty and _item.type == 'link' %}   
+            <dd class="ecl-description-list__definition ecl-description-list__definition--link">
+            {% for _definition in _item.definition %}
+              {% include '@ecl/link/link.html.twig' with _definition|merge({
+                extra_classes: 'ecl-description-list__definition-item',
+              }) only %}
+            {% endfor %}
+            </dd>
+
+          {# links inline #}
+          {% elseif _item.type is not empty and _item.type == 'link-inline' %}   
+            <dd class="ecl-description-list__definition ecl-description-list__definition--inline">     
+            {% for _definition in _item.definition %}  
+              {% include '@ecl/link/link.html.twig' with _definition|merge({
+                extra_classes: 'ecl-description-list__definition-item',
+              })  only %}
+            {% endfor %}
+            </dd>
+
+          {# text #}
+          {% else %}
             <dd class="ecl-description-list__definition">
-          {% endif %}
-          {% for _definition in _item.definition %}
-            {% if _definition.label is not defined %}
-              <dd class="ecl-description-list__definition">{{ _definition }}</dd>
-            {% else %}
-              {% include '@ecl/tag/tag.html.twig' with {
-                tag: _definition|merge({ type: 'display' }),
-                extra_classes: 'ecl-description-list__tag'
-              } only %}
-            {% endif %}
-          {% endfor %}
-          {% if _item.definition[0].label is defined %}
+            {% for _definition in _item.definition %}  
+              {{- _definition -}}
+            {% endfor %}
             </dd>
           {% endif %}
+
+        {# block #}
         {% else %}
           <dd class="ecl-description-list__definition">{%- block definition _item.definition -%}</dd>
         {% endif %}

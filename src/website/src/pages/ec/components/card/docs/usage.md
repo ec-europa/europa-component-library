@@ -6,9 +6,7 @@ Cards component is used as an entry point to more detailed information. The comp
 
 ## Do's
 
-- use cards to emphasize on contents
-- only display the most relevant information on each card
-  illustration: card with a thumbnail, title, description
+- only display the most relevant information on each card illustration: card with a thumbnail, title, description
 - keep the amount of links on the cards as low as possible
 
 ## Don'ts
@@ -16,7 +14,7 @@ Cards component is used as an entry point to more detailed information. The comp
 - overuse cards
 - limit the amount of cards to small groups of items
 - limit to 3-4 cards within a row
-- display too many links on a cards, the main and ideally only action on card should remain to navigate to the content it represent
+- display too many links on a cards, the main and ideally only action on card should remain to navigate to the content it represent.
 
 ## When to use
 
@@ -24,16 +22,7 @@ Cards component is used as an entry point to more detailed information. The comp
 - grouping heterogeneous types of content
 - allowing users to scan through content in small portions
 
-  - to display structured content
-  - to make information discoverable
-
-- the user goals that the card-based web design best responds to:
-
-  - scrolling through
-  - scanning through
-  - browsing through
-
 ## When not to use
 
-- searching for information (as opposed to browsing)
-- on small screen display avoid using too many cards as they force users to scroll down and rely on their short-term memory. This creates a cognitive overload, a negative user experience
+- searching for information (as opposed to browsing).
+- on small screen display avoid using too many cards as they force users to scroll down and rely on their short-term memory, creating cognitive overload, which may result in a negative user experience.

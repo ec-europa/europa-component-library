@@ -3,7 +3,7 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
-  variant: 'event',
+  divider: false,
   date: {
     date_time: '2019-09-26',
     day: '26',
@@ -15,7 +15,7 @@ module.exports = {
     { label: 'highlight', variant: 'highlight' },
     { label: 'high importance', variant: 'high' },
   ],
-  meta: ['PRIMARY META', 'DD Month Year'],
+  primary_meta: ['PRIMARY META', 'DD Month Year'],
   title: {
     type: 'standalone',
     label: 'Title',
@@ -23,7 +23,7 @@ module.exports = {
   },
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus',
-  infos: [
+  secondary_meta: [
     {
       icon: {
         name: 'calendar',
@@ -45,53 +45,64 @@ module.exports = {
     {
       items: [
         {
-          term: 'Science areas',
+          term: 'Standard text',
+          definition:
+            'Lorem ipsum dolor sit amet, <a href="#" class="ecl-link">consectetur adipiscing elit</a>. Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis',
+        },
+        {
+          term: 'Standalone links',
+          type: 'link',
           definition: [
             {
-              label: 'Energy and transport',
-              variant: 'display',
+              link: {
+                label: 'Lorem ipsum dolor sit amet',
+                path: exampleLink,
+                icon_position: 'before',
+              },
+              icon: {
+                name: 'copy',
+                path: '/icons.svg',
+                size: 's',
+              },
             },
             {
-              label: 'Standards',
-              variant: 'display',
+              link: {
+                label: 'Lorem ipsum dolor sit amet',
+                path: exampleLink,
+                icon_position: 'before',
+              },
+              icon: {
+                name: 'download',
+                path: '/icons.svg',
+                size: 's',
+              },
             },
           ],
         },
         {
-          term: 'Keywords',
+          term: 'Links inline',
+          type: 'link-inline',
           definition: [
             {
-              label: 'Electricity',
-              variant: 'display',
+              link: {
+                label: 'Lorem ipsum dolor sit amet',
+                path: exampleLink,
+              },
             },
             {
-              label: 'Electromobility',
-              variant: 'display',
-            },
-            {
-              label: 'Energy',
-              variant: 'display',
-            },
-            {
-              label: 'Energy storage',
-              variant: 'display',
-            },
-            {
-              label: 'Security',
-              variant: 'display',
-            },
-            {
-              label: 'Transport',
-              variant: 'display',
-            },
-            {
-              label: 'Low carbon',
-              variant: 'display',
+              link: {
+                label: 'Lorem ipsum dolor sit amet',
+                path: exampleLink,
+              },
             },
           ],
         },
+        {
+          term: 'Taxonomy list',
+          type: 'taxonomy',
+          definition: ['Taxonomy item 1', 'Taxonomy item 2', 'Taxonomy item 3'],
+        },
       ],
-      variant: 'taxonomy',
     },
   ],
 };
