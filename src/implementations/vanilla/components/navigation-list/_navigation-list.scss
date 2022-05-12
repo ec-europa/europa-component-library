@@ -9,7 +9,7 @@
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 $_image-margin: null !default;
-$_content_block_margin: null !default;
+$_content_block_padding: null !default;
 $_border-radius: null !default;
 $_shadow: null !default;
 $_border: null !default;
@@ -67,7 +67,7 @@ $_border: null !default;
 }
 
 .ecl-navigation-list__content-block {
-  padding: $_content_block_margin;
+  padding: $_content_block_padding;
   position: relative;
 }
 
