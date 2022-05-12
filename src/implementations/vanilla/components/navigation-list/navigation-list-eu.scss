@@ -1,5 +1,25 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
 @use 'navigation-list' with (
-  $_border-radius: 8px
+  $_image-margin: 0,
+  $_content_block_margin: map.get(theme.$spacing, 'l'),
+  $_border-radius: 8px,
+  $_shadow: 0 0 6px rgba(9, 49, 142, 0.2),
+  $_border: 0
 );
+
+.ecl-navigation-list__item:not(.ecl-navigation-list__item--no-border) {
+  .ecl-navigation-list__content-block {
+    &::before {
+      background-color: map.get(theme.$color, 'yellow-100');
+      border-bottom-left-radius: 2px;
+      border-bottom-right-radius: 2px;
+      content: '';
+      height: 4px;
+      left: map.get(theme.$spacing, 'l');
+      position: absolute;
+      top: 0;
+      width: 32px;
+    }
+  }
+}
