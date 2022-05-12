@@ -2,22 +2,29 @@
 title: Group 3
 order: 3
 ---
+![](/cms-images/screenshot-2022-04-13-at-11.40.03.png)
 
-import { Paragraph, List, Anatomy, Link } from '@ecl/website-components';
+### Notice
 
-<Paragraph size="lead">
-  On this page you will find information related to the{' '}
-  <strong>EC branded Harmonised group 3 websites</strong> that host specific
-  content that answers a particular communication purpose, in particular{' '}
-  <strong>partnership websites</strong>.
+From release 3.3 onwards, the individual templates (Core, Standardised & Harmonised) can be found on the ECL **as configurations of the structurally merged components** (Site header, Page header & Footer), which now have a single, dedicated page. Concurrently, the EWG (Europa Web Guide) has also been updated to better accommodate information regarding the optionality of components & elements per site type. Please follow the corresponding links found in the table below for more information.
+
+### Pages affected
+
+| Knowledge base                 | New location                                                                                                                                                                                                        |                                                                                                                           |                                                                                                                 |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| ECL (Europa component library) | [EC Site header - Harmonised config.](https://citnet.tech.ec.europa.eu/CITnet/confluence/pages/viewpage.action?pageId=1092071063https://ec.europa.eu/component-library/ec/components/site-header/usage/#harmonised) | [EC Page header - Harmonised config.](https://ec.europa.eu/component-library/ec/components/page-header/usage/#harmonised) | [EC Footer - Harmonised config.](https://ec.europa.eu/component-library/ec/components/footer/usage/#harmonised) |
+| EWG (Europa web guide)         | [Guidelines for EC branded Harmonised website](https://wikis.ec.europa.eu/display/WEBGUIDE/EC+branded+harmonised+websites+design)                                                                                   |                                                                                                                           |                                                                                                                 |
+
+On this page you will find information related to the
+<strong>EC branded Harmonised group 3 websites</strong> that host specific content that answers a particular communication purpose, in particular <strong>partnership websites</strong>.
 </Paragraph>
 <Paragraph size="lead">
-  A Partnership website is where the European Commission is a co-operating
-  partner in its creation but is not the sole owner of the information contained
-  therein. It is a joint effort between the EC and non-EC partners in terms of
-  concept, budget, management and maintenance and requires its own individual
-  form of governance and custom style guides to accommodate possible
-  co-branding.
+A Partnership website is where the European Commission is a co-operating
+partner in its creation but is not the sole owner of the information contained
+therein. It is a joint effort between the EC and non-EC partners in terms of
+concept, budget, management and maintenance and requires its own individual
+form of governance and custom style guides to accommodate possible
+co-branding.
 </Paragraph>
 
 ## Anatomy
@@ -26,7 +33,7 @@ import { Paragraph, List, Anatomy, Link } from '@ecl/website-components';
 image="https://inno-ecl.s3.amazonaws.com/media/images/EC/HarmonisedTemplate/harmonised-3-template.png"
 alt="Anatomy of the harmonised template - group 3"
 legend={{
-    items: [
+    items: \[
       {
         color: '#404040',
         label: 'mandatory',
