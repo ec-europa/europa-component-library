@@ -127,7 +127,7 @@ const prepareData = (data, args) => {
 };
 
 export default {
-  title: 'Components/Footers/Standardised',
+  title: 'Deprecated/Footers/Standardised',
   decorators: [withCode, withNotes],
   parameters: { layout: 'fullscreen' },
 };

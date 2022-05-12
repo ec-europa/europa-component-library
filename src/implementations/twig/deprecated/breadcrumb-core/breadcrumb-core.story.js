@@ -6,7 +6,7 @@ import getSystem from '@ecl/builder/utils/getSystem';
 import dataDefaultEU from '@ecl/specs-component-breadcrumb/demo/data--eu';
 import dataDefaultEC from '@ecl/specs-component-breadcrumb/demo/data--ec';
 
-import breadcrumb from './breadcrumb-harmonised.html.twig';
+import breadcrumb from './breadcrumb-core.html.twig';
 import notes from './README.md';
 
 const system = getSystem();
@@ -44,17 +44,16 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
-  correctSvgPath(data);
   data.links.forEach((item, i) => {
     item.label = args[`item${i + 1}`];
-    item.negative = false;
+    item.negative = system === 'ec';
   });
 
-  return data;
+  return correctSvgPath(data);
 };
 
 export default {
-  title: 'Components/Navigation/Breadcrumbs/Breadcrumb Harmonised',
+  title: 'Deprecated/Navigation/Breadcrumbs/Breadcrumb Core',
   decorators: [withNotes, withCode],
   parameters: { layout: 'fullscreen' },
 };

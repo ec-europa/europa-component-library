@@ -27,7 +27,7 @@ const prepareData = (data) => {
 };
 
 export default {
-  title: 'Components/Footers/Core',
+  title: 'Deprecated/Footers/Core',
   decorators: [withCode, withNotes],
   parameters: {
     layout: 'fullscreen',

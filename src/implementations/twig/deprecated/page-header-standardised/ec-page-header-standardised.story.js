@@ -156,7 +156,7 @@ const prepareData = (data, args) => {
 };
 
 export default {
-  title: 'Components/Page Headers/Standardised',
+  title: 'Deprecated/Page Headers/Standardised',
   decorators: [withNotes, withCode],
   parameters: { layout: 'fullscreen' },
 };
