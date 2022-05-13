@@ -16,7 +16,7 @@ From release 3.3 onwards, the individual templates (Core, Standardised & Harmoni
 On this page you will find information related to the EC
 branded <strong>Harmonised group 2 websites</strong> that host specific
 content that answers a particular communication purpose, in particular:
-
+<ul>
   <li>
     <strong>Event website</strong> - Purpose of advertising a specific or
     repeatedly occurring activity that is open to the public, organised and/or
@@ -33,7 +33,7 @@ content that answers a particular communication purpose, in particular:
     general features and news items about specific European Commission
     activities
   </li>
-</List>
+</ul>
 
 ## Anatomy
 
