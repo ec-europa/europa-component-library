@@ -16,7 +16,6 @@ From release 3.3 onwards, the individual templates (Core, Standardised & Harmoni
 On this page you will find information related to the European Commission
 branded Harmonised group 1 websites that host specific
 content that answers a particular communication purpose, in particular:
-</Paragraph>
 
 - **Web information systems** : Providing a user-friendly
   interface to generate, disclose and/or filter large, detailed amounts of data stored in different systems
