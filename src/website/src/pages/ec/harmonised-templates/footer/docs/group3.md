@@ -8,10 +8,12 @@ order: 3
 
 From release 3.3 onwards, the individual templates (Core, Standardised & Harmonised) can be found on the ECL **as configurations of the structurally merged components** (Site header, Page header & Footer), which now have a single, dedicated page. Concurrently, the EWG (Europa Web Guide) has also been updated to better accommodate information regarding the optionality of components & elements per site type. Please follow the corresponding links found in the table below for more information.
 
-| Knowledge base                 | New location                                                                                                                                                                                                        |                                                                                                                           |                                                                                                                 |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| ECL (Europa component library) | [EC Site header - Harmonised config.](https://citnet.tech.ec.europa.eu/CITnet/confluence/pages/viewpage.action?pageId=1092071063https://ec.europa.eu/component-library/ec/components/site-header/usage/#harmonised) | [EC Page header - Harmonised config.](https://ec.europa.eu/component-library/ec/components/page-header/usage/#harmonised) | [EC Footer - Harmonised config.](https://ec.europa.eu/component-library/ec/components/footer/usage/#harmonised) |
-| EWG (Europa web guide)         |                                                                                                                                                                                                                     |                                                                                                                           |                                                                                                                 |
+| Knowledge base                 | New location                                                                                                                                   |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| EWG (Europa web guide)         | [Guidelines for EC branded Harmonised websites - Footer(s)](https://wikis.ec.europa.eu/display/WEBGUIDE/EC+branded+harmonised+websites+design) |
+| ECL (Europa component library) | [EC Footer component - Harmonised config.](https://ec.europa.eu/component-library/ec/components/footer/usage/#harmonised)                      |
+
+---
 
 The Harmonised footer is present on every page. It provides supplementary information about the partnerships.
 
