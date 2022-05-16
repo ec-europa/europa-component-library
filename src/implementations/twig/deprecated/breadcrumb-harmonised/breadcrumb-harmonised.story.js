@@ -6,7 +6,7 @@ import getSystem from '@ecl/builder/utils/getSystem';
 import dataDefaultEU from '@ecl/specs-component-breadcrumb/demo/data--eu';
 import dataDefaultEC from '@ecl/specs-component-breadcrumb/demo/data--ec';
 
-import breadcrumb from './breadcrumb-standardised.html.twig';
+import breadcrumb from './breadcrumb-harmonised.html.twig';
 import notes from './README.md';
 
 const system = getSystem();
@@ -54,7 +54,7 @@ const prepareData = (data, args) => {
 };
 
 export default {
-  title: 'Components/Navigation/Breadcrumbs/Breadcrumb Standardised',
+  title: 'Deprecated/Navigation/Breadcrumbs/Breadcrumb Harmonised',
   decorators: [withNotes, withCode],
   parameters: { layout: 'fullscreen' },
 };

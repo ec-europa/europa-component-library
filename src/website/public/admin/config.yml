@@ -92,11 +92,10 @@ collections:
         name: 'ec_carousel'
         file: 'src/website/src/pages/ec/components/carousel/docs/usage.md'
         fields:
-          - { label: Body, name: body, widget: ma
-                rkdown }
+          - { label: Body, name: body, widget: markdown }
       - label: 'Category filter'
         name: 'ec_category-filter'
-        file: 'src/website/src/pages/ec/components/navigation/category-filter/docs/usage.md'
+        file: 'src/website/src/pages/ec/components/category-filter/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Checkbox'
@@ -117,6 +116,11 @@ collections:
       - label: 'Datepicker'
         name: 'ec_datepicker'
         file: 'src/website/src/pages/ec/components/forms/datepicker/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'File upload'
+        name: 'ec_file_upload'
+        file: 'src/website/src/pages/ec/components/forms/file-upload/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'List illustration'
@@ -226,7 +230,7 @@ collections:
           - { label: Body, name: body, widget: markdown }
       - label: 'Navigation list'
         name: 'ec_navigation-list'
-        file: 'src/website/src/pages/ec/components/navigation-list/docs/usage.md'
+        file: 'src/website/src/pages/ec/components/navigation/navigation-list/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'News ticker'
@@ -576,7 +580,7 @@ collections:
           - { label: Body, name: body, widget: markdown }
       - label: 'Category filter'
         name: 'eu_category-filter'
-        file: 'src/website/src/pages/eu/components/navigation/category-filter/docs/usage.md'
+        file: 'src/website/src/pages/eu/components/category-filter/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Checkbox'
@@ -597,6 +601,11 @@ collections:
       - label: 'Datepicker'
         name: 'eu_datepicker'
         file: 'src/website/src/pages/eu/components/forms/datepicker/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'File upload'
+        name: 'eu_file_upload'
+        file: 'src/website/src/pages/eu/components/forms/file-upload/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'List illustration'
@@ -691,7 +700,7 @@ collections:
           - { label: Body, name: body, widget: markdown }
       - label: 'Navigation list'
         name: 'eu_navigation-list'
-        file: 'src/website/src/pages/eu/components/navigation-list/docs/usage.md'
+        file: 'src/website/src/pages/eu/components/navigation/navigation-list/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'News ticker'
