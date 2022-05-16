@@ -13,6 +13,7 @@ const getArgs = () => {
   args.show_border = true;
   args.show_image = true;
   args.show_description = true;
+  args.show_links = true;
   args.column = 2;
 
   return args;
@@ -52,6 +53,16 @@ const getArgTypes = () => {
       category: 'Optional',
     },
   };
+  argTypes.show_links = {
+    name: 'links',
+    type: 'boolean',
+    description: 'Show links list',
+    table: {
+      type: 'boolean',
+      defaultValue: { summary: true },
+      category: 'Optional',
+    },
+  };
 
   // Other controls
   argTypes.column = {
@@ -80,6 +91,9 @@ const prepareData = (data, args) => {
     }
     if (!args.show_description) {
       delete clone.items[i].description;
+    }
+    if (!args.show_links) {
+      delete clone.items[i].links;
     }
   }
 
