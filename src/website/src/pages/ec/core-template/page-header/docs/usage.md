@@ -2,6 +2,19 @@
 title: Usage
 order: 1
 ---
+![](/cms-images/soon-to-be-deprecated-image.png)
+
+### Notice
+
+From release 3.3 onwards, the individual templates (Core, Standardised & Harmonised) can be found on the ECL **as configurations of the structurally merged components** (Site header, Page header & Footer), which now have a single, dedicated page. Concurrently, the EWG (Europa Web Guide) has also been updated to better accommodate information regarding the optionality of components & elements per site type. Please follow the corresponding links found in the table below for more information.
+
+| Knowledge base                 | New location                                                                                                                              |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| EWG (Europa web guide)         | [Guidelines on EC Core branded websites - Page header(s)](https://wikis.ec.europa.eu/display/WEBGUIDE/01.+EC+branded+core+website+design) |
+| ECL (Europa component library) | [EC Page header component - Core config.](https://ec.europa.eu/component-library/ec/components/page-header/usage/#core)                   |
+
+---
+
 The page header component provides users the context of the page. It is always placed just below the site header. There are five variations of the page header.
 
 The anatomy image is the default page header
