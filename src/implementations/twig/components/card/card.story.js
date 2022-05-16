@@ -22,6 +22,15 @@ const getArgs = (data) => {
     args.show_image = true;
     args.image = (data.image && data.image.src) || '';
   }
+  if (data.labels) {
+    args.show_labels = true;
+  }
+  if (data.primary_meta) {
+    args.show_primary_meta = true;
+  }
+  if (data.title) {
+    args.title = data.title.label;
+  }
   if (data.description) {
     args.show_description = true;
     args.description = data.description;
@@ -32,17 +41,8 @@ const getArgs = (data) => {
   if (data.tags) {
     args.show_tags = !!data.tags;
   }
-  if (data.primary_meta) {
-    args.show_primary_meta = true;
-  }
-  if (data.labels) {
-    args.show_labels = true;
-  }
   if (data.lists) {
     args.show_lists = !!data.lists;
-  }
-  if (data.title) {
-    args.title = data.title.label;
   }
 
   return args;
