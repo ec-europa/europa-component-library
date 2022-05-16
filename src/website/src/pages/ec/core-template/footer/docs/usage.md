@@ -13,6 +13,8 @@ From release 3.3 onwards, the individual templates (Core, Standardised & Harmoni
 | EWG (Europa web guide)         | [Guidelines for EC Core branded websites - Footer(s)](https://wikis.ec.europa.eu/display/WEBGUIDE/EC+branded+core+website+design) |
 | ECL (Europa component library) | [EC Footer component - Core config.](https://ec.europa.eu/component-library/ec/components/footer/usage/#core)                     |
 
+---
+
 The core footer provides supplementary information such as copyright, legal, privacy, social media, contact information and links to other important sites within the European Commission ecosystem. It is always placed at the bottom of every page.
 
 ## Anatomy
