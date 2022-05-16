@@ -1,5 +1,119 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Card Backward compatibility renders correctly with deprecated data 1`] = `
+<jest>
+  <article
+    class="ecl-card"
+  >
+    <div
+      aria-label="card image"
+      class="ecl-card__image"
+      role="img"
+      style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
+    />
+    <div
+      class="ecl-card__body"
+    >
+      <div
+        class="ecl-content-block ecl-card__content-block"
+      >
+        <ul
+          class="ecl-content-block__label-container"
+        >
+          <li
+            class="ecl-content-block__label-item"
+          >
+            <span
+              class="ecl-label ecl-label--highlight"
+            >
+              highlighted
+            </span>
+          </li>
+          <li
+            class="ecl-content-block__label-item"
+          >
+            <span
+              class="ecl-label ecl-label--medium"
+            >
+              call status: upcoming
+            </span>
+          </li>
+        </ul>
+        <ul
+          class="ecl-content-block__primary-meta-container"
+        >
+          <li
+            class="ecl-content-block__primary-meta-item"
+          >
+            META1
+          </li>
+          <li
+            class="ecl-content-block__primary-meta-item"
+          >
+            Meta2
+          </li>
+        </ul>
+        <h1
+          class="ecl-content-block__title"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Better regulation
+          </a>
+        </h1>
+        <div
+          class="ecl-content-block__description"
+        >
+          Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
+        </div>
+        <ul
+          class="ecl-content-block__secondary-meta-container"
+        >
+          <li
+            class="ecl-content-block__secondary-meta-item"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--s ecl-content-block__secondary-meta-icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#calendar"
+              />
+            </svg>
+            <span
+              class="ecl-content-block__secondary-meta-label"
+            >
+              2018/10/22
+            </span>
+          </li>
+          <li
+            class="ecl-content-block__secondary-meta-item"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--s ecl-content-block__secondary-meta-icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#location"
+              />
+            </svg>
+            <span
+              class="ecl-content-block__secondary-meta-label"
+            >
+              Luxembourg
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </article>
+</jest>
+`;
+
 exports[`Card Default renders correctly 1`] = `
 <jest>
   <article
@@ -14,131 +128,252 @@ exports[`Card Default renders correctly 1`] = `
     <div
       class="ecl-card__body"
     >
-      <ul
-        class="ecl-card__label-container"
-      >
-        <li
-          class="ecl-card__label-item"
-        >
-          <span
-            class="ecl-label ecl-label--highlight ecl-card__label"
-          >
-            highlighted
-          </span>
-        </li>
-        <li
-          class="ecl-card__label-item"
-        >
-          <span
-            class="ecl-label ecl-label--medium ecl-card__label"
-          >
-            call status: upcoming
-          </span>
-        </li>
-      </ul>
       <div
-        class="ecl-card__meta"
+        class="ecl-content-block ecl-card__content-block"
       >
-        <span
-          class="ecl-card__meta-item"
+        <ul
+          class="ecl-content-block__label-container"
         >
-          META1
-        </span>
-        <span
-          class="ecl-card__meta-item"
+          <li
+            class="ecl-content-block__label-item"
+          >
+            <span
+              class="ecl-label ecl-label--highlight"
+            >
+              highlighted
+            </span>
+          </li>
+          <li
+            class="ecl-content-block__label-item"
+          >
+            <span
+              class="ecl-label ecl-label--medium"
+            >
+              call status: upcoming
+            </span>
+          </li>
+        </ul>
+        <ul
+          class="ecl-content-block__primary-meta-container"
         >
-          Meta2
-        </span>
+          <li
+            class="ecl-content-block__primary-meta-item"
+          >
+            META1
+          </li>
+          <li
+            class="ecl-content-block__primary-meta-item"
+          >
+            Meta2
+          </li>
+        </ul>
+        <h1
+          class="ecl-content-block__title"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Better regulation
+          </a>
+        </h1>
+        <div
+          class="ecl-content-block__description"
+        >
+          Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
+        </div>
+        <ul
+          class="ecl-content-block__secondary-meta-container"
+        >
+          <li
+            class="ecl-content-block__secondary-meta-item"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--s ecl-content-block__secondary-meta-icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#calendar"
+              />
+            </svg>
+            <span
+              class="ecl-content-block__secondary-meta-label"
+            >
+              2018/10/22
+            </span>
+          </li>
+          <li
+            class="ecl-content-block__secondary-meta-item"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--s ecl-content-block__secondary-meta-icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#location"
+              />
+            </svg>
+            <span
+              class="ecl-content-block__secondary-meta-label"
+            >
+              Luxembourg
+            </span>
+          </li>
+        </ul>
+        <ul
+          class="ecl-content-block__tag-container"
+        >
+          <li
+            class="ecl-content-block__tag-item"
+          >
+            <a
+              class="ecl-tag"
+              href="/example"
+            >
+              tag 1
+            </a>
+          </li>
+          <li
+            class="ecl-content-block__tag-item"
+          >
+            <a
+              class="ecl-tag"
+              href="/example"
+            >
+              tag 2
+            </a>
+          </li>
+          <li
+            class="ecl-content-block__tag-item"
+          >
+            <a
+              class="ecl-tag"
+              href="/example"
+            >
+              tag 3
+            </a>
+          </li>
+        </ul>
+        <div
+          class="ecl-content-block__list-container"
+        >
+          <dl
+            class="ecl-description-list ecl-content-block__list"
+          >
+            <dt
+              class="ecl-description-list__term"
+            >
+              Standard text
+            </dt>
+            <dd
+              class="ecl-description-list__definition"
+            >
+              Lorem ipsum dolor sit amet, 
+              <a
+                class="ecl-link"
+                href="#"
+              >
+                consectetur adipiscing elit
+              </a>
+              . Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis
+            </dd>
+            <dt
+              class="ecl-description-list__term"
+            >
+              Standalone links
+            </dt>
+            <dd
+              class="ecl-description-list__definition ecl-description-list__definition--link"
+            >
+              <a
+                class="ecl-link ecl-link--icon ecl-link--icon-before ecl-description-list__definition-item"
+                href="/example"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-link__icon"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#copy"
+                  />
+                </svg>
+                <span
+                  class="ecl-link__label"
+                >
+                  Lorem ipsum dolor sit amet
+                </span>
+              </a>
+              <a
+                class="ecl-link ecl-link--icon ecl-link--icon-before ecl-description-list__definition-item"
+                href="/example"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-link__icon"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#download"
+                  />
+                </svg>
+                <span
+                  class="ecl-link__label"
+                >
+                  Lorem ipsum dolor sit amet
+                </span>
+              </a>
+            </dd>
+            <dt
+              class="ecl-description-list__term"
+            >
+              Links inline
+            </dt>
+            <dd
+              class="ecl-description-list__definition ecl-description-list__definition--inline"
+            >
+              <a
+                class="ecl-link ecl-description-list__definition-item"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+              <a
+                class="ecl-link ecl-description-list__definition-item"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+            </dd>
+            <dt
+              class="ecl-description-list__term"
+            >
+              Taxonomy list
+            </dt>
+            <dd
+              class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
+            >
+              <span
+                class="ecl-description-list__definition-item"
+              >
+                Taxonomy item 1
+              </span>
+              <span
+                class="ecl-description-list__definition-item"
+              >
+                Taxonomy item 2
+              </span>
+              <span
+                class="ecl-description-list__definition-item"
+              >
+                Taxonomy item 3
+              </span>
+            </dd>
+          </dl>
+        </div>
       </div>
-      <h1
-        class="ecl-card__title"
-      >
-        <a
-          class="ecl-link ecl-link--standalone"
-          href="/example"
-        >
-          Better regulation
-        </a>
-      </h1>
-      <div
-        class="ecl-card__description"
-      >
-        Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
-      </div>
-      <ul
-        class="ecl-card__info-container"
-      >
-        <li
-          class="ecl-card__info-item"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#calendar"
-            />
-          </svg>
-          <span
-            class="ecl-card__info-label"
-          >
-            2018/10/22
-          </span>
-        </li>
-        <li
-          class="ecl-card__info-item"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#location"
-            />
-          </svg>
-          <span
-            class="ecl-card__info-label"
-          >
-            Luxembourg
-          </span>
-        </li>
-      </ul>
-      <ul
-        class="ecl-card__tag-container"
-      >
-        <li
-          class="ecl-card__tag-item"
-        >
-          <a
-            class="ecl-tag ecl-card__tag"
-            href="/example"
-          >
-            tag 1
-          </a>
-        </li>
-        <li
-          class="ecl-card__tag-item"
-        >
-          <a
-            class="ecl-tag ecl-card__tag"
-            href="/example"
-          >
-            tag 2
-          </a>
-        </li>
-        <li
-          class="ecl-card__tag-item"
-        >
-          <a
-            class="ecl-tag ecl-card__tag"
-            href="/example"
-          >
-            tag 3
-          </a>
-        </li>
-      </ul>
     </div>
   </article>
 </jest>
@@ -160,131 +395,252 @@ exports[`Card Default renders correctly with extra attributes 1`] = `
     <div
       class="ecl-card__body"
     >
-      <ul
-        class="ecl-card__label-container"
-      >
-        <li
-          class="ecl-card__label-item"
-        >
-          <span
-            class="ecl-label ecl-label--highlight ecl-card__label"
-          >
-            highlighted
-          </span>
-        </li>
-        <li
-          class="ecl-card__label-item"
-        >
-          <span
-            class="ecl-label ecl-label--medium ecl-card__label"
-          >
-            call status: upcoming
-          </span>
-        </li>
-      </ul>
       <div
-        class="ecl-card__meta"
+        class="ecl-content-block ecl-card__content-block"
       >
-        <span
-          class="ecl-card__meta-item"
+        <ul
+          class="ecl-content-block__label-container"
         >
-          META1
-        </span>
-        <span
-          class="ecl-card__meta-item"
+          <li
+            class="ecl-content-block__label-item"
+          >
+            <span
+              class="ecl-label ecl-label--highlight"
+            >
+              highlighted
+            </span>
+          </li>
+          <li
+            class="ecl-content-block__label-item"
+          >
+            <span
+              class="ecl-label ecl-label--medium"
+            >
+              call status: upcoming
+            </span>
+          </li>
+        </ul>
+        <ul
+          class="ecl-content-block__primary-meta-container"
         >
-          Meta2
-        </span>
+          <li
+            class="ecl-content-block__primary-meta-item"
+          >
+            META1
+          </li>
+          <li
+            class="ecl-content-block__primary-meta-item"
+          >
+            Meta2
+          </li>
+        </ul>
+        <h1
+          class="ecl-content-block__title"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Better regulation
+          </a>
+        </h1>
+        <div
+          class="ecl-content-block__description"
+        >
+          Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
+        </div>
+        <ul
+          class="ecl-content-block__secondary-meta-container"
+        >
+          <li
+            class="ecl-content-block__secondary-meta-item"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--s ecl-content-block__secondary-meta-icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#calendar"
+              />
+            </svg>
+            <span
+              class="ecl-content-block__secondary-meta-label"
+            >
+              2018/10/22
+            </span>
+          </li>
+          <li
+            class="ecl-content-block__secondary-meta-item"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--s ecl-content-block__secondary-meta-icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#location"
+              />
+            </svg>
+            <span
+              class="ecl-content-block__secondary-meta-label"
+            >
+              Luxembourg
+            </span>
+          </li>
+        </ul>
+        <ul
+          class="ecl-content-block__tag-container"
+        >
+          <li
+            class="ecl-content-block__tag-item"
+          >
+            <a
+              class="ecl-tag"
+              href="/example"
+            >
+              tag 1
+            </a>
+          </li>
+          <li
+            class="ecl-content-block__tag-item"
+          >
+            <a
+              class="ecl-tag"
+              href="/example"
+            >
+              tag 2
+            </a>
+          </li>
+          <li
+            class="ecl-content-block__tag-item"
+          >
+            <a
+              class="ecl-tag"
+              href="/example"
+            >
+              tag 3
+            </a>
+          </li>
+        </ul>
+        <div
+          class="ecl-content-block__list-container"
+        >
+          <dl
+            class="ecl-description-list ecl-content-block__list"
+          >
+            <dt
+              class="ecl-description-list__term"
+            >
+              Standard text
+            </dt>
+            <dd
+              class="ecl-description-list__definition"
+            >
+              Lorem ipsum dolor sit amet, 
+              <a
+                class="ecl-link"
+                href="#"
+              >
+                consectetur adipiscing elit
+              </a>
+              . Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis
+            </dd>
+            <dt
+              class="ecl-description-list__term"
+            >
+              Standalone links
+            </dt>
+            <dd
+              class="ecl-description-list__definition ecl-description-list__definition--link"
+            >
+              <a
+                class="ecl-link ecl-link--icon ecl-link--icon-before ecl-description-list__definition-item"
+                href="/example"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-link__icon"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#copy"
+                  />
+                </svg>
+                <span
+                  class="ecl-link__label"
+                >
+                  Lorem ipsum dolor sit amet
+                </span>
+              </a>
+              <a
+                class="ecl-link ecl-link--icon ecl-link--icon-before ecl-description-list__definition-item"
+                href="/example"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-link__icon"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#download"
+                  />
+                </svg>
+                <span
+                  class="ecl-link__label"
+                >
+                  Lorem ipsum dolor sit amet
+                </span>
+              </a>
+            </dd>
+            <dt
+              class="ecl-description-list__term"
+            >
+              Links inline
+            </dt>
+            <dd
+              class="ecl-description-list__definition ecl-description-list__definition--inline"
+            >
+              <a
+                class="ecl-link ecl-description-list__definition-item"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+              <a
+                class="ecl-link ecl-description-list__definition-item"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+            </dd>
+            <dt
+              class="ecl-description-list__term"
+            >
+              Taxonomy list
+            </dt>
+            <dd
+              class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
+            >
+              <span
+                class="ecl-description-list__definition-item"
+              >
+                Taxonomy item 1
+              </span>
+              <span
+                class="ecl-description-list__definition-item"
+              >
+                Taxonomy item 2
+              </span>
+              <span
+                class="ecl-description-list__definition-item"
+              >
+                Taxonomy item 3
+              </span>
+            </dd>
+          </dl>
+        </div>
       </div>
-      <h1
-        class="ecl-card__title"
-      >
-        <a
-          class="ecl-link ecl-link--standalone"
-          href="/example"
-        >
-          Better regulation
-        </a>
-      </h1>
-      <div
-        class="ecl-card__description"
-      >
-        Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
-      </div>
-      <ul
-        class="ecl-card__info-container"
-      >
-        <li
-          class="ecl-card__info-item"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#calendar"
-            />
-          </svg>
-          <span
-            class="ecl-card__info-label"
-          >
-            2018/10/22
-          </span>
-        </li>
-        <li
-          class="ecl-card__info-item"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#location"
-            />
-          </svg>
-          <span
-            class="ecl-card__info-label"
-          >
-            Luxembourg
-          </span>
-        </li>
-      </ul>
-      <ul
-        class="ecl-card__tag-container"
-      >
-        <li
-          class="ecl-card__tag-item"
-        >
-          <a
-            class="ecl-tag ecl-card__tag"
-            href="/example"
-          >
-            tag 1
-          </a>
-        </li>
-        <li
-          class="ecl-card__tag-item"
-        >
-          <a
-            class="ecl-tag ecl-card__tag"
-            href="/example"
-          >
-            tag 2
-          </a>
-        </li>
-        <li
-          class="ecl-card__tag-item"
-        >
-          <a
-            class="ecl-tag ecl-card__tag"
-            href="/example"
-          >
-            tag 3
-          </a>
-        </li>
-      </ul>
     </div>
   </article>
 </jest>
@@ -304,279 +660,252 @@ exports[`Card Default renders correctly with extra class names 1`] = `
     <div
       class="ecl-card__body"
     >
-      <ul
-        class="ecl-card__label-container"
-      >
-        <li
-          class="ecl-card__label-item"
-        >
-          <span
-            class="ecl-label ecl-label--highlight ecl-card__label"
-          >
-            highlighted
-          </span>
-        </li>
-        <li
-          class="ecl-card__label-item"
-        >
-          <span
-            class="ecl-label ecl-label--medium ecl-card__label"
-          >
-            call status: upcoming
-          </span>
-        </li>
-      </ul>
       <div
-        class="ecl-card__meta"
+        class="ecl-content-block ecl-card__content-block"
       >
-        <span
-          class="ecl-card__meta-item"
+        <ul
+          class="ecl-content-block__label-container"
         >
-          META1
-        </span>
-        <span
-          class="ecl-card__meta-item"
-        >
-          Meta2
-        </span>
-      </div>
-      <h1
-        class="ecl-card__title"
-      >
-        <a
-          class="ecl-link ecl-link--standalone"
-          href="/example"
-        >
-          Better regulation
-        </a>
-      </h1>
-      <div
-        class="ecl-card__description"
-      >
-        Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
-      </div>
-      <ul
-        class="ecl-card__info-container"
-      >
-        <li
-          class="ecl-card__info-item"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs"
-            focusable="false"
+          <li
+            class="ecl-content-block__label-item"
           >
-            <use
-              xlink:href="/icons.svg#calendar"
-            />
-          </svg>
-          <span
-            class="ecl-card__info-label"
+            <span
+              class="ecl-label ecl-label--highlight"
+            >
+              highlighted
+            </span>
+          </li>
+          <li
+            class="ecl-content-block__label-item"
           >
-            2018/10/22
-          </span>
-        </li>
-        <li
-          class="ecl-card__info-item"
+            <span
+              class="ecl-label ecl-label--medium"
+            >
+              call status: upcoming
+            </span>
+          </li>
+        </ul>
+        <ul
+          class="ecl-content-block__primary-meta-container"
         >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs"
-            focusable="false"
+          <li
+            class="ecl-content-block__primary-meta-item"
           >
-            <use
-              xlink:href="/icons.svg#location"
-            />
-          </svg>
-          <span
-            class="ecl-card__info-label"
+            META1
+          </li>
+          <li
+            class="ecl-content-block__primary-meta-item"
           >
-            Luxembourg
-          </span>
-        </li>
-      </ul>
-      <ul
-        class="ecl-card__tag-container"
-      >
-        <li
-          class="ecl-card__tag-item"
+            Meta2
+          </li>
+        </ul>
+        <h1
+          class="ecl-content-block__title"
         >
           <a
-            class="ecl-tag ecl-card__tag"
+            class="ecl-link ecl-link--standalone"
             href="/example"
           >
-            tag 1
+            Better regulation
           </a>
-        </li>
-        <li
-          class="ecl-card__tag-item"
+        </h1>
+        <div
+          class="ecl-content-block__description"
         >
-          <a
-            class="ecl-tag ecl-card__tag"
-            href="/example"
+          Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
+        </div>
+        <ul
+          class="ecl-content-block__secondary-meta-container"
+        >
+          <li
+            class="ecl-content-block__secondary-meta-item"
           >
-            tag 2
-          </a>
-        </li>
-        <li
-          class="ecl-card__tag-item"
-        >
-          <a
-            class="ecl-tag ecl-card__tag"
-            href="/example"
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--s ecl-content-block__secondary-meta-icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#calendar"
+              />
+            </svg>
+            <span
+              class="ecl-content-block__secondary-meta-label"
+            >
+              2018/10/22
+            </span>
+          </li>
+          <li
+            class="ecl-content-block__secondary-meta-item"
           >
-            tag 3
-          </a>
-        </li>
-      </ul>
-    </div>
-  </article>
-</jest>
-`;
-
-exports[`Card Default renders correctly with lists 1`] = `
-<jest>
-  <article
-    class="ecl-card"
-  >
-    <div
-      aria-label="card image"
-      class="ecl-card__image"
-      role="img"
-      style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-    />
-    <div
-      class="ecl-card__body"
-    >
-      <ul
-        class="ecl-card__label-container"
-      >
-        <li
-          class="ecl-card__label-item"
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--s ecl-content-block__secondary-meta-icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#location"
+              />
+            </svg>
+            <span
+              class="ecl-content-block__secondary-meta-label"
+            >
+              Luxembourg
+            </span>
+          </li>
+        </ul>
+        <ul
+          class="ecl-content-block__tag-container"
         >
-          <span
-            class="ecl-label ecl-label--highlight ecl-card__label"
+          <li
+            class="ecl-content-block__tag-item"
           >
-            highlighted
-          </span>
-        </li>
-        <li
-          class="ecl-card__label-item"
-        >
-          <span
-            class="ecl-label ecl-label--medium ecl-card__label"
+            <a
+              class="ecl-tag"
+              href="/example"
+            >
+              tag 1
+            </a>
+          </li>
+          <li
+            class="ecl-content-block__tag-item"
           >
-            call status: upcoming
-          </span>
-        </li>
-      </ul>
-      <div
-        class="ecl-card__meta"
-      >
-        <span
-          class="ecl-card__meta-item"
+            <a
+              class="ecl-tag"
+              href="/example"
+            >
+              tag 2
+            </a>
+          </li>
+          <li
+            class="ecl-content-block__tag-item"
+          >
+            <a
+              class="ecl-tag"
+              href="/example"
+            >
+              tag 3
+            </a>
+          </li>
+        </ul>
+        <div
+          class="ecl-content-block__list-container"
         >
-          META1
-        </span>
-        <span
-          class="ecl-card__meta-item"
-        >
-          Meta2
-        </span>
+          <dl
+            class="ecl-description-list ecl-content-block__list"
+          >
+            <dt
+              class="ecl-description-list__term"
+            >
+              Standard text
+            </dt>
+            <dd
+              class="ecl-description-list__definition"
+            >
+              Lorem ipsum dolor sit amet, 
+              <a
+                class="ecl-link"
+                href="#"
+              >
+                consectetur adipiscing elit
+              </a>
+              . Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis
+            </dd>
+            <dt
+              class="ecl-description-list__term"
+            >
+              Standalone links
+            </dt>
+            <dd
+              class="ecl-description-list__definition ecl-description-list__definition--link"
+            >
+              <a
+                class="ecl-link ecl-link--icon ecl-link--icon-before ecl-description-list__definition-item"
+                href="/example"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-link__icon"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#copy"
+                  />
+                </svg>
+                <span
+                  class="ecl-link__label"
+                >
+                  Lorem ipsum dolor sit amet
+                </span>
+              </a>
+              <a
+                class="ecl-link ecl-link--icon ecl-link--icon-before ecl-description-list__definition-item"
+                href="/example"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-link__icon"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#download"
+                  />
+                </svg>
+                <span
+                  class="ecl-link__label"
+                >
+                  Lorem ipsum dolor sit amet
+                </span>
+              </a>
+            </dd>
+            <dt
+              class="ecl-description-list__term"
+            >
+              Links inline
+            </dt>
+            <dd
+              class="ecl-description-list__definition ecl-description-list__definition--inline"
+            >
+              <a
+                class="ecl-link ecl-description-list__definition-item"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+              <a
+                class="ecl-link ecl-description-list__definition-item"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+            </dd>
+            <dt
+              class="ecl-description-list__term"
+            >
+              Taxonomy list
+            </dt>
+            <dd
+              class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
+            >
+              <span
+                class="ecl-description-list__definition-item"
+              >
+                Taxonomy item 1
+              </span>
+              <span
+                class="ecl-description-list__definition-item"
+              >
+                Taxonomy item 2
+              </span>
+              <span
+                class="ecl-description-list__definition-item"
+              >
+                Taxonomy item 3
+              </span>
+            </dd>
+          </dl>
+        </div>
       </div>
-      <h1
-        class="ecl-card__title"
-      >
-        <a
-          class="ecl-link ecl-link--standalone"
-          href="/example"
-        >
-          Better regulation
-        </a>
-      </h1>
-      <div
-        class="ecl-card__description"
-      >
-        Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
-      </div>
-      <ul
-        class="ecl-card__info-container"
-      >
-        <li
-          class="ecl-card__info-item"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#calendar"
-            />
-          </svg>
-          <span
-            class="ecl-card__info-label"
-          >
-            2018/10/22
-          </span>
-        </li>
-        <li
-          class="ecl-card__info-item"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#location"
-            />
-          </svg>
-          <span
-            class="ecl-card__info-label"
-          >
-            Luxembourg
-          </span>
-        </li>
-      </ul>
-      <dl
-        class="ecl-description-list ecl-description-list--horizontal ecl-card__list"
-      >
-        <dt
-          class="ecl-description-list__term"
-        >
-          EU contribution
-        </dt>
-        <dd
-          class="ecl-description-list__definition"
-        >
-          1.000.000,00 euro (100% of the overall budget)
-        </dd>
-        <dt
-          class="ecl-description-list__term"
-        >
-          Taxonomy list
-        </dt>
-        <dd
-          class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
-        >
-          <span
-            class="ecl-description-list__definition-item"
-          >
-            Taxonomy item 1
-          </span>
-          <span
-            class="ecl-description-list__definition-item"
-          >
-            Taxonomy item 2
-          </span>
-          <span
-            class="ecl-description-list__definition-item"
-          >
-            Taxonomy item 3
-          </span>
-        </dd>
-      </dl>
     </div>
   </article>
 </jest>

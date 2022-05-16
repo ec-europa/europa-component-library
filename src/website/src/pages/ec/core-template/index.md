@@ -2,6 +2,17 @@
 order: 4
 title: Core template
 ---
+![](/cms-images/screenshot-2022-04-13-at-11.40.03.png)
+
+### Notice
+
+From release 3.3 onwards, the individual templates (Core, Standardised & Harmonised) can be found on the ECL **as configurations of the structurally merged components** (Site header, Page header & Footer), which now have a single, dedicated page. Concurrently, the EWG (Europa Web Guide) has also been updated to better accommodate information regarding the optionality of components & elements per site type. Please follow the corresponding links found in the table below for more information.
+
+| Knowledge base                 | New location                                                                                                                                                                                            |                                                                                                               |                                                                                                     |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| ECL (Europa component library) | [EC Site header - Core config.](https://citnet.tech.ec.europa.eu/CITnet/confluence/pages/viewpage.action?pageId=1092071063https://ec.europa.eu/component-library/ec/components/site-header/usage/#core) | [EC Page header - Core config.](https://ec.europa.eu/component-library/ec/components/page-header/usage/#core) | [EC Footer - Core config.](https://ec.europa.eu/component-library/ec/components/footer/usage/#core) |
+| EWG (Europa web guide)         | [Guidelines for EC Core branded websites](https://wikis.ec.europa.eu/display/WEBGUIDE/EC+branded+core+website+design)                                                                                   |                                                                                                               |                                                                                                     |
+
 The core website minimises the duplication of content across the European Commission services. The site hosts general information shared with many different websites or departments. The core website is the hub for users to navigate to other thematic content and/or specific services such as web information system.
 
 ## Anatomy

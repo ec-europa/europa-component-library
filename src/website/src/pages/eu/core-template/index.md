@@ -2,6 +2,17 @@
 order: 4
 title: Core template
 ---
+![](/cms-images/screenshot-2022-04-13-at-11.40.03.png)
+
+### Notice
+
+From release 3.3 onwards, the individual templates (Core, Standardised & Harmonised) can be found on the ECL **as configurations of the structurally merged components** (Site header, Page header & Footer), which now have a single, dedicated page. Concurrently, the EWG (Europa Web Guide) has also been updated to better accommodate information regarding the optionality of components & elements per site type. Please follow the corresponding links found in the table below for more information.
+
+| Knowledge base                 | New location                                                                                                          |                                                                                                               |                                                                                                     |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| ECL (Europa component library) | [EU Site header - Core config.](https://ec.europa.eu/component-library/eu/components/site-header/usage/#core)         | [EU Page header - Core config.](https://ec.europa.eu/component-library/eu/components/page-header/usage/#core) | [EU Footer - Core config.](https://ec.europa.eu/component-library/eu/components/footer/usage/#core) |
+| EWG (Europa web guide)         | [Guidelines for EU branded Core websites](https://wikis.ec.europa.eu/display/WEBGUIDE/02.+EU+branded+websites+design) |                                                                                                               |                                                                                                     |
+
 ## Anatomy
 
 ![](/cms-images/eu_core_1140.png)
