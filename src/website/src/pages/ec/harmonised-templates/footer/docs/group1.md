@@ -13,6 +13,8 @@ From release 3.3 onwards, the individual templates (Core, Standardised & Harmoni
 | EWG (Europa web guide)         | [Guidelines for EC branded Harmonised websites - Footer(s)](https://wikis.ec.europa.eu/display/WEBGUIDE/EC+branded+harmonised+websites+design) |
 | ECL (Europa component library) | [EC Footer component - Harmonised config.](https://ec.europa.eu/component-library/ec/components/footer/usage/#harmonised)                      |
 
+---
+
 The Harmonised group 1 site footer is present on every page. It provides supplementary information such as copyright, legal, privacy, social media, contact information and links to other important sections within the EC ecosystem, to be placed at the end of the page.
 
 ## Anatomy
