@@ -5,22 +5,10 @@
     - "border" (boolean) (default: false): Is there an extra border and padding?
     - "image" (associative array) (default: {}): 
       - "src" (string) (default: ''): Path to the image
-      - "size" (string) (default: 'm'): Size of the image (can be 's' or 'l')
+      - "alt" (string) (default: '')
     - "title" (associative array) (default: {}): Predefined structure compatible with Link component
     - "description" (string) (default: ''): Description of the navigation list
-    - "links": [], (array) (default: []): Array or multi array of links. Format: 
-      [
-        {
-          label: (string) (default: ''): Label of link
-          path: (string) (default: ''): Link url (href attribute)
-        },
-        ...
-      ]
-      OR
-      [
-        [ { label, path }, { label, path }, ... ],
-        [ { label, path }, { label, path }, ... ],
-      ],
+    - "links" (array) (default: []): Array or multi array of ECL Links
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -34,8 +22,7 @@
 
 {% set _border = border|default(false) %}
 {% set _image = image|default({
-  src: '',
-  size: 'l'
+  src: ''
 }) %}
 {% set _title = title|default({}) %}
 {% set _description = description|default('') %}
@@ -45,14 +32,10 @@
 
 {# Internal logic - Process properties #}
 
-{% set _card = {
-  card: {
-    image: _image,
-    title: _title,
-    description: _description,
-    links: _links,
-    type: "tile",
-  },
+{% set _content_block = {
+  title: _title,
+  description: _description,
+  links: _links,
 } %}
 
 {% if not _border %}
@@ -74,10 +57,14 @@
 {% endif %}
 
 {# Print the result #}
-<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  {% include '@ecl/card/card.html.twig' with _card|merge({
-    extra_classes: 'ecl-navigation-list__card'
+<article class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  {% if _image.src is defined and _image.src is not empty %}
+    {% set _img_aria_label = _image.alt is defined and _image.alt is not empty ? 'aria-label="' ~ _image.alt|e('html_attr') ~ '"' : '' %}
+    <div class="ecl-navigation-list__image" {{ _img_aria_label|raw }} role="img" style="background-image:url('{{ _image.src }}')"></div>
+  {% endif %}
+  {% include '@ecl/content-block/content-block.html.twig' with _content_block|merge({
+    extra_classes: 'ecl-navigation-list__content-block'
   }) only %}
-</div>
+</article>
 
 {% endspaceless %}
