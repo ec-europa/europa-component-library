@@ -2,6 +2,7 @@
 @use '@ecl/theme-dev/theme';
 @use 'navigation-list' with (
   $_image-margin: 0,
+  $_image-border-color: map.get(theme.$color, 'blue-20'),
   $_content_block_padding: map.get(theme.$spacing, 'l'),
   $_border-radius: 8px,
   $_shadow: 0 0 6px rgba(9, 49, 142, 0.2),

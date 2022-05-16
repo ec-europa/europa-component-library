@@ -2,30 +2,43 @@
 title: Usage
 order: 1
 ---
-The core footer is present is displayed at the bottom of every page in the europa.eu website. Links provide information such as contact information, disclaimers, legal content, social media and the list of EC institutions under the EU emblem.
+The site footer is present on every page. It provides supplementary information such as a sitemap, copyright, legal, privacy, social media and contact information as well as various links to other important sections within the Europa ecosystem, to be placed at the end of the page.
 
-## Anatomy
+The content of the footer for the Core configuration is specific and all items mandatory.
 
-![](/cms-images/eu_core_footer.png)
+The harmonised configuration shares the same structure and guidelines, and is organised in 2 main sections:
 
-| Component                                                             | Mandatory | Option |
-| --------------------------------------------------------------------- | --------- | ------ |
-| **Site name**<br/>Site name and content owner details                 | yes       | no     |
-| **EU institutions**<br/>Provide the users the list of EU institutions | yes       | no     |
-| **Contact, social media and legal navigation**                        | yes       | no     |
+- The local section: with information and links related to the current site. Its content is defined by the site owner, following the guidelines of DG COMM
+- The corporate part: with information applicable to the Commission as a whole. Its content is defined by DG COMM
 
-## Do's
+# Core config.
 
-- make sure the pages contain all the elements in the anatomy table above
+## Anatomy image
 
-## Don'ts
+![](/cms-images/eu-footer-core.png)
 
-- don't use more than one footer per page
+## Anatomy table
 
-## When to use
+| No. | Element/component                        | Usage     | Description                                     |
+| --- | ---------------------------------------- | --------- | ----------------------------------------------- |
+| 1   | EU identity (flag)                       | mandatory | Logo & Site name and content owner details      |
+| 2   | Content owner details                    | mandatory | Indicates **ownership over the site's content** |
+| 3   | Contact, Social media & Legal navigation | mandatory | Links to the **main service pages**             |
+| 4   | EU Institutions                          | mandatory | Links to various institutions of interest       |
 
-- always use a footer when building your page
+# Harmonised config.
 
-## When not to use
+## Anatomy image
 
-- do not follow these guidelines when you are updating sites that fall under a different category
+![](/cms-images/eu-footer-harmonised.png)
+
+## Anatomy table
+
+| No. | Element/component                        | Usage | Description                                     |
+| --- | ---------------------------------------- | ----- | ----------------------------------------------- |
+| 1   | Site name                                |       | Logo & Site name and content owner details      |
+| 2   | Content owner details                    |       | Indicates **ownership over the site's content** |
+| 3   | DG-related navigation                    |       | Links to the **main content pages**             |
+| 4   | EU identity (flag)                       |       | Logo of the European Union                      |
+| 5   | Contact, Social media & Legal navigation |       | Links to the **main service pages**             |
+| 6   | EU Institutions                          |       | Links to various institutions of interest       |
