@@ -2,7 +2,7 @@
 title: Usage
 order: 1
 ---
-The Page header component provides basic structure and guidance and ensures that users are met with an easily recognisable and uniform design layout, as well as a content pattern through which information about the current page is presented. It is always placed just below the [Site header](http://citnet.tech.ec.europa.eu/).
+The Page header component provides basic structure and guidance and ensures that users are met with an easily recognisable and uniform design layout, as well as a content pattern through which information about the current page is presented. It is always placed just below the [Site header](#).
 
 The component is available in a positive and a negative version. Harmonised and standardised websites have to use the positive version (the negative one is used on the EC corporate site only). The Page header elements are optional depending on the page, rather than the site/template type.
 
