@@ -2,52 +2,44 @@
 title: Usage
 order: 1
 ---
-The page header component provides users the context of the page. It is always placed just below the site header. There are five variations of the page header.
+The Page header component provides basic structure and guidance and ensures that users are met with an easily recognisable and uniform design layout, as well as a content pattern through which information about the current page is presented. It is always placed just below the [Site header](#).
 
-The anatomy image is the default page header
+The component is available in a positive and a negative version. Harmonised and standardised websites have to use the positive version (the negative one is used on the EC corporate site only). The Page header elements are optional depending on the page, rather than the site/template type.
 
-## Anatomy
+# Core config.
 
-![](/cms-images/standardised-page-header-1b.png)
+## Anatomy image
 
-| Components                                                                                                                                                                                                                 | Mandatory | Optional |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | -------- |
-| **Breadcrumb**<br />Breadcrumb component provides information on the page and its relationship to the site's hierarchy and structure.<br />It is optional if your website's navigational structure has less than 3 levels. | no        | yes      |
-| **Meta**                                                                                                                                                                                                                   | no        | yes      |
-| **Page title**                                                                                                                                                                                                             | yes       | no       |
-| **Introduction**                                                                                                                                                                                                           | no        | yes      |
+![](/cms-images/ec-page-header-core.png)
 
-## Page header with thumbnail
+## Anatomy table
 
-![](/cms-images/ec_ph_st_thumb_l_734px.png)
+| No. | Element/component | Usage                            | Description                                                                                                                                                                                                   |
+| --- | ----------------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | Breadcrumb        | mandatory                        | Breadcrumb component provides information on the page and its relationship to the site's hierarchy and structure                                                                                              |
+| 2   | Meta              | optional                         | Primary metadata related to the page's content                                                                                                                                                                |
+| 3   | Page title        | mandatory (excepting homepage)   | Title of the page                                                                                                                                                                                             |
+| 4   | Thumbnail         | optional (requires introduction) | Thumbnail image displayed on the side of the description OR if a background image has been selected, taking the full-width of the component. If neither is selected, it will display a solid blue background. |
+| 5   | Introduction      | mandatory                        | A description of the content that the page addresses                                                                                                                                                          |
 
-## Page header with background image without overlay
+# Standardised & harmonised config.
 
-![](/cms-images/ec_ph_stan_image_l_734px.png)
+## Anatomy image
 
-## Page header background image with light overlay
+**Standardised**
 
-![](/cms-images/ec_ph_stan_light_l_734px.png)
+![](/cms-images/ec-page-header-standardised.png)
 
-## Page header background image with dark overlay
+**Harmonised**
 
-![](/cms-images/ec_ph_stan_dark_l_734px.png)
+![](/cms-images/ec-page-header-harmonised.png)
 
-## Do's
+## Anatomy table
 
-- ensure the pages contain all the components and elements in the anatomy table above
-- always use a page header when building your internal pages
-- when choosing a background image, make sure it highlights the main object related to the content, and that it is meaningful
-
-## Don'ts
-
-- don't use more than one page header per page
-- do not use a background image unless there is a communication need, as it might be a distraction
-
-## When to use
-
-- to highlight the topic of the page, or to show important information about the page
-
-## When not to use
-
-- page header is not used for homepage of the website
+| No. | Element/component | Standardised                     | Harmonised                       | Description                                                                                                                                                                                                   |
+| --- | ----------------- | -------------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | Breadcrumb        | mandatory                        | mandatory                        | Breadcrumb component provides information on the page and its relationship to the site's hierarchy and structure                                                                                              |
+| 2   | Meta              | optional                         | optional                         | Primary metadata related to the page's content                                                                                                                                                                |
+| 3   | Page title        | mandatory (excepting homepage)   | mandatory (excepting homepage)   | Title of the page                                                                                                                                                                                             |
+| 4   | Thumbnail         | optional (requires introduction) | optional (requires introduction) | Thumbnail image displayed on the side of the description OR if a background image has been selected, taking the full-width of the component. If neither is selected, it will display a solid blue background. |
+| 5   | Introduction      | optional                         | optional                         | A description of the content that the page addresses                                                                                                                                                          |
