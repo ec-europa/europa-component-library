@@ -13,6 +13,8 @@ $_shadow: null !default;
 $_card-background: null !default;
 $_card-border: null !default;
 $_image-margin: null !default;
+$_image-border-color: null !default;
+$_image-border-width: null !default;
 $_body-padding: null !default;
 
 .ecl-card {
@@ -31,12 +33,13 @@ $_body-padding: null !default;
 .ecl-card__image {
   background-position: center;
   background-size: cover;
+  border: $_image-border-width solid $_image-border-color;
   display: block;
   height: auto;
   margin-inline-start: $_image-margin;
   margin-inline-end: $_image-margin;
   margin-top: $_image-margin;
-  width: calc(100% - (2 * #{$_image-margin}));
+  width: calc(100% - (2 * #{$_image-margin}) - (2 * #{$_image-border-width}));
 
   // manage ratio 3:2
   &::before {
