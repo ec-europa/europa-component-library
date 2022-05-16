@@ -19,16 +19,16 @@ The Harmonised group 1 site footer is present on every page. It provides supplem
 
 ## Anatomy
 
-| Component                     | Mandatory | Description                                                                                                                                                                  |
-| ----------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| site name                     | yes       | name of the site                                                                                                                                                             |
-| content owner details         | yes       | indicates ownership over the site's content                                                                                                                                  |
-| DG-related service navigation | optional  | links to the services the DG provides<br />\* use a DG-related service navigation if there are any services that need extra exposure in the footer                           |
-| DG-related navigation         | optional  | provides the user with extra navigation related to the DG<br />\* use a Other DG-related navigation to list other pages that might benefit from extra exposure in the footer |
-| class names                   | optional  | parent classes under which the DG falls                                                                                                                                      |
-| corporate name                | yes       | european Commission - parent owner of the website                                                                                                                            |
-| service navigation            | yes       | contains services links - consistent throughout the family sites                                                                                                             |
-| legal navigation              | yes       | contains legal information links - consistent throughout the family sites                                                                                                    |
+| Component                     | Mandatory | Description                                                                                                                                                              |
+| ----------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| site name                     | yes       | name of the site                                                                                                                                                         |
+| content owner details         | yes       | indicates ownership over the site's content                                                                                                                              |
+| DG-related service navigation | optional  | links to the services the DG provides (\*use a DG-related service navigation if there are any services that need extra exposure in the footer)                           |
+| DG-related navigation         | optional  | provides the user with extra navigation related to the DG (\*use a Other DG-related navigation to list other pages that might benefit from extra exposure in the footer) |
+| class names                   | optional  | parent classes under which the DG falls                                                                                                                                  |
+| corporate name                | yes       | European Commission - parent owner of the website                                                                                                                        |
+| service navigation            | yes       | contains services links - consistent throughout the family sites                                                                                                         |
+| legal navigation              | yes       | contains legal information links - consistent throughout the family sites                                                                                                |
 
 ## Do's
 
@@ -45,4 +45,4 @@ The Harmonised group 1 site footer is present on every page. It provides supplem
 
 ## When not to use
 
-- do not follow these guidelines when you are updating sites that fall under the <Link to="/ec/standardised-template/">Standardised</Link> or <Link to="/ec/core-template/">Core</Link> category
+- do not follow these guidelines when you are updating sites that fall under the Standardised or Core category
