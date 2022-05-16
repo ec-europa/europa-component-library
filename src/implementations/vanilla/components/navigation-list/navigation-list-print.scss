@@ -1,32 +1,34 @@
 /**
- * Content item
- * @define content-item; weak
+ * Navigation list
+ * @define navigation-list; weak
  */
 
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
 
-.ecl-content-item {
+// Navigation list
+
+.ecl-navigation-list {
   margin: 0;
 }
 
-.ecl-content-item__container {
-  align-items: flex-start;
-  border-bottom: map.get(theme.$color, 'grey-15') 1px solid;
-  display: flex;
-  flex-direction: row;
-  padding-bottom: map.get(theme.$spacing-print, 'm');
+.ecl-navigation-list--col-2,
+.ecl-navigation-list--col-3 {
+  display: grid;
+  grid-auto-rows: auto;
+  grid-column-gap: map.get(theme.$grid, 'gutter');
+  grid-row-gap: map.get(theme.$spacing, 'xl');
+  width: 100%;
 }
 
-.ecl-content-item__image,
-.ecl-content-item__date {
-  margin-inline-end: map.get(theme.$spacing-print, 'xl');
+.ecl-navigation-list--col-2 {
+  grid-template-columns: repeat(2, 1fr);
 }
 
-.ecl-content-item .ecl-card__label-container {
-  margin-top: 0;
+.ecl-navigation-list--col-3 {
+  grid-template-columns: repeat(3, 1fr);
 }
 
-.ecl-content-item__taxonomy {
-  margin-top: map.get(theme.$spacing-print, 'm');
+.ecl-navigation-list__image {
+  display: none;
 }

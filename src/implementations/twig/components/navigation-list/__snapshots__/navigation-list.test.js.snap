@@ -5,114 +5,309 @@ exports[`Navigation list Default renders correctly 1`] = `
   <div
     class="ecl-navigation-list ecl-navigation-list--col-2"
   >
-    <div
+    <article
       class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
     >
-      <article
-        class="ecl-card ecl-card--tile ecl-navigation-list__card"
+      <div
+        aria-label="Alt text of the image"
+        class="ecl-navigation-list__image"
+        role="img"
+        style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
+      />
+      <div
+        class="ecl-content-block ecl-navigation-list__content-block"
       >
-        <div
-          class="ecl-card__image"
-          role="img"
-          style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-        />
-        <div
-          class="ecl-card__body"
+        <h1
+          class="ecl-content-block__title"
         >
-          <div
-            class="ecl-content-block ecl-card__content-block"
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
           >
-            <h1
-              class="ecl-content-block__title"
+            Title 1
+          </a>
+        </h1>
+        <div
+          class="ecl-content-block__description"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus
+        </div>
+        <div
+          class="ecl-content-block__link-container"
+        >
+          <ul
+            class="ecl-content-block__link-list"
+          >
+            <li
+              class="ecl-content-block__link-item"
             >
               <a
                 class="ecl-link ecl-link--standalone"
                 href="/example"
               >
-                Title 1
+                Primary link 1
               </a>
-            </h1>
-            <div
-              class="ecl-content-block__description"
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus
-            </div>
-          </div>
-        </div>
-      </article>
-    </div>
-    <div
-      class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
-    >
-      <article
-        class="ecl-card ecl-card--tile ecl-navigation-list__card"
-      >
-        <div
-          class="ecl-card__image"
-          role="img"
-          style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-        />
-        <div
-          class="ecl-card__body"
-        >
-          <div
-            class="ecl-content-block ecl-card__content-block"
-          >
-            <h1
-              class="ecl-content-block__title"
+            </li>
+            <li
+              class="ecl-content-block__link-item"
             >
               <a
                 class="ecl-link ecl-link--standalone"
                 href="/example"
               >
-                Title 2
+                Primary link 2
               </a>
-            </h1>
-            <div
-              class="ecl-content-block__description"
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus
-            </div>
-          </div>
-        </div>
-      </article>
-    </div>
-    <div
-      class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
-    >
-      <article
-        class="ecl-card ecl-card--tile ecl-navigation-list__card"
-      >
-        <div
-          class="ecl-card__image"
-          role="img"
-          style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-        />
-        <div
-          class="ecl-card__body"
-        >
-          <div
-            class="ecl-content-block ecl-card__content-block"
-          >
-            <h1
-              class="ecl-content-block__title"
+            </li>
+            <li
+              class="ecl-content-block__link-item"
             >
               <a
                 class="ecl-link ecl-link--standalone"
                 href="/example"
               >
-                Title 3
+                Primary link 3
               </a>
-            </h1>
-            <div
-              class="ecl-content-block__description"
+            </li>
+            <li
+              class="ecl-content-block__link-item"
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus
-            </div>
-          </div>
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 4
+              </a>
+            </li>
+          </ul>
+          <ul
+            class="ecl-content-block__link-list"
+          >
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Secondary link 1
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Secondary link 2
+              </a>
+            </li>
+          </ul>
         </div>
-      </article>
-    </div>
+      </div>
+    </article>
+    <article
+      class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
+    >
+      <div
+        aria-label="Alt text of the image"
+        class="ecl-navigation-list__image"
+        role="img"
+        style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
+      />
+      <div
+        class="ecl-content-block ecl-navigation-list__content-block"
+      >
+        <h1
+          class="ecl-content-block__title"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Title 2
+          </a>
+        </h1>
+        <div
+          class="ecl-content-block__description"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus
+        </div>
+        <div
+          class="ecl-content-block__link-container"
+        >
+          <ul
+            class="ecl-content-block__link-list"
+          >
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 1
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 2
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 3
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 4
+              </a>
+            </li>
+          </ul>
+          <ul
+            class="ecl-content-block__link-list"
+          >
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Secondary link 1
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Secondary link 2
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+    <article
+      class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
+    >
+      <div
+        aria-label="Alt text of the image"
+        class="ecl-navigation-list__image"
+        role="img"
+        style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
+      />
+      <div
+        class="ecl-content-block ecl-navigation-list__content-block"
+      >
+        <h1
+          class="ecl-content-block__title"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Title 3
+          </a>
+        </h1>
+        <div
+          class="ecl-content-block__description"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus
+        </div>
+        <div
+          class="ecl-content-block__link-container"
+        >
+          <ul
+            class="ecl-content-block__link-list"
+          >
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 1
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 2
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 3
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 4
+              </a>
+            </li>
+          </ul>
+          <ul
+            class="ecl-content-block__link-list"
+          >
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Secondary link 1
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Secondary link 2
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
   </div>
 </jest>
 `;
@@ -124,114 +319,309 @@ exports[`Navigation list Default renders correctly with extra attributes 1`] = `
     data-test="data-test-value"
     data-test-1="data-test-value-1"
   >
-    <div
+    <article
       class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
     >
-      <article
-        class="ecl-card ecl-card--tile ecl-navigation-list__card"
+      <div
+        aria-label="Alt text of the image"
+        class="ecl-navigation-list__image"
+        role="img"
+        style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
+      />
+      <div
+        class="ecl-content-block ecl-navigation-list__content-block"
       >
-        <div
-          class="ecl-card__image"
-          role="img"
-          style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-        />
-        <div
-          class="ecl-card__body"
+        <h1
+          class="ecl-content-block__title"
         >
-          <div
-            class="ecl-content-block ecl-card__content-block"
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
           >
-            <h1
-              class="ecl-content-block__title"
+            Title 1
+          </a>
+        </h1>
+        <div
+          class="ecl-content-block__description"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus
+        </div>
+        <div
+          class="ecl-content-block__link-container"
+        >
+          <ul
+            class="ecl-content-block__link-list"
+          >
+            <li
+              class="ecl-content-block__link-item"
             >
               <a
                 class="ecl-link ecl-link--standalone"
                 href="/example"
               >
-                Title 1
+                Primary link 1
               </a>
-            </h1>
-            <div
-              class="ecl-content-block__description"
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus
-            </div>
-          </div>
-        </div>
-      </article>
-    </div>
-    <div
-      class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
-    >
-      <article
-        class="ecl-card ecl-card--tile ecl-navigation-list__card"
-      >
-        <div
-          class="ecl-card__image"
-          role="img"
-          style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-        />
-        <div
-          class="ecl-card__body"
-        >
-          <div
-            class="ecl-content-block ecl-card__content-block"
-          >
-            <h1
-              class="ecl-content-block__title"
+            </li>
+            <li
+              class="ecl-content-block__link-item"
             >
               <a
                 class="ecl-link ecl-link--standalone"
                 href="/example"
               >
-                Title 2
+                Primary link 2
               </a>
-            </h1>
-            <div
-              class="ecl-content-block__description"
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus
-            </div>
-          </div>
-        </div>
-      </article>
-    </div>
-    <div
-      class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
-    >
-      <article
-        class="ecl-card ecl-card--tile ecl-navigation-list__card"
-      >
-        <div
-          class="ecl-card__image"
-          role="img"
-          style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-        />
-        <div
-          class="ecl-card__body"
-        >
-          <div
-            class="ecl-content-block ecl-card__content-block"
-          >
-            <h1
-              class="ecl-content-block__title"
+            </li>
+            <li
+              class="ecl-content-block__link-item"
             >
               <a
                 class="ecl-link ecl-link--standalone"
                 href="/example"
               >
-                Title 3
+                Primary link 3
               </a>
-            </h1>
-            <div
-              class="ecl-content-block__description"
+            </li>
+            <li
+              class="ecl-content-block__link-item"
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus
-            </div>
-          </div>
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 4
+              </a>
+            </li>
+          </ul>
+          <ul
+            class="ecl-content-block__link-list"
+          >
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Secondary link 1
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Secondary link 2
+              </a>
+            </li>
+          </ul>
         </div>
-      </article>
-    </div>
+      </div>
+    </article>
+    <article
+      class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
+    >
+      <div
+        aria-label="Alt text of the image"
+        class="ecl-navigation-list__image"
+        role="img"
+        style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
+      />
+      <div
+        class="ecl-content-block ecl-navigation-list__content-block"
+      >
+        <h1
+          class="ecl-content-block__title"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Title 2
+          </a>
+        </h1>
+        <div
+          class="ecl-content-block__description"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus
+        </div>
+        <div
+          class="ecl-content-block__link-container"
+        >
+          <ul
+            class="ecl-content-block__link-list"
+          >
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 1
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 2
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 3
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 4
+              </a>
+            </li>
+          </ul>
+          <ul
+            class="ecl-content-block__link-list"
+          >
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Secondary link 1
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Secondary link 2
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+    <article
+      class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
+    >
+      <div
+        aria-label="Alt text of the image"
+        class="ecl-navigation-list__image"
+        role="img"
+        style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
+      />
+      <div
+        class="ecl-content-block ecl-navigation-list__content-block"
+      >
+        <h1
+          class="ecl-content-block__title"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Title 3
+          </a>
+        </h1>
+        <div
+          class="ecl-content-block__description"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus
+        </div>
+        <div
+          class="ecl-content-block__link-container"
+        >
+          <ul
+            class="ecl-content-block__link-list"
+          >
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 1
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 2
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 3
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 4
+              </a>
+            </li>
+          </ul>
+          <ul
+            class="ecl-content-block__link-list"
+          >
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Secondary link 1
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Secondary link 2
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
   </div>
 </jest>
 `;
@@ -241,114 +631,309 @@ exports[`Navigation list Default renders correctly with extra class names 1`] = 
   <div
     class="ecl-navigation-list ecl-navigation-list--col-2 custom-class custom-class--test"
   >
-    <div
+    <article
       class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
     >
-      <article
-        class="ecl-card ecl-card--tile ecl-navigation-list__card"
+      <div
+        aria-label="Alt text of the image"
+        class="ecl-navigation-list__image"
+        role="img"
+        style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
+      />
+      <div
+        class="ecl-content-block ecl-navigation-list__content-block"
       >
-        <div
-          class="ecl-card__image"
-          role="img"
-          style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-        />
-        <div
-          class="ecl-card__body"
+        <h1
+          class="ecl-content-block__title"
         >
-          <div
-            class="ecl-content-block ecl-card__content-block"
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
           >
-            <h1
-              class="ecl-content-block__title"
+            Title 1
+          </a>
+        </h1>
+        <div
+          class="ecl-content-block__description"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus
+        </div>
+        <div
+          class="ecl-content-block__link-container"
+        >
+          <ul
+            class="ecl-content-block__link-list"
+          >
+            <li
+              class="ecl-content-block__link-item"
             >
               <a
                 class="ecl-link ecl-link--standalone"
                 href="/example"
               >
-                Title 1
+                Primary link 1
               </a>
-            </h1>
-            <div
-              class="ecl-content-block__description"
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus
-            </div>
-          </div>
-        </div>
-      </article>
-    </div>
-    <div
-      class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
-    >
-      <article
-        class="ecl-card ecl-card--tile ecl-navigation-list__card"
-      >
-        <div
-          class="ecl-card__image"
-          role="img"
-          style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-        />
-        <div
-          class="ecl-card__body"
-        >
-          <div
-            class="ecl-content-block ecl-card__content-block"
-          >
-            <h1
-              class="ecl-content-block__title"
+            </li>
+            <li
+              class="ecl-content-block__link-item"
             >
               <a
                 class="ecl-link ecl-link--standalone"
                 href="/example"
               >
-                Title 2
+                Primary link 2
               </a>
-            </h1>
-            <div
-              class="ecl-content-block__description"
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus
-            </div>
-          </div>
-        </div>
-      </article>
-    </div>
-    <div
-      class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
-    >
-      <article
-        class="ecl-card ecl-card--tile ecl-navigation-list__card"
-      >
-        <div
-          class="ecl-card__image"
-          role="img"
-          style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-        />
-        <div
-          class="ecl-card__body"
-        >
-          <div
-            class="ecl-content-block ecl-card__content-block"
-          >
-            <h1
-              class="ecl-content-block__title"
+            </li>
+            <li
+              class="ecl-content-block__link-item"
             >
               <a
                 class="ecl-link ecl-link--standalone"
                 href="/example"
               >
-                Title 3
+                Primary link 3
               </a>
-            </h1>
-            <div
-              class="ecl-content-block__description"
+            </li>
+            <li
+              class="ecl-content-block__link-item"
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus
-            </div>
-          </div>
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 4
+              </a>
+            </li>
+          </ul>
+          <ul
+            class="ecl-content-block__link-list"
+          >
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Secondary link 1
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Secondary link 2
+              </a>
+            </li>
+          </ul>
         </div>
-      </article>
-    </div>
+      </div>
+    </article>
+    <article
+      class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
+    >
+      <div
+        aria-label="Alt text of the image"
+        class="ecl-navigation-list__image"
+        role="img"
+        style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
+      />
+      <div
+        class="ecl-content-block ecl-navigation-list__content-block"
+      >
+        <h1
+          class="ecl-content-block__title"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Title 2
+          </a>
+        </h1>
+        <div
+          class="ecl-content-block__description"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus
+        </div>
+        <div
+          class="ecl-content-block__link-container"
+        >
+          <ul
+            class="ecl-content-block__link-list"
+          >
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 1
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 2
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 3
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 4
+              </a>
+            </li>
+          </ul>
+          <ul
+            class="ecl-content-block__link-list"
+          >
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Secondary link 1
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Secondary link 2
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+    <article
+      class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
+    >
+      <div
+        aria-label="Alt text of the image"
+        class="ecl-navigation-list__image"
+        role="img"
+        style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
+      />
+      <div
+        class="ecl-content-block ecl-navigation-list__content-block"
+      >
+        <h1
+          class="ecl-content-block__title"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Title 3
+          </a>
+        </h1>
+        <div
+          class="ecl-content-block__description"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus
+        </div>
+        <div
+          class="ecl-content-block__link-container"
+        >
+          <ul
+            class="ecl-content-block__link-list"
+          >
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 1
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 2
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 3
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 4
+              </a>
+            </li>
+          </ul>
+          <ul
+            class="ecl-content-block__link-list"
+          >
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Secondary link 1
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Secondary link 2
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
   </div>
 </jest>
 `;

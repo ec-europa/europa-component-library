@@ -8,7 +8,11 @@
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
+$_image-margin: null !default;
+$_content_block_padding: null !default;
 $_border-radius: null !default;
+$_shadow: null !default;
+$_border: null !default;
 
 // Navigation list
 
@@ -39,49 +43,43 @@ $_border-radius: null !default;
 // Navigation list items
 
 .ecl-navigation-list__item {
-  margin: 0;
+  background-color: map.get(theme.$color, 'white');
+  border: $_border;
+  border-radius: $_border-radius;
+  box-shadow: $_shadow;
+  box-sizing: border-box;
+  overflow: hidden;
+}
 
-  .ecl-card {
-    background-color: transparent;
-  }
+.ecl-navigation-list__image {
+  background-position: center;
+  background-size: cover;
+  display: block;
+  height: auto;
 
-  .ecl-card__image {
-    margin: 0;
+  // manage ratio 4:1
+  &::before {
+    content: '';
+    display: block;
+    padding-top: math.div(1, 4) * 100%;
     width: 100%;
   }
+}
 
-  .ecl-card__image::before {
-    padding-top: math.div(9, 21) * 100%;
-  }
-
-  .ecl-card__body {
-    padding: map.get(theme.$spacing, 'm');
-  }
-
-  .ecl-card__link-container {
-    margin-top: map.get(theme.$spacing, 'xs');
-  }
-
-  .ecl-card__link-container + .ecl-card__link-container {
-    margin-top: map.get(theme.$spacing, 'm');
-  }
+.ecl-navigation-list__content-block {
+  padding: $_content_block_padding;
+  position: relative;
 }
 
 // No border
 
 .ecl-navigation-list__item--no-border {
-  .ecl-card {
-    border-radius: 0;
-    border-width: 0;
-    box-shadow: none;
-  }
+  border-radius: 0;
+  border-width: 0;
+  box-shadow: none;
 
-  .ecl-card__body {
+  .ecl-navigation-list__content-block {
     padding-inline-start: 0;
     padding-inline-end: 0;
-  }
-
-  .ecl-card__body::before {
-    display: none;
   }
 }
