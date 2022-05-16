@@ -15,4 +15,4 @@ delete dataCardLists.tags;
 
 export const card = template(correctSvgPath(dataCardDefault));
 export const cardTags = template(correctSvgPath(dataCardTags));
-export const CardLists = template(correctSvgPath(dataCardLists));
+export const cardLists = template(correctSvgPath(dataCardLists));
