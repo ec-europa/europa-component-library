@@ -17,7 +17,6 @@
         ...
       ]
     - "tags" (array) (default: []): Array of ECL Tags
-    - "links" (array) (default: []): Array or multi array of ECL Links
     - "lists" (array) (default: []): Array of ECL Description list
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -59,7 +58,6 @@
 {% set _description = description|default(_card.description) %}
 {% set _tags = tags|default(_card.tags) %}
 {% set _secondary_meta = secondary_meta|default(_card.infos) %}
-{% set _links = links|default(_card.links) %}
 {% set _lists = lists|default(_card.lists) %}
 
 {% set _css_class = 'ecl-card' %}
@@ -103,7 +101,6 @@
       description: _description,
       tags: _tags,
       secondary_meta: _secondary_meta,
-      links: _links,
       lists: _lists,
     } %}
     {% include '@ecl/content-block/content-block.html.twig' with _content_block|merge({

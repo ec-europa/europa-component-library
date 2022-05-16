@@ -2,9 +2,19 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctSvgPath } from '@ecl/story-utils';
 
-import dataCard from '@ecl/specs-component-card/demo/data--card';
+import dataCard from '@ecl/specs-component-card/demo/data';
 import card from './card.html.twig';
 import notes from './README.md';
+
+const dataCardDefault = JSON.parse(JSON.stringify(dataCard));
+delete dataCardDefault.tags;
+delete dataCardDefault.lists;
+
+const dataCardTags = JSON.parse(JSON.stringify(dataCard));
+delete dataCardTags.lists;
+
+const dataCardLists = JSON.parse(JSON.stringify(dataCard));
+delete dataCardLists.tags;
 
 const getArgs = (data) => {
   const args = {};
@@ -20,7 +30,7 @@ const getArgs = (data) => {
     args.show_secondary_meta = true;
   }
   if (data.tags) {
-    args.show_tags = true;
+    args.show_tags = !!data.tags;
   }
   if (data.primary_meta) {
     args.show_primary_meta = true;
@@ -29,7 +39,7 @@ const getArgs = (data) => {
     args.show_labels = true;
   }
   if (data.lists) {
-    args.show_lists = false;
+    args.show_lists = !!data.lists;
   }
   if (data.title) {
     args.title = data.title.label;
@@ -197,9 +207,23 @@ export default {
   decorators: [withCode, withNotes],
 };
 
-export const Card = (args) => card(prepareData(dataCard, args));
+export const Default = (args) => card(prepareData(dataCardDefault, args));
 
-Card.storyName = 'default';
-Card.args = getArgs(dataCard);
-Card.argTypes = getArgTypes(dataCard);
-Card.parameters = { notes: { markdown: notes, json: dataCard } };
+Default.storyName = 'default';
+Default.args = getArgs(dataCardDefault);
+Default.argTypes = getArgTypes(dataCardDefault);
+Default.parameters = { notes: { markdown: notes, json: dataCardDefault } };
+
+export const Tags = (args) => card(prepareData(dataCardTags, args));
+
+Tags.storyName = 'tags';
+Tags.args = getArgs(dataCardTags);
+Tags.argTypes = getArgTypes(dataCardTags);
+Tags.parameters = { notes: { markdown: notes, json: dataCardTags } };
+
+export const Lists = (args) => card(prepareData(dataCardLists, args));
+
+Lists.storyName = 'lists';
+Lists.args = getArgs(dataCardLists);
+Lists.argTypes = getArgTypes(dataCardLists);
+Lists.parameters = { notes: { markdown: notes, json: dataCardLists } };
