@@ -2,41 +2,17 @@
 title: Group 3
 order: 3
 ---
+![](/cms-images/soon-to-be-deprecated-image.png)
 
-import { Anatomy, Link, Paragraph } from '@ecl/website-components';
-
-<Paragraph size="lead">
-  The Harmonised footer is present on every page. It provides supplementary
-  information about the partnerships.
-</Paragraph>
+The Harmonised footer is present on every page. It provides supplementary information about the partnerships.
 
 ## Anatomy
 
-<Anatomy
-image="https://inno-ecl.s3.amazonaws.com/media/images/EC/HarmonisedTemplate/harmonised-3-footer.png"
-alt="Anatomy of harmonised group 3 footer"
-legend={{
-    items: [
-      {
-        color: '#404040',
-        label: 'mandatory',
-      },
-      {
-        color: '#004494',
-        label: 'optional',
-      },
-    ],
-  }}
-system="ec"
-selectedKind="components-footers-harmonised"
-selectedStory="group-3"
-/>
-
 | Component                | Mandatory | Description                                                                                       |
 | ------------------------ | --------- | ------------------------------------------------------------------------------------------------- |
-| partnership label        | yes       | customisable label                                                                                |
-| partnership logo         | no        | logo of the Partnerships involved. More than one can be added in front of the European Commission |
-| European Commission logo | yes       | logo of the European Commission, always the last one on the right                                 |
+| Partnership label        | yes       | customisable label                                                                                |
+| Partnership logo         | no        | logo of the Partnerships involved. More than one can be added in front of the European Commission |
+| European Commission Logo | yes       | logo of the European Commission, always the last one on the right                                 |
 
 ## Do's
 
@@ -52,4 +28,4 @@ selectedStory="group-3"
 
 ## When not to use
 
-- do not follow these guidelines when you are updating sites that fall under the <Link to="/ec/harmonised-templates/group1/">Harmonised group 1</Link> and <Link to="/ec/harmonised-templates/group2/">2</Link> category
+- do not follow these guidelines when you are updating sites that fall under the Harmonised group 1 and 2
