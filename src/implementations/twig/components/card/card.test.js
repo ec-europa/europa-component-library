@@ -1,5 +1,6 @@
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 import dataCard from '@ecl/specs-component-card/demo/data';
+import dataCardBc from '@ecl/specs-component-card/demo/deprecated/data';
 
 describe('Card', () => {
   const template = '@ecl/card/card.html.twig';
@@ -32,6 +33,13 @@ describe('Card', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('Backward compatibility', () => {
+    test('renders correctly with deprecated data', () => {
+      expect.assertions(1);
+      return expect(render(dataCardBc)).resolves.toMatchSnapshot();
     });
   });
 });

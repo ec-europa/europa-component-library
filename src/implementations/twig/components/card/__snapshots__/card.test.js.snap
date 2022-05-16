@@ -1,5 +1,119 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Card Backward compatibility renders correctly with deprecated data 1`] = `
+<jest>
+  <article
+    class="ecl-card"
+  >
+    <div
+      aria-label="card image"
+      class="ecl-card__image"
+      role="img"
+      style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
+    />
+    <div
+      class="ecl-card__body"
+    >
+      <div
+        class="ecl-content-block ecl-card__content-block"
+      >
+        <ul
+          class="ecl-content-block__label-container"
+        >
+          <li
+            class="ecl-content-block__label-item"
+          >
+            <span
+              class="ecl-label ecl-label--highlight"
+            >
+              highlighted
+            </span>
+          </li>
+          <li
+            class="ecl-content-block__label-item"
+          >
+            <span
+              class="ecl-label ecl-label--medium"
+            >
+              call status: upcoming
+            </span>
+          </li>
+        </ul>
+        <ul
+          class="ecl-content-block__primary-meta-container"
+        >
+          <li
+            class="ecl-content-block__primary-meta-item"
+          >
+            META1
+          </li>
+          <li
+            class="ecl-content-block__primary-meta-item"
+          >
+            Meta2
+          </li>
+        </ul>
+        <h1
+          class="ecl-content-block__title"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Better regulation
+          </a>
+        </h1>
+        <div
+          class="ecl-content-block__description"
+        >
+          Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
+        </div>
+        <ul
+          class="ecl-content-block__secondary-meta-container"
+        >
+          <li
+            class="ecl-content-block__secondary-meta-item"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--s ecl-content-block__secondary-meta-icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#calendar"
+              />
+            </svg>
+            <span
+              class="ecl-content-block__secondary-meta-label"
+            >
+              2018/10/22
+            </span>
+          </li>
+          <li
+            class="ecl-content-block__secondary-meta-item"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--s ecl-content-block__secondary-meta-icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#location"
+              />
+            </svg>
+            <span
+              class="ecl-content-block__secondary-meta-label"
+            >
+              Luxembourg
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </article>
+</jest>
+`;
+
 exports[`Card Default renders correctly 1`] = `
 <jest>
   <article
