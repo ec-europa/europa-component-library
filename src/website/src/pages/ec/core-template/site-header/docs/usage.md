@@ -13,6 +13,8 @@ From release 3.3 onwards, the individual templates (Core, Standardised & Harmoni
 | EWG (Europa web guide)         | [Guidelines for EC branded Core websites - Site header(s)](https://wikis.ec.europa.eu/display/WEBGUIDE/EC+branded+core+website+design)                                                                            |
 | ECL (Europa component library) | [EC Site header component - Core config.](https://citnet.tech.ec.europa.eu/CITnet/confluence/pages/viewpage.action?pageId=1092071063https://ec.europa.eu/component-library/ec/components/site-header/usage/#core) |
 
+---
+
 The core site header communicates the European Commission brand and provides the basic structure and guidance. It is placed at the top of every page.
 
 ## Anatomy
