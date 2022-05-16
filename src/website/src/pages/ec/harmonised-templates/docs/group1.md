@@ -3,16 +3,20 @@ title: Group 1
 order: 1
 ---
 
-import { Paragraph, List, Anatomy, Link } from '@ecl/website-components';
+![](/cms-images/screenshot-2022-04-13-at-11.40.03.png)
 
-<Paragraph size="lead">
+### Notice
 
-**To use the harmonised templates, please see [EC Europa family standardised](/ec/standardised-template/) section for details.**
+From release 3.3 onwards, the individual templates (Core, Standardised & Harmonised) can be found on the ECL **as configurations of the structurally merged components** (Site header, Page header & Footer), which now have a single, dedicated page. Concurrently, the EWG (Europa Web Guide) has also been updated to better accommodate information regarding the optionality of components & elements per site type. Please follow the corresponding links found in the table below for more information.
+
+| Knowledge base                 | New location                                                                                                                                                                                                        |                                                                                                                           |                                                                                                                 |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| ECL (Europa component library) | [EC Site header - Harmonised config.](https://citnet.tech.ec.europa.eu/CITnet/confluence/pages/viewpage.action?pageId=1092071063https://ec.europa.eu/component-library/ec/components/site-header/usage/#harmonised) | [EC Page header - Harmonised config.](https://ec.europa.eu/component-library/ec/components/page-header/usage/#harmonised) | [EC Footer - Harmonised config.](https://ec.europa.eu/component-library/ec/components/footer/usage/#harmonised) |
+| EWG (Europa web guide)         | [Guidelines for EC branded Harmonised website](https://wikis.ec.europa.eu/display/WEBGUIDE/EC+branded+harmonised+websites+design)                                                                                   |                                                                                                                           |                                                                                                                 |
 
 On this page you will find information related to the European Commission
 branded Harmonised group 1 websites that host specific
 content that answers a particular communication purpose, in particular:
-</Paragraph>
 
 - **Web information systems** : Providing a user-friendly
   interface to generate, disclose and/or filter large, detailed amounts of data stored in different systems
@@ -26,44 +30,14 @@ content that answers a particular communication purpose, in particular:
 
 ## Anatomy
 
-<Anatomy
-image="https://inno-ecl.s3.amazonaws.com/media/images/EC/HarmonisedTemplate/harmonised-1-template.png"
-alt="Anatomy of the harmonised template - group 1"
-legend={{
-    items: [
-      {
-        color: '#404040',
-        label: 'mandatory',
-      },
-      {
-        color: '#004494',
-        label: 'optional',
-      },
-    ],
-  }}
-/>
-
 | Elements                                                                                                           | Mandatory | Description                                                                                                                                                                                                                                                                                                                                                                                       |
 | ------------------------------------------------------------------------------------------------------------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <Link to="https://webgate.ec.europa.eu/fpfis/wikis/display/webtools/Global+banner" standalone>global banner</Link> | yes       | the Global banner is the official EU stamp that gives a visual indicator and easy access to EU institutions and bodies sites, guaranteeing the user visits an official EU website                                                                                                                                                                                                                 |
-| <Link to="/ec/harmonised-templates/site-header/group1/" standalone>harmonised site header</Link>                   | yes       | <p>the Harmonised site header is present on every page. It communicates the European Commission brand and provides basic structure and guidance. The site header is composed of several mandatory and optional elements such as:</p><ul><li>European Commission logo</li><li>Login</li><li>Language select</li><li>Europa search form</li><li>Class name</li><li>Site name</li><li>Menu</li></ul> |
-| <Link to="/ec/harmonised-templates/page-header/group1/" standalone>harmonised page header</Link>                   | yes       | <p>the Harmonised page header gives context and information to the user on what the page is about. It is present on every page, just below the site header, except for the homepage. The page header is composed of mandatory and optional elements such as:</p><ul><li>Breadcrumb</li><li>Meta</li><li>Page title</li><li>Introduction</li></ul>                                                 |
-| <Link to="/ec/harmonised-templates/footer/group1/" standalone>harmonised footer</Link>                             | yes       | <p>the Harmonised footer is present on every page. It provides supplementary information such as copyright, legal, privacy, social media, contact information and links to other important sections within the European Commission ecosystem. The footer is composed of mandatory and optional elements such as:</p><ul><li>Local content</li><li>Corporate content</li></ul>                     |
+| <Link to="https://webgate.ec.europa.eu/fpfis/wikis/display/webtools/Global+banner" standalone>Global banner</Link> | yes       | the Global banner is the official EU stamp that gives a visual indicator and easy access to EU institutions and bodies sites, guaranteeing the user visits an official EU website                                                                                                                                                                                                                 |
+| <Link to="/ec/harmonised-templates/site-header/group1/" standalone>Harmonised site header</Link>                   | yes       | <p>the Harmonised site header is present on every page. It communicates the European Commission brand and provides basic structure and guidance. The site header is composed of several mandatory and optional elements such as:</p><ul><li>European Commission logo</li><li>Login</li><li>Language select</li><li>Europa search form</li><li>Class name</li><li>Site name</li><li>Menu</li></ul> |
+| <Link to="/ec/harmonised-templates/page-header/group1/" standalone>Harmonised page header</Link>                   | yes       | <p>the Harmonised page header gives context and information to the user on what the page is about. It is present on every page, just below the site header, except for the homepage. The page header is composed of mandatory and optional elements such as:</p><ul><li>Breadcrumb</li><li>Meta</li><li>Page title</li><li>Introduction</li></ul>                                                 |
+| <Link to="/ec/harmonised-templates/footer/group1/" standalone>Harmonised footer</Link>                             | yes       | <p>the Harmonised footer is present on every page. It provides supplementary information such as copyright, legal, privacy, social media, contact information and links to other important sections within the European Commission ecosystem. The footer is composed of mandatory and optional elements such as:</p><ul><li>Local content</li><li>Corporate content</li></ul>                     |
 
 **NOTE**: On the Page body section, when components are available, use components from ECL.
-
-## Structural anatomy
-
-When designing the page, make sure to follow appropriate category guidelines available below in terms of structure and layout
-
-| Elements                                                           | Mandatory   | Description                                                             |
-| ------------------------------------------------------------------ | ----------- | ----------------------------------------------------------------------- |
-| <Link to="/ec/utilities/grid/" standalone>grid</Link>              | recommended | enhance visual consistency                                              |
-| <Link to="/ec/guidelines/colours/" standalone>colours</Link>       | recommended | use only European Commission colour specifications available in the ECL |
-| <Link to="/ec/guidelines/typography/" standalone>typography</Link> | recommended | apply the typographic guidelines available in the ECL                   |
-| <Link to="/ec/guidelines/spacing/" standalone>spacing</Link>       | recommended | apply spacing rules explained in the ECL                                |
-| <Link to="/ec/guidelines/iconography/" standalone>icons</Link>     | optional    | where icons feature, use commonly-used icons from the ECL               |
-| <Link to="/ec/guidelines/images/" standalone>images</Link>         | optional    | see image guidelines in ECL                                             |
 
 ## Do's
 
