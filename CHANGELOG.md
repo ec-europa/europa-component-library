@@ -1,5 +1,96 @@
 # Changelog
 
+## 3.3.0 (2022-05-16)
+
+#### :rocket: New Feature
+
+- [#2397](https://github.com/ec-europa/europa-component-library/pull/2397) feat(content-item): revamp content item and description list - FRONT-3554 ([@emeryro](https://github.com/emeryro))
+- [#2347](https://github.com/ec-europa/europa-component-library/pull/2347) feat(breadcrumb): add site-wide components - FRONT-3552 ([@papegaill](https://github.com/papegaill))
+- [#2404](https://github.com/ec-europa/europa-component-library/pull/2404) feat(banner): add coypright - FRONT-3616 ([@emeryro](https://github.com/emeryro))
+- [#2337](https://github.com/ec-europa/europa-component-library/pull/2337) feat(page-header): add site-wide components - FRONT-3546 ([@papegaill](https://github.com/papegaill))
+- [#2382](https://github.com/ec-europa/europa-component-library/pull/2382) feat(rtl): batch 5 - FRONT-3569 ([@tibi2303](https://github.com/tibi2303))
+- [#2379](https://github.com/ec-europa/europa-component-library/pull/2379) feat(tabs): Adapt JS for RTL support - FRONT-3594 ([@papegaill](https://github.com/papegaill))
+- [#2396](https://github.com/ec-europa/europa-component-library/pull/2396) feat(datepicker): Adapt JS for RTL support - FRONT-3595 ([@papegaill](https://github.com/papegaill))
+- [#2385](https://github.com/ec-europa/europa-component-library/pull/2385) feat(rtl): batch 4 - FRONT-3568 ([@emeryro](https://github.com/emeryro))
+- [#2378](https://github.com/ec-europa/europa-component-library/pull/2378) feat(carousel): Adapt JS for RTL support - FRONT-3593 ([@papegaill](https://github.com/papegaill))
+- [#2318](https://github.com/ec-europa/europa-component-library/pull/2318) feat(site-header): add component - FRONT-3530 ([@emeryro](https://github.com/emeryro))
+- [#2367](https://github.com/ec-europa/europa-component-library/pull/2367) feat(right-to-left): batch 3 - FRONT-3567 ([@emeryro](https://github.com/emeryro))
+- [#2327](https://github.com/ec-europa/europa-component-library/pull/2327) feat(navigation-list): add component - FRONT-3520 ([@emeryro](https://github.com/emeryro))
+- [#2359](https://github.com/ec-europa/europa-component-library/pull/2359) feat(rtl): right-to-left batch 2 - FRONT-3566 ([@emeryro](https://github.com/emeryro))
+- [#2358](https://github.com/ec-europa/europa-component-library/pull/2358) feat(rtl): right-to-left batch 1 - FRONT-3565 ([@emeryro](https://github.com/emeryro))
+- [#2331](https://github.com/ec-europa/europa-component-library/pull/2331) feat(css): add rtl css - FRONT-3515 ([@emeryro](https://github.com/emeryro))
+- [#2328](https://github.com/ec-europa/europa-component-library/pull/2328) feat(file-upload): Add dynamic upload file list example - FRONT-3525 ([@papegaill](https://github.com/papegaill))
+- [#2333](https://github.com/ec-europa/europa-component-library/pull/2333) feat(site-footer): add component - FRONT-3541 ([@papegaill](https://github.com/papegaill))
+
+#### :bug: Bug Fix
+
+- [#2408](https://github.com/ec-europa/europa-component-library/pull/2408) fix(page-header): Fix metas RTL display - FRONT-3619 ([@papegaill](https://github.com/papegaill))
+- [#2440](https://github.com/ec-europa/europa-component-library/pull/2440) fix(file): Fix website demo previews - FRONT-3620 ([@papegaill](https://github.com/papegaill))
+- [#2398](https://github.com/ec-europa/europa-component-library/pull/2398) fix(skip-link): Fix story JS blur error - FRONT-3613 ([@papegaill](https://github.com/papegaill))
+- [#2392](https://github.com/ec-europa/europa-component-library/pull/2392) chore(destroy): Review destroy method for JS components - FRONT-3610 ([@papegaill](https://github.com/papegaill))
+- [#2375](https://github.com/ec-europa/europa-component-library/pull/2375) fix(accessibility): Pagination, carousel, gallery and news-ticker - FRONT-3591 ([@papegaill](https://github.com/papegaill))
+- [#2391](https://github.com/ec-europa/europa-component-library/pull/2391) fix(site-header): fix EU site header shadow - FRONT-3602 ([@emeryro](https://github.com/emeryro))
+- [#2389](https://github.com/ec-europa/europa-component-library/pull/2389) chore(autoinit): Review destroy method - FRONT-3596 ([@papegaill](https://github.com/papegaill))
+- [#2383](https://github.com/ec-europa/europa-component-library/pull/2383) chore(js): Making destroy method in the components accessible to the autoInit, fixing cssresources behaviour ([@planctus](https://github.com/planctus))
+- [#2374](https://github.com/ec-europa/europa-component-library/pull/2374) fix(site-header): hide double logo - FRONT-3590 ([@emeryro](https://github.com/emeryro))
+- [#2371](https://github.com/ec-europa/europa-component-library/pull/2371) fix(website): Fixing display of condensed eu logs for other languages - FRONT-3586 ([@planctus](https://github.com/planctus))
+- [#2362](https://github.com/ec-europa/europa-component-library/pull/2362) fix(theme): Add missing black-100 color for EU theme - FRONT-3582 ([@papegaill](https://github.com/papegaill))
+- [#2361](https://github.com/ec-europa/europa-component-library/pull/2361) fix(site-header): fix mobile site-name overlapping menu - FRONT-3579 ([@papegaill](https://github.com/papegaill))
+- [#2355](https://github.com/ec-europa/europa-component-library/pull/2355) fix(css): remove rtl css from website - FRONT-3575 ([@emeryro](https://github.com/emeryro))
+- [#2354](https://github.com/ec-europa/europa-component-library/pull/2354) fix(menu): Add esc to close sub-menu - FRONT-3564 ([@papegaill](https://github.com/papegaill))
+- [#2350](https://github.com/ec-europa/europa-component-library/pull/2350) fix(form): fix checkbox and radio display on multiple lines - FRONT-3562 ([@emeryro](https://github.com/emeryro))
+- [#2351](https://github.com/ec-europa/europa-component-library/pull/2351) fix(featured-item): fix font weight and color - FRONT-3561 ([@emeryro](https://github.com/emeryro))
+- [#2341](https://github.com/ec-europa/europa-component-library/pull/2341) fix(content-item): remove forced background - FRONT-3555 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#2469](https://github.com/ec-europa/europa-component-library/pull/2469) feat(cards): refactor cards with content block - FRONT-3606 ([@emeryro](https://github.com/emeryro))
+- [#2468](https://github.com/ec-europa/europa-component-library/pull/2468) feat(navigation-list): Revamp using content-block component - FRONT-3607 ([@papegaill](https://github.com/papegaill))
+- [#2452](https://github.com/ec-europa/europa-component-library/pull/2452) refactor(deprecate): Deprecate old families components - FRONT-3553 ([@papegaill](https://github.com/papegaill))
+- [#2453](https://github.com/ec-europa/europa-component-library/pull/2453) feat(card): deprecate tile variant - FRONT-3611 ([@emeryro](https://github.com/emeryro))
+- [#2372](https://github.com/ec-europa/europa-component-library/pull/2372) feat(select): Correctly reset the multiselect on form reset - FRONT-3583 ([@papegaill](https://github.com/papegaill))
+- [#2394](https://github.com/ec-europa/europa-component-library/pull/2394) feat(rtl): batch 6 - FRONT-3570 ([@papegaill](https://github.com/papegaill))
+- [#2399](https://github.com/ec-europa/europa-component-library/pull/2399) feat(news-ticker): Adapt JS for RTL support - FRONT-3614 ([@papegaill](https://github.com/papegaill))
+- [#2393](https://github.com/ec-europa/europa-component-library/pull/2393) feat(logos): add logos for UK, LB, RU, ZH, JP - FRONT-3603 ([@emeryro](https://github.com/emeryro))
+- [#2363](https://github.com/ec-europa/europa-component-library/pull/2363) feat(datepicker): Adding translatibility - FRONT-3573 ([@planctus](https://github.com/planctus))
+- [#2348](https://github.com/ec-europa/europa-component-library/pull/2348) feat(card): improve meta structure - FRONT-3545 ([@emeryro](https://github.com/emeryro))
+- [#2349](https://github.com/ec-europa/europa-component-library/pull/2349) feat(tabs): add bottom spacing - FRONT-3559 ([@emeryro](https://github.com/emeryro))
+
+#### :memo: Documentation
+
+- [#2441](https://github.com/ec-europa/europa-component-library/pull/2441) chore: usage pages update ([@planctus](https://github.com/planctus))
+- [#2364](https://github.com/ec-europa/europa-component-library/pull/2364) chore(docs): Adding info about moment.js in getting started - FRONT-3576 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#2480](https://github.com/ec-europa/europa-component-library/pull/2480) chore(deps): Using fixed version of ECL packages as dependencies ([@planctus](https://github.com/planctus))
+- [#2479](https://github.com/ec-europa/europa-component-library/pull/2479) chore(deps): Updates 16-05-22 ([@planctus](https://github.com/planctus))
+- [#2478](https://github.com/ec-europa/europa-component-library/pull/2478) chore(deps): Updates 13-05-22 ([@planctus](https://github.com/planctus))
+- [#2445](https://github.com/ec-europa/europa-component-library/pull/2445) chore(deps): Updates 10-05-22 ([@planctus](https://github.com/planctus))
+- [#2444](https://github.com/ec-europa/europa-component-library/pull/2444) chore(deps): Updates 05-05-22 ([@planctus](https://github.com/planctus))
+- [#2407](https://github.com/ec-europa/europa-component-library/pull/2407) chore(deps): Updates 02-05-22 - audit check fix ([@planctus](https://github.com/planctus))
+- [#2401](https://github.com/ec-europa/europa-component-library/pull/2401) chore(deps): Updates 26-04-22 ([@planctus](https://github.com/planctus))
+- [#2395](https://github.com/ec-europa/europa-component-library/pull/2395) chore(deps): Updates 19-04-22 ([@planctus](https://github.com/planctus))
+- [#2390](https://github.com/ec-europa/europa-component-library/pull/2390) chore(deps): Updates 13-04-22 ([@planctus](https://github.com/planctus))
+- [#2386](https://github.com/ec-europa/europa-component-library/pull/2386) chore(logo): Fixing packages, distributing from dist folder ([@planctus](https://github.com/planctus))
+- [#2376](https://github.com/ec-europa/europa-component-library/pull/2376) chore(deps): Updates 31-03-22 ([@planctus](https://github.com/planctus))
+- [#2369](https://github.com/ec-europa/europa-component-library/pull/2369) fix(storybook): Adding static folder for rtl css - FRONT-3575 ([@planctus](https://github.com/planctus))
+- [#2370](https://github.com/ec-europa/europa-component-library/pull/2370) chore(deps): Fixing in resolutions problematic deps ([@planctus](https://github.com/planctus))
+- [#2368](https://github.com/ec-europa/europa-component-library/pull/2368) chore(deps): Updates 24-03-22 ([@planctus](https://github.com/planctus))
+- [#2365](https://github.com/ec-europa/europa-component-library/pull/2365) chore(deps): updates 21-03-22 ([@planctus](https://github.com/planctus))
+- [#2356](https://github.com/ec-europa/europa-component-library/pull/2356) chore(deps): updates 14-03-22 ([@planctus](https://github.com/planctus))
+- [#2352](https://github.com/ec-europa/europa-component-library/pull/2352) chore(deps): updates 07-03-22 ([@planctus](https://github.com/planctus))
+- [#2346](https://github.com/ec-europa/europa-component-library/pull/2346) chore(deps): dependabot alerts ([@planctus](https://github.com/planctus))
+- [#2343](https://github.com/ec-europa/europa-component-library/pull/2343) chore(deps): Updates 18-02-22 ([@planctus](https://github.com/planctus))
+
+#### Committers: 5
+
+- HAL Patch INNO ([@HAL-Patch-INNO](https://github.com/HAL-Patch-INNO))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@papegaill](https://github.com/papegaill)
+- [@planctus](https://github.com/planctus)
+- [@tibi2303](https://github.com/tibi2303)
+
 ## 3.2.4 (2022-04-26)
 
 #### :rocket: New Feature
