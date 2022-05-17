@@ -11,7 +11,7 @@ From release 3.3 onwards, the individual templates (Core, Standardised & Harmoni
 | Knowledge base                 | New location                                                                                                                      |
 | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
 | EWG (Europa web guide)         | [Guidelines for EC Core branded websites - Footer(s)](https://wikis.ec.europa.eu/display/WEBGUIDE/EC+branded+core+website+design) |
-| ECL (Europa component library) | [EC Footer component - Core config.](https://ec.europa.eu/component-library/ec/components/footer/usage/#core)                     |
+| ECL (Europa component library) | [EC Footer component - Core config.](https://ec.europa.eu/component-library/ec/components/site-wide/site-footer/usage/)           |
 
 ---
 
