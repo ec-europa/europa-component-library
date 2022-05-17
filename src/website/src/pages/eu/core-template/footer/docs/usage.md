@@ -8,10 +8,10 @@ order: 1
 
 From release 3.3 onwards, the individual templates (Core, Standardised & Harmonised) can be found on the ECL **as configurations of the structurally merged components** (Site header, Page header & Footer), which now have a single, dedicated page. Concurrently, the EWG (Europa Web Guide) has also been updated to better accommodate information regarding the optionality of components & elements per site type. Please follow the corresponding links found in the table below for more information.
 
-| Knowledge base                 | New location                                                                                                                      |
-| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
-| EWG (Europa web guide)         | [Guidelines for EU branded Core websites - Footer(s)](https://wikis.ec.europa.eu/display/WEBGUIDE/EU+branded+core+website+design) |
-| ECL (Europa component library) | [EU Footer component - Core config.](https://ec.europa.eu/component-library/ec/components/site-wide/site-footer/usage/)           |
+| Knowledge base                 | New location                                                                                                                                   |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| EWG (Europa web guide)         | [Guidelines for EU branded Core websites - Footer(s)](https://wikis.ec.europa.eu/display/WEBGUIDE/EU+branded+core+website+design)              |
+| ECL (Europa component library) | [EU Footer component - Core config.](https://ecl-preview-2505--europa-component-library.netlify.app/eu/components/site-wide/site-footer/code/) |
 
 ---
 
