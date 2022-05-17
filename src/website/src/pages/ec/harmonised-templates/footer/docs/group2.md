@@ -2,6 +2,7 @@
 title: Group 2
 order: 2
 ---
+
 ![](/cms-images/soon-to-be-deprecated-image.png)
 
 ### Notice
