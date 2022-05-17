@@ -2,7 +2,6 @@
 title: Group 3
 order: 3
 ---
-
 ![](/cms-images/soon-to-be-deprecated-image.png)
 
 ### Notice
@@ -12,7 +11,7 @@ From release 3.3 onwards, the individual templates (Core, Standardised & Harmoni
 | Knowledge base                 | New location                                                                                                                                   |
 | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | EWG (Europa web guide)         | [Guidelines for EC branded Harmonised websites - Footer(s)](https://wikis.ec.europa.eu/display/WEBGUIDE/EC+branded+harmonised+websites+design) |
-| ECL (Europa component library) | [EC Footer component - Harmonised config.](https://ec.europa.eu/component-library/ec/components/footer/usage/#harmonised)                      |
+| ECL (Europa component library) | [EC Footer component - Harmonised config.](https://ec.europa.eu/component-library/ec/components/site-wide/site-footer/code/)                   |
 
 ---
 
