@@ -13,6 +13,8 @@ From release 3.3 onwards, the individual templates (Core, Standardised & Harmoni
 | ECL (Europa component library) | [EC Site header - Standardised config.](https://ec.europa.eu/component-library/ec/components/site-wide/site-header/code/)              | [EC Page header - Standardised config.](https://ec.europa.eu/component-library/ec/components/site-wide/page-header/code/) | [EC Footer - Standardised config.](https://ec.europa.eu/component-library/ec/components/site-wide/site-footer/code/) |
 | EWG (Europa web guide)         | [Guidelines for EC branded Standardised websites](https://wikis.ec.europa.eu/display/WEBGUIDE/EC+branded+standardised+websites+design) |                                                                                                                           |                                                                                                                      |
 
+---
+
 As defined, the European Commission branded standardised websites host thematic content detailing, for example, policies for which the owner DG/Agency is responsible. This is the default solution to host DG-specific content (policy) and is closely aligned with the core site, providing seamless navigation and visual consistency between the first levels of the core site and the DG-managed sites.
 
 ## Anatomy
