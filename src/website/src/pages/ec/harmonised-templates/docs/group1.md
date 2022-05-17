@@ -39,7 +39,7 @@ content that answers a particular communication purpose, in particular:
 | <Link to="/ec/harmonised-templates/page-header/group1/" standalone>Harmonised page header</Link>                   | yes       | <p>the Harmonised page header gives context and information to the user on what the page is about. It is present on every page, just below the site header, except for the homepage. The page header is composed of mandatory and optional elements such as:</p><ul><li>Breadcrumb</li><li>Meta</li><li>Page title</li><li>Introduction</li></ul>                                                 |
 | <Link to="/ec/harmonised-templates/footer/group1/" standalone>Harmonised footer</Link>                             | yes       | <p>the Harmonised footer is present on every page. It provides supplementary information such as copyright, legal, privacy, social media, contact information and links to other important sections within the European Commission ecosystem. The footer is composed of mandatory and optional elements such as:</p><ul><li>Local content</li><li>Corporate content</li></ul>                     |
 
-**NOTE**: use components from ECL in the Page body section when/if available
+**NOTE**: On the Page body section, when components are available, use components from ECL.
 
 ## Do's
 
