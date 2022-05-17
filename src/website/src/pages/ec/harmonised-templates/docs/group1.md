@@ -14,6 +14,8 @@ From release 3.3 onwards, the individual templates (Core, Standardised & Harmoni
 | ECL (Europa component library) | [EC Site header - Harmonised config.](https://citnet.tech.ec.europa.eu/CITnet/confluence/pages/viewpage.action?pageId=1092071063https://ec.europa.eu/component-library/ec/components/site-header/usage/#harmonised) | [EC Page header - Harmonised config.](https://ec.europa.eu/component-library/ec/components/page-header/usage/#harmonised) | [EC Footer - Harmonised config.](https://ec.europa.eu/component-library/ec/components/footer/usage/#harmonised) |
 | EWG (Europa web guide)         | [Guidelines for EC branded Harmonised website](https://wikis.ec.europa.eu/display/WEBGUIDE/EC+branded+harmonised+websites+design)                                                                                   |                                                                                                                           |                                                                                                                 |
 
+---
+
 On this page you will find information related to the European Commission
 branded Harmonised group 1 websites that host specific
 content that answers a particular communication purpose, in particular:

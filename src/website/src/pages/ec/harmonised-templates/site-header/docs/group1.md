@@ -3,45 +3,34 @@ title: Group 1
 order: 1
 ---
 
-import { Paragraph, Anatomy, Link } from '@ecl/website-components';
+![](/cms-images/soon-to-be-deprecated-image.png)
 
-<Paragraph size="lead">
-  The Harmonised group 1 site header is present on every page. It communicates
-  the European Commission brand and provides basic structure and guidance, to be
-  placed at the top of the page.
-</Paragraph>
+### Notice
+
+From release 3.3 onwards, the individual templates (Core, Standardised & Harmonised) can be found on the ECL **as configurations of the structurally merged components** (Site header, Page header & Footer), which now have a single, dedicated page. Concurrently, the EWG (Europa Web Guide) has also been updated to better accommodate information regarding the optionality of components & elements per site type. Please follow the corresponding links found in the table below for more information.
+
+| Knowledge base                 | New location                                                                                                                                        |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| EWG (Europa web guide)         | [Guidelines for EC branded Harmonised websites - Site header(s)](https://wikis.ec.europa.eu/display/WEBGUIDE/EC+branded+harmonised+websites+design) |
+| ECL (Europa component library) | [EC Site header component - Harmonised config.](https://ec.europa.eu/component-library/ec/components/site-wide/site-header/code/)                   |
+
+---
+
+The Harmonised group 1 site header is present on every page. It communicates
+the European Commission brand and provides basic structure and guidance, to be
+placed at the top of the page.
 
 ## Anatomy
 
-<Anatomy
-image="https://inno-ecl.s3.amazonaws.com/media/images/EC/HarmonisedTemplate/harmonised-1-site-header.png"
-alt="Anatomy of harmonised group 1 site header"
-legend={{
-    items: [
-      {
-        color: '#404040',
-        label: 'mandatory',
-      },
-      {
-        color: '#004494',
-        label: 'optional',
-      },
-    ],
-  }}
-system="ec"
-selectedKind="components-site-headers-harmonised"
-selectedStory="group-1"
-/>
-
-| Component                                                                               | Mandatory | Description                                                                                                                                                                                                                       |
-| --------------------------------------------------------------------------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| European Commission logo                                                                | yes       | logo of the European Commission                                                                                                                                                                                                   |
-| login                                                                                   | optional  | login component for ECAS account<br />\* use a Login component if your website has a user database                                                                                                                                |
-| language select                                                                         | optional  | language select component through which users can select their desired language, on the left of the search form<br />\* use a Language select component if your website supports multilingual content                             |
-| <Link to="/ec/components/forms/search-form/usage/" standalone>Europa search form</Link> | optional  | enables the user to search and retrieve related information from the database using keywords                                                                                                                                      |
-| class name                                                                              | optional  | banner indicating the parent class under which the site falls<br />\* use a Class name component if the website you are creating or updating falls under one of the classes on the <Link to="/ec/core-template/">Core site</Link> |
-| site name                                                                               | yes       | name of the site                                                                                                                                                                                                                  |
-| <Link to="/ec/components/navigation/menu/usage/" standalone>menu</Link>                 | optional  | main navigation of the website                                                                                                                                                                                                    |
+| Component                | Mandatory | Description                                                                                                                                                                                       |
+| ------------------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| European Commission logo | yes       | logo of the European Commission                                                                                                                                                                   |
+| Login                    | optional  | login component for ECAS account (\*use a Login component if your website has a user database)                                                                                                    |
+| Language select          | optional  | language select component through which users can select their desired language, on the left of the search form (\*use a Language select component if your website supports multilingual content) |
+| Search form              | optional  | enables the user to search and retrieve related information from the database using keywords                                                                                                      |
+| Class name               | optional  | banner indicating the parent class under which the site falls (\*use a Class name component if the website you are creating or updating falls under one of the classes on the Core site)          |
+| Site name                | yes       | name of the site                                                                                                                                                                                  |
+| Menu                     | optional  | main navigation of the website                                                                                                                                                                    |
 
 ## Do's
 
@@ -57,4 +46,4 @@ selectedStory="group-1"
 
 ## When not to use
 
-- do not follow these guidelines when you are updating sites that fall under the <Link to="/ec/standardised-template/">Standardised</Link> or <Link to="/ec/core-template/">Core</Link> category
+- do not follow these guidelines when you are updating sites that fall under the Standardised or Core category
