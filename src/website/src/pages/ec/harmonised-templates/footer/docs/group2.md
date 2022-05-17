@@ -2,41 +2,26 @@
 title: Group 2
 order: 2
 ---
+![](/cms-images/soon-to-be-deprecated-image.png)
 
-import { Paragraph, Anatomy, Link } from '@ecl/website-components';
+### Notice
 
-<Paragraph size="lead">
-  The Harmonised group 2 site footer is present on every page. It provides
-  supplementary information such as copyright, legal, privacy, social media,
-  contact information and links to other important sections within the EC
-  ecosystem, to be placed at the bottom of the page.
-</Paragraph>
+From release 3.3 onwards, the individual templates (Core, Standardised & Harmonised) can be found on the ECL **as configurations of the structurally merged components** (Site header, Page header & Footer), which now have a single, dedicated page. Concurrently, the EWG (Europa Web Guide) has also been updated to better accommodate information regarding the optionality of components & elements per site type. Please follow the corresponding links found in the table below for more information.
+
+| Knowledge base                 | New location                                                                                                                                   |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| EWG (Europa web guide)         | [Guidelines for EC branded Harmonised websites - Footer(s)](https://wikis.ec.europa.eu/display/WEBGUIDE/EC+branded+harmonised+websites+design) |
+| ECL (Europa component library) | [EC Footer component - Harmonised config.](https://ec.europa.eu/component-library/ec/components/site-wide/site-footer/code/)                   |
+
+---
+
+The Harmonised group 2 site footer is present on every page. It provides supplementary information such as copyright, legal, privacy, social media, contact information and links to other important sections within the EC ecosystem, to be placed at the bottom of the page.
 
 ## Anatomy
 
-<Anatomy
-image="https://inno-ecl.s3.amazonaws.com/media/images/EC/HarmonisedTemplate/harmonised-2-footer.png"
-alt="Anatomy of harmonised group 2 footer"
-legend={{
-    items: [
-      {
-        color: '#404040',
-        label: 'mandatory',
-      },
-      {
-        color: '#004494',
-        label: 'optional',
-      },
-    ],
-  }}
-system="ec"
-selectedKind="components-footers-harmonised"
-selectedStory="group-2"
-/>
-
 | Component          | Mandatory | Description                                                               |
 | ------------------ | --------- | ------------------------------------------------------------------------- |
-| corporate name     | yes       | european Commission - parent owner of the website                         |
+| corporate name     | yes       | European Commission - parent owner of the website                         |
 | service navigation | yes       | contains services links - consistent throughout the family sites          |
 | legal navigation   | yes       | contains legal information links - consistent throughout the family sites |
 
@@ -54,4 +39,4 @@ selectedStory="group-2"
 
 ## When not to use
 
-- do not follow these guidelines when you are updating sites that fall under the <Link to="/ec/standardised-template/">Standardised</Link> or <Link to="/ec/core-template/">Core</Link> category
+- do not follow these guidelines when you are updating sites that fall under the Standardised or Core category
