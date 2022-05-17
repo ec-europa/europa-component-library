@@ -2,7 +2,20 @@
 title: Usage
 order: 1
 ---
-(work in progress) The harmonised footer is displayed at the bottom of every page in the website under the EU emblem. Corporate footer section is mandatory.
+![](/cms-images/screenshot-2022-04-13-at-11.40.03.png)
+
+### Notice
+
+From release 3.3 onwards, the individual templates (Core, Standardised & Harmonised) can be found on the ECL **as configurations of the structurally merged components** (Site header, Page header & Footer), which now have a single, dedicated page. Concurrently, the EWG (Europa Web Guide) has also been updated to better accommodate information regarding the optionality of components & elements per site type. Please follow the corresponding links found in the table below for more information.
+
+| Knowledge base                 | New location                                                                                                                                |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| EWG (Europa web guide)         | [Guidelines for EU branded Harmonised sites - Footer(s)](https://wikis.ec.europa.eu/display/WEBGUIDE/EU+branded+harmonised+websites+design) |
+| ECL (Europa component library) | [EU Footer component - Harmonised config.](https://ec.europa.eu/component-library/eu/components/footer/usage/#harmonised)                   |
+
+---
+
+The harmonised footer is displayed at the bottom of every page in the website under the EU emblem. Corporate footer section is mandatory.
 
 ## Anatomy
 
