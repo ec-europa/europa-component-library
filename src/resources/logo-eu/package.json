@@ -10,7 +10,8 @@
   "scripts": {
     "dist:clean": "rimraf dist",
     "dist:copy": "ncp src dist",
-    "prepublish": "run-s dist:*"
+    "dist": "run-s dist:*",
+    "prepublish": "dist"
   },
   "dependencies": {
     "ncp": "2.0.0",
