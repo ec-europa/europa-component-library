@@ -8,9 +8,9 @@
     "access": "public"
   },
   "scripts": {
-    "build:clean": "rimraf dist",
-    "build:copy": "ncp src dist",
-    "prepublish": "run-s build:*"
+    "dist:clean": "rimraf dist",
+    "dist:copy": "ncp src dist",
+    "prepublish": "run-s dist:*"
   },
   "dependencies": {
     "ncp": "2.0.0",
