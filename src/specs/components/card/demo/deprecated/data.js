@@ -17,6 +17,10 @@ module.exports = {
       alt: 'card image',
       src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
     },
+    labels: [
+      { label: 'highlighted', variant: 'highlight' },
+      { label: 'call status: upcoming', variant: 'medium' },
+    ],
     infos: [
       {
         icon: {
@@ -33,30 +37,6 @@ module.exports = {
           path: '/icons.svg',
         },
         label: 'Luxembourg',
-      },
-    ],
-    labels: [
-      { label: 'highlighted', variant: 'highlight' },
-      { label: 'call status: upcoming', variant: 'medium' },
-    ],
-    lists: [
-      {
-        variant: 'horizontal',
-        items: [
-          {
-            term: 'EU contribution',
-            definition: '1.000.000,00 euro (100% of the overall budget)',
-          },
-          {
-            term: 'Taxonomy list',
-            type: 'taxonomy',
-            definition: [
-              'Taxonomy item 1',
-              'Taxonomy item 2',
-              'Taxonomy item 3',
-            ],
-          },
-        ],
       },
     ],
   },
