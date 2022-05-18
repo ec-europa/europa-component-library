@@ -2,8 +2,7 @@
 title: Group 1
 order: 1
 ---
-
-![](/cms-images/screenshot-2022-04-13-at-11.40.03.png)
+![](/cms-images/soon-to-be-deprecated-image.png)
 
 ### Notice
 
