@@ -82,7 +82,7 @@
             proseWrap: 'preserve',
             plugins: prettierPlugins,
           });
-          return entry.get('data').set('body', body);
+          return ${entry.get('data').set('body', '\n' + body)};
         },
       });
     </script>
