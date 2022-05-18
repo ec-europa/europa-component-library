@@ -11,7 +11,7 @@ From release 3.3 onwards, the individual templates (Core, Standardised & Harmoni
 | Knowledge base                 | New location                                                                                                                                |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | EWG (Europa web guide)         | [Guidelines for EU branded Harmonised sites - Footer(s)](https://wikis.ec.europa.eu/display/WEBGUIDE/EU+branded+harmonised+websites+design) |
-| ECL (Europa component library) | [EU Footer component - Harmonised config.](https://ec.europa.eu/component-library/eu/components/footer/usage/#harmonised)                   |
+| ECL (Europa component library) | [EU Footer component - Harmonised config.](https://ec.europa.eu/component-library/eu/components/site-wide/site-footer/code/)                |
 
 ---
 
