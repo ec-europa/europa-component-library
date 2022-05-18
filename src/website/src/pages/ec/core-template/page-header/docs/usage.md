@@ -11,7 +11,7 @@ From release 3.3 onwards, the individual templates (Core, Standardised & Harmoni
 | Knowledge base                 | New location                                                                                                                              |
 | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | EWG (Europa web guide)         | [Guidelines on EC Core branded websites - Page header(s)](https://wikis.ec.europa.eu/display/WEBGUIDE/01.+EC+branded+core+website+design) |
-| ECL (Europa component library) | [EC Page header component - Core config.](https://ec.europa.eu/component-library/ec/components/page-header/usage/#core)                   |
+| ECL (Europa component library) | [EC Page header component - Core config.](https://ec.europa.eu/component-library/eu/components/site-wide/page-header/code/)               |
 
 ---
 
