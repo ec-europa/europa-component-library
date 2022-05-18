@@ -8,10 +8,10 @@ order: 1
 
 From release 3.3 onwards, the individual templates (Core, Standardised & Harmonised) can be found on the ECL **as configurations of the structurally merged components** (Site header, Page header & Footer), which now have a single, dedicated page. Concurrently, the EWG (Europa Web Guide) has also been updated to better accommodate information regarding the optionality of components & elements per site type. Please follow the corresponding links found in the table below for more information.
 
-| Knowledge base                 | New location                                                                                                                                                                                                                      |
-| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| EWG (Europa web guide)         | [Guidelines for EC branded Standardised websites - Site header(s)](https://wikis.ec.europa.eu/display/WEBGUIDE/EC+branded+standardised+websites+design)                                                                           |
-| ECL (Europa component library) | [EC Site header component - Standardised config.](https://citnet.tech.ec.europa.eu/CITnet/confluence/pages/viewpage.action?pageId=1092071063https://ec.europa.eu/component-library/ec/components/site-header/usage/#standardised) |
+| Knowledge base                 | New location                                                                                                                                            |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| EWG (Europa web guide)         | [Guidelines for EC branded Standardised websites - Site header(s)](https://wikis.ec.europa.eu/display/WEBGUIDE/EC+branded+standardised+websites+design) |
+| ECL (Europa component library) | [EC Site header component - Standardised config.](https://ec.europa.eu/component-library/ec/components/site-wide/site-header/code/)                     |
 
 ---
 
