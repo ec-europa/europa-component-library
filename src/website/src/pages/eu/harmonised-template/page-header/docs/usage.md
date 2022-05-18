@@ -2,7 +2,7 @@
 title: Usage
 order: 1
 ---
-![](/cms-images/screenshot-2022-04-13-at-11.40.03.png)
+![](/cms-images/soon-to-be-deprecated-image.png)
 
 ### Notice
 
@@ -11,7 +11,7 @@ From release 3.3 onwards, the individual templates (Core, Standardised & Harmoni
 | Knowledge base                 | New location                                                                                                                                     |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | EWG (Europa web guide)         | [Guidelines for EU branded Harmonised sites - Page header(s)](https://wikis.ec.europa.eu/display/WEBGUIDE/EU+branded+harmonised+websites+design) |
-| ECL (Europa component library) | [EU Page header component - Harmonised config.](https://ec.europa.eu/component-library/eu/components/page-header/usage/#harmonised)              |
+| ECL (Europa component library) | [EU Page header component - Harmonised config.](https://ec.europa.eu/component-library/eu/components/site-wide/page-header/code/)                |
 
 ---
 
