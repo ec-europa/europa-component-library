@@ -11,7 +11,7 @@ From release 3.3 onwards, the individual templates (Core, Standardised & Harmoni
 | Knowledge base                 | New location                                                                                                                                            |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | EWG (Europa web guide)         | [Guidelines for EC branded Standardised websites - Page header(s)](https://wikis.ec.europa.eu/display/WEBGUIDE/EC+branded+standardised+websites+design) |
-| ECL (Europa component library) | [EC Page header component - Standardised config.](https://ec.europa.eu/component-library/ec/components/page-header/usage/#standardised)                 |
+| ECL (Europa component library) | [EC Page header component - Standardised config.](https://ec.europa.eu/component-library/ec/components/site-wide/page-header/code/)                     |
 
 ---
 
