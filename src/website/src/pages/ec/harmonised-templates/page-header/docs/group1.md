@@ -2,7 +2,6 @@
 title: Group 1
 order: 1
 ---
-
 ![](/cms-images/soon-to-be-deprecated-image.png)
 
 ### Notice
