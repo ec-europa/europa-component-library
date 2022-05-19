@@ -97,6 +97,10 @@ $_btn-padding-horizontal: map.get(theme.$spacing, 's') !default;
     padding: calc(#{$_btn-padding-vertical} - #{$_btn-outline-width})
       calc(#{$_btn-padding-horizontal} - #{$_btn-outline-width});
   }
+
+  .ecl-button__icon--after {
+    margin: 0;
+  }
 }
 
 /* stylelint-disable-next-line order/order */
