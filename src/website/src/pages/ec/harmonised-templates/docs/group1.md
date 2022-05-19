@@ -3,7 +3,7 @@ title: Group 1
 order: 1
 ---
 
-![](/cms-images/screenshot-2022-04-13-at-11.40.03.png)
+![](/cms-images/soon-to-be-deprecated-image.png)
 
 ### Notice
 
@@ -32,12 +32,12 @@ content that answers a particular communication purpose, in particular:
 
 ## Anatomy
 
-| Elements                                                                                                           | Mandatory | Description                                                                                                                                                                                                                                                                                                                                                                                       |
-| ------------------------------------------------------------------------------------------------------------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <Link to="https://webgate.ec.europa.eu/fpfis/wikis/display/webtools/Global+banner" standalone>Global banner</Link> | yes       | the Global banner is the official EU stamp that gives a visual indicator and easy access to EU institutions and bodies sites, guaranteeing the user visits an official EU website                                                                                                                                                                                                                 |
-| <Link to="/ec/harmonised-templates/site-header/group1/" standalone>Harmonised site header</Link>                   | yes       | <p>the Harmonised site header is present on every page. It communicates the European Commission brand and provides basic structure and guidance. The site header is composed of several mandatory and optional elements such as:</p><ul><li>European Commission logo</li><li>Login</li><li>Language select</li><li>Europa search form</li><li>Class name</li><li>Site name</li><li>Menu</li></ul> |
-| <Link to="/ec/harmonised-templates/page-header/group1/" standalone>Harmonised page header</Link>                   | yes       | <p>the Harmonised page header gives context and information to the user on what the page is about. It is present on every page, just below the site header, except for the homepage. The page header is composed of mandatory and optional elements such as:</p><ul><li>Breadcrumb</li><li>Meta</li><li>Page title</li><li>Introduction</li></ul>                                                 |
-| <Link to="/ec/harmonised-templates/footer/group1/" standalone>Harmonised footer</Link>                             | yes       | <p>the Harmonised footer is present on every page. It provides supplementary information such as copyright, legal, privacy, social media, contact information and links to other important sections within the European Commission ecosystem. The footer is composed of mandatory and optional elements such as:</p><ul><li>Local content</li><li>Corporate content</li></ul>                     |
+| Elements               | Mandatory | Description                                                                                                                                                                                                                                                                                                                                                                                       |
+| ---------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Global banner          | yes       | the Global banner is the official EU stamp that gives a visual indicator and easy access to EU institutions and bodies sites, guaranteeing the user visits an official EU website                                                                                                                                                                                                                 |
+| Harmonised site header | yes       | <p>the Harmonised site header is present on every page. It communicates the European Commission brand and provides basic structure and guidance. The site header is composed of several mandatory and optional elements such as:</p><ul><li>European Commission logo</li><li>Login</li><li>Language select</li><li>Europa search form</li><li>Class name</li><li>Site name</li><li>Menu</li></ul> |
+| Harmonised page header | yes       | <p>the Harmonised page header gives context and information to the user on what the page is about. It is present on every page, just below the site header, except for the homepage. The page header is composed of mandatory and optional elements such as:</p><ul><li>Breadcrumb</li><li>Meta</li><li>Page title</li><li>Introduction</li></ul>                                                 |
+| Harmonised footer      | yes       | <p>the Harmonised footer is present on every page. It provides supplementary information such as copyright, legal, privacy, social media, contact information and links to other important sections within the European Commission ecosystem. The footer is composed of mandatory and optional elements such as:</p><ul><li>Local content</li><li>Corporate content</li></ul>                     |
 
 **NOTE**: On the Page body section, when components are available, use components from ECL.
 
@@ -55,5 +55,5 @@ content that answers a particular communication purpose, in particular:
 
 ## When not to use
 
-- do not follow these guidelines when you are updating sites that fall under the <Link to="/ec/core-template/">Core</Link> or <Link to="/ec/standardised-template/">Standardised</Link> category
-- do not follow these guidelines when you are updating sites that fall under events, campaigns or blogs - use <Link to="/ec/harmonised-templates/group2/">Harmonised Group 2</Link> instead
+- do not follow these guidelines when you are updating sites that fall under the Core or Standardised category
+- do not follow these guidelines when you are updating sites that fall under events, campaigns or blogs - use Harmonised Group 2 instead
