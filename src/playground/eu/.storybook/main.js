@@ -51,6 +51,9 @@ const webpackFinal = (config) => {
 };
 
 module.exports = {
+  core: {
+    builder: 'webpack5',
+  },
   stories,
   addons,
   staticDirs,
