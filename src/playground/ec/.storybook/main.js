@@ -10,9 +10,9 @@ const stories = ['../../../implementations/twig/**/!(eu*).story.js'];
 const addons = [
   '@storybook/addon-docs',
   '@storybook/addon-cssresources',
-  '@ecl/storybook-addon-notes/register',
-  '@ecl/storybook-addon-code/register',
-  '@ecl/storybook-addon-system-switcher/register',
+  '@ecl/storybook-addon-notes',
+  '@ecl/storybook-addon-code',
+  '@ecl/storybook-addon-system-switcher',
   '@storybook/addon-viewport',
   '@storybook/addon-controls',
   '@storybook/addon-a11y',
