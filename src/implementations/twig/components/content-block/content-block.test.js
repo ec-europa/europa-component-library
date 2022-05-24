@@ -1,6 +1,8 @@
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 import dataImage from '@ecl/specs-component-content-block/demo/data';
 
+const dataSimpleTitle = { ...dataImage, title: 'title' };
+
 describe('Content block', () => {
   const template = '@ecl/content-block/content-block.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
@@ -9,6 +11,11 @@ describe('Content block', () => {
     test('renders correctly', () => {
       expect.assertions(1);
       return expect(render(dataImage)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with simple title', () => {
+      expect.assertions(1);
+      return expect(render(dataSimpleTitle)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {

@@ -13,7 +13,7 @@ npm install --save @ecl/twig-component-card
   - **alt**: alternative text for the image
 - **labels** (array) (default: []): Array of ECL Labels
 - **primary_meta** (array of strings) (default: []): Primary meta of the card
-- **title** (associative array) (default: {}): Title of the card, following ECL Link structure
+- **title** (associative array OR string) (default: {}): Title of the card, following ECL Link structure
 - **description** (string) (default: ''): Description of the card
 - **secondary_meta** (array) (default: []): format: [
   {
@@ -44,18 +44,17 @@ npm install --save @ecl/twig-component-card
 ```twig
 {% include '@ecl/card/card.html.twig' with { 
   card: { 
-    description: 'Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.', 
     image: { 
       src: 'https://v2--europa-component-library.netlify.com/example-image.jpg', 
       alt: 'Better regulation', 
     }, 
+    primary_meta: [ 'Meta 1', 'Meta 2', 'Meta 3' ], 
     title: { 
-      type: 'standalone', 
       path: '/example', 
       label: 'Better regulation', 
     }, 
-    meta: [ 'Meta 1', 'Meta 2', 'Meta 3' ], 
-    infos: [ 
+    description: 'Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.', 
+    secondary_meta: [ 
       { 
         label: '2018/10/22', 
         icon: { 
