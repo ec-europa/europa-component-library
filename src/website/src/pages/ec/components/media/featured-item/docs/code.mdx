@@ -4,7 +4,12 @@ order: 2
 ---
 
 import { Playground, Html } from '@ecl/website-components';
-import { featuredItem, featuredItemExtended } from '../demo';
+import {
+  featuredItem,
+  featuredItemRightAlignement,
+  featuredItemExtended,
+  featuredItemExtendedRightAlignement,
+} from '../demo';
 
 ## Default
 
@@ -16,6 +21,17 @@ import { featuredItem, featuredItemExtended } from '../demo';
   <Html markup={featuredItem} />
 </Playground>
 
+## Default right-aligned
+
+<Playground
+  system="ec"
+  selectedKind="components-featured-item"
+  selectedStory="default"
+  selectedArgs="alignment":right"
+>
+  <Html markup={featuredItemRightAlignement} />
+</Playground>
+
 ## Extended
 
 <Playground
@@ -24,4 +40,15 @@ import { featuredItem, featuredItemExtended } from '../demo';
   selectedStory="extended"
 >
   <Html markup={featuredItemExtended} />
+</Playground>
+
+## Extended right-aligned
+
+<Playground
+  system="ec"
+  selectedKind="components-featured-item"
+  selectedStory="extended"
+  selectedArgs="alignment":right"
+>
+  <Html markup={featuredItemExtendedRightAlignement} />
 </Playground>

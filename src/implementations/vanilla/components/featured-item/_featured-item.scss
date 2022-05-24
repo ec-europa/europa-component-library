@@ -17,7 +17,6 @@ $_title-margin-bottom: null !default;
 $_description-mobile-margin-bottom: null !default;
 $_description-margin-bottom: null !default;
 $_extended-border-color: null !default;
-$_extended-mobile-border-size: null !default;
 $_extended-border-size: null !default;
 $_extended-border-radius: null !default;
 $_extended-background: null !default;
@@ -71,8 +70,7 @@ $_extended-padding-bottom: null !default;
 .ecl-featured-item--extended {
   .ecl-featured-item__container {
     background-color: $_extended-background;
-    border-inline-start: $_extended-mobile-border-size solid
-      $_extended-border-color;
+    border-inline-start: $_extended-border-size solid $_extended-border-color;
     border-radius: $_extended-border-radius;
     overflow: hidden;
     padding-bottom: map.get(theme.$spacing, 'm');
@@ -83,7 +81,7 @@ $_extended-padding-bottom: null !default;
 
   .ecl-featured-item__heading {
     padding-inline-start: calc(
-      #{map.get(theme.$spacing, 'xs')} + #{$_extended-mobile-border-size}
+      #{map.get(theme.$spacing, 'xs')} + #{$_extended-border-size}
     );
     padding-inline-end: map.get(theme.$spacing, 'm');
   }
@@ -112,6 +110,21 @@ $_extended-padding-bottom: null !default;
     }
   }
 
+  .ecl-featured-item__container--row-reverse {
+    flex-direction: row-reverse;
+
+    .ecl-featured-item__item {
+      &:first-child {
+        padding-inline-end: 0;
+      }
+
+      &:last-child {
+        padding-bottom: 0;
+        padding-inline-end: map.get(theme.$spacing, 'm');
+      }
+    }
+  }
+
   .ecl-featured-item__link {
     margin-bottom: 0;
   }
@@ -131,7 +144,6 @@ $_extended-padding-bottom: null !default;
       padding-inline-start: calc(
         #{$_extended-padding-left} + #{$_extended-border-size}
       );
-      padding-inline-end: map.get(theme.$spacing, 'm');
     }
   }
 }
