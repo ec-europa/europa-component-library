@@ -3,35 +3,22 @@ title: Group 3
 order: 2
 ---
 
-import { Anatomy, Link, Paragraph } from '@ecl/website-components';
+![](/cms-images/soon-to-be-deprecated-image.png)
 
-<Paragraph size="lead">
-  The Harmonised group 3 site header is present on every page. It communicates
-  the site brand brand and provides basic structure and guidance, to be placed
-  at the top of the page.
-</Paragraph>
+### Notice
+
+From release 3.3 onwards, the individual templates (Core, Standardised & Harmonised) can be found on the ECL **as configurations of the structurally merged components** (Site header, Page header & Footer), which now have a single, dedicated page. Concurrently, the EWG (Europa Web Guide) has also been updated to better accommodate information regarding the optionality of components & elements per site type. Please follow the corresponding links found in the table below for more information.
+
+| Knowledge base                 | New location                                                                                                                                        |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| EWG (Europa web guide)         | [Guidelines for EC branded Harmonised websites - Site header(s)](https://wikis.ec.europa.eu/display/WEBGUIDE/EC+branded+harmonised+websites+design) |
+| ECL (Europa component library) | [EC Site header component - Harmonised config.](https://v3--europa-component-library.netlify.app/ec/components/site-wide/site-header/code/)         |
+
+The Harmonised group 3 site header is present on every page. It communicates
+the site brand brand and provides basic structure and guidance, to be placed
+at the top of the page.
 
 ## Anatomy
-
-<Anatomy
-image="https://inno-ecl.s3.amazonaws.com/media/images/EC/HarmonisedTemplate/harmonised-3-header.png"
-alt="Anatomy of harmonised group 3 footer"
-legend={{
-    items: [
-      {
-        color: '#404040',
-        label: 'mandatory',
-      },
-      {
-        color: '#004494',
-        label: 'optional',
-      },
-    ],
-  }}
-system="ec"
-selectedKind="components-footers-harmonised"
-selectedStory="group-3"
-/>
 
 | Component        | Mandatory | Description             |
 | ---------------- | --------- | ----------------------- |
@@ -52,4 +39,4 @@ selectedStory="group-3"
 
 ## When not to use
 
-- do not follow these guidelines when you are updating sites that fall under the <Link to="/ec/harmonised-templates/group1/">Harmonised group 1</Link> and <Link to="/ec/harmonised-templates/group2/">2</Link> category
+- do not follow these guidelines when you are updating sites that fall under the Harmonised group 1 and 2 category

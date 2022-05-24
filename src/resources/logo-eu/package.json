@@ -11,7 +11,7 @@
     "dist:clean": "rimraf dist",
     "dist:copy": "ncp src dist",
     "dist": "run-s dist:*",
-    "prepublish": "dist"
+    "prepublish": "npm run dist"
   },
   "dependencies": {
     "ncp": "2.0.0",
