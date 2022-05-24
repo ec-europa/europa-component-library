@@ -1,6 +1,9 @@
 import { addParameters } from '@storybook/html';
 import { withCssResources } from '@storybook/addon-cssresources';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+import { Buffer } from 'buffer';
+
+global.Buffer = Buffer;
 
 import './ECL';
 
