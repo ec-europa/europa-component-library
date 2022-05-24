@@ -29,7 +29,7 @@ const getArgs = (data) => {
     args.show_primary_meta = true;
   }
   if (data.title) {
-    args.title = data.title.label;
+    args.title = data.title.path ? data.title.label : data.title;
   }
   if (data.description) {
     args.show_description = true;
@@ -196,7 +196,11 @@ const prepareData = (data, args) => {
     clone.description = args.description;
   }
   if (clone.title) {
-    clone.title.label = args.title;
+    if (clone.title.path) {
+      clone.title.label = args.title;
+    } else {
+      clone.title = args.title;
+    }
   }
 
   return clone;
