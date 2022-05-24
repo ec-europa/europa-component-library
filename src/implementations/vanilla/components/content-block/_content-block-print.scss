@@ -8,7 +8,7 @@
 
 $_primary-meta-color: null !default;
 $_title-font: null !default;
-$_description-color: null !default;
+$_text-color: null !default;
 $_secondary-meta-color: null !default;
 $_secondary-meta-font: null !default;
 $_secondary-meta-icon-color: null !default;
@@ -68,6 +68,7 @@ $_link-separator-color: null !default;
 }
 
 .ecl-content-block__title {
+  color: $_text-color;
   font: $_title-font;
   font-weight: map.get(theme.$font-weight, 'bold');
   margin: map.get(theme.$spacing-print, 'xs') 0 0;
@@ -75,7 +76,7 @@ $_link-separator-color: null !default;
 }
 
 .ecl-content-block__description {
-  color: $_description-color;
+  color: $_text-color;
   font: map.get(theme.$font-prolonged-print, 'm');
   margin-top: map.get(theme.$spacing-print, 'xs');
   max-width: 80ch;
