@@ -20,7 +20,7 @@ The component is available in a positive and a negative version. Harmonised and 
 | 2   | Meta              | optional                         | Primary metadata related to the page's content                                                                                                                                                                |
 | 3   | Page title        | mandatory (excepting homepage)   | Title of the page                                                                                                                                                                                             |
 | 4   | Thumbnail         | optional (requires introduction) | Thumbnail image displayed on the side of the description OR if a background image has been selected, taking the full-width of the component. If neither is selected, it will display a solid blue background. |
-| 5   | Introduction      | mandatory                        | A description of the content that the page addresses                                                                                                                                                          |
+| 5   | Introduction      | optional                         | A description of the content that the page addresses                                                                                                                                                          |
 
 # Standardised & harmonised config.
 
