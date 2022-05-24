@@ -10,7 +10,7 @@
 
 $_primary-meta-color: null !default;
 $_title-font: null !default;
-$_description-color: null !default;
+$_text-color: null !default;
 $_secondary-meta-color: null !default;
 $_secondary-meta-icon-color: null !default;
 $_link-separator-color: null !default;
@@ -63,6 +63,7 @@ $_link-separator-color: null !default;
 }
 
 .ecl-content-block__title {
+  color: $_text-color;
   font: map.get($_title-font, 'mobile');
   font-weight: map.get(theme.$font-weight, 'bold');
   margin: map.get(theme.$spacing, 'xs') 0 0;
@@ -70,7 +71,7 @@ $_link-separator-color: null !default;
 }
 
 .ecl-content-block__description {
-  color: $_description-color;
+  color: $_text-color;
   font: map.get(theme.$font-prolonged, 'm');
   margin-top: map.get(theme.$spacing, 'xs');
   max-width: 80ch;
