@@ -13,4 +13,4 @@ cd "$(dirname "$0")"
 cd ..
 
 # Update version
-./node_modules/.bin/lerna version --no-push --no-git-tag-version "$@"
+./node_modules/.bin/lerna version --no-push --exact --no-git-tag-version "$@"
