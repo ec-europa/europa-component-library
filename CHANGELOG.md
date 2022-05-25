@@ -1,5 +1,24 @@
 # Changelog
 
+## 3.3.1 (2022-05-25)
+
+#### :bug: Bug Fix
+
+- [#2546](https://github.com/ec-europa/europa-component-library/pull/2546) fix(page header): add bottom margin - FRONT-3462 ([@emeryro](https://github.com/emeryro))
+- [#2540](https://github.com/ec-europa/europa-component-library/pull/2540) fix(carousel): Fix mobile copyright display - FRONT-3637 ([@papegaill](https://github.com/papegaill))
+- [#2542](https://github.com/ec-europa/europa-component-library/pull/2542) fix(card): allows simple title - FRONT-3627 ([@emeryro](https://github.com/emeryro))
+- [#2541](https://github.com/ec-europa/europa-component-library/pull/2541) fix(content-block): remove meta uppercase - FRONT-3639 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#2539](https://github.com/ec-europa/europa-component-library/pull/2539) chore(storybook): Upgrade to 6.5.4 ([@planctus](https://github.com/planctus))
+
+#### Committers: 3
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@papegaill](https://github.com/papegaill)
+- [@planctus](https://github.com/planctus)
+
 ## 3.3.0 (2022-05-16)
 
 #### :rocket: New Feature

@@ -21,4 +21,4 @@ The Content item component provides a quick overview of the content it links to
 
 ## When not to use
 
-- do not use for site-wide navigation - use [Navigation list](http://citnet.tech.ec.europa.eu/) instead
+- do not use for site-wide navigation - use [Navigation list](https://ec.europa.eu/component-library/ec/components/navigation/navigation-list/code/) instead
