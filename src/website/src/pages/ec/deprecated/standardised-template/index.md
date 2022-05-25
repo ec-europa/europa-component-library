@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 2
 title: Standardised template
 ---
 ![](/cms-images/soon-to-be-deprecated-image.png)
