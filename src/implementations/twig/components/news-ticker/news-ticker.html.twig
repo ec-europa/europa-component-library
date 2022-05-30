@@ -70,7 +70,7 @@
       <ul class="ecl-news-ticker__slides" id="{{ _aria_controls }}">
       {% for _item in _items %}
         {% if _item.link is not empty %}
-          <li class="ecl-news-ticker__slide" aria-hidden="true">
+          <li class="ecl-news-ticker__slide">
           {% include '@ecl/link/link.html.twig' with{
             link: {
               label: _item.content,
