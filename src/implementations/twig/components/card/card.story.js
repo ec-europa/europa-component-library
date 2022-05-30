@@ -29,7 +29,8 @@ const getArgs = (data) => {
     args.show_primary_meta = true;
   }
   if (data.title) {
-    args.title = data.title.label;
+    args.title_link = true;
+    args.title = data.title.path ? data.title.label : data.title;
   }
   if (data.description) {
     args.show_description = true;
@@ -122,6 +123,16 @@ const getArgTypes = (data) => {
       },
     };
   }
+  if (data.title) {
+    argTypes.title_link = {
+      name: 'title as a link',
+      type: 'boolean',
+      description: 'Use a link for card title',
+      table: {
+        category: 'Optional',
+      },
+    };
+  }
 
   // Other controls
   if (data.image) {
@@ -187,6 +198,9 @@ const prepareData = (data, args) => {
   if (!args.show_tags) {
     delete clone.tags;
   }
+  if (!args.title_link) {
+    delete clone.title.path;
+  }
 
   // Other controls
   if (clone.image) {
@@ -196,7 +210,11 @@ const prepareData = (data, args) => {
     clone.description = args.description;
   }
   if (clone.title) {
-    clone.title.label = args.title;
+    if (clone.title.path) {
+      clone.title.label = args.title;
+    } else {
+      clone.title = args.title;
+    }
   }
 
   return clone;

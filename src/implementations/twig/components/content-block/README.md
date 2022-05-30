@@ -10,7 +10,7 @@ npm install --save @ecl/twig-component-content-block
 
 - **labels** (array) (default: []): Array of ECL Labels
 - **primary_meta** (array of strings) (default: []): Primary meta of the content block
-- **title** (associative array) (default: {}): Title of the content block, following ECL Link structure
+- **title** (associative array OR string) (default: {}): Title of the content block, following ECL Link structure
 - **description** (string) (default: ''): Description of the content block
 - **secondary_meta** (array) (default: []): format: [
   {

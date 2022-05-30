@@ -21,4 +21,4 @@ A carousel displays a message in a sequential fashion, to bring attention to hig
 
 ## When not to use
 
-- do not use on pages presenting specific content which require a permanent title, use Page header instead
+- do not use on pages presenting specific content which require a permanent title, use [Page header](https://ec.europa.eu/component-library/eu/components/site-wide/page-header/code/) instead
