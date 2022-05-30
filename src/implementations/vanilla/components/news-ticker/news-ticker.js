@@ -82,6 +82,8 @@ export class NewsTicker {
 
     // Bind `this` for use in callbacks
     this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
+    this.handleHoverOnTicker = this.handleHoverOnTicker.bind(this);
+    this.handleHoverOffTicker = this.handleHoverOffTicker.bind(this);
     this.shiftSlide = this.shiftSlide.bind(this);
     this.checkIndex = this.checkIndex.bind(this);
     this.moveSlides = this.moveSlides.bind(this);
@@ -146,6 +148,9 @@ export class NewsTicker {
       window.addEventListener('resize', this.handleResize);
     }
 
+    this.element.addEventListener('mouseover', this.handleHoverOnTicker);
+    this.element.addEventListener('mouseout', this.handleHoverOffTicker);
+
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
   }
@@ -177,6 +182,8 @@ export class NewsTicker {
       window.removeEventListener('resize', this.handleResize);
     }
     if (this.element) {
+      this.element.removeEventListener('mouseover', this.handleHoverOnTicker);
+      this.element.removeEventListener('mouseout', this.handleHoverOffTicker);
       this.element.removeAttribute('data-ecl-auto-initialized');
     }
   }
@@ -225,17 +232,6 @@ export class NewsTicker {
     const currentSlide = queryOne(this.currentSlideClass, this.element);
     currentSlide.textContent = this.index;
 
-    // Update slides
-    if (this.slides) {
-      this.slides.forEach((slide, index) => {
-        if (this.index === index) {
-          slide.removeAttribute('aria-hidden', 'true');
-        } else {
-          slide.setAttribute('aria-hidden', 'true');
-        }
-      });
-    }
-
     this.allowShift = true;
   }
 
@@ -264,6 +260,26 @@ export class NewsTicker {
       newXlinkHref = originalXlinkHref.replace('pause', 'play');
     }
     useNode.setAttribute('xlink:href', newXlinkHref);
+  }
+
+  /**
+   * Hover on ticker.
+   */
+  handleHoverOnTicker() {
+    clearInterval(this.autoPlayInterval);
+    return this;
+  }
+
+  /**
+   * Hover out ticker.
+   */
+  handleHoverOffTicker() {
+    if (this.autoPlay) {
+      this.autoPlayInterval = setInterval(() => {
+        this.shiftSlide(1);
+      }, 5000);
+    }
+    return this;
   }
 
   /**
