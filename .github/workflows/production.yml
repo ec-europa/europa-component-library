@@ -1,0 +1,44 @@
+name: Production deployment
+
+on:
+  push:
+    branches:
+      - '!*'
+    tags:
+      - 'v*'
+jobs:
+  deploy-production:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Build icons
+        run: yarn build:icons
+      - name: Package application
+        run: yarn dist
+      - name: Deploy to cdn
+      - uses: keithweaver/aws-s3-github-action@v1.0.0
+        with:
+          command: cp
+          source: ./dist/packages
+          destination: s3://inno-ecl/ecl/${{ github.event.release.tag_name }}
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: ${{ secrets.AWS_DEFAULT_REGION }}
+          flags: --recursive
+      - name: Create the package
+      - uses: montudor/action-zip@v1
+        with:
+          args: zip -r europa-component-library-{ github.event.release.tag_name }}.zip dist/website
+      - name: Deploy package to github
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        with:
+          asset_path: ./europa-component-library-{ github.event.release.tag_name }}.zip
+          asset_name: europa-component-library-{ github.event.release.tag_name }}.zip
+          asset_content_type: application/zip
