@@ -35,7 +35,7 @@ jobs:
         with:
           args: zip -r europa-component-library-{ github.event.release.tag_name }}.zip dist/website
       - name: Deploy package to github
-        uses: actions/upload-release-asset@v1
+      - uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
