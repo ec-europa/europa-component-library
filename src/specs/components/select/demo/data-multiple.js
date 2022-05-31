@@ -6,7 +6,7 @@ module.exports = {
   invalid_icon: {
     path: '/icons.svg',
     name: 'error',
-    size: 's',
+    size: 'm',
   },
   required_text: '*',
   optional_text: ' (optional)',

@@ -12,6 +12,7 @@ npm install --save @ecl/twig-component-file-upload
 - **"name"** (string) (default: '') - Input id
 - **"invalid"** (boolean) (default: false) - When an error is found
 - **"invalid_text"** (string) (default: '') - Error message
+- **"invalid_icon"** (object of type "icon") (default: {})
 - **"disabled"** (boolean) (default: false) - Disables the input field
 - **"multiple"** (boolean) (default: false) - Multiple uploads
 - **"required"** (boolean) (default: false) - Makes the input required
