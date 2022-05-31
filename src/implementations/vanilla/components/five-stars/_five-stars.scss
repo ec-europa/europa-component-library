@@ -1,0 +1,62 @@
+/* stylelint-disable no-descending-specificity */
+
+/**
+ * Five stars
+ * @define five-stars
+ */
+
+@use 'sass:map';
+@use '@ecl/theme-dev/theme';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+.ecl-five-stars {
+  display: inline-flex;
+  flex-direction: row-reverse;
+
+  .ecl-five-stars__input:checked
+    ~ .ecl-five-stars__label
+    .ecl-five-stars__icon-filled,
+  & > .ecl-five-stars__label:hover .ecl-five-stars__icon-filled,
+  &
+    > .ecl-five-stars__label:hover
+    ~ .ecl-five-stars__label
+    .ecl-five-stars__icon-filled {
+    display: inline-block;
+  }
+
+  .ecl-five-stars__input:checked
+    ~ .ecl-five-stars__label
+    .ecl-five-stars__icon-outline,
+  & > .ecl-five-stars__label:hover .ecl-five-stars__icon-outline,
+  &
+    > .ecl-five-stars__label:hover
+    ~ .ecl-five-stars__label
+    .ecl-five-stars__icon-outline {
+    display: none;
+  }
+}
+
+.ecl-five-stars__input {
+  display: none;
+}
+
+.ecl-five-stars__label {
+  cursor: pointer;
+  padding-right: map.get(theme.$spacing, 'xs');
+}
+
+.ecl-five-stars__icon-filled {
+  display: none;
+  fill: map.get(theme.$color, 'yellow-100');
+}
+
+.ecl-five-stars__icon-outline {
+  fill: map.get(theme.$color, 'grey-75');
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('s') {
+  .ecl-five-stars__label {
+    padding-right: map.get(theme.$spacing, '2xs');
+  }
+}
