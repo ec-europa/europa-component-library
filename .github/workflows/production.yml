@@ -19,6 +19,18 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Build icons
         run: yarn build:icons
+      - name: Export PUBLIC_URL
+        run: export PUBLIC_URL="/component-library"
+      - name: Generate sri file
+        run: node scripts/sri.js
+      - name: Build storybook
+        run: yarn dist:storybook
+      - name: Build website
+        run: yarn dist:website
+      - name: Set version
+        run: echo ${{ github.event.release.tag_name }} > dist/website/.version
+      - name: Set commit
+        run: echo ${{ GITHUB_SHA }} > dist/website/.commit
       - name: Package application
         run: yarn dist
       - name: Deploy to cdn
@@ -34,7 +46,7 @@ jobs:
       - name: Create the package
         uses: montudor/action-zip@v1
         with:
-          args: zip -r europa-component-library-{ github.event.release.tag_name }}.zip dist/website
+          args: zip -r europa-component-library-{{ github.event.release.tag_name }}.zip dist/website
       - name: Deploy package to github
         uses: actions/upload-release-asset@v1
         env:
@@ -43,3 +55,12 @@ jobs:
           asset_path: ./europa-component-library-{ github.event.release.tag_name }}.zip
           asset_name: europa-component-library-{ github.event.release.tag_name }}.zip
           asset_content_type: application/zip
+          upload_url: https://github.com/ec-europa/europa-component-library/releases/download/{{ github.event.release.tag_name }}/
+      - name: Deploy sri to github
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        with:
+          asset_path: ./dist/packages/europa-component-library-{ github.event.release.tag_name }}-sri.json
+          asset_name: europa-component-library-{ github.event.release.tag_name }}-sri.json
+          upload_url: https://github.com/ec-europa/europa-component-library/releases/download/{{ github.event.release.tag_name }}/

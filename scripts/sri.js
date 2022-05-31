@@ -4,15 +4,14 @@ const ssri = require('ssri');
 const glob = require('glob');
 const prettier = require('prettier');
 
-const isDrone = 'DRONE' in process.env && 'CI' in process.env;
+const version = fs
+  .readFileSync(path.resolve(__dirname, '../dist/website/.version'))
+  .toString();
 
-if (!isDrone || process.env.DRONE_BUILD_EVENT !== 'tag') {
-  console.warn(
-    'This script can only be run in drone on a tag event. Skipping...'
-  );
+if (!version) {
+  console.warn(`Couldn't retrieve the version. Skipping...`);
   process.exit(0);
 }
-
 // Get all CSS and JS files
 const files = glob.sync(
   `${path.resolve(__dirname, '../dist/packages')}/**/*.@(css|js)`
@@ -35,8 +34,9 @@ files.forEach((file) => {
 
 // Export to JSON
 fs.writeFileSync(
-  `${path.resolve(__dirname, '../dist/packages')}/${
-    process.env.DRONE_REPO_NAME
-  }-${process.env.DRONE_TAG}-sri.json`,
+  `${path.resolve(
+    __dirname,
+    '../dist/packages'
+  )}/europa-component-library-${version}-sri.json`,
   prettier.format(JSON.stringify(hashes), { parser: 'json' })
 );
