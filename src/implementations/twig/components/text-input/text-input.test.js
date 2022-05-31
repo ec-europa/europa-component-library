@@ -89,6 +89,6 @@ const testTextField = (dataDefault, dataInvalid, dataDisabled) => {
   });
 };
 
-describe('Text field EC', () => {
+describe('Text field', () => {
   testTextField(specDefault, specInvalid, specDisabled);
 });
