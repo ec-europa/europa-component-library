@@ -9,6 +9,7 @@ on:
 jobs:
   deploy-production:
     runs-on: ubuntu-latest
+    name: deploy release
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -21,7 +22,7 @@ jobs:
       - name: Package application
         run: yarn dist
       - name: Deploy to cdn
-      - uses: keithweaver/aws-s3-github-action@v1.0.0
+        uses: keithweaver/aws-s3-github-action@v1.0.0
         with:
           command: cp
           source: ./dist/packages
@@ -31,11 +32,11 @@ jobs:
           aws_region: ${{ secrets.AWS_DEFAULT_REGION }}
           flags: --recursive
       - name: Create the package
-      - uses: montudor/action-zip@v1
+        uses: montudor/action-zip@v1
         with:
           args: zip -r europa-component-library-{ github.event.release.tag_name }}.zip dist/website
       - name: Deploy package to github
-      - uses: actions/upload-release-asset@v1
+        uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
