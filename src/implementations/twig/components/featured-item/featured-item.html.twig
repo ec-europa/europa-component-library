@@ -7,7 +7,7 @@
   - "description" (string) (default: ''),
   - "link" (object) (default: ''): object of type Link
   - "media_container" (object) (default: ''): object of type Media container
-  - "alignment" (object) (default: 'left'): Media alignment
+  - "position" (object) (default: 'left'): Media position
   - "extra_classes" (string) (default: ''),
   - "extra_attributes" (array) (default: []): format: [
       {
@@ -28,7 +28,7 @@
 {% set _description = description|default('') %}
 {% set _link = link|default({}) %}
 {% set _media_container = media_container|default({}) %}
-{% set _alignment = alignment|default('left') %}
+{% set _position = position|default('left') %}
 {% set _extra_attributes = '' %}
 
 {# Set class for featured item different than default #}
@@ -39,8 +39,8 @@
 
 {# Internal logic - Process properties #}
 
-{% if _alignment == 'right' %}
-  {% set _css_container_class = _css_container_class ~ ' ecl-featured-item__container--row-reverse' %}
+{% if _position == 'right' %}
+  {% set _css_container_class = _css_container_class ~ ' ecl-featured-item__container--right' %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}

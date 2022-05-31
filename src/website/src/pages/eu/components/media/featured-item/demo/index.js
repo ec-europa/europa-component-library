@@ -9,6 +9,6 @@ export const featuredItemRightAlignement = template({
 });
 export const featuredItemExtended = template(demoContentExtended);
 export const featuredItemExtendedRightAlignement = template({
-  ...demoContent,
+  ...demoContentExtended,
   alignment: 'right',
 });
