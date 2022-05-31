@@ -1,16 +1,11 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import { getFormControls, correctSvgPath } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
-import getSystem from '@ecl/builder/utils/getSystem';
 
-import specsEc from '@ecl/specs-component-text-input/demo/data--ec';
-import specsEu from '@ecl/specs-component-text-input/demo/data--eu';
+import dataDefault from '@ecl/specs-component-text-input/demo/data';
 
 import textInput from './text-input.html.twig';
 import notes from './README.md';
-
-const system = getSystem();
-const dataDefault = system === 'eu' ? specsEu : specsEc;
 
 const getArgs = (data) => ({
   show_label: true,

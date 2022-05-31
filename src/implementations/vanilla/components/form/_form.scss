@@ -75,6 +75,7 @@ $_margin-invalid: null !default;
 
 // stylelint-disable no-descending-specificity
 .ecl-feedback-message {
+  align-items: center;
   box-sizing: border-box;
   color: $_color-invalid;
   display: flex;
@@ -84,7 +85,7 @@ $_margin-invalid: null !default;
 }
 
 .ecl-feedback-message__icon {
-  margin-inline-start: map.get(theme.$spacing, 'xs');
+  margin-inline-end: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-help-block {

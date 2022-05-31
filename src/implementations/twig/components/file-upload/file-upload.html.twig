@@ -10,6 +10,7 @@
   - "name" (string) (default: '')
   - "invalid" (boolean) (default: false)
   - "invalid_text" (string) (default: '')
+  - "invalid_icon" (object of type "icon") (default: {})
   - "multiple" (boolean) (default: false)
   - "disabled" (boolean) (default: false)
   - "required" (boolean) (default: false)
@@ -35,6 +36,7 @@
 {% set _name = name|default('') %}
 {% set _invalid = invalid|default(false) %}
 {% set _invalid_text = invalid_text|default('') %}
+{% set _invalid_icon = invalid_icon|default({}) %}
 {% set _disabled = disabled|default(false) %}
 {% set _multiple = multiple|default(false) %}
 {% set _required = required|default(false) %}
@@ -134,7 +136,13 @@
 
 {% if _invalid and _invalid_text is not empty %}
   <div class="ecl-feedback-message">
-    {%- block invalid_text _invalid_text -%}
+    {% if _invalid_icon is not empty %}
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: _invalid_icon,
+        extra_classes: 'ecl-feedback-message__icon',
+      } only %}
+    {% endif %}
+    {{- invalid_text -}}
   </div>
 {% endif %}
 
