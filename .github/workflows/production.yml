@@ -17,10 +17,12 @@ jobs:
           node-version: '14'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-      - name: Build icons
-        run: yarn build:icons
       - name: Export PUBLIC_URL
         run: export PUBLIC_URL="/component-library"
+      - name: Build icons
+        run: yarn build:icons
+      - name: Build presets
+        run: yarn build:presets
       - name: Build storybook
         run: yarn dist:storybook
       - name: Build website
