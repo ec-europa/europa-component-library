@@ -12,7 +12,7 @@ const getArgs = (data) => {
     heading: data.heading,
     title: data.title,
     description: data.description,
-    alignment: 'left',
+    position: 'left',
   };
   if (data.link.link.label) {
     args.link_label = data.link.link.label;
@@ -82,7 +82,7 @@ const getArgTypes = (data) => {
     };
   }
 
-  argTypes.alignment = {
+  argTypes.position = {
     type: { name: 'select' },
     description: 'Alignment inside featured item',
     options: ['left', 'right'],
