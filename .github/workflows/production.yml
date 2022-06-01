@@ -45,19 +45,8 @@ jobs:
         with:
           args: zip -r europa-component-library-${{steps.tag.outputs.tag}}.zip dist/website
       - name: Deploy package to github
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        uses: AButler/upload-release-assets@v2.0
         with:
-          asset_path: ./europa-component-library-${{steps.tag.outputs.tag}}.zip
-          asset_name: europa-component-library-${{steps.tag.outputs.tag}}.zip
-          asset_content_type: application/zip
-          upload_url: https://github.com/ec-europa/europa-component-library/releases/download/${{steps.tag.outputs.tag}}/
-      - name: Deploy sri to github
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        with:
-          asset_path: ./dist/packages/europa-component-library-${{steps.tag.outputs.tag}}-sri.json
-          asset_name: europa-component-library-${{steps.tag.outputs.tag}}-sri.json
-          upload_url: https://github.com/ec-europa/europa-component-library/releases/download/${{steps.tag.outputs.tag}}/
+          files: 'europa-component-library-*.zip;dist/website/europa-component-library*.json'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          release-tag: ${{ steps.tag.outputs.tag }}
