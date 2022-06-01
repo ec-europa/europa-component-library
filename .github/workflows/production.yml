@@ -19,16 +19,8 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Export PUBLIC_URL
         run: export PUBLIC_URL="/component-library"
-      - name: Clean
-        run: yarn clean
-      - name: Build resources
-        run: yarn build:icons
-      - name: Dist presets
-        run: yarn dist:presets
-      - name: Build storybook
-        run: yarn dist:storybook
-      - name: Build website
-        run: yarn dist:website
+      - name: Build release
+        run: yarn dist
       - name: Set version
         run: echo ${{ github.event.release.tag_name }} > dist/website/.version
       - name: Set commit
@@ -48,16 +40,16 @@ jobs:
       - name: Create the package
         uses: montudor/action-zip@v1
         with:
-          args: zip -r europa-component-library-{{ github.event.release.tag_name }}.zip dist/website
+          args: zip -r europa-component-library-${{ github.event.release.tag_name }}.zip dist/website
       - name: Deploy package to github
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
-          asset_path: ./europa-component-library-{{ github.event.release.tag_name }}.zip
-          asset_name: europa-component-library-{{ github.event.release.tag_name }}.zip
+          asset_path: ./europa-component-library-${{ github.event.release.tag_name }}.zip
+          asset_name: europa-component-library-${{ github.event.release.tag_name }}.zip
           asset_content_type: application/zip
-          upload_url: https://github.com/ec-europa/europa-component-library/releases/download/{{ github.event.release.tag_name }}/
+          upload_url: https://github.com/ec-europa/europa-component-library/releases/download/${{ github.event.release.tag_name }}/
       - name: Deploy sri to github
         uses: actions/upload-release-asset@v1
         env:
