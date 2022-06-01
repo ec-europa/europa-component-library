@@ -1,4 +1,4 @@
-name: Production deployment
+name: ECL v3 release
 
 on:
   push:
@@ -7,9 +7,9 @@ on:
     tags:
       - 'v*'
 jobs:
-  deploy-production:
+  deploy-release:
     runs-on: ubuntu-latest
-    name: deploy release
+    name: build and deploy the release
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -23,8 +23,6 @@ jobs:
         run: yarn clean
       - name: Build resources
         run: yarn build:icons
-      - name: Build themes
-        run: yarn build:themes
       - name: Dist presets
         run: yarn dist:presets
       - name: Build storybook
@@ -37,8 +35,6 @@ jobs:
         run: echo ${{ github.sha }} > dist/website/.commit
       - name: Generate sri file
         run: node scripts/sri.js
-      - name: Package application
-        run: yarn dist
       - name: Deploy to cdn
         uses: keithweaver/aws-s3-github-action@v1.0.0
         with:
@@ -58,8 +54,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
-          asset_path: ./europa-component-library-{ github.event.release.tag_name }}.zip
-          asset_name: europa-component-library-{ github.event.release.tag_name }}.zip
+          asset_path: ./europa-component-library-{{ github.event.release.tag_name }}.zip
+          asset_name: europa-component-library-{{ github.event.release.tag_name }}.zip
           asset_content_type: application/zip
           upload_url: https://github.com/ec-europa/europa-component-library/releases/download/{{ github.event.release.tag_name }}/
       - name: Deploy sri to github
@@ -67,6 +63,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
-          asset_path: ./dist/packages/europa-component-library-{ github.event.release.tag_name }}-sri.json
-          asset_name: europa-component-library-{ github.event.release.tag_name }}-sri.json
+          asset_path: ./dist/packages/europa-component-library-{{ github.event.release.tag_name }}-sri.json
+          asset_name: europa-component-library-{{ github.event.release.tag_name }}-sri.json
           upload_url: https://github.com/ec-europa/europa-component-library/releases/download/{{ github.event.release.tag_name }}/
