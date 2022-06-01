@@ -19,10 +19,14 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Export PUBLIC_URL
         run: export PUBLIC_URL="/component-library"
-      - name: Build icons
+      - name: Clean
+        run: yarn clean
+      - name: Build resources
         run: yarn build:icons
-      - name: Build presets
-        run: yarn build:presets
+      - name: Build themes
+        run: yarn build:themes
+      - name: Dist presets
+        run: yarn dist:presets
       - name: Build storybook
         run: yarn dist:storybook
       - name: Build website
