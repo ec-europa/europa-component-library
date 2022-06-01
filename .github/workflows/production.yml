@@ -21,10 +21,11 @@ jobs:
         run: export PUBLIC_URL="/component-library"
       - name: Build release
         run: yarn dist
-      - name: Retrieve tag
-        run: echo ::set-env name=RELEASE_VERSION::$(echo ${GITHUB_REF:10})
+      - name: Get tag
+        id: tag
+        uses: dawidd6/action-get-tag@v1
       - name: Set version
-        run: echo $RELEASE_VERSION > dist/website/.version
+        run: echo ${{steps.tag.outputs.tag}} > dist/website/.version
       - name: Set commit
         run: echo ${{ github.sha }} > dist/website/.commit
       - name: Generate sri file
@@ -34,7 +35,7 @@ jobs:
         with:
           command: cp
           source: ./dist/packages
-          destination: s3://inno-ecl/ecl/$RELEASE_VERSION
+          destination: s3://inno-ecl/ecl/${{steps.tag.outputs.tag}}
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: ${{ secrets.AWS_DEFAULT_REGION }}
@@ -42,21 +43,21 @@ jobs:
       - name: Create the package
         uses: montudor/action-zip@v1
         with:
-          args: zip -r europa-component-library-$RELEASE_VERSION.zip dist/website
+          args: zip -r europa-component-library-${{steps.tag.outputs.tag}}.zip dist/website
       - name: Deploy package to github
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
-          asset_path: ./europa-component-library-$RELEASE_VERSION.zip
-          asset_name: europa-component-library-$RELEASE_VERSION.zip
+          asset_path: ./europa-component-library-${{steps.tag.outputs.tag}}.zip
+          asset_name: europa-component-library-${{steps.tag.outputs.tag}}.zip
           asset_content_type: application/zip
-          upload_url: https://github.com/ec-europa/europa-component-library/releases/download/$RELEASE_VERSION/
+          upload_url: https://github.com/ec-europa/europa-component-library/releases/download/${{steps.tag.outputs.tag}}/
       - name: Deploy sri to github
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
-          asset_path: ./dist/packages/europa-component-library-$RELEASE_VERSION-sri.json
-          asset_name: europa-component-library-$RELEASE_VERSION-sri.json
-          upload_url: https://github.com/ec-europa/europa-component-library/releases/download/$RELEASE_VERSION/
+          asset_path: ./dist/packages/europa-component-library-${{steps.tag.outputs.tag}}-sri.json
+          asset_name: europa-component-library-${{steps.tag.outputs.tag}}-sri.json
+          upload_url: https://github.com/ec-europa/europa-component-library/releases/download/${{steps.tag.outputs.tag}}/
