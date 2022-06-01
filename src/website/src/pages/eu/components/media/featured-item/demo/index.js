@@ -5,10 +5,10 @@ import template from '@ecl/twig-component-featured-item/featured-item.html.twig'
 export const featuredItem = template(demoContent);
 export const featuredItemRightAlignement = template({
   ...demoContent,
-  alignment: 'right',
+  position: 'right',
 });
 export const featuredItemExtended = template(demoContentExtended);
 export const featuredItemExtendedRightAlignement = template({
   ...demoContentExtended,
-  alignment: 'right',
+  position: 'right',
 });
