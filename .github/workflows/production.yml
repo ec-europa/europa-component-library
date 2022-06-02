@@ -18,9 +18,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Build release
-        run: yarn dist
-        env:
-          PUBLIC_URL: '/component-library'
+        run: PUBLIC_URL=/component-library yarn dist
       - name: Get tag
         id: tag
         uses: dawidd6/action-get-tag@v1
@@ -52,9 +50,7 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           release-tag: ${{ steps.tag.outputs.tag }}
       - name: Build the archive
-        run: yarn dist
-        env:
-          PUBLIC_URL: '/component-library/${{ steps.tag.outputs.tag }}'
+        run: PUBLIC_URL=/component-library/${{ steps.tag.outputs.tag }} yarn dist
       - name: Set version
         run: echo ${{ steps.tag.outputs.tag }} > dist/website/.version
       - name: Set commit
