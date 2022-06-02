@@ -12,6 +12,7 @@ const getArgs = (data) => {
     heading: data.heading,
     title: data.title,
     description: data.description,
+    position: 'left',
   };
   if (data.link.link.label) {
     args.link_label = data.link.link.label;
@@ -80,6 +81,17 @@ const getArgTypes = (data) => {
       },
     };
   }
+
+  argTypes.position = {
+    type: { name: 'select' },
+    description: 'Alignment inside featured item',
+    options: ['left', 'right'],
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Display',
+    },
+  };
 
   return argTypes;
 };
