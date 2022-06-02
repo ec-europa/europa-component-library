@@ -52,11 +52,11 @@
 
 {# Print the result #}
 
-<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<article class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {% if _heading is defined and _heading is not empty %}
-    <div class="ecl-featured-item__heading">{{ _heading }}</div>
+    <h1 class="ecl-featured-item__heading">{{ _heading }}</h1>
   {% endif %}
-  <article class="ecl-featured-item__container">
+  <div class="ecl-featured-item__container">
     <div class="ecl-featured-item__item">
     {% include '@ecl/media-container/media-container.html.twig' with _media_container|merge({
       extra_classes: 'ecl-featured-item__media_container',
@@ -75,6 +75,6 @@
       }) only %}
     {% endif %}
     </div>
-  </article>
-</div>
+  </div>
+</article>
 {% endspaceless %}

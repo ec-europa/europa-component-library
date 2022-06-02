@@ -1,11 +1,11 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
 @use 'featured-item' with (
-  $_heading-color: map.get(theme.$color, 'grey-140'),
   $_title-color: map.get(theme.$color, 'grey-140'),
   $_text-color: map.get(theme.$color, 'grey-80'),
-  $_heading-mobile-font: map.get(theme.$font, '3xl'),
-  $_heading-font: map.get(theme.$font, '2xl'),
+  $_heading-mobile-font: map.get(theme.$font, '4xl'),
+  $_heading-font: map.get(theme.$font, '5xl'),
+  $_heading-font-weight: map.get(theme.$font-weight, 'regular'),
   $_heading-mobile-margin-bottom: map.get(theme.$spacing, 'm'),
   $_title-margin-bottom: map.get(theme.$spacing, 's'),
   $_description-mobile-margin-bottom: map.get(theme.$spacing, 's'),
