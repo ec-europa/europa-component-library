@@ -40,13 +40,11 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: ${{ secrets.AWS_DEFAULT_REGION }}
           flags: --recursive
-      - name: Move to dist/website
-        run: cd dist/website
       - name: Create the package
-        run: cd dist/website
         uses: montudor/action-zip@v1
         with:
           args: zip -r europa-component-library-${{steps.tag.outputs.tag}}.zip .
+          working-directory: dist/website
       - name: Deploy package to github
         uses: AButler/upload-release-assets@v2.0
         with:
