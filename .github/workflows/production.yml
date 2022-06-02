@@ -17,7 +17,7 @@ jobs:
           node-version: '14'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-      - name: Export PUBLIC_URL
+      - name: Export PUBLIC_URL for production
         run: export PUBLIC_URL="/component-library"
       - name: Build release
         run: yarn dist
@@ -49,5 +49,23 @@ jobs:
         uses: AButler/upload-release-assets@v2.0
         with:
           files: 'dist/website/europa-component-library-*.zip;dist/packages/europa-component-library-*-sri.json'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          release-tag: ${{ steps.tag.outputs.tag }}
+      - name: Export PUBLIC_URL for archive
+        run: export PUBLIC_URL="/component-library/${steps.tag.outputs.tag}"
+      - name: Build the archive
+        run: yarn dist
+      - name: Set version
+        run: echo ${{steps.tag.outputs.tag}} > dist/website/.version
+      - name: Set commit
+        run: echo ${{ github.sha }} > dist/website/.commit
+      - name: Install zip
+        uses: montudor/action-zip@v1
+      - name: Create the package for the archive
+        run: zip -r -qq europa-component-library-${{ steps.tag.outputs.tag }}-archive.zip .
+      - name: Deploy archive to github
+        uses: AButler/upload-release-assets@v2.0
+        with:
+          files: 'dist/website/europa-component-library-*.zip;'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           release-tag: ${{ steps.tag.outputs.tag }}
