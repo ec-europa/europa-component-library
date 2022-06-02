@@ -63,9 +63,10 @@ jobs:
         uses: montudor/action-zip@v1
       - name: Create the package for the archive
         run: zip -r -qq europa-component-library-${{ steps.tag.outputs.tag }}-archive.zip .
+        working-directory: dist/website
       - name: Deploy archive to github
         uses: AButler/upload-release-assets@v2.0
         with:
-          files: 'dist/website/europa-component-library-*.zip;'
+          files: 'dist/website/europa-component-library-*.zip'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           release-tag: ${{ steps.tag.outputs.tag }}
