@@ -14,6 +14,7 @@ npm install --save @ecl/twig-component-featured-item
 - **"description"** (string) (default: '') - Description of the content opposite the media container,
 - **"link"** (associative array) (default: predefined structure) predefined structure for the Link component
 - **"media_container"** (associative array) (default: predefined structure) predefined structure for the Media container component
+- **"position"** (string) (default: 'left') - Media position
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
