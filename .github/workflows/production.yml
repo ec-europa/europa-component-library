@@ -29,25 +29,25 @@ jobs:
       - name: Set commit
         run: echo ${{ github.sha }} > dist/website/.commit
       - name: Generate sri file
-        run: node scripts/sri.js
+        run: node scripts/sri.js ${{ steps.tag.outputs.tag }}
       - name: Deploy to cdn
         uses: keithweaver/aws-s3-github-action@v1.0.0
         with:
           command: cp
           source: ./dist/packages
-          destination: s3://inno-ecl/ecl/${{steps.tag.outputs.tag}}
+          destination: s3://inno-ecl/ecl/${{ steps.tag.outputs.tag }}
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: ${{ secrets.AWS_DEFAULT_REGION }}
           flags: --recursive
-      - name: Create the package
+      - name: Install zip
         uses: montudor/action-zip@v1
-        with:
-          args: zip -r europa-component-library-${{steps.tag.outputs.tag}}.zip .
-          working-directory: dist/website
+      - name: Create the package
+        run: zip -r -qq europa-component-library-${{ steps.tag.outputs.tag }}.zip .
+        working-directory: dist/website
       - name: Deploy package to github
         uses: AButler/upload-release-assets@v2.0
         with:
-          files: 'dist/website/europa-component-library-*.zip;dist/packages/europa-component-library*.json'
+          files: 'dist/website/europa-component-library-*.zip;dist/packages/europa-component-library-*-sri.json'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           release-tag: ${{ steps.tag.outputs.tag }}

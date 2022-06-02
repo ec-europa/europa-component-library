@@ -4,9 +4,7 @@ const ssri = require('ssri');
 const glob = require('glob');
 const prettier = require('prettier');
 
-const version = fs
-  .readFileSync(path.resolve(__dirname, '../dist/website/.version'))
-  .toString();
+const version = process.argv.slice(2)[0];
 
 if (!version) {
   console.warn(`Couldn't retrieve the version. Skipping...`);
