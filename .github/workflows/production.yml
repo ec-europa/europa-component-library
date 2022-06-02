@@ -17,8 +17,8 @@ jobs:
           node-version: '14'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-      - name: Export PUBLIC_URL for production
-        uses: lukka/set-shell-env@v1
+      - uses: lukka/set-shell-env@v1
+        name:
         with:
           PUBLIC_URL: /component-library
       - name: Build release
@@ -54,7 +54,8 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           release-tag: ${{ steps.tag.outputs.tag }}
       - name: Export PUBLIC_URL for archive
-        uses: lukka/set-shell-env@v1
+      - uses: lukka/set-shell-env@v1
+        name:
         with:
           PUBLIC_URL: /component-library/${{ steps.tag.outputs.tag }}
         run: export PUBLIC_URL="/component-library/${{ steps.tag.outputs.tag }}"
