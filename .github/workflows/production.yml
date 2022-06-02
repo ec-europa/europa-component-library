@@ -17,8 +17,8 @@ jobs:
           node-version: '14'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-      - name: Export PUBLIC_URL for production
       - uses: lukka/set-shell-env@v1
+        name: Export PUBLIC_URL for production
         with:
           PUBLIC_URL: /component-library
       - name: Build release
@@ -53,8 +53,8 @@ jobs:
           files: 'dist/website/europa-component-library-*.zip;dist/packages/europa-component-library-*-sri.json'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           release-tag: ${{ steps.tag.outputs.tag }}
-      - name: Export PUBLIC_URL for archive
       - uses: lukka/set-shell-env@v1
+        name: Export PUBLIC_URL for archive
         with:
           PUBLIC_URL: /component-library/${{ steps.tag.outputs.tag }}
         run: export PUBLIC_URL="/component-library/${{ steps.tag.outputs.tag }}"
