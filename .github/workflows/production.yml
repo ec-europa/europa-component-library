@@ -18,7 +18,9 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Export PUBLIC_URL for production
-        run: export PUBLIC_URL="/component-library"
+      - uses: lukka/set-shell-env@v1
+        with:
+          PUBLIC_URL: /component-library
       - name: Build release
         run: yarn dist
       - name: Get tag
@@ -52,6 +54,9 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           release-tag: ${{ steps.tag.outputs.tag }}
       - name: Export PUBLIC_URL for archive
+      - uses: lukka/set-shell-env@v1
+        with:
+          PUBLIC_URL: /component-library/${{ steps.tag.outputs.tag }}
         run: export PUBLIC_URL="/component-library/${{ steps.tag.outputs.tag }}"
       - name: Build the archive
         run: yarn dist
