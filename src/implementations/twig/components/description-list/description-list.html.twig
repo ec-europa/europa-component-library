@@ -71,11 +71,7 @@
             {% for _definition in _item.definition %}
               <span class="ecl-description-list__definition-item">
               {%- if _definition.label is defined and _definition.path is defined -%}
-                {% include '@ecl/link/link.html.twig' with {
-                  link:  _definition|merge({
-                    extra_classes: 'ecl-description-list__definition-item',
-                  })
-              }  only %}
+                {% include '@ecl/link/link.html.twig' with { link: _definition }  only %}
               {%- else -%}
                 {{- _definition -}}
               {%- endif -%}
