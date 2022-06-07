@@ -25,5 +25,7 @@ module.exports = {
     'declaration-block-no-redundant-longhand-properties': null,
     // Disable checks because automated fixes would be breaking
     'color-function-notation': null,
+    // Disabled because triggered by negative values
+    'scss/function-no-unknown': null,
   },
 };
