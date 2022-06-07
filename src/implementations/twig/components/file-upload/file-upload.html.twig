@@ -4,12 +4,12 @@
   Blocks:
   - "label" (string) (default: '')
   - "helper_text" (string) (default: '')
+  - "invalid_text" (string) (default: '')
   
   Parameters:
   - "id" (string) (default: '')
   - "name" (string) (default: '')
   - "invalid" (boolean) (default: false)
-  - "invalid_text" (string) (default: '')
   - "invalid_icon" (object of type "icon") (default: {})
   - "multiple" (boolean) (default: false)
   - "disabled" (boolean) (default: false)
@@ -35,7 +35,6 @@
 {% set _id = id|default('') %}
 {% set _name = name|default('') %}
 {% set _invalid = invalid|default(false) %}
-{% set _invalid_text = invalid_text|default('') %}
 {% set _invalid_icon = invalid_icon|default({}) %}
 {% set _disabled = disabled|default(false) %}
 {% set _multiple = multiple|default(false) %}
@@ -47,6 +46,7 @@
 {# Blocks #}
 {% set _label = label|default('') %}
 {% set _helper_text = helper_text|default('') %}
+{% set _invalid_text = invalid_text|default('') %}
 
 {# Internal properties #}
 
@@ -137,12 +137,12 @@
 {% if _invalid and _invalid_text is not empty %}
   <div class="ecl-feedback-message">
     {% if _invalid_icon is not empty %}
-      {% include '@ecl/icon/icon.html.twig' with {
-        icon: _invalid_icon,
-        extra_classes: 'ecl-feedback-message__icon',
-      } only %}
+    {% include '@ecl/icon/icon.html.twig' with {
+      icon: _invalid_icon,
+      extra_classes: 'ecl-feedback-message__icon',
+    } only %}
     {% endif %}
-    {{- invalid_text -}}
+    {%- block invalid_text _invalid_text -%}
   </div>
 {% endif %}
 
