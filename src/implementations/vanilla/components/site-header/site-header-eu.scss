@@ -172,10 +172,15 @@ $_search-width-xl: 31.5rem;
   margin-top: map.get(theme.$spacing, 'm');
 }
 
+.ecl-site-header__icon {
+  margin-bottom: map.get(theme.$spacing, '2xs');
+}
+
 .ecl-site-header__language-icon {
   align-items: center;
   display: flex;
   justify-content: center;
+  margin-bottom: map.get(theme.$spacing, '2xs');
   position: relative;
 
   .ecl-site-header__icon {
@@ -351,8 +356,11 @@ $_search-width-xl: 31.5rem;
 
   .ecl-site-header__login-toggle,
   .ecl-site-header__language-icon {
+    margin-bottom: 0;
+
     .ecl-site-header__icon {
       height: map.get(theme.$icon, 'm');
+      margin-bottom: 0;
       margin-inline-end: map.get(theme.$spacing, 'xs');
       width: map.get(theme.$icon, 'm');
     }
