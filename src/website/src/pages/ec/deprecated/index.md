@@ -20,6 +20,6 @@ Please see the notice on each individual component for more information regardin
 | [ footer core ]( /ec/deprecated/core-template/footer/ )                                    | 3.3.0                 | [ site-wide/footer ]( /ec/components/site-wide/site-footer/ )      |       |
 | [ footer standardised ]( /ec/deprecated/standardised-template/footer/ )                    | 3.3.0                 | [ site-wide/footer ]( /ec/components/site-wide/site-footer/ )      |       |
 | [ footer harmonised (g1, g2, g3) ]( /ec/deprecated/harmonised-template/footer/ )           | 3.3.0                 | [ site-wide/footer ]( /ec/components/site-wide/site-footer/ )      |       |
-| [ breadcrumb core ]( /ec/deprecated/core-template/breadcrumb/ )                            | 3.3.0                 | [ breadcrumb ]( /ec/components/navigation/breadcrumb/ )            |       |
-| [ breadcrumb standardised ]( /ec/deprecated/standardised-template/breadcrumb/ )            | 3.3.0                 | [ breadcrumb ]( /ec/components/navigation/breadcrumb/ )            |       |
-| [ breadcrumb harmonised ]( /ec/deprecated/harmonised-template/breadcrumb/ )                | 3.3.0                 | [ breadcrumb ]( /ec/components/navigation/breadcrumb/ )            |       |
+| [ breadcrumb core ]( /ec/deprecated/navigation/breadcrumb/ )                               | 3.3.0                 | [ breadcrumb ]( /ec/components/navigation/breadcrumb/ )            |       |
+| [ breadcrumb standardised ]( /ec/deprecated/navigation/breadcrumb/ )                       | 3.3.0                 | [ breadcrumb ]( /ec/components/navigation/breadcrumb/ )            |       |
+| [ breadcrumb harmonised ]( /ec/deprecated/navigation/breadcrumb/ )                         | 3.3.0                 | [ breadcrumb ]( /ec/components/navigation/breadcrumb/ )            |       |
