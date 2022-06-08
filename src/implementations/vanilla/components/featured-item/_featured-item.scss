@@ -7,17 +7,17 @@
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-$_heading-color: null !default;
+$_heading-color: map.get(theme.$color, 'grey-100') !default;
 $_title-color: null !default;
 $_text-color: null !default;
 $_heading-mobile-font: null !default;
 $_heading-font: null !default;
+$_heading-font-weight: null !default;
 $_heading-mobile-margin-bottom: null !default;
 $_title-margin-bottom: null !default;
 $_description-mobile-margin-bottom: null !default;
 $_description-margin-bottom: null !default;
 $_extended-border-color: null !default;
-$_extended-mobile-border-size: null !default;
 $_extended-border-size: null !default;
 $_extended-border-radius: null !default;
 $_extended-background: null !default;
@@ -28,7 +28,7 @@ $_extended-padding-bottom: null !default;
 .ecl-featured-item__heading {
   color: $_heading-color;
   font: $_heading-mobile-font;
-  font-weight: map.get(theme.$font-weight, 'bold');
+  font-weight: $_heading-font-weight;
   margin-bottom: $_heading-mobile-margin-bottom;
   margin-top: 0;
 }
@@ -71,8 +71,7 @@ $_extended-padding-bottom: null !default;
 .ecl-featured-item--extended {
   .ecl-featured-item__container {
     background-color: $_extended-background;
-    border-inline-start: $_extended-mobile-border-size solid
-      $_extended-border-color;
+    border-inline-start: $_extended-border-size solid $_extended-border-color;
     border-radius: $_extended-border-radius;
     overflow: hidden;
     padding-bottom: map.get(theme.$spacing, 'm');
@@ -83,7 +82,7 @@ $_extended-padding-bottom: null !default;
 
   .ecl-featured-item__heading {
     padding-inline-start: calc(
-      #{map.get(theme.$spacing, 'xs')} + #{$_extended-mobile-border-size}
+      #{map.get(theme.$spacing, 'xs')} + #{$_extended-border-size}
     );
     padding-inline-end: map.get(theme.$spacing, 'm');
   }
@@ -93,7 +92,7 @@ $_extended-padding-bottom: null !default;
 @include breakpoints.up('s') {
   .ecl-featured-item__heading {
     font: $_heading_font;
-    font-weight: map.get(theme.$font-weight, 'bold');
+    font-weight: $_heading-font-weight;
     margin-bottom: map.get(theme.$spacing, 'm');
   }
 
@@ -109,6 +108,21 @@ $_extended-padding-bottom: null !default;
     &:first-child {
       padding-bottom: 0;
       padding-inline-end: map.get(theme.$spacing, 'm');
+    }
+  }
+
+  .ecl-featured-item__container--right {
+    flex-direction: row-reverse;
+
+    .ecl-featured-item__item {
+      &:first-child {
+        padding-inline-end: 0;
+      }
+
+      &:last-child {
+        padding-bottom: 0;
+        padding-inline-end: map.get(theme.$spacing, 'm');
+      }
     }
   }
 
@@ -131,7 +145,6 @@ $_extended-padding-bottom: null !default;
       padding-inline-start: calc(
         #{$_extended-padding-left} + #{$_extended-border-size}
       );
-      padding-inline-end: map.get(theme.$spacing, 'm');
     }
   }
 }
