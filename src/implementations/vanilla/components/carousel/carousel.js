@@ -40,6 +40,7 @@ export class Carousel {
       slideClass = '.ecl-carousel__slide',
       currentSlideClass = '.ecl-carousel__current',
       navigationItemsClass = '.ecl-carousel__navigation-item',
+      controlsClass = '.ecl-carousel__controls',
       attachClickListener = true,
       attachResizeListener = true,
     } = {}
@@ -63,6 +64,7 @@ export class Carousel {
     this.slideClass = slideClass;
     this.currentSlideClass = currentSlideClass;
     this.navigationItemsClass = navigationItemsClass;
+    this.controlsClass = controlsClass;
     this.attachClickListener = attachClickListener;
     this.attachResizeListener = attachResizeListener;
 
@@ -85,18 +87,19 @@ export class Carousel {
     this.posFinal = 0;
     this.threshold = 80;
     this.navigationItems = null;
+    this.controls = null;
     this.direction = 'ltr';
     this.cloneFirstSLide = null;
     this.cloneLastSLide = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
-    this.handleHoverOnTicker = this.handleHoverOnTicker.bind(this);
-    this.handleHoverOffTicker = this.handleHoverOffTicker.bind(this);
+    this.handleHoverOnCarousel = this.handleHoverOnCarousel.bind(this);
+    this.handleHoverOffCarousel = this.handleHoverOffCarousel.bind(this);
     this.shiftSlide = this.shiftSlide.bind(this);
     this.checkIndex = this.checkIndex.bind(this);
     this.moveSlides = this.moveSlides.bind(this);
-    this.resizeTicker = this.resizeTicker.bind(this);
+    this.resizeCarousel = this.resizeCarousel.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.dragStart = this.dragStart.bind(this);
     this.dragEnd = this.dragEnd.bind(this);
@@ -114,12 +117,31 @@ export class Carousel {
     this.slidesContainer = queryOne(this.slidesClass, this.element);
     this.container = queryOne(this.containerClass, this.element);
     this.navigationItems = queryAll(this.navigationItemsClass, this.element);
+    this.controls = queryOne(this.controlsClass, this.element);
     this.currentSlide = queryOne(this.currentSlideClass, this.element);
     this.direction = getComputedStyle(this.element).direction;
 
     this.slides = queryAll(this.slideClass, this.element);
     this.total = this.slides.length;
 
+    // If only one slide, don't initialize carousel and hide controls
+    if (this.total <= 1) {
+      if (this.btnNext) {
+        this.btnNext.style.display = 'none';
+      }
+      if (this.btnPrev) {
+        this.btnPrev.style.display = 'none';
+      }
+      if (this.controls) {
+        this.controls.style.display = 'none';
+      }
+      if (this.slidesContainer) {
+        this.slidesContainer.style.display = 'block';
+      }
+      return false;
+    }
+
+    // Start initializing carousel
     const firstSlide = this.slides[0];
     const lastSlide = this.slides[this.slides.length - 1];
     this.cloneFirstSLide = firstSlide.cloneNode(true);
@@ -136,7 +158,7 @@ export class Carousel {
     this.slides.forEach((slide) => {
       slide.style.width = `${100 / this.slides.length}%`;
     });
-    this.resizeTicker();
+    this.resizeCarousel();
 
     // Activate autoPlay
     this.handleClickOnToggle();
@@ -170,11 +192,11 @@ export class Carousel {
       // Mouse events
       this.slidesContainer.addEventListener(
         'mouseover',
-        this.handleHoverOnTicker
+        this.handleHoverOnCarousel
       );
       this.slidesContainer.addEventListener(
         'mouseout',
-        this.handleHoverOffTicker
+        this.handleHoverOffCarousel
       );
 
       // Touch events
@@ -189,6 +211,7 @@ export class Carousel {
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
+    return this;
   }
 
   /**
@@ -214,11 +237,11 @@ export class Carousel {
     if (this.slidesContainer) {
       this.slidesContainer.removeEventListener(
         'mouseover',
-        this.handleHoverOnTicker
+        this.handleHoverOnCarousel
       );
       this.slidesContainer.removeEventListener(
         'mouseout',
-        this.handleHoverOffTicker
+        this.handleHoverOffCarousel
       );
       this.slidesContainer.removeEventListener('touchstart', this.dragStart);
       this.slidesContainer.removeEventListener('touchend', this.dragEnd);
@@ -393,17 +416,17 @@ export class Carousel {
   }
 
   /**
-   * Hover on ticker.
+   * Hover on carousel.
    */
-  handleHoverOnTicker() {
+  handleHoverOnCarousel() {
     clearInterval(this.autoPlayInterval);
     return this;
   }
 
   /**
-   * Hover out ticker.
+   * Hover out carousel.
    */
-  handleHoverOffTicker() {
+  handleHoverOffCarousel() {
     if (this.autoPlay) {
       this.autoPlayInterval = setInterval(() => {
         this.shiftSlide('next');
@@ -416,7 +439,7 @@ export class Carousel {
   /**
    * Resize the slides across the width of the container.
    */
-  resizeTicker() {
+  resizeCarousel() {
     const containerWidth = this.container.offsetWidth;
     this.slidesContainer.style.width = `${
       containerWidth * this.slides.length
@@ -436,7 +459,7 @@ export class Carousel {
    * Trigger events on resize.
    */
   handleResize() {
-    this.resizeTicker();
+    this.resizeCarousel();
 
     if (this.autoPlay) {
       this.handleClickOnToggle();
