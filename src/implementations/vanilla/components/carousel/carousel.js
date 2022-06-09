@@ -31,7 +31,8 @@ export class Carousel {
   constructor(
     element,
     {
-      toggleSelector = '.ecl-carousel__toggle',
+      playSelector = '.ecl-carousel__play',
+      pauseSelector = '.ecl-carousel__pause',
       prevSelector = '.ecl-carousel__prev',
       nextSelector = '.ecl-carousel__next',
       containerClass = '.ecl-carousel__container',
@@ -53,7 +54,8 @@ export class Carousel {
     this.element = element;
 
     // Options
-    this.toggleSelector = toggleSelector;
+    this.playSelector = playSelector;
+    this.pauseSelector = pauseSelector;
     this.prevSelector = prevSelector;
     this.nextSelector = nextSelector;
     this.containerClass = containerClass;
@@ -65,9 +67,10 @@ export class Carousel {
     this.attachResizeListener = attachResizeListener;
 
     // Private variables
-    this.toggle = null;
     this.container = null;
     this.slides = null;
+    this.btnPlay = null;
+    this.btnPause = null;
     this.btnPrev = null;
     this.btnNext = null;
     this.index = 1;
@@ -88,6 +91,8 @@ export class Carousel {
 
     // Bind `this` for use in callbacks
     this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
+    this.handleHoverOnTicker = this.handleHoverOnTicker.bind(this);
+    this.handleHoverOffTicker = this.handleHoverOffTicker.bind(this);
     this.shiftSlide = this.shiftSlide.bind(this);
     this.checkIndex = this.checkIndex.bind(this);
     this.moveSlides = this.moveSlides.bind(this);
@@ -102,7 +107,8 @@ export class Carousel {
    * Initialise component.
    */
   init() {
-    this.toggle = queryOne(this.toggleSelector, this.element);
+    this.btnPlay = queryOne(this.playSelector, this.element);
+    this.btnPause = queryOne(this.pauseSelector, this.element);
     this.btnPrev = queryOne(this.prevSelector, this.element);
     this.btnNext = queryOne(this.nextSelector, this.element);
     this.slidesContainer = queryOne(this.slidesClass, this.element);
@@ -144,8 +150,9 @@ export class Carousel {
         );
       });
     }
-    if (this.attachClickListener && this.toggle) {
-      this.toggle.addEventListener('click', this.handleClickOnToggle);
+    if (this.attachClickListener && this.btnPlay && this.btnPause) {
+      this.btnPlay.addEventListener('click', this.handleClickOnToggle);
+      this.btnPause.addEventListener('click', this.handleClickOnToggle);
     }
     if (this.attachClickListener && this.btnNext) {
       this.btnNext.addEventListener(
@@ -161,7 +168,14 @@ export class Carousel {
     }
     if (this.slidesContainer) {
       // Mouse events
-      this.slidesContainer.onmousedown = this.dragStart;
+      this.slidesContainer.addEventListener(
+        'mouseover',
+        this.handleHoverOnTicker
+      );
+      this.slidesContainer.addEventListener(
+        'mouseout',
+        this.handleHoverOffTicker
+      );
 
       // Touch events
       this.slidesContainer.addEventListener('touchstart', this.dragStart);
@@ -185,8 +199,11 @@ export class Carousel {
       this.cloneFirstSLide.remove();
       this.cloneLastSLide.remove();
     }
-    if (this.toggle) {
-      this.toggle.replaceWith(this.toggle.cloneNode(true));
+    if (this.btnPlay) {
+      this.btnPlay.replaceWith(this.btnPlay.cloneNode(true));
+    }
+    if (this.btnPause) {
+      this.btnPause.replaceWith(this.btnPause.cloneNode(true));
     }
     if (this.btnNext) {
       this.btnNext.replaceWith(this.btnNext.cloneNode(true));
@@ -195,6 +212,14 @@ export class Carousel {
       this.btnPrev.replaceWith(this.btnPrev.cloneNode(true));
     }
     if (this.slidesContainer) {
+      this.slidesContainer.removeEventListener(
+        'mouseover',
+        this.handleHoverOnTicker
+      );
+      this.slidesContainer.removeEventListener(
+        'mouseout',
+        this.handleHoverOffTicker
+      );
       this.slidesContainer.removeEventListener('touchstart', this.dragStart);
       this.slidesContainer.removeEventListener('touchend', this.dragEnd);
       this.slidesContainer.removeEventListener('touchmove', this.dragAction);
@@ -227,10 +252,6 @@ export class Carousel {
 
     if (e.type === 'touchstart') {
       this.posX1 = e.touches[0].clientX;
-    } else {
-      this.posX1 = e.clientX;
-      document.onmouseup = this.dragEnd;
-      document.onmousemove = this.dragAction;
     }
   }
 
@@ -244,9 +265,6 @@ export class Carousel {
     if (e.type === 'touchmove') {
       this.posX2 = this.posX1 - e.touches[0].clientX;
       this.posX1 = e.touches[0].clientX;
-    } else {
-      this.posX2 = this.posX1 - e.clientX;
-      this.posX1 = e.clientX;
     }
 
     this.slidesContainer.style.left = `${
@@ -266,9 +284,6 @@ export class Carousel {
     } else {
       this.slidesContainer.style.left = `${this.posInitial}px`;
     }
-
-    document.onmouseup = null;
-    document.onmousemove = null;
   }
 
   /**
@@ -327,10 +342,19 @@ export class Carousel {
     // Update slides
     if (this.slides) {
       this.slides.forEach((slide, index) => {
+        const cta = queryOne('.ecl-link--cta', slide);
         if (this.index === index) {
           slide.removeAttribute('aria-hidden', 'true');
+          slide.removeAttribute('inert', 'true');
+          if (cta) {
+            cta.removeAttribute('tabindex', -1);
+          }
         } else {
           slide.setAttribute('aria-hidden', 'true');
+          slide.setAttribute('inert', 'true');
+          if (cta) {
+            cta.setAttribute('tabindex', -1);
+          }
         }
       });
     }
@@ -353,27 +377,40 @@ export class Carousel {
    * Toggles play/pause slides.
    */
   handleClickOnToggle() {
-    const useNode = queryOne(
-      `${this.toggleSelector} .ecl-icon use`,
-      this.element
-    );
-    const originalXlinkHref = useNode.getAttribute('xlink:href');
-    let newXlinkHref = '';
-
     if (!this.autoPlay) {
       this.autoPlayInterval = setInterval(() => {
         this.shiftSlide('next');
       }, 5000);
       this.autoPlay = true;
-
-      newXlinkHref = originalXlinkHref.replace('play', 'pause');
+      this.btnPlay.style.display = 'none';
+      this.btnPause.style.display = 'flex';
     } else {
       clearInterval(this.autoPlayInterval);
       this.autoPlay = false;
-
-      newXlinkHref = originalXlinkHref.replace('pause', 'play');
+      this.btnPlay.style.display = 'flex';
+      this.btnPause.style.display = 'none';
     }
-    useNode.setAttribute('xlink:href', newXlinkHref);
+  }
+
+  /**
+   * Hover on ticker.
+   */
+  handleHoverOnTicker() {
+    clearInterval(this.autoPlayInterval);
+    return this;
+  }
+
+  /**
+   * Hover out ticker.
+   */
+  handleHoverOffTicker() {
+    if (this.autoPlay) {
+      this.autoPlayInterval = setInterval(() => {
+        this.shiftSlide('next');
+      }, 5000);
+      this.autoPlay = true;
+    }
+    return this;
   }
 
   /**

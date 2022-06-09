@@ -93,6 +93,7 @@ $_outline-width: null !default;
   position: absolute;
   top: calc(50% - 22px);
   transform: translateY(-50%);
+  z-index: 1;
 
   &:focus {
     outline: $_outline-width solid $_outline-color;
@@ -121,7 +122,8 @@ $_outline-width: null !default;
   }
 }
 
-.ecl-carousel__toggle {
+.ecl-carousel__play,
+.ecl-carousel__pause {
   align-items: center;
   background: transparent;
   border: 0;

@@ -7,7 +7,8 @@
     - "sr_previous" (string) (default: 'Previous slides') screen reader label for previous button
     - "sr_next" (string) (default: 'Next slides') screen reader label for next button
     - "sr_navigation" (string) (default: 'Go to slide %d') screen reader label for navigation buttons
-    - "sr_autoplay" (string) (default: 'Carousel auto play') screen reader label for autoplay button
+    - "sr_play" (string) (default: 'Play carousel') screen reader label for the play button
+    - "sr_pause" (string) (default: 'Pause carousel') screen reader label for the pause button
     - "full_width": (bool) (default: false) Full width banner (inside the grid)
     - "icon_path" (string) (default: '') Path to the icons file
     - "extra_classes" (string) (default: '')
@@ -55,6 +56,19 @@
 {# Print the result #}
 {% if _items is not empty and _items is iterable %}
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <button class="ecl-carousel__prev"> 
+    {% include '@ecl/icon/icon.html.twig' with {
+      icon: {
+        path: _icon_path,
+        name: 'corner-arrow',
+        size: 'm',
+        transform: 'rotate-270',
+        color: 'inverted',
+      },
+      extra_classes: 'ecl-u-d-block',
+    } only %}
+    <span class="ecl-u-sr-only">{{ _sr_previous }}</span>
+  </button>
   <div class="ecl-carousel__container">
     <div class="ecl-carousel__slides" id="ecl-carousel-slider">
     {% for item in _items %}
@@ -64,35 +78,33 @@
     {% endfor %}
     </div>
   </div>
+  <button class="ecl-carousel__next">
+    {% include '@ecl/icon/icon.html.twig' with {
+      icon: {
+        path: _icon_path,
+        name: 'corner-arrow',
+        size: 'm',
+        transform: 'rotate-90',
+        color: 'inverted',
+      },
+      extra_classes: 'ecl-u-d-block',
+    } only %}
+    <span class="ecl-u-sr-only">{{ _sr_next }}</span>
+  </button>
   <div class="ecl-carousel__controls">
-    <button class="ecl-carousel__prev">
-      {% include '@ecl/icon/icon.html.twig' with {
-        icon: {
-          path: _icon_path,
-          name: 'corner-arrow',
-          size: 'm',
-          transform: 'rotate-270',
-          color: 'inverted',
-        },
-        extra_classes: 'ecl-u-d-block',
-      } only %}
-      <span class="ecl-u-sr-only">{{ _sr_previous }}</span>
-    </button>
-    <button class="ecl-carousel__next">
-      {% include '@ecl/icon/icon.html.twig' with {
-        icon: {
-          path: _icon_path,
-          name: 'corner-arrow',
-          size: 'm',
-          transform: 'rotate-90',
-          color: 'inverted',
-        },
-        extra_classes: 'ecl-u-d-block',
-      } only %}
-      <span class="ecl-u-sr-only">{{ _sr_next }}</span>
-    </button>
     <div class="ecl-container">
-      <button class="ecl-carousel__toggle">
+      <button class="ecl-carousel__play">
+        {% include '@ecl/icon/icon.html.twig' with {
+          icon: {
+            path: _icon_path,
+            name: 'play',
+            size: 'l',
+            color: 'inverted',
+          },
+        } only %}
+        <span class="ecl-u-sr-only">{{ _sr_play }}</span>
+      </button>
+      <button class="ecl-carousel__pause">
         {% include '@ecl/icon/icon.html.twig' with {
           icon: {
             path: _icon_path,
@@ -101,7 +113,7 @@
             color: 'inverted',
           },
         } only %}
-        <span class="ecl-u-sr-only">{{ _sr_autoplay }}</span>
+        <span class="ecl-u-sr-only">{{ _sr_pause }}</span>
       </button>
       <div class="ecl-carousel__pagination">
         <span class="ecl-carousel__current">1</span>{{- ' ' -}}
