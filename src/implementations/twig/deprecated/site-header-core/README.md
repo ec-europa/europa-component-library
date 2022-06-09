@@ -28,7 +28,8 @@ npm install --save @ecl/twig-component-site-header-core
   - "href_logged" (string) Link to the logout form
 - **"language_selector"** (associative array) (default: predefined structure): Language switcher settings. format:
   - "href" (string) (default: ''): URL for switcher
-  - "name" (string) (default: ''): Switcher language label, eg. 'English', 'Français', etc.
+  - "label" (string) (default: ''): Switcher language label, eg. 'English', 'Français', etc.
+  - "aria_label" (string) (default: ''): Switcher language aria label
   - "code" (string) (default: ''): Switcher language code, eg. 'en', 'fr', etc.
   - "overlay" (associative array) (default: predefined structure): Overlay language switcher settings. format:
     - "close_label" (string) (default: ''): Close button label eg. 'Close'.
@@ -60,7 +61,8 @@ npm install --save @ecl/twig-component-site-header-core
   }, 
   language_selector: { 
     href: '/example', 
-    name: 'English', 
+    label: 'English', 
+    aria_label: 'Change language',
     code: 'en', 
     overlay: { 
       close_label: 'Close', 
