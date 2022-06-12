@@ -495,7 +495,6 @@ export class Carousel {
     if (this.autoPlay) {
       this.handleClickOnToggle();
     }
-
     return this;
   }
 
@@ -505,8 +504,7 @@ export class Carousel {
    */
   handleSlidesFocus(e) {
     const focusElement = e.target;
-
-    // disable autoplay if focus is on a slide CTA
+    // Disable autoplay if focus is on a slide CTA
     if (
       focusElement &&
       focusElement.contains(document.activeElement) &&
