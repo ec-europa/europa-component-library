@@ -106,6 +106,7 @@ export class Carousel {
     this.dragStart = this.dragStart.bind(this);
     this.dragEnd = this.dragEnd.bind(this);
     this.dragAction = this.dragAction.bind(this);
+    this.handleSlidesFocus = this.handleSlidesFocus.bind(this);
   }
 
   /**
@@ -207,6 +208,13 @@ export class Carousel {
       this.slidesContainer.addEventListener('touchend', this.dragEnd);
       this.slidesContainer.addEventListener('touchmove', this.dragAction);
       this.slidesContainer.addEventListener('transitionend', this.checkIndex);
+
+      // Focus events
+      this.slidesContainer.addEventListener(
+        'focus',
+        this.handleSlidesFocus,
+        true
+      );
     }
     if (this.attachResizeListener) {
       window.addEventListener('resize', this.handleResize);
@@ -252,6 +260,11 @@ export class Carousel {
       this.slidesContainer.removeEventListener(
         'transitionend',
         this.checkIndex
+      );
+      this.slidesContainer.removeEventListener(
+        'focus',
+        this.handleSlidesFocus,
+        true
       );
     }
     if (this.navigationItems) {
@@ -483,6 +496,24 @@ export class Carousel {
       this.handleClickOnToggle();
     }
 
+    return this;
+  }
+
+  /**
+   * Trigger focus on slides.
+   * @param {Event} e
+   */
+  handleSlidesFocus(e) {
+    const focusElement = e.target;
+
+    // disable autoplay if focus is on a slide CTA
+    if (
+      focusElement &&
+      focusElement.contains(document.activeElement) &&
+      this.autoPlay
+    ) {
+      this.handleClickOnToggle();
+    }
     return this;
   }
 }
