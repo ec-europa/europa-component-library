@@ -11,7 +11,7 @@ exports[`Carousel Default renders correctly 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-icon--inverted ecl-u-d-block"
+        class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-icon--inverted ecl-carousel__icon-default"
         focusable="false"
       >
         <use
@@ -245,7 +245,7 @@ exports[`Carousel Default renders correctly 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-icon--inverted ecl-u-d-block"
+        class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-icon--inverted ecl-carousel__icon-default"
         focusable="false"
       >
         <use
@@ -264,52 +264,59 @@ exports[`Carousel Default renders correctly 1`] = `
       <div
         class="ecl-container"
       >
-        <button
-          class="ecl-carousel__play"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--l ecl-icon--inverted"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#play"
-            />
-          </svg>
-          <span
-            class="ecl-u-sr-only"
-          />
-        </button>
-        <button
-          class="ecl-carousel__pause"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--l ecl-icon--inverted"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#pause"
-            />
-          </svg>
-          <span
-            class="ecl-u-sr-only"
-          />
-        </button>
         <div
-          class="ecl-carousel__pagination"
+          class="ecl-carousel__autoplay"
         >
-          <span
-            class="ecl-carousel__current"
+          <button
+            class="ecl-carousel__play"
           >
-            1
-          </span>
-           of 
-          <span
-            class="ecl-carousel__max"
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-carousel__icon-default"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#play"
+              />
+            </svg>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-carousel__icon-active"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#play-filled"
+              />
+            </svg>
+            <span
+              class="ecl-u-sr-only"
+            />
+          </button>
+          <button
+            class="ecl-carousel__pause"
           >
-            3
-          </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-carousel__icon-default"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#pause"
+              />
+            </svg>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-carousel__icon-active"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#pause-filled"
+              />
+            </svg>
+            <span
+              class="ecl-u-sr-only"
+            />
+          </button>
         </div>
         <div
           class="ecl-carousel__navigation"
@@ -341,6 +348,21 @@ exports[`Carousel Default renders correctly 1`] = `
               Go to slide 3
             </span>
           </button>
+        </div>
+        <div
+          class="ecl-carousel__pagination"
+        >
+          <span
+            class="ecl-carousel__current"
+          >
+            1
+          </span>
+           of 
+          <span
+            class="ecl-carousel__max"
+          >
+            3
+          </span>
         </div>
       </div>
     </div>
@@ -361,7 +383,7 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-icon--inverted ecl-u-d-block"
+        class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-icon--inverted ecl-carousel__icon-default"
         focusable="false"
       >
         <use
@@ -595,7 +617,7 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-icon--inverted ecl-u-d-block"
+        class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-icon--inverted ecl-carousel__icon-default"
         focusable="false"
       >
         <use
@@ -614,52 +636,59 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
       <div
         class="ecl-container"
       >
-        <button
-          class="ecl-carousel__play"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--l ecl-icon--inverted"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#play"
-            />
-          </svg>
-          <span
-            class="ecl-u-sr-only"
-          />
-        </button>
-        <button
-          class="ecl-carousel__pause"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--l ecl-icon--inverted"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#pause"
-            />
-          </svg>
-          <span
-            class="ecl-u-sr-only"
-          />
-        </button>
         <div
-          class="ecl-carousel__pagination"
+          class="ecl-carousel__autoplay"
         >
-          <span
-            class="ecl-carousel__current"
+          <button
+            class="ecl-carousel__play"
           >
-            1
-          </span>
-           of 
-          <span
-            class="ecl-carousel__max"
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-carousel__icon-default"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#play"
+              />
+            </svg>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-carousel__icon-active"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#play-filled"
+              />
+            </svg>
+            <span
+              class="ecl-u-sr-only"
+            />
+          </button>
+          <button
+            class="ecl-carousel__pause"
           >
-            3
-          </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-carousel__icon-default"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#pause"
+              />
+            </svg>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-carousel__icon-active"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#pause-filled"
+              />
+            </svg>
+            <span
+              class="ecl-u-sr-only"
+            />
+          </button>
         </div>
         <div
           class="ecl-carousel__navigation"
@@ -691,6 +720,21 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
               Go to slide 3
             </span>
           </button>
+        </div>
+        <div
+          class="ecl-carousel__pagination"
+        >
+          <span
+            class="ecl-carousel__current"
+          >
+            1
+          </span>
+           of 
+          <span
+            class="ecl-carousel__max"
+          >
+            3
+          </span>
         </div>
       </div>
     </div>
@@ -709,7 +753,7 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-icon--inverted ecl-u-d-block"
+        class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-icon--inverted ecl-carousel__icon-default"
         focusable="false"
       >
         <use
@@ -943,7 +987,7 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-icon--inverted ecl-u-d-block"
+        class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-icon--inverted ecl-carousel__icon-default"
         focusable="false"
       >
         <use
@@ -962,52 +1006,59 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
       <div
         class="ecl-container"
       >
-        <button
-          class="ecl-carousel__play"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--l ecl-icon--inverted"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#play"
-            />
-          </svg>
-          <span
-            class="ecl-u-sr-only"
-          />
-        </button>
-        <button
-          class="ecl-carousel__pause"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--l ecl-icon--inverted"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#pause"
-            />
-          </svg>
-          <span
-            class="ecl-u-sr-only"
-          />
-        </button>
         <div
-          class="ecl-carousel__pagination"
+          class="ecl-carousel__autoplay"
         >
-          <span
-            class="ecl-carousel__current"
+          <button
+            class="ecl-carousel__play"
           >
-            1
-          </span>
-           of 
-          <span
-            class="ecl-carousel__max"
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-carousel__icon-default"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#play"
+              />
+            </svg>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-carousel__icon-active"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#play-filled"
+              />
+            </svg>
+            <span
+              class="ecl-u-sr-only"
+            />
+          </button>
+          <button
+            class="ecl-carousel__pause"
           >
-            3
-          </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-carousel__icon-default"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#pause"
+              />
+            </svg>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-carousel__icon-active"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#pause-filled"
+              />
+            </svg>
+            <span
+              class="ecl-u-sr-only"
+            />
+          </button>
         </div>
         <div
           class="ecl-carousel__navigation"
@@ -1039,6 +1090,21 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
               Go to slide 3
             </span>
           </button>
+        </div>
+        <div
+          class="ecl-carousel__pagination"
+        >
+          <span
+            class="ecl-carousel__current"
+          >
+            1
+          </span>
+           of 
+          <span
+            class="ecl-carousel__max"
+          >
+            3
+          </span>
         </div>
       </div>
     </div>

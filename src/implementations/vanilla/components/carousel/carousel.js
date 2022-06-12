@@ -41,6 +41,7 @@ export class Carousel {
       currentSlideClass = '.ecl-carousel__current',
       navigationItemsClass = '.ecl-carousel__navigation-item',
       controlsClass = '.ecl-carousel__controls',
+      paginationClass = '.ecl-carousel__pagination',
       attachClickListener = true,
       attachResizeListener = true,
     } = {}
@@ -65,6 +66,7 @@ export class Carousel {
     this.currentSlideClass = currentSlideClass;
     this.navigationItemsClass = navigationItemsClass;
     this.controlsClass = controlsClass;
+    this.paginationClass = paginationClass;
     this.attachClickListener = attachClickListener;
     this.attachResizeListener = attachResizeListener;
 
@@ -117,6 +119,7 @@ export class Carousel {
     this.slidesContainer = queryOne(this.slidesClass, this.element);
     this.container = queryOne(this.containerClass, this.element);
     this.navigationItems = queryAll(this.navigationItemsClass, this.element);
+    this.pagination = queryOne(this.paginationClass, this.element);
     this.controls = queryOne(this.controlsClass, this.element);
     this.currentSlide = queryOne(this.currentSlideClass, this.element);
     this.direction = getComputedStyle(this.element).direction;
@@ -452,6 +455,21 @@ export class Carousel {
       this.container.classList.add('ecl-carousel-container--padded');
     } else {
       this.container.classList.remove('ecl-carousel-container--padded');
+    }
+
+    // Move previous and next buttons in or out the control bar
+    if (containerWidth <= 940) {
+      this.pagination.parentNode.insertBefore(this.btnPrev, this.pagination);
+      this.pagination.parentNode.insertBefore(
+        this.btnNext,
+        this.pagination.nextSibling
+      );
+    } else {
+      this.container.insertBefore(this.btnPrev, this.slidesContainer);
+      this.container.insertBefore(
+        this.btnNext,
+        this.slidesContainer.nextSibling
+      );
     }
   }
 
