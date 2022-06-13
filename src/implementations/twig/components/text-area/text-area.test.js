@@ -1,11 +1,8 @@
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
-import specDefaultEc from '@ecl/specs-component-text-area/demo/data--ec';
-import specDefaultEu from '@ecl/specs-component-text-area/demo/data--eu';
+import specDefault from '@ecl/specs-component-text-area/demo/data';
 
-const specInvalidEc = { ...specDefaultEc, invalid: true };
-const specDisabledEc = { ...specDefaultEc, disabled: true };
-const specInvalidEu = { ...specDefaultEu, invalid: true };
-const specDisabledEu = { ...specDefaultEu, disabled: true };
+const specInvalid = { ...specDefault, invalid: true };
+const specDisabled = { ...specDefault, disabled: true };
 
 const testTextArea = (dataDefault, dataInvalid, dataDisabled) => {
   const template = '@ecl/text-area/text-area.html.twig';
@@ -92,10 +89,6 @@ const testTextArea = (dataDefault, dataInvalid, dataDisabled) => {
   });
 };
 
-describe('Text area EC', () => {
-  testTextArea(specDefaultEc, specInvalidEc, specDisabledEc);
-});
-
-describe('Text area EU', () => {
-  testTextArea(specDefaultEu, specInvalidEu, specDisabledEu);
+describe('Text area', () => {
+  testTextArea(specDefault, specInvalid, specDisabled);
 });

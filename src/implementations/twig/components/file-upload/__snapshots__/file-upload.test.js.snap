@@ -176,7 +176,16 @@ exports[`File Upload  Default renders correctly when invalid 1`] = `
     <div
       class="ecl-feedback-message"
     >
-      Invalid text
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--m ecl-feedback-message__icon"
+        focusable="false"
+      >
+        <use
+          xlink:href="/icons.svg#error"
+        />
+      </svg>
+          Invalid text
     </div>
     <label
       class="ecl-file-upload__button-container"
