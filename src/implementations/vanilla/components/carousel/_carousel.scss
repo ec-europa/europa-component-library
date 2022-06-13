@@ -8,7 +8,6 @@
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-$_button-arrows-background: null !default;
 $_controls-background: null !default;
 $_outline-color: null !default;
 $_outline-width: null !default;
@@ -86,7 +85,7 @@ $_outline-width: null !default;
 
 .ecl-carousel__prev,
 .ecl-carousel__next {
-  background: $_button-arrows-background;
+  background: $_controls-background;
   border: 0;
   cursor: pointer;
   display: block;
@@ -98,7 +97,7 @@ $_outline-width: null !default;
     background-color: map.get(theme.$color, 'white-100');
 
     .ecl-carousel__icon-default {
-      fill: $_button-arrows-background;
+      fill: $_controls-background;
     }
   }
 
