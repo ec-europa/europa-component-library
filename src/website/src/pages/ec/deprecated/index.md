@@ -9,17 +9,17 @@ Please see the notice on each individual component for more information regardin
 
 ## Deprecated components
 
-| Component name                                                                           | Deprecated in version | Actions or replacements                                            | Notes |
-|------------------------------------------------------------------------------------------|-----------------------|--------------------------------------------------------------------|-------|
-| [site-header core]( /ec/deprecated/core-template/site-header/ )                          | 3.3.0                 | site-wide / [site-header]( /ec/components/site-wide/site-header/ ) |       |
-| [site-header standardised]( /ec/deprecated/standardised-template/site-header/ )          | 3.3.0                 | site-wide / [site-header]( /ec/components/site-wide/site-header/ ) |       |
-| [site-header harmonised]( /ec/deprecated/harmonised-template/site-header/ ) (g1, g2, g3) | 3.3.0                 | site-wide / [site-header]( /ec/components/site-wide/site-header/ ) |       |
-| [page-header core]( /ec/deprecated/core-template/page-header/ )                          | 3.3.0                 | site-wide / [page-header]( /ec/components/site-wide/page-header/ ) |       |
-| [page-header standardised]( /ec/deprecated/standardised-template/page-header/ )          | 3.3.0                 | site-wide / [page-header]( /ec/components/site-wide/page-header/ ) |       |
-| [page-header harmonised]( /ec/deprecated/harmonised-template/page-header/ ) (g1, g2)     | 3.3.0                 | site-wide / [page-header]( /ec/components/site-wide/page-header/ ) |       |
-| [footer core]( /ec/deprecated/core-template/footer/ )                                    | 3.3.0                 | site-wide / [footer]( /ec/components/site-wide/site-footer/ )      |       |
-| [footer standardised]( /ec/deprecated/standardised-template/footer/ )                    | 3.3.0                 | site-wide / [footer]( /ec/components/site-wide/site-footer/ )      |       |
-| [footer harmonised]( /ec/deprecated/harmonised-template/footer/ ) (g1, g2, g3)           | 3.3.0                 | site-wide / [footer]( /ec/components/site-wide/site-footer/ )      |       |
-| [breadcrumb core]( /ec/deprecated/navigation/breadcrumb/ )                               | 3.3.0                 | [breadcrumb]( /ec/components/navigation/breadcrumb/ )              |       |
-| [breadcrumb standardised]( /ec/deprecated/navigation/breadcrumb/ )                       | 3.3.0                 | [breadcrumb]( /ec/components/navigation/breadcrumb/ )              |       |
-| [breadcrumb harmonised]( /ec/deprecated/navigation/breadcrumb/ )                         | 3.3.0                 | [breadcrumb]( /ec/components/navigation/breadcrumb/ )              |       |
+| Component name                                                                                  | Deprecated in version | Actions or replacements                                            | Notes |
+|-------------------------------------------------------------------------------------------------|-----------------------|--------------------------------------------------------------------|-------|
+| [site-header core]( /ec/deprecated/core-template/site-header/ )                                 | 3.3.0                 | site-wide / [site-header]( /ec/components/site-wide/site-header/ ) |       |
+| [site-header standardised]( /ec/deprecated/standardised-template/site-header/ )                 | 3.3.0                 | site-wide / [site-header]( /ec/components/site-wide/site-header/ ) |       |
+| [site-header harmonised]( /ec/deprecated/harmonised-template/site-header/group1/ ) (g1, g2, g3) | 3.3.0                 | site-wide / [site-header]( /ec/components/site-wide/site-header/ ) |       |
+| [page-header core]( /ec/deprecated/core-template/page-header/ )                                 | 3.3.0                 | site-wide / [page-header]( /ec/components/site-wide/page-header/ ) |       |
+| [page-header standardised]( /ec/deprecated/standardised-template/page-header/ )                 | 3.3.0                 | site-wide / [page-header]( /ec/components/site-wide/page-header/ ) |       |
+| [page-header harmonised]( /ec/deprecated/harmonised-template/page-header/group1/ ) (g1, g2)     | 3.3.0                 | site-wide / [page-header]( /ec/components/site-wide/page-header/ ) |       |
+| [footer core]( /ec/deprecated/core-template/footer/ )                                           | 3.3.0                 | site-wide / [footer]( /ec/components/site-wide/site-footer/ )      |       |
+| [footer standardised]( /ec/deprecated/standardised-template/footer/ )                           | 3.3.0                 | site-wide / [footer]( /ec/components/site-wide/site-footer/ )      |       |
+| [footer harmonised]( /ec/deprecated/harmonised-template/footer/group1/ ) (g1, g2, g3)           | 3.3.0                 | site-wide / [footer]( /ec/components/site-wide/site-footer/ )      |       |
+| [breadcrumb core]( /ec/deprecated/navigation/breadcrumb/ )                                      | 3.3.0                 | [breadcrumb]( /ec/components/navigation/breadcrumb/ )              |       |
+| [breadcrumb standardised]( /ec/deprecated/navigation/breadcrumb/ )                              | 3.3.0                 | [breadcrumb]( /ec/components/navigation/breadcrumb/ )              |       |
+| [breadcrumb harmonised]( /ec/deprecated/navigation/breadcrumb/ )                                | 3.3.0                 | [breadcrumb]( /ec/components/navigation/breadcrumb/ )              |       |
