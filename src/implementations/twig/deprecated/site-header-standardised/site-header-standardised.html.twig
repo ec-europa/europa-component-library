@@ -19,7 +19,8 @@
     - "language_selector" (associative array) (default: predefined structure): Language switcher settings. format:
         {
           "href": (string) (default: ''): URL for switcher
-          "name": (string) (default: ''): Switcher language label, eg. 'English', 'Français', etc.
+          "label": (string) (default: ''): Switcher language label, eg. 'English', 'Français', etc.
+          "aria_label": (string) (default: ''): Switcher language aria label
           "code": (string) (default: ''): Switcher language code, eg. 'en', 'fr', etc.
           "overlay" (associative array) (default: predefined structure): Overlay language switcher settings. format:
             {
@@ -297,7 +298,7 @@
             class="ecl-button ecl-button--ghost ecl-site-header-standardised__language-selector"
             href="{{ _language_selector.href }}"
             data-ecl-language-selector
-            aria-label="{{ _language_selector.label }}"
+            aria-label="{{ _language_selector.aria_label }}"
           {% if _has_overlay is defined %}
             aria-controls="language-list-overlay"
           {% endif %}
