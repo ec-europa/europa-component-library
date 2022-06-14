@@ -208,13 +208,9 @@ export class Carousel {
       this.slidesContainer.addEventListener('touchend', this.dragEnd);
       this.slidesContainer.addEventListener('touchmove', this.dragAction);
       this.slidesContainer.addEventListener('transitionend', this.checkIndex);
-
-      // Focus events
-      this.slidesContainer.addEventListener(
-        'focus',
-        this.handleSlidesFocus,
-        true
-      );
+    }
+    if (this.container) {
+      this.container.addEventListener('focus', this.handleSlidesFocus, true);
     }
     if (this.attachResizeListener) {
       window.addEventListener('resize', this.handleResize);
@@ -261,11 +257,9 @@ export class Carousel {
         'transitionend',
         this.checkIndex
       );
-      this.slidesContainer.removeEventListener(
-        'focus',
-        this.handleSlidesFocus,
-        true
-      );
+    }
+    if (this.container) {
+      this.container.removeEventListener('focus', this.handleSlidesFocus, true);
     }
     if (this.navigationItems) {
       this.navigationItems.forEach((nav) => {
@@ -274,6 +268,10 @@ export class Carousel {
     }
     if (this.attachResizeListener) {
       window.removeEventListener('resize', this.handleResize);
+    }
+    if (this.autoPlayInterval) {
+      clearInterval(this.autoPlayInterval);
+      this.autoPlay = false;
     }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
@@ -478,11 +476,11 @@ export class Carousel {
         this.pagination.nextSibling
       );
     } else {
-      this.container.insertBefore(this.btnPrev, this.slidesContainer);
       this.container.insertBefore(
-        this.btnNext,
+        this.btnPrev,
         this.slidesContainer.nextSibling
       );
+      this.container.insertBefore(this.btnNext, this.btnPrev.nextSibling);
     }
   }
 

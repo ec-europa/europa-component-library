@@ -57,6 +57,15 @@
 {# Print the result #}
 {% if _items is not empty and _items is iterable %}
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <div class="ecl-carousel__container">
+    <div class="ecl-carousel__slides" id="ecl-carousel-slider">
+    {% for item in _items %}
+      <div class="ecl-carousel__slide" role="group" aria-label="slide {{ loop.index }} {{ _counter_label }} {{ _items|length }}">
+        {% include '@ecl/page-banner/page-banner.html.twig' with item only %}
+      </div>
+    {% endfor %}
+    </div>
+  </div>
   <button class="ecl-carousel__prev"> 
     {% include '@ecl/icon/icon.html.twig' with {
       icon: {
@@ -70,15 +79,6 @@
     } only %}
     <span class="ecl-u-sr-only">{{ _sr_previous }}</span>
   </button>
-  <div class="ecl-carousel__container">
-    <div class="ecl-carousel__slides" id="ecl-carousel-slider">
-    {% for item in _items %}
-      <div class="ecl-carousel__slide" role="group" aria-label="slide {{ loop.index }} {{ _counter_label }} {{ _items|length }}">
-        {% include '@ecl/page-banner/page-banner.html.twig' with item only %}
-      </div>
-    {% endfor %}
-    </div>
-  </div>
   <button class="ecl-carousel__next">
     {% include '@ecl/icon/icon.html.twig' with {
       icon: {
