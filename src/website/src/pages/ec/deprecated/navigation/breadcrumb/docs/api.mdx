@@ -3,7 +3,7 @@ title: API
 order: 3
 ---
 
-import BreadcrumbJSDoc from '../../../../_jsdoc/breadcrumb.md';
+import BreadcrumbJSDoc from '../../../../_jsdoc/breadcrumbcore.md';
 
 ## API
 
@@ -19,14 +19,20 @@ Add `data-ecl-auto-init` attribute to component's markup
 
 ```html
 <nav
-  class="ecl-breadcrumb"
+  class="ecl-breadcrumb-core"
   aria-label="You are here:"
-  data-ecl-breadcrumb
-  data-ecl-auto-init="Breadcrumb"
+  data-ecl-breadcrumb-core
+  data-ecl-auto-init="BreadcrumbCore"
 >
   ...
 </nav>
 ```
+
+Possible values:
+
+- `BreadcrumbCore`
+- `BreadcrumbStandardised`
+- `BreadcrumbHarmonised`
 
 Use the `ECL` library's `autoInit()` (`ECL.autoInit()`) when your page is ready or other custom event you want to hook onto.
 
@@ -34,10 +40,10 @@ Use the `ECL` library's `autoInit()` (`ECL.autoInit()`) when your page is ready 
 
 Get target element, create an instance and invoke `init()`.
 
-Given you have 1 element with an attribute `data-ecl-breadcrumb` on the page:
+Given you have 1 element with an attribute `data-ecl-breadcrumb-core` on the page:
 
 ```js
-var elt = document.querySelector('[data-ecl-breadcrumb]');
-var breadcrumb = new ECL.Breadcrumb(elt);
+var elt = document.querySelector('[data-ecl-breadcrumb-core]');
+var breadcrumb = new ECL.BreadcrumbCore(elt);
 breadcrumb.init();
 ```
