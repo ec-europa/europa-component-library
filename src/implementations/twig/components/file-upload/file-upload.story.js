@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { getFormControls } from '@ecl/story-utils';
+import { getFormControls, correctSvgPath } from '@ecl/story-utils';
 
 import dataDefault from '@ecl/specs-component-file-upload/demo/data';
 import dataMulti from '@ecl/specs-component-file-upload/demo/data--multiple';
@@ -57,6 +57,8 @@ const prepareData = (data, args) => {
   if (!args.show_helper) {
     data.helper_text = '';
   }
+
+  correctSvgPath(data);
 
   return data;
 };
