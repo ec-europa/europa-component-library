@@ -1,17 +1,12 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctSvgPath, getFormControls } from '@ecl/story-utils';
-import getSystem from '@ecl/builder/utils/getSystem';
 
-import dataEc from '@ecl/specs-component-checkbox/demo/data--ec';
-import dataEu from '@ecl/specs-component-checkbox/demo/data--eu';
+import dataDefault from '@ecl/specs-component-checkbox/demo/data';
 
 import checkboxGroup from './checkbox-group.html.twig';
 import notes from './README.md';
 
-const system = getSystem();
-
-const dataDefault = system === 'eu' ? { ...dataEu } : { ...dataEc };
 const itemClone = { ...dataDefault.items[0] };
 
 const getArgs = (data) => ({
