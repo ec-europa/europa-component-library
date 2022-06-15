@@ -420,13 +420,21 @@ export class Carousel {
         this.shiftSlide('next');
       }, 5000);
       this.autoPlay = true;
+      const isFocus = document.activeElement === this.btnPlay;
       this.btnPlay.style.display = 'none';
       this.btnPause.style.display = 'flex';
+      if (isFocus) {
+        this.btnPause.focus();
+      }
     } else {
       clearInterval(this.autoPlayInterval);
       this.autoPlay = false;
+      const isFocus = document.activeElement === this.btnPause;
       this.btnPlay.style.display = 'flex';
       this.btnPause.style.display = 'none';
+      if (isFocus) {
+        this.btnPlay.focus();
+      }
     }
   }
 
@@ -460,17 +468,22 @@ export class Carousel {
       containerWidth * this.slides.length
     }px`;
 
+    const vw = Math.max(
+      document.documentElement.clientWidth || 0,
+      window.innerWidth || 0
+    );
+
     this.moveSlides(false);
 
     // Add class to set a left margin to banner content and avoid arrow overlapping
-    if (containerWidth >= 940 && containerWidth <= 1220) {
+    if (vw >= 940 && vw <= 1220) {
       this.container.classList.add('ecl-carousel-container--padded');
     } else {
       this.container.classList.remove('ecl-carousel-container--padded');
     }
 
     // Move previous and next buttons in or out the control bar
-    if (containerWidth <= 940) {
+    if (vw <= 940) {
       this.pagination.parentNode.insertBefore(this.btnPrev, this.pagination);
       this.pagination.parentNode.insertBefore(
         this.btnNext,
