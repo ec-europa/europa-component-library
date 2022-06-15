@@ -82,6 +82,7 @@ export class Carousel {
     this.allowShift = true;
     this.autoPlay = false;
     this.autoPlayInterval = null;
+    this.hoverAutoPlay = null;
     this.resizeTimer = null;
     this.posX1 = 0;
     this.posX2 = 0;
@@ -433,7 +434,10 @@ export class Carousel {
    * Hover on carousel.
    */
   handleHoverOnCarousel() {
-    clearInterval(this.autoPlayInterval);
+    this.hoverAutoPlay = this.autoPlay;
+    if (this.hoverAutoPlay) {
+      this.handleClickOnToggle();
+    }
     return this;
   }
 
@@ -441,11 +445,8 @@ export class Carousel {
    * Hover out carousel.
    */
   handleHoverOffCarousel() {
-    if (this.autoPlay) {
-      this.autoPlayInterval = setInterval(() => {
-        this.shiftSlide('next');
-      }, 5000);
-      this.autoPlay = true;
+    if (this.hoverAutoPlay) {
+      this.handleClickOnToggle();
     }
     return this;
   }
