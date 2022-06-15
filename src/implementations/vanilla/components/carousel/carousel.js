@@ -468,22 +468,17 @@ export class Carousel {
       containerWidth * this.slides.length
     }px`;
 
-    const vw = Math.max(
-      document.documentElement.clientWidth || 0,
-      window.innerWidth || 0
-    );
-
     this.moveSlides(false);
 
     // Add class to set a left margin to banner content and avoid arrow overlapping
-    if (vw >= 940 && vw <= 1220) {
+    if (containerWidth >= 940 && containerWidth <= 1220) {
       this.container.classList.add('ecl-carousel-container--padded');
     } else {
       this.container.classList.remove('ecl-carousel-container--padded');
     }
 
     // Move previous and next buttons in or out the control bar
-    if (vw <= 940) {
+    if (containerWidth <= 940) {
       this.pagination.parentNode.insertBefore(this.btnPrev, this.pagination);
       this.pagination.parentNode.insertBefore(
         this.btnNext,
