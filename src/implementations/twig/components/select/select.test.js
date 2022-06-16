@@ -1,7 +1,7 @@
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 
-import dataSingle from '@ecl/specs-component-select/demo/data-single--ec';
-import dataMultiple from '@ecl/specs-component-select/demo/data-multiple--ec';
+import dataSingle from '@ecl/specs-component-select/demo/data-single';
+import dataMultiple from '@ecl/specs-component-select/demo/data-multiple';
 
 describe('Select', () => {
   const template = '@ecl/select/select.html.twig';
