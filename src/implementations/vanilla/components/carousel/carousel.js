@@ -80,7 +80,7 @@ export class Carousel {
     this.index = 1;
     this.total = 0;
     this.allowShift = true;
-    this.autoPlay = false;
+    this.autoPlay = null;
     this.autoPlayInterval = null;
     this.hoverAutoPlay = null;
     this.resizeTimer = null;
@@ -163,9 +163,6 @@ export class Carousel {
       slide.style.width = `${100 / this.slides.length}%`;
     });
     this.handleResize();
-
-    // Activate autoPlay
-    this.handleAutoPlay();
 
     // Bind events
     if (this.navigationItems) {
@@ -271,7 +268,7 @@ export class Carousel {
     }
     if (this.autoPlayInterval) {
       clearInterval(this.autoPlayInterval);
-      this.autoPlay = false;
+      this.autoPlay = null;
     }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
@@ -462,6 +459,11 @@ export class Carousel {
    * Resize the slides across the width of the container.
    */
   handleResize() {
+    const vw = Math.max(
+      document.documentElement.clientWidth || 0,
+      window.innerWidth || 0
+    );
+
     const containerWidth = this.container.offsetWidth;
     this.slidesContainer.style.width = `${
       containerWidth * this.slides.length
@@ -470,14 +472,14 @@ export class Carousel {
     this.moveSlides(false);
 
     // Add class to set a left margin to banner content and avoid arrow overlapping
-    if (containerWidth >= 940 && containerWidth <= 1220) {
+    if (vw >= 996 && vw <= 1220) {
       this.container.classList.add('ecl-carousel-container--padded');
     } else {
       this.container.classList.remove('ecl-carousel-container--padded');
     }
 
     // Move previous and next buttons in or out the control bar
-    if (containerWidth <= 940) {
+    if (vw <= 996) {
       this.pagination.parentNode.insertBefore(this.btnPrev, this.pagination);
       this.pagination.parentNode.insertBefore(
         this.btnNext,
@@ -489,6 +491,11 @@ export class Carousel {
         this.slidesContainer.nextSibling
       );
       this.container.insertBefore(this.btnNext, this.btnPrev.nextSibling);
+    }
+
+    // Desactivate autoPlay for mobile or activate autoPlay onLoad for desktop
+    if ((vw <= 768 && this.autoPlay) || (vw > 768 && this.autoPlay === null)) {
+      this.handleAutoPlay();
     }
   }
 
