@@ -96,13 +96,12 @@ export class Carousel {
     this.cloneLastSLide = null;
 
     // Bind `this` for use in callbacks
-    this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
+    this.handleAutoPlay = this.handleAutoPlay.bind(this);
     this.handleHoverOnCarousel = this.handleHoverOnCarousel.bind(this);
     this.handleHoverOffCarousel = this.handleHoverOffCarousel.bind(this);
     this.shiftSlide = this.shiftSlide.bind(this);
     this.checkIndex = this.checkIndex.bind(this);
     this.moveSlides = this.moveSlides.bind(this);
-    this.resizeCarousel = this.resizeCarousel.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.dragStart = this.dragStart.bind(this);
     this.dragEnd = this.dragEnd.bind(this);
@@ -163,10 +162,10 @@ export class Carousel {
     this.slides.forEach((slide) => {
       slide.style.width = `${100 / this.slides.length}%`;
     });
-    this.resizeCarousel();
+    this.handleResize();
 
     // Activate autoPlay
-    this.handleClickOnToggle();
+    this.handleAutoPlay();
 
     // Bind events
     if (this.navigationItems) {
@@ -178,8 +177,8 @@ export class Carousel {
       });
     }
     if (this.attachClickListener && this.btnPlay && this.btnPause) {
-      this.btnPlay.addEventListener('click', this.handleClickOnToggle);
-      this.btnPause.addEventListener('click', this.handleClickOnToggle);
+      // this.btnPlay.addEventListener('click', this.handleAutoPlay);
+      // this.btnPause.addEventListener('click', this.handleAutoPlay);
     }
     if (this.attachClickListener && this.btnNext) {
       this.btnNext.addEventListener(
@@ -339,7 +338,7 @@ export class Carousel {
       this.moveSlides(true);
     }
     if (stopAutoPlay && this.autoPlay) {
-      this.handleClickOnToggle();
+      this.handleAutoPlay();
     }
 
     this.allowShift = false;
@@ -414,7 +413,7 @@ export class Carousel {
   /**
    * Toggles play/pause slides.
    */
-  handleClickOnToggle() {
+  handleAutoPlay() {
     if (!this.autoPlay) {
       this.autoPlayInterval = setInterval(() => {
         this.shiftSlide('next');
@@ -444,7 +443,7 @@ export class Carousel {
   handleHoverOnCarousel() {
     this.hoverAutoPlay = this.autoPlay;
     if (this.hoverAutoPlay) {
-      this.handleClickOnToggle();
+      this.handleAutoPlay();
     }
     return this;
   }
@@ -454,7 +453,7 @@ export class Carousel {
    */
   handleHoverOffCarousel() {
     if (this.hoverAutoPlay) {
-      this.handleClickOnToggle();
+      this.handleAutoPlay();
     }
     return this;
   }
@@ -462,7 +461,7 @@ export class Carousel {
   /**
    * Resize the slides across the width of the container.
    */
-  resizeCarousel() {
+  handleResize() {
     const containerWidth = this.container.offsetWidth;
     this.slidesContainer.style.width = `${
       containerWidth * this.slides.length
@@ -494,18 +493,6 @@ export class Carousel {
   }
 
   /**
-   * Trigger events on resize.
-   */
-  handleResize() {
-    this.resizeCarousel();
-
-    if (this.autoPlay) {
-      this.handleClickOnToggle();
-    }
-    return this;
-  }
-
-  /**
    * Trigger focus on slides.
    * @param {Event} e
    */
@@ -517,7 +504,7 @@ export class Carousel {
       focusElement.contains(document.activeElement) &&
       this.autoPlay
     ) {
-      this.handleClickOnToggle();
+      this.handleAutoPlay();
     }
     return this;
   }
