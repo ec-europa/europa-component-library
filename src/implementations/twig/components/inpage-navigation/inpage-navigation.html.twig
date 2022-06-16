@@ -63,7 +63,7 @@
         extra_classes: 'ecl-icon--rotate-180 ecl-inpage-navigation__trigger-icon',
       } only %}
     </button>
-    <ul class="ecl-inpage-navigation__list" data-ecl-inpage-navigation-list="true" id="ecl-inpage-navigation-list">
+    <ul class="ecl-inpage-navigation__list" data-ecl-inpage-navigation-list="true" id="{{ _id }}-list">
       {% for link in links %}
         <li class="ecl-inpage-navigation__item">
           {% include '@ecl/link/link.html.twig' with {
