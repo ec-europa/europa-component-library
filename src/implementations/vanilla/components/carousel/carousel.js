@@ -97,8 +97,8 @@ export class Carousel {
 
     // Bind `this` for use in callbacks
     this.handleAutoPlay = this.handleAutoPlay.bind(this);
-    this.handleHoverOnCarousel = this.handleHoverOnCarousel.bind(this);
-    this.handleHoverOffCarousel = this.handleHoverOffCarousel.bind(this);
+    this.handleMouseOver = this.handleMouseOver.bind(this);
+    this.handleMouseOut = this.handleMouseOut.bind(this);
     this.shiftSlide = this.shiftSlide.bind(this);
     this.checkIndex = this.checkIndex.bind(this);
     this.moveSlides = this.moveSlides.bind(this);
@@ -106,7 +106,7 @@ export class Carousel {
     this.dragStart = this.dragStart.bind(this);
     this.dragEnd = this.dragEnd.bind(this);
     this.dragAction = this.dragAction.bind(this);
-    this.handleSlidesFocus = this.handleSlidesFocus.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
   }
 
   /**
@@ -174,8 +174,8 @@ export class Carousel {
       });
     }
     if (this.attachClickListener && this.btnPlay && this.btnPause) {
-      // this.btnPlay.addEventListener('click', this.handleAutoPlay);
-      // this.btnPause.addEventListener('click', this.handleAutoPlay);
+      this.btnPlay.addEventListener('click', this.handleAutoPlay);
+      this.btnPause.addEventListener('click', this.handleAutoPlay);
     }
     if (this.attachClickListener && this.btnNext) {
       this.btnNext.addEventListener(
@@ -191,14 +191,8 @@ export class Carousel {
     }
     if (this.slidesContainer) {
       // Mouse events
-      this.slidesContainer.addEventListener(
-        'mouseover',
-        this.handleHoverOnCarousel
-      );
-      this.slidesContainer.addEventListener(
-        'mouseout',
-        this.handleHoverOffCarousel
-      );
+      this.slidesContainer.addEventListener('mouseover', this.handleMouseOver);
+      this.slidesContainer.addEventListener('mouseout', this.handleMouseOut);
 
       // Touch events
       this.slidesContainer.addEventListener('touchstart', this.dragStart);
@@ -207,7 +201,7 @@ export class Carousel {
       this.slidesContainer.addEventListener('transitionend', this.checkIndex);
     }
     if (this.container) {
-      this.container.addEventListener('focus', this.handleSlidesFocus, true);
+      this.container.addEventListener('focus', this.handleFocus, true);
     }
     if (this.attachResizeListener) {
       window.addEventListener('resize', this.handleResize);
@@ -241,12 +235,9 @@ export class Carousel {
     if (this.slidesContainer) {
       this.slidesContainer.removeEventListener(
         'mouseover',
-        this.handleHoverOnCarousel
+        this.handleMouseOver
       );
-      this.slidesContainer.removeEventListener(
-        'mouseout',
-        this.handleHoverOffCarousel
-      );
+      this.slidesContainer.removeEventListener('mouseout', this.handleMouseOut);
       this.slidesContainer.removeEventListener('touchstart', this.dragStart);
       this.slidesContainer.removeEventListener('touchend', this.dragEnd);
       this.slidesContainer.removeEventListener('touchmove', this.dragAction);
@@ -256,7 +247,7 @@ export class Carousel {
       );
     }
     if (this.container) {
-      this.container.removeEventListener('focus', this.handleSlidesFocus, true);
+      this.container.removeEventListener('focus', this.handleFocus, true);
     }
     if (this.navigationItems) {
       this.navigationItems.forEach((nav) => {
@@ -366,6 +357,8 @@ export class Carousel {
     if (this.index === this.total + 1) {
       this.index = 1;
     }
+
+    // Move slide without transition to ensure infinity loop
     this.moveSlides(false);
 
     // Update pagination
@@ -435,9 +428,9 @@ export class Carousel {
   }
 
   /**
-   * Hover on carousel.
+   * Trigger events on mouseover.
    */
-  handleHoverOnCarousel() {
+  handleMouseOver() {
     this.hoverAutoPlay = this.autoPlay;
     if (this.hoverAutoPlay) {
       this.handleAutoPlay();
@@ -446,9 +439,9 @@ export class Carousel {
   }
 
   /**
-   * Hover out carousel.
+   * Trigger events on mouseout.
    */
-  handleHoverOffCarousel() {
+  handleMouseOut() {
     if (this.hoverAutoPlay) {
       this.handleAutoPlay();
     }
@@ -456,7 +449,7 @@ export class Carousel {
   }
 
   /**
-   * Resize the slides across the width of the container.
+   * Trigger events on resize.
    */
   handleResize() {
     const vw = Math.max(
@@ -500,10 +493,10 @@ export class Carousel {
   }
 
   /**
-   * Trigger focus on slides.
+   * Trigger events on focus.
    * @param {Event} e
    */
-  handleSlidesFocus(e) {
+  handleFocus(e) {
     const focusElement = e.target;
     // Disable autoplay if focus is on a slide CTA
     if (
