@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { queryOne, queryAll } from '@ecl/dom-utils';
 
 /**
@@ -31,7 +30,8 @@ export class NewsTicker {
   constructor(
     element,
     {
-      toggleSelector = '[data-ecl-news-ticker-toggle]',
+      playSelector = '[data-ecl-news-ticker-play]',
+      pauseSelector = '[data-ecl-news-ticker-pause]',
       prevSelector = '[data-ecl-news-ticker-prev]',
       nextSelector = '[data-ecl-news-ticker-next]',
       containerClass = '.ecl-news-ticker__container',
@@ -53,7 +53,8 @@ export class NewsTicker {
     this.element = element;
 
     // Options
-    this.toggleSelector = toggleSelector;
+    this.playSelector = playSelector;
+    this.pauseSelector = pauseSelector;
     this.prevSelector = prevSelector;
     this.nextSelector = nextSelector;
     this.containerClass = containerClass;
@@ -65,29 +66,30 @@ export class NewsTicker {
     this.attachResizeListener = attachResizeListener;
 
     // Private variables
-    this.toggle = null;
     this.container = null;
     this.content = null;
     this.slides = null;
+    this.btnPlay = null;
+    this.btnPause = null;
     this.btnPrev = null;
     this.btnNext = null;
     this.index = 1;
     this.total = 0;
     this.allowShift = true;
-    this.autoPlay = false;
+    this.autoPlay = null;
     this.autoPlayInterval = null;
+    this.hoverAutoPlay = null;
     this.resizeTimer = null;
     this.cloneFirstSLide = null;
     this.cloneLastSLide = null;
 
     // Bind `this` for use in callbacks
-    this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
-    this.handleHoverOnTicker = this.handleHoverOnTicker.bind(this);
-    this.handleHoverOffTicker = this.handleHoverOffTicker.bind(this);
+    this.handleAutoPlay = this.handleAutoPlay.bind(this);
+    this.handleMouseOver = this.handleMouseOver.bind(this);
+    this.handleMouseOut = this.handleMouseOut.bind(this);
     this.shiftSlide = this.shiftSlide.bind(this);
     this.checkIndex = this.checkIndex.bind(this);
     this.moveSlides = this.moveSlides.bind(this);
-    this.resizeTicker = this.resizeTicker.bind(this);
     this.handleResize = this.handleResize.bind(this);
   }
 
@@ -95,7 +97,8 @@ export class NewsTicker {
    * Initialise component.
    */
   init() {
-    this.toggle = queryOne(this.toggleSelector, this.element);
+    this.btnPlay = queryOne(this.playSelector, this.element);
+    this.btnPause = queryOne(this.pauseSelector, this.element);
     this.btnPrev = queryOne(this.prevSelector, this.element);
     this.btnNext = queryOne(this.nextSelector, this.element);
     this.slidesContainer = queryOne(this.slidesClass, this.element);
@@ -117,17 +120,16 @@ export class NewsTicker {
     // Refresh the slides variable after adding new cloned slides
     this.slides = queryAll(this.slideClass, this.element);
 
-    // Initialize position of slides and size of the ticker
-    this.moveSlides(false);
-    this.resizeTicker();
+    // Initialize ticker position and size
+    this.handleResize();
 
-    if (this.toggle) {
-      this.handleClickOnToggle();
-    }
+    // Activate autoPlay
+    this.handleAutoPlay();
 
     // Bind events
-    if (this.attachClickListener && this.toggle) {
-      this.toggle.addEventListener('click', this.handleClickOnToggle);
+    if (this.attachClickListener && this.btnPlay && this.btnPause) {
+      this.btnPlay.addEventListener('click', this.handleAutoPlay);
+      this.btnPause.addEventListener('click', this.handleAutoPlay);
     }
     if (this.attachClickListener && this.btnNext) {
       this.btnNext.addEventListener(
@@ -143,13 +145,12 @@ export class NewsTicker {
     }
     if (this.slidesContainer) {
       this.slidesContainer.addEventListener('transitionend', this.checkIndex);
+      this.slidesContainer.addEventListener('mouseover', this.handleMouseOver);
+      this.slidesContainer.addEventListener('mouseout', this.handleMouseOut);
     }
     if (this.attachResizeListener) {
       window.addEventListener('resize', this.handleResize);
     }
-
-    this.element.addEventListener('mouseover', this.handleHoverOnTicker);
-    this.element.addEventListener('mouseout', this.handleHoverOffTicker);
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
@@ -163,8 +164,11 @@ export class NewsTicker {
       this.cloneFirstSLide.remove();
       this.cloneLastSLide.remove();
     }
-    if (this.toggle) {
-      this.toggle.replaceWith(this.toggle.cloneNode(true));
+    if (this.btnPlay) {
+      this.btnPlay.replaceWith(this.btnPlay.cloneNode(true));
+    }
+    if (this.btnPause) {
+      this.btnPause.replaceWith(this.btnPause.cloneNode(true));
     }
     if (this.btnNext) {
       this.btnNext.replaceWith(this.btnNext.cloneNode(true));
@@ -177,13 +181,20 @@ export class NewsTicker {
         'transitionend',
         this.checkIndex
       );
+      this.slidesContainer.removeEventListener(
+        'mouseover',
+        this.handleMouseOver
+      );
+      this.slidesContainer.removeEventListener('mouseout', this.handleMouseOut);
     }
     if (this.attachResizeListener) {
       window.removeEventListener('resize', this.handleResize);
     }
+    if (this.autoPlayInterval) {
+      clearInterval(this.autoPlayInterval);
+      this.autoPlay = null;
+    }
     if (this.element) {
-      this.element.removeEventListener('mouseover', this.handleHoverOnTicker);
-      this.element.removeEventListener('mouseout', this.handleHoverOffTicker);
       this.element.removeAttribute('data-ecl-auto-initialized');
     }
   }
@@ -199,7 +210,7 @@ export class NewsTicker {
       this.moveSlides(true);
     }
     if (stopAutoPlay && this.autoPlay) {
-      this.handleClickOnToggle();
+      this.handleAutoPlay();
     }
 
     this.allowShift = false;
@@ -213,7 +224,7 @@ export class NewsTicker {
     const newOffset = this.slides[this.index].offsetTop;
     const newHeight = this.slides[this.index].offsetHeight;
     this.content.style.height = `${newHeight}px`;
-    this.slidesContainer.style.transitionDuration = transition ? '0.4s' : '0s';
+    this.slidesContainer.style.transitionDuration = transition ? '0.4s' : '1ms';
     this.slidesContainer.style.transform = `translate3d(0px, -${newOffset}px, 0px)`;
   }
 
@@ -221,6 +232,7 @@ export class NewsTicker {
    * Action to update slides index and position.
    */
   checkIndex() {
+    // Update index
     if (this.index === 0) {
       this.index = this.total;
       this.moveSlides(false);
@@ -229,8 +241,30 @@ export class NewsTicker {
       this.index = 1;
       this.moveSlides(false);
     }
+
+    // Update pagination
     const currentSlide = queryOne(this.currentSlideClass, this.element);
     currentSlide.textContent = this.index;
+
+    // Update slides
+    if (this.slides) {
+      this.slides.forEach((slide, index) => {
+        const cta = queryOne('.ecl-link', slide);
+        if (this.index === index) {
+          slide.removeAttribute('aria-hidden', 'true');
+          slide.removeAttribute('inert', 'true');
+          if (cta) {
+            cta.removeAttribute('tabindex', -1);
+          }
+        } else {
+          slide.setAttribute('aria-hidden', 'true');
+          slide.setAttribute('inert', 'true');
+          if (cta) {
+            cta.setAttribute('tabindex', -1);
+          }
+        }
+      });
+    }
 
     this.allowShift = true;
   }
@@ -238,74 +272,62 @@ export class NewsTicker {
   /**
    * Toggles play/pause slides.
    */
-  handleClickOnToggle() {
-    const useNode = queryOne(
-      `${this.toggleSelector} .ecl-icon use`,
-      this.element
-    );
-    const originalXlinkHref = useNode.getAttribute('xlink:href');
-    let newXlinkHref = '';
-
+  handleAutoPlay() {
     if (!this.autoPlay) {
       this.autoPlayInterval = setInterval(() => {
         this.shiftSlide(1);
       }, 5000);
       this.autoPlay = true;
-
-      newXlinkHref = originalXlinkHref.replace('play', 'pause');
+      const isFocus = document.activeElement === this.btnPlay;
+      this.btnPlay.style.display = 'none';
+      this.btnPause.style.display = 'flex';
+      if (isFocus) {
+        this.btnPause.focus();
+      }
     } else {
       clearInterval(this.autoPlayInterval);
       this.autoPlay = false;
-
-      newXlinkHref = originalXlinkHref.replace('pause', 'play');
+      const isFocus = document.activeElement === this.btnPause;
+      this.btnPlay.style.display = 'flex';
+      this.btnPause.style.display = 'none';
+      if (isFocus) {
+        this.btnPlay.focus();
+      }
     }
-    useNode.setAttribute('xlink:href', newXlinkHref);
   }
 
   /**
-   * Hover on ticker.
+   * Trigger events on mouseover.
    */
-  handleHoverOnTicker() {
-    clearInterval(this.autoPlayInterval);
-    return this;
-  }
-
-  /**
-   * Hover out ticker.
-   */
-  handleHoverOffTicker() {
-    if (this.autoPlay) {
-      this.autoPlayInterval = setInterval(() => {
-        this.shiftSlide(1);
-      }, 5000);
+  handleMouseOver() {
+    this.hoverAutoPlay = this.autoPlay;
+    if (this.hoverAutoPlay) {
+      this.handleAutoPlay();
     }
     return this;
   }
 
   /**
-   * Resize Slides container at the height of the highest slide.
+   * Trigger events on mouseout.
    */
-  resizeTicker() {
+  handleMouseOut() {
+    if (this.hoverAutoPlay) {
+      this.handleAutoPlay();
+    }
+    return this;
+  }
+
+  /**
+   * Trigger events on resize.
+   */
+  handleResize() {
     let highestSlide = 0;
     this.slides.forEach((slide) => {
       const slideHeight = slide.offsetHeight;
       highestSlide = highestSlide < slideHeight ? slideHeight : highestSlide;
     });
     this.container.style.height = `${highestSlide + 10}px`;
-  }
-
-  /**
-   * Trigger events on resize
-   */
-  handleResize() {
     this.moveSlides(false);
-    this.resizeTicker();
-
-    if (this.autoPlay) {
-      this.handleClickOnToggle();
-    }
-
-    return this;
   }
 }
 

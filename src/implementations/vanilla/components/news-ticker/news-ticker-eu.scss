@@ -3,6 +3,7 @@
 @use 'news-ticker' with (
   $_border-radius: 4px,
   $_border-width: 2px,
-  $_btn-outline-width: 2px,
+  $_outline-color: map.get(theme.$color, 'accent-blue-100'),
+  $_outline-width: 2px,
   $_counter-color: map.get(theme.$color, 'grey-80')
 );
