@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 
 import specs from '@ecl/specs-component-tabs/demo/data';
 import Tabs from './tabs.html.twig';
@@ -14,7 +14,7 @@ export default {
   },
 };
 
-export const Default = () => Tabs(correctSvgPath(specs));
+export const Default = () => Tabs(correctPaths(specs));
 
 Default.storyName = 'default';
 Default.parameters = { notes: { markdown: notes, json: specs } };

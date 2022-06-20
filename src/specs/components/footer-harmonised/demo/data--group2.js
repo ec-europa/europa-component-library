@@ -16,7 +16,7 @@ module.exports = {
           title: {
             link: {
               label: 'European Commission',
-              path: 'https://ec.europa.eu/info/index_en',
+              path: exampleLink,
             },
           },
         },

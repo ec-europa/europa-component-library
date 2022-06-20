@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath, getFormControls } from '@ecl/story-utils';
+import { correctPaths, getFormControls } from '@ecl/story-utils';
 
 import dataDefault from '@ecl/specs-component-checkbox/demo/data';
 
@@ -60,7 +60,7 @@ const prepareData = (data, args) => {
   delete data.show_error;
   delete data.show_item_helper;
 
-  correctSvgPath(data);
+  correctPaths(data);
 
   return data;
 };

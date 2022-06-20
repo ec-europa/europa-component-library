@@ -1,3 +1,6 @@
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   name: 'radio-group-1',
   helper_id: 'helper-id-1',
@@ -39,8 +42,7 @@ module.exports = {
     {
       id: 'radio-default-4',
       value: 'lorem',
-      label:
-        'Lorem ipsum dolor sit amet, <a href="#">consectetur adipiscing elit</a>. Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.',
+      label: `Lorem ipsum dolor sit amet, <a href="${exampleLink}">consectetur adipiscing elit</a>. Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.`,
       helper_id: 'helper-4',
       helper_text: 'Help text for an option',
     },

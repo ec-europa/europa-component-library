@@ -1,4 +1,7 @@
 // Simple content for demo
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   toggle_collapsed: 'Show %d more items',
   toggle_expanded: 'Hide %d items',
@@ -23,168 +26,143 @@ module.exports = {
       id: '0',
       label: '13 September 2017',
       title: 'Item title',
-      content:
-        '<a href="/example" class="ecl-link">President Juncker\'s State of the Union speech</a>',
+      content: `<a href="${exampleLink}" class="ecl-link">President Juncker's State of the Union speech</a>`,
     },
     {
       id: '1',
       label: '28-29 September 2017',
-      content:
-        '<a href="/example" class="ecl-link">Informal Digital Summit, Tallinn</a>',
+      content: `<a href="${exampleLink}" class="ecl-link">Informal Digital Summit, Tallinn</a>`,
     },
     {
       id: '2',
       label: '14 November 2017',
-      content:
-        '<a href="/example" class="ecl-link">Strengthening European identity through education and culture: European Commission\'s contribution to the Leaders\' meeting, Gothenburg, Sweden</a>',
+      content: `<a href="${exampleLink}" class="ecl-link">Strengthening European identity through education and culture: European Commission's contribution to the Leaders' meeting, Gothenburg, Sweden</a>`,
     },
     {
       id: '3',
       label: '17 November 2017',
-      content:
-        '<a href="/example" class="ecl-link">Social Summit in Gothenburg, Sweden</a>',
+      content: `<a href="${exampleLink}" class="ecl-link">Social Summit in Gothenburg, Sweden</a>`,
     },
     {
       id: '4',
       label: '6 December 2017',
-      content:
-        '<a href="/example" class="ecl-link">Economic and Monetary Union package of proposals</a>',
+      content: `<a href="${exampleLink}" class="ecl-link">Economic and Monetary Union package of proposals</a>`,
     },
     {
       id: '5',
       label: '14-15 December 2017',
-      content:
-        '<a href="/example" class="ecl-link">EU Leaders\' meeting on migration, Brussels</a>',
+      content: `<a href="${exampleLink}" class="ecl-link">EU Leaders' meeting on migration, Brussels</a>`,
     },
     {
       id: '6',
       label: '15 December 2017',
-      content: '<a href="/example" class="ecl-link">Euro Summit</a>',
+      content: `<a href="${exampleLink}" class="ecl-link">Euro Summit</a>`,
     },
     {
       id: '7',
       label: '6 February 2018',
-      content:
-        '<a href="/example" class="ecl-link">EU-Western Balkans Strategy</a>',
+      content: `<a href="${exampleLink}" class="ecl-link">EU-Western Balkans Strategy</a>`,
     },
     {
       id: '8',
       label: '14 February 2018',
-      content:
-        '<a href="/example" class="ecl-link">Multiannual Financial Framework</a> and <a href="/example" class="ecl-link">institutional issues</a> - enhancing efficiency at the helm of the European Union',
+      content: `<a href="${exampleLink}" class="ecl-link">Multiannual Financial Framework</a> and <a href="${exampleLink}" class="ecl-link">institutional issues</a> - enhancing efficiency at the helm of the European Union`,
     },
     {
       id: '9',
       label: '23 February 2018',
-      content:
-        '<a href="/example" class="ecl-link">Informal European Council</a>',
+      content: `<a href="${exampleLink}" class="ecl-link">Informal European Council</a>`,
     },
     {
       id: '10',
       label: '22-23 March 2018',
-      content: '<a href="/example" class="ecl-link">European Council</a>',
+      content: `<a href="${exampleLink}" class="ecl-link">European Council</a>`,
     },
     {
       id: '11',
       label: '2 May 2018',
-      content:
-        '<a href="/example" class="ecl-link">Commission proposal: Long-term budget post-2020</a>',
+      content: `<a href="${exampleLink}" class="ecl-link">Commission proposal: Long-term budget post-2020</a>`,
     },
     {
       id: '12',
       label: '15 May 2018',
-      content:
-        '<a href="/example" class="ecl-link">European Commission’s contribution to the Informal Leaders\' meeting</a>, Sofia, Bulgaria (16 May 2018)',
+      content: `<a href="${exampleLink}" class="ecl-link">European Commission’s contribution to the Informal Leaders' meeting</a>, Sofia, Bulgaria (16 May 2018)`,
     },
     {
       id: '13',
       label: '17 May 2018',
-      content:
-        '<a href="/example" class="ecl-link">EU-Western Balkans Summit</a> (Sofia, Bulgaria)',
+      content: `<a href="${exampleLink}" class="ecl-link">EU-Western Balkans Summit</a> (Sofia, Bulgaria)`,
     },
     {
       id: '14',
       label: '23 May 2018',
-      content:
-        'Progress by Member States in meeting the conditions for adopting the euro - <a href="/example" class="ecl-link">reports</a> by the European Commission and ECB',
+      content: `Progress by Member States in meeting the conditions for adopting the euro - <a href="${exampleLink}" class="ecl-link">reports</a> by the European Commission and ECB`,
     },
     {
       id: '15',
       label: '23 May 2018',
-      content:
-        '<a href="/example" class="ecl-link">European Semester</a>: European Commission publishes economic policy guidance for Member States',
+      content: `<a href="${exampleLink}" class="ecl-link">European Semester</a>: European Commission publishes economic policy guidance for Member States`,
     },
     {
       id: '16',
       label: '29 May - 14 June 2018',
-      content:
-        '<a href="/example" class="ecl-link">EU budget for the future</a>: European Commission\'s legislative proposals for spending programmes',
+      content: `<a href="${exampleLink}" class="ecl-link">EU budget for the future</a>: European Commission's legislative proposals for spending programmes',
     },
     {
       id: '17',
       label: '28-29 June 2018',
       content:
-        'Commission contribution to the European Council: <a href="/example" class="ecl-link">Economic and Monetary Union, migration, EU budget for the future</a>',
+        'Commission contribution to the European Council: <a href="${exampleLink}" class="ecl-link">Economic and Monetary Union, migration, EU budget for the future</a>`,
     },
     {
       id: '18',
       label: '10 July 2018',
-      content:
-        'Ways to enhance subsidiarity, proportionality and better regulation in the daily operations of the EU: <a href="/example" class="ecl-link">Report</a> by the Task Force chaired by Commission First Vice-President Timmermans',
+      content: `Ways to enhance subsidiarity, proportionality and better regulation in the daily operations of the EU: <a href="${exampleLink}" class="ecl-link">Report</a> by the Task Force chaired by Commission First Vice-President Timmermans`,
     },
     {
       id: '19',
       label: '12 September 2018',
-      content:
-        '<a href="/example" class="ecl-link">President Juncker\'s State of the Union speech</a>',
+      content: `<a href="${exampleLink}" class="ecl-link">President Juncker's State of the Union speech</a>`,
     },
     {
       id: '20',
       label: '20 September 2018',
-      content:
-        '<a href="/example" class="ecl-link">Informal European Council/Meeting of EU27 (Salzburg, Austria)</a>',
+      content: `<a href="${exampleLink}" class="ecl-link">Informal European Council/Meeting of EU27 (Salzburg, Austria)</a>`,
     },
     {
       id: '21',
       label: '18 October 2018',
-      content:
-        '<a href="/example" class="ecl-link">European Council meeting</a>, Brussels',
+      content: `<a href="${exampleLink}" class="ecl-link">European Council meeting</a>, Brussels`,
     },
     {
       id: '22',
       label: '21 November 2018',
-      content:
-        '<a href="/example" class="ecl-link">European Semester</a>: setting the economic and social priorities',
+      content: `<a href="${exampleLink}" class="ecl-link">European Semester</a>: setting the economic and social priorities`,
     },
     {
       id: '23',
       label: '28 November 2018',
-      content:
-        'Commission contribution to the European Council on <a href="/example" class="ecl-link">Capital Markets Union and Banking Union</a>',
+      content: `Commission contribution to the European Council on <a href="${exampleLink}" class="ecl-link">Capital Markets Union and Banking Union</a>`,
     },
     {
       id: '24',
       label: '04 December 2018',
-      content:
-        'Commission contribution to the European Council on <a href="/example" class="ecl-link">long-term EU budget</a> and <a href="/example" class="ecl-link">migration</a>',
+      content: `Commission contribution to the European Council on <a href="${exampleLink}" class="ecl-link">long-term EU budget</a> and <a href="${exampleLink}" class="ecl-link">migration</a>`,
     },
     {
       id: '25',
       label: '05 December 2018',
-      content:
-        'Commission contribution to the European Council on the <a href="/example" class="ecl-link">international role of the euro</a> and the <a href="/example" class="ecl-link">Action Plan on disinformation</a>',
+      content: `Commission contribution to the European Council on the <a href="${exampleLink}" class="ecl-link">international role of the euro</a> and the <a href="${exampleLink}" class="ecl-link">Action Plan on disinformation</a>`,
     },
     {
       id: '26',
       label: '11 December 2018',
-      content:
-        'Commission contribution to the European Council on the <a href="/example" class="ecl-link">Citizens\' Dialogues</a>',
+      content: `Commission contribution to the European Council on the <a href="${exampleLink}" class="ecl-link">Citizens' Dialogues</a>`,
     },
     {
       id: '27',
       label: '11 December 2018',
-      content:
-        'Commission contribution to the <a href="/example" class="ecl-link">Euro Summit</a>',
+      content: `Commission contribution to the <a href="${exampleLink}" class="ecl-link">Euro Summit</a>`,
     },
     {
       id: '28',

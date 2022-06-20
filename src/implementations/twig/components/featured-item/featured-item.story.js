@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 
 import demoData from '@ecl/specs-component-featured-item/demo/data';
 import demoDataExtended from '@ecl/specs-component-featured-item/demo/data--extended';
@@ -103,7 +103,7 @@ const prepareData = (data, args) => {
   if (data.media_container.image) {
     data.media_container.image = args.image;
   }
-  return Object.assign(correctSvgPath(data), args);
+  return Object.assign(correctPaths(data), args);
 };
 
 export default {

@@ -14,8 +14,7 @@ module.exports = {
             src_desktop: '/logo-eu.svg',
             src_mobile: '/logo-mobile-eu.svg',
           },
-          description:
-            'This site is managed by the European Commission, Directorate-General for Communication (<a href="/example" class="ecl-link ecl-link--standalone">DG COMM</a>)',
+          description: `This site is managed by the European Commission, Directorate-General for Communication (<a href="${exampleLink}" class="ecl-link ecl-link--standalone">DG COMM</a>)`,
         },
       ],
       [

@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath, getIconControls } from '@ecl/story-utils';
+import { correctPaths, getIconControls } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
 import dataAll from '@ecl/specs-component-icon/demo/data';
@@ -29,7 +29,7 @@ const prepareData = (data, args) => {
   if (args.transformation === 'none') {
     args.transformation = '';
   }
-  correctSvgPath(data);
+  correctPaths(data);
   data.icon.name = args.name;
   data.icon.size = args.size;
   data.icon.color = args.color;

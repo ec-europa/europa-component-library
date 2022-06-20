@@ -1,3 +1,5 @@
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
 // Simple content for demo
 module.exports = {
   toggle_collapsed: 'Show %d more items',
@@ -39,8 +41,7 @@ module.exports = {
     {
       id: '3',
       label: '1998 - 1999',
-      content:
-        '<a href="/example" class="ecl-link">Social Summit in Gothenburg, Sweden</a>',
+      content: `<a href="${exampleLink}" class="ecl-link">Social Summit in Gothenburg, Sweden</a>`,
     },
     {
       id: '4',
@@ -55,7 +56,7 @@ module.exports = {
     {
       id: '6',
       label: '2001 - 2002',
-      content: '<a href="/example" class="ecl-link">Euro Summit</a>',
+      content: `<a href="${exampleLink}" class="ecl-link">Euro Summit</a>`,
     },
     {
       id: '7',
@@ -81,8 +82,7 @@ module.exports = {
     {
       id: '11',
       label: '2006 - 2007',
-      content:
-        '<a href="/example" class="ecl-link">Commission proposal: Long-term budget post-2020</a>',
+      content: `<a href="${exampleLink}" class="ecl-link">Commission proposal: Long-term budget post-2020</a>`,
     },
     {
       id: '12',
@@ -98,8 +98,7 @@ module.exports = {
     {
       id: '14',
       label: '2009 - 2010',
-      content:
-        'Progress by Member States in meeting the conditions for adopting the euro - <a href="/example" class="ecl-link">reports</a> by the European Commission and ECB',
+      content: `Progress by Member States in meeting the conditions for adopting the euro - <a href="${exampleLink}" class="ecl-link">reports</a> by the European Commission and ECB`,
     },
     {
       id: '15',

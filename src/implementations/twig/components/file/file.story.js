@@ -1,5 +1,5 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
 import getSystem from '@ecl/builder/utils/getSystem';
 
@@ -229,7 +229,7 @@ const prepareData = (data, args) => {
     data.lists = [];
   }
 
-  correctSvgPath(data);
+  correctPaths(data);
 
   return data;
 };

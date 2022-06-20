@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
 import logoPathEC from '@ecl/resources-ec-logo/dist/logo-ec--mute.svg';
@@ -13,7 +13,7 @@ import notes from './README.md';
 const system = getSystem();
 
 const prepareData = (data) => {
-  correctSvgPath(data);
+  correctPaths(data);
   if (data.logo) {
     data.logo.path = system === 'eu' ? logoPathEU : logoPathEC;
   }

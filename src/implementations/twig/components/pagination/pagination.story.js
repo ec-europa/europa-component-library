@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 
 import specs from '@ecl/specs-component-pagination/demo/data';
 import pagination from './pagination.html.twig';
@@ -15,7 +15,7 @@ export default {
   },
 };
 
-export const Default = () => pagination(correctSvgPath(specs));
+export const Default = () => pagination(correctPaths(specs));
 
 Default.storyName = 'default';
 Default.parameters = { notes: { markdown: notes, json: specs } };
