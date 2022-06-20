@@ -1,6 +1,7 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
 @use 'news-ticker' with (
+  $_controls-background: map.get(theme.$color, 'blue-130'),
   $_border-radius: 0,
   $_border-width: 2px,
   $_outline-color: map.get(theme.$color, 'yellow-100'),

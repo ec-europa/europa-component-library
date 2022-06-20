@@ -39,6 +39,7 @@ export class NewsTicker {
       slidesClass = '.ecl-news-ticker__slides',
       slideClass = '.ecl-news-ticker__slide',
       currentSlideClass = '.ecl-news-ticker__counter--current',
+      controlsClass = '.ecl-news-ticker__controls',
       attachClickListener = true,
       attachResizeListener = true,
     } = {}
@@ -62,6 +63,7 @@ export class NewsTicker {
     this.slidesClass = slidesClass;
     this.slideClass = slideClass;
     this.currentSlideClass = currentSlideClass;
+    this.controlsClass = controlsClass;
     this.attachClickListener = attachClickListener;
     this.attachResizeListener = attachResizeListener;
 
@@ -91,6 +93,7 @@ export class NewsTicker {
     this.checkIndex = this.checkIndex.bind(this);
     this.moveSlides = this.moveSlides.bind(this);
     this.handleResize = this.handleResize.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
   }
 
   /**
@@ -104,9 +107,17 @@ export class NewsTicker {
     this.slidesContainer = queryOne(this.slidesClass, this.element);
     this.container = queryOne(this.containerClass, this.element);
     this.content = queryOne(this.contentClass, this.element);
+    this.controls = queryOne(this.controlsClass, this.element);
 
     this.slides = queryAll(this.slideClass, this.element);
     this.total = this.slides.length;
+
+    // If only one slide, don't initialize ticker and hide controls
+    if (this.total <= 1 && this.controls) {
+      this.content.style.height = 'auto';
+      this.controls.style.display = 'none';
+      return false;
+    }
 
     const firstSlide = this.slides[0];
     const lastSlide = this.slides[this.slides.length - 1];
@@ -148,12 +159,16 @@ export class NewsTicker {
       this.slidesContainer.addEventListener('mouseover', this.handleMouseOver);
       this.slidesContainer.addEventListener('mouseout', this.handleMouseOut);
     }
+    if (this.container) {
+      this.container.addEventListener('focus', this.handleFocus, true);
+    }
     if (this.attachResizeListener) {
       window.addEventListener('resize', this.handleResize);
     }
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
+    return this;
   }
 
   /**
@@ -186,6 +201,9 @@ export class NewsTicker {
         this.handleMouseOver
       );
       this.slidesContainer.removeEventListener('mouseout', this.handleMouseOut);
+    }
+    if (this.container) {
+      this.container.removeEventListener('focus', this.handleFocus, true);
     }
     if (this.attachResizeListener) {
       window.removeEventListener('resize', this.handleResize);
@@ -328,6 +346,23 @@ export class NewsTicker {
     });
     this.container.style.height = `${highestSlide + 10}px`;
     this.moveSlides(false);
+  }
+
+  /**
+   * Trigger events on focus.
+   * @param {Event} e
+   */
+  handleFocus(e) {
+    const focusElement = e.target;
+    // Disable autoplay if focus is on a slide CTA
+    if (
+      focusElement &&
+      focusElement.contains(document.activeElement) &&
+      this.autoPlay
+    ) {
+      this.handleAutoPlay();
+    }
+    return this;
   }
 }
 

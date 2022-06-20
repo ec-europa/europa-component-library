@@ -105,6 +105,32 @@
   </div>
   {% endif %}
   <div class="ecl-news-ticker__controls">
+    <button class="ecl-news-ticker__prev" data-ecl-news-ticker-prev>
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: {
+          path: _icon_path,
+          name: 'corner-arrow',
+          size: 'm',
+          color: 'inverted',
+          transform: 'rotate-270',
+        },
+        extra_classes: 'ecl-news-ticker__icon-default',
+      } only %}
+      <span class="ecl-u-sr-only">{{ _sr_prev }}</span>
+    </button>
+    <button class="ecl-news-ticker__next" data-ecl-news-ticker-next>
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: {
+          path: _icon_path,
+          name: 'corner-arrow',
+          size: 'm',
+          color: 'inverted',
+          transform: 'rotate-90',
+        },
+        extra_classes: 'ecl-news-ticker__icon-default',
+      } only %}
+      <span class="ecl-u-sr-only">{{ _sr_prev }}</span>
+    </button>
     <button class="ecl-news-ticker__play" data-ecl-news-ticker-play>
       {% include '@ecl/icon/icon.html.twig' with {
         icon: {
@@ -152,32 +178,6 @@
       {{- ' ' -}}{{- _counter_label }}{{- ' ' -}}
       <span class="ecl-news-ticker__counter--max">{{_items|length}}</span>
     </div>
-    <button class="ecl-news-ticker__prev" data-ecl-news-ticker-prev>
-      {% include '@ecl/icon/icon.html.twig' with {
-        icon: {
-          path: _icon_path,
-          name: 'corner-arrow',
-          size: 'm',
-          color: 'inverted',
-          transform: 'rotate-270',
-        },
-        extra_classes: 'ecl-news-ticker__icon-default',
-      } only %}
-      <span class="ecl-u-sr-only">{{ _sr_prev }}</span>
-    </button>
-    <button class="ecl-news-ticker__next" data-ecl-news-ticker-next>
-      {% include '@ecl/icon/icon.html.twig' with {
-        icon: {
-          path: _icon_path,
-          name: 'corner-arrow',
-          size: 'm',
-          color: 'inverted',
-          transform: 'rotate-90',
-        },
-        extra_classes: 'ecl-news-ticker__icon-default',
-      } only %}
-      <span class="ecl-u-sr-only">{{ _sr_prev }}</span>
-    </button>
   </div>
 </div>
 
