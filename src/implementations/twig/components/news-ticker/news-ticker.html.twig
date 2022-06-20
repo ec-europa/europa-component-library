@@ -7,6 +7,7 @@
         {
           "content" (string)
           "link" (string)
+          "external" (boolean)
         },
         ...
       ]
@@ -89,6 +90,8 @@
             link: {
               label: _item.content,
               path: _item.link,
+              external: _item.external,
+              icon_path: icon_path,
             },
             extra_classes: 'ecl-news-ticker__slide-text',
           } only %}

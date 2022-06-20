@@ -35,15 +35,15 @@ Here is an example of default HTML file using ECL:
     </script>
     <link
       rel="stylesheet"
-      href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/[ECL_VERSION]/ec/styles/ecl-ec.css"
-      integrity="[sri hash of ecl-ec.css]"
+      href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/[ECL_VERSION]/eu/styles/ecl-eu.css"
+      integrity="[sri hash of ecl-eu.css]"
       crossorigin="anonymous"
       media="screen"
     />
     <link
       rel="stylesheet"
-      href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/[ECL_VERSION]/ec/styles/ecl-ec-print.css"
-      integrity="[sri hash of ecl-ec-print.css]"
+      href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/[ECL_VERSION]/eu/styles/ecl-eu-print.css"
+      integrity="[sri hash of ecl-eu-print.css]"
       crossorigin="anonymous"
       media="print"
     />
@@ -53,8 +53,8 @@ Here is an example of default HTML file using ECL:
     <!-- content of your page here -->
 
     <script
-      src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/[ECL_VERSION]/ec/scripts/ecl-ec.js"
-      integrity="[sri hash of ecl-ec.js]"
+      src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/[ECL_VERSION]/eu/scripts/ecl-eu.js"
+      integrity="[sri hash of ecl-eu.js]"
       crossorigin="anonymous"
     ></script>
     <script>

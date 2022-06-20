@@ -1,5 +1,28 @@
 # Changelog
 
+## 3.3.2 (2022-06-08)
+
+#### :nail_care: Enhancement
+
+- [#2561](https://github.com/ec-europa/europa-component-library/pull/2561) feat(icons): add telegram icons - FRONT-3650 ([@emeryro](https://github.com/emeryro))
+- [#2560](https://github.com/ec-europa/europa-component-library/pull/2560) feat(description-list): Adding support for links in taxonomy type - FRONT-3654 ([@planctus](https://github.com/planctus))
+- [#2559](https://github.com/ec-europa/europa-component-library/pull/2559) feat(news-ticker): Adding support for external links - FRONT-2653 ([@planctus](https://github.com/planctus))
+
+#### :memo: Documentation
+
+- [#2562](https://github.com/ec-europa/europa-component-library/pull/2562) docs(getting started): fix EU doc - FRONT-3540 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#2563](https://github.com/ec-europa/europa-component-library/pull/2563) chore(deps): Updates 07-06-22 ([@planctus](https://github.com/planctus))
+- [#2553](https://github.com/ec-europa/europa-component-library/pull/2553) chore: Production workflow ([@planctus](https://github.com/planctus))
+- [#2551](https://github.com/ec-europa/europa-component-library/pull/2551) chore: Updates 30-05-22 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 ## 3.3.1 (2022-05-25)
 
 #### :bug: Bug Fix
