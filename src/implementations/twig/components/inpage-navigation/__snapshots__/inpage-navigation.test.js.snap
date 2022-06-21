@@ -3,12 +3,14 @@
 exports[`Inpage navigation renders correctly 1`] = `
 <jest>
   <nav
+    aria-labelledby="ecl-inpage-navigation-default"
     class="ecl-inpage-navigation"
     data-ecl-auto-init="InpageNavigation"
     data-ecl-inpage-navigation="true"
   >
     <div
       class="ecl-inpage-navigation__title"
+      id="ecl-inpage-navigation-default"
     >
       Page contents
     </div>
@@ -20,7 +22,7 @@ exports[`Inpage navigation renders correctly 1`] = `
         aria-expanded="false"
         class="ecl-inpage-navigation__trigger"
         data-ecl-inpage-navigation-trigger="true"
-        id="ecl-inpage-navigation-trigger"
+        id="ecl-inpage-navigation-default-trigger"
         type="button"
       >
         <span
@@ -38,10 +40,9 @@ exports[`Inpage navigation renders correctly 1`] = `
         </svg>
       </button>
       <ul
-        aria-labelledby="ecl-inpage-navigation-trigger"
         class="ecl-inpage-navigation__list"
         data-ecl-inpage-navigation-list="true"
-        id="ecl-inpage-navigation-list"
+        id="ecl-inpage-navigation-default-list"
       >
         <li
           class="ecl-inpage-navigation__item"
@@ -96,6 +97,7 @@ exports[`Inpage navigation renders correctly 1`] = `
 exports[`Inpage navigation renders correctly with extra attributes 1`] = `
 <jest>
   <nav
+    aria-labelledby="ecl-inpage-navigation-default"
     class="ecl-inpage-navigation"
     data-ecl-auto-init="InpageNavigation"
     data-ecl-inpage-navigation="true"
@@ -104,6 +106,7 @@ exports[`Inpage navigation renders correctly with extra attributes 1`] = `
   >
     <div
       class="ecl-inpage-navigation__title"
+      id="ecl-inpage-navigation-default"
     >
       Page contents
     </div>
@@ -115,7 +118,7 @@ exports[`Inpage navigation renders correctly with extra attributes 1`] = `
         aria-expanded="false"
         class="ecl-inpage-navigation__trigger"
         data-ecl-inpage-navigation-trigger="true"
-        id="ecl-inpage-navigation-trigger"
+        id="ecl-inpage-navigation-default-trigger"
         type="button"
       >
         <span
@@ -133,10 +136,9 @@ exports[`Inpage navigation renders correctly with extra attributes 1`] = `
         </svg>
       </button>
       <ul
-        aria-labelledby="ecl-inpage-navigation-trigger"
         class="ecl-inpage-navigation__list"
         data-ecl-inpage-navigation-list="true"
-        id="ecl-inpage-navigation-list"
+        id="ecl-inpage-navigation-default-list"
       >
         <li
           class="ecl-inpage-navigation__item"
@@ -191,12 +193,14 @@ exports[`Inpage navigation renders correctly with extra attributes 1`] = `
 exports[`Inpage navigation renders correctly with extra class names 1`] = `
 <jest>
   <nav
+    aria-labelledby="ecl-inpage-navigation-default"
     class="ecl-inpage-navigation custom-class custom-class--test"
     data-ecl-auto-init="InpageNavigation"
     data-ecl-inpage-navigation="true"
   >
     <div
       class="ecl-inpage-navigation__title"
+      id="ecl-inpage-navigation-default"
     >
       Page contents
     </div>
@@ -208,7 +212,7 @@ exports[`Inpage navigation renders correctly with extra class names 1`] = `
         aria-expanded="false"
         class="ecl-inpage-navigation__trigger"
         data-ecl-inpage-navigation-trigger="true"
-        id="ecl-inpage-navigation-trigger"
+        id="ecl-inpage-navigation-default-trigger"
         type="button"
       >
         <span
@@ -226,10 +230,9 @@ exports[`Inpage navigation renders correctly with extra class names 1`] = `
         </svg>
       </button>
       <ul
-        aria-labelledby="ecl-inpage-navigation-trigger"
         class="ecl-inpage-navigation__list"
         data-ecl-inpage-navigation-list="true"
-        id="ecl-inpage-navigation-list"
+        id="ecl-inpage-navigation-default-list"
       >
         <li
           class="ecl-inpage-navigation__item"
