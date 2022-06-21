@@ -65,8 +65,8 @@ $_outline-width: none !default;
 .ecl-news-ticker__slide {
   align-items: center;
   display: flex;
-  padding: calc(#{map.get(theme.$spacing, 's')} - 2px);
-  padding-inline-start: 5px;
+  padding: 5px;
+  padding-inline-end: map.get(theme.$spacing, 's');
 }
 
 .ecl-news-ticker__slide,
