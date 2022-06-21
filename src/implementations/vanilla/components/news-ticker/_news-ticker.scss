@@ -31,7 +31,7 @@ $_outline-width: none !default;
 }
 
 .ecl-news-ticker__icon {
-  fill: $_controls-background;
+  fill: map.get(theme.$color, 'blue-100');
   flex-shrink: 0;
   margin: map.get(theme.$spacing, 's');
 }
@@ -65,7 +65,8 @@ $_outline-width: none !default;
 .ecl-news-ticker__slide {
   align-items: center;
   display: flex;
-  padding: 5px;
+  padding: calc(#{map.get(theme.$spacing, 's')} - 2px);
+  padding-inline-start: 5px;
 }
 
 .ecl-news-ticker__slide,
@@ -86,7 +87,7 @@ $_outline-width: none !default;
   display: flex;
   order: 2;
   padding: calc(#{map.get(theme.$spacing, '2xs')} - 1px);
-  padding-top: map.get(theme.$spacing, '2xs');
+  padding-top: calc(#{map.get(theme.$spacing, '2xs')} + 1px);
   width: 100%;
 }
 
@@ -179,7 +180,7 @@ $_outline-width: none !default;
     color: $_counter-color;
     flex-shrink: 0;
     text-align: initial;
-    padding-inline-start: map.get(theme.$spacing, 'm');
+    padding-inline-start: map.get(theme.$spacing, 's');
     padding-inline-end: map.get(theme.$spacing, 's');
     order: 1;
   }

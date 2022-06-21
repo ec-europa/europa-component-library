@@ -344,7 +344,7 @@ export class NewsTicker {
       const slideHeight = slide.offsetHeight;
       highestSlide = highestSlide < slideHeight ? slideHeight : highestSlide;
     });
-    this.container.style.height = `${highestSlide + 10}px`;
+    this.container.style.height = `${highestSlide}px`;
     this.moveSlides(false);
   }
 
