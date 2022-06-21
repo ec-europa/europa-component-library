@@ -10,6 +10,7 @@ npm install --save @ecl/twig-component-inpage-navigation
 
 Parameters:
 
+- **"id"** (string) (default: 'ecl-inpage-navigation-default')
 - **"title"** (string) (default: '')
 - **"links"** (associative array) (default: predefined structure):
   - href: (string) (default: '')
