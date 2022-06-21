@@ -157,7 +157,8 @@ module.exports = {
               link: {
                 label: "About the European Commission's web presence",
                 path: 'https://ec.europa.eu/info/about-european-commissions-web-presence_en',
-                aria_label: 'Link to the accessibility report',
+                aria_label:
+                  "Link to the About the European Commission's web presence",
               },
             },
             {
@@ -173,6 +174,8 @@ module.exports = {
                 path: 'https://european-union.europa.eu/contact-eu/social-media-channels_en#/search?page=0&institutions=european_commission',
                 aria_label:
                   'Link to Follow the European Commission on social media',
+                external: true,
+                icon_path: '/icons.svg',
               },
             },
             {
