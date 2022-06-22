@@ -2,7 +2,6 @@
 {#
   Parameters:
   - "type" (optional) (can be 'extended'),
-  - "heading" (optional) (string) (default: ''),
   - "title" (string) (default: ''),
   - "description" (string) (default: ''),
   - "link" (object) (default: ''): object of type Link
@@ -23,7 +22,6 @@
 {% set _css_class = 'ecl-featured-item' %}
 {% set _css_container_class = 'ecl-featured-item__container' %}
 {% set _type = type|default('') %}
-{% set _heading = heading|default('') %}
 {% set _title = title|default(false) %}
 {% set _description = description|default('') %}
 {% set _link = link|default({}) %}
@@ -60,9 +58,6 @@
 {# Print the result #}
 
 <article class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  {% if _heading is defined and _heading is not empty %}
-    <h1 class="ecl-featured-item__heading">{{ _heading }}</h1>
-  {% endif %}
   <div class="{{ _css_container_class }}">
     <div class="ecl-featured-item__item">
     {% include '@ecl/media-container/media-container.html.twig' with _media_container|merge({

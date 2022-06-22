@@ -9,7 +9,6 @@ npm install --save @ecl/twig-component-featured-item
 ### Parameters
 
 - **"type"** (string) (default: '') - Featured item type ('extended'),
-- **"heading"** (string) (default: '') - Main heading of the feature item,
 - **"title"** (string) (default: '') - Title of the content opposite the media container,
 - **"description"** (string) (default: '') - Description of the content opposite the media container,
 - **"link"** (associative array) (default: predefined structure) predefined structure for the Link component
