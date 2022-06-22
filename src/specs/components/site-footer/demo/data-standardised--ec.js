@@ -189,22 +189,24 @@ module.exports = {
             {
               link: {
                 label: 'Contact the European Commission',
-                path: exampleLink,
+                path: 'https://ec.europa.eu/info/about-european-commission/contact_en',
                 aria_label: 'Link to Contact the European Commission',
               },
             },
             {
               link: {
                 label: 'Follow the European Commission on social media',
-                path: exampleLink,
+                path: 'https://european-union.europa.eu/contact-eu/social-media-channels_en#/search?page=0&institutions=european_commission',
                 aria_label:
                   'Link to Follow the European Commission on social media',
+                external: true,
+                icon_path: '/icons.svg',
               },
             },
             {
               link: {
                 label: 'Resources for partners',
-                path: exampleLink,
+                path: 'https://ec.europa.eu/info/resources-partners_en',
               },
             },
           ],
@@ -217,28 +219,28 @@ module.exports = {
             {
               link: {
                 label: 'Languages on our websites',
-                path: exampleLink,
+                path: 'https://ec.europa.eu/info/language-policy_en',
                 aria_label: 'Link to Languages on our websites',
               },
             },
             {
               link: {
                 label: 'Cookies',
-                path: exampleLink,
+                path: 'https://ec.europa.eu/info/cookies_en',
                 aria_label: 'Link to Cookies',
               },
             },
             {
               link: {
                 label: 'Privacy policy',
-                path: exampleLink,
+                path: 'https://ec.europa.eu/info/privacy-policy_en',
                 aria_label: 'Link to Privacy policy',
               },
             },
             {
               link: {
                 label: 'Legal notice',
-                path: exampleLink,
+                path: 'https://ec.europa.eu/info/legal-notice_en',
                 aria_label: 'Link to Legal notice',
               },
             },
