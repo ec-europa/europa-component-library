@@ -1,6 +1,6 @@
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 
-import data from '@ecl/specs-component-five-stars/demo/data--ec';
+import data from '@ecl/specs-component-five-stars/demo/data';
 
 describe('Five stars', () => {
   const template = '@ecl/five-stars/five-stars.html.twig';

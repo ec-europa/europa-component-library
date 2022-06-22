@@ -1,0 +1,47 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import {
+  fiveStarsGroupDefault,
+  fiveStarsGroupInvalid,
+  fiveStarsGroupRequired,
+  fiveStarsGroupOptional,
+} from '../demo';
+
+## Default five stars
+
+<Playground
+  system="eu"
+  selectedKind="components-forms-five-stars"
+  selectedStory="default"
+  showFrame
+>
+  <Html markup={fiveStarsGroupDefault} />
+</Playground>
+
+## Invalid five stars
+
+<Playground
+  system="eu"
+  selectedKind="components-forms-five-stars"
+  selectedStory="default"
+  selectedArgs="invalid:true"
+  showFrame
+>
+  <Html markup={fiveStarsGroupInvalid} />
+</Playground>
+
+## Optional five stars
+
+<Playground
+  system="eu"
+  selectedKind="components-forms-five-stars"
+  selectedStory="default"
+  selectedArgs="required:false"
+  showFrame
+>
+  <Html markup={fiveStarsGroupOptional} />
+</Playground>

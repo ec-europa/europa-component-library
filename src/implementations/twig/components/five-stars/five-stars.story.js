@@ -1,17 +1,12 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctSvgPath, getFormControls } from '@ecl/story-utils';
-import getSystem from '@ecl/builder/utils/getSystem';
 
-import dataEc from '@ecl/specs-component-five-stars/demo/data--ec';
-import dataEu from '@ecl/specs-component-five-stars/demo/data--eu';
+import dataDefault from '@ecl/specs-component-five-stars/demo/data';
 
 import fiveStars from './five-stars.html.twig';
 import notes from './README.md';
 
-const system = getSystem();
-
-const dataDefault = system === 'eu' ? { ...dataEu } : { ...dataEc };
 const itemClone = { ...dataDefault.items[0] };
 
 const getArgs = (data) => {

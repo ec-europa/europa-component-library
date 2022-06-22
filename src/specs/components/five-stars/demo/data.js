@@ -4,7 +4,7 @@ module.exports = {
   optional_text: '(optional)',
   required_text: '*',
   required: true,
-  label: 'Please Rate:',
+  label: 'Please Rate',
   helper_text: "This is the group's helper text.",
   invalid_text: 'This is the error message',
   invalid_icon: {
@@ -26,7 +26,6 @@ module.exports = {
     {
       value: '1',
       label: '1 star',
-      checked: true,
     },
     {
       value: '2',
