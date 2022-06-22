@@ -2,15 +2,10 @@
 
 exports[`Featured item Default renders correctly 1`] = `
 <jest>
-  <div
+  <article
     class="ecl-featured-item"
   >
     <div
-      class="ecl-featured-item__heading"
-    >
-      Heading
-    </div>
-    <article
       class="ecl-featured-item__container"
     >
       <div
@@ -69,22 +64,17 @@ exports[`Featured item Default renders correctly 1`] = `
           </svg>
         </a>
       </div>
-    </article>
-  </div>
+    </div>
+  </article>
 </jest>
 `;
 
 exports[`Featured item Extended renders correctly 1`] = `
 <jest>
-  <div
+  <article
     class="ecl-featured-item ecl-featured-item--extended"
   >
     <div
-      class="ecl-featured-item__heading"
-    >
-      Heading
-    </div>
-    <article
       class="ecl-featured-item__container"
     >
       <div
@@ -143,24 +133,19 @@ exports[`Featured item Extended renders correctly 1`] = `
           </svg>
         </a>
       </div>
-    </article>
-  </div>
+    </div>
+  </article>
 </jest>
 `;
 
 exports[`Featured item renders correctly with extra attributes 1`] = `
 <jest>
-  <div
+  <article
     class="ecl-featured-item"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
   >
     <div
-      class="ecl-featured-item__heading"
-    >
-      Heading
-    </div>
-    <article
       class="ecl-featured-item__container"
     >
       <div
@@ -219,22 +204,17 @@ exports[`Featured item renders correctly with extra attributes 1`] = `
           </svg>
         </a>
       </div>
-    </article>
-  </div>
+    </div>
+  </article>
 </jest>
 `;
 
 exports[`Featured item renders correctly with extra class names 1`] = `
 <jest>
-  <div
+  <article
     class="ecl-featured-item custom-class custom-class--test"
   >
     <div
-      class="ecl-featured-item__heading"
-    >
-      Heading
-    </div>
-    <article
       class="ecl-featured-item__container"
     >
       <div
@@ -293,7 +273,7 @@ exports[`Featured item renders correctly with extra class names 1`] = `
           </svg>
         </a>
       </div>
-    </article>
-  </div>
+    </div>
+  </article>
 </jest>
 `;

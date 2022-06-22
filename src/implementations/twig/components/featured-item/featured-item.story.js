@@ -9,9 +9,9 @@ import notes from './README.md';
 
 const getArgs = (data) => {
   const args = {
-    heading: data.heading,
     title: data.title,
     description: data.description,
+    position: 'left',
   };
   if (data.link.link.label) {
     args.link_label = data.link.link.label;
@@ -25,16 +25,6 @@ const getArgs = (data) => {
 
 const getArgTypes = (data) => {
   const argTypes = {};
-
-  argTypes.heading = {
-    type: 'string',
-    description: 'Featured item heading',
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: '' },
-      category: 'Content',
-    },
-  };
 
   argTypes.title = {
     type: 'string',
@@ -80,6 +70,17 @@ const getArgTypes = (data) => {
       },
     };
   }
+
+  argTypes.position = {
+    type: { name: 'select' },
+    description: 'Alignment inside featured item',
+    options: ['left', 'right'],
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Display',
+    },
+  };
 
   return argTypes;
 };

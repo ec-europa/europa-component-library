@@ -58,17 +58,17 @@
   @extend %ecl-paragraph;
 }
 
-.ecl ul:not([class*='ecl-'], [class*='wt-']),
+.ecl ul:not([class*='ecl-'], [class*='wt-'], [class*='highcharts-']),
 .ecl ul:is([class*='ecl-u-']) {
   @extend %ecl-unordered-list;
 }
 
-.ecl ul ul:not([class*='ecl-'], [class*='wt-']),
+.ecl ul ul:not([class*='ecl-'], [class*='wt-'], [class*='highcharts-']),
 .ecl ul ul:is([class*='ecl-u-']) {
   @extend %ecl-unordered-list--nested;
 }
 
-.ecl ul li:not([class*='ecl-'], [class*='wt-']),
+.ecl ul li:not([class*='ecl-'], [class*='wt-'], [class*='highcharts-']),
 .ecl ul li:is([class*='ecl-u-']) {
   @extend %ecl-unordered-list__item;
 }

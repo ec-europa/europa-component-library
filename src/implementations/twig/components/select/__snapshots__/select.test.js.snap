@@ -632,7 +632,16 @@ exports[`Select With error renders correctly 1`] = `
     <div
       class="ecl-feedback-message"
     >
-      This is the error message
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--m ecl-feedback-message__icon"
+        focusable="false"
+      >
+        <use
+          xlink:href="/icons.svg#error"
+        />
+      </svg>
+            This is the error message
     </div>
     <div
       class="ecl-select__container ecl-select__container--invalid ecl-select__container--m"
