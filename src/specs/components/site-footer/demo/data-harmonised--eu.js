@@ -170,28 +170,28 @@ module.exports = {
               link: {
                 label: 'Languages on our websites',
                 aria_label: 'Link to Languages on our websites',
-                path: exampleLink,
+                path: 'https://european-union.europa.eu/languages-our-websites_en',
               },
             },
             {
               link: {
                 label: 'Privacy policy',
                 aria_label: 'Link to Privacy policy',
-                path: exampleLink,
+                path: 'https://european-union.europa.eu/privacy-policy_en',
               },
             },
             {
               link: {
                 label: 'Legal notice',
                 aria_label: 'Link to Legal notice',
-                path: exampleLink,
+                path: 'https://european-union.europa.eu/privacy-policy_en',
               },
             },
             {
               link: {
                 label: 'Cookies',
                 aria_label: 'Link to Cookies',
-                path: exampleLink,
+                path: 'https://european-union.europa.eu/web-accessibility-policy_en',
               },
             },
           ],
@@ -206,119 +206,119 @@ module.exports = {
               link: {
                 label: 'European Parliament',
                 aria_label: 'Link to European Parliament',
-                path: exampleLink,
+                path: 'http://www.europarl.europa.eu/portal/',
               },
             },
             {
               link: {
                 label: 'European Council',
                 aria_label: 'Link to European Council',
-                path: exampleLink,
+                path: 'http://www.consilium.europa.eu/en/european-council/',
               },
             },
             {
               link: {
                 label: 'Council of the European Union',
                 aria_label: 'Link to Council of the European Union',
-                path: exampleLink,
+                path: 'http://www.consilium.europa.eu/en/home/',
               },
             },
             {
               link: {
                 label: 'European Commission',
                 aria_label: 'Link to European Commission',
-                path: exampleLink,
+                path: 'https://ec.europa.eu/commission/index_en',
               },
             },
             {
               link: {
-                label: 'Court of Justice of the European Union',
+                label: 'Court of Justice of the European Union (CJEU)',
                 aria_label: 'Link to Court of Justice of the European Union',
-                path: exampleLink,
+                path: 'http://curia.europa.eu/jcms/jcms/j_6/en/',
               },
             },
             {
               link: {
-                label: 'European Central Bank',
+                label: 'European Central Bank (ECB)',
                 aria_label: 'Link to European Central Bank',
-                path: exampleLink,
+                path: 'https://www.ecb.europa.eu/home/html/index.en.html',
               },
             },
             {
               link: {
-                label: 'European Court of Auditors',
+                label: 'European Court of Auditors (ECA)',
                 aria_label: 'Link to European Court of Auditors',
-                path: exampleLink,
+                path: 'http://www.eca.europa.eu/en',
               },
             },
             {
               link: {
-                label: 'European External Action Service',
+                label: 'European External Action Service (EEAS)',
                 aria_label: 'Link to European External Action Service',
-                path: exampleLink,
+                path: 'https://eeas.europa.eu/headquarters/headquarters-homepage_en',
               },
             },
             {
               link: {
-                label: 'European Economic and Social Committee',
+                label: 'European Economic and Social Committee (EESC)',
                 aria_label: 'Link to European Economic and social Committee',
-                path: exampleLink,
+                path: 'http://www.eesc.europa.eu/?i=portal.en.home',
               },
             },
             {
               link: {
-                label: 'European Commitee of the Regions',
+                label: 'European Committee of the Regions (CoR)',
                 aria_label: 'Link to European Commitee of the Regions',
-                path: exampleLink,
+                path: 'http://cor.europa.eu/en/',
               },
             },
             {
               link: {
-                label: 'European Investment Bank',
+                label: 'European Investment Bank (EIB)',
                 aria_label: 'Link to European Investment Bank',
-                path: exampleLink,
+                path: 'https://www.eib.org/en/index.htm',
               },
             },
             {
               link: {
                 label: 'European Ombudsman',
                 aria_label: 'Link to European Ombudsman',
-                path: exampleLink,
+                path: 'https://www.ombudsman.europa.eu/en/home',
               },
             },
             {
               link: {
-                label: 'European Data Protection Supervisor',
+                label: 'European Data Protection Supervisor (EDPS)',
                 aria_label: 'Link to European Data Protection Supervisor',
-                path: exampleLink,
+                path: 'https://secure.edps.europa.eu/EDPSWEB/edps/EDPS?lang=en',
               },
             },
             {
               link: {
                 label: 'The European Data Protection Board',
                 aria_label: 'Link to The European Data Protection Board',
-                path: exampleLink,
+                path: 'https://edpb.europa.eu/edpb_en',
               },
             },
             {
               link: {
                 label: 'European Personnel Selection Office',
                 aria_label: 'Link to European Personnel Selection Office',
-                path: exampleLink,
+                path: 'https://epso.europa.eu/home_en',
               },
             },
             {
               link: {
                 label: 'Publications Office of the European Union',
                 aria_label: 'Link to Publications office of the European Union',
-                path: exampleLink,
+                path: 'https://op.europa.eu/en/home',
               },
             },
             {
               link: {
                 label: 'Agencies',
                 aria_label: 'Link to Agencies',
-                path: exampleLink,
+                path: 'https://european-union.europa.eu/institutions-law-budget/institutions-and-bodies/institutions-and-bodies-profiles_en?f%5B0%5D=oe_organisation_eu_type%3Ahttp%3A//publications.europa.eu/resource/authority/corporate-body-classification/AGENCY_DEC&f%5B1%5D=oe_organisation_eu_type%3Ahttp%3A//publications.europa.eu/resource/authority/corporate-body-classification/AGENCY_EXEC&f%5B2%5D=oe_organisation_eu_type%3Ahttp%3A//publications.europa.eu/resource/authority/corporate-body-classification/EU_JU',
               },
             },
           ],

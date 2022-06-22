@@ -30,70 +30,70 @@ module.exports = {
             {
               link: {
                 label: 'Strategy',
-                path: exampleLink,
+                path: 'https://ec.europa.eu/info/strategy_en',
                 aria_label: 'Link to Strategy',
               },
             },
             {
               link: {
                 label: 'About the European Commission',
-                path: exampleLink,
+                path: 'https://ec.europa.eu/info/about-european-commission_en',
                 aria_label: 'Link About the European Commission',
               },
             },
             {
               link: {
                 label: 'Business, Economy, Euro',
-                path: exampleLink,
+                path: 'https://ec.europa.eu/info/business-economy-euro_en',
                 aria_label: 'Link to Business, Economy, Euro',
               },
             },
             {
               link: {
                 label: 'Live, work, travel in the EU',
-                path: exampleLink,
+                path: 'https://ec.europa.eu/info/live-work-travel-eu_en',
                 aria_label: 'Link work, travel in the EU',
               },
             },
             {
               link: {
                 label: 'Law',
-                path: exampleLink,
+                path: 'https://ec.europa.eu/info/law_en',
                 aria_label: 'Link to Law',
               },
             },
             {
               link: {
                 label: 'Funding, Tenders',
-                path: exampleLink,
+                path: 'https://ec.europa.eu/info/funding-tenders_en',
                 aria_label: 'Link to Funding, Tenders',
               },
             },
             {
               link: {
                 label: 'Research and innovation',
-                path: exampleLink,
+                path: 'https://ec.europa.eu/info/research-and-innovation_en',
                 aria_label: 'Link to Research and innovation',
               },
             },
             {
               link: {
                 label: 'Energy, Climate change, Environment',
-                path: exampleLink,
+                path: 'https://ec.europa.eu/info/energy-climate-change-environment_en',
                 aria_label: 'Link to Climate change, Environment',
               },
             },
             {
               link: {
                 label: 'Education',
-                path: exampleLink,
+                path: 'https://ec.europa.eu/info/education_en',
                 aria_label: 'Link to Education',
               },
             },
             {
               link: {
                 label: 'Aid, Development cooperation, Fundamental rights',
-                path: exampleLink,
+                path: 'https://ec.europa.eu/info/aid-development-cooperation-fundamental-rights_en',
                 aria_label:
                   'Link to Aid, Development cooperation, Fundamental rights',
               },
@@ -101,49 +101,49 @@ module.exports = {
             {
               link: {
                 label: 'Food, Farming, Fisheries',
-                path: exampleLink,
+                path: 'https://ec.europa.eu/info/food-farming-fisheries_en',
                 aria_label: 'Link to Food, Farming, Fisheries',
               },
             },
             {
               link: {
                 label: 'EU regional and urban development',
-                path: exampleLink,
+                path: 'https://ec.europa.eu/info/eu-regional-and-urban-development_en',
                 aria_label: 'Link to EU regionaland urban development',
               },
             },
             {
               link: {
                 label: 'Jobs at the European Commission',
-                path: exampleLink,
+                path: 'https://ec.europa.eu/info/jobs-european-commission_en',
                 aria_label: 'Link to Jobs at the European Commission',
               },
             },
             {
               link: {
                 label: 'Statistics',
-                path: exampleLink,
+                path: 'https://ec.europa.eu/info/statistics_en',
                 aria_label: 'Link to Statistics',
               },
             },
             {
               link: {
                 label: 'News',
-                path: exampleLink,
+                path: 'https://ec.europa.eu/commission/presscorner/home/en',
                 aria_label: 'Link to News',
               },
             },
             {
               link: {
                 label: 'Events',
-                path: exampleLink,
+                path: 'https://ec.europa.eu/info/events_en',
                 aria_label: 'Link to Events',
               },
             },
             {
               link: {
                 label: 'Publications',
-                path: exampleLink,
+                path: 'https://ec.europa.eu/info/publications_en',
                 aria_label: 'Link to Publications',
               },
             },
@@ -155,30 +155,33 @@ module.exports = {
           links: [
             {
               link: {
+                label: "About the European Commission's web presence",
+                path: 'https://ec.europa.eu/info/about-european-commissions-web-presence_en',
+                aria_label:
+                  "Link to the About the European Commission's web presence",
+              },
+            },
+            {
+              link: {
                 label: 'Contact the European Commission',
-                path: exampleLink,
+                path: 'https://ec.europa.eu/info/about-european-commission/contact_en',
                 aria_label: 'Link to Contact the European Commission',
               },
             },
             {
               link: {
-                label: 'Accessibility',
-                path: exampleLink,
-                aria_label: 'Link to the accessibility report',
-              },
-            },
-            {
-              link: {
                 label: 'Follow the European Commission on social media',
-                path: exampleLink,
+                path: 'https://european-union.europa.eu/contact-eu/social-media-channels_en#/search?page=0&institutions=european_commission',
                 aria_label:
                   'Link to Follow the European Commission on social media',
+                external: true,
+                icon_path: '/icons.svg',
               },
             },
             {
               link: {
                 label: 'Resources for partners',
-                path: exampleLink,
+                path: 'https://ec.europa.eu/info/resources-partners_en',
                 aria_label: 'Link to Resources for partners',
               },
             },
@@ -189,28 +192,28 @@ module.exports = {
             {
               link: {
                 label: 'Languages on our websites',
-                path: exampleLink,
+                path: 'https://ec.europa.eu/info/languages-our-websites_en',
                 aria_label: 'Link to Languages on our websites',
               },
             },
             {
               link: {
                 label: 'Cookies',
-                path: exampleLink,
+                path: 'https://ec.europa.eu/info/cookies_en',
                 aria_label: 'Link to Cookies',
               },
             },
             {
               link: {
                 label: 'Privacy policy',
-                path: exampleLink,
+                path: 'https://ec.europa.eu/info/privacy-policy_en',
                 aria_label: 'Link to Privacy policy',
               },
             },
             {
               link: {
                 label: 'Legal notice',
-                path: exampleLink,
+                path: 'https://ec.europa.eu/info/legal-notice_en',
                 aria_label: 'Link to Legal notice',
               },
             },
