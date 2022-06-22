@@ -44,8 +44,7 @@ $_outline-width: none !default;
 
 .ecl-news-ticker__content {
   height: 0;
-  margin: map.get(theme.$spacing, 'xs');
-  margin-inline-start: -5px;
+  margin: map.get(theme.$spacing, 'xs') 0;
   padding: 0;
   overflow: hidden;
   transition-duration: 0.3s;
@@ -65,7 +64,7 @@ $_outline-width: none !default;
 .ecl-news-ticker__slide {
   align-items: center;
   display: flex;
-  padding: 5px;
+  padding: 5px 0;
   padding-inline-end: map.get(theme.$spacing, 's');
 }
 
