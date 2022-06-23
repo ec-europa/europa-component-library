@@ -106,13 +106,12 @@ module.exports = {
     {
       id: '16',
       label: '29 May - 14 June 2018',
-      content: `<a href="${exampleLink}" class="ecl-link">EU budget for the future</a>: European Commission's legislative proposals for spending programmes',
+      content: `<a href="${exampleLink}" class="ecl-link">EU budget for the future</a>: European Commission's legislative proposals for spending programmes`,
     },
     {
       id: '17',
       label: '28-29 June 2018',
-      content:
-        'Commission contribution to the European Council: <a href="${exampleLink}" class="ecl-link">Economic and Monetary Union, migration, EU budget for the future</a>`,
+      content: `Commission contribution to the European Council: <a href="${exampleLink}" class="ecl-link">Economic and Monetary Union, migration, EU budget for the future</a>`,
     },
     {
       id: '18',
