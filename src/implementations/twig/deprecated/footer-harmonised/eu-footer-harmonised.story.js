@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 
 import specsEu from '@ecl/specs-component-footer-standardised/demo/data--eu';
 import logoEuMobile from '@ecl/resources-eu-logo/dist/condensed-version/positive/logo-eu--en.svg';
@@ -73,7 +73,7 @@ const getArgTypes = () => {
 };
 
 const prepareData = (data, args) => {
-  correctSvgPath(data);
+  correctPaths(data);
 
   const res = JSON.parse(JSON.stringify(data));
   res.rows[1][0][0].logo.src_mobile = logoEuMobile;

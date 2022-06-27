@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
 import dataDefaultEU from '@ecl/specs-component-breadcrumb/demo/data--eu';
@@ -44,7 +44,7 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
-  correctSvgPath(data);
+  correctPaths(data);
   data.links.forEach((item, i) => {
     item.label = args[`item${i + 1}`];
     item.negative = false;

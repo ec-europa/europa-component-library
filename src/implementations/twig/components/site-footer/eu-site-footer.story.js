@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 
 import dataCore from '@ecl/specs-component-site-footer/demo/data-core--eu';
 import dataHarmonised from '@ecl/specs-component-site-footer/demo/data-harmonised--eu';
@@ -72,7 +72,7 @@ const getArgTypes = () => {
 };
 
 const prepareCoreData = (data) => {
-  correctSvgPath(data);
+  correctPaths(data);
   data.rows[0][0][0].logo.src_mobile = logoEuMobile;
   data.rows[0][0][0].logo.src_desktop = logoEuDesktop;
 
@@ -80,7 +80,7 @@ const prepareCoreData = (data) => {
 };
 
 const prepareHarmonisedData = (data, args) => {
-  correctSvgPath(data);
+  correctPaths(data);
 
   const res = JSON.parse(JSON.stringify(data));
   res.rows[1][0][0].logo.src_mobile = logoEuMobile;

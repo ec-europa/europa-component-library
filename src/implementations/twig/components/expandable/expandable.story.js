@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 
 import demoData from '@ecl/specs-component-expandable/demo/data';
 import expandable from './expandable.html.twig';
@@ -44,7 +44,7 @@ const getArgTypes = () => ({
   },
 });
 
-const prepareData = (data, args) => Object.assign(correctSvgPath(data), args);
+const prepareData = (data, args) => Object.assign(correctPaths(data), args);
 
 export default {
   title: 'Components/Expandables',

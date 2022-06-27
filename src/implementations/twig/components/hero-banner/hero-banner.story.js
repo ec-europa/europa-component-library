@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 
 // Import data for demos
 import bannerDataSimplePrimary from '@ecl/specs-component-hero-banner/demo/data--simple-primary';
@@ -182,7 +182,7 @@ const prepareData = (data, args) => {
 };
 
 const renderStory = (data, args) => {
-  let story = heroBanner(prepareData(correctSvgPath(data), args));
+  let story = heroBanner(prepareData(correctPaths(data), args));
   if (args.width === 'container' || args.width === 'inside') {
     story = `<div class="ecl-container">${story}</div>`;
   }
