@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { queryOne, queryAll } from '@ecl/dom-utils';
 
 /**
@@ -77,6 +78,9 @@ export class Tabs {
     this.buttonNextSize = 0;
     this.index = 0;
     this.total = 0;
+    this.tabsKey = [];
+    this.firstTab = null;
+    this.lastTab = null;
     this.direction = 'ltr';
 
     // Bind `this` for use in callbacks
@@ -84,6 +88,10 @@ export class Tabs {
     this.handleResize = this.handleResize.bind(this);
     this.closeMoreDropdown = this.closeMoreDropdown.bind(this);
     this.shiftTabs = this.shiftTabs.bind(this);
+    this.onKeydown = this.onKeydown.bind(this);
+    this.moveFocusToTab = this.moveFocusToTab.bind(this);
+    this.moveFocusToPreviousTab = this.moveFocusToPreviousTab.bind(this);
+    this.moveFocusToNextTab = this.moveFocusToNextTab.bind(this);
   }
 
   /**
@@ -112,13 +120,13 @@ export class Tabs {
         '.ecl-tabs__dropdown .ecl-tabs__item',
         this.element
       );
-
-      this.handleResize();
     }
 
     if (this.btnNext) {
       this.buttonNextSize = this.btnNext.getBoundingClientRect().width;
     }
+
+    this.handleResize();
 
     // Bind events
     if (this.attachClickListener && this.moreButton) {
@@ -318,10 +326,32 @@ export class Tabs {
         }
       });
     }
+
+    // Bind key events on tabs for accessibility
+    this.tabsKey = [];
+    this.listItems.forEach((item, index, array) => {
+      let tab = null;
+      if (item.getAttribute('aria-hidden') === 'false') {
+        tab = queryOne('.ecl-tabs__link', item);
+      } else {
+        const dropdownItem = this.dropdownItems[index];
+        tab = queryOne('.ecl-tabs__link', dropdownItem);
+      }
+      tab.addEventListener('keydown', this.onKeydown);
+      this.tabsKey.push(tab);
+
+      if (index === 0) {
+        this.firstTab = tab;
+      }
+      if (index === array.length - 1) {
+        this.lastTab = tab;
+      }
+    });
   }
 
   /**
    * Close the dropdown.
+   * @param {Event} e
    */
   closeMoreDropdown(e) {
     let el = e.target;
@@ -333,6 +363,86 @@ export class Tabs {
     }
     this.moreButton.setAttribute('aria-expanded', false);
     this.dropdown.classList.remove('ecl-tabs__dropdown--show');
+  }
+
+  /**
+   * Tabs onKeydown handler.
+   * @param {Event} e
+   */
+  onKeydown(e) {
+    const tgt = e.currentTarget;
+    let flag = false;
+
+    switch (e.key) {
+      case 'ArrowLeft':
+        this.moveFocusToPreviousTab(tgt);
+        flag = true;
+        break;
+
+      case 'ArrowRight':
+        this.moveFocusToNextTab(tgt);
+        flag = true;
+        break;
+
+      case 'Home':
+        this.moveFocusToTab(this.firstTab);
+        flag = true;
+        break;
+
+      case 'End':
+        this.moveFocusToTab(this.lastTab);
+        flag = true;
+        break;
+
+      default:
+        break;
+    }
+
+    if (flag) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
+  }
+
+  /**
+   * @param {HTMLElement} currentTab tab element
+   */
+  moveFocusToTab(currentTab) {
+    if (currentTab.closest('.ecl-tabs__dropdown')) {
+      this.dropdown.classList.add('ecl-tabs__dropdown--show');
+    } else {
+      this.dropdown.classList.remove('ecl-tabs__dropdown--show');
+    }
+    currentTab.focus();
+    return this;
+  }
+
+  /**
+   * @param {HTMLElement} currentTab tab element
+   */
+  moveFocusToPreviousTab(currentTab) {
+    let index;
+
+    if (currentTab === this.firstTab) {
+      this.moveFocusToTab(this.lastTab);
+    } else {
+      index = this.tabsKey.indexOf(currentTab);
+      this.moveFocusToTab(this.tabsKey[index - 1]);
+    }
+  }
+
+  /**
+   * @param {HTMLElement} currentTab tab element
+   */
+  moveFocusToNextTab(currentTab) {
+    let index;
+
+    if (currentTab === this.lastTab) {
+      this.moveFocusToTab(this.firstTab);
+    } else {
+      index = this.tabsKey.indexOf(currentTab);
+      this.moveFocusToTab(this.tabsKey[index + 1]);
+    }
   }
 }
 
