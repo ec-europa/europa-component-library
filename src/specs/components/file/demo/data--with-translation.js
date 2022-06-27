@@ -27,8 +27,7 @@ module.exports = {
         path: '/icons.svg',
       },
     },
-    description:
-      'Looking for another language which is not on the list? <a href="#" class="ecl-link">Find out why</a>.',
+    description: `Looking for another language which is not on the list? <a href="${exampleLink}" class="ecl-link">Find out why</a>.`,
     items: [
       {
         title: 'български',

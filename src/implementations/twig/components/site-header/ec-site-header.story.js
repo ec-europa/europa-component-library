@@ -1,5 +1,5 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
 
 // Get data
@@ -188,7 +188,7 @@ const prepareData = (data, args) => {
     data.banner_top = clonedDataFull.banner_top;
   }
 
-  correctSvgPath(data);
+  correctPaths(data);
 
   data.logo.src_desktop = enLogoEC;
 

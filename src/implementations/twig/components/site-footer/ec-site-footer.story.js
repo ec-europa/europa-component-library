@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 
 import dataCore from '@ecl/specs-component-site-footer/demo/data-core--ec';
 import dataStandardised from '@ecl/specs-component-site-footer/demo/data-standardised--ec';
@@ -82,7 +82,7 @@ const getArgTypes = () => {
 };
 
 const prepareData = (data, args) => {
-  correctSvgPath(data);
+  correctPaths(data);
   const res = JSON.parse(JSON.stringify(data));
   if (res.split_columns) {
     res.rows[0][0][0].logo.src_desktop = logoEc;

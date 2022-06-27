@@ -1,5 +1,5 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 import withCode from '@ecl/storybook-addon-code';
 
@@ -58,7 +58,6 @@ const prepareData = (data, demo, args) => {
       data = demo === 'default' ? enData : frData;
     }
   }
-  correctSvgPath(data);
 
   if (demo !== 'translated') {
     if (args.menu) {
@@ -88,6 +87,7 @@ const prepareData = (data, demo, args) => {
     }
   }
 
+  correctPaths(data);
   return data;
 };
 

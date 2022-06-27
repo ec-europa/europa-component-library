@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 
 import logoEcG1 from '@ecl/resources-ec-logo/dist/negative/logo-ec--en.svg';
 import logoEc from '@ecl/resources-ec-logo/dist/positive/logo-ec--en.svg';
@@ -78,7 +78,7 @@ const getArgTypes = (group) => {
 };
 
 const prepareDataG1 = (data, args) => {
-  correctSvgPath(data);
+  correctPaths(data);
 
   const res = JSON.parse(JSON.stringify(data));
   if (args.hide_logo) {
@@ -120,6 +120,7 @@ const prepareDataG3 = (data, args) => {
 };
 
 const prepareDataG2 = (data, args) => {
+  correctPaths(data);
   const res = JSON.parse(JSON.stringify(data));
   if (args.hide_logo) {
     res.rows[0][0][0].logo.src_desktop = logoEc;

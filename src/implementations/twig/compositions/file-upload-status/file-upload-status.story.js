@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 
 import fileUpload from './file-upload-status.html.twig';
 import notes from './README.md';
@@ -17,7 +17,7 @@ export default {
   },
 };
 
-export const Default = () => fileUpload(correctSvgPath(dataFiles));
+export const Default = () => fileUpload(correctPaths(dataFiles));
 
 Default.storyName = 'default';
 Default.parameters = { notes: { markdown: notes } };

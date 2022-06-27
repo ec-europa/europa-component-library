@@ -1,5 +1,5 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
 
 import specs from '@ecl/specs-component-social-media-follow/demo/data';
@@ -27,7 +27,7 @@ const getArgTypes = () => ({
   },
 });
 
-const prepareData = (data, args) => Object.assign(correctSvgPath(data), args);
+const prepareData = (data, args) => Object.assign(correctPaths(data), args);
 
 export default {
   title: 'Components/Social Media Follow',
