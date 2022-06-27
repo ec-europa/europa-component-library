@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath, getFormControls } from '@ecl/story-utils';
+import { correctPaths, getFormControls } from '@ecl/story-utils';
 
 import dataDefault from '@ecl/specs-component-radio/demo/data--default';
 import dataBinary from '@ecl/specs-component-radio/demo/data--binary';
@@ -50,7 +50,7 @@ const getArgTypes = (data) => {
 
 const prepareData = (data, args) => {
   Object.assign(data, args);
-  correctSvgPath(data);
+  correctPaths(data);
 
   const txt = args.show_item_helper ? itemClone.helper_text : '';
 

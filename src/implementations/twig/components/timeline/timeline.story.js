@@ -1,7 +1,7 @@
 import { loremIpsum } from 'lorem-ipsum';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
 import demoDataEc from '@ecl/specs-component-timeline/demo/data--ec';
@@ -42,7 +42,7 @@ const prepareData = (data) => {
   data.toggle_collapsed = `Show ${hiddenCount} more items`;
   data.toggle_expanded = `Hide ${hiddenCount} items`;
 
-  correctSvgPath(data);
+  correctPaths(data);
 
   return data;
 };

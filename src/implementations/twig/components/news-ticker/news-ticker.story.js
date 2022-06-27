@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 
 import specs from '@ecl/specs-component-news-ticker/demo/data';
 import newsTicker from './news-ticker.html.twig';
@@ -14,7 +14,7 @@ export default {
   },
 };
 
-export const Default = () => newsTicker(correctSvgPath(specs));
+export const Default = () => newsTicker(correctPaths(specs));
 
 Default.storyName = 'default';
 Default.parameters = { notes: { markdown: notes, json: specs } };

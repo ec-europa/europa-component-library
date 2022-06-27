@@ -13,8 +13,7 @@ module.exports = {
               path: exampleLink,
             },
           },
-          description:
-            'This site is managed by <a href="/example" class="ecl-link ecl-link--standalone">site owner name</a> and is an official website of the European Union',
+          description: `This site is managed by <a href="${exampleLink}" class="ecl-link ecl-link--standalone">site owner name</a> and is an official website of the European Union`,
         },
       ],
       [
@@ -99,8 +98,7 @@ module.exports = {
     [
       [
         {
-          description:
-            'Discover more on <a href="/example" class="ecl-link ecl-link--standalone">europa.eu</a>',
+          description: `Discover more on <a href="${exampleLink}" class="ecl-link ecl-link--standalone">europa.eu</a>`,
           logo: {
             title: 'European Union',
             alt: 'European Union logo',

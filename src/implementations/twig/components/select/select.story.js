@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath, getFormControls } from '@ecl/story-utils';
+import { correctPaths, getFormControls } from '@ecl/story-utils';
 
 import dataSingle from '@ecl/specs-component-select/demo/data-single';
 import dataMultiple from '@ecl/specs-component-select/demo/data-multiple';
@@ -25,7 +25,7 @@ const getArgTypes = (data) => getFormControls(data, 'element');
 
 const prepareData = (data, args) => {
   Object.assign(data, args);
-  correctSvgPath(data);
+  correctPaths(data);
 
   if (!args.show_label) {
     data.label = '';

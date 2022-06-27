@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
 import demoContent from '@ecl/specs-component-page-header-core/demo/data--default';
@@ -153,7 +153,7 @@ const prepareData = (data, args) => {
     data.overlay = args.overlay;
   }
 
-  correctSvgPath(data);
+  correctPaths(data);
 
   return data;
 };

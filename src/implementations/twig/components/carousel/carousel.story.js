@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 
 import dataDefault from '@ecl/specs-component-carousel/demo/data';
 import carousel from './carousel.html.twig';
@@ -60,7 +60,7 @@ const prepareData = (data, args) => {
 };
 
 const renderStory = (data, args) => {
-  let story = carousel(prepareData(correctSvgPath(data), args));
+  let story = carousel(prepareData(correctPaths(data), args));
   if (args.width === 'container' || args.width === 'inside') {
     story = `<div class="ecl-container">${story}</div>`;
   }

@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
 // Import data for demos
@@ -154,7 +154,7 @@ const prepareData = (data, args) => {
     data.link.icon_path = 'icons.svg';
   }
 
-  correctSvgPath(data);
+  correctPaths(data);
 
   return data;
 };

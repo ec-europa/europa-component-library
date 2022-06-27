@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
 import dataDefault from '@ecl/specs-composition-etrans/demo/data--default';
@@ -14,7 +14,7 @@ const system = getSystem();
 const etrans = system === 'eu' ? etransEu : etransEc;
 
 const prepareData = (data, args) => {
-  correctSvgPath(data);
+  correctPaths(data);
   return Object.assign(data, args);
 };
 
