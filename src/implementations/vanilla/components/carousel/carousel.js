@@ -371,13 +371,11 @@ export class Carousel {
       this.slides.forEach((slide, index) => {
         const cta = queryOne('.ecl-link--cta', slide);
         if (this.index === index) {
-          slide.removeAttribute('aria-hidden', 'true');
           slide.removeAttribute('inert', 'true');
           if (cta) {
             cta.removeAttribute('tabindex', -1);
           }
         } else {
-          slide.setAttribute('aria-hidden', 'true');
           slide.setAttribute('inert', 'true');
           if (cta) {
             cta.setAttribute('tabindex', -1);
