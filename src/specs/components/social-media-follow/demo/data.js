@@ -125,27 +125,6 @@ module.exports = {
         },
       ],
     },
-
-    {
-      path: exampleLink,
-      label: 'Telegram2',
-      variant: 'standalone',
-      icon_position: 'before',
-      icon: [
-        {
-          path: '/icon-social.svg',
-          name: 'telegram2',
-          size: 'xl',
-          extra_classes: 'ecl-social-media-follow__icon',
-        },
-        {
-          path: '/icon-social.svg',
-          name: 'telegram2_hover',
-          size: 'xl',
-          extra_classes: 'ecl-social-media-follow__icon-hover',
-        },
-      ],
-    },
     {
       path: exampleLink,
       label: 'Other social networks',
