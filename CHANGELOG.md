@@ -1,5 +1,22 @@
 # Changelog
 
+## 3.3.3 (2022-06-29)
+
+#### :nail_care: Enhancement
+
+- [#2577](https://github.com/ec-europa/europa-component-library/pull/2577) feat(social icons): add legacy icons for Mastodon and Telegram ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#2578](https://github.com/ec-europa/europa-component-library/pull/2578) chore(deps): Updates 29-06-22 ([@planctus](https://github.com/planctus))
+- [#2569](https://github.com/ec-europa/europa-component-library/pull/2569) chore(deps): Updates 17-06-22 ([@planctus](https://github.com/planctus))
+- [#2567](https://github.com/ec-europa/europa-component-library/pull/2567) chore(deps): Updates 13-06-22 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 ## 3.3.2 (2022-06-08)
 
 #### :nail_care: Enhancement

@@ -87,6 +87,46 @@ module.exports = {
     },
     {
       path: exampleLink,
+      label: 'Mastodon',
+      variant: 'standalone',
+      icon_position: 'before',
+      icon: [
+        {
+          path: '/icon-social.svg',
+          name: 'mastodon',
+          size: 'xl',
+          extra_classes: 'ecl-social-media-follow__icon',
+        },
+        {
+          path: '/icon-social.svg',
+          name: 'mastodon_hover',
+          size: 'xl',
+          extra_classes: 'ecl-social-media-follow__icon-hover',
+        },
+      ],
+    },
+    {
+      path: exampleLink,
+      label: 'Telegram',
+      variant: 'standalone',
+      icon_position: 'before',
+      icon: [
+        {
+          path: '/icon-social.svg',
+          name: 'telegram',
+          size: 'xl',
+          extra_classes: 'ecl-social-media-follow__icon',
+        },
+        {
+          path: '/icon-social.svg',
+          name: 'telegram_hover',
+          size: 'xl',
+          extra_classes: 'ecl-social-media-follow__icon-hover',
+        },
+      ],
+    },
+    {
+      path: exampleLink,
       label: 'Other social networks',
       variant: 'standalone',
     },
