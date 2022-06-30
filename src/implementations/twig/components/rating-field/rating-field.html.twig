@@ -104,12 +104,12 @@
   {% endif %}
 
   {% if _items is not empty and _items is iterable %}
-  <div class="ecl-five-stars">
+  <div class="ecl-rating-field">
     {%- for _item in _items|reverse %}
       <input
       id="rating-{{ _item.value }}" 
       name="rating" 
-      class="ecl-five-stars__input" 
+      class="ecl-rating-field__input" 
       type="radio" 
       value="{{ _item.value }}" 
       {% if _item.checked %}
@@ -120,18 +120,18 @@
       {% endif %}
       />
       <label 
-      class="ecl-five-stars__label" 
+      class="ecl-rating-field__label" 
       for="rating-{{ _item.value }}" 
       {% if _item.label %}
         title="{{ _item.label }}"
       {% endif %}>
         {% include '@ecl/icon/icon.html.twig' with {
           icon: _star_filled_icon,
-          extra_classes: 'ecl-five-stars__icon-filled',
+          extra_classes: 'ecl-rating-field__icon-filled',
         } only %}
         {% include '@ecl/icon/icon.html.twig' with {
           icon: _star_outline_icon,
-          extra_classes: 'ecl-five-stars__icon-outline',
+          extra_classes: 'ecl-rating-field__icon-outline',
         } only %}
       </label>
     {% endfor -%}

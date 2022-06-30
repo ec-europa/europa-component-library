@@ -1,0 +1,62 @@
+/* stylelint-disable no-descending-specificity */
+
+/**
+ * Rating field
+ * @define rating-field
+ */
+
+@use 'sass:map';
+@use '@ecl/theme-dev/theme';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+.ecl-rating-field {
+  display: inline-flex;
+  flex-direction: row-reverse;
+
+  .ecl-rating-field__input:checked
+    ~ .ecl-rating-field__label
+    .ecl-rating-field__icon-filled,
+  & > .ecl-rating-field__label:hover .ecl-rating-field__icon-filled,
+  &
+    > .ecl-rating-field__label:hover
+    ~ .ecl-rating-field__label
+    .ecl-rating-field__icon-filled {
+    display: inline-block;
+  }
+
+  .ecl-rating-field__input:checked
+    ~ .ecl-rating-field__label
+    .ecl-rating-field__icon-outline,
+  & > .ecl-rating-field__label:hover .ecl-rating-field__icon-outline,
+  &
+    > .ecl-rating-field__label:hover
+    ~ .ecl-rating-field__label
+    .ecl-rating-field__icon-outline {
+    display: none;
+  }
+}
+
+.ecl-rating-field__input {
+  display: none;
+}
+
+.ecl-rating-field__label {
+  cursor: pointer;
+  padding-right: map.get(theme.$spacing, 'xs');
+}
+
+.ecl-rating-field__icon-filled {
+  display: none;
+  fill: map.get(theme.$color, 'yellow-100');
+}
+
+.ecl-rating-field__icon-outline {
+  fill: map.get(theme.$color, 'grey-75');
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('s') {
+  .ecl-rating-field__label {
+    padding-right: map.get(theme.$spacing, '2xs');
+  }
+}

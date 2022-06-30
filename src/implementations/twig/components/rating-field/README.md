@@ -1,9 +1,9 @@
-# ECL Five stars component
+# ECL Rating field component
 
-npm package: `@ecl/twig-component-five-stars`
+npm package: `@ecl/twig-component-rating-field`
 
 ```shell
-npm install --save @ecl/twig-component-five-stars
+npm install --save @ecl/twig-component-rating-field
 ```
 
 ### Parameters:
@@ -43,7 +43,7 @@ npm install --save @ecl/twig-component-five-stars
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl/five-stars/five-stars.html.twig' with { 
+{% include '@ecl/rating-field/rating-field.html.twig' with { 
   label: 'Please rate', 
   helper_id: 'rating-default-helper', 
   helper_text: 'Helper text for the group', 

@@ -1,9 +1,9 @@
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 
-import data from '@ecl/specs-component-five-stars/demo/data';
+import data from '@ecl/specs-component-rating-field/demo/data';
 
-describe('Five stars', () => {
-  const template = '@ecl/five-stars/five-stars.html.twig';
+describe('Rating field', () => {
+  const template = '@ecl/rating-field/rating-field.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {

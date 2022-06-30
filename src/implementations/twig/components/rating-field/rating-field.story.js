@@ -2,9 +2,9 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths, getFormControls } from '@ecl/story-utils';
 
-import dataDefault from '@ecl/specs-component-five-stars/demo/data';
+import dataDefault from '@ecl/specs-component-rating-field/demo/data';
 
-import fiveStars from './five-stars.html.twig';
+import ratingField from './rating-field.html.twig';
 import notes from './README.md';
 
 const itemClone = { ...dataDefault.items[0] };
@@ -77,11 +77,11 @@ const prepareData = (data, args) => {
 };
 
 export default {
-  title: 'Components/Forms/Five-stars',
+  title: 'Components/Forms/Rating field',
   decorators: [withCode, withNotes],
 };
 
-export const Default = (args) => fiveStars(prepareData(dataDefault, args));
+export const Default = (args) => ratingField(prepareData(dataDefault, args));
 
 Default.storyName = 'default';
 Default.args = getArgs(dataDefault);

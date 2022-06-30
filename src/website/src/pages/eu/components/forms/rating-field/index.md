@@ -1,5 +1,5 @@
 ---
-title: Five stars
+title: Rating field
 defaultTab: usage
 status: ready
 ---

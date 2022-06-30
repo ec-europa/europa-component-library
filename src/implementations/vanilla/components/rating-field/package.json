@@ -1,18 +1,17 @@
 {
-  "name": "@ecl/twig-component-five-stars",
+  "name": "@ecl/vanilla-component-rating-field",
   "author": "European Commission",
   "license": "EUPL-1.2",
   "version": "3.3.1",
-  "description": "ECL Five stars",
+  "description": "ECL Rating field",
+  "style": "rating-field.scss",
+  "sass": "rating-field.scss",
+  "dependencies": {
+    "@ecl/theme-dev": "3.3.1",
+    "@ecl/vanilla-layout-grid": "3.3.1"
+  },
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {
-    "@ecl/twig-component-icon": "3.3.1"
-  },
-  "devDependencies": {
-    "@ecl/specs-component-five-stars": "3.3.1",
-    "@ecl/vanilla-component-five-stars": "3.3.1"
   },
   "repository": {
     "type": "git",
@@ -25,7 +24,6 @@
   "keywords": [
     "ecl",
     "europa-component-library",
-    "design-system",
-    "twig"
+    "design-system"
   ]
 }
