@@ -9,7 +9,7 @@ import getSystem from '@ecl/builder/utils/getSystem';
 const system = getSystem();
 const iconPath = system === 'eu' ? iconPathEu : iconPathEc;
 
-export const correctSvgPath = (data) => {
+export const correctPaths = (data) => {
   Object.keys(data).forEach((prop) => {
     if (typeof data[prop] === 'string' && data[prop].includes('.svg')) {
       if (data[prop].includes('social-media')) {
@@ -22,8 +22,18 @@ export const correctSvgPath = (data) => {
         data[prop] = iconPath;
       }
     }
+    if (
+      typeof data[prop] === 'string' &&
+      data[prop].includes('/example') &&
+      !data[prop].includes('/example-image')
+    ) {
+      data[prop] = data[prop].replace(
+        '/example',
+        `/example#${Math.random().toString(36).slice(2, 7)}`
+      );
+    }
     if (data[prop] !== null && typeof data[prop] === 'object') {
-      data[prop] = correctSvgPath(data[prop]);
+      data[prop] = correctPaths(data[prop]);
     }
   });
 

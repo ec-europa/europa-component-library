@@ -1,7 +1,7 @@
 import { loremIpsum } from 'lorem-ipsum';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 
 import demoData from '@ecl/specs-component-inpage-navigation/demo/data';
 import inpageNavigation from './inpage-navigation.html.twig';
@@ -81,7 +81,7 @@ const blockHandler = (region, state) => {
 
 // Prepare data for the navigation.
 const prepareData = (data, args) => {
-  correctSvgPath(data);
+  correctPaths(data);
   data.links.forEach((item, i) => {
     item.label = args[`heading${i + 1}`];
   });

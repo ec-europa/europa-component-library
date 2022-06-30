@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 
 import dataDefault from '@ecl/specs-component-search-form/demo/data';
 import searchForm from './search-form.html.twig';
@@ -64,7 +64,7 @@ const prepareData = (data, args) => {
   data.button.disabled = args.disabled;
   data.button.invalid = args.invalid;
 
-  return correctSvgPath(data);
+  return correctPaths(data);
 };
 
 export default {

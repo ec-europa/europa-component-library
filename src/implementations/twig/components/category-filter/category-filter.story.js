@@ -1,13 +1,13 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 
 import demoData from '@ecl/specs-component-category-filter/demo/data';
 import categoryFilter from './category-filter.html.twig';
 import notes from './README.md';
 
 const prepareData = (data) => {
-  correctSvgPath(data);
+  correctPaths(data);
 
   return data;
 };

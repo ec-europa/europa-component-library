@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
 import demoData from '@ecl/specs-component-accordion/demo/data';
@@ -56,7 +56,7 @@ const prepareData = (data, args) => {
   if (system === 'eu') {
     data.icon.name = 'corner-arrow';
   }
-  correctSvgPath(data);
+  correctPaths(data);
   data.items.forEach((item, i) => {
     item.toggle.label = args[`toggle${i + 1}`];
     item.content = args[`content${i + 1}`];

@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { getFormControls, correctSvgPath } from '@ecl/story-utils';
+import { getFormControls, correctPaths } from '@ecl/story-utils';
 
 import dataDefault from '@ecl/specs-component-datepicker/demo/data';
 
@@ -68,7 +68,7 @@ const prepareData = (data, args) => {
   delete data.show_helper;
   delete data.show_error;
 
-  correctSvgPath(data);
+  correctPaths(data);
 
   return data;
 };
