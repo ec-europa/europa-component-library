@@ -57,7 +57,6 @@ $_background-color: null !default;
 }
 
 .ecl-list-illustration__title-container {
-  align-items: center;
   color: $_title-color;
   display: flex;
   flex-direction: row;
@@ -74,6 +73,10 @@ $_background-color: null !default;
 .ecl-list-illustration__icon {
   flex-shrink: 0;
   margin-inline-end: map.get(theme.$spacing, 'm');
+
+  + .ecl-list-illustration__title {
+    margin-top: map.get(theme.$spacing, 'xs');
+  }
 }
 
 // Zebra
