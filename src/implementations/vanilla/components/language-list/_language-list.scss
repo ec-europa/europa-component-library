@@ -20,11 +20,16 @@ $_outline-link-focus: null !default;
 $_color-link-active: null !default;
 $_color-link-hover: null !default;
 $_color-title: null !default;
+$_container-padding-desktop: null !default;
+$_header-padding-desktop: null !default;
+$_header-padding-mobile: null !default;
+$_logo-height-mobile: null !default;
+$_logo-width-mobile: null !default;
 $_logo-height-desktop: null !default;
 $_logo-width-desktop: null !default;
-$_logo-height-mobile: 3.75rem;
-$_logo-width-mobile: 5.625rem;
 $_padding-list-splash-desktop: null !default;
+$_title_margin-bottom-desktop: null !default;
+$_title_margin-top-desktop: null !default;
 
 .ecl-language-list {
   background-color: $_background-container;
@@ -61,7 +66,7 @@ $_padding-list-splash-desktop: null !default;
 }
 
 .ecl-language-list__non-eu {
-  margin-top: map.get(theme.$spacing, 'l');
+  margin-top: map.get(theme.$spacing, 'xl');
 }
 
 .ecl-language-list__item {
@@ -114,18 +119,6 @@ $_padding-list-splash-desktop: null !default;
   }
 }
 
-/* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
-  .ecl-language-list__logo {
-    height: $_logo-height-desktop;
-    width: $_logo-width-desktop;
-  }
-
-  .ecl-language-list__column + .ecl-language-list__column {
-    margin-top: 0;
-  }
-}
-
 /*
  * Splash only
  */
@@ -133,8 +126,8 @@ $_padding-list-splash-desktop: null !default;
   padding: 0;
 
   .ecl-language-list__container {
-    padding-bottom: map.get(theme.$spacing, '2xl');
-    padding-top: map.get(theme.$spacing, '2xl');
+    padding-bottom: map.get(theme.$spacing, 'xl');
+    padding-top: map.get(theme.$spacing, 'xl');
   }
 }
 
@@ -142,7 +135,7 @@ $_padding-list-splash-desktop: null !default;
   background-color: $_background-header;
   display: flex;
   justify-content: center;
-  padding: map.get(theme.$spacing, 'xl') 0;
+  padding: $_header-padding-mobile;
 }
 
 .ecl-language-list__logo {
@@ -151,9 +144,13 @@ $_padding-list-splash-desktop: null !default;
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
-  .ecl-language-list--splash {
-    padding: $_padding-list-splash-desktop;
+@include breakpoints.up('m') {
+  .ecl-language-list__column + .ecl-language-list__column {
+    margin-top: 0;
+  }
+
+  .ecl-language-list__header {
+    padding: $_header-padding-desktop;
   }
 
   .ecl-language-list__container {
@@ -164,6 +161,15 @@ $_padding-list-splash-desktop: null !default;
   .ecl-language-list__logo {
     height: $_logo-height-desktop;
     width: $_logo-width-desktop;
+  }
+
+  .ecl-language-list--splash {
+    padding: $_padding-list-splash-desktop;
+
+    .ecl-language-list__container {
+      padding-bottom: $_container-padding-desktop;
+      padding-top: $_container-padding-desktop;
+    }
   }
 }
 
@@ -208,9 +214,14 @@ $_padding-list-splash-desktop: null !default;
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
+  .ecl-language-list__title {
+    margin-bottom: $_title_margin-bottom-desktop;
+    margin-top: $_title_margin-top-desktop;
+  }
+
   .ecl-language-list--overlay {
     .ecl-language-list__container {
-      padding-bottom: map.get(theme.$spacing, 'xl');
+      padding-bottom: map.get(theme.$spacing, '4xl');
       padding-top: map.get(theme.$spacing, 'xl');
     }
   }
