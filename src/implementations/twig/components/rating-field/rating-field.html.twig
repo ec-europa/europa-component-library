@@ -121,10 +121,10 @@
       />
       <label 
       class="ecl-rating-field__label" 
-      for="rating-{{ _item.value }}" 
-      {% if _item.label %}
-        title="{{ _item.label }}"
-      {% endif %}>
+      for="rating-{{ _item.value }}">
+        {% if _item.label %}
+          <span class="ecl-u-sr-only">{{ _item.label }}</span>
+        {% endif %}
         {% include '@ecl/icon/icon.html.twig' with {
           icon: _star_filled_icon,
           extra_classes: 'ecl-rating-field__icon-filled',

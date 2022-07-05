@@ -9,6 +9,9 @@
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
+$_outline-width: null !default;
+$_outline-color: null !default;
+
 .ecl-rating-field {
   display: inline-flex;
   flex-direction: row-reverse;
@@ -37,12 +40,29 @@
 }
 
 .ecl-rating-field__input {
-  display: none;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+// Focus, active state
+.ecl-rating-field__input:focus,
+.ecl-rating-field__input:active {
+  + .ecl-rating-field__label {
+    outline: $_outline-width solid $_outline-color;
+  }
 }
 
 .ecl-rating-field__label {
   cursor: pointer;
-  padding-right: map.get(theme.$spacing, 'xs');
+  margin-right: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-rating-field__icon-filled {
@@ -57,6 +77,6 @@
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('s') {
   .ecl-rating-field__label {
-    padding-right: map.get(theme.$spacing, '2xs');
+    margin-right: map.get(theme.$spacing, '2xs');
   }
 }
