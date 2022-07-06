@@ -82,6 +82,7 @@ $_title_margin-top-desktop: null !default;
 .ecl-language-list__close-button:focus,
 .ecl-language-list__close-button:active {
   color: $_color-title;
+  padding: 0;
 }
 
 .ecl-language-list__link {
@@ -187,8 +188,8 @@ $_title_margin-top-desktop: null !default;
   .ecl-language-list__container {
     height: 100%;
     overflow-y: auto;
-    padding-bottom: map.get(theme.$spacing, 'l');
-    padding-top: map.get(theme.$spacing, 'l');
+    padding-bottom: map.get(theme.$spacing, 'm');
+    padding-top: map.get(theme.$spacing, 'm');
     width: 100%;
   }
 }
