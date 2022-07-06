@@ -9,9 +9,11 @@ import notes from './README.md';
 // Preserve original data.
 const dataHorizontal = { ...specs };
 const dataVertical = { ...specs, variant: 'vertical' };
+const others = { ...specs.links[5] };
 
 const getArgs = (data) => ({
   description: data.description,
+  toggle_other: true,
 });
 
 const getArgTypes = () => ({
@@ -25,9 +27,27 @@ const getArgTypes = () => ({
       category: 'Content',
     },
   },
+  toggle_other: {
+    name: 'Show the "more" link',
+    type: { name: 'boolean' },
+    description: 'toggle the visibility of the "other social networks" link',
+    table: {
+      category: 'Content',
+    },
+  },
 });
 
-const prepareData = (data, args) => Object.assign(correctPaths(data), args);
+const prepareData = (data, args) => {
+  const isItThere = data.links.slice(-1)[0].label === 'Other social networks';
+
+  if (!args.toggle_other && isItThere) {
+    data.links.pop();
+  } else if (args.toggle_other && !isItThere) {
+    data.links[5] = others;
+  }
+
+  return Object.assign(correctPaths(data), args);
+};
 
 export default {
   title: 'Components/Social Media Follow',

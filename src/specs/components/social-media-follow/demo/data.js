@@ -55,18 +55,6 @@ module.exports = {
     },
     {
       path: exampleLink,
-      label: 'Mastodon',
-      variant: 'standalone',
-      icon_position: 'before',
-      icon: {
-        path: '/icon-social-media.svg',
-        name: 'mastodon-color',
-        size: 'm',
-        extra_classes: 'ecl-social-media-follow__icon',
-      },
-    },
-    {
-      path: exampleLink,
       label: 'Telegram',
       variant: 'standalone',
       icon_position: 'before',
