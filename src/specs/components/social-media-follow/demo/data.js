@@ -13,7 +13,7 @@ module.exports = {
       icon: {
         path: '/icon-social-media.svg',
         name: 'twitter-color',
-        size: 'xl',
+        size: 'm',
         extra_classes: 'ecl-social-media-follow__icon',
       },
     },
@@ -25,7 +25,7 @@ module.exports = {
       icon: {
         path: '/icon-social-media.svg',
         name: 'facebook-color',
-        size: 'xl',
+        size: 'm',
         extra_classes: 'ecl-social-media-follow__icon',
       },
     },
@@ -37,7 +37,7 @@ module.exports = {
       icon: {
         path: '/icon-social-media.svg',
         name: 'instagram-color',
-        size: 'xl',
+        size: 'm',
         extra_classes: 'ecl-social-media-follow__icon',
       },
     },
@@ -49,7 +49,7 @@ module.exports = {
       icon: {
         path: '/icon-social-media.svg',
         name: 'linkedin-color',
-        size: 'xl',
+        size: 'm',
         extra_classes: 'ecl-social-media-follow__icon',
       },
     },
@@ -61,7 +61,7 @@ module.exports = {
       icon: {
         path: '/icon-social-media.svg',
         name: 'mastodon-color',
-        size: 'xl',
+        size: 'm',
         extra_classes: 'ecl-social-media-follow__icon',
       },
     },
@@ -73,7 +73,7 @@ module.exports = {
       icon: {
         path: '/icon-social-media.svg',
         name: 'telegram-color',
-        size: 'xl',
+        size: 'm',
         extra_classes: 'ecl-social-media-follow__icon',
       },
     },
@@ -85,7 +85,7 @@ module.exports = {
       icon: {
         path: '/icons.svg',
         name: 'share',
-        size: 'xl',
+        size: 'm',
         extra_classes: 'ecl-social-media-follow__icon',
       },
     },
