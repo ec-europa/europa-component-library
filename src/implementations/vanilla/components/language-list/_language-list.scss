@@ -192,6 +192,14 @@ $_title_margin-top-desktop: null !default;
     padding-top: map.get(theme.$spacing, 'm');
     width: 100%;
   }
+
+  .ecl-language-list--overlay__header,
+  .ecl-language-list__eu,
+  .ecl-language-list__non-eu {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1140px;
+  }
 }
 
 .ecl-language-list__close {
