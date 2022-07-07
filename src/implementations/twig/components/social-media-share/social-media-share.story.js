@@ -3,7 +3,7 @@ import { correctPaths } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
 
 import specs from '@ecl/specs-component-social-media-share/demo/data';
-import SocialMediaFollow from './social-media-share.html.twig';
+import SocialMediaShare from './social-media-share.html.twig';
 import notes from './README.md';
 
 // Preserve original data.
@@ -55,7 +55,7 @@ export default {
 };
 
 export const Horizontal = (args) =>
-  SocialMediaFollow(prepareData(dataHorizontal, args));
+  SocialMediaShare(prepareData(dataHorizontal, args));
 
 Horizontal.storyName = 'horizontal';
 Horizontal.args = getArgs(dataHorizontal);
@@ -65,7 +65,7 @@ Horizontal.parameters = {
 };
 
 export const Vertical = (args) =>
-  SocialMediaFollow(prepareData(dataVertical, args));
+  SocialMediaShare(prepareData(dataVertical, args));
 
 Vertical.storyName = 'vertical';
 Vertical.args = getArgs(dataVertical);
