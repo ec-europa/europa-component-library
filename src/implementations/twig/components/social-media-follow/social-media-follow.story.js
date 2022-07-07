@@ -9,7 +9,7 @@ import notes from './README.md';
 // Preserve original data.
 const dataHorizontal = { ...specs };
 const dataVertical = { ...specs, variant: 'vertical' };
-const others = { ...specs.links[5] };
+const others = specs.links.slice(-1)[0];
 
 const getArgs = (data) => ({
   description: data.description,
@@ -43,7 +43,7 @@ const prepareData = (data, args) => {
   if (!args.toggle_other && isItThere) {
     data.links.pop();
   } else if (args.toggle_other && !isItThere) {
-    data.links[5] = others;
+    data.links.push(others);
   }
 
   return Object.assign(correctPaths(data), args);
