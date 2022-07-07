@@ -2,6 +2,7 @@
 
 {#
   Parameters:
+    - variant (string) (default: horizontal)
     - "description" (string) (default: ''),
     - "links" (array) (default: []): format: [
         {
@@ -37,8 +38,11 @@
 {% set _extra_attributes = '' %}
 {% set _description = description|default('') %}
 {% set _links = links|default({}) %}
+{% set _variant = variant|default('horizontal') %}
 
 {# Internal logic - Process properties #}
+
+{% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ variant %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
