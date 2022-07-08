@@ -29,7 +29,7 @@
     text-decoration: none;
   }
 
-  &:focus {
+  &:focus-visible {
     outline: 3px solid map.get(theme.$color, 'yellow');
     outline-offset: -(3px);
     text-decoration: none;
@@ -56,7 +56,7 @@
 
     // stylelint-disable max-nesting-depth
     &:active,
-    &:focus {
+    &:focus-visible {
       outline: 3px solid map.get(theme.$color, 'yellow');
       outline-offset: -3px;
     }

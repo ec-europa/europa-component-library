@@ -24,11 +24,11 @@ $_negative: null !default;
   text-decoration: underline;
 
   &:hover,
-  &:focus {
+  &:focus-visible {
     color: $_color-hover;
   }
 
-  &:focus {
+  &:focus-visible {
     outline: $_outline-width solid $_outline-color;
     outline-offset: 2px;
   }
@@ -42,7 +42,7 @@ $_negative: null !default;
   color: $_color;
 
   &:hover,
-  &:focus {
+  &:focus-visible {
     color: $_color-hover;
   }
 }
@@ -82,7 +82,7 @@ $_negative: null !default;
   color: map.get($_negative, 'color');
 
   &:hover,
-  &:focus {
+  &:focus-visible {
     color: map.get($_negative, 'color-hover');
 
     /* stylelint-disable-next-line max-nesting-depth */
@@ -101,7 +101,7 @@ $_negative: null !default;
 
     /* stylelint-disable-next-line */
     &:hover,
-    &:focus {
+    &:focus-visible {
       color: map.get($_negative, 'color-hover');
 
       /* stylelint-disable-next-line */
@@ -122,14 +122,14 @@ $_negative: null !default;
   /* stylelint-disable */
   &:not(.ecl-link--icon) {
     &:hover,
-    &:focus {
+    &:focus-visible {
       text-decoration: underline;
     }
   }
 
   &.ecl-link--icon {
     &:hover .ecl-link__label,
-    &:focus .ecl-link__label {
+    &:focus-visible .ecl-link__label {
       text-decoration: underline;
     }
   }
@@ -150,7 +150,7 @@ $_negative: null !default;
     text-decoration: underline;
   }
 
-  &:focus {
+  &:focus-visible {
     border: $_outline-width solid $_outline-color;
     outline: none;
     padding: calc(#{map.get(theme.$spacing, 's')} - #{$_outline-width})
@@ -175,7 +175,7 @@ $_negative: null !default;
     color: map.get($_cta, 'color');
   }
 
-  &:focus {
+  &:focus-visible {
     border-color: map.get($_cta, 'outline-color');
     color: map.get($_cta, 'color');
   }

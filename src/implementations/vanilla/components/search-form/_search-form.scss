@@ -67,7 +67,7 @@ $_button-outline-width: null !default;
     background-color: $_button-background-color-hover;
   }
 
-  &:focus {
+  &:focus-visible {
     padding-inline-start: calc(
       #{map.get(theme.$spacing, 's')} - #{$_button-outline-width}
     );
@@ -113,7 +113,7 @@ $_button-outline-width: null !default;
     );
   }
 
-  .ecl-search-form__button:focus {
+  .ecl-search-form__button:focus-visible {
     padding-inline-start: calc(
       #{map.get(theme.$spacing, 'm')} - #{$_button-outline-width}
     );

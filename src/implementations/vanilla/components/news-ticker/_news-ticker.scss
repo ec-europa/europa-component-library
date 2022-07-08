@@ -119,7 +119,7 @@ $_outline-width: none !default;
 
   &:active,
   &:hover,
-  &:focus {
+  &:focus-visible {
     .ecl-news-ticker__icon-default {
       display: none;
     }
@@ -157,7 +157,7 @@ $_outline-width: none !default;
   display: flex;
   padding: map.get(theme.$spacing, 'xs');
 
-  &:focus {
+  &:focus-visible {
     outline: $_outline-width solid $_outline-color;
   }
 }

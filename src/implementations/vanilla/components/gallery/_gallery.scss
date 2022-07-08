@@ -50,7 +50,7 @@ $_item-outline-offset: null !default;
   margin: 0;
 }
 
-.ecl-gallery__item-link:focus {
+.ecl-gallery__item-link:focus-visible {
   outline: none;
 
   .ecl-gallery__image-container {
@@ -246,7 +246,7 @@ $_overlay-links-hover-color: null !default;
   margin: map.get(theme.$spacing, '2xs');
 
   &:hover,
-  &:focus {
+  &:focus-visible {
     color: $_overlay-links-hover-color;
   }
 }
@@ -292,7 +292,7 @@ $_overlay-links-hover-color: null !default;
   margin: $_arrow-margins;
 
   &:hover,
-  &:focus {
+  &:focus-visible {
     color: map.get(theme.$color, 'yellow-25');
   }
 }
@@ -306,7 +306,7 @@ $_overlay-links-hover-color: null !default;
   position: absolute;
 
   &:hover,
-  &:focus {
+  &:focus-visible {
     color: map.get(theme.$color, 'yellow-25');
   }
 }
@@ -342,7 +342,7 @@ $_overlay-links-hover-color: null !default;
   }
 
   &:hover,
-  &:focus {
+  &:focus-visible {
     color: $_overlay-links-hover-color;
   }
 

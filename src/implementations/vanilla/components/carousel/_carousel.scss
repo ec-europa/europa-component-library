@@ -100,7 +100,7 @@ $_outline-width: null !default;
     }
   }
 
-  &:focus {
+  &:focus-visible {
     outline: $_outline-width solid $_outline-color;
   }
 }
@@ -120,7 +120,7 @@ $_outline-width: null !default;
 
   &:active,
   &:hover,
-  &:focus {
+  &:focus-visible {
     .ecl-carousel__icon-default {
       display: none;
     }
@@ -130,7 +130,7 @@ $_outline-width: null !default;
     }
   }
 
-  &:focus {
+  &:focus-visible {
     outline: $_outline-width solid $_outline-color;
   }
 }
@@ -174,7 +174,7 @@ $_outline-width: null !default;
     background-color: map.get(theme.$color, 'white-100');
   }
 
-  &:focus {
+  &:focus-visible {
     outline: $_outline-width solid $_outline-color;
   }
 
@@ -273,7 +273,7 @@ $_outline-width: null !default;
   .ecl-carousel__prev {
     left: 0;
 
-    &:focus {
+    &:focus-visible {
       margin-inline-start: $_outline-width;
       padding-inline-start: calc(
         #{map.get(theme.$spacing, 's')} - #{$_outline-width}
@@ -284,7 +284,7 @@ $_outline-width: null !default;
   .ecl-carousel__next {
     right: 0;
 
-    &:focus {
+    &:focus-visible {
       margin-inline-end: $_outline-width;
       padding-inline-end: calc(
         #{map.get(theme.$spacing, 's')} - #{$_outline-width}

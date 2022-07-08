@@ -65,7 +65,7 @@ $_picker-theme-color: null !default;
 }
 
 .ecl-datepicker__field:active + .ecl-datepicker__icon,
-.ecl-datepicker__field:focus + .ecl-datepicker__icon {
+.ecl-datepicker__field:focus-visible + .ecl-datepicker__icon {
   color: $_input-icon-focus-color;
 }
 
@@ -73,7 +73,9 @@ $_picker-theme-color: null !default;
   color: $_input-icon-invalid-color;
 }
 
-.ecl-datepicker--invalid .ecl-datepicker__field:focus + .ecl-datepicker__icon,
+.ecl-datepicker--invalid
+  .ecl-datepicker__field:focus-visible
+  + .ecl-datepicker__icon,
 .ecl-datepicker--invalid .ecl-datepicker__field:hover + .ecl-datepicker__icon {
   color: $_input-icon-invalid-hover-color;
 }
