@@ -3,14 +3,25 @@ title: Showcase
 order: 2
 ---
 
-import { Playground, Html, Link } from '@ecl/website-components';
+import { Playground, Html } from '@ecl/website-components';
+import { socialMediaVertical, socialMediaHorizontal } from '../demo';
 
-import socialMediaShareDefault from '../demo';
+## Horizontal
 
 <Playground
   system="eu"
   selectedKind="components-social-media-share"
-  selectedStory="default"
+  selectedStory="horizontal"
 >
-  <Html markup={socialMediaShareDefault} />
+  <Html markup={socialMediaHorizontal} />
+</Playground>
+
+## Vertical
+
+<Playground
+  system="eu"
+  selectedKind="components-social-media-share"
+  selectedStory="vertical"
+>
+  <Html markup={socialMediaVertical} />
 </Playground>
