@@ -197,7 +197,7 @@ const prepareDataItem = (data, args) => {
   } else {
     data.icon = {};
     data.icon.name = args.icon;
-    data.icon.size = 'l';
+    data.icon.size = 'xl';
     data.icon.path = 'icon.svg';
     if (args.icon_flag && args.icon_flag !== 'none') {
       data.icon.name = args.icon_flag;

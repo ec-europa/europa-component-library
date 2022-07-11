@@ -19,7 +19,11 @@ $_background-color: null !default;
 .ecl-list-illustration__item {
   display: flex;
   flex-direction: column;
-  margin-bottom: map.get(theme.$spacing, 'l');
+  margin-bottom: map.get(theme.$spacing, 'xl');
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .ecl-list-illustration__image {
@@ -53,7 +57,6 @@ $_background-color: null !default;
 }
 
 .ecl-list-illustration__title-container {
-  align-items: center;
   color: $_title-color;
   display: flex;
   flex-direction: row;
@@ -63,13 +66,17 @@ $_background-color: null !default;
 .ecl-list-illustration__description {
   color: $_description-color;
   font: map.get(theme.$font-prolonged, 'm');
-  margin-top: map.get(theme.$spacing, 's');
+  margin-top: map.get(theme.$spacing, 'xs');
   max-width: 80ch;
 }
 
 .ecl-list-illustration__icon {
   flex-shrink: 0;
-  margin-inline-end: map.get(theme.$spacing, 's');
+  margin-inline-end: map.get(theme.$spacing, 'm');
+
+  + .ecl-list-illustration__title {
+    margin-top: map.get(theme.$spacing, 'xs');
+  }
 }
 
 // Zebra
@@ -97,7 +104,7 @@ $_background-color: null !default;
 
   .ecl-list-illustration__image {
     margin-bottom: 0;
-    margin-inline-end: map.get(theme.$spacing, 'xl');
+    margin-inline-end: map.get(theme.$spacing, 'm');
 
     &:not(.ecl-list-illustration__image--square) {
       width: 15.875rem;
@@ -126,10 +133,6 @@ $_background-color: null !default;
 
     .ecl-list-illustration__image:not(.ecl-list-illustration__image--square) {
       width: 100%;
-    }
-
-    .ecl-list-illustration__description {
-      margin-top: map.get(theme.$spacing, 'xs');
     }
   }
 
