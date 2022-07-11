@@ -1,0 +1,8 @@
+@use 'sass:map';
+@use '@ecl/theme-dev/theme';
+@use 'social-media-follow' with (
+  $_background-color: map.get(theme.$color, 'blue-5'),
+  $_border-radius: 4px,
+  $_main-border: 0,
+  $_title-color: map.get(theme.$color, 'dark-140')
+);
