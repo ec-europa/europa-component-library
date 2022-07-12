@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 
 import dataCard from '@ecl/specs-component-card/demo/data';
 import card from './card.html.twig';
@@ -173,7 +173,7 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
-  correctSvgPath(data);
+  correctPaths(data);
   const clone = JSON.parse(JSON.stringify(data));
 
   // Optional elements

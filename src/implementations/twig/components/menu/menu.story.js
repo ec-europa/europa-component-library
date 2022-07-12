@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 
 import enSpecs from '@ecl/specs-component-menu/demo/data--en';
 import frSpecs from '@ecl/specs-component-menu/demo/data--fr';
@@ -11,7 +11,7 @@ const enData = { ...enSpecs };
 const frData = { ...frSpecs };
 
 const prepareData = (data) => {
-  correctSvgPath(data);
+  correctPaths(data);
 
   return data;
 };

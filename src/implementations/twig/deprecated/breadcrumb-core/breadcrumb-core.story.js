@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
 import dataDefaultEU from '@ecl/specs-component-breadcrumb/demo/data--eu';
@@ -49,7 +49,7 @@ const prepareData = (data, args) => {
     item.negative = system === 'ec';
   });
 
-  return correctSvgPath(data);
+  return correctPaths(data);
 };
 
 export default {

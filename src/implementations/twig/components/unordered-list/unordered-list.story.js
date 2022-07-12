@@ -1,5 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
+import { correctPaths } from '@ecl/story-utils';
 
 import dataUnorderedListText from '@ecl/specs-component-unordered-list/demo/data--text';
 import dataUnorderedListLink from '@ecl/specs-component-unordered-list/demo/data--link';
@@ -27,6 +28,8 @@ const getArgTypes = () => ({
 });
 
 const prepareData = (data, args) => {
+  correctPaths(data);
+
   data.items[0].label = args.label;
   return data;
 };

@@ -1,4 +1,4 @@
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 
@@ -147,7 +147,7 @@ const prepareData = (data, variant, args) => {
     data.banner_top = className;
   }
 
-  correctSvgPath(data);
+  correctPaths(data);
 
   if (variant !== 'group3') {
     data.logo.src_desktop = logoEC;

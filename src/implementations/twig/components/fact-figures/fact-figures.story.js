@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
 import iconsAllEc from '@ecl/resources-ec-icons/dist/lists/all.json';
@@ -122,7 +122,7 @@ export default {
 };
 
 export const Default = (args) =>
-  factFigures(prepareData(correctSvgPath(data3Col), args));
+  factFigures(prepareData(correctPaths(data3Col), args));
 
 Default.args = getArgs(data3Col);
 Default.argTypes = getArgTypes();
