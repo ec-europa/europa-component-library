@@ -178,7 +178,8 @@ $_item-outline-offset: null !default;
     width: $_description-icon;
   }
 
-  .ecl-gallery__item:hover {
+  .ecl-gallery__item-link:hover,
+  .ecl-gallery__item-link:focus-visible {
     .ecl-gallery__description {
       display: flex;
     }
