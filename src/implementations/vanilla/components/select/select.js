@@ -107,6 +107,11 @@ export class Select {
     this.handleClickOutside = this.handleClickOutside.bind(this);
     this.moveFocus = this.moveFocus.bind(this);
     this.resetForm = this.resetForm.bind(this);
+    this.handleKeyboardOnSelect = this.handleKeyboardOnSelect.bind(this);
+    this.handleKeyboardOnSelectAll = this.handleKeyboardOnSelectAll.bind(this);
+    this.handleKeyboardOnSearch = this.handleKeyboardOnSearch.bind(this);
+    this.handleKeyboardOnOptions = this.handleKeyboardOnOptions.bind(this);
+    this.handleKeyboardOnOption = this.handleKeyboardOnOption.bind(this);
   }
 
   /**
@@ -240,20 +245,7 @@ export class Select {
     if (containerClasses.find((c) => c.includes('disabled'))) {
       this.input.setAttribute('disabled', true);
     }
-    this.input.addEventListener('keydown', (event) => {
-      switch (event.key) {
-        case 'Escape':
-          this.handleEsc();
-          break;
-
-        case 'ArrowDown':
-          this.handleToggle(event);
-          this.search.focus();
-          break;
-
-        default:
-      }
-    });
+    this.input.addEventListener('keydown', this.handleKeyboardOnSelect);
 
     this.input.addEventListener('click', this.handleToggle);
 
@@ -292,74 +284,17 @@ export class Select {
       this.searchContainer.appendChild(this.selectAll);
     }
 
-    this.search.addEventListener('keydown', (event) => {
-      switch (event.key) {
-        case 'Escape':
-          this.handleEsc();
-          break;
-
-        case 'ArrowDown':
-          if (this.selectAll.querySelector('input').disabled) {
-            const firstAvailable = Array.from(
-              this.optionsContainer.querySelectorAll('.ecl-checkbox')
-            ).filter((el) => el.style.display !== 'none');
-            if (firstAvailable[0]) {
-              firstAvailable[0].querySelector('input').focus();
-            }
-          } else {
-            this.selectAll.querySelector('input').focus();
-          }
-          break;
-
-        case 'ArrowUp':
-          this.input.focus();
-          this.handleToggle(event);
-          break;
-
-        default:
-      }
-    });
-
+    this.search.addEventListener('keydown', this.handleKeyboardOnSearch);
     this.optionsContainer = document.createElement('div');
     this.optionsContainer.classList.add('ecl-select__multiple-options');
     this.searchContainer.appendChild(this.optionsContainer);
 
-    this.selectAll.addEventListener('keydown', (event) => {
-      switch (event.key) {
-        case 'Escape':
-          this.handleEsc();
-          break;
+    this.selectAll.addEventListener('keydown', this.handleKeyboardOnSelectAll);
 
-        case 'ArrowDown':
-          this.optionsContainer.querySelectorAll('input')[0].focus();
-          event.preventDefault();
-          break;
-
-        case 'ArrowUp':
-          this.search.focus();
-          break;
-
-        default:
-      }
-    });
-
-    this.optionsContainer.addEventListener('keydown', (event) => {
-      switch (event.key) {
-        case 'Escape':
-          this.handleEsc();
-          break;
-
-        case 'ArrowDown':
-          this.moveFocus('down');
-          break;
-
-        case 'ArrowUp':
-          this.moveFocus('up');
-          break;
-
-        default:
-      }
-    });
+    this.optionsContainer.addEventListener(
+      'keydown',
+      this.handleKeyboardOnOptions
+    );
 
     if (this.select.options && this.select.options.length > 0) {
       this.checkboxes = Array.from(this.select.options).map((option) => {
@@ -376,11 +311,7 @@ export class Select {
         checkbox.setAttribute('data-visible', true);
         if (!checkbox.classList.contains('ecl-checkbox--disabled')) {
           checkbox.addEventListener('click', this.handleClickOption);
-          checkbox.addEventListener('keydown', (event) => {
-            if (event.key === 'Enter' || event.key === ' ') {
-              this.handleClickOption(event);
-            }
-          });
+          checkbox.addEventListener('keydown', this.handleKeyboardOnOption);
         }
         this.optionsContainer.appendChild(checkbox);
         return checkbox;
@@ -413,14 +344,24 @@ export class Select {
    */
   destroy() {
     this.selectMultiple.removeEventListener('focusout', this.handleFocusout);
-    this.input.removeEventListener('keydown', this.handleToggle);
+    this.input.removeEventListener('keydown', this.handleKeyboardOnSelect);
     this.input.removeEventListener('click', this.handleToggle);
     this.search.removeEventListener('keyup', this.handleSearch);
+    this.search.removeEventListener('keydown', this.handleKeyboardOnSearch);
     this.selectAll.removeEventListener('click', this.handleClickSelectAll);
     this.selectAll.removeEventListener('keypress', this.handleClickSelectAll);
+    this.selectAll.removeEventListener(
+      'keydown',
+      this.handleKeyboardOnSelectAll
+    );
+    this.optionsContainer.removeEventListener(
+      'keydown',
+      this.handleKeyboardOnOptions
+    );
     this.checkboxes.forEach((checkbox) => {
       checkbox.removeEventListener('click', this.handleClickSelectAll);
       checkbox.removeEventListener('click', this.handleClickOption);
+      checkbox.removeEventListener('keydown', this.handleKeyboardOnOption);
     });
     document.removeEventListener('click', this.handleClickOutside);
 
@@ -618,6 +559,107 @@ export class Select {
       this.searchContainer.style.display === 'block'
     ) {
       this.searchContainer.style.display = 'none';
+    }
+  }
+
+  /**
+   * @param {Event} e
+   */
+  handleKeyboardOnSelect(e) {
+    switch (e.key) {
+      case 'Escape':
+        this.handleEsc();
+        break;
+
+      case 'ArrowDown':
+        this.handleToggle(e);
+        this.search.focus();
+        break;
+
+      default:
+    }
+  }
+
+  /**
+   * @param {Event} e
+   */
+  handleKeyboardOnSelectAll(e) {
+    switch (e.key) {
+      case 'Escape':
+        this.handleEsc();
+        break;
+
+      case 'ArrowDown':
+        this.optionsContainer.querySelectorAll('input')[0].focus();
+        e.preventDefault();
+        break;
+
+      case 'ArrowUp':
+        this.search.focus();
+        break;
+
+      default:
+    }
+  }
+
+  /**
+   * @param {Event} e
+   */
+  handleKeyboardOnOptions(e) {
+    switch (e.key) {
+      case 'Escape':
+        this.handleEsc();
+        break;
+
+      case 'ArrowDown':
+        this.moveFocus('down');
+        break;
+
+      case 'ArrowUp':
+        this.moveFocus('up');
+        break;
+
+      default:
+    }
+  }
+
+  /**
+   * @param {Event} e
+   */
+  handleKeyboardOnSearch(e) {
+    switch (e.key) {
+      case 'Escape':
+        this.handleEsc();
+        break;
+
+      case 'ArrowDown':
+        if (this.selectAll.querySelector('input').disabled) {
+          const firstAvailable = Array.from(
+            this.optionsContainer.querySelectorAll('.ecl-checkbox')
+          ).filter((el) => el.style.display !== 'none');
+          if (firstAvailable[0]) {
+            firstAvailable[0].querySelector('input').focus();
+          }
+        } else {
+          this.selectAll.querySelector('input').focus();
+        }
+        break;
+
+      case 'ArrowUp':
+        this.input.focus();
+        this.handleToggle(e);
+        break;
+
+      default:
+    }
+  }
+
+  /**
+   * @param {Event} e
+   */
+  handleKeyboardOnOption(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      this.handleClickOption(e);
     }
   }
 
