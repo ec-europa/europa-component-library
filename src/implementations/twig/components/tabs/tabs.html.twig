@@ -68,14 +68,14 @@
           <li class="ecl-tabs__item">
           {% set _item_extra_classes = 'ecl-tabs__link' %}
           {% set _item_extra_attributes = [{ name: 'role', value: 'tab' }] %}
+          {% if loop.index != 1 %}
+            {% set _item_extra_attributes = _item_extra_attributes|merge([{ name: 'tabindex', value: '-1' }]) %}
+          {% endif %}
           {% if _item.is_current is defined and _item.is_current is not empty %}
             {% set _item_extra_classes = _item_extra_classes ~ ' ecl-tabs__link--active' %}
             {% set _item_extra_attributes = _item_extra_attributes|merge([{ name: 'aria-selected', value: 'true' }]) %}
           {% else %}
-            {% set _item_extra_attributes = _item_extra_attributes|merge([
-              { name: 'tabindex', value: '-1' }, 
-              { name: 'aria-selected', value: 'false' }
-            ]) %}
+            {% set _item_extra_attributes = _item_extra_attributes|merge([{ name: 'aria-selected', value: 'false' }]) %}
           {% endif %}
           {% if _menu is not empty %}
             {% set extra_attributes = extra_attributes|merge([{ name: 'data-ecl-has-menu' }]) %}

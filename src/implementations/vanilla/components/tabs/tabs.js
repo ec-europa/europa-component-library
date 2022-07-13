@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { queryOne, queryAll } from '@ecl/dom-utils';
 
 /**
@@ -82,6 +81,7 @@ export class Tabs {
     this.firstTab = null;
     this.lastTab = null;
     this.direction = 'ltr';
+    this.isMobile = false;
 
     // Bind `this` for use in callbacks
     this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
@@ -92,6 +92,7 @@ export class Tabs {
     this.moveFocusToTab = this.moveFocusToTab.bind(this);
     this.moveFocusToPreviousTab = this.moveFocusToPreviousTab.bind(this);
     this.moveFocusToNextTab = this.moveFocusToNextTab.bind(this);
+    this.tabsKeyEvents = this.tabsKeyEvents.bind(this);
   }
 
   /**
@@ -259,6 +260,7 @@ export class Tabs {
     );
 
     if (vw <= 480) {
+      this.isMobile = true;
       this.index = 1;
       this.list.style.transitionDuration = '0.4s';
       this.shiftTabs(this.index);
@@ -273,9 +275,11 @@ export class Tabs {
       this.list.style.width = `${listWidth}px`;
       this.btnNext.style.display = 'block';
       this.btnPrev.style.display = 'none';
+      this.tabsKeyEvents();
       return;
     }
 
+    this.isMobile = false;
     // Behaviors for Tablet and desktop format (More button)
     this.btnNext.style.display = 'none';
     this.btnPrev.style.display = 'none';
@@ -327,7 +331,13 @@ export class Tabs {
       });
     }
 
-    // Bind key events on tabs for accessibility
+    this.tabsKeyEvents();
+  }
+
+  /**
+   * Bind key events on tabs for accessibility.
+   */
+  tabsKeyEvents() {
     this.tabsKey = [];
     this.listItems.forEach((item, index, array) => {
       let tab = null;
@@ -421,12 +431,19 @@ export class Tabs {
    * @param {HTMLElement} currentTab tab element
    */
   moveFocusToPreviousTab(currentTab) {
-    let index;
+    const index = this.tabsKey.indexOf(currentTab);
+
+    if (this.isMobile) {
+      if (currentTab !== this.firstTab) {
+        this.moveFocusToTab(this.tabsKey[index - 1]);
+        this.shiftTabs('prev');
+      }
+      return;
+    }
 
     if (currentTab === this.firstTab) {
       this.moveFocusToTab(this.lastTab);
     } else {
-      index = this.tabsKey.indexOf(currentTab);
       this.moveFocusToTab(this.tabsKey[index - 1]);
     }
   }
@@ -435,12 +452,19 @@ export class Tabs {
    * @param {HTMLElement} currentTab tab element
    */
   moveFocusToNextTab(currentTab) {
-    let index;
+    const index = this.tabsKey.indexOf(currentTab);
+
+    if (this.isMobile) {
+      if (currentTab !== this.lastTab) {
+        this.moveFocusToTab(this.tabsKey[index + 1]);
+        this.shiftTabs('next');
+      }
+      return;
+    }
 
     if (currentTab === this.lastTab) {
       this.moveFocusToTab(this.firstTab);
     } else {
-      index = this.tabsKey.indexOf(currentTab);
       this.moveFocusToTab(this.tabsKey[index + 1]);
     }
   }
