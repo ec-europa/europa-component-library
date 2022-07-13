@@ -302,8 +302,10 @@ export class Select {
           if (this.selectAll.querySelector('input').disabled) {
             const firstAvailable = Array.from(
               this.optionsContainer.querySelectorAll('.ecl-checkbox')
-            ).filter((el) => el.style.display !== 'none')[0];
-            firstAvailable.querySelector('input').focus();
+            ).filter((el) => el.style.display !== 'none');
+            if (firstAvailable[0]) {
+              firstAvailable[0].querySelector('input').focus();
+            }
           } else {
             this.selectAll.querySelector('input').focus();
           }
@@ -330,6 +332,7 @@ export class Select {
 
         case 'ArrowDown':
           this.optionsContainer.querySelectorAll('input')[0].focus();
+          event.preventDefault();
           break;
 
         case 'ArrowUp':
@@ -347,8 +350,6 @@ export class Select {
           break;
 
         case 'ArrowDown':
-          event.preventDefault();
-          event.stopPropagation();
           this.moveFocus('down');
           break;
 
@@ -642,7 +643,7 @@ export class Select {
       const nextSiblings = options
         .splice(activeIndex + 1, options.length)
         .filter(
-          (el) => !el.parentElement.classList.contains('ecl-checkbox--disabled')
+          (el) => !el.disabled && el.parentElement.style.display !== 'none'
         );
       if (nextSiblings.length > 0) {
         nextSiblings[0].focus();
@@ -651,12 +652,17 @@ export class Select {
       const previousSiblings = options
         .splice(0, activeIndex)
         .filter(
-          (el) => !el.parentElement.classList.contains('ecl-checkbox--disabled')
+          (el) => !el.disabled && el.parentElement.style.display !== 'none'
         );
       if (previousSiblings.length > 0) {
         previousSiblings.pop().focus();
       } else {
-        this.selectAll.querySelector('input').focus();
+        this.optionsContainer.scrollTop = 0;
+        if (!this.selectAll.querySelector('input').disabled) {
+          this.selectAll.querySelector('input').focus();
+        } else {
+          this.search.focus();
+        }
       }
     }
   }
