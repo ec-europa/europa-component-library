@@ -64,6 +64,6 @@ Add the breakpoint before spacing size to display it only with corresponding scr
 
 Examples:
 
-- `ecl-u-ma-md-l`: margin `l` on screen size >= breakpoint `md`
-- `ecl-u-ph-lg-2xl`: horizontal padding `2xl` on screen size >= breakpoint `lg`
-- `ecl-u-ml-sm-none`: no left margin on screen size >= breakpoint `sm`
+- `ecl-u-ma-m-l`: margin `l` on screen size >= breakpoint `m`
+- `ecl-u-ph-l-2xl`: horizontal padding `2xl` on screen size >= breakpoint `l`
+- `ecl-u-ml-s-none`: no left margin on screen size >= breakpoint `s`
