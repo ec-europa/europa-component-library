@@ -288,9 +288,7 @@ export class Select {
     this.optionsContainer = document.createElement('div');
     this.optionsContainer.classList.add('ecl-select__multiple-options');
     this.searchContainer.appendChild(this.optionsContainer);
-
     this.selectAll.addEventListener('keydown', this.handleKeyboardOnSelectAll);
-
     this.optionsContainer.addEventListener(
       'keydown',
       this.handleKeyboardOnOptions
@@ -393,12 +391,13 @@ export class Select {
    * @param {Event} e
    */
   handleToggle(e) {
+    e.preventDefault();
+
     if (this.searchContainer.style.display === 'none') {
       this.searchContainer.style.display = 'block';
     } else {
       this.searchContainer.style.display = 'none';
     }
-    e.preventDefault();
   }
 
   /**
