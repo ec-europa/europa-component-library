@@ -129,14 +129,34 @@ module.exports = {
   overlay: true,
   non_eu_items: [
     {
-      label: '中文',
+      label: 'العربية',
       path: exampleLink,
-      lang: 'zh',
+      lang: 'ar',
     },
     {
-      label: 'Türk',
+      label: 'català',
       path: exampleLink,
-      lang: 'tr',
+      lang: 'ca',
+    },
+    {
+      label: 'íslenska',
+      path: exampleLink,
+      lang: 'is',
+    },
+    {
+      label: 'Lëtzebuergesch',
+      path: exampleLink,
+      lang: 'lb',
+    },
+    {
+      label: '日本語',
+      path: exampleLink,
+      lang: 'ja',
+    },
+    {
+      label: 'norsk',
+      path: exampleLink,
+      lang: 'nb',
     },
     {
       label: 'pусский',
@@ -144,17 +164,22 @@ module.exports = {
       lang: 'ru',
     },
     {
-      label: 'Català',
+      label: 'türkçe',
       path: exampleLink,
-      lang: 'ca',
+      lang: 'tr',
     },
     {
-      label: 'عَرَبِيّ',
+      label: 'украї́нська',
       path: exampleLink,
-      lang: 'ar',
+      lang: 'uk',
+    },
+    {
+      label: '中文',
+      path: exampleLink,
+      lang: 'zh',
     },
   ],
-  eu_category: 'EU official languages',
+  eu_category: 'Official EU languages',
   non_eu_category: 'Other languages',
   icon_path: '/icons.svg',
   close_label: 'Close',
