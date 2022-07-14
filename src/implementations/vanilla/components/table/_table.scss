@@ -13,6 +13,8 @@ $_row-border-color: null !default;
 $_sort-icon-color: null !default;
 $_sort-icon-color-active: null !default;
 $_sort-arrow-margin-top: null !default;
+$_outline-color: null !default;
+$_outline-width: null !default;
 
 .ecl-table,
 %ecl-table {
@@ -198,9 +200,18 @@ $_sort-arrow-margin-top: null !default;
 }
 
 .ecl-table__arrow {
+  background-color: transparent;
+  border: 0;
+  height: 44px;
   left: map.get(theme.$spacing, '2xs');
   margin-top: $_sort-arrow-margin-top;
   position: absolute;
+  width: 31px;
+
+  &:focus-visible {
+    outline: $_outline-width solid $_outline-color;
+    outline-offset: -5px;
+  }
 }
 
 .ecl-table__icon {
