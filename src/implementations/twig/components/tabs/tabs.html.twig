@@ -60,7 +60,7 @@
 {# Print the result #}
 
 {% if _items is not empty and _items is iterable %}
-<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<nav class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <div class="ecl-tabs__container">
     <ul class="ecl-tabs__list">
       {% for _item in _items %}
@@ -137,7 +137,7 @@
       <span class="ecl-u-sr-only">{{ _sr_next }}</span>
     </button>
   </div>
-</div>
+</nav>
 {% endif %}
 
 {% endspaceless %}

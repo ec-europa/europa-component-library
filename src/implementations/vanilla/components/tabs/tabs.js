@@ -90,8 +90,7 @@ export class Tabs {
     this.shiftTabs = this.shiftTabs.bind(this);
     this.onKeydown = this.onKeydown.bind(this);
     this.moveFocusToTab = this.moveFocusToTab.bind(this);
-    this.moveFocusToPreviousTab = this.moveFocusToPreviousTab.bind(this);
-    this.moveFocusToNextTab = this.moveFocusToNextTab.bind(this);
+    this.arrowFocusToTab = this.arrowFocusToTab.bind(this);
     this.tabsKeyEvents = this.tabsKeyEvents.bind(this);
   }
 
@@ -178,6 +177,11 @@ export class Tabs {
     }
     if (this.attachResizeListener) {
       window.removeEventListener('resize', this.handleResize);
+    }
+    if (this.tabsKey) {
+      this.tabsKey.forEach((item) => {
+        item.addEventListener('keydown', this.onKeydown);
+      });
     }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
@@ -381,36 +385,26 @@ export class Tabs {
    */
   onKeydown(e) {
     const tgt = e.currentTarget;
-    let flag = false;
 
     switch (e.key) {
       case 'ArrowLeft':
-        this.moveFocusToPreviousTab(tgt);
-        flag = true;
+        this.arrowFocusToTab(tgt, 'prev');
         break;
 
       case 'ArrowRight':
-        this.moveFocusToNextTab(tgt);
-        flag = true;
+        this.arrowFocusToTab(tgt, 'next');
         break;
 
       case 'Home':
         this.moveFocusToTab(this.firstTab);
-        flag = true;
         break;
 
       case 'End':
         this.moveFocusToTab(this.lastTab);
-        flag = true;
         break;
 
       default:
         break;
-    }
-
-    if (flag) {
-      e.stopPropagation();
-      e.preventDefault();
     }
   }
 
@@ -424,48 +418,31 @@ export class Tabs {
       this.dropdown.classList.remove('ecl-tabs__dropdown--show');
     }
     currentTab.focus();
-    return this;
   }
 
   /**
    * @param {HTMLElement} currentTab tab element
+   * @param {string} direction key arrow direction
    */
-  moveFocusToPreviousTab(currentTab) {
-    const index = this.tabsKey.indexOf(currentTab);
+  arrowFocusToTab(currentTab, direction) {
+    let index = this.tabsKey.indexOf(currentTab);
+    index = direction === 'next' ? index + 1 : index - 1;
+
+    const startTab = direction === 'next' ? this.firstTab : this.lastTab;
+    const endTab = direction === 'next' ? this.lastTab : this.firstTab;
 
     if (this.isMobile) {
-      if (currentTab !== this.firstTab) {
-        this.moveFocusToTab(this.tabsKey[index - 1]);
-        this.shiftTabs('prev');
+      if (currentTab !== endTab) {
+        this.moveFocusToTab(this.tabsKey[index]);
+        this.shiftTabs(direction);
       }
       return;
     }
 
-    if (currentTab === this.firstTab) {
-      this.moveFocusToTab(this.lastTab);
+    if (currentTab === endTab) {
+      this.moveFocusToTab(startTab);
     } else {
-      this.moveFocusToTab(this.tabsKey[index - 1]);
-    }
-  }
-
-  /**
-   * @param {HTMLElement} currentTab tab element
-   */
-  moveFocusToNextTab(currentTab) {
-    const index = this.tabsKey.indexOf(currentTab);
-
-    if (this.isMobile) {
-      if (currentTab !== this.lastTab) {
-        this.moveFocusToTab(this.tabsKey[index + 1]);
-        this.shiftTabs('next');
-      }
-      return;
-    }
-
-    if (currentTab === this.lastTab) {
-      this.moveFocusToTab(this.firstTab);
-    } else {
-      this.moveFocusToTab(this.tabsKey[index + 1]);
+      this.moveFocusToTab(this.tabsKey[index]);
     }
   }
 }
