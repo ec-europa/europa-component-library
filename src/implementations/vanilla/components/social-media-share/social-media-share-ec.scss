@@ -1,0 +1,8 @@
+@use 'sass:map';
+@use '@ecl/theme-dev/theme';
+@use 'social-media-share' with (
+  $_background-color: map.get(theme.$color, 'white'),
+  $_border-radius: 0,
+  $_main-border: 0,
+  $_title-color: map.get(theme.$color, 'grey-100')
+);
