@@ -88,8 +88,8 @@ export class Tabs {
     this.handleResize = this.handleResize.bind(this);
     this.closeMoreDropdown = this.closeMoreDropdown.bind(this);
     this.shiftTabs = this.shiftTabs.bind(this);
-    this.onKeydown = this.onKeydown.bind(this);
-    this.moveFocusToTab = this.moveFocusToTab.bind(this);
+    this.handleKeyboardOnTabs = this.handleKeyboardOnTabs.bind(this);
+    this.moveFocus = this.moveFocus.bind(this);
     this.arrowFocusToTab = this.arrowFocusToTab.bind(this);
     this.tabsKeyEvents = this.tabsKeyEvents.bind(this);
   }
@@ -180,7 +180,7 @@ export class Tabs {
     }
     if (this.tabsKey) {
       this.tabsKey.forEach((item) => {
-        item.addEventListener('keydown', this.onKeydown);
+        item.addEventListener('keydown', this.handleKeyboardOnTabs);
       });
     }
     if (this.element) {
@@ -351,7 +351,7 @@ export class Tabs {
         const dropdownItem = this.dropdownItems[index];
         tab = queryOne('.ecl-tabs__link', dropdownItem);
       }
-      tab.addEventListener('keydown', this.onKeydown);
+      tab.addEventListener('keydown', this.handleKeyboardOnTabs);
       this.tabsKey.push(tab);
 
       if (index === 0) {
@@ -380,10 +380,9 @@ export class Tabs {
   }
 
   /**
-   * Tabs onKeydown handler.
    * @param {Event} e
    */
-  onKeydown(e) {
+  handleKeyboardOnTabs(e) {
     const tgt = e.currentTarget;
 
     switch (e.key) {
@@ -396,25 +395,26 @@ export class Tabs {
         break;
 
       case 'Home':
-        this.moveFocusToTab(this.firstTab);
+        this.moveFocus(this.firstTab);
         break;
 
       case 'End':
-        this.moveFocusToTab(this.lastTab);
+        this.moveFocus(this.lastTab);
         break;
 
       default:
-        break;
     }
   }
 
   /**
    * @param {HTMLElement} currentTab tab element
    */
-  moveFocusToTab(currentTab) {
+  moveFocus(currentTab) {
     if (currentTab.closest('.ecl-tabs__dropdown')) {
+      this.moreButton.setAttribute('aria-expanded', true);
       this.dropdown.classList.add('ecl-tabs__dropdown--show');
     } else {
+      this.moreButton.setAttribute('aria-expanded', false);
       this.dropdown.classList.remove('ecl-tabs__dropdown--show');
     }
     currentTab.focus();
@@ -433,16 +433,16 @@ export class Tabs {
 
     if (this.isMobile) {
       if (currentTab !== endTab) {
-        this.moveFocusToTab(this.tabsKey[index]);
+        this.moveFocus(this.tabsKey[index]);
         this.shiftTabs(direction);
       }
       return;
     }
 
     if (currentTab === endTab) {
-      this.moveFocusToTab(startTab);
+      this.moveFocus(startTab);
     } else {
-      this.moveFocusToTab(this.tabsKey[index]);
+      this.moveFocus(this.tabsKey[index]);
     }
   }
 }
