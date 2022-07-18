@@ -12,10 +12,10 @@ exports[`Language List Overlay renders correctly 1`] = `
       class="ecl-language-list__container ecl-container"
     >
       <div
-        class="ecl-row"
+        class="ecl-language-list--overlay__header"
       >
         <div
-          class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-col-m-11 ecl-offset-l-2"
         >
           <button
             class="ecl-button ecl-button--ghost ecl-language-list__close-button"
@@ -45,7 +45,7 @@ exports[`Language List Overlay renders correctly 1`] = `
           </button>
         </div>
         <div
-          class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
           id="ecl-language-list__title"
         >
           <svg
@@ -64,12 +64,12 @@ exports[`Language List Overlay renders correctly 1`] = `
         class="ecl-row ecl-language-list__eu"
       >
         <div
-          class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
         >
-          EU official languages
+          Official EU languages
         </div>
         <div
-          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
         >
           <ul
             class="ecl-language-list__list"
@@ -246,7 +246,7 @@ exports[`Language List Overlay renders correctly 1`] = `
           </ul>
         </div>
         <div
-          class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
         >
           <ul
             class="ecl-language-list__list"
@@ -414,12 +414,12 @@ exports[`Language List Overlay renders correctly 1`] = `
         class="ecl-row ecl-language-list__non-eu"
       >
         <div
-          class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
         >
           Other languages
         </div>
         <div
-          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
         >
           <ul
             class="ecl-language-list__list"
@@ -430,11 +430,11 @@ exports[`Language List Overlay renders correctly 1`] = `
               <a
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
                 href="/example"
-                hreflang="zh"
-                lang="zh"
+                hreflang="ar"
+                lang="ar"
                 rel="alternate"
               >
-                中文
+                العربية
               </a>
             </li>
             <li
@@ -443,11 +443,71 @@ exports[`Language List Overlay renders correctly 1`] = `
               <a
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
                 href="/example"
-                hreflang="tr"
-                lang="tr"
+                hreflang="ca"
+                lang="ca"
                 rel="alternate"
               >
-                Türk
+                català
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="is"
+                lang="is"
+                rel="alternate"
+              >
+                íslenska
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="lb"
+                lang="lb"
+                rel="alternate"
+              >
+                Lëtzebuergesch
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="ja"
+                lang="ja"
+                rel="alternate"
+              >
+                日本語
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
+        >
+          <ul
+            class="ecl-language-list__list"
+          >
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="nb"
+                lang="nb"
+                rel="alternate"
+              >
+                norsk
               </a>
             </li>
             <li
@@ -463,25 +523,17 @@ exports[`Language List Overlay renders correctly 1`] = `
                 pусский
               </a>
             </li>
-          </ul>
-        </div>
-        <div
-          class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
-        >
-          <ul
-            class="ecl-language-list__list"
-          >
             <li
               class="ecl-language-list__item"
             >
               <a
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
                 href="/example"
-                hreflang="ca"
-                lang="ca"
+                hreflang="tr"
+                lang="tr"
                 rel="alternate"
               >
-                Català
+                türkçe
               </a>
             </li>
             <li
@@ -490,11 +542,24 @@ exports[`Language List Overlay renders correctly 1`] = `
               <a
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
                 href="/example"
-                hreflang="ar"
-                lang="ar"
+                hreflang="uk"
+                lang="uk"
                 rel="alternate"
               >
-                عَرَبِيّ
+                украї́нська
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="zh"
+                lang="zh"
+                rel="alternate"
+              >
+                中文
               </a>
             </li>
           </ul>
@@ -519,10 +584,10 @@ exports[`Language List Overlay renders correctly with extra attributes 1`] = `
       class="ecl-language-list__container ecl-container"
     >
       <div
-        class="ecl-row"
+        class="ecl-language-list--overlay__header"
       >
         <div
-          class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-col-m-11 ecl-offset-l-2"
         >
           <button
             class="ecl-button ecl-button--ghost ecl-language-list__close-button"
@@ -552,7 +617,7 @@ exports[`Language List Overlay renders correctly with extra attributes 1`] = `
           </button>
         </div>
         <div
-          class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
           id="ecl-language-list__title"
         >
           <svg
@@ -571,12 +636,12 @@ exports[`Language List Overlay renders correctly with extra attributes 1`] = `
         class="ecl-row ecl-language-list__eu"
       >
         <div
-          class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
         >
-          EU official languages
+          Official EU languages
         </div>
         <div
-          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
         >
           <ul
             class="ecl-language-list__list"
@@ -753,7 +818,7 @@ exports[`Language List Overlay renders correctly with extra attributes 1`] = `
           </ul>
         </div>
         <div
-          class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
         >
           <ul
             class="ecl-language-list__list"
@@ -921,12 +986,12 @@ exports[`Language List Overlay renders correctly with extra attributes 1`] = `
         class="ecl-row ecl-language-list__non-eu"
       >
         <div
-          class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
         >
           Other languages
         </div>
         <div
-          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
         >
           <ul
             class="ecl-language-list__list"
@@ -937,11 +1002,11 @@ exports[`Language List Overlay renders correctly with extra attributes 1`] = `
               <a
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
                 href="/example"
-                hreflang="zh"
-                lang="zh"
+                hreflang="ar"
+                lang="ar"
                 rel="alternate"
               >
-                中文
+                العربية
               </a>
             </li>
             <li
@@ -950,11 +1015,71 @@ exports[`Language List Overlay renders correctly with extra attributes 1`] = `
               <a
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
                 href="/example"
-                hreflang="tr"
-                lang="tr"
+                hreflang="ca"
+                lang="ca"
                 rel="alternate"
               >
-                Türk
+                català
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="is"
+                lang="is"
+                rel="alternate"
+              >
+                íslenska
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="lb"
+                lang="lb"
+                rel="alternate"
+              >
+                Lëtzebuergesch
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="ja"
+                lang="ja"
+                rel="alternate"
+              >
+                日本語
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
+        >
+          <ul
+            class="ecl-language-list__list"
+          >
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="nb"
+                lang="nb"
+                rel="alternate"
+              >
+                norsk
               </a>
             </li>
             <li
@@ -970,25 +1095,17 @@ exports[`Language List Overlay renders correctly with extra attributes 1`] = `
                 pусский
               </a>
             </li>
-          </ul>
-        </div>
-        <div
-          class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
-        >
-          <ul
-            class="ecl-language-list__list"
-          >
             <li
               class="ecl-language-list__item"
             >
               <a
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
                 href="/example"
-                hreflang="ca"
-                lang="ca"
+                hreflang="tr"
+                lang="tr"
                 rel="alternate"
               >
-                Català
+                türkçe
               </a>
             </li>
             <li
@@ -997,11 +1114,24 @@ exports[`Language List Overlay renders correctly with extra attributes 1`] = `
               <a
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
                 href="/example"
-                hreflang="ar"
-                lang="ar"
+                hreflang="uk"
+                lang="uk"
                 rel="alternate"
               >
-                عَرَبِيّ
+                украї́нська
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="zh"
+                lang="zh"
+                rel="alternate"
+              >
+                中文
               </a>
             </li>
           </ul>
@@ -1024,10 +1154,10 @@ exports[`Language List Overlay renders correctly with extra class names 1`] = `
       class="ecl-language-list__container ecl-container"
     >
       <div
-        class="ecl-row"
+        class="ecl-language-list--overlay__header"
       >
         <div
-          class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-col-m-11 ecl-offset-l-2"
         >
           <button
             class="ecl-button ecl-button--ghost ecl-language-list__close-button"
@@ -1057,7 +1187,7 @@ exports[`Language List Overlay renders correctly with extra class names 1`] = `
           </button>
         </div>
         <div
-          class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
           id="ecl-language-list__title"
         >
           <svg
@@ -1076,12 +1206,12 @@ exports[`Language List Overlay renders correctly with extra class names 1`] = `
         class="ecl-row ecl-language-list__eu"
       >
         <div
-          class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
         >
-          EU official languages
+          Official EU languages
         </div>
         <div
-          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
         >
           <ul
             class="ecl-language-list__list"
@@ -1258,7 +1388,7 @@ exports[`Language List Overlay renders correctly with extra class names 1`] = `
           </ul>
         </div>
         <div
-          class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
         >
           <ul
             class="ecl-language-list__list"
@@ -1426,12 +1556,12 @@ exports[`Language List Overlay renders correctly with extra class names 1`] = `
         class="ecl-row ecl-language-list__non-eu"
       >
         <div
-          class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
         >
           Other languages
         </div>
         <div
-          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
         >
           <ul
             class="ecl-language-list__list"
@@ -1442,11 +1572,11 @@ exports[`Language List Overlay renders correctly with extra class names 1`] = `
               <a
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
                 href="/example"
-                hreflang="zh"
-                lang="zh"
+                hreflang="ar"
+                lang="ar"
                 rel="alternate"
               >
-                中文
+                العربية
               </a>
             </li>
             <li
@@ -1455,11 +1585,71 @@ exports[`Language List Overlay renders correctly with extra class names 1`] = `
               <a
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
                 href="/example"
-                hreflang="tr"
-                lang="tr"
+                hreflang="ca"
+                lang="ca"
                 rel="alternate"
               >
-                Türk
+                català
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="is"
+                lang="is"
+                rel="alternate"
+              >
+                íslenska
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="lb"
+                lang="lb"
+                rel="alternate"
+              >
+                Lëtzebuergesch
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="ja"
+                lang="ja"
+                rel="alternate"
+              >
+                日本語
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
+        >
+          <ul
+            class="ecl-language-list__list"
+          >
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="nb"
+                lang="nb"
+                rel="alternate"
+              >
+                norsk
               </a>
             </li>
             <li
@@ -1475,25 +1665,17 @@ exports[`Language List Overlay renders correctly with extra class names 1`] = `
                 pусский
               </a>
             </li>
-          </ul>
-        </div>
-        <div
-          class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
-        >
-          <ul
-            class="ecl-language-list__list"
-          >
             <li
               class="ecl-language-list__item"
             >
               <a
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
                 href="/example"
-                hreflang="ca"
-                lang="ca"
+                hreflang="tr"
+                lang="tr"
                 rel="alternate"
               >
-                Català
+                türkçe
               </a>
             </li>
             <li
@@ -1502,11 +1684,24 @@ exports[`Language List Overlay renders correctly with extra class names 1`] = `
               <a
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
                 href="/example"
-                hreflang="ar"
-                lang="ar"
+                hreflang="uk"
+                lang="uk"
                 rel="alternate"
               >
-                عَرَبِيّ
+                украї́нська
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="zh"
+                lang="zh"
+                rel="alternate"
+              >
+                中文
               </a>
             </li>
           </ul>
@@ -1538,12 +1733,12 @@ exports[`Language List Splash renders correctly 1`] = `
         class="ecl-row ecl-language-list__eu"
       >
         <div
-          class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
         >
-          EU official languages
+          Official EU languages
         </div>
         <div
-          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
         >
           <ul
             class="ecl-language-list__list"
@@ -1708,7 +1903,7 @@ exports[`Language List Splash renders correctly 1`] = `
           </ul>
         </div>
         <div
-          class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
         >
           <ul
             class="ecl-language-list__list"
@@ -1864,12 +2059,12 @@ exports[`Language List Splash renders correctly 1`] = `
         class="ecl-row ecl-language-list__non-eu"
       >
         <div
-          class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
         >
           Other languages
         </div>
         <div
-          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
         >
           <ul
             class="ecl-language-list__list"
@@ -1880,10 +2075,10 @@ exports[`Language List Splash renders correctly 1`] = `
               <a
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
                 href="/example"
-                hreflang="zh"
-                lang="zh"
+                hreflang="ar"
+                lang="ar"
               >
-                中文
+                العربية
               </a>
             </li>
             <li
@@ -1892,10 +2087,66 @@ exports[`Language List Splash renders correctly 1`] = `
               <a
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
                 href="/example"
-                hreflang="tr"
-                lang="tr"
+                hreflang="ca"
+                lang="ca"
               >
-                Türk
+                català
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="is"
+                lang="is"
+              >
+                íslenska
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="lb"
+                lang="lb"
+              >
+                Lëtzebuergesch
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="ja"
+                lang="ja"
+              >
+                日本語
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
+        >
+          <ul
+            class="ecl-language-list__list"
+          >
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="nb"
+                lang="nb"
+              >
+                norsk
               </a>
             </li>
             <li
@@ -1910,24 +2161,16 @@ exports[`Language List Splash renders correctly 1`] = `
                 pусский
               </a>
             </li>
-          </ul>
-        </div>
-        <div
-          class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
-        >
-          <ul
-            class="ecl-language-list__list"
-          >
             <li
               class="ecl-language-list__item"
             >
               <a
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
                 href="/example"
-                hreflang="ca"
-                lang="ca"
+                hreflang="tr"
+                lang="tr"
               >
-                Català
+                türkçe
               </a>
             </li>
             <li
@@ -1936,10 +2179,22 @@ exports[`Language List Splash renders correctly 1`] = `
               <a
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
                 href="/example"
-                hreflang="ar"
-                lang="ar"
+                hreflang="uk"
+                lang="uk"
               >
-                عَرَبِيّ
+                украї́нська
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="zh"
+                lang="zh"
+              >
+                中文
               </a>
             </li>
           </ul>
@@ -1973,12 +2228,12 @@ exports[`Language List Splash renders correctly with extra attributes 1`] = `
         class="ecl-row ecl-language-list__eu"
       >
         <div
-          class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
         >
-          EU official languages
+          Official EU languages
         </div>
         <div
-          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
         >
           <ul
             class="ecl-language-list__list"
@@ -2143,7 +2398,7 @@ exports[`Language List Splash renders correctly with extra attributes 1`] = `
           </ul>
         </div>
         <div
-          class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
         >
           <ul
             class="ecl-language-list__list"
@@ -2299,12 +2554,12 @@ exports[`Language List Splash renders correctly with extra attributes 1`] = `
         class="ecl-row ecl-language-list__non-eu"
       >
         <div
-          class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
         >
           Other languages
         </div>
         <div
-          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
         >
           <ul
             class="ecl-language-list__list"
@@ -2315,10 +2570,10 @@ exports[`Language List Splash renders correctly with extra attributes 1`] = `
               <a
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
                 href="/example"
-                hreflang="zh"
-                lang="zh"
+                hreflang="ar"
+                lang="ar"
               >
-                中文
+                العربية
               </a>
             </li>
             <li
@@ -2327,10 +2582,66 @@ exports[`Language List Splash renders correctly with extra attributes 1`] = `
               <a
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
                 href="/example"
-                hreflang="tr"
-                lang="tr"
+                hreflang="ca"
+                lang="ca"
               >
-                Türk
+                català
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="is"
+                lang="is"
+              >
+                íslenska
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="lb"
+                lang="lb"
+              >
+                Lëtzebuergesch
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="ja"
+                lang="ja"
+              >
+                日本語
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
+        >
+          <ul
+            class="ecl-language-list__list"
+          >
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="nb"
+                lang="nb"
+              >
+                norsk
               </a>
             </li>
             <li
@@ -2345,24 +2656,16 @@ exports[`Language List Splash renders correctly with extra attributes 1`] = `
                 pусский
               </a>
             </li>
-          </ul>
-        </div>
-        <div
-          class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
-        >
-          <ul
-            class="ecl-language-list__list"
-          >
             <li
               class="ecl-language-list__item"
             >
               <a
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
                 href="/example"
-                hreflang="ca"
-                lang="ca"
+                hreflang="tr"
+                lang="tr"
               >
-                Català
+                türkçe
               </a>
             </li>
             <li
@@ -2371,10 +2674,22 @@ exports[`Language List Splash renders correctly with extra attributes 1`] = `
               <a
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
                 href="/example"
-                hreflang="ar"
-                lang="ar"
+                hreflang="uk"
+                lang="uk"
               >
-                عَرَبِيّ
+                украї́нська
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="zh"
+                lang="zh"
+              >
+                中文
               </a>
             </li>
           </ul>
@@ -2406,12 +2721,12 @@ exports[`Language List Splash renders correctly with extra class names 1`] = `
         class="ecl-row ecl-language-list__eu"
       >
         <div
-          class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
         >
-          EU official languages
+          Official EU languages
         </div>
         <div
-          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
         >
           <ul
             class="ecl-language-list__list"
@@ -2576,7 +2891,7 @@ exports[`Language List Splash renders correctly with extra class names 1`] = `
           </ul>
         </div>
         <div
-          class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
         >
           <ul
             class="ecl-language-list__list"
@@ -2732,12 +3047,12 @@ exports[`Language List Splash renders correctly with extra class names 1`] = `
         class="ecl-row ecl-language-list__non-eu"
       >
         <div
-          class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+          class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
         >
           Other languages
         </div>
         <div
-          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
         >
           <ul
             class="ecl-language-list__list"
@@ -2748,10 +3063,10 @@ exports[`Language List Splash renders correctly with extra class names 1`] = `
               <a
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
                 href="/example"
-                hreflang="zh"
-                lang="zh"
+                hreflang="ar"
+                lang="ar"
               >
-                中文
+                العربية
               </a>
             </li>
             <li
@@ -2760,10 +3075,66 @@ exports[`Language List Splash renders correctly with extra class names 1`] = `
               <a
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
                 href="/example"
-                hreflang="tr"
-                lang="tr"
+                hreflang="ca"
+                lang="ca"
               >
-                Türk
+                català
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="is"
+                lang="is"
+              >
+                íslenska
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="lb"
+                lang="lb"
+              >
+                Lëtzebuergesch
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="ja"
+                lang="ja"
+              >
+                日本語
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
+        >
+          <ul
+            class="ecl-language-list__list"
+          >
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="nb"
+                lang="nb"
+              >
+                norsk
               </a>
             </li>
             <li
@@ -2778,24 +3149,16 @@ exports[`Language List Splash renders correctly with extra class names 1`] = `
                 pусский
               </a>
             </li>
-          </ul>
-        </div>
-        <div
-          class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
-        >
-          <ul
-            class="ecl-language-list__list"
-          >
             <li
               class="ecl-language-list__item"
             >
               <a
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
                 href="/example"
-                hreflang="ca"
-                lang="ca"
+                hreflang="tr"
+                lang="tr"
               >
-                Català
+                türkçe
               </a>
             </li>
             <li
@@ -2804,10 +3167,22 @@ exports[`Language List Splash renders correctly with extra class names 1`] = `
               <a
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
                 href="/example"
-                hreflang="ar"
-                lang="ar"
+                hreflang="uk"
+                lang="uk"
               >
-                عَرَبِيّ
+                украї́нська
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="zh"
+                lang="zh"
+              >
+                中文
               </a>
             </li>
           </ul>

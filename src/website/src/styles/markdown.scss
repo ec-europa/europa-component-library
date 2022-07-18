@@ -226,7 +226,7 @@ img[alt='anatomy'] {
   border: 1px solid map.get(theme.$color, 'grey-15');
 }
 
-div:first-child p:first-child {
+div:not([class^='ecl']):first-child p:not([class^='ecl']):first-child {
   font: map.get(theme.$font-prolonged, 'l');
   max-width: 49ch;
 }
