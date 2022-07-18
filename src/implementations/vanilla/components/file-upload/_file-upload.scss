@@ -67,20 +67,20 @@ $_shadow-hover: null !default;
     position: initial;
     width: auto;
     margin: 0;
-
-    // stylelint-disable max-nesting-depth
-    &:active,
-    &:focus {
-      + .ecl-file-upload__button-container .ecl-file-upload__button {
-        border: $_outline-width solid $_outline-color;
-        outline: none;
-        padding: calc(#{$_padding-vertical} - #{$_outline-width})
-          calc(#{$_padding-horizontal} - #{$_outline-width});
-        text-decoration: none;
-      }
-    }
-    // stylelint-enable max-nesting-depth
   }
+
+  // stylelint-disable max-nesting-depth
+  &:active,
+  &:focus {
+    + .ecl-file-upload__button-container .ecl-file-upload__button {
+      border: $_outline-width solid $_outline-color;
+      outline: none;
+      padding: calc(#{$_padding-vertical} - #{$_outline-width})
+        calc(#{$_padding-horizontal} - #{$_outline-width});
+      text-decoration: none;
+    }
+  }
+  // stylelint-enable max-nesting-depth
 }
 
 /*
