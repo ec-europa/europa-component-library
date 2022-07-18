@@ -1,0 +1,47 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import {
+  ratingFieldGroupDefault,
+  ratingFieldGroupInvalid,
+  ratingFieldGroupRequired,
+  ratingFieldGroupOptional,
+} from '../demo';
+
+## Default rating field
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-rating-field"
+  selectedStory="default"
+  showFrame
+>
+  <Html markup={ratingFieldGroupDefault} />
+</Playground>
+
+## Invalid rating field
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-rating-field"
+  selectedStory="default"
+  selectedArgs="invalid:true"
+  showFrame
+>
+  <Html markup={ratingFieldGroupInvalid} />
+</Playground>
+
+## Optional rating-field
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-rating-field"
+  selectedStory="default"
+  selectedArgs="required:false"
+  showFrame
+>
+  <Html markup={ratingFieldGroupOptional} />
+</Playground>
