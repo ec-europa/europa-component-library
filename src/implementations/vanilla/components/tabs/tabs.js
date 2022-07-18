@@ -77,13 +77,21 @@ export class Tabs {
     this.buttonNextSize = 0;
     this.index = 0;
     this.total = 0;
+    this.tabsKey = [];
+    this.firstTab = null;
+    this.lastTab = null;
     this.direction = 'ltr';
+    this.isMobile = false;
 
     // Bind `this` for use in callbacks
     this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.closeMoreDropdown = this.closeMoreDropdown.bind(this);
     this.shiftTabs = this.shiftTabs.bind(this);
+    this.handleKeyboardOnTabs = this.handleKeyboardOnTabs.bind(this);
+    this.moveFocus = this.moveFocus.bind(this);
+    this.arrowFocusToTab = this.arrowFocusToTab.bind(this);
+    this.tabsKeyEvents = this.tabsKeyEvents.bind(this);
   }
 
   /**
@@ -112,13 +120,13 @@ export class Tabs {
         '.ecl-tabs__dropdown .ecl-tabs__item',
         this.element
       );
-
-      this.handleResize();
     }
 
     if (this.btnNext) {
       this.buttonNextSize = this.btnNext.getBoundingClientRect().width;
     }
+
+    this.handleResize();
 
     // Bind events
     if (this.attachClickListener && this.moreButton) {
@@ -169,6 +177,11 @@ export class Tabs {
     }
     if (this.attachResizeListener) {
       window.removeEventListener('resize', this.handleResize);
+    }
+    if (this.tabsKey) {
+      this.tabsKey.forEach((item) => {
+        item.addEventListener('keydown', this.handleKeyboardOnTabs);
+      });
     }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
@@ -251,6 +264,7 @@ export class Tabs {
     );
 
     if (vw <= 480) {
+      this.isMobile = true;
       this.index = 1;
       this.list.style.transitionDuration = '0.4s';
       this.shiftTabs(this.index);
@@ -265,9 +279,11 @@ export class Tabs {
       this.list.style.width = `${listWidth}px`;
       this.btnNext.style.display = 'block';
       this.btnPrev.style.display = 'none';
+      this.tabsKeyEvents();
       return;
     }
 
+    this.isMobile = false;
     // Behaviors for Tablet and desktop format (More button)
     this.btnNext.style.display = 'none';
     this.btnPrev.style.display = 'none';
@@ -318,10 +334,38 @@ export class Tabs {
         }
       });
     }
+
+    this.tabsKeyEvents();
+  }
+
+  /**
+   * Bind key events on tabs for accessibility.
+   */
+  tabsKeyEvents() {
+    this.tabsKey = [];
+    this.listItems.forEach((item, index, array) => {
+      let tab = null;
+      if (item.getAttribute('aria-hidden') === 'false') {
+        tab = queryOne('.ecl-tabs__link', item);
+      } else {
+        const dropdownItem = this.dropdownItems[index];
+        tab = queryOne('.ecl-tabs__link', dropdownItem);
+      }
+      tab.addEventListener('keydown', this.handleKeyboardOnTabs);
+      this.tabsKey.push(tab);
+
+      if (index === 0) {
+        this.firstTab = tab;
+      }
+      if (index === array.length - 1) {
+        this.lastTab = tab;
+      }
+    });
   }
 
   /**
    * Close the dropdown.
+   * @param {Event} e
    */
   closeMoreDropdown(e) {
     let el = e.target;
@@ -333,6 +377,73 @@ export class Tabs {
     }
     this.moreButton.setAttribute('aria-expanded', false);
     this.dropdown.classList.remove('ecl-tabs__dropdown--show');
+  }
+
+  /**
+   * @param {Event} e
+   */
+  handleKeyboardOnTabs(e) {
+    const tgt = e.currentTarget;
+
+    switch (e.key) {
+      case 'ArrowLeft':
+        this.arrowFocusToTab(tgt, 'prev');
+        break;
+
+      case 'ArrowRight':
+        this.arrowFocusToTab(tgt, 'next');
+        break;
+
+      case 'Home':
+        this.moveFocus(this.firstTab);
+        break;
+
+      case 'End':
+        this.moveFocus(this.lastTab);
+        break;
+
+      default:
+    }
+  }
+
+  /**
+   * @param {HTMLElement} currentTab tab element
+   */
+  moveFocus(currentTab) {
+    if (currentTab.closest('.ecl-tabs__dropdown')) {
+      this.moreButton.setAttribute('aria-expanded', true);
+      this.dropdown.classList.add('ecl-tabs__dropdown--show');
+    } else {
+      this.moreButton.setAttribute('aria-expanded', false);
+      this.dropdown.classList.remove('ecl-tabs__dropdown--show');
+    }
+    currentTab.focus();
+  }
+
+  /**
+   * @param {HTMLElement} currentTab tab element
+   * @param {string} direction key arrow direction
+   */
+  arrowFocusToTab(currentTab, direction) {
+    let index = this.tabsKey.indexOf(currentTab);
+    index = direction === 'next' ? index + 1 : index - 1;
+
+    const startTab = direction === 'next' ? this.firstTab : this.lastTab;
+    const endTab = direction === 'next' ? this.lastTab : this.firstTab;
+
+    if (this.isMobile) {
+      if (currentTab !== endTab) {
+        this.moveFocus(this.tabsKey[index]);
+        this.shiftTabs(direction);
+      }
+      return;
+    }
+
+    if (currentTab === endTab) {
+      this.moveFocus(startTab);
+    } else {
+      this.moveFocus(this.tabsKey[index]);
+    }
   }
 }
 
