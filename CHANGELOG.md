@@ -1,5 +1,21 @@
 # Changelog
 
+## 3.3.4 (2022-07-13)
+
+#### :bug: Bug Fix
+
+- [#2594](https://github.com/ec-europa/europa-component-library/pull/2594) fix(link): Fix content display around link with icons - FRONT-3694 ([@papegaill](https://github.com/papegaill))
+
+#### :memo: Documentation
+
+- [#2592](https://github.com/ec-europa/europa-component-library/pull/2592) fix(docs): Fixing docs and examples about responsive spacing - FRONT-3696 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#2590](https://github.com/ec-europa/europa-component-library/pull/2590) chore(deps): Updates 11-07-22 ([@planctus](https://github.com/planctus))
+- [#2583](https://github.com/ec-europa/europa-component-library/pull/2583) chore(deps): bump parse-url from 6.0.0 to 6.0.2 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- [#2580](https://github.com/ec-europa/europa-component-library/pull/2580) chore(deps): Updates 04-07-22 ([@planctus](https://github.com/planctus))
+
 ## 3.3.3 (2022-06-29)
 
 #### :nail_care: Enhancement
