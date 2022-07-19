@@ -6,35 +6,41 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
 
+$_border-radius: null !default;
+$_border-width: 2px !default;
+$_font-weight: null !default;
+$_outline-color: null !default;
+$_outline-width: null !default;
+$_padding-horizontal: map.get(theme.$spacing, 'm') !default;
+$_padding-vertical: map.get(theme.$spacing, 's') !default;
+$_shadow-hover: null !default;
+
 @mixin browse-button() {
   appearance: none;
   background: none;
-  background-color: map.get(theme.$color, 'blue-100');
-  border-radius: 0;
+  border-radius: $_border-radius;
   border-width: 0;
-  box-shadow: 0;
   box-sizing: border-box;
-  color: map.get(theme.$color, 'white-100');
   display: inline-block;
   font: map.get(theme.$font, 'm');
-  font-weight: map.get(theme.$font-weight, 'bold');
+  font-weight: $_font-weight;
   margin: 0;
-  padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
+  padding: $_padding-vertical $_padding-horizontal;
   text-decoration: none;
 
-  // stylelint-disable plugin/selector-bem-pattern
   &:hover,
   &:active {
-    background-color: map.get(theme.$color, 'blue-130');
+    box-shadow: $_shadow-hover;
     text-decoration: none;
   }
 
   &:focus {
-    outline: 3px solid map.get(theme.$color, 'yellow');
-    outline-offset: -(3px);
+    border: $_outline-width solid $_outline-color;
+    outline: none;
+    padding: calc(#{$_padding-vertical} - #{$_outline-width})
+      calc(#{$_padding-horizontal} - #{$_outline-width});
     text-decoration: none;
   }
-  // stylelint-enable plugin/selector-bem-pattern
 }
 
 @mixin browse-button-disabled() {
@@ -45,23 +51,36 @@
 }
 
 .ecl-file-upload {
-  display: none;
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
   margin: 0;
 
   .no-js & {
+    clip: initial;
     color: map.get(theme.$color, 'grey');
-    display: block;
     font: map.get(theme.$font, 'm');
+    height: auto;
+    overflow: initial;
+    position: initial;
+    width: auto;
     margin: 0;
-
-    // stylelint-disable max-nesting-depth
-    &:active,
-    &:focus {
-      outline: 3px solid map.get(theme.$color, 'yellow');
-      outline-offset: -3px;
-    }
-    // stylelint-enable max-nesting-depth
   }
+
+  // stylelint-disable max-nesting-depth
+  &:active,
+  &:focus {
+    + .ecl-file-upload__button-container .ecl-file-upload__button {
+      border: $_outline-width solid $_outline-color;
+      outline: none;
+      padding: calc(#{$_padding-vertical} - #{$_outline-width})
+        calc(#{$_padding-horizontal} - #{$_outline-width});
+      text-decoration: none;
+    }
+  }
+  // stylelint-enable max-nesting-depth
 }
 
 /*

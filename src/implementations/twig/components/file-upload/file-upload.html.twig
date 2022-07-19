@@ -146,6 +146,15 @@
   </div>
 {% endif %}
 
+  <input
+    type="file"
+    class="{{ _component_class }}"
+    {{- _main_attributes -}}
+  {% if _extra_attributes is not empty %}
+    {{- _extra_attributes -}}
+  {% endif %}
+  />
+
   <label
     class="ecl-file-upload__button-container"
   {% if _id is not empty %}
@@ -168,15 +177,6 @@
       {{- _button_choose_label -}}
     </span>
   </label>
-
-  <input
-    type="file"
-    class="{{ _component_class }}"
-    {{- _main_attributes -}}
-  {% if _extra_attributes is not empty %}
-    {{- _extra_attributes -}}
-  {% endif %}
-  />
 
   <ul
     class="ecl-file-upload__list"
