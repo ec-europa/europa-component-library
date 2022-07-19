@@ -13,6 +13,10 @@ $_row-border-color: null !default;
 $_sort-icon-color: null !default;
 $_sort-icon-color-active: null !default;
 $_sort-arrow-margin-top: null !default;
+$_outline-color: null !default;
+$_outline-width: null !default;
+$_button_arrow_height: null !default;
+$_button_arrow_width: null !default;
 
 .ecl-table,
 %ecl-table {
@@ -198,9 +202,19 @@ $_sort-arrow-margin-top: null !default;
 }
 
 .ecl-table__arrow {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  height: $_button_arrow_height;
   left: map.get(theme.$spacing, '2xs');
   margin-top: $_sort-arrow-margin-top;
   position: absolute;
+  width: $_button_arrow_width;
+
+  &:focus-visible {
+    outline: $_outline-width solid $_outline-color;
+    outline-offset: -4px;
+  }
 }
 
 .ecl-table__icon {
