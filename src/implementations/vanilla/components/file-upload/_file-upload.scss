@@ -34,7 +34,7 @@ $_shadow-hover: null !default;
     text-decoration: none;
   }
 
-  &:focus {
+  &:focus-visible {
     border: $_outline-width solid $_outline-color;
     outline: none;
     padding: calc(#{$_padding-vertical} - #{$_outline-width})
@@ -71,7 +71,7 @@ $_shadow-hover: null !default;
 
   // stylelint-disable max-nesting-depth
   &:active,
-  &:focus {
+  &:focus-visible {
     + .ecl-file-upload__button-container .ecl-file-upload__button {
       border: $_outline-width solid $_outline-color;
       outline: none;

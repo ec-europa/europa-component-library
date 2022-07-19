@@ -119,7 +119,7 @@ $_outline-color: null !default;
 }
 
 // Focus
-.ecl-radio__input:focus + .ecl-radio__label,
+.ecl-radio__input:focus-visible + .ecl-radio__label,
 .ecl-radio__input:active + .ecl-radio__label {
   .ecl-radio__box::before {
     // We can't use outline as this is a rounded box
@@ -135,7 +135,7 @@ $_outline-color: null !default;
   }
 }
 
-.ecl-radio__input:checked:focus + .ecl-radio__label,
+.ecl-radio__input:checked:focus-visible + .ecl-radio__label,
 .ecl-radio__input:checked:active + .ecl-radio__label {
   .ecl-radio__box::before {
     left: -#{$_box-border-width-checked};

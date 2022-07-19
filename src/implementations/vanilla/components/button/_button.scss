@@ -35,7 +35,7 @@ $_shadow-hover: null !default;
     text-decoration: none;
   }
 
-  &:focus {
+  &:focus-visible {
     border: $_outline-width solid $_outline-color;
     outline: none;
     padding: calc(#{$_padding-vertical} - #{$_outline-width})
@@ -177,7 +177,7 @@ $_cta-outline-color: null !default;
     background-color: $_cta-background-color-hover;
   }
 
-  &:focus {
+  &:focus-visible {
     border-color: $_cta-outline-color;
   }
 

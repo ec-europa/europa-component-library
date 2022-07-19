@@ -48,7 +48,7 @@ $_outline: null !default;
     display: none;
   }
 
-  &:focus {
+  &:focus-visible {
     border-color: map.get($_outline, 'color');
     outline: none;
   }
@@ -164,7 +164,7 @@ $_outline: null !default;
     }
   }
 
-  &:focus {
+  &:focus-visible {
     outline-offset: -(map.get($_outline, 'width'));
   }
 

@@ -54,7 +54,7 @@ $_outline-width: none !default;
   padding: map.get(theme.$spacing, 'm') map.get(theme.$spacing, 's');
   text-decoration: none;
 
-  &:focus {
+  &:focus-visible {
     outline-offset: -2px;
   }
 
@@ -94,7 +94,7 @@ $_outline-width: none !default;
   font-weight: map.get(theme.$font-weight, 'bold');
   position: relative;
 
-  &:not(:focus) {
+  &:not(:focus-visible) {
     border-color: transparent;
   }
 
@@ -122,7 +122,7 @@ $_outline-width: none !default;
     width: 100%;
   }
 
-  &:focus::before {
+  &:focus-visible::before {
     content: none;
   }
 }
@@ -191,7 +191,7 @@ $_outline-width: none !default;
   top: 50%;
   transform: translateY(-50%);
 
-  &:focus {
+  &:focus-visible {
     outline: $_outline-width solid $_outline-color;
   }
 }
