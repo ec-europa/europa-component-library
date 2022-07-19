@@ -34,6 +34,7 @@ $_outline-width: none !default;
   fill: map.get(theme.$color, 'blue-100');
   flex-shrink: 0;
   margin: map.get(theme.$spacing, 's');
+  margin-inline-end: 0;
 }
 
 .ecl-news-ticker__container {
@@ -66,6 +67,7 @@ $_outline-width: none !default;
   display: flex;
   padding: 5px 0;
   padding-inline-end: map.get(theme.$spacing, 's');
+  padding-inline-start: map.get(theme.$spacing, 's');
 }
 
 .ecl-news-ticker__slide,

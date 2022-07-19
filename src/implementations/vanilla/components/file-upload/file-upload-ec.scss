@@ -1,0 +1,9 @@
+@use 'sass:map';
+@use '@ecl/theme-dev/theme';
+@use 'file-upload' with (
+  $_border-radius: 0,
+  $_font-weight: map.get(theme.$font-weight, 'bold'),
+  $_outline-color: map.get(theme.$color, 'yellow-100'),
+  $_outline-width: 3px,
+  $_shadow-hover: none
+);

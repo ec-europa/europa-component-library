@@ -331,19 +331,10 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
                     data-ecl-menu-subitem=""
                   >
                     <a
-                      class="ecl-menu__sublink ecl-link--icon-after"
+                      class="ecl-menu__sublink"
                       href="/example"
                     >
                       Item 2.4
-                      <svg
-                        aria-hidden="true"
-                        class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
-                        focusable="false"
-                      >
-                        <use
-                          xlink:href="/icons.svg#external"
-                        />
-                      </svg>
                     </a>
                   </li>
                   <li
@@ -373,10 +364,19 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
                     data-ecl-menu-subitem=""
                   >
                     <a
-                      class="ecl-menu__sublink"
+                      class="ecl-menu__sublink ecl-link--icon-after"
                       href="/example"
                     >
                       Item 2.7
+                      <svg
+                        aria-hidden="true"
+                        class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
+                        focusable="false"
+                      >
+                        <use
+                          xlink:href="/icons.svg#external"
+                        />
+                      </svg>
                     </a>
                   </li>
                 </ul>
@@ -1037,10 +1037,10 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
         class="ecl-language-list__container ecl-container"
       >
         <div
-          class="ecl-row"
+          class="ecl-language-list--overlay__header"
         >
           <div
-            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-col-m-11 ecl-offset-l-2"
           >
             <button
               class="ecl-button ecl-button--ghost ecl-language-list__close-button"
@@ -1070,7 +1070,7 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
             </button>
           </div>
           <div
-            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
             id="ecl-language-list__title"
           >
             <svg
@@ -1089,12 +1089,12 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
           class="ecl-row ecl-language-list__eu"
         >
           <div
-            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
           >
             EU official languages
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
           >
             <ul
               class="ecl-language-list__list"
@@ -1271,7 +1271,7 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
             </ul>
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
           >
             <ul
               class="ecl-language-list__list"
@@ -1439,12 +1439,12 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
           class="ecl-row ecl-language-list__non-eu"
         >
           <div
-            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
           >
             Non-EU languages
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
           >
             <ul
               class="ecl-language-list__list"
@@ -1491,7 +1491,7 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
             </ul>
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
           >
             <ul
               class="ecl-language-list__list"
@@ -1894,19 +1894,10 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
                     data-ecl-menu-subitem=""
                   >
                     <a
-                      class="ecl-menu__sublink ecl-link--icon-after"
+                      class="ecl-menu__sublink"
                       href="/example"
                     >
                       Item 2.4
-                      <svg
-                        aria-hidden="true"
-                        class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
-                        focusable="false"
-                      >
-                        <use
-                          xlink:href="/icons.svg#external"
-                        />
-                      </svg>
                     </a>
                   </li>
                   <li
@@ -1936,10 +1927,19 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
                     data-ecl-menu-subitem=""
                   >
                     <a
-                      class="ecl-menu__sublink"
+                      class="ecl-menu__sublink ecl-link--icon-after"
                       href="/example"
                     >
                       Item 2.7
+                      <svg
+                        aria-hidden="true"
+                        class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
+                        focusable="false"
+                      >
+                        <use
+                          xlink:href="/icons.svg#external"
+                        />
+                      </svg>
                     </a>
                   </li>
                 </ul>
@@ -2600,10 +2600,10 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
         class="ecl-language-list__container ecl-container"
       >
         <div
-          class="ecl-row"
+          class="ecl-language-list--overlay__header"
         >
           <div
-            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-col-m-11 ecl-offset-l-2"
           >
             <button
               class="ecl-button ecl-button--ghost ecl-language-list__close-button"
@@ -2633,7 +2633,7 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
             </button>
           </div>
           <div
-            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
             id="ecl-language-list__title"
           >
             <svg
@@ -2652,12 +2652,12 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
           class="ecl-row ecl-language-list__eu"
         >
           <div
-            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
           >
             EU official languages
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
           >
             <ul
               class="ecl-language-list__list"
@@ -2834,7 +2834,7 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
             </ul>
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
           >
             <ul
               class="ecl-language-list__list"
@@ -3002,12 +3002,12 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
           class="ecl-row ecl-language-list__non-eu"
         >
           <div
-            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
           >
             Non-EU languages
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
           >
             <ul
               class="ecl-language-list__list"
@@ -3054,7 +3054,7 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
             </ul>
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
           >
             <ul
               class="ecl-language-list__list"
@@ -3427,19 +3427,10 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
                     data-ecl-menu-subitem=""
                   >
                     <a
-                      class="ecl-menu__sublink ecl-link--icon-after"
+                      class="ecl-menu__sublink"
                       href="/example"
                     >
                       Item 2.4
-                      <svg
-                        aria-hidden="true"
-                        class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
-                        focusable="false"
-                      >
-                        <use
-                          xlink:href="/icons.svg#external"
-                        />
-                      </svg>
                     </a>
                   </li>
                   <li
@@ -3469,10 +3460,19 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
                     data-ecl-menu-subitem=""
                   >
                     <a
-                      class="ecl-menu__sublink"
+                      class="ecl-menu__sublink ecl-link--icon-after"
                       href="/example"
                     >
                       Item 2.7
+                      <svg
+                        aria-hidden="true"
+                        class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
+                        focusable="false"
+                      >
+                        <use
+                          xlink:href="/icons.svg#external"
+                        />
+                      </svg>
                     </a>
                   </li>
                 </ul>
@@ -4133,10 +4133,10 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
         class="ecl-language-list__container ecl-container"
       >
         <div
-          class="ecl-row"
+          class="ecl-language-list--overlay__header"
         >
           <div
-            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-col-m-11 ecl-offset-l-2"
           >
             <button
               class="ecl-button ecl-button--ghost ecl-language-list__close-button"
@@ -4166,7 +4166,7 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
             </button>
           </div>
           <div
-            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
             id="ecl-language-list__title"
           >
             <svg
@@ -4185,12 +4185,12 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
           class="ecl-row ecl-language-list__eu"
         >
           <div
-            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
           >
             EU official languages
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
           >
             <ul
               class="ecl-language-list__list"
@@ -4367,7 +4367,7 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
             </ul>
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
           >
             <ul
               class="ecl-language-list__list"
@@ -4535,12 +4535,12 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
           class="ecl-row ecl-language-list__non-eu"
         >
           <div
-            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
           >
             Non-EU languages
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
           >
             <ul
               class="ecl-language-list__list"
@@ -4587,7 +4587,7 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
             </ul>
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
           >
             <ul
               class="ecl-language-list__list"
@@ -4958,19 +4958,10 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
                     data-ecl-menu-subitem=""
                   >
                     <a
-                      class="ecl-menu__sublink ecl-link--icon-after"
+                      class="ecl-menu__sublink"
                       href="/example"
                     >
                       Item 2.4
-                      <svg
-                        aria-hidden="true"
-                        class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
-                        focusable="false"
-                      >
-                        <use
-                          xlink:href="/icons.svg#external"
-                        />
-                      </svg>
                     </a>
                   </li>
                   <li
@@ -5000,10 +4991,19 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
                     data-ecl-menu-subitem=""
                   >
                     <a
-                      class="ecl-menu__sublink"
+                      class="ecl-menu__sublink ecl-link--icon-after"
                       href="/example"
                     >
                       Item 2.7
+                      <svg
+                        aria-hidden="true"
+                        class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
+                        focusable="false"
+                      >
+                        <use
+                          xlink:href="/icons.svg#external"
+                        />
+                      </svg>
                     </a>
                   </li>
                 </ul>
@@ -5664,10 +5664,10 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
         class="ecl-language-list__container ecl-container"
       >
         <div
-          class="ecl-row"
+          class="ecl-language-list--overlay__header"
         >
           <div
-            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-col-m-11 ecl-offset-l-2"
           >
             <button
               class="ecl-button ecl-button--ghost ecl-language-list__close-button"
@@ -5697,7 +5697,7 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
             </button>
           </div>
           <div
-            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
             id="ecl-language-list__title"
           >
             <svg
@@ -5716,12 +5716,12 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
           class="ecl-row ecl-language-list__eu"
         >
           <div
-            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
           >
             EU official languages
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
           >
             <ul
               class="ecl-language-list__list"
@@ -5898,7 +5898,7 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
             </ul>
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
           >
             <ul
               class="ecl-language-list__list"
@@ -6066,12 +6066,12 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
           class="ecl-row ecl-language-list__non-eu"
         >
           <div
-            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
           >
             Non-EU languages
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
           >
             <ul
               class="ecl-language-list__list"
@@ -6118,7 +6118,7 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
             </ul>
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
           >
             <ul
               class="ecl-language-list__list"
@@ -6489,19 +6489,10 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
                     data-ecl-menu-subitem=""
                   >
                     <a
-                      class="ecl-menu__sublink ecl-link--icon-after"
+                      class="ecl-menu__sublink"
                       href="/example"
                     >
                       Item 2.4
-                      <svg
-                        aria-hidden="true"
-                        class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
-                        focusable="false"
-                      >
-                        <use
-                          xlink:href="/icons.svg#external"
-                        />
-                      </svg>
                     </a>
                   </li>
                   <li
@@ -6531,10 +6522,19 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
                     data-ecl-menu-subitem=""
                   >
                     <a
-                      class="ecl-menu__sublink"
+                      class="ecl-menu__sublink ecl-link--icon-after"
                       href="/example"
                     >
                       Item 2.7
+                      <svg
+                        aria-hidden="true"
+                        class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
+                        focusable="false"
+                      >
+                        <use
+                          xlink:href="/icons.svg#external"
+                        />
+                      </svg>
                     </a>
                   </li>
                 </ul>
@@ -7370,10 +7370,10 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
         class="ecl-language-list__container ecl-container"
       >
         <div
-          class="ecl-row"
+          class="ecl-language-list--overlay__header"
         >
           <div
-            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-col-m-11 ecl-offset-l-2"
           >
             <button
               class="ecl-button ecl-button--ghost ecl-language-list__close-button"
@@ -7403,7 +7403,7 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
             </button>
           </div>
           <div
-            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
             id="ecl-language-list__title"
           >
             <svg
@@ -7422,12 +7422,12 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
           class="ecl-row ecl-language-list__eu"
         >
           <div
-            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
           >
             Langues officielles de l'UE
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
           >
             <ul
               class="ecl-language-list__list"
@@ -7604,7 +7604,7 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
             </ul>
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
           >
             <ul
               class="ecl-language-list__list"
@@ -7772,12 +7772,12 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
           class="ecl-row ecl-language-list__non-eu"
         >
           <div
-            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
           >
             Langues hors de l'UE
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
           >
             <ul
               class="ecl-language-list__list"
@@ -7824,7 +7824,7 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
             </ul>
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
           >
             <ul
               class="ecl-language-list__list"
@@ -8197,19 +8197,10 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
                     data-ecl-menu-subitem=""
                   >
                     <a
-                      class="ecl-menu__sublink ecl-link--icon-after"
+                      class="ecl-menu__sublink"
                       href="/example"
                     >
                       Item 2.4
-                      <svg
-                        aria-hidden="true"
-                        class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
-                        focusable="false"
-                      >
-                        <use
-                          xlink:href="/icons.svg#external"
-                        />
-                      </svg>
                     </a>
                   </li>
                   <li
@@ -8239,10 +8230,19 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
                     data-ecl-menu-subitem=""
                   >
                     <a
-                      class="ecl-menu__sublink"
+                      class="ecl-menu__sublink ecl-link--icon-after"
                       href="/example"
                     >
                       Item 2.7
+                      <svg
+                        aria-hidden="true"
+                        class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
+                        focusable="false"
+                      >
+                        <use
+                          xlink:href="/icons.svg#external"
+                        />
+                      </svg>
                     </a>
                   </li>
                 </ul>
@@ -9078,10 +9078,10 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
         class="ecl-language-list__container ecl-container"
       >
         <div
-          class="ecl-row"
+          class="ecl-language-list--overlay__header"
         >
           <div
-            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-col-m-11 ecl-offset-l-2"
           >
             <button
               class="ecl-button ecl-button--ghost ecl-language-list__close-button"
@@ -9111,7 +9111,7 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
             </button>
           </div>
           <div
-            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
             id="ecl-language-list__title"
           >
             <svg
@@ -9130,12 +9130,12 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
           class="ecl-row ecl-language-list__eu"
         >
           <div
-            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
           >
             Langues officielles de l'UE
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
           >
             <ul
               class="ecl-language-list__list"
@@ -9312,7 +9312,7 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
             </ul>
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
           >
             <ul
               class="ecl-language-list__list"
@@ -9480,12 +9480,12 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
           class="ecl-row ecl-language-list__non-eu"
         >
           <div
-            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
           >
             Langues hors de l'UE
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
           >
             <ul
               class="ecl-language-list__list"
@@ -9532,7 +9532,7 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
             </ul>
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
           >
             <ul
               class="ecl-language-list__list"
@@ -9903,19 +9903,10 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
                     data-ecl-menu-subitem=""
                   >
                     <a
-                      class="ecl-menu__sublink ecl-link--icon-after"
+                      class="ecl-menu__sublink"
                       href="/example"
                     >
                       Item 2.4
-                      <svg
-                        aria-hidden="true"
-                        class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
-                        focusable="false"
-                      >
-                        <use
-                          xlink:href="/icons.svg#external"
-                        />
-                      </svg>
                     </a>
                   </li>
                   <li
@@ -9945,10 +9936,19 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
                     data-ecl-menu-subitem=""
                   >
                     <a
-                      class="ecl-menu__sublink"
+                      class="ecl-menu__sublink ecl-link--icon-after"
                       href="/example"
                     >
                       Item 2.7
+                      <svg
+                        aria-hidden="true"
+                        class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
+                        focusable="false"
+                      >
+                        <use
+                          xlink:href="/icons.svg#external"
+                        />
+                      </svg>
                     </a>
                   </li>
                 </ul>
@@ -10784,10 +10784,10 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
         class="ecl-language-list__container ecl-container"
       >
         <div
-          class="ecl-row"
+          class="ecl-language-list--overlay__header"
         >
           <div
-            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-col-m-11 ecl-offset-l-2"
           >
             <button
               class="ecl-button ecl-button--ghost ecl-language-list__close-button"
@@ -10817,7 +10817,7 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
             </button>
           </div>
           <div
-            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
             id="ecl-language-list__title"
           >
             <svg
@@ -10836,12 +10836,12 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
           class="ecl-row ecl-language-list__eu"
         >
           <div
-            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
           >
             Langues officielles de l'UE
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
           >
             <ul
               class="ecl-language-list__list"
@@ -11018,7 +11018,7 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
             </ul>
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
           >
             <ul
               class="ecl-language-list__list"
@@ -11186,12 +11186,12 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
           class="ecl-row ecl-language-list__non-eu"
         >
           <div
-            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
           >
             Langues hors de l'UE
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
           >
             <ul
               class="ecl-language-list__list"
@@ -11238,7 +11238,7 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
             </ul>
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
           >
             <ul
               class="ecl-language-list__list"
@@ -11609,19 +11609,10 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
                     data-ecl-menu-subitem=""
                   >
                     <a
-                      class="ecl-menu__sublink ecl-link--icon-after"
+                      class="ecl-menu__sublink"
                       href="/example"
                     >
                       Item 2.4
-                      <svg
-                        aria-hidden="true"
-                        class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
-                        focusable="false"
-                      >
-                        <use
-                          xlink:href="/icons.svg#external"
-                        />
-                      </svg>
                     </a>
                   </li>
                   <li
@@ -11651,10 +11642,19 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
                     data-ecl-menu-subitem=""
                   >
                     <a
-                      class="ecl-menu__sublink"
+                      class="ecl-menu__sublink ecl-link--icon-after"
                       href="/example"
                     >
                       Item 2.7
+                      <svg
+                        aria-hidden="true"
+                        class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
+                        focusable="false"
+                      >
+                        <use
+                          xlink:href="/icons.svg#external"
+                        />
+                      </svg>
                     </a>
                   </li>
                 </ul>
@@ -12315,10 +12315,10 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
         class="ecl-language-list__container ecl-container"
       >
         <div
-          class="ecl-row"
+          class="ecl-language-list--overlay__header"
         >
           <div
-            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-col-m-11 ecl-offset-l-2"
           >
             <button
               class="ecl-button ecl-button--ghost ecl-language-list__close-button"
@@ -12348,7 +12348,7 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
             </button>
           </div>
           <div
-            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
             id="ecl-language-list__title"
           >
             <svg
@@ -12367,12 +12367,12 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
           class="ecl-row ecl-language-list__eu"
         >
           <div
-            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
           >
             EU official languages
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
           >
             <ul
               class="ecl-language-list__list"
@@ -12549,7 +12549,7 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
             </ul>
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
           >
             <ul
               class="ecl-language-list__list"
@@ -12717,12 +12717,12 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
           class="ecl-row ecl-language-list__non-eu"
         >
           <div
-            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
           >
             Non-EU languages
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
           >
             <ul
               class="ecl-language-list__list"
@@ -12769,7 +12769,7 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
             </ul>
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
           >
             <ul
               class="ecl-language-list__list"
@@ -13172,19 +13172,10 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
                     data-ecl-menu-subitem=""
                   >
                     <a
-                      class="ecl-menu__sublink ecl-link--icon-after"
+                      class="ecl-menu__sublink"
                       href="/example"
                     >
                       Item 2.4
-                      <svg
-                        aria-hidden="true"
-                        class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
-                        focusable="false"
-                      >
-                        <use
-                          xlink:href="/icons.svg#external"
-                        />
-                      </svg>
                     </a>
                   </li>
                   <li
@@ -13214,10 +13205,19 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
                     data-ecl-menu-subitem=""
                   >
                     <a
-                      class="ecl-menu__sublink"
+                      class="ecl-menu__sublink ecl-link--icon-after"
                       href="/example"
                     >
                       Item 2.7
+                      <svg
+                        aria-hidden="true"
+                        class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
+                        focusable="false"
+                      >
+                        <use
+                          xlink:href="/icons.svg#external"
+                        />
+                      </svg>
                     </a>
                   </li>
                 </ul>
@@ -13878,10 +13878,10 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
         class="ecl-language-list__container ecl-container"
       >
         <div
-          class="ecl-row"
+          class="ecl-language-list--overlay__header"
         >
           <div
-            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-col-m-11 ecl-offset-l-2"
           >
             <button
               class="ecl-button ecl-button--ghost ecl-language-list__close-button"
@@ -13911,7 +13911,7 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
             </button>
           </div>
           <div
-            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
             id="ecl-language-list__title"
           >
             <svg
@@ -13930,12 +13930,12 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
           class="ecl-row ecl-language-list__eu"
         >
           <div
-            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
           >
             EU official languages
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
           >
             <ul
               class="ecl-language-list__list"
@@ -14112,7 +14112,7 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
             </ul>
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
           >
             <ul
               class="ecl-language-list__list"
@@ -14280,12 +14280,12 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
           class="ecl-row ecl-language-list__non-eu"
         >
           <div
-            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
           >
             Non-EU languages
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
           >
             <ul
               class="ecl-language-list__list"
@@ -14332,7 +14332,7 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
             </ul>
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
           >
             <ul
               class="ecl-language-list__list"
@@ -14705,19 +14705,10 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
                     data-ecl-menu-subitem=""
                   >
                     <a
-                      class="ecl-menu__sublink ecl-link--icon-after"
+                      class="ecl-menu__sublink"
                       href="/example"
                     >
                       Item 2.4
-                      <svg
-                        aria-hidden="true"
-                        class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
-                        focusable="false"
-                      >
-                        <use
-                          xlink:href="/icons.svg#external"
-                        />
-                      </svg>
                     </a>
                   </li>
                   <li
@@ -14747,10 +14738,19 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
                     data-ecl-menu-subitem=""
                   >
                     <a
-                      class="ecl-menu__sublink"
+                      class="ecl-menu__sublink ecl-link--icon-after"
                       href="/example"
                     >
                       Item 2.7
+                      <svg
+                        aria-hidden="true"
+                        class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
+                        focusable="false"
+                      >
+                        <use
+                          xlink:href="/icons.svg#external"
+                        />
+                      </svg>
                     </a>
                   </li>
                 </ul>
@@ -15411,10 +15411,10 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
         class="ecl-language-list__container ecl-container"
       >
         <div
-          class="ecl-row"
+          class="ecl-language-list--overlay__header"
         >
           <div
-            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-col-m-11 ecl-offset-l-2"
           >
             <button
               class="ecl-button ecl-button--ghost ecl-language-list__close-button"
@@ -15444,7 +15444,7 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
             </button>
           </div>
           <div
-            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
             id="ecl-language-list__title"
           >
             <svg
@@ -15463,12 +15463,12 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
           class="ecl-row ecl-language-list__eu"
         >
           <div
-            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
           >
             EU official languages
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
           >
             <ul
               class="ecl-language-list__list"
@@ -15645,7 +15645,7 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
             </ul>
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
           >
             <ul
               class="ecl-language-list__list"
@@ -15813,12 +15813,12 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
           class="ecl-row ecl-language-list__non-eu"
         >
           <div
-            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
           >
             Non-EU languages
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
           >
             <ul
               class="ecl-language-list__list"
@@ -15865,7 +15865,7 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
             </ul>
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
           >
             <ul
               class="ecl-language-list__list"
@@ -16236,19 +16236,10 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
                     data-ecl-menu-subitem=""
                   >
                     <a
-                      class="ecl-menu__sublink ecl-link--icon-after"
+                      class="ecl-menu__sublink"
                       href="/example"
                     >
                       Item 2.4
-                      <svg
-                        aria-hidden="true"
-                        class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
-                        focusable="false"
-                      >
-                        <use
-                          xlink:href="/icons.svg#external"
-                        />
-                      </svg>
                     </a>
                   </li>
                   <li
@@ -16278,10 +16269,19 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
                     data-ecl-menu-subitem=""
                   >
                     <a
-                      class="ecl-menu__sublink"
+                      class="ecl-menu__sublink ecl-link--icon-after"
                       href="/example"
                     >
                       Item 2.7
+                      <svg
+                        aria-hidden="true"
+                        class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
+                        focusable="false"
+                      >
+                        <use
+                          xlink:href="/icons.svg#external"
+                        />
+                      </svg>
                     </a>
                   </li>
                 </ul>
@@ -16942,10 +16942,10 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
         class="ecl-language-list__container ecl-container"
       >
         <div
-          class="ecl-row"
+          class="ecl-language-list--overlay__header"
         >
           <div
-            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-col-m-11 ecl-offset-l-2"
           >
             <button
               class="ecl-button ecl-button--ghost ecl-language-list__close-button"
@@ -16975,7 +16975,7 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
             </button>
           </div>
           <div
-            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
             id="ecl-language-list__title"
           >
             <svg
@@ -16994,12 +16994,12 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
           class="ecl-row ecl-language-list__eu"
         >
           <div
-            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
           >
             EU official languages
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
           >
             <ul
               class="ecl-language-list__list"
@@ -17176,7 +17176,7 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
             </ul>
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
           >
             <ul
               class="ecl-language-list__list"
@@ -17344,12 +17344,12 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
           class="ecl-row ecl-language-list__non-eu"
         >
           <div
-            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
           >
             Non-EU languages
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
           >
             <ul
               class="ecl-language-list__list"
@@ -17396,7 +17396,7 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
             </ul>
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
           >
             <ul
               class="ecl-language-list__list"
@@ -17767,19 +17767,10 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
                     data-ecl-menu-subitem=""
                   >
                     <a
-                      class="ecl-menu__sublink ecl-link--icon-after"
+                      class="ecl-menu__sublink"
                       href="/example"
                     >
                       Item 2.4
-                      <svg
-                        aria-hidden="true"
-                        class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
-                        focusable="false"
-                      >
-                        <use
-                          xlink:href="/icons.svg#external"
-                        />
-                      </svg>
                     </a>
                   </li>
                   <li
@@ -17809,10 +17800,19 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
                     data-ecl-menu-subitem=""
                   >
                     <a
-                      class="ecl-menu__sublink"
+                      class="ecl-menu__sublink ecl-link--icon-after"
                       href="/example"
                     >
                       Item 2.7
+                      <svg
+                        aria-hidden="true"
+                        class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
+                        focusable="false"
+                      >
+                        <use
+                          xlink:href="/icons.svg#external"
+                        />
+                      </svg>
                     </a>
                   </li>
                 </ul>
@@ -18648,10 +18648,10 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
         class="ecl-language-list__container ecl-container"
       >
         <div
-          class="ecl-row"
+          class="ecl-language-list--overlay__header"
         >
           <div
-            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-col-m-11 ecl-offset-l-2"
           >
             <button
               class="ecl-button ecl-button--ghost ecl-language-list__close-button"
@@ -18681,7 +18681,7 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
             </button>
           </div>
           <div
-            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
             id="ecl-language-list__title"
           >
             <svg
@@ -18700,12 +18700,12 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
           class="ecl-row ecl-language-list__eu"
         >
           <div
-            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
           >
             Langues officielles de l'UE
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
           >
             <ul
               class="ecl-language-list__list"
@@ -18882,7 +18882,7 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
             </ul>
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
           >
             <ul
               class="ecl-language-list__list"
@@ -19050,12 +19050,12 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
           class="ecl-row ecl-language-list__non-eu"
         >
           <div
-            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
           >
             Langues hors de l'UE
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
           >
             <ul
               class="ecl-language-list__list"
@@ -19102,7 +19102,7 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
             </ul>
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
           >
             <ul
               class="ecl-language-list__list"
@@ -19475,19 +19475,10 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
                     data-ecl-menu-subitem=""
                   >
                     <a
-                      class="ecl-menu__sublink ecl-link--icon-after"
+                      class="ecl-menu__sublink"
                       href="/example"
                     >
                       Item 2.4
-                      <svg
-                        aria-hidden="true"
-                        class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
-                        focusable="false"
-                      >
-                        <use
-                          xlink:href="/icons.svg#external"
-                        />
-                      </svg>
                     </a>
                   </li>
                   <li
@@ -19517,10 +19508,19 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
                     data-ecl-menu-subitem=""
                   >
                     <a
-                      class="ecl-menu__sublink"
+                      class="ecl-menu__sublink ecl-link--icon-after"
                       href="/example"
                     >
                       Item 2.7
+                      <svg
+                        aria-hidden="true"
+                        class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
+                        focusable="false"
+                      >
+                        <use
+                          xlink:href="/icons.svg#external"
+                        />
+                      </svg>
                     </a>
                   </li>
                 </ul>
@@ -20356,10 +20356,10 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
         class="ecl-language-list__container ecl-container"
       >
         <div
-          class="ecl-row"
+          class="ecl-language-list--overlay__header"
         >
           <div
-            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-col-m-11 ecl-offset-l-2"
           >
             <button
               class="ecl-button ecl-button--ghost ecl-language-list__close-button"
@@ -20389,7 +20389,7 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
             </button>
           </div>
           <div
-            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
             id="ecl-language-list__title"
           >
             <svg
@@ -20408,12 +20408,12 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
           class="ecl-row ecl-language-list__eu"
         >
           <div
-            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
           >
             Langues officielles de l'UE
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
           >
             <ul
               class="ecl-language-list__list"
@@ -20590,7 +20590,7 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
             </ul>
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
           >
             <ul
               class="ecl-language-list__list"
@@ -20758,12 +20758,12 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
           class="ecl-row ecl-language-list__non-eu"
         >
           <div
-            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
           >
             Langues hors de l'UE
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
           >
             <ul
               class="ecl-language-list__list"
@@ -20810,7 +20810,7 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
             </ul>
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
           >
             <ul
               class="ecl-language-list__list"
@@ -21181,19 +21181,10 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
                     data-ecl-menu-subitem=""
                   >
                     <a
-                      class="ecl-menu__sublink ecl-link--icon-after"
+                      class="ecl-menu__sublink"
                       href="/example"
                     >
                       Item 2.4
-                      <svg
-                        aria-hidden="true"
-                        class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
-                        focusable="false"
-                      >
-                        <use
-                          xlink:href="/icons.svg#external"
-                        />
-                      </svg>
                     </a>
                   </li>
                   <li
@@ -21223,10 +21214,19 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
                     data-ecl-menu-subitem=""
                   >
                     <a
-                      class="ecl-menu__sublink"
+                      class="ecl-menu__sublink ecl-link--icon-after"
                       href="/example"
                     >
                       Item 2.7
+                      <svg
+                        aria-hidden="true"
+                        class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
+                        focusable="false"
+                      >
+                        <use
+                          xlink:href="/icons.svg#external"
+                        />
+                      </svg>
                     </a>
                   </li>
                 </ul>
@@ -22062,10 +22062,10 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
         class="ecl-language-list__container ecl-container"
       >
         <div
-          class="ecl-row"
+          class="ecl-language-list--overlay__header"
         >
           <div
-            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__close ecl-col-12 ecl-col-l-8 ecl-col-m-11 ecl-offset-l-2"
           >
             <button
               class="ecl-button ecl-button--ghost ecl-language-list__close-button"
@@ -22095,7 +22095,7 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
             </button>
           </div>
           <div
-            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__title ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
             id="ecl-language-list__title"
           >
             <svg
@@ -22114,12 +22114,12 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
           class="ecl-row ecl-language-list__eu"
         >
           <div
-            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
           >
             Langues officielles de l'UE
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
           >
             <ul
               class="ecl-language-list__list"
@@ -22296,7 +22296,7 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
             </ul>
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
           >
             <ul
               class="ecl-language-list__list"
@@ -22464,12 +22464,12 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
           class="ecl-row ecl-language-list__non-eu"
         >
           <div
-            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2"
+            class="ecl-language-list__category ecl-col-12 ecl-col-l-8 ecl-offset-l-2 ecl-col-m-11 ecl-offset-m-1"
           >
             Langues hors de l'UE
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-offset-l-2 ecl-col-m-5 ecl-offset-m-1"
           >
             <ul
               class="ecl-language-list__list"
@@ -22516,7 +22516,7 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
             </ul>
           </div>
           <div
-            class="ecl-language-list__column ecl-col-12 ecl-col-l-4"
+            class="ecl-language-list__column ecl-col-12 ecl-col-l-4 ecl-col-m-5"
           >
             <ul
               class="ecl-language-list__list"

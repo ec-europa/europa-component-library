@@ -33,7 +33,8 @@
 {% set _css_class = 'ecl-tabs' %}
 {% set _extra_attributes = [
   'data-ecl-tabs="true"',
-  'data-ecl-auto-init="Tabs"']|join(' ')
+  'data-ecl-auto-init="Tabs"',
+  'role="tablist"']|join(' ')
 %}
 
 {# Internal logic - Process properties #}
@@ -62,24 +63,35 @@
 <nav class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <div class="ecl-tabs__container">
     <ul class="ecl-tabs__list">
-    {% for _item in _items %}
-      {% if _item.path is not empty %}
-        <li class="ecl-tabs__item">
-        {% set _item_extra_classes = 'ecl-tabs__link' %}
-        {% if _item.is_current is defined and _item.is_current is not empty %}
-          {% set _item_extra_classes = _item_extra_classes ~ ' ecl-tabs__link--active' %}
+      {% for _item in _items %}
+        {% if _item.path is not empty %}
+          <li class="ecl-tabs__item">
+          {% set _item_extra_classes = 'ecl-tabs__link' %}
+          {% set _item_extra_attributes = [{ name: 'role', value: 'tab' }] %}
+          {% if loop.index != 1 %}
+            {% set _item_extra_attributes = _item_extra_attributes|merge([{ name: 'tabindex', value: '-1' }]) %}
+          {% endif %}
+          {% if _item.is_current is defined and _item.is_current is not empty %}
+            {% set _item_extra_classes = _item_extra_classes ~ ' ecl-tabs__link--active' %}
+            {% set _item_extra_attributes = _item_extra_attributes|merge([{ name: 'aria-selected', value: 'true' }]) %}
+          {% else %}
+            {% set _item_extra_attributes = _item_extra_attributes|merge([{ name: 'aria-selected', value: 'false' }]) %}
+          {% endif %}
+          {% if _menu is not empty %}
+            {% set extra_attributes = extra_attributes|merge([{ name: 'data-ecl-has-menu' }]) %}
+          {% endif %}
+          {% include '@ecl/link/link.html.twig' with {
+            link: {
+              label: _item.label,
+              path: _item.path,
+            },
+            extra_classes: _item_extra_classes,
+            extra_attributes: _item_extra_attributes,
+          } only %}
+          </li>
         {% endif %}
-        {% include '@ecl/link/link.html.twig' with {
-          link: {
-            label: _item.label,
-            path: _item.path,
-          },
-          extra_classes: _item_extra_classes,
-        } only %}
-        </li>
-      {% endif %}
-    {% endfor %}
-    <li class="ecl-tabs__item ecl-tabs__item--more">
+      {% endfor %}
+      <li class="ecl-tabs__item ecl-tabs__item--more">
         {% include '@ecl/button/button.html.twig' with {
           label: _more_label,
           variant: 'secondary',
@@ -92,6 +104,7 @@
             transform: 'rotate-180'
           },
           extra_classes: 'ecl-tabs__toggle',
+          extra_attributes: [{ name: 'tabindex', value: '-1' }],
         } only %}
       </li>
     </ul>
