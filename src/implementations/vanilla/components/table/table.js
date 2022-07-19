@@ -75,7 +75,7 @@ export class Table {
     // Add sort arrows and bind click event on toggles.
     if (this.sortHeadings) {
       this.sortHeadings.forEach((tr) => {
-        const sort = document.createElement('span');
+        const sort = document.createElement('button');
         sort.classList.add('ecl-table__arrow');
         sort.appendChild(Table.createSortIcon('ecl-table__icon-up'));
         sort.appendChild(Table.createSortIcon('ecl-table__icon-down'));
