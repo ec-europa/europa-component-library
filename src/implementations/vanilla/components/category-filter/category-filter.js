@@ -53,7 +53,7 @@ export class CategoryFilter {
    * Initialise component.
    */
   init() {
-    // Query elements
+    // Query elementslur
     this.items = queryAll(this.itemSelector, this.element);
 
     // Bind click event on open
@@ -89,8 +89,6 @@ export class CategoryFilter {
     e.preventDefault();
 
     const treeItem = e.target.closest('.ecl-category-filter__item');
-
-    treeItem.blur();
 
     if (treeItem.classList.contains('ecl-category-filter__item--level-1')) {
       this.items.forEach((item) => {

@@ -48,7 +48,7 @@ $_padding-horizontal: null !default;
     box-shadow: $_shadow-hover;
   }
 
-  &:focus,
+  &:focus-visible,
   &:active {
     border-color: $_border-color-focus;
     border-width: $_border-width-focus;
@@ -114,7 +114,7 @@ $_padding-horizontal: null !default;
   }
 
   &:active,
-  &:focus {
+  &:focus-visible {
     border-color: $_border-color-focus;
   }
 }

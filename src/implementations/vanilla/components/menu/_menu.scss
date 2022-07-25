@@ -261,7 +261,7 @@ $_mobile-item-hover-background: null !default;
   margin-top: -#{map.get(theme.$spacing, 's')};
   padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'xs');
 
-  &:focus {
+  &:focus-visible {
     padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'xs');
   }
 }
@@ -286,8 +286,8 @@ $_mobile-item-hover-background: null !default;
   box-shadow: $_menu-open-button-shadow;
 }
 
-.ecl-menu__open:focus,
-.ecl-menu__close:focus {
+.ecl-menu__open:focus-visible,
+.ecl-menu__close:focus-visible {
   border-color: $_menu-open-focus-border;
   outline: none;
   padding: $_menu-open-button-padding;
@@ -355,7 +355,7 @@ $_mobile-item-hover-background: null !default;
   text-decoration: none;
   width: 100%;
 
-  &:focus {
+  &:focus-visible {
     outline: 3px solid $_menu-link-outline-color;
     outline-offset: -3px;
   }
