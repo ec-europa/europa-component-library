@@ -401,6 +401,34 @@ $_mobile-item-hover-background: null !default;
   .ecl-button__icon {
     flex-shrink: 0;
     transition: none;
+    transition-delay: 0.25s;
+    transition-property: transform, fill;
+  }
+
+  &:focus {
+    outline: none;
+    border: 0;
+  }
+
+  &:focus-visible {
+    background-color: $_menu-dropdown-background;
+    border: 0;
+    outline: 2px solid map.get(theme.$color, 'blue');
+    outline-offset: -4px;
+
+    .ecl-button__icon {
+      fill: $_menu-dropdown-item-hover-color;
+    }
+  }
+}
+
+.ecl-menu__item--current .ecl-menu__button-caret {
+  background-color: $_menu-link-active-background;
+  box-shadow: inset -#{$_menu-link-active-border-width} 0 0 0
+    $_menu-link-active-border-color;
+
+  .ecl-button__icon {
+    fill: $_menu-dropdown-item-hover-color;
   }
 }
 
@@ -447,19 +475,12 @@ $_mobile-item-hover-background: null !default;
       margin-inline-end: 0;
     }
 
-    /*
     .ecl-menu__link-icon {
       flex-shrink: 0;
       height: map.get(theme.$icon, '2xs');
       margin-inline-start: $_menu-item-icon-margin;
       width: map.get(theme.$icon, '2xs');
-
-      &:not(.ecl-menu__link-icon--external) {
-        transform: rotate(180deg);
-        transition-property: transform;
-      }
     }
-    */
 
     .ecl-menu__inner--expanded .ecl-menu__item,
     .ecl-menu__inner--expanded .ecl-menu__link-icon {
@@ -502,44 +523,48 @@ $_mobile-item-hover-background: null !default;
     .ecl-menu__link:active {
       background-color: $_menu-link-active-background;
       box-shadow: inset $_menu-link-active-border-width 0 0 0
-          $_menu-link-active-border-color,
-        inset -#{$_menu-link-active-border-width} 0 0 0
-          $_menu-link-active-border-color;
+        $_menu-link-active-border-color;
       color: $_menu-item-hover-color;
     }
 
-    .ecl-menu__item--has-children .ecl-menu__link {
-      padding-inline-end: $_menu-link-padding-right;
+    .ecl-menu__link:focus-visible {
+      background-color: map.get(theme.$color, 'white');
+      box-shadow: none;
+      color: $_menu-item-hover-color;
+      outline: 2px solid map.get(theme.$color, 'blue');
+      outline-offset: -4px;
+    }
+
+    .ecl-menu__item--current + .ecl-menu__item .ecl-menu__link {
+      box-shadow: none;
     }
   }
 
   .ecl-menu:not(.ecl-menu--forced-mobile):not(.ecl-menu--forced-close) {
     .ecl-menu__item:hover,
-    .ecl-menu__item:focus-within {
-      .ecl-menu__link,
-      .ecl-menu__link:hover,
-      .ecl-menu__link:active {
+    .ecl-menu__item:focus-within,
+    .ecl-menu__item[aria-expanded='true'] {
+      .ecl-menu__link {
         background-color: map.get(theme.$color, 'white');
         box-shadow: none;
         color: $_menu-item-hover-color;
         z-index: map.get(theme.$z-index, 'dropdown') + 1;
       }
 
-      .ecl-menu__link:focus-visible,
-      .ecl-button__container:focus-visible {
-        outline: 2px solid map.get(theme.$color, 'blue');
-        outline-offset: -4px;
+      .ecl-menu__button-caret {
+        background-color: $_menu-dropdown-background;
+        box-shadow: none;
+        z-index: map.get(theme.$z-index, 'dropdown') + 1;
+
+        .ecl-button__icon {
+          fill: $_menu-dropdown-item-hover-color;
+        }
       }
     }
 
-    .ecl-menu__item[aria-expanded='true'] .ecl-menu__button-caret {
-      background-color: $_menu-dropdown-background;
-      z-index: map.get(theme.$z-index, 'dropdown') + 1;
-
-      .ecl-button__icon {
-        fill: $_menu-dropdown-item-hover-color;
+    .ecl-menu__item[aria-expanded='true'] {
+      .ecl-menu__button-caret .ecl-button__icon {
         transform: rotate(0);
-        transition-property: transform, fill;
       }
     }
   }
@@ -651,8 +676,7 @@ $_mobile-item-hover-background: null !default;
       right: 0;
     }
 
-    .ecl-menu__item:hover .ecl-menu__mega,
-    .ecl-menu__item:focus-within .ecl-menu__mega {
+    .ecl-menu__item[aria-expanded='true'] .ecl-menu__mega {
       transition-property: visibility;
       visibility: visible;
     }
@@ -744,13 +768,7 @@ $_mobile-item-hover-background: null !default;
     .ecl-menu__item:hover .ecl-menu__button-caret,
     .ecl-menu__item:hover .ecl-menu__button-caret:hover,
     .ecl-menu__item:hover .ecl-menu__button-caret:active,
-    .ecl-menu__item:hover .ecl-menu__button-caret:focus,
-    .ecl-menu__item:hover .ecl-menu__button-caret .ecl-button__icon,
-    .ecl-menu__item:hover .ecl-menu__button-caret:hover .ecl-button__icon,
-    .ecl-menu__item:hover
-      .ecl-menu__item[aria-expanded='true']
-      .ecl-menu__button-caret
-      .ecl-button__icon {
+    .ecl-menu__item:hover .ecl-menu__button-caret:focus {
       transition-delay: 0.25s;
     }
   }

@@ -59,6 +59,7 @@
     },
     icon_position: 'after',
     extra_classes: 'ecl-menu__button-caret',
+    extra_attributes: [{ name: 'data-ecl-menu-caret' }],
   } %}
   {%- endif -%}
 {% if item.children is defined and item.children is not empty and item.children is iterable %}
