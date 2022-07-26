@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import Stickyfill from 'stickyfilljs';
 import { queryOne, queryAll } from '@ecl/dom-utils';
 
@@ -365,6 +366,7 @@ export class Menu {
    */
   handleKeyboard(e) {
     const element = e.target;
+    const cList = element.classList;
 
     // Detect press on Escape
     if (e.key === 'Escape' || e.key === 'Esc') {
@@ -373,8 +375,8 @@ export class Menu {
       }
     }
 
-    // Key actions for the caret buttons
-    if (element.classList.contains('ecl-menu__button-caret')) {
+    // Key actions to toggle the caret buttons
+    if (cList.contains('ecl-menu__button-caret')) {
       const menuItem = element.closest(this.itemSelector);
 
       if (e.keyCode === 32 || e.key === 'Enter') {
@@ -383,8 +385,8 @@ export class Menu {
         } else {
           this.handleHoverOnItem(e);
         }
+        return;
       }
-
       if (e.key === 'ArrowDown') {
         const firstItem = queryOne(
           '.ecl-menu__sublink:first-of-type',
@@ -392,12 +394,59 @@ export class Menu {
         );
         if (firstItem) {
           firstItem.focus();
+          return;
         }
       }
     }
 
-    // Key actions for the sub-links
-    if (element.classList.contains('ecl-menu__sublink')) {
+    // Key actions to navigate between first level menu items
+    if (
+      cList.contains('ecl-menu__link') ||
+      cList.contains('ecl-menu__button-caret')
+    ) {
+      if (e.key === 'ArrowLeft') {
+        let prevItem = element.previousSibling;
+
+        if (prevItem && prevItem.classList.contains('ecl-menu__link')) {
+          prevItem.focus();
+          return;
+        }
+
+        prevItem = element.parentElement.previousSibling;
+        if (prevItem) {
+          const prevClass = prevItem.classList.contains(
+            'ecl-menu__item--has-children'
+          )
+            ? '.ecl-menu__button-caret'
+            : '.ecl-menu__link';
+          const prevLink = queryOne(prevClass, prevItem);
+
+          if (prevLink) {
+            prevLink.focus();
+            return;
+          }
+        }
+      }
+      if (e.key === 'ArrowRight') {
+        let nextItem = element.nextSibling;
+
+        if (nextItem && nextItem.classList.contains('ecl-menu__button-caret')) {
+          nextItem.focus();
+          return;
+        }
+        nextItem = element.parentElement.nextSibling;
+        if (nextItem) {
+          const nextLink = queryOne('.ecl-menu__link', nextItem);
+
+          if (nextLink) {
+            nextLink.focus();
+          }
+        }
+      }
+    }
+
+    // Key actions to navigate between the sub-links
+    if (cList.contains('ecl-menu__sublink')) {
       if (e.key === 'ArrowDown') {
         const nextItem = element.parentElement.nextSibling;
         if (nextItem) {
@@ -405,10 +454,10 @@ export class Menu {
 
           if (nextLink) {
             nextLink.focus();
+            return;
           }
         }
       }
-
       if (e.key === 'ArrowUp') {
         const prevItem = element.parentElement.previousSibling;
         if (prevItem) {

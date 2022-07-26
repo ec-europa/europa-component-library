@@ -406,8 +406,9 @@ $_mobile-item-hover-background: null !default;
   }
 
   &:focus {
-    outline: none;
     border: 0;
+    outline: none;
+    padding: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 's');
   }
 
   &:focus-visible {
@@ -454,12 +455,9 @@ $_mobile-item-hover-background: null !default;
   }
 }
 /* stylelint-enable no-descending-specificity */
-
-/*
 .ecl-menu__inner--expanded .ecl-menu__link-icon {
   display: none;
 }
-*/
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
@@ -571,8 +569,8 @@ $_mobile-item-hover-background: null !default;
 }
 
 /*
-  * Second level
-  */
+ * Second level
+ */
 .ecl-menu__mega {
   box-sizing: border-box;
   display: none;
