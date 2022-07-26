@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import Stickyfill from 'stickyfilljs';
 import { queryOne, queryAll } from '@ecl/dom-utils';
 
@@ -91,12 +90,13 @@ export class Menu {
     this.links = null;
     this.isOpen = false;
     this.resizeTimer = null;
+    this.isKeyEvent = false;
 
     // Bind `this` for use in callbacks
     this.handleClickOnOpen = this.handleClickOnOpen.bind(this);
     this.handleClickOnClose = this.handleClickOnClose.bind(this);
     this.handleClickOnBack = this.handleClickOnBack.bind(this);
-    this.handleClickOnLink = this.handleClickOnLink.bind(this);
+    this.handleClickOnCaret = this.handleClickOnCaret.bind(this);
     this.handleHoverOnItem = this.handleHoverOnItem.bind(this);
     this.handleHoverOffItem = this.handleHoverOffItem.bind(this);
     this.handleKeyboard = this.handleKeyboard.bind(this);
@@ -149,9 +149,6 @@ export class Menu {
         if (this.attachFocusListener) {
           link.addEventListener('focusin', this.closeOpenDropdown);
         }
-        if (link.parentElement.hasAttribute('data-ecl-has-children')) {
-          link.addEventListener('click', this.handleClickOnLink);
-        }
         if (this.attachKeyListener) {
           link.addEventListener('keyup', this.handleKeyboard);
         }
@@ -159,9 +156,14 @@ export class Menu {
     }
 
     // Bind key event on caret buttons
-    if (this.attachKeyListener && this.carets) {
+    if (this.carets) {
       this.carets.forEach((caret) => {
-        caret.addEventListener('keyup', this.handleKeyboard);
+        if (this.attachKeyListener) {
+          caret.addEventListener('keyup', this.handleKeyboard);
+        }
+        if (this.attachClickListener) {
+          caret.addEventListener('click', this.handleClickOnCaret);
+        }
       });
     }
 
@@ -256,8 +258,30 @@ export class Menu {
         if (this.attachFocusListener) {
           link.removeEventListener('focusin', this.closeOpenDropdown);
         }
-        if (link.parentElement.hasAttribute('data-ecl-has-children')) {
-          link.removeEventListener('click', this.handleClickOnLink);
+        if (this.attachKeyListener) {
+          link.removeEventListener('keyup', this.handleKeyboard);
+        }
+      });
+    }
+
+    if (this.carets) {
+      this.carets.forEach((caret) => {
+        if (this.attachKeyListener) {
+          caret.removeEventListener('keyup', this.handleKeyboard);
+        }
+        if (this.attachClickListener) {
+          caret.removeEventListener('click', this.handleClickOnCaret);
+        }
+      });
+    }
+
+    if (this.subItems) {
+      this.subItems.forEach((subItem) => {
+        if (this.attachKeyListener) {
+          const subLink = queryOne('.ecl-menu__sublink', subItem);
+          if (subLink) {
+            subLink.removeEventListener('keyup', this.handleKeyboard);
+          }
         }
       });
     }
@@ -376,7 +400,9 @@ export class Menu {
     }
 
     // Key actions to toggle the caret buttons
-    if (cList.contains('ecl-menu__button-caret')) {
+    const menuExpanded = this.element.getAttribute('aria-expanded');
+
+    if (cList.contains('ecl-menu__button-caret') && menuExpanded === 'false') {
       const menuItem = element.closest(this.itemSelector);
 
       if (e.keyCode === 32 || e.key === 'Enter') {
@@ -404,7 +430,7 @@ export class Menu {
       cList.contains('ecl-menu__link') ||
       cList.contains('ecl-menu__button-caret')
     ) {
-      if (e.key === 'ArrowLeft') {
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
         let prevItem = element.previousSibling;
 
         if (prevItem && prevItem.classList.contains('ecl-menu__link')) {
@@ -427,7 +453,7 @@ export class Menu {
           }
         }
       }
-      if (e.key === 'ArrowRight') {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
         let nextItem = element.nextSibling;
 
         if (nextItem && nextItem.classList.contains('ecl-menu__button-caret')) {
@@ -443,6 +469,8 @@ export class Menu {
           }
         }
       }
+
+      this.closeOpenDropdown();
     }
 
     // Key actions to navigate between the sub-links
@@ -535,17 +563,12 @@ export class Menu {
    * Click on a menu item
    * @param {Event} e
    */
-  handleClickOnLink(e) {
-    // If the menu is expanded, the link should work by default
-    if (
-      !this.isOpen ||
-      this.inner.classList.contains('ecl-menu__inner--expanded')
-    ) {
-      return true;
+  handleClickOnCaret(e) {
+    // Don't execute for desktop display
+    const menuExpanded = this.element.getAttribute('aria-expanded');
+    if (menuExpanded === 'false') {
+      return;
     }
-
-    // Disable link
-    e.preventDefault();
 
     // Add css class to inner menu
     this.inner.classList.add('ecl-menu__inner--expanded');
@@ -561,8 +584,6 @@ export class Menu {
         item.setAttribute('aria-expanded', 'false');
       }
     });
-
-    return this;
   }
 
   /**
@@ -577,6 +598,12 @@ export class Menu {
         item.setAttribute('aria-expanded', 'true');
       } else {
         item.setAttribute('aria-expanded', 'false');
+      }
+
+      // Force remove focus on caret buttons
+      const caretButton = queryOne('.ecl-menu__button-caret', item);
+      if (caretButton) {
+        caretButton.blur();
       }
     });
 
