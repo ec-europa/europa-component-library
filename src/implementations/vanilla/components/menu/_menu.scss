@@ -40,7 +40,6 @@ $_menu-mobile-header-shadow: null !default;
 $_menu-mobile-shadow: null !default;
 $_menu-mobile-vertical-padding: null !default;
 $_menu-open-button-shadow: null !default;
-$_menu-open-button-border: null !default;
 $_menu-open-vertical-margin: null !default;
 $_menu-overlay-background: null !default;
 $_menu-subitem-border: null !default;
@@ -152,21 +151,6 @@ $_mobile-item-hover-background: null !default;
   flex-direction: column;
 }
 
-.ecl-menu__close {
-  color: map.get(theme.$color, 'white');
-  order: 0;
-
-  // Would be better to have a variant of button here
-  .ecl-button__icon,
-  .ecl-button__label {
-    margin-inline-end: 0;
-  }
-
-  .ecl-button__label {
-    margin-top: map.get(theme.$spacing, '2xs');
-  }
-}
-
 .ecl-menu__open,
 .ecl-menu__close {
   align-items: center;
@@ -259,8 +243,24 @@ $_mobile-item-hover-background: null !default;
   font-weight: $_menu-title-font-weight;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
+.ecl-menu__close {
+  color: map.get(theme.$color, 'white');
+  order: 0;
+
+  // Would be better to have a variant of button here
+  .ecl-button__icon,
+  .ecl-button__label {
+    margin-inline-end: 0;
+  }
+
+  .ecl-button__label {
+    margin-top: map.get(theme.$spacing, '2xs');
+  }
+}
+
 .ecl-menu__back {
-  border: $_menu-open-button-border;
+  border: 0;
   color: map.get(theme.$color, 'white');
   cursor: pointer;
   display: none;
