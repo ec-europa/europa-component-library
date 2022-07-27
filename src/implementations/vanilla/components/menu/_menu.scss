@@ -18,7 +18,7 @@ $_menu-expanded-background: null !default;
 $_menu-header-horizontal-padding: null !default;
 $_menu-item-border: null !default;
 $_menu-item-active-border: null !default;
-$_menu-item-weight: map.get(theme.$font-weight, 'normal') !default;
+$_menu-item-weight: map.get(theme.$font-weight, 'regular') !default;
 $_menu-item-hover-color: null !default;
 $_menu-item-icon-margin: null !default;
 $_menu-desktop-item-border-color: null !default;
@@ -806,6 +806,7 @@ $_mobile-item-hover-background: null !default;
           $_menu-link-active-border-color,
         inset -#{$_menu-link-active-border-width} 0 0 0
           $_menu-link-active-border-color;
+      font-weight: $_menu-item-weight;
     }
   }
 }
