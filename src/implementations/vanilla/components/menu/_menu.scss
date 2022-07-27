@@ -33,6 +33,7 @@ $_menu-caret-hover-background: null !default;
 $_menu-caret-active-background: null !default;
 $_menu-caret-active-hover-background: null !default;
 $_menu-caret-color: null !default;
+$_menu-caret-icon-scale: null !default;
 $_menu-list-background: null !default;
 $_menu-mobile-background: null !default;
 $_menu-mobile-header-background: null !default;
@@ -377,10 +378,6 @@ $_mobile-item-hover-background: null !default;
   }
 }
 
-.ecl-menu__item--has-children .ecl-menu__link:hover {
-  background-color: $_mobile-item-hover-background;
-}
-
 .ecl-menu__button-caret {
   align-self: stretch;
   background-color: $_menu-caret-background;
@@ -399,7 +396,7 @@ $_mobile-item-hover-background: null !default;
     flex-shrink: 0;
     transition: none;
     transition-property: transform, fill;
-    transform: scale(1.2) rotate(90deg);
+    transform: scale($_menu-caret-icon-scale) rotate(90deg);
   }
 
   &:hover {
@@ -490,6 +487,7 @@ $_mobile-item-hover-background: null !default;
       margin-inline-end: 0;
 
       &:hover,
+      &:first-child,
       &.ecl-menu__item--current,
       &.ecl-menu__item--current + .ecl-menu__item,
       &[aria-expanded='true'] + .ecl-menu__item {
@@ -572,7 +570,7 @@ $_mobile-item-hover-background: null !default;
 
       .ecl-button__icon {
         fill: map.get(theme.$color, 'white');
-        transform: rotate(180deg);
+        transform: scale($_menu-caret-icon-scale) rotate(180deg);
       }
 
       &:focus {
@@ -630,7 +628,7 @@ $_mobile-item-hover-background: null !default;
 
     .ecl-menu__item[aria-expanded='true'] {
       .ecl-menu__button-caret .ecl-button__icon {
-        transform: rotate(0);
+        transform: scale($_menu-caret-icon-scale) rotate(0);
       }
     }
   }
