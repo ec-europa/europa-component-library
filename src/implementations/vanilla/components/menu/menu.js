@@ -391,17 +391,23 @@ export class Menu {
   handleKeyboard(e) {
     const element = e.target;
     const cList = element.classList;
+    const menuExpanded = this.element.getAttribute('aria-expanded');
 
     // Detect press on Escape
     if (e.key === 'Escape' || e.key === 'Esc') {
       if (document.activeElement === element) {
         element.blur();
       }
+
+      if (menuExpanded === 'false') {
+        this.closeOpenDropdown();
+      } else {
+        this.handleClickOnClose();
+      }
+      return;
     }
 
     // Key actions to toggle the caret buttons
-    const menuExpanded = this.element.getAttribute('aria-expanded');
-
     if (cList.contains('ecl-menu__button-caret') && menuExpanded === 'false') {
       const menuItem = element.closest(this.itemSelector);
 
@@ -598,12 +604,12 @@ export class Menu {
         item.setAttribute('aria-expanded', 'true');
       } else {
         item.setAttribute('aria-expanded', 'false');
-      }
 
-      // Force remove focus on caret buttons
-      const caretButton = queryOne('.ecl-menu__button-caret', item);
-      if (caretButton) {
-        caretButton.blur();
+        // Force remove focus on caret buttons
+        const caretButton = queryOne('.ecl-menu__button-caret', item);
+        if (caretButton) {
+          caretButton.blur();
+        }
       }
     });
 

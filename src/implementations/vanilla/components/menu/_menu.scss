@@ -7,10 +7,9 @@
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
+$_menu-border-radius: null !default;
 $_main-nav-background: null !default;
 $_main-nav-shadow: null !default;
-$_menu-desktop-padding-top: null !default;
-$_menu-desktop-vertical-padding: null !default;
 $_menu-dropdown-background: null !default;
 $_menu-drowpdown-border-radius: null !default;
 $_menu-dropdown-item-hover-color: null !default;
@@ -27,7 +26,6 @@ $_menu-link-active-background: null !default;
 $_menu-link-active-border-width: null !default;
 $_menu-link-active-border-color: null !default;
 $_menu-link-border-radius: null !default;
-$_menu-link-desktop-align: null !default;
 $_menu-link-desktop-height: null !default;
 $_menu-link-focus-color: null !default;
 $_menu-caret-background: null !default;
@@ -36,25 +34,19 @@ $_menu-caret-active-background: null !default;
 $_menu-caret-active-hover-background: null !default;
 $_menu-caret-color: null !default;
 $_menu-list-background: null !default;
-$_menu-mega-padding-top: null !default;
 $_menu-mobile-background: null !default;
 $_menu-mobile-header-background: null !default;
 $_menu-mobile-header-shadow: null !default;
 $_menu-mobile-shadow: null !default;
 $_menu-mobile-vertical-padding: null !default;
-$_menu-open-button-padding: null !default;
 $_menu-open-button-shadow: null !default;
-$_menu-open-button-radius: null !default;
 $_menu-open-button-border: null !default;
-$_menu-open-focus-border: null !default;
 $_menu-open-vertical-margin: null !default;
 $_menu-overlay-background: null !default;
 $_menu-subitem-border: null !default;
 $_menu-subitem-active-border: null !default;
 $_menu-subitem-background: null !default;
 $_menu-subitem-active-background: null !default;
-$_menu-sublink-desktop-margin: null !default;
-$_menu-sublink-active-color: null !default;
 $_menu-sublink-hover-color: null !default;
 $_menu-title-font-weight: null !default;
 $_mobile-item-color: null !default;
@@ -133,7 +125,6 @@ $_mobile-item-hover-background: null !default;
       background-color: transparent;
       display: block;
       overflow-y: visible;
-      padding-top: $_menu-desktop-padding-top;
       position: relative;
       right: 0;
       transition: none;
@@ -157,12 +148,33 @@ $_mobile-item-hover-background: null !default;
   order: 1;
 }
 
+.ecl-menu__close-container {
+  flex-direction: column;
+}
+
+.ecl-menu__close {
+  color: map.get(theme.$color, 'white');
+  order: 0;
+
+  // Would be better to have a variant of button here
+  .ecl-button__icon,
+  .ecl-button__label {
+    margin-inline-end: 0;
+  }
+
+  .ecl-button__label {
+    margin-top: map.get(theme.$spacing, '2xs');
+  }
+}
+
 .ecl-menu__open,
 .ecl-menu__close {
   align-items: center;
   align-self: flex-end;
-  border: $_menu-open-button-border;
-  border-radius: $_menu-open-button-radius;
+  border: 0;
+  border-radius: $_menu-border-radius;
+  cursor: pointer;
+  color: map.get(theme.$color, 'white');
   display: flex;
   flex-direction: column;
   font: map.get(theme.$font, 'xs');
@@ -170,18 +182,33 @@ $_mobile-item-hover-background: null !default;
   margin-inline-start: auto;
   margin-top: $_menu-open-vertical-margin;
   order: 2;
-  padding: $_menu-open-button-padding;
-}
+  padding: map.get(theme.$spacing, '2xs');
+  text-decoration: none;
 
-.ecl-menu__open,
-.ecl-menu__open:hover,
-.ecl-menu__open:focus,
-.ecl-menu__open:active,
-.ecl-menu__open:visited {
-  color: map.get(theme.$color, 'white');
-  /* stylelint-disable plugin/selector-bem-pattern */
-  &.ecl-link {
-    text-decoration: none;
+  .ecl-icon {
+    margin-bottom: 1px;
+  }
+
+  &:hover,
+  &:focus,
+  &:active,
+  &:visited {
+    color: map.get(theme.$color, 'white');
+  }
+
+  &:hover {
+    box-shadow: $_menu-open-button-shadow;
+    text-decoration: underline;
+  }
+
+  &:focus {
+    border: 0;
+    outline: 0;
+  }
+
+  &:focus-visible {
+    outline: 2px solid map.get(theme.$color, 'white');
+    padding: map.get(theme.$spacing, '2xs');
   }
 }
 
@@ -220,10 +247,7 @@ $_mobile-item-hover-background: null !default;
   box-shadow: $_menu-mobile-header-shadow;
   display: flex;
   flex-flow: row-reverse;
-  padding-bottom: $_menu-mobile-vertical-padding;
-  padding-inline-start: $_menu-header-horizontal-padding;
-  padding-inline-end: $_menu-header-horizontal-padding;
-  padding-top: $_menu-mobile-vertical-padding;
+  padding: map.get(theme.$spacing, 'm');
   position: sticky;
   top: 0;
   z-index: map.get(theme.$z-index, 'modal') + 2;
@@ -238,45 +262,27 @@ $_mobile-item-hover-background: null !default;
 .ecl-menu__back {
   border: $_menu-open-button-border;
   color: map.get(theme.$color, 'white');
+  cursor: pointer;
   display: none;
   font: map.get(theme.$font, 'xl');
   font-weight: $_menu-title-font-weight;
-  margin-bottom: -#{map.get(theme.$spacing, 's')};
-  margin-inline-start: -#{map.get(theme.$spacing, 'xs')};
-  margin-inline-end: -#{map.get(theme.$spacing, 'xs')};
-  margin-top: -#{map.get(theme.$spacing, 's')};
-  padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'xs');
+  margin: -#{map.get(theme.$spacing, 'm')};
+  padding: map.get(theme.$spacing, 'm');
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:focus {
+    border: 0;
+    outline: 0;
+    padding: map.get(theme.$spacing, 'm');
+  }
 
   &:focus-visible {
-    padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'xs');
+    outline: 2px solid map.get(theme.$color, 'white');
+    outline-offset: -2px;
   }
-}
-
-.ecl-menu__close-container {
-  flex-direction: column;
-}
-
-.ecl-menu__close {
-  color: map.get(theme.$color, 'white');
-  order: 0;
-
-  // Would be better to have a variant of button here
-  .ecl-button__icon,
-  .ecl-button__label {
-    margin-inline-end: 0;
-  }
-}
-
-.ecl-menu__open:hover,
-.ecl-menu__close:hover {
-  box-shadow: $_menu-open-button-shadow;
-}
-
-.ecl-menu__open:focus-visible,
-.ecl-menu__close:focus-visible {
-  border-color: $_menu-open-focus-border;
-  outline: none;
-  padding: $_menu-open-button-padding;
 }
 
 // Expanded
@@ -286,13 +292,6 @@ $_mobile-item-hover-background: null !default;
 
 .ecl-menu__inner--expanded .ecl-menu__back {
   display: block;
-}
-
-@include breakpoints.up('m') {
-  .ecl-menu__inner-header {
-    padding-bottom: $_menu-desktop-vertical-padding;
-    padding-top: $_menu-desktop-vertical-padding;
-  }
 }
 
 /*
@@ -385,6 +384,7 @@ $_mobile-item-hover-background: null !default;
 .ecl-menu__button-caret {
   align-self: stretch;
   background-color: $_menu-caret-background;
+  border-radius: 0;
   display: inline-flex;
   cursor: pointer;
   padding: map.get(theme.$spacing, 'm');
@@ -404,6 +404,7 @@ $_mobile-item-hover-background: null !default;
 
   &:hover {
     background-color: $_menu-caret-hover-background;
+    box-shadow: none;
 
     .ecl-button__icon {
       fill: map.get(theme.$color, 'blue');
@@ -417,7 +418,6 @@ $_mobile-item-hover-background: null !default;
   }
 
   &:focus-visible {
-    border: 0;
     outline: 2px solid $_menu-link-focus-color;
     outline-offset: -2px;
   }
@@ -470,6 +470,7 @@ $_mobile-item-hover-background: null !default;
   }
 }
 /* stylelint-enable no-descending-specificity */
+
 .ecl-menu__inner--expanded .ecl-menu__link-icon {
   display: none;
 }
@@ -522,7 +523,6 @@ $_mobile-item-hover-background: null !default;
       margin-inline-start: 0;
       margin-inline-end: 0;
       padding: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 's');
-      text-align: $_menu-link-desktop-align;
       width: auto;
       z-index: 0;
     }
@@ -548,15 +548,21 @@ $_mobile-item-hover-background: null !default;
       outline-offset: -4px;
     }
 
+    .ecl-menu__item--has-children .ecl-menu__link {
+      border-top-right-radius: 0;
+    }
+
     .ecl-menu__item--current + .ecl-menu__item .ecl-menu__link {
       box-shadow: none;
     }
 
     .ecl-menu__button-caret {
       background: transparent;
+      border-top-right-radius: $_menu-border-radius;
       padding: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 's');
 
       .ecl-button__icon {
+        fill: map.get(theme.$color, 'white');
         transform: rotate(180deg);
       }
 
@@ -580,9 +586,13 @@ $_mobile-item-hover-background: null !default;
       box-shadow: inset -#{$_menu-link-active-border-width} 0 0 0
         $_menu-link-active-border-color;
 
+      .ecl-button__icon {
+        fill: map.get(theme.$color, 'blue');
+      }
+
       &:focus-visible {
         outline: 2px solid map.get(theme.$color, 'blue');
-        outline-offset: -2px;
+        outline-offset: -4px;
       }
     }
   }
@@ -782,6 +792,7 @@ $_mobile-item-hover-background: null !default;
     }
 
     .ecl-menu__sublink {
+      background-color: map.get(theme.$color, 'blue-5');
       break-inside: avoid-column;
       margin: 0;
       padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');

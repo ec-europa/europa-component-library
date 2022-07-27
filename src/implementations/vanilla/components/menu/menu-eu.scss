@@ -2,6 +2,7 @@
 @use '@ecl/theme-dev/theme';
 // stylelint-disable length-zero-no-unit
 @use 'menu' with (
+  $_menu-border-radius: 4px,
   $_main-nav-background:
     linear-gradient(
       90deg,
@@ -9,14 +10,11 @@
       map.get(theme.$color, 'blue-100')
     ),
   $_main-nav-shadow: 0 0 6px rgba(9, 49, 142, 0.2),
-  $_menu-desktop-padding-top: map.get(theme.$spacing, '2xs'),
-  $_menu-desktop-vertical-padding: map.get(theme.$spacing, 'm'),
   $_menu-dropdown-background: map.get(theme.$color, 'blue-5'),
   $_menu-drowpdown-border-radius: 0 0 4px 4px,
   $_menu-dropdown-item-hover-color: map.get(theme.$color, 'blue-140'),
   $_menu-dropdown-shadow: 0 0 6px rgba(9, 49, 142, 0.2),
   $_menu-expanded-background: map.get(theme.$color, 'white'),
-  $_menu-header-horizontal-padding: map.get(theme.$spacing, 'm'),
   $_menu-item-border: 1px solid map.get(theme.$color, 'blue-20'),
   $_menu-item-active-border: 1px solid map.get(theme.$color, 'blue-20'),
   $_menu-item-hover-color: map.get(theme.$color, 'blue-140'),
@@ -27,7 +25,6 @@
   $_menu-link-active-border-width: 4px,
   $_menu-link-active-border-color: map.get(theme.$color, 'blue-140'),
   $_menu-link-border-radius: 2px 2px 0 0,
-  $_menu-link-desktop-align: center,
   $_menu-link-desktop-height: 3.75rem,
   $_menu-link-focus-color: map.get(theme.$color, 'blue'),
   $_menu-caret-background: map.get(theme.$color, 'blue-10'),
@@ -35,7 +32,6 @@
   $_menu-caret-active-background: map.get(theme.$color, 'blue-40'),
   $_menu-caret-active-hover-background: map.get(theme.$color, 'blue-60'),
   $_menu-caret-color: map.get(theme.$color, 'blue'),
-  $_menu-mobile-vertical-padding: map.get(theme.$spacing, 'xs'),
   $_menu-mobile-background: map.get(theme.$color, 'white'),
   $_menu-mobile-header-background:
     linear-gradient(
@@ -45,10 +41,7 @@
     ),
   $_menu-mobile-header-shadow: 0 0 6px rgba(9, 49, 142, 0.2),
   $_menu-mobile-shadow: 0 0 4px rgba(9, 49, 142, 0.5),
-  $_menu-open-button-padding: #{map.get(theme.$spacing, '2xs')},
   $_menu-open-button-shadow: 0 0 4px rgba(map.get(theme.$color, 'white'), 0.2),
-  $_menu-open-focus-border: map.get(theme.$color, 'accent-blue-100'),
-  $_menu-open-button-radius: 4px,
   $_menu-open-button-border: 2px solid transparent,
   $_menu-open-vertical-margin: -2px,
   $_menu-overlay-background: rgba(38, 43, 56, 0.7),
