@@ -485,8 +485,16 @@ $_mobile-item-hover-background: null !default;
 
     .ecl-menu__item {
       border-top-width: 0;
+      box-shadow: inset 1px 0 0 0 $_menu-desktop-item-border-color;
       margin-inline-start: 0;
       margin-inline-end: 0;
+
+      &:hover,
+      &.ecl-menu__item--current,
+      &.ecl-menu__item--current + .ecl-menu__item,
+      &[aria-expanded='true'] + .ecl-menu__item {
+        box-shadow: none;
+      }
     }
 
     .ecl-menu__link-icon {
@@ -496,10 +504,12 @@ $_mobile-item-hover-background: null !default;
       width: map.get(theme.$icon, '2xs');
     }
 
+    /* stylelint-disable no-descending-specificity */
     .ecl-menu__inner--expanded .ecl-menu__item,
     .ecl-menu__inner--expanded .ecl-menu__link-icon {
       display: block;
     }
+    /* stylelint-enable no-descending-specificity */
 
     .ecl-menu__item--full {
       position: static;
@@ -515,7 +525,6 @@ $_mobile-item-hover-background: null !default;
     .ecl-menu__link {
       background-color: transparent;
       border-radius: $_menu-link-border-radius;
-      box-shadow: inset 1px 0 0 0 $_menu-desktop-item-border-color;
       box-sizing: border-box;
       color: map.get(theme.$color, 'white');
       display: inline-flex;
@@ -820,6 +829,8 @@ $_mobile-item-hover-background: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-menu:not(.ecl-menu--forced-mobile).ecl-menu--transition {
+    .ecl-menu__item,
+    .ecl-menu__item:hover,
     .ecl-menu__mega,
     .ecl-menu__item:hover .ecl-menu__mega,
     .ecl-menu__link,
