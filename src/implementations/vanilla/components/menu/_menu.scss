@@ -197,6 +197,11 @@ $_mobile-item-hover-background: null !default;
   }
 }
 
+/* force remove underline on ecl-link for the open button link */
+.ecl-menu__open.ecl-link--standalone:not(.ecl-link--icon):focus-visible {
+  text-decoration: none;
+}
+
 .ecl-menu__cta {
   margin-top: map.get(theme.$spacing, 's');
 }
@@ -331,7 +336,7 @@ $_mobile-item-hover-background: null !default;
   box-sizing: content-box;
   color: $_mobile-item-color;
   display: inline-flex;
-  font: map.get(theme.$font-prolonged, 'm');
+  font: map.get(theme.$font, 'l');
   font-weight: $_menu-item-weight;
   justify-content: space-between;
   padding: map.get(theme.$spacing, 'm');
@@ -366,13 +371,16 @@ $_mobile-item-hover-background: null !default;
 
 .ecl-menu__item--expanded {
   border-top-width: 0;
+  flex-direction: column;
 
   /* stylelint-disable-next-line no-descending-specificity */
   .ecl-menu__link {
-    display: none;
+    background-color: $_menu-subitem-background;
+    border-bottom: 3px solid $_menu-subitem-active-background;
+    font: map.get(theme.$font, 'xl');
   }
 
-  .ecl-menu__link--current,
+  .ecl-menu__link--current:not(:first-of-type),
   .ecl-menu__link:active {
     background-color: map.get(theme.$color, 'blue-5');
   }
@@ -466,8 +474,8 @@ $_mobile-item-hover-background: null !default;
     text-decoration: underline;
   }
 }
-/* stylelint-enable no-descending-specificity */
 
+/* stylelint-enable no-descending-specificity */
 .ecl-menu__inner--expanded .ecl-menu__link-icon {
   display: none;
 }
@@ -482,17 +490,19 @@ $_mobile-item-hover-background: null !default;
 
     .ecl-menu__item {
       border-top-width: 0;
-      box-shadow: inset 1px 0 0 0 $_menu-desktop-item-border-color;
-      margin-inline-start: 0;
-      margin-inline-end: 0;
+      border-inline-start: 1px solid $_menu-desktop-item-border-color;
+    }
 
-      &:hover,
-      &:first-child,
-      &.ecl-menu__item--current,
-      &.ecl-menu__item--current + .ecl-menu__item,
-      &[aria-expanded='true'] + .ecl-menu__item {
-        box-shadow: none;
-      }
+    .ecl-menu__item--current {
+      border-inline-start: $_menu-link-active-border-width solid
+        $_menu-link-active-border-color;
+      border-inline-end: $_menu-link-active-border-width solid
+        $_menu-link-active-border-color;
+    }
+
+    .ecl-menu__item:first-child,
+    .ecl-menu__item--current + .ecl-menu__item {
+      border-inline-start: none;
     }
 
     .ecl-menu__link-icon {
@@ -522,10 +532,10 @@ $_mobile-item-hover-background: null !default;
 
     .ecl-menu__link {
       background-color: transparent;
-      border-radius: $_menu-link-border-radius;
       box-sizing: border-box;
       color: map.get(theme.$color, 'white');
       display: inline-flex;
+      font: map.get(theme.$font-prolonged, 'm');
       min-height: $_menu-link-desktop-height;
       margin-inline-start: 0;
       margin-inline-end: 0;
@@ -542,30 +552,18 @@ $_mobile-item-hover-background: null !default;
     .ecl-menu__item--current .ecl-menu__link,
     .ecl-menu__link:active {
       background-color: $_menu-link-active-background;
-      box-shadow: inset $_menu-link-active-border-width 0 0 0
-        $_menu-link-active-border-color;
       color: $_menu-item-hover-color;
     }
 
     .ecl-menu__link:focus-visible {
-      background-color: map.get(theme.$color, 'white');
-      box-shadow: none;
+      background-color: map.get(theme.$color, 'blue-5');
       color: $_menu-item-hover-color;
       outline: 2px solid map.get(theme.$color, 'blue');
       outline-offset: -4px;
     }
 
-    .ecl-menu__item--has-children .ecl-menu__link {
-      border-top-right-radius: 0;
-    }
-
-    .ecl-menu__item--current + .ecl-menu__item .ecl-menu__link {
-      box-shadow: none;
-    }
-
     .ecl-menu__button-caret {
       background: transparent;
-      border-top-right-radius: $_menu-border-radius;
       padding: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 's');
 
       .ecl-button__icon {
@@ -590,8 +588,6 @@ $_mobile-item-hover-background: null !default;
 
     .ecl-menu__item--current .ecl-menu__button-caret {
       background-color: $_menu-link-active-background;
-      box-shadow: inset -#{$_menu-link-active-border-width} 0 0 0
-        $_menu-link-active-border-color;
 
       .ecl-button__icon {
         fill: map.get(theme.$color, 'blue');
@@ -609,15 +605,13 @@ $_mobile-item-hover-background: null !default;
     .ecl-menu__item:focus-within,
     .ecl-menu__item[aria-expanded='true'] {
       .ecl-menu__link {
-        background-color: map.get(theme.$color, 'white');
-        box-shadow: none;
+        background-color: map.get(theme.$color, 'blue-5');
         color: $_menu-item-hover-color;
         z-index: map.get(theme.$z-index, 'dropdown') + 1;
       }
 
       .ecl-menu__button-caret {
         background-color: $_menu-dropdown-background;
-        box-shadow: none;
         z-index: map.get(theme.$z-index, 'dropdown') + 1;
 
         .ecl-button__icon {
@@ -675,7 +669,7 @@ $_mobile-item-hover-background: null !default;
   background-color: $_menu-subitem-background;
   color: map.get(theme.$color, 'blue');
   display: block;
-  font: map.get(theme.$font-prolonged, 'm');
+  font: map.get(theme.$font, 'l');
   padding: map.get(theme.$spacing, 'm');
   position: relative;
   text-decoration: none;
@@ -693,8 +687,9 @@ $_mobile-item-hover-background: null !default;
 
 .ecl-menu__subitem--current .ecl-menu__sublink {
   background-color: $_menu-subitem-active-background;
+  box-shadow: inset $_menu-link-active-border-width 0 0 0
+    $_menu-link-active-border-color;
   color: $_menu-item-hover-color;
-  font-weight: map.get(theme.$font-weight, 'bold');
 }
 
 /* stylelint-disable-next-line order/order */
@@ -755,6 +750,7 @@ $_mobile-item-hover-background: null !default;
     // Manage column display
     .ecl-menu__sublist {
       display: block;
+      column-gap: 0;
     }
 
     .ecl-menu__item--col1 .ecl-menu__sublist {
@@ -801,6 +797,7 @@ $_mobile-item-hover-background: null !default;
     .ecl-menu__sublink {
       background-color: map.get(theme.$color, 'blue-5');
       break-inside: avoid-column;
+      font: map.get(theme.$font-prolonged, 'm');
       margin: 0;
       padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
       white-space: normal;

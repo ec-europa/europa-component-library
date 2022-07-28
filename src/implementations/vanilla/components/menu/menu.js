@@ -392,6 +392,7 @@ export class Menu {
     const element = e.target;
     const cList = element.classList;
     const menuExpanded = this.element.getAttribute('aria-expanded');
+    const menuItem = element.closest(this.itemSelector);
 
     // Detect press on Escape
     if (e.key === 'Escape' || e.key === 'Esc') {
@@ -400,6 +401,10 @@ export class Menu {
       }
 
       if (menuExpanded === 'false') {
+        const buttonCaret = queryOne('.ecl-menu__button-caret', menuItem);
+        if (buttonCaret) {
+          buttonCaret.focus();
+        }
         this.closeOpenDropdown();
       } else {
         this.handleClickOnClose();
@@ -409,8 +414,6 @@ export class Menu {
 
     // Key actions to toggle the caret buttons
     if (cList.contains('ecl-menu__button-caret') && menuExpanded === 'false') {
-      const menuItem = element.closest(this.itemSelector);
-
       if (e.keyCode === 32 || e.key === 'Enter') {
         if (menuItem.getAttribute('aria-expanded') === 'true') {
           this.handleHoverOffItem(e);
