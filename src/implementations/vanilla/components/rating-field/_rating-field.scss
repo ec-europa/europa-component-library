@@ -9,9 +9,6 @@
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-$_outline-width: null !default;
-$_outline-color: null !default;
-
 .ecl-rating-field {
   display: inline-flex;
   flex-direction: row-reverse;
@@ -53,10 +50,10 @@ $_outline-color: null !default;
 }
 
 // Focus, active state
-.ecl-rating-field__input:focus,
+.ecl-rating-field__input:focus-visible,
 .ecl-rating-field__input:active {
   + .ecl-rating-field__label {
-    outline: $_outline-width solid $_outline-color;
+    outline: 2px solid map.get(theme.$color, 'blue');
   }
 }
 

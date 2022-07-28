@@ -49,8 +49,8 @@ $_outline: null !default;
   }
 
   &:focus-visible {
-    border-color: map.get($_outline, 'color');
-    outline: none;
+    outline: 2px solid map.get(theme.$color, 'white-100');
+    outline-offset: -4px;
   }
 }
 
@@ -150,6 +150,12 @@ $_outline: null !default;
     font: map.get(theme.$font-prolonged, 'm');
     font-weight: map.get($_item, 'font-weight', 'l');
     padding: map.get($_item, 'padding', 'l');
+
+    &:focus-visible {
+      color: map.get($_item, 'color', 'l');
+      outline-color: map.get(theme.$color, 'white');
+      outline-offset: -2px;
+    }
   }
 
   &:hover {
@@ -165,7 +171,9 @@ $_outline: null !default;
   }
 
   &:focus-visible {
-    outline-offset: -(map.get($_outline, 'width'));
+    color: map.get($_item, 'color', 's');
+    outline-color: map.get($_outline, 'color');
+    outline-offset: -2px;
   }
 
   &:visited {

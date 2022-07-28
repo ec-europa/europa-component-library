@@ -35,11 +35,8 @@ $_shadow-hover: null !default;
   }
 
   &:focus-visible {
-    border: $_outline-width solid $_outline-color;
-    outline: none;
-    padding: calc(#{$_padding-vertical} - #{$_outline-width})
-      calc(#{$_padding-horizontal} - #{$_outline-width});
-    text-decoration: none;
+    outline: 2px solid map.get(theme.$color, 'white-100');
+    outline-offset: -4px;
   }
 }
 
@@ -73,11 +70,8 @@ $_shadow-hover: null !default;
   &:active,
   &:focus-visible {
     + .ecl-file-upload__button-container .ecl-file-upload__button {
-      border: $_outline-width solid $_outline-color;
-      outline: none;
-      padding: calc(#{$_padding-vertical} - #{$_outline-width})
-        calc(#{$_padding-horizontal} - #{$_outline-width});
-      text-decoration: none;
+      outline: 2px solid map.get(theme.$color, 'white-100');
+      outline-offset: -4px;
     }
   }
   // stylelint-enable max-nesting-depth

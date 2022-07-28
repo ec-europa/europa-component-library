@@ -54,8 +54,8 @@ $_item-outline-offset: null !default;
   outline: none;
 
   .ecl-gallery__image-container {
-    outline: $_item-outline;
-    outline-offset: $_item-outline-offset;
+    outline: 4px solid map.get(theme.$color, 'blue-100');
+    outline-offset: 4px;
   }
 }
 
