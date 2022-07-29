@@ -357,6 +357,8 @@ $_mobile-item-hover-background: null !default;
 .ecl-menu__item--current .ecl-menu__link,
 .ecl-menu__link:active {
   background-color: $_menu-link-active-background;
+  box-shadow: inset $_menu-link-active-border-width 0 0 0
+    $_menu-link-active-border-color;
   color: $_menu-item-hover-color;
 
   &:hover {
@@ -377,6 +379,7 @@ $_mobile-item-hover-background: null !default;
   .ecl-menu__link {
     background-color: $_menu-subitem-background;
     border-bottom: 3px solid $_menu-subitem-active-background;
+    box-shadow: none;
     font: map.get(theme.$font, 'xl');
   }
 
@@ -533,6 +536,7 @@ $_mobile-item-hover-background: null !default;
     .ecl-menu__link {
       background-color: transparent;
       box-sizing: border-box;
+      box-shadow: none;
       color: map.get(theme.$color, 'white');
       display: inline-flex;
       font: map.get(theme.$font-prolonged, 'm');
