@@ -24,8 +24,7 @@ $_negative: null !default;
   margin: 0;
   text-decoration: underline;
 
-  &:hover,
-  &:focus-visible {
+  &:hover {
     color: $_color-hover;
   }
 
@@ -62,10 +61,6 @@ $_negative: null !default;
     position: relative;
     top: -1px;
     vertical-align: middle;
-  }
-
-  &:not(.ecl-link--standalone) .ecl-link__label {
-    text-decoration: underline;
   }
 }
 
@@ -125,22 +120,6 @@ $_negative: null !default;
 .ecl-link--standalone {
   font-family: #{map.get(theme.$font-family, 'default')};
   text-decoration: none;
-
-  /* stylelint-disable */
-  &:not(.ecl-link--icon) {
-    &:hover,
-    &:focus-visible {
-      text-decoration: underline;
-    }
-  }
-
-  &.ecl-link--icon {
-    &:hover .ecl-link__label,
-    &:focus-visible .ecl-link__label {
-      text-decoration: underline;
-    }
-  }
-  /* stylelint-enable */
 }
 
 // stylelint-disable plugin/selector-bem-pattern

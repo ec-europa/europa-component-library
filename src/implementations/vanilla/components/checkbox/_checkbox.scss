@@ -150,16 +150,19 @@ $_label-color-disabled: map.get(theme.$color, 'grey-50');
   background: map.get(theme.$color, 'red-130');
 }
 
-// Hover state
-.ecl-checkbox__label:hover {
+// Hover and default focus state
+.ecl-checkbox__label:hover,
+.ecl-checkbox__input:focus-visible + .ecl-checkbox__label,
+.ecl-checkbox__input:checked:active + .ecl-checkbox__label {
   .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
     border-color: $_box-border-color-hover;
+    outline: none;
   }
 }
 
 // Focus, active state
-.ecl-checkbox__input:focus-visible,
-.ecl-checkbox__input:active {
+.ecl-checkbox__input:checked:focus-visible,
+.ecl-checkbox__input:checked:active {
   + .ecl-checkbox__label
     > .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
     outline: 2px solid map.get(theme.$color, 'white-100');
