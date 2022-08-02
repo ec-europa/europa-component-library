@@ -469,6 +469,7 @@ $_mobile-item-hover-background: null !default;
 /* stylelint-disable no-descending-specificity */
 .ecl-menu__inner--expanded .ecl-menu__link {
   color: map.get(theme.$color, 'blue');
+  width: auto;
 
   &:hover,
   &:focus {
@@ -543,9 +544,14 @@ $_mobile-item-hover-background: null !default;
       min-height: $_menu-link-desktop-height;
       margin-inline-start: 0;
       margin-inline-end: 0;
-      padding: map.get(theme.$spacing, 'xs');
+      padding: map.get(theme.$spacing, 's') 0 map.get(theme.$spacing, 's')
+        map.get(theme.$spacing, 'xs');
       width: auto;
       z-index: 0;
+    }
+
+    .ecl-menu__item:not(.ecl-menu__item--has-children) {
+      padding-right: map.get(theme.$spacing, 'xs');
     }
 
     .ecl-menu__link:hover,

@@ -63,12 +63,6 @@ module.exports = {
     {
       label: 'News and events',
       path: exampleLink,
-      children: [
-        { label: 'Item 5.1', path: exampleLink },
-        { label: 'Item 5.2', path: exampleLink },
-        { label: 'Item 5.3', path: exampleLink },
-        { label: 'Item 5.4', path: exampleLink },
-      ],
     },
     {
       label: 'Contact the EU',
