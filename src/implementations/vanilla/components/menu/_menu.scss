@@ -545,7 +545,7 @@ $_mobile-item-hover-background: null !default;
       min-height: $_menu-link-desktop-height;
       margin-inline-start: 0;
       margin-inline-end: 0;
-      padding: map.get(theme.$spacing, 's') 0 map.get(theme.$spacing, 's')
+      padding: map.get(theme.$spacing, 'xs') 0 map.get(theme.$spacing, 'xs')
         map.get(theme.$spacing, 's');
       width: auto;
       z-index: 0;
@@ -575,15 +575,11 @@ $_mobile-item-hover-background: null !default;
 
     .ecl-menu__button-caret {
       background: transparent;
-      padding: map.get(theme.$spacing, 'xs');
+      padding: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 's');
 
       .ecl-button__icon {
         fill: map.get(theme.$color, 'white');
         transform: scale($_menu-caret-icon-scale) rotate(180deg);
-      }
-
-      &:focus {
-        padding: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 's');
       }
 
       &:focus-visible {
