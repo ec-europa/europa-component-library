@@ -546,8 +546,8 @@ $_mobile-item-hover-background: null !default;
       min-height: $_menu-link-desktop-height;
       margin-inline-start: 0;
       margin-inline-end: 0;
-      padding: map.get(theme.$spacing, 'xs') 0 map.get(theme.$spacing, 'xs')
-        map.get(theme.$spacing, 's');
+      padding: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, '2xs')
+        map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 'xs');
       width: auto;
       z-index: 0;
     }
@@ -571,12 +571,12 @@ $_mobile-item-hover-background: null !default;
     }
 
     .ecl-menu__item:not(.ecl-menu__item--has-children) .ecl-menu__link {
-      padding-right: map.get(theme.$spacing, 's');
+      padding-right: map.get(theme.$spacing, 'xs');
     }
 
     .ecl-menu__button-caret {
       background: transparent;
-      padding: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 's');
+      padding: map.get(theme.$spacing, 'xs');
 
       .ecl-button__icon {
         fill: map.get(theme.$color, 'white');
