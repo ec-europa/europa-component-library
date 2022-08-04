@@ -7,76 +7,54 @@
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
+$_menu-border-radius: null !default;
 $_main-nav-background: null !default;
 $_main-nav-shadow: null !default;
-$_menu-desktop-padding-top: null !default;
-$_menu-desktop-vertical-padding: null !default;
 $_menu-dropdown-background: null !default;
-$_menu-dropdown-border-color: null !default;
 $_menu-drowpdown-border-radius: null !default;
 $_menu-dropdown-item-hover-color: null !default;
 $_menu-dropdown-shadow: null !default;
 $_menu-expanded-background: null !default;
 $_menu-header-horizontal-padding: null !default;
 $_menu-item-border: null !default;
-$_menu-item-weight: null !default;
-$_menu-item-hover-background: null !default;
-$_menu-item-hover-border: null !default;
+$_menu-item-active-border: null !default;
+$_menu-item-weight: map.get(theme.$font-weight, 'regular') !default;
 $_menu-item-hover-color: null !default;
 $_menu-item-icon-margin: null !default;
+$_menu-desktop-item-border-color: null !default;
 $_menu-link-active-background: null !default;
 $_menu-link-active-border-width: null !default;
 $_menu-link-active-border-color: null !default;
 $_menu-link-border-radius: null !default;
-$_menu-link-border-width: null !default;
-$_menu-link-border-focus-color: null !default;
-$_menu-link-desktop-align: null !default;
 $_menu-link-desktop-height: null !default;
-$_menu-link-hover-background: null !default;
-$_menu-link-focus-background: null !default;
 $_menu-link-focus-color: null !default;
-$_menu-link-mobile-padding: null !default;
-$_menu-link-no-arrow-color: null !default;
-$_menu-link-outline-color: null !default;
-$_menu-link-padding-right: null !default;
+$_menu-caret-background: null !default;
+$_menu-caret-hover-background: null !default;
+$_menu-caret-active-background: null !default;
+$_menu-caret-active-hover-background: null !default;
+$_menu-caret-color: null !default;
+$_menu-caret-icon-scale: null !default;
 $_menu-list-background: null !default;
-$_menu-mega-padding-top: null !default;
-$_menu-mega-padding-bottom: null !default;
-$_menu-mobile-active-background: null !default;
 $_menu-mobile-background: null !default;
 $_menu-mobile-header-background: null !default;
 $_menu-mobile-header-shadow: null !default;
 $_menu-mobile-shadow: null !default;
 $_menu-mobile-vertical-padding: null !default;
-$_menu-open-button-padding: null !default;
 $_menu-open-button-shadow: null !default;
-$_menu-open-outline-color: null !default;
-$_menu-open-button-radius: null !default;
-$_menu-open-button-border: null !default;
-$_menu-open-focus-border: null !default;
 $_menu-open-vertical-margin: null !default;
 $_menu-overlay-background: null !default;
 $_menu-subitem-border: null !default;
+$_menu-subitem-active-border: null !default;
 $_menu-subitem-background: null !default;
-$_menu-subitem-margin-bottom: null !default;
-$_menu-subitem-margin-top: null !default;
-$_menu-sublink-desktop-margin: null !default;
-$_menu-sublink-desktop-padding: null !default;
-$_menu-sublink-mobile-vertical-padding: null !default;
-$_menu-sublink-outline-offset: null !default;
-$_menu-sublink-padding-offset: null !default;
-$_menu-sublink-margin-offset: null !default;
-$_menu-sublink-active-color: null !default;
-$_menu-sublink-active-weight: null !default;
-$_menu-sublink-active-background: null !default;
+$_menu-subitem-active-background: null !default;
 $_menu-sublink-hover-color: null !default;
 $_menu-title-font-weight: null !default;
 $_mobile-item-color: null !default;
 $_mobile-item-hover-background: null !default;
 
 /*
-* Menu structure
-*/
+ * Menu structure
+ */
 .ecl-menu {
   background: $_main-nav-background;
   box-shadow: $_main-nav-shadow;
@@ -147,7 +125,6 @@ $_mobile-item-hover-background: null !default;
       background-color: transparent;
       display: block;
       overflow-y: visible;
-      padding-top: $_menu-desktop-padding-top;
       position: relative;
       right: 0;
       transition: none;
@@ -162,8 +139,8 @@ $_mobile-item-hover-background: null !default;
 }
 
 /*
-  * Menu header
-  */
+ * Menu header
+ */
 .ecl-menu__banner {
   display: flex;
   flex-direction: column;
@@ -171,12 +148,18 @@ $_mobile-item-hover-background: null !default;
   order: 1;
 }
 
+.ecl-menu__close-container {
+  flex-direction: column;
+}
+
 .ecl-menu__open,
 .ecl-menu__close {
   align-items: center;
   align-self: flex-end;
-  border: $_menu-open-button-border;
-  border-radius: $_menu-open-button-radius;
+  border: 0;
+  border-radius: $_menu-border-radius;
+  cursor: pointer;
+  color: map.get(theme.$color, 'white');
   display: flex;
   flex-direction: column;
   font: map.get(theme.$font, 'xs');
@@ -184,19 +167,39 @@ $_mobile-item-hover-background: null !default;
   margin-inline-start: auto;
   margin-top: $_menu-open-vertical-margin;
   order: 2;
-  padding: $_menu-open-button-padding;
+  padding: map.get(theme.$spacing, '2xs');
+  text-decoration: none;
+
+  .ecl-icon {
+    margin-bottom: 1px;
+  }
+
+  &:hover,
+  &:focus,
+  &:active,
+  &:visited {
+    color: map.get(theme.$color, 'white');
+  }
+
+  &:hover {
+    box-shadow: $_menu-open-button-shadow;
+    text-decoration: underline;
+  }
+
+  &:focus {
+    border: 0;
+    outline: 0;
+  }
+
+  &:focus-visible {
+    outline: 2px solid map.get(theme.$color, 'white');
+    padding: map.get(theme.$spacing, '2xs');
+  }
 }
 
-.ecl-menu__open,
-.ecl-menu__open:hover,
-.ecl-menu__open:focus,
-.ecl-menu__open:active,
-.ecl-menu__open:visited {
-  color: map.get(theme.$color, 'white');
-  /* stylelint-disable plugin/selector-bem-pattern */
-  &.ecl-link {
-    text-decoration: none;
-  }
+/* force remove underline on ecl-link for the open button link */
+.ecl-menu__open.ecl-link--standalone:not(.ecl-link--icon):focus-visible {
+  text-decoration: none;
 }
 
 .ecl-menu__cta {
@@ -226,18 +229,15 @@ $_mobile-item-hover-background: null !default;
 }
 
 /*
-  * Inner menu
-  */
+ * Inner menu
+ */
 .ecl-menu__inner-header {
   align-items: center;
   background: $_menu-mobile-header-background;
   box-shadow: $_menu-mobile-header-shadow;
   display: flex;
   flex-flow: row-reverse;
-  padding-bottom: $_menu-mobile-vertical-padding;
-  padding-inline-start: $_menu-header-horizontal-padding;
-  padding-inline-end: $_menu-header-horizontal-padding;
-  padding-top: $_menu-mobile-vertical-padding;
+  padding: map.get(theme.$spacing, 'm');
   position: sticky;
   top: 0;
   z-index: map.get(theme.$z-index, 'modal') + 2;
@@ -249,27 +249,7 @@ $_mobile-item-hover-background: null !default;
   font-weight: $_menu-title-font-weight;
 }
 
-.ecl-menu__back {
-  border: $_menu-open-button-border;
-  color: map.get(theme.$color, 'white');
-  display: none;
-  font: map.get(theme.$font, 'xl');
-  font-weight: $_menu-title-font-weight;
-  margin-bottom: -#{map.get(theme.$spacing, 's')};
-  margin-inline-start: -#{map.get(theme.$spacing, 'xs')};
-  margin-inline-end: -#{map.get(theme.$spacing, 'xs')};
-  margin-top: -#{map.get(theme.$spacing, 's')};
-  padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'xs');
-
-  &:focus-visible {
-    padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'xs');
-  }
-}
-
-.ecl-menu__close-container {
-  flex-direction: column;
-}
-
+/* stylelint-disable-next-line no-descending-specificity */
 .ecl-menu__close {
   color: map.get(theme.$color, 'white');
   order: 0;
@@ -279,18 +259,36 @@ $_mobile-item-hover-background: null !default;
   .ecl-button__label {
     margin-inline-end: 0;
   }
+
+  .ecl-button__label {
+    margin-top: map.get(theme.$spacing, '2xs');
+  }
 }
 
-.ecl-menu__open:hover,
-.ecl-menu__close:hover {
-  box-shadow: $_menu-open-button-shadow;
-}
+.ecl-menu__back {
+  border: 0;
+  color: map.get(theme.$color, 'white');
+  cursor: pointer;
+  display: none;
+  font: map.get(theme.$font, 'xl');
+  font-weight: $_menu-title-font-weight;
+  margin: -#{map.get(theme.$spacing, 'm')};
+  padding: map.get(theme.$spacing, 'm');
 
-.ecl-menu__open:focus-visible,
-.ecl-menu__close:focus-visible {
-  border-color: $_menu-open-focus-border;
-  outline: none;
-  padding: $_menu-open-button-padding;
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:focus {
+    border: 0;
+    outline: 0;
+    padding: map.get(theme.$spacing, 'm');
+  }
+
+  &:focus-visible {
+    outline: 2px solid map.get(theme.$color, 'white');
+    outline-offset: -2px;
+  }
 }
 
 // Expanded
@@ -302,16 +300,9 @@ $_mobile-item-hover-background: null !default;
   display: block;
 }
 
-@include breakpoints.up('m') {
-  .ecl-menu__inner-header {
-    padding-bottom: $_menu-desktop-vertical-padding;
-    padding-top: $_menu-desktop-vertical-padding;
-  }
-}
-
 /*
-  * First level
-  */
+ * First level
+ */
 .ecl-menu__list {
   box-sizing: border-box;
   clear: right;
@@ -331,9 +322,13 @@ $_mobile-item-hover-background: null !default;
 .ecl-menu__item {
   border-top: $_menu-item-border;
   box-sizing: content-box;
-  margin-inline-start: map.get(theme.$spacing, 'm');
-  margin-inline-end: map.get(theme.$spacing, 'm');
+  display: flex;
   position: relative;
+}
+
+.ecl-menu__item--current,
+.ecl-menu__item--current + .ecl-menu__item {
+  border-top: $_menu-item-active-border;
 }
 
 .ecl-menu__link {
@@ -341,54 +336,126 @@ $_mobile-item-hover-background: null !default;
   box-sizing: content-box;
   color: $_mobile-item-color;
   display: inline-flex;
-  font: map.get(theme.$font-prolonged, 'm');
+  font: map.get(theme.$font, 'l');
   font-weight: $_menu-item-weight;
   justify-content: space-between;
-  margin-inline-start: -#{map.get(theme.$spacing, 'm')};
-  margin-inline-end: -#{map.get(theme.$spacing, 'm')};
-  padding-bottom: $_menu-link-mobile-padding;
-  padding-inline-start: map.get(theme.$spacing, 'm');
-  padding-inline-end: map.get(theme.$spacing, 'm');
-  padding-top: $_menu-link-mobile-padding;
+  padding: map.get(theme.$spacing, 'm');
   position: relative;
   text-decoration: none;
   width: 100%;
 
+  &:hover {
+    text-decoration: underline;
+  }
+
   &:focus-visible {
-    outline: 3px solid $_menu-link-outline-color;
-    outline-offset: -3px;
+    outline: 2px solid $_menu-link-focus-color;
+    outline-offset: -2px;
+    text-decoration: underline;
   }
 }
 
 .ecl-menu__item--current .ecl-menu__link,
 .ecl-menu__link:active {
-  background-color: $_menu-mobile-active-background;
+  background-color: $_menu-link-active-background;
+  box-shadow: inset $_menu-link-active-border-width 0 0 0
+    $_menu-link-active-border-color;
+  color: $_menu-item-hover-color;
+
+  &:hover {
+    color: $_menu-item-hover-color;
+  }
+
+  &:focus-visible {
+    outline: 2px solid map.get(theme.$color, 'blue');
+    outline-offset: -2px;
+  }
 }
 
 .ecl-menu__item--expanded {
   border-top-width: 0;
+  flex-direction: column;
 
-  .ecl-menu__link--current,
+  /* stylelint-disable-next-line no-descending-specificity */
+  .ecl-menu__link {
+    background-color: $_menu-subitem-background;
+    border-bottom: 3px solid $_menu-subitem-active-background;
+    box-shadow: none;
+    font: map.get(theme.$font, 'xl');
+  }
+
+  .ecl-menu__link--current:not(:first-of-type),
   .ecl-menu__link:active {
     background-color: map.get(theme.$color, 'blue-5');
   }
 }
 
-.ecl-menu__item--has-children .ecl-menu__link:hover {
-  background-color: $_mobile-item-hover-background;
-}
+.ecl-menu__button-caret {
+  align-self: stretch;
+  background-color: $_menu-caret-background;
+  border-radius: 0;
+  display: inline-flex;
+  cursor: pointer;
+  padding: map.get(theme.$spacing, 'm');
+  z-index: 0;
 
-.ecl-menu__item:not(.ecl-menu__item--has-children) {
-  .ecl-menu__link:hover,
-  .ecl-menu__link:focus {
-    color: $_menu-link-no-arrow-color;
-    text-decoration: underline;
+  .ecl-button__container {
+    align-self: center;
+  }
+
+  .ecl-button__icon {
+    fill: $_menu-caret-color;
+    flex-shrink: 0;
+    transition: none;
+    transition-property: transform, fill;
+    transform: scale($_menu-caret-icon-scale) rotate(90deg);
+  }
+
+  &:hover {
+    background-color: $_menu-caret-hover-background;
+    box-shadow: none;
+
+    .ecl-button__icon {
+      fill: map.get(theme.$color, 'blue');
+    }
+  }
+
+  &:focus {
+    border: 0;
+    outline: none;
+    padding: map.get(theme.$spacing, 'm');
+  }
+
+  &:focus-visible {
+    border: none;
+    outline: 2px solid $_menu-link-focus-color;
+    outline-offset: -2px;
   }
 }
 
-.ecl-menu__link-icon {
-  flex-shrink: 0;
-  transition: none;
+.ecl-menu__item--expanded .ecl-menu__button-caret {
+  display: none;
+}
+
+.ecl-menu__item--current .ecl-menu__button-caret {
+  background-color: $_menu-caret-active-background;
+
+  .ecl-button__icon {
+    fill: $_menu-dropdown-item-hover-color;
+  }
+
+  &:focus-visible {
+    outline: 2px solid map.get(theme.$color, 'blue');
+    outline-offset: -2px;
+  }
+}
+
+.ecl-menu__item--current .ecl-menu__button-caret:hover {
+  background-color: $_menu-caret-active-hover-background;
+
+  .ecl-button__icon {
+    fill: $_menu-caret-color;
+  }
 }
 
 // Expanded
@@ -404,6 +471,7 @@ $_mobile-item-hover-background: null !default;
 /* stylelint-disable no-descending-specificity */
 .ecl-menu__inner--expanded .ecl-menu__link {
   color: map.get(theme.$color, 'blue');
+  width: auto;
 
   &:hover,
   &:focus {
@@ -412,8 +480,8 @@ $_mobile-item-hover-background: null !default;
     text-decoration: underline;
   }
 }
-/* stylelint-enable no-descending-specificity */
 
+/* stylelint-enable no-descending-specificity */
 .ecl-menu__inner--expanded .ecl-menu__link-icon {
   display: none;
 }
@@ -428,10 +496,19 @@ $_mobile-item-hover-background: null !default;
 
     .ecl-menu__item {
       border-top-width: 0;
-      margin-inline-start: 0;
-      margin-inline-end: 0;
-      padding-inline-start: map.get(theme.$spacing, 'm');
-      padding-inline-end: map.get(theme.$spacing, 'm');
+      border-inline-start: 1px solid $_menu-desktop-item-border-color;
+    }
+
+    .ecl-menu__item--current {
+      border-inline-start: $_menu-link-active-border-width solid
+        $_menu-link-active-border-color;
+      border-inline-end: $_menu-link-active-border-width solid
+        $_menu-link-active-border-color;
+    }
+
+    .ecl-menu__item:first-child,
+    .ecl-menu__item--current + .ecl-menu__item {
+      border-inline-start: none;
     }
 
     .ecl-menu__link-icon {
@@ -439,17 +516,14 @@ $_mobile-item-hover-background: null !default;
       height: map.get(theme.$icon, '2xs');
       margin-inline-start: $_menu-item-icon-margin;
       width: map.get(theme.$icon, '2xs');
-
-      &:not(.ecl-menu__link-icon--external) {
-        transform: rotate(180deg);
-        transition-property: transform;
-      }
     }
 
+    /* stylelint-disable no-descending-specificity */
     .ecl-menu__inner--expanded .ecl-menu__item,
     .ecl-menu__inner--expanded .ecl-menu__link-icon {
       display: block;
     }
+    /* stylelint-enable no-descending-specificity */
 
     .ecl-menu__item--full {
       position: static;
@@ -464,15 +538,16 @@ $_mobile-item-hover-background: null !default;
 
     .ecl-menu__link {
       background-color: transparent;
-      border: $_menu-link-border-width solid transparent;
-      border-radius: $_menu-link-border-radius;
       box-sizing: border-box;
+      box-shadow: none;
       color: map.get(theme.$color, 'white');
       display: inline-flex;
+      font: map.get(theme.$font-prolonged, 'm');
       min-height: $_menu-link-desktop-height;
-      padding-bottom: 0;
-      padding-top: 0;
-      text-align: $_menu-link-desktop-align;
+      margin-inline-start: 0;
+      margin-inline-end: 0;
+      padding: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, '2xs')
+        map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 'xs');
       width: auto;
       z-index: 0;
     }
@@ -485,53 +560,85 @@ $_mobile-item-hover-background: null !default;
     .ecl-menu__item--current .ecl-menu__link,
     .ecl-menu__link:active {
       background-color: $_menu-link-active-background;
-      border-bottom: 4px solid $_menu-link-active-border-color;
-    }
-
-    .ecl-menu__item--has-children .ecl-menu__link {
-      padding-inline-end: $_menu-link-padding-right;
+      color: $_menu-item-hover-color;
     }
 
     .ecl-menu__link:focus-visible {
-      background-color: $_menu-link-focus-background;
-      border: $_menu-link-border-width solid $_menu-link-border-focus-color;
-      color: $_menu-link-focus-color;
-      outline: none;
+      background-color: map.get(theme.$color, 'blue-5');
+      color: $_menu-item-hover-color;
+      outline: 2px solid map.get(theme.$color, 'blue');
+      outline-offset: -4px;
     }
 
-    .ecl-menu__item--current .ecl-menu__link:focus-visible {
-      padding-bottom: calc(4px - #{$_menu-link-border-width});
+    .ecl-menu__item:not(.ecl-menu__item--has-children) .ecl-menu__link {
+      padding-right: map.get(theme.$spacing, 'xs');
+    }
+
+    .ecl-menu__button-caret {
+      background: transparent;
+      padding: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 's');
+
+      .ecl-button__icon {
+        fill: map.get(theme.$color, 'white');
+        transform: scale($_menu-caret-icon-scale) rotate(180deg);
+      }
+
+      &:focus-visible {
+        background-color: $_menu-dropdown-background;
+        outline: 2px solid map.get(theme.$color, 'blue');
+        outline-offset: -4px;
+
+        .ecl-button__icon {
+          fill: $_menu-dropdown-item-hover-color;
+        }
+      }
+    }
+
+    .ecl-menu__item--current .ecl-menu__button-caret {
+      background-color: $_menu-link-active-background;
+
+      .ecl-button__icon {
+        fill: map.get(theme.$color, 'blue');
+      }
+
+      &:focus-visible {
+        outline: 2px solid map.get(theme.$color, 'blue');
+        outline-offset: -4px;
+      }
     }
   }
 
   .ecl-menu:not(.ecl-menu--forced-mobile):not(.ecl-menu--forced-close) {
     .ecl-menu__item:hover,
-    .ecl-menu__item:focus-within {
-      .ecl-menu__link,
-      .ecl-menu__link:hover,
-      .ecl-menu__link:active,
-      .ecl-menu__link:focus {
-        background-color: $_menu-item-hover-background;
+    .ecl-menu__item:focus-within,
+    .ecl-menu__item[aria-expanded='true'] {
+      .ecl-menu__link {
+        background-color: map.get(theme.$color, 'blue-5');
         color: $_menu-item-hover-color;
         z-index: map.get(theme.$z-index, 'dropdown') + 1;
       }
 
-      &:not(.ecl-menu__item--has-children) .ecl-menu__link {
-        border-bottom: $_menu-item-hover-border;
-      }
+      .ecl-menu__button-caret {
+        background-color: $_menu-dropdown-background;
+        z-index: map.get(theme.$z-index, 'dropdown') + 1;
 
-      /* stylelint-disable-next-line selector-max-compound-selectors */
-      .ecl-menu__link:not(:focus) .ecl-menu__link-icon {
-        transform: rotate(0);
-        transition-property: transform;
+        .ecl-button__icon {
+          fill: $_menu-dropdown-item-hover-color;
+        }
+      }
+    }
+
+    .ecl-menu__item[aria-expanded='true'] {
+      .ecl-menu__button-caret .ecl-button__icon {
+        transform: scale($_menu-caret-icon-scale) rotate(0);
       }
     }
   }
 }
 
 /*
-  * Second level
-  */
+ * Second level
+ */
 .ecl-menu__mega {
   box-sizing: border-box;
   display: none;
@@ -561,43 +668,36 @@ $_mobile-item-hover-background: null !default;
   box-sizing: border-box;
 }
 
+.ecl-menu__subitem--current,
+.ecl-menu__subitem--current + .ecl-menu__subitem {
+  border-top: $_menu-subitem-active-border;
+}
+
 .ecl-menu__sublink {
+  background-color: $_menu-subitem-background;
   color: map.get(theme.$color, 'blue');
   display: block;
-  font: map.get(theme.$font-prolonged, 'm');
-  margin-inline-start: -#{map.get(theme.$spacing, 'm')};
-  margin-inline-end: -#{map.get(theme.$spacing, 'm')};
-  padding-bottom: $_menu-sublink-mobile-vertical-padding;
-  padding-inline-start: calc(
-    #{map.get(theme.$spacing, 'm')} + #{map.get(theme.$spacing, 's')}
-  );
-  padding-inline-end: map.get(theme.$spacing, 'm');
-  padding-top: $_menu-sublink-mobile-vertical_padding;
+  font: map.get(theme.$font, 'l');
+  padding: map.get(theme.$spacing, 'm');
   position: relative;
   text-decoration: none;
 
-  &:active,
-  &:hover {
-    background-color: $_menu-subitem-background;
-    color: map.get(theme.$color, 'blue');
-  }
-
   &:hover,
-  &:focus {
-    color: $_menu-sublink-hover-color;
+  &:focus-visible {
     text-decoration: underline;
   }
 
   &:focus-visible {
-    outline: 3px solid $_menu-link-outline-color;
-    outline-offset: -3px;
+    outline: 2px solid map.get(theme.$color, 'blue');
+    outline-offset: -2px;
   }
 }
 
 .ecl-menu__subitem--current .ecl-menu__sublink {
-  background: $_menu-sublink-active-background;
-  color: $_menu-sublink-active-color;
-  font-weight: $_menu-sublink-active-weight;
+  background-color: $_menu-subitem-active-background;
+  box-shadow: inset $_menu-link-active-border-width 0 0 0
+    $_menu-link-active-border-color;
+  color: $_menu-item-hover-color;
 }
 
 /* stylelint-disable-next-line order/order */
@@ -605,15 +705,14 @@ $_mobile-item-hover-background: null !default;
   .ecl-menu:not(.ecl-menu--forced-mobile):not(.ecl-menu--forced-close) {
     .ecl-menu__mega {
       background-color: $_menu-dropdown-background;
-      border-bottom: 3px solid $_menu-dropdown-border-color;
       border-radius: $_menu-drowpdown-border-radius;
       box-shadow: $_menu-dropdown-shadow;
       display: flex;
       left: 0;
       min-width: 100%;
-      padding-bottom: $_menu-mega-padding-bottom;
-      padding-top: $_menu-mega-padding-top;
+      padding: 0;
       position: absolute;
+      top: 100%;
       transition-property: visibility;
       visibility: hidden;
       z-index: map.get(theme.$z-index, 'dropdown');
@@ -640,8 +739,7 @@ $_mobile-item-hover-background: null !default;
       right: 0;
     }
 
-    .ecl-menu__item:hover .ecl-menu__mega,
-    .ecl-menu__item:focus-within .ecl-menu__mega {
+    .ecl-menu__item[aria-expanded='true'] .ecl-menu__mega {
       transition-property: visibility;
       visibility: visible;
     }
@@ -660,6 +758,7 @@ $_mobile-item-hover-background: null !default;
     // Manage column display
     .ecl-menu__sublist {
       display: block;
+      column-gap: 0;
     }
 
     .ecl-menu__item--col1 .ecl-menu__sublist {
@@ -697,38 +796,29 @@ $_mobile-item-hover-background: null !default;
       border-top-width: 0;
       box-sizing: border-box;
       display: inline-flex;
-
-      // Margin and padding to fix overlap on focus
-      margin-bottom: calc(
-        #{$_menu-subitem-margin-bottom} - 4 * #{$_menu-sublink-margin-offset}
-      );
-      margin-top: $_menu-subitem-margin-top;
+      margin: 0;
       min-width: 13.56rem; // Written in the specs
-      padding: $_menu-sublink-padding-offset 0;
+      padding: 0;
       width: 100%;
     }
 
     .ecl-menu__sublink {
+      background-color: map.get(theme.$color, 'blue-5');
       break-inside: avoid-column;
-      margin-bottom: $_menu-sublink-outline-offset;
-      margin-inline-start: $_menu-sublink-desktop-margin;
-      margin-inline-end: $_menu-sublink-desktop-margin;
-      margin-top: $_menu-sublink-outline-offset;
-      padding: $_menu-sublink-desktop-padding;
+      font: map.get(theme.$font-prolonged, 'm');
+      margin: 0;
+      padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
       white-space: normal;
       width: 100%;
+    }
 
-      &:active {
-        background-color: transparent;
-      }
-
-      &:focus-visible {
-        outline-offset: $_menu-sublink-outline-offset;
-      }
-
-      &:hover {
-        color: $_menu-dropdown-item-hover-color;
-      }
+    .ecl-menu__subitem--current .ecl-menu__sublink {
+      background-color: $_menu-link-active-background;
+      box-shadow: inset $_menu-link-active-border-width 0 0 0
+          $_menu-link-active-border-color,
+        inset -#{$_menu-link-active-border-width} 0 0 0
+          $_menu-link-active-border-color;
+      font-weight: $_menu-item-weight;
     }
   }
 }
@@ -742,23 +832,29 @@ $_mobile-item-hover-background: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-menu:not(.ecl-menu--forced-mobile).ecl-menu--transition {
-    .ecl-menu__link-icon,
-    .ecl-menu__item:hover .ecl-menu__link-icon,
+    .ecl-menu__item,
+    .ecl-menu__item:hover,
     .ecl-menu__mega,
     .ecl-menu__item:hover .ecl-menu__mega,
     .ecl-menu__link,
     .ecl-menu__item:hover .ecl-menu__link,
     .ecl-menu__item:hover .ecl-menu__link:hover,
     .ecl-menu__item:hover .ecl-menu__link:active,
-    .ecl-menu__item:hover .ecl-menu__link:focus {
+    .ecl-menu__item:hover .ecl-menu__link:focus,
+    .ecl-menu__button-caret,
+    .ecl-menu__item:hover .ecl-menu__button-caret,
+    .ecl-menu__item:hover .ecl-menu__button-caret:hover,
+    .ecl-menu__item:hover .ecl-menu__button-caret:active,
+    .ecl-menu__item:hover .ecl-menu__button-caret:focus,
+    .ecl-button__icon {
       transition-delay: 0.25s;
     }
   }
 }
 
 /*
-  * Group 2
-  */
+ * Group 2
+ */
 .ecl-menu--group2 {
   min-height: map.get(theme.$line-height, '2xl');
 }
