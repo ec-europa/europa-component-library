@@ -84,8 +84,7 @@ $_ellispis-outline-width: null !default;
   }
 
   &:focus-visible {
-    margin: -$_ellispis-outline-width;
-    padding: 0 $_ellipsis-padding-horizontal;
+    outline-offset: 2px;
   }
 }
 

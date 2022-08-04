@@ -110,11 +110,6 @@ $_search-width-xl: 31.5rem;
 .ecl-site-header__search-toggle {
   padding: map.get(theme.$spacing, 'xs');
 
-  &:focus-visible {
-    padding: calc(#{map.get(theme.$spacing, 'xs')} - 2px)
-      calc(#{map.get(theme.$spacing, 'xs')} - 2px);
-  }
-
   &[aria-expanded='true'],
   &[aria-expanded='true']:focus-visible {
     background-color: map.get(theme.$color, 'blue-5');
@@ -386,11 +381,6 @@ $_search-width-xl: 31.5rem;
   .ecl-site-header__language-selector,
   .ecl-site-header__search-toggle {
     padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
-
-    &:focus-visible {
-      padding: calc(#{map.get(theme.$spacing, 's')} - 2px)
-        calc(#{map.get(theme.$spacing, 'm')} - 2px);
-    }
 
     &[aria-expanded='true'],
     &[aria-expanded='true']:focus-visible {

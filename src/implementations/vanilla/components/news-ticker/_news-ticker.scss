@@ -11,8 +11,6 @@ $_controls-background: none !default;
 $_border-radius: none !default;
 $_border-width: none !default;
 $_counter-color: none !default;
-$_outline-color: none !default;
-$_outline-width: none !default;
 
 .ecl-news-ticker {
   align-items: center;
@@ -160,7 +158,7 @@ $_outline-width: none !default;
   padding: map.get(theme.$spacing, 'xs');
 
   &:focus-visible {
-    outline: $_outline-width solid $_outline-color;
+    outline: 2px solid map.get(theme.$color, 'white');
   }
 }
 

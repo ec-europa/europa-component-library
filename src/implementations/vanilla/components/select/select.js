@@ -570,6 +570,7 @@ export class Select {
         this.handleEsc();
         break;
 
+      case ' ':
       case 'ArrowDown':
         this.handleToggle(e);
         this.search.focus();

@@ -175,6 +175,10 @@ $_image-width: null !default;
   margin-top: $_file-translation-toggle-margin;
   padding: $_file-translation-padding;
 
+  &:focus-visible {
+    outline-offset: -5px;
+  }
+
   .no-js & {
     display: none;
   }

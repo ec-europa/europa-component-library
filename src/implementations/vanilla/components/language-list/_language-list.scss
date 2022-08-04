@@ -16,7 +16,7 @@ $_border-radius-link: null !default;
 $_border-link: null !default;
 $_border-link-active: null !default;
 $_border-link-focus: null !default;
-$_outline-link-focus: null !default;
+$_outline-link-focus-offset: null !default;
 $_color-link-active: null !default;
 $_color-link-hover: null !default;
 $_color-title: null !default;
@@ -82,7 +82,10 @@ $_title_margin-top-desktop: null !default;
 .ecl-language-list__close-button:focus,
 .ecl-language-list__close-button:active {
   color: $_color-title;
-  padding: 0;
+}
+
+.ecl-language-list__close-button:focus-visible {
+  outline-color: $_color-title;
 }
 
 .ecl-language-list__link {
@@ -100,10 +103,10 @@ $_title_margin-top-desktop: null !default;
     color: $_color-link-hover;
   }
 
-  &:focus {
-    border: $_border-link-focus;
-    outline: $_outline-link-focus;
-    outline-offset: -3px;
+  &:focus-visible {
+    border-radius: $_border-radius-link;
+    outline: 2px solid map.get(theme.$color, 'blue-100');
+    outline-offset: $_outline-link-focus-offset;
   }
 
   .ecl-link__icon {
@@ -117,6 +120,7 @@ $_title_margin-top-desktop: null !default;
     border: $_border-link-active;
     color: $_color-link-active;
     outline-color: $_color-link-active;
+    outline-offset: -4px;
   }
 }
 
