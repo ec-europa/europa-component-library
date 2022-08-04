@@ -24,8 +24,6 @@ $_invalid-border-color: null !default;
 $_invalid-border-color-hover: null !default;
 $_label-color: null !default;
 $_label-color-disabled: map.get(theme.$color, 'grey-50');
-$_outline-color: null !default;
-$_outline-width: null !default;
 
 .ecl-checkbox {
   align-items: flex-start;
@@ -152,19 +150,22 @@ $_outline-width: null !default;
   background: map.get(theme.$color, 'red-130');
 }
 
-// Hover state
-.ecl-checkbox__label:hover {
+// Hover and default focus state
+.ecl-checkbox__label:hover,
+.ecl-checkbox__input:focus-visible + .ecl-checkbox__label,
+.ecl-checkbox__input:checked:active + .ecl-checkbox__label {
   .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
     border-color: $_box-border-color-hover;
+    outline: none;
   }
 }
 
 // Focus, active state
-.ecl-checkbox__input:focus-visible,
-.ecl-checkbox__input:active {
+.ecl-checkbox__input:checked:focus-visible,
+.ecl-checkbox__input:checked:active {
   + .ecl-checkbox__label
     > .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
-    border: $_outline-width solid $_outline-color;
-    outline: none;
+    outline: 2px solid map.get(theme.$color, 'white-100');
+    outline-offset: -3px;
   }
 }

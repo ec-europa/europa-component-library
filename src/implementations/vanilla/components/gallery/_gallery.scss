@@ -54,8 +54,8 @@ $_item-outline-offset: null !default;
   outline: none;
 
   .ecl-gallery__image-container {
-    outline: $_item-outline;
-    outline-offset: $_item-outline-offset;
+    outline: 4px $_description-background solid;
+    outline-offset: -4px;
   }
 }
 

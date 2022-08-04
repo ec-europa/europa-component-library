@@ -38,8 +38,8 @@ $_outline-width: 3px !default;
   }
 
   &:focus-visible {
-    box-shadow: inset 0 0 0 3px $_outline-color;
-    outline: none;
+    outline: 2px solid map.get(theme.$color, 'blue-100');
+    outline-offset: -2px;
     text-decoration: none;
   }
 

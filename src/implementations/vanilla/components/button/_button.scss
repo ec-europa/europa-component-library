@@ -9,8 +9,7 @@
 $_border-radius: null !default;
 $_border-width: 2px !default;
 $_font-weight: null !default;
-$_outline-color: null !default;
-$_outline-width: null !default;
+$_outline-width: 2px !default;
 $_padding-horizontal: map.get(theme.$spacing, 'm') !default;
 $_padding-vertical: map.get(theme.$spacing, 's') !default;
 $_shadow-hover: null !default;
@@ -36,10 +35,8 @@ $_shadow-hover: null !default;
   }
 
   &:focus-visible {
-    border: $_outline-width solid $_outline-color;
-    outline: none;
-    padding: calc(#{$_padding-vertical} - #{$_outline-width})
-      calc(#{$_padding-horizontal} - #{$_outline-width});
+    outline: $_outline-width solid map.get(theme.$color, 'white');
+    outline-offset: -4px;
     text-decoration: none;
   }
 
@@ -124,6 +121,11 @@ $_secondary-color-hover: null !default;
     color: $_secondary-color-hover;
   }
 
+  &:focus-visible {
+    box-shadow: 0 0 0 4px $_secondary-border-color inset;
+    outline: 2px $_secondary-background-color solid;
+  }
+
   &[disabled] {
     background-color: rgba($_secondary-background-color, 0.5);
     border-color: rgba($_secondary-border-color, 0.5);
@@ -151,6 +153,10 @@ $_ghost-color-hover: null !default;
     color: $_ghost-color-hover;
   }
 
+  &:focus-visible {
+    outline: $_outline-width solid $_ghost-color;
+  }
+
   &[disabled] {
     color: rgba($_ghost-color, 0.5);
   }
@@ -166,7 +172,7 @@ $_ghost-color-hover: null !default;
 $_cta-background-color: map.get(theme.$color, 'yellow-100') !default;
 $_cta-background-color-hover: null !default;
 $_cta-color: null !default;
-$_cta-outline-color: null !default;
+$_cta-outline-color: map.get(theme.$color, 'black-100') !default;
 
 .ecl-button--call {
   background-color: $_cta-background-color;
@@ -175,10 +181,11 @@ $_cta-outline-color: null !default;
   &:hover,
   &:active {
     background-color: $_cta-background-color-hover;
+    border-color: $_cta-background-color-hover;
   }
 
   &:focus-visible {
-    border-color: $_cta-outline-color;
+    outline: $_outline-width solid $_cta-outline-color;
   }
 
   &[disabled] {

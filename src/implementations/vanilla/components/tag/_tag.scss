@@ -31,10 +31,10 @@ $_border-size-focus: null !default;
     color: map.get(theme.$color, 'white');
   }
 
-  &:focus {
+  &:focus-visible {
     background-color: $_background-color;
-    box-shadow: inset 0 0 0 $_border-size-focus $_border-color-focus;
-    outline: none;
+    outline: 2px solid map.get(theme.$color, 'blue');
+    outline-offset: 2px;
   }
 }
 
@@ -70,8 +70,9 @@ $_border-size-focus: null !default;
   position: relative;
   width: map.get(theme.$icon, 'xs');
 
-  &:focus {
-    outline: $_border-size-focus solid $_border-color-focus;
+  &:focus-visible {
+    outline: 2px solid $_border-color-focus;
+    outline-offset: 2px;
   }
 
   &.ecl-tag__icon--external {

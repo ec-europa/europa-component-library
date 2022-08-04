@@ -9,8 +9,6 @@
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 $_controls-background: null !default;
-$_outline-color: null !default;
-$_outline-width: null !default;
 
 .ecl-carousel {
   overflow: hidden;
@@ -101,7 +99,7 @@ $_outline-width: null !default;
   }
 
   &:focus-visible {
-    outline: $_outline-width solid $_outline-color;
+    outline: 2px solid map.get(theme.$color, 'white-100');
   }
 }
 
@@ -131,7 +129,7 @@ $_outline-width: null !default;
   }
 
   &:focus-visible {
-    outline: $_outline-width solid $_outline-color;
+    outline: 2px solid map.get(theme.$color, 'white-100');
   }
 }
 
@@ -175,7 +173,8 @@ $_outline-width: null !default;
   }
 
   &:focus-visible {
-    outline: $_outline-width solid $_outline-color;
+    outline: 2px solid map.get(theme.$color, 'white-100');
+    outline-offset: 2px;
   }
 
   &[aria-current='true'] {
@@ -268,28 +267,19 @@ $_outline-width: null !default;
     top: calc(50% - 22px);
     transform: translateY(-50%);
     z-index: 1;
+
+    &:focus-visible {
+      outline: 2px solid map.get(theme.$color, 'white-100');
+      outline-offset: -4px;
+    }
   }
 
   .ecl-carousel__prev {
     left: 0;
-
-    &:focus-visible {
-      margin-inline-start: $_outline-width;
-      padding-inline-start: calc(
-        #{map.get(theme.$spacing, 's')} - #{$_outline-width}
-      );
-    }
   }
 
   .ecl-carousel__next {
     right: 0;
-
-    &:focus-visible {
-      margin-inline-end: $_outline-width;
-      padding-inline-end: calc(
-        #{map.get(theme.$spacing, 's')} - #{$_outline-width}
-      );
-    }
   }
 
   .ecl-carousel__autoplay,

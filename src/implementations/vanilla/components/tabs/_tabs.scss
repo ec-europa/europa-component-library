@@ -21,8 +21,6 @@ $_dropdown-link-active-background: none !default;
 $_dropdown-link-hover-color: none !default;
 $_more-active-border-radius: none !default;
 $_button-arrows-border-radius: none !default;
-$_outline-color: none !default;
-$_outline-width: none !default;
 
 .ecl-tabs {
   margin: 0 0 map.get(theme.$spacing, '3xl');
@@ -192,7 +190,8 @@ $_outline-width: none !default;
   transform: translateY(-50%);
 
   &:focus-visible {
-    outline: $_outline-width solid $_outline-color;
+    outline: 2px solid map.get(theme.$color, 'white');
+    outline-offset: -4px;
   }
 }
 

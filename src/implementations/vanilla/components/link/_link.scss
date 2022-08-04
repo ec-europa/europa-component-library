@@ -6,8 +6,9 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
 
-$_outline-color: null !default;
-$_outline-width: null !default;
+$_border-radius: null !default;
+$_outline-color: map.get(theme.$color, 'blue-100') !default;
+$_outline-width: 2px !default;
 $_color: map.get(theme.$color, 'blue-100');
 $_color-hover: null !default;
 $_color-visited: map.get(theme.$color, 'purple-100');
@@ -23,12 +24,12 @@ $_negative: null !default;
   margin: 0;
   text-decoration: underline;
 
-  &:hover,
-  &:focus-visible {
+  &:hover {
     color: $_color-hover;
   }
 
   &:focus-visible {
+    border-radius: $_border-radius;
     outline: $_outline-width solid $_outline-color;
     outline-offset: 2px;
   }
@@ -61,10 +62,6 @@ $_negative: null !default;
     top: -1px;
     vertical-align: middle;
   }
-
-  &:not(.ecl-link--standalone) .ecl-link__label {
-    text-decoration: underline;
-  }
 }
 
 .ecl-link--icon-before .ecl-link__icon {
@@ -89,6 +86,11 @@ $_negative: null !default;
     &.ecl-link--standalone {
       color: map.get($_negative, 'standalone-color-hover');
     }
+  }
+
+  &:focus-visible {
+    color: map.get($_negative, 'color');
+    outline-color: map.get($_negative, 'color');
   }
 
   &:visited {
@@ -118,22 +120,6 @@ $_negative: null !default;
 .ecl-link--standalone {
   font-family: #{map.get(theme.$font-family, 'default')};
   text-decoration: none;
-
-  /* stylelint-disable */
-  &:not(.ecl-link--icon) {
-    &:hover,
-    &:focus-visible {
-      text-decoration: underline;
-    }
-  }
-
-  &.ecl-link--icon {
-    &:hover .ecl-link__label,
-    &:focus-visible .ecl-link__label {
-      text-decoration: underline;
-    }
-  }
-  /* stylelint-enable */
 }
 
 // stylelint-disable plugin/selector-bem-pattern
@@ -143,19 +129,18 @@ $_negative: null !default;
   font: map.get(theme.$font, 'm');
   font-weight: map.get($_button-link, 'font-weight');
   padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
+  text-decoration: none;
 
   &:hover,
   &:active {
     box-shadow: map.get($_button-link, 'shadow-hover');
-    text-decoration: underline;
   }
 
   &:focus-visible {
-    border: $_outline-width solid $_outline-color;
-    outline: none;
-    padding: calc(#{map.get(theme.$spacing, 's')} - #{$_outline-width})
-      calc(#{map.get(theme.$spacing, 'm')} - #{$_outline-width});
-    text-decoration: underline;
+    border-radius: map.get($_button-link, 'border-radius');
+    outline: $_outline-width solid map.get(theme.$color, 'white');
+    outline-offset: -4px;
+    text-decoration: none;
   }
 }
 // stylelint-enable plugin/selector-bem-pattern
@@ -187,9 +172,12 @@ $_negative: null !default;
     color: map.get($_cta, 'color');
   }
 
-  &:focus-visible {
-    border-color: map.get($_cta, 'outline-color');
+  &:focus {
     color: map.get($_cta, 'color');
+  }
+
+  &:focus-visible {
+    outline-color: map.get($_cta, 'outline-color');
   }
 
   &:visited {
@@ -268,6 +256,11 @@ $_negative: null !default;
 
   &:focus {
     color: map.get($_secondary, 'color');
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 4px map.get($_secondary, 'border-color') inset;
+    outline: 2px map.get($_secondary, 'background-color') solid;
   }
 
   &:visited {
