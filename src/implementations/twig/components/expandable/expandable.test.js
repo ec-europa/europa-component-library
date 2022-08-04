@@ -1,6 +1,13 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 import demoData from '@ecl/specs-component-expandable/demo/data';
+
+expect.extend(toHaveNoViolations);
 
 // Add SVG icon path.
 demoData.button.icon.path = 'example';
@@ -36,6 +43,12 @@ describe('Expandable', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, demoData, true))
+      ).toHaveNoViolations();
     });
   });
 

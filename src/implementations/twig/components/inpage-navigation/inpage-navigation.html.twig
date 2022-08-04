@@ -3,6 +3,7 @@
 {#
   Parameters:
    - "title" (string) (default: '')
+   - "trigger_aria_label": (default: 'ecl-inpage-navigation-trigger')
    - "links" (array) (default: predefined structure): format: [
       {
         href: (string) (default: ''),
@@ -24,6 +25,7 @@
 
 {% set _css_class = 'ecl-inpage-navigation' %}
 {% set _icon_path = icon_path|default('') %}
+{% set _trigger_aria_label = trigger_aria_label|default('ecl inpage-navigation trigger') %}
 {% set _extra_attributes = 'data-ecl-auto-init="InpageNavigation"' %}
 
 {# Internal logic - Process properties #}
@@ -48,7 +50,7 @@
   <div class="ecl-inpage-navigation__title">{{ title }}</div>
   <div class="ecl-inpage-navigation__body">
     <button type="button" class="ecl-inpage-navigation__trigger"
-            id="ecl-inpage-navigation-trigger" data-ecl-inpage-navigation-trigger="true"
+            id="ecl-inpage-navigation-trigger" aria-label="{{ _trigger_aria_label }}" data-ecl-inpage-navigation-trigger="true"
             aria-controls="ecl-inpage-navigation-list" aria-expanded="false"><span
             class="ecl-inpage-navigation__trigger-current"
             data-ecl-inpage-navigation-trigger-current="true"> </span>

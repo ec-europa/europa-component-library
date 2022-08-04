@@ -1,6 +1,13 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 import demoData from '@ecl/specs-component-accordion/demo/data';
+
+expect.extend(toHaveNoViolations);
 
 describe('Accordion', () => {
   const template = '@ecl/accordion/accordion.html.twig';
@@ -33,5 +40,11 @@ describe('Accordion', () => {
     });
 
     return expect(render(optionsWithExtraAttrs)).resolves.toMatchSnapshot();
+  });
+
+  test(`passes the accessibility tests`, async () => {
+    expect(
+      await axe(renderTwigFileAsHtml(template, demoData, true))
+    ).toHaveNoViolations();
   });
 });

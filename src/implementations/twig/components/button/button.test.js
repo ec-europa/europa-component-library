@@ -1,10 +1,17 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 // Import data for tests
 import dataPrimary from '@ecl/specs-component-button/demo/data--primary';
 import dataSecondary from '@ecl/specs-component-button/demo/data--secondary';
 import dataCall from '@ecl/specs-component-button/demo/data--call';
 import dataGhost from '@ecl/specs-component-button/demo/data--ghost';
+
+expect.extend(toHaveNoViolations);
 
 describe('Button', () => {
   const template = '@ecl/button/button.html.twig';
@@ -15,6 +22,12 @@ describe('Button', () => {
       expect.assertions(1);
 
       return expect(render(dataPrimary)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataPrimary))
+      ).toHaveNoViolations();
     });
   });
 
@@ -36,6 +49,12 @@ describe('Button', () => {
 
       return expect(render(dataCall)).resolves.toMatchSnapshot();
     });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataCall))
+      ).toHaveNoViolations();
+    });
   });
 
   describe('Text', () => {
@@ -43,6 +62,12 @@ describe('Button', () => {
       expect.assertions(1);
 
       return expect(render(dataGhost)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataGhost))
+      ).toHaveNoViolations();
     });
   });
 
@@ -56,6 +81,12 @@ describe('Button', () => {
       dataCall.icon_position = 'before';
 
       return expect(render(dataCall)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataCall))
+      ).toHaveNoViolations();
     });
   });
 

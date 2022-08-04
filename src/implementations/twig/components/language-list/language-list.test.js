@@ -1,8 +1,15 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 // Import data for tests
 import dataSplash from '@ecl/specs-component-language-list/demo/data--splash';
 import dataOverlay from '@ecl/specs-component-language-list/demo/data--overlay';
+
+expect.extend(toHaveNoViolations);
 
 describe('Language List', () => {
   describe('Splash', () => {
@@ -36,6 +43,12 @@ describe('Language List', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataSplash, true))
+      ).toHaveNoViolations();
+    });
   });
 
   describe('Overlay', () => {
@@ -68,6 +81,12 @@ describe('Language List', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataOverlay, true))
+      ).toHaveNoViolations();
     });
   });
 });

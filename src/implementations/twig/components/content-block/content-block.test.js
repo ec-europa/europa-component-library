@@ -1,7 +1,15 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
+
 import dataImage from '@ecl/specs-component-content-block/demo/data';
 
 const dataSimpleTitle = { ...dataImage, title: 'title' };
+
+expect.extend(toHaveNoViolations);
 
 describe('Content block', () => {
   const template = '@ecl/content-block/content-block.html.twig';
@@ -39,6 +47,12 @@ describe('Content block', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataImage, true))
+      ).toHaveNoViolations();
     });
   });
 });

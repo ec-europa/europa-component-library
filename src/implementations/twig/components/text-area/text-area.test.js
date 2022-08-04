@@ -1,4 +1,10 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
+
 import specDefaultEc from '@ecl/specs-component-text-area/demo/data--ec';
 import specDefaultEu from '@ecl/specs-component-text-area/demo/data--eu';
 
@@ -6,6 +12,8 @@ const specInvalidEc = { ...specDefaultEc, invalid: true };
 const specDisabledEc = { ...specDefaultEc, disabled: true };
 const specInvalidEu = { ...specDefaultEu, invalid: true };
 const specDisabledEu = { ...specDefaultEu, disabled: true };
+
+expect.extend(toHaveNoViolations);
 
 const testTextArea = (dataDefault, dataInvalid, dataDisabled) => {
   const template = '@ecl/text-area/text-area.html.twig';
@@ -62,6 +70,12 @@ const testTextArea = (dataDefault, dataInvalid, dataDisabled) => {
       });
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataDefault, true))
+      ).toHaveNoViolations();
     });
   });
 

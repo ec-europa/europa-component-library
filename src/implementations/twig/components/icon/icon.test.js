@@ -1,7 +1,14 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 import iconsAll from '@ecl/resources-ec-icons/dist/lists/all.json';
 import dataAll from '@ecl/specs-component-icon/demo/data';
+
+expect.extend(toHaveNoViolations);
 
 describe('Icon', () => {
   const template = '@ecl/icon/icon.html.twig';
@@ -69,6 +76,12 @@ describe('Icon', () => {
       });
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, options))
+      ).toHaveNoViolations();
     });
   });
 });

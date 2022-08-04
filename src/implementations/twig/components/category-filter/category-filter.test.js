@@ -1,7 +1,14 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 // Import data for tests
 import demoData from '@ecl/specs-component-category-filter/demo/data';
+
+expect.extend(toHaveNoViolations);
 
 describe('Category filter', () => {
   const template = '@ecl/category-filter/category-filter.html.twig';
@@ -35,6 +42,12 @@ describe('Category filter', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, demoData))
+      ).toHaveNoViolations();
     });
   });
 });

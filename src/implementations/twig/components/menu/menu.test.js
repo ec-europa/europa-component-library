@@ -1,8 +1,15 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 // Import data for tests
 import enData from '@ecl/specs-component-menu/demo/data--en';
 import frData from '@ecl/specs-component-menu/demo/data--fr';
+
+expect.extend(toHaveNoViolations);
 
 describe('Menu', () => {
   const template = '@ecl/menu/menu.html.twig';
@@ -36,6 +43,12 @@ describe('Menu', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, enData))
+      ).toHaveNoViolations();
     });
   });
 
