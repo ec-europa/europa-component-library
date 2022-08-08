@@ -10,8 +10,6 @@ import notes from './README.md';
 const enData = { ...enSpecs };
 const frData = { ...frSpecs };
 
-console.log(enData);
-
 const prepareData = (data) => {
   correctPaths(data);
 
