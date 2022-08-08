@@ -50,15 +50,19 @@
 
 <nav class="{{ _css_class }}"{{ _extra_attributes|raw }} data-ecl-inpage-navigation="true" aria-labelledby="{{ _id }}">
   <div class="ecl-inpage-navigation__title" id="{{ _id }}">{{ title }}</div>
-  <div class="ecl-inpage-navigation__body">
-    <button
+  {% set _button_attributes = '
       type="button"
       class="ecl-inpage-navigation__trigger"
-      id="{{ _id }}-trigger"
+      id="' ~ _id ~ '-trigger"
       data-ecl-inpage-navigation-trigger="true"
       aria-controls="ecl-inpage-navigation-list"
-      aria-expanded="false"
-      aria-label="{{ _trigger_aria_label }}">
+      aria-expanded="false"'
+  %}
+  {% if _trigger_aria_label is not empty  %}
+    {% set _button_attributes = _button_attributes ~ ' aria-label="' ~ _trigger_aria_label ~ '"' %}
+  {% endif %}
+  <div class="ecl-inpage-navigation__body">
+    <button {{ _button_attributes|raw }}>
       <span
         class="ecl-inpage-navigation__trigger-current"
         data-ecl-inpage-navigation-trigger-current="true">
