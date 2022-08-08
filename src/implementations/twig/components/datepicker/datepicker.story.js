@@ -1,16 +1,11 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { getFormControls, correctSvgPath } from '@ecl/story-utils';
-import getSystem from '@ecl/builder/utils/getSystem';
+import { getFormControls, correctPaths } from '@ecl/story-utils';
 
-import specsEc from '@ecl/specs-component-datepicker/demo/data--ec';
-import specsEu from '@ecl/specs-component-datepicker/demo/data--eu';
+import dataDefault from '@ecl/specs-component-datepicker/demo/data';
 
 import datepicker from './datepicker.html.twig';
 import notes from './README.md';
-
-const system = getSystem();
-const dataDefault = system === 'eu' ? specsEu : specsEc;
 
 const dataTranslated = {
   ...dataDefault,
@@ -73,7 +68,7 @@ const prepareData = (data, args) => {
   delete data.show_helper;
   delete data.show_error;
 
-  correctSvgPath(data);
+  correctPaths(data);
 
   return data;
 };

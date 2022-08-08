@@ -119,27 +119,10 @@ $_outline-color: null !default;
 }
 
 // Focus
-.ecl-radio__input:focus + .ecl-radio__label,
+.ecl-radio__input:focus-visible + .ecl-radio__label,
 .ecl-radio__input:active + .ecl-radio__label {
-  .ecl-radio__box::before {
-    // We can't use outline as this is a rounded box
-    border: $_outline-width solid $_outline-color;
-    border-radius: 100%;
-    content: '';
-    display: block;
-    height: calc(#{$_box-size} - (#{$_outline-width} * 2));
-    left: -#{$_box-border-width};
-    position: absolute;
-    top: -#{$_box-border-width};
-    width: calc(#{$_box-size} - (#{$_outline-width} * 2));
-  }
-}
-
-.ecl-radio__input:checked:focus + .ecl-radio__label,
-.ecl-radio__input:checked:active + .ecl-radio__label {
-  .ecl-radio__box::before {
-    left: -#{$_box-border-width-checked};
-    top: -#{$_box-border-width-checked};
+  .ecl-radio__box {
+    box-shadow: 0 0 0 2px map.get(theme.$color, 'blue');
   }
 }
 

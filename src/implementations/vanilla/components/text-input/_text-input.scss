@@ -10,11 +10,11 @@
 $_border-radius: null !default;
 $_border-color: null !default;
 $_border-color-hover: null !default;
-$_border-color-focus: null !default;
+$_border-color-focus: map.get(theme.$color, 'blue') !default;
 $_border-color-invalid: null !default;
 $_border-color-invalid-hover: null !default;
 $_border-width: 1px;
-$_border-width-focus: null !default;
+$_border-width-focus: 2px !default;
 $_color-input: null !default;
 $_color-placeholder: null !default;
 $_shadow: null !default;
@@ -48,7 +48,7 @@ $_padding-horizontal: null !default;
     box-shadow: $_shadow-hover;
   }
 
-  &:focus,
+  &:focus-visible,
   &:active {
     border-color: $_border-color-focus;
     border-width: $_border-width-focus;
@@ -108,7 +108,7 @@ $_padding-horizontal: null !default;
     box-shadow: $_shadow;
   }
 
-  &:focus,
+  &:focus-visible,
   &:active {
     border-color: rgba($_border-color, 0.5);
     border-width: $_border-width;

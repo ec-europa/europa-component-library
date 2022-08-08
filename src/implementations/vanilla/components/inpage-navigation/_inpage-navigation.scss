@@ -48,9 +48,9 @@ $_outline: null !default;
     display: none;
   }
 
-  &:focus {
-    border-color: map.get($_outline, 'color');
-    outline: none;
+  &:focus-visible {
+    outline: 2px solid map.get(theme.$color, 'white-100');
+    outline-offset: -4px;
   }
 }
 
@@ -141,17 +141,6 @@ $_outline: null !default;
   padding: map.get($_item, 'padding', 's');
   text-decoration: none;
 
-  /* stylelint-disable-next-line order/order */
-  @include breakpoints.up('l') {
-    background-color: map.get($_item, 'background', 'l');
-    border-inline-start: $_active-link-border-width solid transparent;
-    border-top: map.get($_item, 'separator', 'l');
-    color: map.get($_item, 'color', 'l');
-    font: map.get(theme.$font-prolonged, 'm');
-    font-weight: map.get($_item, 'font-weight', 'l');
-    padding: map.get($_item, 'padding', 'l');
-  }
-
   &:hover {
     background-color: map.get($_item, 'background-hover', 's');
     color: map.get($_item, 'color', 's');
@@ -164,8 +153,10 @@ $_outline: null !default;
     }
   }
 
-  &:focus {
-    outline-offset: -(map.get($_outline, 'width'));
+  &:focus-visible {
+    color: map.get($_item, 'color', 's');
+    outline-color: map.get($_outline, 'color');
+    outline-offset: -2px;
   }
 
   &:visited {
@@ -222,6 +213,25 @@ $_outline: null !default;
     @include breakpoints.up('l') {
       box-shadow: none;
       position: static;
+    }
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('l') {
+  .ecl-inpage-navigation__link {
+    background-color: map.get($_item, 'background', 'l');
+    border-inline-start: $_active-link-border-width solid transparent;
+    border-top: map.get($_item, 'separator', 'l');
+    color: map.get($_item, 'color', 'l');
+    font: map.get(theme.$font-prolonged, 'm');
+    font-weight: map.get($_item, 'font-weight', 'l');
+    padding: map.get($_item, 'padding', 'l');
+
+    &:focus-visible {
+      color: map.get($_item, 'color', 'l');
+      outline-color: map.get(theme.$color, 'blue');
+      outline-offset: -2px;
     }
   }
 }

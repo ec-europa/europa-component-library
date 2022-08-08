@@ -10,7 +10,7 @@
 $_border-radius: null !default;
 $_border-color: null !default;
 $_border-color-hover: null !default;
-$_border-color-focus: null !default;
+$_border-color-focus: map.get(theme.$color, 'blue') !default;
 $_border-color-invalid: null !default;
 $_border-color-invalid-hover: null !default;
 $_border-color-disabled: null !default;
@@ -72,7 +72,7 @@ $_multiple-checkbox-label-vertical-padding: null !default;
     box-shadow: $_shadow-hover;
   }
 
-  &:focus {
+  &:focus-visible {
     border-color: $_border-color-focus;
     border-width: $_border-width-focus;
     box-shadow: $_shadow-hover;

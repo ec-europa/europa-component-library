@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 
 import dataLink from '@ecl/specs-component-tag/demo/data--link';
 import dataRemovable from '@ecl/specs-component-tag/demo/data--removable';
@@ -58,7 +58,7 @@ const prepareData = (data, args) => {
     delete data.tag.external;
   }
 
-  correctSvgPath(data);
+  correctPaths(data);
 
   return Object.assign(data, args);
 };

@@ -67,13 +67,9 @@ $_button-outline-width: null !default;
     background-color: $_button-background-color-hover;
   }
 
-  &:focus {
-    padding-inline-start: calc(
-      #{map.get(theme.$spacing, 's')} - #{$_button-outline-width}
-    );
-    padding-inline-end: calc(
-      #{map.get(theme.$spacing, 's')} - #{$_button-outline-width}
-    );
+  &:focus-visible {
+    outline: 2px solid map.get(theme.$color, 'blue');
+    outline-offset: -2px;
   }
 
   &[disabled] {
@@ -110,15 +106,6 @@ $_button-outline-width: null !default;
     );
     padding-inline-end: calc(
       #{map.get(theme.$spacing, 'm')} - #{$_button-border-width}
-    );
-  }
-
-  .ecl-search-form__button:focus {
-    padding-inline-start: calc(
-      #{map.get(theme.$spacing, 'm')} - #{$_button-outline-width}
-    );
-    padding-inline-end: calc(
-      #{map.get(theme.$spacing, 'm')} - #{$_button-outline-width}
     );
   }
 

@@ -44,6 +44,7 @@ export class Menu {
       innerSelector = '[data-ecl-menu-inner]',
       itemSelector = '[data-ecl-menu-item]',
       linkSelector = '[data-ecl-menu-link]',
+      caretSelector = '[data-ecl-menu-caret]',
       megaSelector = '[data-ecl-menu-mega]',
       subItemSelector = '[data-ecl-menu-subitem]',
       attachClickListener = true,
@@ -70,6 +71,7 @@ export class Menu {
     this.innerSelector = innerSelector;
     this.itemSelector = itemSelector;
     this.linkSelector = linkSelector;
+    this.caretSelector = caretSelector;
     this.megaSelector = megaSelector;
     this.subItemSelector = subItemSelector;
     this.attachClickListener = attachClickListener;
@@ -88,17 +90,19 @@ export class Menu {
     this.links = null;
     this.isOpen = false;
     this.resizeTimer = null;
+    this.isKeyEvent = false;
 
     // Bind `this` for use in callbacks
     this.handleClickOnOpen = this.handleClickOnOpen.bind(this);
     this.handleClickOnClose = this.handleClickOnClose.bind(this);
     this.handleClickOnBack = this.handleClickOnBack.bind(this);
-    this.handleClickOnLink = this.handleClickOnLink.bind(this);
+    this.handleClickOnCaret = this.handleClickOnCaret.bind(this);
     this.handleHoverOnItem = this.handleHoverOnItem.bind(this);
     this.handleHoverOffItem = this.handleHoverOffItem.bind(this);
     this.handleKeyboard = this.handleKeyboard.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.useDesktopDisplay = this.useDesktopDisplay.bind(this);
+    this.closeOpenDropdown = this.closeOpenDropdown.bind(this);
   }
 
   /**
@@ -112,7 +116,9 @@ export class Menu {
     this.overlay = queryOne(this.overlaySelector, this.element);
     this.inner = queryOne(this.innerSelector, this.element);
     this.items = queryAll(this.itemSelector, this.element);
+    this.subItems = queryAll(this.subItemSelector, this.element);
     this.links = queryAll(this.linkSelector, this.element);
+    this.carets = queryAll(this.caretSelector, this.element);
 
     // Check if we should use desktop display (it does not rely only on breakpoints)
     this.useDesktopDisplay();
@@ -137,14 +143,37 @@ export class Menu {
       this.overlay.addEventListener('click', this.handleClickOnClose);
     }
 
-    // Bind click event on menu links
-    if (this.attachClickListener && this.links) {
+    // Bind event on menu links
+    if (this.links) {
       this.links.forEach((link) => {
-        if (link.parentElement.hasAttribute('data-ecl-has-children')) {
-          link.addEventListener('click', this.handleClickOnLink);
+        if (this.attachFocusListener) {
+          link.addEventListener('focusin', this.closeOpenDropdown);
+        }
+        if (this.attachKeyListener) {
+          link.addEventListener('keyup', this.handleKeyboard);
+        }
+      });
+    }
 
-          if (this.attachKeyListener) {
-            link.addEventListener('keyup', this.handleKeyboard);
+    // Bind key event on caret buttons
+    if (this.carets) {
+      this.carets.forEach((caret) => {
+        if (this.attachKeyListener) {
+          caret.addEventListener('keyup', this.handleKeyboard);
+        }
+        if (this.attachClickListener) {
+          caret.addEventListener('click', this.handleClickOnCaret);
+        }
+      });
+    }
+
+    // Bind event on sub menu links
+    if (this.subItems) {
+      this.subItems.forEach((subItem) => {
+        if (this.attachKeyListener) {
+          const subLink = queryOne('.ecl-menu__sublink', subItem);
+          if (subLink) {
+            subLink.addEventListener('keyup', this.handleKeyboard);
           }
         }
       });
@@ -166,13 +195,6 @@ export class Menu {
           if (this.attachHoverListener) {
             item.addEventListener('mouseover', this.handleHoverOnItem);
             item.addEventListener('mouseout', this.handleHoverOffItem);
-          }
-          if (this.attachFocusListener) {
-            item.addEventListener('focusin', this.handleHoverOnItem);
-            item.addEventListener('focusout', this.handleHoverOffItem);
-          }
-          if (this.attachKeyListener) {
-            item.addEventListener('keyup', this.handleKeyboard);
           }
         }
       });
@@ -214,6 +236,12 @@ export class Menu {
       this.overlay.removeEventListener('click', this.handleClickOnClose);
     }
 
+    if (this.attachKeyListener && this.carets) {
+      this.carets.forEach((caret) => {
+        caret.removeEventListener('keyup', this.handleKeyboard);
+      });
+    }
+
     if (this.items && !isMobile.isMobile) {
       this.items.forEach((item) => {
         if (item.hasAttribute('data-ecl-has-children')) {
@@ -221,24 +249,38 @@ export class Menu {
             item.removeEventListener('mouseover', this.handleHoverOnItem);
             item.removeEventListener('mouseout', this.handleHoverOffItem);
           }
-          if (this.attachFocusListener) {
-            item.removeEventListener('focusin', this.handleHoverOnItem);
-            item.removeEventListener('focusout', this.handleHoverOffItem);
-          }
-          if (this.attachKeyListener) {
-            item.removeEventListener('keyup', this.handleKeyboard);
-          }
         }
       });
     }
 
-    if (this.attachClickListener && this.links) {
+    if (this.links) {
       this.links.forEach((link) => {
-        if (link.parentElement.hasAttribute('data-ecl-has-children')) {
-          link.removeEventListener('click', this.handleClickOnLink);
+        if (this.attachFocusListener) {
+          link.removeEventListener('focusin', this.closeOpenDropdown);
+        }
+        if (this.attachKeyListener) {
+          link.removeEventListener('keyup', this.handleKeyboard);
+        }
+      });
+    }
 
-          if (this.attachKeyListener) {
-            link.removeEventListener('keyup', this.handleKeyboard);
+    if (this.carets) {
+      this.carets.forEach((caret) => {
+        if (this.attachKeyListener) {
+          caret.removeEventListener('keyup', this.handleKeyboard);
+        }
+        if (this.attachClickListener) {
+          caret.removeEventListener('click', this.handleClickOnCaret);
+        }
+      });
+    }
+
+    if (this.subItems) {
+      this.subItems.forEach((subItem) => {
+        if (this.attachKeyListener) {
+          const subLink = queryOne('.ecl-menu__sublink', subItem);
+          if (subLink) {
+            subLink.removeEventListener('keyup', this.handleKeyboard);
           }
         }
       });
@@ -347,15 +389,132 @@ export class Menu {
    * @param {Event} e
    */
   handleKeyboard(e) {
+    const element = e.target;
+    const cList = element.classList;
+    const menuExpanded = this.element.getAttribute('aria-expanded');
+    const menuItem = element.closest(this.itemSelector);
+
     // Detect press on Escape
     if (e.key === 'Escape' || e.key === 'Esc') {
-      const menuItem = e.target;
-      if (document.activeElement === menuItem) {
-        menuItem.blur();
+      if (document.activeElement === element) {
+        element.blur();
+      }
+
+      if (menuExpanded === 'false') {
+        const buttonCaret = queryOne('.ecl-menu__button-caret', menuItem);
+        if (buttonCaret) {
+          buttonCaret.focus();
+        }
+        this.closeOpenDropdown();
+      } else {
+        this.handleClickOnClose();
+      }
+      return;
+    }
+
+    // Key actions to toggle the caret buttons
+    if (cList.contains('ecl-menu__button-caret') && menuExpanded === 'false') {
+      if (e.keyCode === 32 || e.key === 'Enter') {
+        if (menuItem.getAttribute('aria-expanded') === 'true') {
+          this.handleHoverOffItem(e);
+        } else {
+          this.handleHoverOnItem(e);
+        }
+        return;
+      }
+      if (e.key === 'ArrowDown') {
+        const firstItem = queryOne(
+          '.ecl-menu__sublink:first-of-type',
+          menuItem
+        );
+        if (firstItem) {
+          firstItem.focus();
+          return;
+        }
       }
     }
 
-    return this;
+    // Key actions to navigate between first level menu items
+    if (
+      cList.contains('ecl-menu__link') ||
+      cList.contains('ecl-menu__button-caret')
+    ) {
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        let prevItem = element.previousSibling;
+
+        if (prevItem && prevItem.classList.contains('ecl-menu__link')) {
+          prevItem.focus();
+          return;
+        }
+
+        prevItem = element.parentElement.previousSibling;
+        if (prevItem) {
+          const prevClass = prevItem.classList.contains(
+            'ecl-menu__item--has-children'
+          )
+            ? '.ecl-menu__button-caret'
+            : '.ecl-menu__link';
+          const prevLink = queryOne(prevClass, prevItem);
+
+          if (prevLink) {
+            prevLink.focus();
+            return;
+          }
+        }
+      }
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        let nextItem = element.nextSibling;
+
+        if (nextItem && nextItem.classList.contains('ecl-menu__button-caret')) {
+          nextItem.focus();
+          return;
+        }
+        nextItem = element.parentElement.nextSibling;
+        if (nextItem) {
+          const nextLink = queryOne('.ecl-menu__link', nextItem);
+
+          if (nextLink) {
+            nextLink.focus();
+          }
+        }
+      }
+
+      this.closeOpenDropdown();
+    }
+
+    // Key actions to navigate between the sub-links
+    if (cList.contains('ecl-menu__sublink')) {
+      if (e.key === 'ArrowDown') {
+        const nextItem = element.parentElement.nextSibling;
+        if (nextItem) {
+          const nextLink = queryOne('.ecl-menu__sublink', nextItem);
+
+          if (nextLink) {
+            nextLink.focus();
+            return;
+          }
+        }
+      }
+      if (e.key === 'ArrowUp') {
+        const prevItem = element.parentElement.previousSibling;
+        if (prevItem) {
+          const prevLink = queryOne('.ecl-menu__sublink', prevItem);
+
+          if (prevLink) {
+            prevLink.focus();
+          }
+        } else {
+          const caretButton = queryOne(
+            `${this.itemSelector}[aria-expanded="true"] ${this.caretSelector}`,
+            this.element
+          );
+
+          if (caretButton) {
+            caretButton.focus();
+          }
+        }
+      }
+    }
   }
 
   /**
@@ -413,23 +572,18 @@ export class Menu {
    * Click on a menu item
    * @param {Event} e
    */
-  handleClickOnLink(e) {
-    // If the menu is expanded, the link should work by default
-    if (
-      !this.isOpen ||
-      this.inner.classList.contains('ecl-menu__inner--expanded')
-    ) {
-      return true;
+  handleClickOnCaret(e) {
+    // Don't execute for desktop display
+    const menuExpanded = this.element.getAttribute('aria-expanded');
+    if (menuExpanded === 'false') {
+      return;
     }
-
-    // Disable link
-    e.preventDefault();
 
     // Add css class to inner menu
     this.inner.classList.add('ecl-menu__inner--expanded');
 
     // Add css class and attribute to current item, and remove it from others
-    const menuItem = e.target.closest('[data-ecl-menu-item]');
+    const menuItem = e.target.closest(this.itemSelector);
     this.items.forEach((item) => {
       if (item === menuItem) {
         item.classList.add('ecl-menu__item--expanded');
@@ -439,8 +593,6 @@ export class Menu {
         item.setAttribute('aria-expanded', 'false');
       }
     });
-
-    return this;
   }
 
   /**
@@ -449,12 +601,18 @@ export class Menu {
    */
   handleHoverOnItem(e) {
     // Add attribute to current item, and remove it from others
-    const menuItem = e.target.closest('[data-ecl-menu-item]');
+    const menuItem = e.target.closest(this.itemSelector);
     this.items.forEach((item) => {
       if (item === menuItem) {
         item.setAttribute('aria-expanded', 'true');
       } else {
         item.setAttribute('aria-expanded', 'false');
+
+        // Force remove focus on caret buttons
+        const caretButton = queryOne('.ecl-menu__button-caret', item);
+        if (caretButton) {
+          caretButton.blur();
+        }
       }
     });
 
@@ -467,10 +625,23 @@ export class Menu {
    */
   handleHoverOffItem(e) {
     // Remove attribute to current item
-    const menuItem = e.target.closest('[data-ecl-menu-item]');
+    const menuItem = e.target.closest(this.itemSelector);
     menuItem.setAttribute('aria-expanded', 'false');
 
     return this;
+  }
+
+  /**
+   * Deselect any opened menu item
+   */
+  closeOpenDropdown() {
+    const currentItem = queryOne(
+      `${this.itemSelector}[aria-expanded='true']`,
+      this.element
+    );
+    if (currentItem) {
+      currentItem.setAttribute('aria-expanded', 'false');
+    }
   }
 }
 

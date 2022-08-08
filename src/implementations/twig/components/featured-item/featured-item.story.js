@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 
 import demoData from '@ecl/specs-component-featured-item/demo/data';
 import demoDataExtended from '@ecl/specs-component-featured-item/demo/data--extended';
@@ -9,9 +9,9 @@ import notes from './README.md';
 
 const getArgs = (data) => {
   const args = {
-    heading: data.heading,
     title: data.title,
     description: data.description,
+    position: 'left',
   };
   if (data.link.link.label) {
     args.link_label = data.link.link.label;
@@ -25,16 +25,6 @@ const getArgs = (data) => {
 
 const getArgTypes = (data) => {
   const argTypes = {};
-
-  argTypes.heading = {
-    type: 'string',
-    description: 'Featured item heading',
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: '' },
-      category: 'Content',
-    },
-  };
 
   argTypes.title = {
     type: 'string',
@@ -81,6 +71,17 @@ const getArgTypes = (data) => {
     };
   }
 
+  argTypes.position = {
+    type: { name: 'select' },
+    description: 'Alignment inside featured item',
+    options: ['left', 'right'],
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Display',
+    },
+  };
+
   return argTypes;
 };
 
@@ -91,7 +92,7 @@ const prepareData = (data, args) => {
   if (data.media_container.image) {
     data.media_container.image = args.image;
   }
-  return Object.assign(correctSvgPath(data), args);
+  return Object.assign(correctPaths(data), args);
 };
 
 export default {

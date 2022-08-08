@@ -21,8 +21,6 @@ $_dropdown-link-active-background: none !default;
 $_dropdown-link-hover-color: none !default;
 $_more-active-border-radius: none !default;
 $_button-arrows-border-radius: none !default;
-$_outline-color: none !default;
-$_outline-width: none !default;
 
 .ecl-tabs {
   margin: 0 0 map.get(theme.$spacing, '3xl');
@@ -54,7 +52,7 @@ $_outline-width: none !default;
   padding: map.get(theme.$spacing, 'm') map.get(theme.$spacing, 's');
   text-decoration: none;
 
-  &:focus {
+  &:focus-visible {
     outline-offset: -2px;
   }
 
@@ -94,7 +92,7 @@ $_outline-width: none !default;
   font-weight: map.get(theme.$font-weight, 'bold');
   position: relative;
 
-  &:not(:focus) {
+  &:not(:focus-visible) {
     border-color: transparent;
   }
 
@@ -122,7 +120,7 @@ $_outline-width: none !default;
     width: 100%;
   }
 
-  &:focus::before {
+  &:focus-visible::before {
     content: none;
   }
 }
@@ -191,8 +189,9 @@ $_outline-width: none !default;
   top: 50%;
   transform: translateY(-50%);
 
-  &:focus {
-    outline: $_outline-width solid $_outline-color;
+  &:focus-visible {
+    outline: 2px solid map.get(theme.$color, 'white');
+    outline-offset: -4px;
   }
 }
 

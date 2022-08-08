@@ -5,13 +5,10 @@ import {
 } from '@ecl/test-utils';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
-import specDefaultEc from '@ecl/specs-component-text-input/demo/data--ec';
-import specDefaultEu from '@ecl/specs-component-text-input/demo/data--eu';
+import specDefault from '@ecl/specs-component-text-input/demo/data';
 
-const specInvalidEc = { ...specDefaultEc, invalid: true };
-const specDisabledEc = { ...specDefaultEc, disabled: true };
-const specInvalidEu = { ...specDefaultEu, invalid: true };
-const specDisabledEu = { ...specDefaultEu, disabled: true };
+const specInvalid = { ...specDefault, invalid: true };
+const specDisabled = { ...specDefault, disabled: true };
 
 expect.extend(toHaveNoViolations);
 
@@ -106,10 +103,6 @@ const testTextField = (dataDefault, dataInvalid, dataDisabled) => {
   });
 };
 
-describe('Text field EC', () => {
-  testTextField(specDefaultEc, specInvalidEc, specDisabledEc);
-});
-
-describe('Text field EU', () => {
-  testTextField(specDefaultEu, specInvalidEu, specDisabledEu);
+describe('Text field', () => {
+  testTextField(specDefault, specInvalid, specDisabled);
 });

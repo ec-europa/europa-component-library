@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
 import specsEc from '@ecl/specs-component-footer-core/demo/data--ec';
@@ -15,7 +15,7 @@ const system = getSystem();
 const demoData = system === 'eu' ? specsEu : specsEc;
 
 const prepareData = (data) => {
-  correctSvgPath(data);
+  correctPaths(data);
   if (system === 'eu') {
     data.rows[0][0][0].logo.src_mobile = logoEuMobile;
     data.rows[0][0][0].logo.src_desktop = logoEuDesktop;

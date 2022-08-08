@@ -1,8 +1,8 @@
 ---
-title: Social media share
+title: Social Media Share
 defaultTab: usage
 status: ready
 playground:
   system: eu
-  path: /story/components-social-media-share--default
+  path: /story/components-social-media-share--horizontal
 ---

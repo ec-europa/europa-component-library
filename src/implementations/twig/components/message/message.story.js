@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
 // Import data for demos
@@ -54,7 +54,7 @@ const getArgTypes = () => ({
 });
 
 const prepareData = (data, args) => {
-  correctSvgPath(data);
+  correctPaths(data);
   return Object.assign(data, args);
 };
 

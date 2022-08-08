@@ -5,15 +5,12 @@ import {
 } from '@ecl/test-utils';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
-import specDefaultEc from '@ecl/specs-component-text-area/demo/data--ec';
-import specDefaultEu from '@ecl/specs-component-text-area/demo/data--eu';
-
-const specInvalidEc = { ...specDefaultEc, invalid: true };
-const specDisabledEc = { ...specDefaultEc, disabled: true };
-const specInvalidEu = { ...specDefaultEu, invalid: true };
-const specDisabledEu = { ...specDefaultEu, disabled: true };
+import specDefault from '@ecl/specs-component-text-area/demo/data';
 
 expect.extend(toHaveNoViolations);
+
+const specInvalid = { ...specDefault, invalid: true };
+const specDisabled = { ...specDefault, disabled: true };
 
 const testTextArea = (dataDefault, dataInvalid, dataDisabled) => {
   const template = '@ecl/text-area/text-area.html.twig';
@@ -106,10 +103,6 @@ const testTextArea = (dataDefault, dataInvalid, dataDisabled) => {
   });
 };
 
-describe('Text area EC', () => {
-  testTextArea(specDefaultEc, specInvalidEc, specDisabledEc);
-});
-
-describe('Text area EU', () => {
-  testTextArea(specDefaultEu, specInvalidEu, specDisabledEu);
+describe('Text area', () => {
+  testTextArea(specDefault, specInvalid, specDisabled);
 });

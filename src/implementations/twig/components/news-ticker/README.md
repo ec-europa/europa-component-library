@@ -15,7 +15,8 @@ npm install --save @ecl/twig-component-news-ticker
 - **"counter_label"** (string) (default: 'of')
 - **"sr_previous"** (string) (default: 'Previous news') screen reader label for previous button
 - **"sr_next"** (string) (default: 'Next news') screen reader label for next button
-- **"sr_autoplay"** (string) (default: 'News ticker auto play') screen reader label for autoplay button
+- **"sr_play"** (string) (default: 'Play news ticker') screen reader label for the play button
+- **"sr_pause"** (string) (default: 'Pause news ticker') screen reader label for the pause button
 - **"icon_path"** (string) (default: ''): path to the icons svg
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes

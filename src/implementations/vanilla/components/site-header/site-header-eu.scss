@@ -31,9 +31,8 @@ $_search-width-xl: 31.5rem;
     width: 100%;
   }
 
-  .ecl-menu__open,
-  .ecl-menu__closed {
-    margin-bottom: 5px;
+  .ecl-menu__open {
+    margin-bottom: 8px;
   }
 
   &:not([data-ecl-has-menu='true']) {
@@ -111,13 +110,8 @@ $_search-width-xl: 31.5rem;
 .ecl-site-header__search-toggle {
   padding: map.get(theme.$spacing, 'xs');
 
-  &:focus {
-    padding: calc(#{map.get(theme.$spacing, 'xs')} - 2px)
-      calc(#{map.get(theme.$spacing, 'xs')} - 2px);
-  }
-
   &[aria-expanded='true'],
-  &[aria-expanded='true']:focus {
+  &[aria-expanded='true']:focus-visible {
     background-color: map.get(theme.$color, 'blue-5');
     border-end-start-radius: 0;
     border-end-end-radius: 0;
@@ -172,10 +166,15 @@ $_search-width-xl: 31.5rem;
   margin-top: map.get(theme.$spacing, 'm');
 }
 
+.ecl-site-header__icon {
+  margin-bottom: map.get(theme.$spacing, '2xs');
+}
+
 .ecl-site-header__language-icon {
   align-items: center;
   display: flex;
   justify-content: center;
+  margin-bottom: map.get(theme.$spacing, '2xs');
   position: relative;
 
   .ecl-site-header__icon {
@@ -228,11 +227,6 @@ $_search-width-xl: 31.5rem;
     flex-grow: 0;
   }
 
-  .ecl-site-header__container {
-    padding-bottom: map.get(theme.$spacing, 's');
-    padding-top: map.get(theme.$spacing, 's');
-  }
-
   .ecl-site-header__logo-image-mobile {
     height: $_logo-height-sm;
     max-height: 100%;
@@ -254,7 +248,7 @@ $_search-width-xl: 31.5rem;
 @include breakpoints.up('l') {
   .ecl-site-header {
     .ecl-site-header__cta {
-      align-self: start;
+      align-self: center;
       margin: map.get(theme.$spacing, 'xs') 0;
 
       &:only-child {
@@ -273,10 +267,6 @@ $_search-width-xl: 31.5rem;
     }
   }
 
-  .ecl-site-header__header {
-    box-shadow: 0 0 6px rgb(9 49 142 / 0.2);
-  }
-
   .ecl-site-header__banner {
     background: transparent;
     display: block;
@@ -285,6 +275,16 @@ $_search-width-xl: 31.5rem;
 
     .ecl-container {
       display: flex;
+      position: relative;
+
+      &:not(:empty)::before {
+        border-top: 2px solid map.get(theme.$color, 'blue-20');
+        content: '';
+        left: map.get(theme.$spacing, 'm');
+        position: absolute;
+        right: map.get(theme.$spacing, 'm');
+        top: -1px;
+      }
     }
   }
 
@@ -292,6 +292,8 @@ $_search-width-xl: 31.5rem;
     align-self: center;
     color: map.get(theme.$color, 'grey-80');
     flex-grow: 1;
+    font: map.get(theme.$font, '4xl');
+    font-weight: map.get(theme.$font-weight, 'bold');
     margin-inline-end: 0;
     padding: map.get(theme.$spacing, 'm') 0;
   }
@@ -343,8 +345,11 @@ $_search-width-xl: 31.5rem;
 
   .ecl-site-header__login-toggle,
   .ecl-site-header__language-icon {
+    margin-bottom: 0;
+
     .ecl-site-header__icon {
       height: map.get(theme.$icon, 'm');
+      margin-bottom: 0;
       margin-inline-end: map.get(theme.$spacing, 'xs');
       width: map.get(theme.$icon, 'm');
     }
@@ -377,13 +382,8 @@ $_search-width-xl: 31.5rem;
   .ecl-site-header__search-toggle {
     padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
 
-    &:focus {
-      padding: calc(#{map.get(theme.$spacing, 's')} - 2px)
-        calc(#{map.get(theme.$spacing, 'm')} - 2px);
-    }
-
     &[aria-expanded='true'],
-    &[aria-expanded='true']:focus {
+    &[aria-expanded='true']:focus-visible {
       margin-bottom: -#{map.get(theme.$spacing, 'l')};
       padding: calc(#{map.get(theme.$spacing, 's')} - 1px)
         calc(#{map.get(theme.$spacing, 'm')} - 1px);

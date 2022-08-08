@@ -1,8 +1,5 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
 @use 'carousel' with (
-  $_button_arrows-background: map.get(theme.$color, 'blue-130'),
-  $_controls-background: map.get(theme.$color, 'blue-130'),
-  $_outline-color: map.get(theme.$color, 'yellow-100'),
-  $_outline-width: 3px
+  $_controls-background: map.get(theme.$color, 'blue-130')
 );

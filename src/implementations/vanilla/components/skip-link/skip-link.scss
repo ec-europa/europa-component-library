@@ -16,7 +16,7 @@
   font: map.get(theme.$font, 'm');
   height: 1px;
   margin: 0;
-  outline: 3px solid map.get(theme.$color, 'yellow-100');
+  outline: 2px solid map.get(theme.$color, 'blue-100');
   outline-offset: 0;
   overflow: hidden;
   padding: map.get(theme.$spacing, 'xs');
@@ -27,7 +27,7 @@
   z-index: map.get(theme.$z-index, 'highlight');
 
   &:active,
-  &:focus {
+  &:focus-visible {
     clip: auto;
     clip-path: none;
     height: auto;

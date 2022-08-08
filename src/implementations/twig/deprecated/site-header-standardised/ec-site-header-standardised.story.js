@@ -1,5 +1,5 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
-import { correctSvgPath } from '@ecl/story-utils';
+import { correctPaths } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
 
 import englishBanner from '@ecl/resources-ec-logo/dist/positive/logo-ec--en.svg';
@@ -155,7 +155,7 @@ const prepareData = (data, demo, args) => {
     }
   }
 
-  correctSvgPath(data);
+  correctPaths(data);
 
   if (demo !== 'translated') {
     data.logo.src_desktop = englishBanner;

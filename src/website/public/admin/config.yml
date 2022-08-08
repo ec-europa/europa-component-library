@@ -148,6 +148,11 @@ collections:
         file: 'src/website/src/pages/ec/components/file/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
+      - label: 'Rating field'
+        name: 'ec_rating_field'
+        file: 'src/website/src/pages/ec/components/forms/rating-field/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
       - label: 'Footer Core'
         name: 'ec_footer_core'
         file: 'src/website/src/pages/ec/core-template/footer/docs/usage.md'
@@ -373,34 +378,6 @@ collections:
         file: 'src/website/src/pages/ec/components/timeline/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
-  - label: 'Europa family for EC'
-    name: 'ec_usage_pages_templates'
-    files:
-      - label: 'EC Core template'
-        name: 'ec_core_template'
-        file: 'src/website/src/pages/ec/core-template/index.md'
-        fields:
-          - { label: Body, name: body, widget: markdown }
-      - label: 'Harmonised template Group 1'
-        name: 'ec_harmonised_template_g1'
-        file: 'src/website/src/pages/ec/harmonised-templates/docs/group1.md'
-        fields:
-          - { label: Body, name: body, widget: markdown }
-      - label: 'Harmonised template Group 2'
-        name: 'ec_harmonised_template_g2'
-        file: 'src/website/src/pages/ec/harmonised-templates/docs/group2.md'
-        fields:
-          - { label: Body, name: body, widget: markdown }
-      - label: 'Harmonised template Group 3'
-        name: 'ec_harmonised_template_g3'
-        file: 'src/website/src/pages/ec/harmonised-templates/docs/group3.md'
-        fields:
-          - { label: Body, name: body, widget: markdown }
-      - label: 'Standardised template'
-        name: 'ec_standardised_template'
-        file: 'src/website/src/pages/ec/standardised-template/index.md'
-        fields:
-          - { label: Body, name: body, widget: markdown }
   - label: 'EC Utilities'
     name: 'ec_utilities'
     files:
@@ -522,7 +499,7 @@ collections:
         file: 'src/website/src/pages/ec/guidelines/typography/index.md'
         fields:
           - { label: Body, name: body, widget: markdown }
-  - label: 'EC Reources'
+  - label: 'EC Resources'
     name: 'ec_resources'
     files:
       - label: 'Index'
@@ -543,6 +520,39 @@ collections:
       - label: 'Webtools'
         name: 'ec_resources_webtools'
         file: 'src/website/src/pages/ec/resources/webtools/index.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+  - label: 'EC Deprecated'
+    name: 'ec_deprecated'
+    files:
+      - label: 'Index'
+        name: 'ec_deprecated_index'
+        file: 'src/website/src/pages/ec/deprecated/index.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'EC Core template'
+        name: 'ec_core_template'
+        file: 'src/website/src/pages/ec/deprecated/core-template/index.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Harmonised template Group 1'
+        name: 'ec_harmonised_template_g1'
+        file: 'src/website/src/pages/ec/deprecated/harmonised-templates/docs/group1.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Harmonised template Group 2'
+        name: 'ec_harmonised_template_g2'
+        file: 'src/website/src/pages/ec/deprecated/harmonised-templates/docs/group2.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Harmonised template Group 3'
+        name: 'ec_harmonised_template_g3'
+        file: 'src/website/src/pages/ec/deprecated/harmonised-templates/docs/group3.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Standardised template'
+        name: 'ec_standardised_template'
+        file: 'src/website/src/pages/ec/deprecated/standardised-template/index.md'
         fields:
           - { label: Body, name: body, widget: markdown }
   - label: 'EU Usage pages for components'
@@ -636,6 +646,11 @@ collections:
       - label: 'File'
         name: 'eu_file'
         file: 'src/website/src/pages/eu/components/file/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Rating field'
+        name: 'eu_rating_field'
+        file: 'src/website/src/pages/eu/components/forms/rating-field/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Footer Core'
@@ -823,19 +838,6 @@ collections:
         file: 'src/website/src/pages/eu/components/timeline/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
-  - label: 'Europa family for EU'
-    name: 'eu_usage_pages_templates'
-    files:
-      - label: 'EU Core template'
-        name: 'eu_core_template'
-        file: 'src/website/src/pages/eu/core-template/index.md'
-        fields:
-          - { label: Body, name: body, widget: markdown }
-      - label: 'EU Harmonised template'
-        name: 'eu_harmonised_template'
-        file: 'src/website/src/pages/eu/harmonised-template/index.md'
-        fields:
-          - { label: Body, name: body, widget: markdown }
   - label: 'EU Utilities'
     name: 'eu_utilities'
     files:
@@ -978,5 +980,23 @@ collections:
       - label: 'Webtools'
         name: 'eu_resources_webtools'
         file: 'src/website/src/pages/eu/resources/webtools/index.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+  - label: 'EU Deprecated'
+    name: 'eu_deprecated'
+    files:
+      - label: 'Index'
+        name: 'eu_deprecated_index'
+        file: 'src/website/src/pages/eu/deprecated/index.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'EU Core template'
+        name: 'eu_core_template'
+        file: 'src/website/src/pages/eu/deprecated/core-template/index.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'EU Harmonised template'
+        name: 'eu_harmonised_template'
+        file: 'src/website/src/pages/eu/deprecated/harmonised-template/index.md'
         fields:
           - { label: Body, name: body, widget: markdown }

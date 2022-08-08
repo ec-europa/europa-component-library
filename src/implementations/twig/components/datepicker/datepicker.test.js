@@ -5,13 +5,10 @@ import {
 } from '@ecl/test-utils';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
-import specDefaultEc from '@ecl/specs-component-datepicker/demo/data--ec';
-import specDefaultEu from '@ecl/specs-component-datepicker/demo/data--eu';
+import specDefault from '@ecl/specs-component-datepicker/demo/data';
 
-const specInvalidEc = { ...specDefaultEc, invalid: true };
-const specDisabledEc = { ...specDefaultEc, disabled: true };
-const specInvalidEu = { ...specDefaultEu, invalid: true };
-const specDisabledEu = { ...specDefaultEu, disabled: true };
+const specInvalid = { ...specDefault, invalid: true };
+const specDisabled = { ...specDefault, disabled: true };
 
 expect.extend(toHaveNoViolations);
 
@@ -106,10 +103,6 @@ const datePickerField = (dataDefault, dataInvalid, dataDisabled) => {
   });
 };
 
-describe('Date picker EC', () => {
-  datePickerField(specDefaultEc, specInvalidEc, specDisabledEc);
-});
-
-describe('Date picker EU', () => {
-  datePickerField(specDefaultEu, specInvalidEu, specDisabledEu);
+describe('Date picker', () => {
+  datePickerField(specDefault, specInvalid, specDisabled);
 });

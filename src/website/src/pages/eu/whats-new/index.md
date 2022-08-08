@@ -5,6 +5,57 @@ title: What's new
 
 Detailed release information is available on [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 3.4.0 (2022-07-13)
+
+#### :rocket: New Feature
+
+* [#2552](https://github.com/ec-europa/europa-component-library/pull/2552) feat(rating-field): Add component - FRONT-3543 ([@papegaill](https://github.com/papegaill))
+* [#2545](https://github.com/ec-europa/europa-component-library/pull/2545) feat(featured-media): Add position parameter - FRONT-3638 ([@papegaill](https://github.com/papegaill))
+
+#### :bug: Bug Fix
+
+* [#2591](https://github.com/ec-europa/europa-component-library/pull/2591) fix(file-upload): Fix focus styles for the browse button - FRONT-3689
+* [#2597](https://github.com/ec-europa/europa-component-library/pull/2597) fix(table): Fix focus for table sort arrows - FRONT-3693
+* [#2598](https://github.com/ec-europa/europa-component-library/pull/2598) fix(icon): Removing default, unneded but harmful transformation - FRONT-3702
+* [#2588](https://github.com/ec-europa/europa-component-library/pull/2588) fix(news-ticker): Fix focus overflow - FRONT-3692
+* [#2573](https://github.com/ec-europa/europa-component-library/pull/2573) fix(default-css): Fix webtools highchart dropdown conflict - FRONT-3667
+* [#2554](https://github.com/ec-europa/europa-component-library/pull/2554) fix(forms): Add invalid icons for EC and fix them for EU - FRONT-3651
+* [#2556](https://github.com/ec-europa/europa-component-library/pull/2556) fix(featured-item): Add correct h2 styles to heading - FRONT-3649 
+
+#### :nail_care: Enhancement
+
+* [#2601](https://github.com/ec-europa/europa-component-library/pull/2601) feat(menu): Revamp navigation and styles - FRONT-3697
+* [#2602](https://github.com/ec-europa/europa-component-library/pull/2602) feat(focus): Revamp focus-visible styles - FRONT-3703 
+* [#2587](https://github.com/ec-europa/europa-component-library/pull/2587) feat(focus): Use focus-visible for all components - FRONT-3684
+* [#2596](https://github.com/ec-europa/europa-component-library/pull/2596) fix(gallery): Fix focus style on gallery items - FRONT-3691
+* [#2593](https://github.com/ec-europa/europa-component-library/pull/2593) feat(multiselect):  Keyboard navigation with arrows - FRONT-3690
+* [#2576](https://github.com/ec-europa/europa-component-library/pull/2576) fix(tabs): Improve accessibility - FRONT-3661
+* [#2586](https://github.com/ec-europa/europa-component-library/pull/2586) feat(social-media-share): Revamp - FRONT-3680
+* [#2581](https://github.com/ec-europa/europa-component-library/pull/2581) feat(language-list): Revamp - FRONT-3678
+* [#2582](https://github.com/ec-europa/europa-component-library/pull/2582) feat(list-illustrations): Reviewing spacing - FRONT-3681
+* [#2585](https://github.com/ec-europa/europa-component-library/pull/2585) feat(social-media-follow): Revamp - FRONT-3679
+* [#2584](https://github.com/ec-europa/europa-component-library/pull/2584) feat(icons): add reddit icons
+* [#2570](https://github.com/ec-europa/europa-component-library/pull/2570) fix(new-ticker): Improve accessibility - FRONT-3662
+* [#2575](https://github.com/ec-europa/europa-component-library/pull/2575) feat(icons): add Mastodon icons - FRONT-3670
+* [#2574](https://github.com/ec-europa/europa-component-library/pull/2574) feat(featured-item): Remove heading - FRONT-3649
+* [#2572](https://github.com/ec-europa/europa-component-library/pull/2572) feat(footer): add real links - FRONT-3665
+* [#2568](https://github.com/ec-europa/europa-component-library/pull/2568) fix(inpage-navigation): Improve accessibility - FRONT-3660
+* [#2566](https://github.com/ec-europa/europa-component-library/pull/2566) fix(carousel): Improve accessibility - FRONT-3657
+* [#2547](https://github.com/ec-europa/europa-component-library/pull/2547) feat(site-header): Update EU site name styles - FRONT-3636
+* [#2565](https://github.com/ec-europa/europa-component-library/pull/2565) feat(site_header): Add aria label to language switcher - FRONT-3658
+* [#2534](https://github.com/ec-europa/europa-component-library/pull/2534) fix(news-ticker): Fix accessibility issues - FRONT-3634
+
+#### :memo: Documentation
+
+* [#2550](https://github.com/ec-europa/europa-component-library/pull/2550) refactor(website): Deprecate families templates - FRONT-3640
+
+#### :house: Internal
+
+* [#2603](https://github.com/ec-europa/europa-component-library/pull/2603) chore(deps): Updates - 01-08-22
+* [#2599](https://github.com/ec-europa/europa-component-library/pull/2599) chore(deps): Updates 18-07-22
+* [#2571](https://github.com/ec-europa/europa-component-library/pull/2571) chore(links): Randomize links used in the stories - FRONT-3666
+
+
 ## 3.3.0 (2022-05-16)
 
 #### :rocket: New Feature

@@ -1,8 +1,7 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
 @use 'link' with (
-  $_outline-color: map.get(theme.$color, 'yellow-100'),
-  $_outline-width: 3px,
+  $_border-radius: 0,
   $_color-hover: map.get(theme.$color, 'blue-130'),
   $_button-link: (
     'border-radius': 0,
@@ -26,7 +25,7 @@
     'border-color': map.get(theme.$color, 'blue-100'),
     'border-color-hover': map.get(theme.$color, 'blue-130'),
     'border-width': 2px,
-    'color': map.get(theme.$color, 'black-100'),
+    'color': map.get(theme.$color, 'blue-100'),
   ),
   $_negative: (
     'color': map.get(theme.$color, 'white-100'),

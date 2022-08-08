@@ -32,9 +32,8 @@ $_search-width-xl: 31.5rem;
     width: 100%;
   }
 
-  .ecl-menu__open,
-  .ecl-menu__closed {
-    margin-bottom: 3px;
+  .ecl-menu__open {
+    margin-bottom: 7px;
   }
 
   .ecl-site-header__cta {
@@ -104,13 +103,8 @@ $_search-width-xl: 31.5rem;
 .ecl-site-header__search-toggle {
   padding: map.get(theme.$spacing, 'xs');
 
-  &:focus {
-    padding: calc(#{map.get(theme.$spacing, 'xs')} - 3px)
-      calc(#{map.get(theme.$spacing, 'xs')} - 3px);
-  }
-
   &[aria-expanded='true'],
-  &[aria-expanded='true']:focus {
+  &[aria-expanded='true']:focus-visible {
     background-color: map.get(theme.$color, 'blue-5');
     border-color: map.get(theme.$color, 'blue-25');
     border-style: solid;
@@ -347,13 +341,8 @@ $_search-width-xl: 31.5rem;
   .ecl-site-header__search-toggle {
     padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
 
-    &:focus {
-      padding: calc(#{map.get(theme.$spacing, 's')} - 3px)
-        calc(#{map.get(theme.$spacing, 'm')} - 3px);
-    }
-
     &[aria-expanded='true'],
-    &[aria-expanded='true']:focus {
+    &[aria-expanded='true']:focus-visible {
       margin-bottom: -#{map.get(theme.$spacing, 'l')};
       padding: calc(#{map.get(theme.$spacing, 's')} - 1px)
         calc(#{map.get(theme.$spacing, 'm')} - 1px);

@@ -6,6 +6,9 @@ module.exports = {
   id: 'news-ticker-example',
   icon_path: '/icons.svg',
   counter_label: 'of',
+  sr_next: 'Next item',
+  sr_previous: 'Prev item',
+  sr_pause: 'Pause news ticker',
   items: [
     {
       content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
@@ -35,6 +38,7 @@ module.exports = {
     {
       content:
         'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores',
+      link: exampleLink,
     },
   ],
 };

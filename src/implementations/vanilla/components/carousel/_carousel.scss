@@ -8,10 +8,7 @@
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-$_button-arrows-background: null !default;
 $_controls-background: null !default;
-$_outline-color: null !default;
-$_outline-width: null !default;
 
 .ecl-carousel {
   overflow: hidden;
@@ -44,7 +41,7 @@ $_outline-width: null !default;
   margin: 0;
   padding: 0;
   position: relative;
-  width: 10000px;
+  width: 100%;
 }
 
 .ecl-carousel__slide {
@@ -68,10 +65,11 @@ $_outline-width: null !default;
 
 .ecl-carousel__controls {
   background-color: $_controls-background;
-  padding: map.get(theme.$spacing, 's') 0;
+  padding: map.get(theme.$spacing, '2xs') 0;
 
   .ecl-container {
     display: flex;
+    justify-content: center;
   }
 }
 
@@ -85,55 +83,62 @@ $_outline-width: null !default;
 
 .ecl-carousel__prev,
 .ecl-carousel__next {
-  background: $_button-arrows-background;
+  background: $_controls-background;
   border: 0;
   cursor: pointer;
+  display: block;
+  padding: map.get(theme.$spacing, 'xs');
+
+  &:active,
+  &:hover {
+    background-color: map.get(theme.$color, 'white-100');
+
+    .ecl-carousel__icon-default {
+      fill: $_controls-background;
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid map.get(theme.$color, 'white-100');
+  }
+}
+
+.ecl-carousel__autoplay {
   display: none;
-  padding: map.get(theme.$spacing, 's');
-  position: absolute;
-  top: calc(50% - 22px);
-  transform: translateY(-50%);
-
-  &:focus {
-    outline: $_outline-width solid $_outline-color;
-  }
 }
 
-.ecl-carousel__prev {
-  left: 0;
-
-  &:focus {
-    margin-inline-start: $_outline-width;
-    padding-inline-start: calc(
-      #{map.get(theme.$spacing, 's')} - #{$_outline-width}
-    );
-  }
-}
-
-.ecl-carousel__next {
-  right: 0;
-
-  &:focus {
-    margin-inline-end: $_outline-width;
-    padding-inline-end: calc(
-      #{map.get(theme.$spacing, 's')} - #{$_outline-width}
-    );
-  }
-}
-
-.ecl-carousel__toggle {
+.ecl-carousel__play,
+.ecl-carousel__pause {
   align-items: center;
   background: transparent;
   border: 0;
-  border-radius: 50%;
   cursor: pointer;
   display: flex;
-  margin-inline-end: map.get(theme.$spacing, 'l');
-  padding: 0;
+  padding: map.get(theme.$spacing, 'xs');
 
-  &:focus {
-    outline: $_outline-width solid $_outline-color;
+  &:active,
+  &:hover,
+  &:focus-visible {
+    .ecl-carousel__icon-default {
+      display: none;
+    }
+
+    .ecl-carousel__icon-active {
+      display: block;
+    }
   }
+
+  &:focus-visible {
+    outline: 2px solid map.get(theme.$color, 'white-100');
+  }
+}
+
+.ecl-carousel__icon-default {
+  display: block;
+}
+
+.ecl-carousel__icon-active {
+  display: none;
 }
 
 .ecl-carousel__pagination {
@@ -142,14 +147,14 @@ $_outline-width: null !default;
   display: flex;
   font: map.get(theme.$font, 'm');
   font-weight: map.get(theme.$font-weight, 'bold');
-  margin-inline-end: map.get(theme.$spacing, 'l');
+  justify-content: end;
   padding-top: 2px;
   white-space: pre-wrap;
+  margin: 0 map.get(theme.$spacing, 'xs');
 }
 
 .ecl-carousel__navigation {
-  align-items: center;
-  display: flex;
+  display: none;
 }
 
 .ecl-carousel__navigation-item {
@@ -158,15 +163,26 @@ $_outline-width: null !default;
   border-radius: 50%;
   cursor: pointer;
   height: 1rem;
-  margin-inline-end: map.get(theme.$spacing, 'xs');
+  margin: map.get(theme.$spacing, 'm');
+  margin-inline-end: map.get(theme.$spacing, 'l');
   width: 1rem;
 
-  &:focus {
-    outline: $_outline-width solid $_outline-color;
+  &:active,
+  &:hover {
+    background-color: map.get(theme.$color, 'white-100');
+  }
+
+  &:focus-visible {
+    outline: 2px solid map.get(theme.$color, 'white-100');
+    outline-offset: 2px;
   }
 
   &[aria-current='true'] {
     background-color: map.get(theme.$color, 'white-100');
+  }
+
+  &:last-child {
+    margin-inline-end: map.get(theme.$spacing, 'm');
   }
 }
 
@@ -191,8 +207,29 @@ $_outline-width: null !default;
   .ecl-carousel--full-width
   .ecl-page-banner:not(.ecl-page-banner--full-width)
   .ecl-container {
-  padding-left: map.get(theme.$spacing, 'm');
+  padding-inline-start: map.get(theme.$spacing, 'm');
   padding-inline-end: map.get(theme.$spacing, 'm');
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('s') {
+  .ecl-carousel__navigation {
+    align-items: center;
+    display: flex;
+    margin-inline-end: auto;
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('m') {
+  .ecl-carousel__autoplay {
+    display: flex;
+    width: 140px;
+  }
+
+  .ecl-carousel__navigation {
+    margin-inline-start: auto;
+  }
 }
 
 /* stylelint-disable-next-line order/order */
@@ -225,6 +262,28 @@ $_outline-width: null !default;
 
   .ecl-carousel__prev,
   .ecl-carousel__next {
-    display: block;
+    padding: map.get(theme.$spacing, 's');
+    position: absolute;
+    top: calc(50% - 22px);
+    transform: translateY(-50%);
+    z-index: 1;
+
+    &:focus-visible {
+      outline: 2px solid map.get(theme.$color, 'white-100');
+      outline-offset: -4px;
+    }
+  }
+
+  .ecl-carousel__prev {
+    left: 0;
+  }
+
+  .ecl-carousel__next {
+    right: 0;
+  }
+
+  .ecl-carousel__autoplay,
+  .ecl-carousel__pagination {
+    width: 10%;
   }
 }

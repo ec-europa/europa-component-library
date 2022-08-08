@@ -141,6 +141,12 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
   margin-bottom: map.get(theme.$spacing, 'm');
 }
 
+.ecl-site-footer__logo-link:focus-visible,
+.ecl-site-footer__title-link:focus-visible,
+.ecl-site-footer__link:focus-visible {
+  outline: 2px solid map.get(theme.$color, 'white');
+}
+
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-site-footer {

@@ -6,11 +6,18 @@
   $_border-link: 0,
   $_border-link-active: 0,
   $_border-link-focus: 0,
-  $_outline-link-focus: 3px solid map.get(theme.$color, 'yellow'),
+  $_outline-link-focus-offset: -4px,
   $_color-link-active: map.get(theme.$color, 'black-100'),
   $_color-link-hover: map.get(theme.$color, 'blue-130'),
   $_color-title: map.get(theme.$color, 'white-100'),
-  $_logo-width-desktop: 8.25rem,
-  $_logo-height-desktop: 5.5rem,
-  $_padding-list-splash-desktop: 0
+  $_container-padding-desktop: map.get(theme.$spacing, '4xl'),
+  $_header-padding-desktop: map.get(theme.$spacing, 'l') 0,
+  $_header-padding-mobile: map.get(theme.$spacing, 'm') 0,
+  $_logo-width-desktop: 11.5rem,
+  $_logo-height-desktop: 5.75rem,
+  $_logo-height-mobile: 4.75rem,
+  $_logo-width-mobile: 9.5rem,
+  $_padding-list-splash-desktop: 0,
+  $_title-margin-bottom-desktop: map.get(theme.$spacing, '4xl'),
+  $_title-margin-top-desktop: map.get(theme.$spacing, '2xl')
 );

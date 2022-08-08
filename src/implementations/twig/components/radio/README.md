@@ -21,6 +21,7 @@ npm install --save @ecl/twig-component-radio
 - **"name"** (string) (default: '')
 - **"helper_id"** (string) (default: '')
 - **"invalid"** (boolean) (default: false)
+- **"invalid_icon"** (object of type "icon") (default: {})
 - **"binary"** (boolean) (default: false)
 - **"required"** (boolean) (default: false)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)

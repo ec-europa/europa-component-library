@@ -1,0 +1,149 @@
+/**
+ * File-upload component
+ * @define file-upload
+ */
+
+@use 'sass:map';
+@use '@ecl/theme-dev/theme';
+
+$_border-radius: null !default;
+$_border-width: 2px !default;
+$_font-weight: null !default;
+$_outline-color: null !default;
+$_outline-width: null !default;
+$_padding-horizontal: map.get(theme.$spacing, 'm') !default;
+$_padding-vertical: map.get(theme.$spacing, 's') !default;
+$_shadow-hover: null !default;
+
+@mixin browse-button() {
+  appearance: none;
+  background: none;
+  border-radius: $_border-radius;
+  border-width: 0;
+  box-sizing: border-box;
+  display: inline-block;
+  font: map.get(theme.$font, 'm');
+  font-weight: $_font-weight;
+  margin: 0;
+  padding: $_padding-vertical $_padding-horizontal;
+  text-decoration: none;
+
+  &:hover,
+  &:active {
+    box-shadow: $_shadow-hover;
+    text-decoration: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid map.get(theme.$color, 'white-100');
+    outline-offset: -4px;
+  }
+}
+
+@mixin browse-button-disabled() {
+  background-color: map.get(theme.$color, 'blue-25');
+  color: map.get(theme.$color, 'white-100');
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+.ecl-file-upload {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
+  margin: 0;
+
+  .no-js & {
+    clip: initial;
+    color: map.get(theme.$color, 'grey');
+    font: map.get(theme.$font, 'm');
+    height: auto;
+    overflow: initial;
+    position: initial;
+    width: auto;
+    margin: 0;
+  }
+
+  // stylelint-disable max-nesting-depth
+  &:active,
+  &:focus-visible {
+    + .ecl-file-upload__button-container .ecl-file-upload__button {
+      outline: 2px solid map.get(theme.$color, 'white-100');
+      outline-offset: -4px;
+    }
+  }
+  // stylelint-enable max-nesting-depth
+}
+
+/*
+ * Extra fields for js version
+ */
+.ecl-file-upload__button-container {
+  display: block;
+
+  .no-js & {
+    display: none;
+  }
+}
+
+.ecl-file-upload__list {
+  color: map.get(theme.$color, 'grey');
+  font: map.get(theme.$font, 'm');
+  list-style: none;
+  margin-top: map.get(theme.$spacing, 'm');
+  max-width: 538px; // 6 columns; provided by designers
+  padding-inline-start: 0;
+  width: 100%;
+
+  .no-js & {
+    display: none;
+  }
+}
+
+.ecl-file-upload__item {
+  border-top: 1px solid map.get(theme.$color, 'grey-50');
+  padding-bottom: map.get(theme.$spacing, 'm');
+  padding-top: map.get(theme.$spacing, 'm');
+
+  .ecl-file-upload__item-name {
+    font-weight: map.get(theme.$font-weight, 'bold');
+  }
+
+  .ecl-file-upload__item-meta {
+    display: block;
+    padding-top: map.get(theme.$spacing, '2xs');
+  }
+}
+
+/* 
+ * Standard input styling
+ */
+// stylelint-disable-next-line no-descending-specificity
+.ecl-file-upload::-webkit-file-upload-button {
+  @include browse-button;
+}
+
+.ecl-file-upload::-ms-browse {
+  @include browse-button;
+}
+
+.ecl-file-upload[disabled] {
+  color: map.get(theme.$color, 'grey-50');
+
+  &::-webkit-file-upload-button,
+  &::-webkit-file-upload-button:hover {
+    @include browse-button-disabled;
+  }
+
+  &::-ms-browse,
+  &::-ms-browse:hover {
+    @include browse-button-disabled;
+  }
+}
+
+.ecl-file-upload::-ms-value {
+  background-color: map.get(theme.$color, 'grey-5');
+  border-width: 0;
+}

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Checkbox EC default renders correctly 1`] = `
+exports[`Checkbox Default renders correctly 1`] = `
 <jest>
   <fieldset
     aria-describedby="checkbox-default-helper"
@@ -177,7 +177,7 @@ exports[`Checkbox EC default renders correctly 1`] = `
         >
           Lorem ipsum dolor sit amet, 
           <a
-            href="#"
+            href="/example"
           >
             consectetur adipiscing elit
           </a>
@@ -195,7 +195,419 @@ exports[`Checkbox EC default renders correctly 1`] = `
 </jest>
 `;
 
-exports[`Checkbox EC default renders correctly with extra attributes 1`] = `
+exports[`Checkbox Default renders correctly when invalid 1`] = `
+<jest>
+  <fieldset
+    aria-describedby="checkbox-default-helper"
+    class="ecl-form-group"
+  >
+    <legend
+      class="ecl-form-label ecl-form-label--invalid"
+      id="checkbox-default-label"
+    >
+      Select your preferred destinations
+      <span
+        class="ecl-form-label__optional"
+      >
+         (optional)
+      </span>
+    </legend>
+    <div
+      class="ecl-help-block"
+      id="checkbox-default-helper"
+    >
+      Helper text for the group
+    </div>
+    <div
+      class="ecl-feedback-message"
+    >
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--m ecl-feedback-message__icon"
+        focusable="false"
+      >
+        <use
+          xlink:href="/icons.svg#error"
+        />
+      </svg>
+        Error message for the group
+    </div>
+    <div
+      class="ecl-checkbox ecl-checkbox--invalid"
+    >
+      <input
+        checked=""
+        class="ecl-checkbox__input"
+        id="checkbox-default-1"
+        name="checkbox-default"
+        required=""
+        type="checkbox"
+        value="es"
+      />
+      <label
+        class="ecl-checkbox__label"
+        for="checkbox-default-1"
+      >
+        <span
+          class="ecl-checkbox__box ecl-checkbox__box--invalid"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-checkbox__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#check"
+            />
+          </svg>
+        </span>
+        <span
+          class="ecl-checkbox__text"
+        >
+          Spain
+        </span>
+      </label>
+      <div
+        class="ecl-checkbox__help"
+        id="helper-default-1"
+      >
+        Helper text for an option
+      </div>
+    </div>
+    <div
+      class="ecl-checkbox ecl-checkbox--invalid"
+    >
+      <input
+        class="ecl-checkbox__input"
+        id="checkbox-default-2"
+        name="checkbox-default"
+        required=""
+        type="checkbox"
+        value="be"
+      />
+      <label
+        class="ecl-checkbox__label"
+        for="checkbox-default-2"
+      >
+        <span
+          class="ecl-checkbox__box ecl-checkbox__box--invalid"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-checkbox__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#check"
+            />
+          </svg>
+        </span>
+        <span
+          class="ecl-checkbox__text"
+        >
+          Belgium
+        </span>
+      </label>
+      <div
+        class="ecl-checkbox__help"
+        id="helper-default-2"
+      >
+        Helper text for an option
+      </div>
+    </div>
+    <div
+      class="ecl-checkbox ecl-checkbox--invalid ecl-checkbox--disabled"
+    >
+      <input
+        class="ecl-checkbox__input"
+        disabled=""
+        id="checkbox-default-3"
+        name="checkbox-default"
+        required=""
+        type="checkbox"
+        value="fr"
+      />
+      <label
+        class="ecl-checkbox__label"
+        for="checkbox-default-3"
+      >
+        <span
+          class="ecl-checkbox__box ecl-checkbox__box--invalid ecl-checkbox__box--disabled"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-checkbox__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#check"
+            />
+          </svg>
+        </span>
+        <span
+          class="ecl-checkbox__text"
+        >
+          France (disabled)
+        </span>
+      </label>
+      <div
+        class="ecl-checkbox__help ecl-checkbox__help--disabled"
+        id="helper-default-3"
+      >
+        Helper text for an option
+      </div>
+    </div>
+    <div
+      class="ecl-checkbox ecl-checkbox--invalid"
+    >
+      <input
+        class="ecl-checkbox__input"
+        id="checkbox-default-4"
+        name="checkbox-default"
+        required=""
+        type="checkbox"
+        value="lorem"
+      />
+      <label
+        class="ecl-checkbox__label"
+        for="checkbox-default-4"
+      >
+        <span
+          class="ecl-checkbox__box ecl-checkbox__box--invalid"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-checkbox__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#check"
+            />
+          </svg>
+        </span>
+        <span
+          class="ecl-checkbox__text"
+        >
+          Lorem ipsum dolor sit amet, 
+          <a
+            href="/example"
+          >
+            consectetur adipiscing elit
+          </a>
+          . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
+        </span>
+      </label>
+      <div
+        class="ecl-checkbox__help"
+        id="helper-default-4"
+      >
+        Helper text for an option
+      </div>
+    </div>
+  </fieldset>
+</jest>
+`;
+
+exports[`Checkbox Default renders correctly when required 1`] = `
+<jest>
+  <fieldset
+    aria-describedby="checkbox-default-helper"
+    class="ecl-form-group"
+  >
+    <legend
+      class="ecl-form-label"
+      id="checkbox-default-label"
+    >
+      Select your preferred destinations
+      <span
+        class="ecl-form-label__optional"
+      >
+         (optional)
+      </span>
+    </legend>
+    <div
+      class="ecl-help-block"
+      id="checkbox-default-helper"
+    >
+      Helper text for the group
+    </div>
+    <div
+      class="ecl-checkbox"
+    >
+      <input
+        checked=""
+        class="ecl-checkbox__input"
+        id="checkbox-default-1"
+        name="checkbox-default"
+        required=""
+        type="checkbox"
+        value="es"
+      />
+      <label
+        class="ecl-checkbox__label"
+        for="checkbox-default-1"
+      >
+        <span
+          class="ecl-checkbox__box"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-checkbox__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#check"
+            />
+          </svg>
+        </span>
+        <span
+          class="ecl-checkbox__text"
+        >
+          Spain
+        </span>
+      </label>
+      <div
+        class="ecl-checkbox__help"
+        id="helper-default-1"
+      >
+        Helper text for an option
+      </div>
+    </div>
+    <div
+      class="ecl-checkbox"
+    >
+      <input
+        class="ecl-checkbox__input"
+        id="checkbox-default-2"
+        name="checkbox-default"
+        required=""
+        type="checkbox"
+        value="be"
+      />
+      <label
+        class="ecl-checkbox__label"
+        for="checkbox-default-2"
+      >
+        <span
+          class="ecl-checkbox__box"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-checkbox__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#check"
+            />
+          </svg>
+        </span>
+        <span
+          class="ecl-checkbox__text"
+        >
+          Belgium
+        </span>
+      </label>
+      <div
+        class="ecl-checkbox__help"
+        id="helper-default-2"
+      >
+        Helper text for an option
+      </div>
+    </div>
+    <div
+      class="ecl-checkbox ecl-checkbox--disabled"
+    >
+      <input
+        class="ecl-checkbox__input"
+        disabled=""
+        id="checkbox-default-3"
+        name="checkbox-default"
+        required=""
+        type="checkbox"
+        value="fr"
+      />
+      <label
+        class="ecl-checkbox__label"
+        for="checkbox-default-3"
+      >
+        <span
+          class="ecl-checkbox__box ecl-checkbox__box--disabled"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-checkbox__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#check"
+            />
+          </svg>
+        </span>
+        <span
+          class="ecl-checkbox__text"
+        >
+          France (disabled)
+        </span>
+      </label>
+      <div
+        class="ecl-checkbox__help ecl-checkbox__help--disabled"
+        id="helper-default-3"
+      >
+        Helper text for an option
+      </div>
+    </div>
+    <div
+      class="ecl-checkbox"
+    >
+      <input
+        class="ecl-checkbox__input"
+        id="checkbox-default-4"
+        name="checkbox-default"
+        required=""
+        type="checkbox"
+        value="lorem"
+      />
+      <label
+        class="ecl-checkbox__label"
+        for="checkbox-default-4"
+      >
+        <span
+          class="ecl-checkbox__box"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-checkbox__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#check"
+            />
+          </svg>
+        </span>
+        <span
+          class="ecl-checkbox__text"
+        >
+          Lorem ipsum dolor sit amet, 
+          <a
+            href="/example"
+          >
+            consectetur adipiscing elit
+          </a>
+          . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
+        </span>
+      </label>
+      <div
+        class="ecl-checkbox__help"
+        id="helper-default-4"
+      >
+        Helper text for an option
+      </div>
+    </div>
+  </fieldset>
+</jest>
+`;
+
+exports[`Checkbox Default renders correctly with extra attributes 1`] = `
 <jest>
   <fieldset
     aria-describedby="checkbox-default-helper"
@@ -374,7 +786,7 @@ exports[`Checkbox EC default renders correctly with extra attributes 1`] = `
         >
           Lorem ipsum dolor sit amet, 
           <a
-            href="#"
+            href="/example"
           >
             consectetur adipiscing elit
           </a>
@@ -392,7 +804,7 @@ exports[`Checkbox EC default renders correctly with extra attributes 1`] = `
 </jest>
 `;
 
-exports[`Checkbox EC default renders correctly with extra class names 1`] = `
+exports[`Checkbox Default renders correctly with extra class names 1`] = `
 <jest>
   <fieldset
     aria-describedby="checkbox-default-helper"
@@ -569,7 +981,7 @@ exports[`Checkbox EC default renders correctly with extra class names 1`] = `
         >
           Lorem ipsum dolor sit amet, 
           <a
-            href="#"
+            href="/example"
           >
             consectetur adipiscing elit
           </a>
@@ -587,411 +999,7 @@ exports[`Checkbox EC default renders correctly with extra class names 1`] = `
 </jest>
 `;
 
-exports[`Checkbox EC renders correctly when invalid 1`] = `
-<jest>
-  <fieldset
-    aria-describedby="checkbox-default-helper"
-    class="ecl-form-group"
-  >
-    <legend
-      class="ecl-form-label ecl-form-label--invalid"
-      id="checkbox-default-label"
-    >
-      Select your preferred destinations
-      <span
-        class="ecl-form-label__optional"
-      >
-         (optional)
-      </span>
-    </legend>
-    <div
-      class="ecl-help-block"
-      id="checkbox-default-helper"
-    >
-      Helper text for the group
-    </div>
-    <div
-      class="ecl-feedback-message"
-    >
-      
-  Error message for the group
-    </div>
-    <div
-      class="ecl-checkbox ecl-checkbox--invalid"
-    >
-      <input
-        checked=""
-        class="ecl-checkbox__input"
-        id="checkbox-default-1"
-        name="checkbox-default"
-        required=""
-        type="checkbox"
-        value="es"
-      />
-      <label
-        class="ecl-checkbox__label"
-        for="checkbox-default-1"
-      >
-        <span
-          class="ecl-checkbox__box ecl-checkbox__box--invalid"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-checkbox__icon"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#check"
-            />
-          </svg>
-        </span>
-        <span
-          class="ecl-checkbox__text"
-        >
-          Spain
-        </span>
-      </label>
-      <div
-        class="ecl-checkbox__help"
-        id="helper-default-1"
-      >
-        Helper text for an option
-      </div>
-    </div>
-    <div
-      class="ecl-checkbox ecl-checkbox--invalid"
-    >
-      <input
-        class="ecl-checkbox__input"
-        id="checkbox-default-2"
-        name="checkbox-default"
-        required=""
-        type="checkbox"
-        value="be"
-      />
-      <label
-        class="ecl-checkbox__label"
-        for="checkbox-default-2"
-      >
-        <span
-          class="ecl-checkbox__box ecl-checkbox__box--invalid"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-checkbox__icon"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#check"
-            />
-          </svg>
-        </span>
-        <span
-          class="ecl-checkbox__text"
-        >
-          Belgium
-        </span>
-      </label>
-      <div
-        class="ecl-checkbox__help"
-        id="helper-default-2"
-      >
-        Helper text for an option
-      </div>
-    </div>
-    <div
-      class="ecl-checkbox ecl-checkbox--invalid ecl-checkbox--disabled"
-    >
-      <input
-        class="ecl-checkbox__input"
-        disabled=""
-        id="checkbox-default-3"
-        name="checkbox-default"
-        required=""
-        type="checkbox"
-        value="fr"
-      />
-      <label
-        class="ecl-checkbox__label"
-        for="checkbox-default-3"
-      >
-        <span
-          class="ecl-checkbox__box ecl-checkbox__box--invalid ecl-checkbox__box--disabled"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-checkbox__icon"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#check"
-            />
-          </svg>
-        </span>
-        <span
-          class="ecl-checkbox__text"
-        >
-          France (disabled)
-        </span>
-      </label>
-      <div
-        class="ecl-checkbox__help ecl-checkbox__help--disabled"
-        id="helper-default-3"
-      >
-        Helper text for an option
-      </div>
-    </div>
-    <div
-      class="ecl-checkbox ecl-checkbox--invalid"
-    >
-      <input
-        class="ecl-checkbox__input"
-        id="checkbox-default-4"
-        name="checkbox-default"
-        required=""
-        type="checkbox"
-        value="lorem"
-      />
-      <label
-        class="ecl-checkbox__label"
-        for="checkbox-default-4"
-      >
-        <span
-          class="ecl-checkbox__box ecl-checkbox__box--invalid"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-checkbox__icon"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#check"
-            />
-          </svg>
-        </span>
-        <span
-          class="ecl-checkbox__text"
-        >
-          Lorem ipsum dolor sit amet, 
-          <a
-            href="#"
-          >
-            consectetur adipiscing elit
-          </a>
-          . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
-        </span>
-      </label>
-      <div
-        class="ecl-checkbox__help"
-        id="helper-default-4"
-      >
-        Helper text for an option
-      </div>
-    </div>
-  </fieldset>
-</jest>
-`;
-
-exports[`Checkbox EC renders correctly when required 1`] = `
-<jest>
-  <fieldset
-    aria-describedby="checkbox-default-helper"
-    class="ecl-form-group"
-  >
-    <legend
-      class="ecl-form-label"
-      id="checkbox-default-label"
-    >
-      Select your preferred destinations
-      <span
-        class="ecl-form-label__optional"
-      >
-         (optional)
-      </span>
-    </legend>
-    <div
-      class="ecl-help-block"
-      id="checkbox-default-helper"
-    >
-      Helper text for the group
-    </div>
-    <div
-      class="ecl-checkbox"
-    >
-      <input
-        checked=""
-        class="ecl-checkbox__input"
-        id="checkbox-default-1"
-        name="checkbox-default"
-        required=""
-        type="checkbox"
-        value="es"
-      />
-      <label
-        class="ecl-checkbox__label"
-        for="checkbox-default-1"
-      >
-        <span
-          class="ecl-checkbox__box"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-checkbox__icon"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#check"
-            />
-          </svg>
-        </span>
-        <span
-          class="ecl-checkbox__text"
-        >
-          Spain
-        </span>
-      </label>
-      <div
-        class="ecl-checkbox__help"
-        id="helper-default-1"
-      >
-        Helper text for an option
-      </div>
-    </div>
-    <div
-      class="ecl-checkbox"
-    >
-      <input
-        class="ecl-checkbox__input"
-        id="checkbox-default-2"
-        name="checkbox-default"
-        required=""
-        type="checkbox"
-        value="be"
-      />
-      <label
-        class="ecl-checkbox__label"
-        for="checkbox-default-2"
-      >
-        <span
-          class="ecl-checkbox__box"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-checkbox__icon"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#check"
-            />
-          </svg>
-        </span>
-        <span
-          class="ecl-checkbox__text"
-        >
-          Belgium
-        </span>
-      </label>
-      <div
-        class="ecl-checkbox__help"
-        id="helper-default-2"
-      >
-        Helper text for an option
-      </div>
-    </div>
-    <div
-      class="ecl-checkbox ecl-checkbox--disabled"
-    >
-      <input
-        class="ecl-checkbox__input"
-        disabled=""
-        id="checkbox-default-3"
-        name="checkbox-default"
-        required=""
-        type="checkbox"
-        value="fr"
-      />
-      <label
-        class="ecl-checkbox__label"
-        for="checkbox-default-3"
-      >
-        <span
-          class="ecl-checkbox__box ecl-checkbox__box--disabled"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-checkbox__icon"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#check"
-            />
-          </svg>
-        </span>
-        <span
-          class="ecl-checkbox__text"
-        >
-          France (disabled)
-        </span>
-      </label>
-      <div
-        class="ecl-checkbox__help ecl-checkbox__help--disabled"
-        id="helper-default-3"
-      >
-        Helper text for an option
-      </div>
-    </div>
-    <div
-      class="ecl-checkbox"
-    >
-      <input
-        class="ecl-checkbox__input"
-        id="checkbox-default-4"
-        name="checkbox-default"
-        required=""
-        type="checkbox"
-        value="lorem"
-      />
-      <label
-        class="ecl-checkbox__label"
-        for="checkbox-default-4"
-      >
-        <span
-          class="ecl-checkbox__box"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-checkbox__icon"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#check"
-            />
-          </svg>
-        </span>
-        <span
-          class="ecl-checkbox__text"
-        >
-          Lorem ipsum dolor sit amet, 
-          <a
-            href="#"
-          >
-            consectetur adipiscing elit
-          </a>
-          . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
-        </span>
-      </label>
-      <div
-        class="ecl-checkbox__help"
-        id="helper-default-4"
-      >
-        Helper text for an option
-      </div>
-    </div>
-  </fieldset>
-</jest>
-`;
-
-exports[`Checkbox EC single checkbox renders correctly when invalid 1`] = `
+exports[`Checkbox Default single checkbox renders correctly when invalid 1`] = `
 <jest>
   <fieldset
     aria-describedby="checkbox-default-helper"
@@ -1023,484 +1031,6 @@ exports[`Checkbox EC single checkbox renders correctly when invalid 1`] = `
         id="checkbox-default-1"
         name="checkbox-default"
         required=""
-        type="checkbox"
-        value="es"
-      />
-      <label
-        class="ecl-checkbox__label"
-        for="checkbox-default-1"
-      >
-        <span
-          class="ecl-checkbox__box ecl-checkbox__box--invalid"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-checkbox__icon"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#check"
-            />
-          </svg>
-        </span>
-        <span
-          class="ecl-checkbox__text"
-        >
-          Spain
-        </span>
-      </label>
-      <div
-        class="ecl-checkbox__help"
-        id="helper-default-1"
-      >
-        Helper text for an option
-      </div>
-    </div>
-    <div
-      class="ecl-feedback-message"
-    >
-      
-  Error message for the group
-    </div>
-  </fieldset>
-</jest>
-`;
-
-exports[`Checkbox EU default renders correctly 1`] = `
-<jest>
-  <fieldset
-    aria-describedby="checkbox-default-helper"
-    class="ecl-form-group"
-  >
-    <legend
-      class="ecl-form-label"
-      id="checkbox-default-label"
-    >
-      Select your preferred destinations
-      <span
-        class="ecl-form-label__optional"
-      >
-         (optional)
-      </span>
-    </legend>
-    <div
-      class="ecl-help-block"
-      id="checkbox-default-helper"
-    >
-      Helper text for the group
-    </div>
-    <div
-      class="ecl-checkbox"
-    >
-      <input
-        checked=""
-        class="ecl-checkbox__input"
-        id="checkbox-default-1"
-        name="checkbox-default"
-        type="checkbox"
-        value="es"
-      />
-      <label
-        class="ecl-checkbox__label"
-        for="checkbox-default-1"
-      >
-        <span
-          class="ecl-checkbox__box"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-checkbox__icon"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#check"
-            />
-          </svg>
-        </span>
-        <span
-          class="ecl-checkbox__text"
-        >
-          Spain
-        </span>
-      </label>
-      <div
-        class="ecl-checkbox__help"
-        id="helper-default-1"
-      >
-        Helper text for an option
-      </div>
-    </div>
-    <div
-      class="ecl-checkbox"
-    >
-      <input
-        class="ecl-checkbox__input"
-        id="checkbox-default-2"
-        name="checkbox-default"
-        type="checkbox"
-        value="be"
-      />
-      <label
-        class="ecl-checkbox__label"
-        for="checkbox-default-2"
-      >
-        <span
-          class="ecl-checkbox__box"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-checkbox__icon"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#check"
-            />
-          </svg>
-        </span>
-        <span
-          class="ecl-checkbox__text"
-        >
-          Belgium
-        </span>
-      </label>
-      <div
-        class="ecl-checkbox__help"
-        id="helper-default-2"
-      >
-        Helper text for an option
-      </div>
-    </div>
-    <div
-      class="ecl-checkbox ecl-checkbox--disabled"
-    >
-      <input
-        class="ecl-checkbox__input"
-        disabled=""
-        id="checkbox-default-3"
-        name="checkbox-default"
-        type="checkbox"
-        value="fr"
-      />
-      <label
-        class="ecl-checkbox__label"
-        for="checkbox-default-3"
-      >
-        <span
-          class="ecl-checkbox__box ecl-checkbox__box--disabled"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-checkbox__icon"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#check"
-            />
-          </svg>
-        </span>
-        <span
-          class="ecl-checkbox__text"
-        >
-          France (disabled)
-        </span>
-      </label>
-      <div
-        class="ecl-checkbox__help ecl-checkbox__help--disabled"
-        id="helper-default-3"
-      >
-        Helper text for an option
-      </div>
-    </div>
-    <div
-      class="ecl-checkbox"
-    >
-      <input
-        class="ecl-checkbox__input"
-        id="checkbox-default-4"
-        name="checkbox-default"
-        type="checkbox"
-        value="lorem"
-      />
-      <label
-        class="ecl-checkbox__label"
-        for="checkbox-default-4"
-      >
-        <span
-          class="ecl-checkbox__box"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-checkbox__icon"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#check"
-            />
-          </svg>
-        </span>
-        <span
-          class="ecl-checkbox__text"
-        >
-          Lorem ipsum dolor sit amet, 
-          <a
-            href="#"
-          >
-            consectetur adipiscing elit
-          </a>
-          . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
-        </span>
-      </label>
-      <div
-        class="ecl-checkbox__help"
-        id="helper-default-4"
-      >
-        Helper text for an option
-      </div>
-    </div>
-  </fieldset>
-</jest>
-`;
-
-exports[`Checkbox EU invalid renders correctly 1`] = `
-<jest>
-  <fieldset
-    aria-describedby="checkbox-default-helper"
-    class="ecl-form-group"
-  >
-    <legend
-      class="ecl-form-label ecl-form-label--invalid"
-      id="checkbox-default-label"
-    >
-      Select your preferred destinations
-      <span
-        class="ecl-form-label__optional"
-      >
-         (optional)
-      </span>
-    </legend>
-    <div
-      class="ecl-help-block"
-      id="checkbox-default-helper"
-    >
-      Helper text for the group
-    </div>
-    <div
-      class="ecl-feedback-message"
-    >
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--m ecl-feedback-message__icon"
-        focusable="false"
-      >
-        <use
-          xlink:href="/icons.svg#error"
-        />
-      </svg>
-        Error message for the group
-    </div>
-    <div
-      class="ecl-checkbox ecl-checkbox--invalid"
-    >
-      <input
-        checked=""
-        class="ecl-checkbox__input"
-        id="checkbox-default-1"
-        name="checkbox-default"
-        type="checkbox"
-        value="es"
-      />
-      <label
-        class="ecl-checkbox__label"
-        for="checkbox-default-1"
-      >
-        <span
-          class="ecl-checkbox__box ecl-checkbox__box--invalid"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-checkbox__icon"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#check"
-            />
-          </svg>
-        </span>
-        <span
-          class="ecl-checkbox__text"
-        >
-          Spain
-        </span>
-      </label>
-      <div
-        class="ecl-checkbox__help"
-        id="helper-default-1"
-      >
-        Helper text for an option
-      </div>
-    </div>
-    <div
-      class="ecl-checkbox ecl-checkbox--invalid"
-    >
-      <input
-        class="ecl-checkbox__input"
-        id="checkbox-default-2"
-        name="checkbox-default"
-        type="checkbox"
-        value="be"
-      />
-      <label
-        class="ecl-checkbox__label"
-        for="checkbox-default-2"
-      >
-        <span
-          class="ecl-checkbox__box ecl-checkbox__box--invalid"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-checkbox__icon"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#check"
-            />
-          </svg>
-        </span>
-        <span
-          class="ecl-checkbox__text"
-        >
-          Belgium
-        </span>
-      </label>
-      <div
-        class="ecl-checkbox__help"
-        id="helper-default-2"
-      >
-        Helper text for an option
-      </div>
-    </div>
-    <div
-      class="ecl-checkbox ecl-checkbox--invalid ecl-checkbox--disabled"
-    >
-      <input
-        class="ecl-checkbox__input"
-        disabled=""
-        id="checkbox-default-3"
-        name="checkbox-default"
-        type="checkbox"
-        value="fr"
-      />
-      <label
-        class="ecl-checkbox__label"
-        for="checkbox-default-3"
-      >
-        <span
-          class="ecl-checkbox__box ecl-checkbox__box--invalid ecl-checkbox__box--disabled"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-checkbox__icon"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#check"
-            />
-          </svg>
-        </span>
-        <span
-          class="ecl-checkbox__text"
-        >
-          France (disabled)
-        </span>
-      </label>
-      <div
-        class="ecl-checkbox__help ecl-checkbox__help--disabled"
-        id="helper-default-3"
-      >
-        Helper text for an option
-      </div>
-    </div>
-    <div
-      class="ecl-checkbox ecl-checkbox--invalid"
-    >
-      <input
-        class="ecl-checkbox__input"
-        id="checkbox-default-4"
-        name="checkbox-default"
-        type="checkbox"
-        value="lorem"
-      />
-      <label
-        class="ecl-checkbox__label"
-        for="checkbox-default-4"
-      >
-        <span
-          class="ecl-checkbox__box ecl-checkbox__box--invalid"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-checkbox__icon"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#check"
-            />
-          </svg>
-        </span>
-        <span
-          class="ecl-checkbox__text"
-        >
-          Lorem ipsum dolor sit amet, 
-          <a
-            href="#"
-          >
-            consectetur adipiscing elit
-          </a>
-          . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
-        </span>
-      </label>
-      <div
-        class="ecl-checkbox__help"
-        id="helper-default-4"
-      >
-        Helper text for an option
-      </div>
-    </div>
-  </fieldset>
-</jest>
-`;
-
-exports[`Checkbox EU single checkbox renders correctly when invalid 1`] = `
-<jest>
-  <fieldset
-    aria-describedby="checkbox-default-helper"
-    class="ecl-form-group"
-  >
-    <legend
-      class="ecl-form-label ecl-form-label--invalid"
-      id="checkbox-default-label"
-    >
-      Select your preferred destinations
-      <span
-        class="ecl-form-label__optional"
-      >
-         (optional)
-      </span>
-    </legend>
-    <div
-      class="ecl-help-block"
-      id="checkbox-default-helper"
-    >
-      Helper text for the group
-    </div>
-    <div
-      class="ecl-checkbox ecl-checkbox--invalid ecl-checkbox--single"
-    >
-      <input
-        checked=""
-        class="ecl-checkbox__input"
-        id="checkbox-default-1"
-        name="checkbox-default"
         type="checkbox"
         value="es"
       />

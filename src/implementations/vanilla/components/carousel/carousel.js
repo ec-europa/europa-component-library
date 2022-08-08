@@ -31,7 +31,8 @@ export class Carousel {
   constructor(
     element,
     {
-      toggleSelector = '.ecl-carousel__toggle',
+      playSelector = '.ecl-carousel__play',
+      pauseSelector = '.ecl-carousel__pause',
       prevSelector = '.ecl-carousel__prev',
       nextSelector = '.ecl-carousel__next',
       containerClass = '.ecl-carousel__container',
@@ -39,6 +40,8 @@ export class Carousel {
       slideClass = '.ecl-carousel__slide',
       currentSlideClass = '.ecl-carousel__current',
       navigationItemsClass = '.ecl-carousel__navigation-item',
+      controlsClass = '.ecl-carousel__controls',
+      paginationClass = '.ecl-carousel__pagination',
       attachClickListener = true,
       attachResizeListener = true,
     } = {}
@@ -53,7 +56,8 @@ export class Carousel {
     this.element = element;
 
     // Options
-    this.toggleSelector = toggleSelector;
+    this.playSelector = playSelector;
+    this.pauseSelector = pauseSelector;
     this.prevSelector = prevSelector;
     this.nextSelector = nextSelector;
     this.containerClass = containerClass;
@@ -61,20 +65,24 @@ export class Carousel {
     this.slideClass = slideClass;
     this.currentSlideClass = currentSlideClass;
     this.navigationItemsClass = navigationItemsClass;
+    this.controlsClass = controlsClass;
+    this.paginationClass = paginationClass;
     this.attachClickListener = attachClickListener;
     this.attachResizeListener = attachResizeListener;
 
     // Private variables
-    this.toggle = null;
     this.container = null;
     this.slides = null;
+    this.btnPlay = null;
+    this.btnPause = null;
     this.btnPrev = null;
     this.btnNext = null;
     this.index = 1;
     this.total = 0;
     this.allowShift = true;
-    this.autoPlay = false;
+    this.autoPlay = null;
     this.autoPlayInterval = null;
+    this.hoverAutoPlay = null;
     this.resizeTimer = null;
     this.posX1 = 0;
     this.posX2 = 0;
@@ -82,38 +90,62 @@ export class Carousel {
     this.posFinal = 0;
     this.threshold = 80;
     this.navigationItems = null;
+    this.controls = null;
     this.direction = 'ltr';
     this.cloneFirstSLide = null;
     this.cloneLastSLide = null;
 
     // Bind `this` for use in callbacks
-    this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
+    this.handleAutoPlay = this.handleAutoPlay.bind(this);
+    this.handleMouseOver = this.handleMouseOver.bind(this);
+    this.handleMouseOut = this.handleMouseOut.bind(this);
     this.shiftSlide = this.shiftSlide.bind(this);
     this.checkIndex = this.checkIndex.bind(this);
     this.moveSlides = this.moveSlides.bind(this);
-    this.resizeTicker = this.resizeTicker.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.dragStart = this.dragStart.bind(this);
     this.dragEnd = this.dragEnd.bind(this);
     this.dragAction = this.dragAction.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
   }
 
   /**
    * Initialise component.
    */
   init() {
-    this.toggle = queryOne(this.toggleSelector, this.element);
+    this.btnPlay = queryOne(this.playSelector, this.element);
+    this.btnPause = queryOne(this.pauseSelector, this.element);
     this.btnPrev = queryOne(this.prevSelector, this.element);
     this.btnNext = queryOne(this.nextSelector, this.element);
     this.slidesContainer = queryOne(this.slidesClass, this.element);
     this.container = queryOne(this.containerClass, this.element);
     this.navigationItems = queryAll(this.navigationItemsClass, this.element);
+    this.pagination = queryOne(this.paginationClass, this.element);
+    this.controls = queryOne(this.controlsClass, this.element);
     this.currentSlide = queryOne(this.currentSlideClass, this.element);
     this.direction = getComputedStyle(this.element).direction;
 
     this.slides = queryAll(this.slideClass, this.element);
     this.total = this.slides.length;
 
+    // If only one slide, don't initialize carousel and hide controls
+    if (this.total <= 1) {
+      if (this.btnNext) {
+        this.btnNext.style.display = 'none';
+      }
+      if (this.btnPrev) {
+        this.btnPrev.style.display = 'none';
+      }
+      if (this.controls) {
+        this.controls.style.display = 'none';
+      }
+      if (this.slidesContainer) {
+        this.slidesContainer.style.display = 'block';
+      }
+      return false;
+    }
+
+    // Start initializing carousel
     const firstSlide = this.slides[0];
     const lastSlide = this.slides[this.slides.length - 1];
     this.cloneFirstSLide = firstSlide.cloneNode(true);
@@ -130,10 +162,7 @@ export class Carousel {
     this.slides.forEach((slide) => {
       slide.style.width = `${100 / this.slides.length}%`;
     });
-    this.resizeTicker();
-
-    // Activate autoPlay
-    this.handleClickOnToggle();
+    this.handleResize();
 
     // Bind events
     if (this.navigationItems) {
@@ -144,8 +173,9 @@ export class Carousel {
         );
       });
     }
-    if (this.attachClickListener && this.toggle) {
-      this.toggle.addEventListener('click', this.handleClickOnToggle);
+    if (this.attachClickListener && this.btnPlay && this.btnPause) {
+      this.btnPlay.addEventListener('click', this.handleAutoPlay);
+      this.btnPause.addEventListener('click', this.handleAutoPlay);
     }
     if (this.attachClickListener && this.btnNext) {
       this.btnNext.addEventListener(
@@ -161,7 +191,8 @@ export class Carousel {
     }
     if (this.slidesContainer) {
       // Mouse events
-      this.slidesContainer.onmousedown = this.dragStart;
+      this.slidesContainer.addEventListener('mouseover', this.handleMouseOver);
+      this.slidesContainer.addEventListener('mouseout', this.handleMouseOut);
 
       // Touch events
       this.slidesContainer.addEventListener('touchstart', this.dragStart);
@@ -169,12 +200,16 @@ export class Carousel {
       this.slidesContainer.addEventListener('touchmove', this.dragAction);
       this.slidesContainer.addEventListener('transitionend', this.checkIndex);
     }
+    if (this.container) {
+      this.container.addEventListener('focus', this.handleFocus, true);
+    }
     if (this.attachResizeListener) {
       window.addEventListener('resize', this.handleResize);
     }
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
+    return this;
   }
 
   /**
@@ -185,8 +220,11 @@ export class Carousel {
       this.cloneFirstSLide.remove();
       this.cloneLastSLide.remove();
     }
-    if (this.toggle) {
-      this.toggle.replaceWith(this.toggle.cloneNode(true));
+    if (this.btnPlay) {
+      this.btnPlay.replaceWith(this.btnPlay.cloneNode(true));
+    }
+    if (this.btnPause) {
+      this.btnPause.replaceWith(this.btnPause.cloneNode(true));
     }
     if (this.btnNext) {
       this.btnNext.replaceWith(this.btnNext.cloneNode(true));
@@ -195,6 +233,11 @@ export class Carousel {
       this.btnPrev.replaceWith(this.btnPrev.cloneNode(true));
     }
     if (this.slidesContainer) {
+      this.slidesContainer.removeEventListener(
+        'mouseover',
+        this.handleMouseOver
+      );
+      this.slidesContainer.removeEventListener('mouseout', this.handleMouseOut);
       this.slidesContainer.removeEventListener('touchstart', this.dragStart);
       this.slidesContainer.removeEventListener('touchend', this.dragEnd);
       this.slidesContainer.removeEventListener('touchmove', this.dragAction);
@@ -203,6 +246,9 @@ export class Carousel {
         this.checkIndex
       );
     }
+    if (this.container) {
+      this.container.removeEventListener('focus', this.handleFocus, true);
+    }
     if (this.navigationItems) {
       this.navigationItems.forEach((nav) => {
         nav.replaceWith(nav.cloneNode(true));
@@ -210,6 +256,10 @@ export class Carousel {
     }
     if (this.attachResizeListener) {
       window.removeEventListener('resize', this.handleResize);
+    }
+    if (this.autoPlayInterval) {
+      clearInterval(this.autoPlayInterval);
+      this.autoPlay = null;
     }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
@@ -227,10 +277,6 @@ export class Carousel {
 
     if (e.type === 'touchstart') {
       this.posX1 = e.touches[0].clientX;
-    } else {
-      this.posX1 = e.clientX;
-      document.onmouseup = this.dragEnd;
-      document.onmousemove = this.dragAction;
     }
   }
 
@@ -244,9 +290,6 @@ export class Carousel {
     if (e.type === 'touchmove') {
       this.posX2 = this.posX1 - e.touches[0].clientX;
       this.posX1 = e.touches[0].clientX;
-    } else {
-      this.posX2 = this.posX1 - e.clientX;
-      this.posX1 = e.clientX;
     }
 
     this.slidesContainer.style.left = `${
@@ -266,9 +309,6 @@ export class Carousel {
     } else {
       this.slidesContainer.style.left = `${this.posInitial}px`;
     }
-
-    document.onmouseup = null;
-    document.onmousemove = null;
   }
 
   /**
@@ -286,7 +326,7 @@ export class Carousel {
       this.moveSlides(true);
     }
     if (stopAutoPlay && this.autoPlay) {
-      this.handleClickOnToggle();
+      this.handleAutoPlay();
     }
 
     this.allowShift = false;
@@ -317,6 +357,8 @@ export class Carousel {
     if (this.index === this.total + 1) {
       this.index = 1;
     }
+
+    // Move slide without transition to ensure infinity loop
     this.moveSlides(false);
 
     // Update pagination
@@ -327,10 +369,17 @@ export class Carousel {
     // Update slides
     if (this.slides) {
       this.slides.forEach((slide, index) => {
+        const cta = queryOne('.ecl-link--cta', slide);
         if (this.index === index) {
-          slide.removeAttribute('aria-hidden', 'true');
+          slide.removeAttribute('inert', 'true');
+          if (cta) {
+            cta.removeAttribute('tabindex', -1);
+          }
         } else {
-          slide.setAttribute('aria-hidden', 'true');
+          slide.setAttribute('inert', 'true');
+          if (cta) {
+            cta.setAttribute('tabindex', -1);
+          }
         }
       });
     }
@@ -352,34 +401,60 @@ export class Carousel {
   /**
    * Toggles play/pause slides.
    */
-  handleClickOnToggle() {
-    const useNode = queryOne(
-      `${this.toggleSelector} .ecl-icon use`,
-      this.element
-    );
-    const originalXlinkHref = useNode.getAttribute('xlink:href');
-    let newXlinkHref = '';
-
+  handleAutoPlay() {
     if (!this.autoPlay) {
       this.autoPlayInterval = setInterval(() => {
         this.shiftSlide('next');
       }, 5000);
       this.autoPlay = true;
-
-      newXlinkHref = originalXlinkHref.replace('play', 'pause');
+      const isFocus = document.activeElement === this.btnPlay;
+      this.btnPlay.style.display = 'none';
+      this.btnPause.style.display = 'flex';
+      if (isFocus) {
+        this.btnPause.focus();
+      }
     } else {
       clearInterval(this.autoPlayInterval);
       this.autoPlay = false;
-
-      newXlinkHref = originalXlinkHref.replace('pause', 'play');
+      const isFocus = document.activeElement === this.btnPause;
+      this.btnPlay.style.display = 'flex';
+      this.btnPause.style.display = 'none';
+      if (isFocus) {
+        this.btnPlay.focus();
+      }
     }
-    useNode.setAttribute('xlink:href', newXlinkHref);
   }
 
   /**
-   * Resize the slides across the width of the container.
+   * Trigger events on mouseover.
    */
-  resizeTicker() {
+  handleMouseOver() {
+    this.hoverAutoPlay = this.autoPlay;
+    if (this.hoverAutoPlay) {
+      this.handleAutoPlay();
+    }
+    return this;
+  }
+
+  /**
+   * Trigger events on mouseout.
+   */
+  handleMouseOut() {
+    if (this.hoverAutoPlay) {
+      this.handleAutoPlay();
+    }
+    return this;
+  }
+
+  /**
+   * Trigger events on resize.
+   */
+  handleResize() {
+    const vw = Math.max(
+      document.documentElement.clientWidth || 0,
+      window.innerWidth || 0
+    );
+
     const containerWidth = this.container.offsetWidth;
     this.slidesContainer.style.width = `${
       containerWidth * this.slides.length
@@ -388,23 +463,47 @@ export class Carousel {
     this.moveSlides(false);
 
     // Add class to set a left margin to banner content and avoid arrow overlapping
-    if (containerWidth >= 940 && containerWidth <= 1220) {
+    if (vw >= 996 && vw <= 1220) {
       this.container.classList.add('ecl-carousel-container--padded');
     } else {
       this.container.classList.remove('ecl-carousel-container--padded');
     }
+
+    // Move previous and next buttons in or out the control bar
+    if (vw <= 996) {
+      this.pagination.parentNode.insertBefore(this.btnPrev, this.pagination);
+      this.pagination.parentNode.insertBefore(
+        this.btnNext,
+        this.pagination.nextSibling
+      );
+    } else {
+      this.container.insertBefore(
+        this.btnPrev,
+        this.slidesContainer.nextSibling
+      );
+      this.container.insertBefore(this.btnNext, this.btnPrev.nextSibling);
+    }
+
+    // Desactivate autoPlay for mobile or activate autoPlay onLoad for desktop
+    if ((vw <= 768 && this.autoPlay) || (vw > 768 && this.autoPlay === null)) {
+      this.handleAutoPlay();
+    }
   }
 
   /**
-   * Trigger events on resize.
+   * Trigger events on focus.
+   * @param {Event} e
    */
-  handleResize() {
-    this.resizeTicker();
-
-    if (this.autoPlay) {
-      this.handleClickOnToggle();
+  handleFocus(e) {
+    const focusElement = e.target;
+    // Disable autoplay if focus is on a slide CTA
+    if (
+      focusElement &&
+      focusElement.contains(document.activeElement) &&
+      this.autoPlay
+    ) {
+      this.handleAutoPlay();
     }
-
     return this;
   }
 }

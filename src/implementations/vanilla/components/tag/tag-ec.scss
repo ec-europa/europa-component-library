@@ -2,7 +2,5 @@
 @use '@ecl/theme-dev/theme';
 @use 'tag' with (
   $_background-color: map.get(theme.$color, 'grey-75'),
-  $_background-color-hover: map.get(theme.$color, 'grey-100'),
-  $_border-color-focus: map.get(theme.$color, 'yellow'),
-  $_border-size-focus: 3px
+  $_background-color-hover: map.get(theme.$color, 'grey-100')
 );
