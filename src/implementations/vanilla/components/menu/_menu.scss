@@ -608,7 +608,7 @@ $_mobile-item-hover-background: null !default;
     }
   }
 
-  .ecl-menu:not(.ecl-menu--forced-mobile):not(.ecl-menu--forced-close) {
+  .ecl-menu:not(.ecl-menu--forced-mobile, .ecl-menu--forced-close) {
     .ecl-menu__item:hover,
     .ecl-menu__item:focus-within,
     .ecl-menu__item[aria-expanded='true'] {
@@ -702,7 +702,7 @@ $_mobile-item-hover-background: null !default;
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
-  .ecl-menu:not(.ecl-menu--forced-mobile):not(.ecl-menu--forced-close) {
+  .ecl-menu:not(.ecl-menu--forced-mobile, .ecl-menu--forced-close) {
     .ecl-menu__mega {
       background-color: $_menu-dropdown-background;
       border-radius: $_menu-drowpdown-border-radius;
