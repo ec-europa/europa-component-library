@@ -4,7 +4,7 @@
   Parameters:
    - "id" (string) (default: 'ecl-inpage-navigation-default')
    - "title" (string) (default: '')
-   - "trigger_aria_label": (default: 'ecl-inpage-navigation-trigger')
+   - "trigger_aria_label": (default: '')
    - "links" (array) (default: predefined structure): format: [
       {
         href: (string) (default: ''),
@@ -27,7 +27,7 @@
 {% set _id = id|default('ecl-inpage-navigation-default') %}
 {% set _css_class = 'ecl-inpage-navigation' %}
 {% set _icon_path = icon_path|default('') %}
-{% set _trigger_aria_label = trigger_aria_label|default('ecl inpage-navigation trigger') %}
+{% set _trigger_aria_label = trigger_aria_label|default('') %}
 {% set _extra_attributes = 'data-ecl-auto-init="InpageNavigation"' %}
 
 {# Internal logic - Process properties #}
