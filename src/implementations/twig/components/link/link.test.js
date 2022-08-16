@@ -1,7 +1,15 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
+
 import dataDefault from '@ecl/specs-component-link/demo/data--default';
 import dataCta from '@ecl/specs-component-link/demo/data--cta';
 import dataStandalone from '@ecl/specs-component-link/demo/data--standalone';
+
+expect.extend(toHaveNoViolations);
 
 describe('Link', () => {
   const template = '@ecl/link/link.html.twig';
@@ -14,6 +22,12 @@ describe('Link', () => {
 
       return expect(render(dataDefault)).resolves.toMatchSnapshot();
     });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataDefault, true))
+      ).toHaveNoViolations();
+    });
   });
 
   describe('Standalone', () => {
@@ -21,6 +35,12 @@ describe('Link', () => {
       expect.assertions(1);
 
       return expect(render(dataStandalone)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataStandalone, true))
+      ).toHaveNoViolations();
     });
   });
 
@@ -137,23 +157,29 @@ describe('Link', () => {
   });
 
   describe('With icon before', () => {
+    const options = merge(dataStandalone, {
+      link: {
+        label: 'Standalone link with icon',
+        icon_position: 'before',
+      },
+      icon: {
+        name: 'external',
+        size: 'fluid',
+        path: defaultIconPath,
+        extra_classes: 'ecl-test-extra-class',
+      },
+    });
+
     test('renders correctly', () => {
       expect.assertions(1);
 
-      const options = merge(dataStandalone, {
-        link: {
-          label: 'Standalone link with icon',
-          icon_position: 'before',
-        },
-        icon: {
-          name: 'external',
-          size: 'fluid',
-          path: defaultIconPath,
-          extra_classes: 'ecl-test-extra-class',
-        },
-      });
-
       return expect(render(options)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, options, true))
+      ).toHaveNoViolations();
     });
   });
 

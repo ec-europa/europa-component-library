@@ -1,9 +1,16 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 import dataCoreEC from '@ecl/specs-component-site-footer/demo/data-core--ec';
 import dataStandardisedEC from '@ecl/specs-component-site-footer/demo/data-standardised--ec';
 import dataHarmonisedEC from '@ecl/specs-component-site-footer/demo/data-harmonised--ec';
 import dataCoreEU from '@ecl/specs-component-site-footer/demo/data-core--eu';
+
+expect.extend(toHaveNoViolations);
 
 describe('Site Footer Core EC', () => {
   const template = '@ecl/site-footer/site-footer.html.twig';
@@ -38,6 +45,12 @@ describe('Site Footer Core EC', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataCoreEC, true))
+      ).toHaveNoViolations();
     });
   });
 });
@@ -76,6 +89,12 @@ describe('Site Footer Standardised EC', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataStandardisedEC, true))
+      ).toHaveNoViolations();
+    });
   });
 });
 
@@ -113,6 +132,12 @@ describe('Site Footer Harmonised EC', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataHarmonisedEC, true))
+      ).toHaveNoViolations();
+    });
   });
 });
 
@@ -149,6 +174,12 @@ describe('Site Footer Core EU', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataCoreEU, true))
+      ).toHaveNoViolations();
     });
   });
 });

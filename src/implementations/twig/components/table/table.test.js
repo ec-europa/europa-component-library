@@ -1,9 +1,16 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 // Import data for tests
 import dataDefault from '@ecl/specs-component-table/demo/data--default';
 import dataMulti from '@ecl/specs-component-table/demo/data--multi';
 import dataSortable from '@ecl/specs-component-table/demo/data--sort-table';
+
+expect.extend(toHaveNoViolations);
 
 describe('Table', () => {
   const template = '@ecl/table/table.html.twig';
@@ -70,6 +77,12 @@ describe('Table', () => {
       });
 
       return expect(render(withRowExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataDefault, true))
+      ).toHaveNoViolations();
     });
   });
 

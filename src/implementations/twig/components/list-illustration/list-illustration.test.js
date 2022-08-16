@@ -1,6 +1,14 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
+
 import dataListIllustrationImage from '@ecl/specs-component-list-illustration/demo/data--image';
 import dataListIllustrationIcon from '@ecl/specs-component-list-illustration/demo/data--icon';
+
+expect.extend(toHaveNoViolations);
 
 describe('List with illustration', () => {
   const template = '@ecl/list-illustration/list-illustration.html.twig';
@@ -37,6 +45,14 @@ describe('List with illustration', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(
+          renderTwigFileAsHtml(template, dataListIllustrationImage, true)
+        )
+      ).toHaveNoViolations();
+    });
   });
 
   describe('With icon', () => {
@@ -46,6 +62,14 @@ describe('List with illustration', () => {
       return expect(
         render(dataListIllustrationIcon)
       ).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(
+          renderTwigFileAsHtml(template, dataListIllustrationIcon, true)
+        )
+      ).toHaveNoViolations();
     });
   });
 });

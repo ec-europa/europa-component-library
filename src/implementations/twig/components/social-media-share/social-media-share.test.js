@@ -1,6 +1,13 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 import demoData from '@ecl/specs-component-social-media-share/demo/data';
+
+expect.extend(toHaveNoViolations);
 
 describe('Social Media Share', () => {
   const template = '@ecl/social-media-share/social-media-share.html.twig';
@@ -27,6 +34,12 @@ describe('Social Media Share', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, demoData, true))
+      ).toHaveNoViolations();
     });
   });
   describe('Default view', () => {

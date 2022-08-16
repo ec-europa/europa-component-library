@@ -1,7 +1,14 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 import demoContent from '@ecl/specs-component-featured-item/demo/data';
 import demoContentExtended from '@ecl/specs-component-featured-item/demo/data--extended';
+
+expect.extend(toHaveNoViolations);
 
 describe('Featured item', () => {
   const template = '@ecl/featured-item/featured-item.html.twig';
@@ -13,6 +20,12 @@ describe('Featured item', () => {
 
       return expect(render(demoContent)).resolves.toMatchSnapshot();
     });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, demoContent, true))
+      ).toHaveNoViolations();
+    });
   });
 
   describe('Extended', () => {
@@ -20,6 +33,12 @@ describe('Featured item', () => {
       expect.assertions(1);
 
       return expect(render(demoContentExtended)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, demoContentExtended, true))
+      ).toHaveNoViolations();
     });
   });
 
