@@ -70,8 +70,8 @@
             <dd class="ecl-description-list__definition ecl-description-list__definition--taxonomy">
             {% for _definition in _item.definition %}
               <span class="ecl-description-list__definition-item">
-              {%- if _definition.label is defined and _definition.path is defined -%}
-                {% include '@ecl/link/link.html.twig' with { link: _definition }  only %}
+              {%- if _definition.link is defined -%}
+                {% include '@ecl/link/link.html.twig' with _definition only %}
               {%- else -%}
                 {{- _definition -}}
               {%- endif -%}
