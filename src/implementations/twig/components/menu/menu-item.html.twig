@@ -6,6 +6,7 @@
     - "is_current" (boolean) Whether the item is currently selected
     - "label" (string) Label of the menu link
     - "icon_path" (string) Path to the icon sprite
+    - "trigger_aria_label" (string) Aria label for the trigger button,
     - "children" (array of object) Array of sub-items
       - "external": (boolean) External link
       - "is_current" (boolean) Whether the sub-item is currently selected
@@ -46,7 +47,13 @@
       } %}
     {%- endif -%}
   </a>
-  {%- if (item.children is defined and item.children is not empty and item.children is iterable) -%}
+{%- if item.children is defined and item.children is not empty and item.children is iterable -%}
+  {% set _button_extra_attributes = [{name: 'data-ecl-menu-caret' }] %}
+  {% if item.trigger_aria_label is not empty %}
+    {% set _button_extra_attributes = _button_extra_attributes|merge([{
+      name: 'aria-label', value: item.trigger_aria_label
+    }]) %}
+  {% endif %}
   {% include '@ecl/button/button.html.twig' with {
     variant: 'primary',
     type: 'button',
@@ -59,10 +66,8 @@
     },
     icon_position: 'after',
     extra_classes: 'ecl-menu__button-caret',
-    extra_attributes: [{ name: 'data-ecl-menu-caret' }],
+    extra_attributes: _button_extra_attributes,
   } %}
-  {%- endif -%}
-{% if item.children is defined and item.children is not empty and item.children is iterable %}
   <div
     class="ecl-menu__mega"
     data-ecl-menu-mega

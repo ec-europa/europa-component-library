@@ -1,10 +1,17 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 // Import data for tests
 import dataWithTranslation from '@ecl/specs-component-file/demo/data--with-translation';
 import dataWithoutTranslation from '@ecl/specs-component-file/demo/data--without-translation';
 import dataThumbnail from '@ecl/specs-component-file/demo/data--thumbnail';
 import dataTaxonomy from '@ecl/specs-component-file/demo/data--taxonomy';
+
+expect.extend(toHaveNoViolations);
 
 describe('File', () => {
   const template = '@ecl/file/file.html.twig';
@@ -38,6 +45,12 @@ describe('File', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataWithTranslation, true))
+      ).toHaveNoViolations();
     });
   });
 
@@ -93,6 +106,12 @@ describe('File', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataWithoutTranslation, true))
+      ).toHaveNoViolations();
+    });
   });
 
   describe('Thumbnail', () => {
@@ -114,6 +133,12 @@ describe('File', () => {
       dataThumbnail.image = {};
 
       return expect(render(dataThumbnail)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataThumbnail, true))
+      ).toHaveNoViolations();
     });
   });
 });

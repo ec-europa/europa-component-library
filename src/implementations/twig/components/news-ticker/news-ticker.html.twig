@@ -38,10 +38,10 @@
 {% set _counter_label = counter_label|default('of') %}
 {% set _items = items|default([]) %}
 {% set _aria_controls = _id ~ '-content' %}
-{% set _sr_previous = sr_previous|default('Previous news') %}
-{% set _sr_next = sr_next|default('Next news') %}
+{% set _sr_previous = sr_previous|default('') %}
+{% set _sr_next = sr_next|default('') %}
 {% set _sr_play = sr_play|default(_sr_autoplay) %}
-{% set _sr_pause = sr_pause|default('Pause news ticker') %}
+{% set _sr_pause = sr_pause|default('') %}
 {% set _css_class = 'ecl-news-ticker' %}
 {% set _extra_attributes = [
   'data-ecl-news-ticker="true"',
@@ -109,7 +109,11 @@
   </div>
   {% endif %}
   <div class="ecl-news-ticker__controls">
-    <button class="ecl-news-ticker__prev" data-ecl-news-ticker-prev>
+    {% set _button_attributes = 'data-ecl-news-ticker-prev' %}
+    {% if _sr_previous is not empty %}
+      {% set _button_attributes = _button_attributes ~ ' aria-label="' ~ _sr_previous ~ '"' %}
+    {% endif %}
+    <button class="ecl-news-ticker__prev" {{ _button_attributes|raw }}>
       {% include '@ecl/icon/icon.html.twig' with {
         icon: {
           path: _icon_path,
@@ -122,7 +126,11 @@
       } only %}
       <span class="ecl-u-sr-only">{{ _sr_prev }}</span>
     </button>
-    <button class="ecl-news-ticker__next" data-ecl-news-ticker-next>
+    {% set _button_attributes = 'data-ecl-news-ticker-next' %}
+    {% if _sr_next is not empty %}
+      {% set _button_attributes = _button_attributes ~ ' aria-label="' ~ _sr_next ~ '"' %}
+    {% endif %}
+    <button class="ecl-news-ticker__next" {{ _button_attributes|raw }}>
       {% include '@ecl/icon/icon.html.twig' with {
         icon: {
           path: _icon_path,

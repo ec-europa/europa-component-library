@@ -5,5 +5,6 @@ module.exports = {
   author: 'President Juncker',
   image: {
     path: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg',
+    alt: 'Image alternative text',
   },
 };

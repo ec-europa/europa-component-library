@@ -1,4 +1,9 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 // Import data for tests
 
@@ -8,6 +13,8 @@ import dataBinary from '@ecl/specs-component-radio/demo/data--binary';
 const dataInvalid = { ...dataDefault, invalid: true };
 const dataOptional = { ...dataDefault, required: false };
 const dataBinaryInvalid = { ...dataBinary, invalid: true };
+
+expect.extend(toHaveNoViolations);
 
 describe('Radio', () => {
   const template = '@ecl/radio/radio-group.html.twig';
@@ -41,6 +48,12 @@ describe('Radio', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataDefault, true))
+      ).toHaveNoViolations();
     });
   });
 

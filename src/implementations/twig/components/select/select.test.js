@@ -1,7 +1,14 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 import dataSingle from '@ecl/specs-component-select/demo/data-single';
 import dataMultiple from '@ecl/specs-component-select/demo/data-multiple';
+
+expect.extend(toHaveNoViolations);
 
 describe('Select', () => {
   const template = '@ecl/select/select.html.twig';
@@ -43,6 +50,12 @@ describe('Select', () => {
       return expect(
         render(optionsWithExtraAttributes)
       ).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataSingle, true))
+      ).toHaveNoViolations();
     });
   });
 
@@ -87,6 +100,12 @@ describe('Select', () => {
       expect.assertions(1);
 
       return expect(render(dataMultiple)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataMultiple, true))
+      ).toHaveNoViolations();
     });
   });
 });

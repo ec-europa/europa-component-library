@@ -15,6 +15,7 @@ module.exports = {
       label: 'Item 2 label',
       path: exampleLink,
       is_current: true,
+      trigger_aria_label: "Access item's children",
       children: [
         { label: 'Item 2.1', path: exampleLink },
         { label: 'Item 2.2', path: exampleLink },
@@ -37,6 +38,7 @@ module.exports = {
     {
       label: 'Item 3 label',
       path: exampleLink,
+      trigger_aria_label: "Access item's children",
       children: [
         { label: 'Item 3.1', path: exampleLink },
         { label: 'Item 3.2', path: exampleLink },
@@ -46,6 +48,7 @@ module.exports = {
     {
       label: 'Item 4 label',
       path: exampleLink,
+      trigger_aria_label: "Access item's children",
       children: [
         { label: 'Item 4.1', path: exampleLink },
         { label: 'Item 4.2', path: exampleLink },
@@ -69,6 +72,7 @@ module.exports = {
     {
       label: 'Item 5 label',
       path: exampleLink,
+      trigger_aria_label: "Access item's children",
       children: [
         { label: 'Item 5.1', path: exampleLink },
         { label: 'Item 5.2', path: exampleLink },
@@ -82,6 +86,7 @@ module.exports = {
     {
       label: 'Item 6 label',
       path: exampleLink,
+      trigger_aria_label: "Access item's children",
       children: [
         { label: 'Item 6.1', path: exampleLink },
         { label: 'Item 6.2', path: exampleLink },
@@ -104,6 +109,7 @@ module.exports = {
     {
       label: 'Item 7 with a longer label',
       path: exampleLink,
+      trigger_aria_label: "Access item's children",
       children: [
         { label: 'Item 7.1', path: exampleLink },
         { label: 'Item 7.2', path: exampleLink },

@@ -1,5 +1,13 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
+
 import specs from '@ecl/specs-component-skip-link/demo/data';
+
+expect.extend(toHaveNoViolations);
 
 describe('Skip Link', () => {
   const template = '@ecl/skip-link/skip-link.html.twig';
@@ -33,6 +41,12 @@ describe('Skip Link', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, specs, true))
+      ).toHaveNoViolations();
     });
   });
 });

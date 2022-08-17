@@ -1,4 +1,9 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 // Import data for tests
 import dataInfo from '@ecl/specs-component-message/demo/data--info';
@@ -8,6 +13,8 @@ import dataWarning from '@ecl/specs-component-message/demo/data--warning';
 
 const template = '@ecl/message/message.html.twig';
 const render = (params) => renderTwigFileAsNode(template, params);
+
+expect.extend(toHaveNoViolations);
 
 ['EC', 'EU'].forEach((system) => {
   describe(`${system} Message`, () => {
@@ -42,6 +49,12 @@ const render = (params) => renderTwigFileAsNode(template, params);
         });
 
         return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+      });
+
+      test(`passes the accessibility tests`, async () => {
+        expect(
+          await axe(renderTwigFileAsHtml(template, dataInfo))
+        ).toHaveNoViolations();
       });
     });
 

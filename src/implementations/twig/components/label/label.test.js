@@ -1,5 +1,13 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
+
 import dataDefault from '@ecl/specs-component-label/demo/data';
+
+expect.extend(toHaveNoViolations);
 
 describe('Label', () => {
   const template = '@ecl/label/label.html.twig';
@@ -32,5 +40,11 @@ describe('Label', () => {
     });
 
     return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+  });
+
+  test(`passes the accessibility tests`, async () => {
+    expect(
+      await axe(renderTwigFileAsHtml(template, dataDefault, true))
+    ).toHaveNoViolations();
   });
 });
