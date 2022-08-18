@@ -79,12 +79,8 @@
 
   {% if _title is not empty %}
     <h1 class="ecl-content-block__title">
-    {% if _title.path is not empty %}
-      {% include '@ecl/link/link.html.twig' with {
-        link: _title|merge({
-          type: 'standalone',
-        }),
-      } only %}
+    {% if _title.link is not empty %}
+      {% include '@ecl/link/link.html.twig' with _title only %}
     {% else %}
       {{- _title -}}
     {% endif %}

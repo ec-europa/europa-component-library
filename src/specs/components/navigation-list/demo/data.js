@@ -10,9 +10,11 @@ module.exports = {
         alt: 'Alt text of the image',
       },
       title: {
-        type: 'standalone',
-        label: 'Title 1',
-        path: exampleLink,
+        link: {
+          type: 'standalone',
+          label: 'Title 1',
+          path: exampleLink,
+        },
       },
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus',
@@ -65,9 +67,11 @@ module.exports = {
         alt: 'Alt text of the image',
       },
       title: {
-        type: 'standalone',
-        label: 'Title 2',
-        path: exampleLink,
+        link: {
+          type: 'standalone',
+          label: 'Title 2',
+          path: exampleLink,
+        },
       },
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus',
@@ -120,9 +124,11 @@ module.exports = {
         alt: 'Alt text of the image',
       },
       title: {
-        type: 'standalone',
-        label: 'Title 3',
-        path: exampleLink,
+        link: {
+          type: 'standalone',
+          label: 'Title 3',
+          path: exampleLink,
+        },
       },
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus',
