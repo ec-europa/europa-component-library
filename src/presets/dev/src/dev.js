@@ -9,6 +9,7 @@ export * from '@ecl/vanilla-component-breadcrumb';
 export * from '@ecl/vanilla-component-breadcrumb-core';
 export * from '@ecl/vanilla-component-breadcrumb-standardised';
 export * from '@ecl/vanilla-component-breadcrumb-harmonised';
+export * from '@ecl/vanilla-component-dropdown';
 export * from '@ecl/vanilla-component-expandable';
 export * from '@ecl/vanilla-component-file';
 export * from '@ecl/vanilla-component-file-upload';

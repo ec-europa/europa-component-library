@@ -1,0 +1,91 @@
+{% spaceless %}
+
+{#
+  Parameters:
+    - "id" (string) (default: '')
+    - "toggle" (associative array) (default: {}): Dropdown toggle element, following ECL Link structure
+    - "links" (array) (default: []): Array of ECL Links
+    - "extra_dropdown_classes" (string) (default: '')
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        },
+        ...
+      ],
+  Blocks:
+    - "content": free block to put any content in the dropdown
+#}
+
+{# Internal properties #}
+
+{% set _id = id|default('') %}
+{% set _css_class = 'ecl-dropdown' %}
+{% set _extra_attributes = [
+  'data-ecl-expandable="true"',
+  'data-ecl-auto-init="Dropdown"']|join(' ')
+%}
+{% set _css_dropdown_class = 'ecl-dropdown__content' %}
+{% set _aria_controls = _id ~ '-content' %}
+{% set _content = content|default('') %}
+{% set _toggle = toggle|default({}) %}
+{% set _links = links|default([]) %}
+{% set _content_hidden_attribute = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_dropdown_classes is defined and extra_dropdown_classes is not empty %}
+  {% set _css_dropdown_class = _css_dropdown_class ~ ' ' ~ extra_dropdown_classes %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  {% set _toggle_attributes = [
+    { name: 'aria-controls', value: _aria_controls },
+    { name: 'data-ecl-dropdown-toggle' },
+    { name: 'aria-expanded', value: 'false' }
+  ] %}
+
+  {% include '@ecl/link/link.html.twig' with _toggle|merge({
+    extra_classes: 'ecl-dropdown__toggle',
+    extra_attributes: _toggle_attributes,
+  }) only %}
+
+  <div id="{{ _id ~ '-content' }}" class="ecl-dropdown__container" hidden>
+    <div class="{{ _css_dropdown_class }}">
+      {% if _links is not empty and _links is iterable %}
+        <ul class="ecl-dropdown__list">
+          {% for _link in _links %}
+            <li class="ecl-dropdown__item">
+              {% include '@ecl/link/link.html.twig' with _link|merge({
+                link: {
+                  type: 'standalone',
+                }|merge(_link.link),
+                extra_classes: 'ecl-dropdown__link',
+              }) only %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      {%- block content _content -%}
+    </div>
+  </div>
+</div>
+
+{% endspaceless %}

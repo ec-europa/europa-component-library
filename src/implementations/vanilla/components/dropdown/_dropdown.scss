@@ -1,0 +1,88 @@
+/**
+ * Dropdown
+ * @define dropdown
+ */
+
+@use 'sass:map';
+@use '@ecl/theme-dev/theme';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+$_arrow-size: 1rem;
+$_shadow-size: null !default;
+$_shadow-color: null !default;
+
+.ecl-dropdown {
+  margin: 0;
+  position: relative;
+}
+
+.ecl-dropdown__container {
+  background-color: map.get(theme.$color, 'white');
+  box-shadow: 0 0 $_shadow-size $_shadow-color;
+  margin-top: calc(
+    #{map.get(theme.$spacing, 'xs')} + #{map.get(theme.$spacing, 's')}
+  );
+  position: absolute;
+
+  // arrow with border shadow
+  &::before {
+    background-color: map.get(theme.$color, 'white');
+    box-shadow: 0 0 $_shadow-size $_shadow-color;
+    clip-path: polygon(
+      -#{$_shadow-size} -#{$_shadow-size},
+      calc(100% + #{$_shadow-size}) -#{$_shadow-size},
+      calc(100% + #{$_shadow-size}) calc(100% + #{$_shadow-size})
+    );
+    content: '';
+    height: $_arrow-size;
+    left: 50%;
+    margin-left: calc(-#{$_arrow-size} / 2);
+    position: absolute;
+    top: 0;
+    transform: translate(0%, -50%) rotate(-45deg);
+    width: $_arrow-size;
+  }
+}
+
+.ecl-dropdown__content {
+  max-height: 192px;
+  width: 168px;
+  overflow-y: auto;
+}
+
+@include breakpoints.up('m') {
+  .ecl-dropdown__content {
+    max-height: 288px;
+    width: 198px;
+  }
+}
+
+.ecl-dropdown__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ecl-dropdown__link {
+  display: block;
+  padding: map.get(theme.$spacing, 'm') map.get(theme.$spacing, 's');
+
+  &:focus-visible {
+    outline-offset: -2px;
+  }
+}
+
+// Top dropdown
+.ecl-dropdown--top .ecl-dropdown__container {
+  bottom: 100%;
+  margin-bottom: calc(
+    #{map.get(theme.$spacing, 'xs')} + #{map.get(theme.$spacing, 's')}
+  );
+  margin-top: 0;
+
+  &::before {
+    bottom: 0;
+    top: auto;
+    transform: translate(0%, 50%) rotate(135deg);
+  }
+}
