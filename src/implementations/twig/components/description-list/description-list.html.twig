@@ -68,23 +68,22 @@
           {# taxonomy #}
           {% if _item.type is not empty and _item.type == 'taxonomy' %}
             <dd class="ecl-description-list__definition ecl-description-list__definition--taxonomy">
-            {% for _definition in _item.definition %}
+            {%- for _definition in _item.definition -%}
               <span class="ecl-description-list__definition-item">
               {%- if _definition.link is defined -%}
                 {% include '@ecl/link/link.html.twig' with _definition only %}
               {# Backward compatibility #}
               {%- elseif _definition.link is not defined and _definition.path is defined -%}
                 {% include '@ecl/link/link.html.twig' with {
-                  link: {
-                    label: _definition.label,
-                    path: _definition.path,
+                  link: _definition|merge({
                     type: 'standalone',
-                  }} only %}
+                  }),
+                } only %}
               {%- else -%}
                 {{- _definition -}}
               {%- endif -%}
               </span>
-            {% endfor %}
+            {%- endfor -%}
             </dd>
 
           {# links #}
