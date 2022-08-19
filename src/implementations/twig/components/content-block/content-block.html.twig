@@ -84,11 +84,9 @@
     {# Backward compatibility #}
     {%- elseif _title.link is not defined and _title.path is defined -%}
       {% include '@ecl/link/link.html.twig' with {
-        link: {
-          label: _title.label,
-          path: _title.path,
+        link: _title|merge({
           type: 'standalone',
-        }
+        }),
       } only %}
     {%- else -%}
       {{- _title -}}
