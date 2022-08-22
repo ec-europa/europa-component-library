@@ -10,6 +10,7 @@ module.exports = {
     month: 'Sep',
     month_full: 'September',
     year: '2019',
+    variant: 'ongoing',
   },
   labels: [
     { label: 'highlight', variant: 'highlight' },
