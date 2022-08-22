@@ -18,9 +18,11 @@ module.exports = {
   ],
   primary_meta: ['PRIMARY META', 'DD Month Year'],
   title: {
-    type: 'standalone',
-    label: 'Title',
-    path: exampleLink,
+    link: {
+      type: 'standalone',
+      label: 'Title',
+      path: exampleLink,
+    },
   },
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus',

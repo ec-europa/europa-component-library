@@ -8,10 +8,12 @@ module.exports = {
       'Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.',
     meta: ['META1', 'Meta2'],
     title: {
-      type: 'standalone',
-      label: 'Better regulation',
-      path: exampleLink,
-      level: 1,
+      link: {
+        type: 'standalone',
+        label: 'Better regulation',
+        path: exampleLink,
+        level: 1,
+      },
     },
     image: {
       alt: 'card image',
