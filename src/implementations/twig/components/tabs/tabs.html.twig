@@ -33,8 +33,7 @@
 {% set _css_class = 'ecl-tabs' %}
 {% set _extra_attributes = [
   'data-ecl-tabs="true"',
-  'data-ecl-auto-init="Tabs"',
-  'role="tablist"']|join(' ')
+  'data-ecl-auto-init="Tabs"']|join(' ')
 %}
 
 {# Internal logic - Process properties #}
@@ -62,10 +61,10 @@
 {% if _items is not empty and _items is iterable %}
 <nav class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <div class="ecl-tabs__container">
-    <ul class="ecl-tabs__list">
+    <ul class="ecl-tabs__list" role="tablist">
       {% for _item in _items %}
         {% if _item.path is not empty %}
-          <li class="ecl-tabs__item">
+          <li class="ecl-tabs__item" role="presentation">
           {% set _item_extra_classes = 'ecl-tabs__link' %}
           {% set _item_extra_attributes = [{ name: 'role', value: 'tab' }] %}
           {% if loop.index != 1 %}
@@ -91,7 +90,7 @@
           </li>
         {% endif %}
       {% endfor %}
-      <li class="ecl-tabs__item ecl-tabs__item--more">
+      <li class="ecl-tabs__item ecl-tabs__item--more" role="presentation">
         {% include '@ecl/button/button.html.twig' with {
           label: _more_label,
           variant: 'secondary',
