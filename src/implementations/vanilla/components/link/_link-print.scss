@@ -50,6 +50,10 @@ $_negative-color: null !default;
   font-family: #{map.get(theme.$font-family-print, 'default')};
 }
 
+.ecl-link--primary {
+  color: map.get(theme.$color, 'white-100');
+}
+
 .ecl-link--negative {
   color: $_negative-color;
 }
