@@ -51,7 +51,7 @@ $_circle-width: 0.6rem;
   border-left: 1px solid map.get(theme.$color, 'black');
   border-right: 1px solid map.get(theme.$color, 'black');
   border-top: 1px solid map.get(theme.$color, 'black');
-  color: map.get(theme.$color, 'black');
+  color: map.get(theme.$color, 'white-100');
   display: block;
   font: map.get(theme.$font-print, '2xl');
   font-weight: map.get(theme.$font-weight, 'bold');
@@ -63,7 +63,7 @@ $_circle-width: 0.6rem;
 .ecl-date-block__month {
   border-left: 1px solid map.get(theme.$color, 'black');
   border-right: 1px solid map.get(theme.$color, 'black');
-  color: map.get(theme.$color, 'black');
+  color: map.get(theme.$color, 'white-100');
   display: block;
   font: map.get(theme.$font-print, 'm');
   padding-bottom: map.get(theme.$spacing-print, 'xs');
@@ -84,4 +84,13 @@ $_circle-width: 0.6rem;
 
 .ecl-date-block__daytime {
   display: none;
+}
+
+.ecl-date-block--ongoing,
+.ecl-date-block--cancelled,
+.ecl-date-block--past {
+  .ecl-date-block__day,
+  .ecl-date-block__month {
+    color: map.get(theme.$color, 'black');
+  }
 }
