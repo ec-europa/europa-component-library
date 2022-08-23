@@ -24,7 +24,7 @@ $_negative-color: null !default;
 
 .ecl-link--icon-before,
 .ecl-link--icon-after {
-  display: inline-block;
+  display: inline;
 }
 
 .ecl-link--icon {
@@ -42,6 +42,14 @@ $_negative-color: null !default;
   }
 }
 
+.ecl-link--icon-before .ecl-link__icon {
+  margin-inline-end: map.get(theme.$spacing, 'xs');
+}
+
+.ecl-link--icon-after .ecl-link__icon {
+  margin-inline-start: map.get(theme.$spacing, 'xs');
+}
+
 .ecl-link--standalone {
   font-family: #{map.get(theme.$font-family-print, 'default')};
 }
@@ -56,4 +64,13 @@ $_negative-color: null !default;
 
 .ecl-link--negative {
   color: $_negative-color;
+}
+
+/**
+* CTA display
+*/
+.ecl-link--cta,
+.ecl-link--primary,
+.ecl-link--secondary {
+  display: inline-block;
 }

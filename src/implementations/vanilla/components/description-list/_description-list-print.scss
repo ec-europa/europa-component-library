@@ -66,31 +66,33 @@ $_taxonomy-color: null !default;
 // stylelint-disable-next-line no-descending-specificity
 .ecl-description-list__definition--inline
   .ecl-description-list__definition-item {
-  border-inline-start: 1px solid $_definition-color;
-  margin-inline-start: map.get(theme.$spacing-print, 'xs');
-  margin-bottom: map.get(theme.$spacing-print, 'xs');
-  padding-inline-start: map.get(theme.$spacing-print, 'xs');
+  border-inline-end: 1px solid $_definition-color;
+  display: inline;
+  margin-inline-end: map.get(theme.$spacing, 'xs');
+  margin-bottom: map.get(theme.$spacing, 'xs');
+  padding-inline-end: map.get(theme.$spacing, 'xs');
+  unicode-bidi: isolate;
 
-  &:first-child {
-    border-inline-start-width: 0;
-    margin-inline-start: 0;
-    padding-inline-start: 0;
+  &:last-child {
+    border-inline-end-width: 0;
+    margin-inline-end: 0;
+    padding-inline-end: 0;
   }
 }
 
 .ecl-description-list__definition--taxonomy {
   color: $_taxonomy-color;
-  display: inline-flex;
-  flex-wrap: wrap;
-  margin-bottom: -#{map.get(theme.$spacing-print, 'xs')};
+  display: inline-block;
+  margin-bottom: -#{map.get(theme.$spacing, 'xs')};
 }
 
 // stylelint-disable-next-line no-descending-specificity
 .ecl-description-list__definition--taxonomy
   .ecl-description-list__definition-item {
-  margin-inline-start: map.get(theme.$spacing-print, 'm');
-  margin-bottom: map.get(theme.$spacing-print, 'xs');
-  padding-inline-start: map.get(theme.$spacing-print, 'm');
+  display: inline;
+  margin-inline-end: map.get(theme.$spacing, 'm');
+  margin-bottom: map.get(theme.$spacing, 'xs');
+  padding-inline-start: map.get(theme.$spacing, 'm');
   position: relative;
 
   &::before {
@@ -101,17 +103,20 @@ $_taxonomy-color: null !default;
     height: 4px;
     left: -2px;
     position: absolute;
-    top: calc(50% - 2px);
+    top: 8px;
     width: 4px;
   }
 
   &:first-child {
-    margin-inline-start: 0;
     padding-inline-start: 0;
   }
 
   &:first-child::before {
     display: none;
+  }
+
+  &:last-child {
+    margin-inline-start: 0;
   }
 }
 
