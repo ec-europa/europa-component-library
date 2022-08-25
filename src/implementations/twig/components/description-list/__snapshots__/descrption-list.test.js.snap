@@ -246,6 +246,129 @@ exports[`Description list Default renders correctly in the horizontal variant 1`
 </jest>
 `;
 
+exports[`Description list Default renders correctly with deprecated data 1`] = `
+<jest>
+  <dl
+    class="ecl-description-list"
+  >
+    <dt
+      class="ecl-description-list__term"
+    >
+      Standard text
+    </dt>
+    <dd
+      class="ecl-description-list__definition"
+    >
+      Lorem ipsum dolor sit amet, 
+      <a
+        class="ecl-link"
+        href="/example"
+      >
+        consectetur adipiscing elit
+      </a>
+      . Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis
+    </dd>
+    <dt
+      class="ecl-description-list__term"
+    >
+      Standalone links
+    </dt>
+    <dd
+      class="ecl-description-list__definition ecl-description-list__definition--link"
+    >
+      <a
+        class="ecl-link ecl-link--icon ecl-link--icon-before ecl-description-list__definition-item"
+        href="/example"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--s ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#copy"
+          />
+        </svg>
+        <span
+          class="ecl-link__label"
+        >
+          Lorem ipsum dolor sit amet
+        </span>
+      </a>
+      <a
+        class="ecl-link ecl-link--icon ecl-link--icon-before ecl-description-list__definition-item"
+        href="/example"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--s ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#download"
+          />
+        </svg>
+        <span
+          class="ecl-link__label"
+        >
+          Lorem ipsum dolor sit amet
+        </span>
+      </a>
+    </dd>
+    <dt
+      class="ecl-description-list__term"
+    >
+      Links inline
+    </dt>
+    <dd
+      class="ecl-description-list__definition ecl-description-list__definition--inline"
+    >
+      <a
+        class="ecl-link ecl-description-list__definition-item"
+        href="/example"
+      >
+        Lorem ipsum dolor sit amet
+      </a>
+      <a
+        class="ecl-link ecl-description-list__definition-item"
+        href="/example"
+      >
+        Lorem ipsum dolor sit amet
+      </a>
+    </dd>
+    <dt
+      class="ecl-description-list__term"
+    >
+      Taxonomy list
+    </dt>
+    <dd
+      class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
+    >
+      <span
+        class="ecl-description-list__definition-item"
+      >
+        Taxonomy item 1
+      </span>
+      <span
+        class="ecl-description-list__definition-item"
+      >
+        <a
+          class="ecl-link ecl-link--standalone"
+          href="/example"
+        >
+          test link
+        </a>
+      </span>
+      <span
+        class="ecl-description-list__definition-item"
+      >
+        Taxonomy item 3
+      </span>
+    </dd>
+  </dl>
+</jest>
+`;
+
 exports[`Description list Default renders correctly with extra attributes 1`] = `
 <jest>
   <dl
