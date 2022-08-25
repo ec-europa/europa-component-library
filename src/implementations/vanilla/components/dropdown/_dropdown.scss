@@ -12,13 +12,19 @@ $_shadow-size: null !default;
 $_shadow-color: null !default;
 
 .ecl-dropdown {
+  display: inline-block;
   margin: 0;
   position: relative;
+}
+
+.ecl-dropdown__toggle .ecl-link__label {
+  text-decoration: underline;
 }
 
 .ecl-dropdown__container {
   background-color: map.get(theme.$color, 'white');
   box-shadow: 0 0 $_shadow-size $_shadow-color;
+  left: -50%;
   margin-top: calc(
     #{map.get(theme.$spacing, 'xs')} + #{map.get(theme.$spacing, 's')}
   );
@@ -48,6 +54,8 @@ $_shadow-color: null !default;
   max-height: 192px;
   width: 168px;
   overflow-y: auto;
+  scrollbar-color: map.get(theme.$color, 'grey-25')
+    map.get(theme.$color, 'white');
 }
 
 @include breakpoints.up('m') {
@@ -84,5 +92,24 @@ $_shadow-color: null !default;
     bottom: 0;
     top: auto;
     transform: translate(0%, 50%) rotate(135deg);
+  }
+}
+
+// Left dropdown
+.ecl-dropdown--left .ecl-dropdown__container {
+  left: 0;
+
+  &::before {
+    left: 25%;
+  }
+}
+
+// Right dropdown
+.ecl-dropdown--right .ecl-dropdown__container {
+  left: auto;
+  right: 0;
+
+  &::before {
+    left: 75%;
   }
 }

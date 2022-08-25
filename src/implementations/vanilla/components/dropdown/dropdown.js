@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { queryOne } from '@ecl/dom-utils';
 
 /**
@@ -96,7 +97,6 @@ export class Dropdown {
    */
   handleClickOnToggle(e) {
     e.preventDefault();
-    console.log('click on toggle');
 
     // Get current status
     const isExpanded = this.toggle.getAttribute('aria-expanded') === 'true';
@@ -109,17 +109,31 @@ export class Dropdown {
       this.target.hidden = false;
     }
 
-    // Check available space below
-    const elementRect = this.toggle.getBoundingClientRect();
+    // Check available space
+    const toggleRect = this.toggle.getBoundingClientRect();
+    const dropdownRect = this.target.getBoundingClientRect();
     const dropdownHeight = this.target.clientHeight;
     const screenHeight = window.innerHeight;
+    const screenWidth = window.innerWidth;
 
     if (dropdownHeight > 0) {
-      if (screenHeight - elementRect.top < dropdownHeight) {
+      if (screenHeight - toggleRect.top < dropdownHeight) {
         this.element.classList.add('ecl-dropdown--top');
       } else {
         this.element.classList.remove('ecl-dropdown--top');
       }
+    }
+
+    if (dropdownRect.left < 0) {
+      this.element.classList.add('ecl-dropdown--left');
+    } else {
+      this.element.classList.remove('ecl-dropdown--left');
+    }
+
+    if (dropdownRect.right > screenWidth) {
+      this.element.classList.add('ecl-dropdown--right');
+    } else {
+      this.element.classList.remove('ecl-dropdown--right');
     }
 
     return this;
