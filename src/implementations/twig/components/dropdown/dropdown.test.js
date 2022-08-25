@@ -2,9 +2,6 @@ import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 
 import demoData from '@ecl/specs-component-dropdown/demo/data';
 
-// Add SVG icon path.
-demoData.button.icon.path = 'example';
-
 describe('Dropdown', () => {
   const template = '@ecl/dropdown/dropdown.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);

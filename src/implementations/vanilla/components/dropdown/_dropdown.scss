@@ -54,8 +54,6 @@ $_shadow-color: null !default;
   max-height: 192px;
   width: 168px;
   overflow-y: auto;
-  scrollbar-color: map.get(theme.$color, 'grey-25')
-    map.get(theme.$color, 'white');
 }
 
 @include breakpoints.up('m') {
