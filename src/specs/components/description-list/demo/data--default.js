@@ -60,7 +60,7 @@ module.exports = {
       type: 'taxonomy',
       definition: [
         'Taxonomy item 1',
-        { label: 'Taxonomy item 2', path: exampleLink },
+        { link: { label: 'Taxonomy item 2', path: exampleLink } },
         'Taxonomy item 3',
       ],
     },
