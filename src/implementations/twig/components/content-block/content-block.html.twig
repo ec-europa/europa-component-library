@@ -128,34 +128,42 @@
 
   {% if _links is not empty and _links is iterable %}
     <div class="ecl-content-block__link-container">
-      {% if _links[0][0] is defined %}
-        {% for _link_section in _links %}
-          <ul class="ecl-content-block__link-list">
-            {% for _link in _link_section %}
-              <li class="ecl-content-block__link-item">
-                {% include '@ecl/link/link.html.twig' with {
-                  link: _link.link|merge({ 
-                    type: 'standalone' 
-                  }),
-                  icon: _link.icon|default({})
-                } only %}
-              </li>
-            {% endfor %}
-          </ul>
-        {% endfor %}
+    {% if _links[0][0] is defined %}
+      {% for _link_section in _links %}
+      <ul class="ecl-content-block__link-list">
+      {% for _link in _link_section %}
+        <li class="ecl-content-block__link-item">
+        {%- if _link.link is defined -%}
+          {% include '@ecl/link/link.html.twig' with {
+            link: _link.link|merge({
+              type: 'standalone',
+            }),
+            icon: _link.icon|default({})
+          } only %}
+        {%- else -%}
+          {{- _link -}}
+        {%- endif -%}
+        </li>
+      {% endfor %}
+      </ul>
+      {% endfor %}
       {% else %}
-        <ul class="ecl-content-block__link-list">
-          {% for _link in _links %}
-            <li class="ecl-content-block__link-item">
-              {% include '@ecl/link/link.html.twig' with {
-                link: _link.link|merge(
-                  { type: 'standalone' }
-                ),
-                icon: _link.icon|default({})
-              } only %}
-            </li>
-          {% endfor %}
-        </ul>
+      <ul class="ecl-content-block__link-list">
+      {% for _link in _links %}
+        <li class="ecl-content-block__link-item">
+        {%- if _link.link is defined -%}
+          {% include '@ecl/link/link.html.twig' with {
+            link: _link.link|merge({
+              type: 'standalone',
+            }),
+            icon: _link.icon|default({})
+          } only %}
+        {%- else -%}
+          {{- _link -}}
+        {%- endif -%}
+        </li>
+      {% endfor %}
+      </ul>
       {% endif %}
     </div>
   {% endif %}
