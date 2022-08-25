@@ -1,6 +1,13 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 import demoData from '@ecl/specs-component-timeline/demo/data--ec';
+
+expect.extend(toHaveNoViolations);
 
 describe('Timeline', () => {
   const template = '@ecl/timeline/timeline.html.twig';
@@ -106,5 +113,11 @@ describe('Timeline', () => {
     });
 
     return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
+  });
+
+  test(`passes the accessibility tests`, async () => {
+    expect(
+      await axe(renderTwigFileAsHtml(template, demoData, true))
+    ).toHaveNoViolations();
   });
 });

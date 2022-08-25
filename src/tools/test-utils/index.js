@@ -13,7 +13,19 @@ const renderTwigFileAsNode = (file, options) =>
     }
   });
 
+const renderTwigFileAsHtml = (file, options, main) => {
+  let html = twing.render(file, options);
+  if (main) {
+    const landmark = document.createElement('main');
+    landmark.innerHTML = html.trim();
+    html = landmark;
+  }
+
+  return html;
+};
+
 module.exports = {
   merge,
   renderTwigFileAsNode,
+  renderTwigFileAsHtml,
 };

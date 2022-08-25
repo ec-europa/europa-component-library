@@ -14,6 +14,7 @@ module.exports = {
       label: 'Item 2 titre',
       path: exampleLink,
       is_current: true,
+      trigger_aria_label: "Access item's children",
       children: [
         { label: 'Item 2.1', path: exampleLink },
         { label: 'Item 2.2', path: exampleLink },
@@ -27,6 +28,7 @@ module.exports = {
     {
       label: 'Item 3 avec un très long titre',
       path: exampleLink,
+      trigger_aria_label: "Access item's children",
       children: [
         { label: 'Item 3.1', path: exampleLink },
         { label: 'Item 3.2', path: exampleLink },
@@ -36,6 +38,7 @@ module.exports = {
     {
       label: 'Item 4 titre',
       path: exampleLink,
+      trigger_aria_label: "Access item's children",
       children: [
         { label: 'Item 4.1', path: exampleLink },
         { label: 'Item 4.2', path: exampleLink },
@@ -59,6 +62,7 @@ module.exports = {
     {
       label: 'Item 5 titre',
       path: exampleLink,
+      trigger_aria_label: "Access item's children",
       children: [
         { label: 'Item 5.1', path: exampleLink },
         { label: 'Item 5.2', path: exampleLink },
@@ -69,6 +73,7 @@ module.exports = {
     {
       label: 'Item 6 titre',
       path: exampleLink,
+      trigger_aria_label: "Access item's children",
       children: [
         { label: 'Item 6.1', path: exampleLink },
         { label: 'Item 6.2', path: exampleLink },
@@ -103,6 +108,7 @@ module.exports = {
     {
       label: 'Item 7 titre',
       path: exampleLink,
+      trigger_aria_label: "Access item's children",
       children: [
         { label: 'Item 7.1', path: exampleLink },
         { label: 'Item 7.2', path: exampleLink },

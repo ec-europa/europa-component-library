@@ -1,8 +1,15 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 // Import data for tests
 import data3Col from '@ecl/specs-component-fact-figures/demo/data--3-col';
 import data4Col from '@ecl/specs-component-fact-figures/demo/data--4-col';
+
+expect.extend(toHaveNoViolations);
 
 describe('Fact and figures', () => {
   const template = '@ecl/fact-figures/fact-figures.html.twig';
@@ -36,6 +43,12 @@ describe('Fact and figures', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, data3Col, true))
+      ).toHaveNoViolations();
     });
   });
 

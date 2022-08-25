@@ -1,8 +1,15 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 import demoContentImg from '@ecl/specs-component-media-container/demo/data--image';
 import demoContentVideo from '@ecl/specs-component-media-container/demo/data--video';
 import demoContentEmbed from '@ecl/specs-component-media-container/demo/data--embed-video';
+
+expect.extend(toHaveNoViolations);
 
 describe('Media Container', () => {
   const template = '@ecl/media-container/media-container.html.twig';
@@ -31,6 +38,12 @@ describe('Media Container', () => {
       });
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, defaultDataStructure, true))
+      ).toHaveNoViolations();
     });
   });
 

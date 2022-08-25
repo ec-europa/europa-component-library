@@ -1,7 +1,14 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 // Import data for tests
 import demoData from '@ecl/specs-component-gallery/demo/data';
+
+expect.extend(toHaveNoViolations);
 
 describe('Gallery', () => {
   const template = '@ecl/gallery/gallery.html.twig';
@@ -34,6 +41,12 @@ describe('Gallery', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, demoData, true))
+      ).toHaveNoViolations();
     });
   });
 });

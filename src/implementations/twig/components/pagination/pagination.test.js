@@ -1,7 +1,14 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 // Import data for tests
 import data from '@ecl/specs-component-pagination/demo/data';
+
+expect.extend(toHaveNoViolations);
 
 describe('Pagination', () => {
   const template = '@ecl/pagination/pagination.html.twig';
@@ -35,6 +42,12 @@ describe('Pagination', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, data))
+      ).toHaveNoViolations();
     });
   });
 });

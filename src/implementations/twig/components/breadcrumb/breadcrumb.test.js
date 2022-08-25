@@ -1,7 +1,14 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 import dataSimple from '@ecl/specs-component-breadcrumb/demo/data-simple--ec';
 import dataLong from '@ecl/specs-component-breadcrumb/demo/data--ec';
+
+expect.extend(toHaveNoViolations);
 
 describe('Breadcrumb', () => {
   const template = '@ecl/breadcrumb/breadcrumb.html.twig';
@@ -39,6 +46,12 @@ describe('Breadcrumb', () => {
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
     });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, data))
+      ).toHaveNoViolations();
+    });
   });
 
   describe('Long', () => {
@@ -73,6 +86,12 @@ describe('Breadcrumb', () => {
       });
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, data))
+      ).toHaveNoViolations();
     });
   });
 });

@@ -79,15 +79,18 @@
 
   {% if _title is not empty %}
     <h1 class="ecl-content-block__title">
-    {% if _title.path is not empty %}
+    {%- if _title.link is defined -%}
+      {% include '@ecl/link/link.html.twig' with _title only %}
+    {# Backward compatibility #}
+    {%- elseif _title.link is not defined and _title.path is defined -%}
       {% include '@ecl/link/link.html.twig' with {
         link: _title|merge({
           type: 'standalone',
         }),
       } only %}
-    {% else %}
+    {%- else -%}
       {{- _title -}}
-    {% endif %}
+    {%- endif -%}
     </h1>
   {% endif %}
 

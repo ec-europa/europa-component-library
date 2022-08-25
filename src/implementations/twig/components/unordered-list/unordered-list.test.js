@@ -1,7 +1,15 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
+
 import dataUnorderedListText from '@ecl/specs-component-unordered-list/demo/data--text';
 import dataUnorderedListDivider from '@ecl/specs-component-unordered-list/demo/data--with-divider';
 import dataUnorderedListNoBullet from '@ecl/specs-component-unordered-list/demo/data--no-bullet';
+
+expect.extend(toHaveNoViolations);
 
 describe('Unordered list', () => {
   const template = '@ecl/unordered-list/unordered-list.html.twig';
@@ -51,6 +59,12 @@ describe('Unordered list', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataUnorderedListText, true))
+      ).toHaveNoViolations();
     });
   });
 });

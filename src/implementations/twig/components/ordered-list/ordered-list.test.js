@@ -1,5 +1,13 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
+
 import dataOrderedList from '@ecl/specs-component-ordered-list/demo/data';
+
+expect.extend(toHaveNoViolations);
 
 describe('Ordered list', () => {
   const template = '@ecl/ordered-list/ordered-list.html.twig';
@@ -33,6 +41,12 @@ describe('Ordered list', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataOrderedList, true))
+      ).toHaveNoViolations();
     });
   });
 });

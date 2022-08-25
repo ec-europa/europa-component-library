@@ -1,8 +1,14 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 import demoDefault from '@ecl/specs-component-page-header/demo/data';
 import dataBreadcrumbSimple from '@ecl/specs-component-breadcrumb/demo/data--ec';
 
+expect.extend(toHaveNoViolations);
 demoDefault.breadcrumb = dataBreadcrumbSimple;
 
 const demoSimple = { ...demoDefault };
@@ -40,6 +46,12 @@ describe('Page Header Standardised', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, demoSimple, true))
+      ).toHaveNoViolations();
     });
   });
 

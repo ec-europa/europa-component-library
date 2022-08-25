@@ -22,11 +22,7 @@ export const correctPaths = (data) => {
         data[prop] = iconPath;
       }
     }
-    if (
-      typeof data[prop] === 'string' &&
-      data[prop].includes('/example') &&
-      !data[prop].includes('/example-image')
-    ) {
+    if (typeof data[prop] === 'string' && data[prop].endsWith('/example')) {
       data[prop] = data[prop].replace(
         '/example',
         `/example#${Math.random().toString(36).slice(2, 7)}`

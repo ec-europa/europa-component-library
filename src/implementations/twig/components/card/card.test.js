@@ -1,6 +1,14 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
+
 import dataCard from '@ecl/specs-component-card/demo/data';
 import dataCardBc from '@ecl/specs-component-card/demo/deprecated/data';
+
+expect.extend(toHaveNoViolations);
 
 describe('Card', () => {
   const template = '@ecl/card/card.html.twig';
@@ -33,6 +41,12 @@ describe('Card', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataCard, true))
+      ).toHaveNoViolations();
     });
   });
 

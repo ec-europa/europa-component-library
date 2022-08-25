@@ -1,7 +1,15 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
+
 import dataLink from '@ecl/specs-component-tag/demo/data--link';
 import dataRemovable from '@ecl/specs-component-tag/demo/data--removable';
 import dataDisplay from '@ecl/specs-component-tag/demo/data--display';
+
+expect.extend(toHaveNoViolations);
 
 describe('Tag', () => {
   const template = '@ecl/tag/tag.html.twig';
@@ -48,6 +56,12 @@ describe('Tag', () => {
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
     });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataLink, true))
+      ).toHaveNoViolations();
+    });
   });
 
   describe('Display', () => {
@@ -78,6 +92,12 @@ describe('Tag', () => {
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
     });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataDisplay, true))
+      ).toHaveNoViolations();
+    });
   });
 
   describe('Removable', () => {
@@ -107,6 +127,12 @@ describe('Tag', () => {
       });
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataRemovable, true))
+      ).toHaveNoViolations();
     });
   });
 });

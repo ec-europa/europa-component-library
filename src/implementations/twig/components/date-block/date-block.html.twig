@@ -30,12 +30,12 @@
 
 {# Internal logic - Process properties #}
 
-{% if extra_classes is defined and extra_classes is not empty %}
-  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
-{% endif %}
-
 {% if _variant is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _variant %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
@@ -50,20 +50,20 @@
 
 {% if (_month is not empty or _month_full is not empty) and _year is not empty %}
   {% if _month_full is not empty and _month_full != _month %}
-    {% set _month_markup = '<abbr title="' ~ _month_full ~ '" class="ecl-date-block__month" aria-hidden="true">' ~ _month ~ '</abbr>' %}
+    {% set _month_markup = '<abbr title="' ~ _month_full|e('html_attr') ~ '" class="ecl-date-block__month" aria-hidden="true">' ~ _month|e('html') ~ '</abbr>' %}
   {% else %}
-    {% set _month_markup = '<span class="ecl-date-block__month">' ~ _month ~ '</span>' %}
+    {% set _month_markup = '<span class="ecl-date-block__month">' ~ _month|e('html_attr') ~ '</span>' %}
   {% endif %}
   {% if _date_time is not empty %}
-    {% set _extra_attributes = _extra_attributes ~ 'datetime="' ~ _date_time ~ '"' %}
+    {% set _extra_attributes = _extra_attributes ~ ' datetime="' ~ _date_time|e('html_attr') ~ '"' %}
   {% endif %}
 
   <time class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-    {% if _date_time is not empty %}
-      <span class="ecl-date-block__daytime">{{ _date_time }}</span>
-    {% endif %}
+  {% if _date_time is not empty %}
+    <span class="ecl-date-block__daytime">{{ _date_time }}</span>
+  {% endif %}
     <span class="ecl-date-block__day" aria-hidden="true">{{ _day }}</span>
-    {{ _month_markup }}
+    {{ _month_markup|raw }}
     <span class="ecl-date-block__year" aria-hidden="true">{{ _year }}</span>
   </time>
 {% endif %}

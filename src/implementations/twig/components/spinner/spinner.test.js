@@ -1,6 +1,13 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 import dataDefault from '@ecl/specs-component-spinner/demo/data';
+
+expect.extend(toHaveNoViolations);
 
 describe('Spinner', () => {
   const template = '@ecl/spinner/spinner.html.twig';
@@ -42,6 +49,12 @@ describe('Spinner', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataDefault, true))
+      ).toHaveNoViolations();
     });
   });
 });

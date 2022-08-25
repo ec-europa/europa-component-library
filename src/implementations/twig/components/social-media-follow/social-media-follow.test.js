@@ -1,5 +1,13 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
+
 import demoData from '@ecl/specs-component-social-media-follow/demo/data';
+
+expect.extend(toHaveNoViolations);
 
 describe('Social Media Follow', () => {
   const template = '@ecl/social-media-follow/social-media-follow.html.twig';
@@ -26,6 +34,12 @@ describe('Social Media Follow', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, demoData, true))
+      ).toHaveNoViolations();
     });
   });
 

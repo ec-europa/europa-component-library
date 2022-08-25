@@ -1,8 +1,16 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
+
 import specDefault from '@ecl/specs-component-text-input/demo/data';
 
 const specInvalid = { ...specDefault, invalid: true };
 const specDisabled = { ...specDefault, disabled: true };
+
+expect.extend(toHaveNoViolations);
 
 const testTextField = (dataDefault, dataInvalid, dataDisabled) => {
   const template = '@ecl/text-input/text-input.html.twig';
@@ -59,6 +67,12 @@ const testTextField = (dataDefault, dataInvalid, dataDisabled) => {
       });
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataDefault, true))
+      ).toHaveNoViolations();
     });
   });
 
