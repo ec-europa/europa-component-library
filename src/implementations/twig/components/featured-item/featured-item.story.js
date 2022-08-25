@@ -7,8 +7,11 @@ import demoDataExtended from '@ecl/specs-component-featured-item/demo/data--exte
 import featuredItem from './featured-item.html.twig';
 import notes from './README.md';
 
+const mediaContainer = { ...demoData.media_container };
+
 const getArgs = (data) => {
   const args = {
+    show_media: true,
     title: data.title,
     description: data.description,
     position: 'left',
@@ -16,15 +19,21 @@ const getArgs = (data) => {
   if (data.link.link.label) {
     args.link_label = data.link.link.label;
   }
-  if (data.media_container.image && !data.media_container.sources) {
-    args.image = data.media_container.image;
-  }
 
   return args;
 };
 
 const getArgTypes = (data) => {
   const argTypes = {};
+
+  argTypes.show_media = {
+    type: 'boolean',
+    name: 'show media',
+    description: 'Toggle media visility',
+    table: {
+      category: 'Content',
+    },
+  };
 
   argTypes.title = {
     type: 'string',
@@ -59,18 +68,6 @@ const getArgTypes = (data) => {
     };
   }
 
-  if (data.media_container.image && !data.media_container.sources) {
-    argTypes.image = {
-      type: { name: 'string', required: true },
-      description: 'Path or Url of the image',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-    };
-  }
-
   argTypes.position = {
     type: { name: 'select' },
     description: 'Alignment inside featured item',
@@ -89,9 +86,12 @@ const prepareData = (data, args) => {
   if (data.link.link.label) {
     data.link.link.label = args.link_label;
   }
-  if (data.media_container.image) {
-    data.media_container.image = args.image;
+  if (args.show_media) {
+    data.media_container = mediaContainer;
+  } else {
+    delete data.media_container;
   }
+
   return Object.assign(correctPaths(data), args);
 };
 
