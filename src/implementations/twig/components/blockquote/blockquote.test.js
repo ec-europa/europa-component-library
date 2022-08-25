@@ -1,6 +1,13 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 import data from '@ecl/specs-component-blockquote/demo/data';
+
+expect.extend(toHaveNoViolations);
 
 describe('Blockquote', () => {
   const template = '@ecl/blockquote/blockquote.html.twig';
@@ -34,6 +41,12 @@ describe('Blockquote', () => {
       });
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, data, true))
+      ).toHaveNoViolations();
     });
   });
 });

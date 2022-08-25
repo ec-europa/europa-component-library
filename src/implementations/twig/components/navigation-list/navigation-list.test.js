@@ -1,5 +1,13 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
+
 import dataDefault from '@ecl/specs-component-navigation-list/demo/data';
+
+expect.extend(toHaveNoViolations);
 
 describe('Navigation list', () => {
   const template = '@ecl/navigation-list/navigation-list.html.twig';
@@ -32,6 +40,12 @@ describe('Navigation list', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataDefault, true))
+      ).toHaveNoViolations();
     });
   });
 });

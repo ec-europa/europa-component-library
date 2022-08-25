@@ -1,10 +1,17 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 import dataEC from '@ecl/specs-component-site-header/demo/data--ec';
 import dataEU from '@ecl/specs-component-site-header/demo/data--eu';
 
 const template = '@ecl/site-header/site-header.html.twig';
 const render = (params) => renderTwigFileAsNode(template, params);
+
+expect.extend(toHaveNoViolations);
 
 describe('Site Header', () => {
   describe('EC', () => {
@@ -43,12 +50,24 @@ describe('Site Header', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataEC, true))
+      ).toHaveNoViolations();
+    });
   });
 
   describe('EU', () => {
     test('renders correctly', () => {
       expect.assertions(1);
       return expect(render(dataEU)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataEU, true))
+      ).toHaveNoViolations();
     });
   });
 });

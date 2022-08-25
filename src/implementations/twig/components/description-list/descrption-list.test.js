@@ -1,6 +1,14 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
+
 import dataDescriptionListDefault from '@ecl/specs-component-description-list/demo/data--default';
 import dataDescriptionListHorizontal from '@ecl/specs-component-description-list/demo/data--horizontal';
+
+expect.extend(toHaveNoViolations);
 
 describe('Description list', () => {
   const template = '@ecl/description-list/description-list.html.twig';
@@ -46,6 +54,14 @@ describe('Description list', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(
+          renderTwigFileAsHtml(template, dataDescriptionListDefault, true)
+        )
+      ).toHaveNoViolations();
     });
   });
 });

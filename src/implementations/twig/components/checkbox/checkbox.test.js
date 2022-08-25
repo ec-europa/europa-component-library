@@ -1,10 +1,17 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 // Import data for tests
 import data from '@ecl/specs-component-checkbox/demo/data';
 
 const dataSingle = { ...data, items: [data.items[0]], invalid: true };
 const dataInvalid = { ...data, invalid: true };
+
+expect.extend(toHaveNoViolations);
 
 describe('Checkbox', () => {
   const template = '@ecl/checkbox/checkbox-group.html.twig';
@@ -60,6 +67,12 @@ describe('Checkbox', () => {
       expect.assertions(1);
 
       return expect(render(dataSingle)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, data, true))
+      ).toHaveNoViolations();
     });
   });
 });

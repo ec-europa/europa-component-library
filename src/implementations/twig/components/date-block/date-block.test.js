@@ -1,6 +1,13 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 import demoData from '@ecl/specs-component-date-block/demo/data';
+
+expect.extend(toHaveNoViolations);
 
 describe('Date Block', () => {
   const template = '@ecl/date-block/date-block.html.twig';
@@ -33,5 +40,11 @@ describe('Date Block', () => {
     });
 
     return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
+  });
+
+  test(`passes the accessibility tests`, async () => {
+    expect(
+      await axe(renderTwigFileAsHtml(template, demoData, true))
+    ).toHaveNoViolations();
   });
 });

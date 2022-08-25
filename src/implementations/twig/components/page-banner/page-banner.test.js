@@ -1,4 +1,9 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 import bannerDataSimplePrimary from '@ecl/specs-component-page-banner/demo/data--simple-primary';
 import bannerDataSimpleSecondary from '@ecl/specs-component-page-banner/demo/data--simple-secondary';
@@ -6,6 +11,8 @@ import bannerDataSimpleWhite from '@ecl/specs-component-page-banner/demo/data--s
 import bannerDataImage from '@ecl/specs-component-page-banner/demo/data--image-box';
 import bannerDataImageShade from '@ecl/specs-component-page-banner/demo/data--image-shade';
 import bannerDataImageGradient from '@ecl/specs-component-page-banner/demo/data--image-gradient';
+
+expect.extend(toHaveNoViolations);
 
 describe('Page Banner', () => {
   const template = '@ecl/page-banner/page-banner.html.twig';
@@ -56,6 +63,12 @@ describe('Page Banner', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, data, true))
+      ).toHaveNoViolations();
+    });
   });
 
   describe('image', () => {
@@ -98,6 +111,12 @@ describe('Page Banner', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, bannerDataImage, true))
+      ).toHaveNoViolations();
     });
   });
 });

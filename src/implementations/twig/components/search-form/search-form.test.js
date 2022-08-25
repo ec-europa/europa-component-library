@@ -1,5 +1,13 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
+
 import data from '@ecl/specs-component-search-form/demo/data';
+
+expect.extend(toHaveNoViolations);
 
 describe('Search Form', () => {
   const template = '@ecl/search-form/search-form.html.twig';
@@ -43,6 +51,12 @@ describe('Search Form', () => {
       });
 
       return expect(render(withExtraFormElements)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, data))
+      ).toHaveNoViolations();
     });
   });
 });

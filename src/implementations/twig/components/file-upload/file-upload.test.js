@@ -1,8 +1,15 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 // Import data for tests
 import dataDefault from '@ecl/specs-component-file-upload/demo/data';
 import dataMultiple from '@ecl/specs-component-file-upload/demo/data--multiple';
+
+expect.extend(toHaveNoViolations);
 
 describe('File Upload ', () => {
   const template = '@ecl/file-upload/file-upload.html.twig';
@@ -61,6 +68,12 @@ describe('File Upload ', () => {
       });
       return expect(render(dataInvalid)).resolves.toMatchSnapshot();
     });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataDefault, true))
+      ).toHaveNoViolations();
+    });
   });
 
   describe('Multiple', () => {
@@ -68,6 +81,12 @@ describe('File Upload ', () => {
       expect.assertions(1);
 
       return expect(render(dataMultiple)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataMultiple, true))
+      ).toHaveNoViolations();
     });
   });
 });
