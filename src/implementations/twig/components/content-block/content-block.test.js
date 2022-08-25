@@ -49,6 +49,15 @@ describe('Content block', () => {
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with deprecated data', () => {
+      expect.assertions(1);
+      delete dataImage.title.link;
+      dataImage.title.path = '/example';
+      dataImage.title.label = 'test title';
+
+      return expect(render(dataImage)).resolves.toMatchSnapshot();
+    });
+
     test(`passes the accessibility tests`, async () => {
       expect(
         await axe(renderTwigFileAsHtml(template, dataImage, true))
