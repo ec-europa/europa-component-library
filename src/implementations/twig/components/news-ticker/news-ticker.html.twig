@@ -90,12 +90,8 @@
             link: {
               label: _item.content,
               path: _item.link,
-              icon_position: 'before',
-            },
-            icon: not _item.external ? {} : {
-              name: "external",
-              size: "xs",
-              path: icon_path 
+              external: _item.external,
+              icon_path: _icon_path,
             },
             extra_classes: 'ecl-news-ticker__slide-text',
           } only %}
