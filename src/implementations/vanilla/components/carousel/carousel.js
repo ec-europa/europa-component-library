@@ -164,6 +164,9 @@ export class Carousel {
     });
     this.handleResize();
 
+    // Initialze pagination and navigation
+    this.checkIndex();
+
     // Bind events
     if (this.navigationItems) {
       this.navigationItems.forEach((nav, index) => {
