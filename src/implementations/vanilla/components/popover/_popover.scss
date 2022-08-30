@@ -1,6 +1,6 @@
 /**
- * Dropdown
- * @define dropdown
+ * Popover
+ * @define popover
  */
 
 @use 'sass:map';
@@ -11,17 +11,17 @@ $_arrow-size: 1rem;
 $_shadow-size: null !default;
 $_shadow-color: null !default;
 
-.ecl-dropdown {
+.ecl-popover {
   display: inline-block;
   margin: 0;
   position: relative;
 }
 
-.ecl-dropdown__toggle .ecl-link__label {
+.ecl-popover__toggle .ecl-link__label {
   text-decoration: underline;
 }
 
-.ecl-dropdown__container {
+.ecl-popover__container {
   background-color: map.get(theme.$color, 'white');
   box-shadow: 0 0 $_shadow-size $_shadow-color;
   left: -50%;
@@ -50,26 +50,26 @@ $_shadow-color: null !default;
   }
 }
 
-.ecl-dropdown__content {
+.ecl-popover__content {
   max-height: 192px;
   width: 168px;
   overflow-y: auto;
 }
 
 @include breakpoints.up('m') {
-  .ecl-dropdown__content {
+  .ecl-popover__content {
     max-height: 300px;
     width: 198px;
   }
 }
 
-.ecl-dropdown__list {
+.ecl-popover__list {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.ecl-dropdown__link {
+.ecl-popover__link {
   display: block;
   padding: map.get(theme.$spacing, 'm') map.get(theme.$spacing, 's');
 
@@ -78,8 +78,8 @@ $_shadow-color: null !default;
   }
 }
 
-// Top dropdown
-.ecl-dropdown--top .ecl-dropdown__container {
+// Top Popover
+.ecl-popover--top .ecl-popover__container {
   bottom: 100%;
   margin-bottom: calc(
     #{map.get(theme.$spacing, 'xs')} + #{map.get(theme.$spacing, 's')}
@@ -93,8 +93,8 @@ $_shadow-color: null !default;
   }
 }
 
-// Left dropdown
-.ecl-dropdown--left .ecl-dropdown__container {
+// Left popover
+.ecl-popover--left .ecl-popover__container {
   left: 0;
 
   &::before {
@@ -102,8 +102,8 @@ $_shadow-color: null !default;
   }
 }
 
-// Right dropdown
-.ecl-dropdown--right .ecl-dropdown__container {
+// Right popover
+.ecl-popover--right .ecl-popover__container {
   left: auto;
   right: 0;
 

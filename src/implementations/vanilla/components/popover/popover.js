@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { queryOne } from '@ecl/dom-utils';
 
 /**
@@ -7,26 +6,26 @@ import { queryOne } from '@ecl/dom-utils';
  * @param {String} options.toggleSelector Selector for toggling element
  * @param {Boolean} options.attachClickListener Whether or not to bind click events on toggle
  */
-export class Dropdown {
+export class Popover {
   /**
    * @static
    * Shorthand for instance creation and initialisation.
    *
    * @param {HTMLElement} root DOM element for component instantiation and scope
    *
-   * @return {Dropdown} An instance of Dropdown.
+   * @return {Popover} An instance of Popover.
    */
-  static autoInit(root, { DROPDOWN: defaultOptions = {} } = {}) {
-    const dropdown = new Dropdown(root, defaultOptions);
-    dropdown.init();
-    root.ECLDropdown = dropdown;
-    return dropdown;
+  static autoInit(root, { POPOVER: defaultOptions = {} } = {}) {
+    const popover = new Popover(root, defaultOptions);
+    popover.init();
+    root.ECLPopover = popover;
+    return popover;
   }
 
   constructor(
     element,
     {
-      toggleSelector = '[data-ecl-dropdown-toggle]',
+      toggleSelector = '[data-ecl-popover-toggle]',
       attachClickListener = true,
     } = {}
   ) {
@@ -65,7 +64,7 @@ export class Dropdown {
     // Exit if no target found
     if (!this.target) {
       throw new TypeError(
-        'Target has to be provided for dropdown (aria-controls)'
+        'Target has to be provided for popover (aria-controls)'
       );
     }
 
@@ -101,7 +100,7 @@ export class Dropdown {
     // Get current status
     const isExpanded = this.toggle.getAttribute('aria-expanded') === 'true';
 
-    // Toggle the dropdown
+    // Toggle the popover
     this.toggle.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
     if (isExpanded) {
       this.target.hidden = true;
@@ -111,33 +110,33 @@ export class Dropdown {
 
     // Check available space
     const toggleRect = this.toggle.getBoundingClientRect();
-    const dropdownRect = this.target.getBoundingClientRect();
-    const dropdownHeight = this.target.clientHeight;
+    const popoverRect = this.target.getBoundingClientRect();
+    const popoverHeight = this.target.clientHeight;
     const screenHeight = window.innerHeight;
     const screenWidth = window.innerWidth;
 
-    if (dropdownHeight > 0) {
-      if (screenHeight - toggleRect.top < dropdownHeight) {
-        this.element.classList.add('ecl-dropdown--top');
+    if (popoverHeight > 0) {
+      if (screenHeight - toggleRect.top < popoverHeight) {
+        this.element.classList.add('ecl-popover--top');
       } else {
-        this.element.classList.remove('ecl-dropdown--top');
+        this.element.classList.remove('ecl-popover--top');
       }
     }
 
-    if (dropdownRect.left < 0) {
-      this.element.classList.add('ecl-dropdown--left');
+    if (popoverRect.left < 0) {
+      this.element.classList.add('ecl-popover--left');
     } else {
-      this.element.classList.remove('ecl-dropdown--left');
+      this.element.classList.remove('ecl-popover--left');
     }
 
-    if (dropdownRect.right > screenWidth) {
-      this.element.classList.add('ecl-dropdown--right');
+    if (popoverRect.right > screenWidth) {
+      this.element.classList.add('ecl-popover--right');
     } else {
-      this.element.classList.remove('ecl-dropdown--right');
+      this.element.classList.remove('ecl-popover--right');
     }
 
     return this;
   }
 }
 
-export default Dropdown;
+export default Popover;

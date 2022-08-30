@@ -3,9 +3,9 @@
 {#
   Parameters:
     - "id" (string) (default: '')
-    - "toggle" (associative array) (default: {}): Dropdown toggle element, following ECL Link structure
+    - "toggle" (associative array) (default: {}): Popover toggle element, following ECL Link structure
     - "links" (array) (default: []): Array of ECL Links
-    - "extra_dropdown_classes" (string) (default: '')
+    - "extra_popover_classes" (string) (default: '')
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -15,18 +15,18 @@
         ...
       ],
   Blocks:
-    - "content": free block to put any content in the dropdown
+    - "content": free block to put any content in the popover
 #}
 
 {# Internal properties #}
 
 {% set _id = id|default('') %}
-{% set _css_class = 'ecl-dropdown' %}
+{% set _css_class = 'ecl-popover' %}
 {% set _extra_attributes = [
   'data-ecl-expandable="true"',
-  'data-ecl-auto-init="Dropdown"']|join(' ')
+  'data-ecl-auto-init="Popover"']|join(' ')
 %}
-{% set _css_dropdown_class = 'ecl-dropdown__content' %}
+{% set _css_popover_class = 'ecl-popover__content' %}
 {% set _aria_controls = _id ~ '-content' %}
 {% set _content = content|default('') %}
 {% set _toggle = toggle|default({}) %}
@@ -35,8 +35,8 @@
 
 {# Internal logic - Process properties #}
 
-{% if extra_dropdown_classes is defined and extra_dropdown_classes is not empty %}
-  {% set _css_dropdown_class = _css_dropdown_class ~ ' ' ~ extra_dropdown_classes %}
+{% if extra_popover_classes is defined and extra_popover_classes is not empty %}
+  {% set _css_popover_class = _css_popover_class ~ ' ' ~ extra_popover_classes %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -58,26 +58,26 @@
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {% set _toggle_attributes = [
     { name: 'aria-controls', value: _aria_controls },
-    { name: 'data-ecl-dropdown-toggle' },
+    { name: 'data-ecl-popover-toggle' },
     { name: 'aria-expanded', value: 'false' }
   ] %}
 
   {% include '@ecl/link/link.html.twig' with _toggle|merge({
-    extra_classes: 'ecl-dropdown__toggle',
+    extra_classes: 'ecl-popover__toggle',
     extra_attributes: _toggle_attributes,
   }) only %}
 
-  <div id="{{ _id ~ '-content' }}" class="ecl-dropdown__container" hidden>
-    <div class="{{ _css_dropdown_class }}">
+  <div id="{{ _id ~ '-content' }}" class="ecl-popover__container" hidden>
+    <div class="{{ _css_popover_class }}">
       {% if _links is not empty and _links is iterable %}
-        <ul class="ecl-dropdown__list">
+        <ul class="ecl-popover__list">
           {% for _link in _links %}
-            <li class="ecl-dropdown__item">
+            <li class="ecl-popover__item">
               {% include '@ecl/link/link.html.twig' with _link|merge({
                 link: {
                   type: 'standalone',
                 }|merge(_link.link),
-                extra_classes: 'ecl-dropdown__link',
+                extra_classes: 'ecl-popover__link',
               }) only %}
             </li>
           {% endfor %}

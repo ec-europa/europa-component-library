@@ -1,9 +1,9 @@
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 
-import demoData from '@ecl/specs-component-dropdown/demo/data';
+import demoData from '@ecl/specs-component-popover/demo/data';
 
-describe('Dropdown', () => {
-  const template = '@ecl/dropdown/dropdown.html.twig';
+describe('Popover', () => {
+  const template = '@ecl/popover/popover.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Collapsed', () => {

@@ -1,9 +1,9 @@
-# ECL Dropdown component
+# ECL Popover component
 
-npm package: `@ecl/twig-component-dropdown`
+npm package: `@ecl/twig-component-popover`
 
 ```shell
-npm install --save @ecl/twig-component-dropdown
+npm install --save @ecl/twig-component-popover
 ```
 
 ### Parameters:
@@ -12,7 +12,7 @@ npm install --save @ecl/twig-component-dropdown
 - **"label_expanded"** (string) (default: '')
 - **"label_collapsed"** (string) (default: '')
 - **"button"** (predefined structure) : Button component structure
-- **"extra_dropdown_classes"** (optional) (string) (default: '') Extra dropdown classes (space separated)
+- **"extra_popover_classes"** (optional) (string) (default: '') Extra popover classes (space separated)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
@@ -26,7 +26,7 @@ npm install --save @ecl/twig-component-dropdown
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl/dropdown/dropdown.html.twig' with { 
+{% include '@ecl/popover/popover.html.twig' with { 
   id: 'expandable-example', 
   button: { 
     label: 'Collapsed button', 

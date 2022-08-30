@@ -3,8 +3,8 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
-import dataDefault from '@ecl/specs-component-dropdown/demo/data';
-import dropdown from './dropdown.html.twig';
+import dataDefault from '@ecl/specs-component-popover/demo/data';
+import popover from './popover.html.twig';
 import notes from './README.md';
 
 const lorem = loremIpsum({ count: 20 });
@@ -39,20 +39,20 @@ const getArgTypes = () => ({
 const prepareData = (data, args) => Object.assign(correctPaths(data), args);
 
 export default {
-  title: 'Components/Dropdown',
+  title: 'Components/Popover',
 };
 
 export const Default = (args) => {
   const demo = `
     <p class="ecl-u-type-paragraph-m">${lorem}</p>
-    ${dropdown(prepareData(dataDefault, args))}
+    ${popover(prepareData(dataDefault, args))}
     <p class="ecl-u-type-paragraph-m">${lorem}</p>
     <div class="ecl-u-d-inline-flex">
       <a class="ecl-link ecl-link--standalone ecl-u-mr-s" href="#">Link</a>
       <a class="ecl-link ecl-link--standalone ecl-u-mr-s" href="#">Link</a>
       <a class="ecl-link ecl-link--standalone ecl-u-mr-s" href="#">Link</a>
       <a class="ecl-link ecl-link--standalone ecl-u-mr-s" href="#">Link</a>
-      ${dropdown(prepareData({ ...dataDefault, id: 'dropdown2' }, args))}
+      ${popover(prepareData({ ...dataDefault, id: 'popover2' }, args))}
     </div>
   `;
   return demo;
