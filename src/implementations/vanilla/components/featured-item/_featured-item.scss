@@ -40,6 +40,7 @@ $_extended-padding-bottom: null !default;
 .ecl-featured-item__item {
   box-sizing: border-box;
   flex-basis: 50%;
+  flex-grow: 1;
 
   &:first-child {
     padding-bottom: map.get(theme.$spacing, 'm');
