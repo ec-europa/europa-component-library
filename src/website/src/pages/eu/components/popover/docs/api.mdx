@@ -1,0 +1,36 @@
+---
+title: API
+order: 3
+---
+
+import PopoverJSDoc from '../../../_jsdoc/popover.md';
+
+## API
+
+<PopoverJSDoc />
+
+## Setup
+
+There are 2 ways to initialise the component.
+
+### Automatic
+
+Add `data-ecl-auto-init="Popover"` attribute to component's markup:
+
+```html
+<div class="ecl-popover" data-ecl-popover data-ecl-auto-init="Popover">...</div>
+```
+
+Use the `ECL` library's `autoInit()` (`ECL.autoInit()`) when your page is ready or other custom event you want to hook onto.
+
+### Manual
+
+Get target element, create an instance and invoke `init()`.
+
+Given you have 1 element with an attribute `data-ecl-popover` on the page:
+
+```js
+var elt = document.querySelector('[data-ecl-popover]');
+var popover = new ECL.Popover(elt);
+popover.init();
+```
