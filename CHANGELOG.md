@@ -1,5 +1,51 @@
 # Changelog
 
+## 3.4.1 (2022-09-01)
+
+#### :rocket: New Feature
+
+- [#2636](https://github.com/ec-europa/europa-component-library/pull/2636) feat(logos): Adding Swahili logos for EU - FRONT-3738 ([@planctus](https://github.com/planctus))
+
+#### :bug: Bug Fix
+
+- [#2610](https://github.com/ec-europa/europa-component-library/pull/2610) fix(inpage-navigation): fix z-index - FRONT-3708 ([@emeryro](https://github.com/emeryro))
+- [#2623](https://github.com/ec-europa/europa-component-library/pull/2623) fix(carousel): Force navigation and pagination initialization - FRONT-3707 ([@papegaill](https://github.com/papegaill))
+- [#2618](https://github.com/ec-europa/europa-component-library/pull/2618) fix(date-block): Fixing template - FRONT-3727 ([@planctus](https://github.com/planctus))
+- [#2619](https://github.com/ec-europa/europa-component-library/pull/2619) fix(date-block): Fixing css classes - FRONT-3728 ([@planctus](https://github.com/planctus))
+- [#2611](https://github.com/ec-europa/europa-component-library/pull/2611) feat(links): Fixing display of links as buttons - FRONT-3713 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#2635](https://github.com/ec-europa/europa-component-library/pull/2635) feat(content-block): Reducing font size for the title in EU - FRONT-3737 ([@planctus](https://github.com/planctus))
+- [#2631](https://github.com/ec-europa/europa-component-library/pull/2631) feat(featured-item): Supporting item without media - FRONT-3718 ([@planctus](https://github.com/planctus))
+- [#2629](https://github.com/ec-europa/europa-component-library/pull/2629) feat(list-illustration): hardcoding the icon size in the template - FRONT-3734 ([@planctus](https://github.com/planctus))
+- [#2632](https://github.com/ec-europa/europa-component-library/pull/2632) fix(file): Fixing the styling of the Laco widget in file component - FRONT-3733 ([@planctus](https://github.com/planctus))
+- [#2625](https://github.com/ec-europa/europa-component-library/pull/2625) chore(twig): Replacing spaceless tag with filter - FRONT-3730 ([@planctus](https://github.com/planctus))
+- [#2630](https://github.com/ec-europa/europa-component-library/pull/2630) feat(content-block): Supporting simple strings in a list of links - FRONT-3711 ([@planctus](https://github.com/planctus))
+- [#2626](https://github.com/ec-europa/europa-component-library/pull/2626) feat(logos): Add EC logo for SW - FRONT-3683 ([@papegaill](https://github.com/papegaill))
+- [#2613](https://github.com/ec-europa/europa-component-library/pull/2613) fix(description-list): Aligning expected data for the taxonomy links use case - FRONT-3724 ([@planctus](https://github.com/planctus))
+- [#2624](https://github.com/ec-europa/europa-component-library/pull/2624) fix(rating-field): Fix focus for safari - FRONT-3706 ([@papegaill](https://github.com/papegaill))
+- [#2617](https://github.com/ec-europa/europa-component-library/pull/2617) feat(content-block): Title supports link named object - FRONT-3726 ([@planctus](https://github.com/planctus))
+- [#2616](https://github.com/ec-europa/europa-component-library/pull/2616) feat(tabs): Adding accessibility test - FRONT-3722 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#2634](https://github.com/ec-europa/europa-component-library/pull/2634) chore(deps): Updates 29-08-22 ([@planctus](https://github.com/planctus))
+- [#2621](https://github.com/ec-europa/europa-component-library/pull/2621) chore(story-utils): Improving condition for randomising links - FRONT-3729 ([@planctus](https://github.com/planctus))
+- [#2622](https://github.com/ec-europa/europa-component-library/pull/2622) chore(deps): Updates 22-08-22 ([@planctus](https://github.com/planctus))
+- [#2620](https://github.com/ec-europa/europa-component-library/pull/2620) chore(js): Updating focus-trap ([@planctus](https://github.com/planctus))
+- [#2612](https://github.com/ec-europa/europa-component-library/pull/2612) fix(EU-footer): Changing the url for a link - FRONT-3721 ([@planctus](https://github.com/planctus))
+- [#2614](https://github.com/ec-europa/europa-component-library/pull/2614) chore(deps): Updates 17-08-22 ([@planctus](https://github.com/planctus))
+- [#2605](https://github.com/ec-europa/europa-component-library/pull/2605) feat(tests): Adding accessibilty tests using jest-axe - FRONT-3710 ([@planctus](https://github.com/planctus))
+- [#2608](https://github.com/ec-europa/europa-component-library/pull/2608) chore: Updates 08-08-22 ([@planctus](https://github.com/planctus))
+
+#### Committers: 4
+
+- HAL Patch INNO ([@HAL-Patch-INNO](https://github.com/HAL-Patch-INNO))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@papegaill](https://github.com/papegaill)
+- [@planctus](https://github.com/planctus)
+
 ## 3.4.0 (2022-07-13)
 
 #### :rocket: New Feature
