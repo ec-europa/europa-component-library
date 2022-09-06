@@ -36,3 +36,11 @@
     map.get(theme.$spacing-print, 'xl') map.get(theme.$spacing-print, 's')
     map.get(theme.$spacing-print, 'm');
 }
+
+.ecl-table__header[data-ecl-table-sort-toggle] {
+  padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
+}
+
+.ecl-table__arrow {
+  display: none;
+}
