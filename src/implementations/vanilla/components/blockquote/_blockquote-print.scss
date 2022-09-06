@@ -24,7 +24,7 @@ $_author-color: null !default;
   padding-top: map.get(theme.$spacing-print, 'm');
 }
 
-.ecl-blockquote__body {
+.ecl-blockquote__citation {
   color: $_body-color;
   font: $_body-font;
   font-style: italic;
@@ -38,6 +38,10 @@ $_author-color: null !default;
   &::after {
     content: close-quote;
   }
+}
+
+.ecl-blockquote__quote {
+  margin: 0;
 }
 
 .ecl-blockquote__attribution {
