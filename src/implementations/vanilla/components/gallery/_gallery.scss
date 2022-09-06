@@ -283,7 +283,7 @@ $_overlay-links-hover-color: null !default;
 .ecl-gallery__slider-embed {
   @include uMedia.aspect-ratio(16, 9);
 
-  width: 100%;
+  width: calc(100% - map.get(theme.$spacing, 'l'));
 }
 
 .ecl-gallery__slider-previous {
