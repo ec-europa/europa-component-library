@@ -32,15 +32,10 @@ module.exports = {
               path: exampleLink,
             },
           },
+          'A simple string',
           {
             link: {
               label: 'Primary link 3',
-              path: exampleLink,
-            },
-          },
-          {
-            link: {
-              label: 'Primary link 4',
               path: exampleLink,
             },
           },
