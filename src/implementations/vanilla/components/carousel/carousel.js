@@ -291,6 +291,7 @@ export class Carousel {
     e = e || window.event;
 
     if (e.type === 'touchmove') {
+      e.preventDefault();
       this.posX2 = this.posX1 - e.touches[0].clientX;
       this.posX1 = e.touches[0].clientX;
     }
