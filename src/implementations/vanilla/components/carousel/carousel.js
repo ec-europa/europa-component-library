@@ -275,7 +275,7 @@ export class Carousel {
    */
   dragStart(e) {
     e = e || window.event;
-    e.preventDefault();
+
     this.posInitial = this.slidesContainer.offsetLeft;
 
     if (e.type === 'touchstart') {
