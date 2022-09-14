@@ -124,15 +124,15 @@ export class Popover {
     }
 
     if (popoverRect.left < 0) {
-      this.element.classList.add('ecl-popover--left');
+      this.element.classList.add('ecl-popover--push-left');
     } else {
-      this.element.classList.remove('ecl-popover--left');
+      this.element.classList.remove('ecl-popover--push-left');
     }
 
     if (popoverRect.right > screenWidth) {
-      this.element.classList.add('ecl-popover--right');
+      this.element.classList.add('ecl-popover--push-right');
     } else {
-      this.element.classList.remove('ecl-popover--right');
+      this.element.classList.remove('ecl-popover--push-right');
     }
 
     return this;

@@ -21,10 +21,9 @@ module.exports = {
   links: [
     {
       link: {
-        label: 'popover item 1',
+        label: 'item 1',
         path: exampleLink,
-        aria_label: 'Link to popover item 1',
-        icon_position: 'before',
+        aria_label: 'Link to item 1',
       },
       icon: {
         path: '/icons.svg',
@@ -34,10 +33,9 @@ module.exports = {
     },
     {
       link: {
-        label: 'popover item 2',
+        label: 'item 2',
         path: exampleLink,
-        aria_label: 'Link to popover item 2',
-        icon_position: 'before',
+        aria_label: 'Link to item 2',
       },
       icon: {
         path: '/icons.svg',
@@ -47,10 +45,9 @@ module.exports = {
     },
     {
       link: {
-        label: 'popover item 3',
+        label: 'item 3',
         path: exampleLink,
-        aria_label: 'Link to popover item 3',
-        icon_position: 'before',
+        aria_label: 'Link to item 3',
       },
       icon: {
         path: '/icons.svg',
@@ -60,10 +57,9 @@ module.exports = {
     },
     {
       link: {
-        label: 'popover item 4',
+        label: 'item 4',
         path: exampleLink,
-        aria_label: 'Link to popover item 4',
-        icon_position: 'before',
+        aria_label: 'Link to item 4',
       },
       icon: {
         path: '/icons.svg',
@@ -73,10 +69,9 @@ module.exports = {
     },
     {
       link: {
-        label: 'popover item 5',
+        label: 'item 5',
         path: exampleLink,
-        aria_label: 'Link to popover item 5',
-        icon_position: 'before',
+        aria_label: 'Link to item 5',
       },
       icon: {
         path: '/icons.svg',
@@ -86,10 +81,9 @@ module.exports = {
     },
     {
       link: {
-        label: 'popover item 6',
+        label: 'item 6',
         path: exampleLink,
-        aria_label: 'Link to popover item 6',
-        icon_position: 'before',
+        aria_label: 'Link to item 6',
       },
       icon: {
         path: '/icons.svg',
@@ -99,10 +93,9 @@ module.exports = {
     },
     {
       link: {
-        label: 'popover item 7',
+        label: 'item 7',
         path: exampleLink,
-        aria_label: 'Link to popover item 7',
-        icon_position: 'before',
+        aria_label: 'Link to item 7',
       },
       icon: {
         path: '/icons.svg',
@@ -112,10 +105,9 @@ module.exports = {
     },
     {
       link: {
-        label: 'popover item 8',
+        label: 'item 8',
         path: exampleLink,
-        aria_label: 'Link to popover item 8',
-        icon_position: 'before',
+        aria_label: 'Link to item 8',
       },
       icon: {
         path: '/icons.svg',

@@ -76,6 +76,7 @@
               {% include '@ecl/link/link.html.twig' with _link|merge({
                 link: {
                   type: 'standalone',
+                  icon_position: 'before',
                 }|merge(_link.link),
                 extra_classes: 'ecl-popover__link',
               }) only %}
