@@ -9,9 +9,8 @@ npm install --save @ecl/twig-component-popover
 ### Parameters:
 
 - **"id"** (string) (default: '')
-- **"label_expanded"** (string) (default: '')
-- **"label_collapsed"** (string) (default: '')
-- **"button"** (predefined structure) : Button component structure
+- **toggle** (associative array) (default: {}): Popover toggle element, following ECL Link structure
+- **links** (array) (default: []): Array of ECL Links
 - **"extra_popover_classes"** (optional) (string) (default: '') Extra popover classes (space separated)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
@@ -27,19 +26,58 @@ npm install --save @ecl/twig-component-popover
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/popover/popover.html.twig' with { 
-  id: 'expandable-example', 
-  button: { 
-    label: 'Collapsed button', 
-    variant: 'secondary', 
-    icon: { 
-      name: 'corner-arrow', 
-      transform: 'rotate-180', 
-      size: 'fluid', 
-    }, 
-  }, 
-  label_expanded: 'Expanded button', 
-  label_collapsed: 'Collapsed button', 
-  content: 
-    '<p class="ecl-u-type-paragraph-m">The EU is building an energy union that ensures Europe’s energy supply is safe, viable and accessible to all. In doing so, it can boost the economy and attract investments that can create new jobs opportunities.</p>', 
+  id: 'popover-example',
+  toggle: {
+    link: {
+      label: 'Popover',
+      path: exampleLink,
+      type: 'standalone',
+      aria_label: 'Popover toggle',
+      icon_position: 'before',
+    },
+    icon: {
+      path: '/icons.svg',
+      name: 'share',
+      size: 'fluid',
+    },
+  },
+  links: [
+    {
+      link: {
+        label: 'item 1',
+        path: exampleLink,
+        aria_label: 'Link to item 1',
+      },
+      icon: {
+        path: '/icons.svg',
+        name: 'global',
+        size: 'fluid',
+      },
+    },
+    {
+      link: {
+        label: 'item 2',
+        path: exampleLink,
+        aria_label: 'Link to item 2',
+      },
+      icon: {
+        path: '/icons.svg',
+        name: 'global',
+        size: 'fluid',
+      },
+    },
+    {
+      link: {
+        label: 'item 3',
+        path: exampleLink,
+        aria_label: 'Link to item 3',
+      },
+      icon: {
+        path: '/icons.svg',
+        name: 'global',
+        size: 'fluid',
+      },
+    },
+  ],
 } %}
 ```
