@@ -42,7 +42,7 @@
 
 {# Internal logic - Process properties #}
 
-{% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ variant %}
+{% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _variant %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
