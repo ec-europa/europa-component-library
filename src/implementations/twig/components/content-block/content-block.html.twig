@@ -170,11 +170,15 @@
 
   {% if _lists is defined and _lists is not empty and _lists is iterable %}
     <div class="ecl-content-block__list-container">
-      {% for _list in _lists %}
-        {% include '@ecl/description-list/description-list.html.twig' with _list|merge({
-          extra_classes: 'ecl-content-block__list'
-        }) only %}
-      {% endfor %}
+    {% for _list in _lists %}
+      {% set _list_classes = 'ecl-content-block__list' %}
+      {% if _list.extra_classes is defined and _list.extra_classes is not empty %}
+        {% set _list_classes = _list_classes ~ ' ' ~ _list.extra_classes %}
+      {% endif %}
+      {% include '@ecl/description-list/description-list.html.twig' with _list|merge({
+        extra_classes: _list_classes,
+      }) only %}
+    {% endfor %}
     </div>
   {% endif %}
 </div>
