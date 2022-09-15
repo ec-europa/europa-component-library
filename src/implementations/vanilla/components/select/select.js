@@ -56,6 +56,8 @@ export class Select {
       searchTextAttribute = 'data-ecl-select-search',
       selectAllTextAttribute = 'data-ecl-select-all',
       noResultsTextAttribute = 'data-ecl-select-no-results',
+      closeButtonLabel = '',
+      clearAllButtonLabel = '',
     } = {}
   ) {
     // Check element
@@ -78,6 +80,8 @@ export class Select {
     this.searchText = searchText;
     this.selectAllText = selectAllText;
     this.noResultsText = noResultsText;
+    this.clearAllButtonLabel = clearAllButtonLabel;
+    this.closeButtonLabel = closeButtonLabel;
 
     // Private variables
     this.input = null;
@@ -288,6 +292,17 @@ export class Select {
     this.optionsContainer = document.createElement('div');
     this.optionsContainer.classList.add('ecl-select__multiple-options');
     this.searchContainer.appendChild(this.optionsContainer);
+    this.dropDownToolbar = document.createElement('div');
+    this.dropDownToolbar.classList.add('ecl-select-multiple-toolbar');
+    this.clearAllButton = document.createElement('button');
+    this.clearAllButton.textContent = this.clearAllButtonLabel;
+    this.clearAllButton.classList.add('ecl-button', 'ecl-button--secondary');
+    this.closeButton = document.createElement('button');
+    this.closeButton.textContent = this.closeButtonLabel;
+    this.closeButton.classList.add('ecl-button', 'ecl-button--primary');
+    this.dropDownToolbar.appendChild(this.closeButton);
+    this.dropDownToolbar.appendChild(this.clearAllButton);
+    this.searchContainer.appendChild(this.dropDownToolbar);
     this.selectAll.addEventListener('keydown', this.handleKeyboardOnSelectAll);
     this.optionsContainer.addEventListener(
       'keydown',

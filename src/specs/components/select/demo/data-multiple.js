@@ -13,6 +13,8 @@ module.exports = {
   icon_path: '/icons.svg',
   required: true,
   width: 'm',
+  closeButtonLabel: 'Close',
+  clearAllButtonLabel: 'Clear all',
   options: [
     {
       value: '1',

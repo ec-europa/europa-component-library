@@ -305,4 +305,12 @@ $_multiple-checkbox-label-vertical-padding: null !default;
   .ecl-checkbox:first-of-type .ecl-checkbox__label {
     margin-top: map.get(theme.$spacing, 'xs');
   }
+
+  .ecl-select-multiple-toolbar {
+    border-top: 1px solid map-get(theme.color, 'gray-100');
+    
+    * {
+      flex-basis: 50%;
+    }
+  }
 }
