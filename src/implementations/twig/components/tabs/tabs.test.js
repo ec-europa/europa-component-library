@@ -1,6 +1,13 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 import demoData from '@ecl/specs-component-tabs/demo/data';
+
+expect.extend(toHaveNoViolations);
 
 describe('Tabs', () => {
   const template = '@ecl/tabs/tabs.html.twig';
@@ -33,6 +40,12 @@ describe('Tabs', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, demoData, true))
+      ).toHaveNoViolations();
     });
   });
 });

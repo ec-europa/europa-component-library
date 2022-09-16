@@ -210,6 +210,11 @@ $_image-width: null !default;
   &:first-child {
     border-top-width: 0;
   }
+
+  // Laco widget
+  > span[class*='wt'] {
+    align-self: center;
+  }
 }
 
 .ecl-file__translation-info {

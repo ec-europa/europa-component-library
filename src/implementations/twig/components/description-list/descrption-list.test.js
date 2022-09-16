@@ -56,6 +56,18 @@ describe('Description list', () => {
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with deprecated data', () => {
+      expect.assertions(1);
+
+      delete dataDescriptionListDefault.items[3].definition[1].link;
+      dataDescriptionListDefault.items[3].definition[1].label = 'test link';
+      dataDescriptionListDefault.items[3].definition[1].path = '/example';
+
+      return expect(
+        render(dataDescriptionListDefault)
+      ).resolves.toMatchSnapshot();
+    });
+
     test(`passes the accessibility tests`, async () => {
       expect(
         await axe(

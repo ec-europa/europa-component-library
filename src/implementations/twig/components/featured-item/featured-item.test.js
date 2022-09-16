@@ -21,6 +21,13 @@ describe('Featured item', () => {
       return expect(render(demoContent)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly without image', () => {
+      expect.assertions(1);
+      const withoutImage = { ...demoContent, media_container: false };
+
+      return expect(render(withoutImage)).resolves.toMatchSnapshot();
+    });
+
     test(`passes the accessibility tests`, async () => {
       expect(
         await axe(renderTwigFileAsHtml(template, demoContent, true))

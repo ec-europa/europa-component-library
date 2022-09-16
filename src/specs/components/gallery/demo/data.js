@@ -119,44 +119,21 @@ module.exports = {
       share_path: '/share#example-image7.jpg',
     },
     {
-      // Video
-      video: {
-        poster:
-          'https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg',
-        sources: [
-          {
-            src: 'https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.mp4',
-            type: 'video/mp4',
-          },
-          {
-            src: 'https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.webm',
-            type: 'video/webm',
-          },
-        ],
-        tracks: [
-          {
-            src: '/captions/bunny-en.vtt',
-            kind: 'captions',
-            src_lang: 'en',
-            label: 'English',
-          },
-          {
-            src: '/captions/bunny-fr.vtt',
-            kind: 'captions',
-            src_lang: 'fr',
-            label: 'français',
-          },
-        ],
+      // Embedded AV Portal video
+      image: {
+        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg',
+        alt: 'Climate change and protect nature',
       },
-      alt: 'Image 8',
-      description: "Kids' Corner",
-      meta: 'Copyright, Author, Licence for image 8',
+      embedded_video: {
+        src: 'https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN',
+      },
+      description: 'Climate change and protect nature',
+      meta: 'Copyright, Author, Licence for embedded media',
       icon: {
         name: 'video',
         size: 'l',
         path: '/icons.svg',
       },
-      share_path: '/share#example-image8.jpg',
     },
     {
       // Image

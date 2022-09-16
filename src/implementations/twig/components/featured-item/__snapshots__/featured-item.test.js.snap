@@ -69,6 +69,57 @@ exports[`Featured item Default renders correctly 1`] = `
 </jest>
 `;
 
+exports[`Featured item Default renders correctly without image 1`] = `
+<jest>
+  <article
+    class="ecl-featured-item"
+  >
+    <div
+      class="ecl-featured-item__container"
+    >
+      <div
+        class="ecl-featured-item__item"
+      >
+        <div
+          class="ecl-featured-item__title"
+        >
+          Title
+        </div>
+        <div
+          class="ecl-featured-item__description"
+        >
+          <p
+            class="ecl-u-type-paragraph-m"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          </p>
+        </div>
+        <a
+          aria-label="Read more about the Standalone link"
+          class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-featured-item__link"
+          href="/example"
+        >
+          <span
+            class="ecl-link__label"
+          >
+            Standalone link
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#external"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </article>
+</jest>
+`;
+
 exports[`Featured item Extended renders correctly 1`] = `
 <jest>
   <article

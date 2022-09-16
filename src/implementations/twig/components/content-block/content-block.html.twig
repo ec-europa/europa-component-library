@@ -1,4 +1,4 @@
-{% spaceless %}
+{% apply spaceless %}
 
 {#
   Parameters:
@@ -79,15 +79,18 @@
 
   {% if _title is not empty %}
     <h1 class="ecl-content-block__title">
-    {% if _title.path is not empty %}
+    {%- if _title.link is defined -%}
+      {% include '@ecl/link/link.html.twig' with _title only %}
+    {# Backward compatibility #}
+    {%- elseif _title.link is not defined and _title.path is defined -%}
       {% include '@ecl/link/link.html.twig' with {
         link: _title|merge({
           type: 'standalone',
         }),
       } only %}
-    {% else %}
+    {%- else -%}
       {{- _title -}}
-    {% endif %}
+    {%- endif -%}
     </h1>
   {% endif %}
 
@@ -125,34 +128,42 @@
 
   {% if _links is not empty and _links is iterable %}
     <div class="ecl-content-block__link-container">
-      {% if _links[0][0] is defined %}
-        {% for _link_section in _links %}
-          <ul class="ecl-content-block__link-list">
-            {% for _link in _link_section %}
-              <li class="ecl-content-block__link-item">
-                {% include '@ecl/link/link.html.twig' with {
-                  link: _link.link|merge({ 
-                    type: 'standalone' 
-                  }),
-                  icon: _link.icon|default({})
-                } only %}
-              </li>
-            {% endfor %}
-          </ul>
-        {% endfor %}
+    {% if _links[0][0] is defined %}
+      {% for _link_section in _links %}
+      <ul class="ecl-content-block__link-list">
+      {% for _link in _link_section %}
+        <li class="ecl-content-block__link-item">
+        {%- if _link.link is defined -%}
+          {% include '@ecl/link/link.html.twig' with {
+            link: _link.link|merge({
+              type: 'standalone',
+            }),
+            icon: _link.icon|default({})
+          } only %}
+        {%- else -%}
+          {{- _link -}}
+        {%- endif -%}
+        </li>
+      {% endfor %}
+      </ul>
+      {% endfor %}
       {% else %}
-        <ul class="ecl-content-block__link-list">
-          {% for _link in _links %}
-            <li class="ecl-content-block__link-item">
-              {% include '@ecl/link/link.html.twig' with {
-                link: _link.link|merge(
-                  { type: 'standalone' }
-                ),
-                icon: _link.icon|default({})
-              } only %}
-            </li>
-          {% endfor %}
-        </ul>
+      <ul class="ecl-content-block__link-list">
+      {% for _link in _links %}
+        <li class="ecl-content-block__link-item">
+        {%- if _link.link is defined -%}
+          {% include '@ecl/link/link.html.twig' with {
+            link: _link.link|merge({
+              type: 'standalone',
+            }),
+            icon: _link.icon|default({})
+          } only %}
+        {%- else -%}
+          {{- _link -}}
+        {%- endif -%}
+        </li>
+      {% endfor %}
+      </ul>
       {% endif %}
     </div>
   {% endif %}
@@ -168,4 +179,4 @@
   {% endif %}
 </div>
 
-{% endspaceless %}
+{% endapply %}

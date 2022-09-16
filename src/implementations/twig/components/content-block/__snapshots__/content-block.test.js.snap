@@ -323,6 +323,329 @@ exports[`Content block Default renders correctly 1`] = `
 </jest>
 `;
 
+exports[`Content block Default renders correctly with deprecated data 1`] = `
+<jest>
+  <div
+    class="ecl-content-block"
+  >
+    <ul
+      class="ecl-content-block__label-container"
+    >
+      <li
+        class="ecl-content-block__label-item"
+      >
+        <span
+          class="ecl-label ecl-label--highlight"
+        >
+          highlight
+        </span>
+      </li>
+      <li
+        class="ecl-content-block__label-item"
+      >
+        <span
+          class="ecl-label ecl-label--high"
+        >
+          high importance
+        </span>
+      </li>
+    </ul>
+    <ul
+      class="ecl-content-block__primary-meta-container"
+    >
+      <li
+        class="ecl-content-block__primary-meta-item"
+      >
+        PRIMARY META
+      </li>
+      <li
+        class="ecl-content-block__primary-meta-item"
+      >
+        DD Month Year
+      </li>
+    </ul>
+    <h1
+      class="ecl-content-block__title"
+    >
+      <a
+        class="ecl-link ecl-link--standalone"
+        href="/example"
+      >
+        test title
+      </a>
+    </h1>
+    <div
+      class="ecl-content-block__description"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus
+    </div>
+    <ul
+      class="ecl-content-block__secondary-meta-container"
+    >
+      <li
+        class="ecl-content-block__secondary-meta-item"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--s ecl-content-block__secondary-meta-icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#calendar"
+          />
+        </svg>
+        <span
+          class="ecl-content-block__secondary-meta-label"
+        >
+          2018/10/22
+        </span>
+      </li>
+      <li
+        class="ecl-content-block__secondary-meta-item"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--s ecl-content-block__secondary-meta-icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#location"
+          />
+        </svg>
+        <span
+          class="ecl-content-block__secondary-meta-label"
+        >
+          Luxembourg
+        </span>
+      </li>
+    </ul>
+    <ul
+      class="ecl-content-block__tag-container"
+    >
+      <li
+        class="ecl-content-block__tag-item"
+      >
+        <a
+          class="ecl-tag"
+          href="/example"
+        >
+          tag 1
+        </a>
+      </li>
+      <li
+        class="ecl-content-block__tag-item"
+      >
+        <a
+          class="ecl-tag"
+          href="/example"
+        >
+          tag 2
+        </a>
+      </li>
+      <li
+        class="ecl-content-block__tag-item"
+      >
+        <a
+          class="ecl-tag"
+          href="/example"
+        >
+          tag 3
+        </a>
+      </li>
+    </ul>
+    <div
+      class="ecl-content-block__link-container"
+    >
+      <ul
+        class="ecl-content-block__link-list"
+      >
+        <li
+          class="ecl-content-block__link-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Primary link 1
+          </a>
+        </li>
+        <li
+          class="ecl-content-block__link-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Primary link 2
+          </a>
+        </li>
+        <li
+          class="ecl-content-block__link-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Primary link 3
+          </a>
+        </li>
+        <li
+          class="ecl-content-block__link-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Primary link 4
+          </a>
+        </li>
+      </ul>
+      <ul
+        class="ecl-content-block__link-list"
+      >
+        <li
+          class="ecl-content-block__link-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Secondary link 1
+          </a>
+        </li>
+        <li
+          class="ecl-content-block__link-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Secondary link 2
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div
+      class="ecl-content-block__list-container"
+    >
+      <dl
+        class="ecl-description-list ecl-content-block__list"
+      >
+        <dt
+          class="ecl-description-list__term"
+        >
+          Standard text
+        </dt>
+        <dd
+          class="ecl-description-list__definition"
+        >
+          Lorem ipsum dolor sit amet, 
+          <a
+            class="ecl-link"
+            href="/example"
+          >
+            consectetur adipiscing elit
+          </a>
+          . Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis
+        </dd>
+        <dt
+          class="ecl-description-list__term"
+        >
+          Standalone links
+        </dt>
+        <dd
+          class="ecl-description-list__definition ecl-description-list__definition--link"
+        >
+          <a
+            class="ecl-link ecl-link--icon ecl-link--icon-before ecl-description-list__definition-item"
+            href="/example"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--s ecl-link__icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#copy"
+              />
+            </svg>
+            <span
+              class="ecl-link__label"
+            >
+              Lorem ipsum dolor sit amet
+            </span>
+          </a>
+          <a
+            class="ecl-link ecl-link--icon ecl-link--icon-before ecl-description-list__definition-item"
+            href="/example"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--s ecl-link__icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#download"
+              />
+            </svg>
+            <span
+              class="ecl-link__label"
+            >
+              Lorem ipsum dolor sit amet
+            </span>
+          </a>
+        </dd>
+        <dt
+          class="ecl-description-list__term"
+        >
+          Links inline
+        </dt>
+        <dd
+          class="ecl-description-list__definition ecl-description-list__definition--inline"
+        >
+          <a
+            class="ecl-link ecl-description-list__definition-item"
+            href="/example"
+          >
+            Lorem ipsum dolor sit amet
+          </a>
+          <a
+            class="ecl-link ecl-description-list__definition-item"
+            href="/example"
+          >
+            Lorem ipsum dolor sit amet
+          </a>
+        </dd>
+        <dt
+          class="ecl-description-list__term"
+        >
+          Taxonomy list
+        </dt>
+        <dd
+          class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
+        >
+          <span
+            class="ecl-description-list__definition-item"
+          >
+            Taxonomy item 1
+          </span>
+          <span
+            class="ecl-description-list__definition-item"
+          >
+            Taxonomy item 2
+          </span>
+          <span
+            class="ecl-description-list__definition-item"
+          >
+            Taxonomy item 3
+          </span>
+        </dd>
+      </dl>
+    </div>
+  </div>
+</jest>
+`;
+
 exports[`Content block Default renders correctly with extra attributes 1`] = `
 <jest>
   <div
@@ -1015,8 +1338,7 @@ exports[`Content block Default renders correctly with simple title 1`] = `
     <h1
       class="ecl-content-block__title"
     >
-      
-    title    
+      title
     </h1>
     <div
       class="ecl-content-block__description"

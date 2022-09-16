@@ -164,6 +164,9 @@ export class Carousel {
     });
     this.handleResize();
 
+    // Initialze pagination and navigation
+    this.checkIndex();
+
     // Bind events
     if (this.navigationItems) {
       this.navigationItems.forEach((nav, index) => {
@@ -272,7 +275,7 @@ export class Carousel {
    */
   dragStart(e) {
     e = e || window.event;
-    e.preventDefault();
+
     this.posInitial = this.slidesContainer.offsetLeft;
 
     if (e.type === 'touchstart') {
@@ -288,6 +291,7 @@ export class Carousel {
     e = e || window.event;
 
     if (e.type === 'touchmove') {
+      e.preventDefault();
       this.posX2 = this.posX1 - e.touches[0].clientX;
       this.posX1 = e.touches[0].clientX;
     }

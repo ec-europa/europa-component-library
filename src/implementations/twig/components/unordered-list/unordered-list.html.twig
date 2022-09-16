@@ -1,5 +1,5 @@
 {% import _self as list %}
-{% spaceless %}
+{% apply spaceless %}
 
 {#
   Parameters:
@@ -21,7 +21,7 @@
 #}
 
 {# Define main macro #}
-{% macro unordered_list(items, extra_classes, extra_attributes, variant) %}{% spaceless %}
+{% macro unordered_list(items, extra_classes, extra_attributes, variant) %}{% apply spaceless %}
   {% import _self as list %}
 
   {# Internal properties #}
@@ -67,9 +67,9 @@
     </ul>
   {% endif %}
 
-{% endspaceless %}{% endmacro %}
+{% endapply %}{% endmacro %}
 
 {# Render macro #}
 {{ list.unordered_list(items, extra_classes, extra_attributes, variant) }}
 
-{% endspaceless %}
+{% endapply %}

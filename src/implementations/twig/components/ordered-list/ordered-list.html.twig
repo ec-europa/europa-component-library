@@ -1,5 +1,5 @@
 {% import _self as list %}
-{% spaceless %}
+{% apply spaceless %}
 
 {#
   Parameters:
@@ -20,7 +20,7 @@
 #}
 
 {# Define main macro #}
-{% macro ordered_list(items, extra_classes, extra_attributes) %}{% spaceless %}
+{% macro ordered_list(items, extra_classes, extra_attributes) %}{% apply spaceless %}
   {% import _self as list %}
 
   {# Internal properties #}
@@ -60,9 +60,9 @@
     </ol>
   {% endif %}
 
-{% endspaceless %}{% endmacro %}
+{% endapply %}{% endmacro %}
 
 {# Render macro #}
 {{ list.ordered_list(items, extra_classes, extra_attributes) }}
 
-{% endspaceless %}
+{% endapply %}

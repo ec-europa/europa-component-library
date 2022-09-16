@@ -304,7 +304,7 @@ module.exports = {
               link: {
                 label: 'European Personnel Selection Office',
                 aria_label: 'Link to European Personnel Selection Office',
-                path: 'https://epso.europa.eu/home_en',
+                path: 'https://epso.europa.eu/en',
               },
             },
             {
