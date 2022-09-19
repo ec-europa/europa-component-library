@@ -11,7 +11,6 @@ npm install --save @ecl/twig-component-popover
 - **"id"** (string) (default: '')
 - **toggle** (associative array) (default: {}): Popover toggle element, following ECL Link structure
 - **links** (array) (default: []): Array of ECL Links
-- **"extra_popover_classes"** (optional) (string) (default: '') Extra popover classes (space separated)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

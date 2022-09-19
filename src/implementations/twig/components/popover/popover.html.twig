@@ -5,7 +5,6 @@
     - "id" (string) (default: '')
     - "toggle" (associative array) (default: {}): Popover toggle element, following ECL Link structure
     - "links" (array) (default: []): Array of ECL Links
-    - "extra_popover_classes" (string) (default: '')
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -22,22 +21,13 @@
 
 {% set _id = id|default('') %}
 {% set _css_class = 'ecl-popover' %}
-{% set _extra_attributes = [
-  'data-ecl-expandable="true"',
-  'data-ecl-auto-init="Popover"']|join(' ')
-%}
+{% set _extra_attributes = 'data-ecl-auto-init="Popover"' %}
 {% set _css_popover_class = 'ecl-popover__content' %}
-{% set _aria_controls = _id ~ '-content' %}
 {% set _content = content|default('') %}
 {% set _toggle = toggle|default({}) %}
 {% set _links = links|default([]) %}
-{% set _content_hidden_attribute = '' %}
 
 {# Internal logic - Process properties #}
-
-{% if extra_popover_classes is defined and extra_popover_classes is not empty %}
-  {% set _css_popover_class = _css_popover_class ~ ' ' ~ extra_popover_classes %}
-{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -57,7 +47,7 @@
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {% set _toggle_attributes = [
-    { name: 'aria-controls', value: _aria_controls },
+    { name: 'aria-controls', value: _id },
     { name: 'data-ecl-popover-toggle' },
     { name: 'aria-expanded', value: 'false' }
   ] %}
@@ -67,7 +57,7 @@
     extra_attributes: _toggle_attributes,
   }) only %}
 
-  <div id="{{ _id ~ '-content' }}" class="ecl-popover__container" hidden>
+  <div id="{{ _id }}" class="ecl-popover__container" hidden>
     <div class="{{ _css_popover_class }}">
       {% if _links is not empty and _links is iterable %}
         <ul class="ecl-popover__list">

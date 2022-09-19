@@ -66,7 +66,7 @@ export const Default = (args) => {
       <a class="ecl-link ecl-link--standalone ecl-u-mr-s" href="#">Link</a>
       <a class="ecl-link ecl-link--standalone ecl-u-mr-s" href="#">Link</a>
       <a class="ecl-link ecl-link--standalone ecl-u-mr-s" href="#">Link</a>
-      ${popover(prepareData({ ...dataDefault, id: 'popover2' }, args))}
+      ${popover(prepareData({ ...dataDefault, id: 'popover-example2' }, args))}
     </div>
   `;
   return demo;
