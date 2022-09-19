@@ -56,6 +56,8 @@ export class Select {
       searchTextAttribute = 'data-ecl-select-search',
       selectAllTextAttribute = 'data-ecl-select-all',
       noResultsTextAttribute = 'data-ecl-select-no-results',
+      closeLabelAttribute = 'data-ecl-select-close',
+      clearAllLabelAttribute = 'data-ecl-select-clear-all',
       closeButtonLabel = '',
       clearAllButtonLabel = '',
     } = {}
@@ -82,6 +84,8 @@ export class Select {
     this.noResultsText = noResultsText;
     this.clearAllButtonLabel = clearAllButtonLabel;
     this.closeButtonLabel = closeButtonLabel;
+    this.closeLabelAttribute = closeLabelAttribute;
+    this.clearAllLabelAttribute = clearAllLabelAttribute;
 
     // Private variables
     this.input = null;
@@ -109,8 +113,10 @@ export class Select {
     this.handleFocusout = this.handleFocusout.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
+    this.handleClickOnClose = this.handleClickOnClose.bind(this);
     this.moveFocus = this.moveFocus.bind(this);
     this.resetForm = this.resetForm.bind(this);
+    this.resetValues = this.resetValues.bind(this);
     this.handleKeyboardOnSelect = this.handleKeyboardOnSelect.bind(this);
     this.handleKeyboardOnSelectAll = this.handleKeyboardOnSelectAll.bind(this);
     this.handleKeyboardOnSearch = this.handleKeyboardOnSearch.bind(this);
@@ -231,7 +237,12 @@ export class Select {
     this.textNoResults =
       this.noResultsText ||
       this.element.getAttribute(this.noResultsTextAttribute);
-
+    this.closeButtonLabel =
+      this.closeButtonLabel ||
+      this.element.getAttribute(this.closeLabelAttribute);
+    this.clearAllButtonLabel =
+      this.clearAllButtonLabel ||
+      this.element.getAttribute(this.clearAllLabelAttribute);
     this.selectMultiple = document.createElement('div');
     this.selectMultiple.classList.add('ecl-select__multiple');
     // Close the searchContainer when tabbing out of the selectMultple
@@ -292,17 +303,30 @@ export class Select {
     this.optionsContainer = document.createElement('div');
     this.optionsContainer.classList.add('ecl-select__multiple-options');
     this.searchContainer.appendChild(this.optionsContainer);
-    this.dropDownToolbar = document.createElement('div');
-    this.dropDownToolbar.classList.add('ecl-select-multiple-toolbar');
-    this.clearAllButton = document.createElement('button');
-    this.clearAllButton.textContent = this.clearAllButtonLabel;
-    this.clearAllButton.classList.add('ecl-button', 'ecl-button--secondary');
-    this.closeButton = document.createElement('button');
-    this.closeButton.textContent = this.closeButtonLabel;
-    this.closeButton.classList.add('ecl-button', 'ecl-button--primary');
-    this.dropDownToolbar.appendChild(this.closeButton);
-    this.dropDownToolbar.appendChild(this.clearAllButton);
-    this.searchContainer.appendChild(this.dropDownToolbar);
+    // Toolbar
+    if (this.clearAllButtonLabel || this.closeButtonLabel) {
+      this.dropDownToolbar = document.createElement('div');
+      this.dropDownToolbar.classList.add('ecl-select-multiple-toolbar');
+
+      if (this.clearAllButtonLabel) {
+        this.clearAllButton = document.createElement('button');
+        this.clearAllButton.textContent = this.clearAllButtonLabel;
+        this.clearAllButton.classList.add('ecl-button', 'ecl-button--ghost');
+        this.clearAllButton.addEventListener('click', this.resetValues);
+        this.dropDownToolbar.appendChild(this.clearAllButton);
+      }
+
+      if (this.closeButtonLabel) {
+        this.closeButton = document.createElement('button');
+        this.closeButton.textContent = this.closeButtonLabel;
+        this.closeButton.classList.add('ecl-button', 'ecl-button--primary');
+        this.closeButton.addEventListener('click', this.handleClickOnClose);
+        this.dropDownToolbar.appendChild(this.closeButton);
+      }
+
+      this.searchContainer.appendChild(this.dropDownToolbar);
+    }
+
     this.selectAll.addEventListener('keydown', this.handleKeyboardOnSelectAll);
     this.optionsContainer.addEventListener(
       'keydown',
@@ -343,11 +367,6 @@ export class Select {
     // Respect default selected options.
     this.updateCurrentValue();
 
-    this.form = this.element.closest('form');
-    if (this.form) {
-      this.form.addEventListener('reset', this.resetForm);
-    }
-
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
   }
@@ -377,13 +396,14 @@ export class Select {
       checkbox.removeEventListener('keydown', this.handleKeyboardOnOption);
     });
     document.removeEventListener('click', this.handleClickOutside);
-
+    if (this.closeButton) {
+      this.closeButton.removeEventListener('click', this.handleClickOnClose);
+    }
+    if (this.clarAllButton) {
+      this.clearAllButton.removeEventListener('click', this.resetForm);
+    }
     if (this.selectMultiple) {
       this.selectMultiple.remove();
-    }
-
-    if (this.form) {
-      this.form.removeEventListener('reset', this.resetForm);
     }
 
     this.select.parentNode.classList.remove('ecl-select__container--hidden');
@@ -563,6 +583,13 @@ export class Select {
   }
 
   /**
+   * Close the dropdown when the use clicks on the button
+   */
+  handleClickOnClose() {
+    this.searchContainer.style.display = 'none';
+  }
+
+  /**
    * @param {Event} e
    */
   handleClickOutside(e) {
@@ -722,6 +749,23 @@ export class Select {
         }
       }
     }
+  }
+
+  /**
+   * Reset values of the Multiselect.
+   */
+  resetValues() {
+    Array.from(this.select.options).forEach((option, i) => {
+      if (option.getAttribute('selected')) {
+        option.removeAttribute('selected', 'selected');
+        option.selected = false;
+        Select.checkCheckbox({
+          target: this.selectAll.querySelector('input')[i],
+        });
+      }
+    });
+
+    this.updateCurrentValue();
   }
 
   /**

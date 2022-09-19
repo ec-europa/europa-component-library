@@ -307,8 +307,9 @@ $_multiple-checkbox-label-vertical-padding: null !default;
   }
 
   .ecl-select-multiple-toolbar {
-    border-top: 1px solid map-get(theme.color, 'gray-100');
-    
+    border-top: 1px solid map.get(theme.$color, 'gray-100');
+    display: flex;
+
     * {
       flex-basis: 50%;
     }

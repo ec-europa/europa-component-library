@@ -13,8 +13,6 @@ module.exports = {
   icon_path: '/icons.svg',
   required: true,
   width: 'm',
-  closeButtonLabel: 'Close',
-  clearAllButtonLabel: 'Clear all',
   options: [
     {
       value: '1',
@@ -64,4 +62,6 @@ module.exports = {
   multiple_search_text: 'Search',
   multiple_search_no_results_text: 'No results found',
   multiple_all_text: 'Select all',
+  multiple_close_text: 'Close',
+  multiple_clear_all_text: 'Clear all',
 };
