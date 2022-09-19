@@ -41,7 +41,7 @@
 
 {# Internal logic - Process properties #}
 
-{% if _variant is defined and _variant is not empty %}
+{% if _variant is not empty %}
   {% set _css_class = _css_class ~ ' ecl-social-media-follow--' ~ _variant %}
 {% endif %}
 
