@@ -58,6 +58,7 @@ export class Select {
       noResultsTextAttribute = 'data-ecl-select-no-results',
       closeLabelAttribute = 'data-ecl-select-close',
       clearAllLabelAttribute = 'data-ecl-select-clear-all',
+      selectMultiplesSelectionCountSelector = 'ecl-select-multiple-selections-counter',
       closeButtonLabel = '',
       clearAllButtonLabel = '',
     } = {}
@@ -74,6 +75,8 @@ export class Select {
     // Options
     this.selectMultipleId = selectMultipleId;
     this.selectMultipleSelector = selectMultipleSelector;
+    this.selectMultiplesSelectionCountSelector =
+      selectMultiplesSelectionCountSelector;
     this.defaultTextAttribute = defaultTextAttribute;
     this.searchTextAttribute = searchTextAttribute;
     this.selectAllTextAttribute = selectAllTextAttribute;
@@ -102,6 +105,7 @@ export class Select {
     this.inputContainer = null;
     this.optionsContainer = null;
     this.searchContainer = null;
+    this.countSelections = null;
     this.form = null;
 
     // Bind `this` for use in callbacks
@@ -122,6 +126,7 @@ export class Select {
     this.handleKeyboardOnSearch = this.handleKeyboardOnSearch.bind(this);
     this.handleKeyboardOnOptions = this.handleKeyboardOnOptions.bind(this);
     this.handleKeyboardOnOption = this.handleKeyboardOnOption.bind(this);
+    this.updateSelectionsCount = this.updateSelectionsCount.bind(this);
   }
 
   /**
@@ -264,6 +269,14 @@ export class Select {
 
     this.input.addEventListener('click', this.handleToggle);
 
+    this.selectionCount = document.createElement('div');
+    this.selectionCount.classList.add(
+      this.selectMultiplesSelectionCountSelector
+    );
+    this.selectionCountText = document.createElement('span');
+    this.selectionCount.appendChild(this.selectionCountText);
+
+    this.inputContainer.appendChild(this.selectionCount);
     this.inputContainer.appendChild(this.input);
     this.inputContainer.appendChild(Select.createSelectIcon());
 
@@ -335,6 +348,9 @@ export class Select {
 
     if (this.select.options && this.select.options.length > 0) {
       this.checkboxes = Array.from(this.select.options).map((option) => {
+        if (option.selected) {
+          this.updateSelectionsCount(1);
+        }
         const checkbox = Select.createCheckbox(
           {
             // spread operator does not work in storybook context so we map 1:1
@@ -413,6 +429,32 @@ export class Select {
     }
   }
 
+  /**
+   * @param {Integer} i
+   */
+  updateSelectionsCount(i) {
+    let selectedOptionsCount = 0;
+
+    if (i > 0) {
+      this.selectionCount.querySelector('span').innerHTML += i;
+    } else {
+      selectedOptionsCount = Array.from(this.select.options).filter(
+        (option) => option.selected
+      ).length;
+    }
+    if (selectedOptionsCount > 0) {
+      this.selectionCount.querySelector('span').innerHTML =
+        selectedOptionsCount;
+      this.selectionCount.classList.add(
+        'ecl-select-multiple-selections-counter--visible'
+      );
+    } else {
+      this.selectionCount.classList.remove(
+        'ecl-select-multiple-selections-counter--visible'
+      );
+    }
+  }
+
   updateCurrentValue() {
     this.input.value = Array.from(this.select.options)
       .filter((option) => option.selected) // do not rely on getAttribute as it does not work in all cases
@@ -429,7 +471,7 @@ export class Select {
     e.preventDefault();
 
     if (this.searchContainer.style.display === 'none') {
-      this.searchContainer.style.display = 'block';
+      this.searchContainer.style.display = 'inline-flex';
     } else {
       this.searchContainer.style.display = 'none';
     }
@@ -458,6 +500,7 @@ export class Select {
     });
 
     this.updateCurrentValue();
+    this.updateSelectionsCount();
   }
 
   /**
@@ -493,6 +536,7 @@ export class Select {
     });
 
     this.updateCurrentValue();
+    this.updateSelectionsCount();
   }
 
   /**
@@ -755,17 +799,19 @@ export class Select {
    * Reset values of the Multiselect.
    */
   resetValues() {
-    Array.from(this.select.options).forEach((option, i) => {
-      if (option.getAttribute('selected')) {
-        option.removeAttribute('selected', 'selected');
-        option.selected = false;
-        Select.checkCheckbox({
-          target: this.selectAll.querySelector('input')[i],
-        });
-      }
+    Array.from(this.select.options).forEach((option) => {
+      const checkbox = this.selectMultiple.querySelector(
+        `[data-select-multiple-value="${option.text}"]`
+      );
+      const input = checkbox.querySelector('.ecl-checkbox__input');
+      input.checked = false;
+      option.removeAttribute('selected', 'selected');
+      option.selected = false;
     });
 
+    this.selectAll.querySelector('.ecl-checkbox__input').checked = false;
     this.updateCurrentValue();
+    this.updateSelectionsCount(0);
   }
 
   /**

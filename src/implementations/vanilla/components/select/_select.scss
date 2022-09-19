@@ -307,11 +307,49 @@ $_multiple-checkbox-label-vertical-padding: null !default;
   }
 
   .ecl-select-multiple-toolbar {
-    border-top: 1px solid map.get(theme.$color, 'gray-100');
+    border-top: 1px solid map.get(theme.$color, 'grey-100');
     display: flex;
 
     * {
       flex-basis: 50%;
+    }
+  }
+
+  .ecl-select-multiple-selections-counter {
+    display: none;
+    position: absolute;
+    top: 12%;
+    left: 1%;
+
+    * {
+      font: map.get(theme.$font, 's');
+      position: relative;
+      width: 100%;
+      height: auto;
+      background-color: #707070;
+      border-radius: 50%;
+      color: map.get(theme.$color, 'white');
+      padding: map.get(theme.$spacing, '2xs');
+      text-align: center;
+      z-index: 1000;
+      min-width: 1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      &::after {
+        content: '';
+        padding-top: 100%;
+        display: table;
+      }
+    }
+
+    &.ecl-select-multiple-selections-counter--visible {
+      display: block;
+
+      + .ecl-select {
+        padding-left: 15%;
+      }
     }
   }
 }
