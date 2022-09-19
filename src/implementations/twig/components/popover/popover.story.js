@@ -11,7 +11,7 @@ const lorem = loremIpsum({ count: 20 });
 
 const getArgs = (data) => ({
   label: data.toggle.link.label,
-  content: data.content,
+  content: '',
 });
 
 const getArgTypes = () => ({
@@ -26,8 +26,9 @@ const getArgTypes = () => ({
     },
   },
   content: {
-    type: { name: 'string', required: true },
-    description: 'Hidden initially, can be revealed by clicking on the link',
+    type: { name: 'string', required: false },
+    description:
+      'Custom content for the popover (leave empty for default content)',
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
@@ -36,10 +37,23 @@ const getArgTypes = () => ({
   },
 });
 
-const prepareData = (data, args) => Object.assign(correctPaths(data), args);
+const prepareData = (data, args) => {
+  const dataClone = structuredClone(data);
+
+  dataClone.toggle.link.label = args.label;
+  dataClone.content = args.content;
+  if (args.content !== '') {
+    delete dataClone.links;
+  }
+
+  correctPaths(dataClone);
+
+  return dataClone;
+};
 
 export default {
   title: 'Components/Popover',
+  decorators: [withNotes, withCode],
 };
 
 export const Default = (args) => {
@@ -62,4 +76,3 @@ Default.storyName = 'default';
 Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes();
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
-Default.decorators = [withCode, withNotes];
