@@ -213,12 +213,12 @@ $_multiple-checkbox-label-vertical-padding: null !default;
     background-color: $_arrow-background-color-invalid-hover;
   }
 
-  .ecl-select:focus + .ecl-select__icon {
-    background-color: $_arrow-background-color-invalid;
+  .ecl-select:focus-visible + .ecl-select__icon {
+    background-color: $_arrow-background-color;
   }
 
   /* stylelint-disable-next-line no-descending-specificity */
-  .ecl-select {
+  .ecl-select:not(:focus-visible) {
     border-color: $_border-color-invalid;
   }
 
@@ -307,11 +307,12 @@ $_multiple-checkbox-label-vertical-padding: null !default;
   }
 
   .ecl-select-multiple-toolbar {
-    border-top: 1px solid map.get(theme.$color, 'grey-100');
+    border-top: 1px solid $_multiple-dropdown-separator-color;
     display: flex;
 
     * {
       flex-basis: 50%;
+      flex-grow: 1;
     }
   }
 
