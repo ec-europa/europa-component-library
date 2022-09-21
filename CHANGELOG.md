@@ -1,5 +1,15 @@
 # Changelog
 
+## 3.4.2 (2022-09-21)
+
+#### :bug: Bug Fix
+
+- [#2641](https://github.com/ec-europa/europa-component-library/pull/2641) fix(carousel): allow click on cta - FRONT-3747 ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 1
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
 ## 3.4.1 (2022-09-01)
 
 #### :rocket: New Feature
