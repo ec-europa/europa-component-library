@@ -58,6 +58,16 @@ describe('Content block', () => {
       return expect(render(dataImage)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with list extra classes', () => {
+      expect.assertions(1);
+
+      dataImage.lists.forEach((list) => {
+        list.extra_classes = 'a-list-extra-class';
+      });
+
+      return expect(render(dataImage)).resolves.toMatchSnapshot();
+    });
+
     test(`passes the accessibility tests`, async () => {
       expect(
         await axe(renderTwigFileAsHtml(template, dataImage, true))
