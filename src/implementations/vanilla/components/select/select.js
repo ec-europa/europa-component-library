@@ -383,6 +383,11 @@ export class Select {
     // Respect default selected options.
     this.updateCurrentValue();
 
+    this.form = this.element.closest('form');
+    if (this.form) {
+      this.form.addEventListener('reset', this.resetForm);
+    }
+
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
   }
@@ -416,7 +421,7 @@ export class Select {
       this.closeButton.removeEventListener('click', this.handleClickOnClose);
     }
     if (this.clarAllButton) {
-      this.clearAllButton.removeEventListener('click', this.resetForm);
+      this.clearAllButton.removeEventListener('click', this.resetValues);
     }
     if (this.selectMultiple) {
       this.selectMultiple.remove();
