@@ -20,6 +20,7 @@ $_color-input: null !default;
 $_color-placeholder: null !default;
 $_shadow: null !default;
 $_shadow-hover: null !default;
+$_arrow-background-invalid-focus: null !default;
 $_arrow-background-color: null !default;
 $_arrow-background-color-hover: null !default;
 $_arrow-background-color-invalid: null !default;
@@ -35,6 +36,7 @@ $_multiple-dropdown-input-width: null !default;
 $_multiple-dropdown-container-max-height: null !default;
 $_multiple-checkbox-background-hover-color: null !default;
 $_multiple-checkbox-label-vertical-padding: null !default;
+$_multiple_counter_background: null !default;
 
 .ecl-select {
   appearance: none;
@@ -214,7 +216,7 @@ $_multiple-checkbox-label-vertical-padding: null !default;
   }
 
   .ecl-select:focus-visible + .ecl-select__icon {
-    background-color: $_arrow-background-color;
+    background-color: $_arrow-background-invalid-focus;
   }
 
   /* stylelint-disable-next-line no-descending-specificity */
@@ -298,10 +300,6 @@ $_multiple-checkbox-label-vertical-padding: null !default;
     background-color: $_multiple-checkbox-background-hover-color;
   }
 
-  .ecl-select__multiple-all .ecl-checkbox__label {
-    margin-bottom: map.get(theme.$spacing, 'xs');
-  }
-
   .ecl-checkbox:first-of-type .ecl-checkbox__label {
     margin-top: map.get(theme.$spacing, 'xs');
   }
@@ -313,6 +311,10 @@ $_multiple-checkbox-label-vertical-padding: null !default;
     * {
       flex-basis: 50%;
       flex-grow: 1;
+    }
+
+    .ecl-button + .ecl-button {
+      border-radius: 0 0 4px;
     }
   }
 
@@ -327,7 +329,7 @@ $_multiple-checkbox-label-vertical-padding: null !default;
       position: relative;
       width: 100%;
       height: auto;
-      background-color: #707070;
+      background-color: $_multiple_counter_background;
       border-radius: 50%;
       color: map.get(theme.$color, 'white');
       padding: map.get(theme.$spacing, '2xs');
@@ -344,12 +346,16 @@ $_multiple-checkbox-label-vertical-padding: null !default;
         display: table;
       }
     }
+  }
 
-    &.ecl-select-multiple-selections-counter--visible {
-      display: block;
+  .ecl-select-multiple-selections-counter--visible {
+    display: block;
 
-      + .ecl-select {
-        padding-left: 15%;
+    + .ecl-select {
+      padding-inline-start: 2.5rem;
+
+      &:focus-visible {
+        padding-inline-start: calc(2.5rem - 2px);
       }
     }
   }

@@ -1,8 +1,8 @@
 module.exports = {
   id: 'select-multiple',
   label: 'Select a country',
-  helper_text: "This is the input's helper text.",
-  invalid_text: 'This is the error message',
+  helper_text: 'This is the helper text.',
+  invalid_text: 'Error message',
   invalid_icon: {
     path: '/icons.svg',
     name: 'error',
