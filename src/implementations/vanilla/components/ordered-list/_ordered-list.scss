@@ -24,9 +24,12 @@ $_text-color: null !default;
 
 .ecl-ordered-list__item,
 %ecl-ordered-list__item {
-  margin-inline-start: map.get(theme.$spacing, 'm');
+  // align items up to two digits
+  margin-inline-start: 1.75em;
   margin-top: map.get(theme.$spacing, 'xs');
-  max-width: calc(80ch - #{map.get(theme.$spacing, '2xl')});
+
+  // align with other paragraphs
+  max-width: calc(80ch - 1.75em - #{map.get(theme.$spacing, '2xs')});
   padding-inline-start: map.get(theme.$spacing, '2xs');
 
   &:first-child {
