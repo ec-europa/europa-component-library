@@ -13,4 +13,4 @@ Webtools widgets and services are based on the following principles
 - Only use centrally-maintained 3rd-party dependencies, if any.
 - Available in 24 languages.
 
-Official website: https://webgate.ec.europa.eu/fpfis/wikis/display/webtools
+Official website (requires EU Login): https://webgate.ec.europa.eu/fpfis/wikis/display/webtools
