@@ -10,30 +10,58 @@ import notes from './README.md';
 // Preserve original data
 const dataZebra = { ...dataDefault, zebra: true };
 
+const getArgs = () => ({
+  enhanced: false,
+});
+
+const getArgTypes = () => ({
+  enhanced: {
+    name: 'enhanced display',
+    type: { name: 'boolean' },
+    description:
+      'Enhanced display for mobile. This may depends on your needs and the data passed.',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'Display',
+    },
+  },
+});
+
+const prepareData = (data, args) => {
+  data.enhanced = args.enhanced;
+  return data;
+};
+
 export default {
   title: 'Components/Table',
   decorators: [withNotes, withCode],
-  parameters: {
-    controls: { disable: true },
-  },
 };
 
-export const Default = () => table(dataDefault);
+export const Default = (args) => table(prepareData(dataDefault, args));
 
 Default.storyName = 'default';
+Default.args = getArgs(dataDefault);
+Default.argTypes = getArgTypes(dataDefault);
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 
-export const Zebra = () => table(dataZebra);
+export const Zebra = (args) => table(prepareData(dataZebra, args));
 
 Zebra.storyName = 'zebra';
+Zebra.args = getArgs(dataZebra);
+Zebra.argTypes = getArgTypes(dataZebra);
 Zebra.parameters = { notes: { markdown: notes, json: dataZebra } };
 
-export const Multi = () => table(dataMulti);
+export const Multi = (args) => table(prepareData(dataMulti, args));
 
 Multi.storyName = 'multi header';
+Multi.args = getArgs(dataMulti);
+Multi.argTypes = getArgTypes(dataMulti);
 Multi.parameters = { notes: { markdown: notes, json: dataMulti } };
 
-export const Sortable = () => table(dataSortable);
+export const Sortable = (args) => table(prepareData(dataSortable, args));
 
 Sortable.storyName = 'sort table';
+Sortable.args = getArgs(dataSortable);
+Sortable.argTypes = getArgTypes(dataSortable);
 Sortable.parameters = { notes: { markdown: notes, json: dataSortable } };

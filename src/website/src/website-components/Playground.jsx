@@ -57,6 +57,7 @@ class Playground extends Component {
   render() {
     const {
       frameHeight,
+      frameWidth,
       playgroundLink,
       system,
       selectedKind,
@@ -114,6 +115,7 @@ class Playground extends Component {
                 <Iframe
                   url={fullFrameUrl}
                   defaultHeight={frameHeight}
+                  maxWidth={frameWidth}
                   iframeOptions={iframeOptions}
                   disableAutoResize={disableAutoResize}
                   heightCalculation={heightCalculation}
@@ -200,6 +202,7 @@ class Playground extends Component {
 Playground.propTypes = {
   children: PropTypes.node.isRequired,
   frameHeight: PropTypes.string,
+  frameWidth: PropTypes.string,
   playgroundLink: PropTypes.string,
   showFrame: PropTypes.bool,
   hideCode: PropTypes.bool,
@@ -216,6 +219,7 @@ Playground.propTypes = {
 
 Playground.defaultProps = {
   frameHeight: '200px',
+  frameWidth: '100%',
   playgroundLink: '',
   showFrame: false,
   hideCode: false,

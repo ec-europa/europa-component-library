@@ -16,6 +16,17 @@ describe('Table', () => {
   const template = '@ecl/table/table.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
+  describe('Enhanced', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+      const data = merge(dataDefault, {
+        enhanced: true,
+      });
+
+      return expect(render(data)).resolves.toMatchSnapshot();
+    });
+  });
+
   describe('Zebra', () => {
     test('renders correctly', () => {
       expect.assertions(1);
