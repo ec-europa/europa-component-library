@@ -7,6 +7,7 @@ const buildScript = require('../scripts/scripts');
 const { buildStyles } = require('../scripts/styles');
 const copyFiles = require('../scripts/copy');
 const watch = require('../scripts/watch');
+const purge = require('../scripts/purge');
 const pkg = require('../package.json');
 
 const loadConfig = (configFile) => {
@@ -74,6 +75,14 @@ program
     if (config.watch) {
       watch(config.watch);
     }
+  });
+
+program
+  .command('purge')
+  .description('purgeCss')
+  .action(() => {
+    const config = loadConfig(program.config);
+    config.purge.forEach((conf) => purge(conf.html, conf.css, conf.output));
   });
 
 // If no arguments provided, display help menu.

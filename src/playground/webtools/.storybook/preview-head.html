@@ -1,0 +1,38 @@
+<style>
+  .sb-show-nopreview {
+    display: none;
+  }
+</style>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+  integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+  crossorigin="anonymous"
+></script>
+
+<script type="text/javascript" src="./scripts/ecl-ec.js"></script>
+<script>
+  // https://github.com/storybookjs/storybook/issues/6113#issuecomment-473965255
+  function runOnPageChange() {
+    ECL.autoInit();
+  }
+
+  document.onreadystatechange = () => {
+    if (document.readyState === 'complete') {
+      runOnPageChange();
+      const callback = function (mutationsList) {
+        for (let i = 0, len = mutationsList.length; i < len; i++) {
+          if (mutationsList[i].type == 'childList') {
+            runOnPageChange();
+            break;
+          }
+        }
+      };
+      const observer = new MutationObserver(callback);
+      const config = { childList: true, subtree: false };
+      observer.observe(document.getElementById('root'), config);
+
+      // Add ecl class to body, to ensure that default css is working well
+      document.body.classList.add('ecl');
+    }
+  };
+</script>
