@@ -14,7 +14,7 @@ const vertical = prettier.format(
   twing.render(template, { ...demoData, variant: 'vertical' }),
   { semi: false, parser: 'html' }
 );
-
+fs.mkdirSync('src');
 fs.writeFile('src/ecl-social-media-follow.html', horizontal, (err) => {
   if (err) {
     console.error(err);

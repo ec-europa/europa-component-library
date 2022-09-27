@@ -3,7 +3,7 @@
   "author": "European Commission",
   "license": "EUPL-1.2",
   "version": "3.4.2",
-  "description": "ECL Social Media Follow for webtools",
+  "description": "ECL Social Media Follow for Webtools",
   "style": "social-media-follow.css",
   "devDependencies": {
     "@ecl/twig-ec-storybook": "3.4.2",
@@ -11,15 +11,13 @@
     "@ecl/preset-ec": "3.4.2",
     "@ecl/preset-eu": "3.4.2",
     "@ecl/builder": "3.4.2",
-    "npm-run-all": "4.1.5",
     "rimraf": "3.0.2",
     "twing": "2.3.7",
     "twing-loader": "2.0.2"
   },
   "scripts": {
-    "clean": "rimraf dist/* src/*",
-    "postinstall": "yarn clean && ./scripts/renderTwig.js",
-    "prepublish": "ecl-builder purge"
+    "prepublish": "yarn build",
+    "build": "rimraf dist src && ./scripts/renderTwig.js && ecl-builder purge"
   },
   "publishConfig": {
     "access": "public"

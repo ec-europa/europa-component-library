@@ -7,6 +7,7 @@
     "changelog": "lerna-changelog",
     "clean": "rimraf dist",
     "browserstats": "./src/tools/builder/bin/build.js browsers",
+    "build:webtools": "lerna --scope \"@ecl/wt-*\" run build",
     "build:icons": "lerna --scope \"@ecl/resources-*\" run dist",
     "build:presets": "lerna --scope \"@ecl/preset-*\" run dist",
     "build:themes": "lerna --scope \"@ecl/theme-*\" run build",
@@ -113,16 +114,18 @@
       "stylelint"
     ]
   },
-  "workspaces": [
-    "src/implementations/**",
-    "src/playground/**",
-    "src/resources/*",
-    "src/specs/**",
-    "src/themes/*",
-    "src/presets/*",
-    "src/tools/*",
-    "src/website"
-  ],
+  "workspaces": {
+    "packages": [
+      "src/implementations/**",
+      "src/playground/**",
+      "src/resources/*",
+      "src/specs/**",
+      "src/themes/*",
+      "src/presets/*",
+      "src/tools/*",
+      "src/website"
+    ]
+  },
   "jest": {
     "verbose": true,
     "testEnvironment": "jsdom"
