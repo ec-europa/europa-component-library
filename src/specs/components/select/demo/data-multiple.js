@@ -34,7 +34,6 @@ module.exports = {
     {
       value: '5',
       label: 'Bulgaria',
-      selected: true,
     },
     {
       value: '6',

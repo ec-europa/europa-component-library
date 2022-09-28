@@ -298,10 +298,14 @@ export class Select {
     this.searchContainer.appendChild(this.search);
 
     if (this.textSelectAll) {
+      const optionsCount = Array.from(this.select.options).filter(
+        (option) => !option.disabled
+      ).length;
+
       this.selectAll = Select.createCheckbox(
         {
           id: 'all',
-          text: this.textSelectAll,
+          text: `${this.textSelectAll} (${optionsCount})`,
           extraClass: 'ecl-select__multiple-all',
         },
         this.selectMultipleId
@@ -335,6 +339,7 @@ export class Select {
         this.closeButton.classList.add('ecl-button', 'ecl-button--primary');
         this.closeButton.addEventListener('click', this.handleClickOnClose);
         this.dropDownToolbar.appendChild(this.closeButton);
+        this.dropDownToolbar.style.display = 'none';
       }
 
       this.searchContainer.appendChild(this.dropDownToolbar);
@@ -350,6 +355,7 @@ export class Select {
       this.checkboxes = Array.from(this.select.options).map((option) => {
         if (option.selected) {
           this.updateSelectionsCount(1);
+          this.dropDownToolbar.style.display = 'flex';
         }
         const checkbox = Select.createCheckbox(
           {
@@ -453,10 +459,12 @@ export class Select {
       this.selectionCount.classList.add(
         'ecl-select-multiple-selections-counter--visible'
       );
+      this.dropDownToolbar.style.display = 'flex';
     } else {
       this.selectionCount.classList.remove(
         'ecl-select-multiple-selections-counter--visible'
       );
+      this.dropDownToolbar.style.display = 'none';
     }
   }
 
@@ -562,8 +570,10 @@ export class Select {
    * @param {Event} e
    */
   handleSearch(e) {
+    const dropDownHeight = this.optionsContainer.offsetHeight;
     const visible = [];
     const keyword = e.target.value.toLowerCase();
+    this.optionsContainer.style.height = `${dropDownHeight}px`;
     this.checkboxes.forEach((checkbox) => {
       if (
         !checkbox
