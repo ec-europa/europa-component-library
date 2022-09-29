@@ -126,6 +126,8 @@ export class Select {
     this.handleKeyboardOnSearch = this.handleKeyboardOnSearch.bind(this);
     this.handleKeyboardOnOptions = this.handleKeyboardOnOptions.bind(this);
     this.handleKeyboardOnOption = this.handleKeyboardOnOption.bind(this);
+    this.handleKeyboardOnClearAll = this.handleKeyboardOnClearAll.bind(this);
+    this.handleKeyboardOnClose = this.handleKeyboardOnClose.bind(this);
     this.updateSelectionsCount = this.updateSelectionsCount.bind(this);
   }
 
@@ -330,6 +332,10 @@ export class Select {
         this.clearAllButton.textContent = this.clearAllButtonLabel;
         this.clearAllButton.classList.add('ecl-button', 'ecl-button--ghost');
         this.clearAllButton.addEventListener('click', this.resetValues);
+        this.clearAllButton.addEventListener(
+          'keydown',
+          this.handleKeyboardOnClearAll
+        );
         this.dropDownToolbar.appendChild(this.clearAllButton);
       }
 
@@ -338,6 +344,10 @@ export class Select {
         this.closeButton.textContent = this.closeButtonLabel;
         this.closeButton.classList.add('ecl-button', 'ecl-button--primary');
         this.closeButton.addEventListener('click', this.handleClickOnClose);
+        this.closeButton.addEventListener(
+          'keydown',
+          this.handleKeyboardOnClose
+        );
         this.dropDownToolbar.appendChild(this.closeButton);
         this.dropDownToolbar.style.display = 'none';
       }
@@ -425,9 +435,17 @@ export class Select {
     document.removeEventListener('click', this.handleClickOutside);
     if (this.closeButton) {
       this.closeButton.removeEventListener('click', this.handleClickOnClose);
+      this.closeButton.removeEventListener(
+        'keydown',
+        this.handleKeyboardOnClose
+      );
     }
     if (this.clarAllButton) {
       this.clearAllButton.removeEventListener('click', this.resetValues);
+      this.clearAllButton.removeEventListener(
+        'keydown',
+        this.handleKeyboardOnClearAll
+      );
     }
     if (this.selectMultiple) {
       this.selectMultiple.remove();
@@ -484,7 +502,7 @@ export class Select {
     e.preventDefault();
 
     if (this.searchContainer.style.display === 'none') {
-      this.searchContainer.style.display = 'inline-flex';
+      this.searchContainer.style.display = 'block';
     } else {
       this.searchContainer.style.display = 'none';
     }
@@ -573,7 +591,9 @@ export class Select {
     const dropDownHeight = this.optionsContainer.offsetHeight;
     const visible = [];
     const keyword = e.target.value.toLowerCase();
-    this.optionsContainer.style.height = `${dropDownHeight}px`;
+    if (dropDownHeight > 0) {
+      this.optionsContainer.style.height = `${dropDownHeight}px`;
+    }
     this.checkboxes.forEach((checkbox) => {
       if (
         !checkbox
@@ -720,6 +740,11 @@ export class Select {
         this.moveFocus('up');
         break;
 
+      case 'Tab':
+        e.preventDefault();
+        this.moveFocus('down');
+        break;
+
       default:
     }
   }
@@ -764,6 +789,51 @@ export class Select {
     }
   }
 
+  /**
+   * @param {Event} e
+   */
+  handleKeyboardOnClearAll(e) {
+    switch (e.key) {
+      case 'Enter':
+      case ' ':
+        this.resetValues();
+        this.input.focus();
+        break;
+
+      case 'ArrowRight':
+        this.clearAllButton.nextSibling.focus();
+        break;
+
+      case 'ArrowUp':
+        this.optionsContainer.lastChild.querySelector('input').focus();
+        break;
+
+      default:
+    }
+  }
+
+  /**
+   * @param {Event} e
+   */
+  handleKeyboardOnClose(e) {
+    switch (e.key) {
+      case 'ArrowLeft':
+        this.closeButton.previousSibling.focus();
+        break;
+
+      case 'ArrowUp':
+        this.optionsContainer.lastChild.querySelector('input').focus();
+        break;
+
+      case 'Tab':
+        e.preventDefault();
+        this.input.focus();
+        break;
+
+      default:
+    }
+  }
+
   handleEsc() {
     if (this.searchContainer.style.display === 'block') {
       this.searchContainer.style.display = 'none';
@@ -781,7 +851,6 @@ export class Select {
       )
     );
     const activeIndex = options.indexOf(activeEl);
-
     if (upOrDown === 'down') {
       const nextSiblings = options
         .splice(activeIndex + 1, options.length)
@@ -790,6 +859,13 @@ export class Select {
         );
       if (nextSiblings.length > 0) {
         nextSiblings[0].focus();
+      } else {
+        // eslint-disable-next-line no-lonely-if
+        if (this.dropDownToolbar.style.display === 'flex') {
+          this.dropDownToolbar.firstChild.focus();
+        } else {
+          this.input.focus();
+        }
       }
     } else {
       const previousSiblings = options

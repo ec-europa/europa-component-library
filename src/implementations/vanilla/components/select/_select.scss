@@ -318,7 +318,7 @@ $_multiple_counter_background: null !default;
     display: none;
     position: absolute;
     top: 12%;
-    left: 1%;
+    left: map.get(theme.$spacing, 's');
 
     * {
       font: map.get(theme.$font, 's');
@@ -348,10 +348,10 @@ $_multiple_counter_background: null !default;
     display: block;
 
     + .ecl-select {
-      padding-inline-start: 2.5rem;
+      padding-inline-start: 3rem;
 
       &:focus-visible {
-        padding-inline-start: calc(2.5rem - 2px);
+        padding-inline-start: calc(3rem - 2px);
       }
     }
   }
