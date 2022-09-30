@@ -270,7 +270,6 @@ $_multiple_counter_background: null !default;
   .ecl-select__multiple-options {
     max-height: $_multiple-dropdown-container-max-height;
     overflow-y: auto;
-    padding-bottom: map.get(theme.$spacing, 'xs');
   }
 
   .ecl-select__multiple-no-results {
@@ -329,7 +328,6 @@ $_multiple_counter_background: null !default;
       color: map.get(theme.$color, 'white');
       padding: map.get(theme.$spacing, '2xs');
       text-align: center;
-      z-index: 1000;
       min-width: 1rem;
       display: inline-flex;
       align-items: center;
