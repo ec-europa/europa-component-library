@@ -484,6 +484,12 @@ export class Select {
       );
       this.dropDownToolbar.style.display = 'none';
     }
+
+    if (selectedOptionsCount >= 100) {
+      this.selectionCount.classList.add(
+        'ecl-select-multiple-selections-counter--xxl'
+      );
+    }
   }
 
   updateCurrentValue() {
