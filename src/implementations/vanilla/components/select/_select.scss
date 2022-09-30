@@ -314,29 +314,29 @@ $_multiple_counter_background: null !default;
 
   .ecl-select-multiple-selections-counter {
     display: none;
+    left: map.get(theme.$spacing, 's');
     position: absolute;
     top: 12%;
-    left: map.get(theme.$spacing, 's');
 
     * {
-      font: map.get(theme.$font, 's');
-      position: relative;
-      width: 100%;
-      height: auto;
+      align-items: center;
       background-color: $_multiple_counter_background;
       border-radius: 50%;
       color: map.get(theme.$color, 'white');
+      display: inline-flex;
+      font: map.get(theme.$font, 's');
+      height: auto;
+      justify-content: center;
+      position: relative;
+      min-width: 1rem;
       padding: map.get(theme.$spacing, '2xs');
       text-align: center;
-      min-width: 1rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      width: 100%;
 
       &::after {
         content: '';
-        padding-top: 100%;
         display: table;
+        padding-top: 100%;
       }
     }
   }
