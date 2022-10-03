@@ -28,10 +28,7 @@ const getArgTypes = () => ({
   },
 });
 
-const prepareData = (data, args) => {
-  data.enhanced = args.enhanced;
-  return data;
-};
+const prepareData = (data, args) => Object.assign(data, args);
 
 export default {
   title: 'Components/Table',

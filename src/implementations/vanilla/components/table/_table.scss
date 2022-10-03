@@ -25,6 +25,10 @@ $_button_arrow_width: null !default;
   width: 100%;
 }
 
+.ecl-table-responsive {
+  overflow-x: auto;
+}
+
 .ecl-table__head,
 %ecl-table__head {
   background-color: map.get(theme.$color, 'blue-5');
