@@ -117,10 +117,9 @@ export class Select {
     this.handleFocusout = this.handleFocusout.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
-    this.handleClickOnClose = this.handleClickOnClose.bind(this);
     this.moveFocus = this.moveFocus.bind(this);
     this.resetForm = this.resetForm.bind(this);
-    this.resetValues = this.resetValues.bind(this);
+    this.handleClickOnClearAll = this.handleClickOnClearAll.bind(this);
     this.handleKeyboardOnSelect = this.handleKeyboardOnSelect.bind(this);
     this.handleKeyboardOnSelectAll = this.handleKeyboardOnSelectAll.bind(this);
     this.handleKeyboardOnSearch = this.handleKeyboardOnSearch.bind(this);
@@ -331,7 +330,10 @@ export class Select {
         this.clearAllButton = document.createElement('button');
         this.clearAllButton.textContent = this.clearAllButtonLabel;
         this.clearAllButton.classList.add('ecl-button', 'ecl-button--ghost');
-        this.clearAllButton.addEventListener('click', this.resetValues);
+        this.clearAllButton.addEventListener(
+          'click',
+          this.handleClickOnClearAll
+        );
         this.clearAllButton.addEventListener(
           'keydown',
           this.handleKeyboardOnClearAll
@@ -343,16 +345,18 @@ export class Select {
         this.closeButton = document.createElement('button');
         this.closeButton.textContent = this.closeButtonLabel;
         this.closeButton.classList.add('ecl-button', 'ecl-button--primary');
-        this.closeButton.addEventListener('click', this.handleClickOnClose);
+        this.closeButton.addEventListener('click', this.handleEsc);
         this.closeButton.addEventListener(
           'keydown',
           this.handleKeyboardOnClose
         );
-        this.dropDownToolbar.appendChild(this.closeButton);
-        this.dropDownToolbar.style.display = 'none';
-      }
 
-      this.searchContainer.appendChild(this.dropDownToolbar);
+        if (this.dropDownToolbar) {
+          this.dropDownToolbar.appendChild(this.closeButton);
+          this.searchContainer.appendChild(this.dropDownToolbar);
+          this.dropDownToolbar.style.display = 'none';
+        }
+      }
     }
 
     this.selectAll.addEventListener('keydown', this.handleKeyboardOnSelectAll);
@@ -365,7 +369,9 @@ export class Select {
       this.checkboxes = Array.from(this.select.options).map((option) => {
         if (option.selected) {
           this.updateSelectionsCount(1);
-          this.dropDownToolbar.style.display = 'flex';
+          if (this.dropDownToolbar) {
+            this.dropDownToolbar.style.display = 'flex';
+          }
         }
         const checkbox = Select.createCheckbox(
           {
@@ -434,14 +440,17 @@ export class Select {
     });
     document.removeEventListener('click', this.handleClickOutside);
     if (this.closeButton) {
-      this.closeButton.removeEventListener('click', this.handleClickOnClose);
+      this.closeButton.removeEventListener('click', this.handleEsc);
       this.closeButton.removeEventListener(
         'keydown',
         this.handleKeyboardOnClose
       );
     }
-    if (this.clarAllButton) {
-      this.clearAllButton.removeEventListener('click', this.resetValues);
+    if (this.clearAllButton) {
+      this.clearAllButton.removeEventListener(
+        'click',
+        this.handleClickOnClearAll
+      );
       this.clearAllButton.removeEventListener(
         'keydown',
         this.handleKeyboardOnClearAll
@@ -477,12 +486,16 @@ export class Select {
       this.selectionCount.classList.add(
         'ecl-select-multiple-selections-counter--visible'
       );
-      this.dropDownToolbar.style.display = 'flex';
+      if (this.dropDownToolbar) {
+        this.dropDownToolbar.style.display = 'flex';
+      }
     } else {
       this.selectionCount.classList.remove(
         'ecl-select-multiple-selections-counter--visible'
       );
-      this.dropDownToolbar.style.display = 'none';
+      if (this.dropDownToolbar) {
+        this.dropDownToolbar.style.display = 'none';
+      }
     }
 
     if (selectedOptionsCount >= 100) {
@@ -668,13 +681,6 @@ export class Select {
   }
 
   /**
-   * Close the dropdown when the use clicks on the button
-   */
-  handleClickOnClose() {
-    this.searchContainer.style.display = 'none';
-  }
-
-  /**
    * @param {Event} e
    */
   handleClickOutside(e) {
@@ -802,7 +808,7 @@ export class Select {
     switch (e.key) {
       case 'Enter':
       case ' ':
-        this.resetValues();
+        this.handleClickOnClearAll();
         this.input.focus();
         break;
 
@@ -867,7 +873,10 @@ export class Select {
         nextSiblings[0].focus();
       } else {
         // eslint-disable-next-line no-lonely-if
-        if (this.dropDownToolbar.style.display === 'flex') {
+        if (
+          this.dropDownToolbar &&
+          this.dropDownToolbar.style.display === 'flex'
+        ) {
           this.dropDownToolbar.firstChild.focus();
         } else {
           this.input.focus();
@@ -895,7 +904,7 @@ export class Select {
   /**
    * Reset values of the Multiselect.
    */
-  resetValues() {
+  handleClickOnClearAll() {
     Array.from(this.select.options).forEach((option) => {
       const checkbox = this.selectMultiple.querySelector(
         `[data-select-multiple-value="${option.text}"]`
