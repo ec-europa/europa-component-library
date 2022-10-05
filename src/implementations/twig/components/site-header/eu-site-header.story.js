@@ -20,7 +20,7 @@ const dataCore = JSON.parse(JSON.stringify(dataFull));
 delete dataCore.login_box;
 delete dataCore.site_name;
 delete dataCore.cta_link;
-dataCore.has_menu = false;
+dataCore.has_menu = true;
 
 // Harmonised
 const dataHarmonised = JSON.parse(JSON.stringify(dataFull));
