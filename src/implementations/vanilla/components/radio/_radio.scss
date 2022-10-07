@@ -122,7 +122,8 @@ $_outline-color: null !default;
 .ecl-radio__input:focus-visible + .ecl-radio__label,
 .ecl-radio__input:active + .ecl-radio__label {
   .ecl-radio__box {
-    box-shadow: 0 0 0 2px map.get(theme.$color, 'blue');
+    outline: 2px solid map.get(theme.$color, 'blue');
+    outline-offset: 2px;
   }
 }
 
