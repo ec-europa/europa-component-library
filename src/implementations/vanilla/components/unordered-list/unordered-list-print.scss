@@ -8,13 +8,15 @@
 
 $_text-color: map.get(theme.$color, 'grey-100');
 
-.ecl-unordered-list {
+.ecl-unordered-list,
+%ecl-unordered-list {
   color: $_text-color;
   font: map.get(theme.$font-prolonged-print, 'm');
   margin: 0;
 }
 
-.ecl-unordered-list__item {
+.ecl-unordered-list__item,
+%ecl-unordered-list__item {
   margin-top: map.get(theme.$spacing-print, 's');
 
   &:first-of-type {
@@ -28,6 +30,7 @@ $_text-color: map.get(theme.$color, 'grey-100');
   padding-inline-start: 0;
 }
 
-.ecl-unordered-list .ecl-unordered-list {
+.ecl-unordered-list .ecl-unordered-list,
+%ecl-unordered-list--nested {
   margin-top: map.get(theme.$spacing-print, 's');
 }

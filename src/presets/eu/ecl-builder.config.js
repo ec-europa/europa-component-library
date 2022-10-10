@@ -57,6 +57,18 @@ module.exports = {
         sourceMap: false,
       },
     },
+    {
+      entry: path.resolve(__dirname, 'src/eu-default-print.scss'),
+      dest: path.resolve(
+        outputFolder,
+        'styles/optional/ecl-eu-default-print.css'
+      ),
+      options: {
+        banner,
+        includePaths,
+        sourceMap: false,
+      },
+    },
   ],
   copy: [
     {
