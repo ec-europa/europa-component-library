@@ -65,7 +65,7 @@ $_link-separator-color: null !default;
 .ecl-content-block__title {
   color: $_text-color;
   font: map.get($_title-font, 'mobile');
-  font-weight: map.get(theme.$font-weight, 'bold');
+  font-weight: map.get(theme.$font-weight, 'regular');
   margin: map.get(theme.$spacing, 'xs') 0 0;
   max-width: 80ch;
 }
@@ -172,6 +172,6 @@ $_link-separator-color: null !default;
 @include breakpoints.up('l') {
   .ecl-content-block__title {
     font: map.get($_title-font, 'desktop');
-    font-weight: map.get(theme.$font-weight, 'bold');
+    font-weight: map.get(theme.$font-weight, 'regular');
   }
 }
