@@ -19,7 +19,7 @@
     "lint": "npm-run-all --parallel lint:* -cln",
     "prepare": "npx husky install",
     "postinstall": "patch-package && [ -z \"$NOYARNPOSTINSTALL\" ] && (lerna run postinstall && lerna run prepublish) || echo \"Bypass prepublish\"",
-    "pretty-check": "prettier --check \"src/**/*.{md,mdx,html,json,yml,js,jsx,scss,svg}\"",
+    "pretty-check": "prettier --check \"src/**/*.{md,mdx,html,json,yml,js,jsx,scss}\"",
     "publish": "scripts/publish.sh",
     "serve": "cd src/website && npm run serve",
     "size": "npm run dist:presets && size-limit",
