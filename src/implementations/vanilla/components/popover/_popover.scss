@@ -1,0 +1,119 @@
+/**
+ * Popover
+ * @define popover
+ */
+
+@use 'sass:map';
+@use '@ecl/theme-dev/theme';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+$_arrow-size: 1rem;
+$_shadow-size: null !default;
+$_shadow-color: null !default;
+$_item-height: map.get(theme.$line-height-prolonged, 'm') +
+  (map.get(theme.$spacing, 's') * 2);
+
+.ecl-popover {
+  display: inline-block;
+  margin: 0;
+  position: relative;
+}
+
+.ecl-popover__toggle .ecl-link__label {
+  text-decoration: underline;
+}
+
+.ecl-popover__container {
+  background-color: map.get(theme.$color, 'white');
+  box-shadow: 0 0 $_shadow-size $_shadow-color;
+  left: -50%;
+  margin-top: calc(
+    #{map.get(theme.$spacing, 'xs')} + #{map.get(theme.$spacing, 's')}
+  );
+  position: absolute;
+  z-index: map.get(theme.$z-index, 'dropdown');
+
+  // arrow with border shadow
+  &::before {
+    background-color: map.get(theme.$color, 'white');
+    box-shadow: 0 0 $_shadow-size $_shadow-color;
+    clip-path: polygon(
+      -#{$_shadow-size} -#{$_shadow-size},
+      calc(100% + #{$_shadow-size}) -#{$_shadow-size},
+      calc(100% + #{$_shadow-size}) calc(100% + #{$_shadow-size})
+    );
+    content: '';
+    height: $_arrow-size;
+    left: 50%;
+    margin-left: calc(-#{$_arrow-size} / 2);
+    position: absolute;
+    top: 0;
+    transform: translate(0%, -50%) rotate(-45deg);
+    width: $_arrow-size;
+  }
+}
+
+.ecl-popover__content {
+  font: map.get(theme.$font-prolonged, 'm');
+  max-height: calc(($_item-height * 4) - (#{map.get(theme.$spacing, 's')} * 2));
+  padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
+  width: 168px;
+  overflow-y: auto;
+}
+
+@include breakpoints.up('m') {
+  .ecl-popover__content {
+    max-height: calc(
+      ($_item-height * 6) - (#{map.get(theme.$spacing, 's')} * 2)
+    );
+    width: 198px;
+  }
+}
+
+.ecl-popover__list {
+  list-style: none;
+  margin: -#{map.get(theme.$spacing, 's')} -#{map.get(theme.$spacing, 'm')};
+  padding: 0;
+}
+
+.ecl-popover__link {
+  display: block;
+  padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
+
+  &:focus-visible {
+    outline-offset: -2px;
+  }
+}
+
+// Top Popover
+.ecl-popover--top .ecl-popover__container {
+  bottom: 100%;
+  margin-bottom: calc(
+    #{map.get(theme.$spacing, 'xs')} + #{map.get(theme.$spacing, 's')}
+  );
+  margin-top: 0;
+
+  &::before {
+    bottom: 0;
+    top: auto;
+    transform: translate(0%, 50%) rotate(135deg);
+  }
+}
+
+// Horizontal arrow position
+.ecl-popover--push-left .ecl-popover__container {
+  left: 0;
+
+  &::before {
+    left: 25%;
+  }
+}
+
+.ecl-popover--push-right .ecl-popover__container {
+  left: auto;
+  right: 0;
+
+  &::before {
+    left: 75%;
+  }
+}

@@ -1,8 +1,8 @@
 module.exports = {
   id: 'select-multiple',
   label: 'Select a country',
-  helper_text: "This is the input's helper text.",
-  invalid_text: 'This is the error message',
+  helper_text: 'This is the helper text.',
+  invalid_text: 'Error message',
   invalid_icon: {
     path: '/icons.svg',
     name: 'error',
@@ -34,7 +34,6 @@ module.exports = {
     {
       value: '5',
       label: 'Bulgaria',
-      selected: true,
     },
     {
       value: '6',
@@ -59,7 +58,9 @@ module.exports = {
   ],
   multiple: true,
   multiple_placeholder: 'Select an item',
-  multiple_search_text: 'Search',
+  multiple_search_text: 'Enter keyword',
   multiple_search_no_results_text: 'No results found',
   multiple_all_text: 'Select all',
+  multiple_close_text: 'Close',
+  multiple_clear_all_text: 'Clear all',
 };
