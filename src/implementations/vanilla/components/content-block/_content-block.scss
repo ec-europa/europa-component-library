@@ -10,6 +10,7 @@
 
 $_primary-meta-color: null !default;
 $_title-font: null !default;
+$_title-font-weight: null !default;
 $_text-color: null !default;
 $_secondary-meta-color: null !default;
 $_secondary-meta-icon-color: null !default;
@@ -65,7 +66,7 @@ $_link-separator-color: null !default;
 .ecl-content-block__title {
   color: $_text-color;
   font: map.get($_title-font, 'mobile');
-  font-weight: map.get(theme.$font-weight, 'regular');
+  font-weight: $_title-font-weight;
   margin: map.get(theme.$spacing, 'xs') 0 0;
   max-width: 80ch;
 }
@@ -172,6 +173,6 @@ $_link-separator-color: null !default;
 @include breakpoints.up('l') {
   .ecl-content-block__title {
     font: map.get($_title-font, 'desktop');
-    font-weight: map.get(theme.$font-weight, 'regular');
+    font-weight: $_title-font-weight;
   }
 }
