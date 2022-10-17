@@ -15,7 +15,8 @@ $_author-margin-top: null !default;
 $_author-font-weight: null !default;
 $_author-color: null !default;
 
-.ecl-blockquote {
+.ecl-blockquote,
+%ecl-blockquote {
   border-left: $_border-width solid $_border-color;
   border-radius: $_border-radius;
   margin: 0;
@@ -24,7 +25,8 @@ $_author-color: null !default;
   padding-top: map.get(theme.$spacing-print, 'm');
 }
 
-.ecl-blockquote__citation {
+.ecl-blockquote__citation,
+%ecl-blockquote {
   color: $_body-color;
   font: $_body-font;
   font-style: italic;
@@ -44,12 +46,14 @@ $_author-color: null !default;
   margin: 0;
 }
 
-.ecl-blockquote__attribution {
+.ecl-blockquote__attribution,
+%ecl-blockquote__author {
   font: map.get(theme.$font-prolonged-print, 'l');
   margin-top: $_author-margin-top;
 }
 
-.ecl-blockquote__author {
+.ecl-blockquote__author,
+%ecl-blockquote__author {
   color: $_author-color;
   font: map.get(theme.$font-prolonged-print, 'l');
   font-weight: $_author-font-weight;

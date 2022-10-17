@@ -91,7 +91,7 @@ There are several optional CSS files, located in `ec/styles/optional`, which can
 **These optional CSS have to be called before the main ECL CSS**
 
 - `ecl-reset.css`: contains some css reset rules, mostly based on normalize.css, with a few custom additions
-- `ecl-ec-default.css`: apply ECL styling to some default HTML tags (links, buttons, table, ...). Note that this file is meant to be used in specific cases, the recommanded way to use ECL is still to add corresponding classes to HTML elements
+- `ecl-ec-default.css`: apply ECL styling to some default HTML tags (links, buttons, table, ...). Note that this file is meant to be used in specific cases, the recommanded way to use ECL is still to add corresponding classes to HTML elements. A corresponding print css `ecl-ec-default-print` is also provided.
 
 <details>
   <summary>SRI hashes for optional files (click to expand)</summary>

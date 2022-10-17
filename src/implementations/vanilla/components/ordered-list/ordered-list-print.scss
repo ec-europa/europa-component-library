@@ -8,13 +8,17 @@
 
 $_text-color: map.get(theme.$color, 'grey-100');
 
-.ecl-ordered-list {
+.ecl-ordered-list,
+%ecl-ordered-list {
   color: $_text-color;
   font: map.get(theme.$font-prolonged-print, 'm');
+  list-style-position: inside;
   margin: 0;
+  padding: 0;
 }
 
-.ecl-ordered-list__item {
+.ecl-ordered-list__item,
+%ecl-ordered-list__item {
   margin-top: map.get(theme.$spacing-print, 's');
 
   &:first-of-type {
@@ -22,6 +26,8 @@ $_text-color: map.get(theme.$color, 'grey-100');
   }
 }
 
-.ecl-ordered-list .ecl-ordered-list {
+.ecl-ordered-list .ecl-ordered-list,
+%ecl-ordered-list--nested {
   margin-top: map.get(theme.$spacing-print, 's');
+  padding-inline-start: map.get(theme.$spacing-print, 'l');
 }

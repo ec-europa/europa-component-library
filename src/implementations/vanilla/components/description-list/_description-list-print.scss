@@ -14,11 +14,13 @@ $_term-font: null !default;
 $_definition-color: null !default;
 $_taxonomy-color: null !default;
 
-.ecl-description-list {
+.ecl-description-list,
+%ecl-description-list {
   margin: 0;
 }
 
-.ecl-description-list__term {
+.ecl-description-list__term,
+%ecl-description-list__term {
   color: $_term-color;
   font: $_term-font;
   font-weight: map.get(theme.$font-weight, 'bold');
@@ -35,7 +37,8 @@ $_taxonomy-color: null !default;
   margin-top: map.get(theme.$spacing-print, '2xs');
 }
 
-.ecl-description-list__definition {
+.ecl-description-list__definition,
+%ecl-description-list__definition {
   color: $_definition-color;
   font: map.get(theme.$font-prolonged-print, 'm');
   margin-inline-start: 0;
@@ -125,12 +128,14 @@ $_taxonomy-color: null !default;
 $_term-width: 32%;
 $_definition-width: 68%;
 
-.ecl-description-list--horizontal {
+.ecl-description-list--horizontal,
+%ecl-description-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 
-  .ecl-description-list__term {
+  .ecl-description-list__term,
+  %ecl-description-list__term {
     margin-top: map.get(theme.$spacing-print, 'm');
     width: $_term-width;
   }
@@ -139,7 +144,8 @@ $_definition-width: 68%;
     margin-top: 0;
   }
 
-  .ecl-description-list__definition {
+  .ecl-description-list__definition,
+  %ecl-description-list__definition {
     align-items: flex-start;
     margin-inline-start: map.get(theme.$spacing-print, 'xl');
     margin-top: map.get(theme.$spacing-print, 'm');
