@@ -1,5 +1,50 @@
 # Changelog
 
+## 3.5.0 ((2022-10-17))
+
+#### :rocket: New Feature
+
+- [#2615](https://github.com/ec-europa/europa-component-library/pull/2615) feat(popover): add component - FRONT-3698 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#2650](https://github.com/ec-europa/europa-component-library/pull/2650) fix(ordered-list): fix list alignment - FRONT-3744 ([@emeryro](https://github.com/emeryro))
+- [#2658](https://github.com/ec-europa/europa-component-library/pull/2658) fix(social-media-share): Removing padding - FRONT-3765 ([@planctus](https://github.com/planctus))
+- [#2644](https://github.com/ec-europa/europa-component-library/pull/2644) fix(social-media): Fixing and aligning variant selectors - FRONT-3749 ([@planctus](https://github.com/planctus))
+- [#2641](https://github.com/ec-europa/europa-component-library/pull/2641) fix(carousel): allow click on cta - FRONT-3747 ([@emeryro](https://github.com/emeryro))
+- [#2639](https://github.com/ec-europa/europa-component-library/pull/2639) fix(gallery): Fix AV Portal video overlay display - FRONT-3741 ([@papegaill](https://github.com/papegaill))
+
+#### :nail_care: Enhancement
+
+- [#2666](https://github.com/ec-europa/europa-component-library/pull/2666) feat(content-block): update title font - FRONT-3777 ([@emeryro](https://github.com/emeryro))
+- [#2660](https://github.com/ec-europa/europa-component-library/pull/2660) fix(print): fix display of default html tag for print - FRONT-3699 ([@emeryro](https://github.com/emeryro))
+- [#2661](https://github.com/ec-europa/europa-component-library/pull/2661) feat(focus): New styles for checkboxes and radios - FRONT-3770 ([@planctus](https://github.com/planctus))
+- [#2647](https://github.com/ec-europa/europa-component-library/pull/2647) feat(multiselect): Adding toolbar and selection counter - FRONT-3746 ([@planctus](https://github.com/planctus))
+- [#2645](https://github.com/ec-europa/europa-component-library/pull/2645) feat(content-block): Merging extra_classes for lists - FRONT-3751 ([@planctus](https://github.com/planctus))
+- [#2627](https://github.com/ec-europa/europa-component-library/pull/2627) fix(print): Fix components print version - FRONT-3731 ([@papegaill](https://github.com/papegaill))
+
+#### :memo: Documentation
+
+- [#2649](https://github.com/ec-europa/europa-component-library/pull/2649) docs(website): update webtools documentation - FRONT-3742 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#2667](https://github.com/ec-europa/europa-component-library/pull/2667) chore(deps): Updates 17-10-22 ([@planctus](https://github.com/planctus))
+- [#2664](https://github.com/ec-europa/europa-component-library/pull/2664) chore(deps): Updates 13-10-22 ([@planctus](https://github.com/planctus))
+- [#2654](https://github.com/ec-europa/europa-component-library/pull/2654) chore(deps): Updates 29-09-22 ([@planctus](https://github.com/planctus))
+- [#2651](https://github.com/ec-europa/europa-component-library/pull/2651) chore(deps): Updates 23-09-22 ([@planctus](https://github.com/planctus))
+- [#2646](https://github.com/ec-europa/europa-component-library/pull/2646) chore(deps): Updates and audit fix ([@planctus](https://github.com/planctus))
+- [#2643](https://github.com/ec-europa/europa-component-library/pull/2643) chore(deps): Storybook 6.5.12 ([@planctus](https://github.com/planctus))
+- [#2642](https://github.com/ec-europa/europa-component-library/pull/2642) chore(deps): Storybook 6.5.11 ([@planctus](https://github.com/planctus))
+- [#2640](https://github.com/ec-europa/europa-component-library/pull/2640) chore(deps): Updates 12-09-22 ([@planctus](https://github.com/planctus))
+- [#2638](https://github.com/ec-europa/europa-component-library/pull/2638) chore(deps): Updates 02-09-22 ([@planctus](https://github.com/planctus))
+
+#### Committers: 3
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@papegaill](https://github.com/papegaill)
+- [@planctus](https://github.com/planctus)
+
 ## 3.4.2 (2022-09-21)
 
 #### :bug: Bug Fix
