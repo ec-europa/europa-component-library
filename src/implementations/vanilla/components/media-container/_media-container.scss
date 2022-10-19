@@ -31,6 +31,12 @@ $_scrollbar-width: 16px; // average scrollbar width; used in full screen calculu
   min-height: 1px; // IE 11 fix
   object-fit: cover;
   width: 100%;
+
+  > iframe {
+    aspect-ratio: var(--width) / var(--height);
+    height: auto;
+    width: 100%;
+  }
 }
 
 .ecl-media-container__caption {
