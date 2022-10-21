@@ -1,0 +1,32 @@
+{
+  "private": true,
+  "name": "@ecl/web-components-eu-storybook",
+  "author": "European Commission",
+  "license": "EUPL-1.2",
+  "version": "3.5.0",
+  "description": "Storybook EU Web-components",
+  "scripts": {
+    "build": "STORYBOOK_SYSTEM=EC build-storybook -c .storybook -o build",
+    "start": "STORYBOOK_SYSTEM=EC node start.js"
+  },
+  "devDependencies": {
+    "@babel/core": "7.19.3",
+    "@babel/preset-env": "7.19.4",
+    "@babel/preset-react": "7.18.6",
+    "@babel/runtime": "7.19.4",
+    "@storybook/addon-a11y": "6.5.12",
+    "@storybook/addon-controls": "6.5.12",
+    "@storybook/addon-cssresources": "6.2.9",
+    "@storybook/addon-docs": "6.5.12",
+    "@storybook/addon-viewport": "6.5.12",
+    "@storybook/builder-webpack5": "6.5.12",
+    "@storybook/web-components": "6.5.12",
+    "@storybook/manager-webpack5": "6.5.12",
+    "babel-loader": "8.2.5",
+    "browser-update": "3.3.40",
+    "buffer": "6.0.3",
+    "core-js": "3.25.5",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  }
+}

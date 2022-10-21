@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Blockquote EC renders correctly 1`] = `
+"<style id="ecl-blockquote-style">@import "ecl-blockquote-ec.css"</style>
+  <figure class="ecl-blockquote">
+    <div class="ecl-blockquote__body">
+      <blockquote class="ecl-blockquote__quote">
+        <p class="ecl-blockquote__citation">An interconnected grid will help deliver the ultimate goal of the Energy Union, to make sure affordable, secure and sustainable energy, and also growth across the EU.</p>
+      </blockquote>
+      <footer class="ecl-blockquote__attribution">
+        <cite class="ecl-blockquote__author">President Juncker</cite>
+      </footer>
+    </div>
+    <slot name="ecl-blockquote-image"></slot>
+  </figure>"
+`;
+
+exports[`Blockquote EU renders correctly 1`] = `
+"<style id="ecl-blockquote-style">@import "ecl-blockquote-eu.css"</style>
+  <figure class="ecl-blockquote">
+    <div class="ecl-blockquote__body">
+      <blockquote class="ecl-blockquote__quote">
+        <p class="ecl-blockquote__citation">An interconnected grid will help deliver the ultimate goal of the Energy Union, to make sure affordable, secure and sustainable energy, and also growth across the EU.</p>
+      </blockquote>
+      <footer class="ecl-blockquote__attribution">
+        <cite class="ecl-blockquote__author">President Juncker</cite>
+      </footer>
+    </div>
+    <slot name="ecl-blockquote-image"></slot>
+  </figure>"
+`;
+
+exports[`Blockquote With image and aria-label renders correctly 1`] = `
+"<style id="ecl-blockquote-style">@import "ecl-blockquote-ec.css"</style>
+  <figure class="ecl-blockquote">
+    <div class="ecl-blockquote__body">
+      <blockquote class="ecl-blockquote__quote">
+        <p class="ecl-blockquote__citation">An interconnected grid will help deliver the ultimate goal of the Energy Union, to make sure affordable, secure and sustainable energy, and also growth across the EU.</p>
+      </blockquote>
+      <footer class="ecl-blockquote__attribution">
+        <cite class="ecl-blockquote__author">President Juncker</cite>
+      </footer>
+    </div>
+    <slot name="ecl-blockquote-image"><img class="ecl-blockquote__image" aria-label="Test aria label" src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg"></slot>
+  </figure>"
+`;
+
+exports[`Blockquote With image renders correctly 1`] = `
+"<style id="ecl-blockquote-style">@import "ecl-blockquote-ec.css"</style>
+  <figure class="ecl-blockquote">
+    <div class="ecl-blockquote__body">
+      <blockquote class="ecl-blockquote__quote">
+        <p class="ecl-blockquote__citation">An interconnected grid will help deliver the ultimate goal of the Energy Union, to make sure affordable, secure and sustainable energy, and also growth across the EU.</p>
+      </blockquote>
+      <footer class="ecl-blockquote__attribution">
+        <cite class="ecl-blockquote__author">President Juncker</cite>
+      </footer>
+    </div>
+    <slot name="ecl-blockquote-image"><img class="ecl-blockquote__image" src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg"></slot>
+  </figure>"
+`;
