@@ -13,9 +13,11 @@ cd ..
 # Build storybook
 yarn --cwd "./src/playground/ec" build
 yarn --cwd "./src/playground/eu" build
+yarn --cwd "./src/playground/web-components" build
 
 # Copy builds
 rm -rf ./dist/playground
 mkdir -p ./dist/playground
 cp -r ./src/playground/ec/build ./dist/playground/ec
 cp -r ./src/playground/eu/build ./dist/playground/eu
+cp -r ./src/playground/web-components/build ./dist/playground/wc
