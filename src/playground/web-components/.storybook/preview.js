@@ -22,44 +22,7 @@ addParameters({
     },
     manual: false,
   },
-  cssresources: [
-    {
-      id: 'ecl-reset',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-reset.css" />`,
-      picked: true,
-      hideCode: true,
-    },
-    {
-      id: 'ecl-ec-default',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-ec-default.css" />`,
-      picked: true,
-      hideCode: true,
-    },
-    {
-      id: 'ecl-ec',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec.css" />`,
-      picked: true,
-      hideCode: true,
-    },
-    {
-      id: 'ecl-rtl',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-rtl.css" />`,
-      picked: false,
-      hideCode: true,
-    },
-    {
-      id: 'ecl-ec-print',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec-print.css" />`,
-      picked: false,
-      hideCode: true,
-    },
-    {
-      id: 'ecl-ec-default-print',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-ec-default-print.css" />`,
-      picked: false,
-      hideCode: true,
-    },
-  ],
+  cssresources: [],
   controls: { expanded: true },
   layout: 'padded',
   viewport: {

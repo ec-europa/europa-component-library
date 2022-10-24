@@ -25,12 +25,6 @@ module.exports = {
       },
     },
     {
-      files: ['src/**/web-components/*/*.js'],
-      rules: {
-        'no-underscore-dangle': 'off',
-      },
-    },
-    {
       files: ['src/**/web-components/*/*.story.js'],
       rules: {
         'no-unused-vars': 'off',

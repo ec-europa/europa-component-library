@@ -4,15 +4,20 @@
   "license": "EUPL-1.2",
   "version": "3.5.0",
   "description": "ECL Blockquote",
+  "main": "dist/ecl-blockquote.js",
   "scripts": {
     "build:styles": "cross-env ECL_SYSTEM=ec ecl-builder styles",
+    "build:scripts": "cross-env ECL_SYSTEM=ec ecl-builder scripts",
     "build": "run-p build:*",
+    "clean": "rimraf build dist",
+    "dist": "cross-env NODE_ENV=production run-p build:*",
     "prepublish": "run-p build:*"
   },
   "publishConfig": {
     "access": "public"
   },
   "devDependencies": {
+    "@ecl/builder": "3.5.0",
     "@ecl/specs-component-blockquote": "3.5.0",
     "@ecl/vanilla-component-blockquote": "3.5.0"
   },

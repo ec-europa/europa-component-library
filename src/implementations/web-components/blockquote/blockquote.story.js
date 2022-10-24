@@ -1,7 +1,7 @@
 import { html } from 'lit-html';
 
 import dataDemo from '@ecl/specs-component-blockquote/demo/data';
-import blockquote from './ecl-blockquote';
+import blockquote from './src/ecl-blockquote';
 
 const img =
   'https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg';
@@ -12,6 +12,8 @@ const getArgs = (data) => ({
   author: data.author,
   image: '',
   aria_label: '',
+  attributes: {},
+  classes: [],
 });
 
 const getArgTypes = () => ({
@@ -72,6 +74,26 @@ const getArgTypes = () => ({
       type: 'text',
     },
   },
+  classes: {
+    name: 'data-classes',
+    type: { name: 'array' },
+    description: 'classes for the root element',
+    table: {
+      type: { summary: 'array' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+  },
+  attributes: {
+    name: 'data-attributes',
+    type: { name: 'object' },
+    description: 'attributes for the root element',
+    table: {
+      type: { summary: 'object' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+  },
 });
 
 const prepareData = (data, args) => {
@@ -81,6 +103,14 @@ const prepareData = (data, args) => {
     data.image = img;
   } else {
     data.image = '';
+  }
+
+  if (args.attributes) {
+    data.attributes = JSON.stringify(args.attributes);
+  }
+
+  if (args.classes) {
+    data.classes = JSON.stringify(args.classes);
   }
 
   return data;
@@ -96,6 +126,8 @@ export const Default = (args) => html`<ecl-blockquote
   data-system="${prepareData(dataDemo, args).system}"
   data-image="${prepareData(dataDemo, args).image}"
   data-aria-label="${prepareData(dataDemo, args).aria_label}"
+  data-attributes="${prepareData(dataDemo, args).attributes}"
+  data-classes="${prepareData(dataDemo, args).classes}"
 >
 </ecl-blockquote>`;
 
