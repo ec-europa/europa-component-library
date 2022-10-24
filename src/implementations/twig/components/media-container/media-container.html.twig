@@ -42,8 +42,11 @@
 {% set _full_width = full_width|default(false) %}
 {% set _description = description|default('') %}
 {% set _alt = alt|default('') %}
-{% set _extra_attributes = '' %}
 {% set _embedded_media = embedded_media|default('') %}
+{% set _extra_attributes = embedded_media ? [
+  'data-ecl-media-container="true"',
+  'data-ecl-auto-init="MediaContainer"']|join(' ') : ''
+%}
 {% set _ratio = ratio|default('') %}
 {% set _sources = sources|default({}) %}
 {% set _tracks = tracks|default({}) %}

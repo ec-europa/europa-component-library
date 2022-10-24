@@ -33,7 +33,7 @@ $_scrollbar-width: 16px; // average scrollbar width; used in full screen calculu
   width: 100%;
 
   > iframe {
-    aspect-ratio: var(--width) / var(--height);
+    display: block;
     height: auto;
     width: 100%;
   }
@@ -48,7 +48,7 @@ $_scrollbar-width: 16px; // average scrollbar width; used in full screen calculu
   position: relative;
 }
 
-// Ratio
+// Manual ratio
 .ecl-media-container__media--ratio-16-9 {
   @include uMedia.aspect-ratio(16, 9);
 }
