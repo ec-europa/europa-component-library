@@ -134,6 +134,3 @@ export const Default = (args) => html`<ecl-blockquote
 Default.args = getArgs(dataDemo);
 Default.argTypes = getArgTypes();
 Default.storyName = 'default';
-Default.parameters = {
-  notes: { json: dataDemo },
-};
