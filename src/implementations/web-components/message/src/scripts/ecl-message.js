@@ -4,7 +4,6 @@ template.innerHTML = `
   <div
     class="ecl-message"
     role="alert"
-    data-ecl-auto-init="Message"
   >
     <svg
       class="ecl-icon ecl-icon--l ecl-message__icon" focusable="false" aria-hidden="true">
@@ -215,8 +214,6 @@ class eclMessage extends HTMLElement {
     if (this.extraClasses) {
       this.setClasses = this.extraClasses;
     }
-
-    this.setAutoInit = false;
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
