@@ -6,8 +6,8 @@
   "description": "ECL Message",
   "main": "dist/ecl-message.js",
   "scripts": {
-    "build:styles": "cross-env ECL_SYSTEM=eu ecl-builder styles",
-    "build:scripts": "cross-env ECL_SYSTEM=eu ecl-builder scripts",
+    "build:styles": "cross-env ecl-builder styles",
+    "build:scripts": "cross-env ecl-builder scripts",
     "build": "run-p clean:build build:*",
     "clean": "run-s clean:*",
     "clean:build": "rimraf build",
