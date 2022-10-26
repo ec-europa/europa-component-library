@@ -50,10 +50,15 @@ export class MediaContainer {
    * Initialise component.
    */
   init() {
-    this.iframe = queryOne(this.iframeSelector, this.element);
+    // Check if a ratio has been set manually
+    const media = queryOne('.ecl-media-container__media', this.element);
+    if (media && !/ecl-media-container__media--ratio/.test(media.className)) {
+      // Get the iframe
+      this.iframe = queryOne(this.iframeSelector, this.element);
 
-    // Check if there is an iframe to handle
-    if (this.iframe && this.useAutomaticRatio) this.calculateRatio();
+      // Check if there is an iframe to handle
+      if (this.iframe && this.useAutomaticRatio) this.calculateRatio();
+    }
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
