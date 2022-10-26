@@ -142,7 +142,7 @@ class eclBlockquote extends HTMLElement {
     // because it slows down the rendering.
     const style = document.createElement('style');
     style.setAttribute('id', 'ecl-blockquote-style');
-    style.innerHTML = `@import "ecl-blockquote-${s}.css"`;
+    style.innerHTML = `@import "styles/ecl-blockquote-${s}.css"`;
     this.shadowRoot.appendChild(style);
   }
 
