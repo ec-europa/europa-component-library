@@ -1,0 +1,42 @@
+{
+  "name": "@ecl/web-components-message",
+  "author": "European Commission",
+  "license": "EUPL-1.2",
+  "version": "3.5.0",
+  "description": "ECL Message",
+  "main": "dist/ecl-message.js",
+  "scripts": {
+    "build:styles": "cross-env ECL_SYSTEM=eu ecl-builder styles",
+    "build:scripts": "cross-env ECL_SYSTEM=eu ecl-builder scripts",
+    "build": "run-p clean:build build:*",
+    "clean": "run-s clean:*",
+    "clean:build": "rimraf build",
+    "clean:dist": "rimraf dist",
+    "dist": "cross-env NODE_ENV=production run-p clean:dist build:*",
+    "prepublish": "npm run clean && npm run build && npm run dist"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@ecl/builder": "3.5.0",
+    "@ecl/specs-component-message": "3.5.0",
+    "@ecl/vanilla-component-message": "3.5.0",
+    "@ecl/vanilla-component-icon": "3.5.0",
+    "@ecl/vanilla-component-button": "3.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ec-europa/europa-component-library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ec-europa/europa-component-library/issues"
+  },
+  "homepage": "https://github.com/ec-europa/europa-component-library",
+  "keywords": [
+    "ecl",
+    "europa-component-library",
+    "design-system",
+    "web-components"
+  ]
+}
