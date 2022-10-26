@@ -148,9 +148,7 @@ class eclMessage extends HTMLElement {
     script.setAttribute('src', './scripts/ecl-message-vanilla.js');
     this.shadowRoot.appendChild(script);
     this.shadowSelectors('script').addEventListener('load', () => {
-      const el = document
-        .querySelector('ecl-message')
-        .shadowRoot.querySelector('.ecl-message');
+      const el = this.shadowRoot.querySelector('.ecl-message');
       /* eslint-disable-next-line no-undef */
       const message = new ECL.Message(el);
       message.init();
