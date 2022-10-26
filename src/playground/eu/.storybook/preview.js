@@ -53,6 +53,12 @@ addParameters({
       picked: false,
       hideCode: true,
     },
+    {
+      id: 'ecl-eu-default-print',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-eu-default-print.css" />`,
+      picked: false,
+      hideCode: true,
+    },
   ],
   controls: { expanded: true },
   layout: 'padded',

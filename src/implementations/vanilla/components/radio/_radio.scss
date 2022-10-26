@@ -9,6 +9,7 @@
 $_box-background: map.get(theme.$color, 'white-100');
 $_box-border-color: null !default;
 $_box-border-color-checked: null !default;
+$_box-border-color-checked-hover: null !default;
 $_box-border-color-hover: null !default;
 $_box-border-width: 2px;
 $_box-border-width-checked: null !default;
@@ -87,6 +88,15 @@ $_outline-color: null !default;
   margin-top: map.get(theme.$spacing, 'xs');
 }
 
+// Focus
+.ecl-radio__input:focus-visible + .ecl-radio__label,
+.ecl-radio__input:active + .ecl-radio__label {
+  .ecl-radio__box {
+    outline: 2px solid map.get(theme.$color, 'blue');
+    outline-offset: 2px;
+  }
+}
+
 // Checked
 .ecl-radio__input:checked + .ecl-radio__label {
   .ecl-radio__box {
@@ -103,6 +113,14 @@ $_outline-color: null !default;
     margin: $_box-border-width-checked;
     width: 0.75rem;
   }
+
+  .ecl-radio__box:hover {
+    border-color: $_box-border-color-checked-hover;
+
+    .ecl-radio__box-inner {
+      background: $_box-border-color-checked-hover;
+    }
+  }
 }
 
 // Invalid
@@ -116,14 +134,6 @@ $_outline-color: null !default;
 
 .ecl-radio__input:checked + .ecl-radio__label .ecl-radio__box--invalid {
   border-color: $_invalid-border-color;
-}
-
-// Focus
-.ecl-radio__input:focus-visible + .ecl-radio__label,
-.ecl-radio__input:active + .ecl-radio__label {
-  .ecl-radio__box {
-    box-shadow: 0 0 0 2px map.get(theme.$color, 'blue');
-  }
 }
 
 // Binary radio

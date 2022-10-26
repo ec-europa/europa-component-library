@@ -420,7 +420,7 @@ exports[`Select Multiple renders correctly 1`] = `
     <div
       class="ecl-help-block"
     >
-      This is the input's helper text.
+      This is the helper text.
     </div>
     <div
       class="ecl-select__container ecl-select__container--m"
@@ -429,10 +429,12 @@ exports[`Select Multiple renders correctly 1`] = `
         class="ecl-select"
         data-ecl-auto-init="Select"
         data-ecl-select-all="Select all"
+        data-ecl-select-clear-all="Clear all"
+        data-ecl-select-close="Close"
         data-ecl-select-default="Select an item"
         data-ecl-select-multiple=""
         data-ecl-select-no-results="No results found"
-        data-ecl-select-search="Search"
+        data-ecl-select-search="Enter keyword"
         id="select-multiple"
         multiple=""
         required=""
@@ -459,7 +461,6 @@ exports[`Select Multiple renders correctly 1`] = `
           Germany
         </option>
         <option
-          selected=""
           value="5"
         >
           Bulgaria

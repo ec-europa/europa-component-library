@@ -6,7 +6,8 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
 
-.ecl-table {
+.ecl-table,
+%ecl-table {
   border-collapse: collapse;
   color: map.get(theme.$color, 'grey-100');
   font: map.get(theme.$font-print, 'm');
@@ -15,7 +16,8 @@
   width: 100%;
 }
 
-.ecl-table__header {
+.ecl-table__header,
+%ecl-table__header {
   padding: map.get(theme.$spacing-print, 's')
     map.get(theme.$spacing-print, 'xl') map.get(theme.$spacing-print, 's')
     map.get(theme.$spacing-print, 'm');
@@ -23,7 +25,8 @@
   vertical-align: baseline;
 }
 
-.ecl-table__row {
+.ecl-table__row,
+%ecl-table__row {
   border-bottom: 1px solid map.get(theme.$color, 'grey-50');
 }
 
@@ -31,7 +34,8 @@
   border-bottom: 2px solid map.get(theme.$color, 'grey-100');
 }
 
-.ecl-table__cell {
+.ecl-table__cell,
+%ecl-table__cell {
   padding: map.get(theme.$spacing-print, 's')
     map.get(theme.$spacing-print, 'xl') map.get(theme.$spacing-print, 's')
     map.get(theme.$spacing-print, 'm');

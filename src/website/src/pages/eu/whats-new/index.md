@@ -5,6 +5,33 @@ title: What's new
 
 Detailed release information is available on [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 3.5.0 ((2022-10-17))
+
+#### :rocket: New Feature
+
+* [#2615](https://github.com/ec-europa/europa-component-library/pull/2615) feat(popover): add component - FRONT-3698
+
+#### :bug: Bug Fix
+
+* [#2650](https://github.com/ec-europa/europa-component-library/pull/2650) fix(ordered-list): fix list alignment - FRONT-3744
+* [#2658](https://github.com/ec-europa/europa-component-library/pull/2658) fix(social-media-share): Removing padding - FRONT-3765
+* [#2644](https://github.com/ec-europa/europa-component-library/pull/2644) fix(social-media): Fixing and aligning variant selectors
+* [#2641](https://github.com/ec-europa/europa-component-library/pull/2641) fix(carousel): allow click on cta
+* [#2639](https://github.com/ec-europa/europa-component-library/pull/2639) fix(gallery): Fix AV Portal video overlay display
+
+#### :nail_care: Enhancement
+
+* [#2666](https://github.com/ec-europa/europa-component-library/pull/2666) feat(content-block): update title font - FRONT-3777
+* [#2660](https://github.com/ec-europa/europa-component-library/pull/2660) fix(print): fix display of default html tag for print
+* [#2661](https://github.com/ec-europa/europa-component-library/pull/2661) feat(focus): New styles for checkboxes and radios
+* [#2647](https://github.com/ec-europa/europa-component-library/pull/2647) feat(multiselect): Adding toolbar and selection counter
+* [#2645](https://github.com/ec-europa/europa-component-library/pull/2645) feat(content-block): Merging extra_classes for lists
+* [#2627](https://github.com/ec-europa/europa-component-library/pull/2627) fix(print): Fix components print version - FRONT-3731
+
+#### :memo: Documentation
+
+* [#2649](https://github.com/ec-europa/europa-component-library/pull/2649) docs(website): update webtools documentation - FRONT-3742
+
 ## 3.4.0 (2022-07-13)
 
 #### :rocket: New Feature
