@@ -181,7 +181,7 @@ class eclBlockquote extends HTMLElement {
         case 'data-system':
           this.shadowSelectors(
             'style'
-          ).innerHTML = `@import "ecl-blockquote-${newValue}.css"`;
+          ).innerHTML = `@import "styles/ecl-blockquote-${newValue}.css"`;
           break;
 
         case 'data-aria-label':

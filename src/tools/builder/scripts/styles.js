@@ -65,7 +65,11 @@ const buildStyles = (entry, dest, options) => {
     })
     .then((postcssResult) => {
       fs.mkdirSync(path.dirname(dest), { recursive: true });
-      fs.writeFileSync(dest, postcssResult.css);
+      if (fs.existsSync(dest) && options.append) {
+        fs.appendFileSync(dest, postcssResult.css);
+      } else {
+        fs.writeFileSync(dest, postcssResult.css);
+      }
 
       if (postcssResult.map) {
         fs.writeFileSync(`${dest}.map`, postcssResult.map);

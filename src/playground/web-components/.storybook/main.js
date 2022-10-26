@@ -15,7 +15,10 @@ const addons = [
 
 const staticDirs = [
   path.resolve(
-    `${__dirname}/../../../implementations/web-components/blockquote/${outputFolder}/styles`
+    `${__dirname}/../../../implementations/web-components/blockquote/${outputFolder}`
+  ),
+  path.resolve(
+    `${__dirname}/../../../implementations/web-components/message/${outputFolder}`
   ),
 ];
 
