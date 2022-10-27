@@ -27,7 +27,7 @@ const getArgs = (data) => {
     args.show_primary_meta = true;
   }
   if (data.title) {
-    args.title = data.title.label;
+    args.title = data.title.link ? data.title.link.label : data.title;
   }
   if (data.description) {
     args.show_description = true;
@@ -241,7 +241,11 @@ const prepareData = (data, args) => {
     clone.picture.position = args.image_position;
   }
   if (clone.title) {
-    clone.title.label = args.title;
+    if (clone.title.link) {
+      clone.title.link.label = args.title;
+    } else {
+      clone.title = args.title;
+    }
   }
   if (clone.description) {
     clone.description = args.description;
