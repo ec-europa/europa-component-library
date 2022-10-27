@@ -16,11 +16,11 @@ describe('Table', () => {
   const template = '@ecl/table/table.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
-  describe('Enhanced', () => {
+  describe('Simple', () => {
     test('renders correctly', () => {
       expect.assertions(1);
       const data = merge(dataDefault, {
-        enhanced: true,
+        simple: true,
       });
 
       return expect(render(data)).resolves.toMatchSnapshot();
