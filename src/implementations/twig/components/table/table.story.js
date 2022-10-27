@@ -11,15 +11,15 @@ import notes from './README.md';
 const dataZebra = { ...dataDefault, zebra: true };
 
 const getArgs = () => ({
-  enhanced: false,
+  simple: false,
 });
 
 const getArgTypes = () => ({
-  enhanced: {
-    name: 'enhanced display',
+  simple: {
+    name: 'simple display',
     type: { name: 'boolean' },
     description:
-      'Enhanced display for mobile. This may depends on your needs and the data passed.',
+      'Use simple display on mobile (with horizontal scroll) instead of ECL enhanced one',
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: false },

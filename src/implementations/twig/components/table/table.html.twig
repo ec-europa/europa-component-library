@@ -1,7 +1,7 @@
 {% apply spaceless %}
 {#
   Parameters:
-  - "enhanced" (boolean) (default: false)
+  - "simple" (boolean) (default: false)
   - "sortable" (boolean) (default: false)
   - "zebra" (boolean) (default: false))
   - "headers" (array) (default: []): format: [
@@ -39,7 +39,7 @@
 
 {% set _css_class = 'ecl-table' %}
 {% set _extra_attributes = '' %}
-{% set _enhanced_css_class = 'ecl-table--enhanced' %}
+{% set _simple_css_class = 'ecl-table--simple' %}
 {% set _zebra_css_class = 'ecl-table--zebra' %}
 {% set _head_css_class = 'ecl-table__head' %}
 {% set _header_css_class = 'ecl-table__header' %}
@@ -48,7 +48,7 @@
 {% set _row_css_class = 'ecl-table__row' %}
 {% set _row_extra_attributes = '' %}
 {% set _headers = headers|default([]) %}
-{% set _enhanced = enhanced|default(false) %}
+{% set _simple = simple|default(false) %}
 {% set _sortable = sortable|default(false) %}
 {% set _rows = rows|default([]) %}
 {% set _zebra = zebra|default(false) %}
@@ -66,8 +66,8 @@
   ]) %}
 {% endif %}
 
-{% if _enhanced %}
-  {% set _css_class = _css_class ~ ' ' ~ _enhanced_css_class %}
+{% if _simple %}
+  {% set _css_class = _css_class ~ ' ' ~ _simple_css_class %}
 {% endif %}
 
 {% if _zebra %}

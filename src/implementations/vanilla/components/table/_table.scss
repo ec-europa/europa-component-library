@@ -211,7 +211,7 @@ $_button_arrow_width: null !default;
 // Enhanced table (mobile)
 /* stylelint-disable-next-line order/order */
 @include breakpoints.down('m') {
-  .ecl-table--enhanced {
+  .ecl-table:not(.ecl-table--simple) {
     .ecl-table__head {
       display: none;
     }

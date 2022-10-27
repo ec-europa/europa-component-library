@@ -4,10 +4,8 @@ import dataSortable from '@ecl/specs-component-table/demo/data--sort-table';
 import template from '@ecl/twig-component-table/table.html.twig';
 
 const dataZebra = { ...dataDefault, zebra: true };
-const dataEnhanced = { ...dataDefault, enhanced: true };
 
 export const tableDefault = template(dataDefault);
 export const tableZebra = template(dataZebra);
 export const tableMulti = template(dataMulti);
 export const tableSortable = template(dataSortable);
-export const tableEnhanced = template(dataEnhanced);

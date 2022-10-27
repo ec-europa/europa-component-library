@@ -8,7 +8,7 @@ npm install --save @ecl/twig-component-table
 
 ### Parameters:
 
-- **"enhanced"** (boolean) (default: false)
+- **"simple"** (boolean) (default: false)
 - **"zebra"** (boolean) (default: false))
 - **"sortable"** (boolean) (default: false)
 - **"headers"** (array) (default: [])

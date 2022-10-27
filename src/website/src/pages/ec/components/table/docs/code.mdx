@@ -4,13 +4,7 @@ order: 2
 ---
 
 import { Playground, Html } from '@ecl/website-components';
-import {
-  tableDefault,
-  tableMulti,
-  tableSortable,
-  tableZebra,
-  tableEnhanced,
-} from '../demo';
+import { tableDefault, tableMulti, tableSortable, tableZebra } from '../demo';
 
 ## Default table
 
@@ -44,12 +38,13 @@ import {
 ## Enhanced mobile table
 
 Enhanced tables offers a more user friendly display on mobile.
-They are however dependent to the needs, and the data you want to use, and so are not enabled by default.
-To be able to use the enhanced table, your table should follow these rules:
+This is the default display of ECL tables, but you can turn this behaviour off by using the parameter `simple`.
+
+To be able to use the enhanced table without issue, your table should follow these rules:
 
 - have a table header, containing the `<th>` tags
 - have a `data-ecl-table-header` attribute filled for the other cells (a parameter is provided in the twig template)
-  You can find a working markup in the example below.
+  You can find a working data set and markup in the example below.
 
 Note: enhanced tables works for all the table variants listed here, but without sorting.
 
@@ -59,7 +54,6 @@ Note: enhanced tables works for all the table variants listed here, but without 
   system="ec"
   selectedKind="components-table"
   selectedStory="default"
-  selectedArgs="enhanced:true"
 >
-  <Html markup={tableEnhanced} />
+  <Html markup={tableDefault} />
 </Playground>
