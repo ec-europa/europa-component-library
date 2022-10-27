@@ -9,7 +9,8 @@
 $_color: map.get(theme.$color, 'blue-100');
 $_negative-color: null !default;
 
-.ecl-link {
+.ecl-link,
+%ecl-link {
   color: $_color;
   page-break-inside: avoid;
   text-decoration: none;

@@ -22,7 +22,8 @@ Here is the list of HTML tags available for automatic styling:
 
 ## Optional CSS
 
-To activate the styling of HTML tags, an optional CSS file called `ecl-default` is available for both EC and EU. 
+To activate the styling of HTML tags, an optional CSS file called `ecl-eu-default` is available in the optional styles folder.
+Additionnaly, a corresponding print css called `ecl-eu-default-print` should be used to take care of the print display.
 
 ## Namespace
 
