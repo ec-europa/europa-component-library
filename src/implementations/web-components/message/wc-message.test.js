@@ -16,6 +16,8 @@ describe('Message', () => {
         data-title="${data.title}
         data-description="${data.description}"
         data-icon-path="/icons.svg"
+        data-ecl-script
+        data-ecl-auto-init
       >
       </ecl-message>`;
 
@@ -31,6 +33,41 @@ describe('Message', () => {
         data-description="${data.description}"
         data-variant="${data.variant}"
         data-icon-path="/icons.svg"
+        data-ecl-script
+        data-ecl-auto-init
+      >
+      </ecl-message>`;
+
+    return expect(render(html)).resolves.toMatchSnapshot();
+  });
+
+  test('Without ecl javascript renders correctly', () => {
+    expect.assertions(1);
+    const html = `<head></head>
+      <ecl-message 
+        data-classes='["extra-class", "extra-class-2"]'
+        data-attributes='{"test-attribute": "test-value"}'
+        data-title="${data.title}""
+        data-description="${data.description}"
+        data-variant="${data.variant}"
+        data-icon-path="/icons.svg"
+      >
+      </ecl-message>`;
+
+    return expect(render(html)).resolves.toMatchSnapshot();
+  });
+
+  test('Without autoInit renders correctly', () => {
+    expect.assertions(1);
+    const html = `<head></head>
+      <ecl-message 
+        data-classes='["extra-class", "extra-class-2"]'
+        data-attributes='{"test-attribute": "test-value"}'
+        data-title="${data.title}""
+        data-description="${data.description}"
+        data-variant="${data.variant}"
+        data-icon-path="/icons.svg"
+        data-ecl-script
       >
       </ecl-message>`;
 
