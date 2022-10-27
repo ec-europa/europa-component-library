@@ -13,3 +13,4 @@ cp -r ../../dist/playground/wc ./public/playground/wc
 # Make assets available for storybook
 cp -r ../../dist/packages/ec/. ./public/playground/ec
 cp -r ../../dist/packages/eu/. ./public/playground/eu
+cp -a ../../src/implementations/web-components/*/dist/* ./public/playground/wc
