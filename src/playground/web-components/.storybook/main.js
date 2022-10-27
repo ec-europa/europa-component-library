@@ -10,6 +10,7 @@ const stories = ['../../../implementations/web-components/**/!(eu*).story.js'];
 const addons = [
   '@storybook/addon-docs',
   '@storybook/addon-viewport',
+  '@ecl/storybook-addon-notes',
   '@storybook/addon-controls',
 ];
 

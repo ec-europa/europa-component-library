@@ -1,9 +1,11 @@
 import { html } from 'lit-html';
+import { withNotes } from '@ecl/storybook-addon-notes';
 import iconPathEc from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import iconPathEu from '@ecl/resources-eu-icons/dist/sprites/icons.svg';
 
 import dataDemo from '@ecl/specs-component-message/demo/data--info';
 import message from './src/scripts/ecl-message';
+import notes from './README.md';
 
 const getArgs = (data) => ({
   system: 'ec',
@@ -117,6 +119,7 @@ const prepareData = (data, args) => {
 
 export default {
   title: 'Components/Message',
+  decorators: [withNotes],
 };
 
 export const Default = (args) => html`<ecl-message
@@ -128,9 +131,14 @@ export const Default = (args) => html`<ecl-message
   data-description="${prepareData(dataDemo, args).description}"
   data-close-label="${prepareData(dataDemo, args).closeLabel}"
   data-icon-path="${prepareData(dataDemo, args).iconPath}"
+  data-ecl-auto-init
+  data-ecl-script
 >
 </ecl-message>`;
 
 Default.args = getArgs(dataDemo);
 Default.argTypes = getArgTypes();
 Default.storyName = 'default';
+Default.parameters = {
+  notes: { markdown: notes },
+};

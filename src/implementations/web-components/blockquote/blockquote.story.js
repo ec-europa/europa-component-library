@@ -1,7 +1,9 @@
 import { html } from 'lit-html';
+import { withNotes } from '@ecl/storybook-addon-notes';
 
 import dataDemo from '@ecl/specs-component-blockquote/demo/data';
 import blockquote from './src/ecl-blockquote';
+import notes from './README.md';
 
 const img =
   'https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg';
@@ -118,6 +120,7 @@ const prepareData = (data, args) => {
 
 export default {
   title: 'Components/Blockquote',
+  decorators: [withNotes],
 };
 
 export const Default = (args) => html`<ecl-blockquote
@@ -134,3 +137,6 @@ export const Default = (args) => html`<ecl-blockquote
 Default.args = getArgs(dataDemo);
 Default.argTypes = getArgTypes();
 Default.storyName = 'default';
+Default.parameters = {
+  notes: { markdown: notes },
+};

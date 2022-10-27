@@ -30,7 +30,9 @@ class eclMessage extends HTMLElement {
     super();
 
     this.attachShadow({ mode: 'open' });
-    this.setEclScript = true;
+    if (this.eclScript) {
+      this.setEclScript = true;
+    }
     this.setSystem = this.system || 'ec';
     this.shadowRoot.appendChild(template.content.cloneNode(true));
   }
@@ -105,6 +107,14 @@ class eclMessage extends HTMLElement {
     return this.getAttribute('data-close-label');
   }
 
+  get eclScript() {
+    return this.hasAttribute('data-ecl-script');
+  }
+
+  get autoInit() {
+    return this.hasAttribute('data-ecl-auto-init');
+  }
+
   get extraAttributes() {
     return this.getAttribute('data-attributes');
   }
@@ -147,12 +157,9 @@ class eclMessage extends HTMLElement {
     const script = document.createElement('script');
     script.setAttribute('src', './scripts/ecl-message-vanilla.js');
     this.shadowRoot.appendChild(script);
-    this.shadowSelectors('script').addEventListener('load', () => {
-      const el = this.shadowRoot.querySelector('.ecl-message');
-      /* eslint-disable-next-line no-undef */
-      const message = new ECL.Message(el);
-      message.init();
-    });
+    if (this.autoInit) {
+      this.setAutoInit = true;
+    }
   }
 
   set setVariant(v) {
@@ -165,6 +172,15 @@ class eclMessage extends HTMLElement {
 
     this.shadowSelectors('message').classList.add(`ecl-message--${v}`);
     this.setIconPath = this.iconPath;
+  }
+
+  set setAutoInit(b) {
+    this.shadowSelectors('script').addEventListener('load', () => {
+      const el = this.shadowRoot.querySelector('.ecl-message');
+      /* eslint-disable-next-line no-undef */
+      const message = new ECL.Message(el);
+      message.init();
+    });
   }
 
   set setTitle(t) {
