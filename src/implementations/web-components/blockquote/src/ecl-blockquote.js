@@ -1,4 +1,6 @@
 const template = document.createElement('template');
+const trueTypeOf = (obj) =>
+  Object.prototype.toString.call(obj).slice(8, -1).toLowerCase();
 
 template.innerHTML = `
   <figure class="ecl-blockquote">
@@ -85,11 +87,15 @@ class eclBlockquote extends HTMLElement {
   // Setters
 
   set setAuthor(a) {
-    this.shadowSelectors('author').innerHTML = this.author;
+    if (trueTypeOf(this.author) === 'string') {
+      this.shadowSelectors('author').innerHTML = this.author;
+    }
   }
 
   set setCitation(c) {
-    this.shadowSelectors('citation').innerHTML = this.citation;
+    if (trueTypeOf(this.citation) === 'string') {
+      this.shadowSelectors('citation').innerHTML = this.citation;
+    }
   }
 
   set setImage(i) {
@@ -98,7 +104,9 @@ class eclBlockquote extends HTMLElement {
       if (this.ariaLabel) {
         this.setAriaLabel = this.ariaLabel;
       }
-      this.shadowSelectors('image').setAttribute('src', this.image);
+      if (trueTypeOf(this.image) === 'string') {
+        this.shadowSelectors('image').setAttribute('src', this.image);
+      }
     } else if (this.image && !this.shadowSelectors('image')) {
       // We create an img from scratch and we add it to the shadowDom
       // in the slot we created in the template.
@@ -107,20 +115,29 @@ class eclBlockquote extends HTMLElement {
       if (this.ariaLabel) {
         img.setAttribute('aria-label', this.ariaLabel);
       }
-      img.setAttribute('src', this.image);
+      if (trueTypeOf(this.image) === 'string') {
+        img.setAttribute('src', this.image);
+      }
       this.shadowSelectors('slot').prepend(img);
     }
   }
 
   set setAriaLabel(a) {
-    if (this.image && this.shadowSelectors('image')) {
+    if (
+      this.image &&
+      this.shadowSelectors('image') &&
+      trueTypeOf(this.ariaLabel) === 'string'
+    ) {
       this.shadowSelectors('image').setAttribute('aria-label', this.ariaLabel);
     }
   }
 
   set setAttributes(a) {
     const attributes = JSON.parse(a);
-    if (Object.keys(attributes).length > 0) {
+    if (
+      trueTypeOf(attributes) === 'object' &&
+      Object.keys(attributes).length > 0
+    ) {
       Object.keys(attributes).forEach((attribute) => {
         this.shadowSelectors('figure').setAttribute(
           attribute,
@@ -133,7 +150,9 @@ class eclBlockquote extends HTMLElement {
   set setClasses(c) {
     if (c.length > 2) {
       const extraClasses = JSON.parse(c);
-      this.shadowSelectors('figure').classList.add(...extraClasses);
+      if (trueTypeOf(extraClasses) === 'array') {
+        this.shadowSelectors('figure').classList.add(...extraClasses);
+      }
     }
   }
 
@@ -197,9 +216,15 @@ class eclBlockquote extends HTMLElement {
           break;
 
         case 'data-image':
-          if (newValue && newValue !== '') {
+          if (
+            newValue &&
+            newValue !== '' &&
+            trueTypeOf(newValue) === 'string'
+          ) {
             this.setImage = newValue;
-            this.shadowSelectors('image').setAttribute('src', newValue);
+            if (trueTypeOf(newValue) === 'string') {
+              this.shadowSelectors('image').setAttribute('src', newValue);
+            }
           } else {
             this.shadowSelectors('slot').innerHTML = '';
           }

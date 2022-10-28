@@ -13,15 +13,6 @@ addParameters({
       hidden: true,
     },
   },
-  a11y: {
-    element: '#root',
-    config: {},
-    options: {
-      checks: { 'color-contrast': { options: { noScroll: true } } },
-      restoreScroll: true,
-    },
-    manual: false,
-  },
   cssresources: [],
   controls: { expanded: true },
   layout: 'padded',
@@ -60,5 +51,3 @@ addParameters({
     },
   },
 });
-
-export const decorators = [withCssResources];

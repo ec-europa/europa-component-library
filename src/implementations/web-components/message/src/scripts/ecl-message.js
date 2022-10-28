@@ -1,4 +1,6 @@
 const template = document.createElement('template');
+const trueTypeOf = (obj) =>
+  Object.prototype.toString.call(obj).slice(8, -1).toLowerCase();
 
 template.innerHTML = `
   <div
@@ -127,7 +129,10 @@ class eclMessage extends HTMLElement {
 
   set setAttributes(a) {
     const attributes = JSON.parse(a);
-    if (Object.keys(attributes).length > 0) {
+    if (
+      trueTypeOf(attributes) === 'object' &&
+      Object.keys(attributes).length > 0
+    ) {
       Object.keys(attributes).forEach((attribute) => {
         this.shadowSelectors('message').setAttribute(
           attribute,
@@ -140,17 +145,21 @@ class eclMessage extends HTMLElement {
   set setClasses(c) {
     if (c.length > 2) {
       const extraClasses = JSON.parse(c);
-      this.shadowSelectors('message').classList.add(...extraClasses);
+      if (trueTypeOf(extraClasses) === 'array') {
+        this.shadowSelectors('message').classList.add(...extraClasses);
+      }
     }
   }
 
   set setSystem(s) {
-    // We will use an import for using an external css, this is sub-optimal
-    // because it slows down the rendering.
-    const style = document.createElement('style');
-    style.setAttribute('id', 'ecl-message-style');
-    style.innerHTML = `@import "styles/ecl-message-${s}.css"`;
-    this.shadowRoot.appendChild(style);
+    if (trueTypeOf(s) === 'string') {
+      // We will use an import for using an external css, this is sub-optimal
+      // because it slows down the rendering.
+      const style = document.createElement('style');
+      style.setAttribute('id', 'ecl-message-style');
+      style.innerHTML = `@import "styles/ecl-message-${s}.css"`;
+      this.shadowRoot.appendChild(style);
+    }
   }
 
   set setEclScript(e) {
@@ -169,9 +178,12 @@ class eclMessage extends HTMLElement {
       const match = messageClasses.match(modifier)[0];
       this.shadowSelectors('message').classList.remove(match);
     }
-
-    this.shadowSelectors('message').classList.add(`ecl-message--${v}`);
-    this.setIconPath = this.iconPath;
+    if (trueTypeOf(v) === 'string') {
+      this.shadowSelectors('message').classList.add(`ecl-message--${v}`);
+    }
+    if (trueTypeOf(this.iconPath) === 'string') {
+      this.setIconPath = this.iconPath;
+    }
   }
 
   set setAutoInit(b) {
@@ -184,26 +196,37 @@ class eclMessage extends HTMLElement {
   }
 
   set setTitle(t) {
-    this.shadowSelectors('title').innerHTML = t;
+    if (trueTypeOf(t) === 'string') {
+      this.shadowSelectors('title').innerHTML = t;
+    }
   }
 
   set setDescription(d) {
-    this.shadowSelectors('description').innerHTML = d;
+    if (trueTypeOf(d) === 'string') {
+      this.shadowSelectors('description').innerHTML = d;
+    }
   }
 
   set setIconPath(p) {
-    this.shadowSelectors('mainIcon').setAttribute(
-      'xlink:href',
-      `${p}#${eclMessage.getIconName(this.variant)}`
-    );
-    this.shadowSelectors('closeIcon').setAttribute(
-      'xlink:href',
-      `${p}#close-filled`
-    );
+    if (p) {
+      this.shadowSelectors('closeIcon').setAttribute(
+        'xlink:href',
+        `${p}#close-filled`
+      );
+
+      if (trueTypeOf(this.variant) === 'string') {
+        this.shadowSelectors('mainIcon').setAttribute(
+          'xlink:href',
+          `${p}#${eclMessage.getIconName(this.variant)}`
+        );
+      }
+    }
   }
 
   set setCloseLabel(l) {
-    this.shadowSelectors('close').innerHTML = l;
+    if (trueTypeOf(l) === 'string') {
+      this.shadowSelectors('close').innerHTML = l;
+    }
   }
 
   connectedCallback() {
