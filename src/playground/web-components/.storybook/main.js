@@ -21,6 +21,9 @@ const staticDirs = [
   path.resolve(
     `${__dirname}/../../../implementations/web-components/message/${outputFolder}`
   ),
+  path.resolve(
+    `${__dirname}/../../../implementations/web-components/select/${outputFolder}`
+  ),
 ];
 
 const webpackFinal = (config) => {

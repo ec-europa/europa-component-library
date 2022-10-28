@@ -17,9 +17,9 @@ module.exports = {
     {
       entry: path.resolve(
         nodeModules,
-        '@ecl/vanilla-component-message/message.js'
+        '@ecl/vanilla-component-select/select.js'
       ),
-      dest: path.resolve(outputFolder, 'scripts/ecl-message-vanilla.js'),
+      dest: path.resolve(outputFolder, 'scripts/ecl-select-vanilla.js'),
       options: {
         banner,
         moduleName: 'ECL',
@@ -28,8 +28,8 @@ module.exports = {
       },
     },
     {
-      entry: path.resolve(__dirname, 'src/scripts/ecl-message.js'),
-      dest: path.resolve(outputFolder, 'ecl-message.min.js'),
+      entry: path.resolve(__dirname, 'src/scripts/ecl-select.js'),
+      dest: path.resolve(outputFolder, 'ecl-select.min.js'),
       options: {
         banner,
         moduleName: 'ECL',
@@ -39,8 +39,8 @@ module.exports = {
   ],
   styles: [
     {
-      entry: path.resolve(__dirname, 'src/styles/ecl-message-ec.scss'),
-      dest: path.resolve(outputFolder, 'styles/ecl-message-ec.css'),
+      entry: path.resolve(__dirname, 'src/styles/ecl-select-ec.scss'),
+      dest: path.resolve(outputFolder, 'styles/ecl-select-ec.css'),
       options: {
         banner,
         includePaths,
@@ -48,8 +48,8 @@ module.exports = {
       },
     },
     {
-      entry: path.resolve(__dirname, 'src/styles/ecl-message-eu.scss'),
-      dest: path.resolve(outputFolder, 'styles/ecl-message-eu.css'),
+      entry: path.resolve(__dirname, 'src/styles/ecl-select-eu.scss'),
+      dest: path.resolve(outputFolder, 'styles/ecl-select-eu.css'),
       options: {
         banner,
         includePaths,

@@ -256,6 +256,10 @@ $_multiple_counter_background: null !default;
     box-sizing: border-box;
     position: absolute;
     z-index: map.get(theme.$z-index, 'dropdown');
+
+    &.hidden {
+      display: none;
+    }
   }
 
   .ecl-text-input {

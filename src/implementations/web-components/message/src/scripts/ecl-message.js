@@ -10,7 +10,8 @@ template.innerHTML = `
     <svg
       class="ecl-icon ecl-icon--l ecl-message__icon"
       focusable="false"
-      aria-hidden="true">
+      aria-hidden="true"
+    >
       <use xlink:href=""></use>
     </svg>
     <div class="ecl-message__content">

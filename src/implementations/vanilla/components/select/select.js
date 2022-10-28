@@ -282,9 +282,9 @@ export class Select {
     this.inputContainer.appendChild(Select.createSelectIcon());
 
     this.searchContainer = document.createElement('div');
-    this.searchContainer.style.display = 'none';
     this.searchContainer.classList.add(
       'ecl-select__multiple-dropdown',
+      'hidden',
       ...containerClasses
     );
 
@@ -519,11 +519,10 @@ export class Select {
    */
   handleToggle(e) {
     e.preventDefault();
-
-    if (this.searchContainer.style.display === 'none') {
-      this.searchContainer.style.display = 'block';
+    if (this.searchContainer.classList.contains('hidden')) {
+      this.searchContainer.classList.remove('hidden');
     } else {
-      this.searchContainer.style.display = 'none';
+      this.searchContainer.classList.add('hidden');
     }
   }
 
@@ -847,9 +846,7 @@ export class Select {
   }
 
   handleEsc() {
-    if (this.searchContainer.style.display === 'block') {
-      this.searchContainer.style.display = 'none';
-    }
+    this.searchContainer.classList.add('hidden');
   }
 
   /**
