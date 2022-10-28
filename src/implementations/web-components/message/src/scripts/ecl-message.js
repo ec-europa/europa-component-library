@@ -8,21 +8,27 @@ template.innerHTML = `
     role="alert"
   >
     <svg
-      class="ecl-icon ecl-icon--l ecl-message__icon" focusable="false" aria-hidden="true">
+      class="ecl-icon ecl-icon--l ecl-message__icon"
+      focusable="false"
+      aria-hidden="true">
       <use xlink:href=""></use>
     </svg>
     <div class="ecl-message__content">
-      <button class="ecl-button ecl-button--ghost ecl-message__close" type="button" data-ecl-message-close>
+      <button class="ecl-button ecl-button--ghost ecl-message__close"
+        type="button"
+        data-ecl-message-close
+      >
         <span class="ecl-button__container">
           <span class="ecl-button__label"></span>
-          <svg class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
+          <svg
+            class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
             focusable="false" aria-hidden="true">
             <use xlink:href=""></use>
           </svg>
         </span>
       </button>
-      <div class="ecl-message__title"></div>
-      <div class="ecl-message__description"></div>
+      <slot name="ecl-message-title"></slot>
+      <slot name="ecl-message-description"></slot>
     </div>
   </div>`;
 
@@ -45,6 +51,8 @@ class eclMessage extends HTMLElement {
       style: shadow.querySelector('#ecl-message-style'),
       script: shadow.querySelector('script'),
       message: shadow.querySelector('.ecl-message'),
+      titleSlot: shadow.querySelector('[name="ecl-message-title"]'),
+      descriptionSlot: shadow.querySelector('[name="ecl-message-description"]'),
       title: shadow.querySelector('.ecl-message__title'),
       description: shadow.querySelector('.ecl-message__description'),
       close: shadow.querySelector('.ecl-button--ghost .ecl-button__label'),
@@ -196,14 +204,36 @@ class eclMessage extends HTMLElement {
   }
 
   set setTitle(t) {
-    if (trueTypeOf(t) === 'string') {
-      this.shadowSelectors('title').innerHTML = t;
+    if (t === '') {
+      this.shadowSelectors('titleSlot').innerHTML = '';
+    }
+    if (trueTypeOf(t) === 'string' && t !== '') {
+      if (this.shadowSelectors('title')) {
+        this.shadowSelectors('title').innerHTML = t;
+      } else {
+        const titleContainer = document.createElement('div');
+        titleContainer.classList.add('ecl-message__title');
+        titleContainer.textContent = t;
+        this.shadowSelectors('titleSlot').appendChild(titleContainer);
+      }
     }
   }
 
   set setDescription(d) {
-    if (trueTypeOf(d) === 'string') {
-      this.shadowSelectors('description').innerHTML = d;
+    if (d === '') {
+      this.shadowSelectors('descriptionSlot').innerHTML = '';
+    }
+    if (trueTypeOf(d) === 'string' && d !== '') {
+      if (this.shadowSelectors('description')) {
+        this.shadowSelectors('description').innerHTML = d;
+      } else {
+        const descriptionContainer = document.createElement('div');
+        descriptionContainer.classList.add('ecl-message__description');
+        descriptionContainer.textContent = d;
+        this.shadowSelectors('descriptionSlot').appendChild(
+          descriptionContainer
+        );
+      }
     }
   }
 

@@ -19,7 +19,7 @@ module.exports = {
       dest: path.resolve(outputFolder, 'ecl-blockquote.min.js'),
       options: {
         banner,
-        moduleName: 'eclBlockquote',
+        moduleName: 'ECL',
         sourceMap: false,
       },
     },

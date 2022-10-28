@@ -13,7 +13,7 @@ describe('Message', () => {
     const html = `<head></head>
       <ecl-message
         data-variant="${data.variant}"
-        data-title="${data.title}
+        data-title="${data.title}"
         data-description="${data.description}"
         data-icon-path="/icons.svg"
         data-ecl-script
@@ -47,7 +47,7 @@ describe('Message', () => {
       <ecl-message 
         data-classes='["extra-class", "extra-class-2"]'
         data-attributes='{"test-attribute": "test-value"}'
-        data-title="${data.title}""
+        data-title="${data.title}"
         data-description="${data.description}"
         data-variant="${data.variant}"
         data-icon-path="/icons.svg"
@@ -63,8 +63,42 @@ describe('Message', () => {
       <ecl-message 
         data-classes='["extra-class", "extra-class-2"]'
         data-attributes='{"test-attribute": "test-value"}'
-        data-title="${data.title}""
+        data-title="${data.title}"
         data-description="${data.description}"
+        data-variant="${data.variant}"
+        data-icon-path="/icons.svg"
+        data-ecl-script
+      >
+      </ecl-message>`;
+
+    return expect(render(html)).resolves.toMatchSnapshot();
+  });
+
+  test('With no title renders correctly', () => {
+    expect.assertions(1);
+    const html = `<head></head>
+      <ecl-message 
+        data-classes='["extra-class", "extra-class-2"]'
+        data-attributes='{"test-attribute": "test-value"}'
+        data-title=""
+        data-description="${data.description}"
+        data-variant="${data.variant}"
+        data-icon-path="/icons.svg"
+        data-ecl-script
+      >
+      </ecl-message>`;
+
+    return expect(render(html)).resolves.toMatchSnapshot();
+  });
+
+  test('With no description renders correctly', () => {
+    expect.assertions(1);
+    const html = `<head></head>
+      <ecl-message 
+        data-classes='["extra-class", "extra-class-2"]'
+        data-attributes='{"test-attribute": "test-value"}'
+        data-title="${data.title}"
+        data-description=""
         data-variant="${data.variant}"
         data-icon-path="/icons.svg"
         data-ecl-script
@@ -80,7 +114,7 @@ describe('Message', () => {
       <ecl-message 
         data-classes='["extra-class", "extra-class-2"]'
         data-attributes='{"test-attribute": "test-value"}'
-        data-title="${data.title}""
+        data-title="${data.title}"
         data-description="${data.description}"
         data-variant="${data.variant}"
         data-icon-path="/icons.svg"

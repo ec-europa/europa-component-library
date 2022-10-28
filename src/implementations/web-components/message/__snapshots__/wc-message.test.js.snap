@@ -15,9 +15,8 @@ exports[`Message EC renders correctly 1`] = `
           </svg>
         </span>
       </button>
-      <div class="ecl-message__title">Information message
-        data-description=</div>
-      <div class="ecl-message__description"></div>
+      <slot name="ecl-message-title"><div class="ecl-message__title">Information message</div></slot>
+      <slot name="ecl-message-description"><div class="ecl-message__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.</div></slot>
     </div>
   </div>"
 `;
@@ -37,8 +36,8 @@ exports[`Message EU renders correctly 1`] = `
           </svg>
         </span>
       </button>
-      <div class="ecl-message__title">Information message</div>
-      <div class="ecl-message__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.</div>
+      <slot name="ecl-message-title"><div class="ecl-message__title">Information message</div></slot>
+      <slot name="ecl-message-description"><div class="ecl-message__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.</div></slot>
     </div>
   </div>"
 `;
@@ -58,8 +57,50 @@ exports[`Message With attributes and classes renders correctly 1`] = `
           </svg>
         </span>
       </button>
-      <div class="ecl-message__title">Information message</div>
-      <div class="ecl-message__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.</div>
+      <slot name="ecl-message-title"><div class="ecl-message__title">Information message</div></slot>
+      <slot name="ecl-message-description"><div class="ecl-message__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.</div></slot>
+    </div>
+  </div>"
+`;
+
+exports[`Message With no description renders correctly 1`] = `
+"<script src="./scripts/ecl-message-vanilla.js"></script><style id="ecl-message-style">@import "styles/ecl-message-ec.css"</style>
+  <div class="ecl-message extra-class extra-class-2 ecl-message--info" role="alert" test-attribute="test-value">
+    <svg class="ecl-icon ecl-icon--l ecl-message__icon" focusable="false" aria-hidden="true">
+      <use xlink:href="/icons.svg#information"></use>
+    </svg>
+    <div class="ecl-message__content">
+      <button class="ecl-button ecl-button--ghost ecl-message__close" type="button" data-ecl-message-close="">
+        <span class="ecl-button__container">
+          <span class="ecl-button__label"></span>
+          <svg class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after" focusable="false" aria-hidden="true">
+            <use xlink:href="/icons.svg#close-filled"></use>
+          </svg>
+        </span>
+      </button>
+      <slot name="ecl-message-title"><div class="ecl-message__title">Information message</div></slot>
+      <slot name="ecl-message-description"></slot>
+    </div>
+  </div>"
+`;
+
+exports[`Message With no title renders correctly 1`] = `
+"<script src="./scripts/ecl-message-vanilla.js"></script><style id="ecl-message-style">@import "styles/ecl-message-ec.css"</style>
+  <div class="ecl-message extra-class extra-class-2 ecl-message--info" role="alert" test-attribute="test-value">
+    <svg class="ecl-icon ecl-icon--l ecl-message__icon" focusable="false" aria-hidden="true">
+      <use xlink:href="/icons.svg#information"></use>
+    </svg>
+    <div class="ecl-message__content">
+      <button class="ecl-button ecl-button--ghost ecl-message__close" type="button" data-ecl-message-close="">
+        <span class="ecl-button__container">
+          <span class="ecl-button__label"></span>
+          <svg class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after" focusable="false" aria-hidden="true">
+            <use xlink:href="/icons.svg#close-filled"></use>
+          </svg>
+        </span>
+      </button>
+      <slot name="ecl-message-title"></slot>
+      <slot name="ecl-message-description"><div class="ecl-message__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.</div></slot>
     </div>
   </div>"
 `;
@@ -79,8 +120,8 @@ exports[`Message Without autoInit renders correctly 1`] = `
           </svg>
         </span>
       </button>
-      <div class="ecl-message__title">Information message</div>
-      <div class="ecl-message__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.</div>
+      <slot name="ecl-message-title"><div class="ecl-message__title">Information message</div></slot>
+      <slot name="ecl-message-description"><div class="ecl-message__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.</div></slot>
     </div>
   </div>"
 `;
@@ -100,8 +141,8 @@ exports[`Message Without ecl javascript renders correctly 1`] = `
           </svg>
         </span>
       </button>
-      <div class="ecl-message__title">Information message</div>
-      <div class="ecl-message__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.</div>
+      <slot name="ecl-message-title"><div class="ecl-message__title">Information message</div></slot>
+      <slot name="ecl-message-description"><div class="ecl-message__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.</div></slot>
     </div>
   </div>"
 `;

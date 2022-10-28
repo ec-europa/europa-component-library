@@ -32,7 +32,7 @@ module.exports = {
       dest: path.resolve(outputFolder, 'ecl-message.min.js'),
       options: {
         banner,
-        moduleName: 'eclBlockquote',
+        moduleName: 'ECL',
         sourceMap: false,
       },
     },
