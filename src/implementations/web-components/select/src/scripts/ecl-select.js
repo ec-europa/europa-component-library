@@ -58,12 +58,9 @@ class eclSelect extends HTMLElement {
 
   static get observedAttributes() {
     return [
-      'data-classes',
-      'data-attributes',
       'data-system',
       'data-options',
       'data-label',
-      'data-id',
       'data-required-text',
       'data-helper-text',
       'required',
@@ -277,8 +274,8 @@ class eclSelect extends HTMLElement {
         const label = document.createElement('label');
         label.classList.add('ecl-form-label');
         label.innerHTML = l;
-        if (this.id && trueTypeOf(this.id) === 'string') {
-          label.setAttribute('for', this.id);
+        if (this.hasAttribute('id')) {
+          label.setAttribute('for', this.getAttribute('id'));
         }
         this.shadowSelectors('labelSlot').prepend(label);
       } else {

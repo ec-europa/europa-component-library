@@ -11,7 +11,6 @@ import notes from './README.md';
 const getArgs = (data) => ({
   system: 'ec',
   label: data.label,
-  id: data.id,
   required: data.required,
   iconPath: data.system === 'eu' ? iconPathEu : iconPathEc,
   attributes: {},
@@ -121,6 +120,7 @@ export default {
 };
 
 export const Default = (args) => html`<ecl-select
+  id="${dataDemo.id}"
   data-options="${JSON.stringify(dataDemo.options)}"
   data-system="${args.system}"
   ?required=${args.required}
@@ -141,6 +141,7 @@ Default.parameters = {
 };
 
 export const Multiple = (args) => html`<ecl-select
+  id="${dataMultiple.id}"
   data-options="${JSON.stringify(dataDemo.options)}"
   data-system="${args.system}"
   ?required=${args.required}
