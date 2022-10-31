@@ -128,7 +128,15 @@ class eclSelect extends HTMLElement {
       const options = JSON.parse(o);
       if (trueTypeOf(options) === 'array' && options.length > 0) {
         options.forEach((option) => {
-          const newOption = new Option(option.label, option.value);
+          const newOption = new Option(
+            option.label,
+            option.value,
+            option.selected,
+            option.selected
+          );
+          if (option.disabled) {
+            newOption.disabled = true;
+          }
           this.shadowSelectors('select').add(newOption);
         });
       }
