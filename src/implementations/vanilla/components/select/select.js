@@ -627,6 +627,12 @@ export class Select {
         // Highlight keyword in checkbox label.
         const checkboxElement = checkbox.querySelector('.ecl-checkbox__box');
         const checkboxLabel = checkbox.querySelector('.ecl-checkbox__label');
+        // Fixing the value of textContent on the checkbox label due to the <style>
+        // tag content in the contained svg.
+        checkboxLabel.textContent = checkboxLabel.textContent.replace(
+          '.cls-1{fill:none}',
+          ''
+        );
         if (keyword) {
           checkboxLabel.innerHTML =
             checkboxElement.outerHTML +
@@ -789,6 +795,7 @@ export class Select {
 
       default:
     }
+    e.stopPropagation();
   }
 
   /**

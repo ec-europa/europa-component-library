@@ -18,6 +18,7 @@ const getArgs = (data) => ({
   optionalText: data.optional_text,
   helperText: data.helper_text,
   disabled: false,
+  invalid: false,
 });
 
 const getArgTypes = () => ({
@@ -33,7 +34,7 @@ const getArgTypes = () => ({
     },
   },
   label: {
-    name: 'label',
+    name: 'data-label',
     type: { name: 'string' },
     description: 'Label for the form group',
     table: {
@@ -43,7 +44,7 @@ const getArgTypes = () => ({
     },
   },
   helperText: {
-    name: 'helper text',
+    name: 'data-helper-text',
     type: { name: 'string' },
     description: 'Text of the help block',
     table: {
@@ -53,7 +54,7 @@ const getArgTypes = () => ({
     },
   },
   requiredText: {
-    name: 'required string',
+    name: 'data-required-text',
     type: { name: 'string' },
     description: 'Text in red eg: *',
     table: {
@@ -63,7 +64,7 @@ const getArgTypes = () => ({
     },
   },
   optionalText: {
-    name: 'text',
+    name: 'data-optional-text',
     type: { name: 'string' },
     description: 'text for optional selects',
     table: {
@@ -83,9 +84,19 @@ const getArgTypes = () => ({
     },
   },
   disabled: {
-    name: 'disabled',
+    name: 'data-disabled',
     type: { name: 'boolean' },
     description: 'required attribute for the select',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: '' },
+      category: 'States',
+    },
+  },
+  invalid: {
+    name: 'invalid',
+    type: { name: 'boolean' },
+    description: 'form element with errors',
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: '' },
@@ -124,12 +135,15 @@ export const Default = (args) => html`<ecl-select
   data-options="${JSON.stringify(dataDemo.options)}"
   data-system="${args.system}"
   ?required=${args.required}
-  ?disabled=${args.disabled}
+  ?data-disabled=${args.disabled}
+  ?invalid=${args.invalid}
   data-icon-path="${args.iconPath}"
   data-label="${args.label}"
   data-helper-text="${args.helperText}"
   data-required-text="${args.requiredText}"
   data-optional-text="${args.optionalText}"
+  data-invalid-text="${dataDemo.invalid_text}"
+  data-width="${args.width}"
 >
 </ecl-select>`;
 
@@ -145,7 +159,8 @@ export const Multiple = (args) => html`<ecl-select
   data-options="${JSON.stringify(dataDemo.options)}"
   data-system="${args.system}"
   ?required=${args.required}
-  ?disabled=${args.disabled}
+  ?data-disabled=${args.disabled}
+  ?invalid=${args.invalid}
   multiple
   data-icon-path="${args.iconPath}"
   data-label="${args.label}"
@@ -161,6 +176,8 @@ export const Multiple = (args) => html`<ecl-select
   data-ecl-script
   data-required-text="${args.requiredText}"
   data-optional-text="${args.optionalText}"
+  data-invalid-text="${dataDemo.invalid_text}"
+  data-width="${dataDemo.width}"
 >
 </ecl-select>`;
 

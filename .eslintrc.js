@@ -30,5 +30,12 @@ module.exports = {
         'no-unused-vars': 'off',
       },
     },
+    {
+      files: ['src/**/web-components/*/src/scripts/*.js'],
+      rules: {
+        'no-self-assign': 'off',
+        'grouped-accessor-pairs': 'off',
+      },
+    },
   ],
 };

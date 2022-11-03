@@ -4,10 +4,10 @@ const trueTypeOf = (obj) =>
 
 template.innerHTML = `
   <div class="ecl-form-group">
-    <slot name="ecl-form-label">
-    </slot>
+    <slot name="ecl-form-label"></slot>
     <slot name="ecl-help-block"></slot>
-    <div class="ecl-select__container ecl-select__container--m">
+    <slot name="ecl-feedback-message"></slot>
+    <div class="ecl-select__container">
       <select class="ecl-select"></select>
       <div class="ecl-select__icon">
         <svg
@@ -27,10 +27,7 @@ class eclSelect extends HTMLElement {
     super();
 
     this.attachShadow({ mode: 'open' });
-    if (this.eclScript) {
-      this.setEclScript = true;
-    }
-    this.setSystem = this.system || 'ec';
+    this.system = this.system || 'ec';
     this.shadowRoot.appendChild(template.content.cloneNode(true));
   }
 
@@ -47,6 +44,10 @@ class eclSelect extends HTMLElement {
       labelSlot: shadow.querySelector('[name="ecl-form-label"]'),
       formRequired: shadow.querySelector('.ecl-form-label__required'),
       formOptional: shadow.querySelector('.ecl-form-label__optional'),
+      container: shadow.querySelector('.ecl-select__container'),
+      multipleContainer: shadow.querySelector('.ecl-select__multiple'),
+      messageSlot: shadow.querySelector('[name="ecl-feedback-message"]'),
+      message: shadow.querySelector('.ecl-feedback-message'),
     };
 
     if (key) {
@@ -64,7 +65,9 @@ class eclSelect extends HTMLElement {
       'data-required-text',
       'data-helper-text',
       'required',
-      'disabled',
+      'data-disabled',
+      'invalid',
+      'data-width',
     ];
   }
 
@@ -110,6 +113,14 @@ class eclSelect extends HTMLElement {
     return this.getAttribute('data-label');
   }
 
+  get width() {
+    return this.getAttribute('data-width');
+  }
+
+  get disabled() {
+    return this.hasAttribute('data-disabled');
+  }
+
   get eclScript() {
     return this.hasAttribute('data-ecl-script');
   }
@@ -118,9 +129,17 @@ class eclSelect extends HTMLElement {
     return this.hasAttribute('data-ecl-auto-init');
   }
 
+  get invalid() {
+    return this.hasAttribute('invalid');
+  }
+
+  get invalidText() {
+    return this.getAttribute('data-invalid-text');
+  }
+
   // Setters
 
-  set setOptions(o) {
+  set options(o) {
     if (o) {
       const options = JSON.parse(o);
       if (trueTypeOf(options) === 'array' && options.length > 0) {
@@ -140,10 +159,9 @@ class eclSelect extends HTMLElement {
     }
   }
 
-  set setAttributes(a) {
+  set attributes(a) {
     const select = this.shadowSelectors('select');
     if (this.hasAttribute('multiple')) {
-      // select.classList.add('ecl-select__multiple');
       select.setAttribute('data-ecl-select-multiple', true);
       select.setAttribute(
         'data-ecl-multiple-placeholder',
@@ -169,9 +187,9 @@ class eclSelect extends HTMLElement {
         'data-ecl-select-clear-all',
         this.getAttribute('data-ecl-select-clear-all')
       );
-    } else {
-      select.classList.add('ecl-select');
     }
+    select.classList.add('ecl-select');
+
     if (trueTypeOf(a) === 'string') {
       if (select.hasAttribute(a)) {
         select.removeAttribute(a);
@@ -185,7 +203,7 @@ class eclSelect extends HTMLElement {
     }
   }
 
-  set setRequiredText(r) {
+  set requiredText(r) {
     if (
       (r === '' || !this.hasAttribute('required')) &&
       this.shadowSelectors('formRequired')
@@ -208,7 +226,7 @@ class eclSelect extends HTMLElement {
     }
   }
 
-  set setOptionalText(o) {
+  set optionalText(o) {
     if (
       (o === '' || this.hasAttribute('required')) &&
       this.shadowSelectors('formOptional')
@@ -231,7 +249,7 @@ class eclSelect extends HTMLElement {
     }
   }
 
-  set setIconPath(p) {
+  set iconPath(p) {
     if (p && trueTypeOf(p) === 'string' && !this.hasAttribute('multiple')) {
       this.shadowSelectors('icon').setAttribute(
         'xlink:href',
@@ -240,7 +258,15 @@ class eclSelect extends HTMLElement {
     }
   }
 
-  set setSystem(s) {
+  set width(w) {
+    if (trueTypeOf(w) === 'string') {
+      this.shadowSelectors('container').classList.add(
+        `ecl-select__container--${w}`
+      );
+    }
+  }
+
+  set system(s) {
     // We will use an import for using an external css, this is sub-optimal
     // because it slows down the rendering.
     const style = document.createElement('style');
@@ -249,7 +275,7 @@ class eclSelect extends HTMLElement {
     this.shadowRoot.appendChild(style);
   }
 
-  set setHelperText(h) {
+  set helperText(h) {
     if (h === '') {
       this.shadowSelectors('helpSlot').innerHTML = '';
     }
@@ -265,7 +291,7 @@ class eclSelect extends HTMLElement {
     }
   }
 
-  set setLabel(l) {
+  set label(l) {
     if (l === '') {
       this.shadowSelectors('labelSlot').innerHTML = '';
     }
@@ -284,16 +310,16 @@ class eclSelect extends HTMLElement {
     }
   }
 
-  set setEclScript(e) {
+  set eclScript(e) {
     const script = document.createElement('script');
     script.setAttribute('src', './scripts/ecl-select-vanilla.js');
     this.shadowRoot.appendChild(script);
     if (this.autoInit) {
-      this.setAutoInit = true;
+      this.autoInit = true;
     }
   }
 
-  set setAutoInit(b) {
+  set autoInit(b) {
     this.shadowSelectors('script').addEventListener('load', () => {
       const el = this.shadowRoot.querySelector('select');
       /* eslint-disable-next-line no-undef */
@@ -302,27 +328,90 @@ class eclSelect extends HTMLElement {
     });
   }
 
+  set disabled(op) {
+    if (op === 'add') {
+      this.shadowSelectors('select').setAttribute('disabled', true);
+      this.shadowSelectors('container').classList.add(
+        'ecl-select__container--disabled'
+      );
+      this.shadowSelectors('label').classList.add('ecl-form-label--disabled');
+      this.shadowSelectors('help').classList.add('ecl-help-block--disabled');
+    } else {
+      this.shadowSelectors('select').removeAttribute('disabled');
+      this.shadowSelectors('container').classList.remove(
+        'ecl-select__container--disabled'
+      );
+      this.shadowSelectors('label').classList.remove(
+        'ecl-form-label--disabled'
+      );
+      this.shadowSelectors('help').classList.remove('ecl-help-block--disabled');
+    }
+  }
+
+  set invalid(op) {
+    if (op === 'add') {
+      this.shadowSelectors('container').classList.add(
+        'ecl-select__container--invalid'
+      );
+      this.shadowSelectors('help').classList.add('ecl-help-block--invalid');
+      if (this.shadowSelectors('label')) {
+        this.shadowSelectors('label').classList.add('ecl-form-label--invalid');
+      }
+      if (this.invalidText) {
+        const eclMessage = document.createElement('div');
+        eclMessage.classList.add('ecl-feedback-message');
+        eclMessage.innerHTML = this.invalidText;
+        this.shadowSelectors('messageSlot').appendChild(eclMessage);
+      } else if (this.shadowSelectors('message')) {
+        this.shadowSelectors('messageSlot').innerHTML = '';
+      }
+    } else {
+      this.shadowSelectors('container').classList.remove(
+        'ecl-select__container--invalid'
+      );
+      this.shadowSelectors('label').classList.remove('ecl-form-label--invalid');
+      this.shadowSelectors('help').classList.remove('ecl-help-block--invalid');
+      if (this.shadowSelectors('message')) {
+        this.shadowSelectors('messageSlot').innerHTML = '';
+      }
+    }
+  }
+
   connectedCallback() {
     if (this.label) {
-      this.setLabel = this.label;
+      this.label = this.label;
     }
     if (this.iconPath) {
-      this.setIconPath = this.iconPath;
+      this.iconPath = this.iconPath;
     }
     if (this.helperText) {
-      this.setHelperText = this.helperText;
+      this.helperText = this.helperText;
     }
     if (this.options) {
-      this.setOptions = this.options;
+      this.options = this.options;
+    }
+    if (this.disabled) {
+      this.disabled = 'add';
+    } else {
+      this.disabled = 'remove';
+    }
+    if (this.invalid) {
+      this.invalid = 'add';
+    } else {
+      this.invalid = 'remove';
     }
     if (this.attributes) {
-      this.setAttributes = this.attributes;
+      this.attributes = this.attributes;
     }
     if (this.optionalText) {
-      this.setOptionalText = this.optionalText;
+      this.optionalText = this.optionalText;
     }
     if (this.requiredText) {
-      this.setRequiredText = this.requiredText;
+      this.requiredText = this.requiredText;
+    }
+    this.width = this.width || 'm';
+    if (this.eclScript) {
+      this.eclScript = true;
     }
   }
 
@@ -335,49 +424,49 @@ class eclSelect extends HTMLElement {
           ).innerHTML = `@import "styles/ecl-select-${newValue}.css"`;
           break;
 
-        case 'data-attributes':
-          this.setAttributes = newValue;
-          break;
-
         case 'data-helper-text':
           this.setHelperText = newValue;
           break;
 
-        case 'id':
-          this.setId = newValue;
-          break;
-
         case 'data-label':
-          this.setLabel = newValue;
+          this.label = newValue;
           break;
 
         case 'data-optional-text':
           if (!this.required) {
-            this.setOptionalText = newValue;
+            this.optionalText = newValue;
           }
           break;
 
         case 'data-required-text':
-          this.setRequiredText = newValue;
-          break;
-
-        case 'data-classes':
-          this.setClasses = newValue;
+          this.requiredText = newValue;
           break;
 
         case 'required':
-          this.setAttributes = 'required';
+          this.attributes = 'required';
           if (this.shadowSelectors('label')) {
-            this.setOptionalText = this.optionalText;
-            this.setRequiredText = this.requiredText;
+            this.optionalText = this.optionalText;
+            this.requiredText = this.requiredText;
           }
           break;
 
-        case 'disabled':
+        case 'data-disabled':
           if (this.shadowSelectors('label')) {
-            this.setAttributes = 'disabled';
-            this.setOptionalText = this.optionalText;
-            this.setRequiredText = this.requiredText;
+            if (newValue !== null) {
+              this.disabled = 'add';
+            } else {
+              this.disabled = 'remove';
+            }
+          }
+          break;
+
+        case 'invalid':
+          if (this.shadowSelectors('label')) {
+            if (newValue !== null) {
+              this.invalid = 'add';
+            } else {
+              this.invalid = 'remove';
+            }
           }
           break;
 
