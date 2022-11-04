@@ -163,7 +163,7 @@ class eclSelect extends HTMLElement {
     if (this.hasAttribute('multiple')) {
       select.setAttribute('data-ecl-select-multiple', true);
       select.setAttribute(
-        'data-ecl-multiple-placeholder',
+        'data-ecl-select-default',
         this.getAttribute('data-ecl-multiple-placeholder')
       );
       select.setAttribute(

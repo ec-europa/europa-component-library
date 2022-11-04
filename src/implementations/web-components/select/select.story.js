@@ -165,7 +165,7 @@ Default.parameters = {
 
 export const Multiple = (args) => html`<ecl-select
   id="${dataMultiple.id}"
-  data-options="${JSON.stringify(dataDemo.options)}"
+  data-options="${JSON.stringify(dataMultiple.options)}"
   data-system="${args.system}"
   ?required=${args.required}
   ?data-disabled=${args.disabled}
@@ -185,7 +185,7 @@ export const Multiple = (args) => html`<ecl-select
   data-ecl-script
   data-required-text="${args.requiredText}"
   data-optional-text="${args.optionalText}"
-  data-invalid-text="${dataDemo.invalid_text}"
+  data-invalid-text="${dataMultiple.invalid_text}"
   data-width="${args.width}"
 >
 </ecl-select>`;
