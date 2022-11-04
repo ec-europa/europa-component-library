@@ -3,9 +3,9 @@
 exports[`Select EC renders correctly 1`] = `
 "<style id="ecl-select-style">@import "styles/ecl-select-ec.css"</style>
   <div class="ecl-form-group">
-    <slot name="ecl-form-label"><label class="ecl-form-label">Select a country<span class="ecl-form-label__required">*</span></label>
-    </slot>
+    <slot name="ecl-form-label"><label class="ecl-form-label">Select a country<span class="ecl-form-label__required">*</span></label></slot>
     <slot name="ecl-help-block"><div class="ecl-help-block">This is the input's helper text.</div></slot>
+    <slot name="ecl-feedback-message"></slot>
     <div class="ecl-select__container ecl-select__container--m">
       <select class="ecl-select" required=""></select>
       <div class="ecl-select__icon">
@@ -20,9 +20,9 @@ exports[`Select EC renders correctly 1`] = `
 exports[`Select EU renders correctly 1`] = `
 "<style id="ecl-select-style">@import "styles/ecl-select-eu.css"</style>
   <div class="ecl-form-group">
-    <slot name="ecl-form-label"><label class="ecl-form-label">Select a country<span class="ecl-form-label__required">*</span></label>
-    </slot>
+    <slot name="ecl-form-label"><label class="ecl-form-label">Select a country<span class="ecl-form-label__required">*</span></label></slot>
     <slot name="ecl-help-block"><div class="ecl-help-block">This is the input's helper text.</div></slot>
+    <slot name="ecl-feedback-message"></slot>
     <div class="ecl-select__container ecl-select__container--m">
       <select class="ecl-select" required=""></select>
       <div class="ecl-select__icon">
@@ -35,13 +35,13 @@ exports[`Select EU renders correctly 1`] = `
 `;
 
 exports[`Select multiple renders correctly 1`] = `
-"<script src="./scripts/ecl-select-vanilla.js"></script><style id="ecl-select-style">@import "styles/ecl-select-ec.css"</style>
+"<style id="ecl-select-style">@import "styles/ecl-select-ec.css"</style>
   <div class="ecl-form-group">
-    <slot name="ecl-form-label"><label class="ecl-form-label">Select a country<span class="ecl-form-label__required">*</span></label>
-    </slot>
+    <slot name="ecl-form-label"><label class="ecl-form-label">Select a country<span class="ecl-form-label__required">*</span></label></slot>
     <slot name="ecl-help-block"><div class="ecl-help-block">This is the helper text.</div></slot>
+    <slot name="ecl-feedback-message"></slot>
     <div class="ecl-select__container ecl-select__container--m">
-      <select class="ecl-select" required=""></select>
+      <select class="ecl-select" required="" mutiple=""></select>
       <div class="ecl-select__icon">
         <svg class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape" focusable="false" aria-hidden="true">
           <use xlink:href="/icons.svg#corner-arrow"></use>

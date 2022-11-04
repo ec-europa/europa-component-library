@@ -45,7 +45,6 @@ class eclSelect extends HTMLElement {
       formRequired: shadow.querySelector('.ecl-form-label__required'),
       formOptional: shadow.querySelector('.ecl-form-label__optional'),
       container: shadow.querySelector('.ecl-select__container'),
-      multipleContainer: shadow.querySelector('.ecl-select__multiple'),
       messageSlot: shadow.querySelector('[name="ecl-feedback-message"]'),
       message: shadow.querySelector('.ecl-feedback-message'),
     };
@@ -260,9 +259,31 @@ class eclSelect extends HTMLElement {
 
   set width(w) {
     if (trueTypeOf(w) === 'string') {
+      if (
+        this.shadowSelectors('container').matches(
+          `.ecl-select__container--${w}`
+        )
+      ) {
+        return;
+      }
+
+      this.shadowSelectors('container').classList.remove(
+        'ecl-select__container--s'
+      );
+      this.shadowSelectors('container').classList.remove(
+        'ecl-select__container--m'
+      );
+      this.shadowSelectors('container').classList.remove(
+        'ecl-select__container--l'
+      );
+
       this.shadowSelectors('container').classList.add(
         `ecl-select__container--${w}`
       );
+
+      if (this.autoInit) {
+        this.autoInit = true;
+      }
     }
   }
 
@@ -336,6 +357,9 @@ class eclSelect extends HTMLElement {
       );
       this.shadowSelectors('label').classList.add('ecl-form-label--disabled');
       this.shadowSelectors('help').classList.add('ecl-help-block--disabled');
+      if (this.autoInit) {
+        this.autoInit = true;
+      }
     } else {
       this.shadowSelectors('select').removeAttribute('disabled');
       this.shadowSelectors('container').classList.remove(
@@ -360,10 +384,22 @@ class eclSelect extends HTMLElement {
       if (this.invalidText) {
         const eclMessage = document.createElement('div');
         eclMessage.classList.add('ecl-feedback-message');
-        eclMessage.innerHTML = this.invalidText;
+        if (this.system === 'eu' && this.iconPath) {
+          eclMessage.innerHTML = `<svg
+            class="ecl-icon ecl-icon--m ecl-feedback-message__icon"
+            focusable="false"
+            aria-hidden="true"
+          ><use xlink:href="${this.iconPath}#error"></use>
+          </svg>${this.invalidText}`;
+        } else {
+          eclMessage.innerHTML = this.invalidText;
+        }
         this.shadowSelectors('messageSlot').appendChild(eclMessage);
       } else if (this.shadowSelectors('message')) {
         this.shadowSelectors('messageSlot').innerHTML = '';
+      }
+      if (this.autoInit) {
+        this.autoInit = true;
       }
     } else {
       this.shadowSelectors('container').classList.remove(
@@ -440,6 +476,13 @@ class eclSelect extends HTMLElement {
 
         case 'data-required-text':
           this.requiredText = newValue;
+          break;
+
+        case 'data-width':
+          this.width = newValue;
+          if (this.autoInit) {
+            this.autoInit = true;
+          }
           break;
 
         case 'required':

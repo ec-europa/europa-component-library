@@ -18,7 +18,7 @@ npm install --save @ecl/web-component-message
 - **"data-classes"** (optional) (array of valid classNames) eg: '["extra-class", "extra-class-2"]'
 - **"data-attributes"** (optional) (object) eg: '{"test-attribute": "test-value"}'
 
-## Html markup rendered:
+## Html source:
 
 <!-- prettier-ignore -->
 ```twig

@@ -10,15 +10,15 @@ import notes from './README.md';
 
 const getArgs = (data) => ({
   system: 'ec',
-  label: data.label,
+  width: 'm',
   required: data.required,
+  label: data.label,
   iconPath: data.system === 'eu' ? iconPathEu : iconPathEc,
-  attributes: {},
   requiredText: data.required_text,
   optionalText: data.optional_text,
   helperText: data.helper_text,
-  disabled: false,
   invalid: false,
+  disabled: false,
 });
 
 const getArgTypes = () => ({
@@ -27,6 +27,17 @@ const getArgTypes = () => ({
     type: { name: 'select' },
     options: ['ec', 'eu'],
     description: 'EC or EU',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Style',
+    },
+  },
+  width: {
+    name: 'data-width',
+    type: { name: 'select' },
+    options: ['s', 'm', 'l'],
+    description: 'Size of the select (s, m, l)',
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
@@ -113,17 +124,15 @@ const getArgTypes = () => ({
       category: 'Content',
     },
   },
-  attributes: {
-    name: 'attributes',
-    type: { name: 'object' },
-    description: 'attributes for the root element',
-    table: {
-      type: { summary: 'object' },
-      defaultValue: { summary: '' },
-      category: 'Content',
-    },
-  },
 });
+
+const checkIconPath = (args) => {
+  if (args.system === 'eu') {
+    return iconPathEu;
+  }
+
+  return iconPathEc;
+};
 
 export default {
   title: 'Components/Select',
@@ -137,7 +146,7 @@ export const Default = (args) => html`<ecl-select
   ?required=${args.required}
   ?data-disabled=${args.disabled}
   ?invalid=${args.invalid}
-  data-icon-path="${args.iconPath}"
+  data-icon-path="${checkIconPath(args)}"
   data-label="${args.label}"
   data-helper-text="${args.helperText}"
   data-required-text="${args.requiredText}"

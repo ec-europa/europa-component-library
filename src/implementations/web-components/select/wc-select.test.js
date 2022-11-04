@@ -47,6 +47,7 @@ describe('Select', () => {
     const html = `<head></head>
       <ecl-select 
         required
+        mutiple
         data-icon-path="/icons.svg"
         data-label="${dataMultiple.label}"
         data-helper-text="${dataMultiple.helper_text}"
