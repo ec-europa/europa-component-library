@@ -280,10 +280,6 @@ class eclSelect extends HTMLElement {
       this.shadowSelectors('container').classList.add(
         `ecl-select__container--${w}`
       );
-
-      if (this.autoInit) {
-        this.autoInit = true;
-      }
     }
   }
 
@@ -357,9 +353,6 @@ class eclSelect extends HTMLElement {
       );
       this.shadowSelectors('label').classList.add('ecl-form-label--disabled');
       this.shadowSelectors('help').classList.add('ecl-help-block--disabled');
-      if (this.autoInit) {
-        this.autoInit = true;
-      }
     } else {
       this.shadowSelectors('select').removeAttribute('disabled');
       this.shadowSelectors('container').classList.remove(
@@ -398,9 +391,6 @@ class eclSelect extends HTMLElement {
       } else if (this.shadowSelectors('message')) {
         this.shadowSelectors('messageSlot').innerHTML = '';
       }
-      if (this.autoInit) {
-        this.autoInit = true;
-      }
     } else {
       this.shadowSelectors('container').classList.remove(
         'ecl-select__container--invalid'
@@ -414,6 +404,7 @@ class eclSelect extends HTMLElement {
   }
 
   connectedCallback() {
+    this.width = this.width || 'm';
     if (this.label) {
       this.label = this.label;
     }
@@ -445,7 +436,6 @@ class eclSelect extends HTMLElement {
     if (this.requiredText) {
       this.requiredText = this.requiredText;
     }
-    this.width = this.width || 'm';
     if (this.eclScript) {
       this.eclScript = true;
     }
@@ -480,9 +470,6 @@ class eclSelect extends HTMLElement {
 
         case 'data-width':
           this.width = newValue;
-          if (this.autoInit) {
-            this.autoInit = true;
-          }
           break;
 
         case 'required':

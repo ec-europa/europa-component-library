@@ -186,7 +186,7 @@ export const Multiple = (args) => html`<ecl-select
   data-required-text="${args.requiredText}"
   data-optional-text="${args.optionalText}"
   data-invalid-text="${dataDemo.invalid_text}"
-  data-width="${dataDemo.width}"
+  data-width="${args.width}"
 >
 </ecl-select>`;
 
