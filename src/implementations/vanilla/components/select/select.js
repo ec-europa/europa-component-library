@@ -628,6 +628,10 @@ export class Select {
         // Highlight keyword in checkbox label.
         const checkboxElement = checkbox.querySelector('.ecl-checkbox__box');
         const checkboxLabel = checkbox.querySelector('.ecl-checkbox__label');
+        checkboxLabel.textContent = checkboxLabel.textContent.replace(
+          '.cls-1{fill:none}',
+          ''
+        );
         if (keyword) {
           checkboxLabel.innerHTML =
             checkboxElement.outerHTML +
