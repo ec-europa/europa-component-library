@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 
+const isBuild = process.env.NODE_ENV;
 const isProd = process.env.NODE_ENV === 'production';
 const outputFolder = isProd ? 'dist' : 'build';
 
@@ -18,11 +19,16 @@ const addons = [
   '@storybook/addon-a11y',
 ];
 
-const staticDirs = [
+let staticDirs = [
   path.resolve(`${__dirname}/../../../presets/ec/${outputFolder}`),
   path.resolve(`${__dirname}/../../../presets/reset/${outputFolder}`),
   path.resolve(`${__dirname}/../../../presets/rtl/${outputFolder}`),
 ];
+
+// FRONT-3789 - No need for static dirs, we manually copy the files.
+if (isBuild) {
+  staticDirs = [];
+}
 
 const webpackFinal = (config) => {
   // Trick "babel-loader", force it to transpile @ecl addons
