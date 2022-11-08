@@ -46,26 +46,22 @@ class eclMessage extends HTMLElement {
     this.shadowRoot.appendChild(template.content.cloneNode(true));
   }
 
-  shadowSelectors(key) {
+  shadowSelectors(el) {
     const shadow = this.shadowRoot;
-    const elements = {
-      style: shadow.querySelector('#ecl-message-style'),
-      script: shadow.querySelector('script'),
-      message: shadow.querySelector('.ecl-message'),
-      titleSlot: shadow.querySelector('[name="ecl-message-title"]'),
-      descriptionSlot: shadow.querySelector('[name="ecl-message-description"]'),
-      title: shadow.querySelector('.ecl-message__title'),
-      description: shadow.querySelector('.ecl-message__description'),
-      close: shadow.querySelector('.ecl-button--ghost .ecl-button__label'),
-      mainIcon: shadow.querySelector('.ecl-message > .ecl-icon use'),
-      closeIcon: shadow.querySelector('.ecl-message__content .ecl-icon use'),
+    const selectorsMap = {
+      style: '#ecl-message-style',
+      script: 'script',
+      message: '.ecl-message',
+      titleSlot: '[name="ecl-message-title"]',
+      descriptionSlot: '[name="ecl-message-description"]',
+      title: '.ecl-message__title',
+      description: '.ecl-message__description',
+      close: '.ecl-button--ghost .ecl-button__label',
+      mainIcon: '.ecl-message > .ecl-icon use',
+      closeIcon: '.ecl-message__content .ecl-icon use',
     };
 
-    if (key) {
-      return elements[key];
-    }
-
-    return elements;
+    return shadow.querySelector(selectorsMap[el]);
   }
 
   static get observedAttributes() {

@@ -25,22 +25,18 @@ class eclBlockquote extends HTMLElement {
     this.shadowRoot.appendChild(template.content.cloneNode(true));
   }
 
-  shadowSelectors(key) {
+  shadowSelectors(el) {
     const shadow = this.shadowRoot;
-    const elements = {
-      author: shadow.querySelector('.ecl-blockquote__author'),
-      citation: shadow.querySelector('.ecl-blockquote__citation'),
-      style: shadow.querySelector('#ecl-blockquote-style'),
-      image: shadow.querySelector('.ecl-blockquote__image'),
-      figure: shadow.querySelector('figure'),
-      slot: shadow.querySelector('[name="ecl-blockquote-image"]'),
+    const selectorsMap = {
+      author: '.ecl-blockquote__author',
+      citation: '.ecl-blockquote__citation',
+      style: '#ecl-blockquote-style',
+      image: '.ecl-blockquote__image',
+      figure: 'figure',
+      slot: '[name="ecl-blockquote-image"]',
     };
 
-    if (key) {
-      return elements[key];
-    }
-
-    return elements;
+    return shadow.querySelector(selectorsMap[el]);
   }
 
   static get observedAttributes() {

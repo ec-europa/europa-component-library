@@ -37,29 +37,25 @@ class eclSelect extends HTMLElement {
     this.shadowRoot.appendChild(template.content.cloneNode(true));
   }
 
-  shadowSelectors(key) {
+  shadowSelectors(el) {
     const shadow = this.shadowRoot;
-    const elements = {
-      select: shadow.querySelector(`select`),
-      style: shadow.querySelector('#ecl-select-style'),
-      script: shadow.querySelector('script'),
-      icon: shadow.querySelector('.ecl-select + .ecl-select__icon use'),
-      helpSlot: shadow.querySelector('[name="ecl-help-block"]'),
-      help: shadow.querySelector('.ecl-help-block'),
-      label: shadow.querySelector('.ecl-form-label'),
-      labelSlot: shadow.querySelector('[name="ecl-form-label"]'),
-      formRequired: shadow.querySelector('.ecl-form-label__required'),
-      formOptional: shadow.querySelector('.ecl-form-label__optional'),
-      container: shadow.querySelector('.ecl-select__container'),
-      messageSlot: shadow.querySelector('[name="ecl-feedback-message"]'),
-      message: shadow.querySelector('.ecl-feedback-message'),
+    const selectorsMap = {
+      select: 'select',
+      style: '#ecl-select-style',
+      script: 'script',
+      icon: '.ecl-select + .ecl-select__icon use',
+      helpSlot: '[name="ecl-help-block"]',
+      help: '.ecl-help-block',
+      label: '.ecl-form-label',
+      labelSlot: '[name="ecl-form-label"]',
+      formRequired: '.ecl-form-label__required',
+      formOptional: '.ecl-form-label__optional',
+      container: '.ecl-select__container',
+      messageSlot: '[name="ecl-feedback-message"]',
+      message: '.ecl-feedback-message',
     };
 
-    if (key) {
-      return elements[key];
-    }
-
-    return elements;
+    return shadow.querySelector(selectorsMap[el]);
   }
 
   static get observedAttributes() {
