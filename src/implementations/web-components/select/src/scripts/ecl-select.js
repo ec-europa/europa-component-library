@@ -3,6 +3,12 @@ const trueTypeOf = (obj) =>
   Object.prototype.toString.call(obj).slice(8, -1).toLowerCase();
 
 template.innerHTML = `
+  <style>
+    [name="ecl-help-block"] div,
+    [name="ecl-feedback-message"] div {
+      margin-top: .5rem;
+    }
+  </style>
   <div class="ecl-form-group">
     <slot name="ecl-form-label"></slot>
     <slot name="ecl-help-block"></slot>
@@ -377,7 +383,7 @@ class eclSelect extends HTMLElement {
       if (this.invalidText) {
         const eclMessage = document.createElement('div');
         eclMessage.classList.add('ecl-feedback-message');
-        if (this.system === 'eu' && this.iconPath) {
+        if (this.iconPath) {
           eclMessage.innerHTML = `<svg
             class="ecl-icon ecl-icon--m ecl-feedback-message__icon"
             focusable="false"

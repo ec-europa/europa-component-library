@@ -2,6 +2,12 @@
 
 exports[`Select EC renders correctly 1`] = `
 "<style id="ecl-select-style">@import "styles/ecl-select-ec.css"</style>
+  <style>
+    [name="ecl-help-block"] div,
+    [name="ecl-feedback-message"] div {
+      margin-top: .5rem;
+    }
+  </style>
   <div class="ecl-form-group">
     <slot name="ecl-form-label"><label class="ecl-form-label">Select a country<span class="ecl-form-label__required">*</span></label></slot>
     <slot name="ecl-help-block"><div class="ecl-help-block">This is the input's helper text.</div></slot>
@@ -19,6 +25,12 @@ exports[`Select EC renders correctly 1`] = `
 
 exports[`Select EU renders correctly 1`] = `
 "<style id="ecl-select-style">@import "styles/ecl-select-eu.css"</style>
+  <style>
+    [name="ecl-help-block"] div,
+    [name="ecl-feedback-message"] div {
+      margin-top: .5rem;
+    }
+  </style>
   <div class="ecl-form-group">
     <slot name="ecl-form-label"><label class="ecl-form-label">Select a country<span class="ecl-form-label__required">*</span></label></slot>
     <slot name="ecl-help-block"><div class="ecl-help-block">This is the input's helper text.</div></slot>
@@ -36,6 +48,12 @@ exports[`Select EU renders correctly 1`] = `
 
 exports[`Select multiple renders correctly 1`] = `
 "<style id="ecl-select-style">@import "styles/ecl-select-ec.css"</style>
+  <style>
+    [name="ecl-help-block"] div,
+    [name="ecl-feedback-message"] div {
+      margin-top: .5rem;
+    }
+  </style>
   <div class="ecl-form-group">
     <slot name="ecl-form-label"><label class="ecl-form-label">Select a country<span class="ecl-form-label__required">*</span></label></slot>
     <slot name="ecl-help-block"><div class="ecl-help-block">This is the helper text.</div></slot>
