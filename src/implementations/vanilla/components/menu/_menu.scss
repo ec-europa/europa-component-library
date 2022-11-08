@@ -15,7 +15,6 @@ $_menu-drowpdown-border-radius: null !default;
 $_menu-dropdown-item-hover-color: null !default;
 $_menu-dropdown-shadow: null !default;
 $_menu-expanded-background: null !default;
-$_menu-header-horizontal-padding: null !default;
 $_menu-item-border: null !default;
 $_menu-item-active-border: null !default;
 $_menu-item-weight: map.get(theme.$font-weight, 'regular') !default;
@@ -25,8 +24,6 @@ $_menu-desktop-item-border-color: null !default;
 $_menu-link-active-background: null !default;
 $_menu-link-active-border-width: null !default;
 $_menu-link-active-border-color: null !default;
-$_menu-link-border-radius: null !default;
-$_menu-link-desktop-height: null !default;
 $_menu-link-focus-color: null !default;
 $_menu-caret-background: null !default;
 $_menu-caret-hover-background: null !default;
@@ -39,7 +36,6 @@ $_menu-mobile-background: null !default;
 $_menu-mobile-header-background: null !default;
 $_menu-mobile-header-shadow: null !default;
 $_menu-mobile-shadow: null !default;
-$_menu-mobile-vertical-padding: null !default;
 $_menu-open-button-shadow: null !default;
 $_menu-open-vertical-margin: null !default;
 $_menu-overlay-background: null !default;
@@ -50,7 +46,6 @@ $_menu-subitem-active-background: null !default;
 $_menu-sublink-hover-color: null !default;
 $_menu-title-font-weight: null !default;
 $_mobile-item-color: null !default;
-$_mobile-item-hover-background: null !default;
 
 /*
  * Menu structure
@@ -496,19 +491,25 @@ $_mobile-item-hover-background: null !default;
 
     .ecl-menu__item {
       border-top-width: 0;
-      border-inline-start: 1px solid $_menu-desktop-item-border-color;
+      margin-inline-start: 1px;
     }
 
-    .ecl-menu__item--current {
-      border-inline-start: $_menu-link-active-border-width solid
-        $_menu-link-active-border-color;
-      border-inline-end: $_menu-link-active-border-width solid
-        $_menu-link-active-border-color;
+    .ecl-menu__item::before,
+    .ecl-menu__item:last-child::after {
+      content: '';
+      background-color: $_menu-desktop-item-border-color;
+      display: block;
+      margin-bottom: map.get(theme.$spacing, 's');
+      margin-top: map.get(theme.$spacing, 's');
+      width: 1px;
     }
 
-    .ecl-menu__item:first-child,
-    .ecl-menu__item--current + .ecl-menu__item {
-      border-inline-start: none;
+    .ecl-menu__item::before {
+      margin-inline-start: -1px;
+    }
+
+    .ecl-menu__item:last-child::after {
+      margin-inline-end: -1px;
     }
 
     .ecl-menu__link-icon {
@@ -543,11 +544,12 @@ $_mobile-item-hover-background: null !default;
       color: map.get(theme.$color, 'white');
       display: inline-flex;
       font: map.get(theme.$font-prolonged, 'm');
-      min-height: $_menu-link-desktop-height;
       margin-inline-start: 0;
       margin-inline-end: 0;
-      padding: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, '2xs')
-        map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 'xs');
+      padding: calc(
+          #{map.get(theme.$spacing, '2xs')} + #{map.get(theme.$spacing, 's')}
+        )
+        map.get(theme.$spacing, 'xs');
       width: auto;
       z-index: 0;
     }
@@ -557,10 +559,17 @@ $_mobile-item-hover-background: null !default;
       text-decoration: underline;
     }
 
+    .ecl-menu__item--current {
+      background-color: $_menu-link-active-background;
+      box-shadow: inset $_menu-link-active-border-width 0 0
+          $_menu-link-active-border-color,
+        inset -#{$_menu-link-active-border-width} 0 0
+          $_menu-link-active-border-color;
+    }
+
     .ecl-menu__item--current .ecl-menu__link,
     .ecl-menu__link:active {
-      background-color: $_menu-link-active-background;
-      color: $_menu-item-hover-color;
+      color: map.get(theme.$color, 'blue-100');
     }
 
     .ecl-menu__link:focus-visible {
@@ -576,7 +585,10 @@ $_mobile-item-hover-background: null !default;
 
     .ecl-menu__button-caret {
       background: transparent;
-      padding: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 's');
+      padding: calc(
+          #{map.get(theme.$spacing, '2xs')} + #{map.get(theme.$spacing, 's')}
+        )
+        map.get(theme.$spacing, 's');
 
       .ecl-button__icon {
         fill: map.get(theme.$color, 'white');
@@ -595,8 +607,6 @@ $_mobile-item-hover-background: null !default;
     }
 
     .ecl-menu__item--current .ecl-menu__button-caret {
-      background-color: $_menu-link-active-background;
-
       .ecl-button__icon {
         fill: map.get(theme.$color, 'blue');
       }
@@ -612,8 +622,10 @@ $_mobile-item-hover-background: null !default;
     .ecl-menu__item:hover,
     .ecl-menu__item:focus-within,
     .ecl-menu__item[aria-expanded='true'] {
+      background-color: $_menu-dropdown-background;
+
       .ecl-menu__link {
-        background-color: map.get(theme.$color, 'blue-5');
+        background-color: $_menu-dropdown-background;
         color: $_menu-item-hover-color;
         z-index: map.get(theme.$z-index, 'dropdown') + 1;
       }
@@ -747,12 +759,6 @@ $_mobile-item-hover-background: null !default;
     .ecl-menu__mega--rtl {
       left: auto;
       right: 0;
-    }
-
-    .ecl-menu__item[aria-expanded='true'] .ecl-menu__link {
-      z-index: calc(
-        #{map.get(theme.$z-index, 'dropdown')} + 1
-      ); // hack for box-shadow
     }
 
     // Manage column display
