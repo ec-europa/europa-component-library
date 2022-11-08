@@ -549,6 +549,10 @@ $_mobile-item-color: null !default;
       padding: calc(
           #{map.get(theme.$spacing, '2xs')} + #{map.get(theme.$spacing, 's')}
         )
+        map.get(theme.$spacing, '2xs')
+        calc(
+          #{map.get(theme.$spacing, '2xs')} + #{map.get(theme.$spacing, 's')}
+        )
         map.get(theme.$spacing, 'xs');
       width: auto;
       z-index: 0;
