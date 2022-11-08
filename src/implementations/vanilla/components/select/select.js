@@ -367,7 +367,7 @@ export class Select {
 
     if (this.select.options && this.select.options.length > 0) {
       this.checkboxes = Array.from(this.select.options).map((option) => {
-        if (option.selected) {
+        if (option.hasAttribute('selected')) {
           this.updateSelectionsCount(1);
           if (this.dropDownToolbar) {
             this.dropDownToolbar.style.display = 'flex';
@@ -379,7 +379,7 @@ export class Select {
             id: option.value,
             text: option.text,
             disabled: option.disabled,
-            selected: option.selected,
+            selected: option.hasAttribute('selected'),
           },
           this.selectMultipleId
         );
@@ -476,8 +476,8 @@ export class Select {
     if (i > 0) {
       this.selectionCount.querySelector('span').innerHTML += i;
     } else {
-      selectedOptionsCount = Array.from(this.select.options).filter(
-        (option) => option.selected
+      selectedOptionsCount = Array.from(this.select.options).filter((option) =>
+        option.hasAttribute('selected')
       ).length;
     }
     if (selectedOptionsCount > 0) {
@@ -507,7 +507,7 @@ export class Select {
 
   updateCurrentValue() {
     this.input.value = Array.from(this.select.options)
-      .filter((option) => option.selected) // do not rely on getAttribute as it does not work in all cases
+      .filter((option) => option.hasAttribute('selected'))
       .map((option) => option.text)
       .join(', ');
     // Dispatch a change event once the value of the select has changed.
@@ -537,13 +537,11 @@ export class Select {
     const checkbox = e.target.closest('.ecl-checkbox');
     Array.from(this.select.options).forEach((option) => {
       if (option.text === checkbox.getAttribute('data-select-multiple-value')) {
-        if (option.getAttribute('selected') || option.selected) {
+        if (option.hasAttribute('selected')) {
           option.removeAttribute('selected');
-          option.selected = false;
           this.selectAll.querySelector('input').checked = false;
         } else {
-          option.setAttribute('selected', 'selected');
-          option.selected = true;
+          option.setAttribute('selected', true);
         }
       }
     });
@@ -575,11 +573,9 @@ export class Select {
 
       if (option) {
         if (checked) {
-          option.setAttribute('selected', 'selected');
-          option.selected = true;
+          option.setAttribute('selected', true);
         } else {
-          option.removeAttribute('selected', 'selected');
-          option.selected = false;
+          option.removeAttribute('selected');
         }
       }
     });
@@ -915,8 +911,7 @@ export class Select {
       );
       const input = checkbox.querySelector('.ecl-checkbox__input');
       input.checked = false;
-      option.removeAttribute('selected', 'selected');
-      option.selected = false;
+      option.removeAttribute('selected');
     });
 
     this.selectAll.querySelector('.ecl-checkbox__input').checked = false;
@@ -936,11 +931,9 @@ export class Select {
         );
         const input = checkbox.querySelector('.ecl-checkbox__input');
         if (input.checked) {
-          option.setAttribute('selected', 'selected');
-          option.selected = true;
+          option.setAttribute('selected');
         } else {
-          option.removeAttribute('selected', 'selected');
-          option.selected = false;
+          option.removeAttribute('selected', true);
         }
       });
       this.updateCurrentValue();
