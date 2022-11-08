@@ -856,7 +856,10 @@ export class Select {
    * @param {upOrDown}
    */
   moveFocus(upOrDown) {
-    const activeEl = document.activeElement;
+    let activeEl = document.activeElement;
+    if (activeEl.shadowRoot.querySelector('.ecl-select__multiple')) {
+      activeEl = activeEl.shadowRoot.activeElement;
+    }
     const options = Array.from(
       activeEl.parentElement.parentElement.querySelectorAll(
         '.ecl-checkbox__input'
