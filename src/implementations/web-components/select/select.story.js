@@ -171,7 +171,6 @@ export const Multiple = (args) => html`<ecl-select
   ?data-disabled=${args.disabled}
   ?invalid=${args.invalid}
   multiple
-  data-icon-path="${args.iconPath}"
   data-label="${args.label}"
   data-helper-text="${args.helperText}"
   data-ecl-auto-init

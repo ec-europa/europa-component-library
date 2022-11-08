@@ -518,7 +518,7 @@ export class Select {
    * @param {Event} e
    */
   handleToggle(e) {
-    e.preventDefault();
+    e.stopPropagation();
     if (this.searchContainer.classList.contains('hidden')) {
       this.searchContainer.classList.remove('hidden');
     } else {
@@ -592,9 +592,9 @@ export class Select {
       e.relatedTarget &&
       this.selectMultiple &&
       !this.selectMultiple.contains(e.relatedTarget) &&
-      this.searchContainer.style.display === 'block'
+      this.searchContainer.classList.contains('hidden')
     ) {
-      this.searchContainer.style.display = 'none';
+      this.searchContainer.classList.add('hidden');
     }
   }
 
@@ -687,11 +687,12 @@ export class Select {
   handleClickOutside(e) {
     if (
       e.target &&
+      e.target.tagName !== 'ECL-SELECT' &&
       this.selectMultiple &&
       !this.selectMultiple.contains(e.target) &&
-      this.searchContainer.style.display === 'block'
+      !this.searchContainer.classList.contains('hidden')
     ) {
-      this.searchContainer.style.display = 'none';
+      this.searchContainer.classList.add('hidden');
     }
   }
 
