@@ -858,7 +858,10 @@ export class Select {
    */
   moveFocus(upOrDown) {
     let activeEl = document.activeElement;
-    if (activeEl.shadowRoot.querySelector('.ecl-select__multiple')) {
+    if (
+      activeEl.shadowRoot &&
+      activeEl.shadowRoot.querySelector('.ecl-select__multiple')
+    ) {
       activeEl = activeEl.shadowRoot.activeElement;
     }
     const options = Array.from(
