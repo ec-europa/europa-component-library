@@ -941,6 +941,7 @@ export class Select {
         }
       });
       this.updateCurrentValue();
+      this.updateSelectionsCount(0);
     }, 10);
   }
 }
