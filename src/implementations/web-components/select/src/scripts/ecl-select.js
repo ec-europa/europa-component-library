@@ -53,6 +53,7 @@ class eclSelect extends HTMLElement {
       container: '.ecl-select__container',
       messageSlot: '[name="ecl-feedback-message"]',
       message: '.ecl-feedback-message',
+      initialized: '[data-ecl-auto-initialized]',
     };
 
     return shadow.querySelector(selectorsMap[el]);
@@ -330,6 +331,9 @@ class eclSelect extends HTMLElement {
   }
 
   set eclScript(e) {
+    if (this.shadowSelectors('script')) {
+      this.shadowSelectors('script').remove();
+    }
     const script = document.createElement('script');
     script.setAttribute('src', './scripts/ecl-select-vanilla.js');
     this.shadowRoot.appendChild(script);
@@ -339,6 +343,12 @@ class eclSelect extends HTMLElement {
   }
 
   set autoInit(b) {
+    if (this.shadowSelectors('initialized')) {
+      this.shadowRoot.querySelector('.ecl-select__multiple').remove();
+      this.shadowSelectors('container').classList.remove(
+        'ecl-select__container--hidden'
+      );
+    }
     this.shadowSelectors('script').addEventListener('load', () => {
       const el = this.shadowRoot.querySelector('select');
       /* eslint-disable-next-line no-undef */
@@ -472,6 +482,9 @@ class eclSelect extends HTMLElement {
 
         case 'data-width':
           this.width = newValue;
+          if (oldValue !== null) {
+            this.eclScript = true;
+          }
           break;
 
         case 'required':
@@ -486,8 +499,10 @@ class eclSelect extends HTMLElement {
           if (this.shadowSelectors('label')) {
             if (newValue !== null) {
               this.disabled = 'add';
+              this.eclScript = true;
             } else {
               this.disabled = 'remove';
+              this.eclScript = true;
             }
           }
           break;
@@ -496,8 +511,10 @@ class eclSelect extends HTMLElement {
           if (this.shadowSelectors('label')) {
             if (newValue !== null) {
               this.invalid = 'add';
+              this.eclScript = true;
             } else {
               this.invalid = 'remove';
+              this.eclScript = true;
             }
           }
           break;
