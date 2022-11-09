@@ -453,7 +453,7 @@ class eclSelect extends HTMLElement {
           break;
 
         case 'data-helper-text':
-          this.setHelperText = newValue;
+          this.helperText = newValue;
           break;
 
         case 'data-label':
