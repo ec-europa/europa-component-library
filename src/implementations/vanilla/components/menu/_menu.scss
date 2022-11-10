@@ -355,7 +355,7 @@ $_mobile-item-color: null !default;
   background-color: $_menu-link-active-background;
   box-shadow: inset $_menu-link-active-border-width 0 0 0
     $_menu-link-active-border-color;
-  color: $_menu-item-hover-color;
+  color: map.get(theme.$color, 'blue-100');
 
   &:hover {
     color: $_menu-item-hover-color;
@@ -436,7 +436,7 @@ $_mobile-item-color: null !default;
   background-color: $_menu-caret-active-background;
 
   .ecl-button__icon {
-    fill: $_menu-dropdown-item-hover-color;
+    fill: map.get(theme.$color, 'blue-100');
   }
 
   &:focus-visible {
@@ -633,6 +633,10 @@ $_mobile-item-color: null !default;
   }
 
   .ecl-menu:not(.ecl-menu--forced-mobile, .ecl-menu--forced-close) {
+    .ecl-menu__item[aria-expanded='true'] .ecl-button__icon {
+      transform: scale($_menu-caret-icon-scale) rotate(0);
+    }
+
     .ecl-menu__item[aria-expanded='true'],
     .ecl-menu__item:focus-within,
     .ecl-menu__item:hover {
@@ -650,7 +654,6 @@ $_mobile-item-color: null !default;
 
         .ecl-button__icon {
           fill: map.get(theme.$color, 'blue-100');
-          transform: scale($_menu-caret-icon-scale) rotate(0);
         }
       }
     }
@@ -711,14 +714,15 @@ $_mobile-item-color: null !default;
   position: relative;
   text-decoration: none;
 
-  &:hover,
-  &:focus-visible {
+  &:hover {
+    color: $_menu-item-hover-color;
     text-decoration: underline;
   }
 
   &:focus-visible {
     outline: 2px solid map.get(theme.$color, 'blue');
     outline-offset: -2px;
+    text-decoration: underline;
   }
 }
 
@@ -726,7 +730,6 @@ $_mobile-item-color: null !default;
   background-color: $_menu-subitem-active-background;
   box-shadow: inset $_menu-link-active-border-width 0 0 0
     $_menu-link-active-border-color;
-  color: $_menu-item-hover-color;
 }
 
 /* stylelint-disable-next-line order/order */
