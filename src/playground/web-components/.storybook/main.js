@@ -24,6 +24,9 @@ const staticDirs = [
   path.resolve(
     `${__dirname}/../../../implementations/web-components/select/${outputFolder}`
   ),
+  path.resolve(
+    `${__dirname}/../../../implementations/web-components/button/${outputFolder}`
+  ),
 ];
 
 const webpackFinal = (config) => {

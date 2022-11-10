@@ -1,0 +1,172 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button EC renders correctly 1`] = `
+"<style id="ecl-button-style">@import "styles/ecl-button-ec.css"</style>
+  <style>
+    [name="ecl-button-icon-after"] svg {
+      margin-left: 0.5rem !important;
+    }
+    [name="ecl-button-icon-before"] svg {
+      margin-right: 0.5rem !important;
+    }
+  </style>
+  <button class="ecl-button ecl-button--primary" type="submit">
+    <span class="ecl-button__container">
+      <slot name="ecl-button-icon-before"></slot>
+      <span class="ecl-button__label" data-ecl-label="true">Primary button</span>
+      <slot name="ecl-button-icon-after"></slot> 
+    </span>
+  </button>"
+`;
+
+exports[`Button EU renders correctly 1`] = `
+"<style id="ecl-button-style">@import "styles/ecl-button-eu.css"</style>
+  <style>
+    [name="ecl-button-icon-after"] svg {
+      margin-left: 0.5rem !important;
+    }
+    [name="ecl-button-icon-before"] svg {
+      margin-right: 0.5rem !important;
+    }
+  </style>
+  <button class="ecl-button ecl-button--primary" type="submit">
+    <span class="ecl-button__container">
+      <slot name="ecl-button-icon-before"></slot>
+      <span class="ecl-button__label" data-ecl-label="true">Primary button</span>
+      <slot name="ecl-button-icon-after"></slot> 
+    </span>
+  </button>"
+`;
+
+exports[`Button With attributes renders correctly 1`] = `
+"<style id="ecl-button-style">@import "styles/ecl-button-ec.css"</style>
+  <style>
+    [name="ecl-button-icon-after"] svg {
+      margin-left: 0.5rem !important;
+    }
+    [name="ecl-button-icon-before"] svg {
+      margin-right: 0.5rem !important;
+    }
+  </style>
+  <button class="ecl-button ecl-button--primary" type="submit" test-attribute="test-value">
+    <span class="ecl-button__container">
+      <slot name="ecl-button-icon-before"><svg class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--before ecl-icon--rotate-90" focusable="false" aria-hidden="true" data-ecl-icon="true"><use xlink:href="/icons.svg#corner-arrow"></use></svg></slot>
+      <span class="ecl-button__label" data-ecl-label="true">Primary button</span>
+      <slot name="ecl-button-icon-after"></slot> 
+    </span>
+  </button>"
+`;
+
+exports[`Button With icon before renders correctly 1`] = `
+"<style id="ecl-button-style">@import "styles/ecl-button-ec.css"</style>
+  <style>
+    [name="ecl-button-icon-after"] svg {
+      margin-left: 0.5rem !important;
+    }
+    [name="ecl-button-icon-before"] svg {
+      margin-right: 0.5rem !important;
+    }
+  </style>
+  <button class="ecl-button ecl-button--primary" type="submit">
+    <span class="ecl-button__container">
+      <slot name="ecl-button-icon-before"><svg class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--before ecl-icon--rotate-90" focusable="false" aria-hidden="true" data-ecl-icon="true"><use xlink:href="/icons.svg#corner-arrow"></use></svg></slot>
+      <span class="ecl-button__label" data-ecl-label="true">Primary button</span>
+      <slot name="ecl-button-icon-after"></slot> 
+    </span>
+  </button>"
+`;
+
+exports[`Button With icon renders correctly 1`] = `
+"<style id="ecl-button-style">@import "styles/ecl-button-ec.css"</style>
+  <style>
+    [name="ecl-button-icon-after"] svg {
+      margin-left: 0.5rem !important;
+    }
+    [name="ecl-button-icon-before"] svg {
+      margin-right: 0.5rem !important;
+    }
+  </style>
+  <button class="ecl-button ecl-button--primary" type="submit">
+    <span class="ecl-button__container">
+      <slot name="ecl-button-icon-before"></slot>
+      <span class="ecl-button__label" data-ecl-label="true">Primary button</span>
+      <slot name="ecl-button-icon-after"><svg class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after ecl-icon--rotate-90" focusable="false" aria-hidden="true" data-ecl-icon="true"><use xlink:href="/icons.svg#corner-arrow"></use></svg></slot> 
+    </span>
+  </button>"
+`;
+
+exports[`Button call renders correctly 1`] = `
+"<style id="ecl-button-style">@import "styles/ecl-button-ec.css"</style>
+  <style>
+    [name="ecl-button-icon-after"] svg {
+      margin-left: 0.5rem !important;
+    }
+    [name="ecl-button-icon-before"] svg {
+      margin-right: 0.5rem !important;
+    }
+  </style>
+  <button class="ecl-button ecl-button--call" type="submit">
+    <span class="ecl-button__container">
+      <slot name="ecl-button-icon-before"></slot>
+      <span class="ecl-button__label" data-ecl-label="true">Primary button</span>
+      <slot name="ecl-button-icon-after"></slot> 
+    </span>
+  </button>"
+`;
+
+exports[`Button ghost renders correctly 1`] = `
+"<style id="ecl-button-style">@import "styles/ecl-button-ec.css"</style>
+  <style>
+    [name="ecl-button-icon-after"] svg {
+      margin-left: 0.5rem !important;
+    }
+    [name="ecl-button-icon-before"] svg {
+      margin-right: 0.5rem !important;
+    }
+  </style>
+  <button class="ecl-button ecl-button--ghost" type="submit">
+    <span class="ecl-button__container">
+      <slot name="ecl-button-icon-before"></slot>
+      <span class="ecl-button__label" data-ecl-label="true">Primary button</span>
+      <slot name="ecl-button-icon-after"></slot> 
+    </span>
+  </button>"
+`;
+
+exports[`Button primary renders correctly 1`] = `
+"<style id="ecl-button-style">@import "styles/ecl-button-ec.css"</style>
+  <style>
+    [name="ecl-button-icon-after"] svg {
+      margin-left: 0.5rem !important;
+    }
+    [name="ecl-button-icon-before"] svg {
+      margin-right: 0.5rem !important;
+    }
+  </style>
+  <button class="ecl-button ecl-button--primary" type="submit">
+    <span class="ecl-button__container">
+      <slot name="ecl-button-icon-before"></slot>
+      <span class="ecl-button__label" data-ecl-label="true">Primary button</span>
+      <slot name="ecl-button-icon-after"></slot> 
+    </span>
+  </button>"
+`;
+
+exports[`Button secondary renders correctly 1`] = `
+"<style id="ecl-button-style">@import "styles/ecl-button-ec.css"</style>
+  <style>
+    [name="ecl-button-icon-after"] svg {
+      margin-left: 0.5rem !important;
+    }
+    [name="ecl-button-icon-before"] svg {
+      margin-right: 0.5rem !important;
+    }
+  </style>
+  <button class="ecl-button ecl-button--secondary" type="submit">
+    <span class="ecl-button__container">
+      <slot name="ecl-button-icon-before"></slot>
+      <span class="ecl-button__label" data-ecl-label="true">Primary button</span>
+      <slot name="ecl-button-icon-after"></slot> 
+    </span>
+  </button>"
+`;
