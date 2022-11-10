@@ -513,6 +513,7 @@ $_mobile-item-color: null !default;
       margin-inline-end: -1px;
     }
 
+    // Hide separators in some cases
     .ecl-menu__item--current::before,
     .ecl-menu__item--current + .ecl-menu__item::before,
     .ecl-menu__item:hover::before,
@@ -552,7 +553,7 @@ $_mobile-item-color: null !default;
       box-shadow: none;
       color: map.get(theme.$color, 'white');
       display: inline-flex;
-      font: map.get(theme.$font-prolonged, 'm');
+      font: map.get(theme.$font, 'm');
       margin-inline-start: 0;
       margin-inline-end: 0;
       padding: calc(
@@ -632,14 +633,14 @@ $_mobile-item-color: null !default;
   }
 
   .ecl-menu:not(.ecl-menu--forced-mobile, .ecl-menu--forced-close) {
-    .ecl-menu__item:hover,
+    .ecl-menu__item[aria-expanded='true'],
     .ecl-menu__item:focus-within,
-    .ecl-menu__item[aria-expanded='true'] {
+    .ecl-menu__item:hover {
       background-color: $_menu-dropdown-background;
 
       .ecl-menu__link {
         background-color: $_menu-dropdown-background;
-        color: $_menu-item-hover-color;
+        color: map.get(theme.$color, 'blue-100');
         z-index: map.get(theme.$z-index, 'dropdown') + 1;
       }
 
@@ -648,15 +649,18 @@ $_mobile-item-color: null !default;
         z-index: map.get(theme.$z-index, 'dropdown') + 1;
 
         .ecl-button__icon {
-          fill: $_menu-dropdown-item-hover-color;
+          fill: map.get(theme.$color, 'blue-100');
+          transform: scale($_menu-caret-icon-scale) rotate(0);
         }
       }
     }
 
-    .ecl-menu__item[aria-expanded='true'] {
-      .ecl-menu__button-caret .ecl-button__icon {
-        transform: scale($_menu-caret-icon-scale) rotate(0);
-      }
+    .ecl-menu__item .ecl-menu__link:hover {
+      color: $_menu-item-hover-color;
+    }
+
+    .ecl-menu__item .ecl-menu__button-caret:hover .ecl-button__icon {
+      fill: $_menu-dropdown-item-hover-color;
     }
   }
 }
@@ -824,9 +828,9 @@ $_mobile-item-color: null !default;
     .ecl-menu__sublink {
       background-color: map.get(theme.$color, 'blue-5');
       break-inside: avoid-column;
-      font: map.get(theme.$font-prolonged, 'm');
+      font: map.get(theme.$font, 'm');
       margin: 0;
-      padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
+      padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'xs');
       white-space: normal;
       width: 100%;
     }
