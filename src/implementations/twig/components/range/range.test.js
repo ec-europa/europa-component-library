@@ -7,7 +7,7 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 
 // Import data for tests
 
-import dataDefault from '@ecl/specs-component-radio/demo/data--default';
+import dataDefault from '@ecl/specs-component-range/demo/data';
 
 const dataInvalid = { ...dataDefault, invalid: true };
 const dataOptional = { ...dataDefault, required: false };
