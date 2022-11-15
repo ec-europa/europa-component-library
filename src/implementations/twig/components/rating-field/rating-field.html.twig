@@ -2,8 +2,9 @@
 
 {#
   Parameters:
+  - "id" (string) (default: 'rating'): unique id for the rating field
   - "items" (array) (default: []): array of radio_button
-  - "name" (string) (default: '')
+  - "name" (string) (default: 'rating')
   - "helper_id" (string) (default: '')
   - "invalid" (boolean) (default: false)
   - "invalid_icon" (object) default({})
@@ -24,8 +25,9 @@
 
 {# Internal properties #}
 
+{% set _id = id|default('rating') %}
 {% set _items = items|default([]) %}
-{% set _name = name|default('') %}
+{% set _name = name|default('rating') %}
 {% set _helper_id = helper_id|default('') %}
 {% set _invalid = invalid|default(false) %}
 {% set _required = required|default(false) %}
@@ -106,9 +108,10 @@
   {% if _items is not empty and _items is iterable %}
   <div class="ecl-rating-field">
     {%- for _item in _items|reverse %}
+      {% set _item_id = _item.id is not empty ? _item.id : _id ~ '-' ~ _item.value %}
       <input
-      id="rating-{{ _item.value }}" 
-      name="rating" 
+      id="{{ _item_id }}" 
+      name="{{ _name }}" 
       class="ecl-rating-field__input" 
       type="radio" 
       value="{{ _item.value }}" 
@@ -121,7 +124,7 @@
       />
       <label 
       class="ecl-rating-field__label" 
-      for="rating-{{ _item.value }}">
+      for="{{ _item_id }}">
         {% if _item.label %}
           <span class="ecl-u-sr-only">{{ _item.label }}</span>
         {% endif %}
