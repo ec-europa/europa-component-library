@@ -4,7 +4,7 @@ module.exports = {
   min: 0,
   max: 30,
   value: 15,
-  label: 'Label',
+  label: 'Range slider',
   width: 'm',
   invalid_text: 'This is the error message',
   invalid_icon: {

@@ -8,10 +8,8 @@ import range from './range.html.twig';
 import notes from './README.md';
 
 const getArgs = (data) => ({
-  show_label: true,
   show_helper: true,
   show_error: true,
-  show_value: true,
   invalid: data.invalid || false,
   disabled: data.disabled || false,
   required: data.required,
@@ -26,18 +24,8 @@ const getArgs = (data) => ({
 });
 
 const getArgTypes = (data) => {
-  const argTypes = getFormControls(data, 'element');
-
-  argTypes.show_value = {
-    name: 'range value',
-    type: 'boolean',
-    description: 'Show range value',
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: true },
-      category: 'Optional',
-    },
-  };
+  const argTypes = getFormControls(data, 'range');
+  delete argTypes.show_label;
 
   argTypes.value_text = {
     name: 'value text',
@@ -90,17 +78,11 @@ const prepareData = (data, args) => {
   Object.assign(data, args);
   correctPaths(data);
 
-  if (!args.show_label) {
-    data.label = '';
-  }
   if (!args.show_error) {
     data.invalid_text = '';
   }
   if (!args.show_helper) {
     data.helper_text = '';
-  }
-  if (!args.show_value) {
-    data.value_text = '';
   }
 
   return data;

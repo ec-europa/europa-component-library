@@ -4,30 +4,51 @@
  */
 
 @use 'sass:map';
+@use 'sass:math';
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 $_bar-color: null !default;
 $_disabled-color: null !default;
+$_active-color: null !default;
 $_invalid-color: null !default;
+$_invalid-hover-color: null !default;
+$_invalid-active-color: null !default;
 $_value-color: null !default;
 $_value-font: null !default;
+$_range-size: 0.25rem;
+$_slider-size: 1rem;
+$_range-margin-top: null !default;
 
 .ecl-range {
   appearance: none;
   background-color: $_bar-color;
   border-radius: 2px;
-  height: 0.25rem;
+  display: block;
+  height: $_range-size;
   outline: none;
 }
 
+// Add the slider size to calculate margin
+.ecl-form-group .ecl-range {
+  margin-top: $_range-margin-top + math.div($_slider-size - $_range-size, 2);
+}
+
+// Value
 .ecl-range__value {
   box-sizing: border-box;
   color: $_value-color;
   display: block;
   font: $_value-font;
-  margin: 0;
-  padding: 0;
+}
+
+.ecl-form-group .ecl-range__value {
+  margin-top: map.get(theme.$spacing, '2xs') +
+    math.div($_slider-size - $_range-size, 2);
+}
+
+.ecl-range__value-current {
+  font-weight: map.get(theme.$font-weight, 'bold');
 }
 
 // Slider
@@ -40,12 +61,19 @@ $_value-font: null !default;
   border-radius: 50%;
   box-sizing: border-box;
   cursor: pointer;
-  height: 1rem;
-  width: 1rem;
+  height: $_slider-size;
+  outline: 0 solid transparent;
+  outline-offset: -1px;
+  transition: 0.15s ease-in-out;
+  width: $_slider-size;
 
   &:hover {
     outline: 5px solid map.get(theme.$color, 'blue-100');
-    outline-offset: -1px;
+  }
+
+  &:active {
+    background-color: $_active-color;
+    outline-color: $_active-color;
   }
 }
 
@@ -133,7 +161,13 @@ $_value-font: null !default;
   background-color: $_invalid-color;
 
   &:hover {
-    outline-color: $_invalid-color;
+    background-color: $_invalid-hover-color;
+    outline-color: $_invalid-hover-color;
+  }
+
+  &:active {
+    background-color: $_invalid-active-color;
+    outline-color: $_invalid-active-color;
   }
 }
 
