@@ -1,10 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const isBuild = process.env.NODE_ENV;
 const isProd = process.env.NODE_ENV === 'production';
 const outputFolder = isProd ? 'dist' : 'build';
-
 const publicUrl = process.env.PUBLIC_URL || '';
 const stories = ['../../../implementations/twig/**/!(eu*).story.js'];
 
@@ -26,7 +24,7 @@ let staticDirs = [
 ];
 
 // FRONT-3789 - No need for static dirs, we manually copy the files.
-if (isBuild) {
+if (isProd) {
   staticDirs = [];
 }
 
