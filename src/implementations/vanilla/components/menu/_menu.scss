@@ -22,6 +22,8 @@ $_menu-item-hover-color: null !default;
 $_menu-item-icon-margin: null !default;
 $_menu-desktop-item-border-color: null !default;
 $_menu-link-active-background: null !default;
+$_menu-desktop-link-active-background: null !default;
+$_menu-desktop-link-active-color: null !default;
 $_menu-link-active-border-width: null !default;
 $_menu-link-active-border-color: null !default;
 $_menu-link-focus-color: null !default;
@@ -574,7 +576,7 @@ $_mobile-item-color: null !default;
     }
 
     .ecl-menu__item--current {
-      background-color: $_menu-link-active-background;
+      background-color: $_menu-desktop-link-active-background;
       box-shadow: inset $_menu-link-active-border-width 0 0
           $_menu-link-active-border-color,
         inset -#{$_menu-link-active-border-width} 0 0
@@ -583,7 +585,7 @@ $_mobile-item-color: null !default;
 
     .ecl-menu__item--current .ecl-menu__link,
     .ecl-menu__link:active {
-      color: map.get(theme.$color, 'blue-100');
+      color: $_menu-desktop-link-active-color;
     }
 
     .ecl-menu__link:focus-visible {
@@ -829,7 +831,7 @@ $_mobile-item-color: null !default;
     }
 
     .ecl-menu__sublink {
-      background-color: map.get(theme.$color, 'blue-5');
+      background-color: map.get(theme.$color, 'white-100');
       break-inside: avoid-column;
       font: map.get(theme.$font, 'm');
       margin: 0;
@@ -841,9 +843,7 @@ $_mobile-item-color: null !default;
     .ecl-menu__subitem--current .ecl-menu__sublink {
       background-color: $_menu-link-active-background;
       box-shadow: inset $_menu-link-active-border-width 0 0 0
-          $_menu-link-active-border-color,
-        inset -#{$_menu-link-active-border-width} 0 0 0
-          $_menu-link-active-border-color;
+        $_menu-link-active-border-color;
       font-weight: $_menu-item-weight;
     }
   }
