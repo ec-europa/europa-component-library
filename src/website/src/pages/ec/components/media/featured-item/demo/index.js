@@ -15,7 +15,7 @@ export const featuredItemExtended = template(
 );
 export const featuredItemExtendedRightAlignement = template(
   correctSvgPath({
-    ...demoContent,
+    ...demoContentExtended,
     position: 'right',
   })
 );
