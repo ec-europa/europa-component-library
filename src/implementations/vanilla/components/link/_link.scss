@@ -75,7 +75,8 @@ $_negative: null !default;
 /**
 * Negative
 */
-.ecl-link--negative {
+.ecl-link--negative,
+%ecl-link-negative {
   color: map.get($_negative, 'color');
 
   &:hover,
