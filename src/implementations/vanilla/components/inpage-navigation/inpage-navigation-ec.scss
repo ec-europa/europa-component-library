@@ -30,14 +30,14 @@ $toggle-width: calc(
       'l': transparent,
     ),
     'background-active': (
-      's': transparent,
+      's': map.get(theme.$color, 'grey-10'),
       'l': map.get(theme.$color, 'grey-10'),
     ),
     'padding': (
       's': map.get(theme.$spacing, 's')
         calc(#{map.get(theme.$spacing, 'xl')} - #{map.get(theme.$spacing, 'm')}),
-      'l': map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 's')
-        map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 'xs'),
+      'l': map.get(theme.$spacing, 's') map.get(theme.$spacing, 's')
+        map.get(theme.$spacing, 's') map.get(theme.$spacing, 'xs'),
     ),
     'separator': (
       's': 1px solid map.get(theme.$color, 'blue-75'),
@@ -52,7 +52,7 @@ $toggle-width: calc(
       'l': map.get(theme.$color, 'blue-100'),
     ),
     'color-active': (
-      's': map.get(theme.$color, 'white-100'),
+      's': map.get(theme.$color, 'grey-100'),
       'l': map.get(theme.$color, 'grey-100'),
     ),
     'text-decoration-hover': underline,
