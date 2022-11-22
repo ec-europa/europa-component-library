@@ -11,13 +11,11 @@ const getArgs = (data) => {
   const args = {
     show_description: true,
     description: data.description,
+    ratio: '',
     width: 'outside',
   };
   if (data.image && !data.sources) {
     args.image = data.image;
-  }
-  if (data.ratio) {
-    args.ratio = data.ratio;
   }
 
   return args;
@@ -58,18 +56,22 @@ const getArgTypes = (data) => {
     };
   }
 
-  if (data.ratio) {
-    argTypes.ratio = {
-      name: 'ratio',
-      type: { name: 'select' },
-      description: 'Media ratio',
-      table: {
-        type: { summary: 'string' },
-        category: 'Content',
-      },
-      options: ['16-9', '4-3', '3-2', '1-1'],
-    };
-  }
+  argTypes.ratio = {
+    name: 'ratio',
+    type: { name: 'select' },
+    description: 'Media ratio',
+    options: {
+      auto: '',
+      '16/9': '16-9',
+      '4/3': '4-3',
+      '3/2': '3-2',
+      '1/1': '1-1',
+    },
+    table: {
+      type: { summary: 'string' },
+      category: 'Display',
+    },
+  };
 
   argTypes.width = {
     name: 'width',
