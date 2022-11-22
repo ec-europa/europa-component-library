@@ -20,6 +20,7 @@ $_range-size: 0.25rem;
 $_slider-size: 1rem;
 $_range-margin-top: null !default;
 
+/* stylelint-disable selector-pseudo-element-no-unknown */
 .ecl-range {
   appearance: none;
   background-color: $_bar-color;
@@ -51,10 +52,7 @@ $_range-margin-top: null !default;
   font-weight: map.get(theme.$font-weight, 'bold');
 }
 
-// Slider
-// Using mixins as it is not possible to call multiple vendor specific css at once
-// https://stackoverflow.com/questions/44913155/using-multiple-vendor-specific-css-selectors-at-once
-@mixin range-slider {
+.ecl-range::range-thumb {
   appearance: none;
   border: none;
   background-color: map.get(theme.$color, 'blue-100');
@@ -77,25 +75,9 @@ $_range-margin-top: null !default;
   }
 }
 
-.ecl-range::-webkit-slider-thumb {
-  @include range-slider;
-}
-
-.ecl-range::-moz-range-thumb {
-  @include range-slider;
-}
-
-@mixin range-focus {
+.ecl-range:focus-visible::range-thumb {
   outline: 2px solid map.get(theme.$color, 'blue-100');
   outline-offset: 2px;
-}
-
-.ecl-range:focus-visible::-webkit-slider-thumb {
-  @include range-focus;
-}
-
-.ecl-range:focus-visible::-moz-range-thumb {
-  @include range-focus;
 }
 
 // Width
@@ -132,32 +114,24 @@ $_range-margin-top: null !default;
 }
 
 // Disabled
-@mixin range-disabled {
-  background-color: $_disabled-color;
-  cursor: not-allowed;
-
-  &:hover {
-    outline: none;
-  }
-}
-
 .ecl-range[disabled],
 .ecl-range--disabled,
 .ecl-range[readonly],
 .ecl-range--readonly {
   background-color: $_disabled-color;
 
-  &::-webkit-slider-thumb {
-    @include range-disabled;
-  }
+  &::range-thumb {
+    background-color: $_disabled-color;
+    cursor: not-allowed;
 
-  &::-moz-range-thumb {
-    @include range-disabled;
+    &:hover {
+      outline: none;
+    }
   }
 }
 
 // Invalid
-@mixin range-invalid {
+.ecl-range--invalid::range-thumb {
   background-color: $_invalid-color;
 
   &:hover {
@@ -168,15 +142,5 @@ $_range-margin-top: null !default;
   &:active {
     background-color: $_invalid-active-color;
     outline-color: $_invalid-active-color;
-  }
-}
-
-.ecl-range--invalid {
-  &::-webkit-slider-thumb {
-    @include range-invalid;
-  }
-
-  &::-moz-range-thumb {
-    @include range-invalid;
   }
 }

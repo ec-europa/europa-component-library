@@ -92,8 +92,6 @@ export class Range {
   handleChange() {
     // Update value
     this.currentValue.innerHTML = this.rangeInput.value;
-
-    return this;
   }
 }
 

@@ -24,7 +24,7 @@ const getArgs = (data) => ({
 });
 
 const getArgTypes = (data) => {
-  const argTypes = getFormControls(data, 'range');
+  const argTypes = getFormControls(data, 'element');
   delete argTypes.show_label;
 
   argTypes.value_text = {
