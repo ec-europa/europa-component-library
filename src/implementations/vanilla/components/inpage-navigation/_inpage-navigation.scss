@@ -129,15 +129,38 @@ $_outline: null !default;
   flex-direction: column;
 }
 
+.ecl-inpage-navigation__item {
+  border-top: 1px solid map.get($_item, 'separator', 's');
+
+  &:first-of-type {
+    border-top-width: 0;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include breakpoints.up('l') {
+    border-top-color: map.get($_item, 'separator', 'l');
+  }
+}
+
+.ecl-inpage-navigation__item--active {
+  border-top-color: map.get($_item, 'background');
+}
+
 .ecl-inpage-navigation__link {
   background-color: map.get($_item, 'background');
-  border-top: map.get($_item, 'separator', 's');
   color: map.get($_item, 'color', 's');
   display: block;
   font: map.get(theme.$font, 'm');
   font-weight: map.get($_item, 'font-weight', 's');
   padding: map.get(theme.$spacing, 's');
   text-decoration: none;
+
+  /* stylelint-disable-next-line order/order */
+  @include breakpoints.up('l') {
+    background-color: map.get($_item, 'background');
+    color: map.get($_item, 'color', 'l');
+    font-weight: map.get($_item, 'font-weight', 'l');
+  }
 
   &:hover {
     color: map.get($_item, 'color', 's');
@@ -154,6 +177,13 @@ $_outline: null !default;
     color: map.get($_item, 'color', 's');
     outline-color: map.get($_outline, 'color');
     outline-offset: map.get($_outline, 'offset');
+
+    /* stylelint-disable-next-line order/order */
+    @include breakpoints.up('l') {
+      color: map.get($_item, 'color', 'l');
+      outline-color: map.get(theme.$color, 'blue-100');
+      outline-offset: -2px;
+    }
   }
 
   &:visited {
@@ -189,11 +219,6 @@ $_outline: null !default;
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
-.ecl-inpage-navigation__item:first-of-type .ecl-inpage-navigation__link {
-  border-top-width: 0;
-}
-
-/* stylelint-disable-next-line no-descending-specificity */
 .ecl-inpage-navigation__item:last-of-type .ecl-inpage-navigation__link {
   border-radius: 0 0 $_border-radius $_border-radius;
 }
@@ -211,22 +236,6 @@ $_outline: null !default;
     @include breakpoints.up('l') {
       box-shadow: none;
       position: static;
-    }
-  }
-}
-
-/* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
-  .ecl-inpage-navigation__link {
-    background-color: map.get($_item, 'background');
-    border-top: map.get($_item, 'separator', 'l');
-    color: map.get($_item, 'color', 'l');
-    font-weight: map.get($_item, 'font-weight', 'l');
-
-    &:focus-visible {
-      color: map.get($_item, 'color', 'l');
-      outline-color: map.get(theme.$color, 'blue');
-      outline-offset: -2px;
     }
   }
 }

@@ -21,8 +21,8 @@ $_toggle-width: calc(
     'background': transparent,
     'background-active': map.get(theme.$color, 'grey-10'),
     'separator': (
-      's': 1px solid map.get(theme.$color, 'blue-75'),
-      'l': none,
+      's': map.get(theme.$color, 'blue-75'),
+      'l': transparent,
     ),
     'font-weight': (
       's': map.get(theme.$font-weight, 'regular'),
