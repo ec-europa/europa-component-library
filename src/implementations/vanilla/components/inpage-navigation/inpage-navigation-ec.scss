@@ -2,7 +2,7 @@
 @use '@ecl/theme-dev/theme';
 
 // some variable declaration have to be done before
-$outline-width: 3px;
+$outline-width: 0;
 $toggle-width: calc(
   #{map.get(theme.$spacing, 's')} + #{map.get(theme.$icon, 's')} + #{map.get(
       theme.$spacing,
@@ -17,7 +17,6 @@ $toggle-width: calc(
   $_title: (
     'background': transparent,
     'color': map.get(theme.$color, 'grey-100'),
-    'padding': map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 's'),
     'text-transform': uppercase,
   ),
   $_item: (
@@ -82,5 +81,7 @@ $toggle-width: calc(
   $_outline: (
     'width': $outline-width,
     'color': map.get(theme.$color, 'white-100'),
+    'color-active': map.get(theme.$color, 'blue-100'),
+    'offset': -4px,
   )
 );

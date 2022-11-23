@@ -2,7 +2,7 @@
 @use '@ecl/theme-dev/theme';
 
 // some variable declaration have to be done before
-$outline-width: 2px;
+$outline-width: 0;
 $toggle-width: calc(
   #{map.get(theme.$spacing, 's')} + #{map.get(theme.$icon, 's')} + #{map.get(
       theme.$spacing,
@@ -17,21 +17,20 @@ $toggle-width: calc(
   $_title: (
     'background': map.get(theme.$color, 'blue-100'),
     'color': map.get(theme.$color, 'white-100'),
-    'padding': map.get(theme.$spacing, 's'),
     'text-transform': none,
   ),
   $_item: (
     'background': (
-      's': map.get(theme.$color, 'blue-5'),
-      'l': map.get(theme.$color, 'blue-5'),
+      's': map.get(theme.$color, 'white-100'),
+      'l': map.get(theme.$color, 'white-100'),
     ),
     'background-hover': (
       's': map.get(theme.$color, 'white-100'),
       'l': map.get(theme.$color, 'white-100'),
     ),
     'background-active': (
-      's': map.get(theme.$color, 'white-100'),
-      'l': map.get(theme.$color, 'white-100'),
+      's': map.get(theme.$color, 'blue-10'),
+      'l': map.get(theme.$color, 'blue-10'),
     ),
     'padding': (
       's': map.get(theme.$spacing, 's') $toggle-width
@@ -40,8 +39,8 @@ $toggle-width: calc(
         map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm'),
     ),
     'separator': (
-      's': 1px solid map.get(theme.$color, 'white-100'),
-      'l': 1px solid map.get(theme.$color, 'white-100'),
+      's': 1px solid map.get(theme.$color, 'blue-10'),
+      'l': 1px solid map.get(theme.$color, 'blue-10'),
     ),
     'font-weight': (
       's': map.get(theme.$font-weight, 'regular'),
@@ -77,5 +76,7 @@ $toggle-width: calc(
   $_outline: (
     'width': $outline-width,
     'color': map.get(theme.$color, 'blue-100'),
+    'color-active': map.get(theme.$color, 'blue-100'),
+    'offset': -2px,
   )
 );
