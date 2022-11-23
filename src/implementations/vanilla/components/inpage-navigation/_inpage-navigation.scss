@@ -9,18 +9,11 @@
 
 $_border-radius: null !default;
 $_shadow: null !default;
-$_active-link-border-width: null !default;
 $_title: null !default;
 $_item: null !default;
 $_trigger: null !default;
 $_list: null !default;
 $_outline: null !default;
-$_toggle-width: calc(
-  #{map.get(theme.$spacing, 's')} + #{map.get(theme.$icon, 's')} + #{map.get(
-      theme.$spacing,
-      's'
-    )}
-);
 
 .ecl-inpage-navigation {
   border-radius: $_border-radius;
@@ -44,9 +37,7 @@ $_toggle-width: calc(
   border: none;
   color: map.get(theme.$color, 'white-100');
   display: none;
-  padding: map.get(theme.$spacing, 's')
-    calc(#{$_toggle-width} + #{map.get(theme.$spacing, 's')})
-    map.get(theme.$spacing, 's') map.get(theme.$spacing, 's');
+  padding: map.get($_trigger, 'padding');
   position: relative;
   text-align: start;
   width: 100%;
@@ -94,7 +85,7 @@ $_toggle-width: calc(
 
 .ecl-inpage-navigation__trigger-icon {
   position: absolute;
-  right: calc(#{map.get(theme.$spacing, 's')} - #{map.get($_outline, 'width')});
+  right: map.get(theme.$spacing, 's');
 
   .ecl-inpage-navigation__trigger[aria-expanded='true'] & {
     transform: rotate(0deg);
@@ -139,7 +130,7 @@ $_toggle-width: calc(
 }
 
 .ecl-inpage-navigation__link {
-  background-color: map.get($_item, 'background', 's');
+  background-color: map.get($_item, 'background');
   border-top: map.get($_item, 'separator', 's');
   color: map.get($_item, 'color', 's');
   display: block;
@@ -149,13 +140,11 @@ $_toggle-width: calc(
   text-decoration: none;
 
   &:hover {
-    background-color: map.get($_item, 'background-hover', 's');
     color: map.get($_item, 'color', 's');
     text-decoration: underline;
 
     /* stylelint-disable-next-line order/order */
     @include breakpoints.up('l') {
-      background-color: map.get($_item, 'background-hover', 'l');
       color: map.get($_item, 'color', 'l');
     }
   }
@@ -179,9 +168,9 @@ $_toggle-width: calc(
   /* stylelint-disable-next-line no-descending-specificity */
   .ecl-inpage-navigation__item--active &,
   .ecl-inpage-navigation__item--active &:hover {
-    background-color: map.get($_item, 'background-active', 's');
+    background-color: map.get($_item, 'background-active');
     border-inline-start: 4px solid map.get(theme.$color, 'blue-100');
-    color: map.get($_item, 'color-active', 's');
+    color: map.get($_item, 'color-active');
     padding-inline-start: calc(#{map.get(theme.$spacing, 's')} - 4px);
 
     &:focus-visible {
@@ -190,12 +179,10 @@ $_toggle-width: calc(
 
     /* stylelint-disable-next-line order/order */
     @include breakpoints.up('l') {
-      background-color: map.get($_item, 'background-active', 'l');
       border-inline-start-color: map.get(theme.$color, 'blue-100');
-      color: map.get($_item, 'color-active', 'l');
 
       &:focus-visible {
-        color: map.get($_item, 'color-active', 'l');
+        color: map.get($_item, 'color-active');
       }
     }
   }
@@ -231,8 +218,7 @@ $_toggle-width: calc(
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-inpage-navigation__link {
-    background-color: map.get($_item, 'background', 'l');
-    border-inline-start: $_active-link-border-width solid transparent;
+    background-color: map.get($_item, 'background');
     border-top: map.get($_item, 'separator', 'l');
     color: map.get($_item, 'color', 'l');
     font-weight: map.get($_item, 'font-weight', 'l');
