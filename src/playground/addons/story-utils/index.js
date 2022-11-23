@@ -140,7 +140,7 @@ export const getFormControls = (data, type) => {
   argTypes.show_error = {
     name: 'error message',
     type: 'boolean',
-    description: `Show ${type} error message`,
+    description: `Show ${type} error message (only visible if invalid state is active)`,
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: true },
