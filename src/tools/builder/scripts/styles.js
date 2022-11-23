@@ -5,12 +5,14 @@ const postcss = require('postcss');
 const cssnano = require('cssnano');
 const autoprefixer = require('autoprefixer');
 const bannerPlugin = require('postcss-banner');
+const rangePlugin = require('postcss-input-range');
 const getSystem = require('../utils/getSystem');
 
 const getPlugins = (options) => {
   const plugins = [];
 
   plugins.push(autoprefixer({ grid: 'no-autoplace' }));
+  plugins.push(rangePlugin());
 
   if (process.env.NODE_ENV === 'production') {
     if (options.banner) {
