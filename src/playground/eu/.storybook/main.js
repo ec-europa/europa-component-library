@@ -3,7 +3,6 @@ const webpack = require('webpack');
 
 const isProd = process.env.NODE_ENV === 'production';
 const outputFolder = isProd ? 'dist' : 'build';
-
 const publicUrl = process.env.PUBLIC_URL || '';
 const stories = ['../../../implementations/twig/**/!(ec*).story.js'];
 
@@ -18,11 +17,16 @@ const addons = [
   '@storybook/addon-a11y',
 ];
 
-const staticDirs = [
+let staticDirs = [
   path.resolve(`${__dirname}/../../../presets/eu/${outputFolder}`),
   path.resolve(`${__dirname}/../../../presets/reset/${outputFolder}`),
   path.resolve(`${__dirname}/../../../presets/rtl/${outputFolder}`),
 ];
+
+// FRONT-3789 - No need for static dirs, we manually copy the files.
+if (isProd) {
+  staticDirs = [];
+}
 
 const webpackFinal = (config) => {
   // Trick "babel-loader", force it to transpile @ecl addons
