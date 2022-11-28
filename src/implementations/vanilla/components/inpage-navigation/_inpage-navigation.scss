@@ -177,6 +177,7 @@ $_outline: null !default;
     color: map.get($_item, 'color', 's');
     outline-color: map.get($_outline, 'color');
     outline-offset: map.get($_outline, 'offset');
+    text-decoration: underline;
 
     /* stylelint-disable-next-line order/order */
     @include breakpoints.up('l') {
