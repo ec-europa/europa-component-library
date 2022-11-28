@@ -108,7 +108,7 @@
   {% if _items is not empty and _items is iterable %}
   <div class="ecl-rating-field">
     {%- for _item in _items|reverse %}
-      {% set _item_id = _item.id is not empty ? _item.id : _id ~ '-' ~ _item.value %}
+      {% set _item_id = _id ~ '-' ~ _item.value|e('html_attr') %}
       <input
       id="{{ _item_id }}" 
       name="{{ _name }}" 
