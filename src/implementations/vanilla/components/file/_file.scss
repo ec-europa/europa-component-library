@@ -103,11 +103,11 @@ $_image-width: null !default;
 }
 
 .ecl-file__detail-meta-item {
-  margin-inline-start: map.get(theme.$spacing, 'xs');
+  margin-inline-start: map.get(theme.$spacing, 'm');
 
   &::before {
     content: '|';
-    margin-inline-end: map.get(theme.$spacing, 'xs');
+    margin-inline-end: map.get(theme.$spacing, 'm');
   }
 }
 
