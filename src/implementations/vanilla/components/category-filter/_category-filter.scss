@@ -1,6 +1,6 @@
 /**
  * Category filter component
- * @define category-filter; weak
+ * @define category-filter
  */
 
 @use 'sass:map';
@@ -8,7 +8,6 @@
 
 $_item_separator_border_color: null !default;
 $_item_hover_background_color: null !default;
-$_outline-color: null !default;
 $_outline-width: 3px !default;
 
 .ecl-category-filter {
@@ -28,7 +27,7 @@ $_outline-width: 3px !default;
   border-bottom: 1px solid $_item_separator_border_color;
   color: map.get(theme.$color, 'grey-100');
   display: flex;
-  font: map.get(theme.$font-prolonged, 's');
+  font: map.get(theme.$font, 's');
   justify-content: space-between;
   padding: map.get(theme.$spacing, 's');
   text-decoration: none;
