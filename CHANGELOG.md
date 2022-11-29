@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.5.1 ((2022-11-28))
+
+- [#2696](https://github.com/ec-europa/europa-component-library/pull/2696) feat(file): Removing download attribute - FRONT-3808 ([@planctus](https://github.com/planctus))
+
 ## 3.5.0 ((2022-10-17))
 
 #### :rocket: New Feature

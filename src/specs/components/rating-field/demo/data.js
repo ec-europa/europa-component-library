@@ -1,6 +1,7 @@
 module.exports = {
-  name: 'rating-group-1',
-  helper_id: 'helper-id-1',
+  id: 'rating-field',
+  name: 'rating-group',
+  helper_id: 'helper-id',
   optional_text: '(optional)',
   required_text: '*',
   required: true,
