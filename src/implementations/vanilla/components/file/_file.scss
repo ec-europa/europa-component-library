@@ -62,6 +62,7 @@ $_image-width: null !default;
   flex-basis: 50%;
   flex-grow: 1;
   flex-wrap: wrap;
+  flex-direction: column;
   margin-inline-start: $_file-info-margin-left;
 }
 
@@ -106,6 +107,7 @@ $_image-width: null !default;
   margin-inline-start: map.get(theme.$spacing, 'm');
 
   &::before {
+    color: map.get(theme.$color, 'blue-100');
     content: '|';
     margin-inline-end: map.get(theme.$spacing, 'm');
   }
