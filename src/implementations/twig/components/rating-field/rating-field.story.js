@@ -7,42 +7,24 @@ import dataDefault from '@ecl/specs-component-rating-field/demo/data';
 import ratingField from './rating-field.html.twig';
 import notes from './README.md';
 
-const itemClone = { ...dataDefault.items[0] };
-
 const getArgs = (data) => {
   const args = {
     show_label: true,
     show_helper: true,
     show_error: true,
+    invalid: data.invalid || false,
+    disabled: data.disabled || false,
+    required: data.required,
     label: data.label || '',
     helper_text: data.helper_text,
     invalid_text: data.invalid_text,
-    invalid: data.invalid || false,
-    required: data.required,
   };
-
-  if (!data.binary) {
-    args.show_item_helper = true;
-  }
 
   return args;
 };
 
 const getArgTypes = (data) => {
-  const argTypes = getFormControls(data, 'group');
-
-  if (!data.binary) {
-    argTypes.show_item_helper = {
-      name: 'radio helper text',
-      type: 'boolean',
-      description: 'Show radio helper text',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: true },
-        category: 'Optional',
-      },
-    };
-  }
+  const argTypes = getFormControls(data, 'element');
 
   return argTypes;
 };
@@ -50,8 +32,6 @@ const getArgTypes = (data) => {
 const prepareData = (data, args) => {
   Object.assign(data, args);
   correctPaths(data);
-
-  const txt = args.show_item_helper ? itemClone.helper_text : '';
 
   if (!args.show_label) {
     data.label = '';
@@ -62,16 +42,6 @@ const prepareData = (data, args) => {
   if (!args.show_helper) {
     data.helper_text = '';
   }
-  if (!data.binary) {
-    data.items.forEach((item) => {
-      item.helper_text = txt;
-    });
-  }
-
-  delete data.show_label;
-  delete data.show_helper;
-  delete data.show_error;
-  delete data.show_item_helper;
 
   return data;
 };
