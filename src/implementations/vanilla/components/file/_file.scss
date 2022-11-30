@@ -62,7 +62,6 @@ $_image-width: null !default;
   flex-basis: 50%;
   flex-grow: 1;
   flex-wrap: wrap;
-  flex-direction: column;
   margin-inline-start: $_file-info-margin-left;
 }
 
@@ -146,6 +145,7 @@ $_image-width: null !default;
 
 .ecl-file__label {
   display: inline-flex;
+  flex-basis: 100%;
   margin-bottom: map.get(theme.$spacing, 'm');
   margin-inline-end: map.get(theme.$spacing, 'xs');
 }
