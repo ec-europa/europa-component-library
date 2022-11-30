@@ -126,6 +126,14 @@ $_label-color: null !default;
   border-color: $_invalid-border-color;
 }
 
+// stylelint-disable-next-line no-descending-specificity
+.ecl-radio__input:checked
+  + .ecl-radio__label
+  .ecl-radio__box--invalid
+  .ecl-radio__box-inner {
+  background-color: $_invalid-border-color;
+}
+
 .ecl-radio__label:hover .ecl-radio__box--invalid {
   border-color: $_invalid-border-color-hover;
 }
