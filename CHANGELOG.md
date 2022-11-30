@@ -1,5 +1,48 @@
 # Changelog
 
+## 3.6.0 (2022-11-30)
+
+#### :rocket: New Feature
+
+- [#2686](https://github.com/ec-europa/europa-component-library/pull/2686) feat(range): add Range component - FRONT-3756 ([@emeryro](https://github.com/emeryro))
+- [#2670](https://github.com/ec-europa/europa-component-library/pull/2670) feat(media-container): use fluid ratio - FRONT-3776 ([@emeryro](https://github.com/emeryro))
+- [#2683](https://github.com/ec-europa/europa-component-library/pull/2683) feat(icons): Adding email icons - FRONT-3771 ([@planctus](https://github.com/planctus))
+
+#### :bug: Bug Fix
+
+- [#2691](https://github.com/ec-europa/europa-component-library/pull/2691) fix(featured-item): fix demo on website - FRONT-3806 ([@emeryro](https://github.com/emeryro))
+- [#2680](https://github.com/ec-europa/europa-component-library/pull/2680) fix(multiselect): Fixing labels when searching - FRONT-3793 ([@planctus](https://github.com/planctus))
+- [#2677](https://github.com/ec-europa/europa-component-library/pull/2677) fix(select multi): fix counter when resetting form ([@emeryro](https://github.com/emeryro))
+- [#2674](https://github.com/ec-europa/europa-component-library/pull/2674) fix(card): fix image display on firefox - FRONT-3788 ([@emeryro](https://github.com/emeryro))
+- [#2673](https://github.com/ec-europa/europa-component-library/pull/2673) fix(content-block): fix stories control issue - FRONT-3786 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#2701](https://github.com/ec-europa/europa-component-library/pull/2701) feat(checkbox/radio): update focus display - FRONT-3800 ([@emeryro](https://github.com/emeryro))
+- [#2700](https://github.com/ec-europa/europa-component-library/pull/2700) feat(file): Adding detailed meta in default variant - FRONT-3813 ([@planctus](https://github.com/planctus))
+- [#2699](https://github.com/ec-europa/europa-component-library/pull/2699) feat(rating-field): add read only ([@emeryro](https://github.com/emeryro))
+- [#2698](https://github.com/ec-europa/europa-component-library/pull/2698) feat(category-filter): update display - FRONT-3804 ([@emeryro](https://github.com/emeryro))
+- [#2695](https://github.com/ec-europa/europa-component-library/pull/2695) feat(inpage navigation): update design - FRONT-3805 ([@emeryro](https://github.com/emeryro))
+- [#2687](https://github.com/ec-europa/europa-component-library/pull/2687) fix(rating field): use dynamic id and name - FRONT-3796 ([@emeryro](https://github.com/emeryro))
+- [#2696](https://github.com/ec-europa/europa-component-library/pull/2696) feat(file): Removing download attribute - FRONT-3808 ([@planctus](https://github.com/planctus))
+- [#2685](https://github.com/ec-europa/europa-component-library/pull/2685) feat(menu): update display - FRONT-3791 ([@emeryro](https://github.com/emeryro))
+- [#2679](https://github.com/ec-europa/europa-component-library/pull/2679) feat(icons): Adding blog-color and share icon in the social media sprite - FRONT-3782 ([@planctus](https://github.com/planctus))
+- [#2675](https://github.com/ec-europa/europa-component-library/pull/2675) fix(icons): Replacing greece square and slovakia square - FRONT-3779 ([@planctus](https://github.com/planctus))
+- [#2669](https://github.com/ec-europa/europa-component-library/pull/2669) fix(site header): fix z-index for mobile - FRONT-3768 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#2694](https://github.com/ec-europa/europa-component-library/pull/2694) chore(deps): Updates 22-11-22 ([@planctus](https://github.com/planctus))
+- [#2682](https://github.com/ec-europa/europa-component-library/pull/2682) fix(storybook): Resetting static dirs when building - FRONT-3789 ([@planctus](https://github.com/planctus))
+- [#2684](https://github.com/ec-europa/europa-component-library/pull/2684) chore(deps): bump loader-utils from 1.4.0 to 1.4.1 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- [#2681](https://github.com/ec-europa/europa-component-library/pull/2681) chore(deps): updates 07-11-22 ([@planctus](https://github.com/planctus))
+- [#2676](https://github.com/ec-europa/europa-component-library/pull/2676) chore(deps): Updates 27-10-22 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 ## 3.5.1 ((2022-11-28))
 
 - [#2696](https://github.com/ec-europa/europa-component-library/pull/2696) feat(file): Removing download attribute - FRONT-3808 ([@planctus](https://github.com/planctus))

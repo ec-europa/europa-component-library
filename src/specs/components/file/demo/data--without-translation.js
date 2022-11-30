@@ -4,6 +4,7 @@ const exampleLink = `${publicUrl}/example`;
 module.exports = {
   title: 'State of the Union 2018 brochure',
   aria_label: 'Download file State of the Union 2018 brochure',
+  detail_meta: ['Resource type', 'Publication date'],
   language: 'English',
   meta: '(16.2 MB - PDF)',
   icon: {

@@ -1,0 +1,146 @@
+/**
+ * Range component
+ * @define range
+ */
+
+@use 'sass:map';
+@use 'sass:math';
+@use '@ecl/theme-dev/theme';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+$_bar-color: null !default;
+$_disabled-color: null !default;
+$_active-color: null !default;
+$_invalid-color: null !default;
+$_invalid-hover-color: null !default;
+$_invalid-active-color: null !default;
+$_value-color: null !default;
+$_value-font: null !default;
+$_range-size: 0.25rem;
+$_slider-size: 1rem;
+$_range-margin-top: null !default;
+
+/* stylelint-disable selector-pseudo-element-no-unknown */
+.ecl-range {
+  appearance: none;
+  background-color: $_bar-color;
+  border-radius: 2px;
+  display: block;
+  height: $_range-size;
+  outline: none;
+}
+
+// Add the slider size to calculate margin
+.ecl-form-group .ecl-range {
+  margin-top: $_range-margin-top + math.div($_slider-size - $_range-size, 2);
+}
+
+// Value
+.ecl-range__value {
+  box-sizing: border-box;
+  color: $_value-color;
+  display: block;
+  font: $_value-font;
+}
+
+.ecl-form-group .ecl-range__value {
+  margin-top: map.get(theme.$spacing, '2xs') +
+    math.div($_slider-size - $_range-size, 2);
+}
+
+.ecl-range__value-current {
+  font-weight: map.get(theme.$font-weight, 'bold');
+}
+
+.ecl-range::range-thumb {
+  appearance: none;
+  border: none;
+  background-color: map.get(theme.$color, 'blue-100');
+  border-radius: 50%;
+  box-sizing: border-box;
+  cursor: pointer;
+  height: $_slider-size;
+  outline: 0 solid transparent;
+  outline-offset: -1px;
+  transition: 0.15s ease-in-out;
+  width: $_slider-size;
+
+  &:hover {
+    outline: 5px solid map.get(theme.$color, 'blue-100');
+  }
+
+  &:active {
+    background-color: $_active-color;
+    outline-color: $_active-color;
+  }
+}
+
+.ecl-range:focus-visible::range-thumb {
+  outline: 2px solid map.get(theme.$color, 'blue-100');
+  outline-offset: 2px;
+}
+
+// Width
+.ecl-range--s {
+  width: 50%;
+
+  @include breakpoints.up('m') {
+    width: 30%;
+  }
+
+  @include breakpoints.up('l') {
+    width: map.get(theme.$form, 's');
+  }
+}
+
+.ecl-range--m {
+  width: 100%;
+
+  @include breakpoints.up('m') {
+    width: 50%;
+  }
+
+  @include breakpoints.up('l') {
+    width: map.get(theme.$form, 'm');
+  }
+}
+
+.ecl-range--l {
+  width: 100%;
+
+  @include breakpoints.up('l') {
+    width: map.get(theme.$form, 'l');
+  }
+}
+
+// Disabled
+.ecl-range[disabled],
+.ecl-range--disabled,
+.ecl-range[readonly],
+.ecl-range--readonly {
+  background-color: $_disabled-color;
+
+  &::range-thumb {
+    background-color: $_disabled-color;
+    cursor: not-allowed;
+
+    &:hover {
+      outline: none;
+    }
+  }
+}
+
+// Invalid
+.ecl-range--invalid::range-thumb {
+  background-color: $_invalid-color;
+
+  &:hover {
+    background-color: $_invalid-hover-color;
+    outline-color: $_invalid-hover-color;
+  }
+
+  &:active {
+    background-color: $_invalid-active-color;
+    outline-color: $_invalid-active-color;
+  }
+}

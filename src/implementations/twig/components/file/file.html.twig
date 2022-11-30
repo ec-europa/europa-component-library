@@ -82,13 +82,13 @@
 {% endif %}
 
 {% if _detail_meta is not empty and _detail_meta is iterable %}
-    {% for meta_detail in _detail_meta %}
-      {% set _meta_detail_string %}
-        {{ _meta_detail_string }}
-        <span class="ecl-file__detail-meta-item">{{ meta_detail }}</span>
-      {% endset %}
-    {% endfor %}
-  {% endif %}
+  {% for meta_detail in _detail_meta %}
+    {% set _meta_detail_string %}
+      {{ _meta_detail_string }}
+      <span class="ecl-file__detail-meta-item">{{ meta_detail }}</span>
+    {% endset %}
+  {% endfor %}
+{% endif %}
 
 {# Print the result #}
 
@@ -109,12 +109,10 @@
           {{- _meta_detail_string -}}
         </div>
       {% endif %}
-    {% if _variant == 'thumbnail' %}
         <div class="ecl-file__title">{{ _title }}</div>
       {% if _description is not empty %}
         <div class="ecl-file__description">{{ _description }}</div>
       {% endif %}
-    {% endif %}
       </div>
     {% if _image is not empty and _image.src is defined and _image.src is not empty %}
       <img
@@ -146,6 +144,11 @@
         {% include '@ecl/label/label.html.twig' with _label only %}
       </div>
       {% endfor %}
+    {% endif %}
+    {% if _variant != 'thumbnail' and _meta_detail_string is not empty %}
+    <div class="ecl-file__detail-meta">
+      {{- _meta_detail_string -}}
+    </div>
     {% endif %}
     {% if _title is not empty and _variant != 'thumbnail' %}
       <div class="ecl-file__title">{{ _title }}</div>
